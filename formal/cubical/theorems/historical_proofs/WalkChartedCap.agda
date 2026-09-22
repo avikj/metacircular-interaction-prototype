@@ -4,8 +4,8 @@
 -- WalkChartedCap
 --
 -- THE CAPACITY, IN THE CHART.  `WalkResidueBridge` closed the walk's
--- divisibility test: `decDivides�-agrees` proves the digit automaton's
--- decision is EQUAL to `CoprimeSplitting.dec�`'s, so the test may be
+-- divisibility test: `decDividesℕ-agrees` proves the digit automaton's
+-- decision is EQUAL to `CoprimeSplitting.dec∣`'s, so the test may be
 -- substituted anywhere in the walk lane without disturbing a proof.
 -- `cap m = lcm(1..m)` is built by `LCMExists.lcmList`, a fold of binary
 -- lcm's over unary numerals, so the chart is re-entered from scratch at
@@ -18,16 +18,16 @@
 --
 --   1. THE RECURSION, proved.  `cap-suc-≡`:
 --
---        cap (suc m) ≡ cap m � capQuot m ,
---        capQuot m � gcd (cap m) (suc m) ≡ suc m
+--        cap (suc m) ≡ cap m · capQuot m ,
+--        capQuot m · gcd (cap m) (suc m) ≡ suc m
 --
 --      with `capQuot m = quotient (suc m) / gcd (cap m) (suc m)`.  It is
 --      stated with the quotient EXHIBITED and specified rather than with
 --      a division operator, so no positivity side condition leaks into
 --      the statement; positivity of `cap` is imported from `WalkBridge`,
---      not reproved.  The proof is the classical lcm�gcd argument in the
+--      not reproved.  The proof is the classical lcm·gcd argument in the
 --      form `LCMExists` already uses (multiplicativity of gcd,
---      `gcd-factorʳ`, `�-cancelʳ`) -- no Bezout.  `capQuot-�` records
+--      `gcd-factorʳ`, `∣-cancelʳ`) -- no Bezout.  `capQuot-≤` records
 --      that the multiplier is bounded by `suc m`, which is the whole
 --      reason to prefer this recursion to the fold: the only
 --      capacity-sized object left in it is `cap m`, as a multiplicand.
@@ -57,13 +57,13 @@
 --      automaton with `Cubical.Data.Nat.Mod._mod_`, so `%≡mod` is proved
 --      first, from uniqueness of Euclidean division (`mod-unique`).
 --
---   3. THE CHARTED CAPACITY.  `capw : � � Word` and
+--   3. THE CHARTED CAPACITY.  `capw : ℕ → Word` and
 --      `value-capw : value (capw m) ≡ cap m`, by the recursion of (1)
 --      driven by (2): one residue-automaton pass over the digits of
---      `capw m`, one `gcd` and one division of numbers � suc m, and one
+--      `capw m`, one `gcd` and one division of numbers ≤ suc m, and one
 --      single-pass digit scaling `scale` by that small multiplier.  The
 --      number `cap m` is never materialised.  `chartedResidue-<` and
---      `chartedQuot-�` are the two smallness facts that say so: the
+--      `chartedQuot-≤` are the two smallness facts that say so: the
 --      argument handed to `gcd` is below the frontier, and so is the
 --      multiplier handed to `scale`.
 --
@@ -78,7 +78,7 @@
 -- `TransportMul.mulw`.  `scale` here is
 -- not a copy of `mulw` but the operation the recursion
 -- actually wants: multiplication of a word by a SMALL scalar in a single
--- Horner pass with a �-valued carry, which is one pass rather than
+-- Horner pass with a ℕ-valued carry, which is one pass rather than
 -- `mulw`'s shift-and-add per digit, and needs no `addw`.  Its one
 -- place-value identity (`scale-lem`) is discharged by hand rather than
 -- by the solver.
@@ -135,7 +135,7 @@ mod-unique n a r o r<sn p =
   ∙ cong (λ z → (z + r) mod (suc n)) (zero-charac-gen (suc n) o)
   ∙ modIndBase n r r<sn
 
-%≡mod : (a n : �) � FinP._%_ a (suc n) ≡ a mod (suc n)
+%≡mod : (a n : ℕ) → FinP._%_ a (suc n) ≡ a mod (suc n)
 %≡mod a n =
   sym (mod-unique n a (FinP._%_ a (suc n))
         (FinP.n%k≡n[modk] a (suc n) .fst)
@@ -147,7 +147,7 @@ mod-unique n a r o r<sn p =
 --
 -- The big argument may be reduced modulo the small one BEFORE the gcd is
 -- taken.  Proved from `stepGCD` (the library's own Euclidean step) plus
--- `isGCD�gcd≡`; `gcd` is never unfolded.
+-- `isGCD→gcd≡`; `gcd` is never unfolded.
 ------------------------------------------------------------------------
 
 gcd-mod : (a n : ℕ) → gcd a (suc n) ≡ gcd (a mod (suc n)) (suc n)
@@ -164,9 +164,9 @@ gcd-mod a n =
 
 ------------------------------------------------------------------------
 -- 3.  A divisor's quotient, computed by `quotient_/_` rather than
---     extracted by `�-untrunc`.
+--     extracted by `∣-untrunc`.
 --
--- `�-untrunc` produces the quotient from the truncation; that is fine in
+-- `∣-untrunc` produces the quotient from the truncation; that is fine in
 -- a proof and useless in a definition.  `quotient_/_` is the one that
 -- runs, so it is the one the recursion is stated with, and this is its
 -- specification.
@@ -197,20 +197,20 @@ gcd-mod a n =
 ------------------------------------------------------------------------
 -- 4.  THE CAPACITY RECURSION.
 --
---     cap (suc m) ≡ cap m � (suc m / gcd (cap m) (suc m))
+--     cap (suc m) ≡ cap m · (suc m / gcd (cap m) (suc m))
 --
 -- Every quantity on the right except `cap m` itself is bounded by
 -- `suc m`, and `cap m` enters only as a multiplicand -- which is a
 -- single digit pass -- and inside the gcd, where §2 removes it.
 --
 -- `cap (suc m)` is `lcm (suc m) (cap m)` DEFINITIONALLY (`LCMExists`'s
--- fold is `lcmList (x � xs) = lcm x (lcmList xs)`), which is why the
+-- fold is `lcmList (x ∷ xs) = lcm x (lcmList xs)`), which is why the
 -- universal property below is applied to `cap (suc m)` with no rewrite.
 ------------------------------------------------------------------------
 
 -- the definitional fact the section rests on, recorded rather than left
--- in prose: `LCMExists`' fold is `lcmList (x � xs) = lcm x (lcmList xs)`
--- and `range1 (suc m) = suc m � range1 m`.
+-- in prose: `LCMExists`' fold is `lcmList (x ∷ xs) = lcm x (lcmList xs)`
+-- and `range1 (suc m) = suc m ∷ range1 m`.
 cap-suc-lcm : (m : ℕ) → cap (suc m) ≡ lcm (suc m) (cap m)
 cap-suc-lcm m = refl
 
@@ -272,16 +272,16 @@ module CapStep (m : ℕ) where
       ∙ ·-assoc a' g quotAt
       ∙ cong (_· quotAt) a'g≡A
 
-    -- A � quotAt is a common multiple of the two, hence above the lcm
+    -- A · quotAt is a common multiple of the two, hence above the lcm
     L∣Aq : cap (suc m) ∣ (A · quotAt)
     L∣Aq = L-least (A · quotAt)
              (subst (n ∣_) a'n≡Aq (∣-right a'))
              (∣-left quotAt)
 
-    -- �and below it, by multiplicativity of gcd.  This is the half that
-    -- is not formal: A�n divides both A�L and n�L, hence their gcd,
-    -- which is g�L; and A�n is (A�quotAt)�g, so cancelling g > 0 gives
-    -- A�quotAt � L.
+    -- …and below it, by multiplicativity of gcd.  This is the half that
+    -- is not formal: A·n divides both A·L and n·L, hence their gcd,
+    -- which is g·L; and A·n is (A·quotAt)·g, so cancelling g > 0 gives
+    -- A·quotAt ∣ L.
     Aq∣L : (A · quotAt) ∣ cap (suc m)
     Aq∣L = ∣-cancel-pos g (A · quotAt) (cap (suc m)) 0<g big
       where
@@ -367,9 +367,9 @@ module Charted (k : ℕ) where
 
   ----------------------------------------------------------------------
   -- 6a.  Multiplication of a word by a SMALL scalar: one Horner pass,
-  --      �-valued carry, no ripple-carry adder.
+  --      ℕ-valued carry, no ripple-carry adder.
   --
-  --      `scale q w c` represents  q � value w + c.
+  --      `scale q w c` represents  q · value w + c.
   ----------------------------------------------------------------------
 
   digitOf : ℕ → Digit
@@ -422,7 +422,7 @@ module Charted (k : ℕ) where
     capw (suc m) = scale (chartedQuot m) (capw m) 0
 
     -- (suc m) / gcd (cap m mod suc m) (suc m): every number here is
-    -- � suc m, and `modw` is the only thing that sees `capw m`.
+    -- ≤ suc m, and `modw` is the only thing that sees `capw m`.
     chartedQuot : ℕ → ℕ
     chartedQuot m = quotient (suc m) / gcd (modw (suc m) (capw m)) (suc m)
 
@@ -513,8 +513,8 @@ module Charted (k : ℕ) where
   ----------------------------------------------------------------------
   -- 7a.  THE STEP COUNT OF THE CHARTED RECURSION.
   --
-  -- `� n` is the cost of the small-number work at frontier n: one `gcd`
-  -- on numerals � n, one `quotient n / _`.  It is a PARAMETER; no count
+  -- `σ n` is the cost of the small-number work at frontier n: one `gcd`
+  -- on numerals ≤ n, one `quotient n / _`.  It is a PARAMETER; no count
   -- is claimed for `gcd`, exactly as `TransportDiv` claims none for the
   -- per-transition `_mod_`.
   ----------------------------------------------------------------------

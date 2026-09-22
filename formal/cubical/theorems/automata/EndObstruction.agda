@@ -1,13 +1,13 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
--- δ_end : ���������������.
+-- δ_end : अन्तिमग्रन्थिः.
 --
---   Fix ���� �Fix� �diag� Fix�
+--   Fix ⟶⌜⌝⟶ ⌜Fix⌝ ⟶diag⟶ Fix⁺
 --
--- ������� � �������������� : the end is never among the things the machine
+-- समाप्ति ≢ समाप्तिवर्णनम् : the end is never among the things the machine
 -- can say about the end.  Lawvere/Cantor, no fuel, no measurement: for every
--- quotation �−� : � � (� � Bool) the diagonal observable is outside the
--- image, so δ_end � 0 unconditionally and Γ⟨δ_end⟩ is always the next door.
+-- quotation ⌜−⌝ : 𝒬 → (𝒬 → Bool) the diagonal observable is outside the
+-- image, so δ_end ≢ 0 unconditionally and Γ⟨δ_end⟩ is always the next door.
 
 module EndObstruction where
 
@@ -28,7 +28,7 @@ private
   x≢not false p = subst BoolCode (sym p) tt
 
 --------------------------------------------------------------------------
--- �−�, diag
+-- ⌜−⌝, diag
 --------------------------------------------------------------------------
 
 Observable : Type₀ → Type₀
@@ -41,7 +41,7 @@ diag : {𝒬 : Type₀} → Quote 𝒬 → Observable 𝒬
 diag ⌜_⌝ x = not (⌜ x ⌝ x)
 
 --------------------------------------------------------------------------
--- δ_end � 0
+-- δ_end ≢ 0
 --------------------------------------------------------------------------
 
 δ-end : {𝒬 : Type₀} (⌜_⌝ : Quote 𝒬) (x : 𝒬) → ¬ (⌜ x ⌝ ≡ diag ⌜_⌝)
@@ -57,6 +57,6 @@ no-complete-quotation ⌜_⌝ complete =
     hit : Σ[ x ∈ _ ] ⌜ x ⌝ ≡ diag ⌜_⌝
     hit = complete (diag ⌜_⌝)
 
--- ��� ����� ����� : the door is exhibited, not merely asserted to exist.
+-- यही अगला द्वार : the door is exhibited, not merely asserted to exist.
 next-door : {𝒬 : Type₀} (⌜_⌝ : Quote 𝒬) → Σ[ d ∈ Observable 𝒬 ] ((x : 𝒬) → ¬ (⌜ x ⌝ ≡ d))
 next-door ⌜_⌝ = diag ⌜_⌝ , δ-end ⌜_⌝

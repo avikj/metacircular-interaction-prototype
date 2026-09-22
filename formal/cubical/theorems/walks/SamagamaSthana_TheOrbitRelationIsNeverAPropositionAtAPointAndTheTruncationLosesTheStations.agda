@@ -1,67 +1,67 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àà®à¾à—à®-àààà¾à¨à®à â” à®àà²à¨àààà¾à¨à à¦ààµà, à¨ ààà°àà¿àààà¾ àà•à¾ à
+-- à¤¸à¤®à¤¾à¤—à¤®-à¤¸à¥à¤¥à¤¾à¤¨à¤®à¥ â€” à¤®à¥‡à¤²à¤¨à¤¸à¥à¤¥à¤¾à¤¨à¥‡ à¤¦à¥à¤µà¥‡, à¤¨ à¤ªà¥à¤°à¤¤à¤¿à¤œà¥à¤à¤¾ à¤à¤•à¤¾ à¥¤
 --
 -- (the meeting has two stations; it is not one proposition.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS IS.
 --
 -- `SamanaKaksya_â¦agda` Â§à states, in these words:
 --
---     "Unaddressed here: whether `àà®à¾à¨à•à•àààà¯à¾` is valued in propositions
---      (it is not, in general â” the meeting stations are data), and
---      hence what `àà¾à—à` is the quotient BY when the relation carries
+--     "Unaddressed here: whether `à¤¸à¤®à¤¾à¤¨à¤•à¤•à¥à¤·à¥à¤¯à¤¾` is valued in propositions
+--      (it is not, in general â€” the meeting stations are data), and
+--      hence what `à¤­à¤¾à¤—à¤ƒ` is the quotient BY when the relation carries
 --      content.  `SetQuotients` truncates it, which is the right move
---      for Â§à and is the wrong move for any groupoid-level reading of
+--      for Â§à¥ª and is the wrong move for any groupoid-level reading of
 --      the same orbit."
 --
 -- This file converts the parenthesis into a theorem, and finds that the
 -- true statement is STRONGER than the one asserted.  "Not in general"
--- suggests a counterexample has to be hunted â” some particular `A`, some
--- particular `Î¦`.  It does not.  Â§à§:
+-- suggests a counterexample has to be hunted â€” some particular `A`, some
+-- particular `Î¦`.  It does not.  Â§à¥§:
 --
 --     for EVERY type `A`, EVERY endomorphism `Î¦`, and EVERY point `a`,
---     `àà®à¾à¨à•à•àààà¯à¾ Î¦ a a` is not a proposition.
+--     `à¤¸à¤®à¤¾à¤¨à¤•à¤•à¥à¤·à¥à¤¯à¤¾ Î¦ a a` is not a proposition.
 --
--- No hypothesis on `A` at all â” not `isSet`, not inhabitedness beyond the
+-- No hypothesis on `A` at all â€” not `isSet`, not inhabitedness beyond the
 -- point `a` that the statement already names.  The two witnesses are
--- `(0,0,refl)` â” stay put on both sides â” and `(1,1,refl)` â” step once on
+-- `(0,0,refl)` â€” stay put on both sides â€” and `(1,1,refl)` â€” step once on
 -- both sides.  Both are meetings of `a` with itself; a path between them
--- would give `0 â‰¡ 1` in â• by `cong fst`.  The reason is structural and
+-- would give `0 â‰¡ 1` in â„• by `cong fst`.  The reason is structural and
 -- has nothing to do with the dynamics of `Î¦`: the DIAGONAL of the station
--- pair is always available, so the isotropy of Â§à§ of that file always
--- contains a copy of â•, before any period of the flow is asked for.
+-- pair is always available, so the isotropy of Â§à¥§ of that file always
+-- contains a copy of â„•, before any period of the flow is asked for.
 --
--- Â§à¨ is the same fact stated as a loss rather than as a negation: the
--- station map `fst : àà®à¾à¨à•à•àààà¯à¾ Î¦ a a â’ â•` does NOT factor through the
--- propositional truncation.  Not "need not" â” cannot, and the proof is
+-- Â§à¥¨ is the same fact stated as a loss rather than as a negation: the
+-- station map `fst : à¤¸à¤®à¤¾à¤¨à¤•à¤•à¥à¤·à¥à¤¯à¤¾ Î¦ a a â†’ â„•` does NOT factor through the
+-- propositional truncation.  Not "need not" â€” cannot, and the proof is
 -- three lines.  That is precisely "`SetQuotients` truncates it": the
 -- truncation is exactly the operation that forgets which meeting.
 --
--- Â§à© measures the gap in a case where it can be measured on the nose:
--- for `A = Unit` and `Î¦ = id` â” one point, no dynamics whatever, the most
--- degenerate flow there is â” `àà®à¾à¨à•à•àààà¯à¾ Î¦ tt tt â‰ â• — â•`.  The
+-- Â§à¥© measures the gap in a case where it can be measured on the nose:
+-- for `A = Unit` and `Î¦ = id` â€” one point, no dynamics whatever, the most
+-- degenerate flow there is â€” `à¤¸à¤®à¤¾à¤¨à¤•à¤•à¥à¤·à¥à¤¯à¤¾ Î¦ tt tt â‰ƒ â„• Ã— â„•`.  The
 -- SetQuotient identifies all of that with a point.  A relation whose
--- every instance is a copy of â• — â• is being used as if it were `âŠ`.
+-- every instance is a copy of â„• Ã— â„• is being used as if it were `âŠ¤`.
 --
--- Â§à is the positive half, and it is what the isotropy is FOR: a period
--- of the flow at `a` â” any `p` with `Î¦µ– a â‰¡ a` â” acts on the meetings at
+-- Â§à¥ª is the positive half, and it is what the isotropy is FOR: a period
+-- of the flow at `a` â€” any `p` with `Î¦áµ– a â‰¡ a` â€” acts on the meetings at
 -- `a` by shifting a station, on either side.  So periodicity of the flow
--- is literally an action on the isotropy type, and the truncation of Â§à¨
+-- is literally an action on the isotropy type, and the truncation of Â§à¥¨
 -- is what destroys it.  This holds for a bare endomorphism; no inverse.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- TERMS.  àà®à¾à—à® â” "coming together, meeting", ordinary ,
--- classical and standard.  àààà¾à¨ â” "station, place"; used in the
--- siddhntic astronomical texts for a position on an orbit (à•à•àààà¯à¾,
--- ryabhaa, àà°àà¯ààŸàà¯à®à, 499; and standard in the Sryasiddhnta after),
--- which is the sense borrowed here.  **The compound àà®à¾à—à®-àààà¾à¨à®à in the
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- TERMS.  àà®à¾à—à® â€” "coming together, meeting", ordinary ,
+-- classical and standard.  à¤¸à¥à¤¥à¤¾à¤¨ â€” "station, place"; used in the
+-- siddhÄntic astronomical texts for a position on an orbit (à¤•à¤•à¥à¤·à¥à¤¯à¤¾,
+-- Ä€ryabhaá¹­a, à¤†à¤°à¥à¤¯à¤­à¤Ÿà¥€à¤¯à¤®à¥, 499; and standard in the SÅ«ryasiddhÄnta after),
+-- which is the sense borrowed here.  **The compound à¤¸à¤®à¤¾à¤—à¤®-à¤¸à¥à¤¥à¤¾à¤¨à¤®à¥ in the
 -- sense "the pair of iteration counts at which two forward trajectories
 -- coincide" is BUILT HERE.**
 -- The LIMIT on à•à•àààà¯à¾ is carried in unchanged
--- from `Kaksya_â¦agda`: attested for a planet's orbit, and its use for the
+-- from `Kaksya_â€¦agda`: attested for a planet's orbit, and its use for the
 -- orbit of an endomorphism is this corpus's, not the tradition's.
 ------------------------------------------------------------------------
 
@@ -84,11 +84,11 @@ open import SamanaKaksya_TheOrbitRelationIsAlreadyAnEquivalenceWithoutAnInverseA
 private variable â„“ : Level
 
 ------------------------------------------------------------------------
--- à¦ Â the two diagonal meetings, named, because everything below is
+-- à¥¦ Â· the two diagonal meetings, named, because everything below is
 --     about the pair of them.
 --
--- `àµà¿ààà°à¾à®` â” the meeting where neither side moves; it is `àà®à¾à¨-àààµ`.
--- `àà¦àˆà•` â” the meeting where both sides take exactly one step.  Both are
+-- `à¤µà¤¿à¤¶à¥à¤°à¤¾à¤®` â€” the meeting where neither side moves; it is `à¤¸à¤®à¤¾à¤¨-à¤¸à¥à¤µ`.
+-- `à¤ªà¤¦à¥ˆà¤•` â€” the meeting where both sides take exactly one step.  Both are
 -- meetings of `a` with itself, for any `Î¦` at all.
 ------------------------------------------------------------------------
 
@@ -105,11 +105,11 @@ module _ {A : Type â„“} (Î¦ : A â†’ A) (a : A) where
   à¤¸à¥à¤¥à¤¾à¤¨à¤®à¥ = fst
 
 ------------------------------------------------------------------------
--- à§ Â à¨ ààà°àà¿àààà¾ â” THE ORBIT RELATION IS NEVER A PROPOSITION AT A POINT.
+-- à¥§ Â· à¤¨ à¤ªà¥à¤°à¤¤à¤¿à¤œà¥à¤à¤¾ â€” THE ORBIT RELATION IS NEVER A PROPOSITION AT A POINT.
 --
--- `SamanaKaksya` Â§à says "it is not, in general".  It is not, ever â” at
+-- `SamanaKaksya` Â§à¥¬ says "it is not, in general".  It is not, ever â€” at
 -- any point of any type under any endomorphism.  The witnesses are the
--- two diagonal meetings of Â§à¦, and the separation is `cong fst`.
+-- two diagonal meetings of Â§à¥¦, and the separation is `cong fst`.
 ------------------------------------------------------------------------
 
   à¤¸à¤®à¤¾à¤¨à¤•à¤•à¥à¤·à¥à¤¯à¤¾-à¤¨-à¤ªà¥à¤°à¤¤à¤¿à¤œà¥à¤à¤¾ : isProp (à¤¸à¤®à¤¾à¤¨à¤•à¤•à¥à¤·à¥à¤¯à¤¾ Î¦ a a) â†’ âŠ¥
@@ -121,15 +121,15 @@ module _ {A : Type â„“} (Î¦ : A â†’ A) (a : A) where
   à¤¸à¤®à¤¾à¤¨à¤•à¤•à¥à¤·à¥à¤¯à¤¾-à¤¨-à¤ªà¥à¤°à¤¤à¤¿à¤œà¥à¤à¤¾-à¤¸à¤°à¥à¤µà¤¤à¥à¤° h = à¤¸à¤®à¤¾à¤¨à¤•à¤•à¥à¤·à¥à¤¯à¤¾-à¤¨-à¤ªà¥à¤°à¤¤à¤¿à¤œà¥à¤à¤¾ (h a a)
 
 ------------------------------------------------------------------------
--- à¨ Â ààà•à‹àà àààà¾à¨-à¨à¾àà â” THE TRUNCATION DESTROYS THE STATION.
+-- à¥¨ Â· à¤¸à¤‚à¤•à¥‹à¤šà¥‡ à¤¸à¥à¤¥à¤¾à¤¨-à¤¨à¤¾à¤¶à¤ƒ â€” THE TRUNCATION DESTROYS THE STATION.
 --
--- The same fact with its sign reversed.  Â§à§ says the relation is not a
+-- The same fact with its sign reversed.  Â§à¥§ says the relation is not a
 -- proposition; this says what is lost when it is forced to be one: the
--- station map does not factor through `âˆ_âˆâ`.  Not "need not factor" â”
+-- station map does not factor through `âˆ¥_âˆ¥â‚`.  Not "need not factor" â€”
 -- no factorisation exists.
 --
--- This is the exact content of `SamanaKaksya` Â§à's "`SetQuotients`
--- truncates it".  `/rec` sees only `âˆ R âˆâ`-worth of the relation, so
+-- This is the exact content of `SamanaKaksya` Â§à¥¬'s "`SetQuotients`
+-- truncates it".  `/rec` sees only `âˆ¥ R âˆ¥â‚`-worth of the relation, so
 -- every construction that reads a station is unavailable downstream of
 -- the quotient.
 ------------------------------------------------------------------------
@@ -144,14 +144,14 @@ module _ {A : Type â„“} (Î¦ : A â†’ A) (a : A) where
           âˆ™ fact à¤ªà¤¦à¥ˆà¤•à¤ƒ )
 
 ------------------------------------------------------------------------
--- à© Â àà•àà¿à¨àà¦à ààà¿ â” THE GAP IS â• — â• ALREADY ON ONE POINT.
+-- à¥© Â· à¤à¤•à¤¬à¤¿à¤¨à¥à¤¦à¥Œ à¤…à¤ªà¤¿ â€” THE GAP IS â„• Ã— â„• ALREADY ON ONE POINT.
 --
 -- `A = Unit`, `Î¦ = id`: no room to move, no dynamics, nothing to
--- observe.  The orbit relation on it is still `â• — â•` â” every pair of
+-- observe.  The orbit relation on it is still `â„• Ã— â„•` â€” every pair of
 -- stations is a distinct meeting, because every station is the same
 -- point and all the paths between them agree.
 --
--- The SetQuotient of Â§à of `SamanaKaksya` sends all of this to one
+-- The SetQuotient of Â§à¥ª of `SamanaKaksya` sends all of this to one
 -- element.  That is the size of the truncation gap in the smallest case
 -- there is.
 ------------------------------------------------------------------------
@@ -183,17 +183,17 @@ private
 à¤¬à¤¿à¤¨à¥à¤¦à¥-à¤¸à¤®à¤¾à¤—à¤®à¤¾à¤ƒ-à¤¤à¥à¤²à¥à¤¯à¤¤à¤¾ = isoToEquiv à¤¬à¤¿à¤¨à¥à¤¦à¥-à¤¸à¤®à¤¾à¤—à¤®à¤¾à¤ƒ
 
 ------------------------------------------------------------------------
--- à Â ààµààààà¿à àààà¾à¨ààà àµà°àààà â” A PERIOD OF THE FLOW ACTS ON THE
+-- à¥ª Â· à¤†à¤µà¥ƒà¤¤à¥à¤¤à¤¿à¤ƒ à¤¸à¥à¤¥à¤¾à¤¨à¥‡à¤·à¥ à¤µà¤°à¥à¤¤à¤¤à¥‡ â€” A PERIOD OF THE FLOW ACTS ON THE
 --     MEETINGS.
 --
--- This is the positive reading of Â§à§, and it is where the isotropy earns
--- its name.  Let `p` be a period of `Î¦` at `a`: `Î¦µ– a â‰¡ a`.  Then `p`
--- acts on the meetings at `a` by adding `p` to a station â” on the left,
--- or on the right â” and the result is again a meeting.  No inverse of
+-- This is the positive reading of Â§à¥§, and it is where the isotropy earns
+-- its name.  Let `p` be a period of `Î¦` at `a`: `Î¦áµ– a â‰¡ a`.  Then `p`
+-- acts on the meetings at `a` by adding `p` to a station â€” on the left,
+-- or on the right â€” and the result is again a meeting.  No inverse of
 -- `Î¦` is used; `Î¦` is a bare endomorphism throughout.
 --
--- So the period structure of the flow is an action on `àà®à¾à¨à•à•àààà¯à¾ Î¦ a a`
--- â” and Â§à¨ says that action is exactly what the truncation cannot see.
+-- So the period structure of the flow is an action on `à¤¸à¤®à¤¾à¤¨à¤•à¤•à¥à¤·à¥à¤¯à¤¾ Î¦ a a`
+-- â€” and Â§à¥¨ says that action is exactly what the truncation cannot see.
 ------------------------------------------------------------------------
 
 module _ {A : Type â„“} (Î¦ : A â†’ A) where
@@ -202,13 +202,13 @@ module _ {A : Type â„“} (Î¦ : A â†’ A) where
     Ï† : â„• â†’ A â†’ A
     Ï† = à¤•à¤•à¥à¤·à¥à¤¯à¤¾ {B = A} (Î» x â†’ x) Î¦
 
-  -- iterates add (the lemma `SamanaKaksya` Â§à§ proves; restated locally
-  -- so this module does not depend on that module's private `Ï`)
+  -- iterates add (the lemma `SamanaKaksya` Â§à¥§ proves; restated locally
+  -- so this module does not depend on that module's private `Ï†`)
   à¤¯à¥‹à¤—à¤ƒ : (m n : â„•) (a : A) â†’ Ï† (m + n) a â‰¡ Ï† m (Ï† n a)
   à¤¯à¥‹à¤—à¤ƒ zero    n a = refl
   à¤¯à¥‹à¤—à¤ƒ (suc m) n a = cong Î¦ (à¤¯à¥‹à¤—à¤ƒ m n a)
 
-  -- ààµààààà¿à â” a period of the flow at `a`
+  -- à¤†à¤µà¥ƒà¤¤à¥à¤¤à¤¿à¤ƒ â€” a period of the flow at `a`
   à¤†à¤µà¥ƒà¤¤à¥à¤¤à¤¿à¤ƒ : A â†’ â„• â†’ Type â„“
   à¤†à¤µà¥ƒà¤¤à¥à¤¤à¤¿à¤ƒ a p = Ï† p a â‰¡ a
 
@@ -225,7 +225,7 @@ module _ {A : Type â„“} (Î¦ : A â†’ A) where
     m , (n + p) , (q âˆ™ sym (cong (Ï† n) per) âˆ™ sym (à¤¯à¥‹à¤—à¤ƒ n p a))
 
   -- and it genuinely moves the station: the shifted meeting's station is
-  -- `m + p`, on the nose.  (`SamanaKaksya` Â§à¨'s `àà®à¾à¨-àààµ` is the
+  -- `m + p`, on the nose.  (`SamanaKaksya` Â§à¥¨'s `à¤¸à¤®à¤¾à¤¨-à¤¸à¥à¤µ` is the
   -- meeting the shift starts from when `m â‰¡ 0`.)
   à¤†à¤µà¥ƒà¤¤à¥à¤¤à¤¿-à¤¸à¥à¤¥à¤¾à¤¨à¤®à¥ : (a : A) (p : â„•) (per : à¤†à¤µà¥ƒà¤¤à¥à¤¤à¤¿à¤ƒ a p)
                  (r : à¤¸à¤®à¤¾à¤¨à¤•à¤•à¥à¤·à¥à¤¯à¤¾ Î¦ a a)

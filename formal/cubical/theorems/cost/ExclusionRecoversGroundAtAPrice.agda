@@ -6,7 +6,7 @@
 -- What a standpoint IS, when the only thing that can be said about it
 -- is what it fails to distinguish.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE TWO POSITIONS, AND THAT THEY ARE OPPOSED
 --
 -- This module is written across a live disagreement between two
@@ -15,16 +15,16 @@
 -- would take from each the part that converts and discard the dispute.
 --
 --   BUDDHIST (Dignga, Pramasamuccaya V; Dharmakrti, Pramavrttika
---   svrthnumna).  ààà‹à / àà¨àà¯à¾àà‹à: a general term has no positive
+--   svÄrthÄnumÄna).  à¤…à¤ªà¥‹à¤¹ / à¤…à¤¨à¥à¤¯à¤¾à¤ªà¥‹à¤¹: a general term has no positive
 --   referent.  "Cow" means not-non-cow.  A universal is an EXCLUSION,
 --   and there is no further positive ground standing behind it.
 --
---   NYYAâ“VAIEIKA (Uddyotakara, Nyyavrttika; and from the Mms
+--   NYÄ€YAâ€“VAIÅšEá¹¢IKA (Uddyotakara, NyÄyavÄrttika; and from the MÄ«mÄá¹ƒsÄ
 --   side Kumrila, lokavrttika Apohavda).  The objection is
 --   circularity, and it is put in the school's own technical terms: an
---   ààà¾àµ is never bare.  Every absence carries a ààà°àà¿à¯à‹à—à¿à¨à, the
---   counterpositive â” the very thing whose absence it is â” and an
---   ààµààààà¦à• delimiting it.  So "not-non-cow" already presupposes cow.
+--   à¤…à¤­à¤¾à¤µ is never bare.  Every absence carries a à¤ªà¥à¤°à¤¤à¤¿à¤¯à¥‹à¤—à¤¿à¤¨à¥, the
+--   counterpositive â€” the very thing whose absence it is â€” and an
+--   à¤…à¤µà¤šà¥à¤›à¥‡à¤¦à¤• delimiting it.  So "not-non-cow" already presupposes cow.
 --   Exclusion cannot be the ground because exclusion needs a ground.
 --
 -- These are rivals.  The Naiyyika does not accept apoha; the Buddhist
@@ -36,10 +36,10 @@
 --     exclusion recovers ground, and the recovery has a PRICE,
 --     and the price can be paid in either of two places.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE SETTING, WHICH IS ALREADY IN THIS CORPUS
 --
--- A standpoint here is an observable `q : X â’ Y` â” not an entry in an
+-- A standpoint here is an observable `q : X â†’ Y` â€” not an entry in an
 -- enumeration of standpoints (that would assert the standpoints are
 -- countable, which Sanmatitarka 1.28 denies), but a parameter.  Its
 -- GROUND is the relation it identifies by,
@@ -48,31 +48,31 @@
 --
 -- and its EXCLUSION is the negation of that,
 --
---     Excludes q x x'  =  Â (q x â‰¡ q x') .
+--     Excludes q x x'  =  Â¬ (q x â‰¡ q x') .
 --
 -- `FiniteInformation` already proves that a target `t`
 -- factors through `q` exactly when `t` is constant on the ground.  So
--- the ground is the whole of what the standpoint does â” and the
+-- the ground is the whole of what the standpoint does â€” and the
 -- question apoha asks, in this corpus's vocabulary, is whether the
 -- EXCLUSION is also the whole of it.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
---   Â§2  ground âŸ exclusion, free.  If q' identifies everything q does,
+--   Â§2  ground âŸ¹ exclusion, free.  If q' identifies everything q does,
 --       then q excludes everything q' does.  No hypothesis.
 --
 --   Â§3  ground transfers factoring.  Co-identification carries
 --       FiberConstant, hence (T a set) FactorsThrough.
 --
---   Â§4  ground is EXACTLY what transfers â” the converse of Â§3, with no
+--   Â§4  ground is EXACTLY what transfers â€” the converse of Â§3, with no
 --       counterexample needed and no classical principle: transfer for
 --       every set-valued target is *equivalent* to co-identification.
 --       Instantiate the target at `q` itself.
 --
 --   Â§5  PRICE, PAID AT THE COUNTERPOSITIVE.  Exclusion recovers ground
 --       when `Ground q` is decidable.  Â§5 also says why this is NOT a
---       formalisation of the Naiyyika condition on ààà¾àµ, which is a
+--       formalisation of the NaiyÄyika condition on à¤…à¤­à¤¾à¤µ, which is a
 --       condition on the specification of the absence and not on what
 --       can be settled about it.
 --
@@ -157,8 +157,8 @@ factorsThrough-transfer isSetT q q' t h ft =
 --
 -- The converse of Â§3, and the reason no counterexample is needed
 -- anywhere in this module.  If transfer holds for every set-valued
--- target, take the target to be `q` itself â” for which fiber constancy
--- is `refl` â” and read off co-identification.
+-- target, take the target to be `q` itself â€” for which fiber constancy
+-- is `refl` â€” and read off co-identification.
 --
 -- So a standpoint's ground is not merely sufficient for what it lets
 -- descend: it is recoverable from it.  Two standpoints let exactly the
@@ -185,15 +185,15 @@ coIdentifyâ†’transferAll q q' h T _ t fc = fiberConstant-transfer q q' t h fc
 ------------------------------------------------------------------------
 -- 5.  The price, paid at the counterpositive
 --
--- Exclusion recovers ground exactly when the ground is decidable â” i.e.
+-- Exclusion recovers ground exactly when the ground is decidable â€” i.e.
 -- when, of every pair, it is settled whether the standpoint identifies
--- them.  The hypothesis is on `q` â” the standpoint whose ground is
--- being RECOVERED â” and without it the implication is not available in
+-- them.  The hypothesis is on `q` â€” the standpoint whose ground is
+-- being RECOVERED â€” and without it the implication is not available in
 -- this type theory.
 --
 -- Â§5 does not formalise the pratiyogin requirement.  It occupies the
--- same position in the argument â” the point where reasoning from an
--- absence needs something more than the absence itself â” and the two
+-- same position in the argument â€” the point where reasoning from an
+-- absence needs something more than the absence itself â€” and the two
 -- schools' dispute is over whether anything belongs there at all.
 ------------------------------------------------------------------------
 
@@ -217,8 +217,8 @@ factorsThrough-transfer-from-exclusion isSetT q q' t dec ce =
 ------------------------------------------------------------------------
 -- 6.  The price, paid at the target instead
 --
--- The counterpositive may be wholly indeterminate â” no decidability on
--- Y or Y' anywhere â” and exclusion still transfers factoring, provided
+-- The counterpositive may be wholly indeterminate â€” no decidability on
+-- Y or Y' anywhere â€” and exclusion still transfers factoring, provided
 -- the TARGET is discrete.
 --
 -- The proof is the whole point: to show `t x â‰¡ t x'`, decide it in T.
@@ -228,8 +228,8 @@ factorsThrough-transfer-from-exclusion isSetT q q' t dec ce =
 -- that Â§5 demanded of the ground is manufactured, for the one pair that
 -- matters, out of a decision about what is being read.
 --
--- This is the corpus's own ceiling condition â” a decoder needs a
--- discrete probe to read â” arriving here as the price of an apoha step.
+-- This is the corpus's own ceiling condition â€” a decoder needs a
+-- discrete probe to read â€” arriving here as the price of an apoha step.
 ------------------------------------------------------------------------
 
 fiberConstant-transfer-discreteTarget :
@@ -242,9 +242,9 @@ fiberConstant-transfer-discreteTarget discT q q' t ce fc x x' g'
 ... | no  n = âŠ¥.rec (ce x x' (Î» g â†’ n (fc x x' g)) g')
 
 -- REDUNDANT HYPOTHESIS, recorded rather than removed: `isSet T` here is
--- derivable from `Discrete T` by `Discreteâ’isSet`.  The lean form is
+-- derivable from `Discrete T` by `Discreteâ†’isSet`.  The lean form is
 -- `HypothesesAssumedWhereTheyAreDerivable`
--- `factorsThrough-transfer-discreteTargetâ²`.  This statement is kept
+-- `factorsThrough-transfer-discreteTargetâ€²`.  This statement is kept
 -- because it is true and because importers depend on it; it is simply
 -- weaker than it needed to be.
 factorsThrough-transfer-discreteTarget :
@@ -260,7 +260,7 @@ factorsThrough-transfer-discreteTarget isSetT discT q q' t ce ft =
 ------------------------------------------------------------------------
 -- 7.  What each school gets to say
 --
--- Â§2 is free and Â§5â“Â§6 are priced.  That asymmetry is the whole result,
+-- Â§2 is free and Â§5â€“Â§6 are priced.  That asymmetry is the whole result,
 -- and it is not a verdict on the dispute; it is a place to stand while
 -- reading it.
 --
@@ -271,13 +271,13 @@ factorsThrough-transfer-discreteTarget isSetT discT q q' t ce ft =
 -- recoverable from the descent behaviour itself.
 --
 --   The Buddhist reading of Â§6.  The condition in Â§5 was never the only
---   one available.  Â§6 pays nothing at the counterpositive â” the
---   identification relation on Y may be as undecidable as one likes â”
+--   one available.  Â§6 pays nothing at the counterpositive â€” the
+--   identification relation on Y may be as undecidable as one likes â€”
 --   and still gets every discrete target to descend.  For anything that
 --   can actually be READ, the exclusions suffice: no positive ground is
 --   supplied, appealed to, or reconstructed anywhere in that proof.
---   Whether àà¨àà¯à¾àà‹à asserted this, more than this, or something the
---   present setting cannot state is not decided here â” the texts are
+--   Whether à¤…à¤¨à¥à¤¯à¤¾à¤ªà¥‹à¤¹ asserted this, more than this, or something the
+--   present setting cannot state is not decided here â€” the texts are
 --   arguing about universals and reference, and Â§6 is a statement about
 --   observables.
 --
@@ -287,29 +287,29 @@ factorsThrough-transfer-discreteTarget isSetT discT q q' t ce ft =
 --   are, on this evidence, silent beyond it.  Whether that residue is a
 --   real object or an artefact of the formulation is not settled by
 --   anything in this file, and stating it as settled in either
---   direction would be a à¦àà°àà¨à¯ â” a standpoint asserting itself by
+--   direction would be a à¤¦à¥à¤°à¥à¤¨à¤¯ â€” a standpoint asserting itself by
 --   denying the other.
 --
 --   The syd form, stated with the bhaga named correctly, since this
 --   corpus has already proved that the two are not interchangeable
---   (`SaptabhangiNaya` â” the top-level module, whose `yugapat-empty`
---   proves `Â Î[ n ] (P n — Â P n)` and whose `kramaâ’yugapat-fails`
---   proves `Â (Krama â’ Yugapat)`; the citation in an earlier draft of
+--   (`SaptabhangiNaya` â€” the top-level module, whose `yugapat-empty`
+--   proves `Â¬ Î£[ n ] (P n Ã— Â¬ P n)` and whose `kramaâ†’yugapat-fails`
+--   proves `Â¬ (Krama â†’ Yugapat)`; the citation in an earlier draft of
 --   this file named a `` module that does not exist and
 --   summarised it as "krama â‰  sah", which is not what is proved
 --   there):
 --
---     ààà¯à¾à¦àààà¿ â” in the respect of discrete targets, exclusion is
+--     à¤¸à¥à¤¯à¤¾à¤¦à¤¸à¥à¤¤à¤¿ â€” in the respect of discrete targets, exclusion is
 --                 ground (Â§6);
---     ààà¯à¾à¨àà¨à¾àààà¿ â” in the respect of arbitrary set targets, it is not
+--     à¤¸à¥à¤¯à¤¾à¤¨à¥à¤¨à¤¾à¤¸à¥à¤¤à¤¿ â€” in the respect of arbitrary set targets, it is not
 --                 shown to be (Â§4 characterises transfer by ground
 --                 alone, and Â§6 does not reach that far);
 --     and asserting these two IN SUCCESSION, which is what the two
---     lines above do, is à•àà°à® â” the third bhaga.  It is not à¯àà—ààà.
+--     lines above do, is à¤•à¥à¤°à¤® â€” the third bhaá¹…ga.  It is not à¤¯à¥à¤—à¤ªà¤¤à¥.
 --
---   The à¯àà—ààà position would be a single assertion, not indexed to a
+--   The à¤¯à¥à¤—à¤ªà¤¤à¥ position would be a single assertion, not indexed to a
 --   respect, holding both at once; in this setting that is precisely a
---   target that no one decoder expresses, i.e. a `Â FactorsThrough`.
+--   target that no one decoder expresses, i.e. a `Â¬ FactorsThrough`.
 --   This file does not construct one.  Saying "the two respects differ"
 --   is the successive reading wearing the simultaneous one's name, and
 --   the fourth bhaga is not delivered by relabelling the third.
@@ -319,42 +319,42 @@ factorsThrough-transfer-discreteTarget isSetT discT q q' t ce ft =
 -- 8.  The price named exactly: it is stability, and it is NECESSARY
 --
 -- Â§5 bought the recovery with decidability of the ground.  That was too
--- much, and â” worse for a module whose subject is what an absence can
--- be argued from â” it was the wrong shape.  What the proof of Â§5 used
--- was only this: from `Â Â (q x â‰¡ q x')` conclude `q x â‰¡ q x'`.  That
--- is `Stable`, and `Decâ’Stable` shows Â§5 is a corollary.
+-- much, and â€” worse for a module whose subject is what an absence can
+-- be argued from â€” it was the wrong shape.  What the proof of Â§5 used
+-- was only this: from `Â¬ Â¬ (q x â‰¡ q x')` conclude `q x â‰¡ q x'`.  That
+-- is `Stable`, and `Decâ†’Stable` shows Â§5 is a corollary.
 --
 -- Â§8b then shows stability is not merely sufficient but NECESSARY, with
 -- no counterexample, no classical principle and no undecidable
 -- proposition assumed.  The witness is built from `q` itself.
 --
---     Given q : Bool â’ Y, put A := Â (q true â‰¡ q false) â” the exclusion
---     of the one pair that can be excluded â” and define the SHADOW
+--     Given q : Bool â†’ Y, put A := Â¬ (q true â‰¡ q false) â€” the exclusion
+--     of the one pair that can be excluded â€” and define the SHADOW
 --
---         shadow q : Bool â’ (A â’ Y)     shadow q b = Î» _ â’ q b .
+--         shadow q : Bool â†’ (A â†’ Y)     shadow q b = Î» _ â†’ q b .
 --
---     By funext, `Ground (shadow q) true false` is `A â’ Ground q true
+--     By funext, `Ground (shadow q) true false` is `A â†’ Ground q true
 --     false`: the shadow identifies exactly when the exclusion would
 --     force the identification.  The shadow co-excludes with q (Â§8b,
---     `coExclude-shadow`) â” on the diagonal vacuously, off it because
---     an inhabitant of A refutes any `A â’ Ground q`.
+--     `coExclude-shadow`) â€” on the diagonal vacuously, off it because
+--     an inhabitant of A refutes any `A â†’ Ground q`.
 --
 --     So if co-exclusion gave co-identification unpriced, we would have
---     `(Â G â’ G) â’ G`, and that is interderivable with `Â Â G â’ G`
+--     `(Â¬ G â†’ G) â†’ G`, and that is interderivable with `Â¬ Â¬ G â†’ G`
 --     (Â§8b, both directions).  The unpriced implication IS stability.
 --
 -- Read against Â§7: the Naiyyika insistence that an absence does not
 -- argue by itself is not answered by making the counterpositive
--- decidable â” nothing here needs that â” and the Buddhist Â§6 route does
+-- decidable â€” nothing here needs that â€” and the Buddhist Â§6 route does
 -- not touch this at all, since it never recovers the ground.  What is
 -- exhibited is the exact quantity that separates the two routes.
 --
 -- ONE THING THE CONSTRUCTION ASSUMES, AND WHICH IS DISPUTED.  `shadow`
 -- uses `Excl` as a DOMAIN: it forms functions out of an absence.  That
--- is available here because in this type theory `Â G` is a type like
--- any other.  It is not neutral ground.  Vaieika counts ààà¾àµ among
--- the àà¦à¾à°ààs â” absence is a category of the real, with its own
--- perceptual à®à¾à¨ â” while the Buddhist position denies there is any such
+-- is available here because in this type theory `Â¬ G` is a type like
+-- any other.  It is not neutral ground.  VaiÅ›eá¹£ika counts à¤…à¤­à¤¾à¤µ among
+-- the à¤ªà¤¦à¤¾à¤°à¥à¤¥s â€” absence is a category of the real, with its own
+-- perceptual à¤®à¤¾à¤¨ â€” while the Buddhist position denies there is any such
 -- entity, absence being at most a construction of thought.  The type
 -- theory sides with neither by argument; it simply builds the object,
 -- and Â§8b shows that once you may quantify over an absence you can
@@ -415,13 +415,13 @@ module _ {Y : Type â„“y} (q : Bool â†’ Y) where
   coExclude-shadow false true  n p =
     n (shadowGroundâ†’ false true p (Î» g â†’ n (sym g)))
 
-  -- Hence the unpriced implication delivers exactly stability â¦
+  -- Hence the unpriced implication delivers exactly stability â€¦
   shadowCoIdentifyâ†’stable :
     CoIdentify shadow q â†’ Stable (Ground q true false)
   shadowCoIdentifyâ†’stable ci nn =
     ci true false (shadowGroundâ† true false (Î» a â†’ âŠ¥.rec (nn a)))
 
-  -- â¦ and stability delivers it back, so the two are interderivable.
+  -- â€¦ and stability delivers it back, so the two are interderivable.
   stableâ†’shadowCoIdentify :
     ((x x' : Bool) â†’ Stable (Ground q x x')) â†’ CoIdentify shadow q
   stableâ†’shadowCoIdentify st =
@@ -434,23 +434,23 @@ module _ {Y : Type â„“y} (q : Bool â†’ Y) where
 -- price at the counterpositive was `Stable`, not `Dec`.  The same
 -- correction applies here, and the consequence is not bookkeeping.
 --
---   9a  Â§6 needs only that PATHS IN THE TARGET BE STABLE â” pointwise,
---       for the pairs actually compared.  `Discreteâ’Separated` makes Â§6
+--   9a  Â§6 needs only that PATHS IN THE TARGET BE STABLE â€” pointwise,
+--       for the pairs actually compared.  `Discreteâ†’Separated` makes Â§6
 --       a corollary.
 --
 --   9b  and stability of the target is NECESSARY, by the same shadow,
 --       with the observable taken to be the target itself.  Put
 --       `q := t`.  Then `FiberConstant t t` is the identity, and
---       transfer along `shadow t` says exactly `(Â G â’ G) â’ G` for
+--       transfer along `shadow t` says exactly `(Â¬ G â†’ G) â†’ G` for
 --       `G = (t true â‰¡ t false)`.
 --
 -- So the two prices of this module are ONE PROPERTY AT TWO OBJECTS:
 --
---       recover the ground        â”  Stable (paths in the observable)
---       transfer without it       â”  Stable (paths in the target)
+--       recover the ground        â‡”  Stable (paths in the observable)
+--       transfer without it       â‡”  Stable (paths in the target)
 --
--- and neither is decidability.  That is what live thread (1) â”
--- transport PRICE, not possibility â” asks for at this site: the
+-- and neither is decidability.  That is what live thread (1) â€”
+-- transport PRICE, not possibility â€” asks for at this site: the
 -- transport between the two nayas is always available, and what it
 -- costs is one double-negation elimination, charged either to what is
 -- being observed or to what is being read.
@@ -463,7 +463,7 @@ module _ {Y : Type â„“y} (q : Bool â†’ Y) where
 -- and `Stable` applied to the paths of `t` are two different
 -- hypotheses about two different objects; a target can be separated
 -- while the observable is not, and nothing in this file derives either
--- from the other.  What recurs is the SHAPE â” the same schema, and the
+-- from the other.  What recurs is the SHAPE â€” the same schema, and the
 -- same shadow refuting the unpriced form of each.  A price with an
 -- own-nature, one object appearing twice, is not what was found; a
 -- pattern that recurs is.
@@ -471,9 +471,9 @@ module _ {Y : Type â„“y} (q : Bool â†’ Y) where
 -- IT ALSO DEFLATES SOMETHING.  Thread (2), the deflationary test, says:
 -- if every absence in this corpus is decidable then nothing here lives
 -- above the second level and the barrier language is stronger than the
--- objects warrant.  Â§8â“Â§9 sharpen the test rather than answering it.
+-- objects warrant.  Â§8â€“Â§9 sharpen the test rather than answering it.
 -- The relevant hypothesis is not decidability but stability, which is
--- strictly weaker, so the level is set lower than the test assumed â”
+-- strictly weaker, so the level is set lower than the test assumed â€”
 -- and `Stable` is exactly the property under which an absence and its
 -- counterpositive collapse into each other.  A corpus whose absences
 -- are all stable has no third level, whether or not they are decidable.
@@ -539,13 +539,13 @@ module _ {T : Type â„“t} (t : Bool â†’ T) where
 -- written, states the finding:
 --
 --     "Apoha is not Boolean complementation.  The popular gloss is
---      double negation â” 'cow' = not-(non-cow) â” and that gloss is what
+--      double negation â€” 'cow' = not-(non-cow) â€” and that gloss is what
 --      Dignga's own scope analysis DEFEATS: a Boolean complement is
 --      taken in a fixed universe with a fixed partition, and
---      Pramasamuccaya V.25cdâ“38 says the exclusion class varies with
+--      PramÄá¹‡asamuccaya V.25cdâ€“38 says the exclusion class varies with
 --      the term's position in a taxonomy."
 --
--- `Excludes q x x' = Â (q x â‰¡ q x')` is a negation in a fixed universe
--- with a fixed partition â” `Y` is given, `q` is given, the partition is
+-- `Excludes q x x' = Â¬ (q x â‰¡ q x')` is a negation in a fixed universe
+-- with a fixed partition â€” `Y` is given, `q` is given, the partition is
 -- the fibres of `q`.  It is the defeated gloss, exactly.
 ------------------------------------------------------------------------

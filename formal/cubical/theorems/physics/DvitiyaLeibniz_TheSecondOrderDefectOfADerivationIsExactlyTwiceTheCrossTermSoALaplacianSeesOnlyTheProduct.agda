@@ -1,16 +1,16 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡¶‡‡µ‡ø‡‡‡Ø-‡≤‡à‡‡‡®‡ø‡ü‡‡‡º ‚î the second-order Leibniz defect.
+-- ‡§¶‡•ç‡§µ‡§ø‡§§‡•Ä‡§Ø-‡§≤‡•à‡§¨‡•ç‡§®‡§ø‡§ü‡•ç‡§ú‡§º ‚Äî the second-order Leibniz defect.
 --
 -- A DERIVATION APPLIED TWICE OVERSHOOTS BY EXACTLY TWICE THE CROSS TERM.
 --
 -- `HolonomyFluxDerivation` carries the first-order seam in its minimal
 -- form: a carrier, a product, a sum, and
 --
---     leibniz : flux (x ‚ã y) ‚â° (flux x ‚ã y) ‚äï (x ‚ã flux y) .
+--     leibniz : flux (x ‚ãÜ y) ‚â° (flux x ‚ãÜ y) ‚äï (x ‚ãÜ flux y) .
 --
--- That signature is deliberately thin ‚î it assumes nothing of `‚äï` and
+-- That signature is deliberately thin ‚Äî it assumes nothing of `‚äï` and
 -- nothing of `flux` beyond the displayed law, which is what makes the
 -- subdivision result there representation-independent.  Second order
 -- needs strictly more, and this module states exactly what: the target
@@ -36,15 +36,15 @@
 -- for a family of derivations ‚à‚º and K = ‚àí Œ‚º ‚à‚º¬≤, negating
 -- ¬ß2 and summing over j leaves
 --
---     K (br a b) ‚äñ br (K a) b ‚äñ br a (K b)  =  ‚àí 2 Œ‚º br (‚à‚º a) (‚à‚º b) ,
+--     K (br a b) ‚äñ br (K a) b ‚äñ br a (K b)  =  ‚àí 2 Œ£‚±º br (‚àÇ‚±º a) (‚àÇ‚±º b) ,
 --
 -- with no first-order term anywhere.  The sum and the sign are the
 -- reading; ¬ß2 is the theorem, at one derivation.
 --
 -- ¬ß¬ß1‚ì2 in an arbitrary ring, carrier taken
--- as the ring itself, for every two-argument `br` ‚î no bilinearity of
+-- as the ring itself, for every two-argument `br` ‚Äî no bilinearity of
 -- `br` is used or assumed anywhere below, only the Leibniz law relating
--- it to `d` ‚î every additive `d`, and every pair of arguments.
+-- it to `d` ‚Äî every additive `d`, and every pair of arguments.
 ------------------------------------------------------------------------
 
 module DvitiyaLeibniz_TheSecondOrderDefectOfADerivationIsExactlyTwiceTheCrossTermSoALaplacianSeesOnlyTheProduct where
@@ -89,8 +89,8 @@ module _ (R : Ring ‚Ñì) where
         y ‚àé
 
   --------------------------------------------------------------------
-  -- ‡¶ ¬ The setting: a two-argument operation, and an additive
-  --     derivation of it.  `br` is arbitrary ‚î NOT the ring product,
+  -- ‡•¶ ¬∑ The setting: a two-argument operation, and an additive
+  --     derivation of it.  `br` is arbitrary ‚Äî NOT the ring product,
   --     and not assumed bilinear.
   --------------------------------------------------------------------
 
@@ -117,7 +117,7 @@ module _ (R : Ring ‚Ñì) where
           (w + (x + y)) + z ‚àé
 
     ------------------------------------------------------------------
-    -- ‡ß ¬ THE SECOND-ORDER LAW.  The cross term appears twice.
+    -- ‡•ß ¬∑ THE SECOND-ORDER LAW.  The cross term appears twice.
     ------------------------------------------------------------------
 
     second-order-leibniz : (a b : A)
@@ -135,7 +135,7 @@ module _ (R : Ring ‚Ñì) where
         (br (d¬≤ a) b + (cross a b + cross a b)) + br a (d¬≤ b) ‚àé
 
     ------------------------------------------------------------------
-    -- ‡® ¬ THE DEFECT.  Subtracting the two pure second-order terms
+    -- ‡•® ¬∑ THE DEFECT.  Subtracting the two pure second-order terms
     --     leaves exactly the doubled cross term, and nothing else.
     ------------------------------------------------------------------
 

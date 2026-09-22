@@ -10,11 +10,11 @@
 -- negated first.
 --
 -- The min-plus line shows twice that reversing an order is load-bearing
--- rather than cosmetic â” once in the residuation, once in mistaking the
+-- rather than cosmetic â€” once in the residuation, once in mistaking the
 -- meet for a `min`.  So the flip has its own theorem, and it does not
 -- come free.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   Vec ds            a fitness vector as a RECURSIVE FAMILY over a
@@ -22,15 +22,15 @@
 --                     `Bool` per objective saying benefit or cost.  No
 --                     `Fin`, and mismatched arities are not
 --                     representable
---   Dom ds v w        MIXED dominance: `â‰` at a benefit coordinate,
---                     `â‰` at a cost coordinate â” what Â§5.2 actually
+--   Dom ds v w        MIXED dominance: `â‰¤` at a benefit coordinate,
+--                     `â‰¥` at a cost coordinate â€” what Â§5.2 actually
 --                     means by Pareto
---   âˆ-antitone        `b âˆ _` reverses `â‰`, derived from the monus
+--   âˆ¸-antitone        `b âˆ¸ _` reverses `â‰¤`, derived from the monus
 --                     adjunction already proved on the min-plus line
---   flipWith          cap the costs and subtract: `cap âˆ x` at a cost
+--   flipWith          cap the costs and subtract: `cap âˆ¸ x` at a cost
 --                     coordinate, `x` at a benefit one
 --   flipIsSound       mixed dominance IMPLIES ordinary product
---                     dominance of the flipped vectors â” so every
+--                     dominance of the flipped vectors â€” so every
 --                     theorem on the Pareto line transfers
 --   flipIsNotFaithful and the converse FAILS: at `cap = 3`, the costs
 --                     `5` and `7` both flip to `0`, so the flipped
@@ -38,7 +38,7 @@
 --                     do not
 --
 -- **So "negate the costs first" is half true.**  Flipping is
--- enough to APPLY the results â” soundness is all that direction needs.
+-- enough to APPLY the results â€” soundness is all that direction needs.
 -- It is not enough to TRANSPORT them back: a conclusion about flipped
 -- vectors does not return, because the cap identifies every cost above
 -- it.  The exact form is "negate the costs, and pick a cap

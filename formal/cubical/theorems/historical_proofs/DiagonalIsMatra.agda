@@ -5,15 +5,15 @@
 --
 -- The identity proved here:
 --
---     mtr n  â‰¡  Î_{a+b=n} meru a b
+--     mÄtrÄ n  â‰¡  Î£_{a+b=n} meru a b
 --
--- Virahka's mtrmeru (c. 600â“800) is the shallow diagonal of Pigala's
+-- VirahÄá¹…ka's mÄtrÄmeru (c. 600â€“800) is the shallow diagonal of Piá¹…gala's
 -- meru-prastra (c. 300â“200 BCE).
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- HOW IT GOES, AFTER FOUR ENCODINGS
 --
--- `Sankalita` Â§Â§8â“13 refuted three numeric encodings, each for a
+-- `Sankalita` Â§Â§8â€“13 refuted three numeric encodings, each for a
 -- different reason, and left Pigala's own: sort the patterns by
 -- syllable count.  `DurationIsSyllablesPlusGuru` carried that to an
 -- equivalence, `PairsSummingTo` made the index set finite structurally,
@@ -21,23 +21,23 @@
 --
 -- The shifted family is what makes the induction close:
 --
---     SortedC c n  =  Î[ ((a,b),_) âˆˆ Pairs n ]  Chosen (c + a) b
+--     SortedC c n  =  Î£[ ((a,b),_) âˆˆ Pairs n ]  Chosen (c + a) b
 --
--- with `SortedC c 0 â‰ Chosen c 0` and
--- `SortedC c (suc n) â‰ Chosen c (suc n) âŠ SortedC (suc c) n`, matching
+-- with `SortedC c 0 â‰ƒ Chosen c 0` and
+-- `SortedC c (suc n) â‰ƒ Chosen c (suc n) âŠ SortedC (suc c) n`, matching
 -- `Sankalita.AD` step for step.  `AD` walks the first index up and the
 -- second down; so does the peeling of `Pairs`.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS USED, ALL PRIOR ART
 --
---   `Pingala.meruCount`         Chosen n k â‰ Fin (meru n k)
---   `Pingala.matraCount`        Metre n â‰ Fin (mtr n)
+--   `Pingala.meruCount`         Chosen n k â‰ƒ Fin (meru n k)
+--   `Pingala.matraCount`        Metre n â‰ƒ Fin (mÄtrÄ n)
 --   `PairsSummingTo.pairsSuc-Iso`
 --   `DurationIsSyllablesPlusGuru.metre-sorts`
---   `Cubical.Data.Sigma`        Î-contractFst, Î-cong-equiv-fst/snd
---   `Cubical.Data.Sum`          ÎâŠâ‰
---   `Cubical.Data.SumFin`       SumFinâŠâ‰, SumFinâ‰Fin
+--   `Cubical.Data.Sigma`        Î£-contractFst, Î£-cong-equiv-fst/snd
+--   `Cubical.Data.Sum`          Î£âŠâ‰ƒ
+--   `Cubical.Data.SumFin`       SumFinâŠâ‰ƒ, SumFinâ‰ƒFin
 --
 -- Nothing new is proved about arrays; the content is the assembly.
 --
@@ -169,7 +169,7 @@ diagonal-is-matra n =
   open import Cubical.Foundations.Univalence using (ua)
 
   -- SumFin injectivity, from `Cubical.Data.Fin.Fin-inj` through
-  -- `SumFinâ‰Fin` -- the same route `Cubical.Data.FinSet.Base` uses to
+  -- `SumFinâ‰ƒFin` -- the same route `Cubical.Data.FinSet.Base` uses to
   -- show `card` is well defined.
   SumFin-inj : (m k : â„•) â†’ SFin m â‰ƒ SFin k â†’ m â‰¡ k
   SumFin-inj m k e =
@@ -196,16 +196,16 @@ check-9 = diagonal-is-matra 9
 ------------------------------------------------------------------------
 -- 7.  The route, module by module.
 --
---   `Sankalita` Â§Â§8â“13    three numeric encodings refuted, each with its
+--   `Sankalita` Â§Â§8â€“13    three numeric encodings refuted, each with its
 --                         counterexample recorded
 --   `DurationIsSyllablesPlusGuru`
 --                         the typed route: mtrOf p â‰¡ vara p + guruOf p,
---                         and Metre n â‰ Î_{a+b=n} Chosen a b
+--                         and Metre n â‰ƒ Î£_{a+b=n} Chosen a b
 --   `PairsSummingTo`      the index set is finite, structurally
 --   here                  cardinalities, and the identity
 --
 -- Virahka's mtrmeru is the shallow diagonal of Pigala's
--- meru-prastra â” a theorem between two arrays this repository had
+-- meru-prastra â€” a theorem between two arrays this repository had
 -- held separately, from sources about a thousand years apart within one
 -- tradition.
 --

@@ -1,35 +1,35 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡ï‡æ‡∞‡ ‚î the cause.
+-- ‡§ï‡§æ‡§∞‡§£ ‚Äî the cause.
 --
 -- WHY THIS FILE EXISTS.
 --
 -- All five are built here, and the reading becomes two theorems of the
--- shape the corpus already proves elsewhere ‚î "no function of the
--- coarser object recovers the finer" ‚î now stated about causation.
+-- shape the corpus already proves elsewhere ‚Äî "no function of the
+-- coarser object recovers the finer" ‚Äî now stated about causation.
 --
---   ¬ß‡  NO FUNCTION of the observational distribution computes the
+--   ¬ß‡•™  NO FUNCTION of the observational distribution computes the
 --       interventional one.  Two structural equation models, same
 --       observational distribution, different distributions under
 --       do(X := x).  That is confounding, and the non-identifiability
 --       is not an estimation difficulty: no function whatsoever exists.
 --
---   ¬ß‡  NO FUNCTION of the interventional distributions computes the
+--   ¬ß‡•¨  NO FUNCTION of the interventional distributions computes the
 --       counterfactual joint.  Two models agreeing under every
 --       intervention, disagreeing on the joint distribution of the
 --       potential outcomes.  Experiments do not settle counterfactuals,
 --       and that is a theorem here rather than a slogan.
 --
---   ¬ß‡  and the positive half, so the negative ones are not the whole
+--   ¬ß‡•´  and the positive half, so the negative ones are not the whole
 --       story: WHEN Y DOES NOT DEPEND ON THE CONFOUNDER, the adjustment
---       identity holds ‚î the interventional and observational
+--       identity holds ‚Äî the interventional and observational
 --       distributions agree after clearing denominators, with no
 --       positivity side condition, because both sides vanish exactly
 --       where the denominator does.
 --
 -- ON PROBABILITY WITHOUT DIVISION.  A distribution here is a weight
--- function into ‚ï, unnormalised.  Every statement below either compares
+-- function into ‚Ñï, unnormalised.  Every statement below either compares
 -- two weight functions on the same total or is stated cross-multiplied,
 -- so no rationals, no normalisation and no positivity assumption enter,
 -- and nothing is weakened: equality of unnormalised weights on a common
@@ -47,7 +47,7 @@ open import Cubical.Data.Sigma using (Œ£-syntax ; _√ó_ ; _,_ ; fst ; snd)
 open import Cubical.Relation.Nullary using (¬¨_)
 
 ------------------------------------------------------------------------
--- ‡ß ¬ distributions on the two-element exogenous space.
+-- ‡•ß ¬∑ distributions on the two-element exogenous space.
 ------------------------------------------------------------------------
 
 Weight : Type
@@ -66,11 +66,11 @@ ind true  true  = 1
 ¬∑0 x = sym (0‚â°m¬∑0 x)
 
 ------------------------------------------------------------------------
--- ‡® ¬ THE STRUCTURAL EQUATION MODEL.
+-- ‡•® ¬∑ THE STRUCTURAL EQUATION MODEL.
 --
 -- An exogenous variable U with a weight; X assigned by a structural
 -- equation in U; Y assigned by a structural equation in X and U.  The
--- arrow U ‚í Y is what confounding IS, and it is a field of the record
+-- arrow U ‚Üí Y is what confounding IS, and it is a field of the record
 -- rather than an assumption about one.
 ------------------------------------------------------------------------
 
@@ -95,11 +95,11 @@ total : SEM ‚Üí ‚Ñï
 total m = sumU (w m)
 
 ------------------------------------------------------------------------
--- ‡© ¬ THE DO-OPERATOR, AND THE COUNTERFACTUAL.
+-- ‡•© ¬∑ THE DO-OPERATOR, AND THE COUNTERFACTUAL.
 --
 -- `do(X := x)` deletes X's structural equation and substitutes the
 -- constant.  The counterfactual joint is the distribution of the PAIR
--- of potential outcomes at a single draw of the exogenous variable ‚î
+-- of potential outcomes at a single draw of the exogenous variable ‚Äî
 -- the twin-network reading, which is what distinguishes rung three from
 -- rung two.
 ------------------------------------------------------------------------
@@ -112,7 +112,7 @@ cf m y‚ÇÄ y‚ÇÅ =
   sumU (Œª u ‚Üí ind (fY m false u) y‚ÇÄ ¬∑ ind (fY m true u) y‚ÇÅ ¬∑ w m u)
 
 ------------------------------------------------------------------------
--- ‡ ¬ CONFOUNDING: NO FUNCTION OF THE OBSERVATION GIVES THE INTERVENTION.
+-- ‡•™ ¬∑ CONFOUNDING: NO FUNCTION OF THE OBSERVATION GIVES THE INTERVENTION.
 --
 -- `confounded` has U causing both X and Y; `chain` has U causing X and X
 -- causing Y.  They agree on everything that can be observed and disagree
@@ -152,11 +152,11 @@ no-identification-from-observation (F , sound) =
              true)
 
 ------------------------------------------------------------------------
--- ‡ ¬ THE POSITIVE HALF: ADJUSTMENT, WITH NO SIDE CONDITION.
+-- ‡•´ ¬∑ THE POSITIVE HALF: ADJUSTMENT, WITH NO SIDE CONDITION.
 --
 -- When Y's structural equation does not read the confounder, the
 -- interventional and observational distributions satisfy the adjustment
--- identity ‚î cross-multiplied, so no denominator and therefore no
+-- identity ‚Äî cross-multiplied, so no denominator and therefore no
 -- positivity assumption appears.  Where the marginal vanishes both
 -- sides vanish, which is exactly why the cleared form needs no
 -- hypothesis the uncleared one would need.
@@ -206,7 +206,7 @@ adjustment wt g h x y =
     m = sem wt g (Œª z _ ‚Üí h z)
 
 ------------------------------------------------------------------------
--- ‡ ¬ AND RUNG THREE IS NOT REACHED FROM RUNG TWO.
+-- ‡•¨ ¬∑ AND RUNG THREE IS NOT REACHED FROM RUNG TWO.
 --
 -- Two models that agree under EVERY intervention and disagree on the
 -- joint distribution of the potential outcomes.  So no experiment,

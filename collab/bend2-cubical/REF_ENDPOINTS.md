@@ -1,4 +1,4 @@
-# Typed path-endpoints for Ref-headed spines â” the enabler for isPropIsEquiv
+# Typed path-endpoints for Ref-headed spines â€” the enabler for isPropIsEquiv
 
 ## What was missing
 
@@ -18,9 +18,9 @@ yields its left endpoint `c0 = u0 y`.
 
 Bend already read endpoints this way for **context variables** of Path type
 (`spineEndpoints`/`spineType` in `Core/Check.hs`). It did *not* do so for a
-**global definition** (a `Ref`) of Path type â” so `isPropIsContr(...) @ i0`
+**global definition** (a `Ref`) of Path type â€” so `isPropIsContr(...) @ i0`
 stayed neutral and the endpoint check failed. This is the same wall that
-Î-Î would clear, but the Ref-endpoint law is the more principled fix: it is
+Î£-Î· would clear, but the Ref-endpoint law is the more principled fix: it is
 just the definitional boundary equation of the Path type, extended from
 context vars to named lemmas.
 
@@ -40,9 +40,9 @@ The existing `App`/`PAp` cases then peel the Î /Path spine as before, so
 
 With this one hunk:
 
-- `isPropIsEquiv`  â” green, **definitional**  (equiv.bend)
-- `pathToEquiv`    â” typechecks               (equiv.bend)
-- `uaÎ²`            â” already definitional      (transport along `ua` = f)
-- `isPropIsContr`  â” green via general hcomp   (unchanged)
+- `isPropIsEquiv`  â€” green, **definitional**  (equiv.bend)
+- `pathToEquiv`    â€” typechecks               (equiv.bend)
+- `uaÎ²`            â€” already definitional      (transport along `ua` = f)
+- `isPropIsContr`  â€” green via general hcomp   (unchanged)
 
 No regression: cubical suites, stock examples, and `isPropIsContr` unchanged.

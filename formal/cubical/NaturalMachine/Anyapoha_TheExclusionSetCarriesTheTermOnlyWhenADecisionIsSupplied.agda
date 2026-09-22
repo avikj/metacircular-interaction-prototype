@@ -3,11 +3,11 @@
 ------------------------------------------------------------------------
 -- NaturalMachine.Anyapoha_TheExclusionSetCarriesTheTermOnlyWhenADecisionIsSupplied
 --
--- àà¨àà¯à¾àà‹à Â anya-apoha â” exclusion-of-the-other.
+-- à¤…à¤¨à¥à¤¯à¤¾à¤ªà¥‹à¤¹ Â· anya-apoha â€” exclusion-of-the-other.
 --
 -- SOURCES, AND THE GRADE OF EACH.
 --
--- Bauddha side.  Dignga, *Pramasamuccaya* (c. 480â“540), chapter on
+-- Bauddha side.  DignÄga, *PramÄá¹‡asamuccaya* (c. 480â€“540), chapter on
 -- *apoha*: the content of a general term is the exclusion of what the
 -- term is not, and not a shared positive universal.  Dharmakrti,
 -- *Pramavrttika* (7th c.), develops apoha and answers the charge that
@@ -18,25 +18,25 @@
 -- Naiyyika side, named as a rival school and not as part of one
 -- toolkit.  Nyya holds that every absence (*abhva*) requires a
 -- counterpositive (*pratiyogin*), and that the counterpositive is a
--- positive entity; Uddyotakara (*Nyyavrttika*, c. 6thâ“7th c.) and
+-- positive entity; Uddyotakara (*NyÄyavÄrttika*, c. 6thâ€“7th c.) and
 -- Jayanta Bhaa (*Nyyamajar*, 9th c.) press against apoha the charge
 -- that excluding non-cows presupposes cow, so the definition is circular
 -- or else vacuous.
 --
--- The modelling step â” reading a
+-- The modelling step â€” reading a
 -- term's *apoha* as the family of things it excludes, indexed by the
--- SAME domain the terms live in â” is what makes the
+-- SAME domain the terms live in â€” is what makes the
 -- circularity charge expressible at all.  Â§7 says what each school would
 -- say back.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
---   apoha-sound      S i j â’ SameExcl S i j          needs sym + trans
---   apoha-ÂÂ         SameExcl S i j â’ Â Â S i j      needs refl ALONE
---   apoha-complete   Dec S â’ SameExcl S i j â’ S i j  needs refl + a decision
+--   apoha-sound      S i j â†’ SameExcl S i j          needs sym + trans
+--   apoha-Â¬Â¬         SameExcl S i j â†’ Â¬ Â¬ S i j      needs refl ALONE
+--   apoha-complete   Dec S â†’ SameExcl S i j â†’ S i j  needs refl + a decision
 --
---   apohaForEquivalencesâ’DNE
+--   apohaForEquivalencesâ†’DNE
 --       the completeness statement, asserted for every REFLEXIVE,
 --       SYMMETRIC and TRANSITIVE relation, yields double negation
 --       elimination.  So being an equivalence relation is not enough,
@@ -50,33 +50,33 @@
 --
 --   soundnessFailsOnSoundings / transitivityFailsOnSoundings
 --       on `Pythagoras_RatioIsTheInvariantAndLengthIsThePresentation`'s
---       `SameInterval` over â• — â•, cross-multiplication is not
---       transitive â” (1,0), (0,0), (0,1) â” and apoha SOUNDNESS fails
+--       `SameInterval` over â„• Ã— â„•, cross-multiplication is not
+--       transitive â€” (1,0), (0,0), (0,1) â€” and apoha SOUNDNESS fails
 --       with it, while COMPLETENESS survives, because completeness never
 --       used transitivity.
 --
 --   theIntervalIsFixedByItsExclusions
---       completeness, instantiated at `SameInterval` over all of â• — â•.
+--       completeness, instantiated at `SameInterval` over all of â„• Ã— â„•.
 --
 --   Â§6:  with the second string length made positive, sym, trans, sound
---        and complete all hold, so on `Soundingâº` the exclusion set IS
+--        and complete all hold, so on `Soundingâº` the exclusion set IS
 --        the interval, both directions.
 --
 -- PRIOR ART IN THIS REPOSITORY, cited rather than re-landed.
---   `Swarm.S04Apoha` / `Swarm.S04ApohaFiniteCompletion` â” witnessed
+--   `Swarm.S04Apoha` / `Swarm.S04ApohaFiniteCompletion` â€” witnessed
 --     exclusion vs negated indistinguishability over an INDEXED
 --     observable family; the gap there is exactly MP.
 --   `NaturalMachine.FormationRelativeMinimality`, Â§3
---     `local-extractor-implies-DNE` â” the taboo technique (build a
+--     `local-extractor-implies-DNE` â€” the taboo technique (build a
 --     control from an arbitrary P, read off DNE) is that module's;
 --     only the object it is applied to here is new.
 --   `ApohaParyaya_WhetherConceptualContentIsNegativeIsWhatTheTwoSchools-
---     ActuallyDispute` â” Bauddha against Jaina on standpoints.  The
+--     ActuallyDispute` â€” Bauddha against Jaina on standpoints.  The
 --     dispute staged here is Bauddha against Naiyyika on negation, a
 --     different pair and a different charge.
 --   `RnaDhana_*`: over â• a sign condition is free, so a
 --     richer carrier hides a condition rather than discharging it.  Â§6
---     below is the same shape and is flagged as such: moving from â• — â•
+--     below is the same shape and is flagged as such: moving from â„• Ã— â„•
 --     to a positive second coordinate does not discharge transitivity,
 --     it supplies the cancellation that was missing.
 ------------------------------------------------------------------------
@@ -103,7 +103,7 @@ private
 -- 1.  The apoha of a term, and when two terms have the same apoha.
 --
 --     `Excl S i` is the family of things i excludes.  `SameExcl S i j`
---     is the statement that i and j exclude exactly the same things â”
+--     is the statement that i and j exclude exactly the same things â€”
 --     the whole of what a Digngan account of the term has to offer,
 --     with no positive universal anywhere in it.
 --
@@ -123,7 +123,7 @@ SameExcl {A = A} S i j =
 ------------------------------------------------------------------------
 -- 2.  Soundness: co-referring terms exclude alike.
 --
---     This is the direction that needs the positive structure â” symmetry
+--     This is the direction that needs the positive structure â€” symmetry
 --     and transitivity.  Nothing in it is free.
 ------------------------------------------------------------------------
 
@@ -138,11 +138,11 @@ apoha-sound S symS transS i j sij k =
 
 ------------------------------------------------------------------------
 -- 3.  The negative definition, on its own, delivers exactly the double
---     negation â” and it needs only that nothing excludes itself.
+--     negation â€” and it needs only that nothing excludes itself.
 --
 --     This is the Bauddha's minimum and the Naiyyika's maximum in one
 --     line.  Reflexivity is all the positive content the argument uses;
---     what it buys is Â Â S, not S.
+--     what it buys is Â¬ Â¬ S, not S.
 ------------------------------------------------------------------------
 
 apoha-Â¬Â¬ :
@@ -176,9 +176,9 @@ apoha-complete S reflS decS i j se with decS i j
 --     classes.
 --
 --     CLAIM A IS FALSE, and the kill is below.  The relation
---     `R a b = (a â‰¡ b) âŠ P` on Bool is reflexive, symmetric and
+--     `R a b = (a â‰¡ b) âŠ P` on Bool is reflexive, symmetric and
 --     transitive for every P whatsoever.  If Claim A held, P would
---     follow from Â Â P for every P.
+--     follow from Â¬ Â¬ P for every P.
 --
 --     So the Naiyyika charge lands, in this exact form: the negative
 --     account is complete only when something is supplied that is not in
@@ -208,7 +208,7 @@ module Taboo (P : Typeâ‚€) where
   R-offâ†’P (inl p) = âŠ¥.rec (falseâ‰¢true p)
   R-offâ†’P (inr x) = x
 
-  -- Â Â P is already enough to equalise the two exclusion sets.
+  -- Â¬ Â¬ P is already enough to equalise the two exclusion sets.
   Â¬Â¬Pâ†’sameExcl : Â¬ Â¬ P â†’ SameExcl R false true
   Â¬Â¬Pâ†’sameExcl nnp false =
       (Î» h â†’ âŠ¥.rec (h (inl refl)))
@@ -246,15 +246,15 @@ apohaForEquivalencesâ†’DNE ac P nnp =
 -- 6.  The drawn module, and REFUTATION 2.
 --
 --     CLAIM B: `SameInterval` over â• — â• is an
---     equivalence relation â” the drawn module proves reflexivity and
---     symmetry in its Â§4 and calls the interval "a genuine object" â” so
+--     equivalence relation â€” the drawn module proves reflexivity and
+--     symmetry in its Â§4 and calls the interval "a genuine object" â€” so
 --     both apoha directions apply to it.
 --
---     CLAIM B IS FALSE.  Cross-multiplication on â• — â• is NOT
+--     CLAIM B IS FALSE.  Cross-multiplication on â„• Ã— â„• is NOT
 --     transitive: a string of length zero sounds nothing, and
---     (1,0) ~ (0,0) ~ (0,1) while (1,0) â‰ (0,1).  Apoha SOUNDNESS fails
+--     (1,0) ~ (0,0) ~ (0,1) while (1,0) â‰ (0,1).  Apoha SOUNDNESS fails
 --     with it.  Completeness does not, because Â§4 never used
---     transitivity â” which is the inversion: on this carrier the
+--     transitivity â€” which is the inversion: on this carrier the
 --     exclusion set determines the term, and the term does not determine
 --     the exclusion set.
 --
@@ -265,9 +265,9 @@ apohaForEquivalencesâ†’DNE ac P nnp =
 decSameInterval : (i j : Sounding) â†’ Dec (SameInterval i j)
 decSameInterval (a , b) (c , d) = discreteâ„• (a Â· d) (c Â· b)
 
--- Completeness holds on all of â• — â•.  Robinson's reduction, in one
+-- Completeness holds on all of â„• Ã— â„•.  Robinson's reduction, in one
 -- line: the whole content of the theorem is the decision of the
--- diophantine equation aÂd = cÂb in four unknowns, and nothing else.
+-- diophantine equation aÂ·d = cÂ·b in four unknowns, and nothing else.
 theIntervalIsFixedByItsExclusions :
   (i j : Sounding) â†’ SameExcl SameInterval i j â†’ SameInterval i j
 theIntervalIsFixedByItsExclusions =
@@ -285,11 +285,11 @@ soundnessFailsOnSoundings h =
 ------------------------------------------------------------------------
 -- 7.  The repair, and what it costs.
 --
---     `Soundingâº` writes the second string length as `suc n`, so it is
+--     `Soundingâº` writes the second string length as `suc n`, so it is
 --     never zero.  Transitivity then holds, by cancellation
---     (`inj-Âsm`), and both apoha directions hold.  Note what happened:
+--     (`inj-Â·sm`), and both apoha directions hold.  Note what happened:
 --     the richer carrier did not discharge a condition, it supplied the
---     cancellation the condition needed â” the `RnaDhana_*` finding,
+--     cancellation the condition needed â€” the `RnaDhana_*` finding,
 --     arriving from the other side.
 ------------------------------------------------------------------------
 
@@ -345,8 +345,8 @@ theSoundingIsExactlyItsExclusions-complete = apoha-complete SameIntervalâº refl
 -- The Bauddha reads the same theorems as his own position, sharpened.
 -- What Â§4 imports is a decision, not a universal.  A decision is a
 -- cognitive act; it is not a *smnya* residing in particulars, whose
--- existence he denies.  And Â§3 is his floor: reflexivity â” a thing does
--- not exclude itself â” is the only positive premise, and it is not a
+-- existence he denies.  And Â§3 is his floor: reflexivity â€” a thing does
+-- not exclude itself â€” is the only positive premise, and it is not a
 -- universal either.
 --
 -- What each would say to the other about Â§5, stated because the dispute

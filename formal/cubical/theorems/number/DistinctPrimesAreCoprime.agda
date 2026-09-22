@@ -6,31 +6,31 @@
 -- The last link in the chain `BezoutIsGCD` Â§5 names.
 --
 --   `Kuttaka.bezout`     ryabhaa's procedure returns the multipliers
---   `CoprimePowers`      certificates compose: coprime bases âŸ coprime powers
+--   `CoprimePowers`      certificates compose: coprime bases âŸ¹ coprime powers
 --   `BezoutIsGCD`        a certificate is an `isGCD _ _ 1`
---   `CRTChain`           `isGCD` data âŸ the residue equivalence
+--   `CRTChain`           `isGCD` data âŸ¹ the residue equivalence
 --   HERE                 distinct primes are coprime
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE STATEMENT
 --
 --     distinct-primes-coprime :
---       IsPrime p â’ IsPrime q â’ Â (p â‰¡ q) â’ isGCD p q 1
+--       IsPrime p â†’ IsPrime q â†’ Â¬ (p â‰¡ q) â†’ isGCD p q 1
 --
 -- with `IsPrime` the definition already in this lane
 -- (`WalkJumps.IsPrime`: `1 < p` and every divisor is `1` or `p`).
 --
 -- The argument is the schoolbook one and it is three lines: a common
 -- divisor `d` of `p` and `q` is `1` or `p` by primality of `p`; if it is
--- `p` then `p âˆ q`, so `p` is `1` or `q` by primality of `q`; `p â‰  1`
+-- `p` then `p âˆ£ q`, so `p` is `1` or `q` by primality of `q`; `p â‰  1`
 -- because `1 < p`, and `p â‰  q` by hypothesis.  So `d â‰¡ 1`.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS NOW COMPLETE
 --
 -- Combining with `CoprimePowers` and `BezoutIsGCD`, the walk's residue
 -- count is available at EVERY frontier and not only at named ones, given
--- the primality of the installed bases â” which `WalkPrimePowers` supplies
+-- the primality of the installed bases â€” which `WalkPrimePowers` supplies
 -- and `PrimalityDecision.decIsPrime` decides.
 --
 -- What made this the last link rather than the first is worth recording:
@@ -115,7 +115,7 @@ coprime-2-3 = distinct-primes-coprime 2 3 prime-2 prime-3 2â‰¢3
 -- 4.  The chain is closed.
 --
 -- `distinct-primes-coprime` + `CoprimePowers.coprime-powers` +
--- `BezoutIsGCD.bezNâ’isGCD` + `CRTChain.crtChain` is the walk's residue
+-- `BezoutIsGCD.bezNâ†’isGCD` + `CRTChain.crtChain` is the walk's residue
 -- count from primality alone, with `LosslessLowerBound` making the count
 -- a minimum and `OptimalObservation` making "optimal" a definition rather
 -- than a word.

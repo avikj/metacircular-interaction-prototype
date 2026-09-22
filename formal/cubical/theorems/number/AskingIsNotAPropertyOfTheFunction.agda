@@ -6,7 +6,7 @@
 -- Whether a definition asks a decision is a property of the definition,
 -- not of the function the definition computes.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT PROVOKED THIS
 --
 -- calls it mechanical:
@@ -14,38 +14,38 @@
 --   "installed cognition reduces to `refl`; description needs a proof
 --    from outside"
 --
--- and its exhibit is `BhedaAvatarana.àà•àà¦à : ààà¦ (suc a)(suc b) â‰¡
--- à—ààà° (ààà¦ a b)`, which is `refl`, where the same equation for a
+-- and its exhibit is `BhedaAvatarana.à¤à¤•à¤ªà¤¦à¥‡ : à¤­à¥‡à¤¦ (suc a)(suc b) â‰¡
+-- à¤—à¤­à¥€à¤° (à¤­à¥‡à¤¦ a b)`, which is `refl`, where the same equation for a
 -- `discreteâ•`-driven descent is not.
 --
--- The criterion is real â” `àà•àà¦à`
+-- The criterion is real â€” `àà•àà¦à`
 -- IS `refl`.  What is proved here is where
 -- the criterion lives.  It is a predicate on PRESENTATIONS, and no
 -- invariant of the computed function can report it.  So it cannot be
 -- checked by a type, and this is why `Jiva.agda` had to be read rather
 -- than type-checked to establish that the lane is decisionless.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE TWO PRESENTATIONS
 --
---   peel  : â• â’ â• â’ â•     falls by structure, never asks
---   askâ•  : â• â’ â• â’ â•     `verdict (discreteâ• a b)`, asks once
+--   peel  : â„• â†’ â„• â†’ â„•     falls by structure, never asks
+--   askâ„•  : â„• â†’ â„• â†’ â„•     `verdict (discreteâ„• a b)`, asks once
 --
--- `sameFunction : peel â‰¡ askâ•` (funext, twice).  They are one function.
+-- `sameFunction : peel â‰¡ askâ„•` (funext, twice).  They are one function.
 -- `asks byStructure â‰¡ false`, `asks byDecision â‰¡ true`.  Hence the
 -- collision, hence the obstruction.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- IN WHICH RESPECT EACH ASKS LESS â” no ranking, both directions checked
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- IN WHICH RESPECT EACH ASKS LESS â€” no ranking, both directions checked
 --
 -- `peel` asks less of the PROVER: its step law `peel (suc a)(suc b) â‰¡
 -- peel a b` is `refl`.  This is the note's criterion, and it holds.
 --
 -- `ask` asks less of the AUTHOR: it is ONE definition, uniform in
--- `Discrete A`, and is instantiated below at both â• and Bool from the
--- same line.  `peel` is a case tree over â•'s constructors and has to be
--- rewritten for every new carrier.  The step law `askâ• (suc a)(suc b) â‰¡
--- askâ• a b` is still available â” `ask-step` proves it â” but its proof
+-- `Discrete A`, and is instantiated below at both â„• and Bool from the
+-- same line.  `peel` is a case tree over â„•'s constructors and has to be
+-- rewritten for every new carrier.  The step law `askâ„• (suc a)(suc b) â‰¡
+-- askâ„• a b` is still available â€” `ask-step` proves it â€” but its proof
 -- routes through `peel`, which is the honest form of the note's point:
 -- not "the decided version lacks the law", but "the decided version's
 -- law is a theorem where the structural version's is a reduction."
@@ -96,7 +96,7 @@ askBool : Bool â†’ Bool â†’ â„•
 askBool = ask discreteBool
 
 ------------------------------------------------------------------------
--- 2.  The structural presentation: â• only, falls by constructors
+-- 2.  The structural presentation: â„• only, falls by constructors
 ------------------------------------------------------------------------
 
 peel : â„• â†’ â„• â†’ â„•
@@ -185,7 +185,7 @@ no-invariant-of-the-function-reports-asking (f , h) =
 ------------------------------------------------------------------------
 -- 6.  The consequence for the decisionless discipline
 --
--- "proclaimed 'no checking' yet used `discreteâ•`", was flagged, and was
+-- "proclaimed 'no checking' yet used `discreteâ„•`", was flagged, and was
 -- kept out of the `Jiva` closure.  Â§5 says why that had to be caught by
 -- reading and could not have been caught by the build: the closure
 -- type-checks the functions, and asking is invisible to every invariant

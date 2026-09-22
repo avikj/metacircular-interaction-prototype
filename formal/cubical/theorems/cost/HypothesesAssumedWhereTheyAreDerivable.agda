@@ -3,21 +3,21 @@
 ------------------------------------------------------------------------
 -- HypothesesAssumedWhereTheyAreDerivable
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE QUESTION
 --
 -- At each site that ASSUMES a hypothesis â”
--- `isSet T`, `Discrete T`, stable paths, `Answerable`, `Dec` â” is the
+-- `isSet T`, `Discrete T`, stable paths, `Answerable`, `Dec` â€” is the
 -- hypothesis derivable there?  That question has failing instances.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE FINDING
 --
 -- `ExclusionRecoversGroundAtAPrice` Â§6 assumes BOTH
 --
 --     (isSetT : isSet T) (discT : Discrete T)
 --
--- and `Discreteâ’isSet` is in the library.  The first hypothesis is
+-- and `Discreteâ†’isSet` is in the library.  The first hypothesis is
 -- derivable from the second at that site: it is redundant.
 --
 -- `WhereTheTowerCanStillBeThree` Â§3 assumes `isSet T` alongside
@@ -25,31 +25,31 @@
 -- the reason is exact: Hedberg's argument needs stability at ALL pairs
 -- of the type, and stability along the image of a particular `t` does
 -- not give it.  Strengthening the hypothesis to `Separated T` makes
--- `isSet T` derivable there too â” at the cost of assuming stability
+-- `isSet T` derivable there too â€” at the cost of assuming stability
 -- where none was needed.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- SO THERE ARE TWO FORMS AND NEITHER DOMINATES
 --
--- ààà¯à¾àà â” in the respect of path-stability demanded, the pointwise
+-- à¤¸à¥à¤¯à¤¾à¤¤à¥ â€” in the respect of path-stability demanded, the pointwise
 --          form asks less: only the pairs `t` actually compares;
--- ààà¯à¾àà â” in the respect of hypothesis COUNT, the separated form asks
+-- à¤¸à¥à¤¯à¤¾à¤¤à¥ â€” in the respect of hypothesis COUNT, the separated form asks
 --          less: one hypothesis instead of two, since Hedberg supplies
 --          the other.
 --
--- These are two à¨à¯s and the collision between them is not a defect to
+-- These are two à¤¨à¤¯s and the collision between them is not a defect to
 -- be resolved by picking one.  Aneknta licenses a collapse only where
 -- there is agreement; here the two forms disagree about which
 -- hypothesis is cheap, and a module that shipped only one of them
 -- would be asserting a standpoint by denying the other.  Both are
 -- proved below.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   Â§1  the derivability chain, quoted from the library so the claim
 --       is checkable at a glance rather than asserted;
---   Â§2  the Â§6 statement with `isSet T` DROPPED â” same conclusion,
+--   Â§2  the Â§6 statement with `isSet T` DROPPED â€” same conclusion,
 --       one fewer hypothesis;
 --   Â§3  the Â§3 statement in separated form, `isSet T` dropped, and the
 --       pointwise form beside it with `isSet T` retained, so the two

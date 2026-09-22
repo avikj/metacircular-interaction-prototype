@@ -3,13 +3,13 @@
 ------------------------------------------------------------------------
 -- PerspectiveCore
 --
--- THE GENERAL TOOLKIT OF THE ANEKNTA�UNIVALENCE DELTAS, as terms.
+-- THE GENERAL TOOLKIT OF THE ANEKĀNTA–UNIVALENCE DELTAS, as terms.
 --
--- Delta 14 is a theorem factory: it lists results across sections A�O,
+-- Delta 14 is a theorem factory: it lists results across sections A–O,
 -- most of them standard, and asks for the exact ones to be made
 -- executable in the machine core.  `CenterRelative` does
--- §A's specific object (T14.1�T14.2, C14.3, Program 14.71).  THIS file
--- does the parts of §§A, C, D, H that are about no particular object �
+-- §A's specific object (T14.1–T14.2, C14.3, Program 14.71).  THIS file
+-- does the parts of §§A, C, D, H that are about no particular object —
 -- the reusable lemmas every later perspective comparison will consume.
 --
 -- WHAT IS CHECKED, BY DELTA-14 NUMBER
@@ -19,22 +19,22 @@
 --                            along `e`, the equivalence restricts.
 --       `restricts-nec`      T14.6, necessary direction, in the form
 --                            that is actually true (see below).
---       `sector-not-inv`     C14.7: an inhabitant of `A� a` with `B� (e a)`
+--       `sector-not-inv`     C14.7: an inhabitant of `A₊ a` with `B₊ (e a)`
 --                            uninhabited is exactly an obstruction to
---                            restriction � so ambient equivalence can
+--                            restriction — so ambient equivalence can
 --                            fail after sector selection, and the reason
 --                            is always non-invariance of the predicate.
 --
---   §C  `conj-iterate`       T14.14: `(f��)� = e ∘ f� ∘ e��`, by induction.
+--   §C  `conj-iterate`       T14.14: `(fᵉ)ⁿ = e ∘ fⁿ ∘ e⁻¹`, by induction.
 --       `conj-fixed`         C14.15 for fixed points: `e` carries
---                            `Fix f` to `Fix f��` as an equivalence.
+--                            `Fix f` to `Fix fᵉ` as an equivalence.
 --                            Periods follow from `conj-iterate` and are
 --                            stated for period n as `conj-per`.
 --
---   §D  `section�inhabited`  T14.21: a section makes every fibre
---                            inhabited �
---       `inhabited�contr`    � and NOT contractible, with the witness
---                            `Bool` � an inhabited non-contractible
+--   §D  `section→inhabited`  T14.21: a section makes every fibre
+--                            inhabited …
+--       `inhabited↛contr`    … and NOT contractible, with the witness
+--                            `Bool` — an inhabited non-contractible
 --                            fibre exists, so the implication genuinely
 --                            fails rather than merely being unproved.
 --       `constMonodromy`     P14.24: for the constant two-point family
@@ -44,22 +44,22 @@
 --       `twoPointNoObstr`    C14.25, stated as the contrapositive that
 --                            is usable: exhibiting a two-element fibre
 --                            does not exhibit an obstruction, because
---                            `B � Bool � B` has two-element fibres and
+--                            `B × Bool → B` has two-element fibres and
 --                            trivial transport throughout.
 --
 --   §H  `restrict-fibre`     T14.44: a total-space map restricts to the
---                            fibre over `c�` exactly when its base
---                            component fixes `c�`.
+--                            fibre over `c₀` exactly when its base
+--                            component fixes `c₀`.
 --       `transport-back`     T14.45: and if the base component moves
---                            `c�` to `c�`, a path `c� ≡ c�` returns the
---                            output to `G c�` by transport.
+--                            `c₀` to `c₁`, a path `c₁ ≡ c₀` returns the
+--                            output to `G c₀` by transport.
 --
 -- WHY T14.6's "IFF" IS SPLIT AND NOT PROVED AS STATED
 --
--- Delta 14 states T14.6 as an iff: *"e restricts to A� � B� iff
--- A�(a) � B�(e a) for all a"*.  Read literally in a proof-relevant
--- setting that is FALSE in the � direction, and the file says so rather
--- than quietly weakening it.  A restriction `� A A� � � B B�` need not
+-- Delta 14 states T14.6 as an iff: *"e restricts to A₊ ≃ B₊ iff
+-- A₊(a) ↔ B₊(e a) for all a"*.  Read literally in a proof-relevant
+-- setting that is FALSE in the ← direction, and the file says so rather
+-- than quietly weakening it.  A restriction `Σ A A₊ ≃ Σ B B₊` need not
 -- arise from fibrewise maps at all: it may permute the base.  What IS
 -- true, and is `restricts-nec` below, is the direction that gets used:
 -- if the restriction is *over* `e` (i.e. its first component is `e`),
@@ -117,7 +117,7 @@ SectorBreak : (e : A ≃ B) (A₊ : A → Type ℓ'') (B₊ : B → Type ℓ'') 
 SectorBreak {A = A} e A₊ B₊ =
   Σ[ a ∈ A ] (A₊ a × (B₊ (equivFun e a) → ⊥))
 
--- � and a break really does obstruct: no fibrewise correspondence can
+-- … and a break really does obstruct: no fibrewise correspondence can
 -- exist once one is exhibited.
 sector-not-inv :
   (e : A ≃ B) (A₊ : A → Type ℓ'') (B₊ : B → Type ℓ'')
@@ -129,8 +129,8 @@ sector-not-inv e A₊ B₊ (a , inSector , notInImage) h =
 ------------------------------------------------------------------------
 -- C.  CONJUGATION  (T14.14, C14.15)
 --
--- Delta 14 §C: `f�� = e ∘ f ∘ e��`, and everything conjugacy-invariant
--- transports.  `CenterRelative.transport-�-is-�` is the instance; this
+-- Delta 14 §C: `fᵉ = e ∘ f ∘ e⁻¹`, and everything conjugacy-invariant
+-- transports.  `CenterRelative.transport-τ-is-ρ` is the instance; this
 -- is the general statement.
 ------------------------------------------------------------------------
 
@@ -150,14 +150,14 @@ conj-iterate e f (suc n) b =
     cong (conj e f) (conj-iterate e f n b)
   ∙ cong (equivFun e ∘ f) (retEq e (iter f n (invEq e b)))
 
--- C14.15, fixed points.  A fixed point of `f` is a fixed point of `f��`.
+-- C14.15, fixed points.  A fixed point of `f` is a fixed point of `fᵉ`.
 conj-fixed :
   (e : A ≃ B) (f : A → A) (a : A) → f a ≡ a
   → conj e f (equivFun e a) ≡ equivFun e a
 conj-fixed e f a p =
   cong (equivFun e ∘ f) (retEq e a) ∙ cong (equivFun e) p
 
--- C14.15, periods.  `a` has period `n` under `f` iff `e a` does under `f��`.
+-- C14.15, periods.  `a` has period `n` under `f` iff `e a` does under `fᵉ`.
 conj-per :
   (e : A ≃ B) (f : A → A) (n : ℕ) (a : A) → iter f n a ≡ a
   → iter (conj e f) n (equivFun e a) ≡ equivFun e a
@@ -181,8 +181,8 @@ section→inhabited :
   → (b : B) → fiber q b
 section→inhabited q s sect b = s b , sect b
 
--- � but NOT contractible, and here is the witness rather than the
--- assertion: the first projection `B � Bool � B` has a section, and its
+-- … but NOT contractible, and here is the witness rather than the
+-- assertion: the first projection `B × Bool → B` has a section, and its
 -- fibre over any `b` contains two distinct points.
 module TwoPointFibre {B : Type ℓ} (b : B) where
 
@@ -207,7 +207,7 @@ module TwoPointFibre {B : Type ℓ} (b : B) where
 
 -- P14.24.  For a CONSTANT family over any base, transport along any path
 -- is the identity.  So "the fibre has two points" supplies no monodromy
--- whatsoever � the sheets are never exchanged.
+-- whatsoever — the sheets are never exchanged.
 constMonodromy :
   {B : Type ℓ} {C : Type ℓ'} {b b' : B} (p : b ≡ b') (x : C)
   → subst (λ _ → C) p x ≡ x
@@ -217,10 +217,10 @@ constMonodromy p x = transportRefl x
 --
 -- **A residual bit is not an obstruction.**  If someone exhibits a
 -- two-element fibre and calls it a binary obstruction, the above is the
--- counterexample: `B � Bool � B` has two-element fibres over every point,
+-- counterexample: `B × Bool → B` has two-element fibres over every point,
 -- admits a section, and has trivial transport along every loop.  What an
--- obstruction requires is that some loop ACT nontrivially on the fibre �
--- sheet exchange � and that is a strictly further fact which must be
+-- obstruction requires is that some loop ACT nontrivially on the fibre —
+-- sheet exchange — and that is a strictly further fact which must be
 -- exhibited separately.
 --
 -- Recorded as a type so that a claim of an obstruction has
@@ -231,13 +231,13 @@ MonodromyOf F b p = Σ[ x ∈ F b ] (subst F p x ≡ x → ⊥)
 
 -- P14.24 / C14.25.  A CONSTANT two-sheet family over any base admits no
 -- monodromy at all: every loop acts as the identity.  Together with the
--- module above � two distinct points in the fibre, and a section � this
+-- module above — two distinct points in the fibre, and a section — this
 -- is the counterexample in full: two-element fibres, a section, and
 -- trivial transport along every loop.  So neither "the fibre has two
 -- elements" nor "a section exists" is evidence of an obstruction.
 --
 -- **THE GENERAL STATEMENT.**  `SetBaseNoMonodromy.setNoMonodromy` proves
--- it for EVERY family over a base that is a set � no trivialisation
+-- it for EVERY family over a base that is a set — no trivialisation
 -- needed, because over a 0-type `p ≡ refl` and there is no loop to act.
 -- So the constant-family restriction below is not the general statement;
 -- it is the special case that happens to need no hypothesis on the base.
@@ -256,8 +256,8 @@ twoSheetNoObstr = constNoMonodromy Bool
 ------------------------------------------------------------------------
 -- H.  GRADED / DEPENDENT CHARGE  (T14.44, T14.45, C14.46)
 --
--- Delta 14 §H: charge as a dependent index `G : C � U`, the
--- grand-canonical object as the total space `� C G`, a fixed charge as a
+-- Delta 14 §H: charge as a dependent index `G : C → U`, the
+-- grand-canonical object as the total space `Σ C G`, a fixed charge as a
 -- fibre.  When does a transformation of the total space restrict to a
 -- sector?
 ------------------------------------------------------------------------
@@ -270,16 +270,16 @@ module Graded {C : Type ℓ} (G : C → Type ℓ') where
   base : Total → C
   base = fst
 
-  -- T14.44.  A total-space map restricts to the fibre over `c�` exactly
-  -- when its base component fixes `c�`.
+  -- T14.44.  A total-space map restricts to the fibre over `c₀` exactly
+  -- when its base component fixes `c₀`.
   restrict-fibre :
     (T : Total → Total) (c₀ : C)
     → ((g : G c₀) → base (T (c₀ , g)) ≡ c₀)
     → G c₀ → G c₀
   restrict-fibre T c₀ fixes g = subst G (fixes g) (T (c₀ , g) .snd)
 
-  -- T14.45.  If instead the base component sends `c�` to some `c�`, a
-  -- supplied path returns the output to `G c�` by transport.  This is
+  -- T14.45.  If instead the base component sends `c₀` to some `c₁`, a
+  -- supplied path returns the output to `G c₀` by transport.  This is
   -- C14.46: canonical closure is index preservation *up to specified
   -- transport*, and the path is data, not a side condition.
   transport-back :

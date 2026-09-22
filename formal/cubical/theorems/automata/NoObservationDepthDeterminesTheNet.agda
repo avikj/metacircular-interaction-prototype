@@ -76,8 +76,8 @@ propagatePreservesRootAtEveryDepth action (suc n) net =
 --
 -- `delay d v net` shows the fixed view `v` for the first `d`
 -- observations and then `net`.  Two nets so delayed agree at every depth
--- BELOW `d` � expressed as `suc k + n`, so the bound is structural and
--- no order relation is needed � and at depth `d` they show their own
+-- BELOW `d` — expressed as `suc k + n`, so the bound is structural and
+-- no order relation is needed — and at depth `d` they show their own
 -- heads, which may differ.
 ------------------------------------------------------------------------
 
@@ -139,9 +139,9 @@ theNetIsNotDeterminedAtAnyDepth k n =
 ------------------------------------------------------------------------
 -- 5.  The two halves, side by side
 --
--- §2: the ROOT is reached by observation � at every depth, and the base
+-- §2: the ROOT is reached by observation — at every depth, and the base
 -- case is `RootedIndraTotal`'s own `refl`.
--- §3�§4: the NET is not � for every depth there are two nets agreeing
+-- §3–§4: the NET is not — for every depth there are two nets agreeing
 -- everywhere below it and differing at it.
 --
 -- Which is the exact content of the shelf's disclaimer: a finite/

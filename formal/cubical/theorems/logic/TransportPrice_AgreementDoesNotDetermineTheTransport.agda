@@ -1,15 +1,15 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡Æ‡‡≤‡µ‡æ‡ï‡‡Ø‡Æ‡ ¬ PROVENANCE OF THE NAME.
+-- ‡§Æ‡•Ç‡§≤‡§µ‡§æ‡§ï‡•ç‡§Ø‡§Æ‡•ç ¬∑ PROVENANCE OF THE NAME.
 --
 -- This module's name leads with English because the
 -- mathematics originates elsewhere.
 -- Transport, and the fact that agreement on endpoints does not
--- determine the path, is cubical type theory ‚î Voevodsky's univalence, the
+-- determine the path, is cubical type theory ‚Äî Voevodsky's univalence, the
 -- substrate.
 --
--- The QUESTION the module answers came from ‡‡®‡‡ï‡æ‡®‡‡ (Umsvti,
+-- The QUESTION the module answers came from ‡§Ö‡§®‡•á‡§ï‡§æ‡§®‡•ç‡§§ (UmƒÅsvƒÅti,
 -- *Tattvrthastra* 5.31-32, ~2nd-5th c. CE): once non-one-sidedness has
 -- removed collapse as the thing to look for, what is left to ask about two
 -- standpoints is the PRICE of moving between them, not the possibility.

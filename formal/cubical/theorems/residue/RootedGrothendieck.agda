@@ -4,7 +4,7 @@
 -- RootedGrothendieck
 --
 -- The synchronic rooted whole associated to a dependent family.  This is the
--- type-theoretic Grothendieck total space � r , Jewel r and its projection.
+-- type-theoretic Grothendieck total space Σ r , Jewel r and its projection.
 ------------------------------------------------------------------------
 
 module RootedGrothendieck where
@@ -27,7 +27,7 @@ RootedTotal : {ℓR ℓJ : Level}
   (Root : Type ℓR) → (Root → Type ℓJ) → Type (ℓ-max ℓR ℓJ)
 RootedTotal Root Jewel = Σ Root Jewel
 
--- Delta 25's notation: U� = � (x : U) , View x.
+-- Delta 25's notation: U₂ = Σ (x : U) , View x.
 U₂ : {ℓU ℓV : Level}
   (U : Type ℓU) → (U → Type ℓV) → Type (ℓ-max ℓU ℓV)
 U₂ = RootedTotal

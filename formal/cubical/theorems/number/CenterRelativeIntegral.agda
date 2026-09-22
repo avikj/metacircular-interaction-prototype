@@ -4,7 +4,7 @@
 -- CenterRelativeIntegral
 --
 -- DELTA 17 §§17.4, 17.8: WHAT THE CENTRE-RELATIVE MAP DOES WHEN 2 IS NOT
--- INVERTIBLE � which is the case at every finite place.
+-- INVERTIBLE — which is the case at every finite place.
 --
 -- `CenterRelative` proved Delta 14's T14.1 over a
 -- commutative ring **with `half`**, and its header said the hypothesis
@@ -12,19 +12,19 @@
 -- is where that bill comes due: the same centre-relative decomposition
 -- reappears at every prime, on the VALUATION pair
 --
---     s_� = v_�(p) + v_�(q),      d_� = v_�(q) − v_�(p),
+--     s_ℓ = v_ℓ(p) + v_ℓ(q),      d_ℓ = v_ℓ(q) − v_ℓ(p),
 --
--- and there the coefficients live in �, where 2 is not invertible.
+-- and there the coefficients live in ℤ, where 2 is not invertible.
 -- T17.13 records the consequence as a parity constraint, `s ≡ d mod 2`.
 --
 -- This file proves the ring-level fact BEHIND that constraint, which is
--- sharper than the congruence and needs no order and no �:
+-- sharper than the congruence and needs no order and no ℤ:
 --
 --     **the integral sum/difference map and its inverse compose to
 --     DOUBLING, not to the identity.**
 --
 -- So the defect of the centre-relative chart over a general ring is
--- exactly multiplication by 2 � and `CenterRelative`'s `half` is not a
+-- exactly multiplication by 2 — and `CenterRelative`'s `half` is not a
 -- convenience, it is precisely what divides that defect away.  Delta 15
 -- §15.2 C15.7 predicted this shape ("apparent failures of univalent
 -- transport are failures to include the relevant structure"); here the
@@ -33,21 +33,21 @@
 --
 -- WHAT IS CHECKED
 --
---   §1  `Φ�`, `Ψ`            the integral maps.  `Φ�(p,q) = (p+q, q−p)`
+--   §1  `Φ′`, `Ψ`            the integral maps.  `Φ′(p,q) = (p+q, q−p)`
 --                            takes NO division and is therefore defined
 --                            over every commutative ring; `Ψ` is
 --                            unchanged from `CenterRelative`.
 --
---   §2  `ΨΦ�-is-double`      Ψ ∘ Φ� = multiplication by 2, componentwise.
---       `Φ�Ψ-is-double`      Φ� ∘ Ψ = multiplication by 2, componentwise.
+--   §2  `ΨΦ′-is-double`      Ψ ∘ Φ′ = multiplication by 2, componentwise.
+--       `Φ′Ψ-is-double`      Φ′ ∘ Ψ = multiplication by 2, componentwise.
 --                            **These are the theorem.**  Both by the
 --                            `CommRingSolver`, so the content is visible
 --                            rather than buried in algebra.
 --
 --   §3  `image-parity-sum`   T17.13's constraint, ring-level and in both
 --       `image-parity-diff`  forms: for every `(p,q)`, the image
---                            `(s,d) = Φ�(p,q)` satisfies `s + d = 2�q`
---                            and `s − d = 2�p`.  Over � that is exactly
+--                            `(s,d) = Φ′(p,q)` satisfies `s + d = 2·q`
+--                            and `s − d = 2·p`.  Over ℤ that is exactly
 --                            `s ≡ d (mod 2)`, and here it is the stronger
 --                            statement with the witness supplied.
 --
@@ -58,9 +58,9 @@
 --                            importing, so the two files stay readable
 --                            independently.
 --
---   §5  `Q`                  the split norm `Q(p,q) = p�q` of §17.1, and
---       `�-preserves-Q`      C17.7's distinction, which Delta 17 asks be
---       `J�-negates-Q`       kept from ever being conflated:
+--   §5  `Q`                  the split norm `Q(p,q) = p·q` of §17.1, and
+--       `τ-preserves-Q`      C17.7's distinction, which Delta 17 asks be
+--       `J₂-negates-Q`       kept from ever being conflated:
 --                            **exchange preserves the norm; one-leg sign
 --                            reflection negates it.**  Two involutions,
 --                            two different fates for `Q`, both checked.
@@ -131,7 +131,7 @@ module _ (R : CommRing ℓ) where
  --
  -- Delta 17 writes it as `s ≡ d (mod 2)`.  Over a general ring the
  -- sharper statement is that the witness is available on both sides:
- -- `s + d` and `s − d` are literally `two �` something, and the
+ -- `s + d` and `s − d` are literally `two ·` something, and the
  -- somethings are the original `q` and `p`.
  ----------------------------------------------------------------------
 
@@ -164,11 +164,11 @@ module _ (R : CommRing ℓ) where
   lemJ : (p q : ⟨ R ⟩) → p · (- q) ≡ - (p · q)
   lemJ _ _ = solve! R
 
- -- The Weyl reflection preserves the split norm �
+ -- The Weyl reflection preserves the split norm …
  τ-preserves-Q : (x : Pair) → Q (τ x) ≡ Q x
  τ-preserves-Q (p , q) = lemτ p q
 
- -- � and the one-leg sign reflection negates it.  Different involutions,
+ -- … and the one-leg sign reflection negates it.  Different involutions,
  -- different sectors; C17.7 discharged.
  J₂-negates-Q : (x : Pair) → Q (J₂ x) ≡ - (Q x)
  J₂-negates-Q (p , q) = lemJ p q
@@ -186,7 +186,7 @@ module _ (R : CommRing ℓ) where
  module _ (half : ⟨ R ⟩) (half+half : half + half ≡ 1r) where
 
   private
-   -- The solver takes the QUANTIFIED goal, never the intro'd one � the
+   -- The solver takes the QUANTIFIED goal, never the intro'd one — the
    -- same convention `BUILD.md` records for `NatSolver`.
    step : (h x : ⟨ R ⟩) → h · ((1r + 1r) · x) ≡ (h + h) · x
    step _ _ = solve! R
@@ -195,7 +195,7 @@ module _ (R : CommRing ℓ) where
    halve x = step half x ∙ cong (_· x) half+half ∙ ·IdL x
 
   -- Scaling the doubled composite by `half` returns the identity, which
-  -- is `CenterRelative`'s `ΨΦ` recovered from `ΨΦ�-is-double`.
+  -- is `CenterRelative`'s `ΨΦ` recovered from `ΨΦ′-is-double`.
   half⇒retract : (p q : ⟨ R ⟩)
                → ( half · (Ψ R (Φ′ R (p , q)) .fst)
                  , half · (Ψ R (Φ′ R (p , q)) .snd) )

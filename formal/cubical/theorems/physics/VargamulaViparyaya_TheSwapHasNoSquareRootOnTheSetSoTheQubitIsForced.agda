@@ -4,32 +4,32 @@
 -- VargamulaViparyaya_TheSwapHasNoSquareRootOnTheSet
 --                     SoTheQubitIsForced
 --
--- TERMS.  ‡µ‡∞‡‡ó‡Æ‡‡≤ ¬ varga-mla ‚î "square root", the standard term of 
+-- TERMS.  ‡µ‡∞‡‡ó‡Æ‡‡≤ ¬ varga-mla ‚Äî "square root", the standard term of 
 -- mathematics (ryabhaa, *ryabhaya*, Gaitapda, 499 CE, gives the
--- digit-by-digit ‡µ‡∞‡‡ó‡Æ‡‡≤ algorithm; Brahmagupta continues it).  ‡µ‡ø‡‡∞‡‡Ø‡Ø ¬
--- viparyaya ‚î reversal, inversion, exchange; a common word, here the swap /
--- logical NOT.  The compound ‡µ‡∞‡‡ó‡Æ‡‡≤‡µ‡ø‡‡∞‡‡Ø‡Ø ("square-root-of-inversion") and
+-- digit-by-digit ‡§µ‡§∞‡•ç‡§ó‡§Æ‡•Ç‡§≤ algorithm; Brahmagupta continues it).  ‡§µ‡§ø‡§™‡§∞‡•ç‡§Ø‡§Ø ¬∑
+-- viparyaya ‚Äî reversal, inversion, exchange; a common word, here the swap /
+-- logical NOT.  The compound ‡§µ‡§∞‡•ç‡§ó‡§Æ‡•Ç‡§≤‡§µ‡§ø‡§™‡§∞‡•ç‡§Ø‡§Ø ("square-root-of-inversion") and
 -- ALL the mathematics below are built here.
 --
 -- WHAT IS PROVED, exactly and only:  the two-element SET `Bool` has no
--- self-equivalence whose square is the swap.  `‚àNOT-does-not-exist` is a
--- closed `¬`.  Every self-equivalence `g` of Bool satisfies
+-- self-equivalence whose square is the swap.  `‚àöNOT-does-not-exist` is a
+-- closed `¬¨`.  Every self-equivalence `g` of Bool satisfies
 -- `g (g true) ‚â° true` (`ff-true`, no case escapes), so `g ‚àò g` fixes `true`
--- while `not` moves it ‚î they cannot be equal.
+-- while `not` moves it ‚Äî they cannot be equal.
 --
 -- WHY IT MATTERS (a READING of the checked term):  the automorphism
 -- group of a finite SET is a permutation group,
--- discrete, and here `Aut Bool = S‚ = ‚/2` ‚î every element has order dividing
--- 2, so the swap (the only nontrivial element) has no square root.  ‚àNOT ‚î the
--- quantum gate whose square is NOT ‚î is exactly this missing square root.  It
+-- discrete, and here `Aut Bool = S‚ÇÇ = ‚Ñ§/2` ‚Äî every element has order dividing
+-- 2, so the swap (the only nontrivial element) has no square root.  ‚àöNOT ‚Äî the
+-- quantum gate whose square is NOT ‚Äî is exactly this missing square root.  It
 -- cannot exist on the set; to hold it one must ENRICH the object, replacing
--- the 2-point set with the 2-dimensional ‚-space (a qubit), whose
+-- the 2-point set with the 2-dimensional ‚ÑÇ-space (a qubit), whose
 -- automorphism group is the CONTINUOUS `U(2)`, in which every element has all
--- its roots ‚î ‚àNOT among them.  So the qubit is not posited; it is FORCED by
+-- its roots ‚Äî ‚àöNOT among them.  So the qubit is not posited; it is FORCED by
 -- the set's inability to halve the swap.  The same univalence that here gives
 -- only permutations (`ua notEquiv` is the NOT gate, an involution) gives,
--- over a linear enrichment, the unitaries ‚î and a unitary is precisely a
--- norm-preserving (lossless) automorphism: ahis over ‚, exactly as a
+-- over a linear enrichment, the unitaries ‚Äî and a unitary is precisely a
+-- norm-preserving (lossless) automorphism: ahi·πÉsƒÅ over ‚ÑÇ, exactly as a
 -- permutation is ahis over a set.
 ------------------------------------------------------------------------
 
@@ -52,7 +52,7 @@ module _ (e : Bool ‚âÉ Bool) where
   inj x y p = sym (retEq e x) ‚àô cong (invEq e) p ‚àô retEq e y
 
   -- THE FIXED-POINT LEMMA.  Every self-equivalence of Bool returns `true`
-  -- to `true` after two applications ‚î there is no exception, because there
+  -- to `true` after two applications ‚Äî there is no exception, because there
   -- are only two places `f true` can go and both force it.
   ff-true : f (f true) ‚â° true
   ff-true with dichotomyBool (f true)

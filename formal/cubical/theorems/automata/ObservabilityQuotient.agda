@@ -8,12 +8,12 @@
 -- Delta 19 calls C19.13 "a strong correction to static
 -- sufficient-interface thinking", and it is one.  The statement:
 --
---     N_obs = �_{n�0} ker(P T�)
+--     N_obs = ⋂_{n≥0} ker(P Tⁿ)
 --
---     � is T-invariant                                        (T19.12)
---     � is the future-observational equivalence               (T19.11)
---     � is a congruence for the dynamics                      (C19.36)
---     � and is STRICTLY FINER than ker P.                     (C19.13)
+--     • is T-invariant                                        (T19.12)
+--     • is the future-observational equivalence               (T19.11)
+--     • is a congruence for the dynamics                      (C19.36)
+--     • and is STRICTLY FINER than ker P.                     (C19.13)
 --
 -- The last point is the correction and it is the one that needs a
 -- witness rather than a definition, so §3 supplies one: three states,
@@ -26,7 +26,7 @@
 -- RELATION TO `SensorNerode`
 --
 -- `SensorNerode` proves that a sensor family sees a pair
--- only through `lcm S`, and that the relation determines the lcm � a
+-- only through `lcm S`, and that the relation determines the lcm — a
 -- minimality result.  That relation is **static**: it quantifies over
 -- the sensor family, not over time.  Delta 19's distinction says such a
 -- result licenses discarding a distinction only if the walk's dynamics
@@ -38,11 +38,11 @@
 -- WHAT IS CHECKED
 --
 --   §1  `iterT`, `obsAt`      the observation trajectory.
---       `InstantEq`           `ker P` � indistinguishable NOW.
---       `ForeverEq`           `N_obs` � indistinguishable at every
+--       `InstantEq`           `ker P` — indistinguishable NOW.
+--       `ForeverEq`           `N_obs` — indistinguishable at every
 --                             future step.  T19.11 by definition.
 --
---   §2  `forever�instant`     N_obs refines ker P (the easy inclusion).
+--   §2  `forever→instant`     N_obs refines ker P (the easy inclusion).
 --       `forever-invariant`   **T19.12 / T19.35 / C19.36**: `ForeverEq`
 --                             is preserved by the step, so the safe
 --                             quotient is automatically a congruence.
@@ -52,20 +52,20 @@
 --       `forever-refl/sym/trans`
 --
 --   §3  `Three`, `step`, `see`  **C19.13's witness.**  Three states with
---       `a≈b-now`               `see a ≡ see b` �
---       `a≉b-later`             � and `obsAt 1 a � obsAt 1 b`.
---       `instant�forever`       Hence `InstantEq` does NOT imply
+--       `a≈b-now`               `see a ≡ see b` …
+--       `a≉b-later`             … and `obsAt 1 a ≢ obsAt 1 b`.
+--       `instant↛forever`       Hence `InstantEq` does NOT imply
 --                               `ForeverEq`: the inclusion of §2 is
 --                               STRICT, and quotienting by instantaneous
 --                               observation is unsound.
 --
---   §4  `markov-iff-defect0`    **T19.20**, the minimal excursion�return
+--   §4  `markov-iff-defect0`    **T19.20**, the minimal excursion–return
 --                               obstruction, read off `CompressionDefect`:
 --                               the one-step compressed operator squares
 --                               to the two-step one exactly when the
 --                               defect vanishes.  Imported, not reproved.
 --
---  * **Not novel, and Delta 19 says so first**: S19.14 � "this is
+--  * **Not novel, and Delta 19 says so first**: S19.14 — "this is
 --    classical minimal realization/observability theory in the linear
 --    case.  Do not reinvent it."  S19.31 identifies the same skeleton as
 --    Mori�Zwanzig.  The contribution is
@@ -90,7 +90,7 @@ private
 
 module _ {X : Type ℓ} {Y : Type ℓ'} (T : X → X) (p : X → Y) where
 
-  -- Iterating the step.  This bracketing � push the step in first � is
+  -- Iterating the step.  This bracketing — push the step in first — is
   -- what makes `obsAt n (T x)` and `obsAt (suc n) x` DEFINITIONALLY
   -- equal, which is the whole of §2's proof.
   iterT : ℕ → X → X
@@ -157,11 +157,11 @@ see a = false
 see b = false
 see c = true
 
--- Indistinguishable now �
+-- Indistinguishable now …
 a≈b-now : InstantEq step see a b
 a≈b-now = refl
 
--- � and separated at the very next step.
+-- … and separated at the very next step.
 a≉b-later : obsAt step see 1 a ≡ obsAt step see 1 b → ⊥
 a≉b-later q = true≢false (sym q)
 
@@ -172,13 +172,13 @@ instant↛forever :
 instant↛forever f = a≉b-later (f {a} {b} a≈b-now 1)
 
 ------------------------------------------------------------------------
--- 4.  T19.20, the minimal excursion�return obstruction.
+-- 4.  T19.20, the minimal excursion–return obstruction.
 --
--- Delta 19 §19.11: "No Markovian one-step operator A = P� T P� can
+-- Delta 19 §19.11: "No Markovian one-step operator A = P₁ T P₁ can
 -- reproduce both one-step and two-step charge-one dynamics unless
--- T��T�� = 0."  In the operator setting that is exactly
+-- T₁₂T₂₁ = 0."  In the operator setting that is exactly
 -- `CompressionDefect.compression-defect` at t = s = 1, so it is imported
--- rather than reproved � the compressed one-step operator squares to the
+-- rather than reproved — the compressed one-step operator squares to the
 -- two-step one precisely when the defect vanishes.
 --
 -- Stated here as a pointer, because the theorem lives there and

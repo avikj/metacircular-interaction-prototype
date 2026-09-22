@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 module Yantra.Vada where
--- ���: the disputed propositions stated INSIDE the machine, with
--- per-instance deciders.  The � is open; every instance is closable.
+-- वाद: the disputed propositions stated INSIDE the machine, with
+-- per-instance deciders.  The ∀ is open; every instance is closable.
 
 open import Yantra.Prakriti
 open import Cubical.Foundations.Prelude
@@ -21,7 +21,7 @@ Goldbach : Type₀
 Goldbach = (m : ℕ) → 2 ≤ m →
            Σ[ p ∈ ℕ ] Σ[ q ∈ ℕ ] IsPrime p × IsPrime q × (p + q ≡ m + m)
 
--- ═══ deciding primality of the �-definition itself ═══
+-- ═══ deciding primality of the Σ-definition itself ═══
 
 noNTD→prime : (n : ℕ) → 1 < n → ¬ NTD n → IsPrime n
 noNTD→prime n 1<n ¬ntd = 1<n , everyDiv
@@ -61,7 +61,7 @@ dec< m n with m ≟ n
 
 -- ═══ per-instance deciders ═══
 
--- twins: is there a twin pair with n < p � bound?
+-- twins: is there a twin pair with n < p ≤ bound?
 twinAt : (n bound : ℕ)
        → Dec (Σ[ p ∈ ℕ ] (p ≤ bound) × (IsPrime p × IsPrime (suc (suc p)) × (n < p)))
 twinAt n bound =
@@ -83,7 +83,7 @@ extract : {P : ℕ → Type₀} {b : ℕ} → Dec (Σ[ d ∈ ℕ ] (d ≤ b) × 
 extract (yes (d , _)) = d
 extract (no _) = zero
 
--- smallest twin pair beyond 100 is (101,103): a �-PROOF, not a boolean
+-- smallest twin pair beyond 100 is (101,103): a Σ-PROOF, not a boolean
 _ : extract (twinAt 100 110) ≡ 101
 _ = refl
 

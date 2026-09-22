@@ -2,19 +2,19 @@
 
 -- SamraksanaVrddhi_TheNewEyeKeepsEveryOldDistinctionAndSeparatesAWitnessedNewOne
 --
--- ��������-������� � sarakaa, guarding/conservation; vddhi, growth
+-- संरक्षण-वृद्धिः — saṁrakṣaṇa, guarding/conservation; vṛddhi, growth
 -- (both ordinary ; vddhi is also Pini's technical name for
--- the strengthened vowel grade, Adhyy 1.1.1 vddhir daic � taken
+-- the strengthened vowel grade, Aṣṭādhyāyī 1.1.1 vṛddhir ādaic — taken
 -- here ONLY in its ordinary sense of increase).  Compound built here for
 -- U0023 (collab/upstream/raw/U0023.txt).
 --
 -- THE OTHER HALF OF THE ADMISSION GATE.  ApurvaIndriyam (imported)
 -- checked the NOVELTY criterion: one blind pair separated by a proposal
 -- refutes every possible derivation of it from the present sensorium.
--- U0023 supplies the other half � CONSERVATION:
+-- U0023 supplies the other half — CONSERVATION:
 --
 --     "Form the enlarged sensorium S'(x) = (S(x), q(x)).  The old
---      sensorium is recovered exactly: S = �� ∘ S'.  So S' is not
+--      sensorium is recovered exactly: S = π₁ ∘ S'.  So S' is not
 --      merely novel.  It is a conservative extension. ...
 --      Every old distinction remains readable, and at least one
 --      previously invisible distinction becomes visible.
@@ -22,19 +22,19 @@
 --      Temporary conservative refinement is attention."
 --
 -- WHAT IS PROVED:
---   §1  ������� � the joint eye ⟨S,q⟩, and BOTH projections are refl-
+--   §1  युगपत् — the joint eye ⟨S,q⟩, and BOTH projections are refl-
 --       factorings: the old sensorium and the proposal are each
 --       recovered from the joint reading with h = fst, h = snd.
 --       Conservation costs nothing and holds always, for every q.
 --   §2  the strict-refinement relation ≺: S ≺ S' iff S flows through
---       S' and S' does not flow through S.  Data, not truncated �
+--       S' and S' does not flow through S.  Data, not truncated —
 --       the factoring is handed over, the refutation is a function.
 --   §3  the growth theorem: a single witnessed blind pair upgrades
 --       the always-true conservation to STRICT refinement:
---       S ≺ ⟨S,q⟩.  Novelty reuses ApurvaIndriyam's �������� verbatim
---       � the two halves are one construction, exactly as U0023 says
+--       S ≺ ⟨S,q⟩.  Novelty reuses ApurvaIndriyam's अपूर्वम् verbatim
+--       — the two halves are one construction, exactly as U0023 says
 --       ("safe attention and safe organogenesis are one construction").
---   §4  what strictness refuses: ⟨S,q⟩ ≺ ⟨S,q⟩ is uninhabitable � no
+--   §4  what strictness refuses: ⟨S,q⟩ ≺ ⟨S,q⟩ is uninhabitable — no
 --       eye strictly refines itself, so growth cannot be faked by
 --       re-reading the same organ (the identity factoring on the left
 --       contradicts the required refutation on the right).
@@ -53,7 +53,7 @@ private
   variable
     ℓ ℓ' ℓ'' : Level
 
--- �� §1 � the joint eye, and conservation for free ������������������������
+-- ── §1 · the joint eye, and conservation for free ────────────────────────
 
 युगपत् : {X : Type ℓ} {O : Type ℓ'} {Q : Type ℓ''}
        → (X → O) → (X → Q) → (X → O × Q)
@@ -69,13 +69,13 @@ private
         (S : X → O) (q : X → Q) → प्रवहति (युगपत् S q) q
 पठनम् S q = snd , λ x → refl
 
--- �� §2 � strict refinement: readable one way, underivable the other ������
+-- ── §2 · strict refinement: readable one way, underivable the other ──────
 
 _≺_ : {X : Type ℓ} {O : Type ℓ'} {O' : Type ℓ''}
     → (X → O) → (X → O') → Type (ℓ-max (ℓ-max ℓ ℓ') ℓ'')
 S ≺ S' = प्रवहति S' S × (प्रवहति S S' → ⊥)
 
--- �� §3 � the growth theorem: one blind pair makes the joint eye strict ���
+-- ── §3 · the growth theorem: one blind pair makes the joint eye strict ───
 
 वृद्धिः : {X : Type ℓ} {O : Type ℓ'} {Q : Type ℓ''}
          (S : X → O) (q : X → Q) (x y : X)
@@ -88,7 +88,7 @@ S ≺ S' = प्रवहति S' S × (प्रवहति S S' → ⊥)
     ( (λ o → snd (fst jointFlows o))
     , (λ x' → cong snd (snd jointFlows x')) )
 
--- �� §4 � growth cannot be faked: no eye strictly refines itself ����������
+-- ── §4 · growth cannot be faked: no eye strictly refines itself ──────────
 
 अ-स्वातिक्रमः : {X : Type ℓ} {O : Type ℓ'}
                (S : X → O) → S ≺ S → ⊥

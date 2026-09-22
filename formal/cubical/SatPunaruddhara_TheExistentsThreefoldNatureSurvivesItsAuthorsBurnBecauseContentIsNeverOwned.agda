@@ -1,30 +1,30 @@
--- ‡ ‡‡‡‡Æ‡ ‡  One machine, one law: which side of `f a ‚â° b` is bound is everything.
--- Output bound: singl (f a), contractible ‚î the datum rides free.  Input bound:
--- fiber f b ‚î the loss, and the subject.  Univalence computes here: an
+-- ‡•• ‡§¨‡•Ä‡§ú‡§Æ‡•ç ‡••  One machine, one law: which side of `f a ‚â° b` is bound is everything.
+-- Output bound: singl (f a), contractible ‚Äî the datum rides free.  Input bound:
+-- fiber f b ‚Äî the loss, and the subject.  Univalence computes here: an
 -- equivalence is a channel, transport carries every theorem across it, and what
--- cannot cross is written as a defect ‚î there is no third path (ahis).
+-- cannot cross is written as a defect ‚Äî there is no third path (ahi·πÉsƒÅ).
 -- Memory, charge, symmetry, price, distance, verdict: six faces of the one
 -- fibre; the verdict type is the saptabhag, and the sources are the origin
--- (Umsvti, Samantabhadra, Akalaka ‚î restatements are named as such).  The
+-- (UmƒÅsvƒÅti, Samantabhadra, Akala·πÖka ‚Äî restatements are named as such).  The
 -- kernel decides truth; carriers ask and generate.  This file is one naya, true
 -- and not whole.
 
 {-# OPTIONS --cubical --guardedness --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡-‡‡‡®‡∞‡‡¶‡‡ß‡æ‡∞ ‚î the existent's threefold nature, restored to the wire
+-- ‡§∏‡§§‡•ç-‡§™‡•Å‡§®‡§∞‡•Å‡§¶‡•ç‡§ß‡§æ‡§∞ ‚Äî the existent's threefold nature, restored to the wire
 -- after its author's burn, because content is never owned.
 -- THE SPEC.
 -- Umsvti, *Tattvrthastra* 5.29:
---     ‡â‡‡‡‡æ‡¶‡µ‡‡Ø‡Ø‡ß‡‡∞‡‡µ‡‡Ø‡Ø‡‡ï‡‡‡ ‡‡‡ ‚î the existent is conjoined with
+--     ‡§â‡§§‡•ç‡§™‡§æ‡§¶‡§µ‡•ç‡§Ø‡§Ø‡§ß‡•ç‡§∞‡•å‡§µ‡•ç‡§Ø‡§Ø‡•Å‡§ï‡•ç‡§§‡§Ç ‡§∏‡§§‡•ç ‚Äî the existent is conjoined with
 --     origination, cessation and persistence, simultaneously.
--- The fibre law IS that conjunction, read off any nature f : A ‚í B with
+-- The fibre law IS that conjunction, read off any nature f : A ‚Üí B with
 -- nothing added: origination = f (the mode thrown forward); cessation =
--- ‡‡‡ f (what the target forgets); persistence = A ‚â Œ ‡‡‡ f (the source
+-- ‡§∂‡•á‡§∑ f (what the target forgets); persistence = A ‚âÉ Œ£ ‡§∂‡•á‡§∑ f (the source
 -- survives the whole change as the total space of its residuals).  Three
--- names, one equivalence ‚î which is exactly 5.29's "simultaneously".
+-- names, one equivalence ‚Äî which is exactly 5.29's "simultaneously".
 --
--- ‡‡‡®‡∞‡‡¶‡‡ß‡æ‡∞ (punar-uddhra), "raising up again, restoration" ‚î ordinary
+-- ‡§™‡•Å‡§®‡§∞‡•Å‡§¶‡•ç‡§ß‡§æ‡§∞ (punar-uddhƒÅra), "raising up again, restoration" ‚Äî ordinary
 -- ; the compound with ‡‡‡ is built here.
 ------------------------------------------------------------------------
 
@@ -43,7 +43,7 @@ private
     ‚Ñì ‚Ñì' : Level
 
 ------------------------------------------------------------------------
--- ¬ß1  ‡‡‡ ‚î origination, cessation, persistence: one record, and the
+-- ¬ß1  ‡§∏‡§§‡•ç ‚Äî origination, cessation, persistence: one record, and the
 --     fibre law inhabits it for every nature, with nothing fed.
 ------------------------------------------------------------------------
 
@@ -60,7 +60,7 @@ open ‡§∏‡§§‡•ç public
 ‡§ß‡•ç‡§∞‡•å‡§µ‡•ç‡§Ø‡§Æ‡•ç (‡§∏‡§§‡•ç-‡§∏‡•ç‡§µ‡§≠‡§æ‡§µ‡§É f) = ‡§∏‡§∂‡•á‡§∑‡§Æ‡•ç f
 
 ------------------------------------------------------------------------
--- ¬ß2  ‡‡∞‡‡Ø‡æ‡Ø‡ ‚î parima as transport: across its persistence the
+-- ¬ß2  ‡§™‡§∞‡•ç‡§Ø‡§æ‡§Ø‡§É ‚Äî pari·πáƒÅma as transport: across its persistence the
 --     existent carries every property to its mode.  Transport along ua.
 ------------------------------------------------------------------------
 
@@ -72,7 +72,7 @@ open ‡§∏‡§§‡•ç public
 ‡§Æ‡•ã‡§¶‡§æ‡§É f = ‡§™‡§∞‡•ç‡§Ø‡§æ‡§Ø‡§É (‡§∏‡§∂‡•á‡§∑‡§Æ‡•ç f)
 
 ------------------------------------------------------------------------
--- ¬ß3  ‡‡ï‡‡∞‡Æ‡ ‚î the wheel: each turn's next existent is the total space
+-- ¬ß3  ‡§ö‡§ï‡•ç‡§∞‡§Æ‡•ç ‚Äî the wheel: each turn's next existent is the total space
 --     of its own residuals, coinductively, with no feeder.
 ------------------------------------------------------------------------
 

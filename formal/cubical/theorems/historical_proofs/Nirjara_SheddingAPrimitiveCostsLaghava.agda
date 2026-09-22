@@ -1,35 +1,35 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡®‡ø‡∞‡‡‡∞‡æ at the level of the vocabulary, and what it costs.
+-- ‡§®‡§ø‡§∞‡•ç‡§ú‡§∞‡§æ at the level of the vocabulary, and what it costs.
 --
 -- Umsvti, Tattvrthastra 9.19-9.20 (~2nd-5th c.): nirjar is brought
 -- about by tapas; savipka, the shedding that happens as karma ripens,
--- gains nothing, and only avipka ‚î deliberate, before its time ‚î is a
+-- gains nothing, and only avipƒÅka ‚Äî deliberate, before its time ‚Äî is a
 -- path.  10.1: kevala-jna arises from the DESTRUCTION of the obscuring
 -- karmas, not from acquisition.
 --
 -- Taken as given: shedding an inert primitive loses no meaning and does
 -- remove the symbol, and it strictly INCREASES the presentation.  An
--- engine steered by ‡≤‡æ‡ò‡µ can never take the step.  Only ‡‡‡‡ removes a
--- primitive, and ‡‡‡‡ is the operation you do against the gradient.
+-- engine steered by ‡§≤‡§æ‡§ò‡§µ can never take the step.  Only ‡§§‡§™‡§∏‡•ç removes a
+-- primitive, and ‡§§‡§™‡§∏‡•ç is the operation you do against the gradient.
 --
 -- What the terms below establish, in the order they are stated:
 --   no invariant of the denotation sees the presentation, and saturating
 --   over every context does not reach it either; a licence is a record,
 --   not a check, and licences compose; the price of a licensed
---   translation is cofinal in ‚ï and no licensed move goes from cheap to
---   expensive; ‡â‡‡‡‡∞‡‡ó is the only move non-increasing in all three
+--   translation is cofinal in ‚Ñï and no licensed move goes from cheap to
+--   expensive; ‡§â‡§§‡•ç‡§∏‡§∞‡•ç‡§ó is the only move non-increasing in all three
 --   measures; conflict is decided by a metarule that may abstain, and the
 --   binary case does not fold; a rule carrying its own domain need not
 --   have that domain stated again, and carving is forced exactly when the
---   behaviour acts off its ‡®‡ø‡Æ‡ø‡‡‡; extent does not determine price.
+--   behaviour acts off its ‡§®‡§ø‡§Æ‡§ø‡§§‡•ç‡§§; extent does not determine price.
 --
--- ATTESTED, used as the source uses them: ‡®‡ø‡∞‡‡‡∞‡æ, ‡‡‡‡, ‡‡µ‡ø‡‡æ‡ï/‡‡µ‡ø‡‡æ‡ï;
--- ‡â‡‡Æ‡æ‡®, ‡â‡‡æ‡ß‡ø, ‡¶‡‡∞‡‡®‡Ø, ‡‡µ‡ï‡‡‡µ‡‡Ø; ‡‡®‡‡µ‡‡‡‡‡ø, ‡‡‡∞‡‡‡Ø‡æ‡‡æ‡∞, ‡‡‡µ‡æ‡¶, ‡â‡‡‡‡∞‡‡ó,
--- ‡µ‡ø‡‡‡∞‡‡ø‡‡‡ß, ‡‡‡‡‡∞, ‡‡∞‡ø‡‡æ‡‡æ; ‡≤‡ò‡/‡ó‡‡∞‡ as Pigala's pair; ‡Æ‡æ‡‡‡∞‡æ as the
--- grammarians' unit of ‡≤‡æ‡ò‡µ (‡‡∞‡‡ß‡Æ‡æ‡‡‡∞‡æ‡≤‡æ‡ò‡µ‡‡® ‡‡‡‡‡∞‡ã‡‡‡‡µ‡ ‡Æ‡®‡‡Ø‡®‡‡‡
--- ‡µ‡à‡Ø‡æ‡ï‡∞‡‡æ‡ ‚î Ngea, Paribhenduekhara ~1700; Patajali ~150 BCE).
+-- ATTESTED, used as the source uses them: ‡§®‡§ø‡§∞‡•ç‡§ú‡§∞‡§æ, ‡§§‡§™‡§∏‡•ç, ‡§∏‡§µ‡§ø‡§™‡§æ‡§ï/‡§Ö‡§µ‡§ø‡§™‡§æ‡§ï;
+-- ‡§â‡§™‡§Æ‡§æ‡§®, ‡§â‡§™‡§æ‡§ß‡§ø, ‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø, ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø; ‡§Ö‡§®‡•Å‡§µ‡•É‡§§‡•ç‡§§‡§ø, ‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§æ‡§π‡§æ‡§∞, ‡§Ö‡§™‡§µ‡§æ‡§¶, ‡§â‡§§‡•ç‡§∏‡§∞‡•ç‡§ó,
+-- ‡§µ‡§ø‡§™‡•ç‡§∞‡§§‡§ø‡§∑‡•á‡§ß, ‡§∏‡•Ç‡§§‡•ç‡§∞, ‡§™‡§∞‡§ø‡§≠‡§æ‡§∑‡§æ; ‡§≤‡§ò‡•Å/‡§ó‡•Å‡§∞‡•Å as Pi·πÖgala's pair; ‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ as the
+-- grammarians' unit of ‡§≤‡§æ‡§ò‡§µ (‡§Ö‡§∞‡•ç‡§ß‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ‡§≤‡§æ‡§ò‡§µ‡•á‡§® ‡§™‡•Å‡§§‡•ç‡§∞‡•ã‡§§‡•ç‡§∏‡§µ‡§Ç ‡§Æ‡§®‡•ç‡§Ø‡§®‡•ç‡§§‡•á
+-- ‡§µ‡•à‡§Ø‡§æ‡§ï‡§∞‡§£‡§æ‡§É ‚Äî NƒÅge≈õa, ParibhƒÅ·π£endu≈õekhara ~1700; Pata√±jali ~150 BCE).
 -- Five-term strength ranking: Ngea, Paribhenduekhara 38.
 --
 -- MINE, the  is decoration on a standard construction:

@@ -1,43 +1,43 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ààµààà â” àààààà¯ àà¨àààà ààà°ààà ààµ à
+-- à¤…à¤µà¤¶à¥‡à¤· â€” à¤¶à¥‡à¤·à¤¸à¥à¤¯ à¤¤à¤¨à¥à¤¤à¥à¤ƒ à¤¶à¥à¤°à¥‡à¤¢à¥€ à¤à¤µ à¥¤
 --
 -- (the remainder's fibre is nothing but the progression.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHY THIS EXISTS: A CLASS, NOT AN INSTANCE.
 --
--- `machine/Lopa_â¦hs` grades 1062 one-way edges in this corpus, and their
--- mass is concentrated: **237 have source â•**, and their maps are
--- overwhelmingly decision procedures and arithmetic level sets â”
+-- `machine/Lopa_â€¦hs` grades 1062 one-way edges in this corpus, and their
+-- mass is concentrated: **237 have source â„•**, and their maps are
+-- overwhelmingly decision procedures and arithmetic level sets â€”
 -- `eqb`, `chkPos`, `gtAll`, `res4`, `rangeB`, `hull`, `kron`.
 --
 -- The finite-source edges are enumerable, and a case-table emitter
--- sweeps them.  **An â•-source edge is not enumerable and no table will
+-- sweeps them.  **An â„•-source edge is not enumerable and no table will
 -- ever reach it.**  It has to be priced by an identification.
 --
 -- And a residue map has one, exactly: **the fibre of `_mod k` over `r`
--- is a copy of â•**, and the identification is the arithmetic
--- progression `q â¦ r + kÂq`.  Not a bound, not a count â” a bijection
--- with a standard type, which is what ààààà° à® demands of a receipt.
+-- is a copy of â„•**, and the identification is the arithmetic
+-- progression `q â†¦ r + kÂ·q`.  Not a bound, not a count â€” a bijection
+-- with a standard type, which is what à¤¸à¥‚à¤¤à¥à¤° à¥® demands of a receipt.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED.
 --
--- Â§à§  `ààà°ààà k r : â• â’ â•`, the progression, and that it lands in the
---     fibre: `(r + kÂq) mod k â‰¡ r` whenever `r < k`.
--- Â§à¨  **`ààµààà-àà¨àààà : fiber (_mod (suc k)) r â‰ â•`** for `r < suc k`.
+-- Â§à¥§  `à¤¶à¥à¤°à¥‡à¤¢à¥€ k r : â„• â†’ â„•`, the progression, and that it lands in the
+--     fibre: `(r + kÂ·q) mod k â‰¡ r` whenever `r < k`.
+-- Â§à¥¨  **`à¤…à¤µà¤¶à¥‡à¤·-à¤¤à¤¨à¥à¤¤à¥à¤ƒ : fiber (_mod (suc k)) r â‰ƒ â„•`** for `r < suc k`.
 --     Both round trips.  The receipt for every residue edge in the
 --     corpus, in one term.
--- Â§à©  the degenerate reading: at `r â‰ k` the fibre is EMPTY (à°à¿à•ààà®à),
---     because `mod<` bounds every value.  So the three àà™àà–àà¯à¾ are all
---     present in one family â” à°à¿à•ààà®à above the modulus, and ààà (a full
---     copy of â•) below it, with àà•à®à occurring nowhere.
+-- Â§à¥©  the degenerate reading: at `r â‰¥ k` the fibre is EMPTY (à¤°à¤¿à¤•à¥à¤¤à¤®à¥),
+--     because `mod<` bounds every value.  So the three à¤¸à¤™à¥à¤–à¥à¤¯à¤¾ are all
+--     present in one family â€” à¤°à¤¿à¤•à¥à¤¤à¤®à¥ above the modulus, and à¤¬à¤¹à¥ (a full
+--     copy of â„•) below it, with à¤à¤•à¤®à¥ occurring nowhere.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- TERM.  ààà / ààµààà â” remainder.  ryabhaa, àà°àà¯ààŸàà¯à®à à—àà¿ààà¾à¦à à©à¨â“à©à©
--- (499 CE), the kuaka: **àààà à°à•àà** â” *keep the remainder* â” and
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- TERM.  à¤¶à¥‡à¤· / à¤…à¤µà¤¶à¥‡à¤· â€” remainder.  Ä€ryabhaá¹­a, à¤†à¤°à¥à¤¯à¤­à¤Ÿà¥€à¤¯à¤®à¥ à¤—à¤£à¤¿à¤¤à¤ªà¤¾à¤¦à¤ƒ à¥©à¥¨â€“à¥©à¥©
+-- (499 CE), the kuá¹­á¹­aka: **à¤¶à¥‡à¤·à¤‚ à¤°à¤•à¥à¤·** â€” *keep the remainder* â€” and
 -- recurse on it.  The instruction that the discarded part is the object.
 -- The set his procedure's
 -- remainder ranges over IS the fibre of the residue map, which is a fact
@@ -58,7 +58,7 @@ open import Cubical.Data.Nat.Mod
 open import Cubical.Data.Empty using (âŠ¥)
 
 ------------------------------------------------------------------------
--- à§ Â ààà°ààà â” the progression, and that it lands in the fibre.
+-- à¥§ Â· à¤¶à¥à¤°à¥‡à¤¢à¥€ â€” the progression, and that it lands in the fibre.
 ------------------------------------------------------------------------
 
 à¤¶à¥à¤°à¥‡à¤¢à¥€ : (k r : â„•) â†’ â„• â†’ â„•
@@ -70,7 +70,7 @@ module _ (k r : â„•) (r<k : r < suc k) where
     K : â„•
     K = suc k
 
-  -- (r + KÂq) mod K â‰¡ r.  The multiple dies by zero-charac-gen; what is
+  -- (r + KÂ·q) mod K â‰¡ r.  The multiple dies by zero-charac-gen; what is
   -- left is r, which is already reduced because r < K.
   à¤¶à¥à¤°à¥‡à¤¢à¥€-à¤…à¤µà¤¶à¥‡à¤·à¤ƒ : (q : â„•) â†’ (r + K Â· q) mod K â‰¡ r
   à¤¶à¥à¤°à¥‡à¤¢à¥€-à¤…à¤µà¤¶à¥‡à¤·à¤ƒ q =
@@ -81,12 +81,12 @@ module _ (k r : â„•) (r<k : r < suc k) where
     âˆ™ modIndBase k r r<k
 
 ------------------------------------------------------------------------
--- à¨ Â ààµààà-àà¨àààà â” the receipt.
+-- à¥¨ Â· à¤…à¤µà¤¶à¥‡à¤·-à¤¤à¤¨à¥à¤¤à¥à¤ƒ â€” the receipt.
 --
--- `fiber (_mod K) r â‰ â•`.  Forward: take the quotient.  Backward: run
+-- `fiber (_mod K) r â‰ƒ â„•`.  Forward: take the quotient.  Backward: run
 -- the progression.  The two round trips are `â‰¡remainder+quotient` and
--- cancellation of `K Â_`, and the fibre's proof component is carried for
--- free because â• is a set.
+-- cancellation of `K Â·_`, and the fibre's proof component is carried for
+-- free because â„• is a set.
 ------------------------------------------------------------------------
 
   à¤…à¤µà¤¶à¥‡à¤·-à¤¤à¤¨à¥à¤¤à¥à¤ƒ : fiber (_mod K) r â‰ƒ â„•
@@ -98,7 +98,7 @@ module _ (k r : â„•) (r<k : r < suc k) where
     à¤¶à¥à¤°à¥‡à¤¢à¥€-à¤¤à¤¨à¥à¤¤à¥Œ : â„• â†’ fiber (_mod K) r
     à¤¶à¥à¤°à¥‡à¤¢à¥€-à¤¤à¤¨à¥à¤¤à¥Œ q = (r + K Â· q) , à¤¶à¥à¤°à¥‡à¤¢à¥€-à¤…à¤µà¤¶à¥‡à¤·à¤ƒ q
 
-    -- m â‰¡ r + KÂ(m/K), because the remainder IS r by the fibre's own witness
+    -- m â‰¡ r + KÂ·(m/K), because the remainder IS r by the fibre's own witness
     à¤µà¤¿à¤­à¤¾à¤—à¤ƒ : (m : â„•) â†’ m mod K â‰¡ r â†’ r + K Â· (quotient m / K) â‰¡ m
     à¤µà¤¿à¤­à¤¾à¤—à¤ƒ m p = cong (_+ K Â· (quotient m / K)) (sym p) âˆ™ â‰¡remainder+quotient K m
 
@@ -112,12 +112,12 @@ module _ (k r : â„•) (r<k : r < suc k) where
       Î£â‰¡Prop (Î» _ â†’ isSetâ„• _ _) (à¤µà¤¿à¤­à¤¾à¤—à¤ƒ m p)
 
 ------------------------------------------------------------------------
--- à© Â àààà â” the three counts in one family.
+-- à¥© Â· à¤¶à¥‡à¤·à¤ƒ â€” the three counts in one family.
 --
 -- Above the modulus the fibre is EMPTY: `mod<` bounds every value by K,
--- so nothing maps to an r â‰ K.  Below it the fibre is a full copy of â•.
--- **àà•à®à occurs nowhere in this family** â” a residue map is never
--- injective at any residue, and never partially so.  à°à¿à•ààà®à and ààà,
+-- so nothing maps to an r â‰¥ K.  Below it the fibre is a full copy of â„•.
+-- **à¤à¤•à¤®à¥ occurs nowhere in this family** â€” a residue map is never
+-- injective at any residue, and never partially so.  à¤°à¤¿à¤•à¥à¤¤à¤®à¥ and à¤¬à¤¹à¥,
 -- with nothing between.
 ------------------------------------------------------------------------
 

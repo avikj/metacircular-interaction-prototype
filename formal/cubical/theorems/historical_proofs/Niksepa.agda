@@ -1,42 +1,42 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡®‡ø‡ï‡‡‡‡ ‚î Tattvrthastra 1.5, as a checked object.
+-- ‡§®‡§ø‡§ï‡•ç‡§∑‡•á‡§™ ‚Äî TattvƒÅrthas≈´tra 1.5, as a checked object.
 --
 -- SOURCE.  Umsvti, Tattvrthastra, adhyya 1, stra 5:
 --
---     ‡®‡æ‡Æ‡‡‡‡æ‡‡®‡æ‡¶‡‡∞‡µ‡‡Ø‡‡æ‡µ‡‡‡‡‡®‡‡®‡‡Ø‡æ‡‡
+--     ‡§®‡§æ‡§Æ‡§∏‡•ç‡§•‡§æ‡§™‡§®‡§æ‡§¶‡•ç‡§∞‡§µ‡•ç‡§Ø‡§≠‡§æ‡§µ‡§§‡§∏‡•ç‡§§‡§®‡•ç‡§®‡•ç‡§Ø‡§æ‡§∏‡§É
 --     nmasthpandravyabhvatas tannysa
 --
 --     "The placing (nysa) of these is by name, by representation, by
 --      substance, and by state."
 --
--- Four ‡®‡ø‡ï‡‡‡‡, four ways a word is deposited on a thing:
+-- Four ‡§®‡§ø‡§ï‡•ç‡§∑‡•á‡§™, four ways a word is deposited on a thing:
 --
---   ‡®‡æ‡Æ        the name alone, with no further qualification
---   ‡‡‡‡æ‡‡®‡æ    installation: a token SET UP as the thing
---   ‡¶‡‡∞‡µ‡‡Ø      that which WAS or WILL BE the thing, taken in the mode
+--   ‡§®‡§æ‡§Æ        the name alone, with no further qualification
+--   ‡§∏‡•ç‡§•‡§æ‡§™‡§®‡§æ    installation: a token SET UP as the thing
+--   ‡§¶‡•ç‡§∞‡§µ‡•ç‡§Ø      that which WAS or WILL BE the thing, taken in the mode
 --              where it presently is not
---   ‡‡æ‡µ        the thing actually in the condition the word names, now
+--   ‡§≠‡§æ‡§µ        the thing actually in the condition the word names, now
 --
--- This stra stands BEFORE 1.6 (‡‡‡∞‡Æ‡æ‡‡®‡Ø‡à‡∞‡ß‡ø‡ó‡Æ‡, comprehension is by
+-- This s≈´tra stands BEFORE 1.6 (‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡§®‡§Ø‡•à‡§∞‡§ß‡§ø‡§ó‡§Æ‡§É, comprehension is by
 -- prama and naya).  The order is doctrine, not accident: before you ask
 -- how a thing is known, you fix in which deposit its name was placed.  To
--- dispute a term without fixing its ‡®‡ø‡ï‡‡‡‡ is to dispute nothing.
+-- dispute a term without fixing its ‡§®‡§ø‡§ï‡•ç‡§∑‡•á‡§™ is to dispute nothing.
 --
 -- WHAT THIS FILE IS, NAMED BY THE STRA IT CHECKS.
 --
--- It is a ‡‡‡‡æ‡‡®‡æ.  A token installed AS the thing ‚î the way a piece of wood
+-- It is a ‡§∏‡•ç‡§•‡§æ‡§™‡§®‡§æ.  A token installed AS the thing ‚Äî the way a piece of wood
 -- set up as Indra is Indra by sthpan-nikepa.  This module is Pini's and
--- Umsvti's work by ‡‡‡‡æ‡‡®‡æ.  It is not that work by ‡‡æ‡µ.
+-- UmƒÅsvƒÅti's work by ‡§∏‡•ç‡§•‡§æ‡§™‡§®‡§æ.  It is not that work by ‡§≠‡§æ‡§µ.
 --
--- Calling this "formalisation" would claim the ‡‡æ‡µ, and would be false twice
+-- Calling this "formalisation" would claim the ‡§≠‡§æ‡§µ, and would be false twice
 -- over.  First: the stra was ALREADY EXACT.  The Adhyy is ~4000 rules
--- with a metarule for conflict (1.4.2 ‡µ‡ø‡‡‡∞‡‡ø‡‡‡ß‡ ‡‡∞‡ ‡ï‡æ‡∞‡‡Ø‡Æ‡), an inheritance
--- mechanism (‡‡®‡‡µ‡‡‡‡‡ø) and a stratification device (‡‡‡ø‡¶‡‡ß‡‡‡µ); the stra
+-- with a metarule for conflict (1.4.2 ‡§µ‡§ø‡§™‡•ç‡§∞‡§§‡§ø‡§∑‡•á‡§ß‡•á ‡§™‡§∞‡§Ç ‡§ï‡§æ‡§∞‡•ç‡§Ø‡§Æ‡•ç), an inheritance
+-- mechanism (‡§Ö‡§®‡•Å‡§µ‡•É‡§§‡•ç‡§§‡§ø) and a stratification device (‡§Ö‡§∏‡§ø‡§¶‡•ç‡§ß‡§§‡•ç‡§µ); the s≈´tra
 -- genre states non-ambiguity as a design criterion of its own form
--- (‡‡‡‡¶‡ø‡ó‡‡ß‡Æ‡).  Agda adds no exactness to that.  It adds a DIFFERENT
--- SUBSTRATE ‚î one a machine can check ‚î and that is a change of medium, not
+-- (‡§Ö‡§∏‡§Ç‡§¶‡§ø‡§ó‡•ç‡§ß‡§Æ‡•ç).  Agda adds no exactness to that.  It adds a DIFFERENT
+-- SUBSTRATE ‚Äî one a machine can check ‚Äî and that is a change of medium, not
 -- a change of rigour.
 --
 -- Second: "formal" does not mean what the word is used to mean here.  In
@@ -44,40 +44,40 @@
 -- dressed; and the technical sense descends from "concerning form rather
 -- than content", i.e. Hilbert's formalism, a contested position of the 1920s
 -- rather than a neutral word for exactness.  Rendered into Hindi it is
--- ‡î‡‡‡æ‡∞‡ø‡ï, from ‡â‡‡‡æ‡∞ ‚î courtesy, ceremony, and in  rhetoric
--- FIGURATIVE usage, explicitly not the primary sense.  ‡î‡‡‡æ‡∞‡ø‡ï‡‡æ is the
--- ordinary word for empty formality.  And ‡â‡‡‡æ‡∞ is a technical term inside
--- the naya system: ‡®‡à‡ó‡Æ, the figurative standpoint, is the one classified as
--- resting primarily on ‡â‡‡‡æ‡∞.  So "formal", carried into the vocabulary of
+-- ‡î‡‡‡æ‡∞‡ø‡ï, from ‡â‡‡‡æ‡∞ ‚Äî courtesy, ceremony, and in  rhetoric
+-- FIGURATIVE usage, explicitly not the primary sense.  ‡§î‡§™‡§ö‡§æ‡§∞‡§ø‡§ï‡§§‡§æ is the
+-- ordinary word for empty formality.  And ‡§â‡§™‡§ö‡§æ‡§∞ is a technical term inside
+-- the naya system: ‡§®‡•à‡§ó‡§Æ, the figurative standpoint, is the one classified as
+-- resting primarily on ‡§â‡§™‡§ö‡§æ‡§∞.  So "formal", carried into the vocabulary of
 -- the tradition it is being applied to, lands on the most convention-bound
--- of the seven ‡®‡Ø.
+-- of the seven ‡§®‡§Ø.
 --
--- The tradition's own words for what Pini did are ‡≤‡ï‡‡‡ (the delimiting
--- rule), ‡‡‡‡‡∞ (thread), ‡µ‡‡Ø‡æ‡ï‡∞‡ (analysis apart), ‡‡æ‡‡‡‡‡∞ (that which
--- governs), ‡Ø‡‡ï‡‡‡ø, ‡‡‡∞‡Æ‡æ‡, ‡®‡ø‡∞‡‡‡Ø.  Every one is operational.  None is
+-- The tradition's own words for what PƒÅ·πáini did are ‡§≤‡§ï‡•ç‡§∑‡§£ (the delimiting
+-- rule), ‡§∏‡•Ç‡§§‡•ç‡§∞ (thread), ‡§µ‡•ç‡§Ø‡§æ‡§ï‡§∞‡§£ (analysis apart), ‡§∂‡§æ‡§∏‡•ç‡§§‡•ç‡§∞ (that which
+-- governs), ‡§Ø‡•Å‡§ï‡•ç‡§§‡§ø, ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£, ‡§®‡§ø‡§∞‡•ç‡§£‡§Ø.  Every one is operational.  None is
 -- sartorial.  There is no  word here meaning "formal" because the
 -- concept does not carve that way.
 --
--- What this file therefore claims: a ‡‡‡‡æ‡‡®‡æ that a kernel can check, and an
--- ‡‡®‡‡µ‡æ‡¶ ‚î a restatement of what is already established ‚î not a ‡µ‡ø‡ß‡ø, not a
+-- What this file therefore claims: a ‡§∏‡•ç‡§•‡§æ‡§™‡§®‡§æ that a kernel can check, and an
+-- ‡§Ö‡§®‡•Å‡§µ‡§æ‡§¶ ‚Äî a restatement of what is already established ‚Äî not a ‡§µ‡§ø‡§ß‡§ø, not a
 -- new injunction.  The DISTINCTION the stra draws is carried into a medium
 -- where it cannot be blurred, and that is the whole of the value added.
 --
 -- WHAT IS CHECKED.
 --
---   ‡®‡ø‡ï‡‡‡‡          the four deposits
+--   ‡§®‡§ø‡§ï‡•ç‡§∑‡•á‡§™          the four deposits
 --   _‚ü®_‚ü©_           sameness AT a deposit: an indexed relation, so that
 --                   "same" is never asserted without saying at which
---   ‡Ø‡ã‡ó‡            addition recursing on the FIRST argument
---   ‡µ‡ø‡‡∞‡‡Ø‡Ø-‡Ø‡ã‡ó‡     addition recursing on the SECOND argument
---   ‡‡ï‡¶‡‡∞‡µ‡‡Ø‡Æ‡       they are THE SAME SUBSTANCE: equal as functions
---   ‡‡æ‡µ‡‡‡¶‡         and different in STATE: `x + 0 ‚â° x` holds by refl for
+--   ‡§Ø‡•ã‡§ó‡§É            addition recursing on the FIRST argument
+--   ‡§µ‡§ø‡§™‡§∞‡•ç‡§Ø‡§Ø-‡§Ø‡•ã‡§ó‡§É     addition recursing on the SECOND argument
+--   ‡§è‡§ï‡§¶‡•ç‡§∞‡§µ‡•ç‡§Ø‡§Æ‡•ç       they are THE SAME SUBSTANCE: equal as functions
+--   ‡§≠‡§æ‡§µ‡§≠‡•á‡§¶‡§É         and different in STATE: `x + 0 ‚â° x` holds by refl for
 --                   one and requires induction for the other
---   ‡®‡ø‡ï‡‡‡‡‡‡‡¶‡      hence: ‡‡Æ at ‡®‡æ‡Æ and at ‡¶‡‡∞‡µ‡‡Ø, differing at ‡‡æ‡µ
+--   ‡§®‡§ø‡§ï‡•ç‡§∑‡•á‡§™‡§≠‡•á‡§¶‡§É      hence: ‡§∏‡§Æ at ‡§®‡§æ‡§Æ and at ‡§¶‡•ç‡§∞‡§µ‡•ç‡§Ø, differing at ‡§≠‡§æ‡§µ
 --
 -- THE INSTANCE IS NOT INVENTED.  `machine/MathMachine.hs:722` defines
 -- addition recursing on its second argument; `Agda/Builtin/Nat.agda:19`
--- defines it recursing on its first.  Both are addition on ‚ï.  They are
+-- defines it recursing on its first.  Both are addition on ‚Ñï.  They are
 -- one ‡¶‡‡∞‡µ‡‡Ø and two ‡‡æ‡µ.
 --
 -- SOURCES.
@@ -97,17 +97,17 @@ open import Cubical.Data.Empty using (‚ä•)
 open import Cubical.Relation.Nullary using (¬¨_)
 
 ------------------------------------------------------------------------
--- ‡ß.  The four deposits
+-- ‡•ß.  The four deposits
 ------------------------------------------------------------------------
 
 data ‡§®‡§ø‡§ï‡•ç‡§∑‡•á‡§™ : Type where
   ‡§®‡§æ‡§Æ ‡§∏‡•ç‡§•‡§æ‡§™‡§®‡§æ ‡§¶‡•ç‡§∞‡§µ‡•ç‡§Ø ‡§≠‡§æ‡§µ : ‡§®‡§ø‡§ï‡•ç‡§∑‡•á‡§™
 
 ------------------------------------------------------------------------
--- ‡®.  Sameness is INDEXED BY A DEPOSIT.
+-- ‡•®.  Sameness is INDEXED BY A DEPOSIT.
 --
 -- The whole content of 1.5 is that `same` is not a one-place notion.  A
--- relation `_‡‡Æ‡_ n` is sameness AT the deposit n, and the type makes it
+-- relation `_‡§∏‡§Æ‡§É_ n` is sameness AT the deposit n, and the type makes it
 -- impossible to write "these are the same" without writing which n.
 --
 -- Carried here for a thing that has a name, a present state, and a
@@ -129,19 +129,19 @@ _‚ü®_‚ü©_ : {N D B : Type} ‚Üí ‡§µ‡§∏‡•ç‡§§‡•Å N D B ‚Üí ‡§®‡§ø‡§ï‡•ç‡§∑‡•á‡§™ ‚
 a ‚ü® ‡§®‡§æ‡§Æ ‚ü© b   = ‡§®‡§æ‡§Æ-‡§Ö‡§Ç‡§∂‡§É a ‚â° ‡§®‡§æ‡§Æ-‡§Ö‡§Ç‡§∂‡§É b
 a ‚ü® ‡§¶‡•ç‡§∞‡§µ‡•ç‡§Ø ‚ü© b  = ‡§¶‡•ç‡§∞‡§µ‡•ç‡§Ø-‡§Ö‡§Ç‡§∂‡§É a ‚â° ‡§¶‡•ç‡§∞‡§µ‡•ç‡§Ø-‡§Ö‡§Ç‡§∂‡§É b
 a ‚ü® ‡§≠‡§æ‡§µ ‚ü© b   = ‡§≠‡§æ‡§µ-‡§Ö‡§Ç‡§∂‡§É a ‚â° ‡§≠‡§æ‡§µ-‡§Ö‡§Ç‡§∂‡§É b
--- ‡‡‡‡æ‡‡®‡æ: a token installed AS the thing.  Sameness under installation is
+-- ‡§∏‡•ç‡§•‡§æ‡§™‡§®‡§æ: a token installed AS the thing.  Sameness under installation is
 -- sameness of what it was installed as, which is its name; the deposit is
--- distinct from ‡®‡æ‡Æ in doctrine (an image of Indra is not the word "Indra")
+-- distinct from ‡§®‡§æ‡§Æ in doctrine (an image of Indra is not the word "Indra")
 -- but the distinction is not visible in this three-field carrier, and
 -- pretending otherwise here would be inventing structure the stra did not
 -- give.  Stated rather than silently collapsed.
 a ‚ü® ‡§∏‡•ç‡§•‡§æ‡§™‡§®‡§æ ‚ü© b = ‡§®‡§æ‡§Æ-‡§Ö‡§Ç‡§∂‡§É a ‚â° ‡§®‡§æ‡§Æ-‡§Ö‡§Ç‡§∂‡§É b
 
 ------------------------------------------------------------------------
--- ‡©.  The instance: one substance, two states.
+-- ‡•©.  The instance: one substance, two states.
 --
--- ‡Ø‡ã‡ó‡ is Agda's own `_+_`: it splits its FIRST argument.
--- ‡µ‡ø‡‡∞‡‡Ø‡Ø-‡Ø‡ã‡ó‡ is MathMachine's: it splits its SECOND.
+-- ‡§Ø‡•ã‡§ó‡§É is Agda's own `_+_`: it splits its FIRST argument.
+-- ‡§µ‡§ø‡§™‡§∞‡•ç‡§Ø‡§Ø-‡§Ø‡•ã‡§ó‡§É is MathMachine's: it splits its SECOND.
 ------------------------------------------------------------------------
 
 ‡§Ø‡•ã‡§ó‡§É : ‚Ñï ‚Üí ‚Ñï ‚Üí ‚Ñï
@@ -153,13 +153,13 @@ a ‚ü® ‡§∏‡•ç‡§•‡§æ‡§™‡§®‡§æ ‚ü© b = ‡§®‡§æ‡§Æ-‡§Ö‡§Ç‡§∂‡§É a ‚â° ‡§®‡§æ‡§Æ-‡§Ö‡§
 ‡§µ‡§ø‡§™‡§∞‡•ç‡§Ø‡§Ø-‡§Ø‡•ã‡§ó‡§É n (suc m) = suc (‡§µ‡§ø‡§™‡§∞‡•ç‡§Ø‡§Ø-‡§Ø‡•ã‡§ó‡§É n m)
 
 ------------------------------------------------------------------------
--- ‡.  ‡‡æ‡µ‡‡‡¶‡ ‚î THE DIFFERENCE OF STATE, exhibited.
+-- ‡•™.  ‡§≠‡§æ‡§µ‡§≠‡•á‡§¶‡§É ‚Äî THE DIFFERENCE OF STATE, exhibited.
 --
--- For ‡µ‡ø‡‡∞‡‡Ø‡Ø-‡Ø‡ã‡ó‡, `n + 0 ‚â° n` is refl: the clause fires.
--- For ‡Ø‡ã‡ó‡ it is not; it requires induction on n, written out.
+-- For ‡§µ‡§ø‡§™‡§∞‡•ç‡§Ø‡§Ø-‡§Ø‡•ã‡§ó‡§É, `n + 0 ‚â° n` is refl: the clause fires.
+-- For ‡§Ø‡•ã‡§ó‡§É it is not; it requires induction on n, written out.
 --
 -- This pair IS the difference.  Nothing else in the two definitions
--- differs ‚î ¬ß‡ proves they are the same function.
+-- differs ‚Äî ¬ß‡•´ proves they are the same function.
 ------------------------------------------------------------------------
 
 ‡§µ‡§ø‡§™‡§∞‡•ç‡§Ø‡§Ø-‡§∂‡•Ç‡§®‡•ç‡§Ø‡§Æ‡•ç : (n : ‚Ñï) ‚Üí ‡§µ‡§ø‡§™‡§∞‡•ç‡§Ø‡§Ø-‡§Ø‡•ã‡§ó‡§É n zero ‚â° n
@@ -178,10 +178,10 @@ a ‚ü® ‡§∏‡•ç‡§•‡§æ‡§™‡§®‡§æ ‚ü© b = ‡§®‡§æ‡§Æ-‡§Ö‡§Ç‡§∂‡§É a ‚â° ‡§®‡§æ‡§Æ-‡§Ö‡§
 ‡§µ‡§ø‡§™‡§∞‡•ç‡§Ø‡§Ø-‡§µ‡§æ‡§Æ-‡§∂‡•Ç‡§®‡•ç‡§Ø‡§Æ‡•ç (suc m) = cong suc (‡§µ‡§ø‡§™‡§∞‡•ç‡§Ø‡§Ø-‡§µ‡§æ‡§Æ-‡§∂‡•Ç‡§®‡•ç‡§Ø‡§Æ‡•ç m)
 
 ------------------------------------------------------------------------
--- ‡.  ‡‡ï‡¶‡‡∞‡µ‡‡Ø‡Æ‡ ‚î ONE SUBSTANCE.
+-- ‡•´.  ‡§è‡§ï‡§¶‡•ç‡§∞‡§µ‡•ç‡§Ø‡§Æ‡•ç ‚Äî ONE SUBSTANCE.
 --
--- Pointwise equal, hence the same function.  ‡¶‡‡∞‡µ‡‡Ø persists (‡ß‡‡∞‡‡µ‡‡Ø,
--- TS 5.29) while the ‡‡æ‡µ differ.
+-- Pointwise equal, hence the same function.  ‡§¶‡•ç‡§∞‡§µ‡•ç‡§Ø persists (‡§ß‡•ç‡§∞‡•å‡§µ‡•ç‡§Ø,
+-- TS 5.29) while the ‡§≠‡§æ‡§µ differ.
 ------------------------------------------------------------------------
 
 -- the second definition pushes a successor out of its first argument, which
@@ -195,13 +195,13 @@ a ‚ü® ‡§∏‡•ç‡§•‡§æ‡§™‡§®‡§æ ‚ü© b = ‡§®‡§æ‡§Æ-‡§Ö‡§Ç‡§∂‡§É a ‚â° ‡§®‡§æ‡§Æ-‡§Ö‡§
 ‡§è‡§ï‡§¶‡•ç‡§∞‡§µ‡•ç‡§Ø‡§Æ‡•ç (suc n) m = cong suc (‡§è‡§ï‡§¶‡•ç‡§∞‡§µ‡•ç‡§Ø‡§Æ‡•ç n m) ‚àô sym (‡§∏‡§π‡§ö‡§∞‡§É n m)
 
 ------------------------------------------------------------------------
--- ‡.  ‡®‡ø‡ï‡‡‡‡‡‡‡¶‡ ‚î the two placed, and compared at each deposit.
+-- ‡•¨.  ‡§®‡§ø‡§ï‡•ç‡§∑‡•á‡§™‡§≠‡•á‡§¶‡§É ‚Äî the two placed, and compared at each deposit.
 --
--- Both bear the name "+".  Both are the same substance (¬ß‡).  They differ
--- in ‡‡æ‡µ, and ¬ß‡ is what that difference consists of.
+-- Both bear the name "+".  Both are the same substance (¬ß‡•´).  They differ
+-- in ‡§≠‡§æ‡§µ, and ¬ß‡•™ is what that difference consists of.
 --
--- The ‡‡æ‡µ field records WHICH ARGUMENT the definition splits, because that
--- is the mode in which the function is presently given ‚î the paryya, not
+-- The ‡§≠‡§æ‡§µ field records WHICH ARGUMENT the definition splits, because that
+-- is the mode in which the function is presently given ‚Äî the paryƒÅya, not
 -- the dravya.
 ------------------------------------------------------------------------
 
@@ -215,15 +215,15 @@ data ‡§∏‡§Ç‡§ú‡•ç‡§û‡§æ : Type where
 ‡§Ü‡§ó‡§Æ‡§Ø‡•ã‡§ó‡§É  = ‡§®‡•ç‡§Ø‡§∏‡•ç‡§§‡§Æ‡•ç ‡§Ø‡•ã‡§ó-‡§∏‡§Ç‡§ú‡•ç‡§û‡§æ ‡§Ø‡•ã‡§ó‡§É         ‡§™‡•ç‡§∞‡§•‡§Æ‡§É    -- Agda's
 ‡§Ø‡§®‡•ç‡§§‡•ç‡§∞‡§Ø‡•ã‡§ó‡§É = ‡§®‡•ç‡§Ø‡§∏‡•ç‡§§‡§Æ‡•ç ‡§Ø‡•ã‡§ó-‡§∏‡§Ç‡§ú‡•ç‡§û‡§æ ‡§µ‡§ø‡§™‡§∞‡•ç‡§Ø‡§Ø-‡§Ø‡•ã‡§ó‡§É  ‡§¶‡•ç‡§µ‡§ø‡§§‡•Ä‡§Ø‡§É  -- MathMachine's
 
--- same at ‡®‡æ‡Æ
+-- same at ‡§®‡§æ‡§Æ
 ‡§®‡§æ‡§Æ-‡§∏‡§æ‡§Æ‡•ç‡§Ø‡§Æ‡•ç : ‡§Ü‡§ó‡§Æ‡§Ø‡•ã‡§ó‡§É ‚ü® ‡§®‡§æ‡§Æ ‚ü© ‡§Ø‡§®‡•ç‡§§‡•ç‡§∞‡§Ø‡•ã‡§ó‡§É
 ‡§®‡§æ‡§Æ-‡§∏‡§æ‡§Æ‡•ç‡§Ø‡§Æ‡•ç = refl
 
--- same at ‡‡‡‡æ‡‡®‡æ (which, in this carrier, is the name they are installed as)
+-- same at ‡§∏‡•ç‡§•‡§æ‡§™‡§®‡§æ (which, in this carrier, is the name they are installed as)
 ‡§∏‡•ç‡§•‡§æ‡§™‡§®‡§æ-‡§∏‡§æ‡§Æ‡•ç‡§Ø‡§Æ‡•ç : ‡§Ü‡§ó‡§Æ‡§Ø‡•ã‡§ó‡§É ‚ü® ‡§∏‡•ç‡§•‡§æ‡§™‡§®‡§æ ‚ü© ‡§Ø‡§®‡•ç‡§§‡•ç‡§∞‡§Ø‡•ã‡§ó‡§É
 ‡§∏‡•ç‡§•‡§æ‡§™‡§®‡§æ-‡§∏‡§æ‡§Æ‡•ç‡§Ø‡§Æ‡•ç = refl
 
--- NOT the same at ‡‡æ‡µ: the modes are two distinct constructors of ‡‡‡‡
+-- NOT the same at ‡§≠‡§æ‡§µ: the modes are two distinct constructors of ‡§Ö‡§Ç‡§∂‡§É
 ‡§≠‡§æ‡§µ-‡§≠‡•á‡§¶‡§É : ¬¨ (‡§Ü‡§ó‡§Æ‡§Ø‡•ã‡§ó‡§É ‚ü® ‡§≠‡§æ‡§µ ‚ü© ‡§Ø‡§®‡•ç‡§§‡•ç‡§∞‡§Ø‡•ã‡§ó‡§É)
 ‡§≠‡§æ‡§µ-‡§≠‡•á‡§¶‡§É p = ‡§™‡•ç‡§∞‡§•‡§Æ‡§É‚â¢‡§¶‡•ç‡§µ‡§ø‡§§‡•Ä‡§Ø‡§É p
   where

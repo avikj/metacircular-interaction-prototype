@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- PauliWeyl
 --
--- THE PERES�MERMIN SIGN VECTOR, DERIVED.
+-- THE PERES–MERMIN SIGN VECTOR, DERIVED.
 --
 -- The one physical input to the entire Peres�Mermin development was
 -- a trusted printout of `machinery/pm_section_cocycle.py`.  This module
@@ -15,7 +15,7 @@
 -- The representation is the Weyl/symplectic one, which is exactly why
 -- this is proof rather than simulation: a two-qubit Pauli is written
 --
---     i^e � X^{a�}Z^{b�} ⊗ X^{a�}Z^{b�},        e ∈ ��, a�,b� ∈ ��,
+--     i^e · X^{a₁}Z^{b₁} ⊗ X^{a₂}Z^{b₂},        e ∈ ℤ₄, aᵢ,bᵢ ∈ 𝔽₂,
 --
 -- a FINITE datum, so products are computed by the kernel and the six
 -- line identities are closed terms.  No matrices, no floating point,
@@ -23,31 +23,31 @@
 --
 -- WHAT IS CHECKED
 --
---   §1  `Z4`, `_+�_`         the phase group, as a four-element type
+--   §1  `Z4`, `_+₄_`         the phase group, as a four-element type
 --                            with an explicit table.
 --
---   §2  `Pauli`, `_�P_`      the two-qubit Pauli group.  The only
---       `�P-assoc`           content in the multiplication is the
+--   §2  `Pauli`, `_·P_`      the two-qubit Pauli group.  The only
+--       `·P-assoc`           content in the multiplication is the
 --       `bit-cocycle`        commutation phase `Z^b X^a = (−1)^{ab} X^a Z^b`,
 --                            carried by `tw`.  ASSOCIATIVITY IS PROVED,
---                            and this is the note's 2-cocycle identity �
+--                            and this is the note's 2-cocycle identity —
 --                            which that note verified "over all 4096
 --                            triples" in Python.  It is not 4096 cases:
---                            the phase obligation reduces to the ��
+--                            the phase obligation reduces to the 𝔽₂
 --                            identity
---                              b�a� ⊕ (b⊕b�)�a� ≡ b��a� ⊕ b�(a�⊕a�),
+--                              b·a′ ⊕ (b⊕b′)·a″ ≡ b′·a″ ⊕ b·(a′⊕a″),
 --                            i.e. distributivity of ∧ over ⊕, which is
 --                            `bit-cocycle` on 16 cases, once per qubit.
 --                            A page of algebra replacing an exhaustion.
 --
 --   §3  the nine observables and the six products.  The grid is
---       `PMTorus`'s, NOT the textbook one � this corpus uses
+--       `PMTorus`'s, NOT the textbook one — this corpus uses
 --         [[XI, IX, XX], [IY, YI, YY], [XY, YX, ZZ]]
 --       and the signs are computed for that grid.  Each of
---       `R0-product` � `C2-product` is one `refl`.
+--       `R0-product` … `C2-product` is one `refl`.
 --
 --   §4  `derived-s`          the sign vector read off §3, and
---       `derived-s≡s`        `derived-s ≡ PMCokernel.s` � the datum
+--       `derived-s≡s`        `derived-s ≡ PMCokernel.s` — the datum
 --                            PMCokernel transcribed is now the value
 --                            this module computes.  `PMCokernel`'s
 --                            `total-s`, `s-not-in-image` and the section
@@ -70,7 +70,7 @@ open import PMTorus    using (Ctx ; R0 ; R1 ; R2 ; C0 ; C1 ; C2)
 open import PMCokernel using (s)
 
 ------------------------------------------------------------------------
--- 1.  The phase group �� = ⟨i⟩.
+-- 1.  The phase group ℤ₄ = ⟨i⟩.
 ------------------------------------------------------------------------
 
 data Z4 : Type₀ where
@@ -153,7 +153,7 @@ infixl 6 _+₄_
 +₄-comm ph3 ph2 = refl
 +₄-comm ph3 ph3 = refl
 
--- Reassociation helpers.  �� is abelian, so both are chains of the two
+-- Reassociation helpers.  ℤ₄ is abelian, so both are chains of the two
 -- laws above; they are named because §2's associativity needs exactly
 -- these two rearrangements and nothing else.
 shift : (x y z : Z4) → (x +₄ y) +₄ z ≡ (x +₄ z) +₄ y
@@ -167,7 +167,7 @@ interchange a b c d =
       (sym (+₄-assoc b c d) ∙ cong (_+₄ d) (+₄-comm b c) ∙ +₄-assoc c b d)
   ∙ sym (+₄-assoc a c (b +₄ d))
 
--- The image of �� in ��: a commutation sign is (−1)^β = i^{2β}.
+-- The image of 𝔽₂ in ℤ₄: a commutation sign is (−1)^β = i^{2β}.
 tw : Bool → Z4
 tw false = ph0
 tw true  = ph2
@@ -175,10 +175,10 @@ tw true  = ph2
 ------------------------------------------------------------------------
 -- 2.  The two-qubit Pauli group.
 --
---     pauli e a� b� a� b�   �   i^e � X^{a�}Z^{b�} ⊗ X^{a�}Z^{b�}
+--     pauli e a₁ b₁ a₂ b₂   ↦   i^e · X^{a₁}Z^{b₁} ⊗ X^{a₂}Z^{b₂}
 --
 -- The product is componentwise ⊕ on the symplectic bits, and the phase
--- picks up `tw (b� ∧ a��)` per qubit � the single fact `Z^b X^a =
+-- picks up `tw (bᵢ ∧ aᵢ′)` per qubit — the single fact `Z^b X^a =
 -- (−1)^{ab} X^a Z^b`.  Everything else about the Pauli group follows
 -- from this line.
 ------------------------------------------------------------------------
@@ -207,11 +207,11 @@ Id = pauli ph0 false false false false
 -- THE COCYCLE IDENTITY, as a page of algebra.
 --
 -- "verified over all 4096 triples" by script.  The obligation is, per
--- qubit and after cancelling the �� part,
+-- qubit and after cancelling the ℤ₄ part,
 --
---     (b ∧ a�) ⊕ ((b ⊕ b�) ∧ a�)  ≡  (b� ∧ a�) ⊕ (b ∧ (a� ⊕ a�)),
+--     (b ∧ a′) ⊕ ((b ⊕ b′) ∧ a″)  ≡  (b′ ∧ a″) ⊕ (b ∧ (a′ ⊕ a″)),
 --
--- both sides being b�a� ⊕ b�a� ⊕ b��a� � distributivity of ∧ over ⊕.
+-- both sides being b·a′ ⊕ b·a″ ⊕ b′·a″ — distributivity of ∧ over ⊕.
 -- Sixteen cases, not 4096, and the sixteen are a truth table rather
 -- than a search.
 ------------------------------------------------------------------------
@@ -244,7 +244,7 @@ bit-cocycle true  true  true  true  = refl
 
 -- The two qubits' twists, reassociated across the triple product.  The
 -- only mathematical input is `bit-cocycle`, once per qubit; the rest is
--- `interchange`, i.e. that �� is abelian.
+-- `interchange`, i.e. that ℤ₄ is abelian.
 twists : (b₁ d₁ c₁ u₁ b₂ d₂ c₂ u₂ : Bool)
        → (tw (b₁ and c₁) +₄ tw (b₂ and c₂))
            +₄ (tw ((b₁ ⊕ d₁) and u₁) +₄ tw ((b₂ ⊕ d₂) and u₂))
@@ -292,8 +292,8 @@ phase-assoc e f g T U V W h =
 --        IY   YI   YY
 --        XY   YX   ZZ
 --
--- Phases come from Y = i�XZ: an observable carries `ph1` per Y factor,
--- so `YY` carries `ph2`.  That is the note's gauge cochain � = #Y,
+-- Phases come from Y = i·XZ: an observable carries `ph1` per Y factor,
+-- so `YY` carries `ph2`.  That is the note's gauge cochain φ = #Y,
 -- absorbed rather than exhibited.
 ------------------------------------------------------------------------
 
@@ -324,7 +324,7 @@ C0-product = refl
 C1-product : IX ·P YI ·P YX ≡ Id
 C1-product = refl
 
--- THE ONE THAT IS NEGATIVE.  This single term is the Peres�Mermin
+-- THE ONE THAT IS NEGATIVE.  This single term is the Peres–Mermin
 -- contradiction, and it is now computed rather than transcribed.
 C2-product : XX ·P YY ·P ZZ ≡ -Id
 C2-product = refl
@@ -332,7 +332,7 @@ C2-product = refl
 ------------------------------------------------------------------------
 -- 4.  The derived sign vector, and agreement with what was transcribed.
 --
--- ��-valued: `false` for a line whose product is +I, `true` for −I.
+-- 𝔽₂-valued: `false` for a line whose product is +I, `true` for −I.
 ------------------------------------------------------------------------
 
 derived-s : Ctx → Bool
@@ -345,7 +345,7 @@ derived-s C2 = true
 
 -- The datum `PMCokernel` calls "the only physical input to this module"
 -- is the value this module computes.  Everything PMCokernel proves
--- downstream of `s` � `total-s`, `s-not-in-image`, the section results �
+-- downstream of `s` — `total-s`, `s-not-in-image`, the section results —
 -- now rests on §3 instead of on a printout.
 derived-s≡s : (c : Ctx) → derived-s c ≡ s c
 derived-s≡s R0 = refl
@@ -359,7 +359,7 @@ derived-s≡s C2 = refl
 -- 5.  The hypotheses the argument needs.
 --
 -- A line's product is only meaningful as a joint measurement if the
--- three observables pairwise COMMUTE, and the �1 value assignment only
+-- three observables pairwise COMMUTE, and the ±1 value assignment only
 -- makes sense if each observable squares to the identity.
 ------------------------------------------------------------------------
 

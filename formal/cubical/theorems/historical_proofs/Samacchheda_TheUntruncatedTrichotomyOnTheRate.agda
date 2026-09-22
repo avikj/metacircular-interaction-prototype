@@ -3,23 +3,23 @@
 ------------------------------------------------------------------------
 -- Samacchheda_TheUntruncatedTrichotomyOnTheRate
 --
--- àà®ààààà¦ Â samacchheda â” "equal divisor": bringing two fractions to a
+-- à¤¸à¤®à¤šà¥à¤›à¥‡à¤¦ Â· samacchheda â€” "equal divisor": bringing two fractions to a
 -- common denominator, which is how the  arithmetic tradition
--- compares and combines them (bhinna-parikarma â” Brahmagupta,
+-- compares and combines them (bhinna-parikarma â€” Brahmagupta,
 -- *Brhmasphuasiddhnta* 628; Bhskara II, *Llvat*, c. 1150).
 -- Every comparison underneath this module is that operation:
--- `p Â suc q'` against `p' Â suc q` is the pair of numerators once the
+-- `p Â· suc q'` against `p' Â· suc q` is the pair of numerators once the
 -- divisors are equalised.  The
 -- operation is theirs, the type theory is not.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   isPropSum         `isProp` for a binary sum from the two component
 --                     propositions and a separator, for ARBITRARY types
---   âŠR-excludes-â‰¡     `âŸ¨ x âŠR y âŸ© â’ Â (x â‰¡ y)`, on the quotient
+--   âŠR-excludes-â‰¡     `âŸ¨ x âŠR y âŸ© â†’ Â¬ (x â‰¡ y)`, on the quotient
 --   isPropTriR        hence the three-way sum is a proposition
---   rateTrichotomy    `âŸ¨ x âŠR y âŸ© âŠ ((x â‰¡ y) âŠ âŸ¨ y âŠR x âŸ©)`,
+--   rateTrichotomy    `âŸ¨ x âŠR y âŸ© âŠ ((x â‰¡ y) âŠ âŸ¨ y âŠR x âŸ©)`,
 --                     UNTRUNCATED
 --
 -- NO NOVELTY.  Trichotomy of the rationals is classical; `isPropSum` is
@@ -66,7 +66,7 @@ isPropSum pa pb sep (inr b) (inr b') = cong inr (pb b b')
 âŠR-excludes-â‰¡ x y h e = âŠR-irrefl y (subst (Î» z â†’ âŸ¨ z âŠR y âŸ©) e h)
 
 ------------------------------------------------------------------------
--- 3.  â¦so the sum is a proposition and the truncation comes off
+-- 3.  â€¦so the sum is a proposition and the truncation comes off
 ------------------------------------------------------------------------
 
 Tri : Rate â†’ Rate â†’ Type

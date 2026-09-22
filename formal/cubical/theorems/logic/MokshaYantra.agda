@@ -1,33 +1,33 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- MokshaYantra â” the wheel that turns
+-- MokshaYantra â€” the wheel that turns
 --
 -- The three jewels made one moving thing.  NisvabhavaNet gave the net and
 -- its liberation (transport along reflection); CatuskotiPerspective gave a
 -- claim's standing across the net; PratityasamutpadaArising gave the knot
 -- that forms at a cut and ceases when the cut no longer separates.  This
--- module closes them into a cycle â” the wheel of conditioned arising and
--- its turning back (nirodha) â” as a single checked term.
+-- module closes them into a cycle â€” the wheel of conditioned arising and
+-- its turning back (nirodha) â€” as a single checked term.
 --
 -- THE RECEPTION.  Bondage and liberation are one wheel seen from two sides.
--- A sight into the net is a way of telling jewels apart (o : Jewel â’ Bool).
+-- A sight into the net is a way of telling jewels apart (o : Jewel â†’ Bool).
 -- Two kinds of sight:
 --
 --   a CLINGING sight (avidy) tells two jewels apart even where the net
---   reflects the same at both â” it manufactures a distinction the net does
+--   reflects the same at both â€” it manufactures a distinction the net does
 --   not carry.  Under it a knot ARISES between reflection-equal jewels:
 --   suffering with no ground in the things themselves.
 --
 --   a RELEASING sight respects reflection: jewels that reflect alike it
---   reports alike.  Under it no such knot CAN arise â” reflection-equal
+--   reports alike.  Under it no such knot CAN arise â€” reflection-equal
 --   jewels are absorbed, and the knot ceases (anicca).
 --
 -- The turning of the wheel is exactly this: a knot held by clinging is
 -- undone the moment the sight is replaced by one that does not cling, when
 -- the two jewels in fact reflect alike.  That undoing is NisvabhavaNet's
 -- transport.  Liberation is not adding a truth; it is dropping a sight that
--- clung â” the boundary was never in the net.
+-- clung â€” the boundary was never in the net.
 --
 -- Contents (no holes, no postulates, --safe):
 --
@@ -37,18 +37,18 @@
 --                              them, so the knot ceases (uses
 --                              Pratityasamutpada's `cessation` at the net)
 --   arising-from-clinging      IF a sight reports a reflection-equal pair
---                              apart, that split is a knot on that pair â”
+--                              apart, that split is a knot on that pair â€”
 --                              suffering that is real yet groundless.  This
 --                              is hypothetical at the pure net, and that is
 --                              itself the teaching (see the-cut-is-empty).
---   the-cut-is-empty           a sight into the net is a plain Type â’ Bool;
+--   the-cut-is-empty           a sight into the net is a plain Type â†’ Bool;
 --                              it has no own access to a jewel's essence, so
 --                              the clinging hypothesis above is not a term
 --                              one can build at the net level.  Avidy has
 --                              no own-being either: the false cut is not in
 --                              the net to be constructed.
---   the-wheel                  where sights DO split â” the two-place Boolean
---                              sub-net â” bondage and freedom turn on one
+--   the-wheel                  where sights DO split â€” the two-place Boolean
+--                              sub-net â€” bondage and freedom turn on one
 --                              pair, differing only by the sight.  This is
 --                              Pratityasamutpada's `conditioned`, reread as
 --                              the wheel: nisvabhva of the knot, turned.
@@ -86,7 +86,7 @@ Releases {â„“ = â„“} o =
 -- Cessation by release.  A sight that respects reflection cannot sustain a
 -- knot between jewels that reflect alike: it factors through them, and by
 -- Pratityasamutpada's `cessation` the knot cannot be.  Dropping the clinging
--- IS the liberation â” no new truth added, only a false cut let go.
+-- IS the liberation â€” no new truth added, only a false cut let go.
 ------------------------------------------------------------------------
 
 cessation-by-release : (o : Sight â„“) â†’ Releases o
@@ -96,7 +96,7 @@ cessation-by-release o rel A B e = cessation o A B (rel A B e)
 
 ------------------------------------------------------------------------
 -- Arising from clinging.  IF a sight reports a reflection-equal pair apart,
--- that split is a knot on exactly that pair â” a knot that is real (it
+-- that split is a knot on exactly that pair â€” a knot that is real (it
 -- splits) yet groundless (the jewels reflect alike).  Stated as an
 -- implication, because at the pure net its hypothesis cannot be built.
 ------------------------------------------------------------------------
@@ -108,13 +108,13 @@ arising-from-clinging : (o : Sight â„“) (A B : Jewel â„“)
 arising-from-clinging o A B _ sp = A , B , sp
 
 ------------------------------------------------------------------------
--- The cut is empty.  A sight is a bare Type â’ Bool: it has no own access to
+-- The cut is empty.  A sight is a bare Type â†’ Bool: it has no own access to
 -- a jewel's essence, so it cannot in general report equivalent jewels apart
--- â” the clinging hypothesis of `arising-from-clinging` is not a term one
+-- â€” the clinging hypothesis of `arising-from-clinging` is not a term one
 -- can construct at the net level.  Here, exhibited: on the pair whose
 -- reflection is the same jewel twice, EVERY sight factors through, so no
 -- clinging arises.  Avidy has no own-being: the false cut is not in the net
--- to be built.  (o A â‰¡ o A is refl for any o â” the essence of the pair is
+-- to be built.  (o A â‰¡ o A is refl for any o â€” the essence of the pair is
 -- one, and no sight can pretend otherwise.)
 ------------------------------------------------------------------------
 
@@ -124,8 +124,8 @@ the-cut-is-empty o A = refl
 ------------------------------------------------------------------------
 -- The wheel turns where sights DO split: the two-place Boolean sub-net.
 -- Pratityasamutpada's `conditioned` gives, on the one pair (true , false),
--- a clinging sight (the identity, which splits them â” bondage) and a
--- releasing sight (the constant, which absorbs them â” moka).  The same
+-- a clinging sight (the identity, which splits them â€” bondage) and a
+-- releasing sight (the constant, which absorbs them â€” moká¹£a).  The same
 -- pair, freed or bound only by the sight that meets it.  This is the wheel:
 -- nisvabhva of the knot, turning.
 ------------------------------------------------------------------------

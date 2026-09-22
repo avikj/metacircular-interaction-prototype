@@ -10,28 +10,28 @@
 -- WHAT IS PROVED.
 --
 --   §1  The propositional two-liner, against the firm-number predicate
---       ����� of the Drdha module (p firm � 1 < p and every divisor is
+--       दृढम् of the Drdha module (p firm ⇔ 1 < p and every divisor is
 --       1 or p):
 --
---         �prime-product : 1 < a � 1 < b � � ����� (a � b)
+--         ¬prime-product : 1 < a → 1 < b → ¬ दृढम् (a · b)
 --
---       since a � a � b, a � 1 (a > 1) and a � a � b (a < a � b).
+--       since a ∣ a · b, a ≢ 1 (a > 1) and a ≢ a · b (a < a · b).
 --
---   §2�§3  The Boolean form PairComposition actually uses.  Its tester
+--   §2–§3  The Boolean form PairComposition actually uses.  Its tester
 --       isPrime is built from divides, whose countdown kernel divH and
 --       whose divisor scan noDiv are `private`.  A specification of the
 --       kernel is proved from its defining clauses:
 --
 --         divH*-shift      : divH* c d (c + n) ≡ divH* zero d n
---         divides-multiple : divides (suc d) (m � suc d) ≡ true
---         divides-product  : divides (suc d) (suc d � b) ≡ true
---         noDiv*-false     : 1 < d � d � k � divides d n ≡ true
---                            � noDiv* k n ≡ false
---         isPrime-false    : 1 < d � d < n � divides d n ≡ true
---                            � isPrime n ≡ false
---         isPrime-product  : 1 < a � 1 < b � isPrime (a � b) ≡ false
+--         divides-multiple : divides (suc d) (m · suc d) ≡ true
+--         divides-product  : divides (suc d) (suc d · b) ≡ true
+--         noDiv*-false     : 1 < d → d ≤ k → divides d n ≡ true
+--                            → noDiv* k n ≡ false
+--         isPrime-false    : 1 < d → d < n → divides d n ≡ true
+--                            → isPrime n ≡ false
+--         isPrime-product  : 1 < a → 1 < b → isPrime (a · b) ≡ false
 --
---   §4  The seed itself: for pairs whose four legs are all � 2, both
+--   §4  The seed itself: for pairs whose four legs are all ≥ 2, both
 --       legs of compose p q and of compose' p q test false, hence
 --       neither composite is a prime pair (Boolean and propositional
 --       readings).  PairComposition's four refl witnesses
@@ -87,7 +87,7 @@ open import Drdha_TheFirmNumbersProductIsEveryPositiveIntegerAndTheirMembershipI
 -- §1  The propositional two-liner
 ------------------------------------------------------------------------
 
--- a < a � b whenever a � 1 and b � 2:  a � b = a + (a + a � b') � a + 1.
+-- a < a · b whenever a ≥ 1 and b ≥ 2:  a · b = a + (a + a · b') ≥ a + 1.
 <-·ᵣ : (a b : ℕ) → 1 ≤ a → 1 < b → a < a · b
 <-·ᵣ a zero          _   1<0 = ⊥-rec (¬-<-zero 1<0)
 <-·ᵣ a (suc zero)    _   1<1 = ⊥-rec (¬m<m 1<1)
@@ -96,7 +96,7 @@ open import Drdha_TheFirmNumbersProductIsEveryPositiveIntegerAndTheirMembershipI
         (subst (_≤ a + (a + a · b)) (+-comm a 1)
                (≤-k+ {k = a} (≤-trans 1≤a (a · b , +-comm (a · b) a))))
 
--- The two-liner: a divides a � b, and a is neither 1 nor a � b.
+-- The two-liner: a divides a · b, and a is neither 1 nor a · b.
 ¬prime-product : (a b : ℕ) → 1 < a → 1 < b → ¬ दृढम् (a · b)
 ¬prime-product a b 1<a 1<b (_ , only) with only a (∣-left b)
 ... | inl a≡1  = <→≢ 1<a (sym a≡1)
@@ -178,7 +178,7 @@ divides-multiple d (suc m) = divH*-shift d d (m · suc d) ∙ divides-multiple d
 divides-product : (d b : ℕ) → divides (suc d) (suc d · b) ≡ true
 divides-product d b = cong (divides (suc d)) (·-comm (suc d) b) ∙ divides-multiple d b
 
--- The scan answers false as soon as one d with 2 � d � k divides n.
+-- The scan answers false as soon as one d with 2 ≤ d ≤ k divides n.
 noDiv*-false : (k n d : ℕ) → 1 < d → d ≤ k → divides d n ≡ true → noDiv* k n ≡ false
 noDiv*-false zero          n d 1<d d≤k _  = ⊥-rec (¬-<-zero (<≤-trans 1<d d≤k))
 noDiv*-false (suc zero)    n d 1<d d≤k _  = ⊥-rec (¬m<m (<≤-trans 1<d d≤k))
@@ -190,14 +190,14 @@ noDiv*-false (suc (suc k)) n d 1<d d≤k dv =
                         (subst (λ z → divides z n ≡ true) d≡ssk dv))
         (≤-split d≤k)
 
--- A proper divisor � 2 that the tester sees makes isPrime answer false.
+-- A proper divisor ≥ 2 that the tester sees makes isPrime answer false.
 isPrime-false : (n d : ℕ) → 1 < d → d < n → divides d n ≡ true → isPrime n ≡ false
 isPrime-false zero          d 1<d d<n _  = ⊥-rec (¬-<-zero d<n)
 isPrime-false (suc zero)    d 1<d d<n _  = ⊥-rec (¬m<m (<-trans 1<d d<n))
 isPrime-false (suc (suc k)) d 1<d d<n dv =
   noDiv*-false (suc k) (suc (suc k)) d 1<d (pred-≤-pred d<n) dv
 
--- The Boolean two-liner: a product of two factors � 2 tests false.
+-- The Boolean two-liner: a product of two factors ≥ 2 tests false.
 isPrime-product : (a b : ℕ) → 1 < a → 1 < b → isPrime (a · b) ≡ false
 isPrime-product zero    b 1<a _   = ⊥-rec (¬-<-zero 1<a)
 isPrime-product (suc d) b 1<a 1<b =
@@ -219,26 +219,26 @@ PrimePair (u , v) = (isPrime u ≡ true) × (isPrime v ≡ true)
 FirmPair : Pair → Type₀
 FirmPair (u , v) = दृढम् u × दृढम् v
 
--- Straight composition: both legs test false �
+-- Straight composition: both legs test false …
 seed : (p q : Pair) → Legs≥2 p → Legs≥2 q
      → (isPrime (fst (compose p q)) ≡ false) × (isPrime (snd (compose p q)) ≡ false)
 seed (u₁ , v₁) (u₂ , v₂) (hu₁ , hv₁) (hu₂ , hv₂) =
   isPrime-product u₁ u₂ hu₁ hu₂ , isPrime-product v₁ v₂ hv₁ hv₂
 
--- � and so do both legs of the twisted composition.
+-- … and so do both legs of the twisted composition.
 seed' : (p q : Pair) → Legs≥2 p → Legs≥2 q
       → (isPrime (fst (compose' p q)) ≡ false) × (isPrime (snd (compose' p q)) ≡ false)
 seed' (u₁ , v₁) (u₂ , v₂) (hu₁ , hv₁) (hu₂ , hv₂) =
   isPrime-product u₁ v₂ hu₁ hv₂ , isPrime-product v₁ u₂ hv₁ hu₂
 
--- No composite of two �2-legged pairs is a prime pair.
+-- No composite of two ≥2-legged pairs is a prime pair.
 notPrimePair-compose : (p q : Pair) → Legs≥2 p → Legs≥2 q → ¬ PrimePair (compose p q)
 notPrimePair-compose p q hp hq (l , _) = false≢true (sym (fst (seed p q hp hq)) ∙ l)
 
 notPrimePair-compose' : (p q : Pair) → Legs≥2 p → Legs≥2 q → ¬ PrimePair (compose' p q)
 notPrimePair-compose' p q hp hq (l , _) = false≢true (sym (fst (seed' p q hp hq)) ∙ l)
 
--- The same, propositionally, against �����.
+-- The same, propositionally, against दृढम्.
 notFirmPair-compose : (p q : Pair) → Legs≥2 p → Legs≥2 q → ¬ FirmPair (compose p q)
 notFirmPair-compose (u₁ , v₁) (u₂ , v₂) (hu₁ , _) (hu₂ , _) (l , _) =
   ¬prime-product u₁ u₂ hu₁ hu₂ l

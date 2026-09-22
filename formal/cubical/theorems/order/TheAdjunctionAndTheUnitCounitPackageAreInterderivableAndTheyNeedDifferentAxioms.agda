@@ -3,12 +3,12 @@
 ------------------------------------------------------------------------
 -- TheAdjunctionAndTheUnitCounitPackageAreInterderivableAndTheyNeedDifferentAxioms
 --
--- ON THE NAME.  The abstract order-theoretic form used here â” two
--- preorders, two antitone maps, one adjunction â” is Ore's ("Galois
+-- ON THE NAME.  The abstract order-theoretic form used here â€” two
+-- preorders, two antitone maps, one adjunction â€” is Ore's ("Galois
 -- connexions", *Trans. AMS* 55, 1944), after Birkhoff (*Lattice
 -- Theory*, 1940, Â§V); the module being audited already cites both.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE AUDIT.
 --
 -- Target: `TheSaturationClosureNeedsOnlyAGaloisConnection`, whose title
@@ -17,17 +17,17 @@
 --
 -- **THE TITLE IS EARNED IN THE DIRECTION IT ASSERTS.**  All six of
 -- `module Galois`'s hypotheses are consumed: `â‰¼-refl` in `counit`,
--- `â‰¼-trans` in `u-antitone` and `saturatedGivesFixed`, `âŠ-refl` in
--- `unit` and `fixedGivesSaturated`, `âŠ-trans` in `d-antitone`, and both
+-- `â‰¼-trans` in `u-antitone` and `saturatedGivesFixed`, `âŠ‘-refl` in
+-- `unit` and `fixedGivesSaturated`, `âŠ‘-trans` in `d-antitone`, and both
 -- adjunction directions throughout.  Nothing is assumed and unused.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   FromUnitCounit    from `u-antitone`, `d-antitone`, `unit`, `counit`
 --                     over two preorders: `galFwd` and `galBwd`, one
 --                     line each, and then the ENTIRE closure theory by
---                     `open Galois â¦ public` â” antitonicity, unit,
+--                     `open Galois â€¦ public` â€” antitonicity, unit,
 --                     counit, triangles, `c`, idempotence, the
 --                     fixed-point characterisation, nothing re-proved
 --   RoundTrip         going out and back is the identity when the order
@@ -36,8 +36,8 @@
 -- **AND THE TWO PACKAGES DO NOT NEED THE SAME AXIOMS.  THAT IS THE
 -- FINDING.**  `galFwd`/`galBwd` are derived from unit/counit using ONLY
 -- the two TRANSITIVITIES; the two reflexivities are never touched.
--- Going the other way, reflexivity is exactly what is needed â”
--- `unit a = galBwd a (u a) (âŠ-refl (u a))` and `counit b = galFwd (d b)
+-- Going the other way, reflexivity is exactly what is needed â€”
+-- `unit a = galBwd a (u a) (âŠ‘-refl (u a))` and `counit b = galFwd (d b)
 -- b (â‰¼-refl (d b))`.  So the adjunction presentation needs refl to
 -- produce unit/counit, and the unit/counit presentation needs neither
 -- refl to produce the adjunction.  **The packages are interderivable

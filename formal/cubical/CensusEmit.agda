@@ -1,13 +1,13 @@
 {-# OPTIONS --cubical --guardedness #-}
 ------------------------------------------------------------------------
--- CensusEmit � serialize reflected corpus type-Terms to bend `Shape`
+-- CensusEmit — serialize reflected corpus type-Terms to bend `Shape`
 -- literals, so the corpus's own NerodeCongruence quotient can be COMPUTED by
 -- evaluation on the interaction-net runtime (census.bend), rather than
 -- only proved total in Agda (where the SetQuotient OOMs).
 --
 -- headCode / children here are exactly the observation and step of
 -- ReflectedFormation's future-behavior machine.  A `Shape` records, per
--- node, its headCode and the shapes of its children � everything (and
+-- node, its headCode and the shapes of its children — everything (and
 -- only what) NerodeCongruence observes.
 ------------------------------------------------------------------------
 module CensusEmit where
@@ -22,7 +22,7 @@ open import Agda.Builtin.Unit
 import AskingIsNotAPropertyOfTheFunction as M0
 
 ------------------------------------------------------------------------
--- observation (headCode) and step (children) � inlined to avoid the
+-- observation (headCode) and step (children) — inlined to avoid the
 -- two same-named ReflectedFormation modules clashing.
 ------------------------------------------------------------------------
 headCode : Term → Nat
@@ -84,7 +84,7 @@ kidsStr f (t ∷ ts) = primStringAppend (shapeStr f t)
                      (primStringAppend " <> " (kidsStr f ts))
 
 ------------------------------------------------------------------------
--- reflect a list of Names � one bend list literal of their type-shapes
+-- reflect a list of Names → one bend list literal of their type-shapes
 ------------------------------------------------------------------------
 joinShapes : List Name → String → TC String
 joinShapes [] acc = returnTC (primStringAppend acc "[]")

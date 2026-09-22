@@ -3,28 +3,28 @@
 ------------------------------------------------------------------------
 -- RnaDhana_PerCoordinateCapsAreTheHonestVersionAndOneCapIsTheSpecialCase
 --
--- à‹àà§à¨ Â a-dhana â” Brahmagupta, *Brhmasphuasiddhnta* (628): one
+-- à¤‹à¤£à¤§à¤¨ Â· á¹›á¹‡a-dhana â€” Brahmagupta, *BrÄhmasphuá¹­asiddhÄnta* (628): one
 -- magnitude read as *dhana* (asset) or *a* (debt).  A benefit
 -- coordinate and a cost coordinate are that same magnitude under the
 -- two readings, and this line is about what it costs to turn one into
 -- the other.  The sign rules are his; the cap, the adjunction, and the
 -- per-coordinate refinement below are not.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- `RnaDhana_TheCostFlipIsFaithfulBelowTheCap` has one cap shared by all cost
 -- coordinates.  Per-coordinate caps are modelled here.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   Caps ds            a cap PER COST COORDINATE, as a recursive family
---                      over the direction list â” benefit coordinates
+--                      over the direction list â€” benefit coordinates
 --                      carry no cap at all, which the single-number
 --                      version could not express
 --   flipWithCaps       the flip against those caps
 --   BoundedC           each cost entry is below ITS OWN cap
 --   flipCapsIsSound    mixed dominance still implies product dominance
---                      of the flipped vectors â” the bound plays no part
+--                      of the flipped vectors â€” the bound plays no part
 --   flipCapsReflect    and below the caps the converse holds, with the
 --                      bound needed only on the DOMINATING vector, as
 --                      before
@@ -32,7 +32,7 @@
 --   constCaps          the constant cap assignment
 --   oneCapIsTheSpecialCase
 --                      `flipWithCaps ds (constCaps cap ds) v â‰¡
---                       flipWith cap ds v`, pointwise on the nose â” so
+--                       flipWith cap ds v`, pointwise on the nose â€” so
 --                      the earlier theorem is this one at a constant
 --                      family and nothing was lost by proving it first
 --

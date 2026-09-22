@@ -11,19 +11,19 @@
 -- doing real work, and the way to show it is to exhibit the instances
 -- rather than to restate the hedge:
 --
---   * T15.36 (im(PQ) = im P ∩ im Q for commuting P,Q) � CONFIRMED on a
+--   * T15.36 (im(PQ) = im P ∩ im Q for commuting P,Q) — CONFIRMED on a
 --     commuting pair, and SHOWN NECESSARY by a non-commuting pair where
 --     it fails.  The hypothesis is not decoration.
 --
---   * P15.37 (non-commutation � order of coarse-graining matters) �
+--   * P15.37 (non-commutation ⇒ order of coarse-graining matters) —
 --     witnessed: `order-matters`, the two composites disagree at a point.
 --
---   * C15.38 (commutation does NOT imply no information loss) � this is
+--   * C15.38 (commutation does NOT imply no information loss) — this is
 --     the one that matters for the corpus, because it is the standing
 --     temptation: two coarse-grainings that commute feel safe.  Here is a
 --     commuting pair whose composite is CONSTANT.  Zero commutator, total
---     loss.  Delta 15's own gloss � "linear operations may commute while
---     genuine non-descent lives elsewhere" � is exactly this witness.
+--     loss.  Delta 15's own gloss — "linear operations may commute while
+--     genuine non-descent lives elsewhere" — is exactly this witness.
 --
 -- WHY A SET AND NOT A MODULE.  Delta 15 says "idempotent endomorphisms of
 -- a vector space/module", and over a *commutative* ring every commutator
@@ -38,10 +38,10 @@
 --
 --   X, p, q, s                 four points, three idempotents
 --   p-idem, q-idem, s-idem     D15.35's hypothesis, checked
---   order-matters              P15.37: p∘q � q∘p, witnessed at x2
+--   order-matters              P15.37: p∘q ≢ q∘p, witnessed at x2
 --   ps-commute                 [p,s] = 0, pointwise
---   ps-constant                � and yet p∘s is constant �
---   commuting-loses            � so it collapses a distinction that a
+--   ps-constant                … and yet p∘s is constant …
+--   commuting-loses            … so it collapses a distinction that a
 --                              downstream test can see.  C15.38.
 --   T15-36-holds               im(p∘s) = im p ∩ im s, both inclusions
 --   T15-36-fails-without       im(p∘q) ⊋ im p ∩ im q: x2 is in the
@@ -77,7 +77,7 @@ q x1 = x1
 q x2 = x1
 q x3 = x3
 
--- s collapses {x0,x2} to x0 and {x1,x3} to x1 � the "other" partition
+-- s collapses {x0,x2} to x0 and {x1,x3} to x1 — the "other" partition
 -- into two blocks, transverse to p's.
 s : X → X
 s x0 = x0
@@ -131,8 +131,8 @@ order-matters : ¬ (p (q x2) ≡ q (p x2))
 order-matters e = true≢false (cong is-x0 e)
 
 ------------------------------------------------------------------------
--- §4  C15.38, the statement worth having.  p and s DO commute � checked
--- at every point, which is what "[p,s] = 0" means here � and their
+-- §4  C15.38, the statement worth having.  p and s DO commute — checked
+-- at every point, which is what "[p,s] = 0" means here — and their
 -- composite is the constant map at x0.  So a vanishing commutator says
 -- nothing at all about information loss: this pair loses everything.
 ------------------------------------------------------------------------
@@ -162,12 +162,12 @@ commuting-loses = refl , refl , refl
 --
 -- im p = {x0,x2}, im s = {x0,x1}, im q = {x0,x1,x3}.
 --
--- Commuting pair (p,s): im(p∘s) = {x0} = im p ∩ im s.  �
+-- Commuting pair (p,s): im(p∘s) = {x0} = im p ∩ im s.  ✓
 -- Non-commuting pair (p,q): im(p∘q) = {x0,x2}, but x2 ∉ im q, so the
--- composite image is strictly larger than the intersection.  �
+-- composite image is strictly larger than the intersection.  ✗
 ------------------------------------------------------------------------
 
--- � : everything in the image of the composite is x0, hence in both.
+-- ⊆ : everything in the image of the composite is x0, hence in both.
 T15-36-⊆ : (x : X) → (Σ[ y ∈ X ] (p y ≡ p (s x)))
                    × (Σ[ z ∈ X ] (s z ≡ p (s x)))
 T15-36-⊆ x0 = (x0 , refl) , (x0 , refl)
@@ -175,12 +175,12 @@ T15-36-⊆ x1 = (x0 , refl) , (x0 , refl)
 T15-36-⊆ x2 = (x0 , refl) , (x0 , refl)
 T15-36-⊆ x3 = (x0 , refl) , (x0 , refl)
 
--- � : the intersection is exactly {x0}, and x0 is hit by the composite.
+-- ⊇ : the intersection is exactly {x0}, and x0 is hit by the composite.
 T15-36-⊇ : Σ[ x ∈ X ] (p (s x) ≡ x0)
 T15-36-⊇ = x0 , refl
 
 -- Necessity of commutation.  x2 is in the image of p∘q (from x3) and is
--- NOT in the image of q at all � so im(p∘q) � im q, and T15.36 is false
+-- NOT in the image of q at all — so im(p∘q) ⊄ im q, and T15.36 is false
 -- for this pair.  The hypothesis in Delta 15 is load-bearing.
 x2-in-im-pq : Σ[ x ∈ X ] (p (q x) ≡ x2)
 x2-in-im-pq = x3 , refl

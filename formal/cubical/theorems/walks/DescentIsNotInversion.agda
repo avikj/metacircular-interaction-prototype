@@ -6,22 +6,22 @@
 -- A refutation of a conjecture this repository flagged in
 -- `IdempotenceForbidsDescent` and did not leave standing for long.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE CONJECTURE, AND ITS DEATH
 --
 -- `IdempotenceForbidsDescent` proves that bhvan, unlike the walk's
 -- join, has non-unit invertible elements, and closes by asking whether
--- the cakravla's descent â” its division by k â” IS that inversion.  It
+-- the cakravÄla's descent â€” its division by k â€” IS that inversion.  It
 -- marks the identification as unproved.
 --
 -- It is false, and one line kills it:
 --
---     invertibleâ’norm-invertible :  u âŠ— v â‰¡ one  â’  N u Â N v â‰¡ 1r
+--     invertibleâ†’norm-invertible :  u âŠ— v â‰¡ one  â†’  N u Â· N v â‰¡ 1r
 --
 -- Composition multiplies norms, and the unit has norm 1.  So a pair is
 -- invertible in the bhvan monoid ONLY IF ITS NORM IS ALREADY A UNIT.
--- The cakravla begins at a state of norm k with k not a unit â” that is
--- the entire situation it exists to escape â” and no composition step can
+-- The cakravÄla begins at a state of norm k with k not a unit â€” that is
+-- the entire situation it exists to escape â€” and no composition step can
 -- take it to norm 1, because composition can only multiply k by
 -- something.  `no-composition-reaches-one` says exactly this.
 --
@@ -29,14 +29,14 @@
 -- not "not in general": provably not, at every state the method actually
 -- runs on.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT DESCENT ACTUALLY IS
 --
 -- The move is division by the SCALAR k, which is a different structure
--- entirely â” the scaling action of the ring on pairs.  Two identities,
+-- entirely â€” the scaling action of the ring on pairs.  Two identities,
 -- both exact:
 --
---     N-âŠ™ :  N (c âŠ™ u)      â‰¡ (c Â c) Â N u          homogeneity
+--     N-âŠ™ :  N (c âŠ™ u)      â‰¡ (c Â· c) Â· N u          homogeneity
 --     âŠ™-âŠ— :  (c âŠ™ u) âŠ— v    â‰¡ c âŠ™ (u âŠ— v)            equivariance
 --
 -- The first is `Composition.normScale` at D = âˆ’1 and says the norm changes by
@@ -50,13 +50,13 @@
 --
 -- Scaling cannot change that class; composition multiplies it; and
 -- "solve xÂ² âˆ’ D yÂ² = 1" is the statement that the class is trivial.
--- Dividing by k is not a step of the group law â” it is the choice of a
+-- Dividing by k is not a step of the group law â€” it is the choice of a
 -- canonical representative in the orbit, which is why it needs a
 -- divisibility condition (`Composition.choiceToNumerator`) rather than an
--- inverse.  On the orbits â” pairs up to scaling, i.e. the RATIONAL POINTS
--- of the conic â” there is no dividing left to do.
+-- inverse.  On the orbits â€” pairs up to scaling, i.e. the RATIONAL POINTS
+-- of the conic â€” there is no dividing left to do.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS COSTS THE PREVIOUS TWO MODULES.  Nothing that was proved.
 -- `PythagoreanTransition` and `IdempotenceForbidsDescent` both stand; the
 -- reversibility dichotomy is untouched.  What dies is the reading of
@@ -109,7 +109,7 @@ module Descent (R : CommRing â„“) where
   N-one = N-one-raw
 
   ----------------------------------------------------------------------
-  -- 1.  THE REFUTATION.  Invertible in the monoid â’ norm already a unit.
+  -- 1.  THE REFUTATION.  Invertible in the monoid â‡’ norm already a unit.
   ----------------------------------------------------------------------
 
   invertibleâ†’norm-invertible :
@@ -186,12 +186,12 @@ module Descent (R : CommRing â„“) where
 --
 --     SumProductTorus.âŠ”-+-distrib :  (x âŠ” y) + z â‰¡ (x + z) âŠ” (y + z)
 --
--- which under `val` is lcm(a,b)Âc = lcm(aÂc, bÂc).  Scaling is there.
+-- which under `val` is lcm(a,b)Â·c = lcm(aÂ·c, bÂ·c).  Scaling is there.
 --
 -- What is missing is the thing scaling would act on.  Descent needs a
 -- NORM: a quantity that composition multiplies and scaling moves by
 -- squares, so that its class is an invariant and reaching the trivial
--- class is a goal.  The walk has no such quantity â” its state is its own
+-- class is a goal.  The walk has no such quantity â€” its state is its own
 -- only invariant.  So the honest statement is not "the walk lacks both
 -- mechanisms" but:
 --

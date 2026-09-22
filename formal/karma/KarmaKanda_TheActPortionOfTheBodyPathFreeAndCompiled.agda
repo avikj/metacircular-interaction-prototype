@@ -1,11 +1,11 @@
 {-# OPTIONS --cubical-compatible --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡ï‡∞‡‡Æ‡ï‡æ‡‡‡°‡Æ‡ ‚î the act-portion.  The division is the tradition's own:
+-- ‡§ï‡§∞‡•ç‡§Æ‡§ï‡§æ‡§£‡•ç‡§°‡§Æ‡•ç ‚Äî the act-portion.  The division is the tradition's own:
 -- the Veda's karmaka (acts) against its jnaka (knowledge),
 -- the split Prva- and Uttara-Mms stand on.  Here it is the
 -- compilation boundary measured on this habitat (Agda 2.8.0): proofs
--- may cross into erased-cubical only erased, values not at all ‚î so
+-- may cross into erased-cubical only erased, values not at all ‚Äî so
 -- the ACTS (the machine's vocabulary, its evaluator, its normalizer,
 -- its boolean tests: everything path-free) live on this side and
 -- compile, while the knowledge-portion (the witnesses, the paths)
@@ -53,7 +53,7 @@ sb‚Ñï (suc x) (suc y) = sb‚Ñï x y
 
 -- the kuaka's own operator, admitted so the elder's gcd
 -- lines can cross: subtraction-Euclid ("keep the remainder and recurse"
--- ‚î ryabhaa, ryabhaya, kuaka, 499 CE; the descent, not this
+-- ‚Äî ƒÄryabha·π≠a, ƒÄryabha·π≠ƒ´ya, ku·π≠·π≠aka, 499 CE; the descent, not this
 -- code, is what is claimed of the source), made structural by an exact
 -- fuel: each step strictly shrinks the pair's sum, so fuel a+b always
 -- suffices and the answer is standard gcd.

@@ -4,7 +4,7 @@
 -- NaturalMachine.Avirodha_TheKernelIsAReversibleGroupoid
 --                        WhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous
 --
--- TERM.  ààµà¿à°à‹à§ Â avirodha -- non-contradiction, the absence of conflict.
+-- TERM.  à¤…à¤µà¤¿à¤°à¥‹à¤§ Â· avirodha -- non-contradiction, the absence of conflict.
 -- Ordinary ; its best-known technical placement is as the title of
 -- the SECOND ADHYYA of Bdaryaa's *Brahmastra*, the avirodha-adhyya,
 -- whose business is showing that no apparent conflict stands.  That is
@@ -23,8 +23,8 @@
 -- file, and none of them is designed for; they are consequences of `Step`
 -- having a `reverse` constructor and of `eval` landing in a set.
 --
---   REVERSIBLE.  `Step` ships `reverse : Step x y â’ Step y x`, so Â§2 builds
---     `rev : Derivation a b â’ Derivation b a` for EVERY derivation -- total,
+--   REVERSIBLE.  `Step` ships `reverse : Step x y â†’ Step y x`, so Â§2 builds
+--     `rev : Derivation a b â†’ Derivation b a` for EVERY derivation -- total,
 --     no hypothesis, no trapdoor.  Nothing this kernel computes is
 --     one-way, and `rev-computes-the-inverse-meaning` says the reversal's
 --     meaning IS the inverse meaning, forced.  A round trip is invisible.
@@ -39,10 +39,10 @@
 --
 --   DECENTRALISED, WITH NO CONFLICT RESOLUTION ANYWHERE.  Â§3: the library
 --     is a list, the join is `++`, and
---       Â merging never loses a capability (`join-keeps-the-left/right`)
---       Â merging never invents one (`join-splits`)
---       Â THE ORDER OF THE MERGE IS IRRELEVANT (`merge-is-order-independent`)
---       Â merging a library with itself adds nothing (`merge-is-idempotent`)
+--       Â· merging never loses a capability (`join-keeps-the-left/right`)
+--       Â· merging never invents one (`join-splits`)
+--       Â· THE ORDER OF THE MERGE IS IRRELEVANT (`merge-is-order-independent`)
+--       Â· merging a library with itself adds nothing (`merge-is-idempotent`)
 --     That is a join-semilattice on capability: grow-only, commutative,
 --     idempotent.  No leader, no sequence number, no reconciliation pass.
 --     And `merge` is a TOTAL function with no failure mode -- there is no
@@ -50,7 +50,7 @@
 --     checked derivation, so a merge has nothing to validate.
 --
 --   NO CONFLICT, AND THIS IS THE ONE THAT IS USUALLY MISSED.  Â§4: soundness
---     lands in an identity type of â•, hence in a PROPOSITION, so any two
+--     lands in an identity type of â„•, hence in a PROPOSITION, so any two
 --     derivations between the same terms have EQUAL meanings.  Therefore
 --     TWO NODES CANNOT DISAGREE ABOUT WHAT IS TRUE.  A vote would decide
 --     nothing -- not because voting is disallowed by policy, but because the
@@ -68,7 +68,7 @@
 -- bolted onto this mathematics.  There is nothing to bolt on.  The
 -- properties a chain is BUILT to manufacture -- agreement, immutability,
 -- validity without a trusted party, conflict-free replication -- are here
--- as consequences of `reverse` and of â• being a set, and the machinery a
+-- as consequences of `reverse` and of â„• being a set, and the machinery a
 -- chain uses to manufacture them (ordering, voting, finality, reorg) has no
 -- work to do because the disagreement it resolves cannot be stated.
 ------------------------------------------------------------------------
@@ -207,7 +207,7 @@ validity-travels-with-the-operation = every-operation-that-exists-is-sound
 ------------------------------------------------------------------------
 -- Â§4.  AVIRODHA.  There is nothing to disagree about.
 --
--- The meaning of a derivation lives in an identity type of â•.  â• is a set.
+-- The meaning of a derivation lives in an identity type of â„•.  â„• is a set.
 -- So that type is a PROPOSITION, and any two derivations between the same
 -- terms have equal meanings -- not "compatible", not "both acceptable":
 -- EQUAL, as terms.  Two nodes therefore cannot hold different positions on

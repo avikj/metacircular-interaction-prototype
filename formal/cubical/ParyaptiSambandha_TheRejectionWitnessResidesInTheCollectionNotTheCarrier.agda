@@ -4,46 +4,46 @@
 -- ParyaptiSambandha_TheRejectionWitnessResidesInTheCollectionNotTheCarrier
 --
 --
--- **parypti-sambandha** â” the relation of complete occurrence â” is
+-- **paryÄpti-sambandha** â€” the relation of complete occurrence â€” is
 -- Navya-Nyya's answer to a question about WHERE a property resides.
 -- Number beyond unity (sakhy: dvitva, tritva) does not reside in each
 -- member of a collection distributively; "this pot is two" is false of
 -- every pot.  It resides in the collection TAKEN AS A WHOLE, and the
 -- relation by which it does so is parypti.  The apparatus naming the
--- slots â” pratiyogin (counterpositive: WHAT is absent), anuyogin
--- (locus), avacchedaka (delimitor: under which qualification) â” is
+-- slots â€” pratiyogin (counterpositive: WHAT is absent), anuyogin
+-- (locus), avacchedaka (delimitor: under which qualification) â€” is
 -- Gagea, *Tattvacintmai*, c. 1325.  The parypti treatment of
 -- number is developed by Raghuntha iromai, *Padrthatattvanirpaa*,
 -- c. 1500, and by Gaddhara after him.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- RELATED MODULES, none re-derived here
 --
 --   `formal/cubical/NaturalMachine/Abhava.agda`, `notes/NO_BARE_ABSENCES.md`
---       â” abhva with pratiyogin; the absence tower; `dec-collapses`.
+--       â€” abhÄva with pratiyogin; the absence tower; `dec-collapses`.
 --   `formal/cubical/AbhavaAvacchedaka.agda`
---       â” the avacchedaka as a genuine dependent binder, load-bearing.
+--       â€” the avacchedaka as a genuine dependent binder, load-bearing.
 --   `notes/EVERY_OBSTRUCTION_HERE_IS_EXACT.md`
---       â” `Â-always-stable` needs no
+--       â€” `Â-always-stable` needs no
 --         hypothesis, so the absence tower is two-tall for every `A`,
 --         and decidability lands on the PRATIYOGIN, not on the absence.
 --   `NaturalMachine.WhereTheTowerCanStillBeThree` Â§5
---       â” hence the live question is Î-SHAPED pratiyogins: "a decidable
---         Î is stable, so the floor's stability is exactly a SEARCH
+--       â€” hence the live question is Î£-SHAPED pratiyogins: "a decidable
+--         Î£ is stable, so the floor's stability is exactly a SEARCH
 --         question."
---   `NaturalMachine.CountingIsWhatDecidableEqualityBuysâ¦`
---       â” proves `Perm xs ys â’ count a xs â‰¡ count a ys`, and states that
---         the converse "must BUILD a permutation â¦ and that search is
+--   `NaturalMachine.CountingIsWhatDecidableEqualityBuysâ€¦`
+--       â€” proves `Perm xs ys â†’ count a xs â‰¡ count a ys`, and states that
+--         the converse "must BUILD a permutation â€¦ and that search is
 --         where finiteness and decidability do real work."
 --
 -- This file answers, on ONE
--- object: for a Î-shaped pratiyogin, WHAT BOUNDS THE SEARCH?
+-- object: for a Î£-shaped pratiyogin, WHAT BOUNDS THE SEARCH?
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE OBJECT (frontier: combinatorics of sub-multiset matching with
--- residue â” why the residue is sound)
+-- residue â€” why the residue is sound)
 --
--- `xs âŠ ys` â” every element of the multiset `xs` is matched to a
+-- `xs âŠ‘ ys` â€” every element of the multiset `xs` is matched to a
 -- DISTINCT occurrence in `ys`.  A *residue test* rejects candidates
 -- cheaply: map both sides into a commutative monoid by a homomorphism
 -- and compare.  The received account of why such a test is sound is a
@@ -51,14 +51,14 @@
 -- ACCEPT, and here is the bound).
 --
 -- **Â§1 says the estimate is buying nothing.**  Soundness is the
--- homomorphism property and only that: `âŠ-sound` takes NO decidable
+-- homomorphism property and only that: `âŠ‘-sound` takes NO decidable
 -- equality, NO finiteness of the carrier, NO injectivity of the residue,
--- and NO order on the monoid â” the order it produces is the ALGEBRAIC
+-- and NO order on the monoid â€” the order it produces is the ALGEBRAIC
 -- one and it hands back the QUOTIENT as an explicit witness.  Every
 -- estimate in that literature is buying COMPLETENESS.
 --
 -- **Â§1b prices that, and the price is sharp.**  If the residue monoid is
--- a GROUP, the quotient always exists, so `residue-rejects` is VACUOUS â”
+-- a GROUP, the quotient always exists, so `residue-rejects` is VACUOUS â€”
 -- a group-valued residue can never reject a containment, only an
 -- equality of residues.  So the received "the fingerprint rejects, hence
 -- no match" is, for every group-valued fingerprint, a rejection of a
@@ -66,10 +66,10 @@
 -- Soundness's whole content is therefore *which* monoid, and this is
 -- checked, not asserted.
 --
--- **Â§2â“Â§4 say where the cost actually sits.**  The counterpositive of a
--- rejection â” `Î[ a âˆˆ A ] count a ys < count a xs` â” is Î-shaped and
+-- **Â§2â€“Â§4 say where the cost actually sits.**  The counterpositive of a
+-- rejection â€” `Î£[ a âˆˆ A ] count a ys < count a xs` â€” is Î£-shaped and
 -- ranges over the whole carrier `A`, which may be infinite and is not
--- assumed searchable.  `parypti` proves that Î has the same inhabitants
+-- assumed searchable.  `paryÄpti` proves that Î£ has the same inhabitants
 -- as the one delimited to membership in `xs`.  The unbounded existential
 -- over the carrier collapses to a bounded one over the collection; only
 -- then is it decidable, and only then is Markov's principle for it
@@ -100,7 +100,7 @@ private
 -- 0.  The relation: sub-multiset containment, by matching each element
 --     of `xs` to a DISTINCT occurrence in `ys`.
 --
---     `Remove a ys ys'` â” `ys'` is `ys` with one occurrence of `a`
+--     `Remove a ys ys'` â€” `ys'` is `ys` with one occurrence of `a`
 --     deleted.  No decidable equality anywhere: the occurrence is
 --     EXHIBITED, never found.
 ------------------------------------------------------------------------
@@ -121,7 +121,7 @@ module _ {A : Type â„“} where
 -- 1.  SOUNDNESS IS THE HOMOMORPHISM PROPERTY, AND NOTHING ELSE.
 --
 --     Read the hypotheses of this module: a commutative monoid and a map
---     `A â’ Carrier`.  No `Discrete A`, no finiteness, no order (the
+--     `A â†’ Carrier`.  No `Discrete A`, no finiteness, no order (the
 --     order is the algebraic one, produced), no injectivity.
 ------------------------------------------------------------------------
 
@@ -169,7 +169,7 @@ module Residue {A : Type â„“} (M : CommMonoid â„“') (Ï† : A â†’ CommMonoid.Carri
   --------------------------------------------------------------------
   -- 1b.  AND HERE IS WHAT SOUNDNESS COSTS WHEN THE TARGET IS A GROUP:
   --      everything.  If every element is invertible, the quotient
-  --      ALWAYS exists, so `residue-rejects` is vacuous â” a
+  --      ALWAYS exists, so `residue-rejects` is vacuous â€” a
   --      group-valued residue can never reject a containment.
   --
   --      It can still reject EQUALITY of the two residues.  But that is
@@ -195,7 +195,7 @@ module Residue {A : Type â„“} (M : CommMonoid â„“') (Ï† : A â†’ CommMonoid.Carri
 -- 2.  THE COUNTING RESIDUE, AND THE PARYPTI THEOREM.
 --
 --     From here on `Discrete A` is a hypothesis, and it is the ONLY
---     thing that changes between Â§1 and Â§2â“Â§4.
+--     thing that changes between Â§1 and Â§2â€“Â§4.
 ------------------------------------------------------------------------
 
 module Counting {A : Type â„“} (_â‰Ÿ_ : Discrete A) where
@@ -211,8 +211,8 @@ module Counting {A : Type â„“} (_â‰Ÿ_ : Discrete A) where
 
   -- Membership is defined by RECURSION on the list, not as an indexed
   -- family.  An indexed `_âˆˆ_` would force `searchList` below to match a
-  -- constructor whose index is `a âˆ xs` against `x âˆ l`, which needs
-  -- injectivity of `_âˆ_` â” unavailable in Cubical Agda, and the module
+  -- constructor whose index is `a âˆ· xs` against `x âˆ· l`, which needs
+  -- injectivity of `_âˆ·_` â€” unavailable in Cubical Agda, and the module
   -- would typecheck with a warning and fail to compute under transport.
   -- The recursive definition has no such step.
   _âˆˆ_ : A â†’ List A â†’ Type â„“
@@ -235,11 +235,11 @@ module Counting {A : Type â„“} (_â‰Ÿ_ : Discrete A) where
   excessâ†’pos xs ys a h = â‰¤-trans (suc-â‰¤-suc (zero-â‰¤ {n = count a ys})) h
 
   ----------------------------------------------------------------------
-  -- The two Î's, and the theorem that they have the same inhabitants.
+  -- The two Î£'s, and the theorem that they have the same inhabitants.
   --
-  --   Undelimited : Î over the CARRIER `A`.
-  --   Delimited   : the same Î, delimited by membership in the
-  --                 COLLECTION `xs` â” the avacchedaka.
+  --   Undelimited : Î£ over the CARRIER `A`.
+  --   Delimited   : the same Î£, delimited by membership in the
+  --                 COLLECTION `xs` â€” the avacchedaka.
   ----------------------------------------------------------------------
 
   Undelimited : List A â†’ List A â†’ Type â„“
@@ -255,8 +255,8 @@ module Counting {A : Type â„“} (_â‰Ÿ_ : Discrete A) where
   undelimit xs ys (a , _ , e) = a , e
 
 ------------------------------------------------------------------------
--- 3.  BOUNDED SEARCH: the delimited Î is decidable, and the bound is the
---     COLLECTION.  `searchList` never mentions the size of `A` â” it
+-- 3.  BOUNDED SEARCH: the delimited Î£ is decidable, and the bound is the
+--     COLLECTION.  `searchList` never mentions the size of `A` â€” it
 --     recurses on the list.
 ------------------------------------------------------------------------
 
@@ -277,7 +277,7 @@ module Counting {A : Type â„“} (_â‰Ÿ_ : Discrete A) where
   Delimited-dec : (xs ys : List A) â†’ Dec (Delimited xs ys)
   Delimited-dec xs ys = searchList (ExcessDec xs ys) xs
 
-  -- and hence the undelimited one is too â” THROUGH the parypti step,
+  -- and hence the undelimited one is too â€” THROUGH the paryÄpti step,
   -- not by searching the carrier.
   Undelimited-dec : (xs ys : List A) â†’ Dec (Undelimited xs ys)
   Undelimited-dec xs ys =
@@ -286,10 +286,10 @@ module Counting {A : Type â„“} (_â‰Ÿ_ : Discrete A) where
 ------------------------------------------------------------------------
 -- 4.  MARKOV'S PRINCIPLE FOR THIS PRATIYOGIN IS DISCHARGED, NOT ASSUMED.
 --
---     `notes/EVERY_OBSTRUCTION_HERE_IS_EXACT.md`: the absence `ÂA` is
+--     `notes/EVERY_OBSTRUCTION_HERE_IS_EXACT.md`: the absence `Â¬A` is
 --     always stable, and what is at issue is recoverability of the
 --     COUNTERPOSITIVE.  `WhereTheTowerCanStillBeThree` Â§5: for a
---     Î-shaped counterpositive that is exactly a search question.
+--     Î£-shaped counterpositive that is exactly a search question.
 --     Here is the search, and here is what bounds it.
 ------------------------------------------------------------------------
 
@@ -320,7 +320,7 @@ module Counting {A : Type â„“} (_â‰Ÿ_ : Discrete A) where
   ... | no  _ = h
 
   -- SOUNDNESS of the per-element counting residue (the Â§1 statement at
-  -- `M = (â• , + , 0)`, proved directly because it is shorter than the
+  -- `M = (â„• , + , 0)`, proved directly because it is shorter than the
   -- instantiation).
   count-sound : {xs ys : List A} â†’ xs âŠ‘ ys â†’ (a : A) â†’ count a xs â‰¤ count a ys
   count-sound âŠ‘nil a = zero-â‰¤
@@ -353,14 +353,14 @@ module Witness where
   excess : Undelimited xs ys
   excess = 1 , (0 , refl)
 
-  -- it lies in the collection, by `parypti` and not by searching â•.
+  -- it lies in the collection, by `paryÄpti` and not by searching â„•.
   excess-in-xs : Delimited xs ys
   excess-in-xs = delimit xs ys excess
 
   no-embedding : Â¬ (xs âŠ‘ ys)
   no-embedding = excess-refutes xs ys excess
 
-  -- and `_âŠ_` is inhabited, so the refutation above is not about an
+  -- and `_âŠ‘_` is inhabited, so the refutation above is not about an
   -- empty relation.
   yes-embedding : (1 âˆ· []) âŠ‘ ys
   yes-embedding = âŠ‘cons rHere âŠ‘nil

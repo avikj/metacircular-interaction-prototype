@@ -5,9 +5,9 @@
 --
 -- Setting.  The walk's state is a pair (S , k): S the list of installed
 -- sensors, k the frontier (the address most recently installed).  It
--- starts at ([] , 0) and its only transition is the walk's own policy �
--- read L = lcm S, take q = the least non-divisor of L (� 2, the walk's
--- search bound), and move to (q � S , q).  `Reach n S k` says "(S , k)
+-- starts at ([] , 0) and its only transition is the walk's own policy —
+-- read L = lcm S, take q = the least non-divisor of L (≥ 2, the walk's
+-- search bound), and move to (q ∷ S , q).  `Reach n S k` says "(S , k)
 -- is reachable in exactly n installs"; `Reach` is a RECURSIVE type
 -- family over the step count, not an indexed inductive family over
 -- lists, because cubical Agda will not unify a constructor in a list
@@ -20,7 +20,7 @@
 --                        [1,k]" AND "any lcm of S is an lcm of
 --                        range1 k".  This is `installStream` plus the
 --                        frontier-jump lemma below.
---   reach-Inv          : hence every reachable state satisfies it �
+--   reach-Inv          : hence every reachable state satisfies it —
 --                        the induction along the walk.
 --   reach-capacity(ii) : every reachable state's lcm IS an lcm of
 --                        range1 (its frontier).  This is the Agda form
@@ -28,9 +28,9 @@
 --                        the walk is at the capacity of its own
 --                        frontier at every step, not merely at the end.
 --   reach-capacity-≡   : the same as an equation between numbers,
---                        lcm S ≡ lcm (1..k), by antisymmetry of �.
---   reach-dominates    : the optimality reading � no lossless family
---                        with addresses � k has an lcm the reachable
+--                        lcm S ≡ lcm (1..k), by antisymmetry of ∣.
+--   reach-dominates    : the optimality reading — no lossless family
+--                        with addresses ≤ k has an lcm the reachable
 --                        state's lcm does not already divide-cover
 --                        (WalkCapacity.capacity evaluated along the
 --                        trajectory).
@@ -41,15 +41,15 @@
 --
 -- FRONTIER JUMP.  The one new lemma: if L is an lcm of range1 k and q
 -- is a least non-divisor of L with 0 < q, then k < q.  (Otherwise q is
--- a member of range1 k, so q � L.)  This is what discharges
+-- a member of range1 k, so q ∣ L.)  This is what discharges
 -- installStream's hypothesis "all installed sensors lie in [1,q)" from
--- the weaker invariant "all lie in [1,k]" � i.e. it is the reason the
+-- the weaker invariant "all lie in [1,k]" — i.e. it is the reason the
 -- single step composes into an induction at all.
 --
 -- HYPOTHESES:
 --
---   * The step relation carries `2 � q` and `IsLCM S L` as explicit
---     hypotheses, exactly as WalkStream does.  `2 � q` is the walk's
+--   * The step relation carries `2 ≤ q` and `IsLCM S L` as explicit
+--     hypotheses, exactly as WalkStream does.  `2 ≤ q` is the walk's
 --     declared search bound (LeastNonDivisor alone does not give
 --     0 < q); `IsLCM S L` is an existence assumption for the lcm, which
 --     cubical v0.5 has no module to construct.  So `Reach` describes
@@ -120,7 +120,7 @@ frontier-jump k L q 0<q (L-common , _) (q∤L , _) with splitℕ-≤ q k
   Empty.rec (q∤L (All→∈ (_∣ L) (range1 k) L-common (∈-range1 q k 0<q q≤k)))
 ... | inr k<q = k<q
 
--- [1,k] � [1,q) once k < q: turns the invariant's bound into exactly
+-- [1,k] ⊆ [1,q) once k < q: turns the invariant's bound into exactly
 -- the hypothesis installStream wants.
 below-frontier :
   (S : List ℕ) (k q : ℕ) → k < q →
@@ -206,7 +206,7 @@ reach-capacity-≡ n S k L C r lcmS (C-common , C-least) =
   L-isLCM = reach-capacity n S k L r lcmS
 
 -- OPTIMALITY along the trajectory: no lossless sensor family with
--- addresses � k has an lcm that the reachable state's lcm does not
+-- addresses ≤ k has an lcm that the reachable state's lcm does not
 -- already cover.  (WalkCapacity.capacity, evaluated at the walk.)
 reach-dominates :
   (n : ℕ) (S : List ℕ) (k L : ℕ) →
@@ -253,7 +253,7 @@ walk-2 : Reach 2 (3 ∷ 2 ∷ []) 3
 walk-2 =
   (2 ∷ []) , 2 , 2 , walk-1 , lcm-[2] , suc-≤-suc (suc-≤-suc zero-≤) , lnd-2-3 , refl
 
--- �and at that state the walk is at capacity: any lcm of [3,2] is an
+-- …and at that state the walk is at capacity: any lcm of [3,2] is an
 -- lcm of [3,2,1].  (Instance of reach-capacity; no new content, it is
 -- here so the general theorem is seen to fire on a concrete run.)
 walk-2-at-capacity : (L : ℕ) → IsLCM (3 ∷ 2 ∷ []) L → IsLCM (range1 3) L

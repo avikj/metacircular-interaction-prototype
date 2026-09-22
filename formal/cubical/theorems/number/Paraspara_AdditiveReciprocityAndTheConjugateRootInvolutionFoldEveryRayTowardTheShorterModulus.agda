@@ -1,24 +1,24 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������ � mutual/reciprocal.  Two further exact symmetries of the
--- wall-orientation roots (companion to Ekamula), each a checked � fact.
+-- परस्पर — mutual/reciprocal.  Two further exact symmetries of the
+-- wall-orientation roots (companion to Ekamula), each a checked ℤ fact.
 --
---  §1 ADDITIVE RECIPROCITY.  For coprime u,v with reciprocals ,v�,
---         /v + v�/u ≡ 1/(uv)  (mod 1),  i.e.  uv � (u� + v�v� − 1).
+--  §1 ADDITIVE RECIPROCITY.  For coprime u,v with reciprocals ū,v̄,
+--         ū/v + v̄/u ≡ 1/(uv)  (mod 1),  i.e.  uv ∣ (u·ū + v·v̄ − 1).
 --     Checked as the two leg-divisibilities that compose (under
---     coprimality, fenced) to uv � �:  u � (u�+v�v�−1) from v�v�≡1(u),
---     and v � (u�+v�v�−1) from u�≡1(v).  This lets every ray be
+--     coprimality, fenced) to uv ∣ …:  u ∣ (u·ū+v·v̄−1) from v·v̄≡1(u),
+--     and v ∣ (u·ū+v·v̄−1) from u·ū≡1(v).  This lets every ray be
 --     propagated through EITHER modulus, so one always chooses min(u,v):
 --     unbalanced factorizations reach a short-modulus estimate, only the
 --     balanced interior is intrinsically two-sided.
 --
 --  §2 CONJUGATE-ROOT INVOLUTION.  Swapping legs negates the root:
---         root(v,v�) ≡ − root(u,)  (mod uv),
---     because −root(u,) ≡ −1 (mod u) and ≡ +1 (mod v) � exactly the
---     residues of root(v,v�).  The pair (u,v)�(v,u) is thus an involution
+--         root(v,v̄) ≡ − root(u,ū)  (mod uv),
+--     because −root(u,ū) ≡ −1 (mod u) and ≡ +1 (mod v) — exactly the
+--     residues of root(v,v̄).  The pair (u,v)↔(v,u) is thus an involution
 --     on the modular-root space, and it is why the centered field is
---     REAL: e(akx)+e(−akx)=2cos(2�akx).  Checked as the two leg-
+--     REAL: e(akx)+e(−akx)=2cos(2πakx).  Checked as the two leg-
 --     congruences of −root; the mod-uv equality composes them (coprime,
 --     fenced).
 --
@@ -28,7 +28,7 @@
 -- completion in k (uv>L²), or completion through the shorter modulus.
 --
 -- Uses Ekamula's root, root-mod-u, root-mod-v.  Ring identities keep the
--- constant 1 as a variable (pred� evasion, as in Ekamula).
+-- constant 1 as a variable (predℤ evasion, as in Ekamula).
 ------------------------------------------------------------------------
 
 module Paraspara_AdditiveReciprocityAndTheConjugateRootInvolutionFoldEveryRayTowardTheShorterModulus where
@@ -65,7 +65,7 @@ private
     solve! ℤCommRing ∙ cong -_ e ∙ solve! ℤCommRing
 
 ------------------------------------------------------------------------
--- §1 � ADDITIVE RECIPROCITY (both legs).
+-- §1 · ADDITIVE RECIPROCITY (both legs).
 reciprocity-mod-u : (u ū v v̄ : ℤ)
   → u ∣ (v · v̄ + (- pos 1)) → u ∣ ((u · ū + v · v̄) + (- pos 1))
 reciprocity-mod-u u ū v v̄ (k , e) = (k + ū) , genRecipU (pos 1) u ū v v̄ k e
@@ -75,7 +75,7 @@ reciprocity-mod-v : (u ū v v̄ : ℤ)
 reciprocity-mod-v u ū v v̄ (k , e) = (k + v̄) , genRecipV (pos 1) u ū v v̄ k e
 
 ------------------------------------------------------------------------
--- §2 � CONJUGATE-ROOT INVOLUTION.  −root(u,) ≡ −1 (mod u), +1 (mod v).
+-- §2 · CONJUGATE-ROOT INVOLUTION.  −root(u,ū) ≡ −1 (mod u), +1 (mod v).
 negroot-mod-u : (u ū : ℤ) → u ∣ ((- root u ū) + pos 1)
 negroot-mod-u u ū with root-mod-u u ū
 ... | (k , e) = (- k) , genNegU (pos 1) u (root u ū) k e

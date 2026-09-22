@@ -8,7 +8,7 @@
 -- distributed-systems objects with no established Indian source; a
 -- fabricated label would assert a provenance.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE QUESTION, AND WHY IT IS MIS-POSED
 --
 -- Does the constraint biting on SOME orders make it useful, i.e. **how
@@ -20,31 +20,31 @@
 -- the reason, and it is one `refl`: for the delivery discipline of
 -- `AnEmptyDependencyRelationMakesCausalDeliveryVacuous`,
 --
---     Respects hb ord   is definitionally   hb âŠ ord,
+--     Respects hb ord   is definitionally   hb âŠ‘ ord,
 --
 -- so the admissible orders of `hb` are exactly the PRINCIPAL UP-SET of
 -- `hb` in the inclusion preorder on relations.  Strength is therefore
 -- not a quantity attached to a relation; it IS the relation, read
 -- upwards.  Â§4 makes that refutation concrete rather than rhetorical:
 -- two relations on `Bool` with ONE EDGE EACH whose admissible families
--- are incomparable â” neither contains the other.  **So no function of
+-- are incomparable â€” neither contains the other.  **So no function of
 -- the edge count can determine the discipline's strength**, and the
 -- question was asking for a summary statistic that does not exist.
 --
 -- WHAT IS PROVED
 --
---   respectsIsInclusion    `Respects Write hb ord â‰¡ (hb âŠ ord)`, `refl`
+--   respectsIsInclusion    `Respects Write hb ord â‰¡ (hb âŠ‘ ord)`, `refl`
 --   leastAdmissible        `hb` is itself admissible, so the family is
 --                          the up-set of an actual element, not merely
 --                          upward-closed
---   moreEdgesFewerOrders   antitone: `hb âŠ hbâ²` shrinks the family
+--   moreEdgesFewerOrders   antitone: `hb âŠ‘ hbâ€²` shrinks the family
 --   admissibilityIsFaithful
---                          and the converse â” if every order admissible
---                          for `hb` is admissible for `hbâ²` then
---                          `hbâ² âŠ hb`.  Proved by evaluating the
+--                          and the converse â€” if every order admissible
+--                          for `hb` is admissible for `hbâ€²` then
+--                          `hbâ€² âŠ‘ hb`.  Proved by evaluating the
 --                          hypothesis AT `hb`, which `leastAdmissible`
 --                          makes legal.  So the map
---                          `hb â¦ {orders admitting it}` is an
+--                          `hb â†¦ {orders admitting it}` is an
 --                          order-reversing EMBEDDING: every genuinely
 --                          new edge changes the family, and no two
 --                          distinct relations share one
@@ -52,7 +52,7 @@
 --                          both directions at once
 --   hbA / hbB / incomparableFamiliesAtOneEdgeEach
 --                          the counterexample: `hbA` declares
---                          `false â’ true`, `hbB` declares `true â’ false`,
+--                          `false â†’ true`, `hbB` declares `true â†’ false`,
 --                          and each is admissible for itself and not for
 --                          the other
 --
@@ -104,7 +104,7 @@ module _ (Write : Type) where
   moreEdgesFewerOrders hb hbâ€² ord sub resp a b h = resp a b (sub a b h)
 
   ----------------------------------------------------------------------
-  -- 3.  â¦and the assignment hb â¦ its family is an embedding
+  -- 3.  â€¦and the assignment hb â†¦ its family is an embedding
   ----------------------------------------------------------------------
 
   admissibilityIsFaithful :
@@ -124,7 +124,7 @@ module _ (Write : Type) where
 ------------------------------------------------------------------------
 -- 4.  One edge each, incomparable families
 --
--- `hbA` declares `false â’ true`; `hbB` declares `true â’ false`.  Each is
+-- `hbA` declares `false â†’ true`; `hbB` declares `true â†’ false`.  Each is
 -- admissible for itself (Â§2) and refuses the other, so neither family
 -- contains the other.  Equal edge counts, incomparable strengths.
 ------------------------------------------------------------------------

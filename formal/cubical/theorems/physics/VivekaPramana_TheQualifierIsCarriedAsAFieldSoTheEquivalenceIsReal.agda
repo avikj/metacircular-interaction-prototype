@@ -1,23 +1,23 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- р╡р┐р╡ррХ-ррр░рор╛р тФ рЙрр╛рзр┐р рХрррррр░рор рр╡ р рр╡рр░рр ри рр░рр╡р╡ррпр╛рр┐ ; рпррр░ ррр░рор╛рр
+-- рд╡рд┐рд╡реЗрдХ-рдкреНрд░рдорд╛рдг тАФ рдЙрдкрд╛рдзрд┐рдГ рдХреНрд╖реЗрддреНрд░рдореН рдПрд╡ ред рдЕрд╡рддрд░рдгрдВ рди рд╕рд░реНрд╡рд╡реНрдпрд╛рдкрд┐ ; рдпрддреНрд░ рдкреНрд░рдорд╛рдгрдВ
 -- рррр░ рр╡ ррорр╛ р
 --
--- (the updhi is carried as a field.  рр╡рр░р is not onto; the equivalence
--- holds exactly where the ррр░рор╛р holds, and the type says so.)
+-- (the up─Бdhi is carried as a field.  рдЕрд╡рддрд░рдг is not onto; the equivalence
+-- holds exactly where the рдкреНрд░рдорд╛рдг holds, and the type says so.)
 --
 -- THE MOVE THAT MATTERS:
 -- рр╡рр░р d k = mkр╡р┐р╡ррХ d k k hits only the diagonal, so
--- тХ Ч тХ is NOT equivalent to р╡р┐р╡ррХ.  Rather than assert the equivalence,
--- the defeating condition is carried as a FIELD тФ р╡р┐р╡ррХ-ррр░рор╛р is the
--- subtype on which рр╡рр░р/рЙрррр╛ри are mutually inverse тФ and the
+-- тДХ ├Ч тДХ is NOT equivalent to рд╡рд┐рд╡реЗрдХ.  Rather than assert the equivalence,
+-- the defeating condition is carried as a FIELD тАФ рд╡рд┐рд╡реЗрдХ-рдкреНрд░рдорд╛рдг is the
+-- subtype on which рдЕрд╡рддрд░рдг/рдЙрддреНрдерд╛рди are mutually inverse тАФ and the
 -- equivalence on that subtype is then real.
 --
--- This is рЙрр╛рзр┐ (Nyya; Gagea, *Tattvacintmai*, c. 1325, whose
--- apparatus exists to HUNT the defeating condition of a р╡ррпр╛рррр┐) made
+-- This is рдЙрдкрд╛рдзрд┐ (Ny─Бya; Gaс╣Еge┼Ыa, *Tattvacint─Бmaс╣Зi*, c. 1325, whose
+-- apparatus exists to HUNT the defeating condition of a рд╡реНрдпрд╛рдкреНрддрд┐) made
 -- structural: not a caveat in a header, a field of the type.  Compare
--- `NaturalMachine/Nirjara_SheddingAPrimitiveCostsLaghava.agda` ┬з┬з11тУ13,
+-- `NaturalMachine/Nirjara_SheddingAPrimitiveCostsLaghava.agda` ┬з┬з11тАУ13,
 -- "the transfer is free and the licence is not", which exhibits the
 -- defeater and stops; here the defeater is carried and the transfer
 -- proceeds on its domain.
@@ -25,8 +25,8 @@
 -- THE ONE NON-REFL STEP:
 -- `рр╡рр░р-рЙрррр╛ри p = refl` does not hold.
 -- It is
--- discharged below BY THE ррр░рор╛р FIELD (path in `v` is sym ррр░рор╛р; the
--- ррр░рор╛р component by isSet р╡р┐р╡ррХ), which is what that field is for.
+-- discharged below BY THE рдкреНрд░рдорд╛рдг FIELD (path in `v` is sym рдкреНрд░рдорд╛рдг; the
+-- рдкреНрд░рдорд╛рдг component by isSet рд╡рд┐рд╡реЗрдХ), which is what that field is for.
 ------------------------------------------------------------------------
 
 module VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal where
@@ -49,7 +49,7 @@ open рд╡рд┐рд╡реЗрдХ
 рдЕрд╡рддрд░рдг : тДХ тЖТ тДХ тЖТ рд╡рд┐рд╡реЗрдХ
 рдЕрд╡рддрд░рдг d k = mkрд╡рд┐рд╡реЗрдХ d k k
 
--- р╡р┐р╡ррХ is a set (it is тХ┬│)
+-- рд╡рд┐рд╡реЗрдХ is a set (it is тДХ┬│)
 рд╡рд┐рд╡реЗрдХтЖТтДХ┬│ : рд╡рд┐рд╡реЗрдХ тЖТ тДХ ├Ч (тДХ ├Ч тДХ)
 рд╡рд┐рд╡реЗрдХтЖТтДХ┬│ v = рд╕рдо v , (рд╡рд╛рдо v , рджрдХреНрд╖рд┐рдг v)
 тДХ┬│тЖТрд╡рд┐рд╡реЗрдХ : тДХ ├Ч (тДХ ├Ч тДХ) тЖТ рд╡рд┐рд╡реЗрдХ

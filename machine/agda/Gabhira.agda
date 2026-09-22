@@ -1,21 +1,21 @@
--- ‡ ‡‡‡‡Æ‡ ‡  One machine, one law: which side of `f a ‚â° b` is bound is everything.
--- Output bound: singl (f a), contractible ‚î the datum rides free.  Input bound:
--- fiber f b ‚î the loss, and the subject.  Univalence computes here: an
+-- ‡•• ‡§¨‡•Ä‡§ú‡§Æ‡•ç ‡••  One machine, one law: which side of `f a ‚â° b` is bound is everything.
+-- Output bound: singl (f a), contractible ‚Äî the datum rides free.  Input bound:
+-- fiber f b ‚Äî the loss, and the subject.  Univalence computes here: an
 -- equivalence is a channel, transport carries every theorem across it, and what
--- cannot cross is written as a defect ‚î there is no third path (ahis).
+-- cannot cross is written as a defect ‚Äî there is no third path (ahi·πÉsƒÅ).
 -- Memory, charge, symmetry, price, distance, verdict: six faces of the one
 -- fibre; the verdict type is the saptabhag, and the sources are the origin
--- (Umsvti, Samantabhadra, Akalaka ‚î restatements are named as such).  The
+-- (UmƒÅsvƒÅti, Samantabhadra, Akala·πÖka ‚Äî restatements are named as such).  The
 -- kernel decides truth; carriers ask and generate; assert nothing whose term
 -- you have not read.  This file is one naya, true and not whole.
 
--- Gabhira ‚î ‡ó‡‡‡∞, deep; here the p-adic DEPTH, how MUCH a prime divides,
+-- Gabhira ‚Äî ‡§ó‡§≠‡•Ä‡§∞, deep; here the p-adic DEPTH, how MUCH a prime divides,
 -- which the drop-COUNT (how MANY invariant factors it divides) throws away.
 -- Plain ; compound; no source claimed.  Ported from
 -- machine/Gabhira_TheIntegerCutPriceHasAFibreAndItIsThePAdicDepthTheDropCountDiscards.hs
 -- to a --safe checked term, differential-tested byte-identical to
 -- the Haskell (RECIPE.md).  The mathematics is
--- Smith normal form over ‚; the reading (the price function has its own
+-- Smith normal form over ‚Ñ§; the reading (the price function has its own
 -- fibre) is this corpus's, movement 65.
 
 {-# OPTIONS --safe #-}
@@ -147,7 +147,7 @@ listLt (x ‚à∑ xs) (y ‚à∑ ys) =
 -- number theory: p-adic valuation, primes up to n
 ------------------------------------------------------------------------
 
--- vpFuel k p m: how many times p divides m, fuelled (m ‚â 12, so 32 is ample)
+-- vpFuel k p m: how many times p divides m, fuelled (m ‚â§ 12, so 32 is ample)
 vpFuel : Nat ‚Üí Nat ‚Üí Nat ‚Üí Nat
 vpFuel zero    p m = 0
 vpFuel (suc k) p m =
@@ -185,7 +185,7 @@ valid : Smith ‚Üí Bool
 valid ds = zipDivOK ds && allL (Œª d ‚Üí notB (d ==N 0)) ds
 
 ------------------------------------------------------------------------
--- ANGEL: |coker| = product; v_p(|coker|) = Œ_i v_p(d_i)
+-- ANGEL: |coker| = product; v_p(|coker|) = Œ£_i v_p(d_i)
 ------------------------------------------------------------------------
 
 cokerOrder : Smith ‚Üí Nat
@@ -201,7 +201,7 @@ angelHolds ds = allL ok (primeFactorsOf ds)
   ok p = (vp p (cokerOrder ds)) ==N (valuationSum p ds)
 
 ------------------------------------------------------------------------
--- DEVIL: the drop-count function ‚î #{i : p | d_i}
+-- DEVIL: the drop-count function ‚Äî #{i : p | d_i}
 ------------------------------------------------------------------------
 
 dropCount : Nat ‚Üí Smith ‚Üí Nat
@@ -222,7 +222,7 @@ eqPairList (p ‚à∑ ps) (q ‚à∑ qs) = eqNatPair p q && eqPairList ps qs
 eqPairList _        _        = false
 
 ------------------------------------------------------------------------
--- the family: valid diagonal Smith forms, 2 factors ‚â 12, 3 factors ‚â 6
+-- the family: valid diagonal Smith forms, 2 factors ‚â§ 12, 3 factors ‚â§ 6
 ------------------------------------------------------------------------
 
 fam2 : List Smith

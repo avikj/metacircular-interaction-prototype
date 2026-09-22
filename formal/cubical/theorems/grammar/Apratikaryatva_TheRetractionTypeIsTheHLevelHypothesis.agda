@@ -1,107 +1,107 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- рорр▓р╡р╛рХррпрор ┬ PROVENANCE OF THE NAME.
+-- рдореВрд▓рд╡рд╛рдХреНрдпрдореН ┬╖ PROVENANCE OF THE NAME.
 --
--- **рррр░рр┐рХр╛р░ррпррр╡ is a compound built HERE and is not a source term.**  It is
+-- **рдЕрдкреНрд░рддрд┐рдХрд╛рд░реНрдпрддреНрд╡ is a compound built HERE and is not a source term.**  It is
 -- assembled from ordinary  (ррр░рр┐рХр╛р░, remedy; the privative and the
 -- listed in the UNSOURCED block of .claude/hooks/MulaVakya_SourceStatements-
 -- ForTheTermsInOurFileNames.txt for exactly this reason.  Building a
--- compound is legitimate; letting it pass as a citation is not тФ "a
+-- compound is legitimate; letting it pass as a citation is not тАФ "a
 -- fabricated term is the mirror image of the scrubbing this rule corrects:
 -- it asserts a provenance nobody checked" (CLAUDE.md, file naming, note 2).
 --
 -- What IS sourced, and what the module leans on, is the Jaina reading of
--- irreversible loss: рир┐р░ррр░р╛ as either рр╡р┐рр╛рХр╛ (ripening on its own, gaining
--- nothing) or рр╡р┐рр╛рХр╛ (brought on deliberately, which is the path) тФ
+-- irreversible loss: рдирд┐рд░реНрдЬрд░рд╛ as either рд╕рд╡рд┐рдкрд╛рдХрд╛ (ripening on its own, gaining
+-- nothing) or рдЕрд╡рд┐рдкрд╛рдХрд╛ (brought on deliberately, which is the path) тАФ
 -- Umsvti, *Tattvrthastra* 9.3 (~2nd-5th c.).  **No claim is made that
 -- Umsvti proved anything below.**  The h-level statement is cubical type
 -- theory (Voevodsky) and is elementary; the reading it is answering is
 -- Jaina.
 --
 ------------------------------------------------------------------------
--- рррр░рр┐рХр╛р░ррпррр╡рор тФ Apratikryatva тФ irreparability.
+-- рдЕрдкреНрд░рддрд┐рдХрд╛рд░реНрдпрддреНрд╡рдореН тАФ Apratik─Бryatva тАФ irreparability.
 --
--- рирррЯр┐р░рри риррпррирр╛ р рирррЯр┐р░рр╡р┐рир╛рр р
--- рпрр рирррЯр ррр ррЧрр░р ри р▓рррпрор р ри рриррпрри р ри рХр╛р▓рри р ри рпрррирри р
--- ╬┐╜Р╬║ ╝Ф╧╧╬╬╜ ╝Р╧╬╬╜╬┐╬┤╬┐╧.
+-- рдирд╖реНрдЯрд┐рд░реНрди рдиреНрдпреВрдирддрд╛ ред рдирд╖реНрдЯрд┐рд░реНрд╡рд┐рдирд╛рд╢рдГ ред
+-- рдпрддреН рдирд╖реНрдЯрдВ рддрддреН рдЕрдЧреНрд░реЗ рди рд▓рднреНрдпрдореН ред рди рдЕрдиреНрдпреЗрди ред рди рдХрд╛рд▓реЗрди ред рди рдпрддреНрдиреЗрди ред
+-- ╬┐с╜Р╬║ с╝Ф╧Г╧Д╬╣╬╜ с╝Р╧А╬м╬╜╬┐╬┤╬┐╧В.
 --
--- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
+-- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
 -- WHAT THIS MODULE IS FOR
 --
 -- carry the load-bearing claim of that text: that a collapse is not a
 -- deficiency to be repaired later but a destruction, and that there is
--- no way back тФ *ри ржрр░рр▓ррор тФ рир╛рррр┐*, "not hard to find: does not
--- exist."  Both sections are stated there in Agda, and ┬зр is stated for
+-- no way back тАФ *рди рджреБрд░реНрд▓рднрдореН тАФ рдирд╛рд╕реНрддрд┐*, "not hard to find: does not
+-- exist."  Both sections are stated there in Agda, and ┬зрел is stated for
 -- `Bool` and for the propositional truncation only:
 --
---     рир╛рррр┐-ррр░рррпр╛рирприрор
---       : (f : тИ Bool тИт тТ Bool) тТ (тИ b тТ f тИ b тИт тЙб b) тТ тК
+--     рдирд╛рд╕реНрддрд┐-рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН
+--       : (f : тИе Bool тИетВБ тЖТ Bool) тЖТ (тИА b тЖТ f тИг b тИгтВБ тЙб b) тЖТ тКе
 --
 -- One type, one level.  A claim of the form "there is no way back" that
 -- is checked at a single two-element type is a claim about that type.
 -- This module gives it the generality the sentence is asserting.
 --
--- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
+-- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
 -- WHAT IS CHECKED
 --
---   ┬з1  what тИ_тИт ANNIHILATES, exactly.
---       `рр-рирррЯр┐р`         every path space of the truncation is
---                           contractible тФ ррр╛ррр рирррприррр┐, "and the
+--   ┬з1  what тИе_тИетВБ ANNIHILATES, exactly.
+--       `рдкрде-рдирд╖реНрдЯрд┐рдГ`         every path space of the truncation is
+--                           contractible тАФ рдкрдерд╛рд╢реНрдЪ рдирд╢реНрдпрдиреНрддрд┐, "and the
 --                           paths perish", is a theorem, not a gloss.
---       `рр╡р┐рррр`           imported, not restated (Nasti_Shabdeтж).
+--       `рдЕрд╡рд┐рд╢реЗрд╖рдГ`           imported, not restated (Nasti_ShabdeтАж).
 --
---   ┬з2  what тИ_тИт PRESERVES, exactly.
---       `рриррХрррор-ри-рирррпрр┐`   the universal property: for `P` a
---                           proposition, `(тИ A тИт тТ P) тЙ (A тТ P)`.
+--   ┬з2  what тИе_тИетВБ PRESERVES, exactly.
+--       `рдЕрдиреБрдХреНрддрдореН-рди-рдирд╢реНрдпрддрд┐`   the universal property: for `P` a
+--                           proposition, `(тИе A тИетВБ тЖТ P) тЙГ (A тЖТ P)`.
 --                           Nothing is lost for a map into a
 --                           proposition, and everything is lost for
 --                           every other map.  This is the exact
 --                           dividing line and it is an equivalence.
---       `рпрр-рр┐рррарр┐`        `тИ A тИт` is determined by, and determines,
+--       `рдпрддреН-рддрд┐рд╖реНрдарддрд┐`        `тИе A тИетВБ` is determined by, and determines,
 --                           exactly the two-way implication between
---                           `тИ A тИт` and `тИ B тИт`: "the THAT remains".
+--                           `тИе A тИетВБ` and `тИе B тИетВБ`: "the THAT remains".
 --
 --   ┬з3  THE NO-RETRACTION THEOREM, in the generality it deserves.
---       `ррр░рррпр╛рирприрор`       the type of ways back at truncation level n.
---       `ррр░рррпр╛рирприрортТрррр░р`  a way back forces `isOfHLevel n A`.
---       `рррр░ртТррр░рррпр╛рирприрор`  and conversely.
---       `ррр░рррпр╛рирприрор-ррЩррХрЛрр` the type of ways back is CONTRACTIBLE when
---                           A is an n-type тФ so nothing is chosen.
---       `ррр░рррпр╛рирприрор-р╡р╛рХррпрор` hence it is a proposition, ALWAYS.
---       `ррр░рррпр╛рирприрортЙрррр░р`  therefore an equivalence OF TYPES:
+--       `рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН`       the type of ways back at truncation level n.
+--       `рдкреНрд░рддреНрдпрд╛рдирдпрдирдореНтЖТрд╕реНрддрд░рдГ`  a way back forces `isOfHLevel n A`.
+--       `рд╕реНрддрд░рдГтЖТрдкреНрд░рддреНрдпрд╛рдирдпрдирдореН`  and conversely.
+--       `рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН-рд╕рдЩреНрдХреЛрдЪрдГ` the type of ways back is CONTRACTIBLE when
+--                           A is an n-type тАФ so nothing is chosen.
+--       `рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН-рд╡рд╛рдХреНрдпрдореН` hence it is a proposition, ALWAYS.
+--       `рдкреНрд░рддреНрдпрд╛рдирдпрдирдореНтЙГрд╕реНрддрд░рдГ`  therefore an equivalence OF TYPES:
 --
---               ррр░рррпр╛рирприрор n A  тЙ  isOfHLevel n A
+--               рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН n A  тЙГ  isOfHLevel n A
 --
 --           for every n and every A.  The type of ways back IS the
---           h-level hypothesis.  Not "there is a way back iff тж".
+--           h-level hypothesis.  Not "there is a way back iff тАж".
 --
---   ┬з4  ┬зр of the stra, recovered as a corollary and strengthened.
---       `рир╛рррр┐-ррр░рррпр╛рирприрор-рр╛рор╛риррпрор`  ANY two points that are not
+--   ┬з4  ┬зрел of the s┼лtra, recovered as a corollary and strengthened.
+--       `рдирд╛рд╕реНрддрд┐-рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН-рд╕рд╛рдорд╛рдиреНрдпрдореН`  ANY two points that are not
 --                           identified kill the level-1 retraction.
---       `рир╛рррр┐-ррр░рррпр╛рирприрор-Bool`      the stra's own statement, now
+--       `рдирд╛рд╕реНрддрд┐-рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН-Bool`      the s┼лtra's own statement, now
 --                           obtained rather than assumed.
---       `рирррЯр┐р-ри-риррпррирр╛`     the sharp form of "not hard to find:
---                           does not exist" тФ the type of ways back is
---                           EQUIVALENT TO тК, so it is not merely
+--       `рдирд╖реНрдЯрд┐рдГ-рди-рдиреНрдпреВрдирддрд╛`     the sharp form of "not hard to find:
+--                           does not exist" тАФ the type of ways back is
+--                           EQUIVALENT TO тКе, so it is not merely
 --                           uninhabited-as-far-as-anyone-looked.
 --
---   ┬з5  ржрр╡р рор╛р░ррЧр тФ the two paths, and the honest status of the third.
---       `рррХрр░рорр-ри-рХр┐рЮррр┐рир-рирррпрр┐`  path one: along an identification
+--   ┬з5  рджреНрд╡реМ рдорд╛рд░реНрдЧреМ тАФ the two paths, and the honest status of the third.
+--       `рд╕рдВрдХреНрд░рдордгреЗ-рди-рдХрд┐рдЮреНрдЪрд┐рдиреН-рдирд╢реНрдпрддрд┐`  path one: along an identification
 --                           every fibre transports, nothing lost.
---       `ржрЛрр▓ррЦр-ррр░ррр`      path two: `A тЙ ╬[ b тИИ B ] fiber f b`.
---                           The defect record is COMPLETE тФ the domain
+--       `рджреЛрд╖рд▓реЗрдЦрдГ-рдкреВрд░реНрдгрдГ`      path two: `A тЙГ ╬г[ b тИИ B ] fiber f b`.
+--                           The defect record is COMPLETE тАФ the domain
 --                           is recovered from the codomain plus the
 --                           fibres, so there is nothing about `f` that
 --                           the fibrewise ledger fails to carry.
---       `рррХрр░роррортЙрир┐р░рржрЛрр`   and path one is exactly the defect-free
---                           case: `isEquiv f тЙ (тИ b тТ isContr (fiber f b))`.
---       `рррррпр-рор╛р░ррЧр-рир┐р░рррпр` **THE HONESTY LEDGER, AND IT IS A
---                           THEOREM RATHER THAN A HEDGE.**  ┬зр of the
---                           stra says рррррпрЛ рор╛р░ррЧрЛ ри р╡р┐ржррпрр, "a third
+--       `рд╕рдВрдХреНрд░рдордгрдореНтЙГрдирд┐рд░реНрджреЛрд╖рдГ`   and path one is exactly the defect-free
+--                           case: `isEquiv f тЙГ (тИА b тЖТ isContr (fiber f b))`.
+--       `рддреГрддреАрдпрдГ-рдорд╛рд░реНрдЧрдГ-рдирд┐рд░реНрдгрдпрдГ` **THE HONESTY LEDGER, AND IT IS A
+--                           THEOREM RATHER THAN A HEDGE.**  ┬зрем of the
+--                           s┼лtra says рддреГрддреАрдпреЛ рдорд╛рд░реНрдЧреЛ рди рд╡рд┐рджреНрдпрддреЗ, "a third
 --                           path does not exist".  Read as a DISJUNCTION
---                           тФ every map is either an equivalence or has
---                           a nameable defect тФ that sentence is NOT a
+--                           тАФ every map is either an equivalence or has
+--                           a nameable defect тАФ that sentence is NOT a
 --                           theorem in this lane, and this module does
 --                           not smuggle it in.  What is proved instead
 --                           is what it costs: the disjunctive reading,
@@ -110,22 +110,22 @@
 --                           classical, exactly, and the module says so
 --                           with a checked term instead of a caveat.
 --
--- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
+-- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
 --
 -- document IN THIS REPOSITORY, not from a classical text, and this
 -- header says so rather than letting the Devangar imply an antiquity
 -- it does not have.  The classical grounding behind that document, and
 -- behind the naming, is:
 --
---   * Umsvti, *Tattvrthastra* 7.13 (c. 2ndтУ5th c. CE) тФ рр┐ррр╛ as
---     ррр░роррррпрЛрЧр╛рр ррр░р╛рр╡ррпрр░рЛрррор, injury as severance *performed
+--   * Um─Бsv─Бti, *Tattv─Бrthas┼лtra* 7.13 (c. 2ndтАУ5th c. CE) тАФ рд╣рд┐рдВрд╕рд╛ as
+--     рдкреНрд░рдорддреНрддрдпреЛрдЧрд╛рддреН рдкреНрд░рд╛рдгрд╡реНрдпрдкрд░реЛрдкрдгрдореН, injury as severance *performed
 --     inattentively*, which is why an unremarked collapse and not a
 --     deliberate one is the case that matters here; and 5.29,
---     рЙрррр╛рж-р╡ррпрп-рзрр░рр╡ррп-рпррХррр ррр, arising-perishing-persisting held
+--     рдЙрддреНрдкрд╛рдж-рд╡реНрдпрдп-рдзреНрд░реМрд╡реНрдп-рдпреБрдХреНрддрдВ рд╕рддреН, arising-perishing-persisting held
 --     TOGETHER, which is the shape ┬з1 and ┬з2 of this module make
 --     precise for one particular perishing.
 --   * Siddhasena Divkara, *Sanmatitarka* (c. 5th c. CE) and
---     Samantabhadra, *ptamms* тФ рирп / ржрр░ррирп: a standpoint that has
+--     Samantabhadra, *─Аptam─лm─Бс╣Гs─Б* тАФ рдирдп / рджреБрд░реНрдирдп: a standpoint that has
 --     forgotten it is one.  ┬з3 is the statement that a truncation is a
 --     naya whose forgetting is *irreversible*, and ┬з5 is the statement
 --     of exactly which move is not.
@@ -133,67 +133,67 @@
 -- NEITHER TEXT STATES ANY THEOREM BELOW.  What is taken from them is
 -- the distinction between a loss that can be made good and one that
 -- cannot, and the insistence that the second be named as such.  The
--- mathematics is Voevodsky's тФ h-levels, univalence, the identification
--- of a descent datum with an h-level hypothesis тФ and is named as his.
+-- mathematics is Voevodsky's тАФ h-levels, univalence, the identification
+-- of a descent datum with an h-level hypothesis тАФ and is named as his.
 --
--- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
+-- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
 -- PRIOR ART, SEARCHED BEFORE WRITING (per PROTOCOL ┬з0), 2026-08-20
 --
---   * IN THIS REPOSITORY.  `grep -l 'тИ\|Trunc\|squash' formal/cubical/*.agda`
+--   * IN THIS REPOSITORY.  `grep -l 'тИе\|Trunc\|squash' formal/cubical/*.agda`
 --     returns 36 modules; the adjacent ones were read in full.
---     - `Nasti_ShabdeJivahVartante.agda` тФ ┬зр/┬зр of the stra verbatim,
---       for `Bool` and `тИ_тИт`.  ┬з4 below SUBSUMES its
---       `рир╛рррр┐-ррр░рррпр╛рирприрор`, and imports rather than restates its
---       `рр╡р┐рррр`.
+--     - `Nasti_ShabdeJivahVartante.agda` тАФ ┬зрек/┬зрел of the s┼лtra verbatim,
+--       for `Bool` and `тИе_тИетВБ`.  ┬з4 below SUBSUMES its
+--       `рдирд╛рд╕реНрддрд┐-рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН`, and imports rather than restates its
+--       `рдЕрд╡рд┐рд╢реЗрд╖рдГ`.
 --       [It also DID NOT TYPECHECK when this module was begun: it uses
 --        `ua╬▓` while importing only `ua` from
---        `Cubical.Foundations.Univalence`, so ┬зр's `рр▓рЛрр` had never
+--        `Cubical.Foundations.Univalence`, so ┬зрем's `рдЕрд▓реЛрдкрдГ` had never
 --        been checked by anything.  Repaired 2026-08-20 by adding the
---        name to the `using` list тФ a one-name additive fix, no
+--        name to the `using` list тАФ a one-name additive fix, no
 --        mathematics touched.]
 --     - `Samkramana_TransportCarriesStructureAndTruncationIsTransport
---       ExactlyWhenNothingWasThereToLose.agda` тФ WRITTEN CONCURRENTLY WITH
---       THIS ONE, by another lane, on the same ┬зртУ┬зр of the same stra.
+--       ExactlyWhenNothingWasThereToLose.agda` тАФ WRITTEN CONCURRENTLY WITH
+--       THIS ONE, by another lane, on the same ┬зректАУ┬зрем of the same s┼лtra.
 --       The overlap is REAL and is stated here rather than discovered by
---       an auditor: its `ррр░рррпр╛рирприт`, `ррр░рррпр╛рирпритТisProp`,
---       `isPropтТррр░рррпр╛рирпри` and `рирррЯр┐ртЙрир┐р░ррзр░ррорр╛` are exactly ┬з3 of this
---       module at n = 1 in the `тИ_тИт` spelling, and its
---       `ррржр-рир╛рррр┐-ррр░рррпр╛рирприрор` is ┬з4.  Neither module derives from the
+--       an auditor: its `рдкреНрд░рддреНрдпрд╛рдирдпрдитВБ`, `рдкреНрд░рддреНрдпрд╛рдирдпрдитЖТisProp`,
+--       `isPropтЖТрдкреНрд░рддреНрдпрд╛рдирдпрди` and `рдирд╖реНрдЯрд┐рдГтЙГрдирд┐рд░реНрдзрд░реНрдорддрд╛` are exactly ┬з3 of this
+--       module at n = 1 in the `тИе_тИетВБ` spelling, and its
+--       `рднреЗрджреЗ-рдирд╛рд╕реНрддрд┐-рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН` is ┬з4.  Neither module derives from the
 --       other; both were at green before either saw the other.  WHAT IS
 --       HERE AND NOT THERE: n is a variable rather than 1 (┬з3); the
 --       retraction type is shown CONTRACTIBLE and hence a PROPOSITION,
 --       which is what upgrades the biimplication to an equivalence of
---       types (┬з3c, ┬з3d) тФ that module states `тЙ` for `isEquiv тИ_тИт`,
+--       types (┬з3c, ┬з3d) тАФ that module states `тЙГ` for `isEquiv тИг_тИгтВБ`,
 --       which is a prop for a different reason (`isPropIsEquiv`), and
---       does not state it for the retraction type; the тК-equivalence
+--       does not state it for the retraction type; the тКе-equivalence
 --       (┬з4); ┬з1; ┬з2; and ┬з5.  WHAT IS THERE AND NOT HERE: the transport
---       side worked out in full (`р╡ррирор`, structure transport) and the
---       рЧрр┐ data type.  The duplication that remains is deliberate: each
+--       side worked out in full (`рд╡рд╣рдирдореН`, structure transport) and the
+--       рдЧрддрд┐ data type.  The duplication that remains is deliberate: each
 --       module is readable alone, and neither imports the other, because
 --       a citation between two live lanes is a merge waiting to be
 --       argued about.  If they are ever merged, ┬з3 here is the general
 --       statement and that module's ┬з-transport is the part to keep.
---     - `SetTruncationDescentBoundary.agda` тФ `descentDatumтЙisSet`, the
+--     - `SetTruncationDescentBoundary.agda` тАФ `descentDatumтЙГisSet`, the
 --       SAME SHAPE at h-level 2 for `Cubical.HITs.SetTruncation`.  This
 --       module is not a generalisation of it in the strict sense: that
---       one is about `тИ_тИт`, this one about `hLevelTrunc`, which are
+--       one is about `тИе_тИетВВ`, this one about `hLevelTrunc`, which are
 --       equivalent types but different HITs.  The overlap is real and
 --       is named here rather than left for an auditor: at n = 2 the two
 --       statements are the same mathematics, and ┬з3 is what that
 --       module's ┬з1 looks like when n is a variable.  The parts that
 --       are NOT in it are ┬з1, ┬з2, ┬з4 and ┬з5.
---     - `Tantrayukti_ARetractionThatIsNotStrictIsNotARetraction.agda` тФ
+--     - `Tantrayukti_ARetractionThatIsNotStrictIsNotARetraction.agda` тАФ
 --       "retraction" there is stric (a withdrawn claim), not the
 --       type-theoretic notion.  Same English word, unrelated object.
 --       Recorded so nobody merges them.
 --     - `PMNoSection.agda`, `AnuktaAvaktavya.agda`, `Anekanta.agda`,
---       `Saptabhangi.agda` тФ sections/nayas/saptabhag, no truncation
+--       `Saptabhangi.agda` тАФ sections/nayas/saptabhaс╣Еg─л, no truncation
 --       retraction statement.
 --   * IN cubical v0.9.  `hasRetract`, `isContr-hasRetract`,
 --     `truncIdempotentIso`, `isOfHLevelRetract` all exist and are USED
 --     below rather than re-proved.  What is not in the library is the
 --     packaging: the library nowhere states that
---     `hasRetract тИ_тИтХ тЙ isOfHLevel n A`.
+--     `hasRetract тИг_тИгтВХ тЙГ isOfHLevel n A`.
 --   * NOVELTY CLAIMED: none of the mathematics.  Every step is a
 --     library lemma or three lines.  What is contributed is that a
 --     sentence this repository asserts in a stra now has a checked
@@ -237,10 +237,10 @@ private
 ------------------------------------------------------------------------
 -- ┬з1  WHAT IS ANNIHILATED.
 --
--- `рр╡р┐рррр` (imported) says every map out of the truncation is blind to
--- WHICH inhabitant it was given.  That is one step and it is ┬зр of the
--- stra.  The sentence immediately after it тФ ррр╛ррр рирррприррр┐, "and the
--- paths perish" тФ is a second and strictly stronger claim, and it was
+-- `рдЕрд╡рд┐рд╢реЗрд╖рдГ` (imported) says every map out of the truncation is blind to
+-- WHICH inhabitant it was given.  That is one step and it is ┬зрек of the
+-- s┼лtra.  The sentence immediately after it тАФ рдкрдерд╛рд╢реНрдЪ рдирд╢реНрдпрдиреНрддрд┐, "and the
+-- paths perish" тАФ is a second and strictly stronger claim, and it was
 -- not checked anywhere.  It is checked here.
 --
 -- Not "the paths are identified": the space of paths between any two
@@ -264,7 +264,7 @@ private
 -- The complement of ┬з1, and the reason ┬з1 is not simply a defect: the
 -- truncation is the universal map into a proposition, so exactly those
 -- questions whose ANSWER is a proposition survive it, undamaged, and no
--- others.  "рпрр" рр┐рррарр┐ тФ the THAT remains.
+-- others.  "рдпрддреН" рддрд┐рд╖реНрдарддрд┐ тАФ the THAT remains.
 --
 -- Stated as an equivalence of function types rather than as a rule,
 -- because that is the form in which "exactly" is a claim and not an
@@ -280,7 +280,7 @@ private
   Iso.leftInv i g = funExt (PT.elim (╬╗ x тЖТ isPropтЖТisSet hP _ _) (╬╗ a тЖТ refl))
 
 -- The THAT, isolated.  Two types have identified truncations exactly
--- when each one's inhabitedness implies the other's тФ and nothing
+-- when each one's inhabitedness implies the other's тАФ and nothing
 -- finer than that survives to be compared.
 рдпрддреН-рддрд┐рд╖реНрдарддрд┐ : (тИе A тИетВБ тЖТ тИе B тИетВБ) ├Ч (тИе B тИетВБ тЖТ тИе A тИетВБ) тЖТ тИе A тИетВБ тЙГ тИе B тИетВБ
 рдпрддреН-рддрд┐рд╖реНрдарддрд┐ (f , g) = propBiimplтЖТEquiv isPropPropTrunc isPropPropTrunc f g
@@ -289,8 +289,8 @@ private
 -- ┬з3  THE NO-RETRACTION THEOREM.
 --
 -- The type of ways back from the n-truncation.  Definitionally this is
--- the library's `hasRetract тИ_тИтХ`; it is spelled out because the
--- stra's ┬зр is spelled out, and because a reader should be able to see
+-- the library's `hasRetract тИг_тИгтВХ`; it is spelled out because the
+-- s┼лtra's ┬зрел is spelled out, and because a reader should be able to see
 -- that the two agree without taking anyone's word.
 ------------------------------------------------------------------------
 
@@ -303,7 +303,7 @@ private
 рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН-рд╣рд┐-hasRetract n A = refl
 
 -- (a)  A way back forces the h-level.  `hLevelTrunc n A` is an n-type by
---      construction, and a retract of an n-type is an n-type тФ so a
+--      construction, and a retract of an n-type is an n-type тАФ so a
 --      descent datum drags `A` down to level n, whatever `A` was.
 рдкреНрд░рддреНрдпрд╛рдирдпрдирдореНтЖТрд╕реНрддрд░рдГ : {n : HLevel} тЖТ рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН n A тЖТ isOfHLevel n A
 рдкреНрд░рддреНрдпрд╛рдирдпрдирдореНтЖТрд╕реНрддрд░рдГ {n = n} (f , h) =
@@ -325,7 +325,7 @@ private
 рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН-рд╕рдЩреНрдХреЛрдЪрдГ hA = isEquivтЖТisContrHasRetract (рд╕реНрддрд░рдГтЖТрд╕рдордореН hA)
 
 -- (d)  Hence the type of ways back is a proposition for EVERY `A` and
---      every n тФ vacuously when `A` is not an n-type (┬з3a makes it
+--      every n тАФ vacuously when `A` is not an n-type (┬з3a makes it
 --      empty), and by (c) when it is.
 рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН-рд╡рд╛рдХреНрдпрдореН : {n : HLevel} тЖТ isProp (рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН n A)
 рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН-рд╡рд╛рдХреНрдпрдореН r =
@@ -344,11 +344,11 @@ private
                    рдкреНрд░рддреНрдпрд╛рдирдпрдирдореНтЖТрд╕реНрддрд░рдГ рд╕реНрддрд░рдГтЖТрдкреНрд░рддреНрдпрд╛рдирдпрдирдореН
 
 ------------------------------------------------------------------------
--- ┬з4  ┬зр OF THE STRA, OBTAINED.
+-- ┬з4  ┬зрел OF THE S┼кTRA, OBTAINED.
 --
--- The propositional truncation is level 1.  Its statement of ┬зр is now
+-- The propositional truncation is level 1.  Its statement of ┬зрел is now
 -- a two-line corollary, and it holds for every type with two points
--- that are not identified тФ `Bool` was never the content.
+-- that are not identified тАФ `Bool` was never the content.
 ------------------------------------------------------------------------
 
 рдирд╛рд╕реНрддрд┐-рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН-рд╕рд╛рдорд╛рдиреНрдпрдореН
@@ -359,21 +359,21 @@ private
 рдирд╛рд╕реНрддрд┐-рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН-Bool : ┬м рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН 1 Bool
 рдирд╛рд╕реНрддрд┐-рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН-Bool = рдирд╛рд╕реНрддрд┐-рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН-рд╕рд╛рдорд╛рдиреНрдпрдореН true false trueтЙвfalse
 
--- and the тИ_тИт spelling, which is the one ┬зр actually writes, proved
--- where it stands rather than transported: a retraction of `тИ_тИт` would
--- identify `true` with `false` in one step, by `рр╡р┐рррр`.
+-- and the тИе_тИетВБ spelling, which is the one ┬зрел actually writes, proved
+-- where it stands rather than transported: a retraction of `тИг_тИгтВБ` would
+-- identify `true` with `false` in one step, by `рдЕрд╡рд┐рд╢реЗрд╖рдГ`.
 рдирд╛рд╕реНрддрд┐-рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН
   : (f : тИе Bool тИетВБ тЖТ Bool) тЖТ ((b : Bool) тЖТ f тИг b тИгтВБ тЙб b) тЖТ тКе
 рдирд╛рд╕реНрддрд┐-рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН f s =
   trueтЙвfalse (sym (s true) тИЩ рдЕрд╡рд┐рд╢реЗрд╖рдГ f true false тИЩ s false)
 
--- THE SHARP FORM OF "ри ржрр░рр▓ррор тФ рир╛рррр┐".
+-- THE SHARP FORM OF "рди рджреБрд░реНрд▓рднрдореН тАФ рдирд╛рд╕реНрддрд┐".
 --
--- "There is no way back" is weaker than what ┬зр says.  ┬зр says the way
+-- "There is no way back" is weaker than what ┬зрел says.  ┬зрел says the way
 -- back is not merely hard to find but absent, and that is the claim
 -- that the TYPE of ways back is not just uninhabited-so-far but
--- equivalent to the empty type тФ nothing to search, no better searcher,
--- no more time.  ри рриррпрри р ри рХр╛р▓рри р ри рпрррирри р
+-- equivalent to the empty type тАФ nothing to search, no better searcher,
+-- no more time.  рди рдЕрдиреНрдпреЗрди ред рди рдХрд╛рд▓реЗрди ред рди рдпрддреНрдиреЗрди ред
 рдирд╖реНрдЯрд┐рдГ-рди-рдиреНрдпреВрдирддрд╛
   : {n : HLevel} тЖТ ┬м (isOfHLevel n A) тЖТ рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН n A тЙГ тКе
 рдирд╖реНрдЯрд┐рдГ-рди-рдиреНрдпреВрдирддрд╛ ┬мh =
@@ -381,23 +381,23 @@ private
                    (╬╗ r тЖТ ┬мh (рдкреНрд░рддреНрдпрд╛рдирдпрдирдореНтЖТрд╕реНрддрд░рдГ r)) тКеrec
 
 ------------------------------------------------------------------------
--- ┬з5  ржрр╡р рор╛р░ррЧр тФ AND THE THIRD.
+-- ┬з5  рджреНрд╡реМ рдорд╛рд░реНрдЧреМ тАФ AND THE THIRD.
 --
--- ┬зр of the stra names two moves and forbids a third:
+-- ┬зрем of the s┼лtra names two moves and forbids a third:
 --
---     рррХрр░роррор   transport along an identification; nothing perishes.
---     ржрЛрр▓ррЦр    where transport is impossible, the defect is WRITTEN.
---     рррррпрЛ рор╛р░ррЧрЛ ри р╡р┐ржррпрр р
+--     рд╕рдВрдХреНрд░рдордгрдореН   transport along an identification; nothing perishes.
+--     рджреЛрд╖рд▓реЗрдЦрдГ    where transport is impossible, the defect is WRITTEN.
+--     рддреГрддреАрдпреЛ рдорд╛рд░реНрдЧреЛ рди рд╡рд┐рджреНрдпрддреЗ ред
 --
--- The first is `ua` and is already checked in Nasti_Shabdeтж .  The
+-- The first is `ua` and is already checked in Nasti_ShabdeтАж .  The
 -- second and third are what this section is about, and they have
 -- different logical statuses, which is the whole point.
 ------------------------------------------------------------------------
 
 -- PATH ONE.  Along an identification, a structure is carried, not
 -- re-described: transport agrees with the equivalence on the nose.
--- (`ua╬▓` тФ restated here only because ┬зр's own statement of it in
---  Nasti_Shabdeтж had never typechecked; see the header.)
+-- (`ua╬▓` тАФ restated here only because ┬зрем's own statement of it in
+--  Nasti_ShabdeтАж had never typechecked; see the header.)
 рд╕рдВрдХреНрд░рдордгреЗ-рди-рдХрд┐рдЮреНрдЪрд┐рдиреН-рдирд╢реНрдпрддрд┐
   : (e : A тЙГ B) (a : A) тЖТ transport (ua e) a тЙб equivFun e a
 рд╕рдВрдХреНрд░рдордгреЗ-рди-рдХрд┐рдЮреНрдЪрд┐рдиреН-рдирд╢реНрдпрддрд┐ = ua╬▓
@@ -405,11 +405,11 @@ private
 -- PATH TWO, AND ITS COMPLETENESS.  The defect record of a map is its
 -- family of fibres, and that record is COMPLETE: the domain is nothing
 -- more than the codomain together with the fibres.  So writing the
--- defect down is not a consolation prize for a failed transport тФ it
+-- defect down is not a consolation prize for a failed transport тАФ it
 -- loses nothing that was there.
 --
--- This is the precise sense in which ржрЛрр▓ррЦр is ррр┐ррр╛ and not a
--- lesser move: `р▓р┐рЦр┐ррЛ ржрЛррЛ ррр╡рр┐`.
+-- This is the precise sense in which рджреЛрд╖рд▓реЗрдЦрдГ is рдЕрд╣рд┐рдВрд╕рд╛ and not a
+-- lesser move: `рд▓рд┐рдЦрд┐рддреЛ рджреЛрд╖реЛ рдЬреАрд╡рддрд┐`.
 рджреЛрд╖рд▓реЗрдЦрдГ-рдкреВрд░реНрдгрдГ : (f : A тЖТ B) тЖТ A тЙГ (╬г[ b тИИ B ] fiber f b)
 рджреЛрд╖рд▓реЗрдЦрдГ-рдкреВрд░реНрдгрдГ {A = A} {B = B} f = isoToEquiv i where
   i : Iso A (╬г[ b тИИ B ] fiber f b)
@@ -429,28 +429,28 @@ private
                    (╬╗ h тЖТ record { equiv-proof = h })
 
 ------------------------------------------------------------------------
--- рррррпр рор╛р░ррЧр тФ THE HONESTY LEDGER, AS A THEOREM.
+-- рддреГрддреАрдпрдГ рдорд╛рд░реНрдЧрдГ тАФ THE HONESTY LEDGER, AS A THEOREM.
 --
--- Read as a claim about the shape of the ledger тФ that the fibres carry
--- everything тФ "no third path" is `ржрЛрр▓ррЦр-ррр░ррр` above, and it is
+-- Read as a claim about the shape of the ledger тАФ that the fibres carry
+-- everything тАФ "no third path" is `рджреЛрд╖рд▓реЗрдЦрдГ-рдкреВрд░реНрдгрдГ` above, and it is
 -- proved.
 --
--- Read as a DISJUNCTION тФ *every map is either a transport or has a
--- nameable defect* тФ it is NOT a theorem here, and this module refuses
+-- Read as a DISJUNCTION тАФ *every map is either a transport or has a
+-- nameable defect* тАФ it is NOT a theorem here, and this module refuses
 -- to write it as one.  The obstruction is not a gap in the argument.
--- It is that passing from `┬ (тИ b тТ isContr (fiber f b))` to
--- `╬[ b тИИ B ] ┬ isContr (fiber f b)` is exactly the classical step, and
+-- It is that passing from `┬м (тИА b тЖТ isContr (fiber f b))` to
+-- `╬г[ b тИИ B ] ┬м isContr (fiber f b)` is exactly the classical step, and
 -- a defect you cannot exhibit a SITE for is not written down.
 --
 -- What can be proved, and is, is the price:
 --
 --     if the disjunction holds for every map, excluded middle holds.
 --
--- Take `P` a proposition and `f : P тТ Unit`.  Then `f` is an
+-- Take `P` a proposition and `f : P тЖТ Unit`.  Then `f` is an
 -- equivalence exactly when `P` holds.  So deciding "transport or
 -- defect" for these maps alone decides every proposition.
 --
--- So рррррпрЛ рор╛р░ррЧрЛ ри р╡р┐ржррпрр is not an unproved conjecture and not a
+-- So рддреГрддреАрдпреЛ рдорд╛рд░реНрдЧреЛ рди рд╡рд┐рджреНрдпрддреЗ is not an unproved conjecture and not a
 -- slogan: it is a CLASSICAL PRINCIPLE, named as one, at the exact
 -- strength of excluded middle.  The stra may assert it; a reader now
 -- knows what has been assumed when it does.
@@ -493,22 +493,22 @@ private
 
 ------------------------------------------------------------------------
 --
---   * ┬з3 is about `hLevelTrunc`.  `Cubical.HITs.SetTruncation.тИ_тИт` and
---     `Cubical.HITs.PropositionalTruncation.тИ_тИт` are equivalent to
+--   * ┬з3 is about `hLevelTrunc`.  `Cubical.HITs.SetTruncation.тИе_тИетВВ` and
+--     `Cubical.HITs.PropositionalTruncation.тИе_тИетВБ` are equivalent to
 --     `hLevelTrunc 2` and `hLevelTrunc 1` but are not those types, and
 --     the transport of ┬з3 across those equivalences is NOT done here.
---     ┬з4 therefore proves the `тИ_тИт` case again by hand rather than
+--     ┬з4 therefore proves the `тИе_тИетВБ` case again by hand rather than
 --     claiming it as an instance.  An unstated transport is exactly the
 --     kind of gap this repository has been caught in.
 --
---   * ┬з5's `ржрЛрр▓ррЦр-ррр░ррр` says the fibres carry everything about the
+--   * ┬з5's `рджреЛрд╖рд▓реЗрдЦрдГ-рдкреВрд░реНрдгрдГ` says the fibres carry everything about the
 --     MAP.  It says nothing about whether a defect, once written, is
---     legible, actionable, or of any use тФ that is a question about
---     ррр░рор╛р and not about types, and the stra's ┬зр claim that
---     "р▓р┐рЦр┐ррЛ ржрЛррЛ ррр╡рр┐" (a written defect lives) is a claim about
+--     legible, actionable, or of any use тАФ that is a question about
+--     рдкреНрд░рдорд╛рдг and not about types, and the s┼лtra's ┬зрем claim that
+--     "рд▓рд┐рдЦрд┐рддреЛ рджреЛрд╖реЛ рдЬреАрд╡рддрд┐" (a written defect lives) is a claim about
 --     practice which no type checks.
 --
---   * The equivalence in `рррррпр-рор╛р░ррЧр-рир┐р░рррпр` is stated for the maps
+--   * The equivalence in `рддреГрддреАрдпрдГ-рдорд╛рд░реНрдЧрдГ-рдирд┐рд░реНрдгрдпрдГ` is stated for the maps
 --     out of propositions only.  That suffices to show the disjunctive
 --     reading is at least as strong as LEM and is implied by it, on
 --     that family.  Whether the disjunction for ARBITRARY maps is

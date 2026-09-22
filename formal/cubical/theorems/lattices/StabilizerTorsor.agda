@@ -7,25 +7,25 @@
 --
 -- For a group G acting on a set X and points x y : X, the transporter
 --
---     T x y = �[ g ∈ G ] (g � x ≡ y)
+--     T x y = Σ[ g ∈ G ] (g ▸ x ≡ y)
 --
 -- carries a free and transitive action of Stab x (by precomposition) and,
 -- equivalently, of Stab y (by postcomposition): any two transporters
 -- differ by a unique stabilizer element (`isTorsorT`, `isTorsorTL`).
 -- Consequently a transporter fixed by every stabilizer element forces the
--- stabilizer to be trivial (`invariantPoint�contrStab`) � R0027's no-go:
+-- stabilizer to be trivial (`invariantPoint→contrStab`) — R0027's no-go:
 -- endpoint-invariant data cannot select a certificate equivariantly unless
 -- the stabilizer is already trivial.  Shilpin's sharp statement 1 is the
--- bridge `uniqueCertificate�contrStab` / `contrStab�uniqueCertificate`.
+-- bridge `uniqueCertificate→contrStab` / `contrStab→uniqueCertificate`.
 --
 -- cubical v0.5 has no group-action record, so a minimal one is defined
 -- here (`Action`).  The stabilizer is packaged both as a Group in its own
 -- right (`StabGroup`, any universe levels) and, at matching levels, as a
 -- library `Subgroup` (`StabIsSubgroup.StabSubgroup`) whose underlying
 -- carrier agrees definitionally with the torsor-side stabilizer.
--- The Smith-thread shape � two commuting one-sided actions (L , R) on a
+-- The Smith-thread shape — two commuting one-sided actions (L , R) on a
 -- set of matrices, certificates as transporters to a normal form D, and
--- the two-sided target stabilizer Γ_D � is the instance `TwoSided`.
+-- the two-sided target stabilizer Γ_D — is the instance `TwoSided`.
 
 module StabilizerTorsor where
 
@@ -45,7 +45,7 @@ private
 
 -- ---------------------------------------------------------------------
 -- A minimal group-action record (cubical v0.5 ships no GroupAction).
--- Composition convention: (g � h) � x ≡ g � (h � x).
+-- Composition convention: (g · h) ▸ x ≡ g ▸ (h ▸ x).
 -- ---------------------------------------------------------------------
 
 record Action (G : Group ℓ) (X : Type ℓ') : Type (ℓ-max ℓ ℓ') where
@@ -119,16 +119,16 @@ module Torsor (G : Group ℓ) {X : Type ℓ'} (A : Action G X) where
   StabGroup x = makeGroup (idT x) _∙T_ invT (isSetT x x)
                           ∙T-Assoc ∙T-IdR ∙T-IdL ∙T-InvR ∙T-InvL
 
-  -- Stab x acts on T x y on the right by precomposition (t , s) � t ∙T s;
+  -- Stab x acts on T x y on the right by precomposition (t , s) ↦ t ∙T s;
   -- the action laws are the instances ∙T-IdR and ∙T-Assoc.  Stab y acts
-  -- on the left by postcomposition (s , t) � s ∙T t, with laws ∙T-IdL and
+  -- on the left by postcomposition (s , t) ↦ s ∙T t, with laws ∙T-IdL and
   -- ∙T-Assoc.  Both actions are free and transitive:
 
   -- The difference of two transporters, as a source-stabilizer element...
   diff : {x y : X} (t₁ t₂ : T x y) → Stab x
   diff t₁ t₂ = invT t₁ ∙T t₂
 
-  -- ...which carries t� to t� (transitivity of the right action)...
+  -- ...which carries t₁ to t₂ (transitivity of the right action)...
   diff-carries : {x y : X} (t₁ t₂ : T x y) → (t₁ ∙T diff t₁ t₂) ≡ t₂
   diff-carries (g₁ , _) (g₂ , _) = transporterPath
     (·Assoc g₁ (inv g₁) g₂ ∙ cong (_· g₂) (·InvR g₁) ∙ ·IdL g₂)
@@ -271,7 +271,7 @@ module StabIsSubgroup (G : Group ℓ) {X : Type ℓ} (A : Action G X) where
   StabSubgroup x = stabSubset x , isSubgroupStab x
 
   -- The library-side subgroup and the torsor-side stabilizer coincide on
-  -- the nose (both are �[ g ∈ ⟨ G ⟩ ] ((g � x) ≡ x)).
+  -- the nose (both are Σ[ g ∈ ⟨ G ⟩ ] ((g ▸ x) ≡ x)).
   stabCarrier≡ : (x : X)
     → ⟨ Subgroup→Group G (StabSubgroup x) ⟩ ≡ Torsor.Stab G A x
   stabCarrier≡ x = refl
@@ -283,7 +283,7 @@ module StabIsSubgroup (G : Group ℓ) {X : Type ℓ} (A : Action G X) where
 -- matrices, Cert A D is the set of two-sided certificates carrying A to
 -- the normal form D, and Γ D is shilpin's two-sided target stabilizer
 -- Γ_D = {(H , K) : H D K ≡ D}; `certificateTorsor` is the statement that
--- the certificate set is a Γ_D-torsor, and `gaugeFreeSelector�trivialΓ`
+-- the certificate set is a Γ_D-torsor, and `gaugeFreeSelector→trivialΓ`
 -- is the no-go that closes msg 0342's producer problem.
 -- ---------------------------------------------------------------------
 
@@ -323,8 +323,8 @@ module TwoSided
     → isContr (Σ[ γ ∈ Γ D ] (Certificates._∙T_ γ c₁ ≡ c₂))
   certificateTorsor A D = Certificates.isTorsorTL
 
-  -- A certificate fixed by every Γ_D symmetry � i.e. selected by
-  -- endpoint-invariant data alone, with no gauge � forces Γ_D trivial.
+  -- A certificate fixed by every Γ_D symmetry — i.e. selected by
+  -- endpoint-invariant data alone, with no gauge — forces Γ_D trivial.
   gaugeFreeSelector→trivialΓ : (A D : M) (c : Cert A D)
     → ((γ : Γ D) → Certificates._∙T_ γ c ≡ c)
     → isContr (Γ D)

@@ -14,16 +14,16 @@
 --                          list of chosen fillers ending in a
 --                          distinguished obstruction.  `FillTerm` is
 --                          "there exists a certificate".  Being
---                          inductive, it is finite by construction �
---                          this is the honest content of "��� with a
+--                          inductive, it is finite by construction —
+--                          this is the honest content of "Σ⁰₁ with a
 --                          finite certificate": positive instances are
 --                          exhibited and checked, in finite time, by
 --                          the kernel.
 --
 --  2. Branch / FillInf     The note's Fill_∞: a coinductive total
 --                          choice function filling every level.
---     cert�branch          Prop 2.2.3 (�), which needs � and here
---                          explicitly takes � the hypothesis that a
+--     cert→branch          Prop 2.2.3 (⇒), which needs — and here
+--                          explicitly takes — the hypothesis that a
 --                          distinguished obstruction has an identity
 --                          filler whose boundary is again distinguished.
 --
@@ -32,7 +32,7 @@
 --                          witness: a system in which every level is
 --                          filled (a branch exists) and no level is ever
 --                          distinguished (no certificate exists).
---                          FillInf ∧ � FillTerm, both proved.
+--                          FillInf ∧ ¬ FillTerm, both proved.
 --                          This system is FINITELY (indeed uniquely)
 --                          branching, so it is simultaneously the
 --                          formal shadow of §4.2's refutation of
@@ -41,34 +41,34 @@
 --
 --  4. decBCert             The decision procedure, as a term: for each
 --                          fuel k, `Dec` of "there is a certificate of
---                          depth � k".  It takes decidability of the
+--                          depth ≤ k".  It takes decidability of the
 --                          distinguished-element check and a FINITE
 --                          BRANCHING structure (`FinBranch`: a finite
 --                          enumeration of the fillers at each node, with
 --                          a covering proof) as explicit arguments.
 --                          Delete either argument and the term does not
---                          typecheck � the consumption is the point.
+--                          typecheck — the consumption is the point.
 --
 --  5. truncCert            Theorem 4.1: an N-truncated system (every
---     truncated-FillTerm   obstruction at level � N is distinguished)
---                          admits a certificate of depth � N, hence
---                          Fill_term holds and is DECIDABLE � trivially,
+--     truncated-FillTerm   obstruction at level ≥ N is distinguished)
+--                          admits a certificate of depth ≤ N, hence
+--                          Fill_term holds and is DECIDABLE — trivially,
 --                          by `yes`.  This is also the note's COST
 --                          bound: the tower is bounded exactly by the
 --                          truncation of the ambient, and the depth
 --                          index of the constructed BCert IS that bound.
 --
---  6. infBranch-decides-�  The asymmetry, in the only form that is a
+--  6. infBranch-decides-∃  The asymmetry, in the only form that is a
 --                          theorem rather than an observation about
 --                          which arguments a term mentions: for a system
 --                          with INFINITE branching at level 0, a
 --                          decision procedure for `Cert` would decide
---                          `�[ k ∈ � ] P k ≡ true` for an arbitrary
---                          P : � � Bool.  So certificate-existence is
+--                          `Σ[ k ∈ ℕ ] P k ≡ true` for an arbitrary
+--                          P : ℕ → Bool.  So certificate-existence is
 --                          not decidable without finite branching, on
 --                          pain of deciding an arbitrary unbounded
 --                          existential; positive instances stay
---                          exhibitable (`��Cert`), negative ones do not.
+--                          exhibitable (`∃→Cert`), negative ones do not.
 --                          That is the checkable shadow of §3.4's
 --                          "failure cannot be reported".
 --
@@ -124,14 +124,14 @@ decAny d (x ∷ xs) with d x
 ...   | no ¬a  = no λ { (here p) → ¬p p ; (there a) → ¬a a }
 
 ------------------------------------------------------------------------
--- §1.  A filling system: the note's §2.2 tower, �-indexed.
+-- §1.  A filling system: the note's §2.2 tower, ℕ-indexed.
 --
 --      Obs n      : the level-n obstruction set        (δ^(n) lives here)
 --      IsZero n d : d is the distinguished element     (reading (R3))
---      Filler n d : the fillers of d                   (�^(n+1); (R1))
---      � n d �    : the residual obligation of �       (δ^(n+1); (R2))
+--      Filler n d : the fillers of d                   (χ^(n+1); (R1))
+--      ∂ n d χ    : the residual obligation of χ       (δ^(n+1); (R2))
 --
---      `�` is a function of the CHOSEN filler, which is exactly the
+--      `∂` is a function of the CHOSEN filler, which is exactly the
 --      note's (R2) reading of D0016 §C's equation as a definition of
 --      δ^(n+1) rather than a constraint on it (§2.4).
 ------------------------------------------------------------------------
@@ -151,10 +151,10 @@ module _ {ℓ} (S : FillSys ℓ) where
   -- §2.  The finite certificate, and Fill_term.
   --
   --      A certificate at (n , d) is a finite filling sequence
-  --      �^(n+1), �, �^(β) together with the equality δ^(β) = 0.  It is
+  --      χ^(n+1), …, χ^(β) together with the equality δ^(β) = 0.  It is
   --      inductive: every inhabitant is a finite object, checked in
   --      finite time.  That is the note's §3.4(i) "finite certificate"
-  --      as a type, and it is the honest Agda content of "���".
+  --      as a type, and it is the honest Agda content of "Σ⁰₁".
   ----------------------------------------------------------------------
 
   data Cert : (n : ℕ) → Obs S n → Type ℓ where
@@ -192,9 +192,9 @@ module _ {ℓ} (S : FillSys ℓ) where
   FillInf = Branch
 
 ------------------------------------------------------------------------
--- §4.  Prop 2.2.3 (�): Fill_term � Fill_∞.
+-- §4.  Prop 2.2.3 (⇒): Fill_term ⇒ Fill_∞.
 --
---      The note's proof is "extend by identities, since �(id) is again
+--      The note's proof is "extend by identities, since ∂(id) is again
 --      distinguished".  That is a hypothesis on the system and it is
 --      taken here as one, explicitly, rather than smuggled in.
 ------------------------------------------------------------------------
@@ -211,14 +211,14 @@ module _ {ℓ} {S : FillSys ℓ} (idf : HasIdFillers S) where
   onward (branchFromZero n d z) =
     branchFromZero (suc n) (∂ S n d (fst (idf n d z))) (snd (idf n d z))
 
-  -- Prop 2.2.3 (�).
+  -- Prop 2.2.3 (⇒).
   cert→branch : ∀ {n d} → Cert S n d → Branch S n d
   cert→branch (done {n} {d} z) = branchFromZero n d z
   chosen (cert→branch (step χ c)) = χ
   onward (cert→branch (step χ c)) = cert→branch c
 
 ------------------------------------------------------------------------
--- §5.  Prop 2.2.3, STRICTNESS � and §4.2's refutation of nilpotence.
+-- §5.  Prop 2.2.3, STRICTNESS — and §4.2's refutation of nilpotence.
 --
 --      A∞ is the note's A_∞ witness in its barest form: one obstruction
 --      per level, never distinguished, always fillable, with exactly
@@ -226,8 +226,8 @@ module _ {ℓ} {S : FillSys ℓ} (idf : HasIdFillers S) where
 --      branching, and it has a total branch and no certificate.
 --
 --      Read as strictness (Prop 2.2.3): Fill_∞ does not imply Fill_term.
---      Read as §4.2: a hypothesis that bounds the branching � which is
---      all the note's Corollary 4.2 says nilpotence buys � cannot bound
+--      Read as §4.2: a hypothesis that bounds the branching — which is
+--      all the note's Corollary 4.2 says nilpotence buys — cannot bound
 --      the LENGTH of the tower, since branching here is 1 and the tower
 --      is infinite.  Only truncation bounds the length (§6).
 ------------------------------------------------------------------------
@@ -299,7 +299,7 @@ module _ {ℓ} {S : FillSys ℓ} (dz : DecZero S) (fb : FinBranch S) where
 --      depth index.  Under it Fill_term holds and is decidable.
 ------------------------------------------------------------------------
 
--- N-truncated: every obstruction at level � N is the distinguished one.
+-- N-truncated: every obstruction at level ≥ N is the distinguished one.
 Truncated : {ℓ : Level} → FillSys ℓ → ℕ → Type ℓ
 Truncated S N = (n : ℕ) → N ≤ n → (d : Obs S n) → IsZero S n d
 
@@ -321,29 +321,29 @@ module _ {ℓ} {S : FillSys ℓ} {N : ℕ}
   build (suc j) n d p =
     bstep (hf n d) (build j (suc n) (∂ S n d (hf n d)) (≤-step {j} {n} p))
 
-  -- Theorem 4.1: a certificate of depth � N, from any level-0 defect.
+  -- Theorem 4.1: a certificate of depth ≤ N, from any level-0 defect.
   truncCert : (d : Obs S 0) → BCert S N 0 d
   truncCert d = build N 0 d (subst (N ≤_) (sym (+-zero N)) ≤-refl)
 
   truncated-FillTerm : (d : Obs S 0) → FillTerm S 0 d
   truncated-FillTerm d = bcert→cert S (truncCert d)
 
-  -- �hence decidable, trivially and honestly: the answer is always yes.
+  -- …hence decidable, trivially and honestly: the answer is always yes.
   truncated-FillTerm-dec : (d : Obs S 0) → Dec (FillTerm S 0 d)
   truncated-FillTerm-dec d = yes (truncated-FillTerm d)
 
 ------------------------------------------------------------------------
 -- §8.  The asymmetry: without finite branching, deciding certificate
---      existence decides an arbitrary unbounded existential over �.
+--      existence decides an arbitrary unbounded existential over ℕ.
 --
---      InfB P has ONE level-0 defect with �-many fillers, the k-th
+--      InfB P has ONE level-0 defect with ℕ-many fillers, the k-th
 --      producing the Boolean P k as the level-1 obstruction; above
 --      level 0 the obstruction never changes.  A certificate is
 --      therefore exactly a k with P k ≡ true.
 --
---      Positive instances remain exhibitable (`��Cert`), which is the
+--      Positive instances remain exhibitable (`∃→Cert`), which is the
 --      point: Fill_term's successes are certifiable, its failures are
---      not � "neither success nor failure of coherence is reportable"
+--      not — "neither success nor failure of coherence is reportable"
 --      loses its first half and keeps its second.
 ------------------------------------------------------------------------
 
@@ -389,7 +389,7 @@ infBranch-decides-∃ d P with d P
 ... | no ¬c  = no λ w → ¬c (∃→Cert P w)
 
 -- Conversely the systems of §8 ARE covered by the rest of the module
--- when the search is bounded: `��Cert` exhibits positive instances and
+-- when the search is bounded: `∃→Cert` exhibits positive instances and
 -- the kernel checks them in finite time.  That is the whole asymmetry.
 witness-is-checkable : (P : ℕ → Bool) (k : ℕ) → P k ≡ true → Cert (InfB P) 0 tt
 witness-is-checkable P k q = ∃→Cert P (k , q)

@@ -1,19 +1,19 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������-��� � the cofactor current.
+-- सहगुण-वाह — the cofactor current.
 --
 -- THE COFACTOR CURRENT OF AN AFFINE FIELD IS THE DETERMINANT DILATION,
--- SO THE TWO PRODUCTION TERMS CANCEL EXACTLY � NOT APPROXIMATELY, AND
+-- SO THE TWO PRODUCTION TERMS CANCEL EXACTLY — NOT APPROXIMATELY, AND
 -- NOT UP TO A BOUNDARY TERM ONE MAY DROP.
 --
 -- A localized production identity of the form
 --
---     ω�Sω  =  -4 det S  +  (4/3) ��� ,      � = (cof �u)� u ,
+--     ω·Sω  =  -4 det S  +  (4/3) ∇·𝒥 ,      𝒥 = (cof ∇u)ᵀ u ,
 --
 -- has a boundary current on its right.  Dropping that current would
 -- assign a nonzero cubic production to a field whose vorticity is
--- identically zero � an affine field u(x) = A x with A symmetric.  This
+-- identically zero — an affine field u(x) = A x with A symmetric.  This
 -- module shows the two terms cancel, and shows it is the ADJUGATE
 -- IDENTITY that makes them cancel, so the harmonic completion and the
 -- localized residual are not two separate pieces of bookkeeping: they
@@ -31,23 +31,23 @@
 --       columns and `adj` presented by the three cross products of
 --       column pairs,
 --
---         adj A (A x)  ≡  (det A) � x       for every x.
+--         adj A (A x)  ≡  (det A) · x       for every x.
 --
 --       Diagonal entries are §1; off-diagonal entries are perpendicularity
 --       of the cross product to its own factors.  Nothing else enters,
---       and in particular the matrix is arbitrary � no symmetry, no
+--       and in particular the matrix is arbitrary — no symmetry, no
 --       trace condition, no invertibility.
 --
 --   §3  SO THE COFACTOR CURRENT OF AN AFFINE FIELD IS A DILATION.  For
---       u(x) = A x the current �(x) = adj A (A x) is exactly (det A) x,
+--       u(x) = A x the current 𝒥(x) = adj A (A x) is exactly (det A) x,
 --       whose matrix has trace det A + det A + det A.
 --
 --   §4  AND THE TWO PRODUCTION TERMS CANCEL, integrally: clearing the
 --       3 in the coefficient once and for all,
 --
---         3 � (-4 � det A)  +  4 � (���)  ≡  0 ,
+--         3 · (-4 · det A)  +  4 · (∇·𝒥)  ≡  0 ,
 --
---       because ��� is three times det A and no more.  The vorticity of
+--       because ∇·𝒥 is three times det A and no more.  The vorticity of
 --       a symmetric affine field vanishes, so the left-hand side of the
 --       production identity vanishes too; §4 says the right-hand side
 --       does as well, with the two terms killing each other exactly.
@@ -59,7 +59,7 @@
 -- two, and the cancellation §4 exhibits is then the whole equation
 -- rather than a relation between two nonzero terms.
 --
--- SYT � THE CLAIM, EXACTLY.  §§1�4 over any commutative ring, for every
+-- SYĀT — THE CLAIM, EXACTLY.  §§1–4 over any commutative ring, for every
 -- matrix presented by three columns and every vector.  No division
 -- occurs anywhere: the 4/3 is cleared by multiplying through by 3,
 -- which is why §4 reads as it does.
@@ -106,7 +106,7 @@ module _ (R : CommRing ℓ) where
   _+v_ = TC._+v_ R
 
   --------------------------------------------------------------------
-  -- � � A matrix is its three columns; the determinant is the triple
+  -- ० · A matrix is its three columns; the determinant is the triple
   --     product; the adjugate is the three cross products.
   --------------------------------------------------------------------
 
@@ -122,7 +122,7 @@ module _ (R : CommRing ℓ) where
     (TC.x₁ R x *v c₁) +v ((TC.x₂ R x *v c₂) +v (TC.x₃ R x *v c₃))
 
   --------------------------------------------------------------------
-  -- � � THE TRIPLE PRODUCT IS CYCLIC.
+  -- १ · THE TRIPLE PRODUCT IS CYCLIC.
   --------------------------------------------------------------------
 
   triple-cyclic₁ : (c₁ c₂ c₃ : V) → (c₃ ×v c₁) ·v c₂ ≡ det c₁ c₂ c₃
@@ -132,7 +132,7 @@ module _ (R : CommRing ℓ) where
   triple-cyclic₂ c₁ c₂ c₃ = solve! R
 
   --------------------------------------------------------------------
-  -- � � THE ADJUGATE IDENTITY, on an arbitrary matrix.
+  -- २ · THE ADJUGATE IDENTITY, on an arbitrary matrix.
   --------------------------------------------------------------------
 
   adjugate : (c₁ c₂ c₃ x : V)
@@ -141,7 +141,7 @@ module _ (R : CommRing ℓ) where
     TC.vecPath R (solve! R) (solve! R) (solve! R)
 
   --------------------------------------------------------------------
-  -- � � SO THE COFACTOR CURRENT OF AN AFFINE FIELD IS A DILATION, and
+  -- ३ · SO THE COFACTOR CURRENT OF AN AFFINE FIELD IS A DILATION, and
   --     the trace of a dilation is three copies of its factor.
   --------------------------------------------------------------------
 
@@ -172,7 +172,7 @@ module _ (R : CommRing ℓ) where
       congTr f p q r i = f (p i) (q i) (r i)
 
   --------------------------------------------------------------------
-  -- � � AND THE TWO PRODUCTION TERMS CANCEL EXACTLY.
+  -- ४ · AND THE TWO PRODUCTION TERMS CANCEL EXACTLY.
   --------------------------------------------------------------------
 
   three four : A

@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- �������� � the complete apparatus.  Nyya's name for the total collection
+-- सामग्री — the complete apparatus.  Nyāya's name for the total collection
 -- of causes that produces an effect; here, the multiset of AXIOMS a proof
 -- path consumes.  runtime/propagate quotients proof paths by exactly this
 -- (STATUS.md: "two paths are one proof when they consume the same multiset
@@ -16,7 +16,7 @@
 --
 --   §3  THE FENCE, and it is the content: CANCELLATION is not among the
 --       moves and cannot be added.  tr p (sy p) ≈ rfl would force
---       2�w(a) ≡ 0 at a single axiom � refuted at weight 1.  The
+--       2·w(a) ≡ 0 at a single axiom — refuted at weight 1.  The
 --       quotient distinguishes a proof that cancels a detour from one
 --       that never took it; erasing that distinction is exactly the
 --       unreceipted compression this corpus forbids (the detour's
@@ -34,7 +34,7 @@ open import Cubical.Data.Empty as Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 
 ------------------------------------------------------------------------
--- §1 � proof paths: the shape of the proof forest's emitted explanations.
+-- §1 · proof paths: the shape of the proof forest's emitted explanations.
 data P : Type where
   ax  : ℕ → P            -- an axiom justification, by id
   rfl : P                 -- the trivial path
@@ -51,7 +51,7 @@ count w (tr p q) = count w p + count w q
 count w (cg p)   = count w p
 
 ------------------------------------------------------------------------
--- the reassociation moves � propagate's "one proof" relation: groupoid
+-- the reassociation moves — propagate's "one proof" relation: groupoid
 -- reshuffling of trans/sym/refl and distribution of the congruence
 -- context, closed under equivalence and the constructors.  NO cancellation.
 data _≈_ : P → P → Type where
@@ -73,7 +73,7 @@ data _≈_ : P → P → Type where
   ≈cg   : ∀ {p q} → p ≈ q → cg p ≈ cg q
 
 ------------------------------------------------------------------------
--- §2 � THE INVARIANT.  Every move preserves every additive weighting:
+-- §2 · THE INVARIANT.  Every move preserves every additive weighting:
 -- the smagr is well-defined on propagate's homotopy classes.
 invariant : {p q : P} → p ≈ q → (w : ℕ → ℕ) → count w p ≡ count w q
 invariant (assoc p q r) w = sym (+-assoc (count w p) (count w q) (count w r))
@@ -94,10 +94,10 @@ invariant (≈trr r e)    w = cong (count w r +_) (invariant e w)
 invariant (≈cg e)       w = invariant e w
 
 ------------------------------------------------------------------------
--- §3 � THE FENCE: cancellation cannot be a move.  If tr (ax 0) (sy (ax 0))
+-- §3 · THE FENCE: cancellation cannot be a move.  If tr (ax 0) (sy (ax 0))
 -- were ≈ rfl, the invariant at the weight w ≡ 1 would give 2 ≡ 0.  So the
 -- move set is maximal for this invariant on that side: a proof that walks
--- a detour and cancels it is NOT the proof that never left � the detour's
+-- a detour and cancels it is NOT the proof that never left — the detour's
 -- consumption is its receipt, and erasing it is unreceipted compression.
 no-cancellation : ¬ (tr (ax 0) (sy (ax 0)) ≈ rfl)
 no-cancellation cancel = snotz (invariant cancel (λ _ → 1))

@@ -6,11 +6,11 @@
 --
 -- TERM, AND THE SCHOOL IS NYYA, NAMED BEFORE THE TERM IS USED.
 --
--- àµàà¯àà¿àà¾à° Â vyabhicra -- straying, deviation.  A hetu that is found where
--- the sdhya is absent is ààµàà¯àà¿àà¾à°, and Gautama's *Nyyastra* (~2nd c. CE)
+-- à¤µà¥à¤¯à¤­à¤¿à¤šà¤¾à¤° Â· vyabhicÄra -- straying, deviation.  A hetu that is found where
+-- the sÄdhya is absent is à¤¸à¤µà¥à¤¯à¤­à¤¿à¤šà¤¾à¤°, and Gautama's *NyÄyasÅ«tra* (~2nd c. CE)
 -- lists it first among the hetvbhsas and defines it in three words:
 --
---     àà¨àˆà•à¾à¨ààà¿à•à ààµàà¯àà¿àà¾à°à     anaikntika savyabhicra
+--     à¤…à¤¨à¥ˆà¤•à¤¾à¤¨à¥à¤¤à¤¿à¤•à¤ƒ à¤¸à¤µà¥à¤¯à¤­à¤¿à¤šà¤¾à¤°à¤ƒ     anaikÄntikaá¸¥ savyabhicÄraá¸¥
 --
 -- GRETIL's `sa_gautama-nyAyasUtra.txt` line 204 reads `1.2.5:
 -- anaikntika savyabhicra`, and line 200 is 1.2.4, the hetvbhsa
@@ -24,9 +24,9 @@
 --
 -- AND THE DISPUTE, WHICH IS THE POINT AND MUST NOT BE FLATTENED.
 --
--- Gautama's name for the fault is àà¨àˆà•à¾à¨ààà¿à• Â anaikntika -- literally
+-- Gautama's name for the fault is à¤…à¤¨à¥ˆà¤•à¤¾à¤¨à¥à¤¤à¤¿à¤• Â· anaikÄntika -- literally
 -- not-one-endedness.  The Jainas' name for their central doctrine is
--- àà¨àà•à¾à¨àà Â aneknta, the same root, and they mean it as the structure of
+-- à¤…à¤¨à¥‡à¤•à¤¾à¤¨à¥à¤¤ Â· anekÄnta, the same root, and they mean it as the structure of
 -- the real.  So the SAME CONFIGURATION -- a claim that holds under one
 -- updhi and fails under another -- is for the Naiyyika a defect that
 -- destroys the inference, and for the Jaina the first two bhagas of the
@@ -59,7 +59,7 @@
 --   Â§1  vyabhicara -- ONE environment at which the meanings differ forbids
 --       a derivation entirely.  It is `derivation-sound` read backwards,
 --       and it is one line, which is the whole reason the kernel's
---       soundness quantifies over every Ï instead of holding at one.
+--       soundness quantifies over every Ï instead of holding at one.
 --   Â§2  var is derivably identified with none of the other five
 --       coordinates; and yvar with zvar, so the fact is not about `var`.
 --   Â§3  the same pair, asti at one updhi and nsti at another, both

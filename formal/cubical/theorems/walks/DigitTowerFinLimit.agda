@@ -5,7 +5,7 @@
 -- port the inverse limit.  This module ports the MSD tower and proves the
 -- comparison with plain sequences outright:
 --
---     MSDLimit A  �  (� � A)        for any set A.
+--     MSDLimit A  ≃  (ℕ → A)        for any set A.
 --
 -- The obstruction was never the mathematics.  It was that
 -- `Cubical.Data.Fin` splits `Fin (suc n)` at the bottom while an MSD tower
@@ -42,7 +42,7 @@ private
 W : Type ℓ → ℕ → Type ℓ
 W A n = Fin n → A
 
--- Delete the most significant digit: restrict along Fin n � Fin (suc n).
+-- Delete the most significant digit: restrict along Fin n ↪ Fin (suc n).
 dropMSD : (n : ℕ) → W A (suc n) → W A n
 dropMSD n w = w ∘ injectSuc
 
@@ -56,7 +56,7 @@ MSDLimit A = InvLim (W A) dropMSD
 ------------------------------------------------------------------------
 -- Both directions, and the two definitional facts.
 --
--- `injectSuc` is the identity on `to�`, so a sequence restricts coherently
+-- `injectSuc` is the identity on `toℕ`, so a sequence restricts coherently
 -- with no coherence work: the obligation is `refl`.  In the `Vec`
 -- presentation the same step is a structural induction (`dropMSD-snoc`).
 ------------------------------------------------------------------------
@@ -116,6 +116,6 @@ module _ (setA : isSet A) where
 -- What this settles.
 --
 -- SETTLED: on the MSD side the inverse limit is not essential.  It is a
--- presentation of the function space `� � A`, and the comparison needs no
--- digit-specific input at all � only that `injectSuc` preserves `to�` and
+-- presentation of the function space `ℕ → A`, and the comparison needs no
+-- digit-specific input at all — only that `injectSuc` preserves `toℕ` and
 -- that `Fin (suc n)` splits at the top.

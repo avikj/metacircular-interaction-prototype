@@ -4,20 +4,20 @@
 -- TransportDivQuot
 --
 -- EUCLIDEAN DIVISION ON THE CHART.  `Transport` carries `+`,
--- `TransportMul` carries `�`, `TransportDiv` carries the *residue*
+-- `TransportMul` carries `·`, `TransportDiv` carries the *residue*
 -- (`modw n`, the Horner automaton).  This module carries the *quotient*.
 --
 -- WHAT IS DELIVERED.
 --
---   * `divw : � � Word � Word`, division of a digit word by a natural
+--   * `divw : ℕ → Word → Word`, division of a digit word by a natural
 --     number modulus, computed digit by digit.  It never mentions
 --     `value`: the recursion threads one state r < n (the running
 --     residue) from the least significant end, exactly as `modw` does,
 --     and emits one quotient digit per input digit.
 --
---   * `value-divw-euclid : value w ≡ suc n � value (divw (suc n) w)
+--   * `value-divw-euclid : value w ≡ suc n · value (divw (suc n) w)
 --                                  + modw (suc n) w`
---     � the self-contained Euclidean identity, with the remainder being
+--     — the self-contained Euclidean identity, with the remainder being
 --     literally `TransportDiv`'s automaton, together with
 --     `modw-bound : modw (suc n) w < suc n`.
 --
@@ -29,11 +29,11 @@
 --     n = 0 it is false, not because it is hard.
 --
 --   * A transport statement in the shape of the other two files:
---     `transport (λ i � �≡CanWord i � �≡CanWord i) (λ m � quotient m / suc n)
+--     `transport (λ i → ℕ≡CanWord i → ℕ≡CanWord i) (λ m → quotient m / suc n)
 --        ≡ divC (suc n)`.
 --
 --   * CANONICITY OF THE QUOTIENT is false:
---     `divw-length : length (divw (suc n) w) ≡ length w` � the quotient
+--     `divw-length : length (divw (suc n) w) ≡ length w` — the quotient
 --     occupies exactly as many digit positions as the input, so dividing
 --     shrinks the value without shrinking the string, and the top
 --     positions fill with zeros.  (Base 10, w = [2,1] i.e. 12, n = 5:
@@ -42,17 +42,17 @@
 --     (= leading zeros, the words being little-endian) with
 --     `value-trimw : value (trimw w) ≡ value w`,
 --     `canonical-trimw : Canonical (trimw w)`, and
---     `trimw-canonical : Canonical w � trimw w ≡ w`, so the trim is a
+--     `trimw-canonical : Canonical w → trimw w ≡ w`, so the trim is a
 --     normalisation and not a second algorithm.  `divC` is
 --     `trimw ∘ divw`, and it is `divC`, not `divw`, that lands in
 --     `CanWord`.
 --
 --   * Two bounds on the library's `quotient _/_` are proved: the operand
 --     handed to the library
---     at each digit is `< b � suc n` (`digit-scale-bound`) and the digit
+--     at each digit is `< b · suc n` (`digit-scale-bound`) and the digit
 --     it returns is `< b` (`quotient-bound`).  So the per-digit work is
 --     bounded by a function of the base and the modulus alone, uniformly
---     in the word � which is the entire reason this beats the unary test.
+--     in the word — which is the entire reason this beats the unary test.
 --
 -- COST.  `divSteps w ≡ suc (length w)` and `divSteps w ≡ steps w`: the
 -- quotient automaton visits each digit exactly once, with the same step
@@ -91,7 +91,7 @@ open import TransportDiv k
 -- DEPENDENCIES.  `Digits` and `TransportDiv`, and nothing else in the
 -- lane.  Division by a modulus needs neither the ripple adder nor the
 -- shift-and-add multiplier: the quotient digit comes from the library's
--- Euclidean division on a number bounded by b � n, so `addw` and `mulw`
+-- Euclidean division on a number bounded by b · n, so `addw` and `mulw`
 -- never appear.  `valueC-inj` is restated here (it is two lines from
 -- `Digits.value-inj`) rather than imported from `Transport`, so that
 -- this module does not inherit `Transport`'s dependency on the
@@ -147,7 +147,7 @@ modw-bound n w = subst (_< suc n) (sym (value-modw (suc n) w)) (mod< n (value w)
 --
 -- One pass, least significant digit first, carrying a single state
 -- r < suc n.  The certificate travels with the output, in the style of
--- `dsuc�` and `addDigit�`: the Euclidean identity for the whole word and
+-- `dsucΣ` and `addDigitΣ`: the Euclidean identity for the whole word and
 -- the identification of the state with `modw` are produced by the same
 -- recursion that produces the digits, so no `with`-abstraction can lose
 -- them.
@@ -193,7 +193,7 @@ divStep n d w (q , r , cert , res) = (q₀ ∷ q) , (s mod suc n) , bigEq , bigR
     q₀ : Digit
     q₀ = quotient s / suc n , quotient-bound n b s (digit-scale-bound n d r rlt)
 
-    -- the digit-column certificate: s = (suc n)�digit + residue
+    -- the digit-column certificate: s = (suc n)·digit + residue
     eucl : s ≡ suc n · toℕ q₀ + (s mod suc n)
     eucl = sym (≡remainder+quotient (suc n) s)
          ∙ +-comm (s mod suc n) (suc n · (quotient s / suc n))
@@ -294,7 +294,7 @@ divw-length n []      = refl
 divw-length n (d ∷ w) = cong suc (divw-length n w)
 
 -- Drop leading zeros (= trailing entries, little-endian).
--- The list argument is split first so that `trimCons d (e � v)` reduces
+-- The list argument is split first so that `trimCons d (e ∷ v)` reduces
 -- without knowing d; the digit is only inspected at the top position.
 trimCons : Digit → Word → Word
 trimCons d           (e ∷ v) = d ∷ e ∷ v
@@ -361,7 +361,7 @@ valueC-divC n (w , _) = value-divTrim n w
 ------------------------------------------------------------------------
 -- 8.  THE TRANSPORT STATEMENT for division by a fixed positive modulus.
 --     Same three lines as `Transport.transport-+-is-⊕` and
---     `TransportMul.transport-�-is-⊗`; the only input is the value law.
+--     `TransportMul.transport-·-is-⊗`; the only input is the value law.
 ------------------------------------------------------------------------
 
 digitsC-div : (n m : ℕ) → digitsC (quotient m / suc n) ≡ divC (suc n) (digitsC m)

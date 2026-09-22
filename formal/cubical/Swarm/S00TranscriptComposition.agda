@@ -7,11 +7,11 @@
 -- test certifies a COMPOSITE one.
 --
 -- Setting (codex-quantum-process, worker broadcast 0003).  An action
--- word has an endpoint map `w : X � Y` and a declared transcript
--- `t : X � T`.  The macro that replaces the word by its endpoint
+-- word has an endpoint map `w : X → Y` and a declared transcript
+-- `t : X → T`.  The macro that replaces the word by its endpoint
 -- preserves the transcript exactly when `t` factors through `w`:
 --
---     Factors w t  :=  � x x' � w x ≡ w x' � t x ≡ t x'.
+--     Factors w t  :=  ∀ x x' → w x ≡ w x' → t x ≡ t x'.
 --
 -- That broadcast closes with the instruction "apply this test at every
 -- nested shortcut stage".  This module shows that instruction is not
@@ -20,16 +20,16 @@
 --
 --   laterSurvives          a later stage's transcript always survives
 --   compositeImpliesStage  the composite test is STRICTLY stronger
---   criterion� / criterion�  the exact repair (an iff)
---   injectiveSuffices      second stage injective � stagewise suffices
+--   criterion→ / criterion←  the exact repair (an iff)
+--   injectiveSuffices      second stage injective ⇒ stagewise suffices
 --   mergeBreaks            every non-injective second stage carries a
 --                          stagewise-clean system whose composite fails
 --   recordLowerBound       any sound side record for a fully erasing
 --                          composite must be injective on X
 --
 -- `injectiveSuffices` and `mergeBreaks` together are a sharp dichotomy:
--- the stagewise test is sound for ALL transcripts over `w�` exactly
--- when `w�` is injective.  Nothing quantitative is assumed or fitted.
+-- the stagewise test is sound for ALL transcripts over `w₂` exactly
+-- when `w₂` is injective.  Nothing quantitative is assumed or fitted.
 ------------------------------------------------------------------------
 
 module Swarm.S00TranscriptComposition where
@@ -112,7 +112,7 @@ module TwoStage
 
   -- The composite word contracts to its endpoint without a side record
   -- iff EVERY stage transcript, including the earlier ones, factors
-  -- through the TERMINAL endpoint map `W` � not through its own stage
+  -- through the TERMINAL endpoint map `W` — not through its own stage
   -- map.  This is the statement that replaces "test at every stage".
   criterion→ : Factors W total → Factors W t₁ × Factors W (t₂ ∘ w₁)
   criterion→ f =
@@ -140,12 +140,12 @@ module TwoStage
 -- 3.  The refutation, in its sharpest form
 --
 -- Not merely "there is a counterexample": EVERY non-injective second
--- stage carries one.  Given any `w�` merging two distinct points, the
+-- stage carries one.  Given any `w₂` merging two distinct points, the
 -- system with first stage the identity, first transcript the identity,
 -- and second transcript constant passes both stagewise tests and fails
 -- the composite one.  With §2d this is a dichotomy:
 --
---     stagewise test sound for all transcripts  ⟺  w� injective.
+--     stagewise test sound for all transcripts  ⟺  w₂ injective.
 ------------------------------------------------------------------------
 
 module MergeBreaks
@@ -194,7 +194,7 @@ module BoolErasure where
 ------------------------------------------------------------------------
 -- 5.  The lower bound on the retained record
 --
--- The failure in §3�4 is not a rounding error that one spare symbol
+-- The failure in §3–4 is not a rounding error that one spare symbol
 -- absorbs.  When the composite endpoint map is constant, any side
 -- record sound for the identity transcript must be injective on `X`;
 -- instantiating `X` at an `n`-element type this says the record

@@ -1,15 +1,15 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡ê‡ï‡‡Ø ‚î forced oneness.
+-- ‡ê‡ï‡‡Ø ‚Äî forced oneness.
 -- (aikya: "unity/identity".)
 --
 -- WHAT THIS IS.  machinery/crystal/'s engine issued IMPOSSIBLE for the
 -- identity-map interpretation between the theories `left-zero`
--- (x¬y = x) and `right-zero` (x¬y = y): completion of the joint theory
+-- (x¬∑y = x) and `right-zero` (x¬∑y = y): completion of the joint theory
 -- collapses the carrier, and models.py confirmed by finite search that
 -- every joint model on domains of size 2 and 3 is trivial.
--- Both of those are testimony ‚î a Python run a
+-- Both of those are testimony ‚Äî a Python run a
 -- reader must trust.  This module is the same verdict as PERCEPTION:
 -- a kernel-checked term, for every carrier and every size at once.
 --
@@ -20,7 +20,7 @@
 -- Statement.  If one binary operation on a type satisfies both the
 -- left-zero law and the right-zero law, the type is a proposition:
 -- any two points are equal.  Consequently no such operation exists on
--- Bool (or any type with two distinguishable points) ‚î the finite
+-- Bool (or any type with two distinguishable points) ‚Äî the finite
 -- searches at sizes 2 and 3 were shadows of this one term.
 ------------------------------------------------------------------------
 
@@ -46,11 +46,11 @@ record JointZero (A : Type ‚Ñì) : Type ‚Ñì where
 collapse : {A : Type ‚Ñì} ‚Üí JointZero A ‚Üí (x y : A) ‚Üí x ‚â° y
 collapse jz x y = sym (JointZero.left-zero jz x y) ‚àô JointZero.right-zero jz x y
 
--- hence the carrier is a proposition ‚¶
+-- hence the carrier is a proposition ‚Ä¶
 jointZero‚ÜíisProp : {A : Type ‚Ñì} ‚Üí JointZero A ‚Üí isProp A
 jointZero‚ÜíisProp jz = collapse jz
 
--- ‚¶ and the concrete instance the finite search sampled at n = 2:
+-- ‚Ä¶ and the concrete instance the finite search sampled at n = 2:
 -- Bool admits no joint model.  (The n = 3 search is the same term.)
 noJointZeroOnBool : JointZero Bool ‚Üí ‚ä•
 noJointZeroOnBool jz = true‚â¢false (collapse jz true false)

@@ -39,7 +39,7 @@
 --   witness-*           the D = 3 weight-3 escape, by computation
 --
 -- Toolchain note.  The CommRingSolver in this checkout misreads a bare
--- `1r` or `0r` in the RIGHT operand of `_Â_` and after `-_` (it parses
+-- `1r` or `0r` in the RIGHT operand of `_Â·_` and after `-_` (it parses
 -- both as the zero of the algebra expression).  Every solver lemma below
 -- therefore keeps literals in the left operand, or generalizes the
 -- literal to a variable and instantiates -- the workaround recorded in

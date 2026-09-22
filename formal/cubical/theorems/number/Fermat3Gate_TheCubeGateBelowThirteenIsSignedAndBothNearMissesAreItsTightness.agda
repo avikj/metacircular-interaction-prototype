@@ -1,14 +1,14 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡º‡∞‡‡Æ‡æ, ‡ò‡® ‚î THE CUBE GATE BELOW THIRTEEN IS SIGNED, AND BOTH
+-- ‡§´‡§º‡§∞‡•ç‡§Æ‡§æ, ‡§ò‡§® ‚Äî THE CUBE GATE BELOW THIRTEEN IS SIGNED, AND BOTH
 -- NEAR-MISSES ARE ITS TIGHTNESS.
 --
 -- THE OCCASION.  Fermat's Last Theorem appears in this corpus
 -- in three rooms and is absent from the fourth:
--- the near-misses of n = 3 (RamanujanCubes_‚¶ ‚î off by exactly one,
+-- the near-misses of n = 3 (RamanujanCubes_‚Ä¶ ‚Äî off by exactly one,
 -- both directions), the Fermat primality test (HeadDepthMerge, its
--- blindness pinned at a ‚â e_b(q)), and Fermat's factorization as one
+-- blindness pinned at a ‚â§ e_b(q)), and Fermat's factorization as one
 -- projection of the pair conic (PairConic).  The equation itself,
 -- x¬≥ + y¬≥ ‚â° z¬≥ over positive naturals, had no type here.  This module
 -- gives it one, by the corpus's boundary method: the universal claim
@@ -16,24 +16,24 @@
 -- exactly one direction, and no term runs backwards.
 --
 -- WHAT IS PROVED.
---   ¬ `scan-ok`      ‚î the kernel visits every triple 1 ‚â x,y,z ‚â 12
+--   ¬∑ `scan-ok`      ‚Äî the kernel visits every triple 1 ‚â§ x,y,z ‚â§ 12
 --                      (1728 leaves) and finds no x¬≥ + y¬≥ ‚â° z¬≥, by one
 --                      refl, boolean-free: each comparison returns
 --                      Maybe (m ‚â° n) and the whole scan normalizes to
 --                      just tt.
---   ¬ `parts-below`  ‚î a solution's parts are SMALLER than its z: from
---                      y ‚â 1, cube x < cube z, hence x < z, with no
+--   ¬∑ `parts-below`  ‚Äî a solution's parts are SMALLER than its z: from
+--                      y ‚â• 1, cube x < cube z, hence x < z, with no
 --                      search.  So the z-bound alone confines a
 --                      solution to the scanned box.
---   ¬ `gate-below-thirteen` ‚î no solution has z ‚â 12.  The scan and
+--   ¬∑ `gate-below-thirteen` ‚Äî no solution has z ‚â§ 12.  The scan and
 --                      the confinement, assembled.
---   ¬ `tight-low`, `tight-high` ‚î the gate's equation cannot be
+--   ¬∑ `tight-low`, `tight-high` ‚Äî the gate's equation cannot be
 --                      relaxed by one unit in either direction:
 --                      6¬≥+8¬≥+1 ‚â° 9¬≥ and 9¬≥+10¬≥ ‚â° 12¬≥+1, each refl.
 --                      Ramanujan's near-misses are not decoration
 --                      here; they are the proof that the gate is
 --                      exact, not slack.
---   ¬ `restrict`     ‚î FLT‚ implies the gate.  One direction.
+--   ¬∑ `restrict`     ‚Äî FLT‚ÇÉ implies the gate.  One direction.
 --
 ------------------------------------------------------------------------
 
@@ -110,7 +110,7 @@ gate-boxed x y z hx hy hz =
 
 ------------------------------------------------------------------------
 -- ¬ß3  Confinement: a solution's parts sit below its z, with no search.
---     From y ‚â 1 the second cube contributes at least one unit, so
+--     From y ‚â• 1 the second cube contributes at least one unit, so
 --     cube x < cube z; and cube-mono read contrapositively turns the
 --     strict cube inequality into x < z.
 ------------------------------------------------------------------------
@@ -132,7 +132,7 @@ parts-below x y z hy sums = go (split‚Ñï-‚â§ (suc x) z)
     Empty.rec (¬¨m<m (‚â§<-trans (cube-mono (pred-‚â§-pred h)) cubex<cubez))
 
 ------------------------------------------------------------------------
--- ¬ß4  THE GATE.  No solution has z ‚â 12.
+-- ¬ß4  THE GATE.  No solution has z ‚â§ 12.
 ------------------------------------------------------------------------
 
 Gate12 : Type

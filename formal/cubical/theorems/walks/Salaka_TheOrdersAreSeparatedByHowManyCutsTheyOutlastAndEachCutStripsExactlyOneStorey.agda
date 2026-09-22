@@ -1,44 +1,44 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àà²à¾à•à¾ â” ààà¦à¨-à•àà°à®àà à•àà°à®-ààà¦à à  àà•àˆà•à ààà¦à àà•à®à ààµ ààà®à¿à•à àà°àà¿ à
+-- à¤¶à¤²à¤¾à¤•à¤¾ â€” à¤›à¥‡à¤¦à¤¨-à¤•à¥à¤°à¤®à¥‡à¤£ à¤•à¥à¤°à¤®-à¤­à¥‡à¤¦à¤ƒ à¥¤  à¤à¤•à¥ˆà¤•à¤ƒ à¤›à¥‡à¤¦à¤ƒ à¤à¤•à¤®à¥ à¤à¤µ à¤­à¥‚à¤®à¤¿à¤•à¤‚ à¤¹à¤°à¤¤à¤¿ à¥¤
 --
 -- (the alk: orders are separated by how many cuts they outlast, and
 --  each cut strips exactly one storey.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHY THIS EXISTS.  `JainCount.agda` carries the Jaina stratification
--- of magnitude â” ààà–àà¯à¾à / àààà–àà¯à¾à / àà¨à¨àà, each graded àà˜à¨àà¯ / à®à§àà¯à® /
--- à‰ààà•ààààŸ â” as a nine-element ordered set, without the
+-- of magnitude â€” à¤¸à¤‚à¤–à¥à¤¯à¤¾à¤¤ / à¤…à¤¸à¤‚à¤–à¥à¤¯à¤¾à¤¤ / à¤…à¤¨à¤¨à¥à¤¤, each graded à¤œà¤˜à¤¨à¥à¤¯ / à¤®à¤§à¥à¤¯à¤® /
+-- à‰ààà•ààààŸ â€” as a nine-element ordered set, without the
 -- exact salk operations.
--- `Ardhaccheda.agda` carries the operations themselves â” àà°àà§ààààà¦, the
--- count of halvings, and àµà°àà—àà²à¾à•à¾, the halving of THAT â” but as
+-- `Ardhaccheda.agda` carries the operations themselves â€” à¤…à¤°à¥à¤§à¤šà¥à¤›à¥‡à¤¦, the
+-- count of halvings, and à¤µà¤°à¥à¤—à¤¶à¤²à¤¾à¤•à¤¾, the halving of THAT â€” but as
 -- logarithm laws, with no order-separating work asked of them.
 --
 -- This one puts the
 -- instruments to the job the orders are for: a magnitude's order is HOW
--- MANY TIMES THE INSTRUMENT CAN CUT IT, and Â§à¨ says each cut removes one
+-- MANY TIMES THE INSTRUMENT CAN CUT IT, and Â§à¥¨ says each cut removes one
 -- storey and no more, so the count is exact rather than a bound.
 --
 -- WHAT IS SETTLED HERE, in one line each:
 --
---   Â§à¨ àà•-ààà¦à      k cuts of a tower of height k+j leave a tower of
---                    height j â” exactly one storey per cut.
---   Â§à© à¯àà¾à°ààà       hence k cuts return a height-k tower to its base;
---                    Ardhaccheda's à²à˜àà—àà•à and à¦ààµà¿à•-à²à˜àà—àà•à are the k=1
+--   Â§à¥¨ à¤à¤•-à¤›à¥‡à¤¦à¤ƒ      k cuts of a tower of height k+j leave a tower of
+--                    height j â€” exactly one storey per cut.
+--   Â§à¥© à¤¯à¤¥à¤¾à¤°à¥à¤¥à¤ƒ       hence k cuts return a height-k tower to its base;
+--                    Ardhaccheda's à¤²à¤˜à¥à¤—à¤£à¤•à¤ƒ and à¤¦à¥à¤µà¤¿à¤•-à¤²à¤˜à¥à¤—à¤£à¤•à¤ƒ are the k=1
 --                    and k=2 cases, recovered here by refl, not restated.
---   Â§à ààà®à¾àààà¿à     and k cuts do NOT reach the base of a height-(k+1)
+--   Â§à¥ª à¤…à¤¸à¤®à¤¾à¤ªà¥à¤¤à¤¿à¤ƒ     and k cuts do NOT reach the base of a height-(k+1)
 --                    tower: the (k+1)-storey magnitude is still strictly
 --                    above n after every one of the k cuts is spent.  THIS
 --                    is what "the grades are separated by the instrument"
 --                    means as a checked statement.
---   Â§à àà§à‹à—à¾à®à¿àààµà®à  every cut in the tower â” àà°àà§ààààà¦, àµà°àà—àà²à¾à•à¾, and each
---                    ààà°à¿à•- and higher àà²à¾à•à¾ â” is DESCENDING in the sense of
---                    `Vrddhiksaya_â¦`.àà§à‹à—à¾à®à, strictly below its argument
+--   Â§à¥« à¤…à¤§à¥‹à¤—à¤¾à¤®à¤¿à¤¤à¥à¤µà¤®à¥  every cut in the tower â€” à¤…à¤°à¥à¤§à¤šà¥à¤›à¥‡à¤¦, à¤µà¤°à¥à¤—à¤¶à¤²à¤¾à¤•à¤¾, and each
+--                    à¤¤à¥à¤°à¤¿à¤•- and higher à¤¶à¤²à¤¾à¤•à¤¾ â€” is DESCENDING in the sense of
+--                    `Vrddhiksaya_â€¦`.à¤…à¤§à¥‹à¤—à¤¾à¤®à¥€, strictly below its argument
 --                    at every positive input.
 --                    Here it is the theorem, uniformly in the height.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- The material is Jaina throughout and no Nyya-Vaieika vocabulary is
 -- used: the two schools reject each other's categories, and the orders of
 -- the innumerable arise inside Jaina cosmology and karma theory, not
@@ -63,11 +63,11 @@ open import Vrddhiksaya_TheAscendingGeneratorNeverReturnsAndTheDescendingOneExha
   using (à¤Šà¤°à¥à¤§à¥à¤µà¤—à¤¾à¤®à¥€ ; à¤…à¤§à¥‹à¤—à¤¾à¤®à¥€ ; à¤¨-à¤‰à¤­à¤¯à¤®à¥)
 
 ------------------------------------------------------------------------
--- à§ Â à‰à¨àà¨àà¿ and ààà¦à¨ â” the tower, and the cut applied k times.
+-- à¥§ Â· à¤‰à¤¨à¥à¤¨à¤¤à¤¿ and à¤›à¥‡à¤¦à¤¨ â€” the tower, and the cut applied k times.
 --
---     à‰à¨àà¨àà¿ k n is the tower of k twos over n: à‰à¨àà¨àà¿ 0 n = n and each
---     storey doubles the exponent.  ààà¦à¨ k is àà°àà§ààààà¦ applied k times.
---     ààà¦à¨ 1 IS àà°àà§ààààà¦ and ààà¦à¨ 2 IS àµà°àà—àà²à¾à•à¾, definitionally â” the
+--     à¤‰à¤¨à¥à¤¨à¤¤à¤¿ k n is the tower of k twos over n: à¤‰à¤¨à¥à¤¨à¤¤à¤¿ 0 n = n and each
+--     storey doubles the exponent.  à¤›à¥‡à¤¦à¤¨ k is à¤…à¤°à¥à¤§à¤šà¥à¤›à¥‡à¤¦ applied k times.
+--     à¤›à¥‡à¤¦à¤¨ 1 IS à¤…à¤°à¥à¤§à¤šà¥à¤›à¥‡à¤¦ and à¤›à¥‡à¤¦à¤¨ 2 IS à¤µà¤°à¥à¤—à¤¶à¤²à¤¾à¤•à¤¾, definitionally â€” the
 --     two examples below hold by refl, so this is not a new instrument
 --     that happens to agree with Vrasena's, it is the same one indexed.
 ------------------------------------------------------------------------
@@ -87,9 +87,9 @@ open import Vrddhiksaya_TheAscendingGeneratorNeverReturnsAndTheDescendingOneExha
 à¤›à¥‡à¤¦à¤¨-à¤¦à¥à¤µà¤¯à¤®à¥ m = refl
 
 ------------------------------------------------------------------------
--- à¨ Â àà•-ààà¦à â” EACH CUT STRIPS EXACTLY ONE STOREY.  k cuts of a tower of
+-- à¥¨ Â· à¤à¤•-à¤›à¥‡à¤¦à¤ƒ â€” EACH CUT STRIPS EXACTLY ONE STOREY.  k cuts of a tower of
 --     height k+j leave the tower of height j standing.  The proof is the
---     one law Ardhaccheda already has â” àà°àà§ààààà¦(2^y) â‰¡ y â” applied once
+--     one law Ardhaccheda already has â€” à¤…à¤°à¥à¤§à¤šà¥à¤›à¥‡à¤¦(2^y) â‰¡ y â€” applied once
 --     per storey, and it is exact: not "at most one storey", not "at
 --     least", one.
 ------------------------------------------------------------------------
@@ -101,8 +101,8 @@ open import Vrddhiksaya_TheAscendingGeneratorNeverReturnsAndTheDescendingOneExha
   âˆ™ à¤à¤•-à¤›à¥‡à¤¦à¤ƒ k j n
 
 ------------------------------------------------------------------------
--- à© Â à¯àà¾à°ààà â” so k cuts return a height-k tower to its base exactly.
---     Ardhaccheda's à²à˜àà—àà•à is k = 1 and its à¦ààµà¿à•-à²à˜àà—àà•à is k = 2; both
+-- à¥© Â· à¤¯à¤¥à¤¾à¤°à¥à¤¥à¤ƒ â€” so k cuts return a height-k tower to its base exactly.
+--     Ardhaccheda's à¤²à¤˜à¥à¤—à¤£à¤•à¤ƒ is k = 1 and its à¤¦à¥à¤µà¤¿à¤•-à¤²à¤˜à¥à¤—à¤£à¤•à¤ƒ is k = 2; both
 --     are recovered below from the single statement, which is what makes
 --     the family an instrument rather than a list.
 ------------------------------------------------------------------------
@@ -119,14 +119,14 @@ open import Vrddhiksaya_TheAscendingGeneratorNeverReturnsAndTheDescendingOneExha
 à¤¯à¤¥à¤¾à¤°à¥à¤¥-à¤¦à¥à¤µà¤¯à¤®à¥ = à¤¯à¤¥à¤¾à¤°à¥à¤¥à¤ƒ 2
 
 ------------------------------------------------------------------------
--- à Â ààà®à¾àààà¿à â” AND k CUTS DO NOT REACH THE BASE OF THE NEXT STOREY UP.
+-- à¥ª Â· à¤…à¤¸à¤®à¤¾à¤ªà¥à¤¤à¤¿à¤ƒ â€” AND k CUTS DO NOT REACH THE BASE OF THE NEXT STOREY UP.
 --     Spend every one of the k cuts on a tower of height k+1 and what is
---     left is à¦ààµà¿-à˜à¾à n, still strictly above n.  So the height index is
+--     left is à¤¦à¥à¤µà¤¿-à¤˜à¤¾à¤¤ n, still strictly above n.  So the height index is
 --     not a description of the tower, it is a separation of it: no fixed
 --     number of alk collapses the order above.
 --
---     à¦ààµà¿-à˜à¾à-àµàà¦àà§à¿à (n < 2â¿, strictly) is the whole content; Ardhaccheda
---     has only the non-strict n â‰ 2â¿, which is not enough to separate
+--     à¤¦à¥à¤µà¤¿-à¤˜à¤¾à¤¤-à¤µà¥ƒà¤¦à¥à¤§à¤¿à¤ƒ (n < 2â¿, strictly) is the whole content; Ardhaccheda
+--     has only the non-strict n â‰¤ 2â¿, which is not enough to separate
 --     anything, and the strict version is what the orders need.
 ------------------------------------------------------------------------
 
@@ -151,10 +151,10 @@ open import Vrddhiksaya_TheAscendingGeneratorNeverReturnsAndTheDescendingOneExha
 à¤…à¤¸à¤®à¤¾à¤ªà¥à¤¤à¤¿à¤ƒ k n = subst (n <_) (sym (à¤…à¤µà¤¶à¥‡à¤·à¤ƒ k n)) (à¤¦à¥à¤µà¤¿-à¤˜à¤¾à¤¤-à¤µà¥ƒà¤¦à¥à¤§à¤¿à¤ƒ n)
 
 ------------------------------------------------------------------------
--- à Â àà§à‹à—à¾à®à¿àààµà®à â” EVERY ALK IS OF THE DESCENDING KIND.
+-- à¥« Â· à¤…à¤§à¥‹à¤—à¤¾à¤®à¤¿à¤¤à¥à¤µà¤®à¥ â€” EVERY ÅšALÄ€KÄ€ IS OF THE DESCENDING KIND.
 --
---     `Vrddhiksaya_â¦` splits self-maps of â• by direction and names
---     àà°àà§ààààà¦ and àµà°àà—àà²à¾à•à¾ as the descending examples, but proves the
+--     `Vrddhiksaya_â€¦` splits self-maps of â„• by direction and names
+--     à¤…à¤°à¥à¤§à¤šà¥à¤›à¥‡à¤¦ and à¤µà¤°à¥à¤—à¤¶à¤²à¤¾à¤•à¤¾ as the descending examples, but proves the
 --     descending theorem only from the property, never that the Jaina
 --     operations HAVE it.  They do, and the bound is elementary: the
 --     halving-count of suc n is at most n, because each recursive step
@@ -193,7 +193,7 @@ open import Vrddhiksaya_TheAscendingGeneratorNeverReturnsAndTheDescendingOneExha
 à¤µà¤°à¥à¤—à¤¶à¤²à¤¾à¤•à¤¾-à¤…à¤§à¥‹à¤—à¤¾à¤®à¥€ = à¤›à¥‡à¤¦à¤¨-à¤…à¤§à¥‹à¤—à¤¾à¤®à¥€ 1
 
 ------------------------------------------------------------------------
--- à Â à¨ àŠà°àà§ààµà—à¾à®à â” and therefore no alk ascends.  Read with Â§à this is
+-- à¥¬ Â· à¤¨ à¤Šà¤°à¥à¤§à¥à¤µà¤—à¤¾à¤®à¥€ â€” and therefore no Å›alÄkÄ ascends.  Read with Â§à¥ª this is
 --     the shape of the whole thing: the INSTRUMENT descends and exhausts,
 --     while the magnitudes it is pointed at ascend past every fixed number
 --     of applications of it.  Which is why the orders are graded by the

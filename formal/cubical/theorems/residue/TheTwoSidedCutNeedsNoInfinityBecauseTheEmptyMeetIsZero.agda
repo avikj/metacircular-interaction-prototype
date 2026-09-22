@@ -7,21 +7,21 @@
 -- theory and Lawvere 1973; no Indian source term applies and none is
 -- invented.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE POINT.
 --
 -- The burden side is ordered by `_âŠp_`, REVERSE
--- pointwise `â‰` â” more burden absorbed is lower.  The right adjoint
--- must produce the `âŠp`-GREATEST profile satisfying a vacuous
--- constraint; `âŠp`-greatest is `â‰`-LEAST, and â•'s least element is
--- `0`.  The empty meet is not `âˆž`.  It is zero, and â• has it.
+-- pointwise `â‰¤` â€” more burden absorbed is lower.  The right adjoint
+-- must produce the `âŠ‘p`-GREATEST profile satisfying a vacuous
+-- constraint; `âŠ‘p`-greatest is `â‰¤`-LEAST, and â„•'s least element is
+-- `0`.  The empty meet is not `âˆž`.  It is zero, and â„• has it.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   zeroProfile        the all-zero burden profile
---   belowEverything    `Ï âŠp zeroProfile ks` for every Ï â” the empty
---                      meet, in one induction on `zero-â‰`
+--   belowEverything    `Ï† âŠ‘p zeroProfile ks` for every Ï† â€” the empty
+--                      meet, in one induction on `zero-â‰¤`
 --   dnAll              the right adjoint over an ARBITRARY residual
 --                      index list, empty included: `zeroProfile` at
 --                      `[]`, `maxP` of the row's `dnV` with the rest at
@@ -29,7 +29,7 @@
 --   goFwdAll / goBwdAll
 --                      the adjunction, unrestricted
 --
--- So the two-sided profile cut exists over â• with no restriction on
+-- So the two-sided profile cut exists over â„• with no restriction on
 -- the residual index and no `âˆž` anywhere.
 -- `dnAll [] ks _ _` is `zeroProfile ks` and everything goes through.
 ------------------------------------------------------------------------

@@ -1,29 +1,29 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- AnuktaAvaktavya ‚î ‡‡®‡‡ï‡‡‡Æ‡ is not ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡, and the difference is a
+-- AnuktaAvaktavya ‚Äî ‡§Ö‡§®‡•Å‡§ï‡•ç‡§§‡§Æ‡•ç is not ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç, and the difference is a
 -- swapped quantifier.
 --
 -- WHAT THIS CORRECTS.
 --
 -- `Satyayantra.agda` opens by describing its third position:
 --
---     ‡‡®‡‡ï‡‡‡ ‡® ‡Æ‡ø‡‡‡Ø‡æ, ‡® ‚ä ‚î ‡‡‡‡‡Ø‡ ‡‡¶‡Æ‡ (avaktavyam), ‡‡‡≤‡ø‡Ø‡®‡-‡∞‡‡ø‡‡Æ‡ ‡
---     "the un-said is not false, not ‚ä ‚î a third position (avaktavyam),
+--     ‡§Ö‡§®‡•Å‡§ï‡•ç‡§§‡§Ç ‡§® ‡§Æ‡§ø‡§•‡•ç‡§Ø‡§æ, ‡§® ‚ä• ‚Äî ‡§§‡•É‡§§‡•Ä‡§Ø‡§Ç ‡§™‡§¶‡§Æ‡•ç (avaktavyam), ‡§¨‡•Ç‡§≤‡§ø‡§Ø‡§®‡•ç-‡§∞‡§π‡§ø‡§§‡§Æ‡•ç ‡•§
+--     "the un-said is not false, not ‚ä• ‚Äî a third position (avaktavyam),
 --      boolean-free."
 --
 -- Everything in that line is right except the parenthesis.  The un-said of
 -- the honest machine is a genuine third position, it is not falsity and not
--- ‚ä, and there is no boolean anywhere.  But it is NOT the fourth bhaga of
--- the saptabhag, and `SaptabhangiNaya.agda` ‚î sitting in the same
--- directory, also checked, also --safe ‚î proves the opposite modality.
+-- ‚ä•, and there is no boolean anywhere.  But it is NOT the fourth bha·πÖga of
+-- the saptabha·πÖgƒ´, and `SaptabhangiNaya.agda` ‚Äî sitting in the same
+-- directory, also checked, also --safe ‚Äî proves the opposite modality.
 --
 -- THE TWO MODULES SAY, IN THEIR OWN WORDS:
 --
---   Purnata.agda:  ‡‡®‡‡ï‡‡‡ ‡‡æ‡Æ‡Ø‡ø‡ï‡Æ‡ ‡‡µ, ‡® ‡‡®‡‡‡ ‡
---                  ‡‡‡‡Ø‡ ‡® ‡‡‡Ø‡ï‡‡‡Æ‡, ‡ï‡‡µ‡≤‡Æ‡ ‡‡¶‡‡Ø‡æ‡‡ø ‡‡®‡‡ï‡‡‡Æ‡ ‚î ‡‡®‡‡¶‡æ‡®‡‡® ‡‡‡∞‡ï‡æ‡‡‡Ø‡Æ‡ ‡
+--   Purnata.agda:  ‡§Ö‡§®‡•Å‡§ï‡•ç‡§§‡§Ç ‡§∏‡§æ‡§Æ‡§Ø‡§ø‡§ï‡§Æ‡•ç ‡§è‡§µ, ‡§® ‡§Ö‡§®‡•ç‡§§‡§É ‡•§
+--                  ‡§∏‡§§‡•ç‡§Ø‡§Ç ‡§® ‡§§‡•ç‡§Ø‡§ï‡•ç‡§§‡§Æ‡•ç, ‡§ï‡•á‡§µ‡§≤‡§Æ‡•ç ‡§Ö‡§¶‡•ç‡§Ø‡§æ‡§™‡§ø ‡§Ö‡§®‡•Å‡§ï‡•ç‡§§‡§Æ‡•ç ‚Äî ‡§Ö‡§®‡•Å‡§¶‡§æ‡§®‡•á‡§® ‡§™‡•ç‡§∞‡§ï‡§æ‡§∂‡•ç‡§Ø‡§Æ‡•ç ‡•§
 --                  "the un-said is only ever TEMPORARY, never a dead end.
---                   Truth was never abandoned, only not-yet-said ‚î
+--                   Truth was never abandoned, only not-yet-said ‚Äî
 --                   uncovered by grant."
 --
 --   SaptabhangiNaya.agda ¬ß5:  no single utterance denotes the joint
@@ -38,16 +38,16 @@
 --
 -- THE SEPARATION IS EXACT AND IT IS A QUANTIFIER.  Both facts already
 -- exist as theorems; what was missing is that they have the same shape
--- with ‚à and ‚à exchanged, which is why one word could cover both and
+-- with ‚àÉ and ‚àÄ exchanged, which is why one word could cover both and
 -- hide it.
 --
---     ‡‡æ‡Æ‡Ø‡ø‡ï  bad : I ‚í R ‚í Type      (i : I) ‚í Œ[ r ] ¬ bad i r
+--     ‡§∏‡§æ‡§Æ‡§Ø‡§ø‡§ï  bad : I ‚Üí R ‚Üí Type      (i : I) ‚Üí Œ£[ r ] ¬¨ bad i r
 --              for EVERY instance there is SOME remedy that removes it
 --
---     ‡®‡ø‡‡‡Ø    bad : I ‚í R ‚í Type      (r : R) ‚í Œ[ i ] bad i r
+--     ‡§®‡§ø‡§§‡•ç‡§Ø    bad : I ‚Üí R ‚Üí Type      (r : R) ‚Üí Œ£[ i ] bad i r
 --              for EVERY remedy there is SOME instance that survives it
 --
--- `Purnata.‡‡‡∞‡‡‡‡æ` gives the first for the kuaka's un-said, with the
+-- `Purnata.‡§™‡•Ç‡§∞‡•ç‡§£‡§§‡§æ` gives the first for the ku·π≠·π≠aka's un-said, with the
 -- remedy being the grant.  `SaptabhangiNaya.no-single-vacana` IS the
 -- second, with the remedy being a single utterance.  Neither theorem is
 -- reproved here; this module only exhibits that they instantiate the two
@@ -57,17 +57,17 @@
 -- reports its third position has to tell a caller what to DO about it, and
 -- the two answers are incompatible: spend more, or speak again.  Calling
 -- both avaktavyam tells the caller to do nothing, twice.  Nyya keeps them
--- apart too ‚î a hetu that is asiddha (unestablished) is a defect of the
+-- apart too ‚Äî a hetu that is asiddha (unestablished) is a defect of the
 -- MEANS, repaired by establishing it; avaktavyam in the Jain scheme is a
 -- positive predication about the ARTHA, and there is nothing to repair.
 --
 -- SOURCES.  Bhagavat Stra (pre-CE strata, redacted c. 5th c.); Umsvti,
--- Tattvrthastra 5.31 arpitnarpitasiddhe (c. 2nd‚ì5th c.); Siddhasena
+-- TattvƒÅrthas≈´tra 5.31 arpitƒÅnarpitasiddhe·∏• (c. 2nd‚Äì5th c.); Siddhasena
 -- Divkara, Sanmatitarka 1.21 (c. 5th c.); Akalaka, Laghyastraya
--- (c. 720‚ì780) for kramrpaa against sahrpaa ‚î succession against
--- simultaneity, which is precisely the ‚à/‚à difference below; Mallisena,
+-- (c. 720‚Äì780) for kramƒÅrpa·πáa against sahƒÅrpa·πáa ‚Äî succession against
+-- simultaneity, which is precisely the ‚àÉ/‚àÄ difference below; Mallisena,
 -- Sydvdamajar (1292) for sakaldea against vikaldea.  The kuaka
--- itself is ryabhaa, ryabhaya, Gaitapda 32‚ì33 (499 CE).
+-- itself is ƒÄryabha·π≠a, ƒÄryabha·π≠ƒ´ya, Ga·πáitapƒÅda 32‚Äì33 (499 CE).
 --
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
@@ -105,7 +105,7 @@ open import SaptabhangiNaya
 ‡§®‡§ø‡§§‡•ç‡§Ø {I} {R} bad = (r : R) ‚Üí Œ£[ i ‚àà I ] (bad i r)
 
 ------------------------------------------------------------------------
--- 2.  ‡‡®‡‡ï‡‡‡Æ‡ is ‡‡æ‡Æ‡Ø‡ø‡ï.  The remedy is the grant, and it always exists.
+-- 2.  ‡§Ö‡§®‡•Å‡§ï‡•ç‡§§‡§Æ‡•ç is ‡§∏‡§æ‡§Æ‡§Ø‡§ø‡§ï.  The remedy is the grant, and it always exists.
 ------------------------------------------------------------------------
 
 -- "the result is still un-said"
@@ -121,8 +121,8 @@ open import SaptabhangiNaya
   suc (a + b) , Œª h ‚Üí subst ‡§Ö‡§®‡•Å‡§ï‡•ç‡§§‡§Æ‡§∏‡•ç‡§§‡§ø (snd (‡§™‡•Ç‡§∞‡•ç‡§£‡§§‡§æ a b)) h
 
 ------------------------------------------------------------------------
--- 3.  ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ is ‡®‡ø‡‡‡Ø.  For every single utterance there is a profile
--- that survives it ‚î which is `no-single-vacana`, exactly, with nothing
+-- 3.  ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç is ‡§®‡§ø‡§§‡•ç‡§Ø.  For every single utterance there is a profile
+-- that survives it ‚Äî which is `no-single-vacana`, exactly, with nothing
 -- added.
 ------------------------------------------------------------------------
 
@@ -136,10 +136,10 @@ open import SaptabhangiNaya
 -- 4.  So the two words name different shapes, and one word cannot carry
 --     both.
 --
--- Stated as a type rather than a sentence: a predicate that is ‡‡æ‡Æ‡Ø‡ø‡ï
+-- Stated as a type rather than a sentence: a predicate that is ‡§∏‡§æ‡§Æ‡§Ø‡§ø‡§ï
 -- gives, at every instance, a remedy under which it fails; a predicate
--- that is ‡®‡ø‡‡‡Ø gives, at every remedy, an instance under which it holds.
--- Nothing below asserts that no predicate can be both ‚î for an empty
+-- that is ‡§®‡§ø‡§§‡•ç‡§Ø gives, at every remedy, an instance under which it holds.
+-- Nothing below asserts that no predicate can be both ‚Äî for an empty
 -- instance type or an empty remedy type the shapes degenerate, and that
 -- is a separate statement I am not making.  What is exhibited is only
 -- this: the two theorems already in this repository realise the two
@@ -161,20 +161,20 @@ open import SaptabhangiNaya
 -- The quantifier is the surface of it.  Underneath, the two shapes differ
 -- in whether the remedy can stay in its own type.
 --
---   ‡‡æ‡Æ‡Ø‡ø‡ï.  The remedy is an element of R, and remedies COMBINE inside R.
---   `SatyayantraSamyoga.‡‡‡Ø‡ã‡ó` proves this for the honest machine: the
---   composite of two machines is a machine, and its ‡‡∞‡ø‡‡‡∞‡‡‡‡æ field is
---   constructed at grant  g‡® + g‡ß  ‚î the two grants aligned by stability
+--   ‡§∏‡§æ‡§Æ‡§Ø‡§ø‡§ï.  The remedy is an element of R, and remedies COMBINE inside R.
+--   `SatyayantraSamyoga.‡§∏‡§Ç‡§Ø‡•ã‡§ó` proves this for the honest machine: the
+--   composite of two machines is a machine, and its ‡§™‡§∞‡§ø‡§™‡•Ç‡§∞‡•ç‡§£‡§§‡§æ field is
+--   constructed at grant  g‡•® + g‡•ß  ‚Äî the two grants aligned by stability
 --   and then added.  So chaining honest machines keeps the un-said
---   temporary, and the cost is additive.  You never leave ‚ï.
+--   temporary, and the cost is additive.  You never leave ‚Ñï.
 --
---   ‡®‡ø‡‡‡Ø.  No element of R works ‚î that is exactly `no-single-vacana`,
+--   ‡§®‡§ø‡§§‡•ç‡§Ø.  No element of R works ‚Äî that is exactly `no-single-vacana`,
 --   exhaustively.  What works is an ordered PAIR, `krama-expresses`.  The
---   remedy is not a bigger element of R; it is an element of R ó R.  You
+--   remedy is not a bigger element of R; it is an element of R √ó R.  You
 --   must leave the type.
 --
 -- That is Akalaka's kramrpaa against sahrpaa in its operational form
--- (Laghyastraya, c. 720‚ì780): succession is not more simultaneity, and no
+-- (Laghƒ´yastraya, c. 720‚Äì780): succession is not more simultaneity, and no
 -- amount of one becomes the other.  Both halves below are already theorems
 -- elsewhere in this repository; what is new here is that they are the two
 -- clauses of one statement, which is what makes the pair a SEPARATION and
@@ -195,12 +195,12 @@ open import SaptabhangiNaya
 --
 -- `Khahara.agda` and `Shunya.agda` both identify 00 with avaktavyam:
 --
---   Khahara:  00 = ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ (‡‡®‡ø‡‡‡‡ø‡‡Æ‡, ‡‡‡‡‡‡ô‡‡ó‡‡Ø‡æ‡ ‡‡∞‡‡‡ ‡‡¶‡Æ‡)
---   Shunya:   00 ‡® ‡‡ï‡ ‡Æ‡‡≤‡‡Ø‡Æ‡, ‡ï‡ø‡®‡‡‡ ‡‡®‡ø‡‡‡‡ø‡‡Æ‡ ‚î ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡
---             (‡‡‡‡‡‡ô‡‡ó‡‡Ø‡æ‡ ‡‡‡‡∞‡‡‡ ‡‡¶‡Æ‡), ‡® ‡‡‡®‡‡Ø‡Æ‡
+--   Khahara:  0√∑0 = ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç (‡§Ö‡§®‡§ø‡§∂‡•ç‡§ö‡§ø‡§§‡§Æ‡•ç, ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•ç‡§Ø‡§æ‡§É ‡•™‡§∞‡•ç‡§•‡§Ç ‡§™‡§¶‡§Æ‡•ç)
+--   Shunya:   0√∑0 ‡§® ‡§è‡§ï‡§Ç ‡§Æ‡•Ç‡§≤‡•ç‡§Ø‡§Æ‡•ç, ‡§ï‡§ø‡§®‡•ç‡§§‡•Å ‡§Ö‡§®‡§ø‡§∂‡•ç‡§ö‡§ø‡§§‡§Æ‡•ç ‚Äî ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç
+--             (‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•ç‡§Ø‡§æ‡§É ‡§ö‡§§‡•Å‡§∞‡•ç‡§•‡§Ç ‡§™‡§¶‡§Æ‡•ç), ‡§® ‡§∂‡•Ç‡§®‡•ç‡§Ø‡§Æ‡•ç
 --
 -- Both are right that Brahmagupta's `00 = 0` (Brhmasphuasiddhnta, 628)
--- is a durnaya ‚î a definite verdict where none is available ‚î and right
+-- is a durnaya ‚Äî a definite verdict where none is available ‚Äî and right
 -- that Bhskara II's khahara (Llvat, 1150) is a genuinely different
 -- non-finite result from it.  Those are the load-bearing claims of both
 -- modules and nothing here touches them.
@@ -211,7 +211,7 @@ open import SaptabhangiNaya
 -- UTTERANCE denotes the content, proved exhaustively over the six atoms.
 --
 -- But 00's situation is denotable in one utterance, and the utterance is
--- the type of `‡‡‡®‡‡Ø‡‡∞‡-‡‡∞‡‡µ‡‡‡∞` below: every x whatsoever satisfies the
+-- the type of `‡§∂‡•Ç‡§®‡•ç‡§Ø‡§π‡§∞‡§É-‡§∏‡§∞‡•ç‡§µ‡§§‡•ç‡§∞` below: every x whatsoever satisfies the
 -- defining condition.  That is one statement, it is complete, and it says
 -- exactly what is wrong.  Nothing is inexpressible.
 --
@@ -226,15 +226,15 @@ open import SaptabhangiNaya
 -- Determinate-but-unsayable against sayable-but-underdetermined.  Calling
 -- both by the fourth bhaga's name is the boolean collapse this corpus
 -- exists to fight, committed one level up: a single third position used as
--- a catch-all for "not a clean single answer".  Three modules now do it ‚î
--- Satyayantra (¬ß1 above), Khahara and Shunya ‚î with three different things
+-- a catch-all for "not a clean single answer".  Three modules now do it ‚Äî
+-- Satyayantra (¬ß1 above), Khahara and Shunya ‚Äî with three different things
 -- underneath.
 --
 ------------------------------------------------------------------------
 
 -- Brahmagupta's own reason, as a term: every x satisfies it.  Over cubical
--- ‚ this is `refl`, because `pos zero ¬ m` reduces to `pos zero` on the
--- nose ‚î the multiplication recurses on its first argument.
+-- ‚Ñ§ this is `refl`, because `pos zero ¬∑ m` reduces to `pos zero` on the
+-- nose ‚Äî the multiplication recurses on its first argument.
 ‡§∂‡•Ç‡§®‡•ç‡§Ø‡§π‡§∞‡§É-‡§∏‡§∞‡•ç‡§µ‡§§‡•ç‡§∞ : (x : ‚Ñ§) ‚Üí (pos 0) ¬∑‚Ñ§ x ‚â° pos 0
 ‡§∂‡•Ç‡§®‡•ç‡§Ø‡§π‡§∞‡§É-‡§∏‡§∞‡•ç‡§µ‡§§‡•ç‡§∞ _ = refl
 
@@ -262,18 +262,18 @@ open import SaptabhangiNaya
 --   `NaturalMachine/AvaktavyaDoesNotFactor.agda` proves
 --   `avaktavya-decidable`, so avaktavyam is neither a truth-value gap nor
 --   an undecidability, and identifies its shape as a FAILURE TO FACTOR,
---   ¬ Œ[ decoder ] ((x : _) ‚í decoder (coarse x) ‚â° fine x) -- the same
+--   ¬¨ Œ£[ decoder ] ((x : _) ‚Üí decoder (coarse x) ‚â° fine x) -- the same
 --   shape as Pini's lghava criterion and as the analytic lane's open
 --   barrier problem.
 --
---   `Saptabhangi.agda` proves `‡ï‡‡∞‡Æ-‡‡-‡‡‡¶‡`: the bhaga reached by
---   krama-arpaa is not the bhaga reached by saha-arpaa.  And `‡¶‡‡∞‡‡®‡Ø‡`:
+--   `Saptabhangi.agda` proves `‡§ï‡•ç‡§∞‡§Æ-‡§∏‡§π-‡§≠‡•á‡§¶‡§É`: the bha·πÖga reached by
+--   krama-arpa·πáa is not the bha·πÖga reached by saha-arpa·πáa.  And `‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É`:
 --   ANY two-valued verdict on the sevenfold identifies two of the three
 --   seeds, by pigeonhole -- the boolean collapse, proved rather than
 --   deplored.
 --
 -- THE APPARENT TENSION.  `SaptabhangiNaya.krama-expresses` says a PAIR of
--- utterances denotes the joint content exactly.  `Saptabhangi.‡ï‡‡∞‡Æ-‡‡-‡‡‡¶‡`
+-- utterances denotes the joint content exactly.  `Saptabhangi.‡§ï‡•ç‡§∞‡§Æ-‡§∏‡§π-‡§≠‡•á‡§¶‡§É`
 -- says the sequential position is not the simultaneous one.  Read
 -- carelessly these disagree about whether succession reaches avaktavyam.
 --
@@ -293,8 +293,8 @@ open import SaptabhangiNaya
 --
 -- AND THE FINDING ABOVE IS AN INSTANCE OF ‡¶‡‡∞‡‡®‡Ø‡, ONE LEVEL UP.  ¬ß1 and ¬ß6
 -- found three distinct structures in this repository all called
--- avaktavyam -- Satyayantra's un-said (‡‡æ‡Æ‡Ø‡ø‡ï), 00 (underdetermined), and
--- the fourth bhaga (‡®‡ø‡‡‡Ø, non-factoring).  `‡¶‡‡∞‡‡®‡Ø‡` proves that mapping
+-- avaktavyam -- Satyayantra's un-said (‡§∏‡§æ‡§Æ‡§Ø‡§ø‡§ï), 0√∑0 (underdetermined), and
+-- the fourth bha·πÖga (‡§®‡§ø‡§§‡•ç‡§Ø, non-factoring).  `‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É` proves that mapping
 -- three distinct seeds into two values must identify two of them.  Mapping
 -- three distinct structures onto ONE name is the same pigeonhole with a
 -- smaller codomain, and it collapses all three.  The corpus escaped Bool
@@ -324,21 +324,21 @@ open import Saptabhangi
 -- pattern over n instances until something downstream of it is computed,
 -- so here is the third, and it changes the shape of the claim.
 --
--- 00 is NOT ‡‡æ‡Æ‡Ø‡ø‡ï.  No resource resolves it: for EVERY candidate value
+-- 0√∑0 is NOT ‡§∏‡§æ‡§Æ‡§Ø‡§ø‡§ï.  No resource resolves it: for EVERY candidate value
 -- there is a competing value satisfying the same defining condition.  In
 -- the vocabulary of ¬ß1 that makes it ‡®‡ø‡‡‡Ø too.
 --
--- So the ‡‡æ‡Æ‡Ø‡ø‡ï/‡®‡ø‡‡‡Ø axis does NOT separate 00 from the fourth bhaga,
+-- So the ‡§∏‡§æ‡§Æ‡§Ø‡§ø‡§ï/‡§®‡§ø‡§§‡•ç‡§Ø axis does NOT separate 0√∑0 from the fourth bha·πÖga,
 -- and whatWhat separates them is the
 -- other axis, the one ¬ß6 actually exhibited: 00's whole situation is
--- denotable in a single utterance (`‡‡‡®‡‡Ø‡‡∞‡-‡‡∞‡‡µ‡‡‡∞`), and avaktavyam's is
+-- denotable in a single utterance (`‡§∂‡•Ç‡§®‡•ç‡§Ø‡§π‡§∞‡§É-‡§∏‡§∞‡•ç‡§µ‡§§‡•ç‡§∞`), and avaktavyam's is
 -- not (`no-single-vacana`).  Two axes, three structures, each pair
 -- separated by at least one:
 --
---                        ‡‡æ‡Æ‡Ø‡ø‡ï?    sayable in one utterance?
---   ‡‡®‡‡ï‡‡‡Æ‡ (Satyayantra)   yes             --
+--                        ‡§∏‡§æ‡§Æ‡§Ø‡§ø‡§ï?    sayable in one utterance?
+--   ‡§Ö‡§®‡•Å‡§ï‡•ç‡§§‡§Æ‡•ç (Satyayantra)   yes             --
 --   00                     no             yes
---   ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ (4th bhaga)  no             no
+--   ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç (4th bha·πÖga)  no             no
 ------------------------------------------------------------------------
 
 ‡§∂‡•Ç‡§®‡•ç‡§Ø‡§π‡§∞‡§É-‡§®‡§ø‡§§‡•ç‡§Ø‡§Æ‡•ç :
@@ -350,15 +350,15 @@ open import Saptabhangi
 
 ------------------------------------------------------------------------
 -- 9.  THE TWO AXES ARE INDEPENDENT, NOT DUAL.
---   `NaturalMachine/SamayikaAndNityaAreIndependent.agda` ‚î the swap of ‚à
---   and ‚à is NOT a negation.  `bothHold` exhibits a single `bad` that is
---   ‡‡æ‡Æ‡Ø‡ø‡ï AND ‡®‡ø‡‡‡Ø at once; `samayikaWithoutNitya` and
+--   `NaturalMachine/SamayikaAndNityaAreIndependent.agda` ‚Äî the swap of ‚àÉ
+--   and ‚àÄ is NOT a negation.  `bothHold` exhibits a single `bad` that is
+--   ‡§∏‡§æ‡§Æ‡§Ø‡§ø‡§ï AND ‡§®‡§ø‡§§‡•ç‡§Ø at once; `samayikaWithoutNitya` and
 --   `nityaWithoutSamayika` give the other two corners.  Neither predicate
 --   implies the other and neither implies the other's negation.  What each
 --   DOES refute is the other's STRONG failure, which is a different and
 --   weaker relation than duality.
 --
---   `NaturalMachine/NonUniquenessAndInexpressibilityAreIndependent.agda` ‚î
+--   `NaturalMachine/NonUniquenessAndInexpressibilityAreIndependent.agda` ‚Äî
 --   the same, over four realised corners, for ¬ß6's other axis.  So the two
 --   defects are not two readings of one thing at any strength.
 --
@@ -386,7 +386,7 @@ open import NonUniquenessAndInexpressibilityAreIndependent
 ‡§®-‡§ß‡•ç‡§∞‡•Å‡§µ‡•å : _
 ‡§®-‡§ß‡•ç‡§∞‡•Å‡§µ‡•å = corner-neither
 -- The other two corners, named rather than tupled.  A four-way tuple with
--- an inferred type leaves Agda unable to solve which Œ it is (the same
+-- an inferred type leaves Agda unable to solve which Œ£ it is (the same
 -- ambiguity ¬ß5 of `BhavanaKrida` hit), and an anonymous meta is not a
 -- checked claim.  Four names, four checks.
 ‡§™‡•É‡§•‡§ï‡•ç-‡§Ö‡§®‡•á‡§ï‡§Æ‡•ç : _

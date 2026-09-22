@@ -8,7 +8,7 @@
 -- This module adds the law to the record, leaving that one's Î
 -- untouched.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   LCertified d e      FIVE components: boundary semantics preserved,
@@ -17,7 +17,7 @@
 --                       provenance
 --   composeLCertified   the five-component certificate composes
 --   Chain d e           a NON-EMPTY sequence of certified rewrites
---   chainCertified      a whole chain is one certificate â” so the five
+--   chainCertified      a whole chain is one certificate â€” so the five
 --                       components compose along an arbitrary rewrite
 --                       sequence, not only across two steps
 --   chainMovesNoObservation
@@ -33,7 +33,7 @@
 --
 -- **THE LAST ONE IS WHY THIS IS A STRENGTHENING AND NOT A
 -- REPACKAGING.**  `MigrationNeedsALawAndTheLawIsNotFree` showed that
--- SOME function fails the law â” which leaves open the cheap reading
+-- SOME function fails the law â€” which leaves open the cheap reading
 -- that the other four components already force it, so that adding it
 -- costs nothing.  They do not: the witness below is a genuine element
 -- of the earlier `Certified` (its semantics path is `refl`, its cost
@@ -42,18 +42,18 @@
 -- whose migration destroys every observation, and the fifth component
 -- is a real constraint on which rewrites are certifiable.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- ON `Chain` BEING NON-EMPTY, which is a structural fact and not an
 -- oversight.  `noSelfChain` says no chain runs from a system to itself.
--- If `Chain` had an empty constructor that would be false â” the empty
--- chain at `d` is a `Chain d d` â” so certified rewrites form a
+-- If `Chain` had an empty constructor that would be false â€” the empty
+-- chain at `d` is a `Chain d d` â€” so certified rewrites form a
 -- SEMICATEGORY, not a category: composition is associative and total,
 -- and there is no identity.  Strict cost improvement is exactly what
 -- removes the identities.
 --
 -- NO NOVELTY.  Simulation/refinement squares, their composition, and
 -- the fact that a strict order has no loops are all standard; the
--- content is again only the count â” the law is the component that does
+-- content is again only the count â€” the law is the component that does
 -- NOT come for free and does NOT follow from the others.
 ------------------------------------------------------------------------
 
@@ -183,7 +183,7 @@ theLawIsIndependentOfTheOtherFour l = falseâ‰¢true (l true)
 -- shows that relativising the fifth component to reachable states
 -- costs its free composition, and
 -- `TheSixthComponentIsFreeToCarryAndIsWhatMakesTheFifthCompose`
--- adds the sixth component that buys it back â” with
+-- adds the sixth component that buys it back â€” with
 -- `aFullFiveComponentCertificateThatDoesNotPreserveTheInvariant`, an
 -- element of the `LCertified` DEFINED ABOVE that fails only the new
 -- component.  So this five-component record still admits certificates

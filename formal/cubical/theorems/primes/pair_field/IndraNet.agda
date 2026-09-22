@@ -6,38 +6,38 @@
 -- The synchronic side of the Eternal Golden Braid, its
 -- targets as checked terms:
 --
--- T25.A � Yoneda jewel theorem, univalent-groupoid case.  The
---   reflection profile of a jewel x is the family z � (z ≡ x); a
+-- T25.A — Yoneda jewel theorem, univalent-groupoid case.  The
+--   reflection profile of a jewel x is the family z ↦ (z ≡ x); a
 --   thread x ≡ y is EXACTLY a transformation between whole profiles:
 --
---     ((z : A) � z ≡ x � z ≡ y) � (x ≡ y).
+--     ((z : A) → z ≡ x → z ≡ y) ≃ (x ≡ y).
 --
 --   And "all in one" is literal: the profile's total space is the
 --   singleton, contractible onto the jewel (`profileContractsToJewel`).
 --
--- T25.B � Rooted reflection total space.  Root(U,Φ) = �[ x ∈ U ] Φ x,
---   the projection forgets the root, and the fiber over x is Φ x �
+-- T25.B — Rooted reflection total space.  Root(U,Φ) = Σ[ x ∈ U ] Φ x,
+--   the projection forgets the root, and the fiber over x is Φ x —
 --   "the net as seen from this jewel" (library `fiberEquiv`, inherited
 --   rather than re-proved).
 --
--- T25.F � Local discovery propagation.  A new thread e : x ≡ y updates
+-- T25.F — Local discovery propagation.  A new thread e : x ≡ y updates
 --   every rooted profile functorially (`threadUpdatesProfiles`), every
 --   dependent view transports (`viewTransport`), and a separator's tear
 --   is visible from every jewel that reaches both sides
 --   (`tearVisibleEverywhere`).  One local Braid event reweaves the Net
 --   globally by transport, not by broadcast.
 --
--- T25.D � Guarded Indra equation, in the guardedness approximation.
+-- T25.D — Guarded Indra equation, in the guardedness approximation.
 --   cubical v0.5 has no later modality; the coinductive record with
 --   --guardedness realizes the domain equation
 --
---     Net x � L x � ((y : J) � Net y)
+--     Net x ≃ L x × ((y : J) → Net y)
 --
 --   with productivity enforced syntactically (`weave` is a total
 --   corecursive section), the unfolding equivalence proved
 --   (`netUnfold`), and the path principle proved: bisimulation is
---   identity (`bisim�path`).  Identity in the Net IS relational
---   identity � finality's "to be is to be observable", as a term.
+--   identity (`bisim→path`).  Identity in the Net IS relational
+--   identity — finality's "to be is to be observable", as a term.
 ------------------------------------------------------------------------
 
 module IndraNet where
@@ -58,7 +58,7 @@ private
     ℓ ℓ' : Level
 
 ------------------------------------------------------------------------
--- T25.A � the Yoneda jewel theorem for the univalent groupoid case
+-- T25.A — the Yoneda jewel theorem for the univalent groupoid case
 
 module _ {ℓ : Level} {A : Type ℓ} where
 
@@ -73,7 +73,7 @@ module _ {ℓ : Level} {A : Type ℓ} where
   profileContractsToJewel x .snd (z , q) i = q (~ i) , λ j → q (~ i ∨ j)
 
   -- a thread between jewels is exactly a transformation of whole
-  -- reflection profiles: Map(x,y) � [Profile x, Profile y]
+  -- reflection profiles: Map(x,y) ≃ [Profile x, Profile y]
   yonedaJewel : (x y : A)
     → ((z : A) → Profile x z → Profile y z) ≃ (x ≡ y)
   yonedaJewel x y = isoToEquiv (iso ev lift* ev-lift lift-ev)
@@ -85,7 +85,7 @@ module _ {ℓ : Level} {A : Type ℓ} where
     ev-lift : (p : x ≡ y) → refl ∙ p ≡ p
     ev-lift p = sym (lUnit p)
     -- pointwise, by path induction on the incoming thread (sym q runs
-    -- x � z; sym (sym q) is definitionally q in cubical)
+    -- x → z; sym (sym q) is definitionally q in cubical)
     pointwise : (φ : (z : A) → z ≡ x → z ≡ y) (z : A) (q : z ≡ x)
       → q ∙ φ x refl ≡ φ z q
     pointwise φ z q =
@@ -96,7 +96,7 @@ module _ {ℓ : Level} {A : Type ℓ} where
     lift-ev φ i z q = pointwise φ z q i
 
 ------------------------------------------------------------------------
--- T25.B � the rooted reflection total space � x . Φ x
+-- T25.B — the rooted reflection total space Σ x . Φ x
 
 module Rooted {U : Type ℓ} (Φ : U → Type ℓ') where
 
@@ -107,13 +107,13 @@ module Rooted {U : Type ℓ} (Φ : U → Type ℓ') where
   unroot : Root → U
   unroot = fst
 
-  -- the fiber over a jewel IS its rooted view Φ x � the reflection
+  -- the fiber over a jewel IS its rooted view Φ x — the reflection
   -- fiber is the net-as-seen-from-this-jewel (inherited: HoTT 4.8.1)
   rootFiber : (x : U) → fiber unroot x ≃ Φ x
   rootFiber x = fiberEquiv Φ x
 
 ------------------------------------------------------------------------
--- T25.F � a local Braid event propagates through the whole Net
+-- T25.F — a local Braid event propagates through the whole Net
 
 module _ {ℓ ℓ' : Level} {A : Type ℓ} where
 
@@ -137,11 +137,11 @@ module _ {ℓ ℓ' : Level} {A : Type ℓ} where
   tearVisibleEverywhere tear z (q , r) = tear (sym q ∙ r)
 
 ------------------------------------------------------------------------
--- T25.D � the coinductive Net, guardedness form
+-- T25.D — the coinductive Net, guardedness form
 
 module Coinductive {J : Type ℓ} (L : J → Type ℓ') where
 
-  -- the guarded Indra equation J_x � L_x � �_y (view of y), with the
+  -- the guarded Indra equation J_x ≃ L_x × ∏_y (view of y), with the
   -- later modality replaced by coinductive guardedness: reflections of
   -- reflections unfold one observation later
   record Net (x : J) : Type (ℓ-max ℓ ℓ') where
@@ -153,7 +153,7 @@ module Coinductive {J : Type ℓ} (L : J → Type ℓ') where
   open Net
 
   -- productivity: from bare local data, the infinite mutual weave is a
-  -- total corecursive section � every jewel's view exists at once
+  -- total corecursive section — every jewel's view exists at once
   weave : ((x : J) → L x) → (x : J) → Net x
   weave ℓoc x .local = ℓoc x
   weave ℓoc x .image y = weave ℓoc y
@@ -175,7 +175,7 @@ module Coinductive {J : Type ℓ} (L : J → Type ℓ') where
 
   -- the path principle: identity in the Net IS relational identity.
   -- Two jewel-views are equal exactly when no observation separates
-  -- them � coalgebraic "to be is to be observable", as a term.
+  -- them — coalgebraic "to be is to be observable", as a term.
   bisim→path : {x : J} {m n : Net x} → Bisim m n → m ≡ n
   bisim→path b i .local = b .localEq i
   bisim→path b i .image y = bisim→path (b .imageB y) i
@@ -184,7 +184,7 @@ module Coinductive {J : Type ℓ} (L : J → Type ℓ') where
   bisimRefl m .localEq = refl
   bisimRefl m .imageB y = bisimRefl (m .image y)
 
-  -- the unfolding equivalence Net x � L x � �_y Net y: coinductive
+  -- the unfolding equivalence Net x ≃ L x × ∏_y Net y: coinductive
   -- records lack eta, so the record-side round trip is by coinduction
   netUnfold : (x : J) → Net x ≃ (L x × ((y : J) → Net y))
   netUnfold x = isoToEquiv (iso obs reroot (λ _ → refl) back)

@@ -1,13 +1,13 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡®‡ø‡∞‡‡ß‡æ‡∞‡ø‡ ‚î apavda does not shed sthla's provenance, and that is
+-- ‡§Ö‡§®‡§ø‡§∞‡•ç‡§ß‡§æ‡§∞‡§ø‡§§ ‚Äî apavƒÅda does not shed sth≈´la's provenance, and that is
 -- the host's thesis, not its failure.  The identity
 -- apavada (sthula t) ‚â° t fails: sthula t = yoga (nyasa t) (mita 0)
--- ‚î the coarse embedding that stamps a "+0" of provenance ‚î and apavada
+-- ‚Äî the coarse embedding that stamps a "+0" of provenance ‚Äî and apavada
 -- is structural: it carries the stamp through, landing at
 -- yoga' t (mita' 0), never back at t.  The host proves the two
--- embeddings ‡®‡‡Ø‡æ‡ and ‡‡‡‡‡≤ are observationally inseparable in value
+-- embeddings ‡§®‡•ç‡§Ø‡§æ‡§∏ and ‡§∏‡•ç‡§•‡•Ç‡§≤ are observationally inseparable in value
 -- (nyasa-sthula-avishesha) yet distinct in cost (mulya-bheda).
 -- Road two, witness cara'.
 ------------------------------------------------------------------------
@@ -34,7 +34,7 @@ stamped‚â¢bare : yoga' cara' (mita' 0) ‚â° cara' ‚Üí ‚ä•
 stamped‚â¢bare p = true‚â¢false (cong isCara' (sym p))
 
 -- THE VERDICT.  Green here means the field is NOT determined:
--- apavada ‚àò sthula is not the identity ‚î shedding does not remove
+-- apavada ‚àò sthula is not the identity ‚Äî shedding does not remove
 -- provenance, it preserves it, which is the module's own theorem
 -- held from the other side.
 NOT-DETERMINED : apavada (sthula cara') ‚â° cara' ‚Üí ‚ä•

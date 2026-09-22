@@ -40,7 +40,7 @@
 - Interface Interaction: interface=observation map, UI state=dependent world, UI=continuation, lossless interface are initially one theorem complex.
 - Foundational slogans such as Geometry=Computation, Proof=Execution, Static/Dynamic Collapse, Syntax/Semantics Collapse are aliases/consequence anchors into precise theorem pages, not essays.
 
-Expected working compression: hundreds of useful names â’ roughly 70â“100 concepts â’ roughly 50 substantial pages â’ roughly 15â“20 nuclei. This is descriptive, not a quota.
+Expected working compression: hundreds of useful names â†’ roughly 70â€“100 concepts â†’ roughly 50 substantial pages â†’ roughly 15â€“20 nuclei. This is descriptive, not a quota.
 
 ## Canonical page record
 

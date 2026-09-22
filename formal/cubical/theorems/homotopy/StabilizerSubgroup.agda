@@ -6,9 +6,9 @@
 -- T15.9 AS A SUBGROUP.  A completion of `DefectCalculus` §4.
 --
 -- §4's parameter is not "a family of
--- self-equivalences": it is `A � A`, which IS the group object, and
+-- self-equivalences": it is `A ≃ A`, which IS the group object, and
 -- cubical ships it as `Cubical.Algebra.SymmetricGroup`
--- `SymGroup A isSetA` � `1g = idEquiv`, `_�_ = compEquiv`,
+-- `SymGroup A isSetA` — `1g = idEquiv`, `_·_ = compEquiv`,
 -- `inv = invEquiv`, i.e. literally the three operations §4's three
 -- lemmas are stated at.  No group object had to be packaged.
 --
@@ -16,12 +16,12 @@
 -- is the evidence: given them, the subgroup statement is the code
 -- below, whose entire proof is §4's three lemmas cited unchanged.
 --
---   (i)  `isSet A`, so that `A � A` carries a group structure at all
+--   (i)  `isSet A`, so that `A ≃ A` carries a group structure at all
 --        (`SymGroup` demands it; without it the automorphisms
 --        form a higher group and "subgroup" needs coherence, not
 --        closure).
 --   (ii) `isSet (Str A)`, so that `Stab g = subst Str (ua g) s ≡ s` is
---        a PROPOSITION.  Cubical's `Subgroup G = �[ H ∈ � ⟨ G ⟩ ]
+--        a PROPOSITION.  Cubical's `Subgroup G = Σ[ H ∈ ℙ ⟨ G ⟩ ]
 --        isSubgroup H` takes `H` valued in `hProp`, because a subgroup
 --        is a property of an element and not a structure on it.
 --        Without (ii), `stab-∘` is a CHOICE of composite witness rather
@@ -29,12 +29,12 @@
 --        need coherence conditions (associativity of `stab-∘` against
 --        `compEquiv-assoc`, and so on) which §4 does not state.
 --
--- The restriction `�' = �` below is cubical's `� X = X � hProp _` at
+-- The restriction `ℓ' = ℓ` below is cubical's `ℙ X = X → hProp _` at
 -- `X`'s own level, not a mathematical restriction; a `Lift` would
 -- remove it and add nothing.
 --
 -- A second remark: `�[ g ∈ A � A ] Stab g` is
--- the fibre of the orbit map `g � subst Str (ua g) s` over `s`, so §4
+-- the fibre of the orbit map `g ↦ subst Str (ua g) s` over `s`, so §4
 -- is also an instance of the fibre language in
 -- `CertificateFibration`.  Making that identification
 -- carry weight needs the orbit map's own universal property, which is
@@ -71,7 +71,7 @@ module _ (Str : Type ℓ → Type ℓ) {A : Type ℓ}
   StabP g = Stab Str s g , isSetStrA _ _
 
   -- The three fields are `DefectCalculus`'s three lemmas, unchanged.
-  -- `1g`, `_�_`, `inv` of `SymGroup` reduce to `idEquiv`,
+  -- `1g`, `_·_`, `inv` of `SymGroup` reduce to `idEquiv`,
   -- `compEquiv`, `invEquiv`, so no bridging lemma is needed either.
   isSubgroupStab : isSubgroup Aut StabP
   isSubgroup.id-closed  isSubgroupStab       = stab-id Str s

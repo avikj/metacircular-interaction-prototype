@@ -128,7 +128,7 @@ five-two-excluded (ε , t , pε , sqε) =
       (c · pos 5 ≡ pos 2 · pos 2 - 1r)
     obstruction = S11.squareObstruction (pos 5) (pos 2) ε t pε sqε
 
--- Nevertheless 2�2 = 4 is the -1 class modulo 5.
+-- Nevertheless 2·2 = 4 is the -1 class modulo 5.
 private
   minus-one-square : (- 1r) · (- 1r) ≡ 1r
   minus-one-square = sym (lem 1r)

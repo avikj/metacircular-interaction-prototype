@@ -1,11 +1,11 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ààà¨àà¨ â” ààà¨àà¨à‹ àµàààààà°à¿àà¾àà à
+-- à¤†à¤¸à¤¨à¥à¤¨ â€” à¤†à¤¸à¤¨à¥à¤¨à¥‹ à¤µà¥ƒà¤¤à¥à¤¤à¤ªà¤°à¤¿à¤£à¤¾à¤¹à¤ƒ à¥¤
 --
 -- (this is the APPROXIMATE circumference of a circle.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- The BARRIER Structure Proposition states that WL observables factor
 -- through the blurred spectral measure, hence no post-processing
 -- recovers what the blur merged.
@@ -22,50 +22,50 @@
 -- **THE SPLIT IS NOT VALID, AND THIS MODULE IS WHY.**
 --
 -- `Vaidharmya`'s `AllBlind` demands that blind queries return EQUAL
--- answers â” its own header says "not close, equal" â” because its whole
+-- answers â€” its own header says "not close, equal" â€” because its whole
 -- proof is `cong decide` applied to an equality of transcripts.  An
 -- analytic barrier lemma does not deliver equality.  It delivers
 -- agreement to within Îµ: `BARRIER.md`'s own Corollary B2 asks only that
--- Ï_k âˆ’ Ï_kâ² be "annihilated at that resolution", with mismatch
+-- Ïƒ_k âˆ’ Ïƒ_kâ€² be "annihilated at that resolution", with mismatch
 -- O((Î´L)^{2pâˆ’1}), and `BARRIER_ERROR_WINDOW.md` Theorem U1 puts the
--- window's error term E at C_E Xâ^{âˆ’1/2} Î˜_Ï(L/2), a NONZERO quantity
+-- window's error term E at C_E Xâ‚€^{âˆ’1/2} Î˜_Ï†(L/2), a NONZERO quantity
 -- that depends on the configuration through the (kâˆ’1)-fold wave layer
--- ğ’µ_{kâˆ’1}.  Two configurations agreeing under the blur therefore give
+-- ğ’µ_{kâˆ’1}.  Two configurations agreeing under the blur therefore give
 -- transcripts that are CLOSE, never equal, and `cong` fires on nothing.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED HERE.  Three statements, no analysis, no numerics.
 --
---   Â§à¨  **The near-law.**  Replace equality of answers by an arbitrary
---       tolerance relation `_â‰ˆ_` and the law survives â” PROVIDED the
+--   Â§à¥¨  **The near-law.**  Replace equality of answers by an arbitrary
+--       tolerance relation `_â‰ˆ_` and the law survives â€” PROVIDED the
 --       decoder respects the tolerance and the tolerance excludes the
 --       separation.  Proof is four lines and mentions no constructor.
 --
---   Â§à©  **Where the exact case got its hypothesis for free.**  Take
+--   Â§à¥©  **Where the exact case got its hypothesis for free.**  Take
 --       `_â‰ˆ_ := _â‰¡_` and `Respects decide` is inhabited for EVERY
 --       decoder, by `cong`.  That is precisely the hypothesis
 --       `Vaidharmya` never had to state, and precisely the one the
 --       analytic setting must now pay for.
 --
---   Â§à  **The gap is real, and here is a counterexample.**  Near
---       blindness ALONE â” with the arbitrary post-processing that
+--   Â§à¥ª  **The gap is real, and here is a counterexample.**  Near
+--       blindness ALONE â€” with the arbitrary post-processing that
 --       `BARRIER.md`'s Proposition B3 explicitly insists on ("even
---       non-computable") â” implies NO obstruction whatever.  One state
+--       non-computable") â€” implies NO obstruction whatever.  One state
 --       space of two points, one query, answers 1 and 0, tolerance
 --       "differ by at most one": the pair is near-blind and the head
 --       decoder separates it.  Checked, not argued.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- SO WHAT MUST THE ANALYTIC BARRIER LEMMA SUPPLY?  Exactly one of two
 -- things, and this module's content is that there is no third:
 --
---   (a) EXACT agreement of the full observable, not of the blur â” which
---       is `BARRIER_SMOOTH_TERM.md`'s corrected B2â² (every lower-arity
+--   (a) EXACT agreement of the full observable, not of the blur â€” which
+--       is `BARRIER_SMOOTH_TERM.md`'s corrected B2â€² (every lower-arity
 --       layer, at precision ÎµX^{âˆ’r/2}), and is a strictly stronger
 --       demand than B2 as `BARRIER.md` still states it; or
 --
---   (b) a MODULUS on Î¦ â” a bound on how far a WL post-processing may
---       amplify a sub-resolution difference.  Â§à¨'s `Respects` is the
+--   (b) a MODULUS on Î¦ â€” a bound on how far a WL post-processing may
+--       amplify a sub-resolution difference.  Â§à¥¨'s `Respects` is the
 --       weakest form of that hypothesis.
 --
 -- And (b) is in direct contradiction with Proposition B3 as written,
@@ -73,14 +73,14 @@
 -- kills the Îµ-version of its own corollary.**  That collision is the
 -- finding; it is a missing distinction in the WL definition.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- TERM.  ààà¨àà¨ â” "approached", hence approximate â” is the tradition's
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- TERM.  à¤†à¤¸à¤¨à¥à¤¨ â€” "approached", hence approximate â€” is the tradition's
 -- own word for a value given AS an approximation and marked so in the
 -- statement itself.  ryabhaa, *ryabhaya*, Gaitapda 10 (499):
--- the ratio 62832/20000 is introduced with ààà¨àà¨à‹ àµàààààà°à¿àà¾àà, "this is
--- the approximate circumference" â” the approximation declared in the
+-- the ratio 62832/20000 is introduced with à¤†à¤¸à¤¨à¥à¤¨à¥‹ à¤µà¥ƒà¤¤à¥à¤¤à¤ªà¤°à¤¿à¤£à¤¾à¤¹à¤ƒ, "this is
+-- the approximate circumference" â€” the approximation declared in the
 -- verse rather than left for a reader to discover.  That declaration is
 -- the whole subject of this module: a quantity known to within a
 -- tolerance is a different object from a quantity known, and a theorem
@@ -89,7 +89,7 @@
 -- LIMIT.  The term is used here for an arbitrary tolerance relation on
 -- an answer type.  No text states a tolerance relation, ryabhaa
 -- proved nothing below, and the connection asserted is only that both
--- name the same job â” marking, in the statement, that what is in hand
+-- name the same job â€” marking, in the statement, that what is in hand
 -- is near and not equal.
 ------------------------------------------------------------------------
 
@@ -108,10 +108,10 @@ open import Cubical.Relation.Nullary using (Â¬_)
 private variable â„“ : Level
 
 ------------------------------------------------------------------------
--- à§ Â The observation class, with a tolerance in place of equality.
+-- à¥§ Â· The observation class, with a tolerance in place of equality.
 --
 -- `V` is what a query returns; `_â‰ˆ_` is "indistinguishable to within the
--- window"; `_#_` is "told apart".  Nothing is assumed of either â” not
+-- window"; `_#_` is "told apart".  Nothing is assumed of either â€” not
 -- reflexivity, not symmetry, not transitivity, not irreflexivity.  The
 -- hypotheses arrive at the theorems that need them, so it is visible
 -- which theorem pays for what.
@@ -135,7 +135,7 @@ module Def (X : Type â„“) (V : Type â„“)
   (_ âˆ· _) â‰ˆá´¸ []      = âŠ¥*
   (a âˆ· s) â‰ˆá´¸ (b âˆ· t) = (a â‰ˆ b) Ã— (s â‰ˆá´¸ t)
 
-  -- Every query fails to resolve the pair â” to within the tolerance.
+  -- Every query fails to resolve the pair â€” to within the tolerance.
   -- This, and not equality, is what a windowed observable delivers.
   NearBlind : List Query â†’ X â†’ X â†’ Type â„“
   NearBlind []       x y = Unit*
@@ -157,14 +157,14 @@ module Def (X : Type â„“) (V : Type â„“)
       (Respects decide Ã— (decide (obs os x) # decide (obs os y)))
 
 ------------------------------------------------------------------------
--- à¨ Â The near-law.  Two hypotheses, both stated, neither free.
+-- à¥¨ Â· The near-law.  Two hypotheses, both stated, neither free.
 --
 --   (i)  the decoder respects the tolerance;
---   (ii) the tolerance excludes the separation â” being within tolerance
+--   (ii) the tolerance excludes the separation â€” being within tolerance
 --        is incompatible with being told apart.
 --
 -- Given those, near-blindness obstructs, and the proof never mentions a
--- constructor, a decidability, or an h-level, exactly as in Â§à¨ of
+-- constructor, a decidability, or an h-level, exactly as in Â§à¥¨ of
 -- `Vaidharmya`.  The `cong` there has become the hypothesis here; that
 -- substitution IS the content of this module.
 ------------------------------------------------------------------------
@@ -189,11 +189,11 @@ module Def (X : Type â„“) (V : Type â„“)
   const-respects v â‰ˆrefl s t _ = â‰ˆrefl v
 
 ------------------------------------------------------------------------
--- à© Â Where the exact law got its hypothesis for free.
+-- à¥© Â· Where the exact law got its hypothesis for free.
 --
 -- Instantiate the tolerance at equality.  Then `Respects` is inhabited
--- for EVERY decoder â” that is `cong` â” so `SeparatesRespectfully` and
--- `Separates` coincide and Â§à¨ collapses to `Vaidharmya`'s
+-- for EVERY decoder â€” that is `cong` â€” so `SeparatesRespectfully` and
+-- `Separates` coincide and Â§à¥¨ collapses to `Vaidharmya`'s
 -- `no-decision`, hypothesis (i) having cost nothing.
 --
 -- The point is negative and it is the whole reason the split fails:
@@ -214,8 +214,8 @@ module à¤¸à¤®à¤¤à¤¾ (X : Type â„“) (V : Type â„“) (_#_ : V â†’ V â†’ Type â„“) w
   every-decoder-respects : (decide : List V â†’ V) â†’ Respects decide
   every-decoder-respects decide s t e = cong decide (â‰ˆá´¸â†’â‰¡ s t e)
 
-  -- â¦hence the arbitrary-decoder statement follows, with irreflexivity
-  -- as the only surviving hypothesis: `Vaidharmya` Â§à¨, recovered.
+  -- â€¦hence the arbitrary-decoder statement follows, with irreflexivity
+  -- as the only surviving hypothesis: `Vaidharmya` Â§à¥¨, recovered.
   exact-no-decision : ((v : V) â†’ Â¬ (v # v))
                     â†’ (os : List Query) (x y : X)
                     â†’ NearBlind os x y â†’ Â¬ Separates os x y
@@ -225,10 +225,10 @@ module à¤¸à¤®à¤¤à¤¾ (X : Type â„“) (V : Type â„“) (_#_ : V â†’ V â†’ Type â„“) w
                      (decide , every-decoder-respects decide , sep)
 
 ------------------------------------------------------------------------
--- à Â The gap, as a checked counterexample.
+-- à¥ª Â· The gap, as a checked counterexample.
 --
--- Drop hypothesis (i) â” which is exactly what `BARRIER.md` Prop. B3
--- does when it insists Î¦ be arbitrary and even non-computable â” and
+-- Drop hypothesis (i) â€” which is exactly what `BARRIER.md` Prop. B3
+-- does when it insists Î¦ be arbitrary and even non-computable â€” and
 -- near-blindness implies nothing at all.
 --
 -- Two states.  One query.  Answers 1 and 0.  Tolerance: differ by at
@@ -261,28 +261,28 @@ open Def Bool â„• _â‰ˆâ‚_ _â‰ â‚_
 à¤†à¤¸à¤¨à¥à¤¨-à¤…à¤¨à¥à¤§à¤¤à¥à¤µà¤®à¥ : NearBlind (à¤®à¤¾à¤ªà¤ƒ âˆ· []) true false
 à¤†à¤¸à¤¨à¥à¤¨-à¤…à¤¨à¥à¤§à¤¤à¥à¤µà¤®à¥ = inr (inr refl) , tt*
 
--- â¦and yet it is separated, by a decoder as tame as they come.
+-- â€¦and yet it is separated, by a decoder as tame as they come.
 à¤†à¤¸à¤¨à¥à¤¨-à¤¨-à¤¬à¤¾à¤§à¤¾ : Separates (à¤®à¤¾à¤ªà¤ƒ âˆ· []) true false
 à¤†à¤¸à¤¨à¥à¤¨-à¤¨-à¤¬à¤¾à¤§à¤¾ = à¤¶à¤¿à¤°à¤ƒ , snotz
 
 -- Stated as the refutation it is: near-blindness plus arbitrary
 -- post-processing does NOT obstruct.  Any barrier claim of that shape
--- is false, and the two admissible repairs are Â§à¨'s hypotheses.
+-- is false, and the two admissible repairs are Â§à¥¨'s hypotheses.
 à¤—à¤¾à¤ªà¤ƒ : NearBlind (à¤®à¤¾à¤ªà¤ƒ âˆ· []) true false Ã— Separates (à¤®à¤¾à¤ªà¤ƒ âˆ· []) true false
 à¤—à¤¾à¤ªà¤ƒ = à¤†à¤¸à¤¨à¥à¤¨-à¤…à¤¨à¥à¤§à¤¤à¥à¤µà¤®à¥ , à¤†à¤¸à¤¨à¥à¤¨-à¤¨-à¤¬à¤¾à¤§à¤¾
 
 ------------------------------------------------------------------------
--- à Â àààà â” what this leaves standing, and what it hands back.
+-- à¥« Â· à¤¶à¥‡à¤·à¤ƒ â€” what this leaves standing, and what it hands back.
 --
 -- Standing: `Vaidharmya` is untouched.  Over an answer type with EXACT
 -- blindness the obstruction holds for any irreflexive separation and
--- any decoder whatever, and Â§à© re-derives it from Â§à¨.
+-- any decoder whatever, and Â§à¥© re-derives it from Â§à¥¨.
 --
 -- `METHOD.md` Â§3 item 1 does not reduce to a formal half plus an
 -- analytic half.  The analytic half must additionally produce ONE of
 --
---   (a) exact layerwise agreement â” B2â² of `BARRIER_SMOOTH_TERM.md`,
+--   (a) exact layerwise agreement â€” B2â€² of `BARRIER_SMOOTH_TERM.md`,
 --       which `BARRIER.md`'s Corollary B2 does not state; or
---   (b) a modulus on WL post-processing â” which `BARRIER.md`'s
+--   (b) a modulus on WL post-processing â€” which `BARRIER.md`'s
 --       Proposition B3 currently rules out by construction.
 ------------------------------------------------------------------------

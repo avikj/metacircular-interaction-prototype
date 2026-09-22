@@ -1,34 +1,34 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡∞‡¶‡ï‡‡‡ø‡‡æ ‚î the circuit returns to the base point with the fiber
+-- ‡§™‡•ç‡§∞‡§¶‡§ï‡•ç‡§∑‡§ø‡§£‡§æ ‚Äî the circuit returns to the base point with the fiber
 -- shifted: the holonomy is inhabited.
 --
 -- THE LOOP QUESTION, ANSWERED AFFIRMATIVELY AS A TERM.  A loop in the
 -- base is not a graph cycle: it asks whether transporting around it
 -- returns identically or produces holonomy.  `OrderSaha_‚¶` priced the
 -- square-level curvature (the commutator of two standpoint operators is
--- ‚); this module prices the LOOP-level curvature on the same space and
+-- ‚Ñ§); this module prices the LOOP-level curvature on the same space and
 -- gets the same charge, one rung down in machinery: no truncations, no
--- operator algebra ‚î one bundle, one loop, one transport.
+-- operator algebra ‚Äî one bundle, one loop, one transport.
 --
---     the bundle    helix : S¬ ‚í Type      (the library's, over the circle)
+--     the bundle    helix : S¬π ‚Üí Type      (the library's, over the circle)
 --     the circuit   loop  : base ‚â° base
---     the action    ‡‡‡∞‡¶‡ï‡‡‡ø‡‡æ = subst helix loop : ‚ ‚í ‚
+--     the action    ‡§™‡•ç‡§∞‡§¶‡§ï‡•ç‡§∑‡§ø‡§£‡§æ = subst helix loop : ‚Ñ§ ‚Üí ‚Ñ§
 --
---   ‡‡∞‡‡ø‡        :  ‡‡‡∞‡¶‡ï‡‡‡ø‡‡æ x ‚â° suc‚ x       the action is the successor ‚î
+--   ‡§∏‡§∞‡§£‡§ø‡§É        :  ‡§™‡•ç‡§∞‡§¶‡§ï‡•ç‡§∑‡§ø‡§£‡§æ x ‚â° suc‚Ñ§ x       the action is the successor ‚Äî
 --                                            computed, by uaŒ≤, not posited
---   ‡-‡‡‡®‡∞‡æ‡ó‡Æ‡    :  ‡‡‡∞‡¶‡ï‡‡‡ø‡‡æ 0 ‚â 0            Hol(loop) ‚â† id, witnessed
---   ‡ß‡‡∞‡‡µ-‡µ‡≤‡Ø‡    :  the constant bundle returns identically ‚î the holonomy
+--   ‡§Ö-‡§™‡•Å‡§®‡§∞‡§æ‡§ó‡§Æ‡§É    :  ‡§™‡•ç‡§∞‡§¶‡§ï‡•ç‡§∑‡§ø‡§£‡§æ 0 ‚â¢ 0            Hol(loop) ‚â† id, witnessed
+--   ‡§ß‡•ç‡§∞‡•Å‡§µ-‡§µ‡§≤‡§Ø‡§É    :  the constant bundle returns identically ‚Äî the holonomy
 --                                            lives in the FAMILY, not in
 --                                            the loop alone
 --
 -- The base point is the same point before and after.  What has changed is
--- carried ABOVE it ‚î which is the exact literal content of the ritual
--- word: ‡‡‡∞‡¶‡ï‡‡‡ø‡‡æ, the circumambulation of a shrine, ends where it began
+-- carried ABOVE it ‚Äî which is the exact literal content of the ritual
+-- word: ‡§™‡•ç‡§∞‡§¶‡§ï‡•ç‡§∑‡§ø‡§£‡§æ, the circumambulation of a shrine, ends where it began
 -- and does not leave the walker unchanged.
--- helix, sucPath‚ and uaŒ≤ are the library's (Voevodsky's univalence,
--- CCHM's computation of it ‚î the shift is DEFINITIONAL cash, not an
+-- helix, sucPath‚Ñ§ and uaŒ≤ are the library's (Voevodsky's univalence,
+-- CCHM's computation of it ‚Äî the shift is DEFINITIONAL cash, not an
 -- axiom's IOU).
 ------------------------------------------------------------------------
 
@@ -44,22 +44,22 @@ open import Cubical.Relation.Nullary using (¬¨_)
 open import Cubical.HITs.S1 using (S¬π ; base ; loop ; helix)
 
 ------------------------------------------------------------------------
--- ‡ß ¬ the action of the circuit on the fiber over the base point.
+-- ‡•ß ¬∑ the action of the circuit on the fiber over the base point.
 ------------------------------------------------------------------------
 
 ‡§™‡•ç‡§∞‡§¶‡§ï‡•ç‡§∑‡§ø‡§£‡§æ : ‚Ñ§ ‚Üí ‚Ñ§
 ‡§™‡•ç‡§∞‡§¶‡§ï‡•ç‡§∑‡§ø‡§£‡§æ = subst helix loop
 
 ------------------------------------------------------------------------
--- ‡® ¬ ‡‡∞‡‡ø‡ ‚î the action computes: it is the successor.  helix carries
--- loop to sucPath‚ = ua (suc‚ , ‚¶), and uaŒ≤ discharges the transport.
+-- ‡•® ¬∑ ‡§∏‡§∞‡§£‡§ø‡§É ‚Äî the action computes: it is the successor.  helix carries
+-- loop to sucPath‚Ñ§ = ua (suc‚Ñ§ , ‚Ä¶), and uaŒ≤ discharges the transport.
 ------------------------------------------------------------------------
 
 ‡§∏‡§∞‡§£‡§ø‡§É : (x : ‚Ñ§) ‚Üí ‡§™‡•ç‡§∞‡§¶‡§ï‡•ç‡§∑‡§ø‡§£‡§æ x ‚â° suc‚Ñ§ x
 ‡§∏‡§∞‡§£‡§ø‡§É = uaŒ≤ (suc‚Ñ§ , isoToIsEquiv (iso suc‚Ñ§ pred‚Ñ§ sucPred predSuc))
 
 ------------------------------------------------------------------------
--- ‡© ¬ ‡-‡‡‡®‡∞‡æ‡ó‡Æ‡ ‚î no return: the holonomy is inhabited.  Around once,
+-- ‡•© ¬∑ ‡§Ö-‡§™‡•Å‡§®‡§∞‡§æ‡§ó‡§Æ‡§É ‚Äî no return: the holonomy is inhabited.  Around once,
 -- and 0 has become 1; the two are exhibitably distinct.
 ------------------------------------------------------------------------
 
@@ -74,7 +74,7 @@ open import Cubical.HITs.S1 using (S¬π ; base ; loop ; helix)
 ‡§Ö-‡§™‡•Å‡§®‡§∞‡§æ‡§ó‡§Æ‡§É p = ‡§è‡§ï‚â¢‡§∂‡•Ç‡§®‡•ç‡§Ø (sym (‡§∏‡§∞‡§£‡§ø‡§É (pos zero)) ‚àô p)
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡ß‡‡∞‡‡µ-‡µ‡≤‡Ø‡ ‚î the flat contrast: over the SAME loop, the constant
+-- ‡•™ ¬∑ ‡§ß‡•ç‡§∞‡•Å‡§µ-‡§µ‡§≤‡§Ø‡§É ‚Äî the flat contrast: over the SAME loop, the constant
 -- bundle returns every fiber element identically.  The curvature is a
 -- property of the family over the circuit, not of the circuit; a cycle
 -- in the declaration graph is silent until its bundle is named.

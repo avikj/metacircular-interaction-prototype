@@ -1,13 +1,13 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à®àà²àµà¾à•àà¯à®à Â PROVENANCE OF THE NAME.
+-- à¤®à¥‚à¤²à¤µà¤¾à¤•à¥à¤¯à¤®à¥ Â· PROVENANCE OF THE NAME.
 --
--- à¦àà°àà¨à¯ Â durnaya â” a à¨à¯ that asserts itself by DENYING the others.  The
+-- à¤¦à¥à¤°à¥à¤¨à¤¯ Â· durnaya â€” a à¤¨à¤¯ that asserts itself by DENYING the others.  The
 -- point of the term, and the reason it is not just "a wrong view": a
 -- falsehood can be contradicted, and a concealed standpoint cannot, so the
 -- durnaya is the worse case.  **Siddhasena Divkara, *Sanmatitarka* 1.21-25
--- (~5th c. CE); Umsvti, *Tattvrthastra* 1.34-35 (~2nd-5th c.) for à¨à¯
+-- (~5th c. CE); UmÄsvÄti, *TattvÄrthasÅ«tra* 1.34-35 (~2nd-5th c.) for à¤¨à¤¯
 -- itself; argued at length in Akalaka and in Yaovijaya, *Nayopadea*
 -- (~17th c.).**
 --
@@ -22,25 +22,25 @@
 -- The content of the prohibition, exactly:
 --
 --   Â§2  over proposition-valued nayas the prohibition is nothing more than
---       mutual entailment â” `AllNayasAgree` and `MutuallyEntail` coincide;
---   Â§4  off them it is strictly more â” `Mixed`
+--       mutual entailment â€” `AllNayasAgree` and `MutuallyEntail` coincide;
+--   Â§4  off them it is strictly more â€” `Mixed`
 --       mutually entails and does not agree;
 --   Â§5  and the reason is exactly non-propositionality: `Mixed`'s second
 --       fibre is `Bool`, which is not an hProp.
 --
--- So the content of àà¨àà•à¾à¨àà here is precisely the content a standpoint
+-- So the content of à¤…à¤¨à¥‡à¤•à¤¾à¤¨à¥à¤¤ here is precisely the content a standpoint
 -- carries BEYOND its truth value.  If a naya is only a proposition, the
 -- ahis rule reduces to "they imply each other" and governs nothing an
 -- ordinary biconditional would not.
 -- The rule governs real disagreements only because a naya is a
--- TYPE, not a truth value.  Unit and Bool are both inhabited â” they
--- agree in every proposition-valued respect â” and still cannot be identified.
+-- TYPE, not a truth value.  Unit and Bool are both inhabited â€” they
+-- agree in every proposition-valued respect â€” and still cannot be identified.
 --
 -- Â§6: over fibres
 -- that are propositions AND stable, there IS no third option: absence of
 -- the third bhaga forces collapse.  Â§7 records what the stability
 -- hypothesis is buying, because without it the argument delivers only a
--- double negation â” the same boundary `Abhava`/`Yogya-anupalabdhi` keep
+-- double negation â€” the same boundary `Abhava`/`Yogya-anupalabdhi` keep
 -- reaching, from the other side.
 --
 -- `durnaya`, and the defect
@@ -66,7 +66,7 @@ private
     â„“ â„“' : Level
 
 ------------------------------------------------------------------------
--- 1.  Mutual entailment â” what "these standpoints agree" means when a
+-- 1.  Mutual entailment â€” what "these standpoints agree" means when a
 --     standpoint is only a truth value.  One quantifier covers both
 --     directions: swap s and t.
 ------------------------------------------------------------------------
@@ -106,7 +106,7 @@ collapse-iff-entail-onProps P sâ‚€ pr =
 ------------------------------------------------------------------------
 -- 4.  Off the propositional world the two come apart, and the witness is
 --     already in the corpus: `Mixed`.
---     Unit and Bool imply each other â” both are inhabited â” and are not
+--     Unit and Bool imply each other â€” both are inhabited â€” and are not
 --     equivalent.  So the prohibition is STRICTLY stronger than mutual
 --     entailment in general.
 ------------------------------------------------------------------------
@@ -122,7 +122,7 @@ entail-does-not-imply-agree = Mixed , Mixed-entails , Mixed-not-agree
 ------------------------------------------------------------------------
 -- 5.  And the separation is caused by exactly one thing: a fibre that is
 --     not a proposition.  By Â§2 no proposition-valued family can witness
---     this, so `Mixed`'s second fibre must fail isProp â” it does.
+--     this, so `Mixed`'s second fibre must fail isProp â€” it does.
 ------------------------------------------------------------------------
 
 Â¬isPropBool : Â¬ (isProp Bool)
@@ -159,9 +159,9 @@ no-third-option-onStableProps P sâ‚€ pr st Â¬astinÄsti =
 ------------------------------------------------------------------------
 -- 7.  What stability is buying.
 --
---     Without it the same argument delivers only ÂÂ(P t).  So the
+--     Without it the same argument delivers only Â¬Â¬(P t).  So the
 --     dichotomy of Â§6 is exact on DECIDED absences and holds
---     only up to double negation otherwise â” which is where
+--     only up to double negation otherwise â€” which is where
 --     `Abhava` (decidability of the counterpositive sets the level) and
 --     `Yogya-anupalabdhi` (fitness is necessary only up to double
 --     negation) already are.  Three lines of this corpus meet at the

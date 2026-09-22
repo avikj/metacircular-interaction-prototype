@@ -43,8 +43,8 @@ _▸_ unitAction g x = tt
 identityVertex : Intertwiner S₃ naturalFin3Action naturalFin3Action
 identityVertex = idIntertwiner S₃ naturalFin3Action
 
--- A genuinely non-identity equivariant vertex: forget the transitive S�-set
--- to the terminal S�-set.  Equivariance is computational.
+-- A genuinely non-identity equivariant vertex: forget the transitive S₃-set
+-- to the terminal S₃-set.  Equivariance is computational.
 terminalVertex : Intertwiner S₃ naturalFin3Action unitAction
 map terminalVertex x = tt
 equivariant terminalVertex g x = refl

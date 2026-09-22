@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- PratyaharaBuysTotalityWithLocality
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- TWO COSTS, NOT ONE
 --
 -- A naming scheme can fail in two independent ways:
@@ -19,38 +19,38 @@
 --
 -- **The repetition that buys totality destroys locality.**
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE COLLISION, WHICH IS THE ààà PROBLEM
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- THE COLLISION, WHICH IS THE à¤…à¤£à¥ PROBLEM
 --
--- A ààà°ààà¯à¾àà¾à° is named by its first letter and its àà¨ààà¨àà§.  In
+-- A à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¹à¤¾à¤° is named by its first letter and its à¤…à¤¨à¥à¤¬à¤¨à¥à¤§.  In
 -- `x y z x` the letter `x` occurs twice, so the name `(x , x)` is borne
 -- by two different runs:
 --
 --     the run [x] at position 0        denoting  {x}
---     the run [x,y,z,x] positions 0â“3  denoting  {x,y,z}
+--     the run [x,y,z,x] positions 0â€“3  denoting  {x,y,z}
 --
 -- Same name, different sets.  So
 --
---     pratyahara-naming-does-not-factor : Â FactorsThrough nameOf setOf
+--     pratyahara-naming-does-not-factor : Â¬ FactorsThrough nameOf setOf
 --
 -- This is the smallest instance of the ambiguity the commentators argue
--- about at ààà, whose àà is an àà¨ààà¨àà§ in both the first àà¿àµààààà°
--- (à à à‰ àà) and the sixth (à² àà), so that ààà denotes three vowels in
+-- about at à¤…à¤£à¥, whose à¤£à¥ is an à¤…à¤¨à¥à¤¬à¤¨à¥à¤§ in both the first à¤¶à¤¿à¤µà¤¸à¥‚à¤¤à¥à¤°
+-- (à¤… à¤‡ à¤‰ à¤£à¥) and the sixth (à¤² à¤£à¥), so that à¤…à¤£à¥ denotes three vowels in
 -- some rules and vowels-plus-semivowels in others.  The ambiguity is not
 -- a blemish on an otherwise clean scheme; it is what the scheme paid for
 -- being able to name everything.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- SO THE SPLIT IS THREEâ“ONE, NOT TWOâ“TWO
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- SO THE SPLIT IS THREEâ€“ONE, NOT TWOâ€“TWO
 --
---     àààµà¾à¦       local, total                       nothing to buy
---     ààà°ààà¯à¾àà¾à°    total at the cost of locality       Â§3
---     àà¨ààµààààà¿     non-local, buys brevity            AnuvrttiIsTheSameTrade
---     ààà¿à¦àà§àààµ     non-local, buys a distinction      AsiddhatvaBreaksFactoring
+--     à¤…à¤ªà¤µà¤¾à¤¦       local, total                       nothing to buy
+--     à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¹à¤¾à¤°    total at the cost of locality       Â§3
+--     à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿     non-local, buys brevity            AnuvrttiIsTheSameTrade
+--     à¤…à¤¸à¤¿à¤¦à¥à¤§à¤¤à¥à¤µ     non-local, buys a distinction      AsiddhatvaBreaksFactoring
 --
 -- Three of the four devices are non-local and each pays for something
--- different.  Only àààµà¾à¦ is free, and it is the only one of the four
--- that adds no expressive power â” it selects between rules that were
+-- different.  Only à¤…à¤ªà¤µà¤¾à¤¦ is free, and it is the only one of the four
+-- that adds no expressive power â€” it selects between rules that were
 -- already there.
 ------------------------------------------------------------------------
 
@@ -76,7 +76,7 @@ data Run : Typeâ‚€ where
   atZero : Run          -- [x]            positions 0â€“0
   whole  : Run          -- [x, y, z, x]   positions 0â€“3
 
--- what a run is called: its first letter and its àà¨ààà¨àà§ (its last)
+-- what a run is called: its first letter and its à¤…à¤¨à¥à¤¬à¤¨à¥à¤§ (its last)
 nameOf : Run â†’ L Ã— L
 nameOf atZero = x , x
 nameOf whole  = x , x
@@ -100,7 +100,7 @@ different-set : Anyonya (setOf atZero) (setOf whole)
 different-set e = falseâ‰¢true (cong (Î» s â†’ s y) e)
 
 ------------------------------------------------------------------------
--- 3.  SO NAMING DOES NOT FACTOR â” locality fails
+-- 3.  SO NAMING DOES NOT FACTOR â€” locality fails
 ------------------------------------------------------------------------
 
 pratyahara-naming-does-not-factor : Â¬ FactorsThrough nameOf setOf
@@ -132,7 +132,7 @@ totality-fails-without-repetition = no-order-makes-all-intervals
 --   with repetition:     total, not local   (Â§3)
 --
 -- Pini takes the second and pays with a convention.  That choice is
--- the evidence that the trade is real: a grammar built for à²à¾à˜àµ does not
+-- the evidence that the trade is real: a grammar built for à¤²à¤¾à¤˜à¤µ does not
 -- accept an ambiguity it could order its way out of.
 ------------------------------------------------------------------------
 
@@ -145,10 +145,10 @@ the-trade = totality-fails-without-repetition , pratyahara-naming-does-not-facto
 -- 6.  What this does to the measure on presentations.
 --
 -- `AnuvrttiIsTheSameTrade` concluded that a measure on presentations is
--- stable under the local devices and not under àà¨ààµààààà¿.  With
--- ààà°ààà¯à¾àà¾à° moved out of the local column, the conclusion sharpens and
--- shrinks: the only device a measure is stable under is àààµà¾à¦, and
--- àààµà¾à¦ is the only one that buys nothing.
+-- stable under the local devices and not under à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿.  With
+-- à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¹à¤¾à¤° moved out of the local column, the conclusion sharpens and
+-- shrinks: the only device a measure is stable under is à¤…à¤ªà¤µà¤¾à¤¦, and
+-- à¤…à¤ªà¤µà¤¾à¤¦ is the only one that buys nothing.
 --
 -- The question answers itself.
 -- A measure stable under every device that changes the presentation is a
@@ -160,21 +160,21 @@ the-trade = totality-fails-without-repetition , pratyahara-naming-does-not-facto
 -- 7.  THE ààà CLAIM, CHECKED.
 --
 -- Â§"THE COLLISION" above states that the toy order
--- `x y z x` models the ambiguity at ààà, "whose àà is an àà¨ààà¨àà§ in both
--- the first àà¿àµààààà° and the sixth".
+-- `x y z x` models the ambiguity at à¤…à¤£à¥, "whose à¤£à¥ is an à¤…à¤¨à¥à¤¬à¤¨à¥à¤§ in both
+-- the first à¤¶à¤¿à¤µà¤¸à¥‚à¤¤à¥à¤° and the sixth".
 --
 -- `TheSecondNaIsTheCollision` encodes the first six
--- ààààà°à¾àà¿ and computes both readings:
+-- à¤¸à¥‚à¤¤à¥à¤°à¤¾à¤£à¤¿ and computes both readings:
 --
 --     collect 0 sivasutra6 â‰¡ a i u                                 refl
 --     collect 1 sivasutra6 â‰¡ a i u   e o ai au h y v r l          refl
 --
 -- and `a-does-not-factor` is the collision, at the actual list rather
--- than at a three-letter model.  So the toy was faithful â” worth knowing,
+-- than at a three-letter model.  So the toy was faithful â€” worth knowing,
 -- since a toy that models nothing is only a toy.
 --
 -- `Sivasutra.upto` stops at the
--- first matching àà¨ààà¨àà§, which is exactly right for the four ààààà°à¾àà¿
+-- first matching à¤…à¤¨à¥à¤¬à¤¨à¥à¤§, which is exactly right for the four à¤¸à¥‚à¤¤à¥à¤°à¤¾à¤£à¤¿
 -- that file encodes and silently selects the narrow reading past them.
 ------------------------------------------------------------------------
 
@@ -182,7 +182,7 @@ the-trade = totality-fails-without-repetition , pratyahara-naming-does-not-facto
 -- 8.  PRIOR ART
 --
 --   Petersen 2004, *A Mathematical Analysis of Pini's ivastras*,
---   Journal of Logic, Language and Information 13:471â“489 â” proves the
+--   Journal of Logic, Language and Information 13:471â€“489 â€” proves the
 --   OPTIMALITY of Pini's ordering for his family, from the Hasse
 --   diagram of the intersection-closure alone, with no phonological
 --   input.
@@ -191,5 +191,5 @@ the-trade = totality-fails-without-repetition , pratyahara-naming-does-not-facto
 -- the totality/locality trade-off of Â§5 is a different quantity.
 --
 -- The Â§3 collision is a computation about `x y z x`, and
--- `TheSecondNaIsTheCollision` realises it at the actual àà¿àµààààà°à¾àà¿.
+-- `TheSecondNaIsTheCollision` realises it at the actual à¤¶à¤¿à¤µà¤¸à¥‚à¤¤à¥à¤°à¤¾à¤£à¤¿.
 ------------------------------------------------------------------------

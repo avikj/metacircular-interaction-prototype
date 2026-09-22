@@ -1,32 +1,32 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Sankalita â” the Kerala vrasakalita engine (root Sankalita_â¦ is ryabhaa's series sums)
+-- Sankalita â€” the Kerala vÄrasaá¹…kalita engine (root Sankalita_â€¦ is Ä€ryabhaá¹­a's series sums)
 --
--- ààà•à²à¿à â” summation â” and àµà¾à°ààà•à²à¿à, repeated summation: the Kerala
+-- à¤¸à¤‚à¤•à¤²à¤¿à¤¤ â€” summation â€” and à¤µà¤¾à¤°à¤¸à¤‚à¤•à¤²à¤¿à¤¤, repeated summation: the Kerala
 -- school's engine, and the identity that makes it Pigala's array.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- SOURCES
 --
---   Pigala, *Chandastra* (c. 300â“200 BCE), ch. 8 â” the meru-prastra,
+--   Piá¹…gala, *Chandaá¸¥Å›Ästra* (c. 300â€“200 BCE), ch. 8 â€” the meru-prastÄra,
 --   written out as the triangular array by Halyudha (*Mtasajvan*,
 --   10th c.), each interior entry the sum of the two above it.  Already
 --   checked in this repository as `Pingala.meru` with
 --   `Pingala.meruRecurrence`.
 --
---   The Kerala school â” Mdhava (c. 1400) and the *Yuktibh*
---   (Jyehadeva, c. 1530) â” derive the power-sum asymptotics
---   `Î k^p â‰ˆ n^{p+1}/(p+1)` by REPEATED SUMMATION (vrasakalita), an
+--   The Kerala school â€” MÄdhava (c. 1400) and the *YuktibhÄá¹£Ä*
+--   (Jyeá¹£á¹­hadeva, c. 1530) â€” derive the power-sum asymptotics
+--   `Î£ k^p â‰ˆ n^{p+1}/(p+1)` by REPEATED SUMMATION (vÄrasaá¹…kalita), an
 --   exact finite operation whose result they then estimate.  The
 --   estimation is analysis; the repeated summation is not, and it is the
 --   part this lane can hold.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE IDENTITY
 --
 --     sankalita-is-meru :
---       Î_{m < n} meru (m + r) r  â‰¡  meru (n + r) (suc r)
+--       Î£_{m < n} meru (m + r) r  â‰¡  meru (n + r) (suc r)
 --
 -- One summation of a column of the array is the next column.  So the
 -- Kerala school's repeated summation and Pigala's array are the same
@@ -49,14 +49,14 @@ open import Cubical.Relation.Nullary using (Â¬_)
 open import PingalaPrastara using (meru ; meruRecurrence ; matra)
 
 ------------------------------------------------------------------------
--- 1.  ààà•à²à¿à: the summation operator
+-- 1.  à¤¸à¤‚à¤•à¤²à¤¿à¤¤: the summation operator
 ------------------------------------------------------------------------
 
 Î£< : (â„• â†’ â„•) â†’ â„• â†’ â„•
 Î£< f zero    = 0
 Î£< f (suc n) = Î£< f n + f n
 
--- àµà¾à°ààà•à²à¿à: repeated summation
+-- à¤µà¤¾à¤°à¤¸à¤‚à¤•à¤²à¤¿à¤¤: repeated summation
 Î£^ : â„• â†’ (â„• â†’ â„•) â†’ â„• â†’ â„•
 Î£^ zero    f = f
 Î£^ (suc r) f = Î£< (Î£^ r f)
@@ -103,20 +103,20 @@ column0-is-column1 : Î£< (Î» m â†’ meru (m + 0) 0) 4 â‰¡ meru 4 1
 column0-is-column1 = sankalita-is-meru 0 4
 
 ------------------------------------------------------------------------
--- 5.  àµà¾à°ààà•à²à¿à, read off.
+-- 5.  à¤µà¤¾à¤°à¤¸à¤‚à¤•à¤²à¤¿à¤¤, read off.
 --
 -- Iterating Â§3: the r-fold summation of the constant column lands on the
 -- r-th column of the meru.  The Kerala school computes
--- `Î k^p â‰ˆ n^{p+1}/(p+1)` by taking these repeated sums exactly and then
+-- `Î£ k^p â‰ˆ n^{p+1}/(p+1)` by taking these repeated sums exactly and then
 -- estimating them; the exact half is this identity, and it is Pigala's
 -- array with a different name and seventeen centuries between them.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 6.  àµà¾à°ààà•à²à¿à as a theorem, not a remark.
+-- 6.  à¤µà¤¾à¤°à¤¸à¤‚à¤•à¤²à¤¿à¤¤ as a theorem, not a remark.
 --
 -- Â§5 asserts in prose that iterating Â§3 gives the r-fold summation of the
--- constant column.  Asserting is not proving, so here it is proved â” and
+-- constant column.  Asserting is not proving, so here it is proved â€” and
 -- the unshifted form of the identity turns out to be the shorter one, and
 -- needs no edge lemma at all.
 ------------------------------------------------------------------------
@@ -150,8 +150,8 @@ varasankalita (suc r) n =
 ------------------------------------------------------------------------
 -- 7.  It runs.
 --
---   Î^ 2 1 at 5  =  0+1+2+3+4  =  10  =  C(5,2)
---   Î^ 3 1 at 5  =  0+0+1+3+6  =  10  =  C(5,3)
+--   Î£^ 2 1 at 5  =  0+1+2+3+4  =  10  =  C(5,2)
+--   Î£^ 3 1 at 5  =  0+0+1+3+6  =  10  =  C(5,3)
 ------------------------------------------------------------------------
 
 vara2 : Î£^ 2 one 5 â‰¡ 10
@@ -177,7 +177,7 @@ vara3-is-meru = varasankalita 3 5
 -- meru-prastra) and `Pingala.matra` (Virahka's mtrmeru).  The
 -- classical identity relating them is the shallow-diagonal sum,
 --
---     mtr n  =  Î_k  C(n âˆ’ k, k),
+--     mÄtrÄ n  =  Î£_k  C(n âˆ’ k, k),
 --
 -- and it is checked numerically by `Pingala`'s own worked instances at
 -- small n.  The natural encoding does not prove it:
@@ -189,8 +189,8 @@ vara3-is-meru = varasankalita 3 5
 --     go (suc zero)      j = meru (suc j) j
 --     go (suc (suc i))   j = meru (suc (suc i) + j) j + go i (suc j)
 --
--- gives the right values at `j = 0` â” `go 0 0 â¦ go 4 0` are `1 1 2 3 5`,
--- which is `mtr 0 â¦ mtr 4`.  So one reaches for the Fibonacci
+-- gives the right values at `j = 0` â€” `go 0 0 â€¦ go 4 0` are `1 1 2 3 5`,
+-- which is `mÄtrÄ 0 â€¦ mÄtrÄ 4`.  So one reaches for the Fibonacci
 -- recurrence
 --
 --     go (suc (suc i)) j  â‰Ÿ  go (suc i) j + go i j
@@ -205,7 +205,7 @@ vara3-is-meru = varasankalita 3 5
 -- THE ROUTE THAT WORKS, and it is Pigala's own: count by guru.  A
 -- pattern of duration `n` with `k` guru has `n âˆ’ k` syllables, so
 --
---     Metre n  â‰  Î_k  Chosen (n âˆ’ k) k,
+--     Metre n  â‰ƒ  Î£_k  Chosen (n âˆ’ k) k,
 --
 -- and `Pingala.meruCount : Iso (Chosen n k) (Fin (meru n k))` is already
 -- checked.  That is a typed argument in the tradition's own terms rather
@@ -222,18 +222,18 @@ vara3-is-meru = varasankalita 3 5
 -- resulting families onto the two smaller sums.  That works because
 -- `C(m,k) = 0` for `k > m`, so the sums are effectively infinite and the
 -- reindexing costs nothing.  `go`'s two-step descent instead truncates at
--- `âŠi/2â‹` â” a HARD bound â” and after the shift the two families need
+-- `âŒŠi/2âŒ‹` â€” a HARD bound â€” and after the shift the two families need
 -- ranges the truncation does not supply.  The failure is the truncation,
 -- not the recurrence.
 --
 -- So the encoding to use runs the sum LONG and lets the zeros do the
 -- work:
 --
---     D n  =  Î_{t â‰ n}  meru (n âˆ t) t
+--     D n  =  Î£_{t â‰¤ n}  meru (n âˆ¸ t) t
 --
--- which gives `1 1 2 3 5` at `n = 0 â¦ 4` by computation.  The cost of
+-- which gives `1 1 2 3 5` at `n = 0 â€¦ 4` by computation.  The cost of
 -- that encoding is truncated subtraction inside a Pascal step, whose edge
--- conditions (`n âˆ t = 0`) then need their own case analysis â” which is
+-- conditions (`n âˆ¸ t = 0`) then need their own case analysis â€” which is
 -- why this is bookkeeping rather than a two-line proof.
 ------------------------------------------------------------------------
 
@@ -244,7 +244,7 @@ vara3-is-meru = varasankalita 3 5
 -- Pascal step.  It does not have to: the same sum is the ANTIDIAGONAL of
 -- the array, and antidiagonals enumerate structurally.
 --
---     Î_{t â‰ n} meru (n âˆ t) t  =  Î_{a + b = n} meru a b
+--     Î£_{t â‰¤ n} meru (n âˆ¸ t) t  =  Î£_{a + b = n} meru a b
 --
 -- and the right-hand side needs no subtraction:
 ------------------------------------------------------------------------
@@ -285,15 +285,15 @@ antidiag-is-matra-5 = refl
 ------------------------------------------------------------------------
 -- 11.  The goal for the antidiagonal encoding.
 --
---     GOAL :  (n : â•) â’ antidiag (suc (suc n)) â‰¡ antidiag (suc n) + antidiag n
+--     GOAL :  (n : â„•) â†’ antidiag (suc (suc n)) â‰¡ antidiag (suc n) + antidiag n
 --
 -- from which `antidiag n â‰¡ matra n` follows by two-step induction against
 -- `Pingala.matraRecurrence`, the base cases being the `refl`s above.
 --
--- Of the two obstacles Â§Â§8â“9 identified:
---   * the hard truncation is gone â” `AD` runs to the array's own edge and
+-- Of the two obstacles Â§Â§8â€“9 identified:
+--   * the hard truncation is gone â€” `AD` runs to the array's own edge and
 --     the zero entries end it;
---   * the truncated subtraction is gone â” `AD` enumerates the
+--   * the truncated subtraction is gone â€” `AD` enumerates the
 --     antidiagonal by structural recursion on the second index.
 ------------------------------------------------------------------------
 
@@ -322,18 +322,18 @@ AD2-breaks-the-recurrence p = snotz (injSuc (injSuc (injSuc (injSuc p))))
 ------------------------------------------------------------------------
 -- 13.  What that shows.
 --
--- `AD a b` truncates at the `b` end â” the antidiagonal from `(a,b)` runs
--- out of room before the full shallow diagonal of row `a` does â” so for
--- `a â‰ 2` it is not the shallow diagonal at all, and no induction whose
+-- `AD a b` truncates at the `b` end â€” the antidiagonal from `(a,b)` runs
+-- out of room before the full shallow diagonal of row `a` does â€” so for
+-- `a â‰¥ 2` it is not the shallow diagonal at all, and no induction whose
 -- intermediate objects are `AD a _` can work.  `antidiag n = AD 0 n` is
 -- correct; the family it sits in is not closed under the recurrence.
 --
 -- So THREE encodings fail, each for a different reason:
 --
---   Â§8   two-step descent      hard truncation at âŠi/2â‹
+--   Â§8   two-step descent      hard truncation at âŒŠi/2âŒ‹
 --   Â§9   long sum with monus   subtraction inside the Pascal step
 --   Â§11  antidiagonal `AD`     the family is not closed under reindexing
 --
--- and the typed route of Â§8 â” `Metre n â‰ Î_k Chosen (nâˆ’k) k`, using
+-- and the typed route of Â§8 â€” `Metre n â‰ƒ Î£_k Chosen (nâˆ’k) k`, using
 -- `Pingala.meruCount`, is the route `DiagonalIsMatra` takes.
 ------------------------------------------------------------------------

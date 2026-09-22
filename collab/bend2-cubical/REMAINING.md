@@ -1,11 +1,11 @@
-# Cubical support â” exact, with locations
+# Cubical support â€” exact, with locations
 
 Paths are in the patched tree (`/tmp/Bend2`, i.e. `cubical-paths.patch`).
 Suite: 108 files, bad = 0.
 
 ---
 
-## A. Crashes â” no catch-all, missing constructors (mechanical)
+## A. Crashes â€” no catch-all, missing constructors (mechanical)
 
 The SetQuotient HIT added five `Term` constructors (`Quo QCl QEq QSq QRec`)
 that were never threaded through the exhaustive traversals. Each is a hard
@@ -13,12 +13,12 @@ that were never threaded through the exhaustive traversals. Each is a hard
 
 | function | file | status |
 |---|---|---|
-| `normal` | `Core/WHNF.hs` | **DONE** â” 5 quotient cases added |
-| `normalCap` | `Core/WHNF.hs` | **DONE** â” same 5 (it is a copy of `normal`) |
-| `occursMarker` | `Core/WHNF.hs` | **DONE** â” crashed on any quotient inside a `coe` line |
-| `mapSub` | `Core/WHNF.hs` | **DONE** â” silently *skipped* quotients (no crash, wrong substitution under the Glue/coe marker) |
-| `collapse` | `Core/Collapse.hs` | **DONE** â” all 5 quotient + all 15 cubical constructors added |
-| `freeVars` | `Target/HVM.hs` | **DONE** â” same; the HVM3 backend no longer crashes on cubical terms |
+| `normal` | `Core/WHNF.hs` | **DONE** â€” 5 quotient cases added |
+| `normalCap` | `Core/WHNF.hs` | **DONE** â€” same 5 (it is a copy of `normal`) |
+| `occursMarker` | `Core/WHNF.hs` | **DONE** â€” crashed on any quotient inside a `coe` line |
+| `mapSub` | `Core/WHNF.hs` | **DONE** â€” silently *skipped* quotients (no crash, wrong substitution under the Glue/coe marker) |
+| `collapse` | `Core/Collapse.hs` | **DONE** â€” all 5 quotient + all 15 cubical constructors added |
+| `freeVars` | `Target/HVM.hs` | **DONE** â€” same; the HVM3 backend no longer crashes on cubical terms |
 | `emitFull` | `Target/HVM4Full.hs` | **DONE** â€” quotients reach the full runtime (Â§E) |
 | `termToCT` | `Target/JavaScript.hs` | **DONE** â€” the JS backend fails loudly on cubical terms (Â§E) |
 
@@ -32,12 +32,12 @@ the universe. Everything else was stuck. Now implemented, in both the checker
 
 | rule | checker | runtime | test |
 |---|---|---|---|
-| Î  â” pointwise in the codomain | DONE | DONE | `kan.bend` `hcPi` |
-| PathP â” push into the path dimension, endpoints become extra faces | DONE | DONE | `kan.bend` `hcPath` |
-| Î â” first by `hcomp`, second by `comp` along the *filled* first | DONE | DONE | `kan.bend` `hcSig` |
-| Nat / List â” push through a common constructor head | DONE | DONE | `kan.bend` `hcNat` |
-| Bit / Enum / Unit â” discrete, the common nullary constructor | DONE | DONE | â” |
-| `Set` â” reduces to `Glue` | DONE | DONE | `hcompset.bend` |
+| Î  â€” pointwise in the codomain | DONE | DONE | `kan.bend` `hcPi` |
+| PathP â€” push into the path dimension, endpoints become extra faces | DONE | DONE | `kan.bend` `hcPath` |
+| Î£ â€” first by `hcomp`, second by `comp` along the *filled* first | DONE | DONE | `kan.bend` `hcSig` |
+| Nat / List â€” push through a common constructor head | DONE | DONE | `kan.bend` `hcNat` |
+| Bit / Enum / Unit â€” discrete, the common nullary constructor | DONE | DONE | â€” |
+| `Set` â€” reduces to `Glue` | DONE | DONE | `hcompset.bend` |
 | **Glue** | DONE | DONE | `glue_kan.bend` |
 
 `comp` and `hfill` now exist as core operations in both (`compAt`/`hfillAt`,
@@ -66,11 +66,11 @@ cofibration is its own constructor (Â§C).
 
 | CCHM object | status |
 |---|---|
-| `Partial Ï A` and systems | **DONE** â” `Partial(Ï, A)`, `system([(Ïˆ, v), â¦])`, `pout(u)`. Branches are typed on their own cells, must agree on overlaps and must COVER Ï; `pout` requires the face to hold. `partial.bend` 6 â“, `partial_mustfail.bend` rejects disagreement, a coverage gap, and a premature `pout` |
-| `Sub` / `A[Ï â¦ u]`, `inS`, `outS` | **DONE** â” `Sub(A, Ï, u)`, `inS(x)`, `outS(s)`; `inS` demands definitional equality with `u` on every cell of Ï, `outS(inS x) = x`. `sub.bend` 8 â“, `sub_mustfail.bend` 2 â— |
-| `comp` | **DONE** â” `comp(P, [(face, tube)â¦], base)`; `comp.bend` |
-| `transp` with Ï | **DONE** â” `transp(L, Ï, x)`, its own constructor; constancy of `L` on Ï enforced cell by cell with the marker test. `transp.bend` 8 â“, `transp_mustfail.bend` 1 â— |
-| interval de Morgan laws | **DONE** â” meets and joins normalise to a canonical flattened, deduplicated, sorted form, so commutativity, associativity, idempotence and absorption all hold DEFINITIONALLY (`interval.bend` 7 â“). No complement law, correctly: the interval is de Morgan, not Boolean, so `i âˆ§ Âi` is not `i0`. The runtime's `@iand`/`@ior` do not canonicalise, which is harmless because faces are evaluated there, never compared |
+| `Partial Ï† A` and systems | **DONE** â€” `Partial(Ï†, A)`, `system([(Ïˆ, v), â€¦])`, `pout(u)`. Branches are typed on their own cells, must agree on overlaps and must COVER Ï†; `pout` requires the face to hold. `partial.bend` 6 âœ“, `partial_mustfail.bend` rejects disagreement, a coverage gap, and a premature `pout` |
+| `Sub` / `A[Ï† â†¦ u]`, `inS`, `outS` | **DONE** â€” `Sub(A, Ï†, u)`, `inS(x)`, `outS(s)`; `inS` demands definitional equality with `u` on every cell of Ï†, `outS(inS x) = x`. `sub.bend` 8 âœ“, `sub_mustfail.bend` 2 âœ— |
+| `comp` | **DONE** â€” `comp(P, [(face, tube)â€¦], base)`; `comp.bend` |
+| `transp` with Ï† | **DONE** â€” `transp(L, Ï†, x)`, its own constructor; constancy of `L` on Ï† enforced cell by cell with the marker test. `transp.bend` 8 âœ“, `transp_mustfail.bend` 1 âœ— |
+| interval de Morgan laws | **DONE** â€” meets and joins normalise to a canonical flattened, deduplicated, sorted form, so commutativity, associativity, idempotence and absorption all hold DEFINITIONALLY (`interval.bend` 7 âœ“). No complement law, correctly: the interval is de Morgan, not Boolean, so `i âˆ§ Â¬i` is not `i0`. The runtime's `@iand`/`@ior` do not canonicalise, which is harmless because faces are evaluated there, never compared |
 | face lattice | DNF (`faceDNF`, `restrictLits`, `facePairs`) |
 
 All four new primitives are threaded through every traversal in Â§A and all
@@ -101,13 +101,13 @@ redundant and kept only so the older files check unchanged.
 | HIT | constructors | eliminator | tests |
 |---|---|---|---|
 | SetQuotient | `Quot(A,R)`, `qcl`, `qeq`, `qsquash` | `qrec` | `quotient.bend`, `effective.bend`, `erasure.bend` |
-| The circle `S1` | `s1base` (point), `s1loop` (path) | `srec` | `circle.bend` 9 â“, `circle_mustfail.bend` 2 â— |
-| Propositional truncation | `tin` (point), `tsquash x y` (path, joining ANY two elements) | `trec` into a proposition | `truncation.bend` 9 â“, `truncation_mustfail.bend` 2 â— |
+| The circle `S1` | `s1base` (point), `s1loop` (path) | `srec` | `circle.bend` 9 âœ“, `circle_mustfail.bend` 2 âœ— |
+| Propositional truncation | `tin` (point), `tsquash x y` (path, joining ANY two elements) | `trec` into a proposition | `truncation.bend` 9 âœ“, `truncation_mustfail.bend` 2 âœ— |
 
 The circle is the first HIT here with a non-trivial loop, and it behaves:
 `s1loop` has both endpoints at `s1base`, the recursor computes on the point
-*and* on the path constructor at every interval, and â” the property that makes
-it a real HIT â” `s1loop` is **not** definitionally `refl`, so `S1` is not a
+*and* on the path constructor at every interval, and â€” the property that makes
+it a real HIT â€” `s1loop` is **not** definitionally `refl`, so `S1` is not a
 set. Both are emitted to the full runtime (`#S1`/`#Base`/`#Loop`/`@srec`, with
 `s1loop` known to `@pathAt` as a path constructor) and agree with the
 normaliser.
@@ -115,9 +115,9 @@ normaliser.
 Truncation is the one real mathematics needs (existentials, surjections,
 images): its path constructor joins *any* two elements, so `Trunc(A)` is a
 proposition by construction (`truncIsProp`), and `trec` is allowed only into a
-proposition â” the guard file confirms that a bogus `isProp(Bool)` is rejected.
+proposition â€” the guard file confirms that a bogus `isProp(Bool)` is rejected.
 
-`hcomp` in a HIT correctly stays STUCK â” for a higher inductive type a
+`hcomp` in a HIT correctly stays STUCK â€” for a higher inductive type a
 composite is a canonical form, which is exactly how the higher structure
 arises.
 
@@ -127,20 +127,20 @@ arises.
 
 | target | cubical | quotients |
 |---|---|---|
-| `--to-hvm4-full` | complete (intervals, paths, types, `coe`, `hcomp` as data) | **DONE** â” `#Quot`/`#QCl`/`#QEq`/`#QSq` + `@qrec`; quotient/effective/minmachine/erasure all agree with the normaliser |
+| `--to-hvm4-full` | complete (intervals, paths, types, `coe`, `hcomp` as data) | **DONE** â€” `#Quot`/`#QCl`/`#QEq`/`#QSq` + `@qrec`; quotient/effective/minmachine/erasure all agree with the normaliser |
 | `--to-hvm4` / `--to-hvm4-raw` | erased/normalised by design | no |
 | `--to-hvm` (HVM3) | `freeVars` fixed; the target still erases | no |
-| JavaScript | **now fails loudly** â” erasing a path silently produced wrong code, so every cubical constructor raises a clear error pointing at `--to-hvm4-full` | no |
+| JavaScript | **now fails loudly** â€” erasing a path silently produced wrong code, so every cubical constructor raises a clear error pointing at `--to-hvm4-full` | no |
 
 The full runtime carries the Î , PathP and Î rules too (Â§B). Every rule is
 written **twice**, once in `whnfHCm` and once in `Target/HVM4Full.hs`.
 
 ---
 
-## F. Not code â” the honest caveats
+## F. Not code â€” the honest caveats
 
 - **Regularity is a syntactic heuristic.** `whnfCoe` decides "constant line,
-  transport is the identity" by `not (occursMarker body)` â” if the dimension
+  transport is the identity" by `not (occursMarker body)` â€” if the dimension
   variable does not literally occur. Sound but incomplete: a line that is
   semantically constant while mentioning `i` is not recognised.
 - **No canonicity or normalisation theorem** for the layer. The rules were
@@ -155,7 +155,7 @@ written **twice**, once in `whnfHCm` and once in `Target/HVM4Full.hs`.
 ## G. Complete
 
 Interval and face algebra; `Path`/`PathP` with the typed endpoint law for
-var- and Ref-headed spines; `coe` for Î , Î, Path, ua, inverse and composite
+var- and Ref-headed spines; `coe` for Î , Î£, Path, ua, inverse and composite
 lines, Glue, superposed lines, lists and rigid types; `hcomp` boundary
 checking with per-cell restriction and adjacency; `hfill` sugar; `Glue`/
 `glue`/`unglue` with boundary rules and the coherence obligation; `hcomp` in

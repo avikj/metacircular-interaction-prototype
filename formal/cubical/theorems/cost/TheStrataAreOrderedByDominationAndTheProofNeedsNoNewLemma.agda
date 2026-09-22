@@ -6,18 +6,18 @@
 -- DARWIN Â§5.2's ORDER property, in full: every member of a later
 -- stratum is strictly dominated by a member of an earlier one.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- **The argument never needs
 -- the later strata's MAXIMALITY.**  It needs only their MEMBERSHIP in
--- the remainder, and `strataSound` â” proved for
--- coverage â” already gives exactly that.  Membership in the peeled
+-- the remainder, and `strataSound` â€” proved for
+-- coverage â€” already gives exactly that.  Membership in the peeled
 -- archive is all the one-step theorem asks of its input.  So no new
 -- lemma exists in this module: the whole content is `strataSound`
 -- composed with `everyRemainderMemberIsBeatenByAStratumMember`, plus
 -- the same recursive bookkeeping already used for pairwise
 -- disjointness.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   Beats ys zs        every member of zs is strictly dominated by
@@ -33,8 +33,8 @@
 --                      archive
 --
 -- With `theStratificationCovers` and `theStrataArePairwiseDisjoint`,
--- DARWIN Â§5.2's three output properties â” COVERAGE, DISJOINTNESS,
--- ORDER â” are now all checked over this corpus's own
+-- DARWIN Â§5.2's three output properties â€” COVERAGE, DISJOINTNESS,
+-- ORDER â€” are now all checked over this corpus's own
 -- `stratum`/`remainder`.
 --
 -- NO NOVELTY.  This is the defining property of non-dominated sorting

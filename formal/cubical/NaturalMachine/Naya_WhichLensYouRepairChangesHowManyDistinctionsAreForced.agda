@@ -3,9 +3,9 @@
 ------------------------------------------------------------------------
 -- NaturalMachine.Naya_WhichLensYouRepairChangesHowManyDistinctionsAreForced
 --
--- A six-point witness: for one noncommuting lens pair (Ï , Ï) on a finite
--- uniform space, the coarsest repair of Ï against Ï and the coarsest repair
--- of Ï against Ï force DIFFERENT NUMBERS of new distinctions, and their
+-- A six-point witness: for one noncommuting lens pair (Ï€ , Ïƒ) on a finite
+-- uniform space, the coarsest repair of Ï€ against Ïƒ and the coarsest repair
+-- of Ïƒ against Ï€ force DIFFERENT NUMBERS of new distinctions, and their
 -- surviving common views are different partitions.
 --
 -- What is claimed of the sources, precisely.
@@ -15,28 +15,28 @@
 --     prior art is: commuting partitions = orthogonal partitions (Tjur,
 --     *Int. Stat. Rev.* 52, 1984; Bailey, *Des. Codes Cryptogr.* 8, 1996;
 --     Nelder 1965); the coarsest equitable refinement is colour refinement
---     (Paigeâ“Tarjan 1987); the profile relation used below is Benz©cri's
---     distributional equivalence (*L'Analyse des Donn©es*, Dunod 1973).
+--     (Paigeâ€“Tarjan 1987); the profile relation used below is BenzÃ©cri's
+--     distributional equivalence (*L'Analyse des DonnÃ©es*, Dunod 1973).
 --
 --   * `Naya` in the file name names the DIAGNOSIS, not the theorem.  In
 --     Jaina epistemology a *naya* is a standpoint and a *durnaya* is a
 --     standpoint that asserts itself by denying the others (Siddhasena
 --     Divkara, *Sanmatitarka*; Akalaka).  The result below is that the
---     Ï-standpoint and the Ï-standpoint on one lens pair yield inequivalent
+--     Ï€-standpoint and the Ïƒ-standpoint on one lens pair yield inequivalent
 --     repairs, so calling either one "the canonical surviving view" is a
 --     durnaya.
 --
 -- The witness (elements 0..5):
 --
---     Ï  = {0,1} | {2,3} | {4,5}          3 blocks
---     Ï  = {0,2} | {1,3,4,5}              2 blocks
+--     Ï€  = {0,1} | {2,3} | {4,5}          3 blocks
+--     Ïƒ  = {0,2} | {1,3,4,5}              2 blocks
 --
---   coarsest repair of Ï against Ï :  Ïâ = {0}|{1}|{2}|{3}|{4,5}   5 blocks
---   coarsest repair of Ï against Ï :  Ïâ = {0,2}|{1,3}|{4,5}       3 blocks
+--   coarsest repair of Ï€ against Ïƒ :  Ïâ‚ = {0}|{1}|{2}|{3}|{4,5}   5 blocks
+--   coarsest repair of Ïƒ against Ï€ :  Ïâ‚‚ = {0,2}|{1,3}|{4,5}       3 blocks
 --
---   new blocks forced:  Ï-side 5âˆ’3 = 2,   Ï-side 3âˆ’2 = 1.   2 â‰  1.
+--   new blocks forced:  Ï€-side 5âˆ’3 = 2,   Ïƒ-side 3âˆ’2 = 1.   2 â‰  1.
 --
--- All arithmetic is on â•, cross-multiplied so that no rationals appear.
+-- All arithmetic is on â„•, cross-multiplied so that no rationals appear.
 -- Every theorem below is `refl` on a closed Boolean or numeral.
 ------------------------------------------------------------------------
 
@@ -90,23 +90,23 @@ Colouring = â„• â†’ â„•
 nblocks : Colouring â†’ â„•
 nblocks c = count (Î» k â†’ somePt (Î» x â†’ eqâ„• (c x) k))
 
--- |Ï-block of a|
+-- |Ïƒ-block of a|
 blockSize : Colouring â†’ â„• â†’ â„•
 blockSize c a = count (Î» w â†’ eqâ„• (c w) (c a))
 
--- |Ï-block of z  âˆ©  Ï-block of x|
+-- |Ï-block of z  âˆ©  Ïƒ-block of x|
 meetSize : Colouring â†’ Colouring â†’ â„• â†’ â„• â†’ â„•
 meetSize cr cs z x = count (Î» w â†’ eqâ„• (cr w) (cr z) and eqâ„• (cs w) (cs x))
 
--- Ï commutes with Ï  âŸº  V_Ï is P_Ï-invariant  âŸº  for every Ï-block B the
--- density x â¦ |B âˆ© Ï(x)| / |Ï(x)| is constant on Ï-blocks.  Cross-multiplied.
+-- Ï commutes with Ïƒ  âŸº  V_Ï is P_Ïƒ-invariant  âŸº  for every Ï-block B the
+-- density x â†¦ |B âˆ© Ïƒ(x)| / |Ïƒ(x)| is constant on Ï-blocks.  Cross-multiplied.
 commutes : Colouring â†’ Colouring â†’ Bool
 commutes cr cs = everyPair (Î» x y â†’
   eqâ„• (cr x) (cr y) â‡’
     everyPt (Î» z â†’ eqâ„• (meetSize cr cs z x Â· blockSize cs y)
                        (meetSize cr cs z y Â· blockSize cs x)))
 
--- Ï refines q
+-- Ï refines q
 refines : Colouring â†’ Colouring â†’ Bool
 refines cr cq = everyPair (Î» x y â†’ eqâ„• (cr x) (cr y) â‡’ eqâ„• (cq x) (cq y))
 
@@ -118,7 +118,7 @@ sameParts c d = everyPair (Î» x y â†’
 -- 3. The witness
 ------------------------------------------------------------------------
 
--- Ï = {0,1} | {2,3} | {4,5}
+-- Ï€ = {0,1} | {2,3} | {4,5}
 cPi : Colouring
 cPi 0 = 0
 cPi 1 = 0
@@ -128,7 +128,7 @@ cPi 4 = 2
 cPi 5 = 2
 cPi _ = 9
 
--- Ï = {0,2} | {1,3,4,5}
+-- Ïƒ = {0,2} | {1,3,4,5}
 cSg : Colouring
 cSg 0 = 0
 cSg 1 = 1
@@ -138,7 +138,7 @@ cSg 4 = 1
 cSg 5 = 1
 cSg _ = 9
 
--- Ïâ = {0}|{1}|{2}|{3}|{4,5}   -- the coarsest repair of Ï against Ï
+-- Ïâ‚ = {0}|{1}|{2}|{3}|{4,5}   -- the coarsest repair of Ï€ against Ïƒ
 cR1 : Colouring
 cR1 0 = 0
 cR1 1 = 1
@@ -148,7 +148,7 @@ cR1 4 = 4
 cR1 5 = 4
 cR1 _ = 9
 
--- Ïâ = {0,2}|{1,3}|{4,5}       -- the coarsest repair of Ï against Ï
+-- Ïâ‚‚ = {0,2}|{1,3}|{4,5}       -- the coarsest repair of Ïƒ against Ï€
 cR2 : Colouring
 cR2 0 = 0
 cR2 1 = 1
@@ -158,7 +158,7 @@ cR2 4 = 2
 cR2 5 = 2
 cR2 _ = 9
 
--- the two partitions strictly between Ï and Ïâ that refine Ï
+-- the two partitions strictly between Ï€ and Ïâ‚ that refine Ï€
 cM1 : Colouring          -- {0}|{1}|{2,3}|{4,5}
 cM1 0 = 0
 cM1 1 = 1
@@ -177,7 +177,7 @@ cM2 4 = 3
 cM2 5 = 3
 cM2 _ = 9
 
--- J = {0,1,2,3}|{4,5}: the finest common coarsening of Ï and Ïâ
+-- J = {0,1,2,3}|{4,5}: the finest common coarsening of Ï€ and Ïâ‚‚
 cJ : Colouring
 cJ 0 = 0
 cJ 1 = 0
@@ -198,7 +198,7 @@ sigma-pi-noncommuting : commutes cSg cPi â‰¡ false
 sigma-pi-noncommuting = refl
 
 ------------------------------------------------------------------------
--- 5. Ïâ is the coarsest repair of Ï against Ï
+-- 5. Ïâ‚ is the coarsest repair of Ï€ against Ïƒ
 ------------------------------------------------------------------------
 
 r1-refines-pi : refines cR1 cPi â‰¡ true
@@ -208,18 +208,18 @@ r1-commutes : commutes cR1 cSg â‰¡ true
 r1-commutes = refl
 
 -- The repair set has a unique coarsest element (LENS_REPAIR.md Â§1, join
--- closure), so the coarsest repair lies between Ï and Ïâ.  A partition there
--- keeps or splits each Ï-block along its Ïâ-pieces, so there are exactly four
--- (Ï, cM1, cM2, Ïâ) and the other three are all refuted as repairs.
+-- closure), so the coarsest repair lies between Ï€ and Ïâ‚.  A partition there
+-- keeps or splits each Ï€-block along its Ïâ‚-pieces, so there are exactly four
+-- (Ï€, cM1, cM2, Ïâ‚) and the other three are all refuted as repairs.
 m1-not-a-repair : commutes cM1 cSg â‰¡ false
 m1-not-a-repair = refl
 
 m2-not-a-repair : commutes cM2 cSg â‰¡ false
 m2-not-a-repair = refl
--- (Ï itself is handled by `pi-sigma-noncommuting`.)
+-- (Ï€ itself is handled by `pi-sigma-noncommuting`.)
 
 ------------------------------------------------------------------------
--- 6. Ïâ is the coarsest repair of Ï against Ï
+-- 6. Ïâ‚‚ is the coarsest repair of Ïƒ against Ï€
 ------------------------------------------------------------------------
 
 r2-refines-sigma : refines cR2 cSg â‰¡ true
@@ -227,7 +227,7 @@ r2-refines-sigma = refl
 
 r2-commutes : commutes cR2 cPi â‰¡ true
 r2-commutes = refl
--- Only Ï lies strictly between Ï and Ïâ, and `sigma-pi-noncommuting` kills it.
+-- Only Ïƒ lies strictly between Ïƒ and Ïâ‚‚, and `sigma-pi-noncommuting` kills it.
 
 ------------------------------------------------------------------------
 -- 7. The asymmetry
@@ -268,12 +268,12 @@ r1-and-r2-differ = refl
 -- 8. The two surviving common views are different partitions
 ------------------------------------------------------------------------
 
--- Ï-side: Ïâ refines Ï, so the finest common coarsening of Ïâ and Ï is Ï.
+-- Ï€-side: Ïâ‚ refines Ïƒ, so the finest common coarsening of Ïâ‚ and Ïƒ is Ïƒ.
 r1-refines-sigma : refines cR1 cSg â‰¡ true
 r1-refines-sigma = refl
 
--- Ï-side: both Ï and Ïâ refine J, and J is their finest common coarsening
--- (0âˆ¼1 by Ï, 1âˆ¼3 by Ïâ, 3âˆ¼2 by Ï forces {0,1,2,3}; 4âˆ¼5 by both).
+-- Ïƒ-side: both Ï€ and Ïâ‚‚ refine J, and J is their finest common coarsening
+-- (0âˆ¼1 by Ï€, 1âˆ¼3 by Ïâ‚‚, 3âˆ¼2 by Ï€ forces {0,1,2,3}; 4âˆ¼5 by both).
 pi-refines-J : refines cPi cJ â‰¡ true
 pi-refines-J = refl
 

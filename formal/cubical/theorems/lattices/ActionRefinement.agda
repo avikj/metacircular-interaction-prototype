@@ -7,7 +7,7 @@
 -- installed observation and `action` is the certified next action.  Their
 -- product
 --
---                         x â¦ (q x , action x)
+--                         x â†¦ (q x , action x)
 --
 -- retains the old observation and makes the action descend.  It is minimal
 -- in the precise refinement preorder: every other observer through which

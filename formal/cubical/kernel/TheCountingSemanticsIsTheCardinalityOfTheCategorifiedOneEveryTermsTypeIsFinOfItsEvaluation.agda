@@ -4,29 +4,29 @@
 -- TheCountingSemanticsIsTheCardinalityOfTheCategorifiedOneEveryTermsTypeIsFinOfItsEvaluation
 --
 -- The categorified interpretation ⟦_⟧ sends
--- zero � �, suc � Unit � −, add � � � which is EXACTLY the structure of
--- `Cubical.Data.SumFin`'s `Fin` (Fin 0 = �, Fin (suc n) = Unit � Fin n).
+-- zero ↦ ⊥, suc ↦ Unit ⊎ −, add ↦ ⊎ — which is EXACTLY the structure of
+-- `Cubical.Data.SumFin`'s `Fin` (Fin 0 = ⊥, Fin (suc n) = Unit ⊎ Fin n).
 -- So if each variable is interpreted as `Fin` of its numeric value
--- (finEnv), then for EVERY term t and environment �,
+-- (finEnv), then for EVERY term t and environment ρ,
 --
---     ⟦ t ⟧ (finEnv �)  �  Fin (eval t �).
+--     ⟦ t ⟧ (finEnv ρ)  ≃  Fin (eval t ρ).
 --
--- No `ClosedTm` restriction is needed: interpreting `var` as `Fin (x �)`
--- makes the base case `Fin (eval var �)` on the nose.  The counting
+-- No `ClosedTm` restriction is needed: interpreting `var` as `Fin (x ρ)`
+-- makes the base case `Fin (eval var ρ)` on the nose.  The counting
 -- semantics `eval` is therefore the CARDINALITY (the decategorification,
--- �� of a finite type) of the categorified semantics ⟦_⟧ � the "keeps a
+-- π₀ of a finite type) of the categorified semantics ⟦_⟧ — the "keeps a
 -- cardinality and drops the bijection" claim, made precise.
 --
 -- WHAT IS PROVEN, --safe, no postulates, structural:
---   finSum   Fin m � Fin n � Fin (m + n)  (induction on m; reassociation).
---   card     (t : Tm)(� : Env) � ⟦ t ⟧ (finEnv �) � Fin (eval t �)  � every
+--   finSum   Fin m ⊎ Fin n ≃ Fin (m + n)  (induction on m; reassociation).
+--   card     (t : Tm)(ρ : Env) → ⟦ t ⟧ (finEnv ρ) ≃ Fin (eval t ρ)  — every
 --            term's type-interpretation is Fin of its evaluation.
 --   cardPath the same as a PATH between types, by univalence:
---            ⟦ t ⟧ (finEnv �) ≡ Fin (eval t �).
+--            ⟦ t ⟧ (finEnv ρ) ≡ Fin (eval t ρ).
 --
 -- READING.  This does not contradict §4/§5 of the decategorification
 -- module: ⟦_⟧ has MORE than a cardinality (it carries the transposition a
--- count cannot � comm-loop), but its cardinality IS `eval`.  Both hold:
+-- count cannot — comm-loop), but its cardinality IS `eval`.  Both hold:
 -- the categorified semantics refines the counting one, and the counting
 -- one is its cardinality.  Bhskara's akapa distinction (the count of
 -- arrangements vs. an arrangement) as a checked equivalence.
@@ -54,7 +54,7 @@ open Env
 open TEnv
 
 ------------------------------------------------------------------------
--- Fin distributes over + as a � (structural on m; reassociation only).
+-- Fin distributes over + as a ⊎ (structural on m; reassociation only).
 ------------------------------------------------------------------------
 
 ⊥⊎ : {B : Type₀} → (⊥ ⊎ B) ≃ B

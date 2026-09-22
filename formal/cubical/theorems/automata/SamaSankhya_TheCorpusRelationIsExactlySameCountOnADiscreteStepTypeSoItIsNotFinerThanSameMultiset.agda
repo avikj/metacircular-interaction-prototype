@@ -1,10 +1,10 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- ‡‡Æ-‡‡ô‡‡ñ‡‡Ø‡æ ‚î the corpus's `_~_` is same-multiset wherever that is
+-- ‡§∏‡§Æ-‡§∏‡§ô‡•ç‡§ñ‡•ç‡§Ø‡§æ ‚Äî the corpus's `_~_` is same-multiset wherever that is
 -- statable.
 --
 -- On a discrete step type, `_~_` is EXACTLY equal counts.  The
--- proof is composition ‚î `_~_` and `_‚âà_` have the same four constructors
+-- proof is composition ‚Äî `_~_` and `_‚âà_` have the same four constructors
 -- (walked both ways), `_‚âà_` gives equal counts (`Ekatva`), equal counts
 -- build a `Perm` (`Ekatva`, using the decidable equality), and a `Perm`
 -- is an adjacent chain (`TheUsualReasons`).  So the relation is not finer

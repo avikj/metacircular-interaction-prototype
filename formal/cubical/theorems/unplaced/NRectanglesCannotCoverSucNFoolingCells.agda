@@ -5,7 +5,7 @@
 --
 -- `AFoolingSetForcesDistinctRectangles` proved a sound cover is
 -- INJECTIVE on a fooling family and said, in its own words: "INJECTIVITY
--- IS NOT 'â‰ k'.  Turning 'distinct cells get distinct rectangles' into
+-- IS NOT 'â‰¥ k'.  Turning 'distinct cells get distinct rectangles' into
 -- 'at least k rectangles' is a COUNTING step: it needs `I` finite with
 -- k elements and a pigeonhole over the cover."
 --
@@ -15,10 +15,10 @@
 -- `Cubical.Data.Fin.Properties.pigeonhole-special`, which the pinned
 -- library already carries:
 --
---   pigeonhole-special : (f : Fin (suc n) â’ Fin n)
---     â’ Î[ i ] Î[ j ] (Â i â‰¡ j) — (f i â‰¡ f j)
+--   pigeonhole-special : (f : Fin (suc n) â†’ Fin n)
+--     â†’ Î£[ i ] Î£[ j ] (Â¬ i â‰¡ j) Ã— (f i â‰¡ f j)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHY THE CONTRAPOSITIVE IS THE HONEST FORM
 --
 -- "At least k rectangles" is a statement about a cardinal, and a
@@ -103,25 +103,25 @@ module _ (Row Col : Type) (M : Row â†’ Col â†’ Bool) where
 -- module is titled as an impossibility about COVERING, and covering is
 -- naturally a property: a cell is covered when SOME sound rectangle of
 -- the family contains it.  What Â§2 takes instead is a `pick : Fin (suc
--- n) â’ Fin n` together with pointwise `Sound (rects (pick i))` and
--- `Covers (rects (pick i)) (r i) (c i)` â” a cover ALREADY EQUIPPED with
+-- n) â†’ Fin n` together with pointwise `Sound (rects (pick i))` and
+-- `Covers (rects (pick i)) (r i) (c i)` â€” a cover ALREADY EQUIPPED with
 -- a choice of which rectangle serves each cell.
 --
 -- **BOTH FORMS ARE PROVED**, in `NRectanglesCannotCoverSucNFoolingCellsEvenWhenTheCoveringIsOnlyAProperty`:
 --
---   cannotCoverSigma      hypothesis `(i) â’ Î[ k ] (Sound — Covers)`.
---                         FREE: a Î  of Î already contains its own
+--   cannotCoverSigma      hypothesis `(i) â†’ Î£[ k ] (Sound Ã— Covers)`.
+--                         FREE: a Î  of Î£ already contains its own
 --                         choice function, so `pick i` is `fst (h i)`
 --                         and the rest is projection.
---   cannotCoverTruncated  hypothesis `(i) â’ âˆ Î[ k ] (Sound — Covers) âˆâ`,
+--   cannotCoverTruncated  hypothesis `(i) â†’ âˆ¥ Î£[ k ] (Sound Ã— Covers) âˆ¥â‚`,
 --                         which is the honest reading of "is covered".
---                         No `pick` can be projected out â” the
+--                         No `pick` can be projected out â€” the
 --                         conclusion for a single cell is not a
---                         proposition â” and it goes through anyway, paid
+--                         proposition â€” and it goes through anyway, paid
 --                         for by `finChoiceFin`, choice over a FINITE
 --                         index into a truncation, proved by induction
 --                         on the BOUND with `fsplit` and `subst`.  The
---                         final goal being `âŠ`, a proposition, is what
+--                         final goal being `âŠ¥`, a proposition, is what
 --                         lets the truncation be eliminated at the end.
 --
 -- Neither repair restates anything here: both END at

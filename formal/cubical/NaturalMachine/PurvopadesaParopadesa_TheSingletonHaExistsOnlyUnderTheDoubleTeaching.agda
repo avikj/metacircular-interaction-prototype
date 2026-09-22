@@ -6,8 +6,8 @@
 -- SOURCE, WITH TEXT, EDITION AND DATE.
 --
 --   Patajali, *Vykaraa-Mahbhya*, c. 150 BCE.  ivastra section,
---   the paragraph on the twice-taught ‡: Kielhorn I.27.2‚ì20 = Rohtak
---   I,93‚ì94, thirty sentences.  Read from GRETIL's e-text
+--   the paragraph on the twice-taught ‡§π: Kielhorn I.27.2‚Äì20 = Rohtak
+--   I,93‚Äì94, thirty sentences.  Read from GRETIL's e-text
 --   `sa_pataJjali-vyAkaraNamahAbhASya`, section marker `s_5.1`
 --   (github.com/tokushige-koyasan/gretil-corpus, snapshot 2026-08-20).
 --   The vrttikas embedded at {5}/{6} and {13} are Ktyyana's,
@@ -18,20 +18,20 @@
 --     {3}  yadi puna prva eva upadiyeta para eva v .
 --     {4}  ka ca atra viea .
 --
---   ‚î "what if only the earlier were taught, or only the later?  and
+--   ‚Äî "what if only the earlier were taught, or only the later?  and
 --   what is the difference here?"  `sivasutra14-para` is his first
---   branch (‡‡ï‡æ‡∞‡‡‡Ø ‡‡∞‡ã‡‡¶‡‡‡, {5}); `sivasutra14-prva` is his second
---   (‡‡‡‡‡ ‡‡∞‡‡‡ø ‡‡‡∞‡‡µ‡ã‡‡¶‡‡‡, {12}).  His own conclusion is {29}
+--   branch (‡§π‡§ï‡§æ‡§∞‡§∏‡•ç‡§Ø ‡§™‡§∞‡•ã‡§™‡§¶‡•á‡§∂‡•á, {5}); `sivasutra14-p≈´rva` is his second
+--   (‡§Ö‡§∏‡•ç‡§§‡•Å ‡§§‡§∞‡•ç‡§π‡§ø ‡§™‡•Ç‡§∞‡•ç‡§µ‡•ã‡§™‡§¶‡•á‡§∂‡§É, {12}).  His own conclusion is {29}
 --   tasmt prva ca upadeavya para ca.
 --
 -- WHAT IS CLAIMED OF PATAJALI.  That he poses those two counterfactuals
--- and rejects both.  Nothing else.  His grounds are RULE COVERAGE ‚î in
+-- and rejects both.  Nothing else.  His grounds are RULE COVERAGE ‚Äî in
 -- the *para* branch the a-mentions (A 8.3.3, 8.3.9, 8.4.63) and
--- A 6.1.114 ‡‡‡ø ‡ lose ‡ and need a separate ‡‡ï‡æ‡∞‡ ‡; in the *prva*
--- branch A 1.2.26 (‡∞‡≤‡), A 3.1.45 (‡‡≤‡), A 7.2.35/7.2.76 (‡µ‡≤‡) and the
--- ‡‡≤‡-mentions (A 8.2.26 and six others) lose ‡.
+-- A 6.1.114 ‡§π‡§∂‡§ø ‡§ö lose ‡§π and need a separate ‡§π‡§ï‡§æ‡§∞‡•á ‡§ö; in the *p≈´rva*
+-- branch A 1.2.26 (‡§∞‡§≤‡•ç), A 3.1.45 (‡§∂‡§≤‡•ç), A 7.2.35/7.2.76 (‡§µ‡§≤‡•ç) and the
+-- ‡§ù‡§≤‡•ç-mentions (A 8.2.26 and six others) lose ‡§π.
 --
--- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
+-- ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
 -- WHAT IS PROVED, and why it is not already in the module it extends
 --
 -- `NaturalMachine.Pratyahara_TheRepeatedHaBreaksIntersectionClosureAtExactlyOneSet`
@@ -40,10 +40,10 @@
 -- under non-empty intersection.  It does NOT ask where that singleton
 -- comes from.
 --
---   ¬ß2  ‡‡‡ ‚à© ‡‡≤‡ is nonempty ONLY under the double teaching.  Delete
---       the later ‡ and the intersection is empty (‡‡≤‡ loses ‡).  Delete
---       the earlier ‡ and the NAME ‡‡‡ ceases to exist ‚î the anubandha
---       ‡‡ no longer occurs after any ‡.  So the one set at which
+--   ¬ß2  ‡§π‡§∂‡•ç ‚à© ‡§∂‡§≤‡•ç is nonempty ONLY under the double teaching.  Delete
+--       the later ‡§π and the intersection is empty (‡§∂‡§≤‡•ç loses ‡§π).  Delete
+--       the earlier ‡§π and the NAME ‡§π‡§∂‡•ç ceases to exist ‚Äî the anubandha
+--       ‡§∂‡•ç no longer occurs after any ‡§π.  So the one set at which
 --       ‚à©-closure fails is manufactured by exactly the repetition
 --       Ktyyana and Patajali argue is forced.
 --
@@ -51,10 +51,10 @@
 --       lacks and needs.  `upto` returns the truncated tail when the
 --       marker is absent, so `between` MANUFACTURES a denotation for a
 --       name that does not exist; on the *para* string it reports
---       ‡‡‡ = ‡ ‚à [] ‚î the unnameable singleton itself.
+--       ‡‡‡ = ‡ ‚à [] ‚Äî the unnameable singleton itself.
 --
 --   ¬ß4  Ktyyana's list in the *prva* branch is exactly the classes
---       that begin after the earlier ‡ and close at ‡≤‡.  Four of them
+--       that begin after the earlier ‡§π and close at ‡§≤‡•ç.  Four of them
 --       are checked here by refl; that the four are ALL the ones the
 --       Adhyy uses is philological, is established outside Agda,
 --       and is stated in the note, not here.
@@ -82,8 +82,8 @@ open import NaturalMachine.Pratyahara_TheRepeatedHaBreaksIntersectionClosureAtEx
 ------------------------------------------------------------------------
 -- 1.  Definedness of a NAME, which the shared extractor does not test
 --
--- A pratyhra name is licensed by A 1.1.71 ‡‡¶‡ø‡∞‡®‡‡‡‡® ‡‡‡‡‡æ only when
--- the closing ‡‡‡ actually stands AFTER the initial sound.  `upto` runs
+-- A pratyƒÅhƒÅra name is licensed by A 1.1.71 ‡§Ü‡§¶‡§ø‡§∞‡§®‡•ç‡§§‡•á‡§® ‡§∏‡§π‡•á‡§§‡§æ only when
+-- the closing ‡§á‡§§‡•ç actually stands AFTER the initial sound.  `upto` runs
 -- off the end of the list and returns what it has collected, so
 -- `between s m` yields a list for every pair, licensed or not.  `named?`
 -- is the missing side condition.
@@ -107,12 +107,12 @@ ha≈ö-exists = refl
 -- 2.  Patajali's two counterfactuals, as strings
 --
 -- Nothing else moves: same sounds, same order, same anubandhas.  Only
--- the disputed ‡ is removed, from the fifth stra in the first and from
+-- the disputed ‡§π is removed, from the fifth s≈´tra in the first and from
 -- the fourteenth in the second.
 ------------------------------------------------------------------------
 
--- {5} ‡‡ï‡æ‡∞‡‡‡Ø ‡‡∞‡ã‡‡¶‡‡‡ ‚î ‡ taught only in the LATER place.
--- The fifth stra becomes ‡Ø‡µ‡∞‡ü‡.
+-- {5} ‡§π‡§ï‡§æ‡§∞‡§∏‡•ç‡§Ø ‡§™‡§∞‡•ã‡§™‡§¶‡•á‡§∂‡•á ‚Äî ‡§π taught only in the LATER place.
+-- The fifth s≈´tra becomes ‡§Ø‡§µ‡§∞‡§ü‡•ç.
 sivasutra14-para : List Sym
 sivasutra14-para =
   a ‚à∑ i ‚à∑ u ‚à∑ ·πÜ ‚à∑
@@ -130,7 +130,7 @@ sivasutra14-para =
   ≈õa ‚à∑ ·π£a ‚à∑ sa ‚à∑ R ‚à∑
   ha ‚à∑ L ‚à∑ []
 
--- {12} ‡‡‡‡‡ ‡‡∞‡‡‡ø ‡‡‡∞‡‡µ‡ã‡‡¶‡‡‡ ‚î ‡ taught only in the EARLIER place.
+-- {12} ‡§Ö‡§∏‡•ç‡§§‡•Å ‡§§‡§∞‡•ç‡§π‡§ø ‡§™‡•Ç‡§∞‡•ç‡§µ‡•ã‡§™‡§¶‡•á‡§∂‡§É ‚Äî ‡§π taught only in the EARLIER place.
 -- The fourteenth stra keeps its anubandha and loses its sound.
 sivasutra14-p≈´rva : List Sym
 sivasutra14-p≈´rva =
@@ -150,11 +150,11 @@ sivasutra14-p≈´rva =
   L ‚à∑ []
 
 ------------------------------------------------------------------------
--- 3.  THE PARA BRANCH: the name ‡‡‡ ceases to exist
+-- 3.  THE PARA BRANCH: the name ‡§π‡§∂‡•ç ceases to exist
 --
--- With the earlier ‡ gone, the only ‡ in the string stands at the end,
--- after the anubandha ‡‡ that closes ‡‡‡ó‡°‡¶‡‡.  No ‡ is followed by ‡‡,
--- so nothing can be called ‡‡‡.
+-- With the earlier ‡§π gone, the only ‡§π in the string stands at the end,
+-- after the anubandha ‡§∂‡•ç that closes ‡§ú‡§¨‡§ó‡§°‡§¶‡§∂‡•ç.  No ‡§π is followed by ‡§∂‡•ç,
+-- so nothing can be called ‡§π‡§∂‡•ç.
 ------------------------------------------------------------------------
 
 ha≈ö-unnamed-under-para : named? ha ≈ö sivasutra14-para ‚â° false
@@ -174,49 +174,49 @@ ha≈ö-para-is-manufactured = refl
 -- though it were the value of a name.  So the ‚à©-closure statement cannot
 -- be transported to a counterfactual string by `between` alone; it needs
 -- `named?`.  On the actual fourteen the silent truncation never fires
--- for these two names (¬ß1), so Pratyahara's theorem is untouched ‚î but its
+-- for these two names (¬ß1), so Pratyahara's theorem is untouched ‚Äî but its
 -- extractor is total by truncation, not by totality, and that is a
 -- defect the three modules sharing it all carry.
 
--- The other class is undisturbed: ‡‡≤‡ still names {‡ ‡ ‡ ‡}.
+-- The other class is undisturbed: ‡§∂‡§≤‡•ç still names {‡§∂ ‡§∑ ‡§∏ ‡§π}.
 ≈õaL-under-para : between ≈õa L sivasutra14-para ‚â° ≈õa ‚à∑ ·π£a ‚à∑ sa ‚à∑ ha ‚à∑ []
 ≈õaL-under-para = refl
 
 ------------------------------------------------------------------------
--- 4.  THE PRVA BRANCH: the classes that close at ‡≤‡ lose ‡
+-- 4.  THE P≈™RVA BRANCH: the classes that close at ‡§≤‡•ç lose ‡§π
 --
--- {13} prvopadee kittvaksevidhaya jhalgrahani ca ‚î the vrttika
+-- {13} p≈´rvopade≈õe kittvakse·∏çvidhaya·∏• jhalgraha·πáƒÅni ca ‚Äî the vƒÅrttika
 -- names four things.  Here are the four pratyhras behind them, on the
--- string with the later ‡ deleted.  Each keeps its name and loses ‡.
+-- string with the later ‡§π deleted.  Each keeps its name and loses ‡§π.
 ------------------------------------------------------------------------
 
--- ‡‡≤‡ ‚î A 3.1.45 ‡‡≤ ‡‡ó‡‡‡ß‡æ‡¶‡®‡ø‡ü‡ ‡ï‡‡‡, cited at {20}.
+-- ‡§∂‡§≤‡•ç ‚Äî A 3.1.45 ‡§∂‡§≤ ‡§á‡§ó‡•Å‡§™‡§ß‡§æ‡§¶‡§®‡§ø‡§ü‡§É ‡§ï‡•ç‡§∏‡§É, cited at {20}.
 ≈õaL-under-p≈´rva : between ≈õa L sivasutra14-p≈´rva ‚â° ≈õa ‚à∑ ·π£a ‚à∑ sa ‚à∑ []
 ≈õaL-under-p≈´rva = refl
 
--- ‡∞‡≤‡ ‚î A 1.2.26 ‡∞‡≤‡ã ‡µ‡‡Ø‡‡‡ß‡æ‡¶‡‡ß‡≤‡æ‡¶‡‡ ‡‡‡‡‡, cited at {16}.
+-- ‡§∞‡§≤‡•ç ‚Äî A 1.2.26 ‡§∞‡§≤‡•ã ‡§µ‡•ç‡§Ø‡•Å‡§™‡§ß‡§æ‡§¶‡•ç‡§ß‡§≤‡§æ‡§¶‡•á‡§É ‡§∏‡§Ç‡§∂‡•ç‡§ö, cited at {16}.
 raL-under-p≈´rva : between ra L sivasutra14-p≈´rva
   ‚â° ra ‚à∑ la ‚à∑ √±a ‚à∑ ma ‚à∑ ·πÖa ‚à∑ ·πáa ‚à∑ na ‚à∑ jha ‚à∑ bha ‚à∑ gha ‚à∑ ·∏çha ‚à∑ dha
   ‚à∑ ja ‚à∑ ba ‚à∑ ga ‚à∑ ·∏ça ‚à∑ da ‚à∑ kha ‚à∑ pha ‚à∑ cha ‚à∑ ·π≠ha ‚à∑ tha ‚à∑ ca ‚à∑ ·π≠a ‚à∑ ta
   ‚à∑ ka ‚à∑ pa ‚à∑ ≈õa ‚à∑ ·π£a ‚à∑ sa ‚à∑ []
 raL-under-p≈´rva = refl
 
--- ‡µ‡≤‡ ‚î A 7.2.35 ‡‡∞‡‡ß‡ß‡æ‡‡‡ï‡‡‡Ø‡‡°‡ ‡µ‡≤‡æ‡¶‡‡, behind {24} ‡µ‡≤‡æ‡¶‡ø‡≤‡ï‡‡‡‡ ‡‡ü‡.
+-- ‡§µ‡§≤‡•ç ‚Äî A 7.2.35 ‡§Ü‡§∞‡•ç‡§ß‡§ß‡§æ‡§§‡•Å‡§ï‡§∏‡•ç‡§Ø‡•á‡§°‡•ç ‡§µ‡§≤‡§æ‡§¶‡•á‡§É, behind {24} ‡§µ‡§≤‡§æ‡§¶‡§ø‡§≤‡§ï‡•ç‡§∑‡§£‡§É ‡§á‡§ü‡•ç.
 vaL-under-p≈´rva : between va L sivasutra14-p≈´rva
   ‚â° va ‚à∑ ra ‚à∑ la ‚à∑ √±a ‚à∑ ma ‚à∑ ·πÖa ‚à∑ ·πáa ‚à∑ na ‚à∑ jha ‚à∑ bha ‚à∑ gha ‚à∑ ·∏çha ‚à∑ dha
   ‚à∑ ja ‚à∑ ba ‚à∑ ga ‚à∑ ·∏ça ‚à∑ da ‚à∑ kha ‚à∑ pha ‚à∑ cha ‚à∑ ·π≠ha ‚à∑ tha ‚à∑ ca ‚à∑ ·π≠a ‚à∑ ta
   ‚à∑ ka ‚à∑ pa ‚à∑ ≈õa ‚à∑ ·π£a ‚à∑ sa ‚à∑ []
 vaL-under-p≈´rva = refl
 
--- ‡‡≤‡ ‚î A 8.2.26 ‡‡≤‡ã ‡‡≤‡ø, cited at {28} as the fault: ‡‡¶‡æ‡ó‡‡ß‡æ‡Æ‡ ‡‡¶‡æ‡ó‡‡ß‡Æ‡.
+-- ‡§ù‡§≤‡•ç ‚Äî A 8.2.26 ‡§ù‡§≤‡•ã ‡§ù‡§≤‡§ø, cited at {28} as the fault: ‡§Ö‡§¶‡§æ‡§ó‡•ç‡§ß‡§æ‡§Æ‡•ç ‡§Ö‡§¶‡§æ‡§ó‡•ç‡§ß‡§Æ‡•ç.
 jhaL-under-p≈´rva : between jha L sivasutra14-p≈´rva
   ‚â° jha ‚à∑ bha ‚à∑ gha ‚à∑ ·∏çha ‚à∑ dha ‚à∑ ja ‚à∑ ba ‚à∑ ga ‚à∑ ·∏ça ‚à∑ da
   ‚à∑ kha ‚à∑ pha ‚à∑ cha ‚à∑ ·π≠ha ‚à∑ tha ‚à∑ ca ‚à∑ ·π≠a ‚à∑ ta ‚à∑ ka ‚à∑ pa
   ‚à∑ ≈õa ‚à∑ ·π£a ‚à∑ sa ‚à∑ []
 jhaL-under-p≈´rva = refl
 
--- ‡‡‡ is untouched by the prva branch: it closes at ‡‡, long before
--- the place the deleted ‡ stood.
+-- ‡§π‡§∂‡•ç is untouched by the p≈´rva branch: it closes at ‡§∂‡•ç, long before
+-- the place the deleted ‡§π stood.
 ha≈ö-under-p≈´rva : between ha ≈ö sivasutra14-p≈´rva ‚â° between ha ≈ö sivasutra14
 ha≈ö-under-p≈´rva = refl
 
@@ -255,8 +255,8 @@ singleton-needs-both =
 -- string.  It is the trace of the repetition, and the repetition is what
 -- Kielhorn I.27.2‚ì20 argues is forced.  The two pratyhras in Pratyahara's
 -- witness are, further, the two that Patajali cites on OPPOSITE sides
--- of his alternative ‚î ‡‡‡ from A 6.1.114 in the *para* branch {10},
--- ‡‡≤‡ from A 3.1.45 in the *prva* branch {20} ‚î and each of those is
+-- of his alternative ‚Äî ‡§π‡§∂‡•ç from A 6.1.114 in the *para* branch {10},
+-- ‡§∂‡§≤‡•ç from A 3.1.45 in the *p≈´rva* branch {20} ‚Äî and each of those is
 -- the only stra in the Adhyy using its pratyhra.
 --
 -- A separate question is whether ‚à©-closure is a property Pini's device was
@@ -265,5 +265,5 @@ singleton-needs-both =
 -- is invisible to the symmetry.  Coverage
 -- and ‚à©-closure are two different demands on the same family; the
 -- tradition argues the first at length, and satisfying the first is
--- what breaks the second ‚î here, at exactly one set.
+-- what breaks the second ‚Äî here, at exactly one set.
 ------------------------------------------------------------------------

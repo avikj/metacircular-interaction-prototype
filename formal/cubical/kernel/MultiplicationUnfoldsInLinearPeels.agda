@@ -8,7 +8,7 @@
 -- (`copies x b`). Each `mul-suc` peel is one step; `mul-zero` closes it. So
 -- the multiplicative layer costs the number of FACTORS (b). Reducing the
 -- resulting b copies of `unary a` to the value then runs the additive engine
--- ~a per copy â” total ~aÂb, the unary magnitude of the OUTPUT. Cost tracks
+-- ~a per copy â€” total ~aÂ·b, the unary magnitude of the OUTPUT. Cost tracks
 -- the winding number of the result, not the size of the input (a+b): the
 -- clean case that shows "cost = output magnitude", not "linear in input".
 ------------------------------------------------------------------------

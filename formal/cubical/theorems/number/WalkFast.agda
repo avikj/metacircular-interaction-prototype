@@ -10,18 +10,18 @@
 --
 -- `WalkBridge` makes the walk's step a total function
 --
---     next m = least q � 2 with q � cap m ,          cap m = lcm(1..m),
+--     next m = least q ≥ 2 with q ∤ cap m ,          cap m = lcm(1..m),
 --
 -- and it RUNS: next 1..5 = 2,3,4,5,7 by refl.  Then it stops, for a
 -- derived reason �
--- the search decides `s � cap m` per candidate, a unary divisibility
+-- the search decides `s ∣ cap m` per candidate, a unary divisibility
 -- test on cap m costs Θ(cap m), and cap m = e^{ψ(m)}.  The walk's
 -- storage law is its naive runtime law.
 --
 -- But `WalkPrimePowers` proved that the installs are exactly the prime
 -- powers in increasing order.  So the expensive predicate
 --
---     q � cap m          (an object of size e^{ψ(m)})
+--     q ∤ cap m          (an object of size e^{ψ(m)})
 --
 -- can be traded for the cheap one
 --
@@ -95,7 +95,7 @@ open import WalkPrimePowers
 -- 1.  `next m` is the least prime power above m.
 ------------------------------------------------------------------------
 
--- every install is a prime power: §(c)(�) applied to the step's own
+-- every install is a prime power: §(c)(⇒) applied to the step's own
 -- certificate.  No ordering theorem is used.
 next-isPP : (m : ℕ) → IsPrimePower (next m)
 next-isPP m =
@@ -156,8 +156,8 @@ next-characterised m q 1≤m ippq m<q none with q ≟ next m
 ------------------------------------------------------------------------
 -- 2.  Prime-power-hood is decidable, at size n.
 --
---  n � 2:  take a prime divisor p (bounded search), strip n at p to get
---          n = p^e � u with p � u.  Then n is a prime power iff u = 1;
+--  n ≥ 2:  take a prime divisor p (bounded search), strip n at p to get
+--          n = p^e · u with p ∤ u.  Then n is a prime power iff u = 1;
 --          if u > 1 it has a prime divisor r ≠ p, and two distinct
 --          primes divide n, which CoprimeSplitting already refutes.
 ------------------------------------------------------------------------
@@ -209,7 +209,7 @@ decPP≥2 n 1<n = go (primeDivisor n 1<n)
       p≢r : ¬ (p ≡ r)
       p≢r e' = ¬p∣u (subst (_∣ u) (sym e') r∣u)
 
-    -- e = 0 means n = u and p � u, contradicting p � n
+    -- e = 0 means n = u and p ∤ u, contradicting p ∣ n
     go2 : Strip p n → Dec (IsPrimePower n)
     go2 (zero , u , 0<u , peu , ¬p∣u) =
       Empty.rec (¬p∣u (subst (p ∣_) (sym (sym (·-identityˡ u) ∙ peu)) p∣n))

@@ -7,11 +7,11 @@
 -- test certifies a COMPOSITE one.
 --
 -- Setting.  An action
--- word has an endpoint map `w : X ‚í Y` and a declared transcript
--- `t : X ‚í T`.  The macro that replaces the word by its endpoint
+-- word has an endpoint map `w : X ‚Üí Y` and a declared transcript
+-- `t : X ‚Üí T`.  The macro that replaces the word by its endpoint
 -- preserves the transcript exactly when `t` factors through `w`:
 --
---     Factors w t  :=  ‚à x x' ‚í w x ‚â° w x' ‚í t x ‚â° t x'.
+--     Factors w t  :=  ‚àÄ x x' ‚Üí w x ‚â° w x' ‚Üí t x ‚â° t x'.
 --
 -- Consider the instruction "apply this test at every
 -- nested shortcut stage".  This module shows that instruction is not
@@ -20,16 +20,16 @@
 --
 --   laterSurvives          a later stage's transcript always survives
 --   compositeImpliesStage  the composite test is STRICTLY stronger
---   criterion‚í / criterion‚ê  the exact repair (an iff)
---   injectiveSuffices      second stage injective ‚í stagewise suffices
+--   criterion‚Üí / criterion‚Üê  the exact repair (an iff)
+--   injectiveSuffices      second stage injective ‚áí stagewise suffices
 --   mergeBreaks            every non-injective second stage carries a
 --                          stagewise-clean system whose composite fails
 --   recordLowerBound       any sound side record for a fully erasing
 --                          composite must be injective on X
 --
 -- `injectiveSuffices` and `mergeBreaks` together are a sharp dichotomy:
--- the stagewise test is sound for ALL transcripts over `w‚` exactly
--- when `w‚` is injective.  Nothing quantitative is assumed or fitted.
+-- the stagewise test is sound for ALL transcripts over `w‚ÇÇ` exactly
+-- when `w‚ÇÇ` is injective.  Nothing quantitative is assumed or fitted.
 ------------------------------------------------------------------------
 
 module TranscriptComposition where
@@ -112,7 +112,7 @@ module TwoStage
 
   -- The composite word contracts to its endpoint without a side record
   -- iff EVERY stage transcript, including the earlier ones, factors
-  -- through the TERMINAL endpoint map `W` ‚î not through its own stage
+  -- through the TERMINAL endpoint map `W` ‚Äî not through its own stage
   -- map.  This is the statement that replaces "test at every stage".
   criterion‚Üí : Factors W total ‚Üí Factors W t‚ÇÅ √ó Factors W (t‚ÇÇ ‚àò w‚ÇÅ)
   criterion‚Üí f =
@@ -140,12 +140,12 @@ module TwoStage
 -- 3.  The refutation, in its sharpest form
 --
 -- Not merely "there is a counterexample": EVERY non-injective second
--- stage carries one.  Given any `w‚` merging two distinct points, the
+-- stage carries one.  Given any `w‚ÇÇ` merging two distinct points, the
 -- system with first stage the identity, first transcript the identity,
 -- and second transcript constant passes both stagewise tests and fails
 -- the composite one.  With ¬ß2d this is a dichotomy:
 --
---     stagewise test sound for all transcripts  ‚ü∫  w‚ injective.
+--     stagewise test sound for all transcripts  ‚ü∫  w‚ÇÇ injective.
 ------------------------------------------------------------------------
 
 module MergeBreaks
@@ -194,7 +194,7 @@ module BoolErasure where
 ------------------------------------------------------------------------
 -- 5.  The lower bound on the retained record
 --
--- The failure in ¬ß3‚ì4 is not a rounding error that one spare symbol
+-- The failure in ¬ß3‚Äì4 is not a rounding error that one spare symbol
 -- absorbs.  When the composite endpoint map is constant, any side
 -- record sound for the identity transcript must be injective on `X`;
 -- instantiating `X` at an `n`-element type this says the record
@@ -224,12 +224,12 @@ module RecordBound {X : Type ‚Ñì} where
 -- The exact finite composition law (proved elementarily in the
 -- accompanying note):
 --
---     r‚  ‚â  R  ‚â  r‚ ¬ f,
+--     r‚ÇÅ  ‚â§  R  ‚â§  r‚ÇÅ ¬∑ f,
 --
--- where `r‚` is the stage-1 record size, `f` the merge multiplicity of
--- `w‚` on the image of `w‚`, and `R` the composite record size; both
--- bounds are attained.  `f` is a property of `w‚` alone and is
--- invisible to both stagewise transcript tests ‚î which is the exact
+-- where `r‚ÇÅ` is the stage-1 record size, `f` the merge multiplicity of
+-- `w‚ÇÇ` on the image of `w‚ÇÅ`, and `R` the composite record size; both
+-- bounds are attained.  `f` is a property of `w‚ÇÇ` alone and is
+-- invisible to both stagewise transcript tests ‚Äî which is the exact
 -- sense in which the missing coordinate is a coordinate of the
 -- FORGETTING, not of either transcript.
 ------------------------------------------------------------------------

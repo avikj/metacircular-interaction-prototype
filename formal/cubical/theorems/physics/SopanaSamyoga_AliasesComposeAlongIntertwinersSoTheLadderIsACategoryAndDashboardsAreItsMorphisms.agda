@@ -1,19 +1,19 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������-������� � the ladder composes.
+-- सोपान-संयोग — the ladder composes.
 --
 -- The divisor order, made categorical.  An ALIASED OBSERVABLE is a
 -- pair (O, g) with O ∘ turn = g ∘ O; a DASHBOARD between aliased
 -- observables is a post-processing h that intertwines the aliases,
--- h ∘ g� = g� ∘ h.  Then:
+-- h ∘ g₁ = g₂ ∘ h.  Then:
 --
---   §1  DASHBOARDS TRANSPORT ALIASES: the composite h ∘ O� is itself
---       aliased, through g� � two lines.  Coarsening inherits its
+--   §1  DASHBOARDS TRANSPORT ALIASES: the composite h ∘ O₁ is itself
+--       aliased, through g₂ — two lines.  Coarsening inherits its
 --       rung from the intertwiner, so the ladder's structure descends
 --       automatically along every dashboard.
 --
---   §2  DASHBOARDS COMPOSE: intertwiners of intertwiners intertwine �
+--   §2  DASHBOARDS COMPOSE: intertwiners of intertwiners intertwine —
 --       the aliased observables form a category, and the reading
 --       theorem is functorial over it.
 --
@@ -49,7 +49,7 @@ private
     ℓ ℓ' ℓ'' : Level
 
 ------------------------------------------------------------------------
--- � � Dashboards transport aliases.
+-- १ · Dashboards transport aliases.
 ------------------------------------------------------------------------
 
 pravāha-vahana :
@@ -63,7 +63,7 @@ pravāha-vahana O g₁ h g₂ fac inter x =
   cong h (fac x) ∙ inter (O x)
 
 ------------------------------------------------------------------------
--- � � Dashboards compose.
+-- २ · Dashboards compose.
 ------------------------------------------------------------------------
 
 vahana-saṃyoga :
@@ -77,7 +77,7 @@ vahana-saṃyoga g₁ g₂ g₃ h₁ h₂ i₁ i₂ a =
   cong h₂ (i₁ a) ∙ i₂ (h₁ a)
 
 ------------------------------------------------------------------------
--- � � The xor rung, recovered from the top by transport.
+-- ३ · The xor rung, recovered from the top by transport.
 ------------------------------------------------------------------------
 
 vyatyaya-sopāna : (x : Sūtra) → vyatyaya (caturaṃśa x) ≡ not (vyatyaya x)

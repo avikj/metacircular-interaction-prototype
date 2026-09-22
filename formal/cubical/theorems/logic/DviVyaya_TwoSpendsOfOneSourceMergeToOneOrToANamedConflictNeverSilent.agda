@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --safe #-}
 
--- ‡¶‡‡µ‡ø‡µ‡‡Ø‡Ø ‚î "double expenditure" (dvi = two, vyaya = spending/outgoing).
+-- ‡§¶‡•ç‡§µ‡§ø‡§µ‡•ç‡§Ø‡§Ø ‚Äî "double expenditure" (dvi = two, vyaya = spending/outgoing).
 -- The compound names the object exactly: two spends of one exclusive
 -- source.  English gloss follows the underscore per the file-naming rule.
 --
@@ -11,18 +11,18 @@
 -- once two individually-valid spends of one source are in ONE merged view,
 -- the double-spend is NEVER SILENT.  `verdict` is a TOTAL, decidable function
 -- returning either
---   ¬ Exclusive  ‚î all held spends of the source are identified (‚â 1 distinct), or
---   ¬ Conflict   ‚î a NAMED pair of distinct held spends (a typed avaktavya,
---                  Saptabhangi.‡ï‡‡∞‡Æ-‡‡-‡‡‡¶‡: the saha pair surfaced, not voted on).
+--   ¬∑ Exclusive  ‚Äî all held spends of the source are identified (‚â§ 1 distinct), or
+--   ¬∑ Conflict   ‚Äî a NAMED pair of distinct held spends (a typed avaktavya,
+--                  Saptabhangi.‡§ï‡•ç‡§∞‡§Æ-‡§∏‡§π-‡§≠‡•á‡§¶‡§É: the saha pair surfaced, not voted on).
 -- And the alarm is merge-monotone: a Conflict in EITHER view survives the
 -- join-semilattice union (`conflict-++À°/ ≥`).  So the substrate's own merge,
 -- not a global order, discharges detection.
 --
 -- ON THE MODEL.  If a spend is modelled as
 -- `Spend src = Œ[snk] (spend src ‚â° snk) = singl (spend src)`, it is ALWAYS
--- contractible (‡‡ï‡‡‡‡‡∞: isContr (singl x)); so its `Exclusive` is
+-- contractible (‡§è‡§ï‡§∏‡•Ç‡§§‡•ç‡§∞: isContr (singl x)); so its `Exclusive` is
 -- unconditionally true and `MergeExhibitsConflict` is inhabited by `inl` for
--- the wrong reason ‚î it is the graph of a function, not the set of SUBMITTED
+-- the wrong reason ‚Äî it is the graph of a function, not the set of SUBMITTED
 -- valid spends.  The faithful model is a Discrete set of submitted spends
 -- (equality = content-address equality, decidable); double-spend is that set
 -- failing to be a proposition.
@@ -44,7 +44,7 @@ private variable ‚Ñì : Level
 module _ {A : Type ‚Ñì} (discA : Discrete A) where
 
   -- membership in a held view (a list of submitted valid spends), as a
-  -- COMPUTED predicate ‚î no indexed family, so no reliance on ‚à-injectivity,
+  -- COMPUTED predicate ‚Äî no indexed family, so no reliance on ‚à∑-injectivity,
   -- hence cubical-clean under --safe.  `here` = inl refl; `there` = inr.
   _‚àà_ : A ‚Üí List A ‚Üí Type ‚Ñì
   x ‚àà []       = ‚ä•*
@@ -61,7 +61,7 @@ module _ {A : Type ‚Ñì} (discA : Discrete A) where
   Conflict xs = Œ£[ x ‚àà A ] Œ£[ y ‚àà A ] ((x ‚àà xs) √ó (y ‚àà xs) √ó (¬¨ (x ‚â° y)))
 
   -- THE LOCAL THEOREM: the verdict is TOTAL.  A held view is decidably either
-  -- exclusive or a named distinct pair ‚î the double-spend is never silent.
+  -- exclusive or a named distinct pair ‚Äî the double-spend is never silent.
   verdict : (xs : List A) ‚Üí Exclusive xs ‚äé Conflict xs
   verdict [] = inl (Œª x y p q ‚Üí ‚ä•*rec p)
   verdict (x ‚à∑ []) = inl e

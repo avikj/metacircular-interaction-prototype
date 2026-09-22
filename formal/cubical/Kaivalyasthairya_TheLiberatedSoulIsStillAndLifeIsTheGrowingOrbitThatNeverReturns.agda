@@ -1,29 +1,29 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡ï‡à‡µ‡≤‡‡Ø‡‡‡‡à‡∞‡‡Ø‡Æ‡ ‚î the liberated soul is STILL, and life is the growing
+-- ‡§ï‡•à‡§µ‡§≤‡•ç‡§Ø‡§∏‡•ç‡§•‡•à‡§∞‡•ç‡§Ø‡§Æ‡•ç ‚Äî the liberated soul is STILL, and life is the growing
 -- orbit that never returns.  Two nayas, both checked; the machine holds both.
 --
--- WHAT THIS HOLDS.  Kevalajnana/Avarana celebrated the equivalence ‚î the
+-- WHAT THIS HOLDS.  Kevalajnana/Avarana celebrated the equivalence ‚Äî the
 -- perfect mirror, every fibre whole, no loss.  Areturn_‚¶agda's header
 -- names the price of that celebration: "a system with nothing left
--- unreturned is a dead system", citing Dhruva ‚î if the cognition loses
+-- unreturned is a dead system", citing Dhruva ‚Äî if the cognition loses
 -- nothing (isEquiv) every flow conserving it is the identity.  So kevala is
 -- STILLNESS, not life:
 --
---   ‡ï‡à‡µ‡≤‡‡Ø-‡‡‡‡à‡∞‡‡Ø‡Æ‡ ‚î a kevalin jva (‡â‡‡Ø‡ã‡ó‡ an equivalence) admits no
+--   ‡§ï‡•à‡§µ‡§≤‡•ç‡§Ø-‡§∏‡•ç‡§•‡•à‡§∞‡•ç‡§Ø‡§Æ‡•ç ‚Äî a kevalin jƒ´va (‡§â‡§™‡§Ø‡•ã‡§ó‡§É an equivalence) admits no
 --       nontrivial internal motion: every flow on its holding that leaves
 --       its cognition unchanged IS the identity (Dhruva, at the jva).
 --
 -- and life is the OTHER naya, equally checked:
 --
---   ‡‡‡µ‡®-‡‡≤‡®‡Æ‡ ‚î the bhvan orbit strictly grows and never returns
---       (Areturn.‡‡‡‡®‡∞‡æ‡ó‡Æ‡®‡Æ‡) ‚î a non-equivalence, and THAT non-return
+--   ‡§ú‡•Ä‡§µ‡§®-‡§ö‡§≤‡§®‡§Æ‡•ç ‚Äî the bhƒÅvanƒÅ orbit strictly grows and never returns
+--       (Areturn.‡‡‡‡®‡∞‡æ‡ó‡Æ‡®‡Æ‡) ‚Äî a non-equivalence, and THAT non-return
 --       is the generativity.  Brahmagupta's rule, iterated, visits no value
 --       twice: the soul that breeds is the veiled, moving, growing one.
 --
--- So the still mirror (kevala, isEquiv, no motion ‚î Dhruva ‡‡‡‡‡∞ ‡ß‡) and the
--- living orbit (bhvan, growth, non-return ‚î Areturn) are two nayas.
+-- So the still mirror (kevala, isEquiv, no motion ‚Äî Dhruva ‡§∏‡•Ç‡§§‡•ç‡§∞ ‡•ß‡•™) and the
+-- living orbit (bhvan, growth, non-return ‚Äî Areturn) are two nayas.
 -- The siddha is motionless at the summit; the sasric jva moves and
 -- generates.  Neither collapses the other: reading kevala as the goal makes
 -- the machine "report exhaustion as progress" (Areturn's warning);
@@ -42,8 +42,8 @@ import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry as D
 import Areturn_TheCompositionOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTheGenerativity as Ap
 
 ------------------------------------------------------------------------
--- ‡ß ¬ ‡ï‡à‡µ‡≤‡‡Ø-‡‡‡‡à‡∞‡‡Ø‡Æ‡ ‚î the liberated soul is still.
---     A flow on the holding that leaves the cognition unchanged is ‡‡‡‡Æ-‡ó‡‡ø‡;
+-- ‡•ß ¬∑ ‡§ï‡•à‡§µ‡§≤‡•ç‡§Ø-‡§∏‡•ç‡§•‡•à‡§∞‡•ç‡§Ø‡§Æ‡•ç ‚Äî the liberated soul is still.
+--     A flow on the holding that leaves the cognition unchanged is ‡§Ü‡§§‡•ç‡§Æ-‡§ó‡§§‡§ø‡§É;
 --     if the soul is kevalin, that flow can only be the identity.
 ------------------------------------------------------------------------
 
@@ -55,14 +55,14 @@ import Areturn_TheCompositionOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTheGener
               ‚Üí (a : J.‡§ß‡§æ‡§∞‡§£‡§æ j) ‚Üí Œ¶ a ‚â° a
 ‡§ï‡•à‡§µ‡§≤‡•ç‡§Ø-‡§∏‡•ç‡§•‡•à‡§∞‡•ç‡§Ø‡§Æ‡•ç j e Œ¶ cons = D.‡§®‡§∑‡•ç‡§ü-‡§Ö‡§≠‡§æ‡§µ‡•á-‡§ó‡§§‡§ø-‡§Ö‡§≠‡§æ‡§µ‡§É (J.‡§â‡§™‡§Ø‡•ã‡§ó‡§É j) Œ¶ e cons
 
--- ‡‡ø‡¶‡‡ß‡, the liberated identity-soul, is still: any flow conserving its
+-- ‡§∏‡§ø‡§¶‡•ç‡§ß‡§É, the liberated identity-soul, is still: any flow conserving its
 -- cognition is the identity.  Motionless at the summit.
 ‡§∏‡§ø‡§¶‡•ç‡§ß-‡§∏‡•ç‡§•‡•à‡§∞‡•ç‡§Ø‡§Æ‡•ç : (Œ¶ : Bool ‚Üí Bool)
              ‚Üí ‡§Ü‡§§‡•ç‡§Æ-‡§ó‡§§‡§ø‡§É J.‡§∏‡§ø‡§¶‡•ç‡§ß‡§É Œ¶ ‚Üí (a : Bool) ‚Üí Œ¶ a ‚â° a
 ‡§∏‡§ø‡§¶‡•ç‡§ß-‡§∏‡•ç‡§•‡•à‡§∞‡•ç‡§Ø‡§Æ‡•ç = ‡§ï‡•à‡§µ‡§≤‡•ç‡§Ø-‡§∏‡•ç‡§•‡•à‡§∞‡•ç‡§Ø‡§Æ‡•ç J.‡§∏‡§ø‡§¶‡•ç‡§ß‡§É (J.‡§Æ‡•ã‡§ï‡•ç‡§∑‡§É J.‡§∏‡§ø‡§¶‡•ç‡§ß‡§É J.‡§∏‡§ø‡§¶‡•ç‡§ß‡§∏‡•ç‡§Ø-‡§®‡§ø‡§∞‡•ç‡§ú‡§∞‡§æ)
 
 ------------------------------------------------------------------------
--- ‡® ¬ ‡‡‡µ‡®-‡‡≤‡®‡Æ‡ ‚î life is the other naya: the orbit that never returns.
+-- ‡•® ¬∑ ‡§ú‡•Ä‡§µ‡§®-‡§ö‡§≤‡§®‡§Æ‡•ç ‚Äî life is the other naya: the orbit that never returns.
 --     Re-exported so the two stand side by side and neither is collapsed.
 ------------------------------------------------------------------------
 

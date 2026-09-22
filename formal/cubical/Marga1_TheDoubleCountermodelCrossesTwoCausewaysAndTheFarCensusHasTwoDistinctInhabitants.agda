@@ -4,7 +4,7 @@
 -- is the authority: if an edge were forged, THIS file would fail to check.
 --
 -- THIS IS THE FIRST MECHANICALLY-ROUTED TRANSPORTED THEOREM IN THE CORPUS:
--- the route below was found by BFS in machine/Marga_‚¶.hs over the landed
+-- the route below was found by BFS in machine/Marga_‚Ä¶.hs over the landed
 -- edge set (Setubandha ‚à© Lopa's CONTROL AUDIT, ddc71aad), the composite
 -- equivalence and this whole file were emitted by the router, and the only
 -- hand-written mathematics is the source theorem P and its proof, which
@@ -12,45 +12,45 @@
 -- predicate on the type.
 --
 -- WHAT IS TRANSPORTED.  FactoryVICoolingKill exhibits the T110 strategy
--- kill twice over ‚î cm3 and cm6 are distinct countermodels (their X fields
--- are 10¬≥ and 10‚).  Routed across two causeways, that becomes: the census
--- type censusŒ at the doubly-refined Ratri node has two provably distinct
+-- kill twice over ‚Äî cm3 and cm6 are distinct countermodels (their X fields
+-- are 10¬≥ and 10‚Å∂).  Routed across two causeways, that becomes: the census
+-- type censusŒ£ at the doubly-refined Ratri node has two provably distinct
 -- inhabitants.  No Ratri module states this; it is bought entirely by the
--- edges, at zero marginal proof cost, which is Sangati ¬ß‡® done rather than
+-- edges, at zero marginal proof cost, which is Sangati ¬ß‡•® done rather than
 -- described.
 --
 -- HONESTY ABOUT THE TOLL.  The largest landed component (7 nodes, diameter
 -- 4: three Ratri census pairs around the hub CoolingCountermodel) has its
--- only theorem-bearing node AT the hub, and the hub is ‚â 2 edges from
+-- only theorem-bearing node AT the hub, and the hub is ‚â§ 2 edges from
 -- everything, so 2 is the longest real transport this component affords.
--- The diameter-4 pairs (censusŒ to censusŒ across copies) carry no
--- independent theorem at either end ‚î routing between them would transport
+-- The diameter-4 pairs (censusŒ£ to censusŒ£ across copies) carry no
+-- independent theorem at either end ‚Äî routing between them would transport
 -- nothing that was not already routed through the hub.  A 2-edge routed
 -- transport that is real beats a fabricated 4-edge one.
 --
 -- THE ROUTE (BFS-shortest in the landed invertible graph):
 --   1.  FactoryVICoolingKill.CoolingCountermodel
---         ‚î‚ü® Ratri.Nirdharita_Agda-Builtin-Nat_NirdharanaPoneA_NirdharanaPoneA.DETERMINED (‚â) ‚ü©‚í
+--         ‚Äî‚ü® Ratri.Nirdharita_Agda-Builtin-Nat_NirdharanaPoneA_NirdharanaPoneA.DETERMINED (‚âÉ) ‚ü©‚Üí
 --       Ratri.Nirdharita_Agda-Builtin-Nat_NirdharanaPoneA_NirdharanaPoneA.CensusBase
 --       file: formal/cubical/Ratri/Nirdharita_Agda-Builtin-Nat_NirdharanaPoneA_NirdharanaPoneA.agda
 --   2.  Ratri.Nirdharita_Agda-Builtin-Nat_NirdharanaPoneA_NirdharanaPoneA.CensusBase
---         ‚î‚ü® Ratri.Nirdharita_Agda-Builtin-Nat_NirdharanaPoneA_NirdharanaPoneA.censusContract (‚â), crossed backwards by invEquiv ‚ü©‚í
---       Ratri.Nirdharita_Agda-Builtin-Nat_NirdharanaPoneA_NirdharanaPoneA.censusŒ
+--         ‚Äî‚ü® Ratri.Nirdharita_Agda-Builtin-Nat_NirdharanaPoneA_NirdharanaPoneA.censusContract (‚âÉ), crossed backwards by invEquiv ‚ü©‚Üí
+--       Ratri.Nirdharita_Agda-Builtin-Nat_NirdharanaPoneA_NirdharanaPoneA.censusŒ£
 --       file: formal/cubical/Ratri/Nirdharita_Agda-Builtin-Nat_NirdharanaPoneA_NirdharanaPoneA.agda
 --
--- THE TOLL: 2 edge(s).  On this stratum ‚î road one,
+-- THE TOLL: 2 edge(s).  On this stratum ‚Äî road one,
 -- the invertible edges, the zero-locus of the gluing defect
 -- rank(AB) = rank(B) ‚àí dim(im B ‚à© ker A) (CAUSAL_MEMORY_SPACETIME Thm 7.1,
--- Lean: Pairfield/ProcessCutRankAdapter.lean) ‚î every crossing is free and
+-- Lean: Pairfield/ProcessCutRankAdapter.lean) ‚Äî every crossing is free and
 -- the route is canonical within its component.
 --
 -- EDGE SET: Setubandha's extraction restricted to the declarations that
 -- survive Lopa's CONTROL AUDIT (commit ddc71aad, which found raw Setubandha
--- over-counts ~2ó: 167 printed, 88 surviving at commit time).  Road two ‚î
+-- over-counts ~2√ó: 167 printed, 88 surviving at commit time).  Road two ‚Äî
 -- the one-way edges, 1054 at ddc71aad over a largest component of 366
 -- against road one's 10 [figures as committed; both graphs move with the
--- corpus] ‚î is NOT routed here; routing it needs FactorsThrough toll gates
--- and fibre receipts (NaturalMachine/FiniteInformation.agda, Avaccheda_‚¶,
+-- corpus] ‚Äî is NOT routed here; routing it needs FactorsThrough toll gates
+-- and fibre receipts (NaturalMachine/FiniteInformation.agda, Avaccheda_‚Ä¶,
 -- Residue_‚¶), and is the named next piece.
 --
 module Marga1_TheDoubleCountermodelCrossesTwoCausewaysAndTheFarCensusHasTwoDistinctInhabitants where
@@ -69,8 +69,8 @@ open import Agda.Builtin.Nat using (_==_)
 
 -- THE THEOREM AT THE SOURCE NODE.  FactoryVICoolingKill proves the T110
 -- strategy kill BY EXHIBITION, and exhibits it more than once: cm3
--- (X = 10¬≥) and cm6 (X = 10‚) are both countermodels, and they are
--- provably distinct ‚î their X fields differ as naturals, decided by the
+-- (X = 10¬≥) and cm6 (X = 10‚Å∂) are both countermodels, and they are
+-- provably distinct ‚Äî their X fields differ as naturals, decided by the
 -- kernel through _==_.  P is the type-level form of that fact: "this type
 -- has (at least) two provably distinct inhabitants".  It mentions only
 -- the type, so it crosses causeways.

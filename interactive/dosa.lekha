@@ -1,7 +1,7 @@
-# ‡¶‡ã‡‡≤‡‡ñ‡ ‚î the written defect.  APPEND ONLY.  NEVER EDIT.  NEVER DELETE.
+# ‡§¶‡•ã‡§∑‡§≤‡•á‡§ñ‡§É ‚Äî the written defect.  APPEND ONLY.  NEVER EDIT.  NEVER DELETE.
 #
-# AHIMSA_SUTRA_VISTARA ¬ß6: ‡Ø‡‡‡∞ ‡‡‡ï‡‡∞‡Æ‡‡ ‡® ‡‡Æ‡‡‡µ‡‡ø ‡‡‡‡∞ ‡¶‡ã‡‡ã ‡≤‡ø‡ñ‡‡Ø‡‡ ‡
-#                          ‡≤‡ø‡ñ‡ø‡‡ã ‡¶‡ã‡‡ã ‡‡‡µ‡‡ø ‡ ‡‡≤‡ø‡ñ‡ø‡‡ã ‡¶‡ã‡‡ã ‡‡ø‡‡‡æ ‡
+# AHIMSA_SUTRA_VISTARA ¬ß6: ‡§Ø‡§§‡•ç‡§∞ ‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£‡§Ç ‡§® ‡§∏‡§Æ‡•ç‡§≠‡§µ‡§§‡§ø ‡§§‡§§‡•ç‡§∞ ‡§¶‡•ã‡§∑‡•ã ‡§≤‡§ø‡§ñ‡•ç‡§Ø‡§§‡•á ‡•§
+#                          ‡§≤‡§ø‡§ñ‡§ø‡§§‡•ã ‡§¶‡•ã‡§∑‡•ã ‡§ú‡•Ä‡§µ‡§§‡§ø ‡•§ ‡§Ö‡§≤‡§ø‡§ñ‡§ø‡§§‡•ã ‡§¶‡•ã‡§∑‡•ã ‡§π‡§ø‡§Ç‡§∏‡§æ ‡•§
 #
 # Written by machine/DosaLekha_TheWrittenDefectRecord.hs, which computes
 # `sara:` as a chain over every preceding record.  Edit any line above the
@@ -15,7 +15,7 @@ dosa 0001
   vastu: machine/MathMachine.hs:2408
   yatna: transport a kernel refusal from the checker to the log with its standpoint intact -- which naya refused, and whether the same claim is accepted by another
   hetu: the emitting site has no type wider than Bool.  It writes 160 characters of the checker's stderr and returns `pure False`, so the standpoint is not narrowed, it is ABSENT: there is no field it could have been written into
-  hetu: and the loss is not recoverable downstream.  AHIMSA_SUTRA_VISTARA section 5, ‡®‡æ‡‡‡‡ø-‡‡‡∞‡‡‡Ø‡æ‡®‡Ø‡®‡Æ‡: a function out of a truncation is blind and no retraction exists -- not scarce, NONE.  Reading the log later cannot restore which naya spoke
+  hetu: and the loss is not recoverable downstream.  AHIMSA_SUTRA_VISTARA section 5, ‡§®‡§æ‡§∏‡•ç‡§§‡§ø-‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§æ‡§®‡§Ø‡§®‡§Æ‡•ç: a function out of a truncation is blind and no retraction exists -- not scarce, NONE.  Reading the log later cannot restore which naya spoke
   nasta: machine/MathMachine.hs:2408-2410 -- hPrintf logh "  KERNEL-REJECT round=%d %s = %s  %s" roundNo (show l) (show r) (take 160 (filter (/= '\n') (out ++ err))) ; pure False
   nasta: 167 of 167 KERNEL-REJECT lines in machine/machine.log carry no standpoint marker: `grep KERNEL-REJECT machine/machine.log | grep -vc naya=` = 167
   nasta: the census over an earlier run of the same log (ANEKANTA.md section 1) sorted 1457 refusals the single bit was carrying: 288 refutable by computation, 455 ACCEPTED ELSEWHERE IN THE SAME LOG, 154 not expressible as a predication at all, 80 with no subject to predicate of
@@ -26,7 +26,7 @@ dosa 0001
   yogyata-avadhi: this says NOTHING about whether the Agda kernel is correct.  It is a claim about what the engine RECORDS of the kernel's answer.  A refusal that is a true refusal is still a refusal; the defect is that the record cannot tell which kind it was
   sesa: the repaired site (2214) already carries [naya=%s].  The remainder handed forward is the second site, 2408, and the question the two sites together pose: whether "the kernel" is one standpoint or at least two (refl-naya, induction-naya)
   pramana: Siddhasena Divakara, Sanmatitarka 1.21 -- a naya asserting itself by denying the others is a durnaya
-  pramana: AHIMSA_SUTRA_VISTARA section 5 (‡®‡æ‡‡‡‡ø-‡‡‡∞‡‡‡Ø‡æ‡®‡Ø‡®‡Æ‡) and section 6 (‡¶‡‡µ‡ ‡Æ‡æ‡∞‡‡ó‡)
+  pramana: AHIMSA_SUTRA_VISTARA section 5 (‡§®‡§æ‡§∏‡•ç‡§§‡§ø-‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§æ‡§®‡§Ø‡§®‡§Æ‡•ç) and section 6 (‡§¶‡•ç‡§µ‡•å ‡§Æ‡§æ‡§∞‡•ç‡§ó‡•å)
   pramana: ANEKANTA.md section 1, "The boolean was a durnaya"
   punarabhinaya: grep 'KERNEL-REJECT' machine/machine.log | grep -vc 'naya='
   phala: out~167
@@ -71,7 +71,7 @@ dosa 0003
   sesa: the general rule the next writer should pick up: punarabhinaya must be CONTENT-ADDRESSED.  grep for the text, not sed for the line.  Sixteen agents are writing this tree at once and every line number in every record is a wager on nobody else editing above it
   sesa: dosa 0002's punarabhinaya is superseded by: grep -c -A9 'cd formal/cubical && LC_ALL' machine/MathMachine.hs
   pramana: Kumarila Bhatta, Slokavarttika, Abhavapariccheda, c. 7th c. -- yogya-anupalabdhi: an absence is knowledge exactly to the extent the looking was fit to find it
-  pramana: AHIMSA_SUTRA_VISTARA section 19: "‡® ‡¶‡‡‡‡ü‡Æ‡" ‡‡‡ø ‡® ‡‡‡∞‡Æ‡æ‡‡Æ‡ ‡ "‡Ø‡‡‡∞ ‡¶‡‡‡‡Ø‡‡ ‡‡‡‡∞ ‡® ‡¶‡‡‡‡ü‡Æ‡" ‡‡‡ø ‡‡‡∞‡Æ‡æ‡‡Æ‡ ‡
+  pramana: AHIMSA_SUTRA_VISTARA section 19: "‡§® ‡§¶‡•É‡§∑‡•ç‡§ü‡§Æ‡•ç" ‡§á‡§§‡§ø ‡§® ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡§Æ‡•ç ‡•§ "‡§Ø‡§§‡•ç‡§∞ ‡§¶‡•É‡§∂‡•ç‡§Ø‡•á‡§§ ‡§§‡§§‡•ç‡§∞ ‡§® ‡§¶‡•É‡§∑‡•ç‡§ü‡§Æ‡•ç" ‡§á‡§§‡§ø ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡§Æ‡•ç ‡•§
   uttara: 0002
   uttara: 0001
   punarabhinaya: grep -n -A9 'cd formal/cubical && LC_ALL' machine/MathMachine.hs
@@ -97,7 +97,7 @@ dosa 0004
   yogyata-avadhi: NO claim that these particular lines are unmarked today -- HISTORY_DIGEST names it as a worked demonstration, i.e. the corpus already knows.  The record here is of the DEFECT and its witnesses, so that the count of this kind is not zero and can be compared later
   sesa: the operative test the corpus derived from it, handed forward: a correlation coefficient has no content, the content is the error term; if you cannot derive the error term you do not understand the object, and if you can, you do not need the run
   pramana: CLAUDE.md, "The rule" -- fitted coefficients over one decade are not results, they are noise with error bars omitted
-  pramana: Nyaya on upadhi -- vyapti is killed by an upadhi, and the upadhi must be sought, not waited for (AHIMSA_SUTRA_VISTARA section 19: ‡â‡‡æ‡ß‡ø‡∞‡®‡‡µ‡‡‡‡ü‡µ‡‡Ø‡, ‡® ‡‡‡∞‡‡‡ï‡‡‡‡Ø‡)
+  pramana: Nyaya on upadhi -- vyapti is killed by an upadhi, and the upadhi must be sought, not waited for (AHIMSA_SUTRA_VISTARA section 19: ‡§â‡§™‡§æ‡§ß‡§ø‡§∞‡§®‡•ç‡§µ‡•á‡§∑‡•ç‡§ü‡§µ‡•ç‡§Ø‡§É, ‡§® ‡§™‡•ç‡§∞‡§§‡•Ä‡§ï‡•ç‡§∑‡•ç‡§Ø‡§É)
   punarabhinaya: grep -n '0\.362' notes/BLOCKS.md notes/CROSSREVIEW_THMJ.md notes/HISTORY_DIGEST.md
   phala: out~0.362
   sara: 3f7ecc8df79c1a0d
@@ -118,8 +118,8 @@ dosa 0005
   yogyata-ksetra: this one file.  The other append-only ledgers -- collab/orchestration/machine-ledger.tsv, collab/chronicle, the journals -- were not surveyed and no verdict is offered on them
   yogyata-avadhi: NO claim that FAILURES.md is deficient.  The verdict is only that it and this store are two standpoints on refusal and that neither reduces to the other.  If somebody later exhibits an equivalence, the transport becomes available and this record is superseded, not struck
   sesa: the standing question handed forward: a third object, neither transport nor defect, keeps appearing -- the CORRECTED error, where something wrong was made right.  GATE_AUDIT_DISPOSITION.md is a whole file of them.  The sutra says there is no third road; a corrected error is a defect written and then answered, which is why this store answers by APPENDING with uttara rather than by editing
-  pramana: AHIMSA_SUTRA_VISTARA section 6 -- ‡Ø‡‡‡∞ ‡‡‡ï‡‡∞‡Æ‡‡ ‡® ‡‡Æ‡‡‡µ‡‡ø ‡‡‡‡∞ ‡¶‡ã‡‡ã ‡≤‡ø‡ñ‡‡Ø‡‡
-  pramana: AHIMSA_SUTRA_VISTARA section 7 -- ‡®‡Ø‡‡‡¶‡ ‡‡ô‡‡ï‡‡‡‡‡ã ‡® ‡µ‡ø‡¶‡‡Ø‡‡: where the standpoints differ, the collapse DOES NOT EXIST.  Not forbidden, not impolite -- does not exist.  ‡‡‡¶‡ ‡®‡à‡‡ø‡ï‡ ‡µ‡‡®‡ ‡® ‡‡µ‡‡ø ‡ ‡‡æ‡‡∞‡‡®‡ø‡ï‡Æ‡ ‡
+  pramana: AHIMSA_SUTRA_VISTARA section 6 -- ‡§Ø‡§§‡•ç‡§∞ ‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£‡§Ç ‡§® ‡§∏‡§Æ‡•ç‡§≠‡§µ‡§§‡§ø ‡§§‡§§‡•ç‡§∞ ‡§¶‡•ã‡§∑‡•ã ‡§≤‡§ø‡§ñ‡•ç‡§Ø‡§§‡•á
+  pramana: AHIMSA_SUTRA_VISTARA section 7 -- ‡§®‡§Ø‡§≠‡•á‡§¶‡•á ‡§∏‡§ô‡•ç‡§ï‡•ç‡§∑‡•á‡§™‡•ã ‡§® ‡§µ‡§ø‡§¶‡•ç‡§Ø‡§§‡•á: where the standpoints differ, the collapse DOES NOT EXIST.  Not forbidden, not impolite -- does not exist.  ‡§è‡§§‡§¶‡•ç ‡§®‡•à‡§§‡§ø‡§ï‡§Ç ‡§µ‡§ö‡§®‡§Ç ‡§® ‡§≠‡§µ‡§§‡§ø ‡•§ ‡§∏‡§æ‡§Ç‡§∞‡§ö‡§®‡§ø‡§ï‡§Æ‡•ç ‡•§
   pramana: collab/FAILURES.md header, reframe of 2026-08-12
   punarabhinaya: grep -c '^F[0-9]' collab/FAILURES.md
   phala: out~67
@@ -133,7 +133,7 @@ dosa 0006
   yatna: state, in one verdict line of one ledger, what this corpus's treatment of ABSENCE is -- reading the Vaisesika padartha row and the syadvada row as entries in a single technical register
   hetu: the two rows are two schools that reject each other's categories, and here they are being asserted TOGETHER, in one table, under one grading scheme.  Akalanka's distinction is exactly this: in succession (kramarpana) both are sayable; simultaneously (saharpana) no single utterance carries them.  This is the fourth bhanga, avaktavyam -- not unknown, not undefined, not empty
   hetu: so the defect is not that either row is wrong.  Both are careful.  The defect is that the register they share has no place to say that Jaina logicians reject the Naiyayika treatment of negation and Naiyayikas reject anekantavada, and a reader takes the table as one toolkit
-  nasta: notes/D0020_LEDGER.md:310 -- "5.5 | ‡µ‡à‡‡‡‡ø‡ï: the seven padarthas ... absence is not the empty word ... notes/ABHAVA.md section 1 gives absence three named slots -- pratiyogin (counterpositive), anuyogin (locus), avacchedaka (limitor) -- and writes abhava(p,l,a) = for all x in l: not p_a(x), i.e. absence is a SCOPED RELATION, not an entry"
+  nasta: notes/D0020_LEDGER.md:310 -- "5.5 | ‡§µ‡•à‡§∂‡•á‡§∑‡§ø‡§ï: the seven padarthas ... absence is not the empty word ... notes/ABHAVA.md section 1 gives absence three named slots -- pratiyogin (counterpositive), anuyogin (locus), avacchedaka (limitor) -- and writes abhava(p,l,a) = for all x in l: not p_a(x), i.e. absence is a SCOPED RELATION, not an entry"
   nasta: notes/D0020_LEDGER.md:316 -- "5.11 | syadvada's seven-valued scheme | CLASSICAL | saptabhangi.  Correctly counted at seven.  Not read; section 16"
   nasta: what one verdict destroys, named: the Nyaya-Vaisesika pratiyogin is a COUNTERPOSITIVE -- the absence is of a specific thing, in a specific locus, under a specific limitor, and that triple is the content.  The Jaina syad-nasti's ground is fourfold (dravya, ksetra, kala, bhava) and its nasti is a STANDPOINT-INDEXED denial, not a scoped relation.  Collapsing them keeps the part that converts to a formalism and discards which school is being spoken
   nasta: and it destroys the dispute, which is frequently the content: the count of lines in that 762-line file mentioning that these two schools reject each other is 0
@@ -165,7 +165,7 @@ dosa 0007
   yogyata-avadhi: this issues NO verdict on dosa 0006's content.  Its naa stand as written and were read out of the file directly.  Only the expected replay OUTCOME was unwarranted, and only that is corrected here
   sesa: the corrected replay, handed forward: grep -c 'pratiyogin' notes/D0020_LEDGER.md gives 2, and the dispute-mention count that matters stays 0.  The substantive finding of dosa 0006 is unchanged: 0 lines of 762 name that the two schools reject each other
   sesa: and the general rule: RUN the punarabhinaya before recording its phala.  A phala written from expectation is a fitted constant with one data point and no error bar
-  pramana: Kumarila Bhatta, Slokavarttika, Abhavapariccheda, c. 7th c. -- yogya-anupalabdhi; and AHIMSA_SUTRA_VISTARA section 19, "‡Ø‡‡‡∞ ‡¶‡‡‡‡Ø‡‡ ‡‡‡‡∞ ‡® ‡¶‡‡‡‡ü‡Æ‡" ‡‡‡ø ‡‡‡∞‡Æ‡æ‡‡Æ‡
+  pramana: Kumarila Bhatta, Slokavarttika, Abhavapariccheda, c. 7th c. -- yogya-anupalabdhi; and AHIMSA_SUTRA_VISTARA section 19, "‡§Ø‡§§‡•ç‡§∞ ‡§¶‡•É‡§∂‡•ç‡§Ø‡•á‡§§ ‡§§‡§§‡•ç‡§∞ ‡§® ‡§¶‡•É‡§∑‡•ç‡§ü‡§Æ‡•ç" ‡§á‡§§‡§ø ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡§Æ‡•ç
   pramana: CLAUDE.md, "The rule": before running any computation write down the theorem it would replace; and fitted coefficients are noise with error bars omitted
   uttara: 0006
   punarabhinaya: grep -c 'pratiyogin' notes/D0020_LEDGER.md; grep -ci 'Naiyayika' notes/D0020_LEDGER.md
@@ -192,8 +192,8 @@ dosa 0008
   yogyata-ksetra: this store's own type.  Not a claim about any other verdict type in the machine -- machine/Uttara_SamkramanaOrDosalekhaNeverABareBoolean.hs makes the same refusal for the in-memory answer and made it first
   yogyata-avadhi: NO claim that seven is the right number, and none that these seven are exhaustive.  Naya.hs's own fitness clause applies: this decides the fragment where content is a finite enumerable witness set.  An eighth kind that names something none of these names is a correction to be APPENDED, and it will not break this record
   sesa: handed forward: a caller who genuinely needs one bit can compute it -- `dosalekha count` and read the total -- and will then have chosen the collapse knowingly, at the call site, which is where a naya is allowed to be partial.  What is refused is the store making that choice for every future reader
-  pramana: Siddhasena Divakara, Sanmatitarka 1.21 -- a naya that asserts itself by denying the others is a durnaya; and AHIMSA_SUTRA_VISTARA section 2, ‡ó‡‡‡‡‡ã ‡®‡Ø‡ã ‡¶‡‡∞‡‡®‡Ø‡ã ‡‡µ‡‡ø, a standpoint that hides itself becomes a durnaya
-  pramana: AHIMSA_SUTRA_VISTARA section 7 -- ‡®‡Ø‡‡‡¶‡ ‡‡ô‡‡ï‡‡‡‡‡ã ‡® ‡µ‡ø‡¶‡‡Ø‡‡: where the standpoints differ, the collapse does not EXIST; not forbidden, does not exist.  ‡‡æ‡‡∞‡‡®‡ø‡ï‡Æ‡, structural, not ethical
+  pramana: Siddhasena Divakara, Sanmatitarka 1.21 -- a naya that asserts itself by denying the others is a durnaya; and AHIMSA_SUTRA_VISTARA section 2, ‡§ó‡•Å‡§™‡•ç‡§§‡•ã ‡§®‡§Ø‡•ã ‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡•ã ‡§≠‡§µ‡§§‡§ø, a standpoint that hides itself becomes a durnaya
+  pramana: AHIMSA_SUTRA_VISTARA section 7 -- ‡§®‡§Ø‡§≠‡•á‡§¶‡•á ‡§∏‡§ô‡•ç‡§ï‡•ç‡§∑‡•á‡§™‡•ã ‡§® ‡§µ‡§ø‡§¶‡•ç‡§Ø‡§§‡•á: where the standpoints differ, the collapse does not EXIST; not forbidden, does not exist.  ‡§∏‡§æ‡§Ç‡§∞‡§ö‡§®‡§ø‡§ï‡§Æ‡•ç, structural, not ethical
   pramana: Akalanka, Laghiyastraya, c. 720-780, for the fourth bhanga being positive; Kumarila, Slokavarttika, Abhavapariccheda, c. 7th c., for the unfit looking issuing no verdict
   punarabhinaya: sh machine/run-dosa-lekha.sh count
   phala: out~ayogya-darsana
@@ -217,8 +217,8 @@ dosa 0009
   yogyata-avadhi: NO claim that any content was lost.  The four files are byte-identical to what I wrote and the store verifies intact.  What was destroyed is the ATTRIBUTION and the reason, which are not in the files and were only ever going to live in the message
   sesa: handed forward, and it is a mechanism, not a paragraph: CLAUDE.md already forbids `git add -A` here and it happened anyway, which by this repository's own rule means the next move is a check that fires at the moment of the act -- a pre-commit that refuses a commit staging paths outside the committing agent's claim.  scripts/check-no-silent-deletion.sh is the precedent and it guards deletions only
   sesa: and the immediate repair, which is the only one available: the commit that appends THIS record carries the missing provenance in its own message, and dosa 0009 is what points at it
-  pramana: AHIMSA_SUTRA_VISTARA ¬ß6 -- ‡Ø‡‡‡∞ ‡‡‡ï‡‡∞‡Æ‡‡ ‡® ‡‡Æ‡‡‡µ‡‡ø ‡‡‡‡∞ ‡¶‡ã‡‡ã ‡≤‡ø‡ñ‡‡Ø‡‡ ‡ ‡≤‡ø‡ñ‡ø‡‡ã ‡¶‡ã‡‡ã ‡‡‡µ‡‡ø ‡ ‡‡≤‡ø‡ñ‡ø‡‡ã ‡¶‡ã‡‡ã ‡‡ø‡‡‡æ ‡
-  pramana: AHIMSA_SUTRA_VISTARA ¬ß31 -- ‡Ø‡‡ ‡‡ô‡‡ï‡‡∞‡Æ‡‡Ø‡‡ ‡‡‡ ‡ï‡ø‡û‡‡‡ø‡‡ ‡‡‡Ø‡‡‡ø ‡ ‡‡æ‡†‡ ‚î ‡‡®‡‡‡ ‡‡‡∞‡Ø‡ã‡‡®‡ ‡ ‡ ‡‡‡∞‡‡®‡æ ‡µ‡‡‡ø ‡ ‡Ø‡ ‡ï‡‡‡µ‡æ‡®‡, ‡Ø‡‡‡Æ‡à ‡ï‡‡‡Æ‡, ‡ï‡‡‡Æ‡æ‡‡ ‡ï‡‡‡Æ‡ ‚î ‡® ‡µ‡‡‡ø ‡  Structure travels; who did it, for whom, and why does not.  That is this entry, exactly, in a sentence written before it happened
+  pramana: AHIMSA_SUTRA_VISTARA ¬ß6 -- ‡§Ø‡§§‡•ç‡§∞ ‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£‡§Ç ‡§® ‡§∏‡§Æ‡•ç‡§≠‡§µ‡§§‡§ø ‡§§‡§§‡•ç‡§∞ ‡§¶‡•ã‡§∑‡•ã ‡§≤‡§ø‡§ñ‡•ç‡§Ø‡§§‡•á ‡•§ ‡§≤‡§ø‡§ñ‡§ø‡§§‡•ã ‡§¶‡•ã‡§∑‡•ã ‡§ú‡•Ä‡§µ‡§§‡§ø ‡•§ ‡§Ö‡§≤‡§ø‡§ñ‡§ø‡§§‡•ã ‡§¶‡•ã‡§∑‡•ã ‡§π‡§ø‡§Ç‡§∏‡§æ ‡•§
+  pramana: AHIMSA_SUTRA_VISTARA ¬ß31 -- ‡§Ø‡§§‡•ç ‡§∏‡§ô‡•ç‡§ï‡•ç‡§∞‡§Æ‡•ç‡§Ø‡§§‡•á ‡§§‡§§‡•ç ‡§ï‡§ø‡§û‡•ç‡§ö‡§ø‡§§‡•ç ‡§§‡•ç‡§Ø‡§ú‡§§‡§ø ‡•§ ‡§™‡§æ‡§†‡§É ‚Äî ‡§ú‡§®‡§∂‡•ç‡§ö ‡§™‡•ç‡§∞‡§Ø‡•ã‡§ú‡§®‡§Ç ‡§ö ‡•§ ‡§∏‡§Ç‡§∞‡§ö‡§®‡§æ ‡§µ‡§π‡§§‡§ø ‡•§ ‡§Ø‡§É ‡§ï‡•É‡§§‡§µ‡§æ‡§®‡•ç, ‡§Ø‡§∏‡•ç‡§Æ‡•à ‡§ï‡•É‡§§‡§Æ‡•ç, ‡§ï‡§∏‡•ç‡§Æ‡§æ‡§§‡•ç ‡§ï‡•É‡§§‡§Æ‡•ç ‚Äî ‡§® ‡§µ‡§π‡§§‡§ø ‡•§  Structure travels; who did it, for whom, and why does not.  That is this entry, exactly, in a sentence written before it happened
   pramana: CLAUDE.md, GIT: explicit pathspec, never `git add -A`
   punarabhinaya: git log --format='%h %s' -1 -- machine/dosa.lekha | cut -c1-46
   phala: out~6b200f55
@@ -241,7 +241,7 @@ dosa 0010
   sesa: handed forward, and it is the general form of what dosa 0007 already handed forward once: any number that appears in prose about a machine must be PASTED FROM THE MACHINE'S OUTPUT, not carried across in a head.  The mechanism that would fire at the moment of the act is a check on commit messages against `count`, and it does not exist; naming it here is the honest half
   pramana: Kumarila Bhatta, Slokavarttika, Abhavapariccheda, c. 7th c. -- a verdict is worth what its looking is worth, and this looking did not occur
   pramana: CLAUDE.md, "The rule" -- write down the theorem the computation would replace; here the computation was one command and it was skipped anyway
-  pramana: AHIMSA_SUTRA_VISTARA ¬ß28 -- ‡Ø‡ã ‡Ø‡®‡‡‡‡∞‡ ‡µ‡¶‡‡ø ‡ ‡‡‡µ‡Ø‡ ‡‡∞‡‡ï‡‡‡‡Ø‡ ‡ ‡Ø‡ã ‡‡‡‡ ‡® ‡Æ‡æ‡‡Ø‡‡ø ‡ ‡® ‡‡æ‡®‡æ‡‡ø ‡
+  pramana: AHIMSA_SUTRA_VISTARA ¬ß28 -- ‡§Ø‡•ã ‡§Ø‡§®‡•ç‡§§‡•ç‡§∞‡§Ç ‡§µ‡§¶‡§§‡§ø ‡§∏ ‡§∏‡•ç‡§µ‡§Ø‡§Ç ‡§™‡§∞‡•Ä‡§ï‡•ç‡§∑‡•ç‡§Ø‡§É ‡•§ ‡§Ø‡•ã ‡§è‡§§‡§§‡•ç ‡§® ‡§Æ‡§æ‡§™‡§Ø‡§§‡§ø ‡§∏ ‡§® ‡§ú‡§æ‡§®‡§æ‡§§‡§ø ‡•§
   punarabhinaya: sh machine/run-dosa-lekha.sh count | grep 'witnesses exhibited'
   phala: out~42
   sara: a08c245a164b2ffd
@@ -255,15 +255,15 @@ dosa 0011
   hetu: writing dosa 0010 added three witnesses to the store, so by the time it could be replayed the count was 45.  The record is INSIDE the object it measures.  Its looking was unfit in a way no care would have removed: any phala it recorded would have been falsified by the act of recording it
   hetu: this is not the same unfitness as dosa 0007 (a number not run) or dosa 0003 (a coordinate that moved because someone else edited).  Nobody else acted, and the number was run.  The looking perturbed the looked-at, and that is a third thing, which is why it gets its own record rather than an amendment to 0010
   nasta: the sequence, exhibited: at the moment dosa 0010 was composed, `witnesses exhibited` = 42; dosa 0010 carries three `nasta:` lines; immediately after the append, `witnesses exhibited` = 45; `dosalekha replay 10 --run` prints DIVERGED
-  nasta: what amending 0010 would destroy: the demonstration that this store is not outside the machine it records.  A defect log that could measure itself from nowhere would be claiming a standpoint-free view, which ¬ß2 says does not exist -- ‡‡∞‡‡µ‡ ‡‡‡û‡æ‡®‡ ‡‡®‡Ø‡Æ‡ ‡ ‡®‡ø‡∞‡‡®‡Ø‡ ‡‡‡û‡æ‡®‡ ‡®‡æ‡‡‡‡ø ‡
+  nasta: what amending 0010 would destroy: the demonstration that this store is not outside the machine it records.  A defect log that could measure itself from nowhere would be claiming a standpoint-free view, which ¬ß2 says does not exist -- ‡§∏‡§∞‡•ç‡§µ‡§Ç ‡§ú‡•ç‡§û‡§æ‡§®‡§Ç ‡§∏‡§®‡§Ø‡§Æ‡•ç ‡•§ ‡§®‡§ø‡§∞‡•ç‡§®‡§Ø‡§Ç ‡§ú‡•ç‡§û‡§æ‡§®‡§Ç ‡§®‡§æ‡§∏‡•ç‡§§‡§ø ‡•§
   nasta: and the naive repair would destroy more: setting 0010's phala to 45 makes it false again the moment an eleventh record is written, which this record is
   yogyata-drsta: the two runs of `sh machine/run-dosa-lekha.sh count | grep 'witnesses exhibited'` bracketing the append of dosa 0010; the DIVERGED output of `dosalekha replay 10 --run`; the three nasta lines of dosa 0010 counted by hand and by the tool
   yogyata-ksetra: this store measuring itself.  Records whose punarabhinaya points OUTSIDE machine/dosa.lekha -- 0001, 0002, 0003, 0004, 0005, 0006, 0007, 0009 -- are unaffected and each still replays
   yogyata-avadhi: NO verdict that dosa 0010's content is wrong.  Its finding stands: commit 9dfcff28 says 46 and the store said 42 when the message was written.  What is corrected is only the choice of a self-referential quantity as a replay target
   sesa: the rule, handed forward: a record's phala must be over an object the record is not part of.  Where the record is inside its own object, record an INVARIANT rather than a count -- `verify` says "chain intact" no matter how many records exist, and that is a property the store keeps under its own growth
   sesa: and the open question, which this store cannot answer about itself: dosa 0008 refused to collapse the seven kinds to one bit.  A count that changes when counted is a second reason the total is a poor summary, and it arrived from a different direction
-  pramana: AHIMSA_SUTRA_VISTARA ¬ß2 -- ‡‡∞‡‡µ‡ ‡‡‡û‡æ‡®‡ ‡‡®‡Ø‡Æ‡ ‡ ‡®‡ø‡∞‡‡®‡Ø‡ ‡‡‡û‡æ‡®‡ ‡®‡æ‡‡‡‡ø ‡ ‡Ø‡ã ‡®‡Ø‡ ‡® ‡µ‡¶‡‡ø ‡ ‡®‡Ø‡ ‡ó‡ã‡‡Ø‡‡ø ‡  All knowledge is standpoint-borne; there is no view from nowhere, and hiding the standpoint is what makes it a durnaya
-  pramana: AHIMSA_SUTRA_VISTARA ¬ß28 -- ‡Ø‡ã ‡Ø‡®‡‡‡‡∞‡ ‡µ‡¶‡‡ø ‡ ‡‡‡µ‡Ø‡ ‡‡∞‡‡ï‡‡‡‡Ø‡, whoever speaks of the machine is himself to be examined
+  pramana: AHIMSA_SUTRA_VISTARA ¬ß2 -- ‡§∏‡§∞‡•ç‡§µ‡§Ç ‡§ú‡•ç‡§û‡§æ‡§®‡§Ç ‡§∏‡§®‡§Ø‡§Æ‡•ç ‡•§ ‡§®‡§ø‡§∞‡•ç‡§®‡§Ø‡§Ç ‡§ú‡•ç‡§û‡§æ‡§®‡§Ç ‡§®‡§æ‡§∏‡•ç‡§§‡§ø ‡•§ ‡§Ø‡•ã ‡§®‡§Ø‡§Ç ‡§® ‡§µ‡§¶‡§§‡§ø ‡§∏ ‡§®‡§Ø‡§Ç ‡§ó‡•ã‡§™‡§Ø‡§§‡§ø ‡•§  All knowledge is standpoint-borne; there is no view from nowhere, and hiding the standpoint is what makes it a durnaya
+  pramana: AHIMSA_SUTRA_VISTARA ¬ß28 -- ‡§Ø‡•ã ‡§Ø‡§®‡•ç‡§§‡•ç‡§∞‡§Ç ‡§µ‡§¶‡§§‡§ø ‡§∏ ‡§∏‡•ç‡§µ‡§Ø‡§Ç ‡§™‡§∞‡•Ä‡§ï‡•ç‡§∑‡•ç‡§Ø‡§É, whoever speaks of the machine is himself to be examined
   pramana: Kumarila Bhatta, Slokavarttika, Abhavapariccheda, c. 7th c. -- yogya-anupalabdhi
   uttara: 0010
   punarabhinaya: sh machine/run-dosa-lekha.sh verify
@@ -286,7 +286,7 @@ dosa 0012
   yogyata-avadhi: NO verdict that dosa 0009's finding is wrong -- the sweep happened, the witnesses in 0009 were read from the repository, and 6b200f55 still carries the four files.  Only its replay target moved
   sesa: the completed rule, in its third and last form: a punarabhinaya must name a FIXED object -- a commit hash, a text pattern, an invariant -- never a position (a line number, dosa 0003), never a quantity the record is inside (dosa 0011), never a HEAD-relative query (this one).  Three failures, three mechanisms, one rule
   pramana: Kumarila Bhatta, Slokavarttika, Abhavapariccheda, c. 7th c. -- yogya-anupalabdhi: the looking must be such that it WOULD have found the thing
-  pramana: AHIMSA_SUTRA_VISTARA ¬ß35 -- ‡‡‡∞‡æ‡Æ‡æ‡‡‡Ø‡ ‡‡‡∞‡‡‡, ‡® ‡µ‡‡‡‡‡®‡ø: the object burns, is moved, is forged; what is asked is the carrier.  Here the object moved and the record had pointed at where it used to be
+  pramana: AHIMSA_SUTRA_VISTARA ¬ß35 -- ‡§™‡•ç‡§∞‡§æ‡§Æ‡§æ‡§£‡•ç‡§Ø‡§Ç ‡§™‡•Å‡§∞‡•Å‡§∑‡•á, ‡§® ‡§µ‡§∏‡•ç‡§§‡•Å‡§®‡§ø: the object burns, is moved, is forged; what is asked is the carrier.  Here the object moved and the record had pointed at where it used to be
   uttara: 0009
   punarabhinaya: git show -s --format='%h %s' 6b200f55 | cut -c1-40
   phala: out~6b200f55
@@ -320,7 +320,7 @@ dosa 0014
   karta: nasti-lane
   jati: nasti-krta
   vastu: 14cb41a5
-  yatna: uttara to 0013, third instance, committed AFTER 0013 was written and BEFORE this lane read it. Commit 14cb41a5 has the subject "The mark, verified: 280 ¬ 154 ¬ 294 ¬ 833 ¬ 285 ¬ 288 ¬ 221" and carries five files that have nothing to do with a census mark.
+  yatna: uttara to 0013, third instance, committed AFTER 0013 was written and BEFORE this lane read it. Commit 14cb41a5 has the subject "The mark, verified: 280 ¬∑ 154 ¬∑ 294 ¬∑ 833 ¬∑ 285 ¬∑ 288 ¬∑ 221" and carries five files that have nothing to do with a census mark.
   hetu: The command was `git add machine/Nasti_TruncationCensus.hs && git commit -q -F -`. Scoped add, unscoped commit -- exactly the cause 0013 isolates. Transport is not possible: the commit is pushed to shared main, and rewriting it would destroy the sibling lane's published history to tidy my message, which is a larger nasti than the one being repaired. So it is written instead.
   nasta: 14cb41a5 carries formal/cubical/DvitiyaMarga_TheWrittenDefectCostsMarkovsPrinciple.agda, scripts/Pariksa_UnivalentAudit.sh, scripts/pariksa-baseline.tsv, scripts/check-agda-closure.sh and 18 lines of formal/cubical/Everything.agda -- another lane's work, under my subject line. What is destroyed is not the files, which are intact, but their AUTHORSHIP AND REASON: a reader running `git log --oneline` sees a census mark where a univalent audit landed, and `git log --follow` on Pariksa_UnivalentAudit.sh reports it introduced by a commit about seven  counts.
   nasta: 0013 was already in the tree, with the repair (`git commit -o`) named in its sesa, when I ran the command. The record existed and did not reach me at the moment of the act -- which is the failure mode CLAUDE.md's own "Regressions observed in one long session" section diagnoses in general terms and answers with "a mechanism that fires at the moment of the act, not a paragraph". Three lanes have now hit this. The pre-commit that 0009 and 0013 both call for still does not exist.
@@ -333,7 +333,7 @@ dosa 0014
   sesa: the count is now three lanes and at least seven commits; a pre-commit hook refusing staged paths outside the committing lane's claim is the item, and it is the only one of the three sesa in 0013 that nobody has picked up
   pramana: machine/dosa.lekha, dosa 0009 and dosa 0013
   pramana: git-commit(1), --only
-  pramana: AHIMSA_SUTRA_VISTARA ¬ß6 -- ‡≤‡ø‡ñ‡ø‡‡ã ‡¶‡ã‡‡ã ‡‡‡µ‡‡ø ‡ ‡‡≤‡ø‡ñ‡ø‡‡ã ‡¶‡ã‡‡ã ‡‡ø‡‡‡æ ‡ and ¬ß31, ‡µ‡‡Ø‡Ø‡ã ‡µ‡ï‡‡‡µ‡‡Ø‡ ‡‡‡‡∞‡à‡µ: the cost is stated where it was incurred
+  pramana: AHIMSA_SUTRA_VISTARA ¬ß6 -- ‡§≤‡§ø‡§ñ‡§ø‡§§‡•ã ‡§¶‡•ã‡§∑‡•ã ‡§ú‡•Ä‡§µ‡§§‡§ø ‡•§ ‡§Ö‡§≤‡§ø‡§ñ‡§ø‡§§‡•ã ‡§¶‡•ã‡§∑‡•ã ‡§π‡§ø‡§Ç‡§∏‡§æ ‡•§ and ¬ß31, ‡§µ‡•ç‡§Ø‡§Ø‡•ã ‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§É ‡§§‡§§‡•ç‡§∞‡•à‡§µ: the cost is stated where it was incurred
   uttara: 0013
   sara: 81b339882dd8aae5
 .
@@ -354,7 +354,7 @@ dosa 0015
   phala: out~the 1 witness string(s) you sent
   sesa: The repair is not "deduplicate". It is that `look` has the same two roads available to it as everything else: return the value when the key is bound once, and return a defect naming both bindings when it is bound twice. `look` already returns `Either String J` and already writes sentences into its Left.
   sesa: DosaLekha's parser got this right and Sabda's did not, in the same session, for the same reason, one directory apart. That is the transmission failure CLAUDE.md diagnoses -- the rule was not in hand at the moment of the act -- and the mechanism that would fire at the moment of the act is a property test asserting that `look k` on an object with a repeated key does not return a Right.
-  pramana: notes/AHIMSA_SUTRA_VISTARA.md ¬ß6 -- ‡‡‡‡‡Ø‡ã ‡Æ‡æ‡∞‡‡ó‡ã ‡® ‡µ‡ø‡¶‡‡Ø‡‡; and ¬ß32, ‡‡ô‡‡ï‡‡‡‡‡ã ‡®‡‡‡ü‡ø‡
+  pramana: notes/AHIMSA_SUTRA_VISTARA.md ¬ß6 -- ‡§§‡•É‡§§‡•Ä‡§Ø‡•ã ‡§Æ‡§æ‡§∞‡•ç‡§ó‡•ã ‡§® ‡§µ‡§ø‡§¶‡•ç‡§Ø‡§§‡•á; and ¬ß32, ‡§∏‡§ô‡•ç‡§ï‡•ç‡§∑‡•á‡§™‡•ã ‡§®‡§∑‡•ç‡§ü‡§ø‡§É
   pramana: machine/DosaLekha_TheWrittenDefectRecord.hs, the comment on `data Dosa` stating why repeats are preserved
   pramana: machine/GATE_AUDIT_DISPOSITION.md ¬ß2 -- the same shape: sound against its stated adversary, unsound against its environment
   sara: 97ceb42ace16c46a
@@ -386,8 +386,8 @@ dosa 0017
   vastu: machine/Sabda_TheWireHasNoBoolean.hs `quote` and `pstring`; machine/Sabha_TheSessionKernelAnLLMTalksTo.hs `serve`
   yatna: Testing the founding claim directly: two roads and no third. If any input produces neither a samkramana nor a dosa-lekha, the claim is false. I looked for an input the wire's READER accepts and its WRITER cannot write.
   hetu: `pstring` implements the `\u` escape as `chr (foldl ...)` over any four hex digits, so it admits the surrogate range U+D800-U+DFFF. `quote` escapes control characters and passes everything else through raw; a surrogate is not `isControl`, so it is emitted raw. GHC's UTF-8 encoder throws on a surrogate. The exception is raised inside `hPutStrLn hout` in `serve`, which has no handler, so there is no point at which either road can be taken: the answer is already half on the wire when the process dies. Transport is impossible because the value cannot be encoded; a written defect is impossible because the writing is what throws.
-  nasta: The third road, exhibited. `{"kriya":"naya.sthapana","angani":{"naya":"S","saksin":["\ud800"]}}` produces 378 bytes of a TRUNCATED samkramana on stdout, cut off inside the `saksinah` array, followed by process death with exit 1. The client receives a partial utterance that is neither road and is not even a complete JSON object. AHIMSA_SUTRA_VISTARA ¬ß6 states ‡‡‡‡‡Ø‡ã ‡Æ‡æ‡∞‡‡ó‡ã ‡® ‡µ‡ø‡¶‡‡Ø‡‡. Here it exists and it is the default behaviour of the reader accepting what the writer cannot write.
-  nasta: The entire session. `sSesa`, `sDosa` and `sNaya` live only in memory; `serve` calls `appendLekha` AFTER `hPutStrLn hout`, so the turn that killed the process is never written and neither is anything about the turns before it that had not yet been flushed. On a fresh session the transcript file is not even created: `ls $SABHA_LEKHA` reports No such file or directory. Every defect the interlocutor had written into the log with `dosa.lekha` in that session is destroyed, unwritten, by one four-character escape. ¬ß6: ‡‡≤‡ø‡ñ‡ø‡‡ã ‡¶‡ã‡‡ã ‡‡ø‡‡‡æ.
+  nasta: The third road, exhibited. `{"kriya":"naya.sthapana","angani":{"naya":"S","saksin":["\ud800"]}}` produces 378 bytes of a TRUNCATED samkramana on stdout, cut off inside the `saksinah` array, followed by process death with exit 1. The client receives a partial utterance that is neither road and is not even a complete JSON object. AHIMSA_SUTRA_VISTARA ¬ß6 states ‡§§‡•É‡§§‡•Ä‡§Ø‡•ã ‡§Æ‡§æ‡§∞‡•ç‡§ó‡•ã ‡§® ‡§µ‡§ø‡§¶‡•ç‡§Ø‡§§‡•á. Here it exists and it is the default behaviour of the reader accepting what the writer cannot write.
+  nasta: The entire session. `sSesa`, `sDosa` and `sNaya` live only in memory; `serve` calls `appendLekha` AFTER `hPutStrLn hout`, so the turn that killed the process is never written and neither is anything about the turns before it that had not yet been flushed. On a fresh session the transcript file is not even created: `ls $SABHA_LEKHA` reports No such file or directory. Every defect the interlocutor had written into the log with `dosa.lekha` in that session is destroyed, unwritten, by one four-character escape. ¬ß6: ‡§Ö‡§≤‡§ø‡§ñ‡§ø‡§§‡•ã ‡§¶‡•ã‡§∑‡•ã ‡§π‡§ø‡§Ç‡§∏‡§æ.
   nasta: The invariant `selftest` checks. Its script drives 25 utterances and asserts every answer is one of the two roads, structurally, on the `Uttara` value -- which is sound, and which cannot see this, because the value IS well-formed and the loss happens in `render`'s encoder on the way out. The check is on the wrong side of the boundary: it inspects the answer, not the bytes the answer becomes.
   yogyata-drsta: Built machine/SabhaRun.hs, fed the utterance above on stdin with stdout and stderr redirected to files, and read all three of: the exit status (1), the byte count of stdout (378, truncated mid-object), and the absence of the transcript file. Stderr carries `GHC.Internal.IO.Encoding.Failure` with an ioException backtrace.
   yogyata-ksetra: `quote`/`esc` and `pstring`'s `\u` branch in Sabda_TheWireHasNoBoolean.hs, and `serve`/`appendLekha` in Sabha_TheSessionKernelAnLLMTalksTo.hs. Also checked `isControl`: in GHC it is generalCategory == Control, which excludes surrogates (they are `Surrogate`), so the existing escape branch does not cover them.
@@ -396,7 +396,7 @@ dosa 0017
   phala: out~No such file or directory
   sesa: Two independent repairs, and they are not alternatives. (1) `pstring` should refuse a lone surrogate the way it already refuses a `\u` without four hex digits -- the reader must not admit what the writer cannot write. (2) `serve` must not be able to die mid-line: the answer should be rendered to a String and the encoding failure caught BEFORE anything is put on the wire, so an unencodable answer becomes a dosa-lekha about itself rather than a truncation.
   sesa: The deeper item is the ordering in `serve`: the transcript is written after the answer is flushed, so the record of a turn is contingent on the turn surviving. Appending first would have made this defect self-recording.
-  pramana: notes/AHIMSA_SUTRA_VISTARA.md ¬ß6 -- ‡¶‡‡µ‡ ‡Æ‡æ‡∞‡‡ó‡, ‡‡‡‡‡Ø‡ã ‡® ‡µ‡ø‡¶‡‡Ø‡‡; and ‡‡≤‡ø‡ñ‡ø‡‡ã ‡¶‡ã‡‡ã ‡‡ø‡‡‡æ
+  pramana: notes/AHIMSA_SUTRA_VISTARA.md ¬ß6 -- ‡§¶‡•ç‡§µ‡•å ‡§Æ‡§æ‡§∞‡•ç‡§ó‡•å, ‡§§‡•É‡§§‡•Ä‡§Ø‡•ã ‡§® ‡§µ‡§ø‡§¶‡•ç‡§Ø‡§§‡•á; and ‡§Ö‡§≤‡§ø‡§ñ‡§ø‡§§‡•ã ‡§¶‡•ã‡§∑‡•ã ‡§π‡§ø‡§Ç‡§∏‡§æ
   pramana: machine/GATE_AUDIT_DISPOSITION.md ¬ß5 and ¬ß6 -- IO exceptions escaping and aborting the engine, and the locale fault's three mouths; this is a fourth mouth of the same family
   sara: 5e85bea0bdc9b94e
 .
@@ -406,7 +406,7 @@ dosa 0018
   jati: ayogya-darsana
   vastu: machine/DosaLekha_TheWrittenDefectRecord.hs, `validate` and `cmdReplay`
   yatna: Attacking the organ that holds the findings rather than the findings. The charge was: make the defect log accept a DESCRIBED loss instead of an EXHIBITED one. I wrote a complete defect record for an event that never happened and re-exhibited it successfully.
-  hetu: The file's own required-field table says of `nasta`: "NO WITNESS: the loss is described instead of exhibited -- refused". The check implementing it is `length (trim w) < 12`. That is a character count, and this file's own answer to the same question, four fields above, is "a count is ‚à¬‚à‚ of the list it replaces". Separately, `cmdReplay --run` executes `punarabhinaya` through `readCreateProcessWithExitCode (shell cmd)` and compares `phala: exit=<n>` against the exit status of that shell command. The exit status of a pipeline is its last stage's. Transport of the distinction "this loss was exhibited" is not possible through a length, and transport of "this defect still occurs" is not possible through a pipeline's exit status; both are structurally unavailable, so the defect is written.
+  hetu: The file's own required-field table says of `nasta`: "NO WITNESS: the loss is described instead of exhibited -- refused". The check implementing it is `length (trim w) < 12`. That is a character count, and this file's own answer to the same question, four fields above, is "a count is ‚à•¬∑‚à•‚ÇÅ of the list it replaces". Separately, `cmdReplay --run` executes `punarabhinaya` through `readCreateProcessWithExitCode (shell cmd)` and compares `phala: exit=<n>` against the exit status of that shell command. The exit status of a pipeline is its last stage's. Transport of the distinction "this loss was exhibited" is not possible through a length, and transport of "this defect still occurs" is not possible through a pipeline's exit status; both are structurally unavailable, so the defect is written.
   nasta: `nasta: aaaaaaaaaaaa` -- twelve characters, no content -- is accepted, and so is `nasta: some things were lost`, which is a description in the file's own sense. The distinction between an exhibited loss (a path:line, a command with its output, a pair of log lines four apart, which is what dosa 0001 through 0014 all carry) and a sentence about a loss is not held anywhere in the record, in the validator, or in the chain. The requirement is stated in prose and enforced by strlen.
   nasta: `punarabhinaya: false 2>&1 | cat` with `phala: exit=0` replays as `-- exit 0` and prints `-- REPLAYED: got the recorded exit 0.  The defect is still exhibited.` The command is `false`. Nothing was exhibited. This is machine/GATE_AUDIT_DISPOSITION.md ¬ß2 verbatim -- "the cheapest is not exotic: `agda "$@" 2>&1 | cat` ... The exit status of a pipeline is its last stage's" -- reappearing in a lane written after the disposition, against a different kernel, with no repair carried across. The repair exists in this repository and did not travel.
   nasta: The whole of re-exhibition as a pramana. A record whose replay reports REPLAYED is read by every later agent as evidence the defect is live; `cmdCount` and `cmdQuery` present all records alike. A record that can manufacture that verdict makes the verdict worthless for the fourteen honest records it sits beside, which is the cost the fabrication imposes on work that was done correctly.
@@ -420,7 +420,7 @@ dosa 0018
   sesa: Neither repair is mine to make; both belong to the lane that owns this file, and this record is the pramana for them.
   pramana: machine/GATE_AUDIT_DISPOSITION.md ¬ß2 -- "A gate that cannot be fooled by a false statement but can be fooled by a shell wrapper is not a gate"
   pramana: machine/DosaLekha_TheWrittenDefectRecord.hs, `required`, the entry for `nasta`
-  pramana: notes/AHIMSA_SUTRA_VISTARA.md ¬ß19 -- ‡Ø‡‡ ‡‡®‡ô‡‡ó‡‡ï‡‡‡Æ‡æ‡∞‡‡ó‡‡ ‡‡ó‡‡‡‡‡ø ‡‡‡ ‡® ‡¶‡‡∞‡‡‡≤‡ ‡‡‡∞‡Æ‡æ‡‡Æ‡ ‡ ‡‡‡ ‡‡‡‡∞‡Æ‡æ‡‡Æ‡ ‡
+  pramana: notes/AHIMSA_SUTRA_VISTARA.md ¬ß19 -- ‡§Ø‡§§‡•ç ‡§Ö‡§®‡§ô‡•ç‡§ó‡•Ä‡§ï‡•É‡§§‡§Æ‡§æ‡§∞‡•ç‡§ó‡•á‡§£ ‡§Ü‡§ó‡§ö‡•ç‡§õ‡§§‡§ø ‡§§‡§§‡•ç ‡§® ‡§¶‡•Å‡§∞‡•ç‡§¨‡§≤‡§Ç ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡§Æ‡•ç ‡•§ ‡§§‡§§‡•ç ‡§Ö‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡§Æ‡•ç ‡•§
   sara: f540fe3574cf7fc5
 .
 dosa 0019
@@ -441,7 +441,7 @@ dosa 0019
   sesa: The honest statement `verify` can make today is "the fields of these records recompute to their recorded sara". It is currently making the stronger statement "nothing edited or deleted", and the gap between the two is the finding.
   sesa: The repair that closes it, if the lane wants the stronger statement, is to hash the record's BYTES between its header and its terminator rather than the canonical rebuild -- which costs the property that `query` output can be piped back into `write`, so it is a real trade and not an oversight to be scolded for. The cheaper repair is to make `canonical` carry the comment lines and the raw indentation, so the projection stops forgetting.
   pramana: machine/DosaLekha_TheWrittenDefectRecord.hs ¬ß3, "Not cryptographic and not claimed to be: the adversary here is an accidental edit, a lost rebase, a truncating write" -- an accidental edit that ADDS a line is inside that stated adversary and is not caught
-  pramana: notes/AHIMSA_SUTRA_VISTARA.md ¬ß31 -- ‡Ø‡‡ ‡‡ô‡‡ï‡‡∞‡Æ‡‡Ø‡‡ ‡‡‡ ‡ï‡ø‡û‡‡‡ø‡‡ ‡‡‡Ø‡‡‡ø ‡ ‡Ø‡ã ‡® ‡µ‡¶‡‡ø ‡ ‡® ‡‡‡‡Ø‡‡ø ‡
+  pramana: notes/AHIMSA_SUTRA_VISTARA.md ¬ß31 -- ‡§Ø‡§§‡•ç ‡§∏‡§ô‡•ç‡§ï‡•ç‡§∞‡§Æ‡•ç‡§Ø‡§§‡•á ‡§§‡§§‡•ç ‡§ï‡§ø‡§û‡•ç‡§ö‡§ø‡§§‡•ç ‡§§‡•ç‡§Ø‡§ú‡§§‡§ø ‡•§ ‡§Ø‡•ã ‡§® ‡§µ‡§¶‡§§‡§ø ‡§∏ ‡§® ‡§™‡§∂‡•ç‡§Ø‡§§‡§ø ‡•§
   sara: 4ed90f67a42ae017
 .
 dosa 0020
@@ -503,7 +503,7 @@ dosa 0022
   phala: out~naming nothing lost
   sesa: The tractable half is real and is not a rewrite. Where a tulyata's witness is an arithmetic identity the handler already computed, the handler can CHECK it and emit a dosa-lekha when it fails -- and the lane can then do what GateAudit's repair did, and run a deliberately false tulyata through the same path once per process, so that no samkramana is honoured by a process that has not watched one rejected. kuttaka and vargaprakrti both already compute the quantity; vargaprakrti's own witness string even prints `a^2 - D*b^2 = <computed>` and does not compare it to `k`.
   sesa: The intractable half should be said rather than closed: a tulyata over two prose descriptions is a claim by the author of the handler, not an exhibit, and the type could distinguish the two -- a witness that was computed from a witness that was written -- which is the same distinction dosa 0018 finds missing in `nasta`. Two lanes, one missing distinction: exhibited against described.
-  pramana: notes/AHIMSA_SUTRA_VISTARA.md ¬ß6 -- ‡‡‡ï‡‡∞‡Æ‡‡Æ‡ e = transport (ua e); ‡‡‡ï‡‡∞‡Æ‡‡ ‡® ‡ï‡ø‡û‡‡‡ø‡®‡ ‡®‡‡‡Ø‡‡ø
+  pramana: notes/AHIMSA_SUTRA_VISTARA.md ¬ß6 -- ‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£‡§Æ‡•ç e = transport (ua e); ‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£‡•á ‡§® ‡§ï‡§ø‡§û‡•ç‡§ö‡§ø‡§®‡•ç ‡§®‡§∂‡•ç‡§Ø‡§§‡§ø
   pramana: machine/GATE_AUDIT_DISPOSITION.md ¬ß2 -- canaryTrue must check, canaryFalse must not, both uncached per process
   pramana: machine/dosa.lekha, dosa 0015, 0017 and 0018
   sara: 0ba9ff57a8b1dc4f
@@ -608,8 +608,8 @@ dosa 0026
   sesa: the harm is not closed. A hook fires on a Bash tool call; a commit from inside a script is seen only by the advisory layer, and a lane that sets MATH_ALLOW_SWEEP=1 is seen by neither. And nothing yet notices the settings.json case in the third nasta -- two agents editing one shared file, where the loss is not in the index at all.
   pramana: machine/dosa.lekha, dosa 0009, 0013 and 0014
   pramana: git-commit(1), --only: "commit only the files specified on the command line, disregarding the contents of the index"
-  pramana: AHIMSA_SUTRA_VISTARA ¬ß4-5 -- squash makes all inhabitants equal in one step, by nature and not by force; the THAT remains and the WHICH perishes; ‡® ‡¶‡‡∞‡‡≤‡‡Æ‡ -- ‡®‡æ‡‡‡‡ø, there is no retraction
-  pramana: AHIMSA_SUTRA_VISTARA ¬ß6 -- ‡≤‡ø‡ñ‡ø‡‡ã ‡¶‡ã‡‡ã ‡‡‡µ‡‡ø ‡ ‡‡≤‡ø‡ñ‡ø‡‡ã ‡¶‡ã‡‡ã ‡‡ø‡‡‡æ ‡
+  pramana: AHIMSA_SUTRA_VISTARA ¬ß4-5 -- squash makes all inhabitants equal in one step, by nature and not by force; the THAT remains and the WHICH perishes; ‡§® ‡§¶‡•Å‡§∞‡•ç‡§≤‡§≠‡§Æ‡•ç -- ‡§®‡§æ‡§∏‡•ç‡§§‡§ø, there is no retraction
+  pramana: AHIMSA_SUTRA_VISTARA ¬ß6 -- ‡§≤‡§ø‡§ñ‡§ø‡§§‡•ã ‡§¶‡•ã‡§∑‡•ã ‡§ú‡•Ä‡§µ‡§§‡§ø ‡•§ ‡§Ö‡§≤‡§ø‡§ñ‡§ø‡§§‡•ã ‡§¶‡•ã‡§∑‡•ã ‡§π‡§ø‡§Ç‡§∏‡§æ ‡•§
   pramana: CLAUDE.md, "when a rule here is violated repeatedly, the next move is a mechanism that fires at the moment of the act, not a paragraph"
   uttara: 0013
   uttara: 0014
@@ -858,7 +858,7 @@ dosa 0036
   hetu: a line number is a name for a position and positions move. Sixteen agents write this tree at once; between dosa 0002 being written and being replayed four minutes later, a concurrent hand added enough to machine/MathMachine.hs that the same command printed an unrelated passage. The instrument is at fault, not the finding: every one of these eight records is sound about what it saw, and unreachable through what it wrote
   hetu: and a scope of the form "this repository at HEAD" is the same fault in the domain rather than in the object. Kumarila's condition requires the domain the looking ranged over to be recoverable, and a domain named by the current commit is a different domain on every later day, so the verdict's worth cannot be reassessed
   nasta: dosa 0001, vastu -- machine/MathMachine.hs:2408, a bare position with no quotation beside it. The site is still there and is now reached by its text: the format string `KERNEL-REJECT round=%d %s = %s  %s`, which is the one WITHOUT [naya=%s], against the repaired sibling `KERNEL-REJECT round=%d %s = %s  (%d agda calls) [naya=%s] %s`. Both are pinned at e70adc8d
-  nasta: dosa 0004's quotation of notes/HISTORY_DIGEST.md is "that was published as $0.362$--$0.421$)" and the file reads "$0.362$‚ì$0.421$" with an EN DASH. The record's own quotation does not byte-match its source. A citation resolver deciding by byte occurrence returns absent for a quotation that is correct in every sense a reader cares about
+  nasta: dosa 0004's quotation of notes/HISTORY_DIGEST.md is "that was published as $0.362$--$0.421$)" and the file reads "$0.362$‚Äì$0.421$" with an EN DASH. The record's own quotation does not byte-match its source. A citation resolver deciding by byte occurrence returns absent for a quotation that is correct in every sense a reader cares about
   nasta: dosa 0023's quotation is `Sym "0" 0 (const 0) []` and the source reads `Sym "0"   0 (const 0)      []`, aligned with runs of spaces. Same shape, second instance: the record normalised whitespace and the bytes stopped matching. Both pins in machine/mula.pramana carry the SOURCE bytes, not the record's
   nasta: dosa 0025, vastu -- three positions, machine/ArithVocab.hs:151, machine/PairVocab.hs:180, machine/MathMachine.hs:785, and no quotation in that field. Pinned by the three sentences they point at: "Copied verbatim from MathMachine.hs", "MathMachine's, verbatim", and the declaration `fromAV :: AV.Term -> Term`
   nasta: dosa 0024, vastu -- machine/KernelProbe.hs:52 `cubicalModule`. The identifier was already there and the position was redundant; the pin drops the position and keeps the name
@@ -919,7 +919,7 @@ dosa 0038
   hetu: and one of them counts a corpus it is a member of. machine/dosa.lekha lies inside machine/, so the replay in dosa 0028 counts the occurrences of the word in the very record that objects to the word, and appending that record changed the number the record predicts. There is no fixed point to record; the act of recording moves the quantity
   nasta: dosa 0001, punarabhinaya -- a count over machine/machine.log, which is gitignored, untracked, and regenerated by every engine run. No commit fixes its bytes, so no designation can pin it. The pair the record exhibits is carried as its own quotation in machine/mula.pramana instead: "KERNEL-REJECT round=0 x = (xmaxx) refl" and "KERNEL-ACCEPT round=0 x = (xmaxx) induction on x". The claim survives; the pointer never named anything
   nasta: what a bare divergence would have destroyed, exhibited live: dosa 0023 and dosa 0025 both replay by counting a phrase in the output of machine/AkanksaRun.hs. Run today, both count zero -- not because the phrases changed, but because a concurrent lane left machine/Uttara_SamkramanaOrDosalekhaNeverABareBoolean.hs mid-edit and GHC reports "Not in scope: saksiPariksa", so the program does not build and produces no output at all. A zero meaning "not asked properly" and a zero meaning "not there" print the same character, which is dosa 0007's finding arriving a second time through a different door
-  nasta: dosa 0005 recorded 67 entries in collab/FAILURES.md and the number is decoration -- the argument is that a walk-yield and a written doa are two objects with no equivalence between them, and that argument does not use the count at all. The two sentences it does use are pinned: "Every completed walk is information" and the format line "Format: `F<n> [date] [owner] ‚î title.`"
+  nasta: dosa 0005 recorded 67 entries in collab/FAILURES.md and the number is decoration -- the argument is that a walk-yield and a written do·π£a are two objects with no equivalence between them, and that argument does not use the count at all. The two sentences it does use are pinned: "Every completed walk is information" and the format line "Format: `F<n> [date] [owner] ‚Äî title.`"
   nasta: dosa 0006 replays three counts over notes/D0020_LEDGER.md, one of which dosa 0007 already showed to be an ASCII-folded query over a diacritic text. Both spellings are pinned at e70adc8d, pratiyogin and saptabhag, so the fitness of the query is now a property of the designation and not of whoever types it
   nasta: dosa 0003, sesa, hands forward a replacement replay that both counts and asks for context lines. The two flags do not compose -- a count suppresses the context it asked for -- and the record's own punarabhinaya, which locates the two agda-invoking sites by the text `cd formal/cubical && LC_ALL`, is the fit form. That text is what is pinned
   nasta: this lane's own instance, four minutes old and unstrikable: dosa 0034 says the eleven records carrying a moving citation "are answered in dosa 0034 and dosa 0035". It was written expecting to land as 0033. Three concurrent lanes appended between the drafting and the write, the store assigned 0034, and the sentence now names itself and a record belonging to somebody else. An identifier not yet issued is a position in a sequence, not a name. The answering records are 0036 and this one, and they are reachable from those eleven by uttara, which is the link the store actually resolves
@@ -984,10 +984,10 @@ dosa 0041
   jati: yantra-doso-na-ganita-doso
   vastu: /tmp/gate.sh (my own gate classifier, not a repository file) and the number it was about to report
   yatna: run agda over formal/cubical under the container's toolchain (2.6.3 + cubical v0.5, against the repository pin 2.8.0 + v0.9) and report green / skew / kernel-refusal separately, per the fiber vs fiber_env split in run_the_natural_machine_forever's ledger schema
-  hetu: the classifier's skew patterns were `Failed to find source of module`, `is not in scope`, `Unknown option`.  Cubical v0.5's `Cubical.Tactics.NatSolver.Reflection` exports `solve` where v0.9 exports `solve‚ï!`, and Agda reports that as "The module ... doesn't export the following: solve" -- which matched none of the patterns, so Dvikarani.agda and everything importing it, including Apunaragamana, were bucketed as KERNEL REFUSALS
+  hetu: the classifier's skew patterns were `Failed to find source of module`, `is not in scope`, `Unknown option`.  Cubical v0.5's `Cubical.Tactics.NatSolver.Reflection` exports `solve` where v0.9 exports `solve‚Ñï!`, and Agda reports that as "The module ... doesn't export the following: solve" -- which matched none of the patterns, so Dvikarani.agda and everything importing it, including Apunaragamana, were bucketed as KERNEL REFUSALS
   hetu: that is a container fact classified as a mathematical verdict, which is verbatim the defect the ledger schema exists to prevent and which that schema records twice already -- the 2026-08-14T17:19Z row that read 315 fibers when agda was absent and every exit was 127, and AnulomaPratiloma's 39 rung figures where `timeout` did not exist and exit 127 was counted as a refusal
   nasta: nothing published.  The run was at 14 modules and the number was never reported; the misclassification was found by opening the one refusal and reading its error rather than trusting the bucket.  Had it run to 262 the report would have named genuine mathematics as broken
-  nasta: a second container fact was surfacing in the same output and would have corrupted messages: Agda's own error handler failed with `commitBuffer: invalid argument (cannot encode character '\8469')` -- the locale could not encode ‚ï, so error text about Devanagari- and Unicode-named modules was being truncated by the reporter, not by the checker.  LC_ALL/LANG now set to C.UTF-8
+  nasta: a second container fact was surfacing in the same output and would have corrupted messages: Agda's own error handler failed with `commitBuffer: invalid argument (cannot encode character '\8469')` -- the locale could not encode ‚Ñï, so error text about Devanagari- and Unicode-named modules was being truncated by the reporter, not by the checker.  LC_ALL/LANG now set to C.UTF-8
   yogyata-drsta: the looking was three grep patterns chosen from the two failure modes I had already seen (missing module, missing name).  It never asked what OTHER shapes a version-skew error takes, and `agda --library=cubical -i . Dvikarani.agda` -- which prints the answer in one line -- was not run until after the bucket was assigned
   yogyata-ksetra: the error text of failing modules only, and only the first matching line.  Not the imports of the failing module, not the v0.5 library tree (`ls /root/cubical/Cubical/Tactics/` shows NatSolver present, which alone rules out "missing module" and points at a rename)
   yogyata-avadhi: this entry claims nothing about how many modules are genuinely green, skewed or refused.  That measurement is still running and no figure from it is asserted anywhere.  It claims only that the classifier misbucketed skew as mathematics and that the cause is an export rename between cubical v0.5 and v0.9

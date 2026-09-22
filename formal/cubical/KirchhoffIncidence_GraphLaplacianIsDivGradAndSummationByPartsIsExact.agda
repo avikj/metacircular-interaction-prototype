@@ -8,42 +8,42 @@
 --
 --   * G. Kirchhoff, "Ueber die Auflsung der Gleichungen, auf welche man
 --     bei der Untersuchung der linearen Vertheilung galvanischer Strme
---     gef�hrt wird", Annalen der Physik und Chemie 72 (1847) 497�508.
+--     geführt wird", Annalen der Physik und Chemie 72 (1847) 497–508.
 --     The incidence matrix `B` of a network, the node law (`div ω ≡ 0`),
 --     the loop law (`ω` is a `grad`), the spanning tree, and the count
 --     |E| − |V| + 1 of independent circulations.  The two laws themselves
---     are one paper earlier: Ann. Phys. Chem. 64 (1845) 497�514.
+--     are one paper earlier: Ann. Phys. Chem. 64 (1845) 497–514.
 --     Composing the node law with Ohm's law on each edge is exactly
---     `div (c � grad �) = source`, i.e. the weighted graph Laplacian.
+--     `div (c · grad φ) = source`, i.e. the weighted graph Laplacian.
 --     `Δ = div ∘ grad` is Kirchhoff's equation and nothing else.
 --
---   * H. Poincar�, "Analysis Situs", J. �cole Polytech. (2) 1 (1895) 1�121:
---     incidence matrices of a complex as boundary operators over �, with
---     �� = 0.  This is where `B` becomes a differential rather than a
+--   * H. Poincaré, "Analysis Situs", J. École Polytech. (2) 1 (1895) 1–121:
+--     incidence matrices of a complex as boundary operators over ℤ, with
+--     ∂∂ = 0.  This is where `B` becomes a differential rather than a
 --     bookkeeping table.
 --
 --   * B. Eckmann, "Harmonische Funktionen und Randwertaufgaben in einem
---     Komplex", Comment. Math. Helv. 17 (1945) 240�255.  The combinatorial
+--     Komplex", Comment. Math. Helv. 17 (1945) 240–255.  The combinatorial
 --     Hodge theorem: Δ = δd + dδ on a finite complex, the orthogonal
---     decomposition, and harmonic cochains � cohomology.  On a graph the
+--     decomposition, and harmonic cochains ≅ cohomology.  On a graph the
 --     dδ term is empty and Δ = δd, which is `laplacian-is-gram` below.
 --
---   * H. Weyl, "Repartici�n de corriente en una red conductora", Rev. Mat.
---     Hisp.-Amer. 5 (1923) 153�164: Kirchhoff's problem as an orthogonal
+--   * H. Weyl, "Repartición de corriente en una red conductora", Rev. Mat.
+--     Hisp.-Amer. 5 (1923) 153–164: Kirchhoff's problem as an orthogonal
 --     decomposition of the edge space into cycle space and cut space.
 --     `by-parts` is the pairing that decomposition is orthogonal for.
 --
 --   * H. Whitney, Geometric Integration Theory (Princeton, 1957) is often
 --     given as the source of discrete exterior calculus and is NOT the
 --     source of anything below.  Whitney's contribution is the bridge in
---     the other direction � cochains on a simplicial complex to genuine
+--     the other direction — cochains on a simplicial complex to genuine
 --     differential forms (the Whitney elements), plus the cochain product
---     of "On products in a complex", Ann. of Math. 39 (1938) 397�432.
+--     of "On products in a complex", Ann. of Math. 39 (1938) 397–432.
 --     No product and no manifold occurs here.
 --
---   * A. Dimakis and F. M�ller-Hoissen, "Discrete differential calculus:
+--   * A. Dimakis and F. Müller-Hoissen, "Discrete differential calculus:
 --     graphs, topologies, and gauge theory", J. Math. Phys. 35 (1994)
---     6703�6735, is where the graph d acquires a bimodule of 1-forms and a
+--     6703–6735, is where the graph d acquires a bimodule of 1-forms and a
 --     Leibniz rule; that structure is not built here either.
 --
 -- REFUTED, at the bottom of the file: the claim that
@@ -192,7 +192,7 @@ module Graph (R' : CommRing ℓ) (n m : ℕ) (src tgt : Fin m → Fin n) where
     ∙ sym (∑Ext (λ v → ∑Mulrdist (φ v) (λ e → B v e · ω e)))
 
   ----------------------------------------------------------------------
-  -- THEOREM 3.  The graph Laplacian is `B B�`, entrywise.
+  -- THEOREM 3.  The graph Laplacian is `B Bᵀ`, entrywise.
   --
   --   Δ = div ∘ grad, and its matrix is the Gram matrix of the incidence
   --   rows.  On a loopless simple graph the diagonal entry is the degree
@@ -248,9 +248,9 @@ module Graph (R' : CommRing ℓ) (n m : ℕ) (src tgt : Fin m → Fin n) where
   dirichlet φ = by-parts φ (grad φ)
 
 ------------------------------------------------------------------------
--- 2.  The 3-cycle over �: the Laplacian is degree minus adjacency
+-- 2.  The 3-cycle over ℤ: the Laplacian is degree minus adjacency
 --
---   Vertices 0,1,2; edges 0�1, 1�2, 2�0.  Theorem 3 says Δ has matrix L;
+--   Vertices 0,1,2; edges 0→1, 1→2, 2→0.  Theorem 3 says Δ has matrix L;
 --   here L is computed, and each of its nine entries is checked against
 --   D − A by `refl`.
 ------------------------------------------------------------------------
@@ -263,7 +263,7 @@ module Triangle where
 
   -- The index is kept as `suc (suc (suc k))` with `k` a variable rather
   -- than as the numeral 3: cubical Agda 2.6.3 refuses a match that peels a
-  -- literal, because it would need injectivity of �.suc.
+  -- literal, because it would need injectivity of ℕ.suc.
   private
     at3 : {k : ℕ} (a b c : Fin 3) → Fin (ℕ.suc (ℕ.suc (ℕ.suc k))) → Fin 3
     at3 a b c zero             = a
@@ -291,13 +291,13 @@ module Triangle where
 ------------------------------------------------------------------------
 -- 3.  THE REFUTATION.
 --
---   The claim: "Δ � ≡ 0 forces � constant" � the discrete maximum
+--   The claim: "Δ � ≡ 0 forces � constant" — the discrete maximum
 --   principle, the statement that the kernel of the Laplacian is exactly
 --   the constants.
 --
 --   It is false, and it does not need a subtle graph to be false.  Take
---   two vertices and no edges.  Every sum over edges is empty, so Δ � is
---   identically 0 for EVERY �, while � = (0,1) is not constant.
+--   two vertices and no edges.  Every sum over edges is empty, so Δ φ is
+--   identically 0 for EVERY φ, while φ = (0,1) is not constant.
 --
 --   What the false claim was missing is Kirchhoff's own count: the kernel
 --   of Δ has dimension c(G), the number of connected components, and
@@ -330,7 +330,7 @@ module Refutation where
   φ01-not-constant : ¬ (φ01 zero ≡ φ01 (suc zero))
   φ01-not-constant p = true≢false (cong isZero p)
 
-  -- the claim "Δ � ≡ 0 � � is constant", stated so it can be refuted
+  -- the claim "Δ φ ≡ 0 → φ is constant", stated so it can be refuted
   HarmonicForcesConstant : Type₀
   HarmonicForcesConstant =
     (φ : C⁰) → ((v : Fin 2) → Δ φ v ≡ pos 0) → ((u v : Fin 2) → φ u ≡ φ v)
@@ -343,8 +343,8 @@ module Refutation where
 -- Summary.
 --
 -- Proved generically, over any commutative ring and any finite directed
--- multigraph: grad is B�; grad and div are adjoint; Δ = div ∘ grad has
--- matrix B B�; constants are harmonic; every column of B sums to zero and
+-- multigraph: grad is Bᵀ; grad and div are adjoint; Δ = div ∘ grad has
+-- matrix B Bᵀ; constants are harmonic; every column of B sums to zero and
 -- hence total divergence vanishes; the Dirichlet identity.
 --
 -- Proved concretely over �: the 3-cycle Laplacian is D − A.

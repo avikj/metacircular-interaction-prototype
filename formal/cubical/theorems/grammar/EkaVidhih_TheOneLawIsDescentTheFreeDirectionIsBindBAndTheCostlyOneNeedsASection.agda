@@ -1,33 +1,33 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡ï‡µ‡ø‡ß‡ø‡ ‚î ‡‡µ‡‡∞‡‡Æ‡ ‡‡µ ‡‡∞‡‡µ‡Æ‡ ‡  ‡Æ‡‡ï‡‡‡ã ‡Æ‡æ‡∞‡‡ó‡ ‡‡¶‡‡ß-b ; ‡‡¶‡‡ß-a ‡‡‡‡‡¶‡ ‡Ø‡æ‡‡‡ ‡
+-- ‡§è‡§ï‡§µ‡§ø‡§ß‡§ø‡§É ‚Äî ‡§Ö‡§µ‡§§‡§∞‡§£‡§Æ‡•ç ‡§è‡§µ ‡§∏‡§∞‡•ç‡§µ‡§Æ‡•ç ‡•§  ‡§Æ‡•Å‡§ï‡•ç‡§§‡•ã ‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É ‡§¨‡§¶‡•ç‡§ß-b ; ‡§¨‡§¶‡•ç‡§ß-a ‡§ö‡•ç‡§õ‡•á‡§¶‡§Ç ‡§Ø‡§æ‡§ö‡§§‡•á ‡•§
 --
 -- (the one law is DESCENT.  the free direction is bind-b; the costly one
 -- demands a section, and the cost is exactly the fibre.)
 --
--- ‡‡‡‡µ‡æ‡∞‡ ‡‡ø‡¶‡‡ß‡æ‡®‡‡‡æ‡ ‡‡ï‡ ‚î four terms landed in this corpus, and each was
--- called "the same law" in prose.  Prose is ‡‡¶‡‡ß-a: it fixes the conclusion
+-- ‡§ö‡§§‡•ç‡§µ‡§æ‡§∞‡§É ‡§∏‡§ø‡§¶‡•ç‡§ß‡§æ‡§®‡•ç‡§§‡§æ‡§É ‡§è‡§ï‡§É ‚Äî four terms landed in this corpus, and each was
+-- called "the same law" in prose.  Prose is ‡§¨‡§¶‡•ç‡§ß-a: it fixes the conclusion
 -- and leaves the reader to find the fibre.  Here the identification is a
 -- term.
 --
---   SamacaranaNityam  ‡‡ô‡‡ï‡‡∞‡Æ‡-‡®‡ø‡‡‡Ø‡Æ‡   ‚î S = the orbit projection
---   ApurvaIndriyam    ‡‡‡‡∞‡‡µ‡Æ‡          ‚î S = the present sensorium
---   ParimanaAndha     ‡‡∞‡ø‡Æ‡æ‡‡æ‡‡-‡®-‡Ø‡ã‡ó‡  ‚î S = |¬|
---   TiryakFiber       ‡Æ‡‡Ø‡-‡®-‡‡‡‡æ‡‡      ‚î S = the residue class
---                     ‡‡‡‡-‡®-‡Æ‡‡Ø‡‡‡      ‚î S = the Mbius sign
+--   SamacaranaNityam  ‡§∏‡§ô‡•ç‡§ï‡•ç‡§∞‡§Æ‡§£-‡§®‡§ø‡§§‡•ç‡§Ø‡§Æ‡•ç   ‚Äî S = the orbit projection
+--   ApurvaIndriyam    ‡§Ö‡§™‡•Ç‡§∞‡•ç‡§µ‡§Æ‡•ç          ‚Äî S = the present sensorium
+--   ParimanaAndha     ‡§™‡§∞‡§ø‡§Æ‡§æ‡§£‡§æ‡§§‡•ç-‡§®-‡§Ø‡•ã‡§ó‡§É  ‚Äî S = |¬∑|
+--   TiryakFiber       ‡Æ‡‡Ø‡-‡®-‡‡‡‡æ‡‡      ‚Äî S = the residue class
+--                     ‡§∂‡•á‡§∑‡§É-‡§®-‡§Æ‡•ç‡§Ø‡•Ç‡§§‡§É      ‚Äî S = the M√∂bius sign
 --
--- Five statements, one rewrite, and ¬ß‡® below is the rewrite.
+-- Five statements, one rewrite, and ¬ß‡•® below is the rewrite.
 --
--- ‡‡‡‡‡∞ ‡ ‡‡‡‡∞ ‡®‡ø‡∞‡‡‡æ‡Ø‡ï‡Æ‡ ‡  `‡‡‡∞‡µ‡‡‡ø S q` says q descends along S.  ¬ß‡® gives
--- descent ‚ü blindness on fibres, and it is FREE: no hypothesis on any of the
--- three types, no choice, no decidability.  ¬ß‡© gives the converse and it is
--- NOT free ‚î it demands a section of S, and ¬ß‡ exhibits the failure when none
--- exists.  That asymmetry is ‡‡¶‡‡ß-b versus ‡‡¶‡‡ß-a, at the level of the law
+-- ‡§∏‡•Ç‡§§‡•ç‡§∞ ‡•´ ‡§Ö‡§§‡•ç‡§∞ ‡§®‡§ø‡§∞‡•ç‡§£‡§æ‡§Ø‡§ï‡§Æ‡•ç ‡•§  `‡§™‡•ç‡§∞‡§µ‡§π‡§§‡§ø S q` says q descends along S.  ¬ß‡•® gives
+-- descent ‚üπ blindness on fibres, and it is FREE: no hypothesis on any of the
+-- three types, no choice, no decidability.  ¬ß‡•© gives the converse and it is
+-- NOT free ‚Äî it demands a section of S, and ¬ß‡•™ exhibits the failure when none
+-- exists.  That asymmetry is ‡§¨‡§¶‡•ç‡§ß-b versus ‡§¨‡§¶‡•ç‡§ß-a, at the level of the law
 -- itself:
 --
---     bind b :  Œ[ o ‚àà O ] (S x ‚â° o)  = singl (S x)   ‚î contractible, always
---     bind a :  Œ[ x ‚àà X ] (S x ‚â° o)  = fiber S o     ‚î arbitrary; the cost
+--     bind b :  Œ£[ o ‚àà O ] (S x ‚â° o)  = singl (S x)   ‚Äî contractible, always
+--     bind a :  Œ£[ x ‚àà X ] (S x ‚â° o)  = fiber S o     ‚Äî arbitrary; the cost
 ------------------------------------------------------------------------
 
 module EkaVidhih_TheOneLawIsDescentTheFreeDirectionIsBindBAndTheCostlyOneNeedsASection where
@@ -45,7 +45,7 @@ private
     ‚Ñì ‚Ñì' ‚Ñì'' : Level
 
 ------------------------------------------------------------------------
--- ‡ß ¬ ‡¶‡‡µ‡ ‡‡ï‡‡‡ ‚î the two bindings of one equation, at the law's own level
+-- ‡•ß ¬∑ ‡§¶‡•ç‡§µ‡•å ‡§™‡§ï‡•ç‡§∑‡•å ‚Äî the two bindings of one equation, at the law's own level
 ------------------------------------------------------------------------
 
 module _ {X : Type ‚Ñì} {O : Type ‚Ñì'} (S : X ‚Üí O) where
@@ -61,10 +61,10 @@ module _ {X : Type ‚Ñì} {O : Type ‚Ñì'} (S : X ‚Üí O) where
   ‡§µ‡§π‡§®‡§Æ‡•ç-‡§∏‡§¶‡§æ-‡§è‡§ï‡§Æ‡•ç x = isContrSingl (S x)
 
 ------------------------------------------------------------------------
--- ‡® ¬ ‡Æ‡‡ï‡‡‡ã ‡Æ‡æ‡∞‡‡ó‡ ‚î descent ‚ü blind on the fibres.  FREE.
+-- ‡•® ¬∑ ‡§Æ‡•Å‡§ï‡•ç‡§§‡•ã ‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É ‚Äî descent ‚üπ blind on the fibres.  FREE.
 --
--- Re-exported rather than reproved: this IS `‡‡®‡‡‡-‡‡®‡‡ß‡`, and naming it
--- twice would be the collapse ¬ß‡ forbids.
+-- Re-exported rather than reproved: this IS `‡§§‡§®‡•ç‡§§‡•å-‡§Ö‡§®‡•ç‡§ß‡§É`, and naming it
+-- twice would be the collapse ¬ß‡•≠ forbids.
 ------------------------------------------------------------------------
 
 ‡§Ö‡§µ‡§§‡§∞‡§£‡§æ‡§§‡•ç-‡§Ö‡§®‡•ç‡§ß‡§É : {X : Type ‚Ñì} {O : Type ‚Ñì'} {Q : Type ‚Ñì''}
@@ -74,10 +74,10 @@ module _ {X : Type ‚Ñì} {O : Type ‚Ñì'} (S : X ‚Üí O) where
 ‡§Ö‡§µ‡§§‡§∞‡§£‡§æ‡§§‡•ç-‡§Ö‡§®‡•ç‡§ß‡§É = ‡§§‡§®‡•ç‡§§‡•å-‡§Ö‡§®‡•ç‡§ß‡§É
 
 ------------------------------------------------------------------------
--- ‡© ¬ ‡‡¶‡‡ß‡ã ‡Æ‡æ‡∞‡‡ó‡ ‚î blind on the fibres ‚ü descent.  COSTS A SECTION.
+-- ‡•© ¬∑ ‡§¨‡§¶‡•ç‡§ß‡•ã ‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É ‚Äî blind on the fibres ‚üπ descent.  COSTS A SECTION.
 --
 -- `h` must be TOTAL on O.  Constancy supplies its value only where a fibre is
--- inhabited, so the converse needs a chosen point in each ‚î a section.  With
+-- inhabited, so the converse needs a chosen point in each ‚Äî a section.  With
 -- one, the derivation is `q ‚àò sec` and the proof is one rewrite.
 ------------------------------------------------------------------------
 
@@ -90,11 +90,11 @@ module _ {X : Type ‚Ñì} {O : Type ‚Ñì'} (S : X ‚Üí O) where
   (Œª o ‚Üí q (‡§õ‡•á‡§¶‡§É o)) , Œª x ‚Üí ‡§®‡§ø‡§§‡•ç‡§Ø‡§Æ‡•ç x (‡§õ‡•á‡§¶‡§É (S x)) (sym (‡§õ‡•á‡§¶-‡§®‡§ø‡§Ø‡§Æ‡§É (S x)))
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡‡‡¶‡æ‡‡æ‡µ‡ ‡‡ô‡‡ó‡ ‚î without a section the converse FAILS
+-- ‡•™ ¬∑ ‡§õ‡•á‡§¶‡§æ‡§≠‡§æ‡§µ‡•á ‡§≠‡§ô‡•ç‡§ó‡§É ‚Äî without a section the converse FAILS
 --
--- X = ‚ä, O = Unit, Q = ‚ä.  Every fibre condition holds vacuously ‚î there are
--- no two points to be constant between ‚î yet `h : Unit ‚í ‚ä` cannot exist.
--- So ¬ß‡©'s hypothesis is load-bearing and not bookkeeping.
+-- X = ‚ä•, O = Unit, Q = ‚ä•.  Every fibre condition holds vacuously ‚Äî there are
+-- no two points to be constant between ‚Äî yet `h : Unit ‚Üí ‚ä•` cannot exist.
+-- So ¬ß‡•©'s hypothesis is load-bearing and not bookkeeping.
 ------------------------------------------------------------------------
 
 ‡§∂‡•Ç‡§®‡•ç‡§Ø-S : ‚ä• ‚Üí Unit
@@ -107,14 +107,14 @@ module _ {X : Type ‚Ñì} {O : Type ‚Ñì'} (S : X ‚Üí O) where
 ‡§∂‡•Ç‡§®‡•ç‡§Ø‡•á-‡§®‡§ø‡§§‡•ç‡§Ø‡§Æ‡•ç : (x y : ‚ä•) ‚Üí ‡§∂‡•Ç‡§®‡•ç‡§Ø-S x ‚â° ‡§∂‡•Ç‡§®‡•ç‡§Ø-S y ‚Üí ‡§∂‡•Ç‡§®‡•ç‡§Ø-q x ‚â° ‡§∂‡•Ç‡§®‡•ç‡§Ø-q y
 ‡§∂‡•Ç‡§®‡•ç‡§Ø‡•á-‡§®‡§ø‡§§‡•ç‡§Ø‡§Æ‡•ç ()
 
--- And yet no descent: h would have to inhabit ‚ä from tt.
+-- And yet no descent: h would have to inhabit ‚ä• from tt.
 ‡§∂‡•Ç‡§®‡•ç‡§Ø‡•á-‡§®-‡§Ö‡§µ‡§§‡§∞‡§£‡§Æ‡•ç : ‡§™‡•ç‡§∞‡§µ‡§π‡§§‡§ø ‡§∂‡•Ç‡§®‡•ç‡§Ø-S ‡§∂‡•Ç‡§®‡•ç‡§Ø-q ‚Üí ‚ä•
 ‡§∂‡•Ç‡§®‡•ç‡§Ø‡•á-‡§®-‡§Ö‡§µ‡§§‡§∞‡§£‡§Æ‡•ç (h , _) = h tt
 
 ------------------------------------------------------------------------
--- ‡Æ‡∞‡‡Ø‡æ‡¶‡æ.  ¬ß‡© takes a split surjection.  A merely surjective S with untruncated
--- fibres needs choice to pick `‡‡‡¶‡`, and in this corpus that choice is DATA
--- to be handed over, not a background assumption ‚î which is the same standard
--- `‡‡‡∞‡µ‡‡‡ø` sets by being a Œ and not a truncation.  ¬ß‡ shows the hypothesis
+-- ‡§Æ‡§∞‡•ç‡§Ø‡§æ‡§¶‡§æ.  ¬ß‡•© takes a split surjection.  A merely surjective S with untruncated
+-- fibres needs choice to pick `‡§õ‡•á‡§¶‡§É`, and in this corpus that choice is DATA
+-- to be handed over, not a background assumption ‚Äî which is the same standard
+-- `‡§™‡•ç‡§∞‡§µ‡§π‡§§‡§ø` sets by being a Œ£ and not a truncation.  ¬ß‡•™ shows the hypothesis
 -- cannot simply be dropped.
 ------------------------------------------------------------------------

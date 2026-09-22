@@ -7,7 +7,7 @@
 -- Milner's and Plotkin's (1977); there is no Indian source term for
 -- them and none is invented.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
 --   "**Theorem 28.14 (flat compression):** fully abstract compression
 --    for all arising contexts preserves semantics for every order.
@@ -21,7 +21,7 @@
 --
 --   CtxEq p q        contextual equivalence RELATIVE TO A FAMILY: the
 --                    family is a type `K` of indices with `ctxOf :
---                    K â’ Ctx`, so "too small" and "all arising" are
+--                    K â†’ Ctx`, so "too small" and "all arising" are
 --                    both expressible, which is the whole point
 --   FullyAbstract C  the compression identifies whatever the family
 --                    cannot separate
@@ -29,19 +29,19 @@
 --                    **Theorem 28.14**: if two elimination orders are
 --                    contextually equivalent at every input, a fully
 --                    abstract compression sends them to the SAME value
---                    â” "for every order" being an arbitrary pair of
+--                    â€” "for every order" being an arbitrary pair of
 --                    composites, not two fixed steps
 --   curvatureIsWitnessedInTheFamily
 --                    the contrapositive, and the sharper reading of
---                    Â§36â“38's causal list: if the images differ, the
+--                    Â§36â€“38's causal list: if the images differ, the
 --                    family already separates the two orders
 --   curvatureExhibitsAContext
 --                    and when the family is ENUMERATED and the
 --                    observation type is DISCRETE, the separating
---                    context can be produced â” a Î, not a double
+--                    context can be produced â€” a Î£, not a double
 --                    negation
 --
--- **WHY THE FAMILY BEING A PARAMETER IS THE CONTENT.**  Â§36â“38 blames
+-- **WHY THE FAMILY BEING A PARAMETER IS THE CONTENT.**  Â§36â€“38 blames
 -- curvature on "too-small context families" without a family in the
 -- statement; once `K` is a parameter, "fully abstract for all arising
 -- contexts" and "fully abstract for a small family" are the SAME
@@ -49,13 +49,13 @@
 -- visible: a smaller `K` makes `CtxEq` easier, hence `FullyAbstract`
 -- harder, hence the hypothesis of 28.14 stronger.  The note's causal
 -- claim is, in this reading, the observation that shrinking `K` breaks
--- the hypothesis â” not that it creates curvature by some other route.
+-- the hypothesis â€” not that it creates curvature by some other route.
 --
 -- **THE COST OF THE WITNESS.**
 -- `curvatureIsWitnessedInTheFamily` gives `Â CtxEq`, a double
 -- negation; turning it into a context needs two hypotheses:
 -- enumerability of the index and decidability of the
--- observation â” through the same lemma, `decÎOverEnumerated`.
+-- observation â€” through the same lemma, `decÎ£OverEnumerated`.
 ------------------------------------------------------------------------
 
 module FullAbstractionIsAConditionOnTheContextFamilyAndCurvatureIsWitnessedInIt where
@@ -132,15 +132,15 @@ module _ {Tm O : Type} (Ctx : Type) (plug : Ctx â†’ Tm â†’ Tm) (obs : Tm â†’ O)
 --   Compositional   C (plug c t) â‰¡ act c (C t)
 --   Factors         obs t â‰¡ obsD (C t)
 --
--- so `C p â‰¡ C q â’ CtxEq p q` costs no decidability, no enumerability,
+-- so `C p â‰¡ C q â†’ CtxEq p q` costs no decidability, no enumerability,
 -- and does not use `FullyAbstract`.  Together with `FullyAbstract` it
 -- gives that `CtxEq` IS the kernel of `C`, not merely contained in it.
 --
 -- **WHAT THAT MAKES VISIBLE.**
 -- `curvatureExhibitsAContext` above pays `Enumerated K` + `Discrete O`
--- + `FullyAbstract` to produce a separating context from `Â (C p â‰¡ C q)`.
--- The OPPOSITE direction â” a separating context yielding
--- `Â (C p â‰¡ C q)` â” is free at the recording site.
+-- + `FullyAbstract` to produce a separating context from `Â¬ (C p â‰¡ C q)`.
+-- The OPPOSITE direction â€” a separating context yielding
+-- `Â (C p â‰¡ C q)` â€” is free at the recording site.
 -- **The cost is not the statement's, it is the
 -- DIRECTION's.**  One way is a congruence.  The other is a search.
 ------------------------------------------------------------------------

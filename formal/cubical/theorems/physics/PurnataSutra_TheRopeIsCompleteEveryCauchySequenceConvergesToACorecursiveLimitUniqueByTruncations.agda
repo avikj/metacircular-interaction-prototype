@@ -1,27 +1,27 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- �������-����� � the completeness thread.
+-- पूर्णता-सूत्र — the completeness thread.
 --
 -- The take-metric's fundamental theorem: THE ROPE IS COMPLETE.
 --
---   §1  A Cauchy sequence of ropes � each approximant agreeing with
---       the next to its own depth � has a LIMIT, constructed by
+--   §1  A Cauchy sequence of ropes — each approximant agreeing with
+--       the next to its own depth — has a LIMIT, constructed by
 --       corecursion: the head from the first approximant that has
 --       one, the tail as the limit of the shifted tails.
 --
 --   §2  THE LIMIT THEOREM: the limit agrees with the n-th approximant
---       to depth n, for every n � heads stabilize along the Cauchy
+--       to depth n, for every n — heads stabilize along the Cauchy
 --       chain, tails recurse into the shifted sequence.
 --
 --   §3  UNIQUENESS: ropes agreeing on all truncations are equal, by a
---       corecursive path � so the limit is THE limit, not a choice.
+--       corecursive path — so the limit is THE limit, not a choice.
 --
 -- With SthairyaSutra this closes the metric story: the braid words
 -- act uniformly continuously on a complete space, their pointwise
 -- limits exist in it (SimaSutra's uniform turn is the exemplar), and
 -- the completion in which finiteness converges is not adjoined but
--- ALREADY THERE � the coinductive rope was its own completion from
+-- ALREADY THERE — the coinductive rope was its own completion from
 -- the first module.  Coinduction is completeness;
 -- the guarded circle that answered parasparraya is the same
 -- structure that holds every limit.
@@ -44,7 +44,7 @@ open import SthairyaSutra_EveryCrossingIsOneLipschitzWithUnitLookaheadSoEveryWor
 open Dhārā
 
 ------------------------------------------------------------------------
--- � � Cauchy sequences, and the corecursive limit.
+-- १ · Cauchy sequences, and the corecursive limit.
 ------------------------------------------------------------------------
 
 Cauchy : (ℕ → Rajju) → Type₀
@@ -55,7 +55,7 @@ sīmā : (ℕ → Rajju) → Rajju
 śeṣam (sīmā r) = sīmā (λ n → śeṣam (r (suc n)))
 
 ------------------------------------------------------------------------
--- � � The limit theorem.
+-- २ · The limit theorem.
 ------------------------------------------------------------------------
 
 -- Heads stabilize along the chain.
@@ -78,7 +78,7 @@ prāpti r c (suc n) =
             (prāpti (λ k → śeṣam (r (suc k))) (śeṣa-cauchy r c) n)
 
 ------------------------------------------------------------------------
--- � � Uniqueness: all-truncation agreement is equality.
+-- ३ · Uniqueness: all-truncation agreement is equality.
 ------------------------------------------------------------------------
 
 kartana-sāmya : {x y : Rajju}

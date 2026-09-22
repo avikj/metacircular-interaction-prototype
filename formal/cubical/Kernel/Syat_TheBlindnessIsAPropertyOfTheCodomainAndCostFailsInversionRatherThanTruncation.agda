@@ -6,10 +6,10 @@
 --
 -- TERM, AND THE SCHOOL IS JAINA, NAMED BEFORE THE TERM IS USED.
 --
--- ààà¯à¾àà Â syt -- the qualifier that prefixes every bhaga of the
--- saptabhag.  Optative of âˆààà, used as an indeclinable, and it does NOT
+-- à¤¸à¥à¤¯à¤¾à¤¤à¥ Â· syÄt -- the qualifier that prefixes every bhaá¹…ga of the
+-- saptabhaá¹…gÄ«.  Optative of âˆšà¤…à¤¸à¥, used as an indeclinable, and it does NOT
 -- mean "maybe": the Jaina logicians insist each qualified predication is
--- à¨à¿àààà¯ Â nicaya, determinate, asserted under a stated à‰àà¾à§à¿ Â updhi.
+-- à¤¨à¤¿à¤¶à¥à¤šà¤¯ Â· niÅ›caya, determinate, asserted under a stated à¤‰à¤ªà¤¾à¤§à¤¿ Â· upÄdhi.
 -- The apparatus is laid out in Samantabhadra's *ptamms* (~6th c.) and
 -- developed by Akalaka (~8th c.) and Vidynanda; the governing rule taken
 -- here is the older one, that a naya asserting itself by denying the
@@ -24,7 +24,7 @@
 --
 -- The h-level
 -- of the CRITERION is unrestricted in `Sesa_`'s statement, but the h-level
--- of the CODOMAIN is what does the work, and it is fixed at 0 by â•.
+-- of the CODOMAIN is what does the work, and it is fixed at 0 by â„•.
 -- The general form is supplied beside it.
 --
 ------------------------------------------------------------------------
@@ -39,7 +39,7 @@
 -- the obstruction to seeing it is INVERSION, not truncation, and raising
 -- h-level does not reach it.
 --
--- `Avirodha_â¦` states the structure -- strictly a category, weakly a
+-- `Avirodha_â€¦` states the structure -- strictly a category, weakly a
 -- groupoid, and the gap between them is the ea.  Â§2 measures that gap:
 -- it is exactly `len d + len d`.
 --
@@ -89,7 +89,7 @@ private
 -- Â§1.  WHAT THE BLINDNESS PROOF ACTUALLY EATS.
 --
 -- The codomain, the interpretation and its soundness are all parameters.
--- Nothing about â• survives, nothing about `eval`, nothing about the six
+-- Nothing about â„• survives, nothing about `eval`, nothing about the six
 -- constructors.  One hypothesis is consumed and it is `isSet X`.
 ------------------------------------------------------------------------
 

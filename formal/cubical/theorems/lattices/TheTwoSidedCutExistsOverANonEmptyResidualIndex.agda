@@ -7,27 +7,27 @@
 -- Birkhoff/Ore-era lattice theory and Lawvere 1973; no Indian source
 -- term applies and none is invented.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- `TheTwoSidedProfileCutNeedsTheBurdensAsAProfile` built the left
 -- adjoint for a matrix of burdens (`UpP`).
 --
 -- WHAT IS PROVED
 --
---   _â‰¼p_        pointwise `â‰` on the RESIDUAL side.  It is NOT `_âŠp_`:
---               the burden side is ordered by reverse pointwise `â‰`
+--   _â‰¼p_        pointwise `â‰¤` on the RESIDUAL side.  It is NOT `_âŠ‘p_`:
+--               the burden side is ordered by reverse pointwise `â‰¤`
 --               (more burden absorbed is lower)
 --   dnNE        the right adjoint over a non-empty residual index:
---               componentwise `maxµ (bµâ¼ âˆ Ïˆµ)`, by structural
---               recursion on the row list â” no accumulator, so the
+--               componentwise `maxáµ¢ (báµ¢â±¼ âˆ¸ Ïˆáµ¢)`, by structural
+--               recursion on the row list â€” no accumulator, so the
 --               induction is the obvious one
---   goFwdNE     `Ï âŠp dnNE bs Ïˆ â’ UpP bs Ï â‰¼p Ïˆ`
+--   goFwdNE     `Ï† âŠ‘p dnNE bs Ïˆ â†’ UpP bs Ï† â‰¼p Ïˆ`
 --   goBwdNE     and back
 --
 -- **SO THE TWO-SIDED CUT EXISTS.**  `dnNE` takes the row list in `j âˆ js` form, so the type
 -- itself records that a residual index must exist.
 --
 -- **WHAT MADE IT ROUTINE**: `maxP`'s three laws.
--- `maxP-âŠË¡`/`maxP-âŠÊ³` split a hypothesis about the fold into per-row
+-- `maxP-âŠ‘Ë¡`/`maxP-âŠ‘Ê³` split a hypothesis about the fold into per-row
 -- hypotheses, `maxP-least` reassembles the conclusion, and each row is
 -- then the one-sided `goFwdV`/`goBwdV` unchanged.  The fold direction
 -- never had to be chosen: structural recursion on `Rows` gives it.
@@ -68,7 +68,7 @@ dnNE j (i âˆ· js) ks (b , bs) (Ïˆ , Ïˆs) =
   maxP ks (dnV ks b Ïˆ) (dnNE i js ks bs Ïˆs)
 
 ------------------------------------------------------------------------
--- 3.  â¦and it is adjoint to UpP
+-- 3.  â€¦and it is adjoint to UpP
 ------------------------------------------------------------------------
 
 goFwdNE :

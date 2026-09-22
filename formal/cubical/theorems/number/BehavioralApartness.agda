@@ -6,7 +6,7 @@
 -- Prime-Pair Atlas Delta 20, T20.4: behavioural apartness, machine-checked.
 --
 -- The repository's kernel (formal/lean/Pairfield/MyhillNerodeMinimalMachine.lean)
--- formalises SAMENESS: NerodeCongruence x y = � w, behavior x w = behavior y w.
+-- formalises SAMENESS: NerodeCongruence x y = ∀ w, behavior x w = behavior y w.
 -- It contains no notion of distinction beyond the negation of that.
 --
 -- But README.md describes the machine as keeping, "for every distinction
@@ -59,7 +59,7 @@ module System {St : Type ℓ} {Act : Type ℓ'} {Obs : Type ℓ''}
   NerodeCongruence : St → St → Type (ℓ-max ℓ' ℓ'')
   NerodeCongruence x y = (w : List Act) → behavior x w ≡ behavior y w
 
-  -- Delta 20 T20.4.  Apartness is a �: its inhabitant IS the experiment.
+  -- Delta 20 T20.4.  Apartness is a Σ: its inhabitant IS the experiment.
   Apart : St → St → Type (ℓ-max ℓ' ℓ'')
   Apart x y = Σ[ w ∈ List Act ] (¬ (behavior x w ≡ behavior y w))
 
@@ -72,7 +72,7 @@ module System {St : Type ℓ} {Act : Type ℓ'} {Obs : Type ℓ''}
   apart→¬nerodeCongruence (w , sep) fe = sep (fe w)
 
   -- The converse is NOT provable here, and that is the point: from
-  -- � NerodeCongruence one cannot extract a word without a search principle.
+  -- ¬ NerodeCongruence one cannot extract a word without a search principle.
   -- Delta 20's "the witness is not merely that x and y differ; it is a
   -- CONTEXT that distinguishes them" is exactly this gap.
 

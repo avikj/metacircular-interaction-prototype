@@ -38,7 +38,7 @@ def isPropIsEquiv(A: Set, B: Set, f: A -> B, h0: isEquiv(A, B, f), h1: isEquiv(A
   <i> lambda y. isPropIsContr(fiber(A, B, f, y), h0(y), h1(y)) @ i
 
 # inverse data from a contractible fibre, matching the isContr VALUE (a
-# variable), so the goal refines â” never matching a neutral h(y).
+# variable), so the goal refines â€” never matching a neutral h(y).
 def invC(A: Set, B: Set, f: A -> B, y: B, c: isContr(fiber(A, B, f, y))) -> A:
   match c:
     case (cen, _):

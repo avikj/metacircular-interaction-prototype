@@ -5,7 +5,7 @@
 --
 --   "Is there a mechanizable predicate on a note's *text* that decides
 --    whether its principal object is outside arithmetic, and hence
---    whether a `SEARCH` flag is mandatory â” one that would have fired
+--    whether a `SEARCH` flag is mandatory â€” one that would have fired
 --    on SEED-05 and SEED-09 and not on the 47 declared-classical
 --    files?"
 --
@@ -13,21 +13,21 @@
 -- note (ÂPâ at a 77.3% base rate; Pâ firing on neither).  Both
 -- hunted a THIRD candidate.  This one does not.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE GAP.
 --
 -- **Â§6 AS PHRASED IS SATISFIED BY A LOOKUP TABLE.**  The predicate
 -- "the file's path is one of these two" is mechanizable, decides in
 -- constant time, fires on SEED-05 and SEED-09, and fires on none of
 -- the 47.  So the search Â§9 and Â§10 conducted cannot be for a
--- predicate meeting Â§6's stated conditions â” one exists, and is
+-- predicate meeting Â§6's stated conditions â€” one exists, and is
 -- worthless.  Whatever Â§6 wants is a condition it does not state.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED, over an arbitrary type with decidable equality
 --
 --   lookup ps          the table predicate: `Mem a ps`
---   decLookup          it is decidable â” mechanizable in Â§6's sense
+--   decLookup          it is decidable â€” mechanizable in Â§6's sense
 --   separatorExists    for ANY disjoint pair of finite lists of
 --                      positives and negatives there is a decidable
 --                      predicate firing on all the first and none of
@@ -47,13 +47,13 @@
 --                      by generalising
 --   tableFiresOnlyOnListedDocuments
 --                      over any corpus, every firing of the table is a
---                      listed positive â” its base rate is |pos âˆ© corpus|
+--                      listed positive â€” its base rate is |pos âˆ© corpus|
 --
 -- **THE CONCLUSION IS A CORRECTION TO THE QUESTION, NOT AN ANSWER TO
 -- IT.**  Â§6's two conditions (fires on the two, not on the 47) are
 -- satisfiable and hence not the criterion.  The two things that
 -- actually did work in Â§9 and Â§10 were BASE RATE and OFF-LIST
--- BEHAVIOUR â” Â§9 killed ÂPâ by its base rate, not by an error on the
+-- BEHAVIOUR â€” Â§9 killed Â¬Pâ‚ by its base rate, not by an error on the
 -- named instances.  That was the right instrument, and the theorems
 -- here say why it had to be: on the named instances every candidate is
 -- the table.
@@ -62,18 +62,18 @@
 --
 --   Is there a decidable predicate that fires on SEED-05 and SEED-09,
 --   on none of the 47, AND whose firing set over the whole snapshot is
---   small â” with the bound stated in advance?
+--   small â€” with the bound stated in advance?
 --
 -- That is answerable by a finite exhaustive check under the licence Â§6
 -- itself sets, and it is not answerable by a lookup table.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- NO NOVELTY.  "A classifier that fits
 -- finitely many labelled points proves nothing; the content is
 -- generalisation and the false-positive rate" is the founding
--- observation of statistical learning theory (Vapnikâ“Chervonenkis
+-- observation of statistical learning theory (Vapnikâ€“Chervonenkis
 -- 1971) and, before any of it, the standard reply to enumerative
--- induction â” the Nyya requirement that a hetu be established by
+-- induction â€” the NyÄya requirement that a hetu be established by
 -- vypti, a PERVASION holding wherever the mark holds, and not by a
 -- list of sapaka instances; a hetu present only in the examples cited
 -- is precisely the fallacy the school names and rejects.  Nothing here
@@ -158,7 +158,7 @@ module _ {A : Type} (eq? : Discrete A) where
   firingOffTheListIsGeneralisation P ps a pa Â¬mp = a , pa , Â¬mp
 
   ------------------------------------------------------------------
-  -- 5.  â¦and the table's base rate over any corpus is its own length
+  -- 5.  â€¦and the table's base rate over any corpus is its own length
   ------------------------------------------------------------------
 
   tableFiresOnlyOnListedDocuments :

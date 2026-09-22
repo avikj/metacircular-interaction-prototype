@@ -73,7 +73,7 @@ module _ {ℓ : Level} (Γ : Group ℓ) where
         ≡⟨ G.·IdR x ⟩
       x ∎
 
-  -- Endpoint covariance is invertible: t acts on the left and s�� on
+  -- Endpoint covariance is invertible: t acts on the left and s⁻¹ on
   -- the right.  This construction uses only the supplied endpoint pair.
   endpointGaugeIso : (⟨ Γ ⟩ × ⟨ Γ ⟩) → Iso ⟨ Γ ⟩ ⟨ Γ ⟩
   endpointGaugeIso (s , t) =

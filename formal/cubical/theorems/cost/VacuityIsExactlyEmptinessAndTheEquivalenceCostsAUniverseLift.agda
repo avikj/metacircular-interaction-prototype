@@ -11,16 +11,16 @@
 -- (CURRENT header) and `.claude/hooks/european-frame.txt`; no row
 -- applies and the frame check's scope requires Indian material, of
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE AUDIT.  Target: `AnEmptyDependencyRelationMakesCausalDeliveryVacuous`,
 -- Â§3.2.  That module proves two things and draws the wrong pair of
 -- conclusions from them:
 --
---   Â§2  emptyDeclarationIsRespectedByEveryOrder : empty hb â’ every order
+--   Â§2  emptyDeclarationIsRespectedByEveryOrder : empty hb â†’ every order
 --       respects hb; and its instance `theConcurrentOrderIsAdmissible`
---       at the order `Î» _ _ â’ âŠ`.
+--       at the order `Î» _ _ â†’ âŠ¥`.
 --   Â§3  oneDeclaredEdgeExcludesTheConcurrentOrder : one edge refutes
---       `Respects (Î» _ _ â’ âŠ)`.
+--       `Respects (Î» _ _ â†’ âŠ¥)`.
 --
 -- and comments on Â§3: *"So Â§2 is not a fact about causal delivery; it is
 -- a fact about the relation being empty."*
@@ -30,36 +30,36 @@
 -- The statement that actually says "vacuity is a fact about emptiness"
 -- is the universally quantified converse
 --
---     (every order respects hb) â’ hb is empty
+--     (every order respects hb) â†’ hb is empty
 --
 -- and it is **free from Â§2's own instance, read backwards**: apply the
--- vacuity hypothesis at the order `Î» _ _ â’ âŠ`, which is admissible
+-- vacuity hypothesis at the order `Î» _ _ â†’ âŠ¥`, which is admissible
 -- precisely when nothing is declared.  The module contained both halves
 -- of a biimplication and published only the weaker consequence of one.
 --
 -- Applying the test that has been earning its keep on this line: take
 -- the prose claim at its strong reading and try to INSTANTIATE it.
 -- "The emptiness is doing all the work" at strength means *exactly*
--- emptiness â” an iff â” and Â§3 does not give it.
+-- emptiness â€” an iff â€” and Â§3 does not give it.
 --
 -- WHAT IS PROVED
 --
 --   vacuousToEmpty / emptyToVacuous
 --                    the biimplication, both directions, one line each.
---   isPropEmptyHB    emptiness is a proposition (`isPropÂ` pointwise).
+--   isPropEmptyHB    emptiness is a proposition (`isPropÂ¬` pointwise).
 --   VacuousP, isPropVacuousP
 --                    vacuity RESTRICTED to hProp-valued orders is a
 --                    proposition, and the restriction does not cost the
---                    theorem: the witnessing order `Î» _ _ â’ âŠ` is
+--                    theorem: the witnessing order `Î» _ _ â†’ âŠ¥` is
 --                    itself a proposition, so both directions survive.
 --   vacuityIsExactlyEmptiness
---                    `Lift EmptyHB â‰ VacuousP`, by `propBiimplâ’Equiv`.
+--                    `Lift EmptyHB â‰ƒ VacuousP`, by `propBiimplâ†’Equiv`.
 --
 -- **AND THE LIFT IS THE CONTENT, NOT PACKAGING.**  `EmptyHB` quantifies
--- over WRITES and lives in `Typeâ`.  Vacuity quantifies over ORDERS â”
--- a universe of relations â” and therefore lives one level up, in
--- `Typeâ`, whatever h-level it has.  v0.5's `propBiimplâ’Equiv` takes
--- both arguments at the SAME level (`A B C D : Type â“` in
+-- over WRITES and lives in `Typeâ‚€`.  Vacuity quantifies over ORDERS â€”
+-- a universe of relations â€” and therefore lives one level up, in
+-- `Typeâ‚`, whatever h-level it has.  v0.5's `propBiimplâ†’Equiv` takes
+-- both arguments at the SAME level (`A B C D : Type â„“` in
 -- `Cubical.Foundations.Equiv`), so the equivalence is stated with an
 -- explicit `Lift`.  That is not a technicality: **"vacuity" and
 -- "emptiness" are not statements of the same kind**, one being a fact
@@ -113,7 +113,7 @@ module _ (Write : Type) (hb : Write â†’ Write â†’ Type) where
 
   -- vacuity over PROPOSITION-valued orders.  `Respects` is unchanged;
   -- only the range of `ord` is narrowed, and the narrowing is free
-  -- because the order that witnesses Â§2's backward half is `âŠ`, which
+  -- because the order that witnesses Â§2's backward half is `âŠ¥`, which
   -- is a proposition.
   VacuousP : Typeâ‚
   VacuousP =
@@ -131,7 +131,7 @@ module _ (Write : Type) (hb : Write â†’ Write â†’ Type) where
   vacuousPToEmpty vac a b h = vac (Î» _ _ â†’ (âŠ¥ , isPropâŠ¥)) a b h
 
   ------------------------------------------------------------------
-  -- 4.  And therefore an equivalence â” across one universe level
+  -- 4.  And therefore an equivalence â€” across one universe level
   ------------------------------------------------------------------
 
   vacuityIsExactlyEmptiness : Lift {j = â„“-suc â„“-zero} EmptyHB â‰ƒ VacuousP
@@ -150,7 +150,7 @@ module _ (Write : Type) (hb : Write â†’ Write â†’ Type) where
 -- model to have content."  Â§4 above is the exact form of that: the
 -- delivery constraint and the emptiness of the dependency relation are
 -- the SAME statement, not merely one implying the other.  So there is
--- no intermediate regime in which the constraint is weak-but-present â”
+-- no intermediate regime in which the constraint is weak-but-present â€”
 -- it is either empty and inert, or inhabited and biting.
 --
 -- What that does NOT settle, and is a different theorem: whether the

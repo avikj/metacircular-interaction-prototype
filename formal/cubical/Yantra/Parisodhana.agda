@@ -1,8 +1,8 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 module Yantra.Parisodhana where
--- ��������: factor pairing.  If n has any nontrivial divisor, it has one
--- with square � n.  So the �-bounded search is COMPLETE � proved, and the
--- certified prime decision drops to �-cost.
+-- परिशोधन: factor pairing.  If n has any nontrivial divisor, it has one
+-- with square ≤ n.  So the √-bounded search is COMPLETE — proved, and the
+-- certified prime decision drops to √-cost.
 
 open import Yantra.Prakriti
 open import Yantra.Vada using (noNTD→prime; prime→noNTD; dec×)
@@ -43,7 +43,7 @@ pairing n 1<n (d , (1<d , d<n) , (c , e)) = pick
   ... | gt d<c = d , 1<d ,
                  subst (d · d ≤_) e (≤-·k (<-weaken d<c)) ,
                  (c , e)
--- no divisor with square � n  �  prime
+-- no divisor with square ≤ n  ⇒  prime
 sqrtComplete : (n : ℕ) → 1 < n
              → ((d : ℕ) → 1 < d → d · d ≤ n → ¬ divides d n)
              → IsPrime n
@@ -64,7 +64,7 @@ small→NTD n d 1<n 1<d sq dv = d , (1<d , d<n) , dv
   d<dd = ≤-trans d<2d (≤-·k {2} {d} {d} 1<d)
   d<n : d < n
   d<n = ≤-trans d<dd sq
--- ═══ certified primality at �-cost ═══
+-- ═══ certified primality at √-cost ═══
 primeDec√ : (n : ℕ) → 1 < n → Dec (IsPrime n)
 primeDec√ n 1<n with boundedDec
     (λ d → ((1 < d) × (d · d ≤ n)) × divides d n)
@@ -81,7 +81,7 @@ primeDec√ n 1<n with boundedDec
 ... | no ¬s = yes (sqrtComplete n 1<n λ d 1<d sq dv →
       ¬s (d , divLe d n (<-trans ≤-refl 1<n) dv , (1<d , sq) , dv))
 
--- pressed: 97 is prime with certificate, 91 is not, at �-cost
+-- pressed: 97 is prime with certificate, 91 is not, at √-cost
 _ : Dec (IsPrime 97)
 _ = primeDec√ 97 (suc-≤-suc (suc-≤-suc zero-≤))
 

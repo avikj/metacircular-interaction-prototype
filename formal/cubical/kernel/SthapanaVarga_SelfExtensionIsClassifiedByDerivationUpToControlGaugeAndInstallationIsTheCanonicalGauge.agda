@@ -1,10 +1,10 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àààà¾àà¨à¾-àµà°àà— â” the moduli of installations.
+-- à¤¸à¥à¤¥à¤¾à¤ªà¤¨à¤¾-à¤µà¤°à¥à¤— â€” the moduli of installations.
 --
 -- THE CLAIM: the kernel is the
--- fixed point of the spec â’ moduli â’ motive tower â” the one object
+-- fixed point of the spec â†’ moduli â†’ motive tower â€” the one object
 -- that is simultaneously a point of its own moduli, because `install`
 -- turns a theorem of the object into a structure map of the object.
 -- For that sentence to be mathematics rather than mood, the kernel's
@@ -14,35 +14,35 @@
 --
 --   Â§1  INSTALLATION LOSES NOTHING: extracting the certificate from
 --       an installed derivation returns the derivation, by refl.
---       install is a section of extract â” theorem â’ operation â’
+--       install is a section of extract â€” theorem â†’ operation â†’
 --       theorem is the identity.
 --
 --   Â§2  THE MODULI OF SELF-EXTENSIONS: a NativeOperation is exactly
---       a certificate together with a control gauge â” a predicate on
+--       a certificate together with a control gauge â€” a predicate on
 --       terms and a soundness witness pinning it to the source.  The
---       equivalence is exhibited (both round trips refl, by Î), so
+--       equivalence is exhibited (both round trips refl, by Î·), so
 --       "what is an operation beyond its theorem?" has an exact
 --       answer: a choice of gauge, nothing else.
 --
 --   Â§3  EVERY OPERATION FACTORS THROUGH ITS OWN INSTALLATION: for
 --       any O, reindexing controls along control-sound carries O's
 --       applicability into that of install (checked O), and both
---       apply and apply-checked commute with the reindexing â” each
+--       apply and apply-checked commute with the reindexing â€” each
 --       agreement is refl.  So the image of install exhausts every
 --       self-extension up to gauge: capability grows by one term per
 --       theorem, as a factorization theorem, not a slogan.
 --
 --   Â§4  THE CANONICAL GAUGE IS THE WHOLE LOCUS: the applicability
---       space of install d is contractible with centre the source â”
---       the one point there is to fire at â” and Â§5: every gauge's
+--       space of install d is contractible with centre the source â€”
+--       the one point there is to fire at â€” and Â§5: every gauge's
 --       applicability space maps into that contractible locus over
 --       the identity of terms.  However permissive the control, it
 --       is a shadow of the one point.
 --
 -- Read together: self-extension is classified by derivation up to
--- control gauge; installation is the canonical â” total, terminal â”
+-- control gauge; installation is the canonical â€” total, terminal â€”
 -- gauge; and no gauge buys an application the certificate did not
--- already license (Â§3, by refl).  The Maurerâ“Cartan reading of
+-- already license (Â§3, by refl).  The Maurerâ€“Cartan reading of
 -- conservative self-rewrite lands here already solved: the coherence
 -- equation is control-sound, its solutions are the gauges, and gauge
 -- equivalence classes of solutions are the derivations themselves.
@@ -62,7 +62,7 @@ open import ControlledGrammar using (NativeOperation ; install)
 open NativeOperation
 
 ------------------------------------------------------------------------
--- à¦ Â The certificate of an operation, and its gauge.
+-- à¥¦ Â· The certificate of an operation, and its gauge.
 ------------------------------------------------------------------------
 
 Certificate : Typeâ‚€
@@ -77,8 +77,8 @@ Gauge : Tm â†’ Typeâ‚
 Gauge l = Î£[ C âˆˆ (Tm â†’ Typeâ‚€) ] ({t : Tm} â†’ C t â†’ t â‰¡ l)
 
 ------------------------------------------------------------------------
--- à§ Â Installation is a section of extraction: nothing added, nothing
---     lost, on the theorem side â” by refl.
+-- à¥§ Â· Installation is a section of extraction: nothing added, nothing
+--     lost, on the theorem side â€” by refl.
 ------------------------------------------------------------------------
 
 install-section : {l r : Tm} (d : Derivation l r)
@@ -86,7 +86,7 @@ install-section : {l r : Tm} (d : Derivation l r)
 install-section d = refl
 
 ------------------------------------------------------------------------
--- à¨ Â The classification: an operation IS a certificate with a gauge.
+-- à¥¨ Â· The classification: an operation IS a certificate with a gauge.
 ------------------------------------------------------------------------
 
 Extension : Typeâ‚
@@ -106,12 +106,12 @@ classification : NativeOperation â‰ƒ Extension
 classification = isoToEquiv (iso disassemble assemble (Î» _ â†’ refl) (Î» _ â†’ refl))
 
 -- Under this equivalence, install d is the pair (its certificate, the
--- canonical gauge (Î» t â’ t â‰¡ l , id)); Â§1 is its first projection.
+-- canonical gauge (Î» t â†’ t â‰¡ l , id)); Â§1 is its first projection.
 
 ------------------------------------------------------------------------
--- à© Â Every operation factors through the installation of its own
+-- à¥© Â· Every operation factors through the installation of its own
 --     certificate: reindex the control along its soundness witness,
---     and every application agrees â” definitionally.
+--     and every application agrees â€” definitionally.
 ------------------------------------------------------------------------
 
 module _ (O : NativeOperation) where
@@ -131,7 +131,7 @@ module _ (O : NativeOperation) where
   apply-checked-factors t c = refl
 
 ------------------------------------------------------------------------
--- à Â The canonical gauge's applicability space is contractible with
+-- à¥ª Â· The canonical gauge's applicability space is contractible with
 --     centre the source: one theorem, one locus.
 ------------------------------------------------------------------------
 
@@ -141,7 +141,7 @@ locusContr {l} d .fst = l , refl
 locusContr {l} d .snd (t , p) i = p (~ i) , Î» j â†’ p (~ i âˆ¨ j)
 
 ------------------------------------------------------------------------
--- à Â And every gauge is a shadow of it: the applicability space of
+-- à¥« Â· And every gauge is a shadow of it: the applicability space of
 --     any operation maps into the canonical contractible locus, over
 --     the identity of terms.
 ------------------------------------------------------------------------

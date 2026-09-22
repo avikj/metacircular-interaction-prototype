@@ -1,41 +1,41 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àààµàààà¾à¨à â” à¯àà àààµààà®à¿à¨àà¨ààµ àà¿ààà àà¿ à  ààà°àà®à¾à¦ààà à¨ààà¯àà¿, à¦ààµà¿ààà¯à ààà¨à°à¾à—ààààà¿ à
+-- à¤¸à¥à¤µà¤¸à¥à¤¥à¤¾à¤¨à¥€ â€” à¤¯à¤¤à¥ à¤¸à¥à¤µà¤¸à¥à¤®à¤¿à¤¨à¥à¤¨à¥‡à¤µ à¤¤à¤¿à¤·à¥à¤ à¤¤à¤¿ à¥¤  à¤ªà¥à¤°à¤¥à¤®à¤¾à¤¦à¥‡à¤¶à¥‡ à¤¨à¤¶à¥à¤¯à¤¤à¤¿, à¤¦à¥à¤µà¤¿à¤¤à¥€à¤¯à¥‡ à¤ªà¥à¤¨à¤°à¤¾à¤—à¤šà¥à¤›à¤¤à¤¿ à¥¤
 --
 -- (self-standing: what stands in place of itself.  It is destroyed by the
 --  first substitution and comes back at the second.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHERE THIS COMES FROM.  `loss/â¦/Sthanivadbhava_â¦` instantiates
--- the carrier law at the dea operation and finds that 1.1.56's àà²à/àà¨à²à
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- WHERE THIS COMES FROM.  `loss/â€¦/Sthanivadbhava_â€¦` instantiates
+-- the carrier law at the ÄdeÅ›a operation and finds that 1.1.56's à¤…à¤²à¥/à¤…à¤¨à¤²à¥
 -- exception IS the base/carried split: the form is the free slot, the
 -- sthnin and the designation are carried, and a designation-reading rule
 -- cannot see which form was substituted BY refl.
 --
 -- Blindness between a substitute and its original needs one hypothesis:
--- `àààà¾à¨à v â‰¡ à°ààà®à v` â” v stands in place of itself.
+-- `àààà¾à¨à v â‰¡ à°ààà®à v` â€” v stands in place of itself.
 --
 -- This file asks what that hypothesis is, and the answer is not a
--- technicality.  Â§à¨: for a SUBSTITUTE, it holds exactly when the
--- substitution changed nothing, so a genuine dea destroys it â” the
+-- technicality.  Â§à¥¨: for a SUBSTITUTE, it holds exactly when the
+-- substitution changed nothing, so a genuine ÄdeÅ›a destroys it â€” the
 -- theorem is the hypothesis, definitionally, because `sthanin (adesa f v)`
--- is `rupa v` and `rupa (adesa f v)` is `f`.  Â§à©: and applying the SAME
+-- is `rupa v` and `rupa (adesa f v)` is `f`.  Â§à¥©: and applying the SAME
 -- substitution again restores it.
 --
 -- SO THE HYPOTHESIS IS A DEPTH CONDITION, and an odd one: it holds before
 -- any substitution, fails immediately after the first non-vacuous one, and
 -- returns at the second application of the same form.  The blindness of an
--- àà¨à²ààµà¿à§à¿ between a substitute and its original is therefore available at
+-- à¤…à¤¨à¤²à¥à¤µà¤¿à¤§à¤¿ between a substitute and its original is therefore available at
 -- the start of a derivation and at repeated sites, and not in between.
 --
 -- THE MODEL.  It is a fact about the
 -- `adesa` of `Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm`,
 -- which models 1.1.56 as a three-slot record and one constructor.  The
--- tradition DOES restrict 1.1.56 for iterated substitution â” that is what
+-- tradition DOES restrict 1.1.56 for iterated substitution â€” that is what
 -- Ktyyana's vrttikas on the stra are for.
 --
--- Pini, ààààŸà¾à§àà¯à¾à¯à à§.à§.àà (àààà¾à¨à¿àµà¦à¾à¦ààà‹à½à¨à²ààµà¿à§à), ~500 BCE; Ktyyana's
+-- PÄá¹‡ini, à¤…à¤·à¥à¤Ÿà¤¾à¤§à¥à¤¯à¤¾à¤¯à¥€ à¥§.à¥§.à¥«à¥¬ (à¤¸à¥à¤¥à¤¾à¤¨à¤¿à¤µà¤¦à¤¾à¤¦à¥‡à¤¶à¥‹à¤½à¤¨à¤²à¥à¤µà¤¿à¤§à¥Œ), ~500 BCE; KÄtyÄyana's
 -- vrttikas ~250 BCE; Patajali's à®àà¾àà¾ààà¯ ~150 BCE.
 ------------------------------------------------------------------------
 
@@ -50,7 +50,7 @@ open Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm.Varna
   using (rupa ; sthanin ; samjna)
 
 ------------------------------------------------------------------------
--- à§ Â àààµàààà¾à¨à¿àààµà®à â” the hypothesis, named so it can be reasoned about
+-- à¥§ Â· à¤¸à¥à¤µà¤¸à¥à¤¥à¤¾à¤¨à¤¿à¤¤à¥à¤µà¤®à¥ â€” the hypothesis, named so it can be reasoned about
 --     rather than carried around as a side condition.
 ------------------------------------------------------------------------
 
@@ -58,7 +58,7 @@ open Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm.Varna
 à¤¸à¥à¤µà¤¸à¥à¤¥à¤¾à¤¨à¥€ v = sthanin v â‰¡ rupa v
 
 ------------------------------------------------------------------------
--- à¨ Â àà¦ààà‹ à¨à¾àà¯àà¿ â” A SUBSTITUTION DESTROYS IT, exactly when it
+-- à¥¨ Â· à¤†à¤¦à¥‡à¤¶à¥‹ à¤¨à¤¾à¤¶à¤¯à¤¤à¤¿ â€” A SUBSTITUTION DESTROYS IT, exactly when it
 --     substitutes something.
 --
 --     `adesa f v = mk f (rupa v) (samjna v)`, so for the substitute the
@@ -78,14 +78,14 @@ open Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm.Varna
 à¤†à¤¦à¥‡à¤¶-à¤µà¥ƒà¤¥à¤¾-à¤°à¤•à¥à¤·à¤¤à¤¿ f v p = p
 
 ------------------------------------------------------------------------
--- à© Â à¦ààµà¿ààà¯à ààà¨à°à¾à—à®à¨à®à â” AND THE SECOND APPLICATION RESTORES IT.
+-- à¥© Â· à¤¦à¥à¤µà¤¿à¤¤à¥€à¤¯à¥‡ à¤ªà¥à¤¨à¤°à¤¾à¤—à¤®à¤¨à¤®à¥ â€” AND THE SECOND APPLICATION RESTORES IT.
 --
 --     `adesa f (adesa f v)` is `mk f f (samjna v)`: the second dea puts
 --     the same form in, and the form it displaces is that same form, so
 --     the substitute stands for itself again.  By refl.
 --
 --     Whatever the first substitution destroyed is not destroyed further
---     by repeating it â” which is why this is ààà¨à°à¾à—à®à¨ and not merely
+--     by repeating it â€” which is why this is à¤ªà¥à¤¨à¤°à¤¾à¤—à¤®à¤¨ and not merely
 --     idempotence: the property returns, it is not preserved.
 ------------------------------------------------------------------------
 
@@ -93,12 +93,12 @@ open Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm.Varna
 à¤¦à¥à¤µà¤¿à¤°à¤¾à¤¦à¥‡à¤¶à¥‡-à¤¸à¥à¤µà¤¸à¥à¤¥à¤¾à¤¨à¥€ f v = refl
 
 ------------------------------------------------------------------------
--- à Â What the depth condition buys, at the sites where it holds.
+-- à¥ª Â· What the depth condition buys, at the sites where it holds.
 --
---     `anal-blind` needs no hypothesis: an àà¨à²ààµà¿à§à¿ cannot tell an dea
+--     `anal-blind` needs no hypothesis: an à¤…à¤¨à¤²à¥à¤µà¤¿à¤§à¤¿ cannot tell an ÄdeÅ›a
 --     from its sthnin, ever.  The gap the loss module names is a
---     different comparison â” the substitute against the ORIGINAL VARA â”
---     and Â§à closes it exactly where àààµàààà¾à¨à holds, which by Â§à¨ and Â§à© is
+--     different comparison â€” the substitute against the ORIGINAL VARá¹†A â€”
+--     and Â§à¥ª closes it exactly where à¤¸à¥à¤µà¤¸à¥à¤¥à¤¾à¤¨à¥€ holds, which by Â§à¥¨ and Â§à¥© is
 --     before the first substitution and at every repeated one.
 ------------------------------------------------------------------------
 
@@ -107,7 +107,7 @@ open Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm.Varna
                 â†’ (f : Rupa) â†’ r (adesa f v) â‰¡ r v
 à¤¸à¥à¤µà¤¸à¥à¤¥à¤¾à¤¨à¥‡-à¤…à¤¨à¥à¤§à¤ƒ r av v _ f = anal-blind r av f v
 
--- and at a doubled site, with no hypothesis to supply, by Â§à©
+-- and at a doubled site, with no hypothesis to supply, by Â§à¥©
 à¤¦à¥à¤µà¤¿à¤°à¤¾à¤¦à¥‡à¤¶à¥‡-à¤…à¤¨à¥à¤§à¤ƒ : {A : Type} (r : Varna â†’ A) â†’ AnalVidhi A r
                 â†’ (f : Rupa) (v : Varna)
                 â†’ r (adesa f (adesa f v)) â‰¡ r (adesa f v)

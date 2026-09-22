@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������-���� � the paired budget.
+-- युग्म-व्यय — the paired budget.
 --
 -- TWO BUDGETS WHOSE DIFFERENCE IS FIXED DIVERGE TOGETHER.
 --
@@ -11,10 +11,10 @@
 -- constant of the motion: the signed difference is conserved even
 -- though neither budget is monotone and the common production may
 -- change sign.  This module is the order-theoretic content of what that
--- costs a hypothetical blow-up � it cannot be carried by one sector.
+-- costs a hypothetical blow-up — it cannot be carried by one sector.
 --
---   §0b  A cancellation the library does not carry: `m + m � n + n`
---        implies `m � n`.  It is needed because a bound on the SUM of
+--   §0b  A cancellation the library does not carry: `m + m ≤ n + n`
+--        implies `m ≤ n`.  It is needed because a bound on the SUM of
 --        two comparable quantities bounds the larger one only after
 --        halving, and that halving is the whole reason the argument
 --        needs the two sectors to be comparable at all.
@@ -28,18 +28,18 @@
 --        form: each budget is within the SAME constant of the other, at
 --        EVERY index, with no limit taken.
 --
--- The shape of the argument: `Unbounded (k� + k�)` is what a critical
--- criterion supplies � the SUM blows up.  The conserved difference is
+-- The shape of the argument: `Unbounded (k₊ + k₋)` is what a critical
+-- criterion supplies — the SUM blows up.  The conserved difference is
 -- what upgrades that to "each compensated budget blows up separately".
 -- Neither step is analytic, and neither is about any particular
 -- evolution.
 --
--- SYT � THE CLAIM, EXACTLY.  §§0b�2 over �, for all sequences and all
--- indices, with `Unbounded f = (M : �) � �[ n ] M � f n` � the
+-- SYĀT — THE CLAIM, EXACTLY.  §§0b–2 over ℕ, for all sequences and all
+-- indices, with `Unbounded f = (M : ℕ) → Σ[ n ] M ≤ f n` — the
 -- constructive reading, so §1 RETURNS the index at which each budget
 -- exceeds a given bound.
 -- The direction of the constant
--- is fixed (`b�` the larger); the mirrored case is this theorem with
+-- is fixed (`b₊` the larger); the mirrored case is this theorem with
 -- the two arguments exchanged.
 ------------------------------------------------------------------------
 
@@ -54,7 +54,7 @@ open import Cubical.Data.Sigma using (Σ-syntax ; _×_ ; _,_)
 open import Cubical.Data.Empty as Empty using (⊥)
 
 ------------------------------------------------------------------------
--- � � Unboundedness, constructively: a function meeting every bound,
+-- ० · Unboundedness, constructively: a function meeting every bound,
 --     together with the index at which it does.
 ------------------------------------------------------------------------
 
@@ -62,7 +62,7 @@ Unbounded : (ℕ → ℕ) → Type₀
 Unbounded f = (M : ℕ) → Σ[ n ∈ ℕ ] (M ≤ f n)
 
 ------------------------------------------------------------------------
--- �� � Doubling reflects the order.
+-- ०ब · Doubling reflects the order.
 ------------------------------------------------------------------------
 
 double-cancel : (m n : ℕ) → (m + m) ≤ (n + n) → m ≤ n
@@ -78,17 +78,17 @@ double-cancel (suc m) (suc n) h =
     h' = subst2 _≤_ (cong suc (+-suc m m)) (cong suc (+-suc n n)) h
 
 ------------------------------------------------------------------------
--- � � THE PAIRED DIVERGENCE.
+-- १ · THE PAIRED DIVERGENCE.
 --
 -- Hypotheses, in the order they are used:
 --   diff  : the budgets differ by the fixed constant c, at every index
---   dom�  : each budget dominates its own sector quantity
+--   dom±  : each budget dominates its own sector quantity
 --   grow  : the sum of the sector quantities is unbounded
 --
 -- Route: the sum of the budgets dominates the sum of the sectors, so it
--- is unbounded; `b�` dominates `b�` (by `diff`), so `b�` alone is
--- unbounded after halving; and `diff` then transfers that to `b�` by
--- cancelling the constant � the step that would fail if the difference
+-- is unbounded; `b₊` dominates `b₋` (by `diff`), so `b₊` alone is
+-- unbounded after halving; and `diff` then transfers that to `b₋` by
+-- cancelling the constant — the step that would fail if the difference
 -- were merely bounded rather than fixed.
 ------------------------------------------------------------------------
 
@@ -102,35 +102,35 @@ module _ (b₊ b₋ k₊ k₋ : ℕ → ℕ) (c : ℕ)
   sum-dominates : (n : ℕ) → (k₊ n + k₋ n) ≤ (b₊ n + b₋ n)
   sum-dominates n = ≤-+-≤ (dom₊ n) (dom₋ n)
 
-  -- `b�` is never larger than `b�`: they differ by `c`, and `c � 0`
+  -- `b₋` is never larger than `b₊`: they differ by `c`, and `c ≥ 0`
   right-below-left : (n : ℕ) → b₋ n ≤ b₊ n
   right-below-left n = subst (b₋ n ≤_) (sym (diff n)) ≤SumRight
 
-  -- hence the sum of the budgets is at most twice `b�`
+  -- hence the sum of the budgets is at most twice `b₊`
   sum-below-double : (n : ℕ) → (b₊ n + b₋ n) ≤ (b₊ n + b₊ n)
   sum-below-double n = ≤-k+ (right-below-left n)
 
-  -- §1a � the larger budget is unbounded
+  -- §1a · the larger budget is unbounded
   left-unbounded : Unbounded (λ n → k₊ n + k₋ n) → Unbounded b₊
   left-unbounded grow M with grow (M + M)
   ... | n , M+M≤sum =
     n , double-cancel M (b₊ n)
           (≤-trans (≤-trans M+M≤sum (sum-dominates n)) (sum-below-double n))
 
-  -- §1b � and so is the smaller: cancel the fixed constant
+  -- §1b · and so is the smaller: cancel the fixed constant
   right-unbounded : Unbounded (λ n → k₊ n + k₋ n) → Unbounded b₋
   right-unbounded grow M with left-unbounded grow (c + M)
   ... | n , c+M≤b₊ =
     n , ≤-k+-cancel (subst ((c + M) ≤_) (diff n) c+M≤b₊)
 
-  -- §1 � both, together
+  -- §1 · both, together
   both-unbounded :
       Unbounded (λ n → k₊ n + k₋ n)
     → Unbounded b₊ × Unbounded b₋
   both-unbounded grow = left-unbounded grow , right-unbounded grow
 
   ----------------------------------------------------------------------
-  -- � � The exact comparison, at every index, with no limit taken:
+  -- २ · The exact comparison, at every index, with no limit taken:
   --     each budget is within the SAME constant `c` of the other.
   ----------------------------------------------------------------------
 

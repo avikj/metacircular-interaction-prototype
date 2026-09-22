@@ -3,17 +3,17 @@
 ------------------------------------------------------------------------
 -- TheRateQuotientExistsAndMinimalityCannotLiveOnIt
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
---   Rate = (â• — â•) / _â‰ˆ_        the set-quotient, a genuine HIT
+--   Rate = (â„• Ã— â„•) / _â‰ˆ_        the set-quotient, a genuine HIT
 --   AtLeastOnRate               `AtLeast` LIFTS: a function of the RATE,
 --                               not of the pair
 --   AboveOnRate                 and so does `Above`
 --   atLeastOnRateComputes       the lift agrees with the old definition
 --                               on every representative, by `refl`
 --   noMinimalityOnTheRate       and NO function on `Rate` can agree with
---                               `Minimal` on all representatives â” an
+--                               `Minimal` on all representatives â€” an
 --                               impossibility, not an absence
 --
 -- The last one is what the earlier modules could not state.  They
@@ -23,17 +23,17 @@
 -- definition does, because `[ oneHalf ] â‰¡ [ twoQuarters ]` is a PATH,
 -- `cong` transports along it, and the two verdicts would have to agree.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHERE THE UNIVALENCE IS, since this corpus's remit names it.  The
 -- lift is by `SetQuotients.rec`, which needs the target to be a set;
--- the target is `List Bool â’ hProp`, a set because `hProp` is
--- (`isSetHProp`), and THAT is propositional univalence â” `â”toPath`
+-- the target is `List Bool â†’ hProp`, a set because `hProp` is
+-- (`isSetHProp`), and THAT is propositional univalence â€” `â‡”toPath`
 -- turns a two-way implication between propositions into a path, and it
 -- is what makes `atLeastRespects` a path rather than a pair of
--- functions.  `AtLeast p q bs` is a proposition because cubical's `â‰`
--- is (`isPropâ‰`), so nothing had to be truncated.
+-- functions.  `AtLeast p q bs` is a proposition because cubical's `â‰¤`
+-- is (`isPropâ‰¤`), so nothing had to be truncated.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- NO NOVELTY.  Set-quotients, lifting along a respectful map, and
 -- propositional extensionality are standard cubical practice; the
 -- rationals are built this way in the library itself.  What is
@@ -109,7 +109,7 @@ atLeastOnRateComputes p q bs = refl
 ------------------------------------------------------------------------
 -- 3.  And minimality provably cannot
 --
--- Not "the obvious definition fails to descend" â” NO function on the
+-- Not "the obvious definition fails to descend" â€” NO function on the
 -- quotient agrees with `Minimal` on representatives, because
 -- `[ oneHalf ] â‰¡ [ twoQuarters ]` is a path and `cong` transports along
 -- it.
@@ -134,10 +134,10 @@ noMinimalityOnTheRate M agrees =
 ------------------------------------------------------------------------
 -- DENSITY OF THE RATES is proved in
 -- `TheRatesAreDenseAndTheMediantSurvivesTheQuotient`:
---   âŠâŠ-trans / âŠâŠ-trans   mixed transitivities, by the same
---                         multiplyâ“rearrangeâ“cancel as `âŠ-trans`
---   âŠ-respects-â‰ˆ          hence `âŠ` respects `â‰ˆ` on both sides
---   _âŠR_                  `âŠ` lifted by `SetQuotients.rec2` into hProp
+--   âŠ‘âŠ-trans / âŠâŠ‘-trans   mixed transitivities, by the same
+--                         multiplyâ€“rearrangeâ€“cancel as `âŠ‘-trans`
+--   âŠ-respects-â‰ˆ          hence `âŠ` respects `â‰ˆ` on both sides
+--   _âŠR_                  `âŠ` lifted by `SetQuotients.rec2` into hProp
 --   theRatesAreDense      between two rates lies a third
 --
 -- **AND THE MEDIANT NEVER HAS TO DESCEND.**  `mediant` is a function on
@@ -145,7 +145,7 @@ noMinimalityOnTheRate M agrees =
 -- density is a MERE EXISTENCE, so its target is a proposition, so
 -- `elimProp2` puts the whole claim at representatives, where the
 -- pair-level mediant is already a witness.  A witness that need not be
--- canonical need not be well-defined on the quotient â” which is worth
+-- canonical need not be well-defined on the quotient â€” which is worth
 -- keeping, because the instinct after building a quotient is to lift
 -- everything in sight.
 --

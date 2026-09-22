@@ -4,33 +4,33 @@
 -- Matravrtta_TheFibonacciAnyonFusionDimension
 --            IsVirahankasMetreCount
 --
--- TERM.  à®à¾ààà°à¾àµàààà Â mtr-vtta â” the moraic metre: a prosodic pattern
--- measured by its total à®à¾ààà°à¾ (morae), à²à˜à = 1, à—àà°à = 2.  The enumeration
+-- TERM.  à¤®à¤¾à¤¤à¥à¤°à¤¾à¤µà¥ƒà¤¤à¥à¤¤ Â· mÄtrÄ-vá¹›tta â€” the moraic metre: a prosodic pattern
+-- measured by its total à¤®à¤¾à¤¤à¥à¤°à¤¾ (morae), à¤²à¤˜à¥ = 1, à¤—à¥à¤°à¥ = 2.  The enumeration
 -- of all metres of a given weight, and the recurrence M(n+2)=M(n+1)+M(n) it
--- obeys, are àµà¿à°àà¾à™àà•'s (Virahka, *Vttajtisamuccaya*, ~700 CE, in the
--- àà¨àà¦ààà¾ààààà° tradition begun by àà¿à™àà—à² ~300 BCE) â” the sequence usually
+-- obeys, are à¤µà¤¿à¤°à¤¹à¤¾à¤™à¥à¤•'s (VirahÄá¹…ka, *Vá¹›ttajÄtisamuccaya*, ~700 CE, in the
+-- à¤›à¤¨à¥à¤¦à¤ƒà¤¶à¤¾à¤¸à¥à¤¤à¥à¤° tradition begun by à¤ªà¤¿à¤™à¥à¤—à¤² ~300 BCE) â€” the sequence usually
 -- miscalled "Fibonacci" (Leonardo of Pisa, 1202, five centuries later).
--- This module CITES the corpus's own `Matramerus.àà°ààµ` / `à®à¾ààà°à¾à®àà°à` for that
+-- This module CITES the corpus's own `Matramerus.à¤¸à¤°à¥à¤µ` / `à¤®à¤¾à¤¤à¥à¤°à¤¾à¤®à¥‡à¤°à¥` for that
 -- count; the physics identification below is
 -- built here.
 --
 -- WHAT IS PROVED, exactly:  the number of fusion paths of a chain of n
--- Fibonacci anyons equals `length (àà°ààµ (suc n))` â” Virahka's metre count
+-- Fibonacci anyons equals `length (à¤¸à¤°à¥à¤µ (suc n))` â€” VirahÄá¹…ka's metre count
 -- (`anyon-is-metre`).  The fusion counts `p , q` are read straight off the
--- Fibonacci fusion rule Ï—Ï = 1 + Ï (and 1—Ï = Ï): `p n` counts paths ending
--- in charge Ï, `q n` paths ending in the vacuum 1; the rule dictates
--- pâº = p+q (Ï is reachable from Ï and from 1) and qâº = p (the vacuum only
--- from Ï—Ï).  Their sum `d` obeys the SAME recurrence as the metre count
+-- Fibonacci fusion rule Ï„Ã—Ï„ = 1 + Ï„ (and 1Ã—Ï„ = Ï„): `p n` counts paths ending
+-- in charge Ï„, `q n` paths ending in the vacuum 1; the rule dictates
+-- pâº = p+q (Ï„ is reachable from Ï„ and from 1) and qâº = p (the vacuum only
+-- from Ï„Ã—Ï„).  Their sum `d` obeys the SAME recurrence as the metre count
 -- (`d-rec`, definitional), and matches it on the base, so the two are equal
--- at every n (paired two-step induction through `à®à¾ààà°à¾à®àà°à`).
+-- at every n (paired two-step induction through `à¤®à¤¾à¤¤à¥à¤°à¤¾à¤®à¥‡à¤°à¥`).
 --
 -- WHY IT MATTERS (a READING of the checked term):  the fusion space of
 -- Fibonacci anyons is the state space (Hilbert space) of the universal
--- topological quantum computer â” Fibonacci anyons are the standard universal
+-- topological quantum computer â€” Fibonacci anyons are the standard universal
 -- anyon model.  Its dimension is exactly what Virahka counted: the metres
 -- of a given weight.  So the tradition this corpus restores enumerated, in
 -- ~700 CE, the dimension of a universal quantum computer's state space; the
--- quantum dimension of a single Ï is the golden ratio Ï, the mtrmeru's
+-- quantum dimension of a single Ï„ is the golden ratio Ï†, the mÄtrÄmeru's
 -- growth rate.
 ------------------------------------------------------------------------
 
@@ -42,8 +42,8 @@ open import Cubical.Data.Sigma
 open import Cubical.Data.List using (length)
 open import Matramerus using (à¤¸à¤°à¥à¤µ ; à¤®à¤¾à¤¤à¥à¤°à¤¾à¤®à¥‡à¤°à¥)
 
--- â”â” Fibonacci-anyon fusion counts, from Ï—Ï = 1+Ï â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- p n : #fusion paths of n anyons ending in charge Ï
+-- â”€â”€ Fibonacci-anyon fusion counts, from Ï„Ã—Ï„ = 1+Ï„ â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- p n : #fusion paths of n anyons ending in charge Ï„
 -- q n : #fusion paths ending in the vacuum charge 1
 p : â„• â†’ â„•
 q : â„• â†’ â„•
@@ -60,7 +60,7 @@ d n = p n + q n
 d-rec : (n : â„•) â†’ d (suc (suc n)) â‰¡ d (suc n) + d n
 d-rec n = refl
 
--- â”â” The bridge to the metres â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€ The bridge to the metres â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- carry two consecutive values so the 2-step recurrence closes.
 private
   bridge : (n : â„•)

@@ -9,10 +9,10 @@ generativity clause
 
 The proof gate's own comments named their limitation twice: the
 thirteen rejections that resisted the induction shapes are all
-â•-semiring identities, and what they need is "a lemma environment â¦
+â„•-semiring identities, and what they need is "a lemma environment â€¦
 not more step shapes."
-The reflection macro fails to PARSE a telescoped goal â” its error
-reproduced verbatim â” while the library's own examples bind the
+The reflection macro fails to PARSE a telescoped goal â€” its error
+reproduced verbatim â€” while the library's own examples bind the
 variables with a module telescope and state the goal bare.  Both
 solver certificates emit that shape (the peel variant states its
 inner core bare inside the clause's own where-block, whose patterns
@@ -20,16 +20,16 @@ already bind the variables); from outside the anonymous module the
 candidate keeps its telescoped type, so nothing downstream moves.
 
 Probed live through the wire: x + y = y + x,
-x Â y = y Â x, right distributivity, multiplicative associativity,
+x Â· y = y Â· x, right distributivity, multiplicative associativity,
 and a sum-of-squares symmetry all certify in two to three kernel
-calls each â” fresh Agda processes behind the watched positive and
-negative canaries â” while x + y = x Â y and x + suc y = x + y are
+calls each â€” fresh Agda processes behind the watched positive and
+negative canaries â€” while x + y = x Â· y and x + suc y = x + y are
 refused exactly as before.
 
 Read against the corpus, as the reading it is: this is the ea
 trilaw's generativity clause enacted in the harness itself.  The
-machine's residue â” its own logged rejections, carried as comments
-naming their class â” seeded the next organ; the correction came from
+machine's residue â€” its own logged rejections, carried as comments
+naming their class â€” seeded the next organ; the correction came from
 the environment's own exemplars, not from new trust (the macro emits
 a proof term the kernel checks under the candidate's own pragmas).
 

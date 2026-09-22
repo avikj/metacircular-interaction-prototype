@@ -1,35 +1,35 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- PeirceGluing � the charge-gluing defect is exactly the off-sector
+-- PeirceGluing — the charge-gluing defect is exactly the off-sector
 -- mass, and fixed-charge projection is linear but not multiplicative.
 --
 -- SOURCES, quoted exactly.
 --
 -- (1) D0026 §5.11, boxed.  With `C|n⟩ = Ω(n)|n⟩` the charge operator,
---     `Π_r` the projector onto charge r, `P = Π�`, `Q = 1 − P`, and `U_h`
+--     `Π_r` the projector onto charge r, `P = Π₁`, `Q = 1 − P`, and `U_h`
 --     the shift:
 --
 --       "PU_hPU_kP − PU_{h+k}P = −PU_hQU_kP"
 --
---       "PU_{h+k}P − PU_hPU_kP = �_{h,k}(�∖{1}) � the arithmetic gluing
+--       "PU_{h+k}P − PU_hPU_kP = 𝛍_{h,k}(ℕ∖{1}) — the arithmetic gluing
 --        defect is exactly the total non-prime intermediate charge mass"
 --
---     where `�_{h,k} = �_r PU_hΠ_rU_kP δ_r`.
+--     where `𝛍_{h,k} = Σ_r PU_hΠ_rU_kP δ_r`.
 --
 -- (2) D0018 T18.7:
 --
---       "M^{(h+k)}_{1,1} = �_r M^{(h)}_{1,r} M^{(k)}_{r,1}; charge-one
+--       "M^{(h+k)}_{1,1} = Σ_r M^{(h)}_{1,r} M^{(k)}_{r,1}; charge-one
 --        propagation is closed under composition iff all off-sector
 --        excursion-return terms vanish".
 --
 -- (3) D0015 §15.8:
 --
 --       "fixed-charge coefficient extraction
---        Π_c(FG) = �_{i+j=c} Π_i(F)Π_j(G); Π_c linear but not
+--        Π_c(FG) = Σ_{i+j=c} Π_i(F)Π_j(G); Π_c linear but not
 --        multiplicative".
 --
--- WHAT THE CORPUS ALREADY HAS.  `DynamicDescent` (2�2 over �: the
+-- WHAT THE CORPUS ALREADY HAS.  `DynamicDescent` (2×2 over ℤ: the
 -- defect is the single number bc), `ExcursionReturn` (K_tK_s − K_{t+s}
 -- = −P T_t Q T_s i over an abstract ring) and `CompressionDefect`
 -- (T18.4 with an idempotent e and complement q) are all the TWO-sector
@@ -40,81 +40,81 @@
 --
 -- WHAT IS PROVED (all --safe, no postulates, no holes).
 --
---   §0  FiniteSums � sums over `Fin n` via `Cubical.Algebra.Ring.BigOps`
---       (`� = foldrFin _+_ 0r`).  `zeroAt r V` is V with its r-th entry
---       replaced by 0r, so `� (zeroAt r V)` is the sum over s ≠ r:
+--   §0  FiniteSums — sums over `Fin n` via `Cubical.Algebra.Ring.BigOps`
+--       (`∑ = foldrFin _+_ 0r`).  `zeroAt r V` is V with its r-th entry
+--       replaced by 0r, so `∑ (zeroAt r V)` is the sum over s ≠ r:
 --         zeroAt-diag     zeroAt r V r ≡ 0r
---         zeroAt-off      s ≠ r � zeroAt r V s ≡ V s
---         �pick           � V ≡ V r + � (zeroAt r V)
---         ��0���witness   � V � 0 � �� � s. V s � 0      (constructive)
---         ��0�witness     Discrete R � � V � 0 � � s. V s � 0  (sharp)
+--         zeroAt-off      s ≠ r → zeroAt r V s ≡ V s
+--         ∑pick           ∑ V ≡ V r + ∑ (zeroAt r V)
+--         ∑≢0→¬¬witness   ∑ V ≢ 0 → ¬¬ Σ s. V s ≢ 0      (constructive)
+--         ∑≢0→witness     Discrete R → ∑ V ≢ 0 → Σ s. V s ≢ 0  (sharp)
 --
---   §1  Peirce � any ring R, any finite family e : Fin n � R that is
---       complete (� e ≡ 1r) and idempotent (e r � e r ≡ e r).  Writing
+--   §1  Peirce — any ring R, any finite family e : Fin n → R that is
+--       complete (∑ e ≡ 1r) and idempotent (e r · e r ≡ e r).  Writing
 --       term r a b s = e_r a e_s b e_r, K r a = e_r a e_r and
 --       off r a b = zeroAt r (term r a b):
---         peirce          e_r (a b) e_r ≡ �_s e_r a e_s b e_r
---         peirce-block    e_r (a b) e_r ≡ �_s (e_r a e_s)(e_s b e_r)
+--         peirce          e_r (a b) e_r ≡ Σ_s e_r a e_s b e_r
+--         peirce-block    e_r (a b) e_r ≡ Σ_s (e_r a e_s)(e_s b e_r)
 --         KK              (e_r a e_r)(e_r b e_r) ≡ term r a b r
 --         gluing          e_r (a b) e_r − (e_r a e_r)(e_r b e_r)
---                           ≡ �_{s≠r} e_r a e_s b e_r
---         off-is-Q        �_{s≠r} e_r a e_s b e_r ≡ e_r a (1 − e_r) b e_r
+--                           ≡ Σ_{s≠r} e_r a e_s b e_r
+--         off-is-Q        Σ_{s≠r} e_r a e_s b e_r ≡ e_r a (1 − e_r) b e_r
 --         boxed           (e_r a e_r)(e_r b e_r) − e_r (a b) e_r
 --                           ≡ −(e_r a (1 − e_r) b e_r)         [D0026 box]
---         closure�off0, off0�closure   the iff of T18.7
---         Arithmetic.T18-7  M^{(h+k)}_{r,r} ≡ �_s M^{(h)}_{r,s} M^{(k)}_{s,r}
---                           for any U : � � R with U_h U_k ≡ U_{h+k}
+--         closure→off0, off0→closure   the iff of T18.7
+--         Arithmetic.T18-7  M^{(h+k)}_{r,r} ≡ Σ_s M^{(h)}_{r,s} M^{(k)}_{s,r}
+--                           for any U : ℕ → R with U_h U_k ≡ U_{h+k}
 --         Arithmetic.gluing-arith   the D0026 second line, with the
 --                           right-hand side the sum over s ≠ r
 --         Arithmetic.closure-iff-arith   closure of M^{(h)}_{r,r} under
 --                           composition forces the off-sector sum to 0
 --       and the honest converse of T18.5:
---         off�0���witness   �_{s≠r} e_r a e_s b e_r � 0
---                           � �� �[ s ] (s ≠ r) � (e_r a e_s b e_r � 0)
---         nonclosure���witness   the same from failure of closure
---         off�0�witness     Discrete R � the witness itself (search)
+--         off≢0→¬¬witness   Σ_{s≠r} e_r a e_s b e_r ≢ 0
+--                           → ¬¬ Σ[ s ] (s ≠ r) × (e_r a e_s b e_r ≢ 0)
+--         nonclosure→¬¬witness   the same from failure of closure
+--         off≢0→witness     Discrete R → the witness itself (search)
 --
---   §2  Two � the n = 2 instance: P + Q ≡ 1, P and Q idempotent.  The
+--   §2  Two — the n = 2 instance: P + Q ≡ 1, P and Q idempotent.  The
 --       off-sector sum at r = 0 collapses to the single term P a Q b P:
---         defect�            P (a b) P − (P a P)(P b P) ≡ P a Q b P
+--         defect₂            P (a b) P − (P a P)(P b P) ≡ P a Q b P
 --         dynamicDescent-shape  (P T P)² − P T² P ≡ −(P T Q T P)
 --       which is `DynamicDescent.twoStepDefect` as an operator identity.
 --
---   §3  Matrix2 � the same in the library's `FinMatrixRing 2` over �
+--   §3  Matrix2 — the same in the library's `FinMatrixRing 2` over ℤ
 --       with P = diag(1,0), Q = diag(0,1), T = (a b / c d): the (0,0)
 --       entry of the general defect is the number bc:
---         recovered          [P T² P − (P T P)²]�� ≡ b � c
---         recovered-signed   [(P T P)² − P T² P]�� ≡ −(b � c)
---         markov-entry       [(P T P)²]�� ≡ a � a     (= markovSquare a)
---         twoStep-entry      [P T² P]�� ≡ a � a + b � c (= trueTwoStep)
+--         recovered          [P T² P − (P T P)²]₀₀ ≡ b · c
+--         recovered-signed   [(P T P)² − P T² P]₀₀ ≡ −(b · c)
+--         markov-entry       [(P T P)²]₀₀ ≡ a · a     (= markovSquare a)
+--         twoStep-entry      [P T² P]₀₀ ≡ a · a + b · c (= trueTwoStep)
 --       so DynamicDescent's scalar identity is the n = 2, r = 0, (0,0)
 --       entry of `gluing`.  P, Q are also checked orthogonal there.
 --
---   §4  Graded � charge-graded sequences F : � � R with F c the charge-c
+--   §4  Graded — charge-graded sequences F : ℕ → R with F c the charge-c
 --       piece, Π c F = F c, and the Cauchy product
---       (F ⊠ G) c = �_{i : Fin (suc c)} F i � G (c � i):
+--       (F ⊠ G) c = Σ_{i : Fin (suc c)} F i · G (c ∸ i):
 --         Π-add, Π-scale   Π_c is additive and R-linear   (both refl)
---         Π-conv           Π_c (F ⊠ G) ≡ �_i Π_i F � Π_{c�i} G   (refl:
+--         Π-conv           Π_c (F ⊠ G) ≡ Σ_i Π_i F · Π_{c∸i} G   (refl:
 --                          D0015's formula IS the definition's content)
---         index-sum        every summand has i + (c � i) ≡ c
---       and over � with ind� the indicator of charge 1:
---         Π�conv           Π_1 (ind� ⊠ ind�) ≡ 0
---         Π�prod           Π_1 ind� � Π_1 ind� ≡ 1
---         Π-not-mult       Π_1 (ind� ⊠ ind�) � Π_1 ind� � Π_1 ind�
---         Π-not-mult-�     � � F G c. Π_c (F ⊠ G) ≡ Π_c F � Π_c G
+--         index-sum        every summand has i + (c ∸ i) ≡ c
+--       and over ℤ with ind₁ the indicator of charge 1:
+--         Π₁conv           Π_1 (ind₁ ⊠ ind₁) ≡ 0
+--         Π₁prod           Π_1 ind₁ · Π_1 ind₁ ≡ 1
+--         Π-not-mult       Π_1 (ind₁ ⊠ ind₁) ≢ Π_1 ind₁ · Π_1 ind₁
+--         Π-not-mult-∀     ¬ ∀ F G c. Π_c (F ⊠ G) ≡ Π_c F · Π_c G
 --
 --  * Orthogonality (e_r e_s ≡ 0 for r ≠ s) is part of the hypothesis
 --    "complete orthogonal family of idempotents" in the task and in
 --    D0026, and it is NEVER USED: every identity in §1 holds for any
 --    complete family of idempotents.  It is therefore not a field of
 --    `SectorFamily`; the instances in §2/§3 prove it separately
---    (`orth�`, `PQ0`, `QP0`) so that they are genuine sector families.
+--    (`orth₂`, `PQ0`, `QP0`) so that they are genuine sector families.
 --    Proving under fewer hypotheses is a strengthening, not a change of
 --    statement.
 --
 --  * The converse of T18.5 is proved at the RING level and with a
 --    double negation: from "the off-sector sum is not zero" one gets
---    ��(some off-sector component is nonzero), not the component.  The
+--    ¬¬(some off-sector component is nonzero), not the component.  The
 --    price is genuine: a sum of n ring elements being nonzero does not
 --    constructively locate a nonzero summand unless equality in R is
 --    decidable (`off�0�witness`) or otherwise stable.
@@ -125,9 +125,9 @@
 --    two definitions, both printed above.
 --
 --  * The CommRingSolver is not used.  Its reflection dispatches on the
---    head constructor of a normalised term, so over � every `pos k`
+--    head constructor of a normalised term, so over ℤ every `pos k`
 --    constant is read as 0; the entry computations of §3 are done by
---    hand with `�IdR` and `0RightAnnihilates` instead.
+--    hand with `·IdR` and `0RightAnnihilates` instead.
 --
 --  * The check emits Agda's `UnsupportedIndexedMatch` warnings, one
 --    per pattern match on `Fin` at a fixed index (`zeroAt`, `pair`,
@@ -197,15 +197,15 @@ module FiniteSums (R' : Ring ℓ) where
   zeroAt-off (suc r) zero    V h = refl
   zeroAt-off (suc r) (suc s) V h = zeroAt-off r s (V ∘ suc) (λ p → h (cong suc p))
 
-  -- � V = V r + �_{s ≠ r} V s
+  -- ∑ V = V r + Σ_{s ≠ r} V s
   ∑pick : {n : ℕ} (r : Fin n) (V : FinVec R n) → ∑ V ≡ V r + ∑ (zeroAt r V)
   ∑pick zero    V = cong (V zero +_) (sym (+IdL _))
   ∑pick (suc r) V = cong (V zero +_) (∑pick r (V ∘ suc)) ∙ +Assoc-comm1 _ _ _
 
-  -- A nonzero finite sum has a nonzero summand � up to double negation.
-  -- This is constructive because �� commutes with FINITE conjunction:
-  -- the induction threads ��(V 0 ≡ 0) and ��(� tail ≡ 0) into
-  -- ��(� V ≡ 0).  No stability of equality in R is assumed.
+  -- A nonzero finite sum has a nonzero summand — up to double negation.
+  -- This is constructive because ¬¬ commutes with FINITE conjunction:
+  -- the induction threads ¬¬(V 0 ≡ 0) and ¬¬(∑ tail ≡ 0) into
+  -- ¬¬(∑ V ≡ 0).  No stability of equality in R is assumed.
   ∑≢0→¬¬witness : {n : ℕ} (V : FinVec R n)
                 → ¬ (∑ V ≡ 0r) → ¬ ¬ (Σ[ s ∈ Fin n ] ¬ (V s ≡ 0r))
   ∑≢0→¬¬witness {n = zero}  V h _ = h refl
@@ -266,7 +266,7 @@ module Peirce (R' : Ring ℓ) {n : ℕ} (S : SectorFamily R' n) where
   off : (r : Fin n) (a b : R) → FinVec R n
   off r a b = zeroAt r (term r a b)
 
-  -- e_r (a b) e_r = �_s e_r a e_s b e_r.  Only completeness is used.
+  -- e_r (a b) e_r = Σ_s e_r a e_s b e_r.  Only completeness is used.
   peirce : (r : Fin n) (a b : R) → (e r · (a · b)) · e r ≡ ∑ (term r a b)
   peirce r a b =
       (e r · (a · b)) · e r
@@ -306,7 +306,7 @@ module Peirce (R' : Ring ℓ) {n : ℕ} (S : SectorFamily R' n) where
     ≡⟨ cong (λ z → (((e r · a) · z) · b) · e r) (idem s) ⟩
       (((e r · a) · e s) · b) · e r ∎)
 
-  -- T18.7's block form: M_{r,r}(ab) = �_s M_{r,s}(a) M_{s,r}(b).
+  -- T18.7's block form: M_{r,r}(ab) = Σ_s M_{r,s}(a) M_{s,r}(b).
   peirce-block : (r : Fin n) (a b : R)
                → (e r · (a · b)) · e r ≡ ∑ (λ s → ((e r · a) · e s) · ((e s · b) · e r))
   peirce-block r a b = peirce r a b ∙ ∑Ext (term-block r a b)
@@ -326,7 +326,7 @@ module Peirce (R' : Ring ℓ) {n : ℕ} (S : SectorFamily R' n) where
       ∑ (off r a b) ∎
 
   -- The off-sector mass is the single Q-term of the two-sector
-  -- theorems: �_{s≠r} e_r a e_s b e_r = e_r a (1 − e_r) b e_r.  This
+  -- theorems: Σ_{s≠r} e_r a e_s b e_r = e_r a (1 − e_r) b e_r.  This
   -- is the bridge from CompressionDefect/ExcursionReturn (one Q) to
   -- D0026 (a sum over intermediate charges).
   off-is-Q : (r : Fin n) (a b : R)
@@ -413,7 +413,7 @@ module Peirce (R' : Ring ℓ) {n : ℕ} (S : SectorFamily R' n) where
     T18-7 : (r : Fin n) (h k : ℕ) → M (h +ℕ k) r r ≡ ∑ (λ s → M h r s · M k s r)
     T18-7 r h k = cong (λ z → (e r · z) · e r) (sym (U-hom h k)) ∙ peirce-block r (U h) (U k)
 
-    -- D0026's second line: PU_{h+k}P − PU_hPU_kP = �_{s≠r} PU_hΠ_sU_kP.
+    -- D0026's second line: PU_{h+k}P − PU_hPU_kP = Σ_{s≠r} PU_hΠ_sU_kP.
     gluing-arith : (r : Fin n) (h k : ℕ)
                  → M (h +ℕ k) r r - (M h r r · M k r r) ≡ ∑ (off r (U h) (U k))
     gluing-arith r h k =
@@ -479,7 +479,7 @@ module Two (R' : Ring ℓ) (T2 : TwoSectors R') where
   dynamicDescent-shape T = negSub _ _ ∙ cong -_ (defect₂ T T)
 
 ------------------------------------------------------------------------
--- §3  2�2 matrices over �: the entry is bc.
+-- §3  2×2 matrices over ℤ: the entry is bc.
 ------------------------------------------------------------------------
 
 module Matrix2 where
@@ -511,7 +511,7 @@ module Matrix2 where
   mat a b c d (suc zero) zero       = c
   mat a b c d (suc zero) (suc zero) = d
 
-  -- Left multiplication by Pm reduces definitionally (�'s `_�_` and
+  -- Left multiplication by Pm reduces definitionally (ℤ's `_·_` and
   -- `_+_` recurse on their FIRST argument, and Pm's entries are closed).
   -- Right multiplication does not, so the four lemmas below are the
   -- only ring steps the entry computations need.  (The CommRingSolver
@@ -541,7 +541,7 @@ module Matrix2 where
                           ; (suc zero) → funExt (λ { zero → r ; (suc zero) → s }) }
 
   -- P, Q are a complete orthogonal pair of idempotents: closed
-  -- computations in �, all by refl.
+  -- computations in ℤ, all by refl.
   PQ1 : Pm ⊕ Qm ≡ 𝟙
   PQ1 = ext₂ refl refl refl refl
 
@@ -580,7 +580,7 @@ module Matrix2 where
     where T = mat a b c d
 
   -- the (0,0) entry of the general n = 2 gluing defect is bc:
-  -- [P T² P]�� − [(P T P)²]�� ≡ b � c
+  -- [P T² P]₀₀ − [(P T P)²]₀₀ ≡ b · c
   recovered : (a b c d : ℤ)
     → (((Pm ⋆ (mat a b c d ⋆ mat a b c d)) ⋆ Pm) zero zero)
       - ((((Pm ⋆ mat a b c d) ⋆ Pm) ⋆ ((Pm ⋆ mat a b c d) ⋆ Pm)) zero zero)
@@ -588,7 +588,7 @@ module Matrix2 where
   recovered a b c d =
     cong (λ N → N zero zero) (defect₂ (mat a b c d) (mat a b c d)) ∙ defect-entry a b c d
 
-  -- and with DynamicDescent's sign: [(P T P)²]�� − [P T² P]�� ≡ −(b � c)
+  -- and with DynamicDescent's sign: [(P T P)²]₀₀ − [P T² P]₀₀ ≡ −(b · c)
   recovered-signed : (a b c d : ℤ)
     → ((((Pm ⋆ mat a b c d) ⋆ Pm) ⋆ ((Pm ⋆ mat a b c d) ⋆ Pm)) zero zero)
       - (((Pm ⋆ (mat a b c d ⋆ mat a b c d)) ⋆ Pm) zero zero)
@@ -597,7 +597,7 @@ module Matrix2 where
     cong (λ N → N zero zero) (dynamicDescent-shape (mat a b c d)) ∙ cong -_ (defect-entry a b c d)
 
   -- DynamicDescent's two scalars, as the entries they are:
-  -- markovSquare a = a � a and trueTwoStep a b c = a � a + b � c.
+  -- markovSquare a = a · a and trueTwoStep a b c = a · a + b · c.
   markov-entry : (a b c d : ℤ)
     → ((((Pm ⋆ mat a b c d) ⋆ Pm) ⋆ ((Pm ⋆ mat a b c d) ⋆ Pm)) zero zero) ≡ a · a
   markov-entry a b c d =
@@ -645,7 +645,7 @@ module Graded (R' : Ring ℓ) where
   Π-scale : (c : ℕ) (x : R) (F : GradedSeq) → Π c (x ⊡ F) ≡ x · Π c F
   Π-scale c x F = refl
 
-  -- D0015's Π_c(FG) = �_{i+j=c} Π_i(F) Π_j(G) is the content of the
+  -- D0015's Π_c(FG) = Σ_{i+j=c} Π_i(F) Π_j(G) is the content of the
   -- definition of ⊠, and nothing more: refl.
   Π-conv : (c : ℕ) (F G : GradedSeq)
          → Π c (F ⊠ G) ≡ ∑ (λ (i : Fin (suc c)) → Π (toℕ i) F · Π (c ∸ toℕ i) G)
@@ -669,15 +669,15 @@ module GradedInt where
   ind₁ (suc zero)    = pos 1
   ind₁ (suc (suc _)) = pos 0
 
-  -- Π_1 (ind� ⊠ ind�) = ind� 0 � ind� 1 + ind� 1 � ind� 0 = 0
+  -- Π_1 (ind₁ ⊠ ind₁) = ind₁ 0 · ind₁ 1 + ind₁ 1 · ind₁ 0 = 0
   Π₁conv : Π 1 (ind₁ ⊠ ind₁) ≡ pos 0
   Π₁conv = refl
 
-  -- Π_1 ind� � Π_1 ind� = 1
+  -- Π_1 ind₁ · Π_1 ind₁ = 1
   Π₁prod : Π 1 ind₁ · Π 1 ind₁ ≡ pos 1
   Π₁prod = refl
 
-  -- Π_c is not multiplicative, at c = 1, F = G = ind�.
+  -- Π_c is not multiplicative, at c = 1, F = G = ind₁.
   Π-not-mult : ¬ (Π 1 (ind₁ ⊠ ind₁) ≡ Π 1 ind₁ · Π 1 ind₁)
   Π-not-mult p = ℕznots (injPos p)
 

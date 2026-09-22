@@ -1,60 +1,60 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àµà¿à•à²ààà â” à¦ààµàˆà§à®à¾àààà¯ àà¨àààà ààààà¨àààà¨à¾à à¦ààµàˆà§à®à ààµ, ààà à—àà¨à à¯à‹à—à à
+-- à¤µà¤¿à¤•à¤²à¥à¤ªà¤ƒ â€” à¤¦à¥à¤µà¥ˆà¤§à¤®à¤¾à¤ªà¤¸à¥à¤¯ à¤¤à¤¨à¥à¤¤à¥à¤ƒ à¤¤à¤¤à¥à¤¤à¤¨à¥à¤¤à¥‚à¤¨à¤¾à¤‚ à¤¦à¥à¤µà¥ˆà¤§à¤®à¥ à¤à¤µ, à¤…à¤¤à¤ƒ à¤—à¤£à¤¨à¥‡ à¤¯à¥‹à¤—à¤ƒ à¥¤
 --
 -- (the fibre of a twofold map is the twofold of its fibres, and so the
 --  counts add.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS IS, AND WHY IT IS THE ABSTRACT LAW THE CORPUS KEPT
 -- INSTANTIATING WITHOUT NAMING.
 --
--- Give two maps into one codomain, `f : A â’ C` and `g : B â’ C`, and the
+-- Give two maps into one codomain, `f : A â†’ C` and `g : B â†’ C`, and the
 -- one map they define by cases on the alternative,
 --
---     àµà¿à•à²ààà = rec f g : A âŠ B â’ C,      àµà¿à•à²ààà (inl a) = f a
---                                          àµà¿à•à²ààà (inr b) = g b
+--     à¤µà¤¿à¤•à¤²à¥à¤ªà¤ƒ = rec f g : A âŠ B â†’ C,      à¤µà¤¿à¤•à¤²à¥à¤ªà¤ƒ (inl a) = f a
+--                                          à¤µà¤¿à¤•à¤²à¥à¤ªà¤ƒ (inr b) = g b
 --
 -- Then for every target `c`,
 --
---     Â§à§   fiber àµà¿à•à²ààà c  â‰  (fiber f c âŠ fiber g c).
+--     Â§à¥§   fiber à¤µà¤¿à¤•à¤²à¥à¤ªà¤ƒ c  â‰ƒ  (fiber f c âŠ fiber g c).
 --
 -- The fibre of a case-map is the case of the fibres. The equivalence is
--- purely re-bracketing â” both round-trips are `refl` â” because `rec`
--- computes on `inl`/`inr` definitionally, so `f a â‰¡ c` and `àµà¿à•à²ààà
+-- purely re-bracketing â€” both round-trips are `refl` â€” because `rec`
+-- computes on `inl`/`inr` definitionally, so `f a â‰¡ c` and `à¤µà¤¿à¤•à¤²à¥à¤ªà¤ƒ
 -- (inl a) â‰¡ c` are the same proof, only re-labelled.
 --
 -- The corpus already carries this law in three concrete disguises and
 -- had not abstracted it:
---   Â `Virahanka_â¦.agda`   fiber àà¨àà¦à (2+n) â‰ (fiber àà¨àà¦à (1+n) âŠ fiber àà¨àà¦à n)
---   Â `AksharaDvaya_â¦.agda` the same for the Bool mtr weight,
---   Â `Bhara_â¦.agda`       the head-split of a weighted counting map.
+--   Â· `Virahanka_â€¦.agda`   fiber à¤›à¤¨à¥à¤¦à¤ƒ (2+n) â‰ƒ (fiber à¤›à¤¨à¥à¤¦à¤ƒ (1+n) âŠ fiber à¤›à¤¨à¥à¤¦à¤ƒ n)
+--   Â· `AksharaDvaya_â€¦.agda` the same for the Bool mÄtrÄ weight,
+--   Â· `Bhara_â€¦.agda`       the head-split of a weighted counting map.
 -- Each of those is a fibre splitting into a laghu-summand and a
--- guru-summand â” Virahka's two-step recurrence â” and each proved the
--- splitting by hand. They are not literally instances of Â§à§ (their
--- domain is `List`, not a bare `A âŠ B`), but they are all the same
+-- guru-summand â€” VirahÄá¹…ka's two-step recurrence â€” and each proved the
+-- splitting by hand. They are not literally instances of Â§à¥§ (their
+-- domain is `List`, not a bare `A âŠ B`), but they are all the same
 -- phenomenon: an alternative in the source becomes an alternative in the
--- fibre. Â§à§ is that phenomenon with nothing else attached.
+-- fibre. Â§à¥§ is that phenomenon with nothing else attached.
 --
--- Â§à¨ is why Pigala's numbers ADD across such a split. If the two
--- fibres are finite â” `fiber f c â‰ Fin m` and `fiber g c â‰ Fin n` â” then
+-- Â§à¥¨ is why Piá¹…gala's numbers ADD across such a split. If the two
+-- fibres are finite â€” `fiber f c â‰ƒ Fin m` and `fiber g c â‰ƒ Fin n` â€” then
 --
---     Â§à¨   fiber àµà¿à•à²ààà c  â‰  Fin (m + n).
+--     Â§à¥¨   fiber à¤µà¤¿à¤•à¤²à¥à¤ªà¤ƒ c  â‰ƒ  Fin (m + n).
 --
--- This is Â§à§ composed with the library's `âŠ-equiv` and
--- `Fin+â‰FinâŠFin`: the two receipts, chained, turn the twofold of fibres
+-- This is Â§à¥§ composed with the library's `âŠ-equiv` and
+-- `Fin+â‰…FinâŠFin`: the two receipts, chained, turn the twofold of fibres
 -- into one flat count, and the count is the SUM. That `+` is where
--- Virahka's addition and Halyudha's row-sum come from â” not from any
+-- VirahÄá¹…ka's addition and HalÄyudha's row-sum come from â€” not from any
 -- arithmetic done on the numbers, but from the coproduct in the fibre.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- ON THE NAME. àµà¿à•à²àà is the traditional term, in Pinian grammar and
--- in Nyya, for a twofold option / disjunction â” the "eitherâ“or". The
--- coproduct `A âŠ B` is exactly that alternative, and `rec f g` is the
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- ON THE NAME. à¤µà¤¿à¤•à¤²à¥à¤ª is the traditional term, in PÄá¹‡inian grammar and
+-- in NyÄya, for a twofold option / disjunction â€” the "eitherâ€“or". The
+-- coproduct `A âŠ B` is exactly that alternative, and `rec f g` is the
 -- map that acts by which side of the alternative it is handed. Source
--- for the term: PINI, ààààŸà¾à§àà¯à¾à¯à (~500 BCE), where optionality is
--- carried by àµà¾ and àµà¿àà¾àà¾ (e.g. à§.à§.àà à¨ àµààà¿ àµà¿àà¾àà¾ â” "vibh means
+-- for the term: PÄ€á¹†INI, à¤…à¤·à¥à¤Ÿà¤¾à¤§à¥à¤¯à¤¾à¤¯à¥€ (~500 BCE), where optionality is
+-- carried by à¤µà¤¾ and à¤µà¤¿à¤­à¤¾à¤·à¤¾ (e.g. à¥§.à¥§.à¥ªà¥ª à¤¨ à¤µà¥‡à¤¤à¤¿ à¤µà¤¿à¤­à¤¾à¤·à¤¾ â€” "vibhÄá¹£Ä means
 -- 'or not'"), the grammar's device for a rule that splits into cases.
 ------------------------------------------------------------------------
 
@@ -79,7 +79,7 @@ module _ {A : Type â„“} {B : Type â„“'} {C : Type â„“''} (f : A â†’ C) (g : B â†
   à¤µà¤¿à¤•à¤²à¥à¤ªà¤ƒ = rec f g
 
 ------------------------------------------------------------------------
--- à§ Â àµà¿à•à²àà-àà¨àààà â” the fibre of the case-map is the case of the fibres.
+-- à¥§ Â· à¤µà¤¿à¤•à¤²à¥à¤ª-à¤¤à¤¨à¥à¤¤à¥à¤ƒ â€” the fibre of the case-map is the case of the fibres.
 --     Pure re-bracketing: `rec` computes on the constructors, so each
 --     proof carries across untouched and both round-trips are refl.
 ------------------------------------------------------------------------
@@ -104,9 +104,9 @@ module _ {A : Type â„“} {B : Type â„“'} {C : Type â„“''} (f : A â†’ C) (g : B â†
       à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤µà¥ƒà¤¤à¥à¤¤à¤¿à¤ƒ (inr b , p) = refl
 
 ------------------------------------------------------------------------
--- à¨ Â àµà¿à•à²àà-à—àà¨à¾ â” two finite receipts on the two fibres flatten to one
+-- à¥¨ Â· à¤µà¤¿à¤•à¤²à¥à¤ª-à¤—à¤£à¤¨à¤¾ â€” two finite receipts on the two fibres flatten to one
 --     count on the twofold fibre, and that count is their SUM.  This is
---     Â§à§ composed with `âŠ-equiv` and the library's `Fin+â‰FinâŠFin`.
+--     Â§à¥§ composed with `âŠ-equiv` and the library's `Fin+â‰…FinâŠFin`.
 ------------------------------------------------------------------------
 
   à¤µà¤¿à¤•à¤²à¥à¤ª-à¤—à¤£à¤¨à¤¾ : {m n : â„•} (c : C)

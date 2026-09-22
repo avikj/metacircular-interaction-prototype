@@ -5,31 +5,31 @@
 --
 -- Brahmagupta's law, in the split (leg) coordinates of the pair field.
 --
--- A pair is (u , v) : � � � with product u � v.  Working in legs
--- deliberately avoids �-subtraction: over the split form the
+-- A pair is (u , v) : ℕ × ℕ with product u · v.  Working in legs
+-- deliberately avoids ℕ-subtraction: over the split form the
 -- Brahmagupta identity
 --
---   (u�² - v�²-type norm) � (u�² - ...) = (composed norm)
+--   (u₁² - v₁²-type norm) · (u₂² - ...) = (composed norm)
 --
 -- degenerates to the interchange law of multiplication, and BOTH
--- compositions � the straight one and the twisted one � carry the
+-- compositions — the straight one and the twisted one — carry the
 -- product multiplicatively.  That is the "two composites" phenomenon:
 -- one product, two lawful factorizations of the composed pair.
 --
---   compose  (u�,v�) (u�,v�) = (u��u� , v��v�)
---   compose' (u�,v�) (u�,v�) = (u��v� , v��u�)
+--   compose  (u₁,v₁) (u₂,v₂) = (u₁·u₂ , v₁·v₂)
+--   compose' (u₁,v₁) (u₂,v₂) = (u₁·v₂ , v₁·u₂)
 --
---   prod (compose  p q) ≡ prod p � prod q      (prodComp)
---   prod (compose' p q) ≡ prod p � prod q      (prodComp')
+--   prod (compose  p q) ≡ prod p · prod q      (prodComp)
+--   prod (compose' p q) ≡ prod p · prod q      (prodComp')
 --
 -- THE SEPARATOR.  The pairs with both legs prime are NOT a submonoid
 -- of either composition: composing prime pairs manufactures composite
 -- legs.  Checked witness: (3,5) ∘ (5,7) = (15,35), and a decidable
 -- trial-division tester certifies isPrime 15 ≡ false, isPrime 35 ≡
--- false, while 3, 5, 7 test true � all by refl.
+-- false, while 3, 5, 7 test true — all by refl.
 --
 -- Adjacent known result (notes/REPORT.md, Lemma 1.3): the integral
--- isometry group of q(S,D)=S²−D² is {�I} � the pair field has no
+-- isometry group of q(S,D)=S²−D² is {±I} — the pair field has no
 -- symmetries to move pairs around.  This module is the complementary
 -- positive fact: what the pair field DOES have is a composition, and
 -- the primes are precisely what escapes it.
@@ -67,7 +67,7 @@ compose' (u₁ , v₁) (u₂ , v₂) = (u₁ · v₂ , v₁ · u₂)
 -- §2  The product law: both compositions are multiplicative
 ------------------------------------------------------------------------
 
--- The interchange (medial) law, a pure �-assoc/�-comm shuffle.
+-- The interchange (medial) law, a pure ·-assoc/·-comm shuffle.
 interchange : (a b c d : ℕ) → (a · b) · (c · d) ≡ (a · c) · (b · d)
 interchange a b c d =
     sym (·-assoc a b (c · d))
@@ -81,7 +81,7 @@ interchange a b c d =
 prodComp : (p q : Pair) → prod (compose p q) ≡ prod p · prod q
 prodComp (u₁ , v₁) (u₂ , v₂) = interchange u₁ u₂ v₁ v₂
 
--- Brahmagupta, twisted: so does the crosswise composition � the
+-- Brahmagupta, twisted: so does the crosswise composition — the
 -- "two composites of one product" in split form.
 prodComp' : (p q : Pair) → prod (compose' p q) ≡ prod p · prod q
 prodComp' (u₁ , v₁) (u₂ , v₂) =
@@ -93,8 +93,8 @@ prodComp' (u₁ , v₁) (u₂ , v₂) =
 ------------------------------------------------------------------------
 
 -- divH c d n : with countdown c inside a block of size (suc d),
--- true iff (suc d) divides (n + (suc d) � (suc c))-style alignment;
--- entered at divH zero d n it decides (suc d) � n.  Total by
+-- true iff (suc d) divides (n + (suc d) ∸ (suc c))-style alignment;
+-- entered at divH zero d n it decides (suc d) ∣ n.  Total by
 -- structural recursion on n.
 private
   divH : ℕ → ℕ → ℕ → Bool
@@ -103,21 +103,21 @@ private
   divH zero    d (suc n) = divH d d n
   divH (suc c) d (suc n) = divH c d n
 
--- divides d n : d � n, decided.  (divides 0 n is unused below; it
+-- divides d n : d ∣ n, decided.  (divides 0 n is unused below; it
 -- answers true only on n ≡ 0, which is the correct convention.)
 divides : ℕ → ℕ → Bool
 divides zero    zero    = true
 divides zero    (suc _) = false
 divides (suc d) n       = divH zero d n
 
--- noDiv k n : no divisor in {2, �, k} divides n.
+-- noDiv k n : no divisor in {2, …, k} divides n.
 private
   noDiv : ℕ → ℕ → Bool
   noDiv zero          n = true
   noDiv (suc zero)    n = true
   noDiv (suc (suc k)) n = not (divides (suc (suc k)) n) and noDiv (suc k) n
 
--- isPrime n : n � 2 and no d with 2 � d � n−1 divides n.
+-- isPrime n : n ≥ 2 and no d with 2 ≤ d ≤ n−1 divides n.
 isPrime : ℕ → Bool
 isPrime zero          = false
 isPrime (suc zero)    = false
@@ -140,18 +140,18 @@ isPrime7 = refl
 -- §5  Not a submonoid: the checked witness
 ------------------------------------------------------------------------
 
--- Two prime pairs �
+-- Two prime pairs …
 p35 : Pair
 p35 = (3 , 5)
 
 p57 : Pair
 p57 = (5 , 7)
 
--- � whose composite is (15 , 35) �
+-- … whose composite is (15 , 35) …
 compWitness : compose p35 p57 ≡ (15 , 35)
 compWitness = refl
 
--- � and BOTH legs of the composite are composite.  The prime pairs
+-- … and BOTH legs of the composite are composite.  The prime pairs
 -- fall out of the composition monoid at the very first step.
 notPrime15 : isPrime 15 ≡ false
 notPrime15 = refl
@@ -159,8 +159,8 @@ notPrime15 = refl
 notPrime35 : isPrime 35 ≡ false
 notPrime35 = refl
 
--- The twisted composite (3�7 , 5�5) = (21 , 25) escapes too: neither
--- composition ever returns to the prime locus from �2-legged pairs.
+-- The twisted composite (3·7 , 5·5) = (21 , 25) escapes too: neither
+-- composition ever returns to the prime locus from ≥2-legged pairs.
 compose'Witness : compose' p35 p57 ≡ (21 , 25)
 compose'Witness = refl
 

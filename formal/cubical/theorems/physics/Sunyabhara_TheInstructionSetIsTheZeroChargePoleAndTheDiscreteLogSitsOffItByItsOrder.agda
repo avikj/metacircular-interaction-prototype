@@ -1,49 +1,49 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ààà¨àà¯àà¾à°à â” à¯à¨àààà°ààà¯ ààààà¾à ààà¨àà¯àà¾à°à¾à ; à˜à¾àà àà àààµ-ààµàààààà¯à¾ àààà®à¾àà ààà¿à à
+-- à¤¶à¥‚à¤¨à¥à¤¯à¤­à¤¾à¤°à¤ƒ â€” à¤¯à¤¨à¥à¤¤à¥à¤°à¤¸à¥à¤¯ à¤†à¤œà¥à¤à¤¾à¤ƒ à¤¶à¥‚à¤¨à¥à¤¯à¤­à¤¾à¤°à¤¾à¤ƒ ; à¤˜à¤¾à¤¤à¤ƒ à¤¤à¥ à¤¸à¥à¤µ-à¤†à¤µà¥ƒà¤¤à¥à¤¤à¥à¤¯à¤¾ à¤¤à¤¸à¥à¤®à¤¾à¤¤à¥ à¤¬à¤¹à¤¿à¤ƒ à¥¤
 --
 -- (the instruction set carries zero charge; the power map sits off it by
 --  exactly its own period.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS IS.  One edge, between three modules.  Two existing
 -- theorems are composed and the composite is instantiated once.  The
 -- whole file is the composition.
 --
---   `Machine_â¦`          Program A B = A â‰ B â” every instruction of this
+--   `Machine_â¦`          Program A B = A â‰ B â€” every instruction of this
 --                       computer is an equivalence.
 --   `SvaFiberVasa_â¦`    à§àà°ààµ-àà¿à¨àà¦àà : isEquiv f â’ isContr (Î[ Î¦ ] ààà°à•àààà®à f Î¦)
---                       â” a lossless observable's conserving-flow space
---                       is a POINT (itself `invIso Î-Î -Iso` evaluated).
+--                       â€” a lossless observable's conserving-flow space
+--                       is a POINT (itself `invIso Î£-Î -Iso` evaluated).
 --   `GhataFiber_â¦`      powg = à˜à¾à g in Câ, whose fibre over Îµ is not
 --                       contractible: 0, 3 and 6 all land there.
 --
--- Â§à§ composes the first two: **every instruction of the machine has a
+-- Â§à¥§ composes the first two: **every instruction of the machine has a
 -- contractible space of conserving flows.**  The groupoid has exactly one
 -- conserving flow at each of its own operations, and it is the identity.
--- No gauge freedom, no charge, nothing conserved â” because nothing is
--- hidden.  `Dhruva_â¦`'s ààààà° read at the machine: no loss, no symmetry,
+-- No gauge freedom, no charge, nothing conserved â€” because nothing is
+-- hidden.  `Dhruva_â€¦`'s à¤¸à¥‚à¤¤à¥à¤° read at the machine: no loss, no symmetry,
 -- and the machine is all equivalences.
 --
--- Â§à¨â“à© exhibit the contrast at the map the crypto arc runs on, and the
--- contrast is what keeps Â§à§ from being vacuous.  Translation by the
+-- Â§à¥¨â€“à¥© exhibit the contrast at the map the crypto arc runs on, and the
+-- contrast is what keeps Â§à¥§ from being vacuous.  Translation by the
 -- ORDER conserves `powg`, and it is not the identity flow, so `powg`'s
--- conserving-flow space is not a point â” hence `powg` is not an
--- instruction of this machine.  Â§à is that as a one-line corollary.
+-- conserving-flow space is not a point â€” hence `powg` is not an
+-- instruction of this machine.  Â§à¥ª is that as a one-line corollary.
 --
 -- WHAT THE JOIN SAYS, and it is a reading of the terms and not a further
--- theorem: by `àµà¾àà` a conserving flow IS a section of the map's own
--- fibre family, so the flow `n â¦ 3 + n` is the section `a â¦ (3 + a , â¦)`
--- â” at every exponent, the NEXT exponent with the same public value.
+-- theorem: by `à¤µà¤¾à¤¸à¤ƒ` a conserving flow IS a section of the map's own
+-- fibre family, so the flow `n â†¦ 3 + n` is the section `a â†¦ (3 + a , â€¦)`
+-- â€” at every exponent, the NEXT exponent with the same public value.
 -- That section is the discrete log's ambiguity, and it is also the map's
 -- symmetry.  **The thing an attacker cannot recover and the thing that
 -- can move without being seen are one fibre.**
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
--- TERM.  ààà¨àà¯-àà¾à° is `Dhruva_â¦` Â§à©'s own compound for a contractible
--- fibre carrying no charge, and is reused rather than coined.  ààµààààà¿
+-- TERM.  à¤¶à¥‚à¤¨à¥à¤¯-à¤­à¤¾à¤° is `Dhruva_â€¦` Â§à¥©'s own compound for a contractible
+-- fibre carrying no charge, and is reused rather than coined.  à¤†à¤µà¥ƒà¤¤à¥à¤¤à¤¿
 -- (period, recurrence) is ordinary.
 ------------------------------------------------------------------------
 
@@ -71,10 +71,10 @@ open import BijamulaKrida_AConcreteKeypairRunsInACyclicGroupWhereTheModThatExhau
 private variable â„“ : Level
 
 ------------------------------------------------------------------------
--- à§ Â THE MACHINE'S POLE.  Every instruction has a contractible space of
+-- à¥§ Â· THE MACHINE'S POLE.  Every instruction has a contractible space of
 --     conserving flows: one flow, the identity, no charge.
 --
--- One line, and that is the point â” `Program` is `_â‰_`, and a lossless
+-- One line, and that is the point â€” `Program` is `_â‰ƒ_`, and a lossless
 -- observable's flow space is `isContr` by `SvaFiberVasa`.
 ------------------------------------------------------------------------
 
@@ -83,15 +83,15 @@ private variable â„“ : Level
 à¤¯à¤¨à¥à¤¤à¥à¤°-à¤¶à¥‚à¤¨à¥à¤¯-à¤­à¤¾à¤°à¤ƒ p = à¤§à¥à¤°à¥à¤µ-à¤¬à¤¿à¤¨à¥à¤¦à¥à¤ƒ (à¤šà¤¾à¤²à¤¨à¤®à¥ p) (snd p)
 
 -- and therefore the only conserving flow of an instruction is the
--- identity, pointwise â” `SvaFiberVasa`'s containment check, read here.
+-- identity, pointwise â€” `SvaFiberVasa`'s containment check, read here.
 à¤¯à¤¨à¥à¤¤à¥à¤°à¥‡-à¤¨-à¤—à¤¤à¤¿à¤ƒ : {A B : Type â„“} (p : Program A B)
               â†’ (Î¦ : A â†’ A) â†’ à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ (à¤šà¤¾à¤²à¤¨à¤®à¥ p) Î¦ â†’ (a : A) â†’ Î¦ a â‰¡ a
 à¤¯à¤¨à¥à¤¤à¥à¤°à¥‡-à¤¨-à¤—à¤¤à¤¿à¤ƒ p = à¤¤à¤¾à¤¦à¤¾à¤¤à¥à¤®à¥à¤¯à¤®à¥ (à¤šà¤¾à¤²à¤¨à¤®à¥ p) (snd p)
 
 ------------------------------------------------------------------------
--- à¨ Â THE CONTRAST.  Translation by the order conserves the power map.
+-- à¥¨ Â· THE CONTRAST.  Translation by the order conserves the power map.
 --
--- `à˜à¾à g 3 â‰¡ Îµ` is refl in `BijamulaKrida`, so three successor steps
+-- `à¤˜à¤¾à¤¤ g 3 â‰¡ Îµ` is refl in `BijamulaKrida`, so three successor steps
 -- prepend gÂ³.  What is needed is gÂ³ acting as the unit ON EVERY
 -- ELEMENT: three cases, each `refl`, and then the period law is
 -- `cong` of it.  `gÂ³ â‰¡ Îµ` and `âˆ€ x. gÂ³ âˆ˜ x â‰¡ x` are two statements
@@ -114,7 +114,7 @@ private variable â„“ : Level
 à¤†à¤µà¥ƒà¤¤à¥à¤¤à¤¿-à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ = à¤†à¤µà¥ƒà¤¤à¥à¤¤à¤¿à¤ƒ
 
 ------------------------------------------------------------------------
--- à© Â TWO FLOWS, SO NOT A POINT.  The identity flow and the period flow
+-- à¥© Â· TWO FLOWS, SO NOT A POINT.  The identity flow and the period flow
 --     are both conserving and are distinct at 0.
 ------------------------------------------------------------------------
 
@@ -132,9 +132,9 @@ private variable â„“ : Level
   à¤¦à¥à¤µà¥Œ-à¤ªà¥à¤°à¤µà¤¾à¤¹à¥Œ (sym (c .snd à¤à¤•-à¤ªà¥à¤°à¤µà¤¾à¤¹à¤ƒ) âˆ™ c .snd à¤†à¤µà¥ƒà¤¤à¥à¤¤à¤¿-à¤ªà¥à¤°à¤µà¤¾à¤¹-à¤¯à¥à¤—à¥à¤®à¤®à¥)
 
 ------------------------------------------------------------------------
--- à Â THE COROLLARY.  So the power map is not an instruction of this
---     machine â” not "hard to invert", but not in the instruction set at
---     all, and Â§à¨ names by how much: its own period.
+-- à¥ª Â· THE COROLLARY.  So the power map is not an instruction of this
+--     machine â€” not "hard to invert", but not in the instruction set at
+--     all, and Â§à¥¨ names by how much: its own period.
 ------------------------------------------------------------------------
 
 à¤˜à¤¾à¤¤à¤ƒ-à¤¨-à¤†à¤œà¥à¤à¤¾ : Â¬ (Î£[ p âˆˆ Program â„• Câ‚ƒ ] (à¤šà¤¾à¤²à¤¨à¤®à¥ p â‰¡ powg))
@@ -144,10 +144,10 @@ private variable â„“ : Level
            (à¤¯à¤¨à¥à¤¤à¥à¤°-à¤¶à¥‚à¤¨à¥à¤¯-à¤­à¤¾à¤°à¤ƒ p))
 
 ------------------------------------------------------------------------
--- à Â àààà â” the reading in the header.
+-- à Â àààà â€” the reading in the header.
 --
--- `àµà¾àà powg` carries ààµààààà¿-ààà°àµà¾à-à¯àà—àà®à®à to the section
--- `a â¦ (3 + a , ààµààààà¿à a)`: at every exponent, the next exponent with
+-- `à¤µà¤¾à¤¸à¤ƒ powg` carries à¤†à¤µà¥ƒà¤¤à¥à¤¤à¤¿-à¤ªà¥à¤°à¤µà¤¾à¤¹-à¤¯à¥à¤—à¥à¤®à¤®à¥ to the section
+-- `a â†¦ (3 + a , à¤†à¤µà¥ƒà¤¤à¥à¤¤à¤¿à¤ƒ a)`: at every exponent, the next exponent with
 -- the same public value.  That section is a point of the same fibre
 -- family whose non-contractibility at Îµ is `GhataFiber.àà¨àààà-à¦ààµà¿àà¦à`.
 -- The two are the same family; the sentence "the ambiguity and the

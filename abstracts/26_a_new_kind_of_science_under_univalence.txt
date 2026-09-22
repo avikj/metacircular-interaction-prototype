@@ -9,7 +9,7 @@ Wolfram's programme rests on sentences that have until now been read as
 programme rather than as mathematics.  We take four of them verbatim
 and hold each to a machine-checked term, over the smallest multiway
 system that exhibits all four phenomena: a unary substitution system
-with two updating events â” append one cell, append two â” whose
+with two updating events â€” append one cell, append two â€” whose
 multiway evolutions between fixed endpoints form an indexed inductive
 family.  Nothing is argued by simulation and nothing is asserted of a
 rule class; each sentence names a theorem, and the theorem's witness
@@ -20,20 +20,20 @@ W1.  "Each [computational system] can be thought of as defining a
 different coordinate system for describing the ruliad ... each will
 ultimately lead to the same limiting object."  This is univalence,
 used as Voevodsky built it.  The same system is presented in two
-coordinate systems â” unary tapes with cell-appending events, numbers
-with successor events â” and the coordinate change is an equivalence
+coordinate systems â€” unary tapes with cell-appending events, numbers
+with successor events â€” and the coordinate change is an equivalence
 that ua turns into a path in the universe.  The theorem is that the
 two STRUCTURED systems, carrier together with both updating events,
 are connected by a single path in the type of systems: the event
-components ride over ua by uaâ’, and the commuting datum in each
+components ride over ua by uaâ†’, and the commuting datum in each
 component is refl, because the coding function sends a cell to a
 successor definitionally.  Three corollaries discharge the sentence's
 three clauses.  Every property of systems crosses the coordinate
-change by transport, with no re-proof â” the interchange law, proved in
+change by transport, with no re-proof â€” the interchange law, proved in
 tape coordinates by refl, is delivered in number coordinates by subst.
 The emulation that "moves" between coordinate systems is not a map
 postulated beside the identification: it is the path's own transport,
-and it COMPUTES to the coding function, by uaÎ² â” in cubical type
+and it COMPUTES to the coding function, by uaÎ² â€” in cubical type
 theory univalence is a theorem with computational content, which is
 the entire difference between citing an equivalence and running one.
 And "the same limiting object" is not agreement-after-inspection but
@@ -45,7 +45,7 @@ contraction, not a convention.
 W2.  "Whenever we said that two paths in the ruliad 'merge', that's
 really just saying that we treat the outcomes as equivalent."  The
 merge is propositional truncation, and its cost is a computed object.
-Two evolutions from state 0 to state 3 â” one-then-two, two-then-one â”
+Two evolutions from state 0 to state 3 â€” one-then-two, two-then-one â€”
 are proved distinct by an invariant that reads the first updating
 event, and proved merged by the squash.  The branchial pair is then
 exhibited where this series always puts what an identification
@@ -59,13 +59,13 @@ W3.  "Because we are computationally bounded observers who imagine a
 certain coherence in their experience, there are strong constraints on
 what kinds of equivalence classes we can use."  The constraint is
 quantified and the repair is refuted.  Any consumer of the merged
-single thread â” any function out of the truncation, into every type at
-every universe level â” answers equally on the two branches.  And the
+single thread â€” any function out of the truncation, into every type at
+every universe level â€” answers equally on the two branches.  And the
 merge has no section: a selector reading a run back out of the thread
 collides with the branch distinction, so route information provably
 cannot be reconstructed downstream and must be carried or lost.  This
-is computational irreducibility in its proof-relevant form â” the
-outcome does not determine the run â” and it is the multiway instance
+is computational irreducibility in its proof-relevant form â€” the
+outcome does not determine the run â€” and it is the multiway instance
 of what abstract 06 proves for derivations (soundness factors through
 the truncation, and the truncation is strict), abstract 22 for
 denotations (full abstraction is the statement that the denotation IS
@@ -75,19 +75,19 @@ unbounded).
 
 W4.  "Causal invariance can be thought of as being associated with
 paths of history that diverge, eventually converging again."  From
-every state, the two updating events diverge â” one cell apart after
-one event â” and both orders complete to the same state three cells on,
+every state, the two updating events diverge â€” one cell apart after
+one event â€” and both orders complete to the same state three cells on,
 with the endpoint agreement definitional: the two interchanged runs
 inhabit the same type, with no transport and no path algebra.  Stated
 exactly: what is checked is endpoint agreement of interchanged
 co-initial updating events, the convergence the sentence names.  Where
-the corpus already went further â” abstract 14 proves that pointwise
+the corpus already went further â€” abstract 14 proves that pointwise
 pairwise commutation makes EVERY permutation of a run agree on every
 source state, and that any observed order-dependence localises a state
-outside the image of the observation â” the citation is to that
+outside the image of the observation â€” the citation is to that
 theorem's actual content, agreement of states under reordering.
 
-The 2025â“2026 writings extend the dictionary, and a second module
+The 2025â€“2026 writings extend the dictionary, and a second module
 (NKSRuliology2025To2026_*, same system, same pin) holds three more
 sentences to terms.
 
@@ -95,10 +95,10 @@ W5.  "We don't get any fundamental advantage by trying to make a proof
 rather than just running the Turing machine" (Towards a Theory of
 Bugs, July 2026).  The sentence is exactly right about each single
 instance and exactly wrong about their totality, and both halves are
-checked: a run reaches one endpoint, and the term (n : â•) â’ Evolve 0 n
+checked: a run reaches one endpoint, and the term (n : â„•) â†’ Evolve 0 n
 reaches every endpoint by one induction through a snoc lemma.  The
-fundamental advantage of proof is the universal quantifier â” the term
-is the family where the run is a point â” and the corpus already holds
+fundamental advantage of proof is the universal quantifier â€” the term
+is the family where the run is a point â€” and the corpus already holds
 the machine-scale form in abstract 25's composition theorem, which
 certifies a compound machine for every input with no induction over
 the compound.  The same essay's "whatever constraint we give, there'll
@@ -109,11 +109,11 @@ theorem.
 
 W6.  "Equivalent states are in fact merged" (What Ultimately Is
 There?, February 2026).  The February sentence is stronger than the
-2021 merge â” merged in the object, not treated as equivalent by an
-observer â” and the stronger merge is the set quotient: under
+2021 merge â€” merged in the object, not treated as equivalent by an
+observer â€” and the stronger merge is the set quotient: under
 co-terminality the two branches become equal AS DATA (eq/), the
 quotient contracts to a single point, and that point is Wolfram's eme
-â” an atom of existence with no property beyond its distinctness â”
+â€” an atom of existence with no property beyond its distinctness â€”
 constructed rather than posited.  Both merges are real, both lossy,
 and the loss is the same computed object: the stronger merge still
 has no section, by the same two-cong collision that refuted
@@ -123,11 +123,11 @@ W7.  Bulk orchestration and the rulial ensemble (What's Special about
 Life?, November 2025).  Taking the purpose to be arrival, the ensemble
 "selected to achieve the purpose" is the fibre of the endpoint, and
 the checked statement is that purpose ranks nothing inside it: every
-assessor reading only the merged achievement â” prop-valued fitness
-functions included â” answers equally on all ensemble members, which is
+assessor reading only the merged achievement â€” prop-valued fitness
+functions included â€” answers equally on all ensemble members, which is
 abstract 12's theorem arrived at from the November 2025 vocabulary.
-The orchestration half â” mechanism-like patches fitted together, the
-step whose visible part consults its hidden part â” is the living step
+The orchestration half â€” mechanism-like patches fitted together, the
+step whose visible part consults its hidden part â€” is the living step
 of this branch's Jva module, where the consultation is proved: no
 marginal endomap simulates the controlled-not, and the refusal is
 located on the visible side while the environment side descends by
@@ -137,26 +137,26 @@ One methodological sentence from What Is Ruliology? (January 2026)
 frames the whole series: mathematics "tends to get out of hand, with
 even a very simple rule having behavior that can only be captured by
 large amounts of obscure mathematics."  The modules above are the
-measured reply: at the scale where ruliology's own sentences live â”
-two events, one branch point, one merge â” the mathematics does not get
+measured reply: at the scale where ruliology's own sentences live â€”
+two events, one branch point, one merge â€” the mathematics does not get
 out of hand; it gets exactly as large as the sentence, and each of
-seven sentences across five years of writings (2021â“2026) is
+seven sentences across five years of writings (2021â€“2026) is
 discharged by identifiers whose proof text is shorter than its prose.
-Where a sentence names something genuinely irreducible â” the January
-2025 window on the 307-step proof nobody understands â” the corpus
+Where a sentence names something genuinely irreducible â€” the January
+2025 window on the 307-step proof nobody understands â€” the corpus
 agrees from the other side: abstract 08 proves that proof identity is
 the fibre, so an ununderstood proof is a trace not yet carried, and
 carrying traces is what this machine is for.
 
 The machine scale of W1 is already in the corpus and is cited rather
 than re-proved: abstract 25's universal machine, where codes modulo
-running-the-same form a set-quotient, the padding lemma injects â• into
+running-the-same form a set-quotient, the padding lemma injects â„• into
 the codes of one single behaviour point, determinism is contractibility
 of the space of productive runs, and the deterministic machine sits
 strictly inside the interactive one with the strictness measured by
 the event type.  What this module adds is the coordinatization
 sentence itself, as one path of structured systems whose transport
-computes â” the sentence of Wolfram's that only univalence can hold,
+computes â€” the sentence of Wolfram's that only univalence can hold,
 because it identifies presentations while refunding, through
 transport, everything the identification would otherwise owe.
 

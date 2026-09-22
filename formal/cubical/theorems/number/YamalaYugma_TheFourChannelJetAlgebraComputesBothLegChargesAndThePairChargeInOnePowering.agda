@@ -1,34 +1,34 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ���-�������� � the twin pair.  The 4-channel jet transfer
+-- ���-�������� — the twin pair.  The 4-channel jet transfer
 -- (μ⊗μ / κ⊗μ / μ⊗κ / κ⊗κ), as the algebra
 --
---     �[ε�,ε�] / (ε�², ε�²)  =  (value, leg�, leg�, pair),
+--     ℤ[ε₁,ε₂] / (ε₁², ε₂²)  =  (value, leg₁, leg₂, pair),
 --
 -- extending Yamala's one-leg dual numbers to two legs.  The PAIR channel
--- ε�ε� is where twin correlation lives: multiplying two elements, its
+-- ε₁ε₂ is where twin correlation lives: multiplying two elements, its
 -- component obeys the SECOND-ORDER twisted Leibniz law
 --
---     (xy)�� = x�y�� + x��y� + x��y� + x���y,
+--     (xy)₁₂ = x·y₁₂ + x₁·y₂ + x₂·y₁ + x₁₂·y,
 --
--- definitional here (§2) � the two cross terms x�y� + x�y� are the two
+-- definitional here (§2) — the two cross terms x₁y₂ + x₂y₁ are the two
 -- ways one charge lands on each leg, the interference of the twin walls.
 --
 -- AND THE AUTOMATIC DIFFERENTIATION, TWO ORDERS AT ONCE (§3): lift z to
 -- (z,1,1,0) and power it.  The result carries
 --
---     ( z� , n�z��� , n�z��� , n(n−1)�z��² )
+--     ( zⁿ , n·zⁿ⁻¹ , n·zⁿ⁻¹ , n(n−1)·zⁿ⁻² )
 --
--- � value, both first charges, and the SECOND FACTORIAL MOMENT in the
+-- — value, both first charges, and the SECOND FACTORIAL MOMENT in the
 -- pair channel, with no differentiation rule supplied.  At z = −1,
--- n = ω(d): (μ, κ�, κ�, κ�) � Yamala's jet plus the two-prime pair
--- charge κ�(d) = ω(ω−1)(−1)^ω, the κ⊗κ channel of the twin transfer,
--- computed by the same �-powering that computes μ.  The divisor-tree
+-- n = ω(d): (μ, κ₁, κ₁, κ₂) — Yamala's jet plus the two-prime pair
+-- charge κ₂(d) = ω(ω−1)(−1)^ω, the κ⊗κ channel of the twin transfer,
+-- computed by the same ⊛-powering that computes μ.  The divisor-tree
 -- exponential is again discarded for a 4-slot exact state.
 --
 -- Ring identities by
--- solve! with �PathP componentwise; the recurrences native.
+-- solve! with ΣPathP componentwise; the recurrences native.
 ------------------------------------------------------------------------
 
 module YamalaYugma_TheFourChannelJetAlgebraComputesBothLegChargesAndThePairChargeInOnePowering where
@@ -40,11 +40,11 @@ open import Cubical.Data.Sigma using (_×_; _,_; fst; snd; ΣPathP)
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
 open import Cubical.Tactics.CommRingSolver using (solve!)
 
--- the twin-pair jet: (value, leg� charge, leg� charge, pair charge).
+-- the twin-pair jet: (value, leg₁ charge, leg₂ charge, pair charge).
 J² : Type
 J² = ℤ × ℤ × ℤ × ℤ
 
--- multiplication in �[ε�,ε�]/(ε�²,ε�²): ε�² = 0 kills same-leg squares,
+-- multiplication in ℤ[ε₁,ε₂]/(ε₁²,ε₂²): εᵢ² = 0 kills same-leg squares,
 -- the pair channel collects the four surviving second-order routes.
 _⊛₂_ : J² → J² → J²
 (a , a₁ , a₂ , a₁₂) ⊛₂ (b , b₁ , b₂ , b₁₂) =
@@ -57,7 +57,7 @@ one₂ : J²
 one₂ = (pos 1 , pos 0 , pos 0 , pos 0)
 
 ------------------------------------------------------------------------
--- §1 � commutative monoid: the transfer composes.
+-- §1 · commutative monoid: the transfer composes.
 ⊛₂-assoc : (x y z : J²) → (x ⊛₂ y) ⊛₂ z ≡ x ⊛₂ (y ⊛₂ z)
 ⊛₂-assoc (a , a₁ , a₂ , a₁₂) (b , b₁ , b₂ , b₁₂) (c , c₁ , c₂ , c₁₂) =
   ΣPathP (solve! ℤCommRing , ΣPathP (solve! ℤCommRing ,
@@ -74,8 +74,8 @@ one₂ = (pos 1 , pos 0 , pos 0 , pos 0)
   ΣPathP (solve! ℤCommRing , solve! ℤCommRing)))
 
 ------------------------------------------------------------------------
--- §2 � the four channels of a product, named: μ⊗μ / κ⊗μ / μ⊗κ / κ⊗κ.
--- The pair channel's law � the second-order twisted Leibniz � is
+-- §2 · the four channels of a product, named: μ⊗μ / κ⊗μ / μ⊗κ / κ⊗κ.
+-- The pair channel's law — the second-order twisted Leibniz — is
 -- DEFINITIONAL: the four routes to double charge are the whole content.
 pairChannel : (x y : J²) →
   snd (snd (snd (x ⊛₂ y)))
@@ -96,11 +96,11 @@ leg₁-hom : (x y : J²)
 leg₁-hom (a , a₁ , a₂ , a₁₂) (b , b₁ , b₂ , b₁₂) = refl
 
 ------------------------------------------------------------------------
--- §3 � AUTOMATIC DIFFERENTIATION, TWO ORDERS AT ONCE.  The scalar tower:
+-- §3 · AUTOMATIC DIFFERENTIATION, TWO ORDERS AT ONCE.  The scalar tower:
 -- power, first charge, and the pair charge's recurrence
---     mixed (suc n) = z � mixed n + 2�deriv n
+--     mixed (suc n) = z · mixed n + 2·deriv n
 -- (each new factor either contributes its unit to one of the two legs of
--- an existing single charge � two ways � or lets an existing pair ride).
+-- an existing single charge — two ways — or lets an existing pair ride).
 pow : ℤ → ℕ → ℤ
 pow z zero    = pos 1
 pow z (suc n) = z · pow z n
@@ -113,13 +113,13 @@ mixed : ℤ → ℕ → ℤ
 mixed z zero    = pos 0
 mixed z (suc n) = z · mixed z n + (deriv z n + deriv z n)
 
--- the doubly-lifted base and its ��-powers.
+-- the doubly-lifted base and its ⊛₂-powers.
 dpow₂ : ℤ → ℕ → J²
 dpow₂ z zero    = one₂
 dpow₂ z (suc n) = (z , pos 1 , pos 1 , pos 0) ⊛₂ dpow₂ z n
 
 -- THE TWO-LEG AD THEOREM: one powering computes value, both leg charges,
--- and the pair charge.  At z = −1, n = ω(d): (μ, κ�, κ�, κ�).
+-- and the pair charge.  At z = −1, n = ω(d): (μ, κ₁, κ₁, κ₂).
 autodiff₂ : (z : ℤ) (n : ℕ)
   → dpow₂ z n ≡ (pow z n , deriv z n , deriv z n , mixed z n)
 autodiff₂ z zero    = refl
@@ -127,10 +127,10 @@ autodiff₂ z (suc n) =
   cong ((z , pos 1 , pos 1 , pos 0) ⊛₂_) (autodiff₂ z n)
   ∙ ΣPathP (refl , ΣPathP (step , ΣPathP (step , stepPair)))
   where
-  -- leg channels: z�deriv + 1�pow ≡ deriv (suc n)
+  -- leg channels: z·deriv + 1·pow ≡ deriv (suc n)
   step : z · deriv z n + pos 1 · pow z n ≡ z · deriv z n + pow z n
   step = solve! ℤCommRing
-  -- pair channel: z�mixed + 1�deriv + 1�deriv + 0�pow ≡ mixed (suc n)
+  -- pair channel: z·mixed + 1·deriv + 1·deriv + 0·pow ≡ mixed (suc n)
   stepPair : z · mixed z n + pos 1 · deriv z n + pos 1 · deriv z n
              + pos 0 · pow z n
            ≡ z · mixed z n + (deriv z n + deriv z n)

@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- ResidualInvariance
 --
--- WHAT `no-invariant-response-sees-�` ACTUALLY PROVES, and what it was
+-- WHAT `no-invariant-response-sees-ϱ` ACTUALLY PROVES, and what it was
 -- named as if it proved.
 --
 
@@ -17,7 +17,7 @@ open import Cubical.Relation.Nullary using (¬_)
 open import CostGeometry
 open import Residual
 
--- � cancels the detour it is measured against.
+-- ϱ cancels the detour it is measured against.
 ⊖-cancel : (m n : ℕ) → (m + n) ⊖ n ≡ m
 ⊖-cancel m zero = +-zero m
 ⊖-cancel m (suc n) = cong (_⊖ suc n) (+-suc m n) ∙ ⊖-cancel m n
@@ -27,7 +27,7 @@ open import Residual
 read : (ℕ → Branch) → {A B : Presentation} → Bridge A B → Work → Work → Branch
 read g b wHere wThere = g (ϱ b wHere wThere)
 
--- THE SHARP STATEMENT.  Invariance does not forbid reading �; it forbids
+-- THE SHARP STATEMENT.  Invariance does not forbid reading ϱ; it forbids
 -- reading it to any effect.  Two bridges with the same maps and different
 -- weights realise ANY pair of residuals, so an invariant reader must give
 -- them the same answer -- i.e. it is constant.

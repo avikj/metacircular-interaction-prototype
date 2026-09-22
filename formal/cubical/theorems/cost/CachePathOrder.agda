@@ -15,7 +15,7 @@
 --
 --   potential K              = |K|
 --   marginal K P             = |P ∖ K|
---   potential K + marginal K P = potential (K � P).
+--   potential K + marginal K P = potential (K ∪ P).
 --
 -- Thus accumulated new-node cost telescopes to endpoint growth and inherits
 -- permutation invariance.

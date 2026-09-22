@@ -8,7 +8,7 @@
 -- D^x R^y F^z is stored as the integer triple (40x, 40y, 40z), and an integer
 -- is stored as a pair of naturals `up (-) dn` -- "integer numerator over a
 -- cleared denominator", never a float, never a division.  Every claim below is
--- therefore a statement about `_+_`, `_*_` and `_<_` on �, and is decided by
+-- therefore a statement about `_+_`, `_*_` and `_<_` on ℕ, and is decided by
 -- the kernel.
 ------------------------------------------------------------------------------
 
@@ -34,7 +34,7 @@ record ℤ± : Type₀ where
 
 open ℤ± public
 
--- Equality of `up (-) dn` values, cleared to an equation in �.
+-- Equality of `up (-) dn` values, cleared to an equation in ℕ.
 _≐_ : ℤ± → ℤ± → Type₀
 x ≐ y = up x + dn y ≡ up y + dn x
 
@@ -144,9 +144,9 @@ mN = mD ⊟ᵐ mR
 --    factors (3.3)-(3.7).
 --
 --    Each term T is DEFINED by a vector and CERTIFIED against its defining
---    expression with denominators cleared, e.g. T� = N^{-1/8} is certified as
---    the integer identity 8*T� = -N.  Multiplication by a nonzero rational is
---    injective, so the identity pins T� uniquely; nothing is assumed.
+--    expression with denominators cleared, e.g. T₁ = N^{-1/8} is certified as
+--    the integer identity 8*T₁ = -N.  Multiplication by a nonzero rational is
+--    injective, so the identity pins T₁ uniquely; nothing is assumed.
 ------------------------------------------------------------------------------
 
 T₁ T₂ T₃ T₄ T₅ : Mono
@@ -156,23 +156,23 @@ T₃ = mono (0 ⊖ 2) (0 ⊖ 0)  (0 ⊖ 2)   -- M^{1/10} R^{-3/20} F^{-1/20} N^{
 T₄ = mono (0 ⊖ 2) (0 ⊖ 6)  (0 ⊖ 6)   -- N^{3/20} F^{-3/20} M^{-1/5}
 T₅ = mono (0 ⊖ 5) (0 ⊖ 15) (0 ⊖ 0)   -- N^{3/8} M^{-1/2}
 
--- 8 * T� = -N
+-- 8 * T₁ = -N
 def-T₁ : (8 ⊛ᵐ T₁) ≡ᵐ (⊟ᵐ mN)
 def-T₁ = refl , refl , refl
 
--- 8 * T� = R + N - 2M
+-- 8 * T₂ = R + N - 2M
 def-T₂ : (8 ⊛ᵐ T₂) ≡ᵐ ((mR ⊞ᵐ mN) ⊟ᵐ (2 ⊛ᵐ mM))
 def-T₂ = refl , refl , refl
 
--- 20 * T� = 2M - 3R - F - 3N
+-- 20 * T₃ = 2M - 3R - F - 3N
 def-T₃ : (20 ⊛ᵐ T₃) ≡ᵐ ((((2 ⊛ᵐ mM) ⊟ᵐ (3 ⊛ᵐ mR)) ⊟ᵐ mF) ⊟ᵐ (3 ⊛ᵐ mN))
 def-T₃ = refl , refl , refl
 
--- 20 * T� = 3N - 3F - 4M
+-- 20 * T₄ = 3N - 3F - 4M
 def-T₄ : (20 ⊛ᵐ T₄) ≡ᵐ (((3 ⊛ᵐ mN) ⊟ᵐ (3 ⊛ᵐ mF)) ⊟ᵐ (4 ⊛ᵐ mM))
 def-T₄ = refl , refl , refl
 
--- 8 * T� = 3N - 4M
+-- 8 * T₅ = 3N - 4M
 def-T₅ : (8 ⊛ᵐ T₅) ≡ᵐ ((3 ⊛ᵐ mN) ⊟ᵐ (4 ⊛ᵐ mM))
 def-T₅ = refl , refl , refl
 
@@ -237,18 +237,18 @@ audit-3-7 = refl , refl , refl
 ------------------------------------------------------------------------------
 -- 6. Section 4: the exponent forms (0.4).
 --
---    With R = D^� and F = D^�, the D-exponent of S i is
---        E i = (eD + eR * � + eF * �) / 40,
+--    With R = D^ρ and F = D^φ, the D-exponent of S i is
+--        E i = (eD + eR * ρ + eF * φ) / 40,
 --    so the vector S i IS the coefficient list of (0.4).  Reading it off:
---        S� = (-5, 15,  0)/40  =  -1/8  + 3�/8
---        S� = (-5, 10,  0)/40  =  -1/8  + �/4
---        S� = (-2, 10, -2)/40  =  -1/20 + �/4  - �/20
---        S� = (-2,  4, -6)/40  =  -1/20 + �/10 - 3�/20
---        S� = (-5, -5,  0)/40  =  -1/8  - �/8
+--        S₁ = (-5, 15,  0)/40  =  -1/8  + 3ρ/8
+--        S₂ = (-5, 10,  0)/40  =  -1/8  + ρ/4
+--        S₃ = (-2, 10, -2)/40  =  -1/20 + ρ/4  - φ/20
+--        S₄ = (-2,  4, -6)/40  =  -1/20 + ρ/10 - 3φ/20
+--        S₅ = (-5, -5,  0)/40  =  -1/8  - ρ/8
 --    which is (0.4) verbatim.  No separate proof is needed: (0.4) is the
 --    vector that sections 3 and 5 above already certified.
 --
---    Writing � = r/q and � = f/q, `evalAt q r f` returns 40*q*E.
+--    Writing ρ = r/q and φ = f/q, `evalAt q r f` returns 40*q*E.
 ------------------------------------------------------------------------------
 
 evalAt : ℕ → ℕ → ℕ → Mono → ℤ±
@@ -260,11 +260,11 @@ value : ℕ → ℤ± → ℕ → ℕ → ℕ → Type₀
 value q x ap am b = b · up x + (40 · q) · am ≡ b · dn x + (40 · q) · ap
 
 ------------------------------------------------------------------------------
--- 7. Section 3 / (0.2): the structural hypothesis M << N^2 is exactly � < 1/2.
+-- 7. Section 3 / (0.2): the structural hypothesis M << N^2 is exactly ρ < 1/2.
 --
---    exponent(N^2) - exponent(M) = (2 - 2�) - 1 = 1 - 2�, whose q-cleared
+--    exponent(N^2) - exponent(M) = (2 - 2ρ) - 1 = 1 - 2ρ, whose q-cleared
 --    numerator is q - 2r.  So the hypothesis holds iff 2r < q, and it
---    DEGENERATES TO EQUALITY exactly at the quarter-scale endpoint � = 1/2.
+--    DEGENERATES TO EQUALITY exactly at the quarter-scale endpoint ρ = 1/2.
 ------------------------------------------------------------------------------
 
 -- The 40-cleared gap, computed from the monomials rather than asserted.
@@ -286,11 +286,11 @@ hypGap-bridge q r =
         ∙ +-assoc (40 · q) (40 · q) (80 · r)
         ∙ cong (_+ (80 · r)) (·-distribʳ 40 40 q) )
 
--- (3.2): the hypothesis M << N^2 is available exactly on � < 1/2.
+-- (3.2): the hypothesis M << N^2 is available exactly on ρ < 1/2.
 wright-hypothesis-iff : (q r : ℕ) → isPos (hypGap q r) ≡ (2 · r < q)
 wright-hypothesis-iff q r = refl
 
--- (0.2) and the endpoint: at � = 1/2 the hypothesis is an equality, not a
+-- (0.2) and the endpoint: at ρ = 1/2 the hypothesis is an equality, not a
 -- strict inequality.  This is the one place where the note's `R << D^{1/2}`
 -- (3.2) and its `R <= D^{1/2}` (1.3), (0.7) differ.
 endpoint-is-tight : isZer (hypGap 2 1)
@@ -300,12 +300,12 @@ quarter-scale-admissible : isPos (hypGap 5 1)   -- ρ = 1/5 is strictly inside
 quarter-scale-admissible = 2 , refl
 
 ------------------------------------------------------------------------------
--- 8. Section 4 / 9: the exponent trichotomy at � = 0.
+-- 8. Section 4 / 9: the exponent trichotomy at φ = 0.
 --
---    E� = (-2 + 10�)/40 is the LARGEST of the five exponents throughout the
---    whole admissible range 0 <= � <= 1/2.  Hence the direct application saves
---    exactly when E� < 0, i.e. exactly when � < 1/5.  This is stronger than
---    the note, which observes only that E� is the binding constraint.
+--    E₃ = (-2 + 10ρ)/40 is the LARGEST of the five exponents throughout the
+--    whole admissible range 0 <= ρ <= 1/2.  Hence the direct application saves
+--    exactly when E₃ < 0, i.e. exactly when ρ < 1/5.  This is stronger than
+--    the note, which observes only that E₃ is the binding constraint.
 ------------------------------------------------------------------------------
 
 -- 2r <= q  ==>  5r <= 3q.
@@ -347,7 +347,7 @@ E₃-dominates-E₅ q r =
 
 ------------------------------------------------------------------------------
 -- MAIN THEOREM A (audit (0.6), the saving range).
---   � < 1/5, � = 0  ==>  all five exponents are strictly negative.
+--   ρ < 1/5, φ = 0  ==>  all five exponents are strictly negative.
 ------------------------------------------------------------------------------
 
 E₃-neg : (q r : ℕ) → 5 · r < q → isNeg (evalAt q r 0 S₃)
@@ -372,10 +372,10 @@ direct-saving q r h =
   adm : 2 · r ≤ q
   adm = ≤-trans (≤-·k {m = 2} {n = 5} {k = r} (3 , refl)) (<-weaken h)
 
--- The four dominations bundled: E� is the maximum of the five exponents
--- throughout the admissible range 0 <= � <= 1/2 at � = 0.  Consequently the
--- substituted bound's exponent IS E� = -1/20 + �/4, and the "two terms worse
--- than trivial" of (0.8) are dominated by E� = 3/40 (not by E� = 1/16).
+-- The four dominations bundled: E₃ is the maximum of the five exponents
+-- throughout the admissible range 0 <= ρ <= 1/2 at φ = 0.  Consequently the
+-- substituted bound's exponent IS E₃ = -1/20 + ρ/4, and the "two terms worse
+-- than trivial" of (0.8) are dominated by E₃ = 3/40 (not by E₁ = 1/16).
 E₃-is-max
   : (q r : ℕ) → 2 · r ≤ q
   → (evalAt q r 0 S₁ ≼ evalAt q r 0 S₃) × ((evalAt q r 0 S₂ ≼ evalAt q r 0 S₃)
@@ -388,8 +388,8 @@ E₃-is-max q r h =
 
 ------------------------------------------------------------------------------
 -- MAIN THEOREM B (audit (0.7) and section 9, the no-go).
---   � > 1/5  ==>  E� > 0: the substituted bound is strictly WORSE than the
---   arbitrary-coefficient trivial bound.  Note no upper constraint on � is
+--   ρ > 1/5  ==>  E₃ > 0: the substituted bound is strictly WORSE than the
+--   arbitrary-coefficient trivial bound.  Note no upper constraint on ρ is
 --   needed, so this covers the whole frontier D^{1/5} < R <= D^{1/2}.
 ------------------------------------------------------------------------------
 
@@ -399,8 +399,8 @@ frontier-no-go q r h =
     (·k-< 1 h)
 
 ------------------------------------------------------------------------------
--- MAIN THEOREM C (audit section 4, "at � = 1/5 the third term is exactly of
---   trivial size").  The threshold is sharp: E� = 0 exactly at � = 1/5.
+-- MAIN THEOREM C (audit section 4, "at ρ = 1/5 the third term is exactly of
+--   trivial size").  The threshold is sharp: E₃ = 0 exactly at ρ = 1/5.
 ------------------------------------------------------------------------------
 
 threshold-sharp : (q r : ℕ) → q ≡ 5 · r → isZer (evalAt q r 0 S₃)
@@ -416,10 +416,10 @@ threshold-sharp q r h =
 --   The note's audit rule (5.2) says a factorisation is not progress unless it
 --   beats the unsplit balanced bound.  The note then says termwise fixed-R use
 --   "does not pass that test on the full quarter-scale range".  In fact it
---   fails on the WHOLE range: since E� = -1/20 + �/4 is the maximum exponent
---   for every admissible �, and the unsplit balanced value (� = 0) is -1/20,
---   the split is strictly worse than unsplit for EVERY � > 0, not merely for
---   � >= 1/5.  Both sides here are cleared by the same 40q, so they compare
+--   fails on the WHOLE range: since E₃ = -1/20 + ρ/4 is the maximum exponent
+--   for every admissible ρ, and the unsplit balanced value (ρ = 0) is -1/20,
+--   the split is strictly worse than unsplit for EVERY ρ > 0, not merely for
+--   ρ >= 1/5.  Both sides here are cleared by the same 40q, so they compare
 --   directly.
 ------------------------------------------------------------------------------
 
@@ -435,7 +435,7 @@ split-strictly-worse q r h =
 --      PRIME_MOBIUS_KLOOSTERMAN_PARAMETER_AUDIT_REPORT_2026-08-16.json.
 ------------------------------------------------------------------------------
 
--- ---- check UNSPLIT-BALANCED-COMPARISON, audit (5.1): � = 0, � = 0. --------
+-- ---- check UNSPLIT-BALANCED-COMPARISON, audit (5.1): ρ = 0, φ = 0. --------
 -- Exponent vector (-1/8, -1/8, -1/20, -1/20, -1/8); maximum -1/20.
 
 balanced-E₁ : value 1 (evalAt 1 0 0 S₁) 0 1 8
@@ -453,7 +453,7 @@ balanced-E₄ = refl
 balanced-E₅ : value 1 (evalAt 1 0 0 S₅) 0 1 8
 balanced-E₅ = refl
 
--- ---- check THRESHOLD-SHARPNESS-FOR-DIRECT-BOUND: � = 1/5, � = 0. ---------
+-- ---- check THRESHOLD-SHARPNESS-FOR-DIRECT-BOUND: ρ = 1/5, φ = 0. ---------
 -- Exponent vector (-1/20, -3/40, 0, -3/100, -3/20).
 
 fifth-E₁ : value 5 (evalAt 5 1 0 S₁) 0 1 20
@@ -474,7 +474,7 @@ fifth-E₅ = refl
 fifth-E₃-is-zero : isZer (evalAt 5 1 0 S₃)
 fifth-E₃-is-zero = refl
 
--- ---- check QUARTER-SCALE-ENDPOINT, audit (0.8): � = 1/2, � = 0. ----------
+-- ---- check QUARTER-SCALE-ENDPOINT, audit (0.8): ρ = 1/2, φ = 0. ----------
 -- Exponent vector (1/16, 0, 3/40, 0, -3/16): two positive, two zero, one
 -- negative.
 
@@ -499,7 +499,7 @@ endpoint-signs
   × isNeg (evalAt 2 1 0 S₅))))
 endpoint-signs = (4 , refl) , refl , (5 , refl) , refl , (14 , refl)
 
--- ---- check EXPONENT-SUBSTITUTION: � = 7/31, � = 2/19. -------------------
+-- ---- check EXPONENT-SUBSTITUTION: ρ = 7/31, φ = 2/19. -------------------
 -- Common denominator q = 589 = 19*31, so r = 133 = 7*19 and f = 62 = 2*31.
 -- The report gives (-5/124, -17/248, 7/5890, -509/11780, -19/124).
 
@@ -519,23 +519,23 @@ sample-E₅ : value 589 (evalAt 589 133 62 S₅) 0 19 124
 sample-E₅ = refl
 
 -- ---- check FREQUENCY-PHASE-DIAGRAM. -------------------------------------
--- The threshold �*(�) = min{1/3, (1+�)/5}: the note's (0.5) also lists 1/2
+-- The threshold ρ*(φ) = min{1/3, (1+φ)/5}: the note's (0.5) also lists 1/2
 -- and (1+3�)/2, both of which are redundant for � >= 0.  The report's samples
--- are �*(0) = 1/5, �*(1/5) = 6/25, �*(1) = 1/3.
+-- are ρ*(0) = 1/5, ρ*(1/5) = 6/25, ρ*(1) = 1/3.
 --
--- � = 0, � = 1/5: E� = 0 (fifth-E� above) and E� < 0, so E� binds.
+-- φ = 0, ρ = 1/5: E₃ = 0 (fifth-E₃ above) and E₁ < 0, so E₃ binds.
 phase-φ0-E₁ : isNeg (evalAt 5 1 0 S₁)
 phase-φ0-E₁ = 9 , refl
 
--- � = 1/5, � = 6/25: common denominator q = 25, r = 6, f = 5.  E� = 0.
+-- φ = 1/5, ρ = 6/25: common denominator q = 25, r = 6, f = 5.  E₃ = 0.
 phase-φ5-E₃ : isZer (evalAt 25 6 5 S₃)
 phase-φ5-E₃ = refl
 
 phase-φ5-E₁ : isNeg (evalAt 25 6 5 S₁)   -- E₁ still strictly negative there
 phase-φ5-E₁ = 34 , refl
 
--- � = 1, � = 1/3: q = 3, r = 1, f = 3.  Now E� = 0 and E� < 0: the bottleneck
--- has switched from E� to E�.
+-- φ = 1, ρ = 1/3: q = 3, r = 1, f = 3.  Now E₁ = 0 and E₃ < 0: the bottleneck
+-- has switched from E₃ to E₁.
 phase-φ1-E₁ : isZer (evalAt 3 1 3 S₁)
 phase-φ1-E₁ = refl
 
@@ -543,7 +543,7 @@ phase-φ1-E₃ : isNeg (evalAt 3 1 3 S₃)
 phase-φ1-E₃ = 1 , refl
 
 -- SUPPLEMENT (not in the note): the crossover is exactly � = 2/3,
--- where (1+�)/5 = 1/3 and E�, E� vanish simultaneously.  q = 3, r = 1, f = 2.
+-- where (1+φ)/5 = 1/3 and E₁, E₃ vanish simultaneously.  q = 3, r = 1, f = 2.
 crossover-E₁ : isZer (evalAt 3 1 2 S₁)
 crossover-E₁ = refl
 
@@ -553,14 +553,14 @@ crossover-E₃ = refl
 ------------------------------------------------------------------------------
 -- 10. Section 9 in the original prime-pair scale D = X^{1/2}.
 --
---    The frontier � ∈ [1/5, 1/2] in D becomes, in X, the range of exponents
---    �/2 ∈ [1/10, 1/4].  Cleared: 2*(1/10) = 1/5 and 2*(1/4) = 1/2.
+--    The frontier ρ ∈ [1/5, 1/2] in D becomes, in X, the range of exponents
+--    ρ/2 ∈ [1/10, 1/4].  Cleared: 2*(1/10) = 1/5 and 2*(1/4) = 1/2.
 ------------------------------------------------------------------------------
 
--- � = 1/5 in D is X^{1/10}: 10 * 1 = 2 * 5 * 1, i.e. (1/10)*2 = 1/5.
+-- ρ = 1/5 in D is X^{1/10}: 10 * 1 = 2 * 5 * 1, i.e. (1/10)*2 = 1/5.
 X-lower : 10 · 1 ≡ (2 · 5) · 1
 X-lower = refl
 
--- � = 1/2 in D is X^{1/4}: 4 * 1 = 2 * 2 * 1.
+-- ρ = 1/2 in D is X^{1/4}: 4 * 1 = 2 * 2 * 1.
 X-upper : 4 · 1 ≡ (2 · 2) · 1
 X-upper = refl

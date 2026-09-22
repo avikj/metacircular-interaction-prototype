@@ -2,26 +2,26 @@
 
 -- EkatvaNirnaya_TheTwoVowsForceTheDecisionRuleUniquelySoTheBornStandpointHasNoRival
 --
--- ‡‡ï‡‡‡µ-‡®‡ø‡∞‡‡‡Ø‡ ‚î ekatva, uniqueness; niraya, the decision.
+-- ‡‡ï‡‡‡µ-‡®‡ø‡∞‡‡‡Ø‡ ‚Äî ekatva, uniqueness; niraya, the decision.
 -- For program ‡ of YugaParivartana (measurement
 -- as conflict resolution).  Sources as AvaktavyaPrasava's header gives
 -- them: Ktyyana's vrttika on
 -- 1.4.2 (the configuration), Umsvti 5.31 (asserted/unasserted),
--- Siddhasena, Sanmatitarka 1.21 (durnaya ‚î the vow this theorem shows
+-- Siddhasena, Sanmatitarka 1.21 (durnaya ‚Äî the vow this theorem shows
 -- is load-bearing).
 --
 -- WHAT IS PROVED.  AvaktavyaPrasava checks two laws of the birth's
--- assertion function eka : List R ‚í Maybe R:
+-- assertion function eka : List R ‚Üí Maybe R:
 --
---     (1) IT DECIDES on unanimity: all contenders saying a ‚ü just a.
---     (2) IT TAKES NOTHING: two contenders differing ‚ü nothing.
+--     (1) IT DECIDES on unanimity: all contenders saying a ‚üπ just a.
+--     (2) IT TAKES NOTHING: two contenders differing ‚üπ nothing.
 --
 -- This module proves the theorem that makes those laws a FOUNDATION
 -- rather than a design choice: **on nonempty contention lists over any
 -- discrete result type, the two laws determine the function COMPLETELY.
 -- Any two rules satisfying them agree everywhere.**  There is no room
--- for a tie-breaker, a weighting, a hidden preference ‚î the vows leave
--- zero freedom.  In program ‡'s reading: the Born-standpoint decision
+-- for a tie-breaker, a weighting, a hidden preference ‚Äî the vows leave
+-- zero freedom.  In program ‡•™'s reading: the Born-standpoint decision
 -- rule has no rival within its vows; whatever satisfies ahis-of-
 -- assertion (take nothing not unanimously given) and decision-on-
 -- unanimity IS it.  The proof is a decidable dichotomy: every nonempty

@@ -1,32 +1,32 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à²à¾à˜àµ â” economy, the cost of a presentation.
+-- à¤²à¤¾à¤˜à¤µ â€” economy, the cost of a presentation.
 --
--- TERM.  à²à¾à˜àµ (lghava) is the grammarians' own word for economy of
+-- TERM.  à¤²à¤¾à¤˜à¤µ (lÄghava) is the grammarians' own word for economy of
 -- statement, in the tradition's own slogan
 --
---     àà°àà§à®à¾ààà°à¾à²à¾à˜àµàà¨ ààààà°à‹ààààµà à®à¨àà¯à¨ààà àµàˆà¯à¾à•à°àà¾à
+--     à¤…à¤°à¥à¤§à¤®à¤¾à¤¤à¥à¤°à¤¾à¤²à¤¾à¤˜à¤µà¥‡à¤¨ à¤ªà¥à¤¤à¥à¤°à¥‹à¤¤à¥à¤¸à¤µà¤‚ à¤®à¤¨à¥à¤¯à¤¨à¥à¤¤à¥‡ à¤µà¥ˆà¤¯à¤¾à¤•à¤°à¤£à¤¾à¤ƒ
 --     "grammarians rejoice at the saving of half a mora as at the birth
 --      of a son"
 --
--- â” a *paribh*-literature commonplace, NOT a stra of the Adhyy,
+-- â€” a *paribhÄá¹£Ä*-literature commonplace, NOT a sÅ«tra of the Aá¹£á¹­ÄdhyÄyÄ«,
 -- and this file claims no stra.  The word is used for what it means
 -- there: a measure that lives on the PRESENTATION and adds when
 -- presentations are concatenated.  The group theory below originates
 -- elsewhere and is not dressed in a borrowed name; only the measure
 -- carries the tradition's word, because only the measure is its idea.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE MASTER THEOREM, in one sentence:
 --
 --     A COST AND AN INVERSE CANNOT COEXIST.
 --
 -- and its two halves are the two halves of this repository.
 --
--- Â§2  A structure that is merely GRADED cannot be inverted â” no function
+-- Â§2  A structure that is merely GRADED cannot be inverted â€” no function
 --     whatsoever, not merely no obvious one.
--- Â§3  A structure that CAN be inverted has no COST â” every cost on it
+-- Â§3  A structure that CAN be inverted has no COST â€” every cost on it
 --     is identically zero, hence (by the cost's own unit-detection) the
 --     structure is trivial.  Contrapositive: A NONTRIVIAL GROUP IS NOT
 --     GRADED.
@@ -40,49 +40,49 @@
 --
 -- Â§2 takes a `Matra`.  Adding up is already enough to forbid an inverse:
 -- composition can only accumulate, and the unit accumulates nothing.
--- Â§3 takes a `Laghava`, and needs the second field â” without a cost that
+-- Â§3 takes a `Laghava`, and needs the second field â€” without a cost that
 -- recognises the unit it is measuring from, "everything has cost zero"
 -- says nothing about what everything IS.
 --
 -- Â§4 and Â§5 are the two instances that matter here, and they are the two
 -- objects this corpus is built out of:
 --
---     TRANSPORT  `X â‰ X` under compEquiv is a group (`invEquiv` fills the
+--     TRANSPORT  `X â‰ƒ X` under compEquiv is a group (`invEquiv` fills the
 --                inverse, `invEquiv-is-rinv` on the nose).  Bool has a
 --                self-equivalence that is not the identity.  Therefore
 --                THERE IS NO COST FUNCTION ON THE TRANSPORTS OF Bool.
 --
 --     THE KERNEL `Derivation A A` under `âŠ•` has `len`, which adds under
---                concatenation â” a `Matra`.  Therefore, by Â§2, no
+--                concatenation â€” a `Matra`.  Therefore, by Â§2, no
 --                function inverts it.  (Only a `Matra`: Â§5 records why
 --                the unit-detection field is refused here by cubical
 --                Agda in BOTH directions, and why Â§2 does not want it.)
 --
 -- WHAT THIS SETTLES.  "Cost is not a univalent
--- invariant â” it lives on the presentation, which univalence discards"
+-- invariant â€” it lives on the presentation, which univalence discards"
 -- has been carried in this corpus as a note and a slogan.  Â§4 is its
 -- proof, and the proof is not about presentations at all: univalence
 -- makes equivalent types EQUAL, so a univalent invariant is a function
--- on the groupoid of transports, and Â§3 says that groupoid â” being a
--- nontrivial group â” admits no grading.  The cost is not discarded by
+-- on the groupoid of transports, and Â§3 says that groupoid â€” being a
+-- nontrivial group â€” admits no grading.  The cost is not discarded by
 -- univalence as a matter of bookkeeping.  IT CANNOT EXIST THERE.
 --
 -- WHERE THE PIECES WERE.  Each of the following is now an instance and
 -- none of them cited another:
 --
---   AvrttiResidue_â¦  `the-kernel-carries-no-inverse` â” Â§2 at `len`.
---   Machine_â¦      `à¯à¨àààà°à®à : GroupoidMachine (X â‰ X)` â” Â§3's hypothesis.
---   Avirodha_â¦    "strictly a category, weakly a groupoid; the gap is
---                 the ea" â” Â§2 and Â§3 are what the gap IS.
+--   AvrttiResidue_â¦  `the-kernel-carries-no-inverse` â€” Â§2 at `len`.
+--   Machine_â¦      `à¯à¨àààà°à®à : GroupoidMachine (X â‰ X)` â€” Â§3's hypothesis.
+--   Avirodha_â€¦    "strictly a category, weakly a groupoid; the gap is
+--                 the Å›eá¹£a" â€” Â§2 and Â§3 are what the gap IS.
 --   Laghava
---                 `laghava-does-not-factor` â” size does not factor
+--                 `laghava-does-not-factor` â€” size does not factor
 --                 through meaning.  That is the same refusal one level
 --                 down: meaning is where the presentation is discarded,
 --                 as `ua` is where the transport is.
---   Samyoge_â¦     "no grading function on maps that both respects
---                 composition and detects loss" â” Â§3 stated for the
+--   Samyoge_â€¦     "no grading function on maps that both respects
+--                 composition and detects loss" â€” Â§3 stated for the
 --                 monoid of MAPS instead of the monoid of routes.  Its
---                 witness `Unit â’ Bool â’ Unit â‰¡ id` is exactly a
+--                 witness `Unit â†’ Bool â†’ Unit â‰¡ id` is exactly a
 --                 non-unit element of measure zero.
 --
 ------------------------------------------------------------------------
@@ -112,12 +112,12 @@ private
     â„“ : Level
 
 ------------------------------------------------------------------------
--- Â§0  Two facts about â•, proved rather than imported under a guessed
+-- Â§0  Two facts about â„•, proved rather than imported under a guessed
 --     name, because the whole theorem rests on them and on nothing else.
 ------------------------------------------------------------------------
 
 -- A sum that vanishes has a vanishing left summand.  This is the ONLY
--- property of â• the theorem uses: that it has no negatives.
+-- property of â„• the theorem uses: that it has no negatives.
 à¤µà¤¾à¤®-à¤¶à¥‚à¤¨à¥à¤¯à¤®à¥ : (m n : â„•) â†’ m + n â‰¡ N.zero â†’ m â‰¡ N.zero
 à¤µà¤¾à¤®-à¤¶à¥‚à¤¨à¥à¤¯à¤®à¥ N.zero    n _ = refl
 à¤µà¤¾à¤®-à¤¶à¥‚à¤¨à¥à¤¯à¤®à¥ (N.suc m) n p = âŠ¥rec (snotz p)
@@ -135,7 +135,7 @@ private
 ------------------------------------------------------------------------
 
 -- THE GRADING alone: it adds under composition.  That is all Â§2 needs,
--- and saying so is not tidiness â” it is the asymmetry of the theorem.
+-- and saying so is not tidiness â€” it is the asymmetry of the theorem.
 record Matra {Op : Type â„“} (M : MonoidMachine Op) : Type â„“ where
   open MonoidMachine M
   field
@@ -153,7 +153,7 @@ record Laghava {Op : Type â„“} (M : MonoidMachine Op) : Type â„“ where
   field
     à¤¶à¥‚à¤¨à¥à¤¯à¥‡   : (x : Op) â†’ à¤®à¤¾à¤¤à¥à¤°à¤¾ x â‰¡ N.zero â†’ x â‰¡ noop
 
--- The unit is free, and this is FORCED â” not an axiom of either record.
+-- The unit is free, and this is FORCED â€” not an axiom of either record.
 -- `noop âŠ• noop â‰¡ noop` makes its cost equal to its own double.
 à¤…à¤¨à¥‹à¤ªà¤¸à¥à¤¯-à¤®à¤¾à¤¤à¥à¤°à¤¾-à¤¶à¥‚à¤¨à¥à¤¯à¤¾ :
   {Op : Type â„“} (M : MonoidMachine Op) (L : Matra M)
@@ -223,7 +223,7 @@ record Laghava {Op : Type â„“} (M : MonoidMachine Op) : Type â„“ where
 ------------------------------------------------------------------------
 -- Â§4  TRANSPORT HAS NO PRICE.
 --
---     `X â‰ X` under compEquiv is a group.  `Bool â‰ Bool` has a
+--     `X â‰ƒ X` under compEquiv is a group.  `Bool â‰ƒ Bool` has a
 --     self-equivalence that is not the identity.  Therefore, by Â§3,
 --     THERE IS NO COST FUNCTION ON THE TRANSPORTS OF Bool.
 --
@@ -256,7 +256,7 @@ record Laghava {Op : Type â„“} (M : MonoidMachine Op) : Type â„“ where
 --
 --     `len` adds under `âŠ•` (that is `len-âŠ•`, from AvrttiResidue_) and
 --     detects `done` (below).  So it is a cost in the sense of Â§1, and
---     Â§2 then refuses every inverse â” which is `AvrttiResidue_`'s
+--     Â§2 then refuses every inverse â€” which is `AvrttiResidue_`'s
 --     `the-kernel-carries-no-inverse`, now as an INSTANCE rather than
 --     as its own argument.
 ------------------------------------------------------------------------
@@ -268,29 +268,29 @@ record Laghava {Op : Type â„“} (M : MonoidMachine Op) : Type â„“ where
 
 -- ONLY A `Matra`, AND THE REASON IS NOT LAZINESS.
 --
--- The missing field would be `len d â‰¡ 0 â’ d â‰¡ done A`, and its proof is
+-- The missing field would be `len d â‰¡ 0 â†’ d â‰¡ done A`, and its proof is
 -- two clauses.  Both are refused, in opposite directions, and the pair of
 -- refusals is worth recording because it is the repository's own cubical
 -- idiom biting at exactly the place the theorem is about:
 --
 --   at the CONCRETE endpoint `A = add var zero`, matching `done _`
---   against `Derivation A A` makes Agda unify `add` with itself â”
+--   against `Derivation A A` makes Agda unify `add` with itself â€”
 --   constructor injectivity in an INDEX position.  Agda accepts it and
 --   emits `UnsupportedIndexedMatch`: the function "will not compute when
 --   applied to transports".  In a file whose subject IS transport, that
 --   is not a warning to carry.
 --
 --   at an ABSTRACT endpoint `a`, the unification `a â‰Ÿ a` is a reflexive
---   equation, and with K disabled â” which `--cubical` disables â” it
+--   equation, and with K disabled â€” which `--cubical` disables â€” it
 --   cannot be eliminated.  `SplitError.UnificationStuck`.
 --
 -- So the kernel's cost is a grading and is not shown to detect its unit.
 -- Â§2 does not care: it takes a `Matra`.  Nothing below is weakened, and
--- the general lesson is the one this corpus already carries â” do not
+-- the general lesson is the one this corpus already carries â€” do not
 -- match a constructor in an index position; match the datum, or measure
 -- it.  `len` measures it.
 
--- the round trip costs, so the kernel is not a group â” by the theorem,
+-- the round trip costs, so the kernel is not a group â€” by the theorem,
 -- not by a fresh argument.
 à¤•à¤°à¥à¤£à¤ƒ-à¤¨-à¤—à¤£à¤ƒ :
   (inv : Derivation A A â†’ Derivation A A)
@@ -310,20 +310,20 @@ record Laghava {Op : Type â„“} (M : MonoidMachine Op) : Type â„“ where
 --
 --     does this structure admit a lghava?
 --
---   YES â’ it records its own history, and nothing can undo it.
---   NO  â’ it can be undone, and it remembers nothing.
+--   YES â†’ it records its own history, and nothing can undo it.
+--   NO  â†’ it can be undone, and it remembers nothing.
 --
 -- There is no third position, and this is the sense in which the whole
 -- corpus has one theorem in it.  `ua` is the passage from the second
 -- column to the first read backwards: an equivalence, which has no cost
--- and no memory, becomes a PATH â” and every route that produced it is
+-- and no memory, becomes a PATH â€” and every route that produced it is
 -- gone, not by omission but because the destination type has no room for
 -- it.  `Aresidue_â¦` measures the loss exactly: soundness lands in a
 -- proposition, so the fibre over any meaning is the WHOLE derivation
 -- type, and by Â§5 that fibre is graded while the meaning is not.
 --
 -- The interface consequence, and it is mechanical: any wire that returns
--- a transport returns something Â§4 proves is priceless â” and therefore
+-- a transport returns something Â§4 proves is priceless â€” and therefore
 -- historyless.  A wire that intends to carry cost, route, effort, or
 -- provenance must carry the DERIVATION, because Â§3 says those quantities
 -- do not exist on the other side of `ua`.
@@ -334,7 +334,7 @@ record Laghava {Op : Type â„“} (M : MonoidMachine Op) : Type â„“ where
 --
 --     Â§3 refuses a cost ON a group.  This refuses something stronger and
 --     more useful: given ANY map out of a graded structure onto a group
---     â” not `ua`, not soundness, any monoid homomorphism with a section â”
+--     â€” not `ua`, not soundness, any monoid homomorphism with a section â€”
 --     there is NO function whatsoever of the target that agrees with the
 --     cost on the source.
 --
@@ -390,10 +390,10 @@ record Laghava {Op : Type â„“} (M : MonoidMachine Op) : Type â„“ where
 ------------------------------------------------------------------------
 -- Â§8  THE INSTANCE THE KERNEL IS.
 --
---     `sound : Derivation a b â’ Meaning a b` lands in a PROPOSITION
+--     `sound : Derivation a b â†’ Meaning a b` lands in a PROPOSITION
 --     (`Aresidue_â¦`, `isPropMeaning`), and an inhabited proposition is the
 --     trivial group: one element, its own inverse, seq and noop forced.
---     So Â§7 applies with `G = Unit`, and says exactly this â” NOTHING
+--     So Â§7 applies with `G = Unit`, and says exactly this â€” NOTHING
 --     COMPUTED FROM THE MEANING SEES THE ROUTE.  Not "no obvious
 --     function": no function.
 ------------------------------------------------------------------------

@@ -10,7 +10,7 @@
 -- totally nonreal degree-2m divisor with unit constant term by maximizing
 -- each elementary symmetric function e_k over the LOG-POLYTOPE
 --
---     Î” = { x âˆˆ [Î², Î]^m  :  Î x_k = 0 },      Î² = log B â‰ 0 â‰ Î = log A.
+--     Î” = { x âˆˆ [Î², Î±]^m  :  Î£ x_k = 0 },      Î² = log B â‰¤ 0 â‰¤ Î± = log A.
 --
 -- The note's argument is: e_k is a symmetric convex function of the log
 -- radii, hence maximized at a VERTEX.  The program instead computes ONE
@@ -25,19 +25,19 @@
 -- multiset of radii.  So there is exactly one vertex orbit, one maximizer
 -- for all k simultaneously, and the program's shortcut is sound.
 --
--- Encoding.  A vertex pins m-1 = n coordinates at bounds: s of them at Î,
--- u = n - s of them at Î², with compensator c = -sÎ - uÎ².  Writing a = Î â‰ 0
--- and b = -Î² â‰ 0 (both naturals in any common additive scale) the vertex is
--- feasible, i.e. Î² â‰ c â‰ Î, exactly when
+-- Encoding.  A vertex pins m-1 = n coordinates at bounds: s of them at Î±,
+-- u = n - s of them at Î², with compensator c = -sÎ± - uÎ².  Writing a = Î± â‰¥ 0
+-- and b = -Î² â‰¥ 0 (both naturals in any common additive scale) the vertex is
+-- feasible, i.e. Î² â‰¤ c â‰¤ Î±, exactly when
 --
---     sÂa â‰ (u+1)Âb       (that is  c â‰ Î)
---     uÂb â‰ (s+1)Âa       (that is  Î² â‰ c)
+--     sÂ·a â‰¤ (u+1)Â·b       (that is  c â‰¤ Î±)
+--     uÂ·b â‰¤ (s+1)Â·a       (that is  Î² â‰¤ c)
 --
 -- which is `Feas s u` below.  Only the ordered-abelian-group structure of
--- the exponents is used, so â• is not a restriction on the argument, only on
--- the scale in which Î and Î² are expressed.  No real analysis enters: the
--- whole content is that the sequence s â¦ c_s is arithmetic with common
--- difference exactly the width Î - Î² of the feasibility window, so it
+-- the exponents is used, so â„• is not a restriction on the argument, only on
+-- the scale in which Î± and Î² are expressed.  No real analysis enters: the
+-- whole content is that the sequence s â†¦ c_s is arithmetic with common
+-- difference exactly the width Î± - Î² of the feasibility window, so it
 -- cannot step over the window, and cannot land in it twice except by
 -- hitting both endpoints at once.
 --
@@ -53,7 +53,7 @@ open import Cubical.Data.Sigma
 open import Cubical.Data.Sum
 open import Cubical.Data.Empty as âŠ¥
 
--- a = Î  (the upper log-radius, â‰ 0),  b = -Î²  (minus the lower one, â‰ 0)
+-- a = Î±  (the upper log-radius, â‰¥ 0),  b = -Î²  (minus the lower one, â‰¥ 0)
 module Cage (a b : â„•) where
 
   ----------------------------------------------------------------------
@@ -76,9 +76,9 @@ module Cage (a b : â„•) where
   -- (1) EXISTENCE.  Some vertex index is feasible, for every n.
   --
   -- Induction on n.  At n = 0 the single coordinate is the compensator and
-  -- it is 0 âˆˆ [Î², Î].  At the step, comparing (u+1)Âb with (s+1)Âa decides
+  -- it is 0 âˆˆ [Î², Î±].  At the step, comparing (u+1)Â·b with (s+1)Â·a decides
   -- whether the new pinned coordinate goes to the lower or the upper bound;
-  -- â•'s order is total, so one of the two always works.  This is the exact
+  -- â„•'s order is total, so one of the two always works.  This is the exact
   -- content of "the sequence cannot step over the window".
   ----------------------------------------------------------------------
 
@@ -94,7 +94,7 @@ module Cage (a b : â„•) where
   ----------------------------------------------------------------------
   -- (2) DEGENERACY IS FORCED.  If two distinct indices over the same n are
   -- both feasible then the compensator of the lower one sits exactly on the
-  -- upper bound:  c_s = Î,  i.e.  (s+1)Âa = uÂb.
+  -- upper bound:  c_s = Î±,  i.e.  (s+1)Â·a = uÂ·b.
   ----------------------------------------------------------------------
 
   -- s + u â‰¡ s' + u' and s < s' force u' < u
@@ -114,7 +114,7 @@ module Cage (a b : â„•) where
   ----------------------------------------------------------------------
   -- (3) THE CONVERSE.  That single equation is not merely necessary; when
   -- it holds, both s and s+1 really are feasible.  So "two feasible
-  -- indices" is *equivalent* to  (s+1)Âa = (u'+1)Âb,  which pins the
+  -- indices" is *equivalent* to  (s+1)Â·a = (u'+1)Â·b,  which pins the
   -- degeneracy down exactly rather than bounding it.
   ----------------------------------------------------------------------
 
@@ -129,7 +129,7 @@ module Cage (a b : â„•) where
   ----------------------------------------------------------------------
   -- (4) THE DICHOTOMY.  Any two feasible indices over the same n either
   -- coincide, or one of them is degenerate in the sense of (2)/(3).
-  -- Contrapositive: no degeneracy â’ the feasible index is unique.
+  -- Contrapositive: no degeneracy â‡’ the feasible index is unique.
   ----------------------------------------------------------------------
 
   dichotomy : (s u s' u' : â„•) â†’ s + u â‰¡ s' + u' â†’ Feas s u â†’ Feas s' u'
@@ -141,7 +141,7 @@ module Cage (a b : â„•) where
 
   ----------------------------------------------------------------------
   -- (5) AT MOST TWO, AND ADJACENT.  When the cage is nondegenerate in the
-  -- upper direction (Î > 0, i.e. A > 1) a second feasible index can only
+  -- upper direction (Î± > 0, i.e. A > 1) a second feasible index can only
   -- be the immediate successor of the first.  With (2) this is the full
   -- statement: the feasible set is {s} or {s, s+1}.
   ----------------------------------------------------------------------
@@ -175,15 +175,15 @@ module Cage (a b : â„•) where
 --
 -- If q is admissible then so are the root radii of its reversal
 -- q*(x) = x^{2m} q(1/x), which lie in [1/A, 1/B] with product 1 and give
--- |a_{2m-k}(q)| = |a_k(q*)| â‰ (majorant for the cage (1/B, 1/A)).  That is
+-- |a_{2m-k}(q)| = |a_k(q*)| â‰¤ (majorant for the cage (1/B, 1/A)).  That is
 -- a second, free bound on every coefficient, and the obvious question is
 -- whether the coordinatewise minimum of the two is sharper.
 --
 -- It is not, and the reason is (1)-(5).  Reciprocation sends log-radii
--- x â¦ -x, so the cage (A, B) with (Î, Î²) = (a, -b) becomes the cage
--- (1/B, 1/A) with (Î', Î²') = (b, -a): the SAME module with a and b
+-- x â†¦ -x, so the cage (A, B) with (Î±, Î²) = (a, -b) becomes the cage
+-- (1/B, 1/A) with (Î±', Î²') = (b, -a): the SAME module with a and b
 -- swapped.  Under that swap the feasibility conditions exchange places
--- verbatim, so the feasible indices correspond by (s, u) â¦ (u, s) and the
+-- verbatim, so the feasible indices correspond by (s, u) â†¦ (u, s) and the
 -- reciprocal cage's vertex orbit is exactly the reciprocal of the original
 -- one.  Hence its majorants are b'_k = b_{2m-k}, the minimum is the
 -- original bound, and nothing is gained.
@@ -201,16 +201,16 @@ reciprocal-involutive a b s u F = refl
 ------------------------------------------------------------------------
 -- What this buys, stated outside the module.
 --
--- Fix a cage (A, B) with B â‰ 1 â‰ A and write a = log A, b = -log B in a
+-- Fix a cage (A, B) with B â‰¤ 1 â‰¤ A and write a = log A, b = -log B in a
 -- common scale.  Combining (1), (2), (3), (5):
 --
 --   * a feasible vertex index always exists;
 --   * the feasible set is {s} or {s, s+1};
---   * it is {s, s+1} exactly when (s+1)Âa = uÂb with u = n - s, i.e. when
+--   * it is {s, s+1} exactly when (s+1)Â·a = uÂ·b with u = n - s, i.e. when
 --     A^{s+1} B^{n-s} = 1;
---   * in that case c_s = Î and c_{s+1} = Î², so the two indices name the
---     radius multisets  {Î^s, Î²^u, Î}  and  {Î^{s+1}, Î²^{u-1}, Î²},  which
---     are the same multiset  {Î^{s+1}, Î²^{u}}.
+--   * in that case c_s = Î± and c_{s+1} = Î², so the two indices name the
+--     radius multisets  {Î±^s, Î²^u, Î±}  and  {Î±^{s+1}, Î²^{u-1}, Î²},  which
+--     are the same multiset  {Î±^{s+1}, Î²^{u}}.
 --
 -- Hence Î” has exactly ONE vertex orbit under S_m, every symmetric convex
 -- function on Î” attains its maximum there, and reading all the Vieta
@@ -218,9 +218,9 @@ reciprocal-involutive a b s u F = refl
 --
 -- Two instances, both exact:
 --
---   sharp cage  (A, B) = (âˆ2, Ïâ»Â):  A^{s+1} B^{n-s} = 1 would need
---     2^{s+1} = Ï^{2(n-s)} with s+1 â‰ 1.  If n = s the right side is 1 and
---     the left is â‰ 2.  If n > s then Ï^{2k} = (L_{2k} + F_{2k}âˆ5)/2 with
+--   sharp cage  (A, B) = (âˆš2, Ï†â»Â¹):  A^{s+1} B^{n-s} = 1 would need
+--     2^{s+1} = Ï†^{2(n-s)} with s+1 â‰¥ 1.  If n = s the right side is 1 and
+--     the left is â‰¥ 2.  If n > s then Ï†^{2k} = (L_{2k} + F_{2k}âˆš5)/2 with
 --     F_{2k} â‰  0 is irrational while 2^{s+1} is not.  So the feasible index
 --     is unique at every degree and cage.rs's loop never had a choice.
 --

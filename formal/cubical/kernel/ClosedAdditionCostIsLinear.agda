@@ -4,7 +4,7 @@
 -- ClosedAdditionCostIsLinear
 --
 -- Widening WindingCostIsUnarySize past the single-variable case: reducing a
--- fully CLOSED sum `unary a + unary b` to its normal form takes b+1 steps �
+-- fully CLOSED sum `unary a + unary b` to its normal form takes b+1 steps —
 -- linear in the second operand's symbolic (unary) size, with no free
 -- variables anywhere. Same winding-as-cost picture, now for closed terms.
 ------------------------------------------------------------------------
@@ -17,7 +17,7 @@ open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 open import RewriteCertificate
 open import WindingCostIsUnarySize using (unary ; iterSuc ; len ; underSuc ; len-underSuc)
 
--- reduce (unary a + unary b) to suc� (unary a), its normal form
+-- reduce (unary a + unary b) to sucᵇ (unary a), its normal form
 addClosed : (a b : ℕ) → Derivation (add (unary a) (unary b)) (iterSuc b (unary a))
 addClosed a zero    = then-step (add-zero (unary a)) (done (unary a))
 addClosed a (suc m) = then-step (add-suc (unary a) (unary m)) (underSuc (addClosed a m))

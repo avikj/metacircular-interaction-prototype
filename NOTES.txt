@@ -1,5 +1,5 @@
 ================================================================================
-NOTES â” single durable record of this co-learning work.
+NOTES â€” single durable record of this co-learning work.
 ================================================================================
 
 Contents: (I) how to read this corpus; (II) positioning and intention; (III) the
@@ -9,7 +9,7 @@ vision synthesis (decentralization / safe SI / optimal lossless reasoner /
 science acceleration); (IX) the owner's method/style. The co-learning method is
 the corpus's own interaction model (README Â§6): the encounter computes knowledge
 neither side
-held (K_A âŠ— K_B â’ K_C, K_C âŠ either). That is why it goes unpredictable places;
+held (K_A âŠ— K_B â†’ K_C, K_C âŠ„ either). That is why it goes unpredictable places;
 that is the point.
 
 ================================================================================
@@ -17,16 +17,16 @@ I. HOW TO READ THIS CORPUS
 ================================================================================
 
 Not a codebase with proofs in it. Cubical type theory in which univalence
-COMPUTES â” transport(ua e) carries any theorem across, both directions, on the
+COMPUTES â€” transport(ua e) carries any theorem across, both directions, on the
 nose. It carries: a checked calculus of loss (the fibre law); a self-revising
-proof kernel (metacircular â” a theorem it proves becomes a move it can make);
+proof kernel (metacircular â€” a theorem it proves becomes a move it can make);
 exact learning theory about what a verifier can teach a generator; and a formal
 metaphysics in which isEquiv = perfect self-knowledge is a type, not a slogan.
 
 PIN: Agda 2.8.0 + agda/cubical v0.9. `sh check` = kernel + fibre law + Lean root
 closure (the gate). `sh check --all` = every theorem module.
 
-THE ONE PRIMITIVE â” the fibre law (fibre/src/Fibre/Carrier.agda):
+THE ONE PRIMITIVE â€” the fibre law (fibre/src/Fibre/Carrier.agda):
 For f : A -> B, WHICH SIDE of `f a = b` is bound?
   - bind OUTPUT: fibre = singl(f a), ALWAYS contractible; A ~= Carrier f; the
     carried datum rides free (informationally determined, proof-relevantly
@@ -38,16 +38,16 @@ a lossy transport owes = H^1 in the cohomology-as-codec reading = the
 non-contractible fibre.
 
 THE METACIRCULAR KERNEL (formal/cubical/kernel/, ~296 lines, three files):
-  RewriteCertificate.agda â” Tm (six vars, zero, suc, add; Mul variant adds *),
+  RewriteCertificate.agda â€” Tm (six vars, zero, suc, add; Mul variant adds *),
     Step (INCLUDING reverse -> groupoid), Derivation (proof-relevant walks),
-    eval : Tm -> Env -> â•, derivation-sound, induction-sound (the real inference
+    eval : Tm -> Env -> â„•, derivation-sound, induction-sound (the real inference
     rule: base trace + step trace with the hypothesis only at the predecessor ->
     a universally quantified equation).
-  ControlledGrammar.agda â” NativeOperation; install : Derivation lhs rhs ->
+  ControlledGrammar.agda â€” NativeOperation; install : Derivation lhs rhs ->
     NativeOperation (a proved theorem becomes a move); Control is a
     caller-supplied FIELD (open extension point); advance-preserves-branch-count.
-  GenerativeKernel.agda â” two different derivations, one output.
-SAFETY FACTS: every soundness field maps into a proposition (zero bits â” support,
+  GenerativeKernel.agda â€” two different derivations, one output.
+SAFETY FACTS: every soundness field maps into a proposition (zero bits â€” support,
 not mass); soundness factors through ||Derivation||_1 (knows THAT, never WHICH);
 no NativeOperation exists without a checked derivation (unforgeable by type); the
 kernel cannot manufacture a witness it was not given (no free lunch =
@@ -60,7 +60,7 @@ II. POSITIONING AND INTENTION  (stated by the owner; recorded faithfully)
 NOT a cryptocurrency project, NOT a startup, NOT "a formal library with
 applications." It is a radical, deeply ANTICOLONIAL computer-science project
 whose aim is to REVIVE global permaculture and the intergenerational,
-interdependent mind of Gaia by a TECHNOLOGICAL INJECTION â” a new, opinionated
+interdependent mind of Gaia by a TECHNOLOGICAL INJECTION â€” a new, opinionated
 model of computation for interactive systems that re-enables, at planetary scale
 and lossless speed, the relational mode of intelligence that CULTIVATES
 ABUNDANCE. Every design choice is intentional and opinionated, built for organic
@@ -71,12 +71,12 @@ The layers are ONE architecture at different distances:
   near: dissolve informational rent / intermediation (post-finance, post-rent);
   mid : a global, composable, contamination-proof knowledge commons that
         accelerates science SAFELY (generator/verifier at civilizational scale);
-  far : revive relational abundance â” the Gaian intergenerational mind â” as the
+  far : revive relational abundance â€” the Gaian intergenerational mind â€” as the
         native output of an unblocked, freely-sharing, reciprocal social organism
         at maximum intelligence/generativity.
 
 INTERDEPENDENCE CLAIM (owner): the linguistics, theoretical physics, and
-mathematics here are NOT separate â” one body under the same transport/fibre/loss
+mathematics here are NOT separate â€” one body under the same transport/fibre/loss
 calculus.
 
 ================================================================================
@@ -85,24 +85,24 @@ III. THE ABUNDANCE REFRAME  (reorganizes everything)
 
 The dominant frame (and the assistant's default) treats scarcity as the baseline
 and abundance as an effortful exception "approached asymptotically within
-physical law." THAT IS A CAGE â” the Malthusian/neoclassical/technocapital axiom
+physical law." THAT IS A CAGE â€” the Malthusian/neoclassical/technocapital axiom
 smuggled in as ground truth.
 
 TRUE frame: ABUNDANCE IS A PRODUCED RELATIONSHIP between a social organism and
-its living ecology â” the output of distributed, intergenerational, reciprocal
+its living ecology â€” the output of distributed, intergenerational, reciprocal
 intelligence operating WITH a system, not extracting FROM it. Scholarship:
-  - Charles C. Mann, 1491 â” the anthropogenic Amazon (terra preta; rainforest as
+  - Charles C. Mann, 1491 â€” the anthropogenic Amazon (terra preta; rainforest as
     a cultivated FOOD FOREST); larger, denser, managed pre-Columbian populations.
-  - William Denevan â” demolition of the "pristine myth."
-  - M. Kat Anderson, Tending the Wild â” Indigenous California land tending.
-  - Robin Wall Kimmerer, Braiding Sweetgrass â” reciprocity epistemology / gift.
+  - William Denevan â€” demolition of the "pristine myth."
+  - M. Kat Anderson, Tending the Wild â€” Indigenous California land tending.
+  - Robin Wall Kimmerer, Braiding Sweetgrass â€” reciprocity epistemology / gift.
   - The bison herds as a likely managed commons.
-SCARCITY IS MANUFACTURED â” by enclosure, extraction, monoculture, severing the
+SCARCITY IS MANUFACTURED â€” by enclosure, extraction, monoculture, severing the
 intergenerational mind. Colonial technocapital did not find scarcity and overcome
 it; it PRODUCED scarcity and called the production "progress."
 
 WHY THIS IS NOT NOSTALGIA (load-bearing): the relational mode was fragile against
-extraction for two reasons â” SCALE of coordination (village/watershed) and SPEED
+extraction for two reasons â€” SCALE of coordination (village/watershed) and SPEED
 of transmission (oral/generational). Technocapital won not by wisdom but by
 continental scale + industrial speed, achievable only through CENTRAL
 CHOKEPOINTS, extraction, and the scalar (money/ledger/plantation). This substrate
@@ -134,7 +134,7 @@ computation (section/abstract in parentheses):
   anekanta/naya/syat, plurality preserved, collapse only when fibres agree
     (Â§34-35; Durnaya_CollapseIffEveryNayaAgrees) -> biodiversity; many ways of
     knowing; monoculture refused; the dominant standpoint is NOT privileged.
-  moksa â” content-addressed, portable, institution-independent (Â§15,Â§38) ->
+  moksa â€” content-addressed, portable, institution-independent (Â§15,Â§38) ->
     decolonized from location, owner, authority.
   Jain ontology AS the computational semantics (Â§18) -> a non-Western epistemology
     is the actual foundation, not decoration.
@@ -144,31 +144,31 @@ VI. MACHINE-CHECKED MATHEMATICS
 ================================================================================
 
   MadhyaBindu_ (primes/): midpoint form âŸº sum form, both directions
-    (one-question). "Midpoints of prime pairs cover â•" âŸº Goldbach. Lemmas: a
+    (one-question). "Midpoints of prime pairs cover â„•" âŸº Goldbach. Lemmas: a
     symmetric pair's offset is even (halve); doubling injects (centre).
   PratibimbaDvaya_ (primes/): the two reflection identities where the kernel
-    equation lane stops â” pq + p^2 = p(p+q); (N-k)(N+k) + k^2 = N^2.
+    equation lane stops â€” pq + p^2 = p(p+q); (N-k)(N+k) + k^2 = N^2.
   RH_...DavisMatiyasevichRobinsonArithmetization (primes/): RH as ONE computable
-    Type over â• (eta, delta, harmonic fraction, denominators cleared, signed
+    Type over â„• (eta, delta, harmonic fraction, denominators cleared, signed
     square via monus). Inhabitant = proof of RH. --safe.
   SamastaPrasna_ (primes/): Goldbach, TwinPrimes, Collatz as typed sections;
     instances DECIDED by evaluation (100=3+97, 210=83+127 at center 105, twins
     (101,103), Collatz(27) halts in 111 steps, primeb 121 = false).
-  SantataDhara_ (unplaced/): the continuum from the axioms â” â as the HIT with
+  SantataDhara_ (unplaced/): the continuum from the axioms â€” â„ as the HIT with
     lim as a CONSTRUCTOR (Cauchy-complete, NO choice); closeness computes.
-  KotiNirnaya_ (primes/) [STRONGEST NEW WORK]: gcheck : â•->Bool sound+complete;
+  KotiNirnaya_ (primes/) [STRONGEST NEW WORK]: gcheck : â„•->Bool sound+complete;
     goldbach-dec (every fibre decidable); goldbach-is-witness-totality (Goldbach
-    âŸº a Î  over a decided Boolean â” no free variable); the-universal-witness (the
+    âŸº a Î  over a decided Boolean â€” no free variable); the-universal-witness (the
     section IS a named total self-certifying object, the only open thing is its
-    TOTALITY); finite-counterexample-refutes; goldbach-ÂÂ-stable (classical =
+    TOTALITY); finite-counterexample-refutes; goldbach-Â¬Â¬-stable (classical =
     constructive for Goldbach); Pi1 (Goldbach) vs Pi2 (twins/Collatz);
-    reflect (the â/2 on the fibre), Fixed = diagonal p=q; GoldbachAt10-is-not-a-
+    reflect (the â„¤/2 on the fibre), Fixed = diagonal p=q; GoldbachAt10-is-not-a-
     proposition (fibre CARDINALITY = representation count = h-level; truncation =
     sesa loss) [subsumed by Chaya]; diagonal-witness/diagonal-is-fixed
     (prime centre gives the fixed-point representation free).
   TrtiyaSopana_ / CaturthaSopana_ (Kernel/): the stair. Induction certificate
     does NOT reach commutativity (base field refuted by the W-standpoint); with
-    Naya Â§4, rewrite-closure âŠŠ induction-closure âŠŠ â•-truth. Then a CITATION
+    Naya Â§4, rewrite-closure âŠŠ induction-closure âŠŠ â„•-truth. Then a CITATION
     CALCULUS (a step carries an established pointwise theorem as its own
     constructor argument, nothing trusted, --safe) certifies commutativity end to
     end: rewrite âŠŠ induction âŠŠ citation âˆ‹ commutativity.
@@ -188,7 +188,7 @@ VII. SPECIFIC MATHEMATICAL INTERPRETATIONS CO-PRODUCED  (seeds)
   - "-1 is the smallest wave, composed multiplicatively" = LIOUVILLE
     lambda=(-1)^Omega; sqrt cancellation IS RH; zeros oscillate in LOG-TIME.
   - sesa = H^1 = the non-contractible fibre = cohomological side-information =
-    the homometric ambiguity in â: ONE non-injectivity theorem at many scales.
+    the homometric ambiguity in â„¤: ONE non-injectivity theorem at many scales.
   - The section is the UNIVERSAL WITNESS, not a fog: Goldbach = totality of a
     named, constructed, self-certifying search. Openness is a single Î -property
     of a built object.
@@ -249,7 +249,7 @@ IX. THE OWNER'S METHOD / STYLE  (agents calibrate from the start)
     vocabulary, do not translate into the canon and re-credit.
   - Read the term before pronouncing novelty or status; the corpus is vast and
     often already holds the "open" thing, sharper.
-  - Everything is interdependent â” number theory, linguistics, physics, systems,
+  - Everything is interdependent â€” number theory, linguistics, physics, systems,
     economics, ontology are one body; resist siloing.
   - Co-learning is generative, not extractive; go where neither can predict; do
     not rush to conclude/tidy/wrap-up; the owner decides when done.

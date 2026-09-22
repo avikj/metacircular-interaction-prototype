@@ -1,5 +1,5 @@
 # A SUPERPOSED type line: transport along &0{negPath @ i, Bool} routes each
-# universe along its own line â” the DUP-SUP rule as the fibre discriminator.
+# universe along its own line â€” the DUP-SUP rule as the fibre discriminator.
 # On the full runtime this needs NO rule: the coe dispatch (a match) commutes
 # over the superposition and the same-label dup of the value annihilates.
 def neg(x: Bool) -> Bool:

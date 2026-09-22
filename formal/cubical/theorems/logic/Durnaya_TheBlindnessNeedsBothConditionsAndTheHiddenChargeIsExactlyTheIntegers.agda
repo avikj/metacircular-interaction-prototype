@@ -1,44 +1,44 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à®àà²àµà¾à•àà¯à®à Â PROVENANCE OF THE NAME.
+-- à¤®à¥‚à¤²à¤µà¤¾à¤•à¥à¤¯à¤®à¥ Â· PROVENANCE OF THE NAME.
 --
--- à¦àà°àà¨à¯ Â durnaya â” a naya (standpoint) that asserts itself by DENYING
--- the other standpoints, as against a ààà¨à¯, which asserts itself while
+-- à¤¦à¥à¤°à¥à¤¨à¤¯ Â· durnaya â€” a naya (standpoint) that asserts itself by DENYING
+-- the other standpoints, as against a à¤¸à¥à¤¨à¤¯, which asserts itself while
 -- leaving the others standing.  **Siddhasena Divkara, *Sanmatitarka*
 -- (~5th c. CE); sharpened by Akalaka (~8th c.); Yaovijaya,
 -- *Nayopadea* (~17th c.).**  Jaina.  The school is named because the
 -- dispute is the content: the Naiyyikas reject anekntavda outright
 -- and would not accept the diagnosis this module applies.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED HERE.
 --
--- Â§à§â“Â§à¨ move the whole question OFF the universe.  `Naya`'s loop is
+-- Â§à¥§â€“Â§à¥¨ move the whole question OFF the universe.  `Naya`'s loop is
 -- `ua notEquiv`, so a reader may believe the phenomenon is about
 -- univalence or about universes.  It is not.  `loop : base â‰¡ base` is a
--- CONSTRUCTOR of `SÂ : Typeâ`; carrier, loop and answer all sit in
--- Typeâ; and the same three facts hold.
+-- CONSTRUCTOR of `SÂ¹ : Typeâ‚€`; carrier, loop and answer all sit in
+-- Typeâ‚€; and the same three facts hold.
 --
--- Â§à¨ is the part that is a RECEIPT in this repository's sense â” an
+-- Â§à¥¨ is the part that is a RECEIPT in this repository's sense â€” an
 -- identification of a fibre with a standard type, never a bound.  What
 -- every set-valued observable of the carrier destroys is not "some
--- charge": it is exactly â, by `Î©SÂIsoâ`, and the identifying map IS
+-- charge": it is exactly â„¤, by `Î©SÂ¹Isoâ„¤`, and the identifying map IS
 -- `winding` on the nose (Â§à¨à, `refl`).
 -- This is the identification: the
 -- mode-regarding standpoint loses nothing at all, because `winding` is
--- an equivalence and â is a set.
+-- an equivalence and â„¤ is a set.
 --
 -- So the two standpoints are measured against each other exactly:
---   à¦àà°àµàà¯à¾à°ààà¿à• (observables of the carrier, set-valued): sees 0 of â.
---   àà°àà¯à¾à¯à¾à°ààà¿à• (observables of the path type, set-valued): sees â.
+--   à¤¦à¥à¤°à¤µà¥à¤¯à¤¾à¤°à¥à¤¥à¤¿à¤• (observables of the carrier, set-valued): sees 0 of â„¤.
+--   à¤ªà¤°à¥à¤¯à¤¾à¤¯à¤¾à¤°à¥à¤¥à¤¿à¤• (observables of the path type, set-valued): sees â„¤.
 -- Same loop, same h-level of answer, total blindness against total
 -- sight.  Truncation was never what separated them, and neither was
 -- non-dependence by itself.
 --
--- Â§à is the counterexample restated where nothing can be blamed on a
--- universe: `cong (idfun SÂ) loop â‰ refl`, with `idfun SÂ : SÂ â’ SÂ`
--- non-dependent and `SÂ` merely not a set.
+-- Â§à¥« is the counterexample restated where nothing can be blamed on a
+-- universe: `cong (idfun SÂ¹) loop â‰¢ refl`, with `idfun SÂ¹ : SÂ¹ â†’ SÂ¹`
+-- non-dependent and `SÂ¹` merely not a set.
 ------------------------------------------------------------------------
 
 module Durnaya_TheBlindnessNeedsBothConditionsAndTheHiddenChargeIsExactlyTheIntegers where
@@ -57,9 +57,9 @@ open import Cubical.Relation.Nullary using (Â¬_)
 import Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere as NAYA
 
 ------------------------------------------------------------------------
--- à§ â”â” THE LOOP IS A CONSTRUCTOR, NOT A `ua`.
+-- à¥§ â”€â”€ THE LOOP IS A CONSTRUCTOR, NOT A `ua`.
 --
--- Carrier `SÂ : Typeâ`, loop `loop : base â‰¡ base`.  Nothing in this
+-- Carrier `SÂ¹ : Typeâ‚€`, loop `loop : base â‰¡ base`.  Nothing in this
 -- section mentions a universe or an equivalence.
 ------------------------------------------------------------------------
 
@@ -67,29 +67,29 @@ import Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere as 
 à¤†à¤µà¤°à¥à¤¤à¤ƒ = loop
 
 ------------------------------------------------------------------------
--- à¨ â”â” ààà¿àààà¾à¨à®à â” THE RECEIPT.  The hidden charge is IDENTIFIED with a
---      standard type, not bounded: Î©SÂ â‰ â, and â is a set.
+-- à¥¨ â”€â”€ à¤…à¤­à¤¿à¤œà¥à¤à¤¾à¤¨à¤®à¥ â€” THE RECEIPT.  The hidden charge is IDENTIFIED with a
+--      standard type, not bounded: Î©SÂ¹ â‰ƒ â„¤, and â„¤ is a set.
 ------------------------------------------------------------------------
 
 à¤…à¤­à¤¿à¤œà¥à¤à¤¾à¤¨à¤®à¥ : Î©SÂ¹ â‰ƒ â„¤
 à¤…à¤­à¤¿à¤œà¥à¤à¤¾à¤¨à¤®à¥ = isoToEquiv Î©SÂ¹Isoâ„¤
 
--- à¨à â”â” and the identifying map is `winding` ON THE NOSE.  This is what
+-- à¥¨à¤¬ â”€â”€ and the identifying map is `winding` ON THE NOSE.  This is what
 --       makes it a receipt rather than a bare cardinality remark: the
 --       standard type comes with the observable that realises it.
 à¤µà¤¾à¤¹à¤•à¤ƒ : fst à¤…à¤­à¤¿à¤œà¥à¤à¤¾à¤¨à¤®à¥ â‰¡ winding
 à¤µà¤¾à¤¹à¤•à¤ƒ = refl
 
--- à¨à â”â” the answer type is a SET.  So no h-level excuse is available to
---        either side of Â§à: both standpoints below answer in sets.
+-- à¥¨à¤¸ â”€â”€ the answer type is a SET.  So no h-level excuse is available to
+--        either side of Â§à¥¬: both standpoints below answer in sets.
 à¤¸à¤®à¥à¤šà¥à¤šà¤¯à¤ƒ : isSet â„¤
 à¤¸à¤®à¥à¤šà¥à¤šà¤¯à¤ƒ = isSetâ„¤
 
 ------------------------------------------------------------------------
--- à© â”â” à¦àà°àµàà¯à¾à°ààà¿à•à¨à¯à â” the substance-regarding standpoint sees NOTHING.
+-- à¥© â”€â”€ à¤¦à¥à¤°à¤µà¥à¤¯à¤¾à¤°à¥à¤¥à¤¿à¤•à¤¨à¤¯à¤ƒ â€” the substance-regarding standpoint sees NOTHING.
 --
 -- Every set-valued observable of the CARRIER annihilates every loop.
--- `Naya` Â§à§ applied unchanged; the whole of â collapses to a point.
+-- `Naya` Â§à¥§ applied unchanged; the whole of â„¤ collapses to a point.
 ------------------------------------------------------------------------
 
 à¤¦à¥à¤°à¤µà¥à¤¯-à¤…à¤¨à¥à¤§à¤¤à¥à¤µà¤®à¥ :
@@ -97,9 +97,9 @@ import Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere as 
 à¤¦à¥à¤°à¤µà¥à¤¯-à¤…à¤¨à¥à¤§à¤¤à¥à¤µà¤®à¥ X isSetX F p = NAYA.à¤¨à¤¯-à¤¨à¤¿à¤°à¥‹à¤§à¤ƒ isSetX F p
 
 ------------------------------------------------------------------------
--- à â”â” àà°àà¯à¾à¯à¾à°ààà¿à•à¨à¯à â” the mode-regarding standpoint sees EVERYTHING.
+-- à¥ª â”€â”€ à¤ªà¤°à¥à¤¯à¤¾à¤¯à¤¾à¤°à¥à¤¥à¤¿à¤•à¤¨à¤¯à¤ƒ â€” the mode-regarding standpoint sees EVERYTHING.
 --
--- `winding : Î©SÂ â’ â` is an observable of the PATH TYPE, it lands in a
+-- `winding : Î©SÂ¹ â†’ â„¤` is an observable of the PATH TYPE, it lands in a
 -- set, and it is an equivalence: no loop is lost, not merely two
 -- separated.
 ------------------------------------------------------------------------
@@ -114,11 +114,11 @@ import Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere as 
 ------------------------------------------------------------------------
 -- à â”â” NON-DEPENDENCE ALONE IS NOT ENOUGH, OFF THE UNIVERSE.
 --
--- `idfun SÂ : SÂ â’ SÂ` is non-dependent post-composition, its codomain
--- lives in Typeâ, and `cong (idfun SÂ) loop` is NOT refl â” because SÂ
+-- `idfun SÂ¹ : SÂ¹ â†’ SÂ¹` is non-dependent post-composition, its codomain
+-- lives in Typeâ‚€, and `cong (idfun SÂ¹) loop` is NOT refl â€” because SÂ¹
 -- is not a set.
 --
--- The witness of non-triviality is the receipt of Â§à¨ used as a probe:
+-- The witness of non-triviality is the receipt of Â§à¥¨ used as a probe:
 -- `winding loop = pos 1` and `winding refl = pos 0`, both definitional.
 ------------------------------------------------------------------------
 
@@ -135,14 +135,14 @@ import Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere as 
 à¤¨-à¤¸à¤¾à¤®à¤¾à¤¨à¥à¤¯à¤®à¥ h = à¤…à¤¨à¥à¤§à¤¤à¥à¤µà¤‚-à¤¨-à¤•à¥‡à¤µà¤²à¤®à¥-à¤…à¤¨à¤¾à¤¶à¥à¤°à¤¿à¤¤à¤¤à¥à¤µà¤®à¥ (h SÂ¹ (idfun SÂ¹))
 
 ------------------------------------------------------------------------
--- à â”â” àà¨àà•à¾à¨ààà â” NEITHER CONDITION IS SUFFICIENT, BOTH TOGETHER ARE.
+-- à¥¬ â”€â”€ à¤…à¤¨à¥‡à¤•à¤¾à¤¨à¥à¤¤à¤ƒ â€” NEITHER CONDITION IS SUFFICIENT, BOTH TOGETHER ARE.
 --
 -- One term carrying the three cells that settle it, on ONE loop:
 --
---   fst  set-valued AND non-dependent-on-the-carrier  âŸ blind.
---   snd  non-dependent alone (drop `isSet X`)          âŸ NOT blind.
---   thd  set-valued alone (observe the path type)      âŸ NOT blind,
---        and not merely non-blind â” lossless, by Â§à¨.
+--   fst  set-valued AND non-dependent-on-the-carrier  âŸ¹ blind.
+--   snd  non-dependent alone (drop `isSet X`)          âŸ¹ NOT blind.
+--   thd  set-valued alone (observe the path type)      âŸ¹ NOT blind,
+--        and not merely non-blind â€” lossless, by Â§à¥¨.
 --
 -- `Naya` Â§à§'s `isSet X` hypothesis is therefore not decoration.
 ------------------------------------------------------------------------

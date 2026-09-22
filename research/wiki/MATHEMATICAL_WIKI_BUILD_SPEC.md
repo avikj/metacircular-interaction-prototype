@@ -1,4 +1,4 @@
-# Mathematical Wiki â” Canonical Build Specification
+# Mathematical Wiki â€” Canonical Build Specification
 
 **Architecture:** The [Bend2 — Unison handoff](BEND2_UNISON_READING_AND_SYNTHESIS.md) records the computational direction. The target is a mathematical codebase centered on checked cubical Bend2 constructions executed on the full HVM4 runtime, with content addressing, normal-form sharing, witnessed relations, and Unison-like codebase behavior. Agda remains source/provenance where the corpus is being ported; the site is a hypertext view of the live computational system.
 

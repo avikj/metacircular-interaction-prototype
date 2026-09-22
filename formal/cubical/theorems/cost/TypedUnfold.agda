@@ -20,34 +20,34 @@
 -- Substrate: exactly `Obstruction` (`Tm`, `Vocab`,
 -- `Over`, `plug`, `unfold`, `unfold-elim`), plus `size` from
 -- `WitnessPolicy` and `deficit` from
--- `GenerativeLoop`.  No new term constructor is added �
+-- `GenerativeLoop`.  No new term constructor is added —
 -- that is the point of the source note.
 --
 -- WHAT IS CHECKED
 --
 -- U0.  THE ALGEBRA (§§1-2), spec item (1).
 --
---   `V3`, `Mat`, `act`     �³ as a record of three integers, 3�3
---                          matrices over � as a record of nine, and the
---                          action `act : Mat � V3 � V3` written out as
+--   `V3`, `Mat`, `act`     ℤ³ as a record of three integers, 3×3
+--                          matrices over ℤ as a record of nine, and the
+--                          action `act : Mat → V3 → V3` written out as
 --                          three explicit row sums.
 --   `act-additive`,
 --   `act-homogeneous`,
---   `act-linear`           every `act m` is a �-linear endomorphism of
---                          �³ � proved, so that "endomorphism" is a
+--   `act-linear`           every `act m` is a ℤ-linear endomorphism of
+--                          ℤ³ — proved, so that "endomorphism" is a
 --                          checked property and not a name.
 --   `Endo`, `_∘E_`, `idE`,
 --   `∘E-assoc`, `∘E-idL/R` the endomorphism monoid; its laws are `refl`
 --                          (composition of functions), which is exactly
 --                          why no matrix product is needed below.
---   `denote-linear`        every term denotes a �-linear endomorphism.
+--   `denote-linear`        every term denotes a ℤ-linear endomorphism.
 --
 -- U1.  THE DENOTATION (§3).
 --
---   `Interp = Shape � Endo`, `denote : Interp � Tm � Endo` with
+--   `Interp = Shape → Endo`, `denote : Interp → Tm → Endo` with
 --   `denote I var = idE`, `denote I (node c u) = I c ∘E denote I u`
---   (the head acts last), and `⟦_⟧ : Alg � Tm � Endo` for the bundle
---   `Alg = (vocab , interp)` � the vocabulary gates legality (`Over`),
+--   (the head acts last), and `⟦_⟧ : Alg → Tm → Endo` for the bundle
+--   `Alg = (vocab , interp)` — the vocabulary gates legality (`Over`),
 --   the interpretation carries meaning.
 --
 -- U2.  SUBSTITUTION IS COMPOSITION (§4).
@@ -59,9 +59,9 @@
 -- U3.  SEMANTIC PRESERVATION OF UNFOLD (§4), spec item (2).  THE
 --      DELIVERABLE.
 --
---   `Sound I d b`          := I d ≡ denote I b � the installed head
+--   `Sound I d b`          := I d ≡ denote I b — the installed head
 --                          MEANS the denotation of its body.
---   `unfold-denote`        (I) (d) (b) � Sound I d b � (t : Tm) �
+--   `unfold-denote`        (I) (d) (b) → Sound I d b → (t : Tm) →
 --                          denote I (unfold d b t) ≡ denote I t.
 --                          Eliminating an installed definition preserves
 --                          denotation, at every term, with no hypothesis
@@ -105,20 +105,20 @@
 --
 -- U5.  THE BOUNDED LANGUAGE (§6), spec item (4).
 --
---   `Lang b V I f`         := � t. Over V t � size t � b � denote I t ≡ f
---                          � "f is denotable within invocation budget b
+--   `Lang b V I f`         := Σ t. Over V t × size t ≤ b × denote I t ≡ f
+--                          — "f is denotable within invocation budget b
 --                          over the installed vocabulary V".
 --   `lang-mono`            installing a head never loses a denotation.
 --   `unit-body-no-growth`  A GENERAL NEGATIVE THEOREM: if the installed
 --                          body is sound, base and of invocation size
---                          one, then `Lang n (d � V) I � Lang n V I` at
---                          EVERY budget n � such an installation cannot
+--                          one, then `Lang n (d ∷ V) I ⊆ Lang n V I` at
+--                          EVERY budget n — such an installation cannot
 --                          grow the bounded language at all.
 --
 -- U6.  STRICT GROWTH (§7), the strict denotation result.
 --
---   In `module QAP`, with P the projector to e�, A the map sending
---   e�,e� � e�, D the map sending e� � e� (`RESIDUAL_LANGUAGE_GROWTH`),
+--   In `module QAP`, with P the projector to e₀, A the map sending
+--   e₀,e₁ ↦ e₁, D the map sending e₁ ↦ e₂ (`RESIDUAL_LANGUAGE_GROWTH`),
 --   heads `hA hD hP` installed and the macro `hM := A(P(x))` with
 --   matrix `matAP`:
 --
@@ -127,13 +127,13 @@
 --                          certificate the source note calls QAP=BC,
 --                          checked at this instance.
 --   `dap-present-after`    D∘A∘P is denotable at budget 2 over
---                          `hM � baseV` � by `D(M(x))`.
+--                          `hM ∷ baseV` — by `D(M(x))`.
 --   `dap-absent-before`    ... and NOT denotable at budget 2 over
 --                          `baseV`: an exhaustive analysis of all 13
---                          base terms of invocation size � 2, each
+--                          base terms of invocation size ≤ 2, each
 --                          separated from D∘A∘P by evaluation at a basis
---                          vector (twelve at e�; the near miss D∘A at
---                          e�).
+--                          vector (twelve at e₀; the near miss D∘A at
+--                          e₁).
 --   `strict-growth`        the three together: inclusion, a new
 --                          inhabitant, and its absence before.
 --                          Installing a definition STRICTLY grows the
@@ -144,13 +144,13 @@
 --
 --   `dap-absent-at-budget-1`
 --                          the SAME installation fails to make D∘A∘P
---                          reachable at budget 1 � the growth is
+--                          reachable at budget 1 — the growth is
 --                          budget-relative, exactly as the source note's
 --                          "at budget one the next action remains
 --                          unreachable".
 --   `idle-no-growth`,
---   `idle-dap-absent`      a second definition `hN := P(x)` � fresh,
---                          sound, installed the same way � provably does
+--   `idle-dap-absent`      a second definition `hN := P(x)` — fresh,
+--                          sound, installed the same way — provably does
 --                          NOT grow the language at any budget
 --                          (`unit-body-no-growth` at this instance), and
 --                          in particular does not make D∘A∘P reachable
@@ -196,11 +196,11 @@ open import WitnessPolicy
   using (size ; plug-size ; unfold-hit ; unfold-miss)
 
 ------------------------------------------------------------------------
--- 1.  �³, 3�3 matrices over �, and their action.
+-- 1.  ℤ³, 3×3 matrices over ℤ, and their action.
 --
 -- The carrier is small and concrete so that terms COMPUTE: every
 -- statement about a named term below is decided by normalisation, and
--- the only library facts used are the ring laws of �.
+-- the only library facts used are the ring laws of ℤ.
 ------------------------------------------------------------------------
 
 record V3 : Type₀ where
@@ -235,7 +235,7 @@ act m v = v3 (row (a00 m) (a01 m) (a02 m) v)
              (row (a20 m) (a21 m) (a22 m) v)
 
 ------------------------------------------------------------------------
--- 1a.  `act m` is a �-linear endomorphism of �³.
+-- 1a.  `act m` is a ℤ-linear endomorphism of ℤ³.
 --
 -- Recorded so that the word "endomorphism" is a checked property.  None
 -- of §§3-7 uses it.
@@ -356,7 +356,7 @@ open Alg
 ⟦_⟧ : Alg → Tm → Endo
 ⟦ A ⟧ t = denote (interp A) t
 
--- Every term denotes a �-linear endomorphism, as soon as the heads do.
+-- Every term denotes a ℤ-linear endomorphism, as soon as the heads do.
 denote-linear : (I : Interp) → ((c : Shape) → isLinear (I c))
               → (t : Tm) → isLinear (denote I t)
 denote-linear I hI var        = idE-linear
@@ -365,7 +365,7 @@ denote-linear I hI (node c u) =
 
 ------------------------------------------------------------------------
 -- 4.  Substitution is composition, and unfolding preserves meaning.
---     Spec item (2) � the deliverable.
+--     Spec item (2) — the deliverable.
 ------------------------------------------------------------------------
 
 -- U2.  `plug` is composition on the nose.
@@ -430,7 +430,7 @@ proposal-preserves-denotation V o I sd t h =
 ------------------------------------------------------------------------
 -- 5.  Two costs.  Spec item (3).
 --
--- `invocationCost` prices the term AS WRITTEN � one unit per head
+-- `invocationCost` prices the term AS WRITTEN — one unit per head
 -- invocation, an installed head costing exactly what a base head costs.
 -- `unfoldedCost` prices the same term after the definition is
 -- eliminated.  They are different functions, they differ on the
@@ -468,7 +468,7 @@ unfold-size-unit d b hb (node c u) = go (dichotomyBool (eqℕ c d))
 ------------------------------------------------------------------------
 -- 6.  The cost-bounded language of denotations.  Spec item (4).
 --
---   `Lang b V I f`  �  f is the denotation of some term legal over V
+--   `Lang b V I f`  —  f is the denotation of some term legal over V
 --                      whose invocation cost is at most b.
 --
 -- It is a PREDICATE on `Endo`, not a set.
@@ -486,7 +486,7 @@ lang-mono b V s I f (t , ov , sz , dn) = t , Over-mono V s t ov , sz , dn
 -- one buys nothing at any budget: its unfolding is a legal term of the
 -- old vocabulary, of the same cost, with the same denotation.  So an
 -- installation strictly grows the bounded language only if its body is
--- worth more than one invocation � which is exactly the content of the
+-- worth more than one invocation — which is exactly the content of the
 -- positive result in §7, and the reason the control there is not a
 -- coincidence.
 unit-body-no-growth :
@@ -513,9 +513,9 @@ private
 -- 7.  THE STRICT DENOTATION RESULT, and its controls.
 --
 --
---   P  projects to e�            matP
---   A  sends e�, e� � e�         matA
---   D  sends e� � e�             matD
+--   P  projects to e₀            matP
+--   A  sends e₀, e₁ ↦ e₁         matA
+--   D  sends e₁ ↦ e₂             matD
 --   M  the compiled macro AP     matAP,  installed as  M(x) := A(P(x))
 --   N  a second definition       matP,   installed as  N(x) := P(x)
 --
@@ -579,7 +579,7 @@ module QAP where
 
   -- THE CERTIFICATE.  The macro's matrix acts as the composite of the
   -- matrices of its body: `matAP` is AP, on the nose, as an
-  -- endomorphism of �³.  This discharges `Sound` at this instance � and
+  -- endomorphism of ℤ³.  This discharges `Sound` at this instance — and
   -- it is the only place where the body's semantics enters.
   macro-sound : Sound Iq hM bodyM
   macro-sound = refl
@@ -641,7 +641,7 @@ module QAP where
     ¬2≡3 : ¬ (2 ≡ 3)
     ¬2≡3 p = znots (injSuc (injSuc p))
 
-  -- `deficit` is 0 on both terms of the example � it cannot see that one
+  -- `deficit` is 0 on both terms of the example — it cannot see that one
   -- costs 2 and the other 3.
   deficit-blind-to-cost :
       (deficit vocabM macroWord ≡ 0)
@@ -676,11 +676,11 @@ module QAP where
   dap-at-e1 : zc (dap e1) ≡ pos 0
   dap-at-e1 = refl
 
-  -- An endomorphism killing the third coordinate of e� is not D∘A∘P.
+  -- An endomorphism killing the third coordinate of e₀ is not D∘A∘P.
   sepE0 : (f : Endo) → zc (f e0) ≡ pos 0 → ¬ (f ≡ dap)
   sepE0 f q p = 0≢1 (sym q ∙ cong (λ g → zc (g e0)) p ∙ dap-at-e0)
 
-  -- ... and one that does NOT kill the third coordinate of e� is not
+  -- ... and one that does NOT kill the third coordinate of e₁ is not
   -- D∘A∘P either.  (Needed exactly once, at the near miss D∘A.)
   sepE1 : (f : Endo) → zc (f e1) ≡ pos 1 → ¬ (f ≡ dap)
   sepE1 f q p = 1≢0 (sym q ∙ cong (λ g → zc (g e1)) p ∙ dap-at-e1)
@@ -688,10 +688,10 @@ module QAP where
   ------------------------------------------------------------------
   -- 7d.  ABSENCE at budget two, before installation.
   --
-  -- Exhaustive: the base terms of invocation size � 2 are var, the
+  -- Exhaustive: the base terms of invocation size ≤ 2 are var, the
   -- three one-head terms and the nine two-head terms.  Twelve of the
-  -- thirteen are separated from D∘A∘P at e�; the thirteenth, D∘A, agrees
-  -- with it there and is separated at e�.  Heads outside `baseV` are
+  -- thirteen are separated from D∘A∘P at e₀; the thirteenth, D∘A, agrees
+  -- with it there and is separated at e₁.  Heads outside `baseV` are
   -- refuted by the coverage hypothesis, which computes to `false ≡ true`.
   ------------------------------------------------------------------
 
@@ -747,7 +747,7 @@ module QAP where
   -- 7e.  NEGATIVE CONTROL 1: the same installation at budget one.
   --
   -- Growth is budget-relative.  With M installed, D∘A∘P is still not
-  -- reachable at budget one � the macro invocation `D(M(x))` costs two.
+  -- reachable at budget one — the macro invocation `D(M(x))` costs two.
   ------------------------------------------------------------------
 
   private
@@ -792,7 +792,7 @@ module QAP where
   -- Both heads are fresh in `baseV`; both single-head targets have the
   -- same `deficit`; one installation grows the budget-two denotation
   -- language and the other provably does not.  This is the F/G
-  -- collision inside the formal substrate � the loop installs names, and
+  -- collision inside the formal substrate — the loop installs names, and
   -- the name does not determine the object.
   ------------------------------------------------------------------
 

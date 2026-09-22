@@ -1,17 +1,17 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- AsiddhavatRegime ‚î the two regimes are different devices, at the site
+-- AsiddhavatRegime ‚Äî the two regimes are different devices, at the site
 -- where the difference is visible.
 --
 -- THE TWO STRAS, checked against sources 2026-08-19 rather than recalled.
 -- Pini, Adhyy, c. 500 BCE:
 --
---   8.2.1  ‡‡‡∞‡‡µ‡‡‡∞‡æ‡‡ø‡¶‡‡ß‡Æ‡   any SUBSEQUENT rule is asiddha with respect to
+--   8.2.1  ‡§™‡•Ç‡§∞‡•ç‡§µ‡§§‡•ç‡§∞‡§æ‡§∏‡§ø‡§¶‡•ç‡§ß‡§Æ‡•ç   any SUBSEQUENT rule is asiddha with respect to
 --          any rule that PRECEDES it, so the tripd applies strictly in
 --          the order enumerated.  One-way, backwards blindness.
 --
---   6.4.22 ‡‡‡ø‡¶‡‡ß‡µ‡¶‡‡‡∞‡æ‡‡æ‡‡  heads 6.4.22‚ì6.4.129: a change by any rule of
+--   6.4.22 ‡§Ö‡§∏‡§ø‡§¶‡•ç‡§ß‡§µ‡§¶‡§§‡•ç‡§∞‡§æ‡§≠‡§æ‡§§‡•ç  heads 6.4.22‚Äì6.4.129: a change by any rule of
 --          that section counts as NOT HAVING TAKEN EFFECT when applying
 --          any OTHER rule of the same section.  Mutual invisibility; the
 --          rules apply AS IF SIMULTANEOUSLY.
@@ -27,18 +27,18 @@
 -- tripd offer at that one position, and under simultaneity none of them
 -- sees the others:
 --
---   8.2.39  ‡‡≤‡æ‡ ‡‡‡ã‡Ω‡®‡‡‡      jhaL ‚í ja at pada-end        t ‚¶ d
---   8.4.40  ‡‡‡‡ã‡ ‡‡‡‡‡®‡æ ‡‡‡‡‡   stu ‚í cu in contact with cu  t ‚¶ c, d ‚¶ j
---   8.4.53  ‡‡≤‡æ‡ ‡‡‡ ‡‡‡ø       jhaL ‚í ja before jha        t ‚¶ d
+--   8.2.39  ‡§ù‡§≤‡§æ‡§Ç ‡§ú‡§∂‡•ã‡§Ω‡§®‡•ç‡§§‡•á      jhaL ‚Üí ja≈ö at pada-end        t ‚Ü¶ d
+--   8.4.40  ‡§∏‡•ç‡§§‡•ã‡§É ‡§∂‡•ç‡§ö‡•Å‡§®‡§æ ‡§∂‡•ç‡§ö‡•Å‡§É   stu ‚Üí ≈õcu in contact with ≈õcu  t ‚Ü¶ c, d ‚Ü¶ j
+--   8.4.53  ‡§ù‡§≤‡§æ‡§Ç ‡§ú‡§∂‡•ç ‡§ù‡§∂‡§ø       jhaL ‚Üí ja≈ö before jha≈ö        t ‚Ü¶ d
 --
--- ORDERED:      8.2.39 fires, then 8.4.40 acts on ITS output.  t ‚í d ‚í j.
+-- ORDERED:      8.2.39 fires, then 8.4.40 acts on ITS output.  t ‚Üí d ‚Üí j.
 --               `tajjalam`, which is the attested form.
--- SIMULTANEOUS: all three see t; 1.4.2 ‡µ‡ø‡‡‡∞‡‡ø‡‡‡ß‡ ‡‡∞‡ ‡ï‡æ‡∞‡‡Ø‡Æ‡ takes the
---               latest, 8.4.53, and the pass stops.  t ‚í d.  `tadjalam`,
+-- SIMULTANEOUS: all three see t; 1.4.2 ‡§µ‡§ø‡§™‡•ç‡§∞‡§§‡§ø‡§∑‡•á‡§ß‡•á ‡§™‡§∞‡§Ç ‡§ï‡§æ‡§∞‡•ç‡§Ø‡§Æ‡•ç takes the
+--               latest, 8.4.53, and the pass stops.  t ‚Üí d.  `tadjalam`,
 --               which  does not have.
 --
--- So the regime decides the form.  ‡‡‡∞‡‡µ‡‡‡∞‡æ‡‡ø‡¶‡‡ß‡Æ‡ is load-bearing rather
--- than presentational, and it is the ORDERED device ‚î which is independent
+-- So the regime decides the form.  ‡§™‡•Ç‡§∞‡•ç‡§µ‡§§‡•ç‡§∞‡§æ‡§∏‡§ø‡§¶‡•ç‡§ß‡§Æ‡•ç is load-bearing rather
+-- than presentational, and it is the ORDERED device ‚Äî which is independent
 -- evidence for the attribution corrected in AsiddhatvaBreaksFactoring,
 -- reached from the rules rather than from the stra text.
 --
@@ -88,7 +88,7 @@ krama-order : List Sutra
 krama-order = s8-2-39 ‚à∑ s8-4-40 ‚à∑ s8-4-53 ‚à∑ []
 
 ------------------------------------------------------------------------
--- 2.  ‡ï‡‡∞‡Æ ‚î each rule acts on what the previous ones produced (8.2.1).
+-- 2.  ‡§ï‡•ç‡§∞‡§Æ ‚Äî each rule acts on what the previous ones produced (8.2.1).
 ------------------------------------------------------------------------
 
 apply1 : Antya ‚Üí Sutra ‚Üí Antya
@@ -100,8 +100,8 @@ krama : Antya ‚Üí Antya
 krama x = foldl apply1 x krama-order
 
 ------------------------------------------------------------------------
--- 3.  ‡‡ ‚î every rule is offered the SAME input (6.4.22), and where two
---     offers collide 1.4.2 ‡µ‡ø‡‡‡∞‡‡ø‡‡‡ß‡ ‡‡∞‡ ‡ï‡æ‡∞‡‡Ø‡Æ‡ takes the later stra.
+-- 3.  ‡§∏‡§π ‚Äî every rule is offered the SAME input (6.4.22), and where two
+--     offers collide 1.4.2 ‡§µ‡§ø‡§™‡•ç‡§∞‡§§‡§ø‡§∑‡•á‡§ß‡•á ‡§™‡§∞‡§Ç ‡§ï‡§æ‡§∞‡•ç‡§Ø‡§Æ‡•ç takes the later s≈´tra.
 ------------------------------------------------------------------------
 
 _<·µá_ : ‚Ñï ‚Üí ‚Ñï ‚Üí Bool
@@ -138,7 +138,7 @@ saha x with best (offers x)
 -- Nothing here states an answer: both sides are folds over `act`.
 ------------------------------------------------------------------------
 
--- 8.2.39 fires, then 8.4.40 acts on its output: t ‚í d ‚í j.  `tajjalam`.
+-- 8.2.39 fires, then 8.4.40 acts on its output: t ‚Üí d ‚Üí j.  `tajjalam`.
 krama-gives-j : krama t ‚â° j
 krama-gives-j = refl
 
@@ -164,17 +164,17 @@ agree-where-uncontested = refl
 ------------------------------------------------------------------------
 -- 5.  WHY THE SIMULTANEOUS PASS STOPS SHORT, stated as the offers.
 --
--- Under ‡‡ the three offers against t are 8.2.39 ‚¶ d, 8.4.40 ‚¶ c and
--- 8.4.53 ‚¶ d.  They collide at one position, so exactly one survives, and
--- 1.4.2 picks the latest.  Under ‡ï‡‡∞‡Æ, 8.2.39's output d is then a fresh
--- input that 8.4.40 can read ‚î which is precisely what asiddhatva forbids
+-- Under ‡§∏‡§π the three offers against t are 8.2.39 ‚Ü¶ d, 8.4.40 ‚Ü¶ c and
+-- 8.4.53 ‚Ü¶ d.  They collide at one position, so exactly one survives, and
+-- 1.4.2 picks the latest.  Under ‡§ï‡•ç‡§∞‡§Æ, 8.2.39's output d is then a fresh
+-- input that 8.4.40 can read ‚Äî which is precisely what asiddhatva forbids
 -- between the quarters and permits within the sequence.
 ------------------------------------------------------------------------
 
 three-offers : offers t ‚â° (s8-2-39 , d) ‚à∑ (s8-4-40 , c) ‚à∑ (s8-4-53 , d) ‚à∑ []
 three-offers = refl
 
--- and after the first, only one remains ‚î the ordered regime's second step
+-- and after the first, only one remains ‚Äî the ordered regime's second step
 one-offer-after : offers d ‚â° (s8-4-40 , j) ‚à∑ []
 one-offer-after = refl
 
@@ -183,9 +183,9 @@ one-offer-after = refl
 --     left implied.
 --
 -- Having proved the regimes differ, the tempting extension is that the
--- simultaneous one is defective ‚î that it fails to terminate, or cannot
--- reach the attested form at all.  Neither holds here.  ITERATE ‡‡ and it
--- converges, and it converges to the SAME form ‡ï‡‡∞‡Æ gives:
+-- simultaneous one is defective ‚Äî that it fails to terminate, or cannot
+-- reach the attested form at all.  Neither holds here.  ITERATE ‡§∏‡§π and it
+-- converges, and it converges to the SAME form ‡§ï‡•ç‡§∞‡§Æ gives:
 --
 --     saha t = d ,  saha d = j ,  saha j = j
 --
@@ -197,8 +197,8 @@ one-offer-after = refl
 --
 -- What survives from ¬ß4 is exact and narrower than it sounded: A SINGLE
 -- SIMULTANEOUS PASS over these rules does not give the attested form,
--- while the ordered regime does so in one traversal.  ‡‡‡∞‡‡µ‡‡‡∞‡æ‡‡ø‡¶‡‡ß‡Æ‡ is
--- still load-bearing ‚î the tripd is traversed once, not iterated ‚î but
+-- while the ordered regime does so in one traversal.  ‡§™‡•Ç‡§∞‡•ç‡§µ‡§§‡•ç‡§∞‡§æ‡§∏‡§ø‡§¶‡•ç‡§ß‡§Æ‡•ç is
+-- still load-bearing ‚Äî the tripƒÅdƒ´ is traversed once, not iterated ‚Äî but
 -- the reason is that ordering buys the right answer IN ONE PASS, not that
 -- simultaneity is incapable.
 ------------------------------------------------------------------------

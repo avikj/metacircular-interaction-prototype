@@ -1,14 +1,14 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡æ‡Ø‡æ ‚î the shadow, and what is impossible about it.
+-- ‡‡æ‡Ø‡æ ‚Äî the shadow, and what is impossible about it.
 --
--- TERM.  ‡‡æ‡Ø‡æ / *chy*, shadow, is `Prakasha`'s own coinage in
+-- TERM.  ‡§õ‡§æ‡§Ø‡§æ / *chƒÅyƒÅ*, shadow, is `Prakasha`'s own coinage in
 -- this corpus for the truncated form (`G-chaya`), and is carried here for
 -- continuity.  It is NOT a sourced technical term and nothing in any
 -- tradition is cited for it.  The mathematics is propositional
--- truncation ‚î Voevodsky's h-levels, the substrate this repository names
--- as its one exception ‚î and is claimed for nobody else.
+-- truncation ‚Äî Voevodsky's h-levels, the substrate this repository names
+-- as its one exception ‚Äî and is claimed for nobody else.
 --
 ------------------------------------------------------------------------
 

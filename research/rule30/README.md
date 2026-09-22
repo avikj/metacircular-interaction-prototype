@@ -4,7 +4,7 @@ Everything here was decided by the machine in `interactive/` over its wire
 (`sh interactive/run-yantra.sh --wire`): each candidate module was sent as a
 `sadhana.patra` request, every rejection's obligation (the kernel's own first
 error line) was repaired and the module resent, until the kernel accepted it.
-`yantra_answers.jsonl` is the full transcript (38 turns: 19 accepted, 19 rejected â” every rejection an error in what I sent, repaired and resent); `yantra_session.lekha`
+`yantra_answers.jsonl` is the full transcript (38 turns: 19 accepted, 19 rejected â€” every rejection an error in what I sent, repaired and resent); `yantra_session.lekha`
 is the session's doa-lekha, one record per rejection; `candidate_*.agda`
 are the modules as accepted; `yantra_client.py` / `pack.py` drive the wire;
 `agda-compacting.sh` is the shim that gives the kernel's agda a compacting
@@ -14,13 +14,13 @@ What was decided, exactly (the corpus modules are in
 `formal/cubical/theorems/automata/`):
 
 - Apunaravrtti: the binary column of any rational a/(b+1) is eventually
-  periodic with period â‰ b+1 and preperiod â‰ b (pigeonhole on remainders);
-  Rule 30's middle column to depth 256 has no shift agreement with period â‰ 64
+  periodic with period â‰¤ b+1 and preperiod â‰¤ b (pigeonhole on remainders);
+  Rule 30's middle column to depth 256 has no shift agreement with period â‰¤ 64
   and preperiod < 64, so it is not the column of any rational with denominator
-  â‰ 64.
-- Sarvapada, Navapada: Morseâ“Hedlund in finite form; every 9-bit word occurs in
+  â‰¤ 64.
+- Sarvapada, Navapada: Morseâ€“Hedlund in finite form; every 9-bit word occurs in
   the first 4096 bits of the column, so no (N, p) with N + p < 512 and no
-  rational with denominator â‰ 256 has this column.
+  rational with denominator â‰¤ 256 has this column.
 - Jen: from a single seed no two adjacent columns of Rule 30 are both
   eventually periodic (Jen 1986), so if the centre column repeats, neither
   neighbour does.

@@ -1,76 +1,76 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ��������� � ����� �������� �������� ������ �����, ����������� ������� �
+-- अपवर्तनम् — वहितं युग्मम् अधिकात् न्यूनं जहाति, अपवर्तकश्च तिष्ठति ।
 -- (apavartana: the carried pair loses the lesser out of the greater, and
 --  its common measure stands.)
 --
--- THE TERM, THE TEXT, THE DATE.  ������� (apavartana) is the reduction of a
+-- THE TERM, THE TEXT, THE DATE.  अपवर्तन (apavartana) is the reduction of a
 -- pair by a common divisor, and with it the fact the pulveriser runs on: a
 -- common divisor of two magnitudes divides their sum AND their difference, so
--- the subtractive step preserves it in both directions.  The ���������� the
--- reduction serves is RYABHAA, *�����������*, ��������� ����� (499 CE), worked
--- out step by step in BHSKARA I, *����������������* (629 CE); the apavartana
--- step itself is stated in BRAHMAGUPTA, *�����������������������* 18 (628 CE) and
+-- the subtractive step preserves it in both directions.  The कुट्टक the
+-- reduction serves is ĀRYABHAṬA, *आर्यभटीयम्*, गणितपादः ३२–३३ (499 CE), worked
+-- out step by step in BHĀSKARA I, *आर्यभटीयभाष्यम्* (629 CE); the apavartana
+-- step itself is stated in BRAHMAGUPTA, *ब्राह्मस्फुटसिद्धान्तः* 18 (628 CE) and
 -- worked in BHSKARA II, *����������* (1150 CE).
 --
 -- The ���������� of
--- �������� ����� is a DIVISION procedure (quotients written into the �����),
+-- गणितपाद ३२–३३ is a DIVISION procedure (quotients written into the वल्ली),
 -- and what is formalised below is the subtractive column that produces those
--- quotients � the same distinction `KuttakaValli_TheSideIsAFreeSlot�` in the
+-- quotients — the same distinction `KuttakaValli_TheSideIsAFreeSlot…` in the
 -- `loss` library records as its SECOND DEFECT.  "The greater loses the lesser, the lesser
 -- stands" is the movement their pair undergoes, and its common measure
 -- is what their procedure keeps.
 --
 ------------------------------------------------------------------------
--- WHY THIS FILE EXISTS � THE FOURTH LAW.
+-- WHY THIS FILE EXISTS — THE FOURTH LAW.
 --
 -- The `loss` library has three carrier instances, and each says what
 -- the CARRIED datum DOES under the step, as an equation in the carried datum
 -- alone:
 --
---   �����          ������ MULTIPLIES         (�����-�������)
---   ��������        rank SUCCEEDS           (����������-������)
---   ��������������   coarseness SCALES by minus the newly-omitted partial
---                  numerator                (���-�������)
+--   भावना          क्षेप MULTIPLIES         (भावना-क्षेपः)
+--   प्रस्तार        rank SUCCEEDS           (उद्दिष्ट-वृद्धि)
+--   अन्त्यसंस्कार   coarseness SCALES by minus the newly-omitted partial
+--                  numerator                (मान-अनुपातः)
 --
--- The kuaka instance has base = the three slots (������ / �������� / ����),
--- carried = the pair of magnitudes via �������, and Φ = the subtractive �����
--- step � and it DOES NOT STATE WHAT THE CARRIED PAIR DOES UNDER THE STEP.
--- `�����-���` and `�����-�������` there come close and stop short: they read the
+-- The kuṭṭaka instance has base = the three slots (पक्षः / परिमाणम् / शेषः),
+-- carried = the pair of magnitudes via उत्थान, and Φ = the subtractive वल्ली
+-- step — and it DOES NOT STATE WHAT THE CARRIED PAIR DOES UNDER THE STEP.
+-- `वल्ली-वाम` and `वल्ली-दक्षिण` there come close and stop short: they read the
 -- next pair out of the BASE's fields (d and k), not out of the pair.  That is
 -- the missing fourth law, and §3 below is it:
 --
---     �������-����� : carried (�����-���������� c)  ≡  ��������� (carried c)
+--     अपवर्तन-नियमः : carried (वल्ली-कुट्टक c)  ≡  अन्तरकरण (carried c)
 --
--- for EVERY carrier point c, not only descended ones � so the carried pair
--- runs its own recursion, and §3's `�������-�����-����` says the n-step run of
--- the carrier is the n-step run of `���������` on the pair, with the base never
+-- for EVERY carrier point c, not only descended ones — so the carried pair
+-- runs its own recursion, and §3's `अपवर्तन-नियमः-पुनः` says the n-step run of
+-- the carrier is the n-step run of `अन्तरकरण` on the pair, with the base never
 -- consulted.  What the pair does, in one sentence and three unconditional
 -- equations (§2): the greater loses the lesser, the lesser stands, and equals
 -- stand.
 --
--- The law needs a theorem the ���������� module does not have.  It proves the round
--- trip `�������-���` (pair � record � pair) and NOT the other one; without
--- `���-�������` (record � pair � record, §1 here) the next pair is not known to
+-- The law needs a theorem the कुट्टक module does not have.  It proves the round
+-- trip `उत्थान-भेद` (pair → record → pair) and NOT the other one; without
+-- `भेद-उत्थान` (record → pair → record, §1 here) the next pair is not known to
 -- be a function of the pair at all, and the law cannot even be stated.
 --
 -- §4 is the arithmetic content the law does not give: the pair's set of common
--- measures is invariant under `���������` in BOTH directions (�-����� forward,
--- �-����� backward), hence under n steps.  §5 runs it: for (48,18) the ten-step
+-- measures is invariant under `अन्तरकरण` in BOTH directions (∣-योग forward,
+-- ∣-अन्तर backward), hence under n steps.  §5 runs it: for (48,18) the ten-step
 -- orbit lands on (6,6), and both directions of §4 turn that computation into a
--- two-way certificate � � measures 48 and 18 exactly when � measures 6.
+-- two-way certificate — म measures 48 and 18 exactly when म measures 6.
 --
 ------------------------------------------------------------------------
 -- WHAT IS NOT NEW HERE.
 --
 -- The invariance of §4 is NOT a new fact in this corpus and is not offered as
--- one.  `Gurutama` (�-�����, and the descent's result divides both inputs),
--- `GurutamaSiddha` (�-�����, ����, ������ � the FULL gcd theorem for the fuelled
--- descent, for every pair), `Apavartana_TwoPresentationsOfDividesAnd�` (the
+-- one.  `Gurutama` (∣-योग, and the descent's result divides both inputs),
+-- `GurutamaSiddha` (∣-अन्तर, महत्, सिद्धः — the FULL gcd theorem for the fuelled
+-- descent, for every pair), `Apavartana_TwoPresentationsOfDividesAnd…` (the
 -- difference law crossing between the truncated and untruncated presentations)
 -- and `KuttakaSamapti_TheValliIsFiniteForEveryPair` (termination, and the
--- greatest-common-divisor property over �) are all already in this directory
+-- greatest-common-divisor property over ℤ) are all already in this directory
 -- and all predate this module; §5's corollaries are stated for TWO NAMED
 -- PAIRS ONLY.
 --
@@ -80,27 +80,27 @@
 -- and not "and this is what survives the move" would be the weaker half.
 --
 ------------------------------------------------------------------------
--- SELF-CONTAINMENT � REDEFINED, AND SAID.
+-- SELF-CONTAINMENT — REDEFINED, AND SAID.
 --
 -- This module imports NOTHING from `fibre/src` and nothing from this
--- directory.  `Carrier`, `descend`, `Φ-carrier`, `�������`, `�������`, `�����`,
--- `���`, `�������-���`, `�����` and `_�_` are REDEFINED here, character for
+-- directory.  `Carrier`, `descend`, `Φ-carrier`, `त्रिक्`, `उत्थान`, `गभीर`,
+-- `भेद`, `उत्थान-भेद`, `वल्ली` and `_∣_` are REDEFINED here, character for
 -- character where that was possible, so that the two lanes' checks are
 -- independent.  They are duplicates and are named as duplicates:
 --
---   Carrier, descend, ascend, Φ-carrier  � Loss.Carrier
---   �������, �������, �����, ���, �������-���, �����
---                                        � Loss.KuttakaValli_�
---                                          (and ������� is `������` of this
+--   Carrier, descend, ascend, Φ-carrier  ← Loss.Carrier
+--   त्रिक्, उत्थान, गभीर, भेद, उत्थान-भेद, वल्ली
+--                                        ← Loss.KuttakaValli_…
+--                                          (and त्रिक् is `विवेक` of this
 --                                           directory's `LosslessReturn.agda`,
 --                                           under a different name)
---   _�_, �-�����                            � Gurutama (untruncated � form; the
+--   _∣_, ∣-योग                            ← Gurutama (untruncated Σ form; the
 --                                          library's `Cubical.Data.Nat.
---                                          Divisibility._�_` is its
+--                                          Divisibility._∣_` is its
 --                                          propositional truncation)
---   �-�����                                � GurutamaSiddha (reproved here by a
+--   ∣-अन्तर                                ← GurutamaSiddha (reproved here by a
 --                                          different induction, on the
---                                          quotient rather than on �)
+--                                          quotient rather than on ∸)
 --
 -- The duplication is deliberate and it is a cost, not a virtue.  It is paid so
 -- that a reader checking THIS file has to trust one toolchain invocation and
@@ -109,29 +109,29 @@
 ------------------------------------------------------------------------
 -- DEFECTS.
 --
--- 1. THE STEP IS SUBTRACTIVE, NOT DIVISIVE.  `�����` below is anthyphairesis:
---    (a,b) � (a−b, b).  The ����� of the *�����������* is the column of
---    QUOTIENTS.  Everything below that says ����� means the column of
---    subtractions that produces them.  `KuttakaSamapti_�` in this directory
+-- 1. THE STEP IS SUBTRACTIVE, NOT DIVISIVE.  `वल्ली` below is anthyphairesis:
+--    (a,b) ↦ (a−b, b).  The वल्ली of the *आर्यभटीयम्* is the column of
+--    QUOTIENTS.  Everything below that says वल्ली means the column of
+--    subtractions that produces them.  `KuttakaSamapti_…` in this directory
 --    has the division form.
 --
--- 2. THE �� CASE IS A FIXED POINT BY CONVENTION, AND THE CLOSED FORM SPLITS
---    THERE.  Off the diagonal, `���������` is the unordered-pair map
---    {a,b} � {a⊔b − a⊓b, a⊓b}.  ON the diagonal that map would give (0,d) and
---    `���������` gives (d,d), because a total endomorphism has to encode "stop"
---    as a fixed point.  So `���������` is NOT that map, and §2 states three
+-- 2. THE सम CASE IS A FIXED POINT BY CONVENTION, AND THE CLOSED FORM SPLITS
+--    THERE.  Off the diagonal, `अन्तरकरण` is the unordered-pair map
+--    {a,b} ↦ {a⊔b − a⊓b, a⊓b}.  ON the diagonal that map would give (0,d) and
+--    `अन्तरकरण` gives (d,d), because a total endomorphism has to encode "stop"
+--    as a fixed point.  So `अन्तरकरण` is NOT that map, and §2 states three
 --    equations rather than one for exactly this reason.  The two disagree on
 --    the diagonal and nowhere else; that is a statement about the encoding of
 --    termination, not about the arithmetic.
 --
--- 3. TERMINATION.  §3's n-step law holds for every n; §5's two runs are `refl` � the
+-- 3. TERMINATION.  §3's n-step law holds for every n; §5's two runs are `refl` — the
 --    machine executes them.  `KuttakaSamapti_TheValliIsFiniteForEveryPair`
 --    has the termination theorem.
 --
--- 4. `_�_` HERE IS THE UNTRUNCATED �, so it is not a proposition, and two
---    proofs that � measures � need not be equal.  §4's statements are
+-- 4. `_∣_` HERE IS THE UNTRUNCATED Σ, so it is not a proposition, and two
+--    proofs that म measures न need not be equal.  §4's statements are
 --    therefore about EXHIBITED quotients, not about a subsingleton of
---    evidence.  `Apavartana_TwoPresentations�` §4 in this directory is where
+--    evidence.  `Apavartana_TwoPresentations…` §4 in this directory is where
 --    that difference is the mathematics; here it is only a choice, made to
 --    match `Gurutama` and to keep the file free of the truncation eliminator.
 ------------------------------------------------------------------------
@@ -149,9 +149,9 @@ private
     A B : Type
 
 ------------------------------------------------------------------------
--- §0 � THE SUBSTRATE, REDEFINED.  See SELF-CONTAINMENT above: every
+-- §0 · THE SUBSTRATE, REDEFINED.  See SELF-CONTAINMENT above: every
 -- declaration in this section is a duplicate of one in `Loss.Carrier`
--- or in `Loss.KuttakaValli_�`, and none of them is new.
+-- or in `Loss.KuttakaValli_…`, and none of them is new.
 ------------------------------------------------------------------------
 
 record Carrier (f : A → B) : Type where
@@ -180,15 +180,15 @@ module _ (f : A → B) where
 पुनरावृत्ति Φ zero    x = x
 पुनरावृत्ति Φ (suc n) x = Φ (पुनरावृत्ति Φ n x)
 
--- ������� � the three slots of one row of the descent.  ������ is the
--- constructor (which side the excess fell on), �������� is d, ���� is the
--- excess.  �� carries no excess because there is none.
+-- त्रिक् — the three slots of one row of the descent.  पक्षः is the
+-- constructor (which side the excess fell on), परिमाणम् is d, शेषः is the
+-- excess.  सम carries no excess because there is none.
 data त्रिक् : Type where
   सम    : (d : ℕ)   → त्रिक्
   वाम   : (d k : ℕ) → त्रिक्
   दक्षिण : (d k : ℕ) → त्रिक्
 
--- ������� � the pair, read back out of the row.  This is the f of the law.
+-- उत्थान — the pair, read back out of the row.  This is the f of the law.
 उत्थान : त्रिक् → ℕ × ℕ
 उत्थान (सम d)      = d , d
 उत्थान (वाम d k)   = d + suc k , d
@@ -199,7 +199,7 @@ data त्रिक् : Type where
 गभीर (वाम d k)   = वाम (suc d) k
 गभीर (दक्षिण d k) = दक्षिण (suc d) k
 
--- ��� � the row, built from the pair.  Decisionless: it falls by structure,
+-- भेद — the row, built from the pair.  Decisionless: it falls by structure,
 -- and at zero the side that outlasted names itself.
 भेद : ℕ → ℕ → त्रिक्
 भेद zero    zero    = सम zero
@@ -221,8 +221,8 @@ data त्रिक् : Type where
     गभीर-उत्थान (भेद a b)
   ∙ cong (λ p → (suc (fst p) , suc (snd p))) (उत्थान-भेद a b)
 
--- ����� � the step, written with no comparison, because ������ already says
--- which way to subtract.  At �� the algorithm has terminated and the step is
+-- वल्ली — the step, written with no comparison, because पक्षः already says
+-- which way to subtract.  At सम the algorithm has terminated and the step is
 -- the identity: see DEFECT 2.
 वल्ली : त्रिक् → त्रिक्
 वल्ली (सम d)      = सम d
@@ -230,16 +230,16 @@ data त्रिक् : Type where
 वल्ली (दक्षिण d k) = भेद d (suc k)
 
 ------------------------------------------------------------------------
--- §1 � THE MISSING ROUND TRIP.
+-- §1 · THE MISSING ROUND TRIP.
 --
--- `�������-���` (above, duplicated from the kuaka module) says pair � row �
--- pair is the identity.  The OTHER direction � row � pair � row � is not in
+-- `उत्थान-भेद` (above, duplicated from the kuṭṭaka module) says pair → row →
+-- pair is the identity.  The OTHER direction — row → pair → row — is not in
 -- that module in any form, and without it nothing below can be stated: the
 -- next pair is a function of the current pair only because the current pair
 -- reconstructs the current row.
 --
 -- Each of the three lemmas is an induction on the shared magnitude d, and
--- each is exactly `�����` climbing back up the spine one head at a time.
+-- each is exactly `गभीर` climbing back up the spine one head at a time.
 ------------------------------------------------------------------------
 
 भेद-सम : (d : ℕ) → भेद d d ≡ सम d
@@ -260,15 +260,15 @@ data त्रिक् : Type where
 भेद-उत्थान (दक्षिण d k) = भेद-दक्षिण d k
 
 ------------------------------------------------------------------------
--- §2 � ��������� � THE STEP, AS A MAP OF PAIRS.
+-- §2 · अन्तरकरण — THE STEP, AS A MAP OF PAIRS.
 --
 -- The name is a compound BUILT HERE (�����, difference, + ����, making).  The
 -- object is: run the pair down into its row, step the row, read
 -- the pair back.  §3 is the theorem that this is the same thing as stepping
 -- the carrier.
 --
--- The three equations are unconditional and exhaustive � every pair of
--- naturals has exactly one of the three forms � and together they are the
+-- The three equations are unconditional and exhaustive — every pair of
+-- naturals has exactly one of the three forms — and together they are the
 -- whole answer to "what does the carried pair DO under the step":
 --
 --     THE GREATER LOSES THE LESSER.  THE LESSER STANDS.  EQUALS STAND.
@@ -280,26 +280,26 @@ data त्रिक् : Type where
 अन्तरकरण-सम : (d : ℕ) → अन्तरकरण (d , d) ≡ (d , d)
 अन्तरकरण-सम d = cong (λ t → उत्थान (वल्ली t)) (भेद-सम d)
 
--- the greater on the left: (d + suc k , d) � (suc k , d)
+-- the greater on the left: (d + suc k , d) ↦ (suc k , d)
 अन्तरकरण-वाम : (d k : ℕ) → अन्तरकरण (d + suc k , d) ≡ (suc k , d)
 अन्तरकरण-वाम d k =
     cong (λ t → उत्थान (वल्ली t)) (भेद-वाम d k)
   ∙ उत्थान-भेद (suc k) d
 
--- the greater on the right: (d , d + suc k) � (d , suc k)
+-- the greater on the right: (d , d + suc k) ↦ (d , suc k)
 अन्तरकरण-दक्षिण : (d k : ℕ) → अन्तरकरण (d , d + suc k) ≡ (d , suc k)
 अन्तरकरण-दक्षिण d k =
     cong (λ t → उत्थान (वल्ली t)) (भेद-दक्षिण d k)
   ∙ उत्थान-भेद d (suc k)
 
 ------------------------------------------------------------------------
--- §3 � THE FOURTH LAW.
+-- §3 · THE FOURTH LAW.
 --
--- ���������� = Carrier �������: base = the row, carried = the pair.  The step lifts
--- by `Φ-carrier`, and the carrier square is `refl` � that is the law of
+-- कुट्टक = Carrier उत्थान: base = the row, carried = the pair.  The step lifts
+-- by `Φ-carrier`, and the carrier square is `refl` — that is the law of
 -- `Loss.Carrier` and is not re-proved here.  What IS proved here is
--- the thing the ���������� module never states: the carried pair's next value is a
--- function OF THE CARRIED PAIR, and the function is `���������`.
+-- the thing the कुट्टक module never states: the carried pair's next value is a
+-- function OF THE CARRIED PAIR, and the function is `अन्तरकरण`.
 --
 -- Stated for an arbitrary carrier point, not only a descended one.  For a
 -- descended point it is `cong` on §1 alone; the general case additionally
@@ -330,8 +330,8 @@ data त्रिक् : Type where
     अपवर्तन-नियमः-अवतरणे (base c)
   ∙ cong अन्तरकरण (witness c)
 
--- �and therefore the carried pair runs its OWN recursion: n steps of the
--- carrier, read at the carried slot, are n steps of `���������` on the pair,
+-- …and therefore the carried pair runs its OWN recursion: n steps of the
+-- carrier, read at the carried slot, are n steps of `अन्तरकरण` on the pair,
 -- with the base never consulted.  This is the statement the three sibling
 -- instances have and this one did not.
 अपवर्तन-नियमः-पुनः : (n : ℕ) (c : कुट्टक)
@@ -343,12 +343,12 @@ data त्रिक् : Type where
   ∙ cong अन्तरकरण (अपवर्तन-नियमः-पुनः n c)
 
 ------------------------------------------------------------------------
--- §4 � WHAT SURVIVES THE MOVE � ������� PROPER.
+-- §4 · WHAT SURVIVES THE MOVE — अपवर्तन PROPER.
 --
--- `_�_` is the untruncated � (DEFECT 4), duplicated from `Gurutama`.  `�-�����`
--- is `Gurutama`'s; `�-�����` is `GurutamaSiddha`'s theorem reproved by a
--- different induction � on the quotient, with `inj-m+` doing the cancelling �
--- so that this file needs neither � nor the propositional truncation.
+-- `_∣_` is the untruncated Σ (DEFECT 4), duplicated from `Gurutama`.  `∣-योग`
+-- is `Gurutama`'s; `∣-अन्तर` is `GurutamaSiddha`'s theorem reproved by a
+-- different induction — on the quotient, with `inj-m+` doing the cancelling —
+-- so that this file needs neither ∸ nor the propositional truncation.
 ------------------------------------------------------------------------
 
 _∣_ : ℕ → ℕ → Type
@@ -358,10 +358,10 @@ _∣_ : ℕ → ℕ → Type
 ∣-योग {म} (qx , px) (qy , py) =
   (qx + qy) , sym (·-distribʳ qx qy म) ∙ cong₂ _+_ px py
 
--- ������� � the cancellation.  Induction on the FIRST quotient: at zero the
+-- वियोग — the cancellation.  Induction on the FIRST quotient: at zero the
 -- remaining quotient is the answer outright; at zero on the other side the
 -- whole sum is zero, so y is zero and zero measures it; otherwise one copy of
--- � is cancelled off both sides and the induction proceeds.
+-- म is cancelled off both sides and the induction proceeds.
 वियोग : (म y q p : ℕ) → q · म + y ≡ p · म → Σ[ r ∈ ℕ ] (r · म ≡ y)
 वियोग म y zero     p        eq = p , sym eq
 वियोग म y (suc q) zero      eq = zero , sym (snd (m+n≡0→m≡0×n≡0 eq))
@@ -372,7 +372,7 @@ _∣_ : ℕ → ℕ → Type
 ∣-अन्तर {म} {x} {y} (p , pp) (q , qq) =
   वियोग म y q p (cong (_+ y) qq ∙ sym pp)
 
--- ������ � p � � is a common measure of the pair p.
+-- साधारण म p — म is a common measure of the pair p.
 साधारण : ℕ → ℕ × ℕ → Type
 साधारण म p = (म ∣ fst p) × (म ∣ snd p)
 
@@ -401,7 +401,7 @@ _∣_ : ℕ → ℕ → Type
       let (h₁ , h₂) = subst (साधारण म) (उत्थान-भेद d (suc k)) hh
       in h₁ , ∣-योग h₁ h₂
 
--- �and so over the whole run, in both directions.
+-- …and so over the whole run, in both directions.
 अपवर्तन-रक्षा-पुनः : (म : ℕ) (n : ℕ) (p : ℕ × ℕ)
                    → साधारण म p → साधारण म (पुनरावृत्ति अन्तरकरण n p)
 अपवर्तन-रक्षा-पुनः म zero    p h = h
@@ -416,10 +416,10 @@ _∣_ : ℕ → ℕ → Type
     (अपवर्तन-प्रत्यागमः म (पुनरावृत्ति अन्तरकरण n p) h)
 
 ------------------------------------------------------------------------
--- §5 � IT RUNS.
+-- §5 · IT RUNS.
 --
 -- Every equation in this section holds by `refl`, so Agda executes them.
--- The corollaries are for THESE TWO PAIRS and no others � see "WHAT IS NOT
+-- The corollaries are for THESE TWO PAIRS and no others — see "WHAT IS NOT
 -- NEW HERE" and DEFECT 3.
 ------------------------------------------------------------------------
 
@@ -432,7 +432,7 @@ _∣_ : ℕ → ℕ → Type
 गणना-षट् : पुनरावृत्ति अन्तरकरण 10 (48 , 18) ≡ (6 , 6)
 गणना-षट् = refl
 
--- the carrier's run and the pair's run agree � §3 applied to a computed orbit
+-- the carrier's run and the pair's run agree — §3 applied to a computed orbit
 गणना-कुट्टक : carried (पुनरावृत्ति वल्ली-कुट्टक 20 (अवतरण (भेद 137 60)))
             ≡ पुनरावृत्ति अन्तरकरण 20 (137 , 60)
 गणना-कुट्टक =
@@ -440,7 +440,7 @@ _∣_ : ℕ → ℕ → Type
   ∙ cong (पुनरावृत्ति अन्तरकरण 20) (उत्थान-भेद 137 60)
 
 -- A TWO-WAY CERTIFICATE FOR ONE PAIR.  §4 in both directions, carried along
--- the ten steps §5 computes: � measures 48 and 18 exactly when � measures 6.
+-- the ten steps §5 computes: म measures 48 and 18 exactly when म measures 6.
 अष्टचत्वारिंशत्-अष्टादश-अपवर्तकः : (म : ℕ) → साधारण म (48 , 18) → म ∣ 6
 अष्टचत्वारिंशत्-अष्टादश-अपवर्तकः म h =
   fst (subst (साधारण म) गणना-षट् (अपवर्तन-रक्षा-पुनः म 10 (48 , 18) h))

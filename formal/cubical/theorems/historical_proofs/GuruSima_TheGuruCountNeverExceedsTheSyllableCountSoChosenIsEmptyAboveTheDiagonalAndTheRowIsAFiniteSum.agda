@@ -1,14 +1,14 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- �����-���� � the summand-wise statement of `Lagakriya_�` §�: `Chosen n k` is
+-- �����-���� — the summand-wise statement of `Lagakriya_�` §�: `Chosen n k` is
 -- empty for k > n, which lets the infinite `�[ k ∈ � ]` be replaced by a
 -- finite one over `Fin (suc n)`.
 --
 -- Proved here, from `PingalaPrastara`'s own `varna` and `guruOf`:
 --
---   ����������  : every pattern has at most as many guru as syllables;
---   ��������     : Chosen n k is empty when n < k;
---   �������    : �[ k ∈ � ] Chosen n k � �[ k ∈ Fin (suc n) ] Chosen n (to� k),
+--   गुरु≤वर्ण  : every pattern has at most as many guru as syllables;
+--   रिक्तम्     : Chosen n k is empty when n < k;
+--   परिमितः    : Σ[ k ∈ ℕ ] Chosen n k ≃ Σ[ k ∈ Fin (suc n) ] Chosen n (toℕ k),
 --
 -- so the row can be read term by term over the finite index.
 ------------------------------------------------------------------------
@@ -27,18 +27,18 @@ open import Cubical.Relation.Nullary using (¬_)
 
 open import PingalaPrastara using (Syllable ; laghu ; guru ; Pattern ; varna ; guruOf ; Chosen)
 
--- � � at most as many guru as syllables
+-- १ · at most as many guru as syllables
 गुरु≤वर्ण : (p : Pattern) → guruOf p ≤ varna p
 गुरु≤वर्ण []          = zero-≤
 गुरु≤वर्ण (laghu ∷ p) = ≤-suc (गुरु≤वर्ण p)
 गुरु≤वर्ण (guru ∷ p)  = suc-≤-suc (गुरु≤वर्ण p)
 
--- � � so Chosen is empty above the diagonal
+-- २ · so Chosen is empty above the diagonal
 रिक्तम् : (n k : ℕ) → n < k → ¬ Chosen n k
 रिक्तम् n k n<k (p , vp , gp) =
   <-asym n<k (subst2 _≤_ gp vp (गुरु≤वर्ण p))
 
--- � � and the row is a finite sum
+-- ३ · and the row is a finite sum
 private
   bound : (n : ℕ) (c : Σ[ k ∈ ℕ ] Chosen n k) → fst c < suc n
   bound n (k , p , vp , gp) = suc-≤-suc (subst2 _≤_ gp vp (गुरु≤वर्ण p))

@@ -51,7 +51,7 @@ the gauge group (Z/2 under xor), the connection as a link field, the
 gauge transformation, and the Wilson loop, and proves the telescoping
 law: the transformed Wilson line is start-site times end-site times the
 original, so on a closed chain THE WILSON LOOP IS GAUGE INVARIANT for
-every connection and every transformation â” while the connection
+every connection and every transformation â€” while the connection
 itself provably changes on a named two-link witness whose loop, by the
 same theorem, cannot.  The holonomy is physical; the connection is
 coordinates; both halves are terms.

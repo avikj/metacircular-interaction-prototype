@@ -5,37 +5,37 @@
 --
 -- The first of the three pieces `PFreePart` named:
 --
---     exponent-bounded : 1 < p â’ 0 < n â’ n â‰ k â’ (p ^ a) âˆ n
---                      â’ a â‰ logOf p k
+--     exponent-bounded : 1 < p â†’ 0 < n â†’ n â‰¤ k â†’ (p ^ a) âˆ£ n
+--                      â†’ a â‰¤ logOf p k
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE SPECIFICATION OF `logOf`
 --
--- `PFreePart` said this piece was "a â‰ âŠlog_p kâ‹ when p^a âˆ m â‰ k",
--- as though âŠlog_p kâ‹ were a known quantity with known properties.  It
+-- `PFreePart` said this piece was "a â‰¤ âŒŠlog_p kâŒ‹ when p^a âˆ£ m â‰¤ k",
+-- as though âŒŠlog_p kâŒ‹ were a known quantity with known properties.  It
 -- is not.  `FrontierList.logOf` is
 --
 --     expOf p k zero    = 0
---     expOf p k (suc g) = if p ^ suc (expOf p k g) â‰ k then suc â¦ else â¦
+--     expOf p k (suc g) = if p ^ suc (expOf p k g) â‰¤ k then suc â€¦ else â€¦
 --     logOf p k         = expOf p k k
 --
 -- â€” a gas-driven climb whose gas budget is `k` itself.  The content here
 -- is the SPECIFICATION of `logOf`, in both directions, and the divisor
 -- bound is a corollary of it:
 --
---     logOf-le : 0 < k â’ p ^ (logOf p k)       â‰ k
---     logOf-lt : 1 < p â’ k < p ^ (suc (logOf p k))
+--     logOf-le : 0 < k â†’ p ^ (logOf p k)       â‰¤ k
+--     logOf-lt : 1 < p â†’ k < p ^ (suc (logOf p k))
 --
 -- The second is the one that needed an argument.  It holds because the
 -- climb obeys a dichotomy: after `g` steps EITHER it has advanced once
--- per step (`g â‰ expOf p k g`) OR it has already saturated, and once it
+-- per step (`g â‰¤ expOf p k g`) OR it has already saturated, and once it
 -- saturates the same `no` recurs forever.  Saturation must happen by
--- step `k` because a climb that never saturates gives `p ^ k â‰ k`,
+-- step `k` because a climb that never saturates gives `p ^ k â‰¤ k`,
 -- against `k < p ^ k`.
 --
 -- That last inequality is the load-bearing one and is proved here from
 -- nothing: `k < p^k` for `1 < p`, by induction, using only that
--- `x < p Â x` for positive `x`.
+-- `x < p Â· x` for positive `x`.
 ------------------------------------------------------------------------
 
 module ExponentBound where
@@ -71,7 +71,7 @@ private
     two-c : 2 Â· c â‰¡ c + c
     two-c = cong (c +_) (+-zero c)
 
--- exported: `FrontierDividesHard` needs it to see m' < p^a Â m'
+-- exported: `FrontierDividesHard` needs it to see m' < p^a Â· m'
 x<pÂ·x : (p x : â„•) â†’ 1 < p â†’ 0 < x â†’ x < (p Â· x)
 x<pÂ·x p x 1<p 0<x = <â‰¤-trans (c<2c x 0<x) (â‰¤-Â·k 1<p)
 
@@ -185,9 +185,9 @@ exponent-bounded p k n a 1<p 0<n nâ‰¤k div = go (splitâ„•-â‰¤ a (logOf p k))
 ------------------------------------------------------------------------
 -- 7.  It runs, on the walk's own frontier
 --
---   `FrontierList.frontier8` records (2,3) âˆ â¦ and asserts it by `refl`.
---   Here the entry is derived: 2Â³ â‰ 8 < 2â´, and any 2-power dividing any
---   n â‰ 8 has exponent at most 3.
+--   `FrontierList.frontier8` records (2,3) âˆ· â€¦ and asserts it by `refl`.
+--   Here the entry is derived: 2Â³ â‰¤ 8 < 2â´, and any 2-power dividing any
+--   n â‰¤ 8 has exponent at most 3.
 ------------------------------------------------------------------------
 
 log-2-8 : logOf 2 8 â‰¡ 3
@@ -206,7 +206,7 @@ spec-2-8-le = logOf-le 2 8 (suc-â‰¤-suc zero-â‰¤)
 spec-2-8-lt : 8 < (2 ^ (suc (logOf 2 8)))
 spec-2-8-lt = logOf-lt 2 8 (suc-â‰¤-suc (suc-â‰¤-suc zero-â‰¤))
 
--- 2Â³ âˆ 8 and 8 â‰ 8, so 3 â‰ logâ 8 â” the exponent the frontier records
+-- 2Â³ âˆ£ 8 and 8 â‰¤ 8, so 3 â‰¤ logâ‚‚ 8 â€” the exponent the frontier records
 bound-8 : 3 â‰¤ logOf 2 8
 bound-8 = exponent-bounded 2 8 8 3
             (suc-â‰¤-suc (suc-â‰¤-suc zero-â‰¤))

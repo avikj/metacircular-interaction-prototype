@@ -4,7 +4,7 @@
 -- Bahuguna_TheMultiPrimeDivisorLatticeIsRankSymmetricRankUnimodalAndSpernerBySymmetricChains
 --
 -- "bahugua": of many strands.  The divisor lattice of an arbitrary
--- n = �_{i<m} p_i^{� i} is a product of m chains, and this module
+-- n = ∏_{i<m} p_i^{α i} is a product of m chains, and this module
 -- inhabits the two types SpernerFromSl2 §8 states for it,
 -- GeneralSperner and GeneralRankSymmetry: the general case of the
 -- divisors of an arbitrary n, where W_k really varies and unimodality
@@ -15,45 +15,45 @@
 -- statements of SpernerFromSl2 imported, not restated):
 --
 --   §1  generalRankSymmetry : GeneralRankSymmetry.   The componentwise
---       mirror x_i � � i − x_i (written with the cofactors, no �) is an
+--       mirror x_i ↦ α i − x_i (written with the cofactors, no ∸) is an
 --       involution (mirrorM-mirrorM) carrying rank k to rank sum − k
---       (mirrorM-rank); the two maps RankM m � k � RankM m � j for
---       k + j ≡ sum m � are read off it.
+--       (mirrorM-rank); the two maps RankM m α k ⇄ RankM m α j for
+--       k + j ≡ sum m α are read off it.
 --
---   §2  Symmetric unimodal �-sequences (record SU: symmetry k + j ≡ R �
---       s k ≡ s j, vanishing beyond R, and nestedness u � v, u + v � R �
---       s u � s v; su-inc / su-dec derive "non-decreasing up to half R,
+--   §2  Symmetric unimodal ℕ-sequences (record SU: symmetry k + j ≡ R ⇒
+--       s k ≡ s j, vanishing beyond R, and nestedness u ≤ v, u + v ≤ R ⇒
+--       s u ≤ s v; su-inc / su-dec derive "non-decreasing up to half R,
 --       non-increasing from half R on").  THE CONVOLUTION LEMMA, box-SU:
 --       if s is SU of rank R then box a s, the convolution of s with the
 --       all-ones sequence of length a + 1, is SU of rank R + a.  Proved
 --       from the difference identity box-diff and the mirror identity
---       drop-mirror, over � with explicit bounds; no real numbers.
+--       drop-mirror, over ℕ with explicit bounds; no real numbers.
 --
---   §3  The rank-size sequence N m � (the coefficients of
---       �_{i<m} (1 + x + � + x^{� i})), and N-SU : SU (sum m �) (N m �):
+--   §3  The rank-size sequence N m α (the coefficients of
+--       ∏_{i<m} (1 + x + … + x^{α i})), and N-SU : SU (sum m α) (N m α):
 --       symmetric (N-symmetric), non-decreasing up to half the sum
 --       (N-nondecreasing), non-increasing after (N-nonincreasing),
 --       vanishing beyond the sum (N-vanishes).  Instantiated by refl at
---       12 = 2²�3 (1, 2, 2, 1) and 360 = 2³�3²�5 (1, 3, 5, 6, 5, 3, 1).
+--       12 = 2²·3 (1, 2, 2, 1) and 360 = 2³·3²·5 (1, 3, 5, 6, 5, 3, 1).
 --
---   §4  RankM-count : RankM m � k � Fin (N m � k) � Tail m �, tying N to
+--   §4  RankM-count : RankM m α k ≃ Fin (N m α k) × Tail m α, tying N to
 --       the earlier module's own RankM.  A CAVEAT that the earlier module
---       does not state: its DivM m � constrains EVERY coordinate i ∈ �,
---       not only i < m, so DivM m � is �_{i<m} [0, � i] � �_{i�m} [0, � i]
---       and RankM m � k is (rank-k part of the finite product) � (tail),
+--       does not state: its DivM m α constrains EVERY coordinate i ∈ ℕ,
+--       not only i < m, so DivM m α is ∏_{i<m} [0, α i] × ∏_{i≥m} [0, α i]
+--       and RankM m α k is (rank-k part of the finite product) × (tail),
 --       the tail being independent of k.  N counts the finite part; when
---       � i = 0 for i � m the tail is contractible and N m � k is the
---       size of RankM m � k outright.
+--       α i = 0 for i ≥ m the tail is contractible and N m α k is the
+--       size of RankM m α k outright.
 --
 --   §5  A symmetric chain decomposition (record SCD) of the product of
---       chains, scdProd, by the de Bruijn � Tengbergen � Kruyswijk step
---       (module Step): from an SCD of P to one of [0, a] � P, chain
+--       chains, scdProd, by the de Bruijn – Tengbergen – Kruyswijk step
+--       (module Step): from an SCD of P to one of [0, a] × P, chain
 --       (c , j) climbing the new coordinate over el c j and then the old
 --       chain at height a − j.
 --
 --   §6  generalSperner : GeneralSperner, exactly as SpernerFromSl2 §8
---       types it: every prop-valued antichain of DivM m � injects into
---       RankM m � (half (sum m �)).  The injection sends x to the middle
+--       types it: every prop-valued antichain of DivM m α injects into
+--       RankM m α (half (sum m α)).  The injection sends x to the middle
 --       point of the chain through its finite part, tail unchanged; two
 --       elements with the same image lie on one chain, so are
 --       comparable, so are equal by the antichain hypothesis.
@@ -64,17 +64,17 @@
 -- hypothesis of SpernerFromSl2 §7 is therefore never needed and never
 -- assumed.
 --
--- The lower bound "max antichain = W_{�Ω/2�}" is proved for the FINITE
+-- The lower bound "max antichain = W_{⌊Ω/2⌋}" is proved for the FINITE
 -- product only (middleRank-isAntichainP, middle-count): the middle rank
--- of Prod m � is an antichain of size N m � (half (sum m �)).  It is
--- FALSE for the earlier module's DivM m � itself, because of the tail:
--- at m = 0 and � ≡ 1 every element has rank 0 = half 0, yet LeqM is the
--- product order on 2^�, not an antichain.  This is a fact about that
+-- of Prod m α is an antichain of size N m α (half (sum m α)).  It is
+-- FALSE for the earlier module's DivM m α itself, because of the tail:
+-- at m = 0 and α ≡ 1 every element has rank 0 = half 0, yet LeqM is the
+-- product order on 2^ℕ, not an antichain.  This is a fact about that
 -- module's encoding (all coordinates, rank on the first m) and is
 -- recorded here rather than papered over.
 --
--- PRIOR ART.  de Bruijn � van Ebbenhorst Tengbergen � Kruyswijk, Nieuw
--- Arch. Wiskunde (2) 23 (1951), 191�193, for the decomposition; the
+-- PRIOR ART.  de Bruijn – van Ebbenhorst Tengbergen – Kruyswijk, Nieuw
+-- Arch. Wiskunde (2) 23 (1951), 191–193, for the decomposition; the
 -- unimodality of products of chains by convolution is classical.
 -- Nothing here is new mathematics; what is new is the checked term.
 ------------------------------------------------------------------------
@@ -104,7 +104,7 @@ open import SpernerFromSl2
 
 ------------------------------------------------------------------------
 -- §0  Arithmetic bookkeeping, stated over variables so that the
---     �-solver can discharge them; applied to arbitrary terms below.
+--     ℕ-solver can discharge them; applied to arbitrary terms below.
 ------------------------------------------------------------------------
 
 private
@@ -148,10 +148,10 @@ generalRankSymmetry m α k j kj = fwd , bwd
     inj-m+ {m = j} (cong (_+ rkM m α (mirrorM m α x)) (sym q) ∙ lem x ∙ sym (+-comm j k ∙ kj))
 
 ------------------------------------------------------------------------
--- §2  Symmetric unimodal �-sequences and convolution with a chain.
+-- §2  Symmetric unimodal ℕ-sequences and convolution with a chain.
 ------------------------------------------------------------------------
 
--- a sequence s : � � � is symmetric unimodal of total rank R
+-- a sequence s : ℕ → ℕ is symmetric unimodal of total rank R
 record SU (R : ℕ) (s : ℕ → ℕ) : Type₀ where
   field
     su-sym  : (k j : ℕ) → k + j ≡ R → s k ≡ s j
@@ -225,7 +225,7 @@ mkSU : (R : ℕ) (s : ℕ → ℕ)
 mkSU R s symm van inc = record { su-sym = symm ; su-van = van ; su-nest = nest-from-inc R s symm inc }
 
 -- convolution with the all-ones sequence of length a + 1:
---   box a s k = �_{j � a, j � k} s (k − j)   (the coefficients of (1 + x + � + x^a)�s)
+--   box a s k = Σ_{j ≤ a, j ≤ k} s (k − j)   (the coefficients of (1 + x + … + x^a)·s)
 box : ℕ → (ℕ → ℕ) → ℕ → ℕ
 box zero s k = s k
 box (suc a) s zero = s zero
@@ -261,7 +261,7 @@ drop-lt : (k c : ℕ) (s : ℕ → ℕ) → drop (suc (k + c)) s k ≡ zero
 drop-lt zero c s = refl
 drop-lt (suc k) c s = drop-lt k c s
 
--- a � k, with witness, or k < a, with witness
+-- a ≤ k, with witness, or k < a, with witness
 splitLE : (a k : ℕ) → (Σ[ t ∈ ℕ ] a + t ≡ k) ⊎ (Σ[ c ∈ ℕ ] suc (k + c) ≡ a)
 splitLE zero k = inl (k , refl)
 splitLE (suc a) zero = inr (a , refl)
@@ -357,7 +357,7 @@ delta-SU = mkSU zero delta symm (λ _ → refl) inc
   inc : (k : ℕ) → k + suc k ≤ zero → delta k ≤ delta (suc k)
   inc k h = ⊥-rec (snotz (sym (+-suc k k) ∙ ≤0→≡0 h))
 
--- N m � k = #{ x ∈ �_{i<m} [0, � i] : � x = k }, the coefficients of �_{i<m} (1 + x + � + x^{� i})
+-- N m α k = #{ x ∈ ∏_{i<m} [0, α i] : Σ x = k }, the coefficients of ∏_{i<m} (1 + x + … + x^{α i})
 N : (m : ℕ) (α : ℕ → ℕ) → ℕ → ℕ
 N zero α = delta
 N (suc m) α = box (α zero) (N m (λ i → α (suc i)))
@@ -381,7 +381,7 @@ N-nonincreasing m α = su-dec (N-SU m α)
 N-vanishes : (m : ℕ) (α : ℕ → ℕ) (t : ℕ) → N m α (suc (sum m α) + t) ≡ zero
 N-vanishes m α = su-van (N-SU m α)
 
--- 12 = 2²�3 and 360 = 2³�3²�5
+-- 12 = 2²·3 and 360 = 2³·3²·5
 α12 : ℕ → ℕ
 α12 zero = 2
 α12 (suc zero) = 1
@@ -434,11 +434,11 @@ _ : sum 3 α360 ≡ 6
 _ = refl
 
 ------------------------------------------------------------------------
--- §4  Counting: N m � k is the size of the finite part of RankM m � k.
+-- §4  Counting: N m α k is the size of the finite part of RankM m α k.
 --
---     DivM m � of the earlier module constrains EVERY coordinate i ∈ �
---     (not only i < m), so RankM m � k is  (finite part) � (tail), the
---     tail being the coordinates i � m, which do not enter the rank.
+--     DivM m α of the earlier module constrains EVERY coordinate i ∈ ℕ
+--     (not only i < m), so RankM m α k is  (finite part) × (tail), the
+--     tail being the coordinates i ≥ m, which do not enter the rank.
 ------------------------------------------------------------------------
 
 open import Cubical.Data.SumFin using (Fin ; fzero ; fsuc ; SumFin⊎≃)
@@ -452,7 +452,7 @@ rkP : (m : ℕ) (α : ℕ → ℕ) → Prod m α → ℕ
 rkP zero α _ = zero
 rkP (suc m) α (x , p) = rk x + rkP m (λ i → α (suc i)) p
 
--- the tail: the coordinates i � m, all of � shifted by m
+-- the tail: the coordinates i ≥ m, all of ℕ shifted by m
 Tail : (m : ℕ) (α : ℕ → ℕ) → Type₀
 Tail m α = DivM zero (λ i → α (m + i))
 
@@ -489,7 +489,7 @@ module _ (m : ℕ) (α : ℕ → ℕ) where
     lem zero = refl
     lem (suc i) = refl
 
--- the m-fold split of DivM m � into its finite part and its tail
+-- the m-fold split of DivM m α into its finite part and its tail
 toP : (m : ℕ) (α : ℕ → ℕ) → DivM m α → Prod m α × Tail m α
 toP zero α x = tt , x
 toP (suc m) α x =
@@ -607,14 +607,14 @@ Cnt-count (suc m) α k =
            (Cnt-count m (λ i → α (suc i))) (α zero) k
 
 -- THE COUNTING STATEMENT for the module's own rank sets:
---   RankM m � k  �  Fin (N m � k) � Tail m �,
--- with the tail independent of k; so N m � is the Whitney sequence of the
--- finite product �_{i<m} [0, � i] and is symmetric unimodal by §3.
+--   RankM m α k  ≃  Fin (N m α k) × Tail m α,
+-- with the tail independent of k; so N m α is the Whitney sequence of the
+-- finite product ∏_{i<m} [0, α i] and is symmetric unimodal by §3.
 RankM-count : (m : ℕ) (α : ℕ → ℕ) (k : ℕ) → RankM m α k ≃ (Fin (N m α k) × Tail m α)
 RankM-count m α k = isoToEquiv (RankM-split m α k) ∙ₑ ≃-× (Cnt-count m α k) (idEquiv _)
 
 ------------------------------------------------------------------------
--- §5  Symmetric chain decompositions (de Bruijn � Tengbergen � Kruyswijk).
+-- §5  Symmetric chain decompositions (de Bruijn – Tengbergen – Kruyswijk).
 ------------------------------------------------------------------------
 
 open import Cubical.Foundations.HLevels using (isProp× ; isPropΣ)
@@ -664,7 +664,7 @@ scd-unit = record
   ; locate = λ _ → tt , zero , ≤-refl , refl
   ; disjoint = λ _ _ _ _ _ _ _ → refl }
 
--- the split t � e (witnessed) or e < t (witnessed), and its uniqueness
+-- the split t ≤ e (witnessed) or e < t (witnessed), and its uniqueness
 Sp : (t e : ℕ) → Type₀
 Sp t e = (Σ[ u ∈ ℕ ] (t + u ≡ e)) ⊎ (Σ[ u ∈ ℕ ] (suc (e + u) ≡ t))
 
@@ -681,8 +681,8 @@ isPropSp t e = isProp⊎ (isPropFib e t) right excl
   excl (u , p) (u' , q) =
     snotz (Cubical.Data.Nat.m+n≡n→m≡0 (sym (ar5 e u' u) ∙ cong (_+ u) q ∙ p))
 
--- THE STEP: from a decomposition of P to one of [0, a] � P.  Chain (c , j),
--- 0 � j � min (ln c , a), climbs the new coordinate from 0 to a − j over
+-- THE STEP: from a decomposition of P to one of [0, a] × P.  Chain (c , j),
+-- 0 ≤ j ≤ min (ln c , a), climbs the new coordinate from 0 to a − j over
 -- the point el c j, then climbs the old chain from j to ln c at height a − j.
 module Step {P : Type₀} (rkQ : P → ℕ) (Leq : P → P → Type₀) (R : ℕ)
             (S : SCD P rkQ Leq R) (Leq-refl : (p : P) → Leq p p) (a : ℕ) where
@@ -733,7 +733,7 @@ module Step {P : Type₀} (rkQ : P → ℕ) (Leq : P → P → Type₀) (R : ℕ
   el' : Idx' → ℕ → P'
   el' ((c , j) , (r , rp) , (e , ep)) t = el'-aux c j r e rp ep t (splitLE t e)
 
-  -- j � ln c, and j + suc u � ln c on the horizontal part
+  -- j ≤ ln c, and j + suc u ≤ ln c on the horizontal part
   j≤ln : (c : Idx) (j r : ℕ) → j + r ≡ ln c → j ≤ ln c
   j≤ln c j r rp = r , (+-comm r j ∙ rp)
 
@@ -862,7 +862,7 @@ module Step {P : Type₀} (rkQ : P → ℕ) (Leq : P → P → Type₀) (R : ℕ
     ; el = el' ; el-rk = el'-rk ; el-step = el'-step
     ; locate = locate' ; disjoint = disjoint' }
 
--- the symmetric chain decomposition of the product of chains �_{i<m} [0, � i]
+-- the symmetric chain decomposition of the product of chains ∏_{i<m} [0, α i]
 scdProd : (m : ℕ) (α : ℕ → ℕ) → SCD (Prod m α) (rkP m α) (LeqP m α) (sum m α)
 scdProd zero α = scd-unit
 scdProd (suc m) α =
@@ -985,7 +985,7 @@ generalSperner m α A propA ac = f , inj
 
 ------------------------------------------------------------------------
 -- §7  The lower bound, for the finite product: the middle rank of
---     Prod m � is an antichain, of size N m � (half (sum m �)).
+--     Prod m α is an antichain, of size N m α (half (sum m α)).
 ------------------------------------------------------------------------
 
 rkP-mono : (m : ℕ) (α : ℕ → ℕ) (p q : Prod m α) → LeqP m α p q → rkP m α p ≤ rkP m α q
@@ -1020,7 +1020,7 @@ middle-count : (m : ℕ) (α : ℕ → ℕ) → Cnt m α (half (sum m α)) ≃ F
 middle-count m α = Cnt-count m α (half (sum m α))
 
 ------------------------------------------------------------------------
--- §8  Instances: 12 = 2²�3 and 360 = 2³�3²�5.
+-- §8  Instances: 12 = 2²·3 and 360 = 2³·3²·5.
 ------------------------------------------------------------------------
 
 -- the largest antichain of the divisors of 12 has 2 elements, of 360 has 6

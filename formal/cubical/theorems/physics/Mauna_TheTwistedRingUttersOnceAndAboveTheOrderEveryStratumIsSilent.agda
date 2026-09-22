@@ -1,37 +1,37 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡Æ‡‡®‡Æ‡ ‚î silence.  The complement of the ladder of offerings.
+-- ‡§Æ‡•å‡§®‡§Æ‡•ç ‚Äî silence.  The complement of the ladder of offerings.
 --
 -- THE QUESTION, asked because its answer was not known to the asker.
--- ArpanaSopana: every stratum of the sphere utters a NEW charge ‚î the
+-- ArpanaSopana: every stratum of the sphere utters a NEW charge ‚Äî the
 -- ladder never ends.  VakraValaya: the Klein bottle's one charge lives
 -- in the krama, at stratum 3.  Does the twisted ring ever speak again
--- above that stratum ‚î or does it utter once and hold silence forever?
+-- above that stratum ‚Äî or does it utter once and hold silence forever?
 --
 -- ANSWERED HERE: silence, at every depth, and the reason is an h-level.
 -- The general law is about ANY groupoid-truncated space:
 --
---   ‡Æ‡‡®‡Æ‡  :  a groupoid A has  Œ©µê‚∫¬≤(‚àA‚à‚‚ä‚ò)  contractible for every m ‚î
---            above the stratum where œ‚ speaks, no stratum utters
+--   ‡§Æ‡•å‡§®‡§Æ‡•ç  :  a groupoid A has  Œ©·µê‚Å∫¬≤(‚à•A‚à•‚ÇÑ‚Çä‚Çò)  contractible for every m ‚Äî
+--            above the stratum where œÄ‚ÇÅ speaks, no stratum utters
 --            anything, because each loop peels one h-level and a
 --            groupoid has only three to give.
---   ‡µ‡ï‡‡∞‡Æ‡‡®‡Æ‡ : the Klein bottle instance, on the library's
+--   ‡§µ‡§ï‡•ç‡§∞‡§Æ‡•å‡§®‡§Æ‡•ç : the Klein bottle instance, on the library's
 --            isGroupoidKleinBottle.
 --
--- Read with ArpanaSopana's ‡‡æ‡Æ‡æ‡®‡‡Ø‡Æ‡ (Œ©µê‚∫¬(‚àA‚à‚‚ä‚ò) ‚â œ‚ò‚ä‚ A), this says
--- œ‚ò‚ä‚(K) is trivial for every m ‚î the surface is aspherical ‚î but that
+-- Read with ArpanaSopana's ‡§∏‡§æ‡§Æ‡§æ‡§®‡•ç‡§Ø‡§Æ‡•ç (Œ©·µê‚Å∫¬π(‚à•A‚à•‚ÇÉ‚Çä‚Çò) ‚âÉ œÄ‚Çò‚Çä‚ÇÅ A), this says
+-- œÄ‚Çò‚Çä‚ÇÇ(K) is trivial for every m ‚Äî the surface is aspherical ‚Äî but that
 -- composition is not re-proved here; this module is self-contained on
 -- h-levels alone, so it loads light.  Together the three modules close
 -- one picture: the sphere is a ladder that never ends; the twisted ring
--- is a bell struck once ‚î everything it will ever say is said at
+-- is a bell struck once ‚Äî everything it will ever say is said at
 -- stratum 3, and said in the ORDER of succession, not in the carrier.
 --
 -- SOURCES.  isGroupoidKleinBottle is the library's
 -- (Cubical.HITs.KleinBottle.Properties); the h-level engines
 -- (isOfHLevelPath', isOfHLevelPlus', isOfHLevelRespectEquiv,
 -- truncIdempotentIso, isOfHLevelTrunc) are the library's; this module's
--- content is ‡‡µ‡∞‡ã‡‡ (the descent of levels through iterated Œ©) and the
+-- content is ‡§Ö‡§µ‡§∞‡•ã‡§π‡§É (the descent of levels through iterated Œ©) and the
 -- composition.  ‡Æ‡‡® (silence) and ‡‡µ‡∞‡ã‡ (descent) are ordinary 
 -- labels.  Umsvti's
 -- arpita/anarpita reading of strata is inherited from StaraArpana and,
@@ -58,7 +58,7 @@ private
     ‚Ñì : Level
 
 ------------------------------------------------------------------------
--- ‡‡µ‡∞‡ã‡‡ ‚î the descent: k loops peel k h-levels.  Stated with the sum
+-- ‡§Ö‡§µ‡§∞‡•ã‡§π‡§É ‚Äî the descent: k loops peel k h-levels.  Stated with the sum
 -- on the left of the level so the instantiations below are definitional.
 ------------------------------------------------------------------------
 
@@ -72,7 +72,7 @@ private
     (pt ((Œ©^ k) A)) (pt ((Œ©^ k) A))
 
 ------------------------------------------------------------------------
--- ‡Æ‡‡®‡Æ‡ ‚î a groupoid, truncated at any stratum above the krama's, is
+-- ‡§Æ‡•å‡§®‡§Æ‡•ç ‚Äî a groupoid, truncated at any stratum above the krama's, is
 -- silent there: the (4+m)-th stratum's (2+m)-fold loop space is a point.
 ------------------------------------------------------------------------
 
@@ -91,7 +91,7 @@ private
     silent = ‡§Ö‡§µ‡§∞‡•ã‡§π‡§É 1 (2 + m) (hLevelTrunc‚àô (4 + m) A) truncLevel
 
 ------------------------------------------------------------------------
--- ‡µ‡ï‡‡∞‡Æ‡‡®‡Æ‡ ‚î the twisted ring utters once.  Its stratum-3 charge is the
+-- ‡§µ‡§ï‡•ç‡§∞‡§Æ‡•å‡§®‡§Æ‡•ç ‚Äî the twisted ring utters once.  Its stratum-3 charge is the
 -- krama (VakraValaya); above that, every stratum is a point.
 ------------------------------------------------------------------------
 

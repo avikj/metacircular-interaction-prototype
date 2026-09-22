@@ -1,39 +1,39 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Bhavana � Brahmagupta's composition law for the form x² − D y²,
+-- Bhavana — Brahmagupta's composition law for the form x² − D y²,
 -- checked over an arbitrary commutative ring.
 --
 -- SOURCE AND PRIORITY.  The identity below is Brahmagupta's *bhvan*
 -- ("production", "composition"), Brhmasphuasiddhnta, 628 CE,
 -- chapter 18 (kuakdhyya).  It is the oldest known statement of the
--- multiplicativity of the norm of �[�D], and it is the load-bearing
+-- multiplicativity of the norm of ℤ[√D], and it is the load-bearing
 -- lemma of the cakravla (Jayadeva ~950 CE, Bhskara II 1150 CE), which
 -- solved x² − D y² = 1 six centuries before Brouncker and Lagrange.
 -- Euler's misattribution to Pell is later still and concerns a man who
 -- never worked on the equation.  The step itself is `CakravalaDescent`.
--- such note and there never had been � a citation pointing at work that
+-- such note and there never had been — a citation pointing at work that
 -- was never done, which a reader takes as "it is handled over there".  It
 -- is repaired by pointing at a module that exists, not by writing a note
 -- to satisfy the reference.)
 --
 -- WHAT IS CHECKED HERE.  Exactly the algebra, and only the algebra:
 --
---   bhavana        N D a� b� � N D a� b� ≡ N D (a�a� + D b�b�)
---                                              (a�b� + a�b�)
---                  � samsa-bhvan, the "additive" composition.
+--   bhavana        N D a₁ b₁ · N D a₂ b₂ ≡ N D (a₁a₂ + D b₁b₂)
+--                                              (a₁b₂ + a₂b₁)
+--                  — samāsa-bhāvanā, the "additive" composition.
 --   bhavanaMinus   the antara-bhvan ("difference" composition), the
---                  same identity with b� � −b�; Brahmagupta gives both.
+--                  same identity with b₂ ↦ −b₂; Brahmagupta gives both.
 --   cakravalaCleared   the composition specialised to the trivial
---                  triple (m, 1, m² − D) � the one instance the
+--                  triple (m, 1, m² − D) — the one instance the
 --                  cakravla actually uses.
 --   choiceToNumerator / choiceToDiscriminant
 --                  two exact polynomial identities that convert
 --                  Bhskara's single divisibility condition
 --                  k | (a + bm) into the other two.  These are the
 --                  reason the cyclic method needs only ONE congruence.
---   normScale      (k²)�N D a b ≡ N D (ka) (kb): the homogeneity that
---                  lets the descent divide by k without leaving �.
+--   normScale      (k²)·N D a b ≡ N D (ka) (kb): the homogeneity that
+--                  lets the descent divide by k without leaving ℤ.
 --
 -- WHAT IS NOT.  Nothing here is about termination, about Bhskara's
 -- minimality rule (choose m minimising |m² − D|), or about existence of
@@ -154,7 +154,7 @@ module Form (CR : CommRing ℓ) where
   -- 1.  The form and its composition
   ----------------------------------------------------------------------
 
-  -- N D a b  is  a² − D b²  : the norm of a + b�D.
+  -- N D a b  is  a² − D b²  : the norm of a + b√D.
   N : R → R → R → R
   N D a b = a · a - D · (b · b)
 
@@ -165,7 +165,7 @@ module Form (CR : CommRing ℓ) where
 
   -- The unit of the composition is (1r, 0r): the identity monoid axiom at
   -- the coordinate level, for BOTH sides (samsa is commutative but a unit is
-  -- a unit on each side and both are shown).  With �CommA/�CommB in the
+  -- a unit on each side and both are shown).  With ⊛CommA/⊛CommB in the
   -- generative lane this supplies the unit half of the monoid axioms; only
   -- associativity of the coordinates remains for the full monoid.
   bhA-idR : (D a b : R) → bhA D a b 1r 0r ≡ a
@@ -189,10 +189,10 @@ module Form (CR : CommRing ℓ) where
       cong₂ _+_ (·Comm 1r b ∙ ·IdR b) (0RightAnnihilates a)
     ∙ +IdR b
 
-  -- Associativity of the two coordinates � the last monoid axiom for the
-  -- bhvan composition �[�D] over an ABSTRACT commutative ring, solver-free.
+  -- Associativity of the two coordinates — the last monoid axiom for the
+  -- bhāvanā composition ℤ[√D] over an ABSTRACT commutative ring, solver-free.
   -- Each side expands (distributivity) to the same four monomials; they are
-  -- matched by �Assoc/�Comm/�CommAssocl and one four-term sum reordering.
+  -- matched by ·Assoc/·Comm/·CommAssocl and one four-term sum reordering.
   private
     -- (w+x)+(y+z) ≡ (w+y)+(x+z): swap the inner two summands.
     reassoc4 : (w x y z : R) → (w + x) + (y + z) ≡ (w + y) + (x + z)
@@ -253,13 +253,13 @@ module Form (CR : CommRing ℓ) where
   ----------------------------------------------------------------------
   -- 2.  Bhvan (Brhmasphuasiddhnta 18, 628 CE)
   --
-  --   (a�² − D b�²)(a�² − D b�²)
-  --      = (a�a� + D b�b�)² − D (a�b� + a�b�)²
+  --   (a₁² − D b₁²)(a₂² − D b₂²)
+  --      = (a₁a₂ + D b₁b₂)² − D (a₁b₂ + a₂b₁)²
   --
   -- Both sides are normalised to the SAME four-monomial form
   --      (ps + qt) − (pt + qs),
-  -- p = a�², q = D b�², s = a�², t = D b�².  The cross terms on the
-  -- right cancel because a�a� � D b�b� = D � (a�b�)(a�b�), which is the
+  -- p = a₁², q = D b₁², s = a₂², t = D b₂².  The cross terms on the
+  -- right cancel because a₁a₂ · D b₁b₂ = D · (a₁b₂)(a₂b₁), which is the
   -- only content of the identity; everything else is bookkeeping.
   ----------------------------------------------------------------------
 
@@ -374,7 +374,7 @@ module Form (CR : CommRing ℓ) where
   --
   -- Bhskara requires only  k | (a + bm).  These two exact identities
   -- are the reason the other two divisibilities come for free (up to
-  -- the factor b, which is where coprimality � i.e. a kuaka � enters;
+  -- the factor b, which is where coprimality — i.e. a kuṭṭaka — enters;
   -- that step is in CakravalaDescent).
   ----------------------------------------------------------------------
 

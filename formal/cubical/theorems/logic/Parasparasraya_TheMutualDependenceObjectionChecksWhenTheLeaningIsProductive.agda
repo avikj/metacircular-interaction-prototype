@@ -1,13 +1,13 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡∞‡‡‡‡∞‡æ‡‡‡∞‡Ø ‚î ‡‡®‡‡Ø‡ã‡®‡‡Ø‡æ‡‡‡∞‡ø‡‡ ‡‡‡‡ ‡‡‡∞‡‡‡‡, ‡® ‡¶‡ã‡‡ ; ‡ó‡‡‡‡‡ ‡‡ï‡‡∞‡ ‡‡‡∞‡Æ‡æ‡‡Æ‡ ‡
+-- ‡§™‡§∞‡§∏‡•ç‡§™‡§∞‡§æ‡§∂‡•ç‡§∞‡§Ø ‚Äî ‡§Ö‡§®‡•ç‡§Ø‡•ã‡§®‡•ç‡§Ø‡§æ‡§∂‡•ç‡§∞‡§ø‡§§‡§Ç ‡§ö‡•á‡§§‡•ç ‡§™‡•ç‡§∞‡§∏‡•Ç‡§§‡•á, ‡§® ‡§¶‡•ã‡§∑‡§É ; ‡§ó‡•Å‡§™‡•ç‡§§‡§Ç ‡§ö‡§ï‡•ç‡§∞‡§Ç ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡§Æ‡•ç ‡•§
 --
 -- (if the mutual leaning is productive, it is not a defect; the guarded
 -- circle is the warrant.)
 --
--- THE OBJECTION.  parasparraya ‚î each of two things established only
--- through the other ‚î is catalogued across the Nyya and Jaina
+-- THE OBJECTION.  parasparƒÅ≈õraya ‚Äî each of two things established only
+-- through the other ‚Äî is catalogued across the NyƒÅya and Jaina
 -- literature as a defect of definition: the circle establishes nothing.
 --
 -- THE THEOREM.  The objection is answered by a criterion, not a
@@ -15,7 +15,7 @@
 -- corpus's own kernel: a mutual pair whose leaning is PRODUCTIVE exists,
 -- and the typechecker is the arbiter of which circles are vicious and
 -- which are generative.  This file exhibits both faces of the resulting
--- notion ‚î the INTERDEPENDENT TYPE ‚î as one checked object:
+-- notion ‚Äî the INTERDEPENDENT TYPE ‚Äî as one checked object:
 --
 --   FACE 1 (neither checks without the other).  Two streams defined in
 --   one mutual block, each the tail of the other.  Delete either
@@ -27,11 +27,11 @@
 --   packaging two observables, a named blind pair for each, and joint
 --   faithfulness.  Inhabited at the smallest complete instance.  Two
 --   theorems fall out of the record generically:
---     ¬ dvitya-payati ‚î in ANY such pair, each sense provably
+--     ¬∑ dvitƒ´ya-pa≈õyati ‚Äî in ANY such pair, each sense provably
 --       separates every blind pair of the other: interdependence forces
 --       complementary vision (the ApurvaIndriyam admission gate, read
 --       from the joint side);
---     ¬ na-ekkin ‚î neither observable can be discarded: a constant
+--     ¬∑ na-ekƒÅkin ‚Äî neither observable can be discarded: a constant
 --       second sense refutes the record.  The property genuinely lives
 --       on the pair and provably not on either projection.
 --
@@ -49,7 +49,7 @@ private
     ‚Ñì ‚Ñì' ‚Ñì'' : Level
 
 ------------------------------------------------------------------------
--- ‡ß ¬ FACE 1 ‚î ‡‡®‡‡Ø‡ã‡®‡‡Ø‡‡‡µ‡®‡Æ‡ : neither checks without the other
+-- ‡•ß ¬∑ FACE 1 ‚Äî ‡§Ö‡§®‡•ç‡§Ø‡•ã‡§®‡•ç‡§Ø‡§ú‡•Ä‡§µ‡§®‡§Æ‡•ç : neither checks without the other
 ------------------------------------------------------------------------
 
 record DhƒÅrƒÅ (A : Type‚ÇÄ) : Type‚ÇÄ where
@@ -73,7 +73,7 @@ mutual
   ≈õiras ajina = false
   ≈õe·π£am ajina = jina
 
--- The two are distinct ‚î the circle did not collapse its members.
+-- The two are distinct ‚Äî the circle did not collapse its members.
 jina‚â¢ajina : jina ‚â° ajina ‚Üí ‚ä•
 jina‚â¢ajina p = true‚â¢false (cong ≈õiras p)
 
@@ -87,7 +87,7 @@ dvicakram' : ≈õe·π£am (≈õe·π£am ajina) ‚â° ajina
 dvicakram' = refl
 
 ------------------------------------------------------------------------
--- ‡® ¬ FACE 2 ‚î ‡Ø‡‡ó‡‡Æ‡¶‡‡‡‡ü‡ø‡ : neither has the property, together they do
+-- ‡•® ¬∑ FACE 2 ‚Äî ‡§Ø‡•Å‡§ó‡•ç‡§Æ‡§¶‡•É‡§∑‡•ç‡§ü‡§ø‡§É : neither has the property, together they do
 --
 -- The record IS the interdependent type: two senses, a named blindness
 -- for each (the two states, their distinctness, and the identification
@@ -104,8 +104,8 @@ record ParasparƒÅ≈õraya (X : Type ‚Ñì) (O‚ÇÅ : Type ‚Ñì') (O‚ÇÇ : Type ‚Ñì'')
     yugma  : (x y : X) ‚Üí d·πõ≈õ‚ÇÅ x ‚â° d·πõ≈õ‚ÇÅ y ‚Üí d·πõ≈õ‚ÇÇ x ‚â° d·πõ≈õ‚ÇÇ y ‚Üí x ‚â° y
 
   -- Interdependence forces complementary vision: each sense separates
-  -- every blind pair of the other.  This is generic ‚î no instance data
-  -- is used ‚î so it is a law of the notion, not of an example.
+  -- every blind pair of the other.  This is generic ‚Äî no instance data
+  -- is used ‚Äî so it is a law of the notion, not of an example.
   dvitƒ´ya-pa≈õyati : (x y : X) ‚Üí (x ‚â° y ‚Üí ‚ä•)
                   ‚Üí d·πõ≈õ‚ÇÅ x ‚â° d·πõ≈õ‚ÇÅ y
                   ‚Üí d·πõ≈õ‚ÇÇ x ‚â° d·πõ≈õ‚ÇÇ y ‚Üí ‚ä•
@@ -134,11 +134,11 @@ record ParasparƒÅ≈õraya (X : Type ‚Ñì) (O‚ÇÅ : Type ‚Ñì') (O‚ÇÇ : Type ‚Ñì'')
                (snd (snd (snd andha‚ÇÇ))))
 
 ------------------------------------------------------------------------
--- ‡© ¬ The smallest complete instance, inhabited.
+-- ‡•© ¬∑ The smallest complete instance, inhabited.
 --
--- X = Bool ó Bool, the senses are the two projections.  Each is blind
+-- X = Bool √ó Bool, the senses are the two projections.  Each is blind
 -- at a named pair (the blindness is refl; the distinctness is a
--- refutation through the OTHER coordinate ‚î face 2's content in
+-- refutation through the OTHER coordinate ‚Äî face 2's content in
 -- miniature), and the joint reading is faithful by the pair path.
 ------------------------------------------------------------------------
 

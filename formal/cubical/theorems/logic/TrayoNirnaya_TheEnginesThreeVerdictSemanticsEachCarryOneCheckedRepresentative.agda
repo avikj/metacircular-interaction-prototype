@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡∞‡Ø‡ã ‡®‡ø‡∞‡‡‡Ø‡æ‡, ‡® ‡¶‡‡µ‡ ‚î three verdicts, never two.
+-- ‡‡‡∞‡Ø‡ã ‡®‡ø‡∞‡‡‡Ø‡æ‡, ‡® ‡¶‡‡µ‡ ‚Äî three verdicts, never two.
 --
 -- machinery/crystal/models.py gives the engine's three verdict classes
 -- their semantic readings:
@@ -11,13 +11,13 @@
 --   STRICTLY_WEAKER  some model of T fails S, and nontrivial joint
 --                    models exist
 --
--- and checks them by finite enumeration at domain sizes 2 and 3 ‚î
+-- and checks them by finite enumeration at domain sizes 2 and 3 ‚Äî
 -- testimony. This module gives each class one KERNEL-CHECKED
--- representative, so the verdict lattice itself ‚î not just one verdict
--- ‚î has a foothold in the corpus:
+-- representative, so the verdict lattice itself ‚Äî not just one verdict
+-- ‚Äî has a foothold in the corpus:
 --
 --   SUCCEEDED        the left-zero law proves associativity outright:
---                    left-zero ‚ü semigroup, for every carrier.
+--                    left-zero ‚üπ semigroup, for every carrier.
 --   IMPOSSIBLE       imported: Aikya's collapse (left-zero + right-zero
 --                    forces isProp).
 --   STRICTLY_WEAKER  semigroup is strictly weaker than commutative
@@ -45,8 +45,8 @@ private
     ‚Ñì : Level
 
 ------------------------------------------------------------------------
--- SUCCEEDED ¬ the left-zero law proves associativity, no carrier
--- hypotheses.  (The engine issued SUCCEEDED for left-zero ‚í semigroup;
+-- SUCCEEDED ¬∑ the left-zero law proves associativity, no carrier
+-- hypotheses.  (The engine issued SUCCEEDED for left-zero ‚Üí semigroup;
 -- its completion-based proof is now this term.)
 
 module _ {A : Type ‚Ñì} (_¬∑_ : A ‚Üí A ‚Üí A)
@@ -57,7 +57,7 @@ module _ {A : Type ‚Ñì} (_¬∑_ : A ‚Üí A ‚Üí A)
     left-zero (x ¬∑ y) z ‚àô left-zero x y ‚àô sym (left-zero x (y ¬∑ z))
 
 ------------------------------------------------------------------------
--- STRICTLY_WEAKER ¬ semigroup does not prove commutativity: the
+-- STRICTLY_WEAKER ¬∑ semigroup does not prove commutativity: the
 -- left-zero operation on Bool is associative (by the theorem above)
 -- and provably not commutative.  This is the separating model the
 -- engine's finite search exhibited at size 2, now as a term.
@@ -75,5 +75,5 @@ x ‚óÅ‚óÅ y = x
 ‚óÅ‚óÅ-not-comm comm = true‚â¢false (comm true false)
 
 ------------------------------------------------------------------------
--- IMPOSSIBLE ¬ re-exported from Aikya above: collapse, jointZero‚íisProp,
+-- IMPOSSIBLE ¬∑ re-exported from Aikya above: collapse, jointZero‚ÜíisProp,
 -- noJointZeroOnBool.  Three classes, three inhabitants, no fourth road.

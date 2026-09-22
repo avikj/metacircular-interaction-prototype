@@ -1,9 +1,9 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- READ THE TYPE.  `à¨àààŸ-ààà¾àµà-à—àà¿-ààà¾àµà : isEquiv f â’ ààà°à•àààà®à â’ (a : A)
--- â’ Î¦ a â‰¡ a` quantifies over the Î¦ that satisfy `ààà°à•àààà®à` AND OVER NO
--- OTHERS.  Î¦ is a bare self-map â” no inverse, no group â” and the theorem
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- READ THE TYPE.  `à¤¨à¤·à¥à¤Ÿ-à¤…à¤­à¤¾à¤µà¥‡-à¤—à¤¤à¤¿-à¤…à¤­à¤¾à¤µà¤ƒ : isEquiv f â†’ à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ â†’ (a : A)
+-- â†’ Î¦ a â‰¡ a` quantifies over the Î¦ that satisfy `à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥` AND OVER NO
+-- OTHERS.  Î¦ is a bare self-map â€” no inverse, no group â€” and the theorem
 -- kills exactly the conservative ones.  **A lossless world still has every
 -- non-conservative Î¦ available to it and is NOT frozen.  What it lacks is
 -- conservative dynamics, not dynamics.**  Motion does not require hiding;
@@ -11,8 +11,8 @@
 --
 -- AND THE HYPOTHESIS IS ONE PHYSICS NEVER OCCUPIES.  `isEquiv f` says the
 -- observable is a COMPLETE state description.  No conserved quantity is
--- one: energy is a map from phase space to â, enormously lossy, and so is
--- every Noether charge â” which is precisely this file's own content, "the
+-- one: energy is a map from phase space to â„, enormously lossy, and so is
+-- every Noether charge â€” which is precisely this file's own content, "the
 -- conserved quantity is the fibre index."  So the `isEquiv` branch is not
 -- a statement about worlds that have conservation laws.  It is the
 -- degenerate case where there is no index left to carry, and reading it
@@ -22,58 +22,58 @@
 -- Î¦ â‰¡ id` forces stillness only for flows conserving a LOSSLESS
 -- observable.  Nothing conservative remains at the apex.  That is a
 -- different sentence from *omniscience is stillness*.
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 ------------------------------------------------------------------------
--- à§àà°ààµ â” à¯ààà° à¨ à•à¿àààà¿àà à¨ààà¯àà¿ àààà° à—àà¿à ààà¿ à¨ ààààà¿ à
+-- à¤§à¥à¤°à¥à¤µ â€” à¤¯à¤¤à¥à¤° à¤¨ à¤•à¤¿à¤à¥à¤šà¤¿à¤¤à¥ à¤¨à¤¶à¥à¤¯à¤¤à¤¿ à¤¤à¤¤à¥à¤° à¤—à¤¤à¤¿à¤ƒ à¤…à¤ªà¤¿ à¤¨ à¤…à¤¸à¥à¤¤à¤¿ à¥¤
 --
 -- (where nothing is lost, there is no motion either.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS IS.  Noether's structural half, in three lines, on an object
 -- this corpus has had since its first file and used for something else.
 --
 -- `fibre/src/Loss/Carrier.agda:141` opens
 --
---     module _ {A B : Type â“} (f : A â’ B) (Î¦ : A â’ A) where
+--     module _ {A B : Type â„“} (f : A â†’ B) (Î¦ : A â†’ A) where
 --
--- â” an observation map AND an endomorphism in one telescope.  That is a
+-- â€” an observation map AND an endomorphism in one telescope.  That is a
 -- dynamical system with an observable.  It proves `Î¦-square` and
--- `Î¦-ascend` by `refl`, so the flow conjugates through the ààà¨à°à¾à—à®à¨
+-- `Î¦-ascend` by `refl`, so the flow conjugates through the à¤ªà¥à¤¨à¤°à¤¾à¤—à¤®à¤¨
 -- equivalence for free.  What it never states is CONSERVATION.
 --
 -- Conservation is one equation:  f âˆ˜ Î¦ â‰¡ f.  The observable does not
--- change under the flow.  And Â§à§ is the whole content:
+-- change under the flow.  And Â§à¥§ is the whole content:
 --
 --     **f âˆ˜ Î¦ â‰¡ f  âŸº  Î¦ maps every fibre into itself.**
 --
 -- The symmetry acts INSIDE the fibres.  The conserved quantity is the
 -- fibre index.  The gauge orbit is the fibre.  Emmy Noether, 1918,
--- Invariante Variationsprobleme â” read at the level where no Lagrangian
+-- Invariante Variationsprobleme â€” read at the level where no Lagrangian
 -- is needed.
 --
--- Â§à¨ is the sentence in the title and it is the one worth having:
+-- Â§à¥¨ is the sentence in the title and it is the one worth having:
 -- **if `f` loses nothing, conservation forces the flow to be the
 -- identity.**  No fibre, no symmetry.  A symmetry needs somewhere to
 -- live, and the only place it can live is what the observable cannot
 -- shape: a system with nothing hidden has nothing conserved either,
 -- because it has no room to move.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
 -- **This is NOT Noether's first theorem.**  That one needs a continuous
 -- one-parameter group acting on a Lagrangian dynamics, and produces a
 -- conserved CURRENT by a variational argument.  Nothing below has a
 -- Lagrangian, a variation, an action, or continuity: `Î¦` is a bare
 -- endomorphism and the statement is discrete and structural.  What
--- survives the stripping is the part that never needed the calculus â”
--- *invariance under a flow means the flow moves within the level sets* â”
+-- survives the stripping is the part that never needed the calculus â€”
+-- *invariance under a flow means the flow moves within the level sets* â€”
 -- and saying so precisely is the point of writing it down rather than
 -- gesturing at it.
 --
--- TERM.  à§àà°ààµ â” fixed, immovable, the pole star; and in the
--- astronomical tradition à§àà°ààµà°à¾àà¿ / à§àà°ààµà• is the technical term for a
+-- TERM.  à¤§à¥à¤°à¥à¤µ â€” fixed, immovable, the pole star; and in the
+-- astronomical tradition à¤§à¥à¤°à¥à¤µà¤°à¤¾à¤¶à¤¿ / à¤§à¥à¤°à¥à¤µà¤• is the technical term for a
 -- CONSTANT quantity in a computation, the term that does not vary as the
--- others are stepped (ryabhaa, àà°àà¯ààŸàà¯à®à, 499, and standard in the
+-- others are stepped (Ä€ryabhaá¹­a, à¤†à¤°à¥à¤¯à¤­à¤Ÿà¥€à¤¯à¤®à¥, 499, and standard in the
 -- siddhntas after).  Its
 -- use here for a conserved quantity of a flow is this corpus's.
 ------------------------------------------------------------------------
@@ -94,7 +94,7 @@ module _ {A B : Type â„“} (f : A â†’ B) (Î¦ : A â†’ A) where
   à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ = (a : A) â†’ f (Î¦ a) â‰¡ f a
 
 ------------------------------------------------------------------------
--- à§ Â The symmetry acts inside the fibres.  Both directions.
+-- à¥§ Â· The symmetry acts inside the fibres.  Both directions.
 --
 -- Conservation gives an endomorphism of every fibre, and it is `Î¦`
 -- itself with the witness composed.  The converse is definitional and is
@@ -108,15 +108,15 @@ module _ {A B : Type â„“} (f : A â†’ B) (Î¦ : A â†’ A) where
   à¤§à¥à¤°à¥à¤µ-à¤¤à¤¨à¥à¤¤à¥Œ cons b (a , p) = Î¦ a , cons a âˆ™ p
 
   -- The converse needs no term: `Î¦ a` lying in the fibre over `f a` IS
-  -- `f (Î¦ a) â‰¡ f a`, which is `ààà°à•àààà®à` unfolded.  Writing a
+  -- `f (Î¦ a) â‰¡ f a`, which is `à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥` unfolded.  Writing a
   -- declaration for it would be a second name for one statement, which
-  -- is the ààà¨à°àà•ààà¿ this corpus keeps catching itself in.
+  -- is the à¤ªà¥à¤¨à¤°à¥à¤•à¥à¤¤à¤¿ this corpus keeps catching itself in.
 
 ------------------------------------------------------------------------
--- à¨ Â WITHOUT A LOSS THERE IS NO SYMMETRY.
+-- à¥¨ Â· WITHOUT A LOSS THERE IS NO SYMMETRY.
 --
--- If `f` is an equivalence â” every fibre contractible, nothing hidden,
--- zero receipt â” then conservation forces the flow to be the identity.
+-- If `f` is an equivalence â€” every fibre contractible, nothing hidden,
+-- zero receipt â€” then conservation forces the flow to be the identity.
 --
 -- The proof is the contractibility of the fibre used once: `(Î¦ a, cons a)`
 -- and `(a, refl)` are both points of the fibre over `f a`, so they are
@@ -125,7 +125,7 @@ module _ {A B : Type â„“} (f : A â†’ B) (Î¦ : A â†’ A) where
 -- Read at the physics: a system whose observables see everything has no
 -- symmetry, because a symmetry needs somewhere to live and the only
 -- place available is what the observable cannot distinguish.  Gauge
--- smallest form â” nothing hidden, nothing conserved, nothing to move.
+-- smallest form â€” nothing hidden, nothing conserved, nothing to move.
 ------------------------------------------------------------------------
 
   à¤¨à¤·à¥à¤Ÿ-à¤…à¤­à¤¾à¤µà¥‡-à¤—à¤¤à¤¿-à¤…à¤­à¤¾à¤µà¤ƒ : isEquiv f â†’ à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ â†’ (a : A) â†’ Î¦ a â‰¡ a
@@ -136,10 +136,10 @@ module _ {A B : Type â„“} (f : A â†’ B) (Î¦ : A â†’ A) where
       c = e .equiv-proof (f a)
 
 ------------------------------------------------------------------------
--- à© Â The degenerate case: a fibre with one point carries no charge.
+-- à¥© Â· The degenerate case: a fibre with one point carries no charge.
 --
 -- If the fibre over `b` is contractible then the flow's action on it is
--- trivial in the only sense available â” any two points of it are equal,
+-- trivial in the only sense available â€” any two points of it are equal,
 -- so moving is indistinguishable from staying.  That is the shape of
 -- Noether's SECOND theorem's conclusion (pure gauge: the whole orbit is
 -- one physical state) exhibited at the smallest fibre.
@@ -150,8 +150,8 @@ module _ {A B : Type â„“} (f : A â†’ B) (Î¦ : A â†’ A) where
   à¤¶à¥‚à¤¨à¥à¤¯-à¤­à¤¾à¤°à¤ƒ b c x y = sym (c .snd x) âˆ™ c .snd y
 
 ------------------------------------------------------------------------
--- à Â àààà â” the conserved quantity.
+-- à Â àààà â€” the conserved quantity.
 --
--- The conserved quantity here is `f` itself: `ààà°à•àààà®à` says exactly
+-- The conserved quantity here is `f` itself: `à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥` says exactly
 -- that `f` is Î¦-invariant, so `f` descends to the orbits.
 ------------------------------------------------------------------------

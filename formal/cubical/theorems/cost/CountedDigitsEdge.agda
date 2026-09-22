@@ -13,7 +13,7 @@
 --
 --
 -- §1-§2  THE COUNTER IS THE COMPUTATION.  `sucwR` is the odometer with
---        the carry count carried in the SAME recursion � the discipline
+--        the carry count carried in the SAME recursion — the discipline
 --        of `TransportDiv.run-is-the-automaton`.  Nothing is
 --        counted that is not executed:
 --
@@ -28,7 +28,7 @@
 --        not a fitted number and not a stipulated one; it is determined by
 --        the digit sum, which the odometer moves by an exact amount:
 --
---          digitSum (fst (sucwR w)) + snd (sucwR w) � (b−1)
+--          digitSum (fst (sucwR w)) + snd (sucwR w) · (b−1)
 --            ≡ digitSum w + b
 --
 --        Read: a tick that propagates c carries destroys c−1 maximal
@@ -38,16 +38,16 @@
 --
 -- §5     THE EXECUTION LAW, EXACT.  Telescoped over a whole run from zero:
 --
---          digitSum (digits n) + snd (runR n) � (b−1) ≡ n � b
+--          digitSum (digits n) + snd (runR n) · (b−1) ≡ n · b
 --
 --        so the total native carry work C(n) of the first n increments
---        satisfies (b−1)�C(n) + digitSum (digits n) = n�b EXACTLY, with no
+--        satisfies (b−1)·C(n) + digitSum (digits n) = n·b EXACTLY, with no
 --        error term to hide and no scale at which the constant changes.
 --        Corollaries: n � C(n) and (b−1)�C(n) � n�b.
 --
 -- §6     THE LANE'S DECLARED COST.  `AcceptanceTest.cost` prices
 --        a tick at 1.  §5 says that price is a LOWER bound that is never
---        off by more than the factor b/(b−1) � an exact constant, derived.
+--        off by more than the factor b/(b−1) — an exact constant, derived.
 --        So the declared cost is sound, and it is a theorem
 --        rather than a convention.
 --
@@ -69,26 +69,26 @@
 --
 -- §9     A NEGATIVE FINDING ABOUT THE COST GEOMETRY, and it is why this
 --        module does not instantiate `CostGeometry.Edge`.  `Edge` holds
---        `cost : Cost` � ONE natural number per edge � and `Work` is a
+--        `cost : Cost` — ONE natural number per edge — and `Work` is a
 --        single natural too.  The native carry cost is a
 --        FUNCTION of the state: `no-native-cost-is-constant` proves the
 --        odometer's carry cost is 1 at `[]` and 2 at the one-digit maximal
 --        word, so
 --
 --          no-edge-carries-native-cost :
---            � �[ e ∈ Edge odometer odometer ]
---                ((w : Word) � snd (sucwR w) ≡ cost e)
+--            ¬ Σ[ e ∈ Edge odometer odometer ]
+--                ((w : Word) → snd (sucwR w) ≡ cost e)
 --
 --        `CostGeometry` is therefore a geometry of costs AT A FIXED INPUT;
 --        it prices translations, and the odometer's carry recursion is not
 --        a translation.  What it does buy is `workAt`: for each word the
 --        `Work` slot may now be filled with a DERIVED number rather than a
 --        stipulated one (`CostGeometryWitness` W2: "the weights are
---        STIPULATED, not measured here"), with `workAt-�-suc-length` as
+--        STIPULATED, not measured here"), with `workAt-≤-suc-length` as
 --        the uniform bound a `Neighbour`'s `work` field wants.
 --
 -- §10    THE COUNTER, RUN.  Eight `refl`s at base ten and base two.  The
---        base parameter therefore sits on the inner `module Base (k : �)`
+--        base parameter therefore sits on the inner `module Base (k : ℕ)`
 --        rather than on this module's header (`CountedDigits` and
 --        `AcceptanceTest` put it on the header; a parameterised module
 --        cannot instantiate itself).  Downstream: `open
@@ -134,7 +134,7 @@ module Base (k : ℕ) where
   ------------------------------------------------------------------------
   -- 0.  The potential function: the digit sum.
   --
-  -- Not a new object � it is `value` with the place weights forgotten, and
+  -- Not a new object — it is `value` with the place weights forgotten, and
   -- it is the only thing about a word the carry recursion moves by a known
   -- amount.
   ------------------------------------------------------------------------
@@ -184,7 +184,7 @@ module Base (k : ℕ) where
   -- goes up by 1 and down by (c − 1)(b − 1), because each carry turns one
   -- maximal digit into a zero.  Rearranged to avoid subtraction:
   --
-  --   digitSum (sucw w) + c � (b−1) ≡ digitSum w + b.
+  --   digitSum (sucw w) + c · (b−1) ≡ digitSum w + b.
   ------------------------------------------------------------------------
 
   private
@@ -331,9 +331,9 @@ module Base (k : ℕ) where
   ------------------------------------------------------------------------
   -- 6.  The lane's declared cost, as two theorems.
   --
-  --   work-lower  n � C(n)          one tick is at least one carry, so the
+  --   work-lower  n ≤ C(n)          one tick is at least one carry, so the
   --                                 declared price never over-charges;
-  --   work-upper  C(n)�(b−1) � n�b  and never under-charges by more than
+  --   work-upper  C(n)·(b−1) ≤ n·b  and never under-charges by more than
   --                                 the factor b/(b−1), exactly.
   ------------------------------------------------------------------------
 
@@ -353,7 +353,7 @@ module Base (k : ℕ) where
         (≤-·k {m = 1} {n = suc k} {k = m} (suc-≤-suc zero-≤))
 
   -- The crude form, for a reader who wants one number: the whole carry
-  -- bill of the first n increments is at most n�b.
+  -- bill of the first n increments is at most n·b.
   work-≤-n·b : (n : ℕ) → snd (runR n) ≤ n · b
   work-≤-n·b n = ≤-trans (m≤m·sk (snd (runR n))) (work-upper n)
 
@@ -366,7 +366,7 @@ module Base (k : ℕ) where
   -- 7.  Native work composes across a checkpoint.
   --
   -- `CountedComposition.run-+` says scheduled ticks concatenate.  These two
-  -- say the CARRIES do � which is what that module's own header claimed the
+  -- say the CARRIES do — which is what that module's own header claimed the
   -- additivity was for ("no ticks are created or destroyed at a
   -- checkpoint").
   ------------------------------------------------------------------------
@@ -476,8 +476,8 @@ module Base (k : ℕ) where
   dmax : Digit
   dmax = suc k , (0 , refl)
 
-  -- It carries.  Proved from `dsuc�`'s certificate, not by computing
-  -- `�-split`: if the maximal digit did not carry, its successor digit
+  -- It carries.  Proved from `dsucΣ`'s certificate, not by computing
+  -- `≤-split`: if the maximal digit did not carry, its successor digit
   -- would have value b, contradicting the `Fin b` bound it comes with.
   dsuc-max-carries : snd (dsuc dmax) ≡ true
   dsuc-max-carries = aux (fst (dsucΣ dmax)) (snd (dsucΣ dmax))
@@ -500,11 +500,11 @@ module Base (k : ℕ) where
       aux (d' , true)  _ = refl
       aux (d' , false) p = Empty.rec (false≢true p)
 
-  -- One tick costs 1 here �
+  -- One tick costs 1 here …
   native-cost-at-nil : snd (sucwR []) ≡ 1
   native-cost-at-nil = refl
 
-  -- � and 2 here.  Two words, two costs, one algorithm.
+  -- … and 2 here.  Two words, two costs, one algorithm.
   native-cost-at-max : snd (sucwR (dmax ∷ [])) ≡ 2
   native-cost-at-max = sucwR-carry-cons dmax [] dsuc-max-carries
 
@@ -552,7 +552,7 @@ module Base (k : ℕ) where
 ------------------------------------------------------------------------
 -- 10.  THE COUNTER, RUN.
 --
--- Exact finite verification � a mathematical object, not a measurement.
+-- Exact finite verification — a mathematical object, not a measurement.
 -- It is in this file rather than in a companion witness file
 -- so that the counter the cost theorem is about is run here.  Every
 -- equation below is `refl`.
@@ -572,7 +572,7 @@ decimal-100-state = refl
 decimal-100-work : snd (Decimal.runR 100) ≡ 111
 decimal-100-work = refl
 
--- and §5's law at that point, both sides computed:  1 + 111�9 = 1000.
+-- and §5's law at that point, both sides computed:  1 + 111·9 = 1000.
 decimal-100-potential : Decimal.digitSum (Decimal.digits 100) ≡ 1
 decimal-100-potential = refl
 

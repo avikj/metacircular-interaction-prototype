@@ -1,13 +1,13 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¨à¾à â” destruction.  THE VISIBLE STEP DESTROYS INFORMATION; THE
+-- à¤¨à¤¾à¤¶ â€” destruction.  THE VISIBLE STEP DESTROYS INFORMATION; THE
 -- COMPLETED STEP CANNOT, BY CONSTRUCTION.
 --
 -- A one-rule machine that erases the scanned stroke sends two distinct
 -- configurations to the same configuration: the collision is computed
 -- (`collision` is refl) and the distinctness is a two-line refutation.
--- So the visible step is not injective â” the machine really does
+-- So the visible step is not injective â€” the machine really does
 -- destroy a bit, and here is the bit.
 --
 -- The completed step cannot do this.  For ANY map, the lossless
@@ -15,7 +15,7 @@
 -- equivalence; instantiated at the eraser, the two colliding
 -- configurations are separated by their kept fibres
 -- (`fibres-separate`).  Irreversibility is real at the level of the
--- projection and impossible at the level of the completion â” which is
+-- projection and impossible at the level of the completion â€” which is
 -- exactly what "the forgotten object is the fibre" means when it is
 -- cashed out on a concrete machine.
 ------------------------------------------------------------------------
@@ -75,6 +75,6 @@ completed-injective f a a' p =
 
 -- Instantiated at the machine: the completed universal step separates
 -- what the visible step collided.  The two configurations differ, so
--- their completed steps must differ â” the kept fibre is the receipt.
+-- their completed steps must differ â€” the kept fibre is the receipt.
 fibres-separate : Â¬ (equivFun (lossless uStep) struck â‰¡ equivFun (lossless uStep) blank)
 fibres-separate p = distinct (completed-injective uStep struck blank p)

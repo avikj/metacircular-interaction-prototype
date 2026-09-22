@@ -1,25 +1,25 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- ������ � the ladder.
+-- सोपान — the ladder.
 --
--- The damping-moment kernels  G_n = � t� e^{−2st} Z(T+t) Z�(U+t) dt
+-- The damping-moment kernels  G_n = ∫ tⁿ e^{−2st} Z(T+t) Z̄(U+t) dt
 -- obey, with  � = 2s − �_T − �_U  and  R = −½�_s,
 --
---     R G_n = G_{n+1},   � G_0 = Z⊗Z�,   � G_n = n G_{n−1},   [�, R] = I,
+--     R G_n = G_{n+1},   ℒ G_0 = Z⊗Z̄,   ℒ G_n = n G_{n−1},   [ℒ, R] = I,
 --
--- hence  ���� G_n = n! Z⊗Z�.  Three finite pieces are checked here:
+-- hence  ℒⁿ⁺¹ G_n = n! Z⊗Z̄.  Three finite pieces are checked here:
 --
---   �  the ladder: for ANY additive � and sequence G with � G� = ZZ and
---      � G_{n+1} = (n+1) G_n,   ���� G_n ≡ n! � ZZ;
---   �  the Weyl pair: for a derivation � (= �_s) with � s = 1 and an
---      additive D (= �_T + �_U) commuting with �,
---         �(��) − �(��) ≡ −2�,     i.e.  [�, −½�] = I,
---      and raising is just � of the damping factor:  �(t�E) = −2 t���E
---      when �E = −2tE, �t = 0;
+--   १  the ladder: for ANY additive ℒ and sequence G with ℒ G₀ = ZZ and
+--      ℒ G_{n+1} = (n+1) G_n,   ℒⁿ⁺¹ G_n ≡ n! · ZZ;
+--   २  the Weyl pair: for a derivation ∂ (= ∂_s) with ∂ s = 1 and an
+--      additive D (= ∂_T + ∂_U) commuting with ∂,
+--         ℒ(∂φ) − ∂(ℒφ) ≡ −2φ,     i.e.  [ℒ, −½∂] = I,
+--      and raising is just ∂ of the damping factor:  ∂(tⁿE) = −2 tⁿ⁺¹E
+--      when ∂E = −2tE, ∂t = 0;
 --   �  the lossless oscillator: with  a� = iγ a + f  written in
---      real coordinates  p� = −γq + f�,  q� = γp + f�,
---         �(p² + q²) ≡ 2 (p f� + q f�),
---      i.e. the stored energy changes exactly by the supplied work Re(f� a).
+--      real coordinates  p′ = −γq + f₁,  q′ = γp + f₂,
+--         ∂(p² + q²) ≡ 2 (p f₁ + q f₂),
+--      i.e. the stored energy changes exactly by the supplied work Re(f̄ a).
 ------------------------------------------------------------------------
 module Sopana_TheDampingMomentLadderIsAWeylPairSoTheLoweringOperatorAppliedNPlusOneTimesToTheNthMomentIsNFactorialTimesTheSourceSquareAndTheLosslessOscillatorStoresExactlyTheSuppliedWork where
 
@@ -62,7 +62,7 @@ module _ (R : CommRing ℓ) where
     scale-· (suc m) n x = scale-+ n (m ·ℕ n) x ∙ cong (scale n x +_) (scale-· m n x)
 
   ----------------------------------------------------------------
-  -- � � THE LADDER
+  -- १ · THE LADDER
   ----------------------------------------------------------------
   module Ladder (ℒ : A → A) (ℒ-add : (x y : A) → ℒ (x + y) ≡ ℒ x + ℒ y)
                 (G : ℕ → A) (ZZ : A)
@@ -70,7 +70,7 @@ module _ (R : CommRing ℓ) where
                 (step : (n : ℕ) → ℒ (G (suc n)) ≡ scale (suc n) (G n))
                 where
 
-    -- iterate, applying � innermost first
+    -- iterate, applying ℒ innermost first
     ℒ^ : ℕ → A → A
     ℒ^ zero    x = x
     ℒ^ (suc n) x = ℒ^ n (ℒ x)
@@ -109,7 +109,7 @@ module _ (R : CommRing ℓ) where
     _ = ladder 2
 
   ----------------------------------------------------------------
-  -- � � THE WEYL PAIR
+  -- २ · THE WEYL PAIR
   ----------------------------------------------------------------
   module _ (∂ : A → A)
            (∂-add  : (x y : A) → ∂ (x + y) ≡ ∂ x + ∂ y)
@@ -153,11 +153,11 @@ module _ (R : CommRing ℓ) where
              (D∂ : (x : A) → D (∂ x) ≡ ∂ (D x))
              where
 
-      -- � = 2s − D
+      -- ℒ = 2s − D
       ℒ : A → A
       ℒ φ = ι 2 · (s · φ) + (- (D φ))
 
-      -- [�, �] = −2,  i.e.  [�, −½�] = 1
+      -- [ℒ, ∂] = −2,  i.e.  [ℒ, −½∂] = 1
       weyl : (φ : A) → ℒ (∂ φ) + (- (∂ (ℒ φ))) ≡ - (ι 2 · φ)
       weyl φ =
           cong (λ u → ℒ (∂ φ) + (- u)) ∂ℒ
@@ -172,7 +172,7 @@ module _ (R : CommRing ℓ) where
             → ((1r + (1r + 0r)) · (s · φ') + (- w)) + (- ((1r + (1r + 0r)) · (1r · φ + s · φ') + (- w))) ≡ - ((1r + (1r + 0r)) · φ)
           shape φ φ' w = solve! R
 
-    -- raising:  � of the damping factor,  �E = −2tE, �t = 0
+    -- raising:  ∂ of the damping factor,  ∂E = −2tE, ∂t = 0
     module _ (t E : A) (∂t : ∂ t ≡ 0r) (∂E : ∂ E ≡ - (ι 2 · (t · E))) where
 
       pow : A → ℕ → A
@@ -198,7 +198,7 @@ module _ (R : CommRing ℓ) where
           shape P = solve! R
 
     ----------------------------------------------------------------
-    -- � � THE LOSSLESS OSCILLATOR STORES EXACTLY THE SUPPLIED WORK
+    -- ३ · THE LOSSLESS OSCILLATOR STORES EXACTLY THE SUPPLIED WORK
     ----------------------------------------------------------------
     module _ (γ p q f₁ f₂ : A)
              (p′ : ∂ p ≡ (- (γ · q)) + f₁)

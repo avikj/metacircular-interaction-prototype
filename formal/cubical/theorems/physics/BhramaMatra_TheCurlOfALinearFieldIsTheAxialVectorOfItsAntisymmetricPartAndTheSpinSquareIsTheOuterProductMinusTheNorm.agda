@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ����-����� � the measure of turning.
+-- भ्रम-मात्र — the measure of turning.
 --
 -- THE CURL OF A LINEAR FIELD IS THE AXIAL VECTOR OF ITS ANTISYMMETRIC
 -- PART, AND IT VANISHES EXACTLY WHEN THE FIELD IS SYMMETRIC.  AND THE
@@ -22,21 +22,21 @@
 --       vector of the antisymmetric part, is therefore the curl of that
 --       field in the only sense the statement requires.
 --
---   §2  A SYMMETRIC MATRIX HAS VANISHING CURL � which is the missing
+--   §2  A SYMMETRIC MATRIX HAS VANISHING CURL — which is the missing
 --       half of `SahagunaVaha`: for a symmetric affine field the
 --       left-hand side of the production identity is zero, and that
 --       module already shows its right-hand side is too.
 --
 --   §3  AND CONVERSELY: vanishing curl forces symmetry, entry by entry.
 --       So `curlOf` is not merely blind to the symmetric part, it sees
---       the antisymmetric part faithfully � the fibre of `curlOf` over
+--       the antisymmetric part faithfully — the fibre of `curlOf` over
 --       zero is exactly the symmetric matrices.
 --
 --   §4  THE SPIN SQUARE.  For every w and x,
 --
---         w � (w � x)  ≡  (x � w) w  -  (w � w) x ,
+--         w × (w × x)  ≡  (x · w) w  -  (w · w) x ,
 --
---       which is the operator identity  [w]²  ≡  w⊗w - (w�w)�I  applied
+--       which is the operator identity  [w]²  ≡  w⊗w - (w·w)·I  applied
 --       to a vector.  It falls out of `TiryakChihna`'s double cross
 --       product and the anticommutativity of the cross product, and
 --       needs neither.
@@ -46,7 +46,7 @@
 --       which any trace-free projection deletes.  So the antisymmetric
 --       part of a velocity gradient contributes to a trace-free strain
 --       law only through the outer product of the vorticity with itself
---       � the `(w�w)` term never survives.
+--       — the `(w�w)` term never survives.
 --
 -- §§1�4 over any commutative ring, for every
 -- matrix presented by three columns and every pair of vectors.
@@ -105,7 +105,7 @@ module _ (R : CommRing ℓ) where
   apply = SV.apply R
 
   ------------------------------------------------------------------
-  -- � � A LINEAR FIELD IS ITS OWN DIFFERENCE QUOTIENT.
+  -- १ · A LINEAR FIELD IS ITS OWN DIFFERENCE QUOTIENT.
   --
   --     No derivative is defined anywhere; this exact identity is what
   --     makes the matrix the Jacobian at every point.
@@ -118,7 +118,7 @@ module _ (R : CommRing ℓ) where
     TC.vecPath R (solve! R) (solve! R) (solve! R)
 
   ------------------------------------------------------------------
-  -- � � The axial vector of the antisymmetric part, and symmetry.
+  -- ० · The axial vector of the antisymmetric part, and symmetry.
   ------------------------------------------------------------------
 
   curlOf : V → V → V → V
@@ -132,7 +132,7 @@ module _ (R : CommRing ℓ) where
       (y₂ c₁ ≡ y₁ c₂) × ((y₃ c₁ ≡ y₁ c₃) × (y₃ c₂ ≡ y₂ c₃))
 
   ------------------------------------------------------------------
-  -- � � A SYMMETRIC MATRIX HAS VANISHING CURL.
+  -- २ · A SYMMETRIC MATRIX HAS VANISHING CURL.
   ------------------------------------------------------------------
 
   symmetric→no-curl : (c₁ c₂ c₃ : V)
@@ -144,7 +144,7 @@ module _ (R : CommRing ℓ) where
       (cong (_+ (- (y₁ c₂))) s₁ ∙ +InvR (y₁ c₂))
 
   ------------------------------------------------------------------
-  -- � � AND CONVERSELY: vanishing curl forces symmetry.
+  -- ३ · AND CONVERSELY: vanishing curl forces symmetry.
   ------------------------------------------------------------------
 
   private
@@ -162,7 +162,7 @@ module _ (R : CommRing ℓ) where
       , fromDiff (y₃ c₂) (y₂ c₃) (cong y₁ p) )
 
   ------------------------------------------------------------------
-  -- � � THE SPIN SQUARE IS THE OUTER PRODUCT MINUS THE NORM.
+  -- ४ · THE SPIN SQUARE IS THE OUTER PRODUCT MINUS THE NORM.
   ------------------------------------------------------------------
 
   cross-anticommutes : (X Y : V) → X ×v Y ≡ -v (Y ×v X)
@@ -176,11 +176,11 @@ module _ (R : CommRing ℓ) where
     ∙ TC.neg-swap R ((w ·v w) *v x) ((x ·v w) *v w)
 
   ------------------------------------------------------------------
-  -- � � THE COROLLARY FOR `SahagunaVaha`.  Its production identity's
+  -- ५ · THE COROLLARY FOR `SahagunaVaha`.  Its production identity's
   --     right-hand side vanishes on every affine field; §2 says the
   --     left-hand side vanishes on the symmetric ones, so on a
   --     symmetric affine field BOTH sides are zero and the cancellation
-  --     is not merely between two nonzero terms � it is the whole
+  --     is not merely between two nonzero terms — it is the whole
   --     equation.
   ------------------------------------------------------------------
 

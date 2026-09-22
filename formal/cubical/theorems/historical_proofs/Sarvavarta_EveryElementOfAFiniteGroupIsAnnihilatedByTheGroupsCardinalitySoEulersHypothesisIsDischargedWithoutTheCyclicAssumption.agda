@@ -1,48 +1,48 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àà°ààµà¾àµà°ààà â” every element of a finite group is annihilated by the
+-- à¤¸à¤°à¥à¤µà¤¾à¤µà¤°à¥à¤¤à¤ƒ â€” every element of a finite group is annihilated by the
 -- group's own cardinality: Euler's theorem for a GENERAL finite group,
 -- so the hypothesis that RSA isolates to is discharged without the
 -- cyclic assumption.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- `Avarta_TheGeneratorsOrderAnnihilatesEveryPowerSoEulersHypothesisIs
--- DischargedOnACyclicGroup.agda` proves `à¯àà²à°-àà¿à¦àà§à¿à` for a group GIVEN
+-- DischargedOnACyclicGroup.agda` proves `à¤¯à¥‚à¤²à¤°-à¤¸à¤¿à¤¦à¥à¤§à¤¿à¤ƒ` for a group GIVEN
 -- as cyclic.
 -- Lagrange is in this corpus: `theorems/unplaced/
 -- SubgroupIndex.agda` proves, for a group `G` with `finG : isFinSet âŸ¨ G âŸ©`
 -- and a subgroup `H` with decidable membership,
 --
---     lagrange : card FG â‰¡ index Ââ• order        (order = card of H).
+--     lagrange : card FG â‰¡ index Â·â„• order        (order = card of H).
 --
 -- This file supplies the two things SubgroupIndex does not have and
--- Avarta's theorem needs â” the cyclic subgroup of an element, and the
--- count of its elements â” and then reads Euler's theorem off Lagrange.
+-- Avarta's theorem needs â€” the cyclic subgroup of an element, and the
+-- count of its elements â€” and then reads Euler's theorem off Lagrange.
 --
--- WHAT IS PROVED.  For every group `G : Group â“` (the library's
+-- WHAT IS PROVED.  For every group `G : Group â„“` (the library's
 -- `Cubical.Algebra.Group`), every `finG : isFinSet âŸ¨ G âŸ©`, and every
 -- element `a : âŸ¨ G âŸ©`, writing `a ^ n` for the n-fold product:
 --
---   Â§1  `Least`      for a decidable proposition-valued `P : â• â’ Type`,
+--   Â§1  `Least`      for a decidable proposition-valued `P : â„• â†’ Type`,
 --                    a least witness from any witness, and a decision of
---                    `Î k < n, P k` by bounded search;
---   Â§2  `Powers`     `a ^ (m + n) â‰¡ a ^ m Â a ^ n`, `a ^ (m Ââ• n) â‰¡ (a ^ m) ^ n`,
+--                    `Î£ k < n, P k` by bounded search;
+--   Â§2  `Powers`     `a ^ (m + n) â‰¡ a ^ m Â· a ^ n`, `a ^ (m Â·â„• n) â‰¡ (a ^ m) ^ n`,
 --                    `1g ^ n â‰¡ 1g`, right-absorption cancels to `1g`;
---   Â§3  `hasOrder`   two of the powers aâ° â¦ a^|G| coincide (the library's
---                    `pigeonhole` through the equivalence `âŸ¨ G âŸ© â‰ Fin |G|`),
+--   Â§3  `hasOrder`   two of the powers aâ° â€¦ a^|G| coincide (the library's
+--                    `pigeonhole` through the equivalence `âŸ¨ G âŸ© â‰ƒ Fin |G|`),
 --                    so some d > 0 has `a ^ d â‰¡ 1g`; `e` is the LEAST such;
---   Â§4  `cycSub`     the cyclic subgroup { x | âˆ k, a ^ k â‰¡ x } is a
+--   Â§4  `cycSub`     the cyclic subgroup { x | âˆƒ k, a ^ k â‰¡ x } is a
 --                    `Subgroup G` with decidable membership (search k < e);
 --   Â§5  `cycIso`     its carrier is in bijection with `Fin e`, so
 --                    `cardCyc : order â‰¡ e` for SubgroupIndex's `order`;
 --   Â§6  `euler`      `a ^ card (âŸ¨ G âŸ© , finG) â‰¡ 1g`,
---                    `orderDivides : e âˆ card (âŸ¨ G âŸ© , finG)`;
+--                    `orderDivides : e âˆ£ card (âŸ¨ G âŸ© , finG)`;
 --   Â§7  `Abelian`    on a finite ABELIAN group the same theorem in the
---                    `à˜à¾à` vocabulary of Bijamula/Avarta, and hence RSA
---                    correctness (`àààà®àà²-àà¿à¦àà§à¿`) with NO Euler hypothesis
+--                    `à¤˜à¤¾à¤¤` vocabulary of Bijamula/Avarta, and hence RSA
+--                    correctness (`à¤¬à¥€à¤œà¤®à¥‚à¤²-à¤¸à¤¿à¤¦à¥à¤§à¤¿`) with NO Euler hypothesis
 --                    and no cyclic hypothesis: only the pulverizer's
---                    witness `e Ââ• d â‰¡ |G| Ââ• k + 1` remains.
+--                    witness `e Â·â„• d â‰¡ |G| Â·â„• k + 1` remains.
 --
 -- The route is the classical one.  (i) In a finite set the powers of `a`
 -- cannot all be distinct, so `a` has a finite order `e` (least positive
@@ -50,9 +50,9 @@
 -- pairwise distinct (a coincidence would give a smaller positive
 -- exponent) and exhaust the cyclic subgroup (any exponent reduces below
 -- `e` by peeling off `a ^ e â‰¡ 1g`), so the cyclic subgroup has exactly
--- `e` elements.  (iii) Lagrange gives `|G| = index Ââ• e`.  (iv) Then
+-- `e` elements.  (iii) Lagrange gives `|G| = index Â·â„• e`.  (iv) Then
 -- `a ^ |G| â‰¡ (a ^ e) ^ index â‰¡ 1g ^ index â‰¡ 1g`, which is exactly the
--- arithmetic Avarta's `àà¨à•-ààµà°ààà` used, now with `e` supplied by
+-- arithmetic Avarta's `à¤œà¤¨à¤•-à¤†à¤µà¤°à¥à¤¤à¤ƒ` used, now with `e` supplied by
 -- counting rather than assumed of a generator.
 --
 -- Â§7 takes the abelian finite
@@ -61,13 +61,13 @@
 -- exponent and shown equal to the cardinality of the cyclic
 -- subgroup.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- ON THE NAME.  àà°ààµ (all) + ààµà°àà (a turning; the word Avarta chose for
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- ON THE NAME.  à¤¸à¤°à¥à¤µ (all) + à¤†à¤µà¤°à¥à¤¤ (a turning; the word Avarta chose for
 -- a group that comes back to where it started): "every turning", i.e.
 -- every element turns back to the identity.  Ordinary , the
 -- compound is built here, and **NO SOURCE IS CLAIMED FOR IT AS A
 -- TECHNICAL TERM**.  The group theory is Lagrange's and Euler's, not
--- Indian, and is not dressed as Indian; only Â§7's vocabulary (à˜à¾à,
+-- Indian, and is not dressed as Indian; only Â§7's vocabulary (à¤˜à¤¾à¤¤,
 -- Pigala's fold; the kuaka witness, ryabhaa's) is inherited from
 -- the sibling modules, with their citations, second-hand.
 ------------------------------------------------------------------------
@@ -82,7 +82,7 @@ open import Cubical.Foundations.Powerset
 open import Cubical.Foundations.Structure using (âŸ¨_âŸ©)
 
 open import Cubical.Data.Sigma
--- â• multiplication is `_Ââ•_` throughout, the group operation is `_Â_`
+-- â„• multiplication is `_Â·â„•_` throughout, the group operation is `_Â·_`
 -- (the same disambiguation SubgroupIndex uses).
 open import Cubical.Data.Nat hiding (_Â·_ ; _^_)
 open import Cubical.Data.Nat using () renaming (_Â·_ to _Â·â„•_)
@@ -90,8 +90,8 @@ open import Cubical.Data.Nat.Order
 open import Cubical.Data.Nat.Divisibility using (_âˆ£_)
 open import Cubical.Data.Fin using (Fin ; toâ„•-injective ; pigeonhole)
 -- `isFinSet` is phrased with the SUM-built `Fin` of Cubical.Data.SumFin;
--- the pigeonhole is stated for the Î-built `Fin` of Cubical.Data.Fin.
--- `SumFinâ‰Fin` is the library's bridge between the two.
+-- the pigeonhole is stated for the Î£-built `Fin` of Cubical.Data.Fin.
+-- `SumFinâ‰ƒFin` is the library's bridge between the two.
 open import Cubical.Data.SumFin using (SumFinâ‰ƒFin) renaming (Fin to SumFin)
 open import Cubical.Data.Sum using (_âŠ_ ; inl ; inr)
 open import Cubical.Data.Empty as Empty using (âŠ¥ ; isPropâŠ¥)
@@ -116,7 +116,7 @@ private
     â„“ : Level
 
 ------------------------------------------------------------------------
--- Â§1  Least witnesses of a decidable predicate on â•, by bounded search.
+-- Â§1  Least witnesses of a decidable predicate on â„•, by bounded search.
 ------------------------------------------------------------------------
 
 module Least {â„“' : Level} (P : â„• â†’ Type â„“')
@@ -216,7 +216,7 @@ module Powers (G : Group â„“) where
   absorbed x y p = Â·CancelR y (p âˆ™ sym (Â·IdL y))
 
 ------------------------------------------------------------------------
--- Â§3â“Â§6  The order of an element of a finite group, its cyclic
+-- Â§3â€“Â§6  The order of an element of a finite group, its cyclic
 --        subgroup, the count of that subgroup, and Euler's theorem.
 ------------------------------------------------------------------------
 
@@ -268,7 +268,7 @@ module Order (G : Group â„“) (finG : isFinSet âŸ¨ G âŸ©) (a : âŸ¨ G âŸ©) where
     go (eq r)       = Empty.rec (iâ‰¢j r)
     go (gt (t , q)) = suc t , suc-â‰¤-suc zero-â‰¤ , powDiff j t (cong (a ^_) q âˆ™ p)
 
-  -- Â§3  THE PIGEONHOLE: aâ°, â¦, a^|G| are |G|+1 elements of a set of
+  -- Â§3  THE PIGEONHOLE: aâ°, â€¦, a^|G| are |G|+1 elements of a set of
   --     size |G|, so two coincide, so a has a finite order.
   hasOrder : âˆ¥ Î£[ d âˆˆ â„• ] IsOrd d âˆ¥â‚
   hasOrder = PropTrunc.rec isPropPropTrunc
@@ -458,7 +458,7 @@ module Order (G : Group â„“) (finG : isFinSet âŸ¨ G âŸ©) (a : âŸ¨ G âŸ©) where
 
 ------------------------------------------------------------------------
 -- Â§7  On a finite ABELIAN group: the same theorem in Bijamula/Avarta's
---     `à˜à¾à` vocabulary, and RSA correctness with no Euler hypothesis
+--     `à¤˜à¤¾à¤¤` vocabulary, and RSA correctness with no Euler hypothesis
 --     and no cyclic hypothesis.
 ------------------------------------------------------------------------
 

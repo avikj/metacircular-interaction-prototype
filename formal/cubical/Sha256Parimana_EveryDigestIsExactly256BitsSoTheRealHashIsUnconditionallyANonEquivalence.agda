@@ -1,25 +1,25 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Sha256Parimana ‚î every digest is exactly 256 bits, for EVERY message,
+-- Sha256Parimana ‚Äî every digest is exactly 256 bits, for EVERY message,
 -- so the real hash is unconditionally a non-equivalence.
 --
 -- Two routes to non-equivalence of sha256: a length invariant through
 -- the pipeline, or an exhibited collision.  This module walks the first
--- route.  The invariant: every word the pipeline carries has 32 bits ‚î
+-- route.  The invariant: every word the pipeline carries has 32 bits ‚Äî
 -- through addition (a ripple-carry keeps its first argument's length),
 -- through nth (the default zeroW is itself 32 bits, so no bound on the
 -- index is ever needed), through the strictness binder (sW-Œ≤ says it is
 -- invisible), through all 64 rounds, all blocks, and the final flatten.
 --
---   ‡‡∞‡ø‡Æ‡æ‡‡Æ‡   : (m : List Bool) ‚í length (sha256 m) ‚â° 256
---   ‡®-‡‡‡≤‡‡Ø‡‡æ  : ¬ isEquiv sha256
+--   ‡§™‡§∞‡§ø‡§Æ‡§æ‡§£‡§Æ‡•ç   : (m : List Bool) ‚Üí length (sha256 m) ‚â° 256
+--   ‡§®-‡§§‡•Å‡§≤‡•ç‡§Ø‡§§‡§æ  : ¬¨ isEquiv sha256
 --
 -- The second is the first spent once: an equivalence would inhabit the
 -- fibre over the empty digest, whose preimage's digest has 256 ‚â° 0.
 -- With it, Sesa's "a one-way function is exactly a non-equivalence" is
--- instantiated at the real hash UNCONDITIONALLY ‚î no collision needed,
--- none exhibited.  (The fence stands for the sharper fact: ¬ injective
+-- instantiated at the real hash UNCONDITIONALLY ‚Äî no collision needed,
+-- none exhibited.  (The fence stands for the sharper fact: ¬¨ injective
 -- sha256 on any compressing restriction is forced by pigeonhole and
 -- exhibiting it is the open problem.  Non-equivalence needed only the
 -- codomain's slack, and takes it.)
@@ -184,7 +184,7 @@ sha256ws-good m = go (blocks (suc (length (pad m))) (pad m)) H0 H0-good
     go (b ‚à∑ bs) H g = go bs (compress H b) (compress-good H b g)
 
 ------------------------------------------------------------------------
--- ¬ß5  ‡‡∞‡ø‡Æ‡æ‡‡Æ‡ ‚î the digest is exactly 256 bits, for every message.
+-- ¬ß5  ‡§™‡§∞‡§ø‡§Æ‡§æ‡§£‡§Æ‡•ç ‚Äî the digest is exactly 256 bits, for every message.
 ------------------------------------------------------------------------
 
 -- 32 bits per word, spelled as a recursion so 8 words compute to 256
@@ -208,7 +208,7 @@ flat-len (w ‚à∑ ws) acc a =
   ‚àô cong ‡§≠‡§æ‡§∞‡§É (fst (sha256ws-good m))
 
 ------------------------------------------------------------------------
--- ¬ß6  ‡®-‡‡‡≤‡‡Ø‡‡æ ‚î the real hash is unconditionally a non-equivalence.
+-- ¬ß6  ‡§®-‡§§‡•Å‡§≤‡•ç‡§Ø‡§§‡§æ ‚Äî the real hash is unconditionally a non-equivalence.
 --     An equivalence inhabits every fibre; the fibre over the empty
 --     digest would hand over a message whose 256 bits are 0 of them.
 --     Sesa's "one-way ‚ü∫ non-equivalence", landed on SHA-256 with no

@@ -1,20 +1,20 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ���������� � the certified.
+-- प्रामाणिक — the certified.
 --
 -- The Weil positivity oracle reduces positivity on a support length to
 -- the positivity of a FINITE quadratic form, verified numerically.  For
 -- that verification to enter the corpus it must be a term.  This file
--- makes the certificate shape a theorem over �:
+-- makes the certificate shape a theorem over ℚ:
 --
---     A = L � D � L� with every D_k � 0   �   v� A v � 0 for every v,
+--     A = L · D · Lᵀ with every D_k ≥ 0   ⇒   vᵀ A v ≥ 0 for every v,
 --
--- because v� L D L� v = �_k D_k (L�v)_k².  Over � the equation A = L D L�
+-- because vᵀ L D Lᵀ v = Σ_k D_k (Lᵀv)_k².  Over ℚ the equation A = L D Lᵀ
 -- is decidable entry by entry, so a concrete certificate (L, D) is
 -- checked by computation and the theorem hands back positivity.
 --
---   §1  DOUBLE SUMS over �: interchange, and pulling factors out.
+--   §1  DOUBLE SUMS over ℚ: interchange, and pulling factors out.
 --   §2  THE QUADRATIC FORM and its diagonalisation through the factors.
 --   §3  POSITIVITY from a nonnegative diagonal.
 --
@@ -53,7 +53,7 @@ open import Vrddhi_AModeOfRatioAboveOneGrowsPastEveryBoundAndAModeOfRatioAtMostO
   using (anṛṇa-guṇa)
 
 ------------------------------------------------------------------------
--- � � Double sums.
+-- १ · Double sums.
 ------------------------------------------------------------------------
 
 Σ-śūnya : (n : ℕ) → Σ⟨ n ⟩ (λ _ → 0) ≡ 0
@@ -75,7 +75,7 @@ open import Vrddhi_AModeOfRatioAboveOneGrowsPastEveryBoundAndAModeOfRatioAtMostO
 Σ-guṇaʳ f q n = Σ-ext (λ i → f i · q) (λ i → q · f i) n (λ i → ·Comm (f i) q) ∙ Σ-guṇa q f n ∙ ·Comm q (Σ⟨ n ⟩ f)
 
 ------------------------------------------------------------------------
--- � � The quadratic form and its diagonalisation.
+-- २ · The quadratic form and its diagonalisation.
 ------------------------------------------------------------------------
 
 module _ (n : ℕ) (A L : ℕ → ℕ → ℚ) (D : ℕ → ℚ) where
@@ -86,15 +86,15 @@ module _ (n : ℕ) (A L : ℕ → ℕ → ℚ) (D : ℕ → ℚ) where
   Anṛṇa-D : Type₀
   Anṛṇa-D = (k : ℕ) → k <ℕ n → 0 ≤ D k
 
-  -- v� A v
+  -- vᵀ A v
   Q : (ℕ → ℚ) → ℚ
   Q v = Σ⟨ n ⟩ (λ i → Σ⟨ n ⟩ (λ j → (v i · A i j) · v j))
 
-  -- (L� v)_k
+  -- (Lᵀ v)_k
   w : (ℕ → ℚ) → ℕ → ℚ
   w v k = Σ⟨ n ⟩ (λ i → v i · L i k)
 
-  -- the diagonalisation: v� A v = �_k D_k (L�v)_k²
+  -- the diagonalisation: vᵀ A v = Σ_k D_k (Lᵀv)_k²
   vibhāga : LDLᵀ → (v : ℕ → ℚ) → Q v ≡ Σ⟨ n ⟩ (λ k → D k · (w v k · w v k))
   vibhāga ldl v =
       Σ-ext< n _ _ (λ i i<n → Σ-ext< n _ _ (λ j j<n →
@@ -102,10 +102,10 @@ module _ (n : ℕ) (A L : ℕ → ℕ → ℚ) (D : ℕ → ℚ) where
         ∙ cong (_· v j) (sym (Σ-guṇa (v i) _ n))
         ∙ sym (Σ-guṇaʳ _ (v j) n)
         ∙ Σ-ext _ _ n (λ k → Sama.pada ℚRing (v i) (L i k) (D k) (L j k) (v j))))
-    -- now �_i �_j �_k D_k ((v_i L_ik)(v_j L_jk)); swap j,k inside, then i,k outside
+    -- now Σ_i Σ_j Σ_k D_k ((v_i L_ik)(v_j L_jk)); swap j,k inside, then i,k outside
     ∙ Σ-extₙ n _ _ (λ i → Σ-swap n n (λ j k → D k · ((v i · L i k) · (v j · L j k))))
     ∙ Σ-swap n n (λ i k → Σ⟨ n ⟩ (λ j → D k · ((v i · L i k) · (v j · L j k))))
-    -- and factor: �_i �_j D_k (a_i b_j) = D_k (� a_i)(� b_j)
+    -- and factor: Σ_i Σ_j D_k (a_i b_j) = D_k (Σ a_i)(Σ b_j)
     ∙ Σ-extₙ n _ _ (λ k →
           Σ-extₙ n _ _ (λ i → Σ-guṇa (D k) _ n ∙ cong (D k ·_) (Σ-guṇa (v i · L i k) _ n))
         ∙ Σ-guṇa (D k) _ n
@@ -115,7 +115,7 @@ module _ (n : ℕ) (A L : ℕ → ℕ → ℚ) (D : ℕ → ℚ) where
     Σ-extₙ n f g e = Σ-ext< n f g (λ i _ → e i)
 
   ----------------------------------------------------------------------
-  -- � � Positivity from a nonnegative diagonal.
+  -- ३ · Positivity from a nonnegative diagonal.
   ----------------------------------------------------------------------
 
   Σ-anṛṇa< : (f : ℕ → ℚ) (k : ℕ) → ((i : ℕ) → i <ℕ k → 0 ≤ f i) → 0 ≤ Σ⟨ k ⟩ f
@@ -128,7 +128,7 @@ module _ (n : ℕ) (A L : ℕ → ℕ → ℚ) (D : ℕ → ℚ) where
        (λ k k<n → anṛṇa-guṇa (D k) (w v k · w v k) (0≤D k k<n) (anṛṇa-varga (w v k))))
 
   ----------------------------------------------------------------------
-  -- � � The checker: the certificate is verified by computation, and the
+  -- ४ · The checker: the certificate is verified by computation, and the
   --     verification hands back the two hypotheses.
   ----------------------------------------------------------------------
 
@@ -179,7 +179,7 @@ module _ (n : ℕ) (A L : ℕ → ℕ → ℚ) (D : ℕ → ℚ) where
   prāmāṇika-sādhya e = prāmāṇika (sādhya-ldl e) (sādhya-D e)
 
 ------------------------------------------------------------------------
--- � � A certificate that checks, by computation: A = [[2,1],[1,2]] with
+-- ५ · A certificate that checks, by computation: A = [[2,1],[1,2]] with
 --     L = [[1,0],[½,1]] and D = (2, 3/2).  sdhya evaluates to true, and
 --     the theorem returns positivity of the form for every vector.
 ------------------------------------------------------------------------
@@ -210,8 +210,8 @@ udāharaṇa-dhana : (v : ℕ → ℚ) → 0 ≤ Q 2 udāharaṇa-A udāharaṇa
 udāharaṇa-dhana = prāmāṇika-sādhya 2 udāharaṇa-A udāharaṇa-L udāharaṇa-D udāharaṇa-sādhya
 
 ------------------------------------------------------------------------
--- � � The other side: a vector with v�Av < 0, checked by computation, is
---     a witness of indefiniteness � the shape of the oracle's rigorous
+-- ६ · The other side: a vector with vᵀAv < 0, checked by computation, is
+--     a witness of indefiniteness — the shape of the oracle's rigorous
 --     witnesses that the archimedean part alone is indefinite past L*.
 ------------------------------------------------------------------------
 
@@ -237,8 +237,8 @@ viparyaya-ṛṇa : Q 2 viparyaya-A viparyaya-A (λ _ → 0) viparyaya-v < 0
 viparyaya-ṛṇa = ṛṇa-sākṣī 2 viparyaya-A viparyaya-v refl
 
 ------------------------------------------------------------------------
--- � � Scaling.  A certificate for c�A with c > 0 is a certificate for A:
---     Q_{cA}(v) = c � Q_A(v), and c � x � 0 with c > 0 gives x � 0.
+-- ७ · Scaling.  A certificate for c·A with c > 0 is a certificate for A:
+--     Q_{cA}(v) = c · Q_A(v), and c · x ≥ 0 with c > 0 gives x ≥ 0.
 ------------------------------------------------------------------------
 
 open import Cubical.Data.Rationals.Order using (≤-·o-cancel)

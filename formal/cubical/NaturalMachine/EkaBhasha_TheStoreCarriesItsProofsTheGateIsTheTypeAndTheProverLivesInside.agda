@@ -1,46 +1,46 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡ï‡‡æ‡‡æ ‚î one language.  Compound built here (‡‡ï, one;
--- ‡‡æ‡‡æ, language); not a source term.
+-- ‡‡ï‡‡æ‡‡æ ‚Äî one language.  Compound built here (‡‡ï, one;
+-- ‡§≠‡§æ‡§∑‡§æ, language); not a source term.
 --
 -- THE DIRECTIVE THIS ANSWERS, the owner's: the machine must not
 -- look at two sources.  The Haskell body / Agda truth-store split IS the
--- lossy implementation of the core ideas ‚î Certificate.hs's entire
+-- lossy implementation of the core ideas ‚Äî Certificate.hs's entire
 -- "FAITHFULNESS" header is an apology for translating between them, and
 -- every copy of the term code (MathMachine's, Sanghatta's, Siddhi's) is
 -- a seam where meaning leaks.  Agda is already code (MAlonzo compiles
--- it); so the machine's own world ‚î terms, rules, store, normalizer,
--- prover ‚î moves INTO the one language, and the split retires.
+-- it); so the machine's own world ‚Äî terms, rules, store, normalizer,
+-- prover ‚Äî moves INTO the one language, and the split retires.
 --
 -- THE ONE STRUCTURAL MOVE, and it changes what "gate" means:
 --
---     record ‡®‡ø‡Ø‡Æ‡ : rule = { lhs ; rhs ; ‡‡æ‡ï‡‡‡ : ‚ä® (lhs , rhs) }
+--     record ‡§®‡§ø‡§Ø‡§Æ‡§É : rule = { lhs ; rhs ; ‡§∏‡§æ‡§ï‡•ç‡§∑‡•Ä : ‚ä® (lhs , rhs) }
 --
 -- A store entry CARRIES ITS PROOF AS A FIELD.  An unproven rule is not
--- refused by a gate ‚î it is UNCONSTRUCTIBLE.  The gate is the type.
+-- refused by a gate ‚Äî it is UNCONSTRUCTIBLE.  The gate is the type.
 -- Certificate's watched controls guard a boundary between two worlds;
 -- here there is no boundary to guard.  What the kernel checks, once,
--- at this module, is the SOUNDNESS OF THE PROVER ITSELF (‡®‡ø-‡‡æ‡ï‡‡‡
+-- at this module, is the SOUNDNESS OF THE PROVER ITSELF (‡§®‡§ø-‡§∏‡§æ‡§ï‡•ç‡§∑‡•Ä
 -- below); every rule it ever mints thereafter is born proven.
 --
 -- WHAT THIS SLICE CONTAINS, all checked, no holes:
 --   ¬ß1  the machine's own vocabulary as one datatype (the SAME clause
 --       order as machine/library.terms' world: max and le in the
 --       machine's own recursion, stated at the definitions);
---   ¬ß2  truth: ‚ä® e  =  ‚àœ ‚í eval l œ ‚â° eval r œ, over the standard model;
+--   ¬ß2  truth: ‚ä® e  =  ‚àÄœÅ ‚Üí eval l œÅ ‚â° eval r œÅ, over the standard model;
 --   ¬ß3  the store type whose entries cannot exist unproven;
 --   ¬ß4  the internal prover, norm-and-compare, WITH its soundness
---       theorem ‚î a proof-producing function, no Bool verdict anywhere
+--       theorem ‚Äî a proof-producing function, no Bool verdict anywhere
 --       on the wire (the Uttara discipline arriving at the type level);
 --   ¬ß5  real members of the machine's own non-joining list (Sanghatta,
 --       this container), proven by the internal prover and
---       installed as ‡®‡ø‡Ø‡Æ values ‚î the store growing as typed truth.
+--       installed as ‡§®‡§ø‡§Ø‡§Æ values ‚Äî the store growing as typed truth.
 --
 -- NOVELTY CLAIMED: none of the mathematics (normalization-by-
--- simplification and its soundness are classical).  The composition ‚î
+-- simplification and its soundness are classical).  The composition ‚Äî
 -- the machine's OWN store re-founded so proof is a field and the
--- prover is internal ‚î is the contribution.
+-- prover is internal ‚Äî is the contribution.
 ------------------------------------------------------------------------
 
 module NaturalMachine.EkaBhasha_TheStoreCarriesItsProofsTheGateIsTheTypeAndTheProverLivesInside where
@@ -55,12 +55,12 @@ open import Cubical.Data.Empty using (‚ä•)
 open import Cubical.Data.Sigma using (_√ó_ ; _,_ ; fst ; snd)
 
 ------------------------------------------------------------------------
--- ¬ß1  The vocabulary, one datatype ‚î IMPORTED, not restated.  The
+-- ¬ß1  The vocabulary, one datatype ‚Äî IMPORTED, not restated.  The
 --     machine's vocabulary, evaluator and normalizer live ONCE, in the act-portion (formal/karma/KarmaKanda‚¶, checked
 --     --cubical-compatible --safe), which both worlds import with full
 --     use: this --cubical body proves paths about the very definitions
 --     the compiled mouth runs.  The Veda's two portions read one text.
---     Variables are names over ‚ï; an environment is total, so no
+--     Variables are names over ‚Ñï; an environment is total, so no
 --     finite-context bureaucracy.  The machine's own max and le, ITS
 --     clause order (library.terms' world):
 --       max x 0 = x ; max 0 x = x ; max (s x)(s y) = s (max x y)
@@ -109,7 +109,7 @@ record ‡§®‡§ø‡§Ø‡§Æ‡§É : Type where
 norm-sound : ‚àÄ t œÅ ‚Üí eval (norm t) œÅ ‚â° eval t œÅ
 norm-sound t œÅ = eqToPath (‡§™‡•ç‡§∞.norm-sound t œÅ)
 
--- syntactic equality that RETURNS THE PATH ‚î no Bool on any wire, no
+-- syntactic equality that RETURNS THE PATH ‚Äî no Bool on any wire, no
 -- separate soundness lemma: the test and its witness are one value.
 mmap : {A B : Type} ‚Üí (A ‚Üí B) ‚Üí Maybe A ‚Üí Maybe B
 mmap f (just a) = just (f a)
@@ -130,7 +130,7 @@ i ‚âü‚Ñï j = ‡§â‡§¶‡•ç‡§ß‡§æ‡§∞-‡§Æ‡§æ eqToPath (i ‡§™‡•ç‡§∞.‚âü‚Ñï j)
 _‚âüT_ : (a b : Tm) ‚Üí Maybe (a ‚â° b)
 a ‚âüT b = ‡§â‡§¶‡•ç‡§ß‡§æ‡§∞-‡§Æ‡§æ eqToPath (a ‡§™‡•ç‡§∞.‚âüT b)
 
--- THE PROVER.  Returns a proof or nothing ‚î the two roads, at the type.
+-- THE PROVER.  Returns a proof or nothing ‚Äî the two roads, at the type.
 ‡§∏‡§æ‡§ß‡§®‡§Æ‡•ç : (e : Eq') ‚Üí Maybe (‚ä® e)
 ‡§∏‡§æ‡§ß‡§®‡§Æ‡•ç (l , r) = mmap witness (norm l ‚âüT norm r)
   where
@@ -142,8 +142,8 @@ a ‚âüT b = ‡§â‡§¶‡•ç‡§ß‡§æ‡§∞-‡§Æ‡§æ eqToPath (a ‡§™‡•ç‡§∞.‚âüT b)
 -- ¬ß5  The machine's own missing theorems, proven internally and
 --     installed as typed store values.  Each pair below is a member of
 --     Sanghatta's non-joining list, this container (the ‡‡ø‡¶‡‡ß‡ø
---     runs' ledger).  `fromJust ‚¶ tt` compiles exactly when the prover
---     succeeds ‚î a failed proof is a TYPE ERROR here, not a log line.
+--     runs' ledger).  `fromJust ‚Ä¶ tt` compiles exactly when the prover
+--     succeeds ‚Äî a failed proof is a TYPE ERROR here, not a log line.
 ------------------------------------------------------------------------
 
 inJust : {A : Type} ‚Üí Maybe A ‚Üí Type

@@ -10,18 +10,18 @@
 -- when a numerical summary of a state determines that state's future:
 --
 --   * collab/discovery/claims/R0019-exposed-point-rigidity.md, statement
---     (E): weights w_n > 0 summable, |c_n| � 1, and � w_n c_n = � w_n
+--     (E): weights w_n > 0 summable, |c_n| ≤ 1, and Σ w_n c_n = Σ w_n
 --     forces c_n = 1 for EVERY n.  One scalar pins down an infinite
 --     object.  Its proof obligation 1 reads, in full, "E by termwise
 --     nonnegativity after taking real parts".
 --
 --   * collab/messages/0249-codex-formation-cache-option-result.md: the
 --     caches {1,2,4,5} and {1,2,3,6} have the SAME scalar summary
---     (queries, additions, retained-count) = (�,3,4) yet marginal costs
+--     (queries, additions, retained-count) = (·,3,4) yet marginal costs
 --     (1,0) and (0,1) on the declared targets (3,4).  "A router merging
 --     these states necessarily misprices at least one future request."
 --
--- Both are statements about a fibre of a summary map �, ordered by the
+-- Both are statements about a fibre of a summary map σ, ordered by the
 -- pointwise order on marginal-cost vectors.  R0019 is the case where the
 -- fibre is a single point; 0249 exhibits a fibre with no ≼-least member.
 -- 0249 gives a counterexample but never states the inequality that the
@@ -30,21 +30,21 @@
 --
 --   THEOREM (`dichotomy`).  For every inhabited finite fibre F of cost
 --   vectors, one may CONSTRUCT either
---     (R) a member m ∈ F with m ≼ y for all y ∈ F � merging F to m
+--     (R) a member m ∈ F with m ≼ y for all y ∈ F — merging F to m
 --         misprices nothing; or
 --     (S) two members u,v ∈ F and two targets i, j with u_i < v_i and
 --         v_j < u_j.
 --   The certificate in (S) always has size TWO: no three-state or
 --   higher-order witness is ever needed.  (The branches are not
---   exclusive in general � a fibre may have a least element and an
---   incomparable pair further up � but on a two-element fibre the (S)
+--   exclusive in general — a fibre may have a least element and an
+--   incomparable pair further up — but on a two-element fibre the (S)
 --   certificate does refute (R): `sep-pair-noLeast`.)
 --
 -- Rigidity end: `sum-rigid` / `exposed-point`, the discrete form of
 -- R0019 (E), proved by exactly its termwise argument.
 -- Separation end: `cacheSep` / `cacheNoLeast`, message 0249's pair.
 --
--- Nothing here is measured.  Every � is a literal; every step is a term.
+-- Nothing here is measured.  Every ℕ is a literal; every step is a term.
 ------------------------------------------------------------------------
 
 module OptionSpread where
@@ -68,10 +68,10 @@ import Cubical.Data.Empty as ⊥
 -- length index of `Vec` without losing computation under transport, and
 -- a definition that does not compute is not the object we want.
 --
--- Vectors of different arity are declared separated (`�` holds both
+-- Vectors of different arity are declared separated (`◃` holds both
 -- ways, `≼` neither way).  In every use below one arity is fixed by the
 -- declared target family, so the convention is never exercised; it is
--- chosen so that `≼-or-�` is total without a shape hypothesis.
+-- chosen so that `≼-or-◃` is total without a shape hypothesis.
 ------------------------------------------------------------------------
 
 -- x ≼ y : x is no more expensive than y on EVERY target.
@@ -81,7 +81,7 @@ _≼_ : List ℕ → List ℕ → Type₀
 (_ ∷ _)  ≼ []       = ⊥.⊥
 (a ∷ xs) ≼ (b ∷ ys) = (a ≤ b) × (xs ≼ ys)
 
--- x � y : x is STRICTLY cheaper than y on at least one target.  The
+-- x ◃ y : x is STRICTLY cheaper than y on at least one target.  The
 -- inl/inr address names that target.  This is the atom of the
 -- separating inequality.
 _◃_ : List ℕ → List ℕ → Type₀
@@ -192,7 +192,7 @@ sep-pair-noLeast u v u◃v v◃u (m , inr (inl e) , (p , _)) =
 sep-pair-noLeast u v u◃v v◃u (m , inr (inr ()) , _)
 
 -- A singleton fibre is always sound.  This is the router-side reading of
--- exposed-point rigidity (§5): rigidity � soundness.
+-- exposed-point rigidity (§5): rigidity ⇒ soundness.
 singleton-least : (x : List ℕ) → Least (x ∷ [])
 singleton-least x = x , inl refl , (≼-refl x , tt)
 
@@ -218,7 +218,7 @@ head-eq {a} {b} {sx} {sy} a≤b sx≤sy p with a ≟ b
 -- THE EXPOSED-POINT LEMMA.  Termwise domination together with equality
 -- of the aggregate forces termwise equality: the aggregate map has a
 -- singleton fibre at its maximum.  This is R0019's proof obligation 1,
--- over �, by exactly the stated argument.
+-- over ℕ, by exactly the stated argument.
 sum-rigid : (x y : List ℕ) → x ≼ y → sum x ≡ sum y → x ≡ y
 sum-rigid []       []       _        _ = refl
 sum-rigid (a ∷ xs) (b ∷ ys) (a≤b , t) p =
@@ -241,9 +241,9 @@ exposed-point m c = sum-rigid c (ones m)
 -- 6.  The separation end: message 0249's cache pair, checked
 --
 -- Declared future targets, in order: (3, 4).
--- Cache C� = {1,2,4,5} holds 4 and reaches 3 in one addition: (1,0).
--- Cache C� = {1,2,3,6} holds 3 and reaches 4 in one addition: (0,1).
--- Scalar summary � = (additions, retained-count) = (3,4) for both.
+-- Cache C₅ = {1,2,4,5} holds 4 and reaches 3 in one addition: (1,0).
+-- Cache C₆ = {1,2,3,6} holds 3 and reaches 4 in one addition: (0,1).
+-- Scalar summary σ = (additions, retained-count) = (3,4) for both.
 ------------------------------------------------------------------------
 
 μ₅ μ₆ : List ℕ

@@ -9,22 +9,22 @@
 --   property that makes 'stratification' mean what Â§5.2 wants.
 -- ORDER is the one that matters, and this is its first half.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   filterOutOnlyKeepsNonSatisfiers
 --                the complement of the filter keeps exactly what fails
---                the predicate â” the mirror of the soundness lemma the
+--                the predicate â€” the mirror of the soundness lemma the
 --                measure module already had
 --   anyToMember  an `Any` yields a witness TOGETHER WITH its membership,
---                which plain `anyToÎ` discards
+--                which plain `anyToÎ£` discards
 --   everyRemainderMemberIsStrictlyDominated
 --                every member of `remainder xs` is strictly dominated
 --                by a member OF `xs`
 --
 -- **The double negation is the whole difficulty and it is decidable
--- away.**  `IsParetoMaximal v xs` is `Â Any (StrictlyDominates v) xs`,
--- so failing it gives `Â Â Any â¦`, not `Any â¦`.  The dominator is
+-- away.**  `IsParetoMaximal v xs` is `Â¬ Any (StrictlyDominates v) xs`,
+-- so failing it gives `Â¬ Â¬ Any â€¦`, not `Any â€¦`.  The dominator is
 -- recovered only because `decAny decStrictlyDominates` makes that `Any`
 -- DECIDABLE, hence stable.
 ------------------------------------------------------------------------

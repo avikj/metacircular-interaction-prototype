@@ -7,23 +7,23 @@
 --
 -- D0025 asks for the rooted reflection total space
 --
---     U�  :=  � (x : U) . View_x(U)
+--     U₂  :=  Σ (x : U) . View_x(U)
 --
 -- "each jewel together with the whole Net as reflected there", with the
--- projection � : U� � U and the fibre equation ���(x) � View(x); and it
+-- projection π : U₂ → U and the fibre equation π⁻¹(x) ≃ View(x); and it
 -- says (§19) what to instantiate it on: the prime-pair witness net,
 -- whose points are proof-relevant jewels participating simultaneously in
 --
---     p + q = 2w,      q − p = 2r,      p�q = w² − r².
+--     p + q = 2w,      q − p = 2r,      p·q = w² − r².
 --
 -- WHAT THIS FILE IS.  The general construction, and that instantiation,
 -- with the three incidence identities proved to hold AT EVERY JEWEL.
 --
 -- WHY IT IS SEPARATE FROM THE MACHINE.  `machine/MathMachine.hs`
--- generates its own term algebra over {0,s,+,*,�,max,le,gcd} and proves
+-- generates its own term algebra over {0,s,+,*,∸,max,le,gcd} and proves
 -- theorems inside it.  That is a closed toy universe: its jewels are
 -- things it invented, and no result in this repository can enter it.
--- This file starts from the other end � the objects the corpus actually
+-- This file starts from the other end — the objects the corpus actually
 -- carries.
 ------------------------------------------------------------------------
 
@@ -42,7 +42,7 @@ open import Cubical.Data.Sum
 -- This is the Grothendieck construction, and the point of writing it out
 -- is the reading, not the mathematics: `View x` is not an attribute of
 -- x, it is "the whole current stage as represented from x", so `Root` is
--- the type of (jewel, the net as seen from it) and � forgets the root.
+-- the type of (jewel, the net as seen from it) and π forgets the root.
 ------------------------------------------------------------------------
 
 module Rooted {ℓ ℓ'} (U : Type ℓ) (View : U → Type ℓ') where
@@ -71,7 +71,7 @@ module Rooted {ℓ ℓ'} (U : Type ℓ) (View : U → Type ℓ') where
 -- §2  The jewels: centre/radius points of the prime-pair net (§19)
 --
 -- A jewel is a centre w and a radius r.  Its legs are the two numbers
--- the centre is equidistant from; over � they are written additively so
+-- the centre is equidistant from; over ℕ they are written additively so
 -- that no truncated subtraction enters the primary statements, which is
 -- the discipline `PairConic` §1 already fixed for this conic.
 ------------------------------------------------------------------------
@@ -98,7 +98,7 @@ high j = centre j + radius j + radius j
 -- are proved here as three fields of one statement about an arbitrary
 -- jewel rather than as three separate lemmas about three separate
 -- hypotheses.  `2w` is the sum of the legs; `2r` their difference; and
--- the conic is stated in the addition form `p�q + r² = w²` with w the
+-- the conic is stated in the addition form `p·q + r² = w²` with w the
 -- true centre `low j + radius j`.
 ------------------------------------------------------------------------
 
@@ -134,7 +134,7 @@ differenceOfLegs (jewel w r) =
 -- §19 lists possible threads among witness jewels: shared centre,
 -- shared radius, exchange, and others.  The three taken here are the
 -- ones that are exact with no further hypothesis.  A thread is
--- proof-relevant � it is the *witness* of the relation, not a boolean �
+-- proof-relevant — it is the *witness* of the relation, not a boolean —
 -- because D0025 §29 is explicit that a thread is not merely an edge.
 ------------------------------------------------------------------------
 
@@ -143,7 +143,7 @@ data Thread (i j : Jewel) : Type where
   sharedRadius : radius i ≡ radius j → Thread i j
 
 -- The rooted view: the net as seen from j, i.e. the profile
--- `Map(−, j)` of D0025 §4 � every jewel together with its threads into j.
+-- `Map(−, j)` of D0025 §4 — every jewel together with its threads into j.
 View : Jewel → Type
 View j = (i : Jewel) → Thread i j → Jewel
 

@@ -12,7 +12,7 @@ open import Cubical.Relation.Nullary using (¬_)
 
 ------------------------------------------------------------------------
 -- Jen (1986): from the single seed, no two adjacent columns of Rule 30
--- are both eventually periodic.  Two-sided evolution, positions in �.
+-- are both eventually periodic.  Two-sided evolution, positions in ℤ.
 ------------------------------------------------------------------------
 
 r30 : Bool → Bool → Bool → Bool
@@ -85,7 +85,7 @@ predⁿ-pos zero    m = predⁿ-neg m zero
 predⁿ-pos (suc n) m = predⁿ-pos n m
 
 -- §4  the contradiction: a column left of the light cone that is periodic
---     from N with period suc P� is 0 at time N� and 1 at time N� + suc P�
+--     from N with period suc P′ is 0 at time N′ and 1 at time N′ + suc P′
 clash : (q N′ P′ : ℕ) → N′ + P′ ≡ q → Periodic (Col (negsuc q)) N′ (suc P′) → ⊥
 clash q N′ P′ e per = true≢false (sym eka ∙ per N′ ≤-refl ∙ śūnya)
   where

@@ -1,9 +1,9 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ����� � the shell.
+-- कोश — the shell.
 --
--- The finite prime-translation operator is P_t = � w(a)(S_a + S_a*).
+-- The finite prime-translation operator is P_t = Σ w(a)(S_a + S_a*).
 -- PrasthaKhanda read the S_a half against the boundary profiles.  Two
 -- support facts finish the block identity as stated:
 --
@@ -14,14 +14,14 @@
 --       puts t below F + G.  The boundaries are separated.
 --
 --   §2  ONLY A SHELL REACHES THE RECEIVER.  The convolution h_{f,g}(u)
---       vanishes once u � F + G, so the weighted sum �_a w(a) h(t − a)
+--       vanishes once u ≥ F + G, so the weighted sum Σ_a w(a) h(t − a)
 --       only sees shifts with t − a < F + G: at each time the reading
 --       is determined by a finite shell of prime powers, and by the
 --       finite quantitative pair-field prefix that reconstructs their
 --       weights.
 --
---   §3  THE FULL BLOCK.  ⟨J�g , �_a w(a)(S_a + S_a*) f⟩
---         = �_a w(a) � h_{f,g}(t − a),  for t � F + G.
+--   §3  THE FULL BLOCK.  ⟨J⁺g , Σ_a w(a)(S_a + S_a*) f⟩
+--         = Σ_a w(a) · h_{f,g}(t − a),  for t ≥ F + G.
 --
 -- On the arithmetic side, with f = e^{-s}(q*q)(s − ½) at both ends,
 -- h = f*f and this coefficient minus its rank-one pole term is B(t).
@@ -66,7 +66,7 @@ S*-nāsti t a f x ¬lt with <Dec (x + a) t
 ... | no  _   = refl
 ... | yes lt′ = ⊥-elim (¬lt lt′)
 
--- a value bounded above by its own support bound is zero: F � r from a
+-- a value bounded above by its own support bound is zero: F ≤ r from a
 -- trichotomy that is not `lt`
 adhaḥ-śūnya : (F : ℕ) (f : ℕ → ℕ) → Adhaḥ F f → (r : ℕ) → ¬ (r < F) → f r ≡ zero
 adhaḥ-śūnya F f fF r ¬r<F with r ≟ F
@@ -75,7 +75,7 @@ adhaḥ-śūnya F f fF r ¬r<F with r ≟ F
 ... | gt F<r = fF r (<-weaken F<r)
 
 ------------------------------------------------------------------------
--- � � The reverse shift does not cross separated boundaries.
+-- १ · The reverse shift does not cross separated boundaries.
 ------------------------------------------------------------------------
 
 viparīta-śūnya : (t a F G : ℕ) (f g : ℕ → ℕ) → Adhaḥ F f → Adhaḥ G g → F + G ≤ t
@@ -94,7 +94,7 @@ viparīta-śūnya t a F G f g fF gG sep =
   ...     | gt G<   = cong (_· f (x + a)) (gG (t ∸ x) (<-weaken G<))
   ...     | lt t∸x<G = ⊥-elim (¬m<m t<t)
     where
-    -- t = (t � x) + x � (t � x) + (x + a) < G + F = F + G � t
+    -- t = (t ∸ x) + x ≤ (t ∸ x) + (x + a) < G + F = F + G ≤ t
     t≤ : t ≤ (t ∸ x) + (x + a)
     t≤ = subst (_≤ (t ∸ x) + (x + a)) (≤-∸-+-cancel (<-weaken x<t))
                (≤-k+ {m = x} {n = x + a} {k = t ∸ x} (≤SumLeft {n = x} {k = a}))
@@ -102,7 +102,7 @@ viparīta-śūnya t a F G f g fF gG sep =
     t<t = <≤-trans (≤<-trans t≤ (<-+-< t∸x<G x+a<F)) (subst (_≤ t) (+-comm F G) sep)
 
 ------------------------------------------------------------------------
--- � � Only a shell of shifts reaches the receiver.
+-- २ · Only a shell of shifts reaches the receiver.
 ------------------------------------------------------------------------
 
 kośa : (u F G : ℕ) (f g : ℕ → ℕ) → Adhaḥ F f → Adhaḥ G g → F + G ≤ u → h f g u ≡ zero
@@ -129,7 +129,7 @@ kośa-pada t a F G w f g fF gG far =
   cong (w a ·_) (kośa (t ∸ a) F G f g fF gG far) ∙ sym (0≡m·0 (w a))
 
 ------------------------------------------------------------------------
--- � � The full block: both halves of the prime operator.
+-- ३ · The full block: both halves of the prime operator.
 ------------------------------------------------------------------------
 
 -- the full weighted shift operator

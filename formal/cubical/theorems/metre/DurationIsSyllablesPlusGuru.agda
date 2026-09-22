@@ -10,7 +10,7 @@
 -- sorts patterns by syllable count instead of manipulating sums.  Its
 -- heart is a one-line induction, and here it is.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE LEMMA
 --
 --     matra-split :  matrOf p  â‰¡  vara p + guruOf p
@@ -21,13 +21,13 @@
 -- `n` with `a` syllables and `b` guru satisfies `a + b â‰¡ n`, with no
 -- `n âˆ’ k` anywhere.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IT BUYS
 --
---     metre-sorts :  Metre n  â‰  Î[ (a,b) : a + b â‰¡ n ] Chosen a b
+--     metre-sorts :  Metre n  â‰ƒ  Î£[ (a,b) : a + b â‰¡ n ] Chosen a b
 --
--- â” "a metre of duration `n` is a choice of how many syllables and how
--- many of them are guru, then a pattern with those statistics" â” is now a
+-- â€” "a metre of duration `n` is a choice of how many syllables and how
+-- many of them are guru, then a pattern with those statistics" â€” is now a
 -- statement with no truncated subtraction in it, which is what killed the
 -- second encoding.  `metre-to-sorted` and `sorted-to-metre` below are the
 -- two maps, and `metre-sorts` is the equivalence.
@@ -74,7 +74,7 @@ sorted-to-metre n ((a , b) , sum , (p , va , gu)) =
   p , (matra-split p âˆ™ congâ‚‚ _+_ va gu âˆ™ sum)
 
 ------------------------------------------------------------------------
--- 3.  One round trip is immediate â” the pattern is untouched
+-- 3.  One round trip is immediate â€” the pattern is untouched
 ------------------------------------------------------------------------
 
 roundtrip-pattern :
@@ -92,12 +92,12 @@ roundtrip-pattern n (p , _) = refl
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 5.  The Î-contraction, and the equivalence.
+-- 5.  The Î£-contraction, and the equivalence.
 --
--- Both round trips leave the PATTERN untouched â” that is what
--- `roundtrip-pattern` records â” so every remaining component is an
--- equation in â•, hence a proposition, hence transported by
--- `isPropâ’PathP`.  The contraction is that observation and nothing else.
+-- Both round trips leave the PATTERN untouched â€” that is what
+-- `roundtrip-pattern` records â€” so every remaining component is an
+-- equation in â„•, hence a proposition, hence transported by
+-- `isPropâ†’PathP`.  The contraction is that observation and nothing else.
 ------------------------------------------------------------------------
 
 open import Cubical.Foundations.Isomorphism using (Iso ; isoToEquiv)
@@ -136,10 +136,10 @@ metre-sorts n = isoToEquiv (metre-sorts-Iso n)
 -- `metre-sorts` is the typed diagonal identity.  Taking cardinalities
 -- gives the numeric one:
 --
---     mtr n  â‰¡  Î_{a+b=n} meru a b   ( = `Sankalita.antidiag n` )
+--     mÄtrÄ n  â‰¡  Î£_{a+b=n} meru a b   ( = `Sankalita.antidiag n` )
 --
 -- via `Pingala.matraCount` on the left, `Pingala.meruCount` inside the
--- sum on the right, and the cardinality of a Î over a finite index â”
+-- sum on the right, and the cardinality of a Î£ over a finite index â€”
 -- `Cubical.Data.FinSet.Cardinality`.
 --
 -- Four encodings, three refuted, one carried to an equivalence.
@@ -150,22 +150,22 @@ metre-sorts n = isoToEquiv (metre-sorts-Iso n)
 --
 -- `Cubical.Data.FinSet.Cardinality`'s lemma
 --
---     cardÎ : card (Î X Y) â‰¡ sum X (Î» x â’ card (Y x))
+--     cardÎ£ : card (Î£ X Y) â‰¡ sum X (Î» x â†’ card (Y x))
 --
 -- takes `X` as a **FinSet**, and the index set here,
--- `Î[ (a,b) ] (a + b â‰¡ n)`, does not arrive with a finiteness proof.  So
+-- `Î£[ (a,b) ] (a + b â‰¡ n)`, does not arrive with a finiteness proof.  So
 -- two ingredients are needed, not one:
 --
 --   (i)  the index set is finite;
 --   (ii) the library's `sum` over that FinSet is the recursive sum
---        `Sankalita.AD` â” a reindexing.
+--        `Sankalita.AD` â€” a reindexing.
 --
 -- (i) holds structurally.  Induct on `n`:
 --
---     Î[ (a,b) ] (a + b â‰¡ 0)        â‰  Unit
---     Î[ (a,b) ] (a + b â‰¡ suc n)    â‰  Unit âŠ Î[ (a,b) ] (a + b â‰¡ n)
+--     Î£[ (a,b) ] (a + b â‰¡ 0)        â‰ƒ  Unit
+--     Î£[ (a,b) ] (a + b â‰¡ suc n)    â‰ƒ  Unit âŠ Î£[ (a,b) ] (a + b â‰¡ n)
 --
--- â” the first summand is the pair `(0 , suc n)`, the rest have `a` a
+-- â€” the first summand is the pair `(0 , suc n)`, the rest have `a` a
 -- successor and drop to the previous level.  No subtraction, and the
 -- recursion is the one `AD` already walks; `PairsSummingTo.pairsFin` builds (i).
 ------------------------------------------------------------------------

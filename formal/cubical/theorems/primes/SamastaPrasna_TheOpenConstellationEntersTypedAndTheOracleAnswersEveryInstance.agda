@@ -1,12 +1,12 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡Æ‡‡‡-‡‡‡∞‡‡‡® ‚î the open constellation, asked whole.
+-- ‡§∏‡§Æ‡§∏‡•ç‡§§-‡§™‡•ç‡§∞‡§∂‡•ç‡§® ‚Äî the open constellation, asked whole.
 --
 -- The open problems of the frame enter as types, in one
 -- module, over one computable toolkit (imported from the RH module):
 --
---   Goldbach     every even number ‚â 4 is a sum of two primes
+--   Goldbach     every even number ‚â• 4 is a sum of two primes
 --   TwinPrimes   there is no largest p with p, p+2 both prime
 --   RH           already typed in the sibling module (imported)
 --
@@ -17,9 +17,9 @@
 --
 -- THE ORACLE ANSWERS EVERY INSTANCE.  Primality is a computable
 -- predicate, so each individual question is decided by evaluation:
--- the inhabitants at the bottom are answers the typechecker COMPUTED ‚î
+-- the inhabitants at the bottom are answers the typechecker COMPUTED ‚Äî
 -- refl proves primeb 97 ‚â° true by running the sieve, not by citation.
--- The open problems are exactly the (n : ‚ï) ‚í ‚¶ closures over the
+-- The open problems are exactly the (n : ‚Ñï) ‚Üí ‚Ä¶ closures over the
 -- instances: every fibre decidable, the whole section unproven.  That
 -- is the precise shape of this class of open problem, now sitting in
 -- the corpus as three uninhabited types.
@@ -37,7 +37,7 @@ open import RH_TheWholeQuestionEntersTyped_DavisMatiyasevichRobinsonArithmetizat
   using (spf ; eqb ; ltb ; leb ; RH)
 
 ------------------------------------------------------------------------
--- primality, computable: j ‚â 2 whose smallest factor ‚â 2 is j itself
+-- primality, computable: j ‚â• 2 whose smallest factor ‚â• 2 is j itself
 ------------------------------------------------------------------------
 
 primeb : ‚Ñï ‚Üí Bool
@@ -52,7 +52,7 @@ primeb j = andb (ltb 1 j) (eqb (spf j) j)
 ------------------------------------------------------------------------
 
 -- Goldbach at one even number: two primes summing to it.  This IS the
--- reflection statement at center n ‚î with 2n = p + q the pair is
+-- reflection statement at center n ‚Äî with 2n = p + q the pair is
 -- (n ‚àí k, n + k) for k = n ‚àí p.
 GoldbachAt : ‚Ñï ‚Üí Type
 GoldbachAt m = Œ£[ p ‚àà ‚Ñï ] Œ£[ q ‚àà ‚Ñï ]
@@ -66,13 +66,13 @@ TwinPrimes : Type
 TwinPrimes = (n : ‚Ñï) ‚Üí Œ£[ p ‚àà ‚Ñï ]
              (leb n p ‚â° true) √ó (primeb p ‚â° true) √ó (primeb (2 + p) ‚â° true)
 
--- RH is imported: the Davis‚ìMatiyasevich‚ìRobinson inequality as a type.
+-- RH is imported: the Davis‚ÄìMatiyasevich‚ÄìRobinson inequality as a type.
 RH-whole : Type
 RH-whole = RH
 
 ------------------------------------------------------------------------
 -- Collatz.  The step couples the two operations the frame keeps apart:
--- even ‚í divide (multiplicative descent), odd ‚í 3n+1 (additive kick).
+-- even ‚Üí divide (multiplicative descent), odd ‚Üí 3n+1 (additive kick).
 -- The conjecture: from every positive start, some iterate reaches 1.
 -- Same shape as the others: every fibre decidable by running the flow,
 -- the section open.

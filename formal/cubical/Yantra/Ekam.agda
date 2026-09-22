@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 module Yantra.Ekam where
--- �����: one button.  goldbach + twins + the mertens fragment of RH, one run.
+-- एकम्: one button.  goldbach + twins + the mertens fragment of RH, one run.
 
 open import Cubical.Foundations.Prelude using (Type; _≡_; refl)
 open import Cubical.Data.Nat using (ℕ; zero; suc; _+_; _∸_; _·_)
@@ -78,7 +78,7 @@ mu n = go n n 2 1
                else go f (fst (divmod m m d)) (suc d) (if (par == 1) then 2 else 1))
        else go f m (suc d) par)
 
--- mertens walk with the RH-fragment gate |M(k)| � �k checked at EVERY k
+-- mertens walk with the RH-fragment gate |M(k)| ≤ √k checked at EVERY k
 mwalk : ℕ → ℕ → ℕ → ℕ → ℕ × (ℕ × Bool)   -- fuel, k, plus, minus → (P, (N, all-gates-held))
 mwalk zero    k p m = (p , (m , true))
 mwalk (suc f) k p m =
@@ -107,7 +107,7 @@ _ = refl
 _ : mu 12 ≡ 0                                -- μ(4·3) = 0
 _ = refl
 
--- mertens from k=1, 400 steps: M(400) = P−N with the �-gate held at every k
+-- mertens from k=1, 400 steps: M(400) = P−N with the √-gate held at every k
 _ : snd (snd (mwalk 400 1 0 0)) ≡ true       -- RH-fragment: |M(k)| ≤ √k for all k ≤ 400
 _ = refl
 

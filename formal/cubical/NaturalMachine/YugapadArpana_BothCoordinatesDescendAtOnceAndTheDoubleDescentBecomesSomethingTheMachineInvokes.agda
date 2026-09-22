@@ -1,35 +1,35 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- �������-������� � Samantabhadra, ptamms 16 (c. 2nd�5th c. CE),
+-- युगपद्-अर्पणम् — Samantabhadra, Āptamīmāṃsā 16 (c. 2nd–5th c. CE),
 -- and Akalaka's analysis of the saptabhag: kramrpaa presents
--- aspects in sequence; yugapad-arpaa presents both AT ONCE � which
+-- aspects in sequence; yugapad-arpaṇa presents both AT ONCE — which
 -- speech cannot carry (whence avaktavyam), but which is not thereby
 -- unavailable to knowing.  The classification is theirs.
 -- School named: Jaina.
 --
 -- WHAT SPEECH CANNOT DO SIMULTANEOUSLY, THE DESCENT CAN.  The
--- machine's own operators � its maximum, its comparison, its monus �
+-- machine's own operators — its maximum, its comparison, its monus —
 -- recurse on BOTH arguments at once (sx∨sy = s(x∨y)), so their truths
 -- do not decompose into single-variable descents: SyatWholedesha
 -- closed mx-commutativity by hand for exactly this reason.  Here the
 -- simultaneous descent becomes something the machine INVOKES:
 --
---   ������� � the two-coordinate recursion, three lines, structural:
---            P(x,0) everywhere, P(0,y) everywhere, P(x,y)�P(sx,sy).
---   �������-������ � the ⊨-level combinator: both edge premises are
---            complete utterances (sakaldea � the other coordinate
+--   युगपद् — the two-coordinate recursion, three lines, structural:
+--            P(x,0) everywhere, P(0,y) everywhere, P(x,y)→P(sx,sy).
+--   युगपद्-आरोहः — the ⊨-level combinator: both edge premises are
+--            complete utterances (sakalādeśa — the other coordinate
 --            still universal), the step premise descends both
 --            coordinates at once.
---   ����������� � the one prover extended: after the single descents,
+--   महाप्रमाणम् — the one prover extended: after the single descents,
 --            it searches coordinate PAIRS, discharging both edges by
 --            its own recursion and the step by the exchange.
 --
 -- Demonstrated, all through the one prover, no hand proofs:
---   � commutativity of the machine's own maximum � SyatWholedesha's hand
+--   � commutativity of the machine's own maximum — SyatWholedesha's hand
 --     theorem, here automatic (norm eye, empty record);
---   � (x−y)�(y−x) = 0 � a theorem needing the record AND the pair
---     descent together: its zero-edge needs 0�x = 0, which the
+--   · (x−y)·(y−x) = 0 — a theorem needing the record AND the pair
+--     descent together: its zero-edge needs 0·x = 0, which the
 --     machine first mints for itself and installs, and the installed
 --     rule then speaks inside the edge's own ascent.
 ------------------------------------------------------------------------
@@ -59,7 +59,7 @@ open import NaturalMachine.PramanaNaya_TheFiveProversWereNayasOfOneKnowingAndEac
 
 ------------------------------------------------------------------------
 -- §1  The two-coordinate recursion, and the environment algebra it
---     needs � everything definitional except one recursion and one
+--     needs — everything definitional except one recursion and one
 --     absurdity.
 ------------------------------------------------------------------------
 
@@ -84,7 +84,7 @@ open import NaturalMachine.PramanaNaya_TheFiveProversWereNayasOfOneKnowingAndEac
 व्यत्ययः ρ (suc k) (suc j) m n kj (suc i) =
   व्यत्ययः (λ p → ρ (suc p)) k j m n kj i
 
--- the test is symmetric � needed to read a k≠j witness both ways.
+-- the test is symmetric — needed to read a k≠j witness both ways.
 सम-विपर्ययः : (k j : ℕ) → समानः k j ≡ समानः j k
 सम-विपर्ययः zero    zero    = refl
 सम-विपर्ययः zero    (suc j) = refl
@@ -97,8 +97,8 @@ open import NaturalMachine.PramanaNaya_TheFiveProversWereNayasOfOneKnowingAndEac
 द्वि-रूपम् k j t = (t ⟨ k ≔ su (var k) ⟩) ⟨ j ≔ su (var j) ⟩
 
 ------------------------------------------------------------------------
--- §2  The combinator.  Both edges are sakaldea � the other
---     coordinate still universal � and the step presents both at
+-- §2  The combinator.  Both edges are sakalādeśa — the other
+--     coordinate still universal — and the step presents both at
 --     once.
 ------------------------------------------------------------------------
 
@@ -168,7 +168,7 @@ open import NaturalMachine.PramanaNaya_TheFiveProversWereNayasOfOneKnowingAndEac
         ∙ cong (λ b → if b then n else उपस्थापनम् ρ k m k) jk
         ∙ आत्म-मूल्यम् ρ k m
 
-      -- e�[k � suc (e� k)] is exactly �[k�suc m][j�suc n]: name the
+      -- e₁[k ↦ suc (e₁ k)] is exactly ρ[k↦suc m][j↦suc n]: name the
       -- values, collapse the repeated updates, commute the distinct
       -- places.
       मार्गः : उपस्थापनम् e₁ k (suc (e₁ k))
@@ -236,7 +236,7 @@ open import NaturalMachine.PramanaNaya_TheFiveProversWereNayasOfOneKnowingAndEac
 
 ------------------------------------------------------------------------
 -- §4  SyatWholedesha's hand theorem, automatic; and a theorem needing
---     record and pair descent together � its zero-edge lemma minted
+--     record and pair descent together — its zero-edge lemma minted
 --     by the machine first and speaking inside the edge's own ascent.
 ------------------------------------------------------------------------
 

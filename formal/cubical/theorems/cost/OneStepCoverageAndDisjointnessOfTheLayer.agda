@@ -8,21 +8,21 @@
 --   (1) COVERAGE: every member of the archive appears in some layer of
 --   `strata`.  (2) DISJOINTNESS: the layers share no member.
 --
--- Both hold AT ONE STEP â” layer versus remainder â” and one step is what
+-- Both hold AT ONE STEP â€” layer versus remainder â€” and one step is what
 -- the iterated statement needs, since `strata` peels a layer and
 -- recurses on exactly the complement proved here.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   memberOfFilterSatisfies / memberOfFilterOutFails
 --                     what membership in each half tells you, proved
 --                     directly by induction rather than through an
---                     `All` â” this corpus now has THREE `All`s in three
+--                     `All` â€” this corpus now has THREE `All`s in three
 --                     modules and routing through any of them would
 --                     have meant a fourth
 --   memberSplits      COVERAGE at one step: every member of `xs` is in
---                     `filterDec â¦ xs` or in `filterOut â¦ xs`
+--                     `filterDec â€¦ xs` or in `filterOut â€¦ xs`
 --   noMemberInBoth    DISJOINTNESS at one step: no member is in both
 --   layerCovers / layerIsDisjoint
 --                     the same at the Pareto stratum and its remainder
@@ -31,7 +31,7 @@
 -- once, which is why they are three lines each: nothing about Pareto
 -- maximality is used, only that the two filters are complementary.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- NO NOVELTY.  A decidable filter and its complement partition a list;
 -- the length version of this was already proved on this line
 -- (`partitionLength`), and this is its membership counterpart.
@@ -135,7 +135,7 @@ layerIsDisjoint xs =
 --
 -- The threading is ASYMMETRIC, which is not visible from one
 -- step: coverage needs `theStratificationTerminates` to kill the
--- leftover branch, and disjointness needs no measure at all â” it holds
+-- leftover branch, and disjointness needs no measure at all â€” it holds
 -- at every fuel, so a stratification cut short is still a partition of
 -- what it reached.  The joint is `strataSound` (every member of every
 -- later stratum was already a member of the remainder), which is what

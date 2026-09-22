@@ -10,7 +10,7 @@
 --
 -- Given
 --
---   e e' : A ‚â Fin (suc n)
+--   e e' : A ‚âÉ Fin (suc n)
 --
 -- their change of presentation is the register automorphism
 --
@@ -26,7 +26,7 @@
 -- reversible flat presentation, so one canonical coherence square
 -- suffices rather than one square per representation.
 --
--- TERM. ‡‡‡∞‡‡‡‡‡‡ø (presentation) and ‡®‡à‡∞‡‡‡ï‡‡‡‡Ø (independence) are ordinary
+-- TERM. ‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡•Å‡§§‡§ø (presentation) and ‡§®‡•à‡§∞‡§™‡•á‡§ï‡•ç‡§∑‡•ç‡§Ø (independence) are ordinary
 -- ; the compound is built here.
 ------------------------------------------------------------------------
 

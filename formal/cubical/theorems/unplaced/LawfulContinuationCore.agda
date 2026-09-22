@@ -136,7 +136,7 @@ record CoherentSection {ℓ ℓe ℓf} {S : Type ℓ}
              → equivFun (carry F edge) (choose s) ≡ choose t
 
 ------------------------------------------------------------------------
--- C� flip holonomy: every local fiber is inhabited (and has two points),
+-- C₂ flip holonomy: every local fiber is inhabited (and has two points),
 -- but the loop transport flips them, so no coherent section exists.
 ------------------------------------------------------------------------
 

@@ -1,11 +1,11 @@
--- SevenfoldVerdict â” the type that replaces the boolean.
+-- SevenfoldVerdict â€” the type that replaces the boolean.
 --
 -- WHAT THIS IS FOR.  `interactive/MathMachine.hs` decides, and its decision is
 -- `koAccepted :: Bool`.  A census over `interactive/machine.log` (ANEKANTA.md Â§1)
 -- found that single bit carrying at least four unrelated situations across
 -- 1457 obligations:
 --
---     denied, and refutable by computation â” simply false         288
+--     denied, and refutable by computation â€” simply false         288
 --     denied here, ACCEPTED ELSEWHERE IN THE SAME LOG             455
 --     answer not expressible as a predication at all              154
 --     no subject to predicate of (`x != y`, failed unification)    80
@@ -26,25 +26,25 @@
 -- seven.
 --
 --   Bhagavati Sutra (Viyaha-pannatti), fifth Anga of the Svetambara canon;
---     oldest strata pre-Common-Era, redacted at Valabhi c. 5th c. CE â”
+--     oldest strata pre-Common-Era, redacted at Valabhi c. 5th c. CE â€”
 --     sevenfold predication applied to the jiva.
---   Umasvati, Tattvarthasutra, c. 2ndâ“5th c. CE.
---     5.31  arpitanarpita-siddheh â” apparently contradictory attributes are
+--   Umasvati, Tattvarthasutra, c. 2ndâ€“5th c. CE.
+--     5.31  arpitanarpita-siddheh â€” apparently contradictory attributes are
 --           established through the distinction of the ASSERTED (arpita) and
 --           the UNASSERTED (anarpita) aspect.  The standpoint index, stated
---           as such, in the 2ndâ“5th century.
---     5.29  utpada-vyaya-dhrauvya-yuktam sat â” arising, perishing and
+--           as such, in the 2ndâ€“5th century.
+--     5.29  utpada-vyaya-dhrauvya-yuktam sat â€” arising, perishing and
 --           persisting held AT ONCE, which is the saha mode.
---   Siddhasena Divakara, Sanmatitarka 1.21, c. 5th c. CE â” a naya taken
+--   Siddhasena Divakara, Sanmatitarka 1.21, c. 5th c. CE â€” a naya taken
 --     alone (nirapeksa) is mithya; the durnaya is the naya that has
 --     forgotten it is one.
---   Samantabhadra, Aptamimamsa, c. 6th c. CE â” the saptabhangi as a fixed
+--   Samantabhadra, Aptamimamsa, c. 6th c. CE â€” the saptabhangi as a fixed
 --     seven-membered scheme, each member prefixed `syat`.
---   Akalanka, Laghiyastraya / Astasati, c. 720â“780 CE â” krama (sequential)
+--   Akalanka, Laghiyastraya / Astasati, c. 720â€“780 CE â€” krama (sequential)
 --     against saha / yugapat (simultaneous), and the argument that the
 --     number is exactly seven.  The krama/saha distinction is his, and it is
 --     the entire content of the two composition operators here.
---   Mallisena, Syadvadamanjari, 1292 CE â” sakaladesa (total statement,
+--   Mallisena, Syadvadamanjari, 1292 CE â€” sakaladesa (total statement,
 --     pramana) against vikaladesa (partial statement, naya).
 --
 -- Every law this module states is proved in
@@ -60,14 +60,14 @@
 --     A derived `Ord` would supply a total order nobody proved.
 --   * no `Monoid`/`Semigroup` instance.  There are TWO compositions, and
 --     `saha` is not associative (`sahaNotAssociative` below, and
---     `àà-ààà™àà—àà¿à` in the Agda), so a Semigroup instance for it would be a
+--     `à¤¸à¤¹-à¤…à¤¸à¤™à¥à¤—à¤¤à¤¿à¤ƒ` in the Agda), so a Semigroup instance for it would be a
 --     lie and picking `krama` silently as "the" one would be the durnaya
 --     this module exists to remove.
 --   * no meet, no bottom, no `mempty` over `Bhanga`.  `syad-asti` and
 --     `syad-nasti` have no greatest lower bound among the seven: the
 --     candidate is the empty profile, which is not a verdict but the ABSENCE
 --     of predication (`Apratipatti`).  A Boolean verdict has a bottom, and
---     that bottom is exactly the collapse.  (`à®àà²à¨à®à-à¨à¾àààà¿`, checked.)
+--     that bottom is exactly the collapse.  (`à¤®à¥‡à¤²à¤¨à¤®à¥-à¤¨à¤¾à¤¸à¥à¤¤à¤¿`, checked.)
 --
 -- A SIBLING TYPE DISAGREES WITH THIS ONE, AND THE DISAGREEMENT STANDS.
 --
@@ -119,7 +119,7 @@
 -- any argument for a reading that runs through krama or saha proves
 -- nothing.  It is a question about what a position IS.
 --
--- defect, and no third.  `krama` is the transport â” nothing is lost, and
+-- defect, and no third.  `krama` is the transport â€” nothing is lost, and
 -- that is why it is a semilattice.  `saha` writes the defect: it destroys
 -- which two seeds it consumed, which is why it does not associate.
 
@@ -137,7 +137,7 @@ import Data.List (nub, sort)
 import qualified ObligationAnalysis as OB
 import Data.Maybe (isJust, mapMaybe)
 
--- ------------------------------------------------------------------ à§ seeds
+-- ------------------------------------------------------------------ à¥§ seeds
 
 -- Presence of a seed predicate.  Not `Bool`: `False` here would read as
 -- "the seed is denied", and it means "this standpoint did not speak".
@@ -150,20 +150,20 @@ va Na  q = q
 -- (asti?, nasti?, avaktavya?)
 type Samavesa = (Upasthiti, Upasthiti, Upasthiti)
 
--- ---------------------------------------------------------------- à¨ the seven
+-- ---------------------------------------------------------------- à¥¨ the seven
 
 data Bhanga
-  = SyadAsti                 -- ààà¯à¾à¦à ààààà¿
-  | SyadNasti                -- ààà¯à¾à¨à à¨à¾àààà¿
-  | SyadAstiNasti            -- ààà¯à¾à¦à ààààà¿ à à¨à¾àààà¿ à        (krama)
-  | SyadAvaktavya            -- ààà¯à¾à¦à ààµà•àààµàà¯à®à              (saha / yugapat)
-  | SyadAstiAvaktavya        -- ààà¯à¾à¦à ààààà¿ à ààµà•àààµàà¯à à
-  | SyadNastiAvaktavya       -- ààà¯à¾à¨à à¨à¾àààà¿ à ààµà•àààµàà¯à à
-  | SyadAstiNastiAvaktavya   -- ààà¯à¾à¦à ààààà¿ à à¨à¾àààà¿ à ààµà•àààµàà¯à à
+  = SyadAsti                 -- à¤¸à¥à¤¯à¤¾à¤¦à¥ à¤…à¤¸à¥à¤¤à¤¿
+  | SyadNasti                -- à¤¸à¥à¤¯à¤¾à¤¨à¥ à¤¨à¤¾à¤¸à¥à¤¤à¤¿
+  | SyadAstiNasti            -- à¤¸à¥à¤¯à¤¾à¤¦à¥ à¤…à¤¸à¥à¤¤à¤¿ à¤š à¤¨à¤¾à¤¸à¥à¤¤à¤¿ à¤š        (krama)
+  | SyadAvaktavya            -- à¤¸à¥à¤¯à¤¾à¤¦à¥ à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯à¤®à¥              (saha / yugapat)
+  | SyadAstiAvaktavya        -- à¤¸à¥à¤¯à¤¾à¤¦à¥ à¤…à¤¸à¥à¤¤à¤¿ à¤š à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯à¤‚ à¤š
+  | SyadNastiAvaktavya       -- à¤¸à¥à¤¯à¤¾à¤¨à¥ à¤¨à¤¾à¤¸à¥à¤¤à¤¿ à¤š à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯à¤‚ à¤š
+  | SyadAstiNastiAvaktavya   -- à¤¸à¥à¤¯à¤¾à¤¦à¥ à¤…à¤¸à¥à¤¤à¤¿ à¤š à¤¨à¤¾à¤¸à¥à¤¤à¤¿ à¤š à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯à¤‚ à¤š
   deriving (Eq, Show, Enum, Bounded)
 
 -- The eighth profile is NOT an eighth position.  `Apratipatti` is what a
--- report says when nothing was predicated at all â” `x != y` with two
+-- report says when nothing was predicated at all â€” `x != y` with two
 -- distinct free variables is a failed unification, not a claim, and forcing
 -- it into a bhanga would be the collapse in .
 data Sthana = Position Bhanga | Apratipatti deriving (Eq, Show)
@@ -195,23 +195,23 @@ isVerdict _           = True
 samyoga :: Samavesa -> Samavesa -> Samavesa
 samyoga (a1,n1,v1) (a2,n2,v2) = (va a1 a2, va n1 n2, va v1 v2)
 
--- ------------------------------------------------- à© krama: succession
+-- ------------------------------------------------- à¥© krama: succession
 
 -- Asserted one after the other, nothing is lost: what either said, the pair
--- still says.  So krama IS the join of profiles â” transport, not collapse â”
+-- still says.  So krama IS the join of profiles â€” transport, not collapse â€”
 -- and it is associative, commutative and idempotent (all three checked).
 krama :: Bhanga -> Bhanga -> Bhanga
 krama x y = forceVerdict (unprofile (samyoga (profile x) (profile y)))
   where
-    -- The union of two non-empty profiles is non-empty; `ààà¯à‹à—-àà°à¿à•ààà®à` in
+    -- The union of two non-empty profiles is non-empty; `à¤¸à¤‚à¤¯à¥‹à¤—-à¤…à¤°à¤¿à¤•à¥à¤¤à¤®à¥` in
     -- the Agda is that fact, and this branch is unreachable BECAUSE of it.
     forceVerdict (Position b) = b
     forceVerdict Apratipatti  =
-      error "krama: unreachable (see ààà¯à‹à—-àà°à¿à•ààà®à, checked in Agda)"
+      error "krama: unreachable (see à¤¸à¤‚à¤¯à¥‹à¤—-à¤…à¤°à¤¿à¤•à¥à¤¤à¤®à¥, checked in Agda)"
 
 -- The tongue breaks.  If the join carries both asti and nasti, no single
 -- utterance carries it: the two seeds are consumed into avaktavya.  Akalanka's
--- saharpana.  NOTE WHAT THIS DESTROYS â” after the collapse the fourth
+-- saharpana.  NOTE WHAT THIS DESTROYS â€” after the collapse the fourth
 -- position does not record which two seeds produced it, and that is not a
 -- modelling artefact but the doctrine's claim.  It is also exactly why
 -- grouping is not free (`sahaNotAssociative`).
@@ -224,7 +224,7 @@ saha x y = forceVerdict (unprofile (jihvabheda (samyoga (profile x) (profile y))
   where
     forceVerdict (Position b) = b
     forceVerdict Apratipatti  =
-      error "saha: unreachable (see àà¿àààµà¾ààà¦-àà°à¿à•ààà®à, checked in Agda)"
+      error "saha: unreachable (see à¤œà¤¿à¤¹à¥à¤µà¤¾à¤­à¥‡à¤¦-à¤…à¤°à¤¿à¤•à¥à¤¤à¤®à¥, checked in Agda)"
 
 -- On `Sthana`, `Apratipatti` is the unit of succession: composing a verdict
 -- with "nothing was said" is that verdict.  It is still not a verdict.
@@ -238,25 +238,25 @@ sahaS Apratipatti s = s
 sahaS s Apratipatti = s
 sahaS (Position a) (Position b) = Position (saha a b)
 
--- The krama order.  PARTIAL â” `nyuna SyadAsti SyadNasti` and
+-- The krama order.  PARTIAL â€” `nyuna SyadAsti SyadNasti` and
 -- `nyuna SyadNasti SyadAsti` are both False and the two have no lower bound.
 nyuna :: Bhanga -> Bhanga -> Bool
 nyuna x y = krama x y == y
 
--- --------------------------------------------------- à live evidence
+-- --------------------------------------------------- à¥ª live evidence
 
 -- The standpoint, carried explicitly, with WITNESSES rather than flags.  A
 -- `Maybe String` and not a `Bool` for the same reason `ObligationAnalysis.Evidence`
 -- keeps `evSakshin` as the accept line itself: affirmation may not be
 -- asserted without producing the thing that affirms.
 --
---   vAsti      â” some naya AFFIRMED this claim (the accepting line/tactic)
---   vNasti     â” some naya DENIED it (the denying tactic, or a computed
+--   vAsti      â€” some naya AFFIRMED this claim (the accepting line/tactic)
+--   vNasti     â€” some naya DENIED it (the denying tactic, or a computed
 --                counterexample)
---   vAvaktavya â” the answer is not expressible as a predication in the
+--   vAvaktavya â€” the answer is not expressible as a predication in the
 --                machine's language at all: no term came back, so no
 --                utterance is formable.  The FOURTH position, positive.
---   vAdharmin  â” no subject to predicate of (`x != y`): not a bhanga at all
+--   vAdharmin  â€” no subject to predicate of (`x != y`): not a bhanga at all
 --
 -- Silence is not denial.  A naya that did not speak leaves its field
 -- `Nothing`, and `Nothing` never becomes `nasti` anywhere below.
@@ -291,7 +291,7 @@ seeds v = mapMaybe id
   , fmap ((,) "avaktavya") (vAvaktavya v)
   , fmap ((,) "adharmin")  (vAdharmin v) ]
 
--- --------------------------------------------------------- à rendering
+-- --------------------------------------------------------- à¥« rendering
 
 sanskritOf :: Sthana -> String
 sanskritOf (Position b) = case b of
@@ -331,28 +331,28 @@ tallySthana :: [Sthana] -> [(String, Int)]
 tallySthana xs =
   [ (k, length [ () | y <- xs, sanskritOf y == k ]) | k <- nub (sort (map sanskritOf xs)) ]
 
--- ------------------------------------------------------------ à the laws
+-- ------------------------------------------------------------ à¥¬ the laws
 --
 -- Exhaustive over the seven (and 343 for associativity).  Each entry
 -- names the Agda term that proves the same thing.
 
 selfTest :: [(String, Bool)]
 selfTest =
-  [ ("krama associative  (à•àà°à®-àà™àà—àà¿à)",
+  [ ("krama associative  (à¤•à¥à¤°à¤®-à¤¸à¤™à¥à¤—à¤¤à¤¿à¤ƒ)",
       and [ krama (krama x y) z == krama x (krama y z) | x <- bs, y <- bs, z <- bs ])
-  , ("krama commutative  (à•àà°à®-àµà¿à¨à¿à®à¯à)",
+  , ("krama commutative  (à¤•à¥à¤°à¤®-à¤µà¤¿à¤¨à¤¿à¤®à¤¯à¤ƒ)",
       and [ krama x y == krama y x | x <- bs, y <- bs ])
-  , ("krama idempotent   (à•àà°à®-àààµà¯à®à)",
+  , ("krama idempotent   (à¤•à¥à¤°à¤®-à¤¸à¥à¤µà¤¯à¤®à¥)",
       and [ krama x x == x | x <- bs ])
-  , ("krama has a top    (àà¿à–à°à®à)",
+  , ("krama has a top    (à¤¶à¤¿à¤–à¤°à¤®à¥)",
       and [ nyuna x SyadAstiNastiAvaktavya | x <- bs ])
-  , ("krama of asti,nasti is the THIRD  (à•àà°à®àà-à‰àà¯à®à)",
+  , ("krama of asti,nasti is the THIRD  (à¤•à¥à¤°à¤®à¥‡à¤£-à¤‰à¤­à¤¯à¤®à¥)",
       krama SyadAsti SyadNasti == SyadAstiNasti)
-  , ("saha  of asti,nasti is the FOURTH (àà-à‰àà¯à®à)",
+  , ("saha  of asti,nasti is the FOURTH (à¤¸à¤¹-à¤‰à¤­à¤¯à¤®à¥)",
       saha SyadAsti SyadNasti == SyadAvaktavya)
-  , ("third /= fourth: saha is not sequential both-ness  (à•àà°à®-àà-ààà¦à)",
+  , ("third /= fourth: saha is not sequential both-ness  (à¤•à¥à¤°à¤®-à¤¸à¤¹-à¤­à¥‡à¤¦à¤ƒ)",
       krama SyadAsti SyadNasti /= saha SyadAsti SyadNasti)
-  , ("saha commutative   (àà-àµà¿à¨à¿à®à¯à)",
+  , ("saha commutative   (à¤¸à¤¹-à¤µà¤¿à¤¨à¤¿à¤®à¤¯à¤ƒ)",
       and [ saha x y == saha y x | x <- bs, y <- bs ])
   , ("saha NOT associative -- witness (B3 saha B1) saha B2 = B6, B3 saha (B1 saha B2) = B4",
       saha (saha SyadAstiNasti SyadAsti) SyadNasti == SyadNastiAvaktavya
@@ -360,21 +360,21 @@ selfTest =
       && saha (saha SyadAstiNasti SyadAsti) SyadNasti
          /= saha SyadAstiNasti (saha SyadAsti SyadNasti))
   , ("avaktavya is NOT reachable by krama from the sequential three \
-     \(ààµà•àààµàà¯à®à-à¨-à•àà°à®àà®à): it must be supplied",
+     \(à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯à¤®à¥-à¤¨-à¤•à¥à¤°à¤®à¤œà¤®à¥): it must be supplied",
       SyadAvaktavya `notElem` kramaClosure [SyadAsti, SyadNasti, SyadAstiNasti])
   , ("...and saha does reach it: the fourth position is positive, not an absence",
       SyadAvaktavya `elem` [ saha x y | x <- seedsOnly, y <- seedsOnly ])
-  , ("asti and nasti have NO greatest lower bound (à®àà²à¨à®à-à¨à¾àààà¿): \
+  , ("asti and nasti have NO greatest lower bound (à¤®à¥‡à¤²à¤¨à¤®à¥-à¤¨à¤¾à¤¸à¥à¤¤à¤¿): \
      \not a lattice",
       null [ b | b <- bs, nyuna b SyadAsti, nyuna b SyadNasti ])
   , ("...and the missing meet is the empty profile, which is no predication",
       unprofile (Na, Na, Na) == Apratipatti)
-  , ("every two-valued verdict identifies two of the three seeds (à¦àà°àà¨à¯à)",
+  , ("every two-valued verdict identifies two of the three seeds (à¤¦à¥à¤°à¥à¤¨à¤¯à¤ƒ)",
       and [ collapsesTwoSeeds f | f <- allBoolMaps ])
-  , ("the seven occupy seven distinct profiles (àà¨ààà°ààà¾àµ-àà•àˆà•à®à)",
+  , ("the seven occupy seven distinct profiles (à¤…à¤¨à¥à¤¤à¤°à¥à¤­à¤¾à¤µ-à¤à¤•à¥ˆà¤•à¤®à¥)",
       length (nub (map profile bs)) == 7)
   , ("2^3 = 7 + 1: eight profiles, seven verdicts and one apratipatti \
-     \(àà®à¾àµàà-ààà¦à)",
+     \(à¤¸à¤®à¤¾à¤µà¥‡à¤¶-à¤­à¥‡à¤¦à¤ƒ)",
       length allProfiles == 8
       && length (filter isVerdict (map unprofile allProfiles)) == 7)
   ]

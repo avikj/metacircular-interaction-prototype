@@ -8,22 +8,22 @@
 -- CLAUDE.md: this lane has no LCM module, so lcm facts are stated by the
 -- universal property.  For `prodOf (frontierList k)` that is two halves:
 --
---   (a) every m â‰ k divides it;
---   (b) it divides every common multiple of 1 â¦ k.
+--   (a) every m â‰¤ k divides it;
+--   (b) it divides every common multiple of 1 â€¦ k.
 --
 -- (b) is here, in the general form, and it is a fold of one lemma this
 -- repository already has.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE STATEMENT
 --
 --     frontier-divides :
---       (es : List Entry) â’ AllPrime es â’ Distinct es
---       â’ (N : â•) â’ AllDivide es N â’ prodOf es âˆ N
+--       (es : List Entry) â†’ AllPrime es â†’ Distinct es
+--       â†’ (N : â„•) â†’ AllDivide es N â†’ prodOf es âˆ£ N
 --
 -- If every prime power in the frontier divides `N`, so does their
--- product.  The induction step is exactly `FinCardinality.gauss` â”
--- coprime divisors multiply â” with the coprimality supplied by
+-- product.  The induction step is exactly `FinCardinality.gauss` â€”
+-- coprime divisors multiply â€” with the coprimality supplied by
 -- `FrontierCount.headCoprime`, which is the `bez-mul` fold.
 ------------------------------------------------------------------------
 
@@ -64,7 +64,7 @@ frontier-divides ((p , i) âˆ· es) (pp , rest) (fresh , dist) N (d , ds) =
 
 ------------------------------------------------------------------------
 -- 3.  So the frontier product is minimal among common multiples of its
---     own prime powers â” the half of the universal property that does not
+--     own prime powers â€” the half of the universal property that does not
 --     need factorisation.
 --
 -- Combined with `FrontierCount.frontier-count`, the picture at a frontier
@@ -80,22 +80,22 @@ frontier-divides ((p , i) âˆ· es) (pp , rest) (fresh , dist) N (d , ds) =
 -- `FrontierDividesHard` proves
 --
 --     frontier-divides-hard :
---       0 < m â’ m â‰ k â’ m âˆ prodOf (frontierList k)
+--       0 < m â†’ m â‰¤ k â†’ m âˆ£ prodOf (frontierList k)
 --
 -- by strong induction on m, peeling one prime at a time with
 -- `CoprimeSplitting.primeDivisor` and `PFreePart`, and closing each step
--- with `FinCardinality.gauss` â” the same Gauss this module's own half
--- uses â” supplied by `PrimeCofactorCoprime`.
+-- with `FinCardinality.gauss` â€” the same Gauss this module's own half
+-- uses â€” supplied by `PrimeCofactorCoprime`.
 --
 -- The ingredients it uses:
 --
 --   * the specification and fuel bound of `FrontierList.logOf`
 --     (`ExponentBound`);
 --   * membership of (p , logOf p k) in `frontierList k` (`FrontierMember`);
---   * isGCD (p^a) m' 1 from p âˆ m', which is three lines
+--   * isGCD (p^a) m' 1 from p âˆ¤ m', which is three lines
 --     (`PrimeCofactorCoprime`).
 --
 -- With both halves in place, `prodOf (frontierList k)` satisfies the
--- universal property of lcm(1 â¦ k), which is how CLAUDE.md requires lcm
+-- universal property of lcm(1 â€¦ k), which is how CLAUDE.md requires lcm
 -- facts be stated in a lane with no LCM module.
 ------------------------------------------------------------------------

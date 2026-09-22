@@ -1,6 +1,6 @@
 # Charged coherence, lossless transport, and superconductivity
 
-## Working research notes ‚î September 16, 2026
+## Working research notes ‚Äî September 16, 2026
 
 This is the persistent mathematical notebook for Avik Jain's superconductivity investigation. The central target is a physical room-temperature superconducting realization. Work proceeds by exact deductions on the joint object, transporting established knowledge and retaining the residual of every proposed reduction. The related mathematical branches remain available together; discussion of the general method must not replace the physical calculation.
 
@@ -91,7 +91,7 @@ J=\begin{pmatrix}0&-1\\1&0\end{pmatrix},\quad J^2=-I,
 
 The planar real algebra is complex multiplication, and its norm-one elements are rotations. `PythagoreanTransition` proves this pair product and multiplicative norm over an arbitrary commutative ring, constructs the norm-one equivalences, and internalizes them as executable universe paths. The four compositional powers, their linear algebra, and its modules are related constructions, not competing counts of one set.
 
-For the rope crossing R(x,y)=(q(y),x), R¬≤=(q x,q y), R‚=1, and both Yang‚ìBaxter composites on three cells evaluate to (q¬≤z,qy,x). Word factorization retains the bare permutation and deposited twists. Each cell reads its own twist count modulo four, which determines the twist kernel. The centralizer proof uses prefix readers and mixing to force one common q-equivariant cell map, hence a uniform power of q. These are connected consequences of one action.
+For the rope crossing R(x,y)=(q(y),x), R¬≤=(q x,q y), R‚Å∏=1, and both Yang‚ÄìBaxter composites on three cells evaluate to (q¬≤z,qy,x). Word factorization retains the bare permutation and deposited twists. Each cell reads its own twist count modulo four, which determines the twist kernel. The centralizer proof uses prefix readers and mixing to force one common q-equivariant cell map, hence a uniform power of q. These are connected consequences of one action.
 
 The displayed Agda reader definition has zero lookahead. The conversation also derived the finite-head-readable extension: if T(s)_0=H(s_0,...,s_m) and T commutes with every crossing, a crossing at the last reading boundary gives H(prefix,q b)=H(prefix,a). Surjectivity removes that input. Repeat to obtain T(s)_0=g(s_0). Commutation at consecutive outputs propagates the same g, and the remaining equation gives gq=qg. This additional ordinary derivation has not been claimed as a newly compiled module.
 
@@ -176,7 +176,7 @@ w(k)=e^{ika/2}u(k)
 \tag{4.2}
 \]
 
-Direct multiplication gives w‚†w=1 and ww‚†=p. Its Fourier support is at zero and one, so the Wannier vector occupies two neighboring cells. Pointwise Bloch normalization makes all lattice translates orthonormal.
+Direct multiplication gives w‚Ä†w=1 and ww‚Ä†=p. Its Fourier support is at zero and one, so the Wannier vector occupies two neighboring cells. Pointwise Bloch normalization makes all lattice translates orthonormal.
 
 In three dimensions,
 
@@ -211,7 +211,7 @@ There is one lower flat band and seven upper bands for each spin. Matrix entries
 \tag{4.6}
 \]
 
-Their anticommutators are P_ij and P_ij*. The complete lower-band interaction tensor multiplying d_a‚‚†d_b‚d_c‚ì‚†d_d‚ì is
+Their anticommutators are P_ij and P_ij*. The complete lower-band interaction tensor multiplying d_a‚Üë‚Ä†d_b‚Üëd_c‚Üì‚Ä†d_d‚Üì is
 
 \[
 -U\sum_iW_{ia}^*W_{ib}W_{ic}W_{id}^*.
@@ -248,9 +248,9 @@ At fixed allowed pair momentum K, define eight orthonormal contact states
 \tag{5.1}
 \]
 
-Let C be their isometry. On this spin sector, onsite attraction is exactly -UCC‚†. The free pair levels 0,Delta_b,2Delta_b have multiplicities N,14N,49N, with projectors P_LL, P_LU+P_UL, P_UU.
+Let C be their isometry. On this spin sector, onsite attraction is exactly -UCC‚Ä†. The free pair levels 0,Delta_b,2Delta_b have multiplicities N,14N,49N, with projectors P_LL, P_LU+P_UL, P_UU.
 
-The contact Gram matrix is G(K)=C‚†P_LL C. For one coordinate,
+The contact Gram matrix is G(K)=C‚Ä†P_LL C. For one coordinate,
 
 \[
 (G_1)_{\alpha\beta}(K)=\overline{p_{\alpha\beta}(k)p_{\alpha\beta}(k-K)}.
@@ -298,7 +298,7 @@ C^\dagger(H_0+x)^{-1}C
 
 Every residue is affine in the same G, so the finite gap does not break common diagonalization.
 
-For a negative-energy eigenstate, (H_0-E)psi=UC C‚†psi. Set v=UC‚†psi. It cannot vanish, since H_0 is nonnegative. Conversely each nonzero solution of
+For a negative-energy eigenstate, (H_0-E)psi=UC C‚Ä†psi. Set v=UC‚Ä†psi. It cannot vanish, since H_0 is nonnegative. Conversely each nonzero solution of
 
 \[
 [U^{-1}I-C^\dagger(H_0-E)^{-1}C]v=0
@@ -343,7 +343,7 @@ q_\lambda(E)=E^3+(U-3\Delta_b)E^2
 \tag{5.10}
 \]
 
-Proof: apply the determinant lemma to E-H_0+UCC‚† away from its free poles. Each of the eight contact channels has denominator E(E-Delta_b)(E-2Delta_b) and numerator q_lambda. Both sides are polynomials, extending the identity through the poles. Vanishing residues restore flat factors through the cubic. The degree is N-8+14N-8+49N-8+24=64N. Reconstruction at a free pole uses the non-inverted block equations; (5.7) was asserted for E<0, where its inverse exists.
+Proof: apply the determinant lemma to E-H_0+UCC‚Ä† away from its free poles. Each of the eight contact channels has denominator E(E-Delta_b)(E-2Delta_b) and numerator q_lambda. Both sides are polynomials, extending the identity through the poles. Vanishing residues restore flat factors through the cubic. The degree is N-8+14N-8+49N-8+24=64N. Reconstruction at a free pole uses the non-inverted block equations; (5.7) was asserted for E<0, where its inverse exists.
 
 # 6. Binding, interband normalization, and an exact mobility optimum
 
@@ -426,13 +426,13 @@ The constant contact eigenvector near the origin is v=(1,...,1)/sqrt8. Its conta
 
 # 7. Exact projected paired states and their density degeneracy
 
-From the projected anticommutator {bar c_i,bar c_i‚†}=p_0,
+From the projected anticommutator {bar c_i,bar c_i‚Ä†}=p_0,
 
 \[
 \bar n_{i\sigma}^2=p_0\bar n_{i\sigma}.
 \]
 
-The proof is bar c_i‚†(p_0-bar n_i)bar c_i=p_0 bar n_i; the remaining term vanishes by nilpotence. Isometry gives sum_i bar n_i_sigma=Nhat_sigma. With M_i=bar n_i_up-bar n_i_down,
+The proof is bar c_i‚Ä†(p_0-bar n_i)bar c_i=p_0 bar n_i; the remaining term vanishes by nilpotence. Isometry gives sum_i bar n_i_sigma=Nhat_sigma. With M_i=bar n_i_up-bar n_i_down,
 
 \[
 \boxed{H_{projected}+\frac{Up_0}{2}\widehat N
@@ -440,7 +440,7 @@ The proof is bar c_i‚†(p_0-bar n_i)bar c_i=p_0 bar n_i; the remaining term vanis
 \tag{7.1}
 \]
 
-Let eta‚†=sum_a d_a_up‚†d_a_down‚†. Complex-conjugate frames imply
+Let eta‚Ä†=sum_a d_a_up‚Ä†d_a_down‚Ä†. Complex-conjugate frames imply
 
 \[
 [\bar n_{i\uparrow},\eta^\dagger]
@@ -448,7 +448,7 @@ Let eta‚†=sum_a d_a_up‚†d_a_down‚†. Complex-conjugate frames imply
 =\bar c_{i\uparrow}^\dagger\bar c_{i\downarrow}^\dagger.
 \]
 
-Thus [M_i,eta‚†]=0. Since M_i kills the vacuum, the nonzero states
+Thus [M_i,eta‚Ä†]=0. Since M_i kills the vacuum, the nonzero states
 
 \[
 |M\rangle=(\eta^\dagger)^M|0\rangle,\qquad0\le M\le N,
@@ -461,9 +461,9 @@ E_M=-Up_0M=-UM/8.
 \tag{7.2}
 \]
 
-Equivalently [H_projected,eta‚†]=-Up_0 eta‚†. The original notebook exhibited these ground states without claiming uniqueness. The connected-frame uniqueness and entire common-kernel classification are now proved in `GROUND_SPACE_AND_DENSITY_RESPONSE.md`.
+Equivalently [H_projected,eta‚Ä†]=-Up_0 eta‚Ä†. The original notebook exhibited these ground states without claiming uniqueness. The connected-frame uniqueness and entire common-kernel classification are now proved in `GROUND_SPACE_AND_DENSITY_RESPONSE.md`.
 
-Different mode-pair creators b_a‚†=d_a_up‚†d_a_down‚† commute, and each squares to zero. Expanding eta^M gives M! times the equal-amplitude sum over all M-element subsets, so
+Different mode-pair creators b_a‚Ä†=d_a_up‚Ä†d_a_down‚Ä† commute, and each squares to zero. Expanding eta^M gives M! times the equal-amplitude sum over all M-element subsets, so
 
 \[
 \langle M|M\rangle=(M!)^2\binom NM.
@@ -493,7 +493,7 @@ The tower supplies known terms to a grand trace, not the whole trace. Other stat
 
 # 8. The original finite-gap many-pair residual
 
-Use canonical physical a_i=c_i_up, b_j=c_j_down, and B_phi‚†=sum_ij phi_ij a_i‚†b_j‚†. The vacuum pair equation is
+Use canonical physical a_i=c_i_up, b_j=c_j_down, and B_phi‚Ä†=sum_ij phi_ij a_i‚Ä†b_j‚Ä†. The vacuum pair equation is
 
 \[
 h_\uparrow\phi+\phi h_\downarrow^{\mathsf T}
@@ -519,16 +519,16 @@ R_\phi=-U\sum_{ij}\phi_{ij}a_i^\dagger b_j^\dagger
 \tag{8.2}
 \]
 
-At i=j the displayed occupation residual vanishes by c‚†n=0; its onsite constant is already in (8.1). The residual vanishes on the vacuum, not generally on occupied states.
+At i=j the displayed occupation residual vanishes by c‚Ä†n=0; its onsite constant is already in (8.1). The residual vanishes on the vacuum, not generally on occupied states.
 
-Set X_i‚†=a_i‚† sum_j phi_ij b_j‚† and Y_i‚†=(sum_j phi_ji a_j‚†)b_i‚†. Commuting the occupations through B_phi‚† and relabeling gives
+Set X_i‚Ä†=a_i‚Ä† sum_j phi_ij b_j‚Ä† and Y_i‚Ä†=(sum_j phi_ji a_j‚Ä†)b_i‚Ä†. Commuting the occupations through B_phi‚Ä† and relabeling gives
 
 \[
 C_\phi=[R_\phi,B_\phi^\dagger]=-2U\sum_iX_i^\dagger Y_i^\dagger.
 \tag{8.3}
 \]
 
-Even pure-creation operators commute, so [C_phi,B_phi‚†]=0. Moving R to the right in the commutator of a power, where it kills the vacuum, counts binom(M,2) crossings. Hence
+Even pure-creation operators commute, so [C_phi,B_phi‚Ä†]=0. Moving R to the right in the commutator of a power, where it kills the vacuum, counts binom(M,2) crossings. Hence
 
 \[
 \boxed{H_{on}(B_\phi^\dagger)^M|0\rangle
@@ -552,7 +552,7 @@ At zero momentum the full reconstructed kernel is, up to an irrelevant common sc
 
 The diagonal is p_0/x_0+(1-p_0)/(x_0+2Delta_b)=1/U. Since h_down^T=h_up=Delta_b(I-P), substitution verifies (8.1).
 
-For p_i‚†=a_i‚†b_i‚† and i!=j, the coefficient of p_i‚†p_j‚†|0> in C_phi|0> is
+For p_i‚Ä†=a_i‚Ä†b_i‚Ä† and i!=j, the coefficient of p_i‚Ä†p_j‚Ä†|0> in C_phi|0> is
 
 \[
 4U\phi_{ij}\phi_{ji}=4U\gamma^2|P_{ij}|^2.
@@ -566,16 +566,16 @@ Only terms centered at i or j create precisely those four modes; both fermionic 
 \tag{8.7}
 \]
 
-Thus C_phi is not zero. Moreover the coefficient of the same configuration in (B_phi‚†)¬≤|0> is
+Thus C_phi is not zero. Moreover the coefficient of the same configuration in (B_phi‚Ä†)¬≤|0> is
 
 \[
 2(\phi_{ii}\phi_{jj}-\phi_{ij}\phi_{ji}).
 \tag{8.8}
 \]
 
-For two different orbitals in the same cell, P_ij=0 because the zero-displacement Fourier coefficient is I_8/8. Equation (8.8) is then 2/U¬≤, while (8.6) is zero. Proportionality C_phi|0>=c(B_phi‚†)¬≤|0> would force c=0. But (8.7) supplies another pair with nonzero (8.6), a contradiction. Therefore the exact vacuum pair squared is not an eigenstate of the original finite-gap Hamiltonian at any energy.
+For two different orbitals in the same cell, P_ij=0 because the zero-displacement Fourier coefficient is I_8/8. Equation (8.8) is then 2/U¬≤, while (8.6) is zero. Proportionality C_phi|0>=c(B_phi‚Ä†)¬≤|0> would force c=0. But (8.7) supplies another pair with nonzero (8.6), a contradiction. Therefore the exact vacuum pair squared is not an eigenstate of the original finite-gap Hamiltonian at any energy.
 
-This closes that ansatz, not superconductivity or every density-dependent pair state. Its orthogonal residual becomes the next exact operator. Normalize chi_M proportional to (B_phi‚†)^M|0>, define Pi_M=|chi_M><chi_M|, Q_M=I-Pi_M,
+This closes that ansatz, not superconductivity or every density-dependent pair state. Its orthogonal residual becomes the next exact operator. Normalize chi_M proportional to (B_phi‚Ä†)^M|0>, define Pi_M=|chi_M><chi_M|, Q_M=I-Pi_M,
 
 \[
 a_M=\langle\chi_M|H|\chi_M\rangle,\quad
@@ -623,7 +623,7 @@ Let a finite Hermitian block matrix be
 H=\begin{pmatrix}A&B\\B^\dagger&C\end{pmatrix}.
 \]
 
-Off spec(C), define Sigma(z)=B(z-C)^(-1)B‚† and H_eff(z)=A+Sigma(z). The exact block factorization is
+Off spec(C), define Sigma(z)=B(z-C)^(-1)B‚Ä† and H_eff(z)=A+Sigma(z). The exact block factorization is
 
 \[
 z-H=
@@ -663,7 +663,7 @@ Successive Schur eliminations agree with simultaneous elimination on their share
 
 # 11. Electromagnetic source transport and the magnetic projector defect
 
-For a source-dependent unitary frame V(varphi), let H_tilde=VHV‚† and A_varphi=(partial_varphi V)V‚†. Then
+For a source-dependent unitary frame V(varphi), let H_tilde=VHV‚Ä† and A_varphi=(partial_varphi V)V‚Ä†. Then
 
 \[
 \partial_\varphi\widetilde H
@@ -673,7 +673,7 @@ For a source-dependent unitary frame V(varphi), let H_tilde=VHV‚† and A_varphi=(
 
 The covariant derivative subtracts the representation commutator. A pure frame change leaves the Gibbs trace invariant and cannot by itself generate free-energy curvature.
 
-For vertex-to-edge gradient D, suppose the complete physical source family obeys H[A+Dchi]=U_chi H[A]U_chi‚†. Then F[A+Dchi]=F[A], and its static response matrix K obeys
+For vertex-to-edge gradient D, suppose the complete physical source family obeys H[A+Dchi]=U_chi H[A]U_chi‚Ä†. Then F[A+Dchi]=F[A], and its static response matrix K obeys
 
 \[
 D^{\mathsf T}\nabla_AF=0,\qquad D^{\mathsf T}K=0,\qquad KD=0.
@@ -732,11 +732,11 @@ Write H_SB=sum_alpha S_alpha tensor B_alpha in an independent basis of nontrivia
 
 for each independent bath component, and H_S preserves Pi. Sufficiency restricts the generator to H_Pi tensor I+I tensor H_B'. Necessity differentiates the factorization at the identity; independence forces each remaining coefficient to be scalar and every leakage block to vanish.
 
-If the actual bath algebra lies in C[Q] with Q^4=I, each character projector Pi_r=(1/4)sum_k i^(-rk)Q^k satisfies the scalar condition. Mere commutation with Q only gives block diagonality and can still resolve internal states. Charge-two b obeys QbQ‚†=-b, so Pi_r b Pi_r=0 while b_i‚†b_j is neutral. Fixed-sector anomalous expectation is not a replacement for number-conserving pair coherence.
+If the actual bath algebra lies in C[Q] with Q^4=I, each character projector Pi_r=(1/4)sum_k i^(-rk)Q^k satisfies the scalar condition. Mere commutation with Q only gives block diagonality and can still resolve internal states. Charge-two b obeys QbQ‚Ä†=-b, so Pi_r b Pi_r=0 while b_i‚Ä†b_j is neutral. Fixed-sector anomalous expectation is not a replacement for number-conserving pair coherence.
 
 The parent's paired states are common zeros of M_i, so sum_i M_i tensor X_i acts trivially on their span. The new ground-space chapter identifies that span completely when the projector overlap is connected. Thermal occupation and actual physical phonon couplings are separate questions sharing the same operators.
 
-For density noise L_alpha=sum_i g_alpha_i n_i and onsite pair transfer T_ij=b_i‚†b_j,
+For density noise L_alpha=sum_i g_alpha_i n_i and onsite pair transfer T_ij=b_i‚Ä†b_j,
 
 \[
 [L_\alpha,T_{ij}]=2(g_{\alpha i}-g_{\alpha j})T_{ij}.
@@ -910,7 +910,7 @@ This follows by differentiating stationarity, not by neglecting xi. Its exact qu
 
 For positive definite K, full positive semidefiniteness is equivalent to the Schur-complement condition. If an internal mode reaches zero, this inverse chart fails; that mode must remain or a constrained inverse with its compatibility conditions must be supplied. A local Hessian of one branch is not a comparison with every competing crystal or charge order.
 
-# 16. Exact electron‚ìnuclear factorization
+# 16. Exact electron‚Äìnuclear factorization
 
 For a normalized differentiable pure joint wavefunction, on a patch where the nuclear marginal is nonzero,
 
@@ -921,7 +921,7 @@ For a normalized differentiable pure joint wavefunction, on a patch where the nu
 \tag{16.1}
 \]
 
-The phase freedom is Phi_R -> exp(i theta(R))Phi_R and chi -> exp(-i theta(R))chi. This is exact factorization, not a Born‚ìOppenheimer assumption.
+The phase freedom is Phi_R -> exp(i theta(R))Phi_R and chi -> exp(-i theta(R))chi. This is exact factorization, not a Born‚ÄìOppenheimer assumption.
 
 Define
 
@@ -971,7 +971,7 @@ A common finite-volume source-dependent object is
 
 The model, source domains, ordering, boundaries, and physical operator conventions are part of this definition. Exact preservation under an explicit source map preserves its derivatives. Preserving selected eigenvalues alone need not do so. Dynamic questions use a stated real-time continuation or process, not an unspecified analytic shortcut.
 
-A microscopic realization map must connect composition, orbital geometry, pressure, charge density, electron‚ìnuclear interactions, and physical source couplings to this object. Its fibre can contain several possible compounds or no current constructed example. Necessary-and-sufficient characterizations are not themselves a proof that a particular realization exists or is unique. The mathematical task remains to construct that realization with its energy and stability data.
+A microscopic realization map must connect composition, orbital geometry, pressure, charge density, electron‚Äìnuclear interactions, and physical source couplings to this object. Its fibre can contain several possible compounds or no current constructed example. Necessary-and-sufficient characterizations are not themselves a proof that a particular realization exists or is unique. The mathematical task remains to construct that realization with its energy and stability data.
 
 # 18. Current continuations, kept attached to their equations
 
@@ -989,7 +989,7 @@ A microscopic realization map must connect composition, orbital geometry, pressu
 
 **Defects and boundaries.** Retain amplitude zeros, vortex cores, and boundary crossings in the source-dependent action. Net topological charge does not determine their energies or thermal weights. The bulk dimension is three unless a new film model and its electromagnetic geometry are specified.
 
-**Electron‚ìnuclear realization.** The conditional state, Berry connection, nuclear marginal, and perpendicular derivative term in (16.2) are the concrete data to compute. Mixed thermal states require their own retained state representation. Source-dependent reductions must preserve these data when they determine stability or pairing.
+**Electron‚Äìnuclear realization.** The conditional state, Berry connection, nuclear marginal, and perpendicular derivative term in (16.2) are the concrete data to compute. Mixed thermal states require their own retained state representation. Source-dependent reductions must preserve these data when they determine stability or pairing.
 
 **Proof re-entry.** The current notebook and exact scripts are research outputs. They have not been compiled as an autonomous native materials-discovery program. A formal port should encode the actual types, inverse domains, model distinctions, and source maps, not assume an unevaluated return block equals zero. The resulting typed transformations should re-enter the ongoing calculation at every justified instance.
 
@@ -997,7 +997,7 @@ A microscopic realization map must connect composition, orbital geometry, pressu
 
 The quarter-turn's connected algebraic role was initially understated as a mere example; the opposite error would be to identify its configuration centralizer with every physical linear operator. Both distinctions are retained. Finite phase period does not limit the content of a dependent fibre. Integer winding, spatial-prefix completion, and homotopy truncation remain different constructions.
 
-The pair problem is solved at finite gap; the projected and engineered-parent eta states belong to different Hamiltonians. Nonzero C_phi first excluded additive energy, while the coefficient comparison in (8.8) supplied the stronger no-eigenstate result. The old compact fluctuation‚ìdissipation statement omitted the zero-frequency elastic sector, now explicit in (14.5). The magnetic source extension had implicitly reused projector idempotence; equation (11.4) is its missing residual. Reversible logical history was at times overstated as zero heat; equation (14.6) carries the actual statistical content.
+The pair problem is solved at finite gap; the projected and engineered-parent eta states belong to different Hamiltonians. Nonzero C_phi first excluded additive energy, while the coefficient comparison in (8.8) supplied the stronger no-eigenstate result. The old compact fluctuation‚Äìdissipation statement omitted the zero-frequency elastic sector, now explicit in (14.5). The magnetic source extension had implicitly reused projector idempotence; equation (11.4) is its missing residual. Reversible logical history was at times overstated as zero heat; equation (14.6) carries the actual statistical content.
 
 A pair mobility optimum is not a T_c optimum, and a protected prepared subspace is not a thermal equilibrium population. These distinctions keep the physical objects usable, rather than evaluating the value of a derivation only by its eventual materials endpoint.
 
@@ -1022,11 +1022,11 @@ The main equations above are derived from their displayed definitions. Reference
 1. M. Tovmasyan, S. Peotta, P. Trm, S. D. Huber, *Effective theory and emergent SU(2) symmetry in the flat bands of attractive Hubbard models*, arXiv:1608.00976; Phys. Rev. B 94, 245149 (2016). Uniform-pairing ground states, pseudospin and density degeneracy.
 2. K.-E. Huhtinen et al., *Revisiting flat band superconductivity: dependence on minimal quantum metric and band touchings*, arXiv:2203.11133; Phys. Rev. B 106, 014518 (2022). Complete response, internal relaxation and geometric hypotheses.
 3. D. J. Scalapino, S. R. White, S. Zhang, *Insulator, metal, or superconductor: The criteria*, Phys. Rev. B 47, 7995 (1993), DOI 10.1103/PhysRevB.47.7995. Current-response limits.
-4. G. Dusson, I. M. Sigal, B. Stamm, *The Feshbach‚ìSchur map and perturbation theory*, arXiv:2105.02058. Spectral reduction; no perturbative estimate is imported here.
+4. G. Dusson, I. M. Sigal, B. Stamm, *The Feshbach‚ÄìSchur map and perturbation theory*, arXiv:2105.02058. Spectral reduction; no perturbative estimate is imported here.
 5. Z. Han, J. Herzog-Arbeitman, B. A. Bernevig, S. A. Kivelson, *Quantum Geometric Nesting and Solvable Model Flat-Band Systems*, arXiv:2401.04163v3; Phys. Rev. X 14, 041004 (2024). Constructive solvable parents and selected excitations.
 6. D. A. Lidar, I. L. Chuang, K. B. Whaley, *Decoherence Free Subspaces for Quantum Computation*, arXiv:quant-ph/9807004; Phys. Rev. Lett. 81, 2594 (1998). Scalar action and common annihilators.
 7. G. Timofeev, A. Trushechkin, *Hamiltonian of mean force in the weak-coupling and high-temperature approximations and refined quantum master equations*, arXiv:2204.00599. Used for the mean-force definition, not its approximation schemes.
-8. H. B. Callen, T. A. Welton, *Irreversibility and Generalized Noise*, Phys. Rev. 83, 34 (1951). Fluctuation‚ìdissipation background with conventions and zero-frequency terms explicit above.
+8. H. B. Callen, T. A. Welton, *Irreversibility and Generalized Noise*, Phys. Rev. 83, 34 (1951). Fluctuation‚Äìdissipation background with conventions and zero-frequency terms explicit above.
 9. D. Reeb, M. M. Wolf, *An improved Landauer Principle with finite-size corrections*, arXiv:1306.4352; New J. Phys. 16, 103011 (2014). Bath entropy and relative entropy; the initially correlated extension is derived above.
 10. A. Abedi, N. T. Maitra, E. K. U. Gross, *Exact factorization of the time-dependent electron-nuclear wavefunction*, arXiv:1006.2638; Phys. Rev. Lett. 105, 123002 (2010), with extended derivation arXiv:1208.4388.
 11. R. Requist, C. R. Proetto, E. K. U. Gross, *Exact factorization-based density functional theory of electron-phonon systems*, arXiv:1901.07523; Phys. Rev. B 99, 165136 (2019).
@@ -1040,4 +1040,4 @@ The main equations above are derived from their displayed definitions. Reference
 
 The conversation packages contained exact SymPy controls: 51 assertions for the original projector/pair/Schur/CAR calculations, 88 for the many-pair and parent continuation, 16 for the stronger two-pair obstruction, magnetic defect and static conserved-source checks, and 22 for the general projector-family reduction. Those are historical execution records, not counts of formally verified general theorems or new executions in this import. The general proofs are retained in the text. The new repository script and fresh output specifically concern the ground-space/density-response continuation.
 
-To resume, use the actual object belonging to the desired branch: (phi,C_phi,a_M,r_M,D_M) for the original correlated many-body problem; (W,A_i,S,mathcal L,mathcal I_M) for the solved parent's response; (P[A],P[A]¬≤-P[A],H_parent[A]) for its transverse source extension; (Q_m,Z,J,H'',chi) for the thermal problem; and the full mediator or electron‚ìnuclear Hamiltonian for realization. Keep newly obtained maps, their inverse domains, state norms, and source compatibility alongside their answers. The outcome of continuing these constructions remains a research question, with superconductivity central throughout.
+To resume, use the actual object belonging to the desired branch: (phi,C_phi,a_M,r_M,D_M) for the original correlated many-body problem; (W,A_i,S,mathcal L,mathcal I_M) for the solved parent's response; (P[A],P[A]¬≤-P[A],H_parent[A]) for its transverse source extension; (Q_m,Z,J,H'',chi) for the thermal problem; and the full mediator or electron‚Äìnuclear Hamiltonian for realization. Keep newly obtained maps, their inverse domains, state norms, and source compatibility alongside their answers. The outcome of continuing these constructions remains a research question, with superconductivity central throughout.

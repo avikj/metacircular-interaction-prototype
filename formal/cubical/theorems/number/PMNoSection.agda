@@ -3,22 +3,22 @@
 ------------------------------------------------------------------------
 -- PMNoSection
 --
--- The Peres�Mermin section failure, in the constructive lane: nine
--- F� unknowns on a 3�3 square, six contexts (rows even, first two
--- columns even, third column ODD � the sign vector
+-- The Peres–Mermin section failure, in the constructive lane: nine
+-- F₂ unknowns on a 3×3 square, six contexts (rows even, first two
+-- columns even, third column ODD — the sign vector
 -- derived from the exact Weyl cocycle).  Every context admits local
--- sections (`local�`, exhibited), but NO global assignment satisfies
+-- sections (`local·`, exhibited), but NO global assignment satisfies
 -- all six: `noGlobal`.
 --
 -- The exhaustion over all 512 assignments is performed BY THE
 -- TYPECHECKER: the certificate `exhaust` is `refl`, whose checking
--- normalizes the 512-fold conjunction to `true`.  A proof that runs �
+-- normalizes the 512-fold conjunction to `true`.  A proof that runs —
 -- the button's stance one level down.
 --
 -- Bridge (PM_SECTION_VS_COCYCLE): this
--- is descent of SECTIONS where DescentLaw is descent of OBSERVABLES �
+-- is descent of SECTIONS where DescentLaw is descent of OBSERVABLES —
 -- all local factorizations exist, the assembly is obstructed, and the
--- obstruction class is the parity functional.  H� to DescentLaw's H�.
+-- obstruction class is the parity functional.  H¹ to DescentLaw's H⁰.
 ------------------------------------------------------------------------
 
 module PMNoSection where
@@ -58,7 +58,7 @@ sound (suc n) f p (false ∷ v) =
     (andR (allVec n (λ w → f (true ∷ w)))
           (allVec n (λ w → f (false ∷ w))) p) v
 
--- the Peres�Mermin square ---------------------------------------------
+-- the Peres–Mermin square ---------------------------------------------
 
 even3 odd3 : Bool → Bool → Bool → Bool
 even3 x y z = not (x ⊕ (y ⊕ z))

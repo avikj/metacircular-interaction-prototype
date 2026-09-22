@@ -7,7 +7,7 @@
 --
 -- Source: `runtime/vocabulary/README.md` §7.  The measured result there
 -- is a plateau: a proposer that generalises shapes *already built* is
--- closed under "already built" � twelve installed constructors moved no
+-- closed under "already built" — twelve installed constructors moved no
 -- benchmark, because every proposal was drawn from the history of
 -- successful matches, and a conservative extension by an
 -- already-matched shape changes nothing.  The named fix is a proposer
@@ -18,28 +18,28 @@
 -- This module states and CHECKS both halves in a small substrate.  How
 -- much of §7 survives the shrinking is the subject of T7� and T10 below.
 --
---   * `Tm`      � unary constructor terms over a countable alphabet of
+--   * `Tm`      — unary constructor terms over a countable alphabet of
 --                 head shapes (a term language in which a definitional
 --                 body and its unfolding are non-degenerate; "smallest"
 --                 is an informal judgement, not a theorem, and nothing
 --                 below depends on it).
---   * `Vocab`   � the installed vocabulary, a list of head shapes; the
+--   * `Vocab`   — the installed vocabulary, a list of head shapes; the
 --                 root matcher `Matches` and the full-term predicate
 --                 `Over` are Bool-membership tests against it.
---   * `Obstruction V` � the residual of a failed match: the uncovered
+--   * `Obstruction V` — the residual of a failed match: the uncovered
 --                 head (`residual`), the base subterm below the failure
---                 frontier (`arg`, all of whose heads are covered � the
+--                 frontier (`arg`, all of whose heads are covered — the
 --                 failure is exactly at the root), the failure evidence
 --                 (`failed`), and a base body read off from the
 --                 residual analysis (`witness`) for the head to
 --                 abbreviate.
---   * `propose` � the obstruction-indexed proposer: a *function* from
+--   * `propose` — the obstruction-indexed proposer: a *function* from
 --                 obstructions to definitional extensions (name = the
 --                 residual, body = the witness, freshness = the failure
---                 evidence itself � gate D1 is not a side condition
+--                 evidence itself — gate D1 is not a side condition
 --                 here, it is the obstruction).
 --
--- Theorems (all checked, none postulated � `--safe`):
+-- Theorems (all checked, none postulated — `--safe`):
 --
 --   T1 `defining-equation`      the new head unfolds by its body.
 --   T2 `unfold-elim` /
@@ -68,18 +68,18 @@
 --                               matcher EQUAL (a path of functions, by
 --                               funExt), and hence any finite chain of
 --                               such proposals does too.
---   T7� `freq-reaches-every-installed` /
+--   T7′ `freq-reaches-every-installed` /
 --      `freq-memb-absorbed` /
 --      `freq-Over-plateau`      the heads a
 --                               `FreqChain` step can name are EXACTLY
 --                               the already-installed ones, so such a
 --                               chain changes no membership test at all
---                               � the matcher path is a shadow of an
+--                               — the matcher path is a shadow of an
 --                               inert vocabulary, not of an argument
 --                               about frequencies.
 --   T8 `frequency-cannot-reach` no chain of the modelled frequency
 --                               proposer ever matches an obstruction's
---                               stuck term � while one obstruction step
+--                               stuck term — while one obstruction step
 --                               does (T5).
 --   T9 `obs-complete`           coverage: every term is fully covered
 --                               after a finite chain of obstruction-
@@ -217,7 +217,7 @@ match-mono V s var        m = Empty.rec m
 match-mono V s (node c u) m = memb-mono c s V m
 
 -- T3: conservativity of the matcher.  Installing a new head changes
--- matchability at NO other head � the path of types is by cong, not
+-- matchability at NO other head — the path of types is by cong, not
 -- assertion.  This is the model's rendering of gate D3: the new name
 -- constrains no old symbol.
 match-conservative : (V : Vocab) (s c : Shape) (u : Tm) → ¬ c ≡ s
@@ -229,8 +229,8 @@ match-conservative V s c u ¬p = cong (_≡ true) (memb-skip c s V ¬p)
 ------------------------------------------------------------------------
 
 -- Unfold the defined head d with base body b (the body's parameter
--- receives the unfolded argument).  D4's content � the body mentions
--- only earlier vocabulary � is `Over V b` below, so one pass
+-- receives the unfolded argument).  D4's content — the body mentions
+-- only earlier vocabulary — is `Over V b` below, so one pass
 -- eliminates.
 unfold : Shape → Tm → Tm → Tm
 unfold d b var        = var
@@ -243,7 +243,7 @@ defining-equation : (d : Shape) (b : Tm) (t : Tm)
 defining-equation d b t = if≡true (eqℕ-refl d)
 
 -- T2: elimination.  A definitional extension is conservative because
--- every term of the extended vocabulary unfolds to a base term � the
+-- every term of the extended vocabulary unfolds to a base term — the
 -- standard argument, executed by induction rather than cited.
 unfold-elim : (V : Vocab) (d : Shape) (b : Tm) → Over V b
             → (t : Tm) → Over (d ∷ V) t → Over V (unfold d b t)
@@ -285,7 +285,7 @@ extend : (V : Vocab) → Obstruction V → Vocab
 extend V o = residual o ∷ V
 
 ------------------------------------------------------------------------
--- 5.  The proposer: obstructions � definitional extensions.
+-- 5.  The proposer: obstructions → definitional extensions.
 ------------------------------------------------------------------------
 
 record Extension (V : Vocab) : Type₀ where
@@ -298,7 +298,7 @@ record Extension (V : Vocab) : Type₀ where
 open Extension
 
 -- The proposal is a FUNCTION of the residual: name the missing head,
--- let it abbreviate the witness.  Freshness is not checked � it IS the
+-- let it abbreviate the witness.  Freshness is not checked — it IS the
 -- failure evidence.  An obstruction-indexed proposer gets D1 for free
 -- because it only ever names what just failed to match.
 propose : (V : Vocab) → Obstruction V → Extension V
@@ -309,7 +309,7 @@ propose V o = record
 install : (V : Vocab) → Extension V → Vocab
 install V e = name e ∷ V
 
--- Installing the proposal is exactly extension by the obstruction �
+-- Installing the proposal is exactly extension by the obstruction —
 -- definitionally.
 propose-installs : (V : Vocab) (o : Obstruction V)
                  → install V (propose V o) ≡ extend V o
@@ -325,7 +325,7 @@ proposal-determined : (V : Vocab) (o o' : Obstruction V)
                     → Matches (extend V o) ≡ Matches (extend V o')
 proposal-determined V o o' p = cong (λ s → Matches (s ∷ V)) p
 
--- T2 for the proposal: the proposed definition eliminates � the
+-- T2 for the proposal: the proposed definition eliminates — the
 -- extension it makes is definitional, hence conservative.
 propose-eliminable : (V : Vocab) (o : Obstruction V) (t : Tm)
                    → Over (install V (propose V o)) t
@@ -347,7 +347,7 @@ strictly-extends : (V : Vocab) (o : Obstruction V)
                  → Σ[ t ∈ Tm ] ((¬ Matches V t) × Matches (extend V o) t)
 strictly-extends V o = stuckTm o , progress-before V o , progress-after V o
 
--- T6: proposing consumes the obstruction � the same residual cannot
+-- T6: proposing consumes the obstruction — the same residual cannot
 -- obstruct the extended vocabulary.
 obstruction-eliminated : (V : Vocab) (o : Obstruction V)
   → ¬ (Σ[ o' ∈ Obstruction (extend V o) ] residual o' ≡ residual o)
@@ -362,8 +362,8 @@ obstruction-eliminated V o (o' , p) =
 -- The frequency-based proposer draws its candidate from the history of
 -- SUCCESSFUL matches: it can only ever name the head of a term the
 -- matcher already fired on.  Extension by such a head leaves the
--- matcher EQUAL � not equivalent, equal, as a path of functions
--- Tm � Type� � and therefore so does any finite chain of such
+-- matcher EQUAL — not equivalent, equal, as a path of functions
+-- Tm → Type₀ — and therefore so does any finite chain of such
 -- proposals.  Naming re-describes the matchable set; it does not
 -- enlarge it.
 ------------------------------------------------------------------------
@@ -406,8 +406,8 @@ plateau (step {W = W} ch t m) =
 -- `headShape-built` is ALREADY INSTALLED in W.  The converse holds too:
 -- every installed head is the head of some term the vocabulary matches,
 -- namely `node s var` (`freq-reaches-every-installed`).  So the heads a
--- frequency step can name are EXACTLY the installed ones � no fewer and
--- no more � and the honest statement of the plateau is not about the
+-- frequency step can name are EXACTLY the installed ones — no fewer and
+-- no more — and the honest statement of the plateau is not about the
 -- matcher at all, it is about membership:
 --
 --   `freq-memb-absorbed` : a frequency chain changes NO membership test.
@@ -468,16 +468,16 @@ frequency-cannot-reach V o ch m =
 --   `class-preserves-outside` it changes no membership test OFF C;
 --   `class-cannot-reach`      it never matches the stuck term of an
 --                             obstruction whose residual is off C;
---   `class-can-grow`          and � unlike `FreqChain`, which by
+--   `class-can-grow`          and — unlike `FreqChain`, which by
 --                             `freq-memb-absorbed` can never change any
---                             membership test at all � it really does
+--                             membership test at all — it really does
 --                             install heads that were not there.
 --
 -- So this subsumes T8's content without T7's degeneracy.  Note what is
 -- lost in the honest version: the matcher genuinely changes (on C), so
 -- no PATH of matchers is available and `Matches W ≡ Matches V` is false
--- in general.  T7's headline � "leaves the matcher EQUAL, not
--- equivalent, EQUAL" � is a symptom of the degenerate model, not extra
+-- in general.  T7's headline — "leaves the matcher EQUAL, not
+-- equivalent, EQUAL" — is a symptom of the degenerate model, not extra
 -- strength.  Invariance off the class is the statement that survives.
 ------------------------------------------------------------------------
 

@@ -1,18 +1,18 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- рорр▓р╡р╛рХррпрор ┬ PROVENANCE OF THE NAME, AND A WARNING ABOUT IT.
+-- рдореВрд▓рд╡рд╛рдХреНрдпрдореН ┬╖ PROVENANCE OF THE NAME, AND A WARNING ABOUT IT.
 --
 -- **The mathematics in this module originates in cubical type theory, not in
 -- an Indian source, and the name should not be read as claiming otherwise.**
 -- `transport`, `ua` and `ua╬▓` are Voevodsky's univalence as realised in
--- cubical type theory тФ the substrate this repository is checked in, and the
+-- cubical type theory тАФ the substrate this repository is checked in, and the
 -- one exception CLAUDE.md grants ("all respects paid to Indians only, plus
 -- Voevodsky").  Nothing below is a theorem of any  text.
 --
 -- рррХрр░рор ┬ saorder IS a technical term, and it does not mean this.  In
 -- Jaina karma theory it is the transition of one karma-prakti into another
--- тФ *akhagama* with Vrasena's *Dhaval* (~816 CE); ivaarmasri,
+-- тАФ *с╣вaс╣нkhaс╣Зс╕Н─Бgama* with V─лrasena's *Dhaval─Б* (~816 CE); ┼Ъiva┼Ыarmas┼лri,
 -- *Karmaprakti*.  In jyotia, sakrnti is the sun's passage into a sign.
 -- **Neither is what this module proves**, and welding the Jaina term onto a
 -- path-transport would be the error CLAUDE.md's second naming condition
@@ -20,30 +20,30 @@
 -- corrects: it asserts a provenance nobody checked."
 --
 -- What the name legitimately carries is the READING, from
--- рирррпрр┐ тФ which is this repository's own gloss of two paths and no third,
+-- рдирд╢реНрдпрддрд┐ тАФ which is this repository's own gloss of two paths and no third,
 -- and which is what the module makes precise.  A reading is not a citation.
 --
 ------------------------------------------------------------------------
--- рррХрр░роррор тФ transport as the machine's ONLY identification primitive.
+-- рд╕рдВрдХреНрд░рдордгрдореН тАФ transport as the machine's ONLY identification primitive.
 --
--- ррр┐ррр╛-ррррр░-р╡р┐рррр╛р░р ┬з р (ржрр╡р рор╛р░ррЧр) рррр р╡ржрр┐ :
---     рррХрр░рорр ррр░ррир╛ р╡ррр┐ р рррХрр░рорр ри рХр┐рЮррр┐рир рирррпрр┐ р
---     рриррпрЛ рор╛р░ррЧрЛ ржрЛрр▓ррЦр р рррррпрЛ рор╛р░ррЧрЛ ри р╡р┐ржррпрр р
--- рррр░ рррХрр░роррор рЙрХрррор, ри рр╛рзр┐ррор р  рррр░ рр╛рзррпрр р
+-- рдЕрд╣рд┐рдВрд╕рд╛-рд╕реВрддреНрд░-рд╡рд┐рд╕реНрддрд╛рд░рдГ ┬з рем (рджреНрд╡реМ рдорд╛рд░реНрдЧреМ) рдПрддрддреН рд╡рджрддрд┐ :
+--     рд╕рдВрдХреНрд░рдордгреЗ рд╕рдВрд░рдЪрдирд╛ рд╡рд╣рддрд┐ ред рд╕рдВрдХреНрд░рдордгреЗ рди рдХрд┐рдЮреНрдЪрд┐рдиреН рдирд╢реНрдпрддрд┐ ред
+--     рдЕрдиреНрдпреЛ рдорд╛рд░реНрдЧреЛ рджреЛрд╖рд▓реЗрдЦрдГ ред рддреГрддреАрдпреЛ рдорд╛рд░реНрдЧреЛ рди рд╡рд┐рджреНрдпрддреЗ ред
+-- рддрддреНрд░ рд╕рдВрдХреНрд░рдордгрдореН рдЙрдХреНрддрдореН, рди рд╕рд╛рдзрд┐рддрдореН ред  рдЕрддреНрд░ рд╕рд╛рдзреНрдпрддреЗ ред
 --
 -- (The stra states, in ┬з6, that in transport the structure is carried and
 -- nothing perishes; that the only other move is to WRITE THE DEFECT; and
--- that there is no third road.  ┬з6 wrote down `рррХрр░роррор e = transport (ua e)`
--- and `рр▓рЛрр = ua╬▓` and stopped there.  Those two lines are the DEFINITION
+-- that there is no third road.  ┬з6 wrote down `рд╕рдВрдХреНрд░рдордгрдореН e = transport (ua e)`
+-- and `рдЕрд▓реЛрдкрдГ = ua╬▓` and stopped there.  Those two lines are the DEFINITION
 -- and its COMPUTATION RULE.  Neither of them is the claim.  This module
 -- proves the claim.)
 --
 -- WHAT WAS ACTUALLY MISSING, and why the gap was invisible
 --
 -- `ua╬▓ e a : transport (ua e) a тЙб equivFun e a` says that transporting a
--- POINT computes.  It says nothing whatever about STRUCTURE тФ about what
+-- POINT computes.  It says nothing whatever about STRUCTURE тАФ about what
 -- happens to an operation, a predicate, a law, when it is carried across.
--- A reader who has `ua╬▓` in hand and reads "рррХрр░рорр ррр░ррир╛ р╡ррр┐" will believe
+-- A reader who has `ua╬▓` in hand and reads "рд╕рдВрдХреНрд░рдордгреЗ рд╕рдВрд░рдЪрдирд╛ рд╡рд╣рддрд┐" will believe
 -- the sentence is discharged.  It is not: ua╬▓ is a statement about
 -- elements of A, and "the structure is carried" is a statement about
 -- elements of S A for arbitrary S.  The gap is one quantifier wide and it
@@ -51,37 +51,37 @@
 --
 -- WHAT IS PROVED HERE
 --
---  рз ┬ рррХрр░роррор is an equivalence, and the return trip is exhibited.
+--  рез ┬╖ рд╕рдВрдХреНрд░рдордгрдореН is an equivalence, and the return trip is exhibited.
 --       Not "invertible in principle": the inverse is a term, and
---       ррр░рррпр╛рирприрор computes the round trip to `refl`-level identity.
+--       рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН computes the round trip to `refl`-level identity.
 --
---  ри ┬ ррр░ррир╛ р╡ррр┐ тФ THE THEOREM.  For an operation of any arity, the
+--  реи ┬╖ рд╕рдВрд░рдЪрдирд╛ рд╡рд╣рддрд┐ тАФ THE THEOREM.  For an operation of any arity, the
 --       carried operation is the conjugate, and `e` is a HOMOMORPHISM for
 --       it.  For a predicate, the carried predicate at `e a` is `P a`.
 --       This is what "nothing is lost" means when said about structure
 --       rather than about points, and it is the form the machine cites:
 --       an identification licenses moving the WHOLE object, laws included.
 --
---  рй ┬ The contrast with тИ_тИт, as ONE statement rather than two.
---       тИ_тИт IS an identification тФ is a рррХрр░роррор тФ EXACTLY WHEN `A` is a
+--  рей ┬╖ The contrast with тИе_тИетВБ, as ONE statement rather than two.
+--       тИг_тИгтВБ IS an identification тАФ is a рд╕рдВрдХреНрд░рдордгрдореН тАФ EXACTLY WHEN `A` is a
 --       proposition, i.e. exactly when there was nothing to lose.  So
 --       transport and truncation are not two unrelated moves: truncation
 --       is what transport degenerates to at the one h-level where the
 --       question "which?" has no answer to destroy.  Everywhere else
---       (┬ isProp A) the retraction does not merely fail to be found тФ
+--       (┬м isProp A) the retraction does not merely fail to be found тАФ
 --       it does not exist.
 --
---       Asked as `isEquiv тИ_тИт`, NOT as `hasRetract тИ_тИт`.  The retraction
+--       Asked as `isEquiv тИг_тИгтВБ`, NOT as `hasRetract тИг_тИгтВБ`.  The retraction
 --       form, at every h-level n and with the retraction type shown
 --       contractible, is another lane's and is strictly stronger:
 --       `Apratikaryatva_TheRetractionTypeIsTheHLevelHypothesis.agda`.
 --       My first draft of ┬з3 proved the n = 1 retraction case; on finding
 --       theirs I CUT MINE rather than ship a weaker twin, and ┬з3 below
 --       records the cut.  `SetTruncationDescentBoundary.agda` is the
---       тИ_тИт/isSet member of the same family.  Three lanes, one fact,
+--       тИе_тИетВВ/isSet member of the same family.  Three lanes, one fact,
 --       indexed by h-level.
 --
---  р ┬ ррррррпр тФ there is no third road, in the one form that is a
+--  рек ┬╖ рдЕрддреГрддреАрдпрдГ тАФ there is no third road, in the one form that is a
 --       theorem rather than a syntactic remark about a datatype: ANY map
 --       that is lossless in both directions IS a transport, and its
 --       equivalence is produced AS DATA.  So a lossless move cannot
@@ -90,25 +90,25 @@
 --       The machine cites this one to justify demanding evidence: the
 --       demand costs the caller nothing it did not already have.
 --
--- ррр░рЛрр╛ррр┐ :
---   рЙрор╛ррр╡р╛рр┐, рррррр╡р╛р░ррррррр░ р.ро / р.рзрй (c. 2ndтУ5th c. CE) тФ ррр░роррррпрЛрЧр╛рр
---     ррр░р╛рр╡ррпрр░рЛррр рр┐ррр╛ ; рр░рррр░рЛррЧрр░ррЛ ррр╡р╛рир╛рор р  рр┐ррр╛ is analysed there as
---     an act on a ррр╡, and the ррррр░-р╡р┐рррр╛р░'s move is to read ррЩррХрррр тФ the
---     collapse of many determinations into one тФ as that act.  The reading
---     is the ррррр░-р╡р┐рррр╛р░'s; the ррррр░ is Umsvti's.
---   рр┐ржррзррри ржр┐р╡р╛рХр░, рриррорр┐рр░ррХ (c. 5th c. CE) тФ рирпр╡р╛рж : a рирп which asserts
---     itself whole becomes ржрр░ррирп.  This is the reason the DEFECT LOG is a
+-- рд╕реНрд░реЛрддрд╛рдВрд╕рд┐ :
+--   рдЙрдорд╛рд╕реНрд╡рд╛рддрд┐, рддрддреНрддреНрд╡рд╛рд░реНрдерд╕реВрддреНрд░ рен.рео / рен.резрей (c. 2ndтАУ5th c. CE) тАФ рдкреНрд░рдорддреНрддрдпреЛрдЧрд╛рддреН
+--     рдкреНрд░рд╛рдгрд╡реНрдпрдкрд░реЛрдкрдгрдВ рд╣рд┐рдВрд╕рд╛ ; рдкрд░рд╕реНрдкрд░реЛрдкрдЧреНрд░рд╣реЛ рдЬреАрд╡рд╛рдирд╛рдореН ред  рд╣рд┐рдВрд╕рд╛ is analysed there as
+--     an act on a рдЬреАрд╡, and the рд╕реВрддреНрд░-рд╡рд┐рд╕реНрддрд╛рд░'s move is to read рд╕рдЩреНрдХреНрд╖реЗрдк тАФ the
+--     collapse of many determinations into one тАФ as that act.  The reading
+--     is the рд╕реВрддреНрд░-рд╡рд┐рд╕реНрддрд╛рд░'s; the рд╕реВрддреНрд░ is Um─Бsv─Бti's.
+--   рд╕рд┐рджреНрдзрд╕реЗрди рджрд┐рд╡рд╛рдХрд░, рд╕рдиреНрдорддрд┐рддрд░реНрдХ (c. 5th c. CE) тАФ рдирдпрд╡рд╛рдж : a рдирдп which asserts
+--     itself whole becomes рджреБрд░реНрдирдп.  This is the reason the DEFECT LOG is a
 --     legitimate move and silence is not.
---   Vladimir Voevodsky, univalence (2009тУ2013); `ua`, `ua╬▓`, `ua╬`,
---     `transportUAopт/т` as in agda/cubical v0.9 тФ CITED, NOT RE-DERIVED.
+--   Vladimir Voevodsky, univalence (2009тАУ2013); `ua`, `ua╬▓`, `ua╬╖`,
+--     `transportUAopтВБ/тВВ` as in agda/cubical v0.9 тАФ CITED, NOT RE-DERIVED.
 --     The corpus rule is that re-deriving what the library has is the
 --     failure mode; every library lemma used below is used by name.
---   Nasti_ShabdeJivahVartante.agda тФ ┬зр, ┬зр, ┬зр of the ррррр░-р╡р┐рррр╛р░.
+--   Nasti_ShabdeJivahVartante.agda тАФ ┬зрек, ┬зрел, ┬зрем of the рд╕реВрддреНрд░-рд╡рд┐рд╕реНрддрд╛рд░.
 --   Apratikaryatva_TheRetractionTypeIsTheHLevelHypothesis.agda and
---     SetTruncationDescentBoundary.agda тФ the retraction-form and the
---     тИ_тИт/isSet members of the family ┬з3 belongs to.  Concurrent lanes,
+--     SetTruncationDescentBoundary.agda тАФ the retraction-form and the
+--     тИе_тИетВВ/isSet members of the family ┬з3 belongs to.  Concurrent lanes,
 --     read before ┬з3 was cut down; see ┬з3.
---   machine/Uttara_SamordernaOrDosalekhaNeverABareBoolean.hs тФ the
+--   machine/Uttara_SamordernaOrDosalekhaNeverABareBoolean.hs тАФ the
 --     operational lane, another agent's, which ┬з5 is the Agda side of.
 ------------------------------------------------------------------------
 
@@ -135,17 +135,17 @@ private variable
   A B : Type тДУ
 
 ------------------------------------------------------------------------
--- рз ┬ ррр░рррпр╛рирприрор тФ the return.  ри рХр┐рЮррр┐рир рирррпрр┐, рр╛рзр┐ррор р
+-- рез ┬╖ рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН тАФ the return.  рди рдХрд┐рдЮреНрдЪрд┐рдиреН рдирд╢реНрдпрддрд┐, рд╕рд╛рдзрд┐рддрдореН ред
 --
--- рррХрр░роррор is an equivalence for EVERY e, with no hypothesis on A or B,
+-- рд╕рдВрдХреНрд░рдордгрдореН is an equivalence for EVERY e, with no hypothesis on A or B,
 -- and the round trip is a term one can run, not an existence claim.
 ------------------------------------------------------------------------
 
--- рррХрр░роррор is an equivalence.  (isEquivTransport, cited.)
+-- рд╕рдВрдХреНрд░рдордгрдореН is an equivalence.  (isEquivTransport, cited.)
 рд╕рдВрдХреНрд░рдордгрдореН-рддреБрд▓реНрдпрддрд╛ : (e : A тЙГ B) тЖТ isEquiv (рд╕рдВрдХреНрд░рдордгрдореН e)
 рд╕рдВрдХреНрд░рдордгрдореН-рддреБрд▓реНрдпрддрд╛ e = isEquivTransport (ua e)
 
--- The return trip, forwards then back, is the identity тФ pointwise,
+-- The return trip, forwards then back, is the identity тАФ pointwise,
 -- computed through ua╬▓ at both steps.
 рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН : (e : A тЙГ B) (a : A) тЖТ рд╕рдВрдХреНрд░рдордгрдореН (invEquiv e) (рд╕рдВрдХреНрд░рдордгрдореН e a) тЙб a
 рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН e a =
@@ -153,24 +153,24 @@ private variable
   тИЩ cong (invEq e) (рд╕рдВрдХреНрд░рдордгрдореН-рдЕрд▓реЛрдкрдГ e a)
   тИЩ retEq e a
 
--- тжand back then forwards.  Both sides, because a retraction alone is
--- half of losslessness and the ррррр░ claims the whole of it.
+-- тАжand back then forwards.  Both sides, because a retraction alone is
+-- half of losslessness and the рд╕реВрддреНрд░ claims the whole of it.
 рдкреНрд░рддреНрдпрд╛рдирдпрдирдореНтА▓ : (e : A тЙГ B) (b : B) тЖТ рд╕рдВрдХреНрд░рдордгрдореН e (рд╕рдВрдХреНрд░рдордгрдореН (invEquiv e) b) тЙб b
 рдкреНрд░рддреНрдпрд╛рдирдпрдирдореНтА▓ e b =
     рд╕рдВрдХреНрд░рдордгрдореН-рдЕрд▓реЛрдкрдГ e (рд╕рдВрдХреНрд░рдордгрдореН (invEquiv e) b)
   тИЩ cong (equivFun e) (рд╕рдВрдХреНрд░рдордгрдореН-рдЕрд▓реЛрдкрдГ (invEquiv e) b)
   тИЩ secEq e b
 
--- The form the machine cites: every рррХрр░роррор comes with its retraction,
--- as data, unconditionally.  Compare рир╛рррр┐-ррр░рррпр╛рирприрор in ┬зр.
+-- The form the machine cites: every рд╕рдВрдХреНрд░рдордгрдореН comes with its retraction,
+-- as data, unconditionally.  Compare рдирд╛рд╕реНрддрд┐-рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН in ┬зрел.
 рд╕рдВрдХреНрд░рдордгрдореН-рд╕рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН
   : (e : A тЙГ B) тЖТ ╬г[ g тИИ (B тЖТ A) ] ((a : A) тЖТ g (рд╕рдВрдХреНрд░рдордгрдореН e a) тЙб a)
 рд╕рдВрдХреНрд░рдордгрдореН-рд╕рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН e = рд╕рдВрдХреНрд░рдордгрдореН (invEquiv e) , рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН e
 
 ------------------------------------------------------------------------
--- ри ┬ ррр░ррир╛ р╡ррр┐ тФ the structure is carried.
+-- реи ┬╖ рд╕рдВрд░рдЪрдирд╛ рд╡рд╣рддрд┐ тАФ the structure is carried.
 --
--- р╡ррирор S e carries an S-structure across the identification.  The
+-- рд╡рд╣рдирдореН S e carries an S-structure across the identification.  The
 -- theorems below say WHAT it carries it to: the conjugate, with `e` a
 -- homomorphism.  That is the whole content of "nothing is lost", said
 -- about structure instead of about points.
@@ -179,7 +179,7 @@ private variable
 рд╡рд╣рдирдореН : (S : Type тДУ тЖТ Type тДУтА▓) (e : A тЙГ B) тЖТ S A тЖТ S B
 рд╡рд╣рдирдореН S e = subst S (ua e)
 
--- Unary operations.  e is a homomorphism from (A, f) to (B, р╡ррирор f).
+-- Unary operations.  e is a homomorphism from (A, f) to (B, рд╡рд╣рдирдореН f).
 рд╕рдВрд░рдЪрдирд╛-рд╡рд╣рддрд┐тВБ
   : (e : A тЙГ B) (f : A тЖТ A) (a : A)
   тЖТ equivFun e (f a) тЙб рд╡рд╣рдирдореН (╬╗ X тЖТ X тЖТ X) e f (equivFun e a)
@@ -187,7 +187,7 @@ private variable
   sym ( transportUAopтВБ e f (equivFun e a)
       тИЩ cong (╬╗ x тЖТ equivFun e (f x)) (retEq e a) )
 
--- Binary operations тФ the composition-law case, which is the one the
+-- Binary operations тАФ the composition-law case, which is the one the
 -- machine actually meets (a vocabulary carries an operation, and an
 -- identification of vocabularies must carry the operation with it).
 рд╕рдВрд░рдЪрдирд╛-рд╡рд╣рддрд┐тВВ
@@ -218,21 +218,21 @@ private variable
   тИЩ cong P (retEq e a)
 
 ------------------------------------------------------------------------
--- рй ┬ рирррЯр┐р тФ the other side, and it is the same statement.
+-- рей ┬╖ рдирд╖реНрдЯрд┐рдГ тАФ the other side, and it is the same statement.
 --
--- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФР
--- тФ DUPLICATION FOUND AND CUT, 2026-08-20, same day, same repository.тФ
--- тФФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФШ
+-- тФМтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФР
+-- тФВ DUPLICATION FOUND AND CUT, 2026-08-20, same day, same repository.тФВ
+-- тФФтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФШ
 --
--- This section as first written defined `ррр░рррпр╛рирприт A` (the type of ways
--- back from тИ A тИт), proved `ррр░рррпр╛рирприт A тТ isProp A` and its converse,
+-- This section as first written defined `рдкреНрд░рддреНрдпрд╛рдирдпрдитВБ A` (the type of ways
+-- back from тИе A тИетВБ), proved `рдкреНрд░рддреНрдпрд╛рдирдпрдитВБ A тЖТ isProp A` and its converse,
 -- and derived "no retraction where there is a difference".  All of that
--- is SUBSUMED тФ and at strictly greater generality тФ by
+-- is SUBSUMED тАФ and at strictly greater generality тАФ by
 --
---     Apratikaryatva_TheRetractionTypeIsTheHLevelHypothesis.agda ┬з3тУ┬з4
+--     Apratikaryatva_TheRetractionTypeIsTheHLevelHypothesis.agda ┬з3тАУ┬з4
 --
 -- written concurrently in another lane, which proves
--- `ррр░рррпр╛рирприрор n A тЙ isOfHLevel n A` for EVERY h-level n, shows the
+-- `рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН n A тЙГ isOfHLevel n A` for EVERY h-level n, shows the
 -- retraction type is CONTRACTIBLE when A is an n-type (so nothing is
 -- chosen), and recovers the stra's Bool statement as a corollary.  n = 1
 -- is my case.  I deleted mine rather than keep a weaker twin: the corpus
@@ -243,27 +243,27 @@ private variable
 -- it is not theirs because it is asked in the transport lane's vocabulary
 -- rather than the retraction lane's:
 --
---     they ask  тФ does тИ_тИт have a way BACK?          (hasRetract)
---     this asks тФ is тИ_тИт ITSELF a рррХрр░роррор?           (isEquiv)
+--     they ask  тАФ does тИг_тИгтВБ have a way BACK?          (hasRetract)
+--     this asks тАФ is тИг_тИгтВБ ITSELF a рд╕рдВрдХреНрд░рдордгрдореН?           (isEquiv)
 --
 -- These are different questions with the same answer, and having both
 -- answers is the point: it says the transport/truncation contrast is not
--- an opposition between two moves at all.  тИ_тИт is a transport EXACTLY
--- when A is a proposition тФ so truncation is what transport degenerates
+-- an opposition between two moves at all.  тИг_тИгтВБ is a transport EXACTLY
+-- when A is a proposition тАФ so truncation is what transport degenerates
 -- to at the one h-level where the question "which?" has no answer left to
 -- destroy, and everywhere else it is the other road entirely.
 --
--- SetTruncationDescentBoundary.agda is the тИ_тИт / isSet member of the
+-- SetTruncationDescentBoundary.agda is the тИе_тИетВВ / isSet member of the
 -- same family, written earlier by a third lane.  Three modules, one fact,
 -- indexed by h-level; recorded here so a reader meets it as a family and
 -- not as three coincidences.
 ------------------------------------------------------------------------
 
--- THE CONTRAST, as one biimplication.  тИ_тИт is an equivalence тФ that is,
--- the truncation move IS an identification, and so a рррХрр░роррор via ua тФ
+-- THE CONTRAST, as one biimplication.  тИг_тИгтВБ is an equivalence тАФ that is,
+-- the truncation move IS an identification, and so a рд╕рдВрдХреНрд░рдордгрдореН via ua тАФ
 -- exactly when A is a proposition.
 --
--- рр╡ррррЛ рир╛рррр┐ рпржр╛ рирррЯр рХр┐рорр┐ рир╛рррр┐ р
+-- рдЕрд╡рд╢реЗрд╖реЛ рдирд╛рд╕реНрддрд┐ рдпрджрд╛ рдирд╖реНрдЯрдВ рдХрд┐рдордкрд┐ рдирд╛рд╕реНрддрд┐ ред
 рддрд╛рджрд╛рддреНрдореНрдпрдореНтЖФрдирд┐рд░реНрдзрд░реНрдорддрд╛ : isEquiv (тИг_тИгтВБ {A = A}) тЖТ isProp A
 рддрд╛рджрд╛рддреНрдореНрдпрдореНтЖФрдирд┐рд░реНрдзрд░реНрдорддрд╛ {A = A} ie x y =
     sym (retEq (тИг_тИгтВБ , ie) x)
@@ -285,27 +285,27 @@ private variable
                   (╬╗ q тЖТ isPropIsEquiv тИг_тИгтВБ _ q))
 
 -- The consequence, in the transport lane's own terms: where there IS a
--- difference, тИ_тИт is not an identification at all, so ┬зр's first road is
--- CLOSED and only the defect log remains.  рирррЯр┐р░ррр░рр┐рХр╛р░ррпр╛ р
+-- difference, тИг_тИгтВБ is not an identification at all, so ┬зрем's first road is
+-- CLOSED and only the defect log remains.  рдирд╖реНрдЯрд┐рд░рдкреНрд░рддрд┐рдХрд╛рд░реНрдпрд╛ ред
 -- (The corresponding statement about retractions is
---  Apratikaryatvaтж┬з4 `рир╛рррр┐-ррр░рррпр╛рирприрор-рр╛рор╛риррпрор`; not restated here.)
+--  ApratikaryatvaтАж┬з4 `рдирд╛рд╕реНрддрд┐-рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН-рд╕рд╛рдорд╛рдиреНрдпрдореН`; not restated here.)
 рднреЗрджреЗ-рди-рд╕рдВрдХреНрд░рдордгрдореН : ┬м (isProp A) тЖТ ┬м (isEquiv (тИг_тИгтВБ {A = A}))
 рднреЗрджреЗ-рди-рд╕рдВрдХреНрд░рдордгрдореН ┬мp ie = ┬мp (рддрд╛рджрд╛рддреНрдореНрдпрдореНтЖФрдирд┐рд░реНрдзрд░реНрдорддрд╛ ie)
 
 ------------------------------------------------------------------------
--- р ┬ ррррррпр тФ no third road, in its provable form.
+-- рек ┬╖ рдЕрддреГрддреАрдпрдГ тАФ no third road, in its provable form.
 --
--- The stra says рррррпрЛ рор╛р░ррЧрЛ ри р╡р┐ржррпрр.  Read as a claim about datatypes
+-- The s┼лtra says рддреГрддреАрдпреЛ рдорд╛рд░реНрдЧреЛ рди рд╡рд┐рджреНрдпрддреЗ.  Read as a claim about datatypes
 -- that is unprovable and uninteresting.  Read as a claim about LOSSLESS
 -- moves it is a theorem: a map lossless in both directions cannot be
 -- anything but a transport, and its identification is extracted from it
 -- constructively.  So "exhibit your equivalence" is never an extra
--- burden тФ the caller who was lossless already had it.
+-- burden тАФ the caller who was lossless already had it.
 --
 -- THE OTHER HALF, and it is another lane's, written the same day:
 --   TritiyaMarga_TheNoThirdPathClaimIsExcludedMiddle.agda
--- proves that the DISJUNCTIVE reading of рррррпрЛ рор╛р░ррЧрЛ ри р╡р┐ржррпрр тФ every map
--- is either an identification or has a nameable defect тФ is exactly
+-- proves that the DISJUNCTIVE reading of рддреГрддреАрдпреЛ рдорд╛рд░реНрдЧреЛ рди рд╡рд┐рджреНрдпрддреЗ тАФ every map
+-- is either an identification or has a nameable defect тАФ is exactly
 -- excluded middle, i.e. classical, not constructive.
 --
 -- The two results are not in tension and the pair is worth more than
@@ -314,10 +314,10 @@ private variable
 -- says what survives that bound: you never needed to classify.  A move
 -- that IS lossless hands you its identification whether or not anyone can
 -- decide, for an arbitrary move, which road it took.  So the machine's
--- discipline тФ "produce your equivalence or write your defect" тФ is
+-- discipline тАФ "produce your equivalence or write your defect" тАФ is
 -- constructively legitimate as an OBLIGATION ON THE ACTOR, and would be
 -- classical only if imposed as a VERDICT ON A STRANGER.
--- рррпр╛ржр ррррр┐ р рир╛рррр┐ р : both, under different рр░ррр.
+-- рд╕реНрдпрд╛рджреН рдЕрд╕реНрддрд┐ рдЪ рдирд╛рд╕реНрддрд┐ рдЪ : both, under different рдЕрд░реНрдкрдг.
 ------------------------------------------------------------------------
 
 рдЕрддреГрддреАрдпрдГ
@@ -330,15 +330,15 @@ private variable
   , ╬╗ a тЖТ рд╕рдВрдХреНрд░рдордгрдореН-рдЕрд▓реЛрдкрдГ (isoToEquiv (iso f g sec ret)) a
 
 ------------------------------------------------------------------------
--- р ┬ рЧрр┐ тФ the machine's move, as a type.
+-- рел ┬╖ рдЧрддрд┐ тАФ the machine's move, as a type.
 --
 -- Two constructors.  This is a datatype declaration, NOT a theorem that
--- the world has two moves; see "SYT тФ THE CLAIM, EXACTLY" above.  What it buys
+-- the world has two moves; see "SY─АT тАФ THE CLAIM, EXACTLY" above.  What it buys
 -- is that a move cannot be performed without producing one of two things:
 -- an equivalence, or a written defect.  Silence is not a constructor.
 --
--- ржрЛрр▓ррЦ carries the map AND the proof that it is not an identification.
--- р▓р┐рЦр┐ррЛ ржрЛррЛ ррр╡рр┐ р рр▓р┐рЦр┐ррЛ ржрЛррЛ рр┐ррр╛ р
+-- рджреЛрд╖рд▓реЗрдЦ carries the map AND the proof that it is not an identification.
+-- рд▓рд┐рдЦрд┐рддреЛ рджреЛрд╖реЛ рдЬреАрд╡рддрд┐ ред рдЕрд▓рд┐рдЦрд┐рддреЛ рджреЛрд╖реЛ рд╣рд┐рдВрд╕рд╛ ред
 --
 -- THIS IS THE CHECKED COUNTERPART OF A HASKELL TYPE ANOTHER LANE IS
 -- BUILDING RIGHT NOW: `machine/Uttara_SamordernaOrDosalekhaNeverABareBoolean.hs`,
@@ -347,7 +347,7 @@ private variable
 -- ┬з2 above is the theorem that record is entitled to cite: given the
 -- equivalence, the carried operations ARE the conjugates and the
 -- identification IS a homomorphism, so `uVahita` is not a claim about
--- what travelled тФ it is determined.  I am NOT reimplementing that
+-- what travelled тАФ it is determined.  I am NOT reimplementing that
 -- module; the operational lane is theirs and this is the Agda side of it.
 ------------------------------------------------------------------------
 
@@ -356,16 +356,16 @@ data рдЧрддрд┐ (A B : Type тДУ) : Type (тДУ-suc тДУ) where
   рджреЛрд╖рд▓реЗрдЦ-рдЧрддрд┐рдГ  : (f : A тЖТ B) (рджреЛрд╖рдГ : ┬м (isEquiv f)) тЖТ рдЧрддрд┐ A B
 
 -- Every move denotes a function; the defect log does not block the work,
--- it accompanies it.  (┬зр: the second road is a road, not a refusal.)
+-- it accompanies it.  (┬зрем: the second road is a road, not a refusal.)
 рдЪрд╛рд▓рдирдореН : рдЧрддрд┐ A B тЖТ (A тЖТ B)
 рдЪрд╛рд▓рдирдореН (рд╕рдВрдХреНрд░рдордг-рдЧрддрд┐рдГ e) = рд╕рдВрдХреНрд░рдордгрдореН e
 рдЪрд╛рд▓рдирдореН (рджреЛрд╖рд▓реЗрдЦ-рдЧрддрд┐рдГ f _) = f
 
--- тжand only the first road has a return.
+-- тАжand only the first road has a return.
 рдЧрддрд┐-рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН
   : (e : A тЙГ B) тЖТ ╬г[ g тИИ (B тЖТ A) ] ((a : A) тЖТ g (рдЪрд╛рд▓рдирдореН (рд╕рдВрдХреНрд░рдордг-рдЧрддрд┐рдГ e) a) тЙб a)
 рдЧрддрд┐-рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН e = рд╕рдВрдХреНрд░рдордгрдореН-рд╕рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН e
 
 ------------------------------------------------------------------------
--- ррр┐ррр╛ р  рррХрр░рорр ри рХр┐рЮррр┐рир рирррпрр┐ тФ рржр╛рирр рр╛рзр┐ррор, ри рЙрХрррор╛ррр░рор р
+-- рдЕрд╣рд┐рдВрд╕рд╛ ред  рд╕рдВрдХреНрд░рдордгреЗ рди рдХрд┐рдЮреНрдЪрд┐рдиреН рдирд╢реНрдпрддрд┐ тАФ рдЗрджрд╛рдиреАрдВ рд╕рд╛рдзрд┐рддрдореН, рди рдЙрдХреНрддрдорд╛рддреНрд░рдореН ред
 ------------------------------------------------------------------------

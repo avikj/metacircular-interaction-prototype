@@ -12,54 +12,54 @@
 --     is exactly this contractibility, and ¬ß8's residual table records
 --     it as "comparison type is contractible".
 --
---   * Theorem 3.2 (¬ß3.2): Œ[ X ‚àà BS‚ô ] LinOrd(X) is contractible ‚î the
+--   * Theorem 3.2 (¬ß3.2): Œ£[ X ‚àà BS‚Çô ] LinOrd(X) is contractible ‚Äî the
 --     note's "two-line univalent proof that is the whole content of
 --     'ordinals rigidify what cardinals truncate'".
 --
 -- The loop-group half of Theorem 3.1 is in
 -- `PathIsSymmetry` (Œ©Fin‚âSym)
--- and `Decategorification` (‚ï‚âœ‚FinSet, card‚â°MereEq,
+-- and `Decategorification` (‚Ñï‚âÉœÄ‚ÇÄFinSet, card‚â°MereEq,
 -- FinSetLoop‚âSym).
 --
 -- WHAT IS CHECKED
 --
--- A. Theorem 2.1, contractibility half (¬ß1‚ì¬ß3 below).
+-- A. Theorem 2.1, contractibility half (¬ß1‚Äì¬ß3 below).
 --
---   A1 `AlgHom`              the comparison type itself, as a Œ: a
+--   A1 `AlgHom`              the comparison type itself, as a Œ£: a
 --                            carrier map together with the two
 --                            commutation data (h pt ‚â° pt, h ‚àò op ‚â° op ‚àò h).
 --                            Comparisons are DATA here, not a property.
---   A2 `‚ï-isInitial‚àû`        for EVERY (1+X)-algebra B, at any universe
---      `‚ï-isInitial`         level and with NO h-level hypothesis on the
+--   A2 `‚Ñï-isInitial‚àû`        for EVERY (1+X)-algebra B, at any universe
+--      `‚Ñï-isInitial`         level and with NO h-level hypothesis on the
 --                            carrier, the comparison type is
---                            CONTRACTIBLE ‚î a path, not a
+--                            CONTRACTIBLE ‚Äî a path, not a
 --                            mere-propositional "at most one".
 --                            The theorem is
---                            `Cubical.Data.Nat.Algebra.isNatHInitial‚ï`
---                            (Awodey‚ìGambino‚ìSojakova, arXiv:1504.05531).
+--                            `Cubical.Data.Nat.Algebra.isNatHInitial‚Ñï`
+--                            (Awodey‚ÄìGambino‚ÄìSojakova, arXiv:1504.05531).
 --   A2c `AlgHomChart`        ... and THIS is the second chart on it:
 --      `chart-lib-ours`      our pointwise comparison type and the
 --      `chart-ours-lib`      library's funExt'd one are interchangeable
 --                            ON THE NOSE, both round trips `refl`.  Not
---                            a redundancy to be eliminated ‚î a checked
+--                            a redundancy to be eliminated ‚Äî a checked
 --                            translation, stronger than an equivalence,
 --                            in the module that argues presentations are
 --                            charts.
---   A3 `‚ï-recursor-unique`   the honest minimum the task names: the type
---                            of algebra maps ‚ï ‚í ‚ï commuting with zero
+--   A3 `‚Ñï-recursor-unique`   the honest minimum the task names: the type
+--                            of algebra maps ‚Ñï ‚Üí ‚Ñï commuting with zero
 --                            and suc is contractible.
---   A4 `‚ï-algebra-endo-is-id`
+--   A4 `‚Ñï-algebra-endo-is-id`
 --                            ... and its centre is the identity, so
 --                            every such endomorphism is PATH-equal to
 --                            `idAlgHom`.  This is the strengthening of
---                            `PathIsSymmetry.‚ï-algebra-Aut-trivial`,
+--                            `PathIsSymmetry.‚Ñï-algebra-Aut-trivial`,
 --                            which only handled self-EQUIVALENCES and
 --                            only concluded a path of equivalences.
---   A5 `initial‚íisEquiv`     the generalisation to two initial algebras,
+--   A5 `initial‚ÜíisEquiv`     the generalisation to two initial algebras,
 --     `isContrAlgIso`        if A and B are both
 --                            initial then every comparison map is an
 --                            equivalence, and the type of algebra
---                            ISOMORPHISMS A ‚â B is contractible.  This
+--                            ISOMORPHISMS A ‚âÖ B is contractible.  This
 --                            is ¬ß2.1's Residual-2.1 statement (1)
 --                            verbatim: "the type of isomorphisms between
 --                            two initial objects is contractible, not
@@ -67,28 +67,28 @@
 --
 -- B. Theorem 3.2 (¬ß4 below).
 --
---   B1 `BS`                  BS‚ô = Œ[ X ‚àà Type‚ ] ‚à X ‚â Fin n ‚à‚, the
+--   B1 `BS`                  BS‚Çô = Œ£[ X ‚àà Type‚ÇÄ ] ‚à• X ‚âÉ Fin n ‚à•‚ÇÅ, the
 --                            type of n-element types (note ¬ß3.1).
---   B2 `OrdTotal`            Œ[ X ‚àà BS‚ô ] LinOrd n ‚ü®X‚ü©.
---   B3 `forgetTrunc`         OrdTotal n ‚â Œ[ X ‚àà Type‚ ] (X ‚â Fin n):
+--   B2 `OrdTotal`            Œ£[ X ‚àà BS‚Çô ] LinOrd n ‚ü®X‚ü©.
+--   B3 `forgetTrunc`         OrdTotal n ‚âÖ Œ£[ X ‚àà Type‚ÇÄ ] (X ‚âÉ Fin n):
 --                            the mere-finiteness component is REDUNDANT
 --                            in the presence of the order datum.  (This
 --                            is the only step of the note's proof that
 --                            is not univalence, and it is why the total
 --                            space is a BASED path space rather than
---                            something over BS‚ô.)
---   B4 `ordTotal‚âbasedPath`  ... and by univalence that is the based
---                            path space Œ[ X ‚àà Type‚ ] (X ‚â° Fin n).
---   B5 `isContrOrdTotal`     THE THEOREM: Œ[ X ‚àà BS‚ô ] LinOrd(X) is
+--                            something over BS‚Çô.)
+--   B4 `ordTotal‚âÉbasedPath`  ... and by univalence that is the based
+--                            path space Œ£[ X ‚àà Type‚ÇÄ ] (X ‚â° Fin n).
+--   B5 `isContrOrdTotal`     THE THEOREM: Œ£[ X ‚àà BS‚Çô ] LinOrd(X) is
 --                            contractible.
 --   B6 `linOrd-torsor`       the fibrewise companion (note Theorem 2.5):
 --                            given one order on X, the type of orders on
---                            X is equivalent to S‚ô = (Fin n ‚â Fin n).
+--                            X is equivalent to S‚Çô = (Fin n ‚âÉ Fin n).
 --                            A torsor is a fibre that becomes the group
 --                            once a point is chosen; that is this line.
 --
 --    B5 is exactly the univalence half of Theorem 3.2; the name for
---    the whole theorem is `LinearOrderFinite.isContrOrdTotal‚≤`.
+--    the whole theorem is `LinearOrderFinite.isContrOrdTotal‚Ä≤`.
 --
 --  * `isInitial` is stated at a FIXED universe level, because A5 must
 --    apply an algebra's initiality to another algebra AND to itself.
@@ -97,10 +97,10 @@
 --  * The note's Theorem
 --    2.1 also asserts that the induced (N,+,0) is a free commutative
 --    monoid and that the two constructions are mutually inverse.  That
---    half lives in `FreeMonoid`, which builds ‚ï ‚â Tally
+--    half lives in `FreeMonoid`, which builds ‚Ñï ‚âÉ Tally
 --    and the SIP equality of monoids.
 --
---  * `BS` is taken at `Type‚` with `Cubical.Data.Fin.Fin`, matching
+--  * `BS` is taken at `Type‚ÇÄ` with `Cubical.Data.Fin.Fin`, matching
 --    `Decategorification`.
 ------------------------------------------------------------------------
 
@@ -130,7 +130,7 @@ private
 -- An algebra is a carrier with a point and an endomap; a comparison is
 -- a carrier map TOGETHER WITH the two commutation witnesses.  Keeping
 -- the witnesses as data (rather than quotienting them away) is the
--- entire point: contractibility of this Œ is a strictly stronger
+-- entire point: contractibility of this Œ£ is a strictly stronger
 -- statement than "there is a unique underlying function".
 ------------------------------------------------------------------------
 
@@ -159,7 +159,7 @@ compAlgHom (h , p , q) (h' , p' , q') =
   , (Œª x ‚Üí cong h' (q x) ‚àô q' (h x))
 
 ------------------------------------------------------------------------
--- 2.  ‚ï is the initial (1 + X)-algebra, and the comparison type is
+-- 2.  ‚Ñï is the initial (1 + X)-algebra, and the comparison type is
 --     CONTRACTIBLE.  (Theorem 2.1, the load-bearing half.)
 ------------------------------------------------------------------------
 
@@ -173,7 +173,7 @@ compAlgHom (h , p , q) (h' , p' , q') =
 -- library this file already depends on, following
 -- Awodey-Gambino-Sojakova (arXiv:1504.05531), proves
 --
---     isNatHInitial‚ï : (M : NatAlgebra ‚ì) ‚í isContr (NatMorphism NatAlgebra‚ï M)
+--     isNatHInitial‚Ñï : (M : NatAlgebra ‚Ñì) ‚Üí isContr (NatMorphism NatAlgebra‚Ñï M)
 --
 -- with NO h-level hypothesis at all, at every universe level, and has
 -- since 2019.
@@ -182,18 +182,18 @@ compAlgHom (h , p , q) (h' , p' , q') =
 --
 -- (1) No set hypothesis is needed: ¬ß3's
 --     `initial‚íisEquiv` and `isContrAlgIso` hold for algebras on
---     ARBITRARY types ‚î their proofs only ever use contractibility.
+--     ARBITRARY types ‚Äî their proofs only ever use contractibility.
 --
 -- (2) The second PRESENTATION is not a redundancy.  A chart is
 --     not a lesser copy of the object.  Parallel presentations are how
 --     anything gets deciphered, and the transition between them is the
---     mathematical content ‚î which is exactly what `AlgHomChart` below
+--     mathematical content ‚Äî which is exactly what `AlgHomChart` below
 --     records.
 --
 --     Nor is it a mere equivalence.  Both round trips compute to `refl`
 --     (`chart-lib-ours`, `chart-ours-lib`): the library's funExt'd
 --     `comm-suc` and our pointwise one are DEFINITIONALLY
---     interchangeable, because cubical `funExt` / `funExt‚ª` are inverse
+--     interchangeable, because cubical `funExt` / `funExt‚Åª` are inverse
 --     by computation.  That is strictly more information than "the two
 --     comparison types are equivalent", and it is information neither
 --     chart carries alone.  You cannot state it with one presentation.
@@ -213,7 +213,7 @@ module _ {B : Type ‚Ñì} (b‚ÇÄ : B) (bs : B ‚Üí B) where
 
   ----------------------------------------------------------------------
   -- THE CHART TRANSITION.  This is the contribution of this section,
-  -- and it is not "packaging" ‚î it is the atlas entry between our
+  -- and it is not "packaging" ‚Äî it is the atlas entry between our
   -- pointwise presentation of a comparison and the library's funExt'd
   -- one, in a module whose entire subject is that presentations are
   -- charts and the transitions between them carry the content.
@@ -231,10 +231,10 @@ module _ {B : Type ‚Ñì} (b‚ÇÄ : B) (bs : B ‚Üí B) where
 
   -- The two charts agree ON THE NOSE.  Both round trips are `refl`, so
   -- the presentations are not merely equivalent but DEFINITIONALLY
-  -- interchangeable: record eta and Œ eta on one side, and the fact
-  -- that cubical `funExt` / `funExt‚ª` are inverse by computation rather
+  -- interchangeable: record eta and Œ£ eta on one side, and the fact
+  -- that cubical `funExt` / `funExt‚Åª` are inverse by computation rather
   -- than by a proof, on the other.  A mere Iso would be weaker, and
-  -- weaker in the way that matters ‚î transport along this one costs
+  -- weaker in the way that matters ‚Äî transport along this one costs
   -- nothing, so a statement proved in either chart is available in the
   -- other with no coercion left in the term.
   chart-lib-ours : (m : NatMorphism NatAlgebra‚Ñï libAlg) ‚Üí toLib (fromLib m) ‚â° m
@@ -255,11 +255,11 @@ module _ {B : Type ‚Ñì} (b‚ÇÄ : B) (bs : B ‚Üí B) where
   ‚Ñï-isInitial‚àû = isOfHLevelRetractFromIso 0 AlgHomChart (isNatHInitial‚Ñï libAlg)
 
 -- A2.  A definitional instance of A2‚àû
--- (`AlgHom ‚ïAlg B` reduces to `AlgHom‚àû (pt B) (op B)`).
+-- (`AlgHom ‚ÑïAlg B` reduces to `AlgHom‚àû (pt B) (op B)`).
 ‚Ñï-isInitial : (B : Alg ‚Ñì) ‚Üí isContr (AlgHom ‚ÑïAlg B)
 ‚Ñï-isInitial B = ‚Ñï-isInitial‚àû (pt B) (op B)
 
--- A3.  The honest minimum: algebra maps ‚ï ‚í ‚ï commuting with 0 and suc
+-- A3.  The honest minimum: algebra maps ‚Ñï ‚Üí ‚Ñï commuting with 0 and suc
 -- form a CONTRACTIBLE type.  Uniqueness of the recursor as a path.
 ‚Ñï-recursor-unique : isContr (AlgHom ‚ÑïAlg ‚ÑïAlg)
 ‚Ñï-recursor-unique = ‚Ñï-isInitial ‚ÑïAlg
@@ -318,10 +318,10 @@ isContrAlgIso {A = A} {B = B} iA iB =
                                    (isPropIsEquiv (œÜ .fst)))
 
 ------------------------------------------------------------------------
--- 4.  Theorem 3.2: the total space of orders over BS‚ô is contractible.
+-- 4.  Theorem 3.2: the total space of orders over BS‚Çô is contractible.
 --
 -- `LinOrd` is DEFINED as `X ‚â Fin n`.
--- What is checked is that the truncation in BS‚ô is redundant here, and
+-- What is checked is that the truncation in BS‚Çô is redundant here, and
 -- that the resulting type is a based path space.
 ------------------------------------------------------------------------
 
@@ -375,11 +375,11 @@ isPropOrdTotal n = isContr‚ÜíisProp (isContrOrdTotal n)
 
 ------------------------------------------------------------------------
 -- 5.  The fibrewise companion (note Theorem 2.5): over a FIXED carrier
---     the space of orders is not contractible but a copy of S‚ô.
+--     the space of orders is not contractible but a copy of S‚Çô.
 --
 -- Contractibility of the TOTAL space together with non-contractibility
 -- of the fibres is exactly "chart (d) rigidifies what chart (c)
--- truncates": the orders on one set form an S‚ô-worth of choices, and
+-- truncates": the orders on one set form an S‚Çô-worth of choices, and
 -- letting the set vary along with the order collapses all of them.
 ------------------------------------------------------------------------
 

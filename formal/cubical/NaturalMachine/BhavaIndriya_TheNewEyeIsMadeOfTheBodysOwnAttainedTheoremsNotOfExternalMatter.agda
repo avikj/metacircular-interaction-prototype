@@ -1,33 +1,33 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- �������������� ������������� � Umsvti, Tattvrthastra 2.17�18
--- (c. 2nd�5th c. CE): the senses divide into dravyendriya, the
+-- लब्ध्युपयोगौ भावेन्द्रियम् — Umāsvāti, Tattvārthasūtra 2.17–18
+-- (c. 2nd–5th c. CE): the senses divide into dravyendriya, the
 -- physical organ of external matter, and bhvendriya, the inner
--- sense constituted of labdhi � attainment � and upayoga � the
+-- sense constituted of labdhi — attainment — and upayoga — the
 -- operation itself.  The classification is his; the mathematics is
 -- not claimed for the source.  School named: Jaina.
 --
 -- THE EYE GROWN FROM THE BODY'S OWN ATTAINMENT.  The anarpita eye of
 -- ArpitaAnarpita sees ⊕-aggregates sequence-free, and its soundness
--- leans on the substrate's +-comm and +-assoc � external matter,
+-- leans on the substrate's +-comm and +-assoc — external matter,
 -- legitimately used (the substrate exception), but external.  The
--- machine's own maximum has no such matter: mx� is ITS clause order,
+-- machine's own maximum has no such matter: mxℕ is ITS clause order,
 -- and no ambient lemma exists for it.  What exists is the body's own
 -- attainment: �������-����, the commutativity of mx� proven
 -- by the completed-standpoint ascent and admitted to the store.
 --
 -- Here that attainment becomes an organ of sight.  The mx-eye's
--- commutativity is �������-���� itself, extracted at a point
--- environment � labdhi; its associativity is derived from the
+-- commutativity is ज्येष्ठ-समता itself, extracted at a point
+-- environment — labdhi; its associativity is derived from the
 -- machine's own clauses; and the full eye (⊕ and mx aggregates both
 -- brought to the sequence-free form in one traversal) enters the one
--- prover of PramanaNaya as nothing but a new ����� � zero new prover
+-- prover of PramanaNaya as nothing but a new दृक् — zero new prover
 -- code.  The record no longer feeds only the step's exchange; it
 -- constitutes new senses.  Demonstrated: commutativity and
 -- associativity of the machine's own maximum, and a mixed-operator
 -- identity, all FLAT under the new eye through the unchanged
--- prama � where the norm eye is blind by refl.
+-- pramāṇa — where the norm eye is blind by refl.
 ------------------------------------------------------------------------
 
 module NaturalMachine.BhavaIndriya_TheNewEyeIsMadeOfTheBodysOwnAttainedTheoremsNotOfExternalMatter where
@@ -53,7 +53,7 @@ open import NaturalMachine.PramanaNaya_TheFiveProversWereNayasOfOneKnowingAndEac
   using (दृक् ; प्रमाण-साधनम् ; नेत्रम्-न)
 
 ------------------------------------------------------------------------
--- §1  ������ � the attainment, drawn from the store.  Commutativity
+-- §1  लब्धिः — the attainment, drawn from the store.  Commutativity
 --     of the machine's maximum at the value level is the store's own
 --     ⊨-theorem read at a point environment; associativity is
 --     derived from the machine's own clauses.
@@ -69,7 +69,7 @@ open import NaturalMachine.PramanaNaya_TheFiveProversWereNayasOfOneKnowingAndEac
 ज्ये-सह (suc x) (suc y) (suc z) = cong suc (ज्ये-सह x y z)
 
 ------------------------------------------------------------------------
--- §2  The mx-aggregate laid out, ordered, rebuilt � the sorting core
+-- §2  The mx-aggregate laid out, ordered, rebuilt — the sorting core
 --     shared with the ⊕ eye; the soundness carried by the labdhi.
 ------------------------------------------------------------------------
 
@@ -168,15 +168,15 @@ open import NaturalMachine.PramanaNaya_TheFiveProversWereNayasOfOneKnowingAndEac
 पूर्ण-सत्यम् (lq a b) ρ = cong₂ lqℕ (पूर्ण-सत्यम् a ρ) (पूर्ण-सत्यम् b ρ)
 पूर्ण-सत्यम् (gc a b) ρ = cong₂ गच्छℕ (पूर्ण-सत्यम् a ρ) (पूर्ण-सत्यम् b ρ)
 
--- the bhvendriya, handed to the one prover as nothing but a �����.
+-- the bhāvendriya, handed to the one prover as nothing but a दृक्.
 नेत्रम्-पूर्ण : दृक्
 नेत्रम्-पूर्ण = (λ t → पूर्ण-आम्नायः (norm t))
              , (λ t ρ → पूर्ण-सत्यम् (norm t) ρ ∙ norm-sound t ρ)
 
 ------------------------------------------------------------------------
 -- §4  New sight through the unchanged prama: the machine's own
---     maximum, commutative and associative FLAT � and a mixed
---     ⊕/mx identity � where the norm eye is blind by refl.
+--     maximum, commutative and associative FLAT — and a mixed
+--     ⊕/mx identity — where the norm eye is blind by refl.
 ------------------------------------------------------------------------
 
 अन्ध-दृष्टिः : प्रमाण-साधनम् नेत्रम्-न [] 1

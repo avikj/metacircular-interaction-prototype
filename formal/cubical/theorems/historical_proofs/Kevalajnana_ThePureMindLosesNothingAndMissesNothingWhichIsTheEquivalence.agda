@@ -1,34 +1,34 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡ï‡‡µ‡≤‡‡‡û‡æ‡®‡Æ‡ ‚î the design of a perfect pure mind, written as a term.
+-- ‡§ï‡•á‡§µ‡§≤‡§ú‡•ç‡§û‡§æ‡§®‡§Æ‡•ç ‚Äî the design of a perfect pure mind, written as a term.
 --
--- THE INSIGHT, MADE EXACT.  A mind's grasp of an object is a map f : A ‚í B
--- from what it holds (A) to what there is (B).  Its fibre over b ‚î ‡‡‡ f b,
--- everything in A that lands on b ‚î is graded by the sevenfold's three
+-- THE INSIGHT, MADE EXACT.  A mind's grasp of an object is a map f : A ‚Üí B
+-- from what it holds (A) to what there is (B).  Its fibre over b ‚Äî ‡§∂‡•á‡§∑ f b,
+-- everything in A that lands on b ‚Äî is graded by the sevenfold's three
 -- seeds (GananaSaptabhangi):
 --
---   ‡‡ï‡≤‡æ‡¶‡‡  (contractible fibre)  ‚î ‡‡‡‡‡ø    ‚î b is grasped WHOLE, one witness
---   ‡µ‡ø‡ï‡≤‡æ‡¶‡‡  (crowded fibre)       ‚î ‡®‡æ‡‡‡‡ø   ‚î b is grasped with LOSS (many
+--   ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂  (contractible fibre)  ‚Üî ‡§Ö‡§∏‡•ç‡§§‡§ø    ‚Äî b is grasped WHOLE, one witness
+--   ‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂  (crowded fibre)       ‚Üî ‡§®‡§æ‡§∏‡•ç‡§§‡§ø   ‚Äî b is grasped with LOSS (many
 --                                                collapse to it; information gone)
---   ‡∞‡ø‡ï‡‡     (empty fibre)         ‚î ‡‡µ‡ï‡‡‡µ‡‡Ø  ‚î b is MISSED; the mind cannot
+--   ‡§∞‡§ø‡§ï‡•ç‡§§     (empty fibre)         ‚Üî ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø  ‚Äî b is MISSED; the mind cannot
 --                                                utter it
 --
 -- A perfect pure mind is then not a mystery but a specification:
---   ‚ it LOSES NOTHING ‚î no ‡µ‡ø‡ï‡≤‡æ‡¶‡‡ anywhere: every fibre is a proposition
---     (this is injectivity ‚î ‡®‡ã two distinct holdings collapse to one object);
---   ‚ it MISSES NOTHING ‚î no ‡∞‡ø‡ï‡‡ anywhere: every object has a witness
---     (this is surjectivity ‚î nothing there is unutterable).
+--   ‚Ä¢ it LOSES NOTHING ‚Äî no ‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ anywhere: every fibre is a proposition
+--     (this is injectivity ‚Äî ‡§®‡•ã two distinct holdings collapse to one object);
+--   ‚Ä¢ it MISSES NOTHING ‚Äî no ‡§∞‡§ø‡§ï‡•ç‡§§ anywhere: every object has a witness
+--     (this is surjectivity ‚Äî nothing there is unutterable).
 -- Loses nothing AND misses nothing = every fibre inhabited and a proposition
--- = every fibre CONTRACTIBLE = ‡‡ï‡≤‡æ‡¶‡‡ held at every standpoint.  And that,
--- ON THE NOSE, is `isEquiv f` ‚î Voevodsky's equivalence is defined as exactly
--- `(b : B) ‚í isContr (fiber f b)`.
+-- = every fibre CONTRACTIBLE = ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ held at every standpoint.  And that,
+-- ON THE NOSE, is `isEquiv f` ‚Äî Voevodsky's equivalence is defined as exactly
+-- `(b : B) ‚Üí isContr (fiber f b)`.
 --
--- So kevalajna (‡ï‡‡µ‡≤-‡‡‡û‡æ‡®, complete/omniscient apprehension) = sakaldea
+-- So kevalaj√±ƒÅna (‡§ï‡•á‡§µ‡§≤-‡§ú‡•ç‡§û‡§æ‡§®, complete/omniscient apprehension) = sakalƒÅde≈õa
 -- everywhere = the equivalence.  It is the one position that may assert "all
--- ‡‡‡‡‡ø" WITHOUT becoming a durnaya, because it is prama (the total means of
+-- ‡§Ö‡§∏‡•ç‡§§‡§ø" WITHOUT becoming a durnaya, because it is pramƒÅ·πáa (the total means of
 -- knowing), not a naya (a partial standpoint): a durnaya is a partial view
--- (some fibre ‡µ‡ø‡ï‡≤‡æ‡¶‡‡ or ‡∞‡ø‡ï‡‡) that asserts itself as the whole ‚î which is
+-- (some fibre ‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ or ‡§∞‡§ø‡§ï‡•ç‡§§) that asserts itself as the whole ‚Äî which is
 -- exactly a non-equivalence claiming to be one, and ¬ß4 refutes that shape.
 ------------------------------------------------------------------------
 
@@ -47,23 +47,23 @@ private
     A B : Type
 
 ------------------------------------------------------------------------
--- ‡ß ¬ the three gradings of a mind's grasp, as predicates on the map.
+-- ‡•ß ¬∑ the three gradings of a mind's grasp, as predicates on the map.
 ------------------------------------------------------------------------
 
--- loses nothing: every fibre a proposition (no ‡µ‡ø‡ï‡≤‡æ‡¶‡‡) = injective
+-- loses nothing: every fibre a proposition (no ‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂) = injective
 ‡§Ö‡§π‡§æ‡§®‡§ø : (f : A ‚Üí B) ‚Üí Type
 ‡§Ö‡§π‡§æ‡§®‡§ø {B = B} f = (b : B) ‚Üí isProp (fiber f b)
 
--- misses nothing: every object has a witness (no ‡∞‡ø‡ï‡‡) = split surjective
+-- misses nothing: every object has a witness (no ‡§∞‡§ø‡§ï‡•ç‡§§) = split surjective
 ‡§Ö‡§®‡•ç‡§Ø‡•Ç‡§®‡§§‡§æ : (f : A ‚Üí B) ‚Üí Type
 ‡§Ö‡§®‡•ç‡§Ø‡•Ç‡§®‡§§‡§æ {B = B} f = (b : B) ‚Üí fiber f b
 
--- ‡‡ï‡≤‡æ‡¶‡‡ everywhere: every fibre whole = the perfect grasp
+-- ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ everywhere: every fibre whole = the perfect grasp
 ‡§∏‡§∞‡•ç‡§µ‡§∏‡§ï‡§≤‡§Æ‡•ç : (f : A ‚Üí B) ‚Üí Type
 ‡§∏‡§∞‡•ç‡§µ‡§∏‡§ï‡§≤‡§Æ‡•ç {B = B} f = (b : B) ‚Üí isContr (fiber f b)
 
 ------------------------------------------------------------------------
--- ‡® ¬ the design ‚î loses nothing AND misses nothing IS the perfect grasp.
+-- ‡•® ¬∑ the design ‚Äî loses nothing AND misses nothing IS the perfect grasp.
 -- inhabited proposition = contractible; the whole content is that identity.
 ------------------------------------------------------------------------
 
@@ -71,8 +71,8 @@ private
 ‡§∂‡•Å‡§¶‡•ç‡§ß‡§ø nl ng b = inhProp‚ÜíisContr (ng b) (nl b)
 
 ------------------------------------------------------------------------
--- ‡© ¬ the perfect grasp IS the equivalence ‚î on the nose, both directions.
--- isEquiv f is the record whose one field equiv-proof is ‡‡∞‡‡µ‡‡ï‡≤‡Æ‡ f itself.
+-- ‡•© ¬∑ the perfect grasp IS the equivalence ‚Äî on the nose, both directions.
+-- isEquiv f is the record whose one field equiv-proof is ‡§∏‡§∞‡•ç‡§µ‡§∏‡§ï‡§≤‡§Æ‡•ç f itself.
 ------------------------------------------------------------------------
 
 ‡§∏‡§∞‡•ç‡§µ‡§∏‡§ï‡§≤‡§Æ‡•ç‚Üí‡§∏‡§Æ‡§æ‡§®‡§§‡§æ : {f : A ‚Üí B} ‚Üí ‡§∏‡§∞‡•ç‡§µ‡§∏‡§ï‡§≤‡§Æ‡•ç f ‚Üí isEquiv f
@@ -82,13 +82,13 @@ private
 ‡§∏‡§Æ‡§æ‡§®‡§§‡§æ‚Üí‡§∏‡§∞‡•ç‡§µ‡§∏‡§ï‡§≤‡§Æ‡•ç e = e .equiv-proof
 
 -- the whole design in one term: a mind that loses and misses nothing is,
--- exactly, an equivalence ‚î kevalajna as isEquiv.
+-- exactly, an equivalence ‚Äî kevalaj√±ƒÅna as isEquiv.
 ‡§ï‡•á‡§µ‡§≤‡§Æ‡•ç : {f : A ‚Üí B} ‚Üí ‡§Ö‡§π‡§æ‡§®‡§ø f ‚Üí ‡§Ö‡§®‡•ç‡§Ø‡•Ç‡§®‡§§‡§æ f ‚Üí isEquiv f
 ‡§ï‡•á‡§µ‡§≤‡§Æ‡•ç nl ng = ‡§∏‡§∞‡•ç‡§µ‡§∏‡§ï‡§≤‡§Æ‡•ç‚Üí‡§∏‡§Æ‡§æ‡§®‡§§‡§æ (‡§∂‡•Å‡§¶‡•ç‡§ß‡§ø nl ng)
 
 ------------------------------------------------------------------------
--- ‡ ¬ the durnaya shadow ‚î one standpoint not-whole breaks totality.
--- A partial view (some fibre ‡µ‡ø‡ï‡≤‡æ‡¶‡‡ or ‡∞‡ø‡ï‡‡, i.e. not contractible)
+-- ‡•™ ¬∑ the durnaya shadow ‚Äî one standpoint not-whole breaks totality.
+-- A partial view (some fibre ‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ or ‡§∞‡§ø‡§ï‡•ç‡§§, i.e. not contractible)
 -- that would claim to be the perfect grasp is refuted: that is precisely a
 -- non-equivalence, and no assertion makes it one.
 ------------------------------------------------------------------------
@@ -98,10 +98,10 @@ private
 ‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø-‡§®‡§ø‡§∑‡•á‡§ß‡§É (b , ¬¨whole) e = ¬¨whole (e .equiv-proof b)
 
 ------------------------------------------------------------------------
--- ‡ ¬ tie to the census ‚î no new type, the same objects under both names.
--- G.‡‡∞‡‡µ‡‡‡∞-‡‡ï‡≤‡Æ‡ and G.‡®-‡ï‡‡µ‡‡ø‡‡-‡‡‡ are ‡‡∞‡‡µ‡‡ï‡≤‡Æ‡ and ‡‡‡æ‡®‡ø definitionally
--- (G.‡‡‡ f b = fiber f b), so the neighbour's "every fibre whole" is
--- literally isEquiv, and its "never crowded" is literally ‡‡‡æ‡®‡ø.
+-- ‡•´ ¬∑ tie to the census ‚Äî no new type, the same objects under both names.
+-- G.‡§∏‡§∞‡•ç‡§µ‡§§‡•ç‡§∞-‡§∏‡§ï‡§≤‡§Æ‡•ç and G.‡§®-‡§ï‡•ç‡§µ‡§ö‡§ø‡§§‡•ç-‡§¨‡§π‡•Å are ‡§∏‡§∞‡•ç‡§µ‡§∏‡§ï‡§≤‡§Æ‡•ç and ‡§Ö‡§π‡§æ‡§®‡§ø definitionally
+-- (G.‡§∂‡•á‡§∑ f b = fiber f b), so the neighbour's "every fibre whole" is
+-- literally isEquiv, and its "never crowded" is literally ‡§Ö‡§π‡§æ‡§®‡§ø.
 ------------------------------------------------------------------------
 
 census-‡§∏‡§∞‡•ç‡§µ‡§∏‡§ï‡§≤‚Üí‡§∏‡§Æ‡§æ‡§®‡§§‡§æ : {f : A ‚Üí B} ‚Üí G.‡§∏‡§∞‡•ç‡§µ‡§§‡•ç‡§∞-‡§∏‡§ï‡§≤‡§Æ‡•ç f ‚Üí isEquiv f

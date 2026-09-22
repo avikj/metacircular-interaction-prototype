@@ -4,17 +4,17 @@
 --
 -- THE `1 â‰ m` HYPOTHESIS IS REMOVABLE.  `WalkBridge`'s bridge module
 --    takes `1â‰m : 1 â‰ m` as a parameter.  It is
---    used in exactly one place -- `no-jump-skipped`, to produce `2 â‰ suc
---    i` from `m â‰ i` so that `LeastNonDivisor`'s minimality clause
---    (which only speaks about `r â‰ 2`) applies.  The `r = 1` case is not
+--    used in exactly one place -- `no-jump-skipped`, to produce `2 â‰¤ suc
+--    i` from `m â‰¤ i` so that `LeastNonDivisor`'s minimality clause
+--    (which only speaks about `r â‰¥ 2`) applies.  The `r = 1` case is not
 --    a gap in the mathematics: `1` divides everything.  `WalkBridge`'s
 --    `frontier-flat` already handles precisely this, in the line
 --
---        ... | inr 1â‰¡r = subst (_âˆ cap m) 1â‰¡r (âˆ-oneË¡ (cap m))
+--        ... | inr 1â‰¡r = subst (_âˆ£ cap m) 1â‰¡r (âˆ£-oneË¡ (cap m))
 --
 --    so the same one-line case split discharges `no-jump-skipped` too,
 --    and the hypothesis is not needed.  This module proves that: the
---    same statement, `1â‰m` deleted, checked.
+--    same statement, `1â‰¤m` deleted, checked.
 --
 -- WHAT IT BUYS, concretely.  With the hypothesis gone the walk's base is
 -- no longer a special case.  `WalkBridge` needs `not-jump-0` and
@@ -43,7 +43,7 @@ open import WalkBridge
 -- The one lemma the hypothesis was standing in for.
 --
 -- `LeastNonDivisor L q` only asserts minimality against `r` with
--- `2 â‰ r`; the missing `r = 1` case is `âˆ-oneË¡`, not an assumption.
+-- `2 â‰¤ r`; the missing `r = 1` case is `âˆ£-oneË¡`, not an assumption.
 -- Stating it once, indexed by the predecessor, makes every later use
 -- hypothesis-free.
 ------------------------------------------------------------------------
@@ -55,8 +55,8 @@ below-install m q (suc i) lnd si<q =
   lnd .snd (suc (suc i)) (suc-â‰¤-suc (suc-â‰¤-suc zero-â‰¤)) si<q
 
 ------------------------------------------------------------------------
--- (iv) WITHOUT `1 â‰ m`.  Compare `WalkBridge.no-jump-skipped`, whose
--- module parameters include `1â‰m`.
+-- (iv) WITHOUT `1 â‰¤ m`.  Compare `WalkBridge.no-jump-skipped`, whose
+-- module parameters include `1â‰¤m`.
 ------------------------------------------------------------------------
 
 no-jump-skipped-uniform :
@@ -101,7 +101,7 @@ install-is-jump-uniform m j lnd d =
 -- THE PAYOFF: the base is no longer a special case.
 --
 -- `WalkBridge` covers the interval below the first install with a
--- separate `not-jump-0` plus a separate `below-first`.  With `1â‰m`
+-- separate `not-jump-0` plus a separate `below-first`.  With `1â‰¤m`
 -- removed, that interval is the SAME theorem at `m = 0`: `cap 0 = 1`,
 -- whose least non-divisor is `2`, so the walk's very first step is an
 -- ordinary instance of the bridge rather than a boundary case.

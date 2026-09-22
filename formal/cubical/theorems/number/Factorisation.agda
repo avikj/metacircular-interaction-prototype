@@ -7,28 +7,28 @@
 -- says why it is hard: it needs EXISTENCE OF PRIME FACTORISATION, which
 -- no certificate-composition produces.  Here it is.
 --
---     factorise : (n : â•) â’ 0 < n â’ Î[ ps ] (AllPrimeL ps — (prodL ps â‰¡ n))
+--     factorise : (n : â„•) â†’ 0 < n â†’ Î£[ ps ] (AllPrimeL ps Ã— (prodL ps â‰¡ n))
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- PRIOR ART
 --
 -- `CoprimeSplitting.primeDivisor` already provides the
--- atom â” `(n : â•) â’ 1 < n â’ Î[ p ] (IsPrime p — (p âˆ n))`, a fuelled
+-- atom â€” `(n : â„•) â†’ 1 < n â†’ Î£[ p ] (IsPrime p Ã— (p âˆ£ n))`, a fuelled
 -- linear search with the fuel accounted for honestly in that module's
 -- header.  Factorisation is that atom plus a descent, and the descent is
 -- the only new thing here.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE DESCENT
 --
--- Peel a prime divisor `p` off `n`, leaving `c` with `c Â p â‰¡ n`.  Then
--- `c < n`, because `1 < p` and `0 < c` give `c < 2Âc â‰ pÂc â‰¡ n` â” and the
+-- Peel a prime divisor `p` off `n`, leaving `c` with `c Â· p â‰¡ n`.  Then
+-- `c < n`, because `1 < p` and `0 < c` give `c < 2Â·c â‰¤ pÂ·c â‰¡ n` â€” and the
 -- recursion is on `c`.  Fuel carries the termination, in the same style
 -- as `primeDivisor-fuel`, because that is this lane's idiom for searches
 -- whose bound is obvious and whose well-foundedness is not worth a
 -- separate development.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS UNLOCKS
 --
 -- Every positive `n` is a product of primes, with the list as data.
@@ -84,7 +84,7 @@ private
   cofactor-pos (suc c) p n _   _  = suc-â‰¤-suc zero-â‰¤
 
 ------------------------------------------------------------------------
--- 3.  THE THEOREM, by fuel â” this lane's idiom for a bounded search
+-- 3.  THE THEOREM, by fuel â€” this lane's idiom for a bounded search
 ------------------------------------------------------------------------
 
 factorise-fuel : (fuel n : â„•) â†’ 0 < n â†’ n â‰¤ fuel â†’ Factorisation n

@@ -1,10 +1,10 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡‡-‡‡‡∞‡Æ‡æ‡‡Æ‡ ‚î the second seam ford: ‡µ‡ø‡µ‡‡ï-‡‡‡∞‡Æ‡æ‡ ‚â° ‚ï.
+-- ‡§∏‡•á‡§§‡•Å-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡§Æ‡•ç ‚Äî the second seam ford: ‡§µ‡§ø‡§µ‡•á‡§ï-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£ ‚â° ‚Ñï.
 --
--- The content is one composition.  VivekaPramana pays ‚ïó‚ï ‚â ‡µ‡ø‡µ‡‡ï-‡‡‡∞‡Æ‡æ‡;
--- SetuYugma pays (‚ïó‚ï) ‚â ‚ï; the composite is free ‚î ‡‡æ‡µ‡®‡æ, again: two
+-- The content is one composition.  VivekaPramana pays ‚Ñï√ó‚Ñï ‚âÉ ‡§µ‡§ø‡§µ‡•á‡§ï-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£;
+-- SetuYugma pays (‚Ñï√ó‚Ñï) ‚âÉ ‚Ñï; the composite is free ‚Äî ‡§≠‡§æ‡§µ‡§®‡§æ, again: two
 -- landed solutions meet, the third arises, all three survive.
 ------------------------------------------------------------------------
 

@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡∞‡æ‡Æ‡æ‡®‡‡‡®‡, ‡ï‡‡‡‡‡‡∞ ‚î THE COUNTING FIELD IS THE OBJECT, THE BOOLEAN IS
+-- ‡§∞‡§æ‡§Æ‡§æ‡§®‡•Å‡§ú‡§®‡•ç, ‡§ï‡•ç‡§∑‡•á‡§§‡•ç‡§∞ ‚Äî THE COUNTING FIELD IS THE OBJECT, THE BOOLEAN IS
 -- ITS SUPPORT, AND THE COLLAPSE FORGETS.
 --
 -- The corpus's Goldbach lane established the method: the quantitative
@@ -11,19 +11,19 @@
 -- runs on.  This file builds the same two-layer reading for
 -- Ramanujan's form x¬≤ + y¬≤ + 10z¬≤:
 --
---   `rC` ‚î the octant counting field: for n below 720, the number of
---     ‚ï-triples representing n, counted over the box the growth
+--   `rC` ‚Äî the octant counting field: for n below 720, the number of
+--     ‚Ñï-triples representing n, counted over the box the growth
 --     bounds prove sufficient.  This is the theta-coefficient of the
 --     form, restricted to the octant, and it is the object.
 --
---   `the-boolean-is-the-support` ‚î for n < 720, Rep n holds exactly
---     when 1 ‚â rC n: the boolean IS the support of the field, both
+--   `the-boolean-is-the-support` ‚Äî for n < 720, Rep n holds exactly
+--     when 1 ‚â§ rC n: the boolean IS the support of the field, both
 --     directions proved (a witness pushes its indicator through the
 --     three sum layers; silence of the finders zeroes every
 --     indicator).
 --
---   `the-collapse-forgets` ‚î the loss, witnessed: 1 and 2 are both
---     represented ‚î the boolean identifies them ‚î while the field
+--   `the-collapse-forgets` ‚Äî the loss, witnessed: 1 and 2 are both
+--     represented ‚Äî the boolean identifies them ‚Äî while the field
 --     separates them, rC 1 ‚â° 2 against rC 2 ‚â° 1.  What the genus
 --     theory of the form reads is in the counts; the support has
 --     already thrown it away.  This is BooleanGoldbachInformationLoss
@@ -197,8 +197,8 @@ the-boolean-is-the-support n n< = fore , back
     g (inr nr) =
       Empty.rec (¬¨-<-zero (subst (1 ‚â§_) (zX n 26 nr) h))
 
--- THE LOSS, witnessed.  The boolean identifies 1 and 2 ‚î both
--- represented ‚î while the field separates them.  The collapse from
+-- THE LOSS, witnessed.  The boolean identifies 1 and 2 ‚Äî both
+-- represented ‚Äî while the field separates them.  The collapse from
 -- count to support is the destruction, exhibited.
 the-collapse-forgets :
   (rC 1 ‚â° 2) √ó (rC 2 ‚â° 1) √ó Rep 1 √ó Rep 2

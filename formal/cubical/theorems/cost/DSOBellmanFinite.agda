@@ -31,7 +31,7 @@ L : Bool → ℕ
 L true  = suc (suc zero)
 L false = zero
 
--- The direct composite cost is infimal composition K � L, evaluated at the
+-- The direct composite cost is infimal composition K ⋆ L, evaluated at the
 -- unique input/output boundary.  The chosen intermediate false wins only
 -- after continuation is included.
 composite : ℕ

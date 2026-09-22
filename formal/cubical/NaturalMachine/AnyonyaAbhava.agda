@@ -3,70 +3,70 @@
 ------------------------------------------------------------------------
 -- NaturalMachine.AnyonyaAbhava
 --
--- àà¨àà¯à‹à¨àà¯à¾àà¾àµ â” mutual absence â” and why Vaieika-Nyya keeps it as a
--- SEPARATE category from àààà°àà—à¾àà¾àµ instead of reducing one to the other.
+-- à¤…à¤¨à¥à¤¯à¥‹à¤¨à¥à¤¯à¤¾à¤­à¤¾à¤µ â€” mutual absence â€” and why VaiÅ›eá¹£ika-NyÄya keeps it as a
+-- SEPARATE category from à¤¸à¤‚à¤¸à¤°à¥à¤—à¤¾à¤­à¤¾à¤µ instead of reducing one to the other.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE DOCTRINE, AND WHY THIS MODULE EXISTS
 --
--- `NaturalMachine.Abhava` builds ààà¾àµ as a record carrying its
--- ààà°àà¿à¯à‹à—à¿à¨à and ààµààààà¦à•, and analyses the tower Â, ÂÂ, ÂÂÂ.  All of
--- that is àààà°àà—à¾àà¾àµ: the absence of a RELATION at a locus â” the pot is
+-- `NaturalMachine.Abhava` builds à¤…à¤­à¤¾à¤µ as a record carrying its
+-- à¤ªà¥à¤°à¤¤à¤¿à¤¯à¥‹à¤—à¤¿à¤¨à¥ and à¤…à¤µà¤šà¥à¤›à¥‡à¤¦à¤•, and analyses the tower Â¬, Â¬Â¬, Â¬Â¬Â¬.  All of
+-- that is à¤¸à¤‚à¤¸à¤°à¥à¤—à¤¾à¤­à¤¾à¤µ: the absence of a RELATION at a locus â€” the pot is
 -- not on the floor.  Praastapda's division (*Padrthadharmasagraha*,
 -- c. 6th c.) and every Nyya text after it insist on a second kind:
 --
---     àà¨àà¯à‹à¨àà¯à¾àà¾àµ â” the absence of IDENTITY.  A cloth is not a pot.
---     Its ààà°àà¿à¯à‹à—à¿à¨à is the pot, its àà¨àà¯à‹à—à¿à¨à the cloth, and what is
---     absent is àà¾à¦à¾ààà®àà¯, identity itself, not a relation between two
+--     à¤…à¤¨à¥à¤¯à¥‹à¤¨à¥à¤¯à¤¾à¤­à¤¾à¤µ â€” the absence of IDENTITY.  A cloth is not a pot.
+--     Its à¤ªà¥à¤°à¤¤à¤¿à¤¯à¥‹à¤—à¤¿à¤¨à¥ is the pot, its à¤…à¤¨à¥à¤¯à¥‹à¤—à¤¿à¤¨à¥ the cloth, and what is
+--     absent is à¤¤à¤¾à¤¦à¤¾à¤¤à¥à¤®à¥à¤¯, identity itself, not a relation between two
 --     things that are already distinct.
 --
 -- The reduction has been attempted in both directions for a thousand
 -- years and Navya-Nyya rejects both.  This module is that dispute,
--- made exact â” and the tradition turns out to be right in a way the
+-- made exact â€” and the tradition turns out to be right in a way the
 -- classical reading cannot see, because CLASSICALLY THE TWO ARE
 -- INTERDERIVABLE AND THE DISPUTE IS EMPTY.  Constructively they are not.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
---   Â§2  àà¨àà¯à‹à¨àà¯à¾àà¾àµ IS an ààà¾àµ in this corpus's own sense: it
---       instantiates `Abhava.Abhva` with ààà°àà¿à¯à‹à—à¿à¨à `_â‰¡ b`.  So the
+--   Â§2  à¤…à¤¨à¥à¤¯à¥‹à¤¨à¥à¤¯à¤¾à¤­à¤¾à¤µ IS an à¤…à¤­à¤¾à¤µ in this corpus's own sense: it
+--       instantiates `Abhava.AbhÄva` with à¤ªà¥à¤°à¤¤à¤¿à¤¯à¥‹à¤—à¤¿à¤¨à¥ `_â‰¡ b`.  So the
 --       record was already general enough, which is worth knowing
 --       before adding anything to it.
 --
---   Â§3  àà¨àà¯à‹à¨àà¯ âŸ àààà°àà—, freely.  Two points the ààµààààà¦à• identifies
+--   Â§3  à¤…à¤¨à¥à¤¯à¥‹à¤¨à¥à¤¯ âŸ¹ à¤¸à¤‚à¤¸à¤°à¥à¤—, freely.  Two points the à¤…à¤µà¤šà¥à¤›à¥‡à¤¦à¤• identifies
 --       but whose values are mutually absent destroy every decoder at
 --       once.  This is the corpus's collision lemma, and naming its
 --       parts is not decoration: the hypothesis `q x â‰¡ q x'` is
---       precisely an ààµààààà¦à•, the qualification under which the two
+--       precisely an à¤…à¤µà¤šà¥à¤›à¥‡à¤¦à¤•, the qualification under which the two
 --       are not distinguished.
 --
---   Â§4  àààà°àà— âŸ àà¨àà¯à‹à¨àà¯ only up to ÂÂ, and even that needs the
---       ààà°àà¿à¯à‹à—à¿à¨à to be decidable.  So the reduction FAILS, and it
+--   Â§4  à¤¸à¤‚à¤¸à¤°à¥à¤— âŸ¹ à¤…à¤¨à¥à¤¯à¥‹à¤¨à¥à¤¯ only up to Â¬Â¬, and even that needs the
+--       à¤ªà¥à¤°à¤¤à¤¿à¤¯à¥‹à¤—à¤¿à¤¨à¥ to be decidable.  So the reduction FAILS, and it
 --       fails by exactly one step of the tower `Abhava` Â§2 measures.
 --
---   Â§5  Under a decidable ààµààààà¦à• the step is free (`Abhava
+--   Â§5  Under a decidable à¤…à¤µà¤šà¥à¤›à¥‡à¤¦à¤• the step is free (`Abhava
 --       .dec-collapses`), and the two categories become interderivable.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE POINT, WHICH IS NOT A TRANSLATION
 --
 -- The two-fold division is not scholastic hair-splitting and it is not
 -- a taxonomy of examples.  It tracks a real obstruction, the obstruction
 -- is one level of the negation tower, and it dissolves exactly when the
--- ààà°àà¿à¯à‹à—à¿à¨à is decidable.  A reader with excluded middle sees two
+-- à¤ªà¥à¤°à¤¤à¤¿à¤¯à¥‹à¤—à¤¿à¤¨à¥ is decidable.  A reader with excluded middle sees two
 -- names for one thing and concludes the Naiyyikas were counting
 -- angels; a reader without it finds the distinction forced.
 --
 -- That is the same verdict `Abhava` reached about the THREE-tall tower
 -- and for the same reason, which is itself evidence that the Nyya
--- analysis of ààà¾àµ is tracking constructive structure throughout and
+-- analysis of à¤…à¤­à¤¾à¤µ is tracking constructive structure throughout and
 -- not in one lucky place.
 --
 -- SOURCES.  Praastapda, *Padrthadharmasagraha* (c. 6th c.), where
--- ààà¾àµ's division is set out; Udayana, *Nyyakusumjali* (c. 1000);
+-- à¤…à¤­à¤¾à¤µ's division is set out; Udayana, *NyÄyakusumÄÃ±jali* (c. 1000);
 -- Gagea, *Tattvacintmai*, abhva-khaa (c. 1325), where the
--- ààà°àà¿à¯à‹à—à¿àà¾ analysis is refined; Raghuntha iromai,
+-- à¤ªà¥à¤°à¤¤à¤¿à¤¯à¥‹à¤—à¤¿à¤¤à¤¾ analysis is refined; RaghunÄtha Åširomaá¹‡i,
 -- *Padrthatattvanirpaa* (c. 1500), on which categories survive
 -- scrutiny.  The mathematics below is this corpus's; the DIVISION and
 -- the claim of irreducibility are theirs, and are what is being tested.
@@ -94,16 +94,16 @@ private
     â„“ â„“x â„“y â„“t : Level
 
 ------------------------------------------------------------------------
--- 1.  àà¨àà¯à‹à¨àà¯à¾àà¾àµ: the absence of identity, not of a relation
+-- 1.  à¤…à¤¨à¥à¤¯à¥‹à¤¨à¥à¤¯à¤¾à¤­à¤¾à¤µ: the absence of identity, not of a relation
 ------------------------------------------------------------------------
 
 Anyonya : {T : Type â„“t} â†’ T â†’ T â†’ Type â„“t
 Anyonya a b = Â¬ (a â‰¡ b)
 
 ------------------------------------------------------------------------
--- 2.  It is an ààà¾àµ in the corpus's own sense
+-- 2.  It is an à¤…à¤­à¤¾à¤µ in the corpus's own sense
 --
--- àà¨àà¯à‹à—à¿à¨à becomes the delimitor, ààà°àà¿à¯à‹à—à¿à¨à the family `_â‰¡ b`.  Nothing
+-- à¤…à¤¨à¥à¤¯à¥‹à¤—à¤¿à¤¨à¥ becomes the delimitor, à¤ªà¥à¤°à¤¤à¤¿à¤¯à¥‹à¤—à¤¿à¤¨à¥ the family `_â‰¡ b`.  Nothing
 -- had to be added to the record: it was built general enough, and this
 -- is the check rather than the assertion.
 ------------------------------------------------------------------------
@@ -117,9 +117,9 @@ anyonya-from-abhava : {T : Type â„“t} (b : T) (A : AbhÄva T (_â‰¡ b))
 anyonya-from-abhava b A = absent A
 
 ------------------------------------------------------------------------
--- 3.  àà¨àà¯à‹à¨àà¯ âŸ àààà°àà—, with no hypothesis
+-- 3.  à¤…à¤¨à¥à¤¯à¥‹à¤¨à¥à¤¯ âŸ¹ à¤¸à¤‚à¤¸à¤°à¥à¤—, with no hypothesis
 --
--- The ààµààààà¦à• is `q x â‰¡ q x'`: the qualification under which the two
+-- The à¤…à¤µà¤šà¥à¤›à¥‡à¤¦à¤• is `q x â‰¡ q x'`: the qualification under which the two
 -- loci are NOT distinguished.  Under it, a mutual absence of their
 -- values is the absence of every decoding relation at once.
 ------------------------------------------------------------------------
@@ -133,8 +133,8 @@ anyonyaâ†’samsarga :
 anyonyaâ†’samsarga q t = collisionObstructsDecoder q t
 
 ------------------------------------------------------------------------
--- 4.  àààà°àà— âŸ àà¨àà¯à‹à¨àà¯ ONLY UP TO ÂÂ, and only with a decidable
---     ààà°àà¿à¯à‹à—à¿à¨à â” so the reduction fails
+-- 4.  à¤¸à¤‚à¤¸à¤°à¥à¤— âŸ¹ à¤…à¤¨à¥à¤¯à¥‹à¤¨à¥à¤¯ ONLY UP TO Â¬Â¬, and only with a decidable
+--     à¤ªà¥à¤°à¤¤à¤¿à¤¯à¥‹à¤—à¤¿à¤¨à¥ â€” so the reduction fails
 ------------------------------------------------------------------------
 
 Collision : {X : Type â„“x} {Y : Type â„“y} {T : Type â„“t}
@@ -160,8 +160,8 @@ samsargaâ†’Â¬Â¬anyonya dT q t noDecoder noCollision =
 --
 -- If the collision claim itself is decidable, `Abhava.dec-collapses`
 -- closes it and the two categories become interderivable.  So the
--- irreducibility is not absolute: it is indexed by the ààµààààà¦à•, which
--- is what an ààµààààà¦à• is for.
+-- irreducibility is not absolute: it is indexed by the à¤…à¤µà¤šà¥à¤›à¥‡à¤¦à¤•, which
+-- is what an à¤…à¤µà¤šà¥à¤›à¥‡à¤¦à¤• is for.
 ------------------------------------------------------------------------
 
 samsargaâ†’anyonya-when-decidable :
@@ -187,12 +187,12 @@ categories-agree-when-decidable dT q t dC =
 ------------------------------------------------------------------------
 -- 6.  What was tested, and what it says about the tradition.
 --
--- TESTED, not assumed: that the Vaieika division of ààà¾àµ into
--- àààà°àà— and àà¨àà¯à‹à¨àà¯ is doing work.  It is.  One direction is free,
+-- TESTED, not assumed: that the VaiÅ›eá¹£ika division of à¤…à¤­à¤¾à¤µ into
+-- à¤¸à¤‚à¤¸à¤°à¥à¤— and à¤…à¤¨à¥à¤¯à¥‹à¤¨à¥à¤¯ is doing work.  It is.  One direction is free,
 -- the other costs a step of the negation tower, and the cost is
--- discharged exactly by decidability of the ààà°àà¿à¯à‹à—à¿à¨à.
+-- discharged exactly by decidability of the à¤ªà¥à¤°à¤¤à¤¿à¤¯à¥‹à¤—à¤¿à¤¨à¥.
 --
--- The classical reader cannot see this.  With excluded middle Â§4's ÂÂ
+-- The classical reader cannot see this.  With excluded middle Â§4's Â¬Â¬
 -- evaporates, the two categories are interderivable at every delimitor,
 -- and the thousand-year dispute over whether one reduces to the other
 -- looks like a dispute about nothing.  It is not: it is a dispute about
@@ -200,7 +200,7 @@ categories-agree-when-decidable dT q t dC =
 -- by people who did not have one and were right anyway.
 --
 -- This is the second time in this corpus that the Nyya analysis of
--- ààà¾àµ has turned out to track constructive structure â” `Abhava` Â§2â“3
+-- à¤…à¤­à¤¾à¤µ has turned out to track constructive structure â€” `Abhava` Â§2â€“3
 -- was the first, on the height of the tower.  Two is not a coincidence
 -- worth explaining away.
 ------------------------------------------------------------------------
@@ -214,9 +214,9 @@ categories-agree-when-decidable dT q t dC =
 --
 -- FIRST: TWO DARANAS ARE BEING USED AS ONE TOOLKIT.
 --
--- àà¨àà¯à‹à¨àà¯à¾àà¾àµ with its ààà°àà¿à¯à‹à—à¿à¨à and àà¨àà¯à‹à—à¿à¨à is Nyya-Vaieika.
--- The àààààà™àà—à with syt-qualified asti/nsti is Jaina.  These are
--- rival schools that dispute each other's categories â” Jaina logicians
+-- à¤…à¤¨à¥à¤¯à¥‹à¤¨à¥à¤¯à¤¾à¤­à¤¾à¤µ with its à¤ªà¥à¤°à¤¤à¤¿à¤¯à¥‹à¤—à¤¿à¤¨à¥ and à¤…à¤¨à¥à¤¯à¥‹à¤—à¤¿à¤¨à¥ is NyÄya-VaiÅ›eá¹£ika.
+-- The à¤¸à¤ªà¥à¤¤à¤­à¤™à¥à¤—à¥€ with syÄt-qualified asti/nÄsti is Jaina.  These are
+-- rival schools that dispute each other's categories â€” Jaina logicians
 -- reject the Naiyyika treatment of negation, and the Naiyyikas reject
 -- anekntavda.  This thread has been drawing on both as though they
 -- were one box of instruments, which is precisely the selection habit
@@ -225,25 +225,25 @@ categories-agree-when-decidable dT q t dC =
 --
 -- SECOND, AND SPECIFIC: THE GROUND IS MISSING.
 --
---     Anyonya a b = Â (a â‰¡ b)
+--     Anyonya a b = Â¬ (a â‰¡ b)
 --
--- is bare negation.  The Jaina à¨à¾àààà¿ is never that.  Every à¨à¾àààà¿ is
--- relative to a stated fourfold ground â”
+-- is bare negation.  The Jaina à¤¨à¤¾à¤¸à¥à¤¤à¤¿ is never that.  Every à¤¨à¤¾à¤¸à¥à¤¤à¤¿ is
+-- relative to a stated fourfold ground â€”
 --
---     àààµ-à¦àà°àµàà¯ / àà°-à¦àà°àµàà¯    own substance / another's
---     àààµ-à•àààààà° / àà°-à•àààààà°    own field / another's
---     àààµ-à•à¾à² / àà°-à•à¾à²        own time / another's
---     àààµ-àà¾àµ / àà°-àà¾àµ        own state / another's
+--     à¤¸à¥à¤µ-à¤¦à¥à¤°à¤µà¥à¤¯ / à¤ªà¤°-à¤¦à¥à¤°à¤µà¥à¤¯    own substance / another's
+--     à¤¸à¥à¤µ-à¤•à¥à¤·à¥‡à¤¤à¥à¤° / à¤ªà¤°-à¤•à¥à¤·à¥‡à¤¤à¥à¤°    own field / another's
+--     à¤¸à¥à¤µ-à¤•à¤¾à¤² / à¤ªà¤°-à¤•à¤¾à¤²        own time / another's
+--     à¤¸à¥à¤µ-à¤­à¤¾à¤µ / à¤ªà¤°-à¤­à¤¾à¤µ        own state / another's
 --
--- â” and carries ààà¯à¾àà.  A pot IS with respect to its own substance,
+-- â€” and carries à¤¸à¥à¤¯à¤¾à¤¤à¥.  A pot IS with respect to its own substance,
 -- place, time and state, and IS NOT with respect to another's; that is
--- why the first two àà™àà—s are not contradictory.  Unqualified negation
--- is not a àà™àà— at all.
+-- why the first two à¤­à¤™à¥à¤—s are not contradictory.  Unqualified negation
+-- is not a à¤­à¤™à¥à¤— at all.
 --
 -- What this module actually defines is the Naiyyika mutual absence,
--- for which bare negation with a ààà°àà¿à¯à‹à—à¿à¨à is right.  The `Abhva`
+-- for which bare negation with a à¤ªà¥à¤°à¤¤à¤¿à¤¯à¥‹à¤—à¤¿à¤¨à¥ is right.  The `AbhÄva`
 -- record supplies ONE delimitor; the Jaina scheme specifies FOUR, and I
--- never said which â” or whether any â” of the four my `q` is standing
+-- never said which â€” or whether any â€” of the four my `q` is standing
 -- for.  Downstream, `TheFibreIsTheSubject`, `AsiddhatvaBreaksFactoring`,
 -- `AnuvrttiIsTheSameTrade`, `PratyaharaBuysTotalityWithLocality` and
 -- `TheSecondNaIsTheCollision` all use `Anyonya` and inherit this.
@@ -259,11 +259,11 @@ categories-agree-when-decidable dT q t dC =
 --     `NaturalMachine.TheDelimitorNeedsOnlyStability`.
 --
 -- (1) Â§5's hypothesis is stronger than Â§5's use.  `dec-collapses` is
---     applied only as `Â Â A â’ A`, which is `Stable`.  The gap between
+--     applied only as `Â¬ Â¬ A â†’ A`, which is `Stable`.  The gap between
 --     the two categories closes under `Stable (Collision q t)`, and the
---     decidable form is a corollary by `Decâ’Stable`.  Â§6's sentence
+--     decidable form is a corollary by `Decâ†’Stable`.  Â§6's sentence
 --     "the cost is discharged exactly by decidability of the
---     ààà°àà¿à¯à‹à—à¿à¨à" should read: by STABILITY of it.  Decidability is
+--     à¤ªà¥à¤°à¤¤à¤¿à¤¯à¥‹à¤—à¤¿à¤¨à¥" should read: by STABILITY of it.  Decidability is
 --     sufficient and is not what is used.
 --
 -- (2) `Dec (Collision q t)` holds on a class of sites: for a
@@ -277,8 +277,8 @@ categories-agree-when-decidable dT q t dC =
 --
 -- (4) Â§6 says the dispute was "conducted by people who did not have
 --     one and were right anyway."  That scores the past by proximity
---     to a constructive setting â” a à¦àà°àà¨à¯.  What is sayable: the
---     Nyya division of ààà¾àµ into àààà°àà— and àà¨àà¯à‹à¨àà¯ is a distinction,
+--     to a constructive setting â€” a à¤¦à¥à¤°à¥à¤¨à¤¯.  What is sayable: the
+--     NyÄya division of à¤…à¤­à¤¾à¤µ into à¤¸à¤‚à¤¸à¤°à¥à¤— and à¤…à¤¨à¥à¤¯à¥‹à¤¨à¥à¤¯ is a distinction,
 --     it is registered in this formalism, and the two directions cost
 --     differently here.  Whether the Naiyyikas were tracking what
 --     this formalism tracks is a question about them that this corpus
@@ -301,10 +301,10 @@ categories-agree-when-decidable dT q t dC =
 --     "These four struck equations were modern constructions, not
 --      consequences of the fourfold."
 --
--- Â§1 above is compatible with that: `Anyonya a b = Â (a â‰¡ b)` is
+-- Â§1 above is compatible with that: `Anyonya a b = Â¬ (a â‰¡ b)` is
 -- non-identity and nothing more.  What is NOT compatible is reading
--- `Collision q t` â” two states a coarse map identifies and a fine map
--- separates â” as an àà¨àà¯à‹à¨àà¯à¾àà¾àµ.  That is observational separation,
+-- `Collision q t` â€” two states a coarse map identifies and a fine map
+-- separates â€” as an à¤…à¤¨à¥à¤¯à¥‹à¤¨à¥à¤¯à¤¾à¤­à¤¾à¤µ.  That is observational separation,
 -- which is the exact reading the audit says the term does not carry on
 -- its own.  The type is unaffected; the gloss on it was not licensed.
 --
@@ -317,7 +317,7 @@ categories-agree-when-decidable dT q t dC =
 -- `notes/ABHAVA.md` A6 locates arXiv:2605.12548, *Cubical Type Theoretic
 -- Navya-Nyya* (Panday & Ghosh), whose stated content includes DEPENDENT
 -- DELIMITATION (avacchedaka) and TYPED ABSENCE (abhva) in cubical type
--- theory â” the same substrate and the same notions this module touches.
+-- theory â€” the same substrate and the same notions this module touches.
 --
 -- NO NOVELTY IS CLAIMED for anything below.
 ------------------------------------------------------------------------

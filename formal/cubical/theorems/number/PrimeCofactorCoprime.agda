@@ -5,26 +5,26 @@
 --
 -- The third and last of the pieces `PFreePart` named:
 --
---     prime-power-âˆ-coprime :
---       IsPrime p â’ Â (p âˆ m) â’ isGCD (p ^ a) m 1
+--     prime-power-âˆ¤-coprime :
+--       IsPrime p â†’ Â¬ (p âˆ£ m) â†’ isGCD (p ^ a) m 1
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- NO EUCLID IS NEEDED
 --
 -- The reason is visible in the definition this lane already uses:
 --
---     IsPrime p = (1 < p) — ((d : â•) â’ d âˆ p â’ (d â‰¡ 1) âŠ (d â‰¡ p))
+--     IsPrime p = (1 < p) Ã— ((d : â„•) â†’ d âˆ£ p â†’ (d â‰¡ 1) âŠŽ (d â‰¡ p))
 --
 -- A common divisor `d` of `p` and `m` is therefore `1` or `p`.  If it
--- were `p` then `p âˆ m`, which is the hypothesis' negation.  So `d â‰¡ 1`.
+-- were `p` then `p âˆ£ m`, which is the hypothesis' negation.  So `d â‰¡ 1`.
 -- Three lines, and the non-divisibility hypothesis discharges the bad
--- branch by itself â” it does the work that `DistinctPrimesAreCoprime`
+-- branch by itself â€” it does the work that `DistinctPrimesAreCoprime`
 -- needed a SECOND primality for.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE LIFT TO POWERS IS PURE REUSE
 --
--- `CoprimePowersN.posPow`, `isGCDâ’Bez`, `Bezâ’isGCD` and
+-- `CoprimePowersN.posPow`, `isGCDâ†’Bez`, `Bezâ†’isGCD` and
 -- `CoprimePowers.bez-pow` are already here and already checked.  Only
 -- the LEFT argument is raised, so the route is bez-sym / bez-pow /
 -- bez-sym rather than `coprime-powers`, which raises both.
@@ -85,8 +85,8 @@ prime-power-âˆ¤-coprime p m a pp pâˆ¤m =
 ------------------------------------------------------------------------
 -- 3.  The three pieces.
 --
---   ExponentBound          a â‰ logOf p k   when p^a âˆ n â‰ k
+--   ExponentBound          a â‰¤ logOf p k   when p^a âˆ£ n â‰¤ k
 --   FrontierMember         (p , logOf p k) âˆˆ frontierList k for p prime,
---                          p â‰ k
---   here                   isGCD (p ^ a) m' 1  from  Â (p âˆ m')
+--                          p â‰¤ k
+--   here                   isGCD (p ^ a) m' 1  from  Â¬ (p âˆ£ m')
 ------------------------------------------------------------------------

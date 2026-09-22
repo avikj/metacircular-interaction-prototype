@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡ø‡¶‡‡ß‡æ‡®‡‡ ‚î the settled conclusion.  THE LOSSLESS-MACHINE PAPER IN
+-- ‡§∏‡§ø‡§¶‡•ç‡§ß‡§æ‡§®‡•ç‡§§ ‚Äî the settled conclusion.  THE LOSSLESS-MACHINE PAPER IN
 -- ONE MODULE: EVERY CLAIM, ONE TERM.
 --
 -- Abstract 25 makes claims; this module binds each to its checked

@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������-����� � the factorization of the crossing.
+-- विभाग-सूत्र — the factorization of the crossing.
 --
 -- THE FUSION the machine held as ea: the trilaw meets the braid.
 -- ResidueSamavaya proved the over-symmetries are exactly assembled
@@ -10,23 +10,23 @@
 -- the endless braid, position by position:
 --
 --   §2  EVERY CROSSING FACTORS AS PURE SWAP AFTER PURE TWIST:
---       ϵ = swap� ∘ twist��� � the vertical part (one strand's
+--       σᵢ = swapᵢ ∘ twistᵢ₊₁ — the vertical part (one strand's
 --       quarter turn, an assembled residue family touching a single
 --       fibre) followed by the base motion (the bare transposition).
 --
---   §3  AND AS PURE TWIST AFTER PURE SWAP: ϵ = twist� ∘ swap�.
+--   §3  AND AS PURE TWIST AFTER PURE SWAP: σᵢ = twistᵢ ∘ swapᵢ.
 --
---   §4  Hence the EXCHANGE LAW: swap� ∘ twist��� = twist� ∘ swap� �
+--   §4  Hence the EXCHANGE LAW: swapᵢ ∘ twistᵢ₊₁ = twistᵢ ∘ swapᵢ —
 --       carrying the residue across the base motion relocates it to
 --       the transported position.  The swap TRANSPORTS the residue:
 --       base motion acts on vertical structure by conjugation, which
---       is the trilaw's generativity clause in dynamic form � the
+--       is the trilaw's generativity clause in dynamic form — the
 --       level above does not merely sit on the residues, it carries
 --       them.
 --
 -- Every braid is therefore a word in bare transpositions and
--- single-strand turns, with the entire braiding � everything beyond
--- the symmetric group � residing in HOW THE TWIST RIDES THE SWAP.
+-- single-strand turns, with the entire braiding — everything beyond
+-- the symmetric group — residing in HOW THE TWIST RIDES THE SWAP.
 -- Coherence is base motion; the phase is cargo; the crossing is the
 -- act of carrying.
 --
@@ -47,7 +47,7 @@ open import AnantaVeni_TheInfiniteBraidActsOnTheInterdependentStreamAndEveryRela
 open Dhārā
 
 ------------------------------------------------------------------------
--- � � The two pure moves: the bare swap, and the single-strand twist.
+-- १ · The two pure moves: the bare swap, and the single-strand twist.
 ------------------------------------------------------------------------
 
 svap∞ : ℕ → Rajju → Rajju
@@ -63,7 +63,7 @@ ghūrṇa∞ : ℕ → Rajju → Rajju
 śeṣam (ghūrṇa∞ (suc j) s) = ghūrṇa∞ j (śeṣam s)
 
 ------------------------------------------------------------------------
--- � � The crossing is swap-after-twist.
+-- २ · The crossing is swap-after-twist.
 ------------------------------------------------------------------------
 
 vibhāga : (i : ℕ) (s : Rajju)
@@ -74,7 +74,7 @@ vibhāga : (i : ℕ) (s : Rajju)
 śeṣam (vibhāga (suc i) s j) = vibhāga i (śeṣam s) j
 
 ------------------------------------------------------------------------
--- � � And twist-after-swap.
+-- ३ · And twist-after-swap.
 ------------------------------------------------------------------------
 
 vibhāga' : (i : ℕ) (s : Rajju)
@@ -85,7 +85,7 @@ vibhāga' : (i : ℕ) (s : Rajju)
 śeṣam (vibhāga' (suc i) s j) = vibhāga' i (śeṣam s) j
 
 ------------------------------------------------------------------------
--- � � The exchange law: the swap transports the residue.
+-- ४ · The exchange law: the swap transports the residue.
 ------------------------------------------------------------------------
 
 vahana : (i : ℕ) (s : Rajju)

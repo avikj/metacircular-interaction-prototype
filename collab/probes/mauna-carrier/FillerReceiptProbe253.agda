@@ -5,7 +5,7 @@
 --
 -- Contents:
 --   * the explicit product square;
---   * its boundary-composition equality by Squareâ’compPath;
+--   * its boundary-composition equality by Squareâ†’compPath;
 --   * the equality of compiler composites;
 --   * the compiler-boundary equality via uaCompEquiv;
 --   * a Square whose boundaries are exactly the four compiler paths.

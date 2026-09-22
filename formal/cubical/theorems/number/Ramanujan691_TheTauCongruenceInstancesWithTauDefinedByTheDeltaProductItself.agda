@@ -1,35 +1,35 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ��������� ��� � THE TAU CONGRUENCE: INSTANCES WITH THE COFACTOR IN
+-- रामानुजन् ६९१ — THE TAU CONGRUENCE: INSTANCES WITH THE COFACTOR IN
 -- HAND, AND TAU DEFINED BY THE DELTA PRODUCT ITSELF.
 --
 -- Ramanujan (1916), "On certain arithmetical functions": expand
 --
---     Δ = q � (1 − q�)²� = � �(n) q�
+--     Δ = q ∏ (1 − qⁿ)²⁴ = Σ τ(n) qⁿ
 --
 -- and then the congruence that startled everybody:
 --
---     �(n) ≡ ���(n)  (mod 691).
+--     τ(n) ≡ σ₁₁(n)  (mod 691).
 --
--- � is DEFINED here the way Ramanujan found it � the coefficients of
+-- τ is DEFINED here the way Ramanujan found it — the coefficients of
 -- the product, computed.  Signed coefficients are carried as FORMAL
 -- DIFFERENCES of naturals (a , b) standing for a − b, added and
--- multiplied by the semiring rules � the discipline the corpus's own
+-- multiplied by the semiring rules — the discipline the corpus's own
 -- KuttakaValli teaches: keep the slot, and no signed branch is ever
 -- taken.  The polynomial product is truncated at degree 8, each
--- (1 − q�)²� is twenty-four honest multiplications, and the � table
--- falls out by refl through the difference-to-� reading:
+-- (1 − qⁿ)²⁴ is twenty-four honest multiplications, and the τ table
+-- falls out by refl through the difference-to-ℤ reading:
 --
---     �: 1, −24, 252, −1472, 4830, −6048, −16744, 84480
+--     τ: 1, −24, 252, −1472, 4830, −6048, −16744, 84480
 --
 -- with Ramanujan's multiplicativity visible at its first coprime
--- pair, �(6) = �(2)��(3), by refl.
+-- pair, τ(6) = τ(2)·τ(3), by refl.
 --
--- THE CONGRUENCE, entirely in �, subtraction-free, cofactor in hand:
--- with (a , b) the computed difference pair of �(n),
+-- THE CONGRUENCE, entirely in ℕ, subtraction-free, cofactor in hand:
+-- with (a , b) the computed difference pair of τ(n),
 --
---     ���(n) + b ≡ a + 691 � q        (q exhibited)
+--     σ₁₁(n) + b ≡ a + 691 · q        (q exhibited)
 --
 --     n = 2 : q = 3         n = 3 : q = 256
 --     n = 4 : q = 6075      n = 5 : q = 70656
@@ -37,7 +37,7 @@
 --
 -- each one refl, and each valid for WHATEVER representative pair the
 -- kernel computes, because the equation depends only on a − b.  The
--- general congruence is the Eisenstein series E�� and the Bernoulli
+-- general congruence is the Eisenstein series E₁₂ and the Bernoulli
 -- number −691/2730; it is named, and the five instances are what the
 -- kernel computed from the product itself.
 ------------------------------------------------------------------------
@@ -103,7 +103,7 @@ pmul : Poly → Poly → Poly
 pmul []       ys = []
 pmul (x ∷ xs) ys = take9 9 (padd (pscale x ys) (d0 ∷ pmul xs ys))
 
--- (1 − q�), truncated.
+-- (1 − qⁿ), truncated.
 one-minus-q^ : ℕ → Poly
 one-minus-q^ n = d1 ∷ mk n
   where
@@ -131,7 +131,7 @@ coeff _       []       = d0
 coeff zero    (x ∷ _)  = x
 coeff (suc n) (_ ∷ xs) = coeff n xs
 
--- The difference pair of �(n), as the product hands it over.
+-- The difference pair of τ(n), as the product hands it over.
 τp : ℕ → D
 τp n = coeff n Δ
 
@@ -139,7 +139,7 @@ coeff (suc n) (_ ∷ xs) = coeff n xs
 τ n = toℤ (τp n)
 
 ------------------------------------------------------------------------
--- §3  The � table, and multiplicativity on the spot.
+-- §3  The τ table, and multiplicativity on the spot.
 ------------------------------------------------------------------------
 
 τ-table :
@@ -152,7 +152,7 @@ coeff (suc n) (_ ∷ xs) = coeff n xs
 τ-multiplicative-at-6 = refl
 
 ------------------------------------------------------------------------
--- §4  ��� over the witness-typed divisor scan.
+-- §4  σ₁₁ over the witness-typed divisor scan.
 ------------------------------------------------------------------------
 
 pow11 : ℕ → ℕ
@@ -174,7 +174,7 @@ pow11 m = m · (m · (m · (m · (m · (m · (m · (m · (m · (m · m)))))))))
 σ₁₁ m = σsum m m
 
 ------------------------------------------------------------------------
--- §5  THE CONGRUENCE: five instances, in �, cofactors in hand.
+-- §5  THE CONGRUENCE: five instances, in ℕ, cofactors in hand.
 ------------------------------------------------------------------------
 
 congruence-2 : σ₁₁ 2 + snd (τp 2) ≡ fst (τp 2) + 691 · 3

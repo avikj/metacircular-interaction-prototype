@@ -58,7 +58,7 @@ immediate-equivalence-not-future-stable =
     Exp.h-readout false future-H-separates
 
 ------------------------------------------------------------------------
--- 2. Paired pastófuture contextual signature
+-- 2. Paired past√ófuture contextual signature
 ------------------------------------------------------------------------
 
 -- The same finite instruction language is used on the two sides of the

@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡∞‡‡ï‡‡‡æ ‚î the examination of ‡Ø‡®‡‡‡‡∞, as terms.  Four results:
+-- ‡‡∞‡‡ï‡‡‡æ ‚Äî the examination of ‡Ø‡®‡‡‡‡∞, as terms.  Four results:
 --
 --   Chaya       The collapse from the witnessed Goldbach statement to the
 --               truncated one has a reverse map; the SECTION does not.

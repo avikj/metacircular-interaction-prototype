@@ -10,30 +10,30 @@
 -- its instances:
 --
 --   * Cantor      : B = Bool, f = not              (no fixed point)
---   * Russell     : B = Prop, f = �                (no fixed point)
---   * Tarski      : B = truth values, f = �        (undefinability)
+--   * Russell     : B = Prop, f = ¬                (no fixed point)
+--   * Tarski      : B = truth values, f = ¬        (undefinability)
 --   * Gdel       : B = provability, f = �         (diagonal lemma)
 --   * Turing      : B = halting behaviour, f = flip (undecidability)
 --
 -- The single content of the theorem is: a point-surjective
--- � : A � (A � B) forces EVERY endomap of B to have a fixed point.
+-- φ : A → (A → B) forces EVERY endomap of B to have a fixed point.
 -- Contrapositively, one fixed-point-free f on B kills point-surjectivity
--- of every �.  All of the above are that contrapositive.
+-- of every φ.  All of the above are that contrapositive.
 --
 -- PRIOR ART, IN THIS REPOSITORY.  The general theorem is already
 -- formalized at formal/cubical/LawvereDiagonal.agda (module
 -- LawvereDiagonal), in the pointwise form
---     WkPtSurj e = (f : A � Y) � �[ a ∈ A ] ((x : A) � e a x ≡ f x).
+--     WkPtSurj e = (f : A → Y) → Σ[ a ∈ A ] ((x : A) → e a x ≡ f x).
 -- This module is NOT a second proof of it.  It states the theorem in the
--- path form  �[ a ∈ A ] � a ≡ g  used by EndObstruction,
--- proves the two forms interderivable (`ptSurj�wk`, `wk�ptSurj`, via
+-- path form  Σ[ a ∈ A ] φ a ≡ g  used by EndObstruction,
+-- proves the two forms interderivable (`ptSurj→wk`, `wk→ptSurj`, via
 -- funExt, which is definitional-strength in cubical), and then derives
 -- EndObstruction's δ-end / no-complete-quotation as the
--- B = Bool, f = not instance � so that the machine's end-obstruction is
+-- B = Bool, f = not instance — so that the machine's end-obstruction is
 -- visibly a corollary and not an independent argument.
 --
 -- Everything below is exact: no postulates, no holes, no truncation, no
--- classical logic.  The � (untruncated) form of surjectivity is used, so
+-- classical logic.  The Σ (untruncated) form of surjectivity is used, so
 -- the refutations refute even a CHOSEN index, which is the strongest
 -- form and needs no hlevel machinery.
 ------------------------------------------------------------------------
@@ -59,8 +59,8 @@ private
 -- 1.  Lawvere's fixed-point theorem
 ------------------------------------------------------------------------
 
--- � is point-surjective: every B-valued observation on A is literally a
--- row of �.  (Untruncated: the index is given, not merely asserted.)
+-- φ is point-surjective: every B-valued observation on A is literally a
+-- row of φ.  (Untruncated: the index is given, not merely asserted.)
 PtSurj : (A → (A → B)) → Type₀
 PtSurj {A = A} {B = B} φ = (g : A → B) → Σ[ a ∈ A ] φ a ≡ g
 
@@ -71,7 +71,7 @@ FixedPoint {B = B} f = Σ[ b ∈ B ] f b ≡ b
 twist : (A → (A → B)) → (B → B) → (A → B)
 twist φ f a = f (φ a a)
 
--- Lawvere 1969.  If � enumerates the observations, the index claimed
+-- Lawvere 1969.  If φ enumerates the observations, the index claimed
 -- for the twisted diagonal reads at itself to a fixed point of f.
 lawvere : {A B : Type₀} (φ : A → (A → B))
   → ((g : A → B) → Σ[ a ∈ A ] φ a ≡ g)
@@ -81,7 +81,7 @@ lawvere φ surj f = φ a₀ a₀ , sym (funExt⁻ (surj (twist φ f) .snd) a₀)
   a₀ : _
   a₀ = surj (twist φ f) .fst
 
--- Contrapositive: one fixed-point-free endomap of B refutes every �.
+-- Contrapositive: one fixed-point-free endomap of B refutes every φ.
 noFix→noPtSurj : (φ : A → (A → B)) (f : B → B)
   → ((b : B) → ¬ (f b ≡ b))
   → ¬ PtSurj φ
@@ -137,8 +137,8 @@ cantor-defect φ = defect φ not not-no-fix
 ------------------------------------------------------------------------
 -- 3.  EndObstruction re-derived
 --
--- Quote � = � � Observable � = � � (� � Bool) and EO.diag �_� =
--- twist �_� not, both definitionally.  So EndObstruction's statements
+-- Quote 𝒬 = 𝒬 → Observable 𝒬 = 𝒬 → (𝒬 → Bool) and EO.diag ⌜_⌝ =
+-- twist ⌜_⌝ not, both definitionally.  So EndObstruction's statements
 -- are literally the B = Bool, f = not instance of §1: the terms below
 -- typecheck by unfolding alone, which is the proof that the statements
 -- agree rather than merely resemble each other.
@@ -156,7 +156,7 @@ Complete {𝒬 = 𝒬} ⌜_⌝ = (d : Observable 𝒬) → Σ[ x ∈ 𝒬 ] ⌜ 
 no-complete-quotation : {𝒬 : Type₀} (⌜_⌝ : Quote 𝒬) → ¬ Complete ⌜_⌝
 no-complete-quotation = cantor
 
--- The two modules' statements are the same type �
+-- The two modules' statements are the same type …
 δ-end-same-statement :
     ({𝒬 : Type₀} (⌜_⌝ : Quote 𝒬) (x : 𝒬) → ¬ (⌜ x ⌝ ≡ EO.diag ⌜_⌝))
   × ({𝒬 : Type₀} (⌜_⌝ : Quote 𝒬) (x : 𝒬) → ¬ (⌜ x ⌝ ≡ EO.diag ⌜_⌝))
@@ -167,7 +167,7 @@ quotation-same-statement :
   × ({𝒬 : Type₀} (⌜_⌝ : Quote 𝒬) → ¬ Complete ⌜_⌝)
 quotation-same-statement = no-complete-quotation , EO.no-complete-quotation
 
--- � and the two derivations agree as terms (both land in �, which is a
+-- … and the two derivations agree as terms (both land in ⊥, which is a
 -- proposition, so there was never a second proof to have).
 derivations-agree : {𝒬 : Type₀} (⌜_⌝ : Quote 𝒬) (c : Complete ⌜_⌝)
   → no-complete-quotation ⌜_⌝ c ≡ EO.no-complete-quotation ⌜_⌝ c
@@ -176,12 +176,12 @@ derivations-agree ⌜_⌝ c = isProp⊥ _ _
 ------------------------------------------------------------------------
 -- 4.  The consequence for the machine: the cadence always reopens
 --
--- A self-describing machine is a carrier � of states-that-can-be-quoted
--- together with a quotation �_� : Quote � assigning to each state the
+-- A self-describing machine is a carrier 𝒬 of states-that-can-be-quoted
+-- together with a quotation ⌜_⌝ : Quote 𝒬 assigning to each state the
 -- Bool-observation it makes of states.  §1 says: that assignment is
--- never point-surjective, no matter what � or �_� is.  There is always
+-- never point-surjective, no matter what 𝒬 or ⌜_⌝ is.  There is always
 -- an observation the machine does not name, and it is CONSTRUCTED, not
--- shown to exist � so the next stage has its generator handed to it.
+-- shown to exist — so the next stage has its generator handed to it.
 ------------------------------------------------------------------------
 
 -- No machine's quotation enumerates its own observations.
@@ -205,7 +205,7 @@ door-agrees ⌜_⌝ = refl
 
 -- Iterating: whatever door is adjoined, the extended quotation has a new
 -- one.  Stated for the machine that has already adjoined d, i.e. for any
--- quotation whatsoever � which is exactly why the cadence never closes.
+-- quotation whatsoever — which is exactly why the cadence never closes.
 cadence-never-closes : {𝒬 : Type₀} (⌜_⌝ : Quote 𝒬) (d : Observable 𝒬)
   → ((x : 𝒬) → ¬ (⌜ x ⌝ ≡ d))
   → Σ[ d′ ∈ Observable 𝒬 ] (((x : 𝒬) → ¬ (⌜ x ⌝ ≡ d′)) × (¬ (Σ[ x ∈ 𝒬 ] ⌜ x ⌝ ≡ d)))
@@ -236,6 +236,6 @@ no-quote-equiv : {A : Type₀} (φ : A → (A → Bool)) → ¬ (isEquiv φ)
 no-quote-equiv φ e = cantor φ (ptSurj-of-isEquiv φ e)
 
 -- Same for the machine: a quotation is never an equivalence onto its
--- observations � � � Observable � is unavailable, whatever � is.
+-- observations — 𝒬 ≃ Observable 𝒬 is unavailable, whatever 𝒬 is.
 quote-never-equiv : {𝒬 : Type₀} (⌜_⌝ : Quote 𝒬) → ¬ (isEquiv ⌜_⌝)
 quote-never-equiv = no-quote-equiv

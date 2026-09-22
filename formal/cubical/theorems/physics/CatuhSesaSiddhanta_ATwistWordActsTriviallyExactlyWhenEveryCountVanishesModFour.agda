@@ -1,20 +1,20 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- �������-��������� � the mod-four theorem.
+-- चतुःशेष-सिद्धान्त — the mod-four theorem.
 --
 -- THE ABELIAN KERNEL, COMPLETE.  A twist word acts trivially on every
 -- rope EXACTLY when every strand's occurrence count vanishes modulo
 -- four.  Both directions:
 --
 --   §3  SUFFICIENCY: counts ≡ 0 (mod 4) force triviality on EVERY
---       rope � the reading theorem sends each reader through its
+--       rope — the reading theorem sends each reader through its
 --       count, the four-step reduction collapses it, and READER
 --       EXTENSIONALITY (a corecursive path built from pointwise
---       readings � streams that agree at every depth are equal) lifts
+--       readings — streams that agree at every depth are equal) lifts
 --       pointwise triviality to the rope itself.
 --
---   §4  NECESSITY: triviality on ONE rope � the constant one �
+--   §4  NECESSITY: triviality on ONE rope — the constant one —
 --       already forces every count to vanish mod four, by the
 --       enumeration of residues and the three named refutations (the
 --       quarter, half, and three-quarter turns each move the constant
@@ -54,7 +54,7 @@ open import GhurnaPatha_EachStrandReadsExactlyItsOwnTwistCountSoTheTwistWordActs
 open Dhārā
 
 ------------------------------------------------------------------------
--- � � The residue mod four, its range, and the four-step reduction.
+-- १ · The residue mod four, its range, and the four-step reduction.
 ------------------------------------------------------------------------
 
 catuḥśeṣa : ℕ → ℕ
@@ -82,7 +82,7 @@ parimita (suc (suc (suc zero)))    = inr (inr (inr refl))
 parimita (suc (suc (suc (suc n)))) = parimita n
 
 ------------------------------------------------------------------------
--- � � Reader extensionality: streams agreeing at every depth are equal.
+-- २ · Reader extensionality: streams agreeing at every depth are equal.
 ------------------------------------------------------------------------
 
 pāṭha-sāmya : {s t : Rajju} → ((j : ℕ) → gāḍha j s ≡ gāḍha j t) → s ≡ t
@@ -90,7 +90,7 @@ pāṭha-sāmya : {s t : Rajju} → ((j : ℕ) → gāḍha j s ≡ gāḍha j t
 śeṣam (pāṭha-sāmya h i) = pāṭha-sāmya (λ j → h (suc j)) i
 
 ------------------------------------------------------------------------
--- � � Sufficiency: vanishing counts force triviality on every rope.
+-- ३ · Sufficiency: vanishing counts force triviality on every rope.
 ------------------------------------------------------------------------
 
 nirvāha : (w : List ℕ)
@@ -102,7 +102,7 @@ nirvāha w h s = pāṭha-sāmya λ j →
   ∙ cong (λ m → cakrāvartana m (gāḍha j s)) (h j)
 
 ------------------------------------------------------------------------
--- � � Necessity: fixing the constant rope forces every count to
+-- ४ · Necessity: fixing the constant rope forces every count to
 -- vanish mod four.
 ------------------------------------------------------------------------
 

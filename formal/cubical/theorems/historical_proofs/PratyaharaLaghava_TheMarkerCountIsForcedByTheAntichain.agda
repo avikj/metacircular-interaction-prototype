@@ -1,13 +1,13 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- PratyaharaLaghava � how many anubandhas a family of sound-classes forces,
+-- PratyaharaLaghava — how many anubandhas a family of sound-classes forces,
 -- proved for any linear order whatsoever.
 --
 -- SOURCE.  Pini, Adhyy (~500 BCE), opens with the fourteen
 -- Mhevara-stras: the sounds laid in ONE sequence, each stra closed by an
 -- anubandha (it-marker).  A pratyhra names a class as the stretch from a
--- sound up to a marker � a, aK, iK, e, aiC, aC, haL, ya, jha.  The
+-- sound up to a marker — aṆ, aK, iK, eṄ, aiC, aC, haL, yaṆ, jhaṢ.  The
 -- tradition's own word for the value being maximised is *lghava*, economy;
 -- the grammarians' maxim (ardhamtrlghavena putrotsava manyante
 -- vaiykara) prices half a mora of the metalanguage like the birth of a
@@ -16,24 +16,24 @@
 --
 -- WHAT IS PROVED HERE, and it is a reason rather than an instance:
 --
---   ONE.  `sharedEnd�comparable` � if two classes are stretches of the SAME
+--   ONE.  `sharedEnd→comparable` — if two classes are stretches of the SAME
 --   linear order terminating at the SAME marker, then one contains the other.
 --   (Both end at e; the one whose start is further right is inside the other.)
---   So the classes carried by a single anubandha form a �-chain.  Nothing in
+--   So the classes carried by a single anubandha form a ⊆-chain.  Nothing in
 --   this uses phonetics, and nothing in it uses which order was chosen.
 --
---   TWO.  `markersDistinct` � consequently, two classes that are
---   �-INCOMPARABLE cannot share a marker, in any order, under any encoding.
---   The marker map is injective on every �-antichain of the family.  This is
+--   TWO.  `markersDistinct` — consequently, two classes that are
+--   ⊆-INCOMPARABLE cannot share a marker, in any order, under any encoding.
+--   The marker map is injective on every ⊆-antichain of the family.  This is
 --   the general statement; everything below is its instance.
 --
---   THREE.  `vowelAntichain` � the four attested vowel classes a = {a i u},
+--   THREE.  `vowelAntichain` — the four attested vowel classes aṆ = {a i u},
 --   iK = {i u  }, e = {e o}, aiC = {ai au} are pairwise incomparable, as
 --   sets of sounds, with no order in sight.  Hence `fourMarkersForced`: ANY
 --   arrangement of the nine vowels in a line, with any markers anywhere,
 --   naming those four classes as pratyhras, uses four DISTINCT markers.
 --
---   FOUR.  `sivasutraEncoding` � the iva-stra order attains the bound:
+--   FOUR.  `sivasutraEncoding` — the śiva-sūtra order attains the bound:
 --   a i u    K e o  ai au C realises all four (and aK, aC, iC, eC as
 --   well, §7) with exactly the four markers  K  C, and
 --   `noFifthMarker` checks there is no fifth.  Lower bound four, attained at
@@ -61,8 +61,8 @@
 -- MODELLING NOTE, stated because it is the one place a reader could be
 -- misled: `pos` enumerates the SOUNDS only, markers being boundaries and
 -- never members (Sivasutra.agda checks that separately).  A marker is
--- therefore an element of an abstract type M with a boundary `bnd : M � �`,
--- i.e. an anubandha OCCURRENCE, not an anubandha letter � which is the right
+-- therefore an element of an abstract type M with a boundary `bnd : M → ℕ`,
+-- i.e. an anubandha OCCURRENCE, not an anubandha letter — which is the right
 -- granularity, since  occurs twice in the fourteen (stras 1 and 6) and
 -- the two occurrences terminate different classes (a, ya).
 --
@@ -138,7 +138,7 @@ notSub X Y x hx hy sub = true≢false (sym (sub x hx) ∙ hy)
 ------------------------------------------------------------------------
 -- 2.  THE REASON.  One marker carries a chain.
 --
--- Two classes ending at the same marker are �-comparable � whichever starts
+-- Two classes ending at the same marker are ⊆-comparable — whichever starts
 -- further right is contained in the other.  No phonetics, no particular
 -- order: this is a fact about stretches of a line sharing a right end.
 ------------------------------------------------------------------------
@@ -182,7 +182,7 @@ record Encoding (A M Ix : Type) (F : Ix → Varga A) : Type where
 open Encoding
 
 -- THE GENERAL STATEMENT.  Distinct incomparable members of the family get
--- distinct markers � under ANY order, ANY placement of markers, ANY start
+-- distinct markers — under ANY order, ANY placement of markers, ANY start
 -- assignment.  So the number of anubandhas is at least the width of the
 -- family in the containment order.
 markersDistinct :
@@ -195,7 +195,7 @@ markersDistinct E j k ic m≡ =
     (cong (bnd E) m≡)
 
 ------------------------------------------------------------------------
--- 4.  The vowels, and the four attested classes as SETS � no order.
+-- 4.  The vowels, and the four attested classes as SETS — no order.
 ------------------------------------------------------------------------
 
 data Sound : Type where
@@ -243,8 +243,8 @@ vowelFamily ıaiC = AIC
 -- THE FOUR ARE PAIRWISE INCOMPARABLE.  Each direction names the sound that
 -- witnesses the failure; this is where the content is, and it is all about
 -- the classes and nothing about the arrangement.
---   a � , iK � a          � the two overlap and neither contains the other
---   e, aiC                 � disjoint from those and from each other
+--   aṆ ∌ ṛ, iK ∌ a          — the two overlap and neither contains the other
+--   eṄ, aiC                 — disjoint from those and from each other
 vowelAntichain : (j k : Ix4) → ¬ (j ≡ k) → Incomparable (vowelFamily j) (vowelFamily k)
 vowelAntichain ıaṆ  ıaṆ  ne = ⊥rec (ne refl)
 vowelAntichain ıiK  ıiK  ne = ⊥rec (ne refl)
@@ -294,7 +294,7 @@ Ix4-distinct j k hs p = false≢true (sym hs ∙ cong (sep j) (sym p) ∙ diag j
 --   position :  a  i  u  |      |  e  o  |  ai au |
 --               0  1  2    3  4  K  5  6    7  8  C
 --
--- The marker boundaries are 3, 5, 7, 9 � the count of sounds standing before
+-- The marker boundaries are 3, 5, 7, 9 — the count of sounds standing before
 -- each anubandha.  a = [0,3), iK = [1,5), e = [5,7), aiC = [7,9).
 ------------------------------------------------------------------------
 
@@ -344,7 +344,7 @@ noFifthMarker C = inr (inr (inr refl))
 --
 -- aK = [0,5) under K, aC = [0,9) under C, iC = [1,9) under C, eC = [5,9)
 -- under C.  Three of these share the marker C, and by §2 they must then be a
--- chain � aiC � eC � iC � aC, which they are.  The chain is not a coincidence
+-- chain — aiC ⊂ eC ⊂ iC ⊂ aC, which they are.  The chain is not a coincidence
 -- of this order; it is what sharing an anubandha MEANS.
 ------------------------------------------------------------------------
 
@@ -381,7 +381,7 @@ iC⊆aC = sharedEnd→comparable posS 1 0 (bndS C) IC AC iC-interval aC-interval
 ------------------------------------------------------------------------
 -- 8.  Summary, in one line each.
 --
---   lowerBound : any line, any markers � a iK e aiC need four distinct markers
+--   lowerBound : any line, any markers — aṆ iK eṄ aiC need four distinct markers
 --   upper : the iva-stra line names all four with  K  C and has no fifth
 --   so    : four is the minimum for that family and Pini's order attains it
 ------------------------------------------------------------------------
@@ -392,21 +392,21 @@ lowerBound = fourMarkersForced sivasutraEncoding
 ------------------------------------------------------------------------
 -- THE ANTICHAIN BOUND IS NOT TIGHT.
 -- `Dvihpatha_TheAntichainBoundIsAttainedOnlyIfASoundMayBeListed-
--- Twice.agda` exhibits a five-class family on three sounds with �-width
--- two that NO recited-once line names with two anubandhas � all 120
+-- Twice.agda` exhibits a five-class family on three sounds with ⊆-width
+-- two that NO recited-once line names with two anubandhas — all 120
 -- arrangements of the five tokens checked, the enumeration's length
--- checked too � that three anubandhas name, and that two name again the
+-- checked too — that three anubandhas name, and that two name again the
 -- moment one sound may be recited twice.  width 2, cost 3 without
 -- dvipha, cost 2 with it.
 --
 -- So the slack is not an artefact of the estimate; it is a resource this
 -- file's model does not carry.  The MODELLING NOTE above is exact about
 -- where: `pos` enumerates the SOUNDS, one position each.  The lower bound
--- survives that (classes ending at one marker are still a �-chain when
+-- survives that (classes ending at one marker are still a ⊆-chain when
 -- the nearest preceding recitation is meant), but the MINIMUM does not.
 --
 -- The residue of three between width 11 and Pini's
--- 14 stands.  His line DOES recite ha twice � stras 5 and 14 � so total absence
+-- 14 stands.  His line DOES recite ha twice — stras 5 and 14 — so total absence
 -- of repetition cannot be the cause.  What is removed is only the reading
 -- under which the bound is tight and the residue therefore spurious.
 ------------------------------------------------------------------------

@@ -1,9 +1,9 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
--- direction (�), that a PRIME POWER is a jump point of the capacity
+-- direction (⇐), that a PRIME POWER is a jump point of the capacity
 -- function.
 --
---   q = p^a  (p prime, a � 1)  �  q � lcm(1 .. q−1).
+--   q = p^a  (p prime, a ≥ 1)  ⟹  q ∤ lcm(1 .. q−1).
 --
 -- `IsPrime` is defined here (cubical v0.5 has no primality in the
 -- library).  Primality of a given numeral is therefore a proof
@@ -11,24 +11,24 @@
 -- finite case analysis.
 --
 -- METHOD, and why no p-adic valuation appears.  A valuation function
--- v_p : � � � is painful in cubical v0.5 (no well-founded division, no
+-- v_p : ℕ → ℕ is painful in cubical v0.5 (no well-founded division, no
 -- decidable divisibility in the library).  It is also unnecessary.  The
 -- statement is proved instead by the lcm UNIVERSAL PROPERTY, in the
 -- house style of WalkCapacity and WalkStream: to show p^a does not
 -- divide the lcm C of [1 .. p^a−1] it suffices to EXHIBIT one common
--- multiple M of that range with p^a � M, because C � M.  The witness is
+-- multiple M of that range with p^a ∤ M, because C ∣ M.  The witness is
 -- built by induction on the range:
 --
---     M = p^(a−1) � V   with   p � V,
+--     M = p^(a−1) · V   with   p ∤ V,
 --
--- where V accumulates the p-free parts of 1, 2, �, p^a−1.  Then
--- p^a � M would cancel to p � V.  So the only genuinely arithmetic
+-- where V accumulates the p-free parts of 1, 2, …, p^a−1.  Then
+-- p^a ∣ M would cancel to p ∣ V.  So the only genuinely arithmetic
 -- ingredients are (i) Euclid's lemma, obtained gcd-side without Bezout
 -- exactly as in WalkForcing (gcd-factorʳ plus the gcd universal
--- property), and (ii) the p-free decomposition j = p^e � u, p � u,
+-- property), and (ii) the p-free decomposition j = p^e · u, p ∤ u,
 -- produced by a fuel recursion whose case split is supplied by primality
--- itself -- `prime-alt` below turns "p � d or gcd(p,d) = 1" into a
--- constructive disjunction, so no decidability of � is needed anywhere.
+-- itself -- `prime-alt` below turns "p ∣ d or gcd(p,d) = 1" into a
+-- constructive disjunction, so no decidability of ∣ is needed anywhere.
 --
 -- Predicates are recursive type families, and no constructor is matched
 -- in an index position, per the constraints recorded in WalkCapacity.
@@ -121,8 +121,8 @@ lt-self (suc c) p 0<c 1<p =
 -- Euclid's lemma, gcd-side (no Bezout), as in WalkForcing
 ------------------------------------------------------------------------
 
--- coprime cancellation: gcd(a,b)=1 and a � b�c give a � c.
--- Proof: gcd(ac, bc) = gcd(a,b)�c = c, and a is a common divisor of
+-- coprime cancellation: gcd(a,b)=1 and a ∣ b·c give a ∣ c.
+-- Proof: gcd(ac, bc) = gcd(a,b)·c = c, and a is a common divisor of
 -- ac and bc, hence divides that gcd.
 coprime-cancel : (a b c : ℕ) → isGCD a b 1 → a ∣ (b · c) → a ∣ c
 coprime-cancel a b c g a∣bc =
@@ -131,7 +131,7 @@ coprime-cancel a b c g a∣bc =
   gac≡c : gcd (a · c) (b · c) ≡ c
   gac≡c = gcd-factorʳ a b c ∙ cong (_· c) (isGCD→gcd≡ g) ∙ ·-identityˡ c
 
--- PRIMALITY AS A CONSTRUCTIVE DISJUNCTION.  For every d, either p � d
+-- PRIMALITY AS A CONSTRUCTIVE DISJUNCTION.  For every d, either p ∣ d
 -- or p and d are coprime.  This is what replaces decidability of
 -- divisibility everywhere below: gcd p d divides p, so by primality it
 -- IS 1 or IS p, and no decision procedure is invoked.
@@ -150,7 +150,7 @@ prime-∣-· p x y pr p∣xy with prime-alt p pr x
 ... | inr g   = inr (coprime-cancel p x y g p∣xy)
 
 ------------------------------------------------------------------------
--- The p-free decomposition j = p^e � u with p � u
+-- The p-free decomposition j = p^e · u with p ∤ u
 ------------------------------------------------------------------------
 
 Strip : ℕ → ℕ → Type
@@ -189,7 +189,7 @@ strip p pr (suc f) j 0<j j≤f with prime-alt p pr j
        ∙ ec
 
 ------------------------------------------------------------------------
--- The witness: a common multiple of [1..k] of the form p^b � V, p � V
+-- The witness: a common multiple of [1..k] of the form p^b · V, p ∤ V
 ------------------------------------------------------------------------
 
 CM-mono : (xs : List ℕ) (M N : ℕ) →
@@ -204,8 +204,8 @@ JumpWitness p b k =
 
 -- THE CONSTRUCTION.  For every k below p^(b+1) there is a common
 -- multiple of [1..k] whose p-part is exactly p^b: V accumulates the
--- p-free parts of the range, and the exponent of every member is � b
--- because p^e � j � k < p^(b+1).
+-- p-free parts of the range, and the exponent of every member is ≤ b
+-- because p^e ∣ j ≤ k < p^(b+1).
 build : (p : ℕ) → IsPrime p → (b k : ℕ) → k < p ^ suc b → JumpWitness p b k
 build p pr b zero    _     = 1 , ≤-refl , prime-¬∣1 p pr , tt
 build p pr b (suc k) sk<pa =
@@ -261,8 +261,8 @@ build p pr b (suc k) sk<pa =
 -- THE THEOREM: a prime power is not covered by the numbers below it
 ------------------------------------------------------------------------
 
--- For p prime and a = b+1 � 1: if suc n = p^a (so n = p^a − 1) and C is
--- ANY lcm of the frontier range [1..n], then p^a � C.  Stated by
+-- For p prime and a = b+1 ≥ 1: if suc n = p^a (so n = p^a − 1) and C is
+-- ANY lcm of the frontier range [1..n], then p^a ∤ C.  Stated by
 -- universal property, so no lcm construction is needed.
 prime-power-not-covered :
   (p b n C : ℕ) → IsPrime p → suc n ≡ p ^ suc b →
@@ -363,15 +363,15 @@ jump-3 C lcmC = prime-not-covered 3 2 C isPrime3 refl lcmC
 jump-4 : (C : ℕ) → IsLCM (range1 3) C → ¬ (4 ∣ C)
 jump-4 C lcmC = prime-power-not-covered 2 1 3 C isPrime2 refl lcmC
 
--- 8 = 2^3 does not divide lcm(1,�,7)
+-- 8 = 2^3 does not divide lcm(1,…,7)
 jump-8 : (C : ℕ) → IsLCM (range1 7) C → ¬ (8 ∣ C)
 jump-8 C lcmC = prime-power-not-covered 2 2 7 C isPrime2 refl lcmC
 
--- 9 = 3^2 does not divide lcm(1,�,8)
+-- 9 = 3^2 does not divide lcm(1,…,8)
 jump-9 : (C : ℕ) → IsLCM (range1 8) C → ¬ (9 ∣ C)
 jump-9 C lcmC = prime-power-not-covered 3 1 8 C isPrime3 refl lcmC
 
--- �and the capacity strictly changes at 4: lcm(1,2,3) ≠ lcm(1,2,3,4).
+-- …and the capacity strictly changes at 4: lcm(1,2,3) ≠ lcm(1,2,3,4).
 jump-4-capacity :
   (C D : ℕ) → IsLCM (range1 3) C → IsLCM (range1 4) D → ¬ (C ≡ D)
 jump-4-capacity C D = prime-power-jumps-capacity 2 1 3 C D isPrime2 refl
@@ -384,18 +384,18 @@ jump-4-capacity C D = prime-power-jumps-capacity 2 1 3 C D isPrime2 refl
 -- ANY C satisfying IsLCM; nothing so far forces `build` to produce a
 -- number one can look at.  These are exact symbolic checks (each is a
 -- `refl`, i.e. definitional equality decided by the checker, not a
--- floating-point measurement) that the witness M = p^(a−1) � V really
+-- floating-point measurement) that the witness M = p^(a−1) · V really
 -- is a common multiple of the range with the intended p-part.
 --
---   [1..3], p=2, a=2 : V = 1�1�1�3     M = 2�3        = 6
---                      6 is a multiple of 1,2,3 and 4 � 6.
---   [1..7], p=2, a=3 : V = 1�1�3�1�5�3�7 = 315
---                      M = 4�315 = 1260 = 3�lcm(1..7); 8 � 1260.
---   [1..8], p=3, a=2 : V = 1�2�1�4�5�2�7�8 = 4480
---                      M = 3�4480 = 13440 = 16�lcm(1..8); 9 � 13440.
+--   [1..3], p=2, a=2 : V = 1·1·1·3     M = 2·3        = 6
+--                      6 is a multiple of 1,2,3 and 4 ∤ 6.
+--   [1..7], p=2, a=3 : V = 1·1·3·1·5·3·7 = 315
+--                      M = 4·315 = 1260 = 3·lcm(1..7); 8 ∤ 1260.
+--   [1..8], p=3, a=2 : V = 1·2·1·4·5·2·7·8 = 4480
+--                      M = 3·4480 = 13440 = 16·lcm(1..8); 9 ∤ 13440.
 --
--- The witness is a common multiple, deliberately NOT the lcm � the
--- proof needs only C � M, so no minimality is ever required.
+-- The witness is a common multiple, deliberately NOT the lcm — the
+-- proof needs only C ∣ M, so no minimality is ever required.
 
 3<2^2 : 3 < 2 ^ 2
 3<2^2 = ≤-refl

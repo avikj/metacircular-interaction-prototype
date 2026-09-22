@@ -1,68 +1,68 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- ‡‡‡‡ï‡‡ï‡∞‡‡Æ‡ ‚î the p-adic splitting, as a composition of what is there.
+-- ‡§™‡•É‡§•‡§ï‡•ç‡§ï‡§∞‡§£‡§Æ‡•ç ‚Äî the p-adic splitting, as a composition of what is there.
 --
 -- (separation: every positive integer is a power of the firm number p
 --  times a rest that p does not divide; the exponent is the valuation,
 --  uniquely; and the valuation adds over products.)
 --
--- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
+-- ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
 -- WHAT THIS BUILDS ON.
 --
 -- Since those ledgers were written, the corpus acquired unique
 -- Unique factorisation is in theorems/historical_proofs:
---   `Drdha_‚¶`  : ‡¶‡‡‡Æ‡ (= prime), ‡µ‡ß‡ (list product), ‡‡∞‡‡µ‡, _‡‡¶‡‡‡Ø‡_,
---                ‡µ‡ø‡‡æ‡‡®‡Æ‡ (every n ‚â 1 is the product of a list of firm
---                numbers), ‡Ø‡‡ï‡‡≤‡ø‡°-‡µ‡æ‡ï‡‡Ø‡Æ‡ (Euclid VII.30), ‡‡®‡‡‡∞‡‡‡æ‡µ‡ (a
+--   `Drdha_‚Ä¶`  : ‡§¶‡•É‡§¢‡§Æ‡•ç (= prime), ‡§µ‡§ß‡§É (list product), ‡§∏‡§∞‡•ç‡§µ‡•á, _‡§∏‡§¶‡§∏‡•ç‡§Ø‡§É_,
+--                ‡§µ‡§ø‡§≠‡§æ‡§ú‡§®‡§Æ‡•ç (every n ‚â• 1 is the product of a list of firm
+--                numbers), ‡§Ø‡•Å‡§ï‡•ç‡§≤‡§ø‡§°-‡§µ‡§æ‡§ï‡•ç‡§Ø‡§Æ‡•ç (Euclid VII.30), ‡§Ö‡§®‡•ç‡§§‡§∞‡•ç‡§≠‡§æ‡§µ‡§É (a
 --                firm p dividing the product of a firm list occurs in it).
---   `Ekatva_‚¶` : ‡‡ï‡‡‡µ‡Æ‡ (two firm lists with one product are a Perm),
---                ‡‡ï‡‡‡µ-‡ó‡‡®‡æ (hence same count of every p), and the
---                valuation ‡Æ‡æ‡®‡Æ‡ p n pos := count of p in Drdha's list,
---                well defined by ‡Æ‡æ‡®-‡®‡ø‡‡‡‡Ø‡.
+--   `Ekatva_‚Ä¶` : ‡§è‡§ï‡§§‡•ç‡§µ‡§Æ‡•ç (two firm lists with one product are a Perm),
+--                ‡§è‡§ï‡§§‡•ç‡§µ-‡§ó‡§£‡§®‡§æ (hence same count of every p), and the
+--                valuation ‡§Æ‡§æ‡§®‡§Æ‡•ç p n pos := count of p in Drdha's list,
+--                well defined by ‡§Æ‡§æ‡§®-‡§®‡§ø‡§∂‡•ç‡§ö‡§Ø‡§É.
 --
 -- This module is the composition of those two with a filter and a
 -- replicate on lists.  Nothing new is assumed.
 --
--- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
+-- ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
 -- WHAT IS PROVED.
 --
---   ¬ß‡ß  ‡‡‡‡ p L ‚î L with every occurrence of p struck out (a filter by
---       `discrete‚ï`), and the product identity, by induction on L:
---           ‡µ‡ß-‡‡‡‡ : ‡µ‡ß‡ L ‚â° p ^ ‡ó‡‡®‡æ p L ¬ ‡µ‡ß‡ (‡‡‡‡ p L)
---       together with: ‡‡‡‡ preserves ‡‡∞‡‡µ‡, p is not a member of
---       ‡‡‡‡ p L, and hence (by ‡‡®‡‡‡∞‡‡‡æ‡µ‡) p ‚à ‡µ‡ß‡ (‡‡‡‡ p L) when L
+--   ¬ß‡•ß  ‡§∂‡•á‡§∑‡§É p L ‚Äî L with every occurrence of p struck out (a filter by
+--       `discrete‚Ñï`), and the product identity, by induction on L:
+--           ‡§µ‡§ß-‡§∂‡•á‡§∑‡§É : ‡§µ‡§ß‡§É L ‚â° p ^ ‡§ó‡§£‡§®‡§æ p L ¬∑ ‡§µ‡§ß‡§É (‡§∂‡•á‡§∑‡§É p L)
+--       together with: ‡§∂‡•á‡§∑‡§É preserves ‡§∏‡§∞‡•ç‡§µ‡•á, p is not a member of
+--       ‡§∂‡•á‡§∑‡§É p L, and hence (by ‡§Ö‡§®‡•ç‡§§‡§∞‡•ç‡§≠‡§æ‡§µ‡§É) p ‚à§ ‡§µ‡§ß‡§É (‡§∂‡•á‡§∑‡§É p L) when L
 --       is firm.
 --
---   ¬ß‡®  ‡‡‡‡ï‡‡ï‡∞‡‡Æ‡ ‚î EXISTENCE of the p-adic splitting.  For firm p and
---       n ‚â 1:
---           Œ[ m ‚àà ‚ï ] ((n ‚â° p ^ ‡Æ‡æ‡®‡Æ‡ p n pos ¬ m) ó (¬ (p ‚à m)))
---       with m := ‡µ‡ß‡ (‡‡‡‡ p L) for L Drdha's list of n.  The exponent
+--   ¬ß‡•®  ‡§™‡•É‡§•‡§ï‡•ç‡§ï‡§∞‡§£‡§Æ‡•ç ‚Äî EXISTENCE of the p-adic splitting.  For firm p and
+--       n ‚â• 1:
+--           Œ£[ m ‚àà ‚Ñï ] ((n ‚â° p ^ ‡§Æ‡§æ‡§®‡§Æ‡•ç p n pos ¬∑ m) √ó (¬¨ (p ‚à£ m)))
+--       with m := ‡§µ‡§ß‡§É (‡§∂‡•á‡§∑‡§É p L) for L Drdha's list of n.  The exponent
 --       is LITERALLY Ekatva's valuation, not a new counter.
 --
---   ¬ß‡©  ‡Æ‡æ‡®-‡‡ï‡‡‡µ‡Æ‡ ‚î UNIQUENESS of the exponent.  If n ‚â° p ^ e ¬ m with
---       ¬ (p ‚à m) then e ‚â° ‡Æ‡æ‡®‡Æ‡ p n pos.  Proof: expand m into its own
---       firm list M (Drdha ¬ß‡); ‡‡‡®‡ e p ++ M is a firm list with product
---       n, so ‡Æ‡æ‡®-‡®‡ø‡‡‡‡Ø‡ gives its p-count, e + ‡ó‡‡®‡æ p M, equals the
---       valuation; and ‡ó‡‡®‡æ p M ‚â° 0 because p ‚àà M would give p ‚à m
---       (‡‡¶‡‡‡Ø-‡‡æ‡‡ï‡).  No cancellation of p's is needed for this half.
---       ‡‡‡‡ï‡‡ï‡∞‡-‡‡ï‡‡‡µ‡Æ‡ adds that m is unique too, by one cancellation
+--   ¬ß‡•©  ‡§Æ‡§æ‡§®-‡§è‡§ï‡§§‡•ç‡§µ‡§Æ‡•ç ‚Äî UNIQUENESS of the exponent.  If n ‚â° p ^ e ¬∑ m with
+--       ¬¨ (p ‚à£ m) then e ‚â° ‡§Æ‡§æ‡§®‡§Æ‡•ç p n pos.  Proof: expand m into its own
+--       firm list M (Drdha ¬ß‡•´); ‡§™‡•Å‡§®‡§É e p ++ M is a firm list with product
+--       n, so ‡§Æ‡§æ‡§®-‡§®‡§ø‡§∂‡•ç‡§ö‡§Ø‡§É gives its p-count, e + ‡§ó‡§£‡§®‡§æ p M, equals the
+--       valuation; and ‡§ó‡§£‡§®‡§æ p M ‚â° 0 because p ‚àà M would give p ‚à£ m
+--       (‡§∏‡§¶‡§∏‡•ç‡§Ø-‡§≠‡§æ‡§ú‡§ï‡§É).  No cancellation of p's is needed for this half.
+--       ‡§™‡•É‡§•‡§ï‡•ç‡§ï‡§∞‡§£-‡§è‡§ï‡§§‡•ç‡§µ‡§Æ‡•ç adds that m is unique too, by one cancellation
 --       of p ^ e (which is positive since p > 1).
---       Corollaries: ‡Æ‡æ‡®-‡‡‡æ‡‡‡Ø‡ (p ‚à n ‚í ‡Æ‡æ‡®‡Æ‡ p n ‚â° 0) and ‡Æ‡æ‡®-‡ò‡æ‡‡
---       (‡Æ‡æ‡®‡Æ‡ p (p ^ e) ‚â° e).
+--       Corollaries: ‡§Æ‡§æ‡§®-‡§Ö‡§≠‡§æ‡§ú‡•ç‡§Ø‡§É (p ‚à§ n ‚Üí ‡§Æ‡§æ‡§®‡§Æ‡•ç p n ‚â° 0) and ‡§Æ‡§æ‡§®-‡§ò‡§æ‡§§‡§É
+--       (‡§Æ‡§æ‡§®‡§Æ‡•ç p (p ^ e) ‚â° e).
 --
---   ¬ß‡  ‡Æ‡æ‡®-‡ó‡‡‡®‡Æ‡ ‚î the valuation is MULTIPLICATIVE-TO-ADDITIVE:
---           ‡Æ‡æ‡®‡Æ‡ p (a ¬ b) posab ‚â° ‡Æ‡æ‡®‡Æ‡ p a posa + ‡Æ‡æ‡®‡Æ‡ p b posb
---       by ‡‡ï‡‡‡µ-‡ó‡‡®‡æ (through ‡Æ‡æ‡®-‡®‡ø‡‡‡‡Ø‡) on the concatenation of the
---       two Drdha lists, using ‡µ‡ß-++ and ‡‡∞‡‡µ‡-++, and ‡ó‡‡®‡æ-++.
+--   ¬ß‡•™  ‡§Æ‡§æ‡§®-‡§ó‡•Å‡§£‡§®‡§Æ‡•ç ‚Äî the valuation is MULTIPLICATIVE-TO-ADDITIVE:
+--           ‡§Æ‡§æ‡§®‡§Æ‡•ç p (a ¬∑ b) posab ‚â° ‡§Æ‡§æ‡§®‡§Æ‡•ç p a posa + ‡§Æ‡§æ‡§®‡§Æ‡•ç p b posb
+--       by ‡§è‡§ï‡§§‡•ç‡§µ-‡§ó‡§£‡§®‡§æ (through ‡§Æ‡§æ‡§®-‡§®‡§ø‡§∂‡•ç‡§ö‡§Ø‡§É) on the concatenation of the
+--       two Drdha lists, using ‡§µ‡§ß-++ and ‡§∏‡§∞‡•ç‡§µ‡•á-++, and ‡§ó‡§£‡§®‡§æ-++.
 --
---   ¬ß‡  ‡¶‡‡? ‚î a bonus that costs four lines given Drdha's ‡‡®‡‡µ‡‡‡‡Æ‡:
+--   ¬ß‡•´  ‡§¶‡•É‡§¢? ‚Äî a bonus that costs four lines given Drdha's ‡§Ö‡§®‡•ç‡§µ‡•á‡§∑‡§£‡§Æ‡•ç:
 --       firmness of n > 1 is DECIDABLE.  Used only to make the kernel
 --       tests below honest (the prime hypotheses are computed, not
 --       hand-built).
 --
---   ¬ß‡  ‡‡∞‡‡ï‡‡‡æ ‚î the kernel runs the splitting: for n = 12 the p-free
+--   ¬ß‡•¨  ‡§™‡§∞‡•Ä‡§ï‡•ç‡§∑‡§æ ‚Äî the kernel runs the splitting: for n = 12 the p-free
 --       rests at p = 2, 3, 5 are 3, 4, 12 by refl, and the valuation
---       identity 2 = ‡Æ‡æ‡®‡Æ‡ 2 12 = ‡Æ‡æ‡®‡Æ‡ 2 4 + ‡Æ‡æ‡®‡Æ‡ 2 3 is refl on both
+--       identity 2 = ‡§Æ‡§æ‡§®‡§Æ‡•ç 2 12 = ‡§Æ‡§æ‡§®‡§Æ‡•ç 2 4 + ‡§Æ‡§æ‡§®‡§Æ‡•ç 2 3 is refl on both
 --       sides.
 --
 ------------------------------------------------------------------------
@@ -89,7 +89,7 @@ open import Ekatva_TheFirmFactorisationIsUniqueTwoPrimeListsWithOneProductAreAPe
 open Bahulya discrete‚Ñï using (‡§¶‡§∂ ; ‡§¶‡§∂-‡§∏‡•ç‡§µ‡§Ø‡§Æ‡•ç ; ‡§è‡§ï‡§É ; ‡§ó‡§£‡§®‡§æ)
 
 ------------------------------------------------------------------------
--- ‡ß ¬ ‡‡‡‡ ‚î the list with every p struck out, and the product identity
+-- ‡•ß ¬∑ ‡§∂‡•á‡§∑‡§É ‚Äî the list with every p struck out, and the product identity
 ------------------------------------------------------------------------
 
 ‡§ö‡§Ø‡§®‡§Æ‡•ç : (p x : ‚Ñï) ‚Üí Dec (p ‚â° x) ‚Üí List ‚Ñï ‚Üí List ‚Ñï
@@ -141,7 +141,7 @@ open Bahulya discrete‚Ñï using (‡§¶‡§∂ ; ‡§¶‡§∂-‡§∏‡•ç‡§µ‡§Ø‡§Æ‡•ç ; ‡§è‡§ï‡§É ;
   ‡§∂‡•á‡§∑-‡§Ö‡§∏‡§¶‡§∏‡•ç‡§Ø‡§É p L (‡§Ö‡§®‡•ç‡§§‡§∞‡•ç‡§≠‡§æ‡§µ‡§É p ‡§¶‡•É (‡§∂‡•á‡§∑‡§É p L) (‡§∂‡•á‡§∑-‡§∏‡§∞‡•ç‡§µ‡•á p L ‡§¶‡•ÉL) dv)
 
 ------------------------------------------------------------------------
--- ‡® ¬ ‡‡‡‡ï‡‡ï‡∞‡‡Æ‡ ‚î EXISTENCE: n ‚â° p ^ (‡Æ‡æ‡®‡Æ‡ p n) ¬ m with p ‚à m
+-- ‡•® ¬∑ ‡§™‡•É‡§•‡§ï‡•ç‡§ï‡§∞‡§£‡§Æ‡•ç ‚Äî EXISTENCE: n ‚â° p ^ (‡§Æ‡§æ‡§®‡§Æ‡•ç p n) ¬∑ m with p ‚à§ m
 ------------------------------------------------------------------------
 
 ‡§™‡•É‡§•‡§ï‡•ç‡§ï‡§∞‡§£‡§Æ‡•ç : (p : ‚Ñï) ‚Üí ‡§¶‡•É‡§¢‡§Æ‡•ç p ‚Üí (n : ‚Ñï) (pos : 0 < n)
@@ -154,7 +154,7 @@ open Bahulya discrete‚Ñï using (‡§¶‡§∂ ; ‡§¶‡§∂-‡§∏‡•ç‡§µ‡§Ø‡§Æ‡•ç ; ‡§è‡§ï‡§É ;
   prodL = snd (snd (‡§µ‡§ø‡§≠‡§æ‡§ú‡§®‡§Æ‡•ç n pos))
 
 ------------------------------------------------------------------------
--- ‡© ¬ ‡Æ‡æ‡®-‡‡ï‡‡‡µ‡Æ‡ ‚î UNIQUENESS of the exponent (and of the rest)
+-- ‡•© ¬∑ ‡§Æ‡§æ‡§®-‡§è‡§ï‡§§‡•ç‡§µ‡§Æ‡•ç ‚Äî UNIQUENESS of the exponent (and of the rest)
 ------------------------------------------------------------------------
 
 -- e copies of p
@@ -265,7 +265,7 @@ open Bahulya discrete‚Ñï using (‡§¶‡§∂ ; ‡§¶‡§∂-‡§∏‡•ç‡§µ‡§Ø‡§Æ‡•ç ; ‡§è‡§ï‡§É ;
                   (Œª p‚à£1 ‚Üí <-asym (fst ‡§¶‡•É) (m‚à£sn‚Üím‚â§sn p‚à£1)))
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡Æ‡æ‡®-‡ó‡‡‡®‡Æ‡ ‚î the valuation adds over products
+-- ‡•™ ¬∑ ‡§Æ‡§æ‡§®-‡§ó‡•Å‡§£‡§®‡§Æ‡•ç ‚Äî the valuation adds over products
 ------------------------------------------------------------------------
 
 ‡§Æ‡§æ‡§®-‡§ó‡•Å‡§£‡§®‡§Æ‡•ç : (p a b : ‚Ñï) (posa : 0 < a) (posb : 0 < b) (posab : 0 < a ¬∑ b)
@@ -283,13 +283,13 @@ open Bahulya discrete‚Ñï using (‡§¶‡§∂ ; ‡§¶‡§∂-‡§∏‡•ç‡§µ‡§Ø‡§Æ‡•ç ; ‡§è‡§ï‡§É ;
   allB  = fst (snd (‡§µ‡§ø‡§≠‡§æ‡§ú‡§®‡§Æ‡•ç b posb))
   prodB = snd (snd (‡§µ‡§ø‡§≠‡§æ‡§ú‡§®‡§Æ‡•ç b posb))
 
--- the same with the positivity of a ¬ b supplied rather than assumed
+-- the same with the positivity of a ¬∑ b supplied rather than assumed
 ‡§Æ‡§æ‡§®-‡§ó‡•Å‡§£‡§®‡§Æ‡•ç' : (p a b : ‚Ñï) (posa : 0 < a) (posb : 0 < b)
            ‚Üí ‡§Æ‡§æ‡§®‡§Æ‡•ç p (a ¬∑ b) (‡§ó‡•Å‡§£-‡§ß‡§®‡§É a b posa posb) ‚â° ‡§Æ‡§æ‡§®‡§Æ‡•ç p a posa + ‡§Æ‡§æ‡§®‡§Æ‡•ç p b posb
 ‡§Æ‡§æ‡§®-‡§ó‡•Å‡§£‡§®‡§Æ‡•ç' p a b posa posb = ‡§Æ‡§æ‡§®-‡§ó‡•Å‡§£‡§®‡§Æ‡•ç p a b posa posb (‡§ó‡•Å‡§£-‡§ß‡§®‡§É a b posa posb)
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡¶‡‡? ‚î firmness of n > 1 is decidable (Drdha's search, both arms)
+-- ‡•´ ¬∑ ‡§¶‡•É‡§¢? ‚Äî firmness of n > 1 is decidable (Drdha's search, both arms)
 ------------------------------------------------------------------------
 
 ‡§¶‡•É‡§¢? : (n : ‚Ñï) ‚Üí 1 < n ‚Üí Dec (‡§¶‡•É‡§¢‡§Æ‡•ç n)
@@ -301,7 +301,7 @@ open Bahulya discrete‚Ñï using (‡§¶‡§∂ ; ‡§¶‡§∂-‡§∏‡•ç‡§µ‡§Ø‡§Æ‡•ç ; ‡§è‡§ï‡§É ;
               (snd ‡§¶‡•É d d‚à£n)
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡‡∞‡‡ï‡‡‡æ ‚î the kernel runs the splitting
+-- ‡•¨ ¬∑ ‡§™‡§∞‡•Ä‡§ï‡•ç‡§∑‡§æ ‚Äî the kernel runs the splitting
 ------------------------------------------------------------------------
 
 private
@@ -324,7 +324,7 @@ private
   ‡§¶‡•É-‡•´ : ‡§¶‡•É‡§¢‡§Æ‡•ç 5
   ‡§¶‡•É-‡•´ = ‡§∏‡§ø‡§¶‡•ç‡§ß‡§Æ‡•ç (‡§¶‡•É‡§¢? 5 (suc-‚â§-suc (suc-‚â§-suc zero-‚â§))) tt
 
-  -- 12 = 2¬≤ ¬ 3 = 3¬ ¬ 4 = 5‚∞ ¬ 12
+  -- 12 = 2¬≤ ¬∑ 3 = 3¬π ¬∑ 4 = 5‚Å∞ ¬∑ 12
   ‡§∂‡•á‡§∑-‡•®-‡•ß‡•® : fst (‡§™‡•É‡§•‡§ï‡•ç‡§ï‡§∞‡§£‡§Æ‡•ç 2 ‡§¶‡•É-‡•® 12 ‡•¶<‡•ß‡•®) ‚â° 3
   ‡§∂‡•á‡§∑-‡•®-‡•ß‡•® = refl
 
@@ -338,7 +338,7 @@ private
   ‡§ò‡§æ‡§§-‡•®-‡•ß‡•® : ‡§Æ‡§æ‡§®‡§Æ‡•ç 2 12 ‡•¶<‡•ß‡•® ‚â° 2
   ‡§ò‡§æ‡§§-‡•®-‡•ß‡•® = refl
 
-  -- additivity at 12 = 4 ¬ 3: both sides compute to 2
+  -- additivity at 12 = 4 ¬∑ 3: both sides compute to 2
   ‡•¶<‡•™ : 0 < 4
   ‡•¶<‡•™ = suc-‚â§-suc zero-‚â§
   ‡•¶<‡•© : 0 < 3

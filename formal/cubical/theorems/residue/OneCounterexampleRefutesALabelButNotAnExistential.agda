@@ -9,13 +9,13 @@
 --    a clean replay.  One such authority-label error is a boundary
 --    failure, not tolerable benchmark noise."
 --
--- Every other criterion in that list is a threshold on a rate â” 25% of
+-- Every other criterion in that list is a threshold on a rate â€” 25% of
 -- compute, 80% of children, half the development gain, 10% relative
--- score.  This one is not a threshold, and Â§2â“Â§3 are why: a LABEL is a
+-- score.  This one is not a threshold, and Â§2â€“Â§3 are why: a LABEL is a
 -- Î -claim, and a Î -claim is refuted by one instance, while the
 -- claim-shapes the other criteria use are not.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 -- Â§2: one labelled artifact that fails to replay refutes the label's
@@ -91,7 +91,7 @@ bothAtOnce = theLabelIsRefuted , theExistentialSurvives
 -- says.
 --
 -- Â§3 shows a single failure is compatible with another claim-shape
--- holding, so "noise" is a meaningful notion for SOME claims â” just not
+-- holding, so "noise" is a meaningful notion for SOME claims â€” just not
 -- for this one.
 ------------------------------------------------------------------------
 
@@ -101,12 +101,12 @@ bothAtOnce = theLabelIsRefuted , theExistentialSurvives
 -- `RateOneIsExactlyTheUniversalClaim`, over a finite
 -- population as a `List Bool`:
 --
---   countIsAtMostLength : count bs â‰ length bs
---   allGivesFullCount   : All bs â’ count bs â‰¡ length bs
---   fullCountGivesAll   : count bs â‰¡ length bs â’ All bs
+--   countIsAtMostLength : count bs â‰¤ length bs
+--   allGivesFullCount   : All bs â†’ count bs â‰¡ length bs
+--   fullCountGivesAll   : count bs â‰¡ length bs â†’ All bs
 --
 -- So the universal claim and rate one are THE SAME CLAIM, and the label
--- criterion is not a different KIND of criterion from a threshold â” it
+-- criterion is not a different KIND of criterion from a threshold â€” it
 -- is the threshold at 1, where a single failure moves the count off the
 -- length and there is nothing left to tolerate.  A strictly lower
 -- threshold surviving that same failure is exhibited there.

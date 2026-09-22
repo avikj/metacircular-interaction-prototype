@@ -8,20 +8,20 @@
 --
 -- THE POINT OF THE MODULE, stated before any code.
 --
---   On the four pure profiles � = {H,T}² of matching pennies, three
+--   On the four pure profiles 𝒜 = {H,T}² of matching pennies, three
 --   summary maps are available:
 --
---     * social welfare  W = u� + u�         � ONE fiber (constant);
---     * the pure-Nash predicate  pne        � ONE fiber (constant false,
+--     * social welfare  W = u₁ + u₂         — ONE fiber (constant);
+--     * the pure-Nash predicate  pne        — ONE fiber (constant false,
 --                                             because no pure profile is
 --                                             an equilibrium);
---     * the best-response composite β� ∘ �� � TWO fibers.
+--     * the best-response composite β₂ ∘ π₁ — TWO fibers.
 --
 --   By the corpus's level-set theorem (T) (f factors through q
 --   iff f is constant on every q-fiber), a summary with a SINGLE fiber
 --   forces every map factoring through it to be constant.  Hence the
 --   best-response structure descends through NEITHER W NOR pne.  That is
---   the whole separator, and it is (T) again � not a new theorem, a
+--   the whole separator, and it is (T) again — not a new theorem, a
 --   fourth costume for an old one.
 --
 --   Consequently, and this is the finding the source note was written
@@ -33,46 +33,46 @@
 --   module's `separator-W` / `separator-pne` are two instantiations of
 --   (T) at different q.
 --
--- NORMALIZATION (source note §5.5).  The textbook payoffs are �1, which
--- would drag in �.  Best responses are invariant under a PER-PLAYER
--- positive affine map, so apply x � (x+1)/2 to each player separately:
+-- NORMALIZATION (source note §5.5).  The textbook payoffs are ±1, which
+-- would drag in ℤ.  Best responses are invariant under a PER-PLAYER
+-- positive affine map, so apply x ↦ (x+1)/2 to each player separately:
 --
---     u�(a,b) = [a = b] ∈ {0,1},   u� = 1 − u�.
+--     u₁(a,b) = [a = b] ∈ {0,1},   u₂ = 1 − u₁.
 --
---   β� and β� are unchanged by construction; W ≡ 1 replaces W ≡ 0.  The
---   constancy of W � the only thing §5.2 uses � survives verbatim, and
---   everything below is decidable on Bool with �-valued payoffs in
+--   β₁ and β₂ are unchanged by construction; W ≡ 1 replaces W ≡ 0.  The
+--   constancy of W — the only thing §5.2 uses — survives verbatim, and
+--   everything below is decidable on Bool with ℕ-valued payoffs in
 --   {0,1}: no Int, no Rationals, no order-completeness.  H := true,
 --   T := false.
 --
 -- CONTENTS
 --
---   §1  u� u� W          the normalized payoffs (4 clauses each) and
+--   §1  u₁ u₂ W          the normalized payoffs (4 clauses each) and
 --                        `welfare-const`, §5.2: W ≡ 1 by four refls.
---   §2  β�-best β�-best  §5.3's best-response maps β� = id, β� = not,
+--   §2  β₁-best β₂-best  §5.3's best-response maps β₁ = id, β₂ = not,
 --                        each certified as a genuine maximum over the
 --                        deviating player's whole action set (4 clauses
---                        each, every clause an explicit �-witness).
+--                        each, every clause an explicit ≤-witness).
 --   §3  IsNash           §5.3: no pure profile is Nash.  Four clauses,
 --       no-pure-nash     each discharged by the deviation named in the
 --                        best-response 4-cycle, and each reducing to the
---                        SAME refutation � (1 � 0).
---   §4  pne              the Boolean pure-Nash test read off β�, β�; its
+--                        SAME refutation ¬ (1 ≤ 0).
+--   §4  pne              the Boolean pure-Nash test read off β₁, β₂; its
 --                        constancy by four refls.
 --   §5  one-fiber-       theorem (T) in its degenerate one-fiber form,
 --       forces-constant  proved generally (no case split), then
 --       separator-W      applied to W and to pne against
---       separator-pne    β = β� ∘ ��, whose two fibers are exhibited by
+--       separator-pne    β = β₂ ∘ π₁, whose two fibers are exhibited by
 --                        `β-surjective`.
 --
 -- WHAT IS CHECKED.
 --
 --   Every statement of §§5.2�5.4 of the source note, as exact
---   finite computation on Bool with � payoffs in {0,1}: the constancy of
---   W; that β� = id and β� = not really are best responses (a maximum
+--   finite computation on Bool with ℕ payoffs in {0,1}: the constancy of
+--   W; that β₁ = id and β₂ = not really are best responses (a maximum
 --   over the full action set, not an assertion); the emptiness of the
 --   pure-Nash set; the constancy of the Boolean Nash test; the
---   two-valuedness of β� ∘ ��; and the two non-factorization statements
+--   two-valuedness of β₂ ∘ π₁; and the two non-factorization statements
 --   that are Theorem 5.1.  `one-fiber-forces-constant` is proved for
 --   ARBITRARY codomains, so the separator is the general lemma applied,
 --   not a coincidence of Bool.
@@ -92,7 +92,7 @@ open import Cubical.Relation.Nullary using (¬_)
 ------------------------------------------------------------------------
 -- §0  The profile set
 --
--- � = {H,T}², with H := true and T := false.  Four elements, and every
+-- 𝒜 = {H,T}², with H := true and T := false.  Four elements, and every
 -- statement below is a finite check over them.
 ------------------------------------------------------------------------
 
@@ -105,8 +105,8 @@ Profile = Action × Action
 ------------------------------------------------------------------------
 -- §1  The normalized payoffs, and §5.2: welfare is constant
 --
--- u�(a,b) = [a = b].  u� = 1 − u�, spelled out as four clauses rather
--- than through � so that every goal below reduces without a lemma.
+-- u₁(a,b) = [a = b].  u₂ = 1 − u₁, spelled out as four clauses rather
+-- than through ∸ so that every goal below reduces without a lemma.
 ------------------------------------------------------------------------
 
 u₁ : Action → Action → ℕ
@@ -134,14 +134,14 @@ W : Profile → ℕ
 W (a , b) = u₁ a b + u₂ a b
 
 ------------------------------------------------------------------------
--- §2  §5.3's best responses: β� = id, β� = swap
+-- §2  §5.3's best responses: β₁ = id, β₂ = swap
 --
 -- These are not asserted.  Each is certified as a maximum over the
--- deviating player's ENTIRE action set: β�-best says that for every
+-- deviating player's ENTIRE action set: β₁-best says that for every
 -- alternative a, player 1's payoff at (a,b) is at most the payoff at
--- (b,b) � i.e. b = β�(b) is optimal � and dually for β� = not.
+-- (b,b) — i.e. b = β₁(b) is optimal — and dually for β₂ = not.
 --
--- With Cubical's  m � n = �[ k ∈ � ] k + m ≡ n, each witness is (0,refl)
+-- With Cubical's  m ≤ n = Σ[ k ∈ ℕ ] k + m ≡ n, each witness is (0,refl)
 -- when the value is already maximal and (1,refl) when it is 0 against 1.
 ------------------------------------------------------------------------
 
@@ -167,7 +167,7 @@ W (a , b) = u₁ a b + u₂ a b
 -- §3  No pure profile is a Nash equilibrium
 --
 -- The single refutation every clause reduces to.  A deviation that
--- improves from 0 to 1 contradicts the equilibrium inequality 1 � 0.
+-- improves from 0 to 1 contradicts the equilibrium inequality 1 ≤ 0.
 ------------------------------------------------------------------------
 
 one-not≤zero : ¬ (1 ≤ 0)
@@ -190,8 +190,8 @@ no-pure-nash false false (_  , d₂) = one-not≤zero (d₂ true)
 -- §4  The Boolean pure-Nash summary, and its single fiber
 --
 -- pne is the equilibrium test read off the two best-response maps:
--- (a,b) is a fixed point of the joint best response iff a = β� b and
--- b = β� a.  §5.3 shows the pure-Nash set is empty; here the Boolean
+-- (a,b) is a fixed point of the joint best response iff a = β₁ b and
+-- b = β₂ a.  §5.3 shows the pure-Nash set is empty; here the Boolean
 -- test is shown constant, so the SUMMARY pne has one fiber.
 -- The two facts are established independently and
 -- neither is used to prove the other.
@@ -217,7 +217,7 @@ pne-const (false , false) = refl
 -- lemma is the degenerate one-fiber case of
 -- `OBSERVABLE_DESCENT_COMMON_OBJECT` §1: if q is constant then its only
 -- fiber is everything, so any f descending through it is constant.  It
--- is proved for ARBITRARY B and C, with no case analysis anywhere � the
+-- is proved for ARBITRARY B and C, with no case analysis anywhere — the
 -- content is a path composition, and Bool never appears.
 ------------------------------------------------------------------------
 
@@ -239,7 +239,7 @@ W-one-fiber (a , b) (a' , b') = welfare-const a b ∙ sym (welfare-const a' b')
 pne-one-fiber : (p p' : Profile) → pne p ≡ pne p'
 pne-one-fiber p p' = pne-const p ∙ sym (pne-const p')
 
--- The best-response composite β� ∘ ��, and its TWO fibers.
+-- The best-response composite β₂ ∘ π₁, and its TWO fibers.
 β : Profile → Bool
 β (a , b) = β₂ a
 
@@ -260,7 +260,7 @@ separator-pne fac =
 
 -- Corollary 5.2, in the form the source note states it: any report,
 -- score or reward that is a function of the welfare summary alone
--- cannot distinguish ANY two of the four profiles � while β does.  This
+-- cannot distinguish ANY two of the four profiles — while β does.  This
 -- is `VERIFIER_BLIND_FIBER_REWARD` Theorem A's conclusion, reached here
 -- through the strategic witness instead of the arithmetic one.
 welfare-reward-is-blind :

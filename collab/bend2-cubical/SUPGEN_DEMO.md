@@ -9,8 +9,8 @@ src/hvm.c` in HigherOrderCO/HVM4).
 A candidate program space is held as ONE superposed value. A spec runs over
 the whole superposition in a single evaluation with shared work; `collapse`
 (`-C`) enumerates the branches; failing branches erase (`&{}` annihilates them),
-so only spec-satisfying universes survive. This is SupGen/NeoGen's mechanism �
-proof/program search as evaluation, not external loop � and it runs on the
+so only spec-satisfying universes survive. This is SupGen/NeoGen's mechanism —
+proof/program search as evaluation, not external loop — and it runs on the
 optimal reducer, where the common substructure of all candidates is computed
 once.
 
@@ -34,7 +34,7 @@ run (36 interactions total, not four separate executions):
     @keep = λ&f. λ{ 0: &{} ; _: λp. #OK{f} }((f(0) == 1) .&. (f(1) == 0))
     @main = @keep(@cand)
 
-Spec: `f(0)=1 ∧ f(1)=0` (synthesize NOT by example). `hvm � -C10` returns
+Spec: `f(0)=1 ∧ f(1)=0` (synthesize NOT by example). `hvm … -C10` returns
 exactly the survivor:
 
     #OK{λa.(1 - a)}          -- 91 interactions
@@ -45,12 +45,12 @@ by construction) and the certificate is the erasure of the alternatives.
 
 ## Why this is the frontier
 
-- It is proof/program search *inside evaluation* � the thing LLM generation
+- It is proof/program search *inside evaluation* — the thing LLM generation
   structurally cannot do (no certificate) and classical synthesizers cannot do
   cheaply (no sharing across candidates).
 - The affine-variable requirement (`λ&f` to use `f` more than once) is the
   corpus's "determined structure remains present with its determining path"
   showing up as a syntactic obligation of the runtime.
-- With the cubical layer's `Sup � Path` rule, such a search is transportable
+- With the cubical layer's `Sup × Path` rule, such a search is transportable
   across a `ua`: search one representation, obtain the answer in every
   equivalent one. That is the piece no other system has.

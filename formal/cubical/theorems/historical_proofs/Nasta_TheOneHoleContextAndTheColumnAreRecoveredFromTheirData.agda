@@ -1,32 +1,32 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¨àààŸ â” à¯àà ààà¯à•ààà ààà ààà¨à à²ààà¯àà, ààà àµàà¨à ààà¾ ààµ ààààà à
+-- à¤¨à¤·à¥à¤Ÿ â€” à¤¯à¤¤à¥ à¤¤à¥à¤¯à¤•à¥à¤¤à¤‚ à¤¤à¤¤à¥ à¤ªà¥à¤¨à¤ƒ à¤²à¤­à¥à¤¯à¤¤à¥‡, à¤…à¤¤à¤ƒ à¤µà¤¹à¤¨à¤‚ à¤ªà¤¤à¤¾ à¤à¤µ à¤†à¤¸à¥€à¤¤à¥ à¥¤
 --
--- (naa â” what was dropped is got back, so the receipt was an address
+-- (naá¹£á¹­a â€” what was dropped is got back, so the receipt was an address
 --  all along.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- à®àà²àµà¾à•àà¯à®à Â SOURCE OF THE TERM, with text and date.
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- à¤®à¥‚à¤²à¤µà¤¾à¤•à¥à¤¯à¤®à¥ Â· SOURCE OF THE TERM, with text and date.
 --
---   à¨àààŸ ("the lost one") is one of Pigala's ààà°ààà¯à¯: given the row
+--   à¤¨à¤·à¥à¤Ÿ ("the lost one") is one of Piá¹…gala's à¤ªà¥à¤°à¤¤à¥à¤¯à¤¯: given the row
 --   number, RECOVER the pattern that was not written down.  Pigala,
---   *Chandastra* à®.à¨àâ“à¨à® (~300 BCE); worked with the array by
---   àà²à¾à¯àà§, *Mtasajvan* (10th c. CE).  Its partner à‰à¦àà¦à¿àààŸ runs the
+--   *Chandaá¸¥Å›Ästra* à¥®.à¥¨à¥ªâ€“à¥¨à¥® (~300 BCE); worked with the array by
+--   à¤¹à¤²à¤¾à¤¯à¥à¤§, *Má¹›tasaÃ±jÄ«vanÄ«* (10th c. CE).  Its partner à¤‰à¤¦à¥à¤¦à¤¿à¤·à¥à¤Ÿ runs the
 --   other way, pattern to row number.
 --
---   The term names the OPERATION performed in Â§à¨ and Â§à© and nothing
+--   The term names the OPERATION performed in Â§à¥¨ and Â§à¥© and nothing
 --   else: producing the map that brings the object back from the datum.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHY THIS MODULE EXISTS.
 --
 -- `Pata_CarryingIsUnconditionalButAddressingNeedsTheMapToBeAnIdentification.agda`
 -- separates two things this corpus had been running together:
 --
---   àµàà¨à®à   a RECEIPT.  `à—àà°à¾à f â‰ A` for EVERY f, no hypothesis.  A
+--   à¤µà¤¹à¤¨à¤®à¥   a RECEIPT.  `à¤—à¥à¤°à¤¾à¤¹ f â‰ƒ A` for EVERY f, no hypothesis.  A
 --           derived datum may always be kept beside its object.
---   ààà¾     an ADDRESS.  A recovery map with both round trips, i.e.
+--   à¤ªà¤¤à¤¾     an ADDRESS.  A recovery map with both round trips, i.e.
 --           the object may be DROPPED and recomputed from the datum.
 --           Not free: it is exactly the statement that f is an
 --           identification.
@@ -34,43 +34,43 @@
 -- `machine/Lopa_TheIrreversibleEdgesAreTheOtherGraphAndTheyRunOneWay.hs`
 -- grades the corpus's declarations into an invertible road and a road
 -- of one-way edges, and `--queue` emits the latter.  Every edge on that
--- queue is a receipt whose ADDRESS STATUS IS UNKNOWN â” the census does
+-- queue is a receipt whose ADDRESS STATUS IS UNKNOWN â€” the census does
 -- not claim they fail to be addresses, only that no term says they are.
 --
--- This module takes two of them off the queue by exhibiting the à¨àààŸ.
+-- This module takes two of them off the queue by exhibiting the à¤¨à¤·à¥à¤Ÿ.
 -- Both were already three quarters proved at their own site and the
 -- last quarter was never written, which is why the census could not see
 -- them: a proof that is not a signature is not visible to a parser.
 --
--- Â§à¨  `compileContext : OneHoleContext X â’ List (ContextAction X)`
---     Â CompositionalContextAdapter.
+-- Â§à¥¨  `compileContext : OneHoleContext X â†’ List (ContextAction X)`
+--     Â« CompositionalContextAdapter.
 --     That module proves `compile-decode` (one round trip) and uses it
---     to route SyntacticContextEq â’ ContextEq.  The other round trip is
+--     to route SyntacticContextEq â†’ ContextEq.  The other round trip is
 --     absent from the file, and with it the fact that the one-hole term
 --     grammar IS its action word: the syntax may be dropped.
 --
--- Â§à©  `colsOf : Col â’ â — â — â` and `entriesOf : Mat 3 3 â’ Nine`
---     Â SmithPathCountedExecution.
+-- Â§à¥©  `colsOf : Col â†’ â„¤ Ã— â„¤ Ã— â„¤` and `entriesOf : Mat 3 3 â†’ Nine`
+--     Â« SmithPathCountedExecution.
 --     That module proves `fromCols-entries` and `fromNine-entries` (the
 --     hard halves, by funext over the index) and uses them only to
 --     derive `colâ‰¡` / `matâ‰¡`, equality-reflection helpers.  The easy
---     halves are `refl` and were never stated, so a 3—1 integer matrix
+--     halves are `refl` and were never stated, so a 3Ã—1 integer matrix
 --     and its triple of entries stood in the census as two types with a
 --     one-way map between them.
 --
 --     The two are NOT in the same position in the census and the
 --     difference is worth naming.  `colsOf` was on the queue.
---     `entriesOf` is nowhere in the census's printed output at all â”
---     not on the queue, not an endomorphism, not a refusal â” so it sits
+--     `entriesOf` is nowhere in the census's printed output at all â€”
+--     not on the queue, not an endomorphism, not a refusal â€” so it sits
 --     in one of the two buckets the instrument counts and does not
 --     name, and from the output I cannot tell which.  `Mat` reaches
---     that file through an unnamed `open Coefficient âCommRing`, which
+--     that file through an unnamed `open Coefficient â„¤CommRing`, which
 --     is the likely reason and is a guess, not a reading.  Silence is
---     not a verdict: à®àà¨à à¨ à¨à¿ààà§à.  Both are proved below regardless,
+--     not a verdict: à¤®à¥Œà¤¨à¤‚ à¤¨ à¤¨à¤¿à¤·à¥‡à¤§à¤ƒ.  Both are proved below regardless,
 --     because the queue is where the question was asked and not where
 --     it lives.
 --
--- Â§à is the honest limit and states the extent of the search.
+-- Â§à¥ª is the honest limit and states the extent of the search.
 ------------------------------------------------------------------------
 
 module Nasta_TheOneHoleContextAndTheColumnAreRecoveredFromTheirData where
@@ -102,8 +102,8 @@ private
     â„“ : Level
 
 ------------------------------------------------------------------------
--- à§ Â The two readings, restated on the edges below so this file can be
---     read on its own.  àµàà¨à®à is the free half and is quoted, not
+-- à¥§ Â· The two readings, restated on the edges below so this file can be
+--     read on its own.  à¤µà¤¹à¤¨à¤®à¥ is the free half and is quoted, not
 --     reproved: it holds of every map, hence of both maps here.
 ------------------------------------------------------------------------
 
@@ -114,13 +114,13 @@ private
 à¤¸à¥à¤¤à¤®à¥à¤­-à¤µà¤¹à¤¨à¤®à¥ = à¤µà¤¹à¤¨à¤®à¥ colsOf
 
 ------------------------------------------------------------------------
--- à¨ Â à¨àààŸ FOR THE ONE-HOLE CONTEXT.
+-- à¥¨ Â· à¤¨à¤·à¥à¤Ÿ FOR THE ONE-HOLE CONTEXT.
 --
 --     `compileContext` walks a context from the hole outwards and emits
---     one `ContextAction X = Bool — X` per layer: `false` for a hole on
+--     one `ContextAction X = Bool Ã— X` per layer: `false` for a hole on
 --     the left, `true` for a hole on the right, paired with the fixed
 --     operand.  The recovery is the obvious re-fold, and it is already
---     written in the adapter as `decodeContext` â” used there ONLY in
+--     written in the adapter as `decodeContext` â€” used there ONLY in
 --     the direction `compileContext âˆ˜ decodeContext â‰¡ id`.
 --
 --     The missing direction is `decode-compile`.  With it, the whole
@@ -136,7 +136,7 @@ decode-compile hole                  = refl
 decode-compile (leftHole fixed outer)  = cong (leftHole fixed)  (decode-compile outer)
 decode-compile (rightHole fixed outer) = cong (rightHole fixed) (decode-compile outer)
 
--- THE IDENTIFICATION.  Both round trips, in the shape Â§à© of Pata asks for.
+-- THE IDENTIFICATION.  Both round trips, in the shape Â§à¥© of Pata asks for.
 à¤¸à¤¨à¥à¤¦à¤°à¥à¤­-à¤ªà¤¤à¤¾ : {X : Type â„“} â†’ à¤ªà¤¤à¤¾ (compileContext {X = X})
 à¤¸à¤¨à¥à¤¦à¤°à¥à¤­-à¤ªà¤¤à¤¾ {X = X} = decodeContext , decode-compile , compile-decode
 
@@ -144,11 +144,11 @@ decode-compile (rightHole fixed outer) = cong (rightHole fixed) (decode-compile 
 à¤¸à¤¨à¥à¤¦à¤°à¥à¤­-à¤¸à¤®à¤¤à¤¾ {X = X} = à¤ªà¤¤à¤¾â†’à¤¸à¤®à¤¤à¤¾ (compileContext {X = X}) à¤¸à¤¨à¥à¤¦à¤°à¥à¤­-à¤ªà¤¤à¤¾
 
 ------------------------------------------------------------------------
--- à© Â à¨àààŸ FOR THE COLUMN AND FOR THE 3—3 MATRIX.
+-- à¥© Â· à¤¨à¤·à¥à¤Ÿ FOR THE COLUMN AND FOR THE 3Ã—3 MATRIX.
 --
 --     `Col = Mat 3 1` is a FUNCTION out of the index type, so the hard
---     half â” that a matrix rebuilt from its entries is the matrix it
---     came from â” needs funext and a case split on the index, and
+--     half â€” that a matrix rebuilt from its entries is the matrix it
+--     came from â€” needs funext and a case split on the index, and
 --     `SmithPathCountedExecution` does it (`fromCols-entries`,
 --     `fromNine-entries`).  The other half is `refl`, because `mkCol`
 --     and `mk3` compute on literal indices.  Neither module stated it,
@@ -174,50 +174,50 @@ entries-fromNine v = refl
 à¤®à¤¾à¤¤à¥ƒà¤•à¤¾-à¤¸à¤®à¤¤à¤¾ = à¤ªà¤¤à¤¾â†’à¤¸à¤®à¤¤à¤¾ entriesOf à¤®à¤¾à¤¤à¥ƒà¤•à¤¾-à¤ªà¤¤à¤¾
 
 ------------------------------------------------------------------------
--- à Â THE EXTENT OF THE SEARCH, so nothing here reads as more than it is.
+-- à¥ª Â· THE EXTENT OF THE SEARCH, so nothing here reads as more than it is.
 --
---     WHAT WAS SEARCHED.  `Lopa â¦ --queue` (run 2026-08-22 over the
+--     WHAT WAS SEARCHED.  `Lopa â€¦ --queue` (run 2026-08-22 over the
 --     whole repository: 1008 files, 11928 top-level signatures) emits
---     its undecided one-way edges as `src âŸ tgt âŸ site`.  I joined that
+--     its undecided one-way edges as `src âŸ¶ tgt âŸ¶ site`.  I joined that
 --     queue against itself to find every SOURCE/TARGET pair carrying an
---     edge in both directions â” the shape a mutual inverse would leave
---     â” and opened the candidates one file at a time.
+--     edge in both directions â€” the shape a mutual inverse would leave
+--     â€” and opened the candidates one file at a time.
 --
---     WHAT WAS FOUND, and only Â§à¨ and Â§à© are proved here:
+--     WHAT WAS FOUND, and only Â§à¥¨ and Â§à¥© are proved here:
 --
---     Â Several of those pairs are ALREADY identifications at their own
+--     Â· Several of those pairs are ALREADY identifications at their own
 --       site and are on the queue because the census's parser matches
---       `_â‰_` and `_â‰¡_` conclusions and not `Iso`, or because the two
+--       `_â‰ƒ_` and `_â‰¡_` conclusions and not `Iso`, or because the two
 --       sides are written with different aliases for one type.
 --       `PMTorus.vertexToFin` is the clearest instance:
---       `vertexIso : Iso Vertex (Fin V)` and `vertexCount : Vertex â‰
+--       `vertexIso : Iso Vertex (Fin V)` and `vertexCount : Vertex â‰ƒ
 --       Fin V` are both in that file, and the map's signature says
 --       `Fin 6`, with `V = 6` a definition the resolver does not unfold.
 --       Same for `edgeToFin`, and for
 --       `S3IntegerRelativeCoordinates.relativeCoordinates`
 --       (`relativeCoordinateIso` is in the file).  These are census
---       defects, not mathematics, and are NOT repaired here â” the
+--       defects, not mathematics, and are NOT repaired here â€” the
 --       instrument is another seat's file.
 --
---     Â Some are receipts with a recovery map that is still not an
---       address, which is exactly Pata Â§à arriving from the other side.
---       `the deleted Swarm.S01PaniniAshby.sig : SmithState â’ Bool — Bool` is
+--     Â· Some are receipts with a recovery map that is still not an
+--       address, which is exactly Pata Â§à¥ª arriving from the other side.
+--       `the deleted Swarm.S01PaniniAshby.sig : SmithState â†’ Bool Ã— Bool` is
 --       injective (`sigDistinct01/02/12`) and cannot be surjective:
---       three states, four signatures.  That file's own reading â”
---       Ashby's variety bound â” is why.  `
---       AdaptiveProbeCollapse.staticTriple : St â’ Bool — Bool — Bool`
+--       three states, four signatures.  That file's own reading â€”
+--       Ashby's variety bound â€” is why.  `
+--       AdaptiveProbeCollapse.staticTriple : St â†’ Bool Ã— Bool Ã— Bool`
 --       has its retraction proved (`static-budget-3-identifies`) and the
 --       same obstruction.  Neither is proved non-invertible here.
 --
 --     WHAT THE CENSUS DOES WITH THIS FILE, checked by re-running it
---     after Â§à¨ and Â§à© landed.  `colsOf` leaves the queue: `àààà®àà-àà®àà¾`
---     is picked up as a causeway and `Col âŸ â — â — â` is joined.
+--     after Â§à¥¨ and Â§à¥© landed.  `colsOf` leaves the queue: `à¤¸à¥à¤¤à¤®à¥à¤­-à¤¸à¤®à¤¤à¤¾`
+--     is picked up as a causeway and `Col âŸ¶ â„¤ Ã— â„¤ Ã— â„¤` is joined.
 --     `compileContext` DOES NOT leave it, and the reason is not
---     mathematical â” `àà¨àà¦à°àà-àà®àà¾` is stated over a bound `X`, and the
+--     mathematical â€” `à¤¸à¤¨à¥à¤¦à¤°à¥à¤­-à¤¸à¤®à¤¤à¤¾` is stated over a bound `X`, and the
 --     census discards any conclusion mentioning a binder, while it
 --     resolves the adapter's own implicit `X` to the unrelated
 --     definition `TwoProjections.X`.  So the queue will
---     keep printing that edge.  The theorem is Â§à¨ and the queue entry
+--     keep printing that edge.  The theorem is Â§à¥¨ and the queue entry
 --     is the instrument, and they disagree; the instrument is another
 --     seat's file and is not touched here.
 --

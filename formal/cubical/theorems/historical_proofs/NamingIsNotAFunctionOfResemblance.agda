@@ -6,37 +6,37 @@
 -- `machine/Upamana.hs` states an operative test and builds its whole
 -- design on it.  The test's core is checkable, and this is it: no
 -- invariant of the resemblance relation computes the naming.  So a
--- similarity cannot be DERIVED into a naming â” it has to come from
+-- similarity cannot be DERIVED into a naming â€” it has to come from
 -- somewhere else, which is exactly why that module keeps its stated
 -- similarities as INPUT and quarantines the derived ones.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE SCHOOLS, NAMED BEFORE THEIR TERMS, AND THE DISPUTE NOT ADJUDICATED
 --
 -- NYYA (Gautama, *Nyyastra* 1.1.6; Vtsyyana's *Nyyabhya* on it,
--- c. 400â“450 CE) holds upamna â” knowledge from similarity to what is
--- already well known â” to be a separate prama, and Vtsyyana fixes
+-- c. 400â€“450 CE) holds upamÄna â€” knowledge from similarity to what is
+-- already well known â€” to be a separate pramÄá¹‡a, and VÄtsyÄyana fixes
 -- its result as *saj-saji-sambandha-pratipatti*: apprehension of
 -- the relation between a NAME and its BEARER.  The argument for
 -- irreducibility, sharpened by Gagea (*Tattvacintmai*,
 -- upamna-khaa, c. 1325): to INFER "this is a gavaya" you would need
 -- the pervasion "whatever resembles a cow thus is denoted by 'gavaya'",
--- which is precisely what is being learned â” the pervasion is the
+-- which is precisely what is being learned â€” the pervasion is the
 -- conclusion and so cannot be the premise.
 --
 -- BUDDHIST (Dignga, *Pramasamuccaya* 1.2, c. 500: two pramas only;
 -- Dharmakrti, *Pramavrttika*) DENIES the separateness and analyses
 -- upamna into testimony, memory, perception and inference.  MMS
 -- (abara; Kumrila, *lokavrttika*, upamna-pariccheda, c. 650)
--- accepts it but REVERSES it â” the new cognition is of the remembered
+-- accepts it but REVERSES it â€” the new cognition is of the remembered
 -- cow.  Vaieika and Skhya reduce it to anumna.
 --
--- â˜ WHAT Â§2 DOES AND DOES NOT SETTLE, and this is the whole point.
+-- â˜… WHAT Â§2 DOES AND DOES NOT SETTLE, and this is the whole point.
 -- It shows the naming is not a function of the resemblance.  That is
 -- what BOTH sides need and NEITHER side's conclusion.  The Naiyyika
 -- reads it as: therefore a distinct instrument, sdya-jna, supplies
 -- the naming.  Dignga reads it as: therefore the forester's SENTENCE
--- supplies it â” abda plus memory, no new prama.  The theorem is
+-- supplies it â€” Å›abda plus memory, no new pramÄá¹‡a.  The theorem is
 -- neutral between them because it only says the naming comes from
 -- OUTSIDE the resemblance, and both accounts agree on that and disagree
 -- on what the outside is.  Agreement in verdict does not license

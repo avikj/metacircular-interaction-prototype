@@ -1,9 +1,9 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ����-��� � the boundary residual.
+-- सीमा-शेष — the boundary residual.
 --
--- On the whole line a shift and its inverse cancel: U_a�� = U_{−a}.  On a
+-- On the whole line a shift and its inverse cancel: U_a⁻¹ = U_{−a}.  On a
 -- finite window [0, t) the truncated shift S_a and its adjoint S_a* do
 -- not: S_a* S_a is the indicator of [0, t − a) and S_a S_a* the indicator
 -- of [a, t), so
@@ -17,14 +17,14 @@
 -- mechanism by which the finite prime-translation operator keeps
 -- injecting fresh boundary-scale words as the window grows.
 --
---   §1  THE TRUNCATED SHIFT AND ITS ADJOINT on functions of �.
+--   §1  THE TRUNCATED SHIFT AND ITS ADJOINT on functions of ℕ.
 --   §2  THE TWO COMPOSITES, pointwise: S* S f x is f x when x + a < t,
---       and S S* f x is f x when a � x < t � otherwise zero.
---   §3  BULK AND STRIPS.  In the bulk (a � x, x + a < t) the composites
+--       and S S* f x is f x when a ≤ x < t — otherwise zero.
+--   §3  BULK AND STRIPS.  In the bulk (a ≤ x, x + a < t) the composites
 --       agree; on the left strip x < a the first keeps f and the second
---       kills it; on the right strip t − a � x the reverse.
+--       kills it; on the right strip t − a ≤ x the reverse.
 --   §4  LOCALIZATION.  The two words are meaning-equal under net
---       displacement (both zero in �) and cost-apart under the window
+--       displacement (both zero in ℤ) and cost-apart under the window
 --       action on the constant one at the origin (one against zero), so
 --       by SankramanaShreni no function of the displacement recovers the
 --       window action.
@@ -47,7 +47,7 @@ open import SankramanaShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAn
   using (module Localization)
 
 ------------------------------------------------------------------------
--- � � The truncated shift and its adjoint on the window [0, t).
+-- १ · The truncated shift and its adjoint on the window [0, t).
 ------------------------------------------------------------------------
 
 module _ (t a : ℕ) where
@@ -65,7 +65,7 @@ module _ (t a : ℕ) where
   ... | no  _ = zero
 
   --------------------------------------------------------------------
-  -- � � The two composites, pointwise.
+  -- २ · The two composites, pointwise.
   --------------------------------------------------------------------
 
   -- S* S keeps f exactly where x + a < t
@@ -81,7 +81,7 @@ module _ (t a : ℕ) where
   ... | no  _  = refl
   ... | yes lt = ⊥-elim (¬lt lt)
 
-  -- S S* keeps f exactly where a � x and x < t
+  -- S S* keeps f exactly where a ≤ x and x < t
   SS* : (f : ℕ → ℕ) (x : ℕ) → a ≤ x → x < t → S (S* f) x ≡ f x
   SS* f x le lt with ≤Dec a x
   ... | no  ¬le = ⊥-elim (¬le le)
@@ -95,7 +95,7 @@ module _ (t a : ℕ) where
   ... | yes le = ⊥-elim (¬le le)
 
   --------------------------------------------------------------------
-  -- � � Bulk and strips.
+  -- ३ · Bulk and strips.
   --------------------------------------------------------------------
 
   -- in the bulk the two net-zero words act identically
@@ -115,7 +115,7 @@ module _ (t a : ℕ) where
   dakṣiṇa-sīmā f x le lt ¬lt = S*S-śūnya f x ¬lt , SS* f x le lt
 
 ------------------------------------------------------------------------
--- � � Localization: displacement descends, boundary history does not.
+-- ४ · Localization: displacement descends, boundary history does not.
 ------------------------------------------------------------------------
 
 -- the two net-zero words
@@ -123,7 +123,7 @@ data Krama : Type₀ where
   pūrva : Krama   -- S* after S : displacement (+a) then (−a)
   para  : Krama   -- S after S* : displacement (−a) then (+a)
 
--- meaning: net displacement, in �
+-- meaning: net displacement, in ℤ
 gati : ℕ → Krama → ℤ
 gati a pūrva = (-ℤ pos a) +ℤ pos a
 gati a para  = pos a +ℤ (-ℤ pos a)

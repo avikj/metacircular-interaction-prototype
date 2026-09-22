@@ -1,41 +1,41 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Kuttaka � ryabhaa's pulverizer as a THEOREM, not a name.
+-- Kuttaka — Āryabhaṭa's pulverizer as a THEOREM, not a name.
 --
 -- SOURCE AND PRIORITY.  The kuaka ("pulverizer") is ryabhaa's
 -- algorithm for the linear indeterminate equation, ryabhaya,
--- Gaitapda 32�33 (499 CE), expounded algorithmically by Bhskara I,
--- ryabhayabhya (629 CE).  The coefficients are "pulverized" �
--- broken into successively smaller ones by repeated division � and the
+-- Gaṇitapāda 32–33 (499 CE), expounded algorithmically by Bhāskara I,
+-- Āryabhaṭīyabhāṣya (629 CE).  The coefficients are "pulverized" —
+-- broken into successively smaller ones by repeated division — and the
 -- solution is recovered by back-substitution up the resulting column,
 -- the vall.  It is the first solution of ax − by = c on record.
 -- The module `KuttakaValli.agda` earns "vall" (the
--- trace-as-syntax) but not "kuaka" � it has no gcd, no B�zout, no
+-- trace-as-syntax) but not "kuṭṭaka" — it has no gcd, no Bézout, no
 -- back-substitution.  This module supplies the missing theorem.
 --
--- (It is self-contained over � � no matrix/continuant dependency.)
+-- (It is self-contained over � — no matrix/continuant dependency.)
 --
 -- WHAT IS PROVED.  No postulates, no holes, --safe.
 --
 --   Run a b g     the pulverizer's descent as INDUCTIVE EVIDENCE: the
 --                 vall of (a,b) bottoming out at g.  Termination is
---                 carried by the evidence � the run IS ryabhaa's vall,
---                 a checked trace � so no well-founded recursion is
+--                 carried by the evidence — the run IS Āryabhaṭa's vallī,
+--                 a checked trace — so no well-founded recursion is
 --                 needed.  Each `div` step records one division
---                 a ≡ q�b + r; the quotients q are the vall column.
---   bezout        THE KUAKA: every run yields x, y with a�x + b�y ≡ g,
+--                 a ≡ q·b + r; the quotients q are the vallī column.
+--   bezout        THE KUṬṬAKA: every run yields x, y with a·x + b·y ≡ g,
 --                 the coefficients built by back-substitution up the
---                 vall � x' , y'  become  y' , x' − q�y' at each step.
+--                 vallī — x' , y'  become  y' , x' − q·y' at each step.
 --                 This is the "keep the remainder and recurse" rule,
 --                 made a term.
---   inhomogeneous  a�x + b�y ≡ g  gives, for the equation ax + by = g�k,
---                 the solution (k�x, k�y): the scaled solution family.
+--   inhomogeneous  a·x + b·y ≡ g  gives, for the equation ax + by = g·k,
+--                 the solution (k·x, k·y): the scaled solution family.
 --   gcdDivides    the terminal g divides both a and b (g is a COMMON
 --                 divisor), by the same descent read for divisibility.
 --   gcdGreatest   any common divisor of a and b divides g (g is the
 --                 GREATEST).  Together: g is the gcd, and bezout is its
---                 B�zout identity � the whole pulverizer.
+--                 Bézout identity — the whole pulverizer.
 ------------------------------------------------------------------------
 
 module Kuttaka where
@@ -52,7 +52,7 @@ open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 ------------------------------------------------------------------------
 
 -- Run a b g : the kuaka on (a,b) descends, via genuine divisions
--- a ≡ q�b + r, to the terminal value g (the gcd, when the r's are true
+-- a ≡ q·b + r, to the terminal value g (the gcd, when the r's are true
 -- remainders).  The list of q's, read top to bottom, is the vall.
 data Run : ℤ → ℤ → ℤ → Type where
   stop : (g : ℤ) → Run g (pos 0) g
@@ -63,29 +63,29 @@ data Run : ℤ → ℤ → ℤ → Type where
 
 ------------------------------------------------------------------------
 -- Back-substitution up the vall.  The one ring identity the descent
--- needs, isolated: with a replaced by its division q�b + r, the new
--- coefficients (y' , x' − q�y') reproduce the old relation on (b , r).
+-- needs, isolated: with a replaced by its division q·b + r, the new
+-- coefficients (y' , x' − q·y') reproduce the old relation on (b , r).
 ------------------------------------------------------------------------
 
 private
-  -- pure � ring identity (no hypothesis): the heart of back-substitution.
-  -- Fully �-quantified, as the v0.5 CommRing solver requires.
+  -- pure ℤ ring identity (no hypothesis): the heart of back-substitution.
+  -- Fully ∀-quantified, as the v0.5 CommRing solver requires.
   backSubst : (b q r x y : ℤ)
             → (q · b + r) · y + b · (x + (- (q · y))) ≡ b · x + r · y
   backSubst b q r x y = solve! ℤCommRing
 
-  -- scaling the B�zout pair through k.
+  -- scaling the Bézout pair through k.
   ringStepL : (a b k x y : ℤ)
             → a · (x · k) + b · (y · k) ≡ (a · x + b · y) · k
   ringStepL a b k x y = solve! ℤCommRing
 
-  -- base coefficients (1,0): pos 0 � pos 0 reduces to pos 0 (first-arg
-  -- recursion), g � pos 1 ≡ g by �IdR, then drop the + pos 0.
+  -- base coefficients (1,0): pos 0 · pos 0 reduces to pos 0 (first-arg
+  -- recursion), g · pos 1 ≡ g by ·IdR, then drop the + pos 0.
   baseId : (g : ℤ) → g · pos 1 + pos 0 · pos 0 ≡ g
   baseId g = cong (_+ pos 0) (·IdR g) ∙ +Comm g (pos 0) ∙ sym (pos0+ g)
 
 ------------------------------------------------------------------------
--- The kuaka: every run yields a B�zout pair for its terminal g.
+-- The kuṭṭaka: every run yields a Bézout pair for its terminal g.
 ------------------------------------------------------------------------
 
 bezout : (a b g : ℤ) → Run a b g
@@ -100,7 +100,7 @@ bezout a b g (div a b q r g eq run) =
         ∙ ih )
 
 ------------------------------------------------------------------------
--- The ia-scaled family: a solution of a�x + b�y = g�k for any k.
+-- The iṣṭa-scaled family: a solution of a·x + b·y = g·k for any k.
 ------------------------------------------------------------------------
 
 inhomogeneous : (a b g k : ℤ) → Run a b g
@@ -111,8 +111,8 @@ inhomogeneous a b g k run =
 
 ------------------------------------------------------------------------
 -- The answer is a family (KUTTAKA_SOLUTION_FAMILY.md, stated there only in
--- prose): from one solution of a�x + b�y ≡ g, every (x� + t�b , y� − t�a)
--- is again a solution � the t�b and t�a cancel.  (The finest step uses
+-- prose): from one solution of a·x + b·y ≡ g, every (x₀ + t·b , y₀ − t·a)
+-- is again a solution — the t·b and t·a cancel.  (The finest step uses
 -- b/g, a/g; this coarser b, a family is already infinite and exact.)
 ------------------------------------------------------------------------
 
@@ -126,7 +126,7 @@ solutionFamily : (a b g x₀ y₀ : ℤ) → a · x₀ + b · y₀ ≡ g
 solutionFamily a b g x₀ y₀ sol t = famId a b x₀ y₀ t ∙ sol
 
 -- Completeness fragment: any two solutions differ by a HOMOGENEOUS
--- solution � a�(x−x') + b�(y−y') = 0.  With solutionFamily, this brackets
+-- solution — a·(x−x') + b·(y−y') = 0.  With solutionFamily, this brackets
 -- the solution set from both sides.
 private
   famDiffId : (a b x y x' y' : ℤ)
@@ -151,16 +151,16 @@ _∣_ : ℤ → ℤ → Type
 d ∣ n = Σ[ k ∈ ℤ ] (n ≡ d · k)
 
 private
-  -- a = q�b + r with b = g�kb, r = g�kr  �  a = g�(q�kb + kr)
+  -- a = q·b + r with b = g·kb, r = g·kr  ⟹  a = g·(q·kb + kr)
   combineId : (g q kb kr : ℤ)
             → q · (g · kb) + g · kr ≡ g · (q · kb + kr)
   combineId g q kb kr = solve! ℤCommRing
 
-  -- from a ≡ q�b + r, recover r ≡ a + (-(q�b))
+  -- from a ≡ q·b + r, recover r ≡ a + (-(q·b))
   remId : (b q r a : ℤ) → (q · b + r) + (- (q · b)) ≡ r
   remId b q r a = solve! ℤCommRing
 
-  -- a = d�ka, b = d�kb  �  a + (-(q�b)) = d�(ka + (-(q�kb)))
+  -- a = d·ka, b = d·kb  ⟹  a + (-(q·b)) = d·(ka + (-(q·kb)))
   descId : (d q ka kb : ℤ)
          → d · ka + (- (q · (d · kb))) ≡ d · (ka + (- (q · kb)))
   descId d q ka kb = solve! ℤCommRing
@@ -194,9 +194,9 @@ gcdGreatest a b g d (div a b q r g eq run) (ka , a≡dka) (kb , b≡dkb) =
 
 ------------------------------------------------------------------------
 -- Non-vacuity: a concrete vall.  kuaka on (7,5):
---   7 = 1�5 + 2 ,  5 = 2�2 + 1 ,  2 = 2�1 + 0  � gcd 1.
+--   7 = 1·5 + 2 ,  5 = 2·2 + 1 ,  2 = 2·1 + 0  → gcd 1.
 -- The quotient column (the vall) is 1, 2, 2.  `bezout example` then
--- computes a genuine (x,y) with 7�x + 5�y ≡ 1.
+-- computes a genuine (x,y) with 7·x + 5·y ≡ 1.
 ------------------------------------------------------------------------
 
 example : Run (pos 7) (pos 5) (pos 1)

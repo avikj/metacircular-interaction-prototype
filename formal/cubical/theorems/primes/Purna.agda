@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 module Purna where
--- �����: the certified engines rebuilt on the proved �-bound.
--- Twin census and Goldbach sweep, every step a Dec object, at �-cost.
+-- पूर्ण: the certified engines rebuilt on the proved √-bound.
+-- Twin census and Goldbach sweep, every step a Dec object, at √-cost.
 
 open import Prakriti
 open import Parisodhana using (primeDec√)
@@ -18,7 +18,7 @@ primeDecAll zero = no λ pr → ¬-<-zero (fst pr)
 primeDecAll (suc zero) = no λ pr → ¬-<-zero (pred-≤-pred (fst pr))
 primeDecAll (suc (suc m)) = primeDec√ (suc (suc m)) (suc-≤-suc (suc-≤-suc zero-≤))
 
--- ═══ twin census at �-cost, fully certified ═══
+-- ═══ twin census at √-cost, fully certified ═══
 walk√ : ℕ → ℕ → ℕ → ℕ
 walk√ zero    k c = c
 walk√ (suc f) k c with dec× (primeDecAll k) (primeDecAll (suc (suc k)))

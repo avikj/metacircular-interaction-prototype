@@ -3,12 +3,12 @@
 ------------------------------------------------------------------------
 -- TheMeetIsMaxAndTheProfileCutIsAGaloisConnection
 --
--- `MinPlusResiduationIsAGaloisConnectionAtOneCut` paid Î” 28 Â§31â“32's
+-- `MinPlusResiduationIsAGaloisConnectionAtOneCut` paid Î” 28 Â§31â€“32's
 -- residuation obligation for a single burden and single residual, and
 -- said exactly what was left:
 --
---   "ONE CUT is one burden and one residual â¦ Î” 28's cut carries a
---    PROFILE on each side and its `â` takes a meet over all burdens â”
+--   "ONE CUT is one burden and one residual â€¦ Î” 28's cut carries a
+--    PROFILE on each side and its `â†‘` takes a meet over all burdens â€”
 --    that needs `min` over a finite index and its universal property,
 --    not built.  So what this settles is that the obstruction is NOT
 --    the residuation law; it is the meet."
@@ -16,31 +16,31 @@
 -- The meet is built and the profile cut is done.  And the meet is NOT
 -- `min`.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
---   max / max-â‰Ë¡ / max-â‰Ê³ / max-least
+--   max / max-â‰¤Ë¡ / max-â‰¤Ê³ / max-least
 --                    the meet of the min-plus order, with its universal
---                    property â” upper bounds and least among them
+--                    property â€” upper bounds and least among them
 --   up / dn          the profile-level polarities at a cut with a
---                    LIST of burdens: `up ks Ï = â‹µ (kµ âˆ Ïµ)` and
---                    `dn ks Ïˆ = (kµ âˆ Ïˆ)µ`
+--                    LIST of burdens: `up ks Ï† = â‹€áµ¢ (káµ¢ âˆ¸ Ï†áµ¢)` and
+--                    `dn ks Ïˆ = (káµ¢ âˆ¸ Ïˆ)áµ¢`
 --   Profile          profiles as a RECURSIVE FAMILY over the kernel, so
---                    a length mismatch is not even representable â” no
+--                    a length mismatch is not even representable â€” no
 --                    `Fin`, no index, the standing idiom here
---   _âŠp_             the profile order: pointwise and reversed
+--   _âŠ‘p_             the profile order: pointwise and reversed
 --   galFwd / galBwd  both directions of the contravariant adjunction
 --   ProfileCut       `module Galois` instantiated, so antitonicity,
 --                    unit, counit, the triangles, idempotence of
---                    `dn ks (up ks Ï)` and the fixed-point
+--                    `dn ks (up ks Ï†)` and the fixed-point
 --                    characterisation follow with NOTHING re-proved
 --
--- So Î” 28 Â§31â“32's "re-saturate" is now a checked closure over min-plus
+-- So Î” 28 Â§31â€“32's "re-saturate" is now a checked closure over min-plus
 -- profiles at a finite cut: saturate once and stop.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- NO NOVELTY.  Residuation in â•, and Isbell conjugation over a quantale
--- being a Galois connection, are standard â” Lawvere, `Metric spaces,
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- NO NOVELTY.  Residuation in â„•, and Isbell conjugation over a quantale
+-- being a Galois connection, are standard â€” Lawvere, `Metric spaces,
 -- generalized logic, and closed categories` (1973), is where min-plus
 -- becomes the value object.  What is contributed is that this
 -- repository's own obligation is discharged at the profile level, and
@@ -93,7 +93,7 @@ max-least (suc m) (suc n) (suc c) h1 h2 =
 -- 2.  Profiles, as a recursive family over the kernel
 --
 -- A burden profile has one entry per kernel entry BY CONSTRUCTION, so
--- the mismatched-length case that a `List â•` encoding would force is
+-- the mismatched-length case that a `List â„•` encoding would force is
 -- not representable.  No `Fin` and no length index: the standing
 -- cubical idiom in this repository.
 ------------------------------------------------------------------------
@@ -176,11 +176,11 @@ module ProfileCut (ks : List â„•) where
 -- PROFILE instead of read off the index list.  That is what frees the
 -- index list to be pure shape, so a matrix of burdens is a profile of
 -- profiles (`Rows`) and `UpP` produces a residual PROFILE.  The Galois
--- connection survives verbatim â” same two monus adjunctions.
+-- connection survives verbatim â€” same two monus adjunctions.
 --
 -- The empty row set is not an obstruction, and no `âˆž` is needed.
--- The burden side is ordered by `_âŠp_` = REVERSE pointwise `â‰`, so the
--- `âŠp`-greatest profile under a vacuous constraint is the `â‰`-LEAST:
--- all zeros.  â• has it.  The unrestricted adjunction is at the
+-- The burden side is ordered by `_âŠ‘p_` = REVERSE pointwise `â‰¤`, so the
+-- `âŠ‘p`-greatest profile under a vacuous constraint is the `â‰¤`-LEAST:
+-- all zeros.  â„• has it.  The unrestricted adjunction is at the
 -- recording site, `TheTwoSidedCutNeedsNoInfinityBecauseTheEmptyMeetIsZero`.
 ------------------------------------------------------------------------

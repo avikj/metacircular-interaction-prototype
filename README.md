@@ -857,7 +857,7 @@ Composition transports information between projections while retaining the witne
 
 Partiality resides in the view, not as an assumed defect in the underlying object.
 
-This is the computational reading of aneknta�naya�syt:
+This is the computational reading of anekānta–naya–syāt:
 
 ```math
 \boxed{

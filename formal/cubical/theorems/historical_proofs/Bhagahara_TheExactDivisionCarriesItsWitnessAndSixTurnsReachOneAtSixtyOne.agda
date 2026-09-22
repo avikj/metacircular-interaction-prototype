@@ -1,51 +1,51 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- рр╛рЧрр╛р░р тФ рр░р ррр╡р рр╛рХррр┐рр р╡ррр┐, ррбррр┐ррр р╡р▓рпрИр ррХррр╡рор р
+-- рднрд╛рдЧрд╣рд╛рд░рдГ тАФ рд╣рд░рдГ рд╕реНрд╡рдВ рд╕рд╛рдХреНрд╖рд┐рдгрдВ рд╡рд╣рддрд┐, рд╖рдбреНрднрд┐рд╢реНрдЪ рд╡рд▓рдпреИрдГ рдПрдХрддреНрд╡рдореН ред
 --
 -- (the exact division carries its own witness; and six turns of the
---  wheel, at ррр░рХррр┐ ррз, reach рХрррр one.)
+--  wheel, at рдкреНрд░рдХреГрддрд┐ ремрез, reach рдХреНрд╖реЗрдк one.)
 --
--- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
+-- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
 -- THE MISSING INGREDIENT.
 --
 -- The exact division with its divisibility witness is one object.  ┬зри builds
--- it: `рр╛рЧрр╛р░р j n` is the exact division of n by (suc j), presented as a
--- CARRIER тФ base = the pair (dividend, divisor), carried = the р▓рррзр┐
--- (quotient), witness = n тЙб suc j ┬ р▓рррзр┐.  ┬зри proves the carried datum is
--- DETERMINED (`рр╛рЧрр╛р░-ррХр` : the type is a proposition), which is what
+-- it: `рднрд╛рдЧрд╣рд╛рд░рдГ j n` is the exact division of n by (suc j), presented as a
+-- CARRIER тАФ base = the pair (dividend, divisor), carried = the рд▓рдмреНрдзрд┐
+-- (quotient), witness = n тЙб suc j ┬╖ рд▓рдмреНрдзрд┐.  ┬зреи proves the carried datum is
+-- DETERMINED (`рднрд╛рдЧрд╣рд╛рд░-рдПрдХрдГ` : the type is a proposition), which is what
 -- makes carrying it free.
 --
--- AND THE DISTINCTION THAT MATTERS, which the рХрррр case hides.  For the
--- рХрррр the fibre is `singl` тФ contractible тФ because the roots determine
--- it TOTALLY: every pair has a рХрррр.  For the рр╛рЧрр╛р░ the fibre is a
+-- AND THE DISTINCTION THAT MATTERS, which the рдХреНрд╖реЗрдк case hides.  For the
+-- рдХреНрд╖реЗрдк the fibre is `singl` тАФ contractible тАФ because the roots determine
+-- it TOTALLY: every pair has a рдХреНрд╖реЗрдк.  For the рднрд╛рдЧрд╣рд╛рд░ the fibre is a
 -- proposition and NOT in general inhabited: division by k is PARTIAL, and
 -- the inhabitant is exactly the divisibility.  So the missing ingredient
 -- is not "a carried datum" in the same sense at all; it is the one place
 -- in this whole construction where something must be SUPPLIED rather than
 -- computed, and Bhskara's choice of m is what supplies it.  Contractible
--- vs. merely propositional is the whole difference between the рр╛р╡рир╛
--- (free) and the ррХрр░р╡р╛р▓ (not free).
+-- vs. merely propositional is the whole difference between the рднрд╛рд╡рдирд╛
+-- (free) and the рдЪрдХреНрд░рд╡рд╛рд▓ (not free).
 --
--- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
+-- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
 -- WHAT IS PROVED HERE.
 --
---   ┬зрй `ррж-ррр░рор╛ррор` тФ THE TURN.  Given a row a┬▓ тИТ D b┬▓ = ┬K with K = suc j,
---     an m, a witness that m┬▓ тИТ D = ┬E, and the THREE exact divisions
---     K тИ (a┬m + D┬b), K тИ (a + b┬m), K тИ E, the new row (A , B) satisfies
---     A┬▓ тИТ D B┬▓ = ┬K' with the sign the product of the two.  All four sign
+--   ┬зрей `рдкрдж-рдкреНрд░рдорд╛рдгрдореН` тАФ THE TURN.  Given a row a┬▓ тИТ D b┬▓ = ┬▒K with K = suc j,
+--     an m, a witness that m┬▓ тИТ D = ┬▒E, and the THREE exact divisions
+--     K тИг (a┬╖m + D┬╖b), K тИг (a + b┬╖m), K тИг E, the new row (A , B) satisfies
+--     A┬▓ тИТ D B┬▓ = ┬▒K' with the sign the product of the two.  All four sign
 --     combinations, no case swept.
---   ┬зр `рржрор` тФ the same as a total function on rows.  Total: once the
---     three рр╛рЧрр╛р░ are in hand there is no further obligation.
---   ┬зр THE RUN AT D = 61, Bhskara's own example.  Six turns from (8,1,+3)
+--   ┬зрек `рдкрджрдореН` тАФ the same as a total function on rows.  Total: once the
+--     three рднрд╛рдЧрд╣рд╛рд░ are in hand there is no further obligation.
+--   ┬зрел THE RUN AT D = 61, Bh─Бskara's own example.  Six turns from (8,1,+3)
 --     to (29718, 3805, тИТ1), every divisibility witness discharged by
---     `refl` in the kernel тФ the divisions are PERFORMED, not assumed.
---   ┬зр `рр╛р╡рир╛-ржрр╡р┐рЧрр-рЛр` тФ Brahmagupta's composition of a k = тИТ1 row with
+--     `refl` in the kernel тАФ the divisions are PERFORMED, not assumed.
+--   ┬зрем `рднрд╛рд╡рдирд╛-рджреНрд╡рд┐рдЧреБрдг-рдЛрдг` тАФ Brahmagupta's composition of a k = тИТ1 row with
 --     itself, giving k = +1, and hence
 --
---        1766319049┬▓ тИТ 61 ┬ 226153980┬▓ = 1.
+--        1766319049┬▓ тИТ 61 ┬╖ 226153980┬▓ = 1.
 --
---     Which is Bhskara's answer, and the case the naive рр╛р╡рир╛ orbit
+--     Which is Bh─Бskara's answer, and the case the naive рднрд╛рд╡рдирд╛ orbit
 --     inside the k=1 fibre cannot reach, because at D = 61 there is no
 --     small k=1 row to seed it with.
 --
@@ -58,32 +58,32 @@
 -- The ррХрр░р╡р╛р▓ STEP is formalised, and one
 -- complete ррХрр░р╡р╛р▓ RUN is executed in the kernel.
 --
--- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
+-- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
 -- SOURCES.
 --
---   BRAHMAGUPTA, ррр░р╛рррорррррЯрр┐ржррзр╛риррр, ррзррпр╛рп рзро (рХррЯррЯрХр╛рзррпр╛рпр), 628 CE тФ
---   the рр╛р╡рир╛ (┬зр here), with ррр░рХррр┐ for the multiplier D, рррпрррра for the
---   greater root, рХрир┐ррра for the lesser, рХрррр for the interpolator, and
---   рзри / рЛр (asset / debt) for the two signs, which is why ┬зрз names the
+--   BRAHMAGUPTA, рдмреНрд░рд╛рд╣реНрдорд╕реНрдлреБрдЯрд╕рд┐рджреНрдзрд╛рдиреНрддрдГ, рдЕрдзреНрдпрд╛рдп резрео (рдХреБрдЯреНрдЯрдХрд╛рдзреНрдпрд╛рдпрдГ), 628 CE тАФ
+--   the рднрд╛рд╡рдирд╛ (┬зрем here), with рдкреНрд░рдХреГрддрд┐ for the multiplier D, рдЬреНрдпреЗрд╖реНрда for the
+--   greater root, рдХрдирд┐рд╖реНрда for the lesser, рдХреНрд╖реЗрдк for the interpolator, and
+--   рдзрди / рдЛрдг (asset / debt) for the two signs, which is why ┬зрез names the
 --   sign type with his two words rather than with a Bool.
 --
---   JAYADEVA, c. 950 CE, surviving only inside UDAYADIVKARA's рррирржр░р
---   (1073) тФ the ррХрр░р╡р╛р▓.
+--   JAYADEVA, c. 950 CE, surviving only inside UDAYADIV─АKARA's рд╕реБрдиреНрджрд░реА
+--   (1073) тАФ the рдЪрдХреНрд░рд╡рд╛рд▓.
 --
---   BHSKARA II, ррррЧрр┐ррор, 1150 CE тФ the ррХрр░р╡р╛р▓ in full, and D = 61 as
---   his worked example, with the answer ┬зр reaches.
+--   BH─АSKARA II, рдмреАрдЬрдЧрдгрд┐рддрдореН, 1150 CE тАФ the рдЪрдХреНрд░рд╡рд╛рд▓ in full, and D = 61 as
+--   his worked example, with the answer ┬зрем reaches.
 --
---   рр╛рЧрр╛р░ (divisor / the act of dividing) and р▓рррзр┐ (the quotient, "what
---   is obtained") are the рХррЯррЯрХ vocabulary of the same chapter.
+--   рднрд╛рдЧрд╣рд╛рд░ (divisor / the act of dividing) and рд▓рдмреНрдзрд┐ (the quotient, "what
+--   is obtained") are the рдХреБрдЯреНрдЯрдХ vocabulary of the same chapter.
 --
 -- The quantity a┬▓ тИТ D b┬▓ is what their algorithms carry beside the pair of roots,
 -- and that their step's three divisions are exactly the three hypotheses of
--- ┬зрй.
+-- ┬зрей.
 --
 -- тХ throughout, never т: cubical's т product does
--- not reduce on numerals of this size, and ┬зр needs numbers up to
--- 3 ┬ 10┬т to actually compute in the kernel.  Signs are therefore
--- carried as рзри / рЛр beside a magnitude, and every equation below is
+-- not reduce on numerals of this size, and ┬зрел needs numbers up to
+-- 3 ┬╖ 10┬╣тБ╕ to actually compute in the kernel.  Signs are therefore
+-- carried as рдзрди / рдЛрдг beside a magnitude, and every equation below is
 -- subtraction-free.
 ------------------------------------------------------------------------
 
@@ -96,13 +96,13 @@ open import Cubical.Data.Sigma using (╬г-syntax ; _├Ч_ ; _,_ ; fst ; snd)
 open import Cubical.Tactics.NatSolver.Reflection using (solveтДХ!)
 
 ------------------------------------------------------------------------
--- рз ┬ рзри and рЛр тФ Brahmagupta's two signs, and the equation split by them.
+-- рез ┬╖ рдзрди and рдЛрдг тАФ Brahmagupta's two signs, and the equation split by them.
 --
--- р╡р░ррЧррр░рХррр┐р D a b рзри K   is   a┬▓ = D b┬▓ + K      (a┬▓ тИТ D b┬▓ = +K)
--- р╡р░ррЧррр░рХррр┐р D a b рЛр K   is   a┬▓ + K = D b┬▓      (a┬▓ тИТ D b┬▓ = тИТK)
+-- рд╡рд░реНрдЧрдкреНрд░рдХреГрддрд┐рдГ D a b рдзрди K   is   a┬▓ = D b┬▓ + K      (a┬▓ тИТ D b┬▓ = +K)
+-- рд╡рд░реНрдЧрдкреНрд░рдХреГрддрд┐рдГ D a b рдЛрдг K   is   a┬▓ + K = D b┬▓      (a┬▓ тИТ D b┬▓ = тИТK)
 --
--- Both are subtraction-free, which is what lets тХ state them and what
--- lets the kernel compute them at ┬зр's magnitudes.
+-- Both are subtraction-free, which is what lets тДХ state them and what
+-- lets the kernel compute them at ┬зрел's magnitudes.
 ------------------------------------------------------------------------
 
 data рдЪрд┐рд╣реНрди : TypeтВА where
@@ -117,7 +117,7 @@ data рдЪрд┐рд╣реНрди : TypeтВА where
 рд╡рд░реНрдЧрдкреНрд░рдХреГрддрд┐рдГ D a b рдзрди K = a ┬╖ a тЙб D ┬╖ (b ┬╖ b) + K
 рд╡рд░реНрдЧрдкреНрд░рдХреГрддрд┐рдГ D a b рдЛрдг K = a ┬╖ a + K тЙб D ┬╖ (b ┬╖ b)
 
--- the interpolator's own row, (m , 1): m┬▓ тИТ D = ┬E
+-- the interpolator's own row, (m , 1): m┬▓ тИТ D = ┬▒E
 рдЕрдиреНрддрд░рдореН : рдЪрд┐рд╣реНрди тЖТ тДХ тЖТ тДХ тЖТ тДХ тЖТ TypeтВА
 рдЕрдиреНрддрд░рдореН рдзрди D m E = m ┬╖ m тЙб D + E
 рдЕрдиреНрддрд░рдореН рдЛрдг D m E = m ┬╖ m + E тЙб D
@@ -134,19 +134,19 @@ record рдкрдЩреНрдХреНрддрд┐рдГ (D : тДХ) : TypeтВА where
 open рдкрдЩреНрдХреНрддрд┐рдГ public
 
 ------------------------------------------------------------------------
--- ри ┬ рр╛рЧрр╛р░р тФ THE MISSING INGREDIENT, as a carrier.
+-- реи ┬╖ рднрд╛рдЧрд╣рд╛рд░рдГ тАФ THE MISSING INGREDIENT, as a carrier.
 --
--- Base: the dividend n and the divisor suc j.  Carried: the р▓рррзр┐.
--- Witness: n тЙб suc j ┬ р▓рррзр┐.  The divisor is written `suc j` and not
+-- Base: the dividend n and the divisor suc j.  Carried: the рд▓рдмреНрдзрд┐.
+-- Witness: n тЙб suc j ┬╖ рд▓рдмреНрдзрд┐.  The divisor is written `suc j` and not
 -- `k` with a side condition, because a zero divisor is not an omission
--- to be excluded later тФ it is a divisor that was never one.
+-- to be excluded later тАФ it is a divisor that was never one.
 --
--- `рр╛рЧрр╛р░-ррХр`: the type is a PROPOSITION.  The quotient is determined
+-- `рднрд╛рдЧрд╣рд╛рд░-рдПрдХрдГ`: the type is a PROPOSITION.  The quotient is determined
 -- by the base, so carrying it costs nothing; that is the same statement
 -- as `Loss.Carrier`'s contractible fibre, one h-level weaker.
 --
--- And it is exactly one h-level weaker, which is the content: the рХрррр's
--- fibre is contractible because every pair HAS a рХрррр, and this one is
+-- And it is exactly one h-level weaker, which is the content: the рдХреНрд╖реЗрдк's
+-- fibre is contractible because every pair HAS a рдХреНрд╖реЗрдк, and this one is
 -- only propositional because not every n has a quotient.  The inhabitant
 -- IS the divisibility.  That is the thing Bhskara's choice of m buys and
 -- the thing no amount of carrying can produce for free.
@@ -162,7 +162,7 @@ open рднрд╛рдЧрд╣рд╛рд░рдГ public
 
 -- the carried datum is determined: at most one quotient, always.  That is
 -- what makes carrying it free, and it is `Loss.Carrier`'s
--- contractible fibre one h-level weaker тФ weaker exactly because the
+-- contractible fibre one h-level weaker тАФ weaker exactly because the
 -- division is partial.
 рднрд╛рдЧрд╣рд╛рд░-рдПрдХрдГ : (j n : тДХ) тЖТ isProp (рднрд╛рдЧрд╣рд╛рд░рдГ j n)
 рднрд╛рдЧрд╣рд╛рд░-рдПрдХрдГ j n (рд╣реГрддрдореН qтВБ wтВБ) (рд╣реГрддрдореН qтВВ wтВВ) i = рд╣реГрддрдореН (p i) (w i)
@@ -174,16 +174,16 @@ open рднрд╛рдЧрд╣рд╛рд░рдГ public
   w = isPropтЖТPathP (╬╗ i тЖТ isSetтДХ n (suc j ┬╖ p i)) wтВБ wтВВ
 
 ------------------------------------------------------------------------
--- рй ┬ THE TURN'S ARITHMETIC.
+-- рей ┬╖ THE TURN'S ARITHMETIC.
 --
 -- The one identity everything rests on, with NO cancellation and NO
 -- division: for all D a b m,
 --
---   (a┬m + D┬b)┬▓ + (D┬a┬▓ + (D┬b┬▓)┬m┬▓) = D┬(a + b┬m)┬▓ + (a┬▓┬m┬▓ + D┬(D┬b┬▓))
+--   (a┬╖m + D┬╖b)┬▓ + (D┬╖a┬▓ + (D┬╖b┬▓)┬╖m┬▓) = D┬╖(a + b┬╖m)┬▓ + (a┬▓┬╖m┬▓ + D┬╖(D┬╖b┬▓))
 --
 -- which is the subtraction-free form of Brahmagupta's
 --
---   (a┬m + D┬b)┬▓ тИТ D┬(a + b┬m)┬▓ = (a┬▓ тИТ D b┬▓)┬(m┬▓ тИТ D).
+--   (a┬╖m + D┬╖b)┬▓ тИТ D┬╖(a + b┬╖m)┬▓ = (a┬▓ тИТ D b┬▓)┬╖(m┬▓ тИТ D).
 --
 -- Everything after it is bookkeeping of the two signs and one
 -- cancellation of K┬▓.
@@ -195,9 +195,9 @@ open рднрд╛рдЧрд╣рд╛рд░рдГ public
 рдореВрд▓-рд╕рдорддрд╛ D a b m = solveтДХ!
 
 -- the four sign combinations, each a polynomial identity after the two
--- hypotheses have been substituted in.  P stands for D┬b┬▓, A2 for a┬▓,
+-- hypotheses have been substituted in.  P stands for D┬╖b┬▓, A2 for a┬▓,
 -- M2 for m┬▓; each is opaque to the solver, which is why the same four
--- lines carry all of ┬зрй.
+-- lines carry all of ┬зрей.
 private
   рдЕрдЩреНрдХ-рдзрдирдзрди : (D P K E : тДХ)
     тЖТ (P + K) ┬╖ (D + E) + D ┬╖ P тЙб K ┬╖ E + (D ┬╖ (P + K) + P ┬╖ (D + E))
@@ -215,7 +215,7 @@ private
     тЖТ A2 ┬╖ M2 + (M2 + E) ┬╖ (A2 + K) тЙб K ┬╖ E + ((M2 + E) ┬╖ A2 + (A2 + K) ┬╖ M2)
   рдЕрдЩреНрдХ-рдЛрдгрдЛрдг A2 M2 K E = solveтДХ!
 
-  -- pulling K┬▓ out, so that `inj-sm┬` can put it back
+  -- pulling K┬▓ out, so that `inj-sm┬╖` can put it back
   рд╕рдЩреНрдХреЛрдЪ-рдЕ : (K A : тДХ) тЖТ (K ┬╖ A) ┬╖ (K ┬╖ A) тЙб K ┬╖ (K ┬╖ (A ┬╖ A))
   рд╕рдЩреНрдХреЛрдЪ-рдЕ K A = solveтДХ!
 
@@ -233,8 +233,8 @@ private
   рдкреБрдирд░реНрд╡рд┐рдиреНрдпрд╛рд╕ : (рд╡рд╛рдордГ Q рднрд╛рд░рдГ : тДХ) тЖТ (рд╡рд╛рдордГ + Q) + рднрд╛рд░рдГ тЙб (рд╡рд╛рдордГ + рднрд╛рд░рдГ) + Q
   рдкреБрдирд░реНрд╡рд┐рдиреНрдпрд╛рд╕ рд╡рд╛рдордГ Q рднрд╛рд░рдГ = solveтДХ!
 
--- the two shapes the conclusion can take.  `р░рр-р` produces a рзри row,
--- `р░рр-р` an рЛр row; the last hypothesis of each is the sign-specific
+-- the two shapes the conclusion can take.  `рд░реВрдк-рдЕ` produces a рдзрди row,
+-- `рд░реВрдк-рдм` an рдЛрдг row; the last hypothesis of each is the sign-specific
 -- arithmetic, and everything else is shared.
 private
   module _ (D j a b m E A B K' : тДХ)
@@ -250,7 +250,7 @@ private
       рд╡рд╛рдордГ = (K ┬╖ A) ┬╖ (K ┬╖ A)
       рджрдХреНрд╖рд┐рдгрдГ = D ┬╖ ((K ┬╖ B) ┬╖ (K ┬╖ B))
 
-      -- the master identity, with both numerators replaced by K┬(quotient)
+      -- the master identity, with both numerators replaced by K┬╖(quotient)
       рд╕реНрдХрдиреНрдз : рд╡рд╛рдордГ + рднрд╛рд░рдГ тЙб рджрдХреНрд╖рд┐рдгрдГ + рд╢реЗрд╖рдГ
       рд╕реНрдХрдиреНрдз = sym (cong (╬╗ z тЖТ z ┬╖ z + рднрд╛рд░рдГ) hA)
              тИЩ рдореВрд▓-рд╕рдорддрд╛ D a b m
@@ -280,11 +280,11 @@ private
       рд╕рд╛рд░ = sym (cong (╬╗ z тЖТ рд╡рд╛рдордГ + K ┬╖ z) hE) тИЩ рдЕрд░реНрдз
 
 ------------------------------------------------------------------------
--- ррж-ррр░рор╛ррор тФ THE TURN.  All four sign combinations.
+-- рдкрдж-рдкреНрд░рдорд╛рдгрдореН тАФ THE TURN.  All four sign combinations.
 --
---   a┬▓ тИТ D b┬▓ = ┬K,   m┬▓ тИТ D = ┬E,   K тИ (a┬m + D┬b),  K тИ (a + b┬m),
---   K тИ E
---   тЯ  A┬▓ тИТ D B┬▓ = ┬K'   with the sign the product of the two.
+--   a┬▓ тИТ D b┬▓ = ┬▒K,   m┬▓ тИТ D = ┬▒E,   K тИг (a┬╖m + D┬╖b),  K тИг (a + b┬╖m),
+--   K тИг E
+--   тЯ╣  A┬▓ тИТ D B┬▓ = ┬▒K'   with the sign the product of the two.
 --
 -- No m-choice rule is used, and none is needed: any m whose three
 -- divisions come out exact turns the wheel.  That is a weakening of
@@ -330,9 +330,9 @@ private
     тИЩ cong (╬╗ p тЖТ suc j ┬╖ E + (D ┬╖ (a ┬╖ a) + p ┬╖ (m ┬╖ m))) ha )
 
 ------------------------------------------------------------------------
--- р ┬ рржрор тФ the turn as a TOTAL function on rows.
+-- рек ┬╖ рдкрджрдореН тАФ the turn as a TOTAL function on rows.
 --
--- Total, and that is the point.  The three рр╛рЧрр╛р░ are the whole of the
+-- Total, and that is the point.  The three рднрд╛рдЧрд╣рд╛рд░ are the whole of the
 -- obligation; once they are in hand nothing else is owed, no side
 -- condition survives, and the new row is a row.
 ------------------------------------------------------------------------
@@ -350,16 +350,16 @@ private
       ha hm (рд╕рд╛рдХреНрд╖реА рд╣рд╛) (рд╕рд╛рдХреНрд╖реА рд╣рдм) (рд╕рд╛рдХреНрд╖реА рд╣реЗ))
 
 ------------------------------------------------------------------------
--- р ┬ ррХрр░р╡р╛р▓рор at ррр░рХррр┐ ррз тФ BHSKARA'S OWN EXAMPLE.
+-- рел ┬╖ рдЪрдХреНрд░рд╡рд╛рд▓рдореН at рдкреНрд░рдХреГрддрд┐ ремрез тАФ BH─АSKARA'S OWN EXAMPLE.
 --
 -- Six turns.  Every `refl` below is a division actually carried out by
--- the kernel: `рр╛рЧрр╛р░р 2 (8 ┬ 7 + 61 ┬ 1)` is inhabited by `39 , refl`
--- only because 8┬7 + 61┬1 and 3┬39 are the same numeral.
+-- the kernel: `рднрд╛рдЧрд╣рд╛рд░рдГ 2 (8 ┬╖ 7 + 61 ┬╖ 1)` is inhabited by `39 , refl`
+-- only because 8┬╖7 + 61┬╖1 and 3┬╖39 are the same numeral.
 --
--- D = 61 is the case the naive рр╛р╡рир╛ orbit does not reach: there is no
--- small row with рХрррр 1 to seed it, and squaring a row multiplies its
--- рХрррр rather than reducing it.  The wheel gets there by going THROUGH
--- рХрррр 3, 4, 5, 5, 4, 3 and out at 1 тФ which is what a cycle is for.
+-- D = 61 is the case the naive рднрд╛рд╡рдирд╛ orbit does not reach: there is no
+-- small row with рдХреНрд╖реЗрдк 1 to seed it, and squaring a row multiplies its
+-- рдХреНрд╖реЗрдк rather than reducing it.  The wheel gets there by going THROUGH
+-- рдХреНрд╖реЗрдк 3, 4, 5, 5, 4, 3 and out at 1 тАФ which is what a cycle is for.
 ------------------------------------------------------------------------
 
 рдЖрджрд┐ : рдкрдЩреНрдХреНрддрд┐рдГ 61                      -- 8┬▓ тИТ 61┬╖1┬▓ = 64 тИТ 61 = +3
@@ -389,7 +389,7 @@ private
 рд╡рд▓рдп-рем = рдкрджрдореН 61 2 5639 722 рдЛрдг (рдкреНрд░рдорд╛рдгрдореН рд╡рд▓рдп-рел) рдзрди 8 3 refl
           (рд╣реГрддрдореН 29718 refl) (рд╣реГрддрдореН 3805 refl) (рд╣реГрддрдореН 1 refl)
 
--- the wheel's own reading, turn by turn: (рррпрррра , рХрир┐ррра , рХрррр).
+-- the wheel's own reading, turn by turn: (рдЬреНрдпреЗрд╖реНрда , рдХрдирд┐рд╖реНрда , рдХреНрд╖реЗрдк).
 -- Each holds by `refl`, so these are the values the kernel computed and
 -- not values a comment asserts.
 рджрд░реНрд╢рдирдореН-рез : Path (тДХ ├Ч тДХ ├Ч тДХ) (рдЬреНрдпреЗрд╖реНрда рд╡рд▓рдп-рез , рдХрдирд┐рд╖реНрда рд╡рд▓рдп-рез , рдХреНрд╖реЗрдкрдГ рд╡рд▓рдп-рез) (39 , 5 , 4)
@@ -410,25 +410,25 @@ private
 рджрд░реНрд╢рдирдореН-рем : Path (тДХ ├Ч тДХ ├Ч тДХ) (рдЬреНрдпреЗрд╖реНрда рд╡рд▓рдп-рем , рдХрдирд┐рд╖реНрда рд╡рд▓рдп-рем , рдХреНрд╖реЗрдкрдГ рд╡рд▓рдп-рем) (29718 , 3805 , 1)
 рджрд░реНрд╢рдирдореН-рем = refl
 
--- and the sign at the exit is рЛр: 29718┬▓ + 1 = 61 ┬ 3805┬▓.
+-- and the sign at the exit is рдЛрдг: 29718┬▓ + 1 = 61 ┬╖ 3805┬▓.
 рдЪрд┐рд╣реНрди-рем : рдЪрд┐рд╣реНрдирдореН рд╡рд▓рдп-рем тЙб рдЛрдг
 рдЪрд┐рд╣реНрди-рем = refl
 
 -- the exit row's equation, restated in its own numerals.  This is the
--- theorem of ┬зрй applied six times, not a computation: it is `ррр░рор╛ррор`.
+-- theorem of ┬зрей applied six times, not a computation: it is `рдкреНрд░рдорд╛рдгрдореН`.
 рд╡рд▓рдп-рд╖рд╖реНрда-рд╕рдореАрдХрд░рдгрдореН : 29718 ┬╖ 29718 + 1 тЙб 61 ┬╖ (3805 ┬╖ 3805)
 рд╡рд▓рдп-рд╖рд╖реНрда-рд╕рдореАрдХрд░рдгрдореН = рдкреНрд░рдорд╛рдгрдореН рд╡рд▓рдп-рем
 
 ------------------------------------------------------------------------
--- р ┬ рр╛р╡рир╛ at the exit тФ Brahmagupta closes what Jayadeva opened.
+-- рем ┬╖ рднрд╛рд╡рдирд╛ at the exit тАФ Brahmagupta closes what Jayadeva opened.
 --
--- The wheel delivers рХрррр тИТ1, not +1.  Composing that row with ITSELF is
--- Brahmagupta's рр╛р╡рир╛, and the рХрррр multiplies: (тИТ1)┬(тИТ1) = +1.  So the
--- last move of the ррХрр░р╡р╛р▓ is 522 years older than the ррХрр░р╡р╛р▓.
+-- The wheel delivers рдХреНрд╖реЗрдк тИТ1, not +1.  Composing that row with ITSELF is
+-- Brahmagupta's рднрд╛рд╡рдирд╛, and the рдХреНрд╖реЗрдк multiplies: (тИТ1)┬╖(тИТ1) = +1.  So the
+-- last move of the рдЪрдХреНрд░рд╡рд╛рд▓ is 522 years older than the рдЪрдХреНрд░рд╡рд╛рд▓.
 --
---   (a┬▓ + D b┬▓)┬▓ тИТ D┬(2ab)┬▓ = (a┬▓ тИТ D b┬▓)┬▓ = K┬▓
+--   (a┬▓ + D b┬▓)┬▓ тИТ D┬╖(2ab)┬▓ = (a┬▓ тИТ D b┬▓)┬▓ = K┬▓
 --
--- proved here subtraction-free in the рЛр case, for any K.
+-- proved here subtraction-free in the рдЛрдг case, for any K.
 ------------------------------------------------------------------------
 
 private
@@ -449,11 +449,11 @@ private
   тИЩ sym (cong (_+ K ┬╖ K) (рддрд┐рд░реНрдпрдХреН-рд╕рдорддрд╛ D a b))
 
 ------------------------------------------------------------------------
--- ррор╛рзр╛рирор тФ THE ANSWER.  1766319049┬▓ тИТ 61 ┬ 226153980┬▓ = 1.
+-- рд╕рдорд╛рдзрд╛рдирдореН тАФ THE ANSWER.  1766319049┬▓ тИТ 61 ┬╖ 226153980┬▓ = 1.
 --
 -- Bhskara II's own stated answer to his own stated example.  Here it is
--- the exit row of ┬зр composed with itself by ┬зр: the numerals
--- 1766319049 = 29718┬▓ + 61┬3805┬▓ and 226153980 = 2┬29718┬3805 are not
+-- the exit row of ┬зрел composed with itself by ┬зрем: the numerals
+-- 1766319049 = 29718┬▓ + 61┬╖3805┬▓ and 226153980 = 2┬╖29718┬╖3805 are not
 -- written into the proof, they are what the two expressions reduce to.
 ------------------------------------------------------------------------
 
@@ -462,7 +462,7 @@ private
   рд░реВрдкрдореН 1766319049 226153980 рдзрди 1
     (рднрд╛рд╡рдирд╛-рджреНрд╡рд┐рдЧреБрдг-рдЛрдг 61 29718 3805 1 (рдкреНрд░рдорд╛рдгрдореН рд╡рд▓рдп-рем))
 
--- stated in its own numerals, and it is `ррр░рор╛ррор ррор╛рзр╛рирор` тФ derived,
+-- stated in its own numerals, and it is `рдкреНрд░рдорд╛рдгрдореН рд╕рдорд╛рдзрд╛рдирдореН` тАФ derived,
 -- not normalised into existence.
 рд╡рд░реНрдЧрдкреНрд░рдХреГрддрд┐-ремрез : 1766319049 ┬╖ 1766319049 тЙб 61 ┬╖ (226153980 ┬╖ 226153980) + 1
 рд╡рд░реНрдЧрдкреНрд░рдХреГрддрд┐-ремрез = рдкреНрд░рдорд╛рдгрдореН рд╕рдорд╛рдзрд╛рдирдореН

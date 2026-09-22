@@ -1,60 +1,60 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡∞‡Æ‡æ‡‡‡ô‡‡ï‡‡∞‡Æ‡ ‚î proof-of-transport: the receipt that composes without
+-- ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡§∏‡§ô‡•ç‡§ï‡•ç‡§∞‡§Æ‡§£ ‚Äî proof-of-transport: the receipt that composes without
 -- being spent, owes no counterparty, and costs nothing to cross twice.
 --
 -- THE INVERSION.  The crypto modules read `isEquiv` as a VULNERABILITY:
--- security ‚ü∫ ¬ isEquiv (`Sesa`), the one-way function hides its fibre, the
--- secret is the ea nobody can collect.  That is the durnaya reading ‚î the
+-- security ‚ü∫ ¬¨ isEquiv (`Sesa`), the one-way function hides its fibre, the
+-- secret is the ≈õe·π£a nobody can collect.  That is the durnaya reading ‚Äî the
 -- map used to HOARD.  This file reads the SAME structure from its polar
 -- opposite.
 --
 -- The technology is not the non-equivalence that hides.  It is the
--- EQUIVALENCE you prove and give away.  A landed equivalence `e : A ‚â B`
--- ‚î equivalently a path `ua e : A ‚â° B` ‚î is a RECEIPT: a proof that two
--- things trade losslessly.  `Sesa` said value's shadow is ¬ isEquiv; its
+-- EQUIVALENCE you prove and give away.  A landed equivalence `e : A ‚âÉ B`
+-- ‚Äî equivalently a path `ua e : A ‚â° B` ‚Äî is a RECEIPT: a proof that two
+-- things trade losslessly.  `Sesa` said value's shadow is ¬¨ isEquiv; its
 -- body is isEquiv.  A proven equivalence is wealth, and it behaves as no
 -- money can:
 --
---   ‡‡‡∞‡Æ‡æ‡ (prama)  ‚î a valid means of knowing, a proof (Nyya's word).
---   ‡‡ô‡‡ï‡‡∞‡Æ‡ (sakramaa) ‚î crossing, transport (the corpus's word for the
+--   ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£ (pramƒÅ·πáa)  ‚Äî a valid means of knowing, a proof (NyƒÅya's word).
+--   ‡§∏‡§ô‡•ç‡§ï‡•ç‡§∞‡§Æ‡§£ (sa·πÖkrama·πáa) ‚Äî crossing, transport (the corpus's word for the
 --                          lossless move, `SankramanaSesa`).
---   The compound = proof-of-transport.  ‡ï‡µ‡ (kavaca), amulet, in the
---   header only: worn, carried, DOING something for you ‚î not a claim you
+--   The compound = proof-of-transport.  ‡§ï‡§µ‡§ö (kavaca), amulet, in the
+--   header only: worn, carried, DOING something for you ‚Äî not a claim you
 --   present to a debtor.
 --
 -- WHAT IS PROVED (the four properties that separate a receipt from money):
 --
---   ¬ß2  COMPOSES INTO SOMETHING NEITHER HELD.  Two receipts A‚âB and B‚âC
---       compose to A‚âC (`‡‡®‡‡ß‡æ‡®‡Æ‡` = compEquiv), an edge neither party had.
---       ‡‡Æ‡æ‡-‡‡æ‡µ‡®‡æ: Brahmagupta's composition, 628 ‚î two solutions meet, a
+--   ¬ß2  COMPOSES INTO SOMETHING NEITHER HELD.  Two receipts A‚âÉB and B‚âÉC
+--       compose to A‚âÉC (`‡§∏‡§®‡•ç‡§ß‡§æ‡§®‡§Æ‡•ç` = compEquiv), an edge neither party had.
+--       ‡§∏‡§Æ‡§æ‡§∏-‡§≠‡§æ‡§µ‡§®‡§æ: Brahmagupta's composition, 628 ‚Äî two solutions meet, a
 --       third arises.  The composite is a new receipt, freely.
 --
 --   ¬ß3  NON-RIVAL: composing does NOT spend.  The same receipt `r` enters
---       two different composites and BOTH stand (`‡‡ï‡‡‡Ø‡`).  In type theory
---       a proof term carries no linear restriction ‚î you use it as often as
+--       two different composites and BOTH stand (`‡§Ö‡§ï‡•ç‡§∑‡§Ø‡§É`).  In type theory
+--       a proof term carries no linear restriction ‚Äî you use it as often as
 --       you like.  Money is linear (spending consumes); a receipt is not.
 --       This is the structural fact, exhibited as a term: one r, two uses.
 --
---   ¬ß4  NO COUNTERPARTY.  A receipt is a CLOSED term `A ‚â B`, depending on
---       nothing.  A monetary claim is `Debtor ‚í Value` ‚î worthless without
+--   ¬ß4  NO COUNTERPARTY.  A receipt is a CLOSED term `A ‚âÉ B`, depending on
+--       nothing.  A monetary claim is `Debtor ‚Üí Value` ‚Äî worthless without
 --       someone to pay, and it defaults if they cannot.  ¬ß4 contrasts the
 --       two types: the receipt hands you the crossing unconditionally
---       (`‡‡®‡‡‡Æ‡`, debt-free); the "claim" needs its debtor supplied.
+--       (`‡§Ö‡§®‡•É‡§£‡§Æ‡•ç`, debt-free); the "claim" needs its debtor supplied.
 --
 --   ¬ß5  THE CROSSING IS REVERSIBLE.  Transport there and back is the
---       identity (`‡µ‡‡Ø‡Ø‡∞‡‡ø‡‡`, transportTransport‚ª).  That is the whole
+--       identity (`‡§µ‡•ç‡§Ø‡§Ø‡§∞‡§π‡§ø‡§§‡§É`, transportTransport‚Åª).  That is the whole
 --       proved content: a round trip is the identity path, so nothing is
---       erased in the type-theoretic sense ‚î no fibre is collapsed.  Pay
+--       erased in the type-theoretic sense ‚Äî no fibre is collapsed.  Pay
 --       once to land the equivalence; every crossing after reuses the same
 --       closed term.
 --
 -- SO: money is a receipt that lost its fibre (a one-number quotient, a
--- durnaya ‚î `Sesa`'s hidden side); a receipt kept it (the whole
+-- durnaya ‚Äî `Sesa`'s hidden side); a receipt kept it (the whole
 -- equivalence, both directions, the path).  Money is a liability (¬ß4's
 -- claim); a receipt is a capability (¬ß4's closed term).  Money is
--- conserved and dilutes; receipts compose and compound (¬ß2 ‚î every new
+-- conserved and dilutes; receipts compose and compound (¬ß2 ‚Äî every new
 -- edge composes with every old one).  This is the inversion, and it
 -- type-checks.
 ------------------------------------------------------------------------
@@ -101,7 +101,7 @@ Receipt A B = A ‚âÉ B
 
 ------------------------------------------------------------------------
 -- ¬ß3  NON-RIVAL: one receipt, two composites, both stand.  Using a
---     receipt does not consume it ‚î no linear restriction on a proof.
+--     receipt does not consume it ‚Äî no linear restriction on a proof.
 ------------------------------------------------------------------------
 
 ‡§Ö‡§ï‡•ç‡§∑‡§Ø‡§É : Receipt A B ‚Üí Receipt B C ‚Üí Receipt B D
@@ -126,11 +126,11 @@ Claim Debtor A B = Debtor ‚Üí Receipt A B
 -- a claim yields nothing until the debtor is produced; the receipt already did
 ‡§ã‡§£‡§Æ‡•ç-‡§Ü‡§∂‡•ç‡§∞‡§ø‡§§‡§Æ‡•ç : {Debtor : Type ‚Ñì} ‚Üí Claim Debtor A B ‚Üí Debtor ‚Üí (A ‚Üí B)
 ‡§ã‡§£‡§Æ‡•ç-‡§Ü‡§∂‡•ç‡§∞‡§ø‡§§‡§Æ‡•ç c d = equivFun (c d)
--- the asymmetry is the types: `‡‡®‡‡‡Æ‡ : Receipt ‚í (A‚íB)` needs no debtor;
--- `‡ã‡‡Æ‡-‡‡‡‡∞‡ø‡‡Æ‡ : Claim ‚í Debtor ‚í (A‚íB)` cannot cross without one.
+-- the asymmetry is the types: `‡§Ö‡§®‡•É‡§£‡§Æ‡•ç : Receipt ‚Üí (A‚ÜíB)` needs no debtor;
+-- `‡§ã‡§£‡§Æ‡•ç-‡§Ü‡§∂‡•ç‡§∞‡§ø‡§§‡§Æ‡•ç : Claim ‚Üí Debtor ‚Üí (A‚ÜíB)` cannot cross without one.
 
 ------------------------------------------------------------------------
--- ¬ß5  THE CROSSING IS FREE AND REVERSIBLE ‚î Landauer floor zero.
+-- ¬ß5  THE CROSSING IS FREE AND REVERSIBLE ‚Äî Landauer floor zero.
 --     Cross with the receipt, cross back with its inverse: the identity.
 --     An identity dissipates nothing; the edge, once paid, is free forever.
 ------------------------------------------------------------------------
@@ -146,6 +146,6 @@ Claim Debtor A B = Debtor ‚Üí Receipt A B
 ‡§™‡•ç‡§∞‡§§‡§ø‡§∏‡§ô‡•ç‡§ï‡•ç‡§∞‡§Æ‡§É = invEquiv
 
 -- pay once, cross freely: the forward crossing computes to the plain map
--- (uaŒ≤) ‚î no per-execution cost, the fold already did the work once
+-- (uaŒ≤) ‚Äî no per-execution cost, the fold already did the work once
 ‡§∏‡§ï‡•É‡§§‡•ç-‡§Æ‡•Ç‡§≤‡•ç‡§Ø‡§Æ‡•ç : (r : Receipt A B) (a : A) ‚Üí transport (‡§™‡§•‡§É r) a ‚â° equivFun r a
 ‡§∏‡§ï‡•É‡§§‡•ç-‡§Æ‡•Ç‡§≤‡•ç‡§Ø‡§Æ‡•ç r a = uaŒ≤ r a

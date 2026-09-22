@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- SieveFiber
 --
--- THE SIEVE FIBRE AT THE �X HORIZON, AND WHAT DOES AND DOES NOT
+-- THE SIEVE FIBRE AT THE √X HORIZON, AND WHAT DOES AND DOES NOT
 -- DESCEND ALONG IT.
 --
 -- This is the experiment named in `collab/upstream/raw/U0006.txt`
@@ -11,10 +11,10 @@
 -- experiment I'd actually run is tiny"), run as checked Agda for the
 -- first time.  The proposal, in its own words:
 --
---   "Take integers n � X, represent each by its divisibility
---    information below �X, quotient integers having identical visible
+--   "Take integers n ≤ X, represent each by its divisibility
+--    information below √X, quotient integers having identical visible
 --    state, and attach the residual bit ε_X(n) ∈ {0,1}.  Then formally
---    characterize the fiber q��(q(n)).  Ask whether (q(n), ε_X(n)) is
+--    characterize the fiber q⁻¹(q(n)).  Ask whether (q(n), ε_X(n)) is
 --    an informationally complete representation of factorization
 --    charge.  Then remove ε.  The resulting failure of reconstruction
 --    is our finite parity obstruction, represented as an actual fiber
@@ -24,10 +24,10 @@
 --
 --   "does the arithmetic quotient map admit a section?"
 --
--- THE MODEL.  X = 30.  The primes at or below ��30� = 5 are 2, 3, 5.
+-- THE MODEL.  X = 30.  The primes at or below ⌊√30⌋ = 5 are 2, 3, 5.
 -- The VISIBLE STATE of n is its exact valuation vector there,
 --
---     q n = (v� n , v� n , v� n)  :  Vis,
+--     q n = (v₂ n , v₃ n , v₅ n)  :  Vis,
 --
 -- computed here by actual repeated division, not by a table.  The
 -- ROUGH PART `rough n` is what survives the stripping, and
@@ -38,45 +38,45 @@
 -- typechecker; §"Exact / certified symbolic computation is proof",
 -- CLAUDE.md):
 --
---   §4  `roughSplit`      ε REALLY IS ONE BIT.  For every n � 30 the
+--   §4  `roughSplit`      ε REALLY IS ONE BIT.  For every n ≤ 30 the
 --                         rough part is 1 or a single prime > 5.  This
---                         is the �X horizon fact � two primes above �X
---                         already exceed X � and it is what makes the
+--                         is the √X horizon fact — two primes above √X
+--                         already exceed X — and it is what makes the
 --                         residual datum a Bool rather than an integer.
 --
---   §5  `factorises`      n = smooth n � rough n.
+--   §5  `factorises`      n = smooth n · rough n.
 --       `fiberAt-1`       THE FIBRE, EXPLICITLY.
---       `fiberAt-2`         q��(0,0,0) ∩ [1,30] = {1,7,11,13,17,19,23,29}
---       `fiberAt-3`         q��(1,0,0) ∩ [1,30] = {2,14,22,26} = 2�{1,7,11,13}
---                           q��(1,1,1) ∩ [1,30] = {30}
---                         � a smooth representative together with its
+--       `fiberAt-2`         q⁻¹(0,0,0) ∩ [1,30] = {1,7,11,13,17,19,23,29}
+--       `fiberAt-3`         q⁻¹(1,0,0) ∩ [1,30] = {2,14,22,26} = 2·{1,7,11,13}
+--                           q⁻¹(1,1,1) ∩ [1,30] = {30}
+--                         — a smooth representative together with its
 --                         large-prime multiples that still fit under X.
 --                         Sizes 8, 4, 1: the fibre is NOT of constant
 --                         size and in particular never uniformly 2.
---                         The shape is q��(v) = {s} � {s�p : �X < p � X/s}
---                         for s = � v, so #q��(v) = 1 + #{p : �X < p � X/s}
---                         � which is 1 whenever s > �X.
+--                         The shape is q⁻¹(v) = {s} ∪ {s·p : √X < p ≤ X/s}
+--                         for s = σ v, so #q⁻¹(v) = 1 + #{p : √X < p ≤ X/s}
+--                         — which is 1 whenever s > �X.
 --
 --   §6  `chargeFactors`   THE POSITIVE ANSWER.  Liouville charge
 --                         Ω(n) mod 2 factors through (q n , ε n):
---                           charge n = odd(v�+v�+v�) ⊕ ε n.
+--                           charge n = odd(v₂+v₃+v₅) ⊕ ε n.
 --                         So (visible state, one bit) IS informationally
 --                         complete FOR THE CHARGE.
 --
 --   §7  `noChargeDescent` THE NEGATIVE ANSWER.  Charge does NOT factor
 --       `noChargeDescentQuot`  through q alone: 1 and 7 share the
 --                         visible state (0,0,0) and have opposite
---                         charge.  Stated twice � once for a bare
+--                         charge.  Stated twice — once for a bare
 --                         function on `Vis`, once for a function out of
 --                         the actual set quotient `Dom / ∼`, so the
 --                         obstruction is exhibited on the HIT the
 --                         proposal asked for.
 --
---   §8  `hasSection`      THE SECTION QUESTION, ANSWERED � AND
+--   §8  `hasSection`      THE SECTION QUESTION, ANSWERED — AND
 --       `noChargePreservingSection`  RE-POSED.  q DOES admit a section:
---                         �(a,b,c) = 2^a�3^b�5^c picks the smooth point
+--                         σ(a,b,c) = 2^a·3^b·5^c picks the smooth point
 --                         of each fibre, lands in the domain, satisfies
---                         q ∘ � ∘ q = q, and always has ε = 0.  But NO
+--                         q ∘ σ ∘ q = q, and always has ε = 0.  But NO
 --                         section is charge-preserving.  The obstruction
 --                         is therefore not to sectioning q; it is to
 --                         sectioning q compatibly with charge.
@@ -92,23 +92,23 @@
 --   §10 `noFullPattern`   STEP 7 (k AFFINE FORMS) DOES NOT START HERE.
 --       `jointFibreAt1`   For k = 2 with the forms (n , n+2), NO joint
 --       `patternsAt1`     fibre at X = 30 realises all four residual
---                         patterns � the joint fibres have at most two
+--                         patterns — the joint fibres have at most two
 --                         elements.  The 2^k charge structure is not a
 --                         property of a small finite fibre; it is a
 --                         statement about the joint distribution as
---                         X � ∞, and the required X grows with k.
+--                         X → ∞, and the required X grows with k.
 --
 -- PRIOR ART IN THIS CORPUS, consumed and credited:
 --     the fiberwise criterion for (q,c) to be an equivalence, and the
 --     mod-6 witness 1 ∼ 7.  This file supplies the arithmetic model
 --     that audit stated in prose and declared out of reach only in its
 --     two extreme cases (indicator-only sieve; fully smooth numbers).
---     The �X-horizon model is the middle case, and it is the one the
+--     The √X-horizon model is the middle case, and it is the one the
 --     owner named.
---   `formal/cubical/ProjectionChargeAudit.agda` � `noChargeDescent`
+--   `formal/cubical/ProjectionChargeAudit.agda` — `noChargeDescent`
 --     for the indiscrete relation on `Bool`.  §7 below is the same
 --     argument with a real sieve map in place of the toy relation.
---   `formal/cubical/PMNoSection.agda` � the `allVec`/`sound` idiom for
+--   `formal/cubical/PMNoSection.agda` — the `allVec`/`sound` idiom for
 --     letting the typechecker do a finite exhaustion.  `allOf`/
 --     `allOf-sound` below is that idiom over an explicit list.
 ------------------------------------------------------------------------
@@ -150,7 +150,7 @@ eqᵇ (suc _) zero    = false
 eqᵇ (suc m) (suc n) = eqᵇ m n
 
 -- fuel-bounded division and remainder.  `d ≡ 0` cannot loop: the fuel
--- runs out.  For `d � 1` the fuel `n` is always sufficient.
+-- runs out.  For `d ≥ 1` the fuel `n` is always sufficient.
 divF : ℕ → ℕ → ℕ → ℕ
 divF zero    d n = zero
 divF (suc f) d n = if ltᵇ n d then zero else suc (divF f d (n ∸ d))
@@ -184,8 +184,8 @@ isOdd (suc n) = not (isOdd n)
 ------------------------------------------------------------------------
 
 -- Membership as a RECURSIVE FAMILY, not an indexed datatype: cubical
--- Agda declines to use constructor injectivity of `_�_` for indexed
--- unification, so `here`/`there` matching would not compute.  A `�`
+-- Agda declines to use constructor injectivity of `_∷_` for indexed
+-- unification, so `here`/`there` matching would not compute.  A `⊎`
 -- tower does the same job with ordinary case analysis.
 infix 4 _∈_
 
@@ -250,7 +250,7 @@ eqᵇ→≡ (suc m) (suc n) p = cong suc (eqᵇ→≡ m n p)
 X : ℕ
 X = 30
 
--- The visible sieve state: the exact valuations below �X.
+-- The visible sieve state: the exact valuations below √X.
 Vis : Type
 Vis = ℕ × ℕ × ℕ
 
@@ -269,7 +269,7 @@ eqVis→≡ (a , b , c) (a' , b' , c') p i =
   pb = andL (eqᵇ b b') (eqᵇ c c') rest
   pc = andR (eqᵇ b b') (eqᵇ c c') rest
 
--- Strip the prime p out of n, returning (v� n , n / p^{v� n}).
+-- Strip the prime p out of n, returning (vₚ n , n / p^{vₚ n}).
 stripF : ℕ → ℕ → ℕ → ℕ × ℕ
 stripF zero    p n = zero , n
 stripF (suc f) p n =
@@ -288,7 +288,7 @@ visRough n = (fst a , fst b , fst c) , snd c
   b = stripF n 3 (snd a)
   c = stripF n 5 (snd b)
 
--- THE QUOTIENT MAP: n � its divisibility information below �X.
+-- THE QUOTIENT MAP: n ↦ its divisibility information below √X.
 q : ℕ → Vis
 q n = fst (visRough n)
 
@@ -308,7 +308,7 @@ smooth : ℕ → ℕ
 smooth n = σ (q n)
 
 -- Ω(n), the number of prime factors with multiplicity, by trial
--- division.  Defined INDEPENDENTLY of the sieve decomposition � that
+-- division.  Defined INDEPENDENTLY of the sieve decomposition — that
 -- independence is what makes §6 a theorem rather than a definition.
 omegaF : ℕ → ℕ → ℕ → ℕ
 omegaF zero    d n = zero
@@ -349,19 +349,19 @@ memberOf (x ∷ xs) n = eqᵇ x n or memberOf xs n
 ------------------------------------------------------------------------
 -- §4  ε really is one bit
 --
--- At the �X horizon the unresolved factorization tail is 1 or a single
--- prime, because two primes above �X already exceed X.  Checked, for
+-- At the √X horizon the unresolved factorization tail is 1 or a single
+-- prime, because two primes above √X already exceed X.  Checked, for
 -- X = 30, on every n in the domain.  Without this the "residual bit"
 -- would not be a bit.
 --
 -- The general form is proved, as a checked term, in
 -- `NaturalMachine/RoughSplit.agda`:
 --
---   roughSplitSqrt : (X n : �) � 0 < n � n � X
---                  � ((p : �) � IsPrime p � p � n � isqrt X < p)
---                  � (n ≡ 1) � IsPrime n
+--   roughSplitSqrt : (X n : ℕ) → 0 < n → n ≤ X
+--                  → ((p : ℕ) → IsPrime p → p ∣ n → isqrt X < p)
+--                  → (n ≡ 1) ⊎ IsPrime n
 --
--- with `isqrt X` constructed there as the largest s with s � s � X.
+-- with `isqrt X` constructed there as the largest s with s · s ≤ X.
 -- That module imports nothing from this one.
 ------------------------------------------------------------------------
 
@@ -395,7 +395,7 @@ factorises : {n : ℕ} → n ∈ domain → n ≡ smooth n · rough n
 factorises {n} m = eqᵇ→≡ n (smooth n · rough n)
                      (allOf-sound domain chkFactor factorisesᵇ m)
 
--- q��(0,0,0) ∩ [1,30] = {1} � {p prime : 5 < p � 30}.
+-- q⁻¹(0,0,0) ∩ [1,30] = {1} ∪ {p prime : 5 < p ≤ 30}.
 fibre000 : List ℕ
 fibre000 = 1 ∷ 7 ∷ 11 ∷ 13 ∷ 17 ∷ 19 ∷ 23 ∷ 29 ∷ []
 
@@ -405,7 +405,7 @@ chkFibre000 n = eqBool (eqVis (q n) (0 , 0 , 0)) (memberOf fibre000 n)
 fiberAt-1 : allOf domain chkFibre000 ≡ true
 fiberAt-1 = refl
 
--- q��(1,0,0) ∩ [1,30] = 2 � {1,7,11,13} � the smooth representative
+-- q⁻¹(1,0,0) ∩ [1,30] = 2 · {1,7,11,13} — the smooth representative
 -- times the rough numbers that still fit under X.  The fibre shrinks
 -- as the smooth part grows; it is never of constant size, and in
 -- particular never of size 2.
@@ -418,7 +418,7 @@ chkFibre100 n = eqBool (eqVis (q n) (1 , 0 , 0)) (memberOf fibre100 n)
 fiberAt-2 : allOf domain chkFibre100 ≡ true
 fiberAt-2 = refl
 
--- q��(1,1,1) ∩ [1,30] = {30}: a SINGLETON fibre.  Together with the
+-- q⁻¹(1,1,1) ∩ [1,30] = {30}: a SINGLETON fibre.  Together with the
 -- 8-element fibre above this refutes, for this model, the hypothesis of
 -- equivalence iff every fibre has exactly two elements on which ε is a
 -- bijection.  Here the fibres have 8, 4 and 1 elements, and on the
@@ -489,7 +489,7 @@ x ∼ y = q (fst x) ≡ q (fst y)
 Sieve : Type
 Sieve = Dom / _∼_
 
--- The visible state DOES descend � by construction, which is the
+-- The visible state DOES descend — by construction, which is the
 -- content-free half of the story.
 visOn : Sieve → Vis
 visOn = SQ.rec isSetVis (λ x → q (fst x)) (λ x y r → r)
@@ -507,7 +507,7 @@ noChargeDescentQuot (c̄ , agree) =
 -- §8  THE SECTION QUESTION
 --
 -- "Does the arithmetic quotient map admit a section?"  YES, and that
--- is why the question has to be re-posed.  � picks the smooth point of
+-- is why the question has to be re-posed.  σ picks the smooth point of
 -- each fibre; it lands in the domain, it is a genuine section of q,
 -- and its residual bit is always 0.  What fails is not sectioning but
 -- CHARGE-COMPATIBLE sectioning.
@@ -520,7 +520,7 @@ chkSection n = eqVis (q (σ (q n))) (q n)
 hasSectionᵇ : allOf domain chkSection ≡ true
 hasSectionᵇ = refl
 
--- q ∘ � ∘ q ≡ q on the domain: � is a section of q over its image.
+-- q ∘ σ ∘ q ≡ q on the domain: σ is a section of q over its image.
 hasSection : {n : ℕ} → n ∈ domain → q (σ (q n)) ≡ q n
 hasSection {n} m =
   eqVis→≡ (q (σ (q n))) (q n)
@@ -528,8 +528,8 @@ hasSection {n} m =
           (memberOf domain (σ (q n)) and not (ε (σ (q n))))
           (allOf-sound domain chkSection hasSectionᵇ m))
 
--- �and no section of q respects the charge.  Note that this does not
--- mention �: it rules out EVERY candidate, because 1 and 7 send the
+-- …and no section of q respects the charge.  Note that this does not
+-- mention σ: it rules out EVERY candidate, because 1 and 7 send the
 -- same visible state to the same value while demanding opposite
 -- charges.  This is the finite parity obstruction in its sharpest
 -- available form for this model.
@@ -540,7 +540,7 @@ noChargePreservingSection (s , agree) =
   false≢true (sym (agree 1∈) ∙ agree 7∈)
 
 ------------------------------------------------------------------------
--- §9  �AND THE BIT DOES NOT RESTORE THE STATE
+-- §9  …AND THE BIT DOES NOT RESTORE THE STATE
 --
 -- (q , ε) is complete for the charge (§6) and incomplete for the
 -- integer: 7 and 11 agree in both coordinates.  So "informationally
@@ -575,7 +575,7 @@ pairMapNotInjective = 7∈Fibre000 , 11∈Fibre000 , refl , 7≢11
 -- The proposal's last step: "generalize from one integer to k affine
 -- forms, where the fiber should acquire the 2^k charge structure we've
 -- already found."  The k = 2 instance of that, with the twin-prime pair
--- of forms (n , n+2), is checked here � and it comes out NEGATIVE at
+-- of forms (n , n+2), is checked here — and it comes out NEGATIVE at
 -- this scale.
 --
 -- The joint visible state is (q n , q (n+2)) and the joint residual is
@@ -588,7 +588,7 @@ pairMapNotInjective = 7∈Fibre000 , 11∈Fibre000 , refl , 7≢11
 -- X = 30 the joint fibres have at most two elements.
 --
 -- So the 2^k structure is not a property of a finite fibre at small X.
--- It is a statement about the joint distribution as X � ∞, and the X
+-- It is a statement about the joint distribution as X → ∞, and the X
 -- needed grows with k.  Whatever step 7 is, it is not this computation
 -- at this scale.
 ------------------------------------------------------------------------

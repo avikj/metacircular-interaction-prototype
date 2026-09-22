@@ -1,42 +1,42 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Prvatrsiddham ‚î the tripd as a tower of maps, and the fiber as the
+-- P≈´rvatrƒÅsiddham ‚Äî the tripƒÅdƒ´ as a tower of maps, and the fiber as the
 -- thing the earlier rule is forbidden to read.
 --
 -- THE SOURCE, with the stra numbers, so nothing here is recalled.
 -- Pini, *Adhyy*, c. 500 BCE:
 --
---   8.2.1   ‡‡‡∞‡‡µ‡‡‡∞‡æ‡‡ø‡¶‡‡ß‡Æ‡  prvatrsiddham ‚î from this stra to the end of
+--   8.2.1   ‡§™‡•Ç‡§∞‡•ç‡§µ‡§§‡•ç‡§∞‡§æ‡§∏‡§ø‡§¶‡•ç‡§ß‡§Æ‡•ç  p≈´rvatrƒÅsiddham ‚Äî from this s≈´tra to the end of
 --           the text, a rule is *asiddha*, "as if not having taken
 --           effect", with respect to everything that PRECEDES it.  The
 --           blindness is one-way and ordered: later output is invisible
 --           backwards.
---   8.2.30  ‡‡ã‡ ‡ï‡‡  co ku ‚î cU becomes kU at pada-end.
---   8.2.39  ‡‡≤‡æ‡ ‡‡‡ã‡Ω‡®‡‡‡  jhal jao 'nte ‚î jhaL becomes ja at pada-end.
---   8.4.56  ‡µ‡æ‡Ω‡µ‡‡æ‡®‡  v'vasne ‚î jhaL becomes caR in pause.
+--   8.2.30  ‡§ö‡•ã‡§É ‡§ï‡•Å‡§É  co·∏• ku·∏• ‚Äî cU becomes kU at pada-end.
+--   8.2.39  ‡§ù‡§≤‡§æ‡§Ç ‡§ú‡§∂‡•ã‡§Ω‡§®‡•ç‡§§‡•á  jhalƒÅ·πÉ ja≈õo 'nte ‚Äî jhaL becomes ja≈ö at pada-end.
+--   8.4.56  ‡§µ‡§æ‡§Ω‡§µ‡§∏‡§æ‡§®‡•á  vƒÅ'vasƒÅne ‚Äî jhaL becomes caR in pause.
 --
 -- Ktyyana's vrttikas c. 250 BCE and Patajali's *Mahbhya* c. 150 BCE
 -- are the commentarial layer on 8.2.1; they are named, not used, here.
 --
 -- WHAT IS ALREADY IN THE CORPUS.  Three things:
 --
---   `Asiddhatva.agda`     ‚î 8.2.1 buys TERMINATION: the unstratified
+--   `Asiddhatva.agda`     ‚Äî 8.2.1 buys TERMINATION: the unstratified
 --                           system has no normal form and, sharply, no
 --                           strict order orients it at all.
---   `AsiddhavatRegime.agda` ‚î 8.2.1 (order) and 6.4.22 (saha) are
+--   `AsiddhavatRegime.agda` ‚Äî 8.2.1 (order) and 6.4.22 (saha) are
 --                           different devices and the choice CHANGES THE
 --                           DERIVED FORM.
---   `ElsewhereCondition.agda` ‚î utsarga/apavda is logically INDEPENDENT
+--   `ElsewhereCondition.agda` ‚Äî utsarga/apavƒÅda is logically INDEPENDENT
 --                           of 1.4.2, proved by an equivariance argument.
 --
 -- So termination, regime and the metarule ordering are done, and none of
 -- them is redone here.  What was not here is the structure the blindness
 -- HAS.  And the instrument for it was already in the corpus and had never
 -- been pointed at Pini: `Residue_TheCompositesRemainderIsTheSecondRemainder
--- SummedOverTheFirstAndTheAreasAdd.‡‡‡` decomposes the fiber of a
--- composite.  The tripd IS a composite ‚î 8.2.1 makes the enumeration
--- order into function composition ‚î so its blindness decomposes, rule by
+-- SummedOverTheFirstAndTheAreasAdd.‡§∂‡•á‡§∑` decomposes the fiber of a
+-- composite.  The tripƒÅdƒ´ IS a composite ‚Äî 8.2.1 makes the enumeration
+-- order into function composition ‚Äî so its blindness decomposes, rule by
 -- rule, by a lemma already proved.  It is imported below, not restated.
 --
 -- THE READING, stated before the code so it can be disagreed with.
@@ -50,35 +50,35 @@
 --     THE EARLIER RULE'S CONDITION IS NOT A CONDITION ON THE LATER FORM.
 --
 --   It does not merely give a different answer there; it has no value
---   there.  `‡‡µ‡∞‡ã‡‡‡æ‡‡æ‡µ‡` proves that: there is NO Bool-valued function on
+--   there.  `‡§Ö‡§µ‡§∞‡•ã‡§π‡§£‡§æ‡§≠‡§æ‡§µ‡§É` proves that: there is NO Bool-valued function on
 --   the later forms that agrees with 8.2.39's applicability, because
 --   8.4.56 maps two forms that disagree about it to one form.  The two
 --   disagreeing forms are the two points of one fiber, exhibited in
---   `‡‡®‡‡‡‡‡‡¶‡`.  So the fiber is not a metaphor for the invisible part ‚î
+--   `‡§§‡§®‡•ç‡§§‡•Å‡§≠‡•á‡§¶‡§É`.  So the fiber is not a metaphor for the invisible part ‚Äî
 --   it is, on the nose, the set of things the later form fails to
 --   distinguish, and the earlier rule's condition is exactly a function on
 --   it that does not descend.
 --
 --   The converse is proved too, and it is what makes the first half
---   content rather than an accident: `‡‡∞‡‡µ‡æ‡µ‡∞‡ã‡‡‡Æ‡` shows that if every
+--   content rather than an accident: `‡§∏‡§∞‡•ç‡§µ‡§æ‡§µ‡§∞‡•ã‡§π‡§£‡§Æ‡•ç` shows that if every
 --   fiber is contractible then EVERY predicate descends, so asiddhatva
---   would be doing nothing.  Hence `‡‡‡ø‡¶‡‡ß‡‡‡µ‡‡‡‡‡`: the necessity of 8.2.1
+--   would be doing nothing.  Hence `‡§Ö‡§∏‡§ø‡§¶‡•ç‡§ß‡§§‡•ç‡§µ‡§π‡•á‡§§‡•Å‡§É`: the necessity of 8.2.1
 --   at this site is precisely that some later rule collapses two forms
 --   into one.  It is derived from the two halves.  At this
 --   site both later rules collapse, and both witnesses are exhibited.
 --
 -- PRIOR ART.  Asiddhatva read as rule suspension / level
 -- ordering is documented (Kiparsky, "On the Architecture of Pini's
--- Grammar", 2009; the elsewhere condition, Kiparsky 1973 ‚î a restatement,
+-- Grammar", 2009; the elsewhere condition, Kiparsky 1973 ‚Äî a restatement,
 -- named here after the thing it restates).  Staged and layered rewriting
--- is standard (Bergstra‚ìKlop; Ohlebusch on modularity of termination).
+-- is standard (Bergstra‚ÄìKlop; Ohlebusch on modularity of termination).
 --
 -- THE CARRIER.  The
 -- carrier is the pada-final consonant of `vc` ("speech") along the
 -- trajectory the derivation actually takes, exactly as in
 -- `Asiddhatva.agda`, and the rules are their restrictions to it.  `ca` is
 -- never presented to 8.2.39 in a real derivation because 8.2.30 has
--- already removed it; that is not assumed, it is `‡ï‡‡‡Ø‡æ‡‡ø-‡®-‡‡` below.
+-- already removed it; that is not assumed, it is `‡§ï‡§∏‡•ç‡§Ø‡§æ‡§™‡§ø-‡§®-‡§ö‡§É` below.
 --
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
@@ -101,7 +101,7 @@ private
     ‚Ñì ‚Ñì' : Level
 
 ------------------------------------------------------------------------
--- ‡ß.  The carrier and its separation.
+-- ‡•ß.  The carrier and its separation.
 ------------------------------------------------------------------------
 
 data Rupa : Type where
@@ -127,23 +127,23 @@ eqRupa ga ga = true
 eqRupa _  _  = false
 
 ------------------------------------------------------------------------
--- ‡®.  The three stras, each as the total function it is on this carrier.
+-- ‡•®.  The three s≈´tras, each as the total function it is on this carrier.
 --     Nothing is stated about forms off the trajectory.
 ------------------------------------------------------------------------
 
--- 8.2.30 ‡‡ã‡ ‡ï‡‡
+-- 8.2.30 ‡§ö‡•ã‡§É ‡§ï‡•Å‡§É
 r30 : Rupa ‚Üí Rupa
 r30 ca = ka
 r30 ka = ka
 r30 ga = ga
 
--- 8.2.39 ‡‡≤‡æ‡ ‡‡‡ã‡Ω‡®‡‡‡
+-- 8.2.39 ‡§ù‡§≤‡§æ‡§Ç ‡§ú‡§∂‡•ã‡§Ω‡§®‡•ç‡§§‡•á
 r39 : Rupa ‚Üí Rupa
 r39 ca = ca
 r39 ka = ga
 r39 ga = ga
 
--- 8.4.56 ‡µ‡æ‡Ω‡µ‡‡æ‡®‡
+-- 8.4.56 ‡§µ‡§æ‡§Ω‡§µ‡§∏‡§æ‡§®‡•á
 r56 : Rupa ‚Üí Rupa
 r56 ca = ca
 r56 ka = ka
@@ -157,7 +157,7 @@ after30 x = r56 (r39 x)
 tripada : Rupa ‚Üí Rupa
 tripada x = after30 (r30 x)
 
--- vc ‚¶ vk, on the nose.  (The same derivation `Asiddhatva.agda` runs;
+-- vƒÅc ‚Ü¶ vƒÅk, on the nose.  (The same derivation `Asiddhatva.agda` runs;
 -- reproduced here only so the carrier is anchored to a real form.)
 vak : tripada ca ‚â° ka
 vak = refl
@@ -169,7 +169,7 @@ vak = refl
 ‡§ï‡§∏‡•ç‡§Ø‡§æ‡§™‡§ø-‡§®-‡§ö‡§É ga p = true‚â¢false (sym (cong isCa p))
 
 ------------------------------------------------------------------------
--- ‡©.  8.2.39's applicability, DERIVED from the rule rather than tabulated:
+-- ‡•©.  8.2.39's applicability, DERIVED from the rule rather than tabulated:
 --     "does 8.2.39 still change this form?"
 ------------------------------------------------------------------------
 
@@ -183,7 +183,7 @@ punar-ga : punar ga ‚â° false
 punar-ga = refl
 
 ------------------------------------------------------------------------
--- ‡.  THE FIBER.  Two forms that 8.2.39 tells apart and the later rules
+-- ‡•™.  THE FIBER.  Two forms that 8.2.39 tells apart and the later rules
 --     do not.  This is the invisible part, exhibited, not described.
 ------------------------------------------------------------------------
 
@@ -203,8 +203,8 @@ punar-ga = refl
 ‡§§‡§®‡•ç‡§§‡•å-‡§®-‡§∏‡§ô‡•ç‡§ï‡•ã‡§ö‡§É c = ‡§§‡§®‡•ç‡§§‡•å-‡§®‡•à‡§ï‡§§‡•ç‡§µ‡§Æ‡•ç (isContr‚ÜíisProp c)
 
 ------------------------------------------------------------------------
--- ‡.  THE NON-DESCENT.  8.2.39's condition is not a condition on the form
---     the later rules leave behind.  Not "gives the wrong answer there" ‚î
+-- ‡•´.  THE NON-DESCENT.  8.2.39's condition is not a condition on the form
+--     the later rules leave behind.  Not "gives the wrong answer there" ‚Äî
 --     has no value there.
 ------------------------------------------------------------------------
 
@@ -217,9 +217,9 @@ punar-ga = refl
 ‡§∏‡§Æ‡§§‡§æ‡§≠‡§ô‡•ç‡§ó‡§É = ka , ga , refl , Œª p ‚Üí true‚â¢false p
 
 ------------------------------------------------------------------------
--- ‡.  THE CONVERSE, in general.  Fiber-constancy plus a section is enough
+-- ‡•¨.  THE CONVERSE, in general.  Fiber-constancy plus a section is enough
 --     to descend, and contractible fibers are enough on their own.  These
---     are what make ¬ß‡ content: the obstruction is the fiber and nothing
+--     are what make ¬ß‡•´ content: the obstruction is the fiber and nothing
 --     else.
 ------------------------------------------------------------------------
 
@@ -239,8 +239,8 @@ punar-ga = refl
   , Œª x ‚Üí cong q (cong fst (snd (cf (f x)) (x , refl)))
 
 ------------------------------------------------------------------------
--- ‡.  THE TOWER.  8.2.1 turns the text's order into composition, so the
---     earlier rule's blindness DECOMPOSES over the rules that follow it ‚î
+-- ‡•≠.  THE TOWER.  8.2.1 turns the text's order into composition, so the
+--     earlier rule's blindness DECOMPOSES over the rules that follow it ‚Äî
 --     by the corpus's own composite-remainder lemma, imported, not
 --     restated.  What 8.2.30 cannot see about the final form is what
 --     8.4.56 cannot see, summed over what 8.2.39 cannot see beneath it.
@@ -256,10 +256,10 @@ punar-ga = refl
 ‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§Ö‡§∏‡§ø‡§¶‡•ç‡§ß‡§Æ‡•ç = Residue.‡§∂‡•Ç‡§®‡•ç‡§Ø‡§∂‡•á‡§∑ r56 r39
 
 ------------------------------------------------------------------------
--- ‡Æ.  THE NECESSITY, LOCALISED.  Put ¬ß‡ against ¬ß‡ and ¬ß‡: if no later
+-- ‡•Æ.  THE NECESSITY, LOCALISED.  Put ¬ß‡•´ against ¬ß‡•¨ and ¬ß‡•≠: if no later
 --     rule collapsed anything, 8.2.39's condition would descend and 8.2.1
 --     would be doing nothing at this site.  It does not, so some later
---     rule collapses.  This is derived; it is not a restatement of ¬ß‡.
+--     rule collapses.  This is derived; it is not a restatement of ¬ß‡•™.
 ------------------------------------------------------------------------
 
 ‡§Ö‡§∏‡§ø‡§¶‡•ç‡§ß‡§§‡•ç‡§µ‡§π‡•á‡§§‡•Å‡§É : ¬¨ (((z : Rupa) ‚Üí isContr (fiber r39 z))

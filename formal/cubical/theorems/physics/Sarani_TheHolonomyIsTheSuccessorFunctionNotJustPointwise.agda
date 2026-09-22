@@ -1,12 +1,12 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡∞‡‡ø‡ ‚î the circuit-action IS the successor, as ONE map, not pointwise.
--- Pradakshina proved ‡‡‡∞‡¶‡ï‡‡‡ø‡‡æ x ‚â° suc‚ x for each x (by uaŒ≤, definitional);
--- this is the single function identity ‡‡‡∞‡¶‡ï‡‡‡ø‡‡æ ‚â° suc‚, its funext.
+-- ‡§∏‡§∞‡§£‡§ø‡§É ‚Äî the circuit-action IS the successor, as ONE map, not pointwise.
+-- Pradakshina proved ‡§™‡•ç‡§∞‡§¶‡§ï‡•ç‡§∑‡§ø‡§£‡§æ x ‚â° suc‚Ñ§ x for each x (by uaŒ≤, definitional);
+-- this is the single function identity ‡§™‡•ç‡§∞‡§¶‡§ï‡•ç‡§∑‡§ø‡§£‡§æ ‚â° suc‚Ñ§, its funext.
 --
 -- The OBJECT is the point:
--- the holonomy of S¬'s helix bundle is the successor function on ‚, on the
+-- the holonomy of S¬π's helix bundle is the successor function on ‚Ñ§, on the
 -- nose.
 ------------------------------------------------------------------------
 

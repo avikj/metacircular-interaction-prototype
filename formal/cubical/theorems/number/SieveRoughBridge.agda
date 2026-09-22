@@ -5,15 +5,15 @@
 --
 -- THE BRIDGE FROM `SieveFiber` §4 TO `RoughSplit`.
 --
--- `NaturalMachine/SieveFiber.agda` §4 proves "ε really is one bit" � the
+-- `NaturalMachine/SieveFiber.agda` §4 proves "ε really is one bit" — the
 -- rough part of every n in its 30-element domain is 1 or a prime above
 -- the horizon — by EXHAUSTION at X = 30.
 -- This module builds the bridge.  `RoughSplit.roughSplitSqrt` asks for
 --
---     0 < m,  m � X,  AllPrimeFactorsAbove (isqrt X) m
+--     0 < m,  m ≤ X,  AllPrimeFactorsAbove (isqrt X) m
 --
--- and delivers `(m ≡ 1) � IsPrime m`.  Instantiating `m := rough n`
--- needs `rough n` to be understood, and `rough` is computed � by a
+-- and delivers `(m ≡ 1) ⊎ IsPrime m`.  Instantiating `m := rough n`
+-- needs `rough n` to be understood, and `rough` is computed — by a
 -- fuel-bounded division `_rem_`/`_div_` written inside `SieveFiber`
 -- precisely so that `refl` would normalise, with no specification
 -- attached.  So the bridge is, in order: verify that division, verify
@@ -22,15 +22,15 @@
 -- THE HYPOTHESIS NEITHER MODULE HAS, AND WHY IT IS UNAVOIDABLE.
 --
 -- `SieveFiber` strips the FIXED primes 2, 3, 5.  `RoughSplit` quantifies
--- over primes � `isqrt X`.  These agree only while `isqrt X � 5`, i.e.
--- while X � 35; past that the sieve stops removing everything below the
+-- over primes ≤ `isqrt X`.  These agree only while `isqrt X ≤ 5`, i.e.
+-- while X ≤ 35; past that the sieve stops removing everything below the
 -- horizon and `rough n` may keep a prime the theorem's hypothesis
 -- forbids.  So the honest bridge is CONDITIONAL, and the condition is an
 -- explicit argument:
 --
 --     roughIsOneOrPrime :
---       (X n : �) � 0 < n � n � X � isqrt X � 5
---                 � (rough n ≡ 1) � IsPrime (rough n)
+--       (X n : ℕ) → 0 < n → n ≤ X → isqrt X ≤ 5
+--                 → (rough n ≡ 1) ⊎ IsPrime (rough n)
 --
 -- §8 shows the hypothesis is not slack: at X = 49 (the first X where the
 -- CONCLUSION fails, not merely the proof) `rough 49 ≡ 49`, which is
@@ -41,15 +41,15 @@
 -- WHAT IS CHECKED
 --
 --   §1  `divmod-spec`    `SieveFiber`'s fuel-bounded division, verified:
---       `rem-spec`       `d � (n div d) + (n rem d) ≡ n` and
+--       `rem-spec`       `d · (n div d) + (n rem d) ≡ n` and
 --                        `n rem d < d`, for every `0 < d`.  Both by one
 --                        induction on the fuel.  (`SieveFiber` needed
 --                        these functions to COMPUTE and never said what
 --                        they compute; this is that statement.)
 --
---   §2  `rem0��`         zero remainder IS divisibility, both ways.  The
---       `��rem0`         converse is the uniqueness of the remainder,
---                        proved by comparing the two quotients � no
+--   §2  `rem0→∣`         zero remainder IS divisibility, both ways.  The
+--       `∣→rem0`         converse is the uniqueness of the remainder,
+--                        proved by comparing the two quotients — no
 --                        library `_mod_`, because `SieveFiber`'s
 --                        division is its own.
 --
@@ -60,14 +60,14 @@
 --                        call is justified by `n div p < n`, which is
 --                        where `1 < p` is used.
 --
---   §4  `rough-facts`    `rough n � n`, `0 < rough n`, and none of
---                        2, 3, 5 divides `rough n` � the three strips
+--   §4  `rough-facts`    `rough n ∣ n`, `0 < rough n`, and none of
+--                        2, 3, 5 divides `rough n` — the three strips
 --                        composed, each one's conclusion carried through
 --                        the later ones by divisibility.
 --
---   §5  `prime�5`        a prime at or below 5 is 2, 3 or 5 (4 is
+--   §5  `prime≤5`        a prime at or below 5 is 2, 3 or 5 (4 is
 --       `rough-primes-above`  refuted by its own divisor 2), hence every
---                        prime factor of `rough n` exceeds 5 � which is
+--                        prime factor of `rough n` exceeds 5 — which is
 --                        `RoughSplit.AllPrimeFactorsAbove 5 (rough n)`,
 --                        the hypothesis the bridge needed.
 --
@@ -76,9 +76,9 @@
 --                            two disjuncts are genuinely "1" and "a
 --                            prime above the horizon".
 --
---   §7  `roughSplit-30`  SieveFiber §4 AS A COROLLARY, at X = 30 �
---       `roughSplit-30�` and stronger than §4 in two ways: it holds for
---                        EVERY n with 0 < n � 30, not only the thirty
+--   §7  `roughSplit-30`  SieveFiber §4 AS A COROLLARY, at X = 30 —
+--       `roughSplit-30′` and stronger than §4 in two ways: it holds for
+--                        EVERY n with 0 < n ≤ 30, not only the thirty
 --                        listed in `domain`, and its conclusion is
 --                        `IsPrime`, a theorem about the number, rather
 --                        than `Ω (rough n) ≡ 1`, a value computed by a
@@ -126,7 +126,7 @@ open import WalkJumps using (IsPrime ; 0<→≢0)
 k<k+d : (k d : ℕ) → 0 < d → k < k + d
 k<k+d k d 0<d = subst (_≤ k + d) (+-comm k 1) (≤-k+ {k = k} 0<d)
 
--- x � x + y, in the �-form the library's `_�_` actually is
+-- x ≤ x + y, in the Σ-form the library's `_≤_` actually is
 ≤-self+ : (x y : ℕ) → x ≤ x + y
 ≤-self+ x y = y , +-comm y x
 
@@ -239,7 +239,7 @@ rem-spec d n 0<d = divmod-spec n d n 0<d ≤-refl
 -- 2.  ZERO REMAINDER IS DIVISIBILITY.
 --
 -- Forward is the specification read off.  Backward is uniqueness of the
--- remainder: a second factorisation `c � d ≡ n` is compared with the
+-- remainder: a second factorisation `c · d ≡ n` is compared with the
 -- computed one by comparing `c` with the computed quotient, and each
 -- side of that comparison contradicts one of the two facts in §1.
 ------------------------------------------------------------------------
@@ -251,8 +251,8 @@ rem0→∣ d n 0<d r≡0 =
                 ∙ rem-spec d n 0<d .fst ∣₁
 
 -- Uniqueness of the remainder, as the only statement it is needed in:
--- a second factorisation `c � d ≡ n` forces the computed remainder to
--- vanish.  `c � q` squeezes `r` to 0; `q < c` puts `d` below `r`.
+-- a second factorisation `c · d ≡ n` forces the computed remainder to
+-- vanish.  `c ≤ q` squeezes `r` to 0; `q < c` puts `d` below `r`.
 rem-unique : (d n c q r : ℕ) → c · d ≡ n → d · q + r ≡ n → r < d → r ≡ 0
 rem-unique d n c q r cd≡n spec r<d with splitℕ-≤ c q
 ... | inl c≤q = inj-m+ {m = d · q} (upper ∙ sym (+-zero (d · q)))
@@ -447,7 +447,7 @@ prime≤5 (suc (suc (suc (suc (suc (suc p)))))) pp p≤5 =
     (pred-≤-pred (pred-≤-pred (pred-≤-pred (pred-≤-pred (pred-≤-pred p≤5))))))
 
 -- Every prime factor of `rough n` exceeds 5: it is not 2, 3 or 5 by §4,
--- and by `prime�5` there is nothing else at or below 5.
+-- and by `prime≤5` there is nothing else at or below 5.
 rough-primes-above : (n : ℕ) → 0 < n → AllPrimeFactorsAbove 5 (rough n)
 rough-primes-above n 0<n p pp p∣r with splitℕ-≤ p 5
 ... | inr 5<p = 5<p
@@ -465,7 +465,7 @@ rough-primes-above n 0<n p pp p∣r with splitℕ-≤ p 5
 ------------------------------------------------------------------------
 -- 6.  THE BRIDGE.
 --
--- `isqrt X � 5` is the compatibility hypothesis: below it the primes
+-- `isqrt X ≤ 5` is the compatibility hypothesis: below it the primes
 -- `SieveFiber` strips (2, 3, 5) exhaust the primes `RoughSplit`'s
 -- horizon quantifies over.  Everything else is now in place.
 ------------------------------------------------------------------------
@@ -504,7 +504,7 @@ isqrt-30≤5 = subst (_≤ 5) (sym isqrt-30) ≤-refl
 roughSplit-30 : (n : ℕ) → 0 < n → n ≤ 30 → (rough n ≡ 1) ⊎ IsPrime (rough n)
 roughSplit-30 n 0<n n≤30 = roughIsOneOrPrime 30 n 0<n n≤30 isqrt-30≤5
 
--- �and in the form `SieveFiber` §4 states it: 1, or a prime above 5.
+-- …and in the form `SieveFiber` §4 states it: 1, or a prime above 5.
 roughSplit-30′ : (n : ℕ) → 0 < n → n ≤ 30
                → (rough n ≡ 1) ⊎ (IsPrime (rough n) × (5 < rough n))
 roughSplit-30′ n 0<n n≤30 =
@@ -525,13 +525,13 @@ rough-30 = roughSplit-30′ 30 (suc-≤-suc zero-≤) (0 , refl)
 ------------------------------------------------------------------------
 -- 8.  SHARPNESS:  the horizon bound is not slack.
 --
--- Drop `isqrt X � 5` and the CONCLUSION fails, not merely the proof:
+-- Drop `isqrt X ≤ 5` and the CONCLUSION fails, not merely the proof:
 -- at X = n = 49 the sieve strips nothing (49 is coprime to 2, 3, 5), so
 -- `rough 49 ≡ 49`, which is neither 1 nor prime.  `RoughSplit` already
 -- owns both refutations (they are its own §6 sharpness witnesses), and
 -- `isqrt 49 ≡ 7` is the hypothesis that fails.
 --
--- Honest gap: 36 � X � 48 also violates `isqrt X � 5` while the
+-- Honest gap: 36 ≤ X ≤ 48 also violates `isqrt X ≤ 5` while the
 -- conclusion still holds there.  The bound is sharp for THIS proof and
 -- the conclusion is false from 49 on; between the two this module says
 -- nothing.

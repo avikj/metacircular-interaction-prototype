@@ -1,55 +1,55 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
--- ‡‡Æ-‡‡æ‡∞ ‚î equal weight.  Compound built here (sama: equal; bhra:
+-- ‡§∏‡§Æ-‡§≠‡§æ‡§∞ ‚Äî equal weight.  Compound built here (sama: equal; bhƒÅra:
 -- load/weight).  The doctrine terms
 -- inside are sourced: arpita/anarpita from Umsvti, Tattvrthastra 5.31
--- (c. 2nd‚ì5th c. CE); durnaya from Siddhasena Divkara, Sanmatitarka 1.21.
+-- (c. 2nd‚Äì5th c. CE); durnaya from Siddhasena DivƒÅkara, Sanmatitarka 1.21.
 -- Gleason 1957 is the later restatement-target for comparison, named as
 -- such and not as the frame.
 --
 -- This states the uniqueness conjecture as an Agda type over the
 -- existing Sthana/verdict machinery (YugaParivartana ¬ß4): the Born-weight
 -- uniqueness program at the corpus's own
--- finite scale, the Peres‚ìMermin square of PMNoSection (six contexts,
--- nine F‚ cells, no global section ‚î the 512-fold exhaustion already runs
+-- finite scale, the Peres‚ÄìMermin square of PMNoSection (six contexts,
+-- nine F‚ÇÇ cells, no global section ‚Äî the 512-fold exhaustion already runs
 -- in the typechecker there).
 --
 -- A SCHEDULER assigns a natural weight to every local section of every
 -- context.  The machine's two vows, phrased over that square:
 --
---   ahis   ‚î no live standpoint is silently destroyed: every local
---              section satisfying its context's parity carries weight ‚â 1
+--   ahi·πÉsƒÅ   ‚Äî no live standpoint is silently destroyed: every local
+--              section satisfying its context's parity carries weight ‚â• 1
 --              (AvaktavyaPrasava's Vivada: the undischarged claim is kept,
---              ‡Ø‡‡ ‡® ‡µ‡ø‡‡‡‡ ‡‡‡ ‡∞‡ï‡‡‡‡Ø‡‡).
---   aneknta ‚î no standpoint is absolutized: what a CELL receives must not
+--              ‡§Ø‡§§‡•ç ‡§® ‡§µ‡§ø‡§≠‡§ú‡§§‡•á ‡§§‡§§‡•ç ‡§∞‡§ï‡•ç‡§∑‡•ç‡§Ø‡§§‡•á).
+--   anekƒÅnta ‚Äî no standpoint is absolutized: what a CELL receives must not
 --              depend on which context asks.  Each cell (i,j) is anarpita
 --              in its row and in its column; the scheduler may assert of
---              it only what both contexts assert ‚î its row-marginal and
+--              it only what both contexts assert ‚Äî its row-marginal and
 --              column-marginal agree, and no context's gross weight
 --              outranks another's.
 --
 -- WHAT IS PROVED HERE (the existence half, run by the typechecker): the
--- equal-weight scheduler ‚î weight 1 on every live section, the Born
--- weights of the tracial state ‚î satisfies both vows: every gross weight
+-- equal-weight scheduler ‚Äî weight 1 on every live section, the Born
+-- weights of the tracial state ‚Äî satisfies both vows: every gross weight
 -- is 4 and every marginal is 2, each equality closed by refl.
 --
--- THE CONJECTURE ‚î `SamaBharaNiyama`: every scheduler
--- satisfying both vows is flat ‚î AND ITS REFUTATION.  The
+-- THE CONJECTURE ‚Äî `SamaBharaNiyama`: every scheduler
+-- satisfying both vows is flat ‚Äî AND ITS REFUTATION.  The
 -- counterexample `cex`: weight 4 on the all-false section and 2 elsewhere
 -- in every even context; 1 on the all-true section and 3 elsewhere in the
--- odd one.  Both vows hold ‚î gross 10 in every context, every cell
--- marginal 4, every live weight ‚â 1, all checked by refl ‚î and it is not
--- flat (4 ‚â 1).  `naSamaBharaNiyama` below is the kernel-checked
+-- odd one.  Both vows hold ‚Äî gross 10 in every context, every cell
+-- marginal 4, every live weight ‚â• 1, all checked by refl ‚Äî and it is not
+-- flat (4 ‚â¢ 1).  `naSamaBharaNiyama` below is the kernel-checked
 -- refutation.
 --
 -- WHAT THE FAILURE NAMES, which was the point of stating it: the seam is
 -- the SILENT standpoint.  A section that asserts no cell (all-false in an
--- even context) is invisible to every cell marginal ‚î its weight is
+-- even context) is invisible to every cell marginal ‚Äî its weight is
 -- anarpita to every question the vows ask.  Single-cell marginals bind
 -- only the arpita aspect; the vows as stated do not reach the standpoint
 -- that asserts nothing, so they cannot force Born.  The repair the
--- refutation demands is exact: aneknta must bind at PAIR grain ‚î
--- correlations, not marginals ‚î which is precisely the grain at which the
+-- refutation demands is exact: anekƒÅnta must bind at PAIR grain ‚Äî
+-- correlations, not marginals ‚Äî which is precisely the grain at which the
 -- square's contextuality (PMNoSection's no-global-section) lives.
 
 module SamaBhara_TheTwoVowsOnThePeresMerminSquareAndTheOneWeightSchedulerConjectureStatedAsAType where
@@ -224,7 +224,7 @@ cexAnekanta i j = margCex (row i) j ‚àô sym (margCex (col j) i)
 naSamaBharaNiyama : SamaBharaNiyama ‚Üí ‚ä•
 naSamaBharaNiyama u = snotz (injSuc hit)
   where
-  -- hit : 4 ‚â° 1, hence 3 ‚â° 0 by injSuc, hence ‚ä by snotz
+  -- hit : 4 ‚â° 1, hence 3 ‚â° 0 by injSuc, hence ‚ä• by snotz
   hit : cex r1 (false ‚à∑ false ‚à∑ false ‚à∑ []) ‚â° cex c3 (true ‚à∑ true ‚à∑ true ‚à∑ [])
   hit = u cex cexAhimsa cexSamaTala cexAnekanta
           r1 c3 (false ‚à∑ false ‚à∑ false ‚à∑ []) (true ‚à∑ true ‚à∑ true ‚à∑ [])

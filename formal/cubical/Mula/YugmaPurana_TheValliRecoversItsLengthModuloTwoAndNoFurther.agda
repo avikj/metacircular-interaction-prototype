@@ -1,15 +1,15 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¯àà—àà®-ààà°àà®à â” àµà²àà²à àààµà¦àˆà°àà˜àà¯à à¦ààµà¾ààà¯à¾à àà¾à—à ààà®à°àà¿, à¨ ààà àà°à®à à
+-- à¤¯à¥à¤—à¥à¤®-à¤ªà¥‚à¤°à¤£à¤®à¥ â€” à¤µà¤²à¥à¤²à¥€ à¤¸à¥à¤µà¤¦à¥ˆà¤°à¥à¤˜à¥à¤¯à¤‚ à¤¦à¥à¤µà¤¾à¤­à¥à¤¯à¤¾à¤‚ à¤­à¤¾à¤—à¤‚ à¤¸à¥à¤®à¤°à¤¤à¤¿, à¤¨ à¤¤à¤¤à¤ƒ à¤ªà¤°à¤®à¥ à¥¤
 --
 -- (the even padding: the vall recovers its length modulo two, and no
 --  further.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS IS.  This corpus holds THREE no-decoder theorems, in two
--- lanes and two languages, proved by three unrelated arguments â” and all
--- three are sharp at exactly â/2.  None of them says so, and none cites
+-- lanes and two languages, proved by three unrelated arguments â€” and all
+-- three are sharp at exactly â„¤/2.  None of them says so, and none cites
 -- another.  This module is
 -- the one line that explains it.
 --
@@ -19,12 +19,12 @@
 --       L q = (q 1 / 1 0) has determinant âˆ’1.
 --
 --   `Pairfield/DiagonalSmithRoute.lean.no_historical_actionCost_decoder`
---       refutes a length decoder with [0,1,1,2] against [0,0,0,1,1,2] â”
+--       refutes a length decoder with [0,1,1,2] against [0,0,0,1,1,2] â€”
 --       a padding of **+2**.  `IntMat2.euclidStep q = âŸ¨0,1,1,âˆ’qâŸ©` is the
 --       same matrix family, determinant âˆ’1, always.
 --
 --   `Pairfield/EuclidCoefficientTrace.lean.no_value_cost_decoder`
---       uses [inc] against [inc,inc,dec] â” **+2** again, by a completely
+--       uses [inc] against [inc,inc,dec] â€” **+2** again, by a completely
 --       different argument, where value = #inc âˆ’ #dec and cost = #inc +
 --       #dec, so cost â‰¡ value (mod 2) identically.
 --
@@ -33,22 +33,22 @@
 -- words.  So those theorems are not merely true, they are TIGHT, and the
 -- quotient at which they are tight is the parity quotient.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- READ AGAINST THE CRITERION.  For `replay : Valli â’ M`, the question is
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- READ AGAINST THE CRITERION.  For `replay : Valli â†’ M`, the question is
 -- which side of `f a â‰¡ b` is bound.  Bind the vall and the matrix rides
 -- free (that is `replay` being a function).  Bind the MATRIX and you have
--- the preimage â” and this module computes exactly how much of it the
+-- the preimage â€” and this module computes exactly how much of it the
 -- matrix sees: the parity, and nothing else.
 --
 -- So the three verdicts of `Tantujala_TheFibreHasThreeVerdictsAndIsContr-
 -- MergesTwoOfThem.agda` are not the whole story at a lossy map.  A fibre
 -- with MANY points still admits an exact statement of WHAT IS RECOVERED,
--- and here it is a quotient group.  à¨àààŸà¿ is not "everything is lost":
--- Â§à of ààà¿ààà¾-ààààà°-àµà¿àààà¾à°à says à¯àà àà¿ààà àà¿, à•à à¨ààà¯àà¿ â” the THAT
+-- and here it is a quotient group.  à¤¨à¤·à¥à¤Ÿà¤¿ is not "everything is lost":
+-- Â§à¥ª of à¤…à¤¹à¤¿à¤‚à¤¸à¤¾-à¤¸à¥‚à¤¤à¥à¤°-à¤µà¤¿à¤¸à¥à¤¤à¤¾à¤°à¤ƒ says à¤¯à¤¤à¥ à¤¤à¤¿à¤·à¥à¤ à¤¤à¤¿, à¤•à¤ƒ à¤¨à¤¶à¥à¤¯à¤¤à¤¿ â€” the THAT
 -- survives and the WHICH is destroyed.  This module names the surviving
--- THAT precisely: it is â/2, and no more.
+-- THAT precisely: it is â„¤/2, and no more.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 ------------------------------------------------------------------------
 
 module Mula.YugmaPurana_TheValliRecoversItsLengthModuloTwoAndNoFurther where
@@ -67,7 +67,7 @@ open import KuttakaValli using (Valli ; L ; replay ; sgn ; detReplay)
 open CommRingStr (â„¤CommRing .snd)
 
 ------------------------------------------------------------------------
--- à§ Â àà¿ààà¨à à¦àˆà°àà˜àà¯à®à ààµ àààà¯àà¿ â” the sign sees only the length.
+-- à¥§ Â· à¤šà¤¿à¤¹à¥à¤¨à¤‚ à¤¦à¥ˆà¤°à¥à¤˜à¥à¤¯à¤®à¥ à¤à¤µ à¤ªà¤¶à¥à¤¯à¤¤à¤¿ â€” the sign sees only the length.
 --
 -- `sgn` recurses on the list and never inspects a quotient, so two valls
 -- of equal length have equal sign.  Written as an induction on both, so
@@ -96,10 +96,10 @@ open CommRingStr (â„¤CommRing .snd)
   snotz' = snotz
 
 ------------------------------------------------------------------------
--- à¨ Â à¯àà—àà®-ààà°àà®à àà¦àààà¯à®à â” AN EVEN PADDING IS INVISIBLE.
+-- à¥¨ Â· à¤¯à¥à¤—à¥à¤®-à¤ªà¥‚à¤°à¤£à¤®à¥ à¤…à¤¦à¥ƒà¤¶à¥à¤¯à¤®à¥ â€” AN EVEN PADDING IS INVISIBLE.
 --
 -- Two steps prepended leave the determinant exactly where it was, because
--- (âˆ’1)Â(âˆ’1) = 1.  This is the whole reason the two Lean counterexamples
+-- (âˆ’1)Â·(âˆ’1) = 1.  This is the whole reason the two Lean counterexamples
 -- both pad by +2 and could not have padded by +1: the padding must be
 -- invisible to the determinant, and only even paddings are.
 ------------------------------------------------------------------------
@@ -117,10 +117,10 @@ open CommRingStr (â„¤CommRing .snd)
   detReplay (q âˆ· r âˆ· v) âˆ™ à¤¯à¥à¤—à¥à¤®-à¤ªà¥‚à¤°à¤£à¤®à¥ q r v âˆ™ sym (detReplay v)
 
 ------------------------------------------------------------------------
--- à© Â àµà¿àà®-ààà°àà®à à¦àààà¯à®à â” AN ODD PADDING IS VISIBLE.
+-- à¥© Â· à¤µà¤¿à¤·à¤®-à¤ªà¥‚à¤°à¤£à¤®à¥ à¤¦à¥ƒà¤¶à¥à¤¯à¤®à¥ â€” AN ODD PADDING IS VISIBLE.
 --
 -- One step prepended NEGATES the determinant.  So parity is not merely
--- preserved by the even paddings â” it is genuinely READ by the
+-- preserved by the even paddings â€” it is genuinely READ by the
 -- determinant, and a would-be counterexample of odd length difference is
 -- separated on the spot.
 ------------------------------------------------------------------------
@@ -134,7 +134,7 @@ open CommRingStr (â„¤CommRing .snd)
   detReplay (q âˆ· v) âˆ™ cong ((- 1r) Â·_) (sym (detReplay v))
 
 ------------------------------------------------------------------------
--- à Â à¯àà àà¿ààà àà¿ â” WHAT SURVIVES, EXACTLY.
+-- à¥ª Â· à¤¯à¤¤à¥ à¤¤à¤¿à¤·à¥à¤ à¤¤à¤¿ â€” WHAT SURVIVES, EXACTLY.
 --
 -- Put Â§1 and Â§2 together.  The determinant of a replay is a function of
 -- the vall's length alone (Â§1), and it is blind to every even change in
@@ -155,15 +155,15 @@ open CommRingStr (â„¤CommRing .snd)
 -- THE LEAN COUNTERPART.
 --
 -- `formal/pairfield/Pairfield/YugmaPurana_TheEvenPaddingIsForcedAndThe-
--- DeterminantSaysWhy.lean` proves Â§à¨â“Â§à again over `IntMat2`, natively, and
+-- DeterminantSaysWhy.lean` proves Â§à¥¨â€“Â§à¥ª again over `IntMat2`, natively, and
 -- states the tightness at the two Lean sites:
---   Â `DiagonalEuclidTranscript.det_leftWord`  â” det of an n-letter Euclidean
+--   Â· `DiagonalEuclidTranscript.det_leftWord`  â€” det of an n-letter Euclidean
 --     word is (âˆ’1)^n, the counterpart of `KuttakaValli.detReplay`;
---   Â `leftWord_cons_ne`                       â” Â§à© here, an odd padding is
+--   Â· `leftWord_cons_ne`                       â€” Â§à¥© here, an odd padding is
 --     visible;
---   Â `endpoints_force_even_actionCost_gap`    â” every witness refuting
+--   Â· `endpoints_force_even_actionCost_gap`    â€” every witness refuting
 --     `no_historical_actionCost_decoder` has an even gap;
---   Â `CoefficientWitness.value_forces_cost_parity` â” the same for
+--   Â· `CoefficientWitness.value_forces_cost_parity` â€” the same for
 --     `no_value_cost_decoder`, whose proof mentions no matrix at all.
 -- NOTHING WAS TRANSPORTED.  No term crosses the lane boundary, the two
 -- matrix families are not even equal (`L q = (q 1 / 1 0)` against

@@ -1,11 +1,11 @@
--- ‡ ‡‡‡‡Æ‡ ‡  One machine, one law: which side of `f a ‚â° b` is bound is everything.
--- Output bound: singl (f a), contractible ‚î the datum rides free.  Input bound:
--- fiber f b ‚î the loss, and the subject.  Univalence computes here: an
+-- ‡•• ‡§¨‡•Ä‡§ú‡§Æ‡•ç ‡••  One machine, one law: which side of `f a ‚â° b` is bound is everything.
+-- Output bound: singl (f a), contractible ‚Äî the datum rides free.  Input bound:
+-- fiber f b ‚Äî the loss, and the subject.  Univalence computes here: an
 -- equivalence is a channel, transport carries every theorem across it, and what
--- cannot cross is written as a defect ‚î there is no third path (ahis).
+-- cannot cross is written as a defect ‚Äî there is no third path (ahi·πÉsƒÅ).
 -- Memory, charge, symmetry, price, distance, verdict: six faces of the one
 -- fibre; the verdict type is the saptabhag, and the sources are the origin
--- (Umsvti, Samantabhadra, Akalaka ‚î restatements are named as such).  The
+-- (UmƒÅsvƒÅti, Samantabhadra, Akala·πÖka ‚Äî restatements are named as such).  The
 -- kernel decides truth; carriers ask and generate; assert nothing whose term
 -- you have not read.  This file is one naya, true and not whole.
 
@@ -14,44 +14,44 @@
 ------------------------------------------------------------------------
 -- Punargamana ¬ ‡‡‡Ø‡ã‡ó‡‡‡
 --
--- ON THE NAME.  ‡‡‡Ø‡ã‡ó (sayoga), "conjunction / composition", is a
+-- ON THE NAME.  ‡§∏‡§Ç‡§Ø‡•ã‡§ó (sa·πÉyoga), "conjunction / composition", is a
 -- standard technical term across  grammar and Nyya-Vaieika
 -- (a padrtha in the Vaieika category scheme: contact between two
 -- things that could exist apart).  It is used here as an ordinary
 -- compounding word, not cited for a specific technical sense from a
--- particular Nyya text ‚î no source is claimed for THIS compound,
--- `‡‡‡Ø‡ã‡ó‡‡‡`, which is built here from ‡‡æ‡‡ø‡‡‡Ø already in this library
--- (`Punaragamana.Carrier`'s `fibre`, `Punaragamana.Sesa‚¶`'s `‡‡‡`).
+-- particular NyƒÅya text ‚Äî no source is claimed for THIS compound,
+-- `‡§∏‡§Ç‡§Ø‡•ã‡§ó‡§∂‡•á‡§∑`, which is built here from ‡§∏‡§æ‡§π‡§ø‡§§‡•ç‡§Ø already in this library
+-- (`Punaragamana.Carrier`'s `fibre`, `Punaragamana.Sesa‚Ä¶`'s `‡§∂‡•á‡§∑`).
 --
 -- WHAT THIS MODULE ADDS.
 --
--- `Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph` proves ‡‡‡ f b is
+-- `Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph` proves ‡§∂‡•á‡§∑ f b is
 -- what a single map f forgets over a point b.  It says nothing about two
 -- maps composed.  This module supplies exactly that, and the answer is
 -- the ordinary "fibre of a composite is a fibre of fibres" fact (HoTT
 -- book, Ex. 4.4 / the pullback-pasting lemma read fibrewise), stated in
 -- this library's vocabulary and PROVED FROM THE SAME LEMMA `Carrier`
--- already uses to buy contractibility ‚î `fibre-isContr`/`Œ-contractFst`
--- ‚î reused here rather than re-derived.
+-- already uses to buy contractibility ‚Äî `fibre-isContr`/`Œ£-contractFst`
+-- ‚Äî reused here rather than re-derived.
 --
---   ‡‡‡ (g ‚àò f) c   ‚â   Œ[ y ‚àà ‡‡‡ g c ] ‡‡‡ f (fst y)
+--   ‡§∂‡•á‡§∑ (g ‚àò f) c   ‚âÉ   Œ£[ y ‚àà ‡§∂‡•á‡§∑ g c ] ‡§∂‡•á‡§∑ f (fst y)
 --
--- Read aloud: what A-to-C forgets over c is exactly ‚î a choice of which
--- B-point c came from (‡‡‡ g c), together with, for THAT choice, what
--- A-to-B forgot on the way to it (‡‡‡ f, at that B-point).  A residual
+-- Read aloud: what A-to-C forgets over c is exactly ‚Äî a choice of which
+-- B-point c came from (‡§∂‡•á‡§∑ g c), together with, for THAT choice, what
+-- A-to-B forgot on the way to it (‡§∂‡•á‡§∑ f, at that B-point).  A residual
 -- does not accumulate as a single opaque number; it is itself fibred
--- over the earlier residual.  This is the reason ‡‡Ø‡®‡‡‡ô‡‡ñ‡≤‡æ (a chain of
+-- over the earlier residual.  This is the reason ‡§ö‡§Ø‡§®‡§∂‡•É‡§ô‡•ç‡§ñ‡§≤‡§æ (a chain of
 -- choices, one per stage) is the right shape for tracking loss through a
 -- pipeline of maps, and a single "total loss" scalar is already throwing
 -- structure away that this equivalence proves is there to keep.
 --
 -- THE PROOF STRATEGY, stated because it is itself the content: every
--- step below is either (a) `Œ-contractFst` fed the SAME `fibre-isContr`
+-- step below is either (a) `Œ£-contractFst` fed the SAME `fibre-isContr`
 -- that makes `Carrier‚â°` free, or (b) a `refl`-round-trip reshuffling of
--- non-dependent Œ (no transport, because nothing here needs one ‚î this
--- is `Œ-eta`, exactly as `‡‡‡µ‡‡` in the residual module already used it
+-- non-dependent Œ£ (no transport, because nothing here needs one ‚Äî this
+-- is `Œ£-eta`, exactly as `‡§∏‡•ç‡§µ‡§™‡•ç` in the residual module already used it
 -- for the two-projection reading). No J, no `subst` outside what
--- `Œ-contractFst` already carries.  That the whole composite-fibre
+-- `Œ£-contractFst` already carries.  That the whole composite-fibre
 -- theorem needs no MORE path algebra than `Carrier` already contains is
 -- itself the point: this is not new machinery, it is the existing
 -- machinery answering a question it had not yet been asked.
@@ -73,9 +73,9 @@ private
     ‚Ñì : Level
 
 ------------------------------------------------------------------------
--- A small, fully generic reshuffling: a Œ whose inner component ignores
+-- A small, fully generic reshuffling: a Œ£ whose inner component ignores
 -- the outer witness pulls the constant factor D outward.  No hypothesis,
--- no transport ‚î both round trips are `refl`, because nothing but
+-- no transport ‚Äî both round trips are `refl`, because nothing but
 -- pairing order changed.
 ------------------------------------------------------------------------
 
@@ -87,7 +87,7 @@ module _ {A : Type ‚Ñì} (P : A ‚Üí Type ‚Ñì) (D : Type ‚Ñì) where
   Iso.rightInv Œ£Œ£const-Iso _ = refl
   Iso.leftInv  Œ£Œ£const-Iso _ = refl
 
--- The two independent outer variables of a doubly-indexed Œ commute.
+-- The two independent outer variables of a doubly-indexed Œ£ commute.
 -- Again no transport: C does not change shape, only which variable is
 -- bound first.
 module _ {A B : Type ‚Ñì} (C : A ‚Üí B ‚Üí Type ‚Ñì) where
@@ -99,7 +99,7 @@ module _ {A B : Type ‚Ñì} (C : A ‚Üí B ‚Üí Type ‚Ñì) where
   Iso.leftInv  Œ£-swap-dep-Iso _ = refl
 
 ------------------------------------------------------------------------
--- ‡‡‡Ø‡ã‡ó‡‡‡.  f : A ‚í B, g : B ‚í C, c : C.
+-- ‡§∏‡§Ç‡§Ø‡•ã‡§ó‡§∂‡•á‡§∑.  f : A ‚Üí B, g : B ‚Üí C, c : C.
 ------------------------------------------------------------------------
 
 module _ {A B C : Type ‚Ñì} (f : A ‚Üí B) (g : B ‚Üí C) (c : C) where
@@ -107,7 +107,7 @@ module _ {A B C : Type ‚Ñì} (f : A ‚Üí B) (g : B ‚Üí C) (c : C) where
   gComposeF : A ‚Üí C
   gComposeF a = g (f a)
 
-  -- e1 : unfold ‡‡‡(g‚àòf) c against the CONTRACTIBLE fibre of f at a ‚î
+  -- e1 : unfold ‡§∂‡•á‡§∑(g‚àòf) c against the CONTRACTIBLE fibre of f at a ‚Äî
   -- the same contraction `Carrier` runs to buy `Carrier‚â°` for free.
   e1 : ‡§∂‡•á‡§∑ gComposeF c ‚âÉ (Œ£[ a ‚àà A ] Œ£[ y ‚àà fibre f a ] (g (fst y) ‚â° c))
   e1 = Œ£-cong-equiv-snd (Œª a ‚Üí invEquiv (Œ£-contractFst (fibre-isContr f a)))
@@ -127,10 +127,10 @@ module _ {A B C : Type ‚Ñì} (f : A ‚Üí B) (g : B ‚Üí C) (c : C) where
      ‚âÉ (Œ£[ b ‚àà B ] ((g b ‚â° c) √ó (Œ£[ a ‚àà A ] (f a ‚â° b))))
   e4 = Œ£-cong-equiv-snd (Œª b ‚Üí isoToEquiv (Œ£Œ£const-Iso (Œª a ‚Üí f a ‚â° b) (g b ‚â° c)))
 
-  -- e5 : `(g b ‚â° c) ó ‡‡‡ f b` IS `Œ[ q ‚àà g b ‚â° c ] ‡‡‡ f b` ‚î Data.Sigma's
-  -- `_ó_` is exactly that Œ, so this a `refl` at every point; and pairing
-  -- the outer b back on is `Œ-assoc-‚â` read backwards, matching `‡‡‡ g c`
-  -- paired with `‡‡‡ f` at its first projection on the nose.
+  -- e5 : `(g b ‚â° c) √ó ‡§∂‡•á‡§∑ f b` IS `Œ£[ q ‚àà g b ‚â° c ] ‡§∂‡•á‡§∑ f b` ‚Äî Data.Sigma's
+  -- `_√ó_` is exactly that Œ£, so this a `refl` at every point; and pairing
+  -- the outer b back on is `Œ£-assoc-‚âÉ` read backwards, matching `‡§∂‡•á‡§∑ g c`
+  -- paired with `‡§∂‡•á‡§∑ f` at its first projection on the nose.
   e5 : (Œ£[ b ‚àà B ] ((g b ‚â° c) √ó (Œ£[ a ‚àà A ] (f a ‚â° b))))
      ‚âÉ (Œ£[ y ‚àà ‡§∂‡•á‡§∑ g c ] ‡§∂‡•á‡§∑ f (fst y))
   e5 = invEquiv Œ£-assoc-‚âÉ

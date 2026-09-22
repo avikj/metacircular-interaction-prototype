@@ -3,27 +3,27 @@
 -- ProjectionChargeAudit2: the general descent criterion, machine-checked.
 --
 -- Context.  `ProjectionChargeAudit.agda` certifies two *instances*:
---   (+) local coordinate plus total charge is an equivalence on Bool � Bool;
+--   (+) local coordinate plus total charge is an equivalence on Bool × Bool;
 --   (−) a charge separating two quotient-identified points cannot descend
 --       (`noChargeDescent`, the eliminator-level form of the sieve witness
 --       1 ~ 7 with opposite Liouville charges).
 --
 -- machine-check, the boxed criterion
 --
---     (� c�, c� ∘ [_] = c)  ⟺  (� x y, R x y � c x = c y)
+--     (∃ c̄, c̄ ∘ [_] = c)  ⟺  (∀ x y, R x y → c x = c y)
 --
 -- for a set-valued charge on a set quotient.  This module closes that gap
 -- and sharpens it: not only is descent *equivalent* to relation-respect,
--- the descent datum is a *proposition* � a charge descends in at most one
+-- the descent datum is a *proposition* — a charge descends in at most one
 -- way, so descent is a property of the charge, never extra structure.
 -- (The note's §5 warning that "freely adjoining paths does not evade"
 -- the criterion is exactly the propositional truncation of this fact.)
 --
 -- New checked statements:
---   Descent.descends�respects   descent forces relation-respect
---   Descent.respects�descends   relation-respect suffices (via SQ.rec)
+--   Descent.descends→respects   descent forces relation-respect
+--   Descent.respects→descends   relation-respect suffices (via SQ.rec)
 --   Descent.isPropDescends      the descended charge is unique
---   Descent.descentCriterion    Descends � Respects  (equivalence of props)
+--   Descent.descentCriterion    Descends ≃ Respects  (equivalence of props)
 --
 -- Instances re-derived from the general theorem (no fresh case analysis):
 --   noChargeDescent'            the module-1 negative result, now a
@@ -62,7 +62,7 @@ module Descent {ℓX ℓR ℓC : Level}
   Respects = (x y : X) → R x y → c x ≡ c y
 
   -- The charge descends: a map on the quotient restricting to c on
-  -- representatives.  This is the �-type whose negation (at c = id) is
+  -- representatives.  This is the Σ-type whose negation (at c = id) is
   -- `PCA.NoChargeDescent`.
   Descends : Type (ℓ-max (ℓ-max ℓX ℓR) ℓC)
   Descends = Σ[ cbar ∈ (X / R → C) ] ((x : X) → cbar [ x ] ≡ c x)
@@ -118,7 +118,7 @@ noChargeDescent' d = identityChargeClash (IdDescent.descends→respects d)
 -- Positive instance: the gauge-invariant observable descends.
 -- On the two-bit state of module 1, quotient by equality of *total charge*
 -- a ⊕ b.  The total charge tautologically respects this relation, so by
--- the criterion it descends � and `isPropDescends` says the descended
+-- the criterion it descends — and `isPropDescends` says the descended
 -- observable is the unique one restricting to a ⊕ b.  Together with
 -- `noChargeDescent'` this is the full dichotomy of the audit note:
 -- invariant charges descend uniquely, non-invariant charges not at all.
@@ -144,23 +144,23 @@ totalChargeDescends = GaugeDescent.respects→descends totalChargeRespects
 -- justified).  Each is a checked-Agda target, not prose:
 --
 -- 1. Free-action collapse (the §5 kill criterion, positive form): for a
---    group G acting freely on a set X, the action groupoid � X // G �� is
+--    group G acting freely on a set X, the action groupoid ∥ X // G ∥₁ is
 --    equivalent to the set quotient X / orbit-relation.  Concrete first
---    case: the �-action on � by +6 has quotient equivalent to Fin 6, with
---    no surviving loop � i.e. the HIT adds no content, matching §5's
+--    case: the ℤ-action on ℤ by +6 has quotient equivalent to Fin 6, with
+--    no surviving loop — i.e. the HIT adds no content, matching §5's
 --    "trivial stabilizers" clause.
 --
 -- 2. Cocycle descent (the §5 positive edge): for a charge valued in a
---    group C and a *cocycle* � : � x y � R x y � C twisting the descent
---    equation to  cbar [ y ] ≡ � x y r � cbar [ x ], descent exists iff �
+--    group C and a *cocycle* φ : ∀ x y → R x y → C twisting the descent
+--    equation to  cbar [ y ] ≡ φ x y r · cbar [ x ], descent exists iff φ
 --    is a coboundary on each R-component; the obstruction class is the
---    monodromy of � around loops of the relation graph.  The criterion
---    above is the special case � ≡ 1.  This is the machinery the C*-side
+--    monodromy of φ around loops of the relation graph.  The criterion
+--    above is the special case φ ≡ 1.  This is the machinery the C*-side
 --    gauge charge (§5 item 2) needs before any HIT encoding is justified.
 --
 -- 3. Effectivity: for a propositional equivalence relation R, upgrade
---    `descends�respects` to the statement that [ x ] ≡ [ y ] implies
---    � R x y �� (cubical library: `effective`), making the criterion an
+--    `descends→respects` to the statement that [ x ] ≡ [ y ] implies
+--    ∥ R x y ∥₁ (cubical library: `effective`), making the criterion an
 --    equivalence between descent and factoring through the *path* relation
 --    of the quotient, not merely the generating relation.
 -- ---------------------------------------------------------------------------

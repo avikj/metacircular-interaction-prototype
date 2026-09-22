@@ -1,21 +1,21 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ���������� � ����������-������� ����� ���������, ��������� ����������-�������������� ������� �
--- Svarnasima � the golden boundary: the vall of two consecutive
+-- स्वर्णसीमा — विरहाङ्क-युग्मे वल्ली दीर्घतमा, सर्ववल्ली विरहाङ्क-व्युत्क्रमात् ह्रस्वा ।
+-- Svarnasima — the golden boundary: the vallī of two consecutive
 -- Virahka numbers is the longest, and every vall is shorter than the
 -- Virahka inverse of its divisor.
 --
 -- THE SETTING.  `KuttakaSamapti_TheValliIsFiniteForEveryPair`
--- proves that ryabhaa's pulverizer (�����������, ��������� �����, 499 CE)
+-- proves that Āryabhaṭa's pulverizer (आर्यभटीयम्, गणितपादः ३२–३३, 499 CE)
 -- terminates on every pair of naturals and that its column has at most b
 -- rows.
--- The true worst case is logarithmic in b � attained on
+-- The true worst case is logarithmic in b — attained on
 -- consecutive Virahka numbers (Virahka, c. 700, the recurrence
 -- usually credited to Fibonacci), where every quotient is 1.
 --
--- Hieroglyphics II names the same boundary: � = 1 � ����������, the golden
--- boundary where the rate of reach equals the rate of kill � every quotient
+-- Hieroglyphics II names the same boundary: χ = 1 ⇝ स्वर्णसीमा, the golden
+-- boundary where the rate of reach equals the rate of kill — every quotient
 -- is 1.  This module proves both halves of that sentence, in the vall
 -- representation of the earlier module and with its Virahka sequence
 -- taken from the corpus's own metre lane (`PingalaPrastara.matra`, the
@@ -24,43 +24,43 @@
 -- WHAT IS PROVED.
 -- Nothing here uses a ring solver.
 --
---   ������-�����      THE LOWER BOUND, constructed.  For every n an explicit
+--   स्वर्ण-वल्ली      THE LOWER BOUND, constructed.  For every n an explicit
 --                   vall of the consecutive pair (M (n+2), M (n+1)), built
---                   by induction: each row is M (n+3) = 1�M (n+2) + M (n+1)
+--                   by induction: each row is M (n+3) = 1·M (n+2) + M (n+1)
 --                   with M (n+1) < M (n+2), down to the last row
---                   2 = 2�1 + 0.  Its length is n+1 (`������-�����������`) and its
---                   column is n ones followed by a single 2 (`������-�����`).
+--                   2 = 2·1 + 0.  Its length is n+1 (`स्वर्ण-दैर्घ्यम्`) and its
+--                   column is n ones followed by a single 2 (`स्वर्ण-सूचिः`).
 --                   ON "EVERY QUOTIENT IS 1": every quotient is 1 except
---                   the LAST, which is forced to be 2 � the column of (2,1)
---                   is the single row 2 = 2�1 + 0, and no vall of (2,1) has
---                   quotient 1, since 2 = 1�1 + 1 would need 1 < 1.  The
+--                   the LAST, which is forced to be 2 — the column of (2,1)
+--                   is the single row 2 = 2·1 + 0, and no vallī of (2,1) has
+--                   quotient 1, since 2 = 1·1 + 1 would need 1 < 1.  The
 --                   informal sentence is exact about every row that has a
 --                   successor; this file states the last row honestly.
---   �����-����       LAM�'S THEOREM, THE UPPER BOUND, in the vall
---   �����-����       representation: if a vall of (a, b) with b � 1 has n
---                   division steps then M n � b; and if moreover b < a then
---                   M (n+1) � a.  Mutual induction on the vall.  Its only
+--   भाजक-सीमा       LAMÉ'S THEOREM, THE UPPER BOUND, in the vallī
+--   भाज्य-सीमा       representation: if a vallī of (a, b) with b ≥ 1 has n
+--                   division steps then M n ≤ b; and if moreover b < a then
+--                   M (n+1) ≤ a.  Mutual induction on the vallī.  Its only
 --                   inputs are the `r < b` each row carries (which is also
---                   what makes every quotient after the first � 1) and the
---                   division equation.  (Lam�, 1844, is the European
+--                   what makes every quotient after the first ≥ 1) and the
+--                   division equation.  (Lamé, 1844, is the European
 --                   restatement; the descent and its measure are
 --                   ryabhaa's, the sequence Virahka's.)
---   ��������-����      THE SHARP FORM.  For every vall of (a, b) with b � 1
+--   तीक्ष्ण-सीमा      THE SHARP FORM.  For every vallī of (a, b) with b ≥ 1
 --                   and every n with b < M n, the length is < n.  In
 --                   particular the length is below the LEAST n with M n > b
---                   � the Virahka inverse of b.  No `log` is defined in
+--                   — the Virahāṅka inverse of b.  No `log` is defined in
 --                   the pinned library, and none is needed: this is the
---                   honest sharp statement, and `��������-����` gives its
---                   logarithmic reading without a logarithm �
---                   b < 2^k  �  length < 2k � from M (k+k) � 2^k.
---   ������-����������    THE GOLDEN PAIR IS THE WORST CASE.  Every vall whose
---                   divisor is � M (n+1) is no longer than `������-����� n`.
+--                   honest sharp statement, and `द्विघात-सीमा` gives its
+--                   logarithmic reading without a logarithm —
+--                   b < 2^k  →  length < 2k — from M (k+k) ≥ 2^k.
+--   स्वर्ण-उत्कर्षः    THE GOLDEN PAIR IS THE WORST CASE.  Every vallī whose
+--                   divisor is ≤ M (n+1) is no longer than `स्वर्ण-वल्ली n`.
 --                   Lower and upper bound meet: the bound is attained, so it
 --                   is sharp, not merely true.
 --   §5              Refl checks: M 6 ≡ 13, M 10 ≡ 89; the vall the earlier
 --                   module's termination proof COMPUTES for (13, 8) has 5
 --                   rows and column 1 1 1 1 2, and for (89, 55) has 9 rows;
---                   these agree with `������-����� 4` and `������-����� 8`.
+--                   these agree with `स्वर्ण-वल्ली 4` and `स्वर्ण-वल्ली 8`.
 --
 -- There is
 -- no `log` in cubical v0.9 and the corpus does not define one.  The
@@ -88,12 +88,12 @@ open import KuttakaSamapti_TheValliIsFiniteForEveryPair
   using (वल्ली ; विश्रामः ; छेदः ; दैर्घ्यम् ; सूचिः ; कुट्टक-समाप्तिः)
 
 ------------------------------------------------------------------------
--- � � ����������� � the sequence, from the metre lane, and what it does.
+-- १ · विरहाङ्कः — the sequence, from the metre lane, and what it does.
 --
 -- `matra n` counts the metres of duration n (PingalaPrastara.matraCount);
 -- M 0 = M 1 = 1, M (n+2) = M (n+1) + M n.  Three facts about it are used:
 -- it is positive, it is monotone, and from index 1 on it is STRICTLY
--- increasing � the last is exactly the `r < b` a golden row must carry.
+-- increasing — the last is exactly the `r < b` a golden row must carry.
 ------------------------------------------------------------------------
 
 विरहाङ्कः : ℕ → ℕ
@@ -104,7 +104,7 @@ open import KuttakaSamapti_TheValliIsFiniteForEveryPair
 विरह-धनम् (suc zero)    = ≤-refl
 विरह-धनम् (suc (suc n)) = ≤-trans (विरह-धनम् (suc n)) ≤SumLeft
 
--- M n � M (n+1)
+-- M n ≤ M (n+1)
 विरह-सोपानम् : (n : ℕ) → विरहाङ्कः n ≤ विरहाङ्कः (suc n)
 विरह-सोपानम् zero    = ≤-refl
 विरह-सोपानम् (suc n) = ≤SumLeft
@@ -125,7 +125,7 @@ private
 विरह-अनुलोमम् {m} (k , p) =
   subst (λ x → विरहाङ्कः m ≤ विरहाङ्कः x) p (विरह-एकदिक् k m)
 
--- M (k+k) � 2^k: two steps of the recurrence at least double.
+-- M (k+k) ≥ 2^k: two steps of the recurrence at least double.
 विरह-द्विघातः : (k : ℕ) → 2 ^ k ≤ विरहाङ्कः (k + k)
 विरह-द्विघातः zero    = ≤-refl
 विरह-द्विघातः (suc k) =
@@ -137,11 +137,11 @@ private
     ih = विरह-द्विघातः k
 
 ------------------------------------------------------------------------
--- � � ������-����� � THE LOWER BOUND, constructed.
+-- २ · स्वर्ण-वल्ली — THE LOWER BOUND, constructed.
 --
 -- The vall of (M (n+2), M (n+1)).  Every row but the last is
--- M (n+3) = 1�M (n+2) + M (n+1), with the measure M (n+1) < M (n+2) supplied
--- by `����-������`; the last row is 2 = 2�1 + 0.
+-- M (n+3) = 1·M (n+2) + M (n+1), with the measure M (n+1) < M (n+2) supplied
+-- by `विरह-वर्धते`; the last row is 2 = 2·1 + 0.
 ------------------------------------------------------------------------
 
 स्वर्ण-वल्ली : (n : ℕ) → वल्ली (विरहाङ्कः (suc (suc n))) (विरहाङ्कः (suc n)) 1
@@ -168,19 +168,19 @@ private
 स्वर्ण-सूचिः (suc n) = cong (1 ∷_) (स्वर्ण-सूचिः n)
 
 ------------------------------------------------------------------------
--- � � ����-���� � THE UPPER BOUND (Lam�), in the vall representation.
+-- ३ · लामे-सीमा — THE UPPER BOUND (Lamé), in the vallī representation.
 --
--- Mutual induction.  `�����-����` bounds the divisor: a vall of (a, b) with
--- b � 1 and n rows has M n � b.  `�����-����` bounds the dividend: if b < a
--- then M (n+1) � a.  The dividend bound is the one that carries the
--- induction � a row a = q�b + r with b < a has q � 1, so a � b + r, and
+-- Mutual induction.  `भाजक-सीमा` bounds the divisor: a vallī of (a, b) with
+-- b ≥ 1 and n rows has M n ≤ b.  `भाज्य-सीमा` bounds the dividend: if b < a
+-- then M (n+1) ≤ a.  The dividend bound is the one that carries the
+-- induction — a row a = q·b + r with b < a has q ≥ 1, so a ≥ b + r, and
 -- b, r are bounded by the two Virahka numbers the sub-column supplies.
 -- The hypothesis b < a is needed only at the top: every row after the
 -- first has it for free, since the sub-column's pair is (b, r) with r < b.
 ------------------------------------------------------------------------
 
 private
-  -- a = q�b + r with r < b < a forces q � 1, hence b + r � a.
+  -- a = q·b + r with r < b < a forces q ≥ 1, hence b + r ≤ a.
   योग-सीमा : (a b q r : ℕ) → a ≡ q · b + r → r < b → b < a → b + r ≤ a
   योग-सीमा a b zero    r eq r<b b<a =
     ⊥rec (<-asym b<a (subst (_≤ b) (sym eq) (<-weaken r<b)))
@@ -196,18 +196,18 @@ private
 भाजक-सीमा (छेदः a b q r g r<b eq v) _   = भाज्य-सीमा v r<b
 
 भाज्य-सीमा (विश्रामः g) 0<g = 0<g
--- the sub-column is empty: r = 0, one row, and a > b � 1 gives a � 2 = M 2.
+-- the sub-column is empty: r = 0, one row, and a > b ≥ 1 gives a ≥ 2 = M 2.
 भाज्य-सीमा (छेदः a b q r g r<b eq (विश्रामः _)) b<a =
   ≤-trans (suc-≤-suc r<b) b<a
 -- the sub-column is not empty: r > 0, and
---   M (n+2) = M (n+1) + M n � b + r � a.
+--   M (n+2) = M (n+1) + M n ≤ b + r ≤ a.
 भाज्य-सीमा (छेदः a b q r g r<b eq v@(छेदः _ _ _ r' _ r'<r _ _)) b<a =
   ≤-trans (≤-+-≤ (भाज्य-सीमा v r<b)
                  (भाजक-सीमा v (≤-trans (suc-≤-suc zero-≤) r'<r)))
           (योग-सीमा a b q r eq r<b b<a)
 
 ------------------------------------------------------------------------
--- � � ��������-���� � THE SHARP FORM, and that it is attained.
+-- ४ · तीक्ष्ण-सीमा — THE SHARP FORM, and that it is attained.
 ------------------------------------------------------------------------
 
 -- the length is below every n whose Virahka number exceeds the divisor;
@@ -218,14 +218,14 @@ private
 ... | inl n≤len = ⊥rec (<-asym b<Mn (≤-trans (विरह-अनुलोमम् n≤len) (भाजक-सीमा v 0<b)))
 ... | inr len<n = len<n
 
--- the logarithmic reading, with no logarithm: b < 2^k  �  fewer than 2k rows.
+-- the logarithmic reading, with no logarithm: b < 2^k  →  fewer than 2k rows.
 द्विघात-सीमा : {a b g : ℕ} (v : वल्ली a b g) → 0 < b
            → (k : ℕ) → b < 2 ^ k → दैर्घ्यम् v < k + k
 द्विघात-सीमा v 0<b k b<2^k =
   तीक्ष्ण-सीमा v 0<b (k + k) (<≤-trans b<2^k (विरह-द्विघातः k))
 
--- THE GOLDEN PAIR IS THE WORST CASE: no vall whose divisor is � M (n+1)
--- is longer than ������-����� n, whose divisor is exactly M (n+1).
+-- THE GOLDEN PAIR IS THE WORST CASE: no vallī whose divisor is ≤ M (n+1)
+-- is longer than स्वर्ण-वल्ली n, whose divisor is exactly M (n+1).
 स्वर्ण-उत्कर्षः : {a b g : ℕ} (v : वल्ली a b g) → 0 < b
             → (n : ℕ) → b ≤ विरहाङ्कः (suc n)
             → दैर्घ्यम् v ≤ दैर्घ्यम् (स्वर्ण-वल्ली n)
@@ -235,14 +235,14 @@ private
                                    (≤-trans (suc-≤-suc b≤M) (विरह-वर्धते n))))
 
 -- and the upper bound is met with equality on the golden pair itself:
--- Lam� says M (length) � divisor, and here both sides are M (n+1).
+-- Lamé says M (length) ≤ divisor, and here both sides are M (n+1).
 स्वर्ण-स्पर्शः : (n : ℕ) → विरहाङ्कः (दैर्घ्यम् (स्वर्ण-वल्ली n)) ≡ विरहाङ्कः (suc n)
 स्वर्ण-स्पर्शः n = cong विरहाङ्कः (स्वर्ण-दैर्घ्यम् n)
 
 ------------------------------------------------------------------------
--- � � �-�������� � the numbers, by computation.
+-- ५ · अ-रिक्तता — the numbers, by computation.
 --
--- The vall is taken from `����������-��������`, the earlier module's
+-- The vallī is taken from `कुट्टक-समाप्तिः`, the earlier module's
 -- termination proof, so this checks that the pulverizer it COMPUTES lands
 -- on the golden column, not only that a hand-built one does.
 ------------------------------------------------------------------------
@@ -270,7 +270,7 @@ private
 स्वर्ण-८९-५५ : सूचिः (स्वर्ण-वल्ली 8) ≡ सूचिः (snd (कुट्टक-समाप्तिः 89 55))
 स्वर्ण-८९-५५ = refl
 
--- the sharp bound at b = 8: M 6 = 13 > 8, so fewer than 6 rows � and there
--- are 5; the earlier module's `� b` said 8.
+-- the sharp bound at b = 8: M 6 = 13 > 8, so fewer than 6 rows — and there
+-- are 5; the earlier module's `≤ b` said 8.
 सीमा-१३-८ : दैर्घ्यम् (snd (कुट्टक-समाप्तिः 13 8)) < 6
 सीमा-१३-८ = तीक्ष्ण-सीमा (snd (कुट्टक-समाप्तिः 13 8)) (suc-≤-suc zero-≤) 6 (suc-≤-suc (suc-≤-suc (suc-≤-suc (suc-≤-suc (suc-≤-suc (suc-≤-suc (suc-≤-suc (suc-≤-suc (suc-≤-suc zero-≤)))))))))

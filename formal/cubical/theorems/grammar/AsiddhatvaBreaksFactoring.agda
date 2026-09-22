@@ -3,27 +3,27 @@
 ------------------------------------------------------------------------
 -- AsiddhatvaBreaksFactoring
 --
--- ààà¿à¦àà§àààµ, and what it is FOR.
+-- à¤…à¤¸à¤¿à¤¦à¥à¤§à¤¤à¥à¤µ, and what it is FOR.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE STRA
 --
---     ààà°ààµààà°à¾àà¿à¦àà§à®à  â”  Adhyy 8.2.1
+--     à¤ªà¥‚à¤°à¥à¤µà¤¤à¥à¤°à¤¾à¤¸à¤¿à¤¦à¥à¤§à¤®à¥  â€”  Aá¹£á¹­ÄdhyÄyÄ« 8.2.1
 --
--- Everything from 8.2.1 to the end (the ààà°à¿àà¾à¦à, the last three
--- quarters) is *asiddha* â” "not accomplished" â” with respect to what
+-- Everything from 8.2.1 to the end (the à¤¤à¥à¤°à¤¿à¤ªà¤¾à¤¦à¥€, the last three
+-- quarters) is *asiddha* â€” "not accomplished" â€” with respect to what
 -- precedes.  A rule in that section applies as though the earlier rule
 -- had not fired: it sees the form as it was, not as it now is.
 --
--- The standard reading treats this as bookkeeping â” a way of ordering
+-- The standard reading treats this as bookkeeping â€” a way of ordering
 -- rules, an ancestor of the rule-ordering debates in later phonology.
 -- That reading cannot answer the obvious question: why would a grammar
--- built for à²à¾à˜àµ, for economy above all, spend a ààààà° on it?
+-- built for à¤²à¤¾à¤˜à¤µ, for economy above all, spend a à¤¸à¥‚à¤¤à¥à¤° on it?
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IT IS, EXACTLY
 --
--- ààà¿à¦àà§àààµ is the deliberate construction of an àà¨àà¯à‹à¨àà¯à¾àà¾àµ.  It is a
+-- à¤…à¤¸à¤¿à¤¦à¥à¤§à¤¤à¥à¤µ is the deliberate construction of an à¤…à¤¨à¥à¤¯à¥‹à¤¨à¥à¤¯à¤¾à¤­à¤¾à¤µ.  It is a
 -- device for making the output NOT a function of the current form.
 --
 --     siddha   rules read the current form.  Their output factors
@@ -35,21 +35,21 @@
 -- So 8.2.1 is not an ordering convention.  It is an information-
 -- retention device: it buys the grammar access to a distinction that
 -- the current form has already destroyed, and it pays for that access
--- with the one thing a grammar of à²à¾à˜àµ would otherwise never give up â”
+-- with the one thing a grammar of à¤²à¤¾à¤˜à¤µ would otherwise never give up â€”
 -- statelessness of its later rules.
 --
--- The witness here is the standard one.  8.2.30 àà‹à à•àà turns a palatal
+-- The witness here is the standard one.  8.2.30 à¤šà¥‹à¤ƒ à¤•à¥à¤ƒ turns a palatal
 -- into a velar; a form that HAD a palatal and a form that always had a
 -- velar are indistinguishable afterwards.  Any rule needing to tell them
 -- apart must be asiddha, and no rule reading only the output can.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   Â§3  the siddha variant factors, with the decoder written out;
 --   Â§4  the asiddha variant does not, by the corpus's collision lemma;
 --   Â§5  and the two agree on every form where the earlier rule is
---       vacuous â” so the difference is created entirely by the earlier
+--       vacuous â€” so the difference is created entirely by the earlier
 --       rule's erasure, which is the content of the stra.
 --
 -- The alphabet is three letters and the rule is one substitution.  That
@@ -75,7 +75,7 @@ open import AnyonyaAbhava using (Anyonya ; anyonyaâ†’samsarga)
 -- 1.  Three letters, and the earlier rule
 --
 --   `cu` a palatal, `ku` a velar, `a` a vowel that never changes.
---   `kutva` is 8.2.30 àà‹à à•àà, in miniature: every palatal becomes velar.
+--   `kutva` is 8.2.30 à¤šà¥‹à¤ƒ à¤•à¥à¤ƒ, in miniature: every palatal becomes velar.
 ------------------------------------------------------------------------
 
 data Letter : Typeâ‚€ where
@@ -100,8 +100,8 @@ hasPalatal (a  âˆ· s) = hasPalatal s
 ------------------------------------------------------------------------
 -- 2.  The same later rule, read the two ways
 --
---   àà¿à¦àà§:   test the form as it now is â” after kutva.
---   ààà¿à¦àà§:  test the form as it was â” before kutva, per 8.2.1.
+--   à¤¸à¤¿à¤¦à¥à¤§:   test the form as it now is â€” after kutva.
+--   à¤…à¤¸à¤¿à¤¦à¥à¤§:  test the form as it was â€” before kutva, per 8.2.1.
 ------------------------------------------------------------------------
 
 firesSiddha : Form â†’ Bool
@@ -141,7 +141,7 @@ neverDid = ku âˆ· []
 kutva-identifies : kutva hadPalatal â‰¡ kutva neverDid
 kutva-identifies = refl
 
--- but the asiddha rule still sees it: an àà¨àà¯à‹à¨àà¯à¾àà¾àµ of the two verdicts
+-- but the asiddha rule still sees it: an à¤…à¤¨à¥à¤¯à¥‹à¤¨à¥à¤¯à¤¾à¤­à¤¾à¤µ of the two verdicts
 verdicts-differ : Anyonya (firesAsiddha hadPalatal) (firesAsiddha neverDid)
 verdicts-differ = trueâ‰¢false
 
@@ -158,7 +158,7 @@ asiddha-does-not-factor =
 --
 -- On forms with no palatal, kutva changes nothing and siddha and
 -- asiddha give the same verdict.  So the whole difference is created by
--- the earlier rule's erasure â” which is what 8.2.1 is a response to.
+-- the earlier rule's erasure â€” which is what 8.2.1 is a response to.
 ------------------------------------------------------------------------
 
 agree-without-palatals : (s : Form) â†’ hasPalatal s â‰¡ false
@@ -168,30 +168,30 @@ agree-without-palatals (cu âˆ· s) p = Empty.rec (trueâ‰¢false p)
 agree-without-palatals (ku âˆ· s) p = agree-without-palatals s p
 agree-without-palatals (a  âˆ· s) p = agree-without-palatals s p
 
--- e.g. on `a âˆ ku âˆ []`
+-- e.g. on `a âˆ· ku âˆ· []`
 agree-example : firesSiddha (a âˆ· ku âˆ· []) â‰¡ firesAsiddha (a âˆ· ku âˆ· [])
 agree-example = refl
 
 ------------------------------------------------------------------------
 -- 6.  What this says.
 --
--- ààà¿à¦àà§àààµ has an exact characterisation: it is the regime in which a
+-- à¤…à¤¸à¤¿à¤¦à¥à¤§à¤¤à¥à¤µ has an exact characterisation: it is the regime in which a
 -- rule's verdict does not factor through the form the previous rules
 -- produced.  Â§3 and Â§4 are the same rule under the two readings, and
 -- one factors and the other provably cannot.
 --
 -- That answers the question the bookkeeping reading cannot.  A grammar
--- organised around à²à¾à˜àµ does not spend a ààààà° on an ordering
+-- organised around à¤²à¤¾à¤˜à¤µ does not spend a à¤¸à¥‚à¤¤à¥à¤° on an ordering
 -- convention; it spends one on an information-retention device, because
 -- the alternative is losing a distinction its own earlier rule has
 -- destroyed.  8.2.1 buys back exactly what 8.2.30 spends.
 --
--- In this corpus's vocabulary: ààà¿à¦àà§àààµ introduces an àà¨àà¯à‹à¨àà¯à¾àà¾àµ
--- deliberately, and `AnyonyaAbhava` Â§3 converts it into the àààà°àà—à¾àà¾àµ
+-- In this corpus's vocabulary: à¤…à¤¸à¤¿à¤¦à¥à¤§à¤¤à¥à¤µ introduces an à¤…à¤¨à¥à¤¯à¥‹à¤¨à¥à¤¯à¤¾à¤­à¤¾à¤µ
+-- deliberately, and `AnyonyaAbhava` Â§3 converts it into the à¤¸à¤‚à¤¸à¤°à¥à¤—à¤¾à¤­à¤¾à¤µ
 -- Â§4 states.  The grammar and the machine are running the same argument.
 --
 -- Whether the ààà°à¿àà¾à¦à's asiddhatva is
--- MINIMAL â” whether Pini takes only the distinctions he needs
+-- MINIMAL â€” whether Pini takes only the distinctions he needs
 -- is a question about the actual stras and this fragment cannot reach
 -- it; it would need the rule set, not a model of its shape.
 ------------------------------------------------------------------------
@@ -204,12 +204,12 @@ agree-example = refl
 -- as it now is."  That is a real Pinian device and it is not 8.2.1.  It
 -- is 6.4.22.
 --
---   8.2.1  ààà°ààµààà°à¾àà¿à¦àà§à®à  â” any SUBSEQUENT rule is asiddha with respect to
+--   8.2.1  à¤ªà¥‚à¤°à¥à¤µà¤¤à¥à¤°à¤¾à¤¸à¤¿à¤¦à¥à¤§à¤®à¥  â€” any SUBSEQUENT rule is asiddha with respect to
 --          any rule that PRECEDES it, so the tripd applies strictly in
 --          the order enumerated.  The later is invisible to the earlier.
 --          The direction is one-way and backwards.
 --
---   6.4.22 ààà¿à¦àà§àµà¦ààà°à¾àà¾àà â” the change a stem undergoes by any rule from
+--   6.4.22 à¤…à¤¸à¤¿à¤¦à¥à¤§à¤µà¤¦à¤¤à¥à¤°à¤¾à¤­à¤¾à¤¤à¥ â€” the change a stem undergoes by any rule from
 --          6.4.22 to 6.4.129 counts as NOT HAVING TAKEN EFFECT when
 --          applying any OTHER rule of that same section.  Mutual
 --          invisibility inside a bounded block; the rules apply AS IF
@@ -220,7 +220,7 @@ agree-example = refl
 -- whose members are asiddhavat to each other, not a rule in a strictly
 -- ordered sequence.
 --
--- Nothing about Â§3â“Â§5 changes.  siddha factors, asiddha does not, and the
+-- Nothing about Â§3â€“Â§5 changes.  siddha factors, asiddha does not, and the
 -- obstruction is a collision -- all of that is about the SHAPE of the
 -- device and is independent of which stra licenses it.  What changes is
 -- the citation, and this repository's rule is that a citation naming the
@@ -229,7 +229,7 @@ agree-example = refl
 -- AND THE TWO DEVICES SIT AT THE TWO POLES OF ONE DISTINCTION.  The corpus
 -- already has that distinction under its Jain name:
 --
---   `Saptabhangi.à•àà°à®-àà-ààà¦à`  krama (successive) and saha (simultaneous)
+--   `Saptabhangi.à¤•à¥à¤°à¤®-à¤¸à¤¹-à¤­à¥‡à¤¦à¤ƒ`  krama (successive) and saha (simultaneous)
 --        arpaa produce DIFFERENT positions; simultaneity is not
 --        sequential both-ness.
 --

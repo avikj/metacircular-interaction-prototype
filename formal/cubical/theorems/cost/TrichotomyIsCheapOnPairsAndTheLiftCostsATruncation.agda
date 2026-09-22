@@ -6,21 +6,21 @@
 -- Trichotomy is proved AT THE PAIR LEVEL, and only what is cheap is
 -- lifted to the quotient.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   TriP a b            the three-way disjunction on PAIRS
---   pairTrichotomy      it holds, by `_â‰Ÿ_` on the two cross products â”
+--   pairTrichotomy      it holds, by `_â‰Ÿ_` on the two cross products â€”
 --                       and it COMPUTES: no quotient, no eliminator
 --   triPExcludesEquality / triPExcludesReverse
 --                       the two exclusivity facts, also at the pair
---                       level: `a âŠ b` rules out `a â‰ˆ b` and rules out
---                       `b âŠ a`
+--                       level: `a âŠ b` rules out `a â‰ˆ b` and rules out
+--                       `b âŠ a`
 --   TriR x y            the trichotomy on rates, TRUNCATED
 --   rateTrichotomyTruncated
---                       it holds, by `elimProp2` into `âˆ_âˆâ`
+--                       it holds, by `elimProp2` into `âˆ¥_âˆ¥â‚`
 --
--- **WHAT THE TRUNCATION COSTS, EXACTLY.**  `âˆ_âˆâ` is a proposition for
+-- **WHAT THE TRUNCATION COSTS, EXACTLY.**  `âˆ¥_âˆ¥â‚` is a proposition for
 -- free, so `elimProp2` applies without any `isProp` obligation, where the
 -- untruncated sum would first have to be proved a proposition.
 -- The price is that `TriR` carries no computation: from `TriR x y` one
@@ -28,9 +28,9 @@
 -- READ OFF which of the three cases holds, so this is not a decision
 -- procedure and does not make `Rate` a decidable order.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- NO NOVELTY.  Trichotomy of the rationals is classical, and `_â‰Ÿ_` on
--- â• is library.  The one thing worth recording is the shape: an
+-- â„• is library.  The one thing worth recording is the shape: an
 -- untruncated statement over a set-quotient costs its own `isProp`
 -- proof, and the truncated one does not.
 ------------------------------------------------------------------------
@@ -73,7 +73,7 @@ pairTrichotomy (p , q) (p' , q') with (p Â· suc q') â‰Ÿ (p' Â· suc q)
 ... | gt h = inr (inr h)
 
 ------------------------------------------------------------------------
--- 2.  â¦and the three cases exclude each other, at the pair level
+-- 2.  â€¦and the three cases exclude each other, at the pair level
 ------------------------------------------------------------------------
 
 triPExcludesEquality : (a b : â„• Ã— â„•) â†’ a âŠ b â†’ Â¬ (a â‰ˆ b)
@@ -83,7 +83,7 @@ triPExcludesReverse : (a b : â„• Ã— â„•) â†’ a âŠ b â†’ Â¬ (b âŠ a)
 triPExcludesReverse a b h k = âŠ-irrefl-pair a (âŠ-trans-pair a b a h k)
 
 ------------------------------------------------------------------------
--- 3.  On the rates, truncated â” the eliminator is free
+-- 3.  On the rates, truncated â€” the eliminator is free
 ------------------------------------------------------------------------
 
 TriR : Rate â†’ Rate â†’ Type

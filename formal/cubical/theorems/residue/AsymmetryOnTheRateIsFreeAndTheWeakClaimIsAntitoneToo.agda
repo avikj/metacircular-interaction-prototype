@@ -3,15 +3,15 @@
 ------------------------------------------------------------------------
 -- AsymmetryOnTheRateIsFreeAndTheWeakClaimIsAntitoneToo
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
---   âŠR-asym                    asymmetry of the strict rate order
+--   âŠR-asym                    asymmetry of the strict rate order
 --   atLeastIsAntitoneOnRates   the weak claim is antitone along the
 --                              strict order
 --
 -- **ASYMMETRY NEEDED NO TRANSPORT AT ALL**, and that is worth saying
--- rather than just doing.  It is `âŠR-irrefl x (âŠR-trans x y x h k)` â”
+-- rather than just doing.  It is `âŠR-irrefl x (âŠR-trans x y x h k)` â€”
 -- a theorem about ANY irreflexive transitive relation, which never
 -- mentions the quotient, never eliminates, never touches a
 -- representative or `â‰ˆ`.  Once the two order laws were lifted,

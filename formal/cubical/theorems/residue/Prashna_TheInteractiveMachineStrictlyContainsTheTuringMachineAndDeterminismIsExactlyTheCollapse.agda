@@ -1,35 +1,35 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡∞‡‡‡® ‚î the question.  THE INTERACTIVE MACHINE STRICTLY CONTAINS THE
+-- ‡§™‡•ç‡§∞‡§∂‡•ç‡§® ‚Äî the question.  THE INTERACTIVE MACHINE STRICTLY CONTAINS THE
 -- TURING MACHINE, AND DETERMINISM IS EXACTLY THE COLLAPSE.
 --
 -- The interactive symbolic computer, in its guarded coalgebraic form:
 --
 --   ISC S Q E s  has one field
---     respond : (q : Q s) ‚í Œ s'. E s q s' ó ISC S Q E s'
+--     respond : (q : Q s) ‚Üí Œ£ s'. E s q s' √ó ISC S Q E s'
 --
--- ‚î at every state, for every question the environment can put, a
+-- ‚Äî at every state, for every question the environment can put, a
 -- successor, a witness that the transition is the prescribed one, and
 -- the rest of the unfolding.  This file places the universal Turing
 -- machine inside it EXACTLY:
 --
---  1. `turingISC` ‚î the UTM is the instance with the trivial question
+--  1. `turingISC` ‚Äî the UTM is the instance with the trivial question
 --     (Q s = Unit) and receipt events (E s q s' = uStep s ‚â° s').  The
---     inclusion in the chain  UTM ‚ä deterministic ISC  is a
+--     inclusion in the chain  UTM ‚äÜ deterministic ISC  is a
 --     construction.
 --
---  2. `deterministic-collapse` ‚î at that instance the WHOLE SPACE of
+--  2. `deterministic-collapse` ‚Äî at that instance the WHOLE SPACE of
 --     interactive behaviors is contractible, at every state.  Not
 --     merely "the machine is deterministic": the type of everything
 --     the interactive machine could be, once questions are trivial
 --     and events are receipts, is a point.  The contraction is built
 --     coinductively; its side squares are filled by Machine being a
 --     set.  Determinism is not a property added to the interactive
---     machine ‚î it is what remains of interaction when the receipt
+--     machine ‚Äî it is what remains of interaction when the receipt
 --     leaves the successor no room.
 --
---  3. `interaction-is-strictly-wider` ‚î with the same trivial
+--  3. `interaction-is-strictly-wider` ‚Äî with the same trivial
 --     question but a FREE event (E s q s' = Unit: any successor,
 --     trivially licensed), the behavior space is provably NOT
 --     contractible: the machine that stands still and the machine
@@ -113,7 +113,7 @@ turingISC : (mc : Machine) ‚Üí DetISC mc
 respond (turingISC mc) _ = uStep mc , refl , turingISC (uStep mc)
 
 -- The coinductive spine of the contraction: along any receipt out of
--- uStep s‚, the canonical behavior deforms onto any behavior.
+-- uStep s‚ÇÄ, the canonical behavior deforms onto any behavior.
 uniqueP : (s‚ÇÄ s‚ÇÅ : Machine) (p : uStep s‚ÇÄ ‚â° s‚ÇÅ) (e : DetISC s‚ÇÅ) ‚Üí
   PathP (Œª i ‚Üí DetISC (p i)) (turingISC (uStep s‚ÇÄ)) e
 respond (uniqueP s‚ÇÄ s‚ÇÅ p e i) tt =
@@ -168,7 +168,7 @@ respond (stayer mc) _ = mc , tt , stayer mc
 stepper : (mc : Machine) ‚Üí FreeISC mc
 respond (stepper mc) _ = uStep mc , tt , stepper (uStep mc)
 
--- At a configuration the step genuinely moves, they differ ‚î so the
+-- At a configuration the step genuinely moves, they differ ‚Äî so the
 -- free instance is NOT contractible, and the deterministic collapse
 -- was the event type's doing, not the shape's.
 interaction-is-strictly-wider : ¬¨ isContr (FreeISC (incr , unary 0))

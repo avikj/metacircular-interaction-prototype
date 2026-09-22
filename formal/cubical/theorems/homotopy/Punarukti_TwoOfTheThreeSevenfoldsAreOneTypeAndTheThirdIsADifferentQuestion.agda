@@ -1,58 +1,58 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡®‡∞‡‡ï‡‡‡ø‡ ‚î ‡‡‡‡¶‡æ‡∞‡‡‡Ø‡ã‡ ‡‡‡®‡∞‡‡µ‡‡®‡Æ‡ ‡
+-- ‡§™‡•Å‡§®‡§∞‡•Å‡§ï‡•ç‡§§‡§ø‡§É ‚Äî ‡§∂‡§¨‡•ç‡§¶‡§æ‡§∞‡•ç‡§•‡§Ø‡•ã‡§É ‡§™‡•Å‡§®‡§∞‡•ç‡§µ‡§ö‡§®‡§Æ‡•ç ‡•§
 -- (punarukti: saying the word, or the meaning, twice over.)
 --
--- THE TERM, ITS TEXT AND ITS DATE.  `‡‡‡®‡∞‡‡ï‡‡` is one of the
--- ‡®‡ø‡ó‡‡∞‡‡‡‡‡æ‡®‡æ‡®‡ø, the enumerated points at which a debater has lost, in
+-- THE TERM, ITS TEXT AND ITS DATE.  `‡§™‡•Å‡§®‡§∞‡•Å‡§ï‡•ç‡§§` is one of the
+-- ‡§®‡§ø‡§ó‡•ç‡§∞‡§π‡§∏‡•ç‡§•‡§æ‡§®‡§æ‡§®‡§ø, the enumerated points at which a debater has lost, in
 -- Gautama, *Nyyastra* 5.2 (~2nd c. CE); the list is opened at 5.2.1 and
--- ‡‡‡®‡∞‡‡ï‡‡ is one of its members, with the standing exception for
--- ‡‡®‡‡µ‡æ‡¶ ‚î restatement for the sake of the exposition is not the fault.
--- LIMIT: the stra-level reference for ‡‡‡®‡∞‡‡ï‡‡ itself is owed; the
--- citation carried here is to the ‡®‡ø‡ó‡‡∞‡‡‡‡‡æ‡® list of 5.2, at the level
--- at which `.claude/hooks/MulaVakya_‚¶txt` already carries it.
+-- ‡§™‡•Å‡§®‡§∞‡•Å‡§ï‡•ç‡§§ is one of its members, with the standing exception for
+-- ‡§Ö‡§®‡•Å‡§µ‡§æ‡§¶ ‚Äî restatement for the sake of the exposition is not the fault.
+-- LIMIT: the s≈´tra-level reference for ‡§™‡•Å‡§®‡§∞‡•Å‡§ï‡•ç‡§§ itself is owed; the
+-- citation carried here is to the ‡§®‡§ø‡§ó‡•ç‡§∞‡§π‡§∏‡•ç‡§•‡§æ‡§® list of 5.2, at the level
+-- at which `.claude/hooks/MulaVakya_‚Ä¶txt` already carries it.
 --
 ------------------------------------------------------------------------
 -- WHAT THIS MODULE IS.
 --
 -- `interactive/Setubandha_TheCheckedIdentificationsAreEdgesAndTheIsolatedNodes
 -- AreTheFrontier.hs` reports, among its isolated nodes, THREE separate
--- types named `‡‡‡‡‡‡ô‡‡ó‡` with nothing identifying any two of them:
+-- types named `‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä` with nothing identifying any two of them:
 --
---   (‡ß) `Saptabhangi.‡‡‡‡‡‡ô‡‡ó‡`
---   (‡®) `Anekanta.‡‡‡‡‡‡ô‡‡ó‡`
---   (‡©) `SaptabhangiGarbha_‚¶.‡‡‡‡‡‡ô‡‡ó‡ P`
+--   (‡•ß) `Saptabhangi.‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä`
+--   (‡•®) `Anekanta.‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä`
+--   (‡•©) `SaptabhangiGarbha_‚Ä¶.‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä P`
 --
 -- The graph program deliberately merged none of them, on the ground that
--- ‡®‡Ø‡‡‡¶‡ ‡‡ô‡‡ï‡‡‡‡‡ã ‡® ‡µ‡ø‡¶‡‡Ø‡‡ ‚î where the standpoints differ there is no
+-- ‡§®‡§Ø‡§≠‡•á‡§¶‡•á ‡§∏‡§ô‡•ç‡§ï‡•ç‡§∑‡•á‡§™‡•ã ‡§® ‡§µ‡§ø‡§¶‡•ç‡§Ø‡§§‡•á ‚Äî where the standpoints differ there is no
 -- abbreviation.  That refusal was right to make and it left the question
 -- open.  This file answers it, and the answer is NOT uniform:
 --
---   (‡ß) and (‡®) ARE ONE TYPE and the causeway is built here.  They are
+--   (‡•ß) and (‡•®) ARE ONE TYPE and the causeway is built here.  They are
 --   two independent `data` declarations of the same seven names.
---   `Anekanta.agda`'s own header already says the ‡‡‡‡‡‡ô‡‡ó‡ was redone
+--   `Anekanta.agda`'s own header already says the ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä was redone
 --   clean in `Saptabhangi.agda`; what it does not say, and what nothing
 --   in the corpus said, is that the two declarations are the same object.
---   They are, and everything `Saptabhangi.agda` proves ‚î ‡ï‡‡∞‡Æ-‡‡-‡‡‡¶‡,
---   ‡¶‡‡∞‡‡®‡Ø‡, the 2¬≥ = 7 + 1 count ‚î now reaches `Anekanta`'s copy without
+--   They are, and everything `Saptabhangi.agda` proves ‚Äî ‡§ï‡•ç‡§∞‡§Æ-‡§∏‡§π-‡§≠‡•á‡§¶‡§É,
+--   ‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É, the 2¬≥ = 7 + 1 count ‚Äî now reaches `Anekanta`'s copy without
 --   being proved again.
 --
---   (‡©) IS A DIFFERENT QUESTION and must not be merged.  It is not an
+--   (‡•©) IS A DIFFERENT QUESTION and must not be merged.  It is not an
 --   enumeration of seven names; it is a family indexed by a predicate,
 --   whose constructors carry WITNESSES (a sydasti is a standpoint AND a
---   proof), so its cardinality is a function of the predicate.  ¬ß‡ makes
+--   proof), so its cardinality is a function of the predicate.  ¬ß‡•™ makes
 --   this a checked separation rather than an opinion: at the empty
---   standpoint-set the garbha ‡‡‡‡‡‡ô‡‡ó‡ has NO elements at all, while the
+--   standpoint-set the garbha ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä has NO elements at all, while the
 --   labelled type has exactly seven.  A merge would have to erase the
 --   witness, which is the erasure both files exist to refuse.
 --
 -- WHAT IS CONSTRUCTED BY HAND HERE, AND WHY THAT IS NOT A FAILURE.
--- The seven-clause isomorphism of ¬ß‡ß is built by hand, and it must be:
+-- The seven-clause isomorphism of ¬ß‡•ß is built by hand, and it must be:
 -- a causeway between two INDEPENDENT declarations is the one thing that
 -- cannot be routed, because there is no prior edge to route along.  That
--- is what building a causeway means.  After ¬ß‡ß, nothing is built: ¬ß‡® is
--- `subst`, ¬ß‡© is `cong` of the crossing map, and ¬ß‡ is a refutation.
+-- is what building a causeway means.  After ¬ß‡•ß, nothing is built: ¬ß‡•® is
+-- `subst`, ¬ß‡•© is `cong` of the crossing map, and ¬ß‡•™ is a refutation.
 ------------------------------------------------------------------------
 
 module Punarukti_TwoOfTheThreeSevenfoldsAreOneTypeAndTheThirdIsADifferentQuestion where
@@ -72,7 +72,7 @@ import AnekantaTransitional as A
 import SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext as G
 
 ------------------------------------------------------------------------
--- ‡ß ¬ THE CAUSEWAY.  Two declarations, one type.
+-- ‡•ß ¬∑ THE CAUSEWAY.  Two declarations, one type.
 --
 --     Seven names each, matched by name.  This is the only hand-built
 --     thing in the file and it is the thing a causeway is.
@@ -124,14 +124,14 @@ import SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext as
 ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä‚â°‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä = ua ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä‚âÉ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä
 
 ------------------------------------------------------------------------
--- ‡® ¬ THE TWO GENERATORS ARE ONE, AND THE SECOND STANDPOINT CARRIES
+-- ‡•® ¬∑ THE TWO GENERATORS ARE ONE, AND THE SECOND STANDPOINT CARRIES
 --     NOTHING THE FIRST DOES NOT.
 --
---     `Anekanta.‡‡∞‡‡‡‡Æ‡` takes TWO naya-standings and an ‡‡∞‡‡‡;
---     `Saptabhangi.‡‡∞‡‡‡‡Æ‡` takes ONE ‡¶‡‡µ‡ø‡Æ‡‡≤ seed and an ‡‡∞‡‡‡.  They
+--     `Anekanta.‡§Ö‡§∞‡•ç‡§™‡§£‡§Æ‡•ç` takes TWO naya-standings and an ‡§Ü‡§∞‡•ç‡§™‡§£;
+--     `Saptabhangi.‡§Ö‡§∞‡•ç‡§™‡§£‡§Æ‡•ç` takes ONE ‡§¶‡•ç‡§µ‡§ø‡§Æ‡•Ç‡§≤ seed and an ‡§Ü‡§∞‡•ç‡§™‡§£.  They
 --     were written independently and look like different operations.
 --     They are not: the pair of standings fuses to a seed first, and the
---     ‡‡∞‡‡‡ sees only the fusion.  That is the content of the causeway ‚î
+--     ‡§Ü‡§∞‡•ç‡§™‡§£ sees only the fusion.  That is the content of the causeway ‚Äî
 --     an equivalence of carriers that did not respect the generators
 --     would be a coincidence of names, not an identification.
 ------------------------------------------------------------------------
@@ -158,8 +158,8 @@ import SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext as
 ‡§Ö‡§∞‡•ç‡§™‡§£‡§Æ‡•ç-‡§Æ‡•á‡§≤‡§®‡§Æ‡•ç A.‡§Æ‡•Ç‡§≤-‡§®‡§æ‡§∏‡•ç‡§§‡§ø A.‡§Æ‡•Ç‡§≤-‡§Ö‡§∏‡•ç‡§§‡§ø  A.‡§∏‡§π‡§É  = refl
 
 ------------------------------------------------------------------------
--- ‡© ¬ WHAT CROSSES.  `Anekanta.agda` declares its ‡‡‡‡‡‡ô‡‡ó‡ and its
---     ‡‡∞‡‡‡‡Æ‡ and proves NOTHING about either.  Akalaka's krama/saha
+-- ‡•© ¬∑ WHAT CROSSES.  `Anekanta.agda` declares its ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä and its
+--     ‡§Ö‡§∞‡•ç‡§™‡§£‡§Æ‡•ç and proves NOTHING about either.  Akala·πÖka's krama/saha
 --     distinction, the mechanical durnaya, and the 2¬≥ = 7 + 1 count are
 --     all in `Saptabhangi.agda` only.  Here they arrive on the other
 --     side, and none of them is proved again: each is `cong` of the
@@ -167,7 +167,7 @@ import SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext as
 ------------------------------------------------------------------------
 
 -- Akalaka's distinction, on Anekanta's own generator: asserting the two
--- nayas in succession and asserting them together do NOT give one ‡µ‡æ‡‡.
+-- nayas in succession and asserting them together do NOT give one ‡§µ‡§æ‡§£‡•Ä.
 ‡§Ö‡§®‡•á‡§ï‡§æ‡§®‡•ç‡§§‡•á-‡§ï‡•ç‡§∞‡§Æ-‡§∏‡§π-‡§≠‡•á‡§¶‡§É :
   ¬¨ (A.‡§Ö‡§∞‡•ç‡§™‡§£‡§Æ‡•ç A.‡§Æ‡•Ç‡§≤-‡§Ö‡§∏‡•ç‡§§‡§ø A.‡§Æ‡•Ç‡§≤-‡§®‡§æ‡§∏‡•ç‡§§‡§ø A.‡§ï‡•ç‡§∞‡§Æ‡§É
    ‚â° A.‡§Ö‡§∞‡•ç‡§™‡§£‡§Æ‡•ç A.‡§Æ‡•Ç‡§≤-‡§Ö‡§∏‡•ç‡§§‡§ø A.‡§Æ‡•Ç‡§≤-‡§®‡§æ‡§∏‡•ç‡§§‡§ø A.‡§∏‡§π‡§É)
@@ -178,7 +178,7 @@ import SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext as
     ‚àô ‡§Ö‡§∞‡•ç‡§™‡§£‡§Æ‡•ç-‡§Æ‡•á‡§≤‡§®‡§Æ‡•ç A.‡§Æ‡•Ç‡§≤-‡§Ö‡§∏‡•ç‡§§‡§ø A.‡§Æ‡•Ç‡§≤-‡§®‡§æ‡§∏‡•ç‡§§‡§ø A.‡§∏‡§π‡§É )
 
 -- The durnaya, mechanically, on the other copy: ANY two-valued verdict on
--- Anekanta's ‡‡‡‡‡‡ô‡‡ó‡ identifies two of the three seeds.  `‡µ‡æ‡‡‚ê` sends
+-- Anekanta's ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä identifies two of the three seeds.  `‡§µ‡§æ‡§£‡•Ä‚Üê` sends
 -- each of S's three seeds to A's on the nose, so the statement transports
 -- by precomposition and nothing is re-cased.
 ‡§Ö‡§®‡•á‡§ï‡§æ‡§®‡•ç‡§§‡•á-‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É :
@@ -188,7 +188,7 @@ import SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext as
   ‚äé  (f A.‡§∏‡•ç‡§Ø‡§æ‡§§‡•ç-‡§®‡§æ‡§∏‡•ç‡§§‡§ø ‚â° f A.‡§∏‡•ç‡§Ø‡§æ‡§§‡•ç-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç))
 ‡§Ö‡§®‡•á‡§ï‡§æ‡§®‡•ç‡§§‡•á-‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É f = S.‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É (Œª b ‚Üí f (‡§µ‡§æ‡§£‡•Ä‚Üê b))
 
--- ‡ï‡‡‡ ‡‡‡‡, on the other copy: the eight presence-profiles split as the
+-- ‡§ï‡•Å‡§§‡§É ‡§∏‡§™‡•ç‡§§, on the other copy: the eight presence-profiles split as the
 -- seven bhagas plus the one void profile.  `subst` along the path; the
 -- profile machinery is never touched.
 ‡§Ö‡§®‡•á‡§ï‡§æ‡§®‡•ç‡§§‡•á-‡§∏‡§Æ‡§æ‡§µ‡•á‡§∂-‡§≠‡•á‡§¶‡§É : S.‡§∏‡§Æ‡§æ‡§µ‡•á‡§∂ ‚âÉ (A.‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä ‚äé Unit)
@@ -196,26 +196,26 @@ import SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext as
   subst (Œª X ‚Üí S.‡§∏‡§Æ‡§æ‡§µ‡•á‡§∂ ‚âÉ (X ‚äé Unit)) (sym ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä‚â°‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä) S.‡§∏‡§Æ‡§æ‡§µ‡•á‡§∂-‡§≠‡•á‡§¶‡§É
 
 ------------------------------------------------------------------------
--- ‡ ¬ THE DENIAL, AND IT IS A RESULT.
+-- ‡•™ ¬∑ THE DENIAL, AND IT IS A RESULT.
 --
---     `SaptabhangiGarbha_‚¶.‡‡‡‡‡‡ô‡‡ó‡ P` is not a third
---     copy of the seven names.  Its constructors take the WITNESSES ‚î
---     `sydasti P = Œ[ s ‚àà S ] P s` is a standpoint together with a proof
---     ‚î so `‡‡‡‡‡‡ô‡‡ó‡ P` is a seven-way sum of witness types and its
+--     `SaptabhangiGarbha_‚Ä¶.‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä P` is not a third
+--     copy of the seven names.  Its constructors take the WITNESSES ‚Äî
+--     `syƒÅdasti P = Œ£[ s ‚àà S ] P s` is a standpoint together with a proof
+--     ‚Äî so `‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä P` is a seven-way sum of witness types and its
 --     size is a function of P, not the number seven.
 --
 --     That is not a matter of taste, and here is the term.  Take the
 --     empty standpoint-set: then no naya can speak at all, every
---     constructor's argument is uninhabited, and `‡‡‡‡‡‡ô‡‡ó‡ P` is EMPTY ‚î
+--     constructor's argument is uninhabited, and `‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä P` is EMPTY ‚Äî
 --     while the labelled type is inhabited by each of its seven names.
---     So no equivalence exists, and `‡‡‡®‡∞‡‡ï‡‡‡ø` is the wrong diagnosis
+--     So no equivalence exists, and `‡§™‡•Å‡§®‡§∞‡•Å‡§ï‡•ç‡§§‡§ø` is the wrong diagnosis
 --     for the third: it is not a repetition, it is a different question.
 --
 --     Read the other way, this is the reason the garbha module exists.
 --     A label can be asserted with nothing behind it; a witness cannot.
---     Collapsing (‡©) into (‡ß) would delete exactly the difference
---     between having a standpoint and naming one ‚î the erasure that
---     ‡¶‡‡∞‡‡®‡Ø‡, one section above, proves a boolean verdict commits.
+--     Collapsing (‡•©) into (‡•ß) would delete exactly the difference
+--     between having a standpoint and naming one ‚Äî the erasure that
+--     ‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É, one section above, proves a boolean verdict commits.
 ------------------------------------------------------------------------
 
 -- The empty standpoint-set: no s, hence no naya, hence no predication.
@@ -241,17 +241,17 @@ import SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext as
 ‡§®-‡§∏‡•á‡§§‡•Å‡§É-‡§ó‡§∞‡•ç‡§≠‡•á-‡§Ö‡§®‡•á‡§ï‡§æ‡§®‡•ç‡§§‡•á e = ‡§ó‡§∞‡•ç‡§≠‡§É-‡§∂‡•Ç‡§®‡•ç‡§Ø‡§É (invEq e A.‡§∏‡•ç‡§Ø‡§æ‡§§‡•ç-‡§Ö‡§∏‡•ç‡§§‡§ø)
 
 ------------------------------------------------------------------------
--- ‡ ¬ THE SCOPE, EXACTLY.
+-- ‡•´ ¬∑ THE SCOPE, EXACTLY.
 --
 --   * That `Anekanta.agda` should be deleted.  It should not.  Its own
 --     header records that another agent found and repaired a soundness
 --     bug in it, and that repair is part of this corpus's history.  What
---     is established is narrower: its ‡‡‡‡‡‡ô‡‡ó‡ is not a second object
+--     is established is narrower: its ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä is not a second object
 --     to be maintained, because it is the first one.
---   * That the garbha ‡‡‡‡‡‡ô‡‡ó‡ is NEVER seven.  For particular P it may
+--   * That the garbha ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä is NEVER seven.  For particular P it may
 --     well have seven elements; the separation proved is that it is not
 --     seven UNIFORMLY, which is what a merge would require.
---   * Anything about the Naiyyika‚ìJaina dispute itself.  The Naiyyikas
+--   * Anything about the NaiyƒÅyika‚ÄìJaina dispute itself.  The NaiyƒÅyikas
 --     reject anekntavda and the Jaina logicians reject the Naiyyika
 --     treatment of negation; using a Nyya term for a fault in a file of
 --     Jaina logic is this file's borrowing, named as one in the header,

@@ -1,6 +1,6 @@
 # Complete paired ground space and exact charged-density response
 
-## Research in progress â” September 16, 2026
+## Research in progress â€” September 16, 2026
 
 This continuation keeps superconductivity as the central physical question. It starts from the projected and engineered finite-gap parent Hamiltonians already constructed in `CHARGED_COHERENCE_AND_SUPERCONDUCTIVITY.md`, not from a new analogy. Three previously separate obligations now meet: whether the exhibited paired states exhaust the ground space; which collective excitations the same geometry determines; and what the physical, unprojected density actually measures when the upper bands are retained.
 
@@ -39,7 +39,7 @@ S_{ij}=\operatorname{tr}(A_iA_j)=|P_{ij}|^2,
 \tag{G.3}
 \]
 
-This matrix is positive semidefinite, not merely entrywise nonnegative: it is a Hilbertâ“Schmidt Gram matrix. Its overlap graph joins i and j when S_ij>0. This graph is derived from the actual projector and is only a device for stating its irreducibility; it is not a replacement ontology for the physical system.
+This matrix is positive semidefinite, not merely entrywise nonnegative: it is a Hilbertâ€“Schmidt Gram matrix. Its overlap graph joins i and j when S_ij>0. This graph is derived from the actual projector and is only a device for stating its irreducibility; it is not a replacement ontology for the physical system.
 
 Define
 
@@ -111,7 +111,7 @@ Their sum and difference put both off-diagonal rank-one maps in the Lie algebra.
 \tag{G.7}
 \]
 
-Thus |t><t| belongs too. These operators span End(T+span(t)). Follow a spanning tree of the overlap graph. The frame vectors span V by Wâ W=I, so the induction terminates at End(V). There is no missing controllability assumption.
+Thus |t><t| belongs too. These operators span End(T+span(t)). Follow a spanning tree of the overlap graph. The frame vectors span V by Wâ€ W=I, so the induction terminates at End(V). There is no missing controllability assumption.
 
 If the overlap graph has components c=1,...,q, their spans V_c are mutually orthogonal and sum to V. The same argument gives exactly
 
@@ -219,7 +219,7 @@ This replaces one collective pair by a general pair deformation while retaining 
 [M_i,B_F^\dagger]=B_{[A_i,F]}^\dagger.
 \]
 
-Every M_i kills (etaâ )^{M-1}|0>. Applying the squared generators in (G.4) therefore yields the exact intertwining identity
+Every M_i kills (etaâ€ )^{M-1}|0>. Applying the squared generators in (G.4) therefore yields the exact intertwining identity
 
 \[
 \boxed{(H_{parent}-E_M)\mathcal I_M(F)
@@ -237,7 +237,7 @@ where the upper sector is empty and
 
 The second equality uses A_iÂ²=pA_i and sum_i A_i=I. It retains the full projected interaction, not a guessed bosonic hopping Hamiltonian.
 
-With the Hilbertâ“Schmidt inner product, mathcal L is nonnegative and self-adjoint:
+With the Hilbertâ€“Schmidt inner product, mathcal L is nonnegative and self-adjoint:
 
 \[
 \langle F,\mathcal L F\rangle_{HS}
@@ -288,14 +288,14 @@ Rank one gives A_iFA_i=tr(A_iF)A_i. Therefore
 \tag{G.20}
 \]
 
-If Sz=lambda z with lambda>0, then F=mathcal Râ z is nonzero, has HS normÂ² lambda||z||Â², and
+If Sz=lambda z with lambda>0, then F=mathcal Râ€ z is nonzero, has HS normÂ² lambda||z||Â², and
 
 \[
 \mathcal L F=U(p-\lambda)F.
 \tag{G.21}
 \]
 
-The inverse on this channel is z=mathcal R F/lambda. On ker mathcal R the energy is Up. This retains the synthesis norm and the null-channel qualification. A zero eigenvalue of S does not create a nonzero F by mathcal Râ .
+The inverse on this channel is z=mathcal R F/lambda. On ker mathcal R the energy is Up. This retains the synthesis norm and the null-channel qualification. A zero eigenvalue of S does not create a nonzero F by mathcal Râ€ .
 
 For a periodic system S is block translation invariant. Its spatial Fourier matrix is precisely the G(K) used in the vacuum pair problem:
 
@@ -349,7 +349,7 @@ Use a normalized fixed-M paired ground state and set nu=M/n. For n>=2 put
 \bar n_i=\bar n_{i,up}+\bar n_{i,down}.
 \]
 
-The commutator [bar n_i,etaâ ]=2B_{A_i}â  gives
+The commutator [bar n_i,etaâ€ ]=2B_{A_i}â€  gives
 
 \[
 \langle\bar n_i\rangle=2\nu p,
@@ -359,7 +359,7 @@ The commutator [bar n_i,etaâ ]=2B_{A_i}â  gives
 \tag{G.26}
 \]
 
-Apply the metric (G.18) and the invariant dynamics (G.16). Since ||(etaâ )^M|0>||Â²=(M!)Â² binom(n,M), the connected correlation is exactly
+Apply the metric (G.18) and the invariant dynamics (G.16). Since ||(etaâ€ )^M|0>||Â²=(M!)Â² binom(n,M), the connected correlation is exactly
 
 \[
 \boxed{
@@ -375,7 +375,7 @@ At M=0 or n the first term vanishes with kappa_M. At a disconnected frame, the s
 
 ## 8. The physical density has one further, exactly retained interband channel
 
-The physical density is n_i=c_iâ c_i summed over both spins, not bar n_i. Split c_i=bar c_i+tilde c_i, where tilde c=(I-P)c. Acting on a ground state with no upper occupation,
+The physical density is n_i=c_iâ€ c_i summed over both spins, not bar n_i. Split c_i=bar c_i+tilde c_i, where tilde c=(I-P)c. Acting on a ground state with no upper occupation,
 
 \[
 \delta n_i|M\rangle
@@ -506,6 +506,6 @@ The exact small-instance checks supplement the dimension-independent arguments; 
 
 ## 12. Restart from the equations
 
-The input is (W,P,p,U,Delta), with the same-charge physical density and time-reversed spin frames. Compute A_i and S from (G.2)-(G.3). Components determine the complete zero space through (G.12). For a connected parent at pair number M, the normalized eta state is unique. Its density response is (G.32) or (G.34), with the synthesis map mathcal Râ  and the excitation embedding mathcal I_M retaining the corresponding eigenvectors and norms.
+The input is (W,P,p,U,Delta), with the same-charge physical density and time-reversed spin frames. Compute A_i and S from (G.2)-(G.3). Components determine the complete zero space through (G.12). For a connected parent at pair number M, the normalized eta state is unique. Its density response is (G.32) or (G.34), with the synthesis map mathcal Râ€  and the excitation embedding mathcal I_M retaining the corresponding eigenvectors and norms.
 
 For the tensor-product system, substitute p=1/8 and the already known lambda_s(K), not the original-model binding roots. Any proposed interaction, magnetic source, mediator, or boundary change must be carried through its actual operator difference. The immediate continuation is to combine this solved response with those retained operators, keeping superconductivity and its thermal realization central.

@@ -1,10 +1,10 @@
 {-# OPTIONS --cubical --safe --guardedness #-}
--- ‡‡‡µ‡ø‡‡æ-‡‡‡Æ‡‡‡ø ‚î the living memory.
+-- ‡§ú‡•Ä‡§µ‡§ø‡§§‡§æ-‡§∏‡•ç‡§Æ‡•É‡§§‡§ø ‚Äî the living memory.
 --
 -- The carried observable of the INFINITE orbit is recomputed at every depth,
--- never a stale payload: at depth n it is exactly ‡Ø‡ã‡ó of the n-th state.
--- Losslessness read forward through an infinite trajectory ‚î the carried
--- datum is ‡â‡‡Ø‡ã‡ó (alive) at every rung of the coinductive orbit.
+-- never a stale payload: at depth n it is exactly ‡§Ø‡•ã‡§ó of the n-th state.
+-- Losslessness read forward through an infinite trajectory ‚Äî the carried
+-- datum is ‡§â‡§™‡§Ø‡•ã‡§ó (alive) at every rung of the coinductive orbit.
 module Fiber.JivitaSmrti where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (‚Ñï)

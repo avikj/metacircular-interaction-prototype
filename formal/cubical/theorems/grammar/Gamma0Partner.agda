@@ -4,14 +4,14 @@
 -- Gamma0Partner
 --
 -- The 2x2 stabilizer partner (R0033), constructively: divisibility is
--- not a predicate here but a WITNESS � the membership q | c is a choice
--- of k with c = k�q (the kuaka quotient), and the theorem consumes
+-- not a predicate here but a WITNESS — the membership q | c is a choice
+-- of k with c = k·q (the kuṭṭaka quotient), and the theorem consumes
 -- the witness to BUILD the two-sided partner
 --
---     K  =  ( ε�e   -ε�b�q )
---           ( -ε�k   ε�a   )
+--     K  =  ( ε·e   -ε·b·q )
+--           ( -ε·k   ε·a   )
 --
--- with H�D�K ≡ D for D = diag(d�, q�d�), H = (a b / k�q e),
+-- with H·D·K ≡ D for D = diag(d₁, q·d₁), H = (a b / k·q e),
 -- det H = ε, ε² = 1.  Every entry of K is an integer by construction:
 -- no division appears anywhere.  Proofs are ring-solver regroupings
 -- plus exactly two hypothesis rewrites (det, unimodularity).
@@ -45,7 +45,7 @@ mul (a , b , c , e) (a' , b' , c' , e') =
 dia : R → R → M
 dia x y = (x , 0r , 0r , y)
 
--- solver lemmas: pure polynomial regroupings over � ------------------
+-- solver lemmas: pure polynomial regroupings over ℤ ------------------
 
 reg11 : (a b e d1 q k ε : R)
       → (a · d1 + b · 0r) · (ε · e)
@@ -107,6 +107,6 @@ module _ (a b e d1 q k ε : R)
         ∙ cong (_· (q · d1)) hε
         ∙ oneL (q · d1)
 
-  -- the partner stabilizes: H � D � K ≡ D, over all of �, no windows
+  -- the partner stabilizes: H · D · K ≡ D, over all of ℤ, no windows
   stab : mul (mul H D) K ≡ D
   stab i = (p11 i , p12 i , p21 i , p22 i)

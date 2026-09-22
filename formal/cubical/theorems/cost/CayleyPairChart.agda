@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- CayleyPairChart � Delta 21 §21.7 and §21.12, checked over �
+-- CayleyPairChart — Delta 21 §21.7 and §21.12, checked over ℤ
 --
 -- Delta 21 makes two structural claims about the
 -- binary pair that are pure algebra, and therefore settleable rather
@@ -12,34 +12,34 @@
 -- T21.11 (§21.7).  The Cayley transform x = (z−1)/(z+1) conjugates the
 -- two involutions of the binary pair into each other:
 --
---     leg exchange   z � 1/z   becomes   x � −x
---     sign flip      z � −z    becomes   x � 1/x
+--     leg exchange   z ↦ 1/z   becomes   x ↦ −x
+--     sign flip      z ↦ −z    becomes   x ↦ 1/x
 --
--- so � C21.12 � the whole involution story (split torus, Weyl
--- reflection, angular Jacobi coordinate, sum�gap inversion) is Mbius
--- geometry on P� and nothing more.  That is a simplification, and a
+-- so — C21.12 — the whole involution story (split torus, Weyl
+-- reflection, angular Jacobi coordinate, sum–gap inversion) is Möbius
+-- geometry on P¹ and nothing more.  That is a simplification, and a
 -- deflation: none of it was new geometry.
 --
 -- S21.19 (§21.12).  Fixed-sum and fixed-gap conditions are the two
--- linear forms L� = a+b and L� = a−b on projective direction space, and
--- the sum�gap duality is the one-leg sign involution a � −a exchanging
+-- linear forms L₊ = a+b and L₋ = a−b on projective direction space, and
+-- the sum–gap duality is the one-leg sign involution a ↦ −a exchanging
 -- them.  `sumGapDuality` below is that exchange, exactly.
 --
--- Cleared forms.  Writing the chart as a RELATION x�(z+1) = z−1 rather
+-- Cleared forms.  Writing the chart as a RELATION x·(z+1) = z−1 rather
 -- than a quotient costs nothing and buys everything: it is a statement
--- about �, it needs no field, and the excluded points z = �1 (which are
+-- about ℤ, it needs no field, and the excluded points z = ±1 (which are
 -- exactly the boundary C21.13 names) become the hypothesis of the one
 -- theorem that needs them, `signFlipIsInversion`.
 --
--- Note on the solver.  `1r` may not appear inside a `solve! �CommRing`
--- goal: �'s own reductions (z + 1r � suc� z, z − 1r � pred� z) fire
+-- Note on the solver.  `1r` may not appear inside a `solve! ℤCommRing`
+-- goal: ℤ's own reductions (z + 1r ↝ sucℤ z, z − 1r ↝ predℤ z) fire
 -- before reflection, and the reflected expression then carries the
 -- variable as a ring CONSTANT, so the normal forms do not match.  Every
 -- lemma below is therefore stated with the unit abstracted to a
--- variable `e` and instantiated at `1r` afterwards � the idiom already
+-- variable `e` and instantiated at `1r` afterwards — the idiom already
 -- used by `Rank1DihedralChart.detChart`.  The abstraction is only legal
 -- where the identity is homogeneous in (z, e); where it is not, the
--- unit is supplied by the library lemmas `�IdR` / `+IdL` instead.
+-- unit is supplied by the library lemmas `·IdR` / `+IdL` instead.
 ------------------------------------------------------------------------
 
 module CayleyPairChart where
@@ -102,7 +102,7 @@ Chart : R → R → Type
 Chart z x = x · (z + 1r) ≡ z - 1r
 
 -- §21.5, T21.8: the compatibility tensor.  The additive root is the
--- multiplicative root displacement scaled by one endpoint � so there is
+-- multiplicative root displacement scaled by one endpoint — so there is
 -- no basepoint-free identification of the two (C21.9).
 compatibility : (xi xj β : R) → β · xi ≡ xj → xj - xi ≡ xi · (β - 1r)
 compatibility xi xj β h = cong (_- xi) (sym h) ∙ scaleDiff β xi 1r
@@ -120,8 +120,8 @@ legExchangeIsNegation z x h =
 -- T21.11, second half: sign flip becomes inversion ----------------------
 --
 -- Here the boundary is real and must be named.  If x' is the Cayley
--- image of −z, then x�x' = 1 � but only away from z² = 1, i.e. away
--- from z = �1, which C21.13 identifies as the images of the interval
+-- image of −z, then x·x' = 1 — but only away from z² = 1, i.e. away
+-- from z = ±1, which C21.13 identifies as the images of the interval
 -- endpoints.  The hypothesis is exactly the degeneracy, not a
 -- convenience.
 
@@ -137,7 +137,7 @@ signFlipIsInversion z x x' hx hx' nz =
   k = 1r - z · z
 
   -- multiply the two cleared charts together: the product of the
-  -- left-hand sides is (x�x')�k, the product of the right-hand sides
+  -- left-hand sides is (x·x')·k, the product of the right-hand sides
   -- is k itself.
   prod : (x · x') · ((z + 1r) · ((- z) + 1r)) ≡ (z - 1r) · ((- z) - 1r)
   prod = regroup x x' (z + 1r) ((- z) + 1r) ∙ cong₂ _·_ hx hx'
@@ -153,11 +153,11 @@ signFlipIsInversion z x x' hx hx' nz =
            ∙ cong₂ _-_ fixed (·IdR k)
            ∙ selfSub k
 
--- S21.19: sum�gap duality is the one-leg sign involution ---------------
+-- S21.19: sum–gap duality is the one-leg sign involution ---------------
 --
--- Fixed sum tests the linear form L� = a+b; fixed gap tests L� = a−b.
--- Sending a � −a exchanges the two hyperplanes, up to sign.  That is
--- the whole of the sum�gap duality, and it is one line.
+-- Fixed sum tests the linear form L₊ = a+b; fixed gap tests L₋ = a−b.
+-- Sending a ↦ −a exchanges the two hyperplanes, up to sign.  That is
+-- the whole of the sum–gap duality, and it is one line.
 
 Lplus Lminus : R → R → R
 Lplus a b = a + b

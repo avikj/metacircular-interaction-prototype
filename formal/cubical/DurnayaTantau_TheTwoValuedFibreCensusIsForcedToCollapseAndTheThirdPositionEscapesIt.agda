@@ -1,63 +1,63 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- �������� ����� � ������� �����-����� ������ ������� ; ������ ��� ������� �
+-- दुर्नयस् तन्तौ — द्विपदा तन्तु-गणना नियमेन लुम्पति ; तृतीयं पदं निःसरति ।
 --
 -- (durnaya at the fibre: a two-valued fibre census is FORCED to collapse,
 --  and the third position escapes it.)
 --
 -- `Tantujala_�agda` §� re-exports `S.�������` under a fibre-flavoured name and asks the reader to
--- *read* ��������/�����/��� as ���������/�����/������ �
+-- *read* रिक्तम्/एकम्/बहु as अवक्तव्य/अस्ति/नास्ति —
 --
---     ������-��������-������ = S.�������
+--     द्विपद-निर्णयो-मेलयति = S.दुर्नयः
 --
--- � which is the sevenfold theorem with a comment attached, not the fibre
--- theorem.  §� there then exhibits the collapse by hand (� � Unit against
+-- — which is the sevenfold theorem with a comment attached, not the fibre
+-- theorem.  §५ there then exhibits the collapse by hand (⊥ → Unit against
 -- Bool � Unit) rather than deriving it.  The term that
 -- makes the transfer a computation is a map from the three seeds to three
 -- WITNESS TYPES, so that an arbitrary verdict on fibres pulls back to a
--- verdict on ����������� and `�������` fires on it.  §� below is that term, and
+-- verdict on सप्तभङ्गी and `दुर्नयः` fires on it.  §२ below is that term, and
 -- it is one line.
 --
 -- WHAT IS PROVED HERE
 --
---  � � ������-��������-������� � for EVERY `V : Type� � ������` whatsoever,
---      two of �, Unit, Bool receive the same verdict.  Not "the census we
+--  २ · सर्वो-द्विपदो-लुम्पति — for EVERY `V : Type₀ → द्विपद` whatsoever,
+--      two of ⊥, Unit, Bool receive the same verdict.  Not "the census we
 --      happened to write collapses": every two-valued census does, and the
---      proof is `S.�������` precomposed with the witness assignment.  No
+--      proof is `S.दुर्नयः` precomposed with the witness assignment.  No
 --      decidability is assumed anywhere, so this covers verdicts no program
 --      could compute.
 --
---  � � �����-������� � and those three types ARE fibres of actual maps.  For
---      any `A`, the unique map `A � Unit` has one fibre and it is `A`
---      (`�-contractSnd`, since `tt ≡ tt` is contractible).  So §� is not a
+--  ३ · तन्तु-साक्षी — and those three types ARE fibres of actual maps.  For
+--      any `A`, the unique map `A → Unit` has one fibre and it is `A`
+--      (`Σ-contractSnd`, since `tt ≡ tt` is contractible).  So §२ is not a
 --      statement about types standing in for fibres; the witnesses are
---      fibres.  With that bridge the three verdicts land: `��������` at �,
---      `�����` at Unit, `���` at Bool, each checked.
+--      fibres.  With that bridge the three verdicts land: `रिक्तम्` at ⊥,
+--      `एकम्` at Unit, `बहु` at Bool, each checked.
 --
---  � � �-�����-�-����-����� � the general theorem says SOME pair must merge;
+--  ४ · न-एकम्-न-वदति-किम् — the general theorem says SOME pair must merge;
 --      this says WHICH pair `isContr` merges, and both halves are needed.
---      The forcing is §�; the position is §�.
+--      The forcing is §२; the position is §४.
 --
---  � � ���������� � the escape, and it is nayavda's own prescription: do not
+--  ५ · त्रिवर्गः — the escape, and it is nayavāda's own prescription: do not
 --      sharpen the verdict, WIDEN THE CODOMAIN BY ONE.  A three-valued
 --      verdict separating all three witnesses is exhibited, with the three
 --      distinctions proved.  So the collapse is a property of the codomain
---      and not of the question � which is what makes `�������` a diagnosis
+--      and not of the question — which is what makes `दुर्नयः` a diagnosis
 --      rather than a defeat.
 --
---  � � �������� ����������� � the seeds COMBINE over the codomain, and that is
+--  ६ · भङ्गाः संयुज्यन्ते — the seeds COMBINE over the codomain, and that is
 --      why the fibre question is sevenfold and not threefold.  For a fixed
---      `b` the three verdicts exclude one another (`Tantujala` §�).  For a
---      MAP they do not: a map has a family of fibres and may be `�����` at
---      one point and `��������` at another.  Three compound positions are
+--      `b` the three verdicts exclude one another (`Tantujala` §३).  For a
+--      MAP they do not: a map has a family of fibres and may be `एकम्` at
+--      one point and `रिक्तम्` at another.  Three compound positions are
 --      realised by terms below.  `isEquiv f` is then exactly one position of
---      the seven � `������-�����` alone � and `� isEquiv f` is one bit over
+--      the seven — `स्यात्-अस्ति` alone — and `¬ isEquiv f` is one bit over
 --      the remaining six.
 --
--- SOURCES.  Umsvti, *Tattvrthastra* (c. 2nd�5th c. CE); Siddhasena
--- Divkara, *Sanmatitarka* (c. 5th c.); Akalaka � ����������� and the rule
--- that a naya asserting itself whole is ������.  Carried from
+-- SOURCES.  Umāsvāti, *Tattvārthasūtra* (c. 2nd–5th c. CE); Siddhasena
+-- Divākara, *Sanmatitarka* (c. 5th c.); Akalaṅka — सप्तभङ्गी and the rule
+-- that a naya asserting itself whole is दुर्नय.  Carried from
 -- `Saptabhangi.agda`, which states the pigeonhole.
 -- Univalence and
 -- `isEquiv` are Voevodsky's, as realised in agda/cubical.
@@ -83,15 +83,15 @@ private
     ℓ ℓ' : Level
 
 ------------------------------------------------------------------------
--- � � ������� � the witness assignment.  Three seeds, three types.
+-- १ · साक्षी — the witness assignment.  Three seeds, three types.
 --
--- ����� � Unit  (�����, the datum is there and determined)
--- ������ � Bool (���, the subject: there and not one thing)
--- ��������� � �  (��������, nothing sayable because nothing is there)
+-- अस्ति ↦ Unit  (एकम्, the datum is there and determined)
+-- नास्ति ↦ Bool (बहु, the subject: there and not one thing)
+-- अवक्तव्य ↦ ⊥  (रिक्तम्, nothing sayable because nothing is there)
 --
--- The four compound bhagas are sent to Unit and are never used: `�������`
+-- The four compound bhaṅgas are sent to Unit and are never used: `दुर्नयः`
 -- quantifies over the three seeds only, and giving the compounds a witness
--- here would assert a fibre reading of them that §� does not prove.
+-- here would assert a fibre reading of them that §६ does not prove.
 ------------------------------------------------------------------------
 
 साक्षी : S.सप्तभङ्गी → Type₀
@@ -101,10 +101,10 @@ private
 साक्षी _                   = Unit
 
 ------------------------------------------------------------------------
--- � � THE INSTANTIATION.  Every two-valued verdict on types collapses.
+-- २ · THE INSTANTIATION.  Every two-valued verdict on types collapses.
 --
 -- It is not a new proof: it is `S.�������` applied to `V ∘ �������`, and the whole content
--- is that the composite typechecks � the three seeds have become three
+-- is that the composite typechecks — the three seeds have become three
 -- types, so the pigeonhole on bhagas IS a pigeonhole on fibres.
 --
 -- Note what is NOT assumed: `V` is arbitrary.  Not decidable, not
@@ -120,11 +120,11 @@ private
 सर्वो-द्विपदो-लुम्पति V = S.दुर्नयः (λ b → V (साक्षी b))
 
 ------------------------------------------------------------------------
--- � � �����-������� � the witnesses are fibres, not stand-ins for fibres.
+-- ३ · तन्तु-साक्षी — the witnesses are fibres, not stand-ins for fibres.
 --
--- For any A the unique map A � Unit has exactly one fibre, over tt, and it
--- is A: `�[ a ∈ A ] (tt ≡ tt)` with the second factor contractible.  So a
--- verdict on types IS a verdict on fibres of maps, and §� transfers with
+-- For any A the unique map A → Unit has exactly one fibre, over tt, and it
+-- is A: `Σ[ a ∈ A ] (tt ≡ tt)` with the second factor contractible.  So a
+-- verdict on types IS a verdict on fibres of maps, and §२ transfers with
 -- nothing left over.
 ------------------------------------------------------------------------
 
@@ -149,16 +149,16 @@ tt≡tt-एकम् = refl , λ p → isSetUnit tt tt refl p
 बहु-द्विपदे = (true , refl) , (false , refl) , λ p → true≢false (cong fst p)
 
 ------------------------------------------------------------------------
--- � � WHICH pair `isContr` merges.
+-- ४ · WHICH pair `isContr` merges.
 --
--- §� forces some pair to merge and does not say which; a verdict could in
--- principle merge ����� with ������.  `isContr` merges the OUTER two � the
--- empty fibre and the subject � and keeps the middle one alone.  That is
+-- §२ forces some pair to merge and does not say which; a verdict could in
+-- principle merge अस्ति with नास्ति.  `isContr` merges the OUTER two — the
+-- empty fibre and the subject — and keeps the middle one alone.  That is
 -- the worst of the three possible collapses for this corpus's purposes,
--- because ������ and the subject are the two verdicts whose consequences are
+-- because नष्टि and the subject are the two verdicts whose consequences are
 -- opposite: one says stop, the other says compute.
 --
--- Both halves matter and neither implies the other.  §� is the forcing;
+-- Both halves matter and neither implies the other.  §२ is the forcing;
 -- this is the position.
 ------------------------------------------------------------------------
 
@@ -168,7 +168,7 @@ tt≡tt-एकम् = refl , λ p → isSetUnit tt tt refl p
 न-एकम्-द्विपदे : ¬ T.एकम् (एकत्र Bool) tt
 न-एकम्-द्विपदे e = T.एक-बहु-विरोधः (एकत्र Bool) tt e बहु-द्विपदे
 
--- the merge, named: `� �����` says the same thing about � and about Bool,
+-- the merge, named: `¬ एकम्` says the same thing about ⊥ and about Bool,
 -- and says the other thing about Unit.  Three types, two answers.
 न-एकम्-लुम्पति :
     (¬ T.एकम् (एकत्र ⊥) tt)
@@ -177,10 +177,10 @@ tt≡tt-एकम् = refl , λ p → isSetUnit tt tt refl p
 न-एकम्-लुम्पति = न-एकम्-शून्ये , न-एकम्-द्विपदे , एकम्-एकस्मिन्
 
 ------------------------------------------------------------------------
--- � � ���������� � the escape.  Widen the codomain by one and it separates.
+-- ५ · त्रिवर्गः — the escape.  Widen the codomain by one and it separates.
 --
--- The Jaina prescription for a ������ is never a sharper verdict; it is
--- another ��.  Here that is literal: the collapse in §� is forced by the
+-- The Jaina prescription for a दुर्नय is never a sharper verdict; it is
+-- another नय.  Here that is literal: the collapse in §२ is forced by the
 -- codomain having two elements, and a codomain with three does not force
 -- it.  Exhibited, with the three distinctions proved, so "three suffices"
 -- is a term rather than an observation.
@@ -214,7 +214,7 @@ private
 
 -- The separation, stated of the CODOMAIN, which is where it belongs: no
 -- decision procedure on arbitrary types is claimed or possible, and none is
--- needed.  §� says the collapse is forced by ������ having two elements.
+-- needed.  §२ says the collapse is forced by द्विपद having two elements.
 -- This says a three-element codomain does not force it.
 त्रिवर्गो-विवेचयति :
     (¬ (शून्यम् ≡ एकम्')) × (¬ (शून्यम् ≡ बहुत्)) × (¬ (एकम्' ≡ बहुत्))
@@ -223,8 +223,8 @@ private
   , न-कोड→न-पथः शून्यम् बहुत्  (λ z → z)
   , न-कोड→न-पथः एकम्'  बहुत्  (λ z → z)
 
--- the contrast with §�, as one statement: a three-element codomain admits
--- an injection FROM the three seeds, which is exactly what ������ refuses.
+-- the contrast with §२, as one statement: a three-element codomain admits
+-- an injection FROM the three seeds, which is exactly what द्विपद refuses.
 साक्षि-त्रिवर्गः : S.सप्तभङ्गी → त्रिवर्ग
 साक्षि-त्रिवर्गः S.स्यात्-अस्ति      = एकम्'
 साक्षि-त्रिवर्गः S.स्यात्-नास्ति     = बहुत्
@@ -241,13 +241,13 @@ private
   , न-कोड→न-पथः बहुत्  शून्यम् (λ z → z)
 
 ------------------------------------------------------------------------
--- � � �������� ����������� � why the map-level question is sevenfold.
+-- ६ · भङ्गाः संयुज्यन्ते — why the map-level question is sevenfold.
 --
--- At a FIXED b the three verdicts are mutually exclusive (`Tantujala` §�).
+-- At a FIXED b the three verdicts are mutually exclusive (`Tantujala` §३).
 -- Over a MAP they are not: a map carries a family of fibres and can be
--- ����� at one point and �������� at another.  That is precisely how the
--- �����������'s seeds combine � �������, one standpoint after another, where
--- "standpoint" is a point of the codomain � and it is why the census of a
+-- एकम् at one point and रिक्तम् at another.  That is precisely how the
+-- सप्तभङ्गी's seeds combine — क्रमेण, one standpoint after another, where
+-- "standpoint" is a point of the codomain — and it is why the census of a
 -- MAP has seven positions where the census of a FIBRE has three.
 --
 -- Occurrence predicates, then three positions realised by terms.
@@ -264,15 +264,15 @@ module _ {A : Type ℓ} {B : Type ℓ'} (f : A → B) where
   अवक्तव्य? : Type (ℓ-max ℓ ℓ')
   अवक्तव्य? = Σ[ b ∈ B ] T.रिक्तम् f b
 
--- ������-����� alone: the identity.  Every fibre �����, and by §� of
--- Tantujala's ������ lemmas neither of the other two can occur.
+-- स्यात्-अस्ति alone: the identity.  Every fibre एकम्, and by §५ of
+-- Tantujala's विरोध lemmas neither of the other two can occur.
 समता-मार्गः : Bool → Bool
 समता-मार्गः b = b
 
 समता-सर्वत्र-एकम् : (b : Bool) → T.एकम् समता-मार्गः b
 समता-सर्वत्र-एकम् = isEquiv.equiv-proof (idIsEquiv Bool)
 
--- ������-������-�����������: one map, ��� at one point and �������� at another.
+-- स्यात्-नास्ति-अवक्तव्यम्: one map, बहु at one point and रिक्तम् at another.
 -- The two verdicts a two-valued census cannot tell apart, occurring in the
 -- SAME map, at different points of its codomain.
 मिश्र-मार्गः : Bool → Bool
@@ -287,7 +287,7 @@ module _ {A : Type ℓ} {B : Type ℓ'} (f : A → B) where
 मिश्रे-द्वे-पदे : नास्ति? मिश्र-मार्गः × अवक्तव्य? मिश्र-मार्गः
 मिश्रे-द्वे-पदे = (true , मिश्र-बहु) , (false , मिश्र-रिक्तम्)
 
--- ������-�����-�����������: ����� at one point, �������� at another.
+-- स्यात्-अस्ति-अवक्तव्यम्: एकम् at one point, रिक्तम् at another.
 एक-रिक्त-मार्गः : Unit → Bool
 एक-रिक्त-मार्गः _ = true
 
@@ -302,12 +302,12 @@ module _ {A : Type ℓ} {B : Type ℓ'} (f : A → B) where
 एक-रिक्ते-द्वे-पदे = (true , एक-रिक्त-एकम्) , (false , एक-रिक्त-रिक्तम्)
 
 ------------------------------------------------------------------------
--- � � ���� ���� ���� � `isEquiv` is one position of the seven.
+-- ७ · समता एकं पदम् — `isEquiv` is one position of the seven.
 --
--- `isEquiv f` is `�����` at every b at once (`Tantujala.���������`), so it
+-- `isEquiv f` is `एकम्` at every b at once (`Tantujala.सकलादेशः`), so it
 -- forbids both other occurrences.  Hence `isEquiv` names exactly the
--- position ������-�����, and `� isEquiv f` is ONE BIT over the remaining
--- six.  By §� that bit merges at least two of them; §�'s two compound maps
+-- position स्यात्-अस्ति, and `¬ isEquiv f` is ONE BIT over the remaining
+-- six.  By §२ that bit merges at least two of them; §६'s two compound maps
 -- are witnesses that the merged positions are inhabited and distinct.
 ------------------------------------------------------------------------
 
@@ -319,9 +319,9 @@ module _ {A : Type ℓ} {B : Type ℓ'} (f : A → B) where
                 → isEquiv f → ¬ अवक्तव्य? f
 समता→न-अवक्तव्य f e (b , r) = T.रिक्त-एक-विरोधः f b r (isEquiv.equiv-proof e b)
 
--- and the two failures `� isEquiv` cannot separate, both realised:
--- �����-������� fails by ������ AND ���������; ���-������-������� fails by ���������
--- alone while still being ����� where it is defined.  A one-bit verdict
+-- and the two failures `¬ isEquiv` cannot separate, both realised:
+-- मिश्र-मार्गः fails by नास्ति AND अवक्तव्य; एक-रिक्त-मार्गः fails by अवक्तव्य
+-- alone while still being एकम् where it is defined.  A one-bit verdict
 -- reports the same thing about both.
 द्वौ-भङ्गौ-एकं-वचनम् :
     (¬ isEquiv मिश्र-मार्गः) × (¬ isEquiv एक-रिक्त-मार्गः)
@@ -330,7 +330,7 @@ module _ {A : Type ℓ} {B : Type ℓ'} (f : A → B) where
   , (λ e → समता→न-अवक्तव्य एक-रिक्त-मार्गः e (false , एक-रिक्त-रिक्तम्))
 
 ------------------------------------------------------------------------
--- ������ �  ��� �������� ��� ������� � ������ ; ��� �����, � �������� �
+-- अलोपः ।  यत् त्रिविधं तत् द्विपदे न वर्तते ; नयं वर्धय, न निर्णयम् ।
 -- (what is threefold does not fit in two positions; widen the standpoint,
 --  not the verdict.)
 ------------------------------------------------------------------------

@@ -20,8 +20,8 @@
 -- tuples that are not scalar multiples of `a`.
 --
 -- Nothing here needs a valuation function.  "`x` has exact depth `k`" is
--- spelled `(p ^ k) � x` together with `� (p ^ suc k) � x`, so the whole
--- argument is divisibility in � and the module stays `--safe` with no
+-- spelled `(p ^ k) ∣ x` together with `¬ (p ^ suc k) ∣ x`, so the whole
+-- argument is divisibility in ℤ and the module stays `--safe` with no
 -- postulates and no holes.
 --
 -- Layout:
@@ -32,7 +32,7 @@
 --   §5  `subsetChartDepth`: the theorem
 --   §6  `depthMIsNotEnough`: `m+1` cannot be lowered to `m`
 --   §7  `fibreTransport` / `notProportional`: the fibre is not the
---       scaling orbit � the negative answer to message 0161
+--       scaling orbit — the negative answer to message 0161
 ------------------------------------------------------------------------
 
 module SubsetSumChartDepth where
@@ -93,7 +93,7 @@ private
 -- §2  The engine.
 --
 -- `d` marks the depth reached, `D` the depth just past it, `M` the chart
--- modulus.  The two hypotheses `d � M` and `D � M` are exactly "the chart
+-- modulus.  The two hypotheses `d ∣ M` and `D ∣ M` are exactly "the chart
 -- is at least one digit deeper than the depth being measured"; §6 shows
 -- that dropping the second one breaks the conclusion.
 ------------------------------------------------------------------------
@@ -152,7 +152,7 @@ chartDepth p x y k m k≤m =
 -- §4  Masked sums.
 --
 -- A labelled input tuple is compared with a second one coordinatewise, so
--- the data is a `List (� � �)`: one entry per index, carrying `(a_i , b_i)`.
+-- the data is a `List (ℤ × ℤ)`: one entry per index, carrying `(a_i , b_i)`.
 -- A *context* (a subset of the indices) is a `List Bool` mask.
 ------------------------------------------------------------------------
 
@@ -264,7 +264,7 @@ depthMIsNotEnough = ∣'→∣ (pos 3) (pos 3) (pos 1 , refl)
 --
 -- `a = (1 , 2)` and `b = (10 , 2)` agree coordinatewise modulo
 -- `3^2 = p^(m+1)`, so by §5 they carry the *same* exact depth on every
--- subset context at every depth `k � m = 1`; but `b` is not a scalar
+-- subset context at every depth `k ≤ m = 1`; but `b` is not a scalar
 -- multiple of `a`.  This is the negative answer to the hostile question of
 -- `collab/messages/0161-codex-formation-subset-sum-carrier-result.md`.
 ------------------------------------------------------------------------

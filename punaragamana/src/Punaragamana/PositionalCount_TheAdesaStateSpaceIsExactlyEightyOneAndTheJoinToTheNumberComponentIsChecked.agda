@@ -1,31 +1,31 @@
 {-# OPTIONS --cubical --safe --guardedness #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡‡æ‡®‡ø‡µ‡‡‡‡ô‡‡ñ‡‡Ø‡æ ‚î the dea state space is exactly eighty-one, and
+-- ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç‡§∏‡§ô‡•ç‡§ñ‡•ç‡§Ø‡§æ ‚Äî the ƒÅde≈õa state space is exactly eighty-one, and
 -- the join to the number component is checked.
 --
 -- TERM.  ‡‡ô‡‡ñ‡‡Ø‡æ (count, number) is ordinary  and the ordinary
 -- word of the Indian mathematical tradition for number; the compound
--- ‡‡‡‡æ‡®‡ø‡µ‡‡-‡‡ô‡‡ñ‡‡Ø‡æ, "the count of the sthnivat", is built HERE and no
+-- ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç-‡§∏‡§ô‡•ç‡§ñ‡•ç‡§Ø‡§æ, "the count of the sthƒÅnivat", is built HERE and no
 -- source is claimed for it.
 --
--- SEED.  The machine asked for this itself.  ‡‡‡µ's mass map
+-- SEED.  The machine asked for this itself.  ‡§ú‡•Ä‡§µ's mass map
 -- (machine/Jiva_TheMachineComputesItsOwnMetric.hs) scored the join of the component at
--- `Punaragamana.Sthanivadbhava‚¶.‡‡‡‡æ‡®‡ø‡µ‡‡` to the number component at
--- 2970 ‚î its second-highest curvature-removal candidate.  A join, in
+-- `Punaragamana.Sthanivadbhava‚Ä¶.‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç` to the number component at
+-- 2970 ‚Äî its second-highest curvature-removal candidate.  A join, in
 -- the graph's own terms, is a checked identification.  Here it is:
 --
---     ‡µ‡∞‡‡‡∞‡‡ ‚â Fin 3        (three forms)
---     ‡µ‡∞‡‡‡‡û‡‡‡‡û‡æ ‚â Fin 3     (three designations)
---     ‡µ‡∞‡‡ ‚â Fin 27          (a vara is form ó sthnin ó designation)
---     ‡‡ß‡æ‡∞ ‚â Fin 81          (the dea's base: vara ó substituted form)
---     ‡‡‡‡æ‡®‡ø‡µ‡‡ ‚â Fin 81      (composing with the module's own Carrier
---                             equivalence ‚î the carried datum rides free,
+--     ‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™ ‚âÉ Fin 3        (three forms)
+--     ‡§µ‡§∞‡•ç‡§£‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§æ ‚âÉ Fin 3     (three designations)
+--     ‡§µ‡§∞‡•ç‡§£ ‚âÉ Fin 27          (a var·πáa is form √ó sthƒÅnin √ó designation)
+--     ‡§Ü‡§ß‡§æ‡§∞ ‚âÉ Fin 81          (the ƒÅde≈õa's base: var·πáa √ó substituted form)
+--     ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç ‚âÉ Fin 81      (composing with the module's own Carrier
+--                             equivalence ‚Äî the carried datum rides free,
 --                             so the state space does not grow: 81, not
---                             81 ¬ 9)
+--                             81 ¬∑ 9)
 --
 -- The last line is the point, and it is the punargamana law seen as a
--- COUNT: `Carrier ‡®‡ø‡∞‡‡ß‡æ‡∞‡ø‡‡Æ‡` adds two fields (carried, witness) and
+-- COUNT: `Carrier ‡§®‡§ø‡§∞‡•ç‡§ß‡§æ‡§∞‡§ø‡§§‡§Æ‡•ç` adds two fields (carried, witness) and
 -- adds NOTHING to the cardinality, because the fibre is contractible.
 -- A reader who trusts only numbers can now check ahis by counting.
 --
@@ -46,7 +46,7 @@ open import Punaragamana.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignat
         ; ‡§Ü‡§ß‡§æ‡§∞ ; ‡§®‡§ø‡§∞‡•ç‡§ß‡§æ‡§∞‡§ø‡§§‡§Æ‡•ç ; ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç ; ‡§Ü‡§ß‡§æ‡§∞‚âÉ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç)
 
 ------------------------------------------------------------------------
--- ‡ß ¬ the two three-element inventories.
+-- ‡•ß ¬∑ the two three-element inventories.
 ------------------------------------------------------------------------
 
 ‡§∞‡•Ç‡§™‚âÉ‡•© : ‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™ ‚âÉ Fin 3
@@ -88,7 +88,7 @@ open import Punaragamana.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignat
   ret ‡§ï‡§ø‡§§‡•ç   = refl
 
 ------------------------------------------------------------------------
--- ‡® ¬ a vara is its three fields (record eta), hence Fin 27.
+-- ‡•® ¬∑ a var·πáa is its three fields (record eta), hence Fin 27.
 ------------------------------------------------------------------------
 
 ‡§µ‡§∞‡•ç‡§£-‡§§‡•ç‡§∞‡§ø‡§ï : ‡§µ‡§∞‡•ç‡§£ ‚âÉ (‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™ √ó (‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™ √ó ‡§µ‡§∞‡•ç‡§£‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§æ))
@@ -105,14 +105,14 @@ open import Punaragamana.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignat
              (SumFin√ó‚âÉ 3 9))
 
 ------------------------------------------------------------------------
--- ‡© ¬ the base, and ‚î by the Carrier law ‚î the sthnivat itself.
+-- ‡•© ¬∑ the base, and ‚Äî by the Carrier law ‚Äî the sthƒÅnivat itself.
 ------------------------------------------------------------------------
 
 ‡§Ü‡§ß‡§æ‡§∞‚âÉ‡•Æ‡•ß : ‡§Ü‡§ß‡§æ‡§∞ ‚âÉ Fin 81
 ‡§Ü‡§ß‡§æ‡§∞‚âÉ‡•Æ‡•ß = compEquiv (‚âÉ-√ó ‡§µ‡§∞‡•ç‡§£‚âÉ‡•®‡•≠ ‡§∞‡•Ç‡§™‚âÉ‡•©) (SumFin√ó‚âÉ 27 3)
 
--- THE JOIN.  Carrier‚â ‡®‡ø‡∞‡‡ß‡æ‡∞‡ø‡‡Æ‡ : ‡‡ß‡æ‡∞ ‚â ‡‡‡‡æ‡®‡ø‡µ‡‡, so the state space
--- of the dea operation ‚î base AND carried datum AND witness ‚î is
+-- THE JOIN.  Carrier‚âÉ ‡§®‡§ø‡§∞‡•ç‡§ß‡§æ‡§∞‡§ø‡§§‡§Æ‡•ç : ‡§Ü‡§ß‡§æ‡§∞ ‚âÉ ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç, so the state space
+-- of the ƒÅde≈õa operation ‚Äî base AND carried datum AND witness ‚Äî is
 -- exactly the 81 states of the base.  Nothing was added by carrying:
 -- the count IS the ahis, read as a number.
 ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç‚âÉ‡•Æ‡•ß : ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç ‚âÉ Fin 81

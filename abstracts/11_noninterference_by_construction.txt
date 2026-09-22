@@ -10,8 +10,8 @@ over-approximate the dependence of low outputs on high inputs and reject
 programs whose dependence they cannot rule out, so soundness is a theorem
 about the approximation and completeness is unattainable.  We describe a
 system in which non-interference is not approximated.  The high input of
-each operation is an open type family â” an arbitrary type supplied by the
-caller â” and the transition function is *constant* in it, so the
+each operation is an open type family â€” an arbitrary type supplied by the
+caller â€” and the transition function is *constant* in it, so the
 independence of the outcome from the high input holds by reduction rather
 than by any analysis.  No lattice of labels is checked, no dependence graph
 is computed, and no program is rejected for an unprovable flow, because a
@@ -24,8 +24,8 @@ applicability family indexed by terms, and a proof that inhabiting that
 family at a term forces the term to be the source.  Application takes a
 term and an inhabitant of the family and returns the target, discarding
 both arguments.  The applicability family is therefore an unconstrained
-carrier of caller-chosen structure â” arbitrarily large, arbitrarily
-sensitive â” sitting over the single term at which the operation fires, and
+carrier of caller-chosen structure â€” arbitrarily large, arbitrarily
+sensitive â€” sitting over the single term at which the operation fires, and
 provably unable to influence any observable.  The one place the family is
 consumed is in transporting the stored trace along the identification it
 supplies, which affects nothing an observer can see.
@@ -56,7 +56,7 @@ a transition was licensed and never *which* trace produced it, as a
 consequence of typing rather than of blinding or commitment.  We exhibit
 the minimal pair: a direct trace and a detour that steps out, reverses, and
 proceeds, whose outcomes agree by reduction, so no context distinguishes
-them.  Conversely â” and this is the corresponding negative result â”
+them.  Conversely â€” and this is the corresponding negative result â€”
 lineage cannot be recovered from outcomes by any means, so audit data must
 be carried rather than reconstructed.
 

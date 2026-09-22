@@ -1,20 +1,20 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������-����� � the adjoint sum.
+-- विपरीत-योग — the adjoint sum.
 --
 -- The adjoint receiver identity (9) is integration by parts followed by
 -- duality.  DvandvaVarga did the duality; this file does the parts, on
--- the periodic grid �/N with the forward difference ��g(x) = g(x+1) − g(x)
--- and the backward difference ��f(x) = f(x) − f(x−1):
+-- the periodic grid ℤ/N with the forward difference ∇⁺g(x) = g(x+1) − g(x)
+-- and the backward difference ∇⁻f(x) = f(x) − f(x−1):
 --
---     �_x f(x) � ��g(x)  =  − �_x ��f(x) � g(x).
+--     Σ_x f(x) · ∇⁺g(x)  =  − Σ_x ∇⁻f(x) · g(x).
 --
 --   §1  THE CYCLIC SHIFT and its inverse on [0, N), and reindexing a
 --       range sum by the inverse shift (peeling the first term).
---   §2  SUMMATION BY PARTS, periodic: the identity above over �.
+--   §2  SUMMATION BY PARTS, periodic: the identity above over ℚ.
 --
--- ������ (viparta, reversed/adjoint) and ����� (yoga, sum) are ordinary
+-- विपरीत (viparīta, reversed/adjoint) and योग (yoga, sum) are ordinary
 -- .
 ------------------------------------------------------------------------
 
@@ -48,7 +48,7 @@ open import ParimeyaRupa_TheRationalsWithTheTrivialInvolutionFormAStarRingWithAH
   using (ℚRing)
 
 ------------------------------------------------------------------------
--- � � The cyclic shift on [0, suc M) and reindexing.
+-- १ · The cyclic shift on [0, suc M) and reindexing.
 ------------------------------------------------------------------------
 
 -- range-restricted extensionality
@@ -56,7 +56,7 @@ open import ParimeyaRupa_TheRationalsWithTheTrivialInvolutionFormAStarRingWithAH
 Σ-ext< zero    f g e = refl
 Σ-ext< (suc n) f g e = cong₂ _+_ (Σ-ext< n f g (λ i lt → e i (≤-suc lt))) (e n ≤-refl)
 
--- peeling the first term: �_{x<suc M} F x = F 0 + �_{x<M} F (suc x)
+-- peeling the first term: Σ_{x<suc M} F x = F 0 + Σ_{x<M} F (suc x)
 Σ-ādi : (M : ℕ) (F : ℕ → ℚ) → Σ⟨ suc M ⟩ F ≡ F 0 + Σ⟨ M ⟩ (λ x → F (suc x))
 Σ-ādi zero    F = +Comm 0 (F 0)
 Σ-ādi (suc M) F = cong (_+ F (suc M)) (Σ-ādi M F) ∙ sym (+Assoc (F 0) _ (F (suc M)))
@@ -81,15 +81,15 @@ module _ (M : ℕ) where
   ... | yes p = ⊥-elim (Cubical.Data.Nat.Order.¬m<m (subst (λ z → suc z <ℕ suc M) p lt))
   ... | no  _ = refl
 
-  -- reindexing by the inverse shift: �_{x<suc M} h (prva x) = �_{x<suc M} h x
+  -- reindexing by the inverse shift: Σ_{x<suc M} h (pūrva x) = Σ_{x<suc M} h x
   pūrva-sama : (h : ℕ → ℚ) → Σ⟨ suc M ⟩ (λ x → h (pūrva x)) ≡ Σ⟨ suc M ⟩ h
   pūrva-sama h = Σ-ādi M (λ x → h (pūrva x)) ∙ +Comm (h M) (Σ⟨ M ⟩ h)
 
   ----------------------------------------------------------------------
-  -- � � Summation by parts, periodic.
+  -- २ · Summation by parts, periodic.
   ----------------------------------------------------------------------
 
-  -- � f(x) g(agra x) = � f(prva x) g(x)
+  -- Σ f(x) g(agra x) = Σ f(pūrva x) g(x)
   sthānāntara : (f g : ℕ → ℚ)
               → Σ⟨ suc M ⟩ (λ x → f x · g (agra x)) ≡ Σ⟨ suc M ⟩ (λ x → f (pūrva x) · g x)
   sthānāntara f g =

@@ -4,14 +4,14 @@
 -- CountingIsWhatDecidableEqualityBuysAndPermutationPreservesEveryMultiplicity
 --
 -- ON THE NAME.  **No tradition term is claimed and none is invented.**
--- This corpus's attribution for permutation work â” Nryaa Paita,
--- *Gaitakaumud* (1356) â” belongs to the ENUMERATION line,
+-- This corpus's attribution for permutation work â€” NÄrÄyaá¹‡a Paá¹‡á¸ita,
+-- *Gaitakaumud* (1356) â€” belongs to the ENUMERATION line,
 -- and this is not that problem: nothing here counts
 -- arrangements or generates them in order; it counts OCCURRENCES OF ONE
 -- ELEMENT inside a list.  Claiming that source here would assert a
 -- provenance nobody checked.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- 1.  **Here decidable equality is assumed, once, in the open, and the
 -- forward half is proved.**  What `Discrete A` buys is exactly one
 -- thing: a function `bump` that adds one or nothing.  Everything else
@@ -20,16 +20,16 @@
 -- WHAT IS PROVED
 --
 --   bump / count   `count a` is defined THROUGH `bump a`, so
---                  `count a (x âˆ xs) â‰¡ bump a x (count a xs)` holds by
+--                  `count a (x âˆ· xs) â‰¡ bump a x (count a xs)` holds by
 --                  definition and never needs a lemma
---   bumpComm       two bumps commute â” four cases, all `refl`.  **This
+--   bumpComm       two bumps commute â€” four cases, all `refl`.  **This
 --                  is the entire mathematical content**: an occurrence
 --                  count cannot tell the order of two increments
 --   insertCount    inserting `x` anywhere gives the same counts as
 --                  consing it at the front, i.e. `Insert` is invisible
 --                  to `count`.  One induction, one `bumpComm`
 --   permPreservesCount
---                  `Perm xs ys â’ (a : A) â’ count a xs â‰¡ count a ys`
+--                  `Perm xs ys â†’ (a : A) â†’ count a xs â‰¡ count a ys`
 ------------------------------------------------------------------------
 
 module CountingIsWhatDecidableEqualityBuysAndPermutationPreservesEveryMultiplicity where
@@ -79,7 +79,7 @@ module _ {A : Type} (dA : Discrete A) where
     cong (bump a y) (insertCount i a) âˆ™ bumpComm a _ y _
 
   ------------------------------------------------------------------
-  -- 4.  â¦hence every multiplicity survives a permutation
+  -- 4.  â€¦hence every multiplicity survives a permutation
   ------------------------------------------------------------------
 
   permPreservesCount :

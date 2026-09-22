@@ -1,80 +1,80 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- р▓рЧрХрр░р┐рпр╛ тФ ррр-рир┐рпрор ррирррр, рр░ррр╛рр ррр░ррор рррЮр╛рр ржрр╡р┐рррпрррп рорр▓ррпрор р
+-- рд▓рдЧрдХреНрд░рд┐рдпрд╛ тАФ рдЕрдВрд╢-рдирд┐рдпрдореЗ рддрдиреНрддреБрдГ, рдЕрд░реНрдерд╛рддреН рдкреНрд░рдердореЗ рдЬреНрдЮрд╛рддреЗ рджреНрд╡рд┐рддреАрдпрд╕реНрдп рдореВрд▓реНрдпрдореН ред
 --
 -- (the fibre over a PARTIAL specification: what the second count still
 -- costs once the first is known.)
 --
--- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
--- рорр▓р╡р╛рХррпрор ┬ SOURCE OF THE TERM, with text and date.
+-- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
+-- рдореВрд▓рд╡рд╛рдХреНрдпрдореН ┬╖ SOURCE OF THE TERM, with text and date.
 --
---   The ррр░рррпрп of Pigala, *Chandastra*, ch. 8 (~300 BCE) are listed
---   in the commentarial tradition as six: ррр░рррр╛р░ (lay the forms out),
---   рирррЯ (index тТ form), рЙржрржр┐рррЯ (form тТ index), ррЩррЦррпр╛ (how many),
---   ррзрр╡рпрЛрЧ (the space the table occupies), and тФ the one this module is
---   about тФ **ррХржрр╡ррпр╛ржр┐-р▓рЧрХрр░р┐рпр╛**, "the operation for [the forms
---   having] one, two, and so on р▓рЧ", р▓рЧ being the рradition's word for
---   the heavy syllable (рЧрр░р).  It is the count of the forms carrying a
---   GIVEN NUMBER of gurus, and it is answered by the рорр░рррр░рррр╛р░ of
---   ррирржррр╛ррррр░рор ро.рйртУрйр, whose construction rule тФ ррЧрр░р┐ро-ррЩррХррр┐р
---   ррр░рр╡-ррЩррХрррр рр╛р░рррр╡-рпрЛрЧрИр, the next row from the adjacent sums of the
---   previous тФ is stated by рр▓р╛рпррз, *роррррЮрррр╡рир*, 10th c. CE.
+--   The рдкреНрд░рддреНрдпрдп of Piс╣Еgala, *Chandaс╕е┼Ы─Бstra*, ch. 8 (~300 BCE) are listed
+--   in the commentarial tradition as six: рдкреНрд░рд╕реНрддрд╛рд░ (lay the forms out),
+--   рдирд╖реНрдЯ (index тЖТ form), рдЙрджреНрджрд┐рд╖реНрдЯ (form тЖТ index), рд╕рдЩреНрдЦреНрдпрд╛ (how many),
+--   рдЕрдзреНрд╡рдпреЛрдЧ (the space the table occupies), and тАФ the one this module is
+--   about тАФ **рдПрдХрджреНрд╡реНрдпрд╛рджрд┐-рд▓рдЧрдХреНрд░рд┐рдпрд╛**, "the operation for [the forms
+--   having] one, two, and so on рд▓рдЧ", рд▓рдЧ being the рддradition's word for
+--   the heavy syllable (рдЧреБрд░реБ).  It is the count of the forms carrying a
+--   GIVEN NUMBER of gurus, and it is answered by the рдореЗрд░реБрдкреНрд░рд╕реНрддрд╛рд░ of
+--   рдЫрдиреНрджрдГрд╢рд╛рд╕реНрддреНрд░рдореН рео.рейректАУрейрел, whose construction rule тАФ рдЕрдЧреНрд░рд┐рдо-рдкрдЩреНрдХреНрддрд┐рдГ
+--   рдкреВрд░реНрд╡-рдкрдЩреНрдХреНрддреЗрдГ рдкрд╛рд░реНрд╢реНрд╡-рдпреЛрдЧреИрдГ, the next row from the adjacent sums of the
+--   previous тАФ is stated by рд╣рд▓рд╛рдпреБрдз, *рдореГрддрд╕рдЮреНрдЬреАрд╡рдиреА*, 10th c. CE.
 --
 --   ро.рйртУрйр is cited for the ARRAY, which is what is used
 --   below; the name is the commentarial tradition's name for the fourth
 --   pratyaya and is used here in that sense.
 --
---   The later European statement of the array is Pascal, *Traitй du
---   triangle arithmйtique*, 1654 тФ a restatement, named after the source
+--   The later European statement of the array is Pascal, *Trait├й du
+--   triangle arithm├йtique*, 1654 тАФ a restatement, named after the source
 --   and as one, and never transliterated into Devanagari, which would
 --   be worse than the Latin.
 --
--- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
--- WHAT IS PROVED, for `f : A тТ B` and `g : A тТ C`.
+-- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
+-- WHAT IS PROVED, for `f : A тЖТ B` and `g : A тЖТ C`.
 --
---   ┬зрз  р▓рЧрХрр░р┐рпр╛  fiber тЯиf,gтЯй (b , c) тЙ fiber (g тИШ fst) c, where the
+--   ┬зрез  рд▓рдЧрдХреНрд░рд┐рдпрд╛  fiber тЯиf,gтЯй (b , c) тЙГ fiber (g тИШ fst) c, where the
 --       `fst` is off `fiber f b`.  THE JOINT FIBRE IS THE FIBRE OF g
---       RESTRICTED TO THE FIBRE OF f тФ the conditional receipt: once f
+--       RESTRICTED TO THE FIBRE OF f тАФ the conditional receipt: once f
 --       is known to be b, what g still costs is one fibre, taken inside
 --       the answer f already gave.
 --
 --       The passage is not definitional and the gap is the content: a
 --       PAIR OF EQUATIONS is not an EQUATION OF PAIRS.  They meet only
---       through `╬PathтЙPath╬`, and measuring two observables jointly is
+--       through `╬гPathтЙГPath╬г`, and measuring two observables jointly is
 --       not the act of measuring each.
 --
---   ┬зри  р▓рЧрХрр░р┐рпр╛-р╡р┐рр╛рЧр  fiber f b тЙ ╬[ c тИИ C ] fiber тЯиf,gтЯй (b , c).
+--   ┬зреи  рд▓рдЧрдХреНрд░рд┐рдпрд╛-рд╡рд┐рднрд╛рдЧрдГ  fiber f b тЙГ ╬г[ c тИИ C ] fiber тЯиf,gтЯй (b , c).
 --       The fibre of f partitions over the values of g.  This is the
---       sum rule тФ the total is the sum of the conditionals тФ and it is
+--       sum rule тАФ the total is the sum of the conditionals тАФ and it is
 --       an equivalence of types, with no finiteness anywhere.
 --
---   ┬зрй  роррХрр-р▓рЧрХрр░р┐рпр╛  if f's fibre at b is contractible, the joint
---       fibre collapses to a single path `g aт тЙб c`.  When f is already
---       an answer (рирррЯрЛржрржр┐рррЯ-рр░ррХррр╛ ┬зр: ррХрор at b), g costs nothing
+--   ┬зрей  рдореБрдХреНрдд-рд▓рдЧрдХреНрд░рд┐рдпрд╛  if f's fibre at b is contractible, the joint
+--       fibre collapses to a single path `g aтВА тЙб c`.  When f is already
+--       an answer (рдирд╖реНрдЯреЛрджреНрджрд┐рд╖реНрдЯ-рдкрд░реАрдХреНрд╖рд╛ ┬зрек: рдПрдХрдореН at b), g costs nothing
 --       beyond identifying its value.
 --
---   ┬зр  рр┐рЩррЧр▓р  Vak n тЙ ╬[ k тИИ тХ ] Chosen n k.  Pigala's own case:
---       the syllable-metre decomposes over the guru-count.  ┬зри
---       instantiated at (р╡р░рр, рЧрр░р), joined to
---       `Chandomudra_тж.рпррЧрро-ррирррр` which prices the joint fibre.
+--   ┬зрек  рдкрд┐рдЩреНрдЧрд▓реЗ  Vak n тЙГ ╬г[ k тИИ тДХ ] Chosen n k.  Piс╣Еgala's own case:
+--       the syllable-metre decomposes over the guru-count.  ┬зреи
+--       instantiated at (рд╡рд░реНрдг, рдЧреБрд░реБ), joined to
+--       `Chandomudra_тАж.рдпреБрдЧреНрдо-рддрдиреНрддреБрдГ` which prices the joint fibre.
 --
 --   ┬зр  ррЩррХррр┐-рпрЛрЧр  рпрЛрЧрр▓ (ррЩррХррр┐ n) тЙб count n.  The same statement
---       at the level of NUMBERS: the n-th row of the рорр░рррр░рррр╛р░ sums to
---       the ррЩррЦррпр╛ 2т┐, proved from рр▓р╛рпррз's adjacent-sums rule as it is
---       written in `NastaUddista_тж.ррЩррХррр┐` тФ one row held in memory, no
+--       at the level of NUMBERS: the n-th row of the рдореЗрд░реБрдкреНрд░рд╕реНрддрд╛рд░ sums to
+--       the рд╕рдЩреНрдЦреНрдпрд╛ 2тБ┐, proved from рд╣рд▓рд╛рдпреБрдз's adjacent-sums rule as it is
+--       written in `NastaUddista_тАж.рдкрдЩреНрдХреНрддрд┐` тАФ one row held in memory, no
 --       triangle stored.
 --
---   ┬зр  р▓рЧ-рЧррир╛  ╬[ k тИИ тХ ] Chosen n k тЙ Fin (рпрЛрЧрр▓ (ррЩррХррр┐ n)).  ┬зр and
---       ┬зр joined, by way of Pigala's OWN рирррЯ/рЙржрржр┐рррЯ count
---       (`PingalaPrastara.uddistaIso`).  Summing the р▓рЧрХрр░р┐рпр╛ over every
---       guru-count returns the ррЩррЦррпр╛, and no summand is ever examined.
+--   ┬зрем  рд▓рдЧ-рдЧрдгрдирд╛  ╬г[ k тИИ тДХ ] Chosen n k тЙГ Fin (рдпреЛрдЧрдлрд▓ (рдкрдЩреНрдХреНрддрд┐ n)).  ┬зрек and
+--       ┬зрел joined, by way of Piс╣Еgala's OWN рдирд╖реНрдЯ/рдЙрджреНрджрд┐рд╖реНрдЯ count
+--       (`PingalaPrastara.uddistaIso`).  Summing the рд▓рдЧрдХреНрд░рд┐рдпрд╛ over every
+--       guru-count returns the рд╕рдЩреНрдЦреНрдпрд╛, and no summand is ever examined.
 --
 -- RELATION TO WHAT IS ALREADY HERE.  `Residue_тж.ррр` gives the COMPOSITION
--- half тФ fiber (g тИШ f) z тЙ ╬[ p тИИ fiber g z ] fiber f (fst p) тФ for two
--- maps run in series.  ┬зрз is the PAIRING half, for two maps run on the
+-- half тАФ fiber (g тИШ f) z тЙГ ╬г[ p тИИ fiber g z ] fiber f (fst p) тАФ for two
+-- maps run in series.  ┬зрез is the PAIRING half, for two maps run on the
 -- same source.  They are different fibrations of a fibration and neither
--- follows from the other; ┬зрз's hypothesis is a common domain, ┬зррр's is
+-- follows from the other; ┬зрез's hypothesis is a common domain, ┬зрд╢реЗрд╖'s is
 -- a shared middle.
 ------------------------------------------------------------------------
 
@@ -104,8 +104,8 @@ private
   variable
     тДУ тДУ' тДУ'' тДУ''' : Level
 
--- A swap of two independent ╬-bases, needed below and not in the library
--- in this generality (`Cubical.Data.Sigma.╬-swap-тЙ` is the plain product
+-- A swap of two independent ╬г-bases, needed below and not in the library
+-- in this generality (`Cubical.Data.Sigma.╬г-swap-тЙГ` is the plain product
 -- only, and here the last family depends on BOTH bases).  Both round
 -- trips are `refl`.
 рд╡рд┐рдкрд░реНрдпрдп-Iso : {D : Type тДУ} {E : Type тДУ'} {F : D тЖТ E тЖТ Type тДУ''}
@@ -117,7 +117,7 @@ Iso.rightInv рд╡рд┐рдкрд░реНрдпрдп-Iso _ = refl
 Iso.leftInv  рд╡рд┐рдкрд░реНрдпрдп-Iso _ = refl
 
 ------------------------------------------------------------------------
--- рз ┬ THE CONDITIONAL RECEIPT.
+-- рез ┬╖ THE CONDITIONAL RECEIPT.
 --
 -- Two observables on one source.  The JOINT specification names both;
 -- the PARTIAL specification names only the first, and what remains to be
@@ -126,7 +126,7 @@ Iso.leftInv  рд╡рд┐рдкрд░реНрдпрдп-Iso _ = refl
 
 module _ {A : Type тДУ} {B : Type тДУ'} {C : Type тДУ''} (f : A тЖТ B) (g : A тЖТ C) where
 
-  -- тЯиf,gтЯй тФ the joint measurement, made in one act.
+  -- тЯиf,gтЯй тАФ the joint measurement, made in one act.
   рдпреБрдЧреНрдо-рдорд╛рдкрдГ : A тЖТ B ├Ч C
   рдпреБрдЧреНрдо-рдорд╛рдкрдГ a = f a , g a
 
@@ -134,11 +134,11 @@ module _ {A : Type тДУ} {B : Type тДУ'} {C : Type тДУ''} (f : A тЖТ B) (g : A тЖ
   рд╕рд╛рдкреЗрдХреНрд╖-рддрдиреНрддреБрдГ : B тЖТ C тЖТ Type (тДУ-max (тДУ-max тДУ тДУ') тДУ'')
   рд╕рд╛рдкреЗрдХреНрд╖-рддрдиреНрддреБрдГ b c = fiber (╬╗ (x : fiber f b) тЖТ g (fst x)) c
 
-  -- ┬зрз  the joint fibre IS the conditional fibre.
+  -- ┬зрез  the joint fibre IS the conditional fibre.
   --
   -- Left to right the two coordinates of the pair-equation are split
-  -- (`╬PathтЙPath╬`, and this is the step that is not definitional);
-  -- then the ╬ is reassociated so that "the part f already answered"
+  -- (`╬гPathтЙГPath╬г`, and this is the step that is not definitional);
+  -- then the ╬г is reassociated so that "the part f already answered"
   -- becomes the base and "what g still costs" becomes the fibre.
   рд▓рдЧрдХреНрд░рд┐рдпрд╛ : (b : B) (c : C)
            тЖТ fiber рдпреБрдЧреНрдо-рдорд╛рдкрдГ (b , c) тЙГ рд╕рд╛рдкреЗрдХреНрд╖-рддрдиреНрддреБрдГ b c
@@ -146,7 +146,7 @@ module _ {A : Type тДУ} {B : Type тДУ'} {C : Type тДУ''} (f : A тЖТ B) (g : A тЖ
     compEquiv (╬г-cong-equiv-snd (╬╗ _ тЖТ invEquiv ╬гPathтЙГPath╬г))
               (invEquiv ╬г-assoc-тЙГ)
 
-  -- ┬зри  the sum rule.  The fibre of f is the sum, over the values of g,
+  -- ┬зреи  the sum rule.  The fibre of f is the sum, over the values of g,
   -- of the joint fibres.  Nothing is lost by refining a specification:
   -- the refinements reassemble to exactly what was there.
   рд▓рдЧрдХреНрд░рд┐рдпрд╛-рд╡рд┐рднрд╛рдЧрдГ : (b : B)
@@ -157,22 +157,22 @@ module _ {A : Type тДУ} {B : Type тДУ'} {C : Type тДУ''} (f : A тЖТ B) (g : A тЖ
       (compEquiv (isoToEquiv рд╡рд┐рдкрд░реНрдпрдп-Iso)
                  (╬г-contractSnd (╬╗ x тЖТ isContrSingl (g (fst x))))))
 
-  -- ┬зрй  when the first answer is already ррХрор, the conditional receipt
+  -- ┬зрей  when the first answer is already рдПрдХрдореН, the conditional receipt
   -- is a single path and nothing more.
   рдореБрдХреНрдд-рд▓рдЧрдХреНрд░рд┐рдпрд╛ : (b : B) (h : isContr (fiber f b)) (c : C)
                 тЖТ fiber рдпреБрдЧреНрдо-рдорд╛рдкрдГ (b , c) тЙГ (g (fst (h .fst)) тЙб c)
   рдореБрдХреНрдд-рд▓рдЧрдХреНрд░рд┐рдпрд╛ b h c = compEquiv (рд▓рдЧрдХреНрд░рд┐рдпрд╛ b c) (╬г-contractFst h)
 
 ------------------------------------------------------------------------
--- р ┬ рр┐рЩррЧр▓р тФ the instance the pratyaya was stated for.
+-- рек ┬╖ рдкрд┐рдЩреНрдЧрд▓реЗ тАФ the instance the pratyaya was stated for.
 --
--- f = р╡р░рр (syllable count), g = рЧрр░р (heavy-syllable count).  ┬зри says
--- the р╡р░ррр╡рррр of n syllables decomposes over the guru-count, and
--- `Chandomudra_тж.рпррЧрро-ррирррр` says each joint fibre is `Chosen n k`,
--- which is what the рорр░рррр░рррр╛р░ tabulates.
+-- f = рд╡рд░реНрдг (syllable count), g = рдЧреБрд░реБ (heavy-syllable count).  ┬зреи says
+-- the рд╡рд░реНрдгрд╡реГрддреНрдд of n syllables decomposes over the guru-count, and
+-- `Chandomudra_тАж.рдпреБрдЧреНрдо-рддрдиреНрддреБрдГ` says each joint fibre is `Chosen n k`,
+-- which is what the рдореЗрд░реБрдкреНрд░рд╕реНрддрд╛рд░ tabulates.
 --
 -- `fiber varna n` and `Vak n` are the same type on the nose, so no step
--- is spent on that (ррирржрЛрорржрр░р╛ ┬зри).
+-- is spent on that (рдЫрдиреНрджреЛрдореБрджреНрд░рд╛ ┬зреи).
 ------------------------------------------------------------------------
 
 рд▓рдЧ-рд╡рд┐рднрд╛рдЧрдГ : (n : тДХ) тЖТ Vak n тЙГ (╬г[ k тИИ тДХ ] Chosen n k)
@@ -181,13 +181,13 @@ module _ {A : Type тДУ} {B : Type тДУ'} {C : Type тДУ''} (f : A тЖТ B) (g : A тЖ
             (╬г-cong-equiv-snd (╬╗ k тЖТ CM.рдпреБрдЧреНрдо-рддрдиреНрддреБрдГ n k))
 
 ------------------------------------------------------------------------
--- р ┬ THE SAME STATEMENT AT THE LEVEL OF NUMBERS.
+-- рел ┬╖ THE SAME STATEMENT AT THE LEVEL OF NUMBERS.
 --
--- ┬зр is an equivalence of types and stops there: passing to a count
--- needs a finiteness ┬зр does not assume, and `╬[ k тИИ тХ ]` ranges over
--- all of тХ with all but finitely many summands empty.  The numerical
--- form is proved separately, from рр▓р╛рпррз's rule as it is actually
--- written in `NastaUddista_тж.ррЩррХррр┐` тФ one row generated from the
+-- ┬зрек is an equivalence of types and stops there: passing to a count
+-- needs a finiteness ┬зрек does not assume, and `╬г[ k тИИ тДХ ]` ranges over
+-- all of тДХ with all but finitely many summands empty.  The numerical
+-- form is proved separately, from рд╣рд▓рд╛рдпреБрдз's rule as it is actually
+-- written in `NastaUddista_тАж.рдкрдЩреНрдХреНрддрд┐` тАФ one row generated from the
 -- previous by adjacent sums, one row held, no triangle stored.
 ------------------------------------------------------------------------
 
@@ -203,8 +203,8 @@ module _ {A : Type тДУ} {B : Type тДУ'} {C : Type тДУ''} (f : A тЖТ B) (g : A тЖ
 рд╡рд┐рдиреНрдпрд╛рд╕тВВ : (x s : тДХ) тЖТ (x + x) + (s + s) тЙб (x + s) + (x + s)
 рд╡рд┐рдиреНрдпрд╛рд╕тВВ x s = solveтДХ!
 
--- the adjacent-sum row doubles the total, less its own head тФ stated
--- without subtraction, which тХ does not have.
+-- the adjacent-sum row doubles the total, less its own head тАФ stated
+-- without subtraction, which тДХ does not have.
 рдпреБрдЧреНрдо-рдпреЛрдЧрдГ : (xs : List тДХ)
            тЖТ рдирдпрди xs 0 + рдпреЛрдЧрдлрд▓ (рдпреБрдЧреНрдо xs) тЙб рдпреЛрдЧрдлрд▓ xs + рдпреЛрдЧрдлрд▓ xs
 рдпреБрдЧреНрдо-рдпреЛрдЧрдГ []       = refl
@@ -213,15 +213,15 @@ module _ {A : Type тДУ} {B : Type тДУ'} {C : Type тДУ''} (f : A тЖТ B) (g : A тЖ
   тИЩ cong ((x + x) +_) (рдпреБрдЧреНрдо-рдпреЛрдЧрдГ xs)
   тИЩ рд╡рд┐рдиреНрдпрд╛рд╕тВВ x (рдпреЛрдЧрдлрд▓ xs)
 
--- every row of the рорр░р begins with 1 тФ by the construction, not by a
+-- every row of the рдореЗрд░реБ begins with 1 тАФ by the construction, not by a
 -- separate argument.
 рдкрдЩреНрдХреНрддрд┐-рдореБрдЦрдореН : (n : тДХ) тЖТ рдирдпрди (рдкрдЩреНрдХреНрддрд┐ n) 0 тЙб 1
 рдкрдЩреНрдХреНрддрд┐-рдореБрдЦрдореН zero    = refl
 рдкрдЩреНрдХреНрддрд┐-рдореБрдЦрдореН (suc n) = refl
 
--- THE THEOREM.  The n-th row of the рорр░рррр░рррр╛р░ sums to Pigala's
--- ррЩррЦррпр╛.  Read backwards: summing the р▓рЧрХрр░р┐рпр╛ over every possible
--- guru-count returns the whole ррр░рррр╛р░, so the conditional receipts
+-- THE THEOREM.  The n-th row of the рдореЗрд░реБрдкреНрд░рд╕реНрддрд╛рд░ sums to Piс╣Еgala's
+-- рд╕рдЩреНрдЦреНрдпрд╛.  Read backwards: summing the рд▓рдЧрдХреНрд░рд┐рдпрд╛ over every possible
+-- guru-count returns the whole рдкреНрд░рд╕реНрддрд╛рд░, so the conditional receipts
 -- account for the total exactly.
 рдкрдЩреНрдХреНрддрд┐-рдпреЛрдЧрдГ : (n : тДХ) тЖТ рдпреЛрдЧрдлрд▓ (рдкрдЩреНрдХреНрддрд┐ n) тЙб count n
 рдкрдЩреНрдХреНрддрд┐-рдпреЛрдЧрдГ zero    = refl
@@ -231,14 +231,14 @@ module _ {A : Type тДУ} {B : Type тДУ'} {C : Type тДУ''} (f : A тЖТ B) (g : A тЖ
   тИЩ congтВВ _+_ (рдкрдЩреНрдХреНрддрд┐-рдпреЛрдЧрдГ n) (рдкрдЩреНрдХреНрддрд┐-рдпреЛрдЧрдГ n)
 
 ------------------------------------------------------------------------
--- р ┬ ┬зр AND ┬зр JOINED BY A TERM, not by a paragraph.
+-- рем ┬╖ ┬зрек AND ┬зрел JOINED BY A TERM, not by a paragraph.
 --
 -- The route runs the other way round: ┬зр says the
--- sum of the conditional fibres IS the р╡р░ррр╡рррр, and Pigala's own
--- рирррЯ/рЙржрржр┐рррЯ pair already counts THAT (`PingalaPrastara.uddistaIso`,
+-- sum of the conditional fibres IS the рд╡рд░реНрдгрд╡реГрддреНрдд, and Piс╣Еgala's own
+-- рдирд╖реНрдЯ/рдЙрджреНрджрд┐рд╖реНрдЯ pair already counts THAT (`PingalaPrastara.uddistaIso`,
 -- Vak n тЙ Fin (count n)).  ┬зр then rewrites the count as the row sum.
 --
--- So: the ррЩррЦррпр╛ is recovered by summing the р▓рЧрХрр░р┐рпр╛ over every guru
+-- So: the рд╕рдЩреНрдЦреНрдпрд╛ is recovered by summing the рд▓рдЧрдХреНрд░рд┐рдпрд╛ over every guru
 -- count, as an equivalence, with no summand ever examined.
 ------------------------------------------------------------------------
 
@@ -249,21 +249,21 @@ module _ {A : Type тДУ} {B : Type тДУ'} {C : Type тДУ''} (f : A тЖТ B) (g : A тЖ
              (pathToEquiv (cong Fin (sym (рдкрдЩреНрдХреНрддрд┐-рдпреЛрдЧрдГ n)))))
 
 ------------------------------------------------------------------------
--- р ┬ рЙржр╛рр░рр╛рир┐ тФ рХр░рррри рЧрр┐рр╛рир┐ (refl), ри рор╛рр┐рр╛рир┐ р
+-- рен ┬╖ рдЙрджрд╛рд╣рд░рдгрд╛рдирд┐ тАФ рдХрд░реНрдгреЗрди рдЧрдгрд┐рддрд╛рдирд┐ (refl), рди рдорд╛рдкрд┐рддрд╛рдирд┐ ред
 ------------------------------------------------------------------------
 
--- рр▓р╛рпррзрррп рррр░ррр ррЩррХррр┐р : 1 4 6 4 1, рпрЛрЧр рзр = рит┤ р
+-- рд╣рд▓рд╛рдпреБрдзрд╕реНрдп рдЪрддреБрд░реНрдереА рдкрдЩреНрдХреНрддрд┐рдГ : 1 4 6 4 1, рдпреЛрдЧрдГ резрем = реитБ┤ ред
 _ : рдпреЛрдЧрдлрд▓ (рдкрдЩреНрдХреНрддрд┐ 4) тЙб 16
 _ = refl
 
 _ : рдпреЛрдЧрдлрд▓ (рдкрдЩреНрдХреНрддрд┐ 4) тЙб count 4
 _ = refl
 
--- ржррор ррЩррХррр┐р : рзржрир р
+-- рджрд╢рдореА рдкрдЩреНрдХреНрддрд┐рдГ : резрежреирек ред
 _ : рдпреЛрдЧрдлрд▓ (рдкрдЩреНрдХреНрддрд┐ 10) тЙб 1024
 _ = refl
 
--- ррХр╛ р▓рЧрХрр░р┐рпр╛ : рррр░рХррр░р ржрр╡р┐-рЧрр░ррр┐ ррЯр р░ррр╛рр┐ р
+-- рдПрдХрд╛ рд▓рдЧрдХреНрд░рд┐рдпрд╛ : рдЪрддреБрд░рдХреНрд╖рд░реЗ рджреНрд╡рд┐-рдЧреБрд░реВрдгрд┐ рд╖рдЯреН рд░реВрдкрд╛рдгрд┐ ред
 _ : рдирдпрди (рдкрдЩреНрдХреНрддрд┐ 4) 2 тЙб 6
 _ = refl
 

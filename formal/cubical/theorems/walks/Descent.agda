@@ -12,7 +12,7 @@
 -- `Factors`, and everything it calls "X carries no information beyond
 -- the quotient" is an inhabitant of `ConstantOnFibres`.  The theorem
 -- below says the two are the same type, up to equivalence, whenever the
--- target is a set and q is surjective â” and that under those same
+-- target is a set and q is surjective â€” and that under those same
 -- hypotheses the factorisation is unique, so the certificate has no
 -- content beyond its existence.
 --

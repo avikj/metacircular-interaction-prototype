@@ -7,19 +7,19 @@
 --
 -- `NaturalMachine.Obstruction` defines
 --
---     data Tm : Type� where
+--     data Tm : Type₀ where
 --       var  : Tm
---       node : Shape � Tm � Tm
+--       node : Shape → Tm → Tm
 --
---     plug : Tm � Tm � Tm
+--     plug : Tm → Tm → Tm
 --     plug var        u = u
 --     plug (node c t) u = node c (plug t u)
 --
 -- which is `List Shape` with `_++_`, constructor for constructor.  That
 -- observation is the beginning of the work here, not the end of it.
 --
--- The reading to avoid � and it was this repository's reading until
--- 2026-08-14 � is "so the lane is 1400 lines of nothing, delete it".
+-- The reading to avoid — and it was this repository's reading until
+-- 2026-08-14 — is "so the lane is 1400 lines of nothing, delete it".
 -- That is backwards, and `NaturalMachine.AtlasResiduals` is the module
 -- that says why: a presentation is a CHART, and an atlas is charts
 -- together with the transitions between them.  Two presentations with a
@@ -33,7 +33,7 @@
 -- WHAT IS CHECKED
 --
 --   §1  `TmChart`            Iso Tm (List Shape), both round trips by
---       `Tm�List`            induction; and `toList-plug`, saying the
+--       `Tm≃List`            induction; and `toList-plug`, saying the
 --       `toList-plug`        chart carries `plug` to `_++_`.  The
 --                            transition is a monoid map, which is the
 --                            only reason transporting along it is
@@ -41,20 +41,20 @@
 --
 --   §2  `plug-assoc`         (Tm, plug, var) is a MONOID.  Associativity
 --       `plug-unit-l`        was not previously stated anywhere in the
---       `plug-unit-r`        lane � the lane had a binary operation and
---                            no law about it � so this is new, and it is
+--       `plug-unit-r`        lane — the lane had a binary operation and
+--                            no law about it — so this is new, and it is
 --                            `++-assoc` read through §1.
 --
 --   §3  `rec`                THE UNIVERSAL PROPERTY, in initial-algebra
---       `rec-unique`         form: for every `e : M` and `f : Shape � M`
---       `rec-hom`            and `_�_`, the function determined by
---       `rec-�`              `var � e`, `node c t � f c � rec t` EXISTS
+--       `rec-unique`         form: for every `e : M` and `f : Shape → M`
+--       `rec-hom`            and `_·_`, the function determined by
+--       `rec-η`              `var ↦ e`, `node c t ↦ f c · rec t` EXISTS
 --                            and is UNIQUE among functions satisfying
---                            those two equations; and if `_�_` is
+--                            those two equations; and if `_·_` is
 --                            associative with `e` a unit, that function
---                            is a monoid homomorphism `(Tm, plug, var) �
---                            (M, �, e)` extending `f` along
---                            `� c = node c var`.  Hence (Tm, plug, var)
+--                            is a monoid homomorphism `(Tm, plug, var) →
+--                            (M, ·, e)` extending `f` along
+--                            `η c = node c var`.  Hence (Tm, plug, var)
 --                            is the FREE MONOID on Shape.
 --
 --                            NO h-LEVEL HYPOTHESIS ANYWHERE.  Uniqueness
@@ -67,10 +67,10 @@
 --
 --   §4  `size-is-rec`        THE PAYOFF.  The lane's two hand-proved
 --       `deficit-is-rec`     additivity lemmas are one theorem.
---       `plug-size�`         `WitnessPolicy.size` is the extension of
---       `plug-deficit�`      `λ _ � 1`, and `GenerativeLoop.deficit V`
+--       `plug-size′`         `WitnessPolicy.size` is the extension of
+--       `plug-deficit′`      `λ _ → 1`, and `GenerativeLoop.deficit V`
 --       `rec-additive`       is the extension of `delta V`, both into
---                            (�, +, 0) � each identification is `refl`
+--                            (ℕ, +, 0) — each identification is `refl`
 --                            at both equations, so `rec-unique` closes
 --                            them immediately.  Their additivity over
 --                            `plug` is then not a coincidence checked
@@ -96,13 +96,13 @@
 --    since the ecosystem survey went looking: cubical v0.5 has
 --    `HITs/FreeComMonoids`, `HITs/FreeGroup`, `HITs/FreeAbGroup` and
 --    `Algebra/CommMonoid/Instances/FreeComMonoid`, and NO universal
---    property for the free MONOID on a type � `Data/List/Properties`
+--    property for the free MONOID on a type — `Data/List/Properties`
 --    has `++-assoc` and `++-unit-r` but nothing characterising `List`.
 --    The gap is real; filling it upstream is a separate job from this
 --    one, and this file does not do it (it is stated for `Tm`, not for a
 --    general `List A`).
 --
---  * `Shape = �` here, as everywhere in the lane.  Nothing below uses
+--  * `Shape = ℕ` here, as everywhere in the lane.  Nothing below uses
 --    that, and nothing below uses decidable equality on Shape; the
 --    development would go through verbatim for an arbitrary Shape type.
 ------------------------------------------------------------------------
@@ -168,7 +168,7 @@ toList-plug (node c t) u = cong (c ∷_) (toList-plug t u)
 --
 -- Associativity is `++-assoc` read through §1.  It is worth being plain
 -- about the size of this: the proof is two lines either way, so the
--- chart does not save labour HERE.  What it buys is §3 � a universal
+-- chart does not save labour HERE.  What it buys is §3 — a universal
 -- property is not something one stumbles into by induction, and it is
 -- what the lane was missing.
 ------------------------------------------------------------------------
@@ -193,7 +193,7 @@ plug-unit-r (node c t) = cong (node c) (plug-unit-r t)
 -- 3.  The universal property.
 --
 -- Stated in initial-algebra form first, because existence and
--- uniqueness of the recursor need NO hypotheses on the target at all �
+-- uniqueness of the recursor need NO hypotheses on the target at all —
 -- not associativity, not a unit, and in particular no h-level.  The
 -- monoid laws are then assumed only where they are actually used, to
 -- upgrade the recursor to a homomorphism.
@@ -226,7 +226,7 @@ module _ {M : Type ℓ} (e : M) (f : Shape → M) (_·_ : M → M → M) where
   module _ (unit-l : (x : M) → e · x ≡ x)
            (assoc  : (x y z : M) → (x · y) · z ≡ x · (y · z)) where
 
-    -- The recursor is a monoid homomorphism (Tm, plug, var) � (M, �, e).
+    -- The recursor is a monoid homomorphism (Tm, plug, var) → (M, ·, e).
     rec-hom : (t u : Tm) → rec (plug t u) ≡ rec t · rec u
     rec-hom var        u = sym (unit-l (rec u))
     rec-hom (node c t) u =
@@ -235,7 +235,7 @@ module _ {M : Type ℓ} (e : M) (f : Shape → M) (_·_ : M → M → M) where
     rec-unit : rec var ≡ e
     rec-unit = refl
 
-  -- ... and it extends f along �, given a right unit.
+  -- ... and it extends f along η, given a right unit.
   module _ (unit-r : (x : M) → x · e ≡ x) where
     rec-η : (c : Shape) → rec (η c) ≡ f c
     rec-η c = unit-r (f c)
@@ -244,10 +244,10 @@ module _ {M : Type ℓ} (e : M) (f : Shape → M) (_·_ : M → M → M) where
 -- 4.  What the connection pays for.
 --
 -- `size` and `deficit V` are both defined in the lane by exactly the
--- recursion of §3 into (�, +, 0), and each was separately proved
+-- recursion of §3 into (ℕ, +, 0), and each was separately proved
 -- additive over `plug` by its own induction.  Below, each is identified
--- with its recursor � both equations hold by `refl`, so `rec-unique`
--- closes the identification on the spot � and additivity then falls out
+-- with its recursor — both equations hold by `refl`, so `rec-unique`
+-- closes the identification on the spot — and additivity then falls out
 -- of `rec-hom` once, for both, and for anything else defined this way.
 ------------------------------------------------------------------------
 

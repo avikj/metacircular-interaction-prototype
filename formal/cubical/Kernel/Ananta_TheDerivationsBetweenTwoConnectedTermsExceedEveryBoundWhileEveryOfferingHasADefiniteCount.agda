@@ -4,8 +4,8 @@
 -- Kernel.Ananta_TheDerivationsBetweenTwoConnectedTermsExceedEvery
 --                BoundWhileEveryOfferingHasADefiniteCount
 --
--- TERM.  ‡‡®‡®‡‡ ¬ ananta -- the third of the three orders of magnitude in the
--- Jaina counting apparatus, ‡‡‡ñ‡‡Ø‡æ‡ / ‡‡‡‡ñ‡‡Ø‡æ‡ / ‡‡®‡®‡‡ (sakhyta,
+-- TERM.  ‡§Ö‡§®‡§®‡•ç‡§§ ¬∑ ananta -- the third of the three orders of magnitude in the
+-- Jaina counting apparatus, ‡§∏‡§Ç‡§ñ‡•ç‡§Ø‡§æ‡§§ / ‡§Ö‡§∏‡§Ç‡§ñ‡•ç‡§Ø‡§æ‡§§ / ‡§Ö‡§®‡§®‡•ç‡§§ (sa·πÉkhyƒÅta,
 -- asakhyta, ananta), each further subdivided.  *Anuyogadvrastra* (date
 -- contested, commonly placed ~2nd-5th c. CE); *Sthngastra*;
 -- *Bhagavatstra*.
@@ -23,7 +23,7 @@
 --
 -- `Residue_‚¶` exhibits TWO histories between the kernel's own pair, separated
 -- by step count, 2 against 4, and concludes the truncation is strict.
--- `Avirodha_‚¶` locates the same fact structurally: `‚äï` is associative and
+-- `Avirodha_‚Ä¶` locates the same fact structurally: `‚äï` is associative and
 -- unital on the nose, `rev` is an inverse only up to meaning, and THE GAP
 -- BETWEEN STRICT CATEGORY AND WEAK GROUPOID IS THE EA.
 --
@@ -39,7 +39,7 @@
 --
 --   ¬ß1  inflate, inflate-len -- for every k, a derivation with the same
 --       endpoints and length (k + k) + len d.
---   ¬ß2  inflate-inj -- k is recoverable from the derivation, so ‚ï injects
+--   ¬ß2  inflate-inj -- k is recoverable from the derivation, so ‚Ñï injects
 --       into `Derivation a b` whenever that type is inhabited at all.
 --   ¬ß3  ananta -- the statement in the form the criterion above wants:
 --       no bound on the standpoints between two connected terms.

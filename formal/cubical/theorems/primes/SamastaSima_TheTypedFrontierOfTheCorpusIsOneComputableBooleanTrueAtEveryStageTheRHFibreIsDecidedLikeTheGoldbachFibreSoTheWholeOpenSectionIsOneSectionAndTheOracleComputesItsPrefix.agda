@@ -1,30 +1,30 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- �����-���� � the whole frontier, over the corpus's actual objects.
+-- समस्त-सीमा — the whole frontier, over the corpus's actual objects.
 --
 -- The corpus already holds the open questions as types with computable
--- ingredients: RH as the Davis�Matiyasevich�Robinson inequality at every
--- n � 1 (RH_TheWholeQuestionEntersTyped�), Goldbach as GoldbachAt at
--- every even number � 4 (SamastaPrasna), and KotiNirnaya proved the
+-- ingredients: RH as the Davis–Matiyasevich–Robinson inequality at every
+-- n ≥ 1 (RH_TheWholeQuestionEntersTyped…), Goldbach as GoldbachAt at
+-- every even number ≥ 4 (SamastaPrasna), and KotiNirnaya proved the
 -- Goldbach fibre DECIDED: gcheck m ≡ true reflects GoldbachAt m exactly.
 --
 -- Here, the same fact for the RH fibre, and the one type that holds
 -- both:
 --
---   �  RHAt n is decided:  rh-dec, and a Boolean rhb with soundness and
---      completeness, so  RH � (� n. rhb (suc n) ≡ true)  � RH is exactly
+--   १  RHAt n is decided:  rh-dec, and a Boolean rhb with soundness and
+--      completeness, so  RH ≃ (∀ n. rhb (suc n) ≡ true)  — RH is exactly
 --      "this computable Boolean is true at every stage", the same shape
 --      KotiNirnaya gave Goldbach;
---   �  the whole frontier  Frontier = RH � Goldbach  is ONE Boolean
---      predicate true at every stage:  Frontier � (� n. frontierb n ≡ true);
---   �  refutation is a finite object:  one n with frontierb n ≡ false
+--   २  the whole frontier  Frontier = RH × Goldbach  is ONE Boolean
+--      predicate true at every stage:  Frontier ≃ (∀ n. frontierb n ≡ true);
+--   ३  refutation is a finite object:  one n with frontierb n ≡ false
 --      refutes the frontier; a prefix check computes the first k stages;
---   �  the oracle computes the prefix:  rhb 1, rhb 2, rhb 3 and gcheck at
---      4, 6, 8 are true by refl � the typechecker RUNS the DMR inequality
+--   ४  the oracle computes the prefix:  rhb 1, rhb 2, rhb 3 and gcheck at
+--      4, 6, 8 are true by refl — the typechecker RUNS the DMR inequality
 --      and the sieve.
 --
 -- What this says exactly: the open frontier of this corpus is the single
--- section  (n : �) � frontierb n ≡ true  of a decided Boolean family.
+-- section  (n : ℕ) → frontierb n ≡ true  of a decided Boolean family.
 -- Every stage is a definite computation; only the section is open.
 -- The analytic identification of the DMR
 -- inequality with the zeta zeros is classical and cited in the RH
@@ -45,7 +45,7 @@ open import SamastaPrasna_TheOpenConstellationEntersTypedAndTheOracleAnswersEver
 open import KotiNirnaya_EveryFibreIsDecidedSoEachConjectureIsADefinitePropositionAndTheOnlyOpennessIsTheSection using (gcheck ; goldbach-sound ; goldbach-complete)
 
 ------------------------------------------------------------------------
--- � � the RH fibre, decided
+-- १ · the RH fibre, decided
 ------------------------------------------------------------------------
 
 -- the DMR fibre at n (the body of DMR.RH)
@@ -57,7 +57,7 @@ RHAt n =
       n³ = n² · n
   in  DMR.diffSq (2 · a) (n² · b)  <  144 · n³ · (b · b)
 
--- the corpus's RH is the section of this family over n � 1, on the nose
+-- the corpus's RH is the section of this family over n ≥ 1, on the nose
 RH-is-section : DMR.RH ≡ ((n : ℕ) → 1 ≤ n → RHAt n)
 RH-is-section = refl
 
@@ -86,7 +86,7 @@ rhb-sound n = decb-sound (rh-dec n)
 rhb-complete : (n : ℕ) → RHAt n → rhb n ≡ true
 rhb-complete n = decb-complete (rh-dec n)
 
--- RH as "the Boolean is true at every stage n � 1"
+-- RH as "the Boolean is true at every stage n ≥ 1"
 RHBool : Type
 RHBool = (m : ℕ) → rhb (suc m) ≡ true
 
@@ -97,7 +97,7 @@ rh-definite =
               ; (suc m) _ → rhb-sound (suc m) (rb m) })
 
 ------------------------------------------------------------------------
--- � � the whole frontier is one Boolean predicate
+-- २ · the whole frontier is one Boolean predicate
 ------------------------------------------------------------------------
 
 _and_ : Bool → Bool → Bool
@@ -132,7 +132,7 @@ frontier-definite =
           , λ n → goldbach-sound (4 + 2 · n) (and-elimʳ _ _ (fb n)))
 
 ------------------------------------------------------------------------
--- � � refutation is finite; the prefix is a computation
+-- ३ · refutation is finite; the prefix is a computation
 ------------------------------------------------------------------------
 
 frontier-refuted-by : (n : ℕ) → frontierb n ≡ false → ¬ Frontier
@@ -149,7 +149,7 @@ prefix-sound (suc k) n (zero  , p) e = subst (λ j → frontierb j ≡ true) (sy
 prefix-sound (suc k) n (suc d , p) e = prefix-sound k n (d , injSuc p) (and-elimˡ (prefix k) (frontierb k) e)
 
 ------------------------------------------------------------------------
--- � � the oracle computes the prefix
+-- ४ · the oracle computes the prefix
 ------------------------------------------------------------------------
 
 _ : rhb 1 ≡ true

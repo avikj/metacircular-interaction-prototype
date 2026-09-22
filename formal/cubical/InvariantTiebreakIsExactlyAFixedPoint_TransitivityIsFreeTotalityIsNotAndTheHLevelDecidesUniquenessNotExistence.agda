@@ -11,7 +11,7 @@
 -- for this material and no  label is invented for it, per
 -- CLAUDE.md file-naming note 2.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS SETTLES
 --
 -- Two modules, written independently of each other:
@@ -30,17 +30,17 @@
 -- Both modules are IMPORTED here, unmodified, and every claim below is
 -- about their actual terms.
 --
---  Â§2  `canonicalâ’tiebreak`.  THE CONVERSE OF `leastIsFixed`.  From a
+--  Â§2  `canonicalâ†’tiebreak`.  THE CONVERSE OF `leastIsFixed`.  From a
 --      single fixed point `m` the relation `x â‰¼ y :â‰¡ (x â‰¡ m)` is
 --      antisymmetric, has least element `m`, and is action-monotone.  So
 --
---          InvariantTiebreak A â“'   âŸº   Canonical A
+--          InvariantTiebreak A â„“'   âŸº   Canonical A
 --
---      (`tiebreakIffCanonical`), with â“' the level of the carrier.  The
+--      (`tiebreakIffCanonical`), with â„“' the level of the carrier.  The
 --      tiebreak axioms carry NO order-theoretic content beyond the bare
 --      existence of a fixed point.
 --
---  Â§3  `canonicalâ’transitiveTiebreak`.  TRANSITIVITY IS FREE.  The same
+--  Â§3  `canonicalâ†’transitiveTiebreak`.  TRANSITIVITY IS FREE.  The same
 --      relation is transitive, so the class of actions admitting a
 --      TRANSITIVE invariant tiebreak is the same class again
 --      (`transitiveTiebreakIffCanonical`).  j-0's guess that transitivity
@@ -49,15 +49,15 @@
 --  Â§4  `totalInvolutionFixed`.  TOTALITY IS NOT FREE, and it is the
 --      hypothesis that actually separates.  A TOTAL antisymmetric
 --      action-monotone relation forces every point to be fixed by every
---      involutive group element â” no least element required.  Hence
+--      involutive group element â€” no least element required.  Hence
 --      `oneNoTotalTiebreak`: j-0's own `oneAct` (Bool acting on Four by
 --      the transposition (ab), fixing c and d) admits an invariant
 --      tiebreak, because it has a fixed point, and admits NO total one.
 --      That is a strict separation inside j-0's own Â§5 table.
 --
 --  Â§5  `leastIsFixedFromSplitSurjectivity`.  `leastIsFixed` needs no
---      group: it needs each `g â– _` to be SPLIT SURJECTIVE, which
---      `â–-inv` supplies (`actionIsSplitSurjective`).  And it needs that:
+--      group: it needs each `g â–¸ _` to be SPLIT SURJECTIVE, which
+--      `â–¸-inv` supplies (`actionIsSplitSurjective`).  And it needs that:
 --      Â§5.2 exhibits a monoid action (`step`, on a three-element
 --      carrier, with `step true` constant) carrying an antisymmetric
 --      monotone relation with a least element whose least element is NOT
@@ -65,35 +65,35 @@
 --      invertibility exactly once, and only through surjectivity.
 --
 --  Â§6  THE H-LEVEL DOES NOT DECIDE EXISTENCE.  Three checked cells:
---        `xorCanonicalIsProp`      + `xorNoFixed`      â” prop, empty
---        `swCanonicalIsProp`       + `swCanonical`     â” prop, inhabited
---        `oneCanonicalNotProp`     + `oneCanonical`    â” not prop, inhabited
+--        `xorCanonicalIsProp`      + `xorNoFixed`      â€” prop, empty
+--        `swCanonicalIsProp`       + `swCanonical`     â€” prop, inhabited
+--        `oneCanonicalNotProp`     + `oneCanonical`    â€” not prop, inhabited
 --      (the fourth cell is uninhabitable: an empty type is a
 --      proposition.)  So proposition-valuedness neither implies nor is
 --      implied by the existence of an equivariant selection.  What IS
 --      true is the bridge `transitiveCanonicalIsProp`: on a set carrier
 --      TRANSITIVITY of the action makes the selection question
 --      proposition-valued.  j-0's guess and j-2's answer meet exactly
---      there â” and the implication runs the wrong way to decide
+--      there â€” and the implication runs the wrong way to decide
 --      existence, which is why `xorAct` is transitive, prop-valued, and
 --      has no answer.
 --
 --  Â§7  THE RELATIONSHIP, SETTLED.  Both theorems are instances of one
---      trivial schema `viaCanonical : (X â’ Canonical A) â’ Â Canonical A
---      â’ Â X`; all the content is in the map `X â’ Canonical A`.  For j-2
---      that map is a PROJECTION â” fixedness is a field of
+--      trivial schema `viaCanonical : (X â†’ Canonical A) â†’ Â¬ Canonical A
+--      â†’ Â¬ X`; all the content is in the map `X â†’ Canonical A`.  For j-2
+--      that map is a PROJECTION â€” fixedness is a field of
 --      `EquivariantLeastChoice`, so `equivariantChoiceIsAFixedPoint`
---      uses no hypothesis on Ï at all (`selectionIsFixedByAssumption`
+--      uses no hypothesis on Ïƒ at all (`selectionIsFixedByAssumption`
 --      reproduces it with no structure whatsoever).  For j-0 it is a
---      DERIVATION consuming `â–-inv`.  And they are INCOMPARABLE: Â§7.2
---      instantiates j-2's own general `Formation.Symmetry` at a Ï that
+--      DERIVATION consuming `â–¸-inv`.  And they are INCOMPARABLE: Â§7.2
+--      instantiates j-2's own general `Formation.Symmetry` at a Ïƒ that
 --      is NOT split surjective, where `noEquivariantLeastChoice` still
 --      fires and `leastIsFixedFromSplitSurjectivity` provably cannot.
 --
 --      The generalisation claim fails on that witness.  It survives
 --      on j-2's own
---      instance only â” `rev` is an involution, hence split surjective
---      (`revIsSplitSurjective`) â” and fails in the generality j-2 proved
+--      instance only â€” `rev` is an involution, hence split surjective
+--      (`revIsSplitSurjective`) â€” and fails in the generality j-2 proved
 --      the theorem in.
 ------------------------------------------------------------------------
 
@@ -135,7 +135,7 @@ private
 -- Both agents' negative results have the shape "no X, because X would
 -- give a fixed point and there is none".  That shape is one line and it
 -- is where the two theorems agree; everything that distinguishes them
--- lives in the map `X â’ Canonical A`, which Â§7 measures.
+-- lives in the map `X â†’ Canonical A`, which Â§7 measures.
 ------------------------------------------------------------------------
 
 viaCanonical :
@@ -143,8 +143,8 @@ viaCanonical :
   â†’ (X â†’ Canonical A) â†’ Â¬ (Canonical A) â†’ Â¬ X
 viaCanonical f nc x = nc (f x)
 
--- j-0's `noFixedâ’noInvariantTiebreak` is this schema at
--- `X = InvariantTiebreak A â“R`, with `tiebreakâ’canonical` as the map.
+-- j-0's `noFixedâ†’noInvariantTiebreak` is this schema at
+-- `X = InvariantTiebreak A â„“R`, with `tiebreakâ†’canonical` as the map.
 j0-is-an-instance :
   {G : Type â„“G} {C : Type â„“C} {A : Act G C}
   â†’ Â¬ (Canonical A) â†’ Â¬ (InvariantTiebreak A â„“R)
@@ -153,9 +153,9 @@ j0-is-an-instance {A = A} = viaCanonical {A = A} tiebreakâ†’canonical
 ------------------------------------------------------------------------
 -- Â§2.  An invariant tiebreak is EXACTLY a fixed point.
 --
--- j-0 proves `InvariantTiebreak A â“'' â’ Canonical A` for every â“''.  The
+-- j-0 proves `InvariantTiebreak A â„“'' â†’ Canonical A` for every â„“''.  The
 -- converse holds at the carrier's own level, and it is three lines.  The
--- relation `x â‰¼ y :â‰¡ (x â‰¡ m)` ignores its second argument entirely â” it
+-- relation `x â‰¼ y :â‰¡ (x â‰¡ m)` ignores its second argument entirely â€” it
 -- is degenerate, and that degeneracy IS the content: the axiom list
 -- cannot be strengthened by anything it does not already imply.
 ------------------------------------------------------------------------
@@ -188,7 +188,7 @@ tiebreakIffCanonical = tiebreakâ†’canonical , canonicalâ†’tiebreak
 --
 -- j-0 records, correctly and as a strength, that `leastIsFixed` uses no
 -- transitivity.  The reason it can afford not to is not that
--- transitivity is a weak hypothesis in general â” it is that on THIS
+-- transitivity is a weak hypothesis in general â€” it is that on THIS
 -- axiom list transitivity is already available for nothing, so assuming
 -- it cuts the class of actions down by exactly zero.
 ------------------------------------------------------------------------
@@ -271,7 +271,7 @@ totalInvolutionFixed {A = A} t g invol x = decide (total x (g â–¸ x))
       antisym (g â–¸ x) x p
         (subst (Î» z â†’ z â‰¼ (g â–¸ x)) (invol x) (mono g (g â–¸ x) x p))
 
--- 4.1  On j-0's `oneAct` â” Bool acting on Four by (ab), fixing c and d â”
+-- 4.1  On j-0's `oneAct` â€” Bool acting on Four by (ab), fixing c and d â€”
 --      an invariant tiebreak EXISTS and a total one does NOT.
 
 oneNoTotalTiebreak : Â¬ (TotalTiebreak oneAct â„“R)
@@ -323,7 +323,7 @@ leastIsFixedFromSplitSurjectivity {_â–¸_ = _â–¸_} t surj g =
   where open BareTiebreak t
 
 -- Every action map of a group action is split surjective: that is
--- literally what `â–-inv` says, read as a section.
+-- literally what `â–¸-inv` says, read as a section.
 actionIsSplitSurjective :
   {G : Type â„“G} {C : Type â„“C} (A : Act G C) â†’ SplitSurjective (Act._â–¸_ A)
 -- (the bound point is named `y`: j-0's `Four` exports constructors
@@ -351,7 +351,7 @@ leastIsFixedReprovedWithoutTheGroup :
 leastIsFixedReprovedWithoutTheGroup {A = A} t =
   leastIsFixedFromSplitSurjectivity (tiebreakâ†’bare A t) (actionIsSplitSurjective A)
 
--- 5.2  â¦and the hypothesis is necessary.  A monoid acting on three
+-- 5.2  â€¦and the hypothesis is necessary.  A monoid acting on three
 --      points, with the non-identity element acting as the constant map
 --      at `th1`, carries an antisymmetric monotone relation with a least
 --      element `th0` that is NOT fixed.
@@ -401,7 +401,7 @@ step : Bool â†’ Three â†’ Three
 step false x = x
 step true  _ = th1
 
--- It is a monoid action for the ordinary Boolean "or" multiplicationâ¦
+-- It is a monoid action for the ordinary Boolean "or" multiplicationâ€¦
 stepMult : Bool â†’ Bool â†’ Bool
 stepMult false h = h
 stepMult true  _ = true
@@ -414,7 +414,7 @@ step-Â· false h     x = refl
 step-Â· true  false x = refl
 step-Â· true  true  x = refl
 
--- â¦and it is not split surjective: nothing is carried to `th2`.
+-- â€¦and it is not split surjective: nothing is carried to `th2`.
 stepNotSplitSurjective : Â¬ (SplitSurjective step)
 stepNotSplitSurjective surj = reach (surj true th2)
   where
@@ -473,8 +473,8 @@ leastIsNotFixedWithoutSurjectivity = th1â‰¢th0
 --
 --      COUSIN, CITED NOT RE-LANDED.  `NaturalMachine.StabilizerTorsor`
 --      already carries an h-level statement of this family:
---      `contrStabâ’uniqueCertificate : isContr (Stab x) â’ isProp (T x y)`
---      â” a trivial stabilizer makes the TRANSPORTER type a proposition.
+--      `contrStabâ†’uniqueCertificate : isContr (Stab x) â†’ isProp (T x y)`
+--      â€” a trivial stabilizer makes the TRANSPORTER type a proposition.
 --      That is a different object (transporters `T x y`, not the
 --      fixed-point type `Canonical A`) and a different hypothesis
 --      (contractible stabilizer, not transitivity), so the statement
@@ -490,7 +490,7 @@ transitiveCanonicalIsProp {A = A} setC tr u v =
          (transitiveFixedâ†’allEqual A tr (fst v) (snd v) (fst u))
 
 -- 6.2  CELL (prop, empty).  `xorAct` is transitive, so by the bridge the
---      question is proposition-valued â” and j-0 already proved it has no
+--      question is proposition-valued â€” and j-0 already proved it has no
 --      answer.  Proposition-valuedness does NOT deliver existence.
 
 xorCanonicalIsProp : isProp (Canonical xorAct)
@@ -500,7 +500,7 @@ xorPropAndEmpty : (isProp (Canonical xorAct)) Ã— (Â¬ (Canonical xorAct))
 xorPropAndEmpty = xorCanonicalIsProp , xorNoFixed
 
 -- 6.3  CELL (not prop, inhabited).  `oneAct` has TWO fixed points, so the
---      question is structure-valued â” and it has an answer anyway.
+--      question is structure-valued â€” and it has an answer anyway.
 --      Failure of proposition-valuedness does NOT block existence.
 
 oneCanonicalNotProp : Â¬ (isProp (Canonical oneAct))
@@ -556,9 +556,9 @@ swPropAndInhabited = swCanonicalIsProp , swCanonical
 ------------------------------------------------------------------------
 
 -- 7.1  j-2's move needs no structure at all.  `EquivariantLeastChoice`
---      carries `Ï (pick e n) â‰¡ pick e n` as a FIELD, so
+--      carries `Ïƒ (pick e n) â‰¡ pick e n` as a FIELD, so
 --      `equivariantChoiceIsAFixedPoint` is a projection.  Here is that
---      projection with every hypothesis on the symmetry removed â” it
+--      projection with every hypothesis on the symmetry removed â€” it
 --      still goes through, which is the measurement.
 
 selectionIsFixedByAssumption :
@@ -571,8 +571,8 @@ selectionIsFixedByAssumption (pick , fx) i = pick i , fx i
 -- without `surj`, and Â§5.2 is the witness that it cannot.
 
 -- 7.2  THE SEPARATING WITNESS.  j-2's `Formation.Symmetry` requires only
---      `Ï-ev` and `Ï-c`; Ï need not be invertible, injective, or
---      surjective.  Instantiate it at a Ï that is none of those.  The
+--      `Ïƒ-ev` and `Ïƒ-c`; Ïƒ need not be invertible, injective, or
+--      surjective.  Instantiate it at a Ïƒ that is none of those.  The
 --      formation: histories `Three`, one endpoint, constant cost.
 
 module F3 = J2.Formation {W = Three} {E = Unit} (Î» _ â†’ tt) (Î» _ â†’ 0)
@@ -600,12 +600,12 @@ noWitnessIsFixed th0 _ p = th1â‰¢th0 p
 noWitnessIsFixed th1 _ p = th0â‰¢th1 p
 noWitnessIsFixed th2 _ p = th0â‰¢th2 p
 
--- j-2's theorem fires hereâ¦
+-- j-2's theorem fires hereâ€¦
 noChoiceOnANonSurjectiveSymmetry : Â¬ S3.EquivariantLeastChoice
 noChoiceOnANonSurjectiveSymmetry =
   S3.noEquivariantLeastChoice tt 0 leastHere noWitnessIsFixed
 
--- â¦and j-0's cannot, because every action map of a group action is split
+-- â€¦and j-0's cannot, because every action map of a group action is split
 -- surjective (`actionIsSplitSurjective`) and this one is not.  Packaged:
 theGeneralisationClaimIsWithdrawn :
   (Â¬ S3.EquivariantLeastChoice)
@@ -613,7 +613,7 @@ theGeneralisationClaimIsWithdrawn :
 theGeneralisationClaimIsWithdrawn =
   noChoiceOnANonSurjectiveSymmetry , nonSurjIsNotSplitSurjective
 
--- 7.3  â¦and on j-2's OWN instance the claim survives in substance,
+-- 7.3  â€¦and on j-2's OWN instance the claim survives in substance,
 --      because retrogradation is an involution and hence split
 --      surjective.
 
@@ -631,14 +631,14 @@ j2LandedNegative = J2.noRetrogradeChooser
 --
 --  * WHY totality is the right dividing line in general.  Â§4 proves it
 --    for INVOLUTIVE group elements.  For a group element of infinite
---    order the argument does not run: â acting on â by translation
---    carries the usual order â” total, antisymmetric, transitive,
+--    order the argument does not run: â„¤ acting on â„¤ by translation
+--    carries the usual order â€” total, antisymmetric, transitive,
 --    monotone - with no fixed point and no least element.
 --
 --  * WHETHER `leastIsFixed` is a corollary of `noEquivariantLeastChoice`
 --    in the WEAK sense of being re-derivable by a detour.  It is: given
 --    an equivariant `pick`, the relation `x â‰¼ y :â‰¡ (x â‰¡ pick e n)`
 --    satisfies Â§2's axioms.  That detour consumes the equivariance field
---    â” which is exactly j-2's proof â” so it establishes nothing about
+--    â€” which is exactly j-2's proof â€” so it establishes nothing about
 --    relative strength.
 ------------------------------------------------------------------------

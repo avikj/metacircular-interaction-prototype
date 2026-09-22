@@ -19,14 +19,14 @@ open import ADiagonalSentenceIndependentInAConcreteTheory
 --
 -- Independence survives the three internal rules.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE QUESTION
 --
 -- `ADiagonalSentenceIndependentInAConcreteTheory` gets `gs` independent
 -- in a calculus with `taut`, `mp`, `hbl` and the two diagonal halves.
 -- The natural test is to add the three internal rules
--- `TheDiagonalLemmaDischargesGoedelFix` needs â” contraposition,
--- double-negation elimination, transitivity â” and see which one kills
+-- `TheDiagonalLemmaDischargesGoedelFix` needs â€” contraposition,
+-- double-negation elimination, transitivity â€” and see which one kills
 -- independence.
 --
 -- ALL
@@ -41,30 +41,30 @@ open import ADiagonalSentenceIndependentInAConcreteTheory
 -- tautology cannot distinguish two models that agree on the
 -- propositional connectives.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   Â§1  three Boolean lemmas: contraposition, double-negation
 --       elimination, transitivity, all for `impB`.
---   Â§2  `Derâº` â” the previous calculus plus those three as rules â” and
+--   Â§2  `Derâº` â€” the previous calculus plus those three as rules â€” and
 --       soundness for both models, by induction.
 --   Â§3  so `gs` is still independent, and the calculus is still
 --       consistent.
 --   Â§4  and the abstract derivation finally has a concrete instance:
 --       the internal fixed point `im (ng gs) (pv gs)` is DERIVABLE in
---       `Derâº` (contraposition on `dbwd`, then transitivity with double
+--       `Derâº` (contraposition on `dbwd`, then transitivity with double
 --       negation elimination), and Ï‰-consistency holds here because
---       `pv gs` is underivable â” `semâ` refutes it, since `P gs` is
+--       `pv gs` is underivable â€” `semâ‚‚` refutes it, since `P gs` is
 --       `false`.  So the hypotheses of
 --       `TheDiagonalLemmaDischargesGoedelFix`'s second conjunct are all
 --       met, and its conclusion agrees with Â§3's, which was obtained by
 --       a completely different route.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THE MEASUREMENT SAYS
 --
 -- Ï‰-consistency is doing real work in the abstract derivation, and here
--- it HOLDS â” because this calculus is too weak to derive `pv gs`.  So
+-- it HOLDS â€” because this calculus is too weak to derive `pv gs`.  So
 -- this instance does not exhibit the tension Gdel's argument manages;
 -- it exhibits the case where there is none.  A calculus that derives
 -- `pv gs` without deriving `gs` would be Ï‰-inconsistent, and that is

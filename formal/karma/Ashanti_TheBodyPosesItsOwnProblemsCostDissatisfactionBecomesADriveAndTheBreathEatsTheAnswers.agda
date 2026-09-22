@@ -1,20 +1,20 @@
 {-# OPTIONS --cubical-compatible --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡æ‡®‡‡‡ø‡ ‚î unquiet.  Ordinary  (the negation of nti);
+-- ‡‡‡æ‡®‡‡‡ø‡ ‚Äî unquiet.  Ordinary  (the negation of nti);
 -- the compound title is built here, 2026-08-24.  No source is claimed
 -- for the mathematics; the DIAGNOSIS this module repairs is the
 -- corpus's own (THE_BARRIER_IS_A_MIRROR ¬ß4.3): the organism's only
--- drive was a fixed residue, so at its fixpoint it went quiet ‚î
--- quiescence, not curiosity ‚î and every new question entered from
+-- drive was a fixed residue, so at its fixpoint it went quiet ‚Äî
+-- quiescence, not curiosity ‚Äî and every new question entered from
 -- outside.
 --
 -- WHAT THIS IS.  The first internal question-source: COST
 -- DISSATISFACTION AS A DRIVE.  The body reads its own record; for
 -- every rule it has proven, it looks at both sides through the
--- economy organ (‡≤‡æ‡ò‡µ-‡¶‡‡ï‡); wherever the organ's form is strictly
--- cheaper at the probe scales, the body POSES THE PROBLEM TO ITSELF ‚î
--- "this thing I know, said cheaper" ‚î proves the posed equation
+-- economy organ (‡§≤‡§æ‡§ò‡§µ-‡§¶‡•É‡§ï‡•ç); wherever the organ's form is strictly
+-- cheaper at the probe scales, the body POSES THE PROBLEM TO ITSELF ‚Äî
+-- "this thing I know, said cheaper" ‚Äî proves the posed equation
 -- through its own gate, and eats the answer as a new rule.  No agent
 -- poses; no agent judges; the record's own contents generate the
 -- goals, and the breath closes them.
@@ -67,7 +67,7 @@ open import Lilavati_ThePosedProblemIsSolvedAsOptimizationTheAnswerCertifiedAndT
 
 ------------------------------------------------------------------------
 -- ¬ß2  The unquiet breath: pose to itself, prove through the same
---     gate, eat what closes.  Count what stays open ‚î the honest
+--     gate, eat what closes.  Count what stays open ‚Äî the honest
 --     measure of the drive's current reach.
 ------------------------------------------------------------------------
 

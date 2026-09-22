@@ -1,33 +1,33 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- �������� � the Galois connection is two nayas mutually adjoint, and the
+-- अनुबन्धः — the Galois connection is two nayas mutually adjoint, and the
 -- closure it induces is what persists across both standpoints.
 --
 -- THE ASCENT (continuing `SarvavibhagaH`, `SamgrahaNaya`).  An adjunction
--- is the categorical universal � it organizes almost every construction in
+-- is the categorical universal — it organizes almost every construction in
 -- mathematics.  Its simplest form is a Galois connection between two
--- preorders: two order-preserving standpoints f : A � B and g : B � A with
+-- preorders: two order-preserving standpoints f : A → B and g : B → A with
 --
---     f a � b    ⟺    a � g b.
+--     f a ⊑ b    ⟺    a ≤ g b.
 --
--- This is two NAYAS (`NayaVada`) � the f-standpoint and the g-standpoint �
+-- This is two NAYAS (`NayaVada`) — the f-standpoint and the g-standpoint —
 -- each defined by what it makes of the other, NEITHER reducible to the
--- other (dravyrthika � paryyrthika, `Paryayarthika`).  And g∘f is a
+-- other (dravyārthika ⊣ paryāyārthika, `Paryayarthika`).  And g∘f is a
 -- CLOSURE: it is the operation that takes an element to what BOTH
--- standpoints agree on � the fixed points of g∘f are the elements that
+-- standpoints agree on — the fixed points of g∘f are the elements that
 -- PERSIST unchanged across the round trip (dhrauvya, `DravyaParyaya`).
 --
--- WHAT IS PROVED (over a preorder � reflexive, transitive � / �, with the
+-- WHAT IS PROVED (over a preorder — reflexive, transitive ≤ / ⊑, with the
 -- two maps monotone and the adjunction bi-implication):
---   §2  ������ / ������� � the unit a � g (f a) and counit f (g b) � b,
+--   §2  आरोहः / अवरोहः — the unit a ≤ g (f a) and counit f (g b) ⊑ b,
 --       derived from the adjunction and reflexivity: each standpoint
 --       returns you no lower than where you began.
---   §3  ���������� � g∘f is a closure: inflationary (a � gf a), and
---       idempotent-up-to-≈ (gf a � gf (gf a) and back), so the round trip
+--   §3  स्थैर्यम् — g∘f is a closure: inflationary (a ≤ gf a), and
+--       idempotent-up-to-≈ (gf a ≤ gf (gf a) and back), so the round trip
 --       stabilises.  What it stabilises to is the persistent core.
---   §4  ������� � the closed elements (a ≈ gf a) are exactly the fixed
---       points: what the two standpoints agree on, carried unchanged �
+--   §4  ध्रुवाः — the closed elements (a ≈ gf a) are exactly the fixed
+--       points: what the two standpoints agree on, carried unchanged —
 --       the dravya of the adjunction.
 --
 -- No postulates, no holes, --safe.
@@ -89,13 +89,13 @@ module _ {A : Type ℓ} {B : Type ℓ'}
   स्थैर्यम्-वर्धनम् : (a : A) → a ≤ संवृतिः a         -- inflationary
   स्थैर्यम्-वर्धनम् = आरोहः
 
-  -- idempotent up to ≈:  ������� a  and  ������� (������� a)  are ⊴ both ways
+  -- idempotent up to ≈:  संवृतिः a  and  संवृतिः (संवृतिः a)  are ⊴ both ways
   स्थैर्यम्-ऊर्ध्वम् : (a : A) → संवृतिः a ≤ संवृतिः (संवृतिः a)
   स्थैर्यम्-ऊर्ध्वम् a = आरोहः (संवृतिः a)
 
   स्थैर्यम्-अधः : (a : A) → संवृतिः (संवृतिः a) ≤ संवृतिः a
   स्थैर्यम्-अधः a = mong (अवरोहः (f a))
-    -- g (f (g (f a))) � g (f a), since f(g(f a)) � f a (counit at f a) then mong
+    -- g (f (g (f a))) ≤ g (f a), since f(g(f a)) ⊑ f a (counit at f a) then mong
 
   ------------------------------------------------------------------------
   -- §4  the persistent core: closed elements are the fixed points, what

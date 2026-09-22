@@ -1,14 +1,14 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- nuprv ‚î the order of the series, and the fact that no rewrite in this
+-- ƒÄnup≈´rvƒ´ ‚Äî the order of the series, and the fact that no rewrite in this
 -- kernel disturbs it.
 --
--- TERM.  ‡‡®‡‡‡‡∞‡‡µ‡, succession / regular order.  The Jain canonical
+-- TERM.  ‡§Ü‡§®‡•Å‡§™‡•Ç‡§∞‡•ç‡§µ‡•Ä, succession / regular order.  The Jain canonical
 -- literature treats it as a topic in its own right: the *Anuyogadvra*
 -- distinguishes prvnuprv (the forward order of a series),
 -- pacdnuprv (the reverse) and annuprv (every other arrangement),
--- and counts them ‚î which is combinatorics of permutations arising from
+-- and counts them ‚Äî which is combinatorics of permutations arising from
 -- the classification of a sequence, not from mathematics as a separate
 -- subject.  GRADE OF THE CITATION: I have the text and the doctrine; I
 -- have NOT verified a stra number against an edition, so none is given.
@@ -20,15 +20,15 @@
 --
 -- `Residue_‚¶` proves the kernel's soundness map is not injective: many
 -- derivations, one meaning, and no semantic criterion recovers which.
--- `Aresidue_‚¶` proves it is therefore not an equivalence ‚î by exhibiting the
+-- `Aresidue_‚¶` proves it is therefore not an equivalence ‚Äî by exhibiting the
 -- failure of INJECTIVITY at the kernel's own seed.  The other half was
 -- never asked.  Is it SURJECTIVE?  That is: does the calculus derive
 -- everything its semantics identifies?
 --
 -- It does not, and the obstruction is exact.
 --
---   ¬ß2  Every `Step` ‚î `add-zero`, `add-suc`, the three congruences, and
---       `reverse` ‚î preserves the LEFT-TO-RIGHT WORD OF VARIABLE
+--   ¬ß2  Every `Step` ‚Äî `add-zero`, `add-suc`, the three congruences, and
+--       `reverse` ‚Äî preserves the LEFT-TO-RIGHT WORD OF VARIABLE
 --       OCCURRENCES.  Every rule of the calculus manipulates `zero` and
 --       `suc`; none permutes two variable subterms.
 --
@@ -40,8 +40,8 @@
 --       symmetric group acting on the variable positions.
 --
 -- WHAT THIS PUTS TOGETHER, and it is the reason the module is worth its
--- lines.  `Ankapasa_‚¶` shows that the COUNTING semantics cannot see a
--- transposition: commutativity at `add var var` is a loop that ‚ï is forced
+-- lines.  `Ankapasa_‚Ä¶` shows that the COUNTING semantics cannot see a
+-- transposition: commutativity at `add var var` is a loop that ‚Ñï is forced
 -- to call `refl`, while the univalent semantics calls it the swap and `ua`
 -- of it is non-trivial.  This module shows the DERIVATIONS cannot perform
 -- one.  The two are the same datum from the two sides:
@@ -49,13 +49,13 @@
 --     the arrangement is what the calculus preserves
 --     and what the count discards.
 --
--- So adding `add-comm` ‚î the extension `Ankapasa_‚¶` makes, and shows to be
--- sound ‚î does two things at once, and they are one thing.  It completes
--- the calculus towards its ‚ï-semantics, and it introduces the ‚/2 of
+-- So adding `add-comm` ‚Äî the extension `Ankapasa_‚Ä¶` makes, and shows to be
+-- sound ‚Äî does two things at once, and they are one thing.  It completes
+-- the calculus towards its ‚Ñï-semantics, and it introduces the ‚Ñ§/2 of
 -- holonomy that the counting readout annihilates.  The completion and the
 -- holonomy arrive together, because they are the same generator.
 --
--- `Ankapasa_‚¶` is not imported, and its `add-comm` would break ¬ß2 by
+-- `Ankapasa_‚Ä¶` is not imported, and its `add-comm` would break ¬ß2 by
 -- design, which is the point.
 -- `word` is defined on the six coordinates only, ignoring `zero` and
 -- `suc`, because those are exactly what the rules move.

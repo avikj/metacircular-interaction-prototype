@@ -1,35 +1,35 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ���������� � the causal cone descends to the horizon, and fails at the
+-- क्षितिजम् — the causal cone descends to the horizon, and fails at the
 -- very next step.
 --
--- TERM.  �������� � the horizon, literally "born of the earth('s rim)".
+-- TERM.  क्षितिज — the horizon, literally "born of the earth('s rim)".
 -- Ordinary ; the use for a CAUSAL horizon is this module's.
 --
 -- SEED.  Define recursively the type of n-step lawful futures,
 --
 --     Future 0       x = Unit
---     Future (suc n) x = �[ a ∈ A x ] Future n (next x a)
+--     Future (suc n) x = Σ[ a ∈ A x ] Future n (next x a)
 --
--- If S(x) = S(y) but Future n x � Future n y, the quotient cannot host
+-- If S(x) = S(y) but Future n x ≄ Future n y, the quotient cannot host
 -- the n-step future geometry: its causal cone is not well-defined.
 -- The real causal-sufficiency condition for a state representation is
 -- Desc_S(Future n) for every horizon n relevant to action.
 --
--- WHAT IS PROVED � the smallest complete instance, with the positive
+-- WHAT IS PROVED — the smallest complete instance, with the positive
 -- halves, so the horizon is ADJACENT rather than merely eventual.
 -- Three states: alive-for-two, alive-for-one, dead.  One action while
 -- alive, none when dead; acting spends a step of life.  The
--- observation reports only alive/dead � it collapses the two living
+-- observation reports only alive/dead — it collapses the two living
 -- states.  Then:
 --
---   ����-�        Future 0 descends (constantly Unit).
---   ����-�        Future 1 DESCENDS: both living states can act once,
+--   सीमा-०        Future 0 descends (constantly Unit).
+--   सीमा-१        Future 1 DESCENDS: both living states can act once,
 --                 and the dead state's empty cone sits over the dead
---                 observation � the descended family is exhibited and
+--                 observation — the descended family is exhibited and
 --                 every commuting path is refl.
---   ���������������    Future 2 does NOT descend: alive-for-two holds a
+--   क्षितिजभङ्गः    Future 2 does NOT descend: alive-for-two holds a
 --                 two-step future, alive-for-one provably does not,
 --                 and the observation cannot tell them apart.  One
 --                 application of dependent-collision-obstructs.
@@ -38,7 +38,7 @@
 -- observation is causally sufficient for one step of planning and
 -- structurally incapable of two.  "Same present observation, same
 -- one-step affordances, different futures" is a checked
--- configuration � the dependent no-go in its dynamical form, and the
+-- configuration — the dependent no-go in its dynamical form, and the
 -- floor of the transmission's bisimulation reading: states may be
 -- lawfully identified only when their whole future cones descend.
 ------------------------------------------------------------------------
@@ -57,7 +57,7 @@ open import AvataranaBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIs
   using (DependentFactorsThrough ; dependent-collision-obstructs)
 
 ------------------------------------------------------------------------
--- � � the smallest body that dies.
+-- १ · the smallest body that dies.
 ------------------------------------------------------------------------
 
 data अवस्था : Type where
@@ -81,7 +81,7 @@ data अवस्था : Type where
 जीवनदर्शनम् मृतम्    = false
 
 ------------------------------------------------------------------------
--- � � the causal cone.
+-- २ · the causal cone.
 ------------------------------------------------------------------------
 
 भविष्यम् : ℕ → अवस्था → Type
@@ -89,7 +89,7 @@ data अवस्था : Type where
 भविष्यम् (suc n) x = Σ[ a ∈ क्रिया x ] भविष्यम् n (अनन्तरम् x a)
 
 ------------------------------------------------------------------------
--- � � the cone descends to horizon 1.
+-- ३ · the cone descends to horizon 1.
 ------------------------------------------------------------------------
 
 सीमा-० : DependentFactorsThrough जीवनदर्शनम् (भविष्यम् zero)
@@ -109,18 +109,18 @@ data अवस्था : Type where
   साक्ष्यम् मृतम्    = refl
 
 ------------------------------------------------------------------------
--- � � and breaks at horizon 2.
+-- ४ · and breaks at horizon 2.
 ------------------------------------------------------------------------
 
--- alive-for-two holds a two-step future�
+-- alive-for-two holds a two-step future…
 द्विपदम् : भविष्यम् 2 द्विजीवः
 द्विपदम् = tt , tt , tt
 
--- �alive-for-one provably does not�
+-- …alive-for-one provably does not…
 न-द्विपदम् : ¬ भविष्यम् 2 एकजीवः
 न-द्विपदम् f = fst (snd f)
 
--- �and the observation cannot tell them apart.
+-- …and the observation cannot tell them apart.
 क्षितिजभङ्गः : ¬ DependentFactorsThrough जीवनदर्शनम् (भविष्यम् 2)
 क्षितिजभङ्गः =
   dependent-collision-obstructs जीवनदर्शनम् (भविष्यम् 2)

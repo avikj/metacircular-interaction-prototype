@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ���-��� � one pair kernel, two readers.
+-- एक-बीज — one pair kernel, two readers.
 --
 -- SOURCE (papers/hieroglyphics_ii.tex, the pair-kernel block), quoted:
 --
@@ -13,38 +13,38 @@
 --     \mathcal K(w,r) := \Lambda(w-r)\Lambda(w+r)
 --
 --     \mathcal K \xleftrightarrow{\;\mathcal L_w\otimes\mathcal F_r\;} Z
---     \boxed{ \text{������������} = [w^N]\mathcal K \qquad ; \qquad
---             \text{����������} = [r^1]\mathcal K }
+--     \boxed{ \text{गोल्डबाखः} = [w^N]\mathcal K \qquad ; \qquad
+--             \text{यमलप्राइमः} = [r^1]\mathcal K }
 --
 -- The claim of the block: the square of the prime series, written in
--- centre/radius coordinates m = w − r, n = w + r, is ONE kernel �(w,r);
+-- centre/radius coordinates m = w − r, n = w + r, is ONE kernel 𝒦(w,r);
 -- Goldbach at 2N is its centre marginal (the fibre over w = N) and the
 -- twin primes are its radius marginal (the fibre over r = 1).
 --
 -- WHAT IS PROVED HERE, exactly.  The weights are the prime INDICATOR
--- a(n) := primeb n read as � (1 for prime, 0 otherwise), primeb being
+-- a(n) := primeb n read as ℕ (1 for prime, 0 otherwise), primeb being
 -- the corpus's Goldbach tester (SamastaPrasna), and the kernel is
 --
---     � w r := a (w � r) � a (w + r).
+--     𝒦 w r := a (w ∸ r) · a (w + r).
 --
 --   §1  centre marginal is Goldbach:
---         GoldbachAt (2 � w)  ⟺  �_{r=0}^{w} � w r � 0        (both ways)
+--         GoldbachAt (2 · w)  ⟺  Σ_{r=0}^{w} 𝒦 w r ≢ 0        (both ways)
 --   §2  radius marginal is the twin-prime indicator:
---         � w 1 ≡ 1  ⟺  primeb (w � 1) ≡ true � primeb (w + 1) ≡ true
+--         𝒦 w 1 ≡ 1  ⟺  primeb (w ∸ 1) ≡ true × primeb (w + 1) ≡ true
 --   §3  the Cauchy identity in centre/radius coordinates, for ANY
---       f : � � �:
---         �_{m=0}^{2w} f m � f (2w � m)
---           ≡ f w � f w + 2 � �_{r=1}^{w} f (w � r) � f (w + r)
+--       f : ℕ → ℕ:
+--         Σ_{m=0}^{2w} f m · f (2w ∸ m)
+--           ≡ f w · f w + 2 · Σ_{r=1}^{w} f (w ∸ r) · f (w + r)
 --       via a general lemma: a sum over 0..2w of a function symmetric
---       under m � 2w � m is the middle term plus twice the lower half.
+--       under m ↦ 2w ∸ m is the middle term plus twice the lower half.
 --       Instantiated at f = a: the ordered Goldbach count of 2w is
---         � w 0 + 2 � �_{r=1}^{w} � w r.
+--         𝒦 w 0 + 2 · Σ_{r=1}^{w} 𝒦 w r.
 --   §4  one source, two readers:
---         primeb j ≡ true  ⟺  (1 < j) � (� j ≡ j)
---       the Goldbach tester and the RH module's � read the same spf.
---   §5  kernel checks the typechecker computes: � 50 3 (47, 53),
---       � 6 1 (5, 7), the marginal at 2�50 = 100 is 6 (nonzero), and
---       the ordered count of 100 is 12 = � 50 0 + 2�6.
+--         primeb j ≡ true  ⟺  (1 < j) × (η j ≡ j)
+--       the Goldbach tester and the RH module's η read the same spf.
+--   §5  kernel checks the typechecker computes: 𝒦 50 3 (47, 53),
+--       𝒦 6 1 (5, 7), the marginal at 2·50 = 100 is 6 (nonzero), and
+--       the ordered count of 100 is 12 = 𝒦 50 0 + 2·6.
 --
 ------------------------------------------------------------------------
 
@@ -71,7 +71,7 @@ open import SamastaPrasna_TheOpenConstellationEntersTypedAndTheOracleAnswersEver
   using (primeb ; GoldbachAt)
 
 ------------------------------------------------------------------------
--- §0 � the indicator, the kernel, the two finite sums
+-- §0 · the indicator, the kernel, the two finite sums
 ------------------------------------------------------------------------
 
 ind : Bool → ℕ
@@ -92,7 +92,7 @@ a n = ind (primeb n)
 Σ₁ zero    f = zero
 Σ₁ (suc k) f = Σ₁ k f + f (suc k)
 
--- 2 � w is definitionally w + (w + 0)
+-- 2 · w is definitionally w + (w + 0)
 two· : (w : ℕ) → 2 · w ≡ w + w
 two· w = cong (w +_) (+-zero w)
 
@@ -144,7 +144,7 @@ ind-prod-one false c     e = E.rec (znots e)
   widen : Σ[ r ∈ ℕ ] (r ≤ k) × (¬ (f r ≡ 0)) → Σ[ r ∈ ℕ ] (r ≤ suc k) × (¬ (f r ≡ 0))
   widen (r , r≤k , hr) = r , ≤-suc r≤k , hr
 
--- split at n:  �_{0}^{k+n} g  =  �_{0}^{n} g  +  �_{i=1}^{k} g (n + i)
+-- split at n:  Σ_{0}^{k+n} g  =  Σ_{0}^{n} g  +  Σ_{i=1}^{k} g (n + i)
 Σ≤-split : (k n : ℕ) (g : ℕ → ℕ) → Σ≤ (k + n) g ≡ Σ≤ n g + Σ₁ k (λ i → g (n + i))
 Σ≤-split zero    n g = sym (+-zero (Σ≤ n g))
 Σ≤-split (suc k) n g =
@@ -153,14 +153,14 @@ ind-prod-one false c     e = E.rec (znots e)
   ∙ cong (λ t → Σ≤ n g + (Σ₁ k (λ i → g (n + i)) + t))
          (cong g (cong suc (+-comm k n) ∙ sym (+-suc n k)))
 
--- the cons form of ��
+-- the cons form of Σ₁
 Σ₁-cons : (k : ℕ) (h : ℕ → ℕ) → Σ₁ (suc k) h ≡ h 1 + Σ₁ k (λ r → h (suc r))
 Σ₁-cons zero    h = sym (+-zero (h 1))
 Σ₁-cons (suc k) h =
     cong (_+ h (suc (suc k))) (Σ₁-cons k h)
   ∙ sym (+-assoc (h 1) (Σ₁ k (λ r → h (suc r))) (h (suc (suc k))))
 
--- reversal:  �_{m=0}^{k} g m  =  g k + �_{r=1}^{k} g (k � r)
+-- reversal:  Σ_{m=0}^{k} g m  =  g k + Σ_{r=1}^{k} g (k ∸ r)
 Σ≤-reverse : (k : ℕ) (g : ℕ → ℕ) → Σ≤ k g ≡ g k + Σ₁ k (λ r → g (k ∸ r))
 Σ≤-reverse zero    g = sym (+-zero (g zero))
 Σ≤-reverse (suc k) g =
@@ -174,7 +174,7 @@ ind-prod-one false c     e = E.rec (znots e)
 Σ₁-ext (suc k) h h' e =
   cong₂ _+_ (Σ₁-ext k h h' (λ r r≤k → e r (≤-suc r≤k))) (e (suc k) ≤-refl)
 
--- n � (n � m) ≡ m for m � n
+-- n ∸ (n ∸ m) ≡ m for m ≤ n
 ∸∸ : (m n : ℕ) → m ≤ n → n ∸ (n ∸ m) ≡ m
 ∸∸ m n (j , j+m≡n) =
     cong (λ t → t ∸ (t ∸ m)) (sym j+m≡n)
@@ -182,9 +182,9 @@ ind-prod-one false c     e = E.rec (znots e)
   ∙ ∸+ m j
 
 ------------------------------------------------------------------------
--- §1 � the centre marginal is Goldbach
+-- §1 · the centre marginal is Goldbach
 --
---     GoldbachAt (2 � w)   ⟺   �_{r=0}^{w} � w r � 0
+--     GoldbachAt (2 · w)   ⟺   Σ_{r=0}^{w} 𝒦 w r ≢ 0
 ------------------------------------------------------------------------
 
 marginal→goldbach : (w : ℕ) → ¬ (Σ≤ w (𝒦 w) ≡ 0) → GoldbachAt (2 · w)
@@ -199,7 +199,7 @@ marginal→goldbach w h with Σ≤-nonzero-term w (𝒦 w) h
        ∙ cong (_+ w) (≤-∸-+-cancel r≤w)
        ∙ sym (two· w)
 
--- a Goldbach pair with p � w sits at radius r = w � p
+-- a Goldbach pair with p ≤ w sits at radius r = w ∸ p
 lower-witness : (w p q : ℕ) → primeb p ≡ true → primeb q ≡ true → p + q ≡ 2 · w
               → p ≤ w → ¬ (Σ≤ w (𝒦 w) ≡ 0)
 lower-witness w p q pp pq e (j , j+p≡w) s =
@@ -234,9 +234,9 @@ centre-marginal-is-goldbach : (w : ℕ)
 centre-marginal-is-goldbach w = goldbach→marginal w , marginal→goldbach w
 
 ------------------------------------------------------------------------
--- §2 � the radius marginal is the twin-prime indicator
+-- §2 · the radius marginal is the twin-prime indicator
 --
---     � w 1 ≡ 1   ⟺   primeb (w � 1) ≡ true  �  primeb (w + 1) ≡ true
+--     𝒦 w 1 ≡ 1   ⟺   primeb (w ∸ 1) ≡ true  ×  primeb (w + 1) ≡ true
 ------------------------------------------------------------------------
 
 radius-marginal-is-twin : (w : ℕ)
@@ -246,11 +246,11 @@ radius-marginal-is-twin w =
   ind-prod-one (primeb (w ∸ 1)) (primeb (w + 1)) , λ pr → 𝒦-one w 1 (fst pr) (snd pr)
 
 ------------------------------------------------------------------------
--- §3 � the Cauchy identity in centre/radius coordinates
+-- §3 · the Cauchy identity in centre/radius coordinates
 ------------------------------------------------------------------------
 
 -- the general lemma: a sum over 0..2w of a function symmetric under
--- m � 2w � m is the middle term plus twice the lower half
+-- m ↦ 2w ∸ m is the middle term plus twice the lower half
 symmetric-sum : (w : ℕ) (g : ℕ → ℕ)
   → ((m : ℕ) → m ≤ w + w → g m ≡ g ((w + w) ∸ m))
   → Σ≤ (w + w) g ≡ g w + 2 · Σ₁ w (λ r → g (w ∸ r))
@@ -267,7 +267,7 @@ symmetric-sum w g sym-g =
   upper≡lower r r≤w = sym-g (w + r) (≤-k+ r≤w) ∙ cong g (∸-cancelˡ w w r)
 
 -- the Cauchy square of any sequence, in centre/radius coordinates
--- (stated with w + w; the 2 � w form follows)
+-- (stated with w + w; the 2 · w form follows)
 cauchy+ : (w : ℕ) (f : ℕ → ℕ)
   → Σ≤ (w + w) (λ m → f m · f ((w + w) ∸ m))
   ≡ f w · f w + 2 · Σ₁ w (λ r → f (w ∸ r) · f (w + r))
@@ -299,14 +299,14 @@ cauchy w f =
              ≡ f w · f w + 2 · Σ₁ w (λ r → f (w ∸ r) · f (w + r)))
         (sym (two· w)) (cauchy+ w f)
 
--- at f = a: the ordered Goldbach count of 2w is � w 0 + 2 � �_{r=1}^{w} � w r
+-- at f = a: the ordered Goldbach count of 2w is 𝒦 w 0 + 2 · Σ_{r=1}^{w} 𝒦 w r
 ordered-goldbach-count : (w : ℕ)
   → Σ≤ (2 · w) (λ m → a m · a ((2 · w) ∸ m)) ≡ 𝒦 w 0 + 2 · Σ₁ w (𝒦 w)
 ordered-goldbach-count w =
   cauchy w a ∙ cong (λ t → a w · a t + 2 · Σ₁ w (𝒦 w)) (sym (+-zero w))
 
 ------------------------------------------------------------------------
--- §4 � one source, two readers:  primeb j ≡ true  ⟺  (1 < j) � (� j ≡ j)
+-- §4 · one source, two readers:  primeb j ≡ true  ⟺  (1 < j) × (η j ≡ j)
 ------------------------------------------------------------------------
 
 eqb-refl : (n : ℕ) → eqb n n ≡ true
@@ -322,13 +322,13 @@ eqb-sound (suc m) (suc n) e = cong suc (eqb-sound m n e)
 if-true : {A : Type} (b : Bool) → b ≡ true → (x y : A) → (if b then x else y) ≡ x
 if-true b e x y = cong (λ c → if c then x else y) e
 
--- primeb j for j � 2 IS the test eqb (spf j) j: ltb 1 j computes to true
--- once j = 2 or j � 3 is visible, and the guard andb true c = c.
+-- primeb j for j ≥ 2 IS the test eqb (spf j) j: ltb 1 j computes to true
+-- once j = 2 or j ≥ 3 is visible, and the guard andb true c = c.
 primeb-unfold : (k : ℕ) → primeb (suc (suc k)) ≡ eqb (spf (suc (suc k))) (suc (suc k))
 primeb-unfold zero    = refl
 primeb-unfold (suc k) = refl
 
--- powOfF (suc fuel) p p ≡ true for p � 2: eqb p 1 is false, eqb p p is true
+-- powOfF (suc fuel) p p ≡ true for p ≥ 2: eqb p 1 is false, eqb p p is true
 powOfF-self : (fuel k : ℕ) → powOfF (suc fuel) (suc (suc k)) (suc (suc k)) ≡ true
 powOfF-self fuel k = if-true (eqb k k) (eqb-refl k) true _
 
@@ -362,7 +362,7 @@ one-source-two-readers (suc (suc k)) =
   (λ e → (k , +-comm k 2) , prime→η k e) , (λ h → η→prime k (snd h))
 
 ------------------------------------------------------------------------
--- §5 � kernel checks the typechecker computes
+-- §5 · kernel checks the typechecker computes
 ------------------------------------------------------------------------
 
 kernel-47-53 : 𝒦 50 3 ≡ 1                -- centre 50, radius 3: (47, 53)

@@ -1,21 +1,21 @@
 {-# OPTIONS --cubical --safe --guardedness #-}
 
 ------------------------------------------------------------------------
--- Punargamana ¬ ‡‡µ‡‡‡‡‡¶‡ ‚î the seam.
+-- Punargamana ¬ ‡‡µ‡‡‡‡‡¶‡ ‚Äî the seam.
 --
 -- The fibre of the truncation map over any point is the
 -- whole source: a point of the fibre is a source element together with
 -- a path in a proposition, and paths in a proposition are contractible.
 --
---   ‡‡µ‡‡‡‡‡¶‡ : (x : ‚à A ‚à‚) ‚í fiber ‚à_‚à‚ x ‚â A
+--   ‡§Ö‡§µ‡§ö‡•ç‡§õ‡•á‡§¶‡§É : (x : ‚à• A ‚à•‚ÇÅ) ‚Üí fiber ‚à£_‚à£‚ÇÅ x ‚âÉ A
 --
--- So at level ‡ the fibre is the WHOLE of the source, on the nose, and
--- the census's `‡µ‡ø‡ï‡≤‡æ‡¶‡‡` (two distinct points of the fibre) is inhabited
--- at every point as soon as A has two distinct points ‚î which is the
+-- So at level ‡•™ the fibre is the WHOLE of the source, on the nose, and
+-- the census's `‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂` (two distinct points of the fibre) is inhabited
+-- at every point as soon as A has two distinct points ‚Äî which is the
 -- "crowded" reading of the truncation, not a coarse one.
 --
 -- The parent corpus holds the same fact as
--- `theorems/residue/Avacchedaka_TheTruncationsFibreIsTheWholeSource‚¶`;
+-- `theorems/residue/Avacchedaka_TheTruncationsFibreIsTheWholeSource‚Ä¶`;
 -- it is restated here because this library takes no dependency outside
 -- itself, and a seam should not be closed by prose.
 ------------------------------------------------------------------------

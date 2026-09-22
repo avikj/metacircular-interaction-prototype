@@ -1,35 +1,35 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡∞‡‡‡ ‡Æ‡‡ø‡‡‡∞‡‡µ‡Æ‡ ‚î Umsvti, Tattvrthastra 1.20 (c. 2nd‚ì5th c.
--- CE): ruta ‚î the recorded, transmitted knowledge ‚î is preceded by
+-- ‡§∂‡•ç‡§∞‡•Å‡§§‡§Ç ‡§Æ‡§§‡§ø‡§™‡•Ç‡§∞‡•ç‡§µ‡§Æ‡•ç ‚Äî UmƒÅsvƒÅti, TattvƒÅrthas≈´tra 1.20 (c. 2nd‚Äì5th c.
+-- CE): ≈õruta ‚Äî the recorded, transmitted knowledge ‚Äî is preceded by
 -- mati, direct cognition; and cognition working WITH the record
 -- reaches further than cognition alone.  The classification is his.
 -- School named: Jaina.
 --
 -- THIS IS THE LOOP, closed in the one language.  The store receives
 -- proofs and GIVES them back to the prover:
--- the store's entries ‚î each already carrying its ‡‡æ‡ï‡‡‡ by
--- type ‚î speak inside the ascent's step as unconditional voices,
--- through the certified matcher, at every instance (‡‡¶‡‡).  ‡Æ‡‡ø
--- (‡‡‡µ‡æ‡∞‡‡-‡‡æ‡ß‡®‡Æ‡) mints a rule; the rule becomes ‡‡‡∞‡‡; and
--- ‡Æ‡‡ø-with-‡‡‡∞‡‡ proves what ‡Æ‡‡ø alone was silent on.
+-- the store's entries ‚Äî each already carrying its ‡‡æ‡ï‡‡‡ by
+-- type ‚Äî speak inside the ascent's step as unconditional voices,
+-- through the certified matcher, at every instance (‡§Ü‡§¶‡•á‡§∂).  ‡§Æ‡§§‡§ø
+-- (‡§∏‡•ç‡§µ‡§æ‡§∞‡•ç‡§•-‡§∏‡§æ‡§ß‡§®‡§Æ‡•ç) mints a rule; the rule becomes ‡§∂‡•ç‡§∞‡•Å‡§§; and
+-- ‡§Æ‡§§‡§ø-with-‡§∂‡•ç‡§∞‡•Å‡§§ proves what ‡§Æ‡§§‡§ø alone was silent on.
 --
 -- Demonstrated end to end on the frontier the previous module named
--- from inside: SvarthaAnumana's ‡‡‡Æ‡æ exhibits by refl that
+-- from inside: SvarthaAnumana's ‡§∏‡•Ä‡§Æ‡§æ exhibits by refl that
 -- commutativity of ‚äï is beyond the bare exchange.  Here:
 --
---   1. ‡Æ‡‡ø proves (su x) ‚äï y = su (x ‚äï y) for itself ‚î ‡‡ó‡‡∞‡ø‡Æ‡, the
---      first entry, minted by ‡‡‡µ‡æ‡∞‡‡-‡‡æ‡ß‡®‡Æ‡, no carrier.
---   2. ‡‡ó‡‡∞‡ø‡Æ‡ enters the record.
---   3. ‡Æ‡‡ø-with-‡‡‡∞‡‡ proves x ‚äï y = y ‚äï x ‚î ‡ï‡‡∞‡Æ‡®‡à‡∞‡‡‡ï‡‡‡‡Ø‡Æ‡ ‚î
+--   1. ‡§Æ‡§§‡§ø proves (su x) ‚äï y = su (x ‚äï y) for itself ‚Äî ‡§Ö‡§ó‡•ç‡§∞‡§ø‡§Æ‡§É, the
+--      first entry, minted by ‡§∏‡•ç‡§µ‡§æ‡§∞‡•ç‡§•-‡§∏‡§æ‡§ß‡§®‡§Æ‡•ç, no carrier.
+--   2. ‡§Ö‡§ó‡•ç‡§∞‡§ø‡§Æ‡§É enters the record.
+--   3. ‡§Æ‡§§‡§ø-with-‡§∂‡•ç‡§∞‡•Å‡§§ proves x ‚äï y = y ‚äï x ‚Äî ‡§ï‡•ç‡§∞‡§Æ‡§®‡•à‡§∞‡§™‡•á‡§ï‡•ç‡§∑‡•ç‡§Ø‡§Æ‡•ç ‚Äî
 --      internally: the record's rule rewrites the recursion-blind
 --      side of the step, the induction hypothesis closes the rest,
 --      and the pervasion is grasped within.
 --
 -- Every voice in the chain carries its proof by construction; the
 -- new theorem enters the store through the same gate as everything
--- else; and nothing in steps 1‚ì3 is performed by anything outside
+-- else; and nothing in steps 1‚Äì3 is performed by anything outside
 -- this file's terms.  Grow by proving, prove more by having grown.
 ------------------------------------------------------------------------
 
@@ -52,7 +52,7 @@ open import NaturalMachine.SvarthaAnumana_TheMachineInfersForItselfAndThePervasi
 
 ------------------------------------------------------------------------
 -- ¬ß1  A record entry speaking inside a term: at every node the rule
---     may utter through the certified matcher ‚î and its utterance
+--     may utter through the certified matcher ‚Äî and its utterance
 --     carries ‚ä® by type, so the rewrite's witness is unconditional.
 ------------------------------------------------------------------------
 
@@ -134,7 +134,7 @@ open import NaturalMachine.SvarthaAnumana_TheMachineInfersForItselfAndThePervasi
          (‡§∂‡•ç‡§∞‡•Å‡§§-‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø‡§É Œì (norm (r ‚ü® k ‚âî su (var k) ‚ü©)))) )
 
 ------------------------------------------------------------------------
--- ¬ß3  ‡Æ‡‡ø with ‡‡‡∞‡‡: the same fueled inference-for-oneself, the
+-- ¬ß3  ‡§Æ‡§§‡§ø with ‡§∂‡•ç‡§∞‡•Å‡§§: the same fueled inference-for-oneself, the
 --     record now a parameter of the ascent.
 ------------------------------------------------------------------------
 
@@ -155,18 +155,18 @@ open import NaturalMachine.SvarthaAnumana_TheMachineInfersForItselfAndThePervasi
         (‡§∏‡§∂‡•ç‡§∞‡•Å‡§§-‡§µ‡•ç‡§Ø‡§æ‡§™‡•ç‡§§‡§ø‡§É Œì k l r)
 
 ------------------------------------------------------------------------
--- ¬ß4  The loop runs.  ‡Æ‡‡ø mints the first entry; the entry is ‡‡‡∞‡‡;
---     ‡Æ‡‡ø-with-‡‡‡∞‡‡ crosses the frontier ‡Æ‡‡ø alone could not.
+-- ¬ß4  The loop runs.  ‡§Æ‡§§‡§ø mints the first entry; the entry is ‡§∂‡•ç‡§∞‡•Å‡§§;
+--     ‡§Æ‡§§‡§ø-with-‡§∂‡•ç‡§∞‡•Å‡§§ crosses the frontier ‡§Æ‡§§‡§ø alone could not.
 ------------------------------------------------------------------------
 
--- 1. ‡Æ‡‡ø alone: (su x) ‚äï y = su (x ‚äï y), proven for itself.
+-- 1. ‡§Æ‡§§‡§ø alone: (su x) ‚äï y = su (x ‚äï y), proven for itself.
 ‡§Ö‡§ó‡•ç‡§∞‡§ø‡§Æ‡§É : ‡§®‡§ø‡§Ø‡§Æ‡§É
 ‡§Ö‡§ó‡•ç‡§∞‡§ø‡§Æ‡§É = niyama ((su (var 0)) ‚äï (var 1)) (su ((var 0) ‚äï (var 1)))
   (fromJust (‡§∏‡•ç‡§µ‡§æ‡§∞‡•ç‡§•-‡§∏‡§æ‡§ß‡§®‡§Æ‡•ç ‡§á‡§®‡•ç‡§ß‡§®‡§Æ‡•ç
     ( (su (var 0)) ‚äï (var 1) , su ((var 0) ‚äï (var 1)) )) tt)
 
--- 2‚ì3. ‡Æ‡‡ø with that one entry of ‡‡‡∞‡‡: commutativity ‚î the exact
--- equation SvarthaAnumana's ‡‡‡Æ‡æ held as beyond the bare exchange.
+-- 2‚Äì3. ‡§Æ‡§§‡§ø with that one entry of ‡§∂‡•ç‡§∞‡•Å‡§§: commutativity ‚Äî the exact
+-- equation SvarthaAnumana's ‡§∏‡•Ä‡§Æ‡§æ held as beyond the bare exchange.
 ‡§ï‡•ç‡§∞‡§Æ‡§®‡•à‡§∞‡§™‡•á‡§ï‡•ç‡§∑‡•ç‡§Ø‡§Æ‡•ç : ‚ä® ((var 0) ‚äï (var 1) , (var 1) ‚äï (var 0))
 ‡§ï‡•ç‡§∞‡§Æ‡§®‡•à‡§∞‡§™‡•á‡§ï‡•ç‡§∑‡•ç‡§Ø‡§Æ‡•ç =
   fromJust (‡§∏‡§∂‡•ç‡§∞‡•Å‡§§-‡§∏‡§æ‡§ß‡§®‡§Æ‡•ç (‡§Ö‡§ó‡•ç‡§∞‡§ø‡§Æ‡§É ‚à∑ []) ‡§á‡§®‡•ç‡§ß‡§®‡§Æ‡•ç

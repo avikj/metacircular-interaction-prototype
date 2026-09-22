@@ -1,28 +1,28 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ��������� � transitive symmetry, normalization, and unique division
+-- समविभागः — transitive symmetry, normalization, and unique division
 -- force the uniform measure.
 --
--- TERM.  �� (equal) and ������ (division, apportionment) are ordinary
+-- TERM.  सम (equal) and विभाग (division, apportionment) are ordinary
 -- ; the compound ��-������ means "the equal apportionment".
 --
 -- THE SLOGAN:
 --
---     Transitive(G � X) � Invariant(w) � Normalized(w)
---       � UniqueNDivision(W, n) � the weight rule is unique.
+--     Transitive(G ↷ X) → Invariant(w) → Normalized(w)
+--       → UniqueNDivision(W, n) → the weight rule is unique.
 --
 -- For n equivalent outcomes it forces 1/n: finite Haar measure in the
 -- repository's carrier language.  The landed two-outcome theorem
--- (`EkatvaMatraDvaya_�`, this directory) is the n = 2 instance: at
--- X = Fin 2 the iterate ����� 1 y is y +� y, so this module's
+-- (`EkatvaMatraDvaya_…`, this directory) is the n = 2 instance: at
+-- X = Fin 2 the iterate गुणः 1 y is y +ᵂ y, so this module's
 -- `divideUniquely` hypothesis is EXACTLY that module's
 -- `halvesUniquely`, over Fin 2 in place of Bool.
 -- The bridge is `DvayaSetu_TheHalfTheoremIsTheFinTwoInstanceOnTheNose`.
 --
 -- ONE FURTHER FINDING, visible only once
 -- the proof is written: THE GROUP LAWS ARE NEVER CONSUMED.  G below is
--- a bare type with a bare action function � no unit, no composition,
+-- a bare type with a bare action function — no unit, no composition,
 -- no inverses, no associativity.  Transitivity of the action and
 -- invariance of the weight are the whole input.  So the theorem is
 -- sharper than "finite Haar": any transitive family of symmetries,
@@ -31,19 +31,19 @@
 --
 -- WHAT IS PROVED.
 --
---   �������        invariance under a transitive action makes the
---                 weight constant � two lines, no group laws.
---   �����-�����      the total of a constant weight is the n-fold sum.
---   �����          every normalized invariant weight exhibits w(x�) as
---                 an n-th part of �.
---   ���������      THE THEOREM: if n-th parts of � are unique
---                 (isProp (� y, ����� y ≡ �)), any two normalized
+--   साम्यम्        invariance under a transitive action makes the
+--                 weight constant — two lines, no group laws.
+--   योग-गुणः      the total of a constant weight is the n-fold sum.
+--   भागः          every normalized invariant weight exhibits w(x₀) as
+--                 an n-th part of 𝟙.
+--   समविभागः      THE THEOREM: if n-th parts of 𝟙 are unique
+--                 (isProp (Σ y, गुणः y ≡ 𝟙)), any two normalized
 --                 invariant weights agree pointwise.
---   �����         existence: an n-th part of � yields the uniform
+--   अस्ति         existence: an n-th part of 𝟙 yields the uniform
 --                 rule, normalized and invariant under EVERY action.
---   ������������     packaging: over a set W, with an n-th part given,
+--   एकाकित्वम्     packaging: over a set W, with an n-th part given,
 --                 the type of normalized invariant weight rules is
---                 contractible � isContr(WeightRule).
+--                 contractible — isContr(WeightRule).
 --
 ------------------------------------------------------------------------
 
@@ -60,7 +60,7 @@ private
     ℓ ℓ' : Level
 
 ------------------------------------------------------------------------
--- The sums.  The carrier needs only _+�_ and �; no zero element is
+-- The sums.  The carrier needs only _+ᵂ_ and 𝟙; no zero element is
 -- ever required, because X = Fin (suc m) is nonempty and every fold
 -- is over suc m elements.
 ------------------------------------------------------------------------
@@ -107,13 +107,13 @@ module _ {W : Type ℓ} (_+ᵂ_ : W → W → W) (𝟙 : W) (m : ℕ)
 
   open समभारिन्
 
-  -- invariance + transitivity � constancy.  No group laws consumed.
+  -- invariance + transitivity ⟹ constancy.  No group laws consumed.
   साम्यम् : (w : Fin (suc m) → W) → समभारिन् w
           → (x y : Fin (suc m)) → w x ≡ w y
   साम्यम् w s x y with सङ्क्रामकता y x
   ... | g , p = sym (cong w p) ∙ अन्वयः s g y
 
-  -- every rule exhibits w(fzero) as an (m+1)-th part of �.
+  -- every rule exhibits w(fzero) as an (m+1)-th part of 𝟙.
   भागः : (w : Fin (suc m) → W) → समभारिन् w
        → Σ[ y ∈ W ] गुणः _+ᵂ_ m y ≡ 𝟙
   भागः w s = w fzero ,
@@ -130,7 +130,7 @@ module _ {W : Type ℓ} (_+ᵂ_ : W → W → W) (𝟙 : W) (m : ℕ)
     ∙ cong fst (divideUniquely (भागः w s) (भागः w' s'))
     ∙ साम्यम् w' s' fzero x
 
-  -- existence: an (m+1)-th part of � yields the uniform rule.
+  -- existence: an (m+1)-th part of 𝟙 yields the uniform rule.
   अस्ति : (द : Σ[ y ∈ W ] गुणः _+ᵂ_ m y ≡ 𝟙)
         → Σ[ w ∈ (Fin (suc m) → W) ] समभारिन् w
   अस्ति (y , p) = (λ _ → y) ,

@@ -3,16 +3,16 @@
 ------------------------------------------------------------------------
 -- TheSecondNaIsTheCollision
 --
--- ààà is two sets, and here they are â” computed from the àà¿àµààààà°à¾àà¿
+-- à¤…à¤£à¥ is two sets, and here they are â€” computed from the à¤¶à¤¿à¤µà¤¸à¥‚à¤¤à¥à¤°à¤¾à¤£à¤¿
 -- rather than asserted from memory.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHY THIS FILE EXISTS
 --
 -- `PratyaharaBuysTotalityWithLocality` proved that repeating a letter
 -- destroys locality of naming, using a three-letter toy order `x y z x`,
 -- and asserted in prose that this is "the smallest instance of the
--- ambiguity at ààà, whose àà is an àà¨ààà¨àà§ in both the first àà¿àµààààà°
+-- ambiguity at à¤…à¤£à¥, whose à¤£à¥ is an à¤…à¤¨à¥à¤¬à¤¨à¥à¤§ in both the first à¤¶à¤¿à¤µà¤¸à¥‚à¤¤à¥à¤°
 -- and the sixth".
 --
 -- It is checked here, by computing both readings from the list.
@@ -20,36 +20,36 @@
 -- `Sivasutra.agda` encodes the
 -- FIRST FOUR stras and extracts with a first-match rule:
 --
---     upto m (x âˆ xs) = if x â‰¡ m then [] else â¦
+--     upto m (x âˆ· xs) = if x â‰¡ m then [] else â€¦
 --
--- At four stras that is correct, because àà occurs once there.  It is
--- not a definition of ààà°ààà¯à¾àà¾à° though; it is a CONVENTION, and the
+-- At four sÅ«tras that is correct, because à¤£à¥ occurs once there.  It is
+-- not a definition of à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¹à¤¾à¤° though; it is a CONVENTION, and the
 -- convention only becomes visible at the sixth stra, which that file
 -- does not reach.  Nothing there is wrong.  The assumption is invisible
 -- at its own scope, which is the interesting part.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE SIX STRAS, AND THE TWO àà
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- THE SIX SÅªTRAS, AND THE TWO à¤£à¥
 --
---     à§  à à à‰ àà          à  à à” àà
---     à¨  à  à à•à           à  à à¯ àµ à° àŸà
---     à©  à à“ à™à           à  à² àà
+--     à¥§  à¤… à¤‡ à¤‰ à¤£à¥          à¥ª  à¤ à¤” à¤šà¥
+--     à¥¨  à¥  à¤Œ à¤•à¥           à¥«  à¤¹ à¤¯ à¤µ à¤° à¤Ÿà¥
+--     à¥©  à¤ à¤“ à¤™à¥           à¥¬  à¤² à¤£à¥
 --
--- àà closes the first and the sixth, so ààà has two readings:
+-- à¤£à¥ closes the first and the sixth, so à¤…à¤£à¥ has two readings:
 --
 --     narrow   a i u
 --     wide     a i u   e o ai au h y v r l
 --
--- Both are used â” the narrow one is the vowel class, the wide one is
--- vowels-and-semivowels, required wherever ààà must cover à¯à àµà à°à à²à.
+-- Both are used â€” the narrow one is the vowel class, the wide one is
+-- vowels-and-semivowels, required wherever à¤…à¤£à¥ must cover à¤¯à¥ à¤µà¥ à¤°à¥ à¤²à¥.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   Â§3  both readings, each by `refl` from the list;
 --   Â§4  they differ, with `e` the witness;
---   Â§5  so the name àà does not determine its set, and the toy collision
---       is realised at the actual àà¿àµààààà°à¾àà¿.
+--   Â§5  so the name à¤£à¥ does not determine its set, and the toy collision
+--       is realised at the actual à¤¶à¤¿à¤µà¤¸à¥‚à¤¤à¥à¤°à¤¾à¤£à¤¿.
 ------------------------------------------------------------------------
 
 module TheSecondNaIsTheCollision where
@@ -65,7 +65,7 @@ open import FiniteInformation using (FactorsThrough)
 open import AnyonyaAbhava using (Anyonya ; anyonyaâ†’samsarga)
 
 ------------------------------------------------------------------------
--- 1.  The sounds and àà¨ààà¨àà§ of the first six stras
+-- 1.  The sounds and à¤…à¤¨à¥à¤¬à¤¨à¥à¤§ of the first six sÅ«tras
 ------------------------------------------------------------------------
 
 data Sym : Typeâ‚€ where
@@ -85,7 +85,7 @@ isá¹† á¹† = true
 isá¹† _ = false
 
 ------------------------------------------------------------------------
--- 2.  The list, through the sixth stra â” where the second àà lives
+-- 2.  The list, through the sixth sÅ«tra â€” where the second à¤£à¥ lives
 ------------------------------------------------------------------------
 
 sivasutra6 : List Sym
@@ -97,8 +97,8 @@ sivasutra6 =
   h âˆ· y âˆ· v âˆ· r âˆ· á¹¬ âˆ·            -- à¥«  à¤¹ à¤¯ à¤µ à¤° à¤Ÿà¥
   l âˆ· á¹† âˆ· []                     -- à¥¬  à¤² à¤£à¥
 
--- collect the sounds, skipping `n` occurrences of àà and stopping at the
--- next one.  Other àà¨ààà¨àà§ are stra boundaries and are never emitted.
+-- collect the sounds, skipping `n` occurrences of à¤£à¥ and stopping at the
+-- next one.  Other à¤…à¤¨à¥à¤¬à¤¨à¥à¤§ are sÅ«tra boundaries and are never emitted.
 collect : â„• â†’ List Sym â†’ List Sym
 collect n       []       = []
 collect zero    (x âˆ· xs) =
@@ -119,7 +119,7 @@ aá¹†-wide : collect 1 sivasutra6
 aá¹†-wide = refl
 
 ------------------------------------------------------------------------
--- 4.  AND THEY DIFFER â” à is in one and not the other
+-- 4.  AND THEY DIFFER â€” à¤ is in one and not the other
 ------------------------------------------------------------------------
 
 isE : Sym â†’ Bool
@@ -140,10 +140,10 @@ readings-differ : Anyonya (collect 0 sivasutra6) (collect 1 sivasutra6)
 readings-differ p = falseâ‰¢true (cong hasE p)
 
 ------------------------------------------------------------------------
--- 5.  SO THE NAME àà DOES NOT DETERMINE ITS SET
+-- 5.  SO THE NAME à¤£à¥ DOES NOT DETERMINE ITS SET
 --
--- Both readings are called by the same àà¨ààà¨àà§.  The collision the toy
--- order `x y z x` exhibited is here, at the àà¿àµààààà°à¾àà¿ themselves.
+-- Both readings are called by the same à¤…à¤¨à¥à¤¬à¤¨à¥à¤§.  The collision the toy
+-- order `x y z x` exhibited is here, at the à¤¶à¤¿à¤µà¤¸à¥‚à¤¤à¥à¤°à¤¾à¤£à¤¿ themselves.
 ------------------------------------------------------------------------
 
 data Reading : Typeâ‚€ where
@@ -171,15 +171,15 @@ aá¹†-does-not-factor =
 -- 6.  What this settles.
 --
 -- SETTLED.  The prose citation in `PratyaharaBuysTotalityWithLocality`
--- is now a computation: ààà really does denote two different sets, and
--- the reason really is that àà closes two stras.  The toy collision
+-- is now a computation: à¤…à¤£à¥ really does denote two different sets, and
+-- the reason really is that à¤£à¥ closes two sÅ«tras.  The toy collision
 -- there was a faithful model, which is worth knowing, because a toy that
 -- turns out not to model anything is just a toy.
 --
 -- AND ONE THING FOUND ON THE WAY.  `Sivasutra.upto` stops at the first
--- matching àà¨ààà¨àà§.  Within its four stras that is exactly right.  Past
--- them it silently selects the narrow reading of ààà and offers no sign
--- that a choice was made.  This is not a defect in that file â” it is the
+-- matching à¤…à¤¨à¥à¤¬à¤¨à¥à¤§.  Within its four sÅ«tras that is exactly right.  Past
+-- them it silently selects the narrow reading of à¤…à¤£à¥ and offers no sign
+-- that a choice was made.  This is not a defect in that file â€” it is the
 -- ordinary situation of a convention that is invisible at the scope
 -- where it is introduced, and it is the same shape as everything else
 -- in this corpus: what a decoder cannot see, it cannot report.

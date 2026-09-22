@@ -1,32 +1,32 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ���-���� � across the boundary.
+-- पार-सीमा — across the boundary.
 --
 -- Place a profile f against the left end of the window [0, t) and a
--- profile g against the right end, J�g (x) = g (t − x).  A right shift
+-- profile g against the right end, J⁺g (x) = g (t − x).  A right shift
 -- by a carries f toward g, and the pairing of the shifted f against the
 -- right profile is
 --
---     ⟨J�g , S_a f⟩  =  �_{r < t − a}  f(r) � g((t − a) − r)  =  h_{f,g}(t − a),
+--     ⟨J⁺g , S_a f⟩  =  Σ_{r < t − a}  f(r) · g((t − a) − r)  =  h_{f,g}(t − a),
 --
 -- the convolution of the two boundary profiles at the shifted time.
--- Summed over shifts a = log n with weights �(n)/�n, the cross-boundary
+-- Summed over shifts a = log n with weights Λ(n)/√n, the cross-boundary
 -- block of the finite prime-translation operator is
--- �_n �(n)/�n � h_{f,g}(t − log n): the centred boundary reading B_h(t)
+-- Σ_n Λ(n)/√n · h_{f,g}(t − log n): the centred boundary reading B_h(t)
 -- is not an invented statistic, it is this matrix coefficient.  On the
 -- discrete window the identity is exact, and this file proves it.
 --
---   §1  OFFSET SUMS: � over x from s, count n.  Splitting a range; the
+--   §1  OFFSET SUMS: Σ over x from s, count n.  Splitting a range; the
 --       shift law that reindexes a summand reading x − s; vanishing and
 --       extensionality restricted to the range.
 --   §2  THE PAIRING against the right boundary.
 --   §3  THE CROSSING IDENTITY, for t = a + u: the terms x < a vanish
---       (nothing has arrived), and the terms x � a reindex by x = r + a,
+--       (nothing has arrived), and the terms x ≥ a reindex by x = r + a,
 --       with (a + u) − x = u − r.
 --
 -- The weighted sum over shifts is linear bookkeeping on top of this one
--- identity.  ��� (pra, the far shore) and ���� (sm, boundary) are
+-- identity.  पार (pāra, the far shore) and सीमा (sīmā, boundary) are
 -- ordinary .
 ------------------------------------------------------------------------
 
@@ -44,10 +44,10 @@ open import SimaSesa_OnAFiniteWindowTheTwoNetZeroShiftWordsAgreeInTheBulkAndDiff
   using (S)
 
 ------------------------------------------------------------------------
--- � � Offset sums.
+-- १ · Offset sums.
 ------------------------------------------------------------------------
 
--- �_{i < n} F (s + i)
+-- Σ_{i < n} F (s + i)
 Σ⟨_,_⟩ : ℕ → ℕ → (ℕ → ℕ) → ℕ
 Σ⟨ s , zero ⟩ F = zero
 Σ⟨ s , suc n ⟩ F = F s + Σ⟨ suc s , n ⟩ F
@@ -61,7 +61,7 @@ open import SimaSesa_OnAFiniteWindowTheTwoNetZeroShiftWordsAgreeInTheBulkAndDiff
   ∙ +-assoc (F s) (Σ⟨ suc s , a ⟩ F) (Σ⟨ suc (s + a) , n ⟩ F)
   ∙ cong (λ z → (F s + Σ⟨ suc s , a ⟩ F) + Σ⟨ z , n ⟩ F) (sym (+-suc s a))
 
--- a summand reading (x � s), summed from s + k, is the plain sum from k
+-- a summand reading (x ∸ s), summed from s + k, is the plain sum from k
 Σ-shift-gen : (s k n : ℕ) (G : ℕ → ℕ)
             → Σ⟨ s + k , n ⟩ (λ x → G (x ∸ s)) ≡ Σ⟨ k , n ⟩ G
 Σ-shift-gen s k zero    G = refl
@@ -104,16 +104,16 @@ tail-in s n x le lt = ≤-trans (1 , refl) le , subst (x <_) (sym (+-suc s n)) l
                let p = tail-in s n x le lt in e x (fst p) (snd p)))
 
 ------------------------------------------------------------------------
--- � � The pairing against the right boundary, and the shift's two faces.
+-- २ · The pairing against the right boundary, and the shift's two faces.
 ------------------------------------------------------------------------
 
 module _ (t a : ℕ) where
 
-  -- ⟨J�g , F⟩ = �_{x < t} g (t � x) � F x
+  -- ⟨J⁺g , F⟩ = Σ_{x < t} g (t ∸ x) · F x
   ⟨_∣_⟩ : (ℕ → ℕ) → (ℕ → ℕ) → ℕ
   ⟨ g ∣ F ⟩ = Σ⟨ zero , t ⟩ (λ x → g (t ∸ x) · F x)
 
-  -- the shifted profile: nothing below a, f (x � a) from a on
+  -- the shifted profile: nothing below a, f (x ∸ a) from a on
   S-nāsti : (f : ℕ → ℕ) (x : ℕ) → ¬ (a ≤ x) → S t a f x ≡ zero
   S-nāsti f x ¬le with ≤Dec a x
   ... | no  _  = refl
@@ -125,14 +125,14 @@ module _ (t a : ℕ) where
   ... | no ¬le = ⊥-elim (¬le le)
 
 ------------------------------------------------------------------------
--- � � The crossing identity.
+-- ३ · The crossing identity.
 ------------------------------------------------------------------------
 
 -- the convolution of the boundary profiles at time u
 h : (ℕ → ℕ) → (ℕ → ℕ) → ℕ → ℕ
 h f g u = Σ⟨ zero , u ⟩ (λ r → g (u ∸ r) · f r)
 
--- for t = a + u:  ⟨J�g , S_a f⟩ ≡ h_{f,g}(u)
+-- for t = a + u:  ⟨J⁺g , S_a f⟩ ≡ h_{f,g}(u)
 pāra-sīmā : (a u : ℕ) (f g : ℕ → ℕ)
           → ⟨_∣_⟩ (a + u) a g (S (a + u) a f) ≡ h f g u
 pāra-sīmā a u f g =
@@ -145,13 +145,13 @@ pāra-sīmā a u f g =
   G : ℕ → ℕ
   G r = g (u ∸ r) · f r
 
-  -- below a nothing has arrived: each summand is g(�) � 0
+  -- below a nothing has arrived: each summand is g(…) · 0
   vanish : Σ⟨ zero , a ⟩ F ≡ zero
   vanish = Σ-vanish zero a F (λ x _ lt →
              cong (g (t ∸ x) ·_) (S-nāsti t a f x (λ le → ¬m<m (<≤-trans lt le)))
            ∙ sym (0≡m·0 (g (t ∸ x))))
 
-  -- from a on, x = r + a: the summand is G (x � a)
+  -- from a on, x = r + a: the summand is G (x ∸ a)
   agree : (x : ℕ) → a ≤ x → x < a + u → F x ≡ G (x ∸ a)
   agree x le _ =
     cong₂ _·_ (cong g (t∸x≡u∸r x le)) (S-asti t a f x le)

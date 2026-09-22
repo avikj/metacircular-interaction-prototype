@@ -1,13 +1,13 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- �������-������ � the ladder that sees everything.
+-- सम्यक्-सोपान — the ladder that sees everything.
 --
 -- SopanaTransport's tower pushes readings UP with the transport.  An
 -- observer ladder runs the other way: the finer reading determines the
--- coarser one, never the reverse.  So the ladder is the dual object �
--- coarsening maps c_n : Y_{n+1} � Y_n with c_n (O_{n+1} (R_n x)) ≡ O_n x
--- � and its residual fibres SHRINK as the rung rises: what stage n+1
+-- coarser one, never the reverse.  So the ladder is the dual object —
+-- coarsening maps c_n : Y_{n+1} → Y_n with c_n (O_{n+1} (R_n x)) ≡ O_n x
+-- — and its residual fibres SHRINK as the rung rises: what stage n+1
 -- cannot see, stage n cannot see either.  A ladder is jointly faithful
 -- when the intersection of all its residual fibres is a point.
 --
@@ -15,8 +15,8 @@
 --   §2  THE THEOREM.  With identity transport, a jointly faithful ladder
 --       has no bad recurrent orbit: an orbit invisible at every rung is
 --       observed like zero at every rung, hence is zero, hence not
---       nonzero.  Two lines.  So a bad orbit � nonzero and invisible at
---       every rung � needs the transport to be nontrivial: it must MOVE
+--       nonzero.  Two lines.  So a bad orbit — nonzero and invisible at
+--       every rung — needs the transport to be nontrivial: it must MOVE
 --       between rungs to stay invisible.  The difficulty is the
 --       renormalisation, not the observers.
 --   §3  THE COARSE-MODE LADDER IS JOINTLY FAITHFUL.  SamaChaya's coarse
@@ -24,14 +24,14 @@
 --       identically at every resolution are equal, because mode m is
 --       read at resolution m.  Coarsening commutes as required.  Hence
 --       on the fixed-resolution ladder there is no bad orbit, and the
---       plane wave of SamaChaya � invisible below its mode � is caught
+--       plane wave of SamaChaya — invisible below its mode — is caught
 --       at its mode.
 --
--- Read with NoBadRecurrentOrbit: for Navier�Stokes the ladder is
+-- Read with NoBadRecurrentOrbit: for Navier–Stokes the ladder is
 -- jointly faithful (the coarse movies at all K determine u), so the only
 -- way a singular residual survives every rung is by riding the parabolic
--- rescaling to infinite frequency � a moving, scale-critical orbit, not a
--- fixed kernel.  ������� (samyak, complete/right) and ������ (sopna,
+-- rescaling to infinite frequency — a moving, scale-critical orbit, not a
+-- fixed kernel.  सम्यक् (samyak, complete/right) and सोपान (sopāna,
 -- ladder) are ordinary .
 ------------------------------------------------------------------------
 
@@ -53,7 +53,7 @@ private
     ℓx ℓy : Level
 
 ------------------------------------------------------------------------
--- � � The ladder, descending residuals, joint faithfulness.
+-- १ · The ladder, descending residuals, joint faithfulness.
 ------------------------------------------------------------------------
 
 record Ladder (ℓx ℓy : Level) : Type (ℓ-suc (ℓ-max ℓx ℓy)) where
@@ -80,13 +80,13 @@ record Ladder (ℓx ℓy : Level) : Type (ℓ-suc (ℓ-max ℓx ℓy)) where
   Orbit = Σ[ s ∈ ((n : ℕ) → X n) ] ((n : ℕ) → R n (s n) ≡ s (suc n))
 
 ------------------------------------------------------------------------
--- � � Identity transport: joint faithfulness kills every bad orbit.
+-- २ · Identity transport: joint faithfulness kills every bad orbit.
 ------------------------------------------------------------------------
 
 module _ {X : Type ℓx} {Y : ℕ → Type ℓy}
          (O : (n : ℕ) → X → Y n)
          (zero-state : X)
-         -- jointly faithful: observed like zero at every rung � zero
+         -- jointly faithful: observed like zero at every rung ⇒ zero
          (faithful : (x : X) → ((n : ℕ) → O n x ≡ O n zero-state) → x ≡ zero-state)
   where
 
@@ -102,7 +102,7 @@ module _ {X : Type ℓx} {Y : ℕ → Type ℓy}
   na-duṣṭa x bad = fst (bad zero) (faithful x (λ n → snd (bad n)))
 
 ------------------------------------------------------------------------
--- � � The coarse-mode ladder is jointly faithful.
+-- ३ · The coarse-mode ladder is jointly faithful.
 ------------------------------------------------------------------------
 
 śūnya : Field
@@ -138,7 +138,7 @@ Ladder.c kṣetra-sopāna n r = chāyā n (λ t m → r t m)
 Ladder.coarsen kṣetra-sopāna n u = funExt λ t → funExt λ m → chāyā-coarsen n u t m
 
 -- hence no field is nonzero and invisible at every resolution: a bad
--- orbit of the Navier�Stokes ladder must move
+-- orbit of the Navier–Stokes ladder must move
 kṣetra-na-duṣṭa : (u : Field) → ((n : ℕ) → (¬ (u ≡ śūnya)) × (chāyā n u ≡ chāyā n śūnya)) → ⊥
 kṣetra-na-duṣṭa =
   na-duṣṭa chāyā śūnya (λ u same → samyak u śūnya same)

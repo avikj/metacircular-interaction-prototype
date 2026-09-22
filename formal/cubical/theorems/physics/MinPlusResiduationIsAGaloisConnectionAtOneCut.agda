@@ -7,40 +7,40 @@
 -- Â§31â“32's saturation obligation to exactly two lines, `galFwd` and
 -- `galBwd`, for an abstract Galois connection.
 --
--- Here they are proved at ONE CUT â” a single burden and a single
--- residual â” with the real min-plus data, not a stand-in.
+-- Here they are proved at ONE CUT â€” a single burden and a single
+-- residual â€” with the real min-plus data, not a stand-in.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE ORDER IS REVERSED, AND THAT IS THE WHOLE POINT.  In min-plus,
--- lower cost is better, so the quantale order is `a âŠ b = b â‰ â•-a`.
--- With â•'s own `â‰` the residuation is NOT a Galois connection and the
--- failure is not subtle: `âˆ` truncates, and `truncationBreaksTheNaiveOrder`
--- below exhibits `K = 0, Ï = 0, Ïˆ = 5` where one side holds and the
+-- lower cost is better, so the quantale order is `a âŠ‘ b = b â‰¤ â„•-a`.
+-- With â„•'s own `â‰¤` the residuation is NOT a Galois connection and the
+-- failure is not subtle: `âˆ¸` truncates, and `truncationBreaksTheNaiveOrder`
+-- below exhibits `K = 0, Ï† = 0, Ïˆ = 5` where one side holds and the
 -- other does not.  Getting the direction right is not bookkeeping; it
 -- is the difference between the obligation being dischargeable and
 -- being false.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
---   âˆ-adjË¡ / âˆ-adjÊ³     the monus adjunction, K âˆ Ïˆ â‰ Ï  âŸº  K â‰ Ï + Ïˆ,
+--   âˆ¸-adjË¡ / âˆ¸-adjÊ³     the monus adjunction, K âˆ¸ Ïˆ â‰¤ Ï†  âŸº  K â‰¤ Ï† + Ïˆ,
 --                       which cubical v0.5 does not ship
 --   galFwd / galBwd     both directions of the contravariant adjunction
---                       for `u = d = (K âˆ_)` under the reversed order â”
+--                       for `u = d = (K âˆ¸_)` under the reversed order â€”
 --                       and both are the SAME statement, since the two
---                       sides are `K â‰ Ï + Ïˆ` and `K â‰ Ïˆ + Ï`
+--                       sides are `K â‰¤ Ï† + Ïˆ` and `K â‰¤ Ïˆ + Ï†`
 --   MinPlusCut          the instantiation of `module Galois`, from which
 --                       antitonicity, unit, counit, the triangles,
---                       idempotence of `c a = K âˆ (K âˆ a)`, and the
+--                       idempotence of `c a = K âˆ¸ (K âˆ¸ a)`, and the
 --                       fixed-point characterisation all follow with
 --                       NOTHING re-proved
 --   truncationBreakstheNaiveOrder
---                       the same maps under â•'s own order fail
+--                       the same maps under â„•'s own order fail
 --
--- So Î” 28 Â§31â“32's "re-saturate" is, at one cut, a checked closure over
+-- So Î” 28 Â§31â€“32's "re-saturate" is, at one cut, a checked closure over
 -- genuine min-plus data: saturate once and stop.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- `(_âˆ b) âŠ (_+ b)` is the standard residuation in â• and
 -- makes it a residuated monoid; that Isbell conjugation over a quantale
 -- is a Galois connection is likewise standard (Lawvere's metric-space
@@ -79,7 +79,7 @@ open import TheSaturationClosureNeedsOnlyAGaloisConnection
   âˆ¸-adjÊ³ K Ïˆ Ï† (pred-â‰¤-pred (subst (suc K â‰¤_) (+-suc Ï† Ïˆ) h))
 
 ------------------------------------------------------------------------
--- 2.  The min-plus order: lower cost is better, so â•'s â‰ is reversed
+-- 2.  The min-plus order: lower cost is better, so â„•'s â‰¤ is reversed
 ------------------------------------------------------------------------
 
 module _ (K : â„•) where
@@ -110,10 +110,10 @@ module _ (K : â„•) where
     public
 
 ------------------------------------------------------------------------
--- 3.  Under â•'s own order it is false, and truncation is why
+-- 3.  Under â„•'s own order it is false, and truncation is why
 --
--- With `K = 0`, `Ï = 0`, `Ïˆ = 5`: `Ï â‰ K âˆ Ïˆ` holds (both are 0) and
--- `Ïˆ â‰ K âˆ Ï` does not.  So the naive reading â” costs ordered upward â”
+-- With `K = 0`, `Ï† = 0`, `Ïˆ = 5`: `Ï† â‰¤ K âˆ¸ Ïˆ` holds (both are 0) and
+-- `Ïˆ â‰¤ K âˆ¸ Ï†` does not.  So the naive reading â€” costs ordered upward â€”
 -- does not even give one direction of the adjunction.
 ------------------------------------------------------------------------
 
@@ -135,15 +135,15 @@ truncationBreaksTheNaiveOrder = naiveHolds , naiveFails
 -- lower cost is better; a meet in a reversed order is a JOIN in the
 -- original, so `â‰` over burdens is `max` in â•.  Writing "min-plus, so
 -- take a min" names the operation by its role in the semiring rather
--- than by its role in the order â” the same error Â§2's reversal guards
+-- than by its role in the order â€” the same error Â§2's reversal guards
 -- against, one level up.
 --
---   max / max-â‰Ë¡ / max-â‰Ê³ / max-least   the meet, with its universal
+--   max / max-â‰¤Ë¡ / max-â‰¤Ê³ / max-least   the meet, with its universal
 --                                       property
 --   Profile ks                          profiles as a RECURSIVE FAMILY
 --                                       over the kernel, so a length
 --                                       mismatch is not representable
---   up ks Ï = â‹µ (kµ âˆ Ïµ) ,  dn ks Ïˆ = (kµ âˆ Ïˆ)µ
+--   up ks Ï† = â‹€áµ¢ (káµ¢ âˆ¸ Ï†áµ¢) ,  dn ks Ïˆ = (káµ¢ âˆ¸ Ïˆ)áµ¢
 --   goFwd / goBwd                       both directions
 --   ProfileCut                          `module Galois` instantiated
 --
@@ -154,5 +154,5 @@ truncationBreaksTheNaiveOrder = naiveHolds , naiveFails
 -- adjunction over a non-empty index; and
 -- `TheTwoSidedCutNeedsNoInfinityBecauseTheEmptyMeetIsZero` removes the
 -- restriction entirely, over an ARBITRARY residual index list with no
--- `âˆž` â” the empty meet is `0` by â•'s bottom rather than by choice.
+-- `âˆž` â€” the empty meet is `0` by â•'s bottom rather than by choice.
 ------------------------------------------------------------------------

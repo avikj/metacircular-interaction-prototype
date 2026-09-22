@@ -6,7 +6,7 @@
 -- What univalence does to `OptimalObservation`'s three instances, and
 -- what it costs.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IT DOES
 --
 -- All three enumerations are equivalences onto `Fin k`.  By `ua` they are
@@ -14,9 +14,9 @@
 -- residue vectors are not merely counted the same, they are EQUAL as
 -- types, and every property of one transports to the others.
 --
---     same-countâ’same-type :  sakhy n â‰¡ mtr m  â’  Vak n â‰¡ Metre m
+--     same-countâ†’same-type :  saá¹…khyÄ n â‰¡ mÄtrÄ m  â†’  Vak n â‰¡ Metre m
 --
--- and concretely `Vak 1 â‰¡ Metre 2` â” the one-syllable patterns and the
+-- and concretely `Vak 1 â‰¡ Metre 2` â€” the one-syllable patterns and the
 -- duration-two metres, two different combinatorial families from two
 -- traditions four centuries apart, identified by a path.
 --
@@ -24,7 +24,7 @@
 -- Without univalence "they are the same" is a remark about cardinalities;
 -- with it, it is an identification along which anything transports.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IT COSTS, AND THE COST IS THE POINT
 --
 -- The three enumerations are three ALGORITHMS:
@@ -32,12 +32,12 @@
 --   naa/uddia    halve the row number, read the remainder as
 --                    laghu/guru, and run it backwards (Pigala, c. 300 BCE)
 --   mtrmeru        delete the first syllable and recurse on the two
---                    shorter durations (Virahka, c. 600â“800)
+--                    shorter durations (VirahÄá¹…ka, c. 600â€“800)
 --   CRT              split the residue by coprime moduli (the walk)
 --
 -- The path identifies them and keeps none of that.  Transport along
--- `ua e` reduces to `equivFun e` â” the equivalence, not the algorithm
--- that computes it â” and by `Laghava.laghava-is-not-semantic` there is no
+-- `ua e` reduces to `equivFun e` â€” the equivalence, not the algorithm
+-- that computes it â€” and by `Laghava.laghava-is-not-semantic` there is no
 -- function of the identified object that recovers the size of any
 -- presentation of it.
 --
@@ -51,7 +51,7 @@
 --
 -- WHICH IS WHY PINI'S CRITERION IS NOT OPTIONAL.  A tradition that
 -- could only see denotations would have no reason to prefer naa to a
--- lookup table, both being equivalences onto `Fin (sakhy n)`.  à²à¾à˜àµ is
+-- lookup table, both being equivalences onto `Fin (saá¹…khyÄ n)`.  à¤²à¤¾à¤˜à¤µ is
 -- the criterion that distinguishes them, it is not semantic, and
 -- `Anuvrtti` shows it is not even a function of the rule set.
 ------------------------------------------------------------------------
@@ -97,7 +97,7 @@ vak1â‰¡metre2 = same-countâ†’same-type 1 2 count-1-2
 ------------------------------------------------------------------------
 -- 3.  What transport along such a path actually is
 --
--- `uaÎ²` â” transporting along `ua e` is applying `e`.  So the path carries
+-- `uaÎ²` â€” transporting along `ua e` is applying `e`.  So the path carries
 -- the equivalence and nothing else: not the halving, not the recurrence,
 -- not the coprime splitting.  The algorithms are in the fibre the
 -- identification collapses.

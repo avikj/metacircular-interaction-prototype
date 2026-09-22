@@ -1,48 +1,48 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ����� � the soul's equation of motion: srava, bandha, savara, nirjar,
+-- कर्म — the soul's equation of motion: āsrava, bandha, saṃvara, nirjarā,
 -- and the zero state (moka) is absorbing.  The dynamics the arena is FOR.
 --
--- SOURCE.  Umsvti, *Tattvrthastra* (~2nd�5th c.).  The seven tattvas
--- (1.4): jva, ajva, srava, bandha, savara, nirjar, moka � the last
+-- SOURCE.  Umāsvāti, *Tattvārthasūtra* (~2nd–5th c.).  The seven tattvas
+-- (1.4): jīva, ajīva, āsrava, bandha, saṃvara, nirjarā, mokṣa — the last
 -- five are a DYNAMICS on the first two.  Precisely:
---   6.1�2  kya-v-mana-karma yoga; sa srava � activity (yoga) of
+--   6.1–2  kāya-vāṅ-manaḥ-karma yogaḥ; sa āsravaḥ — activity (yoga) of
 --          body/speech/mind is srava, the INFLUX of karma.
---   8.2�3  sakayatvt � pudgaln datte sa bandha � with passion the
+--   8.2–3  sakaṣāyatvāt … pudgalān ādatte sa bandhaḥ — with passion the
 --          jva TAKES UP karma-fit pudgala: BINDING.  Its four aspects are
 --          prakti (nature), sthiti (duration), anubhga (intensity), and
---          PRADEA (the COUNT of karmic pudgala) � 8.4.  This file is the
+--          PRADEŚA (the COUNT of karmic pudgala) — 8.4.  This file is the
 --          pradea-bandha: karma is krmaa PUDGALA, so its count is a
---          `Pudgala` count, and its conservation is `Pudgala.������-�������`.
---   9.1    srava-nirodha savara � STOPPAGE of influx is savara.
---   9.3    (tapas) nirjar ca � and SHEDDING of bound karma is nirjar.
---   10.2�3 ktsna-karma-kayo moka � liberation is the COMPLETE
+--          `Pudgala` count, and its conservation is `Pudgala.द्रव्य-नित्यम्`.
+--   9.1    āsrava-nirodhaḥ saṃvaraḥ — STOPPAGE of influx is saṃvara.
+--   9.3    (tapasā) nirjarā ca — and SHEDDING of bound karma is nirjarā.
+--   10.2–3 kṛtsna-karma-kṣayo mokṣaḥ — liberation is the COMPLETE
 --          destruction (kaya) of karma: the zero state.
---   10.5�7 tad-anantaram rdhva gacchaty  lokntt � thereupon the jva
+--   10.5–7 tad-anantaram ūrdhvaṃ gacchaty ā lokāntāt — thereupon the jīva
 --          rises to the END of the loka (and no further: dharma, the
---          medium of motion, ends there � `DharmaAdharma.�����������-������`).
+--          medium of motion, ends there — `DharmaAdharma.ऊर्ध्वगति-विरामः`).
 --
 -- THE DYNAMICS, exactly.  One samaya (`Kala`) transforms the bound-count s
 -- by influx a (from yoga) then shedding r (from nirjar):
---     ������-�������  s  �  (s + a) � r .
+--     एकसमय-परिणामः  s  ↦  (s + a) ∸ r .
 -- savara is the regime a = 0.  Two regimes and their fixed point:
 --
---   §2  �����-�������� � under savara the count never grows: (s+0) � r � s.
---   §3  ����-����������-������ � under savara with nirjar (r>0), the count
---       STRICTLY drops while positive: 0 < s � (s � r) < s.
---   §4  �������-��������� � ktsna-karma-kaya is REACHED: with minimal
+--   §2  संवरे-अवर्धनम् — under saṃvara the count never grows: (s+0) ∸ r ≤ s.
+--   §3  संवर-नैर्जर्ये-क्षयः — under saṃvara with nirjarā (r>0), the count
+--       STRICTLY drops while positive: 0 < s → (s ∸ r) < s.
+--   §4  मोक्ष-प्राप्तिः — kṛtsna-karma-kṣaya is REACHED: with minimal
 --       nirjar (r=1) under savara, iterating the samaya-step from s
---       reaches 0 in s samayas.  (General r � 1 reaches it no slower.)
---   §5  ��������-���� � the zero state is ABSORBING: under savara, 0 � 0.
---       na punar-vtti � the siddha does not return.
---   §6  ������ � WITHOUT savara, when influx exceeds shedding (a > r) the
---       count grows: s < (s + a) � r.  Bondage deepens � bhava-bhramaa.
---   §7  ������-������� � nirjar does not DESTROY pudgala; the karma present
+--       reaches 0 in s samayas.  (General r ≥ 1 reaches it no slower.)
+--   §5  मोक्षः-अचलः — the zero state is ABSORBING: under saṃvara, 0 ↦ 0.
+--       na punar-āvṛtti — the siddha does not return.
+--   §6  संसारः — WITHOUT saṃvara, when influx exceeds shedding (a > r) the
+--       count grows: s < (s + a) ∸ r.  Bondage deepens — bhava-bhramaṇa.
+--   §7  प्रदेश-नित्यम् — nirjarā does not DESTROY pudgala; the karma present
 --       splits into remaining + shed with nothing lost:
---         (s + a) ≡ ((s + a) � r) + (shed)   for r � s + a.
+--         (s + a) ≡ ((s + a) ∸ r) + (shed)   for r ≤ s + a.
 --       moka is total DISSOCIATION of matter from the jva, not
---       annihilation of matter (`Pudgala.������-�������`).
+--       annihilation of matter (`Pudgala.द्रव्य-नित्यम्`).
 --
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
@@ -71,7 +71,7 @@ open import Cubical.Data.Sigma using (Σ ; _,_ ; fst ; snd)
 संवरे r s = एकसमय-परिणामः 0 r s      -- = (s + 0) ∸ r
 
 ------------------------------------------------------------------------
--- helpers on � (proved here; the library gives zero�, n�n)
+-- helpers on ∸ (proved here; the library gives zero∸, n∸n)
 ------------------------------------------------------------------------
 
 ∸-≤ : (m r : ℕ) → (m ∸ r) ≤ m
@@ -79,7 +79,7 @@ open import Cubical.Data.Sigma using (Σ ; _,_ ; fst ; snd)
 ∸-≤ zero (suc r)  = zero-≤
 ∸-≤ (suc m) (suc r) = ≤-trans (∸-≤ m r) (1 , refl)
 
--- (s + 0) ≡ s, so ����� r s = s � r
+-- (s + 0) ≡ s, so संवरे r s = s ∸ r
 संवर-रूपम् : (r s : ℕ) → संवरे r s ≡ s ∸ r
 संवर-रूपम् r s = cong (_∸ r) (+-zero s)
 
@@ -88,25 +88,25 @@ open import Cubical.Data.Sigma using (Σ ; _,_ ; fst ; snd)
 योग-अपनयनम् (suc x) y = योग-अपनयनम् x y
 
 ------------------------------------------------------------------------
--- §2  �����-�������� � under savara the count never grows.
+-- §2  संवरे-अवर्धनम् — under saṃvara the count never grows.
 ------------------------------------------------------------------------
 
 संवरे-अवर्धनम् : (r s : ℕ) → संवरे r s ≤ s
 संवरे-अवर्धनम् r s = subst (_≤ s) (sym (संवर-रूपम् r s)) (∸-≤ s r)
 
 ------------------------------------------------------------------------
--- §3  ����-����������-������ � with nirjar (r>0), strict drop while positive.
+-- §3  संवर-नैर्जर्ये-क्षयः — with nirjarā (r>0), strict drop while positive.
 ------------------------------------------------------------------------
 
 संवर-नैर्जर्ये-क्षयः : (k s : ℕ) → संवरे (suc k) (suc s) < suc s
 संवर-नैर्जर्ये-क्षयः k s =
   subst (_< suc s) (sym (संवर-रूपम् (suc k) (suc s)))
         (suc-≤-suc (∸-≤ s k))
-  -- (suc s) � (suc k) = s � k � s < suc s
+  -- (suc s) ∸ (suc k) = s ∸ k ≤ s < suc s
 
 ------------------------------------------------------------------------
--- §4  �������-��������� � ktsna-karma-kaya is reached (minimal nirjar r=1).
---     Iterating the samaya-step (= pred�) from s reaches 0 in s samayas.
+-- §4  मोक्ष-प्राप्तिः — kṛtsna-karma-kṣaya is reached (minimal nirjarā r=1).
+--     Iterating the samaya-step (= predℕ) from s reaches 0 in s samayas.
 ------------------------------------------------------------------------
 
 iterate : ℕ → (ℕ → ℕ) → ℕ → ℕ
@@ -124,7 +124,7 @@ private
   क्षय-सहायः zero    m m≤n = cong (iterate zero predℕ) (≤0→≡0 m m≤n)
   क्षय-सहायः (suc n) m m≤n = क्षय-सहायः n (predℕ m) (predℕ-≤-predℕ m≤n)
 
--- under savara with minimal nirjar, ����� 1 s = s � 1 = pred� s
+-- under saṃvara with minimal nirjarā, संवरे 1 s = s ∸ 1 = predℕ s
 संवर-एक-पदम् : (s : ℕ) → संवरे 1 s ≡ predℕ s
 संवर-एक-पदम् zero    = refl
 संवर-एक-पदम् (suc s) = संवर-रूपम् 1 (suc s)
@@ -133,15 +133,15 @@ private
 मोक्ष-प्राप्तिः s = क्षय-सहायः s s ≤-refl
 
 ------------------------------------------------------------------------
--- §5  ��������-���� � the zero state is absorbing: under savara, 0 � 0.
+-- §5  मोक्षः-अचलः — the zero state is absorbing: under saṃvara, 0 ↦ 0.
 ------------------------------------------------------------------------
 
 मोक्षः-अचलः : (r : ℕ) → संवरे r 0 ≡ 0
 मोक्षः-अचलः r = संवर-रूपम् r 0 ∙ zero∸ r
 
 ------------------------------------------------------------------------
--- §6  ������ � without savara, influx over shedding grows the bondage.
---     Take a = r + suc d (a > r); then (s + a) � r = s + suc d > s.
+-- §6  संसारः — without saṃvara, influx over shedding grows the bondage.
+--     Take a = r + suc d (a > r); then (s + a) ∸ r = s + suc d > s.
 ------------------------------------------------------------------------
 
 open import Cubical.Data.Nat.Properties using (+-assoc)
@@ -150,7 +150,7 @@ open import Cubical.Data.Nat.Properties using (+-assoc)
 संसारः s r d =
   subst (s <_) (sym reduce) grows
   where
-  -- (s + (r + suc d)) � r = (r + (s + suc d)) � r = s + suc d
+  -- (s + (r + suc d)) ∸ r = (r + (s + suc d)) ∸ r = s + suc d
   reduce : एकसमय-परिणामः (r + suc d) r s ≡ s + suc d
   reduce =
       cong (_∸ r) (+-assoc s r (suc d) ∙ cong (_+ suc d) (+-comm s r) ∙ sym (+-assoc r s (suc d)))
@@ -159,13 +159,13 @@ open import Cubical.Data.Nat.Properties using (+-assoc)
   grows = d , (+-suc d s ∙ cong suc (+-comm d s) ∙ sym (+-suc s d))
 
 ------------------------------------------------------------------------
--- §7  ������-������� � nirjar dissociates, it does not destroy: the karma
---     present splits into remaining + shed, nothing lost (r � p).
+-- §7  प्रदेश-नित्यम् — nirjarā dissociates, it does not destroy: the karma
+--     present splits into remaining + shed, nothing lost (r ≤ p).
 ------------------------------------------------------------------------
 
 
 प्रदेश-नित्यम् : (p r : ℕ) → r ≤ p → (p ∸ r) + r ≡ p
 प्रदेश-नित्यम् p r r≤p = ≤-∸-+-cancel r≤p
--- the remaining ((p � r), i.e. the still-bound after nirjar) plus the shed
+-- the remaining ((p ∸ r), i.e. the still-bound after nirjarā) plus the shed
 -- (r) equals the karma present (p): moka is total DISSOCIATION of pudgala,
--- not its annihilation (Pudgala.������-�������).
+-- not its annihilation (Pudgala.द्रव्य-नित्यम्).

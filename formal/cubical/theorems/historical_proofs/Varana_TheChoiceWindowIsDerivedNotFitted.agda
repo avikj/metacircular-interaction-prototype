@@ -1,22 +1,22 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡µ‡∞‡‡Æ‡ ‚î ‡‡æ‡‡‡ï‡∞‡‡‡Ø m-‡µ‡∞‡‡‡‡Ø ‡ó‡µ‡æ‡ï‡‡‡, ‡‡æ‡ß‡ø‡‡, ‡® ‡Æ‡æ‡‡ø‡‡ ‡
--- Varaa ‚î the width of Bhskara's m-choice window, DERIVED.
+-- ‡§µ‡§∞‡§£‡§Æ‡•ç ‚Äî ‡§≠‡§æ‡§∏‡•ç‡§ï‡§∞‡§∏‡•ç‡§Ø m-‡§µ‡§∞‡§£‡§∏‡•ç‡§Ø ‡§ó‡§µ‡§æ‡§ï‡•ç‡§∑‡§É, ‡§∏‡§æ‡§ß‡§ø‡§§‡§É, ‡§® ‡§Æ‡§æ‡§™‡§ø‡§§‡§É ‡•§
+-- Vara·πáa ‚Äî the width of BhƒÅskara's m-choice window, DERIVED.
 --
--- SOURCE AND DATE.  The ‡µ‡∞‡ ‚î the choice rule ‚î is BHSKARA II's contribution
--- to the ‡‡ï‡‡∞‡µ‡æ‡≤‡Æ‡ over Jayadeva: among the m satisfying the one congruence
--- k | (a + b¬m), take one minimising |m¬≤ ‚àí D|.  ‡‡‡‡ó‡‡ø‡‡Æ‡, 1150 CE; the cycle
--- itself is Jayadeva's, ~950, surviving through Udayadivkara's ‡‡‡®‡‡¶‡∞‡, 1073.
+-- SOURCE AND DATE.  The ‡§µ‡§∞‡§£ ‚Äî the choice rule ‚Äî is BHƒÄSKARA II's contribution
+-- to the ‡§ö‡§ï‡•ç‡§∞‡§µ‡§æ‡§≤‡§Æ‡•ç over Jayadeva: among the m satisfying the one congruence
+-- k | (a + b¬∑m), take one minimising |m¬≤ ‚àí D|.  ‡§¨‡•Ä‡§ú‡§ó‡§£‡§ø‡§§‡§Æ‡•ç, 1150 CE; the cycle
+-- itself is Jayadeva's, ~950, surviving through UdayadivƒÅkara's ‡§∏‡•Å‡§®‡•ç‡§¶‡§∞‡•Ä, 1073.
 -- The congruence whose solutions m form the class is solved by RYABHAA's
--- ‡ï‡‡ü‡‡ü‡ï, ‡‡∞‡‡Ø‡‡ü‡‡Ø‡Æ‡ ‡ó‡‡ø‡‡‡æ‡¶‡ ‡©‡®‚ì‡©‡©, 499.  Nothing below claims Bhskara stated
+-- ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï, ‡§Ü‡§∞‡•ç‡§Ø‡§≠‡§ü‡•Ä‡§Ø‡§Æ‡•ç ‡§ó‡§£‡§ø‡§§‡§™‡§æ‡§¶‡§É ‡•©‡•®‚Äì‡•©‡•©, 499.  Nothing below claims BhƒÅskara stated
 -- the theorem in this file; he stated the rule, and this is what the rule
 -- costs to execute.
 --
 -- WHY THIS FILE EXISTS.  `machine/Nalanda.hs`, `chooseM`, enumerates the
--- residue class m = r + t¬n only over
+-- residue class m = r + t¬∑n only over
 --
---     t ‚àà [t‚ ‚àí 2 .. t‚ + 2],       t‚ = (‚ä‚àD‚ã ‚àí r) div n
+--     t ‚àà [t‚ÇÄ ‚àí 2 .. t‚ÇÄ + 2],       t‚ÇÄ = (‚åä‚àöD‚åã ‚àí r) div n
 --
 -- and its comment justifies the truncation like this, verbatim:
 --
@@ -33,19 +33,19 @@
 -- the correct side of the equation, in the style `CakravalaBound.agda` uses
 -- and for the same reason.
 --
---   ‡µ‡∞‡-‡‡ß‡      BELOW THE ROOT, LARGER IS BETTER.  If c ‚â lo and both sit
---                below D (c¬≤ + E_c ‚â° D, lo¬≤ + E_lo ‚â° D) then E_lo ‚â E_c.
---   ‡µ‡∞‡-‡ä‡∞‡‡ß‡‡µ‡Æ‡   ABOVE THE ROOT, SMALLER IS BETTER.  If hi ‚â c and both sit
---                above D (D + E_hi ‚â° hi¬≤, D + E_c ‚â° c¬≤) then E_hi ‚â E_c.
---   ‡‡‡∞‡‡‡-‡‡®‡‡‡∞‡Æ‡  THE CLASS HAS NO MEMBER STRICTLY INSIDE THE BRACKET.  The
---                class members are r + t¬n; from t‚ < t follows
---                (r + t‚¬n) + n ‚â r + t¬n.  So between the last member at or
---                below ‚ä‚àD‚ã and the next one there is nothing.
---   ‡ó‡µ‡æ‡ï‡‡‡       THE WINDOW IS ¬1.  Given a bracketing pair lo ‚â ‚àD ‚â hi with
+--   ‡§µ‡§∞‡§£-‡§Ö‡§ß‡§É      BELOW THE ROOT, LARGER IS BETTER.  If c ‚â§ lo and both sit
+--                below D (c¬≤ + E_c ‚â° D, lo¬≤ + E_lo ‚â° D) then E_lo ‚â§ E_c.
+--   ‡§µ‡§∞‡§£-‡§ä‡§∞‡•ç‡§ß‡•ç‡§µ‡§Æ‡•ç   ABOVE THE ROOT, SMALLER IS BETTER.  If hi ‚â§ c and both sit
+--                above D (D + E_hi ‚â° hi¬≤, D + E_c ‚â° c¬≤) then E_hi ‚â§ E_c.
+--   ‡§∂‡•ç‡§∞‡•á‡§£‡•Ä-‡§Ö‡§®‡•ç‡§§‡§∞‡§Æ‡•ç  THE CLASS HAS NO MEMBER STRICTLY INSIDE THE BRACKET.  The
+--                class members are r + t¬∑n; from t‚ÇÄ < t follows
+--                (r + t‚ÇÄ¬∑n) + n ‚â§ r + t¬∑n.  So between the last member at or
+--                below ‚åä‚àöD‚åã and the next one there is nothing.
+--   ‡§ó‡§µ‡§æ‡§ï‡•ç‡§∑‡§É       THE WINDOW IS ¬±1.  Given a bracketing pair lo ‚â§ ‚àöD ‚â§ hi with
 --                hi ‚â° lo + n, EVERY candidate outside {lo, hi} has cost at
 --                least one of E_lo, E_hi.  Two candidates are therefore
 --                exhaustive, and `chooseM`'s five are three more than the
---                argument needs ‚î which is fine, and is now a stated margin
+--                argument needs ‚Äî which is fine, and is now a stated margin
 --                rather than an unexamined one.
 ------------------------------------------------------------------------
 
@@ -61,7 +61,7 @@ open import Cubical.Data.Sum using (_‚äé_ ; inl ; inr)
 open import Cubical.Data.Sigma using (_√ó_ ; _,_)
 
 ------------------------------------------------------------------------
--- ‡¶ ¬ two order facts cubical does not ship in this shape.
+-- ‡•¶ ¬∑ two order facts cubical does not ship in this shape.
 ------------------------------------------------------------------------
 
 private
@@ -72,7 +72,7 @@ private
   ‡§µ‡§∞‡•ç‡§ó-‡§ï‡•ç‡§∞‡§Æ‡§É : {m n : ‚Ñï} ‚Üí m ‚â§ n ‚Üí m ¬∑ m ‚â§ n ¬∑ n
   ‡§µ‡§∞‡•ç‡§ó-‡§ï‡•ç‡§∞‡§Æ‡§É {m} {n} h = ‚â§-trans (‚â§-¬∑k {k = m} h) (‚â§-k¬∑' n h)
 
-  -- from P ‚â Q and Q + X ‚â° P + Y conclude X ‚â Y.  (The same lemma
+  -- from P ‚â§ Q and Q + X ‚â° P + Y conclude X ‚â§ Y.  (The same lemma
   -- `CakravalaBound.agda` builds; that module is not imported.)
   ‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø‡§É : (P Q X Y : ‚Ñï) ‚Üí P ‚â§ Q ‚Üí Q + X ‚â° P + Y ‚Üí X ‚â§ Y
   ‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø‡§É P Q X Y (c , hc) e = c , inj-m+ {m = P} step
@@ -84,9 +84,9 @@ private
     step = assoc1 ‚àô e
 
 ------------------------------------------------------------------------
--- ‡ß ¬ ‡µ‡∞‡-‡‡ß‡ ‚î below the root, the larger candidate is the better one.
+-- ‡•ß ¬∑ ‡§µ‡§∞‡§£-‡§Ö‡§ß‡§É ‚Äî below the root, the larger candidate is the better one.
 --
--- lo¬≤ + E_lo ‚â° D and c¬≤ + E_c ‚â° D with c ‚â lo.  Then c¬≤ ‚â lo¬≤, and the two
+-- lo¬≤ + E_lo ‚â° D and c¬≤ + E_c ‚â° D with c ‚â§ lo.  Then c¬≤ ‚â§ lo¬≤, and the two
 -- equations shift the inequality onto the costs the other way round.
 ------------------------------------------------------------------------
 
@@ -99,10 +99,10 @@ private
   ‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø‡§É (c ¬∑ c) (lo ¬∑ lo) Elo Ec (‡§µ‡§∞‡•ç‡§ó-‡§ï‡•ç‡§∞‡§Æ‡§É c‚â§lo) (hlo ‚àô sym hc)
 
 ------------------------------------------------------------------------
--- ‡® ¬ ‡µ‡∞‡-‡ä‡∞‡‡ß‡‡µ‡Æ‡ ‚î above the root, the smaller candidate is the better one.
+-- ‡•® ¬∑ ‡§µ‡§∞‡§£-‡§ä‡§∞‡•ç‡§ß‡•ç‡§µ‡§Æ‡•ç ‚Äî above the root, the smaller candidate is the better one.
 --
--- D + E_hi ‚â° hi¬≤ and D + E_c ‚â° c¬≤ with hi ‚â c.  Then hi¬≤ ‚â c¬≤, so
--- D + E_hi ‚â D + E_c, and D cancels.
+-- D + E_hi ‚â° hi¬≤ and D + E_c ‚â° c¬≤ with hi ‚â§ c.  Then hi¬≤ ‚â§ c¬≤, so
+-- D + E_hi ‚â§ D + E_c, and D cancels.
 ------------------------------------------------------------------------
 
 ‡§µ‡§∞‡§£-‡§ä‡§∞‡•ç‡§ß‡•ç‡§µ‡§Æ‡•ç : (D hi c Ehi Ec : ‚Ñï)
@@ -114,27 +114,27 @@ private
   ‚â§-k+-cancel {k = D} (subst2 _‚â§_ (sym hhi) (sym hcc) (‡§µ‡§∞‡•ç‡§ó-‡§ï‡•ç‡§∞‡§Æ‡§É hi‚â§c))
 
 ------------------------------------------------------------------------
--- ‡© ¬ ‡‡‡∞‡‡‡-‡‡®‡‡‡∞‡Æ‡ ‚î the class has no member strictly inside the bracket.
+-- ‡•© ¬∑ ‡§∂‡•ç‡§∞‡•á‡§£‡•Ä-‡§Ö‡§®‡•ç‡§§‡§∞‡§Æ‡•ç ‚Äî the class has no member strictly inside the bracket.
 ------------------------------------------------------------------------
 
 ‡§∂‡•ç‡§∞‡•á‡§£‡•Ä-‡§Ö‡§®‡•ç‡§§‡§∞‡§Æ‡•ç : (r n t‚ÇÄ t : ‚Ñï) ‚Üí suc t‚ÇÄ ‚â§ t ‚Üí r + (suc t‚ÇÄ) ¬∑ n ‚â§ r + t ¬∑ n
 ‡§∂‡•ç‡§∞‡•á‡§£‡•Ä-‡§Ö‡§®‡•ç‡§§‡§∞‡§Æ‡•ç r n t‚ÇÄ t h = ‚â§-k+ (‚â§-¬∑k {k = n} h)
 
--- and the next class member after `r + t‚¬n` is exactly `n` further on.
+-- and the next class member after `r + t‚ÇÄ¬∑n` is exactly `n` further on.
 ‡§∂‡•ç‡§∞‡•á‡§£‡•Ä-‡§™‡§¶‡§Æ‡•ç : (r n t‚ÇÄ : ‚Ñï) ‚Üí r + (suc t‚ÇÄ) ¬∑ n ‚â° (r + t‚ÇÄ ¬∑ n) + n
 ‡§∂‡•ç‡§∞‡•á‡§£‡•Ä-‡§™‡§¶‡§Æ‡•ç r n t‚ÇÄ =
     cong (r +_) (+-comm n (t‚ÇÄ ¬∑ n))
   ‚àô +-assoc r (t‚ÇÄ ¬∑ n) n
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡ó‡µ‡æ‡ï‡‡‡ ‚î THE WINDOW IS ¬1.
+-- ‡•™ ¬∑ ‡§ó‡§µ‡§æ‡§ï‡•ç‡§∑‡§É ‚Äî THE WINDOW IS ¬±1.
 --
--- Given a bracketing pair ‚î lo at or below ‚àD with cost E_lo, hi at or above
--- ‚àD with cost E_hi ‚î every candidate c outside {lo, hi}, on whichever side,
+-- Given a bracketing pair ‚Äî lo at or below ‚àöD with cost E_lo, hi at or above
+-- ‚àöD with cost E_hi ‚Äî every candidate c outside {lo, hi}, on whichever side,
 -- with its cost stated on the correct side of D, is beaten by one of them.
 --
--- Read as the statement about `chooseM`: enumerating t‚ and t‚+1 loses
--- nothing, so the ¬2 in the source is a margin of three and not a hope.
+-- Read as the statement about `chooseM`: enumerating t‚ÇÄ and t‚ÇÄ+1 loses
+-- nothing, so the ¬±2 in the source is a margin of three and not a hope.
 ------------------------------------------------------------------------
 
 ‡§ó‡§µ‡§æ‡§ï‡•ç‡§∑‡§É : (D lo hi c Elo Ehi Ec : ‚Ñï)

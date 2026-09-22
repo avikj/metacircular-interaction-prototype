@@ -4,7 +4,7 @@
 -- KnowledgeProcess
 --
 -- A small dependent bridge between exact interaction histories, paired
--- pastófuture continuation observations, and the Factory IV mixed-corner
+-- past√ófuture continuation observations, and the Factory IV mixed-corner
 -- compiler.  Arithmetic capability and its ranked path are retained as
 -- inputs.
 ------------------------------------------------------------------------

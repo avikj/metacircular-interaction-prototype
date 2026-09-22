@@ -1,18 +1,18 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ContinuumBridge � SantataDhara builds its �, �, �� and the closeness
+-- ContinuumBridge — SantataDhara builds its ℤ, ℚ, ℚ⁺ and the closeness
 -- relation from scratch, with a Boolean order.  To develop analysis
 -- over its continuum the arithmetic must be reasoned about, and the
 -- pinned library already carries the lemmas: this module maps the
 -- continuum module's integers onto the library's, shows the map
 -- preserves addition and multiplication, and shows the Boolean order
 -- decides the library's order.  From that the closeness relation
--- Close ε p q becomes a statement in the library's �, on which the ring
+-- Close ε p q becomes a statement in the library's ℤ, on which the ring
 -- solver and the order lemmas apply.
 --
---   §1  to�, and to� (a +� b) ≡ to� a + to� b, to� (a �� b) ≡ to� a � to� b;
---   §2  lt�b m n ≡ true ⟺ m < n on �, and lt�b a b ≡ true ⟺ to� a < to� b;
+--   §1  toℤ, and toℤ (a +ℤ b) ≡ toℤ a + toℤ b, toℤ (a ·ℤ b) ≡ toℤ a · toℤ b;
+--   §2  ltℕb m n ≡ true ⟺ m < n on ℕ, and ltℤb a b ≡ true ⟺ toℤ a < toℤ b;
 --   §3  Close ε p q ⟺ an order statement between library integers.
 --
 -- SYT.  A bridge, nothing more: no new number, no new relation.  Every
@@ -103,7 +103,7 @@ open import Cubical.Data.Bool using (true≢false ; false≢true)
 open import Cubical.Data.Empty using (⊥) renaming (rec to ⊥-rec)
 open import Cubical.Relation.Nullary using (¬_)
 
--- �: lt�b decides <
+-- ℕ: ltℕb decides <
 ltℕb-sound : (m n : ℕ) → S.ltℕb m n ≡ true → m < n
 ltℕb-sound m zero e = ⊥-rec (false≢true e)
 ltℕb-sound zero (suc n) _ = suc-≤-suc zero-≤
@@ -114,14 +114,14 @@ ltℕb-complete m zero m<0 = ⊥-rec (¬-<-zero m<0)
 ltℕb-complete zero (suc n) _ = refl
 ltℕb-complete (suc m) (suc n) m<n = ltℕb-complete m n (pred-≤-pred m<n)
 
--- pos k � pos l on � is k � l on �
+-- pos k ≤ pos l on ℤ is k ≤ l on ℕ
 pos≤pos→ : (k l : ℕ) → pos k ≤ℤ pos l → k ≤ l
 pos≤pos→ k l (i , p) = i , (+-comm i k ∙ injPos (pos+ k i ∙ p))
 
 →pos≤pos : (k l : ℕ) → k ≤ l → pos k ≤ℤ pos l
 →pos≤pos k l (i , p) = i , (sym (pos+ k i) ∙ cong pos (+-comm k i ∙ p))
 
--- �: lt�b decides <
+-- ℤ: ltℤb decides <
 ltℤb-sound : (a b : S.ℤ) → S.ltℤb a b ≡ true → toℤ a <ℤ toℤ b
 ltℤb-sound (S.pos m) (S.pos n) e = →pos≤pos (suc m) n (ltℕb-sound m n e)
 ltℤb-sound (S.negsuc m) (S.pos n) _ = negsuc<pos
@@ -139,7 +139,7 @@ ltℤb-complete (S.negsuc (suc m)) (S.negsuc n) lt =
   ltℕb-complete n (suc m) (suc-≤-suc (pos≤pos→ n m (pos-≤-pos lt)))
 
 ------------------------------------------------------------------------
--- §3  the closeness relation as an order statement in the library's �
+-- §3  the closeness relation as an order statement in the library's ℤ
 ------------------------------------------------------------------------
 
 open import Cubical.Data.Int using (abs)
@@ -155,7 +155,7 @@ abs-den : (x : S.ℚ) → den (S.absℚ x) ≡ den x
 abs-den (S.pos n S./1+ d) = refl
 abs-den (S.negsuc n S./1+ d) = refl
 
--- the difference p − q, numerator in the library's �
+-- the difference p − q, numerator in the library's ℤ
 D : S.ℚ → S.ℚ → ℤ
 D p q = toℤ (num p) ·i pos (suc (den q)) +i (- (toℤ (num q) ·i pos (suc (den p))))
 

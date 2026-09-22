@@ -9,30 +9,30 @@
 -- is the non-strict 'at least half', which is weaker.  The
 -- strict/non-strict gap is exactly one point:
 --
---   Above p q bs  =  p Â length bs < suc q Â count bs
+--   Above p q bs  =  p Â· length bs < suc q Â· count bs
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   Âsk-cancel-<     the strict counterpart of
---                    Âsk-cancel-â‰, from splitâ•-< + <-asym + â‰-Âk
---   aboveAntitone    the STRICT family is antitone along the SAME âŠ â”
---                    so `âŠ-total` orders it too, with no second order
+--                    Â·sk-cancel-â‰¤, from splitâ„•-< + <-asym + â‰¤-Â·k
+--   aboveAntitone    the STRICT family is antitone along the SAME âŠ‘ â€”
+--                    so `âŠ‘-total` orders it too, with no second order
 --                    and no second totality proof
---   aboveGivesAtLeast     strict â’ non-strict, at each threshold
+--   aboveGivesAtLeast     strict â‡’ non-strict, at each threshold
 --   majorityIsAboveHalf / aboveHalfIsMajority
 --                    the earlier module's `Majority` IS `Above 1 1`,
---                    definitionally up to `1 Â n â‰¡ n`
+--                    definitionally up to `1 Â· n â‰¡ n`
 --   atLeastWithoutAbove   and the converse of the third fails, at a
 --                    population sitting exactly ON the threshold
 --
 -- The shape of the answer is worth naming because it is not the shape
 -- the question invited.  "Two families" would have needed a second
 -- order, a second totality theorem, and a comparison between the two
--- orders.  There is one order: âŠ is stated on thresholds alone, with no
+-- orders.  There is one order: âŠ‘ is stated on thresholds alone, with no
 -- population in it, so a second claim-family over the same thresholds
 -- inherits it for free.  What distinguishes the families is not their
--- ordering but their behaviour at a single population per threshold â”
+-- ordering but their behaviour at a single population per threshold â€”
 -- the one that meets it exactly.
 ------------------------------------------------------------------------
 
@@ -63,8 +63,8 @@ open import TheThresholdOrderIsTotalAndTheClaimIsAntitone
 --
 -- `TheThresholdOrderIsTotalAndTheClaimIsAntitone` needed `m Â suc k â‰ n Â suc k â’ m â‰ n` and derived it,
 -- cubical v0.5 having no such lemma.  The strict version is the same
--- argument with the branches exchanged: `splitâ•-<` supplies the case
--- split, and the wrong branch dies because â‰-Âk turns `n â‰ m` into a
+-- argument with the branches exchanged: `splitâ„•-<` supplies the case
+-- split, and the wrong branch dies because â‰¤-Â·k turns `n â‰¤ m` into a
 -- contradiction with the strict hypothesis.
 ------------------------------------------------------------------------
 
@@ -84,12 +84,12 @@ aboveGivesAtLeast : (p q : â„•) (bs : List Bool) â†’ Above p q bs â†’ AtLeast p 
 aboveGivesAtLeast p q bs = <-weaken
 
 ------------------------------------------------------------------------
--- 3.  Antitone along âŠ â” the same order, no second totality proof
+-- 3.  Antitone along âŠ‘ â€” the same order, no second totality proof
 --
 -- Identical scaffolding to `atLeastAntitone`: multiply by the positive
 -- denominator suc q', rearrange twice, cancel it again.  The only
--- change is that the second step is `<-Âsk` rather than `â‰-Âk`, and the
--- two are stitched with `â‰<-trans`.
+-- change is that the second step is `<-Â·sk` rather than `â‰¤-Â·k`, and the
+-- two are stitched with `â‰¤<-trans`.
 ------------------------------------------------------------------------
 
 aboveAntitone :
@@ -130,10 +130,10 @@ aboveAntitone p q p' q' bs cross high =
 ------------------------------------------------------------------------
 -- 4.  `Majority` was already a member of this family
 --
--- The earlier module wrote `Majority bs = length bs < 2 Â count bs` and
+-- The earlier module wrote `Majority bs = length bs < 2 Â· count bs` and
 -- did not connect it to any threshold.  It is `Above 1 1`, and the only
--- thing between the two statements is that `1 Â n` is not definitionally
--- `n` in cubical's â•.
+-- thing between the two statements is that `1 Â· n` is not definitionally
+-- `n` in cubical's â„•.
 ------------------------------------------------------------------------
 
 majorityIsAboveHalf : (bs : List Bool) â†’ Majority bs â†’ Above 1 1 bs
@@ -147,7 +147,7 @@ aboveHalfIsMajority bs = subst (_< 2 Â· count bs) (Â·-identityË¡ (length bs))
 --
 -- One `true`, one `false`: the rate is exactly 1/2, so the non-strict
 -- claim at 1/2 holds and the strict one does not.  This is the whole
--- difference between the families â” not a different order, a different
+-- difference between the families â€” not a different order, a different
 -- verdict at the boundary.
 ------------------------------------------------------------------------
 
@@ -170,9 +170,9 @@ atLeastWithoutAbove = boundaryMeetsHalf , boundaryIsNotAboveHalf
 -- `EveryThresholdHasABoundaryPopulationOfItsOwnDenominator`
 --
 -- It is a statement about â•: the DENOMINATOR IS THE LENGTH.  For p â‰ suc q the
--- population `pop p k` â” p trues then k falses, where cubical's `â‰`
--- hands over the k with `k + p â‰¡ suc q` â” has length exactly suc q and
--- count exactly p, so `p Â length â‰¡ suc q Â count` on the nose.  No
+-- population `pop p k` â€” p trues then k falses, where cubical's `â‰¤`
+-- hands over the k with `k + p â‰¡ suc q` â€” has length exactly suc q and
+-- count exactly p, so `p Â· length â‰¡ suc q Â· count` on the nose.  No
 -- subtraction, no gcd, no lowest terms.
 --
 -- The EMPTY population meets every threshold and

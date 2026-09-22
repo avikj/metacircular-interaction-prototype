@@ -8,16 +8,16 @@
 -- INSTANCES are Pigala's *Chandastra* uddia (c. 300 BCE),
 -- Virahka's mtrmeru (c. 600â“800) and a CRT residue decode.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- 1.  WHAT IS PROVED
 --
 -- The converse of `FinPigeonhole â’ TheOpenPigeonhole` is
 -- immediate at `X = Y = SFin n`, and here it is:
 --
---   finSetOn n     the `FinSet` structure carried by `SFin n` itself â”
+--   finSetOn n     the `FinSet` structure carried by `SFin n` itself â€”
 --                  `card` is `n` and the mere equivalence is `idEquiv`
 --   theOpenPigeonholeGivesFinPigeonhole
---                  `TheOpenPigeonhole â’ FinPigeonhole`, by instantiating
+--                  `TheOpenPigeonhole â†’ FinPigeonhole`, by instantiating
 --                  at that structure on both sides, where the `card`
 --                  conjunct of `Optimal` is `refl`
 --
@@ -25,7 +25,7 @@
 -- that is the point rather than the convenience.  The statement was
 -- posed over `FinSet`, with cardinalities, mere equivalences and a
 -- truncation to escape; it contains **no FinSet content
--- at all**.  Whatever is hard about it is hard about `âŠ âŠ (âŠ âŠ â¦ )`.
+-- at all**.  Whatever is hard about it is hard about `âŠ¤ âŠ (âŠ¤ âŠ â€¦ )`.
 -- A reduction in one direction leaves open the possibility that the
 -- general statement is strictly stronger; the second direction removes
 -- it, and *that* is what "reduces to" could not say on its own.
@@ -54,7 +54,7 @@ finSetOn : â„• â†’ FinSet â„“-zero
 finSetOn n = SFin n , n , âˆ£ idEquiv (SFin n) âˆ£â‚
 
 ------------------------------------------------------------------------
--- 3.  â¦so the general statement instantiates back to the finite one
+-- 3.  â€¦so the general statement instantiates back to the finite one
 --
 -- The `card` conjunct of `Optimal` is `card (finSetOn n) â‰¡ card
 -- (finSetOn n)`, i.e. `n â‰¡ n`, so `refl` discharges it and only the

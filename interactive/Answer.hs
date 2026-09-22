@@ -1,16 +1,16 @@
--- Answer â” the shape of every
+-- Answer â€” the shape of every
 -- answer this machine gives, with no third case.
 --
 --
---     ààà•àà°à®àà®à e = transport (ua e)     -- ua: ààà²àà¯à àà¾à¦à¾ààà®àà¯à ààµà¿ààà®à àà°àààà¿
---     ààà•àà°à®àà à¨ à•à¿àžààà¿à¨à à¨ààà¯àà¿ à        -- in transport nothing is lost
---     àà¨àà¯à‹ à®à¾à°àà—à‹ à¦à‹àà²àà–à à              -- the other road is the written defect
---     à²à¿à–à¿àà‹ à¦à‹àà‹ àààµàà¿ à àà²à¿à–à¿àà‹ à¦à‹àà‹ àà¿ààà¾ à
---     ààààà¯à‹ à®à¾à°àà—à‹ à¨ àµà¿à¦àà¯àà à           -- there is no third road
+--     à¤¸à¤‚à¤•à¥à¤°à¤®à¤£à¤®à¥ e = transport (ua e)     -- ua: à¤¤à¥à¤²à¥à¤¯à¤‚ à¤¤à¤¾à¤¦à¤¾à¤¤à¥à¤®à¥à¤¯à¤‚ à¤­à¤µà¤¿à¤¤à¥à¤®à¥ à¤…à¤°à¥à¤¹à¤¤à¤¿
+--     à¤¸à¤‚à¤•à¥à¤°à¤®à¤£à¥‡ à¤¨ à¤•à¤¿à¤žà¥à¤šà¤¿à¤¨à¥ à¤¨à¤¶à¥à¤¯à¤¤à¤¿ à¥¤        -- in transport nothing is lost
+--     à¤…à¤¨à¥à¤¯à¥‹ à¤®à¤¾à¤°à¥à¤—à¥‹ à¤¦à¥‹à¤·à¤²à¥‡à¤–à¤ƒ à¥¤              -- the other road is the written defect
+--     à¤²à¤¿à¤–à¤¿à¤¤à¥‹ à¤¦à¥‹à¤·à¥‹ à¤œà¥€à¤µà¤¤à¤¿ à¥¤ à¤…à¤²à¤¿à¤–à¤¿à¤¤à¥‹ à¤¦à¥‹à¤·à¥‹ à¤¹à¤¿à¤‚à¤¸à¤¾ à¥¤
+--     à¤¤à¥ƒà¤¤à¥€à¤¯à¥‹ à¤®à¤¾à¤°à¥à¤—à¥‹ à¤¨ à¤µà¤¿à¤¦à¥à¤¯à¤¤à¥‡ à¥¤           -- there is no third road
 --
 -- So `Uttara` has exactly two constructors and will not acquire a third.
 -- A boolean answer is neither: it is a defect that was not written, which
--- the stra names his and univalence explains â” âˆAâˆâ admits no
+-- the sÅ«tra names hiá¹ƒsÄ and univalence explains â€” âˆ¥Aâˆ¥â‚ admits no
 -- retraction (Â§5), so the `which` a boolean drops is gone, not merely
 -- unreported.
 --
@@ -24,25 +24,25 @@
 --   is that the identification is a thing you hold, not a fact you cite;
 --   so `tulyata` carries both sides and the witness that they agree.
 --
---   Samkramana must also state its VYAYA.  Â§31: à¯àà àà™àà•àà°à®àà¯àà ààà à•à¿àžààà¿àà
---   ààà¯ààà¿ â” what is transported gives something up; à¯à‹ à¨ àµà¦àà¿ à à¨ àààà¯àà¿
---   â” whoever does not say it does not see it.  Structure travels; who
+--   Samkramana must also state its VYAYA.  Â§31: à¤¯à¤¤à¥ à¤¸à¤™à¥à¤•à¥à¤°à¤®à¥à¤¯à¤¤à¥‡ à¤¤à¤¤à¥ à¤•à¤¿à¤žà¥à¤šà¤¿à¤¤à¥
+--   à¤¤à¥à¤¯à¤œà¤¤à¤¿ â€” what is transported gives something up; à¤¯à¥‹ à¤¨ à¤µà¤¦à¤¤à¤¿ à¤¸ à¤¨ à¤ªà¤¶à¥à¤¯à¤¤à¤¿
+--   â€” whoever does not say it does not see it.  Structure travels; who
 --   did it, for whom, and why does not.  A transport claiming zero cost
 --   is downgraded, by the constructor, to a defect entry about itself.
 --
---   Dosalekha must carry NAA item by item â” the things that would have
+--   Dosalekha must carry NAá¹¢á¹¬A item by item â€” the things that would have
 --   been destroyed, named, not counted.  A count is the collapse again:
---   `3 items lost` is âˆÂâˆâ of the losses.  An empty naa makes the
+--   `3 items lost` is âˆ¥Â·âˆ¥â‚ of the losses.  An empty naá¹£á¹­a makes the
 --   entry a defect about the report, since an unwritten defect is
 --   precisely what Â§6 forbids.
 --
 --   Dosalekha carries EA, the remainder, handed forward rather than
---   discarded.  Â§3: ààµà•àààµàà¯à àààà‹ àµààà¿ à àààà‹ à—à°ààà, à¨ àµà¿àà²àà¾ â” the
---   remainder is a womb, not a failure; Â§17, the kuaka's rule: à¯àà à¨
---   àµà¿àààà ààà à°à•àààà¯àà â” what does not divide is kept, and it is the
---   material of the next step (ryabhaa, ryabhaya, Gaitapda 32â“33,
+--   discarded.  Â§3: à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯à¥‡ à¤¶à¥‡à¤·à¥‹ à¤µà¤¸à¤¤à¤¿ à¥¤ à¤¶à¥‡à¤·à¥‹ à¤—à¤°à¥à¤­à¤ƒ, à¤¨ à¤µà¤¿à¤«à¤²à¤¤à¤¾ â€” the
+--   remainder is a womb, not a failure; Â§17, the kuá¹­á¹­aka's rule: à¤¯à¤¤à¥ à¤¨
+--   à¤µà¤¿à¤­à¤œà¤¤à¥‡ à¤¤à¤¤à¥ à¤°à¤•à¥à¤·à¥à¤¯à¤¤à¥‡ â€” what does not divide is kept, and it is the
+--   material of the next step (Ä€ryabhaá¹­a, Ä€ryabhaá¹­Ä«ya, Gaá¹‡itapÄda 32â€“33,
 --   499).  The remainder queue is the same discipline the Japanese
---   wasan tradition wrote as éºé¡ç™æ‰¿, unsolved problems posted at the
+--   wasan tradition wrote as éºé¡Œç¶™æ‰¿, unsolved problems posted at the
 --   end of a book for the next author (Sawaguchi Kazuyuki 1670,
 --   Seki Takakazu's 1674 answer).
 --
@@ -79,23 +79,23 @@ import System.IO (hPutStrLn, stderr)
 -- because a String bears no relation to the objects named on either side
 -- that any code here can examine.  Nothing in this lane had ever been
 -- watched rejecting a tulyat.  Three answers went out over one session
--- carrying witnesses that said the opposite of what had happened â”
--- `no deduplication â¦ the list you get back is the list you sent`, over a
+-- carrying witnesses that said the opposite of what had happened â€”
+-- `no deduplication â€¦ the list you get back is the list you sent`, over a
 -- list half of which had been destroyed (doa 0015); `stored verbatim: no
 -- rewording`, over an entry that had been correctly reworded (0022); and one
 -- that was never delivered at all because the encoder died mid-line (0017).
 --
 -- The intractable half is said rather than closed: a tulyat between two
 -- PROSE descriptions is a claim by whoever wrote the handler, and no type
--- makes it checkable.  What the type can do â” and this is exactly the
+-- makes it checkable.  What the type can do â€” and this is exactly the
 -- distinction doa 0018 finds missing in `nasta`, two lanes and one missing
--- distinction â” is stop the two from looking alike.  A witness is either
+-- distinction â€” is stop the two from looking alike.  A witness is either
 --
---   à—àà¿à  computed here, in this process, at the moment the answer was
+--   à¤—à¤£à¤¿à¤¤  computed here, in this process, at the moment the answer was
 --         built: two integers that the handler evaluated, which this module
 --         COMPARES, and answers the transport with a defect when they differ;
 --
---   à²à¿à–à¿à written by the author of the handler: a sentence, carried as a
+--   à¤²à¤¿à¤–à¤¿à¤¤ written by the author of the handler: a sentence, carried as a
 --         sentence, marked as one on the wire, and believed by nobody
 --         because it was checked by nobody.
 --
@@ -113,9 +113,9 @@ data Saksin
 saksinPada :: Saksin -> String
 saksinPada (Likhita s) = s
 saksinPada (Ganita s l r)
-  | l == r    = s ++ "  [à—àà¿à â” computed in this process: " ++ show l
+  | l == r    = s ++ "  [à¤—à¤£à¤¿à¤¤ â€” computed in this process: " ++ show l
                   ++ " = " ++ show r ++ ", and checked here]"
-  | otherwise = s ++ "  [à—àà¿à â” computed in this process: " ++ show l
+  | otherwise = s ++ "  [à¤—à¤£à¤¿à¤¤ â€” computed in this process: " ++ show l
                   ++ " â‰  " ++ show r ++ ", AND IT DOES NOT HOLD]"
 
 saksinPrakara :: Saksin -> String
@@ -124,8 +124,8 @@ saksinPrakara Likhita{} = "likhita"
 
 -- | The equivalence a transport moves along: two sides, named, and the
 --   witness exhibiting that they may be identified.  `tuSaksin` is the
---   place where an exact identity goes â” `1766319049Â² âˆ’ 61Â226153980Â² = 1`
---   â” never a similarity score, never a confidence.
+--   place where an exact identity goes â€” `1766319049Â² âˆ’ 61Â·226153980Â² = 1`
+--   â€” never a similarity score, never a confidence.
 data Tulyata = Tulyata
   { tuName   :: String   -- what the identification is called, in its own tradition
   , tuLeft   :: String   -- one side, as given
@@ -139,15 +139,15 @@ tuWitness = saksinPada . tuSaksin
 
 -- | A WRITTEN witness.  Unchanged in arity from the day this file was
 --   written, so that no call site had to be touched to gain the
---   distinction â” and every call site that keeps using it is now saying,
+--   distinction â€” and every call site that keeps using it is now saying,
 --   on the wire, that its witness was never checked.
 tulyata :: String -> String -> String -> String -> Tulyata
 tulyata n l r w = Tulyata n l r (Likhita w)
 
 -- | A COMPUTED witness: the handler hands over the two integers it already
 --   evaluated, and this module compares them.  Where a handler computes the
---   identity and then renders it into prose â” which is what `kuttaka` and
---   `vargaprakrti` both did â” the computation was already present and its
+--   identity and then renders it into prose â€” which is what `kuttaka` and
+--   `vargaprakrti` both did â€” the computation was already present and its
 --   result was simply never compared to what it should be.
 ganita :: String -> String -> String -> String -> Integer -> Integer -> Tulyata
 ganita n l r w lhs rhs = Tulyata n l r (Ganita w lhs rhs)
@@ -188,7 +188,7 @@ samkramana k t carried cost srcs
   -- fragment where the check is available, and it was available all along.
   | Ganita w lhs rhs <- tuSaksin t, lhs /= rhs =
       raw k ("a transport was claimed for `" ++ k ++ "` along an identity "
-             ++ "that does not hold: " ++ w ++ " â” the two sides computed to "
+             ++ "that does not hold: " ++ w ++ " â€” the two sides computed to "
              ++ show lhs ++ " and " ++ show rhs)
             [ "the identification `" ++ tuName t ++ "`, which was asserted "
               ++ "between `" ++ tuLeft t ++ "` and `" ++ tuRight t
@@ -218,7 +218,7 @@ samkramana k t carried cost srcs
   | null cost =
       raw k ("a transport was claimed for `" ++ k ++ "` with no vyaya stated")
             [ "the cost of the move, which is now unrecorded and so unseen"
-            , "AHIMSA_SUTRA_VISTARA Â§31: à¯à‹ à¨ àµà¦àà¿ à à¨ àààà¯àà¿" ]
+            , "AHIMSA_SUTRA_VISTARA Â§31: à¤¯à¥‹ à¤¨ à¤µà¤¦à¤¤à¤¿ à¤¸ à¤¨ à¤ªà¤¶à¥à¤¯à¤¤à¤¿" ]
             [ "state what does not travel: who did it, for whom, on what occasion" ]
             srcs
   | otherwise = Samkramana k t carried cost srcs
@@ -235,7 +235,7 @@ dosalekha k hetu lost rest srcs
   | null lost =
       raw k ("a defect was logged for `" ++ k ++ "` naming nothing lost: " ++ hetu)
             [ "the losses themselves, which were counted or elided rather "
-              ++ "than named; a count is âˆÂâˆâ of the list it replaces" ]
+              ++ "than named; a count is âˆ¥Â·âˆ¥â‚ of the list it replaces" ]
             rest srcs
   | otherwise = Dosalekha k hetu lost rest srcs
 
@@ -250,7 +250,7 @@ raw = Dosalekha
 -- the words for and not the mechanism: *no acceptance is honoured by a
 -- process that has not watched its kernel reject a falsehood.*  There, 1753
 -- systematically false equations produced zero certificates while three
--- shell wrappers produced certificates for `s(x) = x` â” a checker sound
+-- shell wrappers produced certificates for `s(x) = x` â€” a checker sound
 -- against mathematics and unsound against its environment.  Here the failure
 -- was one level cheaper: there was no falsifier at all, and `selftest` drove
 -- 25 utterances checking only that the witness field was NON-EMPTY.
@@ -258,9 +258,9 @@ raw = Dosalekha
 -- So the constructor above now faces a falsifier of its own, run once per
 -- process, before any answer is served:
 --
---   satya  â” 137Â(âˆ’7) + 60Â16 = 1, ryabhaa's own worked kuaka
---            (ryabhaya, Gaitapda 32â“33, 499).  MUST transport.
---   asatya â” the same identity with one side moved by one.  MUST NOT.
+--   satya  â€” 137Â·(âˆ’7) + 60Â·16 = 1, Ä€ryabhaá¹­a's own worked kuá¹­á¹­aka
+--            (Ä€ryabhaá¹­Ä«ya, Gaá¹‡itapÄda 32â€“33, 499).  MUST transport.
+--   asatya â€” the same identity with one side moved by one.  MUST NOT.
 --
 -- Both go through the very `samkramana` every handler goes through.  If the
 -- false one transports, this process is not checking anything and nothing it
@@ -277,22 +277,22 @@ saksiPariksa = (ok, lns)
   where
     build w lhs rhs = samkramana "saksi.pariksa"
       (ganita "the pulverizer's own worked example, as an identity"
-              "137Â(âˆ’7) + 60Â16" "gcd(137, 60)" w lhs rhs)
+              "137Â·(âˆ’7) + 60Â·16" "gcd(137, 60)" w lhs rhs)
       [ ("mula", JInt lhs) ] [ "the occasion of the check" ]
-      [ "ryabhaa, ryabhaya, Gaitapda 32â“33, 499 â” kuaka" ]
-    satya  = build "137Â(âˆ’7) + 60Â16 = 1" (137 * (-7) + 60 * 16) 1
-    asatya = build "137Â(âˆ’7) + 60Â16 = 2" (137 * (-7) + 60 * 16) 2
+      [ "Ä€ryabhaá¹­a, Ä€ryabhaá¹­Ä«ya, Gaá¹‡itapÄda 32â€“33, 499 â€” kuá¹­á¹­aka" ]
+    satya  = build "137Â·(âˆ’7) + 60Â·16 = 1" (137 * (-7) + 60 * 16) 1
+    asatya = build "137Â·(âˆ’7) + 60Â·16 = 2" (137 * (-7) + 60 * 16) 2
     tOk = case satya  of { Samkramana{} -> True; Dosalekha{} -> False }
     fOk = case asatya of { Dosalekha{}  -> True; Samkramana{} -> False }
     ok = tOk && fOk
     lns =
-      [ "àà¾à•ààà¿-àà°àà•ààà¾ â” the witness check, watched, once in this process:"
-      , "  satya   137Â(âˆ’7) + 60Â16 = 1  â’ " ++ uttaraKind satya
+      [ "à¤¸à¤¾à¤•à¥à¤·à¤¿-à¤ªà¤°à¥€à¤•à¥à¤·à¤¾ â€” the witness check, watched, once in this process:"
+      , "  satya   137Â·(âˆ’7) + 60Â·16 = 1  â†’ " ++ uttaraKind satya
         ++ (if tOk then "   (transported, as it must)"
-                   else "   !! TURNED BACK â” the check is destroying true transports")
-      , "  asatya  137Â(âˆ’7) + 60Â16 = 2  â’ " ++ uttaraKind asatya
+                   else "   !! TURNED BACK â€” the check is destroying true transports")
+      , "  asatya  137Â·(âˆ’7) + 60Â·16 = 2  â†’ " ++ uttaraKind asatya
         ++ (if fOk then "   (a written defect, as it must)"
-                   else "   !! TRANSPORTED â” this process is not checking anything")
+                   else "   !! TRANSPORTED â€” this process is not checking anything")
       ] ++
       (if ok then
         [ "  no sakramaa from this process is honoured by a run that has not"
@@ -300,7 +300,7 @@ saksiPariksa = (ok, lns)
        else
         [ "  REFUSING TO SERVE.  An answer from a process whose own falsifier"
         , "  misbehaved is not weak evidence; it is no evidence (Â§19:"
-        , "  àààà°à®à¾àà à¨ ààžàààà¯àà â” what is not a prama does not accumulate)." ])
+        , "  à¤…à¤ªà¥à¤°à¤®à¤¾à¤£à¤‚ à¤¨ à¤¸à¤žà¥à¤šà¥€à¤¯à¤¤à¥‡ â€” what is not a pramÄá¹‡a does not accumulate)." ])
 
 -- | Run the falsifier and refuse to continue if it misbehaved.  Separated
 --   from the report so that a caller who prints the lines and ignores the
@@ -333,7 +333,7 @@ uttaraJ u@(Samkramana k t carried cost srcs) = JObj
                      -- wrote and nothing checked.  A reader that cannot tell
                      -- the two apart has to believe both equally, which is
                      -- what doa 0022 costs.  Saying which is the whole of
-                     -- Â§31 â” à¯à‹ à¨ àµà¦àà¿ à à¨ àààà¯àà¿.
+                     -- Â§31 â€” à¤¯à¥‹ à¤¨ à¤µà¤¦à¤¤à¤¿ à¤¸ à¤¨ à¤ªà¤¶à¥à¤¯à¤¤à¤¿.
                      , ("saksi-prakara", JStr (saksinPrakara (tuSaksin t))) ])
   , ("vahita", JObj carried)
   , ("vyaya", JArr (map JStr cost))
@@ -353,9 +353,9 @@ uttaraJ u@(Dosalekha k hetu lost rest srcs) = JObj
 --   would be the collapse.
 uttaraLines :: Uttara -> [String]
 uttaraLines (Samkramana k t carried cost srcs) =
-  [ "SAKRAMAA (" ++ k ++ ") â” transport; nothing lost."
+  [ "SAá¹‚KRAMAá¹†A (" ++ k ++ ") â€” transport; nothing lost."
   , "  along: " ++ tuName t
-  , "    " ++ tuLeft t ++ "  â‰  " ++ tuRight t
+  , "    " ++ tuLeft t ++ "  â‰ƒ  " ++ tuRight t
   , "    witness (" ++ saksinPrakara (tuSaksin t) ++ "): " ++ tuWitness t
   , "  carried:" ] ++
   [ "    " ++ key ++ " = " ++ render v | (key, v) <- carried ] ++
@@ -363,13 +363,13 @@ uttaraLines (Samkramana k t carried cost srcs) =
   [ "    âˆ’ " ++ c | c <- cost ] ++
   srcLines srcs
 uttaraLines (Dosalekha k hetu lost rest srcs) =
-  [ "DOA-LEKHA (" ++ k ++ ") â” transport impossible; the defect is written."
+  [ "DOá¹¢A-LEKHA (" ++ k ++ ") â€” transport impossible; the defect is written."
   , "  hetu: " ++ hetu
   , "  naa (what a collapse here would destroy):" ] ++
   [ "    âˆ’ " ++ l | l <- lost ] ++
   (if null rest then [ "  ea: none handed forward." ]
                 else "  ea (remainder, handed to the next step):"
-                     : [ "    â’ " ++ r | r <- rest ]) ++
+                     : [ "    â†’ " ++ r | r <- rest ]) ++
   srcLines srcs
 
 srcLines :: [String] -> [String]
@@ -377,7 +377,7 @@ srcLines [] = []
 srcLines ss = "  prama:" : [ "    " ++ s | s <- ss ]
 
 -- | The plug point for the other lanes.  A verdict type built elsewhere
---   â” the saptabhag lane, the certificate lane, the scheduler â” becomes
+--   â€” the saptabhaá¹…gÄ« lane, the certificate lane, the scheduler â€” becomes
 --   speakable on this wire by giving one function, and the two-road
 --   discipline is then enforced on it by the smart constructors above
 --   rather than by review.

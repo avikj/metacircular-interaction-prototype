@@ -6,32 +6,32 @@
 -- THE LENGTH-FIVE WALSH COUNTERMODEL, WITHOUT PYTHON
 --
 -- F23 recorded a stationary false model for the five-window correlation
--- algebra used in the nonzero-(a,b,c) case of Tao�Tervinen's Theorem
+-- algebra used in the nonzero-(a,b,c) case of Tao–Teräväinen's Theorem
 -- 1.14.  Its evidence artifact was `code/exp53_window5_polytope.py`.  This
 -- module redoes every finite, exact assertion that script made, as terms
 -- the Agda kernel checks.  Nothing here is floating point and nothing is
 -- a search: each `refl` is a finite exhaustive verification over the 32
 -- sign patterns.
 --
--- THE OBJECT.  For ε ∈ {�1}� and rationals a,b,c,
+-- THE OBJECT.  For ε ∈ {±1}⁵ and rationals a,b,c,
 --
---   32�μ_{a,b,c}(ε) = 1 + a(ε�ε�ε�ε� + ε�ε�ε�ε�)
---                       + b(ε�ε�ε�ε� + ε�ε�ε�ε�)
---                       + c�ε�ε�ε�ε�.
+--   32·μ_{a,b,c}(ε) = 1 + a(ε₁ε₂ε₃ε₄ + ε₂ε₃ε₄ε₅)
+--                       + b(ε₁ε₃ε₄ε₅ + ε₁ε₂ε₃ε₅)
+--                       + c·ε₁ε₂ε₄ε₅.
 --
 -- Everything F23 turns on happens at (a,b,c) = (1/3,1/3,1/3).  Clearing
 -- denominators once, the module works throughout with the INTEGER
 --
---   m96 ε := 96�μ_{1/3,1/3,1/3}(ε)
---          = 3 + ε���� + ε���� + ε���� + ε���� + ε����  ∈ �,
+--   m96 ε := 96·μ_{1/3,1/3,1/3}(ε)
+--          = 3 + ε₁₂₃₄ + ε₂₃₄₅ + ε₁₃₄₅ + ε₁₂₃₅ + ε₁₂₄₅  ∈ ℤ,
 --
 -- so no rational arithmetic is needed anywhere and every check is an
 -- equality of integers that the typechecker evaluates.
 --
 -- WHAT IS CHECKED  (§ numbers are this file's):
 --
---   §5  `massesNonNeg`   all 32 masses � 0
---       `massTotal`      � m96 = 96, i.e. � μ = 1
+--   §5  `massesNonNeg`   all 32 masses ≥ 0
+--       `massTotal`      Σ m96 = 96, i.e. Σ μ = 1
 --       `zeroCount`      EXACTLY TEN masses vanish
 --       `massValues`     every mass is 0, 4 or 8
 --       `fourSharpVertices`  and the same three facts at ALL FOUR
@@ -48,9 +48,9 @@
 --                        script.
 --
 --   §7  `flowConserved`  the order-four de Bruijn flow is conserved:
---                        outgoing mass = incoming mass = 6 + 2ε�ε�ε�ε�
+--                        outgoing mass = incoming mass = 6 + 2ε₁ε₂ε₃ε₄
 --                        (in m96 units) at every one of the 16 states,
---                        and every state has POSITIVE mass � so the
+--                        and every state has POSITIVE mass — so the
 --                        table is the five-window law of a stationary
 --                        order-four Markov chain.
 --       `flowBroken`     PLANTED-FALSE CONTROL: give the two
@@ -60,10 +60,10 @@
 --                        the stationarity check would be vacuous.
 --
 --   §8  `walshOK`        all 31 nonempty Walsh coefficients: zero
---                        except μ�(1234)=μ�(2345)=a, μ�(1345)=μ�(1235)=b,
---                        μ�(1245)=c, all equal to 1/3.  In particular
+--                        except μ̂(1234)=μ̂(2345)=a, μ̂(1345)=μ̂(1235)=b,
+--                        μ̂(1245)=c, all equal to 1/3.  In particular
 --                        every odd-order and every two-point
---                        coefficient vanishes � the model satisfies the
+--                        coefficient vanishes — the model satisfies the
 --                        five-window inputs listed before the case
 --                        split in §7 of the paper.
 --
@@ -71,10 +71,10 @@
 --                        sends (+,+,+,+,−) to (−,+,+,+,+) and BOTH
 --                        masses are 0.  The printed argument asserts
 --                        that each flip changes a zero probability; here
---                        it does not, because ε� = −ε� kills the a-term.
+--                        it does not, because ε₁ = −ε₅ kills the a-term.
 --       `flipDistinct`   and the two patterns really are different.
 --
---   §10 `f2Identity1..4` the four auxiliary ��[u] products of
+--   §10 `f2Identity1..4` the four auxiliary 𝔽₂[u] products of
 --                        CONSTRAINT_ALGEBRA (5.1), by exact convolution.
 --                        As that note says, they carry NO Liouville
 --                        implication; they are recorded because the
@@ -218,7 +218,7 @@ p1345 (e1 , e2 , e3 , e4 , e5) = e1 * (e3 * (e4 * e5))
 p1235 (e1 , e2 , e3 , e4 , e5) = e1 * (e2 * (e3 * e5))
 p1245 (e1 , e2 , e3 , e4 , e5) = e1 * (e2 * (e4 * e5))
 
--- 96�μ at (a,b,c) = (1/3,1/3,1/3)
+-- 96·μ at (a,b,c) = (1/3,1/3,1/3)
 m96 : Pat → ℤ
 m96 p =
   pos 3 + (val (p1234 p) + (val (p2345 p)
@@ -241,7 +241,7 @@ massTotal = refl
 zeroCount : countB masses (λ z → eqℤ z (pos 0)) ≡ 10
 zeroCount = refl
 
--- and the mass spectrum is {0, 4, 8} � nothing else occurs
+-- and the mass spectrum is {0, 4, 8} — nothing else occurs
 massValues : allB masses (λ z → eqℤ z (pos 0) or (eqℤ z (pos 4) or eqℤ z (pos 8)))
            ≡ true
 massValues = refl
@@ -255,7 +255,7 @@ massSpectrum = refl , refl , refl
 
 -- ALL FOUR SHARP VERTICES.  CONSTRAINT_ALGEBRA (2.2) claims the ten-zero
 -- maximum is attained exactly at c = 1/3, |a| = |b| = 1/3, i.e. at four
--- points.  Here �a, �b ∈ {+,−} are the signs of a and b.
+-- points.  Here σa, σb ∈ {+,−} are the signs of a and b.
 m96± : Sg → Sg → Pat → ℤ
 m96± σa σb p =
   pos 3 + ( signedBy σa (val (p1234 p) + val (p2345 p))
@@ -282,10 +282,10 @@ fourSharpVertices = refl
 -- §6  The nine affine forms  (CONSTRAINT_ALGEBRA §2, the input to its
 --     Theorem 2.1)
 --
--- 32�μ_{a,b,c}(ε) = 1 + (coefA)�a + (coefB)�b + (coefC)�c, and the map
--- ε � (coefA, coefB, coefC) takes exactly nine values, with
+-- 32·μ_{a,b,c}(ε) = 1 + (coefA)·a + (coefB)·b + (coefC)·c, and the map
+-- ε ↦ (coefA, coefB, coefC) takes exactly nine values, with
 -- multiplicities 2 (class A, four forms), 4 (classes B and C, two forms
--- each) and 8 (class D).  2�4 + 4�2 + 4�2 + 8 = 32.
+-- each) and 8 (class D).  2·4 + 4·2 + 4·2 + 8 = 32.
 ------------------------------------------------------------------------
 
 formOf : Pat → Form
@@ -310,14 +310,14 @@ classTable =
   ∷ (((pos 0    , (pos 0    , pos 1))) , 8)
   ∷ []
 
--- every stated multiplicity is the true one �
+-- every stated multiplicity is the true one …
 classCounts : allB classTable
                 (λ fe → eqᵇ (countB allPats (λ p → eqForm (formOf p) (fst fe)))
                             (snd fe))
             ≡ true
 classCounts = refl
 
--- � and no other form occurs, so the nine are ALL of them.
+-- … and no other form occurs, so the nine are ALL of them.
 classComplete : allB allPats
                   (λ p → anyB classTable (λ fe → eqForm (formOf p) (fst fe)))
               ≡ true
@@ -335,8 +335,8 @@ classDistinct = refl
 --
 -- A five-bit word is a directed edge of the order-four de Bruijn graph.
 -- Summing over the last bit gives the outgoing mass at a state; over the
--- first bit, the incoming mass.  Both equal 6 + 2�ε�ε�ε�ε� in m96 units
--- (that is 96�(1 + aε�ε�ε�ε�)/16 at a = 1/3), so the table is a
+-- first bit, the incoming mass.  Both equal 6 + 2·ε₁ε₂ε₃ε₄ in m96 units
+-- (that is 96·(1 + aε₁ε₂ε₃ε₄)/16 at a = 1/3), so the table is a
 -- conserved flow and, being strictly positive, the five-window law of a
 -- stationary order-four Markov chain.
 ------------------------------------------------------------------------
@@ -359,8 +359,8 @@ flowConserved : allB allStates
 flowConserved = refl
 
 -- PLANTED-FALSE CONTROL.  Replace the two consecutive coefficients
--- (a, a) by the unequal pair (1/3, 1/4) � everything else identical �
--- and conservation must break.  Cleared denominators: 384�μ�.
+-- (a, a) by the unequal pair (1/3, 1/4) — everything else identical —
+-- and conservation must break.  Cleared denominators: 384·μ′.
 m384′ : Pat → ℤ
 m384′ p = pos 12 + (pos 4 · val (p1234 p) + pos 3 · val (p2345 p))
 
@@ -381,11 +381,11 @@ flowBrokenWitness = refl
 ------------------------------------------------------------------------
 -- §8  The complete Walsh spectrum
 --
--- 96�μ�(T) = �_ε 96μ(ε)��_T(ε).  Every nonempty T gives 0 except the
--- five distinguished four-sets, which give 32 = 96�(1/3).  So on this
+-- 96·μ̂(T) = Σ_ε 96μ(ε)·χ_T(ε).  Every nonempty T gives 0 except the
+-- five distinguished four-sets, which give 32 = 96·(1/3).  So on this
 -- window every odd-order coefficient and every two-point coefficient
 -- vanishes, and the shift/reflection equalities the paper's §7 uses
--- hold: μ�(1234) = μ�(2345) = a and μ�(1345) = μ�(1235) = b.
+-- hold: μ̂(1234) = μ̂(2345) = a and μ̂(1345) = μ̂(1235) = b.
 ------------------------------------------------------------------------
 
 sel : Bool → Sg → Sg
@@ -457,10 +457,10 @@ oddOrderVanishes = refl
 -- §9  THE COUNTEREXAMPLE TO THE PRINTED FLIP
 --
 -- The printed nonzero-(a,b,c) argument asserts that the endpoint flip
--- ε � (−ε�, ε�, ε�, ε�, −ε�) changes a zero probability, and concludes
+-- ε ↦ (−ε₁, ε₂, ε₃, ε₄, −ε₅) changes a zero probability, and concludes
 -- that a four-orbit contains at most one zero.  At (1/3,1/3,1/3) the
 -- flip sends (+,+,+,+,−) to (−,+,+,+,+) and both masses are 0: with
--- ε� = −ε�, flipping both endpoints leaves ε�ε�ε�ε� + ε�ε�ε�ε�
+-- ε₁ = −ε₅, flipping both endpoints leaves ε₁ε₂ε₃ε₄ + ε₂ε₃ε₄ε₅
 -- unchanged, so the a-term does not move at all.
 ------------------------------------------------------------------------
 
@@ -484,20 +484,20 @@ eqPat (a , b , c , d , e) (a' , b' , c' , d' , e') =
 flipDistinct : eqPat atom flipped ≡ false
 flipDistinct = refl
 
--- and the flip really is the endpoint involution: it fixes ε�,ε�,ε� and
--- negates ε�,ε�, and its fixed-point-free character is what the printed
+-- and the flip really is the endpoint involution: it fixes ε₂,ε₃,ε₄ and
+-- negates ε₁,ε₅, and its fixed-point-free character is what the printed
 -- argument needed and does not have here.
 flipIsEndpointFlip : (fst atom ≡ P) × (fst flipped ≡ M)
 flipIsEndpointFlip = refl , refl
 
 ------------------------------------------------------------------------
--- §10  The four auxiliary ��[u] identities  (CONSTRAINT_ALGEBRA (5.1))
+-- §10  The four auxiliary 𝔽₂[u] identities  (CONSTRAINT_ALGEBRA (5.1))
 --
 -- Polynomials as coefficient lists, lowest degree first.  These are
 -- recorded because the retired script recorded them.  The note is
 -- explicit that they carry NO implication for the ten-zero exclusion:
--- they describe how an EXTREMAL (�1) four-point relation would
--- propagate, and at the sharp table the correlations are �1/3.
+-- they describe how an EXTREMAL (±1) four-point relation would
+-- propagate, and at the sharp table the correlations are ±1/3.
 ------------------------------------------------------------------------
 
 zeros : List Bool → List Bool
@@ -516,25 +516,25 @@ mulF2 : List Bool → List Bool → List Bool
 mulF2 []       ys = []
 mulF2 (x ∷ xs) ys = addF2 (scaleF2 x ys) (false ∷ mulF2 xs ys)
 
--- (u+u²+u³+u�)(1+u) = u+u�
+-- (u+u²+u³+u⁴)(1+u) = u+u⁵
 f2Identity1 : mulF2 (false ∷ true ∷ true ∷ true ∷ true ∷ [])
                     (true ∷ true ∷ [])
             ≡ (false ∷ true ∷ false ∷ false ∷ false ∷ true ∷ [])
 f2Identity1 = refl
 
--- (u+u²+u�+u�)(u+u²+u³) = u²+u�
+-- (u+u²+u⁴+u⁵)(u+u²+u³) = u²+u⁸
 f2Identity2 : mulF2 (false ∷ true ∷ true ∷ false ∷ true ∷ true ∷ [])
                     (false ∷ true ∷ true ∷ true ∷ [])
             ≡ (false ∷ false ∷ true ∷ false ∷ false ∷ false ∷ false ∷ false ∷ true ∷ [])
 f2Identity2 = refl
 
--- (u+u²+u³+u�)(1+u+u³) = u+u�
+-- (u+u²+u³+u⁵)(1+u+u³) = u+u⁸
 f2Identity3 : mulF2 (false ∷ true ∷ true ∷ true ∷ false ∷ true ∷ [])
                     (true ∷ true ∷ false ∷ true ∷ [])
             ≡ (false ∷ true ∷ false ∷ false ∷ false ∷ false ∷ false ∷ false ∷ true ∷ [])
 f2Identity3 = refl
 
--- (u+u³+u�+u�)(1+u²+u³) = u+u�
+-- (u+u³+u⁴+u⁵)(1+u²+u³) = u+u⁸
 f2Identity4 : mulF2 (false ∷ true ∷ false ∷ true ∷ true ∷ true ∷ [])
                     (true ∷ false ∷ true ∷ true ∷ [])
             ≡ (false ∷ true ∷ false ∷ false ∷ false ∷ false ∷ false ∷ false ∷ true ∷ [])

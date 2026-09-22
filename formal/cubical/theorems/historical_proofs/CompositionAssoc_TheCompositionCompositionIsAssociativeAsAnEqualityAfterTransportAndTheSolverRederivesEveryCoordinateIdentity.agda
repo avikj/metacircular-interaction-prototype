@@ -1,12 +1,12 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- BhavanaAssoc � associativity of bhvan as an EQUALITY AFTER TRANSPORT,
+-- BhavanaAssoc — associativity of bhāvanā as an EQUALITY AFTER TRANSPORT,
 -- with every coordinate identity rederived by the ring solver.
 --
 -- THE SETTING.  In `BhavanaGenerative.agda` the two associations of the
 -- composition live at DIFFERENT norm indices,
--- `Sol D (k� � (k� � k�))` and `Sol D ((k� � k�) � k�)`, so `≡` cannot even
+-- `Sol D (k₁ · (k₂ · k₃))` and `Sol D ((k₁ · k₂) · k₃)`, so `≡` cannot even
 -- be written between them without first bringing the indices together.
 --
 -- WHAT IS ALREADY THERE.  Section 7 of `BhavanaGenerative` assembles
@@ -14,28 +14,28 @@
 -- `�IdR`, `�IdL` as PathPs over `�Assoc`/`�Comm`/`�IdR`/`�IdL`.
 -- Those are DEPENDENT paths.  What that file does NOT
 -- state, for general norm indices, is the non-dependent form the §7 note
--- describes as the obstacle � an equality in ONE type, after transporting one
--- side along the ring identity � and it reaches equality of `Sol` records
--- only by rebuilding `mkSol � (isProp�PathP �)` by hand at every use, with
+-- describes as the obstacle — an equality in ONE type, after transporting one
+-- side along the ring identity — and it reaches equality of `Sol` records
+-- only by rebuilding `mkSol … (isProp→PathP …)` by hand at every use, with
 -- no reusable lemma saying "two solutions with the same coordinates are
--- equal".  (Its `_∙�_` laws are such equalities, but only at index 1r.)
+-- equal".  (Its `_∙₁_` laws are such equalities, but only at index 1r.)
 --
 -- WHAT THIS FILE PROVES, over an arbitrary commutative ring R:
 --
---   Sol≡      : coefA s ≡ coefA t � coefB s ≡ coefB t � s ≡ t     (same index)
+--   Sol≡      : coefA s ≡ coefA t → coefB s ≡ coefB t → s ≡ t     (same index)
 --   SolPathP  : the same over an index path q : k ≡ k'
---   �AssocSubst : subst (Sol D) (�Assoc k� k� k�) (s � (t � u)) ≡ (s � t) � u
---   �AssocSubst�: s � (t � u) ≡ subst� (Sol D) (�Assoc k� k� k�) ((s � t) � u)
---   �CommSubst  : subst (Sol D) (�Comm k� k�) (s � t) ≡ t � s
---   �IdRSubst   : subst (Sol D) (�IdR k) (s � unit D) ≡ s
---   �IdLSubst   : subst (Sol D) (�IdL k) (unit D � s) ≡ s
---   �-substL / �-substR : `_�_` commutes with retyping either argument
---   �AssocSubst≡fromPathP : the equality above IS `fromPathP (�Assoc s t u)`
+--   ⊛AssocSubst : subst (Sol D) (·Assoc k₁ k₂ k₃) (s ⊛ (t ⊛ u)) ≡ (s ⊛ t) ⊛ u
+--   ⊛AssocSubst⁻: s ⊛ (t ⊛ u) ≡ subst⁻ (Sol D) (·Assoc k₁ k₂ k₃) ((s ⊛ t) ⊛ u)
+--   ⊛CommSubst  : subst (Sol D) (·Comm k₁ k₂) (s ⊛ t) ≡ t ⊛ s
+--   ⊛IdRSubst   : subst (Sol D) (·IdR k) (s ⊛ unit D) ≡ s
+--   ⊛IdLSubst   : subst (Sol D) (·IdL k) (unit D ⊛ s) ≡ s
+--   ⊛-substL / ⊛-substR : `_⊛_` commutes with retyping either argument
+--   ⊛AssocSubst≡fromPathP : the equality above IS `fromPathP (⊛Assoc s t u)`
 --
 -- The coordinate content is rederived here with `solve!` over the ABSTRACT
--- ring CR (assocA, assocB, commA, commB, idRA, idRB, idLA, idLB below) � a
+-- ring CR (assocA, assocB, commA, commB, idRA, idRB, idLA, idLB below) — a
 -- second, mechanical proof of the eight polynomial identities that
--- `Bhavana.Form` proves by hand (bhA-assoc, bhB-assoc, �).  The Sol-level
+-- `Bhavana.Form` proves by hand (bhA-assoc, bhB-assoc, …).  The Sol-level
 -- equalities are built ONLY from those solver identities, `Sol≡`, and the
 -- coordinate-transparency of `subst` (`substCoefA`/`substCoefB`); they do not
 -- route through §7's PathPs.  The final lemma then checks that the two routes
@@ -91,7 +91,7 @@ module Assoc (CR : CommRing ℓ) where
   -- polynomials in them, and `solve! CR` normalises both sides.  These are
   -- the identities `Bhavana.Form` proves by hand as bhA-assoc, bhB-assoc,
   -- bhA-idR, bhB-idR, bhA-idL, bhB-idL, plus the two commutativities that
-  -- `BhavanaGenerative` proves from �Comm/+Comm.  Restated here so that the
+  -- `BhavanaGenerative` proves from ·Comm/+Comm.  Restated here so that the
   -- Sol-level laws below depend on the solver alone for their arithmetic.
   ----------------------------------------------------------------------
 
@@ -124,9 +124,9 @@ module Assoc (CR : CommRing ℓ) where
   idLB _ _ _ = solve! CR
 
   ----------------------------------------------------------------------
-  -- 3.  `_�_` commutes with retyping.  `subst (Sol D) p` leaves both
+  -- 3.  `_⊛_` commutes with retyping.  `subst (Sol D) p` leaves both
   -- coordinates fixed (substCoefA/substCoefB, from `BhavanaGenerative`), and
-  -- `_�_` reads only coordinates, so retyping an argument before composing
+  -- `_⊛_` reads only coordinates, so retyping an argument before composing
   -- is the same as composing and then retyping the product along the
   -- induced path on the index.  This is the coherence that makes the graded
   -- family's index arithmetic harmless.
@@ -156,11 +156,11 @@ module Assoc (CR : CommRing ℓ) where
   -- 4.  THE MONOID LAWS AS EQUALITIES AFTER TRANSPORT.
   --
   -- Associativity first, in the form the §7 note of `BhavanaGenerative`
-  -- names as the obstacle: one side transported along `�Assoc k� k� k�` so
-  -- that both sit in `Sol D ((k� � k�) � k�)`, and then a plain `≡`.  The
-  -- coordinates of the transported side are those of `s � (t � u)`
+  -- names as the obstacle: one side transported along `·Assoc k₁ k₂ k₃` so
+  -- that both sit in `Sol D ((k₁ · k₂) · k₃)`, and then a plain `≡`.  The
+  -- coordinates of the transported side are those of `s ⊛ (t ⊛ u)`
   -- (substCoefA/B), which `assocA`/`assocB` identify with those of
-  -- `(s � t) � u`; `Sol≡` closes the record.
+  -- `(s ⊛ t) ⊛ u`; `Sol≡` closes the record.
   ----------------------------------------------------------------------
 
   ⊛AssocSubst : {D k₁ k₂ k₃ : R} (s : Sol D k₁) (t : Sol D k₂) (u : Sol D k₃)
@@ -172,8 +172,8 @@ module Assoc (CR : CommRing ℓ) where
           ∙ sym (assocB D (coefA s) (coefB s) (coefA t) (coefB t) (coefA u) (coefB u)))
 
   -- The same law read from the other side: the left association transported
-  -- BACK along `�Assoc` is the right association.  Not a restatement by
-  -- symmetry � it is `�AssocSubst` composed with the subst/subst� round trip.
+  -- BACK along `·Assoc` is the right association.  Not a restatement by
+  -- symmetry — it is `⊛AssocSubst` composed with the subst/subst⁻ round trip.
   ⊛AssocSubst⁻ : {D k₁ k₂ k₃ : R} (s : Sol D k₁) (t : Sol D k₂) (u : Sol D k₃)
                → s ⊛ (t ⊛ u) ≡ subst⁻ (Sol D) (·Assoc k₁ k₂ k₃) ((s ⊛ t) ⊛ u)
   ⊛AssocSubst⁻ {D} {k₁} {k₂} {k₃} s t u =
@@ -201,9 +201,9 @@ module Assoc (CR : CommRing ℓ) where
          (substCoefB (·IdL k) (unit D ⊛ s) ∙ idLB D (coefA s) (coefB s))
 
   ----------------------------------------------------------------------
-  -- 5.  The two routes agree.  `BhavanaGenerative` §7's `�Assoc` is a PathP
-  -- over `�Assoc`; `fromPathP` turns it into exactly the type of
-  -- `�AssocSubst`.  The two equalities were built from different arithmetic
+  -- 5.  The two routes agree.  `BhavanaGenerative` §7's `⊛Assoc` is a PathP
+  -- over `·Assoc`; `fromPathP` turns it into exactly the type of
+  -- `⊛AssocSubst`.  The two equalities were built from different arithmetic
   -- (hand proofs there, solver here), and they coincide because `Sol D k` is
   -- a set (`isSetSol`, from `BhavanaGenerative`).  So the solver route is not
   -- a second theorem; it is the same path, reached mechanically.
@@ -214,9 +214,9 @@ module Assoc (CR : CommRing ℓ) where
   ⊛AssocSubst≡fromPathP s t u = isSetSol _ _ (⊛AssocSubst s t u) (fromPathP (⊛Assoc s t u))
 
   -- And at index 1r, the general law specialises to the group law that
-  -- `BhavanaGenerative` proves for `_∙�_` by hand: both sides of `∙�-assoc`
-  -- are retypings of `_�_`, and `�-substL`/`�-substR` move the retypings
-  -- outward until `�AssocSubst` applies.  This is the check that the general
+  -- `BhavanaGenerative` proves for `_∙₁_` by hand: both sides of `∙₁-assoc`
+  -- are retypings of `_⊛_`, and `⊛-substL`/`⊛-substR` move the retypings
+  -- outward until `⊛AssocSubst` applies.  This is the check that the general
   -- statement really is the one the norm-1 group uses, not a lookalike.
   ∙₁-assoc' : {D : R} (s t u : Sol D 1r) → (s ∙₁ t) ∙₁ u ≡ s ∙₁ (t ∙₁ u)
   ∙₁-assoc' {D} s t u =

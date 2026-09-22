@@ -6,7 +6,7 @@
 -- `Cakravala` proves the cyclic method's step preserves the form.  A
 -- suitable m exists, and the mechanism was available in 499 CE.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE CONDITION IS A KUAKA
 --
 -- Bhskara's step needs an m with
@@ -14,23 +14,23 @@
 --     k | a + b m.
 --
 -- That is `b m â‰¡ âˆ’a (mod k)`, i.e. a solution of the linear indeterminate
--- equation `b m + k t = âˆ’a` â” which is exactly what ryabhaa's kuaka
--- ("pulveriser", *ryabhaya* 2.32â“33, 499 CE) computes, six and a half
+-- equation `b m + k t = âˆ’a` â€” which is exactly what Ä€ryabhaá¹­a's kuá¹­á¹­aka
+-- ("pulveriser", *Ä€ryabhaá¹­Ä«ya* 2.32â€“33, 499 CE) computes, six and a half
 -- centuries before the method that needs it.
 --
 -- `Kuttaka.agda` in this repository already has the pulveriser as a
--- checked theorem: `bezout` extracts a B©zout pair from a division run,
+-- checked theorem: `bezout` extracts a BÃ©zout pair from a division run,
 -- and `inhomogeneous` scales it by the ia to any multiple of the gcd.
--- This module does one thing â” points the second at the cakravla:
+-- This module does one thing â€” points the second at the cakravÄla:
 --
---     cakravala-choice :  Run b k 1  â’  Î m, Î c,  a + bÂm â‰¡ kÂc
+--     cakravala-choice :  Run b k 1  â†’  Î£ m, Î£ c,  a + bÂ·m â‰¡ kÂ·c
 --
 -- Given a division run witnessing gcd(b,k) = 1, the choice Bhskara's
 -- rule ranges over is non-empty, always, for every a.  The rule then
 -- selects among the solutions (minimising |mÂ² âˆ’ D|); the kuaka
 -- guarantees there is something to select from.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHY THIS IS THE WEAVE AND NOT A CITATION
 --
 -- The entries kuaka (499), bhvan (628), and cakravla
@@ -77,7 +77,7 @@ cakravala-choice a b k run with inhomogeneous b k (pos 1) (- a) run
 
 ------------------------------------------------------------------------
 -- It runs.  gcd(5, 3) = 1 by one division step, so at a state with
--- b = 5, k = 3 the condition k | a + bÂm is solvable for every a.
+-- b = 5, k = 3 the condition k | a + bÂ·m is solvable for every a.
 ------------------------------------------------------------------------
 
 run-5-3 : Run (pos 5) (pos 3) (pos 1)

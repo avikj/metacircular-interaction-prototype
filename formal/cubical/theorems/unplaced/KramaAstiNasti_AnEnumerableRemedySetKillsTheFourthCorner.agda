@@ -1,19 +1,19 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à®àà²àµà¾à•àà¯à®à Â PROVENANCE OF THE NAME.
+-- à¤®à¥‚à¤²à¤µà¤¾à¤•à¥à¤¯à¤®à¥ Â· PROVENANCE OF THE NAME.
 --
--- à•àà°à® Â à¨à¾àààà¿ â” two terms, one from each half of the àààààà™àà—à apparatus.
+-- à¤•à¥à¤°à¤® Â· à¤¨à¤¾à¤¸à¥à¤¤à¤¿ â€” two terms, one from each half of the à¤¸à¤ªà¥à¤¤à¤­à¤™à¥à¤—à¥€ apparatus.
 --
---   ààà¯à¾à¨àà¨à¾àààà¿, the second àà™àà—: in some respect, it is not.  **Samantabhadra,
+--   à¤¸à¥à¤¯à¤¾à¤¨à¥à¤¨à¤¾à¤¸à¥à¤¤à¤¿, the second à¤­à¤™à¥à¤—: in some respect, it is not.  **Samantabhadra,
 --   *ptamms* 14-24 (~6th c. CE); Akalaka, *Laghyastraya* (~8th c.);
 --   rooted in Umsvti, *Tattvrthastra* 5.31-32 (~2nd-5th c.).**
 --
---   à•àà°à®à¾à°ààà versus ààà¾à°ààà â” presentation in SUCCESSION versus SIMULTANEOUSLY.
+--   à¤•à¥à¤°à¤®à¤¾à¤°à¥à¤ªà¤£ versus à¤¸à¤¹à¤¾à¤°à¥à¤ªà¤£ â€” presentation in SUCCESSION versus SIMULTANEOUSLY.
 --   **Akalaka, *Laghyastraya* (~8th c.); Vidynandin,
 --   *Tattvrthalokavrttika* (~9th c.).**  This is the load-bearing one:
---   ààààà¿ and à¨à¾àààà¿ asserted in succession give the third àà™àà— and are
---   expressible; asserted together they give ààµà•àààµàà¯, the fourth, which is
+--   à¤…à¤¸à¥à¤¤à¤¿ and à¤¨à¤¾à¤¸à¥à¤¤à¤¿ asserted in succession give the third à¤­à¤™à¥à¤— and are
+--   expressible; asserted together they give à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯, the fourth, which is
 --   neither unknown nor undefined nor empty but a positive fourth position.
 --   The distinction is what makes seven positions and not four.
 --
@@ -28,38 +28,38 @@
 -- `TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift` showed
 -- that at a single instance the fourth corner IS a counterexample to
 -- the double-negation shift.  It also recorded that the
--- `Enumerated` hypothesis on the INSTANCE set was INERT there â”
+-- `Enumerated` hypothesis on the INSTANCE set was INERT there â€”
 -- `Enumerated Unit` is immediate, so enumerability of instances cannot
 -- be what separates the corner from its absence.
 --
 -- Enumerability of the REMEDY set is a different matter, and it is not
 -- inert: it kills the corner outright.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   All / allFromPointwise / allAtMember
 --                     the recursive family and its two directions
 --   finiteDNSList     the double-negation shift holds over a LIST:
---                     `All (ÂÂ P) xs â’ Â Â All P xs`, by induction, with
+--                     `All (Â¬Â¬ P) xs â†’ Â¬ Â¬ All P xs`, by induction, with
 --                     no decidability and no choice
 --   finiteDNS         hence over an ENUMERATED type:
---                     `((r) â’ Â Â Q r) â’ Â Â ((r) â’ Q r)`
+--                     `((r) â†’ Â¬ Â¬ Q r) â†’ Â¬ Â¬ ((r) â†’ Q r)`
 --   theFourthCornerNeedsANonEnumerableRemedySet
 --                     so at a single instance the fourth corner refutes
 --                     `Enumerated R`
 --
 -- **The two enumerability hypotheses are not symmetric, and that is the
--- finding.**  Enumerating the INSTANCES buys nothing â” one instance
+-- finding.**  Enumerating the INSTANCES buys nothing â€” one instance
 -- already suffices for the corner, and one instance is enumerable.
 -- Enumerating the REMEDIES buys everything: DNS becomes a theorem, and
 -- the corner cannot exist.
 -- Where the corner can live is a NON-ENUMERABLE remedy set
 -- with a badness that is not stable.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- NO NOVELTY.  That DNS holds over a finite index is elementary and
--- classical in the constructive literature â” DNS is only interesting
+-- classical in the constructive literature â€” DNS is only interesting
 -- for infinite domains, which is exactly why Spector's bar recursion
 -- concerns `â•`.
 --
@@ -151,6 +151,6 @@ theFourthCornerNeedsANonEnumerableRemedySet Q corner enum =
 -- `KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition` proves
 -- the "fourth corner" here is a product of two independent
 -- negations and that simultaneous refusal collapses into the
--- sequential pair, so the position is the THIRD bhaga â”
--- ààà¯à¾àà-ààààà¿-à¨à¾àààà¿, asserted à•àà°à®àà â” and not avaktavya.
+-- sequential pair, so the position is the THIRD bhaá¹…ga â€”
+-- ààà¯à¾àà-ààààà¿-à¨à¾àààà¿, asserted à•àà°à®àà â€” and not avaktavya.
 ------------------------------------------------------------------------

@@ -1,15 +1,15 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
--- Chu(X,ğ’¯,e) and the Advance guard.
+-- Chu(X,ğ’¯,e) and the Advance guard.
 --
---   Shrink(ğ’¯) â’ Î´â“        ààà  ààà¨àà¯àµà•àà°àà¾ â‰  àààà¯
---   Î´ = 0 â Advance
---   Î´_Ï = 0 â Î´_Ï^base = 0   (à—àààà¯àµà•àà°àà¾: the base can be flat while the
+--   Shrink(ğ’¯) â‡’ Î´â†“        à¤…à¤¤à¤ƒ  à¤¶à¥‚à¤¨à¥à¤¯à¤µà¤•à¥à¤°à¤¤à¤¾ â‰  à¤¸à¤¤à¥à¤¯
+--   Î´ = 0 â‡ Advance
+--   Î´_Ïƒ = 0 â‡ Î´_Ïƒ^base = 0   (à¤—à¥à¤¹à¥à¤¯à¤µà¤•à¥à¤°à¤¤à¤¾: the base can be flat while the
 --                             fibre is not, so a base-only test is not a test)
 --
 -- The defect of a Chu space is monotone in the test list: dropping tests can
--- only merge points.  Hence a vanishing defect is a statement about ğ’¯, never
--- about X â” the empty test list makes every pair agree, and separation is the
+-- only merge points.  Hence a vanishing defect is a statement about ğ’¯, never
+-- about X â€” the empty test list makes every pair agree, and separation is the
 -- side condition that keeps Î´ = 0 informative.
 
 module ChuAdvance where
@@ -32,7 +32,7 @@ private
   trueâ‰¢false p = subst BoolCode p tt
 
 --------------------------------------------------------------------------
--- e : X — ğ’¯ â’ Q,  and agreement on a finite test list
+-- e : X Ã— ğ’¯ â†’ Q,  and agreement on a finite test list
 --------------------------------------------------------------------------
 
 Obs : Typeâ‚€ â†’ Typeâ‚€ â†’ Typeâ‚€
@@ -46,7 +46,7 @@ Separates : {X T : Typeâ‚€} â†’ Obs X T â†’ List T â†’ Typeâ‚€
 Separates {X} e ts = (x y : X) â†’ Agree e ts x y â†’ x â‰¡ y
 
 --------------------------------------------------------------------------
--- Shrink(ğ’¯) â’ Î´â“
+-- Shrink(ğ’¯) â‡’ Î´â†“
 --------------------------------------------------------------------------
 
 -- Dropping tests never creates a distinction.
@@ -64,7 +64,7 @@ no-tests-no-defect :
 no-tests-no-defect e x y = tt
 
 --------------------------------------------------------------------------
--- ààà¨àà¯àµà•àà°àà¾ â‰  àààà¯
+-- à¤¶à¥‚à¤¨à¥à¤¯à¤µà¤•à¥à¤°à¤¤à¤¾ â‰  à¤¸à¤¤à¥à¤¯
 --------------------------------------------------------------------------
 
 private
@@ -72,7 +72,7 @@ private
   read x _ = x
 
 -- A Chu space with Î´ = 0 on its declared tests whose points are not equal:
--- vanishing defect is a property of ğ’¯, and Separates is what makes it a
+-- vanishing defect is a property of ğ’¯, and Separates is what makes it a
 -- property of X.
 zero-defect-is-not-truth :
     Î£[ e âˆˆ Obs Bool Bool ] Î£[ ts âˆˆ List Bool ]
@@ -84,7 +84,7 @@ one-test-separates : Separates read (true âˆ· [])
 one-test-separates x y (p , _) = p
 
 --------------------------------------------------------------------------
--- à—àààà¯àµà•àà°àà¾ : Î´^base = 0 does not lift
+-- à¤—à¥à¤¹à¥à¤¯à¤µà¤•à¥à¤°à¤¤à¤¾ : Î´^base = 0 does not lift
 --------------------------------------------------------------------------
 
 Hol : Typeâ‚€
@@ -96,6 +96,6 @@ unit = 0 , 0
 base : Hol â†’ â„•
 base = fst
 
--- Ïğ”_Ï = 1 âˆ§ ğ”Ì_Ï â‰  1 : the base loop closes, the total loop does not.
+-- Ï€ğ”¥_Ïƒ = 1 âˆ§ ğ”¥Ìƒ_Ïƒ â‰  1 : the base loop closes, the total loop does not.
 hidden-curvature : Î£[ h âˆˆ Hol ] (base h â‰¡ base unit) Ã— (Â¬ (h â‰¡ unit))
 hidden-curvature = (0 , 1) , refl , Î» p â†’ snotz (cong snd p)

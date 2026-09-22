@@ -1,11 +1,11 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Residue observations are capabilities above the atomic â• core.
+-- Residue observations are capabilities above the atomic â„• core.
 --
 -- This file deliberately contains no second arithmetic engine.  Any already
--- established residue/CRT observation is just a map out of â•.  Compilation
--- along the existing â• â‰ CanWord chart makes it executable on generated digit
+-- established residue/CRT observation is just a map out of â„•.  Compilation
+-- along the existing â„• â‰ƒ CanWord chart makes it executable on generated digit
 -- words; replay reduces to the already-proved odometer round trip.
 ------------------------------------------------------------------------
 
@@ -29,7 +29,7 @@ Observation A = â„• â†’ A
 
 -- Compile the capability to the canonical-word presentation.  There is no
 -- privileged steward: decoding the word is the inverse map already carried by
--- â• â‰ CanWord.
+-- â„• â‰ƒ CanWord.
 compile : Observation A â†’ CanWord â†’ A
 compile observe word = observe (valueC word)
 
@@ -88,8 +88,8 @@ compileCosted source = record
 
 -- Deliberately NO preservation theorem here.  `compileCosted` copies the four
 -- cost fields verbatim, so a "complexity-preserved" lemma would be refl on a
--- record copy â” it would certify record syntax, not computation.  Moreover no
--- law ties `stateSize`/`updateCost`/â¦ to the function `observe`: a false
+-- record copy â€” it would certify record syntax, not computation.  Moreover no
+-- law ties `stateSize`/`updateCost`/â€¦ to the function `observe`: a false
 -- declaration would transport just as faithfully.  A contentful statement
--- needs a cost-annotated evaluation judgment (Eval : Observation A â’ â• â’ A â’
+-- needs a cost-annotated evaluation judgment (Eval : Observation A â†’ â„• â†’ A â†’
 -- â• â’ Type with an observes-within law) before preservation means anything.

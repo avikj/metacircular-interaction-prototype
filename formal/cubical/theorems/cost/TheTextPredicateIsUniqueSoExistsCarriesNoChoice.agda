@@ -9,7 +9,7 @@
 -- own, and the h-level step is the declared substrate.  I have
 -- established no Indian source for either.
 --
--- โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”
+-- โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€
 -- THE AUDIT.  Target:
 -- `ATextPredicateExistsExactlyWhenTheSemanticPropertyIsDecidable`, an
 -- `ExistsExactlyWhen`.
@@ -21,8 +21,8 @@
 -- reduction is not an answer.
 --
 -- **THE WORD CARRYING THE CLAIM IS `EXISTS`, AND IT HAS THE USUAL TWO
--- READINGS.**  The statement is `ฮ[ p โ (Text โ’ Bool) ] Correct p` โ”
--- STRUCTURE, a predicate together with a proof โ” where "a mechanizable
+-- READINGS.**  The statement is `ฮฃ[ p โ (Text โ’ Bool) ] Correct p` โ€”
+-- STRUCTURE, a predicate together with a proof โ€” where "a mechanizable
 -- predicate exists" reads as a PROPERTY.  Over a general type those
 -- differ, and the difference is exactly whether the claim carries a
 -- choice: which correct predicate did you get?
@@ -31,20 +31,20 @@
 -- QUESTION.**  `Correct p` pins `p t โก true` to `Outside (denotes t)` in
 -- both directions, and `Bool` has two elements, so any two correct
 -- predicates agree at every text: `correctIsUnique`.  There is nothing
--- to choose.  So the untruncated `ฮ` is not an overstatement of the
--- truncated `โ ฮ โโ` โ” it is the same claim, and ยง2's use of `ฮ` was
+-- to choose.  So the untruncated `ฮฃ` is not an overstatement of the
+-- truncated `โฅ ฮฃ โฅโ` โ€” it is the same claim, and ยง2's use of `ฮฃ` was
 -- right for a reason it did not give.
 --
--- **AND THE ฮ IS A PROPOSITION OUTRIGHT WHEN `Outside` IS.**  Uniqueness
+-- **AND THE ฮฃ IS A PROPOSITION OUTRIGHT WHEN `Outside` IS.**  Uniqueness
 -- gives the first component; `Correct p`'s second half lands in
 -- `Outside (denotes t)`, which is an arbitrary type in the audited
 -- module, so the h-level of the pair needs `Outside` pointwise
 -- propositional and gets it no cheaper.  **That hypothesis is the
--- price, it is real, and it is not free** โ” which is the honest
+-- price, it is real, and it is not free** โ€” which is the honest
 -- difference from d3963e51 and b716cfee, where both sides were
 -- propositions already.
 --
--- โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”
+-- โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€
 -- WHAT IS PROVED
 --
 --   correctIsUnique      any two correct text predicates are equal, by
@@ -53,8 +53,8 @@
 --   isPropCorrect        `Correct p` is a proposition when `Outside` is
 --                        pointwise one
 --   theTextPredicateIsUnique
---                        hence the whole `ฮ` is a proposition, by
---                        `ฮPathP` and `isPropโ’PathP`
+--                        hence the whole `ฮฃ` is a proposition, by
+--                        `ฮฃPathP` and `isPropโ’PathP`
 ------------------------------------------------------------------------
 
 module TheTextPredicateIsUniqueSoExistsCarriesNoChoice where
@@ -98,7 +98,7 @@ module _
       pointwise t = go t (p t) (q t) refl refl
 
   ------------------------------------------------------------------
-  -- 2.  And with `Outside` pointwise propositional, so is the whole ฮ
+  -- 2.  And with `Outside` pointwise propositional, so is the whole ฮฃ
   ------------------------------------------------------------------
 
   isPropCorrect :

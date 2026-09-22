@@ -1,62 +1,62 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡ô‡‡ï‡‡æ‡‡ ‚î ‡‡ô‡‡ï‡æ‡®‡æ‡ ‡‡æ‡‡ ‡
--- (akapa: "the net of digits" ‚î the counting of arrangements.)
+-- ‡§Ö‡§ô‡•ç‡§ï‡§™‡§æ‡§∂‡§É ‚Äî ‡§Ö‡§ô‡•ç‡§ï‡§æ‡§®‡§æ‡§Ç ‡§™‡§æ‡§∂‡§É ‡•§
+-- (a·πÖkapƒÅ≈õa: "the net of digits" ‚Äî the counting of arrangements.)
 --
--- THE TERM, ITS TEXT AND ITS DATE.  `‡‡ô‡‡ï‡‡æ‡` is the name of the section
+-- THE TERM, ITS TEXT AND ITS DATE.  `‡§Ö‡§ô‡•ç‡§ï‡§™‡§æ‡§∂` is the name of the section
 -- on permutations in Bhskara II, *Llvat* (1150 CE): the arrangements
 -- of n distinct digits number the product 1¬2¬‚ãØ¬n.  The metrical material is Pigala,
--- *‡‡®‡‡¶‡‡‡æ‡‡‡‡‡∞‡Æ‡* ‡Æ.‡®‡‚ì‡®‡Æ (~300 BCE): the ‡‡‡∞‡‡‡‡æ‡∞, and ‡‡ô‡‡ñ‡‡Ø‡æ, the
--- ‡‡‡∞‡‡‡Ø‡Ø that asks how many.
+-- *‡§õ‡§®‡•ç‡§¶‡§É‡§∂‡§æ‡§∏‡•ç‡§§‡•ç‡§∞‡§Æ‡•ç* ‡•Æ.‡•®‡•™‚Äì‡•®‡•Æ (~300 BCE): the ‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞, and ‡§∏‡§ô‡•ç‡§ñ‡•ç‡§Ø‡§æ, the
+-- ‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§Ø that asks how many.
 --
 ------------------------------------------------------------------------
 -- WHAT THIS MODULE IS.
 --
 -- `machine/Setubandha_TheCheckedIdentificationsAreEdgesAndTheIsolatedNodes
--- AreTheFrontier.hs` reports `Decategorification.œ‚FinSet`
+-- AreTheFrontier.hs` reports `Decategorification.œÄ‚ÇÄFinSet`
 -- at degree 1: joined to the hub `‚ï` and to nothing else.  It is at
 -- distance 2 from
--- `Pingala.‡‡®‡‡¶‡‡`:
+-- `Pingala.‡§õ‡§®‡•ç‡§¶‡§∏‡•ç`:
 --
---       Pingala.‡‡®‡‡¶‡‡  ‚î‚î[ Pingala.‡‡®‡‡¶‡‡‚â‚ï ]‚î‚î  ‚ï
---                       ‚î‚î[ Decategorification.‚ï‚âœ‚FinSet ]‚î‚î  œ‚FinSet
+--       Pingala.‡§õ‡§®‡•ç‡§¶‡§∏‡•ç  ‚îÄ‚îÄ[ Pingala.‡§õ‡§®‡•ç‡§¶‡§∏‡•ç‚âÉ‚Ñï ]‚îÄ‚îÄ  ‚Ñï
+--                       ‚îÄ‚îÄ[ Decategorification.‚Ñï‚âÉœÄ‚ÇÄFinSet ]‚îÄ‚îÄ  œÄ‚ÇÄFinSet
 --
 -- ONE DIFFERENCE FROM THE OTHER TWO CAUSEWAYS, and it is why this file
--- says `‚â` where they said `‚â°`.  `œ‚FinSet : Type‚` and `‡‡®‡‡¶‡‡ : Type‚`
+-- says `‚âÉ` where they said `‚â°`.  `œÄ‚ÇÄFinSet : Type‚ÇÅ` and `‡§õ‡§®‡•ç‡§¶‡§∏‡•ç : Type‚ÇÄ`
 -- live in DIFFERENT UNIVERSES, so `ua` is unavailable and there is no
--- path to transport along ‚î the graph program already records only an
--- `[equiv]` for `‚ï‚âœ‚FinSet` and no `[path]`.  The route is therefore
+-- path to transport along ‚Äî the graph program already records only an
+-- `[equiv]` for `‚Ñï‚âÉœÄ‚ÇÄFinSet` and no `[path]`.  The route is therefore
 -- composed with `compEquiv` rather than `_‚àô_`, and what it carries is
 -- carried by composition of equivalences, not by `subst`.  Naming that
 -- limit is part of the result: a causeway across a universe boundary is
 -- narrower than one within a universe, and reporting it as the same
 -- thing would be the overstatement this corpus keeps catching.
 --
--- NOTHING BELOW IS CONSTRUCTED BY HAND.  No induction over ‡‡®‡‡¶‡‡, no
--- case split on ‡≤‡ò‡/‡ó‡‡∞‡, no permutation is ever written down.  Every
+-- NOTHING BELOW IS CONSTRUCTED BY HAND.  No induction over ‡§õ‡§®‡•ç‡§¶‡§∏‡•ç, no
+-- case split on ‡§≤‡§ò‡•Å/‡§ó‡•Å‡§∞‡•Å, no permutation is ever written down.  Every
 -- theorem is `compEquiv` of equivalences somebody else checked, or an
 -- instance of one of them.
 --
 -- THE THREE THINGS THE ROUTE CARRIES.
 --
---   ‡ß  A metre NAMES a finite set, and Pigala's ‡‡ô‡‡ñ‡‡Ø‡æ is that set's
+--   ‡•ß  A metre NAMES a finite set, and Pi·πÖgala's ‡§∏‡§ô‡•ç‡§ñ‡•ç‡§Ø‡§æ is that set's
 --      cardinality.  `card-Fin` is `refl`, so the naming map needs no
 --      coherence lemma at all.
 --
---   ‡®  TWO METRES ARE ONE METRE EXACTLY WHEN THE SETS THEY NAME ARE
+--   ‡•®  TWO METRES ARE ONE METRE EXACTLY WHEN THE SETS THEY NAME ARE
 --      MERELY EQUAL.  `Decategorification.card‚â°MereEq` is the general
 --      statement; instantiated at the metres it becomes Pigala's own
---      uniqueness theorem `‡Æ‡‡≤‡‡Ø-‡‡ï‡à‡ï‡Æ‡` read one level up, and the two
---      compose into a decategorification statement about ‡‡®‡‡¶‡‡ that
+--      uniqueness theorem `‡§Æ‡•Ç‡§≤‡•ç‡§Ø-‡§è‡§ï‡•à‡§ï‡§Æ‡•ç` read one level up, and the two
+--      compose into a decategorification statement about ‡§õ‡§®‡•ç‡§¶‡§∏‡•ç that
 --      neither file states.
 --
---   ‡©  WHAT THE NUMBER FORGETS IS BHSKARA'S PRODUCT.  The loop at the
---      component a metre names is the symmetric group on its ‡‡ô‡‡ñ‡‡Ø‡æ
---      letters (`FinSetLoop‚âSym`), and that group is enumerated by
+--   ‡•©  WHAT THE NUMBER FORGETS IS BHƒÄSKARA'S PRODUCT.  The loop at the
+--      component a metre names is the symmetric group on its ‡§∏‡§ô‡•ç‡§ñ‡•ç‡§Ø‡§æ
+--      letters (`FinSetLoop‚âÉSym`), and that group is enumerated by
 --      `SymmetryEnumeration.symmetryEnum` as `Fin (n !)`.  Composing:
---      the metre of value n has exactly n! loops ‚î Pigala's ‡‡‡∞‡‡‡‡æ‡∞
---      index on one side, the ‡‡ô‡‡ï‡‡æ‡ count on the other, and no term in
+--      the metre of value n has exactly n! loops ‚Äî Pi·πÖgala's ‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞
+--      index on one side, the ‡§Ö‡§ô‡•ç‡§ï‡§™‡§æ‡§∂ count on the other, and no term in
 --      this file does any counting.
 ------------------------------------------------------------------------
 
@@ -75,7 +75,7 @@ open import Decategorification
 open import SymmetryEnumeration using (symmetryEnum)
 
 ------------------------------------------------------------------------
--- ‡¶ ¬ THE ROUTE.  Two checked equivalences, composed.  `compEquiv` and
+-- ‡•¶ ¬∑ THE ROUTE.  Two checked equivalences, composed.  `compEquiv` and
 --     not `_‚àô_`, because the two endpoints are in different universes
 --     and there is no path to compose.
 ------------------------------------------------------------------------
@@ -84,10 +84,10 @@ open import SymmetryEnumeration using (symmetryEnum)
 ‡§õ‡§®‡•ç‡§¶‡§∏‡•ç‚âÉœÄ‚ÇÄFinSet = compEquiv ‡§õ‡§®‡•ç‡§¶‡§∏‡•ç‚âÉ‚Ñï ‚Ñï‚âÉœÄ‚ÇÄFinSet
 
 ------------------------------------------------------------------------
--- ‡ß ¬ A METRE NAMES A FINITE SET, AND ‡‡ô‡‡ñ‡‡Ø‡æ IS ITS CARDINALITY.
+-- ‡•ß ¬∑ A METRE NAMES A FINITE SET, AND ‡§∏‡§ô‡•ç‡§ñ‡•ç‡§Ø‡§æ IS ITS CARDINALITY.
 --
 --     `card-Fin` is `refl`, so this needs no coherence lemma: the
---     cardinality of the set a metre names is its ‡‡‡∞‡‡‡‡æ‡∞-index on the
+--     cardinality of the set a metre names is its ‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞-index on the
 --     nose.
 ------------------------------------------------------------------------
 
@@ -98,13 +98,13 @@ open import SymmetryEnumeration using (symmetryEnum)
 ‡§∏‡§ô‡•ç‡§ñ‡•ç‡§Ø‡§æ-‡§ï‡§æ‡§∞‡•ç‡§°‡•ç ds = card-Fin (‡§Æ‡•Ç‡§≤‡•ç‡§Ø ds)
 
 ------------------------------------------------------------------------
--- ‡® ¬ DECATEGORIFICATION, READ ON PIGALA.
+-- ‡•® ¬∑ DECATEGORIFICATION, READ ON PI·πÑGALA.
 --
 --     `card‚â°MereEq` says a numeral is a name for a connected component:
 --     equality of cardinalities IS mere equality in FinSet.  At the sets
 --     two metres name, that becomes a statement about metres, and
 --     composing it with Pigala's own injectivity theorem gives what
---     neither file states ‚î two metres coincide exactly when the finite
+--     neither file states ‚Äî two metres coincide exactly when the finite
 --     sets they name are merely equal.
 ------------------------------------------------------------------------
 
@@ -116,16 +116,16 @@ open import SymmetryEnumeration using (symmetryEnum)
 ‡§õ‡§®‡•ç‡§¶-‡§è‡§ï‡•à‡§ï‡§Æ‡•ç d e t = ‡§Æ‡•Ç‡§≤‡•ç‡§Ø-‡§è‡§ï‡•à‡§ï‡§Æ‡•ç d e (invEq (‡§õ‡§®‡•ç‡§¶-‡§∏‡§Æ‡§§‡§æ d e) t)
 
 ------------------------------------------------------------------------
--- ‡© ¬ ‡‡ô‡‡ï‡‡æ‡‡ ‚î WHAT THE NUMBER FORGETS.
+-- ‡•© ¬∑ ‡§Ö‡§ô‡•ç‡§ï‡§™‡§æ‡§∂‡§É ‚Äî WHAT THE NUMBER FORGETS.
 --
 --     `Decategorification` says the loop at a component is the symmetric
 --     group; `SymmetryEnumeration` says that group has n! elements.
---     Neither mentions a metre.  Composed at `‡Æ‡‡≤‡‡Ø ds`, they say: the
---     metre of ‡‡‡∞‡‡‡‡æ‡∞-index n carries exactly n! rearrangements ‚î
+--     Neither mentions a metre.  Composed at `‡§Æ‡•Ç‡§≤‡•ç‡§Ø ds`, they say: the
+--     metre of ‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞-index n carries exactly n! rearrangements ‚Äî
 --     Bhskara's product, arriving at Pigala's enumeration by
 --     composition and by nothing else.
 --
---     ‡‡ô‡‡ï‡‡æ‡‡ ‡‡‡∞‡‡‡‡æ‡∞‡‡‡Ø ‡‡‡‡æ‡®‡æ‡ô‡‡ï‡‡® ‡Æ‡‡Ø‡‡ ‡
+--     ‡§Ö‡§ô‡•ç‡§ï‡§™‡§æ‡§∂‡§É ‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞‡§∏‡•ç‡§Ø ‡§∏‡•ç‡§•‡§æ‡§®‡§æ‡§ô‡•ç‡§ï‡•á‡§® ‡§Æ‡•Ä‡§Ø‡§§‡•á ‡•§
 ------------------------------------------------------------------------
 
 ‡§õ‡§®‡•ç‡§¶‡•ã-‡§≠‡•ç‡§∞‡§Æ‡§£‡§Æ‡•ç : (ds : ‡§õ‡§®‡•ç‡§¶‡§∏‡•ç)
@@ -133,7 +133,7 @@ open import SymmetryEnumeration using (symmetryEnum)
 ‡§õ‡§®‡•ç‡§¶‡•ã-‡§≠‡•ç‡§∞‡§Æ‡§£‡§Æ‡•ç ds =
   compEquiv (FinSetLoop‚âÉSym (‡§Æ‡•Ç‡§≤‡•ç‡§Ø ds)) (symmetryEnum (‡§Æ‡•Ç‡§≤‡•ç‡§Ø ds))
 
--- The next row of the ‡‡‡∞‡‡‡‡æ‡∞ adds one letter, and the ‡‡ô‡‡ï‡‡æ‡ count of
+-- The next row of the ‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞ adds one letter, and the ‡§Ö‡§ô‡•ç‡§ï‡§™‡§æ‡§∂ count of
 -- the next row is therefore the count of this one times the new index.
 -- Stated, not proved arithmetically: the equivalence below is the SAME
 -- construction at the successor's value, and its codomain is where the

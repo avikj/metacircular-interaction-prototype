@@ -14,7 +14,7 @@
 --
 -- THE FOUR THINGS A SCHEDULER HAS TO DO, and the stra for each:
 --
---   1. POSITION IS PART OF MEANING.  1.4.2 ‡µ‡ø‡‡‡∞‡‡ø‡‡‡ß‡ ‡‡∞‡ ‡ï‡æ‡∞‡‡Ø‡Æ‡
+--   1. POSITION IS PART OF MEANING.  1.4.2 ‡§µ‡§ø‡§™‡•ç‡§∞‡§§‡§ø‡§∑‡•á‡§ß‡•á ‡§™‡§∞‡§Ç ‡§ï‡§æ‡§∞‡•ç‡§Ø‡§Æ‡•ç
 --      `vipratiedhe para kryam` -- "in conflict, the later operation."  A
 --      rule's number is not a label; it is what decides the tie.  So `Sthana`
 --      is carried on every rule and compared.
@@ -27,7 +27,7 @@
 --      after the thing it restates.)
 --
 --   3. A DESIGNATED BLOCK RUNS ONCE, IN ORDER, BACKWARDS-BLIND.  8.2.1
---      ‡‡‡∞‡‡µ‡‡‡∞‡æ‡‡ø‡¶‡‡ß‡Æ‡ `prvatrsiddham`: from 8.2.1 on, each rule is
+--      ‡§™‡•Ç‡§∞‡•ç‡§µ‡§§‡•ç‡§∞‡§æ‡§∏‡§ø‡§¶‡•ç‡§ß‡§Æ‡•ç `p≈´rvatrƒÅsiddham`: from 8.2.1 on, each rule is
 --      *asiddha*, as-if-not-having-taken-effect, for everything preceding it.
 --      Generalised here to `stStratum`: stratum 0 runs to a fixpoint with all
 --      its rules mutually visible; strata 1..n run ONCE each, in order, and
@@ -45,8 +45,8 @@
 --
 --      AMENDED.  "The derivation STOPS there" was the whole of the fourth
 --      position in this file, and it is half of what the doctrine says.
---      ¬ß‡© of the same note continues: ‡‡µ‡ï‡‡‡µ‡‡Ø‡ ‡‡‡‡ã ‡µ‡‡‡ø ‡ ‡‡‡‡ã ‡ó‡∞‡‡‡, ‡®
---      ‡µ‡ø‡‡≤‡‡æ ‡ ‡ó‡∞‡‡‡æ‡¶‡ ‡‡ó‡‡∞‡ø‡Æ‡ã ‡®‡Ø‡ã ‡‡æ‡Ø‡‡ -- in the avaktavya the residue
+--      ¬ß‡•© of the same note continues: ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡•á ‡§∂‡•á‡§∑‡•ã ‡§µ‡§∏‡§§‡§ø ‡•§ ‡§∂‡•á‡§∑‡•ã ‡§ó‡§∞‡•ç‡§≠‡§É, ‡§®
+--      ‡§µ‡§ø‡§´‡§≤‡§§‡§æ ‡•§ ‡§ó‡§∞‡•ç‡§≠‡§æ‡§¶‡•ç ‡§Ö‡§ó‡•ç‡§∞‡§ø‡§Æ‡•ã ‡§®‡§Ø‡•ã ‡§ú‡§æ‡§Ø‡§§‡•á -- in the avaktavya the residue
 --      dwells; the residue is a WOMB, not a failure; from the womb the next
 --      naya is born.  A `Dosa` is a rendering, for a reader; a caller handed
 --      one can print the fourth position and do nothing else with it.  So
@@ -60,7 +60,7 @@
 -- THE STRENGTH ORDER, and it is not invented here.  Ngea Bhaa,
 -- *Paribhenduekhara* (c. 1730), paribh 38:
 --
---     ‡‡‡∞‡‡µ‡‡∞‡®‡ø‡‡‡Ø‡æ‡®‡‡‡∞‡ô‡‡ó‡æ‡‡µ‡æ‡¶‡æ‡®‡æ‡Æ‡‡‡‡‡∞‡ã‡‡‡‡∞‡ ‡‡≤‡‡Ø‡
+--     ‡§™‡•Ç‡§∞‡•ç‡§µ‡§™‡§∞‡§®‡§ø‡§§‡•ç‡§Ø‡§æ‡§®‡•ç‡§§‡§∞‡§ô‡•ç‡§ó‡§æ‡§™‡§µ‡§æ‡§¶‡§æ‡§®‡§æ‡§Æ‡•Å‡§§‡•ç‡§§‡§∞‡•ã‡§§‡•ç‡§§‡§∞‡§Ç ‡§¨‡§≤‡•Ä‡§Ø‡§É
 --     prvaparanityntaragpavdnm uttarottara balya
 --     "of prva, para, nitya, antaraga, apavda -- each later is stronger."
 --
@@ -72,14 +72,14 @@
 -- abstain and why.
 --
 -- NITYA IS COMPUTABLE, and that is the interesting one.  The tradition
--- defines it ‡ï‡‡‡æ‡ï‡‡‡‡‡∞‡‡ô‡‡ó‡ø ‡®‡ø‡‡‡Ø‡Æ‡ `ktktaprasagi nityam` -- nitya is
+-- defines it ‡§ï‡•É‡§§‡§æ‡§ï‡•É‡§§‡§™‡•ç‡§∞‡§∏‡§ô‡•ç‡§ó‡§ø ‡§®‡§ø‡§§‡•ç‡§Ø‡§Æ‡•ç `k·πõtƒÅk·πõtaprasa·πÖgi nityam` -- nitya is
 -- what has its occasion whether or not the other has been performed.  That is
 -- not a philosophical gloss; it is an executable test.  Both candidates apply
 -- to the input by construction, so the whole test is: apply the other one,
 -- and ask whether this one STILL applies.  `nitya` below is those four lines.
 --
 -- ANTARAGA IS NOT COMPUTABLE WITHOUT THE DOMAIN, so the domain supplies it
--- and is allowed to say it does not know.  ‡‡®‡‡‡∞‡ô‡‡ó‡ ‡‡‡ø‡∞‡ô‡‡ó‡æ‡‡ -- the rule
+-- and is allowed to say it does not know.  ‡§Ö‡§®‡•ç‡§§‡§∞‡§ô‡•ç‡§ó‡§Ç ‡§¨‡§π‡§ø‡§∞‡§ô‡•ç‡§ó‡§æ‡§§‡•ç -- the rule
 -- whose conditioning causes (nimitta) lie further inside wins.  "Inside"
 -- depends on what the objects are; `tAntaranga` returns `Maybe Bool` and
 -- `Nothing` means ABSTAIN, not `False`.  A metarule that guesses is a durnaya.
@@ -234,7 +234,7 @@ showDosa d =
   [ "DEFECT -- vipratiedha undecided at site " ++ show (doSite d) ++ "."
   , "  Two or more rules contend and no metarule decides.  The scheduler does"
   , "  NOT choose: breaking this tie by list position would be a silent"
-  , "  collapse (AHIMSA_SUTRA_VISTARA ¬ß‡: transport or a written defect, no"
+  , "  collapse (AHIMSA_SUTRA_VISTARA ¬ß‡•¨: transport or a written defect, no"
   , "  third path).  A caller may fall back to prva -- the weakest of the"
   , "  five paribhs -- to preserve an existing engine's behaviour, but only"
   , "  after this record exists, and it is then prva that is reported, not a"
@@ -247,7 +247,7 @@ showDosa d =
   [ "    " ++ pad (show b) ++ "  " ++ why | (b, why) <- doTried d ]
   where pad s = s ++ replicate (max 0 (9 - length s)) ' '
 
--- THE RESIDUE.  ‡‡‡ -- what the fourth position holds.  `Dosa` above is the
+-- THE RESIDUE.  ‡§∂‡•á‡§∑ -- what the fourth position holds.  `Dosa` above is the
 -- WRITING of the undecided site: rendered strings, for a reader.  It is not
 -- the site.  A caller handed only a `Dosa` can print the fourth position and
 -- can do nothing else with it, which is exactly the collapse
@@ -257,7 +257,7 @@ showDosa d =
 --
 -- So the fourth position carries the OFFERS, not their names: the object the
 -- standpoints contended over, and each standpoint's own result under it.
--- AHIMSA_SUTRA_VISTARA ¬ß‡©: ‡‡µ‡ï‡‡‡µ‡‡Ø‡ ‡‡‡‡ã ‡µ‡‡‡ø ‡ ‡‡‡‡ã ‡ó‡∞‡‡‡, ‡® ‡µ‡ø‡‡≤‡‡æ ‡
+-- AHIMSA_SUTRA_VISTARA ¬ß‡•©: ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡•á ‡§∂‡•á‡§∑‡•ã ‡§µ‡§∏‡§§‡§ø ‡•§ ‡§∂‡•á‡§∑‡•ã ‡§ó‡§∞‡•ç‡§≠‡§É, ‡§® ‡§µ‡§ø‡§´‡§≤‡§§‡§æ ‡•§
 -- Everything born from an avaktavya in
 -- `interactive/AvaktavyaPrasava_TheFourthPositionBearsTheRuleThatDecidesIt.hs`
 -- is computed from this record, and none of it is computable from `Dosa`.

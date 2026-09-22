@@ -4,11 +4,11 @@ This is the top-level working locus for the Vaughan Pratt / Chu-spaces expositio
 
 ## Documents
 
-1. **`CHU_LOSSLESS_INTERACTION.md`** â” the long-form mathematical exposition beginning from Chu evaluation and deriving forced lossless completion, higher/cubical interaction, univalent transport, productive continuation, metacircular closure, and the universal family.
-2. **`PRATT_PLATE_V2.md`** â” equation-dense Pratt-facing mathematical plate; current front-page seed.
-3. **`PRATT_PLATE.md`** â” full plate.
-4. **`WIKI_BUILD_SPEC.md`** â” first complete website/wiki graph and page-inventory handoff.
-5. **`MATHEMATICAL_WIKI_BUILD_SPEC.md`** â” expanded canonical build specification, including page ontology, identity/near-identity clustering, typed relations, canonical-Agda-per-page requirement, and build sequence.
+1. **`CHU_LOSSLESS_INTERACTION.md`** â€” the long-form mathematical exposition beginning from Chu evaluation and deriving forced lossless completion, higher/cubical interaction, univalent transport, productive continuation, metacircular closure, and the universal family.
+2. **`PRATT_PLATE_V2.md`** â€” equation-dense Pratt-facing mathematical plate; current front-page seed.
+3. **`PRATT_PLATE.md`** â€” full plate.
+4. **`WIKI_BUILD_SPEC.md`** â€” first complete website/wiki graph and page-inventory handoff.
+5. **`MATHEMATICAL_WIKI_BUILD_SPEC.md`** â€” expanded canonical build specification, including page ontology, identity/near-identity clustering, typed relations, canonical-Agda-per-page requirement, and build sequence.
 
 The newer [Bend2 — Unison reading and synthesis](../research/wiki/BEND2_UNISON_READING_AND_SYNTHESIS.md) updates the technology direction: the mathematical codebase and full cubical Bend2/HVM4 runtime are the computational center, and the wiki is a view into them.
 

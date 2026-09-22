@@ -5,7 +5,7 @@
 --
 -- TARGET.md's headline is "make the parity barrier a theorem about
 -- OBSERVABLE CLASSES".  `ParitySeparator` and `ChargeCriterion` deliver a
--- theorem about ONE PAIR: the all-plus assignment �� and its total gauge
+-- theorem about ONE PAIR: the all-plus assignment σ₊ and its total gauge
 -- flip.  Everything they say is correct; but a statement about one orbit
 -- of order two is not yet a statement about the shape of the space, and
 -- the difference turns out to be visible, checkable, and worth having.
@@ -15,55 +15,55 @@
 --
 -- THE GLOBAL PICTURE (why the generalisation is the natural object)
 --
--- Sign assignments � : � � Bool are not just a set with a distinguished
+-- Sign assignments σ : ℕ → Bool are not just a set with a distinguished
 -- involution on it.  They are a TORSOR over the gauge group
--- G = (� � Bool, pointwise �) � the full torus of `GAUGE.md` §F.1, of
--- which `ParitySeparator.flip` is the single element (−1,−1,−1,�).  Once
+-- G = (ℕ → Bool, pointwise ·) — the full torus of `GAUGE.md` §F.1, of
+-- which `ParitySeparator.flip` is the single element (−1,−1,−1,…).  Once
 -- that is said, the right lemma is not `flip-law` but the bilinearity of
 -- `val` in its sign argument:
 --
---     val (� � �) n  ≡  val � n � val � n                    (`val-�`)
+--     val (τ ⋆ σ) n  ≡  val τ n · val σ n                    (`val-⋆`)
 --
--- i.e. n � (� � val � n) is a CHARACTER of G, and `flip-law` is its
--- evaluation at the one element �� = (false,false,�) � re-derived below
--- as `flip-law-again` from `val-�` alone, which is the check that the
+-- i.e. n ↦ (τ ↦ val τ n) is a CHARACTER of G, and `flip-law` is its
+-- evaluation at the one element τ₋ = (false,false,…) — re-derived below
+-- as `flip-law-again` from `val-⋆` alone, which is the check that the
 -- generalisation really contains the special case rather than merely
 -- resembling it.
 --
 -- With that, the observable classes fall out exactly.  For a query list
 -- qs put
 --
---     qs^�  =  { � ∈ G : val � n = +1 for every n in qs }   (`AllNeutral`)
+--     qs^⊥  =  { τ ∈ G : val τ n = +1 for every n in qs }   (`AllNeutral`)
 --
 -- a subgroup of G (`ann-unit`, `ann-mul`, `ann-self-inverse`).  Then:
 --
---     **THE FIBRES OF THE TRANSCRIPT MAP ARE EXACTLY THE COSETS OF qs^�.**
+--     **THE FIBRES OF THE TRANSCRIPT MAP ARE EXACTLY THE COSETS OF qs^⊥.**
 --
---         obs � qs ≡ obs �' qs   ⟺   �' � �  ∈  qs^�
+--         obs σ qs ≡ obs σ' qs   ⟺   σ' ⋆ σ  ∈  qs^⊥
 --
--- (`classes-�`, `classes-�`; note �' � � is the group difference, since
+-- (`classes-⇐`, `classes-⇒`; note σ' ⋆ σ is the group difference, since
 -- every element of G is its own inverse).  That is the theorem about
--- observable classes: the class of � is the coset � � qs^�, and what an
+-- observable classes: the class of σ is the coset σ · qs^⊥, and what an
 -- observer restricted to qs can ever learn is exactly which coset it is
--- in � no more, and, by the constructed separator, no less.
+-- in — no more, and, by the constructed separator, no less.
 --
 --
--- `ChargeCriterion` reads, as a test on a method: *all even Ω � provably
+-- `ChargeCriterion` reads, as a test on a method: *all even Ω ⇒ provably
 -- parity-blind.*  Sound, and sound for the intended adversary.  But the
 -- criterion `HasOdd` is the evaluation of the character at ONE group
 -- element, so the blindness it certifies is blindness to ONE element.
 -- §6 below exhibits the witness, checked:
 --
---     the query set {p�p�} has even Ω � `ChargeCriterion.probe-6-cannot`
---     proves it cannot separate �� from its total flip � and yet it
---     SEPARATES � from �� � �, for every �, where �� flips the sign at
---     the single prime p�.
+--     the query set {p₀p₁} has even Ω — `ChargeCriterion.probe-6-cannot`
+--     proves it cannot separate σ₊ from its total flip — and yet it
+--     SEPARATES σ from τ₀ ⋆ σ, for every σ, where τ₀ flips the sign at
+--     the single prime p₀.
 --
 -- So `AllEven` is not "sees no gauge structure"; it is "annihilated by
--- the total flip".  The annihilator of {p�p�} contains �� and does not
--- contain ��, and both facts are `refl`.  A method passing the even-Ω
--- test is blind to the parity grading � which is what the barrier is
--- about, so the test is not wrong � but it is not blind to the gauge
+-- the total flip".  The annihilator of {p₀p₁} contains τ₋ and does not
+-- contain τ₀, and both facts are `refl`.  A method passing the even-Ω
+-- test is blind to the parity grading — which is what the barrier is
+-- about, so the test is not wrong — but it is not blind to the gauge
 -- group, and the two readings of the word "charge" are separated here.
 --
 --
@@ -75,14 +75,14 @@
 -- the sharp form checkable: for every k, the query at k² is neutral for
 -- EVERY gauge element (`square-neutral`), so appending it changes no
 -- annihilator (`square-free-of-charge`) and splits no observable class
--- (`square-adds-no-class`) � while naming an arbitrarily large number.
+-- (`square-adds-no-class`) — while naming an arbitrarily large number.
 -- An unbounded family of queries with exactly zero separating power.
 -- Size is not partial charge; there is no partial charge.
 --
 --
 -- * No new arithmetic.  The content is that a completely multiplicative
---   �1 function reads exactly the SQUARE CLASS of its argument, which is
---   classical (the square-class group �^�_{>0}/(�^�_{>0})², whose F�-dual
+--   ±1 function reads exactly the SQUARE CLASS of its argument, which is
+--   classical (the square-class group ℚ^×_{>0}/(ℚ^×_{>0})², whose F₂-dual
 --   is the space of such functions).  Only the checked statement, and the
 --   scope correction of §6, are contributed.
 -- * §7 proves the concatenated form `val � (m ++ (k ++ k)) ≡ val � m`,
@@ -90,18 +90,18 @@
 --
 -- Contents (no holes, no postulates, --safe):
 --
---   §1  _�_, �-self, �-not, �-unit-r   the gauge group acting on signs
---   §2  val-�                          the character law (bilinearity)
+--   §1  _⋆_, ·-self, ·-not, ·-unit-r   the gauge group acting on signs
+--   §2  val-⋆                          the character law (bilinearity)
 --       flip-law-again                 `flip-law` re-derived from it
 --   §3  AllNeutral, HasCharge          the annihilator and its complement
---       ann-unit/mul/self-inverse      qs^� is a subgroup
---   §4  obs-agree�, no-decision�       blindness, for an arbitrary �
---       charge�separator�              the converse, separator CONSTRUCTED,
---                                      and for an arbitrary base point �
---   §5  classes-�, classes-�           THE CLASS THEOREM: transcript
---                                      fibres = cosets of qs^�
+--       ann-unit/mul/self-inverse      qs^⊥ is a subgroup
+--   §4  obs-agree⋆, no-decision⋆       blindness, for an arbitrary τ
+--       charge⇒separator⋆              the converse, separator CONSTRUCTED,
+--                                      and for an arbitrary base point σ
+--   §5  classes-⇐, classes-⇒           THE CLASS THEOREM: transcript
+--                                      fibres = cosets of qs^⊥
 --   §6  even-but-not-blind             the scope-correction witness
---   §7  square-neutral, �              no gradient: unboundedly large
+--   §7  square-neutral, …              no gradient: unboundedly large
 --                                      queries of exactly zero power
 ------------------------------------------------------------------------
 
@@ -124,8 +124,8 @@ open import NaturalMachine.ChargeCriterion
 ------------------------------------------------------------------------
 -- §1  The gauge group and its action.
 --
--- G is `Signs` again � the group of sign patterns under pointwise
--- multiplication � acting on `Signs` regarded as a torsor.  Writing the
+-- G is `Signs` again — the group of sign patterns under pointwise
+-- multiplication — acting on `Signs` regarded as a torsor.  Writing the
 -- two roles with two names would suggest they are different objects; the
 -- fact that they are the same object, one of them with a base point
 -- forgotten, is the reason the class theorem is so short.
@@ -139,7 +139,7 @@ infixr 5 _⋆_
 _⋆_ : Gauge → Signs → Signs
 (τ ⋆ σ) p = τ p · σ p
 
--- The three Bool facts the module runs on.  {�1} has exponent 2, and
+-- The three Bool facts the module runs on.  {±1} has exponent 2, and
 -- that single fact is what makes every quantitative question below
 -- collapse to a yes/no one; see §7.
 ·-self : (b : Bool) → b · b ≡ true
@@ -165,12 +165,12 @@ _⋆_ : Gauge → Signs → Signs
 -- §2  The character law.
 --
 -- `val` is bilinear: a homomorphism in the sign argument for fixed n.
--- This is the whole content of the module � every later statement is a
+-- This is the whole content of the module — every later statement is a
 -- corollary of it plus the exponent-2 facts of §1.
 ------------------------------------------------------------------------
 
 -- The abelian shuffle, exhaustively.  All sixteen cases are `refl`
--- because `_�_` is XOR on Bool; written out because it is the only
+-- because `_·_` is XOR on Bool; written out because it is the only
 -- computation in §2.
 shuffle : (a b c d : Bool) → (a · b) · (c · d) ≡ (a · c) · (b · d)
 shuffle true  true  true  true  = refl
@@ -201,7 +201,7 @@ val-τ₋ : (n : Number) → val τ₋ n ≡ sgn (Ω n)
 val-τ₋ []       = refl
 val-τ₋ (p ∷ ns) = cong (λ z → false · z) (val-τ₋ ns)
 
--- �and `flip` is translation by it, definitionally.
+-- …and `flip` is translation by it, definitionally.
 flip-is-τ₋ : (σ : Signs) → flip σ ≡ (τ₋ ⋆ σ)
 flip-is-τ₋ σ = funExt (λ p → refl)
 
@@ -218,7 +218,7 @@ flip-law-again σ n =
 ------------------------------------------------------------------------
 -- §3  The annihilator of a query set, and that it is a subgroup.
 --
--- "Coset" in §5 is only meaningful because of this section: qs^� is
+-- "Coset" in §5 is only meaningful because of this section: qs^⊥ is
 -- closed under the group operations, so the fibres really are translates
 -- of one subgroup and not merely fibres of some map.
 ------------------------------------------------------------------------
@@ -232,7 +232,7 @@ HasCharge τ []       = ⊥
 HasCharge τ (n ∷ qs) = (val τ n ≡ false) ⊎ HasCharge τ qs
 
 -- No query set is both, so the criterion of §4 is not vacuously
--- satisfiable � the analogue of `ChargeCriterion.not-both`.
+-- satisfiable — the analogue of `ChargeCriterion.not-both`.
 neutral-not-charged : (τ : Gauge) (qs : List Number)
                     → AllNeutral τ qs → ¬ (HasCharge τ qs)
 neutral-not-charged τ (n ∷ qs) (e , _)    (inl c) = true≢false (sym e ∙ c)
@@ -262,10 +262,10 @@ ann-self-inverse τ = funExt (λ p → ·-self (τ p))
 -- §4  Blindness and its converse, for an ARBITRARY gauge element and an
 --     ARBITRARY base point.
 --
--- `ParitySeparator` fixes � = ��; `ChargeCriterion` fixes additionally
--- � = ��.  Both restrictions are dropped here, and the separator is
--- still constructed rather than asserted � which costs one extra idea,
--- namely that the separator must compare the answer against `val � n`
+-- `ParitySeparator` fixes τ = τ₋; `ChargeCriterion` fixes additionally
+-- σ = σ₊.  Both restrictions are dropped here, and the separator is
+-- still constructed rather than asserted — which costs one extra idea,
+-- namely that the separator must compare the answer against `val σ n`
 -- rather than just read it, because for a general base point the
 -- accepted transcript is not all-true.
 ------------------------------------------------------------------------
@@ -319,16 +319,16 @@ gauge-criterion τ σ qs = charge⇒separator⋆ τ σ qs , neutral⇒no-separat
 -- §5  THE CLASS THEOREM.
 --
 -- Two sign assignments have the same transcript on qs exactly when they
--- differ by an element of qs^�.  Both directions; the fibres of the
+-- differ by an element of qs^⊥.  Both directions; the fibres of the
 -- transcript map are therefore precisely the cosets of the subgroup of
 -- §3, and "observable class" acquires a definition rather than a
 -- gesture.
 --
--- Note the group difference of �' and � is �' � � itself � no inversion
--- appears, because §1's `�-self` says every element is its own inverse.
+-- Note the group difference of σ' and σ is σ' ⋆ σ itself — no inversion
+-- appears, because §1's `·-self` says every element is its own inverse.
 ------------------------------------------------------------------------
 
--- (�' � �) � � ≡ �' : translating by the difference lands on �'.
+-- (σ' ⋆ σ) ⋆ σ ≡ σ' : translating by the difference lands on σ'.
 cancel : (σ σ' : Signs) → ((σ' ⋆ σ) ⋆ σ) ≡ σ'
 cancel σ σ' = funExt (λ p →
     ·-assoc (σ' p) (σ p) (σ p)
@@ -353,22 +353,22 @@ classes-⇒ (n ∷ qs) σ σ' e =
 ------------------------------------------------------------------------
 -- §6  THE SCOPE CORRECTION, with its witness.
 --
--- `ChargeCriterion.probe-6` is the query set {p�p�}.  Its Ω is 2, so it
--- is `AllEven`, and `probe-6-cannot` proves � correctly � that it admits
--- no procedure separating �� from its total flip.
+-- `ChargeCriterion.probe-6` is the query set {p₀p₁}.  Its Ω is 2, so it
+-- is `AllEven`, and `probe-6-cannot` proves — correctly — that it admits
+-- no procedure separating σ₊ from its total flip.
 --
--- Nevertheless it separates, at every base point, the pair (�, �� � �)
--- where �� flips exactly one prime.  The single-prime flip is a perfectly
+-- Nevertheless it separates, at every base point, the pair (σ, τ₀ ⋆ σ)
+-- where τ₀ flips exactly one prime.  The single-prime flip is a perfectly
 -- ordinary element of `GAUGE.md`'s torus; it was simply never the
 -- adversary, because the word "parity" fixes attention on the diagonal
 -- element.
 --
 -- Both facts about probe-6's annihilator are `refl`:
---   �� ∈ probe-6^�   (false � (false � true) = true)
---   �� ∉ probe-6^�   (false � (true  � true) = false)
+--   τ₋ ∈ probe-6^⊥   (false · (false · true) = true)
+--   τ₀ ∉ probe-6^⊥   (false · (true  · true) = false)
 ------------------------------------------------------------------------
 
--- the flip at the single prime p�
+-- the flip at the single prime p₀
 τ₀ : Gauge
 τ₀ zero    = false
 τ₀ (suc _) = true
@@ -379,8 +379,8 @@ classes-⇒ (n ∷ qs) σ σ' e =
 τ₋-is-neutral-for-probe-6 : AllNeutral τ₋ probe-6
 τ₋-is-neutral-for-probe-6 = refl , tt
 
--- �� is a genuine third element: neither the identity nor the total flip.
--- (Both are decided at the prime p�, where �� agrees with ��.)
+-- τ₀ is a genuine third element: neither the identity nor the total flip.
+-- (Both are decided at the prime p₁, where τ₀ agrees with τ₊.)
 τ₀≢τ₋ : ¬ (τ₀ 1 ≡ τ₋ 1)
 τ₀≢τ₋ e = true≢false e
 
@@ -388,7 +388,7 @@ classes-⇒ (n ∷ qs) σ σ' e =
 τ₀≢τ₊ e = true≢false (sym e)
 
 -- THE WITNESS.  An even-Ω query set that is provably blind to the total
--- flip and provably NOT blind to the gauge group � at every base point,
+-- flip and provably NOT blind to the gauge group — at every base point,
 -- with the separating procedure constructed.
 even-but-not-blind :
     (¬ (NaturalMachine.ChargeCriterion.Separates probe-6))
@@ -398,7 +398,7 @@ even-but-not-blind =
   , (λ σ → charge⇒separator⋆ τ₀ σ probe-6 τ₀-is-charged-for-probe-6)
 
 -- and, in the vocabulary of §5: probe-6 does not separate the classes of
--- � and �� � �, but it does separate those of � and �� � �.
+-- σ and τ₋ ⋆ σ, but it does separate those of σ and τ₀ ⋆ σ.
 probe-6-class-collapse : (σ : Signs) → obs σ probe-6 ≡ obs (τ₋ ⋆ σ) probe-6
 probe-6-class-collapse σ = obs-agree⋆ τ₋ σ probe-6 τ₋-is-neutral-for-probe-6
 
@@ -406,8 +406,8 @@ probe-6-class-collapse σ = obs-agree⋆ τ₋ σ probe-6 τ₋-is-neutral-for-p
 -- §7  NO GRADIENT.
 --
 -- `val` is a monoid homomorphism from the factorisation monoid
--- (Number, ++) to ({�1}, �).  Since {�1} has exponent 2, every square is
--- sent to +1 by EVERY sign assignment � so a query at a square is
+-- (Number, ++) to ({±1}, ·).  Since {±1} has exponent 2, every square is
+-- sent to +1 by EVERY sign assignment — so a query at a square is
 -- invisible to the entire gauge group at once.
 --
 -- The consequence is the one that bears on TARGET.md §2's W4.  W4 asks
@@ -416,7 +416,7 @@ probe-6-class-collapse σ = obs-agree⋆ τ₋ σ probe-6 τ₋-is-neutral-for-p
 -- exist: separating power is not increased by making a query bigger, by
 -- adding more queries, or by any amount of computation on the answers.
 -- Below is an unbounded family of arbitrarily large queries whose
--- separating power is exactly zero, forever � not small, zero.  A
+-- separating power is exactly zero, forever — not small, zero.  A
 -- quantitative coupling theorem, if there is one, must therefore be a
 -- theorem about a NORM on approximations, not about query sets; those
 -- are two different theorems and only the second is what this barrier
@@ -434,7 +434,7 @@ val-++ σ (p ∷ m) n =
 square-neutral : (σ : Signs) (k : Number) → val σ (k ++ k) ≡ true
 square-neutral σ k = val-++ σ k k ∙ ·-self (val σ k)
 
--- �and more generally an argument is read only modulo squares.
+-- …and more generally an argument is read only modulo squares.
 square-invisible : (σ : Signs) (m k : Number)
                  → val σ (m ++ (k ++ k)) ≡ val σ m
 square-invisible σ m k =
@@ -442,12 +442,12 @@ square-invisible σ m k =
   ∙ cong (λ z → val σ m · z) (square-neutral σ k)
   ∙ ·-unit-r (val σ m)
 
--- Appending a square query changes no annihilator �
+-- Appending a square query changes no annihilator …
 square-free-of-charge : (qs : List Number) (k : Number) (τ : Gauge)
                       → AllNeutral τ qs → AllNeutral τ ((k ++ k) ∷ qs)
 square-free-of-charge qs k τ h = square-neutral τ k , h
 
--- � and splits no observable class.  Both directions of §5 are therefore
+-- … and splits no observable class.  Both directions of §5 are therefore
 -- untouched by it, at every size of k.
 square-adds-no-class : (qs : List Number) (k : Number) (σ σ' : Signs)
                      → obs σ qs ≡ obs σ' qs

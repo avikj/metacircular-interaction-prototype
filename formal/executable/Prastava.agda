@@ -1,10 +1,10 @@
 {-# OPTIONS --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡∞‡‡‡‡æ‡µ ‚î the proposer is a checked term, and the loop closes
+-- ‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§µ ‚Äî the proposer is a checked term, and the loop closes
 -- through the store.
 --
--- TERM.  prastva, a proposal, that-which-is-set-forth ‚î ordinary
+-- TERM.  prastƒÅva, a proposal, that-which-is-set-forth ‚Äî ordinary
 -- ; the compound title is built here.
 --
 -- WHAT THIS IS.  The machine's four powers are: utter (propose a term
@@ -12,16 +12,16 @@
 -- the result to the store), re-read (the store feeds the next
 -- utterance).  This module is the UTTER power as a checked term: a total
 -- function from the machine's own refusal list (the Sanghatta
--- non-joining pairs, machine/sanghatta-report-2026-08-23.txt ‚î the
+-- non-joining pairs, machine/sanghatta-report-2026-08-23.txt ‚Äî the
 -- exact theorems the rewriter told itself it needs) to candidate
--- kernel modules.  It is compiled by MAlonzo ‚î the extraction lane
--- this directory already runs (RewriteDynamics ‚í ExtractedRewrite) ‚î
+-- kernel modules.  It is compiled by MAlonzo ‚Äî the extraction lane
+-- this directory already runs (RewriteDynamics ‚Üí ExtractedRewrite) ‚Äî
 -- and driven by one small unjudged mouth whose only job is IO.
 --
 -- WHY THIS CLOSES THE LOOP.  This module lives in the store it reads
 -- for.  A refusal lands in the store; the next run of the extracted
 -- proposer sees it; and because the proposer is itself a term of the
--- store, a future landing may be a stronger proposer ‚î judged by the
+-- store, a future landing may be a stronger proposer ‚Äî judged by the
 -- same kernel as any theorem, extracted, and swapped in.
 -- Self-improvement as an ordinary landing, no organ in between.
 --
@@ -105,12 +105,12 @@ bindM nothing _ = nothing
 bindM (just a) k = k a
 
 ------------------------------------------------------------------------
--- the term language of library.terms (Sym, Tm ‚î imported from the
+-- the term language of library.terms (Sym, Tm ‚Äî imported from the
 -- heart: V's variables read x y z u v w, each prime adding six)
 ------------------------------------------------------------------------
--- the parser: report shape ‚í Tm, recursive descent with fuel.
+-- the parser: report shape ‚Üí Tm, recursive descent with fuel.
 -- Fuel is the input length plus one; every recursive call consumes at
--- least one character, so the fuel never dries on genuine input ‚î and
+-- least one character, so the fuel never dries on genuine input ‚Äî and
 -- if it did, the result is `nothing`, a refusal, never a wrong term.
 ------------------------------------------------------------------------
 
@@ -188,9 +188,9 @@ parseLine s =
   just (l , r)
 
 ------------------------------------------------------------------------
--- the AC classifier.  + and ¬ are associative-commutative in the
+-- the AC classifier.  + and ¬∑ are associative-commutative in the
 -- library (commutativity is literally in library.terms), and plain
--- completion provably diverges on an AC theory (Baader‚ìNipkow ¬ß7;
+-- completion provably diverges on an AC theory (Baader‚ÄìNipkow ¬ß7;
 -- notes/SamataChakra).  A pair whose two sides are equal as AC-canonical
 -- forms is an AC rearrangement: true, joinable under completion modulo
 -- AC, and the WRONG thing to land as one lemma per shuffle.  The
@@ -211,7 +211,7 @@ varsOf Z = []
 varsOf (S t) = varsOf t
 varsOf (Bin _ a b) = varsOf a ++ varsOf b
 
--- canonicalisation by order of first appearance ‚î the engine's own
+-- canonicalisation by order of first appearance ‚Äî the engine's own
 -- canonVars discipline, so `x'` alone is index 0, not index six.
 posIn : Nat ‚Üí List Nat ‚Üí Nat
 posIn n [] = 0
@@ -238,8 +238,8 @@ varName 5 = "f"
 varName _ = "?"
 
 ------------------------------------------------------------------------
--- the emitter: Tm ‚í cubical Agda syntax.  Self-contained candidates:
--- each module carries its own ‚à' / le / max' clauses, so a candidate
+-- the emitter: Tm ‚Üí cubical Agda syntax.  Self-contained candidates:
+-- each module carries its own ‚à∏' / le / max' clauses, so a candidate
 -- couples to nothing but the library prelude and checks on any pin.
 ------------------------------------------------------------------------
 
@@ -345,7 +345,7 @@ indCandidate name l r i =
 
 ------------------------------------------------------------------------
 -- the reflection rung: when the two sides share a normal form (nf,
--- the heart), the candidate is not a schema but a PROOF ‚î two
+-- the heart), the candidate is not a schema but a PROOF ‚Äî two
 -- applications of the kernel-judged nf-sound (PrastavaSatya) around a
 -- definitional middle.  The quoted terms are closed, so the kernel
 -- normalises both nf applications itself; the middle holds exactly
@@ -407,10 +407,10 @@ nfCandidate name l r =
   & envLines n
 
 ------------------------------------------------------------------------
--- the split-then-normalise rung ‚î the machine acting on its own
+-- the split-then-normalise rung ‚Äî the machine acting on its own
 -- vibhaga diagnosis.  When a pair is not nf-equal open but BOTH
 -- branches of a case split on some variable are (the zero branch
--- erases; the suc branch unfolds max/le/monus/¬/+ on the now
+-- erases; the suc branch unfolds max/le/monus/¬∑/+ on the now
 -- suc-headed argument), the candidate is two clauses, each a
 -- reflection proof.  The classifier decides per branch BEFORE
 -- uttering, so a split candidate is emitted exactly when the checked
@@ -457,7 +457,7 @@ splitNfCandidate name l r i =
 
 ------------------------------------------------------------------------
 -- the proposer.  For one report line and a module name: either a list
--- of candidate module texts (tried in order ‚î the mouth stops at the
+-- of candidate module texts (tried in order ‚Äî the mouth stops at the
 -- first the kernel accepts), or a written refusal with its reason.
 ------------------------------------------------------------------------
 
@@ -501,7 +501,7 @@ run name line with propose name line
 ... | refusal why   = "NO" ‚à∑ why ‚à∑ []
 
 ------------------------------------------------------------------------
--- ‡®‡ø‡¶‡æ‡® ‚î the machine names its own disease.  When every candidate for
+-- ‡§®‡§ø‡§¶‡§æ‡§® ‚Äî the machine names its own disease.  When every candidate for
 -- a pair is refused by the kernel, the mouth asks THIS function what
 -- transformation the refusal wants, and writes the answer into the
 -- receipt.  The residue is thereby machine-labelled: the next organ is
@@ -581,7 +581,7 @@ spec-gcd-parsed : parseLine "s(y)\tgcd(s(y),0)"
 spec-gcd-parsed = refl
 
 -- the AC classifier's receipts: a genuine +-shuffle is recognised, and a
--- pair that differs by real content (an absorbed ¬0) is NOT ‚î so the
+-- pair that differs by real content (an absorbed ¬∑0) is NOT ‚Äî so the
 -- classifier cannot eat a theorem.
 spec-ac-yes : acShuffle (Bin plus (V 0) (Bin plus (V 0) (V 1)))
                         (Bin plus (Bin plus (V 0) (V 0)) (V 1)) ‚â° true

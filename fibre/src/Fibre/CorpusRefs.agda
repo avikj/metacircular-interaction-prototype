@@ -3,7 +3,7 @@
 -- The TOTAL reference relation between all expressions of the corpus:
 -- for every declaration, every name its checked type and definition
 -- mention.  Pure syntax traversal over the already-materialized
--- RawCorpus value â” no typechecker probing, hence exact, complete, and
+-- RawCorpus value â€” no typechecker probing, hence exact, complete, and
 -- linear in the corpus.
 
 module Fibre.CorpusRefs where

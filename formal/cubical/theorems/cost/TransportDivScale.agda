@@ -6,7 +6,7 @@
 -- THE X-DEPENDENCE OF THE FRONTIER.
 --
 -- `TransportDivWitness` pins one point: base ten, the word 1000, chart
--- work 5 against home work 1000, detour 14, branch ‚.  A single point
+-- work 5 against home work 1000, detour 14, branch ‚Üù.  A single point
 -- is a number without its scaling.  This module supplies the exponent.
 --
 -- Two laws, both proved, neither measured:
@@ -14,7 +14,7 @@
 --   CHART  steps w ‚â° suc (length w)                  -- linear in L
 --          (this is `TransportDiv.steps-is-length`, imported, not re-run)
 --
---   HOME   Canonical (d ‚à w) ‚í b ^ (length w) ‚â value (d ‚à w)
+--   HOME   Canonical (d ‚à∑ w) ‚Üí b ^ (length w) ‚â§ value (d ‚à∑ w)
 --                                                    -- exponential in L
 --
 -- The second is the positional lower bound: canonicity says the most
@@ -25,12 +25,12 @@
 -- The consequence, and the point of the module: for FIXED edge costs the
 -- detour beats staying home for EVERY canonical word past a stated
 -- length, not merely at the four sizes exhibited below.  That threshold
--- is 4 + (2¬chart + unchart) digits after the leading one, and it is
+-- is 4 + (2¬∑chart + unchart) digits after the leading one, and it is
 -- derived, so it comes with its base-dependence attached.
 --
--- The four numeric instances (10¬≥, 10‚¥, 10‚µ, 10‚ in base ten) are then
--- not four measurements: each is (S1) ‚î the scaling law with one
--- kernel-checked numeric gap ‚î and a fifth instance at 10¬¬≥ is (S2)
+-- The four numeric instances (10¬≥, 10‚Å¥, 10‚Åµ, 10‚Å∂ in base ten) are then
+-- not four measurements: each is (S1) ‚Äî the scaling law with one
+-- kernel-checked numeric gap ‚Äî and a fifth instance at 10¬π¬≥ is (S2)
 -- itself, with no numeric gap at all.  They are here to show the law has
 -- the points in it, which is the only thing a point is good for.
 ------------------------------------------------------------------------
@@ -55,7 +55,7 @@ open import Residual
 ------------------------------------------------------------------------
 -- 0.  The branch, in the direction `Residual` did not need.
 --
--- `Residual.‚-is-speedup` reads a branch and produces an inequality.
+-- `Residual.‚Üù-is-speedup` reads a branch and produces an inequality.
 -- Here the inequality is what the scaling law produces, so the converse
 -- is what is needed: a speedup *is* the third branch.  Truncated
 -- subtraction is positive exactly when the subtrahend is smaller.
@@ -83,8 +83,8 @@ module Scaling (k : ‚Ñï) where
   open TD  k public
 
   ----------------------------------------------------------------------
-  -- 1a.  Powers of the base.  Only b ‚â 2 is used, and it is used as the
-  --      definitional unfolding b ¬ x = x + (x + k ¬ x).
+  -- 1a.  Powers of the base.  Only b ‚â• 2 is used, and it is used as the
+  --      definitional unfolding b ¬∑ x = x + (x + k ¬∑ x).
   ----------------------------------------------------------------------
 
   pow-suc-eq : (n : ‚Ñï) ‚Üí b ^ suc n ‚â° b ^ n + (b ^ n + k ¬∑ b ^ n)
@@ -97,7 +97,7 @@ module Scaling (k : ‚Ñï) where
   pow-pos zero    = ‚â§-refl
   pow-pos (suc n) = ‚â§-trans (pow-pos n) (pow-mono-suc n)
 
-  -- doubling is available at every step, because b ‚â 2
+  -- doubling is available at every step, because b ‚â• 2
   pow-double : (n : ‚Ñï) ‚Üí b ^ n + b ^ n ‚â§ b ^ suc n
   pow-double n =
     subst (b ^ n + b ^ n ‚â§_) (sym (pow-suc-eq n))
@@ -122,9 +122,9 @@ module Scaling (k : ‚Ñï) where
   ----------------------------------------------------------------------
   -- 1b.  Linear loses to exponential, with an explicit threshold.
   --
-  --      For every constant A: A + n + 2 < b ^ n as soon as n ‚â 4 + A.
-  --      The threshold is uniform in the base ‚î it is the b = 2 answer,
-  --      so for larger b it is sufficient but far from sharp.  ¬ß3d‚ì3f
+  --      For every constant A: A + n + 2 < b ^ n as soon as n ‚â• 4 + A.
+  --      The threshold is uniform in the base ‚Äî it is the b = 2 answer,
+  --      so for larger b it is sufficient but far from sharp.  ¬ß3d‚Äì3f
   --      therefore go through (S1) with an explicit gap; ¬ß3g exhibits a
   --      word past the threshold and uses (S2) unaided.
   ----------------------------------------------------------------------
@@ -158,7 +158,7 @@ module Scaling (k : ‚Ñï) where
   ----------------------------------------------------------------------
   -- 1c.  HOME COST IS EXPONENTIAL IN THE LENGTH.
   --
-  --      `Canonical (d ‚à w)` says the most significant digit of the word
+  --      `Canonical (d ‚à∑ w)` says the most significant digit of the word
   --      is positive.  The positional sum then dominates b^(length w),
   --      i.e. b^(L‚àí1) for a word of length L.  This is the whole content
   --      of "the unary test walks the value": the value it walks is
@@ -213,7 +213,7 @@ module Scaling (k : ‚Ñï) where
   bridgeE : ‚Ñï ‚Üí ‚Ñï ‚Üí Bridge unaryP chartP
   bridgeE c c' = chartE c , unchartE c'
 
-  -- The detour, in closed form: 2¬(chart) + (unchart) + (L + 2).
+  -- The detour, in closed form: 2¬∑(chart) + (unchart) + (L + 2).
   detour-eq : (c c' : ‚Ñï) (d : Digit) (w : Word)
             ‚Üí detour (chartE c) (unchartE c') (steps (d ‚à∑ w))
               ‚â° ((c + c) + c') + length w + 2
@@ -242,8 +242,8 @@ module Scaling (k : ‚Ñï) where
     speedup-from-gap c c' d w can
       (lin<pow ((c + c) + c') (length w) long)
 
-  -- (S3)  ‚¶ and therefore the third branch of `Residual`, for every such
-  --       word: the residual œ is nonzero at every length past the
+  -- (S3)  ‚Ä¶ and therefore the third branch of `Residual`, for every such
+  --       word: the residual œ± is nonzero at every length past the
   --       threshold, so the frontier is not an artefact of one numeral.
   canonical-‚Üù :
       (c c' : ‚Ñï) (d : Digit) (w : Word) ‚Üí Canonical (d ‚à∑ w)
@@ -268,8 +268,8 @@ module Scaling (k : ‚Ñï) where
 -- 3.  Base ten, four sizes.  Everything below is kernel-computed.
 --
 -- The words are little-endian, so 10^j is `fone` preceded by j zeros,
--- and each size is the previous one with a zero pushed on the front ‚î
--- value (fzero ‚à w) = 10 ¬ value w, which is the scaling made visible in
+-- and each size is the previous one with a zero pushed on the front ‚Äî
+-- value (fzero ‚à∑ w) = 10 ¬∑ value w, which is the scaling made visible in
 -- the data structure itself.
 ------------------------------------------------------------------------
 
@@ -393,10 +393,10 @@ branch-e6 = refl
 ------------------------------------------------------------------------
 -- 3g.  NON-VACUITY OF THE THRESHOLD.
 --
---      The four instances above are below the threshold of (S2) ‚î they
+--      The four instances above are below the threshold of (S2) ‚Äî they
 --      are (S1) with a gap supplied.  So the quantified theorem is shown
 --      to have an inhabitant too: a canonical word of length 14, where
---      4 + (2¬3 + 3) = 13 ‚â 13 = length of the tail, and NO numeric gap
+--      4 + (2¬∑3 + 3) = 13 ‚â§ 13 = length of the tail, and NO numeric gap
 --      is supplied.  `speedup-e13` is the law alone.
 ------------------------------------------------------------------------
 
@@ -428,30 +428,30 @@ chart-is-better-e13 = canonical-chart-is-better 3 3 fzero t13 can13 long-enough
 ------------------------------------------------------------------------
 -- 4.  What the four points are worth, and what they are not.
 --
--- The detours read 14, 15, 16, 17 while the home costs read 10¬≥ ‚¶ 10‚:
+-- The detours read 14, 15, 16, 17 while the home costs read 10¬≥ ‚Ä¶ 10‚Å∂:
 -- the chart column gains 1 per decade, the home column a factor of ten.
--- That is the exponent ‚î and it is ¬ß1 that proves it, at every length,
--- in every base b ‚â 2, for every canonical word.  Four points cannot
+-- That is the exponent ‚Äî and it is ¬ß1 that proves it, at every length,
+-- in every base b ‚â• 2, for every canonical word.  Four points cannot
 -- establish an exponent, and are not asked to here; `TransportDivWitness`
 -- had one point and therefore had no exponent at all, which is the defect
 -- this module removes.
 --
--- SHARPNESS.  `canonical-speedup` demands 4 + (2c + c‚≤) ‚â length w, which
--- at c = c‚≤ = 3 is 13 digits after the leading one, while the instances
+-- SHARPNESS.  `canonical-speedup` demands 4 + (2c + c‚Ä≤) ‚â§ length w, which
+-- at c = c‚Ä≤ = 3 is 13 digits after the leading one, while the instances
 -- win at 3.  The gap is the price of a threshold uniform in the base:
--- `lin<pow` uses b ‚â 2 and nothing else, so it proves the binary
+-- `lin<pow` uses b ‚â• 2 and nothing else, so it proves the binary
 -- statement and applies it everywhere.  Nothing here fits a base-ten
 -- threshold, because (S1) already accepts whatever numeric gap a given
--- base supplies and the kernel checks it ‚î a fitted threshold would be
+-- base supplies and the kernel checks it ‚Äî a fitted threshold would be
 -- strictly worse than either.
 --
--- COST OF CHECKING.  All of ¬ß3 ‚î including value e6 ‚â° 10‚ and value e13 ‚â° 10¬¬≥ by `refl` ‚î
+-- COST OF CHECKING.  All of ¬ß3 ‚Äî including value e6 ‚â° 10‚ and value e13 ‚â° 10¬¬≥ by `refl` ‚î
 -- is cheap to check, because `Cubical.Data.Nat` is
--- `Agda.Builtin.Nat` and its `+` and `¬` are GMP-backed on closed
+-- `Agda.Builtin.Nat` and its `+` and `¬∑` are GMP-backed on closed
 -- literals; the numerals are never walked in unary.  One practical
 -- caveat: the numeric gaps of ¬ß3d must
 -- be NAMED definitions.  Inlining `(9984 , refl)` as an argument to
 -- `speedup-from-gap` sends the elaborator down a path that normalises
--- the ‚â-witness arithmetic symbolically ‚î a fact about Agda's constraint solver, not about the
+-- the ‚â-witness arithmetic symbolically ‚Äî a fact about Agda's constraint solver, not about the
 -- mathematics, and one that the named form avoids entirely.
 ------------------------------------------------------------------------

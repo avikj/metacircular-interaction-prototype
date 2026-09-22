@@ -1,32 +1,32 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- FiniteExplicitFormula � for a polynomial P(z) = (1 − ��z)(1 − ��z)(1 − ��z)
--- = 1 − e�z + e�z² − e�z³ the power sums p_k = �� + �� + �� satisfy
+-- FiniteExplicitFormula — for a polynomial P(z) = (1 − α₁z)(1 − α₂z)(1 − α₃z)
+-- = 1 − e₁z + e₂z² − e₃z³ the power sums p_k = α₁ᵏ + α₂ᵏ + α₃ᵏ satisfy
 --
---     p� = e�,  p� = e�p� − 2e�,  p� = e�p� − e�p� + 3e�,
---     p_k = e�p_{k−1} − e�p_{k−2} + e�p_{k−3}   (k � 4),
+--     p₁ = e₁,  p₂ = e₁p₁ − 2e₂,  p₃ = e₁p₂ − e₂p₁ + 3e₃,
+--     p_k = e₁p_{k−1} − e₂p_{k−2} + e₃p_{k−3}   (k ≥ 4),
 --
--- which is, coefficient by coefficient, the identity −z P�(z)/P(z) =
--- �_k p_k z�: the logarithmic derivative of the "zeta polynomial" is the
+-- which is, coefficient by coefficient, the identity −z P′(z)/P(z) =
+-- Σ_k p_k zᵏ: the logarithmic derivative of the "zeta polynomial" is the
 -- generating function of the power sums.  That identity IS the explicit
--- formula in its finite form: the left side is the zero side (the �_i
+-- formula in its finite form: the left side is the zero side (the α_i
 -- are the reciprocal zeros of P), the right side is the prime side (for
--- a curve over F_q, p_k counts the F_{q�}-points against q� + 1).  And
--- the growth of p_k is governed by the largest |�_i|: the finite
--- Riemann hypothesis is the statement that all |�_i| are equal.
+-- a curve over F_q, p_k counts the F_{qᵏ}-points against qᵏ + 1).  And
+-- the growth of p_k is governed by the largest |α_i|: the finite
+-- Riemann hypothesis is the statement that all |α_i| are equal.
 --
--- WHAT THIS IS.  The remainder of the RH line � "the explicit formula
--- for one receiver" � in the only form the corpus can carry exactly:
+-- WHAT THIS IS.  The remainder of the RH line — "the explicit formula
+-- for one receiver" — in the only form the corpus can carry exactly:
 -- for a finite zero set, the explicit formula is Newton's identities,
 -- and the growth reading (Theorem 4 of the prime-boundary document) is
 -- the comparison of a power sum with the largest root.
 --
 --   §1  Newton's identities to order 4 and the recursion, over any
 --       commutative ring (solver);
---   §2  over �, roots (β , 1 , 1) with 2 � β: 2� � p_k for every k � the
+--   §2  over ℕ, roots (β , 1 , 1) with 2 ≤ β: 2ᵏ ≤ p_k for every k — the
 --       power sums grow at least like the largest root; and at β = 2
---       the values p_k = 2� + 2 read back by computation.
+--       the values p_k = 2ᵏ + 2 read back by computation.
 ------------------------------------------------------------------------
 
 module FiniteExplicitFormula_NewtonsIdentitiesArePowerSumsOfTheRootsEqualToCoefficientRecursionsAndTheGrowthOfThePowerSumsIsTheLargestRoot where
@@ -79,7 +79,7 @@ module Newton {ℓ : Level} (R' : CommRing ℓ) where
              ≡ e₁ α β γ ·r p α β γ (suc (suc k)) +r neg (e₂ α β γ ·r p α β γ (suc k)) +r e₃ α β γ ·r p α β γ k
   newton-rec α β γ k = lemma (pow α k) (pow β k) (pow γ k)
     where
-      -- with A = ε etc., both sides are polynomial in � β γ A B C
+      -- with A = αᵏ etc., both sides are polynomial in α β γ A B C
       lemma : (A B C : K)
             → (α ·r (α ·r (α ·r A)) +r β ·r (β ·r (β ·r B)) +r γ ·r (γ ·r (γ ·r C)))
             ≡ e₁ α β γ ·r (α ·r (α ·r A) +r β ·r (β ·r B) +r γ ·r (γ ·r C))
@@ -88,19 +88,19 @@ module Newton {ℓ : Level} (R' : CommRing ℓ) where
       lemma A B C = solve! R'
 
 ------------------------------------------------------------------------
--- §2  the growth reading over �
+-- §2  the growth reading over ℕ
 ------------------------------------------------------------------------
 
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
 open import Cubical.Data.Int using (ℤ ; pos ; negsuc)
 
--- over �, roots (2 , 1 , 1): p_k = 2� + 2
+-- over ℤ, roots (2 , 1 , 1): p_k = 2ᵏ + 2
 module ℤN = Newton ℤCommRing
 
 p-2-1-1 : (ℤN.p (pos 2) (pos 1) (pos 1) 10 ≡ pos 1026) × (ℤN.p (pos 2) (pos 1) (pos 1) 3 ≡ pos 10)
 p-2-1-1 = refl , refl
 
--- over �: 2� � β� + 1 + 1 whenever 2 � β
+-- over ℕ: 2ᵏ ≤ βᵏ + 1 + 1 whenever 2 ≤ β
 powℕ : ℕ → ℕ → ℕ
 powℕ x zero = 1
 powℕ x (suc n) = x · powℕ x n
@@ -110,7 +110,7 @@ pow-mono β 2≤β zero = ≤-refl
 pow-mono β 2≤β (suc k) =
   ≤-trans (≤-·k {k = powℕ 2 k} 2≤β) (≤-k+' {β} (pow-mono β 2≤β k))
   where
-    -- β � x � β � y from x � y
+    -- β · x ≤ β · y from x ≤ y
     ≤-k+' : {b : ℕ} {x y : ℕ} → x ≤ y → b · x ≤ b · y
     ≤-k+' {b} {x} {y} x≤y = subst2 _≤_ (·-comm x b) (·-comm y b) (≤-·k {k = b} x≤y)
 

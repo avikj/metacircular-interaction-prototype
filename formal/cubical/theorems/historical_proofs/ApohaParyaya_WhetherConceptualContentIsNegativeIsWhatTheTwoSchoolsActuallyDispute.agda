@@ -19,7 +19,7 @@
 -- incompatibility as a checked object WITHOUT resolving it.  Prose has to
 -- pick a side or blend.  A type theory does not.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- SOURCES, WITH THE GRADE OF EACH STATED.
 --
 -- Bauddha side.  Dignga, *Pramasamuccaya* (c. 480-540), for apoha:
@@ -137,8 +137,8 @@ DviApoha A s = Â¬ (Â¬ (A s))
 -- 2.  AN EXCLUSION IS PROPOSITION-VALUED.  Necessarily, on either
 --     reading, with no hypothesis whatsoever.
 --
--- This is the whole engine and it is three lines.  `Â A` is `A â’ âŠ`; a
--- Î  into a proposition is a proposition; âŠ is a proposition.
+-- This is the whole engine and it is three lines.  `Â¬ A` is `A â†’ âŠ¥`; a
+-- Î  into a proposition is a proposition; âŠ¥ is a proposition.
 ------------------------------------------------------------------------
 
 apoha-isProp : {S : Type â„“} (A : S â†’ Type â„“') (s : S) â†’ isProp (Apoha A s)
@@ -150,7 +150,7 @@ dviApoha-isProp A s = isPropÂ¬ (Â¬ (A s))
 ------------------------------------------------------------------------
 -- 3.  SO THE BAUDDHA DOES NOT ASSUME THE DEFLATION.  HE DERIVES IT.
 --
--- cf-archivist's `entailâ’agree-onProps` needs `(s : S) â’ isProp (P s)`.
+-- cf-archivist's `entailâ†’agree-onProps` needs `(s : S) â†’ isProp (P s)`.
 -- For an apoha-family that hypothesis is discharged by Â§2, from nothing.
 -- Hence: among Bauddha standpoints, mutual entailment already IS full
 -- agreement, and the aneknta prohibition says nothing a biconditional
@@ -240,7 +240,7 @@ paryaya-can-separate = Mixed , Mixed-entails , Mixed-not-agree
 -- dispute took historically rather than merely restating it: the Bauddha
 -- CANNOT SEE HIS OWN COMMITMENT, because propositionality reaches him as
 -- a consequence of apoha and never as an axiom about standpoints.  From
--- inside, the Jaina is asserting P and ÂP of one thing.  From the Jaina
+-- inside, the Jaina is asserting P and Â¬P of one thing.  From the Jaina
 -- side the Bauddha has assumed the answer in his semantics.  Both
 -- experiences are accurate given the commitments, which is why centuries
 -- of the exchange produced no concession from either.

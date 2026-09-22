@@ -1,28 +1,28 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡µ‡‡∞‡‡‡ô‡‡ó‡ ‚î the quotient cannot host the type of witnesses, and the
+-- ‡§Ö‡§µ‡§§‡§∞‡§£‡§≠‡§ô‡•ç‡§ó‡§É ‚Äî the quotient cannot host the type of witnesses, and the
 -- proof is one transport.
 --
--- TERM.  ‡‡µ‡‡∞‡ (descent ‚î this library's own word for it, from
--- LosslessReturn) and ‡‡ô‡‡ó (break, and the word the saptabhag uses for
--- its positions).  The compound ‡‡µ‡‡∞‡-‡‡ô‡‡ó, "the break of descent", is
+-- TERM.  ‡§Ö‡§µ‡§§‡§∞‡§£ (descent ‚Äî this library's own word for it, from
+-- LosslessReturn) and ‡§≠‡§ô‡•ç‡§ó (break, and the word the saptabha·πÖgƒ´ uses for
+-- its positions).  The compound ‡§Ö‡§µ‡§§‡§∞‡§£-‡§≠‡§ô‡•ç‡§ó, "the break of descent", is
 -- built here.
 --
--- The "dependent novelty" generalization ‡‡µ‡‡∞‡-‡‡ô‡‡ó-‡‡æ‡Æ‡æ‡®‡‡Ø‡Æ‡ ‚î the
+-- The "dependent novelty" generalization ‡‡µ‡‡∞‡-‡‡ô‡‡ó-‡‡æ‡Æ‡æ‡®‡‡Ø‡Æ‡ ‚Äî the
 -- inhabited/empty contrast weakened to mere non-equivalence of the
 -- fibres, via pathToEquiv.  The inhabited/empty theorem becomes the
 -- cheapest instance of it.
 --
 -- KramaNiyama: two laws live on
--- the same carrier ‚ ó ‚; one admits the generator-commutation filler and the
+-- the same carrier ‚Ñ§ √ó ‚Ñ§; one admits the generator-commutation filler and the
 -- other refutes it; no Bool-valued succession receptor factors through the
 -- carrier-only transcript.
 --
 -- This probe asks for the stronger dependent statement.  The target is not a
 -- Boolean report ABOUT a filler.  It is the TYPE OF FILLERS itself:
 --
---     Filler Œº = Œº g‚ g‚ ‚â° Œº g‚ g‚.
+--     Filler Œº = Œº g‚ÇÅ g‚ÇÇ ‚â° Œº g‚ÇÇ g‚ÇÅ.
 --
 -- If this family factored through the carrier transcript, equal transcripts
 -- would identify the two filler types.  Cubical transport would then carry
@@ -98,7 +98,7 @@ sameCarrierTranscript =
 
 -- THE DEPENDENT NO-GO.  The type of commutation fillers does not descend to
 -- the carrier-only transcript.  Were it to descend, transport would turn
--- K.‡‡Æ‡Æ‡ into an inhabitant forbidden by K.‡µ‡ø‡‡Æ‡Æ‡.
+-- K.‡§∏‡§Æ‡§Æ‡•ç into an inhabitant forbidden by K.‡§µ‡§ø‡§∑‡§Æ‡§Æ‡•ç.
 fillerDoesNotFactorThroughCarrier :
   ¬¨ DependentFactorsThrough carrierTranscript Filler
 fillerDoesNotFactorThroughCarrier =
@@ -107,7 +107,7 @@ fillerDoesNotFactorThroughCarrier =
     sameCarrierTranscript K.‡§∏‡§Æ‡§Æ‡•ç K.‡§µ‡§ø‡§∑‡§Æ‡§Æ‡•ç
 
 ------------------------------------------------------------------------
--- 3. ‡‡µ‡‡∞‡-‡‡ô‡‡ó-‡‡æ‡Æ‡æ‡®‡‡Ø‡Æ‡ ‚î the generalization:
+-- 3. ‡‡µ‡‡∞‡-‡‡ô‡‡ó-‡‡æ‡Æ‡æ‡®‡‡Ø‡Æ‡ ‚Äî the generalization:
 -- the fibres need not be inhabited/empty; MERE NON-EQUIVALENCE of the
 -- two fibres over a collision already refutes descent, because a
 -- factorization forces a path of types and pathToEquiv turns it into

@@ -6,7 +6,7 @@
 -- DELTA 15 (THEOREM FACTORY II) IN THE MACHINE CORE.
 --
 -- Delta 14 gave the transport toolkit (`PerspectiveCore`)
--- and the w�r instance (`CenterRelative`).  Delta 15 is
+-- and the w±r instance (`CenterRelative`).  Delta 15 is
 -- about what happens when transport does NOT go through, and its own
 -- summary is the reason this file exists:
 --
@@ -23,16 +23,16 @@
 -- WHAT IS CHECKED, BY DELTA-15 NUMBER
 --
 --   §1  `StructuredEquiv`     D15.5.
---       `notEquiv-not-str`    P15.6, concretely: `not : Bool � Bool` is a
+--       `notEquiv-not-str`    P15.6, concretely: `not : Bool ≃ Bool` is a
 --                             bare equivalence that does NOT carry the
 --                             distinguished point `true` to `true`.
---       `idEquiv-is-str`      � and the positive control, without which
+--       `idEquiv-is-str`      … and the positive control, without which
 --                             the previous line would be evidence that
 --                             the definition is unsatisfiable rather
 --                             than evidence about `not`.
 --
 --   §2  `Def`                 D15.83, the STRUCTURED DEFECT TYPE, and
---       `upgrade`/`downgrade` T15.84 both ways � which is definitional,
+--       `upgrade`/`downgrade` T15.84 both ways — which is definitional,
 --                             and this file says so instead of dressing
 --                             it up.  The content is C15.85: the defect
 --                             is a TYPE, so it can be inhabited,
@@ -40,7 +40,7 @@
 --                             an incompatibility now has something
 --                             specific to refute.
 --
---   §3  `noEquiv�badFibre`    T15.81 / C15.82: a failed equivalence hands
+--   §3  `noEquiv→badFibre`    T15.81 / C15.82: a failed equivalence hands
 --                             back a reconstruction question located in
 --                             a specific fibre.
 --
@@ -49,16 +49,16 @@
 --
 --   §5  `PolarBreak`          §15.4: D15.13's defect locus as a type,
 --       `polar-restricts`     T15.12 sufficient direction, T15.14 as
---       `polar-break��pres`   `break � � preserves`.
+--       `polar-break→¬pres`   `break → ¬ preserves`.
 --
 --   §6  `HasShift`,`shift-∘`  §15.6: D15.21, T15.22 (shifts add under
 --       `shift-restricts`     composition), T15.24 (a degree-δ map
---                             restricts `X c � X (c � δ)`).
+--                             restricts `X c → X (c · δ)`).
 --
 --   §7  `Coequalizes`,        §15.10: D15.39 kernel pair, T15.40 both
---       `descend-coeq`,       ways � but the substantive direction only
+--       `descend-coeq`,       ways — but the substantive direction only
 --       `descends-split`      for a SPLIT surjection; the section is what
---                             supplies `g`.  C15.41 is the reading � the
+--                             supplies `g`.  C15.41 is the reading — the
 --                             kernel pair, not the quotient label, is
 --                             the carrier of what must be irrelevant.
 --
@@ -80,7 +80,7 @@
 --                             Delta 15 calls this "executable pruning
 --                             without special refutation edges".
 --
---   §9  `invariant-separates` T15.73 � sharper than the directive
+--   §9  `invariant-separates` T15.73 — sharper than the directive
 --                             suggests.  Under univalence EVERY function
 --                             out of the universe is an
 --                             equivalence-invariant, so no invariance
@@ -157,8 +157,8 @@ Def : (Str : Type ℓ → Type ℓ') {A B : Type ℓ}
     → (e : A ≃ B) → Str A → Str B → Type ℓ'
 Def Str e sA sB = subst Str (ua e) sA ≡ sB
 
--- T15.84, both directions.  This is DEFINITIONAL � `StructuredEquiv` is
--- a � whose second component is exactly `Def` � and saying so is more
+-- T15.84, both directions.  This is DEFINITIONAL — `StructuredEquiv` is
+-- a Σ whose second component is exactly `Def` — and saying so is more
 -- useful than presenting it as a theorem.  What is not definitional, and
 -- is the actual point, is C15.85: `Def` is a type, so "the structures
 -- are incompatible" becomes a refutable statement rather than a mood.
@@ -178,7 +178,7 @@ pointDefect-refuted : Def Pointed notEquiv true true → ⊥
 pointDefect-refuted = notEquiv-not-str
 
 ------------------------------------------------------------------------
--- 3.  THE EQUIVALENCE�DEFECT DICHOTOMY  (T15.81, C15.82)
+-- 3.  THE EQUIVALENCE–DEFECT DICHOTOMY  (T15.81, C15.82)
 --
 -- Delta 15: "if f is an equivalence, all equivalence-invariant
 -- mathematics transports; if it is not, at least one of its homotopy
@@ -247,7 +247,7 @@ module _ {A : Type ℓ} (J : A → A) (P : A → Type ℓ') where
   PolarBreak : Type _
   PolarBreak = Σ[ a ∈ A ] (P a × (P (J a) → ⊥))
 
-  -- T15.14.  A break refutes preservation.  (Delta 15's "D = � iff J
+  -- T15.14.  A break refutes preservation.  (Delta 15's "D = ∅ iff J
   -- preserves P" is the set-level shadow of this; in a proof-relevant
   -- setting the inhabited/uninhabited statement is the exact one.)
   polar-break→¬pres : PolarBreak → ((a : A) → P a → P (J a)) → ⊥
@@ -256,7 +256,7 @@ module _ {A : Type ℓ} (J : A → A) (P : A → Type ℓ') where
 ------------------------------------------------------------------------
 -- 6.  CHARGE GRADING  (§15.6: D15.21, T15.22, T15.24)
 --
--- `C` is the charge carrier with a composition `_�_`.  A map of the
+-- `C` is the charge carrier with a composition `_·_`.  A map of the
 -- total space has shift δ when it moves the base uniformly by δ.
 ------------------------------------------------------------------------
 
@@ -270,13 +270,13 @@ module Graded {C : Type ℓ} (_·_ : C → C → C)
   HasShift : (Total → Total) → C → Type _
   HasShift T δ = (t : Total) → T t .fst ≡ (t .fst) · δ
 
-  -- T15.24.  A degree-δ map restricts to `X c � X (c � δ)`.
+  -- T15.24.  A degree-δ map restricts to `X c → X (c · δ)`.
   shift-restricts :
     (T : Total → Total) (δ : C) → HasShift T δ
     → (c : C) → X c → X (c · δ)
   shift-restricts T δ hs c x = subst X (hs (c , x)) (T (c , x) .snd)
 
-  -- T15.22.  Shifts add under composition.  Associativity of `_�_` is
+  -- T15.22.  Shifts add under composition.  Associativity of `_·_` is
   -- exactly what is needed and is therefore a hypothesis, not an
   -- assumption smuggled in.
   shift-∘ :
@@ -306,13 +306,13 @@ module _ {A : Type ℓ} {B : Type ℓ'} {C : Type ℓ''} (q : A → B) (f : A �
 -- general surjection is `EffectiveDescent`, where the set hypothesis on
 -- `C` is needed and `SetQuotients` is not.  `PT.rec�Set` (a 2-Constant
 -- map into a set factors through `�_��`) builds `g` with no quotient
--- constructed � the same argument `FiniteInformation`'s
+-- constructed — the same argument `FiniteInformation`'s
 -- `fiberConstant�factorsThrough` runs for `Image q`.
 -- That module also proves the factorisation UNIQUE, packages the pair
--- as an equivalence `(B � C) � �[ f ] Coequalizes q f`, and proves the
+-- as an equivalence `(B → C) ≃ Σ[ f ] Coequalizes q f`, and proves the
 -- converse: injectivity of that map at the single set `hProp` forces `q`
 -- surjective.  So surjectivity there is not a convenience hypothesis, and
--- `descends-split` below is recovered � with the same resulting `g` �
+-- `descends-split` below is recovered — with the same resulting `g` —
 -- as `EffectiveDescent.split-descent-agrees`.
 descends-split :
   {A : Type ℓ} {B : Type ℓ'} {C : Type ℓ''}
@@ -332,7 +332,7 @@ refute-∘ : (A → ⊥) → (B → A) → (B → ⊥)
 refute-∘ f g = f ∘ g
 
 -- T15.70 / C15.71.  A refutation transports across equivalence exactly
--- as a positive theorem does � no separate machinery.
+-- as a positive theorem does — no separate machinery.
 refute-transport : (A ≃ B) → (A → ⊥) → (B → ⊥)
 refute-transport e f = f ∘ invEq e
 

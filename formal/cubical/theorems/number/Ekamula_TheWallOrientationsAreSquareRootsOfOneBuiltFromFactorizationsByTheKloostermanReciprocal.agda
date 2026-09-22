@@ -1,37 +1,37 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������ � the roots of one.  The two-wall crystal's facets ARE the
+-- एकमूल — the roots of one.  The two-wall crystal's facets ARE the
 -- square roots of 1 mod d, each built from an ordered coprime
 -- factorization d = uv by the reciprocal
 --
---     x  =  1 − 2�u�       ( = u�� mod v),
+--     x  =  1 − 2·u·ū       (ū = u⁻¹ mod v),
 --
--- for which x ≡ 1 (mod u) and x ≡ −1 (mod v) � the orientation of every
+-- for which x ≡ 1 (mod u) and x ≡ −1 (mod v) — the orientation of every
 -- prime facet.  The reciprocal /v inside x IS the Kloosterman fraction
--- e(−2ak�/v): the phase at the analytic boundary is the Fourier image
+-- e(−2ak·ū/v): the phase at the analytic boundary is the Fourier image
 -- of choosing which forbidden wall each prime reflects from.
 --
 -- WHY THIS IS THE MISSING COORDINATE.  Parity records only the PRODUCT
--- of facet orientations (μ(d)=��1).  The involution x records ALL of
+-- of facet orientations (μ(d)=∏±1).  The involution x records ALL of
 -- them: x ≡ 1 on the u-primes (reflect from +a), x ≡ −1 on the v-primes
--- (reflect from −a).  The state is (u,v), not d � different
+-- (reflect from −a).  The state is (u,v), not d — different
 -- factorizations give different roots, hence different phases /v: a
 -- real Kloosterman geometry.  Averaging over UNLABELLED factorizations
 -- is empty; over WALL-LABELLED ones it moves.  This module makes the
--- label � the root from (u,v,) � a term.
+-- label — the root from (u,v,ū) — a term.
 --
--- CHECKED (over �, m � n := � k, n = k�m):
---   §1 root-mod-u : always u � (x + (−1))            [x ≡ 1 (mod u)]
---   §2 root-mod-v : v � (u� + (−1)) � v � (x + 1)    [x ≡ −1 (mod v)]
---   §3 involution : u � (x² + (−1)) and v � (x² + (−1))
+-- CHECKED (over ℤ, m ∣ n := Σ k, n = k·m):
+--   §1 root-mod-u : always u ∣ (x + (−1))            [x ≡ 1 (mod u)]
+--   §2 root-mod-v : v ∣ (u·ū + (−1)) → v ∣ (x + 1)    [x ≡ −1 (mod v)]
+--   §3 involution : u ∣ (x² + (−1)) and v ∣ (x² + (−1))
 --
 -- x² ≡ 1 (mod uv) from §3 needs (u,v) coprime, a declared
 -- hypothesis.
 --
 -- Note on method: ring identities are proved with the CONSTANTS 1,2 kept
 -- as variables (genU/genV/sqFactor) and instantiated, because a literal
--- `+ (- pos 1)` reduces to pred� and the ring solver cannot parse it.
+-- `+ (- pos 1)` reduces to predℤ and the ring solver cannot parse it.
 ------------------------------------------------------------------------
 
 module Ekamula_TheWallOrientationsAreSquareRootsOfOneBuiltFromFactorizationsByTheKloostermanReciprocal where
@@ -49,7 +49,7 @@ root : ℤ → ℤ → ℤ
 root u ū = pos 1 + (- (pos 2 · (u · ū)))
 
 private
-  -- ring identities with 1,2 as variables (so the solver never meets pred�).
+  -- ring identities with 1,2 as variables (so the solver never meets predℤ).
   genU : (one two u ū : ℤ)
        → ((one + (- (two · (u · ū)))) + (- one)) ≡ (- (two · ū)) · u
   genU one two u ū = solve! ℤCommRing
@@ -66,12 +66,12 @@ private
   sqFactor one x hyp = solve! ℤCommRing ∙ cong (λ w → (x · x) + (- w)) hyp
 
 ------------------------------------------------------------------------
--- §1 � x ≡ 1 (mod u), ALWAYS.
+-- §1 · x ≡ 1 (mod u), ALWAYS.
 root-mod-u : (u ū : ℤ) → u ∣ (root u ū + (- pos 1))
 root-mod-u u ū = (- (pos 2 · ū)) , genU (pos 1) (pos 2) u ū
 
 ------------------------------------------------------------------------
--- §2 � x ≡ −1 (mod v), GIVEN u� ≡ 1 (mod v).
+-- §2 · x ≡ −1 (mod v), GIVEN u·ū ≡ 1 (mod v).
 root-mod-v : (u ū v : ℤ) → v ∣ (u · ū + (- pos 1)) → v ∣ (root u ū + pos 1)
 root-mod-v u ū v (k , e) = (- (pos 2 · k)) , goal
   where
@@ -81,7 +81,7 @@ root-mod-v u ū v (k , e) = (- (pos 2 · k)) , goal
        ∙ reassoc (pos 2) k v
 
 ------------------------------------------------------------------------
--- §3 � x² ≡ 1 at each leg.
+-- §3 · x² ≡ 1 at each leg.
 sq : ℤ → ℤ
 sq x = x · x
 

@@ -1,4 +1,4 @@
-# Native Bitcoin mining run â” executor handoff
+# Native Bitcoin mining run â€” executor handoff
 
 ## Run this
 

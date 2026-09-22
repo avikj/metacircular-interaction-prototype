@@ -4,17 +4,17 @@
 -- NaturalMachine.Nirvyaja_TheReceiptIsSpentAtGeneration
 --                          AndTheReplayNeedsNone
 --
--- TERM.  ‡®‡ø‡∞‡‡µ‡‡Ø‡æ‡ ¬ nir-vyja -- "without ‡µ‡‡Ø‡æ‡".  ‡µ‡‡Ø‡æ‡ is a pretext, a
+-- TERM.  ‡§®‡§ø‡§∞‡•ç‡§µ‡•ç‡§Ø‡§æ‡§ú ¬∑ nir-vyƒÅja -- "without ‡§µ‡•ç‡§Ø‡§æ‡§ú".  ‡§µ‡•ç‡§Ø‡§æ‡§ú is a pretext, a
 -- pretence, a charge one produces to be allowed to act -- a receipt, a
 -- token, an authority.  The compound is a plain  adjective, not a
 -- technical term lifted from a named text.
 -- It is used here only as an exact label for
 -- the fact ¬ß2 proves: the operation the machine keeps is receipt-free.
 --
--- WHAT THIS CONTINUES.  `Samvada_‚¶` ¬ß1 built the first non-trivial
+-- WHAT THIS CONTINUES.  `Samvada_‚Ä¶` ¬ß1 built the first non-trivial
 -- `Control` in the corpus: `demand R d`, an operation the caller may fire
 -- only by ALSO handing over an `R` -- a receipt, an authority, a cost
--- witness, an oracle token.  `Samvada_‚¶` ¬ß2 closed the learning loop:
+-- witness, an oracle token.  `Samvada_‚Ä¶` ¬ß2 closed the learning loop:
 -- `learn = install ‚àò CheckedFuture.derivation`.  Put the two together and a
 -- fact falls out that neither states, and it is the whole strategic content
 -- of this project reduced to a definitional equality:
@@ -22,7 +22,7 @@
 --   THE RECEIPT IS SPENT ONCE, AT GENERATION, AND NEVER AT REPLAY.
 --
 -- To FIRE `demand R d` you must produce an `R` (¬ß1).  But `execute` throws
--- the caller's control away -- `CheckedFuture` (Type‚) keeps only the new
+-- the caller's control away -- `CheckedFuture` (Type‚ÇÄ) keeps only the new
 -- term and the derivation, "small, replayable, and free of who asked"
 -- (Samvada ¬ß0).  So the operation the machine LEARNS from a demanded turn is
 -- `install (derivation)`, whose `Control t` is `t ‚â° source` -- the trivial
@@ -82,7 +82,7 @@ learned R d r = learn (execute (demanded-future R d r))
 
 -- The learned control at its own source has NO receipt component: it is
 -- exactly a path, definitionally.  (Compare `demand`'s control, which is a
--- path ó R.)
+-- path √ó R.)
 replay-control-is-just-a-path :
   {lhs rhs : Tm} (R : Type‚ÇÄ) (d : Derivation lhs rhs) (r : R) (t : Tm)
   ‚Üí NativeOperation.Control (learned R d r) t ‚â° (t ‚â° lhs)

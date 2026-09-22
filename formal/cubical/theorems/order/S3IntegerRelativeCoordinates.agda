@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
--- Exact coordinates on the augmentation-zero lattice.  Over � the relative
--- plane is �² via (a,b) � (a,b,-a-b).  The radial intersection is the
+-- Exact coordinates on the augmentation-zero lattice.  Over ℤ the relative
+-- plane is ℤ² via (a,b) ↦ (a,b,-a-b).  The radial intersection is the
 -- 3-torsion kernel, which is then proved zero using integer torsion-freeness.
 
 module S3IntegerRelativeCoordinates where
@@ -113,8 +113,8 @@ Iso.inv intersectionKernelIso = kernelToIntersection
 Iso.rightInv intersectionKernelIso = intersection-kernel-right
 Iso.leftInv intersectionKernelIso = intersection-kernel-left
 
--- 3t=0 implies t=0 in �.  The ring solver changes additive `triple` into
--- multiplication by positive three; the library's `�suc�0` supplies the
+-- 3t=0 implies t=0 in ℤ.  The ring solver changes additive `triple` into
+-- multiplication by positive three; the library's `·suc→0` supplies the
 -- torsion-free step.
 triple-zero→zero : (t : ℤ) → triple t ≡ pos 0 → t ≡ pos 0
 triple-zero→zero t p = ·suc→0 t 2 (mul3 t ∙ p)

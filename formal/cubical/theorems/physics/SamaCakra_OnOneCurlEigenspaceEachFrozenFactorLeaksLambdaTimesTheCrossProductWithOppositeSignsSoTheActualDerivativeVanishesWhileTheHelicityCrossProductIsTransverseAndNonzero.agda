@@ -1,20 +1,20 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- ��-����� � the same wheel.
+-- सम-चक्र — the same wheel.
 --
 -- The Beltrami regression control of handoff §9 ([S02]).  With
---     N(u) = P(u � curl u),   A_u v = P(u � curl v),   K_u v = P(v � curl u),
+--     N(u) = P(u × curl u),   A_u v = P(u × curl v),   K_u v = P(v × curl u),
 -- both frozen operators reproduce the source, A_u u = K_u u = N(u), and
 -- the derivative is their sum.  On one curl eigenspace, curl v = λv,
 --
---     A_u v = λ P(u � v),   K_u v = −λ P(u � v),   DN(u) v = 0 :
+--     A_u v = λ P(u × v),   K_u v = −λ P(u × v),   DN(u) v = 0 :
 --
 -- each frozen factor leaks (opposite helicity), the actual derivative
 -- cancels exactly.  Over any commutative ring with an antisymmetric
--- biadditive � and an additive P, with u and v in the λ-eigenspace,
+-- biadditive × and an additive P, with u and v in the λ-eigenspace,
 -- these are checked, together with the explicit positive-helicity
--- cross product  (0,1,i) � (−1,0,i) = (i, −i, 1)  and its transversality
--- to k = p + q = (1,1,0)  (i any element; the 1/�2 normalizations are
+-- cross product  (0,1,i) × (−1,0,i) = (i, −i, 1)  and its transversality
+-- to k = p + q = (1,1,0)  (i any element; the 1/√2 normalizations are
 -- cleared).
 ------------------------------------------------------------------------
 module SamaCakra_OnOneCurlEigenspaceEachFrozenFactorLeaksLambdaTimesTheCrossProductWithOppositeSignsSoTheActualDerivativeVanishesWhileTheHelicityCrossProductIsTransverseAndNonzero where
@@ -37,7 +37,7 @@ module _ (R : CommRing ℓ) where
     A = ⟨ R ⟩
 
   ----------------------------------------------------------------
-  -- � � the eigenspace cancellation
+  -- १ · the eigenspace cancellation
   ----------------------------------------------------------------
   module _ (_⨯_ : A → A → A)
            (⨯-addR : (a b c : A) → a ⨯ (b + c) ≡ a ⨯ b + a ⨯ c)
@@ -61,11 +61,11 @@ module _ (R : CommRing ℓ) where
     K-reproduces : K-frozen u u ≡ N u
     K-reproduces = refl
 
-    -- A_u v = λ P(u � v)
+    -- A_u v = λ P(u × v)
     A-leaks : A-frozen u v ≡ P (λ' · (u ⨯ v))
     A-leaks = cong (λ w → P (u ⨯ w)) ev ∙ cong P (⨯-scaleR λ' u v)
 
-    -- K_u v = −λ P(u � v)   (as P applied to the negative)
+    -- K_u v = −λ P(u × v)   (as P applied to the negative)
     K-leaks : K-frozen u v ≡ P (- (λ' · (u ⨯ v)))
     K-leaks = cong (λ w → P (v ⨯ w)) eu ∙ cong P (⨯-scaleR λ' v u ∙ cong (λ' ·_) (⨯-anti u v) ∙ negR λ' (u ⨯ v))
       where negR : (x y : A) → x · (- y) ≡ - (x · y)
@@ -76,7 +76,7 @@ module _ (R : CommRing ℓ) where
     derivative-vanishes = cong₂ _+_ A-leaks K-leaks ∙ sym (P-add _ _) ∙ cong P (+InvR (λ' · (u ⨯ v)))
 
   ----------------------------------------------------------------
-  -- � � the explicit positive-helicity cross product
+  -- २ · the explicit positive-helicity cross product
   ----------------------------------------------------------------
   -- 3-vectors as triples; cross product componentwise
   V3 : Type ℓ
@@ -89,7 +89,7 @@ module _ (R : CommRing ℓ) where
   dot : V3 → V3 → A
   dot (a₁ , a₂ , a₃) (b₁ , b₂ , b₃) = (a₁ · b₁ + a₂ · b₂) + a₃ · b₃
 
-  -- h_p � (0,1,i), h_q � (−1,0,i):  h_p � h_q � (i, −i, 1)
+  -- h_p ∝ (0,1,i), h_q ∝ (−1,0,i):  h_p × h_q ∝ (i, −i, 1)
   helicity-cross : (i : A) → cross (0r , 1r , i) (- 1r , 0r , i) ≡ (i , - i , 1r)
   helicity-cross i = λ t → (p₁ t , p₂ t , p₃ t)
     where

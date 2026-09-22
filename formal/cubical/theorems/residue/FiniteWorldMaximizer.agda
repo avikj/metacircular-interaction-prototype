@@ -11,24 +11,24 @@
 --
 -- A summary
 -- restates it as "For **every** integral polynomial, every finite `E`
--- has a point that cannot transport � any maximizer of `v_p(f)`",
+-- has a point that cannot transport — any maximizer of `v_p(f)`",
 -- dropping the clause "with `f != 0` on `E`".  Like §C2 (instrumented
 -- by `LineWorldTransport` / `Control/QuantifierDrop`) the drop has no
 -- lexical signature: the shortened sentence contains no wrong word,
 -- only a missing clause.
 --
--- WHAT KIND OF DEFECT THIS IS � stated because it differs from C2's and
+-- WHAT KIND OF DEFECT THIS IS — stated because it differs from C2's and
 -- the difference bounds what the instrument shows.  C2's dropped
 -- hypothesis leaves a sentence that is FALSE.  C1's leaves one the
 -- audit calls "not even well formed": with `f ≡ 0` on `E` every point
--- has `v_p(f) = ∞`, so "any maximizer of `v_p(f)`" � the message's
--- entire proof � denotes nothing.  Ill-formedness is not directly a
+-- has `v_p(f) = ∞`, so "any maximizer of `v_p(f)`" — the message's
+-- entire proof — denotes nothing.  Ill-formedness is not directly a
 -- type-checkable falsehood, so it is TRANSLATED here, by one modelling
 -- decision that must be stated openly: `MaxAt W m` requires the
 -- maximizer `m` to be a point where the observable does not vanish
 -- (`IsFin (W m)`), which is what "the point maximizing `v_p(f)`" has to
 -- mean if it means anything.  Under that reading the dropped-clause
--- statement becomes false � `vanishing-world` has no maximizer at all �
+-- statement becomes false — `vanishing-world` has no maximizer at all —
 -- and `dropped-hypothesis-false` proves it.  A reader who rejects that
 -- reading is left with the weaker but still true claim that the term
 -- cannot be built; the control below exhibits both, since Agda's error
@@ -38,25 +38,25 @@
 -- smallest world that carries the distinction:
 --
 --   * `E` is a two-point set `Pt`; a world is a valuation
---     `W : Pt � Val` with `Val = fin � � ∞`, where `∞` is `v_p(0)`,
+--     `W : Pt → Val` with `Val = fin ℕ ⊎ ∞`, where `∞` is `v_p(0)`,
 --     the valuation at a point where `f` vanishes;
 --   * `NonVanishing W` is the note's clause "`f != 0` on `E`", i.e.
 --     every point has finite valuation;
 --   * `maximizer` produces, from a world AND that certificate, a point
---     together with a proof that no point of `E` exceeds it � the
+--     together with a proof that no point of `E` exceeds it — the
 --     "point maximizing `v_p(f)`" the theorem's proof names.
 --
 -- Everything below is a closed computation or a two-case induction on
 -- �; there is no fitting and no sampling (CLAUDE.md).
--- It contains exactly the step the summary broke � that
--- the maximizer exists � and nothing else.
+-- It contains exactly the step the summary broke — that
+-- the maximizer exists — and nothing else.
 --
 -- HEADLINE TERMS
 --   maximizer               the theorem's witness, hypothesis in the type
 --   vanishing-world         the world `f ≡ 0` on `E`
 --   vanishing-has-no-certificate   it satisfies no nonvanishing hypothesis
 --   vanishing-world-has-no-maximizer  and has no maximizer either
---   dropped-hypothesis-false        the clause-dropped reading implies �
+--   dropped-hypothesis-false        the clause-dropped reading implies ⊥
 ------------------------------------------------------------------------
 
 module FiniteWorldMaximizer where
@@ -71,7 +71,7 @@ open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Empty using (⊥) renaming (rec to ⊥-rec)
 
 ------------------------------------------------------------------------
--- 0.  Order on �, as a computed Bool, with the two facts needed.
+-- 0.  Order on ℕ, as a computed Bool, with the two facts needed.
 
 le : ℕ → ℕ → Bool
 le zero    _       = true
@@ -92,7 +92,7 @@ dich true  = inl refl
 dich false = inr refl
 
 ------------------------------------------------------------------------
--- 1.  Worlds.  `E = {x�,x�}`; `Val` is � � {∞}, and `∞ = v_p(0)` is the
+-- 1.  Worlds.  `E = {x₁,x₂}`; `Val` is ℕ ∪ {∞}, and `∞ = v_p(0)` is the
 --     valuation at a point where the observable vanishes.
 
 data Pt : Type where
@@ -113,25 +113,25 @@ IsFin ∞       = ⊥
 NonVanishing : World → Type
 NonVanishing W = (q : Pt) → IsFin (W q)
 
--- The valuation as a number � available only where `f` does not vanish.
+-- The valuation as a number — available only where `f` does not vanish.
 num : (v : Val) → IsFin v → ℕ
 num (fin n) _ = n
 
 ------------------------------------------------------------------------
 -- 2.  The theorem's witness: a point no other point exceeds.  The
 --     nonvanishing certificate is an argument, so the term cannot be
---     written without it � which is the whole content of the clause the
+--     written without it — which is the whole content of the clause the
 --     summary dropped.
 
 -- The valuation does not depend on which nonvanishing certificate is
--- offered (`IsFin v` is `Unit` or `�`).
+-- offered (`IsFin v` is `Unit` or `⊥`).
 num-irr : (v : Val) (p q : IsFin v) → num v p ≡ num v q
 num-irr (fin n) _ _ = refl
 num-irr ∞       p _ = ⊥-rec p
 
 -- "m maximizes v_p(f)": the observable does not vanish at m, and no
 -- point of E has larger valuation.  Note this does NOT mention a global
--- certificate � it is statable for an arbitrary world, which is what
+-- certificate — it is statable for an arbitrary world, which is what
 -- lets the dropped-hypothesis reading be stated and refuted rather than
 -- merely left unbuildable.
 MaxAt : World → Pt → Type
@@ -174,8 +174,8 @@ half-vanishing-has-no-certificate : NonVanishing half-vanishing-world → ⊥
 half-vanishing-has-no-certificate h = h x₂
 
 ------------------------------------------------------------------------
--- 4.  Therefore the hypothesis-dropped reading � "EVERY finite world
---     has a point maximizing v_p(f)" � is false on this model, since
+-- 4.  Therefore the hypothesis-dropped reading — "EVERY finite world
+--     has a point maximizing v_p(f)" — is false on this model, since
 --     `vanishing-world` has no such point at all: the maximizer would
 --     have to be a point where the observable does not vanish, and
 --     there is none.  `NaturalMachine/Control/MaximizerWithoutNonvanishing.agda`

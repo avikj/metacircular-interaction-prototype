@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- ProvenanceIsCarriedAndNeverConsumedSoFreeWasDoingDoubleDuty
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- TWO SENSES OF `free` IN THE FOUR COMPONENTS OF
 -- `ACertifiedRewriteComposesAndOnlyOneComponentNeedsATheorem`.
 --
@@ -13,17 +13,17 @@
 --   symbol.
 --
 --   VACUOUSLY FREE.  Provenance is `List Prov` with NO condition
---   anywhere.  It composes by `++` because nothing constrains it â”
+--   anywhere.  It composes by `++` because nothing constrains it â€”
 --   including `++` itself.  Â§2 below proves the sharp form: **any
 --   certificate's provenance may be REPLACED BY THE EMPTY LIST and the
 --   result is still a certificate.**  So no theorem downstream can ever
 --   recover a step from it.
 --
 -- Those are opposite situations wearing one word.
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
---   len / lenAppend    length is additive over `++`, by induction â”
+--   len / lenAppend    length is additive over `++`, by induction â€”
 --                      v0.5's `Cubical.Data.List.Properties` has
 --                      `length-map` but no `length-++`, so it is proved
 --                      here rather than assumed
@@ -32,7 +32,7 @@
 --                      This is the ONLY thing provenance satisfies.
 --   provenanceMayBeDiscarded
 --                      and it satisfies nothing else: `(s , i , m , _)`
---                      â¦ `(s , i , m , [])` is a certificate for the
+--                      â†¦ `(s , i , m , [])` is a certificate for the
 --                      same pair.  **This is the proof that `free` meant
 --                      `vacuous` here**, and it is the whole finding
 --   provenanceIsNotDeterminedByTheOtherThree
@@ -53,7 +53,7 @@ open import ACertifiedRewriteComposesAndOnlyOneComponentNeedsATheorem
   using (Certified ; composeCertified)
 
 ------------------------------------------------------------------------
--- 1.  Length, and its additivity â” v0.5 ships neither
+-- 1.  Length, and its additivity â€” v0.5 ships neither
 ------------------------------------------------------------------------
 
 len : {â„“ : Level} {A : Type â„“} â†’ List A â†’ â„•
@@ -78,7 +78,7 @@ module _ {Sys B Prov : Type}
 
   -- `Prov` is implicit in `Certified` and appears only in its fourth
   -- component, so no application determines it.  Fixing it once here is
-  -- what makes every statement below have a type at all â” and it is a
+  -- what makes every statement below have a type at all â€” and it is a
   -- small instance of the same point: the provenance type is so
   -- unconstrained that the elaborator cannot find it either.
   Cert : Sys â†’ Sys â†’ Type

@@ -1,21 +1,21 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡æ‡Ø‡æ ‚î the shadow, and what is actually impossible about it.
+-- ‡§õ‡§æ‡§Ø‡§æ ‚Äî the shadow, and what is actually impossible about it.
 --
 -- A bare map
--- ‚à A ‚à‚ ‚í A, EXISTS whenever A is inhabited, and this file exhibits one.
--- What does not exist is a SECTION ‚î a map that returns the witness it
+-- ‚à• A ‚à•‚ÇÅ ‚Üí A, EXISTS whenever A is inhabited, and this file exhibits one.
+-- What does not exist is a SECTION ‚Äî a map that returns the witness it
 -- was given.  That is proved below, unconditionally, for any A carrying
 -- two distinct elements, and then instantiated at the Goldbach fibre of
 -- 10, which carries 3+7 and 5+5.
 --
--- TERM.  ‡‡æ‡Ø‡æ / *chy*, shadow, is `Yantra.Prakasha`'s own coinage in
+-- TERM.  ‡§õ‡§æ‡§Ø‡§æ / *chƒÅyƒÅ*, shadow, is `Yantra.Prakasha`'s own coinage in
 -- this corpus for the truncated form (`G-chaya`), and is carried here for
 -- continuity.  It is NOT a sourced technical term and nothing in any
 -- tradition is cited for it.  The mathematics is propositional
--- truncation ‚î Voevodsky's h-levels, the substrate this repository names
--- as its one exception ‚î and is claimed for nobody else.
+-- truncation ‚Äî Voevodsky's h-levels, the substrate this repository names
+-- as its one exception ‚Äî and is claimed for nobody else.
 --
 ------------------------------------------------------------------------
 

@@ -83,7 +83,7 @@ reweave-all-roots action view root = refl
 -- `NoObservationDepthDeterminesTheNet`:
 --
 --   propagatePreservesRootAtEveryDepth :
---     (action) (n) (net) � rootAt n (propagate action net) ≡ rootAt n net
+--     (action) (n) (net) → rootAt n (propagate action net) ≡ rootAt n net
 --
 -- whose base case is exactly `reweaveRooted-root`.  The same module
 -- proves the opposite half for the object rather than the invariant:

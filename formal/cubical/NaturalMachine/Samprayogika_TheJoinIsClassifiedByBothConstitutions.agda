@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡æ‡Æ‡‡‡‡∞‡Ø‡ã‡ó‡ø‡ï‡Æ‡ ‚î ‡Ø‡ã‡ó‡ ‡‡‡∞‡ï‡‡‡ø‡‡‡Ø‡æ‡ ‡¶‡‡µ‡æ‡‡‡Ø‡æ‡ ‡µ‡ø‡‡‡‡Ø‡‡ ‡
+-- ‡§∏‡§æ‡§Æ‡•ç‡§™‡•ç‡§∞‡§Ø‡•ã‡§ó‡§ø‡§ï‡§Æ‡•ç ‚Äî ‡§Ø‡•ã‡§ó‡§É ‡§™‡•ç‡§∞‡§ï‡•É‡§§‡§ø‡§≠‡•ç‡§Ø‡§æ‡§Ç ‡§¶‡•ç‡§µ‡§æ‡§≠‡•ç‡§Ø‡§æ‡§Ç ‡§µ‡§ø‡§≠‡§ú‡•ç‡§Ø‡§§‡•á ‡•§
 --
 -- (the joining: a union is classified by BOTH constitutions.)
 --
@@ -11,27 +11,27 @@
 --
 -- THE TEXT'S STRUCTURE, which is a taxonomy and is used here as one:
 --
---   ‡‡‡∞‡Æ‡æ‡  dimension     ‡‡   ‡µ‡‡‡  ‡‡‡‡µ      (hare, bull, horse)
---                          ‡Æ‡‡ó‡  ‡µ‡°‡µ‡æ  ‡‡‡‡‡ø‡®‡   (deer, mare, elephant)
---   ‡µ‡‡ó     force          ‡Æ‡®‡‡¶  ‡Æ‡ß‡‡Ø  ‡‡‡‡°      (small, middling, intense)
---   ‡ï‡æ‡≤     duration       ‡‡‡ò‡‡∞ ‡Æ‡ß‡‡Ø  ‡‡ø‡∞       (short, moderate, long)
+--   ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£  dimension     ‡§∂‡§∂   ‡§µ‡•É‡§∑‡§≠  ‡§Ö‡§∂‡•ç‡§µ      (hare, bull, horse)
+--                          ‡§Æ‡•É‡§ó‡•Ä  ‡§µ‡§°‡§µ‡§æ  ‡§π‡§∏‡•ç‡§§‡§ø‡§®‡•Ä   (deer, mare, elephant)
+--   ‡§µ‡•á‡§ó     force          ‡§Æ‡§®‡•ç‡§¶  ‡§Æ‡§ß‡•ç‡§Ø  ‡§ö‡§£‡•ç‡§°      (small, middling, intense)
+--   ‡§ï‡§æ‡§≤     duration       ‡§∂‡•Ä‡§ò‡•ç‡§∞ ‡§Æ‡§ß‡•ç‡§Ø  ‡§ö‡§ø‡§∞       (short, moderate, long)
 --
--- Each axis gives 3 ó 3 = 9 pairings.  Three of the nine are ‡‡Æ ‚î the
--- constitutions match ‚î and six are ‡µ‡ø‡‡Æ, split into ‡â‡‡‡ (the first
--- exceeds) and ‡®‡‡ (it falls short).  Across all three axes the text says
+-- Each axis gives 3 √ó 3 = 9 pairings.  Three of the nine are ‡§∏‡§Æ ‚Äî the
+-- constitutions match ‚Äî and six are ‡§µ‡§ø‡§∑‡§Æ, split into ‡§â‡§ö‡•ç‡§ö (the first
+-- exceeds) and ‡§®‡•Ä‡§ö (it falls short).  Across all three axes the text says
 -- the kinds are innumerable; the count of the taxonomy is 9¬≥ = 729, which
 -- ¬ß4 has the kernel compute rather than assert.
 --
 -- THE DOCTRINE THAT MAKES THIS A MATHEMATICAL STATEMENT.  The text does
 -- not rank unions by one party's magnitude.  It classifies by the PAIR,
 -- it holds the equal union to be best, and for the unequal ones it
--- prescribes technique ‚î the larger is governed so that the smaller is
+-- prescribes technique ‚Äî the larger is governed so that the smaller is
 -- not injured.  That is a compatibility theory, and it is exactly what is
 -- needed to say whether two mathematical organisms can be composed.
 --
 -- THE TWO ORGANISMS.  ¬ß3 places them, with the evidence for each
--- placement named.  ¬ß5 reads off where they are ‡‡Æ, where ‡µ‡ø‡‡Æ, and what
--- the ‡µ‡ø‡‡Æ axes therefore OWE ‚î which is the point of doing this at all:
+-- placement named.  ¬ß5 reads off where they are ‡§∏‡§Æ, where ‡§µ‡§ø‡§∑‡§Æ, and what
+-- the ‡§µ‡§ø‡§∑‡§Æ axes therefore OWE ‚Äî which is the point of doing this at all:
 -- an unequal union is not forbidden, it is conditional on a technique,
 -- and the technique here is a theorem that already exists.
 ------------------------------------------------------------------------
@@ -65,7 +65,7 @@ data ‡§ï‡§æ‡§≤ : Type‚ÇÄ where      -- duration: how long it sustains
 ‡§Ø‡•ã‡§ó = ‡§™‡•ç‡§∞‡§ï‡•É‡§§‡§ø √ó ‡§™‡•ç‡§∞‡§ï‡•É‡§§‡§ø
 
 --------------------------------------------------------------------------
--- 2.  ‡‡Æ / ‡â‡‡‡ / ‡®‡‡, per axis
+-- 2.  ‡§∏‡§Æ / ‡§â‡§ö‡•ç‡§ö / ‡§®‡•Ä‡§ö, per axis
 --------------------------------------------------------------------------
 
 data ‡§∏‡§Æ‡•ç‡§¨‡§®‡•ç‡§ß : Type‚ÇÄ where
@@ -106,20 +106,20 @@ compare (suc m) (suc n) = compare m n
 --------------------------------------------------------------------------
 
 -- machine/MathMachine.hs.
---   ‡‡‡∞‡Æ‡æ‡ ‡‡‡‡µ  ‚î it takes the entire term space at once: 637,852 terms in
+--   ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£ ‡§Ö‡§∂‡•ç‡§µ  ‚Äî it takes the entire term space at once: 637,852 terms in
 --                 one round at vocabulary 8, horizon 7.
---   ‡µ‡‡ó ‡‡‡‡°     ‚î every round acts on everything it can see, and the
---                 obstruction it leaves behind climbed 8 ‚í 79,656 in ten
+--   ‡§µ‡•á‡§ó ‡§ö‡§£‡•ç‡§°     ‚Äî every round acts on everything it can see, and the
+--                 obstruction it leaves behind climbed 8 ‚Üí 79,656 in ten
 --                 rounds.
---   ‡ï‡æ‡≤ ‡‡ø‡∞      ‚î `loop = round1 ‚¶ >> loop`.  It does not stop.
+--   ‡§ï‡§æ‡§≤ ‡§ö‡§ø‡§∞      ‚Äî `loop = round1 ‚Ä¶ >> loop`.  It does not stop.
 ‡§Ø‡§®‡•ç‡§§‡•ç‡§∞‡§Æ‡•ç : ‡§™‡•ç‡§∞‡§ï‡•É‡§§‡§ø
 ‡§Ø‡§®‡•ç‡§§‡•ç‡§∞‡§Æ‡•ç = ‡§Ö‡§∂‡•ç‡§µ , (‡§ö‡§£‡•ç‡§° , ‡§ö‡§ø‡§∞)
 
 -- Punaragamanam_TheStepIsAConjugationAndNothingIsTouchedByIt.
---   ‡‡‡∞‡Æ‡æ‡ ‡‡   ‚î one triple, three slots: ‡‡ï‡‡‡, ‡‡∞‡ø‡Æ‡æ‡‡Æ‡, ‡‡‡‡.
---   ‡µ‡‡ó ‡Æ‡®‡‡¶    ‚î the step is ‡‡µ‡‡∞‡ ‚àò Œ¶ ‚àò ‡â‡‡‡‡æ‡®, a single conjugation,
+--   ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£ ‡§∂‡§∂   ‚Äî one triple, three slots: ‡§™‡§ï‡•ç‡§∑‡§É, ‡§™‡§∞‡§ø‡§Æ‡§æ‡§£‡§Æ‡•ç, ‡§∂‡•á‡§∑‡§É.
+--   ‡§µ‡•á‡§ó ‡§Æ‡§®‡•ç‡§¶    ‚Äî the step is ‡§Ö‡§µ‡§§‡§∞‡§£ ‚àò Œ¶ ‚àò ‡§â‡§§‡•ç‡§•‡§æ‡§®, a single conjugation,
 --                and no fibre is collapsed by it.
---   ‡ï‡æ‡≤ ‡‡ø‡∞     ‚î ‡‡æ‡≤ is coinductive; the net runs forever.
+--   ‡§ï‡§æ‡§≤ ‡§ö‡§ø‡§∞     ‚Äî ‡§ú‡§æ‡§≤ is coinductive; the net runs forever.
 ‡§µ‡§ø‡§µ‡•á‡§ï‡§É : ‡§™‡•ç‡§∞‡§ï‡•É‡§§‡§ø
 ‡§µ‡§ø‡§µ‡•á‡§ï‡§É = ‡§∂‡§∂ , (‡§Æ‡§®‡•ç‡§¶ , ‡§ö‡§ø‡§∞)
 
@@ -158,7 +158,7 @@ all-‡§Ø‡•ã‡§ó = go all-‡§™‡•ç‡§∞‡§ï‡•É‡§§‡§ø
     go [] = []
     go (a ‚à∑ as) = map (Œª b ‚Üí a , b) all-‡§™‡•ç‡§∞‡§ï‡•É‡§§‡§ø ++ go as
 
--- twenty-seven constitutions ‚¶
+-- twenty-seven constitutions ‚Ä¶
 ‡§∏‡§™‡•ç‡§§‡§µ‡§ø‡§Ç‡§∂‡§§‡§ø‡§É : length all-‡§™‡•ç‡§∞‡§ï‡•É‡§§‡§ø ‚â° 27
 ‡§∏‡§™‡•ç‡§§‡§µ‡§ø‡§Ç‡§∂‡§§‡§ø‡§É = refl
 
@@ -170,22 +170,22 @@ all-‡§Ø‡•ã‡§ó = go all-‡§™‡•ç‡§∞‡§ï‡•É‡§§‡§ø
 -- 5.  Where this pair stands, and what the unequal axes owe
 --------------------------------------------------------------------------
 
--- ‡‡Æ in duration.  Both run forever: one by `loop`, one by coinduction.
--- ‡â‡‡‡ in dimension and in force: the engine exceeds on both.
+-- ‡§∏‡§Æ in duration.  Both run forever: one by `loop`, one by coinduction.
+-- ‡§â‡§ö‡•ç‡§ö in dimension and in force: the engine exceeds on both.
 ‡§Ö‡§∏‡•ç‡§Æ‡§æ‡§ï‡§Ç-‡§µ‡§ø‡§≠‡§æ‡§ó‡§É : ‡§µ‡§ø‡§≠‡§æ‡§ó ‡§Ö‡§∏‡•ç‡§Æ‡§æ‡§ï‡§Ç-‡§Ø‡•ã‡§ó‡§É ‚â° (‡§â‡§ö‡•ç‡§ö , (‡§â‡§ö‡•ç‡§ö , ‡§∏‡§Æ))
 ‡§Ö‡§∏‡•ç‡§Æ‡§æ‡§ï‡§Ç-‡§µ‡§ø‡§≠‡§æ‡§ó‡§É = refl
 
--- THE OBLIGATION.  The text's rule for an ‡â‡‡‡ union is that the greater
+-- THE OBLIGATION.  The text's rule for an ‡§â‡§ö‡•ç‡§ö union is that the greater
 -- is governed so the lesser is not injured.  Stated mathematically: the
 -- large organism's action must be proved not to destroy what the small
 -- one carries.  That is exactly
 --
---     Calana.‡‡≤‡ã‡‡           the remainder survives the whole run, ‚à n
---     Alopa_TheEngineNeverTouchesTheMeaning.‡‡≤‡ã‡‡
+--     Calana.‡§Ö‡§≤‡•ã‡§™‡§É           the remainder survives the whole run, ‚àÄ n
+--     Alopa_TheEngineNeverTouchesTheMeaning.‡§Ö‡§≤‡•ã‡§™‡§É
 --                            the engine's normalisation preserves every
---                            meaning, ‚à n, by structure
+--                            meaning, ‚àÄ n, by structure
 --
--- so the ‡¶‡ø‡Æension and force axes are discharged, in that order, by
+-- so the ‡§¶‡§ø‡§Æension and force axes are discharged, in that order, by
 -- theorems and not by hope.
 data Obligation : Type‚ÇÄ where
   discharged : Obligation

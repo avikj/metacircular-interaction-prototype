@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡ï‡‡∞‡Æ‡®‡à‡∞‡‡‡ï‡‡‡‡Ø‡Æ‡ ‚î the total is indifferent to the enumeration, spending
+-- ‡§ï‡•ç‡§∞‡§Æ‡§®‡•à‡§∞‡§™‡•á‡§ï‡•ç‡§∑‡•ç‡§Ø‡§Æ‡•ç ‚Äî the total is indifferent to the enumeration, spending
 -- only assoc and comm.
 --
 -- `SamaVibhaga.total` folds a NONEMPTY SumFin in its presented order.  This
@@ -10,7 +10,7 @@
 --   permutation-invariant :
 --     total n (w ‚àò e) ‚â° total n w
 --
--- for every e : Fin (suc n) ‚â Fin (suc n), assuming only associativity and
+-- for every e : Fin (suc n) ‚âÉ Fin (suc n), assuming only associativity and
 -- commutativity of the weight operation.  No unit is introduced: `total`
 -- remains the repository's nonempty fold.
 --
@@ -18,7 +18,7 @@
 --
 --   1. `omit i` enumerates every element except i, in inherited order.
 --   2. `omitEquiv i` proves this really is an equivalence
---        Fin n ‚â Œ[ j ‚àà Fin (suc n) ] ¬ i ‚â° j.
+--        Fin n ‚âÉ Œ£[ j ‚àà Fin (suc n) ] ¬¨ i ‚â° j.
 --   3. An arbitrary permutation e restricts to `restEquiv e` on the
 --      complements of fzero and e(fzero).
 --   4. `extract` moves an arbitrary chosen element to the head of the fold;

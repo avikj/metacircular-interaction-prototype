@@ -1,12 +1,12 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àà®à¾à¨à•à•àààà¯à¾ â” àà•à•à•àààà¯àààµà àà®àà¾ ààµ, àµàà¯àààà•àà°à®à àµà¿à¨à¾ à
+-- à¤¸à¤®à¤¾à¤¨à¤•à¤•à¥à¤·à¥à¤¯à¤¾ â€” à¤à¤•à¤•à¤•à¥à¤·à¥à¤¯à¤¤à¥à¤µà¤‚ à¤¸à¤®à¤¤à¤¾ à¤à¤µ, à¤µà¥à¤¯à¥à¤¤à¥à¤•à¥à¤°à¤®à¤‚ à¤µà¤¿à¤¨à¤¾ à¥¤
 --
 -- (lying on one orbit is already an equivalence relation, with no
 --  inverse; and the charge descends to the quotient.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS IS.
 --
 -- For a bare endomorphism `Î¦`, the reachability relation `a ~ Î¦â¿ a` is
@@ -16,43 +16,43 @@
 -- closure and accept a preorder rather than a quotient.
 --
 -- **The fork is over-specified, and neither rung is needed.**  The
--- reachability relation â” `a ~ b := Î[ n ] Î¦â¿ a â‰¡ b`, "b is
--- downstream of a" â” is indeed not symmetric.  But that is not the
+-- reachability relation â€” `a ~ b := Î[ n ] Î¦â¿ a â‰¡ b`, "b is
+-- downstream of a" â€” is indeed not symmetric.  But that is not the
 -- orbit relation; it is a different object.  Lying on ONE orbit is
 --
---     a â‰ˆ b  :=  Î[ m âˆˆ â• ] Î[ n âˆˆ â• ] Î¦µ a â‰¡ Î¦â¿ b,
+--     a â‰ˆ b  :=  Î£[ m âˆˆ â„• ] Î£[ n âˆˆ â„• ] Î¦áµ a â‰¡ Î¦â¿ b,
 --
 -- "the two trajectories MEET".  This is symmetric by swapping the two
--- numbers and `sym` â” Â§à¨ below is three symbols â” reflexive at
+-- numbers and `sym` â€” Â§à¥¨ below is three symbols â€” reflexive at
 -- `(0,0,refl)`, and transitive by the commutation of iterates, which
 -- holds for a bare endomorphism.  So the equivalence relation needs no
 -- inverse at all: `Î¦` stays a bare endomorphism throughout Â§à§â“Â§ï¿½.
 --
 -- With that, Â§à is the genuine descent statement:
--- for `B` a set, `f` factors as `fÌ âˆ˜ [_]` through `A / â‰ˆ`, and the
+-- for `B` a set, `f` factors as `fÌ„ âˆ˜ [_]` through `A / â‰ˆ`, and the
 -- factorisation triangle is `refl` because `SetQuotients.rec` computes
 -- on `[ a ]`.  That is "the charge is a function on the quotient, not
 -- on the cover" with a quotient actually present, rather than stated on
 -- the cover as in `Kaksya` Â§à¨â“Â§ï¿½.
 --
--- Â§à then shows rung (a) is not a strengthening but a special case:
--- if `Î¦` IS an equivalence, its inverse conserves automatically â”
+-- Â§à¥« then shows rung (a) is not a strengthening but a special case:
+-- if `Î¦` IS an equivalence, its inverse conserves automatically â€”
 -- conservation of `Î¦` propagates backwards, one `sym` and one `cong`
--- â” and `Î¦â»Â a â‰ˆ a` holds by `(1, 0, secEq)`.  So the group of
+-- â€” and `Î¦â»Â¹ a â‰ˆ a` holds by `(1, 0, secEq)`.  So the group of
 -- `SamraksakaSamuha_â¦` sits inside this, and Â§à§â“Â§à do not use it.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
--- **`isSet B` is used only for the quotient** (Â§à), not for Â§à§â“Â§à©, and
+-- **`isSet B` is used only for the quotient** (Â§à¥ª), not for Â§à¥§â€“Â§à¥©, and
 -- `A` is not assumed to be a set anywhere.
 --
--- TERMS.  à•à•àààà¯à¾ â” orbit / orbital circle in the siddhntic
--- astronomical tradition (ryabhaa, àà°àà¯ààŸàà¯à®à, 499, and standard in
+-- TERMS.  à¤•à¤•à¥à¤·à¥à¤¯à¤¾ â€” orbit / orbital circle in the siddhÄntic
+-- astronomical tradition (Ä€ryabhaá¹­a, à¤†à¤°à¥à¤¯à¤­à¤Ÿà¥€à¤¯à¤®à¥, 499, and standard in
 -- the Sryasiddhnta after); the term is carried in unchanged from
--- `Kaksya_â¦agda`, with its limit unchanged: attested for a planet's
+-- `Kaksya_â€¦agda`, with its limit unchanged: attested for a planet's
 -- orbit, and its use for the orbit of an endomorphism is this
--- corpus's.  àà®à¾à¨ â” "same, equal", ordinary .  The compound
--- àà®à¾à¨à•à•àààà¯à¾, "same-orbit-ness", is BUILT HERE; no text is claimed for
+-- corpus's.  àà®à¾à¨ â€” "same, equal", ordinary .  The compound
+-- à¤¸à¤®à¤¾à¤¨à¤•à¤•à¥à¤·à¥à¤¯à¤¾, "same-orbit-ness", is BUILT HERE; no text is claimed for
 -- it.  No source states anything below.
 ------------------------------------------------------------------------
 
@@ -73,7 +73,7 @@ open import Kaksya_TheChargeIsConstantAlongTheWholeOrbitAndNotOnlyAcrossOneStep
 private variable â„“ : Level
 
 ------------------------------------------------------------------------
--- à§ Â à•à•àààà¯à¾-à¯à‹à—à â” iterates add, and therefore commute.
+-- à¥§ Â· à¤•à¤•à¥à¤·à¥à¤¯à¤¾-à¤¯à¥‹à¤—à¤ƒ â€” iterates add, and therefore commute.
 --
 -- Both are about `Î¦` alone; `f` plays no part and no inverse is used.
 ------------------------------------------------------------------------
@@ -81,7 +81,7 @@ private variable â„“ : Level
 module _ {A : Type â„“} (Î¦ : A â†’ A) where
 
   private
-    -- `à•à•àààà¯à¾` is stated for a pair (f , Î¦); the observable is not used
+    -- `à¤•à¤•à¥à¤·à¥à¤¯à¤¾` is stated for a pair (f , Î¦); the observable is not used
     -- in its definition, so any codomain map will do to name it here.
     Ï† : â„• â†’ A â†’ A
     Ï† = à¤•à¤•à¥à¤·à¥à¤¯à¤¾ {B = A} (Î» a â†’ a) Î¦
@@ -95,10 +95,10 @@ module _ {A : Type â„“} (Î¦ : A â†’ A) where
     sym (à¤•à¤•à¥à¤·à¥à¤¯à¤¾-à¤¯à¥‹à¤—à¤ƒ m n a) âˆ™ cong (Î» k â†’ Ï† k a) (+-comm m n) âˆ™ à¤•à¤•à¥à¤·à¥à¤¯à¤¾-à¤¯à¥‹à¤—à¤ƒ n m a
 
 ------------------------------------------------------------------------
--- à¨ Â àà®à¾à¨à•à•àààà¯à¾ â” THE ORBIT RELATION, AND IT IS AN EQUIVALENCE.
+-- à¥¨ Â· à¤¸à¤®à¤¾à¤¨à¤•à¤•à¥à¤·à¥à¤¯à¤¾ â€” THE ORBIT RELATION, AND IT IS AN EQUIVALENCE.
 --
 -- `a â‰ˆ b` says the two forward trajectories MEET.  Not "b is reachable
--- from a" â” that is the asymmetric relation, and it is not the orbit's.
+-- from a" â€” that is the asymmetric relation, and it is not the orbit's.
 ------------------------------------------------------------------------
 
 module _ {A : Type â„“} (Î¦ : A â†’ A) where
@@ -120,7 +120,7 @@ module _ {A : Type â„“} (Î¦ : A â†’ A) where
   à¤¸à¤®à¤¾à¤¨-à¤µà¥à¤¯à¤¤à¥à¤¯à¤¯à¤ƒ a b (m , n , p) = n , m , sym p
 
   -- transitive: push each meeting along by the other's station, and
-  -- use Â§à§'s commutation to line them up.
+  -- use Â§à¥§'s commutation to line them up.
   à¤¸à¤®à¤¾à¤¨-à¤¸à¤‚à¤•à¥à¤°à¤®à¤ƒ : (a b c : A) â†’ à¤¸à¤®à¤¾à¤¨à¤•à¤•à¥à¤·à¥à¤¯à¤¾ a b â†’ à¤¸à¤®à¤¾à¤¨à¤•à¤•à¥à¤·à¥à¤¯à¤¾ b c â†’ à¤¸à¤®à¤¾à¤¨à¤•à¤•à¥à¤·à¥à¤¯à¤¾ a c
   à¤¸à¤®à¤¾à¤¨-à¤¸à¤‚à¤•à¥à¤°à¤®à¤ƒ a b c (m , n , p) (p' , q , r) =
     (p' + m) , (n + q) ,
@@ -131,10 +131,10 @@ module _ {A : Type â„“} (Î¦ : A â†’ A) where
       âˆ™ sym (à¤•à¤•à¥à¤·à¥à¤¯à¤¾-à¤¯à¥‹à¤—à¤ƒ Î¦ n q c) )
 
 ------------------------------------------------------------------------
--- à© Â à§àà°ààµà àà®à¾à¨à•à•àààà¯à¾à¯à¾à®à â” the charge cannot separate two points of
---     one orbit, in the two-sided sense Â§à¨ now supplies.
+-- à¥© Â· à¤§à¥à¤°à¥à¤µà¤ƒ à¤¸à¤®à¤¾à¤¨à¤•à¤•à¥à¤·à¥à¤¯à¤¾à¤¯à¤¾à¤®à¥ â€” the charge cannot separate two points of
+--     one orbit, in the two-sided sense Â§à¥¨ now supplies.
 --
--- `Kaksya` Â§à© gives this for two stations of ONE trajectory.  Here the
+-- `Kaksya` Â§à¥© gives this for two stations of ONE trajectory.  Here the
 -- two points need not be on one trajectory at all: it is enough that
 -- their trajectories meet.
 ------------------------------------------------------------------------
@@ -148,11 +148,11 @@ module _ {A B : Type â„“} (f : A â†’ B) (Î¦ : A â†’ A) where
     âˆ™ à¤§à¥à¤°à¥à¤µà¤‚-à¤•à¤•à¥à¤·à¥à¤¯à¤¾à¤¯à¤¾à¤®à¥ f Î¦ cons n b
 
 ------------------------------------------------------------------------
--- à Â ààµàà°àà®à â” THE CHARGE IS A FUNCTION ON THE QUOTIENT.
+-- à¥ª Â· à¤…à¤µà¤¤à¤°à¤£à¤®à¥ â€” THE CHARGE IS A FUNCTION ON THE QUOTIENT.
 --
 -- The charge is a function on the quotient, with the quotient present.
 -- `fÌ` is defined on
--- `A / àà®à¾à¨à•à•àààà¯à¾`, and the factorisation `f â‰¡ fÌ âˆ˜ [_]` is `refl`,
+-- `A / à¤¸à¤®à¤¾à¤¨à¤•à¤•à¥à¤·à¥à¤¯à¤¾`, and the factorisation `f â‰¡ fÌ„ âˆ˜ [_]` is `refl`,
 -- because `SetQuotients.rec` computes on a point class.
 --
 -- `isSet B` is the quotient's requirement and nothing else's.
@@ -172,16 +172,16 @@ module _ {A B : Type â„“} (f : A â†’ B) (Î¦ : A â†’ A)
   à¤…à¤µà¤¤à¤°à¤£-à¤¤à¥à¤°à¤¿à¤•à¥‹à¤£à¤ƒ a = refl
 
 ------------------------------------------------------------------------
--- à Â àµàà¯àààà•àà°à®à â” and the inverse case is a special case, not a
+-- à¥« Â· à¤µà¥à¤¯à¥à¤¤à¥à¤•à¥à¤°à¤®à¤ƒ â€” and the inverse case is a special case, not a
 --     stronger hypothesis.
 --
 -- Rung (a) proposed requiring `Î¦` to be an equivalence.
 -- If it is, two things follow and neither is needed above:
 --
---   (a) conservation propagates BACKWARDS with no extra hypothesis â”
---       so the "conserving inverse" that `SamraksakaSamuha_â¦` carries
+--   (a) conservation propagates BACKWARDS with no extra hypothesis â€”
+--       so the "conserving inverse" that `SamraksakaSamuha_â€¦` carries
 --       as stored data is derivable whenever the flow is invertible;
---   (b) `Î¦â»Â a` and `a` lie on one orbit, at stations `(1, 0)`.
+--   (b) `Î¦â»Â¹ a` and `a` lie on one orbit, at stations `(1, 0)`.
 --
 -- So the group of invertible conserving flows acts within the classes
 -- of Â§à¨, and Â§à§â“Â§à do not use it.
@@ -201,23 +201,23 @@ module _ {A B : Type â„“} (f : A â†’ B) (Î¦ : A â†’ A) (e : isEquiv Î¦) where
   à¤µà¥à¤¯à¥à¤¤à¥à¤•à¥à¤°à¤®à¤ƒ-à¤¸à¤®à¤¾à¤¨à¤•à¤•à¥à¤·à¥à¤¯à¥‡ a = suc zero , zero , secEq Îµ a
 
 ------------------------------------------------------------------------
--- à Â àààà â” the converse, and the h-level of the relation.
+-- à Â àààà â€” the converse, and the h-level of the relation.
 --
--- The converse of Â§à â” that `ààµààà°àï¿½à` is injective, i.e. equal charge
--- implies one orbit â” is the subject of
+-- The converse of Â§à â€” that `ààµààà°àï¿½à` is injective, i.e. equal charge
+-- implies one orbit â€” is the subject of
 -- `Sankramana_TheFibreIsOneOrbitExactlyWhenTheChargeIs
 -- InjectiveAndOneSidedReachabilityIsStrictlyStronger.agda`.  `Kaksya`
 -- Â§à's one-sided `àï¿½ï¿½àà•àà°à®àï¿½à` is SUFFICIENT and NOT NECESSARY:
--- `A = Bool`, `B = Unit`, `f = Î» _ â’ tt`, `Î¦ = Î» _ â’ true`.  Every pair
--- meets at stations `(1,1)`, so `ààµààà°ààà` is an equivalence, while
--- `àà™àà•àà°à®àà®à tt â’ âŠ` â” nothing ever reaches `false`.  The exact
+-- `A = Bool`, `B = Unit`, `f = Î» _ â†’ tt`, `Î¦ = Î» _ â†’ true`.  Every pair
+-- meets at stations `(1,1)`, so `à¤…à¤µà¤¤à¥€à¤°à¥à¤£à¤ƒ` is an equivalence, while
+-- `àà™àà•àà°à®àà®à tt â’ âŠ` â€” nothing ever reaches `false`.  The exact
 -- hypothesis is the truncated two-sided one, and that module proves the
 -- âŸº and the equivalence
--- `isEquiv fÌ â‰ (isSurjection f — âˆ b â’ âˆtwo-sidedâˆâ)`.
+-- `isEquiv fÌ„ â‰ƒ (isSurjection f Ã— âˆ€ b â†’ âˆ¥two-sidedâˆ¥â‚)`.
 --
--- `àï¿½à¾à¨à•à•àààà¯ï¿½` is not valued in propositions â” the meeting stations are
+-- `àï¿½à¾à¨à•à•àààà¯ï¿½` is not valued in propositions â€” the meeting stations are
 -- data.  `SamagamaSthana_TheOrbitRelationIsNeverAPropositionAtAPointAndThe
--- TruncationLosesTheStations.agda` Â§à§ proves that `àà®à¾à¨à•à•àààà¯à¾ Î¦ a a` is
+-- TruncationLosesTheStations.agda` Â§à¥§ proves that `à¤¸à¤®à¤¾à¤¨à¤•à¤•à¥à¤·à¥à¤¯à¤¾ Î¦ a a` is
 -- not a proposition for EVERY `A`, EVERY `Î¦` and EVERY `a`, because the
 -- diagonal meetings `(0,0,refl)` and `(1,1,refl)` are always there.
 -- Â§à¨ there proves the station map does not factor through `âˆ_âˆâ`, and

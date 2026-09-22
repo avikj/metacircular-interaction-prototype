@@ -15,7 +15,7 @@
 -- WHAT THIS IS ABOUT.  `notes/REVISION_DERIVATION_HYPERGRAPH.md` proves
 -- the exact deletion law for a finite AND/OR derivation hypergraph:
 --
---     v ∈ Cl_D(I)   ⟺   some minimal support S of v has S ∩ D = �,
+--     v ∈ Cl_D(I)   ⟺   some minimal support S of v has S ∩ D = ∅,
 --
 -- i.e. v dies exactly when the deleted set D is a HITTING SET of the
 -- minimal-support antichain A(v).  That note computes A(v) and says
@@ -23,16 +23,16 @@
 -- that question on one instance, in the direction that costs something.
 --
 -- NAME.  Nyya holds *prama-samplava*: one and the same object may be
--- established by more than one prama � the stock illustration being
+-- established by more than one pramāṇa — the stock illustration being
 -- fire on a hill, reached by perception, by inference and by testimony
 -- (Vtsyyana, *Nyyabhya*, c. 400 CE, on the Nyyastra's opening
 -- enumeration of the pramas).  Dignga holds the opposite,
 -- *prama-vyavasth*: exactly two pramas, each with its OWN object,
 -- svalakaa for perception and smnyalakaa for inference, so a single
--- object is not multiply established (*Pramasamuccaya* I.2, c. 480�540
--- CE).  The object formalised below � one fact carrying several
+-- object is not multiply established (*Pramāṇasamuccaya* I.2, c. 480–540
+-- CE).  The object formalised below — one fact carrying several
 -- independent supports, and the question of what survives when supports
--- are removed � is samplava's object, and the module is named for it.
+-- are removed — is samplava's object, and the module is named for it.
 --
 -- PRIOR ART, searched before writing (per CLAUDE.md), all on disk:
 --   * `notes/HISTORY_DIGEST.md` attributes the deletion law itself to de
@@ -49,9 +49,9 @@
 --     compute an audit burden as an exact max-flow/min-cut in a
 --     DIGRAPH.  That is the unary fragment, where the min-max holds.
 --
--- METHOD.  Everything below is closed Boolean/� computation over the 64
+-- METHOD.  Everything below is closed Boolean/ℕ computation over the 64
 -- deletion sets, discharged by `refl`.  CLAUDE.md: "a finite exhaustive
--- verification � produces mathematical objects, not measurements."  No
+-- verification … produces mathematical objects, not measurements."  No
 -- floating point, no fitting, no sampling.
 ------------------------------------------------------------------------
 
@@ -69,12 +69,12 @@ open import Cubical.Data.Empty using (⊥) renaming (rec to ⊥-rec)
 -- Facts:  s (the sole seed), a, b, p, v.
 -- Rules:
 --
---   r1 :  s      � a
---   r2 :  s      � b
---   r3 :  a      � p
---   r4 :  b      � p
---   r5 :  p      � v
---   r6 : {a,b}   � v          -- the ONE conjunctive rule
+--   r1 :  s      ⟶ a
+--   r2 :  s      ⟶ b
+--   r3 :  a      ⟶ p
+--   r4 :  b      ⟶ p
+--   r5 :  p      ⟶ v
+--   r6 : {a,b}   ⟶ v          -- the ONE conjunctive rule
 --
 -- Read plainly: v has two alternative last steps (r5 and r6); p has two
 -- alternative last steps (r3 and r4); and r6 needs both branches at
@@ -104,9 +104,9 @@ alive D r = not (D r)
 --
 -- `Facts` is the marking of the four non-seed facts (s is a seed and is
 -- always present).  `step` is one round of the closure operator with the
--- rules of D removed.  `factA � factV` is the claimed closed form.  §1.2
+-- rules of D removed.  `factA … factV` is the claimed closed form.  §1.2
 -- checks, over all 64 deletion sets, that the closed form is reached by
--- four rounds from the empty marking and is a fixed point � which is the
+-- four rounds from the empty marking and is a fixed point — which is the
 -- Kleene characterisation of the least fixed point for a monotone
 -- operator on this four-element Boolean lattice.
 
@@ -201,7 +201,7 @@ Pred6 = Bool → Bool → Bool → Bool → Bool → Bool → Bool
   e6 : f6 x₆ ≡ true
   e6 = ∀B-elim f6 e5 x₆
 
--- The tabulated deletion set: D6 x� � x� deletes rule r� iff x�.
+-- The tabulated deletion set: D6 x₁ … x₆ deletes rule rᵢ iff xᵢ.
 D6 : Bool → Bool → Bool → Bool → Bool → Bool → Del
 D6 x₁ x₂ x₃ x₄ x₅ x₆ r1 = x₁
 D6 x₁ x₂ x₃ x₄ x₅ x₆ r2 = x₂
@@ -312,8 +312,8 @@ private
 
 -- THEOREM 1 (the deletion law, this instance, independently verified).
 -- v survives the deletion of D exactly when D fails to hit one of the
--- three supports.  This is `REVISION_DERIVATION_HYPERGRAPH` (1) � de
--- Kleer's ATMS label semantics � on an instance with a genuine AND rule.
+-- three supports.  This is `REVISION_DERIVATION_HYPERGRAPH` (1) — de
+-- Kleer's ATMS label semantics — on an instance with a genuine AND rule.
 deletion-law : (D : Del)
   → factV D ≡ not (hits D inS1 and (hits D inS2 and hits D inS3))
 deletion-law D =
@@ -322,8 +322,8 @@ deletion-law D =
         (∀B6-elim gLaw law-taut (D r1) (D r2) (D r3) (D r4) (D r5) (D r6))
 
 -- The three supports form an antichain: each has a rule the others lack.
--- With Theorem 1 this pins A(v) = {S1,S2,S3} exactly � the survival
--- function's DNF is ⋵ �_{r∈S�} �d_r, whose minimal supports are the
+-- With Theorem 1 this pins A(v) = {S1,S2,S3} exactly — the survival
+-- function's DNF is ⋁ᵢ ⋀_{r∈Sᵢ} ¬d_r, whose minimal supports are the
 -- minimal members of {S1,S2,S3}, i.e. all three.
 S1∖S2 : (inS1 r3 and not (inS2 r3)) ≡ true
 S1∖S2 = refl
@@ -348,7 +348,7 @@ share-13 = refl
 share-23 : (inS2 r2 and inS3 r2) ≡ true
 share-23 = refl
 
--- �and no rule lies in all three, so the family has no common element
+-- …and no rule lies in all three, so the family has no common element
 -- to be hit at cost one.  (Checked again, differently, by `no-singleton`
 -- below, which does not go through the supports at all.)
 no-common : (r : Rule) → (inS1 r and (inS2 r and inS3 r)) ≡ false
@@ -360,7 +360,7 @@ no-common r5 = refl
 no-common r6 = refl
 
 ------------------------------------------------------------------------
--- §5  � = 2: the cheapest deletion that kills v has size exactly two.
+-- §5  τ = 2: the cheapest deletion that kills v has size exactly two.
 
 c : Bool → ℕ
 c true  = 1
@@ -391,7 +391,7 @@ private
   tau-taut : ∀B6 gTau ≡ true
   tau-taut = refl
 
--- THEOREM 2 (� � 2).  Any deletion set that kills v deletes at least two
+-- THEOREM 2 (τ ≥ 2).  Any deletion set that kills v deletes at least two
 -- rules.  Note this is proved from the closure directly; it does not use
 -- the support list.
 min-deletion-≥2 : (D : Del) → factV D ≡ false → 2 ≼ card D
@@ -420,7 +420,7 @@ no-singleton-kills r4 = refl
 no-singleton-kills r5 = refl
 no-singleton-kills r6 = refl
 
--- THEOREM 3 (� � 2).  An explicit two-rule deletion that kills v:
+-- THEOREM 3 (τ ≤ 2).  An explicit two-rule deletion that kills v:
 -- delete r1 (so a is unreachable, killing S1 and S3) and r5 (killing S2).
 Dcut : Del
 Dcut r1 = true
@@ -437,9 +437,9 @@ cut-kills : factV Dcut ≡ false
 cut-kills = refl
 
 ------------------------------------------------------------------------
--- §6  �* = ν* = 3/2, by two certificates scaled by 2.
+-- §6  τ* = ν* = 3/2, by two certificates scaled by 2.
 --
--- All weights are doubled so that everything stays in �: a "fractional
+-- All weights are doubled so that everything stays in ℕ: a "fractional
 -- value 3/2" is here the integer 3 against a requirement of 2 per
 -- constraint.
 
@@ -514,15 +514,15 @@ pack-value = refl
 ------------------------------------------------------------------------
 -- §7  What is proved, in one place.
 --
---   deletion-law      v survives D  ⟺  some S� avoids D          (all 64 D)
---   S1∖S2 � S3∖S2     {S1,S2,S3} is an antichain, hence = A(v)
+--   deletion-law      v survives D  ⟺  some Sᵢ avoids D          (all 64 D)
+--   S1∖S2 … S3∖S2     {S1,S2,S3} is an antichain, hence = A(v)
 --   share-12/13/23    every two supports meet:  ν = 1
---   min-deletion-�2   killing v costs � 2 rules
---   cut-card/kills    and exactly 2 suffice:    � = 2
---   cover-*/pack-*    doubled LP certificates of common value 3:  �* = ν* = 3/2
+--   min-deletion-≥2   killing v costs ≥ 2 rules
+--   cut-card/kills    and exactly 2 suffice:    τ = 2
+--   cover-*/pack-*    doubled LP certificates of common value 3:  τ* = ν* = 3/2
 --
--- Therefore  ν = 1 < 3/2 = ν* = �* < 2 = �  on this instance, so the
+-- Therefore  ν = 1 < 3/2 = ν* = τ* < 2 = τ  on this instance, so the
 -- minimal-support clutter of a fact in an AND/OR derivation hypergraph
 -- is not ideal, and no max-flow / matroid-intersection formulation
--- computes � in general.
+-- computes τ in general.
 ------------------------------------------------------------------------

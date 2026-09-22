@@ -10,7 +10,7 @@ composition law itself.
 
 Call a monoid GRADED if it carries a map into the natural numbers that is
 additive under composition.  Call it COSTED if that map additionally
-detects the unit â” vanishing only on the identity.  The dichotomy is
+detects the unit â€” vanishing only on the identity.  The dichotomy is
 then in two halves, and they are not symmetric.
 
 A GRADED structure admits no inverse.  For every function whatsoever from
@@ -24,7 +24,7 @@ already forbids undoing.
 A COSTED structure that admits an inverse is trivial.  Every element then
 has cost zero, hence by unit-detection every element is the unit.
 Contrapositively: A NONTRIVIAL GROUP IS NOT GRADED.  Here unit-detection
-is essential â” without it "everything has cost zero" says nothing about
+is essential â€” without it "everything has cost zero" says nothing about
 what everything is.  The asymmetry between the two halves is the content:
 the forward direction needs only counting; the converse needs the cost to
 recognise the origin it measures from.
@@ -35,7 +35,7 @@ answers.
 The self-equivalences of a type, under composition of equivalences, form
 a group: the inverse is a construction, not a lemma, and both unit laws
 hold on the nose.  The two-element type has a self-equivalence that is
-not the identity â” it moves one of the two points.  Therefore, by the
+not the identity â€” it moves one of the two points.  Therefore, by the
 converse half, THERE IS NO COST FUNCTION ON THE TRANSPORTS OF THE
 TWO-ELEMENT TYPE.  None: not one that is hard to find, not one that fails
 to be canonical, none at all.
@@ -44,7 +44,7 @@ The histories of a rewriting system whose steps are closed under a
 reversal *constructor*, concatenated, form a monoid that is strictly
 associative and unital as data.  Their length is additive under
 concatenation.  Therefore, by the forward half, no function inverts
-history concatenation â” and this is stronger than the usual observation
+history concatenation â€” and this is stronger than the usual observation
 that the evident reversal fails to be strictly involutive, which leaves
 open that some cleverer inverse might succeed.  None can.
 
@@ -70,8 +70,8 @@ the quotient.
 The consequence for univalent foundations is where the result is
 sharpest, because there the quotient is not chosen.  Univalence makes
 equivalent types equal, so an invariant of types-up-to-equivalence is a
-function on the groupoid of transports, and that groupoid â” being a
-nontrivial group â” admits no grading.  Cost, effort, route, provenance
+function on the groupoid of transports, and that groupoid â€” being a
+nontrivial group â€” admits no grading.  Cost, effort, route, provenance
 and the length of a derivation are therefore not univalent invariants,
 and not because univalence discards them as a matter of bookkeeping.
 There is nowhere in the target for them to be.
@@ -85,12 +85,12 @@ the theorem says those quantities do not exist on the other side.
 The braiding coherence is supplied elsewhere:
 theorems/physics/VeniBandha exhibits the quarter-turn-twisted swap
 satisfying Yang-Baxter by refl at exact order eight, so what this
-abstract refutes â” braiding for free from invertibility â” and what
-that module constructs â” braiding bought by the pair-level coherence â”
+abstract refutes â€” braiding for free from invertibility â€” and what
+that module constructs â€” braiding bought by the pair-level coherence â€”
 bracket the phenomenon exactly.  And the erasure bound's logical core
 is derived: theorems/physics/ApasaranaNiyama proves reversibility
 conserves distinctions, so erasure is displacement into the
-environment, never destruction â” which is WHERE the cost this
+environment, never destruction â€” which is WHERE the cost this
 abstract banishes from the invertible dynamics goes: into the kept
 fibre of the marginal one stopped watching.
 

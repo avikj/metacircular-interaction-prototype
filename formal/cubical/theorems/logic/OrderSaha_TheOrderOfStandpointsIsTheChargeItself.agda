@@ -1,36 +1,36 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡ï‡‡∞‡Æ-‡‡ ‚î the order of standpoints is the charge itself.
+-- ‡§ï‡•ç‡§∞‡§Æ-‡§∏‡§π ‚Äî the order of standpoints is the charge itself.
 --
--- THE CRITERION ‡ó‡‡‡‡Ø-‡®‡æ‡‡‡‡ø's ‡¶‡ã‡‡≤‡‡ñ ASKED FOR, supplied by the tradition.
+-- THE CRITERION ‡§ó‡•Å‡§π‡•ç‡§Ø-‡§®‡§æ‡§∏‡•ç‡§§‡§ø's ‡§¶‡•ã‡§∑‡§≤‡•á‡§ñ ASKED FOR, supplied by the tradition.
 -- That module proved the set-level census cannot see the loss in the
 -- loops.
 -- The saptabhag already carries the
 -- criterion, in one word of difference between its third and fourth
--- positions: ‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø is both standpoints IN SEQUENCE (‡ï‡‡∞‡Æ‡‡), and
--- ‡‡µ‡ï‡‡‡µ‡‡Ø is both AT ONCE (‡‡) ‚î the corpus's own Anekanta lane renders
--- ‡‡µ‡ï‡‡‡µ‡‡Ø as ‡ï‡‡∞‡Æ-‡‡-‡‡‡¶‡, the checked non-reducibility of the two.
+-- positions: ‡§Ö‡§∏‡•ç‡§§‡§ø-‡§®‡§æ‡§∏‡•ç‡§§‡§ø is both standpoints IN SEQUENCE (‡§ï‡•ç‡§∞‡§Æ‡•á‡§£), and
+-- ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø is both AT ONCE (‡§∏‡§π) ‚Äî the corpus's own Anekanta lane renders
+-- ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø as ‡§ï‡•ç‡§∞‡§Æ-‡§∏‡§π-‡§≠‡•á‡§¶‡§É, the checked non-reducibility of the two.
 --
 -- IN CUBESPACE THAT ONE WORD IS AN OPERATOR ORDERING, and the two orders
--- provably disagree.  Take the two standpoints on S¬:
+-- provably disagree.  Take the two standpoints on S¬π:
 --
---     the set-view    ‚à_‚à‚   (dravya: points up to mere identity)
+--     the set-view    ‚à•_‚à•‚ÇÇ   (dravya: points up to mere identity)
 --     the loop-view   Œ©      (paryya: the modes at the basepoint)
 --
---   ‡ï‡‡∞‡Æ‡-‡≤‡‡-‡‡‡∞‡‡Æ‡Æ‡  :  ‚à Œ© S¬ ‚à‚  ‚â  ‚      loop first ‚î the charge SURVIVES
---   ‡ï‡‡∞‡Æ‡-‡‡‡ü‡-‡‡‡∞‡‡Æ‡Æ‡  :  Œ© ‚à S¬ ‚à‚  is contractible ‚î set first, the charge
+--   ‡§ï‡•ç‡§∞‡§Æ‡§É-‡§≤‡•Ç‡§™-‡§™‡•ç‡§∞‡§•‡§Æ‡§Æ‡•ç  :  ‚à• Œ© S¬π ‚à•‚ÇÇ  ‚âÉ  ‚Ñ§      loop first ‚Äî the charge SURVIVES
+--   ‡§ï‡•ç‡§∞‡§Æ‡§É-‡§∏‡•á‡§ü‡•ç-‡§™‡•ç‡§∞‡§•‡§Æ‡§Æ‡•ç  :  Œ© ‚à• S¬π ‚à•‚ÇÇ  is contractible ‚Äî set first, the charge
 --                                              is ANNIHILATED
---   ‡‡ï‡‡∞‡Æ‡‡æ          :  the two results are non-equivalent (‚ ‚â Unit-like)
+--   ‡§Ö‡§ï‡•ç‡§∞‡§Æ‡§§‡§æ          :  the two results are non-equivalent (‚Ñ§ ‚âÑ Unit-like)
 --
 -- The standpoints do not commute, and their commutator is not "some
--- discrepancy" ‚î it is EXACTLY ‚, the same charge Durnaya identified and
--- ‡ó‡‡‡‡Ø-‡®‡æ‡‡‡‡ø exhibited as the census's blind spot.  So the graded
+-- discrepancy" ‚Äî it is EXACTLY ‚Ñ§, the same charge Durnaya identified and
+-- ‡§ó‡•Å‡§π‡•ç‡§Ø-‡§®‡§æ‡§∏‡•ç‡§§‡§ø exhibited as the census's blind spot.  So the graded
 -- census's levels interact BY ORDER OF APPLICATION: krama chooses an
--- order and pays or destroys the charge accordingly; saha ‚î the fourth
--- position ‚î is the refusal to choose, i.e. holding the untruncated
--- object, and THAT refusal is what ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ has meant in this corpus all
--- along: not unknown, not undefined ‚î held whole because either order of
+-- order and pays or destroys the charge accordingly; saha ‚Äî the fourth
+-- position ‚Äî is the refusal to choose, i.e. holding the untruncated
+-- object, and THAT refusal is what ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç has meant in this corpus all
+-- along: not unknown, not undefined ‚Äî held whole because either order of
 -- utterance loses.
 --
 -- Their ‡ï‡‡∞‡Æ/‡‡ distinction is this non-commutation's
@@ -39,7 +39,7 @@
 -- library's.
 --
 -- The corpus's grammar lane has
--- checked the same distinction at a sandhi site ‚î `AsiddhavatRegime.agda`
+-- checked the same distinction at a sandhi site ‚Äî `AsiddhavatRegime.agda`
 -- (Pini 8.2.1 krama vs 6.4.22 saha, tat+jalam, the regime decides the
 -- form).  The polarity
 -- CROSSES between the lanes (the grammar's feeding krama is this module's
@@ -63,8 +63,8 @@ open import Cubical.HITs.SetTruncation
   renaming (rec to rec‚ÇÇ ; elim to elim‚ÇÇ)
 
 ------------------------------------------------------------------------
--- ‡ß ¬ ‡ï‡‡∞‡Æ‡-‡≤‡‡-‡‡‡∞‡‡Æ‡Æ‡ ‚î loop first, then the set-view: the charge survives.
--- Œ©S¬ ‚â ‚ and ‚ is a set, so truncating afterwards changes nothing.
+-- ‡•ß ¬∑ ‡§ï‡•ç‡§∞‡§Æ‡§É-‡§≤‡•Ç‡§™-‡§™‡•ç‡§∞‡§•‡§Æ‡§Æ‡•ç ‚Äî loop first, then the set-view: the charge survives.
+-- Œ©S¬π ‚âÉ ‚Ñ§ and ‚Ñ§ is a set, so truncating afterwards changes nothing.
 ------------------------------------------------------------------------
 
 ‡§ï‡•ç‡§∞‡§Æ‡§É-‡§≤‡•Ç‡§™-‡§™‡•ç‡§∞‡§•‡§Æ‡§Æ‡•ç : ‚à• Œ©S¬π ‚à•‚ÇÇ ‚âÉ ‚Ñ§
@@ -83,8 +83,8 @@ open import Cubical.HITs.SetTruncation
             (Œª a i ‚Üí ‚à£ Iso.leftInv e a i ‚à£‚ÇÇ)
 
 ------------------------------------------------------------------------
--- ‡® ¬ ‡ï‡‡∞‡Æ‡-‡‡‡ü‡-‡‡‡∞‡‡Æ‡Æ‡ ‚î the set-view first, then loops: annihilation.
--- ‚à S¬ ‚à‚ is a set, so the self-path space at any point is an inhabited
+-- ‡•® ¬∑ ‡§ï‡•ç‡§∞‡§Æ‡§É-‡§∏‡•á‡§ü‡•ç-‡§™‡•ç‡§∞‡§•‡§Æ‡§Æ‡•ç ‚Äî the set-view first, then loops: annihilation.
+-- ‚à• S¬π ‚à•‚ÇÇ is a set, so the self-path space at any point is an inhabited
 -- proposition, hence contractible.  The loop dies at the door.
 ------------------------------------------------------------------------
 
@@ -93,7 +93,7 @@ fst ‡§ï‡•ç‡§∞‡§Æ‡§É-‡§∏‡•á‡§ü‡•ç-‡§™‡•ç‡§∞‡§•‡§Æ‡§Æ‡•ç = refl
 snd ‡§ï‡•ç‡§∞‡§Æ‡§É-‡§∏‡•á‡§ü‡•ç-‡§™‡•ç‡§∞‡§•‡§Æ‡§Æ‡•ç p = isSetSetTrunc ‚à£ base ‚à£‚ÇÇ ‚à£ base ‚à£‚ÇÇ refl p
 
 ------------------------------------------------------------------------
--- ‡© ¬ ‡‡ï‡‡∞‡Æ‡‡æ ‚î the two orders genuinely disagree: ‚ is not contractible,
+-- ‡•© ¬∑ ‡§Ö‡§ï‡•ç‡§∞‡§Æ‡§§‡§æ ‚Äî the two orders genuinely disagree: ‚Ñ§ is not contractible,
 -- so no equivalence relates the two outcomes.  The commutator of the
 -- standpoints is the whole charge.
 ------------------------------------------------------------------------
@@ -117,12 +117,12 @@ snd ‡§ï‡•ç‡§∞‡§Æ‡§É-‡§∏‡•á‡§ü‡•ç-‡§™‡•ç‡§∞‡§•‡§Æ‡§Æ‡•ç p = isSetSetTrunc ‚à£ bas
   where open import Cubical.Foundations.Equiv using (secEq)
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡¶‡ã‡‡≤‡‡ñ‡.  This is the smallest instance of the interchange failure
+-- ‡•™ ¬∑ ‡§¶‡•ã‡§∑‡§≤‡•á‡§ñ‡§É.  This is the smallest instance of the interchange failure
 -- (one space, one basepoint, levels 0 and 1), not a general interchange
 -- law for ‚à_‚à‚ô and Œ©µ.
 -- What is proved: the levels of the graded
 -- census interact by ORDER, the failure of commutation at the first
--- rung is exactly ‚, and ‡‡ ‚î declining to order the standpoints ‚î is
+-- rung is exactly ‚Ñ§, and ‡§∏‡§π ‚Äî declining to order the standpoints ‚Äî is
 -- the only position that loses nothing, which is what the fourth bhaga
 -- has been claiming since Samantabhadra.
 ------------------------------------------------------------------------

@@ -1,92 +1,92 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ààà²à â” pla, "a bundle, a sheaf (of grass)".  The ordinary 
+-- ààà²à â€” pla, "a bundle, a sheaf (of grass)".  The ordinary 
 -- word for a bundle, borrowed here for its literal meaning and nothing
 -- else.  No claim that any source states a fibre-bundle theorem; the
 -- compound usage is this corpus's, declared at its site.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHY THIS FILE EXISTS
 --
 -- README Â§II and `HolonomyIsInvisibleExactlyToAnInvariantSemantics`
 -- close with a disclaimer: "NOT anything about physical spacetime,
--- quantum states, Hilbert spaces or SU(2) â” Â§II is about a semantics and
--- an equivalence."  `Visvarupa_â¦` repeats it and adds "no bundle over a
+-- quantum states, Hilbert spaces or SU(2) â€” Â§II is about a semantics and
+-- an equivalence."  `Visvarupa_â€¦` repeats it and adds "no bundle over a
 -- manifold appears in this repository."
 --
--- The SMOOTH content of gauge theory is genuinely absent â” no
+-- The SMOOTH content of gauge theory is genuinely absent â€” no
 -- manifold, no Lie group, no connection form, no curvature 2-form, and
 -- nothing below changes that.  But the HOMOTOPICAL content is not
 -- absent, and the corpus holds every piece of it:
 --
---   `EkaSankramana_â¦`     a torsor is an equivalence: the element
+--   `EkaSankramana_â€¦`     a torsor is an equivalence: the element
 --                         carrying one point to another is exactly one
 --   `AbstractSpinNetworkKinematics`  gauge invariance IS the
 --                         equivariance square, not a constraint on top
---   `Pradakshina_â¦`       holonomy is transport around a loop, computed
---   `Visvarupa_â¦`         a family is a map into the universe, and Î is
+--   `Pradakshina_â€¦`       holonomy is transport around a loop, computed
+--   `Visvarupa_â€¦`         a family is a map into the universe, and Î£ is
 --                         its total space
 --
 -- This is the module that says how they are one object, and its
 -- content is that a principal bundle needs
 -- no new primitive: IT IS A FAMILY WHOSE FIBRES ARE TORSORS.  Everything
--- physics calls structure on top of that â” the connection, the
--- holonomy's group-valuedness, the gauge transformation law â” is forced,
+-- physics calls structure on top of that â€” the connection, the
+-- holonomy's group-valuedness, the gauge transformation law â€” is forced,
 -- and is proved below rather than posited.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
---   Â§1  Torsor â” a G-torsor packaged as a type with a free transitive
---       action.  `àà•à` : the translating element is UNIQUE, imported as
+--   Â§1  Torsor â€” a G-torsor packaged as a type with a free transitive
+--       action.  `à¤à¤•à¤ƒ` : the translating element is UNIQUE, imported as
 --       a live use of `EkaSankramana`'s `regular` rather than restated.
---       `àà¾à°àà¿à` : hence the orbit map Carrier â’ Pts is an equivalence.
+--       `à¤¸à¤¾à¤°à¤¥à¤¿à¤ƒ` : hence the orbit map Carrier â†’ Pts is an equivalence.
 --
---   Â§2  ààà²à / àà§à¾à°à / àà¨àààà-ààà²ààà¯ â” a principal G-bundle over B is a map
---       B â’ Torsor.  That IS its classifying map: by the object
+--   Â§2  à¤ªà¥‚à¤²à¤ƒ / à¤†à¤§à¤¾à¤°à¤ƒ / à¤¤à¤¨à¥à¤¤à¥à¤ƒ-à¤ªà¥‚à¤²à¤¸à¥à¤¯ â€” a principal G-bundle over B is a map
+--       B â†’ Torsor.  That IS its classifying map: by the object
 --       classifier (`Visvarupa` Â§1) a family and a map into the universe
 --       are the same thing, so "the bundle" and "the map into the type
---       of torsors" are not two objects.  The total space is Î, the
+--       of torsors" are not two objects.  The total space is Î£, the
 --       projection is `fst`, and the fibre over b is the torsor over b.
 --
---   Â§3  àà®àµààààà¿à â” TRANSPORT IN A BUNDLE IS EQUIVARIANT, by path
+--   Â§3  à¤¸à¤®à¤µà¥ƒà¤¤à¥à¤¤à¤¿à¤ƒ â€” TRANSPORT IN A BUNDLE IS EQUIVARIANT, by path
 --       induction.  Nothing is assumed about the family beyond its
 --       being one: equivariance of parallel transport is not a
 --       compatibility axiom imposed on a connection, it is a theorem
 --       about `subst`.  This is the section that makes the rest work.
 --
---   Â§4  àà‹à²à‹à¨à‹à®à (`àà°à¿à•àà°à®à¾`) â” the holonomy of a loop, measured at a point
+--   Â§4  à¤¹à¥‹à¤²à¥‹à¤¨à¥‹à¤®à¥€ (`à¤ªà¤°à¤¿à¤•à¥à¤°à¤®à¤¾`) â€” the holonomy of a loop, measured at a point
 --       of the fibre, is a GROUP ELEMENT, uniquely determined; the
 --       constant loop gives the identity; and
---           àà°à¿à•àà°à®à¾ (â“ âˆ™ â“') p â‰¡ àà°à¿à•àà°à®à¾ â“ p Â àà°à¿à•àà°à®à¾ â“' p.
+--           à¤ªà¤°à¤¿à¤•à¥à¤°à¤®à¤¾ (â„“ âˆ™ â„“') p â‰¡ à¤ªà¤°à¤¿à¤•à¥à¤°à¤®à¤¾ â„“ p Â· à¤ªà¤°à¤¿à¤•à¥à¤°à¤®à¤¾ â„“' p.
 --       Holonomy is a homomorphism from the loops of the base into G.
---       Not a definition â” the group law is derived from Â§3 and Â§1's
+--       Not a definition â€” the group law is derived from Â§3 and Â§1's
 --       uniqueness.
 --
---   Â§5  àààµà°ààà¨à®à â” CHANGING THE POINT OF THE FIBRE CONJUGATES THE
+--   Â§5  à¤¸à¤‚à¤µà¤°à¥à¤¤à¤¨à¤®à¥ â€” CHANGING THE POINT OF THE FIBRE CONJUGATES THE
 --       HOLONOMY:
---           àà°à¿à•àà°à®à¾ â“ (k â– p) â‰¡ (k Â àà°à¿à•àà°à®à¾ â“ p) Â inv k.
+--           à¤ªà¤°à¤¿à¤•à¥à¤°à¤®à¤¾ â„“ (k â–¸ p) â‰¡ (k Â· à¤ªà¤°à¤¿à¤•à¥à¤°à¤®à¤¾ â„“ p) Â· inv k.
 --       So a loop does not determine an element of G.  It determines a
---       CONJUGACY CLASS, and the choice of fibre point â” the gauge â” is
+--       CONJUGACY CLASS, and the choice of fibre point â€” the gauge â€” is
 --       exactly the ambiguity.  This is the gauge transformation law,
 --       and it is a corollary of uniqueness, not an assumption.
 --
---   Â§6  à•àààààà°à®à â” matter.  A representation is a family on the type of
+--   Â§6  à¤•à¥à¤·à¥‡à¤¤à¥à¤°à¤®à¥ â€” matter.  A representation is a family on the type of
 --       torsors; the associated bundle is the composite with the
 --       classifying map; a matter field is a SECTION, i.e. a dependent
 --       function; and its parallel transport is Â§3's `subst`, the same
---       operation, at the associated bundle.  `àààµà¿àà®à` exhibits the
+--       operation, at the associated bundle.  `à¤œà¥€à¤µà¤¿à¤¤à¤®à¥` exhibits the
 --       tautological representation, whose associated bundle is the
 --       principal bundle itself.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- READ WITH README Â§II.  Â§II proved that an observable is blind to
 -- holonomy exactly when it is gauge-invariant.  Â§5 says what the
 -- holonomy it is blind to actually is: a conjugacy class in G, with the
 -- fibre point as the residual freedom.  The two together are the
 -- statement that the physical residue of a gauge theory is the holonomy
--- up to conjugation â” over a base with no smooth structure at all,
+-- up to conjugation â€” over a base with no smooth structure at all,
 -- which is why the corpus's LQG reading ("LQG kinematics is the category
 -- of actions of the gauge group") did not need one either.
 ------------------------------------------------------------------------
@@ -135,7 +135,7 @@ module _ (Grp : Group â„“) where
 
   ----------------------------------------------------------------------
   -- Â§1  A G-torsor: a set with a free transitive action.  The type of
-  --     G-torsors is the classifying type â” "BG" â” and a principal
+  --     G-torsors is the classifying type â€” "BG" â€” and a principal
   --     bundle is a map into it (Â§2).
   ----------------------------------------------------------------------
 
@@ -153,7 +153,7 @@ module _ (Grp : Group â„“) where
   _â–¸[_]_ : {â„“' : Level} â†’ Carrier â†’ (T : Torsor â„“') â†’ Pts T â†’ Pts T
   g â–¸[ T ] p = Action.act (Î± T) g p
 
-  -- àà•à â” the translating element is exactly one.  `EkaSankramana`'s
+  -- à¤à¤•à¤ƒ â€” the translating element is exactly one.  `EkaSankramana`'s
   -- theorem, used rather than restated: if it is renamed or weakened,
   -- this file goes red.
   à¤à¤•à¤ƒ : {â„“' : Level} (T : Torsor â„“') (p q : Pts T) (g h : Carrier)
@@ -167,9 +167,9 @@ module _ (Grp : Group â„“) where
   à¤¸à¤¾à¤°à¤¥à¤¿à¤ƒ T p = torsorIsEquiv Grp (Pts T) (setPts T) (Î± T) (free T) (tran T) p
 
   ----------------------------------------------------------------------
-  -- Â§2  ààà²à â” the principal bundle.  A map B â’ Torsor IS the bundle and
+  -- Â§2  à¤ªà¥‚à¤²à¤ƒ â€” the principal bundle.  A map B â†’ Torsor IS the bundle and
   --     IS its classifying map; by the object classifier those are not
-  --     two objects.  The total space is Î and the projection is fst.
+  --     two objects.  The total space is Î£ and the projection is fst.
   ----------------------------------------------------------------------
 
   à¤ªà¥‚à¤²à¤ƒ : {â„“' : Level} (B : Type â„“b) â†’ Type (â„“-max â„“b (â„“-max â„“ (â„“-suc â„“')))
@@ -194,7 +194,7 @@ module _ (Grp : Group â„“) where
   à¤¤à¤¨à¥à¤¤à¥à¤ƒ-à¤ªà¥‚à¤²à¤¸à¥à¤¯ P b = fiberEquiv (à¤¤à¤¨à¥à¤¤à¤µà¤ƒ P) b
 
   ----------------------------------------------------------------------
-  -- Â§3  àà®àµààààà¿à â” transport in a bundle is equivariant.  By path
+  -- Â§3  à¤¸à¤®à¤µà¥ƒà¤¤à¥à¤¤à¤¿à¤ƒ â€” transport in a bundle is equivariant.  By path
   --     induction, and about `subst` alone: equivariance of parallel
   --     transport is not an axiom imposed on a connection.
   ----------------------------------------------------------------------
@@ -211,7 +211,7 @@ module _ (Grp : Group â„“) where
       q
 
   ----------------------------------------------------------------------
-  -- Â§4  àà°à¿à•àà°à®à¾ â” the holonomy of a loop, measured at a point of the
+  -- Â§4  à¤ªà¤°à¤¿à¤•à¥à¤°à¤®à¤¾ â€” the holonomy of a loop, measured at a point of the
   --     fibre.  It is a group element, and it is a homomorphism.
   ----------------------------------------------------------------------
 
@@ -259,7 +259,7 @@ module _ (Grp : Group â„“) where
         à¤µà¤¹à¤¨à¤®à¥ (q âˆ™ r) p âˆ
 
     ------------------------------------------------------------------
-    -- Â§5  àààµà°ààà¨à®à â” the gauge transformation law.  Moving the point of
+    -- Â§5  à¤¸à¤‚à¤µà¤°à¥à¤¤à¤¨à¤®à¥ â€” the gauge transformation law.  Moving the point of
     --     the fibre by k conjugates the holonomy by k.  So a loop does
     --     not name an element of G; it names a conjugacy class, and the
     --     choice of fibre point is exactly the residual freedom.
@@ -271,7 +271,7 @@ module _ (Grp : Group â„“) where
       where
       g  = à¤ªà¤°à¤¿à¤•à¥à¤°à¤®à¤¾ q p
       g' = à¤ªà¤°à¤¿à¤•à¥à¤°à¤®à¤¾ q (k â–¸[ P b ] p)
-      -- both g' Â k and k Â g carry p to the transported point
+      -- both g' Â· k and k Â· g carry p to the transported point
       left : (g' Â· k) â–¸[ P b ] p â‰¡ à¤µà¤¹à¤¨à¤®à¥ q (k â–¸[ P b ] p)
       left =
         (g' Â· k) â–¸[ P b ] p           â‰¡âŸ¨ Action.act-Â· (Î± (P b)) g' k p âŸ©
@@ -287,12 +287,12 @@ module _ (Grp : Group â„“) where
       both = à¤à¤•à¤ƒ (P b) p (à¤µà¤¹à¤¨à¤®à¥ q (k â–¸[ P b ] p)) (g' Â· k) (k Â· g) left right
 
   ----------------------------------------------------------------------
-  -- Â§6  à•àààààà°à®à â” matter is a section of an associated bundle.
+  -- Â§6  à¤•à¥à¤·à¥‡à¤¤à¥à¤°à¤®à¥ â€” matter is a section of an associated bundle.
   --
   -- A representation is a family on the classifying type; the associated
   -- bundle is the composite with the classifying map; a matter field is
   -- a dependent function.  Its parallel transport is Â§3's operation at
-  -- the associated bundle â” the same `subst`, one family over.
+  -- the associated bundle â€” the same `subst`, one family over.
   ----------------------------------------------------------------------
 
   à¤ªà¥à¤°à¤¤à¤¿à¤°à¥‚à¤ªà¤®à¥ : (â„“' â„“v : Level) â†’ Type (â„“-max (â„“-max â„“ (â„“-suc â„“')) (â„“-suc â„“v))

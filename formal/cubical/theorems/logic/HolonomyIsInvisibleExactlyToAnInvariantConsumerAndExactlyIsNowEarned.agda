@@ -7,38 +7,38 @@
 -- is this repository's declared substrate;
 -- the holonomy framing is Î” 28 Â§36â“38's, i.e. this corpus's own.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE CONVERSE.
 --
 -- `HolonomyIsInvisibleExactlyToAnInvariantSemantics`
 -- proves ONE direction:
 --
 --   invariantSemanticsIsUnmoved :
---     ((z : Z) â’ sem (equivFun h z) â‰¡ sem z)
---     â’ (z : Z) â’ sem (transport (ua h) z) â‰¡ sem z
+--     ((z : Z) â†’ sem (equivFun h z) â‰¡ sem z)
+--     â†’ (z : Z) â†’ sem (transport (ua h) z) â‰¡ sem z
 --
 -- THE CONVERSE COSTS NOTHING.  `uaÎ² h z : transport (ua h) z â‰¡
 -- equivFun h z` is a PATH, so it may be walked in either orientation;
 -- the backward direction is the forward one with `sym`.  Same for Â§3's
 -- statement about the raw interface.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE CONTRAST.  The converse in
 -- `FullAbstractionIsAConditionOnTheContextFamilyAndCurvatureIsWitnessedInIt`
 -- is an ASYMMETRY: one direction a congruence,
 -- the other a search paying `Enumerated K` + `Discrete O`.  Here there
--- is NO asymmetry, and the reason is structural rather than lucky â”
+-- is NO asymmetry, and the reason is structural rather than lucky â€”
 -- there the two directions were related by an IMPLICATION assumed
 -- (`FullyAbstract`), here by a PATH given (`uaÎ²`).  A path has an
 -- inverse; an implication does not.  **So "is the converse free?" has
 -- an answer readable off the shape of what connects the two sides, and
 -- it is worth asking before assuming either verdict.**
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   Invariant / Invisible   the two conditions, named
---   invariantâ’invisible     the old direction, REUSED not restated â”
+--   invariantâ†’invisible     the old direction, REUSED not restated â€”
 --                           it is `invariantSemanticsIsUnmoved`
 --   invisibleâ’invariant     the converse direction
 --   invisibleExactlyWhenInvariant

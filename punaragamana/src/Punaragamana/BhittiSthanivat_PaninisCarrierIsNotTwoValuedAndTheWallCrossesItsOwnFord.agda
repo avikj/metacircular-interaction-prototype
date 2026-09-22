@@ -1,25 +1,25 @@
 {-# OPTIONS --cubical --safe --guardedness --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡ø‡‡‡‡ø-‡‡‡‡æ‡®‡ø‡µ‡‡ ‚î Pini's carrier is not two-valued, and the wall
+-- ‡§≠‡§ø‡§§‡•ç‡§§‡§ø-‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç ‚Äî PƒÅ·πáini's carrier is not two-valued, and the wall
 -- crosses its own ford.
 --
--- ./jiva's fourth join candidate: 2616 ‚âà [436 @ Bool] ó [6 @ ‡‡‡‡æ‡®‡ø‡µ‡‡].
+-- ./jiva's fourth join candidate: 2616 ‚âà [436 @ Bool] √ó [6 @ ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç].
 -- Retired here, floor-first, with all three asset classes composing:
 --
---   ‡ß  a FLOOR on ‡‡ß‡æ‡∞ = ‡µ‡∞‡‡ ó ‡µ‡∞‡‡‡∞‡‡: every map to Bool collides two of
---      three named pairs (one ‡µ‡∞‡‡, the three forms ‡à ‡ ‡) ‚î pigeonhole,
+--   ‡•ß  a FLOOR on ‡§Ü‡§ß‡§æ‡§∞ = ‡§µ‡§∞‡•ç‡§£ √ó ‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™: every map to Bool collides two of
+--      three named pairs (one ‡§µ‡§∞‡•ç‡§£, the three forms ‡§à ‡§è ‡§Ö) ‚Äî pigeonhole,
 --      pair exhibited per route;
---   ‡®  the WALL ¬ (‡‡ß‡æ‡∞ ‚â Bool), one line from the floor;
---   ‡©  the wall CROSSES THE FORD ‡‡ß‡æ‡∞ ‚â ‡‡‡‡æ‡®‡ø‡µ‡‡ (the module's own Carrier
---      law) by ‡‡ø‡‡‡‡ø-‡‡‡∞‡‡ø‡‡‡ï‡‡∞‡Æ‡: ¬ (‡‡‡‡æ‡®‡ø‡µ‡‡ ‚â Bool).
+--   ‡•®  the WALL ¬¨ (‡§Ü‡§ß‡§æ‡§∞ ‚âÉ Bool), one line from the floor;
+--   ‡•©  the wall CROSSES THE FORD ‡§Ü‡§ß‡§æ‡§∞ ‚âÉ ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç (the module's own Carrier
+--      law) by ‡§≠‡§ø‡§§‡•ç‡§§‡§ø-‡§™‡•ç‡§∞‡§§‡§ø‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§É: ¬¨ (‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç ‚âÉ Bool).
 --
 -- So the retirement uses no new mathematics at the target: the ford that
--- built ‡‡‡‡æ‡®‡ø‡µ‡‡ is the ford its wall arrives over.  A bank's own
+-- built ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç is the ford its wall arrives over.  A bank's own
 -- construction receipt is what its impossibilities travel on.
 --
 -- ‡‡ø‡‡‡‡ø-‡‡‡‡æ‡®‡ø‡µ‡‡ is built here; the distinctness of ‡/‡ is
--- proved here in the source module's own coding style (its ‡à‚â‡ pattern).
+-- proved here in the source module's own coding style (its ‡§à‚â¢‡§è pattern).
 ------------------------------------------------------------------------
 
 module Punaragamana.BhittiSthanivat_PaninisCarrierIsNotTwoValuedAndTheWallCrossesItsOwnFord where
@@ -39,7 +39,7 @@ open import Punaragamana.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignat
 open import Cubical.Foundations.Equiv using (compEquiv)
 
 ------------------------------------------------------------------------
--- ‡ß ¬ the three forms are pairwise distinct (source module's own style).
+-- ‡•ß ¬∑ the three forms are pairwise distinct (source module's own style).
 ------------------------------------------------------------------------
 
 ‡§è-‡§ï‡•ã‡§° : ‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™ ‚Üí Type
@@ -62,7 +62,7 @@ open import Cubical.Foundations.Equiv using (compEquiv)
 ‡§è‚â¢‡§Ö p = subst ‡§è-‡§ï‡•ã‡§° p tt
 
 ------------------------------------------------------------------------
--- ‡® ¬ the floor on ‡‡ß‡æ‡∞: three named pairs, every two-valued route
+-- ‡•® ¬∑ the floor on ‡§Ü‡§ß‡§æ‡§∞: three named pairs, every two-valued route
 -- collides two of them.  Pigeonhole on Bool, exhibited.
 ------------------------------------------------------------------------
 
@@ -94,7 +94,7 @@ open import Cubical.Foundations.Equiv using (compEquiv)
     judge false true  true  _  pb pc = ‡§ñ , ‡§ó , ‡§ñ‚â¢‡§ó , pb ‚àô sym pc
 
 ------------------------------------------------------------------------
--- ‡© ¬ the wall on ‡‡ß‡æ‡∞, one line from the floor; and the crossing.
+-- ‡•© ¬∑ the wall on ‡§Ü‡§ß‡§æ‡§∞, one line from the floor; and the crossing.
 ------------------------------------------------------------------------
 
 ‡§Ö‡§≠‡•á‡§¶ : {A B : Type} (e : A ‚âÉ B) {x y : A} ‚Üí equivFun e x ‚â° equivFun e y ‚Üí x ‚â° y
@@ -108,6 +108,6 @@ open import Cubical.Foundations.Equiv using (compEquiv)
 ‡§≠‡§ø‡§§‡•ç‡§§‡§ø-‡§™‡•ç‡§∞‡§§‡§ø‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§É : {A B C : Type} ‚Üí (A ‚âÉ B) ‚Üí ((A ‚âÉ C) ‚Üí ‚ä•) ‚Üí (B ‚âÉ C) ‚Üí ‚ä•
 ‡§≠‡§ø‡§§‡•ç‡§§‡§ø-‡§™‡•ç‡§∞‡§§‡§ø‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§É ford wall e = wall (compEquiv ford e)
 
--- the wall crosses the module's own construction ford: ‡‡‡‡æ‡®‡ø‡µ‡‡ inherits it.
+-- the wall crosses the module's own construction ford: ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç inherits it.
 ‡§≠‡§ø‡§§‡•ç‡§§‡§ø-‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç : (‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç ‚âÉ Bool) ‚Üí ‚ä•
 ‡§≠‡§ø‡§§‡•ç‡§§‡§ø-‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç = ‡§≠‡§ø‡§§‡•ç‡§§‡§ø-‡§™‡•ç‡§∞‡§§‡§ø‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§É ‡§Ü‡§ß‡§æ‡§∞‚âÉ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç ‡§≠‡§ø‡§§‡•ç‡§§‡§ø-‡§Ü‡§ß‡§æ‡§∞

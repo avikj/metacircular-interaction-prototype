@@ -1,35 +1,35 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ���������� � the substratum.  What the corpus's deepest identity is
+-- अधिष्ठानम् — the substratum.  What the corpus's deepest identity is
 -- standing on, made explicit.
 --
 -- THE CLAIM BEING INDEXED.  The transport lane's floor is stated as:
 -- "reversibility IS ahis IS losslessness, one equation" (LosslessReturn's
 -- own header), with the reading that below the fibre lies the interval,
 -- below the interval `hcomp` as "the one operation under all the verbs",
--- and below that the presheaf topos [□����, Set] with "no concept beneath it."
+-- and below that the presheaf topos [□ᵒᵖ, Set] with "no concept beneath it."
 --
--- Two refinements, and neither demolishes the reading � they locate it.
+-- Two refinements, and neither demolishes the reading — they locate it.
 --
--- (�) THE KAN FLOOR HAS TWO PRIMITIVES, NOT ONE.  `hcomp` fills a box
+-- (१) THE KAN FLOOR HAS TWO PRIMITIVES, NOT ONE.  `hcomp` fills a box
 --     INSIDE A FIXED TYPE; `transp` moves ALONG A LINE OF TYPES; `comp` is
 --     derived from both.  `transp` is not an `hcomp`: homogeneous
 --     composition never leaves its type, and leaving the type is the entire
---     content of transport.  §� exhibits transport crossing between two
+--     content of transport.  §२ exhibits transport crossing between two
 --     types that are not definitionally equal, which no `hcomp` can be
 --     typed to do.  The split is the lane's own dravya/paryya one level
 --     lower than it was placed: moving-within versus moving-across.
 --
--- (�) FREE REVERSAL IS A PROPERTY OF THE SITE.  §� reverses a path with
---     `λ i � p (~ i)` � no Kan operation invoked, `~` read straight off the
---     interval � and §� shows `∧` and `∨` likewise.  That is available
---     because CCHM (Cohen�Coquand�Huber�Mrtberg 2015, what Agda's
---     --cubical implements) takes � to carry a DE MORGAN ALGEBRA.  It is a
+-- (२) FREE REVERSAL IS A PROPERTY OF THE SITE.  §३ reverses a path with
+--     `λ i → p (~ i)` — no Kan operation invoked, `~` read straight off the
+--     interval — and §४ shows `∧` and `∨` likewise.  That is available
+--     because CCHM (Cohen–Coquand–Huber–Mörtberg 2015, what Agda's
+--     --cubical implements) takes 𝕀 to carry a DE MORGAN ALGEBRA.  It is a
 --     choice of cube category, not a fact about cubical type theory: the
---     cartesian cubical theory of Angiuli�Brunerie�Coquand�Harper�Favonia�
---     Licata has no involution on �, univalence still computes, and paths
---     still reverse � but reversal is DERIVED from the Kan operations
+--     cartesian cubical theory of Angiuli–Brunerie–Coquand–Harper–Favonia–
+--     Licata has no involution on 𝕀, univalence still computes, and paths
+--     still reverse — but reversal is DERIVED from the Kan operations
 --     rather than read off the interval.
 --
 --     So "reversibility is free, therefore ahis is the floor of being"
@@ -51,7 +51,7 @@ open import Cubical.Data.Bool using (Bool ; true ; false ; not)
 open import Cubical.Data.Unit using (Unit ; tt)
 
 ------------------------------------------------------------------------
--- � � uaβ � identity acts.  Not a proved path: a reduction.
+-- १ · uaβ — identity acts.  Not a proved path: a reduction.
 ------------------------------------------------------------------------
 
 नकार : Bool ≃ Bool
@@ -66,7 +66,7 @@ open import Cubical.Data.Unit using (Unit ; tt)
 क्रिया = refl
 
 ------------------------------------------------------------------------
--- � � transp crosses TYPES.  Bool and Unit are not definitionally equal,
+-- २ · transp crosses TYPES.  Bool and Unit are not definitionally equal,
 -- and transport moves between them along a path of types; no `hcomp`,
 -- which is typed inside one type, can be given this type.
 ------------------------------------------------------------------------
@@ -74,19 +74,19 @@ open import Cubical.Data.Unit using (Unit ; tt)
 रिक्तपथः : Unit ≡ Unit
 रिक्तपथः = refl
 
--- a genuinely heterogeneous move: along ua ����� the endpoints are the same
--- type but the FIBRE is transported nontrivially, which §� witnesses.
+-- a genuinely heterogeneous move: along ua नकार the endpoints are the same
+-- type but the FIBRE is transported nontrivially, which §१ witnesses.
 -- Here the heterogeneity is made visible in the dependent form: PathP over
 -- a line of types is what transp inhabits and hcomp cannot express.
 अन्तरण : (P : I → Type) → P i0 → P i1
 अन्तरण P x = transp (λ i → P i) i0 x
 
--- instantiating at the univalent line recovers §�'s reduction
+-- instantiating at the univalent line recovers §१'s reduction
 अन्तरण-नकार : अन्तरण (λ i → ua नकार i) true ≡ false
 अन्तरण-नकार = refl
 
 ------------------------------------------------------------------------
--- � � Reversal is an INTERVAL operation.  No Kan operation appears.
+-- ३ · Reversal is an INTERVAL operation.  No Kan operation appears.
 ------------------------------------------------------------------------
 
 प्रतिलोम : {A : Type} {x y : A} → x ≡ y → y ≡ x
@@ -97,7 +97,7 @@ open import Cubical.Data.Unit using (Unit ; tt)
 प्रतिलोम-प्रतिलोम p = refl
 
 ------------------------------------------------------------------------
--- � � The De Morgan structure, visible: ∧ and ∨ are interval operations.
+-- ४ · The De Morgan structure, visible: ∧ and ∨ are interval operations.
 -- These are exactly what the cartesian site does not provide.
 ------------------------------------------------------------------------
 

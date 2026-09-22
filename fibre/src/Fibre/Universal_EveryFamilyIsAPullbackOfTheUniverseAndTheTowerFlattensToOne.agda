@@ -1,16 +1,16 @@
 {-# OPTIONS --cubical --safe --guardedness #-}
 
--- Punargamana ¬ Vivarpa
+-- PunarƒÅgamana ¬∑ Vi≈õvar≈´pa
 --
 -- EVERY FAMILY IS A PULLBACK OF ONE FIBRATION, AND A TOWER OF THEM FLATTENS
 -- TO ONE.
 --
 -- THE CLAIM THIS FILE ANSWERS.  The fibre law is not a recurring motif in
 -- this corpus.  It is the object classifier: in a univalent universe a form
--- over a base ‚î any family `B : A ‚í Type` ‚î IS a map into the universe, and
--- `Œ A B` is the total space of the one fibration
+-- over a base ‚Äî any family `B : A ‚Üí Type` ‚Äî IS a map into the universe, and
+-- `Œ£ A B` is the total space of the one fibration
 --
---     œ : Œ[ X ‚àà Type ‚ì ] X  ‚í  Type ‚ì        œ = fst
+--     œÄ : Œ£[ X ‚àà Type ‚Ñì ] X  ‚Üí  Type ‚Ñì        œÄ = fst
 --
 -- pulled back along it.  One object classifies every family there is.  The
 -- claim was made in prose.  Everything below is the part of it that is a
@@ -21,7 +21,7 @@
 -- 4.8.2 (`totalEquiv`) and Theorem 4.8.3 (`fibrationEquiv`), the last of
 -- which is the classifier as an equivalence of TYPES:
 --
---     (Œ[ E ‚àà Type ‚ì ] (E ‚í A))  ‚â  (A ‚í Type ‚ì).
+--     (Œ£[ E ‚àà Type ‚Ñì ] (E ‚Üí A))  ‚âÉ  (A ‚Üí Type ‚Ñì).
 --
 -- ¬ß3 re-exports it under a corpus name and states where its content sits:
 -- its `rightInv` is `ua`.  The classifier is a theorem OF univalence, not a
@@ -29,22 +29,22 @@
 --
 -- WHAT IS NEW HERE.
 --
---   ¬ß2  The equivalence is the CANONICAL comparison map ‚î checked by
+--   ¬ß2  The equivalence is the CANONICAL comparison map ‚Äî checked by
 --       `refl`, not merely exhibited as some equivalence.  Which matters,
 --       because of ¬ß6.
 --
---   ¬ß5  `invisible‚âcontractible`, at the locus where the law lives.
---       `Fibre.Carrier`'s header asserts the converse in prose ‚î "A
---       NON-contractible fibre cannot be declared equivalent to its base" ‚î
+--   ¬ß5  `invisible‚âÉcontractible`, at the locus where the law lives.
+--       `Fibre.Carrier`'s header asserts the converse in prose ‚Äî "A
+--       NON-contractible fibre cannot be declared equivalent to its base" ‚Äî
 --       and the corpus proves it twice, in neither place generally:
---       `DefectCalculus.noEquiv‚íbadFibre` has the fibrewise
+--       `DefectCalculus.noEquiv‚ÜíbadFibre` has the fibrewise
 --       characterisation of `isEquiv` for an arbitrary map (in cubical Agda
 --       that IS the definition, so it is one step), and `TritiyaMarga`'s
 --       private `Test` module has both directions for ONE family
---       `Q : ‚ï ‚í Type‚`, as a lemma on the way to Markov's principle.  What
+--       `Q : ‚Ñï ‚Üí Type‚ÇÄ`, as a lemma on the way to Markov's principle.  What
 --       is new is neither step but the locus: the statement about the
 --       projection of an ARBITRARY family, in the library that owns the
---       law, packaged as an equivalence of propositions.  ‡‡ï‡æ‡ß‡ø‡ï‡∞‡ ‚î an
+--       law, packaged as an equivalence of propositions.  ‡§è‡§ï‡§æ‡§ß‡§ø‡§ï‡§∞‡§£ ‚Äî an
 --       installed theorem has exactly one place to be quoted from.
 --
 --       The two directions are joined by a PATH between propositions rather
@@ -53,15 +53,15 @@
 --       that lesson about the same shape: a path has an inverse, an
 --       implication does not.
 --
---   ¬ß6  ‚¶and the converse is about the PROJECTION, not about the mere
---       existence of an equivalence.  `Œ Bool Br ‚â Bool` holds for a family
+--   ¬ß6  ‚Ä¶and the converse is about the PROJECTION, not about the mere
+--       existence of an equivalence.  `Œ£ Bool Br ‚âÉ Bool` holds for a family
 --       whose fibres are one EMPTY and one CROWDED: the census's two
---       failures (‡®‡æ‡‡‡‡ø and ‡®‡‡‡ü‡ø ‚î `SakalaVikalaDesa`) cancel
+--       failures (‡§®‡§æ‡§∏‡•ç‡§§‡§ø and ‡§®‡§∑‡•ç‡§ü‡§ø ‚Äî `SakalaVikalaDesa`) cancel
 --       numerically, and an abstract equivalence sees neither.  "Invisible"
 --       has to mean invisible OVER THE BASE, and ¬ß5's statement does.
 --
 --   ¬ß7  The tower flattens.  A tower of families of any finite height n
---       over A ‚î each storey a family over the previous total space ‚î is
+--       over A ‚Äî each storey a family over the previous total space ‚Äî is
 --       ONE family over A, and the flattening is computed (`flatten`), not
 --       merely shown to exist.  So iterating the fibre law never leaves the
 --       universe, at every finite stage, and ¬ß7's last lines exhibit a
@@ -70,12 +70,12 @@
 -- The tower of ¬ß7 is level-uniform (every storey at
 -- one level ‚ì).
 --
--- ON SIZE.  `fiber œ X` lives one universe above X, so ¬ß2's pullback is an
--- equivalence ACROSS levels.  That is the size of the classifier ‚î the
+-- ON SIZE.  `fiber œÄ X` lives one universe above X, so ¬ß2's pullback is an
+-- equivalence ACROSS levels.  That is the size of the classifier ‚Äî the
 -- universe classifying its own families is exactly what does not fit inside
--- one level ‚î and not a defect of the statement.
+-- one level ‚Äî and not a defect of the statement.
 --
--- ON THE NAME.  ‡µ‡ø‡‡‡µ‡∞‡‡ (vivarpa), "all-formed", "the form that has all
+-- ON THE NAME.  ‡§µ‡§ø‡§∂‡•ç‡§µ‡§∞‡•Ç‡§™ (vi≈õvar≈´pa), "all-formed", "the form that has all
 -- forms".  The word names the theophany of the Bhagavadgt's eleventh
 -- adhyya.
 -- It is used here as the label of this module, chosen for what
@@ -104,7 +104,7 @@ private
 ------------------------------------------------------------------------
 -- ¬ß1  THE ONE FIBRATION
 --
--- The universe of ‚ì-small types, with a point of each chosen ‚î and the
+-- The universe of ‚Ñì-small types, with a point of each chosen ‚Äî and the
 -- projection that forgets the point.  Its fibre over a code IS the type
 -- that code names.  There is nothing else in it: no structure, no choice,
 -- no parameter.
@@ -115,7 +115,7 @@ Universal ‚Ñì = Œ£[ X ‚àà Type ‚Ñì ] X
 œÄ : Universal ‚Ñì ‚Üí Type ‚Ñì
 œÄ = fst
 
--- HoTT 4.8.1 at the universal family, where p‚ª¬ is the identity.  The fibre
+-- HoTT 4.8.1 at the universal family, where p‚Åª¬π is the identity.  The fibre
 -- over the code X is X.
 fibreOfœÄ : (X : Type ‚Ñì) ‚Üí fiber (œÄ {‚Ñì}) X ‚âÉ X
 fibreOfœÄ {‚Ñì = ‚Ñì} X = fiberEquiv (Œª (Y : Type ‚Ñì) ‚Üí Y) X
@@ -123,18 +123,18 @@ fibreOfœÄ {‚Ñì = ‚Ñì} X = fiberEquiv (Œª (Y : Type ‚Ñì) ‚Üí Y) X
 ------------------------------------------------------------------------
 -- ¬ß2  EVERY FAMILY IS ITS PULLBACK
 --
--- Given B : A ‚í Type ‚ì, the square
+-- Given B : A ‚Üí Type ‚Ñì, the square
 --
---     Œ A B ‚î‚î‚î‚î‚î‚î‚í Universal ‚ì
---       ‚î  (a,b) ‚¶ (B a , b)  ‚î
---      fst                    œ
---       ‚î                     ‚î
+--     Œ£ A B ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚Üí Universal ‚Ñì
+--       ‚îÇ  (a,b) ‚Ü¶ (B a , b)  ‚îÇ
+--      fst                    œÄ
+--       ‚Äî                     ‚î
 --       ‚ì                     ‚ì
---       A ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚í Type ‚ì
+--       A ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚Üí Type ‚Ñì
 --                B
 --
--- commutes on the nose, and Œ A B is the pullback.  The map that witnesses
--- it is the canonical one ‚î `comparison` below ‚î and `pullback-canonical`
+-- commutes on the nose, and Œ£ A B is the pullback.  The map that witnesses
+-- it is the canonical one ‚Äî `comparison` below ‚Äî and `pullback-canonical`
 -- says so by `refl`.
 
 module _ {A : Type ‚Ñìa} (B : A ‚Üí Type ‚Ñì) where
@@ -154,7 +154,7 @@ module _ {A : Type ‚Ñìa} (B : A ‚Üí Type ‚Ñì) where
   comparison (a , b) = a , (classifying (a , b) , refl)
 
   -- Fibrewise from ¬ß1, with the base component untouched.  Written out
-  -- rather than obtained from `Œ-cong-equiv-snd` because that lemma's
+  -- rather than obtained from `Œ£-cong-equiv-snd` because that lemma's
   -- generalised variables put the two families at ONE level, and here the
   -- second family is a universe higher than the first (see ON SIZE).
   pullback-Iso : Iso (Œ£ A B) (Œ£[ a ‚àà A ] fiber (œÄ {‚Ñì}) (B a))
@@ -177,7 +177,7 @@ module _ {A : Type ‚Ñìa} (B : A ‚Üí Type ‚Ñì) where
 --
 -- HoTT Theorem 4.8.3, `Cubical.Functions.Fibration.fibrationEquiv`: maps
 -- into A and families over A are the same type, not merely in bijection on
--- points.  Read the library's proof for where the content is ‚î `rightInv`
+-- points.  Read the library's proof for where the content is ‚Äî `rightInv`
 -- is `ua`, `leftInv` is `ua` again with `ua-unglue`.  Univalence is the
 -- whole of it.
 
@@ -187,9 +187,9 @@ classifier {‚Ñì = ‚Ñì} A = fibrationEquiv A ‚Ñì
 ------------------------------------------------------------------------
 -- ¬ß4  THE FIBRE LAW IS THIS, WITH A CONTRACTIBLE CLASSIFYING MAP
 --
--- `Fibre.Carrier` takes f : A ‚í B and forms the family `fibre f = singl ‚àò f`.
+-- `Fibre.Carrier` takes f : A ‚Üí B and forms the family `fibre f = singl ‚àò f`.
 -- That family is the classifying map of `Carrier f`, so the carrier is a
--- pullback of œ like anything else ‚î and the law's hypothesis
+-- pullback of œÄ like anything else ‚Äî and the law's hypothesis
 -- (`fibre-isContr`) is the statement that this classifying map lands in the
 -- contractible codes.  Nothing about the law is special except where its
 -- classifying map goes.
@@ -203,12 +203,12 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) where
 ------------------------------------------------------------------------
 -- ¬ß5  INVISIBLE IFF CONTRACTIBLE
 --
--- A family is invisible over its base ‚î its projection is an equivalence,
--- so the total space carries no information the base did not ‚î EXACTLY when
+-- A family is invisible over its base ‚Äî its projection is an equivalence,
+-- so the total space carries no information the base did not ‚Äî EXACTLY when
 -- every fibre is contractible.  Both sides are propositions and the two
 -- implications are joined into a path.
 --
--- The forward direction is `Œ-contractSnd`, which fifteen files of this
+-- The forward direction is `Œ£-contractSnd`, which fifteen files of this
 -- corpus already use.  The backward direction is the one `Fibre.Carrier`'s
 -- header asserts in prose and none of those fifteen has: it is HoTT 4.8.1
 -- (`fiberEquiv`) plus the definition of `isEquiv`, and it costs one line,
@@ -227,7 +227,7 @@ module _ {A : Type ‚Ñìa} (B : A ‚Üí Type ‚Ñìb) where
   contractibleFibres : Type (‚Ñì-max ‚Ñìa ‚Ñìb)
   contractibleFibres = (a : A) ‚Üí isContr (B a)
 
-  -- `Œ-contractSnd` is this direction and is what the corpus quotes, but
+  -- `Œ£-contractSnd` is this direction and is what the corpus quotes, but
   -- its generalised variables tie A and B to one level; the fibre of `fst`
   -- over a is B a on the nose, so the direct construction is as short and
   -- keeps the two levels apart.
@@ -249,10 +249,10 @@ module _ {A : Type ‚Ñìa} (B : A ‚Üí Type ‚Ñìb) where
 ------------------------------------------------------------------------
 -- ¬ß6  AND IT IS ABOUT THE PROJECTION
 --
--- ¬ß5 cannot be weakened to "Œ A B ‚â A".  Take the base Bool and the family
+-- ¬ß5 cannot be weakened to "Œ£ A B ‚âÉ A".  Take the base Bool and the family
 -- that is empty over one point and two-valued over the other.  The total
--- space is equivalent to the base ‚î and neither fibre is contractible: one
--- is ‡®‡æ‡‡‡‡ø (no source at all), the other ‡®‡‡‡ü‡ø (crowded).  The census of
+-- space is equivalent to the base ‚Äî and neither fibre is contractible: one
+-- is ‡§®‡§æ‡§∏‡•ç‡§§‡§ø (no source at all), the other ‡§®‡§∑‡•ç‡§ü‡§ø (crowded).  The census of
 -- `SakalaVikalaDesa` separates those two failures; an abstract equivalence
 -- adds them up and reports nothing.
 --
@@ -274,11 +274,11 @@ module CensusCancels where
   Iso.leftInv Œ£-Br-Iso (true , _) = refl
   Iso.leftInv Œ£-Br-Iso (false , ())
 
-  -- The total space is equivalent to the base‚¶
+  -- The total space is equivalent to the base‚Ä¶
   total‚âÉbase : Œ£ Bool Br ‚âÉ Bool
   total‚âÉbase = isoToEquiv Œ£-Br-Iso
 
-  -- ‚¶and the fibres are not contractible: over `false` there is no point at
+  -- ‚Ä¶and the fibres are not contractible: over `false` there is no point at
   -- all, which is enough.
   fibres-not-contractible : ¬¨ contractibleFibres Br
   fibres-not-contractible c = c false .fst
@@ -293,12 +293,12 @@ module CensusCancels where
 --
 -- A tower of height n over A: a family over A, then a family over ITS total
 -- space, then a family over that, n times.  `Tot` is the space at the top.
--- `flatten` computes a single family over A, by iterated Œ, and
+-- `flatten` computes a single family over A, by iterated Œ£, and
 -- `flatten-correct` proves the top of the tower is its total space.
 --
 -- Read as the classifier (`tower-is-pullback`): a stack of n fibrations is
--- one pullback of œ.  Iterating the fibre law does not leave the universe
--- at any finite height, and the witness is not an existence proof ‚î the
+-- one pullback of œÄ.  Iterating the fibre law does not leave the universe
+-- at any finite height, and the witness is not an existence proof ‚Äî the
 -- flattened family is written down, and reduces.
 
 Fam : (A : Type ‚Ñì) ‚Üí ‚Ñï ‚Üí Type (‚Ñì-suc ‚Ñì)
@@ -324,9 +324,9 @@ tower-is-pullback : {A : Type ‚Ñì} (n : ‚Ñï) (F : Fam A n)
                   ‚Üí Tot n F ‚âÉ (Œ£[ a ‚àà A ] fiber (œÄ {‚Ñì}) (flatten n F a))
 tower-is-pullback n F = compEquiv (flatten-correct n F) (pullback (flatten n F))
 
--- ‚¶and it computes.  A two-storey tower over Bool: the naturals, then the
+-- ‚Ä¶and it computes.  A two-storey tower over Bool: the naturals, then the
 -- proofs that the natural is zero.  Its flattening is not merely equivalent
--- to the hand-written family ‚î it IS it, by refl, in both the family and
+-- to the hand-written family ‚Äî it IS it, by refl, in both the family and
 -- the space.
 
 private

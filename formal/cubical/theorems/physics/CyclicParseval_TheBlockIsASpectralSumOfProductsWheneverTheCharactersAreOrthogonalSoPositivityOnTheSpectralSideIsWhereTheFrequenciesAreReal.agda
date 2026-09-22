@@ -1,15 +1,15 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- CyclicParseval � over any commutative ring, for any finite family of
--- characters �_�(t) with dual characters ��_�(s) satisfying the
--- orthogonality �_� �_�(t) ��_�(s) = N�δ_{ts} on t, s < N,
+-- CyclicParseval — over any commutative ring, for any finite family of
+-- characters χ_θ(t) with dual characters χ̄_θ(s) satisfying the
+-- orthogonality Σ_θ χ_θ(t) χ̄_θ(s) = N·δ_{ts} on t, s < N,
 --
---     �_{�<N} b�(�) � (�)  ≡  N � �_{t<N} b_t c_t,
+--     Σ_{θ<N} b̂(θ) · č(θ)  ≡  N · Σ_{t<N} b_t c_t,
 --
--- where b�(�) = �_t b_t �_�(t) and (�) = �_s c_s ��_�(s).  With c = b
--- and �� the conjugate character this is Parseval: the block � b_t² is
--- (1/N) �_� |b�(�)|², a sum of squares on the spectral side.
+-- where b̂(θ) = Σ_t b_t χ_θ(t) and č(θ) = Σ_s c_s χ̄_θ(s).  With c = b
+-- and χ̄ the conjugate character this is Parseval: the block Σ b_t² is
+-- (1/N) Σ_θ |b̂(θ)|², a sum of squares on the spectral side.
 --
 -- WHAT THIS IS.  The discrete shadow of the zero side of the prime
 -- boundary.  BoundaryBlockGeneral says the mean square of a received
@@ -17,16 +17,16 @@
 -- positive because it is a sum of squares in time.  This module says
 -- the same block is a sum of products on the frequency side, and that
 -- it is a sum of SQUARES there exactly when the dual character is the
--- conjugate of the character � when the frequencies are real.  In the
--- prime system the frequencies are the zeros �, the spectral form is
--- Weil's �_� H(�−½) H(1−��−½), and it is a sum of squares iff the zeros
+-- conjugate of the character — when the frequencies are real.  In the
+-- prime system the frequencies are the zeros ρ, the spectral form is
+-- Weil's Σ_ρ H(ρ−½) H(1−ρ̄−½), and it is a sum of squares iff the zeros
 -- are on the line.  That is the whole of what RH adds to positivity.
 --
---   §1  the Kronecker delta on � and the collapse �_s g_s δ_{ts} = g_t;
+--   §1  the Kronecker delta on ℕ and the collapse Σ_s g_s δ_{ts} = g_t;
 --   §2  the theorem, from bilinearity, exchange, and orthogonality;
---   §3  over � at N = 2 with the character (−1)^{t�}, orthogonality
+--   §3  over ℤ at N = 2 with the character (−1)^{tθ}, orthogonality
 --       discharged by computation, and Parseval read back: for
---       b = (3 , −1), � b² = 10 and �_� b�(�)² = 4 + 16 = 20 = 2�10.
+--       b = (3 , −1), Σ b² = 10 and Σ_θ b̂(θ)² = 4 + 16 = 20 = 2·10.
 ------------------------------------------------------------------------
 
 module CyclicParseval_TheBlockIsASpectralSumOfProductsWheneverTheCharactersAreOrthogonalSoPositivityOnTheSpectralSideIsWhereTheFrequenciesAreReal where
@@ -73,7 +73,7 @@ module Parseval {ℓ : Level} (R' : CommRing ℓ) where
   ... | yes p = ⊥-rec (ne p)
   ... | no _ = refl
 
-  -- �_{s<N} g s � δ t s ≡ g t whenever t < N
+  -- Σ_{s<N} g s · δ t s ≡ g t whenever t < N
   collapse : (N : ℕ) (g : Sig) (t : ℕ) → t < N → sum N (λ s → g s ·r δ t s) ≡ g t
   collapse zero g t t<0 = ⊥-rec (¬-<-zero t<0)
   collapse (suc N) g zero _ =
@@ -103,7 +103,7 @@ module Parseval {ℓ : Level} (R' : CommRing ℓ) where
   nat zero = 0r
   nat (suc n) = 1r +r nat n
 
-  -- characters � � t and dual characters �� � s
+  -- characters χ θ t and dual characters χ̄ θ s
   Orthogonal : (N : ℕ) (χ χ̄ : ℕ → ℕ → K) → Type ℓ
   Orthogonal N χ χ̄ = (t s : ℕ) → t < N → s < N → sum N (λ θ → χ θ t ·r χ̄ θ s) ≡ nat N ·r δ t s
 
@@ -115,7 +115,7 @@ module Parseval {ℓ : Level} (R' : CommRing ℓ) where
   parseval N χ χ̄ orth b c =
     -- expand each product of transforms into a double sum
     sum-ext N (λ θ → sum-prod N (λ t → b t ·r χ θ t) (λ s → c s ·r χ̄ θ s))
-    -- move the �-sum innermost
+    -- move the θ-sum innermost
     ∙ sum-swap N N _
     ∙ sum-ext N (λ t → sum-swap N N _)
     -- regroup each term and apply orthogonality
@@ -140,7 +140,7 @@ module Parseval {ℓ : Level} (R' : CommRing ℓ) where
         ∙ sym (·Assoc _ _ _)
 
 ------------------------------------------------------------------------
--- §3  Over � at N = 2: the character (−1)^{t�}.
+-- §3  Over ℤ at N = 2: the character (−1)^{tθ}.
 ------------------------------------------------------------------------
 
 open import Cubical.Data.Int using (ℤ ; pos ; negsuc)
@@ -150,7 +150,7 @@ open Parseval ℤCommRing
 open General ℤCommRing using (Sig ; sum)
 open CommRingStr (ℤCommRing .snd) using () renaming (_·_ to _·r_)
 
--- (−1)^{t�}, by the parity of t � �
+-- (−1)^{tθ}, by the parity of t · θ
 sign : ℕ → ℕ → ℤ
 sign θ t = par (t · θ)
   where
@@ -160,7 +160,7 @@ sign θ t = par (t · θ)
     par (suc zero) = negsuc 0
     par (suc (suc n)) = par n
 
--- the dual character of (−1)^{t�} is itself
+-- the dual character of (−1)^{tθ} is itself
 orth₂ : Orthogonal 2 sign sign
 orth₂ zero zero _ _ = refl
 orth₂ zero (suc zero) _ _ = refl
@@ -170,7 +170,7 @@ orth₂ zero (suc (suc s)) _ s<2 = ⊥-rec (¬-<-zero (pred-≤-pred (pred-≤-p
 orth₂ (suc zero) (suc (suc s)) _ s<2 = ⊥-rec (¬-<-zero (pred-≤-pred (pred-≤-pred s<2)))
 orth₂ (suc (suc t)) _ t<2 _ = ⊥-rec (¬-<-zero (pred-≤-pred (pred-≤-pred t<2)))
 
--- b = (3 , −1): transform (2 , 4); �_� b�(�)² = 4 + 16 = 20 = 2 � (9 + 1)
+-- b = (3 , −1): transform (2 , 4); Σ_θ b̂(θ)² = 4 + 16 = 20 = 2 · (9 + 1)
 b₀ : Sig
 b₀ zero = pos 3
 b₀ (suc zero) = negsuc 0

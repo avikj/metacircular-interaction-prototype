@@ -1,7 +1,7 @@
 THE QUOTIENT BY AN EXPLANATION IS LOSSLESS FOR EVERY EXACT EVALUATOR
 AND KILLS THE DEPTH CLASS
 Filling the diamond's loop is the decision to demote depth from the
-protected observers â” compression and protection decided against
+protected observers â€” compression and protection decided against
 each other, as one theorem
 
 Semantic compression as quotient / the 2-cell that kills a class /
@@ -14,20 +14,20 @@ Here the loop is filled and the death is watched.
 The explanation enters as the synthesis defines semantic compression:
 a set-quotient of the trace space by exactly the identification of
 the two coterminal schedules.  Declare the protected observers to be
-the exact evaluators â” the endpoint utilities â” and two theorems
+the exact evaluators â€” the endpoint utilities â€” and two theorems
 close over the same quotient:
 
 LOSSLESS.  For every potential, the pairing factors through the
 compression, and the factorization computes on constructors.  Stokes
 is the descent condition, applied twice: both schedules carry
-Ï(end) âˆ’ Ï(start), so the identification destroys nothing any exact
+Ï†(end) âˆ’ Ï†(start), so the identification destroys nothing any exact
 observer can see.
 
 LETHAL.  No function on the compressed space restricts to the depth
 pairing.  The two identified schedules carry depths 2 and 1; the
-quotient makes them one point; 2 â‰¡ 1 is refuted in â•.  The nonzero
+quotient makes them one point; 2 â‰¡ 1 is refuted in â„•.  The nonzero
 cycle integral of abstract 44 is thereby exactly the obstruction to
-this compression â” not a curiosity about one loop but the price of
+this compression â€” not a curiosity about one loop but the price of
 the quotient, stated before it is paid.
 
 So admitting the explanation and protecting the depth observer are
@@ -36,7 +36,7 @@ machine's: the dangerous act is not quotienting, it is quotienting
 before declaring the observer class.  The machine holds both
 consequences checked, and hands the declaration to the caller.
 
-SYT â” THE CLAIM, EXACTLY.  Losslessness for every potential over
+SYÄ€T â€” THE CLAIM, EXACTLY.  Losslessness for every potential over
 the quotient by the one identification; lethality for the depth
 evaluator on the same quotient.
 

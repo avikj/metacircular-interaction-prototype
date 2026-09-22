@@ -4,7 +4,7 @@
 -- NaturalMachine.Ankapasa_TheCountingSemanticsIsADecategorification
 --                        AndTheBitItDropsIsASymmetry
 --
--- TERM.  ‡‡ô‡‡ï‡‡æ‡ ¬ akapa -- "the net of digits", the traditional name for
+-- TERM.  ‡§Ö‡§ô‡•ç‡§ï‡§™‡§æ‡§∂ ¬∑ a·πÖkapƒÅ≈õa -- "the net of digits", the traditional name for
 -- the combinatorics of PERMUTATIONS: how many arrangements a given multiset
 -- of digits admits, and how to enumerate them in order.  Bhskara II,
 -- *Llvat*, the akapa section (~1150).
@@ -17,36 +17,36 @@
 ------------------------------------------------------------------------
 -- THE THIRD READING OF THE SAME LINE, AND THE ONE THAT BUILDS.
 --
--- `Vyapti_‚¶` read `NativeOperation.control-sound`: the kernel memorises.
+-- `Vyapti_‚Ä¶` read `NativeOperation.control-sound`: the kernel memorises.
 -- `Residue_‚¶`   read `RewriteCertificate.derivation-sound`: the derivation
 --            carries no meaning, so all of it is remainder.
 --
 -- Both are one fact.  Each soundness field lands in an identity type of a
--- SET (`Tm` for control, `‚ï` for meaning), hence in a proposition, hence
+-- SET (`Tm` for control, `‚Ñï` for meaning), hence in a proposition, hence
 -- carries zero bits.  So the diagnosis is not "the proofs are weak" but:
 --
 --     THE KERNEL'S SEMANTICS IS DECATEGORIFIED.
---     `eval : Tm ‚í Env ‚í ‚ï` keeps a cardinality and drops the bijection.
+--     `eval : Tm ‚Üí Env ‚Üí ‚Ñï` keeps a cardinality and drops the bijection.
 --
 -- This module builds the categorified semantics and measures the gap.
 --
---   ¬ß1  ‚ü¶_‚üß : Tm ‚í TEnv ‚í Type‚.  zero ‚¶ ‚ä, suc ‚¶ Unit ‚ä ‚àí, add ‚¶ ‚ä.
+--   ¬ß1  ‚ü¶_‚üß : Tm ‚Üí TEnv ‚Üí Type‚ÇÄ.  zero ‚Ü¶ ‚ä•, suc ‚Ü¶ Unit ‚äé ‚àí, add ‚Ü¶ ‚äé.
 --       The six variable coordinates stay distinct, as in `Env`.
 --   ¬ß2  step-equiv, derivation-equiv.  EVERY constructor of `Step` becomes
 --       an EQUIVALENCE and every `Derivation` a composite of them --
 --       `add-zero` the right unitor, `add-suc` a shuffle, the congruences
---       `‚ä-equiv`, and `reverse` `invEquiv`.  So the kernel's existing
+--       `‚äé-equiv`, and `reverse` `invEquiv`.  So the kernel's existing
 --       calculus already had a univalent semantics.
---   ¬ß3  Step‚∫ / Derivation‚∫: the calculus extended by ONE constructor,
+--   ¬ß3  Step‚Å∫ / Derivation‚Å∫: the calculus extended by ONE constructor,
 --       `add-comm`.  It is sound for the counting semantics (`+-comm`), so
 --       this is a legitimate extension of the kernel and not a rigged one.
---   ¬ß4  THE SEPARATION.  Let œ interpret `var` by `Unit`, and let
---       `comm-loop : Derivation‚∫ (add var var) (add var var)` be the single
+--   ¬ß4  THE SEPARATION.  Let œÉ interpret `var` by `Unit`, and let
+--       `comm-loop : Derivation‚Å∫ (add var var) (add var var)` be the single
 --       commutation.  Then:
 --
 --         counting-semantics-cannot-see-it
 --           its ‚ï-meaning is equal to `refl`, forced, and by `Residue_‚¶` ¬ß4 NO
---           function of that meaning distinguishes it from `done‚∫`;
+--           function of that meaning distinguishes it from `done‚Å∫`;
 --         univalent-semantics-does-see-it
 --           its interpretation sends `inl tt` to `inr tt`, so it is not the
 --           identity map;
@@ -57,8 +57,8 @@
 --
 --       The bit the counting semantics provably cannot hold is a
 --       transposition of a two element type.  Commutativity of addition is
---       not free information: it is a ‚/2 of holonomy, and every readout
---       valued in a set annihilates it (‡®‡Ø-‡®‡ø‡∞‡ã‡ß‡).
+--       not free information: it is a ‚Ñ§/2 of holonomy, and every readout
+--       valued in a set annihilates it (‡§®‡§Ø-‡§®‡§ø‡§∞‡•ã‡§ß‡§É).
 --
 -- WHY THIS IS THE LANGUAGE-MODEL STATEMENT.  `install` makes a proved
 -- theorem a next-move, so the operation library is a learned policy.  A
@@ -119,7 +119,7 @@ open TEnv
 -- This is the semantics the kernel's calculus always admitted.  `add-zero`
 -- is the right unitor; `add-suc` is the shuffle that moves a successor out
 -- of the right summand and to the front; the three congruence constructors
--- are `‚ä-equiv`; and `reverse`, which in the counting semantics was `sym`,
+-- are `‚äé-equiv`; and `reverse`, which in the counting semantics was `sym`,
 -- is `invEquiv` -- the constructor that makes the derivation space a
 -- groupoid rather than a rewriting order.
 ------------------------------------------------------------------------

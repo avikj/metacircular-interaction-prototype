@@ -1,43 +1,43 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àààà¨à°à¾à—à®à¨à®à â” àà¾àµà¨à¾-àà•àà°à àµà°àà§à ààµ, ààà à•à¦à¾àà¿ à¨ ààà¨à°à¾à—ààààà¿ à
+-- à¤…à¤ªà¥à¤¨à¤°à¤¾à¤—à¤®à¤¨à¤®à¥ â€” à¤­à¤¾à¤µà¤¨à¤¾-à¤šà¤•à¥à¤°à¤‚ à¤µà¤°à¥à¤§à¤¤ à¤à¤µ, à¤…à¤¤à¤ƒ à¤•à¤¦à¤¾à¤ªà¤¿ à¤¨ à¤ªà¥à¤¨à¤°à¤¾à¤—à¤šà¥à¤›à¤¤à¤¿ à¥¤
 --
--- (non-return: the bhvan cycle only grows, so it never comes back â”
+-- (non-return: the bhÄvanÄ cycle only grows, so it never comes back â€”
 --  and that non-return is where the new comes from.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- `Dvikarani.àµàà¦àà§à¿-à®à¾à¨à®à` proves that composing any (x,y) with the
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- `Dvikarani.à¤µà¥ƒà¤¦à¥à¤§à¤¿-à¤®à¤¾à¤¨à¤®à¥` proves that composing any (x,y) with the
 -- fundamental (3,2) PRESERVES the norm xÂ²âˆ’2yÂ², so a solution breeds a
 -- solution.  It does not say the breeding goes anywhere: for all that
 -- theorem knows the cycle could have period one.
 --
--- It cannot.  Â§à¨: the new denominator is 2x+3y, so once x is nonzero the
--- denominator STRICTLY increases.  Â§à©: the new numerator is nonzero too,
--- so the hypothesis of Â§à¨ regenerates and the growth never stops.  Â§à is
--- the one-step consequence, and Â§à¨+Â§à© together are the induction step for
+-- It cannot.  Â§à¥¨: the new denominator is 2x+3y, so once x is nonzero the
+-- denominator STRICTLY increases.  Â§à¥©: the new numerator is nonzero too,
+-- so the hypothesis of Â§à¥¨ regenerates and the growth never stops.  Â§à¥ª is
+-- the one-step consequence, and Â§à¥¨+Â§à¥© together are the induction step for
 -- the whole cycle: from (3,2) it grows forever, so it repeats nothing.
 --
--- THIS CORPUS IS BUILT ON ààà¨à°à¾à—à®à¨ â” the return, the rejoining, the round
+-- THIS CORPUS IS BUILT ON à¤ªà¥à¤¨à¤°à¤¾à¤—à¤®à¤¨ â€” the return, the rejoining, the round
 -- trip that comes back.  This is the place the return provably FAILS, and
 -- the failure is the content, not a gap:
 --
---   Â a RATIONAL rotation of the circle RETURNS â” periodic, finite, and
+--   Â· a RATIONAL rotation of the circle RETURNS â€” periodic, finite, and
 --     after one period it carries nothing it did not already carry;
---   Â an IRRATIONAL rotation never returns â” dense, and its coding is a
+--   Â· an IRRATIONAL rotation never returns â€” dense, and its coding is a
 --     Sturmian word: aperiodic at the MINIMUM possible complexity, a
 --     finite rule generating an infinite non-repeating language.
 --
--- âˆ2 is the second kind and its finite rule is Brahmagupta's.  Its
--- continued fraction [1;2,2,2,â¦] is PERIODIC â” the generator is finite â”
+-- âˆš2 is the second kind and its finite rule is Brahmagupta's.  Its
+-- continued fraction [1;2,2,2,â€¦] is PERIODIC â€” the generator is finite â€”
 -- while what it generates repeats nothing.  Below is the kernel-checked
 -- half of that: a finite rule with a provably non-returning orbit.
 -- Minimal description, maximal novelty, one object.
 --
 -- SO A SYSTEM WITH NOTHING LEFT UNRETURNED IS A DEAD SYSTEM, and that is
--- not a slogan: `Dhruva_â¦.à¨àààŸ-ààà¾àµà-à—àà¿-ààà¾àµà` is checked here â” if a map
+-- not a slogan: `Dhruva_â€¦.à¤¨à¤·à¥à¤Ÿ-à¤…à¤­à¤¾à¤µà¥‡-à¤—à¤¤à¤¿-à¤…à¤­à¤¾à¤µà¤ƒ` is checked here â€” if a map
 -- is an equivalence, every symmetry preserving it is the identity.  No
--- loss, no motion, ààààà° à§à.  An instrument that treats one-way,
+-- loss, no motion, à¤¸à¥‚à¤¤à¥à¤° à¥§à¥ª.  An instrument that treats one-way,
 -- non-returning edges as debt is treating generativity as a defect and
 -- will report exhaustion as progress.
 --
@@ -48,7 +48,7 @@
 -- node.  The field generates and reflects; inside and outside is not a
 -- distinction it makes.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
 -- àààà¨à°à¾à—à®à¨ and àµàà¦àà§à¿ are used in their plain senses.
 ------------------------------------------------------------------------
@@ -65,7 +65,7 @@ open import Cubical.Tactics.NatSolver.Reflection using (solveâ„•!)
 open import Dvikarani using (à¤­à¤¾à¤µà¤¨à¤¾-à¤…à¤‚à¤¶ ; à¤­à¤¾à¤µà¤¨à¤¾-à¤¹à¤°)
 
 ------------------------------------------------------------------------
--- à§ Â àà•-àà¦à®à â” one turn of the wheel: compose (x,y) with the fundamental
+-- à¥§ Â· à¤à¤•-à¤ªà¤¦à¤®à¥ â€” one turn of the wheel: compose (x,y) with the fundamental
 --     solution (3,2).  This is `Dvikarani`'s doubling step taken as a
 --     rule rather than as three checked instances.
 ------------------------------------------------------------------------
@@ -77,19 +77,19 @@ open import Dvikarani using (à¤­à¤¾à¤µà¤¨à¤¾-à¤…à¤‚à¤¶ ; à¤­à¤¾à¤µà¤¨à¤¾-à¤¹à¤°)
 à¤¨à¤µ-à¤¹à¤°à¤ƒ x y = à¤­à¤¾à¤µà¤¨à¤¾-à¤¹à¤° x y 3 2        -- 2x + 3y
 
 ------------------------------------------------------------------------
--- à¨ Â àµàà¦àà§à¿à â” THE DENOMINATOR STRICTLY GROWS, whenever the numerator is
---     nonzero.  In cubical, `m < n` is `Î[ k ] k + suc m â‰¡ n`, so the
+-- à¥¨ Â· à¤µà¥ƒà¤¦à¥à¤§à¤¿à¤ƒ â€” THE DENOMINATOR STRICTLY GROWS, whenever the numerator is
+--     nonzero.  In cubical, `m < n` is `Î£[ k ] k + suc m â‰¡ n`, so the
 --     witness IS the gap and the proof is that gap named exactly.  Note
 --     what carries the theorem: not an estimate of how fast it grows, but
---     the identity of the gap â” ààààà° à®, ààà¿àààà¾à¨à àà¾à¦à¾ààà®àà¯à®à, à¨ àà°à¿à®à¾àà®à à
+--     the identity of the gap â€” à¤¸à¥‚à¤¤à¥à¤° à¥®, à¤…à¤­à¤¿à¤œà¥à¤à¤¾à¤¨à¤‚ à¤¤à¤¾à¤¦à¤¾à¤¤à¥à¤®à¥à¤¯à¤®à¥, à¤¨ à¤ªà¤°à¤¿à¤®à¤¾à¤£à¤®à¥ à¥¤
 ------------------------------------------------------------------------
 
 à¤µà¥ƒà¤¦à¥à¤§à¤¿à¤ƒ : (x' y : â„•) â†’ y < à¤¨à¤µ-à¤¹à¤°à¤ƒ (suc x') y
 à¤µà¥ƒà¤¦à¥à¤§à¤¿à¤ƒ x' y = (suc (x' Â· 2 + 2 Â· y)) , solveâ„•!
 
 ------------------------------------------------------------------------
--- à© Â ààà-àààà¨àà¯àà¾ â” THE HYPOTHESIS REGENERATES.  Â§à¨ needs a nonzero
---     numerator; this says the next numerator is nonzero too, so Â§à¨
+-- à¥© Â· à¤…à¤‚à¤¶-à¤…à¤¶à¥‚à¤¨à¥à¤¯à¤¤à¤¾ â€” THE HYPOTHESIS REGENERATES.  Â§à¥¨ needs a nonzero
+--     numerator; this says the next numerator is nonzero too, so Â§à¥¨
 --     applies again, and again.  Without this the growth is one step and
 --     the whole reading collapses.
 ------------------------------------------------------------------------
@@ -98,10 +98,10 @@ open import Dvikarani using (à¤­à¤¾à¤µà¤¨à¤¾-à¤…à¤‚à¤¶ ; à¤­à¤¾à¤µà¤¨à¤¾-à¤¹à¤°)
 à¤…à¤‚à¤¶-à¤…à¤¶à¥‚à¤¨à¥à¤¯à¤¤à¤¾ x' y = (x' Â· 3 + 4 Â· y + 2) , solveâ„•!
 
 ------------------------------------------------------------------------
--- à Â àààà¨à°à¾à—à®à¨à®à â” IT DOES NOT COME BACK.  One turn of the wheel never
---     returns the denominator it was given.  With Â§à© regenerating Â§à¨'s
+-- à¥ª Â· à¤…à¤ªà¥à¤¨à¤°à¤¾à¤—à¤®à¤¨à¤®à¥ â€” IT DOES NOT COME BACK.  One turn of the wheel never
+--     returns the denominator it was given.  With Â§à¥© regenerating Â§à¥¨'s
 --     hypothesis, this is the induction step for the whole cycle: from
---     (3,2) â” where the numerator is `suc 2` â” the denominator strictly
+--     (3,2) â€” where the numerator is `suc 2` â€” the denominator strictly
 --     increases at every turn, and a strictly increasing sequence visits
 --     no value twice.
 ------------------------------------------------------------------------
@@ -110,9 +110,9 @@ open import Dvikarani using (à¤­à¤¾à¤µà¤¨à¤¾-à¤…à¤‚à¤¶ ; à¤­à¤¾à¤µà¤¨à¤¾-à¤¹à¤°)
 à¤…à¤ªà¥à¤¨à¤°à¤¾à¤—à¤®à¤¨à¤®à¥ x' y p = Â¬m<m (subst (y <_) p (à¤µà¥ƒà¤¦à¥à¤§à¤¿à¤ƒ x' y))
 
 ------------------------------------------------------------------------
--- à Â à®àà²à®à â” the wheel's own starting point, so the reading is not
+-- à¥« Â· à¤®à¥‚à¤²à¤®à¥ â€” the wheel's own starting point, so the reading is not
 --     abstract: (3,2) is Baudhyana's first convergent and its numerator
---     is a successor, so Â§à¨â“Â§à apply to it on the nose, and the values
+--     is a successor, so Â§à¥¨â€“Â§à¥ª apply to it on the nose, and the values
 --     they produce are the ones `Dvikarani` checks: (17,12), (577,408).
 ------------------------------------------------------------------------
 

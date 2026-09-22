@@ -1,55 +1,55 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ààµààààà¦à•à®à â” ààà°ààŸàà àà¨àààà àà°ààµà à®àà²à®à ; àà¨àà§àà àà°à¿ààààà¦à à²ààà§à à
+-- à¤…à¤µà¤šà¥à¤›à¥‡à¤¦à¤•à¤®à¥ â€” à¤¤à¥à¤°à¥à¤Ÿà¥‡à¤ƒ à¤¤à¤¨à¥à¤¤à¥à¤ƒ à¤¸à¤°à¥à¤µà¤‚ à¤®à¥‚à¤²à¤®à¥ ; à¤¸à¤¨à¥à¤§à¥‡à¤ƒ à¤ªà¤°à¤¿à¤šà¥à¤›à¥‡à¤¦à¤ƒ à¤²à¤¬à¥à¤§à¤ƒ à¥¤
 --
 -- (the delimitor: the truncation's fibre is the WHOLE source, and the
 --  seam's criterion is thereby available.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS PROVES.
 --
 -- `fibre/src/Loss/WholePartialDesa_â¦` makes the fibre
--- diagnosis a TERM â” `à¦àà f b` with three constructors, ààµà•àààµàà¯à®à (empty
--- fibre: nothing lost, the medium has no name for b, à§à¨à¾ààà®à•à®à),
--- àà•à²à¾à¦àà (contractible: one utterance carries all), àµà¿à•à²à¾à¦àà (two points
+-- diagnosis a TERM â€” `à¤¦à¥‡à¤¶ f b` with three constructors, à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯à¤®à¥ (empty
+-- fibre: nothing lost, the medium has no name for b, à¤§à¤¨à¤¾à¤¤à¥à¤®à¤•à¤®à¥),
+-- à¤¸à¤•à¤²à¤¾à¤¦à¥‡à¤¶ (contractible: one utterance carries all), à¤µà¤¿à¤•à¤²à¤¾à¤¦à¥‡à¤¶ (two points
 -- not identified: the loss, exhibited).  It refuses to add a fourth,
 -- and it says exactly why:
 --
 --     "Adding a constructor for a distinction that has no criterion
---      would be the same à¦àà°àà¨à¯ this module exists to repair, one level
+--      would be the same à¤¦à¥à¤°à¥à¤¨à¤¯ this module exists to repair, one level
 --      down: a name doing the work of a proof."
 --
--- The distinction it refuses is between the note's levels à© and à â” both
--- crowded fibres, both landing in àµà¿à•à²à¾à¦àà.  Level à© is recoverable only
--- by outside supply; level à is à¨àààŸà¿, àààà°àà¿à•à¾à°àà¯à¾.  And the obvious
--- criterion FAILS to separate them: `Â Î[Ïˆ] (Ïˆ âˆ˜ collapse â‰¡ id)` holds of
+-- The distinction it refuses is between the note's levels à¥© and à¥ª â€” both
+-- crowded fibres, both landing in à¤µà¤¿à¤•à¤²à¤¾à¤¦à¥‡à¤¶.  Level à¥© is recoverable only
+-- by outside supply; level à¥ª is à¤¨à¤·à¥à¤Ÿà¤¿, à¤…à¤ªà¥à¤°à¤¤à¤¿à¤•à¤¾à¤°à¥à¤¯à¤¾.  And the obvious
+-- criterion FAILS to separate them: `Â¬ Î£[Ïˆ] (Ïˆ âˆ˜ collapse â‰¡ id)` holds of
 -- both.
 --
 -- The criterion proposed for the seam is the SIZE of the fibre relative
 -- to the source:
 --
---     (x : âˆ A âˆâ) â’ fibre âˆ_âˆâ x â‰ A
+--     (x : âˆ¥ A âˆ¥â‚) â†’ fibre âˆ£_âˆ£â‚ x â‰ƒ A
 --
 -- Â§à¨ below proves that line.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
--- ESTABLISHED (Â§à¨): for propositional truncation, EVERY fibre is
+-- ESTABLISHED (Â§à¥¨): for propositional truncation, EVERY fibre is
 -- equivalent to the whole source.  Not merely non-contractible, and not
 -- merely large: the fibre IS the source, so nothing whatsoever downstream
 -- of the map can see which point it came from.  That is what makes
--- truncation àààà°àà¿à•à¾à°àà¯à¾ rather than merely lossy.
+-- truncation à¤…à¤ªà¥à¤°à¤¤à¤¿à¤•à¤¾à¤°à¥à¤¯à¤¾ rather than merely lossy.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE TERM.  ààµààààà¦à• â” Nyya's "delimitor", the property that fixes the
--- exact extent of a relation or an absence (Gagea, ààààààµàà¿à¨ààà¾à®àà¿,
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- THE TERM.  à¤…à¤µà¤šà¥à¤›à¥‡à¤¦à¤• â€” NyÄya's "delimitor", the property that fixes the
+-- exact extent of a relation or an absence (Gaá¹…geÅ›a, à¤¤à¤¤à¥à¤¤à¥à¤µà¤šà¤¿à¤¨à¥à¤¤à¤¾à¤®à¤£à¤¿,
 -- 14th c., and the Navya-Nyya technical apparatus after him; the
 -- corpus's own `interactive/Abhava_TheAbsenceCarriesItsPratiyoginAndItsSearched
 -- Domain.hs` and `AbhavaAvacchedaka.agda` use it in that sense).
--- The word is taken for one property â” that a relation is
--- not stated until its extent is â” which is exactly what the seam was
--- missing and what Â§à¨ supplies.
+-- The word is taken for one property â€” that a relation is
+-- not stated until its extent is â€” which is exactly what the seam was
+-- missing and what Â§à¥¨ supplies.
 ------------------------------------------------------------------------
 
 module Avacchedaka_TheTruncationsFibreIsTheWholeSourceAndTheSeamHasItsCriterion where
@@ -67,8 +67,8 @@ private
     â„“ : Level
 
 ------------------------------------------------------------------------
--- à§ Â àà¨àààà â” the fibre of the truncation unit over a point of âˆ A âˆâ.
---     Written out rather than left as `fiber âˆ_âˆâ x`, so the statement
+-- à¥§ Â· à¤¤à¤¨à¥à¤¤à¥à¤ƒ â€” the fibre of the truncation unit over a point of âˆ¥ A âˆ¥â‚.
+--     Written out rather than left as `fiber âˆ£_âˆ£â‚ x`, so the statement
 --     below is legible without unfolding.
 ------------------------------------------------------------------------
 
@@ -76,16 +76,16 @@ private
 à¤¤à¥à¤°à¥à¤Ÿà¤¿-à¤¤à¤¨à¥à¤¤à¥à¤ƒ {A = A} x = Î£[ a âˆˆ A ] (âˆ£ a âˆ£â‚ â‰¡ x)
 
 ------------------------------------------------------------------------
--- à¨ Â àà°ààµ-àà¨àààà â” THE THEOREM.
+-- à¨ Â àà°ààµ-àà¨àààà â€” THE THEOREM.
 --
---     Every fibre of âˆ_âˆâ is equivalent to the whole source.
+--     Every fibre of âˆ£_âˆ£â‚ is equivalent to the whole source.
 --
--- âˆ A âˆâ is a proposition, so each of its path types is CONTRACTIBLE
--- (isPropâ’isContrPath), so the second component of the Î contributes
--- nothing and contracts away (Î-contractSnd), leaving A itself.
+-- âˆ¥ A âˆ¥â‚ is a proposition, so each of its path types is CONTRACTIBLE
+-- (isPropâ†’isContrPath), so the second component of the Î£ contributes
+-- nothing and contracts away (Î£-contractSnd), leaving A itself.
 --
 -- Read against `Residue_â¦`: the residual over a target point is what the
--- target forgot there.  Here it forgot everything â” the residual is not a
+-- target forgot there.  Here it forgot everything â€” the residual is not a
 -- part of the source, it is the source.  So no map out of the target can
 -- ever distinguish two points of A, because the target's every point
 -- stands over all of A at once.
@@ -101,24 +101,24 @@ private
 à¤¸à¤°à¥à¤µ-à¤¤à¤¨à¥à¤¤à¥à¤ƒ-fiber = à¤¸à¤°à¥à¤µ-à¤¤à¤¨à¥à¤¤à¥à¤ƒ
 
 ------------------------------------------------------------------------
--- à© Â àà°à¿ààààà¦à â” the criterion, stated as a predicate so it can be used
+-- à¥© Â· à¤ªà¤°à¤¿à¤šà¥à¤›à¥‡à¤¦à¤ƒ â€” the criterion, stated as a predicate so it can be used
 --     rather than admired, and applied to the archetype.
 --
 --     "The loss is total at b" := the residual over b is the whole source.
 --
 -- àà°ààµàà¾à¨à¿à does NOT separate the levels.  It holds of `àà°ààµàˆà•à®à : Bool â’ Unit`, the
--- map that drops exactly one bit â” `Residue_â¦` Â§5, at level
+-- map that drops exactly one bit â€” `Residue_â¦` Â§5, at level
 -- à¨ of a five-level scale.  `Unit` is a proposition,
 -- so the path component of the fibre contracts and the fibre is `Bool`,
--- the whole source.  The proof is Â§à¨'s proof with `isPropUnit` for
+-- the whole source.  The proof is Â§à¥¨'s proof with `isPropUnit` for
 -- `isPropPropTrunc`, which is why: this criterion reads propositionality
 -- of the TARGET, and both targets are props.
 --
 -- The refutation, with three more, is
 -- `SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype`.
--- Â§à¨ there shows it is not a stray instance â” `âˆ Bool âˆâ â‰ Unit` and the
--- triangle commutes, so at `A = Bool` the level-à archetype IS the
--- level-à¨ archetype, and the two fibre censuses are pointwise equivalent.
+-- Â§à¥¨ there shows it is not a stray instance â€” `âˆ¥ Bool âˆ¥â‚ â‰ƒ Unit` and the
+-- triangle commutes, so at `A = Bool` the level-à¥ª archetype IS the
+-- level-à¥¨ archetype, and the two fibre censuses are pointwise equivalent.
 ------------------------------------------------------------------------
 
 à¤¸à¤°à¥à¤µà¤¹à¤¾à¤¨à¤¿à¤ƒ : {A B : Type â„“} â†’ (A â†’ B) â†’ B â†’ Type â„“
@@ -133,13 +133,13 @@ private
 --
 -- `àà°ààµàà¾à¨à¿à` is satisfied by
 -- the corpus's own level-à¨ archetype;
--- and the level-à© half of the scale â” a proper fibre, with something
--- out of the source still seeing the difference â” is satisfied at the
--- level-à archetype and is vacuous wherever the fibre is crowded.  Both
+-- and the level-à© half of the scale â€” a proper fibre, with something
+-- out of the source still seeing the difference â€” is satisfied at the
+-- level-à¥ª archetype and is vacuous wherever the fibre is crowded.  Both
 -- halves are refuted in
 -- `SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibre
 -- CriterionFailsOnItsOwnArchetype`, which also exhibits the same map
--- under two retained contexts with opposite verdicts â” so the level is
+-- under two retained contexts with opposite verdicts â€” so the level is
 -- not a property of the map, and no per-map criterion can complete the
 -- scale.
 ------------------------------------------------------------------------

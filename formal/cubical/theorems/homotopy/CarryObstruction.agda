@@ -5,17 +5,17 @@
 --
 -- **carrying cannot be removed by any choice of digit set.**
 --
--- Statement being formalized (ATLAS_OF_N.md §2.4(iii)).  For b � 2, n � 1
+-- Statement being formalized (ATLAS_OF_N.md §2.4(iii)).  For b ≥ 2, n ≥ 1
 -- the truncation
 --
---     0 � b��/b���� � �/b��� --�--> �/b� � 0
+--     0 → bⁿℤ/bⁿ⁺¹ℤ → ℤ/bⁿ⁺¹ --π--> ℤ/bⁿ → 0
 --
--- has a set-theoretic section s� (the digit section), and its coboundary
+-- has a set-theoretic section sₙ (the digit section), and its coboundary
 --
---     c�(u,v) = s�(u) + s�(v) − s�(u+v)
+--     cₙ(u,v) = sₙ(u) + sₙ(v) − sₙ(u+v)
 --
--- is the carry.  The note proves the class of c� is nonzero in
--- H²(�/b�; �/b), and derives Corollary 2.11.1 from it: a carry-free
+-- is the carry.  The note proves the class of cₙ is nonzero in
+-- H²(ℤ/bⁿ; ℤ/b), and derives Corollary 2.11.1 from it: a carry-free
 -- positional system would be a group-theoretic splitting, which does not
 -- exist.  **This module proves Corollary 2.11.1 directly, by the exponent
 -- argument the note gives, with no cohomology machinery.**
@@ -23,30 +23,30 @@
 -- The argument, in three separated layers:
 --
 --  (1) EXPONENT OBSTRUCTION (pure group theory, `Splitting.kills`).  If
---      � : G � Q is a homomorphism of an *abelian* G, s : Q � G is a
---      homomorphic section of �, and a single m : � annihilates both Q and
---      ker �, then m annihilates all of G.  Splitting cannot raise the
---      exponent.  Nothing about cyclic groups or about � enters here.
+--      π : G → Q is a homomorphism of an *abelian* G, s : Q → G is a
+--      homomorphic section of π, and a single m : ℕ annihilates both Q and
+--      ker π, then m annihilates all of G.  Splitting cannot raise the
+--      exponent.  Nothing about cyclic groups or about ℕ enters here.
 --
---  (2) CARRY-FREE � HOMOMORPHIC (`Carry.carry-free�pres`).  For a bare
---      set-theoretic section s, the coboundary c(u,v) = s(u)�s(v)�s(u�v)��
+--  (2) CARRY-FREE ⇒ HOMOMORPHIC (`Carry.carry-free→pres`).  For a bare
+--      set-theoretic section s, the coboundary c(u,v) = s(u)·s(v)·s(u·v)⁻¹
 --      vanishes identically exactly when s is a homomorphism.  This is what
 --      makes "no digit set eliminates carrying" and "the extension does not
 --      split" the same statement.  `carry-inKer` records that c really is
---      valued in ker � (it is a 2-cochain with values in the kernel), and
+--      valued in ker π (it is a 2-cochain with values in the kernel), and
 --      `carry-cocycle` that it satisfies the 2-cocycle identity, so the
 --      object being shown nonvanishing is the one the note names.
 --
 --  (3) THE ARITHMETIC INSTANCE (`Cyclic`).  For the reduction
---      �/(N�e) � �/N with e � N and e � 2, all three hypotheses of (1)
---      hold with m = N, while N�1 ≠ 0 in �/(N�e).  Hence no section is a
+--      ℤ/(N·e) → ℤ/N with e ∣ N and e ≥ 2, all three hypotheses of (1)
+--      hold with m = N, while N·1 ≠ 0 in ℤ/(N·e).  Hence no section is a
 --      homomorphism, hence no section is carry-free.  Specialized in
---      `BasePower` to N = b�, e = b, giving exactly Corollary 2.11.1:
---      **for every b � 2 and n � 1 and every digit set whatever, some pair
+--      `BasePower` to N = bⁿ, e = b, giving exactly Corollary 2.11.1:
+--      **for every b ≥ 2 and n ≥ 1 and every digit set whatever, some pair
 --      of residues carries.**
 --
--- Theorem 2.7 of the same note (� � base-b digit words) is NOT reproved
--- here: it is already in this corpus as `Digits.��CanWord`,
+-- Theorem 2.7 of the same note (ℕ ≃ base-b digit words) is NOT reproved
+-- here: it is already in this corpus as `Digits.ℕ≃CanWord`,
 -- with round trips `value-digits` / `digits-value` and injectivity
 -- `value-inj`.  This module is the other half of §7's formalization pair.
 ------------------------------------------------------------------------
@@ -81,7 +81,7 @@ private
 -- 0.  Iterated multiplication in a group
 ------------------------------------------------------------------------
 
--- `pow G m x` is x��.  Written additively in the applications: m � x.
+-- `pow G m x` is xᵐ.  Written additively in the applications: m · x.
 pow : (G : Group ℓ) → ℕ → ⟨ G ⟩ → ⟨ G ⟩
 pow G zero    x = GroupStr.1g (snd G)
 pow G (suc m) x = GroupStr._·_ (snd G) x (pow G m x)
@@ -141,7 +141,7 @@ module Splitting
     module G = GroupStr (snd G)
     module Q = GroupStr (snd Q)
 
-    -- the section's value at � x, and the kernel element it leaves over
+    -- the section's value at π x, and the kernel element it leaves over
     a : ⟨ G ⟩ → ⟨ G ⟩
     a x = s .fst (π .fst x)
 
@@ -159,7 +159,7 @@ module Splitting
       ∙ cong (Q._· π .fst x) (π .snd .presinv (a x) ∙ cong Q.inv (sect (π .fst x)))
       ∙ Q.·InvL (π .fst x)
 
-  -- m annihilates the image of the section �
+  -- m annihilates the image of the section …
   private
     kills-a : (x : ⟨ G ⟩) → pow G m (a x) ≡ G.1g
     kills-a x =
@@ -167,7 +167,7 @@ module Splitting
       ∙ cong (s .fst) (killQ (π .fst x))
       ∙ s .snd .pres1
 
-  -- � and therefore all of G.
+  -- … and therefore all of G.
   kills : (x : ⟨ G ⟩) → pow G m x ≡ G.1g
   kills x =
       cong (pow G m) (sym (split x))
@@ -189,11 +189,11 @@ module Carry
     module G = GroupStr (snd G)
     module Q = GroupStr (snd Q)
 
-  -- c(u,v) = s(u)�s(v)�s(u�v)��.  Additively: s(u)+s(v)−s(u+v) � the carry.
+  -- c(u,v) = s(u)·s(v)·s(u·v)⁻¹.  Additively: s(u)+s(v)−s(u+v) — the carry.
   carry : ⟨ Q ⟩ → ⟨ Q ⟩ → ⟨ G ⟩
   carry u v = (s u G.· s v) G.· G.inv (s (u Q.· v))
 
-  -- It takes values in ker �: the carry is a 2-cochain with coefficients in
+  -- It takes values in ker π: the carry is a 2-cochain with coefficients in
   -- the kernel, as Proposition 2.11 asserts.
   carry-inKer : (u v : ⟨ Q ⟩) → π .fst (carry u v) ≡ Q.1g
   carry-inKer u v =
@@ -213,7 +213,7 @@ module Carry
     ∙ cong ((s u G.· s v) G.·_) (G.·InvL (s (u Q.· v)))
     ∙ G.·IdR (s u G.· s v)
 
-  -- � so a carry-free digit section is a splitting homomorphism.
+  -- … so a carry-free digit section is a splitting homomorphism.
   carry-free→hom : ((u v : ⟨ Q ⟩) → carry u v ≡ G.1g) → GroupHom Q G
   carry-free→hom cf = s , makeIsGroupHom (λ u v → carry-free→pres cf u v)
 
@@ -238,7 +238,7 @@ module Carry
   module _ (comm : (x y : ⟨ G ⟩) → x G.· y ≡ y G.· x) where
 
     private
-      -- (P � D��) � (D � X) ≡ P � X � no commutativity needed here.
+      -- (P · D⁻¹) · (D · X) ≡ P · X — no commutativity needed here.
       slide : (P D X : ⟨ G ⟩) → (P G.· G.inv D) G.· (D G.· X) ≡ P G.· X
       slide P D X =
           sym (G.·Assoc P (G.inv D) (D G.· X))
@@ -277,10 +277,10 @@ module Carry
           ∙ cong (G._· G.inv F) (G.·Assoc A B C)
 
 ------------------------------------------------------------------------
--- 3.  The cyclic instance: �/(N�e) � �/N with e � N and e � 2
+-- 3.  The cyclic instance: ℤ/(N·e) → ℤ/N with e ∣ N and e ≥ 2
 ------------------------------------------------------------------------
 
--- The underlying natural number of a power in �/(suc n�).
+-- The underlying natural number of a power in ℤ/(suc n′).
 fst-pow : (n' k : ℕ) (x : Fin (suc n'))
         → fst (pow (ℤGroup/ (suc n')) k x) ≡ (k · fst x) mod (suc n')
 fst-pow n' zero    x = sym (modIndBase n' 0 (n' , +-comm n' 1))
@@ -288,7 +288,7 @@ fst-pow n' (suc k) x =
     cong (λ z → (fst x + z) mod (suc n')) (fst-pow n' k x)
   ∙ sym (mod-rCancel (suc n') (fst x) (k · fst x))
 
--- N annihilates �/N.  (The exponent of the quotient.)
+-- N annihilates ℤ/N.  (The exponent of the quotient.)
 selfkill : (n' : ℕ) (q : Fin (suc n'))
          → pow (ℤGroup/ (suc n')) (suc n') q
          ≡ GroupStr.1g (snd (ℤGroup/ (suc n')))
@@ -299,9 +299,9 @@ selfkill n' q = Σ≡Prop (λ _ → isProp≤)
 
 ------------------------------------------------------------------------
 
--- N = suc N�, e = 2 + e� � 2, and e � N (witnessed by N ≡ e�f).
--- M = N�e is then, definitionally, a successor, so `�Group/ M` is the
--- Fin-based cyclic group and not �.
+-- N = suc N′, e = 2 + e′ ≥ 2, and e ∣ N (witnessed by N ≡ e·f).
+-- M = N·e is then, definitionally, a successor, so `ℤGroup/ M` is the
+-- Fin-based cyclic group and not ℤ.
 module Cyclic (N' e' f : ℕ) (div : suc N' ≡ suc (suc e') · f) where
 
   N e M' M : ℕ
@@ -310,7 +310,7 @@ module Cyclic (N' e' f : ℕ) (div : suc N' ≡ suc (suc e') · f) where
   M' = suc e' + N' · e
   M  = suc M'
 
-  -- M really is N�e, definitionally.
+  -- M really is N·e, definitionally.
   M≡ : M ≡ N · e
   M≡ = refl
 
@@ -323,10 +323,10 @@ module Cyclic (N' e' f : ℕ) (div : suc N' ≡ suc (suc e') · f) where
     module Q = GroupStr (snd Q)
 
   ----------------------------------------------------------------
-  -- the truncation �/M � �/N
+  -- the truncation ℤ/M ↠ ℤ/N
   ----------------------------------------------------------------
 
-  -- Reducing mod M and then mod N is reducing mod N (because N � M).
+  -- Reducing mod M and then mod N is reducing mod N (because N ∣ M).
   mod-mod : (x : ℕ) → (x mod M) mod N ≡ x mod N
   mod-mod x = sym
     ( cong (_mod N) (sym (≡remainder+quotient M x))
@@ -355,9 +355,9 @@ module Cyclic (N' e' f : ℕ) (div : suc N' ≡ suc (suc e') · f) where
   -- the two exponent facts
   ----------------------------------------------------------------
 
-  -- N annihilates the kernel of the truncation.  (Here e � N is used:
-  -- ker = NZ/MZ has exponent e, and e � N, so N annihilates it too.
-  -- This is the step that needs n � 1 in the base-b instance.)
+  -- N annihilates the kernel of the truncation.  (Here e ∣ N is used:
+  -- ker = NZ/MZ has exponent e, and e ∣ N, so N annihilates it too.
+  -- This is the step that needs n ≥ 1 in the base-b instance.)
   kill-ker : (x : Fin M) → red x ≡ Q.1g → pow G N x ≡ G.1g
   kill-ker x h = Σ≡Prop (λ _ → isProp≤)
     ( fst-pow M' N x ∙ cong (_mod M) arith ∙ zero-charac-gen M (f · q₀) )
@@ -376,7 +376,7 @@ module Cyclic (N' e' f : ℕ) (div : suc N' ≡ suc (suc e') · f) where
             ∙ ·-comm M (f · q₀)
 
   ----------------------------------------------------------------
-  -- but N does NOT annihilate �/M
+  -- but N does NOT annihilate ℤ/M
   ----------------------------------------------------------------
 
   N<M : N < M
@@ -412,7 +412,7 @@ module Cyclic (N' e' f : ℕ) (div : suc N' ≡ suc (suc e') · f) where
   carryOf : (s : Fin N → Fin M) → Fin N → Fin N → Fin M
   carryOf s u v = (s u +ₘ s v) +ₘ (-ₘ (s (u +ₘ v)))
 
-  -- � and it is literally the coboundary of §2.
+  -- … and it is literally the coboundary of §2.
   carryOf≡ : (s : Fin N → Fin M) (sect : (q : Fin N) → red (s q) ≡ q)
              (u v : Fin N)
            → carryOf s u v ≡ Carry.carry G Q redHom s sect u v
@@ -430,7 +430,7 @@ module Cyclic (N' e' f : ℕ) (div : suc N' ≡ suc (suc e') · f) where
   ----------------------------------------------------------------
 
   -- The least-nonnegative-representative section, i.e. the alphabet
-  -- {0,�,N−1} used as digits.  Existence matters: `no-carry-free`
+  -- {0,…,N−1} used as digits.  Existence matters: `no-carry-free`
   -- quantifies over a nonempty class.
   stdSection : Fin N → Fin M
   stdSection q = fst q , <-trans (snd q) N<M
@@ -438,7 +438,7 @@ module Cyclic (N' e' f : ℕ) (div : suc N' ≡ suc (suc e') · f) where
   stdSection-sect : (q : Fin N) → red (stdSection q) ≡ q
   stdSection-sect q = Σ≡Prop (λ _ → isProp≤) (modIndBase N' (fst q) (snd q))
 
-  -- � and it is normalized, so its carry is a normalized 2-cocycle.
+  -- … and it is normalized, so its carry is a normalized 2-cocycle.
   stdSection-1 : stdSection Q.1g ≡ G.1g
   stdSection-1 = Σ≡Prop (λ _ → isProp≤) refl
 
@@ -446,10 +446,10 @@ module Cyclic (N' e' f : ℕ) (div : suc N' ≡ suc (suc e') · f) where
   std-carries = no-carry-free stdSection stdSection-sect
 
 ------------------------------------------------------------------------
--- 4.  Corollary 2.11.1: for b � 2 and n � 1, no digit set is carry-free
+-- 4.  Corollary 2.11.1: for b ≥ 2 and n ≥ 1, no digit set is carry-free
 ------------------------------------------------------------------------
 
--- b = 2 + k, n = 1 + n�.  The two hypotheses of ATLAS_OF_N.md §2.4(iii)
+-- b = 2 + k, n = 1 + n′.  The two hypotheses of ATLAS_OF_N.md §2.4(iii)
 -- are exactly these two `suc` patterns.
 module BasePower (k n' : ℕ) where
 
@@ -458,7 +458,7 @@ module BasePower (k n' : ℕ) where
   n = suc n'
 
   -- bʲ, presented so that it is *definitionally* a successor (Agda needs
-  -- that to see �Group/ bʲ as the Fin-based cyclic group rather than �).
+  -- that to see ℤGroup/ bʲ as the Fin-based cyclic group rather than ℤ).
   bp : ℕ → ℕ
   bp zero    = 0
   bp (suc j) = suc k + b · bp j
@@ -466,12 +466,12 @@ module BasePower (k n' : ℕ) where
   bpow : ℕ → ℕ
   bpow j = suc (bp j)
 
-  -- � and it really is bʲ.
+  -- … and it really is bʲ.
   bpow≡ : (j : ℕ) → bpow j ≡ b ^ j
   bpow≡ zero    = refl
   bpow≡ (suc j) = sym (cong (b ·_) (sym (bpow≡ j)) ∙ ·-suc b (bp j))
 
-  -- The instance: N = b�, e = b, and b � b� because n � 1.
+  -- The instance: N = bⁿ, e = b, and b ∣ bⁿ because n ≥ 1.
   open Cyclic (bp n) k (bpow n') (sym (·-suc b (bp n'))) public
 
   N≡ : N ≡ b ^ n
@@ -480,9 +480,9 @@ module BasePower (k n' : ℕ) where
   M≡b : M ≡ b ^ (suc n)
   M≡b = cong (_· b) (bpow≡ n) ∙ ·-comm (b ^ n) b
 
-  -- COROLLARY 2.11.1 (ATLAS_OF_N.md §2.4(iii)).  For every b � 2, every
-  -- n � 1, and EVERY function s : �/b� � �/b��� that is a section of
-  -- truncation � i.e. every choice of digit set whatever � it is false
+  -- COROLLARY 2.11.1 (ATLAS_OF_N.md §2.4(iii)).  For every b ≥ 2, every
+  -- n ≥ 1, and EVERY function s : ℤ/bⁿ → ℤ/bⁿ⁺¹ that is a section of
+  -- truncation — i.e. every choice of digit set whatever — it is false
   -- that all carries vanish.  Carrying is a property of the extension,
   -- not of the alphabet.
   carry-unremovable :
@@ -491,7 +491,7 @@ module BasePower (k n' : ℕ) where
     → ¬ ((u v : Fin N) → carryOf s u v ≡ GroupStr.1g (snd G))
   carry-unremovable = no-carry-free
 
-  -- Equivalently: the extension 0 � b��/b���� � �/b��� � �/b� � 0 does
+  -- Equivalently: the extension 0 → bⁿℤ/bⁿ⁺¹ℤ → ℤ/bⁿ⁺¹ → ℤ/bⁿ → 0 does
   -- not split.  (Proposition 2.11 says its class in H² is nonzero; this
   -- is the consequence of that statement which has the content.)
   extension-does-not-split :
@@ -500,18 +500,18 @@ module BasePower (k n' : ℕ) where
 
 ------------------------------------------------------------------------
 -- 5.  Definitional sanity checks on the moduli (guards against an
---     off-by-one in the successor presentation of b�)
+--     off-by-one in the successor presentation of bⁿ)
 ------------------------------------------------------------------------
 
 private
-  -- b = 2, n = 1:  �/4 � �/2
+  -- b = 2, n = 1:  ℤ/4 ↠ ℤ/2
   _ : BasePower.N 0 0 ≡ 2
   _ = refl
 
   _ : BasePower.M 0 0 ≡ 4
   _ = refl
 
-  -- b = 3, n = 2:  �/27 � �/9
+  -- b = 3, n = 2:  ℤ/27 ↠ ℤ/9
   _ : BasePower.N 1 1 ≡ 9
   _ = refl
 

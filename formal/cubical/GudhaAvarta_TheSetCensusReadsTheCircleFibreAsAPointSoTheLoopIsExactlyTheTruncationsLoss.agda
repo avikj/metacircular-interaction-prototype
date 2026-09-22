@@ -1,22 +1,22 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- à—ààà¾àµà°ààà â” the hidden circuit.  The loss is not in the fibre; it is in
--- the TRUNCATION of the fibre.  Taking fibres is lossless (A â‰ Î_b fiber
+-- à¤—à¥‚à¤¢à¤¾à¤µà¤°à¥à¤¤à¤ƒ â€” the hidden circuit.  The loss is not in the fibre; it is in
+-- the TRUNCATION of the fibre.  Taking fibres is lossless (A â‰ƒ Î£_b fiber
 -- f b, an equivalence).  What loses is crushing the fibre family down a
--- level â” and here is the exact witness of what a set-level census cannot
--- see: a fibre that is a CIRCLE, which the census âˆâˆ’âˆâ reads as a POINT.
+-- level â€” and here is the exact witness of what a set-level census cannot
+-- see: a fibre that is a CIRCLE, which the census âˆ¥âˆ’âˆ¥â‚‚ reads as a POINT.
 --
--- f = const : SÂ â’ Unit.  Its fibre over tt is SÂ (every tt â‰¡ tt is
--- contractible, so Î[xâˆˆSÂ](ttâ‰¡tt) â‰ SÂ).
+-- f = const : SÂ¹ â†’ Unit.  Its fibre over tt is SÂ¹ (every tt â‰¡ tt is
+-- contractible, so Î£[xâˆˆSÂ¹](ttâ‰¡tt) â‰ƒ SÂ¹).
 --
---   census : isContr âˆ fiber f tt âˆâ     -- Ïâ sees one point: àà•à²à¾à¦àà-looking
---   loop   : Â (fiber f tt â‰ Unit)        -- but the fibre is SÂ, not a point
+--   census : isContr âˆ¥ fiber f tt âˆ¥â‚‚     -- Ï€â‚€ sees one point: à¤¸à¤•à¤²à¤¾à¤¦à¥‡à¤¶-looking
+--   loop   : Â¬ (fiber f tt â‰ƒ Unit)        -- but the fibre is SÂ¹, not a point
 --
--- So even âˆâˆ’âˆâ merges the circle-fibre with the point-fibre.
+-- So even âˆ¥âˆ’âˆ¥â‚‚ merges the circle-fibre with the point-fibre.
 -- WholePartialDesa's census and GuhyaNasti's "the loss hides in the loops
 -- and the set-level census cannot see it", made exact and graded: the loss
--- lives at level â‰ 1, above where the census truncates.
+-- lives at level â‰¥ 1, above where the census truncates.
 ------------------------------------------------------------------------
 
 module GudhaAvarta_TheSetCensusReadsTheCircleFibreAsAPointSoTheLoopIsExactlyTheTruncationsLoss where
@@ -49,7 +49,7 @@ fibreâ‰ƒSÂ¹ : fiber cst tt â‰ƒ SÂ¹
 fibreâ‰ƒSÂ¹ = Î£-contractSnd (Î» _ â†’ isContr-ttâ‰¡)
 
 ------------------------------------------------------------------------
--- THE FIBRE IS NOT A POINT.  SÂ â‰ Unit â’ SÂ is a proposition â’ refl â‰¡ loop
+-- THE FIBRE IS NOT A POINT.  SÂ¹ â‰ƒ Unit â‡’ SÂ¹ is a proposition â‡’ refl â‰¡ loop
 -- at base; winding sends that to pos 0 â‰¡ pos 1.
 ------------------------------------------------------------------------
 
@@ -67,11 +67,11 @@ fibre-not-point : Â¬ (fiber cst tt â‰ƒ Unit)
 fibre-not-point e = Â¬SÂ¹â‰ƒUnit (compEquiv (invEquiv fibreâ‰ƒSÂ¹) e)
 
 ------------------------------------------------------------------------
--- THE SET CENSUS READS IT AS A POINT.  SÂ is connected, so âˆ SÂ âˆâ is
+-- THE SET CENSUS READS IT AS A POINT.  SÂ¹ is connected, so âˆ¥ SÂ¹ âˆ¥â‚‚ is
 -- contractible; the fibre-equivalence transports that to the fibre.
 ------------------------------------------------------------------------
 
--- SÂ is (propositionally) connected: proved by SÂ-induction into a prop.
+-- SÂ¹ is (propositionally) connected: proved by SÂ¹-induction into a prop.
 conn : (s : SÂ¹) â†’ âˆ¥ base â‰¡ s âˆ¥â‚
 conn base     = âˆ£ refl âˆ£â‚
 conn (loop i) = isPropâ†’PathP (Î» i â†’ squashâ‚ {A = base â‰¡ loop i})

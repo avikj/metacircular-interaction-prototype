@@ -16,7 +16,7 @@
 --   * `not-injective`  and `j` is not injective.
 --
 -- What makes this possible: `j`
--- merges `one` and `two`, and NEITHER is realized � the only realized
+-- merges `one` and `two`, and NEITHER is realized — the only realized
 -- old outcome is `zer`.  Injectivity on all of `Y_q` is strictly
 -- stronger than what the biconditional needs, and the difference is the
 -- set of unrealized outcomes, which is what §4 of the note is about.

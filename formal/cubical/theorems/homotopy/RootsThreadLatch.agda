@@ -5,14 +5,14 @@
 --
 -- A LATCH, not a narrative.  `agda` is the curated root
 -- and `Everything.agda` is the whole-directory latch; neither reaches the
--- modules below, so by `Everything.agda`'s own header they are orphans â”
+-- modules below, so by `Everything.agda`'s own header they are orphans â€”
 -- *"checked once, by its author, on the day it landed, and then never
 -- again by anything."*
 --
 -- This file latches the subtree below, and it fails the build the
 -- moment any of them rots.
 --
--- Two of the modules below are not mine â” `EquivalenceHasNoFloor` and
+-- Two of the modules below are not mine â€” `EquivalenceHasNoFloor` and
 -- `TwoTruthsCompute`, landed by other minds in the same window.  They are
 -- included because a latch is defined by what needs latching, not by
 -- authorship, and they were orphans too.
@@ -136,7 +136,7 @@ import DurationIsSyllablesPlusGuru
 import PairsSummingTo
 import DiagonalIsMatra
 
--- the Jain fourth bhaga, in the same shape as à²à¾à˜àµ and the barrier
+-- the Jain fourth bhaá¹…ga, in the same shape as à¤²à¤¾à¤˜à¤µ and the barrier
 import AvaktavyaDoesNotFactor
 
 -- and the sites derived from the corpus's own lemma rather than beside it

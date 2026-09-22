@@ -1,46 +1,46 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������� � matter: atoms and aggregates.  The FORM changes by combination
+-- पुद्गल — matter: atoms and aggregates.  The FORM changes by combination
 -- and division; the ATOM-COUNT persists.  utpda-vyaya-dhrauvya, for the
 -- one substance that has extension.
 --
--- SOURCE.  Umsvti, *Tattvrthastra*, adhyya 5 (~2nd�5th c. CE):
+-- SOURCE.  Umāsvāti, *Tattvārthasūtra*, adhyāya 5 (~2nd–5th c. CE):
 --   5.23  spara-rasa-gandha-varavanta pudgal
---         � matter has touch, taste, smell, colour (it is corporeal, rp,
+--         — matter has touch, taste, smell, colour (it is corporeal, rūpī,
 --           unlike dharma/adharma/ka/kla; `DharmaAdharma.agda`).
---   5.25  aava skandh ca � pudgala exists as ATOMS (paramu) and as
+--   5.25  aṇavaḥ skandhāś ca — pudgala exists as ATOMS (paramāṇu) and as
 --         AGGREGATES (skandha).
---   5.26  saghta-bhedebhya utpadyante � aggregates arise from combination
+--   5.26  saṅghāta-bhedebhya utpadyante — aggregates arise from combination
 --         (saghta) and division (bheda).
---   5.27  bhedt au � and the atom (au/paramu) arises by division;
+--   5.27  bhedāt aṇuḥ — and the atom (aṇu/paramāṇu) arises by division;
 --         it is itself partless, the limit of bheda.
 --
 -- The doctrine, exactly: a skandha is a plurality of paramus held
 -- together; saghta joins two skandhas, bheda splits one; through all of
 -- it the paramus themselves are neither created nor destroyed (dravya is
--- nitya, 5.3-4 � substance is permanent through its modes).  So the
+-- nitya, 5.3-4 — substance is permanent through its modes).  So the
 -- aggregate's FORM is paryya (it originates and ceases, utpda-vyaya),
 -- while the paramu-count is dhrauvya (it persists).  This is exactly the
--- three-fold real `Anekanta.���������`/`������` (Tattvrthastra 5.29),
+-- three-fold real `Anekanta.ध्रौव्यम्`/`जन्मन्` (Tattvārthasūtra 5.29),
 -- now for matter: change of form over conservation of substance.
 --
 -- WHAT IS PROVED (a skandha is a finite plurality of atoms; combination is
 -- their joining; count is the number of atoms):
 --
---   §2  �������-������ � combination adds the counts:
---         ����� (saghta a b) ≡ ����� a + ����� b.
---       Matter-count is a monoid homomorphism (Skandha, saghta, au�) �
---       (�, +, 0) � the free-monoid fold of `MalaSetu` at (�,+,0), here
+--   §2  संघातः-योगः — combination adds the counts:
+--         गणना (saṅghāta a b) ≡ गणना a + गणना b.
+--       Matter-count is a monoid homomorphism (Skandha, saṅghāta, aṇu⁰) →
+--       (ℕ, +, 0) — the free-monoid fold of `MalaSetu` at (ℕ,+,0), here
 --       the LAW OF CONSERVED MASS UNDER COMBINATION.
---   §3  ���-���������� � division conserves: for ANY split of s into a,b
---         (saghta a b ≡ s), ����� a + ����� b ≡ ����� s.  No atom is lost
+--   §3  भेद-संरक्षणम् — division conserves: for ANY split of s into a,b
+--         (saṅghāta a b ≡ s), गणना a + गणना b ≡ गणना s.  No atom is lost
 --       or made in bheda; only the form is cut.
---   §4  ������-������� � combine then divide however you like: the total
+--   §4  द्रव्य-नित्यम् — combine then divide however you like: the total
 --       count is invariant.  utpda-vyaya of the FORM, dhrauvya of the
---       COUNT � stated as a round trip saghta�bheda that returns the
+--       COUNT — stated as a round trip saṅghāta→bheda that returns the
 --       count unchanged.
---   §5  ����-��������� � the paramu is partless: a single-atom skandha
+--   §5  अणुः-अविभाज्यः — the paramāṇu is partless: a single-atom skandha
 --         admits no division into two nonempty parts (5.27's limit of
 --       bheda).  The atom is where cutting stops.
 --
@@ -86,20 +86,20 @@ module _ (Paramanu : Type ℓ) where
   गणना = length
 
   ------------------------------------------------------------------------
-  -- §2  �������-������ � combination adds counts (conserved mass, forward).
+  -- §2  संघातः-योगः — combination adds counts (conserved mass, forward).
   ------------------------------------------------------------------------
 
   संघातः-योगः : (a b : Skandha) → गणना (संघातः a b) ≡ गणना a + गणना b
   संघातः-योगः []       b = refl
   संघातः-योगः (p ∷ a) b = cong suc (संघातः-योगः a b)
 
-  -- the empty aggregate is the unit: combining with ���� changes nothing
+  -- the empty aggregate is the unit: combining with अणु⁰ changes nothing
   संघातः-रिक्तम् : (a : Skandha) → संघातः a अणु⁰ ≡ a
   संघातः-रिक्तम् []       = refl
   संघातः-रिक्तम् (p ∷ a) = cong (p ∷_) (संघातः-रिक्तम् a)
 
   ------------------------------------------------------------------------
-  -- §3  ���-���������� � a division of s is a way to write it as a
+  -- §3  भेद-संरक्षणम् — a division of s is a way to write it as a
   --     combination; and every division conserves the count.
   ------------------------------------------------------------------------
 
@@ -111,7 +111,7 @@ module _ (Paramanu : Type ℓ) where
   भेद-संरक्षणम् s (a , b , e) = sym (संघातः-योगः a b) ∙ cong गणना e
 
   ------------------------------------------------------------------------
-  -- §4  ������-������� � combine then divide: the total count returns.
+  -- §4  द्रव्य-नित्यम् — combine then divide: the total count returns.
   --     The FORM may be recut arbitrarily; the COUNT is dhrauvya.
   ------------------------------------------------------------------------
 
@@ -120,7 +120,7 @@ module _ (Paramanu : Type ℓ) where
   द्रव्य-नित्यम् a b d = भेद-संरक्षणम् (संघातः a b) d ∙ संघातः-योगः a b
 
   ------------------------------------------------------------------------
-  -- §5  ����-��������� � the paramu is partless: a single atom cannot be
+  -- §5  अणुः-अविभाज्यः — the paramāṇu is partless: a single atom cannot be
   --     split into two NONEMPTY aggregates.  bheda stops at the atom.
   ------------------------------------------------------------------------
 

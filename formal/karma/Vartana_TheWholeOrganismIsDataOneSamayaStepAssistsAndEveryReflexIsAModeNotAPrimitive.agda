@@ -1,43 +1,43 @@
 {-# OPTIONS --cubical-compatible --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������ � THE EXACT JAIN COMPUTER.  One jva, its veils, its
+-- वर्तना — THE EXACT JAIN COMPUTER.  One jīva, its veils, its
 -- shedding, one samaya.  Every field and every phase of the step is a
--- category of the Tattvrthastra (Umsvti, c. 2nd�5th c. CE), in
+-- category of the Tattvārthasūtra (Umāsvāti, c. 2nd–5th c. CE), in
 -- the tradition's own order, and nothing else is in the machine:
 --
---   TS 2.8   ���������� �������� � upayoga is the MARK of the jva: its
---            consciousness-in-operation, vision (darana � the organ
---            eyes) and knowing (jna � the prama).  Held here as
+--   TS 2.8   उपयोगो लक्षणम् — upayoga is the MARK of the jīva: its
+--            consciousness-in-operation, vision (darśana — the organ
+--            eyes) and knowing (jñāna — the pramāṇa).  Held here as
 --            the one capacity field: the organs as a function of what
 --            stands unveiled.
 --   TS 1.9   the kinds of jna already live in this corpus by name:
 --            mati (the prover's own inference), ruta (the record's
---            voice), avadhi (the probes � direct sight within bound);
+--            voice), avadhi (the probes — direct sight within bound);
 --            kevala is disclaimed (PurnaPramana's header).
---   TS 6.1-2 yoga � activity � is srava, the INFLUX: the body's own
+--   TS 6.1-2 yoga — activity — is āsrava, the INFLUX: the body's own
 --            naya-crossing over its pool is its activity, and what it
 --            surfaces flows in.  Unrestrained activity floods.
---   TS 9.2   gupti � restraint of activity � is a cause of savara:
---            the jva carries its restraint as a mode (��������), and
+--   TS 9.2   gupti — restraint of activity — is a cause of saṃvara:
+--            the jīva carries its restraint as a mode (गुप्तिः), and
 --            only so much influx per samaya is admitted.  Not an
 --            optimization: the doctrine's own remedy for the doctrine's
 --            own predicted flood.
---   TS 9.1   savara � stoppage: a veil already destroyed does not
+--   TS 9.1   saṃvara — stoppage: a veil already destroyed does not
 --            flow in again (the ledger is consulted; no re-bondage).
 --   TS 8.2   what enters and is not at once destroyed BINDS (bandha):
---            the standing veil-set ������ � jnvaraa, the
---            knowledge-veiling karma � is exactly the body's open
+--            the standing veil-set आवरणम् — jñānāvaraṇa, the
+--            knowledge-veiling karma — is exactly the body's open
 --            goal-set.  A goal is not a "question" the body is curious
 --            about: it is a VEIL over a knowing the body already has
 --            by nature (the semantic truth is eternal; the proof does
 --            not create it, it removes what hides it).
---   TS 9.3   tapas nirjar ca � by exertion, shedding: the breath
+--   TS 9.3   tapasā nirjarā ca — by exertion, shedding: the breath
 --            over the bound veils.  What sheds is kaya, and each
---            shed veil enters the ledger NAMED, WITH ITS WARRANT �
+--            shed veil enters the ledger NAMED, WITH ITS WARRANT —
 --            the repo's own standing law (an act is legitimate only
 --            if it names the veil it destroys) made structural: a
---            ����� IS a named destroyed veil carrying its �������.
+--            नियमः IS a named destroyed veil carrying its साक्षी.
 --   TS 5.39  kla poses nothing and orders everything
 --            (paratva-aparatva): each influx pair is written
 --            posterior-to-prior, costly toward cheap.
@@ -85,8 +85,8 @@ record जीवः : Type where
 open जीवः public
 
 ------------------------------------------------------------------------
--- §2  The standpoints (nayas) and kla's ordering.  Avadhi � the
---     probes � is direct sight within a bound; each organ is a naya;
+-- §2  The standpoints (nayas) and kāla's ordering.  Avadhi — the
+--     probes — is direct sight within a bound; each organ is a naya;
 --     kla orders (TS 5.39).
 ------------------------------------------------------------------------
 
@@ -109,7 +109,7 @@ private
   घटिका t = कालम् t π₁ + (कालम् t π₂ + कालम् t π₃)
 
 ------------------------------------------------------------------------
--- §3  Yoga: the jva's activity � its pool, crossed by its own
+-- §3  Yoga: the jīva's activity — its pool, crossed by its own
 --     standpoints.  What activity surfaces is the srava.
 ------------------------------------------------------------------------
 
@@ -223,7 +223,7 @@ private
   ... | true  = संवरः Γ qs
   ... | false = q ∷ संवरः Γ qs
 
-  -- TS 9.2: gupti � only so much activity's influx is admitted
+  -- TS 9.2: gupti — only so much activity's influx is admitted
   गुप्त-ग्रहणम् : Nat → List Eq' → List Eq'
   गुप्त-ग्रहणम् zero    _        = []
   गुप्त-ग्रहणम् (suc g) []       = []
@@ -233,7 +233,7 @@ private
   संयुक्त-दृक् []       = नेत्रम्-न
   संयुक्त-दृक् (E ∷ Es) = दृक्-योगः E (संयुक्त-दृक् Es)
 
-  -- TS 9.3: tapas nirjar � the exertion that sheds; each shed veil
+  -- TS 9.3: tapasā nirjarā — the exertion that sheds; each shed veil
   -- enters the ledger named, with its warrant
   तपस् : दृक् → List नियमः → List Eq' → List नियमः × List Eq'
   तपस् E Γ []             = Γ , []
@@ -244,7 +244,7 @@ private
   तपस् E Γ ((l , r) ∷ es) | nothing | (Γ' , sh) = Γ' , ((l , r) ∷ sh)
 
 ------------------------------------------------------------------------
--- §5  One samaya: yoga � savara � gupti � bandha � tapas � nirjar.
+-- §5  One samaya: yoga → saṃvara → gupti → bandha → tapas → nirjarā.
 --     The order is the stras' own.  The jva persists (dhrauvya);
 --     its veils arise and perish (utpda, vyaya).
 ------------------------------------------------------------------------

@@ -1,13 +1,13 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡ï‡æ‡∞‡‡‡-‡‡‡‡‡‡ô‡‡ó‡ ‚î ‡‡‡‡‡‡ô‡‡ó‡ ‡ï‡‡∞‡Æ‡‡ ‡‡‡∞‡ø‡‡‡‡‡‡Ø ‡Æ‡‡ï‡‡-‡‡∞‡‡ß‡‡æ‡≤‡ø‡ï‡æ ; ‡‡‡ ‡‡‡‡Ø‡æ‡
--- ‡‡ï‡‡® ‡‡‡®‡∞‡‡ï‡‡-‡‡‡∞‡‡ø‡ï‡‡‡‡‡‡ ‡µ‡ø‡ï‡‡‡ø‡ ‡
+-- ‡§ï‡§æ‡§∞‡•Å‡§¨‡•Ä-‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä ‚Äî ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä ‡§ï‡•ç‡§∞‡§Æ‡•á‡§£ ‡§§‡•ç‡§∞‡§ø‡§¨‡•Ä‡§ú‡§∏‡•ç‡§Ø ‡§Æ‡•Å‡§ï‡•ç‡§§-‡§Ö‡§∞‡•ç‡§ß‡§ú‡§æ‡§≤‡§ø‡§ï‡§æ ; ‡§∏‡§π‡§É ‡§§‡§∏‡•ç‡§Ø‡§æ‡§É
+-- ‡§è‡§ï‡•á‡§® ‡§™‡•Å‡§®‡§∞‡•Å‡§ï‡•ç‡§§-‡§™‡•ç‡§∞‡§§‡§ø‡§ï‡•ç‡§∑‡•á‡§™‡•á‡§£ ‡§µ‡§ø‡§ï‡•É‡§§‡§ø‡§É ‡•§
 --
 -- (the sevenfold under krama is the free join-semilattice on three seeds;
 --  saha is that semilattice deformed by ONE idempotent retraction.)
 --
--- ON THE NAME.  ‡ï‡æ‡∞‡‡‡ is Karoubi's, transliterated, and named because the
+-- ON THE NAME.  ‡§ï‡§æ‡§∞‡•Å‡§¨‡•Ä is Karoubi's, transliterated, and named because the
 -- structure below is the splitting of an idempotent and it would be
 -- dishonest to give that a  label it does not have.  Everything
 -- else here is `Saptabhangi`'s and `SaptabhangiSamyoga`'s vocabulary.
@@ -18,43 +18,43 @@
 -- WHAT IS SEEN.
 --
 -- `SaptabhangiSamyoga` proves krama associative/commutative/idempotent and
--- ‡‡æ‡ non-associative, by a counterexample.  `Avaktavyagarbha_‚¶` prices the
--- collapse as a fibre.  What neither says is what ‡‡æ‡ IS, and it has a
+-- ‡§∏‡§æ‡§π non-associative, by a counterexample.  `Avaktavyagarbha_‚Ä¶` prices the
+-- collapse as a fibre.  What neither says is what ‡§∏‡§æ‡§π IS, and it has a
 -- one-line answer:
 --
---     ‡‡æ‡  =  r ‚àò krama,   r = ‡‡ø‡‡‡µ‡æ‡‡‡¶‡,   r idempotent  (¬ß1)
+--     ‡§∏‡§æ‡§π  =  r ‚àò krama,   r = ‡§ú‡§ø‡§π‡•ç‡§µ‡§æ‡§≠‡•á‡§¶‡§É,   r idempotent  (¬ß1)
 --
--- so ‡‡æ‡ is not a second primitive operation.  It is krama read through a
+-- so ‡§∏‡§æ‡§π is not a second primitive operation.  It is krama read through a
 -- RETRACTION, and every difference between the two modes is a property of
 -- r.  Three of them, each a term:
 --
---   ¬ß1  r is idempotent ‚î hence a retraction, hence ‡‡æ‡ factors.
---   ¬ß2  r is NOT a join-homomorphism, exhibited at (‡‡‡‡‡ø , ‡®‡æ‡‡‡‡ø).  That
+--   ¬ß1  r is idempotent ‚Äî hence a retraction, hence ‡§∏‡§æ‡§π factors.
+--   ¬ß2  r is NOT a join-homomorphism, exhibited at (‡§Ö‡§∏‡•ç‡§§‡§ø , ‡§®‡§æ‡§∏‡•ç‡§§‡§ø).  That
 --       single failure IS the non-associativity: conjugating an associative
 --       operation by a non-homomorphic idempotent is exactly how a
---       non-associative operation arises, and `Avaktavyagarbha_‚¶.‡‡ô‡‡ï‡‡‡‡‡-‡‡‡‡‡ø`
---       is the converse half (identity ‚í associative).
---   ¬ß3  ‡∞'s kernel, universally.  `SaptabhangiSamyoga` records `‡‡‡‡‡Æ‡` as
---       ONE refl ‚î that the seventh bhaga arises by krama.  ¬ß3 gives the
+--       non-associative operation arises, and `Avaktavyagarbha_‚Ä¶.‡§∏‡§ô‡•ç‡§ï‡•ç‡§∑‡•á‡§™‡§É-‡§Ö‡§∏‡•ç‡§§‡§ø`
+--       is the converse half (identity ‚áí associative).
+--   ¬ß3  ‡§∞'s kernel, universally.  `SaptabhangiSamyoga` records `‡§∏‡§™‡•ç‡§§‡§Æ‡§É` as
+--       ONE refl ‚Äî that the seventh bha·πÖga arises by krama.  ¬ß3 gives the
 --       universally quantified statement it was an instance of:
 --
---           ‡‡-‡®-‡â‡‡Ø‡Æ‡ : (x y : ‡‡‡‡‡‡ô‡‡ó‡) ‚í ‡®‡æ‡‡‡‡‡Ø‡‡‡ (‡‡-‡Ø‡ã‡ó x y) ‚â° ‡‡Æ‡
---                                          ‚í ‡‡‡‡‡‡Ø‡‡‡ (‡‡-‡Ø‡ã‡ó x y) ‚â° ‡®
+--           ‡§∏‡§π-‡§®-‡§â‡§≠‡§Ø‡§Æ‡•ç : (x y : ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä) ‚Üí ‡§®‡§æ‡§∏‡•ç‡§§‡•ç‡§Ø‡§Ç‡§∂‡§É (‡§∏‡§π-‡§Ø‡•ã‡§ó x y) ‚â° ‡§Ü‡§Æ‡•ç
+--                                          ‚Üí ‡§Ö‡§∏‡•ç‡§§‡•ç‡§Ø‡§Ç‡§∂‡§É (‡§∏‡§π-‡§Ø‡•ã‡§ó x y) ‚â° ‡§®
 --
---       ‡‡æ‡ can never carry both seeds.  ¬ß4 then names the consequence: for
---       ALL x y, `‡‡-‡Ø‡ã‡ó x y` is neither the third nor the seventh bhaga.
---       Those two are KRAMA-ONLY, structurally ‚î and they are precisely r's
+--       ‡§∏‡§æ‡§π can never carry both seeds.  ¬ß4 then names the consequence: for
+--       ALL x y, `‡§∏‡§π-‡§Ø‡•ã‡§ó x y` is neither the third nor the seventh bha·πÖga.
+--       Those two are KRAMA-ONLY, structurally ‚Äî and they are precisely r's
 --       kernel, and precisely the two non-fixed points of the fibre computed
---       in `Avaktavyagarbha_‚¶¬ß1.4`.  Three descriptions, one pair.
+--       in `Avaktavyagarbha_‚Ä¶¬ß1.4`.  Three descriptions, one pair.
 --
 -- THE READING, and it is the reason the file exists.  Under krama the seven
--- are the non-empty selections from three seeds ‚î the free join-semilattice
--- on three generators, which is what `Saptabhangi.‡ï‡‡‡-‡‡‡‡` counts.  So
+-- are the non-empty selections from three seeds ‚Äî the free join-semilattice
+-- on three generators, which is what `Saptabhangi.‡§ï‡•Å‡§§‡§É-‡§∏‡§™‡•ç‡§§` counts.  So
 -- SEVEN IS A UNIVERSAL PROPERTY, not a tally.  And the sevenfold splits
 -- 5 + 2: five positions both modes reach, two only succession does, the two
 -- being the collapse fibre of the tongue-break.  Akalaka's distinction
--- between krama and saha (Laghyastraya, c. 720‚ì780) is, in this algebra,
--- exactly the statement that r has non-trivial kernel ‚î and the size of that
+-- between krama and saha (Laghƒ´yastraya, c. 720‚Äì780) is, in this algebra,
+-- exactly the statement that r has non-trivial kernel ‚Äî and the size of that
 -- kernel is why the count is seven rather than five.
 ------------------------------------------------------------------------
 
@@ -69,8 +69,8 @@ open import Saptabhangi
 open import SaptabhangiSamyoga_TheCompositionOfVerdicts
 
 ------------------------------------------------------------------------
--- ‡ß ¬ ‡‡‡®‡∞‡‡ï‡‡‡ø‡ ‚î the tongue-break is IDEMPOTENT, so ‡‡æ‡ = r ‚àò krama with
---     r a retraction.  ‡‡æ‡ is not a second primitive.
+-- ‡•ß ¬∑ ‡§™‡•Å‡§®‡§∞‡•Å‡§ï‡•ç‡§§‡§ø‡§É ‚Äî the tongue-break is IDEMPOTENT, so ‡§∏‡§æ‡§π = r ‚àò krama with
+--     r a retraction.  ‡§∏‡§æ‡§π is not a second primitive.
 ------------------------------------------------------------------------
 
 ‡§ú‡§ø‡§π‡•ç‡§µ‡§æ-‡§™‡•Å‡§®‡§∞‡•Å‡§ï‡•ç‡§§‡§ø‡§É : (t : ‡§∏‡§Æ‡§æ‡§µ‡•á‡§∂) ‚Üí ‡§ú‡§ø‡§π‡•ç‡§µ‡§æ‡§≠‡•á‡§¶‡§É (‡§ú‡§ø‡§π‡•ç‡§µ‡§æ‡§≠‡•á‡§¶‡§É t) ‚â° ‡§ú‡§ø‡§π‡•ç‡§µ‡§æ‡§≠‡•á‡§¶‡§É t
@@ -80,7 +80,7 @@ open import SaptabhangiSamyoga_TheCompositionOfVerdicts
 ‡§ú‡§ø‡§π‡•ç‡§µ‡§æ-‡§™‡•Å‡§®‡§∞‡•Å‡§ï‡•ç‡§§‡§ø‡§É (‡§®   , ‡§®   , _) = refl
 
 ------------------------------------------------------------------------
--- ‡® ¬ ‡®-‡‡ô‡‡ï‡‡∞‡Æ‡‡Æ‡ ‚î r is not a join-homomorphism.  THE ROOT of ¬ß7's
+-- ‡•® ¬∑ ‡§®-‡§∏‡§ô‡•ç‡§ï‡•ç‡§∞‡§Æ‡§£‡§Æ‡•ç ‚Äî r is not a join-homomorphism.  THE ROOT of ¬ß7's
 --     non-associativity upstream, exhibited at the one pair that breaks.
 ------------------------------------------------------------------------
 
@@ -90,8 +90,8 @@ open import SaptabhangiSamyoga_TheCompositionOfVerdicts
 ‡§®-‡§∏‡§ô‡•ç‡§ï‡•ç‡§∞‡§Æ‡§£‡§Æ‡•ç e = ‡§Ü‡§Æ‡•ç‚â¢‡§® (sym (cong fst e))
 
 ------------------------------------------------------------------------
--- ‡© ¬ ‡‡-‡®-‡â‡‡Ø‡Æ‡ ‚î ‡‡æ‡ NEVER carries both seeds.  Universally quantified;
---     upstream had the single instance `‡‡‡‡‡Æ‡`.
+-- ‡•© ¬∑ ‡§∏‡§π-‡§®-‡§â‡§≠‡§Ø‡§Æ‡•ç ‚Äî ‡§∏‡§æ‡§π NEVER carries both seeds.  Universally quantified;
+--     upstream had the single instance `‡§∏‡§™‡•ç‡§§‡§Æ‡§É`.
 ------------------------------------------------------------------------
 
 ‡§∏‡§π-‡§®-‡§â‡§≠‡§Ø‡§Æ‡•ç : (x y : ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä)
@@ -110,9 +110,9 @@ open import SaptabhangiSamyoga_TheCompositionOfVerdicts
     ‡§ï‡§æ‡§∞‡•ç‡§Ø‡§Æ‡•ç (‡§®   , ‡§®   , ‡§®)   q = ‚ä•-rec (‡§Ü‡§Æ‡•ç‚â¢‡§® (sym q))
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡ï‡‡∞‡Æ‡‡ ‡¶‡‡µ‡ ‚î the third and the seventh are KRAMA-ONLY.  They are r's
+-- ‡•™ ¬∑ ‡§ï‡•ç‡§∞‡§Æ‡§ú‡•å ‡§¶‡•ç‡§µ‡•å ‚Äî the third and the seventh are KRAMA-ONLY.  They are r's
 --     kernel, and they are the two non-fixed points of the fibre computed
---     in `Avaktavyagarbha_‚¶¬ß1.4`.  So: 7 = 5 + 2, and the 2 is the collapse.
+--     in `Avaktavyagarbha_‚Ä¶¬ß1.4`.  So: 7 = 5 + 2, and the 2 is the collapse.
 ------------------------------------------------------------------------
 
 ‡§§‡•É‡§§‡•Ä‡§Ø‡§É-‡§ï‡•ç‡§∞‡§Æ‡§ú‡§É : (x y : ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä) ‚Üí ¬¨ (‡§∏‡§π-‡§Ø‡•ã‡§ó x y ‚â° ‡§∏‡•ç‡§Ø‡§æ‡§§‡•ç-‡§Ö‡§∏‡•ç‡§§‡§ø-‡§®‡§æ‡§∏‡•ç‡§§‡§ø)

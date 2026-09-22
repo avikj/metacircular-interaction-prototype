@@ -3,10 +3,10 @@
 ------------------------------------------------------------------------
 -- Punarukti_TheTwoScaledCakravalaStepsAreOneTheorem
 --
--- ON THE NAME.  ‡‡‡®‡∞‡‡ï‡‡ ¬ punarukta ‚î "said again".  Gautama,
+-- ON THE NAME.  ‡§™‡•Å‡§®‡§∞‡•Å‡§ï‡•ç‡§§ ¬∑ punarukta ‚Äî "said again".  Gautama,
 -- *Nyyastra* 5.2 (~2nd c. CE), the nigrahasthna list, at 5.2.14 in
 -- the standard numbering: abdrthayo punarvacana punaruktam
--- **anyatra anuvdt** ‚î restating word or sense is a ground of defeat,
+-- **anyatra anuvƒÅdƒÅt** ‚Äî restating word or sense is a ground of defeat,
 -- EXCEPT where it is anuvda, deliberate restatement.  The exception is
 -- the whole point of the name here: a second proof of a theorem is not
 -- a defect if it says it is a second proof.  Neither of the two modules
@@ -21,12 +21,12 @@
 -- are ONE THEOREM over an arbitrary commutative ring: same hypotheses
 -- (the state condition plus the cakravla's three cleared divisions),
 -- same conclusion up to `sym` on the hypotheses and one associativity.
--- `scaled‚ístep` and `step‚íscaled` below derive each from the other,
+-- `scaled‚Üístep` and `step‚Üíscaled` below derive each from the other,
 -- so neither is a weakening of the other in any direction.
 --
 -- The private lemma `Cakravala.Cycle.bhavana-trivial`
 -- (`solve! R`) is likewise `Bhavana.Form.cakravalaCleared` again, and
--- `Cakravala.‡‡ï‡‡∞‡‡Ø-‡‡¶-‡∞‡‡‡Æ‡` is that same identity a third time over ‚
+-- `Cakravala.‡§ö‡§ï‡•ç‡§∞‡•Ä‡§Ø-‡§™‡§¶-‡§∞‡•Ç‡§™‡§Æ‡•ç` is that same identity a third time over ‚Ñ§
 -- from `Brahmagupta.‡‡æ‡µ‡®‡æ-‡Æ‡æ‡®`.
 --
 -- SOURCE OF THE MATHEMATICS RESTATED, not of this file: Jayadeva

@@ -6,60 +6,60 @@
 -- `MinimalityOfABoundaryPopulationNeedsLowestTerms` proved minimality
 -- of a boundary population at numerator one and refuted it at 2/4.
 -- This module proves the general case.  Euclid's lemma comes from
--- `WalkJumps.coprime-cancel : isGCD a b 1 â’ a âˆ b Â c â’ a âˆ c`, proved
--- there from `gcd-factorÊ³` (gcd (aÂc) (bÂc) â‰¡ gcd a b Â c) and the
+-- `WalkJumps.coprime-cancel : isGCD a b 1 â†’ a âˆ£ b Â· c â†’ a âˆ£ c`, proved
+-- there from `gcd-factorÊ³` (gcd (aÂ·c) (bÂ·c) â‰¡ gcd a b Â· c) and the
 -- universal property of the gcd.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT IS PROVED  (Boundary p q bs is `p Â length bs â‰¡ suc q Â count bs`,
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- WHAT IS PROVED  (Boundary p q bs is `p Â· length bs â‰¡ suc q Â· count bs`,
 -- imported from the earlier module, not restated)
 --
---   isGCD-sym                isGCD m n d â’ isGCD n m d
+--   isGCD-sym                isGCD m n d â†’ isGCD n m d
 --   boundaryGivesDivisibility
---                            Boundary p q bs â’ suc q âˆ p Â length bs
+--                            Boundary p q bs â†’ suc q âˆ£ p Â· length bs
 --   boundaryDividesInLowestTerms
---                            isGCD p (suc q) 1 â’ Boundary p q bs
---                            â’ suc q âˆ length bs            (Euclid)
---   minimalityInLowestTerms  isGCD p (suc q) 1 â’ Boundary p q bs
---                            â’ 1 â‰ length bs â’ suc q â‰ length bs
+--                            isGCD p (suc q) 1 â†’ Boundary p q bs
+--                            â†’ suc q âˆ£ length bs            (Euclid)
+--   minimalityInLowestTerms  isGCD p (suc q) 1 â†’ Boundary p q bs
+--                            â†’ 1 â‰¤ length bs â†’ suc q â‰¤ length bs
 --   minimalityInLowestTermsGcd
 --                            the same with the hypothesis in the
 --                            form gcd p (suc q) â‰¡ 1
 --   minimalityInLowestTermsCount
---                            the same with `1 â‰ count bs`, the
+--                            the same with `1 â‰¤ count bs`, the
 --                            non-emptiness hypothesis the earlier
 --                            module used at p = 1
 --   atLeastAndNotAboveIsBoundary
---                            AtLeast p q bs â’ Â Above p q bs
---                            â’ Boundary p q bs
+--                            AtLeast p q bs â†’ Â¬ Above p q bs
+--                            â†’ Boundary p q bs
 --   minimalityOfABoundaryPopulation
 --                            in the exact terms of
 --                            `everyThresholdHasABoundaryPopulation`:
---                            gcd p (suc q) â‰¡ 1, 1 â‰ length bs,
---                            AtLeast p q bs, Â Above p q bs
---                            â’ suc q â‰ length bs
---   popIsMinimal             for p â‰ suc q with gcd p (suc q) â‰¡ 1, the
+--                            gcd p (suc q) â‰¡ 1, 1 â‰¤ length bs,
+--                            AtLeast p q bs, Â¬ Above p q bs
+--                            â‡’ suc q â‰¤ length bs
+--   popIsMinimal             for p â‰¤ suc q with gcd p (suc q) â‰¡ 1, the
 --                            population of the earlier module has length
 --                            suc q AND no non-empty boundary population
 --                            is shorter
 --   twoOverFourIsNotInLowestTerms
---                            Â isGCD 2 4 1 â” so the counterexample of
+--                            Â¬ isGCD 2 4 1 â€” so the counterexample of
 --                            the earlier module does not meet the
 --                            hypothesis, as it must not
 --
--- Non-emptiness is `1 â‰ length bs` throughout, which is WEAKER than the
--- `1 â‰ count bs` of the earlier module (count â‰ length); the count form
+-- Non-emptiness is `1 â‰¤ length bs` throughout, which is WEAKER than the
+-- `1 â‰¤ count bs` of the earlier module (count â‰¤ length); the count form
 -- is derived from it.  The empty population is a boundary population
 -- of length 0 at every threshold and is excluded by exactly that
 -- hypothesis, as before.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- `popIsMinimal` says suc q is achieved and nothing non-empty is
 -- shorter; that only multiples of suc q are achieved is
 -- `boundaryDividesInLowestTerms`.  Nothing is quotiented: `gcd p (suc q)
 -- â‰¡ 1` is a property of the PAIR, and 2/4 still fails where 1/2
--- succeeds â” that is `twoOverFourIsNotInLowestTerms` next to
--- `minimalityInLowestTermsGcd`, not a contradiction.  No B©zout
+-- succeeds â€” that is `twoOverFourIsNotInLowestTerms` next to
+-- `minimalityInLowestTermsGcd`, not a contradiction.  No BÃ©zout
 -- identity is used; `coprime-cancel` does not need one.
 ------------------------------------------------------------------------
 
@@ -108,7 +108,7 @@ isGCD-sym m n d (cd , greatest) =
 
 ------------------------------------------------------------------------
 -- 2.  A boundary population's length, scaled by p, is a multiple of
---     the denominator â” this is the equation read as a witness
+--     the denominator â€” this is the equation read as a witness
 ------------------------------------------------------------------------
 
 boundaryGivesDivisibility :
@@ -162,9 +162,9 @@ minimalityInLowestTermsCount p q bs e b pos =
 ------------------------------------------------------------------------
 -- 5.  In the terms of `everyThresholdHasABoundaryPopulation`
 --
--- That theorem delivers `AtLeast p q bs — Â Above p q bs`, i.e.
--- `p Â length â‰ suc q Â count` and `Â (p Â length < suc q Â count)`.
--- `â‰-split` turns the pair into the equation.
+-- That theorem delivers `AtLeast p q bs Ã— Â¬ Above p q bs`, i.e.
+-- `p Â· length â‰¤ suc q Â· count` and `Â¬ (p Â· length < suc q Â· count)`.
+-- `â‰¤-split` turns the pair into the equation.
 ------------------------------------------------------------------------
 
 atLeastAndNotAboveIsBoundary :
@@ -206,8 +206,8 @@ popIsMinimal p q pâ‰¤ e with everyThresholdHasABoundaryPopulation p q pâ‰¤
 ------------------------------------------------------------------------
 -- 7.  The counterexample does not meet the hypothesis
 --
--- 2 is a common divisor of 2 and 4, so if 1 were their gcd then 2 âˆ 1,
--- so 2 â‰ 1.  This is the pair (2 , 3) of the earlier module: suc 3 = 4.
+-- 2 is a common divisor of 2 and 4, so if 1 were their gcd then 2 âˆ£ 1,
+-- so 2 â‰¤ 1.  This is the pair (2 , 3) of the earlier module: suc 3 = 4.
 ------------------------------------------------------------------------
 
 twoOverFourIsNotInLowestTerms : Â¬ isGCD 2 (suc 3) 1

@@ -11,8 +11,8 @@ Two theorems, jointly the strict completion of the endless braid's
 action, each half fully constructive.
 
 CONVERGENCE, WITH THE APPROXIMANTS WRITTEN DOWN.  The descending word
-[n, nâˆ’1, â¦, 0] twists each depth up to its top exactly once and each
-depth beyond exactly never â” two count lemmas by double induction, no
+[n, nâˆ’1, â€¦, 0] twists each depth up to its top exactly once and each
+depth beyond exactly never â€” two count lemmas by double induction, no
 order relation imported, the inequalities riding inside the induction
 shapes.  Hence for every depth and every margin, the named word
 agrees with the uniform quarter turn at that depth's reader, on every
@@ -22,7 +22,7 @@ agreement is bought by longer words, mechanically.
 STRICTNESS, WITH THE ESCAPE DEPTH COMPUTED.  No finite braid word
 acts as the uniform turn: a word deposits twists at finitely many
 addresses, so the depth one past the sum of its deposited addresses
-reads twist count zero â” computed from the word itself â” while the
+reads twist count zero â€” computed from the word itself â€” while the
 uniform turn moves every reader of the constant rope.  The
 obstruction is not cardinality but locality: finite words are local,
 the limit is uniform, and no amount of local motion sums to a
@@ -32,20 +32,20 @@ Together: the uniform turn is a pointwise limit of the braid action
 that lies outside it.  The braid group is not closed in the space of
 its own effects; the coinductive rope carries the completion natively
 (the uniform turn is three lines of corecursion), and the
-completion's new points are exactly the uniform coherences â” central,
+completion's new points are exactly the uniform coherences â€” central,
 of order four, exceeding the group's own center of order two.  This
 is the profinite phenomenon met from below and made term by term:
 every approximant named, every escape computed, no topology assumed
-â” the topology is what these theorems are the germ of.
+â€” the topology is what these theorems are the germ of.
 
 The trilaw's reading, one more altitude up: the braid group's closure
 is conserved (every effect approximated), inaccessible (never
-attained), and generative â” the completion's excess is the structure
+attained), and generative â€” the completion's excess is the structure
 of the next level, and the next level is where the rope already
 lives.  Finite interdependence builds the ladder; the infinite
 carrier is the ladder's limit, standing one rung above every word.
 
-SYT â” THE CLAIM, EXACTLY.  Pointwise convergence, strictness, and
+SYÄ€T â€” THE CLAIM, EXACTLY.  Pointwise convergence, strictness, and
 the centrality of the excess.
 
 Machine-checked in cubical type theory, no postulates, no admitted

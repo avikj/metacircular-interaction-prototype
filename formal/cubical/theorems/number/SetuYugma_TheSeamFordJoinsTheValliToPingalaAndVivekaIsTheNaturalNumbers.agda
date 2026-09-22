@@ -1,20 +1,20 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ����-�������� � the seam ford.  (� � �) � �, hence ≡ �; and composed with
--- LosslessReturn's own ������≡������, a third path neither file paid for:
+-- सेतु-युग्मम् — the seam ford.  (ℕ × ℕ) ≃ ℕ, hence ≡ ℕ; and composed with
+-- LosslessReturn's own युग्म≡विवेक, a third path neither file paid for:
 --
---                          ������ ≡ � .
+--                          विवेक ≡ ℕ .
 --
--- PROVENANCE.  ����� and ���������� are Pigala's own pratyayas
--- (�������������� �.�����; Halyudha's ������������ is the received
--- commentary): ���������� carries an index to the pattern it names, �����
+-- PROVENANCE.  नष्ट and उद्दिष्ट are Piṅgala's own pratyayas
+-- (छन्दःशास्त्रम् ८.२४–२५; Halāyudha's मृतसञ्जीवनी is the received
+-- commentary): उद्दिष्ट carries an index to the pattern it names, नष्ट
 -- carries a pattern back to its index, and their joint existence is
--- exactly invertibility � which is the whole content of a ford.
+-- exactly invertibility — which is the whole content of a ford.
 -- The DIAGONAL enumeration itself is Cantor (1878).
 --
--- No Bool, no Dec, no decision anywhere: �� moves by matching a
--- constructor, and ��� is structural in (diagonal, first coordinate).
+-- No Bool, no Dec, no decision anywhere: पद moves by matching a
+-- constructor, and चार is structural in (diagonal, first coordinate).
 ------------------------------------------------------------------------
 
 module SetuYugma_TheSeamFordJoinsTheValliToPingalaAndVivekaIsTheNaturalNumbers where
@@ -30,7 +30,7 @@ open import Cubical.Data.Empty using () renaming (rec to ⊥-rec)
 open import LosslessReturn using (विवेक ; युग्म≃विवेक ; युग्म≡विवेक)
 
 ------------------------------------------------------------------------
--- �� � one step of the diagonal walk.  Along the current diagonal while
+-- पद — one step of the diagonal walk.  Along the current diagonal while
 -- the second coordinate survives; at its exhaustion, open the next.
 ------------------------------------------------------------------------
 
@@ -39,8 +39,8 @@ open import LosslessReturn using (विवेक ; युग्म≃विव�
 पद (x , zero)  = (zero , suc x)
 
 ------------------------------------------------------------------------
--- ���������� � index � pattern.  ��������� � the triangular count.
--- ����� � pattern � index.
+-- उद्दिष्ट — index ↦ pattern.  त्रिकोण — the triangular count.
+-- नष्ट — pattern ↦ index.
 ------------------------------------------------------------------------
 
 उद्दिष्ट : ℕ → ℕ × ℕ
@@ -55,7 +55,7 @@ open import LosslessReturn using (विवेक ; युग्म≃विव�
 नष्ट (x , y) = त्रिकोण (x + y) + x
 
 ------------------------------------------------------------------------
--- ��-����� � the step is exactly the successor on indices.  This one lemma
+-- पद-नष्ट — the step is exactly the successor on indices.  This one lemma
 -- carries both round trips.
 ------------------------------------------------------------------------
 
@@ -69,7 +69,7 @@ open import LosslessReturn using (विवेक ; युग्म≃विव�
   ∙ cong (λ z → suc (त्रिकोण z + x)) (sym (+-zero x))
 
 ------------------------------------------------------------------------
--- ����� ∘ ���������� ≡ id.
+-- नष्ट ∘ उद्दिष्ट ≡ id.
 ------------------------------------------------------------------------
 
 नष्ट-उद्दिष्ट : (n : ℕ) → नष्ट (उद्दिष्ट n) ≡ n
@@ -78,9 +78,9 @@ open import LosslessReturn using (विवेक ; युग्म≃विव�
   पद-नष्ट (उद्दिष्ट n) ∙ cong suc (नष्ट-उद्दिष्ट n)
 
 ------------------------------------------------------------------------
--- ���������� ∘ ����� ≡ id.  ��� walks it, structural in (diagonal, first
--- coordinate): (suc x , y) hands back to (x , suc y) � same diagonal, x
--- smaller; (zero , suc y) hands back to (y , zero) � the diagonal smaller.
+-- उद्दिष्ट ∘ नष्ट ≡ id.  चार walks it, structural in (diagonal, first
+-- coordinate): (suc x , y) hands back to (x , suc y) — same diagonal, x
+-- smaller; (zero , suc y) hands back to (y , zero) — the diagonal smaller.
 ------------------------------------------------------------------------
 
 चार : (d x y : ℕ) → x + y ≡ d → उद्दिष्ट (नष्ट (x , y)) ≡ (x , y)
@@ -99,7 +99,7 @@ open import LosslessReturn using (विवेक ; युग्म≃विव�
 उद्दिष्ट-नष्ट (x , y) = चार (x + y) x y refl
 
 ------------------------------------------------------------------------
--- ����� � the ford.  Both pratyayas exist, so the edge inverts.
+-- सेतुः — the ford.  Both pratyayas exist, so the edge inverts.
 ------------------------------------------------------------------------
 
 युग्म-Iso-ℕ : Iso (ℕ × ℕ) ℕ
@@ -112,9 +112,9 @@ open import LosslessReturn using (विवेक ; युग्म≃विव�
 युग्म≡ℕ = ua युग्म≃ℕ
 
 ------------------------------------------------------------------------
--- ����� � two solutions meet and a third arises that neither contained,
--- and all three survive.  LosslessReturn paid for (� � �) ≡ ������; this file
--- paid for (� � �) ≡ �; the composite is free, and it is the crossing the
+-- भावना — two solutions meet and a third arises that neither contained,
+-- and all three survive.  LosslessReturn paid for (ℕ × ℕ) ≡ विवेक; this file
+-- paid for (ℕ × ℕ) ≡ ℕ; the composite is free, and it is the crossing the
 -- ford was minted for.
 ------------------------------------------------------------------------
 

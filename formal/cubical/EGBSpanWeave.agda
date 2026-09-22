@@ -5,8 +5,8 @@
 --
 -- Relation composition as span composition, with both middles kept.
 --
--- Proof-relevant relations are type families R : A � B � Type �.  The
--- composite (R ⋈ S) a c = � B (λ b � R a b � S b c) does NOT truncate:
+-- Proof-relevant relations are type families R : A → B → Type ℓ.  The
+-- composite (R ⋈ S) a c = Σ B (λ b → R a b × S b c) does NOT truncate:
 -- an element of the composite carries the jewel b it passed through,
 -- together with both witnesses.  This is EGB Delta-24 §5's gluing
 -- discipline ("relation is retained without being misdeclared
@@ -14,18 +14,18 @@
 --
 -- Checked here:
 --   _⋈_        span composition, middle retained
---   ⋈-assoc    associativity up to equivalence (a strict �-shuffle:
+--   ⋈-assoc    associativity up to equivalence (a strict Σ-shuffle:
 --              both round trips are refl)
 --   ⋈-idL      the path relation Id a a' = (a ≡ a') is a LEFT unit up
 --              to equivalence, by singleton contraction
---              (�-assoc-� then �-contractFst (isContrSingl a))
+--              (Σ-assoc-≃ then Σ-contractFst (isContrSingl a))
 --   twoMiddles the Huayan separation: over Bool with R = S = the
---              total relation (λ _ _ � Unit), the composite
+--              total relation (λ _ _ → Unit), the composite
 --              (Total ⋈ Total) true true has two DISTINCT inhabitants
 --              (true , tt , tt) and (false , tt , tt), separated by
---              the � first projection and true�false.  Composition
+--              the Σ first projection and true≢false.  Composition
 --              remembers WHICH jewel mediated the containment.
---   totalComposite�Bool
+--   totalComposite≃Bool
 --              the same composite is equivalent to Bool: the
 --              composite IS the type of middles, nothing more and
 --              nothing less, when the legs are trivial.
@@ -78,9 +78,9 @@ module _ {R : A → B → Type ℓR} {S : B → C → Type ℓS}
 ------------------------------------------------------------------------
 -- The path relation is a left unit up to equivalence.
 --
--- (Id ⋈ R) a b = � A (λ x � (a ≡ x) � R x b).  Reassociating gives
--- � (singl a) (λ p � R (fst p) b), and the singleton is contractible
--- with centre (a , refl), so �-contractFst collapses the retained
+-- (Id ⋈ R) a b = Σ A (λ x → (a ≡ x) × R x b).  Reassociating gives
+-- Σ (singl a) (λ p → R (fst p) b), and the singleton is contractible
+-- with centre (a , refl), so Σ-contractFst collapses the retained
 -- middle onto a itself: the only jewel a path out of a can pass
 -- through is (a, up to contractible choice), and the composite
 -- remembers exactly that.
@@ -101,7 +101,7 @@ Id A a a' = a ≡ a'
 --
 -- Total relation on Bool: every jewel contains every jewel, with a
 -- trivial witness.  The composite Total ⋈ Total at (true , true)
--- nevertheless has TWO distinct elements � one through the middle
+-- nevertheless has TWO distinct elements — one through the middle
 -- true, one through the middle false.  Collapsing the composite to a
 -- proposition ("true is related to true: yes") would destroy exactly
 -- this: the path of containment.
@@ -119,7 +119,7 @@ twoMiddles : ¬ (throughTrue ≡ throughFalse)
 twoMiddles p = true≢false (cong fst p)
 
 -- With trivial legs the composite is exactly the type of middles:
--- (Total ⋈ Total) true true � Bool.  The adjacency-matrix reading
+-- (Total ⋈ Total) true true ≃ Bool.  The adjacency-matrix reading
 -- ("related or not") would truncate this Bool to a point; the span
 -- reading keeps it.
 

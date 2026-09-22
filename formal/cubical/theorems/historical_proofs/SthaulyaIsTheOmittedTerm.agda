@@ -3,44 +3,44 @@
 ------------------------------------------------------------------------
 -- SthaulyaIsTheOmittedTerm
 --
--- ààààà²àà¯ â” the coarseness of an àà¨àààà¯ààààà•à¾à° â” in closed form, for every
+-- à¤¸à¥à¤¥à¥Œà¤²à¥à¤¯ â€” the coarseness of an à¤…à¤¨à¥à¤¤à¥à¤¯à¤¸à¤‚à¤¸à¥à¤•à¤¾à¤° â€” in closed form, for every
 -- correction in the hierarchy at once.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS SETTLES
 --
 -- `AntyaSamskaraSthaulya` checks, one at a time, that the first four
--- end-corrections to Mdhava's series have ààààà²àà¯ numerator constant in
+-- end-corrections to MÄdhava's series have à¤¸à¥à¤¥à¥Œà¤²à¥à¤¯ numerator constant in
 -- n.
 -- This module proves it for every convergent, from the continued
 -- fraction's determinant recurrence rather than from the list.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE STATEMENT
 --
 -- Take the continued fraction whose convergents the transmitted
 -- corrections are (K. Krishna, arXiv:2405.11134),
 --
---     1/(4n + 2Â²/(4n + 4Â²/(4n + 6Â²/(4n + â¦)))),
+--     1/(4n + 2Â²/(4n + 4Â²/(4n + 6Â²/(4n + â€¦)))),
 --
--- so the partial numerators are aâ = 1 and a_j = (2jâˆ’2)Â² for j â‰ 2, and
+-- so the partial numerators are aâ‚ = 1 and a_j = (2jâˆ’2)Â² for j â‰¥ 2, and
 -- every partial denominator is 4n.  Generate its convergents h_k/k_k by
--- the standard recurrence and DO NOT reduce them.  Then for every k â‰ 1
+-- the standard recurrence and DO NOT reduce them.  Then for every k â‰¥ 1
 -- and every n in every commutative ring,
 --
---     (h_k(n)Âk_k(n+1) + h_k(n+1)Âk_k(n))Â(2n+1) âˆ’ k_k(n)Âk_k(n+1)
---        =  (âˆ’1)^(kâˆ’1) Â a_{k+1} Â (aâaââ‹¯a_k)
---        =  (âˆ’1)^(kâˆ’1) Â 4^k Â (k!)Â².
+--     (h_k(n)Â·k_k(n+1) + h_k(n+1)Â·k_k(n))Â·(2n+1) âˆ’ k_k(n)Â·k_k(n+1)
+--        =  (âˆ’1)^(kâˆ’1) Â· a_{k+1} Â· (aâ‚aâ‚‚â‹¯a_k)
+--        =  (âˆ’1)^(kâˆ’1) Â· 4^k Â· (k!)Â².
 --
 -- `sthaulya-closed` is the first equality, `sthaulya-value` the second,
 -- and `sthaulya-independent` states the consequence bluntly: the left
 -- side takes the same value at every n.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IT MEANS, AND WHY IT IS THE RIGHT SHAPE
 --
--- The ààààà²àà¯ numerator is **the product of every partial numerator the
--- correction uses, times the first one it omits.**  Î_k is what was
+-- The à¤¸à¥à¤¥à¥Œà¤²à¥à¤¯ numerator is **the product of every partial numerator the
+-- correction uses, times the first one it omits.**  Î›_k is what was
 -- taken; a_{k+1} is what was left behind.  A truncation error governed
 -- by the first discarded term is the classical shape of a
 -- continued-fraction remainder, and it is exactly what the Yuktibh's
@@ -49,24 +49,24 @@
 --
 -- Two consequences, both immediate:
 --
---   â CONSTANT IN n.  A correction that misses by a fixed integer is a
+--   â€¢ CONSTANT IN n.  A correction that misses by a fixed integer is a
 --     correction; one that misses by something growing with n is an
 --     estimate.  All of them are corrections.
---   â EACH STEP IS THE LAST ONE TIMES THE TERM NEWLY OMITTED.
---     `sthaulya-ratio`: D_{k+1} = âˆ’a_{k+2}ÂD_k, an identity, no division
+--   â€¢ EACH STEP IS THE LAST ONE TIMES THE TERM NEWLY OMITTED.
+--     `sthaulya-ratio`: D_{k+1} = âˆ’a_{k+2}Â·D_k, an identity, no division
 --     and no limit.  Unlike a residue this survives rescaling P and Q,
 --     which is why Â§6 of the other module says no sequence of residues
 --     can carry a law and this one can.
 --
--- The order statement â” that the ààààà²àà¯ drops by two orders in n at each
--- step â” is the analytic gloss on the second bullet.
+-- The order statement â€” that the à¤¸à¥à¤¥à¥Œà¤²à¥à¤¯ drops by two orders in n at each
+-- step â€” is the analytic gloss on the second bullet.
 --
 -- The proof is the determinant recurrence and nothing else.  The form
 --
---     W(u,v) = (2n+1)(uâvâ + vâuâ) âˆ’ uâvâ
+--     W(u,v) = (2n+1)(uâ‚vâ‚‚ + vâ‚uâ‚‚) âˆ’ uâ‚‚vâ‚‚
 --
 -- is bilinear in u = (h_i(n), k_i(n)) and v = (h_j(n+1), k_j(n+1)), so
--- the CF's three-term recurrence acts on the 2—2 block
+-- the CF's three-term recurrence acts on the 2Ã—2 block
 --
 --     ( W(k,k)    W(k,kâˆ’1)  )
 --     ( W(kâˆ’1,k)  W(kâˆ’1,kâˆ’1))
@@ -74,15 +74,15 @@
 -- by a transfer matrix on each side.  Carrying all four entries as one
 -- invariant closes the induction; carrying only W(k,k) does not, which
 -- is why the statement looked like it needed analysis and did not.  The
--- n-dependence cancels identically at each step â” `step11` is where it
--- happens â” and that cancellation IS the theorem.
+-- n-dependence cancels identically at each step â€” `step11` is where it
+-- happens â€” and that cancellation IS the theorem.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- PROVENANCE
 --
 -- The corrections are transmitted in the Kerala texts, the *Yuktibh*
 -- (Jyehadeva, c. 1530) and the *Tantrasagraha* tradition (Nlakaha,
--- 1501), attributed there to Mdhava (c. 1340â“1425).  The ààààà²àà¯
+-- 1501), attributed there to MÄdhava (c. 1340â€“1425).  The à¤¸à¥à¤¥à¥Œà¤²à¥à¤¯
 -- criterion is the tradition's.
 -- The continued fraction
 -- is Krishna's, who reports that the Kerala texts give no rationale for
@@ -309,7 +309,7 @@ module Sthaulya (R : CommRing â„“) where
   --
   -- Each correction's coarseness is the previous one's, multiplied by
   -- MINUS THE TERM NEWLY OMITTED.  No division and no limit: it is an
-  -- identity between the two ààààà²àà¯ numerators.
+  -- identity between the two à¤¸à¥à¤¥à¥Œà¤²à¥à¤¯ numerators.
   ----------------------------------------------------------------------
 
   ratioLemma : (s L a A : A) â†’
@@ -330,13 +330,13 @@ module Sthaulya (R : CommRing â„“) where
 -- Everything above is an identity between ring elements, and a
 -- commutative ring has no notion of degree, of leading coefficient, or
 -- of order at infinity.  Cross-multiplying is exactly the move that
--- discards them â” which is what makes the constancy theorem provable
+-- discards them â€” which is what makes the constancy theorem provable
 -- without analysis.
 --
 -- `sthaulya-ratio` is the exact
 -- statement:
 --
---     D_{k+1}  =  âˆ’a_{k+2} Â D_k
+--     D_{k+1}  =  âˆ’a_{k+2} Â· D_k
 --
 -- each coarseness is the previous one times minus the newly omitted
 -- partial numerator.  "Two orders" is the analytic gloss on that; the

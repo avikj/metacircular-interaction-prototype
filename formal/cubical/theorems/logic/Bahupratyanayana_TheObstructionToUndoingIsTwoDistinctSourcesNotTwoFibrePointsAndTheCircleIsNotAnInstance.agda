@@ -1,54 +1,54 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ррр-ррр░рррпр╛рирприрор тФ ррр░рррпр╛рирприрррп ррр░рр┐рриррзрЛ ржрр╡р рр┐риррир рорр▓р, ри рр ржрр╡р рриррр-рр┐рирржр р
+-- рдмрд╣реБ-рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН тАФ рдкреНрд░рддреНрдпрд╛рдирдпрдирд╕реНрдп рдкреНрд░рддрд┐рдмрдиреНрдзреЛ рджреНрд╡реМ рднрд┐рдиреНрдиреМ рдореВрд▓реМ, рди рддреБ рджреНрд╡реМ рддрдиреНрддреБ-рдмрд┐рдиреНрджреВ ред
 --
 -- (the obstruction to undoing a map is two distinct SOURCES over one
---  target тФ not two points of the fibre; and the circle is not an
+--  target тАФ not two points of the fibre; and the circle is not an
 --  instance of it.)
 --
---   ┬зри  the law   : two points of one fibre WITH DISTINCT SOURCES kill
+--   ┬зреи  the law   : two points of one fibre WITH DISTINCT SOURCES kill
 --                   every retraction.  Four lines, no h-level, no
 --                   decidability, no finiteness, arbitrary A and B.
 --                   Positive form: a retraction makes every fibre
 --                   source-thin.
---   ┬зрй  instance  : the discrete log has NO LEFT INVERSE.  0 and 3 both
---                   land on ╬╡, so no `r : Cт тТ тХ` undoes `powg`.  This is
+--   ┬зрей  instance  : the discrete log has NO LEFT INVERSE.  0 and 3 both
+--                   land on ╬╡, so no `r : CтВГ тЖТ тДХ` undoes `powg`.  This is
 --                   the corpus's second irreversibility theorem and its
 --                   first outside homotopy.
---   ┬зр  instance  : `рр░рр╡рИрХрор : Bool тТ Unit`, the standing archetype.
---   ┬зр  THE BOUNDARY, and it is the point of the file: `Tantujala`'s
---       ррр тФ two distinct points of a fibre тФ IS NOT ENOUGH.  Exhibited:
---       `ррХр╡рррррор : Unit тТ S┬`, `tt тж base`, HAS a retraction, and its
---       fibre over `base` is `╬йS┬ тЙ т`, so ррр holds of it.  Its two
+--   ┬зрек  instance  : `рд╕рд░реНрд╡реИрдХрдореН : Bool тЖТ Unit`, the standing archetype.
+--   ┬зрел  THE BOUNDARY, and it is the point of the file: `Tantujala`'s
+--       рдмрд╣реБ тАФ two distinct points of a fibre тАФ IS NOT ENOUGH.  Exhibited:
+--       `рдПрдХрд╡реГрддреНрддрдореН : Unit тЖТ S┬╣`, `tt тЖж base`, HAS a retraction, and its
+--       fibre over `base` is `╬йS┬╣ тЙГ тДд`, so рдмрд╣реБ holds of it.  Its two
 --       fibre points differ only in their WITNESS; their sources are
---       equal.  So ррр does not obstruct undoing, and ┬зри's hypothesis is
+--       equal.  So рдмрд╣реБ does not obstruct undoing, and ┬зреи's hypothesis is
 --       strictly stronger than ррр.
---   ┬зр  therefore `noDescentS┬` is NOT an instance of ┬зри and cannot be
---       made one: S┬ is connected, so it has no two distinct points to
---       feed the law.  Its obstruction is ╧т тФ one level up.  **The
+--   ┬зрем  therefore `noDescentS┬╣` is NOT an instance of ┬зреи and cannot be
+--       made one: S┬╣ is connected, so it has no two distinct points to
+--       feed the law.  Its obstruction is ╧АтВБ тАФ one level up.  **The
 --       corpus has two kinds of irreversibility and neither reduces to
---       the other**, and ┬зр is the witness that the reduction fails.
+--       the other**, and ┬зрел is the witness that the reduction fails.
 --
--- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
+-- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
 -- RELATION TO WHAT IS ALREADY HERE.
 --
---   `Tantujala_тж`            ррр as one of three fibre verdicts.  ┬зр
---                            sharpens it: ррр is not the obstruction to
+--   `Tantujala_тАж`            рдмрд╣реБ as one of three fibre verdicts.  ┬зрел
+--                            sharpens it: рдмрд╣реБ is not the obstruction to
 --                            undoing.
---   `Sesa_тж` ┬з5              prices `рр░рр╡рИрХрор`'s loss at one bit and proves
---                            `┬ isEquiv`.  ┬зр here is the RETRACTION
+--   `Sesa_тАж` ┬з5              prices `рд╕рд░реНрд╡реИрдХрдореН`'s loss at one bit and proves
+--                            `┬м isEquiv`.  ┬зрек here is the RETRACTION
 --                            statement, which is different and weaker
---                            than `┬ isEquiv` in general.
---   `GhataTantu_тж`           exhibits the two exponents.  ┬зрй consumes
+--                            than `┬м isEquiv` in general.
+--   `GhataTantu_тАж`           exhibits the two exponents.  ┬зрей consumes
 --                            them.
---   `Nirdharana_TheReturnLocusтж`  the SECTION side: with `q тИШ s тЙб id` the
+--   `Nirdharana_TheReturnLocusтАж`  the SECTION side: with `q тИШ s тЙб id` the
 --                            return locus is `im s`.  This file is the
 --                            other side: when no RETRACTION exists at
 --                            all.  The two are not the same direction and
 --                            neither implies the other.
---   `Arpitanarpita_тж.ри-ррр░рррпр╛рирприрор` and `AHIMSA_SUTRA`'s
---   `рир╛рррр┐-ррр░рррпр╛рирприрор`      are two hand-proved instances of the same
+--   `Arpitanarpita_тАж.рди-рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН` and `AHIMSA_SUTRA`'s
+--   `рдирд╛рд╕реНрддрд┐-рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН`      are two hand-proved instances of the same
 --                            shape.  ┬зри is the law they are instances of.
 ------------------------------------------------------------------------
 
@@ -74,16 +74,16 @@ open import BijamulaKrida_AConcreteKeypairRunsInACyclicGroupWhereTheModThatExhau
 private variable тДУ тДУ' : Level
 
 ------------------------------------------------------------------------
--- рз ┬ ррр░рррпр╛рирприрор тФ the undo.  A left inverse: run f, then r, and be
---     back where you started.  (Not a section тФ that is the other
---     direction, and `Nirdharana_TheReturnLocusтж` treats it.)
+-- рез ┬╖ рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН тАФ the undo.  A left inverse: run f, then r, and be
+--     back where you started.  (Not a section тАФ that is the other
+--     direction, and `Nirdharana_TheReturnLocusтАж` treats it.)
 ------------------------------------------------------------------------
 
 рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН : {A : Type тДУ} {B : Type тДУ'} тЖТ (A тЖТ B) тЖТ Type (тДУ-max тДУ тДУ')
 рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН {A = A} f = ╬г[ r тИИ (_ тЖТ A) ] ((a : A) тЖТ r (f a) тЙб a)
 
 ------------------------------------------------------------------------
--- ри ┬ THE LAW.  Two distinct SOURCES over one target kill every undo.
+-- реи ┬╖ THE LAW.  Two distinct SOURCES over one target kill every undo.
 --
 -- No hypothesis on A or B: no h-level, no decidability, no finiteness.
 -- The proof is the retraction used twice with the two witnesses glued
@@ -105,12 +105,12 @@ module _ {A : Type тДУ} {B : Type тДУ'} (f : A тЖТ B) where
     ne (рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН-рддрдиреБрдГ ret b x y)
 
 ------------------------------------------------------------------------
--- рй ┬ THE DISCRETE LOG HAS NO LEFT INVERSE.
+-- рей ┬╖ THE DISCRETE LOG HAS NO LEFT INVERSE.
 --
 -- `GhataTantu` exhibits 0 and 3 over ╬╡.  Their sources are 0 and 3, and
--- `znots` separates them.  So no `r : Cт тТ тХ` undoes `powg` тФ checked,
+-- `znots` separates them.  So no `r : CтВГ тЖТ тДХ` undoes `powg` тАФ checked,
 -- and it is not a hardness statement: it is that the undo DOES NOT
--- EXIST, for the same reason `Bool тТ Unit`'s does not.
+-- EXIST, for the same reason `Bool тЖТ Unit`'s does not.
 ------------------------------------------------------------------------
 
 рдШрд╛рддрдГ-рди-рдкреНрд░рддреНрдпрд╛рдирдпрдиреАрдпрдГ : ┬м (рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН powg)
@@ -118,7 +118,7 @@ module _ {A : Type тДУ} {B : Type тДУ'} (f : A тЖТ B) where
   рдмрд╣реБ-рдореВрд▓рдореН-рди-рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН powg ╬╡C рд╢реВрдиреНрдпрдГ рддреНрд░рдпрдГ znots
 
 ------------------------------------------------------------------------
--- р ┬ The standing archetype, for free from the same law.
+-- рек ┬╖ The standing archetype, for free from the same law.
 ------------------------------------------------------------------------
 
 рд╕рд░реНрд╡реИрдХрдореН : Bool тЖТ Unit
@@ -129,16 +129,16 @@ module _ {A : Type тДУ} {B : Type тДУ'} (f : A тЖТ B) where
   рдмрд╣реБ-рдореВрд▓рдореН-рди-рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН рд╕рд░реНрд╡реИрдХрдореН tt (false , refl) (true , refl) falseтЙвtrue
 
 ------------------------------------------------------------------------
--- р ┬ THE BOUNDARY.  ррр IS NOT THE OBSTRUCTION.
+-- рел ┬╖ THE BOUNDARY.  рдмрд╣реБ IS NOT THE OBSTRUCTION.
 --
--- `ррХр╡рррррор : Unit тТ S┬` sending tt to base HAS an undo (`r _ = tt`,
--- and `r (f tt) тЙб tt` is refl).  Its fibre over `base` is `╬[Unit] ╬йS┬`,
--- which has two distinct points тФ `(tt , refl)` and `(tt , loop)`,
--- distinct because `winding` separates them in т.  So `Tantujala`'s ррр
+-- `рдПрдХрд╡реГрддреНрддрдореН : Unit тЖТ S┬╣` sending tt to base HAS an undo (`r _ = tt`,
+-- and `r (f tt) тЙб tt` is refl).  Its fibre over `base` is `╬г[Unit] ╬йS┬╣`,
+-- which has two distinct points тАФ `(tt , refl)` and `(tt , loop)`,
+-- distinct because `winding` separates them in тДд.  So `Tantujala`'s рдмрд╣реБ
 -- holds of a map that is perfectly undoable.
 --
 -- The two fibre points differ only in their WITNESS; their sources are
--- both `tt`.  ┬зри's hypothesis is therefore STRICTLY STRONGER than ррр,
+-- both `tt`.  ┬зреи's hypothesis is therefore STRICTLY STRONGER than рдмрд╣реБ,
 -- and the strengthening is exactly the difference between a path in the
 -- base and a point of the source.
 ------------------------------------------------------------------------
@@ -162,18 +162,18 @@ private
 рд╡реГрддреНрдд-рдмрд╣реБ : ┬м (рд╡реГрддреНрдд-рд╡рд╛рдо тЙб рд╡реГрддреНрдд-рджрдХреНрд╖рд┐рдг)
 рд╡реГрддреНрдд-рдмрд╣реБ p = subst рд╢реВрдиреНрдпрдореН? (cong (╬╗ z тЖТ winding (snd z)) p) tt
 
--- тжand yet the sources agree, which is why the undo survives.
+-- тАжand yet the sources agree, which is why the undo survives.
 рд╡реГрддреНрдд-рдореВрд▓-рдЕрднреЗрджрдГ : fst рд╡реГрддреНрдд-рд╡рд╛рдо тЙб fst рд╡реГрддреНрдд-рджрдХреНрд╖рд┐рдг
 рд╡реГрддреНрдд-рдореВрд▓-рдЕрднреЗрджрдГ = refl
 
 ------------------------------------------------------------------------
--- р ┬ рррр тФ why `noDescentS┬` is a different theorem.
+-- р ┬ рррр тАФ why `noDescentS┬` is a different theorem.
 --
--- ┬зри needs two points of A that are provably distinct.  S┬ is connected,
+-- ┬зреи needs two points of A that are provably distinct.  S┬╣ is connected,
 -- so it has none: `base тЙб base` is inhabited by `refl`, and the law
--- cannot fire anywhere on it.  `SetTruncationDescentBoundary.noDescentS┬`
+-- cannot fire anywhere on it.  `SetTruncationDescentBoundary.noDescentS┬╣`
 -- obstructs the truncation's retraction all the same, and the reason is
--- ╧т тФ the loop, not the points.  ┬зр is the witness that the reduction
+-- ╧АтВБ тАФ the loop, not the points.  ┬зрел is the witness that the reduction
 -- genuinely fails rather than merely being unfound: there the loop-level
 -- distinctness is present, the point-level distinctness is absent, and
 -- the retraction EXISTS.  So the corpus's two no-return theorems live at

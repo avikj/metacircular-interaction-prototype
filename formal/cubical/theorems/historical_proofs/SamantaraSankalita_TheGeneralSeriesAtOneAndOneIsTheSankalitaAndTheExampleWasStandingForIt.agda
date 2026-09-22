@@ -1,50 +1,50 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ррор╛риррр░-ррЩррХр▓р┐ррор тФ ррор╛риррр░-ррр░ррр a=1, d=1 ррр┐ ррЩррХр▓р┐ррор рр╡ р
+-- рд╕рдорд╛рдиреНрддрд░-рд╕рдЩреНрдХрд▓рд┐рддрдореН тАФ рд╕рдорд╛рдиреНрддрд░-рд╢реНрд░реЗрдвреА a=1, d=1 рдЗрддрд┐ рд╕рдЩреНрдХрд▓рд┐рддрдореН рдПрд╡ ред
 --
 -- (the arithmetic progression at first term one and common difference one
---  IS the sakalita тФ proved, where the corpus had an example at n = 4.)
+--  IS the saс╣Еkalita тАФ proved, where the corpus had an example at n = 4.)
 --
--- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
+-- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
 -- THE COLLISION.  Two modules of this corpus carry the same series under
 -- two definitions, each cites ryabhaa, and NEITHER imports the other.
 --
---   `Shredhi.agda`  (рр░ррпррЯррпрор рЧрр┐ррр╛ржр рзрп) defines
---       ррр░ррр a d zero    = zero
---       ррр░ррр a d (suc n) = a + ррр░ррр (a + d) d n
---     тФ the progression walked FORWARD, advancing the first term.
+--   `Shredhi.agda`  (рдЖрд░реНрдпрднрдЯреАрдпрдореН рдЧрдгрд┐рддрдкрд╛рджрдГ резреп) defines
+--       рд╢реНрд░реЗрдвреА a d zero    = zero
+--       рд╢реНрд░реЗрдвреА a d (suc n) = a + рд╢реНрд░реЗрдвреА (a + d) d n
+--     тАФ the progression walked FORWARD, advancing the first term.
 --
---   `Sankalita.agda` (рр░ррпррЯррпрор рЧрр┐ррр╛ржр рирзтУрири) defines
---       тИ zero    = zero
---       тИ (suc n) = suc n + тИ n
---     тФ the same numbers walked BACKWARD, descending from n.
+--   `Sankalita.agda` (рдЖрд░реНрдпрднрдЯреАрдпрдореН рдЧрдгрд┐рддрдкрд╛рджрдГ реирезтАУреиреи) defines
+--       тИС zero    = zero
+--       тИС (suc n) = suc n + тИС n
+--     тАФ the same numbers walked BACKWARD, descending from n.
 --
--- `Shredhi`'s own header says it: *"тИk (Sankalita) ррррпр╛р a=1,d=1
--- р╡р┐рррр"* тФ тИk is the a=1, d=1 case of this.  That sentence is true and
--- it was never a theorem.  What stood in for it is `Shredhi.рЙржр╛рр░ррор-тИ :
--- ррр░ррр 1 1 4 тЙб 10`, a `refl` at ONE value of n, with the comment
--- *"тИ1..4, the a=1 d=1 special case"*.  `Shredhi` has no
+-- `Shredhi`'s own header says it: *"тИСk (Sankalita) рдЕрд╕реНрдпрд╛рдГ a=1,d=1
+-- рд╡рд┐рд╢реЗрд╖рдГ"* тАФ тИСk is the a=1, d=1 case of this.  That sentence is true and
+-- it was never a theorem.  What stood in for it is `Shredhi.рдЙрджрд╛рд╣рд░рдгрдореН-тИС :
+-- рд╢реНрд░реЗрдвреА 1 1 4 тЙб 10`, a `refl` at ONE value of n, with the comment
+-- *"тИС1..4, the a=1 d=1 special case"*.  `Shredhi` has no
 -- `open import Sankalita`; the two lanes never meet in a type.
 --
--- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
+-- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
 -- WHAT IS CHECKED
 --
---   ┬з1  `ррор╛риррр░р-ррЩррХр▓р┐ррор : (n : тХ) тТ ррр░ррр 1 1 n тЙб тИ n`
---       for every n, by doubling both sides onto `n ┬ suc n` тФ the one
---       closed form both lanes already reached from their own ends тФ
---       and cancelling the 2 with `inj-sm┬`.  Nothing new is proved
+--   ┬з1  `рд╕рдорд╛рдиреНрддрд░рдВ-рд╕рдЩреНрдХрд▓рд┐рддрдореН : (n : тДХ) тЖТ рд╢реНрд░реЗрдвреА 1 1 n тЙб тИС n`
+--       for every n, by doubling both sides onto `n ┬╖ suc n` тАФ the one
+--       closed form both lanes already reached from their own ends тАФ
+--       and cancelling the 2 with `inj-sm┬╖`.  Nothing new is proved
 --       about either series: the whole content is that the two closed
 --       forms already in the corpus MEET, and nobody had joined them.
 --
---   ┬з2  `рЙржр╛рр░ррор-рррир` тФ `Shredhi.рЙржр╛рр░ррор-тИ` demoted from a claim to
+--   ┬з2  `рдЙрджрд╛рд╣рд░рдгрдореН-рдкреБрдирдГ` тАФ `Shredhi.рдЙрджрд╛рд╣рд░рдгрдореН-тИС` demoted from a claim to
 --       an instantiation of ┬з1 at n = 4.
 --
---   ┬з3  `ррр░рр-р╡р┐рир┐рорпр : ррр░ррр 1 1 (suc n) тЙб suc n + ррр░ррр 1 1 n` тФ
---       the head/tail swap.  By definition `ррр░ррр 1 1 (suc n)` peels
---       the SMALLEST term (`1 + ррр░ррр 2 1 n`); this says it may be
---       peeled from the LARGEST instead, which is `тИ`'s clause.  Not
---       definitional in either module тФ it is the exact statement of
+--   ┬з3  `рд╢реАрд░реНрд╖-рд╡рд┐рдирд┐рдордпрдГ : рд╢реНрд░реЗрдвреА 1 1 (suc n) тЙб suc n + рд╢реНрд░реЗрдвреА 1 1 n` тАФ
+--       the head/tail swap.  By definition `рд╢реНрд░реЗрдвреА 1 1 (suc n)` peels
+--       the SMALLEST term (`1 + рд╢реНрд░реЗрдвреА 2 1 n`); this says it may be
+--       peeled from the LARGEST instead, which is `тИС`'s clause.  Not
+--       definitional in either module тАФ it is the exact statement of
 --       what the two recursions disagree about, and it falls out of ┬з1
 --       in one line.
 ------------------------------------------------------------------------
@@ -59,12 +59,12 @@ open import Sankalita_AryabhatasSeriesSumsAndTheCubeSumIsTheSquareOfTheSum using
 open import Shredhi   using (рд╢реНрд░реЗрдвреА ; рд╢реНрд░реЗрдвреА-рдлрд▓рдореН ; рджреНрд╡рд┐-рдпреЛрдЧрдГ ; рджреНрд╡рд┐┬╖)
 
 ------------------------------------------------------------------------
--- рз ┬ ржрр╡р┐рЧррр рорр▓рирор тФ the two lanes meet after doubling.
+-- рез ┬╖ рджреНрд╡рд┐рдЧреБрдгреЗ рдореЗрд▓рдирдореН тАФ the two lanes meet after doubling.
 --
--- LEFT   `ррр░ррр-рр▓рор 1 1 n` : 2┬S тЙб n┬(2┬1) + (n┬(nтИ1))┬1, then
---        `┬-identity╩│` and `┬-comm` put it in `ржрр╡р┐-рпрЛрЧр`'s shape, and
---        `ржрр╡р┐-рпрЛрЧр` (Shredhi's own lemma) closes it on n┬(n+1).
--- RIGHT  `ржрр╡р┐рЧрр-ррЩррХр▓р┐ррор` (Sankalita's own lemma) is n┬(n+1) again.
+-- LEFT   `рд╢реНрд░реЗрдвреА-рдлрд▓рдореН 1 1 n` : 2┬╖S тЙб n┬╖(2┬╖1) + (n┬╖(nтИ╕1))┬╖1, then
+--        `┬╖-identity╩│` and `┬╖-comm` put it in `рджреНрд╡рд┐-рдпреЛрдЧрдГ`'s shape, and
+--        `рджреНрд╡рд┐-рдпреЛрдЧрдГ` (Shredhi's own lemma) closes it on n┬╖(n+1).
+-- RIGHT  `рджреНрд╡рд┐рдЧреБрдг-рд╕рдЩреНрдХрд▓рд┐рддрдореН` (Sankalita's own lemma) is n┬╖(n+1) again.
 -- Neither lemma is new here.  Only the composite is.
 ------------------------------------------------------------------------
 
@@ -78,23 +78,23 @@ open import Shredhi   using (рд╢реНрд░реЗрдвреА ; рд╢реНрд░реЗрдвреА-рдлрд▓рдоре
   тИЩ sym (рджреНрд╡рд┐┬╖ (тИС n))
 
 ------------------------------------------------------------------------
--- роррЦррп-рр┐ржррзр┐р тФ the specialisation, for every n.
+-- рдореБрдЦреНрдп-рд╕рд┐рджреНрдзрд┐рдГ тАФ the specialisation, for every n.
 ------------------------------------------------------------------------
 
 рд╕рдорд╛рдиреНрддрд░рдВ-рд╕рдЩреНрдХрд▓рд┐рддрдореН : (n : тДХ) тЖТ рд╢реНрд░реЗрдвреА 1 1 n тЙб тИС n
 рд╕рдорд╛рдиреНрддрд░рдВ-рд╕рдЩреНрдХрд▓рд┐рддрдореН n = inj-sm┬╖ {m = 1} (рджреНрд╡рд┐рдЧреБрдгреЗ-рдореЗрд▓рдирдореН n)
 
 ------------------------------------------------------------------------
--- ри ┬ рЙржр╛рр░ррор рррир тФ Shredhi.рЙржр╛рр░ррор-тИ as a corollary, not a claim.
+-- реи ┬╖ рдЙрджрд╛рд╣рд░рдгрдореН рдкреБрдирдГ тАФ Shredhi.рдЙрджрд╛рд╣рд░рдгрдореН-тИС as a corollary, not a claim.
 ------------------------------------------------------------------------
 
 рдЙрджрд╛рд╣рд░рдгрдореН-рдкреБрдирдГ : рд╢реНрд░реЗрдвреА 1 1 4 тЙб тИС 4
 рдЙрджрд╛рд╣рд░рдгрдореН-рдкреБрдирдГ = рд╕рдорд╛рдиреНрддрд░рдВ-рд╕рдЩреНрдХрд▓рд┐рддрдореН 4
 
 ------------------------------------------------------------------------
--- рй ┬ ррр░рр-р╡р┐рир┐рорпр тФ either end may be peeled.
+-- рей ┬╖ рд╢реАрд░реНрд╖-рд╡рд┐рдирд┐рдордпрдГ тАФ either end may be peeled.
 --
--- `ррр░ррр` peels the smallest term and advances a; `тИ` peels the largest
+-- `рд╢реНрд░реЗрдвреА` peels the smallest term and advances a; `тИС` peels the largest
 -- and descends n.  This is the statement that the two are interchangeable,
 -- which neither definition gives and ┬з1 does.
 ------------------------------------------------------------------------

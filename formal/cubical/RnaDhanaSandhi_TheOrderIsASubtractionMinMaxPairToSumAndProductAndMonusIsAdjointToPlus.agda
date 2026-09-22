@@ -1,23 +1,23 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
--- ���-�� ����� � the order is a subtraction, min and max pair to sum and
+-- ऋण-धन सन्धि — the order is a subtraction, min and max pair to sum and
 -- product, and monus is adjoint to plus.
 --
--- Source of the name: Brahmagupta, Brhmasphuasiddhnta 18.30�35 (628 CE),
--- where one magnitude carries two readings � dhana (asset) and a (debt) �
+-- Source of the name: Brahmagupta, Brāhmasphuṭasiddhānta 18.30–35 (628 CE),
+-- where one magnitude carries two readings — dhana (asset) and ṛṇa (debt) —
 -- and the sign rules are stated as laws about the pair.  What is claimed of
 -- the source: the NAME and the reading (order as a debt that clears:
--- x � y exactly when the debt x � y is zero), not the theorems below, which
--- are checked here over � with truncated subtraction.
+-- x ≤ y exactly when the debt x ∸ y is zero), not the theorems below, which
+-- are checked here over ℕ with truncated subtraction.
 --
 -- Provenance of the statements: these entered the repository as thoughts in
--- the machine's own equational tongue (machine/thoughts.math, 2026-08-23) �
+-- the machine's own equational tongue (machine/thoughts.math, 2026-08-23) —
 -- the god-language channel: a thought goes in as a bare equation, and the
 -- kernel answers with the checked object.  This module is the answer.
 -- Two sibling thoughts were withdrawn on arrival as already done:
 -- the kuaka step lives in Apavartana_TheCarriedPairLosesTheLesserFromThe
--- GreaterAndTheCommonMeasureStands, and �/� distributivity is the library's
--- �-distribʳ.
+-- GreaterAndTheCommonMeasureStands, and ·/∸ distributivity is the library's
+-- ∸-distribʳ.
 
 module RnaDhanaSandhi_TheOrderIsASubtractionMinMaxPairToSumAndProductAndMonusIsAdjointToPlus where
 
@@ -26,7 +26,7 @@ open import Cubical.Data.Nat
 open import Cubical.Data.Nat.Order
 open import Cubical.Data.Empty as ⊥ using ()
 
--- The machine spelled min without naming it: min(x,y) = x � (x � y).
+-- The machine spelled min without naming it: min(x,y) = x ∸ (x ∸ y).
 -- The residual line "min(x,y)=-(x,-(x,y))" in thoughts.math is this lemma.
 minAsMonus : ∀ x y → x ∸ (x ∸ y) ≡ min x y
 minAsMonus zero    zero    = refl
@@ -45,8 +45,8 @@ pairSum (suc x) (suc y) =
            ∙ cong suc (pairSum x y)
            ∙ sym (+-suc x y))
 
--- min � max ≡ x � y : the same pairing at the multiplicative level.
--- One level down it is gcd � lcm ≡ x � y, prime exponent by prime exponent:
+-- min · max ≡ x · y : the same pairing at the multiplicative level.
+-- One level down it is gcd · lcm ≡ x · y, prime exponent by prime exponent:
 -- the valuation of gcd is the min of the valuations and of lcm the max, so
 -- this lemma IS that identity, read through any single prime.
 pairProd : ∀ x y → min x y · max x y ≡ x · y
@@ -61,7 +61,7 @@ pairProd (suc x) (suc y) =
     ∙ sym (+-assoc y x (x · y))
     ∙ cong (y +_) (sym (·-suc x y)) )
 
--- Monus is left adjoint to plus: x � y � z exactly when x � y + z.
+-- Monus is left adjoint to plus: x ∸ y ≤ z exactly when x ≤ y + z.
 -- This is the Galois connection the thought "le(-(x,y),z) = le(x,+(y,z))"
 -- asserted as a Boolean equation; here it is the two mates.
 ∸-≤-adjointL : ∀ x y z → x ∸ y ≤ z → x ≤ y + z
@@ -74,7 +74,7 @@ pairProd (suc x) (suc y) =
 ∸-≤-adjointR zero    (suc y) z h = zero-≤
 ∸-≤-adjointR (suc x) (suc y) z h = ∸-≤-adjointR x y z (pred-≤-pred h)
 
--- The order is a subtraction: x � y exactly when the debt x � y clears.
+-- The order is a subtraction: x ≤ y exactly when the debt x ∸ y clears.
 ≤→∸≡0 : ∀ x y → x ≤ y → x ∸ y ≡ 0
 ≤→∸≡0 zero    zero    _ = refl
 ≤→∸≡0 zero    (suc y) _ = refl

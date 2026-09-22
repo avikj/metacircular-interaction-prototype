@@ -1,11 +1,11 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ����������-����� � the reflection fibre.
+-- प्रतिबिम्ब-तन्तु — the reflection fibre.
 --
 -- IF A REFLECTION IS INVISIBLE TO A RESTRICTION THAT ALREADY SEPARATES
 -- SOURCES, THEN THE FIBRE OF THE REFLECTED SPECTRUM IS A SINGLETON OR
--- EMPTY � AND ANY LIFT OF THE REFLECTION THROUGH THE SOURCE FORCES IT
+-- EMPTY — AND ANY LIFT OF THE REFLECTION THROUGH THE SOURCE FORCES IT
 -- TO ACT AS THE IDENTITY ON THE IMAGE.
 --
 -- `DescentObstructionUnified` separates two diagram shapes that are
@@ -13,21 +13,21 @@
 -- fails to be reached, and the MISSED-IMAGE obstruction, where a
 -- perfectly well-defined datum simply fails to lie in the image of a
 -- map.  This module is entirely the second shape, and it is stated so
--- that no completion can be slipped in: the reflected datum exists �
--- that is never in question � and the whole content is whether it is a
+-- that no completion can be slipped in: the reflected datum exists —
+-- that is never in question — and the whole content is whether it is a
 -- value of the source map.
 --
 -- The setting is three types and three maps.  `E` sends a source to its
 -- full spectrum; `r` restricts a spectrum to a distinguished part; `J`
 -- reflects a spectrum.  Two hypotheses, and no others:
 --
---     (i)  r ∘ E is injective     � the restriction ALONE already
+--     (i)  r ∘ E is injective     — the restriction ALONE already
 --                                   separates sources, unconditionally;
---     (ii) r ∘ J ≡ r              � the reflection is invisible to the
+--     (ii) r ∘ J ≡ r              — the reflection is invisible to the
 --                                   restriction, because it fixes the
 --                                   distinguished part pointwise.
 --
---   §1  RIGIDITY.  E g ≡ J (E f)  �  g ≡ f.  Two rewrites: (ii) turns
+--   §1  RIGIDITY.  E g ≡ J (E f)  ⟹  g ≡ f.  Two rewrites: (ii) turns
 --       the reflected datum's restriction into the unreflected one, and
 --       (i) finishes.  Nothing else is available and nothing else is
 --       used.
@@ -38,13 +38,13 @@
 --   §3  AND IT IS INHABITED EXACTLY WHEN THE REFLECTION FIXES THE
 --       DATUM.  Both directions, hence an equivalence of propositions
 --
---         Fibre f  �  (J (E f) ≡ E f) .
+--         Fibre f  ≃  (J (E f) ≡ E f) .
 --
---   §4  CONTRACTIBLE ON ONE SIDE, EMPTY ON THE OTHER � the singleton-or-
+--   §4  CONTRACTIBLE ON ONE SIDE, EMPTY ON THE OTHER — the singleton-or-
 --       empty dichotomy, with no third case.
 --
 --   §5  AND THE COROLLARY THAT MATTERS.  If the reflection lifts through
---       the source at all � a `j` with E ∘ j ≡ J ∘ E � then J is the
+--       the source at all — a `j` with E ∘ j ≡ J ∘ E — then J is the
 --       identity on the image.  A lift is therefore not a mild extra
 --       structure to hope for: possessing one is exactly as strong as
 --       the fixedness it was meant to help establish.
@@ -56,7 +56,7 @@
 -- pinned down by the part J cannot touch.  The obstruction lives
 -- entirely in the difference between a datum and the image.
 --
--- SYT � THE CLAIM, EXACTLY.  §§1�5 for any three types with the
+-- SYĀT — THE CLAIM, EXACTLY.  §§1–5 for any three types with the
 -- displayed maps and the two displayed hypotheses, with the spectrum
 -- type a set (§§2�4 only).
 ------------------------------------------------------------------------
@@ -82,14 +82,14 @@ module _ (C : Type ℓ) (D : Type ℓ') (D₀ : Type ℓ'')
          where
 
   ------------------------------------------------------------------
-  -- � � The fibre of the reflected spectrum over the source map.
+  -- ० · The fibre of the reflected spectrum over the source map.
   ------------------------------------------------------------------
 
   Fibre : C → Type (ℓ-max ℓ ℓ')
   Fibre f = Σ[ g ∈ C ] (E g ≡ J (E f))
 
   ------------------------------------------------------------------
-  -- � � RIGIDITY.  Two rewrites and nothing else.
+  -- १ · RIGIDITY.  Two rewrites and nothing else.
   ------------------------------------------------------------------
 
   rigidity : (f g : C) → E g ≡ J (E f) → g ≡ f
@@ -97,7 +97,7 @@ module _ (C : Type ℓ) (D : Type ℓ') (D₀ : Type ℓ'')
     separates g f (cong r p ∙ invisible (E f))
 
   ------------------------------------------------------------------
-  -- � � SO THE FIBRE IS A PROPOSITION.
+  -- २ · SO THE FIBRE IS A PROPOSITION.
   ------------------------------------------------------------------
 
   fibre-isProp : (f : C) → isProp (Fibre f)
@@ -106,7 +106,7 @@ module _ (C : Type ℓ) (D : Type ℓ') (D₀ : Type ℓ'')
            (rigidity f g p ∙ sym (rigidity f h q))
 
   ------------------------------------------------------------------
-  -- � � AND INHABITED EXACTLY WHEN THE REFLECTION FIXES THE DATUM.
+  -- ३ · AND INHABITED EXACTLY WHEN THE REFLECTION FIXES THE DATUM.
   ------------------------------------------------------------------
 
   fibre→fixed : (f : C) → Fibre f → J (E f) ≡ E f
@@ -121,7 +121,7 @@ module _ (C : Type ℓ) (D : Type ℓ') (D₀ : Type ℓ'')
                      (fibre→fixed f) (fixed→fibre f)
 
   ------------------------------------------------------------------
-  -- � � SINGLETON OR EMPTY, WITH NO THIRD CASE.
+  -- ४ · SINGLETON OR EMPTY, WITH NO THIRD CASE.
   ------------------------------------------------------------------
 
   fibre-isContr : (f : C) → J (E f) ≡ E f → isContr (Fibre f)
@@ -131,7 +131,7 @@ module _ (C : Type ℓ) (D : Type ℓ') (D₀ : Type ℓ'')
   fibre-empty f nf x = nf (fibre→fixed f x)
 
   ------------------------------------------------------------------
-  -- � � A LIFT THROUGH THE SOURCE FORCES THE IDENTITY ON THE IMAGE.
+  -- ५ · A LIFT THROUGH THE SOURCE FORCES THE IDENTITY ON THE IMAGE.
   ------------------------------------------------------------------
 
   lift-forces-identity : (j : C → C)

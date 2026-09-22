@@ -1,24 +1,24 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡∞‡æ‡Æ‡æ‡®‡‡‡®‡, ‡‡‡‡ü‡æ‡¶‡ ‚î THE SOUNDNESS HALF OF THE OPEN ASSERTION IS
+-- ‡§∞‡§æ‡§Æ‡§æ‡§®‡•Å‡§ú‡§®‡•ç, ‡§Ö‡§∑‡•ç‡§ü‡§æ‡§¶‡§∂ ‚Äî THE SOUNDNESS HALF OF THE OPEN ASSERTION IS
 -- KERNEL-SIGNED, ENTIRE.
 --
--- Ramanujan's 1916 assertion has two halves.  The COMPLETENESS half ‚î
--- nothing odd beyond the eighteen escapes the form ‚î is the open one,
--- proved only under GRH.  The SOUNDNESS half ‚î each of the eighteen
--- escapes ‚î is finite in principle but unbounded in statement: for
+-- Ramanujan's 1916 assertion has two halves.  The COMPLETENESS half ‚Äî
+-- nothing odd beyond the eighteen escapes the form ‚Äî is the open one,
+-- proved only under GRH.  The SOUNDNESS half ‚Äî each of the eighteen
+-- escapes ‚Äî is finite in principle but unbounded in statement: for
 -- every listed value, NO triple (x, y, z) whatsoever represents it.
 -- This file signs that half entire:
 --
---   `no-2719` ‚î the last and largest: square growth confines any
---     candidate to the 53 ó 53 ó 17 box (53¬≤ = 2809 and 10¬17¬≤ = 2890
+--   `no-2719` ‚Äî the last and largest: square growth confines any
+--     candidate to the 53 √ó 53 √ó 17 box (53¬≤ = 2809 and 10¬∑17¬≤ = 2890
 --     overshoot), and the kernel emptied the box in the cached gate.
 --
---   `the-eighteen-are-exceptions` ‚î all eighteen at once, i ‚â 17,
+--   `the-eighteen-are-exceptions` ‚Äî all eighteen at once, i ‚â§ 17,
 --     every x, y, z: the seventeen by the 720-window theorem, 2719 by
 --     the new gate.  This inhabits, exactly, the second conjunct of
---     `RamanujanAssertion` ‚î half of the open statement is now a
+--     `RamanujanAssertion` ‚Äî half of the open statement is now a
 --     checked term, and the type system knows which half.
 ------------------------------------------------------------------------
 

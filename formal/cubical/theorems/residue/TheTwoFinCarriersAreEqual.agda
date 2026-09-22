@@ -8,7 +8,7 @@
 -- types in the pinned v0.5, and the symmetric groups over them are equal
 -- as groups once the `isSet` argument rides along.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE TWO CARRIERS
 --
 -- v0.9's `FinSymGroup` is over `Cubical.Data.SumFin.Fin`, v0.5's `Sym`
@@ -16,7 +16,7 @@
 -- and fail in the consumer.  The two carriers are not merely both
 -- "Fin", they are EQUAL, and v0.5 already proves it.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS DOES AND DOES NOT LICENSE
 --
 -- It DOES say the fork is not a real fork: anything proved over one
@@ -44,7 +44,7 @@ open import Cubical.Data.SumFin.Properties using (SumFinâ‰¡Fin)
 ------------------------------------------------------------------------
 -- 1.  The carriers are equal, not merely equivalent
 --
--- v0.5 already proves it: `SumFinâ‰¡Fin = ua (SumFinâ‰Fin)`.  Named here so
+-- v0.5 already proves it: `SumFinâ‰¡Fin = ua (SumFinâ‰ƒFin)`.  Named here so
 -- the skew discussion has something to point at.
 ------------------------------------------------------------------------
 
@@ -76,8 +76,8 @@ symmetricGroupsAreEqual n s i =
 -- two lanes prove different theorems.  Â§2 is the coercion that makes one
 -- into the other; what the failure reports is that nobody wrote it.
 --
--- Univalence is doing the work â” the two Fins are equal because they are
--- equivalent â” which is the one non-Indic ingredient this build admits,
+-- Univalence is doing the work â€” the two Fins are equal because they are
+-- equivalent â€” which is the one non-Indic ingredient this build admits,
 -- and it is admitted here for the reason it is usually admitted: it
 -- turns a transport that would have to be written by hand into one the
 -- substrate supplies.

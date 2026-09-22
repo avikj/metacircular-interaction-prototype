@@ -6,32 +6,32 @@
 -- "Optimal" has been a word in three module headers.  Here it is a
 -- definition, with the three instances proved against it.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE DEFINITION
 --
---     Optimal X Y obs  =  Injective obs  —  (card Y â‰¡ card X)
+--     Optimal X Y obs  =  Injective obs  Ã—  (card Y â‰¡ card X)
 --
 -- A scheme is optimal when it loses nothing and wastes nothing: injective,
 -- and with no more outcomes than there are inputs.  The content is that
 -- this forces minimality among ALL schemes:
 --
---     optimalâ’minimal :
---       Optimal X Y obs â’ (Z : FinSet) (g : X â’ Z .fst) â’ Injective g
---       â’ card Y â‰ card Z
+--     optimalâ†’minimal :
+--       Optimal X Y obs â†’ (Z : FinSet) (g : X â†’ Z .fst) â†’ Injective g
+--       â†’ card Y â‰¤ card Z
 --
--- â” an optimal scheme's outcome count is a lower bound for every lossless
+-- â€” an optimal scheme's outcome count is a lower bound for every lossless
 -- scheme on the same inputs, by `LosslessLowerBound`'s pigeonhole.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE INSTANCES, ALREADY IN THIS REPOSITORY AND NOT PREVIOUSLY COMPARED
 --
---   Pigala, uddia       Vak n     â‰ Fin (sakhy n)     c. 300 BCE
---   Virahka, mtrmeru   Metre n   â‰ Fin (mtr n)       c. 600â“800
---   the walk, frontier 8   Fin 840   â‰ residue vector      (CRT)
+--   Piá¹…gala, uddiá¹£á¹­a       Vak n     â‰ƒ Fin (saá¹…khyÄ n)     c. 300 BCE
+--   VirahÄá¹…ka, mÄtrÄmeru   Metre n   â‰ƒ Fin (mÄtrÄ n)       c. 600â€“800
+--   the walk, frontier 8   Fin 840   â‰ƒ residue vector      (CRT)
 --
 -- Three enumeration problems, three explicit decodes, one notion of
 -- optimality, one proof.  The first two come with their inverses named as
--- algorithms â” naa is the inverse of uddia and has its own word â” and
+-- algorithms â€” naá¹£á¹­a is the inverse of uddiá¹£á¹­a and has its own word â€” and
 -- the third comes with CRT.
 ------------------------------------------------------------------------
 
@@ -97,7 +97,7 @@ isoInjective i {x} {y} p =
 -- 4.  The three instances
 ------------------------------------------------------------------------
 
--- Pigala, c. 300 BCE â” uddia, with naa as its named inverse
+-- Piá¹…gala, c. 300 BCE â€” uddiá¹£á¹­a, with naá¹£á¹­a as its named inverse
 VakSet : (n : â„•) â†’ FinSet â„“-zero
 VakSet n = Vak n , sankhya n ,
   âˆ£ compEquiv (isoToEquiv (uddistaIso n)) (invEquiv (sumFinâ‰ƒFin (sankhya n))) âˆ£â‚
@@ -108,7 +108,7 @@ RowSet n = Fin (sankhya n) , sankhya n , âˆ£ invEquiv (sumFinâ‰ƒFin (sankhya n))
 pingala-optimal : (n : â„•) â†’ Optimal (VakSet n) (RowSet n) (Iso.fun (uddistaIso n))
 pingala-optimal n = isoInjective (uddistaIso n) , refl
 
--- Virahka, c. 600â“800 â” the mtrmeru count
+-- VirahÄá¹…ka, c. 600â€“800 â€” the mÄtrÄmeru count
 MetreSet : (n : â„•) â†’ FinSet â„“-zero
 MetreSet n = Metre n , matra n ,
   âˆ£ compEquiv (isoToEquiv (matraCount n)) (invEquiv (sumFinâ‰ƒFin (matra n))) âˆ£â‚
@@ -120,7 +120,7 @@ virahanka-optimal :
   (n : â„•) â†’ Optimal (MetreSet n) (MatraRowSet n) (Iso.fun (matraCount n))
 virahanka-optimal n = isoInjective (matraCount n) , refl
 
--- the walk at frontier 8 â” the residue vector, counted by CRT
+-- the walk at frontier 8 â€” the residue vector, counted by CRT
 InputSet8 : FinSet â„“-zero
 InputSet8 = Fin 840 , 840 , âˆ£ invEquiv (sumFinâ‰ƒFin 840) âˆ£â‚
 
@@ -143,9 +143,9 @@ walk8-optimal = inj , refl
 ------------------------------------------------------------------------
 -- 5.  So all three are minimal, by one theorem.
 --
--- `optimalâ’minimal` applied to each says: no lossless scheme on those
--- inputs has fewer outcomes.  Pigala's 2â¿, Virahka's mtrmeru, and
--- the walk's 840 are not counts that happen to be small â” they are
+-- `optimalâ†’minimal` applied to each says: no lossless scheme on those
+-- inputs has fewer outcomes.  Piá¹…gala's 2â¿, VirahÄá¹…ka's mÄtrÄmeru, and
+-- the walk's 840 are not counts that happen to be small â€” they are
 -- minima, and the same four lines prove it for all three.
 ------------------------------------------------------------------------
 

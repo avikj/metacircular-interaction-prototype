@@ -7,12 +7,12 @@
 -- Pareto stratification and fuelled recursion have no established
 -- Indian source, and a fabricated label would assert a provenance.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE QUESTION
 --
 -- `strata` takes the fuel as an argument, so **a caller may under-fuel
 -- it**; `fuelSuffices` in `TheStratificationTerminatesOnItsOwnLength`
--- proves `lengthL xs` is ENOUGH.  Is it also not TOO MUCH â” do two
+-- proves `lengthL xs` is ENOUGH.  Is it also not TOO MUCH â€” do two
 -- callers passing different sufficient fuels get the same
 -- stratification?  Without that, `strata n xs` is a FAMILY indexed by
 -- a caller's choice, and no theorem stated at one fuel transfers to
@@ -21,11 +21,11 @@
 -- **AND ONE THEOREM ON THIS LINE IS STATED AT EXACTLY ONE FUEL.**
 -- By the signatures:
 --
---   theStrataAreOrdered : (n : â•) (xs : â¦) â’ Ordered (strata n xs)
---        â” every fuel.  Ordering is a property of the output's shape.
---   theStratificationCovers : (xs â¦) â’ Mem v xs
---        â’ MemSome v (strata (lengthL xs) xs)
---        â” **`lengthL xs` and nothing else.**
+--   theStrataAreOrdered : (n : â„•) (xs : â€¦) â†’ Ordered (strata n xs)
+--        â€” every fuel.  Ordering is a property of the output's shape.
+--   theStratificationCovers : (xs â€¦) â†’ Mem v xs
+--        â†’ MemSome v (strata (lengthL xs) xs)
+--        â€” **`lengthL xs` and nothing else.**
 --
 -- So coverage, as stated there, is a statement about one point of the
 -- family.  Â§3 extends it to every sufficient fuel, and that extension
@@ -35,14 +35,14 @@
 --
 --   strataNil        `strata n [] â‰¡ []` at every fuel
 --   fuelIrrelevant   above the threshold the fuel does not matter:
---                    `lengthL xs â‰ n â’ n â‰ m â’ strata n xs â‰¡ strata m xs`
+--                    `lengthL xs â‰¤ n â†’ n â‰¤ m â†’ strata n xs â‰¡ strata m xs`
 --   canonicalFuel    hence every sufficient fuel agrees with `lengthL xs`
 --   theStratificationCoversAtEverySufficientFuel
 --                    coverage, transported off its single point
 --   underFuellingIsARealFailureMode
 --                    and the caution the line raised is not hypothetical:
 --                    at fuel `0` a NON-EMPTY archive produces NO layers
---                    and is left over entire.  Both halves are `refl` â”
+--                    and is left over entire.  Both halves are `refl` â€”
 --                    the failure needs no arithmetic to exhibit, which
 --                    is why "may under-fuel" deserved a witness
 --
@@ -88,7 +88,7 @@ strataNil (suc n) = refl
 --
 -- The recursion consumes one unit of fuel per layer and the remainder
 -- strictly shortens, so a sufficient fuel is exhausted exactly when the
--- archive is.  The two `âŠ.rec`s are the cases a sufficient fuel makes
+-- archive is.  The two `âŠ¥.rec`s are the cases a sufficient fuel makes
 -- impossible: fuel `0` on a non-empty archive, and `m` below `n`.
 ------------------------------------------------------------------------
 

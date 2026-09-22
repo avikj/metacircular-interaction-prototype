@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àµà¿àà°à-à¯àà—àà® â” the distribution pair.
+-- à¤µà¤¿à¤¤à¤°à¤£-à¤¯à¥à¤—à¥à¤® â€” the distribution pair.
 --
 -- RESOLUTION TOWARD ABSTRACT 18.  That abstract proved two blind
 -- readings jointly faithful and scoped away the statistical
@@ -9,11 +9,11 @@
 -- here, and each construction carries a theorem:
 --
 --   Â§1  ESTIMATORS EXIST, AND NONE FROM A BLIND SENSE IS EVERYWHERE
---       CORRECT â” generically: in any interdependent pair, an
+--       CORRECT â€” generically: in any interdependent pair, an
 --       estimator reading states off either single sense alone has a
 --       named failure point, manufactured from that sense's blind
 --       pair.  Instantiated on the light-pair: no estimator from
---       intensity alone recovers the amplitude, failing at Â1.  The
+--       intensity alone recovers the amplitude, failing at Â±1.  The
 --       identifiability reading's "must name two states" criterion is
 --       now a theorem about estimators, not only about observables.
 --
@@ -21,17 +21,17 @@
 --       JOINT.  Weight functions on the plane; the two marginals as
 --       pushforwards along the pair's two senses.  The perfectly
 --       correlated and perfectly anti-correlated distributions are
---       distinct â” separated at a named point â” and their marginals
+--       distinct â€” separated at a named point â€” and their marginals
 --       agree along BOTH senses, every case by reduction.  Hence no
 --       function of the two marginals recovers the joint.
 --
 -- THE STRUCTURAL POINT, and it is sharp: pointwise, the two senses
--- are jointly faithful â” the pair reconstructs every state.  Lifted
--- to distributions, the pair of marginals is NOT jointly faithful â”
+-- are jointly faithful â€” the pair reconstructs every state.  Lifted
+-- to distributions, the pair of marginals is NOT jointly faithful â€”
 -- what escapes it is exactly correlation.  Joint faithfulness does
 -- not survive distributional lifting, and the new blind spot at the
 -- higher level is precisely the information that lives BETWEEN the
--- senses rather than in either â” the same lesson as the quarter-wave,
+-- senses rather than in either â€” the same lesson as the quarter-wave,
 -- in mirror image: structure of the pair, invisible to the members,
 -- reappearing at every level with a new name.
 --
@@ -56,7 +56,7 @@ private
     â„“ â„“' â„“'' : Level
 
 ------------------------------------------------------------------------
--- à§ Â Estimators, and the generic failure theorem.
+-- à¥§ Â· Estimators, and the generic failure theorem.
 ------------------------------------------------------------------------
 
 open ParasparÄÅ›raya
@@ -84,7 +84,7 @@ na-tejo-anumÄtÄ : (est : â„• â†’ â„¤) â†’ ((x : â„¤) â†’ est (tejas x) â‰¡ x) 
 na-tejo-anumÄtÄ = na-anumÄtÄâ‚ jyotiryugma
 
 ------------------------------------------------------------------------
--- à¨ Â Distributions, marginals, and the correlation blind spot.
+-- à¥¨ Â· Distributions, marginals, and the correlation blind spot.
 ------------------------------------------------------------------------
 
 Vitaraá¹‡a : Typeâ‚€

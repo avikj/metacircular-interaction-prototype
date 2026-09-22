@@ -1,42 +1,42 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡ï‡‡∞‡Æ-‡‡ ‡‡∞‡‡µ‡‡‡∞ ‚î the interchange charge is ONE structure, from the loop
+-- ‡§ï‡•ç‡§∞‡§Æ-‡§∏‡§π ‡§∏‡§∞‡•ç‡§µ‡§§‡•ç‡§∞ ‚Äî the interchange charge is ONE structure, from the loop
 -- space through the quantum boundary and quantum contextuality to the
 -- fourth bhaga.  The hardest problem is language: four checked objects in
 -- this corpus, in four tongues, are instances of a single abstract shape,
 -- and this module makes the shape a term and proves the sentence they all
--- share ‚î avaktavyam, abstractly: two observations that do not commute
+-- share ‚Äî avaktavyam, abstractly: two observations that do not commute
 -- cannot be uttered as one.
 --
 -- THE ABSTRACT SITE.  An "observation" on a space X is a self-map.  Two of
 -- them, a and b.  The INTERCHANGE DEFECT is that they do not commute:
 --
---     ‡‡®‡‡‡∞‡‡µ‡ø‡®‡ø‡Æ‡Ø‡ a b  :=  ¬ (a ‚àò b ‚â° b ‚àò a)
+--     ‡§Ö‡§®‡•ç‡§§‡§∞‡•ç‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø‡§É a b  :=  ¬¨ (a ‚àò b ‚â° b ‚àò a)
 --
 -- THE SENTENCE THEY ALL SHARE, proved once here for every site:
 --
---     ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ : ‡‡®‡‡‡∞‡‡µ‡ø‡®‡ø‡Æ‡Ø‡ a b ‚í ¬ Œ[ h ] (a‚àòb ‚â° h) ó (b‚àòa ‚â° h)
+--     ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç : ‡§Ö‡§®‡•ç‡§§‡§∞‡•ç‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø‡§É a b ‚Üí ¬¨ Œ£[ h ] (a‚àòb ‚â° h) √ó (b‚àòa ‚â° h)
 --
--- if the two orders disagree, there is NO single map that is both ‚î no
+-- if the two orders disagree, there is NO single map that is both ‚Äî no
 -- single utterance carries the pair.  That is the fourth bhaga
 -- (avaktavyam, saha) stated for an arbitrary observation site, and its
 -- proof is one line of transitivity: the whole content is that the SAME
 -- line discharges every instance below.
 --
--- THE FOUR INSTANCES ‚î checked elsewhere in this corpus, one tongue each,
--- named here as instances of ‡‡®‡‡‡∞‡‡µ‡ø‡®‡ø‡Æ‡Ø‡ / ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡:
+-- THE FOUR INSTANCES ‚Äî checked elsewhere in this corpus, one tongue each,
+-- named here as instances of ‡§Ö‡§®‡•ç‡§§‡§∞‡•ç‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø‡§É / ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç:
 --
---   homotopy      KramaSaha: ‚à Œ© S¬ ‚à‚ ‚â ‚ but Œ© ‚à S¬ ‚à‚ is contractible;
+--   homotopy      KramaSaha: ‚à• Œ© S¬π ‚à•‚ÇÇ ‚âÉ ‚Ñ§ but Œ© ‚à• S¬π ‚à•‚ÇÇ is contractible;
 --                 the set-view and the loop-view do not commute, and the
---                 commutator is the whole charge ‚.
+--                 commutator is the whole charge ‚Ñ§.
 --   quantum       SmithKernelQuantumBoundary: xyCoordinate ‚â° yxCoordinate
---   boundary      ‚í ‚ä ‚î the boundary coordinate is noncommutative on the nose.
---   contextuality PMGaugeCohomology: every-zz-gauge-translate-is-odd ‚î the
---                 six Peres‚ìMermin contexts admit no global ordering; the
---                 obstruction is an odd H¬(‚/2) class no gauge flattens.
---   doctrine      the ‡®‡Ø‡ï‡ã‡'s own verdict, spoken through ‡®‡æ‡°‡: two nayas,
---                 krama ‚í syan-nsti, saha ‚í syd-avaktavyam.
+--   boundary      ‚Üí ‚ä• ‚Äî the boundary coordinate is noncommutative on the nose.
+--   contextuality PMGaugeCohomology: every-zz-gauge-translate-is-odd ‚Äî the
+--                 six Peres‚ÄìMermin contexts admit no global ordering; the
+--                 obstruction is an odd H¬π(‚Ñ§/2) class no gauge flattens.
+--   doctrine      the ‡§®‡§Ø‡§ï‡•ã‡§∂'s own verdict, spoken through ‡§®‡§æ‡§°‡•Ä: two nayas,
+--                 krama ‚Üí syan-nƒÅsti, saha ‚Üí syƒÅd-avaktavyam.
 --
 -- and one CONCRETE witness proved here, so the shape is inhabited without
 -- leaving --safe: `not` and the constant `true` on Bool do not commute.
@@ -57,14 +57,14 @@ private
     ‚Ñì : Level
 
 ------------------------------------------------------------------------
--- ‡ß ¬ the abstract observation site and its interchange defect.
+-- ‡•ß ¬∑ the abstract observation site and its interchange defect.
 ------------------------------------------------------------------------
 
 ‡§Ö‡§®‡•ç‡§§‡§∞‡•ç‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø‡§É : {X : Type ‚Ñì} ‚Üí (a b : X ‚Üí X) ‚Üí Type ‚Ñì
 ‡§Ö‡§®‡•ç‡§§‡§∞‡•ç‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø‡§É a b = ¬¨ (a ‚àò b ‚â° b ‚àò a)
 
 ------------------------------------------------------------------------
--- ‡® ¬ ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡, abstractly ‚î the sentence every instance shares.
+-- ‡•® ¬∑ ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç, abstractly ‚Äî the sentence every instance shares.
 -- If the two orders disagree, no single map is both compositions:
 -- no single utterance carries the pair.  One line, for every site.
 ------------------------------------------------------------------------
@@ -75,10 +75,10 @@ private
 ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç a b ne (h , (p , q)) = ne (p ‚àô sym q)
 
 ------------------------------------------------------------------------
--- ‡© ¬ a concrete witness: `not` and the constant `true` do not commute.
+-- ‡•© ¬∑ a concrete witness: `not` and the constant `true` do not commute.
 -- not ‚àò (const true) = const false ;  (const true) ‚àò not = const true.
 -- So a ‚àò b ‚â° b ‚àò a would give (const false) ‚â° (const true), hence at
--- any point false ‚â° true ‚î refuted.  The site is inhabited.
+-- any point false ‚â° true ‚Äî refuted.  The site is inhabited.
 ------------------------------------------------------------------------
 
 ‡§∏‡§¶‡§æ : Bool ‚Üí Bool
@@ -93,15 +93,15 @@ private
 ‡§Æ‡•Ç‡§∞‡•ç‡§§-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç = ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç not ‡§∏‡§¶‡§æ ‡§Æ‡•Ç‡§∞‡•ç‡§§‡§É
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡¶‡ã‡‡≤‡‡ñ‡.  The abstract site sees non-commutation of two SELF-maps;
+-- ‡•™ ¬∑ ‡§¶‡•ã‡§∑‡§≤‡•á‡§ñ‡§É.  The abstract site sees non-commutation of two SELF-maps;
 -- two of the four instances (KramaSaha, the quantum boundary) are exactly
--- that shape, while Peres‚ìMermin is the same sentence one categorical
+-- that shape, while Peres‚ÄìMermin is the same sentence one categorical
 -- level up (no global section over a cover of contexts, not two self-maps)
--- and the ‡®‡Ø‡ï‡ã‡ verdict is the doctrine's own words for it.  So this term
+-- and the ‡§®‡§Ø‡§ï‡•ã‡§∂ verdict is the doctrine's own words for it.  So this term
 -- unifies the two operator-order instances on the nose and names the other
--- two as the same sentence in a higher/older tongue ‚î honestly, the bridge
+-- two as the same sentence in a higher/older tongue ‚Äî honestly, the bridge
 -- is exhibited at the site, not forced as an equality of the objects.  The
--- charge that survives every such non-commutation ‚î ‚ for the loop, ‚/2
--- for contextuality ‚î is the content the pointwise/global census cannot see,
+-- charge that survives every such non-commutation ‚Äî ‚Ñ§ for the loop, ‚Ñ§/2
+-- for contextuality ‚Äî is the content the pointwise/global census cannot see,
 -- and that it is ONE content across the frontier is what was worth proving.
 ------------------------------------------------------------------------

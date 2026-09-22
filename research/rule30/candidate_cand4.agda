@@ -15,7 +15,7 @@ open import Cubical.Relation.Nullary using (¬_ ; Dec ; yes ; no)
 open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
 
 ------------------------------------------------------------------------
--- §1  the binary column of a rational is periodic with N + p � 2b + 1
+-- §1  the binary column of a rational is periodic with N + p ≤ 2b + 1
 ------------------------------------------------------------------------
 
 śeṣa : (a b : ℕ) → ℕ → ℕ
@@ -67,7 +67,7 @@ rational→periodic a b =
   where
   samīkaraṇa : (d u l : ℕ) → (l + u) + suc d ≡ (d + suc u) + l
   samīkaraṇa d u l = solveℕ!
-  -- u + suc d � u + v  (as d + suc u ≡ v)  � b + suc b  (u � b, v � suc b)
+  -- u + suc d ≤ u + v  (as d + suc u ≡ v)  ≤ b + suc b  (u ≤ b, v ≤ suc b)
   N+p≤ : (d u v : ℕ) → d + suc u ≡ v → v < suc (suc b) → u + suc d ≤ b + suc b
   N+p≤ d u v du v< =
     ≤-trans (u , eq1 d u ∙ cong (u +_) du)
@@ -168,7 +168,7 @@ module Red (s : ℕ → Bool) (N d : ℕ) (per : Periodic s N (suc d)) where
     eq3 k N d = solveℕ!
 
 ------------------------------------------------------------------------
--- §5  the finite certificate: every n�-bit word occurs in the first D bits
+-- §5  the finite certificate: every n₀-bit word occurs in the first D bits
 ------------------------------------------------------------------------
 
 and-true : (x y : Bool) → (x and y) ≡ true → (x ≡ true) × (y ≡ true)
@@ -178,8 +178,8 @@ and-true false y     e = E.rec (false≢true e)
 
 -- comparisons through builtin monus: one match on the result instead of
 -- a unary descent through the literal (a descent costs the VALUE of the
--- number, and here the values are windows up to 2^n� and positions up
--- to D, compared 2^n� � D times)
+-- number, and here the values are windows up to 2^n₀ and positions up
+-- to D, compared 2^n₀ · D times)
 -- (isZero is the library's, Cubical.Data.Nat.Base)
 
 eqℕ : ℕ → ℕ → Bool
@@ -281,8 +281,8 @@ columnList-length : (D : ℕ) → length (columnList D) ≡ D
 columnList-length D = colGo-length D D (seed D)
 
 ------------------------------------------------------------------------
--- §6  Morse�Hedlund, the finite form: 2^n� distinct windows in a prefix
---     refute every (N, p) with N + p < 2^n�
+-- §6  Morse–Hedlund, the finite form: 2^n₀ distinct windows in a prefix
+--     refute every (N, p) with N + p < 2^n₀
 ------------------------------------------------------------------------
 
 module Exclude (D n₀ : ℕ) (0<n₀ : 0 < n₀) (colL : List Bool) (lenD : length colL ≡ D) (all : allWords colL n₀ ≡ true) where
@@ -318,8 +318,8 @@ n₀ = 6
 nirṇaya : allWords (columnList D) n₀ ≡ true
 nirṇaya = refl
 
--- every rational with  N + p < 2^n�  is excluded; a denominator b+1 has
--- N + p � 2b + 1, so every denominator � 2^(n�-1) is excluded
+-- every rational with  N + p < 2^n₀  is excluded; a denominator b+1 has
+-- N + p ≤ 2b + 1, so every denominator ≤ 2^(n₀-1) is excluded
 rule30≠rational : (a b : ℕ) → b + suc b < 2 ^ n₀
                 → ((j : ℕ) → j < D → nth j (columnList D) ≡ aṅka a b j) → ⊥
 rule30≠rational a b b< agree =

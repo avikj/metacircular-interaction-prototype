@@ -5,7 +5,7 @@
 --
 --
 --   "Theorem 28.10 (no free compression): merging projectively distinct
---    states admits a separating continuation â” the global optimum
+--    states admits a separating continuation â€” the global optimum
 --    becomes wrong for some admissible downstream world."
 --
 -- Â§2 is that, with the separating continuation as an INPUT rather than
@@ -13,12 +13,12 @@
 -- compressed evaluation cannot agree with the original at that
 -- continuation, on both merged states.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- AND THE PART THAT IS NOT A RESTATEMENT
 --
 -- Â§3: WHICH of the two states the compression is wrong about is NOT
--- determined.  What is proved is `Â (A — B)` â” the two agreement
--- equations cannot both hold â” and NOT `Â A âŠ Â B`, which would name
+-- determined.  What is proved is `Â¬ (A Ã— B)` â€” the two agreement
+-- equations cannot both hold â€” and NOT `Â¬ A âŠŽ Â¬ B`, which would name
 -- the guilty state.  Getting from one to the other needs a decision,
 -- and none is available.  So "the global optimum becomes wrong for some
 -- admissible downstream world" is exactly right, and "wrong for THIS
@@ -26,7 +26,7 @@
 --
 -- HOW THIS DIFFERS FROM THE STANDING LEMMA, since it is close.
 -- `TranscriptDescent.collisionObstructsDecoder` concludes
--- `Â FactorsThrough q t` â” a statement about decoders on the image, with
+-- `Â¬ FactorsThrough q t` â€” a statement about decoders on the image, with
 -- the collision supplied.  Â§2 takes the separating continuation as a
 -- parameter, ranges over ARBITRARY quotient types and compressions, and
 -- returns the failing conjunction at that continuation.  Same family,
@@ -73,7 +73,7 @@ module _ (State Cont Value : Type) (v : State â†’ Cont â†’ Value) where
   --
   -- The failure is located at the continuation `c` and at the PAIR: the
   -- two agreement equations cannot both hold.  Naming which one fails
-  -- would be `Â A âŠ Â B`, and that is not what the argument gives.
+  -- would be `Â¬ A âŠŽ Â¬ B`, and that is not what the argument gives.
   --------------------------------------------------------------------
 
   bothCannotHoldAtTheSeparator :

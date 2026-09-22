@@ -3,34 +3,34 @@
 ------------------------------------------------------------------------
 -- DistrustIsExactlyNotCapableSoTheOnlyIsAnEquivalenceAndNotOneInclusion
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- `trustDeterminesTheState`
--- shows the verdict `true` pins the state to `capable` exactly â” the
+-- shows the verdict `true` pins the state to `capable` exactly â€” the
 -- map is injective over `true`.
 --
 -- `distrustDeterminesOnlyNotCapable` proves
 --
---     trusted s â‰¡ false  â’  Â (s â‰¡ capable)
+--     trusted s â‰¡ false  â†’  Â¬ (s â‰¡ capable)
 --
 -- This module adds the converse: every non-`capable` state is actually graded `false`,
 -- so the `false` fibre is EXACTLY the complement of `capable` and not merely
--- contained in it â” and the constancy of the verdict across that fibre, which
+-- contained in it â€” and the constancy of the verdict across that fibre, which
 -- is what "forgets the reason" asserts.
 --
 -- The two sides are joined by a CASE ANALYSIS on a
--- three-constructor type â” not by an implication assumed, not by a path
--- given, not by a truncation â” so neither direction can be more
+-- three-constructor type â€” not by an implication assumed, not by a path
+-- given, not by a truncation â€” so neither direction can be more
 -- expensive than the other, and neither is.
 --
--- `trusted s â‰¡ false` is a path in `Bool`, a set; `Â (s â‰¡ capable)` is a
+-- `trusted s â‰¡ false` is a path in `Bool`, a set; `Â¬ (s â‰¡ capable)` is a
 -- negation.  Both are propositions, so the two implications are an
--- EQUIVALENCE, not a pair â” `distrustIsExactlyNotCapable`.  That is what
+-- EQUIVALENCE, not a pair â€” `distrustIsExactlyNotCapable`.  That is what
 -- makes `Only` mean what its name says: the fibre is not just contained
 -- in the complement, it IS the complement.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- The title says "the reason", and the
--- model has exactly two reasons â” `absent` and `incapable`.  That
+-- model has exactly two reasons â€” `absent` and `incapable`.  That
 -- module states that a real kernel could be present,
 -- refl-capable and cubical-incapable, which its own shelf records on the
 -- verdict line and the model does not carry.  So the `Only` is exact for
@@ -43,7 +43,7 @@
 --                              hence `(trusted s â‰¡ false) â‰ Â (s â‰¡ capable)`
 --   verdictIsConstantOnTheDistrustFibre
 --                              any two non-`capable` states get the same
---                              verdict â” one line from the converse, no
+--                              verdict â€” one line from the converse, no
 --                              case analysis at all, which is the
 --                              precise form of "forgets the reason"
 ------------------------------------------------------------------------

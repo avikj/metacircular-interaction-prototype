@@ -1,28 +1,28 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à•àà¨àà¦àà°-ààà¿à°àà• â” the centralizer exceeds.
+-- à¤•à¥‡à¤¨à¥à¤¦à¥à¤°-à¤…à¤¤à¤¿à¤°à¥‡à¤• â€” the centralizer exceeds.
 --
 -- The infinite center held one more surprise.  The uniform QUARTER
--- turn â” one turn on every strand, by corecursion â” is
+-- turn â€” one turn on every strand, by corecursion â€” is
 --
 --   Â§2  CENTRAL: it commutes with every crossing (all clauses
---       constant â” the turn commutes with itself definitionally), and
+--       constant â€” the turn commutes with itself definitionally), and
 --       its order is FOUR, exceeding the half-wave center's two;
 --
 --   Â§3  YET NO FINITE BRAID WORD REALIZES IT: a finite word deposits
 --       twists at finitely many addresses, so some depth beyond the
---       sum of its deposited addresses reads count zero â” while the
+--       sum of its deposited addresses reads count zero â€” while the
 --       uniform turn moves EVERY reader of the constant rope.  The
 --       named separating depth is computed from the word itself.
 --
 -- So the action's centralizer strictly exceeds the braid group's
--- centre: at infinity there are central symmetries â” uniform twist
--- vectors â” that finite braiding can approximate at every depth and
+-- centre: at infinity there are central symmetries â€” uniform twist
+-- vectors â€” that finite braiding can approximate at every depth and
 -- never attain.  The group's centre is the finitely-realizable shadow
 -- of the action's; the difference is exactly the uniformity no
 -- finite word can afford.  Infinity purchases central coherence that
--- finite interdependence cannot â” the ladder of coherence has a rung
+-- finite interdependence cannot â€” the ladder of coherence has a rung
 -- above every finite word, and the rope reaches it.
 ------------------------------------------------------------------------
 
@@ -57,7 +57,7 @@ open import PurnaSiddhanta_ABraidWordActsTriviallyExactlyWhenItsSwapWordDoesAndE
 open DhÄrÄ
 
 ------------------------------------------------------------------------
--- à§ Â The uniform quarter turn, central and of order four.
+-- à¥§ Â· The uniform quarter turn, central and of order four.
 ------------------------------------------------------------------------
 
 caturâˆ : Rajju â†’ Rajju
@@ -85,7 +85,7 @@ catur-pÄá¹­ha zero    = refl
 catur-pÄá¹­ha (suc j) = catur-pÄá¹­ha j
 
 ------------------------------------------------------------------------
--- à¨ Â Beyond a finite word's deposits, some reader is untouched.
+-- à¥¨ Â· Beyond a finite word's deposits, some reader is untouched.
 ------------------------------------------------------------------------
 
 saá¹…kalita : List â„• â†’ â„•
@@ -113,7 +113,7 @@ gaá¹‡anÄ-atÄ«ta (k âˆ· t) d
         (gaá¹‡anÄ-atÄ«ta t (d + k))
 
 ------------------------------------------------------------------------
--- à© Â No finite word realizes the uniform turn: the separating depth
+-- à¥© Â· No finite word realizes the uniform turn: the separating depth
 -- is one past the sum of the word's deposited addresses.
 ------------------------------------------------------------------------
 

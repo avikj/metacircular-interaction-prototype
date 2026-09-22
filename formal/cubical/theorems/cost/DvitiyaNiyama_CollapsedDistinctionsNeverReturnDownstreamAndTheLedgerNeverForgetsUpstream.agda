@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- �������-���� � the second law, counted.
+-- द्वितीय-नियम — the second law, counted.
 --
 -- The ea trilaw's conservation clause, run along time.  Two
 -- monotonicities, opposite in sign, jointly the counting form of the
@@ -18,7 +18,7 @@
 --       ApasaranaNiyama, iterated: each step pushes the current input
 --       onto the environment tape.  Proved: whatever the tape holds
 --       at any depth, it holds at the corresponding depth at EVERY
---       later time � the run only deepens the address, never the
+--       later time — the run only deepens the address, never the
 --       content.  Displaced distinctions do not fade; the ledger
 --       accumulates monotonically.
 --
@@ -48,7 +48,7 @@ private
     ℓ ℓ' ℓ'' : Level
 
 ------------------------------------------------------------------------
--- � � Downstream: collapse propagates, recovery is refuted.
+-- १ · Downstream: collapse propagates, recovery is refuted.
 ------------------------------------------------------------------------
 
 saṅkoca-anuvartana : {A : Type ℓ} {B : Type ℓ'} {C : Type ℓ''}
@@ -64,7 +64,7 @@ na-pratyānayana f bheda mṛjana h sec =
   bheda (sym (sec _) ∙ cong h mṛjana ∙ sec _)
 
 ------------------------------------------------------------------------
--- � � Upstream: the tape machine, and the persistence of the ledger.
+-- २ · Upstream: the tape machine, and the persistence of the ledger.
 ------------------------------------------------------------------------
 
 Paṭṭikā : Type₀
@@ -84,7 +84,7 @@ dhāvana zero    ins t = t
 dhāvana (suc n) ins t = dhāvana n (śeṣam ins) (nikṣepa (śiras ins) t)
 
 -- THE PERSISTENCE THEOREM: content at depth j now is content at
--- depth n + j after n more steps � the run deepens addresses, never
+-- depth n + j after n more steps — the run deepens addresses, never
 -- touches contents.
 smṛti : (n j : ℕ) (ins t : Paṭṭikā)
       → pāṭha j t ≡ pāṭha (n + j) (dhāvana n ins t)

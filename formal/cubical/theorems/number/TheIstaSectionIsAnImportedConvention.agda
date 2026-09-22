@@ -16,7 +16,7 @@ open import Kuttaka using (solutionFamily)
 --
 -- The ia reduction as an explicitly IMPORTED
 -- section: §1 takes that literally: a section is a PARAMETER �
--- any function on the solution index that lands in the family � and §2
+-- any function on the solution index that lands in the family — and §2
 -- proves that importing one costs nothing, since the reduced solution
 -- still solves the equation.
 --
@@ -32,7 +32,7 @@ open import Kuttaka using (solutionFamily)
 -- 1.  A section, as an imported convention
 --
 -- `sec` moves a solution's x-component somewhere in the family: for each
--- `x` there is a shift `t` with `sec x ≡ x + t � b`.  Nothing else is
+-- `x` there is a shift `t` with `sec x ≡ x + t · b`.  Nothing else is
 -- required, and in particular no minimality.
 ------------------------------------------------------------------------
 

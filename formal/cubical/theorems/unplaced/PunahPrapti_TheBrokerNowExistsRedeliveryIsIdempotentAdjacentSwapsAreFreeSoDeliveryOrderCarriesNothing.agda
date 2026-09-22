@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ����-�������� � redelivery.
+-- पुनः-प्राप्ति — redelivery.
 --
 -- RESOLUTION TOWARD ABSTRACT 20.  That abstract removed the
 -- deduplication store by algebra and scoped away the pipeline
@@ -15,11 +15,11 @@
 --   §2  REDELIVERY IS HARMLESS BY ALGEBRA: delivering the same offset
 --       twice equals delivering it once (idempotence, pointwise by
 --       decision analysis), and deliveries at ANY two offsets commute
---       � including equal ones, since both write the same mark.  So
+--       — including equal ones, since both write the same mark.  So
 --       immediate duplicates collapse and adjacent deliveries swap,
---       both as equalities of delivery streams' effects�
+--       both as equalities of delivery streams' effects…
 --
---   §3  �and with abstract 14's theorem that pairwise commutation
+--   §3  …and with abstract 14's theorem that pairwise commutation
 --       derives every permutation, delivery order carries nothing:
 --       at-least-once delivery already has the effect exactly-once
 --       was purchased for, with no dedup store, no identity key, no
@@ -37,7 +37,7 @@ open import Cubical.Data.List using (List ; [] ; _∷_)
 open import Cubical.Relation.Nullary using (Dec ; yes ; no)
 
 ------------------------------------------------------------------------
--- � � The consumer state and one delivery.
+-- १ · The consumer state and one delivery.
 ------------------------------------------------------------------------
 
 Prāpta : Type₀
@@ -51,7 +51,7 @@ prāpti : ℕ → Prāpta → Prāpta
 prāpti i st j = vikalpaᵇ (discreteℕ i j) true (st j)
 
 ------------------------------------------------------------------------
--- � � The algebra: idempotent, and commuting at every pair of offsets.
+-- २ · The algebra: idempotent, and commuting at every pair of offsets.
 ------------------------------------------------------------------------
 
 punar-nirarthaka : (i : ℕ) (st : Prāpta) → prāpti i (prāpti i st) ≡ prāpti i st
@@ -74,7 +74,7 @@ prāpti-vinimaya i j st = funExt pt
     ... | no _  | no _  = refl
 
 ------------------------------------------------------------------------
--- � � Streams of deliveries: duplicates collapse, adjacent swaps free.
+-- ३ · Streams of deliveries: duplicates collapse, adjacent swaps free.
 ------------------------------------------------------------------------
 
 dhārā : List ℕ → Prāpta → Prāpta

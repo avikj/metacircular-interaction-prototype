@@ -5,7 +5,7 @@ module NaturalMachine.CountedExecution where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 
--- The atomic execution law.  A program is its next-state map; time is �;
+-- The atomic execution law.  A program is its next-state map; time is ℕ;
 -- running is iteration.  The successor equation computes by reduction.
 run : {S : Type₀} → S → (S → S) → ℕ → S
 run seed step zero    = seed

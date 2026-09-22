@@ -1,54 +1,54 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àààµà°ààà¨ â” the reduction, and what it does NOT determine.
+-- à¤…à¤ªà¤µà¤°à¥à¤¤à¤¨ â€” the reduction, and what it does NOT determine.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHY THIS FILE EXISTS.  README movement 65 stated, and then STRUCK,
 -- the identity
 --
---     âˆ_p #{i : p âˆ dµ} Â log p  =  âˆ_i log dµ  =  log |coker(T)_tors|
+--     âˆ‘_p #{i : p âˆ£ dáµ¢} Â· log p  =  âˆ‘_i log dáµ¢  =  log |coker(T)_tors|
 --
--- for the invariant factors dµ of an integer matrix T.  The strike names
+-- for the invariant factors dáµ¢ of an integer matrix T.  The strike names
 -- `D = diag(2,12)` as the counterexample and is prose.  This file
--- re-derives the counterexample and checks it â” every line by `refl`
+-- re-derives the counterexample and checks it â€” every line by `refl`
 -- except one negation, which is a `subst` along a family that is Unit at
--- 12 and âŠ elsewhere.
+-- 12 and âŠ¥ elsewhere.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- TERM.  àààµà°ààà¨ (apavartana) â” "reduction", the division of two
--- quantities by their common measure, ryabhaa, àà°àà¯ààŸàà¯à®à, à—àà¿ààà¾à¦
--- à§à§â“à§à¨ (à•ààŸààŸà•), 499 CE; the step is standard in Brahmagupta,
--- ààà°à¾ààà®àààààŸàà¿à¦àà§à¾à¨àà à§à®, 628 CE, and in Bhskara II, àààà—àà¿à, 1150 CE.
--- LIMIT: àààµà°ààà¨ is attested for the gcd-reduction step.  Its use here
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- TERM.  à¤…à¤ªà¤µà¤°à¥à¤¤à¤¨ (apavartana) â€” "reduction", the division of two
+-- quantities by their common measure, Ä€ryabhaá¹­a, à¤†à¤°à¥à¤¯à¤­à¤Ÿà¥€à¤¯à¤®à¥, à¤—à¤£à¤¿à¤¤à¤ªà¤¾à¤¦
+-- à¥§à¥§â€“à¥§à¥¨ (à¤•à¥à¤Ÿà¥à¤Ÿà¤•), 499 CE; the step is standard in Brahmagupta,
+-- à¤¬à¥à¤°à¤¾à¤¹à¥à¤®à¤¸à¥à¤«à¥à¤Ÿà¤¸à¤¿à¤¦à¥à¤§à¤¾à¤¨à¥à¤¤ à¥§à¥®, 628 CE, and in BhÄskara II, à¤¬à¥€à¤œà¤—à¤£à¤¿à¤¤, 1150 CE.
+-- LIMIT: à¤…à¤ªà¤µà¤°à¥à¤¤à¤¨ is attested for the gcd-reduction step.  Its use here
 -- as a label for the invariant-factor decomposition of an integer
 -- matrix is this corpus's (the naming follows the existing Lean module
 -- `Apavartana_â¦SpecZâ¦`), and NO  source states anything below.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT IS CHECKED.  Multiplicatively, to stay inside â• and away from
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- WHAT IS CHECKED.  Multiplicatively, to stay inside â„• and away from
 -- logarithms: `log` of each side becomes a product of prime powers, and
 -- the identity above becomes
 --
---     âˆ_p p^(#{i : p âˆ dµ})   =?=   âˆ_i dµ
+--     âˆ_p p^(#{i : p âˆ£ dáµ¢})   =?=   âˆ_i dáµ¢
 --
 -- An invariant factor is carried as its exponent vector over the primes
--- (2,3); `val` turns a vector back into a natural, and Â§à¦ checks that
+-- (2,3); `val` turns a vector back into a natural, and Â§à¥¦ checks that
 -- the three vectors used really do name 2, 6 and 12, so nothing is
 -- asserted by hand.
 --
---   Â§à§  D = diag(2,12), invariant factors (2,12):
---         drop side  = 2^2 Â 3^1 = 12      (p=2 divides both dµ;
+--   Â§à¥§  D = diag(2,12), invariant factors (2,12):
+--         drop side  = 2^2 Â· 3^1 = 12      (p=2 divides both dáµ¢;
 --                                           p=3 divides one)
---         âˆ dµ       = 24  = |coker| = |det|
---         12 â‰ 24.  **The struck identity is false as stated.**
+--         âˆ dáµ¢       = 24  = |coker| = |det|
+--         12 â‰¢ 24.  **The struck identity is false as stated.**
 --
---   Â§à¨  The repaired identity, âˆ_p p^(âˆ_i v_p(dµ)) = âˆ_i dµ, holds on
---       the same data: 2^3 Â 3^1 = 24.  So the defect is exactly
---       "count of i" where "sum of v_p" was needed â” HOW MANY against
+--   Â§à¥¨  The repaired identity, âˆ_p p^(âˆ‘_i v_p(dáµ¢)) = âˆ_i dáµ¢, holds on
+--       the same data: 2^3 Â· 3^1 = 24.  So the defect is exactly
+--       "count of i" where "sum of v_p" was needed â€” HOW MANY against
 --       HOW MUCH, which is what the strike says.
 --
---   Â§à©  The strike's own strengthening, checked: diag(2,6) and
+--   Â§à¥©  The strike's own strengthening, checked: diag(2,6) and
 --       diag(2,12) have the SAME drop side (12) and different products
 --       (12 against 24).  So the drop divisor is a strictly lossier
 --       invariant than the determinant; the fibre of the drop divisor
@@ -56,28 +56,28 @@
 --       own price instrument, and it is now a term rather than a
 --       sentence.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
--- 1.  **No cokernel is constructed here.**  `|coker(âÂ²/DâÂ²)| = 24` is
+-- 1.  **No cokernel is constructed here.**  `|coker(â„¤Â²/Dâ„¤Â²)| = 24` is
 --     NOT proved in this file; it is proved for this very matrix in the
---     Lean lane (`Apavartana_â¦SpecZâ¦`, `cok_card`).  What this file
+--     Lean lane (`Apavartana_â€¦SpecZâ€¦`, `cok_card`).  What this file
 --     checks is the ARITHMETIC of the two divisor formulas on the
 --     invariant factors, which is where the struck claim broke.  A
 --     reader who wants the group must go to the Lean module.
 --
 -- 2.  **No Smith normal form is computed.**  That diag(2,12) has
 --     invariant factors (2,12) and diag(2,6) has (2,6) is used as
---     input, not proved.  It is immediate (2 âˆ 12, 2 âˆ 6, and the
+--     input, not proved.  It is immediate (2 âˆ£ 12, 2 âˆ£ 6, and the
 --     matrices are already diagonal with divisibility in order), but
 --     immediate is not checked, so it is fenced.
 --
 -- 3.  **No general theorem.**  A counterexample refutes; it does not
---     establish the repaired identity in general.  Â§à¨ checks the
+--     establish the repaired identity in general.  Â§à¥¨ checks the
 --     repaired formula ON THIS DATUM only.  The general statement
---     âˆ_p p^(âˆ_i v_p(dµ)) = âˆ_i dµ is just unique factorization and is
+--     âˆ_p p^(âˆ‘_i v_p(dáµ¢)) = âˆ_i dáµ¢ is just unique factorization and is
 --     not proved here.
 --
--- 4.  **The primes are fixed to {2,3}.**  Every dµ occurring below is
+-- 4.  **The primes are fixed to {2,3}.**  Every dáµ¢ occurring below is
 --     {2,3}-smooth, so the two-place exponent vector is faithful for
 --     this datum and for nothing else.
 --
@@ -93,7 +93,7 @@ open import Cubical.Data.Empty using (âŠ¥)
 open import Cubical.Relation.Nullary using (Â¬_)
 
 ------------------------------------------------------------------------
--- à¦ Â An invariant factor, carried as its exponent vector over (2,3).
+-- à¥¦ Â· An invariant factor, carried as its exponent vector over (2,3).
 ------------------------------------------------------------------------
 
 à¤˜à¤¾à¤¤à¤¾à¤‚à¤• : Type            -- exponent vector (vâ‚‚ , vâ‚ƒ)
@@ -119,26 +119,26 @@ open import Cubical.Relation.Nullary using (Â¬_)
 -- The two divisor formulas, on a pair of invariant factors.
 ------------------------------------------------------------------------
 
--- HOW MANY: the indicator, 0 â¦ 0 and anything positive â¦ 1.
+-- HOW MANY: the indicator, 0 â†¦ 0 and anything positive â†¦ 1.
 à¤¸à¤¤à¥ : â„• â†’ â„•
 à¤¸à¤¤à¥ zero    = 0
 à¤¸à¤¤à¥ (suc _) = 1
 
--- âˆ_p p^(#{i : p âˆ dµ}) â” the DROP divisor of the struck identity.
+-- âˆ_p p^(#{i : p âˆ£ dáµ¢}) â€” the DROP divisor of the struck identity.
 à¤•à¤¤à¤¿ : à¤˜à¤¾à¤¤à¤¾à¤‚à¤• â†’ à¤˜à¤¾à¤¤à¤¾à¤‚à¤• â†’ â„•
 à¤•à¤¤à¤¿ (aâ‚‚ , aâ‚ƒ) (bâ‚‚ , bâ‚ƒ) = (2 ^ (à¤¸à¤¤à¥ aâ‚‚ + à¤¸à¤¤à¥ bâ‚‚)) Â· (3 ^ (à¤¸à¤¤à¥ aâ‚ƒ + à¤¸à¤¤à¥ bâ‚ƒ))
 
--- âˆ_p p^(âˆ_i v_p(dµ)) â” the repaired divisor.
+-- âˆ_p p^(âˆ‘_i v_p(dáµ¢)) â€” the repaired divisor.
 à¤•à¤¿à¤¯à¤¤à¥ : à¤˜à¤¾à¤¤à¤¾à¤‚à¤• â†’ à¤˜à¤¾à¤¤à¤¾à¤‚à¤• â†’ â„•
 à¤•à¤¿à¤¯à¤¤à¥ (aâ‚‚ , aâ‚ƒ) (bâ‚‚ , bâ‚ƒ) = (2 ^ (aâ‚‚ + bâ‚‚)) Â· (3 ^ (aâ‚ƒ + bâ‚ƒ))
 
--- âˆ_i dµ â” which for a square nonsingular T is |det T| = |coker_tors|.
+-- âˆ_i dáµ¢ â€” which for a square nonsingular T is |det T| = |coker_tors|.
 à¤—à¥à¤£à¤«à¤² : à¤˜à¤¾à¤¤à¤¾à¤‚à¤• â†’ à¤˜à¤¾à¤¤à¤¾à¤‚à¤• â†’ â„•
 à¤—à¥à¤£à¤«à¤² dâ‚ dâ‚‚ = à¤®à¤¾à¤¨ dâ‚ Â· à¤®à¤¾à¤¨ dâ‚‚
 
 ------------------------------------------------------------------------
--- The one negation.  12 â‰ 24, by a family that is Unit at 12 and âŠ
--- elsewhere: transporting `tt` along a path would inhabit âŠ.
+-- The one negation.  12 â‰¢ 24, by a family that is Unit at 12 and âŠ¥
+-- elsewhere: transporting `tt` along a path would inhabit âŠ¥.
 ------------------------------------------------------------------------
 
 à¤¦à¥à¤µà¤¾à¤¦à¤¶à¤ƒ : â„• â†’ Type
@@ -149,7 +149,7 @@ open import Cubical.Relation.Nullary using (Â¬_)
 à¤¨-à¤¦à¥à¤µà¤¾à¤¦à¤¶-à¤šà¤¤à¥à¤°à¥à¤µà¤¿à¤‚à¤¶à¤¤à¤¿ p = subst à¤¦à¥à¤µà¤¾à¤¦à¤¶à¤ƒ p tt
 
 ------------------------------------------------------------------------
--- à§ Â THE STRUCK IDENTITY IS FALSE.  D = diag(2,12).
+-- à¥§ Â· THE STRUCK IDENTITY IS FALSE.  D = diag(2,12).
 ------------------------------------------------------------------------
 
 à¤•à¤¤à¤¿-à¤¦à¥à¤µà¤¾à¤¦à¤¶ : à¤•à¤¤à¤¿ à¤¦à¥à¤µà¤¿ à¤¦à¥à¤µà¤¾à¤¦à¤¶ â‰¡ 12
@@ -163,14 +163,14 @@ open import Cubical.Relation.Nullary using (Â¬_)
 à¤•à¤¤à¤¿-à¤¨-à¤—à¥à¤£à¤«à¤² q = à¤¨-à¤¦à¥à¤µà¤¾à¤¦à¤¶-à¤šà¤¤à¥à¤°à¥à¤µà¤¿à¤‚à¤¶à¤¤à¤¿ (sym à¤•à¤¤à¤¿-à¤¦à¥à¤µà¤¾à¤¦à¤¶ âˆ™ q âˆ™ à¤—à¥à¤£à¤«à¤²-à¤¦à¥à¤µà¤¾à¤¦à¤¶)
 
 ------------------------------------------------------------------------
--- à¨ Â THE REPAIRED IDENTITY HOLDS ON THE SAME DATUM.
+-- à¥¨ Â· THE REPAIRED IDENTITY HOLDS ON THE SAME DATUM.
 ------------------------------------------------------------------------
 
 à¤•à¤¿à¤¯à¤¤à¥-à¤¦à¥à¤µà¤¾à¤¦à¤¶ : à¤•à¤¿à¤¯à¤¤à¥ à¤¦à¥à¤µà¤¿ à¤¦à¥à¤µà¤¾à¤¦à¤¶ â‰¡ à¤—à¥à¤£à¤«à¤² à¤¦à¥à¤µà¤¿ à¤¦à¥à¤µà¤¾à¤¦à¤¶
 à¤•à¤¿à¤¯à¤¤à¥-à¤¦à¥à¤µà¤¾à¤¦à¤¶ = refl
 
 ------------------------------------------------------------------------
--- à© Â THE DROP DIVISOR IS STRICTLY LOSSIER.  Same drop, different
+-- à¥© Â· THE DROP DIVISOR IS STRICTLY LOSSIER.  Same drop, different
 -- determinant: diag(2,6) against diag(2,12).
 ------------------------------------------------------------------------
 

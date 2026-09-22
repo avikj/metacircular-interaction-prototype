@@ -1,20 +1,20 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- �����������-��� � the collision seed.
+-- सङ्घट्ट-बीज — the collision seed.
 --
 -- THE CLAIM (2026-09-03, collision semantics): collision finding is
 -- not inversion.  It is the construction of an off-diagonal point of a
--- program's KERNEL PAIR, and the kernel pair is the fibered pairing �
+-- program's KERNEL PAIR, and the kernel pair is the fibered pairing —
 -- so a collision is exactly a pair of distinct points in one fiber.
 -- This module makes that core exact, on any map, and then shows the
 -- session's whole coin was collision semantics all along.
 --
---   §1  THE KERNEL PAIR IS THE FIBERED PAIRING.  For any P : X � Y,
+--   §1  THE KERNEL PAIR IS THE FIBERED PAIRING.  For any P : X → Y,
 --
---         KernelPair P  �  �[ y ] (Fib P y � Fib P y),
+--         KernelPair P  ≃  Σ[ y ] (Fib P y × Fib P y),
 --
---       with NO hypothesis on Y � the based-path space is contractible,
+--       with NO hypothesis on Y — the based-path space is contractible,
 --       and the equivalence is that contraction, twice.  Collision
 --       relational semantics IS fiber geometry, as a term.
 --
@@ -22,18 +22,18 @@
 --       set, apartness of inputs and apartness of fiber points agree
 --       (a set makes the output-proofs unique), giving both directions
 --
---         Coll P � �[ y ] Conf� (Fib P y)      (no hypothesis)
---         �[ y ] Conf� (Fib P y) � Coll P      (Y a set).
+--         Coll P → Σ[ y ] Conf₂ (Fib P y)      (no hypothesis)
+--         Σ[ y ] Conf₂ (Fib P y) → Coll P      (Y a set).
 --
---   §3  WHERE DID THE COLLISION ENTER?  For X �f Y �g Z, the fiber of
+--   §3  WHERE DID THE COLLISION ENTER?  For X →f Y →g Z, the fiber of
 --       the composite is the dependent pairing of stage fibers (fiber
 --       Fubini), and therefore every collision of g∘f is EITHER an
---       upstream f-collision OR a genuine merge � g identifying two
+--       upstream f-collision OR a genuine merge — g identifying two
 --       DISTINCT f-values.  The typed sum is the collision chain rule.
 --
 --   §4  THE COIN WAS COLLISION SEMANTICS.  Every face of Nanaka's coin
 --       (a projection, two carried points, apart upstairs, together
---       downstairs) IS a point of Coll of its projection � one line.
+--       downstairs) IS a point of Coll of its projection — one line.
 --       So the P/NP gap, the route, the schedule, the count, the rope's
 --       charge are all collisions, all off-diagonal fiber points; and
 --       Nanaka's no-retraction lemma is exactly the statement that
@@ -54,7 +54,7 @@ open import Cubical.Relation.Nullary using (¬_)
 private variable ℓ ℓ' ℓ'' : Level
 
 ------------------------------------------------------------------------
--- � � The objects.
+-- ० · The objects.
 ------------------------------------------------------------------------
 
 Fib : {X : Type ℓ} {Y : Type ℓ'} (P : X → Y) → Y → Type (ℓ-max ℓ ℓ')
@@ -70,7 +70,7 @@ Coll : {X : Type ℓ} {Y : Type ℓ'} (P : X → Y) → Type (ℓ-max ℓ ℓ')
 Coll {X = X} P = Σ[ x ∈ X ] Σ[ x' ∈ X ] (¬ x ≡ x') × (P x ≡ P x')
 
 ------------------------------------------------------------------------
--- � � The kernel pair is the fibered pairing, for any P.
+-- १ · The kernel pair is the fibered pairing, for any P.
 --     Proved as an Iso; both round trips reduce, since every witness
 --     path is rebuilt from the one carried.
 ------------------------------------------------------------------------
@@ -113,7 +113,7 @@ module _ {X : Type ℓ} {Y : Type ℓ'} (P : X → Y) where
   kernelPair≃fiberPairing = isoToEquiv (iso to from toFrom fromTo)
 
 ------------------------------------------------------------------------
--- � � A collision is an off-diagonal fiber configuration.
+-- २ · A collision is an off-diagonal fiber configuration.
 ------------------------------------------------------------------------
 
 collToConf : {X : Type ℓ} {Y : Type ℓ'} (P : X → Y)
@@ -130,7 +130,7 @@ confToColl P setY (y , (x , p) , (x' , p') , ne) =
     ne' ex = ne (ΣPathP (ex , isProp→PathP (λ i → setY (P (ex i)) y) p p'))
 
 ------------------------------------------------------------------------
--- � � Where did the collision enter?  (fiber Fubini, then the sum.)
+-- ३ · Where did the collision enter?  (fiber Fubini, then the sum.)
 ------------------------------------------------------------------------
 
 module _ {X : Type ℓ} {Y : Type ℓ'} {Z : Type ℓ''} (f : X → Y) (g : Y → Z) where
@@ -158,7 +158,7 @@ module _ {X : Type ℓ} {Y : Type ℓ'} {Z : Type ℓ''} (f : X → Y) (g : Y �
   -- The collision chain rule.  A composite collision is upstream (the
   -- intermediates already collided) or a genuine merge (g identified two
   -- DISTINCT intermediates).  The split is exactly decidability of
-  -- equality in Y � honest: hand it the decision, get the classification.
+  -- equality in Y — honest: hand it the decision, get the classification.
   whereDidItEnter : {x x' : X}
     → ((f x ≡ f x') ⊎ (¬ f x ≡ f x'))
     → g (f x) ≡ g (f x')
@@ -167,15 +167,15 @@ module _ {X : Type ℓ} {Y : Type ℓ'} {Z : Type ℓ''} (f : X → Y) (g : Y �
   whereDidItEnter (inr diff) e = inr (diff , e)
 
 ------------------------------------------------------------------------
--- � � The coin was collision semantics: every face is a collision.
+-- ४ · The coin was collision semantics: every face is a collision.
 ------------------------------------------------------------------------
 
 open import Nanaka_OneNoRetractionLemmaFourCheckedFacesTheGapTheRouteTheScheduleAndTheCountAreOneCoin
   using (Paksa)
 open Paksa
 
--- A face of the coin � a projection with two carried points, apart
--- upstairs and together downstairs � IS a point of Coll of its
+-- A face of the coin — a projection with two carried points, apart
+-- upstairs and together downstairs — IS a point of Coll of its
 -- projection.  One line: the P/NP gap, route, schedule, count, and the
 -- rope's charge are all off-diagonal kernel-pair points.
 faceIsCollision : (F : Paksa) → Coll (proj F)

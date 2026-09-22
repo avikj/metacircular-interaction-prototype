@@ -12,25 +12,25 @@
 --   §4 there   the induction rule is STRICTLY STRONGER than
 --              the rewrite closure                            (0 + x = x)
 --
--- The question between them: whether the induction apparatus � the strongest
--- thing in the kernel's three files � reaches commutativity.  This
+-- The question between them: whether the induction apparatus — the strongest
+-- thing in the kernel's three files — reaches commutativity.  This
 -- module answers: IT DOES NOT.  The same W-standpoint that decided §3
 -- decides this, one level up, with no new machinery: an
 -- `InductionCertificate (add var yvar) (add yvar var)` carries a `base`
 -- field of type `Derivation (add zero yvar) (add yvar zero)`, and the
--- W-values of those endpoints differ at the head �
+-- W-values of those endpoints differ at the head —
 --
---     ⟦ add zero yvar ⟧ = aM � aY � []        (the marker survives)
---     ⟦ add yvar zero ⟧ = aY � []             (right unit, by refl)
+--     ⟦ add zero yvar ⟧ = aM ∷ aY ∷ []        (the marker survives)
+--     ⟦ add yvar zero ⟧ = aY ∷ []             (right unit, by refl)
 --
 -- so `derivation-model` refutes the base, hence the certificate.
 --
 -- THE CONSEQUENCE, stated as one object below.  Commutativity is TRUE at
 -- every environment (`+-comm`), certifiable by nothing the kernel has,
--- installable a fortiori by nothing the kernel has.  With `Naya_�`'s §4
+-- installable a fortiori by nothing the kernel has.  With `Naya_…`'s §4
 -- this closes a three-level strictness:
 --
---     rewrite closure  ⊊  induction closure  ⊊  truth in �
+--     rewrite closure  ⊊  induction closure  ⊊  truth in ℕ
 --
 -- first strictness witnessed by `0 + x = x` (there), second by
 -- `x + y = y + x` (here).  The kernel certifies more than it can
@@ -39,8 +39,8 @@
 -- WHAT THIS MEANS FOR THE APPARATUS, read forward not backward: the
 -- certificate form does induction on ONE coordinate (`var`), and
 -- commutativity's classical proof needs a nested induction whose base
--- `0 + y = y` is itself only induction-certifiable � but `base` demands
--- a `Derivation`, and by `Naya_�`'s `not-left-unital` argument none
+-- `0 + y = y` is itself only induction-certifiable — but `base` demands
+-- a `Derivation`, and by `Naya_…`'s `not-left-unital` argument none
 -- exists.  The wall is exactly the type of the `base` field.
 ------------------------------------------------------------------------
 
@@ -83,7 +83,7 @@ not-comm-certifiable cert =
 
 ------------------------------------------------------------------------
 -- §3.  THE THEOREM, one object: true at every environment, and beyond
---      the certificate's reach.  With Naya_�'s §4 this is the third
+--      the certificate's reach.  With Naya_…'s §4 this is the third
 --      level of the stair.
 ------------------------------------------------------------------------
 

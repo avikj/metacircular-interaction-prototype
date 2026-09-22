@@ -6,7 +6,7 @@
 -- The exact identity relating join, meet and sum: the join is a
 -- compression of the sum whose ratio is exactly the meet.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE SIGN
 --
 -- `OverlapIsTheCost` measures the overlap: every overlap is a place
@@ -19,7 +19,7 @@
 --
 --     Overlap is not the walk's cost.  Overlap is the walk's SAVING.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE EXACT IDENTITY
 --
 -- How much does the join save?  Exactly the meet, and the proof is one
@@ -29,16 +29,16 @@
 --
 -- lifted to derivations and pushed through `val`:
 --
---     lcm-gcd :  val (u âŠ” v) Â val (u âŠ“ v)  â‰¡  val u Â val v
+--     lcm-gcd :  val (u âŠ” v) Â· val (u âŠ“ v)  â‰¡  val u Â· val v
 --
--- which is the classical lcm(a,b)Âgcd(a,b) = aÂb.  In the tropical chart
+-- which is the classical lcm(a,b)Â·gcd(a,b) = aÂ·b.  In the tropical chart
 -- it is not a theorem about divisibility at all; it is max + min = x + y,
 -- and every trace of number theory has evaporated.
 --
 -- So the join's compression ratio against the sum is the GCD, pointwise
 -- and exactly.  Overlap is measured by the meet.  On the coprime locus
--- the meet is trivial (`disjointâ’meet-trivial`) and the join saves
--- nothing â” which is `OverlapIsTheCost.val-âŠ”-disjoint` recovered here as a
+-- the meet is trivial (`disjointâ†’meet-trivial`) and the join saves
+-- nothing â€” which is `OverlapIsTheCost.val-âŠ”-disjoint` recovered here as a
 -- corollary of an identity rather than proved separately.
 ------------------------------------------------------------------------
 
@@ -89,7 +89,7 @@ max+min (suc x) (suc y) =
   max+min x y i , âŠ”-âŠ“-âŠ• bs xs ys i
 
 ------------------------------------------------------------------------
--- 3.  lcm Â gcd = product, as a consequence, with no divisibility used
+-- 3.  lcm Â· gcd = product, as a consequence, with no divisibility used
 ------------------------------------------------------------------------
 
 lcm-gcd : (bs : List â„•) (u v : Exp bs)
@@ -133,7 +133,7 @@ val-âŠ”-coprime bs u v d =
 -- 5.  It runs: the smallest overlap, and the saving it produces.
 --
 --   4 = (2,0,0,0)   8 = (3,0,0,0)   join 8, meet 4, product 32.
---   8 Â 4 = 32 = 4 Â 8.   The join saved a factor of 4, which is the gcd.
+--   8 Â· 4 = 32 = 4 Â· 8.   The join saved a factor of 4, which is the gcd.
 ------------------------------------------------------------------------
 
 four : Exp primes4

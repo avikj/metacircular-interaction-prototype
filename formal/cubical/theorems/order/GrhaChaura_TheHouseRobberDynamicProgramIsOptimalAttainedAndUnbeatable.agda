@@ -1,12 +1,12 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à—ààààà° â” THE HOUSE ROBBER DYNAMIC PROGRAM IS OPTIMAL: ATTAINED AND
+-- à¤—à¥ƒà¤¹à¤šà¥Œà¤° â€” THE HOUSE ROBBER DYNAMIC PROGRAM IS OPTIMAL: ATTAINED AND
 -- UNBEATABLE.
 --
 -- NOTE: `opt`/`optG` match on `Sel`/`Gap`
 -- whose indices are the house list, so Agda emits
--- -W UnsupportedIndexedMatch â” these two functions will not COMPUTE on a
+-- -W UnsupportedIndexedMatch â€” these two functions will not COMPUTE on a
 -- transported selection.  It is a warning, not an error; the proofs are
 -- accepted under --safe, and nothing here transports a selection, so the
 -- non-computation is never triggered.
@@ -16,32 +16,32 @@
 -- which are adjacent; maximise the total taken.  The textbook linear
 -- dynamic program is
 --     rob []        = 0
---     rob (x âˆ xs)  = max (rob xs) (x + robTail xs)
---     robTail (y âˆ ys) = rob ys        -- taking x forbids its neighbour
+--     rob (x âˆ· xs)  = max (rob xs) (x + robTail xs)
+--     robTail (y âˆ· ys) = rob ys        -- taking x forbids its neighbour
 -- and everyone "knows" it is optimal.  This module proves it, in full,
--- as a checked term â” optimality, not merely correctness.
+-- as a checked term â€” optimality, not merely correctness.
 --
 -- OPTIMALITY IS TWO THEOREMS, and both are here.  A `Sel xs` is a legal
 -- selection over the houses `xs` (the `take`/`Gap` structure makes "no
 -- two adjacent" a thing you cannot even write down illegally), and
 -- `value` sums what it takes.  Then:
 --
---   Â opt   (âˆ s â’ value s â‰ rob xs)          â” the LOWER BOUND: no
+--   Â· opt   (âˆ€ s â†’ value s â‰¤ rob xs)          â€” the LOWER BOUND: no
 --           legal selection beats the program.  Nothing does better.
---   Â attain (Î s , value s â‰¡ rob xs)         â” the program's number is
+--   Â· attain (Î£ s , value s â‰¡ rob xs)         â€” the program's number is
 --           actually achieved by a legal selection; it is not an
 --           unreachable overestimate.
 --
 -- Together (`robber-optimal`): rob xs is the maximum, attained, over
 -- every legal selection.  That conjunction is exactly what "optimal
--- solution" means, and it is a finite certificate â” which is why this
+-- solution" means, and it is a finite certificate â€” which is why this
 -- kernel can hold it.
 --
 -- METHOD.  `max` and its two projection bounds are the kernel's own
--- (`left-â‰-max`, `right-â‰-max`); `max-cases` â” the fact that a `max` is
--- one of its two arguments â” is the only lemma this proof adds, and it
+-- (`left-â‰¤-max`, `right-â‰¤-max`); `max-cases` â€” the fact that a `max` is
+-- one of its two arguments â€” is the only lemma this proof adds, and it
 -- is what turns the upper bound into an attained optimum.  The order is
--- the library's Î-based `_â‰_`, so transitivity and monotonicity are the
+-- the library's Î£-based `_â‰¤_`, so transitivity and monotonicity are the
 -- standard lemmas, not re-derived.
 ------------------------------------------------------------------------
 
@@ -124,7 +124,7 @@ max-cases (suc a) (suc b) with max-cases a b
 
 ------------------------------------------------------------------------
 -- Â§5  ATTAINABILITY.  The program's number is achieved by a legal
---     selection â” take whichever branch of the max actually won.
+--     selection â€” take whichever branch of the max actually won.
 ------------------------------------------------------------------------
 
 attain  : (xs : List â„•) â†’ Î£[ s âˆˆ Sel xs ] (value s â‰¡ rob xs)

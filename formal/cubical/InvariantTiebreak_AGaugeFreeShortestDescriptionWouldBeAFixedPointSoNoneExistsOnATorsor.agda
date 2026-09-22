@@ -5,22 +5,22 @@
 --                   SoNoneExistsOnATorsor
 --
 -- ON THE NAME.  The mathematics here is group actions, torsors, and
--- invariant orders â” Galois/Jordan/Baer/Grothendieck-era European
+-- invariant orders â€” Galois/Jordan/Baer/Grothendieck-era European
 -- algebra.  There is no Indian source term for this object and none is
 -- invented, per CLAUDE.md's file-naming note 2.  The interpretive frame
 -- that prompted it is Latin scholastic (Burley, *De obligationibus*,
--- c. 1302; Ockham, *Summa Logicae* I.63â“77, c. 1323) and that frame
+-- c. 1302; Ockham, *Summa Logicae* I.63â€“77, c. 1323) and that frame
 -- yielded a NAMING and not a theorem.
 -- Nothing below depends on it.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED, AND WHAT IS ALREADY IN THE TREE
 --
 -- ALREADY IN THE TREE, NOT RE-LANDED.
 -- `NaturalMachine.StabilizerTorsor`
--- proves, for the transporter `T x y = Î[ g ] (g â– x â‰¡ y)`:
--- `invariantPointâ’contrStab`, `uniqueCertificateâ’contrStab`,
--- `contrStabâ’uniqueCertificate`.  That is the whole TORSOR case: a
+-- proves, for the transporter `T x y = Î£[ g ] (g â–¸ x â‰¡ y)`:
+-- `invariantPointâ†’contrStab`, `uniqueCertificateâ†’contrStab`,
+-- `contrStabâ†’uniqueCertificate`.  That is the whole TORSOR case: a
 -- stabilizer-invariant certificate exists iff the stabilizer is trivial.
 -- Â§2 below restates one direction of it for a BARE action, because the
 -- bare form is what Â§4 needs.
@@ -33,11 +33,11 @@
 --      a FIXED POINT of the action.
 --
 --      No transitivity of `_â‰¼_`, no totality, no finiteness, no
---      decidability is used.  The proof is four lines: `m â‰¼ (gâ»Â â– m)`
---      by leastness, push it forward by `g` to get `(g â– m) â‰¼ m`, meet
---      it with `m â‰¼ (g â– m)`, apply antisymmetry.
+--      decidability is used.  The proof is four lines: `m â‰¼ (gâ»Â¹ â–¸ m)`
+--      by leastness, push it forward by `g` to get `(g â–¸ m) â‰¼ m`, meet
+--      it with `m â‰¼ (g â–¸ m)`, apply antisymmetry.
 --
---      Contrapositive (`noFixedâ’noInvariantTiebreak`): on an action
+--      Contrapositive (`noFixedâ†’noInvariantTiebreak`): on an action
 --      WITHOUT a fixed point there is NO action-invariant antisymmetric
 --      relation with a least element.
 --
@@ -47,7 +47,7 @@
 --      fixed-point-free action the tiebreak cannot be invariant: the
 --      enumeration of programs IS the gauge, in the sense of
 --      `smith_certificate_canonicality_correction.md` Â§3 ("a
---      deterministic chosen section is not forbidden â¦ canonical only
+--      deterministic chosen section is not forbidden â€¦ canonical only
 --      relative to that extra structure").  This turns that sentence
 --      from a caveat into a theorem.
 --
@@ -61,10 +61,10 @@
 --
 --      Because each pair shares its carrier TYPE, every invariant that
 --      is a function of the group and the carrier alone takes the same
---      value on both members â” no cardinality argument is needed and
+--      value on both members â€” no cardinality argument is needed and
 --      none is made.  In particular the uniform measure on the carrier
---      is literally the same measure, so every R©nyi entropy H_Î,
---      Î âˆˆ [0,âˆ], agrees across the pair while the verdicts differ.
+--      is literally the same measure, so every RÃ©nyi entropy H_Î±,
+--      Î± âˆˆ [0,âˆ], agrees across the pair while the verdicts differ.
 --
 --      The size of a certificate ensemble does not decide whether a
 --      symmetry-natural point exists: it does so on a torsor
@@ -113,7 +113,7 @@ record Act (G : Type â„“) (C : Type â„“') : Type (â„“-max â„“ â„“') where
 
   infixl 20 _â–¸_
 
--- `â–-inv` is not an extra assumption: it is `â–-Â` + right inverses.
+-- `â–¸-inv` is not an extra assumption: it is `â–¸-Â·` + right inverses.
 
 fromGroupLaws :
   {G : Type â„“} {C : Type â„“'}
@@ -141,7 +141,7 @@ Transitive {G = G} {C = C} A = (x y : C) â†’ Î£[ g âˆˆ G ] (Act._â–¸_ A g x â‰¡ 
 ------------------------------------------------------------------------
 -- 2.  The torsor case, credited
 --
--- `NaturalMachine.StabilizerTorsor.Torsor.invariantPointâ’contrStab`
+-- `NaturalMachine.StabilizerTorsor.Torsor.invariantPointâ†’contrStab`
 -- already has this for transporters.  The bare-action form is here only
 -- because Â§5 needs something to be the restriction that survives.
 ------------------------------------------------------------------------
@@ -233,7 +233,7 @@ module Invol {â„“x : Level} (X : Type â„“x) (f : X â†’ X)
   A = fromGroupLaws false xorB (Î» g â†’ g) ap ap-e ap-Â· xorB-invÊ³
 
   -- For a two-element group, being fixed is exactly being fixed by the
-  -- generator.  This is the Î â’ âˆ’âˆ end of the R©nyi family made
+  -- generator.  This is the Î± â†’ âˆ’âˆ end of the RÃ©nyi family made
   -- concrete: the orbit of `x` is a singleton exactly here.
 
   fixed-from-f : (x : X) â†’ f x â‰¡ x â†’ Fixed A x
@@ -379,7 +379,7 @@ oneCanonicalD = One.fixed-from-f d refl
 oneCanonical : Canonical oneAct
 oneCanonical = c , oneCanonicalC
 
--- Both are faithful â” the generator moves a point in each.
+-- Both are faithful â€” the generator moves a point in each.
 
 allFaithful : Â¬ (swapAll a â‰¡ a)
 allFaithful = bâ‰¢a

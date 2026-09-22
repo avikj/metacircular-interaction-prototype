@@ -13,25 +13,25 @@
 -- SOMETHING fails to descend, not WHICH things descend.  Both sides are
 -- here.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- `âŠ-trans` is
--- proved here, by the same multiplyâ“rearrangeâ“cancel that `âŠ`'s other
+-- proved here, by the same multiplyâ€“rearrangeâ€“cancel that `âŠ‘`'s other
 -- theorems use.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   âŠ-trans            transitivity
---   _â‰ˆ_                same rate = mutual âŠ; an equivalence relation
+--   _â‰ˆ_                same rate = mutual âŠ‘; an equivalence relation
 --   atLeastDescends    `AtLeast` is a property of the RATE
---   aboveDescends      so is `Above` â” both directions, both families
+--   aboveDescends      so is `Above` â€” both directions, both families
 --   oneHalfIsTwoQuarters   (1,1) â‰ˆ (2,3), checked
---   minimalDoesNotDescend  and `den a â‰ length bs` is NOT, at that very
+--   minimalDoesNotDescend  and `den a â‰¤ length bs` is NOT, at that very
 --                          pair
 --
 -- So the boundary is sharp and sits where the DENOMINATOR appears
 -- alone.  `AtLeast` and `Above` mention p and suc q only inside a
--- product `p Â length â‰ suc q Â count`, which is exactly the shape âŠ
+-- product `p Â· length â‰¤ suc q Â· count`, which is exactly the shape âŠ‘
 -- compares; minimality mentions `suc q` on its own, and `suc q` is not
 -- a function of the rate.  That is the whole criterion, and it explains
 -- rather than merely records the earlier separation.
@@ -168,24 +168,24 @@ minimalDoesNotDescend =
 --   (p + p') / (suc q + suc q')
 --
 -- and both halves of the betweenness reduce, after distributing, to the
--- SAME strict inequality that was assumed â” one is a left additive
+-- SAME strict inequality that was assumed â€” one is a left additive
 -- shift of it and the other a right additive shift.  No case analysis.
 -- The denominator needs no arithmetic either: `suc q + suc q'` IS
 -- `suc (q + suc q')`, definitionally, so the mediant is visibly a
 -- threshold pair.
 --
--- `âŠ-gives-âŠ` is checked there too, so this is density OF THIS CHAIN
+-- `âŠ-gives-âŠ‘` is checked there too, so this is density OF THIS CHAIN
 -- and not of a strict relation introduced for the occasion.
 --
--- NO NOVELTY: the mediant's betweenness is classical â” the Farey
--- dissection (Haros 1802; Farey 1816) and the Sternâ“Brocot tree (Stern
+-- NO NOVELTY: the mediant's betweenness is classical â€” the Farey
+-- dissection (Haros 1802; Farey 1816) and the Sternâ€“Brocot tree (Stern
 -- 1858; Brocot 1861).
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
 -- In `TheRateQuotientExistsAndMinimalityCannotLiveOnIt`:
 --
---   Rate = (â• — â•) / _â‰ˆ_        the set-quotient
+--   Rate = (â„• Ã— â„•) / _â‰ˆ_        the set-quotient
 --   AtLeastOnRate / AboveOnRate both predicates LIFT, by
 --                               `SetQuotients.rec`; Â§3 above is exactly
 --                               the respectfulness the lift needs
@@ -198,11 +198,11 @@ minimalDoesNotDescend =
 -- minimality holds of one representative and fails of another, which
 -- refutes ONE definition.  With the quotient, `[ oneHalf ] â‰¡
 -- [ twoQuarters ]` is a PATH, `cong` transports along it, and no
--- definition whatsoever can agree with `Minimal` on both â” an
+-- definition whatsoever can agree with `Minimal` on both â€” an
 -- impossibility rather than an absence.
 --
 -- The univalence is in the lift's target: `hProp` is a set
--- (`isSetHProp`), and `â”toPath` turns the two-way implication Â§3 proves
--- into a PATH.  `AtLeast` is a proposition because cubical's `â‰` is, so
+-- (`isSetHProp`), and `â‡”toPath` turns the two-way implication Â§3 proves
+-- into a PATH.  `AtLeast` is a proposition because cubical's `â‰¤` is, so
 -- nothing needed truncating.
 ------------------------------------------------------------------------

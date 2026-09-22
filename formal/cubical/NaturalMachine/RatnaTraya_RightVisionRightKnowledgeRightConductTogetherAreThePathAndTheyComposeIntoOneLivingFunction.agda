@@ -1,33 +1,33 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡Æ‡‡Ø‡ó‡‡¶‡∞‡‡‡®‡‡‡û‡æ‡®‡‡æ‡∞‡ø‡‡‡∞‡æ‡‡ø ‡Æ‡ã‡ï‡‡‡Æ‡æ‡∞‡‡ó‡ ‚î Umsvti, Tattvrthastra
--- 1.1 (c. 2nd‚ì5th c. CE): right vision, right knowledge, right
--- conduct ‚î TOGETHER ‚î are the path.  The classification is his.
+-- ‡§∏‡§Æ‡•ç‡§Ø‡§ó‡•ç‡§¶‡§∞‡•ç‡§∂‡§®‡§ú‡•ç‡§û‡§æ‡§®‡§ö‡§æ‡§∞‡§ø‡§§‡•ç‡§∞‡§æ‡§£‡§ø ‡§Æ‡•ã‡§ï‡•ç‡§∑‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É ‚Äî UmƒÅsvƒÅti, TattvƒÅrthas≈´tra
+-- 1.1 (c. 2nd‚Äì5th c. CE): right vision, right knowledge, right
+-- conduct ‚Äî TOGETHER ‚Äî are the path.  The classification is his.
 -- School named: Jaina.
 --
 -- THE THREE, AND THEIR COMPOSITION.  The body now carries exactly
--- them: ‡¶‡∞‡‡‡®‡Æ‡ ‚î the eye grown from its own theorems (‡®‡‡‡‡∞‡Æ‡-‡‡‡∞‡‡,
--- BhavaIndriya); ‡‡‡û‡æ‡®‡Æ‡ ‚î the one knowing with single and double
--- descent, record and exchange (‡Æ‡‡æ‡‡‡∞‡Æ‡æ‡‡Æ‡, YugapadArpana); ‡‡æ‡∞‡ø‡‡‡∞‡Æ‡
--- ‚î the conduct of the gates: nothing enters but proven (the type),
+-- them: ‡§¶‡§∞‡•ç‡§∂‡§®‡§Æ‡•ç ‚Äî the eye grown from its own theorems (‡§®‡•á‡§§‡•ç‡§∞‡§Æ‡•ç-‡§™‡•Ç‡§∞‡•ç‡§£,
+-- BhavaIndriya); ‡§ú‡•ç‡§û‡§æ‡§®‡§Æ‡•ç ‚Äî the one knowing with single and double
+-- descent, record and exchange (‡§Æ‡§π‡§æ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡§Æ‡•ç, YugapadArpana); ‡§ö‡§æ‡§∞‡§ø‡§§‡•ç‡§∞‡§Æ‡•ç
+-- ‚Äî the conduct of the gates: nothing enters but proven (the type),
 -- nothing enters twice (savara), nothing is pronounced false
 -- (silence).  This module is their composition into ONE LIVING
--- FUNCTION ‚î the cycle:
+-- FUNCTION ‚Äî the cycle:
 --
---   ‡ó‡‡∞‡‡‡Æ‡     digest a stream of raw encounters with the full
+--   ‡§ó‡•ç‡§∞‡§π‡§£‡§Æ‡•ç     digest a stream of raw encounters with the full
 --               knowing, the body growing as it eats, each encounter
 --               read by the body the previous ones built;
---   ‡‡‡‡Æ-‡‡∞‡ø‡‡æ‡Æ‡ the self-turn: the grown body's own contentions
---               birth proven rules, and savara ‚î reachability under
---               the full knowing ‚î stops what the body already holds;
---   ‡Æ‡æ‡∞‡‡ó‡      the breaths: digest, turn, digest, turn.
+--   ‡§Ü‡§§‡•ç‡§Æ-‡§™‡§∞‡§ø‡§£‡§æ‡§Æ‡§É the self-turn: the grown body's own contentions
+--               birth proven rules, and sa·πÉvara ‚Äî reachability under
+--               the full knowing ‚Äî stops what the body already holds;
+--   ‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É      the breaths: digest, turn, digest, turn.
 --
--- Exhibited by refl: an EMPTY body fed five raw utterances ‚î su-left,
+-- Exhibited by refl: an EMPTY body fed five raw utterances ‚Äî su-left,
 -- commutativity, a falsehood, the mx-commutativity that needs double
--- descent, and 0¬x = 0 ‚î digests exactly the four truths (the
+-- descent, and 0¬∑x = 0 ‚Äî digests exactly the four truths (the
 -- falsehood passes through in silence); the grown body's self-turn
--- admits nothing (every arising already reachable ‚î saturation); and
+-- admits nothing (every arising already reachable ‚Äî saturation); and
 -- further breaths change nothing.  One function, no operator, no
 -- carrier, every proof a field.
 ------------------------------------------------------------------------
@@ -99,11 +99,11 @@ open import NaturalMachine.YugapadArpana_BothCoordinatesDescendAtOnceAndTheDoubl
 ‡§∂‡§∞‡•Ä‡§∞‡§Æ‡•ç = refl
 
 -- the grown body's self-turn admits nothing: every arising from its
--- own contentions is already within its reach ‚î saturation, proved.
+-- own contentions is already within its reach ‚Äî saturation, proved.
 ‡§∂‡§æ‡§®‡•ç‡§§‡§ø‡§É : ‡§Ü‡§§‡•ç‡§Æ-‡§™‡§∞‡§ø‡§£‡§æ‡§Æ‡§É (‡§ó‡•ç‡§∞‡§π‡§£‡§Æ‡•ç [] ‡§Ü‡§π‡§æ‡§∞‡§É) ‚â° []
 ‡§∂‡§æ‡§®‡•ç‡§§‡§ø‡§É = refl
 
--- and further breaths change nothing ‚î the path is quiescent on a
+-- and further breaths change nothing ‚Äî the path is quiescent on a
 -- saturated body, by computation, not by watching.
 ‡§∏‡•ç‡§•‡§ø‡§∞-‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É : ‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É 2 [] ‡§Ü‡§π‡§æ‡§∞‡§É ‚â° ‡§ó‡•ç‡§∞‡§π‡§£‡§Æ‡•ç [] ‡§Ü‡§π‡§æ‡§∞‡§É
 ‡§∏‡•ç‡§•‡§ø‡§∞-‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É = refl

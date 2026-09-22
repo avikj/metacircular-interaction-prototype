@@ -6,12 +6,12 @@
 -- W3 of `TARGET.md` §2 = `notes/BARRIER.md` §2's closing demand:
 --
 --     "a proof that no WL post-processing Φ can simulate that interface
---      � i.e., a separation, not just a classification."
+--      — i.e., a separation, not just a classification."
 --
 -- The interface in question is `BARRIER.md`'s third presentation:
 -- FUNCTIONAL-EQUATION ACCESS, "a(np) = a(n)a(p) used as a *constraint*,
 -- not a value", which is the interface Tao's entropy decrement consumes
--- and which the windowed-linear class WL declines by construction �
+-- and which the windowed-linear class WL declines by construction —
 -- WL "treats a as a black-box sequence".
 --
 -- THE ANSWER IS A DICHOTOMY, AND THE DICHOTOMY IS THE RESULT.  W3 is not
@@ -19,19 +19,19 @@
 -- asking is fixed by a single modelling choice that `BARRIER.md` makes
 -- silently:
 --
---   * PROMISED MODEL � the hidden object is a completely multiplicative
---     �1 function (a sign assignment on the primes; `ParitySeparator`'s
+--   * PROMISED MODEL — the hidden object is a completely multiplicative
+--     ±1 function (a sign assignment on the primes; `ParitySeparator`'s
 --     `Signs`).  Then **W3 IS FALSE**: functional-equation access is
 --     exactly simulated by post-processing of value queries, and the
 --     simulator is CONSTRUCTED here (`compile`, `derived-simulated`).
 --     The functional equation is an identity on this class, so an
 --     FE CHECK carries zero bits (`fe-promised-constant`), and an
---     FE REWRITE � deriving a(mn) from a(m), a(n) � is a computation on
+--     FE REWRITE — deriving a(mn) from a(m), a(n) — is a computation on
 --     the transcript and nothing more.  Whatever entropy decrement's
 --     advantage over WL is, it is NOT that it queries a channel the
 --     value oracle lacks.
 --
---   * UNPROMISED MODEL � the hidden object is an arbitrary �1 sequence,
+--   * UNPROMISED MODEL — the hidden object is an arbitrary ±1 sequence,
 --     which is what "black-box sequence" literally says.  Then **W3 IS
 --     TRUE**, and provably so at the smallest nontrivial scale: no
 --     post-processing of ANY value-query set that misses the product
@@ -62,7 +62,7 @@
 -- an oracle separation is, and adds the one arithmetic corollary that
 -- matters to the barrier program:
 --
---     `fe-closure-cannot-separate` � closing a parity-neutral query set
+--     `fe-closure-cannot-separate` — closing a parity-neutral query set
 --     under the functional equation NEVER produces a charged query.
 --
 -- That is "no post-processing manufactures charge" upgraded from a slogan
@@ -74,22 +74,22 @@
 --   Simulates                     I simulates J iff some (arbitrary,
 --                                 even non-computable) f post-processes
 --                                 I's transcript into J's answer
---   collision�no-simulation       the only way to refute simulation:
+--   collision⇒no-simulation       the only way to refute simulation:
 --                                 one collision in I, split by J
 --   val-++                        complete multiplicativity, as the
 --                                 concatenation law on factor multisets
---   defect                        the functional-equation query, a(mn)�a(m)�a(n)
+--   defect                        the functional-equation query, a(mn)·a(m)·a(n)
 --   fe-promised-constant          it is ≡ true on every multiplicative a
 --   fe-simulated-by-nothing       hence simulated by the EMPTY transcript
 --   Deriv, target, post, compile  the FE-rewriting calculus, and its
 --                                 compilation into post-processing
---   derived-simulated             � W3 refuted in the promised model
---   sgn-++, target-even           charge is F�-linear along derivations
---   fe-closure-cannot-separate    � neutral stays neutral under FE closure
---   a�, a�, unpromised-agree      the constructed separating pair
---   value-cannot-simulate-fe      � W3 proved in the unpromised model
+--   derived-simulated             ⇒ W3 refuted in the promised model
+--   sgn-++, target-even           charge is F₂-linear along derivations
+--   fe-closure-cannot-separate    ⇒ neutral stays neutral under FE closure
+--   a₀, a₁, unpromised-agree      the constructed separating pair
+--   value-cannot-simulate-fe      ⇒ W3 proved in the unpromised model
 --   fe-simulated-when-product-queried
---                                 �and the exact converse: the obstruction
+--                                 …and the exact converse: the obstruction
 --                                 is SUPPORT, not power
 --   fe-content-is-the-promise     the two halves in one statement
 ------------------------------------------------------------------------
@@ -110,18 +110,18 @@ open import NaturalMachine.ChargeCriterion using (Separates ; neutral⇒no-separ
 ------------------------------------------------------------------------
 -- §0  What an oracle separation IS, once post-processing is arbitrary.
 --
--- An interface on a hidden object of type O is a map O � A: the whole
--- transcript it produces.  Post-processing is any function A � B, with
--- no computability, continuity or measurability demanded � this is
+-- An interface on a hidden object of type O is a map O → A: the whole
+-- transcript it produces.  Post-processing is any function A → B, with
+-- no computability, continuity or measurability demanded — this is
 -- `BARRIER.md` Proposition B3's "arbitrary, even non-computable Φ",
 -- taken literally, and it is the strongest form of the hypothesis.
 --
 -- Hence simulation is not a complexity statement; it is a statement
 -- about PARTITIONS.  I simulates J exactly when I's transcript refines
 -- J's, and the only way to refute it is to exhibit a COLLISION of I
--- that J splits.  Because the object space here is free � arbitrary
+-- that J splits.  Because the object space here is free — arbitrary
 -- sign assignments on the primes, `TARGET.md` §3's whole reason to
--- attack parity rather than � � collisions can be constructed, not
+-- attack parity rather than ζ — collisions can be constructed, not
 -- hunted for.  That is the diagonalisation, and §4 performs it.
 ------------------------------------------------------------------------
 
@@ -143,10 +143,10 @@ self-simulates I = (λ a → a) , λ _ → refl
 -- §1  Sequences, and the functional-equation query.
 --
 -- A number is its multiset of prime factors (`ParitySeparator.Number` =
--- List �), so MULTIPLICATION IS CONCATENATION and the functional
--- equation a(mn) = a(m)a(n) reads a(m ++ n) = a m � a n.  The FE query
--- is the DEFECT of that identity � the same triple (x, y, x+y) the
--- Blum�Luby�Rubinfeld linearity test reads, which is where a reader
+-- List ℕ), so MULTIPLICATION IS CONCATENATION and the functional
+-- equation a(mn) = a(m)a(n) reads a(m ++ n) = a m · a n.  The FE query
+-- is the DEFECT of that identity — the same triple (x, y, x+y) the
+-- Blum–Luby–Rubinfeld linearity test reads, which is where a reader
 -- should look for prior art on this interface (see the note, §5).
 ------------------------------------------------------------------------
 
@@ -156,7 +156,7 @@ Seq = Number → Bool               -- an arbitrary ±1 sequence: NO promise
 defect : Seq → Number → Number → Bool
 defect a m n = a (m ++ n) · a m · a n
 
--- Complete multiplicativity of `val �`, which is what makes `Signs` the
+-- Complete multiplicativity of `val σ`, which is what makes `Signs` the
 -- promised class: the value of a product is the product of the values.
 val-++ : (σ : Signs) (m n : Number) → val σ (m ++ n) ≡ val σ m · val σ n
 val-++ σ []       n = refl
@@ -165,7 +165,7 @@ val-++ σ (p ∷ ms) n =
   ∙ sym (·-assoc (σ p) (val σ ms) (val σ n))
 
 -- FE DIVISION is FE multiplication here, and this is the lemma that says
--- so: recovering a(n) from a(mn) and a(m) is `mul`, because {�1} has
+-- so: recovering a(n) from a(mn) and a(m) is `mul`, because {±1} has
 -- exponent two.  Stated because "your calculus only multiplies" is the
 -- first objection to §3, and it is answered by the group, not by fiat.
 ·-cancel : (a b : Bool) → a · (a · b) ≡ b
@@ -186,11 +186,11 @@ cancel σ m n =
 -- defect is constantly +1 and the empty transcript simulates it.  This
 -- is the trivial half and it is stated because it is the half a reader
 -- of `BARRIER.md` §2 will assume away: the note's third presentation is
--- described as accessing "a(np) = a(n)a(p) � as a constraint", and a
+-- described as accessing "a(np) = a(n)a(p) … as a constraint", and a
 -- constraint that always holds is not an access.
 ------------------------------------------------------------------------
 
--- (a�b)�a�b = 1 in the group {�1}: exponent two and abelian, four cases.
+-- (a·b)·a·b = 1 in the group {±1}: exponent two and abelian, four cases.
 abab : (a b : Bool) → ((a · b) · a) · b ≡ true
 abab true  true  = refl
 abab true  false = refl
@@ -207,9 +207,9 @@ fe-simulated-by-nothing :
   → Simulates {Signs} (λ _ → tt) (λ σ → defect (val σ) m n)
 fe-simulated-by-nothing m n = (λ _ → true) , λ σ → sym (fe-promised-constant σ m n)
 
--- �and not just one instance.  The FULL functional-equation oracle �
+-- …and not just one instance.  The FULL functional-equation oracle —
 -- answering every instance (m,n) simultaneously, an infinite object, no
--- query budget � is still simulated by the empty transcript.  This is
+-- query budget — is still simulated by the empty transcript.  This is
 -- the statement that closes "you only modelled finitely many FE queries"
 -- for the CHECK reading of the interface.
 fe-oracle-simulated-by-nothing :
@@ -224,7 +224,7 @@ fe-oracle-simulated-by-nothing =
 -- This is the half that decides W3, and the trivial reading of §2 does
 -- not settle it.  The substantive use of the functional equation is not
 -- to CHECK it but to REWRITE with it: to obtain a(mn) from a(m) and
--- a(n) � which is exactly how entropy decrement moves information from
+-- a(n) — which is exactly how entropy decrement moves information from
 -- a scale to a dilate of that scale, and exactly what the windowed class
 -- cannot do, since a window [1,X] is not closed under multiplication.
 --
@@ -234,7 +234,7 @@ fe-oracle-simulated-by-nothing =
 -- derivations (`mul`).  `target` says which number a derivation names;
 -- `post` is the post-processing that computes its value FROM THE
 -- TRANSCRIPT ALONE, by structural recursion on the same syntax; and
--- `compile` proves them equal for every �.
+-- `compile` proves them equal for every σ.
 --
 -- So every value the FE interface can derive is a function of the value
 -- transcript.  `derived-simulated` states that as a simulation.  W3 is
@@ -249,7 +249,7 @@ data Deriv : Type where
 
 -- Safe lookups.  The defaults are chosen to agree: out of range, the
 -- named number is the empty product and the recorded answer is its
--- value, +1.  Nothing below depends on that choice being meaningful �
+-- value, +1.  Nothing below depends on that choice being meaningful —
 -- it only has to be consistent, which is what keeps `compile` total.
 nthQ : ℕ → List Number → Number
 nthQ _       []       = []
@@ -295,7 +295,7 @@ derived-simulated qs d = post d , λ σ → compile σ qs d
 -- every derivation at once, is a single post-processing of the value
 -- transcript.  Together with `fe-oracle-simulated-by-nothing` this is
 -- the refutation of W3 in the promised model in its strongest available
--- form � no finiteness, no computability, no budget anywhere.
+-- form — no finiteness, no computability, no budget anywhere.
 derived-oracle-simulated :
     (qs : List Number)
   → Simulates (λ σ → obs σ qs) (λ σ → λ (d : Deriv) → val σ (target qs d))
@@ -306,11 +306,11 @@ derived-oracle-simulated qs =
 -- §4  The arithmetic corollary: FE closure never manufactures charge.
 --
 -- `ChargeCriterion` says a query set separates the reference pair iff it
--- contains an odd-Ω query.  Ω mod 2 is additive along products � that is
+-- contains an odd-Ω query.  Ω mod 2 is additive along products — that is
 -- `sgn-++`, and it is the whole reason the parity character is a
--- character � so a derivation from even-Ω queries has even-Ω target.
+-- character — so a derivation from even-Ω queries has even-Ω target.
 -- Therefore the FE closure of a parity-neutral query set is parity-
--- neutral, and by `ChargeCriterion.neutral�no-separator` still admits no
+-- neutral, and by `ChargeCriterion.neutral⇒no-separator` still admits no
 -- separator at all.
 --
 -- This is the sharp form of `TARGET.md` §4b's asymmetry ("charge lives
@@ -356,19 +356,19 @@ fe-closure-cannot-separate qs all ds =
 ------------------------------------------------------------------------
 -- §5  UNPROMISED MODEL: the separation, proved by construction.
 --
--- Drop the promise � take the hidden object to be an arbitrary �1
+-- Drop the promise — take the hidden object to be an arbitrary ±1
 -- sequence, which is what `BARRIER.md`'s "black-box sequence" says
--- verbatim � and the FE query stops being an identity.  Now it is one
+-- verbatim — and the FE query stops being an identity.  Now it is one
 -- honest bit, and the value interface cannot get it unless it reads the
 -- product point.
 --
--- The separating pair is CONSTRUCTED, not found: `a�` is constantly +1,
--- `a�` is +1 except at arguments with exactly two prime factors.  They
--- agree on every query of Ω ≠ 2 � an unbounded set, containing every
+-- The separating pair is CONSTRUCTED, not found: `a₀` is constantly +1,
+-- `a₁` is +1 except at arguments with exactly two prime factors.  They
+-- agree on every query of Ω ≠ 2 — an unbounded set, containing every
 -- prime, every prime power of odd exponent, every window [1,X] read
--- through Ω-graded probes � and disagree on the single FE instance
+-- through Ω-graded probes — and disagree on the single FE instance
 -- (p, q).  This is `TARGET.md` §3's point cashed: the object space is
--- free, so the diagonalisation that is unavailable against � is
+-- free, so the diagonalisation that is unavailable against ζ is
 -- available here.
 ------------------------------------------------------------------------
 
@@ -430,10 +430,10 @@ smallest-separation :
 smallest-separation = value-cannot-simulate-fe two-primes-query (refl , refl , tt)
 
 ------------------------------------------------------------------------
--- §6  �and the exact converse, which is what makes §5 a SUPPORT
+-- §6  …and the exact converse, which is what makes §5 a SUPPORT
 --     condition rather than a power gap.
 --
--- Three value queries � at mn, at m, at n � simulate the FE query
+-- Three value queries — at mn, at m, at n — simulate the FE query
 -- exactly, with the post-processing being the same product.  So the
 -- interfaces are not separated by strength: they are separated by WHICH
 -- ARGUMENTS THEY TOUCH.  That is the same verdict `ChargeCriterion`
@@ -466,9 +466,9 @@ fe-content-is-the-promise =
     (a₁ , λ q → true≢false (sym q ∙ defect-a₁))
   , λ σ → fe-promised-constant σ p₀ p₁
 
--- Corollary worth naming: `a�` is not the value function of ANY sign
+-- Corollary worth naming: `a₁` is not the value function of ANY sign
 -- assignment.  The separating adversary of §5 is genuinely outside the
--- promised class � which is not a defect of the construction, it is the
+-- promised class — which is not a defect of the construction, it is the
 -- theorem.
 a₁-not-multiplicative : (σ : Signs) → ¬ ((n : Number) → a₁ n ≡ val σ n)
 a₁-not-multiplicative σ h =

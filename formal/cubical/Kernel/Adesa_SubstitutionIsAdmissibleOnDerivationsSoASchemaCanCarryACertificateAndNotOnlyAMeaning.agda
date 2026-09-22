@@ -4,10 +4,10 @@
 -- Kernel.Adesa_SubstitutionIsAdmissibleOnDerivationsSoASchemaCan
 --               CarryACertificateAndNotOnlyAMeaning
 --
--- TERM.  ‡‡¶‡‡ ¬ dea -- in Pini, *Adhyy* (~500 BCE), the SUBSTITUTE
--- that takes the place of a ‡‡‡‡æ‡®‡ø‡®‡ (sthnin, the substituend); the
--- machinery around it includes ‡‡‡‡æ‡®‡‡Ω‡®‡‡‡∞‡‡Æ‡ (1.1.50, the nearest
--- substitute) and the sthnivadbhva rule ‡‡‡‡æ‡®‡ø‡µ‡¶‡æ‡¶‡‡‡ã‡Ω‡®‡≤‡‡µ‡ø‡ß‡ (1.1.56),
+-- TERM.  ‡§Ü‡§¶‡•á‡§∂ ¬∑ ƒÅde≈õa -- in PƒÅ·πáini, *A·π£·π≠ƒÅdhyƒÅyƒ´* (~500 BCE), the SUBSTITUTE
+-- that takes the place of a ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§®‡•ç (sthƒÅnin, the substituend); the
+-- machinery around it includes ‡§∏‡•ç‡§•‡§æ‡§®‡•á‡§Ω‡§®‡•ç‡§§‡§∞‡§§‡§Æ‡§É (1.1.50, the nearest
+-- substitute) and the sthƒÅnivadbhƒÅva rule ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§¶‡§æ‡§¶‡•á‡§∂‡•ã‡§Ω‡§®‡§≤‡•ç‡§µ‡§ø‡§ß‡•å (1.1.56),
 -- which says an dea behaves LIKE its sthnin for the purposes of further
 -- rules, with a stated exception.
 --
@@ -16,12 +16,12 @@
 --
 -- Vyapti_.SchematicOperation carries `apply-sound`, an EVAL EQUALITY:
 --
---     apply-sound : (t : Tm) (c : Control t) (œ : Env)
---                 ‚í eval t œ ‚â° eval (apply t c) œ
+--     apply-sound : (t : Tm) (c : Control t) (œÅ : Env)
+--                 ‚Üí eval t œÅ ‚â° eval (apply t c) œÅ
 --
 -- ControlledGrammar.NativeOperation carries `apply-checked`, a DERIVATION:
 --
---     apply-checked : (t : Tm) (c : Control t) ‚í Derivation t (apply t c)
+--     apply-checked : (t : Tm) (c : Control t) ‚Üí Derivation t (apply t c)
 --
 -- So a schema has the semantics of its instances and not their
 -- certificates.
@@ -76,7 +76,7 @@ schema-instance-is-certified d u = subDeriv u d
 ------------------------------------------------------------------------
 -- ¬ß4.  Exhibited on the kernel's own accepted theorem
 --      `accepted : Derivation (add var (suc zero)) (suc var)`
---      at the two contexts of Vyapti_.ctx‚ and Vyapti_.ctx‚, which
+--      at the two contexts of Vyapti_.ctx‚ÇÄ and Vyapti_.ctx‚ÇÅ, which
 --      `no-native-operation-does-this` proves no single NativeOperation can
 --      both fire at.  One derivation, two certified instances.
 ------------------------------------------------------------------------

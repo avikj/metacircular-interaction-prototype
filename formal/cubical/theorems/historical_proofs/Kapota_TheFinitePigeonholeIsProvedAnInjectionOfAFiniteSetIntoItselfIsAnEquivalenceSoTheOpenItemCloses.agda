@@ -1,22 +1,22 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- à•àà‹àà â” the pigeonhole the two reduction modules kept as a hypothesis.
+-- à¤•à¤ªà¥‹à¤¤à¤ƒ â€” the pigeonhole the two reduction modules kept as a hypothesis.
 --
--- `TheOpenPigeonholeReducesToFinâ¦` and `TheTwoPigeonholesAreInterderivableâ¦`
+-- `TheOpenPigeonholeReducesToFinâ€¦` and `TheTwoPigeonholesAreInterderivableâ€¦`
 -- showed `TheOpenPigeonhole` (over FinSet, with mere equivalences) and
--- `FinPigeonhole` (an injection SFin n â’ SFin n is an equivalence) are
+-- `FinPigeonhole` (an injection SFin n â†’ SFin n is an equivalence) are
 -- interderivable; this module proves the latter.
 --
 -- The proof is a composition of library terms already in the pin:
 --
---   Â a decidable search over SFin n (SFin (suc n) = âŠ âŠ SFin n);
---   Â if some y has no preimage, punch y out of the codomain
+--   Â· a decidable search over SFin n (SFin (suc n) = âŠ¤ âŠŽ SFin n);
+--   Â· if some y has no preimage, punch y out of the codomain
 --     (`Cubical.Data.Fin.Properties.punchOut`, `punchOut-inj`) to get an
---     injection Fin (suc m) â’ Fin m, and the library's `pigeonhole`
---     (m < n â’ any f : Fin n â’ Fin m collides) refutes it;
---   Â so every y has a preimage; an injection into a set is an embedding
+--     injection Fin (suc m) â†’ Fin m, and the library's `pigeonhole`
+--     (m < n â‡’ any f : Fin n â†’ Fin m collides) refutes it;
+--   Â· so every y has a preimage; an injection into a set is an embedding
 --     (`injEmbedding`), an embedding that is surjective is an
---     equivalence (`isEmbedding—isSurjectionâ’isEquiv`).
+--     equivalence (`isEmbeddingÃ—isSurjectionâ†’isEquiv`).
 --
 -- So `FinPigeonhole` is inhabited, and through the earlier reduction so
 -- is `TheOpenPigeonhole`.
@@ -48,7 +48,7 @@ open import TheOpenPigeonholeReducesToFinAndTheTargetBeingAPropIsWhatMakesTheMer
   using (FinPigeonhole ; finPigeonholeGivesTheOpenPigeonhole)
 
 ------------------------------------------------------------------------
--- à§ Â decidable search over SFin n
+-- à¥§ Â· decidable search over SFin n
 ------------------------------------------------------------------------
 
 search : (n : â„•) (P : SFin n â†’ Type) â†’ ((x : SFin n) â†’ Dec (P x)) â†’ Dec (Î£[ x âˆˆ SFin n ] P x)
@@ -60,7 +60,7 @@ search (suc n) P d with d (inl tt)
 ...   | no Â¬q = no Î» { (inl tt , p) â†’ Â¬p p ; (inr x , p) â†’ Â¬q (x , p) }
 
 ------------------------------------------------------------------------
--- à¨ Â a missed point refutes injectivity, by punching it out
+-- à¥¨ Â· a missed point refutes injectivity, by punching it out
 ------------------------------------------------------------------------
 
 private
@@ -97,7 +97,7 @@ private
       in  iâ‰¢j (h-inj hiâ‰¡hj)
 
 ------------------------------------------------------------------------
--- à© Â every point is hit, so the injection is an equivalence
+-- à¥© Â· every point is hit, so the injection is an equivalence
 ------------------------------------------------------------------------
 
 surj : (n : â„•) (f : SFin n â†’ SFin n) â†’ Injective f â†’ isSurjection f
@@ -111,7 +111,7 @@ finPigeonhole n f inj =
   isEmbeddingÃ—isSurjectionâ†’isEquiv (injEmbedding (isSetSumFin n) inj , surj n f inj)
 
 ------------------------------------------------------------------------
--- à Â and through the earlier reduction, the FinSet form
+-- à¥ª Â· and through the earlier reduction, the FinSet form
 ------------------------------------------------------------------------
 
 theOpenPigeonhole : TheOpenPigeonhole

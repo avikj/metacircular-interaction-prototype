@@ -57,8 +57,8 @@ naive : ℕ → ℕ → ℕ → ℕ
 naive q a n = vCap 40 q n
 
 ------------------------------------------------------------------------
--- The certified probe range: odd primes q, bases a with q � a,
--- 1 � n � 20 � the exact grid the miner accepted the law on.
+-- The certified probe range: odd primes q, bases a with q ∤ a,
+-- 1 ≤ n ≤ 20 — the exact grid the miner accepted the law on.
 
 range : ℕ → ℕ → List ℕ
 range x zero    = []
@@ -71,7 +71,7 @@ allList f (x ∷ xs) = f x and allList f xs
 oddPrimes : List ℕ
 oddPrimes = 3 ∷ 5 ∷ 7 ∷ 11 ∷ 13 ∷ []
 
--- � q ∈ oddPrimes, � a ∈ [2..12] with q � a, � n ∈ [1..20] :
+-- ∀ q ∈ oddPrimes, ∀ a ∈ [2..12] with q ∤ a, ∀ n ∈ [1..20] :
 -- mined q a n ≡ vpAn q a n  (the mined law equals the true valuation)
 overGrid : (ℕ → ℕ → ℕ → Bool) → Bool
 overGrid P =
@@ -97,6 +97,6 @@ naiveRefuted : (naive 3 2 2 == vpAn 3 2 2) ≡ false
 naiveRefuted = refl
 
 -- and the mined law is CORRECT at that same witness, where the naive
--- law failed � the two are separated by a checked term.
+-- law failed — the two are separated by a checked term.
 minedAtWitness : (mined 3 2 2 == vpAn 3 2 2) ≡ true
 minedAtWitness = refl

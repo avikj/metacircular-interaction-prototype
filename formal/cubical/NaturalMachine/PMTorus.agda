@@ -9,62 +9,62 @@
 -- were established by exact finite computation in Python, i.e. as a
 -- trusted printout.  Mathematical context: `notes/PM_SECTION_VS_COCYCLE.md`
 -- (the 9 observables of the Peres-Mermin square, the 6 contexts, and the
--- incidence map δ : F�� � F�� whose cokernel carries the obstruction).
+-- incidence map δ : F₂⁹ → F₂⁶ whose cokernel carries the obstruction).
 -- This module re-establishes them as kernel-checked terms.  Nothing here
 -- is postulated; there are no holes; `--safe`.
 --
 -- WHAT IS PROVED.
 --
---  (a) THE INCIDENCE GRAPH IS K�,�.  Proved, in the strong form: the
+--  (a) THE INCIDENCE GRAPH IS K₃,₃.  Proved, in the strong form: the
 --      nine observables `Obs` and six contexts `Ctx` are declared as
 --      bare enumerations, the incidence datum `pmContexts` is read off
 --      the physical grid (each observable's row and column), and then
---      `obsEquiv : Obs � Edge`, `ctxEquiv : Ctx � Vertex` and
+--      `obsEquiv : Obs ≃ Edge`, `ctxEquiv : Ctx ≃ Vertex` and
 --      `pm-is-K33` exhibit a graph isomorphism onto
---      K�,� := (Vertex = Fin 3 � Fin 3, Edge = Fin 3 � Fin 3,
+--      K₃,₃ := (Vertex = Fin 3 ⊎ Fin 3, Edge = Fin 3 × Fin 3,
 --      endpoints (i , j) = (inl i , inr j)).  `pm-cell-unique` is the
 --      "each row meets each column in exactly one cell" reading:
 --      contractibility of the fibre of the cell map, obtained from the
 --      equivalence rather than from a search.
 --
---  (b) NONPLANARITY � ARITHMETIC OBSTRUCTION ONLY.
+--  (b) NONPLANARITY — ARITHMETIC OBSTRUCTION ONLY.
 --      What is proved is the arithmetic that obstructs it:
---      `bipartite-bound-violated : � (E + 4 �� 2 � V)` for the certified
+--      `bipartite-bound-violated : ¬ (E + 4 ≤ℕ 2 · V)` for the certified
 --      cardinalities E = 9, V = 6 (the subtraction-free form of
---      E � 2V − 4), together with its contrapositive packaging
---      `not-K33 : (v e : �) � e + 4 �� 2 � v � � ((v ≡ V) � (e ≡ E))`.
---      The Euler-bound theorem itself � "a simple planar bipartite graph
---      satisfies E � 2V − 4" � is a topological input.
+--      E ≤ 2V − 4), together with its contrapositive packaging
+--      `not-K33 : (v e : ℕ) → e + 4 ≤ℕ 2 · v → ¬ ((v ≡ V) × (e ≡ E))`.
+--      The Euler-bound theorem itself — "a simple planar bipartite graph
+--      satisfies E � 2V − 4" — is a topological input.
 --      Read (b) as: any graph obeying that bound is not this
 --      one.
 --
---  (c) TOROIDAL ROTATION SYSTEM � COMBINATORICS ONLY.  Proved:
+--  (c) TOROIDAL ROTATION SYSTEM — COMBINATORICS ONLY.  Proved:
 --      `face-closed`, the three listed hexagons really are closed walks
 --      in the graph (each consecutive pair of the six vertices is an
 --      edge, so the walks alternate sides and never leave the graph);
---      `each-edge-twice : (e : Edge) � traversals e ≡ 2`, a finite
---      decidable check over all nine edges, proved as a term � and the
+--      `each-edge-twice : (e : Edge) → traversals e ≡ 2`, a finite
+--      decidable check over all nine edges, proved as a term — and the
 --      equality test the count is built from is itself certified
 --      (`sameEdge-refl`, `sameEdge-sound`), so the count counts edge
 --      equalities and not the entries of an uninterpreted table;
 --      `faces-distinct`, the three faces are pairwise distinct (so
 --      F = 3 counts three things); and the Euler arithmetic
---      `euler-characteristic : (pos V - pos E) + pos F ≡ pos 0` in �.
+--      `euler-characteristic : (pos V - pos E) + pos F ≡ pos 0` in ℤ.
 --
 --  (d) CYCLE SPACE, RANK 4, AND THE COKERNEL.  Proved, as linear
---      algebra over �� = Bool with ⊕, not as arithmetic on literals:
---        `cycleEquiv  : Cycle � (Fin 4 � Bool)` � the cycle space
---          ker � is 4-dimensional, E − V + 1 = 4, with
+--      algebra over 𝔽₂ = Bool with ⊕, not as arithmetic on literals:
+--        `cycleEquiv  : Cycle ≃ (Fin 4 → Bool)` — the cycle space
+--          ker ∂ is 4-dimensional, E − V + 1 = 4, with
 --          `read-additive` and `read-scalar` certifying that the
---          equivalence is ��-linear (over �� an additive bijection is
+--          equivalence is 𝔽₂-linear (over 𝔽₂ an additive bijection is
 --          linear; the scalar law is checked anyway);
---        `parity-�` and `even-kernel-is-image` � the image of � is
+--        `parity-∂` and `even-kernel-is-image` — the image of ∂ is
 --          EXACTLY the kernel of the parity functional, both inclusions,
 --          the second by explicit construction of a preimage;
---        `parity-onto` � parity is surjective, so the quotient it
---          computes is ��, not 0;
---        `evenEquiv : Even � (Fin 5 � Bool)` � hence rank � = 5 and
---          coker � has dimension 6 − 5 = 1.
+--        `parity-onto` — parity is surjective, so the quotient it
+--          computes is 𝔽₂, not 0;
+--        `evenEquiv : Even ≃ (Fin 5 → Bool)` — hence rank ∂ = 5 and
+--          coker ∂ has dimension 6 − 5 = 1.
 --      dim coker = 1 is delivered as the pair (image = ker parity,
 --      parity onto) plus dim ker parity = 5, which is what the
 --      cokernel computation of `notes/PM_SECTION_VS_COCYCLE.md` uses.
@@ -75,8 +75,8 @@
 -- TOOLCHAIN CAVEAT (Agda 2.6.3 / cubical v0.5).  Case-splitting an
 -- indexed `FinData.Fin` at a LITERAL index raises Cubical Agda's
 -- `UnsupportedIndexedMatch` warning ("relies on injectivity of suc"):
--- the resulting functions are sound and reduce on closed terms � every
--- `refl` below did reduce � but they do not compute when applied to a
+-- the resulting functions are sound and reduce on closed terms — every
+-- `refl` below did reduce — but they do not compute when applied to a
 -- transport.  Nothing here transports along a path in `Fin n`, so no
 -- proof below depends on that.  The same warning is already emitted by
 -- `NaturalMachine/SmithPathCountedExecution.agda`.
@@ -111,9 +111,9 @@ pattern k7 = fs (fs (fs (fs (fs (fs (fs fz))))))
 pattern k8 = fs (fs (fs (fs (fs (fs (fs (fs fz)))))))
 
 ------------------------------------------------------------------------
--- 0.  �� toolkit.
+-- 0.  𝔽₂ toolkit.
 --
--- Bool with ⊕ is the additive group of ��.  Everything below is derived
+-- Bool with ⊕ is the additive group of 𝔽₂.  Everything below is derived
 -- from the library's ⊕-assoc / ⊕-comm / ⊕-identityʳ / ⊕-invol; only
 -- `⊕-self` needs a case split, and that one is two clauses.
 ------------------------------------------------------------------------
@@ -143,11 +143,11 @@ pattern k8 = fs (fs (fs (fs (fs (fs (fs (fs fz)))))))
   ∙ cong (λ w → (w ⊕ b) ⊕ b) (⊕-cancel u a)
   ∙ ⊕-cancel u b
 
--- Over ��, "sums to zero" is "equal".
+-- Over 𝔽₂, "sums to zero" is "equal".
 ⊕-solve : (u c : Bool) → u ⊕ c ≡ false → u ≡ c
 ⊕-solve u c p = sym (⊕-cancel u c) ∙ cong (_⊕ c) p
 
--- The three-term sum, left-nested; this is how � and parity are built.
+-- The three-term sum, left-nested; this is how ∂ and parity are built.
 sum3 : Bool → Bool → Bool → Bool
 sum3 a b c = (a ⊕ b) ⊕ c
 
@@ -157,7 +157,7 @@ sum3-add a b c a' b' c' =
     cong (_⊕ (c ⊕ c')) (⊕-inter a a' b b')
   ∙ ⊕-inter (a ⊕ b) (a' ⊕ b') c c'
 
--- Transposing a 3 � 3 array does not change its total sum.  Four
+-- Transposing a 3 × 3 array does not change its total sum.  Four
 -- interchanges; no case analysis.
 sum9-transpose : (a b c d e f g h i : Bool)
   → sum3 (sum3 a b c) (sum3 d e f) (sum3 g h i)
@@ -179,11 +179,11 @@ sum9-transpose a b c d e f g h i =
   ∙ cong (_⊕ c) (⊕-swap ((a ⊕ d)) b e)                   -- [a d e b c]
 
 ------------------------------------------------------------------------
--- 1.  K�,� as a type, and the Peres-Mermin square as a graph.
+-- 1.  K₃,₃ as a type, and the Peres-Mermin square as a graph.
 ------------------------------------------------------------------------
 
 -- The two sides of the bipartition: rows on the left, columns on the
--- right.  This IS K�,�: an edge is a (row, column) pair, so each row
+-- right.  This IS K₃,₃: an edge is a (row, column) pair, so each row
 -- meets each column in exactly one edge by construction.
 Vertex : Type₀
 Vertex = Fin 3 ⊎ Fin 3
@@ -306,7 +306,7 @@ pmEndpoints o =
   (ctxToVertex (fst (pmContexts o)) , ctxToVertex (snd (pmContexts o)))
 
 ------------------------------------------------------------------------
--- CLAIM (a).  The square's incidence graph IS K�,�: the pair of
+-- CLAIM (a).  The square's incidence graph IS K₃,₃: the pair of
 -- bijections (obsEquiv on edges, ctxEquiv on vertices) commutes with the
 -- endpoint maps.  That is a graph isomorphism, checked on all nine
 -- observables.
@@ -325,7 +325,7 @@ pm-is-K33 ZZ = refl
 
 -- "Every row meets every column in exactly one cell": the fibre of the
 -- cell map over any (row, column) pair is contractible.  This is the
--- equivalence, not a search over 9 � 9 possibilities.
+-- equivalence, not a search over 9 × 9 possibilities.
 pm-cell-unique : (i j : Fin 3) → isContr (fiber obsToEdge (i , j))
 pm-cell-unique i j = equiv-proof (snd obsEquiv) (i , j)
 
@@ -433,12 +433,12 @@ ctxCount : Ctx ≃ Fin V
 ctxCount = compEquiv ctxEquiv vertexCount
 
 ------------------------------------------------------------------------
--- CLAIM (b).  The bipartite Euler bound is violated � ARITHMETIC ONLY.
+-- CLAIM (b).  The bipartite Euler bound is violated — ARITHMETIC ONLY.
 --
--- A simple planar bipartite graph satisfies E � 2V − 4.  That theorem is
+-- A simple planar bipartite graph satisfies E ≤ 2V − 4.  That theorem is
 -- topological input.  What is proved is
 -- that these numbers cannot satisfy it, in the subtraction-free form
--- E + 4 � 2�V (equivalent over � for 2V � 4).
+-- E + 4 ≤ 2·V (equivalent over ℕ for 2V ≥ 4).
 ------------------------------------------------------------------------
 
 bipartite-bound-violated : ¬ (E + 4 ≤ℕ 2 · V)
@@ -453,7 +453,7 @@ not-K33 v e bound (pv , pe) =
 ------------------------------------------------------------------------
 -- 3.  CLAIM (c).  The three-hexagon rotation system.
 --
---   F_t :  r0 � c_t � r1 � c_{t+1} � r2 � c_{t+2} � r0.
+--   F_t :  r0 → c_t → r1 → c_{t+1} → r2 → c_{t+2} → r0.
 ------------------------------------------------------------------------
 
 -- Cyclic successor on the three columns, and on the six positions of a
@@ -509,8 +509,8 @@ face-closed t k3 = refl
 face-closed t k4 = refl
 face-closed t k5 = refl
 
--- Counting traversals.  The equality test is CERTIFIED � `sameEdge`
--- returns 1 only on equal edges and does return 1 on every edge � so
+-- Counting traversals.  The equality test is CERTIFIED — `sameEdge`
+-- returns 1 only on equal edges and does return 1 on every edge — so
 -- `each-edge-twice` below is a statement about edge equality and not
 -- about an uninterpreted table.
 eq3 : Fin 3 → Fin 3 → Bool
@@ -596,7 +596,7 @@ faces-distinct =
   , (λ p → snotz (cong (λ f → f (k0 , k0)) p))
   , (λ p → snotz (cong (λ f → f (k0 , k0)) p))
 
--- The Euler arithmetic of the rotation system, in �.  �(torus) = 0.
+-- The Euler arithmetic of the rotation system, in ℤ.  χ(torus) = 0.
 euler-characteristic : (pos V -ℤ pos E) +ℤ pos F ≡ pos 0
 euler-characteristic = refl
 
@@ -610,10 +610,10 @@ slot-count : F · 6 ≡ 2 · E
 slot-count = refl
 
 ------------------------------------------------------------------------
--- 4.  CLAIM (d).  The �� chain complex of the graph.
+-- 4.  CLAIM (d).  The 𝔽₂ chain complex of the graph.
 --
---   � : ��^E � ��^V  sends an edge to the sum of its two endpoints;
---   here, in coordinates, a 3 � 3 Bool matrix to its row and column
+--   ∂ : 𝔽₂^E → 𝔽₂^V  sends an edge to the sum of its two endpoints;
+--   here, in coordinates, a 3 × 3 Bool matrix to its row and column
 --   sums.  This is the map δ of notes/PM_SECTION_VS_COCYCLE.md.
 ------------------------------------------------------------------------
 
@@ -621,14 +621,14 @@ slot-count = refl
 ∂ x (inl i) = sum3 (x (i , k0)) (x (i , k1)) (x (i , k2))
 ∂ x (inr j) = sum3 (x (k0 , j)) (x (k1 , j)) (x (k2 , j))
 
--- The cycle space: ker �.
+-- The cycle space: ker ∂.
 Cycle : Type₀
 Cycle = Σ[ x ∈ (Edge → Bool) ] ((v : Vertex) → ∂ x v ≡ false)
 
 isPropCycleLaw : (x : Edge → Bool) → isProp ((v : Vertex) → ∂ x v ≡ false)
 isPropCycleLaw x = isPropΠ (λ v → isSetBool (∂ x v) false)
 
--- Four free coordinates: the top-left 2 � 2 block.
+-- Four free coordinates: the top-left 2 × 2 block.
 readCycle : Cycle → (Fin 4 → Bool)
 readCycle (x , _) k0 = x (k0 , k0)
 readCycle (x , _) k1 = x (k0 , k1)
@@ -698,7 +698,7 @@ Iso.leftInv cycleIso (x , p) = Σ≡Prop isPropCycleLaw (funExt lemma)
     ∙ cong₂ _⊕_ row0 row1
     ∙ col2
 
--- THE RANK STATEMENT: dim ker � = 4 = E − V + 1.
+-- THE RANK STATEMENT: dim ker ∂ = 4 = E − V + 1.
 cycleEquiv : Cycle ≃ (Fin 4 → Bool)
 cycleEquiv = isoToEquiv cycleIso
 
@@ -707,8 +707,8 @@ cycle-rank : E + 1 ≡ V + 4
 cycle-rank = refl
 
 ------------------------------------------------------------------------
--- The equivalence is ��-LINEAR, which is what makes "dimension 4" mean
--- what it says.  Over �� an additive bijection is automatically linear;
+-- The equivalence is 𝔽₂-LINEAR, which is what makes "dimension 4" mean
+-- what it says.  Over 𝔽₂ an additive bijection is automatically linear;
 -- the scalar law is checked as well.
 ------------------------------------------------------------------------
 
@@ -772,9 +772,9 @@ parity y =
   sum3 (y (inl k0)) (y (inl k1)) (y (inl k2))
     ⊕ sum3 (y (inr k0)) (y (inr k1)) (y (inr k2))
 
--- im � � ker parity.  Each edge meets exactly two vertices, so the total
--- vertex-sum of a boundary is zero � here, the row sums and the column
--- sums of a 3 � 3 matrix agree.
+-- im ∂ ⊆ ker parity.  Each edge meets exactly two vertices, so the total
+-- vertex-sum of a boundary is zero — here, the row sums and the column
+-- sums of a 3 × 3 matrix agree.
 parity-∂ : (x : Edge → Bool) → parity (∂ x) ≡ false
 parity-∂ x =
     cong (sum3 (∂ x (inl k0)) (∂ x (inl k1)) (∂ x (inl k2)) ⊕_)
@@ -783,7 +783,7 @@ parity-∂ x =
                               (x (k2 , k0)) (x (k2 , k1)) (x (k2 , k2))))
   ∙ ⊕-self (sum3 (∂ x (inl k0)) (∂ x (inl k1)) (∂ x (inl k2)))
 
--- ker parity � im �, by explicit construction of a preimage.
+-- ker parity ⊆ im ∂, by explicit construction of a preimage.
 preimage : (y : Vertex → Bool) → Edge → Bool
 preimage y (k0 , k0) = sum3 (y (inr k0)) (y (inl k1)) (y (inl k2))
 preimage y (k0 , k1) = y (inr k1)
@@ -825,7 +825,7 @@ image-is-even-kernel : (y : Vertex → Bool)
                      → Σ[ x ∈ (Edge → Bool) ] (∂ x ≡ y) → parity y ≡ false
 image-is-even-kernel y (x , q) = subst (λ z → parity z ≡ false) q (parity-∂ x)
 
--- parity is onto, so the quotient it computes is �� and not 0.
+-- parity is onto, so the quotient it computes is 𝔽₂ and not 0.
 unitVertex : Vertex → Bool
 unitVertex (inl k0) = true
 unitVertex (inl k1) = false
@@ -839,8 +839,8 @@ parity-onto false = (λ _ → false) , refl
 parity-onto true  = unitVertex , refl
 
 ------------------------------------------------------------------------
--- The even subspace � equal to im � by the two inclusions above � has
--- dimension 5.  With V = 6 this is dim coker � = 1, and with E = 9 it is
+-- The even subspace — equal to im ∂ by the two inclusions above — has
+-- dimension 5.  With V = 6 this is dim coker ∂ = 1, and with E = 9 it is
 -- rank-nullity: 9 = 5 + 4.
 ------------------------------------------------------------------------
 
@@ -897,10 +897,10 @@ Iso.leftInv evenIso (y , h) = Σ≡Prop isPropEvenLaw (funExt lemma)
 evenEquiv : Even ≃ (Fin 5 → Bool)
 evenEquiv = isoToEquiv evenIso
 
--- Bookkeeping only � `refl` on literals, certifying nothing beyond the
--- definitions of V and E.  The content is upstream: dim ker � = 4 is
--- `cycleEquiv`, rank � = dim (ker parity) = 5 is `evenEquiv` together
--- with the two image inclusions, and dim coker � = 1 is what these two
+-- Bookkeeping only — `refl` on literals, certifying nothing beyond the
+-- definitions of V and E.  The content is upstream: dim ker ∂ = 4 is
+-- `cycleEquiv`, rank ∂ = dim (ker parity) = 5 is `evenEquiv` together
+-- with the two image inclusions, and dim coker ∂ = 1 is what these two
 -- lines then say about the certified counts V = 6 and E = 9.
 rank-nullity : E ≡ 5 + 4
 rank-nullity = refl

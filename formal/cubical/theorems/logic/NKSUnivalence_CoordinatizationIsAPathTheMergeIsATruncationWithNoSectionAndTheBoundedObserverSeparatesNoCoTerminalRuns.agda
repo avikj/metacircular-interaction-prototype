@@ -25,44 +25,44 @@
 --       (The Concept of the Ruliad, 2021)
 --
 -- THE SYSTEM.  A unary NKS substitution system: states are unary
--- strings, and there are two updating events � append one cell,
+-- strings, and there are two updating events — append one cell,
 -- append two.  Its multiway evolutions from a to b form an indexed
 -- inductive type; distinct evolutions between the same endpoints exist
 -- and are SEPARATED BY A COMPUTED INVARIANT, not assumed distinct.
 --
--- W1 IS A PATH IN THE UNIVERSE (§�).  The same system is presented in
--- two coordinate systems: unary tapes (Tape) and numbers (�).  The
+-- W1 IS A PATH IN THE UNIVERSE (§३).  The same system is presented in
+-- two coordinate systems: unary tapes (Tape) and numbers (ℕ).  The
 -- coordinate change is an equivalence; univalence turns it into a path
--- ua; and the two STRUCTURED systems � carrier together with both
--- updating events � are connected by a single path in the type of
--- systems (`nirdeshantara`, built with ua� and ua-gluePath, the
+-- ua; and the two STRUCTURED systems — carrier together with both
+-- updating events — are connected by a single path in the type of
+-- systems (`nirdeshantara`, built with ua→ and ua-gluePath, the
 -- commuting datum being refl in both components).  Consequently EVERY
 -- property of systems transports across the coordinate change by
 -- subst, with no re-proof (`nirdesha-anadara`), and the emulation map
 -- that "moves" between the two coordinate systems is not postulated
--- beside the path � it IS the path's transport, and it COMPUTES to the
+-- beside the path — it IS the path's transport, and it COMPUTES to the
 -- coding function (`sankramana-ganana`, by uaβ).  "The same limiting
 -- object" is then not agreement-after-inspection but contractibility:
 -- the space of coordinatizations of the fixed carrier, each carrying
--- its own identification, is a point (`eka-vastu`, by EquivContr �
+-- its own identification, is a point (`eka-vastu`, by EquivContr —
 -- univalence again).  No coordinate system is privileged, and the
 -- choice of one costs nothing that transport does not refund.
 --
--- W2 IS PROPOSITIONAL TRUNCATION (§�).  The observer's single thread
--- is � Evolve a b ��.  Two named evolutions 0 � 3 � one-then-two, and
--- two-then-one � are proved distinct by the invariant that reads the
+-- W2 IS PROPOSITIONAL TRUNCATION (§४).  The observer's single thread
+-- is ∥ Evolve a b ∥₁.  Two named evolutions 0 → 3 — one-then-two, and
+-- two-then-one — are proved distinct by the invariant that reads the
 -- first updating event (`prathama-bheda`), and proved merged by the
 -- squash (`militam`).  The merge is therefore real and really lossy,
 -- and the loss is exhibited as the branchial pair: two distinct
--- residents of the fibre of �_�� over the one merged point
+-- residents of the fibre of ∣_∣₁ over the one merged point
 -- (`shakha-yugalam`).  The pair of runs IS the fibre content of the
--- merge � branchial structure as a computed object.
+-- merge — branchial structure as a computed object.
 --
--- W3 IS A QUANTIFICATION OVER ALL CONSUMERS (§�).  Any observer that
--- reads only the merged thread � any g : � Evolve 0 3 �� � X, for
--- every X at every universe level � returns equal answers on the two
+-- W3 IS A QUANTIFICATION OVER ALL CONSUMERS (§५).  Any observer that
+-- reads only the merged thread — any g : ∥ Evolve 0 3 ∥₁ → X, for
+-- every X at every universe level — returns equal answers on the two
 -- branches (`baddha-drashta`).  And the constraint is not repairable
--- downstream: the merge has NO SECTION � a selector reading a run
+-- downstream: the merge has NO SECTION — a selector reading a run
 -- back out of the thread contradicts the branch distinction
 -- (`punaruddhara-nasti`).  Equivalencing is many-to-one with the
 -- many exhibited, and the one-to-many direction is refuted, not
@@ -71,9 +71,9 @@
 -- merged thread) does not determine the run, so route information
 -- must be carried, since it provably cannot be reconstructed.
 --
--- W4 IS DIVERGENCE WITH EXHIBITED RECONVERGENCE (§�).  From every
--- state, the two updating events diverge � one cell apart after one
--- event � and both orders complete to the same state three cells on,
+-- W4 IS DIVERGENCE WITH EXHIBITED RECONVERGENCE (§२).  From every
+-- state, the two updating events diverge — one cell apart after one
+-- event — and both orders complete to the same state three cells on,
 -- with the endpoint agreement DEFINITIONAL (`vinimaya`, both
 -- components refl).  This is the interchange law at the smallest
 -- scale: order-independence of co-initial updating events as data.
@@ -86,7 +86,7 @@
 -- for derivations (soundness factors through the truncation, and the
 -- truncation is strict); abstract 25 holds the W1 pole at the machine
 -- scale (codes modulo running-the-same, the padding injection
--- � � Code onto one behaviour point, determinism as contractibility,
+-- ℕ → Code onto one behaviour point, determinism as contractibility,
 -- and the strict UTM ⊊ interactive inclusion).  This module adds the
 -- statement none of those makes: the coordinatization sentence W1
 -- itself, as a path of structured systems whose transport computes,
@@ -106,10 +106,10 @@ open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.HITs.PropositionalTruncation using (∥_∥₁ ; ∣_∣₁ ; squash₁)
 
 ------------------------------------------------------------------------
--- � � the multiway system: two updating events on unary strings.
+-- १ · the multiway system: two updating events on unary strings.
 ------------------------------------------------------------------------
 
--- the � coordinate system: a state is the string's length; the two
+-- the ℕ coordinate system: a state is the string's length; the two
 -- updating events append one cell and two cells.
 घटना₁ घटना₂ : ℕ → ℕ
 घटना₁ n = suc n
@@ -123,7 +123,7 @@ data Evolve : ℕ → ℕ → Type where
   ev₂  : {m n : ℕ} → Evolve (घटना₂ m) n → Evolve m n
 
 ------------------------------------------------------------------------
--- � � W4: divergence with exhibited reconvergence, endpoints refl.
+-- २ · W4: divergence with exhibited reconvergence, endpoints refl.
 ------------------------------------------------------------------------
 
 -- from every state m the two orders of the two events diverge after
@@ -134,7 +134,7 @@ data Evolve : ℕ → ℕ → Type where
 विनिमय m = ev₁ (ev₂ (halt _)) , ev₂ (ev₁ (halt _))
 
 ------------------------------------------------------------------------
--- � � W1: coordinatization is a path, and there is one limiting object.
+-- ३ · W1: coordinatization is a path, and there is one limiting object.
 ------------------------------------------------------------------------
 
 -- the second coordinate system: the unary tape itself.
@@ -177,7 +177,7 @@ System = Σ[ S ∈ Type ] (S → S) × (S → S)
 
 -- W1 AS A TERM: the two coordinate systems are ONE PATH in the type
 -- of systems.  The carrier path is ua; the event components ride over
--- it by ua�, and the commuting datum in each is refl, because the
+-- it by ua→, and the commuting datum in each is refl, because the
 -- coding function sends cell to suc definitionally.
 निर्देशान्तर : तन्त्र-लिपि ≡ तन्त्र-सङ्ख्या
 निर्देशान्तर i =
@@ -213,11 +213,11 @@ System = Σ[ S ∈ Type ] (S → S) × (S → S)
 एक-वस्तु = EquivContr ℕ
 
 ------------------------------------------------------------------------
--- � � W2: the merge is a truncation, and the branchial pair is its
+-- ४ · W2: the merge is a truncation, and the branchial pair is its
 --        fibre content.
 ------------------------------------------------------------------------
 
--- two evolutions 0 � 3: one-then-two, and two-then-one.
+-- two evolutions 0 → 3: one-then-two, and two-then-one.
 मार्ग₁ मार्ग₂ : Evolve zero (suc (suc (suc zero)))
 मार्ग₁ = fst (विनिमय zero)
 मार्ग₂ = snd (विनिमय zero)
@@ -252,11 +252,11 @@ System = Σ[ S ∈ Type ] (S → S) × (S → S)
 शाखे-भिन्ने p = प्रथम-भेद (cong fst p)
 
 ------------------------------------------------------------------------
--- � � W3: the bounded observer separates nothing co-terminal, and the
+-- ५ · W3: the bounded observer separates nothing co-terminal, and the
 --        merge has no section.
 ------------------------------------------------------------------------
 
--- any consumer of the single thread � every X, every universe level �
+-- any consumer of the single thread — every X, every universe level —
 -- answers equally on the two branches.
 बद्ध-द्रष्टा : {ℓ : Level} {X : Type ℓ}
              (g : ∥ Evolve zero (suc (suc (suc zero))) ∥₁ → X)

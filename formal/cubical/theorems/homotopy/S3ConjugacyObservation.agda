@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --safe #-}
 
--- A nonconstant gauge-invariant loop observation for the finite Sâ model:
+-- A nonconstant gauge-invariant loop observation for the finite Sâ‚ƒ model:
 -- the type of fixed vertices.  Conjugation preserves it by an explicit
 -- equivalence, and univalence turns that equivalence into equality of
 -- observations.  This is a finite-group calibration, not a Wilson trace.

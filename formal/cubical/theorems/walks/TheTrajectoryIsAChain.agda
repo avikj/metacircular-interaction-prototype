@@ -9,20 +9,20 @@
 --
 --     along its own trajectory, the walk's join is never a join.
 --
--- It is always an absorption â” one of the two arguments, returned.  The
+-- It is always an absorption â€” one of the two arguments, returned.  The
 -- machine's state law is a lattice operation, and the machine never once
 -- uses the lattice.  It moves up a CHAIN.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHY THAT MATTERS FOR THE COST QUESTION
 --
 -- Six modules have now derived consequences from the join's idempotence:
 -- no inverses, no norm, no forgetting, no sign.  All of them are true of
 -- the join.  This one says the walk's trajectory never leaves a chain,
--- and on a chain the join has no content at all â” `chain-join-absorbs`
+-- and on a chain the join has no content at all â€” `chain-join-absorbs`
 -- says every join along the trajectory returns an argument unchanged.
 --
--- So the walk pays for a lattice of dimension Ï(k) with coordinates up to
+-- So the walk pays for a lattice of dimension Ï€(k) with coordinates up to
 -- log k, in order to move along a totally ordered path of length k.
 --
 -- That sentence is a READING.  What is proved is
@@ -125,7 +125,7 @@ cap-absorbs :
   Ã— (_âŠ”_ {primes4} (capE 7) (capE 8) â‰¡ capE 8)
 cap-absorbs = refl , refl , refl , refl , refl , refl , refl
 
--- non-trivial joins DO exist in this lattice â” the walk simply never
+-- non-trivial joins DO exist in this lattice â€” the walk simply never
 -- reaches them.  4 and 3 are incomparable and their join is neither.
 fourE : Exp primes4
 fourE = 2 , 0 , 0 , 0 , tt
@@ -144,8 +144,8 @@ lattice-is-not-a-chain-here = refl , refl , refl
 --
 -- The walk's cost cannot be explained by anything the join does at
 -- incomparable states, because the walk never visits an incomparable
--- pair.  Every idempotence consequence â” no inverses, no
--- norm, no forgetting, no sign â” holds along a path on which the join is
+-- pair.  Every idempotence consequence â€” no inverses, no
+-- norm, no forgetting, no sign â€” holds along a path on which the join is
 -- pure absorption.  Whatever Ïˆ(k) is paying for, it is not the width of
 -- the lattice.
 ------------------------------------------------------------------------

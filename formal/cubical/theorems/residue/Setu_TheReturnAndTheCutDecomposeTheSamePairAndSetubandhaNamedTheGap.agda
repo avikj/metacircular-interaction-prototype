@@ -1,22 +1,22 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡‡‡ ‚î the causeway ‡‡‡‡‡‡®‡‡ß named.
+-- ‡§∏‡•á‡§§‡•Å‡§É ‚Äî the causeway ‡§∏‡•á‡§§‡•Å‡§¨‡§®‡•ç‡§ß named.
 --
 -- The machine read its own graph (interactive/Setubandha_‚¶hs)
--- and placed `Carrier ‡Ø‡ã‡ó` and `Œ[ n ‚àà ‚ï ] fiber ‡Ø‡ã‡ó n` in ONE component at
--- distance 3, joined by no checked edge ‚î two banks the corpus reached from
+-- and placed `Carrier ‡§Ø‡•ã‡§ó` and `Œ£[ n ‚àà ‚Ñï ] fiber ‡§Ø‡•ã‡§ó n` in ONE component at
+-- distance 3, joined by no checked edge ‚Äî two banks the corpus reached from
 -- opposite sides and never bridged.  They are the same object:
 --
---   Carrier ‡Ø‡ã‡ó          binds the OUTPUT ‚î return, ‡‡‡®‡∞‡æ‡ó‡Æ‡®  (LosslessReturn)
---   Œ[ n ] fiber ‡Ø‡ã‡ó n    binds the INPUT  ‚î the cut, ‡‡‡Æ‡‡‡ø   (Avaccheda)
+--   Carrier ‡§Ø‡•ã‡§ó          binds the OUTPUT ‚Äî return, ‡§™‡•Å‡§®‡§∞‡§æ‡§ó‡§Æ‡§®  (LosslessReturn)
+--   Œ£[ n ] fiber ‡§Ø‡•ã‡§ó n    binds the INPUT  ‚Äî the cut, ‡§∏‡•ç‡§Æ‡•É‡§§‡§ø   (Avaccheda)
 --
--- and both decompose ‚ï ó ‚ï, so composing the two organs' equivalences IS the
+-- and both decompose ‚Ñï √ó ‚Ñï, so composing the two organs' equivalences IS the
 -- causeway.
--- ‡‡‡‡‡∞ ‡, one map two bindings ‚î and here the two bindings, long
+-- ‡‡‡‡‡∞ ‡, one map two bindings ‚Äî and here the two bindings, long
 -- proved apart, are shown to be one.
 --
--- TERM.  ‡‡‡‡ ‚î a causeway built so others may cross (gveda 10.53.8), as in
+-- TERM.  ‡§∏‡•á‡§§‡•Å ‚Äî a causeway built so others may cross (·πögveda 10.53.8), as in
 -- `Setubandha`'s header; nothing mathematical is claimed of the source.  The
 -- substrate is cubical type theory (Voevodsky's univalence).
 ------------------------------------------------------------------------
@@ -33,8 +33,8 @@ open import Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeCont
   using (‡§Ö‡§µ‡§ö‡•ç‡§õ‡•á‡§¶‡§É)
 
 ------------------------------------------------------------------------
--- The causeway.  Carrier ‡Ø‡ã‡ó ‚â ‚ï ó ‚ï (invert Carrier‚â, the return law) then
--- ‚ï ó ‚ï ‚â Œ[ n ] fiber ‡Ø‡ã‡ó n (invert ‡‡µ‡‡‡‡‡¶‡, the cut law), composed.
+-- The causeway.  Carrier ‡§Ø‡•ã‡§ó ‚âÉ ‚Ñï √ó ‚Ñï (invert Carrier‚âÉ, the return law) then
+-- ‚Ñï √ó ‚Ñï ‚âÉ Œ£[ n ] fiber ‡§Ø‡•ã‡§ó n (invert ‡§Ö‡§µ‡§ö‡•ç‡§õ‡•á‡§¶‡§É, the cut law), composed.
 ------------------------------------------------------------------------
 
 ‡§∏‡•á‡§§‡•Å‡§É : Carrier ‡§Ø‡•ã‡§ó ‚âÉ (Œ£[ n ‚àà ‚Ñï ] fiber ‡§Ø‡•ã‡§ó n)

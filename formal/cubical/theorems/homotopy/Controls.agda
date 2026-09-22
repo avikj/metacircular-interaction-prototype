@@ -46,9 +46,9 @@ open import Endian k using (w01 ; w01-canonical ; v1 ; value-v1)
 --
 -- Drop it and `value` stops being injective: the empty word and the
 -- one-digit word 0 are different words with the same value.  So the
--- specific pair (digits, value) is not an equivalence � � Word � the
--- bare type � � Word is inhabited (Word is countably infinite), but
--- not by these maps � and the CanWord equivalence is not a formality.
+-- specific pair (digits, value) is not an equivalence ℕ ≃ Word — the
+-- bare type ℕ ≃ Word is inhabited (Word is countably infinite), but
+-- not by these maps — and the CanWord equivalence is not a formality.
 ------------------------------------------------------------------------
 
 value-not-injective-on-Word :
@@ -69,14 +69,14 @@ no-raw-round-trip h = znots (cong length (sym step ∙ h (fzero ∷ [])))
 --
 -- Reading a little-endian word as if it were big-endian is exactly
 -- `value ∘ rev`.  If that were the right chart map, `digits` would
--- invert it.  It does not, and 0 � 1 witnesses the failure.
+-- invert it.  It does not, and 0 ∷ 1 witnesses the failure.
 ------------------------------------------------------------------------
 
 wrong-endian-round-trip-fails :
   ¬ ((w : Word) → Canonical w → digits (value (rev w)) ≡ w)
 wrong-endian-round-trip-fails h = znots (injSuc (cong length chain))
   where
-    -- `rev w01 = 1 � 0`, whose value is 1, whose digits are the
+    -- `rev w01 = 1 ∷ 0`, whose value is 1, whose digits are the
     -- one-digit word `1`, while w01 has length 2.
     chain : (fone ∷ []) ≡ w01
     chain = sym (cong digits value-v1) ∙ h w01 w01-canonical

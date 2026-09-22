@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- RnaDhana_TheCostFlipIsFaithfulBelowTheCap
 --
--- à‹àà§à¨ Â a-dhana â” debt and asset.  Brahmagupta,
+-- à¤‹à¤£à¤§à¤¨ Â· á¹›á¹‡a-dhana â€” debt and asset.  Brahmagupta,
 -- *Brhmasphuasiddhnta*, 628, states the arithmetic of **dhana**
 -- (asset, the quantity read as gain) and **a** (debt, the same
 -- magnitude read as loss) together with nya, in the chapter that
@@ -17,32 +17,32 @@
 -- named there first and the English is the translation, not the other
 -- way round.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- `FlippingACostCoordinateIsSoundButNotFaithful` proved that mixed
 -- dominance implies product dominance of the capped-and-subtracted
 -- vectors and refuted the unrestricted converse.  The RESTRICTED
 -- converse is proved here, and the hypothesis needed is weaker than
 -- "every cost is `â‰ cap`".
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
---   boundedSum          `y â‰ c â’ (c âˆ y) + y â‰ c` â” the half of the
+--   boundedSum          `y â‰¤ c â†’ (c âˆ¸ y) + y â‰¤ c` â€” the half of the
 --                       monus identity the bound actually buys
---   capReflects         `y â‰ c â’ c âˆ x â‰ c âˆ y â’ y â‰ x`: below the cap
+--   capReflects         `y â‰¤ c â†’ c âˆ¸ x â‰¤ c âˆ¸ y â†’ y â‰¤ x`: below the cap
 --                       the a reading reflects the dhana one
 --   Bounded cap ds v    a recursive family: every COST entry of v is
---                       `â‰ cap`; benefit entries are unconstrained
+--                       `â‰¤ cap`; benefit entries are unconstrained
 --   flipReflectsBelowTheCap
---                       `Bounded cap ds w â’ flipWith cap ds v â‰¼
---                        flipWith cap ds w â’ Dom ds v w`
+--                       `Bounded cap ds w â†’ flipWith cap ds v â‰¼
+--                        flipWith cap ds w â†’ Dom ds v w`
 --   flipIsFaithfulBelowTheCap
 --                       with `flipIsSound`, the two orders agree
 --
 -- **THE HYPOTHESIS IS ONE-SIDED, AND THAT IS THE CONTENT.**  Only the
--- costs of `w` â” the DOMINATING vector, the one claimed better â” need
+-- costs of `w` â€” the DOMINATING vector, the one claimed better â€” need
 -- the bound; `v`'s costs may exceed the cap arbitrarily.  The reason is
--- visible in `capReflects`: the bound is used to turn `(c âˆ y) + y`
+-- visible in `capReflects`: the bound is used to turn `(c âˆ¸ y) + y`
 -- back into `c`, and `y` is `w`'s entry.  So a cap has to be chosen
 -- above the costs of the candidates one wants to CONCLUDE ARE BETTER,
 -- not above every cost in the archive.  That is a materially weaker
@@ -51,10 +51,10 @@
 -- The refutation is consistent with it: its witness has
 -- `cap = 3` with `w`'s cost `7`, which fails `Bounded`.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- NO NOVELTY.  Truncated subtraction reflecting the reversed order
 -- below the truncation point is elementary, and the two library facts
--- doing the work (`â‰-âˆ-+-cancel`, `â‰-k+-cancel`) are cubical's.  The
+-- doing the work (`â‰¤-âˆ¸-+-cancel`, `â‰¤-k+-cancel`) are cubical's.  The
 -- Galois-adjunction framing of monus is Birkhoff/Ore-era lattice
 -- theory.
 ------------------------------------------------------------------------
@@ -134,7 +134,7 @@ flipIsFaithfulBelowTheCap cap ds v w b =
 -- things it buys.  Benefit coordinates carry NO cap at all in `Caps
 -- ds`, which the single number could not express; and
 -- `oneCapIsTheSpecialCase` shows `flipWithCaps ds (constCaps cap ds)`
--- is `flipWith cap ds` pointwise, so nothing here is superseded â” it
+-- is `flipWith cap ds` pointwise, so nothing here is superseded â€” it
 -- is the constant assignment of the general statement.
 --
 -- The modelling point, which is why it is worth the module: a single

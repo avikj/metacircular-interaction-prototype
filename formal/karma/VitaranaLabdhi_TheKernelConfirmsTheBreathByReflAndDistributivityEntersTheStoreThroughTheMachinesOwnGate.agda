@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical-compatible --safe --no-import-sorts #-}
 -- the kernel's sitting: it recomputes the breath in the shared tongue,
--- confirms the binary's count by refl, and mints distributivity â” the
--- machine's own first answer â” as a store value through the same gate.
+-- confirms the binary's count by refl, and mints distributivity â€” the
+-- machine's own first answer â€” as a store value through the same gate.
 module VitaranaLabdhi_TheKernelConfirmsTheBreathByReflAndDistributivityEntersTheStoreThroughTheMachinesOwnGate where
 open import Agda.Builtin.Nat using (Nat ; zero ; suc)
 open import Agda.Builtin.List using (List ; [] ; _âˆ·_)

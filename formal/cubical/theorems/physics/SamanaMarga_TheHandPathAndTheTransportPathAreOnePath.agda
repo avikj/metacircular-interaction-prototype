@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡Æ‡æ‡®‡Æ‡æ‡∞‡‡ó‡ ‚î the hand road and the transport road are ONE path.
+-- ‡§∏‡§Æ‡§æ‡§®‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É ‚Äî the hand road and the transport road are ONE path.
 --
 -- THE CLAIM.  `LosslessReturn_TheHandProofWasUnnecessary‚¶agda` ¬ß5
 -- states that its transport-built path (‚ïó‚ï) ‚â° ‡µ‡ø‡µ‡‡ï-‡‡‡∞‡Æ‡æ‡
@@ -10,12 +10,12 @@
 -- HOW.  `ua` is (one leg of) an equivalence, hence injective; so it is
 -- enough to compare what sits under each road.  The hand road is
 -- `isoToPath iso = ua (isoToEquiv iso)`, one `ua`.  The transport road is
--- `ua (Carrier‚â ‡Ø‡ã‡ó) ‚àô sym (ua ‡µ‡ø‡µ‡‡ï‚â‡µ‡æ‡‡ï‡)`, which `uaInvEquiv` and
+-- `ua (Carrier‚âÉ ‡§Ø‡•ã‡§ó) ‚àô sym (ua ‡§µ‡§ø‡§µ‡•á‡§ï‚âÉ‡§µ‡§æ‡§π‡§ï‡§É)`, which `uaInvEquiv` and
 -- `uaCompEquiv` fold back into a single `ua` of one composite equivalence.
--- Those two equivalences have JUDGMENTALLY equal underlying functions ‚î
--- the composite sends (s,l) to a record whose ‡‡‡∞‡Æ‡æ‡ field is `sym refl`,
--- the hand map to the same record with ‡‡‡∞‡Æ‡æ‡ = `refl`, and `sym refl` is
--- `refl` definitionally ‚î so `equivEq (funExt Œª _ ‚í refl)` closes it and
+-- Those two equivalences have JUDGMENTALLY equal underlying functions ‚Äî
+-- the composite sends (s,l) to a record whose ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£ field is `sym refl`,
+-- the hand map to the same record with ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£ = `refl`, and `sym refl` is
+-- `refl` definitionally ‚Äî so `equivEq (funExt Œª _ ‚Üí refl)` closes it and
 -- `cong ua` lifts it to the paths.
 ------------------------------------------------------------------------
 
@@ -32,12 +32,12 @@ import VivekaPramana_TheRemainderIsLawfulAndTheNetBeats as V
 import LosslessReturn_TheHandProofWasUnnecessaryAndTransportGivesIt as P
 
 ------------------------------------------------------------------------
--- ‡ß ¬ The two equivalences underneath the two roads are the same map.
+-- ‡•ß ¬∑ The two equivalences underneath the two roads are the same map.
 --
--- The composite  Carrier‚â ‡Ø‡ã‡ó  then  invEquiv ‡µ‡ø‡µ‡‡ï‚â‡µ‡æ‡‡ï‡  equals, as an
--- equivalence, the hand-built  isoToEquiv iso‚ïó‚ï-‡µ‡ø‡µ‡‡ï-‡‡‡∞‡Æ‡æ‡.  Their
+-- The composite  Carrier‚âÉ ‡§Ø‡•ã‡§ó  then  invEquiv ‡§µ‡§ø‡§µ‡•á‡§ï‚âÉ‡§µ‡§æ‡§π‡§ï‡§É  equals, as an
+-- equivalence, the hand-built  isoToEquiv iso‚Ñï√ó‚Ñï-‡§µ‡§ø‡§µ‡•á‡§ï-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£.  Their
 -- forward functions are judgmentally equal (the only difference is
--- `sym refl` versus `refl` in the ‡‡‡∞‡Æ‡æ‡ component), so funext is refl.
+-- `sym refl` versus `refl` in the ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£ component), so funext is refl.
 ------------------------------------------------------------------------
 
 ‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£-‡§§‡•Å‡§≤‡•ç‡§Ø‡§Æ‡•ç :
@@ -46,10 +46,10 @@ import LosslessReturn_TheHandProofWasUnnecessaryAndTransportGivesIt as P
 ‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£-‡§§‡•Å‡§≤‡•ç‡§Ø‡§Æ‡•ç = equivEq (funExt Œª _ ‚Üí refl)
 
 ------------------------------------------------------------------------
--- ‡® ¬ Therefore the two roads are one path.
+-- ‡•® ¬∑ Therefore the two roads are one path.
 --
 -- Reduce the transport road to a single `ua`, swap in the equal
--- equivalence, and land on the hand road ‚î every step a univalence lemma
+-- equivalence, and land on the hand road ‚Äî every step a univalence lemma
 -- or `cong ua` of ¬ß1.
 ------------------------------------------------------------------------
 
