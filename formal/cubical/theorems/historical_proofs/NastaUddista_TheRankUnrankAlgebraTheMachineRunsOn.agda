@@ -65,7 +65,7 @@ open import Cubical.Data.Fin using (Fin ; toℕ ; toℕ-injective)
 open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Data.Empty using () renaming (rec to ⊥rec)
 
-open import PingalaPrastara using (count ; meru ; matra)
+open import PingalaPrastara using (meru ; matra) renaming (sankhya to count)
 
 open Iso
 

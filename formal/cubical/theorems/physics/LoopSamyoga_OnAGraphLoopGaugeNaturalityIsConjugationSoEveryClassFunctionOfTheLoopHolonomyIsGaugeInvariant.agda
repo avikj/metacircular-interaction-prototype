@@ -107,7 +107,7 @@ module _ (G : Group ℓg) where
   mūla-valaya A B η = valaya-saṃyoga η loop
 
   -- Whether the root loop is flat is a gauge-invariant question.
-  samatala-valaya : (A B : Connection G BranchLoop) (η : GaugeNatural A B)
-                  → Setu.samatala G (hol B loop) ≡ Setu.samatala G (hol A loop)
-  samatala-valaya A B η =
-    varga-avikāra (Setu.samatala G) (Setu.samatala-varga G) η loop
+  flat-valaya : (A B : Connection G BranchLoop) (η : GaugeNatural A B)
+                  → Setu.flat G (hol B loop) ≡ Setu.flat G (hol A loop)
+  flat-valaya A B η =
+    varga-avikāra (Setu.flat G) (Setu.flat-varga G) η loop

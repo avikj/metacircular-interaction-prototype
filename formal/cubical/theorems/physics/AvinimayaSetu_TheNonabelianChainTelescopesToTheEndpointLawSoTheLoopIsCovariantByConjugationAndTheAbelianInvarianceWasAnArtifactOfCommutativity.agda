@@ -174,8 +174,8 @@ module _ (G : Group ℓ) where
   --     §4 it is a gauge-invariant observable of the lattice loop.
   ----------------------------------------------------------------------
 
-  equalityla : ⟨ G ⟩ → Type ℓ
-  equalityla g = g ≡ 1g
+  flat : ⟨ G ⟩ → Type ℓ
+  flat g = g ≡ 1g
 
   -- conjugate back: h⁻¹ · (h · g · h⁻¹) · h ≡ g, by cancellation alone.
   pratisaṃyoga : (h g : ⟨ G ⟩) → (inv h · ((h · g) · inv h)) · h ≡ g
@@ -188,8 +188,8 @@ module _ (G : Group ℓ) where
     ∙ cong (g ·_) (G.·InvL h)
     ∙ G.·IdR g
 
-  equalityla-varga : RHR.ConjugationInvariant G equalityla
-  equalityla-varga h g =
+  flat-varga : RHR.ConjugationInvariant G flat
+  flat-varga h g =
     hPropExt (G.is-set _ _) (G.is-set _ _) forward backward
     where
     forward : (h · g) · inv h ≡ 1g → g ≡ 1g
@@ -205,10 +205,10 @@ module _ (G : Group ℓ) where
       ∙ G.·InvR h
 
   -- Flatness of the lattice loop is gauge invariant.
-  equalityla-avikāra : (h : ⟨ G ⟩) (c : Setu) → anta h c ≡ h
-                   → equalityla (wilson (parivartana h c))
-                   ≡ equalityla (wilson (map fst c))
-  equalityla-avikāra = varga-avikāra equalityla equalityla-varga
+  flat-avikāra : (h : ⟨ G ⟩) (c : Setu) → anta h c ≡ h
+                   → flat (wilson (parivartana h c))
+                   ≡ flat (wilson (map fst c))
+  flat-avikāra = varga-avikāra flat flat-varga
 
 ------------------------------------------------------------------------
 -- ७ · The loop itself moves: the S₃ witness.
