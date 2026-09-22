@@ -11,7 +11,7 @@
 --
 -- The chart is not free: charting and uncharting are given cost 3 each,
 -- so the detour is (3+3) + (3+5) = 14.  It still wins by two orders of
--- magnitude, and `Residual.respond` returns the third branch ‚î the one
+-- magnitude, and `Residual.respond` returns the third branch ‚Äî the one
 -- no equivalence-invariant response can see, since both edges here are
 -- the identity on values and differ only in weight.
 --
@@ -67,7 +67,7 @@ bridge : Bridge unaryP chartP
 bridge = chart , unchart
 
 ------------------------------------------------------------------------
--- The residual is nonzero and the branch is ‚
+-- The residual is nonzero and the branch is ‚Üù
 ------------------------------------------------------------------------
 
 detour-cost : detour chart unchart 5 ‚â° 14
@@ -100,7 +100,7 @@ chart-is-better =
 --       word.  `TransportDivScale`'s quantified threshold does not repair
 --       this: `Edge.cost` is a scalar, so quantifying over the weights
 --       quantifies over CONSTANT weights only, and the threshold
---       4 + (2c + c‚≤) ‚â length w bounds the word by the weights rather
+--       4 + (2c + c‚Ä≤) ‚â§ length w bounds the word by the weights rather
 --       than the other way round.
 --
 -- What stands is the statement with the chart already built: given a

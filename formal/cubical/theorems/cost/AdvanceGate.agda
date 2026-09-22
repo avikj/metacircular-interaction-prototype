@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
--- Advance(�_�) ⟺ Verify ∧ SearchSep ∧ PreserveProv ∧ UsefulEscape>0 ∧ Boundary
+-- Advance(◇_α) ⟺ Verify ∧ SearchSep ∧ PreserveProv ∧ UsefulEscape>0 ∧ Boundary
 --
 -- The gate, as a record whose fields are the five clauses, with the two
 -- clauses provenance and declared boundary
@@ -8,10 +8,10 @@
 -- silently assumed.  Two theorems:
 --
 --   advance-forces-distinction   the gate implies the test set separates
---   advance-forces-progress      UsefulEscape>0 is exactly � � 0, and that
+--   advance-forces-progress      UsefulEscape>0 is exactly ϱ ≢ 0, and that
 --                                forces a strictly cheaper presentation
 --
--- and one non-theorem, exhibited:  δ = 0 � Advance.
+-- and one non-theorem, exhibited:  δ = 0 ⇏ Advance.
 
 module AdvanceGate where
 
@@ -36,7 +36,7 @@ record Advance (X T : Type₀) (Prov Boundary : Type₀) : Type₁ where
     tests       : List T
     obs         : Obs X T
     searchSep   : Separates obs tests
-    -- UsefulEscape > 0 : the residual is nonzero, i.e. the branch is �
+    -- UsefulEscape > 0 : the residual is nonzero, i.e. the branch is ↝
     from to     : Presentation
     bridge      : Bridge from to
     wHere wThere : Work
@@ -58,7 +58,7 @@ advance-forces-progress :
 advance-forces-progress a =
   ↝-forces-better-presentation (bridge a) (wHere a) (wThere a) (usefulEscape a)
 
--- δ = 0 � Advance : the empty test list gives a defect-free configuration
+-- δ = 0 ⇏ Advance : the empty test list gives a defect-free configuration
 -- that cannot be promoted, because the gate's separation clause fails.
 defect-zero-does-not-advance :
     ¬ ((e : Obs Bool Bool) (ts : List Bool)

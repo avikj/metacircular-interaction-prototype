@@ -16,14 +16,14 @@
 --   full-separates/-sound   a family that separates every pair is
 --                           exactly the equality relation on a
 --                           three-element state type
---   partial-blind           a one-observation family merges s� and s�,
---                           which are apart (s��s�)
+--   partial-blind           a one-observation family merges s₁ and s₂,
+--                           which are apart (s₁≢s₂)
 --   dominates-ext-same      appending the SAME coordinate to both
 --                           profiles preserves a domination verdict
 --   myClaimIsFalse          appending DIFFERENT coordinates does not.
 --   small-verdict           dominates [1,1] [2,4] = true
 --   large-verdict           dominates [1,1,101] [2,4,0] = false
---   large-verdict-reverse   dominates [2,4,0] [1,1,101] = false �
+--   large-verdict-reverse   dominates [2,4,0] [1,1,101] = false —
 --                           incomparable, so the second route is not
 --                           merely undominated, it is back
 --   survivors-under-*       the survivor count on a FIXED pair of
@@ -44,10 +44,10 @@
 --     `Left ["true/direct"]`).  This module
 --     checks it.
 --   * the observation
---     � "next action ≠ f(scalar remainder)": three states sharing one
+--     — "next action ≠ f(scalar remainder)": three states sharing one
 --     visible invariant carry three future-response laws.  §2 below is
 --     that shape at its smallest: `partial` is the visible invariant,
---     {s�,s�} is a fiber of it, and `full` splits the fiber.
+--     {s₁,s₂} is a fiber of it, and `full` splits the fiber.
 --     The bound is exact for this three-state witness, not for all
 --     Smith states; §4 is why.
 --   * machinery/test_changed_domain_separation.py: the
@@ -55,15 +55,15 @@
 --     of the labelled block graph.  Same shape: a coarse invariant that
 --     is not a sufficient statistic for the question asked of it.
 --
--- ON THE NAME.  *vikaldea* � the partial statement, made from one
--- standpoint (naya) � against *sakaldea*, the total statement, which
+-- ON THE NAME.  *vikalādeśa* — the partial statement, made from one
+-- standpoint (naya) — against *sakalādeśa*, the total statement, which
 -- is prama.  Malliea, *Sydvdamajar*, 1292 CE; the distinction is
 -- already carried in this corpus by notes/ANEKANTA_THE_MACHINE_HAS_
 -- THREE_STANDPOINTS.md and formal/cubical/SaptabhangiNaya.agda, which
 -- use it for expressibility and the seven-fold predication.  The object
 -- here is different: an ORDERING VERDICT issued under a partial
 -- standpoint.  The word
--- names the object � a verdict that holds under one declared standpoint
+-- names the object — a verdict that holds under one declared standpoint
 -- and is not a property of what it is a verdict about.  The received name for the order on profiles is Pareto's; it
 -- is used nowhere below, where the relation is called `dominates`.
 --
@@ -189,7 +189,7 @@ isS₂ s₂ = true
 full : List (St → Bool)
 full = isS₀ ∷ isS₁ ∷ isS₂ ∷ []
 
--- The visible invariant: "is it s�?".
+-- The visible invariant: "is it s₀?".
 partial : List (St → Bool)
 partial = isS₀ ∷ []
 
@@ -213,11 +213,11 @@ full-sound : (x y : St) → sep full x y ≡ true → ¬ (x ≡ y)
 full-sound x y p q =
   true≢false (sym p ∙ sym (cong (sep full x) q) ∙ full-refl x)
 
--- s� and s� are apart �
+-- s₁ and s₂ are apart …
 s₁≢s₂ : ¬ (s₁ ≡ s₂)
 s₁≢s₂ p = true≢false (cong isS₁ p)
 
--- � and the visible invariant cannot see it.
+-- … and the visible invariant cannot see it.
 partial-blind : sep partial s₁ s₂ ≡ false
 partial-blind = refl
 
@@ -363,7 +363,7 @@ myClaimIsFalse H =
      ∙ large-verdict)
 
 -- The same thing as a count, so that "the verdict moved" is a number
--- and not a reading.  The archive is FIXED � the same two routes � and
+-- and not a reading.  The archive is FIXED — the same two routes — and
 -- only the declared family changes.
 anyDominates : Profile → List Profile → Bool
 anyDominates r []       = false

@@ -3,19 +3,19 @@
 ------------------------------------------------------------------------
 -- ExhaustionNotLengthIsWhatCoverageNeedsAndSafetyNeverNeededAnyFuelAtAll
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- 1.  THE ASYMMETRY IS THE REAL STATEMENT
 --
 -- Quoting the three signatures on this line, all read from the source:
 --
---   theStrataAreOrdered          : (n : â•) (xs â¦) â’ Ordered (strata n xs)
---   theStrataArePairwiseDisjoint : (n : â•) (xs â¦) â’ Pairwise (strata n xs)
---   theStratificationCovers      : (xs â¦) â’ Mem v xs
---                                  â’ MemSome v (strata (lengthL xs) xs)
+--   theStrataAreOrdered          : (n : â„•) (xs â€¦) â†’ Ordered (strata n xs)
+--   theStrataArePairwiseDisjoint : (n : â„•) (xs â€¦) â†’ Pairwise (strata n xs)
+--   theStratificationCovers      : (xs â€¦) â†’ Mem v xs
+--                                  â†’ MemSome v (strata (lengthL xs) xs)
 --
--- **The two SAFETY properties â” nothing in the output is wrong â” hold
--- at every fuel.  The one COMPLETENESS property â” nothing is missing
--- from the output â” does not.**  That is not an accident of who proved
+-- **The two SAFETY properties â€” nothing in the output is wrong â€” hold
+-- at every fuel.  The one COMPLETENESS property â€” nothing is missing
+-- from the output â€” does not.**  That is not an accident of who proved
 -- what: under-fuelling truncates the recursion, and a truncated list of
 -- correct layers is still correct and still ordered.  It is only
 -- shorter.  Fuel `0` is the extreme case, and
@@ -24,28 +24,28 @@
 --
 -- 2.  WHAT COVERAGE ACTUALLY DEPENDS ON
 --
--- `theStratificationCovers` is proved from `coverageStep` â” which is
--- itself stated at every fuel â”
+-- `theStratificationCovers` is proved from `coverageStep` â€” which is
+-- itself stated at every fuel â€”
 --
---   coverageStep : (n xs v) â’ Mem v xs
---                â’ MemSome v (strata n xs) âŠ Mem v (leftover n xs)
+--   coverageStep : (n xs v) â†’ Mem v xs
+--                â†’ MemSome v (strata n xs) âŠŽ Mem v (leftover n xs)
 --
 -- by killing the right disjunct with `theStratificationTerminates`.
--- So the hypothesis coverage needs is not `lengthL xs â‰ n`; it is
--- **`leftover n xs â‰¡ []`** â” that the fuel EXHAUSTED, not that it was
+-- So the hypothesis coverage needs is not `lengthL xs â‰¤ n`; it is
+-- **`leftover n xs â‰¡ []`** â€” that the fuel EXHAUSTED, not that it was
 -- large.  Â§3 below states it that way, and
 -- `theStratificationCoversAtEverySufficientFuel` becomes the corollary
 -- at `fuelSuffices`.
 --
 -- **THIS IS STRICTLY MORE GENERAL, AND THE GAP IS NOT EMPTY.**
--- `lengthL xs â‰ n` is sufficient for exhaustion and NOT necessary: one
+-- `lengthL xs â‰¤ n` is sufficient for exhaustion and NOT necessary: one
 -- layer may remove many members, so an archive of length 2 whose whole
 -- content is one antichain exhausts at fuel 1.  Â§4 exhibits exactly
 -- that, by `refl`.
 --
 -- WHAT IS PROVED
 --
---   coverageFromExhaustion   `leftover n xs â‰¡ []` â’ coverage at fuel `n`
+--   coverageFromExhaustion   `leftover n xs â‰¡ []` â†’ coverage at fuel `n`
 --   coverageAtTheLength      coverage at the length, a corollary
 --   antichainOfTwo / exhaustsAtOne / lengthIsTwo
 --                            a two-member archive that exhausts at fuel
@@ -96,7 +96,7 @@ coverageAtTheLength xs v =
 -- Two incomparable vectors: neither dominates the other, so the first
 -- stratum is the whole archive and the remainder is empty.  The fuel
 -- that exhausts is `1`; the length is `2`.  Both facts are `refl`, so
--- the separation costs no argument at all â” which is the point, since
+-- the separation costs no argument at all â€” which is the point, since
 -- the length hypothesis would have demanded fuel `2`.
 ------------------------------------------------------------------------
 

@@ -1,36 +1,36 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- рр▓рЛрр тФ ррр░ррорЛ рор╛р░ррЧр ррр░р┐р рЙрХррр, ррр░рпр ррХрор рр╡ рржрор р
+-- рдЕрд▓реЛрдкрдГ тАФ рдкреНрд░рдердореЛ рдорд╛рд░реНрдЧрдГ рддреНрд░рд┐рдГ рдЙрдХреНрддрдГ, рддреНрд░рдпрдГ рдПрдХрдореН рдПрд╡ рдкрджрдореН ред
 --
--- WHAT THIS MODULE IS FOR.  ррр┐ррр╛-ррррр░-р╡р┐рррр╛р░р ┬зр writes the first of the
--- two roads as two lines, рррХрр░роррор e = transport (ua e) and рр▓рЛрр = ua╬▓, and
+-- WHAT THIS MODULE IS FOR.  рдЕрд╣рд┐рдВрд╕рд╛-рд╕реВрддреНрд░-рд╡рд┐рд╕реНрддрд╛рд░рдГ ┬зрем writes the first of the
+-- two roads as two lines, рд╕рдВрдХреНрд░рдордгрдореН e = transport (ua e) and рдЕрд▓реЛрдкрдГ = ua╬▓, and
 -- THREE modules in this corpus have independently written that second line
 -- out as a top-level declaration:
 --
---   Nasti_ShabdeJivahVartante.рррХрр░роррор-рр▓рЛрр
---   SankramanaSesa_EveryTransportOwesItsResidual.рр▓рЛрр
---   Apratikaryatva_TheRetractionTypeIsTheHLevelHypothesis.рррХрр░рорр-ри-рХр┐рЮррр┐рир-рирррпрр┐
+--   Nasti_ShabdeJivahVartante.рд╕рдВрдХреНрд░рдордгрдореН-рдЕрд▓реЛрдкрдГ
+--   SankramanaSesa_EveryTransportOwesItsResidual.рдЕрд▓реЛрдкрдГ
+--   Apratikaryatva_TheRetractionTypeIsTheHLevelHypothesis.рд╕рдВрдХреНрд░рдордгреЗ-рди-рдХрд┐рдЮреНрдЪрд┐рдиреН-рдирд╢реНрдпрддрд┐
 --
 -- Two of the three carry the same  stem under different module roofs.
 -- No one of the three imports another.
 --
 -- THE IDENTIFICATION, AND ITS GRADE.  All three are definitionally the term
--- `ua╬▓`, so the identification is `refl` тФ not a path that had to be
+-- `ua╬▓`, so the identification is `refl` тАФ not a path that had to be
 -- constructed, not an h-level fact about the target, just the same term under
 -- three names.  That is worth separating from the other duplications in this
 -- corpus, and ┬з3 does:
 --
 --   grade one   same term, different name.  Identified by refl.  This module.
 --   grade two   different terms, one type, identified because the target is a
---               set.  MadhyaVinimaya_тж and Pratyaya_тж .
---   grade three different types.  Then ┬зр's first road needs an actual
+--               set.  MadhyaVinimaya_тАж and Pratyaya_тАж .
+--   grade three different types.  Then ┬зрем's first road needs an actual
 --               equivalence and ua, and where there is none the second road
 --               applies and a ррр is written.
 --
 -- The grade is the whole content of the finding.  A grade-one duplication
 -- costs nothing mathematically and costs everything in visibility: three
--- modules each believing they had to state ┬зр before they could use it.
+-- modules each believing they had to state ┬зрем before they could use it.
 --
 -- SOURCE OF THE SUBSTRATE.  `ua` and `ua╬▓` are Voevodsky's univalence as
 -- realised in cubical type theory; `ua╬▓ e a : transport (ua e) a тЙб equivFun e
@@ -53,7 +53,7 @@ private
     тДУ : Level
 
 ------------------------------------------------------------------------
--- ┬з1 ┬ The line itself, ┬зр of the stra, once.
+-- ┬з1 ┬╖ The line itself, ┬зрем of the s┼лtra, once.
 ------------------------------------------------------------------------
 
 рд╕рдВрдХреНрд░рдордгрдореН : {A B : Type тДУ} тЖТ A тЙГ B тЖТ A тЖТ B
@@ -63,12 +63,12 @@ private
 рдЕрд▓реЛрдкрдГ = ua╬▓
 
 ------------------------------------------------------------------------
--- ┬з2 ┬ рр╛ржр╛ррроррпрор тФ the three, identified.
+-- ┬з2 ┬╖ рддрд╛рджрд╛рддреНрдореНрдпрдореН тАФ the three, identified.
 --
 -- Each holds by refl: the three declarations are one term.  Writing the
 -- types out in full rather than referring to a shared abbreviation is
--- deliberate тФ the point being checked is that the three modules' local
--- рррХрр░роррор definitions agree definitionally with each other and with ┬з1's,
+-- deliberate тАФ the point being checked is that the three modules' local
+-- рд╕рдВрдХреНрд░рдордгрдореН definitions agree definitionally with each other and with ┬з1's,
 -- and abbreviating would hide exactly that.
 ------------------------------------------------------------------------
 
@@ -102,7 +102,7 @@ private
   тЙб Apratikaryatva_TheRetractionTypeIsTheHLevelHypothesis.рд╕рдВрдХреНрд░рдордгреЗ-рди-рдХрд┐рдЮреНрдЪрд┐рдиреН-рдирд╢реНрдпрддрд┐ e a
 рддреГрддреАрдп-рддрд╛рджрд╛рддреНрдореНрдпрдореН e a = refl
 
--- The three local рррХрр░роррорs are likewise one function, not three that agree
+-- The three local рд╕рдВрдХреНрд░рдордгрдореНs are likewise one function, not three that agree
 -- pointwise.  Stated at the level of the function so the agreement is not
 -- read as a coincidence at each argument.
 рд╕рдВрдХреНрд░рдордг-рддрд╛рджрд╛рддреНрдореНрдпрдореН
@@ -112,20 +112,20 @@ private
 рд╕рдВрдХреНрд░рдордг-рддрд╛рджрд╛рддреНрдореНрдпрдореН e = refl
 
 ------------------------------------------------------------------------
--- ┬з3 ┬ рррр тФ the remainder.
+-- ┬з3 ┬╖ рд╢реЗрд╖рдГ тАФ the remainder.
 --
 -- refl identifies the terms and says nothing about why each module needed
 -- the line, and the three reasons are not one reason:
 --
---   ┬ Nasti_ShabdeJivahVartante states it to set up the CONTRAST that is its
---     subject: ┬зр-р's рирррЯр┐, propositional truncation, from which there is no
---     retraction.  рр▓рЛрр is the thing truncation is not.
---   ┬ SankramanaSesa_EveryTransportOwesItsResidual states it to CONSUME it:
---     the module's claim is that a transport owes a residual, and рр▓рЛрр is
+--   ┬╖ Nasti_ShabdeJivahVartante states it to set up the CONTRAST that is its
+--     subject: ┬зрек-рел's рдирд╖реНрдЯрд┐, propositional truncation, from which there is no
+--     retraction.  рдЕрд▓реЛрдкрдГ is the thing truncation is not.
+--   ┬╖ SankramanaSesa_EveryTransportOwesItsResidual states it to CONSUME it:
+--     the module's claim is that a transport owes a residual, and рдЕрд▓реЛрдкрдГ is
 --     the input to computing what the residual is.
---   ┬ Apratikaryatva_TheRetractionTypeIsTheHLevelHypothesis states it as
---     PATH ONE of a two-path exhibit whose subject is path two тФ that the
---     ррр a map leaves is complete тФ so рр▓рЛрр there is the half that is
+--   ┬╖ Apratikaryatva_TheRetractionTypeIsTheHLevelHypothesis states it as
+--     PATH ONE of a two-path exhibit whose subject is path two тАФ that the
+--     рд╢реЗрд╖ a map leaves is complete тАФ so рдЕрд▓реЛрдкрдГ there is the half that is
 --     already known, present to make the other half's status legible.
 --
 -- Setup, input, and foil.  A shared import would have served all three.

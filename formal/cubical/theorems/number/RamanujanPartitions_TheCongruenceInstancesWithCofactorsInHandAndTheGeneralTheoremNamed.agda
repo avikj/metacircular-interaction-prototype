@@ -1,16 +1,16 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡∞‡æ‡Æ‡æ‡®‡‡‡®‡, ‡µ‡ø‡‡æ‡‡® ‚î THE PARTITION CONGRUENCES: INSTANCES WITH
+-- ‡§∞‡§æ‡§Æ‡§æ‡§®‡•Å‡§ú‡§®‡•ç, ‡§µ‡§ø‡§≠‡§æ‡§ú‡§® ‚Äî THE PARTITION CONGRUENCES: INSTANCES WITH
 -- COFACTORS IN HAND, AND THE GENERAL THEOREM NAMED.
 --
 -- Ramanujan (1919): p(5n+4) ‚â° 0 (mod 5), p(7n+5) ‚â° 0 (mod 7),
--- p(11n+6) ‚â° 0 (mod 11) ‚î read off MacMahon's table and then proved
+-- p(11n+6) ‚â° 0 (mod 11) ‚Äî read off MacMahon's table and then proved
 -- with the theta calculus.  This file defines the partition function
 -- and checks the congruences where exact computation reaches:
 --
---   THE DEFINITION.  Pf m n counts partitions of n into parts ‚â m by
---   the multiplicity of the largest allowed part ‚î the standard
+--   THE DEFINITION.  Pf m n counts partitions of n into parts ‚â§ m by
+--   the multiplicity of the largest allowed part ‚Äî the standard
 --   grouping, total by a lexicographic descent, using truncated
 --   subtraction only where the guard has already paid for it.
 --   p n = Pf n n.  This IS the partition function, as a counting
@@ -18,15 +18,15 @@
 --   trusted: MacMahon's values fall out as refls (`the-table`).
 --
 --   THE INSTANCES.  For each congruence family, three instances with
---   the COFACTOR EXHIBITED ‚î divisibility is Œ q (q ¬ d ‚â° p n), the
+--   the COFACTOR EXHIBITED ‚Äî divisibility is Œ£ q (q ¬∑ d ‚â° p n), the
 --   witness in the pair, nothing merely asserted:
 --
---     5  ‚à p 4 = 5,    5 ‚à p 9 = 30,    5 ‚à p 14 = 135
---     7  ‚à p 5 = 7,    7 ‚à p 12 = 77,   7 ‚à p 19 = 490
---     11 ‚à p 6 = 11,   11 ‚à p 17 = 297, 11 ‚à p 28 = 3718
+--     5  ‚à£ p 4 = 5,    5 ‚à£ p 9 = 30,    5 ‚à£ p 14 = 135
+--     7  ‚à£ p 5 = 7,    7 ‚à£ p 12 = 77,   7 ‚à£ p 19 = 490
+--     11 ‚à£ p 6 = 11,   11 ‚à£ p 17 = 297, 11 ‚à£ p 28 = 3718
 --
 --   The general theorems, for all n at once, are Ramanujan's theta
---   identities and Atkin's completion for 11 ‚î analytic instruments
+--   identities and Atkin's completion for 11 ‚Äî analytic instruments
 --   outside this file's exact discipline.  They are named, and what
 --   is proved here is exactly what the kernel computed.
 ------------------------------------------------------------------------
@@ -48,10 +48,10 @@ open import Ramanujan1729_TheTaxicabNumberBothRepresentationsByReflAndMinimality
 ------------------------------------------------------------------------
 
 -- Contribution of using the part (suc m) exactly j times, for j from
--- a countdown: when (suc m)¬j still fits inside n, count the
--- partitions of the remainder into parts ‚â m; sum over all j.
+-- a countdown: when (suc m)¬∑j still fits inside n, count the
+-- partitions of the remainder into parts ‚â§ m; sum over all j.
 mutual
-  -- Partitions of n into parts ‚â m, grouped by the multiplicity j of
+  -- Partitions of n into parts ‚â§ m, grouped by the multiplicity j of
   -- the largest allowed part.
   Pf : ‚Ñï ‚Üí ‚Ñï ‚Üí ‚Ñï
   Pf m zero          = 1
@@ -59,12 +59,12 @@ mutual
   Pf (suc m) (suc n) = sumJ m (suc n) (suc n)
 
   -- Sum over j = countdown .. 0: the part (suc m) used exactly j
-  -- times, the remainder partitioned into parts ‚â m.
+  -- times, the remainder partitioned into parts ‚â§ m.
   sumJ : ‚Ñï ‚Üí ‚Ñï ‚Üí ‚Ñï ‚Üí ‚Ñï
   sumJ m n zero    = Pf m n
   sumJ m n (suc j) = contrib m n (suc j) + sumJ m n j
 
-  -- Guarded: only when (suc m)¬j still fits inside n.
+  -- Guarded: only when (suc m)¬∑j still fits inside n.
   contrib : ‚Ñï ‚Üí ‚Ñï ‚Üí ‚Ñï ‚Üí ‚Ñï
   contrib m n j =
     rec 0 (Œª _ ‚Üí Pf m (n ‚à∏ (suc m ¬∑ j))) (le? (suc m ¬∑ j) n)

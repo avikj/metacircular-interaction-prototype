@@ -46,13 +46,13 @@
 --     Not "the module has not implemented one": none exists.  ONE base
 --     lemma, ONE syntactically identical inner AC node occurring at two
 --     positions, ONE residue, TWO correct and unequal derived right
---     sides (`ext‚-correct`, `ext‚-correct`, `7‚â8`).
+--     sides (`ext‚ÇÅ-correct`, `ext‚ÇÇ-correct`, `7‚â¢8`).
 --
 -- So the docstring forbids the right thing for the wrong reason.  The
 -- correct statement of the obstruction is:
 --
 --     Root residue is an instance of CONGRUENCE: the derived left side
---     is C[base.lhs] for the context C = (¬) ‚äï Z, so the derived right
+--     is C[base.lhs] for the context C = (¬∑) ‚äï Z, so the derived right
 --     side is C[base.rhs], uniformly.  Inner residue is not a
 --     congruence instance at all: the derived left side is
 --     base.lhs[p := q ‚äï Z], a SUBSTITUTION INTO the pattern rather than
@@ -174,7 +174,7 @@ module ACRootPlus =
 --
 -- One base lemma.  Its left side contains the AC node (x + y) twice,
 -- as literally the same subterm, under two different contexts: bare
--- (additive) at the first occurrence, and under `_¬ x` at the second.
+-- (additive) at the first occurrence, and under `_¬∑ x` at the second.
 
 one two : ‚Ñï
 one = suc zero

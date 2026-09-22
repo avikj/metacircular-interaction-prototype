@@ -1,37 +1,37 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- �������-����� � mode arithmetic.
+-- तरङ्ग-गणित — mode arithmetic.
 --
 -- Theorem 8 of the proof note rests on a finite trigonometric
--- computation: with u^�(x,0) = A e� cos(N x�) + � A e� cos(x� − N x�) and
--- P = P_{�1} the sharp Fourier projection, the resolved stress is
+-- computation: with u^σ(x,0) = A e₂ cos(N x₁) + σ A e₃ cos(x₂ − N x₁) and
+-- P = P_{≤1} the sharp Fourier projection, the resolved stress is
 --
---     R^� = P(u⊗u) = (A²/2) [[0,0,0],[0,1,� cos x�],[0,� cos x�,1]],
+--     R^σ = P(u⊗u) = (A²/2) [[0,0,0],[0,1,σ cos x₂],[0,σ cos x₂,1]],
 --
--- because cos² = ½ + ½ cos 2(�) and the cross frequency
+-- because cos² = ½ + ½ cos 2(·) and the cross frequency
 -- (N,0,0) + (−N,1,0) = (0,1,0) survives the projection while
 -- (2N,0,0), (−2N,2,0), (2N,−1,0) do not; hence
--- ��R^� = −(�A²/2) e� sin x�, �_t U^�(0) = (�A²/2) e� sin x�, and against
+-- ∇·R^σ = −(σA²/2) e₃ sin x₂, ∂_t U^σ(0) = (σA²/2) e₃ sin x₂, and against
 -- w = e� sin x� the reading is �A²/4.
 --
---   §1  THE KERNEL.  A trigonometric polynomial on �³ is a list of
+--   §1  THE KERNEL.  A trigonometric polynomial on 𝕋³ is a list of
 --       (kind, frequency, coefficient) with one dyadic denominator 2^d.
 --       Products expand by the product-to-sum rules with the
---       denominator raised by one; �_j multiplies by the frequency
---       component; P_{�1} keeps |ξ|² � 1; the pairing against a single
+--       denominator raised by one; ∂_j multiplies by the frequency
+--       component; P_{≤1} keeps |ξ|² ≤ 1; the pairing against a single
 --       nonconstant mode reads its coefficient at norm ½.
 --   §2  THE CROSS FREQUENCY, for every N: (N,0,0) + (−N,1,0) = (0,1,0).
---   §3  THE PAIR at A = 1, N = 2, � = �1: the six readings of the
---       stress, the two coarse accelerations, and the test against w �
+--   §3  THE PAIR at A = 1, N = 2, σ = ±1: the six readings of the
+--       stress, the two coarse accelerations, and the test against w —
 --       every one computed by the typechecker.  The trace, the
---       pressure source and the coarse velocity agree across �; the
---       cross coefficient and the acceleration carry �.  These are the
+--       pressure source and the coarse velocity agree across σ; the
+--       cross coefficient and the acceleration carry σ.  These are the
 --       coefficients DhanaVibheda took as given.
 --
 -- The soundness of the product-to-sum rules with respect to the real
 -- trigonometric functions is the classical identity; the kernel
--- computes with them.  ������� (taraga, wave) and ����� (gaita,
+-- computes with them.  तरङ्ग (taraṅga, wave) and गणित (gaṇita,
 -- computation) are ordinary .
 ------------------------------------------------------------------------
 
@@ -45,7 +45,7 @@ open import Cubical.Data.Bool using (Bool ; true ; false ; _and_ ; not)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_ ; map)
 
 ------------------------------------------------------------------------
--- � � The kernel.
+-- १ · The kernel.
 ------------------------------------------------------------------------
 
 ℤ³ : Type₀
@@ -112,7 +112,7 @@ ghaṭaka zero          (a , _ , _) = a
 ghaṭaka (suc zero)    (_ , b , _) = b
 ghaṭaka (suc (suc _)) (_ , _ , c) = c
 
--- �_j : cos ξ � −ξ_j sin ξ ,  sin ξ � ξ_j cos ξ
+-- ∂_j : cos ξ ↦ −ξ_j sin ξ ,  sin ξ ↦ ξ_j cos ξ
 ∂ : ℕ → Poly → Poly
 ∂ j (ts /2^ d) = map step ts /2^ d
   where
@@ -120,7 +120,7 @@ ghaṭaka (suc (suc _)) (_ , _ , c) = c
   step (cos , ξ , c) = (sin , ξ , -ℤ (ghaṭaka j ξ ·ℤ c))
   step (sin , ξ , c) = (cos , ξ , ghaṭaka j ξ ·ℤ c)
 
--- |ξ|² � 1, decided on the components: each in {−1,0,1} and at most one nonzero
+-- |ξ|² ≤ 1, decided on the components: each in {−1,0,1} and at most one nonzero
 small : ℤ → Bool
 small (pos zero) = true
 small (pos (suc zero)) = true
@@ -140,7 +140,7 @@ keep (a , b , c) =
   true  or′ _ = true
   false or′ y = y
 
--- the sharp projection P_{�1}
+-- the sharp projection P_{≤1}
 P : Poly → Poly
 P (ts /2^ d) = filter (λ { (_ , ξ , _) → keep ξ }) ts /2^ d
 
@@ -196,26 +196,26 @@ at (suc (suc _)) (_ , _ , c) = c
 R : Vec → ℕ → ℕ → Poly
 R u i j = P (at i u · at j u)
 
--- (��R)_i = �_j �_j R_ij
+-- (∇·R)_i = Σ_j ∂_j R_ij
 div : Vec → ℕ → Poly
 div u i = ∂ 0 (R u i 0) + ∂ 1 (R u i 1) + ∂ 2 (R u i 2)
 
 ------------------------------------------------------------------------
--- � � The cross frequency, for every N.
+-- २ · The cross frequency, for every N.
 ------------------------------------------------------------------------
 
 cross : (N : ℤ) → ((N , pos 0 , pos 0) ⊕ (-ℤ N , pos 1 , pos 0)) ≡ (pos 0 , pos 1 , pos 0)
 cross N i = -Cancel N i , pos 1 , pos 0
 
 ------------------------------------------------------------------------
--- � � The pair at A = 1, N = 2, � = �1: every reading computed.
+-- ३ · The pair at A = 1, N = 2, σ = ±1: every reading computed.
 ------------------------------------------------------------------------
 
 -- zero polynomial
 𝟘 : Poly
 𝟘 = [] /2^ 0
 
--- u^� = (0 , cos(2x�) , � cos(x� − 2x�))
+-- u^σ = (0 , cos(2x₁) , σ cos(x₂ − 2x₁))
 u : ℤ → Vec
 u σ = 𝟘
     , ((cos , (pos 2 , pos 0 , pos 0) , pos 1) ∷ []) /2^ 0
@@ -233,14 +233,14 @@ R₃₃-const = refl
 R₃₃-const′ : coeff cos (pos 0 , pos 0 , pos 0) (R (u (negsuc 0)) 2 2) ≡ pos 1
 R₃₃-const′ = refl
 
--- R_23 = (�/2) cos x� : the cross mode (0,1,0) carries �, over 2^1
+-- R_23 = (σ/2) cos x₂ : the cross mode (0,1,0) carries σ, over 2^1
 R₂₃-cross⁺ : coeff cos (pos 0 , pos 1 , pos 0) (R (u (pos 1)) 1 2) ≡ pos 1
 R₂₃-cross⁺ = refl
 
 R₂₃-cross⁻ : coeff cos (pos 0 , pos 1 , pos 0) (R (u (negsuc 0)) 1 2) ≡ negsuc 0
 R₂₃-cross⁻ = refl
 
--- the killed frequencies leave nothing: no cos(4x�) in R_22
+-- the killed frequencies leave nothing: no cos(4x₁) in R_22
 R₂₂-no-4x₁ : coeff cos (pos 4 , pos 0 , pos 0) (R (u (pos 1)) 1 1) ≡ pos 0
 R₂₂-no-4x₁ = refl
 
@@ -248,26 +248,26 @@ R₂₂-no-4x₁ = refl
 R-denominator : d (R (u (pos 1)) 1 2) ≡ 1
 R-denominator = refl
 
--- ��R : component 3 is −(�/2) sin x� ; the �-sign is read off
+-- ∇·R : component 3 is −(σ/2) sin x₂ ; the σ-sign is read off
 divR₃⁺ : coeff sin (pos 0 , pos 1 , pos 0) (div (u (pos 1)) 2) ≡ negsuc 0
 divR₃⁺ = refl
 
 divR₃⁻ : coeff sin (pos 0 , pos 1 , pos 0) (div (u (negsuc 0)) 2) ≡ pos 1
 divR₃⁻ = refl
 
--- and component 2 of the divergence has no sin x� (it is zero)
+-- and component 2 of the divergence has no sin x₂ (it is zero)
 divR₂ : coeff sin (pos 0 , pos 1 , pos 0) (div (u (pos 1)) 1) ≡ pos 0
 divR₂ = refl
 
--- �_t U = −��R, and the reading against w = e� sin x� is �/4:
--- numerator � over 2^(1+1)
+-- ∂_t U = −∇·R, and the reading against w = e₃ sin x₂ is σ/4:
+-- numerator σ over 2^(1+1)
 ∂ₜU⁺ : ⟨ - (div (u (pos 1)) 2) ∣ sin , (pos 0 , pos 1 , pos 0) ⟩ ≡ (pos 1 , 2)
 ∂ₜU⁺ = refl
 
 ∂ₜU⁻ : ⟨ - (div (u (negsuc 0)) 2) ∣ sin , (pos 0 , pos 1 , pos 0) ⟩ ≡ (negsuc 0 , 2)
 ∂ₜU⁻ = refl
 
--- the pressure source �_i�_j R_ij vanishes: the cross entry has no x�
+-- the pressure source ∂_i∂_j R_ij vanishes: the cross entry has no x₃
 -- dependence and the diagonal entries are constant
 pressure-source⁺ : coeff cos (pos 0 , pos 1 , pos 0)
     (∂ 1 (∂ 1 (R (u (pos 1)) 1 1)) + ∂ 1 (∂ 2 (R (u (pos 1)) 1 2))

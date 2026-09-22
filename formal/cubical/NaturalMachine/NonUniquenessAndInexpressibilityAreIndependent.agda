@@ -7,10 +7,10 @@
 -- different structures ààµà•àààµàà¯à®à
 -- by one name; two of them are separated by their defect:
 --
---   ààµà•àààµàà¯à®à  the content is DETERMINATE and no single utterance says
---              it â” an EXPRESSIBILITY failure
---   à¦à¦        the content is perfectly expressible and the solution set
---              is not a singleton â” a UNIQUENESS failure
+--   à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯à¤®à¥  the content is DETERMINATE and no single utterance says
+--              it â€” an EXPRESSIBILITY failure
+--   à¥¦Ã·à¥¦        the content is perfectly expressible and the solution set
+--              is not a singleton â€” a UNIQUENESS failure
 --
 -- Using one third position as a catch-all
 -- for 'not a clean single answer' is the boolean collapse this corpus
@@ -71,7 +71,7 @@ onlyFalse _ _ = false
 onlyId : Unit â†’ Bool â†’ Bool
 onlyId _ x = x
 
--- â”â” the two basic facts about the two contents â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€ the two basic facts about the two contents â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 allIsNonUnique : NonUnique all
 allIsNonUnique = true , false , trueâ‰¢false , refl , refl
@@ -79,7 +79,7 @@ allIsNonUnique = true , false , trueâ‰¢false , refl , refl
 selfIsUnique : Â¬ NonUnique self
 selfIsUnique (a , b , aâ‰¢b , sa , sb) = aâ‰¢b (sa âˆ™ sym sb)
 
--- â”â” corner 1: non-unique, expressible â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€ corner 1: non-unique, expressible â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 allIsExpressibleInConstants : Â¬ Inexpressible constants all
 allIsExpressibleInConstants ie = ie true .snd refl
@@ -88,7 +88,7 @@ corner-nonUnique-expressible :
   (NonUnique all) Ã— (Â¬ Inexpressible constants all)
 corner-nonUnique-expressible = allIsNonUnique , allIsExpressibleInConstants
 
--- â”â” corner 2: unique, inexpressible â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€ corner 2: unique, inexpressible â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 selfIsInexpressibleInConstants : Inexpressible constants self
 selfIsInexpressibleInConstants true  = false , trueâ‰¢false
@@ -98,7 +98,7 @@ corner-unique-inexpressible :
   (Â¬ NonUnique self) Ã— (Inexpressible constants self)
 corner-unique-inexpressible = selfIsUnique , selfIsInexpressibleInConstants
 
--- â”â” corner 3: both at once â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€ corner 3: both at once â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 allIsInexpressibleInOnlyFalse : Inexpressible onlyFalse all
 allIsInexpressibleInOnlyFalse _ = true , falseâ‰¢true
@@ -106,7 +106,7 @@ allIsInexpressibleInOnlyFalse _ = true , falseâ‰¢true
 corner-both : (NonUnique all) Ã— (Inexpressible onlyFalse all)
 corner-both = allIsNonUnique , allIsInexpressibleInOnlyFalse
 
--- â”â” corner 4: neither â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€ corner 4: neither â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 selfIsExpressibleInOnlyId : Â¬ Inexpressible onlyId self
 selfIsExpressibleInOnlyId ie = ie tt .snd refl

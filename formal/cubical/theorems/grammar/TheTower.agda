@@ -13,30 +13,30 @@
 --   4  ordered text       the strapha, in its order
 --   5  alphabet order     the iva-stra list beneath the rules
 --
--- The separations, all checked, all of the same shape â” two objects the
+-- The separations, all checked, all of the same shape â€” two objects the
 -- coarser level identifies and the finer one distinguishes:
 --
---   1 â 2   `cardinality-forgets-which` (below).  `Bool` has two
+--   1 â† 2   `cardinality-forgets-which` (below).  `Bool` has two
 --           self-equivalences; the cardinality is 2 either way.
---   2 â 3   `Laghava.laghava-collision`.  Two expressions, one function,
---           different à²à¾à˜àµ.
---   3 â 4   `Anuvrtti.anuvrtti-collision`.  Two texts, one rule set,
---           different à²à¾à˜àµ, by àà¨ààµààààà¿.
---   4 â 5   `Pratyahara.no-order-makes-all-intervals`.  Not a collision â”
+--   2 â† 3   `Laghava.laghava-collision`.  Two expressions, one function,
+--           different à¤²à¤¾à¤˜à¤µ.
+--   3 â† 4   `Anuvrtti.anuvrtti-collision`.  Two texts, one rule set,
+--           different à¤²à¤¾à¤˜à¤µ, by à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿.
+--   4 â† 5   `Pratyahara.no-order-makes-all-intervals`.  Not a collision â€”
 --           an exhaustive impossibility.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHERE UNIVALENCE SITS
 --
 -- At level 1, and exactly there.  `UnivalenceErasesTheAlgorithm` shows
 -- `ua` records the equivalence and nothing beneath it, so univalence is
--- the tool for the top level and is blind to 2â“5 by construction â” which
--- is not a defect and is why à²à¾à˜àµ had to be invented separately.
+-- the tool for the top level and is blind to 2â€“5 by construction â€” which
+-- is not a defect and is why à¤²à¤¾à¤˜à¤µ had to be invented separately.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHY FIVE AND NOT MORE
 --
--- Levels 3â“5 are Pini's and were
+-- Levels 3â€“5 are Pini's and were
 -- read off the Adhyy's actual devices; a tradition with different
 -- devices would supply different levels.  These five are distinct, and
 -- that is what the four terms establish.
@@ -54,7 +54,7 @@ open import Anuvrtti using (anuvrtti-collision)
 open import Pratyahara using (no-order-makes-all-intervals)
 
 ------------------------------------------------------------------------
--- 1 â 2.  Cardinality does not determine the function.
+-- 1 â† 2.  Cardinality does not determine the function.
 --
 -- `Bool` and `Bool` are equivalent in two ways; at level 1 that is one fact (the
 -- cardinality is 2), at level 2 it is two different functions.
@@ -77,23 +77,23 @@ both-are-involutions = (Î» _ â†’ refl) , inv
   inv false = refl
 
 ------------------------------------------------------------------------
--- 2.  The tower, assembled â” every separation as a term in one place
+-- 2.  The tower, assembled â€” every separation as a term in one place
 ------------------------------------------------------------------------
 
--- 1 â 2 : here.
--- 2 â 3 : two expressions, one meaning, different size.
+-- 1 â† 2 : here.
+-- 2 â† 3 : two expressions, one meaning, different size.
 level2â†3 = laghava-collision
 
--- 3 â 4 : two texts, one rule set, different cost.
+-- 3 â† 4 : two texts, one rule set, different cost.
 level3â†4 = anuvrtti-collision
 
--- 4 â 5 : every ordering of three letters fails on some pair.
+-- 4 â† 5 : every ordering of three letters fails on some pair.
 level4â†5 = no-order-makes-all-intervals
 
 ------------------------------------------------------------------------
 -- 3.  The shape of the four, said once.
 --
 -- Three of them are COLLISIONS: two objects identified above, separated
--- below.  The fourth is not â” it is an exhaustive impossibility, and by
--- `Pratyahara` Â§Â§6â“7 its content is a size, four rather than three.
+-- below.  The fourth is not â€” it is an exhaustive impossibility, and by
+-- `Pratyahara` Â§Â§6â€“7 its content is a size, four rather than three.
 ------------------------------------------------------------------------

@@ -5,7 +5,7 @@
 --
 -- MERU DIAGONAL = FIBONACCI.  Halyudha's observation that the
 -- shallow diagonals of the meru-prastra (`Meru`) sum to the
--- mtrmeru (`Matramerus`) â” `Fib(n+1) = âˆâ– C(nâˆ’k,k)` â” unifying
+-- mÄtrÄmeru (`Matramerus`) â€” `Fib(n+1) = âˆ‘â‚– C(nâˆ’k,k)`  unifying
 -- the two combinatorics modules.
 --
 -- The identity is proved, in the other encoding, by the `à®àà°à n k`
@@ -16,30 +16,30 @@
 --     DiagonalIsMatra.diagonal-is-matra : matra n â‰¡ antidiag n
 --
 -- is the identity.  This file is the BRIDGE between two encodings of
--- the same count â” four lines of induction, because both sides already
+-- the same count â€” four lines of induction, because both sides already
 -- carry the Virahka recurrence.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE TWO COUNTS
 --
---   `Matramerus.àà°ààµ n`     the LIST of all n-à®à¾ààà°à¾ metres, with
+--   `Matramerus.à¤¸à¤°à¥à¤µ n`     the LIST of all n-à¤®à¤¾à¤¤à¥à¤°à¤¾ metres, with
 --                          soundness and completeness proved there, so
 --                          its length is the count and not a proxy;
 --   `PingalaPrastara.matra` the count by recurrence,
 --                          matra (n+2) = matra (n+1) + matra n.
 --
--- `Matramerus.à®à¾ààà°à¾à®àà°à` gives the same recurrence for the length.  Two
--- functions on â• with one recurrence and one pair of base cases are
+-- `Matramerus.à¤®à¤¾à¤¤à¥à¤°à¤¾à¤®à¥‡à¤°à¥` gives the same recurrence for the length.  Two
+-- functions on â„• with one recurrence and one pair of base cases are
 -- equal, and Â§2 is that induction.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE THEOREM
 --
 --     virahanka-is-the-diagonal :
---       length (àà°ààµ n) â‰¡ antidiag n
+--       length (à¤¸à¤°à¥à¤µ n) â‰¡ antidiag n
 --
--- The number of metres of n à®à¾ààà°à¾ â” Virahka's count, the àà¾à²à‹
--- diagonal's target â” IS the shallow-diagonal sum of the meru-prastra.
+-- The number of metres of n à¤®à¤¾à¤¤à¥à¤°à¤¾ â€” VirahÄá¹…ka's count, the à¤¶à¤¾à¤²à¥‹
+-- diagonal's target â€” IS the shallow-diagonal sum of the meru-prastÄra.
 -- Halyudha's observation, at the two modules.
 ------------------------------------------------------------------------
 
@@ -57,7 +57,7 @@ open import DiagonalIsMatra using (diagonal-is-matra)
 ------------------------------------------------------------------------
 -- 1.  Both sides carry the Virahka recurrence
 --
--- `matra` by definition; `length (àà°ààµ _)` by `Matramerus.à®à¾ààà°à¾à®àà°à`,
+-- `matra` by definition; `length (à¤¸à¤°à¥à¤µ _)` by `Matramerus.à¤®à¤¾à¤¤à¥à¤°à¤¾à¤®à¥‡à¤°à¥`,
 -- which is proved there from soundness and completeness of the list.
 ------------------------------------------------------------------------
 
@@ -91,7 +91,7 @@ virahanka-is-the-diagonal n = sym (matra-is-sarva n) âˆ™ diagonal-is-matra n
 ------------------------------------------------------------------------
 -- 4.  It runs
 --
---   àà°ààµ 6 has 13 metres, and the antidiagonal a+b=6 of the meru is
+--   à¤¸à¤°à¥à¤µ 6 has 13 metres, and the antidiagonal a+b=6 of the meru is
 --   C(6,0)+C(5,1)+C(4,2)+C(3,3) = 1+5+6+1 = 13.
 ------------------------------------------------------------------------
 

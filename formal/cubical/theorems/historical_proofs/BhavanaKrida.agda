@@ -1,32 +1,32 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- BhavanaKrida â” àà¾àµà¨à¾à•àà°àà¡à¾, the composition as something a child holds.
+-- BhavanaKrida â€” à¤­à¤¾à¤µà¤¨à¤¾à¤•à¥à¤°à¥€à¤¡à¤¾, the composition as something a child holds.
 --
 -- WHAT THIS IS FOR.  `Bhavana.agda` proves Brahmagupta's identity over an
 -- arbitrary commutative ring.  That is the law.  This module is not the law
 -- again: it is the law made into an OBJECT, so that the invariant lives in
 -- the TYPE and an unlawful card is not a thing you can build.
 --
--- A àààà° (patra, "leaf, card") of index k is a pair of numbers TOGETHER WITH
+-- A à¤ªà¤¤à¥à¤° (patra, "leaf, card") of index k is a pair of numbers TOGETHER WITH
 -- the proof that xÂ² âˆ’ D yÂ² = k.  There is no other way to make one.  So:
 --
 --   * a wrong card is not rejected, it is UNSAYABLE.  Nothing tells the
 --     child they are wrong, because the wrong move does not exist.  The
---     difference matters â” a system that says "wrong" teaches fear, and a
+--     difference matters â€” a system that says "wrong" teaches fear, and a
 --     system in which the wrong move is simply not among the moves does not.
 --
---   * the single move, àà¾àµà¨à¾, takes two cards and returns a card, and its
---     TYPE carries what happened: àààà° D kâ â’ àààà° D kâ â’ àààà° D (kâ Â kâ).
+--   * the single move, à¤­à¤¾à¤µà¤¨à¤¾, takes two cards and returns a card, and its
+--     TYPE carries what happened: à¤ªà¤¤à¥à¤° D kâ‚ â†’ à¤ªà¤¤à¥à¤° D kâ‚‚ â†’ à¤ªà¤¤à¥à¤° D (kâ‚ Â· kâ‚‚).
 --     Playing is proving.  The child never checks anything; the checking is
 --     what the move IS.
 --
---   * reaching `àààà° D (pos 1)` is winning, and it is a solution of
---     xÂ² âˆ’ D yÂ² = 1 â” the equation Europe called Pell's, after a man who
+--   * reaching `à¤ªà¤¤à¥à¤° D (pos 1)` is winning, and it is a solution of
+--     xÂ² âˆ’ D yÂ² = 1 â€” the equation Europe called Pell's, after a man who
 --     never worked on it.
 --
 -- THE LADDER BELOW IS NOT A DEMONSTRATION, IT IS THE GAME PLAYED.  Start
--- from the one obvious card at D = 2 â” (1,1), since 1 âˆ’ 2 = âˆ’1 â” and do the
+-- from the one obvious card at D = 2 â€” (1,1), since 1 âˆ’ 2 = âˆ’1 â€” and do the
 -- only thing there is to do: compose it with what you have.  Eight moves:
 --
 --     (1,1)  (3,2)  (7,5)  (17,12)  (41,29)  (99,70)  (239,169)  (577,408)
@@ -34,51 +34,51 @@
 -- and the last of those is where this stops being a game.
 --
 -- SOURCE, AND IT IS OLDER THAN THE COMPOSITION LAW.  577/408 is Baudhyana's
--- value for âˆ2:
+-- value for âˆš2:
 --
---     Baudhyana ulbastra 1.61â“62 (c. 800 BCE)
---     ààà°à®à¾àà ààààà¯àà¨ àµà°àà§à¯ààà àààà àààà°àààà¨à¾ààà®àààààààà°à¿ààà‹à¨àà¨ ààµà¿àààà
+--     BaudhÄyana ÅšulbasÅ«tra 1.61â€“62 (c. 800 BCE)
+--     à¤ªà¥à¤°à¤®à¤¾à¤£à¤‚ à¤¤à¥ƒà¤¤à¥€à¤¯à¥‡à¤¨ à¤µà¤°à¥à¤§à¤¯à¥‡à¤¤à¥ à¤¤à¤šà¥à¤š à¤šà¤¤à¥à¤°à¥à¤¥à¥‡à¤¨à¤¾à¤¤à¥à¤®à¤šà¤¤à¥à¤¸à¥à¤¤à¥à¤°à¤¿à¤‚à¤¶à¥‹à¤¨à¥‡à¤¨ à¤¸à¤µà¤¿à¤¶à¥‡à¤·à¤ƒ
 --     prama ttyena vardhayet tac ca caturthentmacatustrionena
 --     saviea
 --     "Increase the measure by its third, and that third by its own fourth
 --      less the thirty-fourth part of that fourth: that is the saviea."
 --
---     1 + 1/3 + 1/(3Â4) âˆ’ 1/(3Â4Â34)  =  577/408
+--     1 + 1/3 + 1/(3Â·4) âˆ’ 1/(3Â·4Â·34)  =  577/408
 --
 -- Note where that construction passes through: 1 + 1/3 = 4/3, then + 1/12 =
--- 17/12 â” which is rung four of the ladder below â” then âˆ’ 1/408 = 577/408,
+-- 17/12 â€” which is rung four of the ladder below â€” then âˆ’ 1/408 = 577/408,
 -- which is rung eight.  The altar-builders' recipe and the card game walk
 -- the same ladder.  A child who plays this to the eighth move has built, by
 -- hand, the number in the ulbastra, and can see that it is there.
 --
--- THE PART THAT IS THE WHOLE POINT.  577Â² âˆ’ 2Â408Â² = 1 is never computed
--- here.  Nobody multiplies 577 by itself.  The `à¨à¿à¯à®à` field of rung eight
--- is constructed by àà¾àµà¨à¾ out of the algebra, so the equation holds because
+-- THE PART THAT IS THE WHOLE POINT.  577Â² âˆ’ 2Â·408Â² = 1 is never computed
+-- here.  Nobody multiplies 577 by itself.  The `à¤¨à¤¿à¤¯à¤®à¤ƒ` field of rung eight
+-- is constructed by à¤­à¤¾à¤µà¤¨à¤¾ out of the algebra, so the equation holds because
 -- of what the move IS, not because someone checked it.  That is the
 -- difference between a medium and a worksheet, and the entire curriculum
 -- argument is in that one sentence.
 --
--- That is measured, not asserted.  Â§1â“Â§4 â” the whole ladder, both
+-- That is measured, not asserted.  Â§1â€“Â§4 â€” the whole ladder, both
 -- coordinates of every rung, and the fact that rung eight solves the
--- equation â” check in about three seconds.  Adding ONE line that restates
--- the same fact as `N à¦ààµà¿ (pos 577) (pos 408) â‰¡ pos 1` does not finish
--- inside ninety.  Cubical â multiplication is unary recursion on its first
+-- equation â€” check in about three seconds.  Adding ONE line that restates
+-- the same fact as `N à¤¦à¥à¤µà¤¿ (pos 577) (pos 408) â‰¡ pos 1` does not finish
+-- inside ninety.  Cubical â„¤ multiplication is unary recursion on its first
 -- argument, so that spelling makes the checker count to 333000 twice.  Â§5
 -- records both attempts I made to avoid it, including the one that was
 -- based on a wrong expectation about what a path spares you.
 --
--- (`ààààà¿-àà°àà•ààà¾` verifies one small rung the slow way, at 17 and 12, so
+-- (`à¤…à¤¸à¥à¤¤à¤¿-à¤ªà¤°à¥€à¤•à¥à¤·à¤¾` verifies one small rung the slow way, at 17 and 12, so
 -- that the two routes agree at least once where the agreement is cheap.)
 --
 -- Contents: no postulates, no holes, --safe.
---   àààà°            a card: two numbers and the proof, indexed by the norm
---   àà¾àµà¨à¾           the one move; Brhmasphuasiddhnta 18, 628 CE
---   àà¦à¿             the seed at D = 2
---   à°ààààâ .. à°ààààâˆ  the eight rungs, each with its index in its type
---   àà™àà•à¾àâ .. âˆ     the coordinates of every rung, by refl
---   àà¯à             rung eight: a solution of xÂ² âˆ’ 2yÂ² = 1
---   à¨-àààà°à®à         a pair that is not a card, checked
---   ààààà¿-àà°àà•ààà¾    one rung cross-checked by computation
+--   à¤ªà¤¤à¥à¤°            a card: two numbers and the proof, indexed by the norm
+--   à¤­à¤¾à¤µà¤¨à¤¾           the one move; BrÄhmasphuá¹­asiddhÄnta 18, 628 CE
+--   à¤†à¤¦à¤¿             the seed at D = 2
+--   à¤°à¤œà¥à¤œà¥â‚ .. à¤°à¤œà¥à¤œà¥â‚ˆ  the eight rungs, each with its index in its type
+--   à¤…à¤™à¥à¤•à¤¾à¤ƒâ‚ .. â‚ˆ     the coordinates of every rung, by refl
+--   à¤œà¤¯à¤ƒ             rung eight: a solution of xÂ² âˆ’ 2yÂ² = 1
+--   à¤¨-à¤ªà¤¤à¥à¤°à¤®à¥         a pair that is not a card, checked
+--   à¤…à¤¸à¥à¤¤à¤¿-à¤ªà¤°à¥€à¤•à¥à¤·à¤¾    one rung cross-checked by computation
 ------------------------------------------------------------------------
 
 module BhavanaKrida where
@@ -99,7 +99,7 @@ open CommRingStr (snd â„¤CommRing) using (_Â·_)
 ------------------------------------------------------------------------
 -- 1.  The card.
 --
--- `N D x y` is xÂ² âˆ’ D yÂ².  A àààà° D k is a pair carrying the proof that its
+-- `N D x y` is xÂ² âˆ’ D yÂ².  A à¤ªà¤¤à¥à¤° D k is a pair carrying the proof that its
 -- norm is k.  The proof is a FIELD, not a side condition, so the type is
 -- inhabited by lawful cards and by nothing else.
 ------------------------------------------------------------------------
@@ -204,7 +204,7 @@ open à¤ªà¤¤à¥à¤° public
 à¤…à¤™à¥à¤•à¤¾à¤ƒâ‚‡ : à¤…à¤™à¥à¤•à¥Œ à¤°à¤œà¥à¤œà¥â‚‡ â‰¡ à¤¯à¥à¤—à¥à¤®à¤®à¥ (pos 239) (pos 169)
 à¤…à¤™à¥à¤•à¤¾à¤ƒâ‚‡ = refl
 
--- BAUDHYANA.  ulbastra 1.61â“62, c. 800 BCE: 577/408.
+-- BAUDHÄ€YANA.  ÅšulbasÅ«tra 1.61â€“62, c. 800 BCE: 577/408.
 à¤…à¤™à¥à¤•à¤¾à¤ƒâ‚ˆ : à¤…à¤™à¥à¤•à¥Œ à¤°à¤œà¥à¤œà¥â‚ˆ â‰¡ à¤¯à¥à¤—à¥à¤®à¤®à¥ (pos 577) (pos 408)
 à¤…à¤™à¥à¤•à¤¾à¤ƒâ‚ˆ = refl
 
@@ -218,31 +218,31 @@ open à¤ªà¤¤à¥à¤° public
 ------------------------------------------------------------------------
 -- 5.  Winning, and what it means.
 --
--- `àààà° à¦ààµà¿ (pos 1)` is a solution of xÂ² âˆ’ 2yÂ² = 1.  Rung eight is one,
--- and its `à¨à¿à¯à®à` field IS the equation 577Â² âˆ’ 2Â408Â² = 1 â” held, not
+-- `à¤ªà¤¤à¥à¤° à¤¦à¥à¤µà¤¿ (pos 1)` is a solution of xÂ² âˆ’ 2yÂ² = 1.  Rung eight is one,
+-- and its `à¤¨à¤¿à¤¯à¤®à¤ƒ` field IS the equation 577Â² âˆ’ 2Â·408Â² = 1 â€” held, not
 -- computed.
 ------------------------------------------------------------------------
 
 à¤œà¤¯à¤ƒ : à¤ªà¤¤à¥à¤° à¤¦à¥à¤µà¤¿ (pos 1)
 à¤œà¤¯à¤ƒ = à¤°à¤œà¥à¤œà¥â‚ˆ
 
--- 577Â² âˆ’ 2Â408Â² = 1 IS ALREADY STATED, and it is stated by the two lines
--- above plus Â§4.  `àà¯à` has type `àààà° à¦ààµà¿ (pos 1)`, whose à¨à¿à¯à®à field is
--- exactly N à¦ààµà¿ x y â‰¡ 1 for that card's own x and y; `àà™àà•à¾àâˆ` says those
+-- 577Â² âˆ’ 2Â·408Â² = 1 IS ALREADY STATED, and it is stated by the two lines
+-- above plus Â§4.  `à¤œà¤¯à¤ƒ` has type `à¤ªà¤¤à¥à¤° à¤¦à¥à¤µà¤¿ (pos 1)`, whose à¤¨à¤¿à¤¯à¤®à¤ƒ field is
+-- exactly N à¤¦à¥à¤µà¤¿ x y â‰¡ 1 for that card's own x and y; `à¤…à¤™à¥à¤•à¤¾à¤ƒâ‚ˆ` says those
 -- are 577 and 408.  Both check in about three seconds.
 --
 -- WHAT I TRIED NEXT, AND WHY IT IS NOT HERE.  The obvious move is to write
 -- the equation out as one more term:
 --
---     àà®àà•à°àà®à : N à¦ààµà¿ (pos 577) (pos 408) â‰¡ pos 1
+--     à¤¸à¤®à¥€à¤•à¤°à¤£à¤®à¥ : N à¤¦à¥à¤µà¤¿ (pos 577) (pos 408) â‰¡ pos 1
 --
--- I wrote it, twice â” once directly as `à¨à¿à¯à®à à°ààààâˆ`, once as a transport
+-- I wrote it, twice â€” once directly as `à¤¨à¤¿à¤¯à¤®à¤ƒ à¤°à¤œà¥à¤œà¥â‚ˆ`, once as a transport
 -- along Â§4's path, thinking the second would dodge the cost.  Neither
 -- finishes.  Both make the checker CONVERT two spellings of the same number,
--- and cubical â multiplication is unary recursion on its first argument, so
+-- and cubical â„¤ multiplication is unary recursion on its first argument, so
 -- conversion means counting: about 333000 successor steps for 577Â², as many
--- again for 2Â408Â², and a subtraction of the same order.  Measured, not
--- guessed: Â§1â“Â§4 check in 3s, and adding that one line runs past 90s.
+-- again for 2Â·408Â², and a subtraction of the same order.  Measured, not
+-- guessed: Â§1â€“Â§4 check in 3s, and adding that one line runs past 90s.
 --
 -- But the line was never needed, and wanting it is the reflex this module
 -- exists to name.  Restating a result that is already carried, in a form
@@ -258,8 +258,8 @@ open à¤ªà¤¤à¥à¤° public
 ------------------------------------------------------------------------
 -- 6.  You cannot cheat, and here is one instance of that.
 --
--- The type is the referee.  There is no àààà° à¦ààµà¿ (pos 1) with coordinates
--- (3,3), because there is no proof to put in the field â” and the absence is
+-- The type is the referee.  There is no à¤ªà¤¤à¥à¤° à¤¦à¥à¤µà¤¿ (pos 1) with coordinates
+-- (3,3), because there is no proof to put in the field â€” and the absence is
 -- a checked fact, not a policy.
 ------------------------------------------------------------------------
 
@@ -273,7 +273,7 @@ open à¤ªà¤¤à¥à¤° public
 ------------------------------------------------------------------------
 -- 7.  One rung checked the slow way, so that the two agree once.
 --
--- Rung four, 17Â² âˆ’ 2Â12Â² = 289 âˆ’ 288 = 1, verified by COMPUTATION rather
+-- Rung four, 17Â² âˆ’ 2Â·12Â² = 289 âˆ’ 288 = 1, verified by COMPUTATION rather
 -- than by the move.  It agrees, as it must.  Doing this at rung eight would
 -- send the type checker through hundreds of thousands of unary steps to
 -- learn what Â§5 already holds.

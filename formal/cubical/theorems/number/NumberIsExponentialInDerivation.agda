@@ -4,11 +4,11 @@
 -- NumberIsExponentialInDerivation
 --
 -- `TheTrajectoryIsAChain` removed one class of answers to "where does the
--- walk's e^Ïˆ(k) come from?" â” it is not the width of the lattice, since
+-- walk's e^Ïˆ(k) come from?" â€” it is not the width of the lattice, since
 -- the walk never visits an incomparable pair.  This module supplies the
 -- mechanism that is left, and supplies it without a single asymptotic.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE MECHANISM
 --
 -- The walk's state, honestly described, is a DERIVATION: the exponent
@@ -16,22 +16,22 @@
 -- number is what `val` produces from it, and `val` EXPONENTIATES.  So at
 -- every single coordinate:
 --
---     sucâ‰^ :  suc e  â‰  b ^ e        for every base b â‰ 2
+--     sucâ‰¤^ :  suc e  â‰¤  b ^ e        for every base b â‰¥ 2
 --
 -- The exponent the walk actually needs to record is e.  The numeric
 -- factor it records instead is b^e, which exceeds e.  Coordinatewise,
 -- **the number is exponential in the derivation**, and this is a bound
--- with no Ïˆ, no Ï, and no Chebyshev in it â” an induction on e.
+-- with no Ïˆ, no Ï€, and no Chebyshev in it â€” an induction on e.
 --
 -- That is where the size goes.  Not the lattice's width; the encoding.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHY THIS IS THE SAME SENTENCE `SumProductTorus` ALREADY WROTE
 --
 -- That module says: "Factorisation is hard only for someone who threw the
 -- derivation away and is trying to invert `val` from the outside."  This
 -- one says the state SIZE is inflated by exactly the same act.  The walk
--- holds its derivation by construction â” it installs its prime powers â”
+-- holds its derivation by construction â€” it installs its prime powers â€”
 -- and then stores their product.  The product is not more informative
 -- (`val` is injective on a prime basis); it is only bigger, and bigger by
 -- an exponential at every coordinate.
@@ -53,10 +53,10 @@ open import Cubical.Data.Unit using (tt)
 open import SumProductTorus using (Exp ; val ; primes4)
 
 ------------------------------------------------------------------------
--- 1.  Any base â‰ 2 raised to e is at least 1, and exceeds e
+-- 1.  Any base â‰¥ 2 raised to e is at least 1, and exceeds e
 --
 -- Bases are written `suc (suc b)` so that `b ^ suc e` reduces to a sum
--- with `b ^ e` as its head â” the shape the two inductions need.
+-- with `b ^ e` as its head â€” the shape the two inductions need.
 ------------------------------------------------------------------------
 
 1â‰¤^ : (b e : â„•) â†’ 1 â‰¤ (suc (suc b)) ^ e
@@ -64,7 +64,7 @@ open import SumProductTorus using (Exp ; val ; primes4)
 1â‰¤^ b (suc e) = â‰¤-trans (1â‰¤^ b e) â‰¤SumLeft
 
 -- THE BOUND.  The numeric factor is strictly larger than the exponent it
--- encodes, at every coordinate, for every base â‰ 2.
+-- encodes, at every coordinate, for every base â‰¥ 2.
 sucâ‰¤^ : (b e : â„•) â†’ suc e â‰¤ (suc (suc b)) ^ e
 sucâ‰¤^ b zero    = â‰¤-refl
 sucâ‰¤^ b (suc e) = subst (_â‰¤ ((suc (suc b)) ^ suc e)) shape
@@ -83,7 +83,7 @@ exponent-is-dwarfed = sucâ‰¤^
 ------------------------------------------------------------------------
 -- 2.  On the walk's own state.
 --
--- cap 8 = 840 = 2Â³Â3Â5Â7.  Its 2-coordinate is the number 3; the numeric
+-- cap 8 = 840 = 2Â³Â·3Â·5Â·7.  Its 2-coordinate is the number 3; the numeric
 -- factor storing that 3 is 8.  Every coordinate is like this and the
 -- ratio grows with the coordinate.
 ------------------------------------------------------------------------

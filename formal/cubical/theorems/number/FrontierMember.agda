@@ -5,19 +5,19 @@
 --
 -- The second of the three pieces `PFreePart` named:
 --
---     frontier-member : IsPrime p â’ p â‰ k
---                     â’ Mem (p , logOf p k) (frontierList k)
+--     frontier-member : IsPrime p â†’ p â‰¤ k
+--                     â†’ Mem (p , logOf p k) (frontierList k)
 --
 -- Every prime up to k appears in the frontier, paired with the exponent
 -- `ExponentBound` just specified.  With that specification in hand this
--- is pure list structure â” three inductions, no arithmetic beyond
--- `â‰-split`.
+-- is pure list structure â€” three inductions, no arithmetic beyond
+-- `â‰¤-split`.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- MEMBERSHIP AS A RECURSIVE FAMILY
 --
--- `Mem x [] = âŠ`, `Mem x (y âˆ ys) = (x â‰¡ y) âŠ Mem x ys`, which is this
--- lane's standing idiom: cubical v0.5 gives no `_âˆ_` injectivity for
+-- `Mem x [] = âŠ¥`, `Mem x (y âˆ· ys) = (x â‰¡ y) âŠŽ Mem x ys`, which is this
+-- lane's standing idiom: cubical v0.5 gives no `_âˆ·_` injectivity for
 -- indexed inductive membership, so the family is written by recursion on
 -- the list and every proof is a case split rather than a constructor
 -- inversion.
@@ -51,7 +51,7 @@ Mem x []       = âŠ¥
 Mem x (y âˆ· ys) = (x â‰¡ y) âŠŽ Mem x ys
 
 ------------------------------------------------------------------------
--- 2.  Every positive p â‰ k is in `downFrom k`
+-- 2.  Every positive p â‰¤ k is in `downFrom k`
 ------------------------------------------------------------------------
 
 âˆˆ-downFrom : (p k : â„•) â†’ 0 < p â†’ p â‰¤ k â†’ Mem p (downFrom k)
@@ -110,9 +110,9 @@ frontier-member p k pr pâ‰¤k =
 ------------------------------------------------------------------------
 -- 6.  It runs, against the list `FrontierList` computes
 --
---   frontierList 8 = (7,1) âˆ (5,1) âˆ (3,1) âˆ (2,3) âˆ []
+--   frontierList 8 = (7,1) âˆ· (5,1) âˆ· (3,1) âˆ· (2,3) âˆ· []
 --
--- so (2 , logâ 8) = (2 , 3) is the fourth entry, and the derived
+-- so (2 , logâ‚‚ 8) = (2 , 3) is the fourth entry, and the derived
 -- membership must land there.
 ------------------------------------------------------------------------
 
@@ -139,7 +139,7 @@ seven-in-8 = frontier-member 7 8 prime7 (1 , refl)
 -- The third ingredient `FrontierDividesHard` needs, beside `ExponentBound`
 -- and this module, is
 --
---     gcd (p ^ a) m' = 1   from   Â (p âˆ m')   with p prime,
+--     gcd (p ^ a) m' = 1   from   Â¬ (p âˆ£ m')   with p prime,
 --
 -- which `NaturalMachine/PrimeCofactorCoprime.agda` proves without Euclid:
 -- with this lane's own definition of `IsPrime` a common divisor of `p` and

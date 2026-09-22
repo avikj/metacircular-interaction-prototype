@@ -3,11 +3,11 @@
 ------------------------------------------------------------------------
 -- RnaDhana_TheMixedStrataArePairwiseDisjointAndOrdered
 --
--- à‹àà§à¨ Â a-dhana â” Brahmagupta, *Brhmasphuasiddhnta* (628): one
+-- à¤‹à¤£à¤§à¤¨ Â· á¹›á¹‡a-dhana â€” Brahmagupta, *BrÄhmasphuá¹­asiddhÄnta* (628): one
 -- magnitude read as *dhana* (asset) or *a* (debt).  The sign rules
 -- are his; nothing else here is.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- The one-step mixed output properties are iterated here over the whole
 -- mixed stratification: disjointness and order.
 --
@@ -22,7 +22,7 @@
 --   theMixedStrataAreOrdered
 --                           every member of a later mixed stratum is
 --                           strictly beaten, in the MIXED order, by a
---                           member of an earlier one â” for every fuel,
+--                           member of an earlier one â€” for every fuel,
 --                           given caps bounding the archive
 --
 -- **DISJOINTNESS NEEDS NO CAPS AND NO FLIP AT ALL**, exactly as at one
@@ -31,7 +31,7 @@
 -- inside the remainder.  ORDER needs both, and only through
 -- `mixedRemainderIsBeaten`, whose cap requirement survives peeling by
 -- `allBoundedFilterOut`.  The asymmetry first seen in the unflipped
--- stratification â” coverage needs the measure, disjointness does not â”
+-- stratification â€” coverage needs the measure, disjointness does not â€”
 -- reappears here in a sharper form: **disjointness and order differ not
 -- only in what they need but in WHOSE machinery they need. One is
 -- generic list surgery; the other is the whole a-dhana transport.**
@@ -92,7 +92,7 @@ mixedStrataSound (suc n) ds (v âˆ· vs) u (inr k) =
     (mixedStrataSound n ds (mixedRemainder ds (v âˆ· vs)) u k)
 
 ------------------------------------------------------------------------
--- 2.  Pairwise disjointness â” generic list surgery, no caps
+-- 2.  Pairwise disjointness â€” generic list surgery, no caps
 ------------------------------------------------------------------------
 
 DisjointM : {ds : List Bool} â†’ List (Vec ds) â†’ List (Vec ds) â†’ Type
@@ -130,7 +130,7 @@ theMixedStrataArePairwiseDisjoint (suc n) ds (v âˆ· vs) =
   , theMixedStrataArePairwiseDisjoint n ds (mixedRemainder ds (v âˆ· vs))
 
 ------------------------------------------------------------------------
--- 3.  Order â” the caps enter, through the one-step theorem
+-- 3.  Order â€” the caps enter, through the one-step theorem
 ------------------------------------------------------------------------
 
 BeatsM : {ds : List Bool} â†’ List (Vec ds) â†’ List (Vec ds) â†’ Type

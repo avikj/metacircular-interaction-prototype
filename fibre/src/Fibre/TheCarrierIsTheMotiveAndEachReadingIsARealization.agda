@@ -8,13 +8,13 @@
 -- were implicit:
 --
 --   MOTIVE          = Carrier f (Fibre.Carrier): the universal lossless
---                     middle, A lifted to carry its image. `A � Carrier f`
---                     ALWAYS � the to-motive into the middle forgets nothing.
+--                     middle, A lifted to carry its image. `A ≃ Carrier f`
+--                     ALWAYS — the to-motive into the middle forgets nothing.
 --   REALIZATION     = a projection OUT of the middle (Fibre.Sesa's two
 --                     projections of the one graph). The target reading
---                     `realize = �������-���������` is one realization; the source
+--                     `realize = लक्ष्य-प्रक्षेप` is one realization; the source
 --                     reading is always an equivalence.
---   RESIDUAL / ea = what a realization forgets over a point: `��� f b`,
+--   RESIDUAL / śeṣa = what a realization forgets over a point: `शेष f b`,
 --                     the motivic "weight" the projection drops. A
 --                     realization is lossless exactly when every residual
 --                     vanishes.
@@ -22,13 +22,13 @@
 -- NEW HERE:
 --   1. THE FACTORIZATION.  `f = realize ∘ to-motive`, definitionally (refl):
 --      every map is its own realization precomposed with the lossless to-motive
---      into the middle. "Compress middle-out": never map A�B directly; to-motive
+--      into the middle. "Compress middle-out": never map A→B directly; to-motive
 --      to the motive (free) and realize (the only place loss can occur).
---   2. MIDDLE-OUT MEDIATION.  Two maps `f : A � B`, `g : A � C` share one
---      motive-source. A translation `B � C` is not built directly: when f
+--   2. MIDDLE-OUT MEDIATION.  Two maps `f : A → B`, `g : A → C` share one
+--      motive-source. A translation `B → C` is not built directly: when f
 --      forgets nothing, invert through the shared middle and realize with g.
 --      Store n realizations of one motive, mediate the n² translations
---      through it � and `through-the-middle-agrees` proves the mediation is
+--      through it — and `through-the-middle-agrees` proves the mediation is
 --      the intended composite on lifted points.
 --
 ------------------------------------------------------------------------
@@ -74,7 +74,7 @@ module _ {A B : Type ℓ} (f : A → B) where
   f-factors-through-the-motive a = refl
 
   -- THE RESIDUAL a realization forgets, and the exact condition for it to
-  -- forget nothing: every ea contractible � the realization is an
+  -- forget nothing: every śeṣa contractible ⇔ the realization is an
   -- equivalence. (Both directions are Fibre.Sesa terms, renamed.)
   realization-is-lossless-when-every-residual-vanishes :
     ((b : B) → isContr (शेष f b)) → motive ≃ B
@@ -92,7 +92,7 @@ module _ {A B : Type ℓ} (f : A → B) where
 module _ {A B C : Type ℓ} (f : A → B) (g : A → C) where
 
   -- When f forgets nothing, B recovers the motive-source, and g realizes it
-  -- into C. No direct B�C compiler is built; the shared middle mediates.
+  -- into C. No direct B→C compiler is built; the shared middle mediates.
   through-the-middle : ((b : B) → isContr (शेष f b)) → (B → C)
   through-the-middle c = g ∘ invEq (निःशेषः→मूल-समता f c)
 

@@ -1,18 +1,18 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡¶‡‡µ‡ø-‡Æ‡æ‡‡‡∞‡æ ‚î the fiber over total two is exactly Bool, the smallest veil.
+-- ‡§¶‡•ç‡§µ‡§ø-‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ ‚Äî the fiber over total two is exactly Bool, the smallest veil.
 --
 -- Virahka (c. 600-800 CE, Vttajtisamuccaya) on Pigala's
 -- Chandastra: the mtr-fiber over n splits as the fiber over n-1
--- with the fiber over n-2 (that is ‡µ‡ø‡∞‡‡æ‡ô‡‡ï-‡‡µ‡‡‡‡‡ø‡, already proved).
+-- with the fiber over n-2 (that is ‡§µ‡§ø‡§∞‡§π‡§æ‡§ô‡•ç‡§ï-‡§Ü‡§µ‡•É‡§§‡•ç‡§§‡§ø‡§É, already proved).
 -- Pigala's map keeps only the TOTAL and forgets the sequence, and the
 -- FIRST total at which it forgets anything is 2: below 2 the fiber is a
--- point (‡‡¶‡ø-‡‡‡®‡‡Ø‡Æ‡, ‡‡¶‡ø-‡‡ï‡Æ‡), and at exactly 2 there are precisely two
--- sequences ‚î laghu-laghu and guru.  This composes the recurrence at n=0
--- with the two contractible base fibers and Bool ‚â Unit ‚ä Unit, giving
+-- point (‡§Ü‡§¶‡§ø-‡§∂‡•Ç‡§®‡•ç‡§Ø‡§Æ‡•ç, ‡§Ü‡§¶‡§ø-‡§è‡§ï‡§Æ‡•ç), and at exactly 2 there are precisely two
+-- sequences ‚Äî laghu-laghu and guru.  This composes the recurrence at n=0
+-- with the two contractible base fibers and Bool ‚âÉ Unit ‚äé Unit, giving
 --
---        fiber ‡‡®‡‡¶‡ 2  ‚â  Bool
+--        fiber ‡§õ‡§®‡•ç‡§¶‡§É 2  ‚âÉ  Bool
 --
 -- on the nose: the first loss is exactly one bit.  This is Dvayam's
 -- "two is the smallest veil there is" made concrete at the boundary of
@@ -20,8 +20,8 @@
 -- count at 2 equals 1 + 1, seen as an identification of fibers rather
 -- than an equality of numbers.
 --
--- No new mathematics: every part is consumed, not reproved ‚î the fiber
--- recurrence and both base contractions are Virahanka's own; ‚ä-equiv,
+-- No new mathematics: every part is consumed, not reproved ‚Äî the fiber
+-- recurrence and both base contractions are Virahanka's own; ‚äé-equiv,
 -- isContr‚í‚âUnit and Iso-‚ä‚ä‚ä-Bool are the cubical library's.  TERM ‡¶‡‡µ‡ø-‡Æ‡æ‡‡‡∞‡æ (two morae), Chandastra
 -- vocabulary; substrate cubical (Voevodsky).
 ------------------------------------------------------------------------
@@ -38,9 +38,9 @@ open import Cubical.Data.Unit.Properties using (isContr‚Üí‚âÉUnit)
 
 import Virahanka_TheMatraFiberSatisfiesTheTwoStepRecurrence as V
 
--- fiber ‡‡®‡‡¶‡ 2 ‚â (fiber ‡‡®‡‡¶‡ 1 ‚ä fiber ‡‡®‡‡¶‡ 0)      -- the recurrence at 0
---             ‚â (Unit ‚ä Unit)                           -- both bases a point
---             ‚â Bool                                    -- the bi-point type
+-- fiber ‡§õ‡§®‡•ç‡§¶‡§É 2 ‚âÉ (fiber ‡§õ‡§®‡•ç‡§¶‡§É 1 ‚äé fiber ‡§õ‡§®‡•ç‡§¶‡§É 0)      -- the recurrence at 0
+--             ‚âÉ (Unit ‚äé Unit)                           -- both bases a point
+--             ‚âÉ Bool                                    -- the bi-point type
 ‡§¶‡•ç‡§µ‡§ø-‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ-‡§µ‡§∞‡§£‡§Æ‡•ç : fiber V.‡§õ‡§®‡•ç‡§¶‡§É 2 ‚âÉ Bool
 ‡§¶‡•ç‡§µ‡§ø-‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ-‡§µ‡§∞‡§£‡§Æ‡•ç =
   compEquiv (V.‡§µ‡§ø‡§∞‡§π‡§æ‡§ô‡•ç‡§ï-‡§Ü‡§µ‡•É‡§§‡•ç‡§§‡§ø‡§É 0)

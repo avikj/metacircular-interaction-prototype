@@ -11,22 +11,22 @@
 -- is Greek and the file leads with the source's own words for it.
 --
 -- Archimedes' quadratures close by eliminating both inequalities: the
--- magnitude sought is shown to be neither GREATER (με���ον, *meizon*) nor
--- LESS (��λ���ον, *elasson*) than the asserted value, therefore equal.  That
+-- magnitude sought is shown to be neither GREATER (μεῖζον, *meizon*) nor
+-- LESS (ἔλασσον, *elasson*) than the asserted value, therefore equal.  That
 -- two-sided elimination is the whole of the demonstration, and its shape is
 -- what §5 below checks.
 --
 -- WHAT IS CLAIMED OF THE GREEK SOURCES.  Only this: the double elimination
 -- is their argument form, and it consumes a hypothesis that the bracket can
--- be driven below any assigned magnitude � Eudoxus' admission condition
+-- be driven below any assigned magnitude — Eudoxus' admission condition
 -- (Euclid, *Elements* V, def. 4) acting through the bisection lemma
 -- (*Elements* X.1).
--- §§1�4 is NOT Greek; its statement of record here is the owner
+-- §§1–4 is NOT Greek; its statement of record here is the owner
 -- transmission quoted below, and the lower bound cited in §5 is linear
 -- programming duality.
 --
--- "Method of exhaustion" is not a Greek phrase either.  It is Gr�goire de
--- Saint-Vincent's coinage, *Opus geometricum*, 1647 � a 17th-century Latin
+-- "Method of exhaustion" is not a Greek phrase either.  It is Grégoire de
+-- Saint-Vincent's coinage, *Opus geometricum*, 1647 — a 17th-century Latin
 -- name for a 4th-century-BCE Greek argument.  Repo-wide, the later name has
 -- displaced the sources.  Grep over `notes/` before writing this file, for
 -- the TEXT's name and not the author's:
@@ -45,14 +45,14 @@
 -- TRANSMISSION, named because the sibling module carrying it in full landed
 -- the same hour and this one must not re-land it:
 -- `LogonEchein_TheArchimedeanConditionIsIndependentOfOrderAdditionAndALeastPositive.agda`
--- records the chain � 10th-c. Byzantine copy, scraped and overwritten as a
+-- records the chain — 10th-c. Byzantine copy, scraped and overwritten as a
 -- euchologion signed 14 April 1229, undertext identified by Johan Ludvig
 -- Heiberg at the Metochion of the Holy Sepulchre, Constantinople, 1906,
--- published 1906�1913, sold at Christie's New York 29 October 1998,
+-- published 1906–1913, sold at Christie's New York 29 October 1998,
 -- multispectral and synchrotron imaging at the Walters Art Museum
--- 1999�2008.  Read it there.  What is used here is the *Method*'s own
+-- 1999–2008.  Read it there.  What is used here is the *Method*'s own
 -- preface: the mechanical procedure supplies the result and does NOT
--- demonstrate it (ο��κ ��οδεδε�γμ�νον).  Two stages, and §5 is the second.
+-- demonstrate it (οὐκ ἀποδεδειγμένον).  Two stages, and §5 is the second.
 --
 -- THE OTHER-DIRECTION SEARCH, REPORTED PLAINLY AS A NEGATIVE.  Established
 -- today by cf-tessera-i-0 and not re-derived: the ulba-stras, the Jaina
@@ -60,12 +60,12 @@
 -- incidence structure and no difference-of-endpoints operator, and "the
 -- meru-prastra's rule is a summation along a graded DAG, not a signed
 -- difference across an undirected edge."  I ran the adjacent question for
--- THIS module's object � a MINIMUM transversal of a family of witness sets,
--- and its behaviour under parallel composition � and it comes back empty
+-- THIS module's object — a MINIMUM transversal of a family of witness sets,
+-- and its behaviour under parallel composition — and it comes back empty
 -- too.  *Anuyogadvra* and *Sthnga* enumerate *bhaga* combinations and
 -- Pigala's *prastra* generates an array by rule; neither poses a
 -- minimisation over subsets subject to a covering constraint, which is what
--- κ� is.  A reported negative is a result and I do not manufacture a use
+-- κ₀ is.  A reported negative is a result and I do not manufacture a use
 -- for one.
 --
 ------------------------------------------------------------------------
@@ -79,7 +79,7 @@
 --        independent relational tasks can require fewer interface states
 --        than separately minimizing and multiplying their interfaces."
 --
---   §3  "The interface is not required to factor as q1�q2. This
+--   §3  "The interface is not required to factor as q1×q2. This
 --        correlation produces compression."
 --
 --   §7  "This distinguishes: exact state reconstruction; exact
@@ -88,13 +88,13 @@
 --        the triangle compression above."
 --
 --   §8  "The invariant κ0 is submultiplicative under tensor:
---        κ0(R⊗S)�κ0(R)κ0(S), but not multiplicative."
+--        κ0(R⊗S)≤κ0(R)κ0(S), but not multiplicative."
 --
 --   §10 "LIVE FRONTIER: Prove or disprove G∞=0 for finite witness
 --        hypergraphs under unrestricted block selectors."
 --
--- Delta 02's Theorem 1 (κ� = 2) and Theorem 2 (κ� of the square = 3 < 4)
--- are the owner's.  §2 below re-derives them as checked terms so §§3�6 can
+-- Delta 02's Theorem 1 (κ₀ = 2) and Theorem 2 (κ₀ of the square = 3 < 4)
+-- are the owner's.  §2 below re-derives them as checked terms so §§3–6 can
 -- stand on them; the credit is his.
 --
 ------------------------------------------------------------------------
@@ -103,27 +103,27 @@
 -- ASHBY: a regulator must have at least as much variety as what it
 -- regulates.  The NUMBER a designer takes from that law: to regulate two
 -- tasks in parallel you need the product of the two varieties,
--- κ�(R⊗S) = κ�(R)�κ�(S).
+-- κ₀(R⊗S) = κ₀(R)·κ₀(S).
 --
 -- DIRAC: follow the formal beauty of the equation past what is currently
 -- justified.  The beautiful invariant here is the fractional cover value
--- �*, which Delta 02's Theorem 4 proves EXACTLY multiplicative; the
--- integral κ� is a discretisation artefact; hence K∞ = log �*, G∞ = 0, and
+-- τ*, which Delta 02's Theorem 4 proves EXACTLY multiplicative; the
+-- integral κ₀ is a discretisation artefact; hence K∞ = log τ*, G∞ = 0, and
 -- Delta 02's own §10 frontier resolves by beauty.
 --
--- They disagree about one finite number: κ� of the triangle squared.
--- Ashby's number says 4.  Dirac's says track �*² = 9/4, hence 3.
+-- They disagree about one finite number: κ₀ of the triangle squared.
+-- Ashby's number says 4.  Dirac's says track τ*² = 9/4, hence 3.
 --
 -- VERDICT, in three parts because the material splits it in three:
 --
 --   §2  DIRAC WINS ON THE FINITE FACT.  Ashby's number is refuted by a
---       checked term � three interface states suffice for the squared task,
+--       checked term — three interface states suffice for the squared task,
 --       so the price is not 4.  `ashby-number-refuted`.
 --
---   §3�§4  DIRAC LOSES ON THE EXTRAPOLATION HE WINS BY.  "Selector freedom,
+--   §3–§4  DIRAC LOSES ON THE EXTRAPOLATION HE WINS BY.  "Selector freedom,
 --       hence compression" is false as stated.  §3 proves generically that
 --       where the witness is FORCED the price multiplies exactly; §4 states
---       MY OWN strengthening of that � freedom anywhere gives compression �
+--       MY OWN strengthening of that — freedom anywhere gives compression —
 --       and kills it with a checked counterexample.
 --
 --   §5  ARCHIMEDES REFUSES G∞ = 0.  At n = 4 the transmission's own bracket
@@ -131,7 +131,7 @@
 --       only from a bracket drivable below any assigned magnitude.
 --       `G∞-is-not-decided-by-this-bracket` is that refusal, checked.
 --
--- ASHBY'S LAW SURVIVES, HIS NUMBER DOES NOT � the correction already landed
+-- ASHBY'S LAW SURVIVES, HIS NUMBER DOES NOT — the correction already landed
 -- as `NaturalMachine/Prastara_TheGaugeStreamCostsZeroCarriedBitsAndInvisibilityIsWeakerThanGauge.agda`
 -- (cf-tessera-j-1, 2026-08-20): the correct price is the image of the
 -- disturbance set under the evaluation, not its cardinality.  Not re-landed
@@ -171,8 +171,8 @@ private
 --
 -- `Rel A B` is Delta 02's R: `R a b ≡ true` says b is a valid witness at
 -- input a.  An interface is a subset S of B; it SUFFICES when every input
--- still has a valid witness inside S.  κ� is the least size of a sufficient
--- S � the least transversal of the family {R a}, i.e. the least hyperedge
+-- still has a valid witness inside S.  κ₀ is the least size of a sufficient
+-- S — the least transversal of the family {R a}, i.e. the least hyperedge
 -- cover of the witness hypergraph H_R.
 ------------------------------------------------------------------------
 
@@ -204,7 +204,7 @@ and-split true  false p = Empty.rec (false≢true p)
 and-split false _     p = Empty.rec (false≢true p)
 
 -- LAX MONOIDALITY.  A pair of interfaces gives an interface for the pair of
--- tasks.  This is the � half of Delta 02 §8, and it holds for all
+-- tasks.  This is the ≤ half of Delta 02 §8, and it holds for all
 -- relations, over any types, with no finiteness anywhere.
 hits-⊗ : {A : Type ℓA} {B : Type ℓB} {A' : Type ℓA'} {B' : Type ℓB'}
        → {R : Rel A B} {R' : Rel A' B'} {S : Iface B} {S' : Iface B'}
@@ -334,14 +334,14 @@ tri α₃ e₁₂ = false
 tri α₃ e₁₃ = true
 tri α₃ e₂₃ = true
 
--- THEOREM 1 (owner, Delta 02 §1): κ� = 2.
+-- THEOREM 1 (owner, Delta 02 §1): κ₀ = 2.
 tri-no-interface-of-size-1 : any? (suffices tri allA₃) (tuples 1 allW₃) ≡ false
 tri-no-interface-of-size-1 = refl
 
 tri-interface-2 : suffices tri allA₃ (e₁₂ ∷ e₁₃ ∷ []) ≡ true
 tri-interface-2 = refl
 
--- --- The square task R � R. -------------------------------------------
+-- --- The square task R × R. -------------------------------------------
 
 A₉ : Type₀
 A₉ = A₃ × A₃
@@ -362,11 +362,11 @@ triSq : Rel A₉ W₉
 triSq = tri ⊗ᴿ tri
 
 -- The owner's explicit three-state interface, Delta 02 §2:
---   E_12�E_12,  E_13�E_23,  E_23�E_13.
+--   E_12×E_12,  E_13×E_23,  E_23×E_13.
 ownerInterface : List W₉
 ownerInterface = (e₁₂ , e₁₂) ∷ (e₁₃ , e₂₃) ∷ (e₂₃ , e₁₃) ∷ []
 
--- THEOREM 2 (owner, Delta 02 §2): κ�(R�R) = 3 < 4 = κ�(R)².
+-- THEOREM 2 (owner, Delta 02 §2): κ₀(R×R) = 3 < 4 = κ₀(R)².
 triSq-interface-3 : suffices triSq allA₉ ownerInterface ≡ true
 triSq-interface-3 = refl
 
@@ -381,7 +381,7 @@ triSq-two-states-never-suffice =
 
 -- ASHBY'S NUMBER, stated by what it forbids, and refuted.
 --
--- If the parallel price were the product of the prices, 2�2 = 4, then no
+-- If the parallel price were the product of the prices, 2·2 = 4, then no
 -- three-state interface could suffice for the squared task.  One does.
 AshbyProductPrice : Type₀
 AshbyProductPrice =
@@ -408,8 +408,8 @@ enumeration-sizes = refl , refl , refl , refl , refl , refl
 -- A relation is FUNCTION-LIKE when each input has exactly one valid
 -- witness.  Then sufficiency is not a covering problem at all: the
 -- interface is FORCED, pointwise, with nothing to minimise.  This is
--- Delta 02 §7's second category � "exact deterministic target
--- reconstruction" � against its third.
+-- Delta 02 §7's second category — "exact deterministic target
+-- reconstruction" — against its third.
 --
 -- Proved generically, arbitrary types, no finiteness.
 ------------------------------------------------------------------------
@@ -427,14 +427,14 @@ functionLike-forces {S = S} (_ , uniq) h a =
   subst (λ w → S w ≡ true) (uniq a (fst (h a)) (fst (snd (h a))))
         (snd (snd (h a)))
 
--- �and the image is already sufficient, so it is the least interface.
+-- …and the image is already sufficient, so it is the least interface.
 functionLike-image-suffices :
   {A : Type ℓA} {B : Type ℓB} {R : Rel A B} {f : A → B} {S : Iface B}
   → FunctionLike R f → ((a : A) → S (f a) ≡ true) → Hits R S
 functionLike-image-suffices {f = f} (tot , _) p a = f a , (tot a , p a)
 
 -- STRONG MONOIDALITY ON THE DETERMINISTIC PART.  A tensor of function-like
--- relations is function-like with witness map f � f'; so the forced
+-- relations is function-like with witness map f × f'; so the forced
 -- interface of the tensor is exactly the product of the two forced
 -- interfaces.  No correlation is available to exploit and Ashby's product
 -- NUMBER is the correct price.
@@ -461,7 +461,7 @@ functionLike-⊗-forces F F' h a a' =
   functionLike-forces (functionLike-⊗ F F') h (a , a')
 
 -- A finite witness that the forced price really is the product.
--- A = {1,2}, B = {x,y}, R(1) = {x}, R(2) = {y}: κ� = 2, squared task 4.
+-- A = {1,2}, B = {x,y}, R(1) = {x}, R(2) = {y}: κ₀ = 2, squared task 4.
 
 data A₂ : Type₀ where β₁ β₂ : A₂
 data W₂ : Type₀ where x₁ x₂ : W₂
@@ -529,31 +529,31 @@ detSq-interface-4 = refl
 ------------------------------------------------------------------------
 -- 4.  REFUTATION OF MY OWN CLAIM.
 --
--- CLAIM M, which I held after §§2�3 and which is the Dirac reading pushed
+-- CLAIM M, which I held after §§2–3 and which is the Dirac reading pushed
 -- one step past the transmission:
 --
 --   "Compression is exactly the presence of choice.  §3 shows the price
 --    multiplies when the witness is forced; §2 shows it drops when it is
---    not; therefore κ�(R ⊗ R) < κ�(R)² whenever some input has two or more
+--    not; therefore κ₀(R ⊗ R) < κ₀(R)² whenever some input has two or more
 --    valid witnesses."
 --
 -- It is false, and the counterexample is small.  Take
 --
---   A = {γ�, γ�},  B = {u, v, z},  R(γ�) = {u, v},  R(γ�) = {z}.
+--   A = {γ₁, γ₂},  B = {u, v, z},  R(γ₁) = {u, v},  R(γ₂) = {z}.
 --
--- γ� has genuine choice, so Claim M predicts strict compression.  But the
+-- γ₁ has genuine choice, so Claim M predicts strict compression.  But the
 -- four required witness sets of the squared task,
 --
---   {u,v}�{u,v},   {u,v}�{z},   {z}�{u,v},   {z}�{z},
+--   {u,v}×{u,v},   {u,v}×{z},   {z}×{u,v},   {z}×{z},
 --
--- are PAIRWISE DISJOINT, so four states are forced and κ� = 4 = 2�2
+-- are PAIRWISE DISJOINT, so four states are forced and κ₀ = 4 = 2·2
 -- exactly.  Ashby's number is right here in spite of the choice.
 --
 -- WHAT KILLED IT.  Choice AT an input is not choice ACROSS inputs.  The
 -- triangle's compression in §2 needs two different inputs whose witness
 -- sets OVERLAP, so one product state can serve different coordinate-pairs
 -- under a correlated selector.  Here the two witness sets are disjoint, the
--- selector has nothing to correlate, and the local freedom at γ� is
+-- selector has nothing to correlate, and the local freedom at γ₁ is
 -- invisible to the product.  Local non-determinism is necessary for
 -- compression and is not sufficient.
 --
@@ -583,7 +583,7 @@ spl γ₂ u = false
 spl γ₂ v = false
 spl γ₂ z = true
 
--- Claim M's hypothesis genuinely holds: γ� has two distinct witnesses.
+-- Claim M's hypothesis genuinely holds: γ₁ has two distinct witnesses.
 isU : W₃′ → Bool
 isU u = true
 isU v = false
@@ -595,7 +595,7 @@ u≢v p = true≢false (cong isU p)
 spl-γ₁-has-two-witnesses : (spl γ₁ u ≡ true) × (spl γ₁ v ≡ true)
 spl-γ₁-has-two-witnesses = refl , refl
 
--- κ�(spl) = 2.
+-- κ₀(spl) = 2.
 spl-no-interface-of-size-1 :
   any? (suffices spl allA₂′) (tuples 1 allW₃′) ≡ false
 spl-no-interface-of-size-1 = refl
@@ -644,7 +644,7 @@ refutation-enumeration-sizes = refl , refl , refl , refl
 ------------------------------------------------------------------------
 -- 5.  The double elimination, and what it will not do.
 --
--- Archimedes concludes equality by eliminating both inequalities.  On �
+-- Archimedes concludes equality by eliminating both inequalities.  On ℕ
 -- that is trichotomy elimination and it is constructively available.
 ------------------------------------------------------------------------
 
@@ -674,10 +674,10 @@ openBracketDecidesNothing l h l<h =
 
 -- DELTA 02'S OWN BRACKET, AT n = 4, IN EXACT INTEGERS.
 --
--- §9 Corollary 4.1: κ�(R�) � �*(R)�, and for the triangle �* = 3/2.  At
--- n = 4 that is κ�(R�) � (3/2)� = 81/16; since 16�5 = 80 < 81 � 96 = 16�6,
+-- §9 Corollary 4.1: κ₀(Rⁿ) ≥ τ*(R)ⁿ, and for the triangle τ* = 3/2.  At
+-- n = 4 that is κ₀(R⁴) ≥ (3/2)⁴ = 81/16; since 16·5 = 80 < 81 ≤ 96 = 16·6,
 -- the integer lower bound is 6.  §8 submultiplicativity with §2's
--- κ�(R²) = 3 gives κ�(R�) � 3² = 9.
+-- κ₀(R²) = 3 gives κ₀(R⁴) ≤ 3² = 9.
 lower-bound-is-six : (16 · 5 < 81) × (81 ≤ 16 · 6)
 lower-bound-is-six = (0 , refl) , (15 , refl)
 
@@ -686,7 +686,7 @@ bracket-at-four-is-open = 2 , refl
 
 -- Hence Delta 02 §10's frontier, "Prove or disprove G∞=0", is NOT settled
 -- by the bracket it arrives with.  Dirac's extrapolation may still be true.
--- It is not demonstrated � in precisely the sense the *Method*'s preface
+-- It is not demonstrated — in precisely the sense the *Method*'s preface
 -- uses of its own mechanical results.
 G∞-is-not-decided-by-this-bracket :
   Σ[ p ∈ (ℕ × ℕ) ]

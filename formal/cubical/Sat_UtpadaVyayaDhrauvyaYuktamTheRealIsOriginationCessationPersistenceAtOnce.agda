@@ -1,10 +1,10 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
--- ��� � utpda-vyaya-dhrauvya-yukta sat (Umsvti, Tattvrthastra 5.29�30):
--- the real is endowed with origination, cessation, and persistence � SAHA, at
--- once, not in sequence (AHIMSA §26: � �������, ��). A substance persists
+-- सत् — utpāda-vyaya-dhrauvya-yuktaṁ sat (Umāsvāti, Tattvārthasūtra 5.29–30):
+-- the real is endowed with origination, cessation, and persistence — SAHA, at
+-- once, not in sequence (AHIMSA §26: न क्रमेण, सह). A substance persists
 -- (dhrauvya) while its modes arise (utpda) and pass (vyaya). Pure persistence
 -- (vata) and pure flux (uccheda) are the two one-sided durnayas; a real
--- transition refutes both � it carries persistence AND change together.
+-- transition refutes both — it carries persistence AND change together.
 module Sat_UtpadaVyayaDhrauvyaYuktamTheRealIsOriginationCessationPersistenceAtOnce where
 
 open import Cubical.Foundations.Prelude
@@ -18,8 +18,8 @@ record सत् (द्रव्य पर्याय : Type) : Type where
     वृत्तिः : पर्याय    -- paryāya: its current mode
 open सत् public
 
--- a transition (parima): substance persists, mode really changes � both at once.
--- utpda = ������� �������� (the new mode), vyaya = ������� ������� (the old, gone).
+-- a transition (pariṇāma): substance persists, mode really changes — both at once.
+-- utpādaḥ = वृत्तिः उत्तरम् (the new mode), vyayaḥ = वृत्तिः पूर्वम् (the old, gone).
 record परिणामः {D P : Type} (पूर्वम् उत्तरम् : सत् D P) : Type where
   field
     ध्रौव्यम् : आधारः पूर्वम् ≡ आधारः उत्तरम्         -- dhrauvya: substance unchanged

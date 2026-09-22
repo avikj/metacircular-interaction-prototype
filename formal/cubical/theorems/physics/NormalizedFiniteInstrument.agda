@@ -5,7 +5,7 @@
 --
 -- The smallest normalized readout supported by the current exact scalar
 -- lane.  A nonzero-total witness turns the two natural weights into a common-
--- denominator BornDistributionâ; the selected outcome and basis posterior
+-- denominator BornDistributionâ‚‚; the selected outcome and basis posterior
 -- remain explicit.  This is finite rational data, not an analytic measure.
 ------------------------------------------------------------------------
 

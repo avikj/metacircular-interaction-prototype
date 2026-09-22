@@ -1,21 +1,21 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������-��� � the rungs are separated.
+-- सोपान-भेद — the rungs are separated.
 --
 -- The ladder said each observable reads the count modulo its alias's
--- order.  This file proves the rungs are GENUINELY separated � the
+-- order.  This file proves the rungs are GENUINELY separated — the
 -- admission gate of ApurvaIndriyam, standing vertically:
 --
 --   §1  ANY OBSERVABLE WITH AN INVOLUTIVE ALIAS CONFLATES COUNTS ONE
 --       AND THREE: if O aliases through a g with g² = id, then O
---       cannot tell one quarter turn from three � the odd counts
+--       cannot tell one quarter turn from three — the odd counts
 --       collapse, generically, by the ladder law and one involution.
 --
 --   §2  THE FULL READING SEPARATES THEM: one and three quarter turns
 --       of the constant strand differ at a named coordinate.
 --
---   §3  HENCE THE FULL READING ADMITS NO INVOLUTIVE ALIAS AT ALL �
+--   §3  HENCE THE FULL READING ADMITS NO INVOLUTIVE ALIAS AT ALL —
 --       no g with g² = id makes the identity factor, for the exact
 --       reason §1 and §2 collide.  Climbing from mod-two to mod-four
 --       resolution is therefore not post-processing of any mod-two
@@ -24,7 +24,7 @@
 --
 -- The ladder and the admission gate are one structure: each rung's
 -- blindness is the next rung's certificate, which is the ea
--- trilaw's generativity clause climbing the divisors � resolution
+-- trilaw's generativity clause climbing the divisors — resolution
 -- grows only by senses no alias can synthesize.
 --
 ------------------------------------------------------------------------
@@ -47,7 +47,7 @@ private
     ℓ : Level
 
 ------------------------------------------------------------------------
--- � � An involutive alias conflates counts one and three.
+-- १ · An involutive alias conflates counts one and three.
 ------------------------------------------------------------------------
 
 module _ {A : Type ℓ} (O : Sūtra → A) (g : A → A)
@@ -63,14 +63,14 @@ module _ {A : Type ℓ} (O : Sūtra → A) (g : A → A)
     ∙ sym (pravāha x)
 
 ------------------------------------------------------------------------
--- � � The full reading separates one from three.
+-- २ · The full reading separates one from three.
 ------------------------------------------------------------------------
 
 eka-tri-bheda : cakrāvartana 3 (true , true) ≡ cakrāvartana 1 (true , true) → ⊥
 eka-tri-bheda p = true≢false (cong fst p)
 
 ------------------------------------------------------------------------
--- � � Hence no involutive alias serves the identity reading.
+-- ३ · Hence no involutive alias serves the identity reading.
 ------------------------------------------------------------------------
 
 na-nivartana-praṇālī : (g : Sūtra → Sūtra)

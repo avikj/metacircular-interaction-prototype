@@ -9,21 +9,21 @@
 -- function's jump POINTS.
 --
 -- THE ARGUMENT, in four lines of arithmetic and no new machinery.
--- Write cap k = lcm(1..k), and call k a jump when suc k � cap k.
--- Suppose the walk's state has lcm cap m (m � 1) and it installs
+-- Write cap k = lcm(1..k), and call k a jump when suc k ∤ cap k.
+-- Suppose the walk's state has lcm cap m (m ≥ 1) and it installs
 -- q = suc j, the least non-divisor of cap m.  Then
 --
---   (i)   m � j.  Everything in [1,m] divides cap m, so a non-divisor
+--   (i)   m ≤ j.  Everything in [1,m] divides cap m, so a non-divisor
 --         is beyond the frontier.
---   (ii)  cap j ≡ cap m.  Downward: every r � j with r � 2 divides
+--   (ii)  cap j ≡ cap m.  Downward: every r ≤ j with r ≥ 2 divides
 --         cap m by MINIMALITY of q, and 1 divides everything, so cap j
 --         (the least such) divides cap m.  Upward: monotonicity, from
 --         (i).  So the capacity is FLAT across the interval the walk
 --         skips -- it skips exactly because nothing happens there.
---   (iii) q � cap m and cap j ≡ cap m give q � cap j: the install point
+--   (iii) q ∤ cap m and cap j ≡ cap m give q ∤ cap j: the install point
 --         IS a jump point.
---   (iv)  for m � i < j, minimality gives suc i � cap m, and
---         monotonicity gives cap m � cap i, so suc i � cap i: no jump
+--   (iv)  for m ≤ i < j, minimality gives suc i ∣ cap m, and
+--         monotonicity gives cap m ∣ cap i, so suc i ∣ cap i: no jump
 --         point is skipped.
 --
 -- (iii) and (iv) together are §(b): the install lands on a jump point
@@ -36,9 +36,9 @@
 -- THE WALK IS ALSO MADE TOTAL HERE.  Every previous theorem in the lane
 -- quantified over a hypothesis `LeastNonDivisor L q`, so the walk's step
 -- was a relation, not a function.  `leastND` below constructs the least
--- non-divisor of any L � 1 by bounded search -- the bound is L+1, which
--- never divides L -- using the repo's own `dec�` (CoprimeSplitting) and
--- the positivity of cap proved here.  So `next : � � �` is a function
+-- non-divisor of any L ≥ 1 by bounded search -- the bound is L+1, which
+-- never divides L -- using the repo's own `dec∣` (CoprimeSplitting) and
+-- the positivity of cap proved here.  So `next : ℕ → ℕ` is a function
 -- and the walk COMPUTES: `next-5 : next 5 ≡ 7` and its siblings below
 -- are `refl`, i.e. the install stream 2, 3, 4, 5, 7 evaluated by the
 -- kernel.  Exact symbolic computation, hence proof (CLAUDE.md), not
@@ -47,8 +47,8 @@
 -- WHERE THE COMPUTATION STOPS, and why that is the theorem again.  The
 -- witnesses stop at `next 5`.  This is not an accident of the evaluator:
 -- the search decides
--- `s � cap m` for each candidate s, and a unary divisibility test on
--- cap m costs Θ(cap m), so a step costs Θ(cap m � (next m − m)) � and
+-- `s ∣ cap m` for each candidate s, and a unary divisibility test on
+-- cap m costs Θ(cap m), so a step costs Θ(cap m · (next m − m)) — and
 -- cap m is e^ψ(m).  The walk's STORAGE law is also its naive RUNTIME
 -- law, so the capacity theorem is exactly the obstruction to executing
 -- the walk far by evaluation.  The cost is
@@ -153,7 +153,7 @@ cap-pos k = lcmList-pos (range1 k) (range1-pos k)
 --
 -- `Jump k` reads "suc k is a jump point", i.e. cap grows from k to
 -- suc k.  Indexing by the PREDECESSOR keeps subtraction out of every
--- statement below; `pred�` appears nowhere.
+-- statement below; `predℕ` appears nowhere.
 ------------------------------------------------------------------------
 
 Jump : ℕ → Type
@@ -223,7 +223,7 @@ module _ (m j : ℕ) (1≤m : 1 ≤ m) (lnd : LeastNonDivisor (cap m) (suc j)) w
   -- is again exactly at the capacity of its new frontier, so the whole
   -- argument re-enters at m := suc j.  This is what makes the induction
   -- along the walk go through, and it is stated numerically (three
-  -- clauses = "cap (suc j) is the lcm of {q} � old state") so no list
+  -- clauses = "cap (suc j) is the lcm of {q} ∪ old state") so no list
   -- of sensors appears.
   ------------------------------------------------------------------
 
@@ -246,7 +246,7 @@ module _ (m j : ℕ) (1≤m : 1 ≤ m) (lnd : LeastNonDivisor (cap m) (suc j)) w
 
 ------------------------------------------------------------------------
 -- THE WALK'S STEP IS A FUNCTION.  Bounded search for the least
--- non-divisor; the bound is L+1, which never divides L � 1.
+-- non-divisor; the bound is L+1, which never divides L ≥ 1.
 ------------------------------------------------------------------------
 
 findND : (L s n : ℕ) → 2 ≤ s →
@@ -331,7 +331,7 @@ walk-step m 1≤m = j , q≡sj , install-beyond m j 1≤m lnd
 --   install-exhaustive   nothing strictly between consecutive terms is
 --   below-first          and nothing below the first term is either
 --
--- Together: the map n � install n is the increasing enumeration of
+-- Together: the map n ↦ install n is the increasing enumeration of
 -- { k : Jump k } shifted by one (install n = suc of the jump index), so
 -- the walk's install events ARE the jump points, in order.
 ------------------------------------------------------------------------
@@ -397,7 +397,7 @@ below-first (suc i) si<inst  =
 ------------------------------------------------------------------------
 -- IT COMPUTES.  The install stream, evaluated by the kernel.  `next`
 -- goes through a bounded search whose every divisibility test is
--- decided by `dec�`, so these are not definitional accidents: each is
+-- decided by `dec∣`, so these are not definitional accidents: each is
 -- the walk actually taking a step.
 --
 -- 2, 3, 4, 5, 7, 8, 9 -- the prime powers in increasing order, which is

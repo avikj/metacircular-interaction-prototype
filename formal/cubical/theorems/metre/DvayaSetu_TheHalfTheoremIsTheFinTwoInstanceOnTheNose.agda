@@ -1,37 +1,37 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡¶‡‡µ‡Ø‡‡‡‡‡ ‚î the half theorem is the Fin 2 instance, on the nose.
+-- ‡§¶‡•ç‡§µ‡§Ø‡§∏‡•á‡§§‡•Å‡§É ‚Äî the half theorem is the Fin 2 instance, on the nose.
 --
--- TERM.  ‡¶‡‡µ‡Ø (the pair, the two) and ‡‡‡‡ (bridge ‚î the corpus's own
+-- TERM.  ‡§¶‡•ç‡§µ‡§Ø (the pair, the two) and ‡§∏‡•á‡§§‡•Å (bridge ‚Äî the corpus's own
 -- word for a checked identification, per Setubandha).  The compound
 -- ‡¶‡‡µ‡Ø-‡‡‡‡ means "the bridge of the two".
 --
--- `SamaVibhaga_‚¶`: at X = Fin 2 the iterate
+-- `SamaVibhaga_‚Ä¶`: at X = Fin 2 the iterate
 -- ‡ó‡‡‡ 1 y is y +µ y, so `SamaVibhaga`'s `divideUniquely` hypothesis is
 -- EXACTLY UniquenessMatraDvaya's halvesUniquely.
--- The wire is a term, and the instantiation is definitional ‚î ‡ó‡‡‡ 1 y and y +µ y
+-- The wire is a term, and the instantiation is definitional ‚Äî ‡§ó‡•Å‡§£‡§É 1 y and y +·µÇ y
 -- are the SAME normal form, so `halvesUniquely` is passed to
 -- `divideUniquely` with no coercion at all.
 --
--- WHAT IS PROVED.  Given the two-outcome vows on Bool (‡¶‡‡µ‡ø‡Æ‡æ‡‡‡∞‡ø‡®‡:
--- normalized, symmetric) and unique halving of üô:
+-- WHAT IS PROVED.  Given the two-outcome vows on Bool (‡§¶‡•ç‡§µ‡§ø‡§Æ‡§æ‡§§‡•ç‡§∞‡§ø‡§®‡•ç:
+-- normalized, symmetric) and unique halving of ùüô:
 --
---   ‡‡‡‡‡        every ‡¶‡‡µ‡ø‡Æ‡æ‡‡‡∞‡ø‡®‡ on Bool transports to a ‡‡Æ‡‡æ‡∞‡ø‡®‡ on
---                Fin 2 under the swap action ‚î the two-outcome vows
+--   ‡§∏‡•á‡§§‡•Å‡§É        every ‡§¶‡•ç‡§µ‡§ø‡§Æ‡§æ‡§§‡•ç‡§∞‡§ø‡§®‡•ç on Bool transports to a ‡§∏‡§Æ‡§≠‡§æ‡§∞‡§ø‡§®‡•ç on
+--                Fin 2 under the swap action ‚Äî the two-outcome vows
 --                ARE transitive-symmetry-plus-normalization.
---   ‡‡‡‡¶‡        the general theorem ‡‡Æ‡µ‡ø‡‡æ‡ó‡, instantiated at m = 1
---                through the bridge, re-proves ‡‡ï‡‡‡µ‡Æ‡-‡¶‡‡µ‡ø‡Æ‡æ‡‡‡∞‡æ's
+--   ‡§Ö‡§≠‡•á‡§¶‡§É        the general theorem ‡§∏‡§Æ‡§µ‡§ø‡§≠‡§æ‡§ó‡§É, instantiated at m = 1
+--                through the bridge, re-proves ‡§è‡§ï‡§§‡•ç‡§µ‡§Æ‡•ç-‡§¶‡•ç‡§µ‡§ø‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ's
 --                statement: any two vow-obeying Bool-weights agree.
 --                The half theorem is thereby EXHIBITED as the Fin 2
---                instance of the finite transitive measure theorem ‚î
+--                instance of the finite transitive measure theorem ‚Äî
 --                consumed, not compared.
 --
 -- WHY IT MATTERS (upagraha).  Neither module changes; what changes is
 -- the graph: the two results are now one edge apart, in the direction
--- general ‚í special, which is the direction transport is free.  The
+-- general ‚Üí special, which is the direction transport is free.  The
 -- swap action on Fin 2 is the smallest transitive symmetry there is,
--- and the bridge shows the ‡¶‡‡µ‡ø‡Æ‡æ‡‡‡∞‡ø‡®‡ vows were always exactly it.
+-- and the bridge shows the ‡§¶‡•ç‡§µ‡§ø‡§Æ‡§æ‡§§‡•ç‡§∞‡§ø‡§®‡•ç vows were always exactly it.
 ------------------------------------------------------------------------
 
 module DvayaSetu_TheHalfTheoremIsTheFinTwoInstanceOnTheNose where
@@ -60,7 +60,7 @@ module _ {W : Type ‚Ñì} (_+·µÇ_ : W ‚Üí W ‚Üí W) (ùüô : W)
   ‡§™‡§† (fsuc _)  = false
 
   -- the swap, and the two-element "action": G = Bool, true acts as
-  -- identity, false as the swap.  No group laws are needed ‚î exactly
+  -- identity, false as the swap.  No group laws are needed ‚Äî exactly
   -- as SamaVibhaga's header records.
   ‡§µ‡•ç‡§Ø‡§§‡•ç‡§Ø‡§Ø‡§É : Fin 2 ‚Üí Fin 2
   ‡§µ‡•ç‡§Ø‡§§‡•ç‡§Ø‡§Ø‡§É fzero    = fsuc fzero
@@ -77,12 +77,12 @@ module _ {W : Type ‚Ñì} (_+·µÇ_ : W ‚Üí W ‚Üí W) (ùüô : W)
   ‡§∏‡§ô‡•ç‡§ï‡•ç‡§∞‡§æ‡§Æ‡§ï‡§§‡§æ (fsuc fzero) fzero        = false , refl
   ‡§∏‡§ô‡•ç‡§ï‡•ç‡§∞‡§æ‡§Æ‡§ï‡§§‡§æ (fsuc fzero) (fsuc fzero) = true  , refl
 
-  -- ‡ó‡‡‡ 1 y is y +µ y BY COMPUTATION, so halvesUniquely IS the
+  -- ‡§ó‡•Å‡§£‡§É 1 y is y +·µÇ y BY COMPUTATION, so halvesUniquely IS the
   -- divideUniquely hypothesis at m = 1, with no coercion:
   divideUniquely‚ÇÅ : isProp (Œ£[ y ‚àà W ] ‡§ó‡•Å‡§£‡§É _+·µÇ_ 1 y ‚â° ùüô)
   divideUniquely‚ÇÅ = halvesUniquely
 
-  -- the bridge: the two-outcome vows are a ‡‡Æ‡‡æ‡∞‡ø‡®‡ under the swap.
+  -- the bridge: the two-outcome vows are a ‡§∏‡§Æ‡§≠‡§æ‡§∞‡§ø‡§®‡•ç under the swap.
   ‡§∏‡•á‡§§‡•Å‡§É : (w : Bool ‚Üí W) ‚Üí ‡§¶‡•ç‡§µ‡§ø‡§Æ‡§æ‡§§‡•ç‡§∞‡§ø‡§®‡•ç _+·µÇ_ ùüô halvesUniquely w
         ‚Üí ‡§∏‡§Æ‡§≠‡§æ‡§∞‡§ø‡§®‡•ç _+·µÇ_ ùüô 1 ‡§ï‡•ç‡§∞‡§ø‡§Ø‡§æ ‡§∏‡§ô‡•ç‡§ï‡•ç‡§∞‡§æ‡§Æ‡§ï‡§§‡§æ divideUniquely‚ÇÅ (Œª x ‚Üí w (‡§™‡§† x))
   ‡§∏‡•á‡§§‡•Å‡§É w d = record

@@ -1,17 +1,17 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡¶‡‡-‡‡ô‡‡ò‡æ‡‡ ‚î the CENSUS composes, and the composition law is the reason
+-- ‡§¶‡•á‡§∂-‡§∏‡§ô‡•ç‡§ò‡§æ‡§§‡§É ‚Äî the CENSUS composes, and the composition law is the reason
 -- there is no shortest-path formulation of routing in this corpus.
 --
 -- WHAT WAS ALREADY THERE, and is used rather than reproved:
---   * `‡‡‡-‡‡ô‡‡ò‡æ‡‡` (SankramanaSesa) ‚î fibres compose:
---         ‡‡‡ (g ‚àò f) z  ‚â  Œ[ w ‚àà ‡‡‡ g z ] ‡‡‡ f (fst w)
---   * `‡¶‡‡` (Loss.SakalaVikalaDesa) ‚î the census as a TERM, three
---     constructors carrying their evidence: ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ (empty fibre, nothing
---     lost, ‡ß‡®‡æ‡‡‡Æ‡ï‡Æ‡), ‡‡ï‡≤‡æ‡¶‡‡ (contractible), ‡µ‡ø‡ï‡≤‡æ‡¶‡‡ (two points, exhibited).
+--   * `‡§∂‡•á‡§∑-‡§∏‡§ô‡•ç‡§ò‡§æ‡§§‡§É` (SankramanaSesa) ‚Äî fibres compose:
+--         ‡§∂‡•á‡§∑ (g ‚àò f) z  ‚âÉ  Œ£[ w ‚àà ‡§∂‡•á‡§∑ g z ] ‡§∂‡•á‡§∑ f (fst w)
+--   * `‡§¶‡•á‡§∂` (Loss.SakalaVikalaDesa) ‚Äî the census as a TERM, three
+--     constructors carrying their evidence: ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç (empty fibre, nothing
+--     lost, ‡§ß‡§®‡§æ‡§§‡•ç‡§Æ‡§ï‡§Æ‡•ç), ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ (contractible), ‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ (two points, exhibited).
 --
--- WHAT IS BUILT HERE.  The Œ-law is about FIBRES.  Its
+-- WHAT IS BUILT HERE.  The Œ£-law is about FIBRES.  Its
 -- lift to the CENSUS is the whole content of "what does
 -- a route cost".  `SakalaVikalaDesa` ¬ß3 exhibits the cancellation as three
 -- hand-computed instances on Unit/Bool and reads the moral off them.  Here
@@ -19,35 +19,35 @@
 --
 -- THE THREE LAWS, and what each one kills.
 --
--- ¬ß‡® ‡‡µ‡ï‡‡‡µ‡‡Ø-‡ó‡‡∞‡æ‡‡ ‚î an empty OUTER fibre is ABSORBING.  ¬ ‡‡‡ g z forces
---    ¬ ‡‡‡ (g ‚àò f) z, whatever f is.  So arbitrary loss upstream of an
+-- ¬ß‡•® ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø-‡§ó‡•ç‡§∞‡§æ‡§∏‡§É ‚Äî an empty OUTER fibre is ABSORBING.  ¬¨ ‡§∂‡•á‡§∑ g z forces
+--    ¬¨ ‡§∂‡•á‡§∑ (g ‚àò f) z, whatever f is.  So arbitrary loss upstream of an
 --    inexpressible point is INVISIBLE in the composite.  This kills
 --    monotonicity: extending a path can hide cost already paid.
 --
--- ¬ß‡© ‡‡ï‡≤-‡‡ô‡‡ï‡‡∞‡Æ‡ ‚î a contractible OUTER fibre is TRANSPARENT.  With centre
---    (b , p), ‡‡‡ (g ‚àò f) z ‚â ‡‡‡ f b: the composite's census at z IS f's
+-- ¬ß‡•© ‡§∏‡§ï‡§≤-‡§∏‡§ô‡•ç‡§ï‡•ç‡§∞‡§Æ‡§É ‚Äî a contractible OUTER fibre is TRANSPARENT.  With centre
+--    (b , p), ‡§∂‡•á‡§∑ (g ‚àò f) z ‚âÉ ‡§∂‡•á‡§∑ f b: the composite's census at z IS f's
 --    census at b, on the nose.  This is the only case in which a scalar
 --    weight would have been correct, and it is the case where the weight
 --    is not needed.
 --
--- ¬ß‡ ‡‡‡∞‡‡ø‡‡®‡®‡Æ‡ ‚î the cancellation, as a mechanism.  A CROWDED outer fibre
+-- ¬ß‡•™ ‡§™‡•ç‡§∞‡§§‡§ø‡§π‡§®‡§®‡§Æ‡•ç ‚Äî the cancellation, as a mechanism.  A CROWDED outer fibre
 --    whose points have empty inner fibres except one contractible entry
---    yields a CONTRACTIBLE composite.  ‡µ‡ø‡ï‡≤‡æ‡¶‡‡ ‚àò ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ = ‡‡ï‡≤‡æ‡¶‡‡.  Two
---    genuine defects annihilate.  ¬ß‡ instantiates this at Unit ‚í Bool ‚í
+--    yields a CONTRACTIBLE composite.  ‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ ‚àò ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç = ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂.  Two
+--    genuine defects annihilate.  ¬ß‡•´ instantiates this at Unit ‚Üí Bool ‚Üí
 --    Unit and recovers SakalaVikalaDesa ¬ß3's computed example as a
 --    corollary of the general law rather than as a witness of it.
 --
 -- THE CONSEQUENCE FOR ROUTING, which is why this file exists.  A cost model
 -- admits a shortest-path algorithm when costs form a graded monoid: an
--- associative accumulation, monotone under extension.  ¬ß‡® refutes
--- monotonicity and ¬ß‡ refutes any accumulation at all ‚î the composite's
--- census is not a function of the two censuses, because ¬ß‡'s outcome
+-- associative accumulation, monotone under extension.  ¬ß‡•® refutes
+-- monotonicity and ¬ß‡•™ refutes any accumulation at all ‚Äî the composite's
+-- census is not a function of the two censuses, because ¬ß‡•™'s outcome
 -- depends on WHICH points of the outer fibre carry which inner fibres, data
 -- that neither census records.  The correct object is not a weight but the
--- Œ itself: cost is a SECTION over the codomain, and composition is
+-- Œ£ itself: cost is a SECTION over the codomain, and composition is
 -- dependent sum, not addition.  Dijkstra has no formulation here; the
 -- routing target is `isEquiv`, which `SakalaVikalaDesa` ¬ß4 already
--- identifies as "every point of the census is ‡‡ï‡≤‡æ‡¶‡‡".
+-- identifies as "every point of the census is ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂".
 ------------------------------------------------------------------------
 
 module DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid where
@@ -71,9 +71,9 @@ private
     A B C : Type ‚Ñì
 
 ------------------------------------------------------------------------
--- ‡ß ¬ ‡‡‡ and the composition law, restated locally at the level the
+-- ‡•ß ¬∑ ‡§∂‡•á‡§∑ and the composition law, restated locally at the level the
 -- corpus states them, so this file stands alone under the kernel.
--- (‡‡‡-‡‡ô‡‡ò‡æ‡‡ is SankramanaSesa's theorem; the proof term
+-- (‡§∂‡•á‡§∑-‡§∏‡§ô‡•ç‡§ò‡§æ‡§§‡§É is SankramanaSesa's theorem; the proof term
 -- below is the same one.)
 ------------------------------------------------------------------------
 
@@ -107,7 +107,7 @@ module _ {A B C : Type ‚Ñì} (f : A ‚Üí B) (g : B ‚Üí C) (z : C) where
   ‡§∂‡•á‡§∑-‡§∏‡§ô‡•ç‡§ò‡§æ‡§§‡§É = isoToEquiv (iso fwd bwd fwd-bwd bwd-fwd)
 
 ------------------------------------------------------------------------
--- ‡® ¬ ‡‡µ‡ï‡‡‡µ‡‡Ø-‡ó‡‡∞‡æ‡‡ ‚î the empty outer fibre swallows everything upstream.
+-- ‡•® ¬∑ ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø-‡§ó‡•ç‡§∞‡§æ‡§∏‡§É ‚Äî the empty outer fibre swallows everything upstream.
 -- MONOTONICITY DIES HERE: f may lose arbitrarily much and the composite
 -- records none of it.
 ------------------------------------------------------------------------
@@ -117,7 +117,7 @@ module _ {A B C : Type ‚Ñì} (f : A ‚Üí B) (g : B ‚Üí C) (z : C) where
 ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø-‡§ó‡•ç‡§∞‡§æ‡§∏‡§É f g z ne (a , p) = ne (f a , p)
 
 ------------------------------------------------------------------------
--- ‡© ¬ ‡‡ï‡≤-‡‡ô‡‡ï‡‡∞‡Æ‡ ‚î the contractible outer fibre is transparent.
+-- ‡•© ¬∑ ‡§∏‡§ï‡§≤-‡§∏‡§ô‡•ç‡§ï‡•ç‡§∞‡§Æ‡§É ‚Äî the contractible outer fibre is transparent.
 -- The composite's census at z IS f's census at the centre.
 ------------------------------------------------------------------------
 
@@ -145,16 +145,16 @@ module _ {A B C : Type ‚Ñì} (f : A ‚Üí B) (g : B ‚Üí C) (z : C) where
                         ‚àô refl) )
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡‡‡∞‡‡ø‡‡®‡®‡Æ‡ ‚î the cancellation, as the general mechanism.
+-- ‡•™ ¬∑ ‡§™‡•ç‡§∞‡§§‡§ø‡§π‡§®‡§®‡§Æ‡•ç ‚Äî the cancellation, as the general mechanism.
 --
--- The composite is the Œ of the inner fibres over the outer fibre.  So a
+-- The composite is the Œ£ of the inner fibres over the outer fibre.  So a
 -- CROWDED outer fibre contributes only at those of its points whose inner
 -- fibre is inhabited: emptiness downstream DELETES points of the outer
--- fibre.  ‡µ‡ø‡ï‡≤‡æ‡¶‡‡ above ‚àò ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ below can be ‡‡ï‡≤‡æ‡¶‡‡.
+-- fibre.  ‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ above ‚àò ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç below can be ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂.
 --
--- Stated as the exact criterion the Œ gives: the composite is contractible
--- exactly when the Œ is, and the Œ can be contractible while the outer
--- fibre is not.  ¬ß‡ exhibits that, minimally.
+-- Stated as the exact criterion the Œ£ gives: the composite is contractible
+-- exactly when the Œ£ is, and the Œ£ can be contractible while the outer
+-- fibre is not.  ¬ß‡•´ exhibits that, minimally.
 ------------------------------------------------------------------------
 
 ‡§™‡•ç‡§∞‡§§‡§ø‡§π‡§®‡§®‡§Æ‡•ç : {A B C : Type ‚Ñì} (f : A ‚Üí B) (g : B ‚Üí C) (z : C)
@@ -164,9 +164,9 @@ module _ {A B C : Type ‚Ñì} (f : A ‚Üí B) (g : B ‚Üí C) (z : C) where
   isOfHLevelRespectEquiv 0 (invEquiv (‡§∂‡•á‡§∑-‡§∏‡§ô‡•ç‡§ò‡§æ‡§§‡§É f g z)) ic
 
 ------------------------------------------------------------------------
--- ‡ ¬ The minimal witness, recovered as a COROLLARY of ¬ß‡ rather than as
+-- ‡•´ ¬∑ The minimal witness, recovered as a COROLLARY of ¬ß‡•™ rather than as
 -- an example standing on its own.  SakalaVikalaDesa ¬ß3 computes these three
--- censuses by hand; here the third follows from the first two through the Œ.
+-- censuses by hand; here the third follows from the first two through the Œ£.
 ------------------------------------------------------------------------
 
 ‡§∏‡§§‡•ç : Unit ‚Üí Bool
@@ -175,7 +175,7 @@ module _ {A B C : Type ‚Ñì} (f : A ‚Üí B) (g : B ‚Üí C) (z : C) where
 ‡§è‡§ï‡§Æ‡•ç : Bool ‚Üí Unit
 ‡§è‡§ï‡§Æ‡•ç _ = tt
 
--- outer (‡‡ï‡Æ‡ at tt) is CROWDED: false and true both sit over tt
+-- outer (‡§è‡§ï‡§Æ‡•ç at tt) is CROWDED: false and true both sit over tt
 ‡§¨‡§π‡§ø‡§É-‡§µ‡§æ‡§Æ ‡§¨‡§π‡§ø‡§É-‡§¶‡§ï‡•ç‡§∑‡§ø‡§£ : ‡§∂‡•á‡§∑ ‡§è‡§ï‡§Æ‡•ç tt
 ‡§¨‡§π‡§ø‡§É-‡§µ‡§æ‡§Æ   = false , refl
 ‡§¨‡§π‡§ø‡§É-‡§¶‡§ï‡•ç‡§∑‡§ø‡§£ = true  , refl
@@ -183,7 +183,7 @@ module _ {A B C : Type ‚Ñì} (f : A ‚Üí B) (g : B ‚Üí C) (z : C) where
 ‡§¨‡§π‡§ø‡§É-‡§¶‡•ç‡§µ‡§Ø‡§Æ‡•ç : ¬¨ (‡§¨‡§π‡§ø‡§É-‡§µ‡§æ‡§Æ ‚â° ‡§¨‡§π‡§ø‡§É-‡§¶‡§ï‡•ç‡§∑‡§ø‡§£)
 ‡§¨‡§π‡§ø‡§É-‡§¶‡•ç‡§µ‡§Ø‡§Æ‡•ç p = false‚â¢true (cong fst p)
 
--- inner over `false` is EMPTY ‚î this is the point the Œ deletes
+-- inner over `false` is EMPTY ‚Äî this is the point the Œ£ deletes
 ‡§Ö‡§®‡•ç‡§§‡§É-‡§∞‡§ø‡§ï‡•ç‡§§‡§Æ‡•ç : ¬¨ (‡§∂‡•á‡§∑ ‡§∏‡§§‡•ç false)
 ‡§Ö‡§®‡•ç‡§§‡§É-‡§∞‡§ø‡§ï‡•ç‡§§‡§Æ‡•ç (_ , p) = true‚â¢false p
 
@@ -195,14 +195,14 @@ snd ‡§Ö‡§®‡•ç‡§§‡§É-‡§∏‡§ï‡§≤‡§Æ‡•ç (u , p) i = tt , isSetBool true true refl p 
 -- THE DELETION, isolated as its own term and structural (no `with`, per the
 -- house discipline): an outer point whose inner fibre is inhabited MUST be
 -- `true`.  This is exactly "emptiness downstream deletes points of the outer
--- fibre" ‚î the mechanism of ¬ß‡, at its smallest.
+-- fibre" ‚Äî the mechanism of ¬ß‡•™, at its smallest.
 ‡§¨‡§ø‡§®‡•ç‡§¶‡•Å-‡§®‡§ø‡§∞‡•ç‡§ß‡§æ‡§∞‡§£‡§Æ‡•ç : (b : Bool) ‚Üí ‡§∂‡•á‡§∑ ‡§∏‡§§‡•ç b ‚Üí true ‚â° b
 ‡§¨‡§ø‡§®‡•ç‡§¶‡•Å-‡§®‡§ø‡§∞‡•ç‡§ß‡§æ‡§∞‡§£‡§Æ‡•ç true  _ = refl
 ‡§¨‡§ø‡§®‡•ç‡§¶‡•Å-‡§®‡§ø‡§∞‡•ç‡§ß‡§æ‡§∞‡§£‡§Æ‡•ç false r = ‚ä•-rec (‡§Ö‡§®‡•ç‡§§‡§É-‡§∞‡§ø‡§ï‡•ç‡§§‡§Æ‡•ç r)
 
--- the Œ therefore has exactly one inhabitant ‚î and the reason is the
+-- the Œ£ therefore has exactly one inhabitant ‚Äî and the reason is the
 -- Carrier law itself: after the deletion, what remains is literally
--- `singl true`, contractible with no hypothesis (‡‡‡®‡∞‡æ‡ó‡Æ‡®).  So the
+-- `singl true`, contractible with no hypothesis (‡§™‡•Å‡§®‡§∞‡§æ‡§ó‡§Æ‡§®).  So the
 -- annihilation of two defects is not a coincidence of this example; it is
 -- `isContrSingl` showing through.
 ‡§∏‡§Ç‡§π‡§§‡§ø-Iso-‡§µ‡§æ‡§π‡§ï‡§É : Iso (Œ£[ w ‚àà ‡§∂‡•á‡§∑ ‡§è‡§ï‡§Æ‡•ç tt ] ‡§∂‡•á‡§∑ ‡§∏‡§§‡•ç (fst w)) (singl true)
@@ -220,11 +220,11 @@ Iso.leftInv  ‡§∏‡§Ç‡§π‡§§‡§ø-Iso-‡§µ‡§æ‡§π‡§ï‡§É ((b , q) , (u , p)) i =
       (isContrSingl true))
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡¶‡ã‡‡≤‡‡ñ‡ ‚î the census is not a function of the two censuses.
+--     the census is not a function of the two censuses.¬ß‡•™
 --
--- ¬ß‡ is stated as "if the Œ is contractible then the composite is".  It is
--- NOT a function from (‡¶‡‡ g z) and (‡¶‡‡ f) to (‡¶‡‡ (g ‚àò f) z), and no such
--- function exists: ¬ß‡'s outcome depends on WHICH point of the outer fibre
+-- ¬ß‡•™ is stated as "if the Œ£ is contractible then the composite is".  It is
+-- NOT a function from (‡§¶‡•á‡§∂ g z) and (‡§¶‡•á‡§∂ f) to (‡§¶‡•á‡§∂ (g ‚àò f) z), and no such
+-- function exists: ¬ß‡•´'s outcome depends on WHICH point of the outer fibre
 -- carries the empty inner fibre, and a census records only that the outer
 -- fibre is crowded, not which of its points are which.  That is precisely
 -- why cost here is a Œ and not a weight.

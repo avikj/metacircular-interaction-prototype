@@ -1,12 +1,12 @@
 {-# OPTIONS --cubical-compatible --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡ó‡‡‡‡‡‡æ‡®‡Æ‡ ‚î the stages of ascent.  The Jaina doctrine (akhagama,
+-- ‡§ó‡•Å‡§£‡§∏‡•ç‡§•‡§æ‡§®‡§Æ‡•ç ‚Äî the stages of ascent.  The Jaina doctrine (·π¢a·π≠kha·πá·∏çƒÅgama,
 -- c. 2nd c. CE; elaborated throughout the Tattvrthastra commentary
 -- tradition) of the guasthnas: the soul climbs by stages, and each
 -- stage's attainment is itself the precondition of the next ascent.
 -- School named: Jaina.  Claimed of the source: the name of the
--- doctrine and its shape ‚î attainment enabling ascent ‚î nothing else.
+-- doctrine and its shape ‚Äî attainment enabling ascent ‚Äî nothing else.
 --
 -- WHY THIS MODULE EXISTS.  The body
 -- grows an eye from its own rules (SvayamBhavendriya:
@@ -14,7 +14,7 @@
 -- laws from the rules' own witnesses, instantiate one generic
 -- canonicalizer).  Here the loop closes:
 --
---     the eye is a FUNCTION OF THE RECORD (‡‡æ‡-‡‡ï‡‡‡‡ Œì), recomputed
+--     the eye is a FUNCTION OF THE RECORD (‡§ú‡§æ‡§§-‡§ö‡§ï‡•ç‡§∑‡•Å‡§É Œì), recomputed
 --     at every round from whatever the body has proven so far; the
 --     breath grows the record; the record grows the eye; no agent is
 --     anywhere in the cycle.
@@ -22,7 +22,7 @@
 -- The machinery of SvayamBhavendriya crosses here into the shared
 -- tongue (builtin equality, --cubical-compatible), so the CLIMB
 -- COMPILES: the ascent from the bare norm eye and the bare syntactic
--- exchange ‚î the machine's primal body, nothing agent-tuned ‚î is a
+-- exchange ‚Äî the machine's primal body, nothing agent-tuned ‚Äî is a
 -- number the binary prints.
 ------------------------------------------------------------------------
 
@@ -554,9 +554,9 @@ module ‡§ú‡§®‡§ï‡§É (o : ‡§ï‡§∞‡•ç‡§§‡§æ) (u : Tm)
   ... | nothing = go os
 
 ------------------------------------------------------------------------
--- ¬ß6  The record's voice, completed to its own warrant.  A ‡®‡ø‡Ø‡Æ‡ is
---     an EQUALITY ‚î its ‡‡æ‡ï‡‡‡ holds in both directions ‚î but ‡µ‡¶‡®‡Æ‡
---     speaks only lhs‚írhs, so the stated orientation was silently
+-- ¬ß6  The record's voice, completed to its own warrant.  A ‡§®‡§ø‡§Ø‡§Æ‡§É is
+--     an EQUALITY ‚Äî its ‡§∏‡§æ‡§ï‡•ç‡§∑‡•Ä holds in both directions ‚Äî but ‡§µ‡§¶‡§®‡§Æ‡•ç
+--     speaks only lhs‚Üírhs, so the stated orientation was silently
 --     privileged.  That is precisely TS 5.31's arpita/anarpita (the
 --     chain's own ArpitaAnarpita chapter): the orientation is a
 --     presentation, not the substance.  The reversal is derived from
@@ -573,9 +573,9 @@ module ‡§ú‡§®‡§ï‡§É (o : ‡§ï‡§∞‡•ç‡§§‡§æ) (u : Tm)
 -- DIRECTION.  A
 -- record speaking both hands UNCONDITIONALLY lets its expanding rules
 -- speak (distributivity unfolds a term into a larger one), and the
--- pervasion's exchanges then grow terms down the recursion ‚î the
+-- pervasion's exchanges then grow terms down the recursion ‚Äî the
 -- breath drowns in its own voice The rule is ANULOMA, with the
--- grain ‚î and the grain is computable, no agent chooses.  A direction
+-- grain ‚Äî and the grain is computable, no agent chooses.  A direction
 -- speaks only if it does not grow the term: equal-size rules (comm,
 -- the su-slide) keep both hands, which is exactly what the ascent
 -- needed; an expansion keeps only its folding hand.
@@ -605,7 +605,7 @@ module ‡§ú‡§®‡§ï‡§É (o : ‡§ï‡§∞‡•ç‡§§‡§æ) (u : Tm)
 ------------------------------------------------------------------------
 -- ¬ß7  The climb.  Each mint: the eye recomputed from the record, the
 --     record speaking with both hands, the primal instrument.  The
---     primal body is ‡®‡‡‡‡∞‡Æ‡-‡® and ‡‡‡ï‡‡‡‡Æ-‡Ø‡®‡‡‡‡∞‡Æ‡ ‚î nothing tuned,
+--     primal body is ‡§®‡•á‡§§‡•ç‡§∞‡§Æ‡•ç-‡§® and ‡§∏‡•Ç‡§ï‡•ç‡§∑‡•ç‡§Æ-‡§Ø‡§®‡•ç‡§§‡•ç‡§∞‡§Æ‡•ç ‚Äî nothing tuned,
 --     nothing picked; every stronger organ is born on the way up, and
 --     what was attained enables the next stage.
 ------------------------------------------------------------------------

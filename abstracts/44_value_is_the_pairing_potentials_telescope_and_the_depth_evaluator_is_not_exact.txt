@@ -9,30 +9,30 @@ own laboratory / trace functionals against terminal utility
 
 The synthesis reformulates the work as a theory of
 conservative semantic compression, and its first reformulation is:
-a trace is a chain, an evaluator is a cochain, value is the pairing ‚î
+a trace is a chain, an evaluator is a cochain, value is the pairing ‚Äî
 neither side holds it alone.  Stokes then rules exactly which
 modifications preserve value.  Here that reformulation enters
 the corpus as terms, on the kernel's own derivations.
 
 THE PAIRING.  An evaluator assigns an integer to every rewrite step;
 the value of a derivation is the sum along it.  The coboundary of a
-state potential œ values a step a ‚ b at œ b ‚àí œ a ‚î antisymmetric
+state potential œÜ values a step a ‚áù b at œÜ b ‚àí œÜ a ‚Äî antisymmetric
 under the kernel's reverse constructor by shape, with no case
 analysis anywhere.
 
 STOKES.  Any evaluator agreeing pointwise with a coboundary
-telescopes: its value on x ‚ y is œ y ‚àí œ x, one induction over
+telescopes: its value on x ‚áù y is œÜ y ‚àí œÜ x, one induction over
 Derivation.  Corollary, run rather than cited: on a closed
-derivation an exact evaluator integrates to zero ‚î potential-based
+derivation an exact evaluator integrates to zero ‚Äî potential-based
 reward shaping, gauge freedom, endpoint utility, all one theorem.
 
 THE CLASS.  The depth evaluator counts the suc-step congruence
-wrappers a step fires under ‚î accumulated locality.  A confluence
+wrappers a step fires under ‚Äî accumulated locality.  A confluence
 diamond on add (add x 0) (s 0) yields two coterminal schedules of
 depths 2 and 1, and the closed loop through both has depth integral
 3, computed by refl.  Hence no state potential represents depth:
 local confluence with global path dependence, and value that
-inhabits a different type than any terminal utility ‚î a trace
+inhabits a different type than any terminal utility ‚Äî a trace
 functional, exactly as the synthesis names reversibility, consent,
 and option preservation.
 
@@ -42,7 +42,7 @@ this loop, the depth class is precisely what it must kill or account
 for: understanding as the controlled conversion of a nonzero cycle
 integral into boundary.
 
-SYT ‚î THE CLAIM, EXACTLY.  The pairing, the telescoping theorem and
+SYƒÄT ‚Äî THE CLAIM, EXACTLY.  The pairing, the telescoping theorem and
 its closed corollary, the two schedules and their depths, the loop
 and its integral, and the nonexistence of a potential for the depth
 evaluator.

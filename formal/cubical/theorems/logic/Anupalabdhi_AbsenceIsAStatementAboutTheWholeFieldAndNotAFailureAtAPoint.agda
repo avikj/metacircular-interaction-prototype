@@ -1,39 +1,39 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àà¨ààà²ààà§à¿ â” ààà¾àµà à•àààààà°ààà¯ àµàà¨à®à, à¨ àà àààà¾à¨à ààà¿à¦àà§à¿à à
+-- à¤…à¤¨à¥à¤ªà¤²à¤¬à¥à¤§à¤¿ â€” à¤…à¤­à¤¾à¤µà¤ƒ à¤•à¥à¤·à¥‡à¤¤à¥à¤°à¤¸à¥à¤¯ à¤µà¤šà¤¨à¤®à¥, à¤¨ à¤¤à¥ à¤¸à¥à¤¥à¤¾à¤¨à¥‡ à¤…à¤¸à¤¿à¤¦à¥à¤§à¤¿à¤ƒ à¥¤
 --
 -- (absence is a statement about the field, not a failure at a point.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE ASYMMETRY THIS FILE IS ABOUT.  Every other verdict in this corpus
--- is witnessed by EXHIBITING something: ààà by two points of a fibre,
--- àà•à®à by a centre, an edge by an equivalence, a receipt by an
--- identification.  à°à¿à•ààà®à is the one that cannot be.  There is no
+-- is witnessed by EXHIBITING something: à¤¬à¤¹à¥ by two points of a fibre,
+-- à¤à¤•à¤®à¥ by a centre, an edge by an equivalence, a receipt by an
+-- identification.  à¤°à¤¿à¤•à¥à¤¤à¤®à¥ is the one that cannot be.  There is no
 -- element of an empty fibre to show, so the witness has to be of a
--- different kind â” and Â§à§ says which kind, exactly.
+-- different kind â€” and Â§à¥§ says which kind, exactly.
 --
--- Â§à§ Â ààà¾àµà àà°àà¯à¾àààà¿à â” "nothing in the field has this property" IS
+-- Â§à¥§ Â· à¤…à¤­à¤¾à¤µà¤ƒ à¤ªà¤°à¥à¤¯à¤¾à¤ªà¥à¤¤à¤¿à¤ƒ â€” "nothing in the field has this property" IS
 -- "every member of the field lacks it".  The equivalence is free, both
 -- directions, no hypothesis.  So a claim of absence is a Î  over the WHOLE
 -- domain, and cannot be less than that.
 --
--- Â§à¨ Â WHICH IS THE à¯à‹à—àà¯àà¾ CONDITION, and why the invalid form of
+-- Â§à¥¨ Â· WHICH IS THE à¤¯à¥‹à¤—à¥à¤¯à¤¤à¤¾ CONDITION, and why the invalid form of
 -- anupalabdhi is not merely weak but INEXPRESSIBLE.  Kumrila's
 -- yogynupalabdhi requires non-perception OF WHAT WOULD HAVE BEEN
 -- PERCEIVED HAD IT BEEN PRESENT (lokavrttika, abhva-pariccheda,
 -- c. 7th c.): you know the pot is absent because you would have seen it;
--- you do not know a ghost is absent by not seeing one.  Â§à§ is that
--- condition as a type â” the Î  ranges over the whole field, so producing
+-- you do not know a ghost is absent by not seeing one.  Â§à¥§ is that
+-- condition as a type â€” the Î  ranges over the whole field, so producing
 -- it IS having covered the field.  And the invalid form, "I searched and
 -- did not find", has no internal statement at all: it is a fact about a
 -- search, not about the domain, which is precisely why it licenses
 -- nothing.
 --
--- `interactive/Nirdharana_â¦hs` reaches the same wall from the engineering
+-- `interactive/Nirdharana_â€¦hs` reaches the same wall from the engineering
 -- side and says so: EMPTY "is a case this instrument cannot certify at
--- all".  It cannot, because certifying it is Â§à§'s Î  and a census only
--- visits points.  `interactive/Lopa_â¦hs` therefore reports UNDECIDED by count
+-- all".  It cannot, because certifying it is Â§à¥§'s Î  and a census only
+-- visits points.  `interactive/Lopa_â€¦hs` therefore reports UNDECIDED by count
 -- rather than guessing, on the stated ground that a verdict guessed is
 -- worse than a verdict withheld.
 ------------------------------------------------------------------------
@@ -51,7 +51,7 @@ open import Cubical.Relation.Nullary using (Â¬_)
 private variable â„“ â„“' : Level
 
 ------------------------------------------------------------------------
--- à§ Â ààà¾àµà àà°àà¯à¾àààà¿à â” absence is exactly universal lack.
+-- à¥§ Â· à¤…à¤­à¤¾à¤µà¤ƒ à¤ªà¤°à¥à¤¯à¤¾à¤ªà¥à¤¤à¤¿à¤ƒ â€” absence is exactly universal lack.
 --
 -- Forward: if nothing in the field has P, then each member lacks it.
 -- Backward: if each member lacks it, nothing in the field has it.
@@ -71,7 +71,7 @@ Iso.leftInv  (à¤•à¥à¤·à¥‡à¤¤à¥à¤°-à¤µà¤šà¤¨à¤®à¥ P) _      = refl
 à¤…à¤­à¤¾à¤µà¤ƒâ‰ƒà¤ªà¤°à¥à¤¯à¤¾à¤ªà¥à¤¤à¤¿à¤ƒ P = isoToEquiv (à¤•à¥à¤·à¥‡à¤¤à¥à¤°-à¤µà¤šà¤¨à¤®à¥ P)
 
 ------------------------------------------------------------------------
--- à¨ Â à°à¿à•ààà®à has no exhibiting witness â” read off Â§à§ at a fibre.
+-- à¥¨ Â· à¤°à¤¿à¤•à¥à¤¤à¤®à¥ has no exhibiting witness â€” read off Â§à¥§ at a fibre.
 --
 -- A claim that the fibre over `b` is empty is, exactly, a rule covering
 -- every point of the domain.  Not a point, not a finite check, not a
@@ -83,10 +83,10 @@ Iso.leftInv  (à¤•à¥à¤·à¥‡à¤¤à¥à¤°-à¤µà¤šà¤¨à¤®à¥ P) _      = refl
 à¤°à¤¿à¤•à¥à¤¤-à¤ªà¥à¤°à¤®à¤¾à¤£à¤®à¥ f b = à¤…à¤­à¤¾à¤µà¤ƒâ‰ƒà¤ªà¤°à¥à¤¯à¤¾à¤ªà¥à¤¤à¤¿à¤ƒ (Î» a â†’ f a â‰¡ b)
 
 ------------------------------------------------------------------------
--- à© Â and the contrast, so the asymmetry is on the page.
+-- à¥© Â· and the contrast, so the asymmetry is on the page.
 --
--- ààà and àà•à®à are witnessed by handing over inhabitants.  à°à¿à•ààà®à cannot
--- be, and Â§à¨ says what stands in its place.
+-- à¤¬à¤¹à¥ and à¤à¤•à¤®à¥ are witnessed by handing over inhabitants.  à¤°à¤¿à¤•à¥à¤¤à¤®à¥ cannot
+-- be, and Â§à¥¨ says what stands in its place.
 ------------------------------------------------------------------------
 
 à¤‰à¤ªà¤²à¤¬à¥à¤§à¤¿à¤ƒ : {A B : Type â„“} (f : A â†’ B) (a : A) â†’ fiber f (f a)

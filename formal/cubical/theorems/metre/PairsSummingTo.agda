@@ -6,27 +6,27 @@
 -- Ingredient (i) of `DurationIsSyllablesPlusGuru` Â§7, built rather than
 -- described.
 --
---     pairsFin : (n : â•) â’ Pairs n â‰ SumFin (suc n)
+--     pairsFin : (n : â„•) â†’ Pairs n â‰ƒ SumFin (suc n)
 --
--- where `Pairs n = Î[ (a,b) âˆˆ â• — â• ] (a + b â‰¡ n)`.  The antidiagonal
+-- where `Pairs n = Î£[ (a,b) âˆˆ â„• Ã— â„• ] (a + b â‰¡ n)`.  The antidiagonal
 -- index set is finite, with `n + 1` elements, by a structural induction
--- and **no truncated subtraction** â” which is what every other encoding in
+-- and **no truncated subtraction** â€” which is what every other encoding in
 -- `Sankalita` Â§13 died of.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE INDUCTION
 --
---     Pairs 0        â‰  âŠ
---     Pairs (suc n)  â‰  âŠ âŠ Pairs n
+--     Pairs 0        â‰ƒ  âŠ¤
+--     Pairs (suc n)  â‰ƒ  âŠ¤ âŠŽ Pairs n
 --
 -- the first summand being the pair `(0 , suc n)` and the rest having `a`
 -- a successor, dropping to the previous level.  `Cubical.Data.SumFin`
--- defines `Fin (suc n) = âŠ âŠ Fin n` **definitionally**, so the second
+-- defines `Fin (suc n) = âŠ¤ âŠŽ Fin n` **definitionally**, so the second
 -- line composes into the result with no arithmetic at all.
 --
 -- Every round-trip obligation beyond the pair itself is an equation in
--- â•, hence a proposition, hence `isSetâ•`.  Same observation that made
--- `DurationIsSyllablesPlusGuru`'s Î-contraction go through.
+-- â„•, hence a proposition, hence `isSetâ„•`.  Same observation that made
+-- `DurationIsSyllablesPlusGuru`'s Î£-contraction go through.
 ------------------------------------------------------------------------
 
 module PairsSummingTo where
@@ -86,7 +86,7 @@ Iso.leftInv (pairsSuc-Iso n) ((suc a , b) , p) =
   Î£PathP (refl , isPropâ†’PathP (Î» _ â†’ isSetâ„• _ _) _ _)
 
 ------------------------------------------------------------------------
--- 4.  THE STATEMENT.  `SumFin (suc n) = âŠ âŠ SumFin n` definitionally, so
+-- 4.  THE STATEMENT.  `SumFin (suc n) = âŠ¤ âŠŽ SumFin n` definitionally, so
 --     the induction composes with no arithmetic.
 ------------------------------------------------------------------------
 
@@ -129,18 +129,18 @@ pairsFin (suc n) =
 --
 -- Proved in this repository:
 --
---   `Sankalita.sankalita-column`      Î_{m<n} meru m r â‰¡ meru n (suc r)
---   `Sankalita.varasankalita`         Î^r 1 at n â‰¡ meru n r
+--   `Sankalita.sankalita-column`      Î£_{m<n} meru m r â‰¡ meru n (suc r)
+--   `Sankalita.varasankalita`         Î£^r 1 at n â‰¡ meru n r
 --   `Sankalita.AD2-breaks-the-recurrence`
 --                                     the row-2 antidiagonal sums are not
 --                                     Fibonacci-recurrent
 --   `DurationIsSyllablesPlusGuru.matra-split`
 --                                     matrOf p â‰¡ vara p + guruOf p
 --   `DurationIsSyllablesPlusGuru.metre-sorts`
---                                     Metre n â‰ Î_{a+b=n} Chosen a b
---   here `pairsFin`                   Pairs n â‰ SumFin (suc n)
+--                                     Metre n â‰ƒ Î£_{a+b=n} Chosen a b
+--   here `pairsFin`                   Pairs n â‰ƒ SumFin (suc n)
 --
 -- And, in `DiagonalIsMatra`:
 --
---   `diagonal-is-matra : (n : â•) â’ matra n â‰¡ antidiag n`
+--   `diagonal-is-matra : (n : â„•) â†’ matra n â‰¡ antidiag n`
 ------------------------------------------------------------------------

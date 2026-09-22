@@ -3,17 +3,17 @@
 ------------------------------------------------------------------------
 -- ListKit_OneImportPointAndNoNewDefinitions
 --
--- ON THE NAME.  **This file is plumbing** â”
--- `Any`, `Mem`, filters over lists â” with no source in any tradition
+-- ON THE NAME.  **This file is plumbing** â€”
+-- `Any`, `Mem`, filters over lists â€” with no source in any tradition
 -- and no mathematical content of its own, so it takes an English name
 -- and says why.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS IS, AND WHAT IT DELIBERATELY IS NOT.
 --
 -- A factoring fact: eleven modules import a file named for a position in
 -- the saptabhag, and most of them want only `Any`, `decAny` and
--- `memberToAny` â” list plumbing that landed there because that is where
+-- `memberToAny` â€” list plumbing that landed there because that is where
 -- it was first needed.  The corpus also carries **`All` three times and
 -- `Mem` four times**, in modules named for unrelated theorems.
 --
@@ -22,7 +22,7 @@
 -- already lives, so importing it cannot create a fourth copy of
 -- anything, and deleting it would break nothing but convenience.
 --
--- **`All` IS DELIBERATELY ABSENT.**  There are three definitions â”
+-- **`All` IS DELIBERATELY ABSENT.**  There are three definitions â€”
 -- `TheParetoStratumIsDecidableAndTheFilterIsExact.All`,
 -- `KramaAstiNasti_AnEnumerableRemedySetKillsTheFourthCorner.All`
 -- (identical), `EveryRemainderMemberIsStrictlyDominated.AllL` (same

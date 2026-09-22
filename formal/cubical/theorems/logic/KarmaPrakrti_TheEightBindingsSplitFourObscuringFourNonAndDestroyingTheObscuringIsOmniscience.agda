@@ -1,40 +1,40 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������������� � the eight karma-natures split four OBSCURING (ght) and
+-- कर्मप्रकृति — the eight karma-natures split four OBSCURING (ghātī) and
 -- four non-obscuring (aght); destroying the four obscuring is kevala
 -- (omniscience); destroying all eight is moka.  The bridge from the
 -- karma-dynamics to knowing.
 --
--- SOURCE.  Umsvti, *Tattvrthastra* (~2nd�5th c.):
+-- SOURCE.  Umāsvāti, *Tattvārthasūtra* (~2nd–5th c.):
 --   8.5   the eight mla-praktis (root natures) of bound karma:
 --         jnvaraa (knowledge-obscuring), daranvaraa (perception-
 --         obscuring), vedanya (feeling), mohanya (deluding), yus
 --         (lifespan), nma (body-making), gotra (status), antarya
 --         (obstructive).
---   10.1  moha-kayj jna-daranvarantarya-kayc ca kevalam �
+--   10.1  moha-kṣayāj jñāna-darśanāvaraṇāntarāya-kṣayāc ca kevalam —
 --         from the destruction of the deluding (moha) AND of the
 --         knowledge- and perception-obscuring and the obstructive, arises
---         KEVALA (omniscience).  Those four � mohanya, jnvaraa,
---         daranvaraa, antarya � are the GHT (obscuring) karmas.
+--         KEVALA (omniscience).  Those four — mohanīya, jñānāvaraṇa,
+--         darśanāvaraṇa, antarāya — are the GHĀTĪ (obscuring) karmas.
 --   10.2  the remaining four (vedanya, yus, nma, gotra) are AGHT;
 --         their destruction, with no new bondage, is ktsna-karma-
---         vipramoka � moka (`Karma.��������`).
+--         vipramokṣa — mokṣa (`Karma.मोक्षः`).
 --
--- So there are two thresholds, not one: kevala (the four ght gone �
--- the veil on KNOWING lifted, `NayaVada.��������` become total) precedes
--- moka (all eight gone � release from the arena, `Karma`).  The
+-- So there are two thresholds, not one: kevala (the four ghātī gone —
+-- the veil on KNOWING lifted, `NayaVada.प्रमाणम्` become total) precedes
+-- mokṣa (all eight gone — release from the arena, `Karma`).  The
 -- sayoga-keval (guasthna 13) has kevala but not yet moka.
 --
 -- WHAT IS PROVED:
---   §2  ����� � exactly eight praktis.
---   §3  �����-������ � the four ght and four aght PARTITION the eight:
+--   §2  अष्ट — exactly eight prakṛtis.
+--   §3  घाति-अघाति — the four ghātī and four aghātī PARTITION the eight:
 --       every prakti is exactly one, none both, four each.
---   §4  ������� � kevala is destruction of the four ght; �������� is
+--   §4  केवलम् — kevala is destruction of the four ghātī; मोक्षः is
 --       destruction of all eight.
---   §5  ����������-������� � moka ENTAILS kevala: if all eight are destroyed
+--   §5  मोक्षात्-केवलम् — mokṣa ENTAILS kevala: if all eight are destroyed
 --       the four ght are, so the liberated is omniscient.
---   §6  ������-�-�������� � but kevala is strictly weaker: a state with the
+--   §6  केवलं-न-मोक्षः — but kevala is strictly weaker: a state with the
 --       four ght gone and an aght remaining is kevala WITHOUT moka
 --       (the sayoga-keval).  Omniscience precedes liberation.
 ------------------------------------------------------------------------
@@ -76,14 +76,14 @@ data प्रकृति : Type where
 अघातिन् _      = ⊥
 
 ------------------------------------------------------------------------
--- §2  ����� � exactly eight.
+-- §2  अष्ट — exactly eight.
 ------------------------------------------------------------------------
 
 अष्ट : length अष्टप्रकृतयः ≡ 8
 अष्ट = refl
 
 ------------------------------------------------------------------------
--- §3  �����-������ � the two classes partition the eight (4 + 4).
+-- §3  घाति-अघाति — the two classes partition the eight (4 + 4).
 ------------------------------------------------------------------------
 
 चतुर्घातिनः : List प्रकृति
@@ -113,8 +113,8 @@ data प्रकृति : Type where
 न-उभयम् अन्तराय  _ ()
 
 ------------------------------------------------------------------------
--- §4  ������� / �������� � the two thresholds as predicates on a state.
---     A state records, per prakti, whether it is destroyed (������).
+-- §4  केवलम् / मोक्षः — the two thresholds as predicates on a state.
+--     A state records, per prakṛti, whether it is destroyed (क्षीण).
 ------------------------------------------------------------------------
 
 अवस्था : Type₁
@@ -129,14 +129,14 @@ data प्रकृति : Type where
 मोक्षः क्षीण = (p : प्रकृति) → क्षीण p
 
 ------------------------------------------------------------------------
--- §5  ����������-������� � moka entails kevala (the liberated is omniscient).
+-- §5  मोक्षात्-केवलम् — mokṣa entails kevala (the liberated is omniscient).
 ------------------------------------------------------------------------
 
 मोक्षात्-केवलम् : (क्षीण : अवस्था) → मोक्षः क्षीण → केवलम् क्षीण
 मोक्षात्-केवलम् क्षीण m = λ p _ → m p
 
 ------------------------------------------------------------------------
--- §6  ������-�-�������� � kevala is strictly weaker: ght gone, an aght
+-- §6  केवलं-न-मोक्षः — kevala is strictly weaker: ghātī gone, an aghātī
 --     remaining, is kevala without moka (the sayoga-keval, guasthna 13).
 ------------------------------------------------------------------------
 

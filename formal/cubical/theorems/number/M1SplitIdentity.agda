@@ -3,23 +3,23 @@
 ------------------------------------------------------------------------------
 -- M1SplitIdentity
 --
--- cancellation core of the identity �♯_Q(P_Q) = M(Q) of the same section
+-- cancellation core of the identity Λ♯_Q(P_Q) = M(Q) of the same section
 -- §1(i).
 --
 --     [♯♯](T)-constant = A(Q)²/4 + 2 A(Q) S(Q) + O(1),
---     A(Q) = �♯_Q(1),   S(Q) = �_{m�2} �♯_Q(m)/(1+m)²,
+--     A(Q) = Λ♯_Q(1),   S(Q) = Σ_{m≥2} Λ♯_Q(m)/(1+m)²,
 --
 --   whose proof is, verbatim: "T's block constant is
---   �_{n�2}(�♯_Q * �♯_Q)(n)/n².  Split the convolution by whether each
+--   Σ_{n≥2}(Λ♯_Q * Λ♯_Q)(n)/n².  Split the convolution by whether each
 --   argument equals 1.  The (1,1) term sits at n = 2 and contributes
---   A(Q)²/4.  The terms (1,m) and (m,1), m � 2, contribute 2A(Q)S(Q).
---   The remaining terms have both arguments � 2 and are Q-bounded,
+--   A(Q)²/4.  The terms (1,m) and (m,1), m ≥ 2, contribute 2A(Q)S(Q).
+--   The remaining terms have both arguments ≥ 2 and are Q-bounded,
 --   giving O(1)."
 --
 -- WHAT IS FORMALIZED HERE.  The proposition has three
 -- separable layers:
 --
---   (a) the SPLIT: the double sum over pairs (a,b), a,b � 1, weighted by
+--   (a) the SPLIT: the double sum over pairs (a,b), a,b ≥ 1, weighted by
 --       w(a+b), equals  corner + cross + cross + remainder,  the corner
 --       being the single lattice point (1,1);
 --   (b) the ASYMPTOTICS of A(Q) (Mertens-type: A(Q) = log Q + C + o(1))
@@ -27,14 +27,14 @@
 --   (c) the O(1) bound on the remainder.
 --
 --   (a) is proved below.  It is exactly the part of M1 that is not
---   analysis: it is a partition of the index lattice ��1 � ��1 into
---   {(1,1)} ⊔ {(1,m)} ⊔ {(m,1)} ⊔ {both � 2}, and it is true for an
+--   analysis: it is a partition of the index lattice ℕ≥1 × ℕ≥1 into
+--   {(1,1)} ⊔ {(1,m)} ⊔ {(m,1)} ⊔ {both ≥ 2}, and it is true for an
 --   ARBITRARY weight w and an ARBITRARY arithmetic function f in an
---   arbitrary commutative semiring.  Neither μ, nor �, nor �, nor any
+--   arbitrary commutative semiring.  Neither μ, nor φ, nor Λ, nor any
 --   Dirichlet series, nor any zero, appears in any type in this file.
 --
---   The finite truncation is the SQUARE 1 � a,b � K, not the triangle
---   a+b � N.  Both truncate the same double series; the square is the
+--   The finite truncation is the SQUARE 1 ≤ a,b ≤ K, not the triangle
+--   a+b ≤ N.  Both truncate the same double series; the square is the
 --   one whose split is exact with no boundary term, and choosing it is a
 --   choice about the truncation, not about M1.  The infinite sum itself
 --   is not formed: there are no reals here, hence no convergence claim.
@@ -46,19 +46,19 @@
 --   f and every w.  Instantiating w n = 1/n² turns w 2 into ¼.
 --
 -- SECOND RESULT (§5).  `sharp-collapse`: if a weight ω and a fibre value
--- c satisfy  c q ≡ � q  and  ω q ⊗ � q ≡ μ q  for every q, then
--- �_{q�Q} ω q ⊗ c q ≡ �_{q�Q} μ q.  With ω q = μ(q)/�(q), � = Euler,
--- c = the Ramanujan sum c_q(n), this is �♯_Q(n) = M(Q).  The two
+-- c satisfy  c q ≡ φ q  and  ω q ⊗ φ q ≡ μ q  for every q, then
+-- Σ_{q≤Q} ω q ⊗ c q ≡ Σ_{q≤Q} μ q.  With ω q = μ(q)/φ(q), φ = Euler,
+-- c = the Ramanujan sum c_q(n), this is Λ♯_Q(n) = M(Q).  The two
 -- arithmetic inputs are HYPOTHESES CARRIED IN THE SIGNATURE, and they
 -- are exactly:
 --     (maximal) c_q(n) = �(q)  whenever q � n;
---     (cancel)  (μ(q)/�(q))��(q) = μ(q)         -- �(q) ≠ 0, in �.
+--     (cancel)  (μ(q)/φ(q))·φ(q) = μ(q)         -- φ(q) ≠ 0, in ℚ.
 -- §6 discharges the side condition,
--- which is that a SINGLE n making `maximal` hold for all q � Q exists:
--- `divFact` proves q � Q! for every 1 � q � Q, so the modulus P_Q of
+-- which is that a SINGLE n making `maximal` hold for all q ≤ Q exists:
+-- `divFact` proves q ∣ Q! for every 1 ≤ q ≤ Q, so the modulus P_Q of
 -- METHOD.md §1(i) is inhabited and the theorem is not vacuous.
 --
--- NON-VACUITY CONTROLS: §7, all `refl` over �, plus a control showing
+-- NON-VACUITY CONTROLS: §7, all `refl` over ℕ, plus a control showing
 -- the `maximal` hypothesis of §5 is load-bearing (dropping it makes the
 -- conclusion false, with a witness).
 ------------------------------------------------------------------------------
@@ -92,7 +92,7 @@ module Weighted
   where
 
   ----------------------------------------------------------------------------
-  -- §2.  Finite sums.  `sumFrom lo k g = g lo ⊕ � ⊕ g (lo + k − 1)`.
+  -- §2.  Finite sums.  `sumFrom lo k g = g lo ⊕ … ⊕ g (lo + k − 1)`.
   ----------------------------------------------------------------------------
 
   sumFrom : ℕ → ℕ → (ℕ → R) → R
@@ -127,11 +127,11 @@ module Weighted
   ----------------------------------------------------------------------------
   -- §3.  The weighted pair sum and the four pieces of the split.
   --
-  --   f : the arithmetic function (M1 takes f = �♯_Q)
+  --   f : the arithmetic function (M1 takes f = Λ♯_Q)
   --   w : the weight            (M1 takes w n = 1/n²)
   --
-  -- `sq K` is �_{1�a,b�K} f(a) f(b) w(a+b): the square truncation of
-  -- M1's �_{n�2} (f*f)(n) w(n), (f*f) the ADDITIVE convolution.
+  -- `sq K` is Σ_{1≤a,b≤K} f(a) f(b) w(a+b): the square truncation of
+  -- M1's Σ_{n≥2} (f*f)(n) w(n), (f*f) the ADDITIVE convolution.
   ----------------------------------------------------------------------------
 
   module Split (f w : ℕ → R) where
@@ -149,7 +149,7 @@ module Weighted
     corner : R
     corner = (A ⊗ A) ⊗ w 2
 
-    -- S(Q) of METHOD.md §1, truncated: �_{2�m�K'+1} f(m) w(1+m)
+    -- S(Q) of METHOD.md §1, truncated: Σ_{2≤m≤K'+1} f(m) w(1+m)
     S : ℕ → R
     S K' = sumFrom 2 K' (λ m → f m ⊗ w (1 + m))
 
@@ -187,7 +187,7 @@ module Weighted
       ∙ sym (sum-linear K' 2 A (λ m → f m ⊗ w (1 + m)))
 
     -- M1's split, in the note's own shape:
-    --   � = A²�w(2)  +  (A�S + A�S)  +  (both arguments � 2)
+    --   Σ = A²·w(2)  +  (A·S + A·S)  +  (both arguments ≥ 2)
     M1-split : (K' : ℕ)
              → sq (suc K')
                ≡ ((A ⊗ A) ⊗ w 2) ⊕ (((A ⊗ S K') ⊕ (A ⊗ S K')) ⊕ remainder K')
@@ -207,7 +207,7 @@ module Weighted
     corner-independent K' L' = refl
 
   ----------------------------------------------------------------------------
-  -- §5.  �♯_Q(P_Q) = M(Q): the cancellation, with its two arithmetic
+  -- §5.  Λ♯_Q(P_Q) = M(Q): the cancellation, with its two arithmetic
   -- inputs as explicit hypotheses (see the header for what they are).
   ----------------------------------------------------------------------------
 
@@ -220,9 +220,9 @@ module Weighted
     sum-cong Q 1 _ _ (λ q → cong (ω q ⊗_) (maximal q) ∙ cancel q)
 
 ------------------------------------------------------------------------------
--- §6.  The modulus exists.  `maximal` above is asked of every q � Q at ONE
+-- §6.  The modulus exists.  `maximal` above is asked of every q ≤ Q at ONE
 -- argument n; METHOD.md §1(i) attains it at n ≡ 0 mod P_Q.  Such an n
--- exists: Q! is divisible by every 1 � q � Q.  Proved, not assumed.
+-- exists: Q! is divisible by every 1 ≤ q ≤ Q.  Proved, not assumed.
 ------------------------------------------------------------------------------
 
 _divides_ : ℕ → ℕ → Type₀
@@ -243,7 +243,7 @@ divFact (suc Q') q pos (suc k' , kp) =
      sym (·-assoc (suc Q') c q) ∙ cong (suc Q' ·_) cp
 
 ------------------------------------------------------------------------------
--- §7.  Non-vacuity controls, over � with the concrete data
+-- §7.  Non-vacuity controls, over ℕ with the concrete data
 --        f n = n ,  w n = n ,  K = 3 .
 -- Every equation below is checked by the kernel (`refl`), and each piece
 -- of the split is shown NONZERO, so §4 is not a partition into zeros.
@@ -257,7 +257,7 @@ module ℕControls where
 
   open Split (λ n → n) (λ n → n)
 
-  -- �_{1�a,b�3} a�b�(a+b) = 168
+  -- Σ_{1≤a,b≤3} a·b·(a+b) = 168
   ctl-sq        : sq 3 ≡ 168
   ctl-sq        = refl
 
@@ -296,8 +296,8 @@ module ℕControls where
 
   --------------------------------------------------------------------------
   -- §7.1  The `maximal` hypothesis of §5 is load-bearing.  With
-  -- ω q = 3, � q = 2, μ q = 6 the hypothesis `cancel` holds; with
-  -- c q = � q the conclusion gives 24 at Q = 4, and with c q = 0 --
+  -- ω q = 3, φ q = 2, μ q = 6 the hypothesis `cancel` holds; with
+  -- c q = φ q the conclusion gives 24 at Q = 4, and with c q = 0 --
   -- i.e. `maximal` dropped, everything else unchanged -- it gives 0.
   --------------------------------------------------------------------------
 

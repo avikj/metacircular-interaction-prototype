@@ -1,31 +1,31 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡∞‡Æ‡æ‡‡®‡Ø‡à‡∞‡ß‡ø‡ó‡Æ‡ ‚î Umsvti, Tattvrthastra 1.6 (c. 2nd‚ì5th c.
--- CE): the object is attained through prama and nayas ‚î the one
+-- ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡§®‡§Ø‡•à‡§∞‡§ß‡§ø‡§ó‡§Æ‡§É ‚Äî UmƒÅsvƒÅti, TattvƒÅrthas≈´tra 1.6 (c. 2nd‚Äì5th c.
+-- CE): the object is attained through pramƒÅ·πáa and nayas ‚Äî the one
 -- comprehensive knowing, and the partial knowings that are its
 -- aspects.  The classification is his.  School named: Jaina.
 --
 -- THE FOUR PROVERS ARE ONE.
 -- EkaTantra proved that all voices are one contention structure
 -- differing by a parameter.  The corpus carries four voices, each a
--- SEPARATE function: the flat prover (‡‡æ‡ß‡®‡Æ‡), the
--- sequence-free-eyed prover (‡‡Æ-‡‡æ‡ß‡®‡Æ‡), the self-inferring prover
--- (‡‡‡µ‡æ‡∞‡‡-‡‡æ‡ß‡®‡Æ‡), the record-fed prover (‡‡‡‡∞‡‡-‡‡æ‡ß‡®‡Æ‡).  Four
--- knowings where the theorem says there is one.  Each is a naya ‚î
+-- SEPARATE function: the flat prover (‡§∏‡§æ‡§ß‡§®‡§Æ‡•ç), the
+-- sequence-free-eyed prover (‡§∏‡§Æ-‡§∏‡§æ‡§ß‡§®‡§Æ‡•ç), the self-inferring prover
+-- (‡§∏‡•ç‡§µ‡§æ‡§∞‡•ç‡§•-‡§∏‡§æ‡§ß‡§®‡§Æ‡•ç), the record-fed prover (‡§∏‡§∂‡•ç‡§∞‡•Å‡§§-‡§∏‡§æ‡§ß‡§®‡§Æ‡•ç).  Four
+-- knowings where the theorem says there is one.  Each is a naya ‚âî
 -- true, partial, and treated as a whole.
 --
 -- Here is the prama: ONE prover, parameterized by
 --
---   its EYE     (‡¶‡‡ï‡ ‚î the canonical form it sees through, carried
+--   its EYE     (‡§¶‡•É‡§ï‡•ç ‚Äî the canonical form it sees through, carried
 --                WITH its soundness, so a lawless eye cannot be
 --                installed: the norm eye, or the anarpita eye, or
 --                any future one),
---   its RECORD  (the ‡‡‡∞‡‡ it may consult), and
+--   its RECORD  (the ‡§∂‡•ç‡§∞‡•Å‡§§ it may consult), and
 --   its DESCENT (the fuel bounding nested ascent).
 --
 -- Each prior voice is exhibited below as a parameter setting of this
--- one function, reproducing its verdicts ‚î including its silences ‚î
+-- one function, reproducing its verdicts ‚Äî including its silences ‚Äî
 -- on the same material; and the one knowing with all its
 -- light on (anarpita eye, grown record, full descent) reaches
 -- everything each naya reached separately.
@@ -114,11 +114,11 @@ open import NaturalMachine.ArpitaAnarpita_EveryOrderedPresentationOfOneAggregate
         (‡§™‡•ç‡§∞‡§Æ‡§æ‡§£-‡§µ‡•ç‡§Ø‡§æ‡§™‡•ç‡§§‡§ø‡§É E Œì k l r)
 
 ------------------------------------------------------------------------
--- ¬ß3  The nayas, each a parameter setting, each verdict ‚î including
---     each silence ‚î reproduced on the same material.
+-- ¬ß3  The nayas, each a parameter setting, each verdict ‚Äî including
+--     each silence ‚Äî reproduced on the same material.
 ------------------------------------------------------------------------
 
--- the flat naya (norm eye, no record, no descent): sees ‡®‡ø‡Ø‡Æ‚'s
+-- the flat naya (norm eye, no record, no descent): sees ‡§®‡§ø‡§Ø‡§Æ‚ÇÑ's
 -- equation, blind to commutativity.
 ‡§∏‡§Æ‡§§‡§≤-‡§¶‡•É‡§∑‡•ç‡§ü‡§ø‡§É : inJust (‡§™‡•ç‡§∞‡§Æ‡§æ‡§£-‡§∏‡§æ‡§ß‡§®‡§Æ‡•ç ‡§®‡•á‡§§‡•ç‡§∞‡§Æ‡•ç-‡§® [] 1
   (lq ze (su (var 0)) , lq ze (var 0)))
@@ -145,7 +145,7 @@ open import NaturalMachine.ArpitaAnarpita_EveryOrderedPresentationOfOneAggregate
 ‡§∏‡§Æ-‡§¶‡•É‡§∑‡•ç‡§ü‡§ø‡§É = tt
 
 ------------------------------------------------------------------------
--- ¬ß4  The prama: all its light on ‚î one setting reaching what each
+-- ¬ß4  The pramƒÅ·πáa: all its light on ‚Äî one setting reaching what each
 --     naya reached apart, on one call each.
 ------------------------------------------------------------------------
 

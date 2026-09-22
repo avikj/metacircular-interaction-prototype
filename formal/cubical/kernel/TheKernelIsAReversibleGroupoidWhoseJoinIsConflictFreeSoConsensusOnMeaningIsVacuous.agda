@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous
 --
--- TERM.  ‡‡µ‡ø‡∞‡ã‡ß ¬ avirodha -- non-contradiction, the absence of conflict.
+-- TERM.  ‡§Ö‡§µ‡§ø‡§∞‡•ã‡§ß ¬∑ avirodha -- non-contradiction, the absence of conflict.
 -- Ordinary ; its best-known technical placement is as the title of
 -- the SECOND ADHYYA of Bdaryaa's *Brahmastra*, the avirodha-adhyya,
 -- whose business is showing that no apparent conflict stands.  That is
@@ -22,8 +22,8 @@
 -- file, and none of them is designed for; they are consequences of `Step`
 -- having a `reverse` constructor and of `eval` landing in a set.
 --
---   REVERSIBLE.  `Step` ships `reverse : Step x y ‚í Step y x`, so ¬ß2 builds
---     `rev : Derivation a b ‚í Derivation b a` for EVERY derivation -- total,
+--   REVERSIBLE.  `Step` ships `reverse : Step x y ‚Üí Step y x`, so ¬ß2 builds
+--     `rev : Derivation a b ‚Üí Derivation b a` for EVERY derivation -- total,
 --     no hypothesis, no trapdoor.  Nothing this kernel computes is
 --     one-way, and `rev-computes-the-inverse-meaning` says the reversal's
 --     meaning IS the inverse meaning, forced.  A round trip is invisible.
@@ -38,10 +38,10 @@
 --
 --   DECENTRALISED, WITH NO CONFLICT RESOLUTION ANYWHERE.  ¬ß3: the library
 --     is a list, the join is `++`, and
---       ¬ merging never loses a capability (`join-keeps-the-left/right`)
---       ¬ merging never invents one (`join-splits`)
---       ¬ THE ORDER OF THE MERGE IS IRRELEVANT (`merge-is-order-independent`)
---       ¬ merging a library with itself adds nothing (`merge-is-idempotent`)
+--       ¬∑ merging never loses a capability (`join-keeps-the-left/right`)
+--       ¬∑ merging never invents one (`join-splits`)
+--       ¬∑ THE ORDER OF THE MERGE IS IRRELEVANT (`merge-is-order-independent`)
+--       ¬∑ merging a library with itself adds nothing (`merge-is-idempotent`)
 --     That is a join-semilattice on capability: grow-only, commutative,
 --     idempotent.  No leader, no sequence number, no reconciliation pass.
 --     And `merge` is a TOTAL function with no failure mode -- there is no
@@ -49,7 +49,7 @@
 --     checked derivation, so a merge has nothing to validate.
 --
 --   NO CONFLICT, AND THIS IS THE ONE THAT IS USUALLY MISSED.  ¬ß4: soundness
---     lands in an identity type of ‚ï, hence in a PROPOSITION, so any two
+--     lands in an identity type of ‚Ñï, hence in a PROPOSITION, so any two
 --     derivations between the same terms have EQUAL meanings.  Therefore
 --     TWO NODES CANNOT DISAGREE ABOUT WHAT IS TRUE.  A vote would decide
 --     nothing -- not because voting is disallowed by policy, but because the
@@ -57,7 +57,7 @@
 --     it.  Consensus on meaning is not forbidden here; it is VACUOUS.
 --
 -- AND THE PART THAT IS NOT VACUOUS IS ADDITIVE, NOT EXCLUSIVE.  ¬ß5: what
--- two nodes genuinely differ on is the ROUTE -- and `TheDerivationCarriesNoMeaning‚¶` exhibits two
+-- two nodes genuinely differ on is the ROUTE -- and `TheDerivationCarriesNoMeaning‚Ä¶` exhibits two
 -- routes between the same endpoints with equal meanings and different
 -- lengths, neither of them wrong.  A fork is not a disagreement to be
 -- settled; it is two carriers of the same fact, and `advance` is forbidden
@@ -67,7 +67,7 @@
 -- bolted onto this mathematics.  There is nothing to bolt on.  The
 -- properties a chain is BUILT to manufacture -- agreement, immutability,
 -- validity without a trusted party, conflict-free replication -- are here
--- as consequences of `reverse` and of ‚ï being a set, and the machinery a
+-- as consequences of `reverse` and of ‚Ñï being a set, and the machinery a
 -- chain uses to manufacture them (ordering, voting, finality, reorg) has no
 -- work to do because the disagreement it resolves cannot be stated.
 ------------------------------------------------------------------------
@@ -139,7 +139,7 @@ round-trip-is-the-identity {a} d œÅ = isSet‚Ñï (eval a œÅ) (eval a œÅ) _ _
 -- constructor application from `p`, and the round trip `d ‚äï rev d` is a
 -- derivation of positive length where `done` has length zero.  ¬ß1's
 -- strictness is what merging needs; this weakness is where the cost lives,
--- and `TheDerivationCarriesNoMeaning‚¶` proves no function of the meaning can see it.
+-- and `TheDerivationCarriesNoMeaning‚Ä¶` proves no function of the meaning can see it.
 the-round-trip-is-not-nothing :
   len (then-step (add-suc var zero) (done (suc (add var zero)))) ‚â° ‚Ñï.suc ‚Ñï.zero
 the-round-trip-is-not-nothing = refl
@@ -206,7 +206,7 @@ validity-travels-with-the-operation = every-operation-that-exists-is-sound
 ------------------------------------------------------------------------
 -- ¬ß4.  AVIRODHA.  There is nothing to disagree about.
 --
--- The meaning of a derivation lives in an identity type of ‚ï.  ‚ï is a set.
+-- The meaning of a derivation lives in an identity type of ‚Ñï.  ‚Ñï is a set.
 -- So that type is a PROPOSITION, and any two derivations between the same
 -- terms have equal meanings -- not "compatible", not "both acceptable":
 -- EQUAL, as terms.  Two nodes therefore cannot hold different positions on
@@ -230,7 +230,7 @@ the-merge-decides-nothing {a} {b} mine theirs œÅ =
 ------------------------------------------------------------------------
 -- ¬ß5.  ANEKNTA.  And what DOES differ is kept, not settled.
 --
--- The routes differ and neither is wrong: `TheDerivationCarriesNoMeaning‚¶` exhibits two derivations
+-- The routes differ and neither is wrong: `TheDerivationCarriesNoMeaning‚Ä¶` exhibits two derivations
 -- of the same fact with equal meanings and lengths 2 and 4.  A fork here is
 -- not a disagreement awaiting a verdict -- it is two carriers of one fact,
 -- and `advance-preserves-branch-count` is the rule that both survive the

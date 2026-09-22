@@ -6,15 +6,15 @@
 -- Î” 28's "for every order": pairwise commutation of the STEPS gives
 -- agreement of every order, compressed and uncompressed alike.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   _~_               permutation, in the standard inductive
---                     presentation: identity, congruence under `âˆ`,
+--                     presentation: identity, congruence under `âˆ·`,
 --                     the ADJACENT transposition, and transitivity
 --   permInvariant     under pairwise commutation of the steps, any two
 --                     permutations of a list have the same uncompressed
---                     composite â” one line per constructor, and the
+--                     composite â€” one line per constructor, and the
 --                     transposition case IS the commutation hypothesis
 --   everyOrderAgreesAfterCompression
 --                     hence, composing with the previous module, the
@@ -24,7 +24,7 @@
 --                     and a point where two orders disagree is not `C`
 --                     of anything
 --
--- **So Â§36â“38's clause is hypothesis-free at the level it is
+-- **So Â§36â€“38's clause is hypothesis-free at the level it is
 -- stated.**
 -- Assume the STEPS commute
 -- pairwise, and every order agrees, compressed and uncompressed alike.
@@ -66,7 +66,7 @@ module _ {S T : Type} (C : S â†’ T) where
                  â†’ fst p (fst q s) â‰¡ fst q (fst p s)) where
 
     -- matching on the RELATION only, never on the lists: pattern
-    -- matching that would need injectivity of `_âˆ_` is not supported in
+    -- matching that would need injectivity of `_âˆ·_` is not supported in
     -- cubical Agda and produces a "will not compute on transports"
     -- warning, so the lists stay implicit
     permInvariant :

@@ -1,29 +1,29 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡®‡‡®‡ø‡ï‡‡‡‡ü-‡ó‡‡®‡‡æ ‚î for every dimension, the last silent stratum descends
+-- ‡§∏‡§®‡•ç‡§®‡§ø‡§ï‡•É‡§∑‡•ç‡§ü-‡§ó‡§π‡§®‡§§‡§æ ‚Äî for every dimension, the last silent stratum descends
 -- and the next does not.
 --
 -- `AdhikaraBhanga` landed three concrete descent-depth rungs:
--- existence (Unit/‚ä), components (Bool/Unit), and loops (S¬/Unit).  This
+-- existence (Unit/‚ä•), components (Bool/Unit), and loops (S¬π/Unit).  This
 -- module proves the indexed sphere form and sharpens it to ADJACENT
 -- truncation strata rather than comparing each full sphere with Unit.
 --
--- For every n, over one completely blind Bool ‚í Unit observation:
+-- For every n, over one completely blind Bool ‚Üí Unit observation:
 --
---   silent n true  = ‚à S‚ø‚∫¬ ‚à_(2+n)
---   silent n false = ‚à Unit  ‚à_(2+n)
+--   silent n true  = ‚à• S‚Åø‚Å∫¬π ‚à•_(2+n)
+--   silent n false = ‚à• Unit  ‚à•_(2+n)
 --
 -- descends: both fibres are contractible.
 --
 -- But one stratum higher:
 --
---   spoken n true  = ‚à S‚ø‚∫¬ ‚à_(3+n)
---   spoken n false = ‚à Unit  ‚à_(3+n)
+--   spoken n true  = ‚à• S‚Åø‚Å∫¬π ‚à•_(3+n)
+--   spoken n false = ‚à• Unit  ‚à•_(3+n)
 --
 -- does NOT descend.  If those two fibres were equivalent, the sphere
 -- truncation would be contractible; its (n+1)-fold loop space would then be
--- contractible.  `AnantaraArpana.‡‡®‡®‡‡‡∞‡Æ‡` identifies that loop space with ‚,
+-- contractible.  `AnantaraArpana.‡§Ö‡§®‡§®‡•ç‡§§‡§∞‡§Æ‡•ç` identifies that loop space with ‚Ñ§,
 -- contradicting pos 0 ‚â† pos 1.
 --
 -- Thus blindness has arbitrary finite depth, and the transition is adjacent:

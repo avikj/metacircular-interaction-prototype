@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ����-�������� � ��������� ������, ������ �������� ; ����������� �������� �
+-- समूह-दृष्टिः — एकैकम् अन्धाः, समूहेन पश्यन्ति ; प्रत्यानयनं प्रमाणम् ।
 --
 -- (singly blind readings are JOINTLY faithful, and a reconstruction is the
 -- certificate.)
@@ -10,7 +10,7 @@
 --
 --   SamacaranaNityam  a transitive symmetry flattens every observable
 --   ApurvaIndriyam    a derived reading is blind inside its source's fibres
---   ParimanaAndha     |�| cannot see the Mbius sign
+--   ParimanaAndha     |·| cannot see the Möbius sign
 --   TiryakTantu       the residue class and the factorisation are transverse
 --
 -- Read together they say what cannot be done, and read carelessly they say
@@ -18,18 +18,18 @@
 -- **blindness is not stable under taking families.**
 --
 -- The transversality of `TiryakTantu` is created by FIXING v.  Over the whole
--- family of moduli nothing is lost at all � u � (u mod v)_v is injective, and
--- that is the Chinese remainder theorem, which this corpus knows as ����������
+-- family of moduli nothing is lost at all — u ↦ (u mod v)_v is injective, and
+-- that is the Chinese remainder theorem, which this corpus knows as कुट्टक
 -- and which is 1500 years older than the obstruction it dissolves.  So the
 -- honest reading of four no-gos is not *no chart sees both*; it is
 --
 --     no SINGLE chart sees both, and a FAMILY with a reconstruction does.
 --
--- §� makes "with a reconstruction" the whole content: a family is jointly
+-- §३ makes "with a reconstruction" the whole content: a family is jointly
 -- faithful exactly when the joint reading has a left inverse, and exhibiting
--- one is cheaper than proving injectivity � 6 refls against 36 cases here.
+-- one is cheaper than proving injectivity — 6 refls against 36 cases here.
 --
--- AND IT IS THE SECTION AGAIN.  `EkaVidhih` §� showed descent costs a section
+-- AND IT IS THE SECTION AGAIN.  `EkaVidhih` §३ showed descent costs a section
 -- of S.  Joint faithfulness costs a reconstruction of the joint reading.
 -- Same object, opposite side: a section chooses a point in each fibre, a
 -- reconstruction proves each fibre was a point already.  The one law's costly
@@ -51,10 +51,10 @@ private
     ℓ ℓ' ℓ'' : Level
 
 ------------------------------------------------------------------------
--- � � ��������� � the general statement, no finiteness anywhere
+-- १ · सामान्यम् — the general statement, no finiteness anywhere
 --
 -- A reconstruction of a reading is a left inverse.  It is DATA, like
--- `�������`: a family that cannot hand one over has not shown it is faithful.
+-- `प्रवहति`: a family that cannot hand one over has not shown it is faithful.
 ------------------------------------------------------------------------
 
 प्रत्यानयनम् : {X : Type ℓ} {O : Type ℓ'} → (X → O) → Type (ℓ-max ℓ ℓ')
@@ -66,9 +66,9 @@ private
 प्रत्यानयनात्-भेदः S (r , ρ) x y p = sym (ρ x) ∙ cong r p ∙ ρ y
 
 ------------------------------------------------------------------------
--- � � ����������� ������ � the exhibit: two blind readings, jointly faithful
+-- २ · कुट्टकः षट्सु — the exhibit: two blind readings, jointly faithful
 --
--- ryabhaa, ryabhaya (499), kuaka � the residue system, stated as the
+-- Āryabhaṭa, Āryabhaṭīya (499), kuṭṭaka — the residue system, stated as the
 -- descent that solves simultaneous congruences.  Here at moduli 2 and 3 on
 -- six residues, the smallest case where both readings are individually
 -- blind and their pair is not.
@@ -98,7 +98,7 @@ data षट् : Type where
 समूहः x = (द्वि x , त्रि x)
 
 ------------------------------------------------------------------------
--- �a � ��������� ������ � each reading alone identifies two residues
+-- २a · एकैकम् अन्धाः — each reading alone identifies two residues
 ------------------------------------------------------------------------
 
 अङ्कः : षट् → ℕ                    -- a code, to get disequality of residues
@@ -115,17 +115,17 @@ data षट् : Type where
 र०≢र३ : र० ≡ र३ → ⊥
 र०≢र३ p = znots (cong अङ्कः p)
 
--- mod 2 cannot separate �� from �� �
+-- mod 2 cannot separate र० from र२ …
 द्वि-अन्धम् : द्वि र० ≡ द्वि र२
 द्वि-अन्धम् = refl
 
--- � and mod 3 cannot separate �� from ��.
+-- … and mod 3 cannot separate र० from र३.
 त्रि-अन्धम् : त्रि र० ≡ त्रि र३
 त्रि-अन्धम् = refl
 
 -- So NEITHER part admits a reconstruction: a reading that identifies two
--- distinct points has no left inverse, by §� read backwards.  This is what
--- makes §� a genuine gain rather than a restatement.
+-- distinct points has no left inverse, by §१ read backwards.  This is what
+-- makes §३ a genuine gain rather than a restatement.
 द्वेः-न-प्रत्यानयनम् : प्रत्यानयनम् द्वि → ⊥
 द्वेः-न-प्रत्यानयनम् ρ = र०≢र२ (प्रत्यानयनात्-भेदः द्वि ρ र० र२ द्वि-अन्धम्)
 
@@ -133,7 +133,7 @@ data षट् : Type where
 त्रेः-न-प्रत्यानयनम् ρ = र०≢र३ (प्रत्यानयनात्-भेदः त्रि ρ र० र३ त्रि-अन्धम्)
 
 ------------------------------------------------------------------------
--- � � ������������� � the pair reconstructs, so the pair is faithful
+-- ३ · मुख्यसिद्धिः — the pair reconstructs, so the pair is faithful
 --
 -- Six `refl`s.  Injectivity of the joint reading would be thirty-six cases;
 -- the reconstruction is the cheaper certificate and is the honest form,
@@ -165,11 +165,11 @@ data षट् : Type where
 समूहेन-भेदः = प्रत्यानयनात्-भेदः समूहः समूह-प्रत्यानयनम्
 
 ------------------------------------------------------------------------
--- � � ������� � what four no-gos actually said
+-- ४ · तत्फलम् — what four no-gos actually said
 --
--- `��������` refutes derivation of one reading FROM another.  It says nothing
--- against a family, and §� is the reason: the pair is not derived from either
--- part � it is derived from both, and its fibre is a point where each part's
+-- `अपूर्वम्` refutes derivation of one reading FROM another.  It says nothing
+-- against a family, and §३ is the reason: the pair is not derived from either
+-- part — it is derived from both, and its fibre is a point where each part's
 -- was not.  Blindness is a property of a chart, not of the object, and it
 -- does not survive being joined.
 --
@@ -177,5 +177,5 @@ data षट् : Type where
 -- transverse AT A FIXED v.
 -- A proof that works on the joint object owes no
 -- reconstruction of one half from the other, because it never separated them:
--- ����� �, ����-b, the datum rides free.
+-- सूत्र ५, बद्ध-b, the datum rides free.
 ------------------------------------------------------------------------

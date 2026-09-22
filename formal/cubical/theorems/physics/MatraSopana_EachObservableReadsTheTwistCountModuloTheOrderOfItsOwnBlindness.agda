@@ -1,21 +1,21 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à®à¾ààà°à¾-àà‹àà¾à¨ â” the resolution ladder.
+-- à¤®à¤¾à¤¤à¥à¤°à¤¾-à¤¸à¥‹à¤ªà¤¾à¤¨ â€” the resolution ladder.
 --
 -- Abstract 17's law said an observable is moved by exactly what it is
 -- not invariant under.  The kernel theorem computed the braid's
 -- memory.  Their meet is a LADDER: each observable reads the twist
--- count modulo the order of its own blindness â”
+-- count modulo the order of its own blindness â€”
 --
---   Â the full strand reading is blind to nothing and reads the count
+--   Â· the full strand reading is blind to nothing and reads the count
 --     MOD FOUR (the mod-four theorem);
---   Â the XOR reading â” invariant under the half-wave, moved by the
---     quarter turn â” reads the count MOD TWO: proved here, the parity
+--   Â· the XOR reading â€” invariant under the half-wave, moved by the
+--     quarter turn â€” reads the count MOD TWO: proved here, the parity
 --     of the twists at each depth, on every rope (the quarter turn
 --     flips the xor, four cases by refl; iteration collapses by
 --     double-negation; the reading theorem routes the count in);
---   Â the constant functional is blind to everything and reads MOD
+--   Â· the constant functional is blind to everything and reads MOD
 --     ONE.
 --
 -- Resolution is invariance, quantified: choosing an observable
@@ -23,7 +23,7 @@
 -- the surviving residue is exactly the order of the symmetry the
 -- observable accepted as blindness.  The interferometric reading:
 -- an intensity-like detector sees fringes at half the period of the
--- field's phase â” coarser senses alias the memory at the divisor
+-- field's phase â€” coarser senses alias the memory at the divisor
 -- their invariance dictates.
 ------------------------------------------------------------------------
 
@@ -49,7 +49,7 @@ open import GhurnaPatha_EachStrandReadsExactlyItsOwnTwistCountSoTheTwistWordActs
   using (cakrÄvartana ; gaá¹‡anÄ ; pÄá¹­ha-gaá¹‡anÄ)
 
 ------------------------------------------------------------------------
--- à§ Â The xor observable, and how the quarter turn moves it.
+-- à¥§ Â· The xor observable, and how the quarter turn moves it.
 ------------------------------------------------------------------------
 
 vyatyaya : SÅ«tra â†’ Bool
@@ -62,7 +62,7 @@ vyatyaya-cala (false , true)  = refl
 vyatyaya-cala (false , false) = refl
 
 ------------------------------------------------------------------------
--- à¨ Â Iterated flips, and their collapse mod two.
+-- à¥¨ Â· Iterated flips, and their collapse mod two.
 ------------------------------------------------------------------------
 
 notÄvartana : â„• â†’ Bool â†’ Bool
@@ -87,7 +87,7 @@ vyatyaya-cakra (suc n) x =
   vyatyaya-cala (cakrÄvartana n x) âˆ™ cong not (vyatyaya-cakra n x)
 
 ------------------------------------------------------------------------
--- à© Â The ladder rung: the xor observable reads the count mod two,
+-- à¥© Â· The ladder rung: the xor observable reads the count mod two,
 -- at every depth, on every rope.
 ------------------------------------------------------------------------
 

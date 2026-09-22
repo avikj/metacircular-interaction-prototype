@@ -1,43 +1,43 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- рпрЛрЧрзрр░рр╡ тФ the first Noether charge of arithmetic.
+-- рдпреЛрдЧрдзреНрд░реБрд╡ тАФ the first Noether charge of arithmetic.
 --
--- `Dhruva_тж.agda` proves the frame: an observable `f` and a flow `╬ж`
--- with ррр░рХррррор (f тИШ ╬ж тЙб f pointwise) give a flow INSIDE every fiber
--- (рзрр░рр╡-рриррр), and the conserved quantity is the fiber index.  That
+-- `Dhruva_тАж.agda` proves the frame: an observable `f` and a flow `╬ж`
+-- with рд╕рдВрд░рдХреНрд╖рдгрдореН (f тИШ ╬ж тЙб f pointwise) give a flow INSIDE every fiber
+-- (рдзреНрд░реБрд╡-рддрдиреНрддреМ), and the conserved quantity is the fiber index.  That
 -- file is deliberately abstract.  This file is its canonical instance,
 -- the smallest one arithmetic offers:
 --
---     f  =  рпрЛрЧ : т Ч т тТ т,   рпрЛрЧ (a , b) = a + b
---     ╬жтЦ =  рр┐рпр░ k : (a , b) тж (a + k , b тИТ k)
+--     f  =  рдпреЛрдЧ : тДд ├Ч тДд тЖТ тДд,   рдпреЛрдЧ (a , b) = a + b
+--     ╬жтВЦ =  рд╢рд┐рдпрд░ k : (a , b) тЖж (a + k , b тИТ k)
 --
--- THE CONSERVED QUANTITY IS THE FIBER INDEX тФ the sum n.  The shears
--- are the invisible motion: they move every pair, and рпрЛрЧ cannot see
+-- THE CONSERVED QUANTITY IS THE FIBER INDEX тАФ the sum n.  The shears
+-- are the invisible motion: they move every pair, and рдпреЛрдЧ cannot see
 -- them.  What is proved:
 --
---   ┬зрз  ррр░рХррр : every shear satisfies Dhruva's ррр░рХррррор for рпрЛрЧ
+--   ┬зрез  рд╕рдВрд░рдХреНрд╖рдг : every shear satisfies Dhruva's рд╕рдВрд░рдХреНрд╖рдгрдореН for рдпреЛрдЧ
 --       ((a + k) + (b тИТ k) тЙб a + b, by ring arithmetic via solve!).
---   ┬зри  ррр░р╡р╛р : the induced action on fiber рпрЛрЧ n, obtained through
---       Dhruva's рзрр░рр╡-рриррр тФ imported, not restated.
---   ┬зрй  action laws: ррр░р╡р╛р 0 is the identity and shears compose
---       (ррр░р╡р╛р k тИШ ррр░р╡р╛р k' тЙб ррр░р╡р╛р (k' + k)) тФ so т genuinely acts.
---   ┬зр  роррХрррр╛ (freeness): ррр░р╡р╛р k x тЙб x forces k тЙб 0, by projecting
+--   ┬зреи  рдкреНрд░рд╡рд╛рд╣ : the induced action on fiber рдпреЛрдЧ n, obtained through
+--       Dhruva's рдзреНрд░реБрд╡-рддрдиреНрддреМ тАФ imported, not restated.
+--   ┬зрей  action laws: рдкреНрд░рд╡рд╛рд╣ 0 is the identity and shears compose
+--       (рдкреНрд░рд╡рд╛рд╣ k тИШ рдкреНрд░рд╡рд╛рд╣ k' тЙб рдкреНрд░рд╡рд╛рд╣ (k' + k)) тАФ so тДд genuinely acts.
+--   ┬зрек  рдореБрдХреНрддрддрд╛ (freeness): рдкреНрд░рд╡рд╛рд╣ k x тЙб x forces k тЙб 0, by projecting
 --       to the first coordinate and cancelling.
---   ┬зр  рррХрр░р╛рор┐рр╛ (transitivity): any two points of fiber рпрЛрЧ n are
---       joined by a shear тФ k = a' тИТ a works, because both pairs sum
+--   ┬зрел  рд╕рдВрдХреНрд░рд╛рдорд┐рддрд╛ (transitivity): any two points of fiber рдпреЛрдЧ n are
+--       joined by a shear тАФ k = a' тИТ a works, because both pairs sum
 --       to the same n.
---   ┬зр  ррХрр┐рпр░рр╛ (uniqueness): the joining shear is unique.
+--   ┬зрем  рдПрдХрд╢рд┐рдпрд░рддрд╛ (uniqueness): the joining shear is unique.
 --
--- ┬зрйтУ┬зр together say: **fiber рпрЛрЧ n is a т-torsor.**  The fiber has no
--- preferred origin тФ knowing the sum n tells you the orbit exactly and
+-- ┬зрейтАУ┬зрем together say: **fiber рдпреЛрдЧ n is a тДд-torsor.**  The fiber has no
+-- preferred origin тАФ knowing the sum n tells you the orbit exactly and
 -- the point not at all.  That is the charge/gauge split at its
 -- smallest: n is the charge, the shear is the gauge motion.
 --
--- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
+-- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
 --
--- TERM.  рпрЛрЧ тФ addition, the standard arithmetical term (рр░ррпррЯррпрор
--- and the siddhntas throughout); рзрр░рр╡ as in Dhruva's header.  The
+-- TERM.  рдпреЛрдЧ тАФ addition, the standard arithmetical term (рдЖрд░реНрдпрднрдЯреАрдпрдореН
+-- and the siddh─Бntas throughout); рдзреНрд░реБрд╡ as in Dhruva's header.  The
 -- compound is this corpus's.
 ------------------------------------------------------------------------
 
@@ -90,12 +90,12 @@ private
   L10 : (b : R) тЖТ b - 0r тЙб b
   L10 _ = solve! тДдCommRing
 
--- ┬зрз ┬ every shear conserves the sum ---------------------------------
+-- ┬зрез ┬╖ every shear conserves the sum ---------------------------------
 
 рд╕рдВрд░рдХреНрд╖рдг : (k : R) тЖТ рд╕рдВрд░рдХреНрд╖рдгрдореН рдпреЛрдЧ (рд╢рд┐рдпрд░ k)
 рд╕рдВрд░рдХреНрд╖рдг k (a , b) = L1 a b k
 
--- ┬зри ┬ the induced action inside the fiber, through Dhruva -----------
+-- ┬зреи ┬╖ the induced action inside the fiber, through Dhruva -----------
 
 рдкреНрд░рд╡рд╛рд╣ : (k n : R) тЖТ fiber рдпреЛрдЧ n тЖТ fiber рдпреЛрдЧ n
 рдкреНрд░рд╡рд╛рд╣ k = рдзреНрд░реБрд╡-рддрдиреНрддреМ рдпреЛрдЧ (рд╢рд┐рдпрд░ k) (рд╕рдВрд░рдХреНрд╖рдг k)
@@ -106,7 +106,7 @@ private
   fibтЙб : {n : R} {x y : fiber рдпреЛрдЧ n} тЖТ fst x тЙб fst y тЖТ x тЙб y
   fibтЙб {n = n} = ╬гтЙбProp (╬╗ ab тЖТ is-set (рдпреЛрдЧ ab) n)
 
--- ┬зрй ┬ the action laws: т acts on the fiber --------------------------
+-- ┬зрей ┬╖ the action laws: тДд acts on the fiber --------------------------
 
 рддрд╛рджрд╛рддреНрдореНрдп : (n : R) (x : fiber рдпреЛрдЧ n) тЖТ рдкреНрд░рд╡рд╛рд╣ 0r n x тЙб x
 рддрд╛рджрд╛рддреНрдореНрдп n ((a , b) , _) = fibтЙб (╬╗ i тЖТ L9 a i , L10 b i)
@@ -115,13 +115,13 @@ private
       тЖТ рдкреНрд░рд╡рд╛рд╣ k n (рдкреНрд░рд╡рд╛рд╣ k' n x) тЙб рдкреНрд░рд╡рд╛рд╣ (k' + k) n x
 рд╕рдВрдпреЛрдЧ k k' n ((a , b) , _) = fibтЙб (╬╗ i тЖТ L7 a k k' i , L8 b k k' i)
 
--- ┬зр ┬ freeness: a shear fixing any fiber point is the zero shear ----
+-- ┬зрек ┬╖ freeness: a shear fixing any fiber point is the zero shear ----
 
 рдореБрдХреНрддрддрд╛ : (k n : R) (x : fiber рдпреЛрдЧ n) тЖТ рдкреНрд░рд╡рд╛рд╣ k n x тЙб x тЖТ k тЙб 0r
 рдореБрдХреНрддрддрд╛ k n ((a , b) , _) h =
   L2 a k тИЩ cong (_- a) (cong (╬╗ w тЖТ fst (fst w)) h) тИЩ L3 a
 
--- ┬зр ┬ transitivity: any two fiber points differ by a shear ----------
+-- ┬зрел ┬╖ transitivity: any two fiber points differ by a shear ----------
 
 рд╕рдВрдХреНрд░рд╛рдорд┐рддрд╛ : (n : R) (x y : fiber рдпреЛрдЧ n) тЖТ ╬г[ k тИИ R ] рдкреНрд░рд╡рд╛рд╣ k n x тЙб y
 рд╕рдВрдХреНрд░рд╛рдорд┐рддрд╛ n ((a , b) , p) ((a' , b') , q) =
@@ -130,7 +130,7 @@ private
     sndPath : b - (a' - a) тЙб b'
     sndPath = L5 a b a' тИЩ cong (_- a') (p тИЩ sym q) тИЩ L6 a' b'
 
--- ┬зр ┬ and by only one: the joining shear is unique ------------------
+-- ┬зрем ┬╖ and by only one: the joining shear is unique ------------------
 
 рдПрдХрд╢рд┐рдпрд░рддрд╛ : (k k' n : R) (x y : fiber рдпреЛрдЧ n)
          тЖТ рдкреНрд░рд╡рд╛рд╣ k n x тЙб y тЖТ рдкреНрд░рд╡рд╛рд╣ k' n x тЙб y тЖТ k тЙб k'

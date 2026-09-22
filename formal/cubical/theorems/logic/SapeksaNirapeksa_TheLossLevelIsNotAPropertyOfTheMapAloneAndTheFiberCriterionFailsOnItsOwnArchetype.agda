@@ -1,83 +1,83 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àà¾ààà•ààâ“à¨à¿à°ààà•àà â” àà¾à¨à¿àààà°à à¨ à®à¾à¨àà¿ààà°ààà¯ à§à°àà®à ; à¨à¿à°ààà•ààà àà°à¿ààààà¦à
--- àààµà¾à°ààààŸà¾ààà ààµ àà¨ààà¿ à
+-- à¤¸à¤¾à¤ªà¥‡à¤•à¥à¤·â€“à¤¨à¤¿à¤°à¤ªà¥‡à¤•à¥à¤· â€” à¤¹à¤¾à¤¨à¤¿à¤¸à¥à¤¤à¤°à¤ƒ à¤¨ à¤®à¤¾à¤¨à¤šà¤¿à¤¤à¥à¤°à¤¸à¥à¤¯ à¤§à¤°à¥à¤®à¤ƒ ; à¤¨à¤¿à¤°à¤ªà¥‡à¤•à¥à¤·à¤‚ à¤ªà¤°à¤¿à¤šà¥à¤›à¥‡à¤¦à¤‚
+-- à¤¸à¥à¤µà¤¾à¤°à¥à¤šà¥‡à¤Ÿà¤¾à¤‡à¤ªà¤ƒ à¤à¤µ à¤¹à¤¨à¥à¤¤à¤¿ à¥¤
 --
 -- (relative / absolute: the loss-level is not a property of the map, and
 --  the criterion taken without its context is killed by its own archetype.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- THE TERM.  àà¾ààà•àà (with regard to) / à¨à¿à°ààà•àà (without regard to) is
--- the Jaina pair that decides whether a naya is a naya or a à¦àà°àà¨à¯:
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- THE TERM.  à¤¸à¤¾à¤ªà¥‡à¤•à¥à¤· (with regard to) / à¤¨à¤¿à¤°à¤ªà¥‡à¤•à¥à¤· (without regard to) is
+-- the Jaina pair that decides whether a naya is a naya or a à¤¦à¥à¤°à¥à¤¨à¤¯:
 -- **Siddhasena Divkara, *Sanmatitarka* (Prakrit *Sammai-suttam*)
--- 1.21â“25, date disputed, c. 5th c. CE** â” a standpoint asserted
--- à¨à¿à°ààà•àà, apart from the others it stands among, is à®à¿ààà¯à¾.
+-- 1.21â€“25, date disputed, c. 5th c. CE** â€” a standpoint asserted
+-- à¤¨à¤¿à¤°à¤ªà¥‡à¤•à¥à¤·, apart from the others it stands among, is à¤®à¤¿à¤¥à¥à¤¯à¤¾.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS REFUTES.
 --
--- (recoverable only by outside supply) and à (à¨àààŸà¿à, àààà°àà¿à•à¾à°àà¯à¾) are
--- both crowded fibers; `Loss.WholePartialDesa_â¦` refuses a fourth
--- constructor for `à¦àà` because no criterion separated them.  The note
+-- (recoverable only by outside supply) and à¥ª (à¤¨à¤·à¥à¤Ÿà¤¿à¤ƒ, à¤…à¤ªà¥à¤°à¤¤à¤¿à¤•à¤¾à¤°à¥à¤¯à¤¾) are
+-- both crowded fibers; `Loss.WholePartialDesa_â€¦` refuses a fourth
+-- constructor for `à¤¦à¥‡à¤¶` because no criterion separated them.  The note
 -- proposes one, in two halves:
 --
---   level à â” the fiber is the WHOLE source, and nothing anywhere sees
+--   level à¥ª â€” the fiber is the WHOLE source, and nothing anywhere sees
 --             the difference;
---   level à© â” the fiber is a PROPER PART, and other maps out of the
+--   level à¥© â€” the fiber is a PROPER PART, and other maps out of the
 --             source still see the difference.
 --
 -- `Avacchedaka_TheTruncationsFiberIsTheWholeSourceAndTheSeamHasItsCriterion`
--- checked the load-bearing half â” every
--- fiber of `âˆ_âˆâ` is equivalent to the whole source â” and wrote the
--- criterion down as `àà°ààµàà¾à¨à¿à f b = fiber f b â‰ A`, with the sentence:
--- *"àµà¿à•à²à¾à¦àà says the fiber has two distinct points; that is true of a
+-- checked the load-bearing half â€” every
+-- fiber of `âˆ£_âˆ£â‚` is equivalent to the whole source â€” and wrote the
+-- criterion down as `à¤¸à¤°à¥à¤µà¤¹à¤¾à¤¨à¤¿à¤ƒ f b = fiber f b â‰ƒ A`, with the sentence:
+-- *"à¤µà¤¿à¤•à¤²à¤¾à¤¦à¥‡à¤¶ says the fiber has two distinct points; that is true of a
 -- map that drops one bit and equally true of a map that drops
--- everything.  àà°ààµàà¾à¨à¿à says which."*
+-- everything.  à¤¸à¤°à¥à¤µà¤¹à¤¾à¤¨à¤¿à¤ƒ says which."*
 --
--- **That sentence is false, and Â§à§ is one line.**  `àà°ààµàˆà•à®à : Bool â’ Unit`
--- is the map that drops one bit â” `Residue_â¦`'s own Â§5, and its struck
--- header names it "level à¨ of a five-level scale".  Its fiber over `tt`
--- is `Bool`, which IS the whole source.  So `àà°ààµàà¾à¨à¿à` holds of it, and
--- the criterion does not separate à from à©; it does not separate à
--- from à¨.
+-- **That sentence is false, and Â§à¥§ is one line.**  `à¤¸à¤°à¥à¤µà¥ˆà¤•à¤®à¥ : Bool â†’ Unit`
+-- is the map that drops one bit â€” `Residue_â€¦`'s own Â§5, and its struck
+-- header names it "level à¥¨ of a five-level scale".  Its fiber over `tt`
+-- is `Bool`, which IS the whole source.  So `à¤¸à¤°à¥à¤µà¤¹à¤¾à¤¨à¤¿à¤ƒ` holds of it, and
+-- the criterion does not separate à¥ª from à¥©; it does not separate à¥ª
+-- from à¥¨.
 --
--- Â§à¨ shows this is not a stray instance.  `âˆ Bool âˆâ â‰ Unit`, and the
--- triangle commutes: at `A = Bool` the level-à ARCHETYPE **is** the
--- level-à¨ archetype, up to an equivalence of the target.  Â§à¨'s last
--- theorem states the consequence in the census's own terms â” the two
--- maps' fiber censuses are pointwise equivalent â” so no reading of the
+-- Â§à¥¨ shows this is not a stray instance.  `âˆ¥ Bool âˆ¥â‚ â‰ƒ Unit`, and the
+-- triangle commutes: at `A = Bool` the level-à¥ª ARCHETYPE **is** the
+-- level-à¥¨ archetype, up to an equivalence of the target.  Â§à¥¨'s last
+-- theorem states the consequence in the census's own terms â€” the two
+-- maps' fiber censuses are pointwise equivalent â€” so no reading of the
 -- census whatsoever tells them apart.
 --
--- Â§à© kills the other half.  "Other maps out of the source still see the
--- difference" holds AT THE LEVEL-à ARCHETYPE: `idfun Bool` separates two
--- distinct points of `fiber âˆ_âˆâ âˆ true âˆâ`.  It is vacuous wherever the
--- fiber is crowded at all, because àµà¿à•à²à¾à¦àà's own evidence â” two fiber
--- points and a proof they differ â” is already such a separation.
+-- Â§à¥© kills the other half.  "Other maps out of the source still see the
+-- difference" holds AT THE LEVEL-à¥ª ARCHETYPE: `idfun Bool` separates two
+-- distinct points of `fiber âˆ£_âˆ£â‚ âˆ£ true âˆ£â‚`.  It is vacuous wherever the
+-- fiber is crowded at all, because à¤µà¤¿à¤•à¤²à¤¾à¤¦à¥‡à¤¶'s own evidence â€” two fiber
+-- points and a proof they differ â€” is already such a separation.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT THE COLLISION NAMES, Â§à, and this is the part worth keeping.
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- WHAT THE COLLISION NAMES, Â§à¥ª, and this is the part worth keeping.
 --
 -- The two verdicts collide because "recoverable" was being asked of a
--- map à¨à¿à°ààà•àà.  Recovery is a question about a map TOGETHER WITH what
--- else the construction retained.  Â§à fixes the same map `àà°ààµàˆà•à®à` and
+-- map à¤¨à¤¿à¤°à¤ªà¥‡à¤•à¥à¤·.  Recovery is a question about a map TOGETHER WITH what
+-- else the construction retained.  Â§à¥ª fixes the same map `à¤¸à¤°à¥à¤µà¥ˆà¤•à¤®à¥` and
 -- varies only the retained context:
 --
---   retain `idfun Bool`  â’  âŸ¨àà°ààµàˆà•à®à , idâŸ© is an EQUIVALENCE.  Nothing lost.
---   retain nothing       â’  âŸ¨àà°ààµàˆà•à®à , àà°ààµàˆà•à®àâŸ© is NOT.  The bit is gone.
+--   retain `idfun Bool`  â†’  âŸ¨à¤¸à¤°à¥à¤µà¥ˆà¤•à¤®à¥ , idâŸ© is an EQUIVALENCE.  Nothing lost.
+--   retain nothing       â†’  âŸ¨à¤¸à¤°à¥à¤µà¥ˆà¤•à¤®à¥ , à¤¸à¤°à¥à¤µà¥ˆà¤•à¤®à¥âŸ© is NOT.  The bit is gone.
 --
 -- One map, two verdicts, both checked.  So no predicate on `f` alone can
--- carry the level, and the scale as the note states it â” indexed by the
--- map â” cannot be completed by any criterion at all, this one included.
+-- carry the level, and the scale as the note states it â€” indexed by the
+-- map â€” cannot be completed by any criterion at all, this one included.
 --
--- Â§à pushes it to the level-à archetype: `A â‰ âˆ A âˆâ — A` for EVERY `A`.
--- Retaining the source recovers even the truncation.  àààà°àà¿à•à¾à°àà¯àà¾ is a
--- statement about what is retained, not about `âˆ_âˆâ`.
+-- Â§à¥« pushes it to the level-à¥ª archetype: `A â‰ƒ âˆ¥ A âˆ¥â‚ Ã— A` for EVERY `A`.
+-- Retaining the source recovers even the truncation.  à¤…à¤ªà¥à¤°à¤¤à¤¿à¤•à¤¾à¤°à¥à¤¯à¤¤à¤¾ is a
+-- statement about what is retained, not about `âˆ£_âˆ£â‚`.
 --
--- Â§à locates where the level-à¨/level-à collapse happens, so it is not
--- mistaken for a claim that truncation never loses: `âˆ A âˆâ â‰ Unit`
+-- Â§à¥¬ locates where the level-à¥¨/level-à¥ª collapse happens, so it is not
+-- mistaken for a claim that truncation never loses: `âˆ¥ A âˆ¥â‚ â‰ƒ Unit`
 -- exactly when `A` is merely inhabited.  The distinction the scale wants
--- lives in the QUANTIFIER â” uniformly in `A`, `âˆ_âˆâ` has no section â” and
+-- lives in the QUANTIFIER â€” uniformly in `A`, `âˆ£_âˆ£â‚` has no section â€” and
 -- a per-instance fiber criterion cannot reach a quantifier.
 ------------------------------------------------------------------------
 
@@ -100,8 +100,8 @@ private
     â„“ : Level
 
 ------------------------------------------------------------------------
--- à¦.  The criterion under test, restated here so this module is readable
---     without opening the one it refutes.  It is `Avacchedaka_â¦`'s Â§à©,
+-- à¥¦.  The criterion under test, restated here so this module is readable
+--     without opening the one it refutes.  It is `Avacchedaka_â€¦`'s Â§à¥©,
 --     copied verbatim in content.
 ------------------------------------------------------------------------
 
@@ -109,15 +109,15 @@ private
 à¤¸à¤°à¥à¤µà¤¹à¤¾à¤¨à¤¿à¤ƒ {A = A} f b = fiber f b â‰ƒ A
 
 ------------------------------------------------------------------------
--- à§.  THE REFUTATION.  The level-à¨ archetype satisfies the level-à
+-- à¥§.  THE REFUTATION.  The level-à¥¨ archetype satisfies the level-à¥ª
 --     criterion.
 --
--- `àà°ààµàˆà•à®à` is `Residue_â¦` Â§5's map, whose struck header calls it "level à¨ of
+-- `à¤¸à¤°à¥à¤µà¥ˆà¤•à¤®à¥` is `Residue_â€¦` Â§5's map, whose struck header calls it "level à¥¨ of
 -- a five-level scale" and whose loss it prices at exactly one bit.  Its
--- fiber over the single target point is `Bool` â” the whole source â”
--- because `Unit` is a proposition, so the path component of the Î is
+-- fiber over the single target point is `Bool` â€” the whole source â€”
+-- because `Unit` is a proposition, so the path component of the Î£ is
 -- contractible and contracts away.  The proof is the SAME PROOF as
--- `Avacchedaka_â¦` Â§à¨'s, with `isPropUnit` in place of `isPropPropTrunc`,
+-- `Avacchedaka_â€¦` Â§à¥¨'s, with `isPropUnit` in place of `isPropPropTrunc`,
 -- which is the whole of why the criterion cannot discriminate: it is
 -- reading propositionality of the target, and both targets are props.
 ------------------------------------------------------------------------
@@ -138,12 +138,12 @@ private
 à¤¸à¤°à¥à¤µà¥ˆà¤•à¤®à¥-à¤¦à¥à¤µà¤¯à¤®à¥ p = falseâ‰¢true (cong fst p)
 
 ------------------------------------------------------------------------
--- à¨.  WHY IT IS NOT A STRAY INSTANCE.  At `A = Bool` the level-à
---     archetype IS the level-à¨ archetype.
+-- à¥¨.  WHY IT IS NOT A STRAY INSTANCE.  At `A = Bool` the level-à¥ª
+--     archetype IS the level-à¥¨ archetype.
 --
--- `âˆ Bool âˆâ` is an inhabited proposition, hence contractible, hence
+-- `âˆ¥ Bool âˆ¥â‚` is an inhabited proposition, hence contractible, hence
 -- equivalent to `Unit`; and the triangle over `Bool` commutes by `refl`.
--- So `âˆ_âˆâ : Bool â’ âˆ Bool âˆâ` and `àà°ààµàˆà•à®à : Bool â’ Unit` are one map
+-- So `âˆ£_âˆ£â‚ : Bool â†’ âˆ¥ Bool âˆ¥â‚` and `à¤¸à¤°à¥à¤µà¥ˆà¤•à¤®à¥ : Bool â†’ Unit` are one map
 -- read through an equivalence of its target.
 ------------------------------------------------------------------------
 
@@ -156,8 +156,8 @@ private
 à¤¤à¥à¤°à¤¿à¤•à¥‹à¤£à¤®à¥ _ = refl
 
 -- The consequence, stated in the census's own terms.  Every fiber of the
--- level-à archetype at `Bool` is equivalent to the single fiber of the
--- level-à¨ archetype.  A census is a function on fibers; two maps whose
+-- level-à¥ª archetype at `Bool` is equivalent to the single fiber of the
+-- level-à¥¨ archetype.  A census is a function on fibers; two maps whose
 -- censuses are pointwise equivalent cannot be told apart by one.
 à¤—à¤£à¤¨à¤¾-à¤…à¤­à¥‡à¤¦à¤ƒ : (x : âˆ¥ Bool âˆ¥â‚) â†’ fiber (âˆ£_âˆ£â‚ {A = Bool}) x â‰ƒ fiber à¤¸à¤°à¥à¤µà¥ˆà¤•à¤®à¥ tt
 à¤—à¤£à¤¨à¤¾-à¤…à¤­à¥‡à¤¦à¤ƒ x =
@@ -165,17 +165,17 @@ private
             (invEquiv à¤à¤•à¤¬à¤¿à¤¨à¥à¤¦à¥-à¤¸à¤°à¥à¤µà¤¹à¤¾à¤¨à¤¿à¤ƒ)
 
 ------------------------------------------------------------------------
--- à©.  THE OTHER HALF, refuted by being satisfied where it must fail.
+-- à¥©.  THE OTHER HALF, refuted by being satisfied where it must fail.
 --
--- The note's level-à© side reads: the fiber is a proper part, and *other
--- maps out of the source still see the difference* â” `àà¾à•ààà¿-àààà¾à¨à®à`
+-- The note's level-à¥© side reads: the fiber is a proper part, and *other
+-- maps out of the source still see the difference* â€” `à¤¸à¤¾à¤•à¥à¤·à¤¿-à¤¸à¥à¤¥à¤¾à¤¨à¤®à¥`
 -- naming the lost standpoint.  Here is that condition holding at the
--- level-à archetype, where by hypothesis nothing anywhere sees the
--- difference: two distinct points of one fiber of `âˆ_âˆâ`, and `idfun`
+-- level-à¥ª archetype, where by hypothesis nothing anywhere sees the
+-- difference: two distinct points of one fiber of `âˆ£_âˆ£â‚`, and `idfun`
 -- separating them.
 --
 -- It is vacuous, and the reason is structural rather than particular:
--- àµà¿à•à²à¾à¦àà's evidence IS a separation.  To write the constructor at all
+-- à¤µà¤¿à¤•à¤²à¤¾à¤¦à¥‡à¤¶'s evidence IS a separation.  To write the constructor at all
 -- you must hand over two fiber points and a proof they differ, and for a
 -- map into a set that proof already separates their sources.  A condition
 -- discharged by the evidence of the case it is meant to classify
@@ -189,14 +189,14 @@ private
 à¤¤à¥à¤°à¥à¤Ÿà¤¿-à¤¦à¥à¤µà¤¯à¤®à¥ : Â¬ (à¤¤à¥à¤°à¥à¤Ÿà¤¿-à¤µà¤¾à¤® â‰¡ à¤¤à¥à¤°à¥à¤Ÿà¤¿-à¤¦à¤•à¥à¤·à¤¿à¤£)
 à¤¤à¥à¤°à¥à¤Ÿà¤¿-à¤¦à¥à¤µà¤¯à¤®à¥ p = falseâ‰¢true (cong fst p)
 
--- a map out of the source that "still sees the difference", at level à
+-- a map out of the source that "still sees the difference", at level à¥ª
 à¤¸à¤¾à¤•à¥à¤·à¥€-à¤¨à¤¿à¤·à¥à¤«à¤²à¤ƒ : Â¬ (idfun Bool (fst à¤¤à¥à¤°à¥à¤Ÿà¤¿-à¤µà¤¾à¤®) â‰¡ idfun Bool (fst à¤¤à¥à¤°à¥à¤Ÿà¤¿-à¤¦à¤•à¥à¤·à¤¿à¤£))
 à¤¸à¤¾à¤•à¥à¤·à¥€-à¤¨à¤¿à¤·à¥à¤«à¤²à¤ƒ = falseâ‰¢true
 
 ------------------------------------------------------------------------
--- à.  àà¾ààà•àààà¾ â” one map, two contexts, two verdicts.
+-- à¥ª.  à¤¸à¤¾à¤ªà¥‡à¤•à¥à¤·à¤¤à¤¾ â€” one map, two contexts, two verdicts.
 --
--- `à¯àà—àà®à®à f w` is the map paired with what the construction kept.  The
+-- `à¤¯à¥à¤—à¥à¤®à¤®à¥ f w` is the map paired with what the construction kept.  The
 -- question "was the bit recovered" is a question about the PAIR, and the
 -- pair's answer moves while `f` stands still.
 ------------------------------------------------------------------------
@@ -212,7 +212,7 @@ private
 à¤¸à¤¾à¤ªà¥‡à¤•à¥à¤·-à¤¸à¤®à¤¤à¤¾-à¤¯à¥à¤—à¥à¤®à¤®à¥ : (b : Bool) â†’ equivFun à¤¸à¤¾à¤ªà¥‡à¤•à¥à¤·-à¤¸à¤®à¤¤à¤¾ b â‰¡ à¤¯à¥à¤—à¥à¤®à¤®à¥ à¤¸à¤°à¥à¤µà¥ˆà¤•à¤®à¥ (idfun Bool) b
 à¤¸à¤¾à¤ªà¥‡à¤•à¥à¤·-à¤¸à¤®à¤¤à¤¾-à¤¯à¥à¤—à¥à¤®à¤®à¥ _ = refl
 
--- context = retain nothing.  The same `àà°ààµàˆà•à®à`, and the bit is gone.
+-- context = retain nothing.  The same `à¤¸à¤°à¥à¤µà¥ˆà¤•à¤®à¥`, and the bit is gone.
 à¤¨à¤¿à¤°à¤ªà¥‡à¤•à¥à¤·-à¤µà¤¾à¤® à¤¨à¤¿à¤°à¤ªà¥‡à¤•à¥à¤·-à¤¦à¤•à¥à¤·à¤¿à¤£ : fiber (à¤¯à¥à¤—à¥à¤®à¤®à¥ à¤¸à¤°à¥à¤µà¥ˆà¤•à¤®à¥ à¤¸à¤°à¥à¤µà¥ˆà¤•à¤®à¥) (tt , tt)
 à¤¨à¤¿à¤°à¤ªà¥‡à¤•à¥à¤·-à¤µà¤¾à¤®   = false , refl
 à¤¨à¤¿à¤°à¤ªà¥‡à¤•à¥à¤·-à¤¦à¤•à¥à¤·à¤¿à¤£ = true  , refl
@@ -224,14 +224,14 @@ private
                               à¤¨à¤¿à¤°à¤ªà¥‡à¤•à¥à¤·-à¤µà¤¾à¤® à¤¨à¤¿à¤°à¤ªà¥‡à¤•à¥à¤·-à¤¦à¤•à¥à¤·à¤¿à¤£))
 
 ------------------------------------------------------------------------
--- à.  The same move at the level-à archetype, for every `A`.
+-- à¥«.  The same move at the level-à¥ª archetype, for every `A`.
 --
--- Retaining the source recovers the truncation too: `A â‰ âˆ A âˆâ — A`,
--- with no hypothesis on `A`.  The forward map is `à¯àà—àà®à®à âˆ_âˆâ id`.
+-- Retaining the source recovers the truncation too: `A â‰ƒ âˆ¥ A âˆ¥â‚ Ã— A`,
+-- with no hypothesis on `A`.  The forward map is `à¤¯à¥à¤—à¥à¤®à¤®à¥ âˆ£_âˆ£â‚ id`.
 --
--- This does not say truncation is harmless.  It says àààà°àà¿à•à¾à°àà¯àà¾ is not
--- readable off `âˆ_âˆâ`, because the trivial context already discharges it,
--- exactly as it does for `àà°ààµàˆà•à®à` in Â§à.
+-- This does not say truncation is harmless.  It says à¤…à¤ªà¥à¤°à¤¤à¤¿à¤•à¤¾à¤°à¥à¤¯à¤¤à¤¾ is not
+-- readable off `âˆ£_âˆ£â‚`, because the trivial context already discharges it,
+-- exactly as it does for `à¤¸à¤°à¥à¤µà¥ˆà¤•à¤®à¥` in Â§à¥ª.
 ------------------------------------------------------------------------
 
 à¤ªà¥‚à¤°à¥à¤£-à¤¸à¤¨à¥à¤¦à¤°à¥à¤­à¤ƒ : {A : Type â„“} â†’ A â‰ƒ (âˆ¥ A âˆ¥â‚ Ã— A)
@@ -241,12 +241,12 @@ private
     (Î» _ â†’ refl))
 
 ------------------------------------------------------------------------
--- à.  Where Â§à¨'s collapse happens, so it is not mistaken for more.
+-- à¥¬.  Where Â§à¥¨'s collapse happens, so it is not mistaken for more.
 --
--- `âˆ A âˆâ â‰ Unit` exactly when `A` is merely inhabited.  Â§à¨ used `Bool`,
--- which is inhabited, and that is the whole reason the level-à archetype
--- degenerated into the level-à¨ one there.  For an `A` not known
--- inhabited the two maps are not comparable this way â” and that is a
+-- `âˆ¥ A âˆ¥â‚ â‰ƒ Unit` exactly when `A` is merely inhabited.  Â§à¥¨ used `Bool`,
+-- which is inhabited, and that is the whole reason the level-à¥ª archetype
+-- degenerated into the level-à¥¨ one there.  For an `A` not known
+-- inhabited the two maps are not comparable this way â€” and that is a
 -- statement with a quantifier in it, which no criterion evaluated at one
 -- map and one point of its codomain can express.
 --

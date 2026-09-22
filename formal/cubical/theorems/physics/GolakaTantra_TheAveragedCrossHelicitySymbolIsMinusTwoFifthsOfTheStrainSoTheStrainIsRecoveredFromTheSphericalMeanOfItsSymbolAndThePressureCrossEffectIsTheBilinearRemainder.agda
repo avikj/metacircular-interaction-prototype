@@ -1,14 +1,14 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- �������-������ � the sphere's loom (strain tomography).
+-- गोलक-तन्त्र — the sphere's loom (strain tomography).
 --
 -- Uses the contractions of GolakaMatra:  with the averaged tensors
---     15�⟨n�n�⟩ = 5δ��,   15�⟨n�n�n�n�⟩ = δ��δ�� + δ��δ�� + δ��δ��
--- and the cross-helicity symbol  q_u(n) = −P_n S P_n − ½(n�Sn)P_n,
---     30�⟨q⟩ ≡ −11 S − S� − 6 (tr S) I,
+--     15·⟨nᵢnⱼ⟩ = 5δᵢⱼ,   15·⟨nᵢnⱼnₖnₗ⟩ = δᵢⱼδₖₗ + δᵢₖδⱼₗ + δᵢₗδⱼₖ
+-- and the cross-helicity symbol  q_u(n) = −P_n S P_n − ½(nᵀSn)P_n,
+--     30·⟨q⟩ ≡ −11 S − Sᵀ − 6 (tr S) I,
 -- so for symmetric trace-free S,  30⟨q⟩ = −12 S:  S = −(5/2)⟨q_u⟩
 -- (handoff §18, [S11]).  Also the pressure cross-effect of §20:
---     7H[u] + 2(S²)� = 7(2H(u�,u�) + H[u�])   when  7H[u�] = −2(S²)�.
+--     7H[u] + 2(S²)₀ = 7(2H(u₂,u⊥) + H[u⊥])   when  7H[u₂] = −2(S²)₀.
 ------------------------------------------------------------------------
 module GolakaTantra_TheAveragedCrossHelicitySymbolIsMinusTwoFifthsOfTheStrainSoTheStrainIsRecoveredFromTheSphericalMeanOfItsSymbolAndThePressureCrossEffectIsTheBilinearRemainder where
 
@@ -32,24 +32,24 @@ module _ (R : CommRing ℓ) where
 
   open Contractions R
 
-  -- 15�⟨(P_n S P_n)��⟩
+  -- 15·⟨(P_n S P_n)ᵢₗ⟩
   PSP15 : Mat → Mat
   PSP15 S i l =
       ((ι 15 · S i l + (- (Σ₃ (λ j → (ι 5 · δ i j) · S j l))))
        + (- (Σ₃ (λ k → S i k · (ι 5 · δ k l)))))
     + Σ₃ (λ j → Σ₃ (λ k → m4 i j k l · S j k))
 
-  -- 15�⟨(n�Sn)(P_n)��⟩
+  -- 15·⟨(nᵀSn)(P_n)ᵢₗ⟩
   nSnP15 : Mat → Mat
   nSnP15 S i l =
       (Σ₃ (λ j → Σ₃ (λ k → S j k · (ι 5 · δ j k)))) · δ i l
     + (- (Σ₃ (λ j → Σ₃ (λ k → m4 i j k l · S j k))))
 
-  -- 30�⟨q_u⟩  with  q_u = −P S P − ½ (n�Sn) P
+  -- 30·⟨q_u⟩  with  q_u = −P S P − ½ (nᵀSn) P
   q30 : Mat → Mat
   q30 S i l = (- (ι 2 · PSP15 S i l)) + (- (nSnP15 S i l))
 
-  -- general S:  30⟨q⟩ = −11 S − S� − 6 (tr S) I
+  -- general S:  30⟨q⟩ = −11 S − Sᵀ − 6 (tr S) I
   tomography : (a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ : A) (i l : Ix)
     → let S = mat a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ in
       q30 S i l ≡ (- (ι 11 · S i l + S l i)) + (- (ι 6 · (tr S · δ i l)))
@@ -92,7 +92,7 @@ module _ (R : CommRing ℓ) where
       finish x d = solve! R
 
   ----------------------------------------------------------------
-  -- � � the pressure cross-effect
+  -- ३ · the pressure cross-effect
   ----------------------------------------------------------------
   module _ (H : A → A → A)
            (H-addL : (a b c : A) → H (a + b) c ≡ H a c + H b c)
@@ -109,7 +109,7 @@ module _ (R : CommRing ℓ) where
         shape : (p q r : A) → (p + q) + (q + r) ≡ (p + (1r + (1r + 0r)) · q) + r
         shape p q r = solve! R
 
-    -- 7H[u�] = −2(S²)�  �  7H[u] + 2(S²)� = 7(2H(u�,u�) + H[u�])
+    -- 7H[u₂] = −2(S²)₀  ⟹  7H[u] + 2(S²)₀ = 7(2H(u₂,u⊥) + H[u⊥])
     pressure-residual : (u₂ u⊥ S² : A) → ι 7 · H u₂ u₂ ≡ - (ι 2 · S²)
       → ι 7 · H (u₂ + u⊥) (u₂ + u⊥) + ι 2 · S² ≡ ι 7 · (ι 2 · H u₂ u⊥ + H u⊥ u⊥)
     pressure-residual u₂ u⊥ S² h =

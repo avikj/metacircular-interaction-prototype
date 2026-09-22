@@ -1,32 +1,32 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡‡∞-‡‡∞‡‡‡ ‚î offering by stratum.  A question: OrderSaha proves the
+-- ‡‡‡‡∞-‡‡∞‡‡‡ ‚Äî offering by stratum.  A question: OrderSaha proves the
 -- set-level
--- kills the circle's charge (its ‡ï‡‡∞‡Æ‡-‡‡‡ü‡-‡‡‡∞‡‡Æ‡Æ‡: Path ‚àS¬‚à‚ is
--- contractible) while the other order keeps it (‡ï‡‡∞‡Æ‡-‡≤‡‡-‡‡‡∞‡‡Æ‡Æ‡:
--- ‚àŒ©S¬‚à‚ ‚â ‚).  Is the charge DESTROYED ‚î or WITHHELD, and uttered
+-- kills the circle's charge (its ‡§ï‡•ç‡§∞‡§Æ‡§É-‡§∏‡•á‡§ü‡•ç-‡§™‡•ç‡§∞‡§•‡§Æ‡§Æ‡•ç: Path ‚à•S¬π‚à•‚ÇÇ is
+-- contractible) while the other order keeps it (‡§ï‡•ç‡§∞‡§Æ‡§É-‡§≤‡•Ç‡§™-‡§™‡•ç‡§∞‡§•‡§Æ‡§Æ‡•ç:
+-- ‚à•Œ©S¬π‚à•‚ÇÇ ‚âÉ ‚Ñ§).  Is the charge DESTROYED ‚Äî or WITHHELD, and uttered
 -- whole one level up?
 --
 -- ANSWERED HERE, by composition of library and corpus terms:
 --
---     Œ© (‚à S¬ ‚à 3)  ‚â  ‚
+--     Œ© (‚à• S¬π ‚à• 3)  ‚âÉ  ‚Ñ§
 --
 -- the same truncation FAMILY that annihilated the charge at h-level 2
 -- carries it in full at h-level 3.  Truncation did not destroy the
 -- charge; it withheld it for one stratum.  So the doctrine refines:
 -- "the order of standpoints is the charge" (OrderSaha) grades into
 -- "the charge the simultaneous assertion cannot utter at level n is
--- uttered whole at level n+1" ‚î ‡‡∞‡‡‡ø‡ / ‡‡®‡∞‡‡‡ø‡: what one stratum
+-- uttered whole at level n+1" ‚Äî ‡§Ö‡§∞‡•ç‡§™‡§ø‡§§ / ‡§Ö‡§®‡§∞‡•ç‡§™‡§ø‡§§: what one stratum
 -- withholds (anarpita), the next offers (arpita).
 --
 -- SOURCES (the six rules).  The level-shift engine is the
 -- LIBRARY's PathIdTruncIso (Cubical.HITs.Truncation.Properties; the
--- shift Œ©‚àX‚à‚ô‚ä‚ ‚â ‚àŒ©X‚à‚ô is standard HoTT ‚î this module's content is
+-- shift Œ©‚à•X‚à•‚Çô‚Çä‚ÇÅ ‚âÉ ‚à•Œ©X‚à•‚Çô is standard HoTT ‚Äî this module's content is
 -- its INSTANTIATION at the corpus's own charge, against OrderSaha's
 -- checked pair).
 -- The word-pair arpita/anarpita is Umsvti, Tattvrthastra 5.31
--- (‡‡∞‡‡‡ø‡‡æ‡®‡∞‡‡‡ø‡‡‡ø‡¶‡‡ß‡‡ ‚î establishment from the emphasized and the
+-- (‡§Ö‡§∞‡•ç‡§™‡§ø‡§§‡§æ‡§®‡§∞‡•ç‡§™‡§ø‡§§‡§∏‡§ø‡§¶‡•ç‡§ß‡•á‡§É ‚Äî establishment from the emphasized and the
 -- non-emphasized), taken as the READING of standpoint-graded
 -- establishment.  The stratum grading is this repository's statement.
 ------------------------------------------------------------------------
@@ -48,7 +48,7 @@ open import OrderSaha_TheOrderOfStandpointsIsTheChargeItself
 
 ------------------------------------------------------------------------
 -- the charge, one level up: the loop space of the 3-truncated circle
--- is the whole of ‚.  Where ‚àS¬‚à‚'s loop space was a point, ‚àS¬‚à 3's
+-- is the whole of ‚Ñ§.  Where ‚à•S¬π‚à•‚ÇÇ's loop space was a point, ‚à•S¬π‚à• 3's
 -- carries every winding number.
 ------------------------------------------------------------------------
 

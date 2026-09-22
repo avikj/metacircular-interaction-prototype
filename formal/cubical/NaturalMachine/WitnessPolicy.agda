@@ -9,8 +9,8 @@
 -- needs and nothing was doing with it: the field `arg` is the base
 -- subterm the failed match was carrying, and `argBase : Over V arg` is
 -- the evidence that the failure was exactly at the root.  `argBase` is
--- *precisely* gate D4 for the body `arg` â” the body mentions only
--- earlier vocabulary â” so the informative policy is not an addition to
+-- *precisely* gate D4 for the body `arg` â€” the body mentions only
+-- earlier vocabulary â€” so the informative policy is not an addition to
 -- the substrate; it is the substrate's unused hypothesis.
 --
 --   degenerate V o :  witness = var    (the policy in `obs-complete`
@@ -23,7 +23,7 @@
 --
 -- Substrate: exactly `NaturalMachine.Obstruction` and
 -- `NaturalMachine.GenerativeLoop`.  Nothing new is axiomatised; the two
--- new definitions of this file are `size : Tm â’ â•` and the two policies.
+-- new definitions of this file are `size : Tm â†’ â„•` and the two policies.
 --
 -- WHAT IS CHECKED
 --
@@ -57,9 +57,9 @@
 --   `informative-unfolds-stuck`, `degenerate-unfolds-stuck`
 --                          and here is what each policy does to it,
 --                          computed exactly:
---                            inform      :  stuckTm o â¦ plug (arg o) (arg o)
---                            degenerate  :  stuckTm o â¦ arg o
---                          â” the degenerate extension deletes the head,
+--                            inform      :  stuckTm o â†¦ plug (arg o) (arg o)
+--                            degenerate  :  stuckTm o â†¦ arg o
+--                          â€” the degenerate extension deletes the head,
 --                          the informative one substitutes the recorded
 --                          payload for it.
 --
@@ -71,7 +71,7 @@
 --                            (node (residual o) var)  â‰¡  arg o.
 --                          RETRIEVAL: the payload of the failed match is
 --                          recoverable, on the nose, from the generated
---                          definition â” one symbol of the extended
+--                          definition â€” one symbol of the extended
 --                          vocabulary unfolds to the whole missing
 --                          structure.
 --   `degenerate-forgets`   the same term, under the degenerate policy,
@@ -80,13 +80,13 @@
 --                          not the bare parameter, the two generated
 --                          definitions are DIFFERENT definitions: their
 --                          generic instances have distinct unfoldings.
---                          (Not "differ in general" â” differ at this
+--                          (Not "differ in general" â€” differ at this
 --                          named term, with the hypothesis stated.)
 --   `degenerate-never-grows`
 --                          the uniform negative, which is what makes the
 --                          separation more than a naming difference: for
 --                          EVERY term t whatsoever,
---                            size (unfold d var t) â‰ size t.
+--                            size (unfold d var t) â‰¤ size t.
 --                          The degenerate policy can only erase.  It can
 --                          abbreviate nothing, at any term, ever.
 --   `informative-abbreviation-size`, `informative-grows`,
@@ -94,16 +94,16 @@
 --                          against that: the informative policy's
 --                          generic instance has size 1 and unfolds to
 --                          size (arg o), so on any obstruction with
---                          1 < size (arg o) it STRICTLY grows â” a
+--                          1 < size (arg o) it STRICTLY grows â€” a
 --                          property the degenerate policy provably does
 --                          not have at any term.  `policy-separation`
 --                          is the pair, as one term.
---   `Example.oââ¦`          the hypothesis `1 < size (arg o)` is not
+--   `Example.oâ‚€â€¦`          the hypothesis `1 < size (arg o)` is not
 --                          vacuous: an explicit obstruction satisfying
---                          it, over the vocabulary `0 âˆ []`.
+--                          it, over the vocabulary `0 âˆ· []`.
 --
 -- The scope of P2, checked as statements:
--- `policies-agree-on-matching`, `policies-agree-on-coverage` â” `extend` reads
+-- `policies-agree-on-matching`, `policies-agree-on-coverage` â€” `extend` reads
 -- only `residual`, so the two policies induce the SAME `Matches` and the SAME
 -- `Over`, definitionally. The informativeness is invisible to the matcher and
 -- lives entirely in `unfold`.
@@ -124,7 +124,7 @@
 --                          every V and every target t there is W, an
 --                          ObsChain V W every step of which is
 --                          informative, Over W t, and
---                          chainLen ch â‰ deficit V t.  Same measure,
+--                          chainLen ch â‰¤ deficit V t.  Same measure,
 --                          same bound, no step lost.
 --   `informative-loop-drops-in`
 --                          forgetting informativity returns the
@@ -223,7 +223,7 @@ degenerate V o = record
   ; failed   = failed o   ; witness = var ; witnessBase = tt }
 
 -- THE INFORMATIVE POLICY.  The body is the payload of the failed match,
--- and it is a legal body â” gate D4 â” by the obstruction's own
+-- and it is a legal body â€” gate D4 â€” by the obstruction's own
 -- `argBase`, the field that says the failure was at the root.
 inform : (V : Vocab) â†’ Obstruction V â†’ Obstruction V
 inform V o = record
@@ -258,7 +258,7 @@ inform-preserves-extension V o = refl
 --
 -- The question: does the extension
 -- still eliminate when the body is no longer a bare parameter?  It
--- does, and the reason is structural rather than lucky â”
+-- does, and the reason is structural rather than lucky â€”
 -- `propose-eliminable` needs `Over V (witness o)`, and the informative
 -- policy supplies it as `argBase o`, the field the obstruction record
 -- already had to carry in order to state that the failure was at the
@@ -476,7 +476,7 @@ informative-loop-drops-in V t = forget (informative-generative-loop V t)
 -- 6.  Non-vacuity of `policy-separation`'s hypothesis.
 --
 -- `1 < size (arg o)` is a real hypothesis and it is inhabited: over the
--- vocabulary `0 âˆ []` the head `1` is absent, and `node 0 (node 0 var)`
+-- vocabulary `0 âˆ· []` the head `1` is absent, and `node 0 (node 0 var)`
 -- is base, so it is a legal payload of size 2.  Everything below is
 -- checked, not asserted; the two `refl`s are the freshness evidence and
 -- the coverage evidence computing.

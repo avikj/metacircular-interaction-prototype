@@ -7,36 +7,36 @@
 -- `TheOpenPigeonhole`, a statement about `OptimalObservation`'s own
 -- definition.  That module's three INSTANCES are
 -- Pigala's *Chandastra* uddia (c. 300 BCE), Virahka's
--- mtrmeru (c. 600â“800) and a CRT residue decode.
+-- mtrmeru (c. 600â€“800) and a CRT residue decode.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE ITEM.  `Optimal X Y obs` unfolds to
--- *"`obs` is injective, AND some equivalence `X â‰ Y` exists"*;
+-- *"`obs` is injective, AND some equivalence `X â‰ƒ Y` exists"*;
 -- the second conjunct is not about `obs`.  The statement, as a type:
 --
---     TheOpenPigeonhole = (X Y : FinSet â“-zero) (obs : X .fst â’ Y .fst)
---                       â’ Optimal X Y obs â’ isEquiv obs
+--     TheOpenPigeonhole = (X Y : FinSet â„“-zero) (obs : X .fst â†’ Y .fst)
+--                       â†’ Optimal X Y obs â†’ isEquiv obs
 --
 -- WHAT THIS MODULE DOES.  It proves that the statement is **exactly** the
 -- corresponding fact about `Fin`:
 --
---     FinPigeonhole = (n : â•) (f : SFin n â’ SFin n) â’ Injective f
---                   â’ isEquiv f
+--     FinPigeonhole = (n : â„•) (f : SFin n â†’ SFin n) â†’ Injective f
+--                   â†’ isEquiv f
 --
---     finPigeonholeGivesTheOpenPigeonhole : FinPigeonhole â’ TheOpenPigeonhole
+--     finPigeonholeGivesTheOpenPigeonhole : FinPigeonhole â†’ TheOpenPigeonhole
 --
 -- so the remaining content is one combinatorial fact about finite
 -- ordinals, with every FinSet-level and cardinality-level ingredient
 -- discharged.
 --
 -- **AND THE STEP THAT MAKES THE REDUCTION LEGAL IS THE INTERESTING
--- ONE.**  `X` and `Y` carry only MERE equivalences to `SFin` â” `âˆâ‰cardâˆ`
--- lands in `âˆ_âˆâ`, and it must, or `card` would not be well defined.
+-- ONE.**  `X` and `Y` carry only MERE equivalences to `SFin` â€” `âˆ£â‰ƒcardâˆ£`
+-- lands in `âˆ¥_âˆ¥â‚`, and it must, or `card` would not be well defined.
 -- An arbitrary construction cannot escape that truncation.  This one
 -- can, for exactly one reason: **the goal `isEquiv obs` is a
 -- proposition** (`isPropIsEquiv`), so `PT.rec2` applies and both
 -- anonymous equivalences may be named at once.  Had the goal been the
--- equivalence itself â” `X .fst â‰ Y .fst`, a structure â” the same
+-- equivalence itself â€” `X .fst â‰ƒ Y .fst`, a structure â€” the same
 -- argument would be blocked, and no amount of finiteness would unblock
 -- it.  So the reduction is not bookkeeping: it is the observation that
 -- **this particular question is truncation-stable and the neighbouring
@@ -45,7 +45,7 @@
 -- WHAT IS PROVED
 --
 --   equivInjective     an equivalence's function is injective, from
---                      `retEq` â” needed because the conjugation below
+--                      `retEq` â€” needed because the conjugation below
 --                      moves injectivity across two equivalences
 --   FinPigeonhole      the residual combinatorial statement, over
 --                      `Cubical.Data.SumFin`'s `Fin`, which is the one

@@ -1,4 +1,4 @@
--- StandpointStore -- à¨à¯à•à‹à, a live store of standpoints.
+-- StandpointStore -- à¤¨à¤¯à¤•à¥‹à¤¶, a live store of standpoints.
 --
 -- WHAT THIS IS.  `interactive/Naya.hs` DECIDES, on a fragment, whether a set
 -- of standpoints may be collapsed into one verdict, and prints what the
@@ -10,7 +10,7 @@
 -- byte-for-byte; every insertion returns every relation the new entry has
 -- to what is already held, and NOTHING IS EVER MERGED.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE INDEX, which is the whole question.
 --
 -- Two standpoints that agree in CONTENT and two that agree merely in
@@ -19,8 +19,8 @@
 -- an opinion about tidiness; it is
 -- `formal/cubical/NaturalMachine/Durnaya_CollapseIffEveryNayaAgrees.agda`,
 -- which proves that a standpoint index may be dropped exactly when every
--- pair of fibres is EQUIVALENT, and exhibits `Mixed : Bool â’ Type` with
--- fibres `Unit` and `Bool` â” both inhabited, so equal in truth value,
+-- pair of fibres is EQUIVALENT, and exhibits `Mixed : Bool â†’ Type` with
+-- fibres `Unit` and `Bool` â€” both inhabited, so equal in truth value,
 -- inequivalent, so not collapsible.  Truth-equality is strictly weaker
 -- than content-equality and reading the first as the second is durnaya.
 --
@@ -33,9 +33,9 @@
 -- discarding it is the same act one level down.  Hence three indices,
 -- each strictly refining the last:
 --
---     àààà¯  satya  â” inhabited or not.  Coarsest.
---     àà°àà  artha  â” the set of witness labels.
---     à®àà²   mla   â” the set of (label, source) pairs.  Finest held here.
+--     à¤¸à¤¤à¥à¤¯  satya  â€” inhabited or not.  Coarsest.
+--     à¤…à¤°à¥à¤¥  artha  â€” the set of witness labels.
+--     à¤®à¥‚à¤²   mÅ«la   â€” the set of (label, source) pairs.  Finest held here.
 --
 -- A family may agree at satya and differ at artha (durnaya: the Unit/Bool
 -- case, one verdict discards the difference).  A family may agree at
@@ -44,7 +44,7 @@
 -- sentence is the seventh bhaga).  The store reports the highest level
 -- at which the family agrees, never a bare yes/no.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE FRAGMENT, WIDENED, AND WHERE IT COULD NOT BE.
 --
 -- `Naya.hs` states its fragment honestly and returns `Abhinna` outside
@@ -55,8 +55,8 @@
 --     `Naya.hs` computes truth as `not . null . witnesses`, so an empty
 --     witness list is read as nsti.  Its own header cites Kumrila
 --     (lokavrttika, Abhvapariccheda, c. 7th c.) for yogya-anupalabdhi
---     â” "not seen" is not a prama, "not seen WHERE IT WOULD BE SEEN"
---     is â” and then the code does the thing the citation forbids.  Here
+--     â€” "not seen" is not a pramÄá¹‡a, "not seen WHERE IT WOULD BE SEEN"
+--     is â€” and then the code does the thing the citation forbids.  Here
 --     each entry carries the fitness of the looking that produced its
 --     witnesses.  Empty under `Yogya` is a denial.  Empty under `Ayogya`
 --     is silence, and silence gets NO truth value at all, so the entry
@@ -93,7 +93,7 @@
 --      same document in different words are held as two; one label
 --      covering two documents is held as one.  Deciding otherwise is
 --      deciding synonymy, which is not decidable and is exactly what
---      `formal/cubical/ApohaParyaya_â¦` says the two schools DISPUTE
+--      `formal/cubical/ApohaParyaya_â€¦` says the two schools DISPUTE
 --      rather than share.  The store therefore does not attempt it, and
 --      the cost is that mla-agreement is sufficient for identity of
 --      record but not necessary.
@@ -123,12 +123,12 @@
 --      fact about who ran the machine when and about nothing else.  No
 --      code here may use id order as evidence, and none does.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS NOT COLLAPSED, stated because it is the point.
 --
---   * ààµà•àààµàà¯ and ààà¿à¨àà¨ are kept apart.  Avaktavyam is the positive
+--   * à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯ and à¤…à¤­à¤¿à¤¨à¥à¤¨ are kept apart.  Avaktavyam is the positive
 --     fourth bhaga: the joint content is perfectly determinate and no
---     single utterance carries it (Akalaka, Laghyastraya c. 720â“780,
+--     single utterance carries it (Akalaá¹…ka, LaghÄ«yastraya c. 720â€“780,
 --     kramrpaa against sahrpaa).  Abhinna is the finding of a
 --     looking that was not fit to decide.  Both say "no single
 --     sentence"; they say it for opposite reasons, and a type with one
@@ -137,13 +137,13 @@
 --     duplicates.  Deduplicating is the cheapest possible sakepa and
 --     it is exactly what a store is normally built to do.
 --
--- SOURCES. Umsvti, Tattvrthastra (c. 2ndâ“5th c. CE) 5.31
--- arpitnarpitasiddhe â” the standpoint index, stated as an index. Siddhasena
--- Divkara, Sanmatitarka (c. 5th c. CE) 1.21 â” a naya taken without regard to
--- the others is the durnaya. Samantabhadra, ptamms (c. 6th c. CE) â” the
--- seven members. Akalaka, Laghyastraya (c. 720â“780 CE) â” krama against
+-- SOURCES. UmÄsvÄti, TattvÄrthasÅ«tra (c. 2ndâ€“5th c. CE) 5.31
+-- arpitÄnarpitasiddheá¸¥ â€” the standpoint index, stated as an index. Siddhasena
+-- DivÄkara, Sanmatitarka (c. 5th c. CE) 1.21 â€” a naya taken without regard to
+-- the others is the durnaya. Samantabhadra, Ä€ptamÄ«mÄá¹ƒsÄ (c. 6th c. CE) â€” the
+-- seven members. Akalaá¹…ka, LaghÄ«yastraya (c. 720â€“780 CE) â€” krama against
 -- saha, and the argument that the number is exactly seven. Kumrila Bhaa,
--- lokavrttika, Abhvapariccheda (c. 7th c. CE) â” yogya-anupalabdhi. What is
+-- ÅšlokavÄrttika, AbhÄvapariccheda (c. 7th c. CE) â€” yogya-anupalabdhi. What is
 -- taken is the classification and the rule for which case is which.
 --
 -- The `Bhanga` and `Sthana` types are NOT redefined here.  They are
@@ -155,14 +155,14 @@ import Data.List (sort, nub, sortOn, intercalate, partition, groupBy, isPrefixOf
 import Data.Function (on)
 import ObligationAnalysis (Bhanga(..), Sthana(..))
 
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” the entry
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ the entry
 
--- | àà¾à•ààà¿à¨à â” a witness: what it says, and the document it says it from.
+-- | à¤¸à¤¾à¤•à¥à¤·à¤¿à¤¨à¥ â€” a witness: what it says, and the document it says it from.
 --   The source is carried, never folded into the label (see D1).
 data Sakshin = Sakshin { sakLabel :: String, sakSource :: String }
   deriving (Eq, Ord, Show)
 
--- | à¯à‹à—àà¯àà¾ â” the fitness of the looking that produced this entry's
+-- | à¤¯à¥‹à¤—à¥à¤¯à¤¤à¤¾ â€” the fitness of the looking that produced this entry's
 --   witnesses.  Kumrila's condition, as an input rather than an
 --   assumption.  The String is the reason, and it is required: a fitness
 --   claim with no account of the search is itself unfit.
@@ -183,9 +183,9 @@ data Entry = Entry
   , entWitness  :: [Sakshin]
   } deriving (Eq, Show)
 
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” the three indices
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ the three indices
 
--- | àààà¯ â” inhabited or not.  `Nothing` is SILENCE, not denial: no
+-- | à¤¸à¤¤à¥à¤¯ â€” inhabited or not.  `Nothing` is SILENCE, not denial: no
 --   witnesses and no fit looking gives no truth value.  This is widening 1.
 --
 --   KUMRILA'S CONDITION IS ON THE LOOKING, NOT ON WHAT THE LOOKING BROUGHT
@@ -196,7 +196,7 @@ data Entry = Entry
 --   unremarked.  Two entries with identical witnesses, one from an exhaustive
 --   search and one invented, came back Position B1Asti, MulaSama, with both
 --   loss lists empty and the sentence "IDENTIFIABLE, at every index this store
---   holds" â” the invented standpoint identified with the searched one at the
+--   holds" â€” the invented standpoint identified with the searched one at the
 --   strongest level available, and the string saying it was invented appearing
 --   nowhere in the answer.  The module's own widening 1 says each entry carries
 --   the fitness of the looking that produced its witnesses; it carried it and
@@ -204,7 +204,7 @@ data Entry = Entry
 --
 --   An unfit looking with witnesses is a genuine third case, and it is
 --   neither a Just True nor a Just False.  It is SILENCE, for the same
---   reason the empty case is: à¯ààà° à¦àààà¯àà àààà° à¨ à¦ààààŸà®à â” the prama is
+--   reason the empty case is: à¤¯à¤¤à¥à¤° à¤¦à¥ƒà¤¶à¥à¤¯à¥‡à¤¤ à¤¤à¤¤à¥à¤° à¤¨ à¤¦à¥ƒà¤·à¥à¤Ÿà¤®à¥ â€” the pramÄá¹‡a is
 --   the fitness of the looking, and a looking declared unfit says nothing
 --   about the object whatever it came back holding.  So the entry lands in
 --   `nirShesha` with its stated reason, which is machinery this module had
@@ -215,11 +215,11 @@ satya e
   | not (null (entWitness e)) = Just True
   | otherwise                 = Just False
 
--- | àà°àà â” the content: the set of witness labels.  (D2: a set.)
+-- | à¤…à¤°à¥à¤¥ â€” the content: the set of witness labels.  (D2: a set.)
 artha :: Entry -> [String]
 artha = sort . nub . map sakLabel . entWitness
 
--- | à®àà² â” the record: the set of (label, source) pairs.  Strictly finer
+-- | à¤®à¥‚à¤² â€” the record: the set of (label, source) pairs.  Strictly finer
 --   than artha, and the level `Naya.hs` has no name for.
 mula :: Entry -> [(String, String)]
 mula = sort . nub . map (\s -> (sakLabel s, sakSource s)) . entWitness
@@ -233,7 +233,7 @@ samataName SatyaSama = "satya (truth value only)"
 samataName ArthaSama = "artha (content: the same witness labels)"
 samataName MulaSama  = "mula (record: the same labels FROM THE SAME SOURCES)"
 
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” the store
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ the store
 
 -- | The store.  Append-only; `koshaNext` is the next id.  There is no
 --   delete and no update: a correction is a new entry plus a relation.
@@ -243,15 +243,15 @@ data Kosha = Kosha { koshaEntries :: [Entry], koshaNext :: EntryId }
 empty :: Kosha
 empty = Kosha [] 0
 
--- | àà®ààà¨àà§ â” every relation a new entry bears to what is already held.
+-- | à¤¸à¤®à¥à¤¬à¤¨à¥à¤§ â€” every relation a new entry bears to what is already held.
 --   Returned in full at every insertion.  None of them causes a merge.
 data Sambandha
-  = Nutana                              -- à¨ààà¨: related to nothing held
-  | Punarukta   EntryId                 -- ààà¨à°àà•àà: identical record; STORED anyway
-  | Namasankara EntryId                 -- à¨à¾à®àà™àà•à°: same NAME, different content
-  | Arthaikya   EntryId                 -- àà°àààˆà•àà¯: different name, same content,
+  = Nutana                              -- à¤¨à¥‚à¤¤à¤¨: related to nothing held
+  | Punarukta   EntryId                 -- à¤ªà¥à¤¨à¤°à¥à¤•à¥à¤¤: identical record; STORED anyway
+  | Namasankara EntryId                 -- à¤¨à¤¾à¤®à¤¸à¤™à¥à¤•à¤°: same NAME, different content
+  | Arthaikya   EntryId                 -- à¤…à¤°à¥à¤¥à¥ˆà¤•à¥à¤¯: different name, same content,
                                         --   DIFFERENT sources -- independent attestation
-  | Satyaikya   [EntryId]               -- àààà¯àˆà•àà¯: same truth value, different content
+  | Satyaikya   [EntryId]               -- à¤¸à¤¤à¥à¤¯à¥ˆà¤•à¥à¤¯: same truth value, different content
   deriving (Eq, Ord, Show)
 
 sambandhaGloss :: Sambandha -> String
@@ -308,7 +308,7 @@ byId k i = case [ e | e <- koshaEntries k, entId e == i ] of
 byName :: Kosha -> String -> [Entry]
 byName k n = [ e | e <- koshaEntries k, entName e == n ]
 
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” the verdict
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ the verdict
 
 -- | The answer to "may these be identified?"  Not a Bool, and not a bare
 --   Sthana either: the loss and the residue are part of the answer.
@@ -482,7 +482,7 @@ decide saha es0
                 else [ "In succession (krama) they are assertable, in that order."
                      , "Akalanka's kramarpana." ])
 
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” rendering
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ rendering
 
 render :: Nirnaya -> [String]
 render (Abhinna msg) =
@@ -514,7 +514,7 @@ render n =
           [ "    `" ++ nm ++ "`: no witnesses, and the looking was not fit -- "
             ++ r | (nm, r) <- nirShesha n ])
 
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” persistence
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ persistence
 
 -- The journal is line-oriented and every field is escaped, so a witness
 -- label containing a separator survives the round trip.  `replay` of
@@ -591,7 +591,7 @@ replay lns = do
 prop_roundtrip :: Kosha -> Bool
 prop_roundtrip k = replay (journal k) == Right k
 
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” self-test
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ self-test
 
 -- Finite, exhaustive, and it is the reason the module may be believed.
 selfTest :: [(String, Bool)]

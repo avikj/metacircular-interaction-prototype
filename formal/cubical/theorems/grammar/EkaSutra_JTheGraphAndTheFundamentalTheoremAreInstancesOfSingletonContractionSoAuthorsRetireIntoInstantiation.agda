@@ -1,40 +1,40 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- �������� � one aphorism.  ����� ������, ���� ���: hold one line, generate
--- the rest.  The line is the fibre law's positive half �
+-- एकसूत्र — one aphorism.  अल्पं स्थापय, शेषं जनय: hold one line, generate
+-- the rest.  The line is the fibre law's positive half —
 --
---     THE SINGLETON IS CONTRACTIBLE:  isContr (�[ y ] (x ≡ y))
+--     THE SINGLETON IS CONTRACTIBLE:  isContr (Σ[ y ] (x ≡ y))
 --
--- � and this module makes it ABSORB the apparatus, so that results which
+-- — and this module makes it ABSORB the apparatus, so that results which
 -- are hand-proved elsewhere become instantiations here:
 --
---   §�  J � based path induction, THE eliminator of the identity type �
+--   §१  J — based path induction, THE eliminator of the identity type —
 --       is derived from the law (with its β-rule).  The identity type's
 --       own recursion principle is an instance, not a primitive act.
---   §�  ��������, the RETIREMENT OPERATOR: any property of any type
+--   §२  निवृत्ति, the RETIREMENT OPERATOR: any property of any type
 --       transports along any equivalence (subst ∘ ua).  Prove once at
 --       the canonical presentation; every equivalent presentation
 --       inherits it with no author present.
---   §�  The graph decomposition A � �[ b ] fiber f b (HoTT Lemma 4.8.2)
---       � the whole boundary/memory reading of the corpus � in four
+--   §३  The graph decomposition A ≃ Σ[ b ] fiber f b (HoTT Lemma 4.8.2)
+--       — the whole boundary/memory reading of the corpus — in four
 --       lines from one connection square, the same singleton fact read
 --       at the total space.
---   §�  THE FUNDAMENTAL THEOREM OF IDENTITY TYPES (HoTT 5.8.4, one
+--   §४  THE FUNDAMENTAL THEOREM OF IDENTITY TYPES (HoTT 5.8.4, one
 --       direction): a pointed family with contractible total space IS
---       the path family � (a� ≡ x) � R x.  This is the theorem that
---       "retires" encode�decode authors: to compute any identity type,
---       exhibit one contractible � and the equivalence is issued here.
+--       the path family — (a₀ ≡ x) ≃ R x.  This is the theorem that
+--       "retires" encode–decode authors: to compute any identity type,
+--       exhibit one contractible Σ and the equivalence is issued here.
 --
 -- WHAT "RETIRE" MEANS, operationally.  A library written against this
 -- module does not prove transport lemmas, path inductions, graph
--- decompositions, or encode�decode equivalences; it EXHIBITS a
+-- decompositions, or encode–decode equivalences; it EXHIBITS a
 -- contractible singleton (or a contractible total space) and calls the
 -- corresponding section.  The author's remaining act is choosing the
--- instance � which is the corpus's thesis about all knowledge work,
+-- instance — which is the corpus's thesis about all knowledge work,
 -- landed on its own foundations.
 --
--- TERM.  �������� � "one thread / one aphorism"; ordinary ,
+-- TERM.  एकसूत्र — "one thread / one aphorism"; ordinary ,
 -- compound built here.
 ------------------------------------------------------------------------
 
@@ -52,14 +52,14 @@ private
     ℓ ℓ' : Level
 
 ------------------------------------------------------------------------
--- §� � THE LINE.
+-- §० · THE LINE.
 ------------------------------------------------------------------------
 
 सूत्रम् : {A : Type ℓ} (x : A) → isContr (singl x)
 सूत्रम् x = isContrSingl x
 
 ------------------------------------------------------------------------
--- §� � J IS AN INSTANCE.  The eliminator of the identity type, with its
+-- §१ · J IS AN INSTANCE.  The eliminator of the identity type, with its
 --      β-rule, from the line alone: transport the motive along the
 --      contraction of the singleton.
 ------------------------------------------------------------------------
@@ -76,7 +76,7 @@ private
 --  which is why the β-rule is one substRefl and not a coherence.)
 
 ------------------------------------------------------------------------
--- §� � �������� � the retirement operator.  Any property, along any
+-- §२ · निवृत्ति — the retirement operator.  Any property, along any
 --      equivalence, no author required.  This is transport-of-structure
 --      in its smallest complete form: the SIP's working end.
 ------------------------------------------------------------------------
@@ -86,8 +86,8 @@ private
 निवृत्तिः P e = subst P (ua e)
 
 ------------------------------------------------------------------------
--- §� � THE GRAPH DECOMPOSITION IS AN INSTANCE (HoTT 4.8.2).
---      A � �[ b ] fiber f b � one connection square, the singleton fact
+-- §३ · THE GRAPH DECOMPOSITION IS AN INSTANCE (HoTT 4.8.2).
+--      A ≃ Σ[ b ] fiber f b — one connection square, the singleton fact
 --      read at the total space.  The corpus's boundary/memory theorems
 --      (Avaccheda, Sesa, SankramanaSesa §2) instantiate this.
 ------------------------------------------------------------------------
@@ -103,21 +103,21 @@ private
   निवृत्ति : ∀ s → अनु (प्रति s) ≡ s
   निवृत्ति (b , a , p) i = p i , a , λ j → p (i ∧ j)
 
--- �and therefore every property of A holds of the graph, by §�, with no
+-- …and therefore every property of A holds of the graph, by §२, with no
 -- further proof anywhere: the instantiation that retires the author.
 गुण-निवृत्तिः : {A B : Type ℓ} (f : A → B) (P : Type ℓ → Type ℓ')
              → P A → P (Σ[ b ∈ B ] fiber f b)
 गुण-निवृत्तिः f P = निवृत्तिः P (गुणसमष्टिः f)
 
 ------------------------------------------------------------------------
--- §� � THE FUNDAMENTAL THEOREM OF IDENTITY TYPES IS AN INSTANCE
+-- §४ · THE FUNDAMENTAL THEOREM OF IDENTITY TYPES IS AN INSTANCE
 --      (HoTT 5.8.4, forward direction).  A pointed family R with
 --      contractible total space IS the path family from the point:
 --
---          (a� ≡ x) � R x,   naturally in x.
+--          (a₀ ≡ x) ≃ R x,   naturally in x.
 --
---      To characterize ANY identity type, exhibit ONE contractible �;
---      the equivalence � the whole encode�decode ritual � is issued
+--      To characterize ANY identity type, exhibit ONE contractible Σ;
+--      the equivalence — the whole encode–decode ritual — is issued
 --      below.  The proof is the line twice: singl for the path side,
 --      the hypothesis for the R side, contraction against contraction.
 ------------------------------------------------------------------------

@@ -6,29 +6,29 @@
 -- The generative presentation of the natural numbers, machine-checked,
 -- with positional notation exhibited as a CHART rather than as the
 --
--- Thesis, in one sentence: symbols are œ‚, geometry lives in identity
+-- Thesis, in one sentence: symbols are œÄ‚ÇÄ, geometry lives in identity
 -- types, and univalence is what makes them say the same thing.
 --
 -- HEADLINE STATEMENTS:
 --
---  1. pathIsSymmetry        (X ‚â° X) ‚â (X ‚â X), any type X.
---     Œ©Group‚âSymmetric      ... and it is a group isomorphism onto the
+--  1. pathIsSymmetry        (X ‚â° X) ‚âÉ (X ‚âÉ X), any type X.
+--     Œ©Group‚âÉSymmetric      ... and it is a group isomorphism onto the
 --                           symmetric group of X; specialised to
---                           Œ©Fin‚âSym : Œ©(Type, Fin n) ‚â S‚ô.
+--                           Œ©Fin‚âÉSym : Œ©(Type, Fin n) ‚âÖ S‚Çô.
 --
---  2. ‚ï-algebra-Aut-trivial The initial (1 + X)-algebra is rigid, while
---     swap01-‚â-id           ‚ï as a bare type is not.  Structure is what
+--  2. ‚Ñï-algebra-Aut-trivial The initial (1 + X)-algebra is rigid, while
+--     swap01-‚â¢-id           ‚Ñï as a bare type is not.  Structure is what
 --                           cuts symmetry down; that is the SIP.
 --
---  3. ‚ï‚âTally / ‚ï‚âCanWord   Three presentations, defined independently,
+--  3. ‚Ñï‚âÉTally / ‚Ñï‚âÉCanWord   Three presentations, defined independently,
 --                           with equivalences CONSTRUCTED (the digit one
 --                           through the odometer `sucw` and injectivity
 --                           of `value` on canonical words).
 --
---  4. transport-+-is-‚äï      Transporting ‚ï's addition along `ua` yields
+--  4. transport-+-is-‚äï      Transporting ‚Ñï's addition along `ua` yields
 --                           literally the schoolbook ripple-carry
 --                           algorithm defined natively on digit words.
---     ‚ï-Monoid‚â°CanWord-Monoid
+--     ‚Ñï-Monoid‚â°CanWord-Monoid
 --                           ... and the two monoids are EQUAL, by SIP.
 --
 --  5. chartSymmetry         Reversal and complement are commuting
@@ -36,20 +36,20 @@
 --                           distinct together with their composite (the
 --                           Klein-four pattern; no group object is
 --                           packaged), and NEITHER descends along the
---                           value map; complement is œ-equivariant,
+--                           value map; complement is œÄ-equivariant,
 --                           reversal is not, and reversal instead
 --                           exchanges the two truncations.  Place value
 --                           is a chart.
 --
---  6. ‚ï‚âœ‚FinSet            ‚ï is œ‚ of FinSet ‚î the set-truncation
---     card‚â°MereEq           equivalence ‚ï ‚â ‚à FinSet ‚à‚ assembled from
---     FinSetLoop‚âSym        the fiberwise statement card‚â°MereEq; the
+--  6. ‚Ñï‚âÉœÄ‚ÇÄFinSet            ‚Ñï is œÄ‚ÇÄ of FinSet ‚Äî the set-truncation
+--     card‚â°MereEq           equivalence ‚Ñï ‚âÉ ‚à• FinSet ‚à•‚ÇÇ assembled from
+--     FinSetLoop‚âÉSym        the fiberwise statement card‚â°MereEq; the
 --                           numeral names a connected component, and
---                           what it forgets is the loop space S‚ô.
+--                           what it forgets is the loop space S‚Çô.
 --
 --  7. Controls              Canonicity is load-bearing, the big-endian
 --                           misreading is refuted, and two deliberately
---                           wrong statements fail to type-check ‚î the
+--                           wrong statements fail to type-check ‚Äî the
 --                           raw equivalence (Control/WrongEquivalence)
 --                           and CompileBridge ¬ßG1 at the wrong
 --                           capability (Control/WrongFirstStep).  The
@@ -119,7 +119,7 @@ import CompositionalContextAdapter
 import ContextCloneEquivalence
 -- Observer revisions compose only through their retained response paths.
 -- Decidable response equality gives the pointwise defect-union bound, while
--- a three-value control refutes every BoolóBool composite-defect decoder.
+-- a three-value control refutes every Bool√óBool composite-defect decoder.
 import ObserverRevisionComposition
 import HolonomyDescent
 -- Finite lattice-gauge/LQG kinematic seam: subdividing one edge introduces
@@ -238,7 +238,7 @@ import ProofLabelNoGo
 import RewriteCertificate
 -- S4 (D0026_BUILD_QUEUE ¬ß4): the same certificate language widened to
 -- multiplication, as a conservative MIRROR of the module above rather than
--- an edit to it ‚î the gate lane owns the live perimeter.  Listed here on
+-- an edit to it ‚Äî the gate lane owns the live perimeter.  Listed here on
 -- purpose: an orphan is the Q8 defect, and a root import fails the build
 -- where a markdown sentence would only rot.
 import RewriteCertificateMul
@@ -344,7 +344,7 @@ import WalkCapacity
 -- points, plus the walk's step as a total computable function.
 import WalkBridge
 -- independent second derivation of ¬ß(b), which also removes WalkBridge's
--- `1 ‚â m` hypothesis, so the walk's first step stops being a base case.
+-- `1 ‚â§ m` hypothesis, so the walk's first step stops being a base case.
 import WalkBridgeUniform
 -- the walk's Nerode theorem: a sensor family is seen only through its lcm.
 import SensorNerode
@@ -355,7 +355,7 @@ import SieveFiber
 -- horizon, a rough number is 1 or prime.
 import RoughSplit
 -- Delta 14, the perspectival deltas made executable: the general
--- transport/fibre/sector toolkit, and the w¬r centre-relative instance.
+-- transport/fibre/sector toolkit, and the w¬±r centre-relative instance.
 import PerspectiveCore
 -- A random prime-pair image returned an exact instance of that API:
 -- ambient reflection restricts on negation-invariant fibres, while the
@@ -459,8 +459,8 @@ import TransportInstance
 import Controls
 import CountedDigits
 import ResidueTransport
--- multiplication survives the transport: `_¬_` carried
--- along `ua ‚ï‚âCanWord` IS native shift-and-add on digit words, by the
+-- multiplication survives the transport: `_¬∑_` carried
+-- along `ua ‚Ñï‚âÉCanWord` IS native shift-and-add on digit words, by the
 -- same mechanism `transport-+-is-‚äï` uses for addition.  The witness
 -- module runs the multiplier at bases 10 and 2.
 import TransportMul
@@ -485,7 +485,7 @@ import LeakageCommutator
 import PhysicalLearningCore
 -- Interaction-relative facts form a dependent family over loci; comparison
 -- is transport along an explicit interaction path.  The Bool double cover of
--- S¬ has local facts but no global section, while pulling it back to its
+-- S¬π has local facts but no global section, while pulling it back to its
 -- rooted total space supplies a canonical coherent repair.
 import RelationalProcessCore
 import RelativeFrameChange
@@ -519,7 +519,7 @@ import UnivalentPhysicalProcess
 -- joint sector.  Its exchange is retained as a nontrivial universe path;
 -- admitting a joint interference port reopens exactly the forgotten fibre.
 import UnivalentTensorInteraction
--- The relational S¬ obstruction and the tensor reconstruction obstruction
+-- The relational S¬π obstruction and the tensor reconstruction obstruction
 -- share the Bool/negation residual but require different diagrams: global
 -- descent versus a quotient retraction.  A bare local choice separates them.
 import RelationalTensorObstructionBridge
@@ -537,7 +537,7 @@ import BatchDepthMemoryBoundary
 -- every structure-preserving lift of the target swap is impossible.
 import BalanceWithoutTransitivity
 -- Arithmetic variable elimination as an exact process boundary: projection
--- of the 6ó10 affine solution chart costs the ten-state eliminated kernel,
+-- of the 6√ó10 affine solution chart costs the ten-state eliminated kernel,
 -- while overwrite to its one symbolic coset costs all sixty basis states.
 import AffineProjectionQuantumBoundary
 import SmithKernelQuantumBoundary
@@ -555,14 +555,14 @@ import PMIncidenceLocalSystem
 -- The ZZ-supported twist is an explicit gauge representative of that class.
 import PMMonodromyDerivationNoGo
 -- The Peres--Mermin obstruction as a representative-independent finite
--- Cech/H¬ carrier: edge signs modulo context gauge, with cycle parity
+-- Cech/H¬π carrier: edge signs modulo context gauge, with cycle parity
 -- descended to the quotient and identified with the derived Pauli sign.
 import PMGaugeCohomology
--- Generic finite-graph C‚∞‚íC¬ gauge translation and representative-
+-- Generic finite-graph C‚Å∞‚ÜíC¬π gauge translation and representative-
 -- independent cycle evaluation; the PM odd class is one exact instance.
 import FiniteGraphCohomology
 -- Exact Gaussian-integer two-state amplitudes and unnormalised Born weights;
--- Pauli X/Z and Z‚ global phase preserve the checked norm.
+-- Pauli X/Z and Z‚ÇÑ global phase preserve the checked norm.
 import ExactTwoStateAmplitudes
 import ExactTwoStateInstrument
 import ExactHadamardInterference
@@ -614,7 +614,7 @@ import DiagonalEndpoint
 -- checked equivalences, and cost is a field the equivalence does not carry
 -- -- paths transport theorems, never complexity.  A fast algorithm is then
 -- a detour, and "speedup" is a triangle inequality failing in the cheap
--- direction.  Only +, ‚â, < are used, so the geometry is independent of the
+-- direction.  Only +, ‚â§, < are used, so the geometry is independent of the
 -- cost currency.
 import CostGeometry
 -- The two instances that give those theorems content, kept separate so each
@@ -627,39 +627,39 @@ import CostGeometryWitness
 -- cost per edge, which CountedDigitsEdge showed the scalar `Edge` cannot
 -- carry).
 import CostGeometryIndexed
--- œ = wHere ‚äñ detour, and the fifth response Œì‚.  The residual is invisible
+-- œ± = wHere ‚äñ detour, and the fifth response Œì‚Üù.  The residual is invisible
 -- to every equivalence-invariant response, because `Edge` carries `cost` in
--- a field the maps do not determine; `no-invariant-response-sees-œ` is that
--- statement as a term.  Œì‚ is min-plus over neighbours -- the same operator
+-- a field the maps do not determine; `no-invariant-response-sees-œ±` is that
+-- statement as a term.  Œì‚Üù is min-plus over neighbours -- the same operator
 -- as DSOMinPlusFinite/DSOBellmanFinite on other data.
 import Residual
--- í¶ := ‚à ‚àò Œì and the trichotomy of its step: decay (the orbit reaches 0),
+-- ùí¶ := ‚àÇ ‚àò Œì and the trichotomy of its step: decay (the orbit reaches 0),
 -- resonance (stationary), branching (never reaches 0).  Three theorems about
--- one ‚ï-valued obstruction measure; the spectral radius is the sign of the
+-- one ‚Ñï-valued obstruction measure; the spectral radius is the sign of the
 -- step, not a measurement.
 import KFlow
--- Œ¥_end, by Lawvere/Cantor: for every quotation ‚‚àí‚ : í ‚í (í ‚í Bool) the
+-- Œ¥_end, by Lawvere/Cantor: for every quotation ‚åú‚àí‚åù : ùí¨ ‚Üí (ùí¨ ‚Üí Bool) the
 -- diagonal observable lies outside the image, so the end is never among the
 -- things the machine can say about the end.  Unconditional, no fuel.
 import EndObstruction
--- and the two put together: the flow halting is a theorem about ‚à, Œ¥_end is
--- a theorem about ‚‚àí‚, and `halting-does-not-close` shows the second
+-- and the two put together: the flow halting is a theorem about ‚àÇ, Œ¥_end is
+-- a theorem about ‚åú‚àí‚åù, and `halting-does-not-close` shows the second
 -- survives the first -- completeness does not imply termination of enquiry.
 import QuestionMachine
--- Chu(X,íØ,e): the defect is monotone in the test list, so a vanishing defect
--- is a statement about íØ and never about X (the empty test list makes every
--- pair agree).  Also Œ¥_œ = 0 ‚ Œ¥_œ^base = 0: the base can be flat while the
+-- Chu(X,ùíØ,e): the defect is monotone in the test list, so a vanishing defect
+-- is a statement about ùíØ and never about X (the empty test list makes every
+-- pair agree).  Also Œ¥_œÉ = 0 ‚áç Œ¥_œÉ^base = 0: the base can be flat while the
 -- fibre is not, so a base-only test is not a test.
 import ChuAdvance
 -- The advance gate as a record of its five clauses, with the two that are
 -- not formalizable here carried as explicit propositions the caller must
 -- supply rather than silently assumed.  The gate forces separation, and
--- UsefulEscape > 0 is exactly œ ‚â 0, hence a strictly cheaper presentation;
--- the non-theorem Œ¥ = 0 ‚í Advance is exhibited as failing.
+-- UsefulEscape > 0 is exactly œ± ‚â¢ 0, hence a strictly cheaper presentation;
+-- the non-theorem Œ¥ = 0 ‚áí Advance is exhibited as failing.
 import AdvanceGate
--- Œì‚'s soundness was weaker than its own proof term: the witness it
+-- Œì‚Üù's soundness was weaker than its own proof term: the witness it
 -- returns is a MEMBER of the neighbour list.  With optimality and the
--- greatest-lower-bound clause this certifies Œì‚ to BE the minimum rather
+-- greatest-lower-bound clause this certifies Œì‚Üù to BE the minimum rather
 -- than to lie below it.  (`Any`/`_‚àà_` are defined here: cubical v0.7 has
 -- neither.)
 import ResidualPath
@@ -669,14 +669,14 @@ import ResidualPath
 -- written against `modw` directly it would re-run the automaton per level
 -- and still satisfy every stated theorem.  Parameterised in the base.
 import TransportDivQuot
--- The converse of `modw-zero‚í‚à`, hence `decDivides`; and the line that
--- makes it useful, `decDivides‚ï-agrees`: the charted test is EQUAL to
--- CoprimeSplitting.dec‚à, so it substitutes in the walk lane without
+-- The converse of `modw-zero‚Üí‚à£`, hence `decDivides`; and the line that
+-- makes it useful, `decDivides‚Ñï-agrees`: the charted test is EQUAL to
+-- CoprimeSplitting.dec‚à£, so it substitutes in the walk lane without
 -- touching a downstream proof.  Parameterised in the base.
 import WalkResidueBridge
 -- The other half of the walk's cost: cap m built ON the chart.  cap (suc m)
--- = cap m ¬ capQuot m with capQuot m fixed by one residue-automaton pass
--- and arithmetic on numbers ‚â suc m, so the capacity is m digit-length
+-- = cap m ¬∑ capQuot m with capQuot m fixed by one residue-automaton pass
+-- and arithmetic on numbers ‚â§ suc m, so the capacity is m digit-length
 -- passes and never a unary numeral.  Needed a reconciliation the library
 -- lacked (`%‚â°mod`: gcd speaks Fin's _%_, the automaton speaks Nat.Mod's
 -- _mod_) before the Euclid step could even be stated.
@@ -738,7 +738,7 @@ import RadixResidueUnification
 -- than by matching the two searches clause for clause.
 import WalkChartedStep
 -- and the length law that makes the charted capacity mean something:
--- b^(L‚àí1) ‚â cap m < b^L, both directions, so the digit length IS the
+-- b^(L‚àí1) ‚â§ cap m < b^L, both directions, so the digit length IS the
 -- base-b logarithm.  Kernel witnesses to m = 10.
 import WalkChartedLength
 -- SensorNerode's residue bridge: the identification of its
@@ -752,7 +752,7 @@ import SensorResidueBridge
 -- listed.  The hypothesis is shown sharp at n = 49.
 import SieveRoughBridge
 -- The exact carry-cost law
--- (b‚àí1)¬C(n) + digitSum(digits n) = n¬b, tied to CountedDigits' own `run`.
+-- (b‚àí1)¬∑C(n) + digitSum(digits n) = n¬∑b, tied to CountedDigits' own `run`.
 -- It also proves CostGeometry's `Edge` is the WRONG SHAPE for this
 -- quantity -- no single cost per edge can carry a state-dependent one --
 -- which is a finding about the cost geometry, not about the odometer.
@@ -1070,13 +1070,13 @@ import TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence
 import TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
 import TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous
 
--- Two items of WhatThisIsAndHowToDescend‚¶ ¬ß8, on the
+-- Two items of WhatThisIsAndHowToDescend‚Ä¶ ¬ß8, on the
 -- kernel's own terms:
 --   ¬ß8(d)  the counting semantics is the cardinality of the categorified one
---          (‚ü¶ t ‚üß (finEnv œ) ‚â Fin (eval t œ)), and derivation-sound is its
+--          (‚ü¶ t ‚üß (finEnv œÅ) ‚âÉ Fin (eval t œÅ)), and derivation-sound is its
 --          cardinality shadow;
 --   ¬ß8(a)  a certified normalizer emits Derivations, so learn = install ‚àò normalize
---          closes discovery‚íinstallation on one Tm (reach unchanged: Siddhasadhana).
+--          closes discovery‚Üíinstallation on one Tm (reach unchanged: Siddhasadhana).
 import TheCountingSemanticsIsTheCardinalityOfTheCategorifiedOneEveryTermsTypeIsFinOfItsEvaluation
 import DerivationSoundnessIsTheCardinalityShadowOfTheCategorifiedEquivalence
 import TheGenerativeLoopOnTheKernelsOwnTermsACertifiedNormalizerEmitsDerivationsSoLearnCallsInstall
@@ -1098,24 +1098,24 @@ import Parampara_TheDerivableEqualitiesAreExactlyTheWitnessChainsSoExplanationIs
 -- StrainInvariants: the even magnitude tr S¬≤ and the odd charge det S of a
 -- trace-free symmetric matrix are each blind to the other and neither
 -- factors through the other (DescentObstructionUnified's lemma, both ways);
--- the pointwise interaction œâµSœâ escapes (S, |œâ|¬≤) and the coupling escapes
+-- the pointwise interaction œâ·µÄSœâ escapes (S, |œâ|¬≤) and the coupling escapes
 -- the marginals.
 import StrainInvariants_TheEvenMagnitudeIsBlindToTheOddShapeChargeAndNeitherFactorsThroughTheOther
 -- QRClosure: the restricted-Euler quotient (tr A¬≤, tr A¬≥) closes by two ring
 -- identities (fractions cleared) and the pressure-Hessian couplings
--- tr(AH), tr(A¬≤H) do not descend through it: witness pair over ‚, both
+-- tr(AH), tr(A¬≤H) do not descend through it: witness pair over ‚Ñ§, both
 -- obstructions by DescentObstructionUnified's lemma.
 import QRClosure_TheRestrictedEulerQuotientClosesByRingIdentityAndThePressureHessianCouplingDoesNotDescendThroughIt
 -- VieillefosseFibre: the discriminant is a first integral of the restricted-
 -- Euler field (polynomial identity), its zero fibre carries the sheet strains
--- diag(n,n,‚àí2n) (an injection of ‚ï), and the pushforward of the true QÃ to
+-- diag(n,n,‚àí2n) (an injection of ‚Ñï), and the pushforward of the true QÃá to
 -- the (Q,R) plane is a LawfulContinuationCore.BranchingFiber.
 import VieillefosseFibre_TheDiscriminantIsAFirstIntegralOfRestrictedEulerItsZeroFibreIsUnboundedAndThePushforwardOfTheTrueFieldBranches
 -- DiscriminantIsTheOnlyFirstIntegral: up to cubic degree every polynomial
 -- first integral of the restricted-Euler field is affine in the
--- discriminant (linear algebra over ‚ on ten coefficients, with the
+-- discriminant (linear algebra over ‚Ñ§ on ten coefficients, with the
 -- symbolic derivative checked against the analytic one by the solver), and
--- ‚ injects into the pushforward fibre over a (Q,R) point by scaling the
+-- ‚Ñ§ injects into the pushforward fibre over a (Q,R) point by scaling the
 -- Hessian direction.
 import DiscriminantIsTheOnlyFirstIntegral_UpToCubicDegreeEveryPolynomialFirstIntegralOfRestrictedEulerIsAffineInTheDiscriminantAndThePushforwardFibreIsUnbounded
 -- WindowShiftResidual: on a finite window the two zero-displacement shift
@@ -1123,47 +1123,47 @@ import DiscriminantIsTheOnlyFirstIntegral_UpToCubicDegreeEveryPolynomialFirstInt
 -- operator reading does not factor through net displacement.
 import WindowShiftResidual_NetDisplacementDescendsAndTheBoundaryInteractionHistoryDoesNotAndForAFixedWordItRetreatsToTheEdges
 -- SecantCriterion: reconstruction of a cone C from a homomorphic observation
--- O holds exactly when ker O ‚à© (C ‚àí C) = {0}; over ‚ ó ‚ one observation
+-- O holds exactly when ker O ‚à© (C ‚àí C) = {0}; over ‚Ñ§ √ó ‚Ñ§ one observation
 -- reconstructs the axis and not the quadrant.
 import SecantCriterion_ReconstructionOnAConeFromALinearObservationHoldsExactlyWhenNoSecantOfTheConeLiesInTheKernel
--- TriangularPair: the shear pair u^œ = (0, a, œv) shares every œ-even stress
--- invariant and has œ-odd continuation, so continuation does not descend
+-- TriangularPair: the shear pair u^œÉ = (0, a, œÉv) shares every œÉ-even stress
+-- invariant and has œÉ-odd continuation, so continuation does not descend
 -- through the invariants.
 import TriangularPair_TwoShearFlowsShareEveryEvenStressInvariantAndTheirContinuationIsOddSoContinuationDoesNotDescendThroughTheInvariants
 -- BoundaryBlock: the mean square of a received signal equals the pair field
--- paired with the receiver's autocorrelation ‚î positivity at h = f ‚àó fÃ is
+-- paired with the receiver's autocorrelation ‚Äî positivity at h = f ‚àó fÃÉ is
 -- an identity.
 import BoundaryBlock_ThePrimeSideMeanSquareOfAReceivedSignalIsThePairFieldPairedWithTheReceiversAutocorrelation
--- BoundaryBlockGeneral: the same identity at every width ‚î for any finite
--- receiver and coefficient signal, Œ (Œ c_k S^k f)¬≤ ‚â° Œ c_k c_l œ(|k‚àíl|).
+-- BoundaryBlockGeneral: the same identity at every width ‚Äî for any finite
+-- receiver and coefficient signal, Œ£ (Œ£ c_k S^k f)¬≤ ‚â° Œ£ c_k c_l œÅ(|k‚àíl|).
 import BoundaryBlockGeneral_ForEveryFiniteReceiverAndEveryFiniteCoefficientSignalTheMeanSquareIsThePairFieldPairedWithTheAutocorrelationLags
--- CyclicParseval: given orthogonal characters, Œ_Œ bÃ(Œ)(Œ) ‚â° N¬Œ_t b_t c_t ‚î
+-- CyclicParseval: given orthogonal characters, Œ£_Œ∏ bÃÇ(Œ∏)ƒç(Œ∏) ‚â° N¬∑Œ£_t b_t c_t ‚Äî
 -- the block is a spectral sum of products, and a sum of squares there
 -- exactly when the dual character is the conjugate (the frequencies real).
 import CyclicParseval_TheBlockIsASpectralSumOfProductsWheneverTheCharactersAreOrthogonalSoPositivityOnTheSpectralSideIsWhereTheFrequenciesAreReal
 -- TorusFourierLayer: the triangular pair derived from its velocity field in
--- an exact Fourier calculus on the torus ‚î divergence-free, nonlinear term
--- (0,0,œ a‚à‚v) itself divergence-free so the pressure is constant, coarse
+-- an exact Fourier calculus on the torus ‚Äî divergence-free, nonlinear term
+-- (0,0,œÉ a‚àÇ‚ÇÇv) itself divergence-free so the pressure is constant, coarse
 -- stress and coarse continuation computed at both signs.
 import TorusFourierLayer_TheTriangularPairIsDerivedFromItsVelocityFieldTheNonlinearTermIsDivergenceFreeSoThePressureIsConstantAndTheCoarseStressAndContinuationAreComputed
 -- GalerkinJets: the Taylor jets of the pair's advected component at t = 0
 -- to all orders, exact on a window widening by one mode per order; the
 -- Galerkin truncation residual is exactly the boundary row.
 import GalerkinJets_TheTaylorJetsOfThePairAtTimeZeroAreExactOnAWideningWindowAndTheTruncationResidualSitsOnTheBoundaryRow
--- FiniteExplicitFormula: Newton's identities ‚î power sums of the roots equal
--- the coefficient recursion, i.e. ‚àízP‚≤/P = Œ p_k zµ coefficientwise ‚î and
+-- FiniteExplicitFormula: Newton's identities ‚Äî power sums of the roots equal
+-- the coefficient recursion, i.e. ‚àízP‚Ä≤/P = Œ£ p_k z·µè coefficientwise ‚Äî and
 -- the power sums grow at least like the largest root.
 import FiniteExplicitFormula_NewtonsIdentitiesArePowerSumsOfTheRootsEqualToCoefficientRecursionsAndTheGrowthOfThePowerSumsIsTheLargestRoot
 -- InteractionAssociator: the binary coefficient of a quadratic mode system
 -- is a 2-cochain; its associator (the ratio of the two binary derivations
 -- of p+q+r) is gauge-invariant, satisfies the pentagon, and measures
--- ancestry interference (X+Yœâ)(X+YœâÃ) = (X+Y)¬≤ ‚àí XY(2‚àíœâ‚àíœâÃ); at the
--- orthogonal cube's œâ = e^{2œi/3} in ‚[œâ] the amplitude is half the envelope.
+-- ancestry interference (X+Yœâ)(X+YœâÃÑ) = (X+Y)¬≤ ‚àí XY(2‚àíœâ‚àíœâÃÑ); at the
+-- orthogonal cube's œâ = e^{2œÄi/3} in ‚Ñ§[œâ] the amplitude is half the envelope.
 import InteractionAssociator_TheBinaryCoefficientPhaseIsATwoCochainItsAssociatorIsGaugeInvariantSatisfiesThePentagonAndMeasuresAncestryInterference
--- TwoScaleSubgroup: 2µê = 3‚ø only at m = n = 0 ‚î the arithmetic behind the
--- density of the (2,3)-scale samples in the C(ïã¬≤)-descent reading of RH.
+-- TwoScaleSubgroup: 2·µê = 3‚Åø only at m = n = 0 ‚Äî the arithmetic behind the
+-- density of the (2,3)-scale samples in the C(ùïã¬≤)-descent reading of RH.
 import TwoScaleSubgroup_ThePowersOfTwoAndThreeMeetOnlyAtOneSoTheTwoGeneratorScaleSubgroupIsFreeOfRankTwo
--- HistoryCompletion: the one construction under both frontiers ‚î the value
+-- HistoryCompletion: the one construction under both frontiers ‚Äî the value
 -- stream of a history under an evaluator, complete by corecursion in the
 -- take-metric (PurnataSutra freed to any carrier), its limit determined by
 -- truncations, and ‚ñ° (at every depth) refuted by one truncation and decided
@@ -1171,6 +1171,6 @@ import TwoScaleSubgroup_ThePowersOfTwoAndThreeMeetOnlyAtOneSoTheTwoGeneratorScal
 -- circle) and on the Galerkin jet stream.
 import HistoryCompletion_TheValueStreamOfATraceUnderAnEvaluatorCompletesByCorecursionItsLimitDescendsToTruncationsAndBoundednessDoesNot
 -- GalerkinLookahead: for every window M the truncated jet stream agrees
--- with the exact one to depth M ‚î the support lemma of convolution with a
+-- with the exact one to depth M ‚Äî the support lemma of convolution with a
 -- and the closure of row-support under the field operations.
 import GalerkinLookahead_TheJetOfOrderNReachesRowNPlusOneAndNoFurtherSoTruncationToAnyWindowIsExactToTheWindowsDepthTheCrossingProfileOfThePairsEquation

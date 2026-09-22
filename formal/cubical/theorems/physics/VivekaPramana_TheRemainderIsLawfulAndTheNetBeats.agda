@@ -1,27 +1,27 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 
 ------------------------------------------------------------------------
--- ‡µ‡ø‡µ‡‡ï-‡‡‡∞‡Æ‡æ‡ ‚î ‡¶‡ï‡‡‡ø‡‡ ‡®‡ø‡Ø‡Æ‡‡® ‡‡¶‡‡ß‡ ; ‡‡æ‡≤‡ ‡‡‡‡®‡‡¶‡‡ ‡
+-- ‡§µ‡§ø‡§µ‡•á‡§ï-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£ ‚Äî ‡§¶‡§ï‡•ç‡§∑‡§ø‡§£‡§É ‡§®‡§ø‡§Ø‡§Æ‡•á‡§® ‡§¨‡§¶‡•ç‡§ß‡§É ; ‡§ú‡§æ‡§≤‡§Ç ‡§∏‡•ç‡§™‡§®‡•ç‡§¶‡§§‡•á ‡•§
 --
 -- (the remainder is bound by a law, not merely by membership; and the
 -- net beats.)
 --
 -- THE ONE LINE THAT CARRIES THE CONTENT:
 --
---     ‡‡‡∞‡Æ‡æ‡ : ‡¶‡ï‡‡‡ø‡ ‚â° (‡‡Æ + ‡µ‡æ‡Æ)
+--     ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£ : ‡§¶‡§ï‡•ç‡§∑‡§ø‡§£ ‚â° (‡§∏‡§Æ + ‡§µ‡§æ‡§Æ)
 --
--- The field says WHAT THE REMAINDER IS.  So ‡µ‡ø‡µ‡‡ï-‡‡‡∞‡Æ‡æ‡ is
+-- ‡§Ö‡§µ‡§§‡§∞‡§£The field says WHAT THE REMAINDER IS.  So ‡§µ‡§ø‡§µ‡•á‡§ï-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£ is
 -- the GRAPH OF +, and
--- ‚ï ó ‚ï ‚â graph(+) because a graph is a family of singletons.  The
+-- ‚Ñï √ó ‚Ñï ‚âÉ graph(+) because a graph is a family of singletons.  The
 -- equivalence is contentful rather than definitional, and
--- ‚ïó‚ï‚â°‡µ‡ø‡µ‡‡ï-‡‡‡∞‡Æ‡æ‡ is that content transported by univalence.
+-- ‚Ñï√ó‚Ñï‚â°‡§µ‡§ø‡§µ‡•á‡§ï-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£ is that content transported by univalence.
 --
---    The two ‡¶‡ï‡‡‡ø‡ values in rightInv are equal ‚î but by ‡‡‡∞‡Æ‡æ‡ itself,
---    not by any propositionality of ‚ï.  Discharged here by transporting
---    ‡¶‡ï‡‡‡ø‡ along (v .‡‡‡∞‡Æ‡æ‡), with the ‡‡‡∞‡Æ‡æ‡ component filled by
---    isProp‚íPathP over isSet‚ï.  The field pays for its own coherence.
+--    The two ‡§¶‡§ï‡•ç‡§∑‡§ø‡§£ values in rightInv are equal ‚Äî but by ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£ itself,
+--    not by any propositionality of ‚Ñï.  Discharged here by transporting
+--    ‡§¶‡§ï‡•ç‡§∑‡§ø‡§£ along (v .‡§™‡•ç‡§∞‡§Æ‡§æ‡§£), with the ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£ component filled by
+--    isProp‚ÜíPathP over isSet‚Ñï.  The field pays for its own coherence.
 --
--- ‚ñ HERE IS NOT THE LATER MODALITY.  It is a record with `force : A`,
+-- ‚ñπ HERE IS NOT THE LATER MODALITY.  It is a record with `force : A`,
 -- i.e. the identity functor; the guarding is done by --guardedness on
 -- ‡‡æ‡≤, not by ‚ñ.
 -- The real ‚ñ needs --guarded and a clock

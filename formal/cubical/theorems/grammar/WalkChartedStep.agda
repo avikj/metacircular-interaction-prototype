@@ -4,9 +4,9 @@
 -- WalkChartedStep
 --
 -- THE SEARCH, IN THE CHART.  This file is `findND` re-typed against
--- `Word`, using `WalkResidueBridge`'s `decDivides` in place of `decâˆ`.
--- The two halves it stands on: `WalkResidueBridge.decDividesâ•-agrees`
--- says the charted divisibility test IS `decâˆ`'s decision (`Dec` of a
+-- `Word`, using `WalkResidueBridge`'s `decDivides` in place of `decâˆˆ`.
+-- The two halves it stands on: `WalkResidueBridge.decDividesâ„•-agrees`
+-- says the charted divisibility test IS `decâˆˆ`'s decision (`Dec` of a
 -- proposition is a proposition), so it substitutes without disturbing a
 -- downstream proof; `WalkChartedCap.value-capw` says the charted
 -- capacity IS the capacity.  The search between them is a `findND` that
@@ -17,17 +17,17 @@
 --   1. `decDvd` -- `WalkResidueBridge.decDivides` re-indexed by the
 --      candidate itself rather than by its predecessor, so the search
 --      may case on it with no transport on the computed path; and
---      `decDvd-agrees`, that this is `decâˆ`'s decision, by
---      `decDividesâ•-agrees`'s own argument (`isPropDec isPropâˆ`).
+--      `decDvd-agrees`, that this is `decâˆ£`'s decision, by
+--      `decDividesâ„•-agrees`'s own argument (`isPropDec isPropâˆ£`).
 --
---   2. `findNDw` -- `WalkBridge.findND` with `L : â•` replaced by
---      `w : Word` and `decâˆ` replaced by `decDvd`.  Specification
---      unchanged: it returns the least q â‰ 2 with q âˆ value w, as a
+--   2. `findNDw` -- `WalkBridge.findND` with `L : â„•` replaced by
+--      `w : Word` and `decâˆ£` replaced by `decDvd`.  Specification
+--      unchanged: it returns the least q â‰¥ 2 with q âˆ¤ value w, as a
 --      `LeastNonDivisor (value w) q`.  `leastNDw` supplies the bound.
 --
---   3. `nextw : â• â’ â•`, the walk's step computed through `capw`, and
+--   3. `nextw : â„• â†’ â„•`, the walk's step computed through `capw`, and
 --
---        nextwâ‰¡next : (m : â•) â’ nextw m â‰¡ next m
+--        nextwâ‰¡next : (m : â„•) â†’ nextw m â‰¡ next m
 --
 --      for EVERY m, with no side hypothesis.  It is proved from
 --      the SPECIFICATION both searches satisfy, because a least
@@ -51,20 +51,20 @@
 --      an endpoint strictly above a positive number cannot divide it --
 --      from
 --
---        value-<-pow : (w : Word) â’ value w < b ^ length w
+--        value-<-pow : (w : Word) â†’ value w < b ^ length w
 --
---      one induction, valid for every word, canonical or not (`toâ• d < b`
+--      one induction, valid for every word, canonical or not (`toâ„• d < b`
 --      is its only input).
 --
---   5. THE COST CLAIM, exactly and no more.  Per candidate s â‰ 2 the
+--   5. THE COST CLAIM, exactly and no more.  Per candidate s â‰¥ 2 the
 --      test is one pass of `TransportDiv.run`: the number the decision
 --      inspects is that run's final state (`candidate-state`), and the
 --      run's own step count is `suc (length w)` (`candidate-cost`, i.e.
 --      `run-is-the-automaton`), against `usteps (value w) â‰¡ suc (value w)`
---      for the recursion `decâˆ` performs on the numeral
+--      for the recursion `decâˆ£` performs on the numeral
 --      (`candidate-cost-gap`).  The capacity is never materialised as a
 --      numeral: `value w` occurs in `leastNDw` only inside the proof
---      `pow-endpoint-âˆ`, which the search carries and never evaluates.
+--      `pow-endpoint-âˆ¤`, which the search carries and never evaluates.
 --
 --   6. `capws` AND THE KERNEL WITNESSES.  `nextw!` is `nextw` with the
 --      capacity THREADED AS AN ARGUMENT instead of re-called, and
@@ -137,13 +137,13 @@ module Step (k : â„•) where
   ----------------------------------------------------------------------
   -- 1.  THE TEST, INDEXED BY THE CANDIDATE.
   --
-  -- `decDivides n w : Dec (suc n âˆ value w)` is indexed by the modulus'
-  -- predecessor.  The search's candidate is a variable s with 2 â‰ s, so
+  -- `decDivides n w : Dec (suc n âˆ£ value w)` is indexed by the modulus'
+  -- predecessor.  The search's candidate is a variable s with 2 â‰¤ s, so
   -- the two must be reconciled.  Doing it with `subst` would put a
   -- transport of a `Dec` on the path the kernel actually runs; matching
   -- s as `suc (suc s')` instead gives `decDivides (suc s') w` the
   -- required type on the nose, and the two impossible shapes of s are
-  -- refuted from `2 â‰ s`.
+  -- refuted from `2 â‰¤ s`.
   ----------------------------------------------------------------------
 
   decDvd : (s : â„•) â†’ 2 â‰¤ s â†’ (w : Word) â†’ Dec (s âˆ£ value w)
@@ -151,10 +151,10 @@ module Step (k : â„•) where
   decDvd (suc zero)    2â‰¤s w = Empty.rec (Â¬-<-zero (pred-â‰¤-pred 2â‰¤s))
   decDvd (suc (suc s)) _   w = decDivides (suc s) w
 
-  -- â¦and it is `decâˆ`'s decision, not merely another correct one.  Same
-  -- argument as `WalkResidueBridge.decDividesâ•-agrees`: `_âˆ_` is a
-  -- proposition, so `Dec (s âˆ value w)` is one.  This is the licence to
-  -- substitute the charted test for `decâˆ` inside `findND` without
+  -- â€¦and it is `decâˆ£`'s decision, not merely another correct one.  Same
+  -- argument as `WalkResidueBridge.decDividesâ„•-agrees`: `_âˆ£_` is a
+  -- proposition, so `Dec (s âˆ£ value w)` is one.  This is the licence to
+  -- substitute the charted test for `decâˆ£` inside `findND` without
   -- touching a downstream proof.
   decDvd-agrees :
     (s : â„•) (2â‰¤s : 2 â‰¤ s) (w : Word) (0<s : 0 < s)
@@ -196,8 +196,8 @@ module Step (k : â„•) where
     big = <â‰¤-trans (value-<-pow w) â‰¤SumRight
 
   ----------------------------------------------------------------------
-  -- 3.  THE SEARCH.  `WalkBridge.findND` with `L : â•` replaced by
-  --     `w : Word` and `decâˆ` replaced by `decDvd`.  Nothing else moves:
+  -- 3.  THE SEARCH.  `WalkBridge.findND` with `L : â„•` replaced by
+  --     `w : Word` and `decâˆ£` replaced by `decDvd`.  Nothing else moves:
   --     the two `where` clauses below are its two, verbatim.
   ----------------------------------------------------------------------
 
@@ -266,7 +266,7 @@ module Step (k : â„•) where
   ----------------------------------------------------------------------
   -- 6.  COST, per candidate.  Read it as exactly what it says.
   --
-  -- `decDvd s 2â‰s w` is `decDivides`, which decides by comparing
+  -- `decDvd s 2â‰¤s w` is `decDivides`, which decides by comparing
   -- `modw s w` with 0.  `candidate-state` says that number is the final
   -- state of `TransportDiv.run`; `candidate-cost` is
   -- `run-is-the-automaton`: that run takes `suc (length w)` transitions.
@@ -371,7 +371,7 @@ module Step (k : â„•) where
 -- Base ten, as in `TransportDivWitness`.  Each `refl` below is the
 -- charted walk taking a step in the kernel: build the capacity in the
 -- chart, then decide each candidate by one pass of the residue
--- automaton over its digits.  `next-8 â¦ next-16` are then the WALK's own
+-- automaton over its digits.  `next-8 â€¦ next-16` are then the WALK's own
 -- installs, obtained from Â§7's `nextw!â‰¡next` -- `next m` itself is never
 -- evaluated, which is the whole point: `WalkBridge` records `next 8`
 -- exhausting a 3.5 GB heap, and its computed stream stops at `next 5`.
@@ -397,7 +397,7 @@ nextw-13 = refl
 nextw-16 : Base10.nextw! 16 â‰¡ 17
 nextw-16 = refl
 
--- â¦and therefore, without evaluating `next` anywhere:
+-- â€¦and therefore, without evaluating `next` anywhere:
 --
 -- WHY EACH INSTALL IS WRITTEN TWICE.  Attaching the signature directly,
 --

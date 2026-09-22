@@ -1,33 +1,33 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������������ � ���� ������ ���� �� ��������� �
+-- सङ्क्रमणम् — कदा तन्तुः एका एव कक्ष्या ।
 --
--- (when is the fibre exhausted by one orbit � the converse of descent.)
+-- (when is the fibre exhausted by one orbit — the converse of descent.)
 --
 -- `Kaksya`
--- §�'s `������������ b` is ONE-SIDED reachability � `�[ n ] Φ� x ≡ y` for
--- every ordered pair in the fibre � and `�������������` is the TWO-SIDED
--- meeting relation.  One-sided is SUFFICIENT for injectivity (§�, via
--- §�) and is NOT necessary: §� exhibits `f = λ _ � tt : Bool � Unit`
--- with `Φ = λ _ � true`, where `��������` is injective (indeed an
+-- §७'s `सङ्क्रमणम् b` is ONE-SIDED reachability — `Σ[ n ] Φⁿ x ≡ y` for
+-- every ordered pair in the fibre — and `समानकक्ष्या` is the TWO-SIDED
+-- meeting relation.  One-sided is SUFFICIENT for injectivity (§३, via
+-- §१) and is NOT necessary: §६ exhibits `f = λ _ → tt : Bool → Unit`
+-- with `Φ = λ _ → true`, where `अवतीर्णः` is injective (indeed an
 -- equivalence, the fibre being one orbit in the meeting sense) while
--- `������������ tt` is refuted outright � nothing reaches `false`.
+-- `सङ्क्रमणम् tt` is refuted outright — nothing reaches `false`.
 --
 -- The hypothesis that IS equivalent to injectivity is named here:
 --
---     ����-������������ b  :=  (x y : fiber f b) � � ������������� Φ x.fst y.fst ��
+--     उभय-सङ्क्रमणम् b  :=  (x y : fiber f b) → ∥ समानकक्ष्या Φ x.fst y.fst ∥₁
 --
 -- two-sided, and propositionally truncated.  Both features are
 -- forced, and by the same fact: `[ a ] ≡ [ b ]` in a set quotient
--- recovers the relation only up to `�_��` (`isEquivRel�TruncIso`), and
--- `�������������` is NOT prop-valued � the meeting stations are data,
+-- recovers the relation only up to `∥_∥₁` (`isEquivRel→TruncIso`), and
+-- `समानकक्ष्या` is NOT prop-valued — the meeting stations are data,
 -- which is why the truncation is not a technicality bolted on.
 --
 -- With this hypothesis both directions go through,
--- and then the theorem worth having (§�):
+-- and then the theorem worth having (§५):
 --
---     **`��������` is an equivalence  ⟺  `f` is surjective and the flow
+--     **`अवतीर्णः` is an equivalence  ⟺  `f` is surjective and the flow
 --       is fibrewise transitive.**
 --
 -- Stated as an equivalence of PROPOSITIONS, not a pair of implications.
@@ -35,16 +35,16 @@
 -- the level sets of `f` are exactly the gauge orbits, with nothing left
 -- over (injectivity) and nothing missing (surjectivity).
 --
--- TERMS.  ������������ � "passing over, transition"; in jyotia the sun's
+-- TERMS.  सङ्क्रमणम् — "passing over, transition"; in jyotiṣa the sun's
 -- sakrnti, its passage from one ri into the next (standard in the
 -- siddhntic tradition following the ryabhaya, 499); in Jaina karma
 -- theory, sakrama, the transition of one karma-prakti into another
 -- (akhagama with Vrasena's Dhaval, ~816).  LIMIT: neither sense
 -- is a claim about endomorphisms of a type; the use of the word for
--- "the flow carries one point of a fibre to another" is `Kaksya_�agda`'s
--- and is carried in unchanged from there.  ���� � "both, two-sided",
--- ordinary ; the compound ����-������������ is BUILT HERE and no
--- text is claimed for it.  ��������� � orbit, as in `Kaksya_�agda`, with
+-- "the flow carries one point of a fibre to another" is `Kaksya_…agda`'s
+-- and is carried in unchanged from there.  उभय — "both, two-sided",
+-- ordinary ; the compound उभय-सङ्क्रमणम् is BUILT HERE and no
+-- text is claimed for it.  कक्ष्या — orbit, as in `Kaksya_…agda`, with
 -- its limit unchanged (attested for a planet's orbit; its use for the
 -- orbit of an endomorphism is this corpus's).  NO SOURCE STATES ANYTHING
 -- BELOW.
@@ -83,16 +83,16 @@ open import SamanaKaksya_TheOrbitRelationIsAlreadyAnEquivalenceWithoutAnInverseA
 private variable ℓ : Level
 
 ------------------------------------------------------------------------
--- � � ����-�������� � the orbit relation packaged as `isEquivRel`, and
+-- १ · समता-प्रमाणम् — the orbit relation packaged as `isEquivRel`, and
 --     the truncated characterisation of paths in the quotient.
 --
--- `SamanaKaksya` §� proves the three laws separately.  The library's
--- effectivity result wants them in one record, and `isEquivRel�TruncIso`
+-- `SamanaKaksya` §२ proves the three laws separately.  The library's
+-- effectivity result wants them in one record, and `isEquivRel→TruncIso`
 -- then gives, for a relation that need NOT be prop-valued:
 --
---     [ a ] ≡ [ b ]   �   � ������������� Φ a b ��
+--     [ a ] ≡ [ b ]   ≅   ∥ समानकक्ष्या Φ a b ∥₁
 --
--- This is where the truncation in §�'s hypothesis comes from.  It is
+-- This is where the truncation in §२'s hypothesis comes from.  It is
 -- not a choice.
 ------------------------------------------------------------------------
 
@@ -101,7 +101,7 @@ module _ {A : Type ℓ} (Φ : A → A) where
   समान-प्रमाणम् : isEquivRel (समानकक्ष्या Φ)
   समान-प्रमाणम् = equivRel (समान-स्व Φ) (समान-व्यत्ययः Φ) (समान-संक्रमः Φ)
 
-  -- [ a ] ≡ [ b ]  �  � a ≈ b �� .  The library's `isEquivRel�TruncIso`
+  -- [ a ] ≡ [ b ]  ⟶  ∥ a ≈ b ∥₁ .  The library's `isEquivRel→TruncIso`
   -- is stated for `_/_` with the relation implicit; we name only the
   -- direction we use.
   पथात्-समता : (a b : A) → [ a ] ≡ [ b ] → ∥ समानकक्ष्या Φ a b ∥₁
@@ -109,16 +109,16 @@ module _ {A : Type ℓ} (Φ : A → A) where
     Iso.fun (Cubical.HITs.SetQuotients.isEquivRel→TruncIso समान-प्रमाणम् a b)
 
 ------------------------------------------------------------------------
--- � � ����-������������ � THE HYPOTHESIS: the flow is transitive
+-- २ · उभय-सङ्क्रमणम् — THE HYPOTHESIS: the flow is transitive
 --     on the fibre in the TWO-SIDED, truncated sense.
 --
--- Compare `Kaksya` §�:
+-- Compare `Kaksya` §७:
 --
---     ������������ b = (x y : fiber f b) � �[ n ∈ � ] Φ� (fst x) ≡ fst y
+--     सङ्क्रमणम् b = (x y : fiber f b) → Σ[ n ∈ ℕ ] Φⁿ (fst x) ≡ fst y
 --
--- � ordered, untruncated, and carrying the number of steps as data.
+-- — ordered, untruncated, and carrying the number of steps as data.
 -- Below is the same sentence with "reaches" replaced by "meets" and the
--- witness forgotten.  §� shows the two are NOT equivalent.
+-- witness forgotten.  §६ shows the two are NOT equivalent.
 ------------------------------------------------------------------------
 
 module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) where
@@ -126,25 +126,25 @@ module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) where
   उभय-सङ्क्रमणम् : B → Type ℓ
   उभय-सङ्क्रमणम् b = (x y : fiber f b) → ∥ समानकक्ष्या Φ (fst x) (fst y) ∥₁
 
-  -- it is a proposition, which is why §� can be an equivalence rather
+  -- it is a proposition, which is why §५ can be an equivalence rather
   -- than a pair of implications
   उभय-सङ्क्रमणम्-प्रमाणम् : (b : B) → isProp (उभय-सङ्क्रमणम् b)
   उभय-सङ्क्रमणम्-प्रमाणम् b = isPropΠ2 λ _ _ → PT.isPropPropTrunc
 
   -- ONE-SIDED IMPLIES TWO-SIDED.  Stay put on the right, forget the
-  -- step count.  (The converse is refuted in §�.)
+  -- step count.  (The converse is refuted in §६.)
   एकपार्श्वात्-उभयम् : (b : B) → सङ्क्रमणम् f Φ b → उभय-सङ्क्रमणम् b
   एकपार्श्वात्-उभयम् b tr x y = ∣ fst (tr x y) , zero , snd (tr x y) ∣₁
 
 ------------------------------------------------------------------------
--- � � ������ ���� ��������� ��� ���������� �������� � TRANSITIVITY IMPLIES
+-- ३ · तन्तुः एका कक्ष्या इति अवतीर्णस्य एकत्वम् — TRANSITIVITY IMPLIES
 --     THE DESCENDED CHARGE IS INJECTIVE.
 --
--- Equal charge � one orbit � one class.  The proof is `elimProp` twice,
+-- Equal charge ⇒ one orbit ⇒ one class.  The proof is `elimProp` twice,
 -- legitimate because a path in a set quotient is a proposition, and
 -- then `eq/` under the truncation, legitimate for the same reason.
 --
--- Note `�������� [ a ] ≡ f a` holds on the nose (`SamanaKaksya` §�), so
+-- Note `अवतीर्णः [ a ] ≡ f a` holds on the nose (`SamanaKaksya` §४), so
 -- the hypothesis `p` below IS `f a ≡ f b` with no coercion.
 ------------------------------------------------------------------------
 
@@ -161,7 +161,7 @@ module _ {A B : Type ℓ} (f : A → B) (Φ : A → A)
   एकत्वम्-प्रमाणम् : isProp एकत्वम्
   एकत्वम्-प्रमाणम् = isPropΠ3 λ q q' _ → squash/ q q'
 
-  -- � : the fibre is one orbit, so the charge separates classes
+  -- ⟸ : the fibre is one orbit, so the charge separates classes
   सङ्क्रमणात्-एकत्वम् : ((b : B) → उभय-सङ्क्रमणम् f Φ b) → एकत्वम्
   सङ्क्रमणात्-एकत्वम् tr =
     elimProp (λ q → isPropΠ2 λ q' _ → squash/ q q')
@@ -170,9 +170,9 @@ module _ {A B : Type ℓ} (f : A → B) (Φ : A → A)
                    (tr (f a) (a , refl) (b , sym p))))
 
 ------------------------------------------------------------------------
--- � � �������� � AND THE CONVERSE.  Injectivity implies the
+-- ४ · व्यत्ययः — AND THE CONVERSE.  Injectivity implies the
 --     transitivity, and this is the direction that forces both
---     features: `[ a ] ≡ [ b ]` gives back only `� a ≈ b ��`, and `≈`
+--     features: `[ a ] ≡ [ b ]` gives back only `∥ a ≈ b ∥₁`, and `≈`
 --     is the meeting relation, not reachability.
 ------------------------------------------------------------------------
 
@@ -181,13 +181,13 @@ module _ {A B : Type ℓ} (f : A → B) (Φ : A → A)
     पथात्-समता Φ x y (inj [ x ] [ y ] (px ∙ sym py))
 
 ------------------------------------------------------------------------
--- � � �������� ���� � THE THEOREM.  The observable IS the quotient
+-- ५ · अवतीर्णः समता — THE THEOREM.  The observable IS the quotient
 --     exactly when it is onto and its level sets are single orbits.
 --
---     isEquiv ��������  �  isSurjection f � (fibrewise transitivity)
+--     isEquiv अवतीर्णः  ≃  isSurjection f × (fibrewise transitivity)
 --
 -- Both sides are propositions, so this is an equivalence of types and
--- not merely a pair of implications � `propBiimpl�Equiv`.
+-- not merely a pair of implications — `propBiimpl→Equiv`.
 --
 -- Read at the physics: the gauge-invariant observable is a faithful
 -- coordinate on the space of physical states precisely when (a) every
@@ -224,21 +224,21 @@ module _ {A B : Type ℓ} (f : A → B) (Φ : A → A)
                , सर्वत्र s ) })
 
 ------------------------------------------------------------------------
--- � � ����������� ��������� � ONE-SIDED REACHABILITY IS STRICTLY STRONGER.
+-- ६ · एकपार्श्वं गुरुतरम् — ONE-SIDED REACHABILITY IS STRICTLY STRONGER.
 --
 -- Two points, one collapsing flow, and the whole gap in four lines.
 --
---     A = Bool,  B = Unit,  f = λ _ � tt,  Φ = λ _ � true.
+--     A = Bool,  B = Unit,  f = λ _ → tt,  Φ = λ _ → true.
 --
 -- Conservation is `refl`.  The single fibre is all of `Bool`.
 --
---   � TWO-SIDED holds: both trajectories are at `true` after one step,
---     so any two points meet at stations `(1 , 1)`.  Hence by §� the
---     descended charge `Bool / ������������� Φ � Unit` is an equivalence:
+--   · TWO-SIDED holds: both trajectories are at `true` after one step,
+--     so any two points meet at stations `(1 , 1)`.  Hence by §५ the
+--     descended charge `Bool / समानकक्ष्या Φ → Unit` is an equivalence:
 --     the fibre IS one orbit in the only sense the quotient can see.
 --
---   � ONE-SIDED FAILS: `Φ� true ≡ true` for every `n`, so `false` is
---     reachable from nothing.  `������������ tt` is refuted outright.
+--   · ONE-SIDED FAILS: `Φⁿ true ≡ true` for every `n`, so `false` is
+--     reachable from nothing.  `सङ्क्रमणम् tt` is refuted outright.
 --
 -- The flow here is not invertible, and that is not
 -- incidental: it is what lets a point be departed from and never
@@ -278,6 +278,6 @@ private
 
 ------------------------------------------------------------------------
 -- `A` is never assumed to
--- be a set; `isSet B` is used only where `SamanaKaksya` §� used it, plus
+-- be a set; `isSet B` is used only where `SamanaKaksya` §४ used it, plus
 -- once in `injEmbedding`.
 ------------------------------------------------------------------------

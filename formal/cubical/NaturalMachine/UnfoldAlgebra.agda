@@ -12,11 +12,11 @@
 -- instances of one recursion scheme.  It stopped there, at the measures.
 --
 -- This file takes the next step, which is the one the lane was actually
--- built around: `unfold d b` � the operation the whole definitional
--- half of `Obstruction` turns on � is not a new construction either.
+-- built around: `unfold d b` — the operation the whole definitional
+-- half of `Obstruction` turns on — is not a new construction either.
 -- It is THE ENDOMORPHISM OF THE FREE MONOID determined by
 --
---     d � b,      c � node c var   (c ≠ d),
+--     d ↦ b,      c ↦ node c var   (c ≠ d),
 --
 -- i.e. an ordinary substitution.  Once that is checked (§2), three
 -- things follow that were previously proved by hand, bounded rather
@@ -25,11 +25,11 @@
 --
 -- WHAT IS CHECKED
 --
--- §1  WEIGHTS.  `weight w` is the extension of `w : Shape � �` along the
---     universal property, into (�, +, 0).  The lane's three measures are
+-- §1  WEIGHTS.  `weight w` is the extension of `w : Shape → ℕ` along the
+--     universal property, into (ℕ, +, 0).  The lane's three measures are
 --     weights, on the nose:
 --
---         size        ≡ weight (λ _ � 1)          `size-is-weight`
+--         size        ≡ weight (λ _ → 1)          `size-is-weight`
 --         deficit V   ≡ weight (delta V)          `deficit-is-weight`
 --         gaps s V    ≡ weight (gapAt s V)        `gaps-is-weight`
 --
@@ -42,7 +42,7 @@
 --         is therefore a MONOID ENDOMORPHISM:
 --             unfold d b (plug t u) ≡ plug (unfold d b t) (unfold d b u).
 --         Neither statement was anywhere in the lane.  `unfold-plug` is
---         `rec-additive` at M = Tm � the same theorem TermFreeMonoid
+--         `rec-additive` at M = Tm — the same theorem TermFreeMonoid
 --         used for `size`, applied to the object rather than to a
 --         measure of it.
 --
@@ -50,7 +50,7 @@
 --
 --             weight w (unfold d b t) ≡ weight (upd w d (weight w b)) t
 --
---         � measuring after substituting is measuring before, against
+--         — measuring after substituting is measuring before, against
 --         the weight whose value at `d` has been replaced by the weight
 --         of the body.  This is the transpose action: a substitution
 --         acts on terms covariantly and on measures contravariantly, by
@@ -59,26 +59,26 @@
 --
 -- §4  `weight-upd`       THE EXACT SPLIT, with no truncated subtraction:
 --
---             weight (upd w d v) t ≡ weight (upd w d 0) t + count d t � v.
+--             weight (upd w d v) t ≡ weight (upd w d 0) t + count d t · v.
 --
 -- §5  CONSEQUENCES FOR `NaturalMachine.WitnessPolicy`.
 --
 --     `size-unfold-exact`   size (unfold d b t)
---                             ≡ size (unfold d var t) + count d t � size b
---         � the informative policy's output exceeds the degenerate
+--                             ≡ size (unfold d var t) + count d t · size b
+--         — the informative policy's output exceeds the degenerate
 --         policy's by EXACTLY (number of occurrences of the named head)
---         � (size of the payload), at every term.
+--         × (size of the payload), at every term.
 --
 --     `degenerate-exact`    size (unfold d var t) + count d t ≡ size t.
---         WitnessPolicy's `degenerate-never-grows` is the � shadow of
---         this identity; `degenerate-never-grows�` re-derives it in one
+--         WitnessPolicy's `degenerate-never-grows` is the ≤ shadow of
+--         this identity; `degenerate-never-grows′` re-derives it in one
 --         line, and now the defect is named rather than dropped.
 --
 --     `policy-dominates-everywhere`, `policy-strict-everywhere`
 --         WitnessPolicy's `policy-separation` compares the two policies
 --         at ONE named term (`node (residual o) var`) and otherwise
 --         opposes a strict growth to a uniform non-growth.  These
---         compare them AT EVERY TERM: degenerate � informative always,
+--         compare them AT EVERY TERM: degenerate ≤ informative always,
 --         strictly whenever the named head actually occurs and the
 --         payload is non-empty.
 --
@@ -95,7 +95,7 @@
 --
 --     `deficit-extend-unfold` makes them interact:
 --
---         Over V b  �  deficit (d � V) t ≡ deficit V (unfold d b t).
+--         Over V b  →  deficit (d ∷ V) t ≡ deficit V (unfold d b t).
 --
 --     Installing the head and unfolding it are THE SAME PROGRESS, as an
 --     identity of natural numbers, for any legal body.  The measure that
@@ -103,7 +103,7 @@
 --     to the definitional half after all; it is the same number counted
 --     twice.
 --
---  * `size` is `WitnessPolicy.size`, the node count, and `�` is
+--  * `size` is `WitnessPolicy.size`, the node count, and `·` is
 --    multiplication of natural numbers.
 ------------------------------------------------------------------------
 
@@ -156,7 +156,7 @@ private
 -- 1.  Weights.
 --
 -- A weight assigns a natural number to each head; `weight w` extends it
--- along the universal property of §3 of `TermFreeMonoid` into (�, +, 0).
+-- along the universal property of §3 of `TermFreeMonoid` into (ℕ, +, 0).
 -- The lane's measures are weights, and additivity over `plug` is then
 -- `rec-additive` rather than a fresh induction.
 ------------------------------------------------------------------------
@@ -256,7 +256,7 @@ unfold-var d b = refl
 ------------------------------------------------------------------------
 -- 3.  THE SUBSTITUTION LAW ON MEASURES.
 --
--- Both sides are monoid homomorphisms (Tm, plug, var) � (�, +, 0), so
+-- Both sides are monoid homomorphisms (Tm, plug, var) → (ℕ, +, 0), so
 -- the statement is forced by their values on generators; the induction
 -- below is that argument inlined.
 ------------------------------------------------------------------------
@@ -476,7 +476,7 @@ proposal-deficit V o t =
 
 -- The exact progress of one proposal.  RECORDED AS AN IDENTIFICATION,
 -- NOT AS NEW: this is `GenerativeLoop.deficit-split` once `gaps` is seen
--- to be `count` � see `gaps-is-count` below.
+-- to be `count` — see `gaps-is-count` below.
 proposal-progress-exact : (V : Vocab) (d : Shape) (b t : Tm)
   → Over V b → memb d V ≡ false
   → deficit V (unfold d b t) + count d t ≡ deficit V t
@@ -530,7 +530,7 @@ gaps-is-count V d hd t =
 
 module Example where
 
-  -- payload of size 2 over the vocabulary `0 � []`; the head 1 is new.
+  -- payload of size 2 over the vocabulary `0 ∷ []`; the head 1 is new.
   b₀ : Tm
   b₀ = node 0 (node 0 var)
 
@@ -548,8 +548,8 @@ module Example where
   count-t₀ : count 1 t₀ ≡ 0
   count-t₀ = refl
 
-  -- The law's two sides at t�, each computed independently:
-  --   degenerate output 0,  payload 2,  occurrences 2,  so 0 + 2�2 = 4.
+  -- The law's two sides at t₂, each computed independently:
+  --   degenerate output 0,  payload 2,  occurrences 2,  so 0 + 2·2 = 4.
   degenerate-at-t₂ : size (unfold 1 var t₂) ≡ 0
   degenerate-at-t₂ = refl
 

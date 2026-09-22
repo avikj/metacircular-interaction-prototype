@@ -3,34 +3,34 @@
 -- The walk's INSTALL-STREAM theorem, statement (3) of the note.
 --
 -- Setting.  The walk's state is a list S of installed sensors.  At a
--- collision the machine reads L = lcm(S) and installs the least q � 2
--- with q � L (WalkForcing.LeastNonDivisor).  The claim is
--- that the new state q � S has lcm exactly lcm(1..q) -- the walk is at
+-- collision the machine reads L = lcm(S) and installs the least q ≥ 2
+-- with q ∤ L (WalkForcing.LeastNonDivisor).  The claim is
+-- that the new state q ∷ S has lcm exactly lcm(1..q) -- the walk is at
 -- the capacity of its own frontier, the fact that turns storage into
 -- ψ(q).
 --
 -- Stated by universal property, as in WalkCapacity: no
 -- lcm CONSTRUCTION appears anywhere.  We quantify over ANY L that is an
--- lcm of S and ANY M that is an lcm of q � S, and conclude that M is an
--- lcm of range1 q = [q, q-1, �, 1].  The corollary installStream-≡ then
+-- lcm of S and ANY M that is an lcm of q ∷ S, and conclude that M is an
+-- lcm of range1 q = [q, q-1, …, 1].  The corollary installStream-≡ then
 -- gives the note's equation literally: M ≡ C for any lcm C of the
 -- frontier range.  Cubical v0.5 has no LCM module; the absence is again
 -- an improvement, since the theorem needs no arithmetic at all -- only
--- membership, transitivity of �, and the two universal properties.
+-- membership, transitivity of ∣, and the two universal properties.
 --
 -- HYPOTHESES.  Two side conditions are carried
 -- explicitly rather than derived:
 --
---   * 2 � q.  This is the walk's own search bound ("installs the least
---     q � 2"), not an artifact: LeastNonDivisor L q alone does NOT imply
---     0 < q, because � (0 � L) holds for every L ≠ 0 while the minimality
+--   * 2 ≤ q.  This is the walk's own search bound ("installs the least
+--     q ≥ 2"), not an artifact: LeastNonDivisor L q alone does NOT imply
+--     0 < q, because ¬ (0 ∣ L) holds for every L ≠ 0 while the minimality
 --     clause is vacuous at q = 0.  The hypothesis is needed for q ∈
 --     range1 q, and it is exactly what the walk supplies.
 --   * every sensor already installed is in [1, q).  Along the walk the
 --     installs are strictly increasing, so this holds at every state; it
 --     is the same "frontier" hypothesis that WalkCapacity.capacity takes.
 --     Without it the statement is FALSE, not merely unproved (put a
---     large prime in S and lcm(q � S) exceeds lcm(1..q)).
+--     large prime in S and lcm(q ∷ S) exceeds lcm(1..q)).
 --
 -- Both
 -- directions of the lcm characterisation are proved, and the closing
@@ -57,7 +57,7 @@ open import WalkForcing using (LeastNonDivisor)
 2≤→0< : (q : ℕ) → 2 ≤ q → 0 < q
 2≤→0< q 2≤q = ≤-trans ≤-sucℕ 2≤q
 
--- Everything in [1,k] divides N � N is a common multiple of the frontier
+-- Everything in [1,k] divides N ⇒ N is a common multiple of the frontier
 -- range.  (The one induction in the file, and it is on the range only.)
 range1-common :
   (k N : ℕ) → ((r : ℕ) → 0 < r → r ≤ k → r ∣ N) →
@@ -68,8 +68,8 @@ range1-common (suc k) N h =
   , range1-common k N (λ r 0<r r≤k → h r 0<r (≤-suc r≤k))
 
 -- THE INSTALL-STREAM THEOREM.  If L is an lcm of the installed sensors
--- S, all of them lying in [1,q), and q � 2 is a least non-divisor of L,
--- then every lcm M of the new state q � S is an lcm of the frontier
+-- S, all of them lying in [1,q), and q ≥ 2 is a least non-divisor of L,
+-- then every lcm M of the new state q ∷ S is an lcm of the frontier
 -- range [1..q].
 installStream :
   (S : List ℕ) (L q M : ℕ) →
@@ -89,7 +89,7 @@ installStream S L q M 2≤q (_ , L-least) (_ , below) inRange (M-common , M-leas
   L∣M = L-least M (M-common .snd)
 
   -- forward: every address in [1,q] divides M.  q does as a member of
-  -- the new state; 1 does trivially; every r with 2 � r < q divides L by
+  -- the new state; 1 does trivially; every r with 2 ≤ r < q divides L by
   -- minimality of q, and L divides M.
   covers : (r : ℕ) → 0 < r → r ≤ q → r ∣ M
   covers r 0<r r≤q with ≤-split r≤q

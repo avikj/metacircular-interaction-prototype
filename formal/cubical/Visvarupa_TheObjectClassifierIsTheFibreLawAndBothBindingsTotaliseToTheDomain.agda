@@ -1,9 +1,9 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Vivarpa ‚î the form containing every form.
+-- Vi≈õvar≈´pa ‚Äî the form containing every form.
 --
--- TERM.  ‡µ‡ø‡‡‡µ‡∞‡‡, "all-formed"; in the *Bhagavadgt* 11 it is the
+-- TERM.  ‡§µ‡§ø‡§∂‡•ç‡§µ‡§∞‡•Ç‡§™, "all-formed"; in the *Bhagavadgƒ´tƒÅ* 11 it is the
 -- theophany in which Arjuna is shown every form at once in one body.  The
 -- word is used here for the universe that classifies every family, because
 -- that is what the word means and no closer one exists in English.  GRADE,
@@ -14,14 +14,14 @@
 -- THE CLAIM THIS CHECKS, which is the owner's and is exact.
 --
 --   "The fibre law is the object classifier.  In a univalent universe a
---    form over a base ‚î any family B : A ‚í Type ‚î is a map A ‚í í∞, and Œ A B
+--    form over a base ‚Äî any family B : A ‚Üí Type ‚Äî is a map A ‚Üí ùí∞, and Œ£ A B
 --    is its total space.  One object classifies every fibration there is."
 --
 -- That is HoTT Theorem 4.8.3 and it is in the library, so ¬ß1 does not
 -- reprove it; it instantiates it and points at the one fact worth saying
 -- out loud: THE PROOF OF THE CLASSIFIER RUNS THROUGH `ua` APPLIED TO THE
 -- FIBRE EQUIVALENCE.  Read `Cubical.Functions.Fibration`: the right
--- inverse is `ua (fiberEquiv p‚ª¬ x) i`, the left is `ua (totalEquiv p) (~ i)`.
+-- inverse is `ua (fiberEquiv p‚Åª¬π x) i`, the left is `ua (totalEquiv p) (~ i)`.
 -- So the universe does not merely happen to classify fibrations.  The
 -- classification IS the fibre law, carried by univalence.  That is the
 -- strongest available form of the owner's sentence and it is someone
@@ -31,25 +31,25 @@
 -- through the classifier.  `Punaragamana.Carrier` turns on WHICH SIDE OF
 -- `f a ‚â° b` IS BOUND.  Assemble each binding into a total space:
 --
---     bind the OUTPUT   Œ[ a ‚àà A ] singl (f a)  ‚â  A
---     bind the INPUT    Œ[ b ‚àà B ] fiber f b    ‚â  A
+--     bind the OUTPUT   Œ£[ a ‚àà A ] singl (f a)  ‚âÉ  A
+--     bind the INPUT    Œ£[ b ‚àà B ] fiber f b    ‚âÉ  A
 --
 -- BOTH ARE A.  The free reading is A because every summand is
--- contractible; the costly reading is A because the summands REASSEMBLE ‚î
+-- contractible; the costly reading is A because the summands REASSEMBLE ‚Äî
 -- HoTT 4.8.2, and nothing is contractible about them.  Two proofs, one
 -- type, and the difference between the proofs is the whole calculus of
 -- loss.  Which says precisely where the loss lives:
 --
 --     NOT IN THE TOTAL, WHICH IS THE SAME EITHER WAY.
---     IN THE PARTITION ‚î how the same A is cut up over B.
+--     IN THE PARTITION ‚Äî how the same A is cut up over B.
 --
 -- That is why every price in this corpus is a fibrewise quantity and never
--- a global one, and why a readout valued in a proposition (`Asesa_‚¶`) loses
+-- a global one, and why a readout valued in a proposition (`Asesa_‚Ä¶`) loses
 -- everything: it is the partition with one block.
 --
 -- ¬ß3 IS THE PHYSICS CLAIM, WITH ONE CORRECTION THAT STRENGTHENS IT.
 -- Transport around a loop is an automorphism of the fibre, and it composes
--- along concatenation ‚î the action law, `substComposite`.  So a family over
+-- along concatenation ‚Äî the action law, `substComposite`.  So a family over
 -- A carries a monodromy action of Œ©(A) on its fibre.  That is holonomy, and
 -- it is holonomy OF A FLAT CONNECTION: in plain univalent foundations the
 -- transport of a family is determined by the family, there is no
@@ -58,13 +58,13 @@
 -- differential/cohesive extensions, and no module in this corpus has one.
 -- So the right statement is sharper than "physics is a fibration": the
 -- univalent universe gives you, for free and computing, exactly the flat
--- part ‚î monodromy, Wilson loops around non-contractible cycles, the
--- invisible-iff-invariant phenomenon ‚î and the curvature of a genuine gauge
+-- part ‚Äî monodromy, Wilson loops around non-contractible cycles, the
+-- invisible-iff-invariant phenomenon ‚Äî and the curvature of a genuine gauge
 -- field is a further structure this substrate does not carry.
 --
 -- The corpus already owns the worked instance:
--- `NaturalMachine.Ankapasa_‚¶`'s `comm-loop` is a loop whose transport is
--- the swap, so its monodromy group is ‚/2, and `uaŒ≤` is what makes that a
+-- `NaturalMachine.Ankapasa_‚Ä¶`'s `comm-loop` is a loop whose transport is
+-- the swap, so its monodromy group is ‚Ñ§/2, and `uaŒ≤` is what makes that a
 -- computation rather than a citation.
 --
 -- ¬ß4 IS THE ITERATION CLAIM, AND ONLY ITS WELL-FOUNDEDNESS IS CHECKED.
@@ -75,13 +75,13 @@
 -- is already classified.  That is what makes "iterate the fibre law" a
 -- construction rather than a circle.
 --
---   `StaraArpana_‚¶`     S¬: Œ©(‚àS¬‚à‚) ‚â ‚ ‚î the charge uttered whole one
+--   `StaraArpana_‚Ä¶`     S¬π: Œ©(‚à•S¬π‚à•‚ÇÉ) ‚âÉ ‚Ñ§ ‚Äî the charge uttered whole one
 --                       stratum above the silence.
---   `AyamaArpana_‚¶`     S¬≤: ‚àS¬≤‚à‚ is contractible (sphereConnected 2), so
+--   `AyamaArpana_‚Ä¶`     S¬≤: ‚à•S¬≤‚à•‚ÇÉ is contractible (sphereConnected 2), so
 --                       the withholding deepens one stratum per dimension.
---   `AnantaraArpana_‚¶`  EVERY sphere, and it is sharper than the textbook
---                       tower: ‚àS‚ø‚∫¬‚à‚‚‚ä‚ô‚ contractible, and
---                       Œ©‚ø‚∫¬(‚àS‚ø‚∫¬‚à‚‚‚ä‚ô‚) ‚â ‚.  The first stratum above
+--   `AnantaraArpana_‚Ä¶`  EVERY sphere, and it is sharper than the textbook
+--                       tower: ‚à•S‚Åø‚Å∫¬π‚à•‚Çç‚ÇÇ‚Çä‚Çô‚Çé contractible, and
+--                       Œ©‚Åø‚Å∫¬π(‚à•S‚Åø‚Å∫¬π‚à•‚Çç‚ÇÉ‚Çä‚Çô‚Çé) ‚âÉ ‚Ñ§.  The first stratum above
 --                       the last silent one already carries every winding
 --                       number.  THERE IS NO STRATUM OF PARTIAL SPEECH.
 --
@@ -110,7 +110,7 @@ private
 ------------------------------------------------------------------------
 -- ¬ß1.  THE CLASSIFIER, CITED AND INSTANTIATED.
 --
--- One object ‚î the universe ‚î and every map into a base is a family out of
+-- One object ‚Äî the universe ‚Äî and every map into a base is a family out of
 -- it.  Not reproved here; named, so that what follows has something to
 -- stand on.
 ------------------------------------------------------------------------
@@ -179,7 +179,7 @@ module _ {A : Type‚ÇÄ} (P : A ‚Üí Type‚ÇÄ) where
 ------------------------------------------------------------------------
 -- ¬ß4.  THE ITERATION IS WELL-FOUNDED: ONE ROUND TRIP IS THE IDENTITY.
 --
--- Family ‚¶ total space ‚¶ fibres of the projection ‚¶ family.  HoTT 4.8.1.
+-- Family ‚Ü¶ total space ‚Ü¶ fibres of the projection ‚Ü¶ family.  HoTT 4.8.1.
 -- So a tower built by iterating the fibre law never re-derives a stage it
 -- already has; each stage is a genuinely new choice.
 ------------------------------------------------------------------------

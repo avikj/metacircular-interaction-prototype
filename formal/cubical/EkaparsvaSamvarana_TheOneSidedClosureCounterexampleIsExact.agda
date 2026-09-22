@@ -1,10 +1,10 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ����������-������� � ekaprva-savaraa, "one-sided closing".
+-- एकपार्श्व-संवरणम् — ekapārśva-saṃvaraṇa, "one-sided closing".
 --
 -- ON THE NAME.  Descriptive  for the operation D0026 §2.4 calls
--- one-sided closure (��� eka "one" + ������� prva "side" + �����
+-- one-sided closure (एक eka "one" + पार्श्व pārśva "side" + संवरण
 -- savaraa "closing, shutting").
 --
 -- SOURCE.  collab/upstream/raw/D0026-owner-egb-core-transmission-v2-2026-08-16.md
@@ -12,12 +12,12 @@
 -- 2026-08-16, `content_origin: direct-user`, SHA-256 in
 -- collab/upstream/catalog.jsonl.  §2.4 marks itself
 --
---     "� Exact inherited counterexample; � reproduced by the corpus
+--     "↳ Exact inherited counterexample; ☑ reproduced by the corpus
 --      finite calibration."
 --
 -- so under the epistemic alphabet of §0 the counterexample is INHERITED
--- (�), not originated in that corpus, and its reproduction is a finite
--- mechanical check (�).  This module does not upgrade either mark.  It
+-- (↳), not originated in that corpus, and its reproduction is a finite
+-- mechanical check (☑).  This module does not upgrade either mark.  It
 -- adds a third reproduction, in a kernel, and reports what it found.
 --
 -- WHY.  D0026 §14.1 states the acceptance test:
@@ -51,12 +51,12 @@ open import Cubical.Data.Int.Properties using (injNegsuc)
 open import Cubical.Relation.Nullary using (¬_)
 
 ------------------------------------------------------------------------
--- 0.  max and min on �.
+-- 0.  max and min on ℤ.
 --
--- The cubical library (v0.5) carries no order on �, so both are
+-- The cubical library (v0.5) carries no order on ℤ, so both are
 -- defined here by structural recursion on the constructors.  `negsuc n`
 -- denotes −(n+1), so on that branch the order reverses: the larger of
--- two negsuc values is the one with the SMALLER � index.
+-- two negsuc values is the one with the SMALLER ℕ index.
 ------------------------------------------------------------------------
 
 maxℕ : ℕ → ℕ → ℕ
@@ -112,7 +112,7 @@ le-neg = refl
 ------------------------------------------------------------------------
 -- 1.  The carrier and the multiplication table, verbatim from §2.4.
 --
---        �  | e  a  c  d
+--        ·  | e  a  c  d
 --        ---+------------
 --        e  | e  a  c  d
 --        a  | a  e  c  d
@@ -143,7 +143,7 @@ d ⋆ d = d
 -- 1.1  The table is associative.  All 64 triples, by refl.
 --
 -- §2.4's point is that ONE-SIDED CLOSURE destroys associativity even
--- when EXECUTION is associative, so the associativity of � is a
+-- when EXECUTION is associative, so the associativity of ⋆ is a
 -- hypothesis of the counterexample and not an afterthought.  §2.4 does
 -- not state it; it is checked here because without it the example shows
 -- nothing.
@@ -235,14 +235,14 @@ M x y = (p (x ⋆ y) - p x) - p y
 --
 -- §2.4, verbatim:
 --
---     (f � g)(y) = sup_{ab=y} ( f(a) + g(b) − M(a,b) )
+--     (f ⋆ g)(y) = sup_{ab=y} ( f(a) + g(b) − M(a,b) )
 --     M*f(b)     = inf_a ( M(a,b) − f(a) )
 --     M_*g(a)    = inf_b ( M(a,b) − g(b) )
---     f ⊙_L g   := M_* M* (f � g)
+--     f ⊙_L g   := M_* M* (f ⋆ g)
 --
 -- The carrier has four elements, so every sup and inf below is a
 -- nested max/min over an explicitly listed finite set.  The sups are
--- over the fibres of �, enumerated in §3.1 and audited in §3.2.
+-- over the fibres of ⋆, enumerated in §3.1 and audited in §3.2.
 ------------------------------------------------------------------------
 
 Prof : Type₀
@@ -251,10 +251,10 @@ Prof = C → ℤ
 -- 3.1  The fibres of the multiplication.  Reading the table by columns
 --      of equal product:
 --
---        ���(e) = {(e,e), (a,a)}
---        ���(a) = {(e,a), (a,e)}
---        ���(c) = {(e,c), (a,c), (c,e), (c,c), (d,a), (d,c)}
---        ���(d) = {(e,d), (a,d), (c,a), (c,d), (d,e), (d,d)}
+--        ⋆⁻¹(e) = {(e,e), (a,a)}
+--        ⋆⁻¹(a) = {(e,a), (a,e)}
+--        ⋆⁻¹(c) = {(e,c), (a,c), (c,e), (c,c), (d,a), (d,c)}
+--        ⋆⁻¹(d) = {(e,d), (a,d), (c,a), (c,d), (d,e), (d,d)}
 --
 --      2 + 2 + 6 + 6 = 16 = |C|², so the four fibres partition all
 --      pairs; §3.2 checks that each listed pair lands where claimed.
@@ -271,8 +271,8 @@ conv f g t = go t
   go d = maxℤ (v e d) (maxℤ (v a d) (maxℤ (v c a) (maxℤ (v c d) (maxℤ (v d e) (v d d)))))
 
 -- 3.2  Audit of the fibre enumeration above: every listed pair really
---      multiplies to the stated target, by refl.  (The converse � that
---      nothing is missing � is the count 2+2+6+6 = 16 with all pairs
+--      multiplies to the stated target, by refl.  (The converse — that
+--      nothing is missing — is the count 2+2+6+6 = 16 with all pairs
 --      distinct, visible in the four lists.)
 
 fib-e-1 : e ⋆ e ≡ e ;  fib-e-1 = refl
@@ -311,8 +311,8 @@ f ⊙ᴸ g = conj⋆ (conj* (conv f g))
 ------------------------------------------------------------------------
 -- 4.  The two closed profiles of §2.4, as vectors over (e, a, c, d):
 --
---        �_c = (−6, 0,  0, −6)
---        �_a = (−6, 0, −4, −7)
+--        ℓ_c = (−6, 0,  0, −6)
+--        ℓ_a = (−6, 0, −4, −7)
 ------------------------------------------------------------------------
 
 ℓc : Prof
@@ -351,9 +351,9 @@ clL f = conj⋆ (conj* f)
 --
 -- §2.4 states, in this order:
 --
---     �_c ⊙_L �_a  =  �_a ⊙_L �_c  =  (−6,−3,−3,−6)
---     (�_c ⊙_L �_a) ⊙_L �_c        =  (−8,−2,−2,−8)
---     �_c ⊙_L (�_a ⊙_L �_c)        =  (−5,−2,−2,−5)
+--     ℓ_c ⊙_L ℓ_a  =  ℓ_a ⊙_L ℓ_c  =  (−6,−3,−3,−6)
+--     (ℓ_c ⊙_L ℓ_a) ⊙_L ℓ_c        =  (−8,−2,−2,−8)
+--     ℓ_c ⊙_L (ℓ_a ⊙_L ℓ_c)        =  (−5,−2,−2,−5)
 --
 -- Every one of these twelve integers is checked below by `refl`, in the
 -- order (e, a, c, d).  All twelve agree with the source.
@@ -391,15 +391,15 @@ right-d : (ℓc ⊙ᴸ (ℓa ⊙ᴸ ℓc)) d ≡ negsuc 4 ;  right-d = refl  -- 
 --
 --     (A ⊙_L B) ⊙_L C  ⊊  A ⊙_L (B ⊙_L C)
 --
--- with A = C = �_c and B = �_a.  Two halves, both checked:
+-- with A = C = ℓ_c and B = ℓ_a.  Two halves, both checked:
 --
---   (i)  the two bracketings are NOT equal � they differ at e;
+--   (i)  the two bracketings are NOT equal — they differ at e;
 --   (ii) the failure is one-directional: the left bracketing is
---        pointwise � the right, so the inclusion really is strict and
+--        pointwise ≤ the right, so the inclusion really is strict and
 --        not a crossing.
 --
--- §2.4's own reading � "exact path dependence created by premature
--- closure, not numerical instability" � is what (i) says once the
+-- §2.4's own reading — "exact path dependence created by premature
+-- closure, not numerical instability" — is what (i) says once the
 -- arithmetic is exact rather than measured.
 ------------------------------------------------------------------------
 
@@ -409,7 +409,7 @@ one-sided-closure-is-not-associative h =
   snotz (injSuc (injSuc (injSuc (injSuc (injNegsuc h)))))
 
 -- (ii) the direction of the failure, value by value.
--- −8 � −5, −2 � −2, −2 � −2, −8 � −5.
+-- −8 ≤ −5, −2 ≤ −2, −2 ≤ −2, −8 ≤ −5.
 left≤right : (t : C) → leℤ (((ℓc ⊙ᴸ ℓa) ⊙ᴸ ℓc) t) ((ℓc ⊙ᴸ (ℓa ⊙ᴸ ℓc)) t)
 left≤right e = refl
 left≤right a = refl

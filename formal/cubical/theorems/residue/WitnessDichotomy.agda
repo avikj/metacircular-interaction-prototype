@@ -5,33 +5,33 @@
 --
 -- That Â§4 lists "the four cases" as
 --
---     answering â“ reading â“  âŸ 2
---     answering â“ reading â—  âŸ 3
---     answering â“ reading â—  âŸ âˆž
---     answering â—            âŸ 1
+--     answering âœ“ reading âœ“  âŸ¹ 2
+--     answering âœ“ reading âœ—  âŸ¹ 3
+--     answering âœ“ reading âœ—  âŸ¹ âˆž
+--     answering âœ—            âŸ¹ 1
 --
 -- and calls them exhaustive.  They are not four cases of two binary
 -- capacities: the third row repeats the second's hypotheses, and
--- (answering â—, reading â“) is missing.  The reason it is missing is that
+-- (answering âœ—, reading âœ“) is missing.  The reason it is missing is that
 -- it does not matter, and that is a theorem rather than an oversight:
 --
---     unanswerableâ’one : Â (Î[ d âˆˆ D ] law d x) â’ Refutes law (x âˆ [])
+--     unanswerableâ†’one : Â¬ (Î£[ d âˆˆ D ] law d x) â†’ Refutes law (x âˆ· [])
 --
 -- One unanswerable point refutes on its own, whatever else the decoders
--- can read.  So answerability is not one of two independent axes â” it is
+-- can read.  So answerability is not one of two independent axes â€” it is
 -- a GATE.  Fail it and the number is 1; pass it and reading decides
 -- between 2 and everything above.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- SO THE PICTURE IS A CHAIN, NOT A SQUARE
 --
---     Â answerable                      âŸ 1        Â§1
---     answerable, readable              âŸ 2        Â§2, ceiling elsewhere
---     answerable, not readable          âŸ â‰ 2, and 3 and âˆž both occur
+--     Â¬ answerable                      âŸ¹ 1        Â§1
+--     answerable, readable              âŸ¹ 2        Â§2, ceiling elsewhere
+--     answerable, not readable          âŸ¹ â‰¥ 2, and 3 and âˆž both occur
 --
 -- and the middle line is the one every site in this corpus sits on.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- AND ONE PIECE OF DUPLICATION REMOVED
 --
 -- `laghava-probe-is-two`, `barrier-witness-number-2` and
@@ -115,7 +115,7 @@ collision-witness-number-2 law ans x x' kills =
 -- `Answerable` excludes the degenerate 1; the "kills" hypothesis is what
 -- a collision supplies, and is exactly the negative half of the
 -- factorisation obstruction.  Neither mentions Y, T, discreteness, or
--- any structure of the mathematics being obstructed â” which is the
+-- any structure of the mathematics being obstructed â€” which is the
 -- thread's conclusion in its smallest form.
 ------------------------------------------------------------------------
 
@@ -137,7 +137,7 @@ collisionKills obs val read x x' same differ d at-x at-x' =
 --   obstructed:
 --
 --     answering   every point is answered by some decoder.  Fail it and
---                 the cost is 1 and the absence is degenerate â” one
+--                 the cost is 1 and the absence is degenerate â€” one
 --                 unreachable point, not two confused ones.
 --     reading     the decoders see a discrete probe.  Given answering,
 --                 pass it and the cost is exactly 2; fail it and 3 and âˆž

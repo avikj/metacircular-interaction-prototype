@@ -8,27 +8,27 @@ Test-suite compression / the basis cycle as the test suite / the
 boundary of what one loop can certify
 
 The synthesis claims: to prove an additive edge effect
-path-independent, verify zero integral on basis cycles â” homology
+path-independent, verify zero integral on basis cycles â€” homology
 gives the minimum family of irreducible global path tests.  The
 pairwise instance is a theorem of the kernel.
 
 Integration is additive over concatenation, and against reversal an
 orientation-respecting evaluator cancels step by step:
-âˆ(revD d) + âˆ d â‰¡ 0, proved without ever distributing negation.
+âˆ«(revD d) + âˆ« d â‰¡ 0, proved without ever distributing negation.
 Therefore THE ONE-CYCLE TEST: for any two coterminal derivations p, q
-and any antisymmetric evaluator, âˆ(p ++ revD q) â‰¡ 0 forces
-âˆ p â‰¡ âˆ q.  One loop tested, every pair of schedules certified.
+and any antisymmetric evaluator, âˆ«(p ++ revD q) â‰¡ 0 forces
+âˆ« p â‰¡ âˆ« q.  One loop tested, every pair of schedules certified.
 
 Every exact evaluator is antisymmetric (a potential's coboundary
-reverses sign with the step â” negSwap, from the pinned â lemmas), so
+reverses sign with the step â€” negSwap, from the pinned â„¤ lemmas), so
 the entire protected class of the compression theorems passes the
-hypothesis for free.  And the depth evaluator does NOT â” it counts
-wrappers through reverse positively â” which is exactly why its
+hypothesis for free.  And the depth evaluator does NOT â€” it counts
+wrappers through reverse positively â€” which is exactly why its
 nonzero loop integral escapes the test and lives as a class.  The
 hypothesis is not a convenience; it is the boundary between value one
 cycle can certify and value no cycle can kill.
 
-SYT â” THE CLAIM, EXACTLY.  Additivity, the cancellation, the test,
+SYÄ€T â€” THE CLAIM, EXACTLY.  Additivity, the cancellation, the test,
 the antisymmetry of every coboundary, at one fundamental cycle
 uniformly in the pair it spans.
 

@@ -1,23 +1,23 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡ó‡‡®‡æ-asNat ‚î the indicator's full census, pricing the busiest unpriced
+-- ‡§ó‡§£‡§®‡§æ-asNat ‚Äî the indicator's full census, pricing the busiest unpriced
 -- edge the organism itself asked for.
 --
--- THE MAP: `FiniteOccupancyChannelNoGo.asNat` (false‚¶0, true‚¶1).
+-- THE MAP: `FiniteOccupancyChannelNoGo.asNat` (false‚Ü¶0, true‚Ü¶1).
 -- One receipt prices the indicator shape itself.
 --
 -- THE RECEIPT, an identification per point of the codomain (never a
 -- bound), in SakalaVikalaDesa's three-verdict vocabulary:
 --
---   fibre over 0        : contractible  ‚î ‡‡ï‡≤‡æ‡¶‡‡  (exactly false)
---   fibre over 1        : contractible  ‚î ‡‡ï‡≤‡æ‡¶‡‡  (exactly true)
---   fibre over suc(suc n): empty        ‚î ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ (nothing lost: ‚ï merely
+--   fibre over 0        : contractible  ‚Äî ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂  (exactly false)
+--   fibre over 1        : contractible  ‚Äî ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂  (exactly true)
+--   fibre over suc(suc n): empty        ‚Äî ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç (nothing lost: ‚Ñï merely
 --                                         has names Bool cannot utter)
 --
 -- So asNat is INJECTIVE but not an equivalence, and its entire defect is
--- ‡‡µ‡ï‡‡‡µ‡‡Ø ‚î the empty kind, ‡ß‡®‡æ‡‡‡Æ‡ï‡Æ‡, no information destroyed.  The map
--- was never lossy; it is merely partial on names.  By ‡‡‡∞‡‡ø‡‡ø‡Æ‡‡-‡‡ô‡‡ò‡æ‡‡
+-- ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø ‚Äî the empty kind, ‡§ß‡§®‡§æ‡§§‡•ç‡§Æ‡§ï‡§Æ‡•ç, no information destroyed.  The map
+-- was never lossy; it is merely partial on names.  By ‡§™‡•ç‡§∞‡§§‡§ø‡§¨‡§ø‡§Æ‡•ç‡§¨-‡§∏‡§ô‡•ç‡§ò‡§æ‡§§‡§É
 -- this is the best case for routing: on its image the edge is invertible,
 -- so every composite THROUGH asNat prices as the other factor alone.
 ------------------------------------------------------------------------
@@ -42,7 +42,7 @@ open import FiniteOccupancyChannelNoGo using (asNat)
 ‡§∂‡•á‡§∑ n = Œ£[ b ‚àà Bool ] (asNat b ‚â° n)
 
 ------------------------------------------------------------------------
--- ‡ß ¬ over zero: exactly false.
+-- ‡•ß ¬∑ over zero: exactly false.
 ------------------------------------------------------------------------
 
 ‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§∏‡§ï‡§≤ : isContr (‡§∂‡•á‡§∑ 0)
@@ -52,7 +52,7 @@ snd ‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§∏‡§ï‡§≤ (false , p) i = false , isSet‚Ñï 0 0 refl p i
 snd ‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§∏‡§ï‡§≤ (true  , p) = ‚ä•-rec (snotz p)
 
 ------------------------------------------------------------------------
--- ‡® ¬ over one: exactly true.
+-- ‡•® ¬∑ over one: exactly true.
 ------------------------------------------------------------------------
 
 ‡§è‡§ï-‡§∏‡§ï‡§≤ : isContr (‡§∂‡•á‡§∑ 1)
@@ -62,7 +62,7 @@ snd ‡§è‡§ï-‡§∏‡§ï‡§≤ (true  , p) i = true , isSet‚Ñï 1 1 refl p i
 snd ‡§è‡§ï-‡§∏‡§ï‡§≤ (false , p) = ‚ä•-rec (znots p)
 
 ------------------------------------------------------------------------
--- ‡© ¬ above one: empty.  ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ ‚î the names Bool cannot utter.
+-- ‡•© ¬∑ above one: empty.  ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç ‚Äî the names Bool cannot utter.
 ------------------------------------------------------------------------
 
 ‡§ä‡§∞‡•ç‡§ß‡•ç‡§µ-‡§∞‡§ø‡§ï‡•ç‡§§ : (n : ‚Ñï) ‚Üí ¬¨ ‡§∂‡•á‡§∑ (suc (suc n))
@@ -70,11 +70,11 @@ snd ‡§è‡§ï-‡§∏‡§ï‡§≤ (false , p) = ‚ä•-rec (znots p)
 ‡§ä‡§∞‡•ç‡§ß‡•ç‡§µ-‡§∞‡§ø‡§ï‡•ç‡§§ n (true  , p) = snotz (injSuc (sym p))
 
 ------------------------------------------------------------------------
--- ‡ ¬ the consequences the router reads off the census.
+-- ‡•™ ¬∑ the consequences the router reads off the census.
 ------------------------------------------------------------------------
 
 -- injective: the collision of any two booleans under asNat is refuted or
--- resolved by the censuses above ‚î direct proof by cases.
+-- resolved by the censuses above ‚Äî direct proof by cases.
 ‡§Ö‡§≠‡•á‡§¶-asNat : (a b : Bool) ‚Üí asNat a ‚â° asNat b ‚Üí a ‚â° b
 ‡§Ö‡§≠‡•á‡§¶-asNat false false _ = refl
 ‡§Ö‡§≠‡•á‡§¶-asNat true  true  _ = refl

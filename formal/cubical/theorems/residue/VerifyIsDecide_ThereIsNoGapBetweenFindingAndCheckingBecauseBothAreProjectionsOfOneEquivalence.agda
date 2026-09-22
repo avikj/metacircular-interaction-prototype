@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- VerifyIsDecide â” THE FINDING/CHECKING SPLIT DOES NOT EXIST HERE.
+-- VerifyIsDecide â€” THE FINDING/CHECKING SPLIT DOES NOT EXIST HERE.
 --
 -- P vs NP is the question of whether DECIDING (produce the answer) is
 -- harder than VERIFYING (check a candidate answer). This module writes,
@@ -10,27 +10,27 @@
 -- they are the two projections of a SINGLE equivalence, and separating
 -- them is impossible because that equivalence is unique (Ekatva).
 --
---   decide  : Machine â’ Î Machine (fiber uStep)     -- complete the input
---   verify  : (b) â’ fiber uStep b â’ Machine          -- read the witness
+--   decide  : Machine â†’ Î£ Machine (fiber uStep)     -- complete the input
+--   verify  : (b) â†’ fiber uStep b â†’ Machine          -- read the witness
 --
 --  1. `decide-answer-is-step` (refl): the answer decision yields is the
 --     ordinary universal step. Deciding IS the projection turing-is-the-
 --     projection already named.
 --  2. `witness-self-certifies` (refl): the witness `decide` produces
 --     carries its own acceptance certificate as `refl`. Verification of a
---     decided witness is definitional â” zero cost. There is nothing to
+--     decided witness is definitional â€” zero cost. There is nothing to
 --     search: the check is already in hand the moment the answer is.
 --  3. `decide-then-verify` / `verify-then-decide`: decide and verify are
---     mutually inverse â” they are `equivFun` and (a section of) `invEq`
+--     mutually inverse â€” they are `equivFun` and (a section of) `invEq`
 --     of the ONE equivalence `lossless uStep`. Finding and checking are
 --     the same iso read in two directions.
 --  4. `no-gap-is-forced`: that equivalence is the unique lossless
 --     completion (`machine-lossless-unique`, isContr). So the absence of a
---     find/check gap is not a feature of a chosen encoding â” there is no
+--     find/check gap is not a feature of a chosen encoding â€” there is no
 --     other completion in which a gap could live.
 --
 -- What this does NOT claim: a step-count separation theorem in some
--- external succinct measure. It claims exactly what its types say â” over
+-- external succinct measure. It claims exactly what its types say â€” over
 -- the lossless universal machine, verify and decide are one equivalence,
 -- so the P/NP distinction has no carrier here. The checker is the judge.
 ------------------------------------------------------------------------
@@ -69,7 +69,7 @@ verify b (a , p) = a
 -- Â§2  Deciding is the projection; the witness carries its own check.
 ------------------------------------------------------------------------
 
--- The answer that DECIDE yields is exactly the ordinary universal step â”
+-- The answer that DECIDE yields is exactly the ordinary universal step â€”
 -- deciding is the visible projection, definitionally.
 decide-answer-is-step : (mc : Machine) â†’ fst (decide mc) â‰¡ uStep mc
 decide-answer-is-step mc = refl
@@ -93,7 +93,7 @@ verify-inverts-decide mc = refl
 
 -- And the full round trip is the equivalence's own retraction: decide is a
 -- bijection onto (answer , witness), verify its inverse. Finding = checking,
--- one iso in two directions â” not two problems of possibly different cost.
+-- one iso in two directions â€” not two problems of possibly different cost.
 decide-retract : (mc : Machine) â†’ invEq completeâ‰ƒ (decide mc) â‰¡ mc
 decide-retract mc = retEq completeâ‰ƒ mc
 
@@ -101,7 +101,7 @@ decide-retract mc = retEq completeâ‰ƒ mc
 -- Â§4  The absence of a gap is forced, not chosen.
 ------------------------------------------------------------------------
 
--- `completeâ‰` is THE lossless completion of uStep, and by Ekatva it is the
+-- `completeâ‰ƒ` is THE lossless completion of uStep, and by Ekatva it is the
 -- unique one (isContr). So there is no alternative completion in which a
 -- find/check gap could be reintroduced: the P/NP distinction has no
 -- carrier over the lossless universal machine. This is the whole claim,

@@ -1,60 +1,60 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àààµàà¨ààààµà¾àà â” ààà°à•ààà•à ààà°àµà¾àà àààµàà¨ààà àµààà¿, àà°ààµà à ààà°à•ààà•à¾à ààà°àµà¾àà¾à
+-- àààµàà¨ààààµà¾àà â€” ààà°à•ààà•à ààà°àµà¾àà àààµàà¨ààà àµààà¿, àà°ààµà à ààà°à•ààà•à¾à ààà°àµà¾àà¾à
 -- àààµàà¨ààààà¾à²ààà¯ ààà¦à¾à ààµ à
 --
 -- (dwelling in one's own fibre: a conserving flow lives in its own fibre,
 --  and the conserving flows of ANY observable are exactly the sections of
 --  its own fibre family.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS IS.  The scale this corpus built in four modules, closed at
--- its middle by one identification.  `Dhruva_â¦.agda` proved the near
--- pole (zero loss âŸ the conserving flow is the identity), `Khahara_â¦.agda`
--- the far pole (total loss âŸº total symmetry), `YogaKsetra_â¦.agda` one
+-- its middle by one identification.  `Dhruva_â€¦.agda` proved the near
+-- pole (zero loss âŸ¹ the conserving flow is the identity), `Khahara_â€¦.agda`
+-- the far pole (total loss âŸº total symmetry), `YogaKsetra_â€¦.agda` one
 -- interior point (the conserving flows of addition are the shear fields)
--- â” and Khahara Â§à(b) asks for monotonicity of the conserving monoid
+-- â€” and Khahara Â§à(b) asks for monotonicity of the conserving monoid
 --      Î[ Î¦ ] ààà°à•àààà®à f Î¦ in the fibres.
 --
 -- What is landed here is stronger than the monotonicity asked for: an
--- IDENTIFICATION, with no hypotheses on f, A or B whatsoever â”
+-- IDENTIFICATION, with no hypotheses on f, A or B whatsoever â€”
 --
---     (Î[ Î¦ âˆˆ (A â’ A) ] ààà°à•àààà®à f Î¦)  â‰  ((a : A) â’ fiber f (f a))
+--     (Î£[ Î¦ âˆˆ (A â†’ A) ] à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ f Î¦)  â‰ƒ  ((a : A) â†’ fiber f (f a))
 --
 -- the conserving flows of an observable ARE the sections of its own
 -- fibre family, pulled back along itself.  A conserving flow is exactly
 -- an assignment, to every point, of a point of its own fibre.  The
--- monotonicity Â§à(b) asked for is then the Î -functoriality shadow of the
--- identification and is Â§à below, in three lines.
+-- monotonicity Â§à¥¬(b) asked for is then the Î -functoriality shadow of the
+-- identification and is Â§à¥« below, in three lines.
 --
 -- The scale becomes computable at every point.  At the near pole every
--- fibre is contractible, so the section space is contractible â” Â§à¨
+-- fibre is contractible, so the section space is contractible â€” Â§à¥¨
 -- strengthens Dhruva's pointwise Î¦ â‰¡ id to `isContr` of the whole flow
 -- space, and re-derives the pointwise statement from it, which is the
 -- check that the general law contains the special case (the discipline
 -- `GaugeOrbitClasses.flip-law-again` set).  At the far pole every fibre
--- is the whole domain, so the sections are all of A â’ A â” Â§à© derives
+-- is the whole domain, so the sections are all of A â†’ A â€” Â§à¥© derives
 -- Khahara's total symmetry from the law, over a set codomain.  At
 -- addition the fibres are R-torsors, so the sections are the function
--- space â” Â§à composes the law with `YogaKsetra.àà®àà¾` to identify the
+-- space â€” Â§à¥ª composes the law with `YogaKsetra.à¤¸à¤®à¤¤à¤¾` to identify the
 -- SECTIONED FIBRES OF ADDITION with the shear fields, over any
 -- commutative ring.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- ORIGIN OF THE MATHEMATICS.  The whole of
--- Â§à§ is the distributivity of Î  over Î â” the "type-theoretic axiom of
--- choice", definitional in this substrate â” and it is cited from the
--- library rather than re-derived: `Cubical.Data.Sigma.Î-Î -Iso`, both
+-- Â§à¥§ is the distributivity of Î  over Î£ â€” the "type-theoretic axiom of
+-- choice", definitional in this substrate â€” and it is cited from the
+-- library rather than re-derived: `Cubical.Data.Sigma.Î£-Î -Iso`, both
 -- round trips `refl`.  The substrate is cubical type theory (Voevodsky),
 -- this repository's one admitted non-Indian frame.
 -- It is the exact combinatorics of
 -- "invariance means moving within the level sets", finished.
 --
--- TERM.  àààµ (own), àà¨ààà (thread, fibre), àµà¾à (dwelling) are ordinary
--- .  àà¨ààà for the fibre of a map is THIS CORPUS's rendering
--- (declared in `Tantujala_â¦.agda`'s header),
--- and the compound àààµàà¨ààààµà¾à is built here.
+-- TERM.  à¤¸à¥à¤µ (own), à¤¤à¤¨à¥à¤¤à¥ (thread, fibre), à¤µà¤¾à¤¸ (dwelling) are ordinary
+-- .  à¤¤à¤¨à¥à¤¤à¥ for the fibre of a map is THIS CORPUS's rendering
+-- (declared in `Tantujala_â€¦.agda`'s header),
+-- andâˆ’ the compound à¤¸à¤‚à¤°à¤•à¥à¤·à¤•à¤¸à¤®à¥‚à¤¹ is built here.
 ------------------------------------------------------------------------
 
 module SvaTantuVasa_TheConservingFlowsOfAnyObservableAreTheSectionsOfItsOwnFibres where
@@ -80,11 +80,11 @@ private variable â„“ : Level
 module _ {A B : Type â„“} (f : A â†’ B) where
 
   ------------------------------------------------------------------
-  -- Â§à§ Â THE LAW.  Conserving flows â‰ sections of one's own fibres.
+  -- Â§à¥§ Â· THE LAW.  Conserving flows â‰ƒ sections of one's own fibres.
   --
-  -- `Î-Î -Iso` instantiated at the family Î» a x â’ f x â‰¡ f a: its left
-  -- side is `(a : A) â’ fiber f (f a)` and its right side is
-  -- `Î[ Î¦ ] ààà°à•àààà®à f Î¦`, both DEFINITIONALLY, so the identification
+  -- `Î£-Î -Iso` instantiated at the family Î» a x â†’ f x â‰¡ f a: its left
+  -- side is `(a : A) â†’ fiber f (f a)` and its right side is
+  -- `Î£[ Î¦ ] à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ f Î¦`, both DEFINITIONALLY, so the identification
   -- is the library lemma inverted and nothing is constructed here.
   ------------------------------------------------------------------
 
@@ -97,15 +97,15 @@ module _ {A B : Type â„“} (f : A â†’ B) where
 
   -- The forward map, read: a conserving flow sends each point to a point
   -- of its own fibre, and the witness rides along.  This is Dhruva's
-  -- à§àà°ààµ-àà¨ààà evaluated on the diagonal b = f a â” checked definitional,
+  -- à¤§à¥à¤°à¥à¤µ-à¤¤à¤¨à¥à¤¤à¥Œ evaluated on the diagonal b = f a â€” checked definitional,
   -- so the two readings are one map and not an analogy.
   à¤µà¤¾à¤¸-à¤—à¤®à¤¨à¤®à¥ : (Î¦ : A â†’ A) (cons : à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ f Î¦) (a : A)
             â†’ equivFun à¤µà¤¾à¤¸à¤ƒ (Î¦ , cons) a â‰¡ (Î¦ a , cons a)
   à¤µà¤¾à¤¸-à¤—à¤®à¤¨à¤®à¥ Î¦ cons a = refl
 
   ------------------------------------------------------------------
-  -- Â§à¨ Â THE NEAR POLE, STRENGTHENED.  Zero loss: contractible fibres,
-  -- hence a contractible SECTION SPACE â” the conserving flow space is a
+  -- Â§à¥¨ Â· THE NEAR POLE, STRENGTHENED.  Zero loss: contractible fibres,
+  -- hence a contractible SECTION SPACE â€” the conserving flow space is a
   -- single point, not merely a space whose every member is pointwise id.
   ------------------------------------------------------------------
 
@@ -114,7 +114,7 @@ module _ {A B : Type â„“} (f : A â†’ B) where
     isOfHLevelRespectEquiv 0 (invEquiv à¤µà¤¾à¤¸à¤ƒ)
       (isContrÎ  (Î» a â†’ e .equiv-proof (f a)))
 
-  -- â¦and Dhruva's own Â§à¨ comes back out, which is the containment check:
+  -- â€¦and Dhruva's own Â§à¥¨ comes back out, which is the containment check:
   -- in a contractible flow space every conserving flow equals the
   -- identity flow, pointwise.  (Dhruva's route through the fibre's two
   -- points is kept and is the shorter proof; this one exists to show the
@@ -127,9 +127,9 @@ module _ {A B : Type â„“} (f : A â†’ B) where
            (Î¦ , cons) (idfun A , Î» _ â†’ refl))
 
   ------------------------------------------------------------------
-  -- Â§à© Â THE FAR POLE, FROM THE LAW.  Total loss: over a set codomain a
+  -- Â§à¥© Â· THE FAR POLE, FROM THE LAW.  Total loss: over a set codomain a
   -- blind observable's every fibre-at-its-own-image is the whole domain,
-  -- so the sections are all of A â’ A â” Khahara's total symmetry, derived
+  -- so the sections are all of A â†’ A â€” Khahara's total symmetry, derived
   -- rather than witnessed by the constant flow.  (Khahara's biconditional
   -- and its inhabitedness analysis are its own and are not restated.)
   ------------------------------------------------------------------
@@ -150,7 +150,7 @@ module _ {A B : Type â„“} (f : A â†’ B) where
     compEquiv à¤µà¤¾à¤¸à¤ƒ (equivÎ Cod (à¤…à¤¨à¥à¤§-à¤¤à¤¨à¥à¤¤à¥à¤ƒ setB blind))
 
 ------------------------------------------------------------------------
--- Â§à Â THE INTERIOR POINT.  Composing the law with `YogaKsetra.àà®àà¾`
+-- Â§à¥ª Â· THE INTERIOR POINT.  Composing the law with `YogaKsetra.à¤¸à¤®à¤¤à¤¾`
 -- identifies the sectioned fibres of addition with the shear fields,
 -- over any commutative ring: choosing, at every point of the plane, a
 -- point of that point's own sum-fibre IS choosing one ring element per
@@ -169,15 +169,15 @@ module à¤¯à¥‹à¤—à¥‡ {â„“ : Level} (R' : CommRing â„“) where
   à¤¯à¥‹à¤—-à¤¤à¤¨à¥à¤¤à¥-à¤›à¥‡à¤¦à¤¾à¤ƒ : ((p : R Ã— R) â†’ fiber à¤¯à¥‹à¤— (à¤¯à¥‹à¤— p)) â‰ƒ (R Ã— R â†’ R)
   à¤¯à¥‹à¤—-à¤¤à¤¨à¥à¤¤à¥-à¤›à¥‡à¤¦à¤¾à¤ƒ = compEquiv (invEquiv (à¤µà¤¾à¤¸à¤ƒ à¤¯à¥‹à¤—)) à¤¸à¤®à¤¤à¤¾
 
--- the â instance, one line, following YogaKsetra's own precedent
+-- the â„¤ instance, one line, following YogaKsetra's own precedent
 module â„¤à¤¯à¥‹à¤—à¥‡ = à¤¯à¥‹à¤—à¥‡ â„¤CommRing
 
 ------------------------------------------------------------------------
--- Â§à Â THE MONOTONICITY KHAHARA ASKED FOR, as the identification's
+-- Â§à¥« Â· THE MONOTONICITY KHAHARA ASKED FOR, as the identification's
 -- shadow.  A fibre-wise map between two observables on one domain
--- induces a map of conserving flow spaces â” so larger fibres admit more
+-- induces a map of conserving flow spaces â€” so larger fibres admit more
 -- flows, functorially, with no order on observables needed: the order
--- IS the fibre-wise maps.  Three lines, because after Â§à§ it is only
+-- IS the fibre-wise maps.  Three lines, because after Â§à¥§ it is only
 -- Î -postcomposition.
 ------------------------------------------------------------------------
 
@@ -189,13 +189,13 @@ module _ {A B B' : Type â„“} (f : A â†’ B) (g : A â†’ B') where
   à¤—à¤¾à¤®à¤¿à¤¨à¥€ h Ïƒ = invEq (à¤µà¤¾à¤¸à¤ƒ g) (Î» a â†’ h a (equivFun (à¤µà¤¾à¤¸à¤ƒ f) Ïƒ a))
 
 ------------------------------------------------------------------------
--- Â§à Â àààà â” the receipt-economy reading.
+-- Â§à Â àààà â€” the receipt-economy reading.
 --
 -- The receipt-economy reading, recorded because it prices symmetry
 -- itself: a conserving flow of f is EXACTLY one fibre-point per
 -- point, so the "amount of symmetry" of an observable is its fibre
--- census summed over the domain â” the same census `Tantujala_â¦agda`
--- grades and `interactive/Lopa_â¦hs` queues.  Every unpriced fibre in the
+-- census summed over the domain â€” the same census `Tantujala_â€¦agda`
+-- grades and `interactive/Lopa_â€¦hs` queues.  Every unpriced fibre in the
 -- dark-matter queue is, by this law, also an unpriced quantity of
 -- symmetry.
 ------------------------------------------------------------------------

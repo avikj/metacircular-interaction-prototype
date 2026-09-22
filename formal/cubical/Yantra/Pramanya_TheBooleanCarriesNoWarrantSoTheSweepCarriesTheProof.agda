@@ -1,15 +1,15 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 
 ------------------------------------------------------------------------
--- ��������� � whether a verdict carries its own warrant.
+-- प्रामाण्य — whether a verdict carries its own warrant.
 --
 -- `Yantra` ships two lanes that compute the same numbers and are
 -- joined by nothing.  `Yantra.Ganana` and `Yantra.Ekam` decide primality
--- with `prime : � � Bool`, fuelled trial division, and report
+-- with `prime : ℕ → Bool`, fuelled trial division, and report
 -- `fastsweep 500 4 ≡ true`, `tcount 200 ≡ 15`.  `Yantra.Purna` and
 -- `Yantra.Sakshi` compute the same 15 and the same sweep through `Dec`
 -- objects.  The two agree, and nothing in the module set can see that
--- they agree: there is no term of type `prime n ≡ true � IsPrime n`, and
+-- they agree: there is no term of type `prime n ≡ true → IsPrime n`, and
 -- a `Bool` that is not the image of a decision asserts a verdict whose
 -- ground has been discarded.
 --
@@ -23,8 +23,8 @@
 -- of primes with the addition that closes.
 --
 -- TERM.  *prmya*, the validity of a cognition, and the dispute over
--- where it comes from: *svata-prmya*, intrinsic � Kumrila Bhaa and
--- Prabhkara, Mms, c. 7th c. � against *parata-prmya*, extrinsic,
+-- where it comes from: *svataḥ-prāmāṇya*, intrinsic — Kumārila Bhaṭṭa and
+-- Prabhākara, Mīmāṃsā, c. 7th c. — against *parataḥ-prāmāṇya*, extrinsic,
 -- the Nyya position, where a cognition is certified by successful
 -- activity (*pravtti-smarthya*).  A `Dec` arrives carrying its ground; a
 -- `Bool` arrives having been stripped of it and must be certified from
@@ -96,7 +96,7 @@ plusCancelL : (p q : ℕ) → (p + q) ∸ p ≡ q
 plusCancelL zero    q = refl
 plusCancelL (suc p) q = plusCancelL p q
 
--- the bound is not a hypothesis: p � n follows from p + q ≡ n
+-- the bound is not a hypothesis: p ≤ n follows from p + q ≡ n
 toBounded : (n : ℕ) → GoldbachAt n
           → Σ[ p ∈ ℕ ] (p ≤ n) × (IsPrime p × (IsPrime (n ∸ p) × (p + (n ∸ p) ≡ n)))
 toBounded n (p , q , pp , pq , e) =

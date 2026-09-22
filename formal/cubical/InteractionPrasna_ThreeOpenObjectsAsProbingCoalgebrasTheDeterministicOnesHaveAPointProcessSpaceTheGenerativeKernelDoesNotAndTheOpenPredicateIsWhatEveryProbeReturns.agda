@@ -1,79 +1,79 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- SamvadaPrasna � three open objects as probing coalgebras.  The
+-- SamvadaPrasna — three open objects as probing coalgebras.  The
 -- deterministic ones have a point process space; the generative kernel
 -- does not; and the open predicate is what every probe returns.
 --
--- ������ � the question.  This module uses the interactive coalgebra
+-- प्रश्न — the question.  This module uses the interactive coalgebra
 -- (Fibre.Samvada's ISC) for what it is FOR, on three objects the corpus
 -- reaches at: the finite-form
--- Riemann predicate (a □ on a power-sum stream), the Navier�Stokes
+-- Riemann predicate (a □ on a power-sum stream), the Navier–Stokes
 -- Galerkin window (the advected jet's widening mode-support), and the
 -- metacircular kernel's own self-extension.  ONE abstract probing
 -- coalgebra `Netra` serves all three; the objects enter as a step, an
--- observation, and � this is the point of §6 � an EVENT DATUM whose
+-- observation, and — this is the point of §6 — an EVENT DATUM whose
 -- h-level decides everything.
 --
 --   Netra Q step obs w  =  ISC (const Q) (const V) E w
---   E w q w' o           =  (o ≡ obs w q) � (w' ≡ step w q)
+--   E w q w' o           =  (o ≡ obs w q) × (w' ≡ step w q)
 --
 -- WHAT IS PROVED, all checked terms unless tagged, no postulates:
 --
---   §2  ���-������� � when the state and value types are SETS the event
+--   §2  एक-नेत्रम् — when the state and value types are SETS the event
 --       datum is a proposition, and the process space is CONTRACTIBLE
 --       (smyaP, the SHA-256 argument abstracted): one interface, one
 --       behaviour.  This is Niyati's determinism-as-contractibility as
 --       a REUSABLE lemma over any set-state coalgebra.
---   §3  �������-���� / ������-�������� � the observation stream under a
---       fixed strategy, and the bridge: observe (const q�) n = take n of
+--   §3  दृष्टि-धारा / प्रश्न-कर्तनम् — the observation stream under a
+--       fixed strategy, and the bridge: observe (const q₀) n = take n of
 --       it.  So a □-predicate on the observation stream is exactly "every
 --       probe under that strategy satisfies P", refuted by one separator
 --       (Refute) and decided by no finite depth (no-depth-decides,
 --       imported): the open-problem shape, now a statement about an
 --       interaction.
 --
---   §4  RIEMANN (finite form) � Q = advance? ; obs true = the power sum
---       p_k, obs false = 0.  The demand MATTERS (������-����: the two
+--   §4  RIEMANN (finite form) — Q = advance? ; obs true = the power sum
+--       p_k, obs false = 0.  The demand MATTERS (पृच्छा-भेदः: the two
 --       strategies disagree at the first answer).  For roots on the unit
 --       circle (1,−1,1) the advancing observation is □-bounded forever
---       (�����-�����, a two-state cycle); for a root off it (2,1,1) the
---       box is refuted at depth 1 (����-�������).  The process space is a
---       point (§2 applies: �³ is a set).  RH's finite form is a
+--       (वृत्त-स्थम्, a two-state cycle); for a root off it (2,1,1) the
+--       box is refuted at depth 1 (बहिः-वृत्तम्).  The process space is a
+--       point (§2 applies: ℤ³ is a set).  RH's finite form is a
 --       □-predicate on what an environment probes from a contractible
---       spectral process � verdict-bearing, forever falsifiable, never
+--       spectral process — verdict-bearing, forever falsifiable, never
 --       finitely confirmable.
 --
---   §5  NAVIER�STOKES (Galerkin window) � Q = refine? ; the advected
+--   §5  NAVIER–STOKES (Galerkin window) — Q = refine? ; the advected
 --       jet reaches boundary row n+1 at order n (GalerkinJets §2, taken
 --       as the shape, not re-derived).  State = the order; obs = the row
---       reached.  The mode-support box "|k�| � M forever" is refuted at
---       depth M for EVERY M (�������-����): no finite Galerkin cutoff
+--       reached.  The mode-support box "|k₁| ≤ M forever" is refuted at
+--       depth M for EVERY M (विस्तार-भेदः): no finite Galerkin cutoff
 --       confirms regularity-as-mode-boundedness and the widening jets
---       refute it in the limit � the SAME epistemic type as §4, opposite
+--       refute it in the limit — the SAME epistemic type as §4, opposite
 --       verdict (this box provably cannot hold for the advected
 --       component).  [S] for the physics; [T] for the coalgebra.
 --
---   §6  THE METACIRCULAR KERNEL � Q w = CheckedFuture w (a target with a
+--   §6  THE METACIRCULAR KERNEL — Q w = CheckedFuture w (a target with a
 --       CHECKED Derivation); obs = the target; and the event datum E IS
---       THE DERIVATION � proof-relevant, not a proposition.  So §2 does
---       NOT apply, and �����-�������� turns that into a THEOREM (not a
---       reading): � isContr (Vardhana seed).  The proof routes around
---       every h-level obstruction through derivation LENGTH � two lawful
+--       THE DERIVATION — proof-relevant, not a proposition.  So §2 does
+--       NOT apply, and वर्धन-बहुत्वम् turns that into a THEOREM (not a
+--       reading): ¬ isContr (Vardhana seed).  The proof routes around
+--       every h-level obstruction through derivation LENGTH — two lawful
 --       processes (the echo and a detour-echo) emit derivations differing
 --       in length on one query, so no path identifies them.  The kernel's
 --       self-extension is the one coalgebra here whose history genuinely
 --       branches: the loss of contractibility is exactly the generativity
---       (Apunaragamana � the orbit strictly grows).  Determinism is a
+--       (Apunaragamana — the orbit strictly grows).  Determinism is a
 --       set-level phenomenon; generation lives one h-level up, in the
 --       proof-relevance of the event datum the interface was built to
---       carry � and length is the invariant that makes the gap visible
+--       carry — and length is the invariant that makes the gap visible
 --       without deciding whether Derivation is itself a set.
 --
 -- THE THROUGH-LINE.  h-level of the event datum E is the classifier.
--- Prop receipt (SHA, RH, NS) � contractible process, deterministic
+-- Prop receipt (SHA, RH, NS) → contractible process, deterministic
 -- service, open predicate falsifiable-not-confirmable.  Proof-relevant
--- receipt (the kernel) � branching process, generative.  The same
+-- receipt (the kernel) → branching process, generative.  The same
 -- interface; the mathematics is in the h-level.
 ------------------------------------------------------------------------
 
@@ -162,8 +162,8 @@ module Core {W V Q : Type₀} (step : W → Q → W) (obs : W → Q → V) where
   takeS q₀ (suc n) w = step w q₀ ∷ takeS q₀ n (step w q₀)
 
   -- BRIDGE: observing the canonical process under the constant strategy
-  -- q� walks the state trajectory (observe collects successor states),
-  -- so the interaction IS the fixed-strategy stream (SHA's ��������-����,
+  -- q₀ walks the state trajectory (observe collects successor states),
+  -- so the interaction IS the fixed-strategy stream (SHA's एकाग्र-पातः,
   -- abstracted).  The observed VALUES ride along as obs of these states.
   प्रश्न-कर्तनम् : (q₀ : Q) (n : ℕ) (w : W)
     → observe (λ _ → q₀) n (netra w) ≡ takeS q₀ n w
@@ -223,7 +223,7 @@ module Riemann where
   module R (ρ : Roots) = Core {St} {ℤ} {Bool} (step ρ) obs
 
   -- THE DEMAND MATTERS: at the start, "advance" answers the power sum
-  -- p� = 3, "hold" answers 0 � the interaction is properly more than a
+  -- p₀ = 3, "hold" answers 0 — the interaction is properly more than a
   -- stream, on the Riemann object.
   पृच्छा-भेदः : (ρ : Roots)
     → ¬ ( R.ans ρ true  (R.netra ρ (pos 1 , (pos 1 , pos 1)))
@@ -236,7 +236,7 @@ module Riemann where
         where open import Cubical.Data.Nat using (znots)
               open import Cubical.Data.Int.Properties using (injPos)
 
-  -- the process space over any spectral state is a point (§2, �³ a set)
+  -- the process space over any spectral state is a point (§2, ℤ³ a set)
   एक-नेत्रम् : (ρ : Roots) (s : St) → isContr (R.Netra ρ s)
   एक-नेत्रम् ρ = R.एक-नेत्रम् ρ isSetSt isSetℤ
 
@@ -244,7 +244,7 @@ module Riemann where
   BoundedBy M z = abs z ≤ M
 
   -- ON THE CIRCLE: roots (1,−1,1).  The advancing power sum cycles
-  -- 3,1,3,1,� (a=1 always, c=1 always, b alternates �1), so |p_k| � 3
+  -- 3,1,3,1,… (a=1 always, c=1 always, b alternates ±1), so |p_k| ≤ 3
   -- forever.  A two-state invariant, checked.
   onCircle : R.Box (pos 1 , (negsuc 0 , pos 1)) (BoundedBy 3) true (pos 1 , (pos 1 , pos 1))
   onCircle = go (pos 1) (pos 1) (inl refl)
@@ -266,7 +266,7 @@ module Riemann where
       Box.head-ok (go a b inv) = bnd b inv
       Box.tail-ok (go a b inv) = go (pos 1 ·ℤ pos 1) (negsuc 0 ·ℤ b) (nextInv b inv)
 
-  -- OFF THE CIRCLE: roots (2,1,1).  p� = 2�1 + 1 + 1 = 4, abs 4 � 3 is
+  -- OFF THE CIRCLE: roots (2,1,1).  p₁ = 2·1 + 1 + 1 = 4, abs 4 ≤ 3 is
   -- false, so the box is refuted at depth 1 by one separator.
   offCircle : ¬ R.Box (pos 2 , (pos 1 , pos 1)) (BoundedBy 3) true (pos 1 , (pos 1 , pos 1))
   offCircle = R.पृथक्करणम् (pos 2 , (pos 1 , pos 1)) 1 four≰3
@@ -283,9 +283,9 @@ module Riemann where
       four≰3 h = ¬4≡3 (≤-antisym h 3≤4)
 
 ------------------------------------------------------------------------
--- §5  NAVIER�STOKES, Galerkin window: the advected jet's mode-support
+-- §5  NAVIER–STOKES, Galerkin window: the advected jet's mode-support
 --     widens by one per order (GalerkinJets §2, taken as shape), so the
---     boundedness box cannot hold � refuted at depth M for every M.
+--     boundedness box cannot hold — refuted at depth M for every M.
 ------------------------------------------------------------------------
 
 module NavierStokes where
@@ -293,8 +293,8 @@ module NavierStokes where
   open import Cubical.Data.Nat.Order using (_≤_ ; ≤-antisym)
 
   -- state = the jet order n; refine? advances it; the observation is the
-  -- boundary row the order-n jet reaches, which is n+1 (Jet� vanishes
-  -- above |k�| = n+1 and is nonzero on that row).
+  -- boundary row the order-n jet reaches, which is n+1 (Jetₙ vanishes
+  -- above |k₁| = n+1 and is nonzero on that row).
   stepN : ℕ → Bool → ℕ
   stepN n true  = suc n
   stepN n false = n
@@ -312,7 +312,7 @@ module NavierStokes where
   BoundedRow M r = r ≤ M
 
   -- NO GALERKIN CUTOFF CONFIRMS REGULARITY-AS-MODE-BOUNDEDNESS: for every
-  -- window M the box "|k�| � M forever" is refuted at depth M, because
+  -- window M the box "|k₁| ≤ M forever" is refuted at depth M, because
   -- the order-M jet reaches row M+1.  Same epistemic type as Riemann's
   -- box (§4), opposite verdict: this box provably cannot hold.
   -- the order-k jet, refined from order w, reaches row suc (w + k)
@@ -323,13 +323,13 @@ module NavierStokes where
   विस्तार-भेदः : (M : ℕ) → ¬ N.Box (BoundedRow M) true 0
   विस्तार-भेदः M = N.पृथक्करणम् M ¬bnd
     where
-      -- N.atD true M 0 = suc (0 + M) = suc M ; suc M � M is false
+      -- N.atD true M 0 = suc (0 + M) = suc M ; suc M ≤ M is false
       ¬bnd : ¬ BoundedRow M (N.atD true M 0)
       ¬bnd h = ¬suc≡ M (≤-antisym (subst (_≤ M) (atD-row M 0) h) (1 , refl))
 
 ------------------------------------------------------------------------
 -- §6  THE METACIRCULAR KERNEL: the one coalgebra whose event datum is a
---     PROOF, not a proposition � so §2 does not apply and the history
+--     PROOF, not a proposition — so §2 does not apply and the history
 --     branches.  Generation is the loss of contractibility.
 ------------------------------------------------------------------------
 
@@ -343,16 +343,16 @@ module Kernel where
 
   -- the self-extension coalgebra: query = a checked future (a target with
   -- its Derivation); observation = the target; and THE EVENT DATUM IS THE
-  -- DERIVATION � proof-relevant.  Every reaction carries its own proof.
+  -- DERIVATION — proof-relevant.  Every reaction carries its own proof.
   Vardhana : Tm → Type₀
   Vardhana = ISC CheckedFuture (λ _ _ _ → Tm) (λ w q w' o → Derivation w o)
 
   vardhana : (w : Tm) → Vardhana w
   react (vardhana w) cf = target cf , target cf , derivation cf , vardhana (target cf)
 
-  -- every reaction hands back a CHECKED derivation seed � target, and it
+  -- every reaction hands back a CHECKED derivation seed → target, and it
   -- is exactly the future's own proof, definitionally: the orbit
-  -- accumulates a certificate (Apunaragamana � the orbit strictly grows,
+  -- accumulates a certificate (Apunaragamana — the orbit strictly grows,
   -- and here it grows a proof).
   reaction-history : (w : Tm) (cf : CheckedFuture w) → Derivation w (target cf)
   reaction-history w cf = fst (snd (snd (react (vardhana w) cf)))
@@ -365,7 +365,7 @@ module Kernel where
   cf-direct = record { target = target₀ ; derivation = direct-history }
 
   ----------------------------------------------------------------------
-  -- �����-�������� � THE PROCESS SPACE IS NOT A POINT.
+  -- वर्धन-बहुत्वम् — THE PROCESS SPACE IS NOT A POINT.
   -- The event datum is a Derivation; a Derivation has a
   -- LENGTH (a set-valued invariant), and length sidesteps every h-level
   -- obstruction.  Two processes that emit derivations of different
@@ -384,7 +384,7 @@ module Kernel where
   ¬n≡ssn (suc m) e = ¬n≡ssn m (injSuc e)
 
   -- a generic length-increasing transform: prepend a forward step out of
-  -- seed and its reverse � a round-trip that changes the walk, not the
+  -- seed and its reverse — a round-trip that changes the walk, not the
   -- endpoints (this IS the shape of GenerativeKernel's detour, made
   -- generic in the target so it answers EVERY query).
   detour-of : {o : Tm} → Derivation seed o → Derivation seed o
@@ -396,8 +396,8 @@ module Kernel where
   p₁ = vardhana seed
   react p₂ cf = target cf , target cf , detour-of (derivation cf) , vardhana (target cf)
 
-  -- the length of the proof each emits on the query cf-direct: p� emits
-  -- direct-history (length n); p� emits its detour (length n+2)
+  -- the length of the proof each emits on the query cf-direct: p₁ emits
+  -- direct-history (length n); p₂ emits its detour (length n+2)
   emitLen : Vardhana seed → Cubical.Data.Nat.ℕ
   emitLen p = dlen (fst (snd (snd (react p cf-direct))))
 
@@ -414,7 +414,7 @@ module Kernel where
   वर्धन-बहुत्वम् (c , h) = processes-differ (sym (h p₁) ∙ h p₂)
 
   -- COROLLARY, the sharper h-level fact underneath, by the same shadow:
-  -- the event datum's own type is not a proposition � direct and detour
-  -- are two inhabitants of Derivation seed target� that length separates.
+  -- the event datum's own type is not a proposition — direct and detour
+  -- are two inhabitants of Derivation seed target₀ that length separates.
   ¬isProp-Derivation : ¬ (isProp (Derivation seed target₀))
   ¬isProp-Derivation ip = ¬n≡ssn _ (cong dlen (ip direct-history detour-history))

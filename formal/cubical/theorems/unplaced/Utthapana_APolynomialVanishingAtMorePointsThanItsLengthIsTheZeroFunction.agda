@@ -1,14 +1,14 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- �������� � evaluation, the raising of an expression to its value at a
+-- उत्थापन — evaluation, the raising of an expression to its value at a
 -- point (the term is Bhskara II's, Bjagaita (1150), for substituting a
 -- value and computing; the theorem below is stated for the runtime's G7
 -- gate).
 --
 -- crystallize/install.py G7 decides a polynomial
 -- identity "by exact evaluation on an integer grid whose size is a
--- complete bound for the degree" � the completeness of that grid is the
+-- complete bound for the degree" — the completeness of that grid is the
 -- gate's license.  Its univariate core,
 -- over �:
 --
@@ -16,17 +16,17 @@
 --     zero function.
 --
 -- Proof: the Horner quotient.  quot a p is synthetic division of p by
--- (x − a); the factor identity  p(x) − p(a) ≡ (x − a)�(quot a p)(x)  is
+-- (x − a); the factor identity  p(x) − p(a) ≡ (x − a)·(quot a p)(x)  is
 -- one induction whose step is pure ring algebra; a root at a plus a root
--- at b ≠ a forces (b−a)�q(b) ≡ 0, and � is an integral domain
--- (isIntegral�), so the quotient inherits the remaining roots; lengths
+-- at b ≠ a forces (b−a)·q(b) ≡ 0, and ℤ is an integral domain
+-- (isIntegralℤ), so the quotient inherits the remaining roots; lengths
 -- drop by one; induction on the point list closes it.
 --
 -- CONTENTS:
 --   §1  evalP, quot, and the factor identity.
 --   §2  roots descend to the quotient (integral domain step).
---   §3  grid : length p � length pts, pts distinct, p vanishing on pts
---       � evalP p x ≡ 0 for EVERY x.
+--   §3  grid : length p ≤ length pts, pts distinct, p vanishing on pts
+--       ⟹ evalP p x ≡ 0 for EVERY x.
 ------------------------------------------------------------------------
 
 module Utthapana_APolynomialVanishingAtMorePointsThanItsLengthIsTheZeroFunction where
@@ -45,7 +45,7 @@ open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
 open import Cubical.Tactics.CommRingSolver using (solve!)
 
 ------------------------------------------------------------------------
--- §1 � polynomials as little-endian coefficient lists; Horner evaluation;
+-- §1 · polynomials as little-endian coefficient lists; Horner evaluation;
 -- the Horner quotient by (x − a).
 Poly : Type
 Poly = List ℤ
@@ -73,7 +73,7 @@ private
     step3 : x · ((x - a) · Q) + (x - a) · A ≡ (x - a) · (A + x · Q)
     step3 = solve! ℤCommRing
 
--- THE FACTOR IDENTITY: p(x) − p(a) ≡ (x − a) � (quot a p)(x).
+-- THE FACTOR IDENTITY: p(x) − p(a) ≡ (x − a) · (quot a p)(x).
 factor : (p : Poly) (a x : ℤ)
        → evalP p x - evalP p a ≡ (x - a) · evalP (quot a p) x
 factor []           a x = solve! ℤCommRing
@@ -93,8 +93,8 @@ vanish-shift p a va x =
   sym (cong (λ w → evalP p x - w) va ∙ minusZero (evalP p x)) ∙ factor p a x
 
 ------------------------------------------------------------------------
--- §2 � ROOTS DESCEND TO THE QUOTIENT: a further root b ≠ a of p is a
--- root of quot a p � the integral-domain step.
+-- §2 · ROOTS DESCEND TO THE QUOTIENT: a further root b ≠ a of p is a
+-- root of quot a p — the integral-domain step.
 root-quot : (p : Poly) (a b : ℤ)
           → evalP p a ≡ pos 0 → evalP p b ≡ pos 0 → ¬ b ≡ a
           → evalP (quot a p) b ≡ pos 0
@@ -104,9 +104,9 @@ root-quot p a b va vb neq =
     (λ e → neq (-≡0 b a e))
 
 ------------------------------------------------------------------------
--- §3 � THE GRID.  All and Distinct, then the theorem by induction on the
+-- §3 · THE GRID.  All and Distinct, then the theorem by induction on the
 -- point list (the quotient is not a subterm of p, so the points carry
--- the recursion; length p � length pts shrinks with them).
+-- the recursion; length p ≤ length pts shrinks with them).
 data All (P : ℤ → Type) : List ℤ → Type where
   nil  : All P []
   cons : {b : ℤ} {bs : List ℤ} → P b → All P bs → All P (b ∷ bs)
@@ -126,7 +126,7 @@ private
   descendAll p a va (b ∷ bs) (cons vb vs) (cons nb ns) =
     cons (root-quot p a b va vb nb) (descendAll p a va bs vs ns)
 
-  -- the quotient's length: one less than p's (stated as � the tail).
+  -- the quotient's length: one less than p's (stated as ≤ the tail).
   lenQuot : (a c : ℤ) (cs : Poly) (n : ℕ)
           → length cs ≤ n → length (quot a (c ∷ cs)) ≤ n
   lenQuot a c []       n h = zero-≤
@@ -143,7 +143,7 @@ private
   mulZeroR : (z : ℤ) → z · pos 0 ≡ pos 0
   mulZeroR z = solve! ℤCommRing
 
--- THE THEOREM: more distinct roots than coefficients � zero function.
+-- THE THEOREM: more distinct roots than coefficients ⟹ zero function.
 grid : (pts : List ℤ) (p : Poly)
      → length p ≤ length pts
      → Distinct pts

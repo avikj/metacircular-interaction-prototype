@@ -1,28 +1,28 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- ����-����� � the two places.
+-- द्वि-स्थान — the two places.
 --
 -- For a nonfixed reflection orbit the generator in the J-eigenbasis is
---     G = −iγ�I − ��X,        X = [[0,1],[1,0]],  X² = I.
+--     G = −iγ·I − σ·X,        X = [[0,1],[1,0]],  X² = I.
 -- Everything below lives in the commutative algebra of blocks
--- ��I + β�X, represented as pairs (� , β) with the product forced by
--- X² = I.  With  d = λ + iγ  the resolvent block is  (d , �)  and:
+-- α·I + β·X, represented as pairs (α , β) with the product forced by
+-- X² = I.  With  d = λ + iγ  the resolvent block is  (d , σ)  and:
 --
---   �  (d , �) ⊗ (d , −�) = (d² − �² , 0):  the full inverse is
---      (d , −�)/(d² − �²), so  R�� = d/(d² − �²);
---   �  any inverse (� , �) of (d , �) has  ��(d² − �²) = d  and
---      ��(d² − �²) = −�  � the resolved entries are forced;
---   �  the Schur pivot:  with  ��d = �²  (� = �²/d),
---      (d − �)�d = d² − �²: the self-energy is SUBTRACTED in the
+--   १  (d , σ) ⊗ (d , −σ) = (d² − σ² , 0):  the full inverse is
+--      (d , −σ)/(d² − σ²), so  R₊₊ = d/(d² − σ²);
+--   २  any inverse (ρ , τ) of (d , σ) has  ρ·(d² − σ²) = d  and
+--      τ·(d² − σ²) = −σ  — the resolved entries are forced;
+--   ३  the Schur pivot:  with  Σ·d = σ²  (Σ = σ²/d),
+--      (d − Σ)·d = d² − σ²: the self-energy is SUBTRACTED in the
 --      resolved denominator, and its pole at d = 0 is removable:
---   �  at d = 0 with � invertible the block (0 , �) has inverse
---      (0 , 1/�) = X/�;
---   �  the genuine poles are d = �� with residue ½ each:
---      (d − �) + (d + �) = 2d, i.e. d/((d−�)(d+�)) = ½/(d−�) + ½/(d+�);
---   �  the time evolution: with  �e = −g�e,  �c = ��s,  �s = ��c
---      (e = e^{−iγt}, c = cosh �t, s = sinh �t) the block
---      K = (e�c , −e�s)  satisfies  �K = G ⊗ K  and  K�� = e�c is the
---      damped cosh  e^{−iγt} cosh �t;  K = I at t = 0.
+--   ४  at d = 0 with σ invertible the block (0 , σ) has inverse
+--      (0 , 1/σ) = X/σ;
+--   ५  the genuine poles are d = ±σ with residue ½ each:
+--      (d − σ) + (d + σ) = 2d, i.e. d/((d−σ)(d+σ)) = ½/(d−σ) + ½/(d+σ);
+--   ६  the time evolution: with  ∂e = −g·e,  ∂c = σ·s,  ∂s = σ·c
+--      (e = e^{−iγt}, c = cosh σt, s = sinh σt) the block
+--      K = (e·c , −e·s)  satisfies  ∂K = G ⊗ K  and  K₊₊ = e·c is the
+--      damped cosh  e^{−iγt} cosh σt;  K = I at t = 0.
 ------------------------------------------------------------------------
 module DviSthana_TheTwoSectorReflectionBlockResolvesExactlyThePivotPoleOfTheSelfEnergyIsRemovableTheGenuinePolesSitAtPlusMinusSigmaWithResidueOneHalfAndTheRetainedChannelIsADampedCosh where
 
@@ -43,7 +43,7 @@ module _ (R : CommRing ℓ) where
   private
     A = ⟨ R ⟩
 
-  -- the block algebra  ��I + β�X  with  X² = I
+  -- the block algebra  α·I + β·X  with  X² = I
   Blk : Type ℓ
   Blk = A × A
 
@@ -67,7 +67,7 @@ module _ (R : CommRing ℓ) where
   module _ (d σ : A) where
 
     ----------------------------------------------------------------
-    -- � � the resolvent block factors against its conjugate
+    -- १ · the resolvent block factors against its conjugate
     ----------------------------------------------------------------
     resolvent-factor : (d , σ) ⊗ (d , - σ) ≡ (d · d + (- (σ · σ)) , 0r)
     resolvent-factor = cong₂ _,_ p q
@@ -78,7 +78,7 @@ module _ (R : CommRing ℓ) where
         q = solve! R
 
     ----------------------------------------------------------------
-    -- � � the resolved entries are forced by any inverse
+    -- २ · the resolved entries are forced by any inverse
     ----------------------------------------------------------------
     module _ (ρ τ : A) (inv : (d , σ) ⊗ (ρ , τ) ≡ 𝟙) where
       private
@@ -106,7 +106,7 @@ module _ (R : CommRing ℓ) where
           finish = solve! R
 
     ----------------------------------------------------------------
-    -- � � the Schur pivot: the self-energy is subtracted
+    -- ३ · the Schur pivot: the self-energy is subtracted
     ----------------------------------------------------------------
     schur-denominator : (Σ : A) → Σ · d ≡ σ · σ → (d + (- Σ)) · d ≡ d · d + (- (σ · σ))
     schur-denominator Σ h = shape ∙ cong (λ w → d · d + (- w)) h
@@ -115,13 +115,13 @@ module _ (R : CommRing ℓ) where
         shape = solve! R
 
     ----------------------------------------------------------------
-    -- � � the genuine poles carry residue ½ each
+    -- ५ · the genuine poles carry residue ½ each
     ----------------------------------------------------------------
     residues-are-halves : (d + (- σ)) + (d + σ) ≡ d + d
     residues-are-halves = solve! R
 
   ----------------------------------------------------------------
-  -- � � the pivot pole is removable: at d = 0 the block is X/�
+  -- ४ · the pivot pole is removable: at d = 0 the block is X/σ
   ----------------------------------------------------------------
   pivot-inverse : (σ s : A) → σ · s ≡ 1r → (0r , σ) ⊗ (0r , s) ≡ 𝟙
   pivot-inverse σ s h = cong₂ _,_ (p ∙ h) q
@@ -132,7 +132,7 @@ module _ (R : CommRing ℓ) where
       q = solve! R
 
   ----------------------------------------------------------------
-  -- � � the time evolution of the block is the damped cosh / sinh pair
+  -- ६ · the time evolution of the block is the damped cosh / sinh pair
   ----------------------------------------------------------------
   module _ (∂ : A → A)
            (∂-add  : (x y : A) → ∂ (x + y) ≡ ∂ x + ∂ y)
@@ -167,7 +167,7 @@ module _ (R : CommRing ℓ) where
     ∂Blk : Blk → Blk
     ∂Blk (a , b) = (∂ a , ∂ b)
 
-    -- �K = G ⊗ K
+    -- ∂K = G ⊗ K
     evolves : ∂Blk K ≡ G ⊗ K
     evolves = cong₂ _,_ p q
       where

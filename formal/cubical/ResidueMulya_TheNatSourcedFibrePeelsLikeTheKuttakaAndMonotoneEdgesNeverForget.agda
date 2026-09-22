@@ -1,38 +1,38 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ���������� � the price of the remainder.  Compound built here
+-- शेषशेषलेखःलेखः — the price of the remainder.  Compound built here
 -- (���, remainder; �����, price).
 -- The DISCIPLINE in §1 is claimed for its source and it
--- is the corpus's oldest: ryabhaa, ryabhaya, Gaitapda 32�33, 499
--- � the kuaka's rule, ��� � ������ ��� ���������: what does not divide
+-- is the corpus's oldest: Āryabhaṭa, Āryabhaṭīya, Gaṇitapāda 32–33, 499
+-- — the kuṭṭaka's rule, यत् न विभजते तत् रक्ष्यते: what does not divide
 -- is KEPT, first-class, the material of the next step.  The fibre is
 -- Voevodsky's, the admitted substrate.
 --
 -- WHY.  Lopa's census: of the corpus's one-way edges,
--- � is the dominant source � 216 edges against Bool's 81.  SarvaMulya
+-- ℕ is the dominant source — 216 edges against Bool's 81.  SarvaMulya
 -- priced every Bool-sourced edge at once because Bool decomposes
--- finitely.  � does not.  But it PEELS:
+-- finitely.  ℕ does not.  But it PEELS:
 --
---   ������� :  fiber f b � (f zero ≡ b) � fiber (f ∘ suc) b
+--   सोपानः :  fiber f b ≃ (f zero ≡ b) ⊎ fiber (f ∘ suc) b
 --
--- one point off, the remainder handed forward whole � the kuaka's
+-- one point off, the remainder handed forward whole — the kuṭṭaka's
 -- step, at the fibre.  No hypothesis on the target.  Iterating it is
 -- exactly "keep the remainder and recurse on it", and the question
 -- "does the recursion close?" is a property of the MAP, not of the
 -- scheme.
 --
 -- §2 closes it for the class the census makes most valuable: STRICTLY
--- MONOTONE f : � � �.  There the ladder terminates below its target �
--- ������ proves n � f n, so past b the tail is empty � and the whole
+-- MONOTONE f : ℕ → ℕ.  There the ladder terminates below its target —
+-- आरोहः proves n ≤ f n, so past b the tail is empty — and the whole
 -- three-verdict question collapses by theorem:
 --
---   �������    the fibre is a PROPOSITION: a monotone edge never forgets;
---   ���������  ��� is impossible � not undecided, impossible;
---   �������    �������� or �����, DECIDED, by a bounded search the growth
+--   एकशेषः    the fibre is a PROPOSITION: a monotone edge never forgets;
+--   अबहुत्वम्  बहु is impossible — not undecided, impossible;
+--   निर्णयः    रिक्तम् or एकम्, DECIDED, by a bounded search the growth
 --             bound itself justifies.
 --
--- So a monotone �-sourced edge is priced by one application, and the
+-- So a monotone ℕ-sourced edge is priced by one application, and the
 -- verdict computes.
 ------------------------------------------------------------------------
 
@@ -53,7 +53,7 @@ private
     ℓ : Level
 
 ------------------------------------------------------------------------
--- §1  The peel � any target, any map.  The remainder is first-class.
+-- §1  The peel — any target, any map.  The remainder is first-class.
 ------------------------------------------------------------------------
 
 module _ {B : Type ℓ} (f : ℕ → B) (b : B) where
@@ -111,7 +111,7 @@ module _ (f : ℕ → ℕ) (वृद्धिः : (n : ℕ) → f n < f (suc n
     ΣPathP ( एकाग्रता (p ∙ sym q)
            , isProp→PathP (λ i → isSetℕ _ b) p q )
 
-  -- so ��� is not undecided here; it is impossible.
+  -- so बहु is not undecided here; it is impossible.
   अबहुत्वम् : (b : ℕ)
     → ¬ (Σ[ q₁ ∈ fiber f b ] Σ[ q₂ ∈ fiber f b ] (¬ q₁ ≡ q₂))
   अबहुत्वम् b (q₁ , q₂ , ne) = ne (एकशेषः b q₁ q₂)
@@ -137,7 +137,7 @@ module _ (f : ℕ → ℕ) (वृद्धिः : (n : ℕ) → f n < f (suc n
       ... | inl n<sk = none n (pred-≤-pred n<sk) fn≡b
       ... | inr n≡sk = np (subst (λ z → f z ≡ b) n≡sk fn≡b)
 
-  -- the decision: �������� or �����, never a third thing, never a guess.
+  -- the decision: रिक्तम् or एकम्, never a third thing, never a guess.
   निर्णयः : (b : ℕ) → (¬ fiber f b) ⊎ (isContr (fiber f b))
   निर्णयः b with खोजः b b
   ... | inl (n , p) = inr ((n , p) , एकशेषः b (n , p))

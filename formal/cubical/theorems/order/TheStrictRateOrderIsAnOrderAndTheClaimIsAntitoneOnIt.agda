@@ -7,20 +7,20 @@
 -- threshold order to `Rate`.  Proved here: irreflexivity, transitivity,
 -- and the relation to `AtLeastOnRate` / `AboveOnRate` on `Rate`.
 --
--- None of them needs a new idea â” which
+-- None of them needs a new idea â€” which
 -- is the point of having lifted along `rec2` in the first place.  Every
 -- statement is a PROPOSITION, so `elimProp` reduces each to
 -- representatives, where the pair-level facts are one line apiece.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
---   âŠ-irrefl-pair / âŠ-trans-pair
+--   âŠ-irrefl-pair / âŠ-trans-pair
 --                  irreflexivity and transitivity at the PAIR level;
---                  transitivity is `âŠâŠ-trans` composed with `<-weaken`,
+--                  transitivity is `âŠ‘âŠ-trans` composed with `<-weaken`,
 --                  so the mixed transitivity proved for the lifting is
 --                  what makes the plain one free
---   âŠR-irrefl / âŠR-trans
+--   âŠR-irrefl / âŠR-trans
 --                  the same on `Rate`, by `elimProp` and `elimProp3`
 --   aboveIsAntitoneOnRates
 --                  a claim at a HIGHER rate implies the claim at a
@@ -28,10 +28,10 @@
 --
 -- **So the density result sits on an order rather than a relation**,
 -- and `Rate` carries a strict order with the two claim families antitone
--- along it â” the whole threshold apparatus, at the level where 2/4 and
+-- along it â€” the whole threshold apparatus, at the level where 2/4 and
 -- 1/2 are one object.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- NO NOVELTY.  Irreflexivity and transitivity of a strict order defined
 -- by cross multiplication are elementary; lifting propositional
 -- statements through a set-quotient by `elimProp` is standard.

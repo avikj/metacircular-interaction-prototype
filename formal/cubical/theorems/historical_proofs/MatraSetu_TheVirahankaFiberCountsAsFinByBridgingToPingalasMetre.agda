@@ -1,36 +1,36 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡Æ‡æ‡‡‡∞‡æ-‡‡‡‡‡ ‚î ‡µ‡ø‡∞‡‡æ‡ô‡‡ï‡‡‡Ø ‡Æ‡æ‡‡‡∞‡æ-‡‡®‡‡‡‡ ‡‡ø‡ô‡‡ó‡≤‡‡‡Ø ‡Æ‡æ‡‡‡∞‡æ-‡µ‡‡‡‡‡ ‡‡‡‡‡®‡æ
--- Fin (matra n) ‡‡‡ø ‡ó‡‡‡Ø‡‡ ‡
+-- ‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ-‡§∏‡•á‡§§‡•Å‡§É ‚Äî ‡§µ‡§ø‡§∞‡§π‡§æ‡§ô‡•ç‡§ï‡§∏‡•ç‡§Ø ‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ-‡§§‡§®‡•ç‡§§‡•Å‡§É ‡§™‡§ø‡§ô‡•ç‡§ó‡§≤‡§∏‡•ç‡§Ø ‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ-‡§µ‡•É‡§§‡•ç‡§§‡•á ‡§∏‡•á‡§§‡•Å‡§®‡§æ
+-- Fin (matra n) ‡§á‡§§‡§ø ‡§ó‡§£‡•ç‡§Ø‡§§‡•á ‡•§
 --
--- ‡‡‡∞‡ã‡‡æ‡‡‡ø : ‡‡ø‡ô‡‡ó‡≤‡, ‡‡®‡‡¶‡‡‡æ‡‡‡‡‡∞‡Æ‡ ‡Æ.‡®‡‚ì‡®‡Æ (‡Æ‡æ‡‡‡∞‡æ‡Æ‡‡∞‡-‡‡‡∞‡‡‡‡æ‡∞‡) ;
---            ‡µ‡ø‡∞‡‡æ‡ô‡‡ï‡, ‡µ‡‡‡‡‡‡æ‡‡ø‡‡Æ‡‡‡‡‡Ø‡ (c. 600‚ì800 CE) ; ‡‡≤‡æ‡Ø‡‡ß‡
---            (‡Æ‡‡‡‡û‡‡‡‡µ‡®‡, ‡Æ‡‡∞‡-‡µ‡‡Ø‡æ‡ñ‡‡Ø‡æ) ‡
+-- ‡§∏‡•ç‡§∞‡•ã‡§§‡§æ‡§Ç‡§∏‡§ø : ‡§™‡§ø‡§ô‡•ç‡§ó‡§≤‡§É, ‡§õ‡§®‡•ç‡§¶‡§É‡§∂‡§æ‡§∏‡•ç‡§§‡•ç‡§∞‡§Æ‡•ç ‡•Æ.‡•®‡•™‚Äì‡•®‡•Æ (‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ‡§Æ‡•á‡§∞‡•Å-‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞‡§É) ;
+--            ‡§µ‡§ø‡§∞‡§π‡§æ‡§ô‡•ç‡§ï‡§É, ‡§µ‡•É‡§§‡•ç‡§§‡§ú‡§æ‡§§‡§ø‡§∏‡§Æ‡•Å‡§ö‡•ç‡§ö‡§Ø‡§É (c. 600‚Äì800 CE) ; ‡§π‡§≤‡§æ‡§Ø‡•Å‡§ß‡§É
+--            (‡§Æ‡•É‡§§‡§∏‡§û‡•ç‡§ú‡•Ä‡§µ‡§®‡•Ä, ‡§Æ‡•á‡§∞‡•Å-‡§µ‡•ç‡§Ø‡§æ‡§ñ‡•ç‡§Ø‡§æ) ‡•§
 --
 -- Two modules in this corpus each hold half of the
 -- mtr story and never touched:
 --
---   Virahanka_‚¶.agda  proves the RECURRENCE on its own fiber ‚î
---       fiber ‡‡®‡‡¶‡ (2+n) ‚â fiber ‡‡®‡‡¶‡ (1+n) ‚ä fiber ‡‡®‡‡¶‡ n
---     over `List Bool` weighted ‡Æ‡æ‡‡‡∞‡æ(true)=1, ‡Æ‡æ‡‡‡∞‡æ(false)=2.
+--   Virahanka_‚Ä¶.agda  proves the RECURRENCE on its own fiber ‚Äî
+--       fiber ‡§õ‡§®‡•ç‡§¶‡§É (2+n) ‚âÉ fiber ‡§õ‡§®‡•ç‡§¶‡§É (1+n) ‚äé fiber ‡§õ‡§®‡•ç‡§¶‡§É n
+--     over `List Bool` weighted ‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ(true)=1, ‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ(false)=2.
 --
---   PingalaPrastara.agda  proves the CLOSED FORM ‚î
---       matraCount : Metre n ‚â Fin (matra n)
+--   PingalaPrastara.agda  proves the CLOSED FORM ‚Äî
+--       matraCount : Metre n ‚âÉ Fin (matra n)
 --     over `Pattern = List Syllable` weighted mora(laghu)=1,
---     mora(guru)=2, but for its OWN encoding, not ‡µ‡ø‡∞‡‡æ‡ô‡‡ï's.
+--     mora(guru)=2, but for its OWN encoding, not ‡§µ‡§ø‡§∞‡§π‡§æ‡§ô‡•ç‡§ï's.
 --
 -- The two encodings are the same object read through two alphabets
--- (true‚îlaghu, false‚îguru), and the two counting maps agree on the nose.
+-- (true‚Üîlaghu, false‚Üîguru), and the two counting maps agree on the nose.
 -- So the missing edge is a single bridge of fibers,
---     fiber ‡‡®‡‡¶‡ n ‚â Metre n,
+--     fiber ‡§õ‡§®‡•ç‡§¶‡§É n ‚âÉ Metre n,
 -- built from the alphabet identification and the fact that both fiber
--- witnesses are propositions (‚ï is a set).  COMPOSING that bridge with
--- PingalaPrastara.matraCount ‚î the corpus's own equivalence, transported
--- through, not re-proved ‚î supplies the count of ‡µ‡ø‡∞‡‡æ‡ô‡‡ï's fiber:
---     fiber ‡‡®‡‡¶‡ n ‚â Fin (matra n).
+-- witnesses are propositions (‚Ñï is a set).  COMPOSING that bridge with
+-- PingalaPrastara.matraCount ‚Äî the corpus's own equivalence, transported
+-- through, not re-proved ‚Äî supplies the count ‡§µ‡§ø‡§∞‡§π‡§æ‡§ô‡•ç‡§ïof 's fiber:
+--     fiber ‡§õ‡§®‡•ç‡§¶‡§É n ‚âÉ Fin (matra n).
 --
--- This is ‡µ‡ø‡µ‡‡ï‡‡‡‡'s move ("the two remainder records are one pair and
+-- This is ‡§µ‡§ø‡§µ‡•á‡§ï‡§∏‡•á‡§§‡•Å's move ("the two remainder records are one pair and
 -- therefore each other") in the mtr register: not a new count, a
 -- welding of two records the census had listed as separate.
 ------------------------------------------------------------------------
@@ -54,7 +54,7 @@ open import PingalaPrastara
 open Iso
 
 ------------------------------------------------------------------------
--- ¬ß‡ß  The alphabet identification ‚î true‚îlaghu, false‚îguru ‚î mapped over
+-- ¬ß‡•ß  The alphabet identification ‚Äî true‚Üîlaghu, false‚Üîguru ‚Äî mapped over
 --     the two list encodings, with both round-trips.
 ------------------------------------------------------------------------
 
@@ -91,8 +91,8 @@ open Iso
 ‡§∏‡•Ç‡§ö‡•Ä-‡§®‡§ø‡§µ‡•É‡§§‡•ç‡§§‡§ø‡§É (s ‚à∑ p) = cong‚ÇÇ _‚à∑_ (‡§™‡•ç‡§∞‡§§‡§ø-‡§¨‡•Ç‡§≤ s) (‡§∏‡•Ç‡§ö‡•Ä-‡§®‡§ø‡§µ‡•É‡§§‡•ç‡§§‡§ø‡§É p)
 
 ------------------------------------------------------------------------
--- ¬ß‡®  The two counting maps agree, on the nose, under the alphabet
---     identification.  ‡Æ‡æ‡‡‡∞‡æ(true)=1=mora(laghu), ‡Æ‡æ‡‡‡∞‡æ(false)=2=mora(guru).
+-- ¬ß‡•®  The two counting maps agree, on the nose, under the alphabet
+--     identification.  ‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ(true)=1=mora(laghu), ‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ(false)=2=mora(guru).
 ------------------------------------------------------------------------
 
 ‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ-‡§§‡•Å‡§≤‡•ç‡§Ø‡§Æ‡•ç : (l : List Bool) ‚Üí matraOf (‡§µ‡§∞‡•ç‡§£-‡§∏‡•Ç‡§ö‡•Ä l) ‚â° ‡§õ‡§®‡•ç‡§¶‡§É l
@@ -106,8 +106,8 @@ open Iso
 ‡§õ‡§®‡•ç‡§¶‡§∏‡•ç-‡§§‡•Å‡§≤‡•ç‡§Ø‡§Æ‡•ç (guru  ‚à∑ p) = cong (2 +_) (‡§õ‡§®‡•ç‡§¶‡§∏‡•ç-‡§§‡•Å‡§≤‡•ç‡§Ø‡§Æ‡•ç p)
 
 ------------------------------------------------------------------------
--- ¬ß‡©  The bridge of fibers.  The witness of each fiber is a proposition
---     (‚ï is a set), so the round-trips need only the list round-trips.
+-- ¬ß‡•©  The bridge of fibers.  The witness of each fiber is a proposition
+--     (‚Ñï is a set), so the round-trips need only the list round-trips.
 ------------------------------------------------------------------------
 
 ‡§∏‡•á‡§§‡•Å‡§É : (n : ‚Ñï) ‚Üí Iso (fiber ‡§õ‡§®‡•ç‡§¶‡§É n) (Metre n)
@@ -121,8 +121,8 @@ leftInv  (‡§∏‡•á‡§§‡•Å‡§É n) (l , p) = Œ£‚â°Prop (Œª _ ‚Üí isSet‚Ñï _ _) (‡§∏‡•Ç
 ‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ-‡§∏‡•á‡§§‡•Å‡§É n = isoToEquiv (‡§∏‡•á‡§§‡•Å‡§É n)
 
 ------------------------------------------------------------------------
--- ¬ß‡  The payoff.  Compose the bridge with Pigala's own ‡Æ‡æ‡‡‡∞‡æ‡Æ‡‡∞‡ count
---     (matraCount, transported, not re-proved) to give ‡µ‡ø‡∞‡‡æ‡ô‡‡ï's fiber
+-- ¬ß‡•™  The payoff.  Compose the bridge with Pi·πÖgala's own ‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ‡§Æ‡•á‡§∞‡•Å count
+--     (matraCount, transported, not re-proved) to give ‡§µ‡§ø‡§∞‡§π‡§æ‡§ô‡•ç‡§ï's fiber
 --     its closed form.
 ------------------------------------------------------------------------
 

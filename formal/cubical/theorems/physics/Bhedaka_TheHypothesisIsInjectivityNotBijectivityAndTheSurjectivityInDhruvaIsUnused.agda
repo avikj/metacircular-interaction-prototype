@@ -1,19 +1,19 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ààà¦à•à â” à¯ààà° ààà¦à•à‹ à¦àà°àààŸà¾ àààà° à—àà¿à°àà¨à¾àààà¿ ; àµàà¯à¾àà¿àààµà àà à¨ à•à¿à®àà¿ à¦à¦à¾àà¿ à
+-- à¤­à¥‡à¤¦à¤•à¤ƒ â€” à¤¯à¤¤à¥à¤° à¤­à¥‡à¤¦à¤•à¥‹ à¤¦à¥à¤°à¤·à¥à¤Ÿà¤¾ à¤¤à¤¤à¥à¤° à¤—à¤¤à¤¿à¤°à¥à¤¨à¤¾à¤¸à¥à¤¤à¤¿ ; à¤µà¥à¤¯à¤¾à¤ªà¤¿à¤¤à¥à¤µà¤‚ à¤¤à¥ à¤¨ à¤•à¤¿à¤®à¤ªà¤¿ à¤¦à¤¦à¤¾à¤¤à¤¿ à¥¤
 --
 -- (where the observable DISTINGUISHES, there is no motion; and being
 --  onto contributes nothing.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS IS.  A sharpening of the hypothesis of the corpus's own
 -- Noether statement, arrived at by going down to the carrier law and
 -- reading which half of it the proof actually consumes.
 --
--- `Dhruva_â¦agda` Â§à¨ states:
+-- `Dhruva_â€¦agda` Â§à¥¨ states:
 --
---     à¨àààŸ-ààà¾àµà-à—àà¿-ààà¾àµà : isEquiv f â’ ààà°à•àààà®à â’ (a : A) â’ Î¦ a â‰¡ a
+--     à¤¨à¤·à¥à¤Ÿ-à¤…à¤­à¤¾à¤µà¥‡-à¤—à¤¤à¤¿-à¤…à¤­à¤¾à¤µà¤ƒ : isEquiv f â†’ à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ â†’ (a : A) â†’ Î¦ a â‰¡ a
 --
 -- and its prose reads `isEquiv f` as "every fibre contractible, nothing
 -- hidden, zero receipt".  **The proof uses `isEquiv f` at exactly one
@@ -22,51 +22,51 @@
 -- hypothesis is stronger than the argument.
 --
 -- What the argument actually needs is that `f` does not CONFLATE:
--- `isEmbedding f`.  Â§à© proves the theorem under that hypothesis, and
--- Â§à recovers `Dhruva` Â§à¨ from it in one line.  **Surjectivity of the
+-- `isEmbedding f`.  Â§à¥© proves the theorem under that hypothesis, and
+-- Â§à¥ª recovers `Dhruva` Â§à¥¨ from it in one line.  **Surjectivity of the
 -- observable buys nothing.**
 --
 -- WHY THIS IS THE CARRIER LAW AND NOT A LEMMA ABOUT EMBEDDINGS.
 -- `fibre/src/Loss/Carrier.agda` is built on one line:
--- the fibre `Î[ b âˆˆ B ] (f a â‰¡ b) = singl (f a)` is contractible, always,
+-- the fibre `Î£[ b âˆˆ B ] (f a â‰¡ b) = singl (f a)` is contractible, always,
 -- for any `f` whatever.  Its header names the converse as "the part that
 -- does work": a NON-contractible fibre cannot be declared equivalent to
 -- its base.  The two roads are the two sides of one equation:
 --
---     bind the OUTPUT:  Î[ b âˆˆ B ] (f a â‰¡ b)  = singl (f a)   â” free
---     bind the INPUT:   Î[ x âˆˆ A ] (f x â‰¡ b)  = fiber f b     â” costly
+--     bind the OUTPUT:  Î£[ b âˆˆ B ] (f a â‰¡ b)  = singl (f a)   â€” free
+--     bind the INPUT:   Î£[ x âˆˆ A ] (f x â‰¡ b)  = fiber f b     â€” costly
 --
--- Â§à§ below is that asymmetry at the level the dynamics lane works at:
--- the OUTPUT-bound flow type `(a : A) â’ singl (f a)` is CONTRACTIBLE â”
+-- Â§à¥§ below is that asymmetry at the level the dynamics lane works at:
+-- the OUTPUT-bound flow type `(a : A) â†’ singl (f a)` is CONTRACTIBLE â€”
 -- there is exactly one such flow and it is the identity, for every `f`,
--- with no hypothesis at all.  Â§à¨ shows the input-bound flow type
--- `(a : A) â’ fiber f (f a)` is contractible **exactly when `f` is an
+-- with no hypothesis at all.  Â§à¥¨ shows the input-bound flow type
+-- `(a : A) â†’ fiber f (f a)` is contractible **exactly when `f` is an
 -- embedding**, and that this is an equivalence of propositions, not a
 -- pair of implications.
 --
--- `SvaTantuVasa_â¦agda` identifies the second type with the conserving
--- flows themselves â” `(Î[ Î¦ ] ààà°à•àààà®à f Î¦) â‰ ((a : A) â’ fiber f (f a))`.
--- That identification is ITS result and is not redone here; Â§à¨b instead
+-- `SvaTantuVasa_â€¦agda` identifies the second type with the conserving
+-- flows themselves â€” `(Î£[ Î¦ ] à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ f Î¦) â‰ƒ ((a : A) â†’ fiber f (f a))`.
+-- That identification is ITS result and is not redone here; Â§à¥¨b instead
 -- derives only the contractibility, directly through the library's
--- `Î-Î -Iso`, so that this module does not depend on it.
+-- `Î£-Î -Iso`, so that this module does not depend on it.
 --
--- So the whole conserving-flow monoid â” the object `Apratiloma_â¦` and
--- `SamraksakaGana_â¦` are about â” is the price of flipping which side of
+-- So the whole conserving-flow monoid â€” the object `Apratiloma_â€¦` and
+-- `SamraksakaGana_â€¦` are about â€” is the price of flipping which side of
 -- `f a â‰¡ b` is bound, and the price is zero exactly when the observable
 -- is injective.  Not bijective.  **The symmetry lives in what the
 -- observable CONFLATES, and being onto has nothing to do with it.**
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
--- TERM.  ààà¦à• â” "differentiating, that which distinguishes", the
--- standard stric agentive of ààà¦ (difference, distinction), which is
+-- TERM.  à¤­à¥‡à¤¦à¤• â€” "differentiating, that which distinguishes", the
+-- standard Å›Ästric agentive of à¤­à¥‡à¤¦ (difference, distinction), which is
 -- the technical vocabulary of difference across Nyya-Vaieika and
 -- Skhya alike.
 -- The word is taken in its ordinary stric sense and applied here to a
 -- map that does not conflate its arguments; that application is this
--- corpus's.  Internal precedent for the pairing: `Kaksya_â¦agda` Â§à© names
--- its own blindness result `à•à•àààà¯à¾-àààà¦à`, non-difference along the
--- orbit, so ààà¦à• is the word that file's negation already presupposes.
+-- corpus's.  Internal precedent for the pairing: `Kaksya_â€¦agda` Â§à¥© names
+-- its own blindness result `à¤•à¤•à¥à¤·à¥à¤¯à¤¾-à¤…à¤­à¥‡à¤¦à¤ƒ`, non-difference along the
+-- orbit, so à¤­à¥‡à¤¦à¤• is the word that file's negation already presupposes.
 ------------------------------------------------------------------------
 
 module Bhedaka_TheHypothesisIsInjectivityNotBijectivityAndTheSurjectivityInDhruvaIsUnused where
@@ -89,13 +89,13 @@ open import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
 private variable â„“ : Level
 
 ------------------------------------------------------------------------
--- à§ Â àà•à àà¨ààà¾à â” THE OUTPUT-BOUND FLOW TYPE IS A POINT.
+-- à¥§ Â· à¤à¤•à¤ƒ à¤ªà¤¨à¥à¤¥à¤¾à¤ƒ â€” THE OUTPUT-BOUND FLOW TYPE IS A POINT.
 --
 -- Bind the output side of `f a â‰¡ b` and there is exactly ONE flow, for
 -- every `f`, with no hypothesis whatever.  This is `Carrier.agda`'s one
 -- line, read at the arity the dynamics lane uses.
 --
--- The contrast with Â§à¨ is the whole content: the same shape with the
+-- The contrast with Â§à¥¨ is the whole content: the same shape with the
 -- other side bound is not a point, and measuring how far it is from
 -- being one is what the rest of the lane does.
 ------------------------------------------------------------------------
@@ -106,7 +106,7 @@ module _ {A B : Type â„“} (f : A â†’ B) where
   à¤à¤•-à¤ªà¤¨à¥à¤¥à¤¾à¤ƒ = isContrÎ  (Î» a â†’ isContrSingl (f a))
 
 ------------------------------------------------------------------------
--- à¨a Â ààà¦à•àààµà®à â” THE INPUT-BOUND FIBRES ARE POINTS EXACTLY WHEN THE
+-- à¥¨a Â· à¤­à¥‡à¤¦à¤•à¤¤à¥à¤µà¤®à¥ â€” THE INPUT-BOUND FIBRES ARE POINTS EXACTLY WHEN THE
 --      OBSERVABLE DOES NOT CONFLATE.  An equivalence of propositions.
 --
 -- `fiber f (f a)` is always INHABITED, by `(a , refl)`.  So it is
@@ -132,16 +132,16 @@ module _ {A B : Type â„“} (f : A â†’ B) where
       à¤¤à¤¨à¥à¤¤à¥-à¤¸à¤™à¥à¤•à¥‹à¤šà¤¾à¤¤à¥-à¤­à¥‡à¤¦à¤•à¤ƒ
 
 ------------------------------------------------------------------------
--- à¨b Â àààà®à¾àà ààà°àµà¾àà¾ àà•à â” and therefore the conserving flows collapse
+-- à¥¨b Â· à¤¤à¤¸à¥à¤®à¤¾à¤¤à¥ à¤ªà¥à¤°à¤µà¤¾à¤¹à¤¾ à¤à¤•à¤ƒ â€” and therefore the conserving flows collapse
 --      to a single point when the observable distinguishes.
 --
--- `Î[ Î¦ âˆˆ A â’ A ] ààà°à•àààà®à f Î¦` unfolds to
--- `Î[ Î¦ ] ((a : A) â’ f (Î¦ a) â‰¡ f a)`, which is `Î-Î -Iso`'s right-hand
--- side for `C a x = f x â‰¡ f a` â” and its left-hand side is
--- `(a : A) â’ fiber f (f a)`.  So the collapse is Â§à¨a plus `isContrÎ `,
+-- `Î£[ Î¦ âˆˆ A â†’ A ] à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ f Î¦` unfolds to
+-- `Î£[ Î¦ ] ((a : A) â†’ f (Î¦ a) â‰¡ f a)`, which is `Î£-Î -Iso`'s right-hand
+-- side for `C a x = f x â‰¡ f a` â€” and its left-hand side is
+-- `(a : A) â†’ fiber f (f a)`.  So the collapse is Â§à¥¨a plus `isContrÎ `,
 -- transported across an iso whose both round trips are `refl`.
 --
--- Compare Â§à§: the same Î , with the other side of the equation bound,
+-- Compare Â§à¥§: the same Î , with the other side of the equation bound,
 -- was a point unconditionally.  The entire symmetry monoid is the
 -- distance between those two lines.
 ------------------------------------------------------------------------
@@ -153,11 +153,11 @@ module _ {A B : Type â„“} (f : A â†’ B) where
       (isContrÎ  (à¤­à¥‡à¤¦à¤•-à¤¤à¤¨à¥à¤¤à¥-à¤¸à¤™à¥à¤•à¥‹à¤šà¤ƒ emb))
 
 ------------------------------------------------------------------------
--- à© Â ààà¦à•à à—àà¿-ààà¾àµà â” WHERE THE OBSERVABLE DISTINGUISHES, THE FLOW IS
+-- à¥© Â· à¤­à¥‡à¤¦à¤•à¥‡ à¤—à¤¤à¤¿-à¤…à¤­à¤¾à¤µà¤ƒ â€” WHERE THE OBSERVABLE DISTINGUISHES, THE FLOW IS
 --     THE IDENTITY.
 --
--- `Dhruva` Â§à¨ with `isEquiv f` weakened to `isEmbedding f`.  The proof
--- is `Dhruva`'s own, with the contractibility now supplied by Â§à¨a
+-- `Dhruva` Â§à¥¨ with `isEquiv f` weakened to `isEmbedding f`.  The proof
+-- is `Dhruva`'s own, with the contractibility now supplied by Â§à¥¨a
 -- instead of by `equiv-proof`: `(Î¦ a , cons a)` and `(a , refl)` are
 -- two points of one contractible fibre.
 --
@@ -175,14 +175,14 @@ module _ {A B : Type â„“} (f : A â†’ B) (Î¦ : A â†’ A) where
       c = à¤­à¥‡à¤¦à¤•-à¤¤à¤¨à¥à¤¤à¥-à¤¸à¤™à¥à¤•à¥‹à¤šà¤ƒ f emb a
 
 ------------------------------------------------------------------------
--- à Â àµàà¯à¾àà¿àààµà à¨ à•à¿à®àà¿ à¦à¦à¾àà¿ â” AND SURJECTIVITY BUYS NOTHING.
+-- à¥ª Â· à¤µà¥à¤¯à¤¾à¤ªà¤¿à¤¤à¥à¤µà¤‚ à¤¨ à¤•à¤¿à¤®à¤ªà¤¿ à¤¦à¤¦à¤¾à¤¤à¤¿ â€” AND SURJECTIVITY BUYS NOTHING.
 --
--- `Dhruva` Â§à¨ falls out of Â§à©, because an equivalence is an embedding.
+-- `Dhruva` Â§à¥¨ falls out of Â§à¥©, because an equivalence is an embedding.
 -- The one line is the demonstration: everything `isEquiv f` contributed
 -- to that theorem, `isEmbedding f` already contributed.
 --
 -- Read at the physics: "the observable sees everything" was the
--- informal gloss, and it was doing two jobs at once â” not conflating
+-- informal gloss, and it was doing two jobs at once â€” not conflating
 -- (injective) and leaving no state unaddressed (onto).  Only the first
 -- is load-bearing.  A partial observable that never confuses two states
 -- freezes the dynamics just as hard as a total one.
@@ -192,11 +192,11 @@ module _ {A B : Type â„“} (f : A â†’ B) (Î¦ : A â†’ A) where
   à¤¨à¤·à¥à¤Ÿ-à¤…à¤­à¤¾à¤µà¥‡-à¤—à¤¤à¤¿-à¤…à¤­à¤¾à¤µà¤ƒâ€² e = à¤­à¥‡à¤¦à¤•à¥‡-à¤—à¤¤à¤¿-à¤…à¤­à¤¾à¤µà¤ƒ (isEquivâ†’isEmbedding e)
 
 ------------------------------------------------------------------------
--- à Â àààà â” the asymmetry.
+-- à Â àààà â€” the asymmetry.
 --
 -- The dual weakening is NOT available and the asymmetry is the
--- point.  There is no hypothesis on `f` that makes Â§à§ fail: the
+-- point.  There is no hypothesis on `f` that makes Â§à¥§ fail: the
 -- output-bound side is contractible for every map, which is why
 -- road one is free and why `Carrier.agda` needs no hypothesis to
--- state `A â‰ Carrier f`.
+-- state `A â‰ƒ Carrier f`.
 ------------------------------------------------------------------------

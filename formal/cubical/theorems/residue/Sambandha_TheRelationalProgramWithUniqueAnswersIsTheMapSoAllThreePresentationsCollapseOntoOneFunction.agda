@@ -1,41 +1,41 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡Æ‡‡‡®‡‡ß ‚î the relation.  THE RELATIONAL PROGRAM WITH UNIQUE ANSWERS
--- IS THE MAP ‚î SO ALL THREE PRESENTATIONS COLLAPSE ONTO ONE FUNCTION.
+-- ‡§∏‡§Æ‡•ç‡§¨‡§®‡•ç‡§ß ‚Äî the relation.  THE RELATIONAL PROGRAM WITH UNIQUE ANSWERS
+-- IS THE MAP ‚Äî SO ALL THREE PRESENTATIONS COLLAPSE ONTO ONE FUNCTION.
 --
 -- The interactive computer's programs are proof-relevant relations
--- R : A ‚í B ‚í U, executed by returning an output WITH the witness
--- that it stands in the relation: an element of Œ b. R a b.  The
+-- R : A ‚Üí B ‚Üí U, executed by returning an output WITH the witness
+-- that it stands in the relation: an element of Œ£ b. R a b.  The
 -- deterministic case is the contractible-output case:
 --
---     Fun R  =  ‚à a. isContr (Œ b. R a b).
+--     Fun R  =  ‚àÄ a. isContr (Œ£ b. R a b).
 --
 -- THEOREM 1 (`the-relation-is-the-graph`): a functional relation is
--- the graph of its execution ‚î R a b ‚â (exec a ‚â° b), by the
+-- the graph of its execution ‚Äî R a b ‚âÉ (exec a ‚â° b), by the
 -- fundamental theorem of identity types, with the execution's witness
 -- as the reflexivity datum.  The relation held nothing beyond the
 -- function and the paths of B.
 --
 -- THEOREM 2 (`relational-programs-are-maps`): globally,
 --
---     (Œ R. Fun R)  ‚â  (A ‚í B)
+--     (Œ£ R. Fun R)  ‚âÉ  (A ‚Üí B)
 --
--- ‚î the space of deterministic relational programs IS the function
+-- ‚Äî the space of deterministic relational programs IS the function
 -- space, one direction definitional, the other a pointwise univalence
 -- of Theorem 1.
 --
 -- With Ekatva and Prashna this closes a triangle.  Three
 -- presentations of the closed deterministic machine:
 --
---     LawfulStep A            ‚â  (A ‚í A)      (Ekatva)
---     Œ R. Fun R              ‚â  (A ‚í B)      (here)
+--     LawfulStep A            ‚âÉ  (A ‚Üí A)      (Ekatva)
+--     Œ£ R. Fun R              ‚âÉ  (A ‚Üí B)      (here)
 --     ISC, receipts, per s    is contractible (Prashna)
 --
 -- and the receipt event of the deterministic ISC is DEFINITIONALLY
 -- the graph relation of the universal step
 -- (`the-receipt-is-the-graph` is refl).  Lossless step, functional
--- relation, collapsed interaction: three grammars, one function ‚î
+-- relation, collapsed interaction: three grammars, one function ‚Äî
 -- and each grammar's surplus is measured by its own theorem: the
 -- trace is the fibre, the relation is the graph, the interaction is
 -- the receipt.

@@ -51,8 +51,8 @@ The reading is a theorem: theorems/automata/NerodeYantra gives the Moore
 machine (states the naturals, advance the successor, observation the
 joint (parity, mod-3) readout), proves generically that whenever the
 next observation factors through the current one the entire Nerode
-relation is the kernel of a single observation â” an equivalence of
-types, for any set-valued readout â” and instantiates it on this
+relation is the kernel of a single observation â€” an equivalence of
+types, for any set-valued readout â€” and instantiates it on this
 machine, where the factoring holds definitionally.  Composed with the
 divisibility theorem above, the chain closes: Nerode class = residue
 class modulo the lcm.

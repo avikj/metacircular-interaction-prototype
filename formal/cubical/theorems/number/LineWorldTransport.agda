@@ -13,7 +13,7 @@
 -- corollary
 -- is FALSE: for `f = X` the restricted gradient is `grad f|_L(t) = t`,
 -- which is nonzero for every slope, so every line world transports and
--- the criterion `s � -1` names the wrong set.
+-- the criterion `s ≢ -1` names the wrong set.
 --
 -- The full setting is `p`-adic
 -- encountered worlds over an arbitrary integral polynomial.  What is
@@ -22,12 +22,12 @@
 -- names ("at `p = 5` the failing world is `{(a, 4a)}`"):
 --
 --   * observables are the two linear forms the audit contrasts, carried
---     by their gradient coefficients `(c� , c�)`;
---   * a slope `s` ranges over `�/5`;
+--     by their gradient coefficients `(c₁ , c₂)`;
+--   * a slope `s` ranges over `ℤ/5`;
 --   * `transports f s` is the note's own criterion, computed the way the
 --     note's proof computes it: the restricted gradient value is
---     `g = c� + c��s (mod 5)`, and transport holds iff the target unit
---     `-u = -1 = 4` lies in `{ t�g : t ∈ �/5 }` � decided here by FINITE
+--     `g = c₁ + c₂·s (mod 5)`, and transport holds iff the target unit
+--     `-u = -1 = 4` lies in `{ t·g : t ∈ ℤ/5 }` — decided here by FINITE
 --     EXHAUSTIVE SEARCH over the five `t`, so every statement below is a
 --     closed computation and every proof is `refl` (CLAUDE.md: exact /
 --     certified symbolic computation is proof; no fitting, no sampling).
@@ -35,7 +35,7 @@
 -- HEADLINE TERMS
 --   line-world-XY            the corollary, hypothesis explicit in the type
 --   line-world-X             for `f = X` EVERY line world transports
---   dropped-hypothesis-false the quantified-over-all-`f` reading implies �
+--   dropped-hypothesis-false the quantified-over-all-`f` reading implies ⊥
 ------------------------------------------------------------------------
 
 module LineWorldTransport where
@@ -58,7 +58,7 @@ target : ℕ
 target = 4
 
 ------------------------------------------------------------------------
--- Slopes: `�/5` as a five-constructor enumeration, so that "for every
+-- Slopes: `ℤ/5` as a five-constructor enumeration, so that "for every
 -- slope" is a five-case exhaustive check rather than an induction.
 
 data Slope : Type where
@@ -73,7 +73,7 @@ val s4 = 4
 
 ------------------------------------------------------------------------
 -- Observables.  Only the two the audit contrasts; each is carried by
--- its gradient `(c� , c�)`, which is constant because both are linear.
+-- its gradient `(c₁ , c₂)`, which is constant because both are linear.
 
 data Obs : Type where
   X   : Obs          -- f = X      , grad = (1,0)
@@ -90,7 +90,7 @@ c₂ X+Y = 1
 -- Reduction mod 5, defined by structural recursion so that it reduces
 -- transparently on open terms (the library's `_mod_` goes through
 -- well-founded recursion, which makes the CONTROL file's error message
--- unreadable � the control is an instrument and must stay legible).
+-- unreadable — the control is an instrument and must stay legible).
 -- Agreement with the library `_mod_` is checked below on every input
 -- that occurs in this file.
 mod5 : ℕ → ℕ
@@ -102,12 +102,12 @@ mod5 (suc n) = rollover (mod5 n)
   rollover k = suc k
 
 -- The restricted gradient on the line `L = span{(1,s)}`, evaluated at
--- the generator `t = 1`: `grad f|_L (1) = c� + c��s`.
+-- the generator `t = 1`: `grad f|_L (1) = c₁ + c₂·s`.
 grad : Obs → Slope → ℕ
 grad f s = mod5 (c₁ f + c₂ f · val s)
 
 ------------------------------------------------------------------------
--- Decidable equality on �, and the finite search.
+-- Decidable equality on ℕ, and the finite search.
 
 eqℕ : ℕ → ℕ → Bool
 eqℕ zero    zero    = true
@@ -115,7 +115,7 @@ eqℕ zero    (suc _) = false
 eqℕ (suc _) zero    = false
 eqℕ (suc m) (suc n) = eqℕ m n
 
--- `attains g` : is `target` in the subgroup `{ t�g : t ∈ �/5 }`?
+-- `attains g` : is `target` in the subgroup `{ t·g : t ∈ ℤ/5 }`?
 -- Exhaustive over the five residues; this IS the note's proof step
 -- ("the set of attainable values is a subgroup, hence {0} or all"),
 -- carried out by finite verification rather than by the group argument.
@@ -131,14 +131,14 @@ attains g =
 transports : Obs → Slope → Bool
 transports f s = attains (grad f s)
 
--- The right-hand side of the corollary: `s � -1 (mod 5)`, i.e. `s ≠ 4`.
+-- The right-hand side of the corollary: `s ≢ -1 (mod 5)`, i.e. `s ≠ 4`.
 crit : Slope → Bool
 crit s = not (eqℕ (val s) target)
 
 ------------------------------------------------------------------------
 -- 0.  `mod5` is the library's `_mod_ 5` on every input reachable here.
---     Reachable inputs: gradients `c� + c��s � 1 + 1�4 = 5`, and their
---     multiples `t�g � 4�4 = 16`.  Checked exhaustively on `0..16`.
+--     Reachable inputs: gradients `c₁ + c₂·s ≤ 1 + 1·4 = 5`, and their
+--     multiples `t·g ≤ 4·4 = 16`.  Checked exhaustively on `0..16`.
 
 mod5-agrees-0  : mod5  0 ≡ ( 0 mod p) ; mod5-agrees-0  = refl
 mod5-agrees-1  : mod5  1 ≡ ( 1 mod p) ; mod5-agrees-1  = refl
@@ -172,7 +172,7 @@ line-world-XY s4 = refl
 
 ------------------------------------------------------------------------
 -- 2.  The counterexample, as a checked term rather than an assertion:
---     for `f = X`, EVERY line world transports � including `s = 4 = -1`,
+--     for `f = X`, EVERY line world transports — including `s = 4 = -1`,
 --     the one slope the dropped-hypothesis reading declares to fail.
 
 line-world-X : (s : Slope) → transports X s ≡ true

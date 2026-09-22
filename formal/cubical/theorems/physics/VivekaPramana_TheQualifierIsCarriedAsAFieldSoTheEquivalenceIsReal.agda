@@ -1,23 +1,23 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������-������ � ������� ���������� �� � ������ � ���������� ; ���� �������
+-- विवेक-प्रमाण — उपाधिः क्षेत्रम् एव । अवतरणं न सर्वव्यापि ; यत्र प्रमाणं
 -- ���� �� ���� �
 --
--- (the updhi is carried as a field.  ����� is not onto; the equivalence
--- holds exactly where the ������ holds, and the type says so.)
+-- (the upādhi is carried as a field.  अवतरण is not onto; the equivalence
+-- holds exactly where the प्रमाण holds, and the type says so.)
 --
 -- THE MOVE THAT MATTERS:
--- ����� d k = mk������ d k k hits only the diagonal, so
--- � � � is NOT equivalent to ������.  Rather than assert the equivalence,
--- the defeating condition is carried as a FIELD � ������-������ is the
--- subtype on which �����/������� are mutually inverse � and the
+-- अवतरण d k = mkविवेक d k k hits only the diagonal, so
+-- ℕ × ℕ is NOT equivalent to विवेक.  Rather than assert the equivalence,
+-- the defeating condition is carried as a FIELD — विवेक-प्रमाण is the
+-- subtype on which अवतरण/उत्थान are mutually inverse — and the
 -- equivalence on that subtype is then real.
 --
--- This is ������ (Nyya; Gagea, *Tattvacintmai*, c. 1325, whose
--- apparatus exists to HUNT the defeating condition of a ��������) made
+-- This is उपाधि (Nyāya; Gaṅgeśa, *Tattvacintāmaṇi*, c. 1325, whose
+-- apparatus exists to HUNT the defeating condition of a व्याप्ति) made
 -- structural: not a caveat in a header, a field of the type.  Compare
--- `NaturalMachine/Nirjara_SheddingAPrimitiveCostsLaghava.agda` §§11�13,
+-- `NaturalMachine/Nirjara_SheddingAPrimitiveCostsLaghava.agda` §§11–13,
 -- "the transfer is free and the licence is not", which exhibits the
 -- defeater and stops; here the defeater is carried and the transfer
 -- proceeds on its domain.
@@ -25,8 +25,8 @@
 -- THE ONE NON-REFL STEP:
 -- `�����-������� p = refl` does not hold.
 -- It is
--- discharged below BY THE ������ FIELD (path in `v` is sym ������; the
--- ������ component by isSet ������), which is what that field is for.
+-- discharged below BY THE प्रमाण FIELD (path in `v` is sym प्रमाण; the
+-- प्रमाण component by isSet विवेक), which is what that field is for.
 ------------------------------------------------------------------------
 
 module VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal where
@@ -49,7 +49,7 @@ open विवेक
 अवतरण : ℕ → ℕ → विवेक
 अवतरण d k = mkविवेक d k k
 
--- ������ is a set (it is �³)
+-- विवेक is a set (it is ℕ³)
 विवेक→ℕ³ : विवेक → ℕ × (ℕ × ℕ)
 विवेक→ℕ³ v = सम v , (वाम v , दक्षिण v)
 ℕ³→विवेक : ℕ × (ℕ × ℕ) → विवेक
@@ -71,7 +71,7 @@ open विवेक-प्रमाण
 विवेक-प्रमाण-अवतरण : ℕ × ℕ → विवेक-प्रमाण
 विवेक-प्रमाण-अवतरण (d , k) = mkविवेक-प्रमाण (अवतरण d k) refl
 
--- the claim, discharged BY THE ������ FIELD rather than by refl
+-- the claim, discharged BY THE प्रमाण FIELD rather than by refl
 अवतरण-उत्थान : (p : विवेक-प्रमाण) → विवेक-प्रमाण-अवतरण (विवेक-प्रमाण-उत्थान p) ≡ p
 अवतरण-उत्थान p i .v       = प्रमाण p (~ i)
 अवतरण-उत्थान p i .प्रमाण  =

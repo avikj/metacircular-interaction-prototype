@@ -1,23 +1,23 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡ï‡‡‡∞-‡¶‡‡µ‡Ø‡Æ‡ ‚î ‡¶‡‡µ‡ ‡µ‡æ‡‡ï‡, ‡‡ï‡ ‡‡æ‡∞‡, ‡‡ï‡‡‡‡®‡‡‡‡ ‡
--- (akara-dvaya: "the pair of syllables" ‚î two carriers, one weight,
+-- ‡§Ö‡§ï‡•ç‡§∑‡§∞-‡§¶‡•ç‡§µ‡§Ø‡§Æ‡•ç ‚Äî ‡§¶‡•ç‡§µ‡•á ‡§µ‡§æ‡§π‡§ï‡•á, ‡§è‡§ï‡§É ‡§≠‡§æ‡§∞‡§É, ‡§è‡§ï‡§∏‡•ç‡§§‡§®‡•ç‡§§‡•Å‡§É ‡•§
+-- (ak·π£ara-dvaya: "the pair of syllables" ‚Äî two carriers, one weight,
 --  one fiber.)
 --
--- THE TERM, ITS TEXT AND ITS DATE.  ‡‡ï‡‡‡∞ (syllable) is Pigala's atom in
--- the *Chandastra* (~300 BCE): a metre is a row of ‡‡ï‡‡‡∞‡æ‡, each ‡≤‡ò‡
--- (light, 1 ‡Æ‡æ‡‡‡∞‡æ) or ‡ó‡‡∞‡ (heavy, 2 ‡Æ‡æ‡‡‡∞‡).  Virahka,
--- *Vttajtisamuccaya* (c. 600‚ì800 CE), ch. 6, counts ‡Æ‡æ‡‡‡∞‡æ-‡µ‡‡‡‡ ‚î metres
--- of a fixed total DURATION ‚î and states the two-step recurrence for that
--- count.  Both traditions weigh the same atom the same way (‡≤‡ò‡ = 1,
--- ‡ó‡‡∞‡ = 2); the two ways of writing the row down are the only difference.
+-- THE TERM, ITS TEXT AND ITS DATE.  ‡§Ö‡§ï‡•ç‡§∑‡§∞ (syllable) is Pi·πÖgala's atom in
+-- the *Chanda·∏•≈õƒÅstra* (~300 BCE): a metre is a row of ‡§Ö‡§ï‡•ç‡§∑‡§∞‡§æ‡§É, each ‡§≤‡§ò‡•Å
+-- (light, 1 ‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ) or ‡§ó‡•Å‡§∞‡•Å (heavy, 2 ‡§Æ‡§æ‡§§‡•ç‡§∞‡•á).  VirahƒÅ·πÖka,
+-- *V·πõttajƒÅtisamuccaya* (c. 600‚Äì800 CE), ch. 6, counts ‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ-‡§µ‡•É‡§§‡•ç‡§§ ‚Äî metres
+-- of a fixed total DURATION ‚Äî and states the two-step recurrence for that
+-- count.  Both traditions weigh the same atom the same way (‡§≤‡§ò‡•Å = 1,
+-- ‡§ó‡•Å‡§∞‡•Å = 2); the two ways of writing the row down are the only difference.
 --
 -- Nothing here is re-proved that the corpus already proved: the recurrence
--- is `V.‡µ‡ø‡∞‡‡æ‡ô‡‡ï-‡‡µ‡‡‡‡‡ø‡`, transported, not restated.
+-- is `V.‡§µ‡§ø‡§∞‡§π‡§æ‡§ô‡•ç‡§ï-‡§Ü‡§µ‡•É‡§§‡•ç‡§§‡§ø‡§É`, transported, not restated.
 --
--- ‡‡‡∞‡ã‡‡æ‡‡‡ø : ‡‡ø‡ô‡‡ó‡≤‡, ‡‡®‡‡¶‡‡‡æ‡‡‡‡‡∞‡Æ‡ (~‡©‡¶‡¶ ‡à.‡‡.) ‚î ‡‡ï‡‡‡∞, ‡≤‡ò‡, ‡ó‡‡∞‡, ‡‡®‡‡¶‡‡ ‡
---            ‡µ‡ø‡∞‡‡æ‡ô‡‡ï‡, ‡µ‡‡‡‡‡‡æ‡‡ø‡‡Æ‡‡‡‡‡Ø‡ (~‡‡¶‡¶ ‡à.) ‚î ‡Æ‡æ‡‡‡∞‡æ-‡µ‡‡‡‡-‡‡µ‡‡‡‡‡ø‡ ‡
+-- ‡§∏‡•ç‡§∞‡•ã‡§§‡§æ‡§Ç‡§∏‡§ø : ‡§™‡§ø‡§ô‡•ç‡§ó‡§≤‡§É, ‡§õ‡§®‡•ç‡§¶‡§É‡§∂‡§æ‡§∏‡•ç‡§§‡•ç‡§∞‡§Æ‡•ç (~‡•©‡•¶‡•¶ ‡§à.‡§™‡•Ç.) ‚Äî ‡§Ö‡§ï‡•ç‡§∑‡§∞, ‡§≤‡§ò‡•Å, ‡§ó‡•Å‡§∞‡•Å, ‡§õ‡§®‡•ç‡§¶‡§∏‡•ç ‡•§
+--            ‡§µ‡§ø‡§∞‡§π‡§æ‡§ô‡•ç‡§ï‡§É, ‡§µ‡•É‡§§‡•ç‡§§‡§ú‡§æ‡§§‡§ø‡§∏‡§Æ‡•Å‡§ö‡•ç‡§ö‡§Ø‡§É (~‡•≠‡•¶‡•¶ ‡§à.) ‚Äî ‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ-‡§µ‡•É‡§§‡•ç‡§§-‡§Ü‡§µ‡•É‡§§‡•ç‡§§‡§ø‡§É ‡•§
 ------------------------------------------------------------------------
 
 module AksharaDvaya_TheVirahankaBoolFiberAndThePingalaChandasFiberAreOneWeightedCount where
@@ -36,7 +36,7 @@ import Matramerus as M
 import Virahanka_TheMatraFiberSatisfiesTheTwoStepRecurrence as V
 
 ------------------------------------------------------------------------
--- ‡ß ¬ the seam Bool ‚â ‡‡ï‡‡‡∞, laghu ‚î true, guru ‚î false.
+-- ‡•ß ¬∑ the seam Bool ‚âÖ ‡§Ö‡§ï‡•ç‡§∑‡§∞, laghu ‚Üî true, guru ‚Üî false.
 ------------------------------------------------------------------------
 
 ‡§µ‡§∞‡•ç‡§£‚Üí‡§Ö‡§ï‡•ç‡§∑‡§∞ : Bool ‚Üí ‡§Ö‡§ï‡•ç‡§∑‡§∞
@@ -59,9 +59,9 @@ import Virahanka_TheMatraFiberSatisfiesTheTwoStepRecurrence as V
 ‡§µ‡§ø-‡§∞‡•Ç‡§™' (‡§ó‡•Å‡§∞‡•Å ‚à∑ ds) = cong (‡§ó‡•Å‡§∞‡•Å ‚à∑_) (‡§µ‡§ø-‡§∞‡•Ç‡§™' ds)
 
 ------------------------------------------------------------------------
--- ‡® ¬ the weight is preserved across the seam: Virahka's ‡‡®‡‡¶‡ on the
--- Bool row equals Pigala's ‡Æ‡æ‡‡‡∞‡æ (Matramerus) on the translated ‡‡®‡‡¶‡‡.
--- (‡≤‡ò‡/true both cost 1, ‡ó‡‡∞‡/false both cost 2 ‚î the whole content.)
+-- ‡•® ¬∑ the weight is preserved across the seam: VirahƒÅ·πÖka's ‡§õ‡§®‡•ç‡§¶‡§É on the
+-- Bool row equals Pi·πÖgala's ‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ (Matramerus) on the translated ‡§õ‡§®‡•ç‡§¶‡§∏‡•ç.
+-- (‡§≤‡§ò‡•Å/true both cost 1, ‡§ó‡•Å‡§∞‡•Å/false both cost 2 ‚Äî the whole content.)
 ------------------------------------------------------------------------
 
 ‡§≠‡§æ‡§∞-‡§∞‡§ï‡•ç‡§∑‡§æ : (l : List Bool) ‚Üí M.‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ (map ‡§µ‡§∞‡•ç‡§£‚Üí‡§Ö‡§ï‡•ç‡§∑‡§∞ l) ‚â° V.‡§õ‡§®‡•ç‡§¶‡§É l
@@ -70,8 +70,8 @@ import Virahanka_TheMatraFiberSatisfiesTheTwoStepRecurrence as V
 ‡§≠‡§æ‡§∞-‡§∞‡§ï‡•ç‡§∑‡§æ (false ‚à∑ xs) = cong (Œª k ‚Üí suc (suc k)) (‡§≠‡§æ‡§∞-‡§∞‡§ï‡•ç‡§∑‡§æ xs)
 
 ------------------------------------------------------------------------
--- ‡© ¬ the identification of the fibers.  Both witness families land in ‚ï,
--- a set, so the fiber condition is a proposition and Œ‚â°Prop closes each
+-- ‡•© ¬∑ the identification of the fibers.  Both witness families land in ‚Ñï,
+-- a set, so the fiber condition is a proposition and Œ£‚â°Prop closes each
 -- round-trip on the first component alone.
 ------------------------------------------------------------------------
 
@@ -99,10 +99,10 @@ import Virahanka_TheMatraFiberSatisfiesTheTwoStepRecurrence as V
     ‡§∞‡•á-‡§ó‡•ã‡§≤ (l , p) = Œ£‚â°Prop ‡§∏‡§Æ‡§§‡§æ-‡§∏‡§æ‡§ï‡•ç‡§∑‡•Ä-V (‡§µ‡§ø-‡§∞‡•Ç‡§™ l)
 
 ------------------------------------------------------------------------
--- ‡ ¬ the payoff ‚î the receipt is a channel.  Virahka's recurrence,
--- proved in Virahanka_‚¶ over List Bool, is carried across the seam onto
--- Pigala's ‡‡®‡‡¶‡‡ carrier by composition of equivalences.  Nothing about
--- the recurrence is re-proved: V.‡µ‡ø‡∞‡‡æ‡ô‡‡ï-‡‡µ‡‡‡‡‡ø‡ is transported, not
+-- ‡•™ ¬∑ the payoff ‚Äî the receipt is a channel.  VirahƒÅ·πÖka's recurrence,
+-- proved in Virahanka_‚Ä¶ over List Bool, is carried across the seam onto
+-- Pi·πÖgala's ‡§õ‡§®‡•ç‡§¶‡§∏‡•ç carrier by composition of equivalences.  Nothing about
+-- the recurrence is re-proved: V.‡§µ‡§ø‡§∞‡§π‡§æ‡§ô‡•ç‡§ï-‡§Ü‡§µ‡•É‡§§‡•ç‡§§‡§ø‡§É is transported, not
 -- restated.
 ------------------------------------------------------------------------
 

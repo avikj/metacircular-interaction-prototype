@@ -9,45 +9,45 @@
 -- the join and a Yes for âŠ•.  A âŠ•-stepping machine does not thereby have
 -- descent, and the reason names the price of descent exactly.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THREE LAWS, THREE FAILURES, TWO REASONS
 --
---   âŠ”  over â•-exponents   irreversible because it is IDEMPOTENT
+--   âŠ”  over â„•-exponents   irreversible because it is IDEMPOTENT
 --                          (`IdempotenceForbidsDescent`)
 --                          and normless for the same reason
 --                          (`NoNormOnAJoin`)
 --
---   âŠ•  over â•-exponents   has a norm â” `val` â” and is STILL irreversible,
---                          for an unrelated reason: â• is a cone.  x + y = 0
+--   âŠ•  over â„•-exponents   has a norm â€” `val` â€” and is STILL irreversible,
+--                          for an unrelated reason: â„• is a cone.  x + y = 0
 --                          forces x = 0.  `âŠ•-only-unit-inverts`, below.
 --
---   âŠ  over â-exponents   a group.  Every element inverts, by negation.
+--   âŠ  over â„¤-exponents   a group.  Every element inverts, by negation.
 --                          `âŠ-inverse`, below.
 --
 -- So the two failures are not one phenomenon.  The join fails by
 -- idempotence; âŠ• fails by positivity.  Fixing the first by switching
 -- operations runs straight into the second, and this module is that fact.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THE THIRD ROW COSTS
 --
--- A â-exponent vector with a negative coordinate is not the derivation of
+-- A â„¤-exponent vector with a negative coordinate is not the derivation of
 -- a natural number.  It is the derivation of a RATIO.  The cone of
--- â•-exponents sits inside the group of â-exponents properly
+-- â„•-exponents sits inside the group of â„¤-exponents properly
 -- (`cone-is-proper`), and the states the machine gains by admitting
 -- inverses are exactly the ones outside it.
 --
---     Descent costs the integers.  There is no machine over â• with a
+--     Descent costs the integers.  There is no machine over â„• with a
 --     reversible step; reversibility is the group completion, and the
 --     group completion of the multiplicative monoid of the positive
 --     naturals is the positive rationals.
 --
 -- Which is the same price the conic charges.  `DescentIsNotInversion`
--- found that the cakravla's descent is division by k â” passage to the
+-- found that the cakravÄla's descent is division by k â€” passage to the
 -- scaling orbits, i.e. to the RATIONAL points of the conic.  Two
 -- independent routes into this corpus's question, and both end at ratio.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- ON THE WORD "IRRATIONAL"
 --
 -- The Pythagorean discovery is usually taught as a catastrophe: the
@@ -55,11 +55,11 @@
 -- That story keeps the emphasis on what ratio FAILS to reach.
 --
 -- This thread arrived from the other side.  Every mechanism by which a
--- state can come back down â” the conic's scaling orbits, the exponent
--- group's inverses â” required admitting ratios, and neither had anything
+-- state can come back down â€” the conic's scaling orbits, the exponent
+-- group's inverses â€” required admitting ratios, and neither had anything
 -- to do with a diagonal.  Ratio is not the thing that fell short.  Ratio
 -- is the completion in which descent exists at all, and a machine
--- confined to â• is confined to a cone with no way down.
+-- confined to â„• is confined to a cone with no way down.
 --
 -- Number IS ratio.  This module is that sentence with a proof attached,
 -- and the proof is that the alternative has no inverses.
@@ -83,7 +83,7 @@ open import Cubical.Tactics.CommRingSolver.Reflection
 open import SumProductTorus using (Exp ; zeroE ; _âŠ•_)
 
 ------------------------------------------------------------------------
--- 1.  âŠ• over â•-exponents: has a norm, still has no inverses.
+-- 1.  âŠ• over â„•-exponents: has a norm, still has no inverses.
 --
 -- `SumProductTorus.val-âŠ•` gives the norm.  Positivity kills the inverses,
 -- and it is a different obstruction from idempotence entirely: âŠ• is not
@@ -103,7 +103,7 @@ open import SumProductTorus using (Exp ; zeroE ; _âŠ•_)
   , âŠ•-only-unit-inverts bs xs ys (cong snd p) i
 
 ------------------------------------------------------------------------
--- 2.  âŠ over â-exponents: a group.
+-- 2.  âŠ over â„¤-exponents: a group.
 ------------------------------------------------------------------------
 
 open CommRingStr (snd â„¤CommRing) using () renaming (_+_ to _+â„¤_ ; -_ to -â„¤_ ; 0r to 0â„¤)
@@ -156,9 +156,9 @@ cone-is-proper b bs (x , xs) p = posNotnegsuc x 0 (cong fst p)
 --
 --   âŠ”  irreversible by idempotence, and normless.
 --   âŠ•  normed, irreversible by positivity.
---   âŠ  reversible â” and its states are ratios, not numbers.
+--   âŠ  reversible â€” and its states are ratios, not numbers.
 --
--- There is no reversible step law on â•-exponents.  Reversibility is the
+-- There is no reversible step law on â„•-exponents.  Reversibility is the
 -- group completion; the group completion of the positive naturals under
 -- multiplication is the positive rationals; so descent costs the
 -- integers.  Ratio is not what number fails to
@@ -168,11 +168,11 @@ cone-is-proper b bs (x , xs) p = posNotnegsuc x 0 (cong fst p)
 ------------------------------------------------------------------------
 -- 5.  THE FRAME.
 --
--- "Descent costs the integers" puts â in the position of the default and
+-- "Descent costs the integers" puts â„¤ in the position of the default and
 -- â in the position of a purchase.  That is not the reading; what is
 -- proved is:
 --
---     âŠ over â-exponents is a group.  âŠ• over â•-exponents is its
+--     âŠ over â„¤-exponents is a group.  âŠ• over â„•-exponents is its
 --     positive cone, and the cone is what lacks inverses.
 --
 -- The group is not an extension bought with something.  It is the object;
@@ -180,7 +180,7 @@ cone-is-proper b bs (x , xs) p = posNotnegsuc x 0 (cong fst p)
 -- much the restriction throws away.  Read in this direction:
 --
 --     descent is not purchased by admitting ratios.  Descent is what is
---     THERE, and â• is what remains after refusing to look at it.
+--     THERE, and â„• is what remains after refusing to look at it.
 --
 -- That is the Pythagorean claim.  Number is ratio.  The diagonal did not
 -- take anything away from anyone; it showed that the restriction to

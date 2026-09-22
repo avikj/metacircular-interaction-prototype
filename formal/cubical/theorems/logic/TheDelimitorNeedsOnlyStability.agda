@@ -3,19 +3,19 @@
 ------------------------------------------------------------------------
 -- TheDelimitorNeedsOnlyStability
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE SITE
 --
 -- `AnyonyaAbhava` Â§5 assumes `Dec (Collision q t)` to
--- close the gap between the two Vaieika categories of ààà¾àµ.
+-- close the gap between the two VaiÅ›eá¹£ika categories of à¤…à¤­à¤¾à¤µ.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   Â§1  the hypothesis is stronger than the use.  `dec-collapses` is
---       used only as `Â Â A â’ A`, which is `Stable`.  So
+--       used only as `Â¬ Â¬ A â†’ A`, which is `Stable`.  So
 --       `Stable (Collision q t)` closes the gap, and `Dec` is a
---       corollary by `Decâ’Stable`.  The delimitor does not need a
+--       corollary by `Decâ†’Stable`.  The delimitor does not need a
 --       decision; it needs the double negation to collapse.
 --
 --   Â§2  decidability on a class of sites: for a two-point state space with discrete Y and
@@ -25,12 +25,12 @@
 --       cost is the same finite search that `RefutingLaghavaIsASearch`
 --       found at the presentation-measures site.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE RESPECTS, SINCE Â§1 AND Â§2 PULL DIFFERENT WAYS
 --
---   ààà¯à¾àà â” in the respect of what the proof needs, `Stable` is the
+--   à¤¸à¥à¤¯à¤¾à¤¤à¥ â€” in the respect of what the proof needs, `Stable` is the
 --            hypothesis and `Dec` was more than was used;
---   ààà¯à¾àà â” in the respect of what can actually be EXHIBITED at a
+--   à¤¸à¥à¤¯à¤¾à¤¤à¥ â€” in the respect of what can actually be EXHIBITED at a
 --            site, `Dec` is what Â§2 constructs, because a finite
 --            search decides rather than merely stabilises.
 --
@@ -128,7 +128,7 @@ decCollisionOnTwoPoints dY dT q t with dY (q true) (q false)
 ...   | no  nt = yes (true , false , py , nt)
 ...   | yes pt = no (equalTargetRefutes q t pt)
 
--- and therefore the two categories of ààà¾àµ agree there.
+-- and therefore the two categories of à¤…à¤­à¤¾à¤µ agree there.
 categories-agree-on-two-points :
   {Y : Type â„“y} {T : Type â„“t}
   (dY : Discrete Y) (dT : Discrete T) (q : Bool â†’ Y) (t : Bool â†’ T)

@@ -1,31 +1,31 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- ������-��� � the root of the memory.
+-- स्मृति-मूल — the root of the memory.
 --
 -- The finite identities under the first quadrupole memory (handoff
--- §21, §24; [S12],[S16]).  Throughout, � is a derivation on a
--- commutative ring and r is a radius with � r = 1; the toroidal inverse
--- relation  r² g� + 6 r g� = −f  defines f from g.
+-- §21, §24; [S12],[S16]).  Throughout, ∂ is a derivation on a
+-- commutative ring and r is a radius with ∂ r = 1; the toroidal inverse
+-- relation  r² g″ + 6 r g′ = −f  defines f from g.
 --
---   �  β� is exact:   r� g � (5gf + 2rg�f + rgf�) ≡ �(r� g² f).
---   �  β� is exact:   with f = r² h � and g = h³,
---                    3rgf� − 6gf − rg�f ≡ 3 r³ h� ��.
+--   १  β₂ is exact:   r⁴ g · (5gf + 2rg′f + rgf′) ≡ ∂(r⁵ g² f).
+--   २  β₄ is exact:   with f = r² h φ and g = h³,
+--                    3rgf′ − 6gf − rg′f ≡ 3 r³ h⁴ ∂φ.
 --      So both emitted radial forcings are derivatives of brackets that
 --      vanish at the support ends: they are generically signed.
---   �  the weighted forcing is the memory quadratic plus an exact
---      derivative:   2 r (5gf + 2rg�f + rgf�)
---                     ≡ 2 (9 r g² − r³ g�²) + �(−2r�gg� − 18r³gg� − r�g�² − 9r²g²),
---      which is  � r β� dr = (6/7) �[f]  with  �[f] = �(9rg² − r³g�²).
---   �  in log radius (D = r∵, so D r = r): with b = r g and F = r f,
+--   ३  the weighted forcing is the memory quadratic plus an exact
+--      derivative:   2 r (5gf + 2rg′f + rgf′)
+--                     ≡ 2 (9 r g² − r³ g′²) + ∂(−2r⁴gg″ − 18r³gg′ − r⁴g′² − 9r²g²),
+--      which is  ∫ r β₂ dr = (6/7) 𝓘[f]  with  𝓘[f] = ∫(9rg² − r³g′²).
+--   ४  in log radius (D = r∂ᵣ, so D r = r): with b = r g and F = r f,
 --                    F ≡ (4 − 3D − D²) b,      i.e. F = (1 − D)(4 + D) b,
 --      and the memory integrand is  9b² − (rDg)² ≡ 8b² − (Db)² + D(b²),
---      i.e. �[f] = 8�b�² − �b��².
---   �  the symbol:  |(1 − iξ)(4 + iξ)|² = (4 + ξ²)² + 9ξ² ≡ (1 + ξ²)(16 + ξ²),
---      so �[f] = (1/2�)� (8 − ξ²)/((1+ξ²)(16+ξ²)) |F�|².
---   �  the two-radius kernel matrix at radii 1 and 2, scaled by 80, is
+--      i.e. 𝓘[f] = 8‖b‖² − ‖b′‖².
+--   ५  the symbol:  |(1 − iξ)(4 + iξ)|² = (4 + ξ²)² + 9ξ² ≡ (1 + ξ²)(16 + ξ²),
+--      so 𝓘[f] = (1/2π)∫ (8 − ξ²)/((1+ξ²)(16+ξ²)) |F̂|².
+--   ६  the two-radius kernel matrix at radii 1 and 2, scaled by 80, is
 --      [[8,11],[11,8]]; 19 and −3 are its eigenvalues.
 --
--- Numerals are � n = 1 + ⋯ + 1, which unfold definitionally, so the
+-- Numerals are ι n = 1 + ⋯ + 1, which unfold definitionally, so the
 -- ring solver sees them as constants in the `shape` lemmas.
 ------------------------------------------------------------------------
 module SmrtiMula_TheEmittedForcingsAreExactDerivativesTheWeightedQuadrupoleForcingIsTheMemoryQuadraticPlusAnExactDerivativeTheLogRadiusSourceIsAFactoredOperatorAndItsSymbolIsTheProductOfTwoShiftedSquares where
@@ -52,7 +52,7 @@ module _ (R : CommRing ℓ) where
   ι (suc n) = 1r + ι n
 
   ----------------------------------------------------------------
-  -- � � the symbol modulus
+  -- ५ · the symbol modulus
   ----------------------------------------------------------------
   symbol-modulus : (ξ : A)
     → (ι 4 + ξ · ξ) · (ι 4 + ξ · ξ) + ι 9 · (ξ · ξ) ≡ (1r + ξ · ξ) · (ι 16 + ξ · ξ)
@@ -62,7 +62,7 @@ module _ (R : CommRing ℓ) where
       shape ξ = solve! R
 
   ----------------------------------------------------------------
-  -- � � the scaled kernel matrix [[8,11],[11,8]] at radii 1, 2
+  -- ६ · the scaled kernel matrix [[8,11],[11,8]] at radii 1, 2
   ----------------------------------------------------------------
   kernel-eigenvalue-19 : (ι 8 + (- ι 19)) · (ι 8 + (- ι 19)) + (- (ι 11 · ι 11)) ≡ 0r
   kernel-eigenvalue-19 = shape
@@ -115,7 +115,7 @@ module _ (R : CommRing ℓ) where
               zeroL y = solve! R
 
     ----------------------------------------------------------------
-    -- radius:  � r ≡ 1
+    -- radius:  ∂ r ≡ 1
     ----------------------------------------------------------------
     module _ (r : A) (∂r : ∂ r ≡ 1r) where
 
@@ -142,7 +142,7 @@ module _ (R : CommRing ℓ) where
                 shape = solve! R
 
       ----------------------------------------------------------------
-      -- � � β� is exact
+      -- १ · β₂ is exact
       ----------------------------------------------------------------
       β₂-is-exact : (g f : A)
         → (r⁴ · g) · ((ι 5 · (g · f) + ι 2 · ((r · ∂ g) · f)) + (r · g) · ∂ f)
@@ -160,7 +160,7 @@ module _ (R : CommRing ℓ) where
           shape g f g₁ f₁ = solve! R
 
       ----------------------------------------------------------------
-      -- � � β� is exact:  f = r² h �,  g = h³
+      -- २ · β₄ is exact:  f = r² h φ,  g = h³
       ----------------------------------------------------------------
       β₄-is-exact : (h φ : A)
         → (ι 3 · ((r · (h · h · h)) · ∂ (r² · h · φ)) + (- (ι 6 · ((h · h · h) · (r² · h · φ)))))
@@ -184,8 +184,8 @@ module _ (R : CommRing ℓ) where
           shape h φ h₁ φ₁ = solve! R
 
       ----------------------------------------------------------------
-      -- � � weighted forcing = memory quadratic + exact derivative,
-      --     with f the toroidal inverse of g:  f = −(r² g� + 6 r g�)
+      -- ३ · weighted forcing = memory quadratic + exact derivative,
+      --     with f the toroidal inverse of g:  f = −(r² g″ + 6 r g′)
       ----------------------------------------------------------------
       toroidal-f : A → A
       toroidal-f g = - (r² · ∂ (∂ g) + ι 6 · (r · ∂ g))
@@ -242,7 +242,7 @@ module _ (R : CommRing ℓ) where
           shape g g₁ g₂ g₃ = solve! R
 
     ----------------------------------------------------------------
-    -- � � log radius:  D r ≡ r  (D = r ∵)
+    -- ४ · log radius:  D r ≡ r  (D = r ∂ᵣ)
     ----------------------------------------------------------------
     module _ (r : A) (Dr : ∂ r ≡ r) where
 

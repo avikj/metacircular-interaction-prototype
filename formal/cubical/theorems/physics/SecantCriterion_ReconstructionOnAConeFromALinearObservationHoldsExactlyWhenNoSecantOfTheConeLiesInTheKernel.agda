@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- SecantCriterion � reconstruction on a cone C from a homomorphic
+-- SecantCriterion — reconstruction on a cone C from a homomorphic
 -- observation O holds exactly when no secant of C lies in the kernel:
 --
 --     O injective on C   ⟺   ker O ∩ (C − C) = {0}.
@@ -10,23 +10,23 @@
 -- (§5): a linear observation O of a set C of states recovers the state
 -- exactly when no difference of two states in C is invisible to O.  The
 -- corpus's descent lemma (DescentObstructionUnified.factorObstruction)
--- is the "� fails" half at one pair; this module is the whole
+-- is the "⇐ fails" half at one pair; this module is the whole
 -- equivalence, over any group G, any group H, any homomorphism O and any
--- subset C.  Nothing is assumed about C � no positivity, no convexity �
+-- subset C.  Nothing is assumed about C — no positivity, no convexity —
 -- because the criterion does not need it: positivity of a cone is what
 -- makes C − C large, not what makes the criterion true.
 --
---   §1  Secant O C : every x, y ∈ C with O (x � y��) = 1 have x � y�� = 1.
+--   §1  Secant O C : every x, y ∈ C with O (x · y⁻¹) = 1 have x · y⁻¹ = 1.
 --       Injective O C : every x, y ∈ C with O x = O y have x = y.
---       secant�injective and injective�secant, from the homomorphism
+--       secant→injective and injective→secant, from the homomorphism
 --       law and the two group cancellations.
---   §2  Over � � � with O (a , b) = a + b: the cone of pairs with both
+--   §2  Over ℤ × ℤ with O (a , b) = a + b: the cone of pairs with both
 --       entries non-negative has the secant (1 , 0) − (0 , 1) in ker O,
 --       so O does not reconstruct it (the corpus lemma, applied); the
 --       sub-cone of pairs (a , 0) has no such secant, and O reconstructs
 --       it.  Same observation, two cones, the criterion deciding both.
 --
--- SYT � THE CLAIM, EXACTLY.  A group-theoretic equivalence and one
+-- SYĀT — THE CLAIM, EXACTLY.  A group-theoretic equivalence and one
 -- two-cone witness.  No topology, no linear span, no measure.  The
 -- document's operator is on a function space; here O is any hom.
 ------------------------------------------------------------------------
@@ -72,7 +72,7 @@ module Criterion {ℓ ℓ' : Level} (G : Group ℓ) (H : Group ℓ') where
   IsHom : (⟨ G ⟩ → ⟨ H ⟩) → Type (ℓ-max ℓ ℓ')
   IsHom O = (x y : ⟨ G ⟩) → O (x G.· y) ≡ O x H.· O y
 
-  -- the difference x � y�� ("x − y")
+  -- the difference x · y⁻¹ ("x − y")
   _−_ : ⟨ G ⟩ → ⟨ G ⟩ → ⟨ G ⟩
   x − y = x G.· G.inv y
 
@@ -91,7 +91,7 @@ module Criterion {ℓ ℓ' : Level} (G : Group ℓ) (H : Group ℓ') where
   homInv O h x = GroupTheory.invUniqueR H
     (sym (h x (G.inv x)) ∙ cong O (G.·InvR x) ∙ hom1 O h)
 
-  -- x − y = 1 � x = y, and x = y � x − y = 1
+  -- x − y = 1 ⟹ x = y, and x = y ⟹ x − y = 1
   diff1→eq : (x y : ⟨ G ⟩) → x − y ≡ G.1g → x ≡ y
   diff1→eq x y p = GT.invUniqueL p ∙ GT.invInv y
 
@@ -112,14 +112,14 @@ module Criterion {ℓ ℓ' : Level} (G : Group ℓ) (H : Group ℓ') where
                    → Injective O C → Secant O C
   injective→secant O h C inj x y cx cy k = eq→diff1 x y (inj x y cx cy same)
     where
-      -- O x � (O y)�� = 1  �  O x = O y
+      -- O x · (O y)⁻¹ = 1  ⟹  O x = O y
       same : O x ≡ O y
       same = GroupTheory.invUniqueL H
                (sym (cong (O x H.·_) (homInv O h y)) ∙ sym (h x (G.inv y)) ∙ k)
            ∙ GroupTheory.invInv H (O y)
 
 ------------------------------------------------------------------------
--- §2  Two cones under one observation over � � �.
+-- §2  Two cones under one observation over ℤ × ℤ.
 ------------------------------------------------------------------------
 
 ℤ² : Group₀
@@ -154,15 +154,15 @@ Axis : ℤ × ℤ → Type₀
 Axis (a , b) = b ≡ pos 0
 
 -- (1 , 0) and (0 , 1) are both in the quadrant, agree under `sum`,
--- and differ.  So `sum` is not injective on the quadrant � stated as the
+-- and differ.  So `sum` is not injective on the quadrant — stated as the
 -- corpus's descent obstruction: the first coordinate does not factor
--- through `sum` on the quadrant �
+-- through `sum` on the quadrant …
 quadrant-secant : ¬ FactorsThrough sum fst
 quadrant-secant = factorObstruction sum fst (pos 1 , pos 0) (pos 0 , pos 1) refl
   (λ e → pos≢negsuc (cong (λ z → z + negsuc 0) e))
   -- pos 1 + (−1) = pos 0, pos 0 + (−1) = negsuc 0
 
--- � and the corresponding secant is in the kernel
+-- … and the corresponding secant is in the kernel
 quadrant-secant-in-kernel : sum ((pos 1 , pos 0) − (pos 0 , pos 1)) ≡ pos 0
 quadrant-secant-in-kernel = refl
 

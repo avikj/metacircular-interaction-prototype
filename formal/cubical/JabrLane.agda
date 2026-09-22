@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- JabrLane â” a gate for modules whose named source tradition is the
+-- JabrLane â€” a gate for modules whose named source tradition is the
 -- Arabic algebraic one (al-Khwrizm, al-Karaj, al-SamawÊ¾al).
 --
 -- ON THE NAME.  *al-jabr* is al-Khwrizm's own word, from the title of
@@ -15,7 +15,7 @@ module JabrLane where
 
 ------------------------------------------------------------------------
 -- The antidiagonal sector pairing of an odd-character family: which
--- (â/2)^k-isotypic sectors can pair at all.  Isolates the algebra of
+-- (â„¤/2)^k-isotypic sectors can pair at all.  Isolates the algebra of
 -- collab/messages/goldbach-machine/direct-minor-shadow.md Thm 4.1 /
 -- Prop 4.2 and mixed-sector-prescribed-center.md Thm 5.1 at k characters.
 ------------------------------------------------------------------------

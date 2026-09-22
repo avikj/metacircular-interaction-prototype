@@ -1,15 +1,15 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
--- ààà-ààààà¯, the checked half.  Parent note:
+-- à¤¶à¥‡à¤·-à¤¸à¤à¥à¤šà¤¯, the checked half.  Parent note:
 -- notes/SesaSancaya_TheAlignmentNumberIsAMinimalTotalRemainderAndTheKnobGainIsAWrapCount.md
 -- (compound built there; ea is ryabhaa's kept remainder,
--- ryabhaya gaita 32â“33, 499 CE â” the kuaka's disposal rule; what
+-- Ä€ryabhaá¹­Ä«ya gaá¹‡ita 32â€“33, 499 CE â€” the kuá¹­á¹­aka's disposal rule; what
 -- is claimed of the source is the NAME and the rule "keep the
 -- remainder", not these theorems).
 --
 -- The alignment number of the twin field's position side is
--- A = |S|(1 âˆ’ 1/P) âˆ’ (2/P)Âmin_u T(u), where T(u) is the total
--- remainder Î_{câˆˆS} ((uâˆ’c) mod P).  This module makes the two small
+-- A = |S|(1 âˆ’ 1/P) âˆ’ (2/P)Â·min_u T(u), where T(u) is the total
+-- remainder Î£_{câˆˆS} ((uâˆ’c) mod P).  This module makes the two small
 -- rows of the witness table kernel-fact:
 --
 --   z = 5:  P = 30,  S = {0,12,18},   min T = 24,   at u = 18
@@ -17,7 +17,7 @@
 --
 -- each as (i) the witness value by refl, and (ii) minimality by a
 -- boolean exhaustion over the full period that a soundness lemma
--- lifts to a âˆ â” the PMNoSection pattern: the typechecker runs the
+-- lifts to a âˆ€ â€” the PMNoSection pattern: the typechecker runs the
 -- search, the lemma converts the fold to the quantifier, and no bare
 -- boolean is the deliverable.
 
@@ -77,7 +77,7 @@ soundRange f (suc n) p u u< with splitBelow u n u<
 
 -- the remainder-behind, decision-free ---------------------------------
 -- gap P c u = (u âˆ’ c) mod P for u, c < P, computed as a conditional
--- subtraction; both branches name the same residue â” the if chooses
+-- subtraction; both branches name the same residue â€” the if chooses
 -- the representative, it does not destroy a distinction (u and c are
 -- still in hand).
 

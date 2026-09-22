@@ -1,22 +1,22 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������� � number, computable.
+-- संख्या — number, computable.
 --
 -- The library's integers add and multiply by unary recursion, so a
 -- certificate with entries in the thousands cannot be checked by
 -- evaluation.  The naturals, by contrast, are Agda builtins backed by
 -- machine integers.  This file gives signed integers over the builtin
 -- naturals, with the two operations a certificate needs, and proves
--- each sound against the library's �.  The proofs are by induction and
+-- each sound against the library's ℤ.  The proofs are by induction and
 -- never run; the operations run at machine speed.
 --
---   §1  THE TYPE: � n and � n (denoting n and −n; � 0 = � 0 in �).
---   §2  MULTIPLICATION, sound: to� (x ⊗ y) ≡ to� x � to� y.
+--   §1  THE TYPE: ⁺ n and ⁻ n (denoting n and −n; ⁻ 0 = ⁺ 0 in ℤ).
+--   §2  MULTIPLICATION, sound: toℤ (x ⊗ y) ≡ toℤ x · toℤ y.
 --   §3  ADDITION, sound: like signs add, unlike signs subtract with the
 --       sign decided by a builtin monus.
 --
--- ������� (sakhy, number/count) is ordinary .
+-- संख्या (saṅkhyā, number/count) is ordinary .
 ------------------------------------------------------------------------
 
 module Sankhya_SignedIntegersOverTheBuiltinNaturalsWithSoundArithmeticIntoTheLibrarysIntegersSoCertificatesComputeAtMachineSpeed where
@@ -29,7 +29,7 @@ import Cubical.Data.Int as ℤ
 open ℤ using (ℤ ; pos ; negsuc ; neg ; sucℤ ; predℤ)
 
 ------------------------------------------------------------------------
--- � � The type.
+-- १ · The type.
 ------------------------------------------------------------------------
 
 data 𝕊 : Type₀ where
@@ -41,7 +41,7 @@ toℤ (⁺ n) = pos n
 toℤ (⁻ n) = neg n
 
 ------------------------------------------------------------------------
--- � � Multiplication.
+-- २ · Multiplication.
 ------------------------------------------------------------------------
 
 _⊗_ : 𝕊 → 𝕊 → 𝕊
@@ -50,7 +50,7 @@ _⊗_ : 𝕊 → 𝕊 → 𝕊
 (⁻ a) ⊗ (⁺ b) = ⁻ (a · b)
 (⁻ a) ⊗ (⁻ b) = ⁺ (a · b)
 
--- neg (a � b) ≡ pos a � neg b
+-- neg (a · b) ≡ pos a · neg b
 pos·neg : (a b : ℕ) → neg (a · b) ≡ pos a ℤ.· neg b
 pos·neg a zero    = cong neg (sym (0≡m·0 a)) ∙ sym (ℤ.·AnnihilR (pos a))
 pos·neg a (suc b) = sym (ℤ.-pos (a · suc b)) ∙ cong ℤ.-_ (ℤ.pos·pos a (suc b)) ∙ sym (ℤ.pos·negsuc a b)
@@ -70,7 +70,7 @@ neg·neg (suc a) (suc b) = ℤ.pos·pos (suc a) (suc b) ∙ sym (ℤ.negsuc·neg
 ⊗-sama (⁻ a) (⁻ b) = neg·neg a b
 
 ------------------------------------------------------------------------
--- � � Addition.
+-- ३ · Addition.
 ------------------------------------------------------------------------
 
 open import Cubical.Algebra.CommRing using (CommRing→Ring)
@@ -96,7 +96,7 @@ neg+ : (a b : ℕ) → neg (a + b) ≡ neg a ℤ.+ neg b
 neg+ a b = sym (ℤ.-pos (a + b)) ∙ cong ℤ.-_ (ℤ.pos+ a b) ∙ sym (RP.RingTheory.-Dist (CommRing→Ring ℤCommRing) (pos a) (pos b))
          ∙ cong₂ ℤ._+_ (ℤ.-pos a) (ℤ.-pos b)
 
--- monus zero means �; monus successor means the other �
+-- monus zero means ≤; monus successor means the other ≤
 ∸-śūnya : (a b : ℕ) → b ∸ a ≡ zero → b ≤ a
 ∸-śūnya a       zero    _ = zero-≤
 ∸-śūnya zero    (suc b) e = ⊥-elim (snotz e)
@@ -107,19 +107,19 @@ neg+ a b = sym (ℤ.-pos (a + b)) ∙ cong ℤ.-_ (ℤ.pos+ a b) ∙ sym (RP.Rin
 ∸-suc (suc a) zero    k e = ⊥-elim (snotz (sym e))
 ∸-suc (suc a) (suc b) k e = suc-≤-suc (∸-suc a b k e)
 
--- pos (a � b) ≡ pos a − pos b for b � a
+-- pos (a ∸ b) ≡ pos a − pos b for b ≤ a
 pos∸ : (a b : ℕ) → b ≤ a → pos (a ∸ b) ≡ pos a ℤ.- pos b
 pos∸ a b le =
     sym (ℤ.plusMinus (pos b) (pos (a ∸ b)))
   ∙ cong (ℤ._- pos b) (sym (ℤ.pos+ (a ∸ b) b) ∙ cong pos (≤-∸-+-cancel le))
 
--- neg (b � a) ≡ pos a − pos b for a � b
+-- neg (b ∸ a) ≡ pos a − pos b for a ≤ b
 neg∸ : (a b : ℕ) → a ≤ b → neg (b ∸ a) ≡ pos a ℤ.- pos b
 neg∸ a b le =
     sym (ℤ.plusMinus (pos b) (neg (b ∸ a)))
   ∙ cong (ℤ._- pos b) lemma
   where
-  -- neg (b � a) + pos b ≡ pos a
+  -- neg (b ∸ a) + pos b ≡ pos a
   lemma : neg (b ∸ a) ℤ.+ pos b ≡ pos a
   lemma = cong (neg (b ∸ a) ℤ.+_) (cong pos (sym (≤-∸-+-cancel le)) ∙ ℤ.pos+ (b ∸ a) a)
         ∙ ℤ.+Assoc (neg (b ∸ a)) (pos (b ∸ a)) (pos a)

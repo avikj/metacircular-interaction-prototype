@@ -134,8 +134,8 @@ peelHidden (suc f) (pi (arg (arg-info instance′ _) _) (abs _ b)) = peelHidden 
 peelHidden (suc f) t = t
 
 -- Classify with a little reduction fuel: a function-alias head (the
--- ubiquitous _≡_ over PathP) is weak-head reduced � on the small
--- DECLARED type of a name, never on probe results � until a rigid
+-- ubiquitous _≡_ over PathP) is weak-head reduced — on the small
+-- DECLARED type of a name, never on probe results — until a rigid
 -- head, a pi, a sort, or the fuel appears.  Axioms are rigid: nothing
 -- ever unfolds them.
 headOf : Term → TC Head
@@ -209,7 +209,7 @@ admits (just hd) hx = compatible hd hx
 -- Bucketed pool.  There is no reason to touch every (generator, state)
 -- pair even cheaply: partition the pool by type head ONCE, then each
 -- generator reads exactly the bucket its domain head names, plus the
--- flex bucket (entries whose type might still reduce � the only
+-- flex bucket (entries whose type might still reduce — the only
 -- irreducible residue).  Build is linear in the pool (times the small
 -- number of distinct heads); per generator, work is proportional to its
 -- actual candidates.
@@ -265,7 +265,7 @@ tryRealization f n x =
   -- and its normalized type, which inference supplies unreconstructed.
   -- The result type is recorded exactly as inference produced it:
   -- both full normalisation and weak-head reduction unfold heads
-  -- (FactorsThrough into its �-expansion, certificate computations
+  -- (FactorsThrough into its Σ-expansion, certificate computations
   -- into their tables) and the sum of those expansions across the
   -- quadratic probe grid is what exhausts the heap.  The recorded
   -- application is fully checked either way.
@@ -288,12 +288,12 @@ tryRealization f n x =
   ... | true  = (n , app , nty) ∷ []
   ... | false = []
 
--- Each probe � successful or failed � permanently retains typechecker
+-- Each probe — successful or failed — permanently retains typechecker
 -- state that runSpeculative does not give back; the heap grows
 -- quadratically in probe count.  So the probe bill is bounded by the
 -- OUTPUT: a generator
 -- stops probing once its exhibited family reaches the cap.  The locus
--- is then the first realizationCap checked realizations in pool order �
+-- is then the first realizationCap checked realizations in pool order —
 -- an exact, checked, finite presentation of the family, not its
 -- completion.
 realizationCap : Nat
@@ -347,7 +347,7 @@ materializeLociForTerm gens ns =
   bindTC (buildLoci (partitionPool entries) egens) quoteTC
 
 -- Pool preparation itself retains typechecker state per reflection
--- call (36k names � 4 calls exhausts the heap before any probing), so
+-- call (36k names × 4 calls exhausts the heap before any probing), so
 -- the classified pool is materialized ONCE, in chunks, as a checked
 -- value; shards consume it as data and pay no reflection for it.
 materializePoolTerm : List Name → TC Term
@@ -371,13 +371,13 @@ buildLociOverPool pool gens =
 ------------------------------------------------------------------------
 -- Single-pass materialization.  Each generator's candidate
 -- walk re-forces the whole pool literal (once per
--- generator), so the loop is inverted � ONE pass over the pool,
+-- generator), so the loop is inverted — ONE pass over the pool,
 -- every generator carried as folded state with its own caps, probes
 -- interleaved.  The literal is forced exactly once per shard.
 ------------------------------------------------------------------------
 
 -- A generator can consume at most realizationCap successes plus
--- failureBudget failures, i.e. at most that many candidates in total �
+-- failureBudget failures, i.e. at most that many candidates in total —
 -- so ONE pure pass over the pool collects exactly the first
 -- (realizationCap + failureBudget) compatible entries per generator,
 -- forcing the pool literal once, and the TC monad is entered only for
@@ -456,7 +456,7 @@ initSels (f ∷ fs) =
   bindTC (initSels fs) λ rest →
   returnTC (genSel f gate maxCandidates [] ∷ rest)
 
--- Probe one generator's pre-selected candidates (� maxCandidates), with
+-- Probe one generator's pre-selected candidates (≤ maxCandidates), with
 -- the usual caps; candidates were accumulated in reverse pool order.
 probeSel : GenSel → TC RawLoci
 probeSel (genSel f _ _ acc) =

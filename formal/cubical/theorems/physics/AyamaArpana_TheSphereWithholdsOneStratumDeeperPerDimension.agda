@@ -1,25 +1,25 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àà¯à¾à®-àà°ààà â” offering by dimension.  StaraArpana proved the circle's
+-- à¤†à¤¯à¤¾à¤®-à¤…à¤°à¥à¤ªà¤£ â€” offering by dimension.  StaraArpana proved the circle's
 -- charge is withheld at stratum 2 and offered whole at stratum 3
 -- (Î©(âˆSÂâˆ 3) â‰ â).  THE DIMENSIONAL QUESTION:
 -- does the withholding deepen by
 -- one stratum per dimension?
 --
 -- ANSWERED for the absent half, checked below: for SÂ², EVERYTHING
--- through stratum 3 is silent â” not merely the loop space: the whole
--- 3-truncation âˆSÂ²âˆ 3 is CONTRACTIBLE (sphereConnected 2), hence so is
--- its loop space (àà•àà°à¦ààµà¯-ààà°à¿-àààà°à-à®àà¨à®à).  Where SÂ's stratum 3
--- carried all of â, SÂ²'s stratum 3 carries nothing at all.
+-- through stratum 3 is silent â€” not merely the loop space: the whole
+-- 3-truncation âˆ¥SÂ²âˆ¥ 3 is CONTRACTIBLE (sphereConnected 2), hence so is
+-- its loop space (à¤šà¤•à¥à¤°à¤¦à¥à¤µà¤¯-à¤¤à¥à¤°à¤¿-à¤¸à¥à¤¤à¤°à¥‡-à¤®à¥Œà¤¨à¤®à¥).  Where SÂ¹'s stratum 3
+-- carried all of â„¤, SÂ²'s stratum 3 carries nothing at all.
 --
 -- THE OFFERED HALF, Î©Â²(âˆ¥SÂ²âˆ¥ 4) â‰ƒ Ï€â‚‚(SÂ²) â‰ƒ â„¤, is proved in AnantaraArpana.
 --
--- THE LAW: dimension grades the withholding â”
+-- THE LAW: dimension grades the withholding â€”
 -- the n-sphere's charge is anarpita through stratum n+1 and arpita at
 -- n+2 (n=1 in StaraArpana; n=2 here on the silent side and in
 -- AnantaraArpana on the offered side).
--- àà°ààà¿àà¾à¨à°ààà¿ààà¿à¦àà§àà (TS 5.31) as the reading; the grading is this
+-- à¤…à¤°à¥à¤ªà¤¿à¤¤à¤¾à¤¨à¤°à¥à¤ªà¤¿à¤¤à¤¸à¤¿à¤¦à¥à¤§à¥‡à¤ƒ (TS 5.31) as the reading; the grading is this
 -- repository's statement.
 ------------------------------------------------------------------------
 

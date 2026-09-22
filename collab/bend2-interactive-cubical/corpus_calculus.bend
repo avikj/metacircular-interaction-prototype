@@ -1,5 +1,5 @@
 # Translation of formal/cubical/theorems/residue/CorpusCalculus.agda
-# Point = Σ[ A ∈ Type ] A ; Question s = Σ[ B ∈ Type ] (fst s  B)
+# Point = Σ[ A ∈ Type ] A ; Question s = Σ[ B ∈ Type ] (fst s → B)
 # target, Event, step, twoSteps — refl theorems check by computation.
 
 def Point() -> Set:

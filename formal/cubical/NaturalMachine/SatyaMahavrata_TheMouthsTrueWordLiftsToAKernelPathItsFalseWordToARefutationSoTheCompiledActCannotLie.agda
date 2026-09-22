@@ -1,33 +1,33 @@
 {-# OPTIONS --cubical --safe --guardedness --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡‡Ø‡Æ‡‡æ‡µ‡‡∞‡‡Æ‡ ‚î the great vow of truth.
+-- ‡§∏‡§§‡•ç‡§Ø‡§Æ‡§π‡§æ‡§µ‡•ç‡§∞‡§§‡§Æ‡•ç ‚Äî the great vow of truth.
 --
--- SOURCE.  Umsvti, *Tattvrthastra* 7.1 (c. 2nd‚ì5th c. CE):
--- ‡‡ø‡‡‡æ‡Ω‡®‡‡‡‡‡‡‡Ø‡æ‡‡‡∞‡‡‡Æ‡‡∞‡ø‡ó‡‡∞‡‡‡‡‡Ø‡ã ‡µ‡ø‡∞‡‡ø‡∞‡‡µ‡‡∞‡‡Æ‡ ‚î the vow is abstention
+-- SOURCE.  UmƒÅsvƒÅti, *TattvƒÅrthas≈´tra* 7.1 (c. 2nd‚Äì5th c. CE):
+-- ‡§π‡§ø‡§Ç‡§∏‡§æ‡§Ω‡§®‡•É‡§§‡§∏‡•ç‡§§‡•á‡§Ø‡§æ‡§¨‡•ç‡§∞‡§π‡•ç‡§Æ‡§™‡§∞‡§ø‡§ó‡•ç‡§∞‡§π‡•á‡§≠‡•ç‡§Ø‡•ã ‡§µ‡§ø‡§∞‡§§‡§ø‡§∞‡•ç‡§µ‡•ç‡§∞‡§§‡§Æ‡•ç ‚Äî the vow is abstention
 -- from violence, falsehood (anta), theft, unchastity and possession;
 -- 7.2 makes the abstention held completely a MAHVRATA.  The school is
 -- Jaina.  What is claimed of the source: the name of the discipline and
--- nothing else ‚î Umsvti proved no theorem about boolean tests.  The
+-- nothing else ‚Äî UmƒÅsvƒÅti proved no theorem about boolean tests.  The
 -- compound titles this module because the theorem IS that vow, held
 -- completely, by the compiled act-portion of this body: the mouth
 -- CANNOT utter a falsehood, in either direction, and this is checked
 -- rather than promised.
 --
 -- WHAT THIS IS.  The reflection weld.  One set of
--- definitions (formal/karma/KarmaKanda‚¶, --cubical-compatible --safe)
+-- definitions (formal/karma/KarmaKanda‚Ä¶, --cubical-compatible --safe)
 -- is imported with full use by BOTH worlds: the compiled mouth runs
 -- them, this --cubical body proves paths about them.  The act-side
--- test ‡‡Æ‡ decides and hands no path; here the knowledge-portion
+-- test ‡§∏‡§Æ‡§É decides and hands no path; here the knowledge-portion
 -- supplies the path it was owed:
 --
---     ‡‡Æ‡ a b ‚â° true   ‚í   a ‚â° b          (the true word lifts)
---     a ‚â° b            ‚í   ‡‡Æ‡ a b ‚â° true  (completeness)
---     ‡‡Æ‡ a b ‚â° false  ‚í   ¬ (a ‚â° b)      (the false word refutes)
+--     ‡§∏‡§Æ‡§É a b ‚â° true   ‚Üí   a ‚â° b          (the true word lifts)
+--     a ‚â° b            ‚Üí   ‡§∏‡§Æ‡§É a b ‚â° true  (completeness)
+--     ‡§∏‡§Æ‡§É a b ‚â° false  ‚Üí   ¬¨ (a ‚â° b)      (the false word refutes)
 --
 -- and the corollary the binary was waiting for: the mouth's runtime
--- census counts a rule closed exactly when ‡‡Æ‡ (norm l) (norm r) comes
--- back true ‚î ‡Æ‡‡ñ-‡‡‡‡Ø‡Æ‡ turns each such runtime "closes" into full
+-- census counts a rule closed exactly when ‡§∏‡§Æ‡§É (norm l) (norm r) comes
+-- back true ‚Äî ‡§Æ‡•Å‡§ñ-‡§∏‡§§‡•ç‡§Ø‡§Æ‡•ç turns each such runtime "closes" into full
 -- semantic truth over EVERY environment, through norm-sound.
 ------------------------------------------------------------------------
 
@@ -75,7 +75,7 @@ open import NaturalMachine.EkaBhasha_TheStoreCarriesItsProofsTheGateIsTheTypeAnd
 ------------------------------------------------------------------------
 -- ¬ß3  Reflection on terms.  The diagonal carries the mathematics; the
 --     fifty-six off-diagonal clauses each hold a false ‚â° true and are
---     dismissed.  (The act's catch-all clause ‡‡Æ‡ _ _ = false reduces
+--     dismissed.  (The act's catch-all clause ‡§∏‡§Æ‡§É _ _ = false reduces
 --     at every concrete constructor pair, so the kernel sees each.)
 ------------------------------------------------------------------------
 
@@ -197,7 +197,7 @@ open import NaturalMachine.EkaBhasha_TheStoreCarriesItsProofsTheGateIsTheTypeAnd
 
 ------------------------------------------------------------------------
 -- ¬ß5  The warrant.  The compiled mouth counts a rule closed exactly
---     when ‡‡Æ‡ (norm l) (norm r) returns true at runtime.  This is the
+--     when ‡§∏‡§Æ‡§É (norm l) (norm r) returns true at runtime.  This is the
 --     path that utterance was owed: semantic truth over EVERY
 --     environment.  Each of the binary's "closes"
 --     is a theorem, not a report.

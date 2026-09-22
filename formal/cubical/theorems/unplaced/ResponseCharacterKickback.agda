@@ -6,14 +6,14 @@
 -- The exact algebraic boundary behind response-register phase kickback.
 -- A response group acts by translations on a state space.  If one returned
 -- response state is a simultaneous eigenstate for every translation, with a
--- faithful Â1 phase action, then the induced phase map is a character.
+-- faithful Â±1 phase action, then the induced phase map is a character.
 --
 -- Consequences checked below:
 --
 --   * Z/2 has the nontrivial sign character used by Boolean phase kickback;
 --   * every sign character of Z/3 is trivial;
 --   * therefore additive-trit response translation has no clean one-query
---     character-state realization of a nonconstant Â1 threshold phase.
+--     character-state realization of a nonconstant Â±1 threshold phase.
 --
 -- This is the algebraic interface theorem, not a Hilbert-space library.  A
 -- nonzero complex response vector supplies the faithful sign action, and the
@@ -67,7 +67,7 @@ plusâ‰¢minus p = trueâ‰¢false (cong sign-code p)
 -- 2. A phase space and a response-translation representation.
 --
 -- `faithful-at` is the exact nonzero-state hypothesis used in the familiar
--- Hilbert-space proof: +Î = -Î implies Î = 0, so a nonzero Î distinguishes
+-- Hilbert-space proof: +Î· = -Î· implies Î· = 0, so a nonzero Î· distinguishes
 -- the two signs.  Keeping it as a field avoids importing an undeclared scalar
 -- or norm structure.
 ------------------------------------------------------------------------

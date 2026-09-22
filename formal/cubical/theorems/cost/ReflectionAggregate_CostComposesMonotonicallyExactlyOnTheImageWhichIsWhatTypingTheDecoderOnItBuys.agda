@@ -1,47 +1,47 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡∞‡‡ø‡‡ø‡Æ‡‡-‡‡ô‡‡ò‡æ‡‡ ‚î cost composes monotonically EXACTLY on the image, and
+-- ‡§™‡•ç‡§∞‡§§‡§ø‡§¨‡§ø‡§Æ‡•ç‡§¨-‡§∏‡§ô‡•ç‡§ò‡§æ‡§§‡§É ‚Äî cost composes monotonically EXACTLY on the image, and
 -- that is what typing the decoder on the Image buys.  Two facts the corpus
 -- already holds, in different files, that are one fact.
 --
 -- FACT A (`README` ¬ßC4).  `FactorsThrough` has two definitions under one
--- name.  `FiniteInformation` types its decoder on the IMAGE ‚î "the empty
--- fibre unroutable by type, the router's guard is sound THERE" ‚î while
+-- name.  `FiniteInformation` types its decoder on the IMAGE ‚Äî "the empty
+-- fibre unroutable by type, the router's guard is sound THERE" ‚Äî while
 -- `QuotientFiberLaw` types it on the full codomain, and gating against the
--- wrong one makes the ‡∞‡ø‡ï‡‡‡Æ‡ rows transportable.  Recorded as a naming
+-- wrong one makes the ‡§∞‡§ø‡§ï‡•ç‡§§‡§Æ‡•ç rows transportable.  Recorded as a naming
 -- defect.
 --
--- FACT B (`DesaSanghata_‚¶NotAGradedMonoid`, `Vilopa_‚¶FailureOfChoice`, both
+-- FACT B (`DesaSanghata_‚Ä¶NotAGradedMonoid`, `Vilopa_‚Ä¶FailureOfChoice`, both
 -- this corpus, today).  Cost does not compose: an empty inner fibre deletes
--- a point of the outer fibre, ‡µ‡ø‡ï‡≤‡æ‡¶‡‡ collapses to ‡‡ï‡≤‡æ‡¶‡‡, monotonicity
--- fails ‚î and the annihilation happens exactly when no section
--- `(w : ‡‡‡ g z) ‚í ‡‡‡ f (fst w)` exists.
+-- a point of the outer fibre, ‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ collapses to ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂, monotonicity
+-- fails ‚Äî and the annihilation happens exactly when no section
+-- `(w : ‡§∂‡•á‡§∑ g z) ‚Üí ‡§∂‡•á‡§∑ f (fst w)` exists.
 --
--- THEY ARE THE SAME FACT.  The section whose absence ‡ïills composition IS
+-- THEY ARE THE SAME FACT.  The section whose absence ‡§ïills composition IS
 -- the statement that the outer fibre lies inside the image of `f`.  So:
 --
 --   * on the full codomain there is no graded monoid (Fact B), and
---   * on the image there is (¬ß‡© below), because the section is free,
+--   * on the image there is (¬ß‡•© below), because the section is free,
 --
--- and C4's "two definitions" is not a naming slip to be tidied ‚î it is the
+-- and C4's "two definitions" is not a naming slip to be tidied ‚Äî it is the
 -- boundary between a cost model that composes and one that does not.  The
 -- Image-typed decoder is sound for exactly the reason cost is monotone
 -- there, and no other.
 --
--- WHAT ¬ß‡© IS.  Not a new inequality: the hypothesis named, and shown to be
--- the image condition.  `‡‡‡‡‡‡¶-‡‡ô‡‡ò‡æ‡‡` says a crowded outer stage stays
+-- WHAT ¬ß‡•© IS.  Not a new inequality: the hypothesis named, and shown to be
+-- the image condition.  `‡§Ö‡§ö‡•ç‡§õ‡•á‡§¶-‡§∏‡§ô‡•ç‡§ò‡§æ‡§§‡§É` says a crowded outer stage stays
 -- crowded through composition whenever every outer point is hit by `f`.
--- That is the router's guard, and it is the whole of it ‚î there is nothing
+-- That is the router's guard, and it is the whole of it ‚Äî there is nothing
 -- else to check.
 --
--- ¬ß‡ is the price of the repair, and it is not nothing: the image condition
+-- ¬ß‡•™ is the price of the repair, and it is not nothing: the image condition
 -- is a Œ†, so it is not decidable here and cannot be tested pointwise, which
--- is `Vilopa` ¬ß‡ arriving from the other side.  A router does not VERIFY the
+-- is `Vilopa` ¬ß‡•™ arriving from the other side.  A router does not VERIFY the
 -- guard; it CARRIES a section, or it has no route.  That is why the receipt
 -- economy's unit is a term and not a check.
 --
--- No source claimed for the mathematics; it is elementary.  ‡‡‡∞‡‡ø‡‡ø‡Æ‡‡ is
+-- No source claimed for the mathematics; it is elementary.  ‡§™‡•ç‡§∞‡§§‡§ø‡§¨‡§ø‡§Æ‡•ç‡§¨ is
 -- ordinary  for image/reflection; the compound is built here,
 -- 2026-08-22.
 ------------------------------------------------------------------------
@@ -64,7 +64,7 @@ private
 ‡§∂‡•á‡§∑ {A = A} f b = Œ£[ a ‚àà A ] (f a ‚â° b)
 
 ------------------------------------------------------------------------
--- ‡ß ¬ The composition law (SankramanaSesa's ‡‡‡-‡‡ô‡‡ò‡æ‡‡; term cited, not
+-- ‡•ß ¬∑ The composition law (SankramanaSesa's ‡§∂‡•á‡§∑-‡§∏‡§ô‡•ç‡§ò‡§æ‡§§‡§É; term cited, not
 -- claimed), restated locally so this module stands alone under the kernel.
 ------------------------------------------------------------------------
 
@@ -95,7 +95,7 @@ module _ {A B C : Type ‚Ñì} (f : A ‚Üí B) (g : B ‚Üí C) (z : C) where
   ‡§∂‡•á‡§∑-‡§∏‡§ô‡•ç‡§ò‡§æ‡§§‡§É = isoToEquiv (iso fwd bwd fwd-bwd bwd-fwd)
 
 ------------------------------------------------------------------------
--- ‡® ¬ ‡‡‡∞‡‡ø‡‡ø‡Æ‡‡‡ ‚î THE IMAGE CONDITION, named.  "Every point of the outer
+-- ‡•® ¬∑ ‡§™‡•ç‡§∞‡§§‡§ø‡§¨‡§ø‡§Æ‡•ç‡§¨‡•á ‚Äî THE IMAGE CONDITION, named.  "Every point of the outer
 -- fibre over z is hit by f."  This is precisely the section whose absence
 -- Vilopa proves the annihilation requires, and precisely what typing a
 -- decoder on the Image asserts.
@@ -105,11 +105,11 @@ module _ {A B C : Type ‚Ñì} (f : A ‚Üí B) (g : B ‚Üí C) (z : C) where
 ‡§™‡•ç‡§∞‡§§‡§ø‡§¨‡§ø‡§Æ‡•ç‡§¨‡•á f g z = (w : ‡§∂‡•á‡§∑ g z) ‚Üí ‡§∂‡•á‡§∑ f (fst w)
 
 ------------------------------------------------------------------------
--- ‡© ¬ ‡‡‡‡‡‡¶-‡‡ô‡‡ò‡æ‡‡ ‚î ON THE IMAGE, COST IS MONOTONE.
+-- ‡•© ¬∑ ‡§Ö‡§ö‡•ç‡§õ‡•á‡§¶-‡§∏‡§ô‡•ç‡§ò‡§æ‡§§‡§É ‚Äî ON THE IMAGE, COST IS MONOTONE.
 --
 -- A crowded outer stage stays crowded through composition.  No annihilation,
 -- no hiding of upstream loss: the graded monoid that fails on the codomain
--- exists here.  The proof is one retraction ‚î the section splits `fst`.
+-- exists here.  The proof is one retraction ‚Äî the section splits `fst`.
 ------------------------------------------------------------------------
 
 ‡§Ö‡§ö‡•ç‡§õ‡•á‡§¶-‡§∏‡§ô‡•ç‡§ò‡§æ‡§§‡§É : {A B C : Type ‚Ñì} (f : A ‚Üí B) (g : B ‚Üí C) (z : C)
@@ -126,14 +126,14 @@ module _ {A B C : Type ‚Ñì} (f : A ‚Üí B) (g : B ‚Üí C) (z : C) where
     snd ‡§¨‡§π‡§ø‡§É-‡§∏‡§ô‡•ç‡§ï‡•ã‡§ö‡§É w = cong fst (snd Œ£c (w , s w))
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡¶‡ã‡‡≤‡‡ñ‡ ‚î the price of the repair, which is the same price one level
+-- ‡•™ ¬∑ ‡§¶‡•ã‡§∑‡§≤‡•á‡§ñ‡§É ‚Äî the price of the repair, which is the same price one level
 -- down.
 --
--- `‡‡‡∞‡‡ø‡‡ø‡Æ‡‡‡` is a Œ†.  It is not decidable here and cannot be tested
--- pointwise; `Vilopa` ¬ß‡ says the same thing from the other side, that the
+-- `‡§™‡•ç‡§∞‡§§‡§ø‡§¨‡§ø‡§Æ‡•ç‡§¨‡•á` is a Œ†.  It is not decidable here and cannot be tested
+-- pointwise; `Vilopa` ¬ß‡•™ says the same thing from the other side, that the
 -- obstruction yields only the non-existence of a section and never a witness
 -- point.  So a router does NOT verify this guard.  It CARRIES a section, or
--- it has no route ‚î which is exactly why the unit of proof-of-transport is a
+-- it has no route ‚Äî which is exactly why the unit of proof-of-transport is a
 -- term and not a check, and why `FactorsThrough` must be TYPED on the image
 -- rather than gated against it.  C4's "two definitions under one name" is
 -- therefore not a tidy-up: keeping both is keeping the boundary between a
@@ -141,6 +141,6 @@ module _ {A B C : Type ‚Ñì} (f : A ‚Üí B) (g : B ‚Üí C) (z : C) where
 -- which side each is on.
 --
 -- Not proved here: that the image-restricted composites form a category with
--- the monoid structure assembled.  ¬ß‡© is the key step (no annihilation), not
+-- the monoid structure assembled.  ¬ß‡•© is the key step (no annihilation), not
 -- the assembly.
 ------------------------------------------------------------------------

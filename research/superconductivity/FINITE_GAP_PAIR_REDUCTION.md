@@ -26,7 +26,7 @@ The m contact states are
 |\alpha;K\rangle=N^{-1/2}\sum_k|k,\alpha,\uparrow;K-k,\alpha,\downarrow\rangle.
 \]
 
-Their isometry C_K satisfies C_Kâ C_K=I_m, and V=-UC_KC_Kâ  exactly in this sector.
+Their isometry C_K satisfies C_Kâ€ C_K=I_m, and V=-UC_KC_Kâ€  exactly in this sector.
 
 Define
 
@@ -41,7 +41,7 @@ P_{\alpha\beta}(k)P_{\alpha\beta}^*(k-K).
 \tag{F.4}
 \]
 
-D is diagonal, 0<=D<=I, tr D=r. G=C_Kâ P_LL C_K is positive Hermitian. The complex conjugation in (F.4) follows from time reversal and cannot be omitted for a general complex band frame.
+D is diagonal, 0<=D<=I, tr D=r. G=C_Kâ€ P_LL C_K is positive Hermitian. The complex conjugation in (F.4) follows from time reversal and cannot be omitted for a general complex band frame.
 
 # 2. Free-sector residues close before a particular lattice is chosen
 
@@ -71,7 +71,7 @@ The bound-state equation and reconstruction are
 \tag{F.7}
 \]
 
-Given a negative-energy eigenstate, v=UC_Kâ psi is nonzero, since H_0 is nonnegative. Conversely every nonzero solution v reconstructs a nonzero eigenstate. The norm of the reconstructed vector is
+Given a negative-energy eigenstate, v=UC_Kâ€ psi is nonzero, since H_0 is nonnegative. Conversely every nonzero solution v reconstructs a nonzero eigenstate. The norm of the reconstructed vector is
 
 \[
 \|\psi\|^2=v^\dagger\left[G/x^2+(2D-2G)/(x+\Delta)^2

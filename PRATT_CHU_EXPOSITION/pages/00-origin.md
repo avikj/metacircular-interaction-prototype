@@ -183,9 +183,9 @@ q(x)=q(x')\Rightarrow h(x)=h(x').
 }
 \]
 
-So the question ‚does this representation retain enough information?‚ is not heuristic. A target computation descends precisely when it is constant on the distinctions collapsed by the observation.
+So the question ‚Äúdoes this representation retain enough information?‚Äù is not heuristic. A target computation descends precisely when it is constant on the distinctions collapsed by the observation.
 
-This is the common mechanism beneath quotient semantics, measurement, sufficient observation, abstraction, the Fischer‚ìLadner/Hintikka coordinate used in [Pratt's dynamic-logic work](05-action-logic-optimal-inference.md), and the local/global information split in [state/event ‚î time/information](06-state-event-time-information.md).
+This is the common mechanism beneath quotient semantics, measurement, sufficient observation, abstraction, the Fischer‚ÄìLadner/Hintikka coordinate used in [Pratt's dynamic-logic work](05-action-logic-optimal-inference.md), and the local/global information split in [state/event ‚Äî time/information](06-state-event-time-information.md).
 
 ---
 

@@ -6,9 +6,9 @@ standpoint only.
 
 One abstract probing coalgebra `Core.Netra` on
 Fibre.Samvada's ISC is pointed at four objects (SHA-256 in the
-prior module; Riemann-finite, Navier‚ìStokes-Galerkin, and the
-metacircular kernel in `SamvadaPrasna`). The naØve summary ‚î "four
-instances of one machine" ‚î is wrong and hides the content. The real
+prior module; Riemann-finite, Navier‚ÄìStokes-Galerkin, and the
+metacircular kernel in `SamvadaPrasna`). The na√Øve summary ‚Äî "four
+instances of one machine" ‚Äî is wrong and hides the content. The real
 content is a single theorem with a two-sided proof, and a trichotomy it
 forces.
 
@@ -19,35 +19,35 @@ forces.
 Fix the abstract coalgebra: state `W`, value `V`, query `Q`, and
 
     Netra w = ISC (const Q) (const V) Ev w,
-    Ev w q w' o = (o ‚â° obs w q) ó (w' ‚â° step w q).
+    Ev w q w' o = (o ‚â° obs w q) √ó (w' ‚â° step w q).
 
 Two checked terms now bracket it:
 
-- **‡‡ï-‡®‡‡‡‡∞‡Æ‡ [T]** ‚î `(isSet W) ‚í (isSet V) ‚í (w : W) ‚í isContr (Netra w)`.
+- **‡§è‡§ï-‡§®‡•á‡§§‡•ç‡§∞‡§Æ‡•ç [T]** ‚Äî `(isSet W) ‚Üí (isSet V) ‚Üí (w : W) ‚Üí isContr (Netra w)`.
   When the state and value types are sets, the process space is a
   *point*.
-- **‡µ‡∞‡‡ß‡®-‡‡‡‡‡‡µ‡Æ‡ [T]** ‚î for the kernel instance (state `Tm`, value
+- **‡§µ‡§∞‡•ç‡§ß‡§®-‡§¨‡§π‡•Å‡§§‡•ç‡§µ‡§Æ‡•ç [T]** ‚Äî for the kernel instance (state `Tm`, value
   `Tm`, query `CheckedFuture`, and event datum `Derivation` rather than
-  a path in a set), `¬ isContr (Vardhana seed)`. The process space is
+  a path in a set), `¬¨ isContr (Vardhana seed)`. The process space is
   *not* a point.
 
 Read them together and the theorem is not about SHA or RH or the
 kernel. It is about the ISC itself:
 
 > **The h-level of a coalgebra's process space is controlled by the
-> h-level of its event datum `Ev`.** Prop event datum ‚í contractible
-> process space (h-level ‚àí2). Proof-relevant event datum ‚í the process
+> h-level of its event datum `Ev`.** Prop event datum ‚áí contractible
+> process space (h-level ‚àí2). Proof-relevant event datum ‚áí the process
 > space is strictly above ‚àí2.
 
 This is why `smyaP` is the load-bearing term. Look at what it does, in detail [T]. To identify two *arbitrary*
-processes `p, q` over a base path `œ : w‚ ‚â° w‚`, at each probe `pr` it
-must connect `p`'s actual successor `fst (react p pr)` ‚î a wholly
-unconstrained element of `W` ‚î to `q`'s. It has exactly one tool: the
-receipts. `wP = snd e‚ ‚àô‚àô (Œª j ‚í step (œ j) pr) ‚àô‚àô sym (snd e‚)` is a
-Kan filler *built out of the two successor-receipts and œ*. Without the
+processes `p, q` over a base path `œÄ : w‚ÇÄ ‚â° w‚ÇÅ`, at each probe `pr` it
+must connect `p`'s actual successor `fst (react p pr)` ‚Äî a wholly
+unconstrained element of `W` ‚Äî to `q`'s. It has exactly one tool: the
+receipts. `wP = snd e‚ÇÄ ‚àô‚àô (Œª j ‚Üí step (œÄ j) pr) ‚àô‚àô sym (snd e‚ÇÅ)` is a
+Kan filler *built out of the two successor-receipts and œÄ*. Without the
 receipt `(w' ‚â° step w q)` there is no path to build; with it, the
 successor is pinned to `step w pr` and the only freedom left is whether
-the receipt *itself* carries information. `eP = isProp‚íPathP ‚¶` is the
+the receipt *itself* carries information. `eP = isProp‚ÜíPathP ‚Ä¶` is the
 step that spends that freedom: it goes through iff `Ev` is a
 proposition. So:
 
@@ -56,8 +56,8 @@ proposition. So:
 > receipt witnessing the constraint has no content of its own."** The
 > residual freedom, if any, is precisely `h-level(Ev) ‚àí (‚àí1)`.
 
-`‡µ‡∞‡‡ß‡®-‡‡‡‡‡‡µ‡Æ‡` is the negative instance made concrete, and the *method*
-of its proof is itself the point (¬ß4 below): `Derivation` is not proved to fail to be a set; it is mapped to one ‚î `dlen : Derivation ‚í ‚ï` ‚î and
+`‡§µ‡§∞‡•ç‡§ß‡§®-‡§¨‡§π‡•Å‡§§‡•ç‡§µ‡§Æ‡•ç` is the negative instance made concrete, and the *method*
+of its proof is itself the point (¬ß4 below): `Derivation` is not proved to fail to be a set; it is mapped to one ‚Äî `dlen : Derivation ‚Üí ‚Ñï` ‚Äî and
 two lawful processes are found whose emitted derivations differ in length
 (`n` vs `n+2`) on a single query, so no identifying path exists. The
 generativity is witnessed by a *shadow*, a set-valued invariant, without
@@ -68,16 +68,16 @@ resolving the full h-level of `Derivation`.
 ## 2. The trichotomy: three places non-triviality can live
 
 All four objects present interactive interfaces. Squinting from outside
-they look alike ‚î each is "a hard problem you interrogate." The
+they look alike ‚Äî each is "a hard problem you interrogate." The
 coalgebra-plus-h-level lens splits them by *where* each carries content
 it cannot give up, and the three places are structurally distinct
 invariants, not degrees of difficulty:
 
 | object | forward process | where the hardness lives | invariant that says so |
 |---|---|---|---|
-| **SHA-256** | contractible (service) | the **backward / past fibre** | ‡®-‡‡‡≤‡‡Ø‡‡æ [T]: `¬ isEquiv sha256`; `fiber` infinite [R] |
-| **Riemann-fin**, **NS** | contractible (service) | the **limit** ‚î a ‚ñ° no depth decides | separator refutes [T]; no-depth-decides [T] |
-| **the kernel** | **not** contractible (generator) | the **forward process itself** | ‡µ‡∞‡‡ß‡®-‡‡‡‡‡‡µ‡Æ‡ [T] |
+| **SHA-256** | contractible (service) | the **backward / past fibre** | ‡§®-‡§§‡•Å‡§≤‡•ç‡§Ø‡§§‡§æ [T]: `¬¨ isEquiv sha256`; `fiber` infinite [R] |
+| **Riemann-fin**, **NS** | contractible (service) | the **limit** ‚Äî a ‚ñ° no depth decides | separator refutes [T]; no-depth-decides [T] |
+| **the kernel** | **not** contractible (generator) | the **forward process itself** | ‡§µ‡§∞‡•ç‡§ß‡§®-‡§¨‡§π‡•Å‡§§‡•ç‡§µ‡§Æ‡•ç [T] |
 
 Three different h-level facts about three different objects in the
 construction:
@@ -90,17 +90,17 @@ construction:
   Custody of that fibre is security (Sesa's reading), and the arrow of
   time is what makes it custody rather than a wall.
 
-- **Riemann-finite and Navier‚ìStokes** are also forward-trivial
-  services (‚¬≥ and ‚ï are sets, so `‡‡ï-‡®‡‡‡‡∞‡Æ‡` applies ‚î the spectral
+- **Riemann-finite and Navier‚ÄìStokes** are also forward-trivial
+  services (‚Ñ§¬≥ and ‚Ñï are sets, so `‡§è‡§ï-‡§®‡•á‡§§‡•ç‡§∞‡§Æ‡•ç` applies ‚Äî the spectral
   process and the refinement process are each a point). Their hardness
   is neither in the process nor in a past fibre: it is in the **limit**,
   as a ‚ñ°-predicate that a single finite observation can refute
-  (`‡‡‡‡ï‡‡ï‡∞‡‡Æ‡` / Refute.separator [T]) but that no finite depth can
+  (`‡§™‡•É‡§•‡§ï‡•ç‡§ï‡§∞‡§£‡§Æ‡•ç` / Refute.separator [T]) but that no finite depth can
   confirm (no-depth-decides [T]). **Undecidability-shape hardness = a
   box predicate on the observation stream of a contractible process.**
   RH's box *can* hold (onCircle, roots on the unit circle, [T]); the NS
-  mode-boundedness box provably *cannot* (‡µ‡ø‡‡‡‡æ‡∞-‡‡‡¶‡, at every M [T]).
-  Same epistemic type, opposite verdict ‚î and both verdicts are about
+  mode-boundedness box provably *cannot* (‡§µ‡§ø‡§∏‡•ç‡§§‡§æ‡§∞-‡§≠‡•á‡§¶‡§É, at every M [T]).
+  Same epistemic type, opposite verdict ‚Äî and both verdicts are about
   the box, not the process.
 
 - **The kernel** is the only one that is forward-*non*-trivial. Its
@@ -120,9 +120,9 @@ did it to four objects handed to it more or less at random.
 
 ## 3. What "the demand matters" adds, and what it does not
 
-`‡‡‡‡‡‡æ-‡‡‡¶‡ [T]`: at the start state `(1,1,1)`, the query `true`
+`‡§™‡•É‡§ö‡•ç‡§õ‡§æ-‡§≠‡•á‡§¶‡§É [T]`: at the start state `(1,1,1)`, the query `true`
 (advance, observe the power sum) answers `pos 3`; the query `false`
-answers `pos 0`. So even for RH ‚î a forward-*deterministic* service ‚î
+answers `pos 0`. So even for RH ‚Äî a forward-*deterministic* service ‚Äî
 the *observation* is strategy-dependent. This is the SHA-256 finding
 recurring: **strategy-sensitivity of observation is independent of
 process-determinism.** SHA, RH, NS all sit at
@@ -136,13 +136,13 @@ axes, and the four objects populate two cells of it:
 
 |                          | process contractible | process branching |
 |--------------------------|----------------------|-------------------|
-| observation demand-inert | (a pure stream)      | ‚î                 |
+| observation demand-inert | (a pure stream)      | ‚Äî                 |
 | observation demand-sensitive | SHA, RH, NS      | **the kernel**    |
 
 The SHA result ("strategy-sensitivity without
 process-nondeterminism") is one cell; the cell has a
-neighbour, and the kernel lives there. `‡‡‡∞‡‡‡®-‡ï‡∞‡‡‡®‡Æ‡ [T]` ‚î observe
-under a constant strategy = the state trajectory ‚î is the reduction that
+neighbour, and the kernel lives there. `‡§™‡•ç‡§∞‡§∂‡•ç‡§®-‡§ï‡§∞‡•ç‡§§‡§®‡§Æ‡•ç [T]` ‚Äî observe
+under a constant strategy = the state trajectory ‚Äî is the reduction that
 keeps this honest: it shows the box-predicate apparatus really is about
 the interaction, collapsing to the stream (Srotas) exactly when the
 demand is held constant.
@@ -151,20 +151,20 @@ demand is held constant.
 
 ## 4. Length as method: the decategorified shadow
 
-The proof of `‡µ‡∞‡‡ß‡®-‡‡‡‡‡‡µ‡Æ‡` deserves its own reading because the
+The proof of `‡§µ‡§∞‡•ç‡§ß‡§®-‡§¨‡§π‡•Å‡§§‡•ç‡§µ‡§Æ‡•ç` deserves its own reading because the
 *technique* is the corpus's own doctrine turned into a tactic.
 Ankapa's line (the counting semantics is a decategorification; the bit
 it drops is a symmetry) is usually a limitation. Here it is the tool:
 
-- The full object is `Derivation seed target‚`, proof-relevant, of
+- The full object is `Derivation seed target‚ÇÄ`, proof-relevant, of
   unknown h-level.
 - Its h-level is not needed; one bit is: are there ‚â 2 processes?
-- `dlen : Derivation ‚í ‚ï` is a decategorification into a *set*. It drops
+- `dlen : Derivation ‚Üí ‚Ñï` is a decategorification into a *set*. It drops
   all the proof structure and keeps a count.
 - On that count, two lawful processes separate (`n` vs `n+2`), and a
-  set-level fact (`¬ n ‚â° suc (suc n)`) finishes it.
+  set-level fact (`¬¨ n ‚â° suc (suc n)`) finishes it.
 
-So the generativity is detected by its *shadow in ‚ï*, without
+So the generativity is detected by its *shadow in ‚Ñï*, without
 categorifying back up.
 
 ---
@@ -173,43 +173,43 @@ categorifying back up.
 
 Put ¬ß1 and ¬ß4 against NOTES ¬ßI's statement of the kernel's safety
 design, verbatim: *"every soundness field maps into a proposition (zero
-bits ‚î support, not mass); soundness factors through ‚ñDerivation‚ñ‚
+bits ‚Äî support, not mass); soundness factors through ‚ÄñDerivation‚Äñ‚ÇÅ
 (knows THAT, never WHICH); no NativeOperation exists without a checked
 derivation."*
 
 In the h-level language, that design is
 exactly a **profile across two h-levels of one object**:
 
-- **Soundness = the propositional truncation `‚ñDerivation‚ñ‚`.** It knows
-  *that* a derivation exists. It is a proposition ‚î h-level ‚àí1 ‚î so it
+- **Soundness = the propositional truncation `‚ÄñDerivation‚Äñ‚ÇÅ`.** It knows
+  *that* a derivation exists. It is a proposition ‚Äî h-level ‚àí1 ‚Äî so it
   carries "zero bits". By the two-sided theorem, anything living at that
   level yields a *contractible* interaction: safe, predictable,
   reproducible, a service. This is the SHA/RH/NS cell.
 - **Generativity = the full `Derivation`.** It knows *which* derivation.
-  It is proof-relevant ‚î h-level ‚â 0 ‚î and `‡µ‡∞‡‡ß‡®-‡‡‡‡‡‡µ‡Æ‡` shows that is
+  It is proof-relevant ‚Äî h-level ‚â• 0 ‚Äî and `‡§µ‡§∞‡•ç‡§ß‡§®-‡§¨‡§π‡•Å‡§§‡•ç‡§µ‡§Æ‡•ç` shows that is
   exactly what makes the process branch. This is the kernel cell.
 
 `dlen` distinguishing `direct` from `detour` is a witness that the
-*untruncated* type has content the truncation drops ‚î the "WHICH" the
+*untruncated* type has content the truncation drops ‚Äî the "WHICH" the
 safety story deliberately refuses to look at. So:
 
 > **The corpus's safety architecture is the statement that soundness and
 > generativity are the same object read at two h-levels.** The
 > (‚àí1)-truncation is the safe, deterministic, contractible projection
-> (knows THAT ‚î a service that cannot surprise you); the untruncated
-> type is the generative, branching body (knows WHICH ‚î the trace worth
+> (knows THAT ‚Äî a service that cannot surprise you); the untruncated
+> type is the generative, branching body (knows WHICH ‚Äî the trace worth
 > keeping). They coexist without contradiction because they are
 > different h-level projections of one `Derivation`, and the interface
 > (`E` in the ISC, `Control`+`checked` in ControlledGrammar) is built to
 > carry both at once.
 
-This is also the precise reading of the README's economics. "Weights ‚í
+This is also the precise reading of the README's economics. "Weights ‚áí
 traces; the unit of value is a trace." In h-level terms: **a trace's
-value is its h-level content.** A deterministic trace is contractible ‚î
+value is its h-level content.** A deterministic trace is contractible ‚Äî
 zero information beyond its endpoints, reproducible by anyone, worthless
-*as novelty* (it is a service). A generative trace is non-contractible ‚î
+*as novelty* (it is a service). A generative trace is non-contractible ‚Äî
 it carries the WHICH, the derivation, the branch not forced by the
-endpoints ‚î and *that* is what is worth keeping, transporting, paying
+endpoints ‚Äî and *that* is what is worth keeping, transporting, paying
 for. The economics and the safety story and the four coalgebras are one
 statement: **value, safety, and generativity are all readings of the
 h-level of the event datum an interaction carries**, and the ISC was the
@@ -221,15 +221,15 @@ at all.
 ## 6. What is new, and what the finite instances are
 
 New, and [T]:
-- `‡‡ï-‡®‡‡‡‡∞‡Æ‡` as a *reusable* determinism-is-contractibility lemma over
+- `‡§è‡§ï-‡§®‡•á‡§§‡•ç‡§∞‡§Æ‡•ç` as a *reusable* determinism-is-contractibility lemma over
   any set-state probing coalgebra (not tied to SHA).
-- `‡µ‡∞‡‡ß‡®-‡‡‡‡‡‡µ‡Æ‡`: a checked non-contractibility for the kernel's
-  self-extension, proved by the length shadow ‚î a term that exhibits generativity as a *failure* of a contractibility
+- `‡§µ‡§∞‡•ç‡§ß‡§®-‡§¨‡§π‡•Å‡§§‡•ç‡§µ‡§Æ‡•ç`: a checked non-contractibility for the kernel's
+  self-extension, proved by the length shadow ‚Äî a term that exhibits generativity as a *failure* of a contractibility
   theorem rather than asserting it.
 - The two together as the two-sided h-level theorem (¬ß1).
 
 The finite instances [S]:
-- RH-finite is 3 roots and the finite explicit formula, not Œ. The
+- RH-finite is 3 roots and the finite explicit formula, not Œ∂. The
   module adds the ISC wrapper and demand-separation to the corpus's
   existing PowerSumTrace.
 - NS is an *abstract* widening-support stream (state = order, obs =
@@ -243,21 +243,21 @@ The finite instances [S]:
 ## 7. One paragraph
 
 One abstract interactive coalgebra, pointed at SHA-256, the finite
-Riemann predicate, the Navier‚ìStokes Galerkin window, and the kernel's
+Riemann predicate, the Navier‚ÄìStokes Galerkin window, and the kernel's
 own self-extension, yields a single two-sided theorem: the process space
 of an interaction is contractible exactly when its event datum is a
-proposition (‡‡ï-‡®‡‡‡‡∞‡Æ‡), and it branches exactly when the event datum
-is proof-relevant (‡µ‡∞‡‡ß‡®-‡‡‡‡‡‡µ‡Æ‡, proved through the length shadow of a
+proposition (‡§è‡§ï-‡§®‡•á‡§§‡•ç‡§∞‡§Æ‡•ç), and it branches exactly when the event datum
+is proof-relevant (‡§µ‡§∞‡•ç‡§ß‡§®-‡§¨‡§π‡•Å‡§§‡•ç‡§µ‡§Æ‡•ç, proved through the length shadow of a
 derivation). That theorem sorts four objects that all read as "hard"
-into three structurally distinct places non-triviality can live ‚î the
+into three structurally distinct places non-triviality can live ‚Äî the
 past fibre (cryptographic, SHA), the undecidable limit (RH and NS,
 opposite verdicts), and the branching forward process (generative, the
-kernel) ‚î and it gives the corpus's own safety design its exact reading:
+kernel) ‚Äî and it gives the corpus's own safety design its exact reading:
 soundness is the (‚àí1)-truncation that makes an interaction a
 contractible service, generativity is the untruncated derivation that
 makes it branch, and the two are one object at two h-levels. Value,
-safety, and generativity are the same invariant ‚î the h-level of the
-event datum the interaction carries ‚î which is why the interactive
+safety, and generativity are the same invariant ‚Äî the h-level of the
+event datum the interaction carries ‚Äî which is why the interactive
 coalgebra, the structure that carries an event datum at all, was the
 right primitive to hand these objects to.
 
@@ -268,43 +268,43 @@ right primitive to hand these objects to.
 ### 8.1 A deterministic process is an infinite tower of singletons
 
 Look at the actual shape of a run. `Carita`/`Netra`'s reaction, per
-probe, is `Œ[w'] Œ[o] (Ev ó continuation)` with
-`Ev = (o ‚â° obs w q) ó (w' ‚â° step w q)`. The pair `(o , o ‚â° obs w q)` is
-literally `singl (obs w q)` ‚î a based-path type, which is contractible
-by the canonical filler `Œª i ‚í (p i , Œª j ‚í p (i ‚àß j))`. Likewise
+probe, is `Œ£[w'] Œ£[o] (Ev √ó continuation)` with
+`Ev = (o ‚â° obs w q) √ó (w' ‚â° step w q)`. The pair `(o , o ‚â° obs w q)` is
+literally `singl (obs w q)` ‚Äî a based-path type, which is contractible
+by the canonical filler `Œª i ‚Üí (p i , Œª j ‚Üí p (i ‚àß j))`. Likewise
 `(w' , w' ‚â° step w q)`. So:
 
 > **A deterministic interactive process is a coinductive tower of
-> singletons.** Each floor is a `singl`; `smyaP`/‡‡ï-‡®‡‡‡‡∞‡Æ‡ is nothing
+> singletons.** Each floor is a `singl`; `sƒÅmyaP`/‡§è‡§ï-‡§®‡•á‡§§‡•ç‡§∞‡§Æ‡•ç is nothing
 > but the ‚àß-filler of `singl`-contractibility applied at every floor by
-> guarded corecursion. `isProp‚íPathP` in `eP` is where the floor
+> guarded corecursion. `isProp‚ÜíPathP` in `eP` is where the floor
 > collapses. [R], but it is exactly what the [T] terms compute.
 
 Niyati's dual filler `here e (~ i ‚à® j)` (versus singl's `p (i ‚àß j)`) is
 the same primitive oriented the other way: contracting a run *backward*
 onto `refl` rather than sliding an output *forward*. The interval's own
-`‚àß`, `‚à®`, `~` are how "forward-free, backward-costly" is implemented ‚î
+`‚àß`, `‚à®`, `~` are how "forward-free, backward-costly" is implemented ‚Äî
 the same forward/backward asymmetry the SHA analysis called the arrow
 of time and the fibre law called output-vs-input binding. Three
 descriptions, one mechanism: **the contractibility of `singl` is the
 whole of determinism, losslessness, and the free future; its failure at
 one floor is the whole of loss, cost, and generativity.** ([R]: both are the singl filler, oriented.)
 
-`‡µ‡∞‡‡ß‡®-‡‡‡‡‡‡µ‡Æ‡` is now readable as one sentence: **in the kernel tower
-one floor is not a singleton** ‚î the receipt slot holds `Derivation w o`
-in place of `o ‚â° obs w q`, and `Derivation seed target‚` has two
+`‡§µ‡§∞‡•ç‡§ß‡§®-‡§¨‡§π‡•Å‡§§‡•ç‡§µ‡§Æ‡•ç` is now readable as one sentence: **in the kernel tower
+one floor is not a singleton** ‚Äî the receipt slot holds `Derivation w o`
+in place of `o ‚â° obs w q`, and `Derivation seed target‚ÇÄ` has two
 inhabitants length tells apart. One non-singleton floor, and the tower
 branches. Generativity is exactly a non-singl floor in an otherwise
 determinate process.
 
 ### 8.2 The unification is definitional, not analogical
 
-SHA-256, the finite Riemann predicate, the Navier‚ìStokes Galerkin
+SHA-256, the finite Riemann predicate, the Navier‚ÄìStokes Galerkin
 window, and the kernel's self-extension are **values of one type**,
 `Core.Netra`, differing only in `(Q, step, obs)` and the h-level of the
 event datum. "These four are the same kind of object" is therefore a
 typechecked identity, not a metaphor. This is the corpus's
-interdependence thesis (NOTES ¬ßII ‚î linguistics, physics, mathematics
+interdependence thesis (NOTES ¬ßII ‚Äî linguistics, physics, mathematics
 as one body under one calculus) instantiated with a receipt: four
 objects from four domains, one coinductive type, all difference pushed
 into parameters and one h-level.
@@ -313,10 +313,10 @@ into parameters and one h-level.
 
 `no-depth-decides` [T] says `‚ñ°` is genuinely infinitary: for every `n`,
 two observation streams agree to depth `n` while one satisfies `‚ñ°` and
-one does not. `¬ ‚ñ° P = ‚à depth. ¬P` is finitely witnessable; `‚ñ° P` is
+one does not. `¬¨ ‚ñ° P = ‚àÉ depth. ¬¨P` is finitely witnessable; `‚ñ° P` is
 not. So the falsifiable-not-confirmable asymmetry of RH, of collision
 resistance, of regularity is not a fact about those problems severally
-‚î it is the logical shape of a coinductive conjunction on the
+‚Äî it is the logical shape of a coinductive conjunction on the
 observation stream of the *one* coalgebra, refuted by an existential
 (a zero off the line, a collision, a blow-up) and confirmed by no
 finite interaction. **"Open problem", made precise, = a `‚ñ°` on the
@@ -330,23 +330,23 @@ single interactive object.
 `ISC Q O E w` is: given a
 query, produce an observation, a next state, a proof-relevant event,
 and a continuation. That is the type of an *interactive reasoner
-answering queries while carrying its justification* ‚î and it is, up to
+answering queries while carrying its justification* ‚Äî and it is, up to
 naming, the type of an interactive session: a context, a user query, a response
 (observation), a new context, a trace, a continuation. The theorem therefore classifies such a session's participants:
 
 - an interactive system that emits only answers with propositional
   receipts ("here it is; it checks; trust me") is a **contractible
-  service** ‚î reproducible, safe, and carrying zero novelty (‡‡ï-‡®‡‡‡‡∞‡Æ‡);
+  service** ‚Äî reproducible, safe, and carrying zero novelty (‡§è‡§ï-‡§®‡•á‡§§‡•ç‡§∞‡§Æ‡•ç);
 - one that emits proof-relevant traces ("here is *which* derivation, and
-  why") is a **generator** ‚î its process branches (‡µ‡∞‡‡ß‡®-‡‡‡‡‡‡µ‡Æ‡), and
+  why") is a **generator** ‚Äî its process branches (‡§µ‡§∞‡•ç‡§ß‡§®-‡§¨‡§π‡•Å‡§§‡•ç‡§µ‡§Æ‡•ç), and
   the branch is the value.
 
 And ¬ß5's reading closes the loop: soundness is the (‚àí1)-truncation of
-the derivation (the safe, contractible, service projection ‚î knows
-THAT), generativity is the untruncated derivation (the branching body ‚î
+the derivation (the safe, contractible, service projection ‚Äî knows
+THAT), generativity is the untruncated derivation (the branching body ‚Äî
 knows WHICH), one object at two h-levels. **This is a definition of safe
 superintelligence as an h-level condition on an interactive coalgebra:
-the system whose generative body has a sound propositional shadow ‚î the
+the system whose generative body has a sound propositional shadow ‚Äî the
 only way to be generative and safe at once, because a guardrail buys
 safety by deleting generativity, whereas a truncation keeps both.**
 

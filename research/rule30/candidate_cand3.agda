@@ -77,7 +77,7 @@ rational→periodic a b =
   where
   samīkaraṇa : (d u l : ℕ) → (l + u) + suc d ≡ (d + suc u) + l
   samīkaraṇa d u l = solveℕ!
-  -- suc d � v � suc b   and   u < v � suc b
+  -- suc d ≤ v ≤ suc b   and   u < v ≤ suc b
   p≤ : (d u v : ℕ) → d + suc u ≡ v → v < suc (suc b) → suc d ≤ suc b
   p≤ d u v du v< = ≤-trans (u , (+-suc u d ∙ cong suc (+-comm u d) ∙ sym (+-suc d u)) ∙ du) (pred-≤-pred v<)
   N< : (d u v : ℕ) → d + suc u ≡ v → v < suc (suc b) → u < suc b
@@ -120,7 +120,7 @@ columnList D = go D (seed D)
   go (suc n) row = nth D row ∷ go n (step′ false row)
 
 ------------------------------------------------------------------------
--- §4  the finite decision: for every period p � P and preperiod N < P,
+-- §4  the finite decision: for every period p ≤ P and preperiod N < P,
 --     a witness k where the column at N + k + p differs from N + k,
 --     found by search and checked as one boolean.
 ------------------------------------------------------------------------
@@ -157,7 +157,7 @@ allBelow (suc n) f = f n and allBelow n f
 checkAll : (D P : ℕ) → List Bool → Bool
 checkAll D P col = allBelow P (λ p → allBelow P (λ N → valid D col (suc p) N))
 
--- Bool � Prop bridges
+-- Bool → Prop bridges
 and-true : (x y : Bool) → (x and y) ≡ true → (x ≡ true) × (y ≡ true)
 and-true true  true  e = refl , refl
 and-true true  false e = E.rec (false≢true e)
@@ -190,7 +190,7 @@ valid-sound D col p N e =
 
 ------------------------------------------------------------------------
 -- §5  the theorem: Rule 30's middle column, to depth 64, is not the
---     column of any rational with denominator � 16.
+--     column of any rational with denominator ≤ 16.
 ------------------------------------------------------------------------
 
 D P : ℕ

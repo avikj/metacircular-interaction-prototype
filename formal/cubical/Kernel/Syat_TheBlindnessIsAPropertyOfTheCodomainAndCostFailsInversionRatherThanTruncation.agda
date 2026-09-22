@@ -6,10 +6,10 @@
 --
 -- TERM, AND THE SCHOOL IS JAINA, NAMED BEFORE THE TERM IS USED.
 --
--- ‡‡‡Ø‡æ‡‡ ¬ syt -- the qualifier that prefixes every bhaga of the
--- saptabhag.  Optative of ‚à‡‡‡, used as an indeclinable, and it does NOT
+-- ‡§∏‡•ç‡§Ø‡§æ‡§§‡•ç ¬∑ syƒÅt -- the qualifier that prefixes every bha·πÖga of the
+-- saptabha·πÖgƒ´.  Optative of ‚àö‡§Ö‡§∏‡•ç, used as an indeclinable, and it does NOT
 -- mean "maybe": the Jaina logicians insist each qualified predication is
--- ‡®‡ø‡‡‡‡Ø ¬ nicaya, determinate, asserted under a stated ‡â‡‡æ‡ß‡ø ¬ updhi.
+-- ‡§®‡§ø‡§∂‡•ç‡§ö‡§Ø ¬∑ ni≈õcaya, determinate, asserted under a stated ‡§â‡§™‡§æ‡§ß‡§ø ¬∑ upƒÅdhi.
 -- The apparatus is laid out in Samantabhadra's *ptamms* (~6th c.) and
 -- developed by Akalaka (~8th c.) and Vidynanda; the governing rule taken
 -- here is the older one, that a naya asserting itself by denying the
@@ -18,13 +18,13 @@
 ------------------------------------------------------------------------
 -- THE BLINDNESS IS A PROPERTY OF THE CODOMAIN.
 --
--- `Sesa_‚¶` proves `every-semantic-criterion-is-blind`:
+-- `Sesa_‚ü¶` proves `every-semantic-criterion-is-blind`:
 --
 --     syt: FROM A 0-TRUNCATED STANDPOINT, no criterion selects.
 --
 -- The h-level
 -- of the CRITERION is unrestricted in `Sesa_`'s statement, but the h-level
--- of the CODOMAIN is what does the work, and it is fixed at 0 by ‚ï.
+-- of the CODOMAIN is what does the work, and it is fixed at 0 by ‚Ñï.
 -- The general form is supplied beside it.
 --
 ------------------------------------------------------------------------
@@ -39,7 +39,7 @@
 -- the obstruction to seeing it is INVERSION, not truncation, and raising
 -- h-level does not reach it.
 --
--- `Avirodha_‚¶` states the structure -- strictly a category, weakly a
+-- `Avirodha_‚Ä¶` states the structure -- strictly a category, weakly a
 -- groupoid, and the gap between them is the ea.  ¬ß2 measures that gap:
 -- it is exactly `len d + len d`.
 --
@@ -89,7 +89,7 @@ private
 -- ¬ß1.  WHAT THE BLINDNESS PROOF ACTUALLY EATS.
 --
 -- The codomain, the interpretation and its soundness are all parameters.
--- Nothing about ‚ï survives, nothing about `eval`, nothing about the six
+-- Nothing about ‚Ñï survives, nothing about `eval`, nothing about the six
 -- constructors.  One hypothesis is consumed and it is `isSet X`.
 ------------------------------------------------------------------------
 

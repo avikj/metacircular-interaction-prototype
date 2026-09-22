@@ -22,11 +22,11 @@
 --   ¬ß2  THE GAP LIVES IN THE FORGETFUL IMAGE.  The kernel's own two histories
 --       between the same endpoints have DIFFERENT length in the calculus
 --       (2 and 4 -- carried, visible) yet EQUAL image under the forgetful
---       semantics `derivation-sound` (because ‚ï is a set).  The length gap is
+--       semantics `derivation-sound` (because ‚Ñï is a set).  The length gap is
 --       therefore a property of the projection `eval`, invisible to it and
 --       present only in the `Derivation` it forgets.
 --
--- Read together: carried, the answer is œ‚ and the routes are distinct data;
+-- Read together: carried, the answer is œÄ‚ÇÅ and the routes are distinct data;
 -- forgotten, the routes collapse to one proposition and the distinction -- the
 -- "gap" -- is what the projection destroyed.  syd-asti: the gap is real in
 -- the forgetful model and absent in the carried one, and both are theorems.
@@ -53,7 +53,7 @@ answer-is-projection-general :
   ‚Üí CheckedFuture.target (execute f) ‚â° EnabledFuture.target f
 answer-is-projection-general f = refl
 
--- The kernel's own seed as a witness: the answer comes out `target‚`.
+-- The kernel's own seed as a witness: the answer comes out `target‚ÇÄ`.
 answer-is-projection :
   CheckedFuture.target (execute direct-future) ‚â° target‚ÇÄ
 answer-is-projection = refl
@@ -84,7 +84,7 @@ len-detour = refl
 
 -- THE GENERAL THEOREM.  The forgetful semantics is blind to the route for
 -- ANY two derivations between ANY two endpoints, at ANY environment.  Nothing
--- example-specific: `derivation-sound` lands in an equality in ‚ï, and ‚ï is a
+-- example-specific: `derivation-sound` lands in an equality in ‚Ñï, and ‚Ñï is a
 -- set, so any two proofs of it agree.  The route -- however long, however it
 -- detours -- has EQUAL forgetful image.  This is the blindness, in general.
 forgetful-is-blind-to-route :

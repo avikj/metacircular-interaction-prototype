@@ -10,13 +10,13 @@
 --
 -- The two halves:
 --
---  � VERIFY is a projection over the input. `selSum` is a linear fold and
---    `verify?` decides `selSum xs sel ≡ t` in one pass � O(input). Given a
+--  · VERIFY is a projection over the input. `selSum` is a linear fold and
+--    `verify?` decides `selSum xs sel ≡ t` in one pass — O(input). Given a
 --    witness, checking is cheap and total.
 --
---  � The WITNESS SPACE deciding must range over has size 2^n. `masks n`
+--  · The WITNESS SPACE deciding must range over has size 2^n. `masks n`
 --    enumerates every selection of length n, and `count-masks` proves
---    `length (masks n) ≡ 2 ^ n` � checked. The witness is NOT a projection
+--    `length (masks n) ≡ 2 ^ n` — checked. The witness is NOT a projection
 --    of `(xs , t)`; it is a point of this exponential fibre.
 --
 -- So on a concrete NP instance the two halves separate exactly: verifying

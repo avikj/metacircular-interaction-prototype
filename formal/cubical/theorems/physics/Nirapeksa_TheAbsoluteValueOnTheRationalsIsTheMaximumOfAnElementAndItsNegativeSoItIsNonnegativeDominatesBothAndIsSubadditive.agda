@@ -1,17 +1,17 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ��������� � the absolute.
+-- निरपेक्ष — the absolute.
 --
--- The growth theorem with signed weights needs |�| on �, which the
+-- The growth theorem with signed weights needs |·| on ℚ, which the
 -- library does not define.  Here it is as max(x, −x):
 --
---   §1  |x| � 0, x � |x|, −x � |x|, and |−x| = |x|.
---   §2  THE TRIANGLE INEQUALITY |x + y| � |x| + |y|, by bounding both
+--   §1  |x| ≥ 0, x ≤ |x|, −x ≤ |x|, and |−x| = |x|.
+--   §2  THE TRIANGLE INEQUALITY |x + y| ≤ |x| + |y|, by bounding both
 --       arms of the max.
---   §3  |x| = x for x � 0 and |x| = −x for x � 0.
+--   §3  |x| = x for x ≥ 0 and |x| = −x for x ≤ 0.
 --
--- ��������� (nirapeka, absolute/independent) is ordinary .
+-- निरपेक्ष (nirapekṣa, absolute/independent) is ordinary .
 ------------------------------------------------------------------------
 
 module Nirapeksa_TheAbsoluteValueOnTheRationalsIsTheMaximumOfAnElementAndItsNegativeSoItIsNonnegativeDominatesBothAndIsSubadditive where
@@ -42,7 +42,7 @@ open import ParimeyaRupa_TheRationalsWithTheTrivialInvolutionFormAStarRingWithAH
 ∣ x ∣ = max x (- x)
 
 ------------------------------------------------------------------------
--- � � Basic bounds.
+-- १ · Basic bounds.
 ------------------------------------------------------------------------
 
 -- both arms are below the max
@@ -65,7 +65,7 @@ neg-≤ x y le = subst2 _≤_ (lemma₁ x y) (lemma₂ x y) (≤-+o x y ((- x) +
   lemma₂ : (x y : ℚ) → y + ((- x) + (- y)) ≡ - x
   lemma₂ x y = cong (y +_) (+Comm (- x) (- y)) ∙ +Assoc y (- y) (- x) ∙ cong (_+ (- x)) (+InvR y) ∙ +IdL (- x)
 
--- |x| � 0: whichever of x, −x is nonnegative sits below the max
+-- |x| ≥ 0: whichever of x, −x is nonnegative sits below the max
 anṛṇa : (x : ℚ) → 0 ≤ (∣ x ∣)
 anṛṇa x with x ≟ 0
 ... | lt x<0 = isTrans≤ 0 (- x) (∣ x ∣) (<Weaken≤ 0 (- x) (ṛṇa-viparīta x x<0)) (dakṣiṇa x)
@@ -77,7 +77,7 @@ neg-sama : (x : ℚ) → ∣ - x ∣ ≡ (∣ x ∣)
 neg-sama x = cong (max (- x)) (Sama.neg-neg ℚRing x) ∙ maxComm (- x) x
 
 ------------------------------------------------------------------------
--- � � The triangle inequality.
+-- २ · The triangle inequality.
 ------------------------------------------------------------------------
 
 ≤Monotone+ : (a b c d : ℚ) → a ≤ b → c ≤ d → a + c ≤ b + d
@@ -90,7 +90,7 @@ trikoṇa x y = max-≤ (x + y) (- (x + y)) (∣ x ∣ + (∣ y ∣))
     (≤Monotone+ (- x) (∣ x ∣) (- y) (∣ y ∣) (dakṣiṇa x) (dakṣiṇa y)))
 
 ------------------------------------------------------------------------
--- � � On each side of zero the absolute value is the element or its negative.
+-- ३ · On each side of zero the absolute value is the element or its negative.
 ------------------------------------------------------------------------
 
 dhana-sama : (x : ℚ) → 0 ≤ x → (∣ x ∣) ≡ x

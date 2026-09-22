@@ -3,14 +3,14 @@
 ------------------------------------------------------------------------
 -- Tantrayukti_ARetractionThatIsNotStrictIsNotARetraction
 --
--- SOURCE.  àà¨àààà°à¯àà•ààà¿ â” the devices of stric exposition.  Two lists
+-- SOURCE.  à¤¤à¤¨à¥à¤¤à¥à¤°à¤¯à¥à¤•à¥à¤¤à¤¿ â€” the devices of Å›Ästric exposition.  Two lists
 -- survive: Kauilya, *Arthastra*, book 15 chapter 1, thirty-two
 -- tantrayukti, which is the entire final book of the work; and Caraka
 -- Sahit, Siddhisthna 12, thirty-six, with Suruta Sahit
 -- Uttaratantra 65 carrying a further list.  Dating: the Arthastra is a
 -- compilation with a layer plausibly as early as the 4th c. BCE and a
--- redaction by roughly the 2ndâ“3rd c. CE; the Caraka Sahit's
--- Dhabala redaction is c. 4thâ“5th c. CE over an older core.
+-- redaction by roughly the 2ndâ€“3rd c. CE; the Caraka Saá¹ƒhitÄ's
+-- Dá¹›á¸habala redaction is c. 4thâ€“5th c. CE over an older core.
 --
 -- LIMIT OF THE CITATION, STATED because this repository treats a
 -- provenance you did not check as the same class of error as a fitted
@@ -21,33 +21,33 @@
 --
 -- The four devices this module is about:
 --
---   ààà°ààµàà•àà   the objection, stated by the author of the thesis
---   à‰àààà°àà•àà   the answer to it
---   àààµà¾à¦      the exception that restricts a general statement
---   à¨à¿à°ààà¯      the settled conclusion, after both
+--   à¤ªà¥‚à¤°à¥à¤µà¤ªà¤•à¥à¤·   the objection, stated by the author of the thesis
+--   à¤‰à¤¤à¥à¤¤à¤°à¤ªà¤•à¥à¤·   the answer to it
+--   à¤…à¤ªà¤µà¤¾à¤¦      the exception that restricts a general statement
+--   à¤¨à¤¿à¤°à¥à¤£à¤¯      the settled conclusion, after both
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- 1.  WHY THIS EXISTS: AGDA REFUSED, AND THE REFUSAL WAS INFORMATIVE
 --
 -- `AnuktaAvaktavya` Â§9 tried to cite the module that refutes it:
 --
 --     cyclic module dependency:
 --       AnuktaAvaktavya
---       â’ SamayikaAndNityaAreIndependent
---       â’ AnuktaAvaktavya
+--       â†’ SamayikaAndNityaAreIndependent
+--       â†’ AnuktaAvaktavya
 --
 -- The refutation opens the claim's module for the very definitions it
--- corrects (`using (àà¾à®à¯à¿à• ; à¨à¿ààà¯)`) â” it must, since refuting a claim
--- about àà¾à®à¯à¿à• requires MY àà¾à®à¯à¿à• and not a copy.  So:
+-- corrects (`using (à¤¸à¤¾à¤®à¤¯à¤¿à¤• ; à¤¨à¤¿à¤¤à¥à¤¯)`) â€” it must, since refuting a claim
+-- about à¤¸à¤¾à¤®à¤¯à¤¿à¤• requires MY à¤¸à¤¾à¤®à¤¯à¤¿à¤• and not a copy.  So:
 --
 --     A refutation strong enough to use the claim cannot be cited by it.
 --
 -- That is a property of the MEDIUM.  A module system has one direction
 -- of reference and no way to put an objection inside the thing objected
--- to.  stra has exactly that: ààà°ààµàà•àà is a slot, and the author of
+-- to.  ÅšÄstra has exactly that: à¤ªà¥‚à¤°à¥à¤µà¤ªà¤•à¥à¤· is a slot, and the author of
 -- the siddhnta fills it.  `IndianLane.agda` now holds both modules
 -- because an aggregate is the one place two mutually uncitable results
--- can sit together â” but that is a container, not a form.
+-- can sit together â€” but that is a container, not a form.
 --
 -- This module supplies the form: a type whose inhabitant IS a completed
 -- prvapaka/uttarapaka/niraya, in one unit, checked.
@@ -64,14 +64,14 @@ open import Cubical.Relation.Nullary using (Â¬_)
 -- 2.  THE FORM
 --
 -- A retraction is not "I was wrong."  It has three parts, and the shape
--- this corpus keeps producing is never plain refutation â” it is
+-- this corpus keeps producing is never plain refutation â€” it is
 -- NARROWING.  I claimed W; someone exhibited a case W forbids; what
 -- survives is N, which W was a strengthening of.
 --
---   àà²àµàà    "stronger" â” the wide claim implies the narrow one, so N is
+--   à¤¬à¤²à¤µà¤¤à¥    "stronger" â€” the wide claim implies the narrow one, so N is
 --            what W was reaching for and not a change of subject
---   à–ààà¡à¨à®à   the ààà°ààµàà•àà, discharged: W is refuted
---   àààà¿àà¿à   the à¨à¿à°ààà¯: N stands
+--   à¤–à¤£à¥à¤¡à¤¨à¤®à¥   the à¤ªà¥‚à¤°à¥à¤µà¤ªà¤•à¥à¤·, discharged: W is refuted
+--   à¤¸à¥à¤¥à¤¿à¤¤à¤¿à¤ƒ   the à¤¨à¤¿à¤°à¥à¤£à¤¯: N stands
 --
 -- All three in one record, so no inhabitant can be built that refutes
 -- without saying what survives, or that "narrows" to an unrelated claim.
@@ -110,12 +110,12 @@ open à¤…à¤ªà¤µà¤¾à¤¦à¤ƒ public
 -- as a new block, all of them left standing in the file.  The type says
 -- that is INCONSISTENT, not merely untidy.
 --
--- If `àààµà¾à¦à W M` is assertable then M stands.  If `àààµà¾à¦à M N` is
--- assertable then M is refuted.  Both at once gives M and Â M.
+-- If `à¤…à¤ªà¤µà¤¾à¤¦à¤ƒ W M` is assertable then M stands.  If `à¤…à¤ªà¤µà¤¾à¤¦à¤ƒ M N` is
+-- assertable then M is refuted.  Both at once gives M and Â¬ M.
 --
 -- So a second retraction does not extend the first; it DESTROYS it.
--- What must exist afterward is a single `àààµà¾à¦à W N`, and the earlier
--- record must be withdrawn â” not appended to.  A file carrying three
+-- What must exist afterward is a single `à¤…à¤ªà¤µà¤¾à¤¦à¤ƒ W N`, and the earlier
+-- record must be withdrawn â€” not appended to.  A file carrying three
 -- live retraction blocks in sequence is asserting a contradiction, and
 -- the reader who stops at the second block is reading a claim its own
 -- author has abandoned.
@@ -126,7 +126,7 @@ open à¤…à¤ªà¤µà¤¾à¤¦à¤ƒ public
 
 -- The repair, and it is the only one available: compose by REPLACEMENT.
 -- Given the first retraction and a refutation of its survivor together
--- with what survives THAT, you get one record from W straight to N â”
+-- with what survives THAT, you get one record from W straight to N â€”
 -- and the intermediate never appears in it.
 à¤¸à¤‚à¤¹à¤¾à¤°à¤ƒ : {W M N : Type} â†’ (W â†’ M) â†’ à¤…à¤ªà¤µà¤¾à¤¦à¤ƒ M N â†’ à¤…à¤ªà¤µà¤¾à¤¦à¤ƒ W N
 à¤¸à¤‚à¤¹à¤¾à¤°à¤ƒ wâ†’m b = à¤¨à¤¿à¤°à¥à¤£à¤¯à¤ƒ (Î» w â†’ à¤¬à¤²à¤µà¤¤à¥ b (wâ†’m w))
@@ -137,28 +137,28 @@ open à¤…à¤ªà¤µà¤¾à¤¦à¤ƒ public
 -- 5.  WHAT THE FORM DOES NOT ENFORCE.  The honesty ledger, and it is
 --     load-bearing rather than decorative.
 --
--- `àààµà¾à¦à W âŠ` is inhabited whenever `Â W` is: retract to the trivially
--- true statement and the type is satisfied.  Â§3 does not catch it â”
--- `Â (âŠ â’ W)` is just `Â W` again, which is true.  So the form
+-- `à¤…à¤ªà¤µà¤¾à¤¦à¤ƒ W âŠ¤` is inhabited whenever `Â¬ W` is: retract to the trivially
+-- true statement and the type is satisfied.  Â§3 does not catch it â€”
+-- `Â¬ (âŠ¤ â†’ W)` is just `Â¬ W` again, which is true.  So the form
 -- guarantees that the survivor is WEAKER and that it is not the original;
 -- it cannot guarantee that the survivor is WORTH anything.
 --
 -- That is not a defect to patch.  Whether N carries content is a
--- question about prama â” what is established, and by what means â” and
--- the tantrayukti list keeps à¨à¿à°ààà¯ (the settled conclusion) as a device
+-- question about pramÄá¹‡a â€” what is established, and by what means â€” and
+-- the tantrayukti list keeps à¤¨à¤¿à¤°à¥à¤£à¤¯ (the settled conclusion) as a device
 -- separate from the objection and the answer for precisely this reason:
 -- the form of the dispute does not settle the worth of the outcome.
 -- What the form does is make the three parts SIMULTANEOUSLY PRESENT in
 -- one checked object, which is the thing prose retraction fails at here.
 --
--- Stated so that no later reader mistakes an inhabited `àààµà¾à¦à` for a
+-- Stated so that no later reader mistakes an inhabited `à¤…à¤ªà¤µà¤¾à¤¦à¤ƒ` for a
 -- certificate that the narrowing was interesting.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 6.  FIRST INSTANCE â” AND IT IS MY OWN CLAIM.
+-- 6.  FIRST INSTANCE â€” AND IT IS MY OWN CLAIM.
 --
--- `AnuktaAvaktavya` Â§4, Â§5 and Â§8 call àà¾à®à¯à¿à• and à¨à¿ààà¯ "dual shapes",
+-- `AnuktaAvaktavya` Â§4, Â§5 and Â§8 call à¤¸à¤¾à¤®à¤¯à¤¿à¤• and à¤¨à¤¿à¤¤à¥à¤¯ "dual shapes",
 -- "the two poles", and put 00 at "the same pole as avaktavyam".  Poles
 -- means a line with two ends: hold one and you cannot hold the other.
 -- That is the WIDE claim, and it is false.
@@ -173,7 +173,7 @@ open import SamayikaAndNityaAreIndependent
 à¤§à¥à¤°à¥à¤µà¥Œ : Type
 à¤§à¥à¤°à¥à¤µà¥Œ = à¤¸à¤¾à¤®à¤¯à¤¿à¤• matching â†’ Â¬ à¤¨à¤¿à¤¤à¥à¤¯ matching
 
--- N: what survives â” each holds without the other, so they are still two
+-- N: what survives â€” each holds without the other, so they are still two
 -- and the three-way separation of Â§1/Â§6/Â§8 is untouched.
 à¤ªà¥ƒà¤¥à¤•à¥ : Type
 à¤ªà¥ƒà¤¥à¤•à¥ = ((à¤¸à¤¾à¤®à¤¯à¤¿à¤• never) Ã— (Â¬ (à¤¨à¤¿à¤¤à¥à¤¯ never)))
@@ -191,7 +191,7 @@ open import SamayikaAndNityaAreIndependent
 à¤ªà¥ƒà¤¥à¤•à¥-à¤¨-à¤§à¥à¤°à¥à¤µà¥Œ = à¤•à¤ à¤¿à¤¨à¤ƒ à¤¸à¤¾à¤®à¤¯à¤¿à¤•-à¤¨à¤¿à¤¤à¥à¤¯-à¤…à¤ªà¤µà¤¾à¤¦à¤ƒ
 
 ------------------------------------------------------------------------
--- 7.  SECOND INSTANCE â” the other axis, same shape, same author's error.
+-- 7.  SECOND INSTANCE â€” the other axis, same shape, same author's error.
 --
 -- Â§6 of `AnuktaAvaktavya` reads non-uniqueness and inexpressibility as
 -- two ends of one line too.  `NonUniquenessAndInexpressibilityAre-
@@ -207,7 +207,7 @@ open import NonUniquenessAndInexpressibilityAreIndependent
 à¤§à¥à¤°à¥à¤µà¥Œâ‚‚ : Type
 à¤§à¥à¤°à¥à¤µà¥Œâ‚‚ = NonUnique all â†’ Â¬ Inexpressible onlyFalse all
 
--- The survivor, written out rather than inferred.  An inferred Î leaves
+-- The survivor, written out rather than inferred.  An inferred Î£ leaves
 -- Agda unable to decide WHICH pair type is meant, and an unsolved meta is
 -- not a checked claim -- the same cut `AnuktaAvaktavya` Â§9 had to make.
 à¤ªà¥ƒà¤¥à¤•à¥â‚‚ : Type

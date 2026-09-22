@@ -1,14 +1,14 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ààµààààà¿ â” àà¨ààà‹à ààµààààà¿à ààµ àà™àà–àà¯à¾ à
+-- ààµààààà¿ â€” àà¨ààà‹à ààµààààà¿à ààµ àà™àà–àà¯à¾ à
 --
 -- (the fiber's recurrence is exactly the count.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE CLASS THIS PRICES, AND WHY IT NEEDED A DIFFERENT MACHINE.
 --
--- `interactive/Lopa_â¦hs` grades 1062 one-way edges; **237 have source â• or a
+-- `interactive/Lopa_â€¦hs` grades 1062 one-way edges; **237 have source â„• or a
 -- list-like type** and no case table will ever reach them, because their
 -- domains are infinite.  A finite source is swept by enumeration.  An
 -- infinite one has to be priced by an IDENTIFICATION, and the only
@@ -18,9 +18,9 @@
 -- Two such were proved by hand in this corpus before anyone noticed they
 -- were one thing:
 --
---   `Lopa_â¦.fiber à¯à‹à— n â‰ SumFin (suc n)`      â” addition's antidiagonal
+--   `Lopa_â€¦.fiber à¤¯à¥‹à¤— n â‰ƒ SumFin (suc n)`      â€” addition's antidiagonal
 --   `PingalaPrastara.matrameruIso`
---        : Metre (2+n) â‰ Metre (1+n) âŠ Metre n  â” the à®à¾ààà°à¾à®àà°à
+--        : Metre (2+n) â‰ƒ Metre (1+n) âŠ Metre n  â€” the à¤®à¤¾à¤¤à¥à¤°à¤¾à¤®à¥‡à¤°à¥
 --
 -- Both are the same move: the map's clauses say what the first
 -- constructor costs, so the fiber over `n` decomposes by which
@@ -28,38 +28,38 @@
 -- emitter for the whole infinite-domain class**, and this module is its
 -- clean case.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED.
 --
--- Â§à§  the general recurrence, for ANY element type: the fiber of `length`
+-- Â§à¥§  the general recurrence, for ANY element type: the fiber of `length`
 --     over a successor is the element type times the fiber below it.
---     `fiber length (suc n) â‰ X — fiber length n`.  Nothing about `X` is
---     assumed â” not finiteness, not decidable equality, not an h-level.
--- Â§à¨  the base: `fiber length 0 â‰ Unit`.  Only `[]` is empty.
--- Â§à©  Pigala's instance, for `varna` as the host actually writes it â”
+--     `fiber length (suc n) â‰ƒ X Ã— fiber length n`.  Nothing about `X` is
+--     assumed â€” not finiteness, not decidable equality, not an h-level.
+-- Â§à¥¨  the base: `fiber length 0 â‰ƒ Unit`.  Only `[]` is empty.
+-- Â§à¥©  Piá¹…gala's instance, for `varna` as the host actually writes it â€”
 --     and it is not `length` by definition, it is a separate recursion
 --     with the same clauses, so the recurrence is re-proved rather than
---     transported, and Â§à© says so.
--- Â§à  **the payoff, and it is the point**: `sankhya (suc n) â‰¡ sankhya n +
---     sankhya n` is the DOUBLING Pigala states, and Â§à§ is WHY â” the
+--     transported, and Â§à¥© says so.
+-- Â§à¥ª  **the payoff, and it is the point**: `sankhya (suc n) â‰¡ sankhya n +
+--     sankhya n` is the DOUBLING Piá¹…gala states, and Â§à¥§ is WHY â€” the
 --     fiber over `suc n` is a two-element type times the fiber over `n`,
---     because a syllable is à²à˜à or à—àà°à and nothing else.  The count's
---     recurrence is the fiber's recurrence.  àà¨àà¦ààà¾ààààà°à®à à®.à¨àâ“à¨à®
+--     because a syllable is à¤²à¤˜à¥ or à¤—à¥à¤°à¥ and nothing else.  The count's
+--     recurrence is the fiber's recurrence.  à¤›à¤¨à¥à¤¦à¤ƒà¤¶à¤¾à¤¸à¥à¤¤à¥à¤°à¤®à¥ à¥®.à¥¨à¥ªâ€“à¥¨à¥®
 --     gives the procedure; this gives the reason the procedure is right.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- TERM.  ààµààààà¿ â” turning-back, repetition, recurrence.  Ordinary
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- TERM.  à¤†à¤µà¥ƒà¤¤à¥à¤¤à¤¿ â€” turning-back, repetition, recurrence.  Ordinary
 -- , and the tradition's own word for the construction rule of
--- the à®àà°àààà°àààà¾à° as àà²à¾à¯àà§ states it in the à®ààààààààµà¨à (10th c.) on
--- àà¿à™àà—à²'s àà¨àà¦ààà¾ààààà°à®à à®.à©àâ“à©à: àà—àà°à¿à®-àà™àà•ààà¿à ààà°ààµ-àà™àà•àààà
--- àà¾à°ààààµ-à¯à‹à—àˆà â” the next row from the adjacent sums of the previous.
+-- the à¤®à¥‡à¤°à¥à¤ªà¥à¤°à¤¸à¥à¤¤à¤¾à¤° as à¤¹à¤²à¤¾à¤¯à¥à¤§ states it in the à¤®à¥ƒà¤¤à¤¸à¤à¥à¤œà¥€à¤µà¤¨à¥€ (10th c.) on
+-- à¤ªà¤¿à¤™à¥à¤—à¤²'s à¤›à¤¨à¥à¤¦à¤ƒà¤¶à¤¾à¤¸à¥à¤¤à¥à¤°à¤®à¥ à¥®.à¥©à¥ªâ€“à¥©à¥«: à¤…à¤—à¥à¤°à¤¿à¤®-à¤ªà¤™à¥à¤•à¥à¤¤à¤¿à¤ƒ à¤ªà¥‚à¤°à¥à¤µ-à¤ªà¤™à¥à¤•à¥à¤¤à¥‡à¤ƒ
+-- à¤ªà¤¾à¤°à¥à¤¶à¥à¤µ-à¤¯à¥‹à¤—à¥ˆà¤ƒ â€” the next row from the adjacent sums of the previous.
 -- Usually cited under Pascal's name (1654), a restatement six centuries
 -- later, named here after the source and as one.
 --
 -- LIMIT: Pigala and Halyudha state procedures and prove nothing below;
 -- no source states a fiber, a type, or an equivalence.  What is claimed
 -- is that the objects the pratyayas enumerate ARE the fibers of the
--- counting maps â” a fact about the definitions in `PingalaPrastara.agda`.
+-- counting maps â€” a fact about the definitions in `PingalaPrastara.agda`.
 ------------------------------------------------------------------------
 
 module Avrtti_TheFiberOfACountingMapSatisfiesARecurrenceAndThatRecurrenceIsSankhya where
@@ -78,7 +78,7 @@ open import PingalaPrastara using (Syllable ; laghu ; guru ; Pattern ; varna ; V
 private variable â„“ : Level
 
 ------------------------------------------------------------------------
--- à§ Â The recurrence.  No hypothesis on the element type at all.
+-- à¥§ Â· The recurrence.  No hypothesis on the element type at all.
 ------------------------------------------------------------------------
 
 module _ {X : Type â„“} where
@@ -102,7 +102,7 @@ module _ {X : Type â„“} where
     à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤µà¥ƒà¤¤à¥à¤¤à¤¿à¤ƒ (x âˆ· xs , p) = Î£â‰¡Prop (Î» _ â†’ isSetâ„• _ _) refl
 
 ------------------------------------------------------------------------
--- à¨ Â The base.  Only the empty list is empty.
+-- à¥¨ Â· The base.  Only the empty list is empty.
 ------------------------------------------------------------------------
 
   à¤®à¥‚à¤²à¤®à¥ : fiber (length {A = X}) 0 â‰ƒ Unit
@@ -113,11 +113,11 @@ module _ {X : Type â„“} where
     à¤° (x âˆ· xs , p) = âŠ¥-rec (snotz p)
 
 ------------------------------------------------------------------------
--- à© Â Pià—ala's instance, RE-PROVED and not transported.
+-- à¥© Â· Piá¹…à¤—ala's instance, RE-PROVED and not transported.
 --
 -- `varna` is a separate recursion with the same clauses as `length`, so
 -- they are not definitionally one function.  The recurrence is therefore
--- established again here for `varna` itself â” three lines, and honest â”
+-- established again here for `varna` itself â€” three lines, and honest â€”
 -- rather than moved across an identification nobody has written.
 ------------------------------------------------------------------------
 
@@ -139,16 +139,16 @@ module _ {X : Type â„“} where
   à¤ªà¥à¤° (s âˆ· ps , p) = Î£â‰¡Prop (Î» _ â†’ isSetâ„• _ _) refl
 
 ------------------------------------------------------------------------
--- à Â Why àà™àà–àà¯à¾ doubles.
+-- à¥ª Â· Why à¤¸à¤™à¥à¤–à¥à¤¯à¤¾ doubles.
 --
--- `sankhya (suc n) = sankhya n + sankhya n` is what Pigala states.  Â§à©
--- is the reason: the fiber over `suc n` is `Syllable — (fiber over n)`,
--- and a syllable is à²à˜à or à—àà°à and nothing else.  **The count's
--- recurrence IS the fiber's recurrence** â” the procedure and its ground,
+-- `sankhya (suc n) = sankhya n + sankhya n` is what Piá¹…gala states.  Â§à¥©
+-- is the reason: the fiber over `suc n` is `Syllable Ã— (fiber over n)`,
+-- and a syllable is à¤²à¤˜à¥ or à¤—à¥à¤°à¥ and nothing else.  **The count's
+-- recurrence IS the fiber's recurrence** â€” the procedure and its ground,
 -- separated by twenty-three centuries and now in one file.
 --
 -- Stated as the definitional fact it is, so nothing is overclaimed: the
--- doubling holds by `sankhya`'s own clauses, and Â§à© is what makes it the
+-- doubling holds by `sankhya`'s own clauses, and Â§à¥© is what makes it the
 -- right definition rather than a stipulation.
 ------------------------------------------------------------------------
 
@@ -156,27 +156,27 @@ module _ {X : Type â„“} where
 à¤¸à¤™à¥à¤–à¥à¤¯à¤¾-à¤¦à¥à¤µà¥ˆà¤—à¥à¤£à¥à¤¯à¤®à¥ n = refl
 
 ------------------------------------------------------------------------
--- à Â àààà â” the next rung, named rather than gestured at.
+-- à¥« Â· à¤¶à¥‡à¤·à¤ƒ â€” the next rung, named rather than gestured at.
 --
--- `length` charges exactly one per constructor, so Â§à§ has no truncated
+-- `length` charges exactly one per constructor, so Â§à¥§ has no truncated
 -- subtraction and no guard.  A WEIGHTED counting map does: `matraOf`
--- charges 1 for à²à˜à and 2 for à—àà°à, so its fiber over `n` decomposes as
--- the fiber over `n âˆ 1` plus the fiber over `n âˆ 2`, and each summand
+-- charges 1 for à¤²à¤˜à¥ and 2 for à¤—à¥à¤°à¥, so its fiber over `n` decomposes as
+-- the fiber over `n âˆ¸ 1` plus the fiber over `n âˆ¸ 2`, and each summand
 -- needs a proof that the weight fits.  That is exactly
 -- `PingalaPrastara.matrameruIso`, proved by hand; the general
 -- weighted emitter is `Bharavrtti_TheWeightedCountingMapsFiberDecomposesByHeadWeightAndTheNilCaseIsASeparateSummand.agda`.
 --
--- The general shape: for `f : List X â’ â•` with
--- `f [] = 0` and `f (x âˆ xs) = w x + f xs`,
+-- The general shape: for `f : List X â†’ â„•` with
+-- `f [] = 0` and `f (x âˆ· xs) = w x + f xs`,
 -- the nil case is a SEPARATE SUMMAND and the decomposition is a coproduct:
 --
---     fiber f n â‰ (0 â‰¡ n) âŠ (Î[ x âˆˆ X ] Î[ xs âˆˆ List X ] (w x + f xs â‰¡ n))
+--     fiber f n â‰ƒ (0 â‰¡ n) âŠ (Î£[ x âˆˆ X ] Î£[ xs âˆˆ List X ] (w x + f xs â‰¡ n))
 --
--- `f (x âˆ xs)` REDUCES to `w x + f xs`, so
+-- `f (x âˆˆ xs)` REDUCES to `w x + f xs`, so
 -- the path is carried across unchanged and both round trips close by
 -- `refl`.  The cons summand is equivalently
 --     Î[ x âˆˆ X ] Î[ m âˆˆ â• ] (w x + m â‰¡ n) — fiber f m
 -- since `Î[ m ] (f xs â‰¡ m) — â¦`
 -- carries a contractible `singl (f xs)`.
--- The rung is above Â§à§ because the codomain splits, not because
+-- The rung is above Â§à¥§ because the codomain splits, not because
 -- fitting proofs must be built.

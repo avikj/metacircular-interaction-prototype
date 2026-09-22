@@ -1,12 +1,12 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡‡æ‡∞‡-‡®‡ø‡Ø‡Æ ‚î the displacement law.
+-- ‡§Ö‡§™‡§∏‡§æ‡§∞‡§£-‡§®‡§ø‡§Ø‡§Æ ‚Äî the displacement law.
 --
 -- THE LOGICAL CORE OF ABSTRACT 24'S THERMODYNAMIC SENTENCE, derived:
 --
 --   ¬ß1  THE DISPLACEMENT THEOREM, generic.  Let a total dynamics act
---       on system ó environment and be injective ‚î reversibility, in
+--       on system √ó environment and be injective ‚Äî reversibility, in
 --       exactly the sense abstract 24 uses.  If the dynamics merges
 --       two distinct system states at some environment state (the
 --       system marginal erases), then the environment marginal MUST
@@ -17,17 +17,17 @@
 --
 --   ¬ß2  THE REVERSIBLE ERASER, exhibited: the swap.  With the
 --       environment prepared at false, the system marginal after the
---       swap is constant ‚î erasure by refl ‚î and the environment
+--       swap is constant ‚Äî erasure by refl ‚Äî and the environment
 --       marginal carries the bit out, also by refl; the exported
 --       distinction is exhibited at the named pair.  One gate, all
 --       three faces: reversible, erasing, displacing.
 --
 -- WHERE THE HEAT LIVES, read against the corpus.  Abstract 24 proves
--- a reversible structure carries no intrinsic cost ‚î there is nowhere
+-- a reversible structure carries no intrinsic cost ‚Äî there is nowhere
 -- in the dynamics for the erasure cost to be.  This file shows where
 -- it goes instead: into the ENVIRONMENT'S KEPT FIBRE.  Erasure cost
 -- is not a property of the invertible dynamics (graded-or-invertible
--- forbids it) but of the marginal you chose to stop watching ‚î the
+-- forbids it) but of the marginal you chose to stop watching ‚Äî the
 -- lossless completion keeps what the projection drops, and the
 -- thermodynamic name for that kept fibre is heat.  The kT ln 2 of the
 -- laboratory is this counting statement composed with a unit of
@@ -47,7 +47,7 @@ private
     ‚Ñì ‚Ñì' : Level
 
 ------------------------------------------------------------------------
--- ‡ß ¬ The displacement theorem.
+-- ‡•ß ¬∑ The displacement theorem.
 ------------------------------------------------------------------------
 
 module _ {S : Type ‚Ñì} {E : Type ‚Ñì'}
@@ -63,7 +63,7 @@ module _ {S : Type ‚Ñì} {E : Type ‚Ñì'}
     bheda (cong fst (viloma (s‚ÇÅ , e) (s‚ÇÇ , e) (Œª i ‚Üí m·πõjana i , vilaya i)))
 
 ------------------------------------------------------------------------
--- ‡® ¬ The reversible eraser: the swap, at a prepared environment.
+-- ‡•® ¬∑ The reversible eraser: the swap, at a prepared environment.
 ------------------------------------------------------------------------
 
 pariv·πõtti : Bool √ó Bool ‚Üí Bool √ó Bool

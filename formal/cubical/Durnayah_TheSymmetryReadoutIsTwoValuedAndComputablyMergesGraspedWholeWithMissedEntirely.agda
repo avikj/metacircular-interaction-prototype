@@ -1,39 +1,39 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������� ��������� � the symmetry readout is two-valued, therefore a
+-- दुर्नयः सामर्थ्ये — the symmetry readout is two-valued, therefore a
 -- durnaya, and WHICH two seeds it identifies is computed, not argued.
 --
--- ������: a naya that asserts itself by denying the others � Siddhasena
+-- दुर्नय: a naya that asserts itself by denying the others — Siddhasena
 -- Divkara, *Sanmatitarka* 1.21, c. 5th c. CE.
 --
 ------------------------------------------------------------------------
--- `Saptabhangi.�������` proves that ANY `f : ����������� � ������` identifies two
+-- `Saptabhangi.दुर्नयः` proves that ANY `f : सप्तभङ्गी → द्विपद` identifies two
 -- of the three seeds.
 -- It is a fact about every two-valued
 -- instrument applied to a threefold situation, and the SYMMETRY GROUP is
 -- one of those.
 --
 -- THE READING, stated first because the checked part is small and the
--- reading is what makes it worth writing.  For `f : A � B`, an automorphism
+-- reading is what makes it worth writing.  For `f : A → B`, an automorphism
 -- of A over B restricts to a self-equivalence of each fibre.  A fibre that
--- is a PROPOSITION � empty or contractible � has exactly one.  So the
+-- is a PROPOSITION — empty or contractible — has exactly one.  So the
 -- conserving group is a product over the CROWDED points only, and it is
 -- trivial for every embedding, no matter how much of B that embedding
 -- misses.  `Aut_B(A)` therefore reads exactly ONE of the three census
--- coordinates: whether ������ occurs anywhere.
+-- coordinates: whether नास्ति occurs anywhere.
 --
--- §1 is a MODEL of the readout � a map
--- ����������� � ������ defined by the ������ slot � and every theorem here is a
+-- §1 is a MODEL of the readout — a map
+-- सप्तभङ्गी → द्विपद defined by the नास्ति slot — and every theorem here is a
 -- theorem about the model.
 --
 -- WHAT IS CHECKED:
 --
---   §2  the model merges ������-����� with ������-����������� (refl) and separates
---       ������-����� from ������-������.  The identification is that pair and no
+--   §2  the model merges स्यात्-अस्ति with स्यात्-अवक्तव्यम् (refl) and separates
+--       स्यात्-अस्ति from स्यात्-नास्ति.  The identification is that pair and no
 --       other.
---   §3  `Saptabhangi.�������` RUN ON THIS READOUT reduces to `inr (inl refl)`
---       � the middle disjunct � by `refl`.  The corpus's theorem does not
+--   §3  `Saptabhangi.दुर्नयः` RUN ON THIS READOUT reduces to `inr (inl refl)`
+--       — the middle disjunct — by `refl`.  The corpus's theorem does not
 --       merely apply; it COMPUTES the diagnosis.
 --
 -- WHAT IT SAYS.  A two-valued readout of the threefold must identify two,
@@ -46,8 +46,8 @@
 -- denotation computes the size), so compression measures crowding.  A
 -- scalar gain is two-valued at any threshold.  A test list samples the
 -- SOURCE, so it can witness confusion and never absence.
--- `MachineFiber_�§5` proves the engine has a meaning no term of its
--- vocabulary reaches (`����������`), and §6 records that the invention
+-- `MachineFiber_…§5` proves the engine has a meaning no term of its
+-- vocabulary reaches (`अप्राप्यम्`), and §6 records that the invention
 -- trigger fires on a crowding quantity.  This module says why that is not
 -- a tuning error: the coordinate such a trigger would need is the one every
 -- instrument of this shape merges away.
@@ -68,8 +68,8 @@ open import Cubical.Relation.Nullary using (¬_)
 open import Saptabhangi
 
 ------------------------------------------------------------------------
--- � � the readout.  ��� = the conserving group is trivial (no crowded fibre
---     anywhere); ���� = it is not.  One coordinate out of three.
+-- १ · the readout.  सत् = the conserving group is trivial (no crowded fibre
+--     anywhere); असत् = it is not.  One coordinate out of three.
 ------------------------------------------------------------------------
 
 सत्≢असत् : ¬ (सत् ≡ असत्)
@@ -84,7 +84,7 @@ open import Saptabhangi
 ... | न   = सत्
 
 ------------------------------------------------------------------------
--- � � which pair it identifies, and that it is exactly that pair.
+-- २ · which pair it identifies, and that it is exactly that pair.
 ------------------------------------------------------------------------
 
 सामर्थ्यं-मेलयति : सामर्थ्य-पाठः स्यात्-अस्ति ≡ सामर्थ्य-पाठः स्यात्-अवक्तव्यम्
@@ -94,7 +94,7 @@ open import Saptabhangi
 सामर्थ्यं-विवेचयति = सत्≢असत्
 
 ------------------------------------------------------------------------
--- � � �������, run on it, COMPUTES the middle disjunct.
+-- ३ · दुर्नयः, run on it, COMPUTES the middle disjunct.
 ------------------------------------------------------------------------
 
 दुर्नय-निर्णयः : (सामर्थ्य-पाठः स्यात्-अस्ति ≡ सामर्थ्य-पाठः स्यात्-नास्ति)

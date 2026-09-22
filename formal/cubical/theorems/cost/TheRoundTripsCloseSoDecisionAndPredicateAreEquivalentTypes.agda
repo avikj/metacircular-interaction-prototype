@@ -7,13 +7,13 @@
 -- `ATextPredicateExistsExactlyWhenTheSemanticPropertyIsDecidable` §2,
 -- abbreviated here as
 --
---   Decision  = (t : Text) � Dec (Outside (denotes t))
---   Predicate = �[ p ∈ (Text � Bool) ] Correct Text Object denotes Outside p
---   toPredicate = decisionGivesPredicate   : Decision � Predicate
---   toDecision  = predicateGivesDecision   : Predicate � Decision
+--   Decision  = (t : Text) → Dec (Outside (denotes t))
+--   Predicate = Σ[ p ∈ (Text → Bool) ] Correct Text Object denotes Outside p
+--   toPredicate = decisionGivesPredicate   : Decision → Predicate
+--   toDecision  = predicateGivesDecision   : Predicate → Decision
 --
 -- and the hypothesis named is that module's §2 one,
--- `po : (o : Object) � isProp (Outside o)`.
+-- `po : (o : Object) → isProp (Outside o)`.
 --
 -- WHAT IS PROVED
 --
@@ -21,35 +21,35 @@
 --     decisionRoundTripByProp   toDecision (toPredicate d) ≡ d
 --     predicateRoundTrip        toPredicate (toDecision P) ≡ P
 --     decisionIsoPredicate      Iso Decision Predicate
---     decisionEquivPredicate    Decision � Predicate   (via isoToEquiv)
+--     decisionEquivPredicate    Decision ≃ Predicate   (via isoToEquiv)
 --     decisionEquivPredicateByProp
---                               the same, via propBiimpl�Equiv, both
+--                               the same, via propBiimpl→Equiv, both
 --                               sides being propositions (isPropDec
 --                               pointwise; theTextPredicateIsUnique)
 --
 --   With NO hypothesis on `Outside` (§2, §3):
 --     decisionRoundTrip         toDecision (toPredicate d) ≡ d
---                               � THIS direction does not need `Dec` to
+--                               → THIS direction does not need `Dec` to
 --                               be a proposition: the `no` case needs only
---                               `isProp�`, and the `yes` case reduces
+--                               `isProp¬`, and the `yes` case reduces
 --                               once `d t` is abstracted, the one
 --                               residual (`correct t | d t` inside
 --                               `go`'s closure) being discharged by
 --                               `predicateWitnessAtYes` with the
 --                               inspect idiom
 --     predicateRoundTripFst     toPredicate (toDecision P) .fst ≡ P .fst
---                               � the Boolean predicate itself
+--                               — the Boolean predicate itself
 --                               round-trips freely
 --
 --   Conditionally (§3b, module `GivenTheWitnessLemma`):
 --     predicateRoundTripFree, decisionIsoPredicateFree,
---     decisionEquivPredicateFree � the full hypothesis-free round trip,
+--     decisionEquivPredicateFree — the full hypothesis-free round trip,
 --     `Iso` and equivalence, from ONE extra lemma taken as a module
 --     parameter (not a postulate):
 --
 --       decisionWitnessAtTrue :
 --         (P : Predicate) (t : Text) (e : P .fst t ≡ true)
---         � toDecision P t ≡ yes (P .snd t .snd e)
+--         → toDecision P t ≡ yes (P .snd t .snd e)
 --
 -- THE PARAMETER OF §3b, EXACTLY.  `decisionWitnessAtTrue` holds by
 -- reduction inside `ATextPredicateExistsExactlyWhenTheSemanticProperty-
@@ -61,7 +61,7 @@
 -- VALUE `toDecision P t` yields `yes o` with `o` opaque.  What the
 -- `Correct` data forces about the value is exactly `decisionAtTrue`
 -- (some witness) and `decisionAtFalse` (the given refutation, by
--- `isProp�`), and those suffice for everything else above.  Under `po`
+-- `isProp¬`), and those suffice for everything else above.  Under `po`
 -- the lemma is immediate (`isPropDec`), which is why §4 needs no such
 -- parameter.  Nothing here examines `Outside`, which is a parameter,
 -- and nothing is empirical.

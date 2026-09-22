@@ -73,7 +73,7 @@ noArityBelowFiller : (n : ℕ) → n < 0 → Positive n
 noArityBelowFiller n ()
 
 ------------------------------------------------------------------------
--- Tear � signature extension � rooted/productive replacement.
+-- Tear → signature extension → rooted/productive replacement.
 ------------------------------------------------------------------------
 
 oldView : {Root : Type₀} {S : Signature}

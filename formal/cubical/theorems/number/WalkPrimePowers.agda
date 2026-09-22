@@ -7,17 +7,17 @@
 -- The three pieces:
 --
 --   §(b)   WalkBridge     the installs are the jump points, in order
---   §(c)�  WalkJumps      a prime power is a jump point
---   §(c)�  CoprimeSplitting  a least non-divisor is a prime power
+--   §(c)⇐  WalkJumps      a prime power is a jump point
+--   §(c)⇒  CoprimeSplitting  a least non-divisor is a prime power
 --
 -- This file composes them.  Two things worth noting:
 --
 --   * `installs-are-prime-powers` really is three lines, and -- worth
---     noting -- it does not use §(b) at all.  It is §(c)� applied
+--     noting -- it does not use §(b) at all.  It is §(c)⇒ applied
 --     directly to `next-lnd`.  The ordering theorem is not needed to
 --     know each install is a prime power.
 --
---   * `prime-powers-are-installed` is NOT renaming.  §(c)� gives that a
+--   * `prime-powers-are-installed` is NOT renaming.  §(c)⇐ gives that a
 --     prime power is a jump point, and §(b) gives that the walk skips no
 --     jump point BETWEEN CONSECUTIVE INSTALLS -- a local statement.
 --     Getting from "no jump is skipped locally" to "every jump is hit"
@@ -52,7 +52,7 @@ open import WalkBridge
         ; install-mono ; install-exhaustive ; below-first ; ·-pos )
 
 ------------------------------------------------------------------------
--- §(c)� ON THE STREAM: every install is a prime power.
+-- §(c)⇒ ON THE STREAM: every install is a prime power.
 --
 -- Three lines, and no §(b): the walk's step already carries a
 -- `LeastNonDivisor` certificate (`next-lnd`), which is exactly the
@@ -68,7 +68,7 @@ installs-are-prime-powers (suc n) =
     (next-2≤ (install n)) (next-lnd (install n))
 
 ------------------------------------------------------------------------
--- §(c)� ON THE STREAM: every prime power is a jump point.
+-- §(c)⇐ ON THE STREAM: every prime power is a jump point.
 ------------------------------------------------------------------------
 
 pos-form : (a : ℕ) → 0 < a → Σ[ b ∈ ℕ ] a ≡ suc b
@@ -139,7 +139,7 @@ prime-powers-are-installed q ipp@(p , a , pp , 0<a , pa≡q) =
 ------------------------------------------------------------------------
 -- What the two of them, plus WalkBridge.install-mono, say together:
 --
---   install : � � � is strictly increasing            (install-mono)
+--   install : ℕ → ℕ is strictly increasing            (install-mono)
 --   its image lands in the prime powers               (installs-are-prime-powers)
 --   its image contains every prime power              (prime-powers-are-installed)
 --

@@ -6,12 +6,12 @@
 --
 -- àààà°àà-àà‹àà¾à¨à®à Â the fourth step of the stair.
 --
--- WHERE THIS STANDS.  `TrtiyaSopana_â¦` proved the induction certificate
+-- WHERE THIS STANDS.  `TrtiyaSopana_â€¦` proved the induction certificate
 -- does not reach commutativity: the wall is the type of the `base`
 -- field, which demands a bare `Derivation`, and named the repair without
 -- making it.  This module makes the repair
 -- in the kernel's own philosophy: `install` turns a
--- theorem into a move, so let the certificate layer do the same â” a step
+-- theorem into a move, so let the certificate layer do the same â€” a step
 -- may CITE an established pointwise theorem, carrying that theorem's own
 -- soundness as the constructor's argument.  Nothing is trusted: the
 -- citation IS its proof, so the calculus stays --safe and the soundness
@@ -20,7 +20,7 @@
 -- THREE PIECES, then the prize:
 --
 --   Â§1  induction on the SECOND coordinate: `subY`, `eval-subY`, the
---       Y-certificate, its soundness â” the mirror the kernel never
+--       Y-certificate, its soundness â€” the mirror the kernel never
 --       needed until commutativity asked for it;
 --   Â§2  the citation calculus: `CStep`/`CDeriv` (hypothesis-free) and
 --       `CHypStep`/`CHypDeriv` (hypothesis at the predecessor), each
@@ -32,12 +32,12 @@
 --       lemma, step cites the second and uses the hypothesis once under
 --       suc.  `ccert-sound` discharges it at every environment.
 --
--- Together with `Naya_â¦` and `TrtiyaSopana_â¦` the stair now reads:
+-- Together with `Naya_â€¦` and `TrtiyaSopana_â€¦` the stair now reads:
 --
 --   rewrite closure  âŠŠ  induction closure  âŠŠ  citation closure âˆ‹ comm
 --
 -- with the first strictness at 0 + x = x, the second at x + y = y + x,
--- and the third level exhibited INHABITED at commutativity â” reached,
+-- and the third level exhibited INHABITED at commutativity â€” reached,
 -- not merely true.
 ------------------------------------------------------------------------
 
@@ -186,7 +186,7 @@ ccert-sound {lhs} {rhs} cert (env n yâ‚€ zâ‚€ uâ‚€ vâ‚€ wâ‚€) = go n
 -- Â§3.  The two lemmas, certified below this level.
 ------------------------------------------------------------------------
 
--- 0 + y = y, by Y-induction (underivable as a Derivation: Naya_â¦ Â§3).
+-- 0 + y = y, by Y-induction (underivable as a Derivation: Naya_â€¦ Â§3).
 zero-left-certY : InductionCertificateY (add zero yvar) yvar
 InductionCertificateY.baseY zero-left-certY =
   then-step (add-zero zero) (done zero)
@@ -208,7 +208,7 @@ InductionCertificateY.stepY suc-left-certY =
       (hyp-then (reverse-hypothesis-under-suc)
         (hyp-done _)))
   where
-  -- suc (suc (add var yvar)) â’ suc (add var (suc yvar)) is the reverse
+  -- suc (suc (add var yvar)) â†’ suc (add var (suc yvar)) is the reverse
   -- of add-suc under one suc; spelled out because the target of the
   -- walk is subY (suc yvar) applied to suc (add var yvar).
   reverse-hypothesis-under-suc :

@@ -1,25 +1,25 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ����-������ � the jet's flux.
+-- जेट-प्रवाह — the jet's flux.
 --
 -- HolonomyFluxDerivation states the representation-independent Leibniz
--- seam of the holonomy�flux algebra as a record, FluxDerivation, and
+-- seam of the holonomy–flux algebra as a record, FluxDerivation, and
 -- proves flux-subdivision for any inhabitant; ParallelNetworkComposition
 -- builds the product of two inhabitants.  Neither names one.  This file
 -- names the first: the first-order jet.
 --
---   §1  THE JET ALGEBRA.  A jet is a pair (a , a�) read as a + a�ε with
---       ε² = 0 � the square-zero extension, the tangent of a family at
+--   §1  THE JET ALGEBRA.  A jet is a pair (a , a′) read as a + a′ε with
+--       ε² = 0 — the square-zero extension, the tangent of a family at
 --       its base point.  Sum is pointwise; product is the dual-number
---       product (ab , ab� + a�b), the ε² term dropped because there is
+--       product (ab , ab′ + a′b), the ε² term dropped because there is
 --       no coordinate to hold it.
 --
---   §2  THE EULER DERIVATION.  flux (a , a�) = (0 , a�) � ε�d/dε, the
+--   §2  THE EULER DERIVATION.  flux (a , a′) = (0 , a′) — ε·d/dε, the
 --       operator that reads off the tangent component.  It satisfies
---       Leibniz on the nose: the ε-part of a product is a b� + a� b, and
+--       Leibniz on the nose: the ε-part of a product is a b′ + a′ b, and
 --       that is exactly (flux x) y + x (flux y).  Proved from the
---       semiring laws of � alone; no subtraction, no field.
+--       semiring laws of ℕ alone; no subtraction, no field.
 --
 --   §3  WHAT KIND OF DERIVATION IT IS.  Nonzero: flux (0 , 1) = (0 , 1).
 --       Idempotent: it is the projection onto the tangent direction.
@@ -30,8 +30,8 @@
 -- The corpus already holds the jet as a charge (TatkalikiGati: the prime
 -- charge is the tangent of the parity character; EkaBhara: that jet is
 -- the one generator).  Here the jet is where the flux lives, which is
--- the Lie-algebra reading of an LQG flux � an infinitesimal insertion �
--- given as a term.  ������ (pravha, flow/flux) is ordinary .
+-- the Lie-algebra reading of an LQG flux — an infinitesimal insertion —
+-- given as a term.  प्रवाह (pravāha, flow/flux) is ordinary .
 ------------------------------------------------------------------------
 
 module JetPravaha_TheFirstOrderJetCarriesANonzeroFluxDerivationSoTheLeibnizSeamHasAnInhabitant where
@@ -51,7 +51,7 @@ private
   module B = GroupStr (snd BoolGroup)
 
 ------------------------------------------------------------------------
--- � � The jet algebra.
+-- १ · The jet algebra.
 ------------------------------------------------------------------------
 
 Jet : Type₀
@@ -60,12 +60,12 @@ Jet = ℕ × ℕ
 _⊞_ : Jet → Jet → Jet
 (a , a′) ⊞ (b , b′) = (a + b , a′ + b′)
 
--- (a + a�ε)(b + b�ε) = ab + (ab� + a�b)ε, ε² = 0.
+-- (a + a′ε)(b + b′ε) = ab + (ab′ + a′b)ε, ε² = 0.
 _⊠_ : Jet → Jet → Jet
 (a , a′) ⊠ (b , b′) = (a · b , a · b′ + a′ · b)
 
 ------------------------------------------------------------------------
--- � � The Euler derivation and its Leibniz law.
+-- २ · The Euler derivation and its Leibniz law.
 ------------------------------------------------------------------------
 
 pravāha : Jet → Jet
@@ -74,11 +74,11 @@ pravāha (a , a′) = (zero , a′)
 leibniz : (x y : Jet) → pravāha (x ⊠ y) ≡ (pravāha x ⊠ y) ⊞ (x ⊠ pravāha y)
 leibniz (a , a′) (b , b′) = cong₂ _,_ mūla śeṣa
   where
-  -- scalar part: 0 ≡ 0�b + a�0, and 0�b + a�0 computes to a�0.
+  -- scalar part: 0 ≡ 0·b + a·0, and 0·b + a·0 computes to a·0.
   mūla : zero ≡ zero · b + a · zero
   mūla = 0≡m·0 a
-  -- tangent part: a�b� + a��b ≡ (0�b� + a��b) + (a�b� + a��0),
-  -- and the right side computes to a��b + (a�b� + a��0).
+  -- tangent part: a·b′ + a′·b ≡ (0·b′ + a′·b) + (a·b′ + a′·0),
+  -- and the right side computes to a′·b + (a·b′ + a′·0).
   śeṣa : a · b′ + a′ · b ≡ (zero · b′ + a′ · b) + (a · b′ + a′ · zero)
   śeṣa =
       +-comm (a · b′) (a′ · b)
@@ -93,7 +93,7 @@ FluxDerivation.flux    jetPravāha = pravāha
 FluxDerivation.leibniz jetPravāha = leibniz
 
 ------------------------------------------------------------------------
--- � � Nonzero, idempotent, and scalars are its kernel.
+-- ३ · Nonzero, idempotent, and scalars are its kernel.
 ------------------------------------------------------------------------
 
 -- The derivation is not zero: the unit tangent survives it.
@@ -104,16 +104,16 @@ pravāha-anasta p = snotz (cong snd p)
 pravāha-idempotent : (x : Jet) → pravāha (pravāha x) ≡ pravāha x
 pravāha-idempotent (a , a′) = refl
 
--- Scalars � jets with no tangent � are exactly what it kills.
+-- Scalars — jets with no tangent — are exactly what it kills.
 pravāha-kernel : (a : ℕ) → pravāha (a , zero) ≡ (zero , zero)
 pravāha-kernel a = refl
 
 ------------------------------------------------------------------------
--- � � The seam, inhabited end to end: a group, a representation into
+-- ४ · The seam, inhabited end to end: a group, a representation into
 --     the jet, and flux-subdivision specialised to them.
 ------------------------------------------------------------------------
 
--- �/2 represented by the scalar unit: represent-mul holds by computation.
+-- ℤ/2 represented by the scalar unit: represent-mul holds by computation.
 ekamātra : Bool → Jet
 ekamātra _ = (suc zero , zero)
 
@@ -121,7 +121,7 @@ ekamātra-mul : (g h : Bool) → ekamātra (g B.· h) ≡ ekamātra g ⊠ ekamā
 ekamātra-mul _ _ = refl
 
 -- flux-subdivision, with every parameter concrete: a flux insertion on
--- a subdivided �/2 edge splits into its two edge insertions in the jet.
+-- a subdivided ℤ/2 edge splits into its two edge insertions in the jet.
 bool-jet-subdivision =
   HolonomyFluxDerivation.flux-subdivision BoolGroup jetPravāha ekamātra ekamātra-mul
 

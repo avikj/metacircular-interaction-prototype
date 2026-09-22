@@ -1,21 +1,21 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ������-������ � the common and the distinctive: ordinary ,
+-- साधारण-विशेषः — the common and the distinctive: ordinary ,
 -- compound built here; no source is claimed for the
 -- mathematics.
 --
--- THE HEAD OF THE SEVEN, AND WHAT IT TEACHES.  max(x+y, x) = x+y �
--- absorption � survives every equational machinery because its step
+-- THE HEAD OF THE SEVEN, AND WHAT IT TEACHES.  max(x+y, x) = x+y —
+-- absorption — survives every equational machinery because its step
 -- puts su-atoms on BOTH sides of an mx whose arguments share content.
 -- The closing fact is that addition distributes over the machine's
 -- maximum: (a+c) ∨ (b+c) = (a∨b)+c, proven below from the machine's
 -- own clauses.  So an mx-cluster canonicalizes by SETTING ASIDE the
--- common heap of its two contenders � they meet only on their
+-- common heap of its two contenders — they meet only on their
 -- difference: mx(A, B) = C ⊕ mx(A∖C, B∖C), and where one difference
 -- is empty the contention itself dissolves (mx(0,B') = B').  With
 -- this eye, max(x+y, x) factors to x + max(y,0) = x + y and closes
--- FLAT � and so does whatever else of the seven shared its shape.
+-- FLAT — and so does whatever else of the seven shared its shape.
 ------------------------------------------------------------------------
 
 module NaturalMachine.SadharanaVishesha_TheCommonIsSetAsideAndTheContendersMeetOnlyOnTheirDifference where
@@ -47,7 +47,7 @@ open import NaturalMachine.Rashi_TheSumIsAHeapNotASequenceTheUnitIsAnAtomAndTheH
   using (राशिः ; राशि-सत्यम् ; निष्कासः ; राशि-विनिमयः ; राशि-साक्षी ; चतुर्थ-शेषम्)
 
 ------------------------------------------------------------------------
--- §1  Addition distributes over the machine's maximum � from its own
+-- §1  Addition distributes over the machine's maximum — from its own
 --     clauses.
 ------------------------------------------------------------------------
 

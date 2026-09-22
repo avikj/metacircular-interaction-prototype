@@ -2,24 +2,24 @@
 
 -- Vestibulum_TheSameCircuitIsFlatForOneFamilyAndChargedForAnotherAndTheSensationCarriesItsWitness
 --
--- àµààààà¿ààà²à®à â” Latin vestibulum, the threshold: the inner ear's chamber.
+-- à¤µà¥‡à¤¸à¥à¤¤à¤¿à¤¬à¥à¤²à¤®à¥ â€” Latin vestibulum, the threshold: the inner ear's chamber.
 --
 -- THE SPECIFICATION.  A sense is not a passive
--- map X â’ O; it is a family carried through action.  The receptor takes
+-- map X â†’ O; it is a family carried through action.  The receptor takes
 --     a circuit l, a carried family F, an inhabitant u over the base,
 -- and returns the transported inhabitant together with a SENSATION that
--- CARRIES ITS WITNESS â” never "this circuit has curvature" without
+-- CARRIES ITS WITNESS â€” never "this circuit has curvature" without
 -- qualification, because the same loop can be flat for one family and
 -- charged for another.  That qualification is made a checked theorem
--- here: over the ONE loop of SÂ, the constant â-bundle returns pos zero
--- identically (àààà¿à°, with its path) and the helix moves it (àà²à¿à, with
+-- here: over the ONE loop of SÂ¹, the constant â„¤-bundle returns pos zero
+-- identically (à¤¸à¥à¤¥à¤¿à¤°, with its path) and the helix moves it (à¤šà¤²à¤¿à¤¤, with
 -- its refutation).  One circuit, two families, two inhabited sensations.
 --
 -- WHAT IS INHERITED, not restated: the charged pole's computation and
--- refutation are Pradakshina's àà°àà¿à and à-ààà¨à°à¾à—à®à (landed on this
--- head); the flat pole is its à§àà°ààµ-àµà²à¯à.  This module contributes the
--- ORGAN â” the general Hol, the witness-carrying sensation type, and the
--- both-poles instance â” none of which Pradakshina states.
+-- refutation are Pradakshina's à¤¸à¤°à¤£à¤¿à¤ƒ and à¤…-à¤ªà¥à¤¨à¤°à¤¾à¤—à¤®à¤ƒ (landed on this
+-- head); the flat pole is its à¤§à¥à¤°à¥à¤µ-à¤µà¤²à¤¯à¤ƒ.  This module contributes the
+-- ORGAN â€” the general Hol, the witness-carrying sensation type, and the
+-- both-poles instance â€” none of which Pradakshina states.
 --
 
 module Vestibulum_TheSameCircuitIsFlatForOneFamilyAndChargedForAnotherAndTheSensationCarriesItsWitness where
@@ -37,20 +37,20 @@ private
   variable
     â„“A â„“F : Level
 
--- â”â” the receptor: transport of the carried family around the circuit â”â”â”â”â”
+-- â”€â”€ the receptor: transport of the carried family around the circuit â”€â”€â”€â”€â”€
 
 Hol : {A : Type â„“A} (F : A â†’ Type â„“F) {a : A} â†’ a â‰¡ a â†’ F a â†’ F a
 Hol F l = subst F l
 
--- â”â” the sensation: a verdict that cannot exist without its witness â”â”â”â”â”â”â”
+-- â”€â”€ the sensation: a verdict that cannot exist without its witness â”€â”€â”€â”€â”€â”€â”€
 
 data Sensation {A : Type â„“A} (F : A â†’ Type â„“F) {a : A}
                (l : a â‰¡ a) (u : F a) : Type (â„“-max â„“A â„“F) where
   à¤¸à¥à¤¥à¤¿à¤° : Hol F l u â‰¡ u     â†’ Sensation F l u   -- returned identically
   à¤šà¤²à¤¿à¤¤ : Â¬ (Hol F l u â‰¡ u) â†’ Sensation F l u   -- returned changed
 
--- â”â” the both-poles instance: ONE circuit, two families â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- The same loop of SÂ, the same carried point pos zero.
+-- â”€â”€ the both-poles instance: ONE circuit, two families â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- The same loop of SÂ¹, the same carried point pos zero.
 
 -- flat for the constant family, with the path as witness
 à¤¸à¤®à¤µà¤²à¤¯à¤ƒ : Sensation (Î» _ â†’ â„¤) loop (pos zero)
@@ -60,9 +60,9 @@ data Sensation {A : Type â„“A} (F : A â†’ Type â„“F) {a : A}
 à¤¸à¤šà¤•à¥à¤°à¤µà¤²à¤¯à¤ƒ : Sensation helix loop (pos zero)
 à¤¸à¤šà¤•à¥à¤°à¤µà¤²à¤¯à¤ƒ = à¤šà¤²à¤¿à¤¤ à¤…-à¤ªà¥à¤¨à¤°à¤¾à¤—à¤®à¤ƒ
 
--- â”â” the qualification as a statement about the ORGAN, not the loop â”â”â”â”â”â”â”
+-- â”€â”€ the qualification as a statement about the ORGAN, not the loop â”€â”€â”€â”€â”€â”€â”€
 -- A reader holding both sensations above holds, for one and the same l,
 -- an identity witness under one family and a movement witness under
 -- another: curvature is a property of (F, l, u), and the organ's report
--- type makes the unqualified claim unwritable â” there is no constructor
+-- type makes the unqualified claim unwritable â€” there is no constructor
 -- of Sensation that mentions l alone.

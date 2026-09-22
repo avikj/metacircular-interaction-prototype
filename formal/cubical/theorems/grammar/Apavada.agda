@@ -3,21 +3,21 @@
 ------------------------------------------------------------------------
 -- Apavada
 --
--- ‡â‡‡‡‡∞‡‡ó / ‡‡‡µ‡æ‡¶ ‚î the general rule and its exception, where the specific
+-- ‡§â‡§§‡•ç‡§∏‡§∞‡•ç‡§ó / ‡§Ö‡§™‡§µ‡§æ‡§¶ ‚Äî the general rule and its exception, where the specific
 -- blocks the general.  Third instance of one theorem.
 --
 -- THE PATTERN, and the school boundary that runs through it:
 --
---   ‡‡®‡‡ï‡æ‡®‡‡      standpoints of an OBSERVER      Anekanta.agda   ‚î JAIN
---   ‡‡‡ø‡¶‡‡ß‡‡‡µ      standpoints of a RULE           Asiddha.agda    ‚î PINIAN
---   ‡‡‡µ‡æ‡¶        standpoints of a RULE PAIR      here            ‚î PINIAN
+--   ‡§Ö‡§®‡•á‡§ï‡§æ‡§®‡•ç‡§§      standpoints of an OBSERVER      Anekanta.agda   ‚Äî JAIN
+--   ‡§Ö‡§∏‡§ø‡§¶‡•ç‡§ß‡§§‡•ç‡§µ      standpoints of a RULE           Asiddha.agda    ‚Äî PƒÄ·πÜINIAN
+--   ‡§Ö‡§™‡§µ‡§æ‡§¶        standpoints of a RULE PAIR      here            ‚Äî PƒÄ·πÜINIAN
 --
 -- and in every case the same law: a collapse exists IFF every pair of
--- standpoints agrees (887641a7).  Not a dichotomy ‚î disagreement is one
+-- standpoints agrees (887641a7).  Not a dichotomy ‚Äî disagreement is one
 -- way to fail agreement, not the only one.
 --
 -- These are NOT three scales of one grammatical tradition.  Anekntavda
--- is Jain epistemology ‚î a claim about how a thing is, made by logicians
+-- is Jain epistemology ‚Äî a claim about how a thing is, made by logicians
 -- the Naiyyikas and the Buddhist pramavdins argued against.
 -- Asiddhatva and apavda are the grammarians' own, about how a rule
 -- behaves in a derivation.  The recurrence across them is real and worth
@@ -26,30 +26,30 @@
 -- THE DISTINCTION THIS MODULE FORCES.
 -- Two situations wear the same shape and are not the same:
 --
---   * ‡‡‡µ‡æ‡¶ proper ‚î the rules DISAGREE on the exception's domain.  The
+--   * ‡§Ö‡§™‡§µ‡§æ‡§¶ proper ‚Äî the rules DISAGREE on the exception's domain.  The
 --     exception changes the output.  This is why exceptions exist, and
 --     `disagreement-has-no-common-output` says no single value serves
 --     both rules there.
 --
---   * REFORMULATION ‚î the rules AGREE everywhere.  Nothing about the
---     generated language changes.  What changes is ‡≤‡æ‡ò‡µ and price.
+--   * REFORMULATION ‚Äî the rules AGREE everywhere.  Nothing about the
+--     generated language changes.  What changes is ‡§≤‡§æ‡§ò‡§µ and price.
 --
 -- `WalkFast` is the second kind.  "next m is the least prime power above m" does not override
--- "least q with q ‚à cap m" ‚î it *agrees* with it, everywhere, provably
+-- "least q with q ‚à§ cap m" ‚Äî it *agrees* with it, everywhere, provably
 -- (`next-characterised`).  The exchange is not an exception.  It is the
 -- same rule said in fewer words and run at a fraction of the price, which
 -- says univalence cannot see.
 --
 -- So the two kinds are separated by exactly the dichotomy: disagreement
--- is ‡‡‡µ‡æ‡¶ and changes the language; agreement is reformulation and
+-- is ‡§Ö‡§™‡§µ‡§æ‡§¶ and changes the language; agreement is reformulation and
 -- changes only the cost.
 --
 -- ONE UNIVERSE REMARK, because it is not bookkeeping.  The exception's
--- domain ‡µ‡ø‡‡Ø is a FAMILY OF TYPES, not a family of booleans: where a rule
+-- domain ‡§µ‡§ø‡§∑‡§Ø is a FAMILY OF TYPES, not a family of booleans: where a rule
 -- applies is itself a proposition that may need proving, so `RulePair`
 -- lands one universe up.  A grammar whose conditions were decidable
 -- booleans would be a different (smaller) object, and the Adhyy is
--- not that object ‚î its conditions quantify over derivational context.
+-- not that object ‚Äî its conditions quantify over derivational context.
 ------------------------------------------------------------------------
 
 module Apavada where
@@ -110,8 +110,8 @@ disagreement-has-no-common-output R a d ¬¨agree b (p , q) =
 -- 3.  The two kinds, separated
 --
 -- A pair is a REFORMULATION when the rules agree throughout the
--- exception's domain ‚î the generated behaviour is untouched and only the
--- presentation differs.  It is ‡‡‡µ‡æ‡¶ proper when they do not.
+-- exception's domain ‚Äî the generated behaviour is untouched and only the
+-- presentation differs.  It is ‡§Ö‡§™‡§µ‡§æ‡§¶ proper when they do not.
 ------------------------------------------------------------------------
 
 Reformulation : {A : Type ‚Ñì} {B : Type ‚Ñì'} ‚Üí RulePair A B ‚Üí Type (‚Ñì-max ‚Ñì ‚Ñì')
@@ -132,7 +132,7 @@ kinds-exclude R ref (a , d , ¬¨agree) = ¬¨agree (ref a d)
 -- 4.  Both kinds exist.  Smallest instances, so neither notion is empty.
 ------------------------------------------------------------------------
 
--- REFORMULATION: "double it" and "add it to itself" ‚î the same rule twice
+-- REFORMULATION: "double it" and "add it to itself" ‚Äî the same rule twice
 double : ‚Ñï ‚Üí ‚Ñï
 double n = 2 ¬∑ n
 
@@ -145,7 +145,7 @@ reform = rules double (Œª _ ‚Üí Unit) (Œª n _ ‚Üí selfSum n)
 reform-is-reformulation : Reformulation reform
 reform-is-reformulation n _ = sym (cong (n +_) (+-zero n))
 
--- ‡‡‡µ‡æ‡¶ PROPER: the general rule is the identity, the exception sends
+-- ‡§Ö‡§™‡§µ‡§æ‡§¶ PROPER: the general rule is the identity, the exception sends
 -- everything to zero.  They disagree at 1, so no output serves both.
 zeroOut : RulePair ‚Ñï ‚Ñï
 zeroOut = rules (Œª n ‚Üí n) (Œª _ ‚Üí Unit) (Œª _ _ ‚Üí 0)
@@ -168,8 +168,8 @@ zeroOut-not-reformulation ref = kinds-exclude zeroOut ref zeroOut-is-proper
 --
 -- Which is the point.  In this tradition the general rule and its
 -- reformulation generate the same language, and the grammarian's whole
--- craft is choosing the shorter one.  ‡≤‡æ‡ò‡µ is not a stylistic preference
--- laid over a finished system ‚î it is the only quantity that distinguishes
+-- craft is choosing the shorter one.  ‡§≤‡§æ‡§ò‡§µ is not a stylistic preference
+-- laid over a finished system ‚Äî it is the only quantity that distinguishes
 -- two systems that are otherwise identical, and it is exactly the
 -- quantity a univalent account discards.
 ------------------------------------------------------------------------

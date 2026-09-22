@@ -13,11 +13,11 @@
 -- sample from, which is a live failure mode for a scheduler and not a
 -- pedantic gap.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
---   âŠ-irrefl            nothing strictly dominates itself
---   âŠ-trans             strict domination is transitive â” needed, and
+--   âŠ-irrefl            nothing strictly dominates itself
+--   âŠ-trans             strict domination is transitive â€” needed, and
 --                       NOT implied by `â‰¼-trans` alone: the negative
 --                       half is what does the work
 --   anyMap              a pointwise implication maps over `Any`
@@ -29,11 +29,11 @@
 --
 -- The induction is the whole content: given a maximal `m` of the tail,
 -- DECIDE whether `m` strictly dominates the head.  If not, `m` is still
--- maximal.  If it does, the HEAD is maximal â” because anything beating
+-- maximal.  If it does, the HEAD is maximal â€” because anything beating
 -- the head would beat `m` by transitivity, contradicting `m`'s
--- maximality.  That second branch is why `âŠ-trans` is needed at all.
+-- maximality.  That second branch is why `âŠ-trans` is needed at all.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- NO NOVELTY.  "A finite non-empty set has a maximal element for a
 -- decidable partial order" is elementary; it is proved here because the
 -- constructive proof needs the decision
@@ -120,7 +120,7 @@ stratumIsNonEmpty x xs with maximalExists x xs
   m , stratumKeepsEveryMaximal (x âˆ· xs) m mem max
 
 ------------------------------------------------------------------------
--- A STRATIFICATION â” removing the layer and repeating â” needs a
+-- A STRATIFICATION â€” removing the layer and repeating â€” needs a
 -- termination argument on the archive's length.  That argument is the
 -- DECREASING MEASURE, built in
 -- `TheRemainderIsStrictlyShorterSoTheStratificationHasAMeasure`:
@@ -153,7 +153,7 @@ stratumIsNonEmpty x xs with maximalExists x xs
 --
 -- Two things about the price:
 --
---   * The bound is needed only in the NEGATIVE half â” soundness of the
+--   * The bound is needed only in the NEGATIVE half â€” soundness of the
 --     flip is unconditional, and it is turning "the flipped z does not
 --     beat the flipped u" back into "z does not beat u" that needs a
 --     cap on u.  Since u is a member, an archive-wide bound suffices.

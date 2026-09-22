@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Niyama � the doubled sound could have been any of three, and the full
+-- Niyama — the doubled sound could have been any of three, and the full
 -- classes restrict it to ha alone.
 --
 -- SOURCE for the term.  *Niyama* is the stric category of the
@@ -22,35 +22,35 @@
 -- 3-cycle on TWO MORE triples of sounds, computed by refl from the
 -- stretches Vyavya extracted from the real line:
 --
---     on {h v } :  a� = {h v}   aL� = { h}   yaR� = {v }
---     on {h y } :  a� = {h y}   aL� = { h}   yaR� = {y }
+--     on {h v ś} :  aṬ↾ = {h v}   śaL↾ = {ś h}   yaR↾ = {v ś}
+--     on {h y ṣ} :  aṬ↾ = {h y}   śaL↾ = {ṣ h}   yaR↾ = {y ṣ}
 --
 -- and the impossibility theorem is proved ONCE, parametrically over any
--- triple of sounds (����������-������-��������): for any t� t� t�, any
--- line whose {t� t� t�}-subsequence is one of the six permutations
--- admits no three classes restricting to {t�t�}, {t�t�}, {t�t�}.  The
+-- triple of sounds (त्रिकोणे-त्रयम्-असाध्यम्): for any t₁ t₂ t₃, any
+-- line whose {t₁ t₂ t₃}-subsequence is one of the six permutations
+-- admits no three classes restricting to {t₁t₂}, {t₁t₃}, {t₂t₃}.  The
 -- six seat-denial checks arrive as arguments and are discharged by refl
 -- at each instantiation; Vyavya's own theorem is re-derived as the
 -- third instance, as a coherence check.
 --
 -- THE NIYAMA, read off the three instances together.  Let a line name
 -- the full attested trio and recite AT MOST ONE sound twice.  Markers
--- are unconstrained throughout � every theorem here quantifies over
+-- are unconstrained throughout — every theorem here quantifies over
 -- arbitrary marker placement, so no marker arrangement escapes.  Case on
 -- the doubled sound d:
 --
---   d ∉ {h y }      : h, y,  stand once each � Vyavya's instance
+--   d ∉ {h y ś}      : h, y, ś stand once each — Vyavāya's instance
 --                      (re-derived here) refutes the line.
---   d = y            : h, v,  stand once each � the {h v } instance
+--   d = y            : h, v, ś stand once each — the {h v ś} instance
 --                      refutes it.  (y is not in that triple; doubling
 --                      it buys nothing there.)
---   d =             : h, y,  stand once each � the {h y } instance
+--   d = ś            : h, y, ṣ stand once each — the {h y ṣ} instance
 --                      refutes it.
---   d = h            : survives � and the real line attains it
---                      (`�����`, repetition count exactly one, Vyavya §8).
+--   d = h            : survives — and the real line attains it
+--                      (`रेखा`, repetition count exactly one, Vyavāya §8).
 --
 -- So among single-doubling lines, ha is the ONLY admissible choice.  The
--- reason is visible in the intersections: a ∩ aL = {h} exactly � ha is
+-- reason is visible in the intersections: aṬ ∩ śaL = {h} exactly — ha is
 -- the sole articulation point of the triangle, the one sound whose
 -- doubling dismantles every 3-cycle the trio generates.  Doubling y or 
 -- breaks one cycle and leaves another standing; doubling h leaves none.
@@ -91,7 +91,7 @@ sigOn t₁ t₂ t₃ xs = sg₃ (occV t₁ xs) (occV t₂ xs) (occV t₃ xs)
 
 ------------------------------------------------------------------------
 -- §2  Seat denial, parametric in the summary.  Identical in structure to
---     Vyavya's ��������; restated because that one fixes tHY and sig�.
+--     Vyavāya's एकासनम्; restated because that one fixes tHYŚ and sig₃.
 ------------------------------------------------------------------------
 
 वारणम् : (tP : Varṇa → Bool) (sigP : List Varṇa → Sig₃)
@@ -161,7 +161,7 @@ private
 ------------------------------------------------------------------------
 -- §4  The three instances.  Every seat-denial check is refl.
 --
---     ya doubled  �  h v  once each  �  refuted:
+--     ya doubled  ⟹  h v ś once each  ⟹  refuted:
 ------------------------------------------------------------------------
 
 हवशेषु-त्रयम्-असाध्यम् :
@@ -173,7 +173,7 @@ private
   → ⊥
 हवशेषु-त्रयम्-असाध्यम् = त्रिकोणे-त्रयम्-असाध्यम् h v ś refl refl refl refl refl refl
 
---     a doubled  �  h y  once each  �  refuted:
+--     śa doubled  ⟹  h y ṣ once each  ⟹  refuted:
 
 हयषेषु-त्रयम्-असाध्यम् :
     (ℓ₀ : List Varṇa) → keep (tOn h y ṣ) ℓ₀ ∈ᴸ षट्कम् h y ṣ
@@ -184,7 +184,7 @@ private
   → ⊥
 हयषेषु-त्रयम्-असाध्यम् = त्रिकोणे-त्रयम्-असाध्यम् h y ṣ refl refl refl refl refl refl
 
---     and any other doubling leaves h y  once each � the predecessor's
+--     and any other doubling leaves h y ś once each — the predecessor's
 --     instance, re-derived through the parametric theorem as coherence:
 
 हयशेषु-पुनः : (ℓ₀ : List Varṇa) → keep (tOn h y ś) ℓ₀ ∈ᴸ षट्कम् h y ś
@@ -197,7 +197,7 @@ private
 
 ------------------------------------------------------------------------
 -- §5  The attested stretches satisfy the hypotheses of BOTH new
---     instances � computed from the real line's own extracts, by refl.
+--     instances — computed from the real line's own extracts, by refl.
 --     So the refutations bite exactly the trio Pini names.
 ------------------------------------------------------------------------
 

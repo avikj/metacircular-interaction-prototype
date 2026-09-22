@@ -1,44 +1,44 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àà¨ààààà¨àà§à¿ â” àà¨àààà à²à¿à–à¿àà, à—àà¨à¾ àà àà¨àà§à¾ à
+-- àà¨ààààà¨àà§à¿ â€” àà¨àààà à²à¿à–à¿àà, à—àà¨à¾ àà àà¨àà§à¾ à
 --
 -- (the fibre was written; it was the census that could not see.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE QUEUE.
 --
--- `interactive/Lopa_â¦hs` grades 1046 one-way edges in this corpus UNDECIDED:
--- no syntactic rule names a fibre.  But a fibre WRITTEN OUT is a Î ending
--- in an equation into the index â”
+-- `interactive/Lopa_â€¦hs` grades 1046 one-way edges in this corpus UNDECIDED:
+-- no syntactic rule names a fibre.  But a fibre WRITTEN OUT is a Î£ ending
+-- in an equation into the index â€”
 --
---     Fib n = Î[ w âˆˆ Word ] (value w â‰¡ n)
+--     Fib n = Î£[ w âˆˆ Word ] (value w â‰¡ n)
 --
--- â” and 46 such definitions already exist in `formal/cubical` and
+-- â€” and 46 such definitions already exist in `formal/cubical` and
 -- `fibre/src`.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED.  Nothing is constructed; all four are `refl`.
 --
---   `fiber f b` unfolds to `Î[ a ] (f a â‰¡ b)`.  Where the written type
---   is literally that Î for a map the census is holding, the two types
+--   `fiber f b` unfolds to `Î£[ a ] (f a â‰¡ b)`.  Where the written type
+--   is literally that Î£ for a map the census is holding, the two types
 --   are equal on the nose and the identification costs one line.
 --
--- Â§à§  chargeOneFiber  â‰¡  fiber chargeOneProjector true   (queued edge)
--- Â§à¨  Fib n           â‰¡  fiber value n                   (queued edge)
--- Â§à©  EvenQuery       â‰¡  fiber (sgn âˆ˜ Î©) true            (COMPOSITE of
---     two queued edges, `Number âŸ â• Â Î©` and `â• âŸ Bool Â sgn`; the
+-- Â§à¥§  chargeOneFiber  â‰¡  fiber chargeOneProjector true   (queued edge)
+-- Â§à¥¨  Fib n           â‰¡  fiber value n                   (queued edge)
+-- Â§à¥©  EvenQuery       â‰¡  fiber (sgn âˆ˜ Î©) true            (COMPOSITE of
+--     two queued edges, `Number âŸ¶ â„• Â« Î©` and `â„• âŸ¶ Bool Â« sgn`; the
 --     composite is not itself a queue entry:
 --     the queue does not contain the map
---     this fibre belongs to â” it contains its two halves.)
--- Â§à  ThreeKernel     â‰¡  fiber triple (pos 0)            (NOT IN THE
+--     this fibre belongs to â€” it contains its two halves.)
+-- Â§à¥ª  ThreeKernel     â‰¡  fiber triple (pos 0)            (NOT IN THE
 --     QUEUE AT ALL, see below.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE TWO EDGES THE CENSUS NEVER SAW.
 --
--- `triple : â â’ â` (`S3IntegerRelativeCoordinates.agda:83`) and
--- `à®à¾ààà°à¾ : à°àà â’ â•` (`fibre/src/â¦/Prastara_â¦.agda:157`) are
+-- `triple : â„¤ â†’ â„¤` (`S3IntegerRelativeCoordinates.agda:83`) and
+-- `à¤®à¤¾à¤¤à¥à¤°à¤¾ : à¤°à¥‚à¤ª â†’ â„•` (`fibre/src/â€¦/Prastara_â€¦.agda:157`) are
 -- top-level, total, non-injective maps whose fibres are written 12 and
 -- 95 lines below them respectively.  NEITHER APPEARS among the 1046.
 -- So the queue's number is not an upper bound on the corpus's one-way
@@ -61,40 +61,40 @@ open import OracleSeparation using (EvenQuery)
 open import S3IntegerRelativeCoordinates using (triple ; ThreeKernel)
 
 ------------------------------------------------------------------------
--- à¦.  WHAT THESE SHAPES ARE NOT.
+-- à¤¦.  WHAT THESE SHAPES ARE NOT.
 --
 --   (i)  a NEGATED equation is not a fibre.  `fiber f b` is
---        `Î[ a ] (f a â‰¡ b)`; `Î[ a ] Â (f a â‰¡ b)` is its complement and
+--        `Î£[ a ] (f a â‰¡ b)`; `Î£[ a ] Â¬ (f a â‰¡ b)` is its complement and
 --        is a fibre of nothing.
---          Â LawfulContinuationCore.AdmissibleModulus  (Î[ q âˆˆ â• ] Â (L mod q â‰¡ zero))
---          Â LawfulContinuationCore.BranchingFiber     (Î left Î right Â left â‰¡ right)
---          Â OracleSeparation.Charged                  (Î[ Ï âˆˆ Signs ] Â (P Ï â‰¡ P (flip Ï)))
---        The middle one is named "â¦Fiber" and is not one; the name was
+--          Â· LawfulContinuationCore.AdmissibleModulus  (Î£[ q âˆˆ â„• ] Â¬ (L mod q â‰¡ zero))
+--          Â· LawfulContinuationCore.BranchingFiber     (Î£ left Î£ right Â¬ left â‰¡ right)
+--          Â· OracleSeparation.Charged                  (Î£[ Ïƒ âˆˆ Signs ] Â¬ (P Ïƒ â‰¡ P (flip Ïƒ)))
+--        The middle one is named "â€¦Fiber" and is not one; the name was
 --        the whole of its evidence.
 --
---   (ii) a FIXED-POINT type is not a fibre.  `Î[ a ] (g a â‰¡ a)` is the
+--   (ii) a FIXED-POINT type is not a fibre.  `Î£[ a ] (g a â‰¡ a)` is the
 --        equalizer of g and the identity: the index varies with the
 --        point, so there is no b for `fiber g b` to be taken over.
---          Â RelationalTensorObstructionBridge.LoopStable  (Î[ phase âˆˆ Bool ] subst â¦ loop phase â‰¡ phase)
---          Â S3ConjugacyObservation.Fixed                  (Î[ x âˆˆ Fin3 ] g .fst x â‰¡ x)
+--          Â· RelationalTensorObstructionBridge.LoopStable  (Î£[ phase âˆˆ Bool ] subst â€¦ loop phase â‰¡ phase)
+--          Â· S3ConjugacyObservation.Fixed                  (Î£[ x âˆˆ Fin3 ] g .fst x â‰¡ x)
 --
---   (iii) right shape, WRONG MAP.  PingalaPrastara's `à²à˜à-àà™àà–àà¯à¾` counts
+--   (iii) right shape, WRONG MAP.  PingalaPrastara's `à¤²à¤˜à¥-à¤¸à¤™à¥à¤–à¥à¤¯à¤¾` counts
 --        laghus; `Metre`'s equation is over `matraOf`, which sums morae.
 --        Same two types, different map, no identification.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- à§.  Charge âŸ Bool Â chargeOneProjector      (queue entry)
+-- à¥§.  Charge âŸ¶ Bool Â« chargeOneProjector      (queue entry)
 ------------------------------------------------------------------------
 
 chargeOneFiber-is-fibre : chargeOneFiber â‰¡ fiber chargeOneProjector true
 chargeOneFiber-is-fibre = refl
 
 ------------------------------------------------------------------------
--- à¨.  Word âŸ â• Â value                        (queue entry)
+-- à¥¨.  Word âŸ¶ â„• Â« value                        (queue entry)
 --
 -- This is the edge whose fibre the host module already proved is NOT of
--- constant cardinality â” `Fib 1` contractible, `Fib 2` two points â” so
+-- constant cardinality â€” `Fib 1` contractible, `Fib 2` two points â€” so
 -- the receipt for this lossy map is a named type that is provably not a
 -- torsor.  Naming it as a fibre is what lets that statement be about the
 -- map rather than about a coincidence of definitions.
@@ -104,12 +104,12 @@ Fib-is-fibre : (n : â„•) â†’ Fib n â‰¡ fiber value n
 Fib-is-fibre _ = refl
 
 ------------------------------------------------------------------------
--- à©.  Number âŸ â• Â Î©  then  â• âŸ Bool Â sgn    (two queue entries)
+-- à¥©.  Number âŸ¶ â„• Â« Î©  then  â„• âŸ¶ Bool Â« sgn    (two queue entries)
 --
 -- The queue holds the two halves; the written fibre belongs to the
 -- composite.  A fibre of a composite is not a fibre of either factor,
 -- and the identification below is therefore about a map the census is
--- not holding â” which is a statement about the census's granularity.
+-- not holding â€” which is a statement about the census's granularity.
 ------------------------------------------------------------------------
 
 sgnÎ© : Number â†’ Bool
@@ -119,7 +119,7 @@ EvenQuery-is-fibre : EvenQuery â‰¡ fiber sgnÎ© true
 EvenQuery-is-fibre = refl
 
 ------------------------------------------------------------------------
--- à.  â âŸ â Â triple                          (NOT a queue entry)
+-- à¥ª.  â„¤ âŸ¶ â„¤ Â« triple                          (NOT a queue entry)
 ------------------------------------------------------------------------
 
 ThreeKernel-is-fibre : ThreeKernel â‰¡ fiber triple (pos 0)

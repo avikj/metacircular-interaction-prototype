@@ -1,52 +1,52 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- TorusFourierLayer � the prime-boundary document's triangular pair
--- u^� = (0 , a , � v), DERIVED from its velocity field on the torus:
--- the divergence vanishes, the nonlinear term (u��)u is (0, 0, � a ��v)
+-- TorusFourierLayer — the prime-boundary document's triangular pair
+-- u^σ = (0 , a , σ v), DERIVED from its velocity field on the torus:
+-- the divergence vanishes, the nonlinear term (u·∇)u is (0, 0, σ a ∂₂v)
 -- and is itself divergence-free, so the Leray projection leaves it
 -- fixed and the pressure gradient is zero; the coarse stress (the
--- x�-average of u ⊗ u) and the coarse continuation P_{�1} ��u(0) are
--- computed, and they are the document's matrix and its �-odd e� term.
+-- x₁-average of u ⊗ u) and the coarse continuation P_{≤1} ∂ₜu(0) are
+-- computed, and they are the document's matrix and its σ-odd e₃ term.
 --
 -- WHAT THIS IS.  TriangularPair
 -- wrote the stress and the continuation down; this module computes
 -- them.  The layer is the smallest exact Fourier calculus that carries
 -- the derivation:
 --
---   fields   are functions � � � � �[i] (Fourier coefficients on the
---            modes (N k� , k�), with N = 2 the fine frequency), finitely
+--   fields   are functions ℤ × ℤ → ℤ[i] (Fourier coefficients on the
+--            modes (N k₁ , k₂), with N = 2 the fine frequency), finitely
 --            supported by construction;
 --   product  is convolution over the box [−2, 2]², exact because every
 --            input here is supported in [−1, 1]² and the product of two
 --            such is supported in [−2, 2]²;
---   ��, ��   multiply the coefficient at (k� , k�) by i N k�, i k�;
---   ��       is zero � nothing depends on x�;
---   Δ        multiplies by −(N² k�² + k�²);
---   avg      restricts to the row k� = 0 (the x�-average);
---   P_{�1}   keeps k� = 0 and |k�| � 1 (every k� ≠ 0 mode has |N k�| � 2).
+--   ∂₁, ∂₂   multiply the coefficient at (k₁ , k₂) by i N k₁, i k₂;
+--   ∂₃       is zero — nothing depends on x₃;
+--   Δ        multiplies by −(N² k₁² + k₂²);
+--   avg      restricts to the row k₁ = 0 (the x₁-average);
+--   P_{≤1}   keeps k₁ = 0 and |k₂| ≤ 1 (every k₁ ≠ 0 mode has |N k₁| ≥ 2).
 --
--- The fields: a = 2 cos(N x�), i.e. a(�1 , 0) = 1, and v = 2 cos(N x� + x�),
+-- The fields: a = 2 cos(N x₁), i.e. a(±1 , 0) = 1, and v = 2 cos(N x₁ + x₂),
 -- i.e. v(1 , 1) = v(−1 , −1) = 1; the factor 2 replaces the document's A
 -- with 2 so that no ½ is needed, and every result below is the
 -- document's with A² = 4.  Equalities of fields are decided on the box
 -- by a Boolean procedure and reflected to paths (§1).
 --
---   §2  div u^� = 0;  (u^���)u^� = (0 , 0 , � � (a ∗ ��v));  div of that = 0.
---   §3  avg(u�u�) = 2�δ�,  avg(u�u�) = �(δ� + δ��) = 2� cos x�,
---       avg(u�u�) = 2�δ�  � the document's 2R^� = A²[[0,0,0],[0,1,�c],[0,�c,1]]
+--   §2  div u^σ = 0;  (u^σ·∇)u^σ = (0 , 0 , σ · (a ∗ ∂₂v));  div of that = 0.
+--   §3  avg(u₂u₂) = 2·δ₀,  avg(u₂u₃) = σ(δ₁ + δ₋₁) = 2σ cos x₂,
+--       avg(u₃u₃) = 2·δ₀  — the document's 2R^σ = A²[[0,0,0],[0,1,σc],[0,σc,1]]
 --       with A² = 4, read as coefficients.
---   §4  P_{�1}(−(u��)u + ν Δu) = (0 , 0 , � � (−i δ� + i δ��)) = (0, 0, 2� sin x�)
---       for ν = 1 and for ν = 7: the viscous term lives at k� = �1 and is
---       projected away � the document's (�A²/2) e� sin x� with A² = 4.
---   §5  the pair: the �-even stress entries agree at � = �1, the �-odd
+--   §4  P_{≤1}(−(u·∇)u + ν Δu) = (0 , 0 , σ · (−i δ₁ + i δ₋₁)) = (0, 0, 2σ sin x₂)
+--       for ν = 1 and for ν = 7: the viscous term lives at k₁ = ±1 and is
+--       projected away — the document's (σA²/2) e₃ sin x₂ with A² = 4.
+--   §5  the pair: the σ-even stress entries agree at σ = ±1, the σ-odd
 --       entry and the continuation are negated.
 --
--- SYT � THE CLAIM, EXACTLY.  Every statement is a computation at t = 0
--- over �[i], decided on the box and reflected.
+-- SYĀT — THE CLAIM, EXACTLY.  Every statement is a computation at t = 0
+-- over ℤ[i], decided on the box and reflected.
 -- What the document's
--- Theorem 8 uses � the t = 0 stress, the t = 0 coarse acceleration, and
--- the constancy of the pressure � is derived, not written down.
+-- Theorem 8 uses — the t = 0 stress, the t = 0 coarse acceleration, and
+-- the constancy of the pressure — is derived, not written down.
 ------------------------------------------------------------------------
 
 module TorusFourierLayer_TheTriangularPairIsDerivedFromItsVelocityFieldTheNonlinearTermIsDivergenceFreeSoThePressureIsConstantAndTheCoarseStressAndContinuationAreComputed where
@@ -132,11 +132,11 @@ N = pos 2
 ∂₃ f k₁ k₂ = 0c
 Δ f k₁ k₂ = negc (ι (N · k₁ · (N · k₁) + k₂ · k₂)) ·c f k₁ k₂
 
--- x�-average: the row k� = 0
+-- x₁-average: the row k₁ = 0
 avg : Field → ℤ → ℤi
 avg f k₂ = f (pos 0) k₂
 
--- P_{�1}: k� = 0 and |k�| � 1
+-- P_{≤1}: k₁ = 0 and |k₂| ≤ 1
 P≤1 : Field → Field
 P≤1 f (pos 0) (pos 0) = f (pos 0) (pos 0)
 P≤1 f (pos 0) (pos 1) = f (pos 0) (pos 1)
@@ -153,7 +153,7 @@ open Vec3 public
 div : Vec3 → Field
 div (vec f g h) = ∂₁ f +f ∂₂ g +f ∂₃ h
 
--- (u��)w componentwise: �� u� ∗ �� w
+-- (u·∇)w componentwise: Σⱼ uⱼ ∗ ∂ⱼ w
 adv : Vec3 → Field → Field
 adv (vec f g h) w = f ∗ ∂₁ w +f g ∗ ∂₂ w +f h ∗ ∂₃ w
 
@@ -175,7 +175,7 @@ scalev c (vec f g h) = vec (ι c ·f f) (ι c ·f g) (ι c ·f h)
 P≤1v : Vec3 → Vec3
 P≤1v (vec f g h) = vec (P≤1 f) (P≤1 g) (P≤1 h)
 
--- ��u at t = 0 with constant pressure: −(u��)u + νΔu
+-- ∂ₜu at t = 0 with constant pressure: −(u·∇)u + νΔu
 ∂ₜ : ℤ → Vec3 → Vec3
 ∂ₜ ν u = negv (NL u) +v scalev ν (Lap u)
 
@@ -258,13 +258,13 @@ eqRow-sound r s e k₂ m = eqc-sound (r k₂) (s k₂) (allL-sound box (λ k₂'
 -- §2  the fields, the divergence, the nonlinear term, the pressure
 ------------------------------------------------------------------------
 
--- a = 2 cos(N x�):  a(�1, 0) = 1
+-- a = 2 cos(N x₁):  a(±1, 0) = 1
 a : Field
 a (pos 1) (pos 0) = 1c
 a (negsuc 0) (pos 0) = 1c
 a _ _ = 0c
 
--- v = 2 cos(N x� + x�):  v(1, 1) = v(−1, −1) = 1
+-- v = 2 cos(N x₁ + x₂):  v(1, 1) = v(−1, −1) = 1
 v : Field
 v (pos 1) (pos 1) = 1c
 v (negsuc 0) (negsuc 0) = 1c
@@ -274,18 +274,18 @@ v _ _ = 0c
 u : ℤ → Vec3
 u σ = vec 0f a (ι σ ·f v)
 
--- Kronecker rows on k�
+-- Kronecker rows on k₂
 δ : ℤ → ℤ → ℤi
 δ j k₂ with discreteℤ j k₂
 ... | yes _ = 1c
 ... | no _ = 0c
 
--- (i) incompressible: u� = 0, a has no x�-dependence, nothing depends on x�.
---     � never enters, so one computation covers every �.
+-- (i) incompressible: u₁ = 0, a has no x₂-dependence, nothing depends on x₃.
+--     σ never enters, so one computation covers every σ.
 div-u : (σ : ℤ) → eqBox (div (u σ)) 0f ≡ true
 div-u σ = refl
 
--- (ii) the nonlinear term is (0 , 0 , � � (a ∗ ��v))
+-- (ii) the nonlinear term is (0 , 0 , σ · (a ∗ ∂₂v))
 -- the two signs of the pair
 data Sign : Type where
   plus minus : Sign
@@ -307,7 +307,7 @@ nl₃ plus = refl
 nl₃ minus = refl
 
 -- (iii) the nonlinear term is divergence-free: the Leray projection is the
---       identity on it, the pressure gradient is zero � the pressure is constant.
+--       identity on it, the pressure gradient is zero — the pressure is constant.
 div-NL : (s : Sign) → eqBox (div (NL (u σ⟨ s ⟩))) 0f ≡ true
 div-NL plus = refl
 div-NL minus = refl
@@ -320,13 +320,13 @@ pressure-constant : (s : Sign) (k₁ k₂ : ℤ) → k₁ ∈ box → k₂ ∈ b
 pressure-constant s = eqBox-sound _ _ (div-NL s)
 
 ------------------------------------------------------------------------
--- §3  the coarse stress: x�-averages of u ⊗ u
+-- §3  the coarse stress: x₁-averages of u ⊗ u
 ------------------------------------------------------------------------
 
 two-δ₀ : ℤ → ℤi
 two-δ₀ k₂ = ι (pos 2) ·c δ (pos 0) k₂
 
--- δ� + δ�� = 2 cos x� as coefficients
+-- δ₁ + δ₋₁ = 2 cos x₂ as coefficients
 cosRow : ℤ → ℤi
 cosRow k₂ = δ (pos 1) k₂ +c δ (negsuc 0) k₂
 
@@ -342,16 +342,16 @@ stress₃₃ : (s : Sign) → eqRow (avg (u₃ (u σ⟨ s ⟩) ∗ u₃ (u σ⟨
 stress₃₃ plus = refl
 stress₃₃ minus = refl
 
--- the first row and column vanish: u� = 0
+-- the first row and column vanish: u₁ = 0
 stress₁ⱼ : (s : Sign) → eqRow (avg (u₁ (u σ⟨ s ⟩) ∗ u₃ (u σ⟨ s ⟩))) (λ _ → 0c) ≡ true
 stress₁ⱼ plus = refl
 stress₁ⱼ minus = refl
 
 ------------------------------------------------------------------------
--- §4  the coarse continuation: P_{�1} ��u(0) for two viscosities
+-- §4  the coarse continuation: P_{≤1} ∂ₜu(0) for two viscosities
 ------------------------------------------------------------------------
 
--- −i δ� + i δ�� = 2 sin x� as coefficients
+-- −i δ₁ + i δ₋₁ = 2 sin x₂ as coefficients
 sinRow : Field
 sinRow (pos 0) (pos 1) = negc i
 sinRow (pos 0) (negsuc 0) = i
@@ -391,11 +391,11 @@ coarse-continuation = eqBox-sound _ _ (cont₃ one plus)
 -- §5  the pair
 ------------------------------------------------------------------------
 
--- �-even entries agree �
+-- σ-even entries agree …
 pair-stress-even : eqRow (avg (u₃ (u (pos 1)) ∗ u₃ (u (pos 1)))) (avg (u₃ (u (negsuc 0)) ∗ u₃ (u (negsuc 0)))) ≡ true
 pair-stress-even = refl
 
--- � the �-odd entry and the continuation are negated
+-- … the σ-odd entry and the continuation are negated
 pair-stress-odd : eqRow (avg (u₂ (u (negsuc 0)) ∗ u₃ (u (negsuc 0)))) (λ k₂ → negc (avg (u₂ (u (pos 1)) ∗ u₃ (u (pos 1))) k₂)) ≡ true
 pair-stress-odd = refl
 

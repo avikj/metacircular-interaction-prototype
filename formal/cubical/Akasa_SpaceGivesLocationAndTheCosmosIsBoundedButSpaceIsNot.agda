@@ -1,9 +1,9 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
--- ����� � space (Umsvti, Tattvrthastra 5.18 avagha; 5.12 lokka). The
+-- आकाश — space (Umāsvāti, Tattvārthasūtra 5.18 avagāha; 5.12 lokākāśa). The
 -- sixth dravya, whose upakra is avaghana: it gives every other substance its
 -- location. ka is infinite; loka-ka (occupied, bounded by dharma/adharma
 -- as the media of motion/rest) is finite; aloka (the empty remainder, only
--- ka) is infinite and nonempty � so the COSMOS is bounded but SPACE is not.
+-- ākāśa) is infinite and nonempty — so the COSMOS is bounded but SPACE is not.
 -- Completes the six dravyas: jva, pudgala, dharma, adharma, kla, ka.
 module Akasa_SpaceGivesLocationAndTheCosmosIsBoundedButSpaceIsNot where
 

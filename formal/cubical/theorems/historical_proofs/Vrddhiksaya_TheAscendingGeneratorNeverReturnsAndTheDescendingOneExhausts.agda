@@ -1,50 +1,50 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àµàà¦àà§à¿-à•ààà¯à â” àŠà°àà§ààµà—à¾à®à àà¨à•à à•à¦à¾àà¿ à¨ ààà¨à°à¾à—ààààà¿ ; àà§à‹à—à¾à®à à•àààà¯àà à
+-- à¤µà¥ƒà¤¦à¥à¤§à¤¿-à¤•à¥à¤·à¤¯à¥Œ â€” à¤Šà¤°à¥à¤§à¥à¤µà¤—à¤¾à¤®à¥€ à¤œà¤¨à¤•à¤ƒ à¤•à¤¦à¤¾à¤ªà¤¿ à¤¨ à¤ªà¥à¤¨à¤°à¤¾à¤—à¤šà¥à¤›à¤¤à¤¿ ; à¤…à¤§à¥‹à¤—à¤¾à¤®à¥€ à¤•à¥à¤·à¥€à¤¯à¤¤à¥‡ à¥¤
 --
 -- (growth and waning: an ascending generator never returns; a descending
 --  one wears away.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHY THIS EXISTS.  A self-map goes nowhere as an EDGE: a generator adds no
 -- reachability in one step and unbounded novelty in the limit.
 --
--- â• carries more of them than every other type
+-- â„• carries more of them than every other type
 -- together, and they fall into two kinds that this module separates by a
--- single property each.  `ALosslessReturn_â¦.àààà¨à°à¾à—à®à¨à®à` proved the ascending
--- case for ONE generator, Brahmagupta's àà¾àµà¨à¾.  Â§à¨ here is that theorem
+-- single property each.  `ALosslessReturn_â€¦.à¤…à¤ªà¥à¤¨à¤°à¤¾à¤—à¤®à¤¨à¤®à¥` proved the ascending
+-- case for ONE generator, Brahmagupta's à¤­à¤¾à¤µà¤¨à¤¾.  Â§à¥¨ here is that theorem
 -- with the generator abstracted away, so it applies to all of them at
 -- once, and the bhvan becomes an instance rather than the subject.
 --
 -- THE TWO KINDS, and the corpus already contains both:
 --
---   àŠà°àà§ààµà—à¾à®à (ascending) â” àà¾àµà¨à¾: (x,y) composed with the fundamental
+--   à¤Šà¤°à¥à¤§à¥à¤µà¤—à¤¾à¤®à¥€ (ascending) â€” à¤­à¤¾à¤µà¤¨à¤¾: (x,y) composed with the fundamental
 --     solution.  The denominator strictly grows, so nothing repeats: a
 --     finite rule with an infinite non-repeating orbit.  This is the
 --     minimal-description generator of maximal novelty, and it is what an
 --     irrational rotation of the circle is: it never comes back.
 --
---   àà§à‹à—à¾à®à (descending) â” àà°àà§ààààà¦, àµà°àà—àà²à¾à•à¾ (Vrasena, à§àµà²à¾, 816 CE):
+--   à¤…à¤§à¥‹à¤—à¤¾à¤®à¥€ (descending) â€” à¤…à¤°à¥à¤§à¤šà¥à¤›à¥‡à¤¦, à¤µà¤°à¥à¤—à¤¶à¤²à¤¾à¤•à¤¾ (VÄ«rasena, à¤§à¤µà¤²à¤¾, 816 CE):
 --     how many times a number can be halved, and the halving of THAT.
 --     Strictly decreasing on positive arguments, so it reaches its floor
 --     and stops.  A rational rotation is this kind: it returns, and after
 --     one period it carries nothing it did not already carry.
 --
--- SO THE MACHINE'S GENERATORS SPLIT BY WHETHER ààà¨à°à¾à—à®à¨ HOLDS OF THEM, and
+-- SO THE MACHINE'S GENERATORS SPLIT BY WHETHER à¤ªà¥à¤¨à¤°à¤¾à¤—à¤®à¤¨ HOLDS OF THEM, and
 -- neither half is the defect.  A corpus of only descending generators
 -- exhausts; a corpus of only ascending ones never closes anything.  The
--- root text says the same thing about maps: à¨àààŸà¾àà¾àµà à—ààà¯àà¾àµà, àtra à§à,
--- proved in `Dhruva_â¦.à¨àààŸ-ààà¾àµà-à—àà¿-ààà¾àµà` â” an equivalence admits only
+-- root text says the same thing about maps: à¤¨à¤·à¥à¤Ÿà¤¾à¤­à¤¾à¤µà¥‡ à¤—à¤¤à¥à¤¯à¤­à¤¾à¤µà¤ƒ, à¤¸Å«tra à¥§à¥ª,
+-- proved in `Dhruva_â€¦.à¤¨à¤·à¥à¤Ÿ-à¤…à¤­à¤¾à¤µà¥‡-à¤—à¤¤à¤¿-à¤…à¤­à¤¾à¤µà¤ƒ` â€” an equivalence admits only
 -- the trivial symmetry, so a system with nothing left unreturned cannot
 -- move.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
--- àµàà¦àà§à¿ (growth) and à•ààà¯ (waning, wearing away) are used in their plain
--- senses.  à•ààà¯ is also the Jaina term in à•à°àà®-à•ààà¯, the wearing away of
+-- à¤µà¥ƒà¤¦à¥à¤§à¤¿ (growth) and à¤•à¥à¤·à¤¯ (waning, wearing away) are used in their plain
+-- senses.  à¤•à¥à¤·à¤¯ is also the Jaina term in à¤•à¤°à¥à¤®-à¤•à¥à¤·à¤¯, the wearing away of
 -- bound karma, and the resonance is noted rather than claimed: no Jaina
--- source states Â§à©, and nothing below is a doctrine of karma.
+-- source states Â§à¥©, and nothing below is a doctrine of karma.
 ------------------------------------------------------------------------
 
 module Vrddhiksaya_TheAscendingGeneratorNeverReturnsAndTheDescendingOneExhausts where
@@ -59,7 +59,7 @@ private variable
   f g : â„• â†’ â„•
 
 ------------------------------------------------------------------------
--- à§ Â àŠà°àà§ààµà—à¾à®à¿àààµà®à / àà§à‹à—à¾à®à¿àààµà®à â” the two properties, as predicates on a
+-- à¥§ Â· à¤Šà¤°à¥à¤§à¥à¤µà¤—à¤¾à¤®à¤¿à¤¤à¥à¤µà¤®à¥ / à¤…à¤§à¥‹à¤—à¤¾à¤®à¤¿à¤¤à¥à¤µà¤®à¥ â€” the two properties, as predicates on a
 --     generator rather than as facts about one particular map.
 ------------------------------------------------------------------------
 
@@ -70,9 +70,9 @@ private variable
 à¤…à¤§à¥‹à¤—à¤¾à¤®à¥€ f = (n : â„•) â†’ f (suc n) < suc n
 
 ------------------------------------------------------------------------
--- à¨ Â àààà¨à°à¾à—à®à¨à®à â” AN ASCENDING GENERATOR NEVER RETURNS.
+-- à¥¨ Â· à¤…à¤ªà¥à¤¨à¤°à¤¾à¤—à¤®à¤¨à¤®à¥ â€” AN ASCENDING GENERATOR NEVER RETURNS.
 --
---     `ALosslessReturn_â¦.àààà¨à°à¾à—à®à¨à®à` is this for Brahmagupta's àà¾àµà¨à¾ alone.
+--     `ALosslessReturn_â€¦.à¤…à¤ªà¥à¤¨à¤°à¤¾à¤—à¤®à¤¨à¤®à¥` is this for Brahmagupta's à¤­à¤¾à¤µà¤¨à¤¾ alone.
 --     Here the generator is a parameter, so the same one line covers every
 --     ascending self-map the extractor sees.
 ------------------------------------------------------------------------
@@ -81,10 +81,10 @@ private variable
 à¤…à¤ªà¥à¤¨à¤°à¤¾à¤—à¤®à¤¨à¤®à¥ {f = f} up n p = Â¬m<m (subst (n <_) p (up n))
 
 ------------------------------------------------------------------------
--- à© Â à•ààà¯à â” A DESCENDING GENERATOR CANNOT RETURN EITHER, and it cannot
+-- à¥© Â· à¤•à¥à¤·à¤¯à¤ƒ â€” A DESCENDING GENERATOR CANNOT RETURN EITHER, and it cannot
 --     ascend: at every positive argument it lands strictly below.  So its
 --     iteration is bounded above by its input and wears down.  The
---     difference from Â§à¨ is not the non-return; it is the DIRECTION, and
+--     difference from Â§à¥¨ is not the non-return; it is the DIRECTION, and
 --     the direction is what decides whether iterating makes anything new.
 ------------------------------------------------------------------------
 
@@ -92,7 +92,7 @@ private variable
 à¤•à¥à¤·à¤¯à¤ƒ {f = f} down n p = Â¬m<m (subst (_< suc n) p (down n))
 
 ------------------------------------------------------------------------
--- à Â à¨ à‰àà¯à®à â” NO GENERATOR IS BOTH, and this is what makes the split a
+-- à¥ª Â· à¤¨ à¤‰à¤­à¤¯à¤®à¥ â€” NO GENERATOR IS BOTH, and this is what makes the split a
 --     split rather than two overlapping labels.  An ascending map at
 --     `suc n` sits strictly above it; a descending one strictly below;
 --     `<-asym` forbids both.
@@ -102,10 +102,10 @@ private variable
 à¤¨-à¤‰à¤­à¤¯à¤®à¥ up down = <-asym (up (suc zero)) (<-weaken (down zero))
 
 ------------------------------------------------------------------------
--- à Â àà¾àµà¨à¾ àŠà°àà§ààµà—à¾à®à¿à¨à â” THE BHVAN IS ONE OF THESE, so Â§à¨ is not an
+-- à¥« Â· à¤­à¤¾à¤µà¤¨à¤¾ à¤Šà¤°à¥à¤§à¥à¤µà¤—à¤¾à¤®à¤¿à¤¨à¥€ â€” THE BHÄ€VANÄ€ IS ONE OF THESE, so Â§à¥¨ is not an
 --     abstraction floating above the corpus.  Fix any numerator `suc x'`;
---     then the denominator map y â¦ 2(suc x') + 3y is ascending, and Â§à¨
---     gives back exactly `ALosslessReturn_â¦.àààà¨à°à¾à—à®à¨à®à` â” which was proved
+--     then the denominator map y â†¦ 2(suc x') + 3y is ascending, and Â§à¥¨
+--     gives back exactly `ALosslessReturn_â€¦.à¤…à¤ªà¥à¤¨à¤°à¤¾à¤—à¤®à¤¨à¤®à¥` â€” which was proved
 --     there directly, by a different route, for that one generator.
 --     Two independent statements that agree, which is what a channel
 --     between a general law and its instance means here.

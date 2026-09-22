@@ -3,40 +3,40 @@
 ------------------------------------------------------------------------
 -- NaturalMachine.Laghava
 --
--- à²à¾à˜àµ â” brevity, the grammarian's governing criterion â” as a measure on
+-- à¤²à¤¾à¤˜à¤µ â€” brevity, the grammarian's governing criterion â€” as a measure on
 -- presentations, and the theorem `notes/LAGHAVA_COST_IS_NOT_A_UNIVALENT_
 -- INVARIANT.md` states in prose and proves nowhere.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE CLAIM, AND WHY THE PROSE VERSION WAS TOO WEAK
 --
--- That note says lghava "is not a univalent invariant â” it lives on the
+-- That note says lÄghava "is not a univalent invariant â€” it lives on the
 -- presentation, which univalence discards."  True, and understated.  What
 -- is proved below is sharper and needs no univalence at all:
 --
 --     laghava-is-not-semantic :
---       Â Î[ f âˆˆ (Denotation â’ â•) ] ((e : Expr) â’ f (eval e) â‰¡ size e)
+--       Â¬ Î£[ f âˆˆ (Denotation â†’ â„•) ] ((e : Expr) â†’ f (eval e) â‰¡ size e)
 --
 -- There is **no function of the denotation whatsoever** that computes the
 -- size of a presentation.  Not "univalence cannot see it": nothing that
 -- takes only the meaning can see it, because two presentations with the
--- SAME meaning â” not merely equivalent, identical â” have different sizes.
+-- SAME meaning â€” not merely equivalent, identical â€” have different sizes.
 --
 -- The univalence statement is then a corollary and a weak one: a univalent
 -- invariant is in particular a function of the structure, and there is no
 -- such function.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHY THIS IS PINI'S SITUATION EXACTLY
 --
 -- `Apavada.agda` separates two things that wear the same shape:
 --
---   * àààµà¾à¦ proper  â” the rules DISAGREE; the generated language changes;
---   * REFORMULATION â” the rules AGREE everywhere; only à²à¾à˜àµ changes.
+--   * à¤…à¤ªà¤µà¤¾à¤¦ proper  â€” the rules DISAGREE; the generated language changes;
+--   * REFORMULATION â€” the rules AGREE everywhere; only à¤²à¤¾à¤˜à¤µ changes.
 --
 -- A reformulation is, by that module's own definition, a pair with equal
 -- denotation.  So reformulations are exactly the moves invisible to every
--- semantic invariant â” and lghava is exactly the quantity that sees
+-- semantic invariant â€” and lÄghava is exactly the quantity that sees
 -- them.  The grammarian's whole craft lives in the kernel of `eval`, and
 -- `laghava-is-not-semantic` says that kernel is not empty.
 --
@@ -62,7 +62,7 @@ data Expr : Type where
   plus  : Expr â†’ Expr â†’ Expr
   times : Expr â†’ Expr â†’ Expr
 
--- à²à¾à˜àµ: a measure on the PRESENTATION
+-- à¤²à¤¾à¤˜à¤µ: a measure on the PRESENTATION
 size : Expr â†’ â„•
 size var         = 1
 size (lit _)     = 1
@@ -119,7 +119,7 @@ laghava-is-not-semantic (f , h) =
 --
 -- A univalent invariant of a structure is in particular a function of
 -- that structure.  Here the structure IS the denotation, so any such
--- invariant factors through `eval` â” and Â§3 says lghava does not.
+-- invariant factors through `eval` â€” and Â§3 says lÄghava does not.
 ------------------------------------------------------------------------
 
 FactorsThroughMeaning : (Expr â†’ â„•) â†’ Type
@@ -141,9 +141,9 @@ value-at-one-factors = (Î» g â†’ g 1) , (Î» _ â†’ refl)
 ------------------------------------------------------------------------
 -- 5.  The sentence.
 --
--- Reformulations â” Pini's, and `WalkFast`'s â” are exactly the moves in
+-- Reformulations â€” PÄá¹‡ini's, and `WalkFast`'s â€” are exactly the moves in
 -- the kernel of `eval`.  Every semantic invariant, univalent ones
--- included, is blind to that kernel by construction.  à²à¾à˜àµ is a measure
+-- included, is blind to that kernel by construction.  à¤²à¤¾à¤˜à¤µ is a measure
 -- on the fibre, and `laghava-is-not-semantic` proves the fibre is not a
 -- point.
 --
@@ -158,19 +158,19 @@ value-at-one-factors = (Î» g â†’ g 1) , (Î» _ â†’ refl)
 -- Â§3 and Â§4 are an instance of a general idiom.
 -- `NaturalMachine.FiniteInformation` defines
 --
---     FactorsThrough q t = Î[ decode ] ((x : X) â’ decode (q x) â‰¡ t x)
+--     FactorsThrough q t = Î£[ decode ] ((x : X) â†’ decode (q x) â‰¡ t x)
 --
 -- and `NaturalMachine.TranscriptDescent` proves the general obstruction
 --
 --     collisionObstructsDecoder :
---       q x â‰¡ q x' â’ Â (t x â‰¡ t x') â’ Â FactorsThrough q t
+--       q x â‰¡ q x' â†’ Â¬ (t x â‰¡ t x') â†’ Â¬ FactorsThrough q t
 --
 -- which is exactly Â§3's argument, stated once for all q and t.  Â§3's
 -- proof is that lemma inlined at (q, t) = (eval, size), and
 -- `CarryBorrowObservation.borrowCountDoesNotDecodeWord` is a third
 -- instance of the same shape.
 -- `laghava-collision` isolates the mathematical
--- content â” two presentations, one meaning, different size â” as a pair,
+-- content â€” two presentations, one meaning, different size â€” as a pair,
 -- so the general lemma can be applied to it directly.
 ------------------------------------------------------------------------
 
@@ -181,7 +181,7 @@ laghava-collision =
   (Î» h â†’ 3â‰¢5 (sym short-size âˆ™ h âˆ™ long-size))
 
 -- and the general lemma, instantiated here, gives Â§3 back with no new
--- argument: `Â FactorsThrough eval size`, in the repository's own words.
+-- argument: `Â¬ FactorsThrough eval size`, in the repository's own words.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
@@ -190,8 +190,8 @@ laghava-collision =
 -- applied to the collision isolated above.
 --
 -- `NaturalMachine.TheTwoCollisionsAreOneInstantiation` adds a second
--- route, through `AnyonyaAbhava.anyonyaâ’samsarga`, notes that the
+-- route, through `AnyonyaAbhava.anyonyaâ†’samsarga`, notes that the
 -- isolated collision is already a term of the parametric type
 -- `AnyonyaAbhava.Collision` at this module's own presentation type, and
--- proves the two routes equal â” negations being propositions.
+-- proves the two routes equal â€” negations being propositions.
 ------------------------------------------------------------------------

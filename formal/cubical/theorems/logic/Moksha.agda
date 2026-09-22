@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Moksha â” the sealed organism
+-- Moksha â€” the sealed organism
 --
 -- The moka-yantra's four jewels closed into one build unit.  This module
 -- is the organism's own root: it imports nothing but the four received

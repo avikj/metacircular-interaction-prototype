@@ -1,17 +1,17 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
--- �����-����� � the rewriting engine's invariance IS the orbit law.
+-- अलोप-सेतुः — the rewriting engine's invariance IS the orbit law.
 --
 -- `NaturalMachine/Alopa_TheEngineNeverTouchesTheMeaning.agda` proves
--- `step-sound : eval � (step rs t) ≡ eval � t` and then does its own
--- induction on n to reach `������ : eval � (normalize n rs t) ≡ eval � t`.
--- That second half is `Kaksya_�.������-�������������` at (eval �, step rs):
--- step-sound IS ����������, and the induction is already proved once for
+-- `step-sound : eval ρ (step rs t) ≡ eval ρ t` and then does its own
+-- induction on n to reach `अलोपः : eval ρ (normalize n rs t) ≡ eval ρ t`.
+-- That second half is `Kaksya_….ध्रुवं-कक्ष्यायाम्` at (eval ρ, step rs):
+-- step-sound IS संरक्षणम्, and the induction is already proved once for
 -- every observable and every endomorphism.
 --
 -- The only real content of the bridge is that the two iteration orders
--- differ -- normalize steps THEN recurses, ��������� recurses THEN steps --
--- so §� proves they commute.
+-- differ -- normalize steps THEN recurses, कक्ष्या recurses THEN steps --
+-- so §२ proves they commute.
 
 module Alopasetu_TheEnginesInvarianceIsTheOrbitLawInstantiatedAndNotASeparateInduction where
 
@@ -28,11 +28,11 @@ open import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
 
 module _ (rs : List Rule) (ρ : Env) where
 
-  -- � � step-sound IS conservation, on the nose.
+  -- १ · step-sound IS conservation, on the nose.
   संरक्षणम्-इति-step-sound : संरक्षणम् (eval ρ) (step rs)
   संरक्षणम्-इति-step-sound = step-sound rs ρ
 
-  -- � � the two iteration orders agree.
+  -- २ · the two iteration orders agree.
   कक्ष्या-step : (n : ℕ) (t : Term)
               → कक्ष्या (eval ρ) (step rs) n (step rs t)
               ≡ step rs (कक्ष्या (eval ρ) (step rs) n t)
@@ -45,7 +45,7 @@ module _ (rs : List Rule) (ρ : Env) where
   normalize-इति-कक्ष्या (suc n) t =
     normalize-इति-कक्ष्या n (step rs t) ∙ कक्ष्या-step n t
 
-  -- � � and therefore the engine's ������ is the orbit law instantiated,
+  -- ३ · and therefore the engine's अलोपः is the orbit law instantiated,
   --     with no induction of its own.
   अलोपः-इति-ध्रुवम् : (n : ℕ) (t : Term)
                     → eval ρ (normalize n rs t) ≡ eval ρ t

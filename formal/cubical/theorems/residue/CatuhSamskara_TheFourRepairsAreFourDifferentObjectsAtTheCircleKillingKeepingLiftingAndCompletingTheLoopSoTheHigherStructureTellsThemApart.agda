@@ -1,33 +1,33 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- ����-��������� � the four repairs, told apart.
+-- चतुः-संस्कारः — the four repairs, told apart.
 --
 -- `ObstructionCalculus`, the checked fragment of Hieroglyphics II, names
--- the document's four repair kinds  Γ�, Γ�, Γ�, Γ^ : Γ� (promote the
--- defect to a 2-cell) and Γ� (keep it as a class) need genuine higher
--- structure to differ from Γ�.
+-- the document's four repair kinds  Γ∅, Γ⇑, Γ↺, Γ^ :  Γ⇑(promote the
+-- defect to a 2-cell) and Γ↺ (keep it as a class) need genuine higher
+-- structure to differ from Γ∈.
 --
 -- The higher structure is the circle, and at the circle all four are
 -- different objects.  The defect is the diamond at `base`: the two routes
--- `refl` and `loop` from base to base do not agree (loop�refl, from
+-- `refl` and `loop` from base to base do not agree (loop≢refl, from
 -- `AsetChidra`).  Then:
 --
---   Γ�  kill the class     � set-truncate: in � S� �� the loop IS refl and
+--   Γ∅  kill the class     — set-truncate: in ∥ S¹ ∥₂ the loop IS refl and
 --                            the whole object collapses to a point;
---   Γ�  keep the class     � the loop survives as [loop] ∈ ΩS� ≡ �, a set-
+--   Γ↺  keep the class     — the loop survives as [loop] ∈ ΩS¹ ≡ ℤ, a set-
 --                            level datum with winding 1 ≠ 0;
---   Γ�  lift to a 2-cell   � the non-commutation becomes a COMPONENT of a
+--   Γ⇑  lift to a 2-cell   — the non-commutation becomes a COMPONENT of a
 --                            descent datum (const base , loop); that datum
 --                            differs from the trivial one, and set-
 --                            truncating the codomain makes them equal again;
---   Γ^  complete           � the universal cover `helix`: the loop no
+--   Γ^  complete           — the universal cover `helix`: the loop no
 --                            longer closes (its lift ends at 1, not 0), the
---                            monodromy suc� has no fixed point, and the
---                            obstruction is self-classified: ΩS� ≡ � is the
---                            deck group,  D � Code(X�/X).
+--                            monodromy sucℤ has no fixed point, and the
+--                            obstruction is self-classified: ΩS¹ ≡ ℤ is the
+--                            deck group,  D ≃ Code(X̂/X).
 --
--- So the repairs are ordered by what they retain � nothing, a class, a
--- datum, a cover � and none is another: exactly the document's claim that
+-- So the repairs are ordered by what they retain — nothing, a class, a
+-- datum, a cover — and none is another: exactly the document's claim that
 -- the higher structure is what tells the repairs apart.
 ------------------------------------------------------------------------
 module CatuhSamskara_TheFourRepairsAreFourDifferentObjectsAtTheCircleKillingKeepingLiftingAndCompletingTheLoopSoTheHigherStructureTellsThemApart where
@@ -54,14 +54,14 @@ open import AsetChidra_TheDescentEquivalenceFailsAtANonSetTheWitnessIsTheLoopOfT
   using (loop≢refl ; q ; DescentData ; loopDatum ; restrictAlong ; not-in-image)
 
 ------------------------------------------------------------------------
--- � � the defect: the diamond at base does not commute
+-- ० · the defect: the diamond at base does not commute
 ------------------------------------------------------------------------
 
 δ≠0 : ¬ (loop ≡ refl)
 δ≠0 = loop≢refl
 
 ------------------------------------------------------------------------
--- � � Γ� � kill the class.  Set-truncate: the loop becomes refl and the
+-- १ · Γ∅ — kill the class.  Set-truncate: the loop becomes refl and the
 --     object collapses to a point.
 ------------------------------------------------------------------------
 
@@ -75,8 +75,8 @@ open import AsetChidra_TheDescentEquivalenceFailsAtANonSetTheWitnessIsTheLoopOfT
           (λ x → PT.rec (isSetSetTrunc _ _) (λ p → cong ∣_∣₂ p) (isConnectedS¹ x))
 
 ------------------------------------------------------------------------
--- � � Γ� � keep the class.  The loop survives as a set-level datum in
---     ΩS� ≡ �, with winding 1.
+-- २ · Γ↺ — keep the class.  The loop survives as a set-level datum in
+--     ΩS¹ ≡ ℤ, with winding 1.
 ------------------------------------------------------------------------
 
 Γ↺-class : ΩS¹ ≡ ℤ
@@ -92,9 +92,9 @@ open import AsetChidra_TheDescentEquivalenceFailsAtANonSetTheWitnessIsTheLoopOfT
 Γ↺-nonzero p = snotz (injPos (sym Γ↺-keeps ∙ p))
 
 ------------------------------------------------------------------------
--- � � Γ� � lift the defect to a 2-cell.  The non-commutation is a
+-- ३ · Γ⇑ — lift the defect to a 2-cell.  The non-commutation is a
 --     component of a descent datum; it is not the trivial datum; and after
---     Γ� on the codomain the two data coincide again.
+--     Γ∅ on the codomain the two data coincide again.
 ------------------------------------------------------------------------
 
 Γ⇑-datum : DescentData
@@ -106,12 +106,12 @@ open import AsetChidra_TheDescentEquivalenceFailsAtANonSetTheWitnessIsTheLoopOfT
 Γ⇑-distinct : ¬ (Γ⇑-datum ≡ Γ⇑-trivial)
 Γ⇑-distinct e = not-in-image ((λ _ → base) , sym e)
 
--- with a set for codomain, every 2-cell component is forced: Γ� = Γ�
+-- with a set for codomain, every 2-cell component is forced: Γ⇑ = Γ∅
 Γ⇑-flattens : (f : Unit → ∥ S¹ ∥₂) (c c' : Coequalizes q f) → c ≡ c'
 Γ⇑-flattens f = isPropCoequalizes isSetSetTrunc q f
 
 ------------------------------------------------------------------------
--- � � Γ^ � complete.  The universal cover: the loop no longer closes, the
+-- ४ · Γ^ — complete.  The universal cover: the loop no longer closes, the
 --     monodromy has no fixed point, and the obstruction classifies itself.
 ------------------------------------------------------------------------
 
@@ -127,21 +127,21 @@ private
   nofix-ℕ zero    p = snotz p
   nofix-ℕ (suc n) p = nofix-ℕ n (injSuc p)
 
--- the monodromy suc� moves every point
+-- the monodromy sucℤ moves every point
 Γ^-monodromy-free : (z : ℤ) → ¬ (sucℤ z ≡ z)
 Γ^-monodromy-free (pos n)          p = nofix-ℕ n (injPos p)
 Γ^-monodromy-free (negsuc zero)    p = posNotnegsuc 0 0 p
 Γ^-monodromy-free (negsuc (suc n)) p = nofix-ℕ n (sym (injNegsuc p))
 
--- self-classified: the deck group is the loop space  (D � Code(X�/X))
+-- self-classified: the deck group is the loop space  (D ≃ Code(X̂/X))
 Γ^-self-classified : ΩS¹ ≡ ℤ
 Γ^-self-classified = ΩS¹≡ℤ
 
 ------------------------------------------------------------------------
--- � � four objects, none another
+-- ५ · four objects, none another
 ------------------------------------------------------------------------
 
--- Γ� retains nothing; Γ� retains a set with two distinct points
+-- Γ∅ retains nothing; Γ↺ retains a set with two distinct points
 ¬isContrℤ : ¬ isContr ℤ
 ¬isContrℤ c = snotz (injPos (sym (c .snd (pos 1)) ∙ c .snd (pos 0)))
 

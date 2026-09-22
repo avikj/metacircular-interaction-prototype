@@ -6,23 +6,23 @@
 -- the Darwin Gdel Machine (Zhang, Hu, Lu, Lange, Clune,
 -- arXiv:2505.22954) as
 --
---     w_i = 1/(1 + exp[âˆ’10(Î_i âˆ’ 0.5)]) Â 1/(1 + n_i)
+--     w_i = 1/(1 + exp[âˆ’10(Î±_i âˆ’ 0.5)]) Â· 1/(1 + n_i)
 --
--- with Î_i benchmark accuracy and n_i the number of functioning
+-- with Î±_i benchmark accuracy and n_i the number of functioning
 -- children, and reads off its design intent: "a high-scoring but
 -- underexplored node is favored, while every eligible node has nonzero
 -- probability."
 --
--- Both halves of that sentence are facts about the FORM `f(Î)/(1+n)`,
--- and Â§2â“Â§3 check them exactly, in â•, with no reals and no sigmoid.
+-- Both halves of that sentence are facts about the FORM `f(Î±)/(1+n)`,
+-- and Â§2â€“Â§3 check them exactly, in â„•, with no reals and no sigmoid.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- HOW THE REALS ARE AVOIDED
 --
--- Comparing `fâ/(1+nâ)` against `fâ/(1+nâ)` is comparing
--- `fâÂ(1+nâ)` against `fâÂ(1+nâ)` â” cross-multiplication, valid because
--- both denominators are positive.  That is a â• comparison once `f` is a
--- â•.  So `f` below is a POSITIVE INTEGER SURROGATE for the sigmoid
+-- Comparing `fâ‚/(1+nâ‚)` against `fâ‚‚/(1+nâ‚‚)` is comparing
+-- `fâ‚Â·(1+nâ‚‚)` against `fâ‚‚Â·(1+nâ‚)` â€” cross-multiplication, valid because
+-- both denominators are positive.  That is a â„• comparison once `f` is a
+-- â„•.  So `f` below is a POSITIVE INTEGER SURROGATE for the sigmoid
 -- factor, not the sigmoid.
 --
 -- Ï(10(Îâˆ’0.5)) is strictly between 0 and
@@ -52,7 +52,7 @@ scoreOf = fst
 childrenOf : Node â†’ â„•
 childrenOf = snd
 
--- w a > w b  iff  f a Â (1 + n b)  >  f b Â (1 + n a)
+-- w a > w b  iff  f a Â· (1 + n b)  >  f b Â· (1 + n a)
 WeightBelow : Node â†’ Node â†’ Type
 WeightBelow a b =
   (scoreOf a Â· suc (childrenOf b)) < (scoreOf b Â· suc (childrenOf a))
@@ -95,7 +95,7 @@ positiveScoreKeepsPositiveWeight f n =
 -- Â§2 is the exact content of "a high-scoring but underexplored node is
 -- favored": the weight order is NOT the score order, so the archive is
 -- not hill-climbing on the benchmark.  Saying which of the two orders is
--- better would be a bare comparative and is not said â” they are
+-- better would be a bare comparative and is not said â€” they are
 -- different orders, and the design chooses the second on purpose.
 --
 -- Â§3 is the exact content of "every eligible node has nonzero
@@ -104,7 +104,7 @@ positiveScoreKeepsPositiveWeight f n =
 -- explored.
 --
 -- Together they say the sentence in Â§1 of that note is two structural
--- facts about `f(Î)/(1+n)` and needs no benchmark to hold â” which is
+-- facts about `f(Î±)/(1+n)` and needs no benchmark to hold â€” which is
 -- the part of the DGM design that survives the note's own refusal to
 -- import DGM's empirical claims.
 ------------------------------------------------------------------------

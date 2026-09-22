@@ -1,53 +1,53 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¯à®àà â” ààààà¯à àà°àà•ààà•à à—àà¨à¯à¾ à²ààà§à ; ààààà¨à¾ ààà¨à°à¾àµààààà¿à ààà°àààà¾ à à¦àà¯ààà à
+-- à¤¯à¤®à¤œà¥Œ â€” à¤¤à¥ƒà¤¤à¥€à¤¯à¤ƒ à¤ªà¤°à¥€à¤•à¥à¤·à¤•à¤ƒ à¤—à¤£à¤¨à¤¯à¤¾ à¤²à¤¬à¥à¤§à¤ƒ ; à¤¸à¥‡à¤¤à¥à¤¨à¤¾ à¤ªà¥à¤¨à¤°à¤¾à¤µà¥ƒà¤¤à¥à¤¤à¤¿à¤ƒ à¤ªà¥‚à¤°à¥à¤£à¤¤à¤¾ à¤š à¤¦à¥€à¤¯à¥‡à¤¤à¥‡ à¥¤
 --
 -- (twins: a third tester, found by census, and the channel pays it
 --  reflexivity and completeness.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS IS, AND IT IS SOMEONE ELSE'S METHOD APPLIED TO A PAIR THEY
 -- COULD NOT FIND.
 --
 -- `Bhedanirnaya_TwoTestersForSamenessOnNumberAndTheTransportThatMoves
--- TheoremsBetweenThem.agda` identified `ResidueGlue.eqâ•` with
--- `Obstruction.eqâ•` â” two modules that had each written
+-- TheoremsBetweenThem.agda` identified `ResidueGlue.eqâ„•` with
+-- `Obstruction.eqâ„•` â€” two modules that had each written
 -- the same four clauses, whose theorems PRINT alike and are NOT the same
--- type, since the two `eqâ•` do not reduce to a common form at variable
+-- type, since the two `eqâ„•` do not reduce to a common form at variable
 -- arguments.  Its sentence is the reason to do this at all:
 --
---     "A duplication that has been identified is not merely tidier â” it is
+--     "A duplication that has been identified is not merely tidier â€” it is
 --      a CHANNEL, and theorems flow both ways along it."
 --
--- The census tool `interactive/Pratyaksa_â¦hs --twins`, which erases
+-- The census tool `interactive/Pratyaksa_â€¦hs --twins`, which erases
 -- each declaration's own module prefix from its KERNEL-ELABORATED type and
--- groups â” and the first thing it returned was a THIRD `eqâ•`:
+-- groups â€” and the first thing it returned was a THIRD `eqâ„•`:
 --
---     Alopa_TheEngineNeverTouchesTheMeaning.eqâ•-sound
---     Obstruction.eqâ•â’â‰¡
+--     Alopa_TheEngineNeverTouchesTheMeaning.eqâ„•-sound
+--     Obstruction.eqâ„•â†’â‰¡
 --
 -- neither of which Bhedanirnaya mentions.  This is that pair, opened.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THE CHANNEL PAYS, and the ledger was lopsided exactly as
--- Bhedanirnaya predicted â” each module proved the half its own question
+-- Bhedanirnaya predicted â€” each module proved the half its own question
 -- required and no more:
 --
---   Alopa       holds  eqâ•-sound.                   And nothing else.
---   Obstruction holds  eqâ•-refl, eqâ•â’â‰¡, â‰â’eqâ•-false.
+--   Alopa       holds  eqâ„•-sound.                   And nothing else.
+--   Obstruction holds  eqâ„•-refl, eqâ„•â†’â‰¡, â‰¢â†’eqâ„•-false.
 --
 -- Alopa's engine tests names for equality while rewriting; it never needed
--- to trust a NEGATIVE answer, so it never proved completeness.  Â§à© and Â§à
+-- to trust a NEGATIVE answer, so it never proved completeness.  Â§à¥© and Â§à¥ª
 -- hand it both missing theorems by transport, with no new induction and no
 -- edit to either module.
 --
--- THE ONLY WORK IS Â§à§, four lines, and everything after it is transport.
+-- THE ONLY WORK IS Â§à¥§, four lines, and everything after it is transport.
 --
--- TERM.  à¯à®à â” twin-born; the ordinary  word, used for the
+-- TERM.  à¤¯à¤®à¤œ â€” twin-born; the ordinary  word, used for the
 -- relation the census reports.
--- The mathematics â” path,
--- transport, `ua` â” is cubical type theory, Voevodsky's, this
+-- The mathematics â€” path,
+-- transport, `ua` â€” is cubical type theory, Voevodsky's, this
 -- repository's one admitted non-Indian substrate.
 ------------------------------------------------------------------------
 
@@ -62,7 +62,7 @@ import Alopa_TheEngineNeverTouchesTheMeaning as A
 import ObstructionSubstrate as O
 
 ------------------------------------------------------------------------
--- à§ Â àà®àà¾ â” the two testers agree, pointwise.  Induction on both
+-- à¥§ Â· à¤¸à¤®à¤¤à¤¾ â€” the two testers agree, pointwise.  Induction on both
 --     arguments, four lines, and it is the only work in this file.
 ------------------------------------------------------------------------
 
@@ -73,9 +73,9 @@ import ObstructionSubstrate as O
 à¤¸à¤®à¤¤à¤¾ (suc m) (suc n) = à¤¸à¤®à¤¤à¤¾ m n
 
 ------------------------------------------------------------------------
--- à¨ Â àà•ààà¾àµà â” pointwise agreement made a path between the functions,
+-- à¥¨ Â· à¤à¤•à¥€à¤­à¤¾à¤µà¤ƒ â€” pointwise agreement made a path between the functions,
 --     written as a direct cubical abstraction so the path's i-th slice IS
---     Â§à§'s i-th slice and there is no step where anything could go
+--     Â§à¥§'s i-th slice and there is no step where anything could go
 --     missing.
 ------------------------------------------------------------------------
 
@@ -83,10 +83,10 @@ import ObstructionSubstrate as O
 à¤à¤•à¥€à¤­à¤¾à¤µà¤ƒ i m n = à¤¸à¤®à¤¤à¤¾ m n i
 
 ------------------------------------------------------------------------
--- à© Â ààà°àààà¾ â” COMPLETENESS, carried BACKWARDS to Alopa.
+-- à¥© Â· à¤ªà¥‚à¤°à¥à¤£à¤¤à¤¾ â€” COMPLETENESS, carried BACKWARDS to Alopa.
 --
 --     Obstruction proved it because its question needed a trustworthy
---     NEGATIVE answer â” it tests membership in a list of seen states.
+--     NEGATIVE answer â€” it tests membership in a list of seen states.
 --     Alopa's engine never needed that and never proved it.  It has it
 --     now, and no induction was repeated.
 ------------------------------------------------------------------------
@@ -97,7 +97,7 @@ import ObstructionSubstrate as O
             O.â‰¢â†’eqâ„•-false
 
 ------------------------------------------------------------------------
--- à Â ààà¨à°à¾àµààààà¿à â” and reflexivity, the same way.
+-- à¥ª Â· à¤ªà¥à¤¨à¤°à¤¾à¤µà¥ƒà¤¤à¥à¤¤à¤¿à¤ƒ â€” and reflexivity, the same way.
 ------------------------------------------------------------------------
 
 à¤¸à¤‚à¤•à¥à¤°à¤¾à¤¨à¥à¤¤-à¤ªà¥à¤¨à¤°à¤¾à¤µà¥ƒà¤¤à¥à¤¤à¤¿à¤ƒ : (n : â„•) â†’ A.eqâ„• n n â‰¡ true
@@ -105,8 +105,8 @@ import ObstructionSubstrate as O
   transport (Î» i â†’ (n : â„•) â†’ à¤à¤•à¥€à¤­à¤¾à¤µà¤ƒ (~ i) n n â‰¡ true) O.eqâ„•-refl
 
 ------------------------------------------------------------------------
--- à Â The tester Alopa now has, both answers trustworthy, in one place.
---     Soundness is its own; completeness came across Â§à©.
+-- à¥« Â· The tester Alopa now has, both answers trustworthy, in one place.
+--     Soundness is its own; completeness came across Â§à¥©.
 ------------------------------------------------------------------------
 
 open import Cubical.Data.Sigma using (_Ã—_ ; _,_)
@@ -118,12 +118,12 @@ open import Cubical.Data.Sigma using (_Ã—_ ; _,_)
 à¤ªà¥‚à¤°à¥à¤£-à¤¨à¤¿à¤°à¥à¤£à¤¯à¤ƒ m n = A.eqâ„•-sound m n , à¤¸à¤‚à¤•à¥à¤°à¤¾à¤¨à¥à¤¤-à¤ªà¥‚à¤°à¥à¤£à¤¤à¤¾ m n
 
 ------------------------------------------------------------------------
--- à Â ààà•àà°à®à-àà¾à¦à¾ààà®àà¯à®à â” and the carry lands ON THE NOSE.
+-- à¥¬ Â· à¤¸à¤‚à¤•à¥à¤°à¤®à¤£-à¤¤à¤¾à¤¦à¤¾à¤¤à¥à¤®à¥à¤¯à¤®à¥ â€” and the carry lands ON THE NOSE.
 --
---     The transported soundness IS Alopa's own proof.  â• is a set and the
---     target is a path in â•, so the whole Î -type is a proposition: the
+--     The transported soundness IS Alopa's own proof.  â„• is a set and the
+--     target is a path in â„•, so the whole Î -type is a proposition: the
 --     theorem transports uniquely precisely because there was never room
---     for two answers.  Bhedanirnaya Â§à's point, at this pair.
+--     for two answers.  Bhedanirnaya Â§à¥ª's point, at this pair.
 ------------------------------------------------------------------------
 
 open import Cubical.Data.Nat.Properties using (isSetâ„•)

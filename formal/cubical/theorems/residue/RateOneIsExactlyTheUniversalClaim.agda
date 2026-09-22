@@ -7,16 +7,16 @@
 -- gives the comparison exactly: the universal claim IS the rate-one
 -- case, and every strictly lower rate has tolerance.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
---   countIsAtMostLength   the rate is a rate: count â‰ length
+--   countIsAtMostLength   the rate is a rate: count â‰¤ length
 --   allGivesFullCount     the Î  forces count â‰¡ length
 --   fullCountGivesAll     and is forced by it
 --
 -- Together: `count xs â‰¡ length xs` and `All isTrue xs` are the same
 -- claim.  So `DARWIN_GODEL_MATH.md` Â§7's label criterion is not a
--- different KIND of criterion from its thresholds â” it is the threshold
+-- different KIND of criterion from its thresholds â€” it is the threshold
 -- at 1, where the tolerance is zero.  Â§4 exhibits a population where a
 -- strictly lower threshold survives a failure that kills the Î , which is
 -- what "tolerable benchmark noise" means and why the label admits none.
@@ -83,7 +83,7 @@ fullCountGivesAll (false âˆ· bs) e =
 --
 -- `count bs â‰¡ length bs` is a statement about a rate, and Â§2 says it is
 -- the universal claim verbatim.  A label is therefore the degenerate
--- threshold â” the one where a single failure moves the count off the
+-- threshold â€” the one where a single failure moves the count off the
 -- length and there is nothing left to tolerate.
 ------------------------------------------------------------------------
 
@@ -112,7 +112,7 @@ theThresholdAtOneAndBelow = theUniversalClaimFails , butOneStillPasses
 ------------------------------------------------------------------------
 -- "More than half", as `MajorityLiesStrictlyBetweenAllAndSome` states it:
 --
---   Majority bs = length bs < 2 Â count bs
+--   Majority bs = length bs < 2 Â· count bs
 --
 -- and it separates three claim-shapes with two populations rather than
 -- one, because one population cannot exhibit strictness on both sides:

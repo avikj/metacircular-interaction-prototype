@@ -1,19 +1,19 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������-����� � the boundary block.
+-- प्रस्थ-खण्ड — the boundary block.
 --
 -- ParaSima gave the crossing identity for one shift.  The finite
 -- prime-translation operator is a weighted sum of shifts,
 --
---     P_t f  =  �_{a < n} w(a) � S_a f,
+--     P_t f  =  Σ_{a < n} w(a) · S_a f,
 --
--- with w(a) = �(e^a)/e^{a/2} at a = log n on the arithmetic side.  Its
--- cross-boundary block � the left profile f paired against the right
--- profile g � is therefore the weighted sum of the boundary
+-- with w(a) = Λ(e^a)/e^{a/2} at a = log n on the arithmetic side.  Its
+-- cross-boundary block — the left profile f paired against the right
+-- profile g — is therefore the weighted sum of the boundary
 -- convolutions at the shifted times:
 --
---     ⟨J�g , P_t f⟩  =  �_{a < n} w(a) � h_{f,g}(t − a).
+--     ⟨J⁺g , P_t f⟩  =  Σ_{a < n} w(a) · h_{f,g}(t − a).
 --
 -- This is B_h(t), the centred boundary reading, as a matrix
 -- coefficient, on the discrete window, exactly.
@@ -22,12 +22,12 @@
 --       split.
 --   §2  THE DOUBLE SUM INTERCHANGES for offset sums, by induction on the
 --       outer count.
---   §3  THE CROSSING IDENTITY AT ANY t � a, from ParaSima's t = a + u.
+--   §3  THE CROSSING IDENTITY AT ANY t ≥ a, from ParaSima's t = a + u.
 --   §4  THE BLOCK IDENTITY.  Distribute the right profile through the
 --       weighted sum, interchange, pull each weight out, and read each
 --       inner pairing by §3.
 --
--- ������ (prastha, a measure/plateau) and ����� (khaa, block) are
+-- प्रस्थ (prastha, a measure/plateau) and खण्ड (khaṇḍa, block) are
 -- ordinary .
 ------------------------------------------------------------------------
 
@@ -46,7 +46,7 @@ open import SimaSesa_OnAFiniteWindowTheTwoNetZeroShiftWordsAgreeInTheBulkAndDiff
   using (S)
 
 ------------------------------------------------------------------------
--- � � Linearity of offset sums.
+-- १ · Linearity of offset sums.
 ------------------------------------------------------------------------
 
 -- a constant factor pulls out
@@ -73,7 +73,7 @@ open import SimaSesa_OnAFiniteWindowTheTwoNetZeroShiftWordsAgreeInTheBulkAndDiff
     ∙ +-assoc p r (q + u)
 
 ------------------------------------------------------------------------
--- � � The double sum interchanges.
+-- २ · The double sum interchanges.
 ------------------------------------------------------------------------
 
 Σ-parivarta : (s m n : ℕ) (W : ℕ → ℕ → ℕ)
@@ -92,7 +92,7 @@ open import SimaSesa_OnAFiniteWindowTheTwoNetZeroShiftWordsAgreeInTheBulkAndDiff
   ∙ sym (Σ-add zero n (λ x → W s x) (λ x → Σ⟨ suc s , m ⟩ (λ a → W a x)))
 
 ------------------------------------------------------------------------
--- � � The crossing identity at any t � a.
+-- ३ · The crossing identity at any t ≥ a.
 ------------------------------------------------------------------------
 
 pāra-sīmā′ : (t a : ℕ) (f g : ℕ → ℕ) → a ≤ t
@@ -103,7 +103,7 @@ pāra-sīmā′ t a f g le =
         (pāra-sīmā a (t ∸ a) f g)
 
 ------------------------------------------------------------------------
--- � � The block identity.
+-- ४ · The block identity.
 ------------------------------------------------------------------------
 
 -- the weighted shift operator, shifts a < n with weights w
@@ -116,10 +116,10 @@ prastha-khaṇḍa : (t n : ℕ) (w : ℕ → ℕ) (f g : ℕ → ℕ)
                → ⟨_∣_⟩ t zero g (P t n w f)
                ≡ Σ⟨ zero , n ⟩ (λ a → w a · h f g (t ∸ a))
 prastha-khaṇḍa t n w f g bounded =
-    -- distribute g(t � x) into the weighted sum, per x
+    -- distribute g(t ∸ x) into the weighted sum, per x
     cong (Σ⟨ zero , t ⟩) (funExt λ x →
         sym (Σ-scale zero n (g (t ∸ x)) (λ a → w a · S t a f x)))
-    -- interchange: �_x �_a  �  �_a �_x
+    -- interchange: Σ_x Σ_a  ⇒  Σ_a Σ_x
   ∙ sym (Σ-parivarta zero n t (λ a x → g (t ∸ x) · (w a · S t a f x)))
     -- pull each weight out of its inner pairing and read it
   ∙ cong (Σ⟨ zero , n ⟩) (funExt λ a →
@@ -127,6 +127,6 @@ prastha-khaṇḍa t n w f g bounded =
       ∙ Σ-scale zero t (w a) (λ x → g (t ∸ x) · S t a f x)
       ∙ cong (w a ·_) (pāra-sīmā′ t a f g (bounded a)))
   where
-  -- p � (q � r) ≡ q � (p � r)
+  -- p · (q · r) ≡ q · (p · r)
   vyatyāsa : (p q r : ℕ) → p · (q · r) ≡ q · (p · r)
   vyatyāsa p q r = ·-assoc p q r ∙ cong (_· r) (·-comm p q) ∙ sym (·-assoc q p r)

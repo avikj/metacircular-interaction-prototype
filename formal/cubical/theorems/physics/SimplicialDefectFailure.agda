@@ -3,60 +3,60 @@
 ------------------------------------------------------------------------
 -- SimplicialDefectFailure
 --
--- the defect family � � δ_� of a charted Chu space is a functor on the
+-- the defect family σ ↦ δ_σ of a charted Chu space is a functor on the
 -- DEGENERACY half of the simplex category and on no more.
 --
 -- HEADLINE STATEMENTS:
 --
 --  1. holonomy-dup      Prop. 2, degeneracy invariance, BY EQUALITY.
 --     defect-dup        s_j preserves the first and the last vertex and
---                       inserts one factor �_{i_j i_j} = e, so
---                       �_{s_j �} ≡ �_� and hence δ_{s_j �} ≡ δ_�.
---                       Unconditional on �: the only law used is a
+--                       inserts one factor ρ_{i_j i_j} = e, so
+--                       𝔥_{s_j σ} ≡ 𝔥_σ and hence δ_{s_j σ} ≡ δ_σ.
+--                       Unconditional on ρ: the only law used is a
 --                       RIGHT UNIT for the composition.  No inverses,
 --                       no associativity, no cocycle condition, no
---                       hypothesis on X, � or Q.
+--                       hypothesis on X, 𝒯 or Q.
 --
 --  2. faces-fail-covariantly     Prop. 3, the single counterexample, in
 --     faces-fail-contravariantly which BOTH variances fail at once, on
---                       the same face operator d� at adjacent
---                       dimensions.  X = {a,b}, |�| = 1, I = {0,1,2,3},
---                       ��� = ��� = sw and every other � = id.  The
+--                       the same face operator d₀ at adjacent
+--                       dimensions.  X = {a,b}, |𝒯| = 1, I = {0,1,2,3},
+--                       ρ₁₃ = ρ₃₁ = sw and every other ρ = id.  The
 --                       holonomies are computed by the kernel (refl);
 --                       the two failures of inclusion are decided, not
 --                       asserted.  Exhaustive as a negative because
---                       Q_� = (�(X), �) is a POSET: a morphism exists
+--                       Q_α = (𝒫(X), ⊆) is a POSET: a morphism exists
 --                       iff the inclusion holds, so "no inclusion" IS
 --                       "no functorial relation" (note §1).
 --
---  3. cocycle�trivial   Prop. 4, the sharp form, forward direction:
---     cocycle�defect-const  a cocycle � forces �_� ≡ e for every � and
---     cocycle�faces-act     hence δ constant, hence functorial along
+--  3. cocycle⇒trivial   Prop. 4, the sharp form, forward direction:
+--     cocycle⇒defect-const  a cocycle ρ forces 𝔥_σ ≡ e for every σ and
+--     cocycle⇒faces-act     hence δ constant, hence functorial along
 --                       every face in both variances.
 --
---  4. covariant�trivial          §4, THE CONVERSE, and it holds in ONE
---     covariant�holonomy-trivial variance only.  If δ_� � δ_{d��} for
---                       every � (the SIMPLICIAL variance, and only d� is
---                       assumed) then δ_� � δ_e for every � � in
---                       (�(X),�) that is δ_� = �.  Iterating d� reaches
---                       a 0-simplex, whose holonomy is cap(�_ii)�e = e.
---                       With separating tests this gives � ≡ e, and
---                       CocycleExtraction.Corpus.trivial�cocycle then
---                       gives �_jk �_ij = �_ik.  So in the simplicial
+--  4. covariant⇒trivial          §4, THE CONVERSE, and it holds in ONE
+--     covariant⇒holonomy-trivial variance only.  If δ_σ ⊑ δ_{d₀σ} for
+--                       every σ (the SIMPLICIAL variance, and only d₀ is
+--                       assumed) then δ_σ ⊑ δ_e for every σ — in
+--                       (𝒫(X),⊆) that is δ_σ = ∅.  Iterating d₀ reaches
+--                       a 0-simplex, whose holonomy is cap(ρ_ii)·e = e.
+--                       With separating tests this gives 𝔥 ≡ e, and
+--                       CocycleExtraction.Corpus.trivial⇒cocycle then
+--                       gives ρ_jk ρ_ij = ρ_ik.  So in the simplicial
 --                       variance the note's slogan is a THEOREM:
---                       face-functorial ⟺ δ = 0 ⟺ � a cocycle.
+--                       face-functorial ⟺ δ = 0 ⟺ ρ a cocycle.
 --
 --  5. Cosimplicial-sharp-fails-corpus   §5, and this AMENDS the note.
 --     Cosimplicial-sharp-fails-archive  In the COSIMPLICIAL variance
---                       (δ_{d_j�} � δ_�) the slogan is FALSE.  Chart:
---                       X = � with Aut(X) � � acting by translation,
---                       I = {0,1}, �_ij = 1 for i ≠ j, �_ii = 0,
---                       separating tests.  � is NOT a cocycle and
---                       δ_{(0,1,0)} ≠ �, yet δ_{d_j�} � δ_� for EVERY �
---                       and EVERY j.  Q_� is thin, so the inequalities
+--                       (δ_{d_jσ} ⊑ δ_σ) the slogan is FALSE.  Chart:
+--                       X = ℤ with Aut(X) ⊇ ℤ acting by translation,
+--                       I = {0,1}, ρ_ij = 1 for i ≠ j, ρ_ii = 0,
+--                       separating tests.  ρ is NOT a cocycle and
+--                       δ_{(0,1,0)} ≠ ∅, yet δ_{d_jσ} ⊆ δ_σ for EVERY σ
+--                       and EVERY j.  Q_α is thin, so the inequalities
 --                       ARE a functor: the face half of note (O6) is
 --                       satisfiable off the cocycle locus.  Proved for
---                       BOTH readings on the same chart � the good locus
+--                       BOTH readings on the same chart — the good locus
 --                       is the block simplices under the corpus reading
 --                       and the constant simplices under the archive
 --                       one, and both are closed under vertex deletion.
@@ -64,35 +64,35 @@
 --  6. shadow-support-infinite   §7 (note §5.3 / Cor. 5.3).  If one
 --                       simplex has nonempty defect then its iterated
 --                       degeneracies are pairwise distinct and all carry
---                       the SAME defect, so �_� |δ_�| is 0 or infinite:
+--                       the SAME defect, so Σ_σ |δ_σ| is 0 or infinite:
 --                       the scalar shadow of
 --                       SHRINKING_TESTS_LOWER_CURVATURE.md Def. 1.5 is a
 --                       two-valued predicate, not a count.
 --
--- THE TWO READINGS OF THE HOLONOMY (note §0.3) � load-bearing for this
--- encoding.  D0016 §B reads �_� = �_{i�i�} �_{i_{n-1}i�} ⋯ �_{i�i�},
+-- THE TWO READINGS OF THE HOLONOMY (note §0.3) — load-bearing for this
+-- encoding.  D0016 §B reads 𝔥_σ = ρ_{i₀iₙ} ρ_{i_{n-1}iₙ} ⋯ ρ_{i₀i₁},
 -- with NO inverse on the long edge; SHRINKING_TESTS_LOWER_CURVATURE.md
--- Def. 1.4 reads �_� = �_{i�i�}�� �_{i_{n-1}i�} ⋯ �_{i�i�}, and only
+-- Def. 1.4 reads 𝔥_σ = ρ_{i₀iₙ}⁻¹ ρ_{i_{n-1}iₙ} ⋯ ρ_{i₀i₁}, and only
 -- the latter is the descent obstruction.  This module is AGNOSTIC
 -- between them, deliberately, in two separate ways:
 --
---   * §1 abstracts the long-edge factor as an arbitrary `cap : G � G`.
+--   * §1 abstracts the long-edge factor as an arbitrary `cap : G → G`.
 --     Both readings are instances (cap = idfun, cap = inverse), and the
 --     degeneracy theorem is proved once for all caps.
---   * §2's counterexample lives in Aut(X) � �/2, encoded as (Bool, _⊕_),
---     where g�� = g, so the two formulas literally coincide.  The
---     instance below takes cap = idfun, and `cap-irrelevant-in-�/2`
+--   * §2's counterexample lives in Aut(X) ≅ ℤ/2, encoded as (Bool, _⊕_),
+--     where g⁻¹ = g, so the two formulas literally coincide.  The
+--     instance below takes cap = idfun, and `cap-irrelevant-in-ℤ/2`
 --     records that any cap whatsoever with cap false ≡ false and
---     cap true ≡ true � in particular both readings � gives the same
+--     cap true ≡ true — in particular both readings — gives the same
 --     numbers.
 --
 -- §3 is the one place where the readings differ, and the module says so
 -- in its hypothesis rather than hiding it: Prop. 4 is proved under
--- `cap-inv : � g � cap g � g ≡ e`, which holds for the corpus reading
+-- `cap-inv : ∀ g → cap g · g ≡ e`, which holds for the corpus reading
 -- and fails for the archive one.  §4 needs only `cap e ≡ e`, true of
--- both; §4� proves SEPARATELY what each reading yields (cocycle for the
--- corpus one; �² = e plus a closure identity for the archive one � the
--- note's "a 1-simplex carries �²", now a checked term); §5's chart
+-- both; §4′ proves SEPARATELY what each reading yields (cocycle for the
+-- corpus one; ρ² = e plus a closure identity for the archive one — the
+-- note's "a 1-simplex carries ρ²", now a checked term); §5's chart
 -- refutes the cosimplicial sharp form under BOTH readings at once.
 ------------------------------------------------------------------------
 
@@ -125,7 +125,7 @@ private
 -- vertices, encoded as a head together with a tail, so that "first
 -- vertex" is total.  The face and degeneracy operators are the ones of
 -- note §1:
---   d_j (i�,�,i�) = (i�,�,�_j,�,i�)      s_j (i�,�,i�) = (i�,�,i_j,i_j,�,i�)
+--   d_j (i₀,…,iₙ) = (i₀,…,î_j,…,iₙ)      s_j (i₀,…,iₙ) = (i₀,…,i_j,i_j,…,iₙ)
 ------------------------------------------------------------------------
 
 record Simplex (I : Type ℓ) : Type ℓ where
@@ -140,7 +140,7 @@ infixr 5 _◂_
 
 module _ {I : Type ℓ} where
 
-  -- last vertex i�
+  -- last vertex iₙ
   lastL : I → List I → I
   lastL i []       = i
   lastL i (x ∷ xs) = lastL x xs
@@ -150,7 +150,7 @@ module _ {I : Type ℓ} where
 
   -- s_j, as a duplication of the j-th vertex.  For j > n it is the
   -- identity; the theorem below is then vacuously true there, and for
-  -- 0 � j � n it is exactly s_j.
+  -- 0 ≤ j ≤ n it is exactly s_j.
   dupL : ℕ → List I → List I
   dupL j       []       = []
   dupL zero    (x ∷ xs) = x ∷ x ∷ xs
@@ -160,14 +160,14 @@ module _ {I : Type ℓ} where
   degen zero    (i ◂ t) = i ◂ (i ∷ t)
   degen (suc j) (i ◂ t) = i ◂ dupL j t
 
-  -- d�, the only face operator §3.2 needs.  On a 0-simplex it is the
+  -- d₀, the only face operator §3.2 needs.  On a 0-simplex it is the
   -- identity (there is no (-1)-simplex); the counterexample never uses
   -- that branch.
   face₀ : Simplex I → Simplex I
   face₀ (i ◂ [])      = i ◂ []
   face₀ (i ◂ (x ∷ t)) = x ◂ t
 
-  -- d_j for every j, added for §5�§6: deletion of the j-th vertex.  For
+  -- d_j for every j, added for §5–§6: deletion of the j-th vertex.  For
   -- j greater than the dimension it is the identity, so a hypothesis
   -- quantified over all j is no stronger there than at the real faces.
   delL : ℕ → List I → List I
@@ -196,13 +196,13 @@ module _ {I : Type ℓ} where
     inj-+m (sym (lengthS-iter m σ) ∙ cong lengthS p ∙ lengthS-iter n σ)
 
 ------------------------------------------------------------------------
--- §1.  Proposition 2 � degeneracy invariance, unconditional
+-- §1.  Proposition 2 — degeneracy invariance, unconditional
 --
--- Structure assumed: a composition with a RIGHT unit, a chart � with
--- �_{ii} = e, and an arbitrary long-edge cap.  That is all the proof of
+-- Structure assumed: a composition with a RIGHT unit, a chart ρ with
+-- ρ_{ii} = e, and an arbitrary long-edge cap.  That is all the proof of
 -- note §3.1 uses, so that is all the module assumes.  In particular
 -- neither associativity nor invertibility appears, and both readings of
--- � are instances of `cap`.
+-- 𝔥 are instances of `cap`.
 ------------------------------------------------------------------------
 
 module Holonomy
@@ -214,12 +214,12 @@ module Holonomy
   (cap : G → G)
   where
 
-  -- consecutive-edge product �_{i_{n-1}i�} ⋯ �_{i�i�}
+  -- consecutive-edge product ρ_{i_{n-1}iₙ} ⋯ ρ_{i₀i₁}
   pathL : I → List I → G
   pathL i []       = e
   pathL i (x ∷ xs) = pathL x xs · ρ i x
 
-  -- �_� = cap(�_{i�i�}) � (consecutive-edge product)
+  -- 𝔥_σ = cap(ρ_{i₀iₙ}) · (consecutive-edge product)
   𝔥 : Simplex I → G
   𝔥 σ = cap (ρ (head σ) (lastV σ)) · pathL (head σ) (tail σ)
 
@@ -229,7 +229,7 @@ module Holonomy
   lastL-dup zero    i (x ∷ xs) = refl
   lastL-dup (suc j) i (x ∷ xs) = lastL-dup j x xs
 
-  -- The consecutive-edge product is untouched: one factor �_{i_j i_j}
+  -- The consecutive-edge product is untouched: one factor ρ_{i_j i_j}
   -- = e is inserted, and a right unit absorbs it.
   pathL-dup : (j : ℕ) (i : I) (t : List I) → pathL i (dupL j t) ≡ pathL i t
   pathL-dup j       i []       = refl
@@ -245,14 +245,14 @@ module Holonomy
   pathL-head : (i : I) (t : List I) → pathL i (i ∷ t) ≡ pathL i t
   pathL-head i t = cong (pathL i t ·_) (ρ-refl i) ∙ ·IdR (pathL i t)
 
-  -- PROPOSITION 2.  �_{s_j �} ≡ �_�, for every j and every �.
+  -- PROPOSITION 2.  𝔥_{s_j σ} ≡ 𝔥_σ, for every j and every σ.
   holonomy-dup : (j : ℕ) (σ : Simplex I) → 𝔥 (degen j σ) ≡ 𝔥 σ
   holonomy-dup zero (i ◂ t) =
     cong (cap (ρ i (lastL i t)) ·_) (pathL-head i t)
   holonomy-dup (suc j) (i ◂ t) =
     cong₂ (λ a b → cap (ρ i a) · b) (lastL-dup j i t) (pathL-dup j i t)
 
-  -- COROLLARY.  δ is a function of � and S alone (note Def. 1.5), so it
+  -- COROLLARY.  δ is a function of 𝔥 and S alone (note Def. 1.5), so it
   -- inherits the equality for ANY defect assignment whatsoever.
   module _ {D : Type ℓ'} (δ𝔥 : G → D) where
 
@@ -265,7 +265,7 @@ module Holonomy
     -- §7 (see the header): the scalar shadow of
     -- SHRINKING_TESTS_LOWER_CURVATURE.md Def. 1.5 is two-valued in
     -- {0, ∞} rather than a count.  ONE simplex with nonempty defect
-    -- forces an �-indexed family of PAIRWISE DISTINCT simplices with the
+    -- forces an ℕ-indexed family of PAIRWISE DISTINCT simplices with the
     -- SAME defect: the iterated degeneracies of that simplex.
     defect-iter : (n : ℕ) (σ : Simplex I) → δ (iterDegen n σ) ≡ δ σ
     defect-iter zero    σ = refl
@@ -278,20 +278,20 @@ module Holonomy
     shadow-support-infinite σ = (λ n → defect-iter n σ) , iterDegen-inj σ
 
 ------------------------------------------------------------------------
--- §2.  Proposition 3 � the face counterexample
+-- §2.  Proposition 3 — the face counterexample
 --
--- X = {a,b} = Bool; Aut(X) � �/2 written additively as (Bool, _⊕_, false)
--- with id = false, sw = true.  � = S = {t}, e(a,t) = 0, e(b,t) = 1, so
+-- X = {a,b} = Bool; Aut(X) ≅ ℤ/2 written additively as (Bool, _⊕_, false)
+-- with id = false, sw = true.  𝒯 = S = {t}, e(a,t) = 0, e(b,t) = 1, so
 -- ∼_S is equality and
---        δ_� = X  if �_� = sw,        δ_� = �  if �_� = id.
--- Subsets of X are their characteristic functions X � Bool; A � B is
--- the (unique, if it exists) morphism of the poset Q_� = (�(X), �).
+--        δ_σ = X  if 𝔥_σ = sw,        δ_σ = ∅  if 𝔥_σ = id.
+-- Subsets of X are their characteristic functions X → Bool; A ⊆ B is
+-- the (unique, if it exists) morphism of the poset Q_α = (𝒫(X), ⊆).
 ------------------------------------------------------------------------
 
 data Idx : Type₀ where
   ⟨0⟩ ⟨1⟩ ⟨2⟩ ⟨3⟩ : Idx
 
--- ��� = ��� = sw, every other �_{ij} = id (including every �_{ii}).
+-- ρ₁₃ = ρ₃₁ = sw, every other ρ_{ij} = id (including every ρ_{ii}).
 ρX : Idx → Idx → Bool
 ρX ⟨1⟩ ⟨3⟩ = true
 ρX ⟨3⟩ ⟨1⟩ = true
@@ -303,9 +303,9 @@ data Idx : Type₀ where
 ρX-refl ⟨2⟩ = refl
 ρX-refl ⟨3⟩ = refl
 
--- �/2 has g�� = g, so the archive reading (cap = id) and the corpus
+-- ℤ/2 has g⁻¹ = g, so the archive reading (cap = id) and the corpus
 -- reading (cap = inverse) are the SAME function here; cap = idfun below
--- is therefore not a choice between them.  `cap-irrelevant-in-�/2`
+-- is therefore not a choice between them.  `cap-irrelevant-in-ℤ/2`
 -- makes that precise.
 capX : Bool → Bool
 capX b = b
@@ -318,7 +318,7 @@ cap-irrelevant-in-ℤ/2 c p q true  = q
 open Holonomy {I = Idx} _⊕_ false ⊕-identityʳ ρX ρX-refl capX
   renaming (𝔥 to 𝔥X ; pathL to pathX)
 
--- Subsets of X = Bool, and the poset structure of Q_�.
+-- Subsets of X = Bool, and the poset structure of Q_α.
 Psub : Type₀
 Psub = Bool → Bool
 
@@ -333,21 +333,21 @@ A ⊆ B = (x : Bool) → A x ≡ true → B x ≡ true
 
 infix 4 _⊆_
 
--- δ_� = X when �_� = sw, � when �_� = id.
+-- δ_σ = X when 𝔥_σ = sw, ∅ when 𝔥_σ = id.
 δ𝔥X : Bool → Psub
 δ𝔥X h _ = h
 
 δX : Simplex Idx → Psub
 δX σ = δ𝔥X (𝔥X σ)
 
--- The two simplices of note §3.2: � = (0,1,2,3) and � = (1,2,3) = d��.
+-- The two simplices of note §3.2: σ = (0,1,2,3) and τ = (1,2,3) = d₀σ.
 σ₃ : Simplex Idx
 σ₃ = ⟨0⟩ ◂ (⟨1⟩ ∷ ⟨2⟩ ∷ ⟨3⟩ ∷ [])
 
 τ₂ : Simplex Idx
 τ₂ = ⟨1⟩ ◂ (⟨2⟩ ∷ ⟨3⟩ ∷ [])
 
--- d�� IS �, on the nose.
+-- d₀σ IS τ, on the nose.
 d₀σ≡τ : face₀ σ₃ ≡ τ₂
 d₀σ≡τ = refl
 
@@ -376,7 +376,7 @@ d₀σ≡τ = refl
 𝔥d₂τ : 𝔥X (⟨1⟩ ◂ (⟨2⟩ ∷ [])) ≡ false         -- d₂τ = (1,2)
 𝔥d₂τ = refl
 
--- Hence the defects: δ_� = �, δ_� = X, δ_{d��} = �.
+-- Hence the defects: δ_σ = ∅, δ_τ = X, δ_{d₀τ} = ∅.
 δσ₃ : δX σ₃ ≡ ∅
 δσ₃ = refl
 
@@ -390,18 +390,18 @@ d₀σ≡τ = refl
 full⊄∅ : ¬ (full ⊆ ∅)
 full⊄∅ p = false≢true (p false refl)
 
--- CONTRAVARIANT (cosimplicial) DIRECTION FAILS, at �:
---   a cosimplicial structure would give δ_{d��} � δ_�, i.e. X � �.
+-- CONTRAVARIANT (cosimplicial) DIRECTION FAILS, at σ:
+--   a cosimplicial structure would give δ_{d₀σ} ⊆ δ_σ, i.e. X ⊆ ∅.
 faces-fail-contravariantly : ¬ (δX (face₀ σ₃) ⊆ δX σ₃)
 faces-fail-contravariantly = full⊄∅
 
--- COVARIANT (simplicial) DIRECTION FAILS, at �, same operator d�:
---   a simplicial structure would give δ_� � δ_{d��}, i.e. X � �.
+-- COVARIANT (simplicial) DIRECTION FAILS, at τ, same operator d₀:
+--   a simplicial structure would give δ_τ ⊆ δ_{d₀τ}, i.e. X ⊆ ∅.
 faces-fail-covariantly : ¬ (δX τ₂ ⊆ δX (face₀ τ₂))
 faces-fail-covariantly = full⊄∅
 
 -- PROPOSITION 3, assembled: one charted Chu space, both failures, the
--- same face operator, adjacent dimensions.  Since Q_� is a poset, this
+-- same face operator, adjacent dimensions.  Since Q_α is a poset, this
 -- is exhaustive: it is not "no map was found" but "no map exists".
 Proposition3 : (¬ (δX (face₀ σ₃) ⊆ δX σ₃)) × (¬ (δX τ₂ ⊆ δX (face₀ τ₂)))
 Proposition3 = faces-fail-contravariantly , faces-fail-covariantly
@@ -411,18 +411,18 @@ degeneracy-still-acts : (j : ℕ) (σ : Simplex Idx) → δX (degen j σ) ≡ δ
 degeneracy-still-acts j σ = cong δ𝔥X (holonomy-dup j σ)
 
 ------------------------------------------------------------------------
--- §3.  Proposition 4 � the sharp form, forward direction
+-- §3.  Proposition 4 — the sharp form, forward direction
 --
--- If � is a cocycle then � ≡ e and δ is constant, hence functorial
--- along every face in both variances � the case in which the apparatus
+-- If ρ is a cocycle then 𝔥 ≡ e and δ is constant, hence functorial
+-- along every face in both variances — the case in which the apparatus
 -- has nothing to measure.
 --
 -- HYPOTHESIS `cap-inv`.  This is the one statement in the module that
 -- distinguishes the two readings of §0.3, and it is exposed as a
--- hypothesis rather than baked in: cap g � g ≡ e holds for the corpus
+-- hypothesis rather than baked in: cap g · g ≡ e holds for the corpus
 -- reading (cap = inverse, Def. 1.4) and FAILS for the archive reading
--- (cap = idfun, D0016 §B), where a 1-simplex has � = �_{i�i�}² which a
--- cocycle does not make trivial � exactly the discrepancy the note
+-- (cap = idfun, D0016 §B), where a 1-simplex has 𝔥 = ρ_{i₀i₁}² which a
+-- cocycle does not make trivial — exactly the discrepancy the note
 -- reports at §0.3 and declines to resolve.
 ------------------------------------------------------------------------
 
@@ -446,18 +446,18 @@ module Sharp
   path-collapse i (x ∷ xs) =
     cong (_· ρ i x) (path-collapse x xs) ∙ cocycle i x (lastL x xs)
 
-  -- PROPOSITION 4.  �_� ≡ e for every �.
+  -- PROPOSITION 4.  𝔥_σ ≡ e for every σ.
   cocycle⇒trivial : (σ : Simplex I) → 𝔥 σ ≡ e
   cocycle⇒trivial (i ◂ t) =
     cong (cap (ρ i (lastL i t)) ·_) (path-collapse i t) ∙ cap-inv (ρ i (lastL i t))
 
   module _ {D : Type ℓ'} (δ𝔥 : G → D) where
 
-    -- δ is the constant family at δ� e �
+    -- δ is the constant family at δ𝔥 e …
     cocycle⇒defect-const : (σ : Simplex I) → δ𝔥 (𝔥 σ) ≡ δ𝔥 e
     cocycle⇒defect-const σ = cong δ𝔥 (cocycle⇒trivial σ)
 
-    -- � hence functorial along every operator whatsoever, faces
+    -- … hence functorial along every operator whatsoever, faces
     -- included, in both variances: any two values are EQUAL.
     cocycle⇒faces-act : (σ τ : Simplex I) → δ𝔥 (𝔥 σ) ≡ δ𝔥 (𝔥 τ)
     cocycle⇒faces-act σ τ = cocycle⇒defect-const σ ∙ sym (cocycle⇒defect-const τ)
@@ -465,20 +465,20 @@ module Sharp
 ------------------------------------------------------------------------
 -- §4.  The SHARP FORM, converse half, COVARIANT (simplicial) variance
 --
--- Note §9's slogan: "δ is functorial along faces exactly when � is a
+-- Note §9's slogan: "δ is functorial along faces exactly when ρ is a
 -- cocycle, i.e. exactly when δ is zero."
--- The converse is proved here � for ONE of the two variances, and
+-- The converse is proved here — for ONE of the two variances, and
 -- §5 shows it is FALSE for the other, which is the substantive finding
 -- of this extension and amends the slogan.
 --
 -- Covariant (simplicial) direction: a simplicial structure would give
--- δ_� � δ_{d_j�}, i.e. δ_� � δ_{d_j�} in the poset Q_�.  Only d� is
+-- δ_σ → δ_{d_jσ}, i.e. δ_σ ⊑ δ_{d_jσ} in the poset Q_α.  Only d₀ is
 -- used, so the theorem holds under a WEAKER hypothesis than full
 -- simpliciality.
 --
--- Mechanism, in one line: iterating d� walks any simplex down to a
--- 0-simplex, and � of a 0-simplex is cap(�_ii)�e = cap e � e = e.  So
--- δ_� � δ_e for every �; in (�(X),�) with δ_e = � that is δ_� = �.
+-- Mechanism, in one line: iterating d₀ walks any simplex down to a
+-- 0-simplex, and 𝔥 of a 0-simplex is cap(ρ_ii)·e = cap e · e = e.  So
+-- δ_σ ⊑ δ_e for every σ; in (𝒫(X),⊆) with δ_e = ∅ that is δ_σ = ∅.
 --
 -- ARCHIVE-AGNOSTIC.  The only hypothesis on the long-edge cap is
 -- `cap-e : cap e ≡ e`, which holds for BOTH readings of §0.3 (cap =
@@ -510,8 +510,8 @@ module CovariantSharp
   vertex-trivial i =
     cong (λ g → cap g · e) (ρ-refl i) ∙ cong (_· e) cap-e ∙ ·IdR e
 
-  -- THE CONVERSE, covariant variance: functoriality along d� alone
-  -- already forces every defect to be � the defect of the identity.
+  -- THE CONVERSE, covariant variance: functoriality along d₀ alone
+  -- already forces every defect to be ⊑ the defect of the identity.
   covariant⇒trivial :
       ((σ : Simplex I) → δ' σ ⊑ δ' (face₀ σ))
     → (σ : Simplex I) → δ' σ ⊑ δ𝔥 e
@@ -521,7 +521,7 @@ module CovariantSharp
     go i []       = subst (λ g → δ𝔥 g ⊑ δ𝔥 e) (sym (vertex-trivial i)) (⊑-refl (δ𝔥 e))
     go i (x ∷ t) = ⊑-trans (fc (i ◂ (x ∷ t))) (go x t)
 
-  -- With tests that separate � δ_� = � only when �_� is the identity �
+  -- With tests that separate — δ_σ = ∅ only when 𝔥_σ is the identity —
   -- the conclusion is triviality of the holonomy itself.
   module _ (separating : (g : G) → δ𝔥 g ⊑ δ𝔥 e → g ≡ e) where
 
@@ -531,16 +531,16 @@ module CovariantSharp
     covariant⇒holonomy-trivial fc σ = separating (𝔥 σ) (covariant⇒trivial fc σ)
 
 ------------------------------------------------------------------------
--- §4�.  From trivial holonomy to a condition on � � BOTH READINGS,
+-- §4′.  From trivial holonomy to a condition on ρ — BOTH READINGS,
 --       and they give DIFFERENT conditions.
 --
 -- Note §0.3's two readings give a pair of theorems rather than a
 -- choice between them.
--- Corpus reading (cap = inverse): � ≡ e is exactly the cocycle
--- condition �_jk �_ij = �_ik.  Archive reading (cap = idfun): � ≡ e
--- gives instead �_ij² = e on every 1-simplex TOGETHER WITH
--- �_ik �_jk �_ij = e � a strictly different demand, and the exact
--- content of the note's observation that "a 1-simplex carries �²".
+-- Corpus reading (cap = inverse): 𝔥 ≡ e is exactly the cocycle
+-- condition ρ_jk ρ_ij = ρ_ik.  Archive reading (cap = idfun): 𝔥 ≡ e
+-- gives instead ρ_ij² = e on every 1-simplex TOGETHER WITH
+-- ρ_ik ρ_jk ρ_ij = e — a strictly different demand, and the exact
+-- content of the note's observation that "a 1-simplex carries ρ²".
 ------------------------------------------------------------------------
 
 module CocycleExtraction
@@ -587,7 +587,7 @@ module CocycleExtraction
     𝔥-two : (i j k : I) → 𝔥 (i ◂ (j ∷ k ∷ [])) ≡ ρ i k · (ρ j k · ρ i j)
     𝔥-two i j k = cong (λ g → ρ i k · (g · ρ i j)) (·IdL (ρ j k))
 
-    -- The 1-simplex carries �², exactly as note §0.3 reports.
+    -- The 1-simplex carries ρ², exactly as note §0.3 reports.
     trivial⇒involutive : ((σ : Simplex I) → 𝔥 σ ≡ e)
                        → (i j : I) → ρ i j · ρ i j ≡ e
     trivial⇒involutive triv i j = sym (𝔥-one i j) ∙ triv (i ◂ (j ∷ []))
@@ -598,31 +598,31 @@ module CocycleExtraction
 
 ------------------------------------------------------------------------
 -- §5.  The sharp form is FALSE in the CONTRAVARIANT (cosimplicial)
---      variance � a charted Chu space, not a cocycle, whose defect
+--      variance — a charted Chu space, not a cocycle, whose defect
 --      family IS functorial along every face.
 --
 -- The claim proved:
 --
---   there is a charted Chu space with � NOT a cocycle, δ_{��} ≠ � for
---   an explicit ��, and δ_{d_j�} � δ_� for EVERY � and EVERY j.
+--   there is a charted Chu space with ρ NOT a cocycle, δ_{σ₀} ≠ ∅ for
+--   an explicit σ₀, and δ_{d_jσ} ⊆ δ_σ for EVERY σ and EVERY j.
 --
--- Since Q_� = (�(X),�) is a poset � thin � an assignment of morphisms
+-- Since Q_α = (𝒫(X),⊆) is a poset — thin — an assignment of morphisms
 -- satisfying all the required inequalities IS a functor (every diagram
 -- in a thin category commutes), so this is not "the inequalities hold
 -- but coherence might fail": the face half of note (O6) is SATISFIABLE
 -- off the cocycle locus.
 --
--- THE CHART.  X = �, Aut(X) � � acting by translation, so G = (�,+).
--- I = Bool = {0,1}.  �_ij = 1 for i ≠ j and 0 for i = j.  Tests
--- separate points (∼_S is equality on �), so
---     δ_� = {x : �_� + x ≠ x} = � ⟺ �_� = 0.
+-- THE CHART.  X = ℤ, Aut(X) ⊇ ℤ acting by translation, so G = (ℤ,+).
+-- I = Bool = {0,1}.  ρ_ij = 1 for i ≠ j and 0 for i = j.  Tests
+-- separate points (∼_S is equality on ℤ), so
+--     δ_σ = {x : 𝔥_σ + x ≠ x} = ∅ ⟺ 𝔥_σ = 0.
 --
--- BOTH READINGS, and this is why the chart was chosen.  Writing t(�)
--- for the number of consecutive-vertex changes in � and ε(�) ∈ {0,1}
+-- BOTH READINGS, and this is why the chart was chosen.  Writing t(σ)
+-- for the number of consecutive-vertex changes in σ and ε(σ) ∈ {0,1}
 -- for the long-edge indicator,
---     corpus  �_� = −ε(�) + t(�),   archive  �_� = ε(�) + t(�).
+--     corpus  𝔥_σ = −ε(σ) + t(σ),   archive  𝔥_σ = ε(σ) + t(σ).
 -- So the good locus is {t = ε} for the corpus reading (the "block"
--- simplices i�i j�j, at most one change) and {t = 0 = ε} for the
+-- simplices i…i j…j, at most one change) and {t = 0 = ε} for the
 -- archive reading (the constant simplices).  BOTH are closed under
 -- deleting a vertex, so BOTH readings give a cosimplicially
 -- face-functorial δ, with different good loci.  The pair of theorems
@@ -731,9 +731,9 @@ Blk-del zero    (bjump c) = Cst→Blk c
 Blk-del (suc n) (bsame b) = bsame (Blk-del n b)
 Blk-del (suc n) (bjump c) = bjump (Cst-del n c)
 
--- Closure under d� is proved at the level of the counts rather than of
--- the predicates: d� moves the basepoint, so it is not an instance of
--- delL, and matching on a constructor with index (x � t) is exactly the
+-- Closure under d₀ is proved at the level of the counts rather than of
+-- the predicates: d₀ moves the basepoint, so it is not an instance of
+-- delL, and matching on a constructor with index (x ∷ t) is exactly the
 -- pattern Cubical Agda declines.
 trans-face₀-Cst : (i x : Bool) (t : List Bool)
                 → transL i (x ∷ t) ≡ 0 → transL x t ≡ 0
@@ -759,7 +759,7 @@ trans-face₀ true  false t p =
   n0 = sucStep (not (lastL false t)) (transL false t) p
 
 ------------------------------------------------------------------------
--- §5.1  The � bookkeeping: � ≡ 0 decoded, in each reading.
+-- §5.1  The ℤ bookkeeping: 𝔥 ≡ 0 decoded, in each reading.
 ------------------------------------------------------------------------
 
 -+≡0→≡ : (a b : ℤ) → (- a) + b ≡ pos 0 → b ≡ a
@@ -785,7 +785,7 @@ GoodC GoodA : Simplex Bool → Type₀
 GoodC σ = 𝔥C σ ≡ pos 0
 GoodA σ = 𝔥A σ ≡ pos 0
 
--- Corpus reading: � ≡ 0 ⟺ t(�) = ε(�) ⟺ � is a block simplex.
+-- Corpus reading: 𝔥 ≡ 0 ⟺ t(σ) = ε(σ) ⟺ σ is a block simplex.
 GoodC→eq : (i : Bool) (t : List Bool) → GoodC (i ◂ t) → transL i t ≡ step i (lastL i t)
 GoodC→eq i t g =
   injPos (-+≡0→≡ (pos (step i (lastL i t))) (pos (transL i t)) (sym (𝔥C≡ i t) ∙ g))
@@ -801,7 +801,7 @@ GoodC→Blk i t g = trans→Blk i t (GoodC→eq i t g)
 Blk→GoodC : (i : Bool) (t : List Bool) → Blk i t → GoodC (i ◂ t)
 Blk→GoodC i t b = eq→GoodC i t (Blk→trans b)
 
--- Archive reading: � ≡ 0 ⟺ t(�) = 0 ⟺ � is a constant simplex.
+-- Archive reading: 𝔥 ≡ 0 ⟺ t(σ) = 0 ⟺ σ is a constant simplex.
 GoodA→eq : (i : Bool) (t : List Bool) → GoodA (i ◂ t) → transL i t ≡ 0
 GoodA→eq i t g = snd-of (m+n≡0→m≡0×n≡0 (injPos (sym (𝔥A≡ i t) ∙ g)))
   where
@@ -820,7 +820,7 @@ Cst→GoodA : (i : Bool) (t : List Bool) → Cst i t → GoodA (i ◂ t)
 Cst→GoodA i t c = eq→GoodA i t (Cst→trans c)
 
 ------------------------------------------------------------------------
--- §5.2  The defect as a subset of X = �, and the poset (�(X), �).
+-- §5.2  The defect as a subset of X = ℤ, and the poset (𝒫(X), ⊆).
 ------------------------------------------------------------------------
 
 SubZ : Type₁
@@ -855,7 +855,7 @@ goodA-face zero    (i ◂ (x ∷ t)) g =
 goodA-face (suc j) (i ◂ t)       g =
   Cst→GoodA i (delL j t) (Cst-del j (GoodA→Cst i t g))
 
--- THE COSIMPLICIAL FACE ACTION, in both readings: δ_{d_j�} � δ_�.
+-- THE COSIMPLICIAL FACE ACTION, in both readings: δ_{d_jσ} ⊆ δ_σ.
 faces-act-contravariantly-C :
   (j : ℕ) (σ : Simplex Bool) → δZ 𝔥C (face j σ) ⊆Z δZ 𝔥C σ
 faces-act-contravariantly-C j σ x nd q =
@@ -867,14 +867,14 @@ faces-act-contravariantly-A j σ x nd q =
   nd (act-triv (𝔥A (face j σ)) (goodA-face j σ (act-triv⁻ (𝔥A σ) x q)) x)
 
 ------------------------------------------------------------------------
--- §5.3  � and the family is NOT trivial: an explicit nonempty defect,
---       and � is not a cocycle.
+-- §5.3  … and the family is NOT trivial: an explicit nonempty defect,
+--       and ρ is not a cocycle.
 ------------------------------------------------------------------------
 
 σ₀ : Simplex Bool
 σ₀ = false ◂ (true ∷ false ∷ [])
 
--- �_{��} = 2 in both readings (the long edge is ��� = 0).
+-- 𝔥_{σ₀} = 2 in both readings (the long edge is ρ₀₀ = 0).
 𝔥C-σ₀ : 𝔥C σ₀ ≡ pos 2
 𝔥C-σ₀ = refl
 
@@ -895,7 +895,7 @@ defect-σ₀-A p = pos2≢pos0 p
 
 -- THEOREM (§5, assembled).  In each reading of the holonomy: a charted
 -- Chu space whose defect family is functorial along EVERY face in the
--- COSIMPLICIAL variance, whose � is NOT a cocycle, and whose defect is
+-- COSIMPLICIAL variance, whose ρ is NOT a cocycle, and whose defect is
 -- nonempty at an explicit simplex.  Hence the sharp form
 --   "functorial along faces ⟺ δ = 0"
 -- is TRUE in the simplicial variance (§4) and FALSE in the
@@ -918,15 +918,15 @@ Cosimplicial-sharp-fails-archive =
 -- §6.  What §4 and §5 establish.
 --
 --  * §4 is the converse of the slogan, in the
---    SIMPLICIAL variance, from a weaker hypothesis (d� only), and it is
+--    SIMPLICIAL variance, from a weaker hypothesis (d₀ only), and it is
 --    agnostic between the two readings of the holonomy.
---  * §4� converts note §0.3's discrepancy into two theorems instead of
---    a choice: corpus reading � cocycle; archive reading � �² = e and a
+--  * §4′ converts note §0.3's discrepancy into two theorems instead of
+--    a choice: corpus reading ⇒ cocycle; archive reading ⇒ ρ² = e and a
 --    different closure identity.
 --  * §5 REFUTES the cosimplicial half of the slogan.
---  * §5 amends note (O6): the face part is refuted for the � of §2 but
---    is SATISFIABLE for the � of §5, so "faces act in neither variance"
+--  * §5 amends note (O6): the face part is refuted for the ρ of §2 but
+--    is SATISFIABLE for the ρ of §5, so "faces act in neither variance"
 --    is a statement about that counterexample, not about all charts.
---  * The example of §5 uses X = �, hence an infinite Chu space; §2's
+--  * The example of §5 uses X = ℤ, hence an infinite Chu space; §2's
 --    example is finite.
 ------------------------------------------------------------------------

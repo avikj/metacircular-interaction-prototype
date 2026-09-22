@@ -23,7 +23,7 @@ open import RepresentabilityIsNotEnoughForIndependence
 --
 -- `TheDiagonalLemmaDischargesGoedelFix` derives independence from six
 -- things: consistency, HBL1, representability, and three internal rules
--- â” contraposition, double-negation elimination, transitivity â” plus
+-- â€” contraposition, double-negation elimination, transitivity â€” plus
 -- Ï‰-consistency.  `RepresentabilityIsNotEnoughForIndependence` showed
 -- the first three are satisfied by a model where independence fails.
 -- This checks the three internal rules in that same model.
@@ -31,7 +31,7 @@ open import RepresentabilityIsNotEnoughForIndependence
 -- All three hold.  So `Wit` satisfies EVERY hypothesis of that
 -- derivation except Ï‰-consistency, and fails independence.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHY THE THREE HOLD, WHICH IS NOT AN ACCIDENT OF THE MODEL
 --
 -- `wPf (wimp a b)` is inhabited exactly when provability of `a` entails

@@ -1,6 +1,6 @@
 # SILENCE OF QUESTIONS IS DETERMINISM, coinductively and in general
 # (Prasna §3): for ANY interaction (X, Q, δ) whose every question Q x is
-# contractible, the space of answer streams from x — hence of histories 
+# contractible, the space of answer streams from x — hence of histories —
 # is a point.  The contraction is built coinductively OVER A PATH of states
 # (a dependent path PathP(λi. Answers(p @ i))): the answer components are
 # collapsed by isProp→PathP, and the tails follow along the line the answers

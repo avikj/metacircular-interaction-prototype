@@ -26,9 +26,9 @@ prints its first 400 constructors. **The language is coinductive by
 default.** What it lacked, and what was fixed:
 
 1. **A corecursive path proof looped the checker.** `repOnes : Path(Stream,
-   rep(1n), ones()) := <i> @Cons{1n, repOnes() @ i}` â” a bisimulation stated
+   rep(1n), ones()) := <i> @Cons{1n, repOnes() @ i}` â€” a bisimulation stated
    as a corecursive path, exactly the corpus's `exec-unique`/`replay-forget`
-   shape â” hung. Cause: `epNormCtx` (the Ref-unfolding for typed endpoints)
+   shape â€” hung. Cause: `epNormCtx` (the Ref-unfolding for typed endpoints)
    re-unfolded a productive definition inside its own unfolding forever.
    Fixed: unfolding is one level deep. `repOnes` is now
    `[productive] theorem(path) definitional`.
@@ -37,13 +37,13 @@ default.** What it lacked, and what was fixed:
    `main` printer use a depth-capped normaliser (`normalCap`).
 3. **The totality classifier was unsound for records.** It counted a
    `match` on a record field as structural descent, so
-   `loop(s) = match s { Cons h t -> loop t }` was `[total]` â” and diverges
+   `loop(s) = match s { Cons h t -> loop t }` was `[total]` â€” and diverges
    on `ones()`. Since *every* declared `type` admits infinite inhabitants in
    this semantics, a record field is never a descent position. Fixed: only
    `Nat`/`List` eliminators give descent; a recursion through a record is
    `[productive]` when constructor-guarded and `[unchecked]` otherwise.
    Consequence, stated: structural recursion on user-declared inductive
-   types (e.g. `VecInd` in Bend2's own examples) is now `[unchecked]` â” that
+   types (e.g. `VecInd` in Bend2's own examples) is now `[unchecked]` â€” that
    is correct for this language, whose `type`s are not inductive; a genuine
    inductive type would need a declaration form the language does not have.
 
@@ -53,12 +53,12 @@ the file; `viaTail` (corecursion through a destructor) is `[unchecked]`; the
 false bisimulation `wrong : Path(ones, twos) := <i> Cons{1n, wrong()@i}`
 **fails** (heads differ) with a finite message.
 
-## The machine, coinductively (`coinduction.bend`, 13 â“)
+## The machine, coinductively (`coinduction.bend`, 13 âœ“)
 
 `Answers x` and `IExec x` are declared as the coinductive records themselves
 (indexed `type`s whose tails are `Answers(step(x, ans))`), `replay` and
 `forgetStates` are corecursive, and **both round trips of `run-is-answers`
-are corecursive paths** â” `replayForget` collapses the receipt with the
+are corecursive paths** â€” `replayForget` collapses the receipt with the
 âˆ¨-square field by field, exactly Prasna's copattern proof:
 
     def replayForget(x, e) -> Path(IExec(x), replay(x, forgetStates(x, e)), e):
@@ -71,8 +71,8 @@ normaliser and on HVM (221 interactions).
 
 4. **Self-referential `type` declarations were `[unchecked]`.** `Answers`
    and `IExec` (`more: Answers(step(x, ans))`) were classified like
-   definitions, so `--total coinduction.bend` refused the file. Fixed: Î
-   fields and Î  codomains are guarded positions â” a declared type is the
+   definitions, so `--total coinduction.bend` refused the file. Fixed: Î£
+   fields and Î  codomains are guarded positions â€” a declared type is the
    productive fixed point of its type operator, as a corecursive value is of
    its constructor (Î  domains stay unguarded: negative position).
    `bend coinduction.bend --total`, `interaction.bend --total`,
@@ -87,16 +87,16 @@ normaliser and on HVM (221 interactions).
 - No copattern syntax: a corecursive record value is written with its
   constructor, which is equivalent for these records.
 - Conversion between corecursive values is one-step unfolding + structural
-  comparison (as in Agda without Î); bisimilarity is proved, not decided.
+  comparison (as in Agda without Î·); bisimilarity is proved, not decided.
 
-## The general silence-is-determinism (`silence.bend`, 25 â“, `--total` passes)
+## The general silence-is-determinism (`silence.bend`, 25 âœ“, `--total` passes)
 
 For ANY interaction `(X, Q, Î´)` with every `Q x` contractible: `Answers`
 and `IExec` are the parametric coinductive records; `mute` is corecursive;
 `answersUnique` is the corecursive **dependent** path
 `PathP(Î»i. Answers(X,Q,Î´, p @ i), a0, a1)` over a path of states, its answer
 field collapsed by `isPropToPathP`, its tail following the line
-`<j> Î´(p @ j, ansLine @ j)` the answers draw â” exactly Prasna's copattern
+`<j> Î´(p @ j, ansLine @ j)` the answers draw â€” exactly Prasna's copattern
 proof. `oneAnswerStream` is the contraction at the constant path;
 `silenceIsDeterminism : isContr(IExec x)` transports it across
 `run-is-answers` (centre `replay(mute)`, contraction `replay` of the

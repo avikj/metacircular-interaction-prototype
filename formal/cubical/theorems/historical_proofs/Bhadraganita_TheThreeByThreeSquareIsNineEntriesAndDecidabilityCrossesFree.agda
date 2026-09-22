@@ -1,24 +1,24 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡¶‡‡∞‡ó‡‡ø‡‡Æ‡ ‚î the mathematics of the numerical square.
+-- ‡§≠‡§¶‡•ç‡§∞‡§ó‡§£‡§ø‡§§‡§Æ‡•ç ‚Äî the mathematics of the numerical square.
 --
--- THE TERM, ITS TEXT AND ITS DATE.  ‡‡¶‡‡∞‡ó‡‡ø‡ is the name of the chapter on
+-- THE TERM, ITS TEXT AND ITS DATE.  ‡§≠‡§¶‡•ç‡§∞‡§ó‡§£‡§ø‡§§ is the name of the chapter on
 -- the construction of numerical squares in Nryaa Paita's
--- *Gaitakaumud*, 1356 CE ‚î the fourteenth and last chapter, which
--- classifies ‡‡¶‡‡∞s by order (‡‡Æ, ‡µ‡ø‡‡Æ, ‡‡Æ‡‡Æ) and gives general
+-- *Ga·πáitakaumudƒ´*, 1356 CE ‚Äî the fourteenth and last chapter, which
+-- classifies ‡§≠‡§¶‡•ç‡§∞s by order (‡§∏‡§Æ, ‡§µ‡§ø‡§∑‡§Æ, ‡§∏‡§Æ‡§∏‡§Æ) and gives general
 -- construction rules rather than instances.  The older attested Indian
 -- treatment of a numerical square is Varhamihira, *Bhatsahit* 76
--- (c. 550 CE), the ‡ï‡‡‡‡‡‡ü arrangement used for compounding perfumes,
--- which is a 4ó4 square with prescribed row sums.
+-- (c. 550 CE), the ‡§ï‡§ö‡•ç‡§õ‡§™‡•Å‡§ü arrangement used for compounding perfumes,
+-- which is a 4√ó4 square with prescribed row sums.
 --
 ------------------------------------------------------------------------
 -- WHAT THIS MODULE IS.
 --
--- `machine/AnulomaPratiloma_‚¶hs` proposed
+-- `machine/AnulomaPratiloma_‚Ä¶hs` proposed
 --
---     entriesOf : Mat 3 3 ‚í Nine   ‚   fromNine : Nine ‚í Mat 3 3
---     colsOf    : Col     ‚í ‚¬≥     ‚   fromCols : ‚¬≥   ‚í Col
+--     entriesOf : Mat 3 3 ‚Üí Nine   ‚áÑ   fromNine : Nine ‚Üí Mat 3 3
+--     colsOf    : Col     ‚Üí ‚Ñ§¬≥     ‚áÑ   fromCols : ‚Ñ§¬≥   ‚Üí Col
 --
 -- out of `SmithPathCountedExecution` and its kernel left
 -- both as obligations, at all three rungs of its ladder.  Both are equivalences and the
@@ -31,21 +31,21 @@
 -- `fromNine-entries` and `fromCols-entries` sit forty lines above the
 -- functions the proposer paired, proved by an exhaustive `Fin`-split which
 -- is precisely the induction the proposer's rung two would have had to
--- synthesise.  The proposer offered `Œª _ ‚í refl` for BOTH directions of
+-- synthesise.  The proposer offered `Œª _ ‚Üí refl` for BOTH directions of
 -- each pair; one of the two was right.  Half a proof is not a rung of a
--- ladder ‚î it is a lemma already in the file, and the instrument had no
+-- ladder ‚Äî it is a lemma already in the file, and the instrument had no
 -- way to look for one.
 --
 -- WHAT CROSSES.  Two things, and neither is in the host:
 --
---   ‡ß  `Discrete (Mat 3 3)`.  Deciding equality of two 3ó3 integer
+--   ‡•ß  `Discrete (Mat 3 3)`.  Deciding equality of two 3√ó3 integer
 --      matrices directly means deciding equality of two FUNCTIONS out of
---      `Fin 3 ó Fin 3`, which needs the finiteness of the index worked
---      through by hand.  Across the edge it is `discreteŒ` applied nine
---      times to `discrete‚`, and then one `subst`.  No induction on
+--      `Fin 3 √ó Fin 3`, which needs the finiteness of the index worked
+--      through by hand.  Across the edge it is `discreteŒ£` applied nine
+--      times to `discrete‚Ñ§`, and then one `subst`.  No induction on
 --      matrices occurs in this file.
---   ‡®  Componentwise addition AND its associativity, moved as one object
---      ‚î the `Setubandha_‚¶agda` pattern, where the carrier and the
+--   ‡•®  Componentwise addition AND its associativity, moved as one object
+--      ‚Äî the `Setubandha_‚Ä¶agda` pattern, where the carrier and the
 --      operation travel as a pair so that the law is not re-proved on the
 --      far bank.  The host has no addition on `Mat 3 3`.
 ------------------------------------------------------------------------
@@ -72,8 +72,8 @@ open import SmithPathCountedExecution
         ; Col ; colsOf ; fromCols ; fromCols-entries )
 
 ------------------------------------------------------------------------
--- ‡ß ¬ THE TWO EDGES.  The `rightInv` half is `refl` ‚î the entries of a
---     matrix built from a tuple are that tuple, by Œ-eta.  The `leftInv`
+-- ‡•ß ¬∑ THE TWO EDGES.  The `rightInv` half is `refl` ‚Äî the entries of a
+--     matrix built from a tuple are that tuple, by Œ£-eta.  The `leftInv`
 --     half is the host's own lemma, quoted, not rebuilt.
 ------------------------------------------------------------------------
 
@@ -102,12 +102,12 @@ Col‚â°Row3 : Col ‚â° Row3
 Col‚â°Row3 = ua Col‚âÉRow3
 
 ------------------------------------------------------------------------
--- ‡® ¬ DECIDABLE EQUALITY, CROSSED.
+-- ‡•® ¬∑ DECIDABLE EQUALITY, CROSSED.
 --
---     `Nine` is a nested product of nine copies of ‚; `discreteŒ` and
---     `discrete‚` settle it with no reference to matrices at all.  Then
---     one `subst` along the edge, and 3ó3 integer matrices have decidable
---     equality ‚î including the `isSet` that follows, which the host also
+--     `Nine` is a nested product of nine copies of ‚Ñ§; `discreteŒ£` and
+--     `discrete‚Ñ§` settle it with no reference to matrices at all.  Then
+--     one `subst` along the edge, and 3√ó3 integer matrices have decidable
+--     equality ‚Äî including the `isSet` that follows, which the host also
 --     never proves.
 ------------------------------------------------------------------------
 
@@ -127,7 +127,7 @@ discreteCol : Discrete Col
 discreteCol = subst Discrete (sym Col‚â°Row3) discreteRow3
 
 ------------------------------------------------------------------------
--- ‡© ¬ AN OPERATION AND ITS LAW, CROSSED TOGETHER.
+-- ‡•© ¬∑ AN OPERATION AND ITS LAW, CROSSED TOGETHER.
 --
 --     The pair (carrier , operation) is moved as ONE object, so the law
 --     arrives with it and is not re-proved on the far bank.  This is why

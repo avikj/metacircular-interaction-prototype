@@ -1,54 +1,54 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ���������������-�������� � ��������� ����� ���� �� ������ ������� ���� �
+-- नष्टोद्दिष्ट-परीक्षा — उभयदिक् अस्ति चेत् एव तन्तुः सर्वत्र एकः ।
 --
 -- (both directions exist exactly when every fibre is contractible.)
 --
--- ��������������������������������������������������������������������
--- ����������� � SOURCE OF THE TERMS, with text and date.
+-- ────────────────────────────────────────────────────────────────────
+-- मूलवाक्यम् · SOURCE OF THE TERMS, with text and date.
 --
---   ����� ("the lost one": given a row number, recover the pattern) and
---   ���������� ("the pointed-at one": given a pattern, recover its row
---   number) are two of the six ������� of Pigala, *Chandastra*
---   �.����� (~300 BCE), worked with the array by ������,
+--   नष्ट ("the lost one": given a row number, recover the pattern) and
+--   उद्दिष्ट ("the pointed-at one": given a pattern, recover its row
+--   number) are two of the six प्रत्यय of Piṅgala, *Chandaḥśāstra*
+--   ८.२४–२८ (~300 BCE), worked with the array by हलायुध,
 --   *Mtasajvan* (10th c. CE).  They are stated as a PAIR, and the
---   pair is the point: the �������� is never written down, because
+--   pair is the point: the प्रस्तार is never written down, because
 --   either direction can be run from the other end in log n steps.
 --
---   �������� ("examination") is ordinary , standard in the
+--   परीक्षा ("examination") is ordinary , standard in the
 --   Nyya lane for the testing of a thesis.  The compound
---   ���������������-�������� is BUILT HERE and is not attested in any text.
+--   नष्टोद्दिष्ट-परीक्षा is BUILT HERE and is not attested in any text.
 --
--- ��������������������������������������������������������������������
--- WHY THIS MODULE EXISTS.  `machine/Lopa_�hs` grades every edge in this
--- corpus into two roads � 88 edges with defect identically zero, and
+-- ────────────────────────────────────────────────────────────────────
+-- WHY THIS MODULE EXISTS.  `machine/Lopa_…hs` grades every edge in this
+-- corpus into two roads — 88 edges with defect identically zero, and
 -- 1046 one-way edges.  The discriminant between the two roads was
 -- carried in the census as a flag computed by the grader.  It is not a
 -- flag.  It is Pigala's question, and it is a TYPE:
 --
---     is there both a ����� and an ���������� for this map?
+--     is there both a नष्ट and an उद्दिष्ट for this map?
 --
--- §� makes that a checkable predicate (`���������������������`), §� connects
--- it to `Tantujala`'s three verdicts � an inhabitant is exactly �����
--- at every point � and §� to `isEquiv`, which is that Π by definition.
+-- §२ makes that a checkable predicate (`नष्टोद्दिष्टयोगः`), §३ connects
+-- it to `Tantujala`'s three verdicts — an inhabitant is exactly एकम्
+-- at every point — and §४ to `isEquiv`, which is that Π by definition.
 --
--- §� is the honest limit, and it is why this is stated as two maps and
+-- §५ is the honest limit, and it is why this is stated as two maps and
 -- not as an equivalence of types: `isEquiv f` is a PROPOSITION and
--- `��������������������� f` is not, so the two are logically equivalent and
+-- `नष्टोद्दिष्टयोगः f` is not, so the two are logically equivalent and
 -- NOT equal.  The round trip through `isEquiv` returns what it was
 -- given (§�); quasi-inverse data can differ.
 --
--- §� is the discriminant exhibited on both roads at once: the ��������
--- of any ���-���� carries the witness (road one, defect zero at every
--- index), and `Bool � Unit` provably carries none (road two) � the
--- refutation running through `Tantujala.���-���-�������`, so the two
+-- §६ is the discriminant exhibited on both roads at once: the प्रस्तार
+-- of any छेद-सूची carries the witness (road one, defect zero at every
+-- index), and `Bool → Unit` provably carries none (road two) — the
+-- refutation running through `Tantujala.एक-बहु-विरोधः`, so the two
 -- modules are joined by a term and not by a remark.
 --
--- §� separates the two halves of the pair.  Having only the FORWARD
--- round trip (`�����������������`: every index has some pattern that
+-- §७ separates the two halves of the pair.  Having only the FORWARD
+-- round trip (`उद्दिष्टमात्रम्`: every index has some pattern that
 -- indexes to it) is strictly weaker, and the witness is the same
--- `Bool � Unit`.  That is what "one-way edge" means, stated as data.
+-- `Bool → Unit`.  That is what "one-way edge" means, stated as data.
 ------------------------------------------------------------------------
 
 module NastoddistaPariksa_BothDirectionsExistExactlyWhenEveryFibreIsContractible where
@@ -76,7 +76,7 @@ private
     ℓ ℓ' : Level
 
 ------------------------------------------------------------------------
--- � � ��������������������� � the predicate.  "Does this edge have both
+-- २ · नष्टोद्दिष्टयोगः — the predicate.  "Does this edge have both
 --     directions?"  The record's three fields are Pigala's two
 --     procedures and the statement that they undo one another, in the
 --     order he states them.
@@ -86,11 +86,11 @@ record नष्टोद्दिष्टयोगः {A : Type ℓ} {B : Type
        : Type (ℓ-max ℓ ℓ') where
   constructor उभयतः
   field
-    -- ������� � given the index, produce the pattern.
+    -- नष्टम् — given the index, produce the pattern.
     नष्टम् : B → A
-    -- ���������� ∘ ����� ≡ id : index out, index back.
+    -- उद्दिष्ट ∘ नष्ट ≡ id : index out, index back.
     उद्दिष्टनष्टम् : (b : B) → f (नष्टम् b) ≡ b
-    -- ����� ∘ ���������� ≡ id : pattern out, pattern back.
+    -- नष्ट ∘ उद्दिष्ट ≡ id : pattern out, pattern back.
     नष्टोद्दिष्टम् : (a : A) → नष्टम् (f a) ≡ a
 
 open नष्टोद्दिष्टयोगः public
@@ -111,10 +111,10 @@ Iso.rightInv (योगः→इषो y) = उद्दिष्टनष्ट
 Iso.leftInv  (योगः→इषो y) = नष्टोद्दिष्टम् y
 
 ------------------------------------------------------------------------
--- � � THE TEST, against the three verdicts.
+-- ३ · THE TEST, against the three verdicts.
 --
--- `Tantujala` gives �������� / ����� / ��� at a point.  The pair of
--- procedures is precisely ����� EVERYWHERE, and the proof is by way of
+-- `Tantujala` gives रिक्तम् / एकम् / बहु at a point.  The pair of
+-- procedures is precisely एकम् EVERYWHERE, and the proof is by way of
 -- `isEquiv`, whose definition is that Π.
 ------------------------------------------------------------------------
 
@@ -129,9 +129,9 @@ Iso.leftInv  (योगः→इषो y) = नष्टोद्दिष्ट
 नष्टोद्दिष्टम् (समता→परीक्षा {f = f} e) a =
   cong fst (isEquiv.equiv-proof e (f a) .snd (a , refl))
 
--- and the same statement in the ����� vocabulary, which is the form a
--- census wants: the verdict at every point is �����, simultaneously.
--- (��������, not a search with a first step � `Tantujala` §�.)
+-- and the same statement in the तन्तु vocabulary, which is the form a
+-- census wants: the verdict at every point is एकम्, simultaneously.
+-- (सकलादेश, not a search with a first step — `Tantujala` §६.)
 परीक्षा→एकम् : {A : Type ℓ} {B : Type ℓ'} {f : A → B}
              → नष्टोद्दिष्टयोगः f → (b : B) → T.एकम् f b
 परीक्षा→एकम् {f = f} y = T.सकलादेशः f (परीक्षा→समता y)
@@ -141,7 +141,7 @@ Iso.leftInv  (योगः→इषो y) = नष्टोद्दिष्ट
 एकम्→परीक्षा {f = f} c = समता→परीक्षा (T.सकलादेश-प्रत्यागमः f c)
 
 ------------------------------------------------------------------------
--- � � The two-way statement, as one term: the pair of procedures exists
+-- ४ · The two-way statement, as one term: the pair of procedures exists
 --     if and only if the fibre is contractible at every point.
 ------------------------------------------------------------------------
 
@@ -154,8 +154,8 @@ Iso.leftInv  (योगः→इषो y) = नष्टोद्दिष्ट
 -- � � THE LIMIT.
 --
 -- `isEquiv f` is a proposition: any two proofs are equal.  The record
--- above is NOT � it carries a chosen quasi-inverse together with chosen
--- homotopies, and different choices need not be identified.  So §� is a
+-- above is NOT — it carries a chosen quasi-inverse together with chosen
+-- homotopies, and different choices need not be identified.  So §४ is a
 -- logical equivalence and cannot be strengthened to an equivalence of
 -- types by these terms.
 --
@@ -172,13 +172,13 @@ Iso.leftInv  (योगः→इषो y) = नष्टोद्दिष्ट
 समता-चक्रम् {f = f} e = समता-प्रतिष्ठा f _ e
 
 ------------------------------------------------------------------------
--- � � THE DISCRIMINANT, on both roads.
+-- ६ · THE DISCRIMINANT, on both roads.
 --
--- ROAD ONE.  `��������� rs : Iso (����������� rs) (Fin (��������� rs))` �
--- Pigala's own pair, generalised to a ���-����, with ���������� written by
--- addition and multiplication and ����� by division, each proved
+-- ROAD ONE.  `प्रस्तारः rs : Iso (अङ्कस्थान rs) (Fin (सङ्ख्या rs))` —
+-- Piṅgala's own pair, generalised to a छेद-सूची, with उद्दिष्ट written by
+-- addition and multiplication and नष्ट by division, each proved
 -- separately and neither transported from the other.  So the witness
--- exists at EVERY ���-����, and the defect is identically zero there.
+-- exists at EVERY छेद-सूची, and the defect is identically zero there.
 ------------------------------------------------------------------------
 
 प्रस्तार-योगः : (rs : List ℕ) → नष्टोद्दिष्टयोगः (Iso.fun (प्रस्तारः rs))
@@ -188,15 +188,15 @@ Iso.leftInv  (योगः→इषो y) = नष्टोद्दिष्ट
              → T.एकम् (Iso.fun (प्रस्तारः rs)) i
 प्रस्तार-एकम् rs = परीक्षा→एकम् (प्रस्तार-योगः rs)
 
--- Pigala's own case: ���-���� uniformly 1 (����, �����), five syllables.
+-- Piṅgala's own case: छेद-सूची uniformly 1 (लघु, गुरु), five syllables.
 _ : नष्टोद्दिष्टयोगः (Iso.fun (प्रस्तारः (एकरूप 5 1)))
 _ = प्रस्तार-योगः (एकरूप 5 1)
 
 ------------------------------------------------------------------------
--- ROAD TWO.  `Bool � Unit` � `Tantujala.������-�������`, the collapse
--- whose fibre over `tt` is ���.  There is NO witness, and the proof is
+-- ROAD TWO.  `Bool → Unit` — `Tantujala.समाहार-मार्गः`, the collapse
+-- whose fibre over `tt` is बहु.  There is NO witness, and the proof is
 -- the three-verdict exclusion, not a separate argument: a witness would
--- make the fibre �����, and ����� and ��� exclude one another.
+-- make the fibre एकम्, and एकम् and बहु exclude one another.
 ------------------------------------------------------------------------
 
 समाहारे-न-योगः : ¬ (नष्टोद्दिष्टयोगः T.समाहार-मार्गः)
@@ -204,14 +204,14 @@ _ = प्रस्तार-योगः (एकरूप 5 1)
   T.एक-बहु-विरोधः T.समाहार-मार्गः tt (परीक्षा→एकम् y tt) T.बहु-अत्र
 
 -- and the OTHER way a witness can fail, which "no witness" does not
--- distinguish: `� � Unit` misses `tt` altogether (��������).  Both roads
--- two, opposite reasons, same absence � `Tantujala` §� is why a boolean
+-- distinguish: `⊥ → Unit` misses `tt` altogether (रिक्तम्).  Both roads
+-- two, opposite reasons, same absence — `Tantujala` §५ is why a boolean
 -- census cannot report the difference.
 शून्ये-न-योगः : ¬ (नष्टोद्दिष्टयोगः T.शून्य-मार्गः)
 शून्ये-न-योगः y = T.रिक्तम्-अत्र (परीक्षा→एकम् y tt .fst)
 
 ------------------------------------------------------------------------
--- � � ����������������� � ONE of the two procedures, and why one is not
+-- ७ · उद्दिष्टमात्रम् — ONE of the two procedures, and why one is not
 --     enough.  This is the shape of a one-way edge as data: every index
 --     has SOME element mapping to it, and nothing says the element is
 --     recovered.
@@ -233,7 +233,7 @@ open उद्दिष्टमात्रम् public
 प्रत्यागमः   (योगः→मात्रम् y) = उद्दिष्टनष्टम् y
 
 -- the half does NOT give the pair, and the counterexample is the same
--- collapse: `Bool � Unit` has the return trip on indices and no return
+-- collapse: `Bool → Unit` has the return trip on indices and no return
 -- trip on patterns.
 समाहारे-मात्रम् : उद्दिष्टमात्रम् T.समाहार-मार्गः
 प्रति-नष्टम् समाहारे-मात्रम् _ = true

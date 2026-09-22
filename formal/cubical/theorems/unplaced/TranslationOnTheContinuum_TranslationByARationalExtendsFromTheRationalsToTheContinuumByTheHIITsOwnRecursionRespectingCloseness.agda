@@ -1,23 +1,23 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- TranslationOnTheContinuum � the first map on SantataDhara's � beyond
+-- TranslationOnTheContinuum — the first map on SantataDhara's ℝ beyond
 -- its constructors: translation by a rational,
 --
---     translate s : � � �,   translate s (rat q) = rat (q + s),
+--     translate s : ℝ → ℝ,   translate s (rat q) = rat (q + s),
 --
 -- extended to limits and to the path constructor by the HIIT's own
 -- recursion, together with the proof that it respects closeness:
 --
---     u ∼⟨ε⟩ v  �  translate s u ∼⟨ε⟩ translate s v.
+--     u ∼⟨ε⟩ v  →  translate s u ∼⟨ε⟩ translate s v.
 --
 -- WHAT THIS IS.  The second storey of the analysis tower: the first
--- non-trivial function � � �, defined and shown continuous in the only
+-- non-trivial function ℝ → ℝ, defined and shown continuous in the only
 -- sense the continuum module has (closeness-preserving, with the same
--- ε � translation is 1-Lipschitz, so no ε has to be rescaled, and no
--- arithmetic on �� is needed).  Its only arithmetic input is
+-- ε — translation is 1-Lipschitz, so no ε has to be rescaled, and no
+-- arithmetic on ℚ⁺ is needed).  Its only arithmetic input is
 -- TranslationInvariance; everything else is the recursion the HIIT
--- provides: rat, lim, eq for � and the four closeness constructors
+-- provides: rat, lim, eq for ℝ and the four closeness constructors
 -- plus squash for ∼.
 --
 -- SYT.  A function on the continuum and its closeness-preservation,
@@ -84,7 +84,7 @@ module Laws {ℓ : Level} (R' : CommRing ℓ) where
   identity-assoc Q Sn T dq ds dt = solve! R'
 
 -- a rational with numerator 0 is ε-close to itself and to any equal value:
--- close� with |D| = 0 is  0 < positive
+-- closeℤ with |D| = 0 is  0 < positive
 private
   zero-close : (ε : S.ℚ⁺) (p q : S.ℚ) → D p q ≡ pos 0 → S.Close ε p q
   zero-close ε p q d = closeℤ→Close ε p q

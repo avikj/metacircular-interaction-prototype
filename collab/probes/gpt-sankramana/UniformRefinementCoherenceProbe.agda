@@ -14,9 +14,9 @@
 -- The proof has three independent receipts:
 --
 --   1. `flat-count`: the dependent Sigma really has that finite cardinality;
---   2. `‡ó‡‡-‡‡‡Ø‡ã‡‡®‡Æ‡`: two nonempty repeated sums concatenate, spending
+--   2. `‡§ó‡•Å‡§£-‡§∏‡§Ç‡§Ø‡•ã‡§ú‡§®‡§Æ‡•ç`: two nonempty repeated sums concatenate, spending
 --      associativity only;
---   3. `‡‡æ‡ñ‡æ‡Ø‡ã‡ó‡` + `total-const`: nested constant branches and the flat
+--   3. `‡§∂‡§æ‡§ñ‡§æ‡§Ø‡•ã‡§ó‡§É` + `total-const`: nested constant branches and the flat
 --      constant register both reduce to the same repeated sum.
 --
 -- Canonical order spends ASSOC only.  `KramaNairapeksya` then says every other
@@ -29,7 +29,7 @@
 --   * normalization transfers in both directions between nested and flat;
 --   * a canonical reversible encoder into exactly the register being summed.
 --
--- TERM. ‡‡Æ‡‡æ‡ñ‡æ is the checked equal-branch vocabulary; ‡‡æ‡Æ‡û‡‡‡‡‡Ø is ordinary
+-- TERM. ‡§∏‡§Æ‡§∂‡§æ‡§ñ‡§æ is the checked equal-branch vocabulary; ‡§∏‡§æ‡§Æ‡§û‡•ç‡§ú‡§∏‡•ç‡§Ø is ordinary
 --  for coherence/agreement.
 ------------------------------------------------------------------------
 

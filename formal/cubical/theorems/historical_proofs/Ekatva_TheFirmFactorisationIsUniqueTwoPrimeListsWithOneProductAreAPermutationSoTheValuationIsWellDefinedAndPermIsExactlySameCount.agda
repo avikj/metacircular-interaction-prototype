@@ -1,31 +1,31 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- �������� � the uniqueness half of the firm factorisation.
+-- �������� — the uniqueness half of the firm factorisation.
 --
 -- `Drdha_TheFirmNumbersProductIsEveryPositiveIntegerAndTheirMembershipIs
--- DecidedByDivision` proved existence (every n � 1 is SOME product of
+-- DecidedByDivision` proved existence (every n ≥ 1 is SOME product of
 -- firm numbers), Euclid's lemma, and that the SUPPORT is determined by n.
 -- Uniqueness is a composition of what is
 -- already there.  Nothing new is assumed; the only tools are Euclid's
 -- lemma from Drdha, the `Insert`/`Perm` relation from the walks module,
--- and cancellation in � from the library.
+-- and cancellation in ℕ from the library.
 --
---   �  Over any discrete type: `Perm xs ys` and `xs ≈ ys` (the corpus's
+--   १  Over any discrete type: `Perm xs ys` and `xs ≈ ys` (the corpus's
 --      four-constructor relation) each give "same count of every element",
 --      and same-count gives `Perm` back.  So Perm, ≈ and same-multiset are
 --      one relation.
---   �  Two lists of firm numbers with the same product are a `Perm` of
---      each other (��������).  Proof: the head of one divides the product
---      of the other, so it OCCURS there (Drdha §�); remove it with an
+--   २  Two lists of firm numbers with the same product are a `Perm` of
+--      each other (एकत्वम्).  Proof: the head of one divides the product
+--      of the other, so it OCCURS there (Drdha §७); remove it with an
 --      `Insert`; cancel it from the product; recurse.
---   �  Hence the valuation ����� p n := count of p in Drdha's list is
+--   ३  Hence the valuation मानम् p n := count of p in Drdha's list is
 --      WELL DEFINED: every factorisation of n has that count of p.
---   �  The fibre of ��� over n on firm lists is Perm-connected: that is the
---      exact sense in which Drdha's §� fibre is "unique".  On raw lists it
+--   ४  The fibre of वधः over n on firm lists is Perm-connected: that is the
+--      exact sense in which Drdha's §९ fibre is "unique".  On raw lists it
 --      is not contractible (order).
 --
--- The kernel runs the valuation: ����� 2 12 ≡ 2, ����� 3 12 ≡ 1,
--- ����� 5 12 ≡ 0 are refl.
+-- The kernel runs the valuation: मानम् 2 12 ≡ 2, मानम् 3 12 ≡ 1,
+-- मानम् 5 12 ≡ 0 are refl.
 ------------------------------------------------------------------------
 module Ekatva_TheFirmFactorisationIsUniqueTwoPrimeListsWithOneProductAreAPermutationSoTheValuationIsWellDefinedAndPermIsExactlySameCount where
 
@@ -45,7 +45,7 @@ open import TheUsualReasonsMadeExplicitTheInductivePermutationRelationEmbedsInAd
   using (Insert ; here ; there ; Perm ; pnil ; pcons ; _≈_ ; ≈nil ; ≈cons ; ≈swap ; ≈trans ; permIsAnAdjacentChain)
 
 ------------------------------------------------------------------------
--- � � ����� � counting over a discrete type, and the three relations
+-- १ · गणना — counting over a discrete type, and the three relations
 ------------------------------------------------------------------------
 
 module Bahulya {A : Type} (_≟_ : Discrete A) where
@@ -115,7 +115,7 @@ module Bahulya {A : Type} (_≟_ : Discrete A) where
     h' : (z : A) → गणना z xs ≡ गणना z (fst rem)
     h' z = inj-m+ {m = एकः z x} (h z ∙ insert-count (snd rem) z)
 
-  -- the three relations are one:  Perm � ≈ � same-count � Perm
+  -- the three relations are one:  Perm ⇒ ≈ ⇒ same-count ⇒ Perm
   ≈→Perm : {xs ys : List A} → xs ≈ ys → Perm xs ys
   ≈→Perm {xs} {ys} h = count-perm xs ys (≈-count h)
 
@@ -125,7 +125,7 @@ module Bahulya {A : Type} (_≟_ : Discrete A) where
 open Bahulya discreteℕ
 
 ------------------------------------------------------------------------
--- � � �������� � two firm lists with one product are a Perm
+-- २ · एकत्वम् — two firm lists with one product are a Perm
 ------------------------------------------------------------------------
 
 -- a firm list has positive product
@@ -142,7 +142,7 @@ open Bahulya discreteℕ
   y≤1 : y ≤ 1
   y≤1 = subst (y ≤_) (·-comm (वधः ys) y ∙ e)
           (subst (_≤ वधः ys · y) (·-identityˡ y) (≤-·k {k = y} (वध-धनः ys hs)))
-  -- 1 � ��� ys gives 1�y � ��� ys � y, i.e. y � y � ��� ys, and that product is 1.
+  -- 1 ≤ वधः ys gives 1·y ≤ वधः ys · y, i.e. y ≤ y · वधः ys, and that product is 1.
 
 -- membership locates an insertion
 सदस्य-निष्कासनम् : (x : ℕ) (M : List ℕ) → x सदस्यः M → Σ[ M' ∈ List ℕ ] Insert x M' M
@@ -193,7 +193,7 @@ Insert-सर्वे (there ins) (h , hs) = h , Insert-सर्वे ins hs
 एकत्व-गणना L M दृL दृM e = perm-count (एकत्वम् L M दृL दृM e)
 
 ------------------------------------------------------------------------
--- � � ����� � the valuation, well defined
+-- ३ · मानम् — the valuation, well defined
 ------------------------------------------------------------------------
 
 मानम् : ℕ → (n : ℕ) → 0 < n → ℕ
@@ -212,7 +212,7 @@ Insert-सर्वे (there ins) (h , hs) = h , Insert-सर्वे ins hs
   मान-निश्चयः p n pos' (fst (विभाजनम् n pos)) (fst (snd (विभाजनम् n pos))) (snd (snd (विभाजनम् n pos)))
 
 ------------------------------------------------------------------------
--- � � �������� � the kernel runs the valuation
+-- ४ · परीक्षा — the kernel runs the valuation
 ------------------------------------------------------------------------
 
 private

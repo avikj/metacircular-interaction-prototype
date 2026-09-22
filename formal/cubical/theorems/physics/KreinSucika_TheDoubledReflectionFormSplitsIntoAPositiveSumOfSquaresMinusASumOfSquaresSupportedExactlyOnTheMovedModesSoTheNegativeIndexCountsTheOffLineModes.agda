@@ -1,29 +1,29 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- �������-������� � the Krein index.
+-- क्रेइन-सूचिका — the Krein index.
 --
--- WeilDhanatva proved the finite Weil criterion: the �-form is positive
--- iff every mode is �-fixed.  This file gives the form's full signature.
--- Doubling and folding along the involution �,
+-- WeilDhanatva proved the finite Weil criterion: the τ-form is positive
+-- iff every mode is τ-fixed.  This file gives the form's full signature.
+-- Doubling and folding along the involution τ,
 --
---   (1+1)�[c,c]  =  �_i ½ (c_i + c_{�i})*(c_i + c_{�i})
---                 − �_i ½ (c_i − c_{�i})*(c_i − c_{�i}),
+--   (1+1)·[c,c]  =  Σ_i ½ (c_i + c_{τi})*(c_i + c_{τi})
+--                 − Σ_i ½ (c_i − c_{τi})*(c_i − c_{τi}),
 --
--- and the second sum's summand vanishes at every �-fixed mode.  So the
--- negative part of the form is supported exactly on the moved modes �
--- the off-line zeros � and on a fixed configuration it is 0.
+-- and the second sum's summand vanishes at every τ-fixed mode.  So the
+-- negative part of the form is supported exactly on the moved modes —
+-- the off-line zeros — and on a fixed configuration it is 0.
 --
 --   §1  SUM ALGEBRA.  Pointwise sums, scalar factors, shifting the
 --       offset, and interchanging a double sum.
---   §2  REINDEXING BY THE INVOLUTION.  �_{i<n} g (� i) ≡ �_{i<n} g i when
---       � is an involution closed on [0,n): every j is hit once, at � j.
---       Proved through the indicator � and the interchange.
---   §3  THE SPLITTING.  Fold the form along �, apply dvi-cakra termwise.
+--   §2  REINDEXING BY THE INVOLUTION.  Σ_{i<n} g (τ i) ≡ Σ_{i<n} g i when
+--       τ is an involution closed on [0,n): every j is hit once, at τ j.
+--       Proved through the indicator ι and the interchange.
+--   §3  THE SPLITTING.  Fold the form along τ, apply dvi-cakra termwise.
 --   §4  THE NEGATIVE PART.  Its summand is 0 at a fixed mode; on a fixed
 --       configuration the whole negative part is 0.
 --
--- ������� (scik, index/pointer) is ordinary .
+-- सूचिका (sūcikā, index/pointer) is ordinary .
 ------------------------------------------------------------------------
 
 module KreinSucika_TheDoubledReflectionFormSplitsIntoAPositiveSumOfSquaresMinusASumOfSquaresSupportedExactlyOnTheMovedModesSoTheNegativeIndexCountsTheOffLineModes where
@@ -63,7 +63,7 @@ module _ (S : StarRing ℓ) where
   dvi-cakra = T.dvi-cakra S
 
   ----------------------------------------------------------------------
-  -- � � Sum algebra.
+  -- १ · Sum algebra.
   ----------------------------------------------------------------------
 
   Σᵣ-add : (s m : ℕ) (f g : ℕ → ⟨ R ⟩)
@@ -95,7 +95,7 @@ module _ (S : StarRing ℓ) where
   Σᵣ-shift s zero    f = refl
   Σᵣ-shift s (suc m) f = cong (f (suc s) +_) (Σᵣ-shift (suc s) m f)
 
-  -- interchanging a double sum over [0,n) � [0,m)
+  -- interchanging a double sum over [0,n) × [0,m)
   Σᵣ-swap : (n m : ℕ) (F : ℕ → ℕ → ⟨ R ⟩)
           → Σᵣ⟨ zero , n ⟩ (λ i → Σᵣ⟨ zero , m ⟩ (λ j → F i j))
           ≡ Σᵣ⟨ zero , m ⟩ (λ j → Σᵣ⟨ zero , n ⟩ (λ i → F i j))
@@ -111,7 +111,7 @@ module _ (S : StarRing ℓ) where
     ∙ Σᵣ-ext zero m _ _ (λ j → cong (F zero j +_) (sym (Σᵣ-shift zero n (λ i → F i j))))
 
   ----------------------------------------------------------------------
-  -- � � Reindexing a range sum by an involution closed on the range.
+  -- २ · Reindexing a range sum by an involution closed on the range.
   ----------------------------------------------------------------------
 
   -- the indicator of i ≡ j
@@ -137,7 +137,7 @@ module _ (S : StarRing ℓ) where
             → Σᵣ⟨ zero , n ⟩ f ≡ Σᵣ⟨ zero , n ⟩ g
     Σᵣ-ext< = W.Σᵣ-ext< S n τ
 
-    -- �_j � (� i) j � g j = g (� i), for i < n
+    -- Σ_j ι (τ i) j · g j = g (τ i), for i < n
     ι-vāma : (g : ℕ → ⟨ R ⟩) (i : ℕ) → i < n
            → Σᵣ⟨ zero , n ⟩ (λ j → ι (τ i) j · g j) ≡ g (τ i)
     ι-vāma g i lt =
@@ -162,7 +162,7 @@ module _ (S : StarRing ℓ) where
       ... | yes q = sym (cong (_· f k) (cong (λ z → ι i z) q ∙ ι-sama i) ∙ ·IdL _)
       ... | no ne = off k kn ne ∙ sym (cong (_· f k) (ι-anya i k (λ p → ne (sym p))) ∙ śūnya (f k))
 
-    -- �_i � (� i) j � g j = g j, for j < n: the one i hitting j is � j
+    -- Σ_i ι (τ i) j · g j = g j, for j < n: the one i hitting j is τ j
     ι-dakṣiṇa : (g : ℕ → ⟨ R ⟩) (j : ℕ) → j < n
               → Σᵣ⟨ zero , n ⟩ (λ i → ι (τ i) j · g j) ≡ g j
     ι-dakṣiṇa g j lt =
@@ -182,7 +182,7 @@ module _ (S : StarRing ℓ) where
       ∙ Σᵣ-ext< _ _ (λ j lt → ι-dakṣiṇa g j lt)
 
     --------------------------------------------------------------------
-    -- � � The splitting of the doubled form.
+    -- ३ · The splitting of the doubled form.
     --------------------------------------------------------------------
 
     -- the positive and negative parts
@@ -192,7 +192,7 @@ module _ (S : StarRing ℓ) where
     ṛṇa : Vec → ⟨ R ⟩
     ṛṇa c = Σᵣ⟨ zero , n ⟩ (λ i → half · ((c i - c (τ i)) ✶ · (c i - c (τ i))))
 
-    -- folding the form along �: [c,c] + [c,c] = �_i (c_i* c_�i + c_�i* c_i)
+    -- folding the form along τ: [c,c] + [c,c] = Σ_i (c_i* c_τi + c_τi* c_i)
     saṃvalana : (c : Vec)
               → τ-rūpa n τ c c + τ-rūpa n τ c c
               ≡ Σᵣ⟨ zero , n ⟩ (λ i → (c i) ✶ · c (τ i) + (c (τ i)) ✶ · c i)
@@ -212,7 +212,7 @@ module _ (S : StarRing ℓ) where
       dviguṇa x = solve! R
 
     --------------------------------------------------------------------
-    -- � � The negative part lives on the moved modes.
+    -- ४ · The negative part lives on the moved modes.
     --------------------------------------------------------------------
 
     -- at a fixed mode the negative summand is 0

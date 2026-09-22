@@ -1,22 +1,22 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- �����-���� � the continuum, built from the axioms, self-reliant.
+-- सन्तत-धारा — the continuum, built from the axioms, self-reliant.
 --
 -- The univalent continuum is not assumed; it is GENERATED.  This module
 -- constructs it from nothing but the type formers of the pinned theory:
 --
---   �, �, ��        from scratch, over the prelude alone
+--   ℤ, ℚ, ℚ⁺        from scratch, over the prelude alone
 --   closeness       |p − q| < ε on rationals, by cross-multiplication
---   �               the higher inductive-inductive type of HoTT §11.3:
---                     rat  : � � �                      (embedding)
---                     lim  : Cauchy approximation � �    (LIMITS ARE
+--   ℝ               the higher inductive-inductive type of HoTT §11.3:
+--                     rat  : ℚ → ℝ                      (embedding)
+--                     lim  : Cauchy approximation → ℝ    (LIMITS ARE
 --                                                         CONSTRUCTORS)
---                     eq   : �-ε-close points are EQUAL  (path ctor)
+--                     eq   : ∀-ε-close points are EQUAL  (path ctor)
 --                   defined simultaneously with its closeness relation
---                   _∼⟨_⟩_ : � � �� � � � Type.
+--                   _∼⟨_⟩_ : ℝ → ℚ⁺ → ℝ → Type.
 --
--- Because limits are constructors, this � is Cauchy-complete with NO
+-- Because limits are constructors, this ℝ is Cauchy-complete with NO
 -- choice axiom: completeness is not proved about the type, it is the
 -- type.  That is what the univalent construction buys over the
 -- classical one, and it needs nothing beyond what --safe admits.
@@ -30,7 +30,7 @@ open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
 open import Cubical.Data.Bool using (Bool ; true ; false)
 
 ------------------------------------------------------------------------
--- � � integers, from �
+-- १ · integers, from ℕ
 ------------------------------------------------------------------------
 
 data ℤ : Type where
@@ -67,7 +67,7 @@ negsuc m ·ℤ pos n    = neg (suc m · n)
   neg zero    = pos zero
   neg (suc k) = negsuc k
 
--- strict order on �, boolean, via � comparison
+-- strict order on ℤ, boolean, via ℕ comparison
 ltℕb : ℕ → ℕ → Bool
 ltℕb _ zero             = false
 ltℕb zero (suc _)       = true
@@ -80,7 +80,7 @@ ltℤb (pos _)    (negsuc _) = false
 ltℤb (negsuc m) (negsuc n) = ltℕb n m
 
 ------------------------------------------------------------------------
--- � � rationals: numerator �, denominator suc d.  Unreduced on purpose;
+-- २ · rationals: numerator ℤ, denominator suc d.  Unreduced on purpose;
 --     everything downstream compares by cross-multiplication, so a
 --     fraction never needs to be canonical to be understood.
 ------------------------------------------------------------------------
@@ -93,7 +93,7 @@ record ℚ : Type where
 
 open ℚ
 
--- p < q  ⟺  num p � (1+den q)  <  num q � (1+den p)
+-- p < q  ⟺  num p · (1+den q)  <  num q · (1+den p)
 ltℚb : ℚ → ℚ → Bool
 ltℚb p q = ltℤb (num p ·ℤ pos (suc (den q))) (num q ·ℤ pos (suc (den p)))
 
@@ -125,17 +125,17 @@ open ℚ⁺
 _+⁺_ : ℚ⁺ → ℚ⁺ → ℚ⁺         -- (1+a)/(1+b) + (1+c)/(1+d)
 (a ⁺/1+ b) +⁺ (c ⁺/1+ d) =
   (a + c + (a · d + c · b + (a · d · zero)) + (b + d + b · d) + suc (a · d + c · b + zero)) ⁺/1+ (b + d + b · d)
-  -- numerator (1+a)(1+d) + (1+c)(1+b) = 1 + (a + d + a�d) + 1 + (c + b + c�b)
+  -- numerator (1+a)(1+d) + (1+c)(1+b) = 1 + (a + d + a·d) + 1 + (c + b + c·b)
   -- written as suc of the rest; the exact normal form is immaterial:
   -- closeness only ever compares by cross-multiplication.
 
--- |p − q| < ε , the whole of what the reals need from �
+-- |p − q| < ε , the whole of what the reals need from ℚ
 Close : ℚ⁺ → ℚ → ℚ → Type
 Close ε p q = ltℚb (absℚ (p −ℚ q)) ⟨ ε ⟩ ≡ true
 
 ------------------------------------------------------------------------
--- � � THE CONTINUUM.  � and its closeness relation, generated together.
---     Limits are constructors; �-ε-closeness is equality, as a path.
+-- ३ · THE CONTINUUM.  ℝ and its closeness relation, generated together.
+--     Limits are constructors; ∀-ε-closeness is equality, as a path.
 ------------------------------------------------------------------------
 
 data ℝ : Type
@@ -166,7 +166,7 @@ data _∼⟨_⟩_ where
   ∼squash  : {u v : ℝ} {ε : ℚ⁺} → isProp (u ∼⟨ ε ⟩ v)
 
 ------------------------------------------------------------------------
--- � � the apparatus computes: closeness decides a concrete instance.
+-- ४ · the apparatus computes: closeness decides a concrete instance.
 --     |1/2 − 1/3| = 1/6 < 1/4, found by evaluation, and the two
 --     rationals are 1/4-close as REALS by the constructor.
 ------------------------------------------------------------------------

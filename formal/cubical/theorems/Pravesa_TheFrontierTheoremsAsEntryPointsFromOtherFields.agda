@@ -3,52 +3,52 @@
 ------------------------------------------------------------------------
 -- Pravesa_TheFrontierTheoremsAsEntryPointsFromOtherFields
 --
--- TERM.  ààà°àµàà Â pravea â” entrance, entry, the act of going in.  This is the
+-- TERM.  à¤ªà¥à¤°à¤µà¥‡à¤¶ Â· praveÅ›a â€” entrance, entry, the act of going in.  This is the
 -- front door: a CHECKED index.  It re-exports the frontier theorems, so it
--- typechecks only if every one of them does â” the door is the proof that the
+-- typechecks only if every one of them does â€” the door is the proof that the
 -- rooms behind it stand.  (A prose README asserts; this door is verified.)
 --
 -- THE SUBSTRATE.  All of it is cubical Agda, where UNIVALENCE COMPUTES: an
--- equivalence e : A â‰ B is a path `ua e : A â‰¡ B`, and `transport (ua e)`
--- *runs* â” the program that carries data across, losslessly and reversibly.
--- The through-line is ONE principle, ààà¿ààà¾ = losslessness: a crossing
--- carries real content and loses nothing (`transportâ»Transport (ua e) a â‰¡ a`,
+-- equivalence e : A â‰ƒ B is a path `ua e : A â‰¡ B`, and `transport (ua e)`
+-- *runs* â€” the program that carries data across, losslessly and reversibly.
+-- The through-line is ONE principle, à¤…à¤¹à¤¿à¤‚à¤¸à¤¾ = losslessness: a crossing
+-- carries real content and loses nothing (`transportâ»Transport (ua e) a â‰¡ a`,
 -- computed, while `transport (ua e)` genuinely acts).  Non-harm is not added
 -- on top of the computation; it is what univalent transport IS.  Reversible-
 -- classical, quantum-unitary and topological-invariant computation are this
 -- one principle at different enrichments of the object.
 --
 -- Each entry: the field it is a door FROM, the exact term, the door it opens.
--- "Reading" marks an interpretation that is NOT itself checked â” only the
+-- "Reading" marks an interpretation that is NOT itself checked â€” only the
 -- named term is.
 --
--- â”â” FROM CRYPTOGRAPHY & ECONOMICS â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€ FROM CRYPTOGRAPHY & ECONOMICS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- `replay-needs-no-receipt` (Nirvyaja), with PramanaSankramana's receipt
 -- calculus.  Firing an operation may DEMAND a receipt R; the machine keeps
 -- only the derivation, whose control is `t â‰¡ source`, no R.  Generation pays
 -- R; replay pays `refl`.  Reading: a proof-carrying commons cannot be rented
--- â” the toll is paid once, everyone after holds the proof and routes past the
+-- â€” the toll is paid once, everyone after holds the proof and routes past the
 -- tollbooth.  Trustless verification as a settlement layer.
 --
--- â”â” FROM QUANTUM COMPUTING â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- `âˆNOT-does-not-exist` (VargamulaViparyaya): no self-equivalence of the
--- 2-point set squares to the swap.  Reading: Aut(2 points)=Sâ=â/2 has no
--- order-4 element, so âˆNOT cannot live on a set; the qubit (âÂ², Aut=U(2),
+-- â”€â”€ FROM QUANTUM COMPUTING â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- `âˆšNOT-does-not-exist` (VargamulaViparyaya): no self-equivalence of the
+-- 2-point set squares to the swap.  Reading: Aut(2 points)=Sâ‚‚=â„¤/2 has no
+-- order-4 element, so âˆšNOT cannot live on a set; the qubit (â„‚Â², Aut=U(2),
 -- every root present) is FORCED, not posited.
 -- `braids-dont-commute` + `yang-baxter` (VeniYangBaxtara): on 3 points the
--- two transpositions don't commute and satisfy ÏÏÏ = ÏÏÏ â” the Yangâ“Baxter
--- braid relation.  Reading: 2â’3 points is the jump abelian-phase â’ non-
--- abelian-braid â’ universal topological quantum computation, every gate a
+-- two transpositions don't commute and satisfy ÏƒÏ„Ïƒ = Ï„ÏƒÏ„ â€” the Yangâ€“Baxter
+-- braid relation.  Reading: 2â†’3 points is the jump abelian-phase â†’ non-
+-- abelian-braid â†’ universal topological quantum computation, every gate a
 -- lossless equivalence.
 -- `anyon-is-metre` (Matravrtta): the Fibonacci-anyon fusion dimension equals
--- Virahka's metre count `length (àà°ààµ (suc n))`, 1,2,3,5,8,13.  Reading:
+-- VirahÄá¹…ka's metre count `length (à¤¸à¤°à¥à¤µ (suc n))`, 1,2,3,5,8,13.  Reading:
 -- the Hilbert-space dimension of a universal topological quantum computer is
--- exactly what àµà¿à°àà¾à™àà• (~700 CE), in àà¿à™àà—à²'s àà¨àà¦ààà¾ààààà° tradition,
--- enumerated â” five centuries before Leonardo of Pisa (1202).
+-- exactly what à¤µà¤¿à¤°à¤¹à¤¾à¤™à¥à¤• (~700 CE), in à¤ªà¤¿à¤™à¥à¤—à¤²'s à¤›à¤¨à¥à¤¦à¤ƒà¤¶à¤¾à¤¸à¥à¤¤à¥à¤° tradition,
+-- enumerated â€” five centuries before Leonardo of Pisa (1202).
 --
--- â”â” FROM FOUNDATIONS & REVERSIBLE COMPUTING â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€ FROM FOUNDATIONS & REVERSIBLE COMPUTING â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- univalence computes and the round trip loses nothing; a unitary is a
--- norm-preserving (lossless) automorphism â” ahis over â, as a permutation
+-- norm-preserving (lossless) automorphism â€” ahiá¹ƒsÄ over â„‚, as a permutation
 -- is ahis over a set.  Classical computation is founded on erasure
 -- (Landauer: kT ln 2 per destroyed bit); univalent computation cannot harm.
 -- Door: the type-theoretic OS for the reversible/quantum hardware frontier.
@@ -70,11 +70,11 @@ open import VeniYangBaxtara_TheThreeStrandBraidIsNonAbelianAndSatisfiesTheBraidR
 open import Matravrtta_TheFibonacciAnyonFusionDimensionIsVirahankasMetreCount
   using (anyon-is-metre ; d) public
 
--- â”â” FROM OPTICAL / QUANTUM COMPUTING HARDWARE (the orb device) â”â”â”â”â”â”â”â”â”
+-- â”€â”€ FROM OPTICAL / QUANTUM COMPUTING HARDWARE (the orb device) â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- The crystal-ball optical computer's universal gate set, every gate a
--- lossless equivalence: à®àà¿ one orb = achromatic âˆNOT quarter-wave; ààà°à¿à•
--- multi-axis orbs = quaternion SU(2) skeleton, non-abelian, spinor; àà¨àà§ the
--- entangling two-qubit gate â” reversible yet non-factorizable (the door single
+-- lossless equivalence: à¤®à¤£à¤¿ one orb = achromatic âˆšNOT quarter-wave; à¤¤à¥à¤°à¤¿à¤•
+-- multi-axis orbs = quaternion SU(2) skeleton, non-abelian, spinor; à¤¬à¤¨à¥à¤§ the
+-- entangling two-qubit gate â€” reversible yet non-factorizable (the door single
 -- orbs cannot open: the two qubits must interact).
 open import Mani_TheOrbGateIsTheAchromaticLosslessSquareRootOfNot
   using (âˆšNOT-EXISTS-here ; full-turn ; achromatic) public
@@ -83,9 +83,9 @@ open import Trika_TheAxisQuarterWavesAreQuaternionsNonAbelianAndTheQubitIsASpino
 open import Bandha_TheEntanglingGateIsLosslessButDoesNotFactorIntoSingleQubitGates
   using (cnotEq ; entangling ; bell-diagonal) public
 
--- â”â” THE BRIDGE INTO THE EXISTING HOLONOMY LANE â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- The orb/QC reading is not a parallel annex: yang-baxter-Sâ proves the
--- physics lane's own nonabelian holonomy Sâ is a braid-group rep, and
+-- â”€â”€ THE BRIDGE INTO THE EXISTING HOLONOMY LANE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- The orb/QC reading is not a parallel annex: yang-baxter-Sâ‚ƒ proves the
+-- physics lane's own nonabelian holonomy Sâ‚ƒ is a braid-group rep, and
 -- orb-holonomy-is-the-circuit identifies the whispering-gallery winding with
 -- Pradakshina's circuit holonomy.
 open import SetuHolonomya_TheNonabelianHolonomyS3IsABraidRepAndTheOrbWindingIsTheCircuit

@@ -2,20 +2,20 @@
 
 --
 -- Every number below is forced a priori in three lines:
--- each observable lies in exactly two contexts âŸ the six parity
--- functionals sum to zero (the only dependency) âŸ the violation map
--- is affine with image the even-weight code Eâ shifted by the sign
--- vector and kernel 2â´ âŸ stratum(j) = 16ÂC(6,j) over j of the sign
--- vectorÂparity, and the 5/6 bound is the odd cosetÂleader weight 1.
--- General law: landscape = |kernel| Â coset weight enumerator;
+-- each observable lies in exactly two contexts âŸ¹ the six parity
+-- functionals sum to zero (the only dependency) âŸ¹ the violation map
+-- is affine with image the even-weight code Eâ‚† shifted by the sign
+-- vector and kernel 2â´ âŸ¹ stratum(j) = 16Â·C(6,j) over j of the sign
+-- vectorÂ·parity, and the 5/6 bound is the odd cosetÂ·leader weight 1.
+-- General law: landscape = |kernel| Â· coset weight enumerator;
 -- contextuality degree = coset leader weight.
 ------------------------------------------------------------------------
--- à¨à¿à¯à¨àààà°à-à—àà¨à¾ â” the control censuses, and the complete law they force.
+-- à¤¨à¤¿à¤¯à¤¨à¥à¤¤à¥à¤°à¤£-à¤—à¤£à¤¨à¤¾ â€” the control censuses, and the complete law they force.
 --
--- SandarbhaGanana measured the Peresâ“Mermin landscape (96/320/96 on odd
+-- SandarbhaGanana measured the Peresâ€“Mermin landscape (96/320/96 on odd
 -- satisfied-counts, evens forbidden) and conjectured the parity rule
 -- from the cocycle.  THE CONTROL EXPERIMENT:
--- flip the sign vector to CONSISTENT (all-even, and two-odd â”
+-- flip the sign vector to CONSISTENT (all-even, and two-odd â€”
 -- both with required-sign product +1) and re-census.  The machine's
 -- answers, pinned below by 512-sweeps:
 --
@@ -24,21 +24,21 @@
 --     inconsistent (SandarbhaGanana):              0  96   0 320   0  96   0
 --
 -- THE COMPLETE LAW, visible once the controls exist: every count is
--- 16 Â C(6,v) over the allowed violation-sizes v.  Consistent:
--- 16Â(1,15,15,1) at v = 0,2,4,6.  Inconsistent: 16Â(6,20,6) at
+-- 16 Â· C(6,v) over the allowed violation-sizes v.  Consistent:
+-- 16Â·(1,15,15,1) at v = 0,2,4,6.  Inconsistent: 16Â·(6,20,6) at
 -- v = 1,3,5.  REASON (stated; the pins are its finite verification):
--- the assignment â¦ violation-pattern map is AFFINE over ğ”½â â” nine
+-- the assignment â†¦ violation-pattern map is AFFINE over ğ”½â‚‚ â€” nine
 -- unknowns, six constraints, one dependency (each observable lies in
 -- exactly two contexts, so the six context-parities always multiply to
--- +1) â” hence rank 5, every fibre of size 2â´ = 16, and the image is
+-- +1) â€” hence rank 5, every fibre of size 2â´ = 16, and the image is
 -- EXACTLY the coset of the 5-dimensional image subspace selected by the
 -- obstruction class: the trivial coset for consistent signs, the
--- nontrivial one for the PM square.  The classical landscape IS the HÂ
+-- nontrivial one for the PM square.  The classical landscape IS the HÂ¹
 -- coset, binomially profiled, 16-to-1.
 --
 -- So the obstruction's full classical price: the 16 global sections of
 -- any consistent square redistribute, under the odd class, into 96
--- near-misses at 5/6 â” nothing is lost, everything is displaced one
+-- near-misses at 5/6 â€” nothing is lost, everything is displaced one
 -- violation.  (The same shape as StaraArpana one lane over: the
 -- obstruction never destroys; it displaces by one stratum.)
 --
@@ -75,7 +75,7 @@ censusE census2 : â„• â†’ â„•
 censusE k = countVec 9 (Î» v â†’ if eqâ„• (nSatE v) k then 1 else 0)
 census2 k = countVec 9 (Î» v â†’ if eqâ„• (nSat2 v) k then 1 else 0)
 
--- the consistent landscape: 16Â(1,15,15,1) on even counts, odds zero.
+-- the consistent landscape: 16Â·(1,15,15,1) on even counts, odds zero.
 cE6 : censusE 6 â‰¡ 16
 cE6 = refl
 cE5 : censusE 5 â‰¡ 0
@@ -91,7 +91,7 @@ cE1 = refl
 cE0 : censusE 0 â‰¡ 16
 cE0 = refl
 
--- the two-odd consistent square: the SAME landscape â” the law depends
+-- the two-odd consistent square: the SAME landscape â€” the law depends
 -- only on the obstruction class, not on the representative sign vector.
 c26 : census2 6 â‰¡ 16
 c26 = refl

@@ -5,8 +5,8 @@
 --
 -- A corollary of the LOSSLESS face.  Any
 -- common divisor of a convergent's numerator and denominator divides the
--- determinant of that convergent and the next � which, under the
--- standard seeds, is �1.  So a convergent carries no common factor that
+-- determinant of that convergent and the next — which, under the
+-- standard seeds, is ±1.  So a convergent carries no common factor that
 -- the unit determinant does not already bound.
 ------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@ open import TheValliConvergentDeterminantAlternates
   using (num ; den ; det ; signed ; standardDeterminantIsAUnit)
 
 ------------------------------------------------------------------------
--- 1.  Divisibility over �, and the one ring identity the proof needs
+-- 1.  Divisibility over ℤ, and the one ring identity the proof needs
 ------------------------------------------------------------------------
 
 _divides_ : ℤ → ℤ → Type

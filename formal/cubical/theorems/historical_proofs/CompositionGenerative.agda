@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- BhavanaGenerative â” bhvan as an OPERATION, not an identity.
+-- BhavanaGenerative â€” bhÄvanÄ as an OPERATION, not an identity.
 --
 -- BRAHMAGUPTA, Brhmasphuasiddhnta, 628 CE, chapter 18.  The rule is
 -- called *bhvan*: "production", "bringing into being".  The name is the
@@ -11,10 +11,10 @@
 --
 -- WHAT WAS HERE BEFORE AND WHY IT WAS HALF THE RULE.  `Bhavana.agda` proves
 --
---     N D aâ bâ Â N D aâ bâ â‰¡ N D (bhA â¦) (bhB â¦)
+--     N D aâ‚ bâ‚ Â· N D aâ‚‚ bâ‚‚ â‰¡ N D (bhA â€¦) (bhB â€¦)
 --
 -- over an arbitrary commutative ring, and `BhavanaSemiring.agda` proves the
--- subtraction-free form over â•.  Both are true and neither produces
+-- subtraction-free form over â„•.  Both are true and neither produces
 -- anything.  They are equations between coordinates.  A reader holding two
 -- solutions of xÂ² âˆ’ D yÂ² = k must still assemble the third by hand and
 -- discharge its norm obligation by hand, and nothing in the development
@@ -23,7 +23,7 @@
 --
 -- WHAT THIS FILE ADDS.  The move, typed:
 --
---     _âŠ_ : Sol D kâ â’ Sol D kâ â’ Sol D (kâ Â kâ)
+--     _âŠ›_ : Sol D kâ‚ â†’ Sol D kâ‚‚ â†’ Sol D (kâ‚ Â· kâ‚‚)
 --
 -- Read the type as the theorem.  It says composition of solutions exists and
 -- that the norm multiplies, and it says so in the only place that cannot rot:
@@ -32,7 +32,7 @@
 -- pays for the type; having been paid, the caller turns a handle.
 --
 -- The unit-norm solutions are then closed under the operation, and iterating
--- from a single seed gives an â•-indexed family â” which is the generativity
+-- from a single seed gives an â„•-indexed family â€” which is the generativity
 -- the 628 rule is named for and which no file here had.
 --
 ------------------------------------------------------------------------
@@ -65,10 +65,10 @@ module Generative (CR : CommRing â„“) where
   -- 1.  A solution carries its own equation
   --
   -- `Sol D k` is a pair (a, b) TOGETHER WITH the proof that its norm is k.
-  -- This is the same discipline `Anekanta.agda` states for verdicts â”
-  -- à¨à•à¾à°à à–ààà¡à¨à à¦à¦à¾àà¿, àààµàà•à¾à°à àà¾à•ààà¿àà®à, nowhere a bare label â” applied to
+  -- This is the same discipline `Anekanta.agda` states for verdicts â€”
+  -- à¤¨à¤•à¤¾à¤°à¤ƒ à¤–à¤£à¥à¤¡à¤¨à¤‚ à¤¦à¤¦à¤¾à¤¤à¤¿, à¤¸à¥à¤µà¥€à¤•à¤¾à¤°à¤ƒ à¤¸à¤¾à¤•à¥à¤·à¤¿à¤£à¤®à¥, nowhere a bare label â€” applied to
   -- solutions: there is no way to hold a solution without holding why it is
-  -- one, so `_âŠ_` cannot be handed a pair that does not satisfy the form, and
+  -- one, so `_âŠ›_` cannot be handed a pair that does not satisfy the form, and
   -- cannot hand back one either.
   ----------------------------------------------------------------------
 
@@ -81,7 +81,7 @@ module Generative (CR : CommRing â„“) where
   open Sol public
 
   ----------------------------------------------------------------------
-  -- 2.  àà®à¾ààà¾àµà¨à¾ â” composition by addition.  THE OPERATION.
+  -- 2.  à¤¸à¤®à¤¾à¤¸à¤­à¤¾à¤µà¤¨à¤¾ â€” composition by addition.  THE OPERATION.
   --
   -- Brahmagupta's own coordinates, `bhA` and `bhB`, unchanged from
   -- `Bhavana.agda`.  What is new is that the result is a `Sol`, so the norm
@@ -96,7 +96,7 @@ module Generative (CR : CommRing â„“) where
           âˆ™ congâ‚‚ _Â·_ (hasNorm s) (hasNorm t) )
 
   ----------------------------------------------------------------------
-  -- 3.  àà¨ààà°àà¾àµà¨à¾ â” composition by difference.  Brahmagupta gives both,
+  -- 3.  à¤…à¤¨à¥à¤¤à¤°à¤­à¤¾à¤µà¤¨à¤¾ â€” composition by difference.  Brahmagupta gives both,
   -- and the second is what the cakravla uses to walk a chain DOWNWARD;
   -- omitting it would leave the rule with one direction, which is the same
   -- defect this file is repairing one level up.
@@ -110,7 +110,7 @@ module Generative (CR : CommRing â„“) where
           âˆ™ congâ‚‚ _Â·_ (hasNorm s) (hasNorm t) )
 
   ----------------------------------------------------------------------
-  -- 4.  ààà²àà¯àà¾àµà¨à¾ â” composition of a solution with ITSELF.
+  -- 4.  à¤¤à¥à¤²à¥à¤¯à¤­à¤¾à¤µà¤¨à¤¾ â€” composition of a solution with ITSELF.
   --
   -- Brahmagupta names this case separately, and it is the one the chain is
   -- built from: it is the only composition available when you hold exactly
@@ -134,9 +134,9 @@ module Generative (CR : CommRing â„“) where
           âˆ™ cong (Î» w â†’ 1r + w) 0Selfinverse
           âˆ™ +IdR 1r
 
-  -- Composition of two unit-norm solutions, retyped along 1r Â 1r â‰¡ 1r.
-  -- The `subst` is bookkeeping, not content: `_âŠ_` already produced a
-  -- solution of norm 1r Â 1r, and `ÂIdR` says that is 1r.
+  -- Composition of two unit-norm solutions, retyped along 1r Â· 1r â‰¡ 1r.
+  -- The `subst` is bookkeeping, not content: `_âŠ›_` already produced a
+  -- solution of norm 1r Â· 1r, and `Â·IdR` says that is 1r.
   _âˆ™â‚_ : {D : R} â†’ Sol D 1r â†’ Sol D 1r â†’ Sol D 1r
   _âˆ™â‚_ {D} s t = subst (Sol D) (Â·IdR 1r) (s âŠ› t)
 
@@ -151,7 +151,7 @@ module Generative (CR : CommRing â„“) where
   -- solution to a solution of the same norm, and composing the two returns the
   -- unit's coordinates:
   --
-  --     (a, b) âŠ (a, âˆ’b) = (aÂ² âˆ’ D bÂ², âˆ’ab + ab) = (1, 0)   at norm 1
+  --     (a, b) âŠ› (a, âˆ’b) = (aÂ² âˆ’ D bÂ², âˆ’ab + ab) = (1, 0)   at norm 1
   --
   -- which is antara-bhvan read as inversion, and it is why the cakravla may
   -- walk a chain in either direction.
@@ -173,7 +173,7 @@ module Generative (CR : CommRing â„“) where
     âˆ™ +InvL (coefA s Â· coefB s)
 
   ----------------------------------------------------------------------
-  -- 6.  GENERATIVITY.  One seed, an â•-indexed family.
+  -- 6.  GENERATIVITY.  One seed, an â„•-indexed family.
   --
   -- This is what "production" names and what the corpus did not have.  The
   -- earlier files could tell you that a composite satisfies the form; they
@@ -198,18 +198,18 @@ module Generative (CR : CommRing â„“) where
   ----------------------------------------------------------------------
   -- 7.  The composition is commutative and associative, with unit: a monoid,
   -- as paths between `Sol` values.
-  -- ASSOCIATIVITY OF `_âŠ_` at the coordinate level is proved (
-  -- âŠAssocA/âŠAssocB below, from bhA-assoc/bhB-assoc in Bhavana.Form â” abstract
-  -- R, solver-free).  Together with commutativity (âŠCommA/âŠCommB) and the unit
-  -- laws (âŠUnitA/âŠUnitB), ALL THREE monoid axioms hold at the level of the
+  -- ASSOCIATIVITY OF `_âŠ›_` at the coordinate level is proved (
+  -- âŠ›AssocA/âŠ›AssocB below, from bhA-assoc/bhB-assoc in Bhavana.Form â€” abstract
+  -- R, solver-free).  Together with commutativity (âŠ›CommA/âŠ›CommB) and the unit
+  -- laws (âŠ›UnitA/âŠ›UnitB), ALL THREE monoid axioms hold at the level of the
   -- two coordinates.  And the Sol-LEVEL associativity is assembled
-  -- (âŠAssoc below): a PathP between the two `Sol` records over the norm index
-  -- `ÂAssoc kâ kâ kâ`, built from the two coordinate paths and a `hasNorm`
-  -- PathP that isPropâ’PathP fills because R is a set (being a CommRing).  So
-  -- `_âŠ_` is associative as an operation on solutions, not merely on their
+  -- (âŠ›Assoc below): a PathP between the two `Sol` records over the norm index
+  -- `Â·Assoc kâ‚ kâ‚‚ kâ‚ƒ`, built from the two coordinate paths and a `hasNorm`
+  -- PathP that isPropâ†’PathP fills because R is a set (being a CommRing).  So
+  -- `_âŠ›_` is associative as an operation on solutions, not merely on their
   -- coordinates.  And
-  -- the Sol-level UNIT paths are assembled (âŠIdR/âŠIdL, over `ÂIdR`/
-  -- `ÂIdL`), so EVERY monoid axiom holds as a path between `Sol` values: the
+  -- the Sol-level UNIT paths are assembled (IdR/IdL, over `Â·IdR`/Â·
+  -- `Â·IdL`), so EVERY monoid axiom holds as a path between `Sol` values: the
   -- solutions of a fixed norm form a monoid, and the graded family multiplies
   -- its norm indices.
   ----------------------------------------------------------------------
@@ -225,7 +225,7 @@ module Generative (CR : CommRing â„“) where
   âŠ›CommB s t = +Comm (coefA s Â· coefB t) (coefA t Â· coefB s)
 
   -- The unit laws at the coordinate level: (1r, 0r) is a two-sided identity.
-  -- `s âŠ unit D` and `unit D âŠ s` restore each coordinate, from bhA/bhB's
+  -- `s âŠ› unit D` and `unit D âŠ› s` restore each coordinate, from bhA/bhB's
   -- identity lemmas.  coefA (unit D) = 1r and coefB (unit D) = 0r hold by
   -- definition, so these reduce directly to bhA-idR / bhB-idR / bhA-idL /
   -- bhB-idL applied at the coordinates of `s`.
@@ -242,7 +242,7 @@ module Generative (CR : CommRing â„“) where
   âŠ›UnitB-L {D} s = bhB-idL D (coefA s) (coefB s)
 
   -- Associativity of the two coordinates, straight from bhA-assoc/bhB-assoc.
-  -- coefA ((s âŠ t) âŠ u) and coefA (s âŠ (t âŠ u)) reduce definitionally to the
+  -- coefA ((s âŠ› t) âŠ› u) and coefA (s âŠ› (t âŠ› u)) reduce definitionally to the
   -- two nested bhA/bhB terms that bhA-assoc equates; likewise for coefB.
   âŠ›AssocA : {D kâ‚ kâ‚‚ kâ‚ƒ : R} (s : Sol D kâ‚) (t : Sol D kâ‚‚) (u : Sol D kâ‚ƒ)
           â†’ coefA ((s âŠ› t) âŠ› u) â‰¡ coefA (s âŠ› (t âŠ› u))
@@ -255,11 +255,11 @@ module Generative (CR : CommRing â„“) where
     bhB-assoc D (coefA s) (coefB s) (coefA t) (coefB t) (coefA u) (coefB u)
 
   ----------------------------------------------------------------------
-  -- The Sol-LEVEL monoid: `_âŠ_` is associative as a path between `Sol`
-  -- values, over the norm index `ÂAssoc kâ kâ kâ`.  The two coordinate paths
+  -- The Sol-LEVEL monoid: `_âŠ›_` is associative as a path between `Sol`
+  -- values, over the norm index `Â·Assoc kâ‚ kâ‚‚ kâ‚ƒ`.  The two coordinate paths
   -- are the coordinate-associativity lemmas; the `hasNorm` field is a proof
   -- in a set (R is a CommRing, hence a set), so its PathP is filled by
-  -- isPropâ’PathP.  Record Î makes the endpoints the two associations
+  -- isPropâ†’PathP.  Record Î· makes the endpoints the two associations
   -- definitionally.  The solutions form a monoid.
   ----------------------------------------------------------------------
 
@@ -274,11 +274,11 @@ module Generative (CR : CommRing â„“) where
              (hasNorm (s âŠ› (t âŠ› u))) (hasNorm ((s âŠ› t) âŠ› u)) i)
 
   ----------------------------------------------------------------------
-  -- The Sol-level UNIT paths, assembled the same way (over `ÂIdR` / `ÂIdL`):
-  -- `unit D = (1r, 0r)` is a two-sided identity for `_âŠ_` on solutions.  With
-  -- âŠAssoc, every monoid axiom holds as a path between `Sol` values â” the
+  -- The Sol-level UNIT paths, assembled the same way (over `Â·IdR` / `Â·IdL`):
+  -- `unit D = (1r, 0r)` is a two-sided identity for `_âŠ›_` on solutions.  With
+  -- AssocÂ·, every monoid axiom holds as a path between `Sol` values  the
   -- solutions of a fixed norm form a monoid, and the whole family a graded one
-  -- (the norm indices multiply, `_âŠ_ : Sol D kâ â’ Sol D kâ â’ Sol D (kâÂkâ)`).
+  -- (the norm indices multiply, `_âŠ›_ : Sol D kâ‚ â†’ Sol D kâ‚‚ â†’ Sol D (kâ‚Â·kâ‚‚)`).
   ----------------------------------------------------------------------
 
   âŠ›IdR : {D k : R} (s : Sol D k)
@@ -301,8 +301,8 @@ module Generative (CR : CommRing â„“) where
   -- The GROUP: on norm-1 solutions, `inv s = (a, âˆ’b)` is a two-sided inverse
   -- as a path between `Sol` values.
   -- Right inverse from invCoefA/invCoefB directly; left inverse by
-  -- routing through commutativity (âŠCommA/âŠCommB).  So the norm-1 solutions of
-  -- xÂ² âˆ’ D yÂ² = 1 form a GROUP under `_âŠ_` â” Brahmagupta's bhvan group, the
+  -- routing through commutativity (âŠ›CommA/âŠ›CommB).  So the norm-1 solutions of
+  -- xÂ² âˆ’ D yÂ² = 1 form a GROUP under `_âŠ›_` â€” Brahmagupta's bhÄvanÄ group, the
   -- engine of the cakravla, over an abstract commutative ring.
   ----------------------------------------------------------------------
 
@@ -326,10 +326,10 @@ module Generative (CR : CommRing â„“) where
              (hasNorm (inv s âŠ› s)) (hasNorm (unit D)) i)
 
   ----------------------------------------------------------------------
-  -- Sol-level COMMUTATIVITY: `s âŠ t â‰¡ t âŠ s` as a path over the norm index
-  -- `ÂComm kâ kâ`, from the coordinate commutativities.
+  -- Sol-level COMMUTATIVITY: `s âŠ› t â‰¡ t âŠ› s` as a path over the norm index
+  -- `Â·Comm kâ‚ kâ‚‚`, from the coordinate commutativities.
   -- With it the graded family is a
-  -- commutative monoid and the norm-1 solutions an ABELIAN group â” the whole
+  -- commutative monoid and the norm-1 solutions an ABELIAN group â€” the whole
   -- of Brahmagupta's bhvan structure, as paths between `Sol` values.
   ----------------------------------------------------------------------
 
@@ -343,9 +343,9 @@ module Generative (CR : CommRing â„“) where
 
   ----------------------------------------------------------------------
   -- The group laws in the form Â§5b names: PLAIN paths in `Sol D 1r` for the
-  -- retyped operation `_âˆ™â_` (= subst along ÂIdR 1r of `_âŠ_`).  Each is the
-  -- corresponding âŠ-path read through `fromPathP`, since `subst B p` is exactly
-  -- `transport (Î» i â’ B (p i))`.
+  -- retyped operation `_âˆ™â‚_` (= subst along Â·IdR 1r of `_âŠ›_`).  Each is the
+  -- corresponding âŠ›-path read through `fromPathP`, since `subst B p` is exactly
+  -- `transport (Î» i â†’ B (p i))`.
   ----------------------------------------------------------------------
 
   âˆ™â‚-idR : {D : R} (s : Sol D 1r) â†’ s âˆ™â‚ unit D â‰¡ s
@@ -363,11 +363,11 @@ module Generative (CR : CommRing â„“) where
   âˆ™â‚-invL s = fromPathP (âŠ›InvL s)
 
   ----------------------------------------------------------------------
-  -- Associativity of `_âˆ™â_` â” the last group law in `_âˆ™â_` form, and the one
+  -- Associativity of `_âˆ™â‚_` â€” the last group law in `_âˆ™â‚_` form, and the one
   -- that packages the AbGroup record.  `subst (Sol D) p` leaves the two
-  -- coordinates fixed (they do not depend on the norm index), so `_âˆ™â_` and
-  -- `_âŠ_` agree coordinate-wise; the coordinate associativity then routes
-  -- through âŠAssocA/âŠAssocB, and `hasNorm` (a prop, R being a set) closes the
+  -- coordinates fixed (they do not depend on the norm index), so `_âˆ™â‚_` and
+  -- `_âŠ›_` agree coordinate-wise; the coordinate associativity then routes
+  -- through âŠ›AssocA/âŠ›AssocB, and `hasNorm` (a prop, R being a set) closes the
   -- record path.
   ----------------------------------------------------------------------
 
@@ -407,10 +407,10 @@ module Generative (CR : CommRing â„“) where
         âˆ™ sym (substCoefB (Â·IdR 1r) (s âŠ› (t âˆ™â‚ u)))
 
   ----------------------------------------------------------------------
-  -- The AbGroup packages: `Sol D 1r` is a set (a retract of a Î of sets â” R
-  -- is a set, and each `hasNorm` fibre is a prop), and with every `_âˆ™â_` group
+  -- The AbGroup packages: `Sol D 1r` is a set (a retract of a Î£ of sets â€” R
+  -- is a set, and each `hasNorm` fibre is a prop), and with every `_âˆ™â‚_` group
   -- law in hand, `makeGroup` assembles the group object.  So the norm-1
-  -- bhvan solutions ARE a group, `SolGroup D`, not just a list of laws â”
+  -- bhÄvanÄ solutions ARE a group, `SolGroup D`, not just a list of laws â€”
   -- Brahmagupta's structure as a first-class algebraic object over abstract R.
   ----------------------------------------------------------------------
 
@@ -430,9 +430,9 @@ module Generative (CR : CommRing â„“) where
               (Î» x y z â†’ sym (âˆ™â‚-assoc x y z))
               âˆ™â‚-idR âˆ™â‚-idL âˆ™â‚-invR âˆ™â‚-invL
 
-  -- Commutativity of `_âˆ™â_` (from âŠCommA/âŠCommB through the substs), and then
+  -- Commutativity of `_âˆ™â‚_` (from âŠ›CommA/âŠ›CommB through the substs), and then
   -- the ABELIAN group: `SolAbGroup D`.  Brahmagupta's bhvan group is abelian
-  -- â” one solution and its conjugate commute â” the fact that lets the cakravla
+  -- â€” one solution and its conjugate commute â€” the fact that lets the cakravÄla
   -- walk its chain in either direction.
   âˆ™â‚-comm : {D : R} (s t : Sol D 1r) â†’ s âˆ™â‚ t â‰¡ t âˆ™â‚ s
   âˆ™â‚-comm {D} s t i =
@@ -455,8 +455,8 @@ module Generative (CR : CommRing â„“) where
 
   ----------------------------------------------------------------------
   -- "One solution breeds all" (Brahmagupta), made a group law: the chain
-  -- `chain s n = sâ¿` under `_âˆ™â_` is a monoid homomorphism (â•, +) â’ SolGroup.
-  -- `chain s (m + n) â‰¡ chain s m âˆ™â chain s n` â” composing the m-th and n-th
+  -- `chain s n = sâ¿` under `_âˆ™â‚_` is a monoid homomorphism (â„•, +) â†’ SolGroup.
+  -- `chain s (m + n) â‰¡ chain s m âˆ™â‚ chain s n` â€” composing the m-th and n-th
   -- generated solutions of xÂ² âˆ’ D yÂ² = 1 gives the (m+n)-th.  So the cakravla
   -- orbit of a seed is exactly the cyclic sub-structure it generates; the
   -- Pell solutions are the powers of a fundamental one.
@@ -475,22 +475,22 @@ module Generative (CR : CommRing â„“) where
 -- A construction can be correct and vacuous.  Everything above holds in the
 -- zero ring, where `Sol D k` is inhabited by the unique element and the
 -- monoid is trivial; nothing so far distinguishes production from a
--- tautology.  So: turn the handle over â at D = 2 and look at what comes
+-- tautology.  So: turn the handle over â„¤ at D = 2 and look at what comes
 -- out.
 --
---     3Â² âˆ’ 2Â2Â²  = 9 âˆ’ 8      = 1
---    17Â² âˆ’ 2Â12Â² = 289 âˆ’ 288  = 1
---    99Â² âˆ’ 2Â70Â² = 9801 âˆ’ 9800 = 1
+--     3Â² âˆ’ 2Â·2Â²  = 9 âˆ’ 8      = 1
+--    17Â² âˆ’ 2Â·12Â² = 289 âˆ’ 288  = 1
+--    99Â² âˆ’ 2Â·70Â² = 9801 âˆ’ 9800 = 1
 --
 -- and each is the previous one composed with the seed by samsa-bhvan.
 --
 -- ATTRIBUTION.  These are not Brahmagupta's own worked numbers for D = 2:
 -- Brahmagupta's showcase examples in Brhmasphuasiddhnta ch. 18 are
 -- D = 83 and D = 92.  The 3/2, 17/12, 99/70 ladder is the classical sequence
--- of âˆ2 convergents and is far older than 628 â” Baudhyana's ulba-stra
+-- of âˆš2 convergents and is far older than 628 â€” BaudhÄyana's Åšulba-sÅ«tra
 -- value 577/408 lies on it.
 --
--- Every equation below is `refl` â” the kernel computes the composite and its
+-- Every equation below is `refl` â€” the kernel computes the composite and its
 -- norm, which makes this an exact verification and not a check somebody ran.
 ------------------------------------------------------------------------
 
@@ -510,8 +510,8 @@ module ChainAtTwo where
   seed : Sol (pos 2) (pos 1)
   seed = mkSol (pos 3) (pos 2) refl
 
-  -- ààà²àà¯àà¾àµà¨à¾ applied to the seed.  Note the type: `_âŠ_` reports the norm
-  -- as 1 Â 1, and over â that IS 1, so no retyping is needed here.
+  -- à¤¤à¥à¤²à¥à¤¯à¤­à¤¾à¤µà¤¨à¤¾ applied to the seed.  Note the type: `_âŠ›_` reports the norm
+  -- as 1 Â· 1, and over â„¤ that IS 1, so no retyping is needed here.
   second : Sol (pos 2) (pos 1 Â· pos 1)
   second = tulya seed
 
@@ -531,11 +531,11 @@ module ChainAtTwo where
   thirdB : coefB third â‰¡ pos 70
   thirdB = refl
 
-  -- One more doubling reaches Baudhyana's ulba-stra value for âˆ2, 577/408
+  -- One more doubling reaches BaudhÄyana's Åšulba-sÅ«tra value for âˆš2, 577/408
   -- (ulba-stra 1.61-62, ~800 BCE; the same number Dvikarani.agda generates
-  -- by bhvan).  So the classical ulba âˆ2 convergent sits in this abstract
-  -- group as the fourth power of the fundamental unit â” `tulya (tulya seed)` â”
-  -- and its norm obligation (577Â² âˆ’ 2Â408Â² = 1) is discharged by the kernel.
+  -- by bhÄvanÄ).  So the classical Å›ulba âˆš2 convergent sits in this abstract
+  -- group as the fourth power of the fundamental unit â€” `tulya (tulya seed)` â€”
+  -- and its norm obligation (577Â² âˆ’ 2Â·408Â² = 1) is discharged by the kernel.
   -- ulba geometry (~800 BCE) and Brahmagupta's composition (628) meet as one
   -- element of one group; both refls are exact computation, not observation.
   fourth : Sol (pos 2) ((pos 1 Â· pos 1) Â· (pos 1 Â· pos 1))
@@ -553,7 +553,7 @@ module ChainAtTwo where
   -- DISTINCTNESS, PROVED RATHER THAN OBSERVED.
   --
   -- Below are the
-  -- actual terms, from â's discreteness.
+  -- actual terms, from â„¤'s discreteness.
   -- Separating functions into Bool; `cong` then turns a supposed path between
   -- the integers into `true â‰¡ false`.  No decidability machinery and, more to
   -- the point, no postulate.

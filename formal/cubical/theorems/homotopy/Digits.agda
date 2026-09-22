@@ -6,7 +6,7 @@
 -- Three presentations of the natural numbers, each defined
 -- independently, and a *constructed* equivalence between two of them.
 --
---   (i)   �            : the initial algebra of X � 1 + X  (imported)
+--   (i)   ℕ            : the initial algebra of X ↦ 1 + X  (imported)
 --   (ii)  List Unit    : the free monoid on one generator  (Presentations)
 --   (iii) CanWord      : base-b digit words in canonical form  (here)
 --
@@ -16,7 +16,7 @@
 -- content is: `sucw` is the odometer, and `value-sucw` is the statement
 -- that the odometer computes the successor.
 --
--- The base is a module parameter b = 2 + k, so b � 2 always.
+-- The base is a module parameter b = 2 + k, so b ≥ 2 always.
 ------------------------------------------------------------------------
 
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
@@ -182,7 +182,7 @@ canonical-sucw (d ∷ w) c =
   canonical-sucw-step d w (canonical-sucw w) c (fst (dsucΣ d)) (snd (dsucΣ d))
 
 ------------------------------------------------------------------------
--- 4.  digits : � � Word, by iterating the odometer.
+-- 4.  digits : ℕ → Word, by iterating the odometer.
 ------------------------------------------------------------------------
 
 digits : ℕ → Word

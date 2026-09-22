@@ -1,15 +1,15 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- �� / ����� � kha, the void.
+-- ख / शून्य — kha, the void.
 --
 -- SOURCE.  Brahmagupta, *Brhmasphuasiddhnta*, 628 CE, chapter 18
 -- (kuakdhyya), states the arithmetic of the three kinds of quantity
--- together � **dhana** (fortune, positive), **a** (debt, negative) and
--- **kha**/**nya** (the void) � and among the product rules, that a
+-- together — **dhana** (fortune, positive), **ṛṇa** (debt, negative) and
+-- **kha**/**śūnya** (the void) — and among the product rules, that a
 -- quantity multiplied by kha is kha.  That is one direction.
 --
--- The converse � *if a product is kha then one of its factors is kha* �
+-- The converse — *if a product is kha then one of its factors is kha* —
 -- is not in the Brhmasphuasiddhnta, and it is not a ring truth.  This
 -- module is about exactly that converse: where it holds, a computation
 -- may ignore the void places of a vector; where it fails, it may not,
@@ -32,11 +32,11 @@
 --
 -- Layers, by exact hypothesis:
 --
---   §2  act p v x ≡ eval p (m x) � v x        -- any commutative ring
---   §3  vanishing on the non-void places � annihilation
+--   §2  act p v x ≡ eval p (m x) · v x        -- any commutative ring
+--   §3  vanishing on the non-void places ⇒ annihilation
 --                                             -- any commutative ring,
 --                                             --   plus decided voidness
---   §4  annihilation � vanishing on the non-void places
+--   §4  annihilation ⇒ vanishing on the non-void places
 --                                             -- iff no zero divisors
 --   §4  support-relativity of the annihilator -- from §3 + §4
 ------------------------------------------------------------------------
@@ -68,7 +68,7 @@ private
 -- 1.  The converse of the kha product rule, as a property of a ring
 ------------------------------------------------------------------------
 
--- Brahmagupta's rule, `a � kha ≡ kha`, is `0RightAnnihilates` and holds
+-- Brahmagupta's rule, `a · kha ≡ kha`, is `0RightAnnihilates` and holds
 -- in every ring.  Its converse is a hypothesis:
 
 module _ (Rng : CommRing ℓ) where
@@ -108,7 +108,7 @@ module Diagonal {ℓ ℓ'} (Rng : CommRing ℓ) (X : Type ℓ') (m : X → ⟨ R
 
   -- the SAME coefficients acting on a vector through the operator,
   -- defined without reference to `eval`:
-  --     c��v + c��(diag v) + c��(diag (diag v)) + �
+  --     c₀·v + c₁·(diag v) + c₂·(diag (diag v)) + …
   act : Poly → V → V
   act []       v x = 0r
   act (c ∷ cs) v x = c · v x + act cs (diag v) x
@@ -148,7 +148,7 @@ module Diagonal {ℓ ℓ'} (Rng : CommRing ℓ) (X : Type ℓ') (m : X → ⟨ R
   VoidDecided v = (x : X) → (v x ≡ 0r) ⊎ (NonVoid v x)
 
   ----------------------------------------------------------------
-  -- Layer 2 (�).  Any commutative ring.  This is Brahmagupta's own
+  -- Layer 2 (⇐).  Any commutative ring.  This is Brahmagupta's own
   -- direction: at a void place the product is void whatever stands
   -- beside it, so such a place imposes no condition.
   ----------------------------------------------------------------
@@ -164,8 +164,8 @@ module Diagonal {ℓ ℓ'} (Rng : CommRing ℓ) (X : Type ℓ') (m : X → ⟨ R
                     ∙ 0LeftAnnihilates (v x)
 
   ----------------------------------------------------------------
-  -- Layer 2 (�).  This is the direction that needs the converse of
-  -- the product rule, and needs NOTHING else � no field, no
+  -- Layer 2 (⇒).  This is the direction that needs the converse of
+  -- the product rule, and needs NOTHING else — no field, no
   -- interpolation, no invertible differences of the distinct values.
   ----------------------------------------------------------------
 
@@ -193,13 +193,13 @@ module Diagonal {ℓ ℓ'} (Rng : CommRing ℓ) (X : Type ℓ') (m : X → ⟨ R
       (λ x nvw → ann→vanishes rev p v h x (same x .snd nvw))
 
 ------------------------------------------------------------------------
--- 3.  Sharpness: the hypothesis of §2's (�) is not merely sufficient
+-- 3.  Sharpness: the hypothesis of §2's (⇒) is not merely sufficient
 ------------------------------------------------------------------------
 
 -- One place is enough to force it.  So `KhaReverses` is not an
 -- artefact of the proof: it is equivalent to the conclusion, and the
 -- boundary of the support-relative theorem is exactly the presence of
--- zero divisors � not, as the note has it, the invertibility of the
+-- zero divisors — not, as the note has it, the invertibility of the
 -- differences of the distinct multiplier values.
 
 module Sharp (Rng : CommRing ℓ) where
@@ -218,7 +218,7 @@ module Sharp (Rng : CommRing ℓ) where
                    ∙ ·IdR y )
     ∙ +IdL y
 
-  -- the one-place instance of §2's (�), stated on its own
+  -- the one-place instance of §2's (⇒), stated on its own
   OnePlaceDetection : Type ℓ
   OnePlaceDetection =
     (a b : ⟨ Rng ⟩)
@@ -240,11 +240,11 @@ module Sharp (Rng : CommRing ℓ) where
         ∙ ab≡0
 
 ------------------------------------------------------------------------
--- 4.  Non-vacuity, positive side: � satisfies KhaReverses
+-- 4.  Non-vacuity, positive side: ℤ satisfies KhaReverses
 ------------------------------------------------------------------------
 
--- � is a commutative ring that is not a field, so the field hypothesis
--- of the note's theorem fails here while §2's (�) holds.  This is the
+-- ℤ is a commutative ring that is not a field, so the field hypothesis
+-- of the note's theorem fails here while §2's (⇒) holds.  This is the
 -- gap the module exists to exhibit: the annihilator statement survives
 -- where the interpolation basis does not.
 
@@ -252,7 +252,7 @@ module Sharp (Rng : CommRing ℓ) where
 ℤ-KhaReverses a b ab≡0 b≢0 = Int.isIntegralℤ b a (Int.·Comm b a ∙ ab≡0) b≢0
 
 ------------------------------------------------------------------------
--- 5.  Non-vacuity, negative side: � � � does not
+-- 5.  Non-vacuity, negative side: ℤ × ℤ does not
 ------------------------------------------------------------------------
 
 -- Without this, §3's equivalence could be true because no commutative
@@ -279,16 +279,16 @@ module Sharp (Rng : CommRing ℓ) where
 ℤ×ℤ-detection-fails det = ℤ×ℤ-not-KhaReverses (Sharp.onePlace→khaReverses ℤ×ℤ det)
 
 ------------------------------------------------------------------------
--- 6.  Non-vacuity of the theorem itself: a worked instance over �
+-- 6.  Non-vacuity of the theorem itself: a worked instance over ℤ
 ------------------------------------------------------------------------
 
 -- Three places.  The multiplier m takes the value 0 at one place and 2
 -- at the other two, so its image on a two-element support is either a
 -- one- or a two-element set depending on WHICH two places the support
--- is � the number of non-void places does not determine the annihilator.
+-- is — the number of non-void places does not determine the annihilator.
 --
 -- The two DISTINCT multiplier values here are 0 and 2, whose difference
--- is 2, which is not invertible in �.  So this instance sits strictly
+-- is 2, which is not invertible in ℤ.  So this instance sits strictly
 -- outside the hypothesis `ACTION_MONOID_CHARACTER_CLOSURE.md` names as
 -- the boundary ("distinct values need not have unit differences"), and
 -- the annihilator statement holds here anyway.
@@ -305,7 +305,7 @@ open Diagonal ℤCommRing Three mThree using () renaming
   ( V to V₃ ; Poly to Poly₃ ; Ann to Ann₃ ; act to act₃
   ; VoidDecided to VoidDecided₃ ; NonVoid to NonVoid₃ )
 
--- v is non-void at p� and p�;  w is non-void at p� and p�.
+-- v is non-void at p₀ and p₁;  w is non-void at p₁ and p₂.
 vThree wThree : V₃
 vThree p₀ = pos 1
 vThree p₁ = pos 1
@@ -330,7 +330,7 @@ does-not-annihilate-v : ¬ (Ann₃ tMinus2 vThree)
 does-not-annihilate-v h = Int.negsucNotpos 1 0 (h p₀)
 
 -- Both supports have two places.  That is read off the definitions
--- above � `vThree` is non-void at p�,p� and `wThree` at p�,p�.
+-- above — `vThree` is non-void at p₀,p₁ and `wThree` at p₁,p₂₂.—
 -- The two vectors have different annihilators.  So the number of non-void
 -- places does not determine the annihilator, while (below) the SET of
 -- non-void places does.
@@ -346,14 +346,14 @@ wThree-decided p₁ = inr 1≢0ℤ
 wThree-decided p₂ = inr 1≢0ℤ
 
 ------------------------------------------------------------------------
--- 7.  The theorem exercised over �, which is not a field
+-- 7.  The theorem exercised over ℤ, which is not a field
 ------------------------------------------------------------------------
 
--- `wThree�` stands with entirely different quantities from `wThree` at
--- the places where it is non-void � 5 and −3 in place of 1 and 1 � and
+-- `wThree′` stands with entirely different quantities from `wThree` at
+-- the places where it is non-void — 5 and −3 in place of 1 and 1 — and
 -- its annihilation is derived, not recomputed, from `annihilates-w`.
 -- Nothing here has an interpolation basis available: the differences of
--- the distinct multiplier values are 1 and −1 in �, which happen to be
+-- the distinct multiplier values are 1 and −1 in ℤ, which happen to be
 -- units, but the coefficients 5 and −3 are not invertible and the proof
 -- never divides.
 

@@ -1,32 +1,32 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡∞‡ø‡µ‡∞‡‡‡Ø‡ã‡ó‡ ‚î the double sum interchanges, and pushforward composes
+-- ‡§™‡§∞‡§ø‡§µ‡§∞‡•ç‡§§‡§Ø‡•ã‡§ó‡§É ‚Äî the double sum interchanges, and pushforward composes
 -- on rectangles.
 --
--- TERM.  ‡‡∞‡ø‡µ‡∞‡‡ (interchange, turning about) and ‡Ø‡ã‡ó (sum, as in the
--- measure lane's ‡Ø‡ã‡ó‡‡≤/‡‡æ‡ñ‡ø‡‡Ø‡ã‡ó‡ vocabulary).  The compound ‡‡∞‡ø‡µ‡∞‡‡-‡Ø‡ã‡ó
+-- TERM.  ‡§™‡§∞‡§ø‡§µ‡§∞‡•ç‡§§ (interchange, turning about) and ‡§Ø‡•ã‡§ó (sum, as in the
+-- measure lane's ‡§Ø‡•ã‡§ó‡§´‡§≤/‡§∂‡§æ‡§ñ‡§ø‡§§‡§Ø‡•ã‡§ó‡§É vocabulary).  The compound ‡§™‡§∞‡§ø‡§µ‡§∞‡•ç‡§§-‡§Ø‡•ã‡§ó
 -- is built here.
 --
 -- The RECTANGULAR case, which is also the
 -- interchange law the span/path-integral reading consumes first:
 --
---     Œ_y Œ_z w(y,z)  ‚â°  Œ_z Œ_y w(y,z)
+--     Œ£_y Œ£_z w(y,z)  ‚â°  Œ£_z Œ£_y w(y,z)
 --
 -- over nonempty SumFin index types, spending exactly associativity and
--- commutativity ‚î the same two laws ‡ï‡‡∞‡Æ‡®‡à‡∞‡‡‡ï‡‡‡‡Ø‡Æ‡ spends, and no
--- more.  On a rectangle X = Fin(1+a) ó Fin(1+b) with the two
+-- commutativity ‚Äî the same two laws ‡§ï‡•ç‡§∞‡§Æ‡§®‡•à‡§∞‡§™‡•á‡§ï‡•ç‡§∑‡•ç‡§Ø‡§Æ‡•ç spends, and no
+-- more.  On a rectangle X = Fin(1+a) √ó Fin(1+b) with the two
 -- projections as observations, the nested totals ARE f_! then g_!, so
--- this theorem is pushforward functoriality for the product square ‚î
+-- this theorem is pushforward functoriality for the product square ‚Äî
 -- the case where both fibres are constant.
 --
 -- WHAT IS PROVED.
 --
---   ‡µ‡ø‡‡æ‡‡®‡Æ‡     the pointwise sum splits across a total:
---                total (Œª z ‚í f z +µ g z) ‚â° total f +µ total g.
+--   ‡§µ‡§ø‡§≠‡§æ‡§ú‡§®‡§Æ‡•ç     the pointwise sum splits across a total:
+--                total (Œª z ‚Üí f z +·µÇ g z) ‚â° total f +·µÇ total g.
 --                This is the "abides" law; it is where assoc and comm
---                are spent, through the four-point exchange ‡µ‡ø‡®‡ø‡Æ‡Ø‡.
---   ‡‡∞‡ø‡µ‡∞‡‡‡      THE INTERCHANGE: the two nesting orders of the double
+--                are spent, through the four-point exchange ‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø‡§É.
+--   ‡§™‡§∞‡§ø‡§µ‡§∞‡•ç‡§§‡§É      THE INTERCHANGE: the two nesting orders of the double
 --                total agree, for every rectangular weight family.
 --
 ------------------------------------------------------------------------

@@ -1,19 +1,19 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡Æ-‡¶‡‡‡‡ü‡ø‡ ‚î equal seeing.  Compound built here; no
+-- ‡§∏‡§Æ-‡§≠‡§æ‡§∞ ‚Äî equal seeing.  Compound built here; noƒÅ
 -- source is claimed for the mathematics.
 --
 -- WHY EQUAL VISION.  If in a step-pervasion
--- the GOAL is processed by the record (‡‡‡∞‡‡-‡µ‡ø‡®‡ø‡Æ‡Ø‡) but the
--- HYPOTHESIS's faces are not ‚î so when the record helpfully
+-- the GOAL is processed by the record (‡§∂‡•ç‡§∞‡•Å‡§§-‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø‡§É) but the
+-- HYPOTHESIS's faces are not ‚Äî so when the record helpfully
 -- simplifies the goal, it destroys the exact match the hypothesis
 -- is about to make: the record's assistance sabotages the exchange.
 -- x ‚àí s(x+y) = 0 exhibits it precisely: under the deep eye the step
--- form IS the hypothesis, syntactically ‚î until the record rewrites
+-- form IS the hypothesis, syntactically ‚Äî until the record rewrites
 -- one and not the other.  The repair is symmetry of vision: the
 -- hypothesis's two faces pass through the SAME record as the goal,
--- and the conditional witness threads through ‡‡‡∞‡‡-‡‡æ‡ï‡‡‡ on both
+-- and the conditional witness threads through ‡§∂‡•ç‡§∞‡•Å‡§§-‡§∏‡§æ‡§ï‡•ç‡§∑‡•Ä on both
 -- sides.  The sixth examination runs with the symmetrized exchange
 -- over the factoring eye.
 ------------------------------------------------------------------------

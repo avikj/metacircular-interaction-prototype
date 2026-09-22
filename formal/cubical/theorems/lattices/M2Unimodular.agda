@@ -4,10 +4,10 @@
 -- M2Unimodular
 --
 -- The 2x2 toolkit the torsor theorems need, constructively: adjugate
--- identities (adj�H = H�adj = det�I, by solver, entrywise), det
+-- identities (adj·H = H·adj = det·I, by solver, entrywise), det
 -- multiplicativity (Binet at n=2, one polynomial identity), and the
--- nonvanishing of unimodular determinants (ε² = 1 � ε ≠ 0, the only
--- place discreteness of � enters: 1 ≠ 0).
+-- nonvanishing of unimodular determinants (ε² = 1 → ε ≠ 0, the only
+-- place discreteness of ℤ enters: 1 ≠ 0).
 ------------------------------------------------------------------------
 
 module M2Unimodular where

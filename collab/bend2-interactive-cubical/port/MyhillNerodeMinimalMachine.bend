@@ -21,7 +21,7 @@ def nerodeSym(X: Set, A: Set, O: Set, step: X -> A -> X, observe: X -> O, x: X, 
   lambda w. <i> h(w) @ inot(i)
 def nerodeTrans(X: Set, A: Set, O: Set, step: X -> A -> X, observe: X -> O, x: X, y: X, z: X, hxy: Nerode(X, A, O, step, observe, x, y), hyz: Nerode(X, A, O, step, observe, y, z)) -> Nerode(X, A, O, step, observe, x, z):
   lambda w. compPath(O, behavior(X, A, O, step, observe, x, w), behavior(X, A, O, step, observe, y, w), behavior(X, A, O, step, observe, z, w), hxy(w), hyz(w))
-# the future (a âˆ w) of the parents is the future w of the children, definitionally
+# the future (a âˆ· w) of the parents is the future w of the children, definitionally
 def nerodeStep(X: Set, A: Set, O: Set, step: X -> A -> X, observe: X -> O, x: X, y: X, h: Nerode(X, A, O, step, observe, x, y), a: A) -> Nerode(X, A, O, step, observe, step(x, a), step(y, a)):
   lambda w. h(a <> w)
 def nerodeToBehavior(X: Set, A: Set, O: Set, step: X -> A -> X, observe: X -> O, x: X, y: X, h: Nerode(X, A, O, step, observe, x, y)) -> Path(A[] -> O, lambda w. behavior(X, A, O, step, observe, x, w), lambda w. behavior(X, A, O, step, observe, y, w)):

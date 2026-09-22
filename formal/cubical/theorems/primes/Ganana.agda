@@ -27,7 +27,7 @@ mod m n = go m m
   go zero    r = r
   go (suc f) r = if (r <ᵇ n) then r else go f (r ∸ n)
 
--- trial division to �n only: stop when d�d > n
+-- trial division to √n only: stop when d·d > n
 prime : ℕ → Bool
 prime zero = false
 prime (suc zero) = false
@@ -38,8 +38,8 @@ prime n = go n 2
   go (suc f) d = if (n <ᵇ (d · d)) then true
                  else (if (mod n d == zero) then false else go f (suc d))
 
--- �����: the SIZE of the goldbach fibre, not one witness.
--- unordered pairs p � n�p, both prime, p + (n�p) = n.
+-- गणना: the SIZE of the goldbach fibre, not one witness.
+-- unordered pairs p ≤ n∸p, both prime, p + (n∸p) = n.
 gcount : ℕ → ℕ
 gcount n = go n 2
   where
@@ -67,7 +67,7 @@ _ = refl
 _ : tcount 200 ≡ 15    -- fifteen twin pairs below 200
 _ = refl
 
--- witness-only sweep with the �-bounded primality: first p with both prime
+-- witness-only sweep with the √-bounded primality: first p with both prime
 gok : ℕ → Bool
 gok n = go n 2
   where

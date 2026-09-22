@@ -1,12 +1,12 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ààààà²àà¾à°à â” the coarse weight is the sum over the observation fibre,
+-- à¤¸à¥à¤¥à¥‚à¤²à¤­à¤¾à¤°à¤ƒ â€” the coarse weight is the sum over the observation fibre,
 -- and branch multiplicity is the whole of it.
 --
--- TERM.  ààààà² / ààà•àààà® (gross / subtle) is the standard  pair
--- for the coarse and the fine grain of an object; àà¾à° is weight, load.
--- The compound ààààà²-àà¾à°, "the coarse weight", is built HERE.
+-- TERM.  à¤¸à¥à¤¥à¥‚à¤² / à¤¸à¥‚à¤•à¥à¤·à¥à¤® (gross / subtle) is the standard  pair
+-- for the coarse and the fine grain of an object; à¤­à¤¾à¤° is weight, load.
+-- The compound à¤¸à¥à¤¥à¥‚à¤²-à¤­à¤¾à¤°, "the coarse weight", is built HERE.
 --
 -- SEED.  The Born ladder, step 2 (fibre additivity) together with the
 -- "rational coarse weights" observation:
@@ -17,35 +17,35 @@
 --
 -- FORMALIZED WITHOUT DIVISION.  The carrier language makes the
 -- rational statement exact with NO division and NO rationals: if h is
--- an (a+b)-th part of ğŸ™ (à—ààà h â‰¡ ğŸ™ over the whole orbit), then the
--- coarse weight of the m-branch IS the m-fold sum à—ààà h over that
--- branch.  "m/(m+n)" is a NAME for mÂh under (m+n)Âh â‰¡ ğŸ™; the theorem
+-- an (a+b)-th part of ğŸ™ (à¤—à¥à¤£à¤ƒ h â‰¡ ğŸ™ over the whole orbit), then the
+-- coarse weight of the m-branch IS the m-fold sum à¤—à¥à¤£à¤ƒ h over that
+-- branch.  "m/(m+n)" is a NAME for mÂ·h under (m+n)Â·h â‰¡ ğŸ™; the theorem
 -- is the multiplicity identity, and the division is bookkeeping that
 -- never has to happen.  That is why the result composes with
--- `SamaVibhaga` (which forces w = const h) rather than presupposing â.
+-- `SamaVibhaga` (which forces w = const h) rather than presupposing â„š.
 --
--- THE OBJECTS.  Micro-outcomes: X = Fin (suc a) âŠ Fin (suc b) â” the
--- coarse observation is literally the tag, ààààà²à = Bool by inl/inr.
--- The fibre of ààààà²à over true is the left summand; the coarse weight
+-- THE OBJECTS.  Micro-outcomes: X = Fin (suc a) âŠ Fin (suc b) â€” the
+-- coarse observation is literally the tag, à¤¸à¥à¤¥à¥‚à¤²à¤ƒ = Bool by inl/inr.
+-- The fibre of à¤¸à¥à¤¥à¥‚à¤²à¤ƒ over true is the left summand; the coarse weight
 -- is total weight of that summand.  This presentation makes "sum over
 -- the fibre" definitional rather than a subset-enumeration lemma.
 --
 -- WHAT IS PROVED.
 --
---   ààààà²à¯à‹à—à      the total over the disjoint sum is the sum of the
---                  two branch totals â” fibre additivity, proved by
+--   à¤¸à¥à¤¥à¥‚à¤²à¤¯à¥‹à¤—à¤ƒ      the total over the disjoint sum is the sum of the
+--                  two branch totals â€” fibre additivity, proved by
 --                  induction on the left branch, consuming exactly ONE
---                  algebraic law: associativity of _+µ_, taken as a
+--                  algebraic law: associativity of _+áµ‚_, taken as a
 --                  hypothesis.  (SamaVibhaga consumed none; the ladder
 --                  spends its algebra one law at a time, and the
 --                  ledger of what each step costs is part of the
 --                  result.)
---   àà¾à–à¾àà¾à°à       on the uniform weight const h, the coarse weight of
---                  the left branch is à—ààà a h (that is, (a+1)Âh) and
---                  of the right branch à—ààà b h â” multiplicity is the
+--   à¤¶à¤¾à¤–à¤¾à¤­à¤¾à¤°à¤ƒ       on the uniform weight const h, the coarse weight of
+--                  the left branch is à¤—à¥à¤£à¤ƒ a h (that is, (a+1)Â·h) and
+--                  of the right branch à¤—à¥à¤£à¤ƒ b h â€” multiplicity is the
 --                  whole content.
---   ààà°àààà¾        and the two coarse weights recompose to ğŸ™ under the
---                  orbit normalization (suc a + suc b)Âh â‰¡ ğŸ™.
+--   à¤ªà¥‚à¤°à¥à¤£à¤¤à¤¾        and the two coarse weights recompose to ğŸ™ under the
+--                  orbit normalization (suc a + suc b)Â·h â‰¡ ğŸ™.
 --
 ------------------------------------------------------------------------
 
@@ -77,7 +77,7 @@ module _ {W : Type â„“} (_+áµ‚_ : W â†’ W â†’ W)
   à¤¸à¥à¤¥à¥‚à¤²à¤ƒ (inl _) = true
   à¤¸à¥à¤¥à¥‚à¤²à¤ƒ (inr _) = false
 
-  -- the fold of a left branch onto a residue R â” "sum over the fibre
+  -- the fold of a left branch onto a residue R â€” "sum over the fibre
   -- of true, then whatever the rest weighs".
   à¤¶à¥‡à¤·à¤¯à¥‹à¤—à¤ƒ : W â†’ (k : â„•) â†’ (Fin (suc k) â†’ W) â†’ W
   à¤¶à¥‡à¤·à¤¯à¥‹à¤—à¤ƒ R zero    u = u fzero +áµ‚ R
@@ -109,8 +109,8 @@ module _ {W : Type â„“} (_+áµ‚_ : W â†’ W â†’ W)
            â†’ total _+áµ‚_ a (Î» _ â†’ h) â‰¡ à¤—à¥à¤£à¤ƒ _+áµ‚_ a h
   à¤¶à¤¾à¤–à¤¾à¤­à¤¾à¤°à¤ƒ h = total-const _+áµ‚_ a h
 
-  -- and under the orbit normalization the two branches recompose to ğŸ™:
-  -- (a+1)Âh +µ (b+1)Âh â‰¡ total of the constant family over the sum.
+  -- and under the orbit normalization the two branches recompose to ğŸ™:
+  -- (a+1)Â·h +áµ‚ (b+1)Â·h â‰¡ total of the constant family over the sum.
   à¤ªà¥‚à¤°à¥à¤£à¤¤à¤¾ : (ğŸ™ h : W)
           â†’ à¤‰à¤­à¤¯à¤¯à¥‹à¤—à¤ƒ (Î» _ â†’ h) â‰¡ ğŸ™
           â†’ (à¤—à¥à¤£à¤ƒ _+áµ‚_ a h) +áµ‚ (à¤—à¥à¤£à¤ƒ _+áµ‚_ b h) â‰¡ ğŸ™

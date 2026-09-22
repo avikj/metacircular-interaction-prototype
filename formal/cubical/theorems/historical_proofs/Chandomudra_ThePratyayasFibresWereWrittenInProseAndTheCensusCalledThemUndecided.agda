@@ -1,24 +1,24 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àà¨àà¦à‹à®àà¦àà°à¾ â” àà¨àà¦à‹ à®à¾ààà°à¾à®à¾à¨ààà¯ àà¨àààà ààµ à
+-- à¤›à¤¨à¥à¤¦à¥‹à¤®à¥à¤¦à¥à¤°à¤¾ â€” à¤›à¤¨à¥à¤¦à¥‹ à¤®à¤¾à¤¤à¥à¤°à¤¾à¤®à¤¾à¤¨à¤¸à¥à¤¯ à¤¤à¤¨à¥à¤¤à¥à¤ƒ à¤à¤µ à¥¤
 --
 -- (a metre is nothing but the fibre of the mtr-count.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- HOW THIS WAS FOUND, because the method is the point.
 --
--- `machine/Lopa_â¦hs` grades every irreversible edge in this corpus and
--- reports 1045 of them UNDECIDED â” no syntactic rule names a fibre.
+-- `machine/Lopa_â€¦hs` grades every irreversible edge in this corpus and
+-- reports 1045 of them UNDECIDED â€” no syntactic rule names a fibre.
 -- Three of those undecided edges are
 --
---     PingalaPrastara.Pattern âŸ â•    Â matraOf
---     PingalaPrastara.Pattern âŸ â•    Â varna
---     PingalaPrastara.Pattern âŸ â•    Â guruOf
+--     PingalaPrastara.Pattern âŸ¶ â„•    Â« matraOf
+--     PingalaPrastara.Pattern âŸ¶ â„•    Â« varna
+--     PingalaPrastara.Pattern âŸ¶ â„•    Â« guruOf
 --
 -- and their fibres are DEFINED FIFTEEN LINES BELOW THEM, in the same
 -- file, by name.  `PingalaPrastara.agda:55` says so in prose: *"`Vak n`,
--- `Metre n` and `Chosen n k` are its fibres over â¦"*.  No term said it,
+-- `Metre n` and `Chosen n k` are its fibres over â€¦"*.  No term said it,
 -- so the census could not see it, so it reported the corpus barren at
 -- exactly the place the corpus had already answered.
 --
@@ -28,38 +28,38 @@
 -- reports that nothing is there.**  The repair is not a better census.
 -- It is to LOOK UP the answer before proposing to construct one.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED.  Nothing is constructed; all three are `refl`.
 --
---   `fiber f b` unfolds to `Î[ a ] (f a â‰¡ b)`, and
---   `Metre n`  is  `Î[ p âˆˆ Pattern ] (matraOf p â‰¡ n)`.
+--   `fiber f b` unfolds to `Î£[ a ] (f a â‰¡ b)`, and
+--   `Metre n`  is  `Î£[ p âˆˆ Pattern ] (matraOf p â‰¡ n)`.
 --
 -- They are the same type on the nose.  Writing it down costs one line
 -- and turns a prose remark into something a machine can join on.
 --
--- Â§à© is the one that is not definitional and is the more interesting:
+-- Â§à¥© is the one that is not definitional and is the more interesting:
 -- `Chosen n k` is the JOINT fibre of two observables at once, and it
--- equals `fiber âŸ¨ varna , guruOf âŸ© (n , k)` only after Î-reassociation,
+-- equals `fiber âŸ¨ varna , guruOf âŸ© (n , k)` only after Î£-reassociation,
 -- because a pair of equations is not an equation of pairs until you say
 -- so.  That gap is exactly where a joint measurement differs from two
 -- separate ones.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- AND THE PRICE HAS A CLOSED FORM ALREADY PROVED IN THE HOST.
 --
--- `PingalaPrastara.matrameruIso : Metre (2+n) â‰ Metre (1+n) âŠ Metre n`.
--- So the fibre of the mtr-count satisfies VIRAHKA'S RECURRENCE â” the
--- à®à¾ààà°à¾à®àà°à â” and the receipt for that cut is not a bound or an estimate
+-- `PingalaPrastara.matrameruIso : Metre (2+n) â‰ƒ Metre (1+n) âŠ Metre n`.
+-- So the fibre of the mÄtrÄ-count satisfies VIRAHÄ€á¹„KA'S RECURRENCE â€” the
+-- à¤®à¤¾à¤¤à¥à¤°à¤¾à¤®à¥‡à¤°à¥ â€” and the receipt for that cut is not a bound or an estimate
 -- but a named type whose cardinality is a sequence the tradition
--- tabulated.  Virahka, *Vttajtisamuccaya*, c. 600â“800 CE (the range
+-- tabulated.  VirahÄá¹…ka, *Vá¹›ttajÄtisamuccaya*, c. 600â€“800 CE (the range
 -- is H. D. Velankar's, from his 1962 edition).  The
 -- recurrence is usually cited under Fibonacci's name, 1202, which is a
 -- restatement and is named here after the source and as one.
 --
--- The array whose row sums these are is Pigala's, àà¨àà¦ààà¾ààààà°à®à
--- à®.à©àâ“à©à, ~300 BCE, with the construction rule â” àà—àà°à¿à®-àà™àà•ààà¿à
--- ààà°ààµ-àà™àà•àààà àà¾à°ààààµ-à¯à‹à—àˆà, the next row from the ADJACENT SUMS of the
--- previous â” stated by àà²à¾à¯àà§ in the à®ààààààààµà¨à, 10th c.
+-- The array whose row sums these are is Piá¹…gala's, à¤›à¤¨à¥à¤¦à¤ƒà¤¶à¤¾à¤¸à¥à¤¤à¥à¤°à¤®à¥
+-- à¥®.à¥©à¥ªâ€“à¥©à¥«, ~300 BCE, with the construction rule â€” à¤…à¤—à¥à¤°à¤¿à¤®-à¤ªà¤™à¥à¤•à¥à¤¤à¤¿à¤ƒ
+-- à¤ªà¥‚à¤°à¥à¤µ-à¤ªà¤™à¥à¤•à¥à¤¤à¥‡à¤ƒ à¤ªà¤¾à¤°à¥à¤¶à¥à¤µ-à¤¯à¥‹à¤—à¥ˆà¤ƒ, the next row from the ADJACENT SUMS of the
+-- previous â€” stated by à¤¹à¤²à¤¾à¤¯à¥à¤§ in the à¤®à¥ƒà¤¤à¤¸à¤à¥à¤œà¥€à¤µà¤¨à¥€, 10th c.
 ------------------------------------------------------------------------
 
 module Chandomudra_ThePratyayasFibresWereWrittenInProseAndTheCensusCalledThemUndecided where
@@ -74,26 +74,26 @@ open import PingalaPrastara
   using (Pattern ; matraOf ; varna ; guruOf ; Metre ; Vak ; Chosen)
 
 ------------------------------------------------------------------------
--- à§ Â à®à¾ààà°à¾àµààààà®à â” a metre IS the fibre of the mtr-count.
+-- à¥§ Â· à¤®à¤¾à¤¤à¥à¤°à¤¾à¤µà¥ƒà¤¤à¥à¤¤à¤®à¥ â€” a metre IS the fibre of the mÄtrÄ-count.
 ------------------------------------------------------------------------
 
 à¤®à¤¾à¤¤à¥à¤°à¤¾-à¤¤à¤¨à¥à¤¤à¥à¤ƒ : (n : â„•) â†’ fiber matraOf n â‰¡ Metre n
 à¤®à¤¾à¤¤à¥à¤°à¤¾-à¤¤à¤¨à¥à¤¤à¥à¤ƒ n = refl
 
 ------------------------------------------------------------------------
--- à¨ Â àµà°àààµààààà®à â” and a syllable-metre is the fibre of the syllable count.
+-- à¥¨ Â· à¤µà¤°à¥à¤£à¤µà¥ƒà¤¤à¥à¤¤à¤®à¥ â€” and a syllable-metre is the fibre of the syllable count.
 ------------------------------------------------------------------------
 
 à¤µà¤°à¥à¤£-à¤¤à¤¨à¥à¤¤à¥à¤ƒ : (n : â„•) â†’ fiber varna n â‰¡ Vak n
 à¤µà¤°à¥à¤£-à¤¤à¤¨à¥à¤¤à¥à¤ƒ n = refl
 
 ------------------------------------------------------------------------
--- à© Â The joint fibre, which is NOT definitional.
+-- à¥© Â· The joint fibre, which is NOT definitional.
 --
--- `Chosen n k = Î[ p ] ((varna p â‰¡ n) — (guruOf p â‰¡ k))` â” a PAIR OF
--- EQUATIONS.  The fibre of the paired map is `Î[ p ] ((varna p , guruOf p)
--- â‰¡ (n , k))` â” an EQUATION OF PAIRS.  Those agree only through
--- `ÎPathP`/`ÎPathâ‰`, and the passage is exactly the content: measuring
+-- `Chosen n k = Î£[ p ] ((varna p â‰¡ n) Ã— (guruOf p â‰¡ k))` â€” a PAIR OF
+-- EQUATIONS.  The fibre of the paired map is `Î£[ p ] ((varna p , guruOf p)
+-- â‰¡ (n , k))` â€” an EQUATION OF PAIRS.  Those agree only through
+-- `Î£PathP`/`Î£Pathâ‰ƒ`, and the passage is exactly the content: measuring
 -- two observables jointly is not the same act as measuring each.
 ------------------------------------------------------------------------
 

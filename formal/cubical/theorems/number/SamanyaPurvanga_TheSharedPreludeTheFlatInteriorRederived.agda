@@ -3,35 +3,35 @@
 ------------------------------------------------------------------------
 -- SamanyaPurvanga_TheSharedPreludeTheFlatInteriorRederived
 --
--- smnya � "the common, the universal": the Vaieika padrtha under
+-- sāmānya — "the common, the universal": the Vaiśeṣika padārtha under
 -- which one character inheres in many individuals (Kada,
 -- *Vaieika-stra* 1.2.3, "smnya viea iti buddhy-apekam";
--- text dated c. 2nd c. BCE � 2nd c. CE, the date is not settled).
--- prvga � "preceding limb".  The definitions below are
+-- text dated c. 2nd c. BCE – 2nd c. CE, the date is not settled).
+-- prvga — "preceding limb".  The definitions below are
 -- the one character that in fact inheres in many modules of this corpus.
 --
 -- This module REDERIVES, once and in general form, what
--- 9�12 modules each prove locally:
+-- 9–12 modules each prove locally:
 --
---   Family A  eq� with refl/soundness/completeness/neq � 9 modules,
---             e.g. NaturalMachine/Obstruction.agda:162 (eq�-refl :168,
---             eq��≡ :172), CyclicAliasing.agda:153 (eq�-neq :163),
---             ResidueGlue.agda:90 (eq�-sound :100).  No one of the
+--   Family A  eqℕ with refl/soundness/completeness/neq — 9 modules,
+--             e.g. NaturalMachine/Obstruction.agda:162 (eqℕ-refl :168,
+--             eqℕ→≡ :172), CyclicAliasing.agda:153 (eqℕ-neq :163),
+--             ResidueGlue.agda:90 (eqℕ-sound :100).  No one of the
 --             nine has all four companion lemmas; this file does.
---   Family B  the Bool equality decider � 10 modules, three names
+--   Family B  the Bool equality decider — 10 modules, three names
 --             (eqBool/eqb/eqB), three presentations; one table here.
---   Family C  All / Any / _∈_ over lists � 12 modules corpus-wide,
+--   Family C  All / Any / _∈_ over lists — 12 modules corpus-wide,
 --             e.g. NaturalMachine/AscendingFirstIsTheWorstUnlessThe-
 --             ArchiveIsConstant.agda:86, WalkCapacity.agda:41;
 --             level-polymorphic here as in ElsewhereCondition.agda:122.
---   Family D  counting a Bool predicate over a list � 6 modules, with
+--   Family D  counting a Bool predicate over a list — 6 modules, with
 --             the length bound (RateOneIsExactlyTheUniversalClaim:74).
 --   Family E  the HeadDepthTwo.agda / HeadDepthMerge.agda ELEVEN-
---             definition verbatim toolkit: _%%_ _//_ _�?_ allList
+--             definition verbatim toolkit: _%%_ _//_ _≤?_ allList
 --             countList eqBool mrChain powMod power range vCap.
---   Family F  the componentwise (Pareto) order with transitivity �
---             3 modules (AParetoFitnessHasNoBest�:90, S13OptionSpread:78).
---   Family G  the mod-2 double recursion, made polymorphic � 4 modules
+--   Family F  the componentwise (Pareto) order with transitivity —
+--             3 modules (AParetoFitnessHasNoBest…:90, S13OptionSpread:78).
+--   Family G  the mod-2 double recursion, made polymorphic — 4 modules
 --             (ChargeGrading:134, TransmissionRefutations:176,
 --             PingalaPrastara:259, PiPartialOnEveryPrime:135).
 ------------------------------------------------------------------------
@@ -58,8 +58,8 @@ private
     A : Type ℓ
 
 ------------------------------------------------------------------------
--- Family A.  Boolean equality on �, with all four companion lemmas.
--- The Bool form is deliberate: the library's discrete� gives Dec, and
+-- Family A.  Boolean equality on ℕ, with all four companion lemmas.
+-- The Bool form is deliberate: the library's discreteℕ gives Dec, and
 -- the engine-style modules demonstrably want Bool (nine times over).
 ------------------------------------------------------------------------
 
@@ -90,7 +90,7 @@ eqℕ-neq (suc m) (suc n) q = eqℕ-neq m n (λ r → q (cong suc r))
 
 -- The builtin _==_ computes fastest on numerals (the HeadDepth kernels
 -- run on it); its soundness is the same induction, so certificates
--- phrased with _==_ need no detour through eq�.
+-- phrased with _==_ need no detour through eqℕ.
 
 ==-refl : (n : ℕ) → (n == n) ≡ true
 ==-refl zero    = refl
@@ -130,9 +130,9 @@ eqBool-complete a b p = subst (λ c → eqBool a c ≡ true) p (eqBool-refl a)
 
 ------------------------------------------------------------------------
 -- Family C.  All / Any / membership over lists, as recursive families
--- (an inductive _∈_ indexed by h � gs would rest on injectivity of _�_,
--- which Cubical Agda does not supply � ElsewhereCondition.agda:118).
--- Level-polymorphic, so both the Type� uses and the Guard-level uses
+-- (an inductive _∈_ indexed by h ∷ gs would rest on injectivity of _∷_,
+-- which Cubical Agda does not supply — ElsewhereCondition.agda:118).
+-- Level-polymorphic, so both the Type₀ uses and the Guard-level uses
 -- instantiate it.
 ------------------------------------------------------------------------
 
@@ -174,7 +174,7 @@ Any-witness (y ∷ ys) (inr m) =
   where r = Any-witness ys m
 
 ------------------------------------------------------------------------
--- Family D, and the Bool � Type bridge.  allList / countList are the
+-- Family D, and the Bool ⇄ Type bridge.  allList / countList are the
 -- kernel-certificate combinators (Family E's list half); the split
 -- lemmas connect their Bool verdicts to the All/Any families above,
 -- which no local copy in the corpus currently does.
@@ -221,7 +221,7 @@ countList≤length : (f : A → Bool) (xs : List A) → countList f xs ≤ lengt
 countList≤length f []       = zero-≤
 countList≤length f (x ∷ xs) = countStep (f x) _ _ (countList≤length f xs)
 
--- Decidable list membership on �, sound and complete against _∈_.
+-- Decidable list membership on ℕ, sound and complete against _∈_.
 elemℕ : ℕ → List ℕ → Bool
 elemℕ x []       = false
 elemℕ x (y ∷ ys) = eqℕ x y or elemℕ x ys
@@ -253,7 +253,7 @@ _//_ : ℕ → ℕ → ℕ
 n // zero  = 0
 n // suc m = div-helper 0 m n m
 
--- a � e as a Bool (builtin _<_ is Bool-valued)
+-- a ≤ e as a Bool (builtin _<_ is Bool-valued)
 _≤?_ : ℕ → ℕ → Bool
 a ≤? e = a < suc e
 
@@ -276,7 +276,7 @@ vCap (suc f) q n =
   if n == 0 then suc f
   else (if n %% q == 0 then suc (vCap f q (n // q)) else 0)
 
--- the Miller�Rabin squaring chain (the eleventh name of the pair)
+-- the Miller–Rabin squaring chain (the eleventh name of the pair)
 mrChain : ℕ → ℕ → ℕ → Bool
 mrChain n zero    x = false
 mrChain n (suc k) x =
@@ -291,7 +291,7 @@ range-length x zero    = refl
 range-length x (suc n) = cong suc (range-length (suc x) n)
 
 ------------------------------------------------------------------------
--- Family F.  The componentwise (Pareto) order on List �, with
+-- Family F.  The componentwise (Pareto) order on List ℕ, with
 -- reflexivity and transitivity.
 ------------------------------------------------------------------------
 
@@ -316,7 +316,7 @@ _≼_ : List ℕ → List ℕ → Type₀
 
 ------------------------------------------------------------------------
 -- Family G.  The mod-2 double recursion, once, polymorphic.  The four
--- corpus instances (Bool, � signs, Syllable, a proof-relevant sum) are
+-- corpus instances (Bool, ℤ signs, Syllable, a proof-relevant sum) are
 -- parityRec at four carriers.
 ------------------------------------------------------------------------
 

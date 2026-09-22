@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡µ‡ø‡‡‡‡æ‡∞ ‚î expansion.  THE PADDING LEMMA: A BEHAVIOR HAS UNBOUNDEDLY
+-- ‡§µ‡§ø‡§∏‡•ç‡§§‡§æ‡§∞ ‚Äî expansion.  THE PADDING LEMMA: A BEHAVIOR HAS UNBOUNDEDLY
 -- MANY PROGRAMS, SO THE CODE IS NOT DETERMINED BY THE RUN.
 --
 -- Rules whose source states lie above everything a machine can reach
@@ -9,15 +9,15 @@
 -- the tape ever sees.  This file proves it, and with it the classical
 -- padding lemma for the universal machine of Vishvayantra:
 --
---   `padding-invisible`  ‚î for M bounded below B, pad entirely at or
+--   `padding-invisible`  ‚Äî for M bounded below B, pad entirely at or
 --     above B, and a start state below B, every configuration of every
 --     run of M ++ pad equals the corresponding configuration of M.
 --
---   `padding-lemma`      ‚î hence an INJECTION prog : ‚ï ‚í Code, all of
+--   `padding-lemma`      ‚Äî hence an INJECTION prog : ‚Ñï ‚Üí Code, all of
 --     whose values run identically: the visible behavior map from
 --     codes to runs has a fibre with unboundedly many points.
 --
--- Read against Ekatva: the lossless completion of a map is unique ‚î
+-- Read against Ekatva: the lossless completion of a map is unique ‚Äî
 -- but the CODE of a behavior is maximally non-unique.  The fibre that
 -- is contractible is the trace of one fixed step; the fibre that is
 -- infinite is the preimage of a behavior in the space of tables.  The
@@ -214,7 +214,7 @@ module _ (B : ‚Ñï) where
   pads-length zero    = refl
   pads-length (suc j) = cong suc (pads-length j)
 
--- THE THEOREM.  For every bounded machine there is an injection of ‚ï
+-- THE THEOREM.  For every bounded machine there is an injection of ‚Ñï
 -- into Code all of whose values run identically: unboundedly many
 -- programs, one behavior.  The code is not a function of the run.
 padding-lemma : (B : ‚Ñï) (M : Code) ‚Üí StatesBelow B M ‚Üí

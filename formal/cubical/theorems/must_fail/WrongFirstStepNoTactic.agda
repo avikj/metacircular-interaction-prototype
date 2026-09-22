@@ -26,25 +26,25 @@
 -- for its §C `Compile` module, `AcceptanceTest` line 99 imports
 -- `Transport`, and `Transport` line 46 imports
 --
---     open import Cubical.Tactics.NatSolver.Reflection using (solve�!)
+--     open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
 --
 -- for two arithmetic lemmas (`ripple-lem1`, `ripple-lem2`).  Under Agda
 -- 2.6.3 with cubical v0.7, `Cubical/Tactics/Reflection.agda:92` does not
 -- scope-check: it uses `withReduceDefs`, which entered
 -- `Agda.Builtin.Reflection` in Agda 2.6.4.  (cubical v0.7 is released
 --
--- So in such a container `WrongFirstStep.agda` exits 42 � the correct
--- exit code � having never looked at its own last line.  An exit code
+-- So in such a container `WrongFirstStep.agda` exits 42 — the correct
+-- exit code — having never looked at its own last line.  An exit code
 -- cannot tell that apart from a control doing its job.  Every other file
 -- in `NaturalMachine/Control/` fails inside itself, at the line that
 -- carries its false claim; that one did not, and a control that fails for
 -- the wrong reason is not being tested.
 --
 -- The dependency is genuinely spurious: nothing on the path from
--- `generative-step` or from §G of `CompileBridge` touches `solve�!`.  It
+-- `generative-step` or from §G of `CompileBridge` touches `solveℕ!`.  It
 -- is dragged in by a sibling section of a module that must be checked as
 -- a whole.  This file cuts it by importing only
--- `Obstruction` � which typechecks in both toolchains �
+-- `Obstruction` — which typechecks in both toolchains —
 -- and inlining, VERBATIM, the fragment of `GenerativeLoop` and of
 -- `CompileBridge` §G that the assertion actually runs through.
 --
@@ -54,7 +54,7 @@
 -- `CompileBridge.first-step-names-resume` is `refl`: on the concrete task
 -- `taskTm` over the concrete `baseVocab`, the loop's own step function
 -- reduces to an obstruction whose residual is `resumeCap`.  The last line
--- below asserts the same thing at `tickCap` � a capability that IS
+-- below asserts the same thing at `tickCap` — a capability that IS
 -- installed in `baseVocab`, so the first step cannot name it.
 --
 -- `ResidualIs s V t (generative-step V t)` unfolds, on this instance, to
@@ -70,8 +70,8 @@
 -- is a definition that can drift.
 --
 --  (1) THE POSITIVE GUARD, §Z1 below.  Before the false claim, this file
---      states the TRUE one � `first-step-names-resume` itself, verbatim
---      from `CompileBridge:820-822` � and proves it by `refl`.  Agda
+--      states the TRUE one — `first-step-names-resume` itself, verbatim
+--      from `CompileBridge:820-822` — and proves it by `refl`.  Agda
 --      reports the first type error and stops.  So the pass condition of
 --      this file is not "it fails"; it is "it fails AT §Z2 AND NOT AT
 --      §Z1".  An error at §Z1 means the inlined copy no longer computes
@@ -95,7 +95,7 @@
 -- exit code 42, error verbatim and entire:
 --
 --   /home/user/math/formal/cubical/NaturalMachine/Control/WrongFirstStepNoTactic.agda:314,25-29
---   0 != 1 of type �
+--   0 != 1 of type ℕ
 --   when checking that the expression refl has type
 --   ResidualIs tickCap baseVocab taskTm
 --   (generative-step baseVocab taskTm)
@@ -125,7 +125,7 @@ open import ObstructionSubstrate
 open Obstruction
 
 ------------------------------------------------------------------------
--- INLINED §1.  NaturalMachine/GenerativeLoop.agda:274-288 � the measure.
+-- INLINED §1.  NaturalMachine/GenerativeLoop.agda:274-288 — the measure.
 -- Verbatim; the section comment is dropped.
 ------------------------------------------------------------------------
 
@@ -144,7 +144,7 @@ gaps s V var        = 0
 gaps s V (node c u) = gapAt s V c + gaps s V u
 
 ------------------------------------------------------------------------
--- INLINED §2.  NaturalMachine/GenerativeLoop.agda:318-368 � B1, the
+-- INLINED §2.  NaturalMachine/GenerativeLoop.agda:318-368 — B1, the
 -- measure splits exactly when one head is installed.  Verbatim.
 ------------------------------------------------------------------------
 
@@ -203,7 +203,7 @@ deficit-split s V (node c u) =
   ∙ shuffle (gapAt s V c) (delta (s ∷ V) c) (gaps s V u) (deficit (s ∷ V) u)
 
 ------------------------------------------------------------------------
--- INLINED §3.  NaturalMachine/GenerativeLoop.agda:381-390 � B2,
+-- INLINED §3.  NaturalMachine/GenerativeLoop.agda:381-390 — B2,
 -- occurrence and the strict decrease.  Verbatim.
 ------------------------------------------------------------------------
 
@@ -218,7 +218,7 @@ occurs→decreases s V t (j , p) =
       ∙ sym (deficit-split s V t) )
 
 ------------------------------------------------------------------------
--- INLINED §4.  NaturalMachine/GenerativeLoop.agda:410-444 � the probe
+-- INLINED §4.  NaturalMachine/GenerativeLoop.agda:410-444 — the probe
 -- and THE STEP FUNCTION.  Verbatim.  This is the computation the whole
 -- control is about: `probe` searches innermost-first, and `read` relabels
 -- its answer without touching the residual.
@@ -257,7 +257,7 @@ generative-step V t = read (probe V t)
   read (gap o occ)  = inr (o , occurs→decreases (residual o) V t occ)
 
 ------------------------------------------------------------------------
--- INLINED §5.  NaturalMachine/CompileBridge.agda:779-816 � §G, the
+-- INLINED §5.  NaturalMachine/CompileBridge.agda:779-816 — §G, the
 -- concrete task and the reading of a step result.  Verbatim.
 --
 --   resumeCap  "resume the odometer from a checkpoint word"  (missing)

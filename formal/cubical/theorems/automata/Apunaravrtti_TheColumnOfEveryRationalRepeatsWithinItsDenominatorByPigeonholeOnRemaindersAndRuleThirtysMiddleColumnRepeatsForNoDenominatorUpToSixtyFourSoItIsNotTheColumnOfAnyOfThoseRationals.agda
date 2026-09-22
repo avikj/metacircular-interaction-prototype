@@ -1,22 +1,22 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������������� � no return.
+-- अपुनरावृत्तिः — no return.
 --
 -- A binary column is the column of a rational a/(b+1) exactly when it is
--- produced by long division: the remainder recursion r� = a mod (b+1),
--- r��� = 2r� mod (b+1), digit n = [2r� � b+1].  The remainders are states
+-- produced by long division: the remainder recursion r₀ = a mod (b+1),
+-- rₙ₊₁ = 2rₙ mod (b+1), digit n = [2rₙ ≥ b+1].  The remainders are states
 -- below b+1, so among the first b+2 of them two coincide (pigeonhole),
 -- and a repeated state propagates: the column is eventually periodic
--- with period p � b+1 and preperiod N � b.  Rational � return.
+-- with period p ≤ b+1 and preperiod N ≤ b.  Rational ⟹ return.
 --
 -- Rule 30 (new cell = left ⊕ (centre ∨ right)) from a single seed has
--- the middle column 1101110011000101100100111010111 0 � .  Computed
+-- the middle column 1101110011000101100100111010111 0 … .  Computed
 -- here to depth 256 on a window the light cone never leaves, it has no
--- shift agreement with period � 64 and preperiod < 64 (§4: the witness
+-- shift agreement with period ≤ 64 and preperiod < 64 (§4: the witness
 -- of disagreement is found by search and verified as one boolean by
 -- refl).  So it is not the column of any rational with denominator
--- � 64 (§5: instances at depths 64, 128, 256).  Whether it returns at all is Wolfram's first Rule 30
+-- ≤ 64 (§5: instances at depths 64, 128, 256).  Whether it returns at all is Wolfram's first Rule 30
 -- prize problem (2019), open; what is decided here is decided exactly.
 --
 --   §1  the column of a rational;  §2  it repeats, with the bounds;
@@ -101,7 +101,7 @@ rational→periodic a b =
   where
   samīkaraṇa : (d u l : ℕ) → (l + u) + suc d ≡ (d + suc u) + l
   samīkaraṇa d u l = solveℕ!
-  -- suc d � v � suc b   and   u < v � suc b
+  -- suc d ≤ v ≤ suc b   and   u < v ≤ suc b
   p≤ : (d u v : ℕ) → d + suc u ≡ v → v < suc (suc b) → suc d ≤ suc b
   p≤ d u v du v< = ≤-trans (u , (+-suc u d ∙ cong suc (+-comm u d) ∙ sym (+-suc d u)) ∙ du) (pred-≤-pred v<)
   N< : (d u v : ℕ) → d + suc u ≡ v → v < suc (suc b) → u < suc b
@@ -144,7 +144,7 @@ columnList D = go D (seed D)
   go (suc n) row = nth D row ∷ go n (step′ false row)
 
 ------------------------------------------------------------------------
--- §4  the finite decision: for every period p � P and preperiod N < P,
+-- §4  the finite decision: for every period p ≤ P and preperiod N < P,
 --     a witness k where the column at N + k + p differs from N + k,
 --     found by search and checked as one boolean.
 ------------------------------------------------------------------------
@@ -181,7 +181,7 @@ allBelow (suc n) f = f n and allBelow n f
 checkAll : (D P : ℕ) → List Bool → Bool
 checkAll D P col = allBelow P (λ p → allBelow P (λ N → valid D col (suc p) N))
 
--- Bool � Prop bridges
+-- Bool → Prop bridges
 and-true : (x y : Bool) → (x and y) ≡ true → (x ≡ true) × (y ≡ true)
 and-true true  true  e = refl , refl
 and-true true  false e = E.rec (false≢true e)
@@ -214,7 +214,7 @@ valid-sound D col p N e =
 
 ------------------------------------------------------------------------
 -- §5  the theorem: Rule 30's middle column, to depth 64, is not the
---     column of any rational with denominator � 16.
+--     column of any rational with denominator ≤ 16.
 ------------------------------------------------------------------------
 
 module Instance (D P : ℕ) (nirṇaya : checkAll D P (columnList D) ≡ true) where
@@ -240,18 +240,18 @@ module Instance (D P : ℕ) (nirṇaya : checkAll D P (columnList D) ≡ true) w
    k<k+p : (N k d : ℕ) → N + k < N + k + suc d
    k<k+p N k d = d , solveℕ!
 
--- (P, D) = (16, 64): denominators � 16
+-- (P, D) = (16, 64): denominators ≤ 16
 nirṇaya₁₆ : checkAll 64 16 (columnList 64) ≡ true
 nirṇaya₁₆ = refl
 
--- (P, D) = (32, 128): denominators � 32
+-- (P, D) = (32, 128): denominators ≤ 32
 nirṇaya₃₂ : checkAll 128 32 (columnList 128) ≡ true
 nirṇaya₃₂ = refl
 
 open Instance 64 16 nirṇaya₁₆ public renaming (rule30≠rational to rule30≠rational₁₆)
 open Instance 128 32 nirṇaya₃₂ public renaming (rule30≠rational to rule30≠rational₃₂)
 
--- (P, D) = (64, 256): denominators � 64
+-- (P, D) = (64, 256): denominators ≤ 64
 nirṇaya₆₄ : checkAll 256 64 (columnList 256) ≡ true
 nirṇaya₆₄ = refl
 

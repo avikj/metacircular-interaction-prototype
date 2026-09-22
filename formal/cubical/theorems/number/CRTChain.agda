@@ -14,19 +14,19 @@
 -- two, so that a general frontier costs exactly one gcd computation per
 -- installed modulus and no new CRT reasoning at all.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE STATEMENT
 --
---     crtChain : (ms : List â•) â’ Coprimes ms
---              â’ Fin (suc (Prod ms)) â‰ Vec ms
+--     crtChain : (ms : List â„•) â†’ Coprimes ms
+--              â†’ Fin (suc (Prod ms)) â‰ƒ Vec ms
 --
 -- where a modulus is written as its predecessor (so every modulus is
 -- positive by construction), `Prod` is the predecessor of the product,
 -- `Vec` is the residue vector, and `Coprimes ms` asks only that each head
--- be coprime to the product of its tail â” which is what a walk supplies
--- by computation, one `gcdâ‰¡â’isGCD refl` per install.
+-- be coprime to the product of its tail â€” which is what a walk supplies
+-- by computation, one `gcdâ‰¡â†’isGCD refl` per install.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
 -- Here the coprimality is a hypothesis, and at any concrete frontier it is
 -- discharged by computing a gcd.
@@ -56,7 +56,7 @@ Prod : List â„• â†’ â„•
 Prod []       = 0
 Prod (m âˆ· ms) = (m + Prod ms) + m Â· Prod ms
 
--- (m+1)(p+1) = 1 + (m + p) + mÂp
+-- (m+1)(p+1) = 1 + (m + p) + mÂ·p
 prodStep : (m p : â„•) â†’ suc m Â· suc p â‰¡ suc ((m + p) + m Â· p)
 prodStep m p = cong (suc p +_) (Â·-suc m p) âˆ™ cong suc (rearr m p)
   where
@@ -68,7 +68,7 @@ Vec : List â„• â†’ Type
 Vec []       = Unit
 Vec (m âˆ· ms) = Fin (suc m) Ã— Vec ms
 
--- each head coprime to the product of its tail â” one gcd per install
+-- each head coprime to the product of its tail â€” one gcd per install
 Coprimes : List â„• â†’ Type
 Coprimes []       = Unit
 Coprimes (m âˆ· ms) = isGCD (suc m) (suc (Prod ms)) 1 Ã— Coprimes ms
@@ -88,8 +88,8 @@ crtChain (m âˆ· ms) (cop , rest) =
 -- 3.  It reproduces `WalkObservationCount` at frontier 8, from the same
 --     three gcd computations and no hand composition.
 --
---     moduli 8, 3, 5, 7  â¦  predecessors 7, 2, 4, 6
---     product 840        â¦  Prod = 839
+--     moduli 8, 3, 5, 7  â†¦  predecessors 7, 2, 4, 6
+--     product 840        â†¦  Prod = 839
 ------------------------------------------------------------------------
 
 walk8 : List â„•
@@ -115,20 +115,20 @@ walk8-residues = crtChain walk8 walk8-coprimes
 -- A frontier is now four lines: list the installed moduli, compute the
 -- gcds, apply `crtChain`.  `WalkObservationCount`'s hand-built
 -- three-step composition was the scaffolding, not the mathematics, and
--- the mathematics that remains missing is exactly one theorem â”
--- that distinct prime powers are coprime â” which is Euclid's lemma and
+-- the mathematics that remains missing is exactly one theorem â€”
+-- that distinct prime powers are coprime â€” which is Euclid's lemma and
 -- has `Kuttaka.bezout` waiting for it.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
 -- PROVENANCE.  The simultaneous-congruence result this module runs on:
 --
--- The **kuaka** (*ryabhaya* 2.32â“33, 499 CE) is a general
--- constructive method for exactly this problem â” given remainders against
--- two moduli, produce the number â” and Brahmagupta (628) and Bhskara II
--- (1150) extend it.  The *Sun Zi Suanjing* (c. 3rdâ“5th c.) poses the
+-- The **kuá¹­á¹­aka** (*Ä€ryabhaá¹­Ä«ya* 2.32â€“33, 499 CE) is a general
+-- constructive method for exactly this problem â€” given remainders against
+-- two moduli, produce the number â€” and Brahmagupta (628) and BhÄskara II
+-- (1150) extend it.  The *Sun Zi Suanjing* (c. 3rdâ€“5th c.) poses the
 -- problem with a rule for a special case; Qin Jiushao's general method is
 -- 1247.  Both traditions have it, and this file's own chain runs on the
 -- Indian one: `CoprimePowers`, `BezoutIsGCD` and `CoprimePowersN` all
--- carry B©zout certificates, which is what the pulveriser returns.
+-- carry BÃ©zout certificates, which is what the pulveriser returns.
 ------------------------------------------------------------------------

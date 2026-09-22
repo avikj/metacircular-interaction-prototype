@@ -22,8 +22,8 @@
 -- and its §5 step 4 says what "valid" is for: "transport the optimum
 -- WITH ITS WITNESS".
 --
--- THE OBJECTION.  `Lift_U(p) /= empty` is `� � Lift_U(p)`.  Step 4 needs
--- an element.  Between them sits `� Lift_U(p) ��`.  The note writes one
+-- THE OBJECTION.  `Lift_U(p) /= empty` is `¬ ¬ Lift_U(p)`.  Step 4 needs
+-- an element.  Between them sits `∥ Lift_U(p) ∥₁`.  The note writes one
 -- symbol for three different types, which is harmless classically and is
 -- not harmless here: this repository's substrate is `--cubical --safe`,
 -- where the three are genuinely different and the difference is exactly
@@ -39,21 +39,21 @@
 --       it survives intact.
 --
 --   §3  The residue at the level of WITNESSES.  For `A` and `B` sets,
---       `witness = fst : LiftFib U p � A` factors through
---       `� LiftFib U p ��` IF AND ONLY IF the lift is unique
---       (`factors�isProp`).  So the compression "replace the fibre by
+--       `witness = fst : LiftFib U p → A` factors through
+--       `∥ LiftFib U p ∥₁` IF AND ONLY IF the lift is unique
+--       (`factors↔isProp`).  So the compression "replace the fibre by
 --       mere inhabitation" is sound for asserting validity and unsound
 --       for performing step 4, with the exact boundary being uniqueness
---       of the lift � not a weakening one may take and repay later.
+--       of the lift — not a weakening one may take and repay later.
 --
 --   §4  The residue at the level of LOGIC.  Read at the generality the
 --       note states it, VALIDITY is the schema
 --
---         LiftDNS : for all sets A,B, all U : A � B and all p,
---                   � � LiftFib U p � � LiftFib U p ��
+--         LiftDNS : for all sets A,B, all U : A → B and all p,
+--                   ¬ ¬ LiftFib U p → ∥ LiftFib U p ∥₁
 --
---       and `liftDNS�LEM` shows this schema IMPLIES excluded middle for
---       propositions (`lem�liftDNS` gives the converse, so it IS
+--       and `liftDNS→LEM` shows this schema IMPLIES excluded middle for
+--       propositions (`lem→liftDNS` gives the converse, so it IS
 --       excluded middle).  The mechanism is `everySetIsAFibre`: every
 --       set is, up to equivalence, a lifting fibre of a map between
 --       sets, so the schema cannot be weaker than unrestricted
@@ -65,24 +65,24 @@
 --       wrong sentence.  Two paragraphs below VALIDITY it says "For
 --       discrete feasible candidate sets, ...".  `decLiftFib` shows that
 --       hypothesis is exactly what VALIDITY needs: given an ENUMERATION
---       `A � Fin n` and `Discrete B`, the fibre is decidable WITH
---       WITNESS, so all of `LiftFib`, `� LiftFib ��` and `� � LiftFib`
+--       `A ≃ Fin n` and `Discrete B`, the fibre is decidable WITH
+--       WITNESS, so all of `LiftFib`, `∥ LiftFib ∥₁` and `¬ ¬ LiftFib`
 --       coincide (`collapse`) and step 4 goes through.
 --
---  * Nothing here refutes `� � X � � X ��`.  It is independent, not
+--  * Nothing here refutes `¬ ¬ X → ∥ X ∥₁`.  It is independent, not
 --    false; §4 measures its strength, it does not contradict it.  In
 --    particular no module here proves any negation of a classical
 --    principle, and none could under `--safe` without postulates.
 --
---  * §5 uses a GIVEN enumeration `A � Fin n`, which is structure: the search
+--  * §5 uses a GIVEN enumeration `A ≃ Fin n`, which is structure: the search
 --    that produces the witness runs along a chosen enumeration.  (Contrast `LinearOrderFinite`,
---    where mere totality DOES suffice because the target `Dec (x � y)`
+--    where mere totality DOES suffice because the target `Dec (x ≤ y)`
 --    is a proposition.  The target here, an element of `A`, is not.)
 --
 --  * The equivalence in §4 is with excluded middle for PROPOSITIONS, at
 --    one universe level.  No choice principle is analysed.
 --
---  * §4 quantifies over arbitrary maps `U : A � B` between sets, whereas
+--  * §4 quantifies over arbitrary maps `U : A → B` between sets, whereas
 --    the note quantifies over the hom-action of a forgetful FUNCTOR.
 --    These coincide, by the following construction: let `C` have
 --    objects `{a,b}` with `Hom(a,b) = Dec P`, `Hom(b,a) = �`, and only
@@ -91,7 +91,7 @@
 --    Composition never pairs two non-identity arrows, so both are
 --    categories and `U` is a functor.
 --
---  * `� � X � � X �� ⟺ LEM` is standard folklore in univalent
+--  * `¬ ¬ X → ∥ X ∥₁ ⟺ LEM` is standard folklore in univalent
 --    foundations (the two are routinely observed to coincide only
 --    classically, e.g. the nLab discussion of double-negation as an
 --    approximation to truncation).  The content here is the AUDIT: §3's
@@ -166,7 +166,7 @@ module Pareto {A : Type ℓ} {B : Type ℓ'} {C : Type ℓ''}
   -- Consequently mere validity does give a mere upstairs optimum: the
   -- statement "some structured candidate is optimal" is a proposition
   -- once truncated, and truncation is functorial.  This is the most that
-  -- `� � ��` can deliver, and §3 says it is strictly less than step 4.
+  -- `∥ · ∥₁` can deliver, and §3 says it is strictly less than step 4.
   paretoLift∥ : (p : B) → MinD p → ∥ LiftFib U p ∥₁ → ∥ Σ[ f ∈ A ] MinC f ∥₁
   paretoLift∥ p min = Prop.map (λ l → witness l , paretoLift p min l)
 
@@ -176,25 +176,25 @@ module Pareto {A : Type ℓ} {B : Type ℓ'} {C : Type ℓ''}
 
 -- "`h` factors through mere inhabitation", with the factorisation
 -- required to compute correctly on witnesses.  This is precisely what
--- step 4 would need if the fibre had been compressed to `� � ��`.
+-- step 4 would need if the fibre had been compressed to `∥ · ∥₁`.
 FactorsThroughTrunc : {X : Type ℓ} {Y : Type ℓ'} (h : X → Y) → Type (ℓ-max ℓ ℓ')
 FactorsThroughTrunc {X = X} {Y = Y} h = Σ[ g ∈ (∥ X ∥₁ → Y) ] ((x : X) → g ∣ x ∣₁ ≡ h x)
 
 -- Any factorisation forces weak constancy.  Constructive, no hypotheses:
--- ALL elements of `� X ��` are equal, so `g` cannot tell witnesses apart.
+-- ALL elements of `∥ X ∥₁` are equal, so `g` cannot tell witnesses apart.
 factors→2Const : {X : Type ℓ} {Y : Type ℓ'} {h : X → Y}
                → FactorsThroughTrunc h → 2-Constant h
 factors→2Const (g , β) x y =
   sym (β x) ∙ cong g (squash₁ ∣ x ∣₁ ∣ y ∣₁) ∙ β y
 
 -- Converse, for `Y` a set: Kraus' factorisation of weakly constant maps.
--- (`rec�Set` is the library's; it is not reproved here.)
+-- (`rec→Set` is the library's; it is not reproved here.)
 2Const→factors : {X : Type ℓ} {Y : Type ℓ'} {h : X → Y}
                → isSet Y → 2-Constant h → FactorsThroughTrunc h
 2Const→factors {h = h} isSetY k = Prop.rec→Set isSetY h k , λ _ → refl
 
 -- Weak constancy of `witness` IS uniqueness of the lift, when `B` is a
--- set (so that `U f ≡ p` is a proposition and the fibre is a � over a
+-- set (so that `U f ≡ p` is a proposition and the fibre is a Σ over a
 -- subsingleton family).
 2Const-witness→isProp : {A : Type ℓ} {B : Type ℓ'} {U : A → B} {p : B}
                       → isSet B
@@ -211,7 +211,7 @@ isProp→2Const-witness ip l m = cong witness (ip l m)
 -- factors through mere validity exactly when the lift is unique.
 --
 -- Read as a prohibition: if a relaxed optimum `p` admits two distinct
--- structured lifts, then NO function on `� Lift_U(p) ��` performs step 4.
+-- structured lifts, then NO function on `∥ Lift_U(p) ∥₁` performs step 4.
 -- Truncating the fibre keeps the note's VALIDITY sentence and destroys
 -- the note's own step 4.  This is the compression that is unsound as a
 -- reusable move, stated exactly.
@@ -235,7 +235,7 @@ factors↔isProp : {A : Type ℓ} {B : Type ℓ'} {U : A → B} {p : B}
                × (isProp (LiftFib U p) → FactorsThroughTrunc (witness {U = U} {p = p}))
 factors↔isProp isSetA isSetB = factors→isProp isSetB , isProp→factors isSetA
 
--- A concrete instance of the prohibition: `U : Bool-like � Unit` has a
+-- A concrete instance of the prohibition: `U : Bool-like → Unit` has a
 -- two-element fibre, so its witness map admits no factorisation.
 -- (Stated over an arbitrary type with two provably distinct points, so
 -- that no `Bool` machinery is needed.)
@@ -262,7 +262,7 @@ LiftDNS : (ℓ : Level) → Type (ℓ-suc ℓ)
 LiftDNS ℓ = {A B : Type ℓ} → isSet A → isSet B → (U : A → B) (p : B)
           → ((LiftFib U p → ⊥) → ⊥) → ∥ LiftFib U p ∥₁
 
--- Every type is a lifting fibre: forget everything.  `�[ x ∈ X ] (tt* ≡ tt*)`
+-- Every type is a lifting fibre: forget everything.  `Σ[ x ∈ X ] (tt* ≡ tt*)`
 -- has contractible second component, so the fibre IS `X`.
 everySetIsAFibre : (X : Type ℓ) → LiftFib {A = X} {B = Unit* {ℓ}} (λ _ → tt*) tt* ≃ X
 everySetIsAFibre X =
@@ -280,7 +280,7 @@ private
 -- everything: the relaxed problem is trivial, so `p = tt*` is vacuously
 -- Pareto-optimal and its fibre is irrefutable.  VALIDITY hands back a
 -- mere decision, which is a proposition, so it untruncates.  Nothing
--- about optimisation is used � which is the point: the sentence is
+-- about optimisation is used — which is the point: the sentence is
 -- carrying a logical principle, not a fact about forgetting.
 liftDNS→LEM : LiftDNS ℓ → LEM ℓ
 liftDNS→LEM {ℓ = ℓ} dns P isPropP =
@@ -303,7 +303,7 @@ liftDNS→LEM {ℓ = ℓ} dns P isPropP =
 
 -- Converse: excluded middle does prove VALIDITY, so the two are
 -- equivalent and §4 has located the principle exactly, not merely a
--- lower bound.  (Decide `� fibre ��`, which is a proposition.)
+-- lower bound.  (Decide `∥ fibre ∥₁`, which is a proposition.)
 lem→liftDNS : LEM ℓ → LiftDNS ℓ
 lem→liftDNS lem {A = A} {B = B} _ _ U p nn =
   decide (lem ∥ LiftFib U p ∥₁ isPropPropTrunc)
@@ -317,7 +317,7 @@ lem→liftDNS lem {A = A} {B = B} _ _ U p nn =
 ------------------------------------------------------------------------
 
 -- Bounded search: a decidable predicate on a standard finite type is
--- decidable as a �, WITH the witness.  This is the constructive content
+-- decidable as a Σ, WITH the witness.  This is the constructive content
 -- of "for discrete feasible candidate sets".
 searchFin : (n : ℕ) (Q : Fin n → Type ℓ)
           → ((k : Fin n) → Dec (Q k)) → Dec (Σ[ k ∈ Fin n ] Q k)
@@ -334,7 +334,7 @@ searchFin (suc n) Q dq = step (dq (inl tt)) (searchFin n (λ k → Q (inr k)) (�
         neither (inr k  , q) = ¬r (k , q)
 
 -- With an ENUMERATION of the structured candidates and a discrete
--- relaxed target, the lifting fibre is decidable � and `yes` carries the
+-- relaxed target, the lifting fibre is decidable — and `yes` carries the
 -- lift itself, which is what §5 step 4 consumes.
 decLiftFib : {A : Type ℓ} {B : Type ℓ'} (n : ℕ) (enum : A ≃ Fin n)
            → Discrete B → (U : A → B) (p : B) → Dec (LiftFib U p)
@@ -347,7 +347,7 @@ decLiftFib {A = A} {B = B} n enum dB U p =
       Σ-cong-equiv enum
         (λ a → pathToEquiv (cong (λ z → U z ≡ p) (sym (retEq enum a))))
 
--- Under that hypothesis all four readings of the note's `Lift_U(p) /= �`
+-- Under that hypothesis all four readings of the note's `Lift_U(p) /= ∅`
 -- coincide, and VALIDITY is a theorem rather than an axiom.
 collapse : {A : Type ℓ} {B : Type ℓ'} (n : ℕ) (enum : A ≃ Fin n)
          → Discrete B → (U : A → B) (p : B)

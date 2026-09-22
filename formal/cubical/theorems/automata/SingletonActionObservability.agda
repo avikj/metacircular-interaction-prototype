@@ -5,7 +5,7 @@
 --
 -- Equality under every word in a one-action machine is exactly equality
 -- along every iterate of its underlying endomap.  The index change is the
--- checked equivalence � � List Unit from FreeMonoid, rather than an informal
+-- checked equivalence ℕ ≃ List Unit from FreeMonoid, rather than an informal
 -- identification of words with their lengths.
 --
 -- Composing this equivalence with ProductiveObservabilityBridge identifies
@@ -81,7 +81,7 @@ wordPath≃depthPath transition observe left right word =
       (cong observe (run-len transition observe left word))
       (cong observe (run-len transition observe right word)))
 
--- The full dependent products are equivalent.  `invEquiv FM.��Tally`
+-- The full dependent products are equivalent.  `invEquiv FM.ℕ≃Tally`
 -- reindexes a Unit-word by its length; equivΠ supplies both inverse laws.
 singletonFuture≃forever :
     (transition : X → X) (observe : X → O) {left right : X}

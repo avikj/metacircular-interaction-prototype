@@ -5,11 +5,11 @@
 --
 -- From counting to enumerating.
 --
--- SymmetryCardinality proves |Fin n � Fin n| ≡ n! � a cardinality,
+-- SymmetryCardinality proves |Fin n ≃ Fin n| ≡ n! — a cardinality,
 -- i.e. a mere count.  This module upgrades the count to a *checked
 -- enumeration*: an explicit equivalence
 --
---     symmetryEnum n : (Fin n � Fin n) � Fin (n !)
+--     symmetryEnum n : (Fin n ≃ Fin n) ≃ Fin (n !)
 --
 -- whose forward map assigns every permutation its index (its Lehmer
 -- code, read as a factorial-base numeral) and whose backward map
@@ -17,10 +17,10 @@
 -- step, not just a verification: `invEq (symmetryEnum n) k` computes
 -- the k-th permutation of Fin n.
 --
--- The equivalence is the composite of two library pieces �
---   lehmerEquiv    : (Fin n � Fin n) � LehmerCode n
---   lehmerFinEquiv : LehmerCode n � Fin (factorial n)
--- � transported along the structural-induction bridge
+-- The equivalence is the composite of two library pieces —
+--   lehmerEquiv    : (Fin n ≃ Fin n) ≃ LehmerCode n
+--   lehmerFinEquiv : LehmerCode n ≃ Fin (factorial n)
+-- — transported along the structural-induction bridge
 -- factorial≡! : LehmerCode.factorial n ≡ n ! from SymmetryCardinality.
 --
 -- Corollary, through the univalence keystone (PathIsSymmetry): the
@@ -44,7 +44,7 @@ open import PathIsSymmetry using (finPathIsSymmetry)
 -- 1.  The enumeration.
 ------------------------------------------------------------------------
 
--- Permutation � Lehmer code � factorial-base index, with the codomain
+-- Permutation ↦ Lehmer code ↦ factorial-base index, with the codomain
 -- rewritten from LehmerCode.factorial n to Data.Nat's n !.
 symmetryEnum : (n : ℕ) → (Fin n ≃ Fin n) ≃ Fin (n !)
 symmetryEnum n =
@@ -72,9 +72,9 @@ rank-unrank n = secEq (symmetryEnum n)
 -- 2.  Corollary through univalence: the loop space at the classifying
 --     point is enumerated.
 --
--- PathIsSymmetry identifies (Fin n ≡ Fin n) with (Fin n � Fin n) by
+-- PathIsSymmetry identifies (Fin n ≡ Fin n) with (Fin n ≃ Fin n) by
 -- univalence; composing with symmetryEnum enumerates the loops
--- themselves.  ΩGroup�Symmetric (loc. cit.) says this identification
+-- themselves.  ΩGroup≃Symmetric (loc. cit.) says this identification
 -- is a group isomorphism, so the indexing below is an enumeration of
 -- the underlying set of the loop group Ω(Type, Fin n).
 ------------------------------------------------------------------------
@@ -87,7 +87,7 @@ loopEnum n = compEquiv (finPathIsSymmetry n) (symmetryEnum n)
 --
 -- 0! = 1! = 1, so both enumerations land in Fin 1, which is
 -- contractible; the identity permutation must sit at index fzero, and
--- there is nothing else.  (These hold by contractibility � the subst
+-- there is nothing else.  (These hold by contractibility — the subst
 -- in symmetryEnum blocks definitional computation, so they are proved
 -- propositionally, which is all a set-level statement can ask for.)
 ------------------------------------------------------------------------
@@ -99,7 +99,7 @@ rank-id₁ : rank 1 (idEquiv (Fin 1)) ≡ fzero
 rank-id₁ = isContr→isProp isContrFin1 _ _
 
 -- Generation at the base case: the 0-th (only) permutation of a
--- one-element set is the identity.  (Fin 1 � Fin 1) is contractible
+-- one-element set is the identity.  (Fin 1 ≃ Fin 1) is contractible
 -- with centre idEquiv, so this too is propositional but canonical.
 unrank₁-id : unrank 1 fzero ≡ idEquiv (Fin 1)
 unrank₁-id = equivEq (funExt λ x → isContr→isProp isContrFin1 _ _)

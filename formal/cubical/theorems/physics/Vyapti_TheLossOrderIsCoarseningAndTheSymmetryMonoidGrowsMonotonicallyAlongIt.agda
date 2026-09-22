@@ -1,89 +1,89 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- р╡ррпр╛рррр┐ тФ ррррр▓рр░р ржр░рррир ррр░рХрррХр╛рр╛р р╡рржррзр┐р р
+-- рд╡реНрдпрд╛рдкреНрддрд┐ тАФ рд╕реНрдереВрд▓рддрд░реЗ рджрд░реНрд╢рдиреЗ рд╕рдВрд░рдХреНрд╖рдХрд╛рдгрд╛рдВ рд╡реГрджреНрдзрд┐рдГ ред
 --
 -- (as the observation grows coarser, the conserving flows grow with it.)
 --
--- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
+-- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
 -- WHAT THIS IS.  The corpus has the two poles of a scale and no scale.
 --
---   `Dhruva_тжagda` ┬зри тФ `isEquiv f тТ ррр░рХррррор f ╬ж тТ ╬ж a тЙб a`.  Nothing
+--   `Dhruva_тАжagda` ┬зреи тАФ `isEquiv f тЖТ рд╕рдВрд░рдХреНрд╖рдгрдореН f ╬ж тЖТ ╬ж a тЙб a`.  Nothing
 --   hidden, so nothing conserved and nothing moves.
 --
---   `Khahara_тжagda` ┬зрй тФ every endomorphism of A conserves f тЯ║ f is
+--   `Khahara_тАжagda` ┬зрей тАФ every endomorphism of A conserves f тЯ║ f is
 --   constant.  Total loss is exactly total symmetry.
 --
 -- Between them the corpus says "how much is lost" and has no object for
--- it.  The obvious move is a NUMBER тФ a fibre cardinality, an entropy тФ
+-- it.  The obvious move is a NUMBER тАФ a fibre cardinality, an entropy тАФ
 -- and that move is unavailable here (A is not finite, not a set, and no
 -- measure is in sight) and would in any case be the fitted-constant
 -- error this repository is built against.  The quantity is not a number.
 -- **It is an ORDER, and getting the order right is the whole content.**
 --
---     f р╡ррпр╛рррирЛрр┐ g   :=   ╬[ h ] (a : A) тТ g a тЙб h (f a)
+--     f рд╡реНрдпрд╛рдкреНрдиреЛрддрд┐ g   :=   ╬г[ h ] (a : A) тЖТ g a тЙб h (f a)
 --
--- "g factors through f" тФ g sees only what f sees, possibly less; g is
+-- "g factors through f" тАФ g sees only what f sees, possibly less; g is
 -- the COARSER observation, the one that loses at least as much.  This is
--- a preorder (┬зри), and along it:
+-- a preorder (┬зреи), and along it:
 --
---   ┬зрй  the conserving set GROWS:  f р╡ррпр╛рррирЛрр┐ g тТ ррр░рХррррор f ╬ж тТ
---       ррр░рХррррор g ╬ж.  A flow invisible to a fine observation is
+--   ┬зрей  the conserving set GROWS:  f рд╡реНрдпрд╛рдкреНрдиреЛрддрд┐ g тЖТ рд╕рдВрд░рдХреНрд╖рдгрдореН f ╬ж тЖТ
+--       рд╕рдВрд░рдХреНрд╖рдгрдореН g ╬ж.  A flow invisible to a fine observation is
 --       invisible to every coarsening of it.  Three rewrites, no
---       hypotheses on A, B, C, ╬ж тФ not h-sets, not finite, not
+--       hypotheses on A, B, C, ╬ж тАФ not h-sets, not finite, not
 --       equivalences.
---   ┬зр  and so do the fibres: a fibre of f maps into the corresponding
+--   ┬зрел  and so do the fibres: a fibre of f maps into the corresponding
 --       fibre of g.  The loss itself is monotone, not only its symmetry.
 --
--- ┬зр is why this is a unification and not a definition.  `idfun A` is a
+-- ┬зрек is why this is a unification and not a definition.  `idfun A` is a
 -- bottom of the order and any constant map is a top, so **Dhruva's pole
--- and Khahara's pole are the two ends of this one order**, and ┬зрй
--- REPROVES Dhruva ┬зри in one line: an equivalence lies at the bottom
--- (`f р╡ррпр╛рррирЛрр┐ idfun A`, witnessed by `invEq`/`retEq`), and
--- `ррр░рХррррор (idfun A) ╬ж` is definitionally `╬ж a тЙб a`.  Dhruva's proof
+-- and Khahara's pole are the two ends of this one order**, and ┬зрей
+-- REPROVES Dhruva ┬зреи in one line: an equivalence lies at the bottom
+-- (`f рд╡реНрдпрд╛рдкреНрдиреЛрддрд┐ idfun A`, witnessed by `invEq`/`retEq`), and
+-- `рд╕рдВрд░рдХреНрд╖рдгрдореН (idfun A) ╬ж` is definitionally `╬ж a тЙб a`.  Dhruva's proof
 -- used contractibility of a fibre; this one uses no fibre at all.
 --
--- ┬зр is the erasure half.  Landauer's bound is about a NON-INJECTIVE
+-- ┬зрем is the erasure half.  Landauer's bound is about a NON-INJECTIVE
 -- step, and non-injectivity of `╬ж` is the failure of `╬ж` to be an
 -- equivalence.  The forgetting is made a TYPE and never a number:
 --
---     р╡р┐ррроррр┐р ╬ж  :=  ╬[ a ] ╬[ a' ] (╬ж a тЙб ╬ж a') Ч ┬ (a тЙб a')
+--     рд╡рд┐рд╕реНрдореГрддрд┐рдГ ╬ж  :=  ╬г[ a ] ╬г[ a' ] (╬ж a тЙб ╬ж a') ├Ч ┬м (a тЙб a')
 --
--- and three terms: an equivalence forgets nothing (┬зр┬рз); an inhabitant
--- of р╡р┐ррроррр┐р exhibits a FIBRE OF ╬ж that fails to be a proposition
--- (┬зр┬ри) тФ so "what is forgotten is a fibre of ╬ж" is a statement about
+-- and three terms: an equivalence forgets nothing (┬зрем┬╖рез); an inhabitant
+-- of рд╡рд┐рд╕реНрдореГрддрд┐рдГ exhibits a FIBRE OF ╬ж that fails to be a proposition
+-- (┬зрем┬╖реи) тАФ so "what is forgotten is a fibre of ╬ж" is a statement about
 -- h-levels, which is the only sense in which this vocabulary can say
--- "how much"; and (┬зр┬рй) a flow that conserves f can only forget INSIDE
--- a fibre of f тФ the flow's loss is bounded by the observation's, which
+-- "how much"; and (┬зрем┬╖рей) a flow that conserves f can only forget INSIDE
+-- a fibre of f тАФ the flow's loss is bounded by the observation's, which
 -- is the composite of the two halves of this file.
 --
--- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
+-- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
 --
--- **The order is a preorder, not a partial order.**  `р╡ррпр╛рррирЛрр┐` has
--- reflexivity and transitivity (┬зри) and antisymmetry fails:
+-- **The order is a preorder, not a partial order.**  `рд╡реНрдпрд╛рдкреНрдиреЛрддрд┐` has
+-- reflexivity and transitivity (┬зрди) and antisymmetry fails:
 -- two maps can factor through each other without being equal.
 --
--- `isEquiv ╬ж тТ
--- ┬ р╡р┐ррроррр┐р ╬ж` is proved; the converse тФ that a non-equivalence
--- exhibits a р╡р┐ррроррр┐р тФ is CLASSICAL (it needs a collision to be found,
--- and a ┬(a тЙб a') to be produced from ┬(a тЙб a') failing) and is not
+-- `isEquiv ╬ж тЖТ
+-- ┬м рд╡рд┐рд╕реНрдореГрддрд┐рдГ ╬ж` is proved; the converse тАФ that a non-equivalence
+-- exhibits a рд╡рд┐рд╕реНрдореГрддрд┐рдГ тАФ is CLASSICAL (it needs a collision to be found,
+-- and a ┬м(a тЙб a') to be produced from ┬м(a тЙб a') failing) and is not
 -- available constructively.
 --
 -- **Everything lives at ONE universe level.**  Not for depth: `Dhruva`
--- declares `ррр░рХррррор` in a telescope `{A B : Type тУ}` with a single тУ,
+-- declares `рд╕рдВрд░рдХреНрд╖рдгрдореН` in a telescope `{A B : Type тДУ}` with a single тДУ,
 -- and this file reuses that definition rather than restating it, so it
 -- inherits the restriction.
 --
--- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
--- TERM.  р╡ррпр╛рррр┐ ┬ vypti тФ pervasion, the relation that makes an
+-- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
+-- TERM.  рд╡реНрдпрд╛рдкреНрддрд┐ ┬╖ vy─Бpti тАФ pervasion, the relation that makes an
 -- inference go through: wherever the hetu is, the sdhya is.  Gautama,
--- *риррпр╛рпррррр░* (~2nd c. CE); the definitional apparatus, the
--- р╡ррпр╛рррр┐ррЮрррХ, is рЧрЩррЧрр, *рррррр╡рр┐риррр╛рорр┐* (~1325).
+-- *рдиреНрдпрд╛рдпрд╕реВрддреНрд░* (~2nd c. CE); the definitional apparatus, the
+-- рд╡реНрдпрд╛рдкреНрддрд┐рдкрдЮреНрдЪрдХ, is рдЧрдЩреНрдЧреЗрд╢, *рддрддреНрддреНрд╡рдЪрд┐рдиреНрддрд╛рдордгрд┐* (~1325).
 --
 -- The
 -- Naiyyika relation holds between two PROPERTIES (sdhya pervades
--- hetu) and its whole difficulty is the рЙрр╛рзр┐, the defeating condition
--- тФ Gagea's five definitions exist because the naive one fails.  What
+-- hetu) and its whole difficulty is the рдЙрдкрд╛рдзрд┐, the defeating condition
+-- тАФ Gaс╣Еge┼Ыa's five definitions exist because the naive one fails.  What
 -- is defined below is a containment between two MAPS, it has no updhi,
 -- and it is not defeasible.  The word is borrowed for the shape
 -- "wherever the one identifies, the other identifies".
@@ -108,7 +108,7 @@ open import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
 private variable тДУ : Level
 
 ------------------------------------------------------------------------
--- рз ┬ р╡ррпр╛рррирЛрр┐ тФ the loss order.  `f р╡ррпр╛рррирЛрр┐ g` reads: g factors
+-- рез ┬╖ рд╡реНрдпрд╛рдкреНрдиреЛрддрд┐ тАФ the loss order.  `f рд╡реНрдпрд╛рдкреНрдиреЛрддрд┐ g` reads: g factors
 --     through f, i.e. g sees no more than f does, i.e. g loses at least
 --     as much.  The mediating h is data, not a property.
 ------------------------------------------------------------------------
@@ -131,9 +131,9 @@ _рд╡реНрдпрд╛рдкреНрдиреЛрддрд┐_ {A = A} {B = B} {C = C} f g =
 рд╡реНрдпрд╛рдкреНрддрд┐-рд╕рдВрдХреНрд░рдордГ (h , p) (h' , q) = h' тИШ h , ╬╗ a тЖТ q a тИЩ cong h' (p a)
 
 ------------------------------------------------------------------------
--- рй ┬ THE MONOTONICITY.  The conserving set grows along the order.
+-- рей ┬╖ THE MONOTONICITY.  The conserving set grows along the order.
 --
---     f р╡ррпр╛рррирЛрр┐ g  тТ  ррр░рХррррор f ╬ж  тТ  ррр░рХррррор g ╬ж
+--     f рд╡реНрдпрд╛рдкреНрдиреЛрддрд┐ g  тЖТ  рд╕рдВрд░рдХреНрд╖рдгрдореН f ╬ж  тЖТ  рд╕рдВрд░рдХреНрд╖рдгрдореН g ╬ж
 --
 -- A flow that a fine observation cannot see, no coarsening of that
 -- observation can see either.  Note what is NOT assumed: A, B, C are
@@ -149,7 +149,7 @@ _рд╡реНрдпрд╛рдкреНрдиреЛрддрд┐_ {A = A} {B = B} {C = C} f g =
 
 -- The conserving set is a submonoid of the endomorphisms, for every f:
 -- the identity conserves, and conservation is closed under composition.
--- (So "the symmetry MONOID grows" in ┬зрй is a statement about monoids and
+-- (So "the symmetry MONOID grows" in ┬зрей is a statement about monoids and
 -- not merely about sets of maps.)
 рд╕рдВрд░рдХреНрд╖рдгрдореН-рдиреЛ-рдХрд░реНрдо : {A : Type тДУ} {B : Type тДУ} (f : A тЖТ B)
                   тЖТ рд╕рдВрд░рдХреНрд╖рдгрдореН f (idfun A)
@@ -160,11 +160,11 @@ _рд╡реНрдпрд╛рдкреНрдиреЛрддрд┐_ {A = A} {B = B} {C = C} f g =
 рд╕рдВрд░рдХреНрд╖рдгрдореН-рд╕рдиреНрдзрд┐рдГ {f = f} c d a = c (_) тИЩ d a
 
 ------------------------------------------------------------------------
--- р ┬ THE TWO POLES ARE THE TWO ENDS OF THIS ORDER.
+-- рек ┬╖ THE TWO POLES ARE THE TWO ENDS OF THIS ORDER.
 --
 -- `idfun A` is a bottom and any constant map is a top.  So the scale
--- whose ends `Dhruva` ┬зри and `Khahara` ┬зрй describe is this order, and
--- ┬зрй is the interpolation neither file had.
+-- whose ends `Dhruva` ┬зреи and `Khahara` ┬зрей describe is this order, and
+-- ┬зрей is the interpolation neither file had.
 ------------------------------------------------------------------------
 
 -- bottom: the identity loses nothing, and everything factors through it.
@@ -178,8 +178,8 @@ _рд╡реНрдпрд╛рдкреНрдиреЛрддрд┐_ {A = A} {B = B} {C = C} f g =
 
 -- Khahara's easy half, at the top of the order: every endomorphism
 -- conserves a constant observation.  It is `refl`, and that is the
--- point тФ at the top the conserving set is the FULL endomorphism monoid
--- with no hypothesis at all, which is the ceiling ┬зрй climbs towards.
+-- point тАФ at the top the conserving set is the FULL endomorphism monoid
+-- with no hypothesis at all, which is the ceiling ┬зрей climbs towards.
 рд╕рд░реНрд╡-рдирд╛рд╢рдГ-рд╕рд░реНрд╡-рдЧрддрд┐рдГ : {A : Type тДУ} {C : Type тДУ} (c : C) (╬ж : A тЖТ A)
                     тЖТ рд╕рдВрд░рдХреНрд╖рдгрдореН (╬╗ (_ : A) тЖТ c) ╬ж
 рд╕рд░реНрд╡-рдирд╛рд╢рдГ-рд╕рд░реНрд╡-рдЧрддрд┐рдГ c ╬ж _ = refl
@@ -191,8 +191,8 @@ _рд╡реНрдпрд╛рдкреНрдиреЛрддрд┐_ {A = A} {B = B} {C = C} f g =
                   тЖТ f рд╡реНрдпрд╛рдкреНрдиреЛрддрд┐ (idfun A)
 рд╕рдорддреНрд╡рдореН-рдЕрдзрдГрд╕реНрдердореН f e = invEq (f , e) , ╬╗ a тЖТ sym (retEq (f , e) a)
 
--- DHRUVA ┬зри, REPROVED BY MONOTONICITY ALONE.  `ррр░рХррррор (idfun A) ╬ж`
--- unfolds definitionally to `(a : A) тТ ╬ж a тЙб a`, so pushing conservation
+-- DHRUVA ┬зреи, REPROVED BY MONOTONICITY ALONE.  `рд╕рдВрд░рдХреНрд╖рдгрдореН (idfun A) ╬ж`
+-- unfolds definitionally to `(a : A) тЖТ ╬ж a тЙб a`, so pushing conservation
 -- down to the bottom of the order IS the frozen-world theorem.  No fibre
 -- and no contractibility is used anywhere in this proof.
 рдирд╖реНрдЯ-рдЕрднрд╛рд╡реЗ-рдЧрддрд┐-рдЕрднрд╛рд╡рдГ-рд╡реНрдпрд╛рдкреНрддреНрдпрд╛ :
@@ -202,11 +202,11 @@ _рд╡реНрдпрд╛рдкреНрдиреЛрддрд┐_ {A = A} {B = B} {C = C} f g =
   рд╕рдВрд░рдХреНрд╖рдХ-рд╡реГрджреНрдзрд┐рдГ (рд╕рдорддреНрд╡рдореН-рдЕрдзрдГрд╕реНрдердореН f e)
 
 ------------------------------------------------------------------------
--- р ┬ THE LOSS ITSELF IS MONOTONE, not only its symmetry.
+-- рел ┬╖ THE LOSS ITSELF IS MONOTONE, not only its symmetry.
 --
--- ┬зр┬рз every fibre of the finer map lands in the corresponding fibre of
--- the coarser one тФ the coarsening never separates what f identified.
--- ┬зр┬ри the same fact on identifications alone.
+-- ┬зрел┬╖рез every fibre of the finer map lands in the corresponding fibre of
+-- the coarser one тАФ the coarsening never separates what f identified.
+-- ┬зрел┬╖реи the same fact on identifications alone.
 ------------------------------------------------------------------------
 
 рддрдиреНрддреБ-рд╡реГрджреНрдзрд┐рдГ : {A : Type тДУ} {B : Type тДУ} {C : Type тДУ}
@@ -220,7 +220,7 @@ _рд╡реНрдпрд╛рдкреНрдиреЛрддрд┐_ {A = A} {B = B} {C = C} f g =
 рд╕рдорддрд╛-рд╡реГрджреНрдзрд┐рдГ (h , p) a a' q = p a тИЩ cong h q тИЩ sym (p a')
 
 ------------------------------------------------------------------------
--- р ┬ р╡р┐ррроррр┐р тФ FORGETTING AS A TYPE.
+-- рем ┬╖ рд╡рд┐рд╕реНрдореГрддрд┐рдГ тАФ FORGETTING AS A TYPE.
 --
 -- Landauer's bound is about an erasing, i.e. non-injective, step.  Here
 -- the erasing is a type and never a number.
@@ -229,29 +229,29 @@ _рд╡реНрдпрд╛рдкреНрдиреЛрддрд┐_ {A = A} {B = B} {C = C} f g =
 рд╡рд┐рд╕реНрдореГрддрд┐рдГ : {A : Type тДУ} тЖТ (A тЖТ A) тЖТ Type тДУ
 рд╡рд┐рд╕реНрдореГрддрд┐рдГ {A = A} ╬ж = ╬г[ a тИИ A ] ╬г[ a' тИИ A ] (╬ж a тЙб ╬ж a') ├Ч (┬м (a тЙб a'))
 
--- р┬рз ┬ A reversible flow forgets nothing.  (`Machine`'s groupoid is
+--   A reversible flow forgets nothing.  (рд╕рдорддреНрд╡реЗрд╕рдорддреНрд╡реЗ`Machine`'s groupoid isрдирд╡рд┐рд╕реНрдореГрддрд┐рдГ
 -- exactly the case where this type is empty for every operation.)
 рд╕рдорддреНрд╡реЗ-рди-рд╡рд┐рд╕реНрдореГрддрд┐рдГ : {A : Type тДУ} {╬ж : A тЖТ A} тЖТ isEquiv ╬ж тЖТ ┬м рд╡рд┐рд╕реНрдореГрддрд┐рдГ ╬ж
 рд╕рдорддреНрд╡реЗ-рди-рд╡рд┐рд╕реНрдореГрддрд┐рдГ {╬ж = ╬ж} e (a , a' , q , n) =
   n (sym (retEq (╬ж , e) a) тИЩ cong (invEq (╬ж , e)) q тИЩ retEq (╬ж , e) a')
 
--- р┬ри ┬ WHAT IS FORGOTTEN IS A FIBRE OF ╬ж тФ and the "how much" is an
+-- рем┬╖реи ┬╖ WHAT IS FORGOTTEN IS A FIBRE OF ╬ж тАФ and the "how much" is an
 -- h-level, the only sense of magnitude this vocabulary owns.  An
--- inhabitant of р╡р┐ррроррр┐р exhibits a point of A over which the fibre of
+-- inhabitant of рд╡рд┐рд╕реНрдореГрддрд┐рдГ exhibits a point of A over which the fibre of
 -- ╬ж fails to be a proposition.  (For an equivalence every such fibre is
--- contractible, hence a proposition тФ which is р┬рз from the other side.)
+-- contractible, hence a proposition тАФ which is рем┬╖рез from the other side.)
 рд╡рд┐рд╕реНрдореГрддрд┐рдГ-рддрдиреНрддреБрдГ : {A : Type тДУ} {╬ж : A тЖТ A}
                  тЖТ рд╡рд┐рд╕реНрдореГрддрд┐рдГ ╬ж тЖТ ╬г[ b тИИ A ] (┬м isProp (fiber ╬ж b))
 рд╡рд┐рд╕реНрдореГрддрд┐рдГ-рддрдиреНрддреБрдГ {╬ж = ╬ж} (a , a' , q , n) =
   ╬ж a , ╬╗ pr тЖТ n (cong fst (pr (a , refl) (a' , sym q)))
 
--- р┬рй ┬ A CONSERVING FLOW CAN ONLY FORGET INSIDE A FIBRE OF f.
+-- рем┬╖рей ┬╖ A CONSERVING FLOW CAN ONLY FORGET INSIDE A FIBRE OF f.
 --
 -- The flow's loss is bounded by the observation's loss, in the only
 -- currency available: if ╬ж conserves f and ╬ж collides a with a', then f
--- had already identified a with a'.  So `Dhruva`'s fibre тФ the room a
--- symmetry needs in order to exist тФ is also the room an erasure needs.
--- Composed with р┬ри: the forgotten fibre of ╬ж sits inside a fibre of f.
+-- had already identified a with a'.  So `Dhruva`'s fibre тАФ the room a
+-- symmetry needs in order to exist тАФ is also the room an erasure needs.
+-- Composed with рем┬╖реи: the forgotten fibre of ╬ж sits inside a fibre of f.
 рд╡рд┐рд╕реНрдорд░рдгрдВ-рддрдиреНрддреМ : {A : Type тДУ} {B : Type тДУ} {f : A тЖТ B} {╬ж : A тЖТ A}
                тЖТ рд╕рдВрд░рдХреНрд╖рдгрдореН f ╬ж тЖТ (a a' : A) тЖТ ╬ж a тЙб ╬ж a' тЖТ f a тЙб f a'
 рд╡рд┐рд╕реНрдорд░рдгрдВ-рддрдиреНрддреМ {f = f} cons a a' q =

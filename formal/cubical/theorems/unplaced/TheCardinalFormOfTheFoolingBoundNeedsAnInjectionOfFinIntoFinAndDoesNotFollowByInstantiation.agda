@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- TheCardinalFormOfTheFoolingBoundNeedsAnInjectionOfFinIntoFinAndDoesNotFollowByInstantiation
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE LINE, AND WHAT IT DECLARED IT WAS NOT DOING
 --
 --   AFoolingPairForcesTwoRectangles       one sound rectangle cannot
@@ -14,14 +14,14 @@
 --                                         and therefore `n` rectangles
 --                                         cannot serve `suc n` cells
 --
--- The second said, in its own words: *"INJECTIVITY IS NOT 'â‰ k'.
+-- The second said, in its own words: *"INJECTIVITY IS NOT 'â‰¥ k'.
 -- Turning 'distinct cells get distinct rectangles' into 'at least k
 -- rectangles' is a COUNTING step."*  The third supplied the counting
 -- step **in contrapositive form**, and justified that choice:
 --
 --   "'At least k rectangles' is a statement about a cardinal, and a
 --    cardinal needs the cover's index to be finite and to be COUNTED.
---    â¦ **That is the whole content of the numeric claim and it is
+--    â€¦ **That is the whole content of the numeric claim and it is
 --    stated without a cardinality.**"
 --
 -- The first half is exactly right.  **The last sentence is the corpus's
@@ -32,32 +32,32 @@
 --   cells, the contrapositive carries everything the inequality would.
 --
 --   STRONG, and false.  The cardinal statement quantifies over covers
---   of ARBITRARY size `m` and concludes `suc n â‰ m`.  **That does not
+--   of ARBITRARY size `m` and concludes `suc n â‰¤ m`.  **That does not
 --   follow from the third module by instantiation**, and Â§2 below says
 --   precisely why: its `rects` is indexed by `Fin n`, so a cover of `m`
---   rectangles with `m â‰ n` cannot be handed to it at all â” extending
+--   rectangles with `m â‰¤ n` cannot be handed to it at all â€” extending
 --   `rects` to `Fin n` would require inventing rectangles and proving
---   them sound.  What is needed instead is an INJECTION `Fin m â Fin n`,
+--   them sound.  What is needed instead is an INJECTION `Fin m â†ª Fin n`,
 --   and that injection is the arithmetic the module was avoiding.
 --
 -- WHAT IS PROVED
 --
 --   finIncl / finInclInjective
---                    `m â‰ n` gives an injection `Fin m â’ Fin n`.  In
---                    v0.5 `Fin n = Î[ k âˆˆ â• ] k < n`, so this is
---                    `<â‰-trans` on the proof component and injectivity
---                    is `toâ•-injective` â” the underlying â• is untouched,
---                    which is why `cong toâ•` suffices.
+--                    `m â‰¤ n` gives an injection `Fin m â†’ Fin n`.  In
+--                    v0.5 `Fin n = Î£[ k âˆˆ â„• ] k < n`, so this is
+--                    `<â‰¤-trans` on the proof component and injectivity
+--                    is `toâ„•-injective` â€” the underlying â„• is untouched,
+--                    which is why `cong toâ„•` suffices.
 --   atLeastSucNRectangles
 --                    **the cardinal form**: a fooling family of `suc n`
 --                    cells, covered soundly by ANY `Fin m`-indexed
---                    family under ANY assignment, forces `suc n â‰ m`.
+--                    family under ANY assignment, forces `suc n â‰¤ m`.
 --
 -- HOW THE THREE CASES ARE PAID FOR, since this is where the counting
 -- actually lives.  On `suc n â‰Ÿ m` (`Trichotomy`, kernel-decidable):
---   lt   `suc n < m`   â’ `<-weaken`, free
---   eq   `suc n â‰¡ m`   â’ `subst` on `â‰-refl`, free
---   gt   `m < suc n`   â’ `pred-â‰-pred` gives `m â‰ n`, then the
+--   lt   `suc n < m`   â†’ `<-weaken`, free
+--   eq   `suc n â‰¡ m`   â†’ `subst` on `â‰¤-refl`, free
+--   gt   `m < suc n`   â†’ `pred-â‰¤-pred` gives `m â‰¤ n`, then the
 --                        injection, then `pigeonhole-special`, then the
 --                        line's own injectivity theorem.  **Only this
 --                        branch does any work, and it is the branch the
@@ -88,7 +88,7 @@ open import AFoolingSetForcesDistinctRectangles
   using (Fooling ; foolingSetForcesDistinctRectangles)
 
 ------------------------------------------------------------------------
--- 1.  m â‰ n gives an injection Fin m â’ Fin n
+-- 1.  m â‰¤ n gives an injection Fin m â†’ Fin n
 --
 -- Nothing about fooling sets here; this is the missing ingredient, and
 -- it is stated separately so that its cost is visible.
@@ -151,13 +151,13 @@ module _ (Row Col : Type) (M : Row â†’ Col â†’ Bool) where
 -- 3.  What changed, stated as a difference and not as a completion
 --
 -- `NRectanglesCannotCoverSucNFoolingCells` is the `m â‰¡ n` diagonal of
--- Â§2 read contrapositively, and Â§2 is not a strengthening OF it â” the
+-- Â§2 read contrapositively, and Â§2 is not a strengthening OF it â€” the
 -- two have different hypotheses and neither is an instance of the
 -- other:
 --
---   that module   fixes the cover's index at `Fin n` and concludes `âŠ`
+--   that module   fixes the cover's index at `Fin n` and concludes `âŠ¥`
 --   Â§2            leaves the index at `Fin m` and concludes an
---                 inequality in â•
+--                 inequality in â„•
 --
 -- Going from the first to the second is not weakening a hypothesis; it
 -- is supplying `finIncl`, which did not exist on this line.  A reader

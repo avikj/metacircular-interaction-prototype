@@ -6,14 +6,14 @@ typechecker, and the derived-sense case is refuted outright
 
 Foundations of type theory / measurement and identifiability
 
-The parasparasraya objection â” each of two things established only
+The parasparasraya objection â€” each of two things established only
 through the other, catalogued across a millennium of Nyaya and Jaina
-literature as a defect of definition â” is answered here by a criterion
+literature as a defect of definition â€” is answered here by a criterion
 rather than a concession, and the criterion is mechanical.  A mutual
 pair whose leaning is productive exists: two streams defined in one
 mutual block, each the tail of the other, are accepted under the
 guardedness discipline, proved distinct, and close their circle by
-reduction at depth two â” the period of the orbit is computed, not
+reduction at depth two â€” the period of the orbit is computed, not
 argued.  The same pair with the guard removed is the negative control,
 and it dies where it must: the productivity checker rejects it naming
 the two offending calls.  The distance between the tradition's fallacy
@@ -23,8 +23,8 @@ generative.
 
 The second face is a record, and it is where the notion earns its name.
 An interdependent pair over a state space is two observables, a named
-blind pair for each â” two states, their distinctness, and the
-identification that observable cannot avoid making â” and joint
+blind pair for each â€” two states, their distinctness, and the
+identification that observable cannot avoid making â€” and joint
 faithfulness.  The record is inhabited at the smallest complete
 instance, and three theorems fall out of it generically, using no
 instance data.  Each observable provably separates every blind pair of
@@ -32,7 +32,7 @@ the other: interdependence forces complementary vision.  Neither
 observable can be discarded: a constant replacement for either refutes
 the record through the other's blindness.  And the collision that
 closes the account: a pair in which the second sense factors through
-the first is refuted outright, in both directions â” joint faithfulness
+the first is refuted outright, in both directions â€” joint faithfulness
 forces the second sense to separate the first's blind pair, while
 factoring forces it blind there, and the two demands cannot coexist.
 An interdependent pair therefore contains no derived member.  Neither
@@ -42,8 +42,8 @@ redundancy.
 
 The complement is priced exactly.  For a sensorium S and a derived
 reading q factoring through it, with q landing in a set, the agreement
-type of the extended family at any two states is equal â” by univalence,
-as a path in the universe, not merely equivalent â” to the agreement
+type of the extended family at any two states is equal â€” by univalence,
+as a path in the universe, not merely equivalent â€” to the agreement
 type of S alone.  Adjoining a derived sense moves the
 indistinguishability relation not at all, and the non-movement is a
 type equality that transports.  A dashboard buys no vision; only a

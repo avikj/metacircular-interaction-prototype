@@ -1,12 +1,12 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Asiddhatva â” Pini 8.2.1 as a termination technique for rewriting
+-- Asiddhatva â€” PÄá¹‡ini 8.2.1 as a termination technique for rewriting
 -- systems, with the impossibility half that makes it necessary.
 --
 -- THE SOURCE.  Adhyy 8.2.1, `prvatrsiddham`: everything from this
--- stra to the end of the text is asiddha â” "as if not having taken
--- effect" â” with respect to everything before it.  The last three quarter-
+-- sÅ«tra to the end of the text is asiddha â€” "as if not having taken
+-- effect" â€” with respect to everything before it.  The last three quarter-
 -- chapters (8.2, 8.3, 8.4, the tripd) therefore produce output that the
 -- preceding rules, and the earlier rules *within* the tripd, cannot
 -- observe.  Pini, ~500 BCE; Ktyyana's vrttikas ~250 BCE; Patajali's
@@ -30,29 +30,29 @@
 --   noNormalForm      the unstratified system has NO normal form: every
 --                     element of the carrier admits a step.  Exhaustive,
 --                     three cases.
---   noNormalizer      hence no normalizing function exists at all â” not a
+--   noNormalizer      hence no normalizing function exists at all â€” not a
 --                     clever one, not any.
 --   everyLength       and reductions of every finite length exist from
 --                     every point.
 --
---   noStrictOrder     THE SHARP ONE.  There is no strict order â” merely
---                     irreflexive and transitive â” in which every rule
+--   noStrictOrder     THE SHARP ONE.  There is no strict order â€” merely
+--                     irreflexive and transitive â€” in which every rule
 --                     step decreases.  Not a reduction order; not even a
 --                     strict partial order.  So EVERY termination
 --                     technique that works by exhibiting such an order
 --                     fails on this system: recursive path orders, the
---                     Knuthâ“Bendix order, polynomial interpretations,
---                     matrix interpretations, and Knuthâ“Bendix completion
+--                     Knuthâ€“Bendix order, polynomial interpretations,
+--                     matrix interpretations, and Knuthâ€“Bendix completion
 --                     itself, which is parameterised by a reduction order
 --                     and cannot orient a cycle.  The proof is four lines:
 --                     k > g and g > k give k > k.
 --
---   vkByRefl         the stratified evaluator computes vc â¦ vk on the
+--   vÄkByRefl         the stratified evaluator computes vÄc â†¦ vÄk on the
 --                     nose, and is a total function, accepted by the
 --                     termination checker.
 --   asiddhaLoadBearing
 --                     and its result is NOT a fixpoint of the earlier
---                     stratum â” 8.2.39 would fire on it.  The refusal is
+--                     stratum â€” 8.2.39 would fire on it.  The refusal is
 --                     what terminates the system.  Take asiddhatva away and
 --                     `noNormalForm` is what you have left.
 --
@@ -64,13 +64,13 @@
 --
 -- PRIOR ART.  The
 -- qualitative parallel is documented:
--- asiddhatva has long been read as rule-suspension / level ordering â”
+-- asiddhatva has long been read as rule-suspension / level ordering â€”
 -- Kiparsky, "On the Architecture of Pini's Grammar" (
 -- Computational Linguistics, LNCS 5402, 2009, and earlier circulated
 -- versions), and a full monograph exists on the suspension principle
 -- itself.  Stratified and hierarchical termination is also known in
--- rewriting theory (Bergstraâ“Klop on layered systems; Ohlebusch on
--- modularity of termination, 1990s) â” so the technique is not unknown to
+-- rewriting theory (Bergstraâ€“Klop on layered systems; Ohlebusch on
+-- modularity of termination, 1990s) â€” so the technique is not unknown to
 -- the field, it is *late* to it, and it is not what the field teaches as
 -- the general method.  What is
 -- checked here is the impossibility half: the exhibition of a rule pair
@@ -141,7 +141,7 @@ oneStep g = k , (vÄvasÄne    , fire-8-4-56)
 noNormalForm : (x : Antya) â†’ Â¬ (Normal x)
 noNormalForm x nf = nf (fst (oneStep x)) (snd (oneStep x))
 
--- Hence no normalizing function exists â” not a clever strategy, none.
+-- Hence no normalizing function exists â€” not a clever strategy, none.
 noNormalizer : Â¬ (Î£ (Antya â†’ Antya) (Î» f â†’ (x : Antya) â†’ Normal (f x)))
 noNormalizer (f , nf) = noNormalForm (f c) (nf c)
 
@@ -159,8 +159,8 @@ everyLength (suc n) x =
 ------------------------------------------------------------------------
 -- 5.  THE IMPOSSIBILITY.  No strict order orients this system.
 --
---     A reduction order â” what every order-based termination method and
---     Knuthâ“Bendix completion require â” is in particular irreflexive and
+--     A reduction order â€” what every order-based termination method and
+--     Knuthâ€“Bendix completion require â€” is in particular irreflexive and
 --     transitive.  Only those two properties are used below, so the result
 --     is strictly stronger than "no reduction order": not even a bare
 --     strict partial order will do.
@@ -171,7 +171,7 @@ record StrictOrder (R : Antya â†’ Antya â†’ Type) : Type where
     irrefl : (x : Antya) â†’ Â¬ (R x x)
     transâŸ¨âŸ© : {x y z : Antya} â†’ R x y â†’ R y z â†’ R x z
 
--- R orients the system: for every rule step x âŸ y we have x R y ("x > y").
+-- R orients the system: for every rule step x âŸ¶ y we have x R y ("x > y").
 Orients : (Antya â†’ Antya â†’ Type) â†’ Type
 Orients R = {x y : Antya} â†’ x âŸ¶ y â†’ R x y
 
@@ -224,7 +224,7 @@ sat84-fixed g = refl
 tripÄdÄ« : Antya â†’ Antya
 tripÄdÄ« x = sat84 (sat82 x)
 
--- vc â¦ vk, on the nose
+-- vÄc â†¦ vÄk, on the nose
 vÄkByRefl : tripÄdÄ« c â‰¡ k
 vÄkByRefl = refl
 
@@ -253,7 +253,7 @@ eightTwoThirtyNineWouldFire : (tripÄdÄ« c) âŸ¶âŸ¨ jhalÄá¹ƒ-jaÅ›o âŸ© g
 eightTwoThirtyNineWouldFire = fire-8-2-39
 
 -- and it is refused because its quarter precedes the one that produced
--- the form it would consume â” which is what 8.2.1 says, and all it says.
+-- the form it would consume â€” which is what 8.2.1 says, and all it says.
 refusedBecauseEarlier : pÄda jhalÄá¹ƒ-jaÅ›o â‰¡ 2
 refusedBecauseEarlier = refl
 
@@ -264,23 +264,23 @@ producedByLater = refl
 -- WHICH STRA THIS MODULE IS ABOUT.  The corpus contains a second module
 -- about \"asiddhatva\" that models the other one.
 --
--- This file is 8.2.1 ààà°ààµààà°à¾àà¿à¦àà§à®à: any SUBSEQUENT rule is asiddha with
+-- This file is 8.2.1 à¤ªà¥‚à¤°à¥à¤µà¤¤à¥à¤°à¤¾à¤¸à¤¿à¤¦à¥à¤§à¤®à¥: any SUBSEQUENT rule is asiddha with
 -- respect to any rule that PRECEDES it, so the tripd applies strictly in
 -- the order enumerated and the later output is invisible backwards.  That
 -- one-way, backwards blindness is exactly what `tripd` implements above
 -- and exactly what `asiddhaLoadBearing` shows is doing the work: without
--- it, 8.2.39 and 8.4.56 cycle k â’ g â’ k forever, and Â§5 proves no strict
+-- it, 8.2.39 and 8.4.56 cycle k â†’ g â†’ k forever, and Â§5 proves no strict
 -- order can stop them.
 --
 -- `NaturalMachine/AsiddhatvaBreaksFactoring.agda` proves a different
 -- thing -- that a rule reading a form ERASURE has already
 -- destroyed does not factor through the current form.  That behaviour, "sees the form as it was, not as it now is",
--- is 6.4.22 ààà¿à¦àà§àµà¦ààà°à¾àà¾àà: inside the block 6.4.22-6.4.129 the rules are
+-- is 6.4.22 à¤…à¤¸à¤¿à¤¦à¥à¤§à¤µà¤¦à¤¤à¥à¤°à¤¾à¤­à¤¾à¤¤à¥: inside the block 6.4.22-6.4.129 the rules are
 -- asiddhavat with respect to EACH OTHER and apply as if simultaneously.
 -- Mutual and simultaneous, not one-way and ordered.
 --
 -- THE TWO ARE THE TWO POLES OF ONE DISTINCTION, and the corpus already
--- names it in Jain terms: `Saptabhangi.à•àà°à®-àà-ààà¦à` proves that krama
+-- names it in Jain terms: `Saptabhangi.à¤•à¥à¤°à¤®-à¤¸à¤¹-à¤­à¥‡à¤¦à¤ƒ` proves that krama
 -- (successive) and saha (simultaneous) arpaa reach different positions,
 -- so simultaneity is not sequential both-ness.  Read across:
 --

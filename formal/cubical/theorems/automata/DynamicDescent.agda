@@ -13,9 +13,9 @@
 -- a DYNAMICS.  Quotienting by ker P discards distinctions that later
 -- become visible; the only safe quotient is by
 --
---     N_obs = ‚ã_{n‚â0} ker (P ‚àò T‚ø)
+--     N_obs = ‚ãÇ_{n‚â•0} ker (P ‚àò T‚Åø)
 --
--- the distinctions invisible FOREVER.  Everything in between returns ‚î
+-- the distinctions invisible FOREVER.  Everything in between returns ‚Äî
 -- as memory.
 --
 -- RELATED.
@@ -25,9 +25,9 @@
 --
 -- What is added here is the part a general identity does not carry: a
 -- numeric WITNESS that closure actually fails (`excursionObstruction`),
--- the converse direction (`closureIff` ‚î an exact one-step summary
+-- the converse direction (`closureIff` ‚Äî an exact one-step summary
 -- FORCES the excursion to vanish), and the asymmetry
--- (`pureLeakageIsFree` ‚î leaving costs nothing, only returning does).
+-- (`pureLeakageIsFree` ‚Äî leaving costs nothing, only returning does).
 --
 -- Here is that gap, exactly, at the smallest size where it exists.
 -- Split a two-dimensional state into an observed coordinate and a
@@ -44,7 +44,7 @@
 -- if there is BOTH a channel into it and a channel back.  Pure leakage
 -- is harmless; return is memory.  `excursionObstruction` below is the
 -- witness that a one-step Markovian summary cannot reproduce two-step
--- behaviour ‚î the smallest possible instance of T19.20, and the first
+-- behaviour ‚Äî the smallest possible instance of T19.20, and the first
 -- statement in this repository where descent genuinely FAILS.
 ------------------------------------------------------------------------
 
@@ -99,7 +99,7 @@ twoStepDefect : (a b c : R)
 twoStepDefect _ _ _ = solve! ‚Ñ§CommRing
 
 -- C19.10, exact: an exact one-step summary forces the excursion to
--- vanish ‚î the eliminated coordinate matters iff there is BOTH a
+-- vanish ‚Äî the eliminated coordinate matters iff there is BOTH a
 -- channel into it (b) and a channel back (c).
 closureIff : (a b c : R)
            ‚Üí markovSquare a ‚â° trueTwoStep a b c

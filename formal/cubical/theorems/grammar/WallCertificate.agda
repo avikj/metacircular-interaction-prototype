@@ -15,8 +15,8 @@
 --
 -- WHAT IS GENERAL, AND WHAT IS INSTANCE  (read this before quoting it)
 --
--- GENERAL � §1, `Algebra.Wall.wall`.  A term algebra over an ARBITRARY
---   signature (a type `Op` of operations with arities `ar : Op � �`),
+-- GENERAL — §1, `Algebra.Wall.wall`.  A term algebra over an ARBITRARY
+--   signature (a type `Op` of operations with arities `ar : Op → ℕ`),
 --   an ARBITRARY carrier `A`, an ARBITRARY interpretation, terms with
 --   variables in an ARBITRARY type `V`, and an ARBITRARY binary relation
 --   `_≈_` on `A`.  Nothing is assumed of `≈`: not reflexivity, not
@@ -24,19 +24,19 @@
 --   `ProjectionChargeAudit2.Descent`, whose relation is equally naked).
 --   The theorem is: if every operation preserves `≈` argument-wise
 --   (`IsCongruence`), then for every term `t` and every pair of
---   environments related pointwise, `eval � t ≈ eval � t`.  Proof: one
+--   environments related pointwise, `eval ρ t ≈ eval σ t`.  Proof: one
 --   mutual structural induction over terms and argument lists, four
 --   clauses, no side conditions.  THIS is the wall.  Note where the
 --   hypothesis is used and where it is not: the variable case consumes
 --   the pointwise hypothesis directly, so no reflexivity of `≈` is ever
---   needed � the wall is a statement about the SIGNATURE, not about the
+--   needed — the wall is a statement about the SIGNATURE, not about the
 --   relation being an equivalence.
 --
--- INSTANCE � §2�§5.  One concrete finite world, chosen to be the charge
---   world the rest of this corpus already uses: carrier `Bool � Bool`
+-- INSTANCE — §2–§5.  One concrete finite world, chosen to be the charge
+--   world the rest of this corpus already uses: carrier `Bool × Bool`
 --   (`ProjectionChargeAudit.State`), partition by total charge
 --   `tot (a,b) = a ⊕ b`, vocabulary {swap, mix} (unary + binary).  Every
---   claim in §2�§5 is about that world only.  The finite counts are
+--   claim in §2–§5 is about that world only.  The finite counts are
 --   exhaustive over its four states and are `refl`; they are exact
 --   symbolic computation, hence proof (CLAUDE.md), not measurement.
 --
@@ -44,7 +44,7 @@
 -- THE FOUR THINGS DELIVERED
 --
 --   §1  wall                    grammar induction, general form:
---                               congruence � no term separates.
+--                               congruence ⇒ no term separates.
 --   §3  theWall, noSeparation   the instance.  `noSeparation` is the
 --                               certificate's headline: for EVERY term t
 --                               of the granted vocabulary and every pair
@@ -53,47 +53,47 @@
 --                               "no term of mine distinguishes x from y"
 --                               IS `≈`, as an equivalence of props.  So
 --                               the partition is not merely stable under
---                               the vocabulary � it is precisely the
+--                               the vocabulary — it is precisely the
 --                               vocabulary's resolving power.  CLOSE has
 --                               provably nothing left to do.
 --   §4  readNotCongruence       THE BREACH.  A wall theorem with no
 --       formation, breaks       exhibited breach is decorative.  Grant
---                               one further unary operation � read the
---                               local coordinate, `rd�` � which is NOT a
+--                               one further unary operation — read the
+--                               local coordinate, `rd⁺` — which is NOT a
 --                               congruence, and the machine's OWN grammar
 --                               immediately forms
---                                   mix (rd� x) x
+--                                   mix (rd⁺ x) x
 --                               whose total charge is the SECOND bit:
 --                               the hidden fibre coordinate, formed out
 --                               of one port grant plus the old
 --                               vocabulary.  That is the formation event,
 --                               with the exact separated pair
---                               (false,false) � (true,true) exhibited.
+--                               (false,false) ≁ (true,true) exhibited.
 --       embed, noSeparationEmb  and the port is the ONLY route: old terms
 --                               keep their meanings verbatim under the
 --                               grown signature (`embed-eval`), so no
---                               term that avoids `rd�` separates anything.
+--                               term that avoids `rd⁺` separates anything.
 --                               PORT and GROW are the only doors, checked.
 --   §5  everyTermDescends       THE RESIDUAL AS AN OBJECT.  Every term's
---       quotient�Bool           charge descends to the quotient (reusing
+--       quotient≃Bool           charge descends to the quotient (reusing
 --       torsor-*                `ProjectionChargeAudit2.Descent` verbatim
---       worldSplit              � descent � respect, so this is the same
+--       worldSplit              — descent ≃ respect, so this is the same
 --       *-size                  theorem twice), the quotient is exactly
 --                               `Bool` (two classes, the port menu), each
 --                               class is a free transitive torsor under
 --                               the annihilator {(false,false),(true,true)}
---                               � �/2 (`torsor-transitive`,
+--                               ≅ ℤ/2 (`torsor-transitive`,
 --                               `torsor-free`), and the world splits as
---                               visible � hidden, `State � Bool � Bool`
+--                               visible × hidden, `State ≃ Bool × Bool`
 --                               with first factor the term-visible charge
 --                               and second factor the residue no term
 --                               reaches (`hidden-varies-in-class`).  The
---                               "endpoint � fibre" of THE_MACHINE.md, as
+--                               "endpoint × fibre" of THE_MACHINE.md, as
 --                               an equivalence rather than a picture.
 --
--- Read with: ProjectionChargeAudit2 (Descends � Respects � §5 instantiates
+-- Read with: ProjectionChargeAudit2 (Descends ≃ Respects — §5 instantiates
 -- it), NaturalMachine/GaugeOrbitClasses (transcript fibres = cosets of the
--- annihilator � the same wall in the character-theoretic presentation;
+-- annihilator — the same wall in the character-theoretic presentation;
 -- §5's torsor statements are its two-bit shadow).
 --
 -- --safe, no postulates, no holes, no `Type`-level cheats.
@@ -127,7 +127,7 @@ import ProjectionChargeAudit2 as PCA2
 -- Argument tuples, by recursion on the arity.  (Deliberately NOT `Vec`:
 -- matching on a length-indexed vector needs injectivity of `suc`, which
 -- Cubical Agda flags as not-yet-supported pattern matching.  Recursion on
--- � has no index to unify, so everything below is warning-free and
+-- ℕ has no index to unify, so everything below is warning-free and
 -- computes on transports.)
 Tup : ∀ {ℓ} (A : Type ℓ) → ℕ → Type ℓ
 Tup A zero    = Unit*
@@ -206,7 +206,7 @@ module Algebra {ℓ ℓ' ℓA} (Op : Type ℓ) (ar : Op → ℕ) (V : Type ℓ')
 ------------------------------------------------------------------------
 -- §2  THE INSTANCE: the two-bit charge world and its vocabulary
 --
--- Carrier: sign/charge pairs.  Partition: equal total charge � the gauge
+-- Carrier: sign/charge pairs.  Partition: equal total charge — the gauge
 -- classes of ProjectionChargeAudit / GaugeOrbitClasses, here as the
 -- machine's current partition after CLOSE.
 ------------------------------------------------------------------------
@@ -294,7 +294,7 @@ env : State → (Unit → State)
 env x _ = x
 
 ------------------------------------------------------------------------
--- §3  THE WALL, INSTANTIATED � and the certificate
+-- §3  THE WALL, INSTANTIATED — and the certificate
 ------------------------------------------------------------------------
 
 -- The partition is a congruence for the whole vocabulary.  Two lines,
@@ -308,7 +308,7 @@ vocabCongruence mx (x , y , _) (x' , y' , _) (p , q , _) =
 
 -- Non-vacuity of the LANGUAGE (as distinct from §4's non-vacuity of the
 -- wall).  The wall would be uninteresting if every term were the
--- identity; it is not � `swap` moves states, it simply moves them inside
+-- identity; it is not — `swap` moves states, it simply moves them inside
 -- their class.
 swapTerm mixTerm : Term
 swapTerm = node sw (var tt ◂ ε)
@@ -334,7 +334,7 @@ noSeparation t x y (p , np) = np (theWall t x y p)
 
 -- The exact converse, which is what makes this SATURATION and not just
 -- stability: the relation "no term of mine distinguishes x from y" is
--- exactly ≈.  (� is the single term `var`; � is the wall.)
+-- exactly ≈.  (⇒ is the single term `var`; ⇐ is the wall.)
 Indistinguishable : State → State → Type₀
 Indistinguishable x y = (t : Term) → eval (env x) t ≈ eval (env y) t
 
@@ -354,10 +354,10 @@ saturation x y =
                    (indist→≈ x y) (≈→indist x y)
 
 ------------------------------------------------------------------------
--- §4  THE BREACH � the formation event
+-- §4  THE BREACH — the formation event
 --
 -- A wall theorem without an exhibited breach is decorative.  GROW the
--- signature by one unary operation `rd�` (read the local coordinate:
+-- signature by one unary operation `rd⁺` (read the local coordinate:
 -- the port grant), and everything changes at once.
 ------------------------------------------------------------------------
 
@@ -398,7 +398,7 @@ readNotCongruence isCong =
 -- that the machine's OLD grammar, applied to the port, immediately forms
 -- an observable that reads the hidden coordinate:
 --
---     formation  =  mix (rd� v) v          tot (formation at (a,b)) = b
+--     formation  =  mix (rd⁺ v) v          tot (formation at (a,b)) = b
 --
 formation : Term⁺
 formation = node⁺ mx⁺ (node⁺ rd⁺ (var⁺ tt ◂⁺ ε⁺) ◂⁺ (var⁺ tt ◂⁺ ε⁺))
@@ -414,7 +414,7 @@ Separates⁺ t x y = (x ≈ y) × (¬ (eval⁺ (env x) t ≈ eval⁺ (env y) t))
 theFormationEvent : Separates⁺ formation x₀ x₁
 theFormationEvent = x₀≈x₁ , false≢true
 
--- (iii) �and the port is the ONLY route.  Old terms embed into the grown
+-- (iii) …and the port is the ONLY route.  Old terms embed into the grown
 -- signature with their meanings unchanged, hence still separate nothing:
 -- a separating term must USE the granted operation.
 embed     : Term → Term⁺
@@ -464,7 +464,7 @@ noSeparationEmb t x y (p , np) =
 
 -- (a) Every term's charge descends to the quotient.  This is
 -- ProjectionChargeAudit2's criterion reused verbatim: `Respects` is
--- exactly `theWall`, so `Descends` comes for free � and by that module's
+-- exactly `theWall`, so `Descends` comes for free — and by that module's
 -- `isPropDescends` the descended observable is unique.
 module TermDescent (t : Term) =
   PCA2.Descent {X = State} _≈_ isSetBool (λ x → tot (eval (env x) t))
@@ -475,7 +475,7 @@ everyTermRespects t x y p = theWall t x y p
 everyTermDescends : (t : Term) → TermDescent.Descends t
 everyTermDescends t = TermDescent.respects→descends t (everyTermRespects t)
 
--- (b) The quotient � the exact menu a PORT could grant � is `Bool`:
+-- (b) The quotient — the exact menu a PORT could grant — is `Bool`:
 -- two classes, no more.
 visible : State / _≈_ → Bool
 visible = SQ.rec isSetBool tot (λ x y p → p)
@@ -497,7 +497,7 @@ quotient≃Bool = isoToEquiv (iso visible classOf ri li)
 -- elements of zero charge; it acts on States by `mixS`, preserving the
 -- class (`ann-acts`), transitively on each class (`torsor-transitive`)
 -- and freely (`torsor-free`).  So a ≈-class IS a torsor under a group of
--- order two � the two-bit shadow of GaugeOrbitClasses' "fibres of the
+-- order two — the two-bit shadow of GaugeOrbitClasses' "fibres of the
 -- transcript map are cosets of the annihilator".
 Ann : State → Type₀
 Ann g = tot g ≡ false
@@ -527,9 +527,9 @@ gaugeFlip-is-mix (a , b) = ΣPathP (sym (⊕-comm a true) , sym (⊕-comm b true
 gauge-merged : (x : State) → x ≈ gaugeFlip x
 gauge-merged (a , b) = sym (⊕-flip a b)
 
--- (d) The world splits: visible � hidden.  `tot` is the term-visible
+-- (d) The world splits: visible × hidden.  `tot` is the term-visible
 -- coordinate; the second bit is the residue.  This is THE_MACHINE.md's
--- "states with hidden structure (endpoint � fiber)" as an equivalence.
+-- "states with hidden structure (endpoint × fiber)" as an equivalence.
 hidden : State → Bool
 hidden (a , b) = b
 
@@ -585,7 +585,7 @@ inAnn g = not (tot g)
 carrier-size : countStates (λ _ → true) ≡ 4
 carrier-size = refl
 
--- two classes, each of size two: |State| = |menu| � |torsor|
+-- two classes, each of size two: |State| = |menu| · |torsor|
 class-false-size : countStates (inClass false) ≡ 2
 class-false-size = refl
 
@@ -593,7 +593,7 @@ class-true-size : countStates (inClass true) ≡ 2
 class-true-size = refl
 
 -- the remainder group has order two, so the PORT menu below it has
--- exactly one nontrivial step (the quotients of �/2 are 1 and �/2)
+-- exactly one nontrivial step (the quotients of ℤ/2 are 1 and ℤ/2)
 ann-size : countStates inAnn ≡ 2
 ann-size = refl
 
@@ -611,21 +611,21 @@ ann-nonmembers = refl , refl
 -- May say (each name is a checked term above):
 --   "Complete relative to ports."          saturation
 --   "No future term of mine can form."     noSeparation
---   "�and none in the grown language
+--   "…and none in the grown language
 --    either, unless it uses the grant."    noSeparationEmb
 --   "Remainder = this group."              Ann, torsor-transitive,
 --                                          torsor-free, ann-size
---   "Menu = these two classes."            quotient�Bool
---   "The world is endpoint � fibre."       worldSplit
+--   "Menu = these two classes."            quotient≃Bool
+--   "The world is endpoint × fibre."       worldSplit
 --   "One grant suffices to breach it,
 --    and here is the term that does."      readNotCongruence, formation,
 --                                          theFormationEvent
 --
--- May NOT say: that this is the machine's actual world.  §2�§5 are one
+-- May NOT say: that this is the machine's actual world.  §2–§5 are one
 -- finite instance.  The general theorem (§1) is what transfers: to run
--- CERTIFY on a real vocabulary, discharge `IsCongruence` for it � which
+-- CERTIFY on a real vocabulary, discharge `IsCongruence` for it — which
 -- is one obligation per operation, exactly as `vocabCongruence` is two
--- lines here � and `wall` supplies the rest with no further work.  The
+-- lines here — and `wall` supplies the rest with no further work.  The
 -- residual side (§5) does NOT transfer for free: the quotient being a
 -- torsor under a computable group is a theorem about THIS world (and,
 -- in the corpus, about the stabilizer tower R0032/33/36/37); in general

@@ -1,43 +1,43 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ��-������ � even growth.
+-- सम-वृद्धि — even growth.
 --
 -- A RUNNING PRODUCT IS LOG-CONVEX, AND STRICTLY SO EXACTLY WHERE ITS
--- STEP STRICTLY GROWS.  Over �, with no logarithm, no reals, and no
+-- STEP STRICTLY GROWS.  Over ℕ, with no logarithm, no reals, and no
 -- division.
 --
 -- `DvitiyaAntara` proves the multiplicative second difference for the
--- DMR walk volume, using the inner recursion of `Π�` to cancel a factor.
+-- DMR walk volume, using the inner recursion of `Πη` to cancel a factor.
 -- That cancellation is special to that instance.  Underneath it there is
 -- a construction that needs nothing arithmetic at all: for ANY sequence
--- of stage sizes `C : � � �`, the running product
+-- of stage sizes `C : ℕ → ℕ`, the running product
 --
 --     vol 0        = 1
---     vol (n + 1)  = vol n � C n
+--     vol (n + 1)  = vol n · C n
 --
 -- satisfies a second-difference identity and a convexity inequality, and
 -- both hold for every `C` whatsoever.
 --
---   §1  vol (n+1) ≡ vol n � C n .                       (the recursion)
+--   §1  vol (n+1) ≡ vol n · C n .                       (the recursion)
 --
 --   §2  THE SECOND DIFFERENCE, in the ν-free multiplicative form:
 --
---         (vol n � vol (n+2)) � C n
---           ≡ (vol (n+1) � vol (n+1)) � C (n+1) .
+--         (vol n · vol (n+2)) · C n
+--           ≡ (vol (n+1) · vol (n+1)) · C (n+1) .
 --
 --       Additively this reads
 --         log vol(n+2) − 2 log vol(n+1) + log vol n = log (C(n+1)/C n),
 --       which is why the second difference of the cumulative volume is
 --       the LOCAL STEP RATIO and nothing else.  The identity above says
---       it with a multiplication, so it lives in � and is checked rather
---       than transported through �.
+--       it with a multiplication, so it lives in ℕ and is checked rather
+--       than transported through ℝ.
 --
 --   §3  LOG-CONVEXITY.  If the stage sizes do not shrink then
 --
---         vol (n+1) � vol (n+1)  �  vol n � vol (n+2) .
+--         vol (n+1) · vol (n+1)  ≤  vol n · vol (n+2) .
 --
---   §4  AND STRICTLY, exactly where the stage strictly grows � given
+--   §4  AND STRICTLY, exactly where the stage strictly grows — given
 --       that the stages are positive, which is carried as a hypothesis
 --       and used only through `vol` being positive.
 --
@@ -45,16 +45,16 @@
 --       EXACTLY the sites where the stage size strictly increases.  That
 --       is an exact local detector, not an asymptotic statement.
 --
---   §5  AND THE DMR WALK VOLUME IS THIS CONSTRUCTION AT `C := Π�`:
+--   §5  AND THE DMR WALK VOLUME IS THIS CONSTRUCTION AT `C := Πη`:
 --
---         vol Π� n ≡ δ n         for every n,
+--         vol Πη n ≡ δ n         for every n,
 --
 --       by induction, both sides being the same recursion.  So the walk
 --       volume of the arithmetization is not a separate object from the
---       cumulative product of stage sizes � it IS one, and §§2�4 apply
+--       cumulative product of stage sizes — it IS one, and §§2–4 apply
 --       to it verbatim.
 --
--- SYT � THE CLAIM, EXACTLY.  §§1�3 for every sequence `C` and every n,
+-- SYĀT — THE CLAIM, EXACTLY.  §§1–3 for every sequence `C` and every n,
 -- with no positivity and no arithmetic.  §4 additionally under
 -- positivity of every stage.  §5 for the `δ` of the DMR module as it
 -- stands.
@@ -74,7 +74,7 @@ open import RH_TheWholeQuestionEntersTyped_DavisMatiyasevichRobinsonArithmetizat
   using (Πη ; δ)
 
 ------------------------------------------------------------------------
--- � � Two arithmetic scraps, isolated so nothing below repeats them.
+-- ० · Two arithmetic scraps, isolated so nothing below repeats them.
 ------------------------------------------------------------------------
 
 private
@@ -87,7 +87,7 @@ private
   positive→suc zero    p = ⊥-rec (¬-<-zero p)
   positive→suc (suc k) _ = k , refl
 
-  -- the whole algebraic content of §§2�4, on fresh variables
+  -- the whole algebraic content of §§2–4, on fresh variables
   rearrange : (v c d : ℕ) → (v · ((v · c) · d)) · c ≡ ((v · c) · (v · c)) · d
   rearrange v c d = solveℕ!
 
@@ -108,14 +108,14 @@ module _ (C : ℕ → ℕ) where
   vol (suc n) = vol n · C n
 
   ------------------------------------------------------------------
-  -- � � The recursion IS the first difference.
+  -- १ · The recursion IS the first difference.
   ------------------------------------------------------------------
 
   step : (n : ℕ) → vol (suc n) ≡ vol n · C n
   step n = refl
 
   ------------------------------------------------------------------
-  -- � � THE SECOND DIFFERENCE IS THE LOCAL STEP RATIO.
+  -- २ · THE SECOND DIFFERENCE IS THE LOCAL STEP RATIO.
   ------------------------------------------------------------------
 
   second-difference : (n : ℕ)
@@ -124,7 +124,7 @@ module _ (C : ℕ → ℕ) where
   second-difference n = rearrange (vol n) (C n) (C (suc n))
 
   ------------------------------------------------------------------
-  -- � � LOG-CONVEXITY, wherever the stage does not shrink.
+  -- ३ · LOG-CONVEXITY, wherever the stage does not shrink.
   ------------------------------------------------------------------
 
   log-convex : (n : ℕ) → C n ≤ C (suc n)
@@ -136,7 +136,7 @@ module _ (C : ℕ → ℕ) where
       (≤-·k {k = (vol n · vol n) · C n} h)
 
   ------------------------------------------------------------------
-  -- � � AND STRICTLY, exactly where the stage strictly grows.
+  -- ४ · AND STRICTLY, exactly where the stage strictly grows.
   ------------------------------------------------------------------
 
   module _ (Cpos : (m : ℕ) → 0 < C m) where
@@ -167,7 +167,7 @@ module _ (C : ℕ → ℕ) where
         kEq = witness .snd
 
 ------------------------------------------------------------------------
--- � � THE DMR WALK VOLUME IS THIS CONSTRUCTION AT `C := Π�`.
+-- ५ · THE DMR WALK VOLUME IS THIS CONSTRUCTION AT `C := Πη`.
 ------------------------------------------------------------------------
 
 walk-volume-is-a-running-product : (n : ℕ) → vol Πη n ≡ δ n

@@ -1,4 +1,4 @@
-# Glue ‚î the type former for edge 1
+# Glue ‚Äî the type former for edge 1
 
 `hcomp` in `Set` beyond the composite shape has no rule, because
 CCHM handles composition in the universe via `Glue`. This adds `Glue` as a
@@ -6,31 +6,31 @@ sound type former.
 
 ## Added (in `cubical-paths.patch`)
 
-- `Glue A [(œ,T,e)]` ‚î the Glue type: `A : Set`, and on extent `œ` a partial
-  type `T : Set` with forward map `e : T ‚í A`.
-- `glue A [(œ,t)] a` and `unglue g` ‚î the constructor and destructor.
-- Parser (`Glue(A, [(œ,T,e), ‚¶])`, `glue(A, x, [(œ,t), ‚¶])`, `unglue(g)`),
+- `Glue A [(œÜ,T,e)]` ‚Äî the Glue type: `A : Set`, and on extent `œÜ` a partial
+  type `T : Set` with forward map `e : T ‚Üí A`.
+- `glue A [(œÜ,t)] a` and `unglue g` ‚Äî the constructor and destructor.
+- Parser (`Glue(A, [(œÜ,T,e), ‚Ä¶])`, `glue(A, x, [(œÜ,t), ‚Ä¶])`, `unglue(g)`),
   formation typing (infer), and all traversals (bind/deps/rewrite/equal/
   flatten/whnf/normal/dup).
 
-## Reductions ‚î sound, and verified (`glue.bend`, 2‚ì definitional)
+## Reductions ‚Äî sound, and verified (`glue.bend`, 2‚úì definitional)
 
-- `Glue A [(i1, T, e), ‚¶] ‚â° T` ‚î on a true face the Glue type IS the partial
+- `Glue A [(i1, T, e), ‚Ä¶] ‚â° T` ‚Äî on a true face the Glue type IS the partial
   type. Checked: `Glue(A,[(i1,T,e)]) == T` by `finally`.
-- `glue A [(i1, t), ‚¶] a ‚â° t`   ‚î glue on a true face is the section.
-- `unglue (glue A [(œ,t)] a) ‚â° a` ‚î unglue returns the base. Checked:
+- `glue A [(i1, t), ‚Ä¶] a ‚â° t`   ‚Äî glue on a true face is the section.
+- `unglue (glue A [(œÜ,t)] a) ‚â° a` ‚Äî unglue returns the base. Checked:
   `unglue(glue(A,x,[(i0,x)])) == x` by `finally`.
 - False faces (`i0`) are dropped; otherwise the terms are stuck data.
 
 These reductions do **not** consume `e` except at a true face (where Glue = T
 and glue = t need no equivalence), so they cannot misuse a non-equivalence.
 
-## Soundness check ‚î adversarial, and it FAILS as it must
+## Soundness check ‚Äî adversarial, and it FAILS as it must
 
 `glue_mustfail.bend`: `Glue(Nat, [(i0, Bool, e)]) == Bool` by `finally` is
-**rejected** (`‚ó`). A Glue at a *false* face does not collapse to its partial
+**rejected** (`‚úó`). A Glue at a *false* face does not collapse to its partial
 type, so the boundary rule cannot be used to coerce `Nat` to `Bool`. No
-soundness hole is opened. Full repo suite after this change: 267 ‚ì, ‚ó only in
+soundness hole is opened. Full repo suite after this change: 267 ‚úì, ‚úó only in
 the deliberate must-fails (`hfill`, `uaequiv_mustfail`, `uaroundtrip`,
 `glue_mustfail`).
 
@@ -40,37 +40,37 @@ Glue is integrated
 into the single canonical source, `cubical-paths.patch`: Type constructors,
 formation typing, all traversals (bind/deps/rewrite/equal/flatten/whnf/normal/
 dup/analysis/totality/epNormCtx), the parser, and the emitters (erased targets:
-Glue type erases, `glue` ‚í its base after normalisation; `--to-hvm4-full`:
+Glue type erases, `glue` ‚Üí its base after normalisation; `--to-hvm4-full`:
 runtime `@glueT/@glue/@unglue` with the same boundary rules). Verified:
-`glue.bend` 2‚ì, `glue_mustfail.bend` ‚ó (must), full suite unchanged, and on the
-full runtime `@glueT(#Nat,[(#I1,#Bool,e)]) ‚í #Bool`, `@unglue(@glue(‚¶,1)) ‚í 1`.
+`glue.bend` 2‚úì, `glue_mustfail.bend` ‚úó (must), full suite unchanged, and on the
+full runtime `@glueT(#Nat,[(#I1,#Bool,e)]) ‚áí #Bool`, `@unglue(@glue(‚Ä¶,1)) ‚áí 1`.
 
 ## Kan rules (verified by execution)
 
 Both rules are in `cubical-paths.patch`:
 
 1. **Transport through Glue** (`whnfCoe`, `Glu` case): with `e : Equiv T A`
-   coherent (Œ f. ‚ày. isContr(fiber f y), core `equivTy`), `coe` along a
+   coherent (Œ£ f. ‚àÄy. isContr(fiber f y), core `equivTy`), `coe` along a
    Glue line computes: unglue at `r` (on a true face, `fst(e)`), transport the
-   base along the `A`-line, on each face live at `s` take `t1 = e‚ª¬ a1'` from
+   base along the `A`-line, on each face live at `s` take `t1 = e‚Åª¬π a1'` from
    the fibre's centre and correct `a1'` along the centre's path, glue back.
-   `uaglue.bend` (26 ‚ì): `uaG(e) = <i> Glue(B, [(inot i, A, e), (i, B, idEquiv B)])`
+   `uaglue.bend` (26 ‚úì): `uaG(e) = <i> Glue(B, [(inot i, A, e), (i, B, idEquiv B)])`
    and **`uaG_beta` is definitional for an abstract `e`**; the concrete `negE`
    (from `lemIso`) transports both ways.
-2. **`hcomp` in `Set` = Glue** (`whnfHCm`): `hcomp(Set, [œ ‚¶ u], A)` with
-   live faces is `Glue A [œ ‚¶ (u@i1, transpEquiv u)]`, `transpEquiv u` being
-   the transport of the identity equivalence through `k ‚¶ Equiv(u@i1, u@inot k)`
-   (pathToEquiv of the reversed tube, computed by `coe` through Œ/Œ†/Path).
-   `hcompset.bend` (10 ‚ì): a 2-dimensional composition in `Set` with a face
-   on a second interval variable `j` ‚î transport along it at symbolic `j`
+2. **`hcomp` in `Set` = Glue** (`whnfHCm`): `hcomp(Set, [œÜ ‚Ü¶ u], A)` with
+   live faces is `Glue A [œÜ ‚Ü¶ (u@i1, transpEquiv u)]`, `transpEquiv u` being
+   the transport of the identity equivalence through `k ‚Ü¶ Equiv(u@i1, u@inot k)`
+   (pathToEquiv of the reversed tube, computed by `coe` through Œ£/Œ†/Path).
+   `hcompset.bend` (10 ‚úì): a 2-dimensional composition in `Set` with a face
+   on a second interval variable `j` ‚Äî transport along it at symbolic `j`
    computes (`viaSq_T`), as do compositions with non-constant base lines.
 
 The composite shape is recognised first (cheaper, same answer); every
 other shape goes through Glue.
 
-Must-fails: `glue_mustfail.bend` ‚î a Glue at a false face does not collapse
-(`evil` ‚ó), a bare function is not accepted as `e` (`notEquiv` ‚ó), a glue
-whose section is incoherent with its base is rejected (`incoherent` ‚ó).
+Must-fails: `glue_mustfail.bend` ‚Äî a Glue at a false face does not collapse
+(`evil` ‚úó), a bare function is not accepted as `e` (`notEquiv` ‚úó), a glue
+whose section is incoherent with its base is rejected (`incoherent` ‚úó).
 
 Implementation note: the transported base is evaluated strictly inside the
 rule; left as an unevaluated `Coe` thunk it is re-read inside the

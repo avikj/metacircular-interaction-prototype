@@ -1,80 +1,80 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- р╡р░ррЧррр░рХррр┐-ррирррр тФ рХрррррррп ррирррр рририррр, рр╛р╡рир╛ р ррррп рр╛рХррр р
+-- рд╡рд░реНрдЧрдкреНрд░рдХреГрддрд┐-рддрдиреНрддреБрдГ тАФ рдХреНрд╖реЗрдкрд╕реНрдп рддрдиреНрддреБрдГ рдЕрдирдиреНрддрдГ, рднрд╛рд╡рдирд╛ рдЪ рддрд╕реНрдп рд╕рд╛рдХреНрд╖реА ред
 --
 -- (the vargaprakti fiber: the fiber of the kepa over one is infinite,
 --  and Brahmagupta's composition is the witness.)
 --
--- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
+-- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
 -- WHAT THIS IS, AND WHY IT IS THE CRITERION AND NOT AN EXAMPLE.
 --
--- `fiber/src/Fiber/Composition_тж` builds р╡р░ррЧррр░рХррр┐ as
--- `Carrier (рХррррр D)`: base = the two roots, carried = the рХрррр, because
--- the roots DETERMINE it.  Its fiber `╬[ k ] (рХррррр D x тЙб k)` is
--- `singl`, contractible, and (т Ч т) тЙ р╡р░ррЧррр░рХррр┐ D.  The carried datum
+-- `fiber/src/Fiber/Composition_тАж` builds рд╡рд░реНрдЧрдкреНрд░рдХреГрддрд┐ as
+-- `Carrier (рдХреНрд╖реЗрдкрдГ D)`: base = the two roots, carried = the рдХреНрд╖реЗрдк, because
+-- the roots DETERMINE it.  Its fiber `╬г[ k ] (рдХреНрд╖реЗрдкрдГ D x тЙб k)` is
+-- `singl`, contractible, and (тДд ├Ч тДд) тЙГ рд╡рд░реНрдЧрдкреНрд░рдХреГрддрд┐ D.  The carried datum
 -- rides free.
 --
 -- Bind the OTHER side of the same equation and everything changes:
 --
---     ╬[ x ] (рХррррр D x тЙб 1)
+--     ╬г[ x ] (рдХреНрд╖реЗрдкрдГ D x тЙб 1)
 --
--- is `fiber (рХррррр D) 1`, and it is not contractible and not free.  It is
--- THE SET OF SOLUTIONS of the vargaprakti тФ what the рХррЯррЯрХ, the рр╛р╡рир╛
--- and the ррХрр░р╡р╛р▓ were all built to produce.  ррррр░ р: рХр ррХрррЛ рржррз ррр┐
--- рр░рр╡рор тФ which side is bound, that is everything.  One map, two
+-- is `fiber (рдХреНрд╖реЗрдкрдГ D) 1`, and it is not contractible and not free.  It is
+-- THE SET OF SOLUTIONS of the vargaprakс╣Ыti тАФ what the рдХреБрдЯреНрдЯрдХ, the рднрд╛рд╡рдирд╛
+-- and the рдЪрдХреНрд░рд╡рд╛рд▓ were all built to produce.  рд╕реВрддреНрд░ рел: рдХрдГ рдкрдХреНрд╖реЛ рдмрджреНрдз рдЗрддрд┐
+-- рд╕рд░реНрд╡рдореН тАФ which side is bound, that is everything.  One map, two
 -- bindings: the carrier is free, the subject is the fiber.
 --
 -- SO THIS FILE IS THE TWO HALVES JOINED, and neither half says it alone:
 --
---   ┬ `Composition_тж.рр╛р╡рир╛-рХррррр` proves the carried datum MULTIPLIES:
---     рХрррр(compose) = рХрррр ┬ рХрррр.  Hence composing a k=1 row with the
---     fundamental k=1 row stays at k=1 тФ the orbit never leaves the
---     fiber.  ┬зрз below is that invariance, over тХ and independently.
---   ┬ `ALosslessReturn_тж.р╡рржррзр┐р` proves the orbit STRICTLY ASCENDS and so
---     never returns.  ┬зрй below is that, chained.
+--   ┬╖ `Composition_тАж.рднрд╛рд╡рдирд╛-рдХреНрд╖реЗрдкрдГ` proves the carried datum MULTIPLIES:
+--     рдХреНрд╖реЗрдк(compose) = рдХреНрд╖реЗрдк ┬╖ рдХреНрд╖реЗрдк.  Hence composing a k=1 row with the
+--     fundamental k=1 row stays at k=1 тАФ the orbit never leaves the
+--     fiber.  ┬зрез below is that invariance, over тДХ and independently.
+--   ┬╖ `ALosslessReturn_тАж.рд╡реГрджреНрдзрд┐рдГ` proves the orbit STRICTLY ASCENDS and so
+--     never returns.  ┬зрей below is that, chained.
 --
 --   Invariance alone gives an orbit inside the fiber and says nothing
 --   about how much of it is visited.  Growth alone says the orbit is
---   infinite and says nothing about where it lives.  Together: ┬зр, the
+--   infinite and says nothing about where it lives.  Together: ┬зрек, the
 --   fiber contains a strictly increasing sequence, so it is infinite.
 --
--- WHY THE INFINITUDE IS NOT A COUNT.  ррррр░ ро тФ ррр┐рррЮр╛рир рр╛ржр╛ррроррпрор, ри
--- рр░р┐рор╛ррор.  ┬зр does not report a number; it exhibits an injection out of
--- тХ, so the identification is a map you can evaluate, and the n-th
--- solution is `ррЩррХррр┐ n`.  That is the receipt.
+-- WHY THE INFINITUDE IS NOT A COUNT.  рд╕реВрддреНрд░ рео тАФ рдЕрднрд┐рдЬреНрдЮрд╛рдирдВ рддрд╛рджрд╛рддреНрдореНрдпрдореН, рди
+-- рдкрд░рд┐рдорд╛рдгрдореН.  ┬зрек does not report a number; it exhibits an injection out of
+-- тДХ, so the identification is a map you can evaluate, and the n-th
+-- solution is `рдкрдЩреНрдХреНрддрд┐ n`.  That is the receipt.
 --
--- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
--- SOURCES.  BRAHMAGUPTA, ррр░р╛рррорррррЯрр┐ржррзр╛риррр рзро (рХррЯррЯрХр╛рзррпр╛рпр), 628 CE тФ
--- рр╛р╡рир╛, the composition law for р╡р░ррЧррр░рХррр┐, with ррр░рХррр┐ for the multiplier,
--- рррпрррра and рХрир┐ррра for the two roots, рХрррр for the interpolator.  The
--- root (3,2) for D=2 and the value 577/408 are BAUDHYANA's, ррр▓ррррррр░рор
--- рз.ррзтУрри (~800 BCE), stated *saviea*, "with its excess".  JAYADEVA
--- (c. 950, surviving inside Udayadivkara's рррирржр░р) and BHSKARA II,
--- ррррЧрр┐р 1150 тФ the ррХрр░р╡р╛р▓.
+-- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
+-- SOURCES.  BRAHMAGUPTA, рдмреНрд░рд╛рд╣реНрдорд╕реНрдлреБрдЯрд╕рд┐рджреНрдзрд╛рдиреНрддрдГ резрео (рдХреБрдЯреНрдЯрдХрд╛рдзреНрдпрд╛рдпрдГ), 628 CE тАФ
+-- рднрд╛рд╡рдирд╛, the composition law for рд╡рд░реНрдЧрдкреНрд░рдХреГрддрд┐, with рдкреНрд░рдХреГрддрд┐ for the multiplier,
+-- рдЬреНрдпреЗрд╖реНрда and рдХрдирд┐рд╖реНрда for the two roots, рдХреНрд╖реЗрдк for the interpolator.  The
+-- root (3,2) for D=2 and the value 577/408 are BAUDH─АYANA's, рд╢реБрд▓реНрдмрд╕реВрддреНрд░рдореН
+-- рез.ремрезтАУремреи (~800 BCE), stated *savi┼Ыeс╣гa*, "with its excess".  JAYADEVA
+-- (c. 950, surviving inside Udayadiv─Бkara's рд╕реБрдиреНрджрд░реА) and BH─АSKARA II,
+-- рдмреАрдЬрдЧрдгрд┐рдд 1150 тАФ the рдЪрдХреНрд░рд╡рд╛рд▓.
 --
--- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
+-- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
 -- THE METHOD'S REACH.
 --
--- ┬зрз-┬зр reach the fiber by composing against a FUNDAMENTAL ROW, and that
+-- ┬зрез-┬зрел reach the fiber by composing against a FUNDAMENTAL ROW, and that
 -- needs a small k=1 row to seed with.  For D = 2 the ulba value supplies
 -- one.  FOR D = 61 THERE IS NONE, and D = 61 is Bhskara.s own worked
 -- example -- so this method does not reach the case the tradition is
 -- famous for.
 --
--- What reaches it is the ррХрр░р╡р╛р▓, and
+-- What reaches it is the рдЪрдХреНрд░рд╡рд╛рд▓, and
 -- `Bhagahara_TheExactDivisionCarriesItsWitnessAndSixTurnsReachOneAtSixtyOne
 -- .agda` runs one in the kernel: six turns from (8,1,+3) to
 -- (29718, 3805, тИТ1) with every divisibility witness discharged by `refl`,
 -- then Brahmagupta.s composition of a k = тИТ1 row with itself giving
--- 1766319049┬▓ тИТ 61 ┬ 226153980┬▓ = 1.
+-- 1766319049┬▓ тИТ 61 ┬╖ 226153980┬▓ = 1.
 --
 -- The distinction: here the
--- рХрррр fiber is `singl`, CONTRACTIBLE -- every pair has a рХрррр, so the
--- datum rides free.  There the рр╛рЧрр╛р░ fiber is a PROPOSITION AND NOT IN
+-- рдХреНрд╖реЗрдк fiber is `singl`, CONTRACTIBLE -- every pair has a рдХреНрд╖реЗрдк, so the
+-- datum rides free.  There the рднрд╛рдЧрд╣рд╛рд░ fiber is a PROPOSITION AND NOT IN
 -- GENERAL INHABITED, because division by k is partial and the inhabitant
 -- IS the divisibility.  Contractible versus merely propositional is the
--- whole difference between the рр╛р╡рир╛ being free and the ррХрр░р╡р╛р▓ not being
+-- whole difference between the рднрд╛рд╡рдирд╛ being free and the рдЪрдХреНрд░рд╡рд╛рд▓ not being
 -- free, and Bhskara.s choice of m is what supplies the inhabitant.
 ------------------------------------------------------------------------
 
@@ -91,7 +91,7 @@ open import NoReturn_TheCompositionOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTh
   using (рдирд╡-рдЕрдВрд╢рдГ ; рдирд╡-рд╣рд░рдГ ; рд╡реГрджреНрдзрд┐рдГ)
 
 ------------------------------------------------------------------------
--- рж ┬ the equation, in the subtraction-free form тХ can state.
+-- реж ┬╖ the equation, in the subtraction-free form тДХ can state.
 --     a┬▓ тИТ 2b┬▓ = 1  is written  a┬▓ тЙб 2b┬▓ + 1.
 ------------------------------------------------------------------------
 
@@ -104,17 +104,17 @@ open import NoReturn_TheCompositionOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTh
 рддрдиреНрддреБрдГ = ╬г[ x тИИ тДХ ├Ч тДХ ] рд╡рд░реНрдЧрдкреНрд░рдХреГрддрд┐рдГ x
 
 ------------------------------------------------------------------------
--- рз ┬ рр╡р┐рХр╛р░р тФ THE STEP DOES NOT LEAVE THE FIBER.
+-- рез ┬╖ рдЕрд╡рд┐рдХрд╛рд░рдГ тАФ THE STEP DOES NOT LEAVE THE FIBER.
 --
---     (a,b) тж (3a+4b , 2a+3b)
+--     (a,b) тЖж (3a+4b , 2a+3b)
 --
--- is рр╛р╡рир╛ against the fundamental row (3,2) at D=2, whose own рХрррр is 1.
--- Brahmagupta's identity says the composed рХрррр is the PRODUCT, so it is
--- k┬1 = k and the fiber is preserved.  Proved here directly in тХ rather
--- than imported, because the т statement lives in a different library
+-- is рднрд╛рд╡рдирд╛ against the fundamental row (3,2) at D=2, whose own рдХреНрд╖реЗрдк is 1.
+-- Brahmagupta's identity says the composed рдХреНрд╖реЗрдк is the PRODUCT, so it is
+-- k┬╖1 = k and the fiber is preserved.  Proved here directly in тДХ rather
+-- than imported, because the тДд statement lives in a different library
 -- with its own agda-lib; two independent statements that agree is the
 -- channel this corpus accepts, and asserting the import would be the
--- third road ррррр░ рзрз denies.
+-- third road рд╕реВрддреНрд░ резрез denies.
 ------------------------------------------------------------------------
 
 рдкрджрдореН : тДХ ├Ч тДХ тЖТ тДХ ├Ч тДХ
@@ -138,7 +138,7 @@ open import NoReturn_TheCompositionOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTh
   рджрдХреНрд╖рд┐рдг = solveтДХ!
 
 ------------------------------------------------------------------------
--- ри ┬ рорр▓рор тФ the fundamental row.  3┬▓ = 2┬2┬▓ + 1, i.e. 9 = 8 + 1.
+-- реи ┬╖ рдореВрд▓рдореН тАФ the fundamental row.  3┬▓ = 2┬╖2┬▓ + 1, i.e. 9 = 8 + 1.
 --     Baudhyana's first convergent, and the seed of the whole orbit.
 ------------------------------------------------------------------------
 
@@ -146,7 +146,7 @@ open import NoReturn_TheCompositionOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTh
 рдореВрд▓рдореН = (3 , 2) , refl
 
 ------------------------------------------------------------------------
--- рй ┬ ррЩррХррр┐ тФ THE SEQUENCE, and it lands IN the fiber by ┬зрз.
+-- рей ┬╖ рдкрдЩреНрдХреНрддрд┐ тАФ THE SEQUENCE, and it lands IN the fiber by ┬зрез.
 ------------------------------------------------------------------------
 
 рдкрдЩреНрдХреНрддрд┐ : тДХ тЖТ рддрдиреНрддреБрдГ
@@ -158,10 +158,10 @@ open import NoReturn_TheCompositionOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTh
 рдХрдирд┐рд╖реНрда : тДХ тЖТ тДХ
 рдХрдирд┐рд╖реНрда n = snd (fst (рдкрдЩреНрдХреНрддрд┐ n))
 
--- the first root is always a successor, so ┬зр's growth applies at every
+-- the first root is always a successor, so ┬зрек's growth applies at every
 -- step.  Proved alongside the sequence rather than after it, because it
 -- is what keeps the growth hypothesis alive.
--- the successor form the growth lemma needs, named so solveтХ! has a target
+-- the successor form the growth lemma needs, named so solveтДХ! has a target
 рдЕрдВрд╢-рд╕реБрдХреН : (z b : тДХ) тЖТ рдирд╡-рдЕрдВрд╢рдГ (suc z) b тЙб suc (z ┬╖ 3 + 4 ┬╖ b + 2)
 рдЕрдВрд╢-рд╕реБрдХреН z b = solveтДХ!
 
@@ -172,9 +172,9 @@ open import NoReturn_TheCompositionOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTh
       (z ┬╖ 3 + 4 ┬╖ b + 2) , (cong (╬╗ w тЖТ рдирд╡-рдЕрдВрд╢рдГ w b) p тИЩ рдЕрдВрд╢-рд╕реБрдХреН z b)
 
 ------------------------------------------------------------------------
--- р ┬ р╡рржррзр┐р ррЩррХррр тФ the second root strictly grows at every step.
---     `ALosslessReturn_тж.р╡рржррзр┐р` needs a nonzero first root; ┬зрй's
---     рррпрррра-рррриррпрор is what keeps supplying it.
+-- рек ┬╖ рд╡реГрджреНрдзрд┐рдГ рдкрдЩреНрдХреНрддреМ тАФ the second root strictly grows at every step.
+--     `ALosslessReturn_тАж.рд╡реГрджреНрдзрд┐рдГ` needs a nonzero first root; ┬зрей's
+--     рдЬреНрдпреЗрд╖реНрда-рдЕрд╢реВрдиреНрдпрдореН is what keeps supplying it.
 ------------------------------------------------------------------------
 
 рд╡реГрджреНрдзрд┐-рдкрджреЗ : (n : тДХ) тЖТ рдХрдирд┐рд╖реНрда n < рдХрдирд┐рд╖реНрда (suc n)
@@ -188,19 +188,19 @@ open import NoReturn_TheCompositionOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTh
 рд╡реГрджреНрдзрд┐-рджреВрд░реЗ n (suc k)  = <-trans (рд╡реГрджреНрдзрд┐-рджреВрд░реЗ n k) (рд╡реГрджреНрдзрд┐-рдкрджреЗ (suc (k + n)))
 
 ------------------------------------------------------------------------
--- р ┬ рририррр тФ THE FIBER IS INFINITE.
+-- рел ┬╖ рдЕрдирдиреНрддрдГ тАФ THE FIBER IS INFINITE.
 --
 --     No entry of the sequence is ever equal to a LATER entry, because
 --     their second roots differ and a strict inequality forbids the
 --     equality.  No trichotomy is needed: "later" is enough, and it is
 --     the direction that says the sequence does not close up.
 --
---     This is the join.  ┬зрз (invariance, Brahmagupta) puts the orbit
+--     This is the join.  ┬зрез (invariance, Brahmagupta) puts the orbit
 --     inside the fiber and says nothing about how much of it is reached.
---     ┬зр (growth) says the orbit never repeats and says nothing about
+--     ┬зрек (growth) says the orbit never repeats and says nothing about
 --     where it lives.  Only together do they give a fiber containing a
---     sequence with no repetitions тФ an infinite solution set, with the
---     n-th solution EXHIBITED rather than counted (ррррр░ ро).
+--     sequence with no repetitions тАФ an infinite solution set, with the
+--     n-th solution EXHIBITED rather than counted (рд╕реВрддреНрд░ рео).
 ------------------------------------------------------------------------
 
 рдЕрдирдиреНрддрдГ : (n k : тДХ) тЖТ ┬м (рдкрдЩреНрдХреНрддрд┐ n тЙб рдкрдЩреНрдХреНрддрд┐ (suc (k + n)))
@@ -208,21 +208,21 @@ open import NoReturn_TheCompositionOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTh
                            (рд╡реГрджреНрдзрд┐-рджреВрд░реЗ n k))
 
 ------------------------------------------------------------------------
--- р ┬ рррзр╛рприрррп рор╛рирор тФ and it lands on the ulba value.
+-- рем ┬╖ рдмреМрдзрд╛рдпрдирд╕реНрдп рдорд╛рдирдореН тАФ and it lands on the ┼Ъulba value.
 --
---     (3,2) тТ (17,12) тТ (99,70) тТ (577,408), and 577/408 is exactly the
---     *saviea* value BAUDHYANA gives for тИ2, ррр▓ррррррр░рор рз.ррзтУрри, about
+--     (3,2) тЖТ (17,12) тЖТ (99,70) тЖТ (577,408), and 577/408 is exactly the
+--     *savi┼Ыeс╣гa* value BAUDH─АYANA gives for тИЪ2, рд╢реБрд▓реНрдмрд╕реВрддреНрд░рдореН рез.ремрезтАУремреи, about
 --     twelve centuries before the composition that generates it here.
 --     Each of these holds by `refl`, so Agda executes the arithmetic.
 --
 --     A DISTINCTION, and it matters.
---     `Dvikarani.agda` records the chain (3,2) тТ (17,12) тТ (577,408) by
---     DOUBLING тФ composing each row with ITSELF.  This module composes
+--     `Dvikarani.agda` records the chain (3,2) тЖТ (17,12) тЖТ (577,408) by
+--     DOUBLING тАФ composing each row with ITSELF.  This module composes
 --     each row against the FIXED fundamental row, and gets (99,70) in
---     between.  Both are рр╛р╡рир╛ and both reach Baudhyana.s value; they
+--     between.  Both are рднрд╛рд╡рдирд╛ and both reach Baudh─Бyana.s value; they
 --     are not the same sequence.  Self-composition is the subsequence of
 --     SQUARES and skips solutions; composition against the fundamental
---     row visits them in order.  For ┬зр that difference is the whole
+--     row visits them in order.  For ┬зрел that difference is the whole
 --     point -- infinitude wants the sequence that does not skip.
 ------------------------------------------------------------------------
 

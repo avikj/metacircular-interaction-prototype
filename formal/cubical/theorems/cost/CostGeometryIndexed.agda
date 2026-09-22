@@ -18,7 +18,7 @@
 --   * the breaker pass on R0079 reached the same field from the other
 --     end: quantifying over `c c'` in `TransportDivScale` quantifies over
 --     CONSTANT weights only, so a threshold of the form
---     `4 + (2c + c‚≤) ‚â length w` bounds the word by the weights rather
+--     `4 + (2c + c‚Ä≤) ‚â§ length w` bounds the word by the weights rather
 --     than the weights by the word -- and priced at the honest cost of
 --     charting (`digits m` iterates the odometer m times) the headline
 --     comparison reverses.
@@ -26,7 +26,7 @@
 -- Both are the same sentence: cost is a function of the input, and the
 -- record said it was a number.  Here it is a function.
 --
--- WHAT THIS FILE DOES NOT DO.  It does not re-derive Œì‚ or the branch
+-- WHAT THIS FILE DOES NOT DO.  It does not re-derive Œì‚Üù or the branch
 -- calculus over the indexed geometry; those live in `Residual` and are
 -- still scalar.  What it does is state the indexed geometry, prove that
 -- the scalar one embeds in it faithfully (so nothing checked is lost),

@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --guardedness #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡‡æ‡®‡ø‡µ‡¶‡‡‡æ‡µ‡ ‚î ‡∞‡‡‡Æ‡ ‡‡µ ‡‡‡µ‡‡®‡‡‡‡∞‡, ‡‡‡‡æ‡®‡ ‡‡û‡‡‡‡û‡æ ‡ ‡µ‡æ‡‡‡Ø‡ ‡
+-- ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§¶‡•ç‡§≠‡§æ‡§µ‡§É ‚Äî ‡§∞‡•Ç‡§™‡§Æ‡•ç ‡§è‡§µ ‡§∏‡•ç‡§µ‡§§‡§®‡•ç‡§§‡•ç‡§∞‡§Ç, ‡§∏‡•ç‡§•‡§æ‡§®‡•Ä ‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§æ ‡§ö ‡§µ‡§æ‡§π‡•ç‡§Ø‡•á ‡•§
 -- (sthnivadbhva: the form is the only free slot; the sthnin and the
 --  designation ride in the carried datum.)
 --
@@ -9,72 +9,72 @@
 -- ~500 BCE; Ktyyana's vrttikas ~250 BCE; Patajali's *Mahbhya*
 -- ~150 BCE.
 --
---   1.1.56  ‡‡‡‡æ‡®‡ø‡µ‡¶‡æ‡¶‡‡‡ã‡Ω‡®‡≤‡‡µ‡ø‡ß‡   sthnivad deo 'nalvidhau
---           A substitute (‡‡¶‡‡) is like the original it stands for
---           (‡‡‡‡æ‡®‡ø‡®‡) ‚î except in an ‡‡≤‡‡µ‡ø‡ß‡ø, an operation conditioned on
---           the sounds themselves (‡‡≤‡ is the pratyhra of the whole
+--   1.1.56  ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§¶‡§æ‡§¶‡•á‡§∂‡•ã‡§Ω‡§®‡§≤‡•ç‡§µ‡§ø‡§ß‡•å   sthƒÅnivad ƒÅde≈õo 'nalvidhau
+--           A substitute (‡§Ü‡§¶‡•á‡§∂) is like the original it stands for
+--           (‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§®‡•ç) ‚Äî except in an ‡§Ö‡§≤‡•ç‡§µ‡§ø‡§ß‡§ø, an operation conditioned on
+--           the sounds themselves (‡§Ö‡§≤‡•ç is the pratyƒÅhƒÅra of the whole
 --           inventory).
---   1.1.60  ‡‡¶‡∞‡‡‡®‡ ‡≤‡ã‡‡            adarana lopa ‚î elision is
+--   1.1.60  ‡§Ö‡§¶‡§∞‡•ç‡§∂‡§®‡§Ç ‡§≤‡•ã‡§™‡§É            adar≈õana·πÉ lopa·∏• ‚Äî elision is
 --           NON-APPEARANCE.
---   1.1.62  ‡‡‡∞‡‡‡Ø‡Ø‡≤‡ã‡‡ ‡‡‡∞‡‡‡Ø‡Ø‡≤‡ï‡‡‡‡Æ‡  pratyayalope pratyayalakaam ‚î when
+--   1.1.62  ‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§Ø‡§≤‡•ã‡§™‡•á ‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§Ø‡§≤‡§ï‡•ç‡§∑‡§£‡§Æ‡•ç  pratyayalope pratyayalak·π£a·πáam ‚Äî when
 --           an affix is elided, the operations conditioned by that affix
 --           still apply.
---   1.3.9   ‡‡‡‡Ø ‡≤‡ã‡‡               tasya lopa ‚î the it-marker is elided,
+--   1.3.9   ‡§§‡§∏‡•ç‡§Ø ‡§≤‡•ã‡§™‡§É               tasya lopa·∏• ‚Äî the it-marker is elided,
 --           having already done its marking.
---   1.1.5   ‡ï‡‡ô‡ø‡‡ø ‡                 kiti ca ‚î no gua/vddhi after an
+--   1.1.5   ‡§ï‡•ç‡§ô‡§ø‡§§‡§ø ‡§ö                 k·πÖiti ca ‚Äî no gu·πáa/v·πõddhi after an
 --           affix marked k or , a marking 1.3.9 has already erased.
 --
 ------------------------------------------------------------------------
--- WHICH SLOTS ARE BASE AND WHICH ARE CARRIED ‚î answered by the
+-- WHICH SLOTS ARE BASE AND WHICH ARE CARRIED ‚Äî answered by the
 -- mathematics rather than by preference.
 --
--- FIRST ANSWER, and it is negative.  A bare ‡µ‡∞‡‡ ‚î a record of ‡∞‡‡‡Æ‡ /
--- ‡‡‡‡æ‡®‡ / ‡‡û‡‡‡‡û‡æ ‚î is NOT a Carrier.  None of its three fields is a
+-- FIRST ANSWER, and it is negative.  A bare ‡§µ‡§∞‡•ç‡§£ ‚Äî a record of ‡§∞‡•Ç‡§™‡§Æ‡•ç /
+-- ‡§∏‡•ç‡§•‡§æ‡§®‡•Ä / ‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§æ ‚Äî is NOT a Carrier.  None of its three fields is a
 -- function of the other two, and that is three theorems below
--- (`‡∞‡‡‡Æ‡-‡®-‡®‡ø‡∞‡‡ß‡æ‡∞‡ø‡‡Æ‡`, `‡‡‡‡æ‡®‡-‡®-‡®‡ø‡∞‡‡ß‡æ‡∞‡ø‡‡`, `‡‡û‡‡‡‡û‡æ-‡®-‡®‡ø‡∞‡‡ß‡æ‡∞‡ø‡‡æ`),
--- each exhibiting two ‡µ‡∞‡‡ agreeing on two fields, disagreeing on the
+-- (`‡§∞‡•Ç‡§™‡§Æ‡•ç-‡§®-‡§®‡§ø‡§∞‡•ç‡§ß‡§æ‡§∞‡§ø‡§§‡§Æ‡•ç`, `‡§∏‡•ç‡§•‡§æ‡§®‡•Ä-‡§®-‡§®‡§ø‡§∞‡•ç‡§ß‡§æ‡§∞‡§ø‡§§‡§É`, `‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§æ-‡§®-‡§®‡§ø‡§∞‡•ç‡§ß‡§æ‡§∞‡§ø‡§§‡§æ`),
+-- each exhibiting two ‡§µ‡§∞‡•ç‡§£ agreeing on two fields, disagreeing on the
 -- third, and provably distinct.  This is the same shape as the three
--- slots of the ‡ï‡‡ü‡‡ü‡ï in this library and has the same consequence:
--- there is no Carrier whose base is two fields of a ‡µ‡∞‡‡ and whose
+-- slots of the ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï in this library and has the same consequence:
+-- there is no Carrier whose base is two fields of a ‡§µ‡§∞‡•ç‡§£ and whose
 -- carried datum is the third.  The fiber of any such forgetful map has
--- two points that are not joined, so it is not contractible and `Œ-law`
+-- two points that are not joined, so it is not contractible and `Œ£-law`
 -- has nothing to consume.
 --
 -- SECOND ANSWER, and it is the instance.  What is determined is not a
--- field of a ‡µ‡∞‡‡; it is a field of the OUTPUT of the ‡‡¶‡‡ OPERATION.
+-- field of a ‡§µ‡§∞‡•ç‡§£; it is a field of the OUTPUT of the ‡§Ü‡§¶‡•á‡§∂ OPERATION.
 -- Take as base the pair
 --
---     ‡‡ß‡æ‡∞  =  ‡µ‡∞‡‡ ó ‡µ‡∞‡‡‡∞‡‡      (the vara operated on, and the form
+--     ‡§Ü‡§ß‡§æ‡§∞  =  ‡§µ‡§∞‡•ç‡§£ √ó ‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™      (the var·πáa operated on, and the form
 --                                    to be put in its place)
 --
 -- and read off what 1.1.56 says the substitute inherits:
 --
---     ‡®‡ø‡∞‡‡ß‡æ‡∞‡ø‡‡Æ‡ (v , f)  =  (‡∞‡‡‡Æ‡ v , ‡‡û‡‡‡‡û‡æ v)  :  ‡µ‡∞‡‡‡∞‡‡ ó ‡µ‡∞‡‡‡‡û‡‡‡‡û‡æ
---     ‡‡‡‡æ‡®‡ø‡µ‡‡           =  Carrier ‡®‡ø‡∞‡‡ß‡æ‡∞‡ø‡‡Æ‡
+--     ‡§®‡§ø‡§∞‡•ç‡§ß‡§æ‡§∞‡§ø‡§§‡§Æ‡•ç (v , f)  =  (‡§∞‡•Ç‡§™‡§Æ‡•ç v , ‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§æ v)  :  ‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™ √ó ‡§µ‡§∞‡•ç‡§£‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§æ
+--     ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç           =  Carrier ‡§®‡§ø‡§∞‡•ç‡§ß‡§æ‡§∞‡§ø‡§§‡§Æ‡•ç
 --
--- The output's ‡‡‡‡æ‡®‡ IS the input's ‡∞‡‡‡Æ‡, and the output's ‡‡û‡‡‡‡û‡æ IS
--- the input's ‡‡û‡‡‡‡û‡æ.  Both are functions of the base.  The substituted
+-- The output's ‡§∏‡•ç‡§•‡§æ‡§®‡•Ä IS the input's ‡§∞‡•Ç‡§™‡§Æ‡•ç, and the output's ‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§æ IS
+-- the input's ‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§æ.  Both are functions of the base.  The substituted
 -- form f is a function of nothing and sits in the base as a free slot.
--- The fiber Œ[ p ] (‡®‡ø‡∞‡‡ß‡æ‡∞‡ø‡‡Æ‡ x ‚â° p) = singl (‡®‡ø‡∞‡‡ß‡æ‡∞‡ø‡‡Æ‡ x) is
--- contractible, so ‡‡ß‡æ‡∞ ‚â ‡‡‡‡æ‡®‡ø‡µ‡‡ and, by univalence, ‡‡ß‡æ‡∞ ‚â° ‡‡‡‡æ‡®‡ø‡µ‡‡.
+-- The fiber Œ£[ p ] (‡§®‡§ø‡§∞‡•ç‡§ß‡§æ‡§∞‡§ø‡§§‡§Æ‡•ç x ‚â° p) = singl (‡§®‡§ø‡§∞‡•ç‡§ß‡§æ‡§∞‡§ø‡§§‡§Æ‡•ç x) is
+-- contractible, so ‡§Ü‡§ß‡§æ‡§∞ ‚âÉ ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç and, by univalence, ‡§Ü‡§ß‡§æ‡§∞ ‚â° ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç.
 --
 -- WHY THE PAIR AND NOT THE ‡‡‡‡æ‡®‡ø‡®‡ ALONE.
--- The alternative `f (v , r) = ‡∞‡‡‡Æ‡ v`, carrying the ‡‡‡‡æ‡®‡ by itself.
--- That is correct and it is not the whole of what is determined: ‡‡û‡‡‡‡û‡æ
+-- The alternative `f (v , r) = ‡§∞‡•Ç‡§™‡§Æ‡•ç v`, carrying the ‡§∏‡•ç‡§•‡§æ‡§®‡•Ä by itself.
+-- That is correct and it is not the whole of what is determined: ‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§æ
 -- is determined by the base in exactly the same way, and it is the
--- quantity 1.1.56 is actually about ‚î the substitute inherits the
--- DESIGNATIONS.  Carrying the ‡‡‡‡æ‡®‡ while leaving the ‡‡û‡‡‡‡û‡æ in the base
+-- quantity 1.1.56 is actually about ‚Äî the substitute inherits the
+-- DESIGNATIONS.  Carrying the ‡§∏‡•ç‡§•‡§æ‡§®‡•Ä while leaving the ‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§æ in the base
 -- would put a determined quantity in the free part, which is the error
 -- the law exists to prevent.  So the carried datum is the pair and the
 -- free slot is the form alone.  That IS 1.1.56, read as an arity count.
 --
--- THE ‡‡≤‡/‡‡®‡≤‡ SPLIT IS THE BASE/CARRIED SPLIT.  This is the point of the
--- module.  A rule reading only ‡‡û‡‡‡‡û‡æ factors through the carried datum,
--- and the carried datum does not mention the free slot ‚î so such a rule
+-- THE ‡§Ö‡§≤‡•ç/‡§Ö‡§®‡§≤‡•ç SPLIT IS THE BASE/CARRIED SPLIT.  This is the point of the
+-- module.  A rule reading only ‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§æ factors through the carried datum,
+-- and the carried datum does not mention the free slot ‚Äî so such a rule
 -- cannot see which form was substituted, and it cannot see it BY refl
--- (`‡µ‡æ‡‡ï-‡‡®‡‡ß‡`).  A rule reading the form is reading the free slot, and
+-- (`‡§µ‡§æ‡§π‡§ï-‡§Ö‡§®‡•ç‡§ß‡§É`).  A rule reading the form is reading the free slot, and
 -- there is provably no function of the carried datum agreeing with it
--- (`‡‡‡-‡®-‡µ‡æ‡‡‡Ø‡Æ‡`).  1.1.56's exception clause is not a hedge; it names
+-- (`‡§è‡§ö‡•ç-‡§®-‡§µ‡§æ‡§π‡•ç‡§Ø‡§Æ‡•ç`).  1.1.56's exception clause is not a hedge; it names
 -- the slot the law had to leave free.
 --
 ------------------------------------------------------------------------
@@ -83,17 +83,17 @@
 -- 1.1.62 is the reason single-step preservation is not enough: an
 -- operation conditioned by an elided affix applies LATER, so whatever
 -- 1.1.56 secures must survive the rest of the derivation and not one
--- rewrite.  Here a derivation is `unfold ‡‡¶‡Æ‡` ‚î the whole infinite
--- trajectory as one object ‚î and the statements about it are proved as
+-- rewrite.  Here a derivation is `unfold ‡§™‡§¶‡§Æ‡•ç` ‚Äî the whole infinite
+-- trajectory as one object ‚Äî and the statements about it are proved as
 -- BISIMULATIONS, corecursively, one head at a time, because equality of
 -- coinductive objects is not implied by agreement on any finite prefix.
 --
---   `‡‡û‡‡‡‡û‡æ-‡‡®‡‡µ‡‡‡‡‡ø‡`: along the entire orbit of an
---   ARBITRARY rule ‡®‡ø‡Ø‡Æ, the designation read off the carried datum is
---   constant and equal to the designation of the starting vara ‚î not
+--   `‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§æ-‡§Ö‡§®‡•Å‡§µ‡•É‡§§‡•ç‡§§‡§ø‡§É`: along the entire orbit of an
+--   ARBITRARY rule ‡§®‡§ø‡§Ø‡§Æ, the designation read off the carried datum is
+--   constant and equal to the designation of the starting var·πáa ‚Äî not
 --   "for every n" but as a single path between two coinductive objects.
---   And `‡‡‡‡æ‡®‡ø-‡‡‡ô‡‡ñ‡≤‡æ`: at every position, the ‡‡‡‡æ‡®‡ carried at step
---   n+1 is the ‡∞‡‡‡Æ‡ standing at step n, so the chain back to the
+--   And `‡§∏‡•ç‡§•‡§æ‡§®‡§ø-‡§∂‡•É‡§ô‡•ç‡§ñ‡§≤‡§æ`: at every position, the ‡§∏‡•ç‡§•‡§æ‡§®‡•Ä carried at step
+--   n+1 is the ‡§∞‡•Ç‡§™‡§Æ‡•ç standing at step n, so the chain back to the
 --   original is unbroken at arbitrary depth.
 --
 --   What the orbit theorem establishes is
@@ -105,51 +105,51 @@
 ------------------------------------------------------------------------
 -- REMARKS.
 --
--- 1. `‡‡¶‡‡` IS NOT LITERALLY `descend`, and cannot be ‚î different
---    codomains.  `descend ‡®‡ø‡∞‡‡ß‡æ‡∞‡ø‡‡Æ‡ : ‡‡ß‡æ‡∞ ‚í ‡‡‡‡æ‡®‡ø‡µ‡‡`, while
---    `‡‡¶‡‡ : ‡µ‡∞‡‡‡∞‡‡ ‚í ‡µ‡∞‡‡ ‚í ‡µ‡∞‡‡`.  They differ by exactly one map,
---    `‡‡‡®‡∞‡‡∞‡‡®‡æ : ‡‡‡‡æ‡®‡ø‡µ‡‡ ‚í ‡µ‡∞‡‡`, which reassembles a vara from the free
+-- 1. `‡§Ü‡§¶‡•á‡§∂` IS NOT LITERALLY `descend`, and cannot be ‚Äî different
+--    codomains.  `descend ‡§®‡§ø‡§∞‡•ç‡§ß‡§æ‡§∞‡§ø‡§§‡§Æ‡•ç : ‡§Ü‡§ß‡§æ‡§∞ ‚Üí ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç`, while
+--    `‡§Ü‡§¶‡•á‡§∂ : ‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™ ‚Üí ‡§µ‡§∞‡•ç‡§£ ‚Üí ‡§µ‡§∞‡•ç‡§£`.  They differ by exactly one map,
+--    `‡§™‡•Å‡§®‡§∞‡•ç‡§∞‡§ö‡§®‡§æ : ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç ‚Üí ‡§µ‡§∞‡•ç‡§£`, which reassembles a var·πáa from the free
 --    slot and the two carried components, and the factorisation is
---    DEFINITIONAL: `‡‡¶‡‡-‡‡µ‡‡∞‡‡Æ‡` is `refl`.  So the honest statement is
---    `‡‡‡®‡∞‡‡∞‡‡®‡æ (‡‡µ‡‡∞‡ (v , f)) ‚â° ‡‡¶‡‡ f v` by refl, not `‡‡¶‡‡ ‚â° descend`.
---    Conversely `‡µ‡‡®‡Æ‡-‡‡¶‡‡‡`, also refl, says the carried datum is the
---    pair (‡‡‡‡æ‡®‡ , ‡‡û‡‡‡‡û‡æ) of the dea's own output.  The two records
+--    DEFINITIONAL: `‡§Ü‡§¶‡•á‡§∂-‡§Ö‡§µ‡§§‡§∞‡§£‡§Æ‡•ç` is `refl`.  So the honest statement is
+--    `‡§™‡•Å‡§®‡§∞‡•ç‡§∞‡§ö‡§®‡§æ (‡§Ö‡§µ‡§§‡§∞‡§£ (v , f)) ‚â° ‡§Ü‡§¶‡•á‡§∂ f v` by refl, not `‡§Ü‡§¶‡•á‡§∂ ‚â° descend`.
+--    Conversely `‡§µ‡§π‡§®‡§Æ‡•ç-‡§Ü‡§¶‡•á‡§∂‡§É`, also refl, says the carried datum is the
+--    pair (‡§∏‡•ç‡§•‡§æ‡§®‡•Ä , ‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§æ) of the ƒÅde≈õa's own output.  The two records
 --    hold the same information; neither is the other.
 --
--- 2. `‡‡¶‡‡-‡‡®‡‡ß‡` ‚î the parent module's `anal-blind` ‚î is
+-- 2. `‡§Ü‡§¶‡•á‡§∂-‡§Ö‡§®‡•ç‡§ß‡§É` ‚Äî the parent module's `anal-blind` ‚Äî is
 --    reproved from the factorisation.  What the
---    Carrier gives for free is `‡µ‡æ‡‡ï-‡‡®‡‡ß‡`: two bases differing ONLY in
+--    Carrier gives for free is `‡§µ‡§æ‡§π‡§ï-‡§Ö‡§®‡•ç‡§ß‡§É`: two bases differing ONLY in
 --    the free slot have equal carried data, hence equal verdicts from any
 --    carried-reading rule, BY refl, with no factorisation lemma and no
 --    case analysis.  That is the stronger and cleaner statement.  It does
 --    NOT entail `anal-blind`, because `anal-blind` compares the dea
---    with the ‡‡‡‡æ‡®‡ø‡®‡ VARA v, and v is not in the image of
---    `‡‡‡®‡∞‡‡∞‡‡®‡æ ‚àò ‡‡µ‡‡∞‡` unless ‡‡‡‡æ‡®‡ v ‚â° ‡∞‡‡‡Æ‡ v.  The two points being
---    compared do not lie in one fiber of ‡®‡ø‡∞‡‡ß‡æ‡∞‡ø‡‡Æ‡, so the contraction
+--    with the ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§®‡•ç VAR·πÜA v, and v is not in the image of
+--    `‡§™‡•Å‡§®‡§∞‡•ç‡§∞‡§ö‡§®‡§æ ‚àò ‡§Ö‡§µ‡§§‡§∞‡§£` unless ‡§∏‡•ç‡§•‡§æ‡§®‡•Ä v ‚â° ‡§∞‡•Ç‡§™‡§Æ‡•ç v.  The two points being
+--    compared do not lie in one fiber of ‡§®‡§ø‡§∞‡•ç‡§ß‡§æ‡§∞‡§ø‡§§‡§Æ‡•ç, so the contraction
 --    has nothing to say about them and the `h _ ‚àô sym (h _)` survives.
 --    Stated as a finding: THE LAW DERIVES 1.1.56's BLINDNESS ACROSS
 --    SUBSTITUTIONS DEFINITIONALLY AND DOES NOT DERIVE ITS BLINDNESS
---    BETWEEN A SUBSTITUTE AND ITS ORIGINAL.  `‡‡¶‡‡-‡‡‡µ‡‡‡‡æ‡®‡` and
---    `‡‡¶‡‡-‡‡®‡‡ß‡-‡µ‡æ‡‡ï‡æ‡‡` below isolate the exact extra hypothesis
---    (‡‡‡‡æ‡®‡ v ‚â° ‡∞‡‡‡Æ‡ v) that closes the gap, so the missing ingredient
+--    BETWEEN A SUBSTITUTE AND ITS ORIGINAL.  `‡§Ü‡§¶‡•á‡§∂-‡§∏‡•ç‡§µ‡§∏‡•ç‡§•‡§æ‡§®‡•Ä` and
+--    `‡§Ü‡§¶‡•á‡§∂-‡§Ö‡§®‡•ç‡§ß‡§É-‡§µ‡§æ‡§π‡§ï‡§æ‡§§‡•ç` below isolate the exact extra hypothesis
+--    (‡§∏‡•ç‡§•‡§æ‡§®‡•Ä v ‚â° ‡§∞‡•Ç‡§™‡§Æ‡•ç v) that closes the gap, so the missing ingredient
 --    is named rather than described.
 --
--- 3. THE RULE IS A FUNCTION ‡µ‡∞‡‡ ‚í ‡µ‡∞‡‡‡∞‡‡.  Real stras read a word, an
---    environment, and the ‡‡‡∞‡ø‡‡æ‡¶‡'s ‡‡‡ø‡¶‡‡ß‡‡‡µ stratification (¬ß‡‡ of
+-- 3. THE RULE IS A FUNCTION ‡§µ‡§∞‡•ç‡§£ ‚Üí ‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™.  Real s≈´tras read a word, an
+--    environment, and the ‡§§‡•ç‡§∞‡§ø‡§™‡§æ‡§¶‡•Ä's ‡§Ö‡§∏‡§ø‡§¶‡•ç‡§ß‡§§‡•ç‡§µ stratification (¬ß‡•™‡•¨ of
 --    later rule's result is invisible to the earlier).  A one-vara rule
 --    has no environment and no stratum, so the orbit below is the
 --    trajectory of ONE site under ONE rule and not a derivation of the
 --    *Adhyy*.
 --
--- 4. THREE FORMS AND NO MORE ‚î , its gua substitute e, and the a that
---    6.1.78 would produce from e: the ones the derivation of ‡®‡Ø‡® passes
+-- 4. THREE FORMS AND NO MORE ‚Äî ƒ´, its gu·πáa substitute e, and the a that
+--    6.1.78 would produce from e: the ones the derivation of ‡§®‡§Ø‡§® passes
 --    through, taken from the parent-repository module.
 --
--- 5. Nothing here imports outside `Fiber`: the vocabulary ‡µ‡∞‡‡ /
---    ‡‡¶‡‡ / AnalVidhi is redefined rather than imported from
+-- 5. Nothing here imports outside `Fiber`: the vocabulary ‡§µ‡§∞‡•ç‡§£ /
+--    ‡§Ü‡§¶‡•á‡§∂ / AnalVidhi is redefined rather than imported from
 --    `formal/cubical`, so the library stays standalone and `check.sh`
 --    keeps checking what it says it checks.  That duplication is
---    deliberate, and it is the same trade the ‡ï‡‡ü‡‡ü‡ï module records.
+--    deliberate, and it is the same trade the ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï module records.
 ------------------------------------------------------------------------
 
 module Fiber.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried where
@@ -171,11 +171,11 @@ private
   ¬¨ A = A ‚Üí ‚ä•
 
 ------------------------------------------------------------------------
--- ‡ß ¬ ‡µ‡∞‡‡‡∞‡‡ and ‡µ‡∞‡‡‡‡û‡‡‡‡û‡æ, with their distinctness.
+-- ‡•ß ¬∑ ‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™ and ‡§µ‡§∞‡•ç‡§£‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§æ, with their distinctness.
 --
 -- The types are named as compounds (the forms of a vara, the
 -- designations of a vara) because the record fields below take the
--- bare terms ‡∞‡‡‡Æ‡ / ‡‡û‡‡‡‡û‡æ, which is what a stra reads.
+-- bare terms ‡§∞‡•Ç‡§™‡§Æ‡•ç / ‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§æ, which is what a s≈´tra reads.
 ------------------------------------------------------------------------
 
 data ‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™ : Type where
@@ -201,8 +201,8 @@ data ‡§µ‡§∞‡•ç‡§£‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§æ : Type where
 ‡§Ö‡§ô‡•ç‡§ó‚â¢‡§ï‡§ø‡§§‡•ç p = subst ‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§æ-‡§ï‡•ã‡§° p tt
 
 ------------------------------------------------------------------------
--- ‡® ¬ ‡µ‡∞‡‡ ‚î the three slots, one record.  ‡∞‡‡‡Æ‡ is the representation,
--- ‡‡‡‡æ‡®‡ is what it stands in place of (itself, when nothing), ‡‡û‡‡‡‡û‡æ is
+-- ‡•® ¬∑ ‡§µ‡§∞‡•ç‡§£ ‚Äî the three slots, one record.  ‡§∞‡•Ç‡§™‡§Æ‡•ç is the representation,
+-- ‡§∏‡•ç‡§•‡§æ‡§®‡•Ä is what it stands in place of (itself, when nothing), ‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§æ is
 -- the interface.
 ------------------------------------------------------------------------
 
@@ -216,11 +216,11 @@ record ‡§µ‡§∞‡•ç‡§£ : Type where
 open ‡§µ‡§∞‡•ç‡§£ public
 
 ------------------------------------------------------------------------
--- ‡© ¬ NO FIELD OF A ‡µ‡∞‡‡ IS A FUNCTION OF THE OTHER TWO.
+-- ‡•© ¬∑ NO FIELD OF A ‡§µ‡§∞‡•ç‡§£ IS A FUNCTION OF THE OTHER TWO.
 --
--- Three theorems, in the shape of `‡‡ï‡‡‡-‡®-‡®‡ø‡∞‡‡ß‡æ‡∞‡ø‡‡` in this library's
--- ‡ï‡‡ü‡‡ü‡ï module: two records agreeing on two coordinates by refl,
--- disagreeing on the third, provably distinct.  ‡µ‡∞‡‡ is therefore not a
+-- Three theorems, in the shape of `‡§™‡§ï‡•ç‡§∑‡§É-‡§®-‡§®‡§ø‡§∞‡•ç‡§ß‡§æ‡§∞‡§ø‡§§‡§É` in this library's
+-- ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï module: two records agreeing on two coordinates by refl,
+-- disagreeing on the third, provably distinct.  ‡§µ‡§∞‡•ç‡§£ is therefore not a
 -- Carrier of any forgetful map out of a two-field base.
 ------------------------------------------------------------------------
 
@@ -243,7 +243,7 @@ open ‡§µ‡§∞‡•ç‡§£ public
 ‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§æ-‡§®-‡§®‡§ø‡§∞‡•ç‡§ß‡§æ‡§∞‡§ø‡§§‡§æ = refl , (refl , Œª p ‚Üí ‡§Ö‡§ô‡•ç‡§ó‚â¢‡§ï‡§ø‡§§‡•ç (cong ‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§æ p))
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡‡¶‡‡ ‚î 1.1.56 as an operation.  A new form; the old form kept as
+-- ‡•™ ¬∑ ‡§Ü‡§¶‡•á‡§∂ ‚Äî 1.1.56 as an operation.  A new form; the old form kept as
 -- the sthnin; the designation inherited.
 ------------------------------------------------------------------------
 
@@ -265,11 +265,11 @@ open ‡§µ‡§∞‡•ç‡§£ public
 ‡§Ü‡§¶‡•á‡§∂-‡§∏‡•ç‡§µ‡§∏‡•ç‡§•‡§æ‡§®‡•Ä v p i = ‡§µ‡§∞‡•ç‡§£‡§É (‡§∞‡•Ç‡§™‡§Æ‡•ç v) (p (~ i)) (‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§æ v)
 
 ------------------------------------------------------------------------
--- ‡ ¬ THE INSTANCE.  Base = (the vara operated on , the form put in its
+-- ‡•´ ¬∑ THE INSTANCE.  Base = (the var·πáa operated on , the form put in its
 -- place).  Carried = what the output inherits, which is a function of the
 -- base and does not mention the substituted form at all.
 --
--- No pattern match on the pair: Œ has eta, and keeping the projections is
+-- No pattern match on the pair: Œ£ has eta, and keeping the projections is
 -- what makes the square close for an opaque variable.
 ------------------------------------------------------------------------
 
@@ -283,8 +283,8 @@ open ‡§µ‡§∞‡•ç‡§£ public
 ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç = Carrier ‡§®‡§ø‡§∞‡•ç‡§ß‡§æ‡§∞‡§ø‡§§‡§Æ‡•ç
 
 -- the four coordinates: two from the base, two carried.  The carried
--- pair is read as the ‡‡‡‡æ‡®‡ and the ‡‡û‡‡‡‡û‡æ OF THE OUTPUT of the pending
--- substitution, which is what `‡‡‡®‡∞‡‡∞‡‡®‡æ` below assembles.
+-- pair is read as the ‡§∏‡•ç‡§•‡§æ‡§®‡•Ä and the ‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§æ OF THE OUTPUT of the pending
+-- substitution, which is what `‡§™‡•Å‡§®‡§∞‡•ç‡§∞‡§ö‡§®‡§æ` below assembles.
 ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç-‡§µ‡§∞‡•ç‡§£‡§É : ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç ‚Üí ‡§µ‡§∞‡•ç‡§£
 ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç-‡§µ‡§∞‡•ç‡§£‡§É c = fst (base c)
 
@@ -326,7 +326,7 @@ open ‡§µ‡§∞‡•ç‡§£ public
 ‡§™‡§∞‡§ø‡§µ‡§π‡§®-‡§Ö‡§µ‡§§‡§∞‡§£ = carry-transport-descend ‡§®‡§ø‡§∞‡•ç‡§ß‡§æ‡§∞‡§ø‡§§‡§Æ‡•ç
 
 ------------------------------------------------------------------------
--- ‡ ¬ IS ‡‡¶‡‡ THE descend?  Not literally ‚î different codomains.  It is
+-- ‡•¨ ¬∑ IS ‡§Ü‡§¶‡•á‡§∂ THE descend?  Not literally ‚Äî different codomains.  It is
 -- descend composed with one reassembly map, and the factorisation is
 -- definitional in both directions.  See Remark 1.
 ------------------------------------------------------------------------
@@ -346,15 +346,15 @@ open ‡§µ‡§∞‡•ç‡§£ public
 
 -- the same along the univalent transport rather than along descend.  This
 -- one is NOT refl: transport along ua does not reduce on a neutral
--- variable, so it goes through uaŒ≤.  (¬ß‡ ‡¶‡‡µ‡ ‡Æ‡æ‡∞‡‡ó‡ ‚î the transport
+-- variable, so it goes through uaŒ≤.  (¬ß‡•¨ ‡§¶‡•ç‡§µ‡•å ‡§Æ‡§æ‡§∞‡•ç‡§ó‡•å ‚Äî the transport
 -- carries the structure and nothing is lost.)
 ‡§Ü‡§¶‡•á‡§∂-‡§™‡§∞‡§ø‡§µ‡§π‡§®‡§Æ‡•ç : (v : ‡§µ‡§∞‡•ç‡§£) (f : ‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™) ‚Üí ‡§™‡•Å‡§®‡§∞‡•ç‡§∞‡§ö‡§®‡§æ (‡§™‡§∞‡§ø‡§µ‡§π‡§® (v , f)) ‚â° ‡§Ü‡§¶‡•á‡§∂ f v
 ‡§Ü‡§¶‡•á‡§∂-‡§™‡§∞‡§ø‡§µ‡§π‡§®‡§Æ‡•ç v f = cong ‡§™‡•Å‡§®‡§∞‡•ç‡§∞‡§ö‡§®‡§æ (‡§™‡§∞‡§ø‡§µ‡§π‡§®-‡§Ö‡§µ‡§§‡§∞‡§£ (v , f))
 
 ------------------------------------------------------------------------
--- ‡ ¬ THE ‡‡≤‡/‡‡®‡≤‡ SPLIT IS THE BASE/CARRIED SPLIT.
+-- ‡•≠ ¬∑ THE ‡§Ö‡§≤‡•ç/‡§Ö‡§®‡§≤‡•ç SPLIT IS THE BASE/CARRIED SPLIT.
 --
--- ‡‡®‡≤‡‡µ‡ø‡ß‡ø: a rule that factors through the designation.  The definition
+-- ‡§Ö‡§®‡§≤‡•ç‡§µ‡§ø‡§ß‡§ø: a rule that factors through the designation.  The definition
 -- is the parent module's, restated here so this library imports nothing
 -- outside itself.
 ------------------------------------------------------------------------
@@ -363,7 +363,7 @@ AnalVidhi : (A : Type) ‚Üí (‡§µ‡§∞‡•ç‡§£ ‚Üí A) ‚Üí Type
 AnalVidhi A r = Œ£ (‡§µ‡§∞‡•ç‡§£‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§æ ‚Üí A) (Œª g ‚Üí (v : ‡§µ‡§∞‡•ç‡§£) ‚Üí r v ‚â° g (‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§æ v))
 
 -- WHAT THE CARRIER GIVES FOR FREE.  A rule reading only the carried
--- datum cannot see the free slot ‚î BY refl, for opaque arguments, with no
+-- datum cannot see the free slot ‚Äî BY refl, for opaque arguments, with no
 -- factorisation lemma and no case analysis.  Which form was substituted
 -- is invisible to it.
 ‡§µ‡§æ‡§π‡§ï-‡§Ö‡§®‡•ç‡§ß‡§É : {A : Type} (g : ‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™ √ó ‡§µ‡§∞‡•ç‡§£‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§æ ‚Üí A) (v : ‡§µ‡§∞‡•ç‡§£) (f f' : ‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™)
@@ -393,24 +393,24 @@ AnalVidhi A r = Œ£ (‡§µ‡§∞‡•ç‡§£‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§æ ‚Üí A) (Œª g ‚Üí (v : ‡§µ‡
 
 -- THE PARENT MODULE'S STATEMENT, reproved from the factorisation.  See
 -- Remark 2: the two points compared do not lie in one fiber of
--- ‡®‡ø‡∞‡‡ß‡æ‡∞‡ø‡‡Æ‡, so the contraction has nothing to say about them.
+-- ‡§®‡§ø‡§∞‡•ç‡§ß‡§æ‡§∞‡§ø‡§§‡§Æ‡•ç, so the contraction has nothing to say about them.
 ‡§Ü‡§¶‡•á‡§∂-‡§Ö‡§®‡•ç‡§ß‡§É : {A : Type} (r : ‡§µ‡§∞‡•ç‡§£ ‚Üí A) ‚Üí AnalVidhi A r
            ‚Üí (f : ‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™) (v : ‡§µ‡§∞‡•ç‡§£) ‚Üí r (‡§Ü‡§¶‡•á‡§∂ f v) ‚â° r v
 ‡§Ü‡§¶‡•á‡§∂-‡§Ö‡§®‡•ç‡§ß‡§É r (g , h) f v = h (‡§Ü‡§¶‡•á‡§∂ f v) ‚àô sym (h v)
 
--- ‚¶and the exact extra hypothesis under which it DOES follow from the
+-- ‚Ä¶and the exact extra hypothesis under which it DOES follow from the
 -- carrier half: when v already stands for its own form, v is in the image
--- of ‡‡‡®‡∞‡‡∞‡‡®‡æ ‚àò ‡‡µ‡‡∞‡ and the two points share a fiber.
+-- of ‡§™‡•Å‡§®‡§∞‡•ç‡§∞‡§ö‡§®‡§æ ‚àò ‡§Ö‡§µ‡§§‡§∞‡§£ and the two points share a fiber.
 ‡§Ü‡§¶‡•á‡§∂-‡§Ö‡§®‡•ç‡§ß‡§É-‡§µ‡§æ‡§π‡§ï‡§æ‡§§‡•ç : {A : Type} (r : ‡§µ‡§∞‡•ç‡§£ ‚Üí A) (av : AnalVidhi A r)
                    ‚Üí (v : ‡§µ‡§∞‡•ç‡§£) ‚Üí ‡§∏‡•ç‡§•‡§æ‡§®‡•Ä v ‚â° ‡§∞‡•Ç‡§™‡§Æ‡•ç v
                    ‚Üí (f : ‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™) ‚Üí r (‡§Ü‡§¶‡•á‡§∂ f v) ‚â° r v
 ‡§Ü‡§¶‡•á‡§∂-‡§Ö‡§®‡•ç‡§ß‡§É-‡§µ‡§æ‡§π‡§ï‡§æ‡§§‡•ç r av v p f =
   ‡§Ö‡§®‡§≤‡•ç‡§µ‡§ø‡§ß‡§ø‡§É-‡§Ö‡§®‡•ç‡§ß‡§É r av v f (‡§∞‡•Ç‡§™‡§Æ‡•ç v) ‚àô cong r (‡§Ü‡§¶‡•á‡§∂-‡§∏‡•ç‡§µ‡§∏‡•ç‡§•‡§æ‡§®‡•Ä v p)
 
--- THE OTHER HALF, AND IT MUST FAIL.  6.1.78 ‡‡‡ã‡Ω‡Ø‡µ‡æ‡Ø‡æ‡µ‡ operates on ‡‡‡;
--- asking whether a sound is in ‡‡‡ is asking about the sound.  There is
--- no function of the CARRIED datum that agrees with it ‚î two bases with
--- identical carried data, opposite verdicts.  The ‡‡≤‡‡µ‡ø‡ß‡ø reads the free
+-- THE OTHER HALF, AND IT MUST FAIL.  6.1.78 ‡§è‡§ö‡•ã‡§Ω‡§Ø‡§µ‡§æ‡§Ø‡§æ‡§µ‡§É operates on ‡§è‡§ö‡•ç;
+-- asking whether a sound is in ‡§è‡§ö‡•ç is asking about the sound.  There is
+-- no function of the CARRIED datum that agrees with it ‚Äî two bases with
+-- identical carried data, opposite verdicts.  The ‡§Ö‡§≤‡•ç‡§µ‡§ø‡§ß‡§ø reads the free
 -- slot, which is what 1.1.56's exception clause names.
 ‡§è‡§ö‡§É-‡§Ö‡§Ø‡§µ‡§æ‡§Ø‡§æ‡§µ‡§É : ‡§µ‡§∞‡•ç‡§£ ‚Üí ‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™
 ‡§è‡§ö‡§É-‡§Ö‡§Ø‡§µ‡§æ‡§Ø‡§æ‡§µ‡§É v = ‡§∞‡•Ç‡§™‡§Æ‡•ç v
@@ -429,9 +429,9 @@ CarriedVidhi A r = Œ£ (‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™ √ó ‡§µ‡§∞‡•ç‡§£‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§
 ‡§™‡§†‡§®‡§Æ‡•ç-‡§≠‡§ø‡§®‡•ç‡§®‡§Æ‡•ç p = ‡§à‚â¢‡§è (sym p)
 
 ------------------------------------------------------------------------
--- ‡Æ ¬ ‡‡¶‡Æ‡ ‚î THE STEP, as a Œ¶ on the base.
+-- ‡•Æ ¬∑ ‡§™‡§¶‡§Æ‡•ç ‚Äî THE STEP, as a Œ¶ on the base.
 --
--- A rule ‡®‡ø‡Ø‡Æ : ‡µ‡∞‡‡ ‚í ‡µ‡∞‡‡‡∞‡‡ says what form to put in the current
+-- A rule ‡§®‡§ø‡§Ø‡§Æ : ‡§µ‡§∞‡•ç‡§£ ‚Üí ‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™ says what form to put in the current
 -- vara's place.  One step performs the pending substitution and asks the
 -- rule for the next form.
 ------------------------------------------------------------------------
@@ -440,7 +440,7 @@ CarriedVidhi A r = Œ£ (‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™ √ó ‡§µ‡§∞‡•ç‡§£‡§∏‡§û‡•ç‡§ú‡•ç‡§û‡§
 ‡§™‡§¶‡§Æ‡•ç ‡§®‡§ø‡§Ø‡§Æ x = ‡§Ü‡§¶‡•á‡§∂ (snd x) (fst x) , ‡§®‡§ø‡§Ø‡§Æ (‡§Ü‡§¶‡•á‡§∂ (snd x) (fst x))
 
 ------------------------------------------------------------------------
--- ‡Ø ¬ THE LIFT, AND THE SQUARE.  Both are
+-- ‡•Ø ¬∑ THE LIFT, AND THE SQUARE.  B‚Äîoth are
 -- instances of the law, and `Œ¶-square` closes DEFINITIONALLY, by refl,
 -- for an opaque variable.
 ------------------------------------------------------------------------
@@ -467,7 +467,7 @@ module _ (‡§®‡§ø‡§Ø‡§Æ : ‡§µ‡§∞‡•ç‡§£ ‚Üí ‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™) where
   ‡§™‡§¶‡§Æ‡•ç-‡§µ‡§π‡§®‡§Æ‡•ç x = refl
 
 ------------------------------------------------------------------------
--- ‡ß‡¶ ¬ THE ORBIT ‚î the whole run as one object, and the payoff.
+-- ‡•ß‡•¶ ¬∑ THE ORBIT ‚Äî the whole run as one object, and the payoff.
 --
 -- `Nucleus` says carrier and orbit commute over the WHOLE infinite
 -- trajectory.  The two theorems after those instances are the ones 1.1.62
@@ -494,7 +494,7 @@ module _ (‡§®‡§ø‡§Ø‡§Æ : ‡§µ‡§∞‡•ç‡§£ ‚Üí ‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™) where
   ‡§¨‡•Å‡§®-‡§™‡§∞‡§ø‡§µ‡§π‡§® = transport-orbit ‡§®‡§ø‡§∞‡•ç‡§ß‡§æ‡§∞‡§ø‡§§‡§Æ‡•ç (‡§™‡§¶‡§Æ‡•ç ‡§®‡§ø‡§Ø‡§Æ)
 
   ------------------------------------------------------------------
-  -- THE DESIGNATION SURVIVES THE WHOLE DERIVATION ‚î not "for every n",
+  -- THE DESIGNATION SURVIVES THE WHOLE DERIVATION ‚Äî not "for every n",
   -- but as a single path between two coinductive objects, proved by
   -- bisimulation, because agreement on every finite prefix is not what
   -- equality of orbits is.
@@ -538,15 +538,15 @@ module _ (‡§®‡§ø‡§Ø‡§Æ : ‡§µ‡§∞‡•ç‡§£ ‚Üí ‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™) where
   ‡§™‡§¶-‡§∏‡•ç‡§•‡§æ‡§®‡§Æ‡•ç = orbit-lookup ‡§®‡§ø‡§∞‡•ç‡§ß‡§æ‡§∞‡§ø‡§§‡§Æ‡•ç (‡§™‡§¶‡§Æ‡•ç ‡§®‡§ø‡§Ø‡§Æ)
 
 ------------------------------------------------------------------------
--- ‡ß‡ß ¬ IT RUNS.  ‡®‡ + ‡≤‡‡Ø‡‡ü‡ ‚í ‡®‡Ø‡®, at the aga's final position: 7.3.84
--- puts ‡ in place of ‡à (gua), and 6.1.78 ‡‡‡ã‡Ω‡Ø‡µ‡æ‡Ø‡æ‡µ‡ then operates on
--- that ‡, because it is an ‡‡≤‡‡µ‡ø‡ß‡ø and reads the substitute.  Each line
+-- ‡•ß‡•ß ¬∑ IT RUNS.  ‡§®‡•Ä + ‡§≤‡•ç‡§Ø‡•Å‡§ü‡•ç ‚Üí ‡§®‡§Ø‡§®, at the a·πÖga's final position: 7.3.84
+-- puts ‡§è in place of ‡§à (gu·πáa), and 6.1.78 ‡§è‡§ö‡•ã‡§Ω‡§Ø‡§µ‡§æ‡§Ø‡§æ‡§µ‡§É then operates on
+-- that ‡§è, because it is an ‡§Ö‡§≤‡•ç‡§µ‡§ø‡§ß‡§ø and reads the substitute.  Each line
 -- holds by refl, so Agda must execute the steps.
 --
 -- The rule below is a caricature: one site, no environment, no
 -- stratification (Remark 3).  What the numbers show is only that the
--- carried datum tracks the chain ‚î ‡ stands for ‡à, ‡ stands for ‡ ‚î and
--- that the designation ‡‡ô‡‡ó is never lost.
+-- carried datum tracks the chain ‚Äî ‡§è stands for ‡§à, ‡§Ö stands for ‡§è ‚Äî and
+-- that the designation ‡§Ö‡§ô‡•ç‡§ó is never lost.
 ------------------------------------------------------------------------
 
 ‡§Ö‡§ó‡•ç‡§∞‡§ø‡§Æ-‡§∞‡•Ç‡§™ : ‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™ ‚Üí ‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™
@@ -578,8 +578,8 @@ module _ (‡§®‡§ø‡§Ø‡§Æ : ‡§µ‡§∞‡•ç‡§£ ‚Üí ‡§µ‡§∞‡•ç‡§£‡§∞‡•Ç‡§™) where
 ‡§ó‡§£‡§®‡§æ-‡§∏‡•ç‡§•‡§ø‡§∞‡§Æ‡•ç : iterate (‡§™‡§¶‡§Æ‡•ç ‡§Ö‡§ó‡•ç‡§∞‡§ø‡§Æ) 20 ‡§Ü‡§∞‡§Æ‡•ç‡§≠‡§É ‚â° (‡§µ‡§∞‡•ç‡§£‡§É ‡§Ö ‡§Ö ‡§Ö‡§ô‡•ç‡§ó , ‡§Ö)
 ‡§ó‡§£‡§®‡§æ-‡§∏‡•ç‡§•‡§ø‡§∞‡§Æ‡•ç = refl
 
--- the ‡‡≤‡‡µ‡ø‡ß‡ø reads the substitute and the ‡‡®‡≤‡‡µ‡ø‡ß‡ø does not: after one
--- step the form is ‡ and the designation is still ‡‡ô‡‡ó
+-- the ‡§Ö‡§≤‡•ç‡§µ‡§ø‡§ß‡§ø reads the substitute and the ‡§Ö‡§®‡§≤‡•ç‡§µ‡§ø‡§ß‡§ø does not: after one
+-- step the form is ‡§è and the designation is still ‡§Ö‡§ô‡•ç‡§ó
 ‡§ó‡§£‡§®‡§æ-‡§Ö‡§≤‡•ç : ‡§è‡§ö‡§É-‡§Ö‡§Ø‡§µ‡§æ‡§Ø‡§æ‡§µ‡§É (fst (iterate (‡§™‡§¶‡§Æ‡•ç ‡§Ö‡§ó‡•ç‡§∞‡§ø‡§Æ) 1 ‡§Ü‡§∞‡§Æ‡•ç‡§≠‡§É)) ‚â° ‡§è
 ‡§ó‡§£‡§®‡§æ-‡§Ö‡§≤‡•ç = refl
 

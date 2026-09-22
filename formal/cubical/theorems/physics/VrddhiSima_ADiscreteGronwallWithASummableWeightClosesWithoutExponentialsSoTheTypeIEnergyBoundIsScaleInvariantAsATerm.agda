@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������-���� � the growth bound.
+-- वृद्धि-सीमा — the growth bound.
 --
 -- The NS Type I verdict (ORACLE_NS_typeI, Theorem C): under the Type I
 -- bound the cubic and pressure terms of the local energy identity become
@@ -11,17 +11,17 @@
 -- summable weight, and it needs no exponential:
 --
 --   §1  SUMS AND PRODUCTS over [0, n) of rational sequences; the product
---       Π (1 + w_k) is � 1 for nonnegative weights.
---   §2  DISCRETE GRONWALL.  If a_{k+1} � a_k (1 + w_k) + c_k with a, w, c
---       nonnegative, then a_n � (a_0 + �_{k<n} c_k) � Π_{k<n} (1 + w_k).
+--       Π (1 + w_k) is ≥ 1 for nonnegative weights.
+--   §2  DISCRETE GRONWALL.  If a_{k+1} ≤ a_k (1 + w_k) + c_k with a, w, c
+--       nonnegative, then a_n ≤ (a_0 + Σ_{k<n} c_k) · Π_{k<n} (1 + w_k).
 --   §3  THE PRODUCT IS CONTROLLED BY THE SUM, WITHOUT exp:
---       Π (1 + w_k) � (1 − � w_k) � 1 whenever � w_k � 1.
---   §4  THE CLOSURE.  a_n � (1 − S_n) � a_0 + � c_k: when the weights sum
---       to at most ½ this is a_n � 2 (a_0 + � c) � a bound independent
+--       Π (1 + w_k) · (1 − Σ w_k) ≤ 1 whenever Σ w_k ≤ 1.
+--   §4  THE CLOSURE.  a_n · (1 − S_n) ≤ a_0 + Σ c_k: when the weights sum
+--       to at most ½ this is a_n ≤ 2 (a_0 + Σ c) — a bound independent
 --       of n, i.e. of the scale.  This is the exact shape of Theorem C's
 --       K(C_*), with the dyadic weight 2^{−k/2} C_* in the role of w.
 --
--- ���� (sm, bound/limit) is ordinary .
+-- सीमा (sīmā, bound/limit) is ordinary .
 ------------------------------------------------------------------------
 
 module VrddhiSima_ADiscreteGronwallWithASummableWeightClosesWithoutExponentialsSoTheTypeIEnergyBoundIsScaleInvariantAsATerm where
@@ -76,7 +76,7 @@ open import Vrddhi_AModeOfRatioAboveOneGrowsPastEveryBoundAndAModeOfRatioAtMostO
   using (anṛṇa-guṇa)
 
 ------------------------------------------------------------------------
--- � � Sums and products.
+-- १ · Sums and products.
 ------------------------------------------------------------------------
 
 Σ⟨_⟩ : ℕ → (ℕ → ℚ) → ℚ
@@ -91,11 +91,11 @@ open import Vrddhi_AModeOfRatioAboveOneGrowsPastEveryBoundAndAModeOfRatioAtMostO
 0≤1 : 0 ≤ 1
 0≤1 = <Weaken≤ 0 1 (0 , refl)
 
--- x � y  �  x � y + z for 0 � z
+-- x ≤ y  ⇒  x ≤ y + z for 0 ≤ z
 ≤-yoga : (x y z : ℚ) → x ≤ y → 0 ≤ z → x ≤ y + z
 ≤-yoga x y z le 0≤z = isTrans≤ x y (y + z) le (subst (_≤ y + z) (+IdR y) (≤-o+ 0 z y 0≤z))
 
--- x − y � x for 0 � y
+-- x − y ≤ x for 0 ≤ y
 vyava-≤ : (x y : ℚ) → 0 ≤ y → x - y ≤ x
 vyava-≤ x y 0≤y = subst (x - y ≤_) (+IdR x)
   (≤-o+ (- y) 0 x (subst2 _≤_ (+IdL (- y)) (+InvR y) (≤-+o 0 y (- y) 0≤y)))
@@ -106,7 +106,7 @@ module _ (w : ℕ → ℚ) (0≤w : (k : ℕ) → 0 ≤ w k) where
   Σ-anṛṇa zero    = isRefl≤ 0
   Σ-anṛṇa (suc n) = anṛṇa-yoga {Σ⟨ n ⟩ w} {w n} (Σ-anṛṇa n) (0≤w n)
 
-  -- 1 � Π (1 + w)
+  -- 1 ≤ Π (1 + w)
   Π-eka : (n : ℕ) → 1 ≤ Π⟨ n ⟩ w
   Π-eka zero    = isRefl≤ 1
   Π-eka (suc n) =
@@ -122,7 +122,7 @@ module _ (w : ℕ → ℚ) (0≤w : (k : ℕ) → 0 ≤ w k) where
   Π-anṛṇa n = isTrans≤ 0 1 (Π⟨ n ⟩ w) 0≤1 (Π-eka n)
 
   ----------------------------------------------------------------------
-  -- � � Discrete Gronwall.
+  -- २ · Discrete Gronwall.
   ----------------------------------------------------------------------
 
   module _ (a c : ℕ → ℚ) (0≤c : (k : ℕ) → 0 ≤ c k)
@@ -144,7 +144,7 @@ module _ (w : ℕ → ℚ) (0≤w : (k : ℕ) → 0 ≤ w k) where
       ≤Monotone+ x y u v xy uv = isTrans≤ (x + u) (y + u) (y + v) (≤-+o x y u xy) (≤-o+ u v y uv)
 
   ----------------------------------------------------------------------
-  -- � � The product is controlled by the sum, without exp.
+  -- ३ · The product is controlled by the sum, without exp.
   ----------------------------------------------------------------------
 
   saṃhāra : (n : ℕ) → Σ⟨ n ⟩ w ≤ 1 → Π⟨ n ⟩ w · (1 - Σ⟨ n ⟩ w) ≤ 1
@@ -160,7 +160,7 @@ module _ (w : ℕ → ℚ) (0≤w : (k : ℕ) → 0 ≤ w k) where
       (saṃhāra n (isTrans≤ (Σ⟨ n ⟩ w) (Σ⟨ suc n ⟩ w) 1 (≤-yoga (Σ⟨ n ⟩ w) (Σ⟨ n ⟩ w) (w n) (isRefl≤ (Σ⟨ n ⟩ w)) (0≤w n)) le))
 
   ----------------------------------------------------------------------
-  -- � � The closure: a_n (1 − S_n) � a_0 + � c, independent of n.
+  -- ४ · The closure: a_n (1 − S_n) ≤ a_0 + Σ c, independent of n.
   ----------------------------------------------------------------------
 
   module _ (a c : ℕ → ℚ) (0≤a : (k : ℕ) → 0 ≤ a k) (0≤c : (k : ℕ) → 0 ≤ c k)
@@ -184,9 +184,9 @@ module _ (w : ℕ → ℚ) (0≤w : (k : ℕ) → 0 ≤ w k) where
       0≤1-S = subst2 _≤_ (+InvR (Σ⟨ n ⟩ w)) refl (≤-+o (Σ⟨ n ⟩ w) 1 (- Σ⟨ n ⟩ w) le)
 
 ------------------------------------------------------------------------
--- � � The dyadic weight.  �_{k<n} (½)^k = 2 (1 − (½)^n) exactly, so with
+-- ५ · The dyadic weight.  Σ_{k<n} (½)^k = 2 (1 − (½)^n) exactly, so with
 --     w_k = ¼ (½)^k the weights sum to at most ½ and the closure reads
---     a_n � 2 (a_0 + � c): the constant is 2, at every scale.
+--     a_n ≤ 2 (a_0 + Σ c): the constant is 2, at every scale.
 ------------------------------------------------------------------------
 
 open import ParimeyaRupa_TheRationalsWithTheTrivialInvolutionFormAStarRingWithAHalfAndNonnegativityExcludesMinusTwoSoTheFiniteWeilCriterionAndTheKreinSplittingHoldOverQ
@@ -197,7 +197,7 @@ open import Vrddhi_AModeOfRatioAboveOneGrowsPastEveryBoundAndAModeOfRatioAtMostO
 ardha-guṇa : ardha · (1 + 1) ≡ 1
 ardha-guṇa = ·DistL+ ardha 1 1 ∙ cong₂ _+_ (·IdR ardha) (·IdR ardha) ∙ ardha-dvi
 
--- �_{k<n} h^k = 2 (1 − h^n) for the half h
+-- Σ_{k<n} h^k = 2 (1 − h^n) for the half h
 geo : (n : ℕ) → Σ⟨ n ⟩ (λ k → (ardha ^ k)) ≡ (1 + 1) · (1 - (ardha ^ n))
 geo zero    = Dvi.ādi ℚRing
 geo (suc n) = cong (_+ (ardha ^ n)) (geo n)
@@ -246,7 +246,7 @@ dvidhā-eka : (n : ℕ) → Σ⟨ n ⟩ dvidhā ≤ 1
 dvidhā-eka n = isTrans≤ (Σ⟨ n ⟩ dvidhā) ardha 1 (dvidhā-ardha n) ardha≤1
 
 ------------------------------------------------------------------------
--- � � The closure with the dyadic weight: a_n � 2 (a_0 + � c), every n.
+-- ६ · The closure with the dyadic weight: a_n ≤ 2 (a_0 + Σ c), every n.
 ------------------------------------------------------------------------
 
 module _ (a c : ℕ → ℚ) (0≤a : (k : ℕ) → 0 ≤ a k) (0≤c : (k : ℕ) → 0 ≤ c k)
@@ -262,7 +262,7 @@ module _ (a c : ℕ → ℚ) (0≤a : (k : ℕ) → 0 ≤ a k) (0≤c : (k : ℕ
             (≤-·o ardha (1 - Σ⟨ n ⟩ dvidhā) (a n) (0≤a n) ardha≤1-S))
           (saṃvṛta dvidhā dvidhā-anṛṇa a c 0≤a 0≤c pada n (dvidhā-eka n))))
     where
-    -- ½ � 1 − S_n since S_n � ½
+    -- ½ ≤ 1 − S_n since S_n ≤ ½
     ardha≤1-S : ardha ≤ 1 - Σ⟨ n ⟩ dvidhā
     ardha≤1-S = subst (_≤ 1 - Σ⟨ n ⟩ dvidhā) (Dvi.pratyāhāra ℚRing ardha (Σ⟨ n ⟩ dvidhā))
       (≤-+o (ardha + Σ⟨ n ⟩ dvidhā) 1 (- Σ⟨ n ⟩ dvidhā)

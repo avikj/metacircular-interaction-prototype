@@ -21,7 +21,7 @@
 --   * centre and gap ARE the two light-cone coordinates of
 --     CenterRelative (fibreCentre / fibreGap);
 --   * every prime pair lands in the open positive cone (inCone);
---   * the one-leg reflection J� EXCHANGES the two foliations
+--   * the one-leg reflection J₂ EXCHANGES the two foliations
 --     (Delta 16 Cor 16.2) but provably CANNOT preserve the cone
 --     (noSelfDualPair).
 --
@@ -123,9 +123,9 @@ module Field (IsPrime : ℤ → Type) where
   ----------------------------------------------------------------------
   -- 4.  The obstruction
   --
-  -- Delta 16 Cor 16.2: J� carries the fixed-centre foliation to the
+  -- Delta 16 Cor 16.2: J₂ carries the fixed-centre foliation to the
   -- fixed-relative foliation -- exactly the exchange Delta 23 §3 wants
-  -- between Goldbach and twin primes.  But thm16-4 says J� cannot
+  -- between Goldbach and twin primes.  But thm16-4 says J₂ cannot
   -- preserve the cone, and §3 above says every prime pair is IN the cone.
   --
   -- Hence: no prime pair's image survives the exchange.
@@ -134,7 +134,7 @@ module Field (IsPrime : ℤ → Type) where
   noSelfDualPair : (x : PrimePair) → ¬ InCone (J₂CR (toCR x))
   noSelfDualPair x = thm16-4 (toCR x) (inCone x)
 
-  -- By contrast the leg exchange � (Weyl reflection) preserves the cone,
+  -- By contrast the leg exchange τ (Weyl reflection) preserves the cone,
   -- so it is an honest symmetry of the field.  The two involutions are
   -- not interchangeable, and this is where they part.
   exchangeStays : (x : PrimePair) → InCone (τCR (toCR x))

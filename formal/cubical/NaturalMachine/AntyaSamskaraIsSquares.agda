@@ -3,18 +3,18 @@
 ------------------------------------------------------------------------
 -- NaturalMachine.AntyaSamskaraIsSquares
 --
--- àà¨àààà¯ààààà•à¾à° â” Mdhava's end-correction â” and the residues are 1, 4, 9.
+-- à¤…à¤¨à¥à¤¤à¥à¤¯à¤¸à¤‚à¤¸à¥à¤•à¤¾à¤° â€” MÄdhava's end-correction â€” and the residues are 1, 4, 9.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE SERIES AND ITS REMAINDER
 --
---     Ï/4 = 1 âˆ’ 1/3 + 1/5 âˆ’ 1/7 + â¦
+--     Ï€/4 = 1 âˆ’ 1/3 + 1/5 âˆ’ 1/7 + â€¦
 --
 -- Truncating after the term 1/(2nâˆ’1) leaves a remainder, and the Kerala
--- texts do not merely bound it â” they CORRECT it, adding a closed-form
--- àà¨àààà¯ààààà•à¾à° whose successive refinements are
+-- texts do not merely bound it â€” they CORRECT it, adding a closed-form
+-- à¤…à¤¨à¥à¤¤à¥à¤¯à¤¸à¤‚à¤¸à¥à¤•à¤¾à¤° whose successive refinements are
 --
---     fâ(n) = 1/(4n)        fâ(n) = n/(4nÂ²+1)        fâ(n) = (nÂ²+1)/(4nÂ³+5n)
+--     fâ‚(n) = 1/(4n)        fâ‚‚(n) = n/(4nÂ²+1)        fâ‚ƒ(n) = (nÂ²+1)/(4nÂ³+5n)
 --
 -- What makes a correction exact is a functional equation.  Writing R(n)
 -- for the true remainder, the alternating series gives
@@ -23,20 +23,20 @@
 --
 -- because the terms telescope.  So a correction is exact to the extent
 -- that it SOLVES that equation, and the whole hierarchy is successive
--- solutions of one recurrence â” not successive numerical accidents.
+-- solutions of one recurrence â€” not successive numerical accidents.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED HERE, AND WHY IT NEEDS NO ANALYSIS
 --
--- Substituting fâ– into f(n) + f(n+1) = 1/(2n+1) and clearing
+-- Substituting fâ‚– into f(n) + f(n+1) = 1/(2n+1) and clearing
 -- denominators turns each correction into a POLYNOMIAL IDENTITY over any
--- commutative ring, with an integer discrepancy.  No â, no â, no limits:
+-- commutative ring, with an integer discrepancy.  No â„, no â„š, no limits:
 --
---     fâ    num Â (2n+1)  â‰¡  den  +  1
---     fâ    num Â (2n+1)  â‰¡  den  âˆ’  4
---     fâ    num Â (2n+1)  â‰¡  den  +  9
+--     fâ‚    num Â· (2n+1)  â‰¡  den  +  1
+--     fâ‚‚    num Â· (2n+1)  â‰¡  den  âˆ’  4
+--     fâ‚ƒ    num Â· (2n+1)  â‰¡  den  +  9
 --
--- The residues are 1, 4, 9 â” the squares, alternating in sign.  Each
+-- The residues are 1, 4, 9 â€” the squares, alternating in sign.  Each
 -- correction solves the recurrence exactly up to kÂ², and that is the
 -- acceleration.
 --
@@ -44,26 +44,26 @@
 -- apparatus: the content is algebraic, and the Kerala mathematicians
 -- were solving a difference equation in closed form.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE REMAINDER IS A FIBRE
 --
 -- `TheFibreIsTheSubject` observed that a collision read as an obstruction
--- is, from the other à¨à¯, an orbit that the composition law generates.
--- The same reversal is here.  A truncated series UNDERDETERMINES Ï: the
+-- is, from the other à¤¨à¤¯, an orbit that the composition law generates.
+-- The same reversal is here.  A truncated series UNDERDETERMINES Ï€: the
 -- prefix does not decide the sum, which by the obstruction reading is a
--- failure.  The àà¨àààà¯ààààà•à¾à° is the other reading â” the underdetermination
+-- failure.  The à¤…à¤¨à¥à¤¤à¥à¤¯à¤¸à¤‚à¤¸à¥à¤•à¤¾à¤° is the other reading â€” the underdetermination
 -- given as a usable object, corrected rather than bounded.
 --
 -- What the residues 1, 4, 9 say is how much of the fibre each correction
 -- has not yet absorbed, exactly, as an integer.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- SOURCES, AND WHAT I DID NOT CHECK
 --
--- The three corrections are transmitted in the Kerala texts â” the
+-- The three corrections are transmitted in the Kerala texts â€” the
 -- *Yuktibh* (Jyehadeva, c. 1530) and the *Tantrasagraha* tradition
--- (Nlakaha, 1501) â” and attributed there to Mdhava (c. 1340â“1425).
--- I have NOT read the ààààà°s and am not asserting their wording; what I
+-- (NÄ«lakaá¹‡á¹­ha, 1501) â€” and attributed there to MÄdhava (c. 1340â€“1425).
+-- I have NOT read the à¤¸à¥‚à¤¤à¥à¤°s and am not asserting their wording; what I
 -- assert is that the three forms above are the ones standardly reported,
 -- and that GIVEN those forms the identities below hold, which is what is
 -- checked.  The residue pattern 1, 4, 9 is derived here, not cited.
@@ -87,10 +87,10 @@ module Correction (R : CommRing â„“) where
   A = fst R
 
   ----------------------------------------------------------------------
-  -- 1.  fâ(n) = 1/(4n)
+  -- 1.  fâ‚(n) = 1/(4n)
   --
-  --   fâ(n) + fâ(n+1) = (2n+1) / (4n(n+1))
-  --   and (2n+1)Â(2n+1) = 4n(n+1) + 1.
+  --   fâ‚(n) + fâ‚(n+1) = (2n+1) / (4n(n+1))
+  --   and (2n+1)Â·(2n+1) = 4n(n+1) + 1.
   ----------------------------------------------------------------------
 
   residueâ‚ :
@@ -100,9 +100,9 @@ module Correction (R : CommRing â„“) where
   residueâ‚ n = solve! R
 
   ----------------------------------------------------------------------
-  -- 2.  fâ(n) = n/(4nÂ²+1)
+  -- 2.  fâ‚‚(n) = n/(4nÂ²+1)
   --
-  --   numerator of fâ(n) + fâ(n+1) is (2n+1)Â³ â¦
+  --   numerator of fâ‚‚(n) + fâ‚‚(n+1) is (2n+1)Â³ â€¦
   ----------------------------------------------------------------------
 
   numeratorâ‚‚ :
@@ -112,7 +112,7 @@ module Correction (R : CommRing â„“) where
     â‰¡ (((1r + 1r) Â· n) + 1r) Â· ((((1r + 1r) Â· n) + 1r) Â· (((1r + 1r) Â· n) + 1r))
   numeratorâ‚‚ n = solve! R
 
-  --   â¦ and its denominator is (2n+1)â´ + 4.
+  --   â€¦ and its denominator is (2n+1)â´ + 4.
   residueâ‚‚ :
     (n : A) â†’
       ((((1r + 1r) Â· (1r + 1r)) Â· (n Â· n)) + 1r)
@@ -124,7 +124,7 @@ module Correction (R : CommRing â„“) where
   residueâ‚‚ n = solve! R
 
   ----------------------------------------------------------------------
-  -- 3.  fâ(n) = (nÂ²+1)/(4nÂ³+5n) = (nÂ²+1) / (nÂ(4nÂ²+5))
+  -- 3.  fâ‚ƒ(n) = (nÂ²+1)/(4nÂ³+5n) = (nÂ²+1) / (nÂ·(4nÂ²+5))
   --
   -- The same cross-multiplication, one degree up.  The residue is 9.
   ----------------------------------------------------------------------
@@ -146,14 +146,14 @@ module Correction (R : CommRing â„“) where
   residueâ‚ƒ n = solve! R
 
 ------------------------------------------------------------------------
--- 4.  The pattern, and the same statement over â
+-- 4.  The pattern, and the same statement over â„¤
 --
---   fâ   num Â (2n+1)  â‰¡  den  +  1        residueâ
---   fâ   num Â (2n+1)  â‰¡  den  âˆ’  4        residueâ  (stated as den + 4
+--   fâ‚   num Â· (2n+1)  â‰¡  den  +  1        residueâ‚
+--   fâ‚‚   num Â· (2n+1)  â‰¡  den  âˆ’  4        residueâ‚‚  (stated as den + 4
 --                                                     on the other side)
---   fâ   num Â (2n+1)  â‰¡  den  +  9        residueâ
+--   fâ‚ƒ   num Â· (2n+1)  â‰¡  den  +  9        residueâ‚ƒ
 --
--- 1, 4, 9 â” the squares, alternating.  Each àà¨àààà¯ààààà•à¾à° solves the
+-- 1, 4, 9 â€” the squares, alternating.  Each à¤…à¤¨à¥à¤¤à¥à¤¯à¤¸à¤‚à¤¸à¥à¤•à¤¾à¤° solves the
 -- telescoping recurrence f(n) + f(n+1) = 1/(2n+1) exactly up to kÂ², and
 -- the sequence of those residues IS the acceleration: the k-th
 -- correction's error is a fixed square, not a function of n.
@@ -173,21 +173,21 @@ open Correction â„¤CommRing using (residueâ‚ ; numeratorâ‚‚ ; residueâ‚‚ ; resi
 ------------------------------------------------------------------------
 -- 5.  What this joins
 --
--- The Kerala corrections have been read as a numerical achievement â”
+-- The Kerala corrections have been read as a numerical achievement â€”
 -- three centuries of head start on a convergence-acceleration technique.
 -- Cross-multiplied they are not numerical at all.  They are closed-form
 -- solutions of a difference equation over a commutative ring, and the
 -- quality of each solution is an integer.  That is why they could be
 -- found without limits, and it is why they can be checked here, in a
--- lane with neither â nor â.
+-- lane with neither â„ nor â„š.
 --
 -- And it is the `TheFibreIsTheSubject` reversal again, in the tradition
 -- that produced both.  A truncated series underdetermines its sum; read
--- as an obstruction that is a failure to be bounded.  The àà¨àààà¯ààààà•à¾à°
+-- as an obstruction that is a failure to be bounded.  The à¤…à¤¨à¥à¤¤à¥à¤¯à¤¸à¤‚à¤¸à¥à¤•à¤¾à¤°
 -- reads it as an object to be corrected, and the residue measures what
--- of the fibre remains â” exactly, as kÂ².
+-- of the fibre remains â€” exactly, as kÂ².
 --
--- Brahmagupta's fibres compose by àà¾àµà¨à¾; Mdhava's remainder telescopes
+-- Brahmagupta's fibres compose by à¤­à¤¾à¤µà¤¨à¤¾; MÄdhava's remainder telescopes
 -- by a recurrence.  In both the thing that "cannot be recovered" is the
 -- thing the method operates on.
 ------------------------------------------------------------------------
@@ -196,7 +196,7 @@ open Correction â„¤CommRing using (residueâ‚ ; numeratorâ‚‚ ; residueâ‚‚ ; resi
 -- What I can say without fitting anything: the three reported
 -- corrections are the first three convergents of
 --
---     1/(4n + 2Â²/(4n + 4Â²/(4n + 6Â²/(4n + â¦))))
+--     1/(4n + 2Â²/(4n + 4Â²/(4n + 6Â²/(4n + â€¦))))
 --
 -- and that continued fraction generates a fourth.  Its residue is NOT
 -- 16; hand computation at two values of n gave a much larger constant.

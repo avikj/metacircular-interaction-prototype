@@ -1,30 +1,30 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡ï‡æ‡ó‡‡∞-‡‡‡∞‡‡‡ ‚î the tower with one head.
+-- ‡§è‡§ï‡§æ‡§ó‡•ç‡§∞-‡§∂‡•ç‡§∞‡•á‡§£‡•Ä ‚Äî the tower with one head.
 --
 -- A COMPATIBLE HISTORY IS A CHAIN OF SINGLETONS, SO THE TOWER IS ITS
 -- TOP, AND THE AMBIENT PRODUCT OF READINGS COUNTS SOMETHING ELSE.
 --
--- Given stages `O : ‚ï ‚í Type` and reductions `r n : O (suc n) ‚í O n`,
+-- Given stages `O : ‚Ñï ‚Üí Type` and reductions `r n : O (suc n) ‚Üí O n`,
 -- there are two different objects that get called "the histories":
 --
---   the AMBIENT PRODUCT   ‚î one reading chosen at each stage, with no
+--   the AMBIENT PRODUCT   ‚Äî one reading chosen at each stage, with no
 --                           equations imposed between them;
---   the COMPATIBLE TOWER  ‚î readings that agree under reduction.
+--   the COMPATIBLE TOWER  ‚Äî readings that agree under reduction.
 --
 -- They are not the same size, and the gap is exactly the equations.
 -- This module proves the compatible side is equivalent to its top
 -- stage alone:
 --
---     (Œ[ t ‚àà O n ] Chain n t)  ‚â  O n .
+--     (Œ£[ t ‚àà O n ] Chain n t)  ‚âÉ  O n .
 --
 -- THE REASON IS THE FIBRE LAW, and that is the point of writing it this
 -- way.  One rung of the tower is
 --
---     Chain (suc n) t = Œ[ p ‚àà singl (r n t) ] Chain n (fst p) ,
+--     Chain (suc n) t = Œ£[ p ‚àà singl (r n t) ] Chain n (fst p) ,
 --
--- and `singl (r n t)` ‚î the fibre of the IDENTITY at `r n t` ‚î is
+-- and `singl (r n t)` ‚Äî the fibre of the IDENTITY at `r n t` ‚Äî is
 -- contractible with NO hypothesis on anything (`isContrSingl`).  So each
 -- rung contributes nothing once the rung above it is fixed: a compatible
 -- past is not extra data, it is determined.  Binding the output is free;
@@ -35,13 +35,13 @@
 --
 -- CONSEQUENCE FOR COUNTING, stated as the reason a product is the wrong
 -- ambient object: the compatible histories over a top stage `O n` are
--- in bijection with `O n` itself ‚î not with the product of the stages
+-- in bijection with `O n` itself ‚Äî not with the product of the stages
 -- below it.  A cardinality computed from the product is counting
 -- arbitrary reading records, before the compatibility equations are
 -- imposed; the equations are precisely what `isContrSingl` then
 -- collapses.
 --
--- SYT ‚î THE CLAIM, EXACTLY.  ¬ß¬ß1‚ì3 for any family of stages and any
+-- SYƒÄT ‚Äî THE CLAIM, EXACTLY.  ¬ß¬ß1‚Äì3 for any family of stages and any
 -- reductions between them: no group structure, no finiteness, no
 -- decidability, and no arithmetic.
 ------------------------------------------------------------------------
@@ -62,7 +62,7 @@ private
 module _ (O : ‚Ñï ‚Üí Type ‚Ñì) (r : (n : ‚Ñï) ‚Üí O (suc n) ‚Üí O n) where
 
   ------------------------------------------------------------------
-  -- ‡¶ ¬ A compatible past below a given top.  Each rung records the
+  -- ‡•¶ ¬∑ A compatible past below a given top.  Each rung records the
   --     stage below and the equation tying it to the stage above.
   ------------------------------------------------------------------
 
@@ -71,7 +71,7 @@ module _ (O : ‚Ñï ‚Üí Type ‚Ñì) (r : (n : ‚Ñï) ‚Üí O (suc n) ‚Üí O n) where
   Chain (suc n) t = Œ£[ p ‚àà singl (r n t) ] Chain n (fst p)
 
   ------------------------------------------------------------------
-  -- ‡ß ¬ EVERY COMPATIBLE PAST IS CONTRACTIBLE: there is exactly one,
+  -- ‡•ß ¬∑ EVERY COMPATIBLE PAST IS CONTRACTIBLE: there is exactly one,
   --     for each top, and it carries no information of its own.  The
   --     base of each rung is `singl`, contractible with no hypothesis;
   --     the fibre is the chain below, contractible by induction.
@@ -83,7 +83,7 @@ module _ (O : ‚Ñï ‚Üí Type ‚Ñì) (r : (n : ‚Ñï) ‚Üí O (suc n) ‚Üí O n) where
     isOfHLevelŒ£ 0 (isContrSingl (r n t)) (Œª p ‚Üí Chain-isContr n (fst p))
 
   ------------------------------------------------------------------
-  -- ‡® ¬ SO THE TOWER OF COMPATIBLE HISTORIES IS ITS TOP STAGE.
+  -- ‡•® ¬∑ SO THE TOWER OF COMPATIBLE HISTORIES IS ITS TOP STAGE.
   ------------------------------------------------------------------
 
   Tower : ‚Ñï ‚Üí Type ‚Ñì

@@ -3,41 +3,41 @@
 ------------------------------------------------------------------------
 -- CoprimePowersN
 --
--- The arithmetic the walk's general frontier needs, assembled over â•:
+-- The arithmetic the walk's general frontier needs, assembled over â„•:
 --
---     primesâ’coprime-powers :
---       IsPrime p â’ IsPrime q â’ Â (p â‰¡ q)
---       â’ (i j : â•) â’ isGCD (p ^ i) (q ^ j) 1
+--     primesâ†’coprime-powers :
+--       IsPrime p â†’ IsPrime q â†’ Â¬ (p â‰¡ q)
+--       â†’ (i j : â„•) â†’ isGCD (p ^ i) (q ^ j) 1
 --
 -- `CoprimePowers` proved certificates compose, over any ring.
--- `DistinctPrimesAreCoprime` supplied the base case over â•.  The transfer
--- between â• and
+-- `DistinctPrimesAreCoprime` supplied the base case over â„•.  The transfer
+-- between â„• and
 -- â, in both directions, is here.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- PRIOR ART
 --
 -- `Cubical.Data.Int.Divisibility` already carries the whole Euclidean
--- apparatus: a `B©zout` record, `b©zout : (m n : â) â’ B©zout m n` built by
+-- apparatus: a `BÃ©zout` record, `bÃ©zout : (m n : â„¤) â†’ BÃ©zout m n` built by
 -- the Euclidean algorithm, and the two transfer maps
 --
---     âˆâ’âˆâ• : m âˆ n â’ abs m âˆâ• abs n
---     âˆâ•â’âˆ : abs m âˆâ• abs n â’ m âˆ n
+--     âˆ£â†’âˆ£â„• : m âˆ£ n â†’ abs m âˆ£â„• abs n
+--     âˆ£â„•â†’âˆ£ : abs m âˆ£â„• abs n â†’ m âˆ£ n
 --
 -- so the bridge is a matter of using them.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THE TWO DIRECTIONS COST
 --
---   â• â’ â  (`isGCDâ’Bez`)  run `b©zout`, argue its gcd is a unit because
---                          it divides 1 in â•, then fix the sign.
---   â â’ â•  (`Bezâ’isGCD`)  a common divisor divides both terms, hence the
+--   â„• â†’ â„¤  (`isGCDâ†’Bez`)  run `bÃ©zout`, argue its gcd is a unit because
+--                          it divides 1 in â„•, then fix the sign.
+--   â„¤ â†’ â„•  (`Bezâ†’isGCD`)  a common divisor divides both terms, hence the
 --                          sum, hence 1.  Three lines.
 --
 -- Only the first needs the Euclidean algorithm.  That asymmetry is the
 -- reason a certificate-carrying style pays: getting a certificate is
 -- work; everything downstream of having one is not.  It is also exactly
--- ryabhaa's division of labour â” the kuaka is the hard part and the
+-- Ä€ryabhaá¹­a's division of labour â€” the kuá¹­á¹­aka is the hard part and the
 -- multipliers are what you keep.
 ------------------------------------------------------------------------
 
@@ -77,7 +77,7 @@ private
   negBoth a b x y = solve! â„¤CommRing
 
 ------------------------------------------------------------------------
--- 1.  â certificate âŸ â• coprimality.  Three lines and a transfer.
+-- 1.  â„¤ certificate âŸ¹ â„• coprimality.  Three lines and a transfer.
 ------------------------------------------------------------------------
 
 Bezâ†’isGCD : (a b : â„•) â†’ Bez (pos a) (pos b) â†’ isGCD a b 1
@@ -96,7 +96,7 @@ Bezâ†’isGCD a b (x , y , p) = (âˆ£-oneË¡ a , âˆ£-oneË¡ b) , divides
     sum = âˆ£-+ (âˆ£-leftÂ· {m = x} dA) (âˆ£-leftÂ· {m = y} dB)
 
 ------------------------------------------------------------------------
--- 2.  â• coprimality âŸ â certificate.  This is where Euclid runs.
+-- 2.  â„• coprimality âŸ¹ â„¤ certificate.  This is where Euclid runs.
 ------------------------------------------------------------------------
 
 isGCDâ†’Bez : (a b : â„•) â†’ isGCD a b 1 â†’ Bez (pos a) (pos b)
@@ -154,12 +154,12 @@ primesâ†’coprime-powers p q pp qq pâ‰¢q i j =
 ------------------------------------------------------------------------
 -- 5.  The chain is closed, end to end.
 --
---   Kuttaka / Cubical's `b©zout`   the multipliers exist
+--   Kuttaka / Cubical's `bÃ©zout`   the multipliers exist
 --   DistinctPrimesAreCoprime       distinct primes are coprime
---   here Â§2                        that becomes a certificate over â
+--   here Â§2                        that becomes a certificate over â„¤
 --   CoprimePowers                  certificates compose to powers
---   here Â§1                        the certificate becomes `isGCD` over â•
---   CRTChain                       `isGCD` data âŸ the residue equivalence
+--   here Â§1                        the certificate becomes `isGCD` over â„•
+--   CRTChain                       `isGCD` data âŸ¹ the residue equivalence
 --   LosslessLowerBound             and the count is a minimum
 --   OptimalObservation             so "optimal" is a definition
 --

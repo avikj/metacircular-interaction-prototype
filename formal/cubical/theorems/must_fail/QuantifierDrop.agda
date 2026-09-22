@@ -9,7 +9,7 @@
 -- `Control/WrongEquivalence.agda` and `Control/WrongFirstStep.agda`.
 --
 -- WHAT IT ASSERTS.  The line-world corollary of
--- `s != -1 (mod p)`" ‚î QUANTIFIED OVER ALL OBSERVABLES, which is how the
+-- `s != -1 (mod p)`" ‚Äî QUANTIFIED OVER ALL OBSERVABLES, which is how the
 -- summary message `workers/20260812T090934.276887Z--claude_ananta--0005.md`
 -- ¬ß5 restates it after dropping the note's two words "For `f = X+Y`"
 -- under a Theorem stated for every integral `f`
@@ -18,7 +18,7 @@
 -- `grad (X+Y)|_L (t) = t(1+s)` while `grad X|_L (t) = t`.  For `f = X`
 -- every line world transports, at `s = -1` included, so the biconditional
 -- is false there.  `LineWorldTransport.dropped-hypothesis-false` derives
--- ‚ä from precisely the type asserted below, so this file cannot compile
+-- ‚ä• from precisely the type asserted below, so this file cannot compile
 -- unless the model is inconsistent.
 --
 -- The two proofs offered are the two ways the drop actually happens in
@@ -48,19 +48,19 @@
 --     (0 Agda.Builtin.Nat.* LineWorldTransport.val s)))
 --   !=
 --   LineWorldTransport.mod5
---   (LineWorldTransport.c‚ f Agda.Builtin.Nat.+
---    (LineWorldTransport.c‚ f Agda.Builtin.Nat.*
+--   (LineWorldTransport.c‚ÇÅ f Agda.Builtin.Nat.+
+--    (LineWorldTransport.c‚ÇÇ f Agda.Builtin.Nat.*
 --     LineWorldTransport.val s))
 --   of type Agda.Builtin.Nat.Nat
 --   when checking that the expression line-world-XY s has type
 --   transports f s ‚â° crit s
 --
 -- Read it: the checker holds the gradient of an ARBITRARY observable,
--- `c‚ f + c‚ f ¬ s`, apart from the gradient of `X+Y`, `1 + s`.
+-- `c‚ÇÅ f + c‚ÇÇ f ¬∑ s`, apart from the gradient of `X+Y`, `1 + s`.
 -- That is the dropped hypothesis, named by the machine.  (Agda stops at
 -- the first error, so the second assertion,
 -- `quantifier-dropped-by-computation`, is not reached; it fails the same
--- way ‚î with `f` a variable, `transports f s` does not reduce and `refl`
+-- way ‚Äî with `f` a variable, `transports f s` does not reduce and `refl`
 -- is rejected.)
 --
 -- If a future edit makes this file compile, the line-world corollary has

@@ -1,17 +1,17 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- àµàààà-àà¿à¨àà¦àà â” the point-level statement `Bahupratyanayana_â¦` needed.
+-- àµàààà-àà¿à¨àà¦àà â€” the point-level statement `Bahupratyanayana_â¦` needed.
 --
 -- `isConnectedSÂ : (s : SÂ) â’ âˆ base â‰¡ s âˆâ`
 -- gives, for any two points, a mere path between them; a proof that
 -- they are distinct would refute that mere path.  So:
 --
---   no-two-points : Â (Î[ x âˆˆ SÂ ] Î[ y âˆˆ SÂ ] (Â x â‰¡ y))
+--   no-two-points : Â¬ (Î£[ x âˆˆ SÂ¹ ] Î£[ y âˆˆ SÂ¹ ] (Â¬ x â‰¡ y))
 --
--- and, stated positively, any two points of SÂ are not-not equal.  This
--- is the point-level statement the earlier module's Â§à needed: on SÂ the
+-- and, stated positively, any two points of SÂ¹ are not-not equal.  This
+-- is the point-level statement the earlier module's Â§à¥« needed: on SÂ¹ the
 -- point-level distinctness is absent, so the obstruction it exhibits
--- there is carried by the loop and by nothing else.  Nothing about Ïâ,
+-- there is carried by the loop and by nothing else.  Nothing about Ï€â‚,
 -- higher levels, or the retraction is touched.
 ------------------------------------------------------------------------
 module VrttaBindu_TheCircleHasNoTwoDistinctPointsBecauseItIsConnectedSoTheObstructionToUndoingIsNeverTwoPointsThere where

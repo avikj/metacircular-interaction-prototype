@@ -7,12 +7,12 @@
 -- else.  Two lines of monoid theory, and they close a question this
 -- corpus has been treating as a tuning problem.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE OBSERVATION
 --
 -- The cakravla (Jayadeva ~950, Bhskara II 1150) does not merely
 -- compose.  Each cycle composes the current triple with a trivial one by
--- bhvan and then **divides by k** â” the descent that keeps the numbers
+-- bhÄvanÄ and then **divides by k** â€” the descent that keeps the numbers
 -- bounded and is the entire reason the cyclic method terminates in a
 -- handful of steps where brute search does not terminate at all.
 --
@@ -25,35 +25,35 @@
 --
 --     in any monoid, an IDEMPOTENT element with an inverse is the unit.
 --
---         x = xÂe = xÂ(xÂy) = (xÂx)Ây = xÂy = e.
+--         x = xÂ·e = xÂ·(xÂ·y) = (xÂ·x)Â·y = xÂ·y = e.
 --
 -- A join is idempotent at every element.  So in a join monoid **every**
 -- invertible element is the unit.  Stated exactly, and this is the whole
 -- claim: **no step of a join law can be undone by another step of that
--- law**, at any state, ever.  Not "the walk lacks a descent step" â” the
+-- law**, at any state, ever.  Not "the walk lacks a descent step" â€” the
 -- walk cannot have one built from its own state law, and by `Apavada` a
 -- rule that agrees with it everywhere is a reformulation that changes
 -- only price.  Getting descent means changing the law.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE CONTRAST, IN THE SAME BREATH
 --
 -- `PythagoreanTransition` gives the other kind of state law: bhvan at
--- D = âˆ’1, which is a group on the norm-one part.  Over â the element
--- i = (0,1) is invertible and is NOT the unit â” checked by `refl` below
--- â” so that monoid is not idempotent, and a composition step CAN be
+-- D = âˆ’1, which is a group on the norm-one part.  Over â„¤ the element
+-- i = (0,1) is invertible and is NOT the unit â€” checked by `refl` below
+-- â€” so that monoid is not idempotent, and a composition step CAN be
 -- undone by another composition step (with the conjugate: antara-bhvan).
 --
 -- So the two machines differ by exactly one algebraic property, and it
 -- is the property that decides whether state can ever come back down:
 --
---     join monoid   idempotent  â’ only the unit inverts â’ irreversible
---     bhvan       i â‰  one      â’ non-unit inverses     â’ reversible
+--     join monoid   idempotent  â‡’ only the unit inverts â‡’ irreversible
+--     bhÄvanÄ       i â‰  one      â‡’ non-unit inverses     â‡’ reversible
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS SETTLES.
 --
--- It settles that the walkâ™s irreversibility is structural, not a missing
+-- It settles that the walkâ€™s irreversibility is structural, not a missing
 -- optimisation, and that no reformulation of the walk in its own chart
 -- (`Apavada`: agreement, hence only price changes) can fix it.  Fixing it
 -- requires a different state law, not a better rule.
@@ -93,7 +93,7 @@ module Mon {M : Type â„“} (_â‹†_ : M â†’ M â†’ M) (e : M)
   Idempotent : M â†’ Type â„“
   Idempotent x = x â‹† x â‰¡ x
 
-  -- x = xÂe = xÂ(xÂy) = (xÂx)Ây = xÂy = e
+  -- x = xÂ·e = xÂ·(xÂ·y) = (xÂ·x)Â·y = xÂ·y = e
   idem-invertible-is-unit :
     (x : M) â†’ Idempotent x â†’ Invertible x â†’ x â‰¡ e
   idem-invertible-is-unit x idem (y , inv) =
@@ -145,8 +145,8 @@ module WalkStates (bs : List â„•) =
   Mon {M = Exp bs} _âŠ”_ (zeroE bs) (âŠ”-idr bs) (âŠ”-assoc bs)
 
 -- THE WALK IS IRREVERSIBLE.  Every state is idempotent, so the only state
--- with an inverse is the trivial one â” the derivation of 1.  The only
--- state a step of the walkâ™s own law can return to is capacity 1.
+-- with an inverse is the trivial one â€” the derivation of 1.  The only
+-- state a step of the walkâ€™s own law can return to is capacity 1.
 walk-only-unit-inverts :
   (bs : List â„•) (u : Exp bs) â†’ WalkStates.Invertible bs u â†’ u â‰¡ zeroE bs
 walk-only-unit-inverts bs u inv =
@@ -182,7 +182,7 @@ module Rot = Mon {M = Pair} _âŠ—_ one
                  (Circle.âŠ—-idÊ³ â„¤CommRing) (Circle.âŠ—-assoc â„¤CommRing)
 
 -- so this monoid is NOT idempotent, and a step in it can be undone by
--- another step of the same law â” provably unlike the walkâ™s.
+-- another step of the same law â€” provably unlike the walkâ€™s.
 composition-is-not-a-join : Â¬ (Rot.Idempotent i)
 composition-is-not-a-join =
   Rot.invertible-non-unit-breaks-idempotence i (conj i , i-inverts) i-is-not-one
@@ -190,10 +190,10 @@ composition-is-not-a-join =
 ------------------------------------------------------------------------
 -- 4.  The sentence this module exists to make exact.
 --
--- The walkâ™s state never comes back down because its law is a join,
+-- The walkâ€™s state never comes back down because its law is a join,
 -- joins are idempotent, and idempotence forbids every inverse but the
 -- trivial one.  No rule change touches this: by `Apavada`, a rule that
 -- agrees with the walk everywhere is a REFORMULATION and changes only
 -- price.  Reversibility requires changing the state law, and the oldest
--- state law in this repository that has it is Brahmaguptaâ™s.
+-- state law in this repository that has it is Brahmaguptaâ€™s.
 ------------------------------------------------------------------------

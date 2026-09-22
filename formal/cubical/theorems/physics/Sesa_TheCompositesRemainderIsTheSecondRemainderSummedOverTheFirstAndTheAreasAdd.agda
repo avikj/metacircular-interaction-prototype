@@ -1,51 +1,51 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ààà â” the remainder that is KEPT and becomes the material of the next
--- step.  ryabhaa, *ryabhaya*, Gaitapda 32â“33 (499), where the
+-- à¤¶à¥‡à¤· â€” the remainder that is KEPT and becomes the material of the next
+-- step.  Ä€ryabhaá¹­a, *Ä€ryabhaá¹­Ä«ya*, Gaá¹‡itapÄda 32â€“33 (499), where the
 -- kuaka's governing move is exactly that: divide, keep the remainder,
 -- recurse on it.
 --
 -- LIMIT ON THE TERM.  ryabhaa states a descent on integers.  He states
 -- nothing whatever about maps of types, fibres, or composition of maps,
--- and none of the theorems below are attributed to him.  ààà is borrowed
--- for its exact sense â” the part not consumed by the step, carried into
--- the next one â” because that is what a fibre of a map is.
+-- and none of the theorems below are attributed to him.  à¤¶à¥‡à¤· is borrowed
+-- for its exact sense â€” the part not consumed by the step, carried into
+-- the next one â€” because that is what a fibre of a map is.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS SETTLES.
 --
--- `Avaccheda_â¦.agda` proves the cut decomposition A â‰ Î[ b âˆˆ B ] fibre f b
+-- `Avaccheda_â€¦.agda` proves the cut decomposition A â‰ƒ Î£[ b âˆˆ B ] fibre f b
 -- maps composed:
 --
 --     rank(AB) = rank(B) âˆ’ dim(im B âˆ© ker A)                       (11)
 --
--- and reads its defect term as an "alignment obstruction" â” as though
+-- and reads its defect term as an "alignment obstruction" â€” as though
 -- composition failed to be additive, against the fibration's additivity.
 --
--- IT IS THE SAME THEOREM.  (11) is rankâ“nullity applied to A restricted
+-- IT IS THE SAME THEOREM.  (11) is rankâ€“nullity applied to A restricted
 -- to im B, i.e. it is the fibre decomposition of that restricted map:
 -- the defect dim(im B âˆ© ker A) is the DIMENSION OF ITS FIBRE, and the
 -- "non-additivity" of composition is the additivity of the fibration read
--- on a different map.  Â§à§ below is the type-theoretic form of that fact,
+-- on a different map.  Â§à¥§ below is the type-theoretic form of that fact,
 -- with no linear algebra in it at all:
 --
---   Â§à§  ààà : fibre (g âˆ˜ f) z â‰ Î[ p âˆˆ fibre g z ] fibre f (fst p)
+--   Â§à¥§  à¤¶à¥‡à¤· : fibre (g âˆ˜ f) z â‰ƒ Î£[ p âˆˆ fibre g z ] fibre f (fst p)
 --
 --       The remainder of the composite is the remainder of f summed over
 --       the remainder of g.  Nothing is lost and nothing is created by
 --       composing; the fibres reassemble.
 --
---   Â§à¨  ààààà®àà¾ : if f has a uniform remainder â” fibre f y â‰ Î¦ for every
---       y â” then fibre (g âˆ˜ f) z â‰ fibre g z — Î¦.  At cardinality this is
---       |fibre(gâˆ˜f)| = |fibre g| Â |Î¦|, i.e. LOGS ADD.  This is the whole
+--   Â§à¥¨  à¤¶à¥‡à¤·à¤¸à¤®à¤¤à¤¾ : if f has a uniform remainder â€” fibre f y â‰ƒ Î¦ for every
+--       y â€” then fibre (g âˆ˜ f) z â‰ƒ fibre g z Ã— Î¦.  At cardinality this is
+--       |fibre(gâˆ˜f)| = |fibre g| Â· |Î¦|, i.e. LOGS ADD.  This is the whole
 --       of "area = log of the fibre" under composition, and it is an
 --       equivalence, not an inequality.
 --
---   Â§à©  ààà¨àà¯ààà : g âˆ˜ f has contractible fibres as soon as both do â”
+--   Â§à¥©  à¤¶à¥‚à¤¨à¥à¤¯à¤¶à¥‡à¤· : g âˆ˜ f has contractible fibres as soon as both do â€”
 --       the composite of two cuts that retain nothing retains nothing.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 ------------------------------------------------------------------------
 
 module Sesa_TheCompositesRemainderIsTheSecondRemainderSummedOverTheFirstAndTheAreasAdd where
@@ -64,7 +64,7 @@ private
 module _ {X : Type â„“} {Y : Type â„“'} {Z : Type â„“''}
          (g : Y â†’ Z) (f : X â†’ Y) where
 
-  -- Â§à§  the composite's remainder, reassembled.
+  -- Â§à¥§  the composite's remainder, reassembled.
   à¤¶à¥‡à¤·-Iso : (z : Z) â†’ Iso (fiber (Î» x â†’ g (f x)) z)
                           (Î£[ p âˆˆ fiber g z ] fiber f (fst p))
   Iso.fun (à¤¶à¥‡à¤·-Iso z) (x , q) = ((f x , q) , (x , refl))
@@ -80,13 +80,13 @@ module _ {X : Type â„“} {Y : Type â„“'} {Z : Type â„“''}
   à¤¶à¥‡à¤· : (z : Z) â†’ fiber (Î» x â†’ g (f x)) z â‰ƒ (Î£[ p âˆˆ fiber g z ] fiber f (fst p))
   à¤¶à¥‡à¤· z = isoToEquiv (à¤¶à¥‡à¤·-Iso z)
 
-  -- Â§à¨  a uniform remainder: the two remainders multiply, so their logs add.
+  -- Â§à¥¨  a uniform remainder: the two remainders multiply, so their logs add.
   à¤¶à¥‡à¤·à¤¸à¤®à¤¤à¤¾ : {Î¦ : Type â„“} â†’ ((y : Y) â†’ fiber f y â‰ƒ Î¦) â†’
             (z : Z) â†’ fiber (Î» x â†’ g (f x)) z â‰ƒ (fiber g z Ã— Î¦)
   à¤¶à¥‡à¤·à¤¸à¤®à¤¤à¤¾ {Î¦ = Î¦} u z =
     compEquiv (à¤¶à¥‡à¤· z) (Î£-cong-equiv-snd (Î» p â†’ u (fst p)))
 
-  -- Â§à©  no remainder composed with no remainder is no remainder.
+  -- Â§à¥©  no remainder composed with no remainder is no remainder.
   à¤¶à¥‚à¤¨à¥à¤¯à¤¶à¥‡à¤· : ((y : Y) â†’ isContr (fiber f y)) â†’
              ((z : Z) â†’ isContr (fiber g z)) â†’
              (z : Z) â†’ isContr (fiber (Î» x â†’ g (f x)) z)

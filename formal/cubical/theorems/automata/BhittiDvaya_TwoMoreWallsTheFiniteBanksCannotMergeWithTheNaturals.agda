@@ -1,20 +1,20 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- рр┐рррр┐-ржрр╡рпрор тФ two more walls.
+-- рр┐рррр┐-ржрр╡рпрор тАФ two more walls.
 --
--- After рррр-ррр░рор╛ррор the big component holds 20 banks.  The next-largest
+-- After рд╕реЗрддреБ-рдкреНрд░рдорд╛рдгрдореН the big component holds 20 banks.  The next-largest
 -- candidate merges into it are Unit's component (6 banks) and Fin 840's
--- (5 banks).  Both are impossible for the reason рр┐рррр┐р retired тХ тЙ Bool:
+-- (5 banks).  Both are impossible for the reason рднрд┐рддреНрддрд┐рдГ retired тДХ тЙГ Bool:
 -- a finite type is not the naturals.
 --
---   рр┐рррр┐-ррХ  : ┬ (тХ тЙ Unit)       тФ 6Ч20 = 120 candidate crossings retired
---   рр┐рррр┐-рр┐ри : тИ n тТ ┬ (тХ тЙ Fin n) тФ 5Ч20 = 100 retired at n = 840, and
+--   рднрд┐рддреНрддрд┐-рдПрдХ  : ┬м (тДХ тЙГ Unit)       тАФ 6├Ч20 = 120 candidate crossings retired
+--   рднрд┐рддреНрддрд┐-рдлрд┐рди : тИА n тЖТ ┬м (тДХ тЙГ Fin n) тАФ 5├Ч20 = 100 retired at n = 840, and
 --                                      every future Fin-bank merge with it
 --
 -- Unit: injectivity of the equivalence sends isPropUnit's collision back
--- to 0 тЙб 1 in тХ.  Fin: restrict the equivalence to the inclusion
--- Fin (suc n) т тХ and land in Fin n; the library's `pigeonhole` (suc n
+-- to 0 тЙб 1 in тДХ.  Fin: restrict the equivalence to the inclusion
+-- Fin (suc n) тЖк тДХ and land in Fin n; the library's `pigeonhole` (suc n
 -- into n) hands two distinct points with equal image, and injectivity of
 -- the composite refutes them.  Nothing invented; the pigeonhole is
 -- cubical v0.5's own (`Cubical.Data.Fin.Properties`).
@@ -34,14 +34,14 @@ open import Cubical.Data.Sigma using (_,_ ; fst ; snd ; ╬гтЙбProp ; _├Ч_)
 open import Cubical.Relation.Nullary using (┬м_)
 
 ------------------------------------------------------------------------
--- injectivity of an equivalence (as in рр┐рррр┐р, restated locally)
+-- injectivity of an equivalence (as in рднрд┐рддреНрддрд┐рдГ, restated locally)
 ------------------------------------------------------------------------
 
 рдЕрднреЗрдж : {A B : Type} (e : A тЙГ B) {x y : A} тЖТ equivFun e x тЙб equivFun e y тЖТ x тЙб y
 рдЕрднреЗрдж e {x} {y} p = sym (retEq e x) тИЩ cong (invEq e) p тИЩ retEq e y
 
 ------------------------------------------------------------------------
--- рз ┬ рр┐рррр┐-ррХ тФ тХ is not Unit.
+-- рез ┬╖ рднрд┐рддреНрддрд┐-рдПрдХ тАФ тДХ is not Unit.
 ------------------------------------------------------------------------
 
 рднрд┐рддреНрддрд┐-рдПрдХ : (тДХ тЙГ Unit) тЖТ тКе
@@ -50,11 +50,11 @@ open import Cubical.Relation.Nullary using (┬м_)
           (isPropUnit (equivFun e zero) (equivFun e (suc zero))))
 
 ------------------------------------------------------------------------
--- ри ┬ рр┐рррр┐-рр┐ри тФ тХ is not Fin n, for any n.
+-- реи ┬╖ рднрд┐рддреНрддрд┐-рдлрд┐рди тАФ тДХ is not Fin n, for any n.
 --
--- The composite  Fin (suc n) --toтХ--> тХ --e--> Fin n  is injective
--- (toтХ is injective by ╬тЙбProp on the order proof; e by ррррж), and the
--- library pigeonhole for suc n > n produces i тЙ j with equal images.
+-- The composite  Fin (suc n) --toтДХ--> тДХ --e--> Fin n  is injective
+-- (toтДХ is injective by ╬гтЙбProp on the order proof; e by рдЕрднреЗрдж), and the
+-- library pigeonhole for suc n > n produces i тЙв j with equal images.
 ------------------------------------------------------------------------
 
 рднрд┐рддреНрддрд┐-рдлрд┐рди : (n : тДХ) тЖТ (тДХ тЙГ Fin n) тЖТ тКе

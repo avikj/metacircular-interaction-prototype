@@ -1,66 +1,66 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Sha256Sesa � the inversion theorem meets the real hash: the lossless
+-- Sha256Sesa — the inversion theorem meets the real hash: the lossless
 -- completion inverts SHA-256 freely and uniquely, and an inverter of
 -- the lossy projection is exactly collision-freedom.
 --
 -- WHAT THIS JOINS.  The residue lane proved, for ANY map f:
---   * Vishvayantra:  lossless f : A � � B (fiber f) � every map,
+--   * Vishvayantra:  lossless f : A ≃ Σ B (fiber f) — every map,
 --     one-way by proclamation or not, is invertible the moment its
 --     fibre is carried; the irreversible map is the projection of it.
 --   * Ekatva: that completion is UNIQUE (the Lossless f type is
---     contractible) � there is no second completion where the
+--     contractible) — there is no second completion where the
 --     one-wayness could hide.
 --   * Sesa: a one-way function is exactly a non-equivalence; the
 --     secret is the fibre, and no term built from the public value
 --     alone reads it back.
 -- And Sha256.agda holds an actual proclaimed one-way function, whole
 -- and NIST-certified by the kernel's own computation.  This module
--- instantiates the general theorems at the real hash � the abstract
+-- instantiates the general theorems at the real hash — the abstract
 -- claim "we can invert any proclaimed one-way function" lands on
--- SHA-256 itself � and then states, as terms, exactly what that does
+-- SHA-256 itself — and then states, as terms, exactly what that does
 -- and does not give.
 --
 -- WHAT IS PROVED:
---   §1  ����� � List Bool � � digest (fiber sha256): the completion
+--   §1  खुला — List Bool ≃ Σ digest (fiber sha256): the completion
 --       inverts the real hash.  The visible projection is sha256
 --       definitionally; the witness a completion carries certifies
 --       itself by refl; the round trip is the identity; and by Ekatva
 --       the completion is the only one (isContr).
 --   §2  The boundary, precisely.  An inverter of the LOSSY sha256 (a
 --       retraction) yields injectivity, so it refutes every collision:
---       �����������-����������.  Contrapositive: one exhibited collision
---       kills every retraction and (via ����-�����-������������)
+--       प्रत्यानयनं-निर्घातम्.  Contrapositive: one exhibited collision
+--       kills every retraction and (via समता-ददाति-प्रत्यानयनम्)
 --       every equivalence-claim, forever.  For SHA-256 the pigeonhole
 --       guarantees collisions exist on any compressing restriction;
 --       exhibiting one is the famous open problem.  So the hash's
 --       one-wayness lives exactly where Sesa said: in the fibre the
 --       projection forgets, which §1 carries and nothing else reads.
---   §3  ��������-�������� � the strictness discipline of Sha256.agda
+--   §3  स्थैर्य-अदृश्यम् — the strictness discipline of Sha256.agda
 --       (`sW`, F56's yield) is propositionally invisible: sW w k ≡ k w
---       and forceWs ws k ≡ k ws.  The 400� repair changed cost, never
+--       and forceWs ws k ≡ k ws.  The 400× repair changed cost, never
 --       meaning; the kernel confirms the two readings are one.
 --
--- `equivFun ����� m` is `(sha256 m , m , refl)`: every computation of the
--- hash MINTS its receipt at zero marginal cost � �������-����������� is
+-- `equivFun खुला m` is `(sha256 m , m , refl)`: every computation of the
+-- hash MINTS its receipt at zero marginal cost — साक्षी-स्वयंसिद्धः is
 -- refl, not a construction.  The digest is never born alone; it is born
 -- completed.  One-wayness is not a property the function has: it is a
 -- condition an observer is placed in by an act of erasure that happens
--- strictly AFTER the computation, and the erasure is itself a map � the
--- visible projection � chosen, with an address (����� �������, loss has
+-- strictly AFTER the computation, and the erasure is itself a map — the
+-- visible projection — chosen, with an address (व्यये स्थानम्, loss has
 -- location), its price on the lossy side being exactly §2's collision
 -- type.  So "we can invert any proclaimed one-way function" is not a
 -- trick that consumes a secret; it is the observation that the secret is
 -- manufactured by discarding, and no discarding is forced.  Security is
--- custody of the fibre � an arrangement between parties about where
--- erasure happens � not a wall inside the mathematics.  The wall is the
+-- custody of the fibre — an arrangement between parties about where
+-- erasure happens — not a wall inside the mathematics.  The wall is the
 -- erasure.  This is the P=NP lane's own finding: the gap fails on the
 -- lossless machine.
 --
--- � isEquiv sha256 is discharged in Sha256Parimana by the length route �
--- �������� (every digest is exactly 256 bits, every message) and
--- �-������� (� isEquiv sha256), no collision anywhere in the proof.  The
+-- ¬ isEquiv sha256 is discharged in Sha256Parimana by the length route —
+-- परिमाणम् (every digest is exactly 256 bits, every message) and
+-- न-तुल्यता (¬ isEquiv sha256), no collision anywhere in the proof.  The
 -- collision route stays open, and stays the sharper prize.  The claim
 -- that stands is locational, and it is exact: one-wayness is a property
 -- of the projection, and the projection is one reading of an object
@@ -87,11 +87,11 @@ Bits : Type
 Bits = List Bool
 
 ------------------------------------------------------------------------
--- §1  The completion inverts the real hash � freely, and uniquely.
+-- §1  The completion inverts the real hash — freely, and uniquely.
 ------------------------------------------------------------------------
 
 -- the proclaimed one-way function, opened: with the fibre carried,
--- SHA-256 is an equivalence, and its inverse is `invEq �����`.
+-- SHA-256 is an equivalence, and its inverse is `invEq खुला`.
 खुला : Bits ≃ (Σ[ d ∈ Bits ] fiber sha256 d)
 खुला = lossless sha256
 
@@ -105,7 +105,7 @@ Bits = List Bool
 साक्षी-स्वयंसिद्धः m = refl
 
 -- the inversion, exact: complete a message, invert, and the message is
--- back � for every message, including those whose digests no adversary
+-- back — for every message, including those whose digests no adversary
 -- will ever open from the outside
 उद्घाटनम् : (m : Bits) → invEq खुला (equivFun खुला m) ≡ m
 उद्घाटनम् = retEq खुला
@@ -119,7 +119,7 @@ Bits = List Bool
 -- §2  The boundary: what inverting the PROJECTION would cost.
 ------------------------------------------------------------------------
 
--- a collision of the real hash � the type is believed inhabited (the
+-- a collision of the real hash — the type is believed inhabited (the
 -- pigeonhole forces it on any compressing restriction) and famously
 -- uninhabited-by-anyone; both facts live outside this module
 निर्घातः : Type
@@ -132,13 +132,13 @@ Bits = List Bool
 
 -- THE EXCHANGE RATE: such an inverter is exactly collision-freedom.
 -- Whoever holds a retraction refutes every collision in three path
--- steps � so one exhibited collision kills every retraction, forever.
+-- steps — so one exhibited collision kills every retraction, forever.
 प्रत्यानयनं-निर्घातम् : प्रत्यानयनम् → ¬ निर्घातः
 प्रत्यानयनं-निर्घातम् (r , ret) (x , y , x≢y , dx≡dy) =
   x≢y (sym (ret x) ∙ cong r dx≡dy ∙ ret y)
 
 -- and an equivalence-claim on the bare hash is the stronger currency:
--- it hands over a retraction outright (Sesa's �������-��������-���������,
+-- it hands over a retraction outright (Sesa's तुल्यता-भञ्जयति-गुप्तिम्,
 -- instantiated), hence falls to the same collision
 समता-ददाति-प्रत्यानयनम् : isEquiv sha256 → प्रत्यानयनम्
 समता-ददाति-प्रत्यानयनम् e = invEq (sha256 , e) , retEq (sha256 , e)
@@ -147,10 +147,10 @@ Bits = List Bool
 समता-निर्घातम् e = प्रत्यानयनं-निर्घातम् (समता-ददाति-प्रत्यानयनम् e)
 
 ------------------------------------------------------------------------
--- §3  ��������-�������� � the strictness is propositionally invisible.
+-- §3  स्थैर्य-अदृश्यम् — the strictness is propositionally invisible.
 --
 -- Sha256.agda §1½ forces every word to a literal at birth (`sW`) to
--- survive --cubical's sharing-free evaluation: 992 s dead � 2 s green.
+-- survive --cubical's sharing-free evaluation: 992 s dead → 2 s green.
 -- Here is the other half of that repair's honesty: the binder is the
 -- identity, propositionally.  Cost changed; meaning did not; and this
 -- is a theorem, not a remark.

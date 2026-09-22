@@ -3,15 +3,15 @@
 ------------------------------------------------------------------------
 -- FitnessIsNecessaryUpToDoubleNegation
 --
--- à¯à‹ à—àà¯à¾à¨ààà²ààà§à¿ (yogya-anupalabdhi) as a theorem, and â” the part that is
--- new â” its CONVERSE, which lands exactly where it must: the fitness
+-- à¤¯à¥‹ à¤—à¥à¤¯à¤¾à¤¨à¥à¤ªà¤²à¤¬à¥à¤§à¤¿ (yogya-anupalabdhi) as a theorem, and â€” the part that is
+-- new â€” its CONVERSE, which lands exactly where it must: the fitness
 -- condition is necessary only up to double negation, and closing that
 -- last gap is precisely the stability of the searched domain.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE SCHOOL, NAMED BEFORE ITS TERM, AND THE DISPUTE
 --
--- àà¨ààà²ààà§à¿ â” non-apprehension as a means of knowing â” is admitted as a
+-- à¤…à¤¨à¥à¤ªà¤²à¤¬à¥à¤§à¤¿ â€” non-apprehension as a means of knowing â€” is admitted as a
 -- separate prama by the Bha Mmsakas (Kumrila Bhaa,
 -- *lokavrttika*, Abhvapariccheda, c. 7th c.) and by Advaita, and is
 -- REFUSED as separate by the Prbhkaras, who fold it into perception.
@@ -21,16 +21,16 @@
 -- that it WOULD have been apprehended had it been there.
 --
 -- `interactive/Yogyata.hs` states it, sources it, names the dispute, and applies
--- it to this repository's own import graph â” every inertness verdict
+-- it to this repository's own import graph â€” every inertness verdict
 -- there carries the domain searched.  This module is the type-theoretic
 -- half of the same condition.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHY THIS IS NOT A FIFTH RESTATEMENT OF THE Î/Â AXIS
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- WHY THIS IS NOT A FIFTH RESTATEMENT OF THE Î£/Â¬ AXIS
 --
 -- Â§3 says what the freeness of the negative
 -- pole COSTS when the domain widens: exactly a fitness Î , and the
--- converse recovers that Î  only under ÂÂ â” so the residue is a
+-- converse recovers that Î  only under Â¬Â¬ â€” so the residue is a
 -- stability hypothesis on the domain, not on the thing sought.  That is
 -- a consequence OF the pattern, not another sighting of it.
 ------------------------------------------------------------------------
@@ -59,11 +59,11 @@ Stable A = Â¬ Â¬ A â†’ A
 AbsenceOn : {X : Type} (D P : X â†’ Type) â†’ Type
 AbsenceOn {X} D P = (x : X) â†’ D x â†’ Â¬ P x
 
--- à¯à‹à—àà¯àà¾: anything bearing P would have been in the domain searched
+-- à¤¯à¥‹à¤—à¥à¤¯à¤¤à¤¾: anything bearing P would have been in the domain searched
 Yogya : {X : Type} (D P : X â†’ Type) â†’ Type
 Yogya {X} D P = (x : X) â†’ P x â†’ D x
 
--- à¯à‹ à—àà¯à¾à¨ààà²ààà§à¿: a FIT non-apprehension licenses the absolute absence
+-- à¤¯à¥‹ à¤—à¥à¤¯à¤¾à¤¨à¥à¤ªà¤²à¤¬à¥à¤§à¤¿: a FIT non-apprehension licenses the absolute absence
 fitAbsenceIsAbsolute :
   {X : Type} (D P : X â†’ Type)
   â†’ Yogya D P â†’ AbsenceOn D P â†’ (x : X) â†’ Â¬ P x
@@ -99,9 +99,9 @@ unfitAbsenceIsUnwarranted = cleanSearch , searchWasNotFit , soughtIsThere
 -- 3.  THE CONVERSE, and where it stops
 --
 -- Suppose a domain D is such that a clean search over it licenses the
--- absolute absence FOR EVERY sought property.  Then D is everything â”
+-- absolute absence FOR EVERY sought property.  Then D is everything â€”
 -- but only under double negation.  Taking the sought property to be
--- `Â D` itself is what forces it, and that instance is exactly `ÂÂ`.
+-- `Â¬ D` itself is what forces it, and that instance is exactly `Â¬Â¬`.
 ------------------------------------------------------------------------
 
 fitnessIsNecessaryUpToDoubleNegation :
@@ -111,7 +111,7 @@ fitnessIsNecessaryUpToDoubleNegation :
 fitnessIsNecessaryUpToDoubleNegation D licenses x =
   licenses (Î» y â†’ Â¬ D y) (Î» y dy ndy â†’ ndy dy) x
 
--- and the residue is a stability hypothesis on the DOMAIN â” not on the
+-- and the residue is a stability hypothesis on the DOMAIN â€” not on the
 -- thing sought, which is the asymmetry worth having
 stableDomainMakesItTotal :
   {X : Type} (D : X â†’ Type)
@@ -126,6 +126,6 @@ stableDomainMakesItTotal D stab licenses x =
 --
 -- An absence is knowledge to the extent the looking was fit to find it
 -- (Â§1), an unfit looking licenses a false verdict (Â§2), and a domain
--- that licenses every absence is total up to ÂÂ (Â§3).  The last gap â”
--- ÂÂ D x to D x â” is a stability hypothesis on the domain.
+-- that licenses every absence is total up to Â¬Â¬ (Â§3).  The last gap â€”
+-- Â¬Â¬ D x to D x â€” is a stability hypothesis on the domain.
 ------------------------------------------------------------------------

@@ -20,7 +20,7 @@
 -- degenerate world `f = 0` on `E` has no point at which the observable
 -- fails to vanish, hence no maximizer at all
 -- (`vanishing-world-has-no-maximizer`), and
--- `dropped-hypothesis-false` derives ‚ä from precisely the type asserted
+-- `dropped-hypothesis-false` derives ‚ä• from precisely the type asserted
 -- below.
 --
 -- The two assertions are the two ways the drop happens in prose:
@@ -42,12 +42,12 @@
 -- exit code 42, error verbatim:
 --
 --   /home/user/math/formal/cubical/NaturalMachine/Control/MaximizerWithoutNonvanishing.agda:84,23-34
---   NonVanishing W ‚í Œ-syntax Pt (MaxAt W) !=< Œ Pt (MaxAt W)
+--   NonVanishing W ‚Üí Œ£-syntax Pt (MaxAt W) !=< Œ£ Pt (MaxAt W)
 --   when checking that the expression maximizer W has type
---   Œ-syntax Pt (MaxAt W)
+--   Œ£-syntax Pt (MaxAt W)
 --
 -- Read it: what `maximizer W` still wants, and what the asserted type
--- does not supply, is `NonVanishing W` ‚î the dropped clause "`f != 0`
+-- does not supply, is `NonVanishing W` ‚Äî the dropped clause "`f != 0`
 -- on `E`", named by the machine, in the position where the summary
 -- deleted it.
 --

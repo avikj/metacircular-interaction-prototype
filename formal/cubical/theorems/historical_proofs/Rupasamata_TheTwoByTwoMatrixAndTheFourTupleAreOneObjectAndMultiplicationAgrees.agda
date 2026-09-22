@@ -1,41 +1,41 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à°àà-àà®àà¾ â” the 2—2 matrix and the four-tuple are one object.
+-- à¤°à¥‚à¤ª-à¤¸à¤®à¤¤à¤¾ â€” the 2Ã—2 matrix and the four-tuple are one object.
 --
--- (rpa-samat â” sameness of form: two encodings of a 2—2 quantity that
+-- (rÅ«pa-samatÄ â€” sameness of form: two encodings of a 2Ã—2 quantity that
 --  print as different types are joined here by a genuine equivalence, and
 --  the two multiplications are carried onto each other by it.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- TERM, TEXT, DATE.  à°àà-àà®àà¾ is a plain descriptive  compound â”
--- à°àà (rpa, "form") + àà®àà¾ (samat, "sameness") â” and is BUILT HERE, not
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- TERM, TEXT, DATE.  à¤°à¥‚à¤ª-à¤¸à¤®à¤¤à¤¾ is a plain descriptive  compound â€”â€”
+-- à¤°à¥‚à¤ª (rÅ«pa, "form") + à¤¸à¤®à¤¤à¤¾ (samatÄ, "sameness") â€” and is BUILT HERE, not
 -- attributed to a source: the object it names (an equivalence of two type
 -- encodings) is not an Indian-source result and none is claimed for it.
--- than inventing a  The substrate â” `transport`, `Iso`,
--- and the fact that a path between types carries structure both ways â” is
+-- than inventing a  The substrate â€” `transport`, `Iso`,
+-- and the fact that a path between types carries structure both ways â€” is
 -- Voevodsky's, this repository's one admitted non-Indian frame.
 --
 -- The matrix multiplication `mul` on the four-tuple whose intertwining is
 -- checked below is Gamma0Partner's, which realises Brahmagupta's bhvan
 -- (composition) on the pair field; the header of that module carries the
--- *ààà°à¾ààà®àààààŸàà¿à¦àà§à¾à¨àà* (628 CE) citation and scope, not repeated here.
+-- *à¤¬à¥à¤°à¤¾à¤¹à¥à¤®à¤¸à¥à¤«à¥à¤Ÿà¤¸à¤¿à¤¦à¥à¤§à¤¾à¤¨à¥à¤¤* (628 CE) citation and scope, not repeated here.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHY THIS FILE EXISTS.  The corpus defines the same object twice:
 --
---   Coefficient.Mat 2 2   (the cubical library's 2—2 integer matrix,
---                          = Fin 2 â’ Fin 2 â’ â), the type the certified
+--   Coefficient.Mat 2 2   (the cubical library's 2Ã—2 integer matrix,
+--                          = Fin 2 â†’ Fin 2 â†’ â„¤), the type the certified
 --                          Smith normalizer and SmithTorsorBridge speak in;
---   Gamma0Partner.M        (= â — â — â — â), the four-tuple the pair-field
---                          / Î“â(q)-torsor modules quantify over.
+--   Gamma0Partner.M        (= â„¤ Ã— â„¤ Ã— â„¤ Ã— â„¤), the four-tuple the pair-field
+--                          / Î“â‚€(q)-torsor modules quantify over.
 --
--- SmithTorsorBridge gives ONE direction, `toTuple : Mat 2 2 â’ M`, and shows
--- it preserves multiplication â” but never that it is an EQUIVALENCE.  So the
+-- SmithTorsorBridge gives ONE direction, `toTuple : Mat 2 2 â†’ M`, and shows
+-- it preserves multiplication â€” but never that it is an EQUIVALENCE.  So the
 -- two encodings sit side by side as "the same object" with nothing checked
 -- that lets a theorem cross from one to the other.  This module closes that:
--- Â§1â“Â§3 exhibit `Mat 2 2 â‰ M`, and Â§4 checks that the equivalence intertwines
--- the library's matrix product `_â‹_` with Gamma0Partner's `mul`.  A receipt
+-- Â§1â€“Â§3 exhibit `Mat 2 2 â‰ƒ M`, and Â§4 checks that the equivalence intertwines
+-- the library's matrix product `_â‹†_` with Gamma0Partner's `mul`.  A receipt
 -- is an IDENTIFICATION of the two, never a bound (README, "the receipt
 -- economy"): the equivalence computes, so `transp (ua e)` carries any theorem
 -- across, both ways, on the nose.
@@ -55,7 +55,7 @@ open import Gamma0Partner using (R ; M ; mul)
 open Coefficient â„¤CommRing
 
 ------------------------------------------------------------------------
--- Â§1 Â the two changes of representation.
+-- Â§1 Â· the two changes of representation.
 --
 -- `toTuple` is exactly SmithTorsorBridge's, restated here so this module
 -- does not need to import the normalizer's heavy dependency graph; `fromTuple`
@@ -73,10 +73,10 @@ fromTuple (a , b , c , d) (suc zero)    zero          = c
 fromTuple (a , b , c , d) (suc zero)    (suc zero)    = d
 
 ------------------------------------------------------------------------
--- Â§2 Â the two round-trips.
+-- Â§2 Â· the two round-trips.
 --
 -- `toFrom` is definitional (`one` reduces to `suc zero`, on which `fromTuple`
--- was matched); `fromTo` needs function extensionality over Fin 2 — Fin 2,
+-- was matched); `fromTo` needs function extensionality over Fin 2 Ã— Fin 2,
 -- taken pointwise by the same four-way match.  Coverage of Fin 2 is complete
 -- with `zero` and `suc zero`: the remaining `suc (suc _)` case is over Fin 0
 -- and is discharged by Agda automatically.
@@ -95,7 +95,7 @@ fromTo : (A : Mat 2 2) â†’ fromTuple (toTuple A) â‰¡ A
 fromTo A i j k = fromTo-pt A j k i
 
 ------------------------------------------------------------------------
--- Â§3 Â the equivalence: the two encodings are one object.
+-- Â§3 Â· the equivalence: the two encodings are one object.
 ------------------------------------------------------------------------
 
 Iso-Mat-M : Iso (Mat 2 2) M
@@ -105,12 +105,12 @@ Matâ‰ƒM : Mat 2 2 â‰ƒ M
 Matâ‰ƒM = isoToEquiv Iso-Mat-M
 
 ------------------------------------------------------------------------
--- Â§4 Â the equivalence intertwines the two multiplications.
+-- Â§4 Â· the equivalence intertwines the two multiplications.
 --
 -- Each component is the library's own 2-element product law `mul2`, which
--- states (A â‹ B) i j â‰¡ A i zero Â B zero j + A i one Â B one j.  Reading it
+-- states (A â‹† B) i j â‰¡ A i zero Â· B zero j + A i one Â· B one j.  Reading it
 -- off at the four (i,j) reproduces exactly Gamma0Partner.mul's four entries,
--- so `toTuple` is a multiplication homomorphism â” the fact SmithTorsorBridge
+-- so `toTuple` is a multiplication homomorphism â€” the fact SmithTorsorBridge
 -- used, now standing on the equivalence rather than beside it.
 ------------------------------------------------------------------------
 

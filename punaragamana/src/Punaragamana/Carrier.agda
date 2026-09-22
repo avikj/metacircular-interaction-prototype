@@ -1,13 +1,13 @@
 {-# OPTIONS --cubical --safe #-}
 
--- Punargamana � Carrier
+-- Punarāgamana · Carrier
 --
 -- THE LAW.
 --
 --   Every genuinely independent distinction must survive; determined
 --   structure may remain explicitly present with its determining path.
 --
--- THE SHAPE.  Given f : A � B, a point of Carrier f is a point of A that
+-- THE SHAPE.  Given f : A → B, a point of Carrier f is a point of A that
 -- carries its image along with it, plus the witness that it IS that image:
 --
 --   base    : A
@@ -16,13 +16,13 @@
 --
 -- Two of those three fields look like new data and are not.  The fibre
 --
---   �[ b ∈ B ] (f a ≡ b)   =   singl (f a)
+--   Σ[ b ∈ B ] (f a ≡ b)   =   singl (f a)
 --
--- is CONTRACTIBLE: inhabited (it is not empty � (f a , refl) is there), and
+-- is CONTRACTIBLE: inhabited (it is not empty — (f a , refl) is there), and
 -- every inhabitant is joined to that canonical point by a coherent path.  So
 -- `carried` and `witness` contribute zero further degrees of freedom, and
 --
---   A � Carrier f      and, by univalence,      A ≡ Carrier f.
+--   A ≃ Carrier f      and, by univalence,      A ≡ Carrier f.
 --
 -- Avik's formulation, kept verbatim because it is the whole distinction:
 -- carried and witness are "syntactically/proof-relevantly present;
@@ -30,12 +30,12 @@
 --
 -- THE CONVERSE, which is the part that does work.  A NON-contractible fibre
 -- cannot be declared equivalent to its base.  Contractibility of the fibre is
--- the hypothesis, not a formality � `fibre-isContr` is what `�-law` consumes,
--- and without it `Carrier�-via-law` does not exist.  The intent is that later
+-- the hypothesis, not a formality — `fibre-isContr` is what `Σ-law` consumes,
+-- and without it `Carrier≃-via-law` does not exist.  The intent is that later
 -- number-theoretic constructions literally inhabit this shape rather than be
 -- judged to resemble it by prose.
 --
--- ON THE NAME.  `punargamana` (���������), "coming back again / return", is
+-- ON THE NAME.  `punarāgamana` (पुनरागमन), "coming back again / return", is
 -- used here as the name of this module family.  It is not being cited from a
 -- particular text for a particular technical sense: the compound is chosen
 -- here, and no source is claimed for it.
@@ -44,7 +44,7 @@
 --
 -- 1. Cubical.Data.Sigma, NOT Cubical.Data.Prod.  Prod's product is a data
 --    type with no eta, so nothing reduces until the argument is case-split;
---    � has eta, so the commuting square below closes by `refl` for an OPAQUE
+--    Σ has eta, so the commuting square below closes by `refl` for an OPAQUE
 --    variable.
 --
 -- 2. `descend` must NOT pattern match on its argument.  Pattern matching
@@ -73,7 +73,7 @@ module _ {A B : Type ℓ} (f : A → B) where
 
   open Carrier public
 
-  -- The fibre over a is singl (f a) � and it is contractible.  Everything
+  -- The fibre over a is singl (f a) — and it is contractible.  Everything
   -- below is a consequence of this one line.
   fibre : A → Type ℓ
   fibre a = singl (f a)
@@ -104,7 +104,7 @@ module _ {A B : Type ℓ} (f : A → B) where
   Carrier≃ : A ≃ Carrier
   Carrier≃ = isoToEquiv Carrier-Iso
 
-  -- �and therefore, by univalence, equal to it.
+  -- …and therefore, by univalence, equal to it.
   Carrier≡ : A ≡ Carrier
   Carrier≡ = ua Carrier≃
 
@@ -118,9 +118,9 @@ module _ {A B : Type ℓ} (f : A → B) where
   carry-transport-descend : (a : A) → carry-transport a ≡ descend a
   carry-transport-descend a = uaβ Carrier≃ a
 
-  -- The same statement read as a �: a Carrier is a point of A together with a
+  -- The same statement read as a Σ: a Carrier is a point of A together with a
   -- point of its fibre.  Both round trips are refl, by eta for records and
-  -- for �.
+  -- for Σ.
   Carrier-as-Σ : Iso Carrier (Σ[ a ∈ A ] fibre a)
   Iso.fun      Carrier-as-Σ c       = base c , (carried c , witness c)
   Iso.inv      Carrier-as-Σ (a , p) = carry a (p .fst) (p .snd)
@@ -136,7 +136,7 @@ module _ {A B : Type ℓ} (f : A → B) where
   Carrier≃-via-law = compEquiv (isoToEquiv Carrier-as-Σ) Σ-law
 
 -- An endomorphism Φ of the base transports to the carrier and the square
--- commutes on the nose � by refl, for an opaque variable, which is exactly
+-- commutes on the nose — by refl, for an opaque variable, which is exactly
 -- what implementation fact 1 buys.
 module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) where
 

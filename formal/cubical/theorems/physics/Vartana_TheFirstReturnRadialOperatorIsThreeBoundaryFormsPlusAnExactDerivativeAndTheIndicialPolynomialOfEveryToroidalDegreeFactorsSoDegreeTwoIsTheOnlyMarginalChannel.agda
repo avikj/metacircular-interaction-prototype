@@ -1,34 +1,34 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ����� � the turning.
+-- वर्तन — the turning.
 --
 -- THE FIRST-RETURN RADIAL OPERATOR IS THREE BOUNDARY FORMS PLUS AN EXACT
 -- DERIVATIVE; AND THE INDICIAL POLYNOMIAL OF EVERY TOROIDAL DEGREE
 -- FACTORS, SO DEGREE TWO IS THE ONLY CHANNEL WITH INWARD EXPONENT ZERO.
 --
 -- Two identities from the toroidal return calculation [S15 §5, S20
--- §§6�8], both algebra about a derivation, both exact.
+-- §§6–8], both algebra about a derivation, both exact.
 --
---   §1  THE RETURN OPERATOR'S INTEGRATION BY PARTS.  With `g� = d g`
+--   §1  THE RETURN OPERATOR'S INTEGRATION BY PARTS.  With `g′ = d g`
 --       and so on, and
 --
---         � = 15 g h + 6 r g� h + 3 r g h� + p f − r p� f − 4 r p f� ,
+--         𝒞 = 15 g h + 6 r g′ h + 3 r g h′ + p f − r p′ f − 4 r p f′ ,
 --
 --       the identity
 --
---         r �  ≡  3 [ (3 r g + r² g�) h + (3 r p + r² p�) f ]
+--         r 𝒞  ≡  3 [ (3 r g + r² g′) h + (3 r p + r² p′) f ]
 --                 +  d ( 3 r² g h − 4 r² p f )
 --
 --       holds in any commutative ring with a derivation `d` and `d r ≡ 1`.
 --       The two bracketed forms are exactly the unit Green responses
---       `3 t g_s(t) + t² g_s�(t)` and `3 s p_t(s) + s² p_t�(s)` that
---       become the two-radius kernel L��; the derivative term is what a
+--       `3 t g_s(t) + t² g_s′(t)` and `3 s p_t(s) + s² p_t′(s)` that
+--       become the two-radius kernel L₂₄; the derivative term is what a
 --       compactly supported source integrates to zero.  So the return
 --       kernel is those two boundary forms and nothing else.
 --
 --   §2  THE INDICIAL POLYNOMIAL FACTORS.  The radial equation for the
---       degree-l toroidal vector potential, q� + (6/r) q� − (l−2)(l+3)
+--       degree-l toroidal vector potential, q″ + (6/r) q′ − (l−2)(l+3)
 --       q/r² = −f/r², has indicial polynomial
 --
 --         k (k − 1) + 6 k − (l − 2)(l + 3)  ≡  (k − (l − 2)) (k + (l + 3)) ,
@@ -36,26 +36,26 @@
 --       an identity in any commutative ring.  Its roots are the two
 --       radial exponents, inward `l − 2` and outward `−(l + 3)`.
 --
---   §3  AND `r^{l−2}` IS THE INWARD SOLUTION, for every l � 2: with
+--   §3  AND `r^{l−2}` IS THE INWARD SOLUTION, for every l ≥ 2: with
 --       k = l − 2,
 --
---         r² � d(d(r^k)) + 6 r � d(r^k)  ≡  k (k + 5) � r^k ,
+--         r² · d(d(r^k)) + 6 r · d(r^k)  ≡  k (k + 5) · r^k ,
 --
 --       and k (k + 5) = (l − 2)(l + 3).  For l = 2 the right side is
 --       zero: the interior potential is constant, the interior velocity
---       is linear, and a remote shell contributes a constant strain �
---       the marginal channel.  For every l � 3 the exponent is
+--       is linear, and a remote shell contributes a constant strain —
+--       the marginal channel.  For every l ≥ 3 the exponent is
 --       positive and a remote shell's contribution is attenuated by the
 --       radius ratio to that power.  Degree one has exponent −1, the
 --       translation gauge.
 --
--- WHY §3 IS STATED WITH k AND NOT l − 2.  Subtraction in � is a
+-- WHY §3 IS STATED WITH k AND NOT l − 2.  Subtraction in ℕ is a
 -- truncation; the honest statement is over the exponent k with l = k+2,
 -- which is every toroidal degree from two upward.  The degree-one case
 -- has a negative exponent and is the gauge channel the commentary
 -- names; it is not in §3 because `r^{-1}` is not a polynomial.
 --
--- SYT � THE CLAIM, EXACTLY.  §1 in any commutative ring with an
+-- SYĀT — THE CLAIM, EXACTLY.  §1 in any commutative ring with an
 -- additive Leibniz `d` and any `r` with `d r ≡ 1`, for all g, h, p, f.
 -- §2 in any commutative ring.  §3 in any such ring with derivation, for
 -- every exponent.
@@ -109,7 +109,7 @@ module _ (R : CommRing ℓ) where
     scale-mulL n a b = ·Comm b (scale n a) ∙ scale-mulR n a b ∙ cong (scale n) (·Comm a b)
 
   ------------------------------------------------------------------
-  -- � � A derivation, and the facts about it the identities use.
+  -- ० · A derivation, and the facts about it the identities use.
   ------------------------------------------------------------------
 
   module _ (d : A → A)
@@ -156,7 +156,7 @@ module _ (R : CommRing ℓ) where
                  (d-leib (r · r) x ∙ cong (_+ (r · r) · d x) (cong (_· x) d-rr))
 
       ----------------------------------------------------------------
-      -- � � THE RETURN OPERATOR IS BOUNDARY FORMS PLUS A DERIVATIVE.
+      -- १ · THE RETURN OPERATOR IS BOUNDARY FORMS PLUS A DERIVATIVE.
       ----------------------------------------------------------------
 
       𝒞 : A → A → A → A → A
@@ -194,7 +194,7 @@ module _ (R : CommRing ℓ) where
           shape r g g' h h' p p' f f' = solve! R
 
       ----------------------------------------------------------------
-      -- � � r� IS THE INWARD SOLUTION OF THE DEGREE-(k+2) EQUATION.
+      -- ३ · rᵏ IS THE INWARD SOLUTION OF THE DEGREE-(k+2) EQUATION.
       ----------------------------------------------------------------
 
       private
@@ -217,12 +217,12 @@ module _ (R : CommRing ℓ) where
           ∙ cong₂ _+_ (cong (_· pow r n) dr ∙ ·IdL (pow r n))
                       (cong (r ·_) (d-pow n) ∙ scale-mulL n (pow r (predℕ n)) r ∙ r·pred n)
           where
-            -- at m = 0 both sides are 0r; at m = suc k, r � pow r k is pow r (suc k) on the nose
+            -- at m = 0 both sides are 0r; at m = suc k, r · pow r k is pow r (suc k) on the nose
             r·pred : (m : ℕ) → scale m (r · pow r (predℕ m)) ≡ scale m (pow r m)
             r·pred zero    = refl
             r·pred (suc m) = refl
 
-      -- the radial operator on a power, with the � coefficient exposed
+      -- the radial operator on a power, with the ℕ coefficient exposed
       radial-power : (k : ℕ)
         → (r · r) · d (d (pow r k)) + scale 6 (r · d (pow r k))
           ≡ scale (k ·ℕ (k +ℕ 5)) (pow r k)
@@ -275,7 +275,7 @@ module _ (R : CommRing ℓ) where
           coef n = solveℕ!
 
   ------------------------------------------------------------------
-  -- � � THE INDICIAL POLYNOMIAL FACTORS.
+  -- २ · THE INDICIAL POLYNOMIAL FACTORS.
   ------------------------------------------------------------------
 
   private

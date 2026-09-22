@@ -1,26 +1,26 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àà°àà¯à¾à¯à¾à°ààà¿à•à¨à¯ Â paryyrthika-naya â” THE MODE-REGARDING STANDPOINT
+-- à¤ªà¤°à¥à¤¯à¤¾à¤¯à¤¾à¤°à¥à¤¥à¤¿à¤•à¤¨à¤¯ Â· paryÄyÄrthika-naya â€” THE MODE-REGARDING STANDPOINT
 -- ALSO LANDS IN A SET.
 --
--- THE TERM, ITS TEXT AND ITS DATE.  àà°àà¯à¾à¯ (paryya) is the Jaina term
--- for a MODE of a substance, paired against à¦àà°àµàà¯ (dravya), the
--- substance itself: `à—àààà°àà¯à¾à¯àµà¦à à¦àà°àµàà¯à®à` â” Umsvti,
--- *Tattvrthastra* 5.37, with 5.29 (~2ndâ“5th c.).  The two ROOT
--- standpoints built on the pair â” à¦àà°àµàà¯à¾à°ààà¿à•à¨à¯ (substance-regarding)
--- and àà°àà¯à¾à¯à¾à°ààà¿à•à¨à¯ (mode-regarding) â” are Siddhasena Divkara,
--- *Sanmatitarka* 1.3â“1.6 (~5th c.); either one asserting itself by
--- DENYING the other is a à¦àà°àà¨à¯ (Siddhasena; Akalaka, ~8th c.).
+-- THE TERM, ITS TEXT AND ITS DATE.  à¤ªà¤°à¥à¤¯à¤¾à¤¯ (paryÄya) is the Jaina term
+-- for a MODE of a substance, paired against à¤¦à¥à¤°à¤µà¥à¤¯ (dravya), the
+-- substance itself: `à¤—à¥à¤£à¤ªà¤°à¥à¤¯à¤¾à¤¯à¤µà¤¦à¥ à¤¦à¥à¤°à¤µà¥à¤¯à¤®à¥` â€” UmÄsvÄti,
+-- *TattvÄrthasÅ«tra* 5.37, with 5.29 (~2ndâ€“5th c.).  The two ROOT
+-- standpoints built on the pair â€” à¤¦à¥à¤°à¤µà¥à¤¯à¤¾à¤°à¥à¤¥à¤¿à¤•à¤¨à¤¯ (substance-regarding)
+-- and à¤ªà¤°à¥à¤¯à¤¾à¤¯à¤¾à¤°à¥à¤¥à¤¿à¤•à¤¨à¤¯ (mode-regarding) â€” are Siddhasena DivÄkara,
+-- *Sanmatitarka* 1.3â€“1.6 (~5th c.); either one asserting itself by
+-- DENYING the other is a à¤¦à¥à¤°à¥à¤¨à¤¯ (Siddhasena; Akalaá¹…ka, ~8th c.).
 -- Jaina; the Naiyyikas reject anekntavda outright, and the school is
 -- named because the dispute is the content.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS REFUTES.
 --
 -- `Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere`
--- proves (Â§à§) that every SET-valued `F : A â’ X` has `cong F p â‰¡ refl`
--- for every loop `p`, and reads off (Â§à) the gloss
+-- proves (Â§à¥§) that every SET-valued `F : A â†’ X` has `cong F p â‰¡ refl`
+-- for every loop `p`, and reads off (Â§à¥ª) the gloss
 --
 --       "Truncating to a set is THE WHOLE of the blindness."
 --
@@ -31,32 +31,32 @@
 -- **The gloss is false, and this module is the counterexample.**  There
 -- is a SET-VALUED observable that sees the loop:
 --
---       àà‹à²à‹à¨à‹à®à p  =  transport p   :   Bool â’ Bool
+--       à¤¹à¥‹à¤²à¥‹à¤¨à¥‹à¤®à¥€ p  =  transport p   :   Bool â†’ Bool
 --
--- Its codomain `Bool â’ Bool` is a set (Â§à§), and it separates
--- `ua notEquiv` from `refl` (Â§à¨).  So the proposition
+-- Its codomain `Bool â†’ Bool` is a set (Â§à¥§), and it separates
+-- `ua notEquiv` from `refl` (Â§à¥¨).  So the proposition
 --
 --       every set-valued observable of the loop type is constant
 --
--- is REFUTED (Â§à©), by a term.
+-- is REFUTED (Â§à¥©), by a term.
 --
--- WHY `Naya` Â§à§ IS UNTOUCHED, which is the actual content.  `Naya`
--- quantifies over `F : A â’ X`, observables of the CARRIER, and reports
--- `cong F`.  àà‹à²à‹à¨à‹à®à is an observable of the PATH TYPE, `(A â‰¡ A) â’ X`.
+-- WHY `Naya` Â§à¥§ IS UNTOUCHED, which is the actual content.  `Naya`
+-- quantifies over `F : A â†’ X`, observables of the CARRIER, and reports
+-- `cong F`.  à¤¹à¥‹à¤²à¥‹à¤¨à¥‹à¤®à¥€ is an observable of the PATH TYPE, `(A â‰¡ A) â†’ X`.
 -- The blindness is a property of non-dependent post-composition, not of
--- the h-level of the answer.  Â§à shows the two live together: the same
--- loop is annihilated by every `cong F` and separated by àà‹à²à‹à¨à‹à®à.
+-- the h-level of the answer.  Â§à¥ª shows the two live together: the same
+-- loop is annihilated by every `cong F` and separated by à¤¹à¥‹à¤²à¥‹à¤¨à¥‹à¤®à¥€.
 --
--- AND THE LOOP TYPE IS ITSELF A SET (Â§à).  `Bool â‰¡ Bool` is a set â” so
+-- AND THE LOOP TYPE IS ITSELF A SET (Â§à¥«).  `Bool â‰¡ Bool` is a set â€” so
 -- there is no h-level obstruction whatever to observing the charged
 -- sector.  A truncation argument cannot be what hides it, because the
 -- thing being hidden is already 0-truncated.
 --
 -- THE PHYSICS READING, and it is why the correction matters.  A Wilson
--- loop is a complex number â” a set-valued observable â” obtained by
+-- loop is a complex number â€” a set-valued observable â€” obtained by
 -- transporting around a loop, and it is the standard instrument that
--- DOES see gauge charge.  A theory on which "set-valued â’ blind to the
--- gauge loop" would predict Aharonovâ“Bohm invisible.  Â§à¨ is that
+-- DOES see gauge charge.  A theory on which "set-valued â‡’ blind to the
+-- gauge loop" would predict Aharonovâ€“Bohm invisible.  Â§à¥¨ is that
 -- objection made into a term.
 ------------------------------------------------------------------------
 
@@ -73,7 +73,7 @@ open import Cubical.Relation.Nullary using (Â¬_)
 import Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere as NAYA
 
 ------------------------------------------------------------------------
--- à§ â”â” THE OBSERVABLE, AND THAT IT LANDS IN A SET.
+-- à¥§ â”€â”€ THE OBSERVABLE, AND THAT IT LANDS IN A SET.
 ------------------------------------------------------------------------
 
 à¤¹à¥‹à¤²à¥‹à¤¨à¥‹à¤®à¥€ : (Bool â‰¡ Bool) â†’ (Bool â†’ Bool)
@@ -83,7 +83,7 @@ import Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere as 
 à¤¸à¤®à¥à¤šà¥à¤šà¤¯à¤ƒ = isSetÎ  (Î» _ â†’ isSetBool)
 
 ------------------------------------------------------------------------
--- à¨ â”â” AND IT SEES THE LOOP.
+-- à¥¨ â”€â”€ AND IT SEES THE LOOP.
 ------------------------------------------------------------------------
 
 à¤ªà¤¶à¥à¤¯à¤¤à¤¿ : Â¬ (à¤¹à¥‹à¤²à¥‹à¤¨à¥‹à¤®à¥€ NAYA.à¤†à¤µà¤°à¥à¤¤à¤ƒ â‰¡ à¤¹à¥‹à¤²à¥‹à¤¨à¥‹à¤®à¥€ refl)
@@ -93,7 +93,7 @@ import Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere as 
              âˆ™ transportRefl true )
 
 ------------------------------------------------------------------------
--- à© â”â” THE REFUTED PROPOSITION, NAMED AND KILLED.
+-- à¥© â”€â”€ THE REFUTED PROPOSITION, NAMED AND KILLED.
 ------------------------------------------------------------------------
 
 à¤›à¥‡à¤¦à¤ƒ-à¤à¤µ-à¤…à¤¨à¥à¤§à¤¤à¥à¤µà¤®à¥ : Typeâ‚
@@ -104,10 +104,10 @@ import Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere as 
 à¤¨-à¤›à¥‡à¤¦à¤ƒ h = à¤ªà¤¶à¥à¤¯à¤¤à¤¿ (h (Bool â†’ Bool) à¤¸à¤®à¥à¤šà¥à¤šà¤¯à¤ƒ à¤¹à¥‹à¤²à¥‹à¤¨à¥‹à¤®à¥€)
 
 ------------------------------------------------------------------------
--- à â”â” àà¨àà•à¾à¨ààà â” both standpoints on the same loop, both set-valued.
+-- à¥ª â”€â”€ à¤…à¤¨à¥‡à¤•à¤¾à¤¨à¥à¤¤à¤ƒ â€” both standpoints on the same loop, both set-valued.
 --
 -- LEFT: every set-valued observable of the CARRIER annihilates it
---       (`Naya` Â§à§, applied and not re-proved).
+--       (`Naya` Â§à¥§, applied and not re-proved).
 -- RIGHT: one set-valued observable of the PATH TYPE separates it.
 ------------------------------------------------------------------------
 
@@ -117,7 +117,7 @@ import Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere as 
 à¤‰à¤­à¤¯à¤®à¥ = (Î» X isSetX F â†’ NAYA.à¤¨à¤¯-à¤¨à¤¿à¤°à¥‹à¤§à¤ƒ isSetX F NAYA.à¤†à¤µà¤°à¥à¤¤à¤ƒ) , à¤ªà¤¶à¥à¤¯à¤¤à¤¿
 
 ------------------------------------------------------------------------
--- à â”â” THE CHARGED SECTOR IS ALREADY 0-TRUNCATED.
+-- à¥« â”€â”€ THE CHARGED SECTOR IS ALREADY 0-TRUNCATED.
 --
 -- `Bool â‰¡ Bool` is a set, so nothing about h-level can be what hides
 -- the charge.  Whatever hides it is not truncation.

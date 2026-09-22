@@ -1,20 +1,20 @@
 {-# OPTIONS --cubical --safe --guardedness --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������-��������� � Pini's carrier is not two-valued, and the wall
+-- भित्ति-स्थानिवत् — Pāṇini's carrier is not two-valued, and the wall
 -- crosses its own ford.
 --
 -- Three asset classes compose:
 --
---   �  a FLOOR on ���� = ���� � �������: every map to Bool collides two of
---      three named pairs (one ����, the three forms �� � �) � pigeonhole,
+--   १  a FLOOR on आधार = वर्ण × वर्णरूप: every map to Bool collides two of
+--      three named pairs (one वर्ण, the three forms ई ए अ) — pigeonhole,
 --      pair exhibited per route;
---   �  the WALL � (���� � Bool), one line from the floor;
---   �  the wall CROSSES THE FORD ���� � ��������� (the module's own Carrier
---      law) by ������-�������������: � (��������� � Bool).
+--   २  the WALL ¬ (आधार ≃ Bool), one line from the floor;
+--   ३  the wall CROSSES THE FORD आधार ≃ स्थानिवत् (the module's own Carrier
+--      law) by भित्ति-प्रतिसंक्रमः: ¬ (स्थानिवत् ≃ Bool).
 --
 -- So the retirement uses no new mathematics at the target: the ford that
--- built ��������� is the ford its wall arrives over.  A bank's own
+-- built स्थानिवत् is the ford its wall arrives over.  A bank's own
 -- construction receipt is what its impossibilities travel on.
 ------------------------------------------------------------------------
 
@@ -35,7 +35,7 @@ open import Fibre.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignationsAre
 open import Cubical.Foundations.Equiv using (compEquiv)
 
 ------------------------------------------------------------------------
--- � � the three forms are pairwise distinct (source module's own style).
+-- १ · the three forms are pairwise distinct (source module's own style).
 ------------------------------------------------------------------------
 
 ए-कोड : वर्णरूप → Type
@@ -58,7 +58,7 @@ open import Cubical.Foundations.Equiv using (compEquiv)
 ए≢अ p = subst ए-कोड p tt
 
 ------------------------------------------------------------------------
--- � � the floor on ����: three named pairs, every two-valued route
+-- २ · the floor on आधार: three named pairs, every two-valued route
 -- collides two of them.  Pigeonhole on Bool, exhibited.
 ------------------------------------------------------------------------
 
@@ -90,7 +90,7 @@ open import Cubical.Foundations.Equiv using (compEquiv)
     judge false true  true  _  pb pc = ख , ग , ख≢ग , pb ∙ sym pc
 
 ------------------------------------------------------------------------
--- � � the wall on ����, one line from the floor; and the crossing.
+-- ३ · the wall on आधार, one line from the floor; and the crossing.
 ------------------------------------------------------------------------
 
 अभेद : {A B : Type} (e : A ≃ B) {x y : A} → equivFun e x ≡ equivFun e y → x ≡ y
@@ -104,6 +104,6 @@ open import Cubical.Foundations.Equiv using (compEquiv)
 भित्ति-प्रतिसंक्रमः : {A B C : Type} → (A ≃ B) → ((A ≃ C) → ⊥) → (B ≃ C) → ⊥
 भित्ति-प्रतिसंक्रमः ford wall e = wall (compEquiv ford e)
 
--- the wall crosses the module's own construction ford: ��������� inherits it.
+-- the wall crosses the module's own construction ford: स्थानिवत् inherits it.
 भित्ति-स्थानिवत् : (स्थानिवत् ≃ Bool) → ⊥
 भित्ति-स्थानिवत् = भित्ति-प्रतिसंक्रमः आधार≃स्थानिवत् भित्ति-आधार

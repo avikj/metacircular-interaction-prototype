@@ -1,31 +1,31 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡ó‡‡∞‡Ø‡ã‡ó-‡‡ô‡‡ò‡æ‡‡ ‚î the pushforward composes on the Type carrier, and
+-- ‡§Ö‡§ó‡•ç‡§∞‡§Ø‡•ã‡§ó-‡§∏‡§ô‡•ç‡§ò‡§æ‡§§‡§É ‚Äî the pushforward composes on the Type carrier, and
 -- every finite Fubini is its shadow.
 --
 -- THE THEOREM.  The
--- finite theorem g_!(f_!w) ‚â° (g‚àòf)_!w ‚î Fubini as transport,
+-- finite theorem g_!(f_!w) ‚â° (g‚àòf)_!w ‚Äî Fubini as transport,
 -- needing two receipts: (1) the equivalence between the index types,
 -- (2) invariance of the fold under that reindexing.  Receipt (1) is
 -- SankramanaSesa ¬ß3 under the name
--- ‡‡‡-‡‡ô‡‡ò‡æ‡‡ ‚î residuals compose, `‡‡‡ (g‚àòf) c ‚â Œ[w ‚àà ‡‡‡ g c] ‡‡‡ f
+-- ‡§∂‡•á‡§∑-‡§∏‡§ô‡•ç‡§ò‡§æ‡§§‡§É ‚Äî residuals compose, `‡§∂‡•á‡§∑ (g‚àòf) c ‚âÉ Œ£[w ‚àà ‡§∂‡•á‡§∑ g c] ‡§∂‡•á‡§∑ f
 -- (fst w)`.  This module cashes
 -- it at the TOP of the carrier table: for W = Type, "sum over the
--- fibre" IS Œ, the pushforward is
+-- fibre" IS Œ£, the pushforward is
 --
---     ‡‡ó‡‡∞‡Ø‡ã‡ó‡ f F y  =  Œ[ u ‚àà ‡‡‡ f y ] F (fst u)
+--     ‡§Ö‡§ó‡•ç‡§∞‡§Ø‡•ã‡§ó‡§É f F y  =  Œ£[ u ‚àà ‡§∂‡•á‡§∑ f y ] F (fst u)
 --
--- and Fubini is not a fold identity but an EQUIVALENCE OF TYPES ‚î
--- proved below as ‡‡‡-‡‡ô‡‡ò‡æ‡‡ composed with Œ-associativity, nothing
--- else.  The load-bearing computational fact: ‡‡ô‡‡ò‡æ‡‡'s forward map is
+-- and Fubini is not a fold identity but an EQUIVALENCE OF TYPES ‚Äî
+-- proved below as ‡§∂‡•á‡§∑-‡§∏‡§ô‡•ç‡§ò‡§æ‡§§‡§É composed with Œ£-associativity, nothing
+-- else.  The load-bearing computational fact: ‡§∏‡§ô‡•ç‡§ò‡§æ‡§§‡§É's forward map is
 -- `fwd (a , p) = ((f a , p) , (a , refl))`, so the base point is
 -- preserved DEFINITIONALLY (`fst (snd (fwd v)) ‚âê fst v`), which is why
--- `Œ-cong-equiv-fst` applies with no transport residue: this Fubini is
+-- `Œ£-cong-equiv-fst` applies with no transport residue: this Fubini is
 -- judgmentally flat in the coordinate that matters.
 --
 -- WHY THE TYPE ROW IS THE MASTER.  The carrier table (Bool reachability,
--- ‚ï counting, tropical cost, ‚‚ä probability, ‚ amplitude, Type the full
+-- ‚Ñï counting, tropical cost, ‚Ñù‚Çä probability, ‚ÑÇ amplitude, Type the full
 -- uncollapsed history fibre) is a ladder of lawful forgettings.  Every
 -- W-valued finite Fubini is THIS equivalence read through a fold: apply
 -- an enumeration-invariant `total` to
@@ -38,7 +38,7 @@
 -- theorem, and on the Type row it costs two library lemmas.
 --
 -- COMPOUND BUILT HERE: ‡‡ó‡‡∞‡Ø‡ã‡ó (the forward
--- yoking ‚î the pushforward), ‡‡ô‡‡ò‡æ‡ (composition/stacking, following
+-- yoking ‚Äî the pushforward), ‡§∏‡§ô‡•ç‡§ò‡§æ‡§§ (composition/stacking, following
 -- SankramanaSesa's ‡‡‡-‡‡ô‡‡ò‡æ‡‡).  The mathematics is HoTT-standard
 -- (Œ over a fibre; the
 -- composite-fibre splitting is HoTT 4.8.2's neighbourhood), composed.
@@ -60,7 +60,7 @@ private
     ‚Ñì : Level
 
 ------------------------------------------------------------------------
--- ‡ß ¬ ‡‡ó‡‡∞‡Ø‡ã‡ó‡ ‚î the pushforward on the Type carrier.  What lives over
+-- ‡•ß ¬∑ ‡§Ö‡§ó‡•ç‡§∞‡§Ø‡•ã‡§ó‡§É ‚Äî the pushforward on the Type carrier.  What lives over
 -- an observed point is: a residual (a preimage with its witness),
 -- together with the family's content at that preimage.  The dependent
 -- sum IS the integral; no fold, no enumeration, nothing forgotten.
@@ -70,11 +70,11 @@ private
 ‡§Ö‡§ó‡•ç‡§∞‡§Ø‡•ã‡§ó‡§É f F y = Œ£[ u ‚àà ‡§∂‡•á‡§∑ f y ] F (fst u)
 
 ------------------------------------------------------------------------
--- ‡® ¬ THE THEOREM.  Pushing forward in two stages is pushing forward
--- once along the composite ‚î as an equivalence of types, at every point
--- of the far codomain.  Receipt (1) is ‡‡‡-‡‡ô‡‡ò‡æ‡‡; the regrouping is
--- Œ-associativity; the family congruence is definitional because
--- ‡‡ô‡‡ò‡æ‡‡ preserves the base point on the nose.
+-- ‡•® ¬∑ THE THEOREM.  Pushing forward in two stages is pushing forward
+-- once along the composite ‚Äî as an equivalence of types, at every point
+-- of the far codomain.  Receipt (1) is ‡§∂‡•á‡§∑-‡§∏‡§ô‡•ç‡§ò‡§æ‡§§‡§É; the regrouping is
+-- Œ£-associativity; the family congruence is definitional because
+-- ‡§∏‡§ô‡•ç‡§ò‡§æ‡§§‡§É preserves the base point on the nose.
 ------------------------------------------------------------------------
 
 module _ {A B C : Type ‚Ñì} (f : A ‚Üí B) (g : B ‚Üí C) (F : A ‚Üí Type ‚Ñì) (z : C) where
@@ -86,18 +86,18 @@ module _ {A B C : Type ‚Ñì} (f : A ‚Üí B) (g : B ‚Üí C) (F : A ‚Üí Type ‚Ñì) (z 
       (Œ£-assoc-‚âÉ)
 
 ------------------------------------------------------------------------
--- ‡© ¬ The identity law, for the record: pushing forward along the
+-- ‡•© ¬∑ The identity law, for the record: pushing forward along the
 -- identity changes nothing but the dress.  The residual of id at a is
--- the inverse-singleton Œ[x] (x ‚â° a) ‚î contractible with centre
--- (a , refl) ‚î so the pushforward contracts back to the family, and
--- with the theorem above this makes ‡‡ó‡‡∞‡Ø‡ã‡ó‡ a functor up to
+-- the inverse-singleton Œ£[x] (x ‚â° a) ‚Äî contractible with centre
+-- (a , refl) ‚Äî so the pushforward contracts back to the family, and
+-- with the theorem above this makes ‡§Ö‡§ó‡•ç‡§∞‡§Ø‡•ã‡§ó‡§É a functor up to
 -- equivalence: identity to identity, composition to composition.
 ------------------------------------------------------------------------
 
 module _ {A : Type ‚Ñì} (F : A ‚Üí Type ‚Ñì) (a : A) where
 
   private
-    -- the standard contraction of Œ[x] (x ‚â° a), written out so the
+    -- the standard contraction of Œ£[x] (x ‚â° a), written out so the
     -- centre is visibly (a , refl) and nothing is imported for it
     ‡§∏‡§ô‡•ç‡§ï‡•ã‡§ö‡§É : isContr (‡§∂‡•á‡§∑ (idfun A) a)
     ‡§∏‡§ô‡•ç‡§ï‡•ã‡§ö‡§É = (a , refl) , Œª { (x , p) i ‚Üí p (~ i) , Œª j ‚Üí p (~ i ‚à® j) }

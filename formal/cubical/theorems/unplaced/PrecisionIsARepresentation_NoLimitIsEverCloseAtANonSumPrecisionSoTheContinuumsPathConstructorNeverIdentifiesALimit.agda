@@ -1,28 +1,28 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- PrecisionIsARepresentation � a defect of SantataDhara found by
+-- PrecisionIsARepresentation — a defect of SantataDhara found by
 -- building on it.  Its closeness relation u ∼⟨ε⟩ v is indexed by ε as a
 -- REPRESENTATION (1+a)/(1+b), not by its value, and the two constructors
 -- that reach a limit, ∼rat-lim and ∼lim-lim, only produce closeness at
--- an index of the form ε +� δ � whose numerator is a successor by
+-- an index of the form ε +⁺ δ — whose numerator is a successor by
 -- construction.  Therefore:
 --
---   §1  at a precision whose numerator field is 0 (e.g. quarter� = 1/4),
+--   §1  at a precision whose numerator field is 0 (e.g. quarter⁺ = 1/4),
 --       closeness holds only between two rationals: a proposition-valued
---       family F on � with F (rat q) = � and F (lim y) = � respects the
---       path constructor because eq's hypothesis at quarter� can only be
+--       family F on ℝ with F (rat q) = ⊤ and F (lim y) = ⊥ respects the
+--       path constructor because eq's hypothesis at quarter⁺ can only be
 --       ∼rat-rat;
---   §2  hence rat q � lim y for every q and y: no limit is ever equal to
+--   §2  hence rat q ≢ lim y for every q and y: no limit is ever equal to
 --       a rational.  In particular the limit of the constant
---       approximation at q is not rat q � the type is not the completion
+--       approximation at q is not rat q — the type is not the completion
 --       it says it is.
 --
--- WHAT THIS MEANS.  The module's stated completeness � "limits are
--- constructors, so the type is Cauchy complete" � is not usable: a limit
+-- WHAT THIS MEANS.  The module's stated completeness — "limits are
+-- constructors, so the type is Cauchy complete" — is not usable: a limit
 -- is a fresh point that nothing can be equal to.  The HoTT book's
--- construction (§11.3) avoids this because its �� is a set of values,
--- so ε +� δ and any equal-valued precision index the same type.
+-- construction (§11.3) avoids this because its ℚ⁺ is a set of values,
+-- so ε +⁺ δ and any equal-valued precision index the same type.
 --
 -- SYT.  A negative theorem about the module's constructors, proved by
 -- induction on the closeness relation; nothing about real numbers as
@@ -89,11 +89,11 @@ rat≢lim q y e = transport (cong fst (cong F e)) tt
 no-rat-lim-at-quarter : (q : S.ℚ) (y : CauchyApprox) → ¬ (rat q ∼⟨ S.quarter⁺ ⟩ lim y)
 no-rat-lim-at-quarter q y h = transport (cong fst (F-eq h refl)) tt
 
--- the constant approximation at q, a Cauchy approximation by ∼rat-rat �
+-- the constant approximation at q, a Cauchy approximation by ∼rat-rat …
 constApprox : (q : S.ℚ) → ((ε : S.ℚ⁺) → S.Close ε q q) → CauchyApprox
 constApprox q c = (λ _ → rat q) , λ δ ε → ∼rat-rat (c (δ S.+⁺ ε))
 
--- � whose limit is not rat q
+-- … whose limit is not rat q
 limit-of-constant-is-not-its-value : (q : S.ℚ) (c : (ε : S.ℚ⁺) → S.Close ε q q)
                                    → ¬ (rat q ≡ lim (constApprox q c))
 limit-of-constant-is-not-its-value q c = rat≢lim q (constApprox q c)

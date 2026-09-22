@@ -3,61 +3,61 @@
 ------------------------------------------------------------------------
 -- TheDomainThatIsAnAbsence
 --
--- ààà¾àµ used as a DOMAIN â” what it buys, and what this type theory can
+-- à¤…à¤­à¤¾à¤µ used as a DOMAIN â€” what it buys, and what this type theory can
 -- and cannot host.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE STEP BEING EXPLOITED
 --
 -- `ExclusionRecoversGroundAtAPrice` Â§8b proves its necessity result by
--- forming the SHADOW of an observable: for `q : Bool â’ Y`, put
--- `Excl := Â (q true â‰¡ q false)` and take
+-- forming the SHADOW of an observable: for `q : Bool â†’ Y`, put
+-- `Excl := Â¬ (q true â‰¡ q false)` and take
 --
---     shadow q : Bool â’ (Excl â’ Y)      shadow q b = Î» _ â’ q b .
+--     shadow q : Bool â†’ (Excl â†’ Y)      shadow q b = Î» _ â†’ q b .
 --
--- That module named the step it rests on â” the construction forms
--- functions OUT OF an absence â” and said it was not neutral ground,
--- because Vaieika counts ààà¾àµ among the àà¦à¾à°ààs while the Buddhist
+-- That module named the step it rests on â€” the construction forms
+-- functions OUT OF an absence â€” and said it was not neutral ground,
+-- because VaiÅ›eá¹£ika counts à¤…à¤­à¤¾à¤µ among the à¤ªà¤¦à¤¾à¤°à¥à¤¥s while the Buddhist
 -- position denies there is any such entity.
 -- This file examines that step.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   Â§1  if the affirmation holds, the absence-indexed type is
---       CONTRACTIBLE â” `A â’ isContr (Â A â’ Y)`, for every Y whatever,
+--       CONTRACTIBLE â€” `A â†’ isContr (Â¬ A â†’ Y)`, for every Y whatever,
 --       inhabited or not.  There is nothing there to quantify over and
 --       the whole type shrinks to a point.
 --
---   Â§2  if the absence holds, the same type IS Y â” `Â A â’ ((Â A â’ Y) â‰
+--   Â§2  if the absence holds, the same type IS Y â€” `Â¬ A â†’ ((Â¬ A â†’ Y) â‰ƒ
 --       Y)`, because an inhabited proposition is contractible and
 --       evaluation at its centre is an equivalence.
 --
 --   Â§3  so the shadow's codomain is a type whose identity is settled
 --       only by settling A, and Â§3 shows that settling is not optional
---       twice over: `Â Â Dec A` holds for every A â” the "neither"
---       position is refuted outright â” and `Â (A — Â A)` â” the "both"
+--       twice over: `Â¬ Â¬ Dec A` holds for every A â€” the "neither"
+--       position is refuted outright â€” and `Â¬ (A Ã— Â¬ A)` â€” the "both"
 --       position is refuted outright.  Of the four naive positions two
 --       are impossible and the remaining two are each underivable in
 --       general.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT EACH SCHOOL GETS, AND WHY THE TWO ARE NOT INTERCHANGEABLE
 --
 --   VAIEIKA (Praastapda's *Padrthadharmasagraha*, and the Nyya
---   development after it).  ààà¾àµ is a àà¦à¾à°àà: absence is a category of
---   the real, with an àà§à¿à•à°à, a locus where it resides, and a
---   ààà°àà¿à¯à‹à—à¿à¨à it is the absence of.  Â§1 and Â§2 say the locus has a
---   determinate structure â” and say exactly which â” but only once the
+--   development after it).  à¤…à¤­à¤¾à¤µ is a à¤ªà¤¦à¤¾à¤°à¥à¤¥: absence is a category of
+--   the real, with an à¤…à¤§à¤¿à¤•à¤°à¤£, a locus where it resides, and a
+--   à¤ªà¥à¤°à¤¤à¤¿à¤¯à¥‹à¤—à¤¿à¤¨à¥ it is the absence of.  Â§1 and Â§2 say the locus has a
+--   determinate structure â€” and say exactly which â€” but only once the
 --   affirmation or the absence is settled.  So the school's demand that
 --   an absence be individuated is met here in a precise form, and the
 --   price of meeting it is visible.
 --
 --   BUDDHIST (Madhyamaka).  The reading is the opposite one and it is
---   equally supported by Â§1â“Â§2: `Â A â’ Y` is neither `Unit` nor `Y` in
+--   equally supported by Â§1â€“Â§2: `Â¬ A â†’ Y` is neither `Unit` nor `Y` in
 --   itself.  Which it is depends entirely on how A goes, and there is
 --   no third answer it has on its own.  A type with no identity apart
---   from its relations is what à¨à¿ààààµàà¾àµ describes.  The Naiyyika
+--   from its relations is what à¤¨à¤¿à¤ƒà¤¸à¥à¤µà¤­à¤¾à¤µ describes.  The NaiyÄyika
 --   reply is available and is not answered here: dependence on A is not
 --   the same as having no nature, and Â§1 and Â§2 are themselves precise
 --   statements OF a nature.
@@ -67,20 +67,20 @@
 --   both vocabularies as one toolkit: the same two theorems are read
 --   twice, incompatibly, and both readings are recorded.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- A WARNING ABOUT THE CATUKOI
 --
 -- Â§3 says something uncomfortable about the fourfold: in this type
--- theory the fourth position, read naively as `Â A — Â Â A`, is
--- absurd, and the third, read as `A — Â A`, is absurd.  Anyone
+-- theory the fourth position, read naively as `Â¬ A Ã— Â¬ Â¬ A`, is
+-- absurd, and the third, read as `A Ã— Â¬ A`, is absurd.  Anyone
 -- modelling the fourfold here as those four formulas has already lost
 -- two of them before starting.
 --
 -- That is a fact about the naive reading and is NOT a refutation of
 -- Madhyamaka.  The fourfold is stated in the *Mlamadhyamakakrik*
--- and what its positions ARE is contested among its readers â”
+-- and what its positions ARE is contested among its readers â€”
 -- whether they are four assertions to be evaluated, four theses all of
--- which are rejected, or a ààà°àà™àà— device that asserts nothing and
+-- which are rejected, or a à¤ªà¥à¤°à¤¸à¤™à¥à¤— device that asserts nothing and
 -- proceeds only by drawing consequences from an opponent's own
 -- commitments.  On the last reading Â§3 is not even addressed to it.
 -- Recording the tension is the point.
@@ -117,7 +117,7 @@ affirmation-contracts a =
 ------------------------------------------------------------------------
 -- 2.  The absence makes the domain a single point, so the type is Y
 --
--- `Â A` is a proposition; an inhabited proposition is contractible;
+-- `Â¬ A` is a proposition; an inhabited proposition is contractible;
 -- evaluation at the inhabitant is then an equivalence.
 ------------------------------------------------------------------------
 
@@ -130,7 +130,7 @@ absence-evaluates {A = A} na = isoToEquiv (iso (Î» f â†’ f na) (Î» y _ â†’ y)
 ------------------------------------------------------------------------
 -- 3.  Two of the four naive positions are impossible here
 --
--- Neither: `Â A — Â Â A` cannot hold, and the sharper form is that
+-- Neither: `Â¬ A Ã— Â¬ Â¬ A` cannot hold, and the sharper form is that
 -- `Dec A` cannot be refuted at all.  Both: immediate.
 ------------------------------------------------------------------------
 
@@ -144,7 +144,7 @@ both-is-absurd : {A : Type â„“} â†’ Â¬ (A Ã— (Â¬ A))
 both-is-absurd (a , na) = na a
 
 -- The two impossibility results above are UNCONDITIONAL.  The
--- disjunction below is not: it needs `Dec A`, which `ÂÂDec` says can
+-- disjunction below is not: it needs `Dec A`, which `Â¬Â¬Dec` says can
 -- never be refuted and which is not thereby available.  So the honest
 -- statement is that the shadow's codomain is `Unit`-like or `Y`-like
 -- ONCE A IS SETTLED, that settling it is never ruled out.
@@ -158,9 +158,9 @@ shadowCodomain-dichotomy (no  na) = inr (absence-evaluates na)
 
 ------------------------------------------------------------------------
 -- RELATED.  `DeflationaryTest` contains the closure lemmas for
--- `Â`, `â’`, `—`, `Î `, their instantiation at the corpus's obstruction
--- shapes, the observation that stability does not pass through `âŠ`,
--- `no-barrier-claim : Â (Â (Dec A))`, and the deflation that the
+-- `Â¬`, `â†’`, `Ã—`, `Î `, their instantiation at the corpus's obstruction
+-- shapes, the observation that stability does not pass through `âŠ`,
+-- `no-barrier-claim : Â¬ (Â¬ (Dec A))`, and the deflation that the
 -- stabilisation level measures nothing.
 --
 -- `TheDeflationaryTestWasAlreadyRun` records the overlap with this module

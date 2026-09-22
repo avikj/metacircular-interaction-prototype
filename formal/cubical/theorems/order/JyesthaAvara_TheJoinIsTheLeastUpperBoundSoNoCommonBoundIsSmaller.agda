@@ -1,24 +1,24 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ààà¯àààà à¾àµà° â” THE JOIN IS THE LEAST UPPER BOUND, SO NO COMMON BOUND
+-- à¤œà¥à¤¯à¥‡à¤·à¥à¤ à¤¾à¤µà¤° â€” THE JOIN IS THE LEAST UPPER BOUND, SO NO COMMON BOUND
 -- IS SMALLER.
 --
 -- THE QUESTION.  Does this substrate settle OPTIMALITY, not merely
 -- correctness?  An optimality claim has two halves: a thing works, and
 -- nothing works better.  The second half is a universal over all rival
 -- solutions.  Once the frame is bounded the rivals are a finite set, so
--- "nothing better" is a finite certificate â” and a finite certificate
+-- "nothing better" is a finite certificate â€” and a finite certificate
 -- is exactly what this kernel signs.  This module is one worked
 -- instance, end to end.
 --
--- THE PROBLEM.  Given x and y, produce the least z with x â‰ z and
--- y â‰ z â” the smallest common upper bound.  The candidate solution is
+-- THE PROBLEM.  Given x and y, produce the least z with x â‰¤ z and
+-- y â‰¤ z â€” the smallest common upper bound.  The candidate solution is
 -- the kernel's own join, `max`, with `le` its order (both transcribed
 -- verbatim from interactive/ProofGate.hs, so this is the wire's own
 -- arithmetic).  Optimality of `max` is TWO theorems:
---   Â ub-left, ub-right  â” max IS a common upper bound (correctness);
---   Â least              â” max is BELOW every common upper bound, so no
+--   Â· ub-left, ub-right  â€” max IS a common upper bound (correctness);
+--   Â· least              â€” max is BELOW every common upper bound, so no
 --                          common upper bound is smaller than max
 --                          (the lower-bound half: nothing does better).
 -- Together: `max` is not merely a correct upper bound, it is the
@@ -42,7 +42,7 @@ max a zero          = a
 max zero b          = b
 max (suc a) (suc b) = suc (max a b)
 
--- le a b â‰¡ 1 reads "a â‰ b"; le a b â‰¡ 0 reads "a > b".
+-- le a b â‰¡ 1 reads "a â‰¤ b"; le a b â‰¡ 0 reads "a > b".
 le : â„• â†’ â„• â†’ â„•
 le zero    b       = suc zero
 le (suc a) zero    = zero
@@ -68,7 +68,7 @@ ub-right (suc x) (suc y) = ub-right x y
 
 ------------------------------------------------------------------------
 -- Â§3  OPTIMALITY: max is below every common upper bound.  No z that
---     bounds both x and y is smaller than max x y â” nothing does
+--     bounds both x and y is smaller than max x y â€” nothing does
 --     better.  The impossible case (a "bound" below x on both sides)
 --     is refuted by znots, not assumed away.
 ------------------------------------------------------------------------

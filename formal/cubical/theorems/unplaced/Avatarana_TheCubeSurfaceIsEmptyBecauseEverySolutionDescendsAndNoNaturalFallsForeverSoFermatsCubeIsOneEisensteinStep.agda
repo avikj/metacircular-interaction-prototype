@@ -1,10 +1,10 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ààµàà°à â” FERMAT'S CUBE, PAID THE CORPUS'S WAY: NOT A BIGGER SCAN BUT
+-- à¤…à¤µà¤¤à¤°à¤£ â€” FERMAT'S CUBE, PAID THE CORPUS'S WAY: NOT A BIGGER SCAN BUT
 -- THE THEOREM COMPRESSED TO ITS ONE IRREDUCIBLE STEP.
 --
--- `Fermat3Gate` wrote FLTâ as a type and named the debt exactly: "the
+-- `Fermat3Gate` wrote FLTâ‚ƒ as a type and named the debt exactly: "the
 -- debt is a descent proof in a quadratic ring, not a bigger scan -- no
 -- bound on the scan reaches the universal, which is what `restrict`
 -- having no converse says as a type."  This module pays everything in
@@ -16,22 +16,22 @@
 -- THE MINIMUM-DESCRIPTION-LENGTH CORE.  A positive solution of
 -- xÂ³ + yÂ³ â‰¡ zÂ³ is a `Soln`.  Euler's descent is the ONE step `Descent`:
 -- every solution yields a strictly z-smaller solution.  Given that step,
--- FLTâ is FORCED, because the corpus already owns `no-infinite-descent`
--- (RenormalizedObserverTower): no â•-valued measure falls forever.  So
+-- FLTâ‚ƒ is FORCED, because the corpus already owns `no-infinite-descent`
+-- (RenormalizedObserverTower): no â„•-valued measure falls forever.  So
 --
---     fltâ-from-descent : Descent â’ Â Soln
---     paysFLTâ          : Descent â’ FLTâ
+--     fltâ‚ƒ-from-descent : Descent â†’ Â¬ Soln
+--     paysFLTâ‚ƒ          : Descent â†’ FLTâ‚ƒ
 --
 -- are checked terms, and the WHOLE of Fermat's cube is compressed to the
--- single line `Descent`, whose inhabitant is the classical â[Ï‰]
--- unique-factorisation descent (Euler 1770; â[Ï‰] is a UFD, which is why
+-- single line `Descent`, whose inhabitant is the classical â„¤[Ï‰]
+-- unique-factorisation descent (Euler 1770; â„¤[Ï‰] is a UFD, which is why
 -- n = 3 is elementary and n at the first irregular prime is not).
 --
--- THE COMPRESSION IS LOSSLESS.  `lossless : (Â Soln â’ FLTâ) — (FLTâ â’ Â Soln)`
+-- THE COMPRESSION IS LOSSLESS.  `lossless : (Â¬ Soln â†’ FLTâ‚ƒ) Ã— (FLTâ‚ƒ â†’ Â¬ Soln)`
 -- proves the two faces are interderivable, so nothing about Fermat's cube
 -- is discarded by the reduction -- only the one step is deferred, named,
--- and LOCATED in the multiplicative structure of â[Ï‰], exactly where
--- `PrimePairEquationsâ¦` proves the content of such problems must sit
+-- and LOCATED in the multiplicative structure of â„¤[Ï‰], exactly where
+-- `PrimePairEquationsâ€¦` proves the content of such problems must sit
 -- (additive coordinates never cross it).  This is the corpus's own
 -- doctrine applied to itself: a theorem is its shortest self-certifying
 -- form plus the one obstruction it cannot forge.
@@ -79,9 +79,9 @@ Descent : Type
 Descent = (s : Soln) â†’ Î£[ s' âˆˆ Soln ] (Soln.z s' < Soln.z s)
 
 ------------------------------------------------------------------------
--- Â§3  Given the step, Fermat's cube is forced â” by the corpus's own
+-- Â§3  Given the step, Fermat's cube is forced â€” by the corpus's own
 --     `no-infinite-descent`.  Iterating the step from any solution builds
---     a strictly decreasing â•-sequence of z's, which cannot exist.
+--     a strictly decreasing â„•-sequence of z's, which cannot exist.
 ------------------------------------------------------------------------
 
 fltâ‚ƒ-from-descent : Descent â†’ Â¬ Soln
@@ -99,7 +99,7 @@ fltâ‚ƒ-from-descent step sâ‚€ = no-infinite-descent (f , strict)
   strict n = snd (step (g n))
 
 ------------------------------------------------------------------------
--- Â§4  The reduction is lossless: Â Soln and FLTâ are interderivable, so
+-- Â§4  The reduction is lossless: Â¬ Soln and FLTâ‚ƒ are interderivable, so
 --     the compression discards nothing of Fermat's cube.
 ------------------------------------------------------------------------
 

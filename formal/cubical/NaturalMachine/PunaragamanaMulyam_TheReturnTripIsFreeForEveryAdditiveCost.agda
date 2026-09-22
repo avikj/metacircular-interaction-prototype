@@ -3,24 +3,24 @@
 ------------------------------------------------------------------------
 -- NaturalMachine.PunaragamanaMulyam
 --
--- рррир░р╛рЧрорирррп рорр▓ррпр ррриррпрор тФ ри рХрр╡р▓рор ррррор┐рир рприрррр░р, рр░рр╡рррор┐рир рпрЛрЧррпр
--- рорр▓ррпр р
+-- рдкреБрдирд░рд╛рдЧрдордирд╕реНрдп рдореВрд▓реНрдпрдВ рд╢реВрдиреНрдпрдореН тАФ рди рдХреЗрд╡рд▓рдореН рдЕрд╕реНрдорд┐рдиреН рдпрдиреНрддреНрд░реЗ, рд╕рд░реНрд╡рд╕реНрдорд┐рдиреН рдпреЛрдЧреНрдпреЗ
+-- рдореВрд▓реНрдпреЗ ред
 --
--- (the price of the return is zero тФ not for this machine, for EVERY
+-- (the price of the return is zero тАФ not for this machine, for EVERY
 -- additive cost.)
 --
--- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
+-- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
 -- WHAT THIS CONNECTS
 --
 -- The owner's specification makes the machine's step a
 -- CONJUGATION and not an action:
 --
---     рррир (ррри v) = ррри (рр╡рр░р (╬ж (рЙрррр╛ри v)))
+--     рдкреБрдирдГ (рдмреБрди v) = рдмреБрди (рдЕрд╡рддрд░рдг (╬ж (рдЙрддреНрдерд╛рди v)))
 --
--- descend, act below, ascend.  `Punaragamanam_TheStepIsAConjugationтж`
--- and `VivekaPramana_TheRemainderIsLawfulтж` establish that the ascent
+-- descend, act below, ascend.  `Punaragamanam_TheStepIsAConjugationтАж`
+-- and `VivekaPramana_TheRemainderIsLawfulтАж` establish that the ascent
 -- and descent are an equivalence and that a remainder carried through
--- the step survives тФ `рр▓рЛрр` there proves it for all n by structural
+-- the step survives тАФ `рдЕрд▓реЛрдкрдГ` there proves it for all n by structural
 -- recursion on that particular machine.
 --
 -- `NaturalMachine.TransportPrice` already proved the general fact, and
@@ -31,11 +31,11 @@
 --
 -- The descent-then-ascent of the owner's step is exactly such a round
 -- trip.  So the step is free of charge under EVERY additive cost, and
--- the survival of the remainder is not a fact about тХ, about +, or
--- about this ╬ж тФ it is forced by the cost structure before any of those
+-- the survival of the remainder is not a fact about тДХ, about +, or
+-- about this ╬ж тАФ it is forced by the cost structure before any of those
 -- are chosen.  ┬з1 below is that instantiation.
 --
--- The direction of the debt is worth stating: `рр▓рЛрр` is the semantic
+-- The direction of the debt is worth stating: `рдЕрд▓реЛрдкрдГ` is the semantic
 -- shadow of `loop-is-free`, not an independent result.
 ------------------------------------------------------------------------
 
@@ -51,13 +51,13 @@ open import NaturalMachine.TransportPrice using (Additive ; self-is-free ; loop-
 --     return trip between them.
 ------------------------------------------------------------------------
 
--- рпррЧрро is the pair presentation; р╡р┐р╡ррХ is the descended presentation.
+-- рдпреБрдЧреНрдо is the pair presentation; рд╡рд┐рд╡реЗрдХ is the descended presentation.
 data рджреГрд╖реНрдЯрд┐ : Type where
   рдпреБрдЧреНрдо рд╡рд┐рд╡реЗрдХ : рджреГрд╖реНрдЯрд┐
 
 module _ (рдореВрд▓реНрдп : рджреГрд╖реНрдЯрд┐ тЖТ рджреГрд╖реНрдЯрд┐ тЖТ тДд) (рдпреЛрдЧреНрдп : Additive рдореВрд▓реНрдп) where
 
-  -- рр╡рр░ррор then рЙрррр╛рирор: the machine's conjugation, priced.
+  -- рдЕрд╡рддрд░рдгрдореН then рдЙрддреНрдерд╛рдирдореН: the machine's conjugation, priced.
   рдкреБрдирд░рд╛рдЧрдорди-рдореВрд▓реНрдпрдореН-рд╢реВрдиреНрдпрдореН :
     рдореВрд▓реНрдп рдпреБрдЧреНрдо рд╡рд┐рд╡реЗрдХ + рдореВрд▓реНрдп рд╡рд┐рд╡реЗрдХ рдпреБрдЧреНрдо тЙб pos 0
   рдкреБрдирд░рд╛рдЧрдорди-рдореВрд▓реНрдпрдореН-рд╢реВрдиреНрдпрдореН = loop-is-free рдореВрд▓реНрдп рдпреЛрдЧреНрдп рдпреБрдЧреНрдо рд╡рд┐рд╡реЗрдХ

@@ -6,7 +6,7 @@
 -- On this repository's own sync rule read as a consistency model:
 --
 --   "Causal consistency is only as strong as the dependency graph you
---    record. â¦ The corpus records none â” no note declares which other
+--    record. â€¦ The corpus records none â€” no note declares which other
 --    notes its claims depend on.  Its happens-before relation is
 --    therefore the discrete order, in which every pair of writes is
 --    concurrent, and causal consistency degenerates to eventual
@@ -18,13 +18,13 @@
 -- makes "lacks the metadata" the right diagnosis rather than a
 -- complaint about latency.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
 -- Only the delivery constraint.  A causal-delivery discipline says: an
 -- order may deliver `b` after `a` whenever nothing forbids it, and must
 -- deliver `a` before `b` when `a` happens-before `b`.  Â§2 says an empty
 -- happens-before forbids nothing, so EVERY order satisfies the
--- discipline â” the constraint has no content.  Â§3 says one recorded edge
+-- discipline â€” the constraint has no content.  Â§3 says one recorded edge
 -- already rules an order out, so the emptiness is doing all the work.
 --
 -- The claim is about the
@@ -58,8 +58,8 @@ module _ (Write : Type) (hb : Write â†’ Write â†’ Type) where
   emptyDeclarationIsRespectedByEveryOrder empty ord a b h =
     âŠ¥.rec (empty a b h)
 
-  -- in particular the order that delivers nothing before anything â”
-  -- which is what "every pair of writes is concurrent" means â” is
+  -- in particular the order that delivers nothing before anything â€”
+  -- which is what "every pair of writes is concurrent" means â€” is
   -- admissible, so the discipline excludes no execution at all
   theConcurrentOrderIsAdmissible :
     ((a b : Write) â†’ Â¬ hb a b) â†’ Respects (Î» _ _ â†’ âŠ¥)
@@ -93,6 +93,6 @@ module _ (Write : Type) (hb : Write â†’ Write â†’ Type) where
 -- "The corpus cannot be run causally-consistent by tuning `sync`" is
 -- exactly Â§2: no setting of a delivery process can make a vacuous
 -- constraint bite.  And Â§3 says the repair is not a better process but a
--- recorded edge â” which is why that note calls the missing thing
+-- recorded edge â€” which is why that note calls the missing thing
 -- METADATA rather than latency.
 ------------------------------------------------------------------------

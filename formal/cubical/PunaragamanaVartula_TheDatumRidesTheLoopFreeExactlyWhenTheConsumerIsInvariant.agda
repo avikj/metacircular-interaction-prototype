@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡®‡∞‡æ‡ó‡Æ‡®-‡µ‡∞‡‡‡‡≤‡Æ‡ ‚î ‡µ‡‡®‡ ‡µ‡∞‡‡‡‡≤‡ ‡Æ‡‡ï‡‡‡ ‡‡¶‡æ ‡‡µ ‡Ø‡¶‡æ ‡‡ã‡ï‡‡‡æ ‡‡µ‡ø‡ï‡æ‡∞‡ ‡
+-- ‡§™‡•Å‡§®‡§∞‡§æ‡§ó‡§Æ‡§®-‡§µ‡§∞‡•ç‡§§‡•Å‡§≤‡§Æ‡•ç ‚Äî ‡§µ‡§π‡§®‡§Ç ‡§µ‡§∞‡•ç‡§§‡•Å‡§≤‡•á ‡§Æ‡•Å‡§ï‡•ç‡§§‡§Ç ‡§§‡§¶‡§æ ‡§è‡§µ ‡§Ø‡§¶‡§æ ‡§≠‡•ã‡§ï‡•ç‡§§‡§æ ‡§Ö‡§µ‡§ø‡§ï‡§æ‡§∞‡•Ä ‡•§
 --
 -- (the carried datum rides the loop free exactly when the consumer is
 --  invariant.)
@@ -10,33 +10,33 @@
 -- Semantics` proves `invariantSemanticsIsUnmoved` and
 -- `nonTrivialHolonomyMovesTheRawInterface`, and reads them as one theorem
 -- at two consumers.  It is right, and the object it is about already has a
--- name in this corpus: ‡‡‡®‡∞‡æ‡ó‡Æ‡®, the coming-back.  Holonomy is the FAILURE
+-- name in this corpus: ‡§™‡•Å‡§®‡§∞‡§æ‡§ó‡§Æ‡§®, the coming-back.  Holonomy is the FAILURE
 -- of the coming-back to be trivial, and this module says so as terms.
 --
---   ‡‡‡®‡∞‡æ‡ó‡Æ‡®   the return exists: the datum is determined, rides free,
+--   ‡§™‡•Å‡§®‡§∞‡§æ‡§ó‡§Æ‡§®   the return exists: the datum is determined, rides free,
 --             nothing is lost.  `punaragamana/` states it for a map.
 --   holonomy   go around and return changed.  Stated for a loop.
 --
 -- Same object, opposite sign.
 --
--- WHY IT IS SHORT, AND WHY THAT IS THE POINT.  ¬ß‡ of ‡‡‡ø‡‡‡æ-‡‡‡‡‡∞-‡µ‡ø‡‡‡‡æ‡∞‡:
--- ‡‡‡ï‡‡∞‡Æ‡‡ ‡‡‡∞‡‡®‡æ ‡µ‡‡‡ø, ‡‡‡ï‡‡∞‡Æ‡‡ ‡® ‡ï‡ø‡û‡‡‡ø‡®‡ ‡®‡‡‡Ø‡‡ø.  A transport that costs
+-- WHY IT IS SHORT, AND WHY THAT IS THE POINT.  ¬ß‡•¨ of ‡§Ö‡§π‡§ø‡§Ç‡§∏‡§æ-‡§∏‡•Ç‡§§‡•ç‡§∞-‡§µ‡§ø‡§∏‡•ç‡§§‡§æ‡§∞‡§É:
+-- ‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£‡•á ‡§∏‡§Ç‡§∞‡§ö‡§®‡§æ ‡§µ‡§π‡§§‡§ø, ‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£‡•á ‡§® ‡§ï‡§ø‡§û‡•ç‡§ö‡§ø‡§®‡•ç ‡§®‡§∂‡•ç‡§Ø‡§§‡§ø.  A transport that costs
 -- nothing is a geodesic; if joining two things takes work, the joint is
 -- wrong.  Every declaration below is `refl`, one library lemma, or one
 -- application of a theorem that already existed.  Nothing is constructed.
 --
--- THE STATEMENT.  For a consumer `sem : Z ‚í B`, `Carrier sem` carries
+-- THE STATEMENT.  For a consumer `sem : Z ‚Üí B`, `Carrier sem` carries
 -- `sem z` beside `z` at zero degrees of freedom (the fibre `singl (sem z)`
--- is contractible).  A holonomy `h : Z ‚â Z` acts on the base, hence on the
+-- is contractible).  A holonomy `h : Z ‚âÉ Z` acts on the base, hence on the
 -- Carrier.  ¬ß3: the carried datum after one turn is `sem (h z)`, by `refl`.
 -- ¬ß4: therefore the datum is unmoved for every point exactly when `sem` is
--- invariant ‚î the biconditional, both directions `refl`-cheap.  ¬ß5: the
+-- invariant ‚Äî the biconditional, both directions `refl`-cheap.  ¬ß5: the
 -- identity consumer is the case where the datum IS the interface, so it is
 -- unmoved only if `h` is trivial, and `Bool`/`not` exhibits one that is not.
 --
 -- WHY A BICONDITIONAL IS AVAILABLE HERE AND NOT ON THE OTHER ROAD.  An
--- obstruction (¬ß‡'s ‡¶‡ã‡‡≤‡‡ñ, road two) is a factorisation failing, and a
--- factorisation does not invert ‚î `DosaLekha_‚¶` records that the univalent
+-- obstruction (¬ß‡•¨'s ‡§¶‡•ã‡§∑‡§≤‡•á‡§ñ, road two) is a factorisation failing, and a
+-- factorisation does not invert ‚Äî `DosaLekha_‚Ä¶` records that the univalent
 -- holonomy statements are exactly what would NOT instantiate it without an
 -- added `isSet`.  That refusal is the boundary between the two roads, and
 -- it falls on this side: holonomy is joined to its consumer by a PATH,
@@ -59,7 +59,7 @@ private
     ‚Ñì : Level
 
 ------------------------------------------------------------------------
--- ‡ß ¬ ‡µ‡æ‡‡ï‡ ‚î the law, five lines, as in punaragamana/.
+-- ‡•ß ¬∑ ‡§µ‡§æ‡§π‡§ï‡§É ‚Äî the law, five lines, as in punaragamana/.
 ------------------------------------------------------------------------
 
 record Carrier {A B : Type ‚Ñì} (f : A ‚Üí B) : Type ‚Ñì where
@@ -79,7 +79,7 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) where
   ‡§â‡§§‡•ç‡§•‡§æ‡§® : Carrier f ‚Üí A
   ‡§â‡§§‡•ç‡§•‡§æ‡§® = base
 
-  -- contractible fibre ‚í equivalence ‚í path.  The whole proof.
+  -- contractible fibre ‚áí equivalence ‚áí path.  The whole proof.
   ‡§Ö‡§µ‡§§‡§∞‡§£-‡§â‡§§‡•ç‡§•‡§æ‡§® : (c : Carrier f) ‚Üí ‡§Ö‡§µ‡§§‡§∞‡§£ (‡§â‡§§‡•ç‡§•‡§æ‡§® c) ‚â° c
   ‡§Ö‡§µ‡§§‡§∞‡§£-‡§â‡§§‡•ç‡§•‡§æ‡§® (carry a b w) i = carry a (q i .fst) (q i .snd)
     where
@@ -93,10 +93,10 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) where
   Carrier‚â° = ua Carrier‚âÉ
 
 ------------------------------------------------------------------------
--- ‡® ¬ ‡µ‡∞‡‡‡‡≤‡Æ‡ ‚î a holonomy acts on the base, hence on the carrier.
+-- ‡•® ¬∑ ‡§µ‡§∞‡•ç‡§§‡•Å‡§≤‡§Æ‡•ç ‚Äî a holonomy acts on the base, hence on the carrier.
 --
--- `H.Holonomy Z = Z ‚â Z`, that module's own definition.  Œ¶ is the loop
--- read as a map; the lift is the conjugation ‡‡µ‡‡∞‡ ‚àò Œ¶ ‚àò ‡â‡‡‡‡æ‡®, which is
+-- `H.Holonomy Z = Z ‚âÉ Z`, that module's own definition.  Œ¶ is the loop
+-- read as a map; the lift is the conjugation ‡§Ö‡§µ‡§§‡§∞‡§£ ‚àò Œ¶ ‚àò ‡§â‡§§‡•ç‡§•‡§æ‡§®, which is
 -- the shape `punaragamana/`'s Œ¶-carrier already has.
 ------------------------------------------------------------------------
 
@@ -113,14 +113,14 @@ module _ {B Z : Type‚ÇÄ} (sem : Z ‚Üí B) (h : H.Holonomy Z) where
   ‡§µ‡§∞‡•ç‡§ó‡§É _ = refl
 
   ----------------------------------------------------------------------
-  -- ‡© ¬ ‡Ø‡‡ ‡µ‡‡‡ø ‚î what the datum becomes after one turn.  By refl.
+  -- ‡•© ¬∑ ‡§Ø‡§§‡•ç ‡§µ‡§π‡§§‡§ø ‚Äî what the datum becomes after one turn.  By refl.
   ----------------------------------------------------------------------
 
   ‡§µ‡§π‡§®‡§Æ‡•ç-‡§™‡§¶‡•á : (z : Z) ‚Üí carried (Œ¶-‡§µ‡§æ‡§π‡§ï‡•á (‡§Ö‡§µ‡§§‡§∞‡§£ sem z)) ‚â° sem (Œ¶ z)
   ‡§µ‡§π‡§®‡§Æ‡•ç-‡§™‡§¶‡•á _ = refl
 
   ----------------------------------------------------------------------
-  -- ‡ ¬ ‡‡¶‡æ ‡‡µ ‚î THE BICONDITIONAL.
+  -- ‡•™ ¬∑ ‡§§‡§¶‡§æ ‡§è‡§µ ‚Äî THE BICONDITIONAL.
   --
   -- The carried datum is unmoved at every point exactly when the consumer
   -- is invariant under the holonomy.  Both directions are the identity on
@@ -144,11 +144,11 @@ module _ {B Z : Type‚ÇÄ} (sem : Z ‚Üí B) (h : H.Holonomy Z) where
   ‡§Æ‡•Å‡§ï‡•ç‡§§‡§Æ‡•ç‚Üí‡§Ö‡§µ‡§ø‡§ï‡§æ‡§∞‡•Ä free = free
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡‡‡ï‡‡∞‡Æ‡‡ ‚î and the same along the univalent transport.
+-- ‡•´ ¬∑ ‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£‡•á ‚Äî and the same along the univalent transport.
 --
 -- `H.invariantSemanticsIsUnmoved` is stated for `transport (ua h)`, where
--- nothing reduces on a neutral variable ‚î the datum has to be brought back
--- by `uaŒ≤`.  Quoted, not restated: the point is that ¬ß‡'s biconditional and
+-- nothing reduces on a neutral variable ‚Äî the datum has to be brought back
+-- by `uaŒ≤`.  Quoted, not restated: the point is that ¬ß‡•™'s biconditional and
 -- that theorem are one fact at two presentations of the same loop.
 ------------------------------------------------------------------------
 
@@ -158,13 +158,13 @@ module _ {B Z : Type‚ÇÄ} (sem : Z ‚Üí B) (h : H.Holonomy Z) where
 ‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£‡•á-‡§Ö‡§™‡§ø sem h = H.invariantSemanticsIsUnmoved h sem
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡‡‡µ‡Ø‡‡‡ã‡ï‡‡‡æ ‚î the identity consumer, and a loop that moves it.
+-- ‡•¨ ¬∑ ‡§∏‡•ç‡§µ‡§Ø‡§Ç‡§≠‡•ã‡§ï‡•ç‡§§‡§æ ‚Äî the identity consumer, and a loop that moves it.
 --
 -- When the carried datum IS the interface, invariance of the consumer is
 -- invariance of the holonomy, so the datum rides free only for a trivial
 -- loop.  `H.theCacheIsMoved` exhibits one that is not: `not` on `Bool`.
 -- That is why caches, provenance and optimizer state are the consumers
--- that see ‚î they are keyed by the raw interface.
+-- that see ‚Äî they are keyed by the raw interface.
 ------------------------------------------------------------------------
 
 ‡§∏‡•ç‡§µ‡§Ø‡§Æ‡•ç : {Z : Type‚ÇÄ} ‚Üí Z ‚Üí Z

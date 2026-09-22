@@ -1,48 +1,48 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- àà°ààà-àà‹àà¾à¨à®à â” the ladder of offerings.
+-- à¤…à¤°à¥à¤ªà¤£-à¤¸à¥‹à¤ªà¤¾à¤¨à¤®à¥ â€” the ladder of offerings.
 --
 -- THE QUESTIONS, in the stratum vocabulary this corpus has been building
--- (KramaSaha â’ StaraArpana â’ AyamaArpana â’ AnantaraArpana):
+-- (KramaSaha â†’ StaraArpana â†’ AyamaArpana â†’ AnantaraArpana):
 --
---   1. Is the charge always â?  Or is "the charge" whatever the space
---      holds â” a product, a NONABELIAN group?
+--   1. Is the charge always â„¤?  Or is "the charge" whatever the space
+--      holds â€” a product, a NONABELIAN group?
 --   2. AnantaraArpana showed the stratum above silence utters the whole
---      charge.  Does the NEXT stratum utter nothing new â” or does every
+--      charge.  Does the NEXT stratum utter nothing new â€” or does every
 --      stratum utter a NEW charge?
 --
 -- ANSWERED HERE.  The master law is space-generic and is TWO library
 -- terms composed:
 --
---   àà¾à®à¾à¨àà¯à®à :  Î©µâºÂ (âˆ A âˆ (3+m))  â‰  Ïâ˜âŠâ(A)        for EVERY pointed A
+--   à¤¸à¤¾à¤®à¤¾à¤¨à¥à¤¯à¤®à¥ :  Î©áµâºÂ¹ (âˆ¥ A âˆ¥ (3+m))  â‰ƒ  Ï€â‚˜â‚Šâ‚(A)        for EVERY pointed A
 --
 -- the (3+m)-th stratum of ANY space, looped m+1 times, is exactly its
--- (m+1)-th homotopy group â” because the loop space sits two strata
+-- (m+1)-th homotopy group â€” because the loop space sits two strata
 -- below the truncation ceiling and is therefore already a set, so the
--- set-truncation in Ï's definition peels off (setTruncIdempotent), and
--- ÏTruncIso finishes.  Then:
+-- set-truncation in Ï€'s definition peels off (setTruncIdempotent), and
+-- Ï€TruncIso finishes.  Then:
 --
---   àà‹àà¾à¨à®à   Î©Â³(âˆSÂ²âˆâ) â‰ â â” the SECOND rung of SÂ²'s ladder.  Stratum 4
---            uttered ÏâSÂ² = â (AnantaraArpana); stratum 5 utters ANOTHER
---            whole â, and this one is the Hopf charge ÏâSÂ².  Every
+--   à¤¸à¥‹à¤ªà¤¾à¤¨à¤®à¥   Î©Â³(âˆ¥SÂ²âˆ¥â‚…) â‰ƒ â„¤ â€” the SECOND rung of SÂ²'s ladder.  Stratum 4
+--            uttered Ï€â‚‚SÂ² = â„¤ (AnantaraArpana); stratum 5 utters ANOTHER
+--            whole â„¤, and this one is the Hopf charge Ï€â‚ƒSÂ².  Every
 --            stratum utters a new charge; the sphere is a ladder, not a
 --            lamp that switches on once.
---   àµà²à¯à®à    Î©(âˆTÂ²âˆâ) â‰ â — â â” the torus's charge is the PAIR, both
+--   à¤µà¤²à¤¯à¤®à¥    Î©(âˆ¥TÂ²âˆ¥â‚ƒ) â‰ƒ â„¤ Ã— â„¤ â€” the torus's charge is the PAIR, both
 --            winding numbers, whole at its own first stratum above
 --            silence.
---   à—ààààà®à   Î©(âˆBouquet Aâˆâ) â‰ FreeGroup A â” the bouquet's charge is
+--   à¤—à¥à¤šà¥à¤›à¤®à¥   Î©(âˆ¥Bouquet Aâˆ¥â‚ƒ) â‰ƒ FreeGroup A â€” the bouquet's charge is
 --            the free group: NONABELIAN.  The displacement law is about
---            strata, not about â; the charge is whatever the space holds.
+--            strata, not about â„¤; the charge is whatever the space holds.
 --
 -- SOURCES.  The engines are the LIBRARY's:
--- isSetÎ©Trunc + ÏTruncIso (Cubical.Homotopy.Group.Base), Ïâ™Sâ¿â‰â and
--- Ï'Grâ‰ÏGr (PinSn, Base), ÏâSÂ²â‰â (Pi3S2 â” Brunerie's line), Î©Torusâ‰¡â—â
--- (HITs.Torus.Base), ÏâBouquetâ‰¡FreeGroup
+-- isSetÎ©Trunc + Ï€TruncIso (Cubical.Homotopy.Group.Base), Ï€â‚™Sâ¿â‰…â„¤ and
+-- Ï€'Grâ‰…Ï€Gr (PinSn, Base), Ï€â‚ƒSÂ²â‰…â„¤ (Pi3S2 â€” Brunerie's line), Î©Torusâ‰¡â„¤Ã—â„¤
+-- (HITs.Torus.Base), Ï€â‚Bouquetâ‰¡FreeGroup
 -- (HITs.Bouquet.FundamentalGroupProof).  This module's content is the
 -- COMPOSITION into the generic law and its three new charge readings.
--- àà‹àà¾à¨ (staircase), àµà²à¯ (ring/torus), à—àààà (bunch/bouquet) are
--- ordinary  used as labels; àà°ààà¿à/àà¨à°ààà¿à is Umsvti,
+-- à¤¸à¥‹à¤ªà¤¾à¤¨ (staircase), à¤µà¤²à¤¯ (ring/torus), à¤—à¥à¤šà¥à¤› (bunch/bouquet) are
+-- ordinary  used as labels; à¤…à¤°à¥à¤ªà¤¿à¤¤/à¤…à¤¨à¤°à¥à¤ªà¤¿à¤¤ is UmÄsvÄti,
 -- Tattvrthastra 5.31, as the READING of stratum-graded establishment
 -- (per StaraArpana).
 ------------------------------------------------------------------------
@@ -77,7 +77,7 @@ private
     â„“ : Level
 
 ------------------------------------------------------------------------
--- àà¾à®à¾à¨àà¯à®à â” the master law, for EVERY pointed space: the (3+m)-th
+-- à¤¸à¤¾à¤®à¤¾à¤¨à¥à¤¯à¤®à¥ â€” the master law, for EVERY pointed space: the (3+m)-th
 -- stratum, looped m+1 times, IS the (m+1)-th homotopy group.  Two terms.
 ------------------------------------------------------------------------
 
@@ -88,8 +88,8 @@ private
             (isoToEquiv (invIso (Ï€TruncIso (suc m))))
 
 ------------------------------------------------------------------------
--- àà‹àà¾à¨à®à â” the second rung of SÂ²'s ladder: stratum 5 utters ANOTHER
--- whole â, and it is the Hopf charge ÏâSÂ².
+-- à¤¸à¥‹à¤ªà¤¾à¤¨à¤®à¥ â€” the second rung of SÂ²'s ladder: stratum 5 utters ANOTHER
+-- whole â„¤, and it is the Hopf charge Ï€â‚ƒSÂ².
 ------------------------------------------------------------------------
 
 à¤¸à¥‹à¤ªà¤¾à¤¨à¤®à¥ : typ ((Î©^ 3) (hLevelTruncâˆ™ 5 (Sâ‚Šâˆ™ 2))) â‰ƒ â„¤
@@ -99,7 +99,7 @@ private
       (fst Ï€â‚ƒSÂ²â‰…â„¤))
 
 ------------------------------------------------------------------------
--- àµà²à¯à®à â” the torus utters BOTH winding numbers, whole, at its first
+-- à¤µà¤²à¤¯à¤®à¥ â€” the torus utters BOTH winding numbers, whole, at its first
 -- stratum above silence.
 ------------------------------------------------------------------------
 
@@ -112,8 +112,8 @@ private
       (pathToEquiv Î©Torusâ‰¡â„¤Ã—â„¤))
 
 ------------------------------------------------------------------------
--- à—ààààà®à â” the bouquet utters the FREE GROUP on its petals: the charge
--- need not be abelian.  The law is about strata, not about â.
+-- à¤—à¥à¤šà¥à¤›à¤®à¥ â€” the bouquet utters the FREE GROUP on its petals: the charge
+-- need not be abelian.  The law is about strata, not about â„¤.
 ------------------------------------------------------------------------
 
 à¤—à¥à¤šà¥à¤›à¤®à¥ : {A : Type â„“}

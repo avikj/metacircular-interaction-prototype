@@ -1,19 +1,19 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à•à•àààà¯à¾ â” à§àà°ààµà à•à•àààà¯à¾à¯à¾à àààà¿à°à®à à
+-- à¤•à¤•à¥à¤·à¥à¤¯à¤¾ â€” à¤§à¥à¤°à¥à¤µà¤‚ à¤•à¤•à¥à¤·à¥à¤¯à¤¾à¤¯à¤¾à¤‚ à¤¸à¥à¤¥à¤¿à¤°à¤®à¥ à¥¤
 --
 -- (the conserved quantity is constant along the orbit.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS IS.  In `Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThere
 -- IsNoSymmetry.agda` Â§à§ the conserved quantity is `f` itself: `ààà°à•ï¿½àï¿½à®ï¿½`
--- says exactly that `f` is Î¦-invariant, so `f` descends to the orbits à
+-- says exactly that `f` is Î¦-invariant, so `f` descends to the orbits 
 -- "the charge is a function on the quotient, not on the cover".
 --
--- This module states that.  Dhruva's Â§à§ gives one step â” `f (Î¦ a) â‰¡ f a` â” and that
+-- This module states that.  Dhruva's Â§à¤§ gives one step â€” `f (Î¦ a) â‰¡ f a` â€” and that
 -- alone leaves open whether the charge could drift along a long orbit.  It
--- cannot: Â§à¨ below is the induction, and its content is that the charge
+-- cannot: Â§à¥¨ below is the induction, and its content is that the charge
 -- cannot distinguish ANY two points of an orbit, at ANY distance.  That is
 -- what "a function on the quotient rather than on the cover" says without
 -- introducing a quotient type: the cover's points are separated by Î¦, and
@@ -21,14 +21,14 @@
 --
 -- WHY IT IS WORTH A TERM AND NOT A REMARK.  The one-step law is a
 -- hypothesis about a generator; the orbit law is a statement about the
--- ORBIT, which is the object `Dhruva` Â§à§ actually identifies with the
--- gauge orbit and the fibre.  Without Â§à¨, "the gauge orbit is the fibre"
+-- ORBIT, which is the object `Dhruva` Â§à¥§ actually identifies with the
+-- gauge orbit and the fibre.  Without Â§à¥¨, "the gauge orbit is the fibre"
 -- is asserted of a set nothing has been proved constant on.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
--- TERM.  à•à•àààà¯à¾ â” in the siddhntic astronomical tradition, the orbit or
--- orbital circle of a planet (standard from ryabhaa, àà°àà¯ààŸàà¯à®à, 499,
+-- TERM.  à¤•à¤•à¥à¤·à¥à¤¯à¤¾ â€” in the siddhÄntic astronomical tradition, the orbit or
+-- orbital circle of a planet (standard from Ä€ryabhaá¹­a, à¤†à¤°à¥à¤¯à¤­à¤Ÿà¥€à¤¯à¤®à¥, 499,
 -- and through the Sryasiddhnta).  Its use here for
 -- the forward orbit of an endomorphism is this corpus's.
 ------------------------------------------------------------------------
@@ -46,7 +46,7 @@ private variable â„“ : Level
 module _ {A B : Type â„“} (f : A â†’ B) (Î¦ : A â†’ A) where
 
 ------------------------------------------------------------------------
--- à§ Â à•à•àààà¯à¾ â” the forward orbit, as an iteration of the flow.
+-- à¥§ Â· à¤•à¤•à¥à¤·à¥à¤¯à¤¾ â€” the forward orbit, as an iteration of the flow.
 --
 -- `Î¦` is a bare endomorphism, so this is the forward orbit and nothing
 -- more: no inverse is available and none is used.
@@ -57,15 +57,15 @@ module _ {A B : Type â„“} (f : A â†’ B) (Î¦ : A â†’ A) where
   à¤•à¤•à¥à¤·à¥à¤¯à¤¾ (suc n) a = Î¦ (à¤•à¤•à¥à¤·à¥à¤¯à¤¾ n a)
 
 ------------------------------------------------------------------------
--- à¨ Â à§àà°ààµà à•à•àààà¯à¾à¯à¾à àààà¿à°à®à â” THE CHARGE IS CONSTANT ALONG THE ORBIT.
+-- à¥¨ Â· à¤§à¥à¤°à¥à¤µà¤‚ à¤•à¤•à¥à¤·à¥à¤¯à¤¾à¤¯à¤¾à¤‚ à¤¸à¥à¤¥à¤¿à¤°à¤®à¥ â€” THE CHARGE IS CONSTANT ALONG THE ORBIT.
 --
--- Dhruva Â§à§ gives one step.  This is every step, by induction, and the
+-- Dhruva Â§à¥§ gives one step.  This is every step, by induction, and the
 -- proof is the one-step law composed with the tail.
 --
 -- Read at the physics: the observable cannot distinguish any two points
 -- of one orbit, however far apart along the flow.  That is the exact
 -- content of "the charge is a function on the quotient, not on the
--- cover" â” stated on the cover, where it is provable without building a
+-- cover" â€” stated on the cover, where it is provable without building a
 -- quotient.
 ------------------------------------------------------------------------
 
@@ -74,8 +74,8 @@ module _ {A B : Type â„“} (f : A â†’ B) (Î¦ : A â†’ A) where
   à¤§à¥à¤°à¥à¤µà¤‚-à¤•à¤•à¥à¤·à¥à¤¯à¤¾à¤¯à¤¾à¤®à¥ cons (suc n) a = cons (à¤•à¤•à¥à¤·à¥à¤¯à¤¾ n a) âˆ™ à¤§à¥à¤°à¥à¤µà¤‚-à¤•à¤•à¥à¤·à¥à¤¯à¤¾à¤¯à¤¾à¤®à¥ cons n a
 
 ------------------------------------------------------------------------
--- à© Â àààà¦à â” and therefore no two points of an orbit are separated by
---     the charge.  This is Â§à¨ read as the blindness it is: for any two
+-- à¥© Â· à¤…à¤­à¥‡à¤¦à¤ƒ â€” and therefore no two points of an orbit are separated by
+--     the charge.  This is Â§à¥¨ read as the blindness it is: for any two
 --     stations `m`, `n` on one orbit, the observable agrees.
 ------------------------------------------------------------------------
 
@@ -85,23 +85,23 @@ module _ {A B : Type â„“} (f : A â†’ B) (Î¦ : A â†’ A) where
     à¤§à¥à¤°à¥à¤µà¤‚-à¤•à¤•à¥à¤·à¥à¤¯à¤¾à¤¯à¤¾à¤®à¥ cons m a âˆ™ sym (à¤§à¥à¤°à¥à¤µà¤‚-à¤•à¤•à¥à¤·à¥à¤¯à¤¾à¤¯à¤¾à¤®à¥ cons n a)
 
 ------------------------------------------------------------------------
--- à Â àààà â” scope.
+-- à Â àààà â€” scope.
 --
--- `Î¦` is a bare endomorphism.  Â§à¨â“Â§à© are stated on the cover and need
+-- `Î¦` is a bare endomorphism.  Â§à¤¨â„“Â§à¥© are stated on the cover and need
 -- no orbit relation, no quotient, and no inverse.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- à Â à¨àààŸà¾àà¾àµà à•à•àààà¯à¾ àà•àà¦à¾ â” WITHOUT LOSS THE ORBIT IS A SINGLE POINT.
+-- à¥« Â· à¤¨à¤·à¥à¤Ÿà¤¾à¤­à¤¾à¤µà¥‡ à¤•à¤•à¥à¤·à¥à¤¯à¤¾ à¤à¤•à¤ªà¤¦à¤¾ â€” WITHOUT LOSS THE ORBIT IS A SINGLE POINT.
 --
--- `Dhruva` Â§à¨ proves that losslessness plus conservation force `Î¦ a â‰¡ a`
--- â” one step.  With Â§à§'s iteration that is every step: the whole forward
+-- `Dhruva` Â§à¥¨ proves that losslessness plus conservation force `Î¦ a â‰¡ a`
+-- â€” one step.  With Â§à¥§'s iteration that is every step: the whole forward
 -- orbit collapses onto its own basepoint.
 --
 -- This is README movement 30's sentence made literal.  It says there that
--- a lossless world is FROZEN, and what Â§à¨ of Dhruva supports on its own is
+-- a lossless world is FROZEN, and what Â§à¥¨ of Dhruva supports on its own is
 -- only that the generator is the identity.  The frozen claim is about the
--- ORBIT â” that nothing goes anywhere â” and that is this.
+-- ORBIT â€” that nothing goes anywhere â€” and that is this.
 --
 -- Note what it does NOT need: `Î¦` is still a bare endomorphism.  No group,
 -- no inverse, no continuity.  Losslessness alone kills the whole forward
@@ -122,18 +122,18 @@ module _ {A B : Type â„“} (f : A â†’ B) (Î¦ : A â†’ A) where
     cong Î¦ (à¤¨à¤·à¥à¤Ÿà¤¾à¤­à¤¾à¤µà¥‡-à¤•à¤•à¥à¤·à¥à¤¯à¤¾-à¤à¤•à¤ªà¤¦à¤¾ e cons n a) âˆ™ à¤¨à¤·à¥à¤Ÿ-à¤…à¤­à¤¾à¤µà¥‡-à¤—à¤¤à¤¿-à¤…à¤­à¤¾à¤µà¤ƒ f Î¦ e cons a
 
 ------------------------------------------------------------------------
--- à Â à•à•àààà¯à¾ àà¨ààà àµààà¿ â” THE WHOLE ORBIT LIES IN ONE FIBRE.
+-- à¥¬ Â· à¤•à¤•à¥à¤·à¥à¤¯à¤¾ à¤¤à¤¨à¥à¤¤à¥Œ à¤µà¤¸à¤¤à¤¿ â€” THE WHOLE ORBIT LIES IN ONE FIBRE.
 --
--- `Dhruva` Â§à§ proves that `Î¦` carries a fibre into itself â” one step â”
+-- `Dhruva` Â§à¥§ proves that `Î¦` carries a fibre into itself â€” one step â€”
 -- and its prose then reads that as "the gauge orbit IS the fibre".  The
--- orbit is a set Â§à§ never quantifies over.  This is that set: every
+-- orbit is a set Â§à¥§ never quantifies over.  This is that set: every
 -- station of the forward orbit of `a` is a point of the fibre over
--- `f a`, with Â§à¨ supplying its membership witness.
+-- `f a`, with Â§à¥¨ supplying its membership witness.
 --
 -- So the sentence "the gauge orbit lies in the fibre" has a term
 -- whose subject is the orbit.  The converse -- that the fibre is
 -- exhausted by one orbit -- is transitivity of the flow on the fibre,
--- which Â§à§ takes as a hypothesis.
+-- which Â§à¤§ takes as a hypothesis.
 ------------------------------------------------------------------------
 
 open import Cubical.Foundations.Equiv using (fiber)
@@ -144,7 +144,7 @@ module _ {A B : Type â„“} (f : A â†’ B) (Î¦ : A â†’ A) where
   à¤•à¤•à¥à¤·à¥à¤¯à¤¾-à¤¤à¤¨à¥à¤¤à¥Œ cons n a = à¤•à¤•à¥à¤·à¥à¤¯à¤¾ f Î¦ n a , à¤§à¥à¤°à¥à¤µà¤‚-à¤•à¤•à¥à¤·à¥à¤¯à¤¾à¤¯à¤¾à¤®à¥ f Î¦ cons n a
 
 ------------------------------------------------------------------------
--- à Â àà™àà•àà°à®àà àà¾à°à‹ à¨à¾àààà¿ â” WHERE THE FLOW IS TRANSITIVE, NO INVARIANT
+-- à¥­ Â· à¤¸à¤™à¥à¤•à¥à¤°à¤®à¤£à¥‡ à¤­à¤¾à¤°à¥‹ à¤¨à¤¾à¤¸à¥à¤¤à¤¿ â€” WHERE THE FLOW IS TRANSITIVE, NO INVARIANT
 --     CARRIES A CHARGE.
 --
 -- Â§à above: the orbit lies IN the fibre, and whether it EXHAUSTS the
@@ -153,12 +153,12 @@ module _ {A B : Type â„“} (f : A â†’ B) (Î¦ : A â†’ A) where
 -- Here transitivity is stated, as a hypothesis, and its consequence
 -- proved: if the flow reaches every point of a fibre from every other,
 -- then EVERY Î¦-invariant observable is constant on that fibre.  Not just
--- `f` â” every one.  So there is no further conserved quantity to carry
+-- `f` â€” every one.  So there is no further conserved quantity to carry
 -- there, and the whole fibre is one state as far as any invariant can
 -- tell.
 --
--- That is Noether's SECOND theorem's conclusion â” a local symmetry gives
--- a constraint rather than a charge â” at the level where no Lagrangian is
+-- That is Noether's SECOND theorem's conclusion â€” a local symmetry gives
+-- a constraint rather than a charge â€” at the level where no Lagrangian is
 -- needed.  As in `Dhruva`: no variation, no continuity, no action.
 ------------------------------------------------------------------------
 

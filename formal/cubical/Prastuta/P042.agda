@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 -- uttered by the checked proposer (formal/executable/Prastava.agda),
 -- judged by the kernel before landing; the source pair is a Sanghatta
--- non-joining critical pair � a theorem the rewriter said it needs.
+-- non-joining critical pair — a theorem the rewriter said it needs.
 module Prastuta.P042 where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)

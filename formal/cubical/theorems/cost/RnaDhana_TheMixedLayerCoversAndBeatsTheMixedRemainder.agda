@@ -3,15 +3,15 @@
 ------------------------------------------------------------------------
 -- RnaDhana_TheMixedLayerCoversAndBeatsTheMixedRemainder
 --
--- à‹àà§à¨ Â a-dhana â” Brahmagupta, *Brhmasphuasiddhnta* (628): one
+-- à¤‹à¤£à¤§à¤¨ Â· á¹›á¹‡a-dhana â€” Brahmagupta, *BrÄhmasphuá¹­asiddhÄnta* (628): one
 -- magnitude read as *dhana* (asset) or *a* (debt), which is what a
 -- benefit coordinate and a cost coordinate are.  The sign rules are
 -- his; nothing else here is.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- `RnaDhana_TheWholeMixedStratificationIsTheFlippedOne` proved the two
 -- stratifications equal.  The output properties are written out here,
--- at one step â” and the three do NOT cost the same, which is why this
+-- at one step â€” and the three do NOT cost the same, which is why this
 -- is a module and not three `subst`s.
 --
 -- WHAT IS PROVED
@@ -39,7 +39,7 @@
 -- remainder equation, call
 -- `everyRemainderMemberIsBeatenByAStratumMember` on the flipped
 -- archive, rewrite the layer equation backwards, and pull the dominator
--- back with `anyMapBack` â” which recovers a MIXED vector whose flip is
+-- back with `anyMapBack` â€” which recovers a MIXED vector whose flip is
 -- the one found, the flip having no inverse on elements.  The caps
 -- enter exactly once, in `flipCapsReflect`, on that recovered vector.
 --

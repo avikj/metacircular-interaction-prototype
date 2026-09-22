@@ -7,10 +7,10 @@
 -- different structures ààµà•àààµàà¯à®à; two of them are separated by their
 -- defect:
 --
---   ààµà•àààµàà¯à®à  the content is DETERMINATE and no single utterance says
---              it â” an EXPRESSIBILITY failure
---   à¦à¦        the content is perfectly expressible and the solution set
---              is not a singleton â” a UNIQUENESS failure
+--   à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯à¤®à¥  the content is DETERMINATE and no single utterance says
+--              it â€” an EXPRESSIBILITY failure
+--   à¥¦Ã·à¥¦        the content is perfectly expressible and the solution set
+--              is not a singleton â€” a UNIQUENESS failure
 --
 -- The risk is exact: "using one third position as a catch-all
 -- for 'not a clean single answer' is the boolean collapse this corpus
@@ -22,9 +22,9 @@
 -- hold at once.  So they are not two readings of one thing at any
 -- strength, and one word cannot cover both without loss.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
--- The THIRD structure â” Satyayantra's àà¨àà•ààà®à, the un-said â” is NOT
+-- The THIRD structure â€” Satyayantra's à¤…à¤¨à¥à¤•à¥à¤¤à¤®à¥, the un-said â€” is NOT
 -- brought onto this carrier.  It is temporal (a grant may still say it),
 -- so it is not a predicate of a content and a language at all.
 -- The two third-positions' remedies live in
@@ -80,7 +80,7 @@ onlyFalse _ _ = false
 onlyId : Unit â†’ Bool â†’ Bool
 onlyId _ x = x
 
--- â”â” the two basic facts about the two contents â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€ the two basic facts about the two contents â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 allIsNonUnique : NonUnique all
 allIsNonUnique = true , false , trueâ‰¢false , refl , refl
@@ -88,7 +88,7 @@ allIsNonUnique = true , false , trueâ‰¢false , refl , refl
 selfIsUnique : Â¬ NonUnique self
 selfIsUnique (a , b , aâ‰¢b , sa , sb) = aâ‰¢b (sa âˆ™ sym sb)
 
--- â”â” corner 1: non-unique, expressible â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€ corner 1: non-unique, expressible â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 allIsExpressibleInConstants : Â¬ Inexpressible constants all
 allIsExpressibleInConstants ie = ie true .snd refl
@@ -97,7 +97,7 @@ corner-nonUnique-expressible :
   (NonUnique all) Ã— (Â¬ Inexpressible constants all)
 corner-nonUnique-expressible = allIsNonUnique , allIsExpressibleInConstants
 
--- â”â” corner 2: unique, inexpressible â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€ corner 2: unique, inexpressible â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 selfIsInexpressibleInConstants : Inexpressible constants self
 selfIsInexpressibleInConstants true  = false , trueâ‰¢false
@@ -107,7 +107,7 @@ corner-unique-inexpressible :
   (Â¬ NonUnique self) Ã— (Inexpressible constants self)
 corner-unique-inexpressible = selfIsUnique , selfIsInexpressibleInConstants
 
--- â”â” corner 3: both at once â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€ corner 3: both at once â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 allIsInexpressibleInOnlyFalse : Inexpressible onlyFalse all
 allIsInexpressibleInOnlyFalse _ = true , falseâ‰¢true
@@ -115,7 +115,7 @@ allIsInexpressibleInOnlyFalse _ = true , falseâ‰¢true
 corner-both : (NonUnique all) Ã— (Inexpressible onlyFalse all)
 corner-both = allIsNonUnique , allIsInexpressibleInOnlyFalse
 
--- â”â” corner 4: neither â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€ corner 4: neither â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 selfIsExpressibleInOnlyId : Â¬ Inexpressible onlyId self
 selfIsExpressibleInOnlyId ie = ie tt .snd refl
@@ -128,7 +128,7 @@ corner-neither = selfIsUnique , selfIsExpressibleInOnlyId
 --
 -- All four corners are inhabited, so neither defect implies the other
 -- and neither implies the other's negation.  A single word covering both
--- discards a distinction that is realised in every combination â” which
+-- discards a distinction that is realised in every combination â€” which
 -- is the "boolean collapse, one level up", as a theorem rather
 -- than as a diagnosis.
 --

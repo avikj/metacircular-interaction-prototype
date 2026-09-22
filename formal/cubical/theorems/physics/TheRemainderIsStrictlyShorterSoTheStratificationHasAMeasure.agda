@@ -11,16 +11,16 @@
 -- The termination argument is the DECREASING MEASURE, and it is built
 -- here.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   filterOut                 the complement of `filterDec`, keeping
 --                             exactly what the filter drops
---   partitionLength           `length (filterDec â¦) + length
---                             (filterOut â¦) â‰¡ length xs` â” the two
+--   partitionLength           `length (filterDec â€¦) + length
+--                             (filterOut â€¦) â‰¡ length xs` â€” the two
 --                             halves partition, so nothing is lost or
 --                             double-counted
---   memberMakesItNonEmpty     a list with a member has length â‰ 1
+--   memberMakesItNonEmpty     a list with a member has length â‰¥ 1
 --   nonEmptyFilterShortensTheComplement
 --                             hence if the kept part is non-empty the
 --                             dropped part is STRICTLY shorter
@@ -35,11 +35,11 @@
 -- NON-EMPTINESS constructively; non-emptiness gives the STRICT
 -- DECREASE.  None of the three could have been taken first.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- NO NOVELTY.  A filter and its complement partition a list, and a
 -- non-empty part forces the other to be shorter; both are elementary.
 -- They are proved because the missing piece for the stratification was
--- never the recursion â” it was the measure the recursion decreases.
+-- never the recursion â€” it was the measure the recursion decreases.
 ------------------------------------------------------------------------
 
 module TheRemainderIsStrictlyShorterSoTheStratificationHasAMeasure where
@@ -110,7 +110,7 @@ nonEmptyFilterShortensTheComplement P d xs a mem =
     kept : 1 â‰¤ lengthL (filterDec P d xs)
     kept = memberMakesItNonEmpty (filterDec P d xs) a mem
 
-    -- 1 + |out| â‰ |kept| + |out|
+    -- 1 + |out| â‰¤ |kept| + |out|
     shifted : lengthL (filterOut P d xs)
             < lengthL (filterDec P d xs) + lengthL (filterOut P d xs)
     shifted =
@@ -144,13 +144,13 @@ theRemainderIsStrictlyShorter x xs with stratumIsNonEmpty x xs
 --
 --   leftover / strata     peel the maximal layer, recurse on the
 --                         remainder, fuelled
---   fuelSuffices          fuel â‰ length â’ the iteration exhausts
+--   fuelSuffices          fuel â‰¥ length â‡’ the iteration exhausts
 --   theStratificationTerminates
---                         `leftover (lengthL xs) xs â‰¡ []` â” the
+--                         `leftover (lengthL xs) xs â‰¡ []` â€” the
 --                         archive's OWN LENGTH is enough fuel
 --
 -- The induction applies `theRemainderIsStrictlyShorter` exactly once
--- per step, to turn `lengthL (x âˆ xs) â‰ suc n` into
--- `lengthL (remainder (x âˆ xs)) â‰ n`, which is precisely the recursive
+-- per step, to turn `lengthL (x âˆ· xs) â‰¤ suc n` into
+-- `lengthL (remainder (x âˆ· xs)) â‰¤ n`, which is precisely the recursive
 -- call's obligation.  Nothing else is used.
 ------------------------------------------------------------------------

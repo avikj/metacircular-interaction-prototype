@@ -9,7 +9,7 @@
 --
 -- This module tests whether that boundary belongs to the *mathematics* or
 -- to the *vocabulary*.  It restates the same carry obstruction with digit
--- words presented as functions `Fin n â’ Digit` instead of as an indexed
+-- words presented as functions `Fin n â†’ Digit` instead of as an indexed
 -- inductive `Vec`.  A function type has no index to match on, so if the
 -- warning is a Vec artefact it must disappear here while the statements
 -- proved stay the same.

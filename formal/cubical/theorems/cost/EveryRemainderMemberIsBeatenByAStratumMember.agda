@@ -12,23 +12,23 @@
 --   every member of the remainder is beaten by a member of the
 --   STRATUM.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE ARGUMENT.
 --
 -- No well-founded measure on â„• over a finite list is needed.  The
--- chain-climbing argument â” v is beaten by u, u may be beaten by uâ²,
--- iterate and hope it stops â” is not the only route; the shorter one:
+-- chain-climbing argument â€” v is beaten by u, u may be beaten by uâ€²,
+-- iterate and hope it stops â€” is not the only route; the shorter one:
 --
 --   apply `maximalExists` to the SUBLIST of elements that beat v.
 --
 -- `maximalExists` performs the finite induction, once, for the
 -- non-empty-stratum theorem; it costs nothing to point it at a
 -- different list.  The maximal element OF THAT SUBLIST is maximal in
--- the whole archive â” because anything beating it would, by
+-- the whole archive â€” because anything beating it would, by
 -- transitivity, also beat v and hence lie in the sublist.  That is the
 -- whole proof.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   above v xs        the elements of xs that strictly dominate v
@@ -38,7 +38,7 @@
 --   maximalOfNonEmpty `maximalExists` with the non-emptiness supplied
 --                     by a membership rather than by a cons pattern
 --   aboveMaximalIsGloballyMaximal
---                     maximal in `above v xs` â’ maximal in xs
+--                     maximal in `above v xs` â‡’ maximal in xs
 --   theDominatorCanBeChosenMaximal
 --                     any dominator of v can be replaced by one in the
 --                     stratum
@@ -49,8 +49,8 @@
 -- stratum 1 beats every member of the remainder, and since the next
 -- stratum is computed from that remainder, each stratum beats
 -- everything below it AT ITS OWN LEVEL.  The transitive statement over
--- `strata` â” that stratum i beats every member of stratum j for every
--- j > i â” is `theStrataAreOrdered` in
+-- `strata` â€” that stratum i beats every member of stratum j for every
+-- j > i â€” is `theStrataAreOrdered` in
 -- `TheStrataAreOrderedByDominationAndTheProofNeedsNoNewLemma`, which
 -- composes `strataSound` with the theorem here.
 --
@@ -90,7 +90,7 @@ private
     A : Type
 
 ------------------------------------------------------------------------
--- 1.  Into the filtrate â” the converse of memberOfFilterSatisfies
+-- 1.  Into the filtrate â€” the converse of memberOfFilterSatisfies
 ------------------------------------------------------------------------
 
 memberIntoFilter :

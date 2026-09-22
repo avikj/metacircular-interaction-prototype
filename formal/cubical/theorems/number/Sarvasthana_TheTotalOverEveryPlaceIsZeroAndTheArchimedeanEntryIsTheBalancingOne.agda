@@ -1,41 +1,41 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àà°ààµàààà¾à¨à®à â” àà°ààµààà àààà¾à¨ààà à¯à‹à—à ààà¨àà¯à®à ; àà¨à¨àà-àààà¾à¨à ààà²à¾-àà¦à®à à
+-- à¤¸à¤°à¥à¤µà¤¸à¥à¤¥à¤¾à¤¨à¤®à¥ â€” à¤¸à¤°à¥à¤µà¥‡à¤·à¥ à¤¸à¥à¤¥à¤¾à¤¨à¥‡à¤·à¥ à¤¯à¥‹à¤—à¤ƒ à¤¶à¥‚à¤¨à¥à¤¯à¤®à¥ ; à¤…à¤¨à¤¨à¥à¤¤-à¤¸à¥à¤¥à¤¾à¤¨à¤‚ à¤¤à¥à¤²à¤¾-à¤ªà¤¦à¤®à¥ à¥¤
 --
 -- (all the places: the total over every place is zero, and the
 --  archimedean entry is the one that balances the books.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS IS.  The corpus prices things at FINITE places and has never
--- had an archimedean one.  `Pairfield/Apavartana_â¦lean` is the local half:
--- for an explicit Smith form it computes `rankAt p` and proves `bad_iff` â”
+-- had an archimedean one.  `Pairfield/Apavartana_â€¦lean` is the local half:
+-- for an explicit Smith form it computes `rankAt p` and proves `bad_iff` â€”
 -- the rank drops exactly at the primes dividing the elementary divisors,
--- so the ramified points on Spec â are named.  (It is a worked INSTANCE,
--- divisors [2,12], det 24 â” not a general formula, and this module does
+-- so the ramified points on Spec â„¤ are named.  (It is a worked INSTANCE,
+-- divisors [2,12], det 24 â€” not a general formula, and this module does
 -- not assume more of it than that.)
 --
 -- This module adds the entry at âˆ, and with it the reason the local
 -- prices are not a list of unrelated losses: THEY SUM TO ZERO.  A defect
 -- at one place is not an absolute loss; it is compensated, and the
--- compensating term lives at a place the local method cannot see.  Â§à¨ is
--- that, and Â§à says what kind of object it is in this corpus's terms.
+-- compensating term lives at a place the local method cannot see.  Â§à¥¨ is
+-- that, and Â§à¥ª says what kind of object it is in this corpus's terms.
 --
 -- WHY THERE ARE NO REAL NUMBERS HERE.  The classical statement multiplies
--- absolute values and needs |Â|_âˆ.  Taken additively it needs only
+-- absolute values and needs |Â·|_âˆ.  Taken additively it needs only
 -- WEIGHTS: write w p for the weight of the place p (classically log p),
--- leave w abstract, and the whole content survives in â.  Abstracting w
--- is not a weakening â” it is the honest form, because nothing below
+-- leave w abstract, and the whole content survives in â„¤.  Abstracting w
+-- is not a weakening â€” it is the honest form, because nothing below
 -- depends on what the weights are, only on the two entries being taken
 -- with opposite sign.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
--- TERMS.  àààà¾à¨ (place, position) and àà°ààµ (all) in their plain senses.
--- ààà²à¾ is the balance-scale â” the ordinary word, and the sign of Libra in
+-- TERMS.  à¤¸à¥à¤¥à¤¾à¤¨ (place, position) and à¤¸à¤°à¥à¤µ (all) in their plain senses.
+-- à¤¤à¥à¤²à¤¾ is the balance-scale â€” the ordinary word, and the sign of Libra in
 -- Indian astronomy; used here for the entry that makes the scale rest.
--- àà¨à¨àà (endless) is used for the archimedean place; in Jaina mathematics
--- àà¨à¨àà is a technical term with its own orders, distinguished from
+-- à¤…à¤¨à¤¨à¥à¤¤ (endless) is used for the archimedean place; in Jaina mathematics
+-- à¤…à¤¨à¤¨à¥à¤¤ is a technical term with its own orders, distinguished from
 -- àààà–àà¯à¾à (Anuyogadvra, akhagama tradition); the word is borrowed
 -- for the place at
 -- infinity.
@@ -53,7 +53,7 @@ open import Cubical.Algebra.CommRing.Instances.Int using (â„¤CommRing)
 open import Cubical.Tactics.CommRingSolver using (solve!)
 
 ------------------------------------------------------------------------
--- à§ Â àµà¿àà¾à—à â” a divisor: an exponent at each of finitely many places.
+-- à¥§ Â· à¤µà¤¿à¤­à¤¾à¤—à¤ƒ â€” a divisor: an exponent at each of finitely many places.
 --     The place is an index; nothing below needs it to be prime.
 ------------------------------------------------------------------------
 
@@ -66,7 +66,7 @@ open import Cubical.Tactics.CommRingSolver using (solve!)
 à¤­à¤¾à¤°à¤ƒ = â„• â†’ â„¤
 
 ------------------------------------------------------------------------
--- à¨ Â àà¾à¨àà-à¯à‹à—à â” the finite entry.  |x|_p is p^(âˆ’v_p x), so the finite
+-- à¥¨ Â· à¤¸à¤¾à¤¨à¥à¤¤-à¤¯à¥‹à¤—à¤ƒ â€” the finite entry.  |x|_p is p^(âˆ’v_p x), so the finite
 --     place contributes MINUS the exponent times the weight.
 ------------------------------------------------------------------------
 
@@ -75,9 +75,9 @@ open import Cubical.Tactics.CommRingSolver using (solve!)
 à¤¸à¤¾à¤¨à¥à¤¤ w ((p , e) âˆ· r) = (- e) Â· w p + à¤¸à¤¾à¤¨à¥à¤¤ w r
 
 ------------------------------------------------------------------------
--- à© Â àà¨à¨àà-à¯à‹à—à â” the archimedean entry.  |x|_âˆ is the size itself, so
+-- à¥© Â· à¤…à¤¨à¤¨à¥à¤¤-à¤¯à¥‹à¤—à¤ƒ â€” the archimedean entry.  |x|_âˆ is the size itself, so
 --     it contributes PLUS the exponent times the weight.  This is a
---     separate definition, not `- àà¾à¨àà`: if it were defined as the
+--     separate definition, not `- à¤¸à¤¾à¤¨à¥à¤¤`: if it were defined as the
 --     negation the theorem below would be true by unfolding and would say
 --     nothing.  It is defined independently and the cancellation is
 --     PROVED.
@@ -88,7 +88,7 @@ open import Cubical.Tactics.CommRingSolver using (solve!)
 à¤…à¤¨à¤¨à¥à¤¤ w ((p , e) âˆ· r) = e Â· w p + à¤…à¤¨à¤¨à¥à¤¤ w r
 
 ------------------------------------------------------------------------
--- à Â ààà²à¾ â” THE BOOKS BALANCE, for every divisor and every weighting.
+-- à¥ª Â· à¤¤à¥à¤²à¤¾ â€” THE BOOKS BALANCE, for every divisor and every weighting.
 --
 --     This is the whole law: a defect priced at one place is never an
 --     absolute loss, because the entries over all places sum to zero.
@@ -102,23 +102,23 @@ open import Cubical.Tactics.CommRingSolver using (solve!)
   âˆ™ cong (pos 0 +_) (à¤¤à¥à¤²à¤¾ w r)
   where
   -- the two weight terms are negatives of each other, and that is the
-  -- ONLY reason this holds -- àà¾à¨àà takes (- e), àà¨à¨àà takes e.  The
+  -- ONLY reason this holds -- à¤¸à¤¾à¤¨à¥à¤¤ takes (- e), à¤…à¤¨à¤¨à¥à¤¤ takes e.  The
   -- lemma is stated with the exponent visible so that is on the page.
   à¤ªà¥à¤¨à¤°à¥à¤µà¤¿à¤¨à¥à¤¯à¤¾à¤¸à¤ƒ : (e wp b d : â„¤)
                â†’ ((- e) Â· wp + b) + (e Â· wp + d) â‰¡ pos 0 + (b + d)
   à¤ªà¥à¤¨à¤°à¥à¤µà¤¿à¤¨à¥à¤¯à¤¾à¤¸à¤ƒ e wp b d = solve! â„¤CommRing
 
 ------------------------------------------------------------------------
--- à Â àà¨àààà â” WHAT KIND OF OBJECT THE CONSERVATION LAW IS.
+-- à¥« Â· à¤¤à¤¨à¥à¤¤à¥à¤ƒ â€” WHAT KIND OF OBJECT THE CONSERVATION LAW IS.
 --
---     Â§à says the total observable is CONSTANT.  Read through this
---     corpus's own criterion â” which side of `f a â‰¡ b` is bound â” that
+--     Â§à¥ª says the total observable is CONSTANT.  Read through this
+--     corpus's own criterion â€” which side of `f a â‰¡ b` is bound â€” that
 --     settles its whole fibre structure at once, and it comes out with
 --     all three counts and no fourth:
 --
---       ààà    over pos 0 : the fibre is EVERY divisor (Â§à.à§)
---       à°à¿à•ààà®à over anything else : no divisor at all (Â§à.à¨)
---       àà•à®à   nowhere.
+--       à¤¬à¤¹à¥    over pos 0 : the fibre is EVERY divisor (Â§à¥«.à¥§)
+--       à¤°à¤¿à¤•à¥à¤¤à¤®à¥ over anything else : no divisor at all (Â§à¥«.à¥¨)
+--       à¤à¤•à¤®à¥   nowhere.
 --
 --     So "the books balance" is not a coincidence about the entries; it
 --     is the statement that the observable which totals them cannot
@@ -138,7 +138,7 @@ open import Cubical.Data.Sigma using (Î£-syntax ; Î£PathP)
 à¤¯à¥‹à¤—à¤ƒ : à¤­à¤¾à¤°à¤ƒ â†’ à¤µà¤¿à¤­à¤¾à¤—à¤ƒ â†’ â„¤
 à¤¯à¥‹à¤—à¤ƒ w D = à¤¸à¤¾à¤¨à¥à¤¤ w D + à¤…à¤¨à¤¨à¥à¤¤ w D
 
--- à.à§ Â ààà â” the fibre over zero is everything.
+-- à¥«.à¥§ Â· à¤¬à¤¹à¥ â€” the fibre over zero is everything.
 à¤¸à¤°à¥à¤µ-à¤¤à¤¨à¥à¤¤à¥à¤ƒ : (w : à¤­à¤¾à¤°à¤ƒ) â†’ fiber (à¤¯à¥‹à¤—à¤ƒ w) (pos 0) â‰ƒ à¤µà¤¿à¤­à¤¾à¤—à¤ƒ
 à¤¸à¤°à¥à¤µ-à¤¤à¤¨à¥à¤¤à¥à¤ƒ w = isoToEquiv (iso fst à¤ªà¥à¤°à¤¤à¤¿ (Î» _ â†’ refl) à¤¨à¤¿à¤µà¥ƒà¤¤à¥à¤¤à¤¿)
   where
@@ -147,6 +147,6 @@ open import Cubical.Data.Sigma using (Î£-syntax ; Î£PathP)
   à¤¨à¤¿à¤µà¥ƒà¤¤à¥à¤¤à¤¿ : (x : fiber (à¤¯à¥‹à¤—à¤ƒ w) (pos 0)) â†’ à¤ªà¥à¤°à¤¤à¤¿ (fst x) â‰¡ x
   à¤¨à¤¿à¤µà¥ƒà¤¤à¥à¤¤à¤¿ (D , p) i = D , isSetâ„¤ (à¤¯à¥‹à¤—à¤ƒ w D) (pos 0) (à¤¤à¥à¤²à¤¾ w D) p i
 
--- à.à¨ Â à°à¿à•ààà®à â” over any other value the fibre is empty.
+-- à¥«.à¥¨ Â· à¤°à¤¿à¤•à¥à¤¤à¤®à¥ â€” over any other value the fibre is empty.
 à¤…à¤¨à¥à¤¯-à¤°à¤¿à¤•à¥à¤¤à¤®à¥ : (w : à¤­à¤¾à¤°à¤ƒ) (k : â„¤) â†’ Â¬ (pos 0 â‰¡ k) â†’ Â¬ (fiber (à¤¯à¥‹à¤—à¤ƒ w) k)
 à¤…à¤¨à¥à¤¯-à¤°à¤¿à¤•à¥à¤¤à¤®à¥ w k ne (D , p) = ne (sym (à¤¤à¥à¤²à¤¾ w D) âˆ™ p)

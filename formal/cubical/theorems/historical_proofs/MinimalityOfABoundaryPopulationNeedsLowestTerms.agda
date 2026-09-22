@@ -13,24 +13,24 @@
 -- witnesses it at 2/4.  So the coprimality condition is not a technical
 -- convenience; dropping it breaks the theorem.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
---   Boundary p q bs        p Â length bs â‰¡ suc q Â count bs
+--   Boundary p q bs        p Â· length bs â‰¡ suc q Â· count bs
 --   boundaryDividesAtNumeratorOne
---                          at p = 1: suc q âˆ length bs, outright
+--                          at p = 1: suc q âˆ£ length bs, outright
 --   minimalityAtNumeratorOne
 --                          hence a non-empty boundary population at
---                          1/(suc q) has length â‰ suc q â” the pop of
+--                          1/(suc q) has length â‰¥ suc q â€” the pop of
 --                          Â§3 there is minimal, for p = 1
 --   twoOverFourHasAShortBoundaryPopulation
---                          at 2/4 the population `true âˆ false âˆ []` is
+--                          at 2/4 the population `true âˆ· false âˆ· []` is
 --                          a boundary population of length 2 < 4
 --   soMinimalityFailsWithoutLowestTerms
 --                          the two together: the same statement that
 --                          holds at 1/(suc q) is FALSE at 2/4
 --
--- 2/4 and 1/2 are the same rate.  The threshold order `âŠ` of
+-- 2/4 and 1/2 are the same rate.  The threshold order `âŠ‘` of
 -- `TheThresholdOrderIsTotalAndTheClaimIsAntitone` is a total PREORDER
 -- and is not quotiented by that, and this is the first place where the
 -- missing quotient has visible consequences: minimality is not a
@@ -64,8 +64,8 @@ Boundary p q bs = p Â· length bs â‰¡ suc q Â· count bs
 ------------------------------------------------------------------------
 -- 2.  At numerator one, the denominator divides the length
 --
--- `1 Â L â‰¡ suc q Â C` is `L â‰¡ suc q Â C` once `Â-identityË¡` is used,
--- and that is already a divisibility witness â” no Euclid needed,
+-- `1 Â· L â‰¡ suc q Â· C` is `L â‰¡ suc q Â· C` once `Â·-identityË¡` is used,
+-- and that is already a divisibility witness â€” no Euclid needed,
 -- because there is nothing to cancel.
 ------------------------------------------------------------------------
 
@@ -93,7 +93,7 @@ minimalityAtNumeratorOne q bs b pos =
 -- 3.  Without lowest terms it is false
 --
 -- 2/4 is the same RATE as 1/2 and a different PAIR.  One true and one
--- false is a boundary population there â” 2 Â 2 â‰¡ 4 â‰¡ 4 Â 1 â” of length
+-- false is a boundary population there â€” 2 Â· 2 â‰¡ 4 â‰¡ 4 Â· 1 â€” of length
 -- 2, which is strictly less than the denominator 4.
 ------------------------------------------------------------------------
 

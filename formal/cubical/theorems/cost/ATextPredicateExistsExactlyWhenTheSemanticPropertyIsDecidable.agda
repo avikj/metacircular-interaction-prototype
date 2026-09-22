@@ -7,7 +7,7 @@
 --
 --   "Is there a mechanizable predicate on a note's *text* that decides
 --    whether its principal object is outside arithmetic, and hence
---    whether a `SEARCH` flag is mandatory â” one that would have fired on
+--    whether a `SEARCH` flag is mandatory â€” one that would have fired on
 --    SEED-05 and SEED-09 and not on the 47 declared-classical files?"
 --
 -- It is relocated, exactly: a text predicate
@@ -15,10 +15,10 @@
 -- decidable of the text's denotation.  So no amount of work on the
 -- FEATURES can produce one, and the question is not about text.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT Â§2 SAYS, AND WHY IT IS NOT A RESTATEMENT
 --
--- Set-theoretically the question has a trivial affirmative answer â” the
+-- Set-theoretically the question has a trivial affirmative answer â€” the
 -- composite `Outside âˆ˜ denotes` IS a predicate on texts.  The word doing
 -- the work in Â§6 is MECHANIZABLE, and Â§2 is that word made exact in the
 -- one form this substrate has for it: `Dec`.  The two directions are

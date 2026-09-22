@@ -1,38 +1,38 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡Æ‡ã‡ï‡‡-‡‡‡®‡∞‡æ‡ó‡Æ‡® ‚î the karma step and the no-return lemma are one
+-- ‡§Æ‡•ã‡§ï‡•ç‡§∑-‡§™‡•Å‡§®‡§∞‡§æ‡§ó‡§Æ‡§® ‚Äî the karma step and the no-return lemma are one
 -- dynamics, and moka is the only return.
 --
 -- Joins two terms, from opposite poles:
 --
---   Karma_‚¶agda (Umsvti, Tattvrthastra 8/9/10) ‚î one samaya
---     transforms the bound-count:  s ‚¶ (s + a) ‚à r.  Under savara
---     (a = 0) with nirjar (r ‚â 1) the count strictly drops while
+--   Karma_‚Ä¶agda (UmƒÅsvƒÅti, TattvƒÅrthas≈´tra 8/9/10) ‚Äî one samaya
+--     transforms the bound-count:  s ‚Ü¶ (s + a) ‚à∏ r.  Under sa·πÉvara
+--     (a = 0) with nirjarƒÅ (r ‚â• 1) the count strictly drops while
 --     positive and REACHES 0 (ktsna-karma-kaya = moka), ABSORBING.
 --
---   Ratri/Nirdharana_Hull_‚¶agda ‚î noReturn: a positively
---     priced loop  suc (k + s ¬ suc m) ‚â° s  is refutable by descent, so
---     a loop that multiplies by ‚â 2 has NO fixed point above zero.
+--   Ratri/Nirdharana_Hull_‚Ü¶agda ‚Äî noReturn: a positively
+--     priced loop  suc (k + s ¬∑ suc m) ‚â° s  is refutable by descent, so
+--     a loop that multiplies by ‚â• 2 has NO fixed point above zero.
 --
--- THE IDENTIFICATION.  Both are one statement about an affine step on ‚ï,
+-- THE IDENTIFICATION.  Both are one statement about an affine step on ‚Ñï,
 -- read from its two poles:
 --
---   ‚ CONTRACTING (savara + nirjar, a = 0, r ‚â 1): x ‚¶ x ‚à r.  Its
---     only fixed point is 0; 0 is reached and held.  ‡‡‡®‡∞‡æ‡ó‡Æ‡® happens ‚î
---     only at 0.  That is moka, the null path (sarakaa-stra ‡ß‡,
---     ‡‡‡®‡∞‡æ‡ó‡Æ‡®‡ ‡‡‡®‡‡Ø-‡µ‡‡Ø‡Ø‡‡® ‡‡µ).
---   ‚ EXPANDING (the priced loop, ósuc m): x ‚¶ x ¬ suc m + k.  No fixed
+--   ‚Ä¢ CONTRACTING (sa·πÉvara + nirjarƒÅ, a = 0, r ‚â• 1): x ‚Ü¶ x ‚à∏ r.  Its
+--     only fixed point is 0; 0 is reached and held.  ‡§™‡•Å‡§®‡§∞‡§æ‡§ó‡§Æ‡§® happens ‚Äî
+--     only at 0.  That is mok·π£a, the null path (sa·πÉrak·π£a·πáa-s≈´tra ‡•ß‡•¨,
+--     ‡§™‡•Å‡§®‡§∞‡§æ‡§ó‡§Æ‡§®‡§Ç ‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§µ‡•ç‡§Ø‡§Ø‡•á‡§® ‡§è‡§µ).
+--   ‚Ä¢ EXPANDING (the priced loop, √ósuc m): x ‚Ü¶ x ¬∑ suc m + k.  No fixed
 --     point above 0.  sasra: the debt-multiplying wheel that never
 --     closes while carrying debt.
 --
 -- The two files are the two regimes, and the shared fact is: the ONLY
--- fixed point either regime admits in ‚ï is 0.  The contracting regime
+-- fixed point either regime admits in ‚Ñï is 0.  The contracting regime
 -- reaches it (moka attainable), the expanding regime is repelled from
--- everything else (sasra endless).  ‡‡‡®‡∞‡æ‡ó‡Æ‡® = the fixed point =
+-- everything else (sa·πÉsƒÅra endless).  ‡§™‡•Å‡§®‡§∞‡§æ‡§ó‡§Æ‡§® = the fixed point =
 -- moka = zero cost = zero debt: one number, four names.
 --
--- No thermodynamics, no measure, no joules: only ‚ï, ‚à, ¬, and descent.
+-- No thermodynamics, no measure, no joules: only ‚Ñï, ‚à∏, ¬∑, and descent.
 -- The soteriology is a fixed-point theorem, the same one the
 -- termination measure is.
 ------------------------------------------------------------------------
@@ -45,7 +45,7 @@ open import Cubical.Data.Sigma using (Œ£; _,_)
 open import Cubical.Data.Empty as Empty using (‚ä•)
 
 ------------------------------------------------------------------------
--- I ¬ THE CONTRACTING REGIME ‚î savara + nirjar.  x ‚¶ x ‚à r, r ‚â 1.
+-- I ¬∑ THE CONTRACTING REGIME ‚Äî sa·πÉvara + nirjarƒÅ.  x ‚Ü¶ x ‚à∏ r, r ‚â• 1.
 
 sa·πÉvaraStep : ‚Ñï ‚Üí ‚Ñï ‚Üí ‚Ñï
 sa·πÉvaraStep r s = s ‚à∏ r
@@ -61,20 +61,20 @@ private
   sucPlusNeq a zero    p = snotz p
   sucPlusNeq a (suc b) p = sucPlusNeq a b (sym (+-suc a b) ‚àô injSuc p)
 
-  -- s ‚à r ‚â s, as a witness k with k + (s ‚à r) ‚â° s.
+  -- s ‚à∏ r ‚â§ s, as a witness k with k + (s ‚à∏ r) ‚â° s.
   ‚à∏‚â§ : (s r : ‚Ñï) ‚Üí Œ£[ k ‚àà ‚Ñï ] (k + (s ‚à∏ r) ‚â° s)
   ‚à∏‚â§ s zero            = 0 , refl
   ‚à∏‚â§ zero (suc r)      = 0 , refl
   ‚à∏‚â§ (suc s) (suc r) with ‚à∏‚â§ s r
   ... | (k , e) = suc k , cong suc e
 
-  -- a real shedding never fixes a count: s ‚à suc r ‚â° suc s is
-  -- impossible, because s ‚à suc r ‚â s < suc s.
+  -- a real shedding never fixes a count: s ‚à∏ suc r ‚â° suc s is
+  -- impossible, because s ‚à∏ suc r ‚â§ s < suc s.
   notFixed : (d s : ‚Ñï) ‚Üí s ‚à∏ d ‚â° suc s ‚Üí ‚ä•
   notFixed d s p with ‚à∏‚â§ s d
   ... | (k , e) = sucPlusNeq k s (sym (+-suc k s) ‚àô cong (k +_) (sym p) ‚àô e)
 
--- THE THEOREM.  Under savara with real nirjar (r ‚â 1), no positive
+-- THE THEOREM.  Under sa·πÉvara with real nirjarƒÅ (r ‚â• 1), no positive
 -- count is its own image: return happens only at 0.
 sa·πÉvara-return-only-at-zero : (r' s : ‚Ñï)
   ‚Üí sa·πÉvaraStep (suc r') s ‚â° s ‚Üí s ‚â° 0
@@ -82,7 +82,7 @@ sa·πÉvara-return-only-at-zero r' zero    _ = refl
 sa·πÉvara-return-only-at-zero r' (suc s) p = Empty.rec (notFixed r' s p)
 
 ------------------------------------------------------------------------
--- II ¬ THE EXPANDING REGIME ‚î sasra.  x ‚¶ x ¬ suc m + k.
+-- II ¬∑ THE EXPANDING REGIME ‚Äî sa·πÉsƒÅra.  x ‚Ü¶ x ¬∑ suc m + k.
 -- noReturn, restated here so the two regimes stand in one file: a
 -- positively-priced loop has no fixed point above zero.
 
@@ -94,11 +94,11 @@ noReturn m (suc s) k p = noReturn m s (k + m) (sym step ‚àô injSuc p)
   step = +-suc k (m + s ¬∑ suc m) ‚àô cong suc (+-assoc k m (s ¬∑ suc m))
 
 ------------------------------------------------------------------------
--- III ¬ THE ONE FIXED POINT.  Both regimes admit exactly 0 in ‚ï: the
+-- III ¬∑ THE ONE FIXED POINT.  Both regimes admit exactly 0 in ‚Ñï: the
 -- contracting one reaches and holds it (savara-return-only-at-zero,
 -- moka-acala), the expanding one is repelled from every positive count
 -- (noReturn IS that statement, any k, any m).  The two regimes meet at
--- one number, and it is zero: ‡‡‡®‡∞‡æ‡ó‡Æ‡® = ‡Æ‡ã‡ï‡‡ = zero cost = zero debt.
+-- one number, and it is zero: ‡§™‡•Å‡§®‡§∞‡§æ‡§ó‡§Æ‡§® = ‡§Æ‡•ã‡§ï‡•ç‡§∑ = zero cost = zero debt.
 
 mok·π£a-fixed : (r : ‚Ñï) ‚Üí sa·πÉvaraStep r 0 ‚â° 0
 mok·π£a-fixed = mok·π£a-acala

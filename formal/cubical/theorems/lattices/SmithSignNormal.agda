@@ -10,7 +10,7 @@
 -- the proof-carrying executable package sought by the repository".  That is
 -- true of its *content* and false of its *convention*: the Lean lane's
 -- acceptance predicate (`Pairfield.SmithCertificate2.Valid`) demands
--- `0 � d�` and `0 � d�`, and the native output does not satisfy it.
+-- `0 ≤ d₁` and `0 ≤ d₂`, and the native output does not satisfy it.
 --
 -- Section C below evaluates it on a closed input and the disagreement appears
 -- immediately: `diag(2,3)` normalizes to `diag(1,-6)`.
@@ -59,12 +59,12 @@ absℤ : ℤ → ℤ
 absℤ x = pos (abs x)
 
 -- The unit carrying an integer to that representative.  `sgn 0 = 1`, which is
--- harmless: `abs� 0 = 0` either way.
+-- harmless: `absℤ 0 = 0` either way.
 sgn : ℤ → ℤ
 sgn (pos _) = pos 1
 sgn (negsuc _) = negsuc 0
 
--- Both cases are definitional: `pos 1 � pos n` and `negsuc 0 � negsuc n`
+-- Both cases are definitional: `pos 1 · pos n` and `negsuc 0 · negsuc n`
 -- already reduce to `pos (abs _)`.
 sgn· : (x : ℤ) → sgn x · x ≡ absℤ x
 sgn· (pos n) = refl
@@ -78,8 +78,8 @@ sgn·sgn (negsuc _) = refl
 ------------------------------------------------------------------------
 -- B.  Sign normalization preserves the divisibility chain.
 --
--- Divisibility over � is sign-blind: it factors through `abs` in both
--- directions, and `abs (abs� x)` is `abs x` definitionally.  So the whole
+-- Divisibility over ℤ is sign-blind: it factors through `abs` in both
+-- directions, and `abs (absℤ x)` is `abs x` definitionally.  So the whole
 -- chain transports with no arithmetic.
 
 absℤ∣ : {a b : ℤ} → a ∣ b → absℤ a ∣ absℤ b
@@ -143,7 +143,7 @@ isInvSignMat xs m .fst = signMat xs m
 isInvSignMat xs m .snd .fst = signMat⋆signMat xs m
 isInvSignMat xs m .snd .snd = signMat⋆signMat xs m
 
--- The normalization equation.  This is where `sgn� ` is spent, once per
+-- The normalization equation.  This is where `sgn· ` is spent, once per
 -- invariant, and nothing else happens.
 signMat⋆smithMat : (xs : List ℤ) (m n : ℕ)
                  → signMat xs m ⋆ smithMat xs m n ≡ absSmithMat xs m n
@@ -186,7 +186,7 @@ smithSignNormal xs m n .isnormal = isSmithNormalAbs xs m n
 ------------------------------------------------------------------------
 -- E.  Idempotence: normalizing twice is normalizing once.
 --
--- This is the check that `abs�` really picks representatives rather than
+-- This is the check that `absℤ` really picks representatives rather than
 -- merely moving the sign around.
 
 absℤ-idem : (x : ℤ) → absℤ (absℤ x) ≡ absℤ x

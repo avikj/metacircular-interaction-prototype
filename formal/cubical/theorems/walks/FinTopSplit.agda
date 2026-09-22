@@ -2,11 +2,11 @@
 
 -- `Cubical.Data.Fin` splits `Fin (suc n)` at the BOTTOM:
 --
---   fsplit : (i : Fin (suc n)) â’ (fzero â‰¡ i) âŠ (Î[ j âˆˆ Fin n ] fsuc j â‰¡ i)
+--   fsplit : (i : Fin (suc n)) â†’ (fzero â‰¡ i) âŠŽ (Î£[ j âˆˆ Fin n ] fsuc j â‰¡ i)
 --
 -- A most-significant-digit tower deletes the TOP, so its inductions need the
--- opposite eliminator.  That mismatch â” the library opens the bottom, the
--- object opens the top â” was the whole obstruction named in
+-- opposite eliminator.  That mismatch â€” the library opens the bottom, the
+-- object opens the top â€” was the whole obstruction named in
 -- `DigitTowerFinLimit`.  It is one lemma, with no digits in it.
 
 module FinTopSplit where
@@ -23,9 +23,9 @@ open import Cubical.Data.Fin using (Fin ; toâ„• ; toâ„•-injective ; inject< ; fl
 --
 -- The pinned cubical v0.5 has no `injectSuc` in `Cubical.Data.Fin`.  What
 -- the library has is
---   inject< : âˆ {m n} â’ m < n â’ Fin m â’ Fin n
--- and since `_<_` is `suc m â‰ n`, the instance `n < suc n` is `â‰-refl`.
--- `inject<` keeps the first Î-component, so `toâ•-injectSuc` is
+--   inject< : âˆ€ {m n} â†’ m < n â†’ Fin m â†’ Fin n
+-- and since `_<_` is `suc m â‰¤ n`, the instance `n < suc n` is `â‰¤-refl`.
+-- `inject<` keeps the first Î£-component, so `toâ„•-injectSuc` is
 -- `refl`.
 ------------------------------------------------------------------------
 

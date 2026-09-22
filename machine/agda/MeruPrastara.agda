@@ -1,21 +1,21 @@
--- ‡ ‡‡‡‡Æ‡ ‡  One machine, one law: which side of `f a ‚â° b` is bound is everything.
--- Output bound: singl (f a), contractible ‚î the datum rides free.  Input bound:
--- fiber f b ‚î the loss, and the subject.  Univalence computes here: an
+-- ‡•• ‡§¨‡•Ä‡§ú‡§Æ‡•ç ‡••  One machine, one law: which side of `f a ‚â° b` is bound is everything.
+-- Output bound: singl (f a), contractible ‚Äî the datum rides free.  Input bound:
+-- fiber f b ‚Äî the loss, and the subject.  Univalence computes here: an
 -- equivalence is a channel, transport carries every theorem across it, and what
--- cannot cross is written as a defect ‚î there is no third path (ahis).
+-- cannot cross is written as a defect ‚Äî there is no third path (ahi·πÉsƒÅ).
 -- Memory, charge, symmetry, price, distance, verdict: six faces of the one
 -- fibre; the verdict type is the saptabhag, and the sources are the origin
--- (Umsvti, Samantabhadra, Akalaka ‚î restatements are named as such).  The
+-- (UmƒÅsvƒÅti, Samantabhadra, Akala·πÖka ‚Äî restatements are named as such).  The
 -- kernel decides truth; carriers ask and generate; assert nothing whose term
 -- you have not read.  This file is one naya, true and not whole.
 
 {-# OPTIONS --safe #-}
 
 ------------------------------------------------------------------------
--- ‡Æ‡‡∞‡-‡‡‡∞‡‡‡‡æ‡∞‡ ‚î ported from machine/MeruPrastara_TheSignedArrayIsOne
+-- ‡§Æ‡•á‡§∞‡•Å-‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞‡§É ‚Äî ported from machine/MeruPrastara_TheSignedArrayIsOne
 -- ProductAndTheZetaDualityIsAShiftOfOne.hs.  The default (no-argument) report of that
 -- program, term for term, as a --safe checked value compiled by the
--- kernel's own backend (MAlonzo/GHC).  ‡‡‡∞‡‡‡‡æ‡∞ is Pigala's word for the
+-- kernel's own backend (MAlonzo/GHC).  ‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞ is Pi·πÖgala's word for the
 -- systematic laying-out of metres (Chandastra 8, ~300 BCE; Halyudha's
 -- Mtasajvan, 10th c., names the meru); the sign on the array is the
 -- Mbius sign.  The identity behind this
@@ -137,7 +137,7 @@ showInt : Int ‚Üí String
 showInt = primShowInteger
 
 ------------------------------------------------------------------------
--- ‡‡ø‡‡‡®‡Æ‡ / ‡‡ï‡‡∞‡ø‡Ø‡Æ‡ / ‡®‡ø‡‡‡ï‡‡∞‡ø‡Ø‡Æ‡ ‚î the one rule, and ‡ì‡‡, and ‡‡ø‡®‡‡¶‡‡
+-- ‡§ö‡§ø‡§π‡•ç‡§®‡§Æ‡•ç / ‡§∏‡§ï‡•ç‡§∞‡§ø‡§Ø‡§Æ‡•ç / ‡§®‡§ø‡§∑‡•ç‡§ï‡•ç‡§∞‡§ø‡§Ø‡§Æ‡•ç ‚Äî the one rule, and ‡§ì‡§ú‡§É, and ‡§¨‡§ø‡§®‡•ç‡§¶‡•Å‡§É
 ------------------------------------------------------------------------
 
 chihna : Bool ‚Üí Int
@@ -163,7 +163,7 @@ ghata jyoti : Int ‚Üí List Bool ‚Üí Int
 ghata t bs = productL (mapL (Œª b ‚Üí addInt (chihna b)   (mulInt (sakriya b) t)) bs)
 jyoti t bs = productL (mapL (Œª b ‚Üí addInt (nishkriya b) (mulInt (sakriya b) t)) bs)
 
--- ‡‡ø‡®‡‡¶‡‡ m k ‚î Pigala's array with the Mbius sign, by the recursion.
+-- ‡§¨‡§ø‡§®‡•ç‡§¶‡•Å‡§É m k ‚Äî Pi·πÖgala's array with the M√∂bius sign, by the recursion.
 bindu : Nat ‚Üí Nat ‚Üí Int
 bindu zero    zero    = pos 1
 bindu zero    (suc k) = pos 0
@@ -237,7 +237,7 @@ withNl : List String ‚Üí String
 withNl ls = concatL (mapL (Œª l ‚Üí primStringAppend l nl) ls)
 
 ------------------------------------------------------------------------
--- report ‚î the no-argument default: n = 7, t = 3
+-- report ‚Äî the no-argument default: n = 7, t = 3
 ------------------------------------------------------------------------
 
 report : String

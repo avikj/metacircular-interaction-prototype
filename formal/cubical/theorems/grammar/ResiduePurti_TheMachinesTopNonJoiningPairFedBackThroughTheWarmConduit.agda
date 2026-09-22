@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡-‡‡‡∞‡‡‡ø ‚î the filling of a remainder the machine asked for itself.
+-- ‡§∂‡•á‡§∑-‡§™‡•Ç‡§∞‡•ç‡§§‡§ø ‚Äî the filling of a remainder the machine asked for itself.
 --
 -- interactive/sanghatta-report-latest.txt lists the non-joining critical
 -- pairs of the installed rules, smallest first, and the top row is
@@ -9,7 +9,7 @@
 -- i.e. the rewriter cannot join x with max x 0.  This module is that pair
 -- fed back as a term.
 --
--- TERM.  ‡‡‡-‡‡‡∞‡‡‡ø, "filling of the remainder" ‚î ordinary ,
+-- TERM.  ‡§∂‡•á‡§∑-‡§™‡•Ç‡§∞‡•ç‡§§‡§ø, "filling of the remainder" ‚Äî ordinary ,
 -- compound built here.
 -- The mathematics is one recursion clause of Cubical.Data.Nat.max.
 ------------------------------------------------------------------------

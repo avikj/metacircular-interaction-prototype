@@ -8,17 +8,17 @@
 -- audited) is answered by a checker, not a reviewer: the rank-one
 -- cell A = (2 0 / 1 0), D = diag(1,0) has stabilizer
 -- S(b,e) = (1 b / 0 e); the chart U(k,s) = (k 1−2k / −s 2s) lies in
--- the transporter and reads back as (U��, det U) = (k, s); the
--- stabilizer acts by the intertwining law S(b,e)�U(k,s) = U(k−bs, es)
--- (a pure ring identity � no sign hypothesis); the action is
+-- the transporter and reads back as (U₀₀, det U) = (k, s); the
+-- stabilizer acts by the intertwining law S(b,e)·U(k,s) = U(k−bs, es)
+-- (a pure ring identity — no sign hypothesis); the action is
 -- TRANSITIVE with the explicit transporter S((k−k')s, s's); and it is
--- FREE with no integrality: b = b�(s�s) = (b�s)�s = 0.
+-- FREE with no integrality: b = b·(s·s) = (b·s)·s = 0.
 --
--- Sign-ness enters only as s�s ≡ 1, exactly where R0032's prose said
--- "e ∈ {�1}".  Toolchain notes: literals appear additively (2k as
+-- Sign-ness enters only as s·s ≡ 1, exactly where R0032's prose said
+-- "e ∈ {±1}".  Toolchain notes: literals appear additively (2k as
 -- k+k); lemmas that would put a bare 1r under the solver instead
 -- generalize the literal to a variable and instantiate at 1r, letting
--- �'s reduction (1r�x � x, first-arg literal products compute) close
+-- ℤ's reduction (1r·x → x, first-arg literal products compute) close
 -- the judgmental gap.
 ------------------------------------------------------------------------
 
@@ -112,12 +112,12 @@ inTransporter k s i = ( e11 i , e12 i , e21 i , e22 i )
   e22 : (- s) · 0r + (s + s) · 0r ≡ 0r
   e22 = cong₂ _+_ (·Comm (- s) 0r) (·Comm (s + s) 0r)
 
--- the chart reads back: U�� = k definitionally, det = s ---------------
+-- the chart reads back: U₀₀ = k definitionally, det = s ---------------
 
 detChart : (k s : R) → det (U k s) ≡ s
 detChart k s = dGen k s 1r
   where
-  -- at u = 1r the RHS u�s reduces to s judgmentally
+  -- at u = 1r the RHS u·s reduces to s judgmentally
   dGen : (k s u : R)
        → k · (s + s) - (u - (k + k)) · (- s) ≡ u · s
   dGen _ _ _ = solve! ℤCommRing
@@ -194,9 +194,9 @@ freeE e s hs h1 =
   ∙ cong (_· s) h1
   ∙ hs
 
--- exhaustiveness: the chart covers the WHOLE transporter � and needs
--- no unimodularity: ANY integral matrix with U�A ≡ D is U(k,s) with
--- k = U�� and s = −U�� (whence det U = s automatically; s�s ≡ 1 is
+-- exhaustiveness: the chart covers the WHOLE transporter — and needs
+-- no unimodularity: ANY integral matrix with U·A ≡ D is U(k,s) with
+-- k = U₀₀ and s = −U₁₀ (whence det U = s automatically; s·s ≡ 1 is
 -- exactly unimodularity).  Sharper than R0032's prose, which assumed
 -- U unimodular before charting it.  This closes the audit boundary
 -- stated in message 0003.

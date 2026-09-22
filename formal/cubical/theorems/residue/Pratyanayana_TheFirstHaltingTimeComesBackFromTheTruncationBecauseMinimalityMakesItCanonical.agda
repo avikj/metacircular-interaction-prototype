@@ -1,32 +1,32 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡∞‡‡‡Ø‡æ‡®‡Ø‡® ‚î the bringing-back.  THE FIRST HALTING TIME COMES BACK
+-- ‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§æ‡§®‡§Ø‡§® ‚Äî the bringing-back.  THE FIRST HALTING TIME COMES BACK
 -- FROM THE TRUNCATION, BECAUSE MINIMALITY MAKES IT CANONICAL.
 --
--- The corpus's wire doctrine says ‡®‡æ‡‡‡‡ø-‡‡‡∞‡‡‡Ø‡æ‡®‡Ø‡®‡Æ‡: ‚àA‚à‚ has no
--- retraction in general ‚î a collapse to "merely inhabited" cannot be
+-- The corpus's wire doctrine says ‡§®‡§æ‡§∏‡•ç‡§§‡§ø-‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§æ‡§®‡§Ø‡§®‡§Æ‡•ç: ‚à•A‚à•‚ÇÅ has no
+-- retraction in general ‚Äî a collapse to "merely inhabited" cannot be
 -- undone, which is why the wire carries no boolean.  This file proves
 -- the exact boundary of that doctrine at the machine: the MERE fact
--- that a machine halts at some depth,  ‚à Œ n. HaltsAt n mc ‚à‚,
+-- that a machine halts at some depth,  ‚à• Œ£ n. HaltsAt n mc ‚à•‚ÇÅ,
 -- already yields the first halting time with its minimality
 -- certificate, untruncated:
 --
 --   the-clock-needs-no-choice :
---     ‚à Œ n. HaltsAt n mc ‚à‚ ‚í Œ n. FirstHalt mc n
+--     ‚à• Œ£ n. HaltsAt n mc ‚à•‚ÇÅ ‚Üí Œ£ n. FirstHalt mc n
 --
 -- No choice principle, no excluded middle.  Two earlier theorems make
 -- it possible: each finite depth is DECIDED with evidence either way
 -- (TrtiyoMargoNaVidyate), so a bounded search walks down from any
--- witness ‚î the recursion stepping through the definitional equation
--- HaltsAt (suc m) mc = HaltsAt m (uStep mc) ‚î and the pair (first
+-- witness ‚Äî the recursion stepping through the definitional equation
+-- HaltsAt (suc m) mc = HaltsAt m (uStep mc) ‚Äî and the pair (first
 -- time, minimality) is a PROPOSITION (AnulomaViloma), so the
 -- truncation eliminates into it.
 --
 -- Read with the doctrine, not against it: the collapse loses nothing
 -- exactly when the content is canonical.  An arbitrary witness cannot
--- be brought back ‚î WHICH depth someone observed is genuinely
--- forgotten ‚î but the LEAST depth is not somebody's observation; it
+-- be brought back ‚Äî WHICH depth someone observed is genuinely
+-- forgotten ‚Äî but the LEAST depth is not somebody's observation; it
 -- is the machine's own, and it returns.  The truncation destroys
 -- choices and preserves canons; minimality is a canon.
 ------------------------------------------------------------------------

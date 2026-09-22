@@ -3,18 +3,18 @@
 -- TwoFibrations: the pair field's shape as ONE total space with TWO
 -- structure maps.
 --
--- For an abstract predicate P : � � � � Type (for instance "both legs of the
+-- For an abstract predicate P : ℕ → ℕ → Type (for instance "both legs of the
 -- pair (w - r , w + r) are prime"; here deliberately abstract),
 -- the total space
 --
---   Total P = �[ w ∈ � ] �[ r ∈ � ] P w r
+--   Total P = Σ[ w ∈ ℕ ] Σ[ r ∈ ℕ ] P w r
 --
--- carries two projections: the center map �� (w , r , p) = w and the
--- radius map �� (w , r , p) = r.  The two famous conjecture SHAPES are
+-- carries two projections: the center map π₊ (w , r , p) = w and the
+-- radius map π₋ (w , r , p) = r.  The two famous conjecture SHAPES are
 -- statements about the fibers of these two maps over the SAME space:
 --
---   * Goldbach-shape  = every fiber of �� is inhabited (Coverage);
---   * twin-prime-shape = the r = 1 fiber of �� is unbounded (Recurrence).
+--   * Goldbach-shape  = every fiber of π₊ is inhabited (Coverage);
+--   * twin-prime-shape = the r = 1 fiber of π₋ is unbounded (Recurrence).
 --
 
 module TwoFibrations where
@@ -49,15 +49,15 @@ module _ (P : ℕ → ℕ → Type) where
   RadiusFiber r = Σ ℕ (λ w → P w r)
 
   ------------------------------------------------------------------
-  -- (a) The fiber of �� over w is CenterFiber w, and dually for ��.
+  -- (a) The fiber of π₊ over w is CenterFiber w, and dually for π₋.
   ------------------------------------------------------------------
 
-  -- �� is definitionally fst on Total = � � CenterFiber, so the
+  -- π₊ is definitionally fst on Total = Σ ℕ CenterFiber, so the
   -- library's HoTT Lemma 4.8.1 applies verbatim.
   centerFiberChar : (w : ℕ) → fiber π₊ w ≃ CenterFiber w
   centerFiberChar w = fiberEquiv CenterFiber w
 
-  -- The �-swap putting the radius coordinate first.
+  -- The Σ-swap putting the radius coordinate first.
   swapIso : Iso Total (Σ ℕ (λ r → RadiusFiber r))
   Iso.fun swapIso (w , r , p) = (r , w , p)
   Iso.inv swapIso (r , w , p) = (w , r , p)
@@ -67,8 +67,8 @@ module _ (P : ℕ → ℕ → Type) where
   swapEquiv : Total ≃ Σ ℕ (λ r → RadiusFiber r)
   swapEquiv = isoToEquiv swapIso
 
-  -- Under the swap, �� becomes fst (definitionally, by �-eta), so the
-  -- fiber of �� over r is the fiber of fst over r, which is RadiusFiber r.
+  -- Under the swap, π₋ becomes fst (definitionally, by Σ-eta), so the
+  -- fiber of π₋ over r is the fiber of fst over r, which is RadiusFiber r.
   radiusFiberChar : (r : ℕ) → fiber π₋ r ≃ RadiusFiber r
   radiusFiberChar r =
     compEquiv
@@ -87,8 +87,8 @@ module _ (P : ℕ → ℕ → Type) where
   -- of shapes over the abstract P.
   ------------------------------------------------------------------
 
-  -- Goldbach-shape: every center fiber is (merely) inhabited � i.e.
-  -- �� is surjective.  Stated propositionally (�_��: witness-free)
+  -- Goldbach-shape: every center fiber is (merely) inhabited — i.e.
+  -- π₊ is surjective.  Stated propositionally (∥_∥₁: witness-free)
   -- and structurally (a choice of witness for every w).
   Coverage : Type
   Coverage = (w : ℕ) → ∥ CenterFiber w ∥₁
@@ -96,7 +96,7 @@ module _ (P : ℕ → ℕ → Type) where
   CoverageStr : Type
   CoverageStr = (w : ℕ) → CenterFiber w
 
-  -- twin-prime-shape: the r = 1 fiber of �� meets every tail of � �
+  -- twin-prime-shape: the r = 1 fiber of π₋ meets every tail of ℕ —
   -- i.e. RadiusFiber 1 is unbounded.
   Recurrence : Type
   Recurrence = (N : ℕ) → Σ ℕ (λ w → (N ≤ w) × P w 1)

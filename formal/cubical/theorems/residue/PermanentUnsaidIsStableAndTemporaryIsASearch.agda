@@ -15,35 +15,35 @@ open import AmshaSatyayantra using (à¤•à¤¦à¤¾à¤šà¤¿à¤¤à¥-à¤‰à¤•à¥à¤¤à¤®à¥ ; à
 -- thread's closure results have an exact word for, and this module says
 -- which word, using its predicates rather than restating them.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE TWO PREDICATES, QUOTED FROM THAT MODULE
 --
---     à•à¦à¾àà¿àà-à‰à•ààà®à àà² i  =  Î[ f âˆˆ â• ] Î[ o âˆˆ O ] (àà² f i â‰¡ à‰à•àà o)
---     àààà¾à¯à¿-àà¨àà•ààà®à àà² i  =  Â (à•à¦à¾àà¿àà-à‰à•ààà®à àà² i)
+--     à¤•à¤¦à¤¾à¤šà¤¿à¤¤à¥-à¤‰à¤•à¥à¤¤à¤®à¥ à¤šà¤² i  =  Î£[ f âˆˆ â„• ] Î£[ o âˆˆ O ] (à¤šà¤² f i â‰¡ à¤‰à¤•à¥à¤¤ o)
+--     à¤¸à¥à¤¥à¤¾à¤¯à¤¿-à¤…à¤¨à¥à¤•à¥à¤¤à¤®à¥ à¤šà¤² i  =  Â¬ (à¤•à¤¦à¤¾à¤šà¤¿à¤¤à¥-à¤‰à¤•à¥à¤¤à¤®à¥ à¤šà¤² i)
 --
--- "ever-said: SOME grant produces an answer â” temporary un-said" and
+-- "ever-said: SOME grant produces an answer â€” temporary un-said" and
 -- "permanent un-said: NO grant ever produces an answer", in its own
--- gloss.  The first is a Î; the second is a Â of it.
+-- gloss.  The first is a Î£; the second is a Â¬ of it.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
---   Â§1  `àààà¾à¯à¿-àà¨àà•ààà®à` is ÂÂ-STABLE for every machine and every input,
---       with no hypothesis â” it is a negation, and negations are stable
+--   Â§1  `à¤¸à¥à¤¥à¤¾à¤¯à¤¿-à¤…à¤¨à¥à¤•à¥à¤¤à¤®à¥` is Â¬Â¬-STABLE for every machine and every input,
+--       with no hypothesis â€” it is a negation, and negations are stable
 --       (`TheAbsenceTowerIsThreeUnconditionally`, and before that
---       `DeflationaryTest.Â-always-stable`).
+--       `DeflationaryTest.Â¬-always-stable`).
 --
---   Â§2  `à•à¦à¾àà¿àà-à‰à•ààà®à` is stable exactly when it is DECIDABLE.  It is a
---       Î, and `WhereTheTowerCanStillBeThree` Â§5 is precisely the
---       statement that the closure argument stops there: `Â Â (Î â¦)`
+--   Â§2  `à¤•à¤¦à¤¾à¤šà¤¿à¤¤à¥-à¤‰à¤•à¥à¤¤à¤®à¥` is stable exactly when it is DECIDABLE.  It is a
+--       Î£, and `WhereTheTowerCanStillBeThree` Â§5 is precisely the
+--       statement that the closure argument stops there: `Â¬ Â¬ (Î£ â€¦)`
 --       hands back no component, and the only general route in is a
 --       decision.
 --
 -- So the permanent/temporary distinction of that module sits exactly on
--- the Î /Î line: **the negative pole is free, the positive pole is a
--- search.** Its `àà¨à¨àà-à¨à¿ààà§à` â” a total machine can never have permanent
--- un-said â” is the same fact from the other side, since completeness
--- supplies the Î at every input.
+-- the Î /Î£ line: **the negative pole is free, the positive pole is a
+-- search.** Its `à¤…à¤¨à¤¨à¥à¤¤-à¤¨à¤¿à¤·à¥‡à¤§à¤ƒ` â€” a total machine can never have permanent
+-- un-said â€” is the same fact from the other side, since completeness
+-- supplies the Î£ at every input.
 ------------------------------------------------------------------------
 
 private

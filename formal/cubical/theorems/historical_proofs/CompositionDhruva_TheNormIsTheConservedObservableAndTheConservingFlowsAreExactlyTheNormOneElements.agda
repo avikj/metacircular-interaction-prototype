@@ -1,69 +1,69 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àà¾àµà¨à¾à§àà°ààµ â” àà¾àµà¨à¾ is the flow, the norm is the à§àà°ààµ.
+-- à¤­à¤¾à¤µà¤¨à¤¾à¤§à¥à¤°à¥à¤µ â€” à¤­à¤¾à¤µà¤¨à¤¾ is the flow, the norm is the à¤§à¥à¤°à¥à¤µ.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- SOURCE, FIRST AND EARLIEST ESTABLISHABLE.
 --
---   àà¾àµà¨à¾ (bhvan, "production", "composition") â” Brahmagupta,
---   ààà°à¾ààà®àààààŸàà¿à¦àà§à¾à¨àà (Brhmasphuasiddhnta), 628 CE, chapter 18
---   (à•ààŸààŸà•à¾à§àà¯à¾à¯).  Brahmagupta states the composition of two
---   solutions of the àµà°àà—ààà°à•ààà¿ xÂ² âˆ’ D yÂ² = k, in both the àà®à¾à
---   ("sum") and àà¨ààà° ("difference") forms.  The algebra itself is
+--   à¤­à¤¾à¤µà¤¨à¤¾ (bhÄvanÄ, "production", "composition") â€” Brahmagupta,
+--   à¤¬à¥à¤°à¤¾à¤¹à¥à¤®à¤¸à¥à¤«à¥à¤Ÿà¤¸à¤¿à¤¦à¥à¤§à¤¾à¤¨à¥à¤¤ (BrÄhmasphuá¹­asiddhÄnta), 628 CE, chapter 18
+--   (à¤•à¥à¤Ÿà¥à¤Ÿà¤•à¤¾à¤§à¥à¤¯à¤¾à¤¯).  Brahmagupta states the composition of two
+--   solutions of the à¤µà¤°à¥à¤—à¤ªà¥à¤°à¤•à¥ƒà¤¤à¤¿ xÂ² âˆ’ D yÂ² = k, in both the à¤¸à¤®à¤¾à¤¸
+--   ("sum") and à¤…à¤¨à¥à¤¤à¤° ("difference") forms.  The algebra itself is
 --   checked in this repository in `Bhavana.agda` (`bhavana`,
 --   `bhavanaMinus`), over an arbitrary commutative ring, and is
 --   imported here rather than restated.
 --
---   à§àà°ààµ (dhruva) â” fixed, immovable; and in the astronomical
---   tradition à§àà°ààµà°à¾àà¿ / à§àà°ààµà• is the technical term for the CONSTANT
+--   à¤§à¥à¤°à¥à¤µ (dhruva) â€” fixed, immovable; and in the astronomical
+--   tradition à¤§à¥à¤°à¥à¤µà¤°à¤¾à¤¶à¤¿ / à¤§à¥à¤°à¥à¤µà¤• is the technical term for the CONSTANT
 --   quantity in a computation, the term that does not vary while the
---   others are stepped: ryabhaa, àà°àà¯ààŸàà¯à®à, 499 CE, and standard in
---   the siddhntas after.  The conservation predicate `ààà°à•àààà®à` used
---   below is `Dhruva_â¦agda`'s, imported.
+--   others are stepped: Ä€ryabhaá¹­a, à¤†à¤°à¥à¤¯à¤­à¤Ÿà¥€à¤¯à¤®à¥, 499 CE, and standard in
+--   the siddhÄntas after.  The conservation predicate `à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥` used
+--   below is `Dhruva_â€¦agda`'s, imported.
 --
---   The cyclic method that consumes the bhvan is the àà•àà°àµà¾à² â”
+--   The cyclic method that consumes the bhÄvanÄ is the à¤šà¤•à¥à¤°à¤µà¤¾à¤² â€”
 --   Jayadeva (~950 CE, preserved by Udayadivkara) and Bhskara II,
---   àààà—àà¿à, 1150 CE.  Every later European name for xÂ² âˆ’ D yÂ² = 1 is a
+--   à¤¬à¥€à¤œà¤—à¤£à¤¿à¤¤, 1150 CE.  Every later European name for xÂ² âˆ’ D yÂ² = 1 is a
 --   restatement six centuries downstream and is not used here.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS CHECKED.  Over an arbitrary commutative ring R and a fixed
--- D : R, with the pair set R — R, the observable
+-- D : R, with the pair set R Ã— R, the observable
 --
---     à¨à¿à¯à® (a , b)  =  N D a b  =  aÂ² âˆ’ D bÂ²
+--     à¤¨à¤¿à¤¯à¤® (a , b)  =  N D a b  =  aÂ² âˆ’ D bÂ²
 --
--- and, for a fixed u = (uâ , uâ), the flow
+-- and, for a fixed u = (uâ‚ , uâ‚‚), the flow
 --
---     ààà°àµà¾à u  =  compose-with-u, by Brahmagupta's àà®à¾ààà¾àµà¨à¾.
+--     à¤ªà¥à¤°à¤µà¤¾à¤¹ u  =  compose-with-u, by Brahmagupta's à¤¸à¤®à¤¾à¤¸à¤­à¤¾à¤µà¤¨à¤¾.
 --
--- Â§à§  ààà°à•àààà®à-à¯à¦à¿ : N D uâ uâ â‰¡ 1  â’  ààà°à•àààà®à à¨à¿à¯à® (ààà°àµà¾à u).
+-- Â§à¥§  à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥-à¤¯à¤¦à¤¿ : N D uâ‚ uâ‚‚ â‰¡ 1  â†’  à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ à¤¨à¤¿à¤¯à¤® (à¤ªà¥à¤°à¤µà¤¾à¤¹ u).
 --     The norm is conserved by composition with a norm-one element.
---     `ààà°à•àààà®à` is Dhruva's predicate verbatim; this is an INSTANCE of
+--     `à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥` is Dhruva's predicate verbatim; this is an INSTANCE of
 --     that abstract frame, not a new one.
 --
--- Â§à¨  ààà°à•àààà®à-à•ààµà²à®à-à¯à¦à¿ : ààà°à•àààà®à à¨à¿à¯à® (ààà°àµà¾à u) â’ N D uâ uâ â‰¡ 1.
+-- Â§à¥¨  à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥-à¤•à¥‡à¤µà¤²à¤®à¥-à¤¯à¤¦à¤¿ : à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ à¤¨à¤¿à¤¯à¤® (à¤ªà¥à¤°à¤µà¤¾à¤¹ u) â†’ N D uâ‚ uâ‚‚ â‰¡ 1.
 --     The converse, by evaluating conservation at the unit pair (1,0).
---     Together Â§à§+Â§à¨: **for a bhvan flow, conservation of the norm is
+--     Together Â§à¥§+Â§à¥¨: **for a bhÄvanÄ flow, conservation of the norm is
 --     EQUIVALENT to the flowing element having norm one.**
 --
--- Â§à©  àà•àààµ-àààµààà¿ : the norm-one elements are closed under bhvan,
---     and (1,0) is one of them â” so the conserving flows are closed
+-- Â§à¥©  à¤à¤•à¤¤à¥à¤µ-à¤¸à¤‚à¤µà¥ƒà¤¤à¤¿ : the norm-one elements are closed under bhÄvanÄ,
+--     and (1,0) is one of them â€” so the conserving flows are closed
 --     under composition and contain the identity.
 --
--- Â§à  àà¨ààà-à—àà¿ : the fibre action, obtained by feeding Â§à§ to Dhruva's
---     `à§àà°ààµ-àà¨ààà`.  A norm-one element carries the solution set of
+-- Â§à¥ª  à¤¤à¤¨à¥à¤¤à¥-à¤—à¤¤à¤¿ : the fibre action, obtained by feeding Â§à¥§ to Dhruva's
+--     `à¤§à¥à¤°à¥à¤µ-à¤¤à¤¨à¥à¤¤à¥Œ`.  A norm-one element carries the solution set of
 --     xÂ² âˆ’ D yÂ² = k into itself, for every k at once.  This is the one
---     line of the àà•àà°àµà¾à² that is pure conservation.
+--     line of the à¤šà¤•à¥à¤°à¤µà¤¾à¤² that is pure conservation.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
 -- Brahmagupta
 -- states the composition identity; the reading of it as a conserved
--- observable with a flow, and the biconditional Â§à¨, are this
--- corpus's, and the compound àà¾àµà¨à¾à§àà°ààµ is built here.
+-- observable with a flow, and the biconditional Â§à¤¨, are this
+-- corpus's, andâˆ’ the compound à¤¸à¤‚à¤°à¤•à¥à¤·à¤•à¤¸à¤®à¥‚à¤¹ is built here.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- NO SOLVER.  Every step is a hand chain over the CommRing structure,
 -- for the reason `Bhavana.agda` gives: `solve!` is a v0.9 spelling and
 -- this container carries an older cubical, where "Not in scope: solve!"
@@ -96,11 +96,11 @@ module Samrakshana (CR : CommRing â„“) (D : fst CR) where
   à¤¨à¤¿à¤¯à¤® : à¤¯à¥à¤—à¥à¤® â†’ R
   à¤¨à¤¿à¤¯à¤® (a , b) = N D a b
 
-  -- the flow: àà®à¾ààà¾àµà¨à¾ with a fixed element on the right.
+  -- the flow: à¤¸à¤®à¤¾à¤¸à¤­à¤¾à¤µà¤¨à¤¾ with a fixed element on the right.
   à¤ªà¥à¤°à¤µà¤¾à¤¹ : à¤¯à¥à¤—à¥à¤® â†’ à¤¯à¥à¤—à¥à¤® â†’ à¤¯à¥à¤—à¥à¤®
   à¤ªà¥à¤°à¤µà¤¾à¤¹ (uâ‚ , uâ‚‚) (a , b) = bhA D a b uâ‚ uâ‚‚ , bhB D a b uâ‚ uâ‚‚
 
-  -- the unit pair has norm one:  1Â1 âˆ’ DÂ(0Â0) = 1.
+  -- the unit pair has norm one:  1Â·1 âˆ’ DÂ·(0Â·0) = 1.
   à¤¨à¤¿à¤¯à¤®-à¤à¤•à¤®à¥ : N D 1r 0r â‰¡ 1r
   à¤¨à¤¿à¤¯à¤®-à¤à¤•à¤®à¥ =
       congâ‚‚ _-_ (Â·IdR 1r) (cong (D Â·_) (0RightAnnihilates 0r) âˆ™ 0RightAnnihilates D)
@@ -108,7 +108,7 @@ module Samrakshana (CR : CommRing â„“) (D : fst CR) where
     âˆ™ +IdR 1r
 
   ----------------------------------------------------------------------
-  -- à§ Â A norm-one element conserves the norm.
+  -- à¥§ Â· A norm-one element conserves the norm.
   --
   -- This is `Bhavana.bhavana` read backwards: the norm of the composite
   -- is the product of the norms, so composing with a 1 leaves it alone.
@@ -122,10 +122,10 @@ module Samrakshana (CR : CommRing â„“) (D : fst CR) where
     âˆ™ Â·IdR (N D a b)
 
   ----------------------------------------------------------------------
-  -- à¨ Â â¦and only a norm-one element does.
+  -- à¥¨ Â· â€¦and only a norm-one element does.
   --
-  -- Evaluate conservation at the unit pair.  ààà°àµà¾à u (1,0) is u itself
-  -- on the nose up to the two identity lemmas, and à¨à¿à¯à® (1,0) is 1.
+  -- Evaluate conservation at the unit pair.  à¤ªà¥à¤°à¤µà¤¾à¤¹ u (1,0) is u itself
+  -- on the nose up to the two identity lemmas, and à¤¨à¤¿à¤¯à¤® (1,0) is 1.
   ----------------------------------------------------------------------
 
   à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥-à¤•à¥‡à¤µà¤²à¤®à¥-à¤¯à¤¦à¤¿ : (u : à¤¯à¥à¤—à¥à¤®) â†’ à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ à¤¨à¤¿à¤¯à¤® (à¤ªà¥à¤°à¤µà¤¾à¤¹ u)
@@ -136,7 +136,7 @@ module Samrakshana (CR : CommRing â„“) (D : fst CR) where
     âˆ™ à¤¨à¤¿à¤¯à¤®-à¤à¤•à¤®à¥
 
   ----------------------------------------------------------------------
-  -- à© Â The conserving elements are closed under bhvan.
+  -- à¥© Â· The conserving elements are closed under bhÄvanÄ.
   --
   -- So the conserving flows compose; with (1,0) conserving, they are a
   -- submonoid of the bhvan monoid.
@@ -153,11 +153,11 @@ module Samrakshana (CR : CommRing â„“) (D : fst CR) where
   à¤à¤•à¤¤à¥à¤µ-à¤†à¤¦à¤¿ = à¤¨à¤¿à¤¯à¤®-à¤à¤•à¤®à¥
 
   ----------------------------------------------------------------------
-  -- à Â The fibre action, straight out of Dhruva.
+  -- à¥ª Â· The fibre action, straight out of Dhruva.
   --
-  -- `fiber à¨à¿à¯à® k` is the solution set of xÂ² âˆ’ D yÂ² = k.  A norm-one
-  -- element carries it into itself â” every k at once, one term.
-  -- Nothing new is proved here: this is Â§à§ handed to à§àà°ààµ-àà¨ààà, and
+  -- `fiber à¤¨à¤¿à¤¯à¤® k` is the solution set of xÂ² âˆ’ D yÂ² = k.  A norm-one
+  -- element carries it into itself â€” every k at once, one term.
+  -- Nothing new is proved here: this is Â§à¥§ handed to à¤§à¥à¤°à¥à¤µ-à¤¤à¤¨à¥à¤¤à¥Œ, and
   -- that is exactly the claim, that the abstract frame already had it.
   ----------------------------------------------------------------------
 

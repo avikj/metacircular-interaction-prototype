@@ -1,55 +1,55 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- àµà•àà°-àµà²à¯-àà™àà•ààà â” the forgotten succession precipitates, one functor
+-- à¤µà¤•à¥à¤°-à¤µà¤²à¤¯-à¤¸à¤™à¥à¤•à¥‡à¤¤à¤ƒ â€” the forgotten succession precipitates, one functor
 -- up, as exactly one bit: HÂ² separates what the stratum cannot, and the
 -- first veil is the fee.
 --
 -- THE QUESTION.
 -- VakraValaya proved the torus and the Klein
--- bottle share one stratum-3 charge carrier â” â — â, the same three
--- library terms â” and are separated by the KRAMA alone: succession
--- commutes on the torus (àà®à, the torus's own square) and provably does
--- not on the Klein bottle (ààà¦à, windingKlein computing (âˆ’1,âˆ’1) â‰ 
+-- bottle share one stratum-3 charge carrier â€” â„¤ Ã— â„¤, the same three
+-- library terms â€” and are separated by the KRAMA alone: succession
+-- commutes on the torus (à¤¸à¤®à¤ƒ, the torus's own square) and provably does
+-- not on the Klein bottle (à¤­à¥‡à¤¦à¤ƒ, windingKlein computing (âˆ’1,âˆ’1) â‰ 
 -- (âˆ’1,+1)).  Its header concludes "the succession is not recoverable
 -- from the carrier."  The question: is the difference
--- then invisible to EVERY type-level utterance â” or does some functor
+-- then invisible to EVERY type-level utterance â€” or does some functor
 -- utter it?
 --
 -- ANSWERED HERE: the second cohomology utters it, and what it utters is
--- exactly â/2.  HÂ²(TÂ²) â‰ â and HÂ²(ğ•Â²) â‰ Bool â” both already in the
--- library â” and Â (Bool â‰ â) is a pigeonhole (Bool cannot hold three
+-- exactly â„¤/2.  HÂ²(TÂ²) â‰… â„¤ and HÂ²(ğ•‚Â²) â‰… Bool â€” both already in the
+-- library â€” and Â¬ (Bool â‰ƒ â„¤) is a pigeonhole (Bool cannot hold three
 -- distinct points; pos 0, pos 1, pos 2 are three).  So:
 --
---   àà™àà•ààà   the underlying types of HÂ²(ğ•Â²) and HÂ²(TÂ²) are NOT
---            equivalent â” the pair the stratum could not tell apart is
+--   à¤¸à¤™à¥à¤•à¥‡à¤¤à¤ƒ   the underlying types of HÂ²(ğ•‚Â²) and HÂ²(TÂ²) are NOT
+--            equivalent â€” the pair the stratum could not tell apart is
 --            separated type-level, one functor up.
 --
 -- THE READING.  README
--- movement 34: every wall this corpus hits is â/2, "the smallest
--- possible fibre â” the minimal hiding."  Here the wall arrives with a
+-- movement 34: every wall this corpus hits is â„¤/2, "the smallest
+-- possible fibre â€” the minimal hiding."  Here the wall arrives with a
 -- direction: the krama-difference the charge carrier forgets does not
--- vanish â” it PRECIPITATES as the smallest possible type-level charge,
+-- vanish â€” it PRECIPITATES as the smallest possible type-level charge,
 -- one bit, when the succession is integrated over the whole surface
 -- (HÂ² is the top: orientability is what the double twist costs).  The
 -- fee for forgetting succession is the first veil.  And the pairing
 -- with VakraValaya is exact aneknta: the krama standpoint separates
--- at Ïâ where the carrier cannot; the cohomology standpoint separates
+-- at Ï€â‚ where the carrier cannot; the cohomology standpoint separates
 -- at HÂ² where the krama is no longer available (cohomology is abelian
--- â” it CANNOT see the order); neither standpoint subsumes the other,
+-- â€” it CANNOT see the order); neither standpoint subsumes the other,
 -- and the two separations are of one difference.
 --
 -- The library's torus in
--- ZCohomology.Groups.Torus is SâŠ 1 — SâŠ 1; VakraValaya's torus is the
--- HIT (Cubical.HITs.Torus), with Torusâ‰¡SÂ—SÂ in the library.  The two
--- presentations are equivalent and the bridge SÂ â‰ SâŠ 1 is standard;
+-- ZCohomology.Groups.Torus is Sâ‚Š 1 Ã— Sâ‚Š 1; VakraValaya's torus is the
+-- HIT (Cubical.HITs.Torus), with Torusâ‰¡SÂ¹Ã—SÂ¹ in the library.  The two
+-- presentations are equivalent and the bridge SÂ¹ â‰ƒ Sâ‚Š 1 is standard;
 -- this module's torus is the product
 -- presentation and the identification of the two torus presentations
 -- is the library's.
 --
--- SOURCES: HÂ²-ğ•Â²â‰Bool, Cubical.ZCohomology.Groups.KleinBottle (the
--- Brunerieâ“Ljungstrm line); HÂ²-TÂ²â‰â, Cubical.ZCohomology.Groups.Torus.
--- àµà•àà° (twisted), àµà²à¯ (ring), àà™àà•àà (the mark, the signal) are ordinary
+-- SOURCES: HÂ²-ğ•‚Â²â‰…Bool, Cubical.ZCohomology.Groups.KleinBottle (the
+-- Brunerieâ€“LjungstrÃ¶m line); HÂ²-TÂ²â‰…â„¤, Cubical.ZCohomology.Groups.Torus.
+-- à¤µà¤•à¥à¤° (twisted), à¤µà¤²à¤¯ (ring), à¤¸à¤™à¥à¤•à¥‡à¤¤ (the mark, the signal) are ordinary
 --  labels; the mathematics is the library's, composed.
 ------------------------------------------------------------------------
 
@@ -79,7 +79,7 @@ private
   âŸ¨ G âŸ© = fst G
 
 ------------------------------------------------------------------------
--- à§ Â Bool cannot hold three distinct points â” the pigeonhole, total.
+-- à¥§ Â· Bool cannot hold three distinct points â€” the pigeonhole, total.
 ------------------------------------------------------------------------
 
 à¤¤à¥à¤°à¤¿-à¤¸à¤™à¥à¤•à¥‹à¤šà¤ƒ : (a b c : Bool) â†’ (a â‰¡ b) âŠ ((a â‰¡ c) âŠ (b â‰¡ c))
@@ -91,7 +91,7 @@ private
 à¤¤à¥à¤°à¤¿-à¤¸à¤™à¥à¤•à¥‹à¤šà¤ƒ true  false true  = inr (inl refl)
 
 ------------------------------------------------------------------------
--- à¨ Â Three integers are three: pos 0, pos 1, pos 2 pairwise distinct.
+-- à¥¨ Â· Three integers are three: pos 0, pos 1, pos 2 pairwise distinct.
 ------------------------------------------------------------------------
 
 à¥¦â‰¢à¥§ : Â¬ (pos 0 â‰¡ pos 1)
@@ -104,7 +104,7 @@ private
 à¥§â‰¢à¥¨ p = znots (injSuc (injPos p))
 
 ------------------------------------------------------------------------
--- à© Â Therefore no equivalence Bool â‰ â: pull the three integers back,
+-- à¥© Â· Therefore no equivalence Bool â‰ƒ â„¤: pull the three integers back,
 -- two collapse in Bool, push the collapse forward, contradict.
 ------------------------------------------------------------------------
 
@@ -123,7 +123,7 @@ private
     judge (inr (inr p)) = à¥§â‰¢à¥¨ (push p)
 
 ------------------------------------------------------------------------
--- à Â The two second-cohomology carriers, read off the library's own
+-- à¥ª Â· The two second-cohomology carriers, read off the library's own
 -- group isomorphisms as type equivalences.
 ------------------------------------------------------------------------
 
@@ -134,7 +134,7 @@ private
 à¤•à¥à¤·à¥‡à¤¤à¥à¤°-TÂ² = isoToEquiv (fst HÂ²-TÂ²â‰…â„¤)
 
 ------------------------------------------------------------------------
--- à Â àà™àà•ààà â” the separation.  The stratum-3 charge carriers were one
+-- à¥« Â· à¤¸à¤™à¥à¤•à¥‡à¤¤à¤ƒ â€” the separation.  The stratum-3 charge carriers were one
 -- type (VakraValaya); the HÂ² carriers are provably not.  The forgotten
 -- succession precipitates as one bit.
 ------------------------------------------------------------------------

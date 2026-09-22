@@ -1,45 +1,45 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Sha256Varga ‚î the hash factors through its classes: every class is a
+-- Sha256Varga ‚Äî the hash factors through its classes: every class is a
 -- fibre, the descended map forgets nothing, and the kernel separates
 -- concrete classes by computing.
 --
--- The owner's correction, taken literally.  ‡®-‡‡‡≤‡‡Ø‡‡æ (Parimana) was
--- information-theoretically obvious ‚î the codomain has slack, so of
+-- The owner's correction, taken literally.  ‡§®-‡§§‡•Å‡§≤‡•ç‡§Ø‡§§‡§æ (Parimana) was
+-- information-theoretically obvious ‚Äî the codomain has slack, so of
 -- course the map is no equivalence.  The object that is NOT obvious is
 -- the MAP OF EQUIVALENCE CLASSES OF INPUTS BY HASH, and that is what
 -- this module hands to the kernel:
 --
 --   x ‚àº y  :=  sha256 x ‚â° sha256 y        (the kernel relation)
---   ‡µ‡∞‡‡ó‡æ‡  :=  Bits / ‚àº                    (the space of classes)
---   ‡‡µ‡‡∞‡‡Æ‡ : ‡µ‡∞‡‡ó‡æ‡ ‚í Bits                 (the map of classes)
+--   ‡§µ‡§∞‡•ç‡§ó‡§æ‡§É  :=  Bits / ‚àº                    (the space of classes)
+--   ‡§Ö‡§µ‡§§‡§∞‡§£‡§Æ‡•ç : ‡§µ‡§∞‡•ç‡§ó‡§æ‡§É ‚Üí Bits                 (the map of classes)
 --
 -- WHAT IS PROVED:
---   ¬ß2  ‡µ‡∞‡‡ó-‡‡®‡‡‡ ‚î the class of x, read as a type, IS the fibre of
+--   ¬ß2  ‡§µ‡§∞‡•ç‡§ó-‡§§‡§®‡•ç‡§§‡•Å ‚Äî the class of x, read as a type, IS the fibre of
 --       sha256 over its digest.  By refl: they are the same type.  The
 --       partition crypto cares about and the fibre the completion
 --       carries are one object.
---   ¬ß3  ‡‡µ‡‡∞‡-‡ò‡ü‡®‡æ ‚î sha256 factors: sha256 = ‡‡µ‡‡∞‡‡Æ‡ ‚àò [_], and the
+--   ¬ß3  ‡§Ö‡§µ‡§§‡§∞‡§£-‡§ò‡§ü‡§®‡§æ ‚Äî sha256 factors: sha256 = ‡§Ö‡§µ‡§§‡§∞‡§£‡§Æ‡•ç ‚àò [_], and the
 --       factorization is definitional.
---   ¬ß4  ‡‡µ‡‡∞‡-‡‡ï‡à‡ï‡Æ‡ ‚î the descended map is INJECTIVE: on classes the
---       hash forgets nothing.  So ALL the forgetting ‚î all the
---       one-wayness ‚î lives in the projection [_] onto classes, and
+--   ¬ß4  ‡§Ö‡§µ‡§§‡§∞‡§£-‡§è‡§ï‡•à‡§ï‡§Æ‡•ç ‚Äî the descended map is INJECTIVE: on classes the
+--       hash forgets nothing.  So ALL the forgetting ‚Äî all the
+--       one-wayness ‚Äî lives in the projection [_] onto classes, and
 --       none of it in the leg that lands in digest space.
---   ¬ß5  ‡µ‡∞‡‡ó-‡‡‡∞‡‡‡‡æ ‚î every class is inhabited by a message ([_] is
+--   ¬ß5  ‡§µ‡§∞‡•ç‡§ó-‡§™‡•Ç‡§∞‡•ç‡§£‡§§‡§æ ‚Äî every class is inhabited by a message ([_] is
 --       surjective): the quotient carries no phantom classes.
---   ¬ß6  ‡‡‡¶‡ / ‡µ‡∞‡‡ó-‡‡‡¶‡ ‚î concrete class separation, COMPUTED: the
+--   ¬ß6  ‡§≠‡•á‡§¶‡§É / ‡§µ‡§∞‡•ç‡§ó-‡§≠‡•á‡§¶‡§É ‚Äî concrete class separation, COMPUTED: the
 --       kernel evaluates both full pipelines and separates the class
 --       of the empty message from the class of "abc" at bit 1 of the
 --       digests.  Whether two GIVEN messages share a class is always
---       answerable this way ‚î the kernel computes both digests and
+--       answerable this way ‚Äî the kernel computes both digests and
 --       compares.  What remains open is exhibiting two DISTINCT
 --       messages in ONE class: that inhabitant of ‚àº off the diagonal
 --       is precisely a collision, Sesa's exchange rate.
 --
 -- Reading: the equivalence-class map is computed in the only sense
--- available to anyone ‚î pointwise, by running the hash ‚î and it is
--- now carried as structure: classes ‚ digests, injectively, with the
+-- available to anyone ‚Äî pointwise, by running the hash ‚Äî and it is
+-- now carried as structure: classes ‚Ü™ digests, injectively, with the
 -- class of every message literally the fibre the lossless completion
 -- keeps.  The quotient is where the secret's address book lives.
 ------------------------------------------------------------------------
@@ -84,7 +84,7 @@ x ‚àº y = sha256 x ‚â° sha256 y
   (Œª x y z p q ‚Üí p ‚àô q)
 
 ------------------------------------------------------------------------
--- ¬ß2  The class of x IS the fibre over its digest ‚î the same type.
+-- ¬ß2  The class of x IS the fibre over its digest ‚Äî the same type.
 ------------------------------------------------------------------------
 
 ‡§µ‡§∞‡•ç‡§ó‡§É : Bits ‚Üí Type
@@ -104,7 +104,7 @@ x ‚àº y = sha256 x ‚â° sha256 y
 ‡§Ö‡§µ‡§§‡§∞‡§£‡§Æ‡•ç : ‡§µ‡§∞‡•ç‡§ó‡§æ‡§É ‚Üí Bits
 ‡§Ö‡§µ‡§§‡§∞‡§£‡§Æ‡•ç = SQ.rec isSetBits sha256 (Œª x y p ‚Üí p)
 
--- sha256 = ‡‡µ‡‡∞‡‡Æ‡ ‚àò [_], definitionally
+-- sha256 = ‡§Ö‡§µ‡§§‡§∞‡§£‡§Æ‡•ç ‚àò [_], definitionally
 ‡§Ö‡§µ‡§§‡§∞‡§£-‡§ò‡§ü‡§®‡§æ : (x : Bits) ‚Üí ‡§Ö‡§µ‡§§‡§∞‡§£‡§Æ‡•ç [ x ] ‚â° sha256 x
 ‡§Ö‡§µ‡§§‡§∞‡§£-‡§ò‡§ü‡§®‡§æ x = refl
 

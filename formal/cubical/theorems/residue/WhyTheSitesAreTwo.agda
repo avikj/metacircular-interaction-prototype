@@ -6,27 +6,27 @@
 -- The uniform 2 across this corpus is a fact about the DECODER SPACE, and here is the
 -- theorem.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE STATEMENT
 --
---     collisionFreeâ’notRefuting :
+--     collisionFreeâ†’notRefuting :
 --       Discrete Y
---       â’ (no two points of the list collide with different values)
---       â’ Â Refutes (factorLaw q t) (xâ âˆ xs)
+--       â†’ (no two points of the list collide with different values)
+--       â†’ Â¬ Refutes (factorLaw q t) (xâ‚€ âˆ· xs)
 --
--- Contrapositively: over an UNCONSTRAINED decoder space `Image q â’ T`,
+-- Contrapositively: over an UNCONSTRAINED decoder space `Image q â†’ T`,
 -- a list can only refute by containing a collision.  And a collision is
 -- already a refuting pair (`WitnessNumberIsTwo` Â§4).  So no refuting
--- list is ever essentially longer than 2 â” the extra points are inert.
+-- list is ever essentially longer than 2 â€” the extra points are inert.
 --
 -- That is why every site in this corpus is 2, and it is not luck and
 -- not a choice of examples: every one of them has a function space as
--- its decoders and a discrete Y (â•, Bool, lists of â•).  The three-way
+-- its decoders and a discrete Y (â„•, Bool, lists of â„•).  The three-way
 -- example of `WitnessNumberIsUnbounded` escapes precisely because its
--- decoders are three atoms rather than all functions â” the survivor it
+-- decoders are three atoms rather than all functions â€” the survivor it
 -- relies on is a function the unconstrained space would have contained.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- HOW IT GOES
 --
 -- If the list has no collision, build the decoder by table lookup:
@@ -36,19 +36,19 @@
 -- compare observations at all.  Then the table answers every point of
 -- the list, so the list does not refute.
 --
--- Discreteness is the only hypothesis and it is doing real work â” it is
+-- Discreteness is the only hypothesis and it is doing real work â€” it is
 -- what makes "the first matching entry" a computation rather than a
 -- choice.  Nothing is assumed about T beyond having the values the
 -- table stores.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- FOR THE DEFLATIONARY READING
 --
 -- This is the strongest form of the deflation.  It is not that
 -- the obstructions here happen to be cheap; over discrete observations
 -- and unconstrained decoders they CANNOT be expensive.  Any barrier
 -- stated in this shape is a two-point statement, and calling it a
--- barrier is the language exceeding the object â” now with a theorem
+-- barrier is the language exceeding the object â€” now with a theorem
 -- saying by how much, rather than a survey saying "so far".
 ------------------------------------------------------------------------
 
@@ -147,7 +147,7 @@ module _ {X : Type â„“x} {Y : Type â„“y} {T : Type â„“t}
 -- A list refutes only by containing a collision, and a collision is
 -- already a refuting pair.  Stated as the contrapositive it is
 -- constructive; stated as "extract the pair" it would not be, because
--- `Refutes` is a negation and Ââˆ does not give âˆÂ.  The theorem below
+-- `Refutes` is a negation and Â¬âˆ€ does not give âˆƒÂ¬.  The theorem below
 -- is the honest form: refutation and collision-freeness are
 -- incompatible.
 ------------------------------------------------------------------------
@@ -169,8 +169,8 @@ module _ {X : Type â„“x} {Y : Type â„“y} {T : Type â„“t}
 --
 -- SETTLED.  The uniform 2 across this corpus is neither luck nor a
 -- choice of examples.  Every site here has an unconstrained decoder
--- space `Image q â’ T` and a discrete Y, and under exactly those two
--- conditions a list refutes only by containing a collision â” so the
+-- space `Image q â†’ T` and a discrete Y, and under exactly those two
+-- conditions a list refutes only by containing a collision â€” so the
 -- witness number is 2 whenever it is finite at all.
 --
 -- The three-way example of `WitnessNumberIsUnbounded` is consistent
@@ -189,9 +189,9 @@ module _ {X : Type â„“x} {Y : Type â„“y} {T : Type â„“t}
 -- are finitely many of those.  The hypothesis it consumes is
 --
 --     Locates q []       = Unit
---     Locates q (x âˆ xs) = ((y : Y) â’ Dec (q x â‰¡ y)) — Locates q xs
+--     Locates q (x âˆ· xs) = ((y : Y) â†’ Dec (q x â‰¡ y)) Ã— Locates q xs
 --
--- and `collisionFreeâ’notRefuting` above is the corollary at
+-- and `collisionFreeâ†’notRefuting` above is the corollary at
 -- `Discrete Y`, rederived there as `discrete-corollary`.
 --
 -- The shift is from an EQUALITY problem on the whole observation space
@@ -201,7 +201,7 @@ module _ {X : Type â„“x} {Y : Type â„“y} {T : Type â„“t}
 -- its hypothesis now is too.
 --
 -- So a site whose Y is not discrete is not automatically outside the
--- deflation â” only one whose witnesses cannot be located, which is a
+-- deflation â€” only one whose witnesses cannot be located, which is a
 -- smaller class and a checkable condition.
 ------------------------------------------------------------------------
 
@@ -211,20 +211,20 @@ module _ {X : Type â„“x} {Y : Type â„“y} {T : Type â„“t}
 -- The ceiling needs discreteness or locatability.
 -- `SiteAudit` enumerates the sites.  Two are not covered by this theorem:
 --
---   * `Laghava` observes into `Denotation = â• â’ â•`, which is neither
---     discrete nor (as far as anything here shows) locatable â” so
+--   * `Laghava` observes into `Denotation = â„• â†’ â„•`, which is neither
+--     discrete nor (as far as anything here shows) locatable â€” so
 --     neither this theorem nor `LocatingIsEnough` applies at the site
---     the whole à²à¾à˜àµ line is about;
+--     the whole à¤²à¤¾à¤˜à¤µ line is about;
 --   * `AvaktavyaDoesNotFactor` has six atoms as its decoders, not a
 --     function space.
 --
--- Both are nonetheless exactly 2, proved individually â” `Laghava` in
+-- Both are nonetheless exactly 2, proved individually â€” `Laghava` in
 -- `SiteAudit` Â§3, avaktavya in `WitnessNumberIsTwo` Â§5.
 --
 -- The distinction:
 --
---   achievability (â‰ 2)  from an exhibited collision; no hypothesis;
---   the floor (â‰ 2)      from the constant decoder; needs only that the
+--   achievability (â‰¤ 2)  from an exhibited collision; no hypothesis;
+--   the floor (â‰¥ 2)      from the constant decoder; needs only that the
 --                        decoder space contain constants;
 --   the CEILING          this theorem; needs discreteness or
 --                        locatability, and is what fails at `Laghava`.
@@ -234,7 +234,7 @@ module _ {X : Type â„“x} {Y : Type â„“y} {T : Type â„“t}
 -- the same `eval`.
 --
 -- Also: two sites quantify over decoders on the WHOLE
--- codomain (`Denotation â’ â•`, `List Bool â’ Bool`) rather than over
--- `Image q â’ T`, so this theorem did not literally cover their shape.
+-- codomain (`Denotation â†’ â„•`, `List Bool â†’ Bool`) rather than over
+-- `Image q â†’ T`, so this theorem did not literally cover their shape.
 -- `SiteAudit` Â§1 gives that variant, and it is simpler than this one.
 ------------------------------------------------------------------------

@@ -3,14 +3,14 @@
 -- The walk's forcing law, statement (1): a least non-divisor of L is a
 -- prime power.
 --
--- Paper proof (WALK_FORCING_LAW.md): if q is least with q � L and
--- q = a�b, gcd(a,b)=1, 1<a,b<q, then minimality gives a � L and b � L,
--- and coprime divisors multiply, so q = ab � L � contradiction.
+-- Paper proof (WALK_FORCING_LAW.md): if q is least with q ∤ L and
+-- q = a·b, gcd(a,b)=1, 1<a,b<q, then minimality gives a ∣ L and b ∣ L,
+-- and coprime divisors multiply, so q = ab ∣ L — contradiction.
 --
 -- (H1) coprime divisors multiply is proved gcd-side, no Bezout:
--- gcd (aL) (bL) = gcd a b � L = L (gcd-factorʳ), and ab is a common
--- divisor of aL and bL, hence ab � gcd (aL) (bL) = L.
--- (H2) is <-�sk plus �-identityˡ/�-comm.
+-- gcd (aL) (bL) = gcd a b · L = L (gcd-factorʳ), and ab is a common
+-- divisor of aL and bL, hence ab ∣ gcd (aL) (bL) = L.
+-- (H2) is <-·sk plus ·-identityˡ/·-comm.
 
 module WalkForcing where
 
@@ -39,11 +39,11 @@ coprime-divisors-multiply a b L g a∣L b∣L =
   subst ((a · b) ∣_) gL≡L
     (gcdIsGCD (a · L) (b · L) .snd (a · b) (ab∣aL , ab∣bL))
   where
-  -- gcd (aL) (bL) = gcd a b � L = 1 � L = L
+  -- gcd (aL) (bL) = gcd a b · L = 1 · L = L
   gL≡L : gcd (a · L) (b · L) ≡ L
   gL≡L = gcd-factorʳ a b L ∙ cong (_· L) (isGCD→gcd≡ g) ∙ ·-identityˡ L
 
-  -- ab � aL since b � L; ab � bL since a � L
+  -- ab ∣ aL since b ∣ L; ab ∣ bL since a ∣ L
   ab∣aL : (a · b) ∣ (a · L)
   ab∣aL = subst2 _∣_ (·-comm b a) (·-comm L a) (∣-multʳ a b∣L)
 

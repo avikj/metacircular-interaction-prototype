@@ -5,28 +5,28 @@
 --
 -- A companion to `NumberIsExponentialInDerivation`: the derivation is dense.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE BOUND, AND WHAT IT DOES NOT COVER
 --
--- That module proves `suc e â‰ b ^ e` â” the numeric factor is exponential
+-- That module proves `suc e â‰¤ b ^ e` â€” the numeric factor is exponential
 -- in the exponent it encodes.  A coordinatewise bound does not by itself
 -- account for the gap between what the walk carries and what
 -- distinguishing k inputs requires, because it says nothing about HOW
 -- MANY COORDINATES there are.
 --
 -- And there are many.  cap(k) = lcm(1..k) is divisible by every prime
--- p â‰ k, so its derivation has a nonzero entry at every such p:
+-- p â‰¤ k, so its derivation has a nonzero entry at every such p:
 --
 --     the walk's derivation is DENSE.
 --
 -- `cap-is-dense` below checks this for the walk's frontier-8 state
--- against the basis 2,3,5,7 â” every coordinate nonzero, support 4 out of
+-- against the basis 2,3,5,7 â€” every coordinate nonzero, support 4 out of
 -- 4.  So the derivation is not a compact object either.  Its coordinate
 -- count grows with the number of primes below the frontier, and the
--- exponential saving `suc e â‰ b ^ e` buys nothing across coordinates,
+-- exponential saving `suc e â‰¤ b ^ e` buys nothing across coordinates,
 -- only within one.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE VERDICT
 --
 --   the numeric encoding is A mechanism of the walk's size.  Whether it
@@ -78,8 +78,8 @@ denseâ†’full (b âˆ· bs) (suc x , xs) (nz , ds) = cong suc (denseâ†’full bs xs ds
 ------------------------------------------------------------------------
 -- 3.  The walk's state is dense.
 --
--- cap 8 = 840 = 2Â³Â3Â5Â7 â” every prime â‰ 8 appears, because every prime
--- p â‰ k divides lcm(1..k) for the trivial reason that p is one of the
+-- cap 8 = 840 = 2Â³Â·3Â·5Â·7 â€” every prime â‰¤ 8 appears, because every prime
+-- p â‰¤ k divides lcm(1..k) for the trivial reason that p is one of the
 -- numbers being joined.
 ------------------------------------------------------------------------
 
@@ -104,6 +104,6 @@ cap-support-is-four = cap-support-is-full
 -- The number is exponential in each exponent (previous module) AND the
 -- derivation has one exponent per prime below the frontier (here).  The
 -- first is a saving within a coordinate; the second is a cost across
--- them; and which dominates is a question about âˆ_{pâ‰k} versus Ï(k) that
+-- them; and which dominates is a question about âˆ‘_{pâ‰¤k} versus Ï€(k) that
 -- neither module answers.
 ------------------------------------------------------------------------

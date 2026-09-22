@@ -7,19 +7,19 @@
 -- substrate, which this repository declares as a tool and not a frame;
 -- the threshold predicates are this corpus's own.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE AUDIT.  Target: `TheRateQuotientExistsAndMinimalityCannotLiveOnIt`.
 -- Two claim-words.
 --
--- **`EXISTS` IS EARNED OUTRIGHT** â” `Rate = (â• — â•) / _â‰ˆ_` is
+-- **`EXISTS` IS EARNED OUTRIGHT** â€” `Rate = (â„• Ã— â„•) / _â‰ˆ_` is
 -- constructed, and `atLeastOnRateComputes` shows the lift is not a
 -- relabelling.
 --
 -- **`CANNOT` IS EARNED AND IS ALREADY NON-VACUOUS**, which diagnostic
--- (3) asks first.  It is a LOCATION claim â” minimality cannot live ON
--- the quotient â” and the constrained thing exists downstairs:
+-- (3) asks first.  It is a LOCATION claim â€” minimality cannot live ON
+-- the quotient â€” and the constrained thing exists downstairs:
 -- `shortIsMinimalAtOneHalf` and `shortIsNotMinimalAtTwoQuarters` are
--- both in hand.  Unlike `CurvatureCannotLiveâ¦` (cc8a3e16), this one
+-- both in hand.  Unlike `CurvatureCannotLiveâ€¦` (cc8a3e16), this one
 -- needed no witness supplied from outside.
 --
 -- **THE FAULT IS THAT THE IMPOSSIBILITY IS STATED FOR A NARROWER CLASS
@@ -42,11 +42,11 @@
 -- audited statement assumes agreement at EVERY representative and EVERY
 -- population.  The proof uses two representatives and one population.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   twoRepresentativesSuffice
---       the sharp form: any `M : Rate â’ List Bool â’ Type` agreeing with
+--       the sharp form: any `M : Rate â†’ List Bool â†’ Type` agreeing with
 --       `Minimal` at `oneHalf` and at `twoQuarters`, on the single
 --       population `short`, is contradictory.  No h-level, no
 --       universally quantified agreement.
@@ -54,7 +54,7 @@
 --       hence the `Type`-valued impossibility the audited module says
 --       is not covered
 --   theHPropVersionIsAnInstance
---       and its own theorem, recovered by composing with `âŸ¨_âŸ©` â” so
+--       and its own theorem, recovered by composing with `âŸ¨_âŸ©` â€” so
 --       nothing there is lost and the narrower statement is visibly a
 --       special case
 ------------------------------------------------------------------------

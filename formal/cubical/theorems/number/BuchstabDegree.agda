@@ -3,8 +3,8 @@
 ------------------------------------------------------------------------
 -- BuchstabDegree
 --
--- Delta 18's Buchstab target � the one item on the supplied list that
--- Delta 18 itself calls FALSIFIABLE � answered, in the negative, with
+-- Delta 18's Buchstab target — the one item on the supplied list that
+-- Delta 18 itself calls FALSIFIABLE — answered, in the negative, with
 -- the correct statement supplied in its place.
 --
 -- THE QUESTION (Delta 18, "Buchstab target", verbatim):
@@ -16,11 +16,11 @@
 --    eliminating those branches?  This is falsifiable."
 --
 -- THE ANSWER: no, and the reason is structural rather than
--- computational.  T18.4's defect is a SECTOR leakage � it presumes a
--- subspace S with i : S � U, P : U � S, P ∘ i = id, and measures the
+-- computational.  T18.4's defect is a SECTOR leakage — it presumes a
+-- subspace S with i : S → U, P : U → S, P ∘ i = id, and measures the
 -- failure of T to restrict to S.  Child selection is not of that form.
--- On the rooted tree the level � is a grading; the child operator C
--- raises � by exactly one and the parent operator D lowers it by exactly
+-- On the rooted tree the level ℓ is a grading; the child operator C
+-- raises ℓ by exactly one and the parent operator D lowers it by exactly
 -- one, so the full adjacency is
 --
 --     A = C + D,     deg C = +1,     deg D = −1,
@@ -28,15 +28,15 @@
 -- and "keep only the children" is a DEGREE truncation of A, not a
 -- restriction of A to a subspace.  By C15.25 (`ChargeGrading`) a fixed
 -- level sector is preserved only by degree-zero operations, and by T15.22
--- the t-step child kernel K� = C�� has degree t; so for t � 1 there is no
--- level sector for K� to be the compression of.  The parent direction is
--- not a "forbidden sector"; it is the opposite grading direction, and �
+-- the t-step child kernel Kₜ = Cᵗ has degree t; so for t ≥ 1 there is no
+-- level sector for Kₜ to be the compression of.  The parent direction is
+-- not a "forbidden sector"; it is the opposite grading direction, and ℕ
 -- has no −1.
 --
 -- So Delta 18's phrase "parent/forbidden/order-forgetting sector" merges
 -- two different defects under one word.  They are:
 --
---   * the excursion�return defect of T18.4 (`ExcursionReturn`), which is
+--   * the excursion–return defect of T18.4 (`ExcursionReturn`), which is
 --     about a sector not being invariant, and
 --   * the grading defect of §15.6 (`ChargeGrading`), which is about an
 --     operation not being degree-zero.
@@ -53,8 +53,8 @@
 --   C, D, A                   child, parent, and full adjacency
 --   C-raises, D-lowers        the grading facts, as level bookkeeping
 --   A²r≡2, C²r≡0              the exact finite computation
---   child-kernel�walk         � (A ∘ A ≡ C ∘ C): the falsification
---   A²≡C²+parent-return       the positive replacement � what the
+--   child-kernel≢walk         ¬ (A ∘ A ≡ C ∘ C): the falsification
+--   A²≡C²+parent-return       the positive replacement — what the
 --                             difference actually IS
 --
 ------------------------------------------------------------------------
@@ -78,7 +78,7 @@ data V : Type where
   a  b         : V              -- level 1
   a1 a2 b1 b2  : V              -- level 2
 
--- A state is a �-weighting of vertices.  �, not � or �: every count in
+-- A state is a ℕ-weighting of vertices.  ℕ, not ℤ or ℝ: every count in
 -- this computation is a count, and exact integer arithmetic is what makes
 -- the result a proof rather than a measurement.
 St : Type
@@ -130,7 +130,7 @@ A w v = C w v + D w v
 -- `lvl` is the charge of `ChargeGrading` in this instance: C is a
 -- `Shift` by +1 in the sense of that module (it maps the level-c sector
 -- into the level-(c+1) sector), and D is its adjoint, which is not a
--- `Shift` for any δ : �.  That asymmetry is the entire content of the
+-- `Shift` for any δ : ℕ.  That asymmetry is the entire content of the
 -- refutation, and it is visible before any computation.
 ------------------------------------------------------------------------
 
@@ -148,7 +148,7 @@ lvl b2 = 2
 --
 -- Two steps of the full walk from the root return weight 2 to the root
 -- (via a and via b).  Two steps of the child-selected walk return
--- nothing to the root � a degree-two operator cannot reach level zero
+-- nothing to the root — a degree-two operator cannot reach level zero
 -- from level zero at all.  Both by `refl`: the terms compute.
 ------------------------------------------------------------------------
 
@@ -169,8 +169,8 @@ child-kernel≢walk p = snotz (cong (λ f → f r) p)
 ------------------------------------------------------------------------
 -- §5  The positive replacement: what the difference IS.
 --
--- A² = C² + (CD + DC + D²).  At the root the only surviving term is DC �
--- go to a child, come back � and it contributes exactly q = 2.  So the
+-- A² = C² + (CD + DC + D²).  At the root the only surviving term is DC —
+-- go to a child, come back — and it contributes exactly q = 2.  So the
 -- difference between the Buchstab kernel and the full walk is not an
 -- excursion into a forbidden *sector*; it is the presence of the
 -- degree-(−1) operator D in A at all.  Removing D does not project onto

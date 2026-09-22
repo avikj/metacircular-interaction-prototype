@@ -1,26 +1,26 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- ���-����� � the measure of pressure.
+-- पीड-मात्र — the measure of pressure.
 --
 -- For a radial MATRIX profile G(r) the spherical pressure identity of
--- handoff §20 ([S12]) reads, with V = rG�, W = r²G� and X∘Y = (XY+YX)/2,
+-- handoff §20 ([S12]) reads, with V = rG′, W = r²G″ and X∘Y = (XY+YX)/2,
 --
---     (1/4�)�(3nn� − I) tr((�u�)²) dΩ = (12/35)[18 G∘V + 3 G∘W + 2V² − V∘W]� ,
+--     (1/4π)∫(3nnᵀ − I) tr((∇u₂)²) dΩ = (12/35)[18 G∘V + 3 G∘W + 2V² − V∘W]₀ ,
 --
 -- and the bracket is r times the derivative of
 --
---     Φ = (15/2) G² + 3r G∘G� − (r²/2) (G�)² .
+--     Φ = (15/2) G² + 3r G∘G′ − (r²/2) (G′)² .
 --
 -- Here that last fact is checked over an arbitrary (noncommutative)
--- ring with a derivation � and a CENTRAL radius r, �r = 1: G, G�, G�
+-- ring with a derivation ∂ and a CENTRAL radius r, ∂r = 1: G, G′, G″
 -- need not commute.  Doubled to clear the halves,
 --
---     r � �(15 G² + 3r(GG� + G�G) − r² G�²)
+--     r · ∂(15 G² + 3r(GG′ + G′G) − r² G′²)
 --       ≡ 18(GV + VG) + 3(GW + WG) + 4 V² − (VW + WV).
 --
 -- The proof expands with Leibniz and centrality into a sum of seven
 -- ordered monomials and closes with the commutative-monoid solver on
--- the additive structure � the only rearrangement a noncommutative
+-- the additive structure — the only rearrangement a noncommutative
 -- product allows.
 ------------------------------------------------------------------------
 module PidaMatra_TheSphericalPressureBracketOfARadialMatrixProfileIsRTimesTheDerivativeOfAQuadraticFormEvenWhenTheProfileAndItsDerivativesDoNotCommute where
@@ -109,7 +109,7 @@ module _ (R : Ring ℓ) where
       V = r · G′
       W = (r · r) · G″
 
-      -- the doubled quadratic form  2Φ = 15 G² + 3r(GG� + G�G) − r² G�²
+      -- the doubled quadratic form  2Φ = 15 G² + 3r(GG′ + G′G) − r² G′²
       Φ₂ : A
       Φ₂ = (scale 15 (G · G) + scale 3 (r · (G · G′ + G′ · G))) + (- ((r · r) · (G′ · G′)))
 

@@ -16,7 +16,7 @@ open import GodelSeparation
 --
 -- `GodelSeparation.Theory` is a record
 -- with `Sent`, `Pf`, `neg`, `prov`; `Consistent`, `HBL1`, `GoedelFix`
--- and `OmegaBad` are defined over it; `goedelHalfOne` proves `Â Pf T G`
+-- and `OmegaBad` are defined over it; `goedelHalfOne` proves `Â¬ Pf T G`
 -- from consistency, HBL1 and the fixed point; and `noHalfTwo` REFUTES
 -- the other conjunct from those same data with a four-sentence
 -- countermodel `Wit`.  That is
@@ -24,35 +24,35 @@ open import GodelSeparation
 -- the Ï‰-consistency failure of the countermodel exhibited
 -- (`witOmegaBad`).
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
---   Â§1  `Independent T s = (Â Pf T s) — (Â Pf T (neg T s))`.  A
+--   Â§1  `Independent T s = (Â¬ Pf T s) Ã— (Â¬ Pf T (neg T s))`.  A
 --       definition, in the corpus's own vocabulary, with nothing added.
 --
 --   Â§2  the first conjunct is available: `goedelHalfOne` gives it from
 --       consistency, HBL1 and the fixed point.
 --
---   Â§3  and independence is NOT derivable from those data â” the
+--   Â§3  and independence is NOT derivable from those data â€” the
 --       universally quantified implication is refuted outright, by
 --       `noHalfTwo`, which supplies the countermodel.  So the gap is
 --       exhibited, not merely unclosed.
 --
 --   Â§4  what closes it, stated as the hypotheses it needs.  Given an
---       INTERNAL implication â” a former `imp : Sent â’ Sent â’ Sent` with
---       modus ponens at the `Pf` level â” and the internal sentence
---       `ÂG â’ Prov(G)`, Ï‰-consistency closes the second conjunct in
+--       INTERNAL implication â€” a former `imp : Sent â†’ Sent â†’ Sent` with
+--       modus ponens at the `Pf` level â€” and the internal sentence
+--       `Â¬G â†’ Prov(G)`, Ï‰-consistency closes the second conjunct in
 --       three lines.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
 -- What `Theory` lacks is a
--- CONNECTIVE FORMER.  It carries `neg` and `prov`, both `Sent â’ Sent`,
+-- CONNECTIVE FORMER.  It carries `neg` and `prov`, both `Sent â†’ Sent`,
 -- and no way to build one sentence from two.  `GoedelFix` is therefore
--- stated at the derivability level â” a pair of implications between
--- `Pf` statements â” where Gdel's second conjunct needs the
+-- stated at the derivability level â€” a pair of implications between
+-- `Pf` statements â€” where GÃ¶del's second conjunct needs the
 -- biconditional to be a SENTENCE the theory itself proves, so that
--- `T âŠ ÂG` yields `T âŠ Prov(G)` by modus ponens inside T.
+-- `T âŠ¢ Â¬G` yields `T âŠ¢ Prov(G)` by modus ponens inside T.
 --
 -- One field, `imp`, and one rule, `mp`.  Â§4 measures that distance by
 -- assuming exactly those two and getting the conjunct.
@@ -110,8 +110,8 @@ module _ (T : Theory â„“) (G : Sent T)
          (mp  : (a b : Sent T) â†’ Pf T (imp a b) â†’ Pf T a â†’ Pf T b)
          where
 
-  -- the internal sentence Gdel's argument needs: from ÂG, provability
-  -- of G â” which is the fixed point read INSIDE the theory.
+  -- the internal sentence GÃ¶del's argument needs: from Â¬G, provability
+  -- of G â€” which is the fixed point read INSIDE the theory.
   InternalFix : Type â„“
   InternalFix = Pf T (imp (neg T G) (prov T G))
 

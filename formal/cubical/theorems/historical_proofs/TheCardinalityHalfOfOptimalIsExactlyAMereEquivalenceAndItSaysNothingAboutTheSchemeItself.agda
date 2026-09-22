@@ -7,36 +7,36 @@
 -- The object audited here is `OptimalObservation`'s
 -- DEFINITION of `Optimal`, which is that module's own construction.
 -- Its three INSTANCES are Pigala's *Chandastra* uddia (c. 300
--- BCE), Virahka's mtrmeru (c. 600â“800), and a CRT residue decode;
+-- BCE), VirahÄá¹…ka's mÄtrÄmeru (c. 600â€“800), and a CRT residue decode;
 -- those sources are named here in that order.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- 0.  THE COUNT CONJUNCT
 --
---     Optimal X Y obs  =  Lossless X Y obs  —  (card Y â‰¡ card X)
+--     Optimal X Y obs  =  Lossless X Y obs  Ã—  (card Y â‰¡ card X)
 --
 -- The count is NOT a lossy proxy.  v0.5's
 -- `Cubical.Data.FinSet.Cardinality` carries
 --
---     cardâ‰¡MereEquiv : (card X â‰¡ card Y) â‰¡ âˆ X .fst â‰ Y .fst âˆâ
+--     cardâ‰¡MereEquiv : (card X â‰¡ card Y) â‰¡ âˆ¥ X .fst â‰ƒ Y .fst âˆ¥â‚
 --
 -- so on `FinSet` the numeral equation IS the structural statement,
--- exactly â” merely, i.e. propositionally truncated.  Â§2 states that in
+-- exactly â€” merely, i.e. propositionally truncated.  Â§2 states that in
 -- the form the audited definition needs.
 --
 -- **WHAT THAT MAKES VISIBLE.**  Unfolded,
 -- `Optimal X Y obs` is
 --
---     `obs` is injective   AND   SOME equivalence `X â‰ Y` exists,
+--     `obs` is injective   AND   SOME equivalence `X â‰ƒ Y` exists,
 --
 -- and the second conjunct is **not about `obs`**.  A reader of "loses
 -- nothing and wastes nothing" will take the definition to say that
 -- `obs` is a bijection.  It does not say that.  Whether the two
--- conjuncts together force it is a pigeonhole theorem â” an injection
--- between finite sets of equal cardinality is surjective â” which is
+-- conjuncts together force it is a pigeonhole theorem â€” an injection
+-- between finite sets of equal cardinality is surjective â€” which is
 -- stated in section 4 as a type.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- 1.  AND SECTION 3'S HEADING NAMES A THEOREM SECTION 3 DOES NOT HAVE
 --
 -- `OptimalObservation` Â§3 is headed *"An isomorphism gives an optimal
@@ -49,10 +49,10 @@
 --
 -- WHAT IS PROVED
 --
---   optimalGivesAMereEquivalence   `Optimal X Y obs â’ âˆ X .fst â‰ Y .fst âˆâ`
+--   optimalGivesAMereEquivalence   `Optimal X Y obs â†’ âˆ¥ X .fst â‰ƒ Y .fst âˆ¥â‚`
 --   mereEquivalenceGivesTheCount   the converse half, so the `card`
 --                                  conjunct and the mere equivalence are
---                                  interderivable â” not merely related
+--                                  interderivable â€” not merely related
 --   isoGivesOptimal                Â§3's heading, discharged: an `Iso`
 --                                  between the carriers gives BOTH
 --                                  conjuncts, so the three instances'
@@ -89,7 +89,7 @@ mereEquivalenceGivesTheCount :
   â†’ âˆ¥ X .fst â‰ƒ Y .fst âˆ¥â‚ â†’ card Y â‰¡ card X
 mereEquivalenceGivesTheCount X Y e = sym (cardEquiv X Y e)
 
--- so a lossless scheme plus ANY equivalence of the carriers is optimal â”
+-- so a lossless scheme plus ANY equivalence of the carriers is optimal â€”
 -- and the equivalence supplied need not be the scheme
 losslessPlusAnyEquivalenceIsOptimal :
     (X Y : FinSet â„“-zero) (obs : X .fst â†’ Y .fst)
@@ -98,7 +98,7 @@ losslessPlusAnyEquivalenceIsOptimal X Y obs inj e =
   inj , mereEquivalenceGivesTheCount X Y e
 
 ------------------------------------------------------------------------
--- 3.  "An isomorphism gives an optimal scheme" â” the audited Â§3's
+-- 3.  "An isomorphism gives an optimal scheme" â€” the audited Â§3's
 --     heading, now with the theorem under it
 ------------------------------------------------------------------------
 
@@ -120,8 +120,8 @@ isoGivesOptimalBackwards X Y i =
 ------------------------------------------------------------------------
 -- 4.  The pigeonhole direction, stated as a type
 --
--- The pigeonhole direction â” that the two conjuncts of `Optimal` force
--- `obs` ITSELF to be an equivalence â” is exactly the statement below.
+-- The pigeonhole direction â€” that the two conjuncts of `Optimal` force
+-- `obs` ITSELF to be an equivalence â€” is exactly the statement below.
 ------------------------------------------------------------------------
 
 TheOpenPigeonhole : Typeâ‚

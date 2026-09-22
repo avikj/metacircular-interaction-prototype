@@ -12,10 +12,10 @@
 --
 --   1. CANONICITY OF THE SCALING PASS (§2).  `canonical-scale`:
 --
---        0 < q � Canonical w � Canonical (scale q w c)
+--        0 < q → Canonical w → Canonical (scale q w c)
 --
 --      The positivity hypothesis on the scalar is not decoration and is
---      not weakenable: `scale 0 (fone � []) 0 = fzero � []`, a leading
+--      not weakenable: `scale 0 (fone ∷ []) 0 = fzero ∷ []`, a leading
 --      zero, so canonicity genuinely fails at q = 0.  That is recorded as
 --      a theorem (`scale-zero-not-canonical`) rather than as a remark, so
 --      the hypothesis is known to be the true one and not merely a
@@ -25,42 +25,42 @@
 --      `WalkChartedCap.chartedQuot-pos` -- so nothing is assumed that the
 --      capacity recursion does not already prove.
 --
---      `canonical-capw : (m : �) � Canonical (capw m)` follows at once,
+--      `canonical-capw : (m : ℕ) → Canonical (capw m)` follows at once,
 --      and this is what makes `length (capw m)` a meaningful quantity
 --      rather than the length of an arbitrary representative.
 --
 --   2. THE LENGTH LAW (§3).  One direction is imported:
---      `TransportDivScale.pow�value` proves `b ^ (length w) � value (d � w)`
+--      `TransportDivScale.pow≤value` proves `b ^ (length w) ≤ value (d ∷ w)`
 --      for canonical words and is not reproved here.  The other direction
 --      is proved, and needs no canonicity at all:
 --
---        value<pow : (w : Word) � value w < b ^ (length w)
+--        value<pow : (w : Word) → value w < b ^ (length w)
 --
 --      Together, for a canonical NONEMPTY word,
 --
---        b ^ (length u � 1)  �  value u  <  b ^ (length u) ,
+--        b ^ (length u ∸ 1)  ≤  value u  <  b ^ (length u) ,
 --
 --      which is the statement that `length u` is the base-b logarithm of
 --      `value u` up to the standard off-by-one -- i.e. `length u` is the
 --      LEAST n with `value u < b ^ n`.  That least-ness is proved in both
---      directions (`canonical-length-least`, `pow�value�<length`), so the
+--      directions (`canonical-length-least`, `pow≤value→<length`), so the
 --      bound is an identification and not an upper estimate.
 --
 --      Instantiated at `capw m` through `value-capw`:
 --
 --        capw-length-is-least :
---            (cap m < b ^ n � length (capw m) � n)
---          � (b ^ n � cap m � n < length (capw m))
+--            (cap m < b ^ n → length (capw m) ≤ n)
+--          × (b ^ n ≤ cap m → n < length (capw m))
 --
 --   3. THE COST CONSEQUENCE (§4), stated exactly and no further.  The
 --      per-test automaton cost of `WalkChartedCap` is
 --      `steps (capw m) ≡ suc (length (capw m))`, and
 --
 --        charted-test-cost-log :
---          cap m < b ^ n � steps (capw m) � suc n
+--          cap m < b ^ n → steps (capw m) ≤ suc n
 --
 --      with n = length (capw m) attaining it.  So the per-test cost is
---      `1 + �log_b (cap m)�` up to the off-by-one, against the unary
+--      `1 + ⌈log_b (cap m)⌉` up to the off-by-one, against the unary
 --      test's `usteps (cap m) ≡ suc (cap m)`.  Since `cap m = e^{ψ(m)}`,
 --      the least admissible n is ψ(m)/log b + O(1): the cost is LINEAR IN
 --      ψ(m) where the home presentation's is e^{ψ(m)}.  That last
@@ -125,10 +125,10 @@ module Lengths (k : ℕ) where
   ----------------------------------------------------------------------
   -- 2.  CANONICITY OF THE SCALING PASS.
   --
-  -- `scale` (WalkChartedCap §6a) is one Horner pass with a � carry:
+  -- `scale` (WalkChartedCap §6a) is one Horner pass with a ℕ carry:
   --
   --   scale q []      c = digits c
-  --   scale q (d � w) c = digitOf (q�d+c) � scale q w (quotient (q�d+c) / b)
+  --   scale q (d ∷ w) c = digitOf (q·d+c) ∷ scale q w (quotient (q·d+c) / b)
   --
   -- Canonicity constrains the MOST significant end -- the last cons -- so
   -- the induction has exactly one interesting clause: the word of length
@@ -194,7 +194,7 @@ module Lengths (k : ℕ) where
       (canonical-scale q 0<q (e ∷ w) can (quotient (q · toℕ d + c) / b))
 
   -- q = 0 IS A GENUINE COUNTEREXAMPLE, not a defect of the proof above:
-  -- the pass emits a leading zero (`value (fzero � []) = 0 = value []`,
+  -- the pass emits a leading zero (`value (fzero ∷ []) = 0 = value []`,
   -- and `digits 0 = []`).  So `0 < q` is the true hypothesis.
   scale-zero-not-canonical : ¬ Canonical (scale 0 (fone ∷ []) 0)
   scale-zero-not-canonical = ¬-<-zero
@@ -212,10 +212,10 @@ module Lengths (k : ℕ) where
   ----------------------------------------------------------------------
   -- 3.  THE LENGTH LAW.
   --
-  --   imported : b ^ (length w) � value (d � w)     (canonical words)
+  --   imported : b ^ (length w) ≤ value (d ∷ w)     (canonical words)
   --   proved   : value w < b ^ (length w)           (all words)
   --
-  -- The first is `TransportDivScale.pow�value` and is NOT reproved.
+  -- The first is `TransportDivScale.pow≤value` and is NOT reproved.
   ----------------------------------------------------------------------
 
   ·-mono-l : (c x y : ℕ) → x ≤ y → c · x ≤ c · y
@@ -231,7 +231,7 @@ module Lengths (k : ℕ) where
         (·-mono-l b (suc (value w)) (b ^ (length w)) (value<pow w)))
 
   ----------------------------------------------------------------------
-  -- 3a.  Powers of the base reflect the order.  b � 2 enters only through
+  -- 3a.  Powers of the base reflect the order.  b ≥ 2 enters only through
   --      `pow-pos` and `pow-double`, both imported from
   --      `TransportDivScale`.
   ----------------------------------------------------------------------
@@ -262,7 +262,7 @@ module Lengths (k : ℕ) where
   --
   -- The sandwich, for a canonical nonempty word u:
   --
-  --     b ^ (length u � 1)  �  value u  <  b ^ (length u) .
+  --     b ^ (length u ∸ 1)  ≤  value u  <  b ^ (length u) .
   --
   -- Equivalently: `length u` is the LEAST n with `value u < b ^ n`.  Both
   -- halves are given, because only the upper one would leave
@@ -281,7 +281,7 @@ module Lengths (k : ℕ) where
   canonical-length-least (d ∷ w) can n h =
     pow-reflects-< (length w) n (≤<-trans (pow≤value d w can) h)
 
-  -- �and more than any n that does not: the lower half, which needs no
+  -- …and more than any n that does not: the lower half, which needs no
   -- canonicity, since `value<pow` needs none.
   pow≤value→<length : (u : Word) (n : ℕ) → b ^ n ≤ value u → n < length u
   pow≤value→<length u n h =
@@ -349,7 +349,7 @@ module Lengths (k : ℕ) where
           (suc-≤-suc (capw-length-≤ m n h))
 
   -- THE GAP, in `WalkChartedCap.cost-gap`'s register but now quantified:
-  -- chart cost � n + 1 whenever cap m < b ^ n; home cost = cap m + 1.
+  -- chart cost ≤ n + 1 whenever cap m < b ^ n; home cost = cap m + 1.
   -- With cap m = e^{ψ(m)} the least such n is ψ(m)/log b + O(1), so the
   -- left column is LINEAR IN ψ(m) and the right one is e^{ψ(m)}.
   charted-vs-unary : (m n : ℕ) → cap m < b ^ n
@@ -405,14 +405,14 @@ unary-cost-8 = refl
 --      below 10³, so the test costs at most four transitions -- which is
 --      `steps-capw-8` above, so the bound is met and not merely obeyed.
 --      (Named, not inlined: `TransportDivScale` §4 records that inlining
---      a �-witness sends the elaborator symbolic and exhausts the heap.)
+--      a ≤-witness sends the elaborator symbolic and exhausts the heap.)
 gap-8 : cap 8 < 10 ^ 3
 gap-8 = 159 , refl
 
 cost-bound-8 : steps (capw 8) ≤ 4
 cost-bound-8 = charted-test-cost-log 8 3 gap-8
 
--- and the matching lower half: 10² � 840, so no shorter word represents
+-- and the matching lower half: 10² ≤ 840, so no shorter word represents
 -- the capacity -- three digits is the digit count, not an upper estimate.
 low-8 : 10 ^ 2 ≤ cap 8
 low-8 = 740 , refl

@@ -1,6 +1,6 @@
 # The repo's lossless presentation lemma, in Bend2's fragment.
 #
-# Agda (cubical):  lossless : A ≃  B (fiber f),  a  (f a , a , refl)
+# Agda (cubical):  lossless : A ≃ Σ B (fiber f),  a ↦ (f a , a , refl)
 # This file is the Eql + Sigma (pre-cubical) version: the section-retraction
 # half and the visible-projection law.  The full coherent statement — the
 # equivalence itself, its ua path, and transport along it — is fibrelaw.bend.
@@ -37,7 +37,7 @@ def main() -> Nat:
   0n
 
 # section: encode(decode(p)) == p, by eliminating the witness (J).
-# In cubical Agda this is  λ i → p i , a , λ j  p (i ∧ j).
+# In cubical Agda this is  λ i → p i , a , λ j → p (i ∧ j).
 def lossless_section(A: Set, B: Set, f: A -> B, p: Pres(A, B, f)) -> Pres(A, B, f){encode(A, B, f, decode(A, B, f, p)) == p}:
   match p:
     case (b, a, e):

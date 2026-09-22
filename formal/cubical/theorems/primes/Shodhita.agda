@@ -1,8 +1,8 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 module Shodhita where
--- ������: the Mertens walk rebuilt on the certified factorization.
+-- शोधित: the Mertens walk rebuilt on the certified factorization.
 -- μ read off factor n; every branch a Dec object; the Mertens gate
--- |M(k)|² � k checked at every k on the certified μ.
+-- |M(k)|² ≤ k checked at every k on the certified μ.
 
 open import Prakriti
 open import Vibhajana using (Prati; product; factor)
@@ -53,7 +53,7 @@ parity (suc n) with parity n
 ... | yes _ = 0
 ... | no  _ = parity (length (fst (factor n 1≤n)))
 
--- mertens walk on the certified μ, �-gate held at every step
+-- mertens walk on the certified μ, √-gate held at every step
 leB : ℕ → ℕ → Bool
 leB a b with a ≟ suc b
 ... | lt _ = true

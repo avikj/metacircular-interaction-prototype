@@ -4,13 +4,13 @@
 -- AFoolingPairForcesTwoRectangles
 --
 -- `formal/cubical/DSOCutCalibration.agda` establishes, for one concrete
--- 4—2 Boolean cut matrix, that r_e = 2 < d_e = 3 < 4 = raw, and it
--- obtains the lower bound r_e â‰ 2 by an argument its header states
+-- 4Ã—2 Boolean cut matrix, that r_e = 2 < d_e = 3 < 4 = raw, and it
+-- obtains the lower bound r_e â‰¥ 2 by an argument its header states
 -- explicitly and calls out as an argument rather than an enumeration:
 --
 --   "NO single sound rectangle covers both diagonal 1-entries (fooling
---    pair râ,râ), so r_e â‰ 2 â” proved, not enumerated: a rectangle
---    through (râ,câ) and (râ,câ) must contain (râ,câ), where the matrix
+--    pair râ‚,râ‚‚), so r_e â‰¥ 2 â€” proved, not enumerated: a rectangle
+--    through (râ‚,câ‚) and (râ‚‚,câ‚‚) must contain (râ‚,câ‚‚), where the matrix
 --    is 0."
 --
 -- That argument uses nothing about the matrix, its size, or its
@@ -44,9 +44,9 @@ module _ (Row Col : Type) (M : Row â†’ Col â†’ Bool) where
   --------------------------------------------------------------------
   -- 2.  A fooling pair cannot lie in one sound rectangle
   --
-  -- The whole argument: a rectangle containing (râ,câ) and (râ,câ)
-  -- contains (râ,câ) â” rectangles are closed under exchanging the row
-  -- and column of two of their cells â” and there the matrix is 0.
+  -- The whole argument: a rectangle containing (râ‚,câ‚) and (râ‚‚,câ‚‚)
+  -- contains (râ‚,câ‚‚) â€” rectangles are closed under exchanging the row
+  -- and column of two of their cells â€” and there the matrix is 0.
   --------------------------------------------------------------------
 
   foolingPairNotInOneRectangle :
@@ -72,13 +72,13 @@ module _ (Row Col : Type) (M : Row â†’ Col â†’ Bool) where
 -- 3.  The reading
 --
 -- The calibration's lower bound is carrier-free.  What its instance
--- supplies is the three cells â” two 1-entries and one 0 at the exchanged
--- corner â” and Â§2 shows those three are the entire hypothesis: no
+-- supplies is the three cells â€” two 1-entries and one 0 at the exchanged
+-- corner â€” and Â§2 shows those three are the entire hypothesis: no
 -- appeal to the matrix's size, to its other entries, or to how the cut
 -- arose.
 --
 -- Note which of the two 1-entries Â§2 actually uses: NEITHER.  The proof
--- needs only `R râ`, `C câ` and the 0 at (râ,câ); the two 1-entries are
+-- needs only `R râ‚`, `C câ‚‚` and the 0 at (râ‚,câ‚‚); the two 1-entries are
 -- what make the pair worth choosing, not what makes the argument run.
 -- `foolingPairFromTwoOnesAndAZero` keeps them in the statement because
 -- that is how the method is used, and discards them in the proof, which
@@ -89,15 +89,15 @@ module _ (Row Col : Type) (M : Row â†’ Col â†’ Bool) where
 -- The generalisation to a fooling SET is in
 -- `AFoolingSetForcesDistinctRectangles`:
 --
---   Fooling I r c = (i j) â’ Â (i â‰¡ j)
---     â’ (M (r i) (c j) â‰¡ false) âŠ (M (r j) (c i) â‰¡ false)
+--   Fooling I r c = (i j) â†’ Â¬ (i â‰¡ j)
+--     â†’ (M (r i) (c j) â‰¡ false) âŠŽ (M (r j) (c i) â‰¡ false)
 --
 --   foolingSetForcesDistinctRectangles :
---     Fooling I r c â’ (assign : I â’ Rect) â’ ((i) â’ Sound (assign i))
---     â’ ((i) â’ Covers (assign i) (r i) (c i))
---     â’ (i j) â’ Â (i â‰¡ j) â’ Â (assign i â‰¡ assign j)
+--     Fooling I r c â†’ (assign : I â†’ Rect) â†’ ((i) â†’ Sound (assign i))
+--     â†’ ((i) â†’ Covers (assign i) (r i) (c i))
+--     â†’ (i j) â†’ Â¬ (i â‰¡ j) â†’ Â¬ (assign i â‰¡ assign j)
 --
 -- The generalisation costs exactly one thing: for a SET, which exchanged
--- corner carries the 0 may differ per pair, so the hypothesis is a `âŠ`
+-- corner carries the 0 may differ per pair, so the hypothesis is a `âŠŽ`
 -- and both cases are done.
 ------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- �����-��������� � the kernel theorem, whole.
+-- पूर्ण-सिद्धान्त — the kernel theorem, whole.
 --
 -- For every braid word w:
 --
@@ -12,8 +12,8 @@
 --
 -- Both directions, by assembly of the lemmas:
 --
---   NECESSITY.  Triviality at the constant rope � which is blind to
---   the swap word entirely � already pins the twist word (the mod-four
+--   NECESSITY.  Triviality at the constant rope — which is blind to
+--   the swap word entirely — already pins the twist word (the mod-four
 --   theorem's one-rope detection); with the twist word then trivial
 --   everywhere, the normal form transfers triviality to the swap word
 --   on every rope.
@@ -52,7 +52,7 @@ open import CihnaRajju_TheConstantRopeIsBlindToSwapsTheMarkedRopeSeesEachOneSoTh
   using (svap-andha)
 
 ------------------------------------------------------------------------
--- � � The constant rope is blind to whole swap words.
+-- १ · The constant rope is blind to whole swap words.
 ------------------------------------------------------------------------
 
 svap-gaṇa-andha : (w : List ℕ) → svap-gaṇa w sthira ≡ sthira
@@ -61,7 +61,7 @@ svap-gaṇa-andha (i ∷ w) =
   cong (svap-gaṇa w) (svap-andha i) ∙ svap-gaṇa-andha w
 
 ------------------------------------------------------------------------
--- � � Necessity: triviality forces both coordinates.
+-- २ · Necessity: triviality forces both coordinates.
 ------------------------------------------------------------------------
 
 module _ (w : List ℕ) (h : (s : Rajju) → vēṇī-gaṇa w s ≡ s) where
@@ -85,7 +85,7 @@ module _ (w : List ℕ) (h : (s : Rajju) → vēṇī-gaṇa w s ≡ s) where
     ∙ h s
 
 ------------------------------------------------------------------------
--- � � Sufficiency, and the theorem whole.
+-- ३ · Sufficiency, and the theorem whole.
 ------------------------------------------------------------------------
 
 paryāpti : (w : List ℕ)

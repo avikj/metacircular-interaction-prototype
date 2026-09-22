@@ -1,14 +1,14 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¦ààµà¯à®à â” à¯ààà° à•à¿àààà¿àà à¨àààŸà àààà° à¦ààµà¯à à—ààà®à à
+-- à¤¦à¥à¤µà¤¯à¤®à¥ â€” à¤¯à¤¤à¥à¤° à¤•à¤¿à¤à¥à¤šà¤¿à¤¤à¥ à¤¨à¤·à¥à¤Ÿà¤‚ à¤¤à¤¤à¥à¤° à¤¦à¥à¤µà¤¯à¤‚ à¤—à¥‚à¤¢à¤®à¥ à¥¤
 --
 -- (wherever anything is lost, a two is hidden.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- README movement 34 says every wall this corpus hit is the same size,
--- â/2, because "â/2 is the smallest possible fibre â” the minimal hiding
--- â” so the first obstruction any observation meets is a bit."  That is
+-- â„¤/2, because "â„¤/2 is the smallest possible fibre â€” the minimal hiding
+-- â€” so the first obstruction any observation meets is a bit."  That is
 -- stated there as a pattern over instances.  Here it is as a theorem, and
 -- it is not about any of those instances:
 --
@@ -20,18 +20,18 @@
 -- anything at all, a two is sitting inside the fibre, and every larger
 -- loss contains this one.
 --
--- WHICH IS WHY THE FIRST VEIL IS ALWAYS BINARY â” not as a coincidence
--- across the sieve's parity, the determinant's mod-2 residue, the odd HÂ
+-- WHICH IS WHY THE FIRST VEIL IS ALWAYS BINARY â€” not as a coincidence
+-- across the sieve's parity, the determinant's mod-2 residue, the odd HÂ¹
 -- class and the rest, but because a bit is the floor and everything else
 -- is above it.  Movement 34's list is a list of things that hit the
 -- floor.
 --
--- RELATION TO `Parampara_â¦agda`.
--- That module constructs `Bool â’ fiber â¦`
+-- RELATION TO `Parampara_â€¦agda`.
+-- That module constructs `Bool â†’ fiber â€¦`
 -- SPECIFIC to a concrete three-chain, as one half of an iso computing
--- particular fibres.  This is the general statement â” any `f`, any pair it
--- confuses â” and neither subsumes the other: Parampara computes fibres,
--- this one says every nontrivial fibre contains a two.  Its Â§à counting
+-- particular fibres.  This is the general statement â€” any `f`, any pair it
+-- confuses â€” and neither subsumes the other: Parampara computes fibres,
+-- this one says every nontrivial fibre contains a two.  Its Â§à¥¬ counting
 -- and this floor are the same fact at two altitudes.
 ------------------------------------------------------------------------
 
@@ -51,7 +51,7 @@ module _ {A B : Type â„“} (f : A â†’ B) {a a' : A}
          where
 
 ------------------------------------------------------------------------
--- à§ Â à¦ààµà¿-à¨àà¯à¾àà â” the two points, placed in one fibre.
+-- à¥§ Â· à¤¦à¥à¤µà¤¿-à¤¨à¥à¤¯à¤¾à¤¸à¤ƒ â€” the two points, placed in one fibre.
 ------------------------------------------------------------------------
 
   à¤¦à¥à¤µà¤¿-à¤¨à¥à¤¯à¤¾à¤¸à¤ƒ : Bool â†’ fiber f (f a)
@@ -59,7 +59,7 @@ module _ {A B : Type â„“} (f : A â†’ B) {a a' : A}
   à¤¦à¥à¤µà¤¿-à¤¨à¥à¤¯à¤¾à¤¸à¤ƒ false = a' , sym à¤¸à¤™à¥à¤•à¤°à¤ƒ
 
 ------------------------------------------------------------------------
--- à¨ Â à¨àà¯à¾àà à¨à¿àµààà â” and the placement is injective, so the fibre
+-- à¥¨ Â· à¤¨à¥à¤¯à¤¾à¤¸à¤ƒ à¤¨à¤¿à¤µà¥‡à¤¶à¤ƒ â€” and the placement is injective, so the fibre
 --     genuinely contains a two.  There is no losing less than a bit.
 ------------------------------------------------------------------------
 

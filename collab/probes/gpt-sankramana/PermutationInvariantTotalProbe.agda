@@ -9,11 +9,11 @@
 --   formal/cubical/
 --   KramaNairapeksya_TheTotalIsIndifferentToTheEnumerationSpendingOnlyAssocAndComm.agda
 --
--- It proves for every `e : Fin (suc n) � Fin (suc n)`:
+-- It proves for every `e : Fin (suc n) ≃ Fin (suc n)`:
 --
 --   total n (w ∘ equivFun e) ≡ total n w
 --
--- spending associativity and commutativity only�no zero and no unit.
+-- spending associativity and commutativity only—no zero and no unit.
 ------------------------------------------------------------------------
 
 module PermutationInvariantTotalProbe where

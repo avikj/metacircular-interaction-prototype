@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ������ / ��������� � Samantabhadra, ptamms (c. 2nd�5th c. CE):
+-- स्यात् / सकलादेशः — Samantabhadra, Āptamīmāṃsā (c. 2nd–5th c. CE):
 -- syt does not weaken an assertion; it completes it.  Akalaka
 -- (Rjavrtika, Laghyastraya) carries the distinction: sakaldea,
 -- the complete utterance that holds absolutely because its standpoint
@@ -9,22 +9,22 @@
 -- that is true only from a standpoint left outside it.  The
 -- classification is theirs.  School named: Jaina.
 --
---     (� : � � �) � � k ≡ n � eval l � ≡ eval r �
+--     (ρ : ℕ → ℕ) → ρ k ≡ n → eval l ρ ≡ eval r ρ
 --
--- � true absolutely, quantified over ALL environments, its stage
+-- — true absolutely, quantified over ALL environments, its stage
 -- carried as a path condition.  Stated so, it travels into any nested
 -- descent with no machinery at all, and the strengthened ascent is
 -- three lines.
 --
 -- THE THEOREM THAT NEEDED IT: commutativity of the machine's own
--- maximum.  mx� is the machine's clause order (x∨0=x, 0∨y=y,
--- sx∨sy=s(x∨y)) � the substrate carries no lemma for it, and both
+-- maximum.  mxℕ is the machine's clause order (x∨0=x, 0∨y=y,
+-- sx∨sy=s(x∨y)) — the substrate carries no lemma for it, and both
 -- internal provers are silent on it by refl below: the flat voice
 -- (norm leaves mx(x,y) stuck) and the automatic single-variable
 -- ascent (its step needs the hypothesis at environments the pointwise
 -- form cannot reach).  Under the completed-standpoint ascent it
 -- closes: the outer hypothesis, being sakaldea, is invoked inside
--- the inner case-split at a freshly built environment � and the
+-- the inner case-split at a freshly built environment — and the
 -- result enters the store through the same gate as everything else.
 ------------------------------------------------------------------------
 
@@ -60,7 +60,7 @@ open import NaturalMachine.SvarthaAnumana_TheMachineInfersForItselfAndThePervasi
   क्यू (suc n) = step n (क्यू n)
 
 ------------------------------------------------------------------------
--- §2  Both existing provers are silent on the machine's own maximum �
+-- §2  Both existing provers are silent on the machine's own maximum —
 --     by refl, not by report.
 ------------------------------------------------------------------------
 
@@ -74,7 +74,7 @@ open import NaturalMachine.SvarthaAnumana_TheMachineInfersForItselfAndThePervasi
 ------------------------------------------------------------------------
 -- §3  The double descent closes.  Outer ascent on x with the
 --     completed hypothesis; inner case-split on y, invoking the outer
---     hypothesis � sakaldea � at a freshly built environment.
+--     hypothesis — sakalādeśa — at a freshly built environment.
 ------------------------------------------------------------------------
 
 शून्य-ज्येष्ठम् : (y : ℕ) → mxℕ zero y ≡ y
@@ -106,7 +106,7 @@ open import NaturalMachine.SvarthaAnumana_TheMachineInfersForItselfAndThePervasi
       ∙ cong suc (ih (उपस्थापनम् (उपस्थापनम् ρ 0 n) 1 m) refl)
       ∙ sym (cong₂ mxℕ q p)
 
--- and the same gate admits it � the machine's own theorem about its
+-- and the same gate admits it — the machine's own theorem about its
 -- own maximum, reachable by neither prior voice, now a store value.
 ज्येष्ठ-नियमः : नियमः
 ज्येष्ठ-नियमः = niyama (mx (var 0) (var 1)) (mx (var 1) (var 0)) ज्येष्ठ-समता

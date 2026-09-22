@@ -3,42 +3,42 @@
 ------------------------------------------------------------------------
 -- WitnessNumberIsInvariant
 --
--- The à²à¾à˜àµ question asks for a measure on presentations stable
--- under àà¨ààµààààà¿ / ààà°ààà¯à¾àà¾à° / àààµà¾à¦.  `Laghava` answered the question
+-- The à¤²à¤¾à¤˜à¤µ question asks for a measure on presentations stable
+-- under à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿ / à¤ªà¥à¤°à¤¤à¥à¤¯à¤¾à¤¹à¤¾à¤° / à¤…à¤ªà¤µà¤¾à¤¦.  `Laghava` answered the question
 -- it was asked and the answer was no:
 --
 --     laghava-is-not-semantic :
---       Â Î[ f âˆˆ (Denotation â’ â•) ] ((e : Expr) â’ f (eval e) â‰¡ size e)
+--       Â¬ Î£[ f âˆˆ (Denotation â†’ â„•) ] ((e : Expr) â†’ f (eval e) â‰¡ size e)
 --
 -- size lives on the presentation, and univalence discards presentations.
 --
 -- This module records a measure
 -- that DOES survive, and says exactly why the two differ.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE MEASURE
 --
 -- `WitnessNumberIsTwo` fixes it: an absence is measured by the least
 -- list of points on which no decoder survives.  Unlike `size`, that
--- quantity is not read off a syntax â” it is a property of the pair
+-- quantity is not read off a syntax â€” it is a property of the pair
 -- (decoder space, law).  So:
 --
 --   Â§1  it is a `subst` away from being transported along ANY path of
 --       decoder systems, hence a univalent invariant by construction;
 --   Â§3  it is PRESERVED by every reindexing of the decoder space, with
 --       no hypothesis at all;
---   Â§4  and REFLECTED by surjective ones â” so it depends only on the
+--   Â§4  and REFLECTED by surjective ones â€” so it depends only on the
 --       image, which is the precise sense in which it is not a
 --       presentation-level quantity.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHY LAGHAVA FAILS AND THIS DOES NOT
 --
 -- Both are "sizes".  The difference is the direction of the quantifier.
 --
 --   size    is a function OUT OF the presentation.  Two presentations
 --           with one denotation get two values, so no function on
---           denotations reproduces it â” `Laghava.laghava-collision` is
+--           denotations reproduces it â€” `Laghava.laghava-collision` is
 --           the pair, and it is a collision in the sense of Â§4 of
 --           `WitnessNumberIsTwo`.
 --
@@ -46,12 +46,12 @@
 --           reindexing feeds the same laws to the same points, so the
 --           value cannot move.
 --
--- A measure defined by âˆ over a space is invariant under maps into that
+-- A measure defined by âˆ€ over a space is invariant under maps into that
 -- space; a measure defined by a function out of a space is not.  That is
--- the whole content, and it is why the à²à¾à˜àµ answer was no and this one
+-- the whole content, and it is why the à¤²à¤¾à¤˜à¤µ answer was no and this one
 -- is yes without either being surprising once stated.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 ------------------------------------------------------------------------
 
 module WitnessNumberIsInvariant where
@@ -125,7 +125,7 @@ refutes-reindex :
 refutes-reindex f law xs ref d' h = ref (f d') (allHold-out f law d' xs h)
 
 ------------------------------------------------------------------------
--- 4.  REFLECTED by surjective ones â” it depends only on the image
+-- 4.  REFLECTED by surjective ones â€” it depends only on the image
 ------------------------------------------------------------------------
 
 refutes-reflect :
@@ -163,11 +163,11 @@ refutes-â‰ƒ-back e law xs = refutes-reflect (equivFun e) (equivâ†’surj e) law xs
 -- 6.  The contrast, side by side.
 --
 --   Laghava.laghava-is-not-semantic
---       Â Î[ f âˆˆ (Denotation â’ â•) ] ((e : Expr) â’ f (eval e) â‰¡ size e)
+--       Â¬ Î£[ f âˆˆ (Denotation â†’ â„•) ] ((e : Expr) â†’ f (eval e) â‰¡ size e)
 --   here Â§3, Â§4
 --       Refutes law xs is preserved by every reindexing of the decoder
 --       space and reflected by every surjection onto it
 --
--- A measure defined by âˆ over a space is invariant under maps into that
+-- A measure defined by âˆ€ over a space is invariant under maps into that
 -- space.  A measure defined by a function out of a space is not.
 ------------------------------------------------------------------------

@@ -45,7 +45,7 @@ open import Cubical.Data.Empty as Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 
 ------------------------------------------------------------------------
--- Fin by recursion on �: unindexed, so every pattern match below is a
+-- Fin by recursion on ℕ: unindexed, so every pattern match below is a
 -- plain match on Maybe and Cubical Agda supports all of them.
 
 Fin : ℕ → Type₀
@@ -66,7 +66,7 @@ toℕ-inj {suc n} (fs x) fz     p = Empty.rec (snotz p)
 toℕ-inj {suc n} (fs x) (fs y) p = cong just (toℕ-inj x y (injSuc p))
 
 ------------------------------------------------------------------------
--- Boolean equality on �, sound and complete � the reflection engine.
+-- Boolean equality on ℕ, sound and complete — the reflection engine.
 
 eqℕ : ℕ → ℕ → Bool
 eqℕ zero    zero    = true
@@ -129,7 +129,7 @@ allFin-elim {suc n} f p (fs x) =
 
 ------------------------------------------------------------------------
 -- The two views.  Residues are computed by iterating the cyclic
--- successor of �/4 and �/6 � an exact mod, no division needed.
+-- successor of ℤ/4 and ℤ/6 — an exact mod, no division needed.
 
 cyc4 : Fin 4 → Fin 4
 cyc4 fz                = fs fz
@@ -153,7 +153,7 @@ res6 : ℕ → Fin 6          -- res6 k = k mod 6
 res6 zero    = fz
 res6 (suc k) = cyc6 (res6 k)
 
--- The two readings of a point of �/24 (24 = m�n, the ambient cycle on
+-- The two readings of a point of ℤ/24 (24 = m·n, the ambient cycle on
 -- which the non-coprime story is honest: 24 ≠ lcm(4,6)).
 r4 : Fin 24 → Fin 4
 r4 x = res4 (toℕ x)
@@ -161,7 +161,7 @@ r4 x = res4 (toℕ x)
 r6 : Fin 24 → Fin 6
 r6 x = res6 (toℕ x)
 
--- Restriction of each view to the overlap �/gcd(4,6) = �/2.
+-- Restriction of each view to the overlap ℤ/gcd(4,6) = ℤ/2.
 π₄₂ : Fin 4 → Fin 2
 π₄₂ fz                = fz
 π₄₂ (fs fz)           = fs fz
@@ -194,7 +194,7 @@ compatibility x =
 
 ------------------------------------------------------------------------
 -- (b) HIDDEN FIBER: the joint reading identifies 0 and 12, which are
--- distinct in �/24.  Agreement of all views is not reconstruction �
+-- distinct in ℤ/24.  Agreement of all views is not reconstruction —
 -- the kernel (multiples of lcm = 12) has 24/12 = 2 elements.
 
 jointReading : Fin 24 → Fin 4 × Fin 6
@@ -212,14 +212,14 @@ collision = refl
 zero≢twelve : ¬ zero24 ≡ twelve24
 zero≢twelve p = znots (cong toℕ p)
 
--- The two facts packaged: a genuine failure of injectivity on �/24.
+-- The two facts packaged: a genuine failure of injectivity on ℤ/24.
 hiddenFiber : Σ (Fin 24 × Fin 24)
                 (λ p → (jointReading (fst p) ≡ jointReading (snd p))
                      × (¬ fst p ≡ snd p))
 hiddenFiber = (zero24 , twelve24) , collision , zero≢twelve
 
 ------------------------------------------------------------------------
--- (c) EXACT RECONSTRUCTION AT THE LCM: on �/12 the joint reading is
+-- (c) EXACT RECONSTRUCTION AT THE LCM: on ℤ/12 the joint reading is
 -- injective.  144 implications, swept by one refl, reflected into an
 -- injectivity proof.  Together with (b): the pair of views determines
 -- a point exactly modulo lcm(4,6) = 12, and not one step further.

@@ -1,25 +1,25 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡∞‡æ‡Æ‡æ‡®‡‡‡®‡, ‡â‡‡‡‡‡æ‡‡ï ‚î 120 IS HIGHLY COMPOSITE, AND THE MEMOIR'S
+-- ‡§∞‡§æ‡§Æ‡§æ‡§®‡•Å‡§ú‡§®‡•ç, ‡§â‡§ö‡•ç‡§ö‡§≠‡§æ‡§ú‡§ï ‚Äî 120 IS HIGHLY COMPOSITE, AND THE MEMOIR'S
 -- COLUMN CHECKS.
 --
--- Ramanujan's 1915 memoir "Highly Composite Numbers" ‚î the paper so
--- long the London Mathematical Society trimmed it ‚î opens with the
+-- Ramanujan's 1915 memoir "Highly Composite Numbers" ‚Äî the paper so
+-- long the London Mathematical Society trimmed it ‚Äî opens with the
 -- numbers whose divisor count beats every predecessor.  This file
 -- proves the property, not instances of belief:
 --
 --   The divisor counter DEFINES itself: dCount m sums, over
 --   k = 1..m, an indicator that holds exactly when a multiplication
---   witness q with q¬k ‚â° m exists ‚î found by scan, carried as a
+--   witness q with q¬∑k ‚â° m exists ‚Äî found by scan, carried as a
 --   witness, never a boolean.  There is no separate specification to
 --   trust: the function IS "the number of divisors".
 --
---   `the-memoir's-column` ‚î Ramanujan's first ten highly composite
+--   `the-memoir's-column` ‚Äî Ramanujan's first ten highly composite
 --   numbers 1, 2, 4, 6, 12, 24, 36, 48, 60, 120 carry divisor counts
 --   1, 2, 3, 4, 6, 8, 9, 10, 12, 16: ten refls.
 --
---   `highly-composite-120` ‚î THE THEOREM: every m < 120 has
+--   `highly-composite-120` ‚Äî THE THEOREM: every m < 120 has
 --   dCount m < dCount 120.  The kernel scans all 120 predecessors,
 --   counting the divisors of each by its own definition, in one refl;
 --   the soundness lemmas of the taxicab engine convert the scan.
@@ -50,7 +50,7 @@ open import Ramanujan1729_TheTaxicabNumberBothRepresentationsByReflAndMinimality
 -- ¬ß1  The divisor counter, self-defining.
 ------------------------------------------------------------------------
 
--- Search for the cofactor, witness in hand: q with q ¬ k ‚â° m, q ‚â b.
+-- Search for the cofactor, witness in hand: q with q ¬∑ k ‚â° m, q ‚â§ b.
 find-q : (b k m : ‚Ñï) ‚Üí Maybe (Œ£ ‚Ñï (Œª q ‚Üí q ¬∑ k ‚â° m))
 find-q zero    k m = map-Maybe (Œª p ‚Üí zero , p) (eq? zero m)
 find-q (suc b) k m =

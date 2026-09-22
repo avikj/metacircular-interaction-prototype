@@ -6,21 +6,21 @@
 -- The cyclic method's step, as a checked term.
 --
 -- `Bhavana.agda` has the composition law and the two divisibility
--- conversions; this file supplies the STEP â” the thing that makes
--- the method cyclic â” and nothing more.
+-- conversions; this file supplies the STEP â€” the thing that makes
+-- the method cyclic â€” and nothing more.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- PROVENANCE
 --
 -- Jayadeva, c. 950 CE, reported by Udayadivkara in the *Sundar*
 -- (11th c.); Bhskara II, *Bjagaita*, 1150 CE, where it is worked in
 -- full and applied to D = 61 and D = 67.  It solves xÂ² âˆ’ D yÂ² = 1 for
 -- every non-square D, in a handful of cycles, six centuries before
--- Brouncker and Lagrange.  Euler's attribution of the equation to Pell â”
--- who never worked on it â” is later still and is the name it is taught
+-- Brouncker and Lagrange.  Euler's attribution of the equation to Pell â€”
+-- who never worked on it â€” is later still and is the name it is taught
 -- under.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE STEP
 --
 -- A state is a triple (a, b, k) with aÂ² âˆ’ D bÂ² = k.  Given m with
@@ -29,23 +29,23 @@
 --     a' = (a m + D b)/k,   b' = (a + b m)/k,   k' = (mÂ² âˆ’ D)/k.
 --
 -- `cakravala-step` below proves the state condition is preserved, in
--- CLEARED form â” no division anywhere in the statement:
+-- CLEARED form â€” no division anywhere in the statement:
 --
---     kÂa' = am + Db,  kÂb' = a + bm,  kÂk' = mÂ² âˆ’ D
---        âŸ  (kÂk)Â(a'Â² âˆ’ D b'Â²)  â‰¡  (kÂk)Âk'
+--     kÂ·a' = am + Db,  kÂ·b' = a + bm,  kÂ·k' = mÂ² âˆ’ D
+--        âŸ¹  (kÂ·k)Â·(a'Â² âˆ’ D b'Â²)  â‰¡  (kÂ·k)Â·k'
 --
 -- One solver identity does the work:
 --
 --     (am + Db)Â² âˆ’ D(a + bm)Â²  â‰¡  (aÂ² âˆ’ DbÂ²)(mÂ² âˆ’ D)
 --
 -- which is Brahmagupta's composition specialised to the trivial triple
--- (m, 1, mÂ² âˆ’ D) â” the one instance the cakravla actually uses.
+-- (m, 1, mÂ² âˆ’ D) â€” the one instance the cakravÄla actually uses.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THE CLEARED FORM SAYS
 --
--- The identity is unconditional.  The DESCENT â” concluding a'Â² âˆ’ Db'Â² = k'
--- from the cleared form â” needs cancelling kÂ², i.e. k invertible or the
+-- The identity is unconditional.  The DESCENT â€” concluding a'Â² âˆ’ Db'Â² = k'
+-- from the cleared form â€” needs cancelling kÂ², i.e. k invertible or the
 -- ring cancellative.  That is precisely what
 -- `DescentIsNotInversion` found and `DescentCostsTheIntegers` priced:
 -- the cakravla's descent is division by a scalar, not inversion in the
@@ -120,13 +120,13 @@ module Cycle (R : CommRing â„“) where
 -- A CYCLE, RUN.  Bhskara's own example, D = 61, first step.
 --
 --   start   (a,b,k) = (8, 1, 3)        64 âˆ’ 61 = 3
---   choose  m = 7                      3 | 8 + 1Â7 = 15,  mÂ² âˆ’ D = âˆ’12
---   then    a' = (8Â7 + 61)/3 = 39,  b' = 15/3 = 5,  k' = âˆ’12/3 = âˆ’4
---   check   39Â² âˆ’ 61Â5Â² = 1521 âˆ’ 1525 = âˆ’4
+--   choose  m = 7                      3 | 8 + 1Â·7 = 15,  mÂ² âˆ’ D = âˆ’12
+--   then    a' = (8Â·7 + 61)/3 = 39,  b' = 15/3 = 5,  k' = âˆ’12/3 = âˆ’4
+--   check   39Â² âˆ’ 61Â·5Â² = 1521 âˆ’ 1525 = âˆ’4
 --
 -- The state condition is preserved, and note that |k| RISES here, 3 to 4.
 -- The cyclic method does not descend monotonically in |k|; that is why it
--- needs Bhskaraâ™s choice rule (m = 7 minimises |mÂ² âˆ’ 61| = 12 among the
+-- needs BhÄskaraâ€™s choice rule (m = 7 minimises |mÂ² âˆ’ 61| = 12 among the
 -- m with 3 | 8 + m) and why termination is not the algebra.  Both states
 -- are checked below by `refl`.
 ------------------------------------------------------------------------

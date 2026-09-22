@@ -3,33 +3,33 @@
 ------------------------------------------------------------------------
 -- KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition
 --
--- à•àà°à® / àà (à¯àà—àà¦à) â” krama, in sequence; saha or yugapad, at once.
+-- à¤•à¥à¤°à¤® / à¤¸à¤¹ (à¤¯à¥à¤—à¤ªà¤¦à¥) â€” krama, in sequence; saha or yugapad, at once.
 -- The distinction is the Jaina one, from the saptabhag literature
 -- (Umsvti, *Tattvrthastra*; Samantabhadra; Akalaka; Siddhasena
 -- Divkara), and in this repository it is `Saptabhangi` /
 -- `SaptabhangiNaya`, which prove the theorem being used here as a lens:
 --
---   ààà¯à¾àà-ààààà¿-à¨à¾àààà¿ â‰ ààà¯à¾àà-ààµà•àààµàà¯à®à
+--   à¤¸à¥à¤¯à¤¾à¤¤à¥-à¤…à¤¸à¥à¤¤à¤¿-à¤¨à¤¾à¤¸à¥à¤¤à¤¿ â‰¢ à¤¸à¥à¤¯à¤¾à¤¤à¥-à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯à¤®à¥
 --
 -- sequential assertion of asti and nsti is NOT the simultaneous
 -- position; avaktavya is a fourth, irreducibly distinct bhaga.
 -- Here it is turned on this module's own objects.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE FINDING.
 --
 -- The "fourth corner" is, by its definition,
 --
---   (Â àà¾à®à¯à¿à• (one Q)) — (Â à¨à¿ààà¯ (one Q))
+--   (Â¬ à¤¸à¤¾à¤®à¤¯à¤¿à¤• (one Q)) Ã— (Â¬ à¤¨à¤¿à¤¤à¥à¤¯ (one Q))
 --
 -- a PRODUCT of two negations.  Three things are checked below:
 --
---   1. the two conjuncts are INDEPENDENT â” each is satisfiable while
+--   1. the two conjuncts are INDEPENDENT â€” each is satisfiable while
 --      the other fails, so the pair is genuinely "one, and also the
 --      other", which is krama;
 --   2. **the simultaneous denial collapses to the sequential pair**:
---      `Â (A âŠ B) â’ (Â A) — (Â B)` and back, constructively, with no
---      hypothesis â” so in this formalism "denying both at once" IS
+--      `Â¬ (A âŠ B) â†’ (Â¬ A) Ã— (Â¬ B)` and back, constructively, with no
+--      hypothesis â€” so in this formalism "denying both at once" IS
 --      "denying one and denying the other", and there is no room
 --      between them;
 --   3. hence denying both at once, in this formalism, is exactly the
@@ -38,9 +38,9 @@
 --
 -- By `Saptabhangi`'s theorem
 -- the fourth bhaga is exactly what a sequential
--- position is not â” and this corner is a product, which is sequential.
+-- position is not â€” and this corner is a product, which is sequential.
 -- The corner sits at the THIRD bhaga,
--- ààà¯à¾àà-ààààà¿-à¨à¾àààà¿, the krama position.
+-- à¤¸à¥à¤¯à¤¾à¤¤à¥-à¤…à¤¸à¥à¤¤à¤¿-à¤¨à¤¾à¤¸à¥à¤¤à¤¿, the krama position.
 --
 ------------------------------------------------------------------------
 
@@ -69,7 +69,7 @@ kramaToSaha (na , nb) (inl a) = na a
 kramaToSaha (na , nb) (inr b) = nb b
 
 ------------------------------------------------------------------------
--- 2.  â¦and the corner is exactly that collapse, at these objects
+-- 2.  â€¦and the corner is exactly that collapse, at these objects
 ------------------------------------------------------------------------
 
 Corner : {R : Type} â†’ (R â†’ Type) â†’ Type
@@ -84,8 +84,8 @@ cornerIsDenyingBothAtOnce Q = sahaToKrama , kramaToSaha
 ------------------------------------------------------------------------
 -- 3.  The two conjuncts are independent
 --
--- `Â àà¾à®à¯à¿à• (one Q)` is pointwise non-refutability and
--- `Â à¨à¿ààà¯ (one Q)` is the absence of a uniform proof.  Each holds
+-- `Â¬ à¤¸à¤¾à¤®à¤¯à¤¿à¤• (one Q)` is pointwise non-refutability and
+-- `Â¬ à¤¨à¤¿à¤¤à¥à¤¯ (one Q)` is the absence of a uniform proof.  Each holds
 -- while the other fails, so the corner really is a conjunction of two
 -- separately assertible positions.
 ------------------------------------------------------------------------

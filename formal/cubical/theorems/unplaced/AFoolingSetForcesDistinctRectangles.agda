@@ -9,11 +9,11 @@
 -- in the form that needs no counting: distinct members of a fooling set
 -- are assigned DISTINCT rectangles by any sound cover.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 -- A fooling family is an index type `I` with cells `(r i , c i)` such
--- that for `i â‰  j` at least one exchanged corner is 0 â” the standard
+-- that for `i â‰  j` at least one exchanged corner is 0 â€” the standard
 -- condition, in its either-corner form.  Given any assignment of a sound
 -- rectangle to each cell, covering that cell, Â§2 shows the assignment is
 -- injective.
@@ -21,7 +21,7 @@
 -- WHY THE EITHER-CORNER FORM.  `DSOCutCalibration`'s instance has the
 -- 0 at one specific corner, and the pair lemma took that corner as its
 -- hypothesis.  For a set, which corner is 0 can differ per pair, so the
--- hypothesis is a `âŠ` and Â§2 does both cases.  That is the only thing
+-- hypothesis is a `âŠŽ` and Â§2 does both cases.  That is the only thing
 -- the generalisation costs.
 ------------------------------------------------------------------------
 
@@ -78,7 +78,7 @@ module _ (Row Col : Type) (M : Row â†’ Col â†’ Bool) where
 -- is that, quantified: a cover cannot reuse a rectangle across the
 -- family at all.  The step from there to a numeric lower bound is
 -- pigeonhole over a finite index, and it is deliberately outside this
--- module â” the corpus's standing rule is that a count is not a
+-- module â€” the corpus's standing rule is that a count is not a
 -- classification, and injectivity is the classification.
 --
 -- Note again what the proof uses: only the 0 at ONE exchanged corner per
@@ -92,12 +92,12 @@ module _ (Row Col : Type) (M : Row â†’ Col â†’ Bool) where
 -- pinned library carries):
 --
 --   nRectanglesCannotCoverSucNFoolingCells :
---     (n : â•) (r : Fin (suc n) â’ Row) (c : Fin (suc n) â’ Col)
---     â’ Fooling (Fin (suc n)) r c
---     â’ (rects : Fin n â’ Rect) (pick : Fin (suc n) â’ Fin n)
---     â’ ((i) â’ Sound (rects (pick i)))
---     â’ ((i) â’ Covers (rects (pick i)) (r i) (c i))
---     â’ âŠ
+--     (n : â„•) (r : Fin (suc n) â†’ Row) (c : Fin (suc n) â†’ Col)
+--     â†’ Fooling (Fin (suc n)) r c
+--     â†’ (rects : Fin n â†’ Rect) (pick : Fin (suc n) â†’ Fin n)
+--     â†’ ((i) â†’ Sound (rects (pick i)))
+--     â†’ ((i) â†’ Covers (rects (pick i)) (r i) (c i))
+--     â†’ âŠ¥
 --
 -- IN THE CONTRAPOSITIVE, DELIBERATELY.  "At least k rectangles" is a
 -- statement about a cardinal, and a cardinal needs the cover's index

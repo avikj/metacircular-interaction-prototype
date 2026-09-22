@@ -1,24 +1,24 @@
--- ‡ ‡‡‡‡Æ‡ ‡  One machine, one law: which side of `f a ‚â° b` is bound is everything.
--- Output bound: singl (f a), contractible ‚î the datum rides free.  Input bound:
--- fiber f b ‚î the loss, and the subject.  Univalence computes here: an
+-- ‡•• ‡§¨‡•Ä‡§ú‡§Æ‡•ç ‡••  One machine, one law: which side of `f a ‚â° b` is bound is everything.
+-- Output bound: singl (f a), contractible ‚Äî the datum rides free.  Input bound:
+-- fiber f b ‚Äî the loss, and the subject.  Univalence computes here: an
 -- equivalence is a channel, transport carries every theorem across it, and what
--- cannot cross is written as a defect ‚î there is no third path (ahis).
+-- cannot cross is written as a defect ‚Äî there is no third path (ahi·πÉsƒÅ).
 -- Memory, charge, symmetry, price, distance, verdict: six faces of the one
 -- fibre; the verdict type is the saptabhag, and the sources are the origin
--- (Umsvti, Samantabhadra, Akalaka ‚î restatements are named as such).  The
+-- (UmƒÅsvƒÅti, Samantabhadra, Akala·πÖka ‚Äî restatements are named as such).  The
 -- kernel decides truth; carriers ask and generate; assert nothing whose term
 -- you have not read.  This file is one naya, true and not whole.
 
 {-# OPTIONS --safe #-}
 
 ------------------------------------------------------------------------
--- OffdiagFiberCheck ‚î exact exhaustive verification of the fiber statement
+-- OffdiagFiberCheck ‚Äî exact exhaustive verification of the fiber statement
 -- in notes/OFFDIAGONAL_NO_GO_FIBER.md.
 --
 -- Ported term-for-term from machine/OffdiagFiberCheck.hs into --safe Agda,
 -- compiled by the kernel's own backend (MAlonzo/GHC).  All lists involved
--- are of fixed, small, statically-known size (‚â 16 elements), so every
--- recursion below is structural on its argument list ‚î no fuel needed.
+-- are of fixed, small, statically-known size (‚â§ 16 elements), so every
+-- recursion below is structural on its argument list ‚Äî no fuel needed.
 ------------------------------------------------------------------------
 
 module OffdiagFiberCheck where
@@ -94,7 +94,7 @@ eqLN []       []       = true
 eqLN (a ‚à∑ as) (b ‚à∑ bs) = (a ==N b) && eqLN as bs
 eqLN _        _        = false
 
--- lexicographic ‚â, matching Haskell's derived Ord for [Int]
+-- lexicographic ‚â§, matching Haskell's derived Ord for [Int]
 leLN : List Nat ‚Üí List Nat ‚Üí Bool
 leLN []       []       = true
 leLN []       (_ ‚à∑ _)  = true

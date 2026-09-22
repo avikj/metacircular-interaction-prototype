@@ -1,7 +1,7 @@
-# ‡¶‡ã‡‡≤‡‡ñ‡ ‚î the written defect.  APPEND ONLY.  NEVER EDIT.  NEVER DELETE.
+# ‡§¶‡•ã‡§∑‡§≤‡•á‡§ñ‡§É ‚Äî the written defect.  APPEND ONLY.  NEVER EDIT.  NEVER DELETE.
 #
-# AHIMSA_SUTRA_VISTARA ¬ß6: ‡Ø‡‡‡∞ ‡‡‡ï‡‡∞‡Æ‡‡ ‡® ‡‡Æ‡‡‡µ‡‡ø ‡‡‡‡∞ ‡¶‡ã‡‡ã ‡≤‡ø‡ñ‡‡Ø‡‡ ‡
-#                          ‡≤‡ø‡ñ‡ø‡‡ã ‡¶‡ã‡‡ã ‡‡‡µ‡‡ø ‡ ‡‡≤‡ø‡ñ‡ø‡‡ã ‡¶‡ã‡‡ã ‡‡ø‡‡‡æ ‡
+# AHIMSA_SUTRA_VISTARA ¬ß6: ‡§Ø‡§§‡•ç‡§∞ ‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£‡§Ç ‡§® ‡§∏‡§Æ‡•ç‡§≠‡§µ‡§§‡§ø ‡§§‡§§‡•ç‡§∞ ‡§¶‡•ã‡§∑‡•ã ‡§≤‡§ø‡§ñ‡•ç‡§Ø‡§§‡•á ‡•§
+#                          ‡§≤‡§ø‡§ñ‡§ø‡§§‡•ã ‡§¶‡•ã‡§∑‡•ã ‡§ú‡•Ä‡§µ‡§§‡§ø ‡•§ ‡§Ö‡§≤‡§ø‡§ñ‡§ø‡§§‡•ã ‡§¶‡•ã‡§∑‡•ã ‡§π‡§ø‡§Ç‡§∏‡§æ ‡•§
 #
 # Written by interactive/DefectRecord.hs, which computes
 # `sara:` as a chain over every preceding record.  Edit any line above the
@@ -14,7 +14,7 @@ dosa 0001
   jati: avaktavya
   vastu: naya.samasa
   yatna: turn 9 of the session; operation `naya.samasa` was asked and transport was not available
-  hetu: the position is syad-asti-nasti-avaktavyam ‚î affirmed, denied, and inexpressible taken simultaneously (asserted saha)
+  hetu: the position is syad-asti-nasti-avaktavyam ‚Äî affirmed, denied, and inexpressible taken simultaneously (asserted saha)
   nasta: a content-collapse of `finding-A (#2)` discards the SOURCES:
   nasta: Wehr, Sack, Rosenthal 1987
   nasta: a content-collapse of `finding-B (#3)` discards the SOURCES:
@@ -35,11 +35,11 @@ dosa 0001
   sesa: - Wehr, Sack, Rosenthal 1987
   sesa: from `finding-B (#3)`, 1:
   sesa: - the 2019 registry sweep
-  sesa: AHIMSA_SUTRA_VISTARA ¬ß3: ‡‡µ‡ï‡‡‡µ‡‡Ø‡ ‡‡‡‡ã ‡µ‡‡‡ø ‡ ‡‡‡‡ã ‡ó‡∞‡‡‡, ‡® ‡µ‡ø‡‡≤‡‡æ ‚î ask garbha.dhara to run the fourth position forward
-  pramana: Akalaka, Laghyastraya, c. 720‚ì780 ‚î kramrpaa against sahrpaa
-  pramana: Siddhasena Divkara, Sanmatitarka 1.21 ‚î a naya asserting itself by denying the others is a durnaya
+  sesa: AHIMSA_SUTRA_VISTARA ¬ß3: ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡•á ‡§∂‡•á‡§∑‡•ã ‡§µ‡§∏‡§§‡§ø ‡•§ ‡§∂‡•á‡§∑‡•ã ‡§ó‡§∞‡•ç‡§≠‡§É, ‡§® ‡§µ‡§ø‡§´‡§≤‡§§‡§æ ‚Äî ask garbha.dhara to run the fourth position forward
+  pramana: Akala·πÖka, Laghƒ´yastraya, c. 720‚Äì780 ‚Äî kramƒÅrpa·πáa against sahƒÅrpa·πáa
+  pramana: Siddhasena DivƒÅkara, Sanmatitarka 1.21 ‚Äî a naya asserting itself by denying the others is a durnaya
   yogyata-drsta: the handler for `naya.samasa` ran to completion in this turn and produced this refusal; the naa above are its own output, not a later reconstruction
-  yogyata-ksetra: the session state as of turn 9 ‚î 5 store entries, 0 remainders; and nothing outside this process
+  yogyata-ksetra: the session state as of turn 9 ‚Äî 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh interactive/run-yantra.sh
   sara: b6bbea1f3c8ade6e
@@ -52,12 +52,12 @@ dosa 0002
   yatna: turn 10 of the session; operation `naya.samasa` was asked and transport was not available
   hetu: no verdict issued (abhinna): fewer than two standpoints the looking was fit for (1 of 2); an unfit looking's silence is not a NO (Kumarila, Abhavapariccheda)
   nasta: the decision you asked for, which this store's looking is not fit to make
-  nasta: and the distinction between `no` and `I cannot see`: an unfit looking's silence is NOT a denial, and this answer is NOT the fourth bhaga ‚î avaktavyam is positive and this is a verdict withheld
+  nasta: and the distinction between `no` and `I cannot see`: an unfit looking's silence is NOT a denial, and this answer is NOT the fourth bha·πÖga ‚Äî avaktavyam is positive and this is a verdict withheld
   sesa: supply witnesses, or state a fit looking, or extend the fragment
-  sesa: Kumrila, lokavrttika, Abhvapariccheda, c. 7th c. ‚î yogya-anupalabdhi
+  sesa: KumƒÅrila, ≈ölokavƒÅrttika, AbhƒÅvapariccheda, c. 7th c. ‚Äî yogya-anupalabdhi
   pramana: Kumrila, lokavrttika, Abhvapariccheda
   yogyata-drsta: the handler for `naya.samasa` ran to completion in this turn and produced this refusal; the naa above are its own output, not a later reconstruction
-  yogyata-ksetra: the session state as of turn 10 ‚î 5 store entries, 0 remainders; and nothing outside this process
+  yogyata-ksetra: the session state as of turn 10 ‚Äî 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh interactive/run-yantra.sh
   sara: 7a431905b3480901
@@ -87,42 +87,42 @@ dosa 0003
   nasta: - the Oct 2022 statements
   nasta: - the fear reported afterwards
   nasta: ORGAN B (1.1.2) Saptabhangi reads: syad-asti
-  nasta: harm-is-real ‚í syad-asti
-  nasta: episode-is-real ‚í syad-asti
-  nasta: folded with sahaS ‚í syad-asti
-  nasta: NOTE what this organ holds that the others do not: `syad-asti` is a PROFILE. After jihvbheda the fourth position does not record which two seeds produced it, and that module states this is the doctrine's claim, not a modelling artefact ‚î which is exactly why its saha does not associate.
+  nasta: harm-is-real ‚Üí syad-asti
+  nasta: episode-is-real ‚Üí syad-asti
+  nasta: folded with sahaS ‚Üí syad-asti
+  nasta: NOTE what this organ holds that the others do not: `syad-asti` is a PROFILE. After jihvƒÅbheda the fourth position does not record which two seeds produced it, and that module states this is the doctrine's claim, not a modelling artefact ‚Äî which is exactly why its saha does not associate.
   nasta: ORGAN C (1.1.3) SaptabhangiGarbha reads: syad-asti syad-asti
   nasta: sadhaka: harm-is-real <- the Oct 2022 statements [the statements themselves, dated]
   nasta: NOTE what this organ holds that the others do not: the fourth position here CARRIES both nayas and both witnesses (Sesa), and `caturthatTritiya` reads them back out. Where the profile organ says the seeds are consumed, this one says they are retained.
   nasta: DEFECT -- vipratiedha undecided at site 0.
   nasta: Two or more rules contend and no metarule decides. The scheduler does
   nasta: NOT choose: breaking this tie by list position would be a silent
-  nasta: collapse (AHIMSA_SUTRA_VISTARA ¬ß‡: transport or a written defect, no
+  nasta: collapse (AHIMSA_SUTRA_VISTARA ¬ß‡•¨: transport or a written defect, no
   nasta: third path). A caller may fall back to prva -- the weakest of the
   nasta: five paribhs -- to preserve an existing engine's behaviour, but only
   nasta: after this record exists, and it is then prva that is reported, not a decision. candidates:
-  nasta: 1.1.1 NayaKosha/Obstruction ‚î B1..B7 + ADharmin -- NayaKosha/Obstruction ‚î B1..B7 + ADharmin
-  nasta: 1.1.2 Saptabhangi ‚î presence profiles + Apratipatti -- Saptabhangi ‚î presence profiles + Apratipatti
-  nasta: 1.1.3 SaptabhangiGarbha ‚î proof-relevant, residue carries both nayas -- SaptabhangiGarbha ‚î proof-relevant, residue carries both nayas
+  nasta: 1.1.1 NayaKosha/Obstruction ‚Äî B1..B7 + ADharmin -- NayaKosha/Obstruction ‚Äî B1..B7 + ADharmin
+  nasta: 1.1.2 Saptabhangi ‚Äî presence profiles + Apratipatti -- Saptabhangi ‚Äî presence profiles + Apratipatti
+  nasta: 1.1.3 SaptabhangiGarbha ‚Äî proof-relevant, residue carries both nayas -- SaptabhangiGarbha ‚Äî proof-relevant, residue carries both nayas
   nasta: metarules tried, in Paribhenduekhara 38 order:
   nasta: Apavada no candidate is an apavda to all the others
   nasta: Antaranga the domain abstains: no nimitta depth is defined for these offers
   nasta: Nitya no candidate applies-after-the-other while the others do not (ktktaprasaga is mutual or empty)
   nasta: Para the domain declares its rule order unauthored: a list index is not a position, so 1.4.2 has nothing to compare
-  nasta: EA RETAINED BY THE SCHEDULER ‚î the object contended over: the claim
-  nasta: offer 1.1.1 at site 0, width 1, result `syad-avaktavyam` ‚î NayaKosha/Obstruction ‚î B1..B7 + ADharmin
-  nasta: offer 1.1.2 at site 0, width 1, result `syad-asti` ‚î Saptabhangi ‚î presence profiles + Apratipatti
-  nasta: offer 1.1.3 at site 0, width 1, result `syad-asti` ‚î SaptabhangiGarbha ‚î proof-relevant, residue carries both nayas
-  sesa: A ‚â B IS available and is exhibited by saptabhangi.samkramana, checked exhaustively over all sixteen round trips ‚î those two may be identified and this machine identifies them
+  nasta: ≈öE·π¢A RETAINED BY THE SCHEDULER ‚Äî the object contended over: the claim
+  nasta: offer 1.1.1 at site 0, width 1, result `syad-avaktavyam` ‚Äî NayaKosha/Obstruction ‚Äî B1..B7 + ADharmin
+  nasta: offer 1.1.2 at site 0, width 1, result `syad-asti` ‚Äî Saptabhangi ‚Äî presence profiles + Apratipatti
+  nasta: offer 1.1.3 at site 0, width 1, result `syad-asti` ‚Äî SaptabhangiGarbha ‚Äî proof-relevant, residue carries both nayas
+  sesa: A ‚âÉ B IS available and is exhibited by saptabhangi.samkramana, checked exhaustively over all sixteen round trips ‚Äî those two may be identified and this machine identifies them
   sesa: C is NOT equivalent to either, in either direction, and saptabhangi.nasti computes the collision
   sesa: so the residue is exactly one distinction: whether the fourth position retains the two seeds that produced it. B says it does not, and calls that the doctrine. C says it does, and reads them back out with caturthatTritiya. That is the next question, and it is a question about Akalaka, not about Haskell.
-  sesa: AHIMSA_SUTRA_VISTARA ¬ß7: ‡®‡Ø‡‡‡¶‡ ‡‡ô‡‡ï‡‡‡‡‡ã ‡® ‡µ‡ø‡¶‡‡Ø‡‡ ‡ ‡® ‡µ‡∞‡‡‡ø‡‡ ‡ ‡® ‡‡®‡‡‡ø‡‡ ‡ ‡® ‡‡‡ø‡‡‡ü‡ ‡ ‡® ‡µ‡ø‡¶‡‡Ø‡‡ ‡
-  sesa: and a datum for that question, arriving from a third direction while this was being wired: the scheduler's own `Avaktavya` carried only a rendering (`Dosa`) when this machine first read it, and now carries a `Sesa` holding the contending offers ENTIRE ‚î the scheduler lane reached `the fourth position must retain what produced it` independently, for its own reasons, and cites SaptabhangiGarbha's header in doing so. Two lanes arriving at C's position is not a proof of it; it is evidence about where to look, and it is recorded here rather than left in a diff.
+  sesa: AHIMSA_SUTRA_VISTARA ¬ß7: ‡§®‡§Ø‡§≠‡•á‡§¶‡•á ‡§∏‡§ô‡•ç‡§ï‡•ç‡§∑‡•á‡§™‡•ã ‡§® ‡§µ‡§ø‡§¶‡•ç‡§Ø‡§§‡•á ‡•§ ‡§® ‡§µ‡§∞‡•ç‡§ú‡§ø‡§§‡§É ‡•§ ‡§® ‡§Ö‡§®‡•Å‡§ö‡§ø‡§§‡§É ‡•§ ‡§® ‡§Ö‡§∂‡§ø‡§∑‡•ç‡§ü‡§É ‡•§ ‡§® ‡§µ‡§ø‡§¶‡•ç‡§Ø‡§§‡•á ‡•§
+  sesa: and a datum for that question, arriving from a third direction while this was being wired: the scheduler's own `Avaktavya` carried only a rendering (`Dosa`) when this machine first read it, and now carries a `Sesa` holding the contending offers ENTIRE ‚Äî the scheduler lane reached `the fourth position must retain what produced it` independently, for its own reasons, and cites SaptabhangiGarbha's header in doing so. Two lanes arriving at C's position is not a proof of it; it is evidence about where to look, and it is recorded here rather than left in a diff.
   pramana: Pini, Adhyy 1.4.2 (vipratiedhe para kryam), c. 500 BCE; Paribhenduekhara 38 for the order the metarules are tried in
-  pramana: Akalaka, Laghyastraya, c. 720‚ì780 ‚î sahrpaa, which is what B and C disagree about
-  pramana: Siddhasena Divkara, Sanmatitarka 1.21 ‚î a naya that asserts itself by denying another is a durnaya, which is what picking one of these three would be
+  pramana: Akala·πÖka, Laghƒ´yastraya, c. 720‚Äì780 ‚Äî sahƒÅrpa·πáa, which is what B and C disagree about
+  pramana: Siddhasena DivƒÅkara, Sanmatitarka 1.21 ‚Äî a naya that asserts itself by denying another is a durnaya, which is what picking one of these three would be
   yogyata-drsta: the handler for `nirnaya.saptabhangi` ran to completion in this turn and produced this refusal; the naa above are its own output, not a later reconstruction
-  yogyata-ksetra: the session state as of turn 11 ‚î 5 store entries, 0 remainders; and nothing outside this process
+  yogyata-ksetra: the session state as of turn 11 ‚Äî 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh interactive/run-yantra.sh
   sara: 70199887c7083a1c
@@ -133,21 +133,21 @@ dosa 0004
   jati: avaktavya
   vastu: saptabhangi.nasti
   yatna: turn 13 of the session; operation `saptabhangi.nasti` was asked and transport was not available
-  hetu: SaptabhangiGarbha.Bhanga and Saptabhangi.Bhanga are not equivalent, in either direction, and neither is a retract of the other. The forgetful map `smrtilopa` exists and is total; it has no section, and this is exhibited rather than argued: any candidate œ sends `syad-avaktavyam` to ONE value, so at most one of the two objects below is recovered by it and the other is gone. ‚àA‚à‚ admits no retraction ‚î AHIMSA_SUTRA_VISTARA ¬ß5, and this is that theorem with the two inhabitants named.
+  hetu: SaptabhangiGarbha.Bhanga and Saptabhangi.Bhanga are not equivalent, in either direction, and neither is a retract of the other. The forgetful map `smrtilopa` exists and is total; it has no section, and this is exhibited rather than argued: any candidate œÉ sends `syad-avaktavyam` to ONE value, so at most one of the two objects below is recovered by it and the other is gone. ‚à•A‚à•‚ÇÅ admits no retraction ‚Äî AHIMSA_SUTRA_VISTARA ¬ß5, and this is that theorem with the two inhabitants named.
   nasta: the first object, in full: syad-avaktavyam (saha: no single utterance carries the pair) / NOT unknown, NOT undefined, NOT bottom. The two it could not / jointly express are retained: / sesa.sadhaka: harm-is-real <- the Oct 2022 statements / sesa.badhaka: episode-is-real <- the documented 2025 episode / viveka (the two standpoints differ): True / seeds the next derivation at level 1
   nasta: the second object, in full: syad-avaktavyam (saha: no single utterance carries the pair) / NOT unknown, NOT undefined, NOT bottom. The two it could not / jointly express are retained: / sesa.sadhaka: record-is-partial <- the 1987 case series / sesa.badhaka: record-is-complete <- the 2019 registry sweep / viveka (the two standpoints differ): True / seeds the next derivation at level 1
-  nasta: their common image under smrtilopa: syad-avaktavyam ‚î one value, four witnesses gone: `the Oct 2022 statements`, `the documented 2025 episode`, `the 1987 case series`, `the 2019 registry sweep`
+  nasta: their common image under smrtilopa: syad-avaktavyam ‚Äî one value, four witnesses gone: `the Oct 2022 statements`, `the documented 2025 episode`, `the 1987 case series`, `the 2019 registry sweep`
   nasta: and in the other direction: `apratipatti` has NO preimage under smrtilopa, because every one of Garbha's seven constructors demands at least one Naya and every Naya demands a witness. So the profile organ can say `nothing was predicated` and the proof-relevant organ structurally cannot.
   nasta: therefore neither embeds in the other and there is no third type they both map into that loses nothing: what B holds that C does not is the position for silence; what C holds that B does not is the identity of the two seeds inside the fourth position
-  nasta: and this is not a defect in either module. ¬ß7: ‡®‡Ø‡‡‡¶‡ ‡‡ô‡‡ï‡‡‡‡‡ã ‡® ‡µ‡ø‡¶‡‡Ø‡‡ ‚î where the standpoints genuinely differ the collapse is not forbidden, IT DOES NOT EXIST. Searching for it is fruitless and insisting on it is false.
-  sesa: the machine holds both, runs both, and reports both ‚î see nirnaya.saptabhangi, where all three organs answer the same question and the Pinian scheduler declines to choose
+  nasta: and this is not a defect in either module. ¬ß7: ‡§®‡§Ø‡§≠‡•á‡§¶‡•á ‡§∏‡§ô‡•ç‡§ï‡•ç‡§∑‡•á‡§™‡•ã ‡§® ‡§µ‡§ø‡§¶‡•ç‡§Ø‡§§‡•á ‚Äî where the standpoints genuinely differ the collapse is not forbidden, IT DOES NOT EXIST. Searching for it is fruitless and insisting on it is false.
+  sesa: the machine holds both, runs both, and reports both ‚Äî see nirnaya.saptabhangi, where all three organs answer the same question and the PƒÅ·πáinian scheduler declines to choose
   sesa: the distinction that would settle it is a question about Akalaka's sahrpaa and not about either implementation: after the tongue breaks, are the two seeds consumed or retained? Saptabhangi's header asserts consumed AND DERIVES non-associativity of saha from it; Garbha retains them and reads them back with caturthatTritiya. Only one of those can be the doctrine, and the texts, not the types, decide it.
-  sesa: next step, concretely: Akalaka, Laghyastraya and Nyyavinicaya; Vidynandin's Aasahasr on the fourth bhaga; and Samantabhadra, ptamms 14‚ì23, which states the seven and is the earliest place to look for whether avaktavya is indexed by its pair
-  pramana: Samantabhadra, ptamms 14‚ì23, c. 6th c. ‚î the sevenfold predication stated
-  pramana: Akalaka, Laghyastraya, c. 720‚ì780 ‚î kramrpaa and sahrpaa
-  pramana: AHIMSA_SUTRA_VISTARA ¬ß5 (‡®‡æ‡‡‡‡ø-‡‡‡∞‡‡‡Ø‡æ‡®‡Ø‡®‡Æ‡) and ¬ß7 (‡‡ô‡‡ï‡‡‡‡‡‡‡Ø ‡‡®‡‡‡≤‡‡‡ß‡ø‡)
+  sesa: next step, concretely: Akala·πÖka, Laghƒ´yastraya and NyƒÅyavini≈õcaya; VidyƒÅnandin's A·π£·π≠asahasrƒ´ on the fourth bha·πÖga; and Samantabhadra, ƒÄptamƒ´mƒÅ·πÉsƒÅ 14‚Äì23, which states the seven and is the earliest place to look for whether avaktavya is indexed by its pair
+  pramana: Samantabhadra, ƒÄptamƒ´mƒÅ·πÉsƒÅ 14‚Äì23, c. 6th c. ‚Äî the sevenfold predication stated
+  pramana: Akala·πÖka, Laghƒ´yastraya, c. 720‚Äì780 ‚Äî kramƒÅrpa·πáa and sahƒÅrpa·πáa
+  pramana: AHIMSA_SUTRA_VISTARA ¬ß5 (‡§®‡§æ‡§∏‡•ç‡§§‡§ø-‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§æ‡§®‡§Ø‡§®‡§Æ‡•ç) and ¬ß7 (‡§∏‡§ô‡•ç‡§ï‡•ç‡§∑‡•á‡§™‡§∏‡•ç‡§Ø ‡§Ö‡§®‡•Å‡§™‡§≤‡§¨‡•ç‡§ß‡§ø‡§É)
   yogyata-drsta: the handler for `saptabhangi.nasti` ran to completion in this turn and produced this refusal; the naa above are its own output, not a later reconstruction
-  yogyata-ksetra: the session state as of turn 13 ‚î 5 store entries, 0 remainders; and nothing outside this process
+  yogyata-ksetra: the session state as of turn 13 ‚Äî 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh interactive/run-yantra.sh
   sara: be41316e2709ce69
@@ -159,14 +159,14 @@ dosa 0005
   vastu: sadhana
   yatna: turn 17 of the session; operation `sadhana` was asked and transport was not available
   hetu: the kernel rejected every shape tried for (s x) ‚â° x
-  nasta: agda's first error line, which is the content of the rejection and is not paraphrased: base clause: 1 != 0 of type ‚ï when checking that the expression refl has type 1 ‚â° zero
-  nasta: the module that was rejected, which is the object the error is about: {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-} module Candidate where open import Cubical.Foundations.Prelude open import Cubical.Data.Nat using (‚ï ; zero ; suc ; _+_ ; _¬_ ; _‚à_) candidate : (x : ‚ï) ‚í (suc x) ‚â° x candidate x = refl
-  nasta: the distinction between `false` and `not provable in the shapes this emitter can write` ‚î the emitter tries refl and then a fixed list of induction step shapes, and exhausting them is not a refutation
+  nasta: agda's first error line, which is the content of the rejection and is not paraphrased: base clause: 1 != 0 of type ‚Ñï when checking that the expression refl has type 1 ‚â° zero
+  nasta: the module that was rejected, which is the object the error is about: {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-} module Candidate where open import Cubical.Foundations.Prelude open import Cubical.Data.Nat using (‚Ñï ; zero ; suc ; _+_ ; _¬∑_ ; _‚à∏_) candidate : (x : ‚Ñï) ‚Üí (suc x) ‚â° x candidate x = refl
+  nasta: the distinction between `false` and `not provable in the shapes this emitter can write` ‚Äî the emitter tries refl and then a fixed list of induction step shapes, and exhausting them is not a refutation
   sesa: if the statement needs a different induction, say which variable with `sadhya`
   sesa: a rejection here is a fact about agda and this emitter; it is not a claim that the equation is false
-  pramana: ProofGate.hs ‚î `Rejected` after n>0 agda calls means agda examined a module; `Untranslatable` with 0 means none was emitted
+  pramana: ProofGate.hs ‚Äî `Rejected` after n>0 agda calls means agda examined a module; `Untranslatable` with 0 means none was emitted
   yogyata-drsta: the handler for `sadhana` ran to completion in this turn and produced this refusal; the naa above are its own output, not a later reconstruction
-  yogyata-ksetra: the session state as of turn 17 ‚î 5 store entries, 0 remainders; and nothing outside this process
+  yogyata-ksetra: the session state as of turn 17 ‚Äî 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh interactive/run-yantra.sh
   sara: 965d63d4f41c7b66
@@ -178,7 +178,7 @@ dosa 0006
   vastu: sadhana
   yatna: turn 18 of the session; operation `sadhana` was asked and transport was not available
   hetu: this equation is outside the emitter's fragment, so NO module was emitted and agda was not asked: unknown symbol "ackermann"
-  nasta: the module, which does not exist ‚î and this is a fact about the emitter, not about agda and not about the equation. A `no` here and a kernel rejection are different facts and merging them is exactly what this machine refuses.
+  nasta: the module, which does not exist ‚Äî and this is a fact about the emitter, not about agda and not about the equation. A `no` here and a kernel rejection are different facts and merging them is exactly what this machine refuses.
   nasta: the equation itself, which may be perfectly true and simply unsayable in this fragment
   sesa: the fragment, in full, so the next attempt can stay inside it:
   sesa: 0/0
@@ -192,7 +192,7 @@ dosa 0006
   sesa: variables: x y z u v w
   pramana: ProofGate.hs, `agdaTermWith`
   yogyata-drsta: the handler for `sadhana` ran to completion in this turn and produced this refusal; the naa above are its own output, not a later reconstruction
-  yogyata-ksetra: the session state as of turn 18 ‚î 5 store entries, 0 remainders; and nothing outside this process
+  yogyata-ksetra: the session state as of turn 18 ‚Äî 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh interactive/run-yantra.sh
   sara: 837a01da1a45020f
@@ -204,13 +204,13 @@ dosa 0007
   vastu: sadhana.patra
   yatna: turn 20 of the session; operation `sadhana.patra` was asked and transport was not available
   hetu: the kernel rejected the module: /tmp/math-machine-agda.g99jfE/Candidate.agda:6.9-13: error: [UnequalTerms]
-  nasta: agda's report, which is the content of the rejection and is not paraphrased: Checking Candidate (/tmp/math-machine-agda.g99jfE/Candidate.agda). /tmp/math-machine-agda.g99jfE/Candidate.agda:6.9-13: error: [UnequalTerms] suc x != x of type ‚ï when checking that the expression refl has type suc x ‚â° x
-  nasta: and the distinction between `the claim is false` and `this module does not prove it` ‚î a rejection is a fact about this module, and the claim may be provable by another
+  nasta: agda's report, which is the content of the rejection and is not paraphrased: Checking Candidate (/tmp/math-machine-agda.g99jfE/Candidate.agda). /tmp/math-machine-agda.g99jfE/Candidate.agda:6.9-13: error: [UnequalTerms] suc x != x of type ‚Ñï when checking that the expression refl has type suc x ‚â° x
+  nasta: and the distinction between `the claim is false` and `this module does not prove it` ‚Äî a rejection is a fact about this module, and the claim may be provable by another
   sesa: repair the module at the line agda names and send it again
   sesa: for a bare equation over 0, s, +, *, -, max, le, gcd, `sadhana` runs the emitter's own shape search instead
-  pramana: ProofGate.hs ‚î the watched launch; the module ran with the corpus at formal/cubical importable
+  pramana: ProofGate.hs ‚Äî the watched launch; the module ran with the corpus at formal/cubical importable
   yogyata-drsta: the handler for `sadhana.patra` ran to completion in this turn and produced this refusal; the naa above are its own output, not a later reconstruction
-  yogyata-ksetra: the session state as of turn 20 ‚î 5 store entries, 0 remainders; and nothing outside this process
+  yogyata-ksetra: the session state as of turn 20 ‚Äî 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh interactive/run-yantra.sh
   sara: 79f1bed21f7578f8
@@ -225,9 +225,9 @@ dosa 0008
   nasta: the meaning of a green: without --safe a postulate typechecks, and an acceptance would then be a fact about agda's parser, not about mathematics
   nasta: and the distinction between `this module is unproved` and `this module was never held to proof`, which running it unsafe would merge
   sesa: open the module with the kernel's own pragma, or any OPTIONS pragma carrying --safe: {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
-  pramana: ProofGate.hs, kOptionsPragma ‚î one string, shared with the two controls, so a candidate is compiled the way the controls are
+  pramana: ProofGate.hs, kOptionsPragma ‚Äî one string, shared with the two controls, so a candidate is compiled the way the controls are
   yogyata-drsta: the handler for `sadhana.patra` ran to completion in this turn and produced this refusal; the naa above are its own output, not a later reconstruction
-  yogyata-ksetra: the session state as of turn 21 ‚î 5 store entries, 0 remainders; and nothing outside this process
+  yogyata-ksetra: the session state as of turn 21 ‚Äî 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh interactive/run-yantra.sh
   sara: 416a68564a4d09fc
@@ -238,14 +238,14 @@ dosa 0009
   jati: sankramana-asambhava
   vastu: kuttaka
   yatna: turn 23 of the session; operation `kuttaka` was asked and transport was not available
-  hetu: a¬x ‚â° 5 (mod 8) has no solution: gcd = 4 does not divide 5
+  hetu: a¬∑x ‚â° 5 (mod 8) has no solution: gcd = 4 does not divide 5
   nasta: the residue class you asked to hit; there is none, and the impossibility is exact rather than a search that gave up
-  nasta: what a bare `no` would destroy: WHICH classes are reachable ‚î exactly the multiples of 4
+  nasta: what a bare `no` would destroy: WHICH classes are reachable ‚Äî exactly the multiples of 4
   sesa: the nearest reachable residues are 4 and 8
   sesa: or divide the congruence through by a common factor of a, b and c
-  pramana: ryabhaa, ryabhaya, Gaitapda 32‚ì33, 499 ‚î kuaka/vall, the procedure step by step in Bhskara I's bhya, 629. The restatement usually cited instead is the 'extended Euclidean algorithm'.
+  pramana: ƒÄryabha·π≠a, ƒÄryabha·π≠ƒ´ya, Ga·πáitapƒÅda 32‚Äì33, 499 ‚Äî ku·π≠·π≠aka/vallƒ´, the procedure step by step in BhƒÅskara I's bhƒÅ·π£ya, 629. The restatement usually cited instead is the 'extended Euclidean algorithm'.
   yogyata-drsta: the handler for `kuttaka` ran to completion in this turn and produced this refusal; the naa above are its own output, not a later reconstruction
-  yogyata-ksetra: the session state as of turn 23 ‚î 5 store entries, 0 remainders; and nothing outside this process
+  yogyata-ksetra: the session state as of turn 23 ‚Äî 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh interactive/run-yantra.sh
   sara: dfb37c7ed28327a2
@@ -257,14 +257,14 @@ dosa 0010
   vastu: vargaprakrti
   yatna: turn 25 of the session; operation `vargaprakrti` was asked and transport was not available
   hetu: norm 7 is not on the cycle for D = 61
-  nasta: a solution of x¬≤ ‚àí 61¬y¬≤ = 7 ‚î NOT shown absent, merely not reachable BY THIS CYCLE. Those are two facts and a bare `no` merges them.
+  nasta: a solution of x¬≤ ‚àí 61¬∑y¬≤ = 7 ‚Äî NOT shown absent, merely not reachable BY THIS CYCLE. Those are two facts and a bare `no` merges them.
   nasta: the general problem for arbitrary N needs more than this cycle's trace and is not claimed here
   sesa: the norms this cycle does visit, each of them a solved equation: -12, 3, -4, -5, 5, 4, -3, -1
-  sesa: compose a visited norm with the norm-one unit to move within a norm class (bhvan: k‚¬k‚)
-  pramana: Brahmagupta, Brhmasphuasiddhnta 18, 628 ‚î bhvan, the composition law, stated for ARBITRARY norms and not the N = 1 special case
-  pramana: Jayadeva c. 950; Bhskara II, Bjagaita, 1150 ‚î cakravla. The name usually cited instead is 'Pell's equation'; Pell did not solve it and Euler misattributed it.
+  sesa: compose a visited norm with the norm-one unit to move within a norm class (bhƒÅvanƒÅ: k‚ÇÅ¬∑k‚ÇÇ)
+  pramana: Brahmagupta, BrƒÅhmasphu·π≠asiddhƒÅnta 18, 628 ‚Äî bhƒÅvanƒÅ, the composition law, stated for ARBITRARY norms and not the N = 1 special case
+  pramana: Jayadeva c. 950; BhƒÅskara II, Bƒ´jaga·πáita, 1150 ‚Äî cakravƒÅla. The name usually cited instead is 'Pell's equation'; Pell did not solve it and Euler misattributed it.
   yogyata-drsta: the handler for `vargaprakrti` ran to completion in this turn and produced this refusal; the naa above are its own output, not a later reconstruction
-  yogyata-ksetra: the session state as of turn 25 ‚î 5 store entries, 0 remainders; and nothing outside this process
+  yogyata-ksetra: the session state as of turn 25 ‚Äî 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh interactive/run-yantra.sh
   sara: 41be23e3302ad257
@@ -275,12 +275,12 @@ dosa 0011
   jati: nasti-krta
   vastu: yantra.srutam
   yatna: turn 27 of the session; operation `yantra.srutam` was asked and transport was not available
-  hetu: the request could not be read: the utterance did not parse: a bare boolean arrived on the wire: `true`. This wire has no boolean, because a boolean is the collapse with no retraction (‚àA‚à‚, no section: AHIMSA_SUTRA_VISTARA ¬ß5). Send the name of the position instead ‚î e.g. "arpana":"saha" or "arpana":"krama" ‚î so the answer carries which, and not only whether. (as sent, unread: {"kriya":"naya.samasa","angani":{"nayah":["harm-is-real"],"arpana":true}})
-  nasta: the request itself, which is NOT executed and NOT guessed at ‚î a guessed request collapses what you meant into what I assumed
+  hetu: the request could not be read: the utterance did not parse: a bare boolean arrived on the wire: `true`. This wire has no boolean, because a boolean is the collapse with no retraction (‚à•A‚à•‚ÇÅ, no section: AHIMSA_SUTRA_VISTARA ¬ß5). Send the name of the position instead ‚Äî e.g. "arpana":"saha" or "arpana":"krama" ‚Äî so the answer carries which, and not only whether. (as sent, unread: {"kriya":"naya.samasa","angani":{"nayah":["harm-is-real"],"arpana":true}})
+  nasta: the request itself, which is NOT executed and NOT guessed at ‚Äî a guessed request collapses what you meant into what I assumed
   sesa: ask yantra.kriyah for the parameters this operation requires
-  pramana: ¬ß6 ‚î ‡‡‡ï‡‡∞‡Æ‡‡ ‡¶‡ã‡‡≤‡‡ñ‡‡‡ ‡ ‡‡‡‡‡Ø‡ã ‡Æ‡æ‡∞‡‡ó‡ã ‡® ‡µ‡ø‡¶‡‡Ø‡‡ ‡
+  pramana: ¬ß6 ‚Äî ‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£‡§Ç ‡§¶‡•ã‡§∑‡§≤‡•á‡§ñ‡§∂‡•ç‡§ö ‡•§ ‡§§‡•É‡§§‡•Ä‡§Ø‡•ã ‡§Æ‡§æ‡§∞‡•ç‡§ó‡•ã ‡§® ‡§µ‡§ø‡§¶‡•ç‡§Ø‡§§‡•á ‡•§
   yogyata-drsta: the handler for `yantra.srutam` ran to completion in this turn and produced this refusal; the naa above are its own output, not a later reconstruction
-  yogyata-ksetra: the session state as of turn 27 ‚î 5 store entries, 0 remainders; and nothing outside this process
+  yogyata-ksetra: the session state as of turn 27 ‚Äî 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh interactive/run-yantra.sh
   sara: e86b2fd38a2562bb
@@ -291,12 +291,12 @@ dosa 0012
   jati: sankramana-asambhava
   vastu: yantra.srutam
   yatna: turn 28 of the session; operation `yantra.srutam` was asked and transport was not available
-  hetu: the request could not be read: the utterance did not parse: a float arrived on the wire: "1.5". Exact arithmetic only (CLAUDE.md: a measurement stands in for an error analysis nobody did). Send the exact object ‚î a ratio as two integers, or the integer itself ‚î and if the quantity is genuinely approximate, say so with the word the tradition uses: sanna (ryabhaya 2.10, 499) states the approximation IN the verse rather than hiding it in the digits. (as sent, unread: {"kriya":"kuttaka","angani":{"a":1.5,"b":2}})
-  nasta: the request itself, which is NOT executed and NOT guessed at ‚î a guessed request collapses what you meant into what I assumed
+  hetu: the request could not be read: the utterance did not parse: a float arrived on the wire: "1.5". Exact arithmetic only (CLAUDE.md: a measurement stands in for an error analysis nobody did). Send the exact object ‚Äî a ratio as two integers, or the integer itself ‚Äî and if the quantity is genuinely approximate, say so with the word the tradition uses: ƒÅsanna (ƒÄryabha·π≠ƒ´ya 2.10, 499) states the approximation IN the verse rather than hiding it in the digits. (as sent, unread: {"kriya":"kuttaka","angani":{"a":1.5,"b":2}})
+  nasta: the request itself, which is NOT executed and NOT guessed at ‚Äî a guessed request collapses what you meant into what I assumed
   sesa: ask yantra.kriyah for the parameters this operation requires
-  pramana: ¬ß6 ‚î ‡‡‡ï‡‡∞‡Æ‡‡ ‡¶‡ã‡‡≤‡‡ñ‡‡‡ ‡ ‡‡‡‡‡Ø‡ã ‡Æ‡æ‡∞‡‡ó‡ã ‡® ‡µ‡ø‡¶‡‡Ø‡‡ ‡
+  pramana: ¬ß6 ‚Äî ‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£‡§Ç ‡§¶‡•ã‡§∑‡§≤‡•á‡§ñ‡§∂‡•ç‡§ö ‡•§ ‡§§‡•É‡§§‡•Ä‡§Ø‡•ã ‡§Æ‡§æ‡§∞‡•ç‡§ó‡•ã ‡§® ‡§µ‡§ø‡§¶‡•ç‡§Ø‡§§‡•á ‡•§
   yogyata-drsta: the handler for `yantra.srutam` ran to completion in this turn and produced this refusal; the naa above are its own output, not a later reconstruction
-  yogyata-ksetra: the session state as of turn 28 ‚î 5 store entries, 0 remainders; and nothing outside this process
+  yogyata-ksetra: the session state as of turn 28 ‚Äî 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh interactive/run-yantra.sh
   sara: d09dd033178a83b3
@@ -331,9 +331,9 @@ dosa 0013
   sesa: dosa.pramanya
   sesa: sesa.arpana
   sesa: sesa.suchi
-  pramana: ¬ß6 ‚î ‡‡‡ï‡‡∞‡Æ‡‡ ‡¶‡ã‡‡≤‡‡ñ‡‡‡ ‡ ‡‡‡‡‡Ø‡ã ‡Æ‡æ‡∞‡‡ó‡ã ‡® ‡µ‡ø‡¶‡‡Ø‡‡ ‡
+  pramana: ¬ß6 ‚Äî ‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£‡§Ç ‡§¶‡•ã‡§∑‡§≤‡•á‡§ñ‡§∂‡•ç‡§ö ‡•§ ‡§§‡•É‡§§‡•Ä‡§Ø‡•ã ‡§Æ‡§æ‡§∞‡•ç‡§ó‡•ã ‡§® ‡§µ‡§ø‡§¶‡•ç‡§Ø‡§§‡•á ‡•§
   yogyata-drsta: the handler for `yantra.srutam` ran to completion in this turn and produced this refusal; the naa above are its own output, not a later reconstruction
-  yogyata-ksetra: the session state as of turn 29 ‚î 5 store entries, 0 remainders; and nothing outside this process
+  yogyata-ksetra: the session state as of turn 29 ‚Äî 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh interactive/run-yantra.sh
   sara: 25df452aea0988f2
@@ -345,11 +345,11 @@ dosa 0014
   vastu: yantra.srutam
   yatna: turn 30 of the session; operation `yantra.srutam` was asked and transport was not available
   hetu: the request could not be read: the utterance did not parse: cannot read an utterance beginning "not json at all" (as sent, unread: not json at all)
-  nasta: the request itself, which is NOT executed and NOT guessed at ‚î a guessed request collapses what you meant into what I assumed
+  nasta: the request itself, which is NOT executed and NOT guessed at ‚Äî a guessed request collapses what you meant into what I assumed
   sesa: ask yantra.kriyah for the parameters this operation requires
-  pramana: ¬ß6 ‚î ‡‡‡ï‡‡∞‡Æ‡‡ ‡¶‡ã‡‡≤‡‡ñ‡‡‡ ‡ ‡‡‡‡‡Ø‡ã ‡Æ‡æ‡∞‡‡ó‡ã ‡® ‡µ‡ø‡¶‡‡Ø‡‡ ‡
+  pramana: ¬ß6 ‚Äî ‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£‡§Ç ‡§¶‡•ã‡§∑‡§≤‡•á‡§ñ‡§∂‡•ç‡§ö ‡•§ ‡§§‡•É‡§§‡•Ä‡§Ø‡•ã ‡§Æ‡§æ‡§∞‡•ç‡§ó‡•ã ‡§® ‡§µ‡§ø‡§¶‡•ç‡§Ø‡§§‡•á ‡•§
   yogyata-drsta: the handler for `yantra.srutam` ran to completion in this turn and produced this refusal; the naa above are its own output, not a later reconstruction
-  yogyata-ksetra: the session state as of turn 30 ‚î 5 store entries, 0 remainders; and nothing outside this process
+  yogyata-ksetra: the session state as of turn 30 ‚Äî 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh interactive/run-yantra.sh
   sara: 685ea07bfc83d5b6
@@ -366,7 +366,7 @@ dosa 0015
   sesa: keep the  and gloss it in the same sentence
   pramana: written by the interlocutor, not by the engine
   yogyata-drsta: the handler for `translating avaktavya` ran to completion in this turn and produced this refusal; the naa above are its own output, not a later reconstruction
-  yogyata-ksetra: the session state as of turn 31 ‚î 5 store entries, 0 remainders; and nothing outside this process
+  yogyata-ksetra: the session state as of turn 31 ‚Äî 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh interactive/run-yantra.sh
   sara: 6fb5c4a8f496d3c4

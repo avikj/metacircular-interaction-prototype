@@ -1,23 +1,23 @@
--- � ����� �  One machine, one law: which side of `f a ≡ b` is bound is everything.
--- Output bound: singl (f a), contractible � the datum rides free.  Input bound:
--- fiber f b � the loss, and the subject.  Univalence computes here: an
+-- ॥ बीजम् ॥  One machine, one law: which side of `f a ≡ b` is bound is everything.
+-- Output bound: singl (f a), contractible — the datum rides free.  Input bound:
+-- fiber f b — the loss, and the subject.  Univalence computes here: an
 -- equivalence is a channel, transport carries every theorem across it, and what
--- cannot cross is written as a defect � there is no third path (ahis).
+-- cannot cross is written as a defect — there is no third path (ahiṃsā).
 -- Memory, charge, symmetry, price, distance, verdict: six faces of the one
 -- fibre; the verdict type is the saptabhag, and the sources are the origin
--- (Umsvti, Samantabhadra, Akalaka � restatements are named as such).  The
+-- (Umāsvāti, Samantabhadra, Akalaṅka — restatements are named as such).  The
 -- kernel decides truth; carriers ask and generate; assert nothing whose term
 -- you have not read.  This file is one naya, true and not whole.
 
 {-# OPTIONS --safe #-}
 
 ------------------------------------------------------------------------
--- ��� �������� � ported term-for-term from
+-- समं लेख्यम् — ported term-for-term from
 -- machine/SamamLekhyam_TheHilbertProductBalancesAtEveryPlaceAndDroppingTheInfiniteColumnBreaksExactlyTheDoublyNegativePairs.hs
 -- into --safe Agda, compiled by the kernel's own backend (MAlonzo/GHC).
 -- See that file's header for the mathematics, sources and what is/isn't
 -- claimed.  Exact integer arithmetic throughout: Integer is modelled here
--- as sign�magnitude (Z below) with hand-rolled floor div/mod matching
+-- as sign×magnitude (Z below) with hand-rolled floor div/mod matching
 -- Haskell's `div`/`mod` semantics for a positive divisor, since only
 -- positive moduli (2, odd primes) are ever divided by in this program.
 ------------------------------------------------------------------------
@@ -150,7 +150,7 @@ predN zero    = zero
 predN (suc n) = n
 
 ------------------------------------------------------------------------
--- Z : the integers, as sign � magnitude, canonical (mag 0 � sign false)
+-- Z : the integers, as sign × magnitude, canonical (mag 0 ⇒ sign false)
 ------------------------------------------------------------------------
 
 record Z : Set where
@@ -250,7 +250,7 @@ legendre u p =
   let r = powmod u (halfN (predN p)) p
   in if r ==N (predN p) then negOneZ else fromNat r
 
--- p-adic valuation and unit part: m = p^k � u, p � u.
+-- p-adic valuation and unit part: m = p^k · u, p ∤ u.
 valUnitF : Nat → Nat → Nat → Z → Σ Nat (λ _ → Z)
 valUnitF zero    p k m = (k , m)
 valUnitF (suc f) p k m with modZ m p ==N 0
@@ -357,7 +357,7 @@ primesTo : Nat → List Nat
 primesTo n = sieveF (lengthL (rangeFrom2 n)) (rangeFrom2 n)
 
 ------------------------------------------------------------------------
--- pairs over the box |a|,|b| � nBox, a,b ≠ 0
+-- pairs over the box |a|,|b| ≤ nBox, a,b ≠ 0
 ------------------------------------------------------------------------
 
 nBox : Nat
@@ -370,14 +370,14 @@ pairs : List (Σ Z (λ _ → Z))
 pairs = concatMapL (λ a → mapL (λ b → (a , b)) allVals) allVals
 
 ------------------------------------------------------------------------
--- � � the balance
+-- १ · the balance
 ------------------------------------------------------------------------
 
 unbalanced : List (Σ Z (λ _ → Z))
 unbalanced = filterL (λ pr → notB (eqZ (balance (fst pr) (snd pr)) oneZ)) pairs
 
 ------------------------------------------------------------------------
--- � � drop the infinite column
+-- २ · drop the infinite column
 ------------------------------------------------------------------------
 
 finiteOnly : Σ Z (λ _ → Z) → Z
@@ -391,7 +391,7 @@ doublyNegative : Nat
 doublyNegative = lengthL (filterL (λ pr → isNegZ (fst pr) && isNegZ (snd pr)) pairs)
 
 ------------------------------------------------------------------------
--- � � drop the column at 2
+-- ३ · drop the column at 2
 ------------------------------------------------------------------------
 
 no2 : Σ Z (λ _ → Z) → Z
@@ -402,7 +402,7 @@ brokenNo2 : Nat
 brokenNo2 = lengthL (filterL (λ pr → notB (eqZ (no2 pr) oneZ)) pairs)
 
 ------------------------------------------------------------------------
--- � � the shadow � Gauss extracted back out
+-- ४ · the shadow — Gauss extracted back out
 ------------------------------------------------------------------------
 
 ops : List Nat

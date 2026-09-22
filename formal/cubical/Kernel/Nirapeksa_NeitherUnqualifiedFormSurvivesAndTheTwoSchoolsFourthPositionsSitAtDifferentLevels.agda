@@ -9,10 +9,10 @@
 -- and Â§3 states a claim ABOUT THE TWO FORMALISATIONS -- not about what
 -- either tradition really means.
 --
--- TERM (JAINA).  à¨à¿à°ààà•àà Â nirapeka -- without reference, absolute, said
--- of an assertion made with no updhi; against àà¾ààà•àà Â speka, made with
--- one.  The Jaina rule is that a à¨à¯ Â naya asserted nirapeka becomes a
--- à¦àà°àà¨à¯ Â durnaya.  Siddhasena Divkara, *Sanmatitarka*; developed by
+-- TERM (JAINA).  à¤¨à¤¿à¤°à¤ªà¥‡à¤•à¥à¤· Â· nirapeká¹£a -- without reference, absolute, said
+-- of an assertion made with no upÄdhi; against à¤¸à¤¾à¤ªà¥‡à¤•à¥à¤· Â· sÄpeká¹£a, made with
+-- one.  The Jaina rule is that a à¤¨à¤¯ Â· naya asserted nirapeká¹£a becomes a
+-- à¤¦à¥à¤°à¥à¤¨à¤¯ Â· durnaya.  Siddhasena DivÄkara, *Sanmatitarka*; developed by
 -- Akalaka (~8th c.).
 --
 -- Â§1 exhibits bhagas ONE and TWO
@@ -20,12 +20,12 @@
 -- succession.  The fourth arises from
 -- à¯àà—ààà Â yugapat, simultaneous assertion.
 --
--- TERM (BAUDDHA).  àààààà•à‹àŸà¿ Â catukoi -- the four corners, standard in
+-- TERM (BAUDDHA).  à¤šà¤¤à¥à¤·à¥à¤•à¥‹à¤Ÿà¤¿ Â· catuá¹£koá¹­i -- the four corners, standard in
 -- Ngrjuna's *Mlamadhyamakakrik* (~2nd c. CE).  Â§2 formalises the
--- FOURTH corner as Â (A âŠ Â A) with ààà°àààà¯ààà°àà¿ààà§ Â prasajya-pratiedha,
+-- FOURTH corner as Â¬ (A âŠ Â¬ A) with à¤ªà¥à¤°à¤¸à¤œà¥à¤¯à¤ªà¥à¤°à¤¤à¤¿à¤·à¥‡à¤§ Â· prasajya-pratiá¹£edha,
 -- the non-implicative negation -- the reading on which the negation
--- asserts nothing positive, which is `A â’ âŠ`.  The distinction from
--- àà°àà¯àà¦à¾à Â paryudsa, the implicative negation, is drawn by Westerhoff in
+-- asserts nothing positive, which is `A â†’ âŠ¥`.  The distinction from
+-- à¤ªà¤°à¥à¤¯à¥à¤¦à¤¾à¤¸ Â· paryudÄsa, the implicative negation, is drawn by Westerhoff in
 -- the modern literature.  UNDER
 -- PARYUDSA THE FOURTH CORNER IS A DIFFERENT FORMULA AND Â§2 DOES NOT
 -- APPLY TO IT.
@@ -57,7 +57,7 @@
 --       a family over `Env` whose fibres disagree.  Contingent on the
 --       pair, and false for pairs the calculus does derive.
 --
---   Â§2  no-fourth-corner : Â (Â (A âŠ Â A)), for EVERY A, at every level,
+--   Â§2  no-fourth-corner : Â¬ (Â¬ (A âŠ Â¬ A)), for EVERY A, at every level,
 --       depending on nothing.  A theorem of logic, not a fact about an
 --       object.
 --
@@ -122,12 +122,12 @@ no-fourth-corner k = k (inr (Î» a â†’ k (inl a)))
 ------------------------------------------------------------------------
 -- Â§3.  THE CONTRAST, STATED AS THE TYPES SHOW IT.
 --
---   Â§1  Â ((Ï : Env) â’ P Ï)   and   Â ((Ï : Env) â’ Â P Ï)
+--   Â§1  Â¬ ((Ï : Env) â†’ P Ï)   and   Â¬ ((Ï : Env) â†’ Â¬ P Ï)
 --       A Î  over an index is refuted in both directions.  The content is
 --       that P is NOT CONSTANT.  Contingent, consistent, and about a
 --       family.  For a pair the calculus derives, both statements fail.
 --
---   Â§2  Â (Â (A âŠ Â A))
+--   Â§2  Â¬ (Â¬ (A âŠ Â¬ A))
 --       No index, no family, no hypothesis.  The content is the
 --       propositional structure of negation itself.
 --

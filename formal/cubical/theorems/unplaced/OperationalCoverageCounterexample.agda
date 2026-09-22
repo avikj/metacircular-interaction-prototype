@@ -22,7 +22,7 @@ data Experiment : Type where
 
 -- The true entries name the declared singleton covering arrows in the chain:
 -- all identities and the two adjacent nonidentity arrows.  The composite
--- e0 � e2 exists in the chain category but is deliberately not declared a
+-- e0 → e2 exists in the chain category but is deliberately not declared a
 -- cover.
 coverCode : Experiment → Experiment → Bool
 coverCode e0 e0 = true

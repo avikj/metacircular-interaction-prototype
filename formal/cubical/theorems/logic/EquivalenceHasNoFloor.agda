@@ -4,27 +4,27 @@
 -- EquivalenceHasNoFloor
 --
 -- The worry: univalence makes
--- identity relational, but does it smuggle an own-being into `â‰` itself â”
+-- identity relational, but does it smuggle an own-being into `â‰ƒ` itself â€”
 -- is the *equivalence* a bare positive thing with its own residue?
 --
 -- Answer, in three checked facts of the substrate, each saying the same thing
 -- one level down: an equivalence has no identity over and above what it does.
 --
 --   equiv-id-is-relational   two equivalences are identical as soon as their
---                            underlying functions are â” the `isEquiv` witness
+--                            underlying functions are â€” the `isEquiv` witness
 --                            adds no identity of its own (equivEq)
 --   being-equiv-is-no-data   `isEquiv f` is a proposition: "being an
 --                            equivalence" carries no data to have own-being
 --                            with (isPropIsEquiv)
 --   function-id-is-action    a function's identity is exhausted by its
---                            action, pointwise â” nothing beyond what it does
+--                            action, pointwise â€” nothing beyond what it does
 --                            (funExt)
 --
 -- Chase the tower: identity of an equivalence  reduces to  identity of its
 -- function  reduces to  its pointwise action  reduces to  identity of the
--- output points â” and that is again a Path, i.e. a relation, not an entity.
+-- output points â€” and that is again a Path, i.e. a relation, not an entity.
 -- There is no level at which a bare positive identity appears.  The
--- substrate's floor is the interval / Path â” relation itself â” not any thing
+-- substrate's floor is the interval / Path â€” relation itself â€” not any thing
 -- with svabhva.
 --
 -- These are library facts (equivEq, isPropIsEquiv, funExt), re-exhibited to
@@ -47,7 +47,7 @@ private
 equiv-id-is-relational : {e f : A â‰ƒ B} â†’ (e .fst â‰¡ f .fst) â†’ e â‰¡ f
 equiv-id-is-relational h = equivEq h
 
--- "Being an equivalence" is a proposition â” no data, hence nothing to carry
+-- "Being an equivalence" is a proposition â€” no data, hence nothing to carry
 -- an own-being.
 being-equiv-is-no-data : (f : A â†’ B) â†’ isProp (isEquiv f)
 being-equiv-is-no-data f = isPropIsEquiv f

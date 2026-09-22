@@ -1,12 +1,12 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- �����-�������� � the center of the endless braid.
+-- अनन्त-केन्द्र — the center of the endless braid.
 --
 -- THE GARBHA'S SEED, ACTED ON.  The next
 -- level is the symmetry OF the closed action, and its first citizen
--- is exhibited here: the INFINITE FULL TWIST � the half-wave applied
--- to every strand at once, by corecursion � is
+-- is exhibited here: the INFINITE FULL TWIST — the half-wave applied
+-- to every strand at once, by corecursion — is
 --
 --   §2  CENTRAL: it commutes with every crossing at every position
 --       (the half-wave exchanges with the quarter turn pointwise by
@@ -16,8 +16,8 @@
 --   §3  OF ORDER TWO: its square is the identity, by a corecursive
 --       path riding double-negation down the rope;
 --
---   §4  PURE RESIDUE: it is an assembled fibrewise family � no base
---       motion � so the center of the infinite braid action lives
+--   §4  PURE RESIDUE: it is an assembled fibrewise family — no base
+--       motion — so the center of the infinite braid action lives
 --       exactly where PurnaModa found the three-strand center: in
 --       the descendable, vertical, per-strand stratum.
 --
@@ -25,7 +25,7 @@
 -- twist was the global half-wave, central by refl; at infinity the
 -- same object, now an infinite corecursive symmetry, is central by
 -- stream paths.  What commutes with all coherence is what every
--- strand carries alone � the center is the descendable part, at
+-- strand carries alone — the center is the descendable part, at
 -- every scale including the endless one.
 --
 ------------------------------------------------------------------------
@@ -49,7 +49,7 @@ open import AnantaVeni_TheInfiniteBraidActsOnTheInterdependentStreamAndEveryRela
 open Dhārā
 
 ------------------------------------------------------------------------
--- � � The infinite full twist, and the pointwise exchange.
+-- १ · The infinite full twist, and the pointwise exchange.
 ------------------------------------------------------------------------
 
 ardha∞ : Rajju → Rajju
@@ -65,7 +65,7 @@ ardha-dvi : (x : Sūtra) → ardha (ardha x) ≡ x
 ardha-dvi (a , b) i = notnot a i , notnot b i
 
 ------------------------------------------------------------------------
--- � � Centrality: the infinite twist commutes with every crossing.
+-- २ · Centrality: the infinite twist commutes with every crossing.
 ------------------------------------------------------------------------
 
 kendra∞ : (i : ℕ) (s : Rajju)
@@ -77,7 +77,7 @@ kendra∞ : (i : ℕ) (s : Rajju)
 śeṣam (kendra∞ (suc i) s j) = kendra∞ i (śeṣam s) j
 
 ------------------------------------------------------------------------
--- � � Order two, down the whole rope.
+-- ३ · Order two, down the whole rope.
 ------------------------------------------------------------------------
 
 dvi-kendra : (s : Rajju) → ardha∞ (ardha∞ s) ≡ s
@@ -85,7 +85,7 @@ dvi-kendra : (s : Rajju) → ardha∞ (ardha∞ s) ≡ s
 śeṣam (dvi-kendra s j) = dvi-kendra (śeṣam s) j
 
 ------------------------------------------------------------------------
--- � � Pure residue: the twist is an assembled fibrewise family � its
+-- ४ · Pure residue: the twist is an assembled fibrewise family — its
 -- action never moves the base, only every fibre at once, which is
 -- visible in its very definition: iras acts, eam recurses, no
 -- strand changes address.  The center of the endless braid lives in

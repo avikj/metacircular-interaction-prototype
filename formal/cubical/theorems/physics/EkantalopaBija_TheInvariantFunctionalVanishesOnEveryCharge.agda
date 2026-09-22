@@ -1,13 +1,13 @@
 {-# OPTIONS --cubical --safe #-}
 
--- àà•à¾à¨ààà²à‹à-ààà â” the SEED of Ekntalopa, stripped of Cuntz and KMS.
+-- à¤à¤•à¤¾à¤¨à¥à¤¤à¤²à¥‹à¤ª-à¤¬à¥€à¤œ â€” the SEED of EkÄntalopa, stripped of Cuntz and KMS.
 -- GAUGE.md's àà•à¾à¨ààà²à‹à rests on a two-line
 -- algebra fact; the operator-algebra theorems supply the HYPOTHESIS
 -- (a unique invariant equilibrium exists), not the MECHANISM.  The
 -- mechanism, put to the kernel as a question expressible in her
 -- knowledge: an invariant functional vanishes on every nontrivial
--- charge.  w := Ï‰(x); the charge equation c Â w â‰¡ w (invariance under a
--- symmetry scaling x by c) forces (câˆ’1)Âw â‰¡ 0, and if the gap (câˆ’1) is
+-- charge.  w := Ï‰(x); the charge equation c Â· w â‰¡ w (invariance under a
+-- symmetry scaling x by c) forces (câˆ’1)Â·w â‰¡ 0, and if the gap (câˆ’1) is
 -- invertible (char-0 / archimedean, README C5) then w â‰¡ 0.
 
 module EkantalopaBija_TheInvariantFunctionalVanishesOnEveryCharge where

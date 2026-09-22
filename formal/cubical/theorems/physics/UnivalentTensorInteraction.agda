@@ -6,7 +6,7 @@
 -- A smallest local-to-joint physical carrier with univalent identity.
 --
 -- Two local population interfaces each compile to Unit, so their tensor-like
--- product is Unit — Unit.  A coherent joint sector nevertheless has two
+-- product is Unit Ã— Unit.  A coherent joint sector nevertheless has two
 -- phases.  Forgetting to separate populations identifies those phases, and
 -- no decoder from the local product can reconstruct them.  A joint
 -- interference port reopens exactly that lost distinction.

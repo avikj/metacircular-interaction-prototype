@@ -1,11 +1,11 @@
 {-# OPTIONS --cubical --guardedness --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- CorpusProbeLib â” identity keys for the equivalence-class map.
+-- CorpusProbeLib â€” identity keys for the equivalence-class map.
 --
--- For each declaration: getType, NORMALISE (Î²Î´Î â” unfold every definition
+-- For each declaration: getType, NORMALISE (Î²Î´Î¹ â€” unfold every definition
 -- to normal form), then serialize the normal-form Term to a canonical
--- string. de Bruijn indices make the serialization Î-invariant, and
+-- string. de Bruijn indices make the serialization Î±-invariant, and
 -- normalisation makes it definitional-equality-invariant, so
 --
 --     ser(nf(type A)) â‰¡ ser(nf(type B))   âŸº   A and B have the SAME type
@@ -112,13 +112,13 @@ macro
 
 ------------------------------------------------------------------------
 -- Identity EDGES: the corpus's own equivalence witnesses.  A declaration
--- of type  A â‰ B  or  Iso A B  is a checked proof that objects A and B
+-- of type  A â‰ƒ B  or  Iso A B  is a checked proof that objects A and B
 -- are the same up to (coinductively-established) equivalence.  We read
--- the head off the UN-normalised type (normalise unfolds â‰ into Î), take
+-- the head off the UN-normalised type (normalise unfolds â‰ƒ into Î£), take
 -- the two endpoints, normalise THOSE so they match object keys, and emit
 --     EDGE <key A> <key B>
 -- Connected components of these edges are the equivalence classes at the
--- level of provable mathematical identity â” resolved by the witnesses,
+-- level of provable mathematical identity â€” resolved by the witnesses,
 -- not decided by us.
 ------------------------------------------------------------------------
 

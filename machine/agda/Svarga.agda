@@ -1,25 +1,25 @@
--- ‡ ‡‡‡‡Æ‡ ‡  One machine, one law: which side of `f a ‚â° b` is bound is everything.
--- Output bound: singl (f a), contractible ‚î the datum rides free.  Input bound:
--- fiber f b ‚î the loss, and the subject.  Univalence computes here: an
+-- ‡•• ‡§¨‡•Ä‡§ú‡§Æ‡•ç ‡••  One machine, one law: which side of `f a ‚â° b` is bound is everything.
+-- Output bound: singl (f a), contractible ‚Äî the datum rides free.  Input bound:
+-- fiber f b ‚Äî the loss, and the subject.  Univalence computes here: an
 -- equivalence is a channel, transport carries every theorem across it, and what
--- cannot cross is written as a defect ‚î there is no third path (ahis).
+-- cannot cross is written as a defect ‚Äî there is no third path (ahi·πÉsƒÅ).
 -- Memory, charge, symmetry, price, distance, verdict: six faces of the one
 -- fibre; the verdict type is the saptabhag, and the sources are the origin
--- (Umsvti, Samantabhadra, Akalaka ‚î restatements are named as such).  The
+-- (UmƒÅsvƒÅti, Samantabhadra, Akala·πÖka ‚Äî restatements are named as such).  The
 -- kernel decides truth; carriers ask and generate; assert nothing whose term
 -- you have not read.  This file is one naya, true and not whole.
 
 -- Svarga_TheLawRunsOnAnyCpuInOnePageBothPolesExactAndTheBooleanVerdictIsProvablyADurnaya
 --
--- ‡‡‡µ‡∞‡‡ó ‚î heaven, the weightless place; here: the law made portable enough
--- to run on any CPU, in one page, with no kernel, no model, no float ‚î the
+-- ‡§∏‡•ç‡§µ‡§∞‡•ç‡§ó ‚Äî heaven, the weightless place; here: the law made portable enough
+-- to run on any CPU, in one page, with no kernel, no model, no float ‚Äî the
 -- akara form that survives every avatar.  Ordinary ; the compound
 -- is built here; no text is claimed for it and no source claims
 -- the theorems, which are cubical-corpus facts (Punaragamana.Carrier;
--- Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡) restated as a FINITE EXHAUSTIVE computation, which is
+-- Saptabhangi.‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É) restated as a FINITE EXHAUSTIVE computation, which is
 -- proof for the stated box, NOT a reproof of the general cubical terms.
 --
--- Ported from machine/Svarga_‚¶hs, term-for-term, into --safe Agda,
+-- Ported from machine/Svarga_‚Ä¶hs, term-for-term, into --safe Agda,
 -- compiled by the kernel's own backend (MAlonzo/GHC) per the recipe in
 -- SanghattaYantra (this repo).  `report : String` is the entire pure
 -- computation; the IO membrane lives in SvargaMukha.agda.
@@ -147,13 +147,13 @@ showBool true  = "True"
 showBool false = "False"
 
 ------------------------------------------------------------------------
--- A finite map A ‚í B is a list of images, one per element of A.
+-- A finite map A ‚Üí B is a list of images, one per element of A.
 ------------------------------------------------------------------------
 
 Map : Set
 Map = List Nat
 
--- all maps A ‚í B, |A| = na, |B| = nb  (nb^na of them), same order as the
+-- all maps A ‚Üí B, |A| = na, |B| = nb  (nb^na of them), same order as the
 -- Haskell list comprehension: [ b : rest | b <- [0..nb-1], rest <- allMaps (na-1) nb ]
 allMaps : Nat ‚Üí Nat ‚Üí List Map
 allMaps zero    nb = [] ‚à∑ []
@@ -161,8 +161,8 @@ allMaps (suc na) nb =
   concatMapL (Œª b ‚Üí mapL (Œª rest ‚Üí b ‚à∑ rest) (allMaps na nb)) (rangeUp nb)
 
 ------------------------------------------------------------------------
--- ANGEL ¬ road one.  |graph f| = |A| for every f (the finite face of
--- `singl (f a)` being contractible ‚î for each a exactly one b = f a).
+-- ANGEL ¬∑ road one.  |graph f| = |A| for every f (the finite face of
+-- `singl (f a)` being contractible ‚Äî for each a exactly one b = f a).
 ------------------------------------------------------------------------
 
 graphSize : Map ‚Üí Nat
@@ -172,7 +172,7 @@ angelHolds : Map ‚Üí Bool
 angelHolds f = graphSize f ==N lengthL f
 
 ------------------------------------------------------------------------
--- DEVIL ¬ road two.  The fibre census, three-valued.
+-- DEVIL ¬∑ road two.  The fibre census, three-valued.
 ------------------------------------------------------------------------
 
 data Verdict : Set where
@@ -244,7 +244,7 @@ vsOf3 : Map ‚Üí List Verdict
 vsOf3 m = sortVerdict (mapL snd (census 3 m))
 
 ------------------------------------------------------------------------
--- THE DURNAYA CONTROL: first (f,g) in ms ó ms (ms = allMaps 3 3), in the
+-- THE DURNAYA CONTROL: first (f,g) in ms √ó ms (ms = allMaps 3 3), in the
 -- exact nested order of the Haskell list comprehension, both `not
 -- isEquivFin`, whose sorted censuses differ.
 ------------------------------------------------------------------------

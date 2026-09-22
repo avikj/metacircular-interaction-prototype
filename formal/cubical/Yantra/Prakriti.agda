@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 module Yantra.Prakriti where
--- ��������: EVERY n > 1 has a prime divisor.  Universal, no fuel, no sweep.
+-- प्रकृति: EVERY n > 1 has a prime divisor.  Universal, no fuel, no sweep.
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
@@ -33,7 +33,7 @@ boundedDec P dP (suc b) with boundedDec P dP b
   ... | eq d≡sb = ¬here (subst P d≡sb pd)
   ... | gt sb<d = <-asym sb<d d≤sb
 
--- c � suc d ≡ n forces c � n
+-- c · suc d ≡ n forces c ≤ n
 divBound : (d c n : ℕ) → c · suc d ≡ n → c ≤ n
 divBound d c n e = subst (c ≤_) e (subst (c ≤_) (sym (·-suc c d)) ≤SumLeft)
 
@@ -52,7 +52,7 @@ divTrans p d n (c₁ , e₁) (c₂ , e₂) =
 IsPrime : ℕ → Type₀
 IsPrime p = (1 < p) × ((d : ℕ) → divides d p → (d ≡ 1) ⊎ (d ≡ p))
 
--- nontrivial divisor: 1 < d < n with d � n
+-- nontrivial divisor: 1 < d < n with d ∣ n
 NTD : ℕ → Type₀
 NTD n = Σ[ d ∈ ℕ ] ((1 < d) × (d < n)) × divides d n
 
@@ -71,7 +71,7 @@ decNTD n with boundedDec (λ d → ((1 < d) × (d < n)) × divides d n)
 ... | yes (d , _ , w) = yes (d , w)
 ... | no ¬s = no λ { (d , (o , d<n) , dv) → ¬s (d , <-weaken d<n , (o , d<n) , dv) }
 
--- divisor of n is � n when n � 1
+-- divisor of n is ≤ n when n ≥ 1
 divLe : (d n : ℕ) → 0 < n → divides d n → d ≤ n
 divLe d n 0<n (zero , e) = Empty.rec (<-asym 0<n (subst (_≤ 0) e ≤-refl))
 divLe d n 0<n (suc c , e) =

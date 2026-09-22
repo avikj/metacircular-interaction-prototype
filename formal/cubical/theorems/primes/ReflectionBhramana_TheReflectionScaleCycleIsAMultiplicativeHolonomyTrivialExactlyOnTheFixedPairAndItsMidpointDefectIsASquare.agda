@@ -1,9 +1,9 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ààà°àà¿àà¿à®àà-ààà°à®à â” the reflection circuit.
+-- à¤ªà¥à¤°à¤¤à¤¿à¤¬à¤¿à¤®à¥à¤¬-à¤­à¥à¤°à¤®à¤£ â€” the reflection circuit.
 --
--- THE FOUR-STEP CYCLE  scaleâ»Â â’ reflect â’ scale â’ reflect  IS NOT THE
+-- THE FOUR-STEP CYCLE  scaleâ»Â¹ â†’ reflect â†’ scale â†’ reflect  IS NOT THE
 -- IDENTITY.  It is an explicit multiplicative holonomy, it is trivial
 -- exactly on the reflection-fixed pair, and its midpoint defect is a
 -- perfect square.
@@ -21,9 +21,9 @@
 --   Â§1  THE CYCLE IS A DIAGONAL MULTIPLICATION.  Composing the four
 --       steps on any state gives
 --
---         swap âˆ˜ act (u,v) âˆ˜ swap âˆ˜ act (uâ»Â,vâ»Â)  â‰¡  act ( vÂuâ»Â , uÂvâ»Â )
+--         swap âˆ˜ act (u,v) âˆ˜ swap âˆ˜ act (uâ»Â¹,vâ»Â¹)  â‰¡  act ( vÂ·uâ»Â¹ , uÂ·vâ»Â¹ )
 --
---       â” the holonomy is the element `hol = (vÂuâ»Â , uÂvâ»Â)`, and it is
+--       â€” the holonomy is the element `hol = (vÂ·uâ»Â¹ , uÂ·vâ»Â¹)`, and it is
 --       computed, not posited.  In the intended reading `u` and `v` are
 --       the two members of a reflected pair, so `hol` is the pair's
 --       displacement doubled; that reading is not needed below.
@@ -31,12 +31,12 @@
 --   Â§2  IT IS TRIVIAL EXACTLY ON THE FIXED PAIR:  hol â‰¡ (1,1) âŸº u â‰¡ v.
 --       Both directions, in any commutative ring.
 --
---   Â§3  ITS REFLECTION IS ITS INVERSE:  swap(hol) Â hol â‰¡ (1,1), for
---       every unit pair whatsoever.  So â” exactly as in the additive
---       case â” that relation is AUTOMATIC and separates nothing; Â§2 is
+--   Â§3  ITS REFLECTION IS ITS INVERSE:  swap(hol) Â· hol â‰¡ (1,1), for
+--       every unit pair whatsoever.  So â€” exactly as in the additive
+--       case â€” that relation is AUTOMATIC and separates nothing; Â§2 is
 --       the statement with content.
 --
---   Â§4  AND IT IS MULTIPLICATIVE in the scale: hol(wÂw') â‰¡ hol w Â hol w'.
+--   Â§4  AND IT IS MULTIPLICATIVE in the scale: hol(wÂ·w') â‰¡ hol w Â· hol w'.
 --       So the holonomies of the one-parameter scale family form a
 --       homomorphic image of it, and one nontrivial value forces all of
 --       them nontrivial.
@@ -46,8 +46,8 @@
 --         (xÂ² + yÂ²) - 2  â‰¡  (x - y)Â² ,
 --
 --       which is the two-sided scale probe minus twice the centre.  It
---       is a square with no hypothesis beyond `xÂy â‰¡ 1`, so it can never
---       be negative in any ordered instance â” the probe is midpoint
+--       is a square with no hypothesis beyond `xÂ·y â‰¡ 1`, so it can never
+--       be negative in any ordered instance â€” the probe is midpoint
 --       convex, exactly.
 --
 --   Â§6  AND ITS VANISHING FORCES THE HOLONOMY TO BE AN INVOLUTION:
@@ -56,10 +56,10 @@
 -- WHERE THE ANALYSIS ENTERS, NAMED PRECISELY.  Â§6 gives `xÂ² â‰¡ 1`, not
 -- `x â‰¡ 1`.  Over an ordered field where `x` is a positive exponential
 -- the two coincide, because the only positive square root of one is one.
--- That single step â” POSITIVITY OF THE SCALE FACTOR â” is the whole of
+-- That single step â€” POSITIVITY OF THE SCALE FACTOR â€” is the whole of
 -- what an ordered structure is needed for here.
 --
--- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“6 in any commutative ring, for every
+-- SYÄ€T â€” THE CLAIM, EXACTLY.  Â§Â§1â€“6 in any commutative ring, for every
 -- unit pair.
 ------------------------------------------------------------------------
 
@@ -83,7 +83,7 @@ module _ (R : CommRing â„“) where
     A = âŸ¨ R âŸ©
 
   ------------------------------------------------------------------
-  -- à¦ Â One reflected pair: states, the reflection, the scale action.
+  -- à¥¦ Â· One reflected pair: states, the reflection, the scale action.
   ------------------------------------------------------------------
 
   Pair : Type â„“
@@ -116,7 +116,7 @@ module _ (R : CommRing â„“) where
       H = hol u Å« v vÌ„
 
     ----------------------------------------------------------------
-    -- à§ Â THE CYCLE IS EXACTLY MULTIPLICATION BY `hol`.
+    -- à¥§ Â· THE CYCLE IS EXACTLY MULTIPLICATION BY `hol`.
     ----------------------------------------------------------------
 
     cycle : Pair â†’ Pair
@@ -127,7 +127,7 @@ module _ (R : CommRing â„“) where
       Î£PathP ( Â·Assoc v Å« (fst p) , Â·Assoc u vÌ„ (snd p) )
 
     ----------------------------------------------------------------
-    -- à¨ Â TRIVIAL EXACTLY ON THE FIXED PAIR.
+    -- à¥¨ Â· TRIVIAL EXACTLY ON THE FIXED PAIR.
     ----------------------------------------------------------------
 
     private
@@ -148,7 +148,7 @@ module _ (R : CommRing â„“) where
           âˆ™ Â·IdL u )
 
     ----------------------------------------------------------------
-    -- à© Â ITS REFLECTION IS ITS INVERSE â” automatically, for every
+    -- à¥© Â· ITS REFLECTION IS ITS INVERSE â€” automatically, for every
     --     unit pair.  This relation is the vacuous one.
     ----------------------------------------------------------------
 
@@ -161,7 +161,7 @@ module _ (R : CommRing â„“) where
         regroup a b c d = solve! R
 
     ----------------------------------------------------------------
-    -- à Â THE MIDPOINT DEFECT IS A SQUARE.
+    -- à¥« Â· THE MIDPOINT DEFECT IS A SQUARE.
     ----------------------------------------------------------------
 
     probe : A â†’ A â†’ A
@@ -179,7 +179,7 @@ module _ (R : CommRing â„“) where
         expand p q = solve! R
 
     ----------------------------------------------------------------
-    -- à Â AND ITS VANISHING MAKES THE HOLONOMY AN INVOLUTION.
+    -- à¥¬ Â· AND ITS VANISHING MAKES THE HOLONOMY AN INVOLUTION.
     ----------------------------------------------------------------
 
     hol-units : fst H Â· snd H â‰¡ 1r
@@ -210,7 +210,7 @@ module _ (R : CommRing â„“) where
             cancel p q = solve! R
 
   ------------------------------------------------------------------
-  -- à Â THE HOLONOMY IS MULTIPLICATIVE IN THE SCALE.
+  -- à¥ª Â· THE HOLONOMY IS MULTIPLICATIVE IN THE SCALE.
   ------------------------------------------------------------------
 
   holonomy-multiplicative :

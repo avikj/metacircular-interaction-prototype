@@ -1,23 +1,23 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à®àà²àµà¾à•àà¯à®à Â PROVENANCE OF THE NAME.
+-- à¤®à¥‚à¤²à¤µà¤¾à¤•à¥à¤¯à¤®à¥ Â· PROVENANCE OF THE NAME.
 --
--- à•àà°à® Â à¨à¾àààà¿ â” two terms, one from each half of the àààààà™àà—à apparatus.
+-- à¤•à¥à¤°à¤® Â· à¤¨à¤¾à¤¸à¥à¤¤à¤¿ â€” two terms, one from each half of the à¤¸à¤ªà¥à¤¤à¤­à¤™à¥à¤—à¥€ apparatus.
 --
---   ààà¯à¾à¨àà¨à¾àààà¿, the second àà™àà—: in some respect, it is not.  **Samantabhadra,
+--   à¤¸à¥à¤¯à¤¾à¤¨à¥à¤¨à¤¾à¤¸à¥à¤¤à¤¿, the second à¤­à¤™à¥à¤—: in some respect, it is not.  **Samantabhadra,
 --   *ptamms* 14-24 (~6th c. CE); Akalaka, *Laghyastraya* (~8th c.);
 --   rooted in Umsvti, *Tattvrthastra* 5.31-32 (~2nd-5th c.).**
 --
---   à•àà°à®à¾à°ààà versus ààà¾à°ààà â” presentation in SUCCESSION versus SIMULTANEOUSLY.
+--   à¤•à¥à¤°à¤®à¤¾à¤°à¥à¤ªà¤£ versus à¤¸à¤¹à¤¾à¤°à¥à¤ªà¤£ â€” presentation in SUCCESSION versus SIMULTANEOUSLY.
 --   **Akalaka, *Laghyastraya* (~8th c.); Vidynandin,
 --   *Tattvrthalokavrttika* (~9th c.).**  This is the load-bearing one:
---   ààààà¿ and à¨à¾àààà¿ asserted in succession give the third àà™àà— and are
---   expressible; asserted together they give ààµà•àààµàà¯, the fourth, which is
+--   à¤…à¤¸à¥à¤¤à¤¿ and à¤¨à¤¾à¤¸à¥à¤¤à¤¿ asserted in succession give the third à¤­à¤™à¥à¤— and are
+--   expressible; asserted together they give à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯, the fourth, which is
 --   neither unknown nor undefined nor empty but a positive fourth position.
 --   The distinction is what makes seven positions and not four.
 --
--- The sevenfold division and the à•àà°à®/àà distinction are
+-- The sevenfold division and the à¤•à¥à¤°à¤®/à¤¸à¤¹ distinction are
 -- theirs, stated as doctrine; the theorems here are about what the fourth
 -- corner can and cannot be over particular index types in cubical type
 -- theory, and they are this repository's.
@@ -27,17 +27,17 @@
 --
 -- Where the instance family is
 -- ENUMERABLE and badness is DECIDABLE, pointwise stability is not a
--- hypothesis at all â” it is a theorem â” so the fourth corner is refuted
+-- hypothesis at all â€” it is a theorem â€” so the fourth corner is refuted
 -- with nothing assumed.
 --
--- Jaina terms first, and the school named: àà¾à®à¯à¿à• (temporary) and à¨à¿ààà¯
+-- Jaina terms first, and the school named: à¤¸à¤¾à¤®à¤¯à¤¿à¤• (temporary) and à¤¨à¤¿à¤¤à¥à¤¯
 -- (permanent) are `AnuktaAvaktavya`'s, and are used
 -- here unchanged; nothing below edits or reinterprets them.  The corner
 -- in question is the fourth of the saptabhag reading that module
--- sets up â” both readings denied at once.  What is added is a condition
+-- sets up â€” both readings denied at once.  What is added is a condition
 -- on the INSTANCE SET, not on the predication.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   Enumerated I     a list of instances together with a proof that
@@ -45,10 +45,10 @@
 --                    the constructive content of "finite family" without
 --                    a cardinality
 --   decAny           decidability transports along that list
---   decÎOverEnumerated
---                    hence `Î[ i âˆˆ I ] P i` is DECIDABLE
+--   decÎ£OverEnumerated
+--                    hence `Î£[ i âˆˆ I ] P i` is DECIDABLE
 --   enumerableDecidableGivesPointwiseStability
---                    hence stable, by `Decâ’Stable`
+--                    hence stable, by `Decâ†’Stable`
 --   fourthCornerRefutedOverEnumerableDecidable
 --                    hence the fourth corner is refuted, unconditionally
 --
@@ -56,15 +56,15 @@
 -- not a genuine search".  This says: over an enumerable family with
 -- decidable badness it is not a search, it is a scan.  So the fourth
 -- corner, if it exists at all, needs an instance family that is not
--- enumerable OR a badness that is not decidable â” not merely "some Î
+-- enumerable OR a badness that is not decidable â€” not merely "some Î£
 -- happens to be unstable".
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- IDIOM.  `Any` is a recursive type family, `Any P [] = âŠ`,
--- `Any P (x âˆ xs) = P x âŠ Any P xs`, not an inductive family with an
--- index.  That is the repository's standing cubical rule â” in cubical
--- v0.5 `Fin n = Î k (k < n)`, so constructors in index positions do not
--- pattern-match â” and it is why nothing here mentions `Fin` at all.
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- IDIOM.  `Any` is a recursive type family, `Any P [] = âŠ¥`,
+-- `Any P (x âˆ· xs) = P x âŠ Any P xs`, not an inductive family with an
+-- index.  That is the repository's standing cubical rule â€” in cubical
+-- v0.5 `Fin n = Î£ k (k < n)`, so constructors in index positions do not
+-- pattern-match â€” and it is why nothing here mentions `Fin` at all.
 ------------------------------------------------------------------------
 
 module KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet where
@@ -165,20 +165,20 @@ fourthCornerRefutedOverEnumerableDecidable bad e d =
 -- Take the instance set to be ONE instance (`Unit`), remedies
 -- arbitrary, `bad _ r = Q r`.  Then:
 --
---   Â àà¾à®à¯à¿à•  â‰  (r : R) â’ Â Â Q r
---   Â à¨à¿ààà¯    â‰  Â ((r : R) â’ Q r)
+--   Â¬ à¤¸à¤¾à¤®à¤¯à¤¿à¤•  â‰ƒ  (r : R) â†’ Â¬ Â¬ Q r
+--   Â¬ à¤¨à¤¿à¤¤à¥à¤¯    â‰ƒ  Â¬ ((r : R) â†’ Q r)
 --
 -- so the fourth corner IS a counterexample to the DOUBLE-NEGATION SHIFT
 -- (Spector 1962; Kreisel), and
 --
 --   fourthCornerRefutesPointwiseStability
---       the corner implies Â ((r) â’ Stable (Q r))
+--       the corner implies Â¬ ((r) â†’ Stable (Q r))
 --
--- â” the converse of Â§3 here, so at that family the stability hypothesis
+-- â€” the converse of Â§3 here, so at that family the stability hypothesis
 -- is necessary as well as sufficient.
 --
 -- WHAT THAT SAYS ABOUT THIS MODULE.  A ONE-
--- ELEMENT instance family is enumerable â” `Enumerated Unit` is
+-- ELEMENT instance family is enumerable â€” `Enumerated Unit` is
 -- immediate.  So the whole `Enumerated` apparatus above cannot be what
 -- separates the corner from its absence: at Unit the enumeration is
 -- free and the entire question is whether the BADNESS is stable.  The
@@ -191,7 +191,7 @@ fourthCornerRefutedOverEnumerableDecidable bad e d =
 ------------------------------------------------------------------------
 -- **THE SCHOOL BOUNDARY.**
 -- `Saptabhangi` and `SaptabhangiNaya`
--- prove that ààà¯à¾àà-ààààà¿-à¨à¾àààà¿ â‰ ààà¯à¾àà-ààµà•àààµàà¯à®à: krama
+-- prove that à¤¸à¥à¤¯à¤¾à¤¤à¥-à¤…à¤¸à¥à¤¤à¤¿-à¤¨à¤¾à¤¸à¥à¤¤à¤¿ â‰¢ à¤¸à¥à¤¯à¤¾à¤¤à¥-à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯à¤®à¥: krama
 -- (sequential) and saha (simultaneous, yugapad) assertion give
 -- different vs, so avaktavya is NOT sequential both-ness and the
 -- seven positions do not reduce to two.
@@ -200,12 +200,12 @@ fourthCornerRefutedOverEnumerableDecidable bad e d =
 ------------------------------------------------------------------------
 -- ON THE NAME.  `OrderSaha_TheFourthCornerIWasNamingIsTheSequentialPosition`
 -- shows the corner is a PRODUCT of two independent negations, and that
--- simultaneous refusal collapses into the sequential pair â” `Â (A âŠ B)`
--- and `(Â A) — (Â B)` are interderivable here with no hypothesis.  By
+-- simultaneous refusal collapses into the sequential pair â€” `Â¬ (A âŠ B)`
+-- and `(Â¬ A) Ã— (Â¬ B)` are interderivable here with no hypothesis.  By
 -- the theorem in `Saptabhangi`, the fourth bhaga is
 -- exactly what a sequential position is NOT.
 --
--- So the position this line occupies is the THIRD bhaga â”
--- ààà¯à¾àà-ààààà¿-à¨à¾àààà¿, asserted à•àà°à®àà (kramena, in sequence) â” and the
+-- So the position this line occupies is the THIRD bhaá¹…ga â€”
+-- à¤¸à¥à¤¯à¤¾à¤¤à¥-à¤…à¤¸à¥à¤¤à¤¿-à¤¨à¤¾à¤¸à¥à¤¤à¤¿, asserted à¤•à¥à¤°à¤®à¥‡à¤£ (kramena, in sequence) â€” and the
 -- files on this line lead with `OrderAstiNasti_`.
 ------------------------------------------------------------------------

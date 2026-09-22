@@ -19,7 +19,7 @@ e_f:A\simeq\sum_{b:B}F_f(b),\qquad
 
 Its inverse takes a. The other inverse homotopy changes the displayed b along the retained path f(a)=b. No representative of an unknown preimage is selected.
 
-The source `Fibre.Trace` makes the constraint on any conservative presentation explicit. Given whole:A竕sum_b T(b), the actual visible map is run=fst o whole. The module constructs T(b)竕fib_run(b). An equivalence of total spaces not over a preselected f can factor a different map. The retained Boolean counterexample separates these claims.
+The source `Fibre.Trace` makes the constraint on any conservative presentation explicit. Given whole:A竕ピum_b T(b), the actual visible map is run=fst o whole. The module constructs T(b)竕デib_run(b). An equivalence of total spaces not over a preselected f can factor a different map. The retained Boolean counterexample separates these claims.
 
 For any later target Z, composition with e_f and dependent currying yield
 
@@ -64,14 +64,14 @@ Not every term called a residual is literally a homotopy fibre without an identi
 
 # 3. Phase algebra and spectral closure in the actual model
 
-The interdependent quarter turn obeys qﾂｲ=simultaneous negation and q箒=identity. Its signed realization Jﾂｲ=-I closes the planar algebra:
+The interdependent quarter turn obeys qﾂｲ=simultaneous negation and q竅ｴ=identity. Its signed realization Jﾂｲ=-I closes the planar algebra:
 
 \[
 (aI+bJ)(cI+dJ)=(ac-bd)I+(ad+bc)J.
 \tag{T.4}
 \]
 
-The source's norm-one construction is an algebra of executable equivalences. Finite compositional order does not count how much mathematical content those transformations can carry. A supplied equivalence e:A竕B can itself be organized into a four-periodic action on A_0 disjoint-union B_1 disjoint-union A_2 disjoint-union B_3:
+The source's norm-one construction is an algebra of executable equivalences. Finite compositional order does not count how much mathematical content those transformations can carry. A supplied equivalence e:A竕ィ can itself be organized into a four-periodic action on A_0 disjoint-union B_1 disjoint-union A_2 disjoint-union B_3:
 
 \[
 a_0\mapsto e(a)_1,\quad b_1\mapsto e^{-1}(b)_2,
@@ -101,7 +101,7 @@ H_0(H_0-\Delta I)(H_0-2\Delta I)=0,
 
 This is an exact spectral normal form, not a truncated expansion. Increasing the volume does not add another free energy in this class.
 
-Contact compression retains C笄P_0C=G, C笄P_1C=2D-2G, C笄P_2C=I-2D+G. Therefore all bound-state questions reduce to the explicitly reconstructed contact problem in `FINITE_GAP_PAIR_REDUCTION.md`. Its commutator is
+Contact compression retains C窶P_0C=G, C窶P_1C=2D-2G, C窶P_2C=I-2D+G. Therefore all bound-state questions reduce to the explicitly reconstructed contact problem in `FINITE_GAP_PAIR_REDUCTION.md`. Its commutator is
 
 \[
 [\mathscr K_x,\mathscr K_y]
@@ -115,7 +115,7 @@ This was the concrete reduction in repeated work. The derivation separated the h
 
 # 4. Transport carries operations, evaluators, and their dependent obligations
 
-For an equivalence e:A竕B, computational univalence gives ua(e):A=B and a beta rule identifying transport in the identity family with application of e. Dependent constructions transport along that path. Two elementary presentations are
+For an equivalence e:A竕ィ, computational univalence gives ua(e):A=B and a beta rule identifying transport in the identity family with application of e. Dependent constructions transport along that path. Two elementary presentations are
 
 \[
 T_B=eT_Ae^{-1},\qquad O_B=O_Ae^{-1},
@@ -146,7 +146,7 @@ E'=\frac{u^\dagger\partial_\varphi H_{eff}u}
 
 The partial source derivative is at fixed E on a simple branch. Norm and response are operations on the same reconstruction. This is why computing the pair did not leave normalization and band occupation as unrelated tasks. Its retained upper-sector norm also changes the physical optimization, rather than merely documenting an unchanged projected answer.
 
-The new excitation embedding has the same structure. `GROUND_SPACE_AND_DENSITY_RESPONSE.md` constructs mathcal I_M(F)=B_F笄(eta笄)^(M-1)|0> and its exact metric, rather than treating it as an isometry. The filling-dependent density-response weight follows from that metric. The same overlap Gram matrix S=|P_ij|ﾂｲ controls the complete ground-space condition and the exactly reachable density-response subspace. This is a further application of retaining the map, not just its eigenvalues.
+The new excitation embedding has the same structure. `GROUND_SPACE_AND_DENSITY_RESPONSE.md` constructs mathcal I_M(F)=B_F窶(eta窶)^(M-1)|0> and its exact metric, rather than treating it as an isometry. The filling-dependent density-response weight follows from that metric. The same overlap Gram matrix S=|P_ij|ﾂｲ controls the complete ground-space condition and the exactly reachable density-response subspace. This is a further application of retaining the map, not just its eigenvalues.
 
 # 5. A failed equivalence produces a definite next object
 

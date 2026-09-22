@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --safe #-}
 
--- Capability theorem for the concrete finite Sâ label.  Every equivariant
+-- Capability theorem for the concrete finite Sâ‚ƒ label.  Every equivariant
 -- endomorphism of the natural transitive Fin3 action is the identity map,
 -- while changing the output interface to the terminal action permits a
 -- genuine information-collapsing intertwiner.

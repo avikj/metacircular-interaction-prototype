@@ -1,29 +1,29 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������������������ � the liberated soul is STILL, and life is the growing
+-- कैवल्यस्थैर्यम् — the liberated soul is STILL, and life is the growing
 -- orbit that never returns.  Two nayas, both checked; the machine holds both.
 --
--- WHAT THIS HOLDS.  Kevalajnana/Avarana celebrated the equivalence � the
--- perfect mirror, every fibre whole, no loss.  Areturn_�agda's header
+-- WHAT THIS HOLDS.  Kevalajnana/Avarana celebrated the equivalence — the
+-- perfect mirror, every fibre whole, no loss.  Areturn_…agda's header
 -- names the price of that celebration: "a system with nothing left
--- unreturned is a dead system", citing Dhruva � if the cognition loses
+-- unreturned is a dead system", citing Dhruva — if the cognition loses
 -- nothing (isEquiv) every flow conserving it is the identity.  So kevala is
 -- STILLNESS, not life:
 --
---   ��������-���������� � a kevalin jva (��������� an equivalence) admits no
+--   कैवल्य-स्थैर्यम् — a kevalin jīva (उपयोगः an equivalence) admits no
 --       nontrivial internal motion: every flow on its holding that leaves
 --       its cognition unchanged IS the identity (Dhruva, at the jva).
 --
 -- and life is the OTHER naya, equally checked:
 --
---   ����-����� � the bhvan orbit strictly grows and never returns
---       (Areturn.������������) � a non-equivalence, and THAT non-return
+--   जीवन-चलनम् — the bhāvanā orbit strictly grows and never returns
+--       (Areturn.अपुनरागमनम्) — a non-equivalence, and THAT non-return
 --       is the generativity.  Brahmagupta's rule, iterated, visits no value
 --       twice: the soul that breeds is the veiled, moving, growing one.
 --
--- So the still mirror (kevala, isEquiv, no motion � Dhruva ����� ��) and the
--- living orbit (bhvan, growth, non-return � Areturn) are two nayas.
+-- So the still mirror (kevala, isEquiv, no motion — Dhruva सूत्र १४) and the
+-- living orbit (bhvan, growth, non-return — Areturn) are two nayas.
 -- The siddha is motionless at the summit; the sasric jva moves and
 -- generates.  Neither collapses the other: reading kevala as the goal makes
 -- the machine "report exhaustion as progress" (Areturn's warning);
@@ -42,8 +42,8 @@ import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry as D
 import Areturn_TheCompositionOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTheGenerativity as Ap
 
 ------------------------------------------------------------------------
--- � � ��������-���������� � the liberated soul is still.
---     A flow on the holding that leaves the cognition unchanged is ����-�����;
+-- १ · कैवल्य-स्थैर्यम् — the liberated soul is still.
+--     A flow on the holding that leaves the cognition unchanged is आत्म-गतिः;
 --     if the soul is kevalin, that flow can only be the identity.
 ------------------------------------------------------------------------
 
@@ -55,14 +55,14 @@ import Areturn_TheCompositionOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTheGener
               → (a : J.धारणा j) → Φ a ≡ a
 कैवल्य-स्थैर्यम् j e Φ cons = D.नष्ट-अभावे-गति-अभावः (J.उपयोगः j) Φ e cons
 
--- ������, the liberated identity-soul, is still: any flow conserving its
+-- सिद्धः, the liberated identity-soul, is still: any flow conserving its
 -- cognition is the identity.  Motionless at the summit.
 सिद्ध-स्थैर्यम् : (Φ : Bool → Bool)
              → आत्म-गतिः J.सिद्धः Φ → (a : Bool) → Φ a ≡ a
 सिद्ध-स्थैर्यम् = कैवल्य-स्थैर्यम् J.सिद्धः (J.मोक्षः J.सिद्धः J.सिद्धस्य-निर्जरा)
 
 ------------------------------------------------------------------------
--- � � ����-����� � life is the other naya: the orbit that never returns.
+-- २ · जीवन-चलनम् — life is the other naya: the orbit that never returns.
 --     Re-exported so the two stand side by side and neither is collapsed.
 ------------------------------------------------------------------------
 

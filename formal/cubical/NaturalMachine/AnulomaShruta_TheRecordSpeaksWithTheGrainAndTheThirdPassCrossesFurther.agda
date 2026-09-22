@@ -1,22 +1,22 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- �������-������� � anuloma, with the grain; pratiloma, against it: the
+-- अनुलोम-श्रुतम् — anuloma, with the grain; pratiloma, against it: the
 -- ordinary Indic classification of direction (the grammatical and
 -- smti traditions).
 --
 -- A HYPOTHESIS, REFUTED.  The conjecture: the elder's rules cross
 -- in whatever orientation the completion stored them, the record
 -- speaks them as stored, so an anti-normalizing rule poisons the
--- exchange � orient every rule toward its smaller face under the full
--- eye (a trivially sound act: a ����� flipped is a �����, the
+-- exchange — orient every rule toward its smaller face under the full
+-- eye (a trivially sound act: a नियमः flipped is a नियमः, the
 -- witness sym'd) and the third pass should cross further.
 --
--- The kernel's verdict, computed entire: �����-������� ≡ 0.  The
+-- The kernel's verdict, computed entire: तृतीय-सिद्धिः ≡ 0.  The
 -- oriented lineage closes NONE of the eight.  Orientation was not
 -- the binding constraint; the eight lie beyond record-assisted
 -- single descent in EITHER direction of the record: what these need is not a
--- better-spoken record but a new kind of step � the conditional /
+-- better-spoken record but a new kind of step — the conditional /
 -- monotone reasoning the equational exchange cannot express.
 ------------------------------------------------------------------------
 
@@ -55,7 +55,7 @@ open import NaturalMachine.ShrutaParampara_TheCrossedRulesBecomeTheRecordAndTheS
 आकारः (lq a b) = suc (आकारः a + आकारः b)
 आकारः (gc a b) = suc (आकारः a + आकारः b)
 
--- a rule reversed is a rule � the witness reverses with it.
+-- a rule reversed is a rule — the witness reverses with it.
 विपरीतः : नियमः → नियमः
 विपरीतः s = niyama (नियमः.rhs s) (नियमः.lhs s) (λ ρ → sym (नियमः.साक्षी s ρ))
 
@@ -66,7 +66,7 @@ open import NaturalMachine.ShrutaParampara_TheCrossedRulesBecomeTheRecordAndTheS
   then विपरीतः s
   else s
 
--- the whole lineage so far � both passes � oriented anuloma.
+-- the whole lineage so far — both passes — oriented anuloma.
 अनुलोम-परम्परा : List नियमः
 अनुलोम-परम्परा = map दिशा (गुरु-न्यायः (अपचितम् आगमः) ++ परम्परा)
 

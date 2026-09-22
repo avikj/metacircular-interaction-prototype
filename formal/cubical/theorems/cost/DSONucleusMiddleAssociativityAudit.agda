@@ -16,9 +16,9 @@
 -- leaf evaluations; the associativity statement has three closure layers
 -- (two products over `middleSeed = clMid âˆ˜ leftSeed`), giving
 -- 384 * 384 * 64 ~ 9.4e6 leaf evaluations per cell, x4 cells x2 sides x64
--- cases ~ 5e9 -- and every leaf is an â min/max/+/- from
+-- cases ~ 5e9 -- and every leaf is an â„¤ min/max/+/- from
 -- `Cubical.Data.Int`, which are unary-recursive in the magnitude
--- (min (pos (suc n)) (pos (suc m)) = sucâ (min (pos n) (pos m))), so each
+-- (min (pos (suc n)) (pos (suc m)) = sucâ„¤ (min (pos n) (pos m))), so each
 -- leaf is itself tens of reduction steps.  Measured against the calibrated
 -- rate of the sibling module, that is ~10 hours, not a hang; nothing about
 -- it is nonterminating, and no agent had ever seen it return.

@@ -1,21 +1,21 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������� � the unipotent.
+-- एकघात — the unipotent.
 --
 -- JetPravaha gave the Leibniz seam its first inhabitant, the first-order
 -- jet with the Euler derivation, and showed scalars are its kernel: a
 -- representation with no tangent component is invisible to the flux.
--- Over �, and over any ring without 2-torsion, �/2 is forced into the
--- scalars � an ε-part squares to 2aa�ε, so a self-inverse element has
+-- Over ℕ, and over any ring without 2-torsion, ℤ/2 is forced into the
+-- scalars — an ε-part squares to 2aa′ε, so a self-inverse element has
 -- none.  The insertion needs a group element of infinite order.
 --
---   §1  THE JET OVER �.  The same algebra with integer coefficients:
+--   §1  THE JET OVER ℤ.  The same algebra with integer coefficients:
 --       dual-number product, pointwise sum, Euler derivation, Leibniz
---       from the ring laws of � alone.
+--       from the ring laws of ℤ alone.
 --
---   §2  THE UNIPOTENT REPRESENTATION.  n � 1 + nε represents the
---       additive group �: (1 + nε)(1 + mε) = 1 + (n + m)ε because
+--   §2  THE UNIPOTENT REPRESENTATION.  n ↦ 1 + nε represents the
+--       additive group ℤ: (1 + nε)(1 + mε) = 1 + (n + m)ε because
 --       ε² = 0.  This is the exponential of the tangent, taken exactly.
 --
 --   §3  THE INSERTION IS NONZERO.  The flux of a represented holonomy n
@@ -24,7 +24,7 @@
 --       a subdivided edge (n , m) is (0 , n + m), and it splits into the
 --       two edge insertions as the seam says.
 --
--- ������� (eka-ghta, "one-power") is the corpus's own word for the rank-one
+-- एकघात (eka-ghāta, "one-power") is the corpus's own word for the rank-one
 -- product (EkaGhataVivrtti); here it names 1 + nε, the element whose
 -- every power is one plus a tangent.
 ------------------------------------------------------------------------
@@ -48,7 +48,7 @@ private
   module Z = GroupStr (snd ℤGroup)
 
 ------------------------------------------------------------------------
--- � � The jet over �.
+-- १ · The jet over ℤ.
 ------------------------------------------------------------------------
 
 Jet : Type₀
@@ -86,7 +86,7 @@ FluxDerivation.flux    jetPravāha = pravāha
 FluxDerivation.leibniz jetPravāha = leibniz
 
 ------------------------------------------------------------------------
--- � � The unipotent representation n � 1 + nε of the additive group �.
+-- २ · The unipotent representation n ↦ 1 + nε of the additive group ℤ.
 ------------------------------------------------------------------------
 
 ekaghāta : ℤ → Jet
@@ -98,7 +98,7 @@ ekaghāta-mul n m =
             (sym (cong₂ _+_ (·IdL m) (·IdR n) ∙ +Comm m n))
 
 ------------------------------------------------------------------------
--- � � The insertion is nonzero, and the seam has content.
+-- ३ · The insertion is nonzero, and the seam has content.
 ------------------------------------------------------------------------
 
 -- The flux of a represented holonomy reads off its tangent.

@@ -1,11 +1,11 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ààà•àà°à®à â” àà•à ààààà àà°ààµà àµààà¿, ààààµààà ààà¯àààà¯à¨ààà à
+-- à¤¸à¤‚à¤•à¥à¤°à¤®à¤£ â€” à¤à¤•à¤ƒ à¤¸à¥‡à¤¤à¥à¤ƒ à¤¸à¤°à¥à¤µà¤‚ à¤µà¤¹à¤¤à¤¿, à¤¸à¥‡à¤¤à¤µà¤¶à¥à¤š à¤¸à¤‚à¤¯à¥à¤œà¥à¤¯à¤¨à¥à¤¤à¥‡ à¥¤
 --
 -- (one bridge carries everything, and bridges compose.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE ECONOMIC CLAIM OF THIS CORPUS, AS TERMS.  README's LAW section says
 -- proof-of-transport "spends compute for an edge everybody uses forever",
 -- and movement 55 says import IS identity, so one landed bridge amortizes
@@ -13,16 +13,16 @@
 -- library facts standing together, and they are worth standing under one
 -- name because the pair is the economics and neither alone is.
 --
--- Â§à§ Â àµàà¨à®à â” a landed equivalence carries EVERY predicate.  There is no
+-- Â§à¥§ Â· à¤µà¤¹à¤¨à¤®à¥ â€” a landed equivalence carries EVERY predicate.  There is no
 -- hypothesis on `P`: not a set, not a prop, not decidable, not finite.
 -- That absence is the non-rivalry: whatever anyone ever proves on one
 -- bank crosses, including things nobody has stated yet.
 --
--- Â§à¨ Â ààà¯à‹à—à â” edges compose, and the composite is an edge.  So a route
+-- Â§à¥¨ Â· à¤¸à¤‚à¤¯à¥‹à¤—à¤ƒ â€” edges compose, and the composite is an edge.  So a route
 -- is an edge, and a route of routes is an edge, and the toll of a
 -- point about `Marga` calling a proof-length a toll).
 --
--- Â§à© Â ààà¨à°à¾à—à®à¨à®à â” and an edge inverts, so transport is two-way and the
+-- Â§à¥© Â· à¤ªà¥à¤¨à¤°à¤¾à¤—à¤®à¤¨à¤®à¥ â€” and an edge inverts, so transport is two-way and the
 -- round trip returns.  Road one is closed under composition and inverse.
 ------------------------------------------------------------------------
 
@@ -35,7 +35,7 @@ open import Cubical.Foundations.Univalence using (ua)
 private variable â„“ â„“' : Level
 
 ------------------------------------------------------------------------
--- à§ Â àµàà¨à®à â” one edge carries every predicate, with no hypothesis on it.
+-- à¥§ Â· à¤µà¤¹à¤¨à¤®à¥ â€” one edge carries every predicate, with no hypothesis on it.
 ------------------------------------------------------------------------
 
 à¤µà¤¹à¤¨à¤®à¥ : {A B : Type â„“} (P : Type â„“ â†’ Type â„“') â†’ A â‰ƒ B â†’ P A â†’ P B
@@ -46,7 +46,7 @@ private variable â„“ â„“' : Level
 à¤ªà¥à¤°à¤¤à¤¿à¤µà¤¹à¤¨à¤®à¥ P e = subst P (sym (ua e))
 
 ------------------------------------------------------------------------
--- à¨ Â ààà¯à‹à—à â” a route is an edge.  Composition stays on road one, so
+-- à¥¨ Â· à¤¸à¤‚à¤¯à¥‹à¤—à¤ƒ â€” a route is an edge.  Composition stays on road one, so
 --     length costs nothing.
 ------------------------------------------------------------------------
 
@@ -59,7 +59,7 @@ private variable â„“ â„“' : Level
 à¤¤à¥à¤°à¤¿à¤®à¤¾à¤°à¥à¤—à¤ƒ e f g = à¤®à¤¾à¤°à¥à¤—à¤ƒ (à¤®à¤¾à¤°à¥à¤—à¤ƒ e f) g
 
 ------------------------------------------------------------------------
--- à© Â ààà¨à°à¾à—à®à¨à®à â” and the road is two-way, with the trivial edge at
+-- à¥© Â· à¤ªà¥à¤¨à¤°à¤¾à¤—à¤®à¤¨à¤®à¥ â€” and the road is two-way, with the trivial edge at
 --     every node.  Road one is closed under identity, composition and
 --     inverse: it is a groupoid, and that is why routing on it is total.
 ------------------------------------------------------------------------

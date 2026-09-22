@@ -1,28 +1,28 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- àà¨à¨ààà°-àà°ààà â” the offering at the stratum WITHOUT INTERVAL.
+-- à¤…à¤¨à¤¨à¥à¤¤à¤°-à¤…à¤°à¥à¤ªà¤£ â€” the offering at the stratum WITHOUT INTERVAL.
 --
 -- THE QUESTION.
 -- The displacement law this corpus keeps meeting says truncation never
 -- destroys a charge; it withholds it.  The checked instances:
 --
---   OrderSaha    SÂ: the set-level kills the winding (Path âˆSÂâˆâ
---                contractible) while âˆÎ©SÂâˆâ â‰ â â” order IS the charge.
---   StaraArpana  SÂ: one stratum up the charge is uttered whole,
---                Î©(âˆSÂâˆâ) â‰ â.
+--   OrderSaha    SÂ¹: the set-level kills the winding (Path âˆ¥SÂ¹âˆ¥â‚‚
+--                contractible) while âˆ¥Î©SÂ¹âˆ¥â‚‚ â‰ƒ â„¤ â€” order IS the charge.
+--   StaraArpana  SÂ¹: one stratum up the charge is uttered whole,
+--                Î©(âˆ¥SÂ¹âˆ¥â‚ƒ) â‰ƒ â„¤.
 --   AyamaArpana  SÂ²: the sphere withholds one stratum deeper per
---                dimension â” âˆSÂ²âˆâ is contractible, all of it.
+--                dimension â€” âˆ¥SÂ²âˆ¥â‚ƒ is contractible, all of it.
 --
 -- Is there an intermediate regime?  A stratum at which the sphere
--- utters SOMETHING but not the whole â â” a partial charge between the
+-- utters SOMETHING but not the whole â„¤ â€” a partial charge between the
 -- silence and the full utterance?
 --
 -- ANSWERED HERE, for EVERY sphere, by composition of library terms and
--- with no new machinery: NO.  The adjacency is perfect â”
+-- with no new machinery: NO.  The adjacency is perfect â€”
 --
---   à®àà¨à®à    :  âˆ Sâ¿âºÂ âˆ (2+n)  is contractible          (total silence)
---   àà¨à¨ààà°à®à :  Î©â¿âºÂ (âˆ Sâ¿âºÂ âˆ (3+n))  â‰  â              (whole charge)
+--   à¤®à¥Œà¤¨à¤®à¥    :  âˆ¥ Sâ¿âºÂ¹ âˆ¥ (2+n)  is contractible          (total silence)
+--   à¤…à¤¨à¤¨à¥à¤¤à¤°à¤®à¥ :  Î©â¿âºÂ¹ (âˆ¥ Sâ¿âºÂ¹ âˆ¥ (3+n))  â‰ƒ  â„¤              (whole charge)
 --
 -- The FIRST stratum above the last silent one already carries every
 -- winding number.  There is no stratum of partial speech: the charge
@@ -31,11 +31,11 @@
 --
 -- SOURCES.  The engines are the LIBRARY's:
 -- sphereConnected (Cubical.HITs.Sn.Properties) for the silence;
--- ÏTruncIso and isSetÎ©Trunc (Cubical.Homotopy.Group.Base) and
--- Ïâ™Sâ¿â‰â (Cubical.Homotopy.Group.PinSn) for the utterance.  This
+-- Ï€TruncIso and isSetÎ©Trunc (Cubical.Homotopy.Group.Base) and
+-- Ï€â‚™Sâ¿â‰…â„¤ (Cubical.Homotopy.Group.PinSn) for the utterance.  This
 -- module's content is their COMPOSITION into the adjacency statement.
--- The reading-word àà°ààà¿à/àà¨à°ààà¿à is Umsvti, Tattvrthastra 5.31
--- (àà°ààà¿àà¾à¨à°ààà¿ààà¿à¦àà§àà), as in StaraArpana: the stra names
+-- à¤‰à¤¤à¥à¤ªà¤¾à¤¦à¤‰à¤¤à¥à¤ªà¤¾à¤¦The reading-à¤µà¥à¤¯à¤¯à¤µà¥à¤¯à¤¯wordà¤§à¥à¤°à¥Œà¤µà¥à¤¯à¤¯à¥à¤•à¥à¤¤à¤‚à¤§à¥à¤°à¥Œà¤µà¥à¤¯à¤¯à¥à¤•à¥à¤¤à¤‚ à¤¸à¤¤à¥à¤¸à¤¤à¥/ â€”â€”is UmÄsvÄti, TattvÄrthasÅ«tra 5.31
+-- (à¤…à¤°à¥à¤ªà¤¿à¤¤à¤¾à¤¨à¤°à¥à¤ªà¤¿à¤¤à¤¸à¤¿à¤¦à¥à¤§à¥‡à¤ƒ), as in StaraArpana: the sÅ«tra names
 -- establishment from the emphasized and the non-emphasized aspect.
 -- àà¨à¨ààà° (without
 -- interval, immediately adjacent) is ordinary ; the compound
@@ -59,18 +59,18 @@ open import Cubical.Homotopy.Group.Base using (Ï€ ; Ï€TruncIso ; isSetÎ©Trunc)
 open import Cubical.Homotopy.Group.PinSn using (Ï€â‚™Sâ¿â‰…â„¤)
 
 ------------------------------------------------------------------------
--- à®àà¨à®à â” the silence: through stratum 2+n the (n+1)-sphere utters
--- nothing at all.  (AyamaArpana's âˆSÂ²âˆâ, for every dimension.)
+-- à¤®à¥Œà¤¨à¤®à¥ â€” the silence: through stratum 2+n the (n+1)-sphere utters
+-- nothing at all.  (AyamaArpana's âˆ¥SÂ²âˆ¥â‚ƒ, for every dimension.)
 ------------------------------------------------------------------------
 
 à¤®à¥Œà¤¨à¤®à¥ : (n : â„•) â†’ isContr (hLevelTrunc (2 + n) (Sâ‚Š (suc n)))
 à¤®à¥Œà¤¨à¤®à¥ n = sphereConnected (suc n)
 
 ------------------------------------------------------------------------
--- àà¨à¨ààà°à®à â” the very next stratum utters the charge WHOLE.  The loop
--- space Î©â¿âºÂ of the (3+n)-truncated (n+1)-sphere is a set (it sits two
+-- à¤…à¤¨à¤¨à¥à¤¤à¤°à¤®à¥ â€” the very next stratum utters the charge WHOLE.  The loop
+-- space Î©â¿âºÂ¹ of the (3+n)-truncated (n+1)-sphere is a set (it sits two
 -- strata below the truncation level), its set-truncation is therefore
--- itself, and ÏTruncIso carries it to Ïâ™âŠâ(Sâ¿âºÂ) â‰ â.
+-- itself, and Ï€TruncIso carries it to Ï€â‚™â‚Šâ‚(Sâ¿âºÂ¹) â‰… â„¤.
 ------------------------------------------------------------------------
 
 à¤…à¤¨à¤¨à¥à¤¤à¤°à¤®à¥ : (n : â„•)
@@ -82,7 +82,7 @@ open import Cubical.Homotopy.Group.PinSn using (Ï€â‚™Sâ¿â‰…â„¤)
 
 ------------------------------------------------------------------------
 -- the SÂ² instance by name, adjacent to AyamaArpana's silence: the
--- charge withheld two strata (âˆSÂ²âˆâ contractible) is uttered whole at
+-- charge withheld two strata (âˆ¥SÂ²âˆ¥â‚ƒ contractible) is uttered whole at
 -- the fourth.
 ------------------------------------------------------------------------
 

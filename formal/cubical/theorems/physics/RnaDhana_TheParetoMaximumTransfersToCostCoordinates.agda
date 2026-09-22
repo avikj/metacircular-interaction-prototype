@@ -3,11 +3,11 @@
 ------------------------------------------------------------------------
 -- RnaDhana_TheParetoMaximumTransfersToCostCoordinates
 --
--- à‹àà§à¨ Â a-dhana â” Brahmagupta, *Brhmasphuasiddhnta* (628): the
+-- à¤‹à¤£à¤§à¤¨ Â· á¹›á¹‡a-dhana â€” Brahmagupta, *BrÄhmasphuá¹­asiddhÄnta* (628): the
 -- same magnitude read as *dhana* (asset) or *a* (debt).  The sign
 -- rules are his; the caps, the adjunction and everything below are not.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- The theorems on the Pareto line are stated for a vector all of whose
 -- coordinates point the same way, while DARWIN Â§5.2's objectives
 -- include wall time, tokens and dollars, which are to be MINIMISED.
@@ -20,12 +20,12 @@
 -- flip, to prove a statement about genuinely mixed benefit/cost
 -- vectors.  Nothing about maximality is re-proved.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   MixedStrict ds u z   z beats u in the MIXED order: `Dom ds u z`
---                        and not `Dom ds z u` â” `â‰` at benefit
---                        coordinates, `â‰` at cost coordinates
+--                        and not `Dom ds z u` â€” `â‰¤` at benefit
+--                        coordinates, `â‰¥` at cost coordinates
 --   MixedMaximal         nothing in the archive beats u
 --   AllBounded           every member's cost entries are below their
 --                        own caps
@@ -34,17 +34,17 @@
 --                        membership and `Any` across the flip
 --   mixedMaximalExists   **every non-empty archive of mixed vectors
 --                        has a mixed-maximal member, provided the caps
---                        bound its members** â” proved by calling
+--                        bound its members** â€” proved by calling
 --                        `maximalExists` on the flipped archive and
 --                        pulling the result back
 --
 -- **WHAT THE PULL-BACK COSTS, AND WHERE.**  Soundness moves forward for
--- nothing; the bound is needed only in the NEGATIVE half â” to turn
+-- nothing; the bound is needed only in the NEGATIVE half â€” to turn
 -- "the flipped z does not beat the flipped u" back into "z does not
 -- beat u" one needs `flipCapsReflect`, whose hypothesis is a bound on
 -- u.  Since u is a member of the archive, `AllBounded` supplies it.
 -- So the obligation is: **cap each cost coordinate, in its own units, above the
--- costs of the archive's members â” and then every benefit-reading
+-- costs of the archive's members â€” and then every benefit-reading
 -- theorem is available.**
 --
 -- The flip is NOT injective (that is exactly
@@ -149,13 +149,13 @@ mixedMaximalExists ds cs v vs ab
 ------------------------------------------------------------------------
 -- THE STRATIFICATION TRANSFERS TOO.  Its first layer is
 -- `RnaDhana_TheMixedStratumIsExactlyTheFlippedStratum`: under the caps,
--- `map flip (mixedStratum ds vs) â‰¡ stratum (map flip vs)` â” the two
+-- `map flip (mixedStratum ds vs) â‰¡ stratum (map flip vs)` â€” the two
 -- layers are the SAME LIST, order and multiplicity included.  What
 -- makes that possible despite the flip not being injective is that
 -- both sides are filters of the same list in the same order, so
 -- `filterMapCommutes` moves the map across the filter and
 -- `filterRespectsOn` needs the two predicates to agree only AT
--- MEMBERS â” which is exactly where `AllBounded` gives a cap.  The
+-- MEMBERS â€” which is exactly where `AllBounded` gives a cap.  The
 -- REMAINDER half (same argument, negated predicate) and the iteration
 -- are in `RnaDhana_TheWholeMixedStratificationIsTheFlippedOne`.
 ------------------------------------------------------------------------

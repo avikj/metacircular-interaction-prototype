@@ -1,14 +1,14 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- �������-���� � the non-commuting link field.
+-- अविनिमय-सेतु — the non-commuting link field.
 --
 -- SetuKsetra built the lattice, the connection, the gauge transformation
--- and the Wilson loop for �/2, and proved the loop gauge invariant by
+-- and the Wilson loop for ℤ/2, and proved the loop gauge invariant by
 -- telescoping.  Its two cancellation laws, madhya-lopa and
 -- trika-vinimaya, both spend commutativity.  RelationalHolonomyRefinement
 -- works over an arbitrary group but takes the endpoint law
--- t � g � s�� as given on a single coarse holonomy.  This file joins the
+-- t · g · s⁻¹ as given on a single coarse holonomy.  This file joins the
 -- two: the link-wise gauge transformation on a chain over ANY group
 -- telescopes, with no commutativity, to exactly that endpoint law, and
 -- what it says about a closed loop is sharper than invariance.
@@ -17,40 +17,40 @@
 --       site); the left site of each link is the previous site, seeded
 --       by the start site.  The Wilson line composes later links on the
 --       left, as the corpus's holonomy does.  A gauge transformation
---       rewrites each link g from site a to site b as b � g � a��.
+--       rewrites each link g from site a to site b as b · g · a⁻¹.
 --
 --   §2  THE NONABELIAN TELESCOPING LAW.  The transformed Wilson line is
---       (end site) � (original line) � (start site)��.  The middle sites
---       cancel in pairs by a�� � a = 1 alone: madhya-lopa without
+--       (end site) · (original line) · (start site)⁻¹.  The middle sites
+--       cancel in pairs by a⁻¹ · a = 1 alone: madhya-lopa without
 --       commutativity.
 --
 --   §3  THE ENDPOINT LAW IS DERIVED, NOT ASSUMED.  §2 is, verbatim,
 --       RelationalHolonomyRefinement's endpointGauge (start , end)
---       applied to the line � the coarse law is the lattice's own
+--       applied to the line — the coarse law is the lattice's own
 --       telescoping.
 --
 --   §4  THE CLOSED LOOP IS COVARIANT, NOT INVARIANT.  On a chain that
 --       returns to its start site the loop transforms by conjugation
---       h � W � h��.  Hence every conjugation-invariant observable of the
---       loop � every class function � is gauge invariant, by
+--       h · W · h⁻¹.  Hence every conjugation-invariant observable of the
+--       loop — every class function — is gauge invariant, by
 --       closedLoopGaugeInvariant applied to the lattice loop.
 --
 --   §5  THE ABELIAN INVARIANCE WAS AN ARTIFACT.  Supply commutativity and
 --       conjugation collapses to the identity: SetuKsetra's cakra-avikra
 --       is the special case, recovered from §4 in four steps.
 --
---   §6  A CLASS FUNCTION THAT IS NOT THE CONSTANT ONE.  Flatness � the
---       loop has trivial holonomy � is conjugation invariant, so by §4
+--   §6  A CLASS FUNCTION THAT IS NOT THE CONSTANT ONE.  Flatness — the
+--       loop has trivial holonomy — is conjugation invariant, so by §4
 --       it is a gauge-invariant observable of the lattice loop.  The
 --       previous nonabelian instance observed only into Unit.
 --
---   §7  THE LOOP ITSELF MOVES.  In S� the one-link loop s��, transformed
---       at site s��, becomes s�� � s�� � s����, which is not s��: the
+--   §7  THE LOOP ITSELF MOVES.  In S₃ the one-link loop s₀₁, transformed
+--       at site s₁₂, becomes s₁₂ · s₀₁ · s₁₂⁻¹, which is not s₀₁: the
 --       Wilson element is gauge-dependent and only its class is
 --       observable.  The witness is FiniteNonabelianHolonomy's
 --       noncommuting, moved across one inverse.
 --
--- ������� (a-vinimaya, non-exchange) is ordinary ; SetuKsetra's
+-- अविनिमय (a-vinimaya, non-exchange) is ordinary ; SetuKsetra's
 -- own trika-vinimaya is the exchange this file does without.
 ------------------------------------------------------------------------
 
@@ -79,7 +79,7 @@ module _ (G : Group ℓ) where
     open G using (_·_ ; 1g ; inv)
 
   ----------------------------------------------------------------------
-  -- � � The lattice, the field, the transformation, the line.
+  -- १ · The lattice, the field, the transformation, the line.
   ----------------------------------------------------------------------
 
   Setu : Type ℓ
@@ -91,7 +91,7 @@ module _ (G : Group ℓ) where
   wilson (g ∷ gs) = wilson gs · g
 
   -- The gauge transformation: link g from site h to site h' becomes
-  -- h' � g � h��.
+  -- h' · g · h⁻¹.
   parivartana : ⟨ G ⟩ → Setu → List ⟨ G ⟩
   parivartana h []               = []
   parivartana h ((g , h') ∷ c) = ((h' · g) · inv h) ∷ parivartana h' c
@@ -102,10 +102,10 @@ module _ (G : Group ℓ) where
   anta h ((_ , h') ∷ c) = anta h' c
 
   ----------------------------------------------------------------------
-  -- � � Middle cancellation without commutativity, and the telescoping law.
+  -- २ · Middle cancellation without commutativity, and the telescoping law.
   ----------------------------------------------------------------------
 
-  -- (X � h'��) � ((h' � g) � Y) ≡ (X � g) � Y, by h'�� � h' = 1 alone.
+  -- (X · h'⁻¹) · ((h' · g) · Y) ≡ (X · g) · Y, by h'⁻¹ · h' = 1 alone.
   madhya-lopa : (X h' g Y : ⟨ G ⟩)
               → (X · inv h') · ((h' · g) · Y) ≡ (X · g) · Y
   madhya-lopa X h' g Y =
@@ -127,7 +127,7 @@ module _ (G : Group ℓ) where
     ∙ cong (_· inv h) (sym (G.·Assoc (anta h' c) (wilson (map fst c)) g))
 
   ----------------------------------------------------------------------
-  -- � � The endpoint law is the telescoping, verbatim.
+  -- ३ · The endpoint law is the telescoping, verbatim.
   ----------------------------------------------------------------------
 
   setu-endpoint : (h : ⟨ G ⟩) (c : Setu)
@@ -136,7 +136,7 @@ module _ (G : Group ℓ) where
   setu-endpoint = saṅkalana
 
   ----------------------------------------------------------------------
-  -- � � The closed loop is covariant by conjugation; class functions
+  -- ४ · The closed loop is covariant by conjugation; class functions
   --     are invariant.
   ----------------------------------------------------------------------
 
@@ -155,7 +155,7 @@ module _ (G : Group ℓ) where
     ∙ RHR.closedLoopGaugeInvariant G f invariant h (wilson (map fst c))
 
   ----------------------------------------------------------------------
-  -- � � Commutativity collapses conjugation: the abelian case recovered.
+  -- ५ · Commutativity collapses conjugation: the abelian case recovered.
   ----------------------------------------------------------------------
 
   sama-avikāra : ((x y : ⟨ G ⟩) → x · y ≡ y · x)
@@ -169,7 +169,7 @@ module _ (G : Group ℓ) where
     ∙ G.·IdR (wilson (map fst c))
 
   ----------------------------------------------------------------------
-  -- � � A class function that is not the constant one: flatness.
+  -- ६ · A class function that is not the constant one: flatness.
   --     "The loop has trivial holonomy" is conjugation invariant, so by
   --     §4 it is a gauge-invariant observable of the lattice loop.
   ----------------------------------------------------------------------
@@ -177,7 +177,7 @@ module _ (G : Group ℓ) where
   equalityla : ⟨ G ⟩ → Type ℓ
   equalityla g = g ≡ 1g
 
-  -- conjugate back: h�� � (h � g � h��) � h ≡ g, by cancellation alone.
+  -- conjugate back: h⁻¹ · (h · g · h⁻¹) · h ≡ g, by cancellation alone.
   pratisaṃyoga : (h g : ⟨ G ⟩) → (inv h · ((h · g) · inv h)) · h ≡ g
   pratisaṃyoga h g =
       cong (_· h) (G.·Assoc (inv h) (h · g) (inv h))
@@ -211,12 +211,12 @@ module _ (G : Group ℓ) where
   equalityla-avikāra = varga-avikāra equalityla equalityla-varga
 
 ------------------------------------------------------------------------
--- � � The loop itself moves: the S� witness.
+-- ७ · The loop itself moves: the S₃ witness.
 ------------------------------------------------------------------------
 
 module S = GroupStr (snd S₃)
 
--- Conjugating s�� by s�� cannot return s��: cancel the inverse and the
+-- Conjugating s₀₁ by s₁₂ cannot return s₀₁: cancel the inverse and the
 -- two transpositions would commute.
 sākṣī : ((s₁₂ S.· s₀₁) S.· S.inv s₁₂ ≡ s₀₁) → ⊥
 sākṣī p = noncommuting (sym moved)
@@ -228,7 +228,7 @@ sākṣī p = noncommuting (sym moved)
     ∙ S.·Assoc (s₁₂ S.· s₀₁) (S.inv s₁₂) s₁₂
     ∙ cong (S._· s₁₂) p
 
--- One closed link carrying s��, transformed at site s��: the transformed
+-- One closed link carrying s₀₁, transformed at site s₁₂: the transformed
 -- loop is not the original loop.
 eka-cakra : Setu S₃
 eka-cakra = (s₀₁ , s₁₂) ∷ []

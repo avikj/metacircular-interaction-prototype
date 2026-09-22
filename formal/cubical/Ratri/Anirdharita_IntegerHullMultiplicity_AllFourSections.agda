@@ -1,17 +1,17 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ���������� � hull is a 6-to-1-per-tile compression and none of the
+-- अनिर्धारित — hull is a 6-to-1-per-tile compression and none of the
 -- four probed pairings inverts it.  All four guess that a scalar census
 -- of a configuration determines the configuration, or that hull's
 -- output censuses back to its input.  The host's own
--- theorems price the tile: hullN says N (hull t) = t � 6, hullSQ says
--- SQ (hull t) = t � 8 � the hull of t is five cells per unit, never one,
+-- theorems price the tile: hullN says N (hull t) = t · 6, hullSQ says
+-- SQ (hull t) = t · 8 — the hull of t is five cells per unit, never one,
 -- so every section guess dies at t = 1.  Four verdicts, one witness
 -- each, all by refl + a decidable discriminator.  Road two, four times.
 --
 -- Toolchain: the PIN (Agda 2.8.0 + cubical v0.9); the host uses the
--- v0.9 � ring solver.
+-- v0.9 ℕ ring solver.
 ------------------------------------------------------------------------
 
 module Ratri.Anirdharita_IntegerHullMultiplicity_AllFourSections where
@@ -39,7 +39,7 @@ Xs-NOT-DETERMINED p = true≢false (cong isSingleton1 (sym p))
 Qs-NOT-DETERMINED : hull (Qs singleton1) ≡ singleton1 → ⊥
 Qs-NOT-DETERMINED p = true≢false (cong isSingleton1 (sym p))
 
--- N ∘ hull is �6, never the identity: N (hull 1) = 6 � 1.
+-- N ∘ hull is ·6, never the identity: N (hull 1) = 6 ≢ 1.
 N-NOT-DETERMINED : N (hull 1) ≡ 1 → ⊥
 N-NOT-DETERMINED p = snotz (cong predℕ p)
   where
@@ -47,7 +47,7 @@ N-NOT-DETERMINED p = snotz (cong predℕ p)
   predℕ 0 = 0
   predℕ (suc n) = n
 
--- SQ ∘ hull is �8, never the identity: SQ (hull 1) = 8 � 1.
+-- SQ ∘ hull is ·8, never the identity: SQ (hull 1) = 8 ≢ 1.
 SQ-NOT-DETERMINED : SQ (hull 1) ≡ 1 → ⊥
 SQ-NOT-DETERMINED p = snotz (cong predℕ p)
   where

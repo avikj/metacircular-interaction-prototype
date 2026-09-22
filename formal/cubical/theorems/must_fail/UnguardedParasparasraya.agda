@@ -6,19 +6,19 @@
 -- *** THIS FILE MUST FAIL TO TYPE-CHECK. ***
 --
 -- The negative control of
--- `logic/Parasparasraya_TheMutualDependenceObjectionChecksâ¦`: the
+-- `logic/Parasparasraya_TheMutualDependenceObjectionChecksâ€¦`: the
 -- TRADITIONAL parasparraya, the vicious circle the Nyya and Jaina
 -- literature catalogued as a defect of definition.  Two streams, each
 -- defined as the other WITH NO CONSTRUCTOR GUARDING THE LEANING: no
 -- observation is produced at any step, so the circle establishes
--- nothing â” and the typechecker must say so.
+-- nothing â€” and the typechecker must say so.
 --
 -- WHY IT MUST FAIL.  `eam` alone strips a coinductive layer without
 -- producing one; the definitions below are corecursive calls at depth
 -- zero, so the termination/productivity checker rejects them.  If this
 -- file ever compiles, the guardedness criterion has stopped separating
 -- the generative circle from the vicious one, and the positive module's
--- entire claim â” that the typechecker is the arbiter â” is void.  A
+-- entire claim â€” that the typechecker is the arbiter â€” is void.  A
 -- control that starts compiling is itself the defect.
 --
 -- The positive counterpart differs in exactly one respect: there, each

@@ -1,9 +1,9 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 module ArithWeil2 where
--- àà°àà-àµààà² 2 â” the note's arithmetic Weil matrix M_2 = [Z(Ï_u âˆ’ Ï_v)] on S_2, rounded monotonically
--- (Lemma R of tools/data/ARITH_WEIL_certificate.md) and certified PSD with the gap c/2^144 â‰ the note's
+-- à¤…à¤°à¥à¤¥-à¤µà¥‡à¤‡à¤² 2 â€” the note's arithmetic Weil matrix M_2 = [Z(Ï„_u âˆ’ Ï„_v)] on S_2, rounded monotonically
+-- (Lemma R of tools/data/ARITH_WEIL_certificate.md) and certified PSD with the gap c/2^144 â‰¥ the note's
 -- margin: sdhya checks by refl; antara is Theorem 4 of the note at N = 2, as a term.
--- dyadic slack certificate: Aâ² = 2^144ÂA, Lâ² = 2^40ÂL, Dâ² = 2^64ÂD, câ² = 2^144Âc
+-- dyadic slack certificate: Aâ€² = 2^144Â·A, Lâ€² = 2^40Â·L, Dâ€² = 2^64Â·D, câ€² = 2^144Â·c
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (â„• ; zero ; suc)
 open import Cubical.Data.Bool using (true)

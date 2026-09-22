@@ -1,19 +1,19 @@
 {-# OPTIONS --cubical --safe #-}
 
--- PrimalityDecision: `Dec (IsPrime n)` for every n : �.
+-- PrimalityDecision: `Dec (IsPrime n)` for every n : ℕ.
 --
 -- No new
 -- number theory is used.  `CoprimeSplitting.searchDiv n k` already returns
--- either a nontrivial divisor � k or a proof that none exists; the whole
+-- either a nontrivial divisor ≤ k or a proof that none exists; the whole
 -- decision is dispatching on that one search at k = n-1.
 --
---   * NoDivBelow n (n-1)  �  IsPrime n           (noDiv�prime)
---   * a divisor d, 1<d, d�n-1, d�n  �  � IsPrime n
+--   * NoDivBelow n (n-1)  ⟶  IsPrime n           (noDiv→prime)
+--   * a divisor d, 1<d, d≤n-1, d∣n  ⟶  ¬ IsPrime n
 --         (primality would force d ≡ 1 or d ≡ n, both refuted by the
 --          bounds the divisor already carries)
 --
 -- The bound k = n-1 is what makes the divisor case a refutation rather
--- than merely "found a divisor": a divisor d � n-1 with d � n and 1 < d
+-- than merely "found a divisor": a divisor d ≤ n-1 with d ∣ n and 1 < d
 -- is exactly a proper nontrivial factor.
 
 module PrimalityDecision where
@@ -32,12 +32,12 @@ open import CoprimeSplitting
   using (DivBelow; NoDivBelow; searchDiv; noDiv→prime)
 
 ------------------------------------------------------------------------
--- The refutation half: a nontrivial divisor � n-1 contradicts primality.
+-- The refutation half: a nontrivial divisor ≤ n-1 contradicts primality.
 ------------------------------------------------------------------------
 
--- For n = suc (suc m): a divisor d with 1 < d, d � suc m, d � n cannot
+-- For n = suc (suc m): a divisor d with 1 < d, d ≤ suc m, d ∣ n cannot
 -- exist alongside IsPrime n, because IsPrime's divisor clause forces
--- d ≡ 1 (impossible, 1 < d) or d ≡ n (impossible, d � n-1 = suc m).
+-- d ≡ 1 (impossible, 1 < d) or d ≡ n (impossible, d ≤ n-1 = suc m).
 divBelow→¬prime :
   (m : ℕ) → DivBelow (suc (suc m)) (suc m) → ¬ IsPrime (suc (suc m))
 divBelow→¬prime m (d , 1<d , d≤sm , d∣n) pr with pr .snd d d∣n

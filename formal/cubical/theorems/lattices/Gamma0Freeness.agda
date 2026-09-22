@@ -4,13 +4,13 @@
 -- Gamma0Freeness
 --
 -- Freeness of the stabilizer action on normalization events, over all
--- of �: if H�U ≡ U for a unimodular U, then H is the identity.  This
+-- of ℤ: if H·U ≡ U for a unimodular U, then H is the identity.  This
 -- is the torsor's freeness clause (R0033): distinct payloads move the
--- base event to distinct events � the payload is faithful.
+-- base event to distinct events — the payload is faithful.
 --
 -- Proof: right-multiply by adj U, associate (solver, entrywise),
--- collapse U�adj U to det�I (M2Unimodular), then cancel the nonzero
--- determinant entrywise by integrality of �.  Discreteness and
+-- collapse U·adj U to det·I (M2Unimodular), then cancel the nonzero
+-- determinant entrywise by integrality of ℤ.  Discreteness and
 -- integrality each enter exactly once, both through M2Unimodular.
 ------------------------------------------------------------------------
 
@@ -82,8 +82,8 @@ private
   fromDiff a b p = addBack a b ∙ cong (_+ b) p ∙ zeroAdd b
 
   -- cancellation of a nonzero factor, with the subtraction kept
-  -- symbolic (the solver cannot see literals under � subtraction:
-  -- x - 1 computes to pred� x before reflection)
+  -- symbolic (the solver cannot see literals under ℤ subtraction:
+  -- x - 1 computes to predℤ x before reflection)
   genCancel : (x a b : R) → x · a ≡ x · b → (x ≡ 0r → ⊥) → a ≡ b
   genCancel x a b p xnz =
     fromDiff a b
@@ -112,7 +112,7 @@ module _ (h11 h12 h21 h22 : R)
     dUnz : (dU ≡ 0r) → ⊥
     dUnz p = unimodularNonzero εu hεu (sym hdetU ∙ p)
 
-    -- H � (dU � I) ≡ dU � I
+    -- H · (dU · I) ≡ dU · I
     collapse : mul H (dia dU dU) ≡ dia dU dU
     collapse =
       cong (mul H) (sym (adjR U))

@@ -11,12 +11,12 @@
 --    `score_child_prop` or `best` is rejected, while the accidental
 --    `score_child_propbest` value falls through to random selection."
 --
--- Seams 1 and 3 have the SAME SHAPE â”
--- a defect undetectable exactly where it is harmless â” and said that
+-- Seams 1 and 3 have the SAME SHAPE â€”
+-- a defect undetectable exactly where it is harmless â€” and said that
 -- shape is a property of the SECTION.  Seam 2 has the same
 -- shape, and this is its statement.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED, for tokens with decidable equality
 --
 --   Accepted / Intended       membership in the validator's list and in
@@ -36,14 +36,14 @@
 --
 -- **Third instance of the section's shape.**  The
 -- defect is invisible exactly to runs using the default, which is every
--- run until someone passes the flag explicitly â” at which point the
+-- run until someone passes the flag explicitly â€” at which point the
 -- flag is not merely wrong but UNUSABLE, since no intended spelling is
 -- accepted and the only accepted spelling is one nobody would write.
 -- Seams 1, 2 and 3 are three instances of "undetectable exactly
 -- where harmless", and that is a fact about Â§2 rather than three
 -- coincidences.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- NO NOVELTY.  Disjointness implies rejection; this is a triviality.
 -- It is written because the seam reads as a typo, and a typo whose
 -- consequence is "the flag cannot be used at all, and no one will

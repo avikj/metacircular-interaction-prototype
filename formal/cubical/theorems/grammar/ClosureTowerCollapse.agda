@@ -5,9 +5,9 @@
 --
 -- The source's §0 erects a transfinite tower
 --
---     Θ_{ν+1} := κ(Θ_ν),   Θ_λ := �_{ν<λ} Θ_ν,   Θ_∞ := �_λ Θ_λ
+--     Θ_{ν+1} := κ(Θ_ν),   Θ_λ := ⋃_{ν<λ} Θ_ν,   Θ_∞ := ⋃_λ Θ_λ
 --
--- over the map κ(Θ) = � { � � Θ | � closed under the nine operations }.
+-- over the map κ(Θ) = ⋂ { Υ ⊇ Θ | Υ closed under the nine operations }.
 -- The tower is constant from stage one, because κ is a closure operator:
 -- an intersection of closed sets is closed, so κ(Θ) is itself closed, so
 -- it is the LEAST closed superset of itself, so κ∘κ = κ.
@@ -15,28 +15,28 @@
 -- What is proved below, for an arbitrary signature of binary and unary
 -- operations on an arbitrary type:
 --
---   ��-infl      S � � S �                      (inflationary)
---   ��-closed    ClosedUnder � S �              (κ lands in the closed sets)
---   ��-least     S � U � ClosedUnder U � � S � � U
+--   ⟪⟫-infl      S ⊆ ⟪ S ⟫                      (inflationary)
+--   ⟪⟫-closed    ClosedUnder ⟪ S ⟫              (κ lands in the closed sets)
+--   ⟪⟫-least     S ⊆ U → ClosedUnder U → ⟪ S ⟫ ⊆ U
 --                                                (the universal property)
---   ��-mono      S � T � � S � � � T �          (monotone)
---   ��-idem      � � S � � ≡ � S �              (Proposition 1's engine)
+--   ⟪⟫-mono      S ⊆ T → ⟪ S ⟫ ⊆ ⟪ T ⟫          (monotone)
+--   ⟪⟫-idem      ⟪ ⟪ S ⟫ ⟫ ≡ ⟪ S ⟫              (Proposition 1's engine)
 --   tower-const  Θ S (suc n) ≡ Θ S 1            (Proposition 1)
---   tower-limit  Θ S (suc n) ≡ � S �            (so every limit stage, being
+--   tower-limit  Θ S (suc n) ≡ ⟪ S ⟫            (so every limit stage, being
 --                                                a union of a constant chain,
---                                                is � S � as well)
+--                                                is ⟪ S ⟫ as well)
 --
 -- and `seed-tower-const`, the same statement at the source's own signature:
--- three binary operations (⊕ ⊗ ∘) and six unary ones (� δ Γ Φ (-)^∨ �-�).
+-- three binary operations (⊕ ⊗ ∘) and six unary ones (∂ δ Γ Φ (-)^∨ ⌜-⌝).
 --
 -- ON THE INTERSECTION.  The source's κ is written as an intersection over
--- ALL supersets �, which is impredicative: at a fixed universe � that
--- quantifier ranges over � A : Type (�-suc �), so the result does not land
--- in � A and the tower Θ_{ν+1} := κ(Θ_ν) does not even typecheck without
--- propositional resizing.  `�_�` below is the predicative rendering: the
--- closure is generated inductively and truncated, and `��-least` proves it
+-- ALL supersets Υ, which is impredicative: at a fixed universe ℓ that
+-- quantifier ranges over ℙ A : Type (ℓ-suc ℓ), so the result does not land
+-- in ℙ A and the tower Θ_{ν+1} := κ(Θ_ν) does not even typecheck without
+-- propositional resizing.  `⟪_⟫` below is the predicative rendering: the
+-- closure is generated inductively and truncated, and `⟪⟫-least` proves it
 -- has exactly the universal property the intersection was there to supply
--- � it IS the least closed superset.  Nothing is assumed that the source
+-- — it IS the least closed superset.  Nothing is assumed that the source
 -- constructed; the construction is carried out at a level where iterating
 -- it is meaningful.  That the impredicative form does not typecheck is a
 -- second, independent reason the transfinite ladder is not doing work.
@@ -136,7 +136,7 @@ module Signature {A : Type ℓ} {I J : Type ℓ}
   tower-const : (S : ℙ A) (n : ℕ) → Θ S (suc n) ≡ Θ S 1
   tower-const S n = tower-limit S n ∙ sym (tower-limit S zero)
 
-  -- Hence a limit stage �_{ν<λ} Θ_ν adds nothing: the chain it unions is
+  -- Hence a limit stage ⋃_{ν<λ} Θ_ν adds nothing: the chain it unions is
   -- constant, so Θ_λ = Θ_1 = Θ_∞, and the transfinite ladder above stage
   -- one is empty.  `tower-limit` is that statement; the union itself needs
   -- no separate proof because a union of a constant family of subsets is
@@ -144,7 +144,7 @@ module Signature {A : Type ℓ} {I J : Type ℓ}
 
 ------------------------------------------------------------------------
 -- The source's own signature: §0's nine operations, three binary and six
--- unary.  ⊕ ⊗ ∘ / � δ Γ Φ (-)^∨ �-�.
+-- unary.  ⊕ ⊗ ∘ / ∂ δ Γ Φ (-)^∨ ⌜-⌝.
 
 -- `after` is the source's `∘`; the name `comp` is taken by a cubical
 -- primitive (Cubical.Core.Primitives), and `∘` by function composition.

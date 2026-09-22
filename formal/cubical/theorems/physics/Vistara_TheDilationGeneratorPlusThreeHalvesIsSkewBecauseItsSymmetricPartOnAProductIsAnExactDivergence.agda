@@ -1,17 +1,17 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- ������� � the dilation.
+-- विस्तार — the dilation.
 --
 -- Handoff §33 ([S13]): the exact energy-neutral adaptive dilation has
--- generator  D_E = 3/5 + (2/5) y�� = (2/5)(y�� + 3/2),  which is skew
+-- generator  D_E = 3/5 + (2/5) y·∇ = (2/5)(y·∇ + 3/2),  which is skew
 -- in L² because
 --
---     (y��f) g + f (y��g) + 3 f g  =  div(y f g)
+--     (y·∇f) g + f (y·∇g) + 3 f g  =  div(y f g)
 --
--- is an exact divergence: integrated over �³ it vanishes, so
--- ⟨(y�� + 3/2)f, g⟩ + ⟨f, (y�� + 3/2)g⟩ = 0.  The identity is checked
+-- is an exact divergence: integrated over ℝ³ it vanishes, so
+-- ⟨(y·∇ + 3/2)f, g⟩ + ⟨f, (y·∇ + 3/2)g⟩ = 0.  The identity is checked
 -- over any commutative ring with three derivations ∵ and coordinates
--- y� with ∵ y� = 1 (only the diagonal derivatives enter).
+-- yᵢ with ∂ᵢ yᵢ = 1 (only the diagonal derivatives enter).
 ------------------------------------------------------------------------
 module Vistara_TheDilationGeneratorPlusThreeHalvesIsSkewBecauseItsSymmetricPartOnAProductIsAnExactDivergence where
 
@@ -44,7 +44,7 @@ module _ (R : CommRing ℓ) where
            (∂₁y₁ : ∂₁ y₁ ≡ 1r) (∂₂y₂ : ∂₂ y₂ ≡ 1r) (∂₃y₃ : ∂₃ y₃ ≡ 1r)
            where
 
-    -- y��
+    -- y·∇
     Y : A → A
     Y f = (y₁ · ∂₁ f + y₂ · ∂₂ f) + y₃ · ∂₃ f
 
@@ -52,7 +52,7 @@ module _ (R : CommRing ℓ) where
     div-y : A → A
     div-y h = (∂₁ (y₁ · h) + ∂₂ (y₂ · h)) + ∂₃ (y₃ · h)
 
-    -- (y��f) g + f (y��g) + 3 f g  ≡  div(y f g)
+    -- (y·∇f) g + f (y·∇g) + 3 f g  ≡  div(y f g)
     symmetric-part-is-exact : (f g : A) → (Y f · g + f · Y g) + ι 3 · (f · g) ≡ div-y (f · g)
     symmetric-part-is-exact f g =
         sym ( cong₂ _+_ (cong₂ _+_ (∂₁-leib y₁ (f · g) ∙ cong₂ _+_ (cong (_· (f · g)) ∂₁y₁) (cong (y₁ ·_) (∂₁-leib f g)))
@@ -65,6 +65,6 @@ module _ (R : CommRing ℓ) where
             ≡ ((((y₁ · f₁ + y₂ · f₂) + y₃ · f₃) · g + f · ((y₁ · g₁ + y₂ · g₂) + y₃ · g₃)) + (1r + (1r + (1r + 0r))) · (f · g))
         shape f g f₁ f₂ f₃ g₁ g₂ g₃ = solve! R
 
-    -- the generator:  5�D_E f = 3f + 2 y��f = 2 (y�� + 3/2) f
+    -- the generator:  5·D_E f = 3f + 2 y·∇f = 2 (y·∇ + 3/2) f
     generator : (f : A) → ι 3 · f + ι 2 · Y f ≡ ι 2 · Y f + ι 3 · f
     generator f = +Comm _ _

@@ -1,10 +1,10 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- kk ‚î the pattern's demand, and what soundness does to it.
+-- ƒÄkƒÅ·πÖk·π£ƒÅ ‚Äî the pattern's demand, and what soundness does to it.
 --
--- TERM.  ‡‡ï‡æ‡ô‡‡ï‡‡‡æ, expectancy: in the Indian accounts of how uttered words
--- yield one cognition (bdabodha) it is the first of the conditions ‚î a
+-- TERM.  ‡§Ü‡§ï‡§æ‡§ô‡•ç‡§ï‡•ç‡§∑‡§æ, expectancy: in the Indian accounts of how uttered words
+-- yield one cognition (≈õƒÅbdabodha) it is the first of the conditions ‚Äî a
 -- word EXPECTS its complements, and an utterance leaving an expectancy
 -- unsatisfied does not compose.  The triad kk / yogyat / satti is
 -- common to Mms and Nyya and is developed at length in the later
@@ -13,14 +13,14 @@
 -- the phenomenon: a rule whose sthnin does not bind the variable has no
 -- expectancy to satisfy, and the question is what its dea may then say.
 --
--- WHY THIS MODULE EXISTS.  `Vyapti_‚¶` repairs the kernel's memorisation by
+-- WHY THIS MODULE EXISTS.  `Vyapti_‚Ä¶` repairs the kernel's memorisation by
 -- giving an operation a schematic control,
 --
---     Control t = Œ[ u ‚àà Tm ] (t ‚â° subVar u lhs)      and
+--     Control t = Œ£[ u ‚àà Tm ] (t ‚â° subVar u lhs)      and
 --     apply t (u , _) = subVar u rhs .
 --
 -- That is the first operation in the corpus whose EMISSION READS ITS
--- EVIDENCE ‚î every `install`ed operation has `apply _ _ = target`, a
+-- EVIDENCE ‚Äî every `install`ed operation has `apply _ _ = target`, a
 -- constant.  As soon as an emission reads its evidence, a question arises
 -- that a constant emission cannot pose:
 --
@@ -29,7 +29,7 @@
 --
 -- Nothing in the corpus ruled that out, and `apply-sound` is proved for
 -- EVERY control, so both emissions would carry proofs: a generator with two
--- distinct certified outputs at one context.  That is `Sesa_‚¶`'s semantic
+-- distinct certified outputs at one context.  That is `Sesa_‚Ä¶`'s semantic
 -- statement (correctness does not select) arriving operationally.
 --
 -- The failure shape is not hypothetical outside the kernel.  Ask the
@@ -43,14 +43,14 @@
 -- WHAT IS PROVED.  The kernel cannot host one.  Two reasons, exhaustive:
 --
 --   ¬ß3  MOVING PATTERNS PIN THEIR WITNESS.  If `var` occurs in `lhs` at all
---       (`deg lhs ‚â° nsuc j`) then `subVar a lhs ‚â° subVar b lhs ‚í a ‚â° b`, so
+--       (`deg lhs ‚â° nsuc j`) then `subVar a lhs ‚â° subVar b lhs ‚Üí a ‚â° b`, so
 --       the witness is unique and the emission is determined.  Purely
---       syntactic ‚î no semantics is used.
+--       syntactic ‚Äî no semantics is used.
 --
 --   ¬ß5  RIGID PATTERNS CANNOT PASS THE VARIABLE ON, AND THIS IS WHERE
 --       SOUNDNESS IS NEEDED.  If `var` does not occur in `lhs`, every `a`
 --       is admissible and ¬ß3 is unavailable.  But a schema also carries
---       `meaning : (œ : Env) ‚í eval lhs œ ‚â° eval rhs œ`, and in this
+--       `meaning : (œÅ : Env) ‚Üí eval lhs œÅ ‚â° eval rhs œÅ`, and in this
 --       calculus raising x by one raises a term's value by EXACTLY its
 --       degree (¬ß4, `eval-step`).  A rigid `lhs` is therefore constant
 --       along x; a sound `rhs` must be too; hence `deg rhs ‚â° nzero`, and
@@ -58,21 +58,21 @@
 --
 --   ¬ß6  EVERY SOUND SCHEMA IS DETERMINISTIC.  At any term, any two
 --       admissible controls emit the same term.  Not by a well-formedness
---       side condition anyone imposed ‚î by meaning-preservation alone.
+--       side condition anyone imposed ‚Äî by meaning-preservation alone.
 --
 -- READ AS GRAMMAR: an dea may not introduce material its sthnin did not
--- bind, and that is not a stipulation of the metalanguage ‚î it follows from
+-- bind, and that is not a stipulation of the metalanguage ‚Äî it follows from
 -- the rule being meaning-preserving at every environment.
 --
 -- READ AS SEMANTICS OF PROGRAMS: a sequential algorithm in the sense of
--- Kahn‚ìPlotkin and Berry‚ìCurien is a function together with a computation
+-- Kahn‚ÄìPlotkin and Berry‚ÄìCurien is a function together with a computation
 -- strategy, and its output must be determined by the cells it queried.  ¬ß6
 -- says every sound schema here satisfies that without being asked to: the
 -- pattern is the query, and soundness makes the query sufficient.
 --
 -- `deg` counts `var` alone, because
 -- `subVar` replaces `var` alone.
--- `Vyapti_‚¶` is not imported: the statement is given on raw `lhs`, `rhs`
+-- `Vyapti_‚Ä¶` is not imported: the statement is given on raw `lhs`, `rhs`
 -- and `meaning`, which is what its record holds.
 ------------------------------------------------------------------------
 
@@ -91,7 +91,7 @@ open import Cubical.Relation.Nullary using (¬¨_)
 open import NaturalMachine.RewriteCertificate
 
 ------------------------------------------------------------------------
--- ¬ß1.  DEGREE ‚î how many times the substitutable coordinate occurs.
+-- ¬ß1.  DEGREE ‚Äî how many times the substitutable coordinate occurs.
 -- `subVar` replaces `var` and leaves the other five alone, so this counts
 -- `var` and nothing else.
 ------------------------------------------------------------------------

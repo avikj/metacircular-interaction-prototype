@@ -4,15 +4,15 @@
 -- NaturalMachine.Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorises
 --                       AndTheSchemaIsWhatMakesItGeneralise
 --
--- TERM.  ‡µ‡‡Ø‡æ‡‡‡‡ø ¬ vypti -- pervasion: the invariable concomitance that
+-- TERM.  ‡§µ‡•ç‡§Ø‡§æ‡§™‡•ç‡§§‡§ø ¬∑ vyƒÅpti -- pervasion: the invariable concomitance that
 -- makes an inference carry from the case at hand to every case of the same
--- mark.  Root notion in Gautama, *Nyyastra* (~2nd c. CE), under ‡‡®‡‡Æ‡æ‡®;
--- the definitional apparatus (the vyptivda, and the ‡â‡‡æ‡ß‡ø that defeats a
+-- mark.  Root notion in Gautama, *NyƒÅyas≈´tra* (~2nd c. CE), under ‡§Ö‡§®‡•Å‡§Æ‡§æ‡§®;
+-- the definitional apparatus (the vyƒÅptivƒÅda, and the ‡§â‡§™‡§æ‡§ß‡§ø that defeats a
 -- proposed pervasion) is Navya-Nyya, Gagea, *Tattvacintmai* (~1325).
 --
 -- What is borrowed is one
 -- distinction they drew sharply and that this kernel's types do not: a
--- ‡Æ‡æ‡∞‡‡ï that licenses an inference ONLY in the instance where it was
+-- ‡§Æ‡§æ‡§∞‡•ç‡§ï that licenses an inference ONLY in the instance where it was
 -- observed is not a pervasion at all.  ¬ß1 shows the kernel's installed
 -- operation is exactly such a mark, and the type forces it.
 --
@@ -20,7 +20,7 @@
 -- WHAT THIS IS ABOUT
 --
 -- `ControlledGrammar.NativeOperation` is the kernel's unit of learned
--- behaviour, and `install : Derivation lhs rhs ‚í NativeOperation` is how a
+-- behaviour, and `install : Derivation lhs rhs ‚Üí NativeOperation` is how a
 -- theorem the machine proved becomes a move the machine can make.  That is
 -- the metacircular step: proofs become the generative library, so the
 -- library at a context is a next-move distribution, kept without quotient
@@ -103,7 +103,7 @@ height _         = ‚Ñï.zero
 ------------------------------------------------------------------------
 -- ¬ß1.  THE MEMORISATION LAW.
 --
--- `control-sound : {t : Tm} ‚í Control t ‚í t ‚â° source` is the whole of it.
+-- `control-sound : {t : Tm} ‚Üí Control t ‚Üí t ‚â° source` is the whole of it.
 -- An operation's enabling evidence at t IS an identification of t with the
 -- one term the operation was installed at, so the enabled set is a
 -- subsingleton and the emission is a constant.  No library can be more

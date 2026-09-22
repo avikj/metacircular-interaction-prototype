@@ -1,48 +1,48 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ààà°à•ààà•àà®ààà â” àµàà¯àààà•àà°à®àµà¨ààà ààà°à•ààà•à¾à ààà°àµà¾àà¾à àà®ààà à°àà¯à¨ààà¿ ; àà°ààµ-à¨à¾àà
--- àà àà®ààà àà°ààµà àààà®-àà®àà¾-àà®ààà ààµ à
+-- à¤¸à¤‚à¤°à¤•à¥à¤·à¤•à¤¸à¤®à¥‚à¤¹à¤ƒ â€” à¤µà¥à¤¯à¥à¤¤à¥à¤•à¥à¤°à¤®à¤µà¤¨à¥à¤¤à¤ƒ à¤¸à¤‚à¤°à¤•à¥à¤·à¤•à¤¾à¤ƒ à¤ªà¥à¤°à¤µà¤¾à¤¹à¤¾à¤ƒ à¤¸à¤®à¥‚à¤¹à¤‚ à¤°à¤šà¤¯à¤¨à¥à¤¤à¤¿ ; à¤¸à¤°à¥à¤µ-à¤¨à¤¾à¤¶à¥‡
+-- à¤¸à¤ƒ à¤¸à¤®à¥‚à¤¹à¤ƒ à¤¸à¤°à¥à¤µà¤ƒ à¤†à¤¤à¥à¤®-à¤¸à¤®à¤¤à¤¾-à¤¸à¤®à¥‚à¤¹à¤ƒ à¤à¤µ à¥¤
 --
 -- (the sarakaka-samha: the conserving flows that HAVE inverses form
---  a group â” the symmetry group of the observable â” and at total loss
+--  a group â€” the symmetry group of the observable â€” and at total loss
 --  that group is the full automorphism group Aut(A), by a homomorphism
 --  whose function part is refl.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THIS IS.
--- The invertible elements of the gaa â” flows with conserving
--- inverses â” are the observable's symmetry GROUP, and at the far pole
+-- The invertible elements of the gaa â€” flows with conserving
+-- inverses â€” are the observable's symmetry GROUP, and at the far pole
 -- they are the symmetric group of the domain.  This
 -- module constructs it.
 --
---   Â§à§  inverse data is a PROPOSITION (inverses in the gaa are unique,
+--   Â§à¥§  inverse data is a PROPOSITION (inverses in the gaá¹‡a are unique,
 --       by the usual two-line monoid argument, executed not cited), so
---       the carrier Î[ Ï ] àµàà¯àààà•àà°à®-ààà Ï adds no structure to the flow;
---   Â§à¨  the carrier is a `Group` of the library's own algebra, with
---       every law a àà®àà¾ away from refl and both inverse laws being
+--       the carrier Î£[ Ïƒ ] à¤µà¥à¤¯à¥à¤¤à¥à¤•à¥à¤°à¤®-à¤¸à¤¤à¥ Ïƒ adds no structure to the flow;
+--   Â§à¥¨  the carrier is a `Group` of the library's own algebra, with
+--       every law a à¤¸à¤®à¤¤à¤¾ away from refl and both inverse laws being
 --       LITERALLY the stored inverse evidence;
---   Â§à©  the group rides àµà¾àà onto the sections: a unit's image under
---       the section identification is â‹-invertible, each direction one
---       `cong` â” because `à—à-à—à®à¨à®à` was refl, the group structure was
+--   Â§à¥©  the group rides à¤µà¤¾à¤¸à¤ƒ onto the sections: a unit's image under
+--       the section identification is â‹†-invertible, each direction one
+--       `cong` â€” because `à¤—à¤£-à¤—à¤®à¤¨à¤®à¥` was refl, the group structure was
 --       in the identification all along;
---   Â§à  the poles.  Zero loss: every unit IS the identity (à§àà°ààµ-àà¿à¨àà¦àà
+--   Â§à¥ª  the poles.  Zero loss: every unit IS the identity (à¤§à¥à¤°à¥à¤µ-à¤¬à¤¿à¤¨à¥à¤¦à¥à¤ƒ
 --       consumed).  Total loss: `GroupEquiv` between the symmetry group
---       and Aut(A) = (A â‰ A) under composition â” the full automorphism
---       group â” with the underlying equivalence's function part and the
+--       and Aut(A) = (A â‰ƒ A) under composition â€” the full automorphism
+--       group â€” with the underlying equivalence's function part and the
 --       homomorphism law both refl.  So the Dhruva/Khahara scale, made
 --       a scale of MONOIDS by SamraksakaGana, is now a scale of GROUPS:
 --       trivial at the near pole, all of Aut at the far pole, and in
 --       between exactly the self-symmetries the observable cannot see.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- TERMS.  ààà°à•ààà• and à—à as in `SamraksakaGana` (à—à attested as the
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- TERMS.  à¤¸à¤‚à¤°à¤•à¥à¤·à¤• and à¤—à¤£ as in `SamraksakaGana` (à¤—à¤£ attested as the
 -- gaapha's device, Pini, Adhyy ~500 BCE; the application to
--- flows built in this corpus).  àà®àà for "group" follows this corpus's
+-- flows built in this corpus).  à¤¸à¤®à¥‚à¤¹ for "group" follows this corpus's
 -- own precedent (`BhavanaSamuha.agda`); it is MODERN mathematical
--- , and no classical text is claimed for it.  àµàà¯àààà•àà°à® for the
+-- , and no classical text is claimed for it.  à¤µà¥à¤¯à¥à¤¤à¥à¤•à¥à¤°à¤® for the
 -- inverse follows `BhavanaSamuha`'s use for the conjugate inverse
--- (a,âˆ’b).  The compound ààà°à•ààà•àà®àà is built here.
+-- (a,âˆ’b).  The compound à¤¸à¤‚à¤°à¤•à¥à¤·à¤•à¤¸à¤®à¥‚à¤¹ is built here.
 ------------------------------------------------------------------------
 
 module SamraksakaSamuha_TheInvertibleConservingFlowsAreTheSymmetryGroupAndTotalLossMakesItAllOfAut where
@@ -66,7 +66,7 @@ open import SamraksakaGana_TheConservingFlowsFormAGanaAndTheSectionIdentificatio
 private variable â„“ : Level
 
 ------------------------------------------------------------------------
--- Â§à§ Â THE UNITS, over set carriers.  Inverse data is a proposition:
+-- Â§à¥§ Â· THE UNITS, over set carriers.  Inverse data is a proposition:
 -- the gaa is a monoid, and inverses in a monoid are unique.
 ------------------------------------------------------------------------
 
@@ -126,7 +126,7 @@ module à¤¸à¤®à¥‚à¤¹à¥‡ {A B : Type â„“} (setA : isSet A) (setB : isSet B) (f : A
   à¤¸à¤®à¥‚à¤¹-à¤¸à¤®à¤¤à¤¾ = Î£â‰¡Prop à¤µà¥à¤¯à¥à¤¤à¥à¤•à¥à¤°à¤®-à¤à¤•à¤¤à¥à¤µà¤®à¥
 
   ------------------------------------------------------------------
-  -- Â§à¨ Â THE GROUP.  Both inverse laws are the stored evidence.
+  -- Â§à¥¨ Â· THE GROUP.  Both inverse laws are the stored evidence.
   ------------------------------------------------------------------
 
   à¤à¤•à¤®à¥ : à¤¸à¤®à¥‚à¤¹-à¤µà¤¾à¤¹à¤ƒ
@@ -159,8 +159,8 @@ module à¤¸à¤®à¥‚à¤¹à¥‡ {A B : Type â„“} (setA : isSet A) (setB : isSet B) (f : A
     (Î» x â†’ à¤¸à¤®à¥‚à¤¹-à¤¸à¤®à¤¤à¤¾ (x .snd .snd .snd))
 
   ------------------------------------------------------------------
-  -- Â§à© Â THE GROUP RIDES àµà¾àà.  A unit's image among the sections is
-  -- â‹-invertible, each direction one `cong` â” à—à-à—à®à¨à®à was refl, so
+  -- Â§à¥© Â· THE GROUP RIDES à¤µà¤¾à¤¸à¤ƒ.  A unit's image among the sections is
+  -- â‹†-invertible, each direction one `cong` â€” à¤—à¤£-à¤—à¤®à¤¨à¤®à¥ was refl, so
   -- the inverse evidence transports with no transport.
   ------------------------------------------------------------------
 
@@ -174,7 +174,7 @@ module à¤¸à¤®à¥‚à¤¹à¥‡ {A B : Type â„“} (setA : isSet A) (setB : isSet B) (f : A
     , cong (equivFun (à¤µà¤¾à¤¸à¤ƒ f)) (u .snd .snd .snd)
 
   ------------------------------------------------------------------
-  -- Â§àa Â NEAR POLE.  Zero loss: the symmetry group is trivial.
+  -- Â§à¥ªa Â· NEAR POLE.  Zero loss: the symmetry group is trivial.
   ------------------------------------------------------------------
 
   à¤¤à¥à¤šà¥à¤›-à¤¸à¤®à¥‚à¤¹à¤ƒ : isEquiv f â†’ (u : à¤¸à¤®à¥‚à¤¹-à¤µà¤¾à¤¹à¤ƒ) â†’ u â‰¡ à¤à¤•à¤®à¥
@@ -182,7 +182,7 @@ module à¤¸à¤®à¥‚à¤¹à¥‡ {A B : Type â„“} (setA : isSet A) (setB : isSet B) (f : A
     à¤¸à¤®à¥‚à¤¹-à¤¸à¤®à¤¤à¤¾ (isContrâ†’isProp (à¤§à¥à¤°à¥à¤µ-à¤¬à¤¿à¤¨à¥à¤¦à¥à¤ƒ f e) (u .fst) à¤ˆ)
 
 ------------------------------------------------------------------------
--- Â§àb Â FAR POLE.  Total loss: the symmetry group is ALL of Aut(A).
+-- Â§à¥ªb Â· FAR POLE.  Total loss: the symmetry group is ALL of Aut(A).
 ------------------------------------------------------------------------
 
 module à¤…à¤¨à¥à¤§-à¤¸à¤®à¥‚à¤¹à¥‡ {A B : Type â„“} (setA : isSet A) (setB : isSet B)
@@ -191,7 +191,7 @@ module à¤…à¤¨à¥à¤§-à¤¸à¤®à¥‚à¤¹à¥‡ {A B : Type â„“} (setA : isSet A) (setB : is
   open à¤¸à¤®à¥‚à¤¹à¥‡ setA setB f
   open à¤—à¤£à¥‡ setA setB f using (à¤ªà¥à¤°à¤µà¤¾à¤¹-à¤¸à¤®à¤¤à¤¾)
 
-  -- Aut(A): the equivalences A â‰ A, composed in application order
+  -- Aut(A): the equivalences A â‰ƒ A, composed in application order
   -- (e Âµ f' applies f' first), so that the comparison below is refl.
   à¤†à¤¤à¥à¤®-à¤¸à¤®à¥‚à¤¹à¤ƒ : Group â„“
   à¤†à¤¤à¥à¤®-à¤¸à¤®à¥‚à¤¹à¤ƒ = makeGroup (idEquiv A) (Î» e f' â†’ compEquiv f' e) invEquiv

@@ -1,55 +1,55 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- рорзррп-р╡р┐рир┐рорпр тФ ррЯррр рррр╛риррр ррХрЛ рир┐рпрор р
+-- рдордзреНрдп-рд╡рд┐рдирд┐рдордпрдГ тАФ рд╖рдЯреНрд╕реБ рд╕реНрдерд╛рдиреЗрд╖реБ рдПрдХреЛ рдирд┐рдпрдордГ ред
 --
 -- WHAT THIS MODULE IS FOR.  Six top-level declarations in this corpus have
 -- one of two character-identical types:
 --
---   (a ┬ b) ┬ (c ┬ d) тЙб (a ┬ c) ┬ (b ┬ d)
---     Vargana.рррр░р-р╡р┐рир┐рорпр                    (Jaina рШр╛р-рЧрр, third index law)
+--   (a ┬╖ b) ┬╖ (c ┬╖ d) тЙб (a ┬╖ c) ┬╖ (b ┬╖ d)
+--     Vargana.рдЪрддреБрд░реН-рд╡рд┐рдирд┐рдордпрдГ                    (Jaina рдШрд╛рдд-рдЧреБрдг, third index law)
 --     PairComposition.interchange           (Brahmagupta's bhvan, split legs)
 --
 --   (a + b) + (c + d) тЙб (a + c) + (b + d)
---     MeruKarna.рорзррп-р╡р┐рир┐рорпр                   (Halyudha's shallow diagonal)
---     Vargacitighana.рорзррп-р╡р┐рир┐рорпр              (ryabhaa's р╡р░ррЧ-ррЩррХр▓р┐ррор)
+--     MeruKarna.рдордзреНрдп-рд╡рд┐рдирд┐рдордпрдГ                   (Hal─Бyudha's shallow diagonal)
+--     Vargacitighana.рдордзреНрдп-рд╡рд┐рдирд┐рдордпрдГ              (─Аryabhaс╣нa's рд╡рд░реНрдЧ-рд╕рдЩреНрдХрд▓рд┐рддрдореН)
 --     CachePathOrder.shuffle+                  (cache-install step law)
---     DSOFactorRankFinite.rearrange  (additive 2Ч2 minor)
+--     DSOFactorRankFinite.rearrange  (additive 2├Ч2 minor)
 --
 -- Each was proved locally, by hand or by solver, and NO ONE OF THE SIX
 -- MODULES IMPORTS ANY OTHER.  Two of them even carry the same  name
 -- in ignorance of each other.  This module is the identification.
 --
--- ррр┐ррр╛-ррррр░-р╡р┐рррр╛р░р ┬зр ┬ ржрр╡р рор╛р░ррЧр.  The first road is transport that
--- carries its equivalence; the second is a written ррр; there is no third.
+-- рдЕрд╣рд┐рдВрд╕рд╛-рд╕реВрддреНрд░-рд╡рд┐рд╕реНрддрд╛рд░рдГ ┬зрем ┬╖ рджреНрд╡реМ рдорд╛рд░реНрдЧреМ.  The first road is transport that
+-- carries its equivalence; the second is a written рд╢реЗрд╖; there is no third.
 -- Both roads are taken here, and it is important which is taken where.
 --
 --   ROAD ONE, and it is total for the STATEMENT.  There is one law, over one
---   structure тФ a commutative semigroup тФ proved once, in ┬з1.  The six are
---   its instantiation at (тХ,┬) and at (тХ,+).  Because тХ is a set (isSetтХ),
+--   structure тАФ a commutative semigroup тАФ proved once, in ┬з1.  The six are
+--   its instantiation at (тДХ,┬╖) and at (тДХ,+).  Because тДХ is a set (isSetтДХ),
 --   the identification is not merely "the same statement" but literally THE
---   SAME PATH: ┬з3 proves each of the six declarations equal, in тХ's identity
+--   SAME PATH: ┬з3 proves each of the six declarations equal, in тДХ's identity
 --   type, to the corresponding instance.  Nothing is lost in the carry.
 --
---   ROAD TWO, the ррр, ┬з4 in prose and NOT a formal claim.  What the
---   identification does not carry is the рирп тФ the standpoint each module
+--   ROAD TWO, the рд╢реЗрд╖, ┬з4 in prose and NOT a formal claim.  What the
+--   identification does not carry is the рдирдп тАФ the standpoint each module
 --   reached the law from.  Six routes arrive at one path; the path is one and
---   the routes are six, and ┬зр (ррЩррХрррррррп рриррр▓рррзр┐р) says that where the
+--   the routes are six, and ┬зрен (рд╕рдЩреНрдХреНрд╖реЗрдкрд╕реНрдп рдЕрдиреБрдкрд▓рдмреНрдзрд┐рдГ) says that where the
 --   nayas differ no collapse is available at all.  So the six declarations
 --   are NOT deleted and NOT rewritten to import this file.  Identifying the
 --   paths is the whole of what is true; deleting the routes would be the
---   ржрр░ррирп (Siddhasena, Sanmatitarka 1.21) тФ one standpoint asserting itself
+--   рджреБрд░реНрдирдп (Siddhasena, Sanmatitarka 1.21) тАФ one standpoint asserting itself
 --   by denying the others.
 --
 -- THE MATHEMATICAL CONTENT, which is not bookkeeping.  ┬з2 states the medial
 -- law in the form that explains why it turns up in both a bhvan module and
 -- a Jaina-index module: it is exactly the statement that the operation, read
--- as a map A Ч A тТ A, is a homomorphism for its own componentwise extension
--- to A Ч A.  Brahmagupta's composition of pairs and the Jaina (a┬b)╡Р = a╡Р┬b╡Р
+-- as a map A ├Ч A тЖТ A, is a homomorphism for its own componentwise extension
+-- to A ├Ч A.  Brahmagupta's composition of pairs and the Jaina (a┬╖b)с╡Р = aс╡Р┬╖bс╡Р
 -- are that one homomorphism fact, at one operation, entered from two sides.
--- ┬з3 makes this exact: PairComposition.prodComp тФ the module's statement
--- of the composed pair carrying the product of the products тФ IS the medial
--- instance that Vargana's рШр╛р-рЧрр consumes, on the nose.
+-- ┬з3 makes this exact: PairComposition.prodComp тАФ the module's statement
+-- of the composed pair carrying the product of the products тАФ IS the medial
+-- instance that Vargana's рдШрд╛рдд-рдЧреБрдг consumes, on the nose.
 --
 ------------------------------------------------------------------------
 
@@ -73,11 +73,11 @@ private
     тДУ : Level
 
 ------------------------------------------------------------------------
--- ┬з1 ┬ ррХрЛ рир┐рпрор тФ the law, once, over a commutative semigroup.
+-- ┬з1 ┬╖ рдПрдХреЛ рдирд┐рдпрдордГ тАФ the law, once, over a commutative semigroup.
 --
--- Associativity is taken in the orientation the cubical library uses for тХ:
+-- Associativity is taken in the orientation the cubical library uses for тДХ:
 -- x тКХ (y тКХ z) тЙб (x тКХ y) тКХ z.  No identity element is needed; the medial law
--- is a semigroup fact, which is why it holds for + and ┬ alike and would
+-- is a semigroup fact, which is why it holds for + and ┬╖ alike and would
 -- hold for any commutative semigroup this corpus later reaches for.
 ------------------------------------------------------------------------
 
@@ -95,9 +95,9 @@ module _ {A : Type тДУ} (_тКХ_ : A тЖТ A тЖТ A)
     тИЩ тКХ-assoc a c (b тКХ d)
 
   ----------------------------------------------------------------------
-  -- ┬з2 ┬ The same law as a homomorphism statement.
+  -- ┬з2 ┬╖ The same law as a homomorphism statement.
   --
-  -- Read тКХ as a map A Ч A тТ A and give A Ч A the componentwise operation.
+  -- Read тКХ as a map A ├Ч A тЖТ A and give A ├Ч A the componentwise operation.
   -- The medial law says precisely that this map is a homomorphism.  That is
   -- why one identity serves both a composition-of-pairs module and an
   -- exponent-law module: both are asking whether the operation survives
@@ -114,7 +114,7 @@ module _ {A : Type тДУ} (_тКХ_ : A тЖТ A тЖТ A)
   рдпреБрдЧреНрдо-рдзрд░реНрдордГ (a , b) (c , d) = sym (рдордзреНрдп-рд╡рд┐рдирд┐рдордпрдГ a b c d)
 
 ------------------------------------------------------------------------
--- ┬з2b ┬ The two instances at тХ.
+-- ┬з2b ┬╖ The two instances at тДХ.
 ------------------------------------------------------------------------
 
 рдордзреНрдп-рд╡рд┐рдирд┐рдордпрдГ-рдЧреБрдгреЗ : (a b c d : тДХ) тЖТ (a ┬╖ b) ┬╖ (c ┬╖ d) тЙб (a ┬╖ c) ┬╖ (b ┬╖ d)
@@ -124,16 +124,16 @@ module _ {A : Type тДУ} (_тКХ_ : A тЖТ A тЖТ A)
 рдордзреНрдп-рд╡рд┐рдирд┐рдордпрдГ-рдпреЛрдЧреЗ = рдордзреНрдп-рд╡рд┐рдирд┐рдордпрдГ _+_ +-assoc +-comm
 
 ------------------------------------------------------------------------
--- ┬з3 ┬ рр╛ржр╛ррроррпрор тФ the identification.
+-- ┬з3 ┬╖ рддрд╛рджрд╛рддреНрдореНрдпрдореН тАФ the identification.
 --
--- тХ is a set, so its identity types are propositions: any two paths with the
+-- тДХ is a set, so its identity types are propositions: any two paths with the
 -- same endpoints are themselves equal.  Each of the six local proofs is
 -- therefore not merely a proof of the same statement but the same path.
--- This is ┬зр's first road at its strongest: the carry loses nothing because
+-- This is ┬зрем's first road at its strongest: the carry loses nothing because
 -- there was nothing between the two to lose.
 ------------------------------------------------------------------------
 
--- рЧрр-ррХррр тФ the multiplicative pair.
+-- рдЧреБрдг-рдкрдХреНрд╖рдГ тАФ the multiplicative pair.
 
 рд╡рд░реНрдЧрдгрд╛-рддрд╛рджрд╛рддреНрдореНрдпрдореН
   : (a b c d : тДХ) тЖТ Vargana.рдЪрддреБрд░реН-рд╡рд┐рдирд┐рдордпрдГ a b c d тЙб рдордзреНрдп-рд╡рд┐рдирд┐рдордпрдГ-рдЧреБрдгреЗ a b c d
@@ -152,9 +152,9 @@ module _ {A : Type тДУ} (_тКХ_ : A тЖТ A тЖТ A)
 рдШрд╛рддрдЧреБрдг-рднрд╛рд╡рдирд╛-рддрд╛рджрд╛рддреНрдореНрдпрдореН a b c d = isSetтДХ _ _ _ _
 
 -- And the same identification one level up, at the statements the two
--- modules actually use.  PairComposition.prodComp p q тФ "the composed
--- pair carries the product of the products" тФ is definitionally the medial
--- instance that Vargana.рШр╛р-рЧрр consumes at its successor step, since prod
+-- modules actually use.  PairComposition.prodComp p q тАФ "the composed
+-- pair carries the product of the products" тАФ is definitionally the medial
+-- instance that Vargana.рдШрд╛рдд-рдЧреБрдг consumes at its successor step, since prod
 -- and compose both reduce.
 рднрд╛рд╡рдирд╛-рдкреНрд░рдпреЛрдЧрдГ-рддрд╛рджрд╛рддреНрдореНрдпрдореН
   : (uтВБ vтВБ uтВВ vтВВ : тДХ)
@@ -163,14 +163,14 @@ module _ {A : Type тДУ} (_тКХ_ : A тЖТ A тЖТ A)
 рднрд╛рд╡рдирд╛-рдкреНрд░рдпреЛрдЧрдГ-рддрд╛рджрд╛рддреНрдореНрдпрдореН uтВБ vтВБ uтВВ vтВВ = isSetтДХ _ _ _ _
 
 -- ┬з2's homomorphism reading, checked against the module that discovered it
--- independently: ррЩррШр╛рр at (тХ,┬) IS PairComposition.prod, тК IS its
--- compose, and рпррЧрро-рзр░ррор IS prodComp.
+-- independently: рд╕рдЩреНрдШрд╛рддрдГ at (тДХ,┬╖) IS PairComposition.prod, тКЫ IS its
+-- compose, and рдпреБрдЧреНрдо-рдзрд░реНрдордГ IS prodComp.
 рдпреБрдЧреНрдо-рдзрд░реНрдордГ-рднрд╛рд╡рдирд╛-рддрд╛рджрд╛рддреНрдореНрдпрдореН
   : (p q : тДХ ├Ч тДХ)
   тЖТ рдпреБрдЧреНрдо-рдзрд░реНрдордГ _┬╖_ ┬╖-assoc ┬╖-comm p q тЙб PairComposition.prodComp p q
 рдпреБрдЧреНрдо-рдзрд░реНрдордГ-рднрд╛рд╡рдирд╛-рддрд╛рджрд╛рддреНрдореНрдпрдореН p q = isSetтДХ _ _ _ _
 
--- рпрЛрЧ-ррХррр тФ the four additive restatements, including the two that carry
+-- рдпреЛрдЧ-рдкрдХреНрд╖рдГ тАФ the four additive restatements, including the two that carry
 -- the same name and did not know it.
 
 рдореЗрд░реБрдХрд░реНрдг-рддрд╛рджрд╛рддреНрдореНрдпрдореН
@@ -197,50 +197,50 @@ module _ {A : Type тДУ} (_тКХ_ : A тЖТ A тЖТ A)
 рдЕрд▓реНрдкрд╛рдВрд╢-рддрд╛рджрд╛рддреНрдореНрдпрдореН a b c d = isSetтДХ _ _ _ _
 
 ------------------------------------------------------------------------
--- ┬з4 ┬ рррр тФ the remainder, written because it does not transport.
+-- ┬з4 ┬╖ рд╢реЗрд╖рдГ тАФ the remainder, written because it does not transport.
 --
 -- What ┬з3 proves is exact and it is narrow.  It says the six paths coincide.
 -- It says nothing at all about the six routes, and the routes are not the
 -- same object under examination:
 --
---   ┬ Vargana enters from рШр╛р-рЧрр, (a┬b)╡Р тЙб a╡Р┬b╡Р, where the medial step is
+--   ┬╖ Vargana enters from рдШрд╛рдд-рдЧреБрдг, (a┬╖b)с╡Р тЙб aс╡Р┬╖bс╡Р, where the medial step is
 --     the successor case of an induction on the EXPONENT.  The law is used
---     once per unit of m.  Its proof is solveтХ! тФ deliberately, because at
+--     once per unit of m.  Its proof is solveтДХ! тАФ deliberately, because at
 --     that site the identity is a bare-variable polynomial fact and the
 --     module's content is the exponent recursion, not the shuffle.
---   ┬ PairComposition enters from рр╛р╡рир╛, where the medial step is used
+--   ┬╖ PairComposition enters from рднрд╛рд╡рдирд╛, where the medial step is used
 --     ONCE, at the top, and is the whole content of the multiplicativity of
 --     the composition.  It is proved by hand there for the same reason:
 --     what the module is about is the shuffle itself.
 --     The two modules make OPPOSITE choices about where the interest lies,
---     and each choice is correct for its own рирп.  A single shared lemma
+--     and each choice is correct for its own рдирдп.  A single shared lemma
 --     would have made one of the two modules say something it does not mean.
---   ┬ MeruKarna uses it on Halyudha's shallow diagonal, where the four
+--   ┬╖ MeruKarna uses it on Hal─Бyudha's shallow diagonal, where the four
 --     terms are binomial entries and the exchange is what turns Pascal into
 --     the diagonal Pascal, hence Virahka's recurrence.
---   ┬ Vargacitighana uses it on ryabhaa's р╡р░ррЧ-ррЩррХр▓р┐ррор (рЧрр┐ррр╛рж 22),
+--   ┬╖ Vargacitighana uses it on ─Аryabhaс╣нa's рд╡рд░реНрдЧ-рд╕рдЩреНрдХрд▓рд┐рддрдореН (рдЧрдгрд┐рддрдкрд╛рдж 22),
 --     where the four terms are partial sums, and the exchange is what keeps
 --     the derivation subtraction-free.
---   ┬ CachePathOrder uses it on counts of cache bits, where the four terms
+--   ┬╖ CachePathOrder uses it on counts of cache bits, where the four terms
 --     are a head bit and a tail count on each of two traces, and the
 --     exchange is what makes the install step law compositional.
---   ┬ DSOFactorRankFinite uses it on a 2Ч2 min-plus minor, where the four
+--   ┬╖ DSOFactorRankFinite uses it on a 2├Ч2 min-plus minor, where the four
 --     terms are two latent coordinates each, and the exchange is what a
 --     rank-one matrix must obey and the crossed matrix does not.
 --
 -- Six different things are being said.  The identity between the paths is
 -- total; the identity between the sayings does not exist, and asserting it
--- would be the collapse ┬зрз names as рр┐ррр╛ тФ ррррир ррХрир╛роррир╛ рЧррррр╛рр┐.
+-- would be the collapse ┬зрез names as рд╣рд┐рдВрд╕рд╛ тАФ рдмрд╣реВрдиреН рдПрдХрдирд╛рдореНрдирд╛ рдЧреГрд╣реНрдгрд╛рддрд┐.
 --
 -- The medial law is a commutative-SEMIGROUP fact, and this corpus reaches
--- for it at тХ under two operations while its stated subject тФ рр╛р╡рир╛ тФ is a
+-- for it at тДХ under two operations while its stated subject тАФ рднрд╛рд╡рдирд╛ тАФ is a
 -- composition on a structure with TWO operations at once.  ┬з2's homomorphism
 -- reading is stated here at one operation.  The composition Brahmagupta
 -- actually wrote is not medial in one operation; it is the norm form, where
 -- the two operations interact and the medial law alone does not suffice.
 -- PairComposition says as much in its own header when it records that in
 -- split coordinates the identity "degenerates to the interchange law".  So:
--- the six-fold coincidence is the SHADOW of рр╛р╡рир╛ cast by the split
+-- the six-fold coincidence is the SHADOW of рднрд╛рд╡рдирд╛ cast by the split
 -- coordinates, and the question the coincidence raises is what the medial
 -- law becomes when the degeneration is undone.
 ------------------------------------------------------------------------

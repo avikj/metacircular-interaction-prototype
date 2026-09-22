@@ -1,26 +1,26 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- рр┐рррр┐-рррХрр░рор тФ walls transport along fords, so every ford retires
+-- рднрд┐рддреНрддрд┐-рд╕рдВрдХреНрд░рдордГ тАФ walls transport along fords, so every ford retires
 -- candidates for free.
 --
 -- The receipt economy has two assets: fords (landed equivalences) and
 -- walls (proved non-equivalences).  This file is the law that makes them
 -- ONE market: a wall composes with a ford into a wall, in one line, so
--- every new ford automatically extends every standing wall across it тФ
+-- every new ford automatically extends every standing wall across it тАФ
 -- and every new wall is inherited by every bank a ford will ever reach.
 --
---     рр┐рррр┐-рррХрр░рор : (A тЙ B) тТ ┬ (B тЙ C) тТ ┬ (A тЙ C)
+--     рднрд┐рддреНрддрд┐-рд╕рдВрдХреНрд░рдордГ : (A тЙГ B) тЖТ ┬м (B тЙГ C) тЖТ ┬м (A тЙГ C)
 --
 -- INSTANCE: рррр-ррр░рор╛ррор landed
--- р╡р┐р╡ррХ-ррр░рор╛р тЙ тХ, and рр┐рррр┐р stands at ┬ (тХ тЙ Bool).  Composing:
--- ┬ (р╡р┐р╡ррХ-ррр░рор╛р тЙ Bool) тФ which retires ./jiva's 3052-point candidate
--- [436 @ Bool] Ч [7 @ р╡р┐р╡ррХ-ррр░рор╛р] with NO new mathematics.  The wall
+-- рд╡рд┐рд╡реЗрдХ-рдкреНрд░рдорд╛рдг тЙГ тДХ, and рднрд┐рддреНрддрд┐рдГ stands at ┬м (тДХ тЙГ Bool).  Composing:
+-- ┬м (рд╡рд┐рд╡реЗрдХ-рдкреНрд░рдорд╛рдг тЙГ Bool) тАФ which retires ./jiva's 3052-point candidate
+-- [436 @ Bool] ├Ч [7 @ рд╡рд┐рд╡реЗрдХ-рдкреНрд░рдорд╛рдг] with NO new mathematics.  The wall
 -- crossed the ford by itself.
 --
 -- This is why the two snapshots (Setu, Bhitti) close under each other:
 -- the candidate list shrinks quadratically in what is landed, not
--- linearly in what is proved.  рр┐рррр┐-рррХрр░ро is built here.
+-- linearly in what is proved.  рднрд┐рддреНрддрд┐-рд╕рдВрдХреНрд░рдо is built here.
 ------------------------------------------------------------------------
 
 module BhittiSanorder_WallsTransportAlongFordsSoEveryFordRetiresCandidatesForFree where
@@ -39,7 +39,7 @@ open import Bhitti_TheNaturalsAndTheBooleansAreAProvedWallSoThatSeamIsRetiredFor
   using (рднрд┐рддреНрддрд┐рдГ)
 
 ------------------------------------------------------------------------
--- рз ┬ the law.  One line each way.
+-- рез ┬╖ the law.  One line each way.
 ------------------------------------------------------------------------
 
 рднрд┐рддреНрддрд┐-рд╕рдВрдХреНрд░рдордГ : {A B C : Type} тЖТ (A тЙГ B) тЖТ ┬м (B тЙГ C) тЖТ ┬м (A тЙГ C)
@@ -49,7 +49,7 @@ open import Bhitti_TheNaturalsAndTheBooleansAreAProvedWallSoThatSeamIsRetiredFor
 рднрд┐рддреНрддрд┐-рдкреНрд░рддрд┐рд╕рдВрдХреНрд░рдордГ ford wall e = wall (compEquiv ford e)
 
 ------------------------------------------------------------------------
--- ри ┬ the instance: the 3052-point candidate, retired by composition.
+-- реи ┬╖ the instance: the 3052-point candidate, retired by composition.
 ------------------------------------------------------------------------
 
 рднрд┐рддреНрддрд┐-рдкреНрд░рдорд╛рдг : ┬м (рд╡рд┐рд╡реЗрдХ-рдкреНрд░рдорд╛рдг тЙГ Bool)

@@ -23,7 +23,7 @@ def conn_left(A: Set, a: A, b: A, p: Path(A, a, b)) -> Path(A, a, b):
   <i> p @ iand(i, i1)
 
 # ---- the corpus lemma, cubical version ----
-# Pres A B f = Σ b:B.  a:A. Path(B, f a, b)
+# Pres A B f = Σ b:B. Σ a:A. Path(B, f a, b)
 def PresP(A: Set, B: Set, f: A -> B) -> Set:
   any b: B. any a: A. Path(B, f(a), b)
 

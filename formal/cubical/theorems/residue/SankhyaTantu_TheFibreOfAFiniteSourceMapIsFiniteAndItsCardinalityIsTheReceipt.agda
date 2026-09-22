@@ -1,21 +1,21 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡ô‡‡ñ‡‡Ø‡æ-‡‡®‡‡‡‡ ‚î the fibre of a finite-source map is finite, and its
+-- ‡§∏‡§ô‡•ç‡§ñ‡•ç‡§Ø‡§æ-‡§§‡§®‡•ç‡§§‡•Å‡§É ‚Äî the fibre of a finite-source map is finite, and its
 -- cardinality is the ‡‡ô‡‡ñ‡‡Ø‡æ receipt.
 --
--- For any map f : A ‚í B between FINITE SETS, every fibre is a finite set
+-- For any map f : A ‚Üí B between FINITE SETS, every fibre is a finite set
 -- (this is the library's `isFinSetFiber`), so it carries a computable
--- cardinality: the ‡‡ô‡‡ñ‡‡Ø‡æ.  That count IS the receipt in the counting
--- sense ‚î how many inputs the map identifies over a given output, exact,
+-- cardinality: the ‡§∏‡§ô‡•ç‡§ñ‡•ç‡§Ø‡§æ.  That count IS the receipt in the counting
+-- sense ‚Äî how many inputs the map identifies over a given output, exact,
 -- decidable, with no table stored.
 --
--- THE HONEST ‡‡‡‡‡∞ ‡Æ LINE, which is the point of doing it as counts and
--- not as a forced identification: `isFinSet X = Œ[n] ‚à X ‚â Fin n ‚à‚` ‚î
+-- THE HONEST ‡§∏‡•Ç‡§§‡•ç‡§∞ ‡•Æ LINE, which is the point of doing it as counts and
+-- not as a forced identification: `isFinSet X = Œ£[n] ‚à• X ‚âÉ Fin n ‚à•‚ÇÅ` ‚Äî
 -- the cardinality is untruncated (`card`) but the EQUIVALENCE to `Fin n`
 -- is behind a propositional truncation.  So this enzyme delivers the
--- ‡‡ô‡‡ñ‡‡Ø‡æ (the count, free for every finite-source map) but NOT by
--- itself the ‡‡‡ø‡‡‡û‡æ‡® (the untruncated identification `fibre ‚â Fin k`),
+-- ‡§∏‡§ô‡•ç‡§ñ‡•ç‡§Ø‡§æ (the count, free for every finite-source map) but NOT by
+-- itself the ‡§Ö‡§≠‡§ø‡§ú‡•ç‡§û‡§æ‡§® (the untruncated identification `fibre ‚âÉ Fin k`),
 -- which needs the actual bijection and is available only for a concrete
 -- map.
 ------------------------------------------------------------------------
@@ -33,14 +33,14 @@ private variable ‚Ñì : Level
 module _ (A B : FinSet ‚Ñì) (f : A .fst ‚Üí B .fst) where
 
   ------------------------------------------------------------------------
-  -- ‡ß ¬ the fibre is a finite set ‚î the library's isFinSetFiber, named
+  -- ‡•ß ¬∑ the fibre is a finite set ‚Äî the library's isFinSetFiber, named
   -- here as the object of the receipt.
   ------------------------------------------------------------------------
   ‡§§‡§®‡•ç‡§§‡•Å‡§É : (b : B .fst) ‚Üí FinSet ‚Ñì
   ‡§§‡§®‡•ç‡§§‡•Å‡§É b = fiber f b , isFinSetFiber A B f b
 
   ------------------------------------------------------------------------
-  -- ‡® ¬ ‡‡ô‡‡ñ‡‡Ø‡æ ‚î the cardinality of the fibre, the count receipt.
+  -- ‡•® ¬∑ ‡§∏‡§ô‡•ç‡§ñ‡•ç‡§Ø‡§æ ‚Äî the cardinality of the fibre, the count receipt.
   -- Computable, exact, no table.  This is how many inputs f identifies
   -- over b.
   ------------------------------------------------------------------------

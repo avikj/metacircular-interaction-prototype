@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ����-���� � the bridge across time.
+-- काल-सेतु — the bridge across time.
 --
 -- THE ENTIRE LINEAR VISCOUS CONTRIBUTION TO A STRAIN HISTORY IS A
 -- COBOUNDARY IN TIME.  SO ON A CLOSED LOOP IT CONTRIBUTES NOTHING AT
@@ -10,38 +10,38 @@
 -- If a potential `P`, a strain `S` and a nonlinear source `N` satisfy,
 -- step by step,
 --
---     ν � S n  ≡  (P n - P (n+1))  +  N n ,
+--     ν · S n  ≡  (P n - P (n+1))  +  N n ,
 --
--- which is the step form of `�� P = Π[�] - ν S` rearranged, then
+-- which is the step form of `∂ₜ P = Π[𝒩] - ν S` rearranged, then
 -- summing over any number of steps telescopes:
 --
---   §3  ν � �_{n<k} S n  ≡  (P 0 - P k)  +  �_{n<k} N n .
+--   §3  ν · Σ_{n<k} S n  ≡  (P 0 - P k)  +  Σ_{n<k} N n .
 --
---   §4  AND ON A LOOP � `P k ≡ P 0`, a genuinely recurrent source �
+--   §4  AND ON A LOOP — `P k ≡ P 0`, a genuinely recurrent source —
 --       the endpoint term is not small, it is ABSENT:
 --
---         ν � (strain circulation)  ≡  (residual circulation) .
+--         ν · (strain circulation)  ≡  (residual circulation) .
 --
 --       No class in any cohomology needs to be invented for this: the
 --       time-one-form is explicitly a coboundary plus a retained
 --       residual, and §3 exhibits the primitive.
 --
---   §1  the four laws of a finite sum � congruence, additivity,
---       distribution of a scalar, and negation � each a short induction.
+--   §1  the four laws of a finite sum — congruence, additivity,
+--       distribution of a scalar, and negation — each a short induction.
 --
---   §2  THE TELESCOPE: �_{n<k} (P (n+1) - P n) ≡ P k - P 0, for every
---       sequence whatsoever.  This is the whole mechanism; §§3�4 are its
+--   §2  THE TELESCOPE: Σ_{n<k} (P (n+1) - P n) ≡ P k - P 0, for every
+--       sequence whatsoever.  This is the whole mechanism; §§3–4 are its
 --       two readings.
 --
 -- ON THE DISCRETENESS, said plainly rather than apologised for.  The
 -- index here is a partition of the time interval, and the identity is
--- EXACT at every partition, however fine or coarse � nothing is lost to
+-- EXACT at every partition, however fine or coarse — nothing is lost to
 -- discretisation and no limit is being approximated.  What a continuum
 -- version would add is not accuracy but the ability to state the step
 -- law as a derivative rather than a difference; that is a change of
 -- carrier, not of content, and the content is here.
 --
--- SYT � THE CLAIM, EXACTLY.  §§1�4 in any commutative ring, for every
+-- SYĀT — THE CLAIM, EXACTLY.  §§1–4 in any commutative ring, for every
 -- three sequences, every `ν`, and every finite depth.
 -- §§3�4 are stated with `ν �` on the
 -- left and are never divided through.
@@ -67,7 +67,7 @@ module _ (R : CommRing ℓ) where
     A = ⟨ R ⟩
 
   ------------------------------------------------------------------
-  -- � � The finite sum along a partition.
+  -- ० · The finite sum along a partition.
   ------------------------------------------------------------------
 
   sum : ℕ → (ℕ → A) → A
@@ -75,7 +75,7 @@ module _ (R : CommRing ℓ) where
   sum (suc k) f = sum k f + f k
 
   ------------------------------------------------------------------
-  -- � � Its four laws.
+  -- १ · Its four laws.
   ------------------------------------------------------------------
 
   sum-cong : (k : ℕ) (f g : ℕ → A) → ((n : ℕ) → f n ≡ g n)
@@ -114,7 +114,7 @@ module _ (R : CommRing ℓ) where
       pull p a = solve! R
 
   ------------------------------------------------------------------
-  -- � � THE TELESCOPE.
+  -- २ · THE TELESCOPE.
   ------------------------------------------------------------------
 
   telescope : (P : ℕ → A) (k : ℕ)
@@ -129,7 +129,7 @@ module _ (R : CommRing ℓ) where
       join p₀ pk pk₁ = solve! R
 
   ------------------------------------------------------------------
-  -- � � THE VISCOUS HISTORY IS A COBOUNDARY PLUS THE RESIDUAL.
+  -- ३ · THE VISCOUS HISTORY IS A COBOUNDARY PLUS THE RESIDUAL.
   ------------------------------------------------------------------
 
   module _ (P S N : ℕ → A) (ν : A)
@@ -164,7 +164,7 @@ module _ (R : CommRing ℓ) where
             swapNeg a b = solve! R
 
     ----------------------------------------------------------------
-    -- � � SO ON A LOOP THE CIRCULATION IS THE RESIDUAL ALONE.
+    -- ४ · SO ON A LOOP THE CIRCULATION IS THE RESIDUAL ALONE.
     ----------------------------------------------------------------
 
     loop-circulation : (k : ℕ) → P k ≡ P 0

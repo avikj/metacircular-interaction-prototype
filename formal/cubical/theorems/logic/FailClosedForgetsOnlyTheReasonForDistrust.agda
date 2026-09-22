@@ -4,8 +4,8 @@
 -- FailClosedForgetsOnlyTheReasonForDistrust
 --
 -- `interactive/KernelProbe.hs` collapses two distinct situations into one
--- verdict on purpose â” "absence and failure share the same grade,
--- fail-closed" â” and grades CAPABILITY, not soundness.  The collapse is
+-- verdict on purpose â€” "absence and failure share the same grade,
+-- fail-closed" â€” and grades CAPABILITY, not soundness.  The collapse is
 -- exactly one-sided, and this says in which direction:
 --
 --   * the TRUSTING verdict determines the state completely;
@@ -15,24 +15,24 @@
 -- on the side you do not.  That is what makes it the right shape for a
 -- guard and the wrong shape for a diagnosis.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THE SHELF SAYS
 --
--- It probes with two modules â” a builtin-only `2 + 2 â‰¡ 4` under
--- `--no-libraries`, and the same under `--cubical` â” and prints
--- `KERNEL-PROBE agda=â¦ refl=â¦ cubical=â¦`, exiting 0 iff refl-capable and
+-- It probes with two modules â€” a builtin-only `2 + 2 â‰¡ 4` under
+-- `--no-libraries`, and the same under `--cubical` â€” and prints
+-- `KERNEL-PROBE agda=â€¦ refl=â€¦ cubical=â€¦`, exiting 0 iff refl-capable and
 -- 2 otherwise, "absence and failure share the same grade".  Its own
 -- limit, in its own words: *"it grades capability, not soundness.  A
 -- passing probe says 'this kernel checks this class of module'; it
 -- certifies nothing about the axioms of any registered library."*
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- HOW THIS DIFFERS FROM `AFigureWithoutItsInputDecidesNothing`
 --
 -- `AFigureWithoutItsInputDecidesNothing` also ends in a one-sided test:
 -- a mismatch refutes, a match establishes nothing.  The two are NOT the
--- same finding.  There the loss was accidental â” an INPUT the reader
--- happens not to have.  Here the loss is DELIBERATE and in the OUTPUT â”
+-- same finding.  There the loss was accidental â€” an INPUT the reader
+-- happens not to have.  Here the loss is DELIBERATE and in the OUTPUT â€”
 -- the verdict is coarsened on purpose so that an ungraded kernel cannot
 -- be trusted.  Same shape of one-sidedness, different cause, and the
 -- design consequences are opposite: the first wants the input published,

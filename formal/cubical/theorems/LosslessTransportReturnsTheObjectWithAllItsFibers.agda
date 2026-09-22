@@ -3,18 +3,18 @@
 ------------------------------------------------------------------------
 -- LosslessTransportReturnsTheObjectWithAllItsFibers
 --
--- The univalent dependent codec.  A reversible recoding e : A � B is not
+-- The univalent dependent codec.  A reversible recoding e : A ≃ B is not
 -- an external agreement that A and B "represent the same thing"; by
 -- univalence it is an identity along which every dependent object
 -- transports.  A value-only codec is insufficient: the entire dependent
 -- neighbourhood must return.
 --
--- Given a fibre family P : A � Type (invariants, proofs, the object's
+-- Given a fibre family P : A → Type (invariants, proofs, the object's
 -- relationships to its surroundings), the codec carries a dependent datum
--- (x , p) � value AND fibre � and this file proves it is LOSSLESS: it is
+-- (x , p) — value AND fibre — and this file proves it is LOSSLESS: it is
 -- an equivalence
 --
---     � A P  �  � B (P ∘ e��),
+--     Σ A P  ≃  Σ B (P ∘ e⁻¹),
 --
 -- so the round trip returns (x , p), the datum together with all of its
 -- fibre.  "Lossless transport means the object returns together with all
@@ -34,7 +34,7 @@ private variable
 module _ {A : Type ℓ} {B : Type ℓ} (e : A ≃ B) where
 
   -- The dependent codec: base recoding e, fibre carried by transporting P
-  -- along the univalent identity.  It is an equivalence � nothing in the
+  -- along the univalent identity.  It is an equivalence — nothing in the
   -- fibre is lost.
   dependent-codec : (P : A → Type ℓ')
                   → Σ A P ≃ Σ B (λ b → P (invEq e b))

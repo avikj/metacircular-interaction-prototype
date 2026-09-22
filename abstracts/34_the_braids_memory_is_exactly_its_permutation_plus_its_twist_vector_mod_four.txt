@@ -9,8 +9,8 @@ Braid groups / representation kernels / the measurement of memory
 
 The endless braid acts on the rope of interdependent-pair strands
 with every relation of every braid group holding at once.  The
-question that action raises â” WHICH WORDS ACT TRIVIALLY, i.e. what
-exactly does a braid remember â” is answered completely, and each
+question that action raises â€” WHICH WORDS ACT TRIVIALLY, i.e. what
+exactly does a braid remember â€” is answered completely, and each
 ingredient of the answer is a checked theorem.
 
 THE NORMAL FORM.  Every braid word equals its bare permutation
@@ -18,7 +18,7 @@ followed by a twist word computed from the word itself: each crossing
 deposits one quarter turn, relocated by the accumulated transposition
 of the remainder.  Proved by one list induction over the conjugation
 law (the crossing carries the twist across itself, with the
-transposition given by double recursion and proved involutive â” no
+transposition given by double recursion and proved involutive â€” no
 comparison function anywhere in the development).
 
 THE READING THEOREM.  After any twist word, the reader at every depth
@@ -28,14 +28,14 @@ point, not merely presented.
 
 THE MOD-FOUR THEOREM.  A twist word acts trivially on every rope
 exactly when every count vanishes modulo four.  Sufficiency lifts
-pointwise triviality to the rope by reader extensionality â” streams
+pointwise triviality to the rope by reader extensionality â€” streams
 agreeing at every depth are equal, a corecursive path built from the
 pointwise readings.  Necessity needs only ONE rope: the constant one
 already pins every count, by residue enumeration and three named
 refutations.
 
-THE DETECTOR PAIR.  The constant rope â” which detected the twist
-vector exactly â” is proved blind to every swap; the marked rope sees
+THE DETECTOR PAIR.  The constant rope â€” which detected the twist
+vector exactly â€” is proved blind to every swap; the marked rope sees
 each swap move its mark into view.  Two complementary blindnesses
 with joint coverage: the interdependent-pair record that opened this
 campaign reappears as the measurement apparatus of its deepest
@@ -44,12 +44,12 @@ everything jointly is two blindnesses facing each other.
 
 THE KERNEL, WHOLE.  A braid word acts trivially exactly when its bare
 swap word acts trivially and every deposited count vanishes mod four
-â” necessity via the blind rope and the normal form, sufficiency by
+â€” necessity via the blind rope and the normal form, sufficiency by
 composition.  The braid's memory is its permutation plus its twist
 vector mod four: nothing more, nothing less, and both coordinates are
 read off by the pair.
 
-SYT â” THE CLAIM, EXACTLY.  The biconditional is at the level of
+SYÄ€T â€” THE CLAIM, EXACTLY.  The biconditional is at the level of
 actions on ropes.
 
 Machine-checked in cubical type theory, no postulates, no admitted

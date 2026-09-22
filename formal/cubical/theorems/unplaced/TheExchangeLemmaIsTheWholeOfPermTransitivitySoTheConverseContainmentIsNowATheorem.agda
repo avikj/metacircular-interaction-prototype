@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- TheExchangeLemmaIsTheWholeOfPermTransitivitySoTheConverseContainmentIsNowATheorem
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE CONTAINMENT, BOTH DIRECTIONS.  `Perm` is contained in `â‰ˆ`; the converse
 -- reduces to one hypothesis, `PermTransitivity`, which needs an exchange lemma
 -- moving an `Insert` past a `Perm`.  It is written here, and the containment
@@ -16,20 +16,20 @@
 --                 and `Insert x ws cs`.  **This is the whole content.**
 --                 Induction on the SECOND insertion, casing the first;
 --                 three clauses, and the middle one is where the two
---                 insertions cross â” `here` against `there k` returns
+--                 insertions cross â€” `here` against `there k` returns
 --                 `k` itself with `here`, i.e. the crossing is what
 --                 makes the pair swap rather than nest.
 --   insertPerm    an insertion moves past a permutation:
---                 `Insert x as bs â’ Perm bs cs`
---                 â’ `Î ds (Perm as ds — Insert x ds cs)`.
---                 Inverting `Perm` is free â” `pcons` is its only
---                 non-nil constructor â” so this is `insertSwap` plus
+--                 `Insert x as bs â†’ Perm bs cs`
+--                 â†’ `Î£ ds (Perm as ds Ã— Insert x ds cs)`.
+--                 Inverting `Perm` is free â€” `pcons` is its only
+--                 non-nil constructor â€” so this is `insertSwap` plus
 --                 bookkeeping.
 --   permTransitivity
 --                 hence transitivity, by induction on the first
 --                 derivation alone.
 --   theConverseContainment
---                 `xs â‰ˆ ys â’ Perm xs ys`, by discharging the
+--                 `xs â‰ˆ ys â†’ Perm xs ys`, by discharging the
 --                 hypothesis.
 --   permutationAndAdjacencyAgree
 --                 both directions in one statement, with
@@ -39,7 +39,7 @@
 -- transitivity as a CONSTRUCTOR while `Perm` builds it into the shape
 -- of `pcons`, so the containment turns on exactly the constructor they
 -- disagree about.  The cost of
--- `Perm`'s choice is **precisely `insertSwap`** â” a commutation of two
+-- `Perm`'s choice is **precisely `insertSwap`** â€” a commutation of two
 -- insertions, three clauses, no arithmetic, no decidable equality, and
 -- no assumption whatever on the element type.  Nothing about
 -- permutations was at stake; the price of composing was.
@@ -51,12 +51,12 @@
 --   "This clause uses pattern-matching features that are not yet
 --    supported by Cubical Agda, the function to which it belongs will
 --    not compute when applied to transports.
---    Reason: It relies on injectivity of the data constructor _âˆ_"
+--    Reason: It relies on injectivity of the data constructor _âˆ·_"
 --
 -- `Perm` and `Insert` are INDEXED BY LISTS, so inverting them unifies
--- `x âˆ xs` patterns, and cubical Agda does not yet support constructor
--- injectivity in that position.  **The propositions below are proved â”
--- `--safe`, no postulates, no holes â” and the functions simply do not
+-- `x âˆ· xs` patterns, and cubical Agda does not yet support constructor
+-- injectivity in that position.  **The propositions below are proved â€”
+-- `--safe`, no postulates, no holes â€” and the functions simply do not
 -- COMPUTE on transports.**
 -- `Perm`'s formulation costs
 -- `insertSwap` mathematically, and costs transport-computability
@@ -78,7 +78,7 @@ open import TheConverseContainmentReducesToPermTransitivityAndTheOtherThreeCases
 module _ {A : Type} where
 
   ------------------------------------------------------------------
-  -- 1.  Two insertions commute â” the whole content
+  -- 1.  Two insertions commute â€” the whole content
   ------------------------------------------------------------------
 
   insertSwap :
@@ -91,7 +91,7 @@ module _ {A : Type} where
   ... | ws , iy , ix                       = _ , there iy , there ix
 
   ------------------------------------------------------------------
-  -- 2.  â¦so an insertion moves past a permutation
+  -- 2.  â€¦so an insertion moves past a permutation
   ------------------------------------------------------------------
 
   insertPerm :
@@ -104,7 +104,7 @@ module _ {A : Type} where
   ...   | ws , iy , ixc = ws , pcons pas iy , ixc
 
   ------------------------------------------------------------------
-  -- 3.  â¦and transitivity follows by induction on the first alone
+  -- 3.  â€¦and transitivity follows by induction on the first alone
   ------------------------------------------------------------------
 
   permTransitivity : PermTransitivity {A = A}

@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ���������� � the sum field does NOT determine the state, and the host
+-- अनिर्धारित — the sum field does NOT determine the state, and the host
 -- module knew: its own header exhibits caches {1,2,4,5} and {1,2,3,6}
 -- with one scalar summary.  ones (sum w) ≡ w is FALSE,
 -- and the landing is road two, the separating pair.  Smallest
@@ -28,11 +28,11 @@ state₂ = 1 ∷ 1 ∷ []
 sameSummary : sum state₁ ≡ sum state₂
 sameSummary = refl
 
--- ones reconstructs the second from the shared summary �
+-- ones reconstructs the second from the shared summary …
 onesLands : ones (sum state₁) ≡ state₂
 onesLands = refl
 
--- � and the two states are distinct: heads 2 � 1.
+-- … and the two states are distinct: heads 2 ≢ 1.
 head≢ : (2 ∷ []) ≡ (1 ∷ (1 ∷ [])) → ⊥
 head≢ p = snotz (injSuc (cong headOr0 p))
   where

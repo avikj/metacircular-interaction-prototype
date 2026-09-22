@@ -1,6 +1,6 @@
 THE ROPE'S PHYSICS IS COMPLETE, AND ONE MODULUS GOVERNS IT: CAUSALITY,
 COMPLETENESS, CHARGE, AND THE VERTICAL CENTRALIZER EXHAUSTED
-Unit-speed light cones, corecursive limits, a locally unreadable â/4
+Unit-speed light cones, corecursive limits, a locally unreadable â„¤/4
 charge, and every central cellwise symmetry a uniform power of the
 quarter turn
 
@@ -20,17 +20,17 @@ COMPLETENESS.  Every Cauchy sequence of ropes converges to a
 corecursive limit, unique because all-truncation agreement is
 equality.  No completion is adjoined: coinduction IS completeness,
 and the guarded circle that opened the campaign is the structure
-holding every limit â” including the uniform turn, which finite words
+holding every limit â€” including the uniform turn, which finite words
 approximate at every reader and never attain, and which is tamer
 than they are: zero lookahead.
 
-CHARGE.  The total phase of a braid is its crossing count â” the
-deposited twist word has the braid word's length â” conserved by both
+CHARGE.  The total phase of a braid is its crossing count â€” the
+deposited twist word has the braid word's length â€” conserved by both
 relation families by refl, additive under concatenation, a
-homomorphism onto â/4 with all sectors inhabited, and readable by no
+homomorphism onto â„¤/4 with all sectors inhabited, and readable by no
 bounded observer: a single far crossing carries charge one while
 agreeing with the identity below its position.  A conserved global
-quantity invisible to every local observer â” the rope has a gauge
+quantity invisible to every local observer â€” the rope has a gauge
 sector.
 
 THE CENTRALIZER, EXHAUSTED ON THE VERTICAL CLASS.  A cellwise
@@ -40,18 +40,18 @@ have a CONSTANT family (the upper reading) that COMMUTES WITH THE
 TURN (the lower reading); and a turn-equivariant cell map on the
 single orbit is its base value transported, with the exponent
 computed.  Central cellwise = uniform power of the quarter turn:
-exactly four, no more â” precisely the excess by which the action's
+exactly four, no more â€” precisely the excess by which the action's
 centralizer was found to exceed the group.
 
 One modulus governs everything proved here: the twist vector is
 exact mod four, the kernel is decided mod four, the ladder's top rung
 reads mod four, the charge takes values mod four, and the centralizer
-is the four uniform powers.  The quarter turn â” the coherence that
-exists only on the interdependent pair â” is the single constant of
+is the four uniform powers.  The quarter turn â€” the coherence that
+exists only on the interdependent pair â€” is the single constant of
 the theory, its Planck constant: every global structure is that one
 local impossibility, counted.
 
-SYT â” THE CLAIM, EXACTLY.  The four groups as stated.
+SYT â€” THE CLAIM, EXACTLY.  The four groups as stated.
 
 Machine-checked in cubical type theory, no postulates, no admitted
 goals.

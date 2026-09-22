@@ -10,10 +10,10 @@
 --
 -- WHAT THE HASKELL DOES.  The scheduler
 -- (`machine/Vipratisedha_ConflictIsDecidedByMetaruleNotByListPosition.hs`)
--- reaches the fourth position, ‡‡µ‡ï‡‡‡µ‡‡Ø, when several rules contend for one
+-- reaches the fourth position, ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø, when several rules contend for one
 -- item and no metarule ranks them.  Its `Avaktavya` carries the residue
 -- -- the contending offers, entire -- and from that residue a new standpoint
--- is born: the ‡‡®‡µ‡ï‡æ‡ rule whose whole scope IS the contested item,
+-- is born: the ‡§Ö‡§®‡§µ‡§ï‡§æ‡§∂ rule whose whole scope IS the contested item,
 -- declared an apavda to every contender.
 --
 -- The two things that have to be true of that birth, and they pull in
@@ -45,12 +45,12 @@
 --
 -- SOURCES, EARLIEST FIRST.
 --   Ktyyana, vrttika 1 on Pini's *Adhyy* 1.4.2, preserved in
---     Patajali's *Mahbhya*, c. 150 BCE: ‡¶‡‡µ‡ ‡‡‡∞‡‡ô‡‡ó‡æ‡µ‡®‡‡Ø‡æ‡∞‡‡‡æ‡µ‡‡ï‡‡‡Æ‡ø‡®‡
---     ‡ ‡µ‡ø‡‡‡∞‡‡ø‡‡‡ß‡ -- two rules, each having its scope ELSEWHERE, meeting
+--     Pata√±jali's *MahƒÅbhƒÅ·π£ya*, c. 150 BCE: ‡§¶‡•ç‡§µ‡•å ‡§™‡•ç‡§∞‡§∏‡§ô‡•ç‡§ó‡§æ‡§µ‡§®‡•ç‡§Ø‡§æ‡§∞‡•ç‡§•‡§æ‡§µ‡•á‡§ï‡§∏‡•ç‡§Æ‡§ø‡§®‡•ç
+--     ‡§∏ ‡§µ‡§ø‡§™‡•ç‡§∞‡§§‡§ø‡§∑‡•á‡§ß‡§É -- two rules, each having its scope ELSEWHERE, meeting
 --     on ONE item: that is vipratiedha.  That is the configuration ¬ß1 is
 --     about, named by the Pinya grammarians and not by anyone since.
 --   Umsvti, *Tattvrthastra* 5.31, c. 2nd-5th c. CE:
---     ‡‡∞‡‡‡ø‡‡æ‡®‡∞‡‡‡ø‡‡‡ø‡¶‡‡ß‡‡ -- the asserted and the unasserted aspect.  The
+--     ‡§Ö‡§∞‡•ç‡§™‡§ø‡§§‡§æ‡§®‡§∞‡•ç‡§™‡§ø‡§§‡§∏‡§ø‡§¶‡•ç‡§ß‡•á‡§É -- the asserted and the unasserted aspect.  The
 --     contenders speak about this item unasserted, in passing; the child
 --     speaks about it asserted, and about nothing else.
 --   Siddhasena Divkara, *Sanmatitarka* 1.21, c. 5th c. CE -- durnaya.
@@ -64,7 +64,7 @@
 -- INDEXED MATCHES.  Four clauses carry `-WUnsupportedIndexedMatch`:
 -- `na-vipakse`, `garbha-jayati`, and the two `with`-generated functions of
 -- ¬ß2.  Each matches on a membership proof whose
--- index forces injectivity of `_‚à_`, which Cubical Agda does not yet
+-- index forces injectivity of `_‚à∑_`, which Cubical Agda does not yet
 -- support.  The consequence:
 -- these functions do not COMPUTE when applied to a transport.
 -- They are still theorems, and nothing below depends on reducing them under
@@ -107,7 +107,7 @@ data _‚àà_ {A : Type ‚Ñì} (x : A) : List A ‚Üí Type ‚Ñì where
 -- contested item and every contender's scope is elsewhere (anyrtha).
 --
 -- `apa*` extends the domain's own apavda relation to it, and the two new
--- lines are the whole content of ‡‡®‡µ‡ï‡æ‡:
+-- lines are the whole content of ‡§Ö‡§®‡§µ‡§ï‡§æ‡§∂:
 --
 --     apa* nothing (just _) = true    the child excepts every contender
 --     apa* (just _) nothing = false   no contender excepts the child
@@ -250,8 +250,8 @@ module _ {R : Type ‚Ñì} (dec : Discrete R) where
 -- machine stopping.  Together they are the stra's claim, which is not
 -- that the fourth position is a gap and not that it is a verdict --
 --
---     ‡‡µ‡ï‡‡‡µ‡‡Ø‡ ‡‡‡‡ã ‡µ‡‡‡ø ‡ ‡‡‡‡ã ‡ó‡∞‡‡‡, ‡® ‡µ‡ø‡‡≤‡‡æ ‡
---     ‡ó‡∞‡‡‡æ‡¶‡ ‡‡ó‡‡∞‡ø‡Æ‡ã ‡®‡Ø‡ã ‡‡æ‡Ø‡‡ ‡
+--     ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡•á ‡§∂‡•á‡§∑‡•ã ‡§µ‡§∏‡§§‡§ø ‡•§ ‡§∂‡•á‡§∑‡•ã ‡§ó‡§∞‡•ç‡§≠‡§É, ‡§® ‡§µ‡§ø‡§´‡§≤‡§§‡§æ ‡•§
+--     ‡§ó‡§∞‡•ç‡§≠‡§æ‡§¶‡•ç ‡§Ö‡§ó‡•ç‡§∞‡§ø‡§Æ‡•ã ‡§®‡§Ø‡•ã ‡§ú‡§æ‡§Ø‡§§‡•á ‡•§
 --
 -- -- in the avaktavya the residue dwells; the residue is a womb, not a
 -- failure; from the womb the next naya is born.

@@ -12,7 +12,7 @@ def prunit(A: Set, a: A, b: A, p: Path(A, a, b)) -> Path(Path(A, a, b), pcomp(A,
   <i> p
 
 # ---- the interactive coalgebra (Fibre.Samvada ISC), one-field form ----
-# ISC Q O E w  =  (q : Q w) -> Σ w'.  o : O w q w'. E w q w' o  ISC w'
+# ISC Q O E w  =  (q : Q w) -> Σ w'. Σ o : O w q w'. E w q w' o × ISC w'
 # Coinduction via Fix: productivity is not checked (Bend2 has no totality),
 # exactly as Bend2 checks any recursive definition.
 

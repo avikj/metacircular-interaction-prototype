@@ -1,22 +1,22 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������ � the ladder.  EVERY STRATUM OF THE HASSE LADDER IS DECIDED,
+-- सोपान — the ladder.  EVERY STRATUM OF THE HASSE LADDER IS DECIDED,
 -- WITH ITS EVIDENCE, FOR EVERY PRIME AND EVERY CURVE.
 --
 -- The LADDER AS ONE THEOREM, universally quantified over the stratum:
 --
---   `stratum-decided` � for EVERY modulus p = suc p' and EVERY curve
+--   `stratum-decided` — for EVERY modulus p = suc p' and EVERY curve
 --     y² = x³ + Ax + B, the Hasse stratum is decided with evidence
 --     in hand either way: the point count (meaning secured by the
 --     residue instrument), the trace presented subtraction-free on
---     whichever side it falls, and the verdict � critical-circle
---     certificate trace² � 4p, or the explicit crossing 4p < trace².
+--     whichever side it falls, and the verdict — critical-circle
+--     certificate trace² ≤ 4p, or the explicit crossing 4p < trace².
 --     No stratum can be cherry-picked and none can hide: a defeater
 --     of the pervasion, if one existed, would surface at its own
 --     stratum as the right branch, constructed.
 --
---   `HassePervasion` � the universal claim (the right branch never
+--   `HassePervasion` — the universal claim (the right branch never
 --     inhabited at prime p) as a TYPE; `restrict` takes it to each
 --     stratum's left branch; no term runs backwards.  For prime
 --     moduli the pervasion is Hasse's theorem (1933); for composite
@@ -26,7 +26,7 @@
 --
 -- The residue instrument (mod with its full specification, residue
 -- equality carrying a congruence witness) returns here inside a
--- universally quantified result � its only legitimate home.
+-- universally quantified result — its only legitimate home.
 ------------------------------------------------------------------------
 
 module Sopana_EveryStratumOfTheHasseLadderIsDecidedWithItsEvidenceForEveryPrimeAndEveryCurve where
@@ -182,8 +182,8 @@ cntX : ℕ → ℕ → ℕ → ℕ → ℕ
 cntX p' A B zero    = cntY p' A B zero p'
 cntX p' A B (suc b) = cntY p' A B (suc b) p' + cntX p' A B b
 
--- Points of y² = x³ + Ax + B over �/(suc p'), affine plus infinity.
-#E : � � � � � � �
+-- Points of y² = x³ + Ax + B over ℤ/(suc p'), affine plus infinity.
+#E : ℕ → ℕ → ℕ → ℕ
 #E p' A B = suc (cntX p' A B p')
 
 ------------------------------------------------------------------------
@@ -211,7 +211,7 @@ trace-of p' A B = go (splitℕ-≤ (suc (suc p')) (#E p' A B))
     inr (+-comm (#E p' A B) (suc (suc p') ∸ #E p' A B)
          ∙ ≤-∸-+-cancel (<-weaken h))
 
--- One stratum's verdict: the critical certificate, or the crossing �
+-- One stratum's verdict: the critical certificate, or the crossing —
 -- with the trace's defining equation carried either way.
 Verdict : ℕ → ℕ → ℕ → Type
 Verdict p' A B =

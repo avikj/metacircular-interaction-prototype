@@ -1,11 +1,11 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ����-�������� � the link field.
+-- सेतु-क्षेत्र — the link field.
 --
 -- Constructed here:
 --
---   §1  The GAUGE GROUP is �/2 � the booleans under xor, with unit,
+--   §1  The GAUGE GROUP is ℤ/2 — the booleans under xor, with unit,
 --       self-inverse, commutativity and associativity from the pinned
 --       library.  The LATTICE is a chain of links; the CONNECTION (the
 --       field) assigns a group element to each link, carried with the
@@ -14,7 +14,7 @@
 --       the ordered product of the links.
 --
 --   §2  THE TELESCOPING LAW: the Wilson line of the transformed chain
---       equals (start site) � (end site) � (original Wilson line) �
+--       equals (start site) · (end site) · (original Wilson line) —
 --       proved by induction with the middle site values cancelling in
 --       pairs (madhya-lopa).  Hence THE WILSON LOOP IS GAUGE
 --       INVARIANT: on a closed chain, where the final site value
@@ -24,12 +24,12 @@
 --   §3  THE CONNECTION IS NOT: a two-link closed chain and a
 --       transformation under which the first link provably changes
 --       while the loop, by §2, does not.  The gauge-dependent and the
---       observable are separated on one witness � the holonomy is
+--       observable are separated on one witness — the holonomy is
 --       physical, the connection is coordinates, and both halves are
 --       terms.
 --
 -- Read with abstract 17: its biconditional said an observable is
--- unmoved exactly when invariant; here is the lattice-side instance �
+-- unmoved exactly when invariant; here is the lattice-side instance —
 -- the loop is the invariant observable, the link is the moved
 -- non-observable, and the two theorems bracket the same law from
 -- both sides.
@@ -47,7 +47,7 @@ open import Cubical.Data.List using (List ; [] ; _∷_ ; map)
 open import Cubical.Data.Empty using (⊥)
 
 ------------------------------------------------------------------------
--- � � The group algebra we need beyond the library: self-cancellation,
+-- १ · The group algebra we need beyond the library: self-cancellation,
 -- the middle-cancel law, and the three-term swap.
 ------------------------------------------------------------------------
 
@@ -66,11 +66,11 @@ trika-vinimaya a b c =
   ⊕-assoc a b c ∙ cong (_⊕ c) (⊕-comm a b) ∙ sym (⊕-assoc b a c)
 
 ------------------------------------------------------------------------
--- � � The lattice, the field, the transformation, the loop.
+-- २ · The lattice, the field, the transformation, the loop.
 --
 -- A chain is a list of (link value, right-endpoint site value); the
 -- left endpoint of each link is the previous entry's site value,
--- seeded by the start site h�.
+-- seeded by the start site h₀.
 ------------------------------------------------------------------------
 
 Setu : Type₀
@@ -92,7 +92,7 @@ anta h []              = h
 anta h ((_ , h') ∷ c) = anta h' c
 
 ------------------------------------------------------------------------
--- � � The telescoping law, and gauge invariance of the loop.
+-- ३ · The telescoping law, and gauge invariance of the loop.
 ------------------------------------------------------------------------
 
 saṅkalana : (h : Bool) (c : Setu)
@@ -117,7 +117,7 @@ cakra-avikāra h c band =
   ∙ cong (_⊕ wilson (map fst c)) (⊕-ātman h)
 
 ------------------------------------------------------------------------
--- � � The connection is not invariant: the named witness.
+-- ४ · The connection is not invariant: the named witness.
 --
 -- Two links closing at start site false, transformed at the middle
 -- site: the first link flips while the loop, by §3, cannot.
@@ -145,7 +145,7 @@ setu-calita = refl
 setu-mūla : map fst sākṣi-setu ≡ false ∷ false ∷ []
 setu-mūla = refl
 
--- �while the Wilson loop agrees on both sides, by reduction and by
+-- …while the Wilson loop agrees on both sides, by reduction and by
 -- the theorem at once.
 loop-sthira : wilson (parivartana false sākṣi-setu)
             ≡ wilson (map fst sākṣi-setu)

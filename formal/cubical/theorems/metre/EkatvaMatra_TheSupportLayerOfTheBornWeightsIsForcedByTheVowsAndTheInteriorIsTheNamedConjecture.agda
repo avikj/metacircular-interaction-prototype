@@ -1,31 +1,31 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- àà•àààµ-à®à¾ààà°à¾ â” ekatva (uniqueness) of the mtr (measure/weight).
+-- à¤à¤•à¤¤à¥à¤µ-à¤®à¤¾à¤¤à¥à¤°à¤¾ â€” ekatva (uniqueness) of the mÄtrÄ (measure/weight).
 -- For program à of YugaParivartana
 -- (Born as the ethics of information).  Sources as EkatvaNirnaya /
 -- AvaktavyaPrasava give them.
 --
 -- EkatvaNirnaya proved the QUALITATIVE skeleton:
--- a rule `e : List A â’ Maybe A` obeying the two vows (decide-on-unanimity,
+-- a rule `e : List A â†’ Maybe A` obeying the two vows (decide-on-unanimity,
 -- take-nothing-on-disagreement) is forced uniquely on nonempty
 -- contentions.  That lives on the all-or-nothing carrier `Maybe A`.  This
--- module lifts the uniqueness to an actual WEIGHT carrier `W` â” the first
--- move of the quantitative layer â” and states the full Born conjecture as
+-- module lifts the uniqueness to an actual WEIGHT carrier `W` â€” the first
+-- move of the quantitative layer â€” and states the full Born conjecture as
 -- a precise type.
 --
 -- WHAT IS PROVED:
 --   the SUPPORT layer of the weights is forced.  A weight rule
---   `q : List A â’ A â’ W` obeying the quantitative vows
---     â ààà-à®à¾ààà°à¾   â” unanimity for a gives a the unit weight ğŸ™;
---     â àà¨àà¯-à®à¾ààà°à¾  â” unanimity for a gives every OTHER result ğŸ˜
+--   `q : List A â†’ A â†’ W` obeying the quantitative vows
+--     â€¢ à¤¤à¤¤à¥-à¤®à¤¾à¤¤à¥à¤°à¤¾   â€” unanimity for a gives a the unit weight ğŸ™;
+--     â€¢ à¤…à¤¨à¥à¤¯-à¤®à¤¾à¤¤à¥à¤°à¤¾  â€” unanimity for a gives every OTHER result ğŸ˜
 --                      (ahis of assertion: no weight on the unasserted);
---     â ààà¨àà¯-à®à¾ààà°à¾ â” any disagreement gives every result ğŸ˜
+--     â€¢ à¤¶à¥‚à¤¨à¥à¤¯-à¤®à¤¾à¤¤à¥à¤°à¤¾ â€” any disagreement gives every result ğŸ˜
 --                      (take nothing not unanimously given)
 --   is determined COMPLETELY on nonempty contentions: any two such rules
---   agree at every result (àà•àààµà®à-à®à¾ààà°à¾), by the same decidable
---   dichotomy EkatvaNirnaya used.  So the {ğŸ˜,ğŸ™}-valued (support) part of
---   the Born weights has no rival within the vows â” exactly as the
+--   agree at every result (à¤à¤•à¤¤à¥à¤µà¤®à¥-à¤®à¤¾à¤¤à¥à¤°à¤¾), by the same decidable
+--   dichotomy EkatvaNirnaya used.  So the {ğŸ˜,ğŸ™}-valued (support) part of
+--   the Born weights has no rival within the vows â€” exactly as the
 --   qualitative layer, now on weights.
 ------------------------------------------------------------------------
 
@@ -101,10 +101,10 @@ module _ {A : Type â„“} (disc : Discrete A) where
   -- the interior, as a conjecture type
   ----------------------------------------------------------------------
 
-  -- A quantitative interior rule assigns weights that need not be {ğŸ˜,ğŸ™}.
+  -- A quantitative interior rule assigns weights that need not be {ğŸ˜,ğŸ™}.
   -- The conjecture: under normalisation + additivity (ahis) +
   -- permutation invariance (aneknta) on a carrier rich enough to be
-  -- amplitudes, any two such rules agree â” Born uniqueness.  Stated over
+  -- amplitudes, any two such rules agree â€” Born uniqueness.  Stated over
   -- an abstract weight ring `W` with the vow-record supplied by the
   -- caller (the Gleason wall, see header).
   BornInteriorConjecture :

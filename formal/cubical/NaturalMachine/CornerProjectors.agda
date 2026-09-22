@@ -3,32 +3,32 @@
 ------------------------------------------------------------------------
 -- NaturalMachine.CornerProjectors
 --
--- Factory IV ¬ßXI ‚î "the projectors commute; the information does not" ‚î
+-- Factory IV ¬ßXI ‚Äî "the projectors commute; the information does not" ‚Äî
 -- at the type level.
 --
 -- WHERE THIS COMES FROM.  The owner's delta
 -- `collab/upstream/library/raw/ETERNAL_GOLDEN_BRAID_THEOREM_FACTORY_IV_2026-08-14.md`
 -- ¬ßXI observes that the two extractions defining the hard corner of the
--- prime-pair field ‚î P_r (radius one) and P_c (factorization charge one)
--- ‚î commute as operators, P_r P_c = P_c P_r, so the twin corner is NOT
+-- prime-pair field ‚Äî P_r (radius one) and P_c (factorization charge one)
+-- ‚Äî commute as operators, P_r P_c = P_c P_r, so the twin corner is NOT
 -- an operator-noncommutation obstruction.  And yet the two known
--- recurrence statements (charge-one mass summed over radii ‚â 123 is
--- infinite ‚î Maynard's side; radius-one mass at charge ‚â 2 is infinite ‚î
--- Chen's side) do not imply recurrence of the JOINT corner P_r P_c íû,
+-- recurrence statements (charge-one mass summed over radii ‚â§ 123 is
+-- infinite ‚Äî Maynard's side; radius-one mass at charge ‚â§ 2 is infinite ‚Äî
+-- Chen's side) do not imply recurrence of the JOINT corner P_r P_c ùíû,
 -- because "a nonnegative field may place all exact-prime mass at radius
 -- two and all radius-one mass at charge two."  The true problem is a
 -- marginal-to-joint lower-bound problem.  Factory I sibling
 -- (`UNIVALENT_PERSPECTIVAL_THEOREM_FACTORY_DELTA_14_2026-08-13.md` ¬ßA,
 -- T14.6/C14.7) carries the same shape one level up: an ambient
 -- equivalence restricts to a sector precisely when the sector predicate
--- is invariant ‚î selection, not conjugation, is where information dies.
+-- is invariant ‚Äî selection, not conjugation, is where information dies.
 --
 -- THE NOETHER READING.  Boolean predicates on witnesses act on witness
 -- lists by filtering, and pointwise predicates generate a COMMUTATIVE
 -- monoid of such actions: composition of filters is filtering by the
 -- pointwise conjunction (`filter-and`, an action identity), and the
 -- conjunction is commutative, so the actions commute (`filters-commute`
--- ‚î the general lemma, then `projectors-commute`, its instance at
+-- ‚Äî the general lemma, then `projectors-commute`, its instance at
 -- radius/charge).  The invariant that the group-theoretic bookkeeping
 -- does NOT control is the joint mass: knowing the orbit of each
 -- projector separately (both marginals inhabited) fixes nothing about
@@ -38,15 +38,15 @@
 --
 -- WHAT THIS MODULE PROVES (no holes, no postulates, --safe):
 --
---   Witness                a radius r : ‚ï together with a leg
+--   Witness                a radius r : ‚Ñï together with a leg
 --                          n : Number (ParitySeparator's factor
 --                          multiset; Œ© = length)
---   radiusOne, chargeOne   the two Boolean projectors: r ‚â°µ 1 (by a
+--   radiusOne, chargeOne   the two Boolean projectors: r ‚â°·µá 1 (by a
 --                          recursive decidable equality defined here)
 --                          and ChenProjector's (1‚àíŒª)/2
 --   filter-and             filtering twice is filtering by the
 --                          pointwise conjunction
---   filters-commute        hence ANY two pointwise filters commute ‚î
+--   filters-commute        hence ANY two pointwise filters commute ‚Äî
 --                          Boolean and-commutativity lifted to lists
 --   projectors-commute     Factory IV ¬ßXI's boxed identity
 --                          P_r P_c = P_c P_r, as the instance
@@ -54,11 +54,11 @@
 --   theWorld               the counterexample field: one prime leg at
 --                          radius 2, one charge-two leg at radius 1
 --   charge-marginal,       both marginals evaluate, by refl, to
---   radius-marginal        nonempty lists (and are proved ‚â [])
+--   radius-marginal        nonempty lists (and are proved ‚â¢ [])
 --   corner-empty,          both orders of the joint filter evaluate,
 --   corner-empty'          by refl, to []
 --   marginal-to-joint-gap  the three facts bundled: this is the gap
---                          made checkable ‚î commutation holds, and the
+--                          made checkable ‚Äî commutation holds, and the
 --                          marginals still say nothing about the joint
 ------------------------------------------------------------------------
 
@@ -97,9 +97,9 @@ open Witness
 ------------------------------------------------------------------------
 -- ¬ß2  The two projectors.
 --
--- Radius one is tested by a decidable equality on ‚ï, defined by
+-- Radius one is tested by a decidable equality on ‚Ñï, defined by
 -- recursion so it computes; charge one is ChenProjector's (1‚àíŒª)/2,
--- reused rather than redefined ‚î on the envelope it is EXACTLY the
+-- reused rather than redefined ‚Äî on the envelope it is EXACTLY the
 -- charge-one indicator (ChenProjector.theorem-58), and here it is
 -- evaluated only at envelope points.
 ------------------------------------------------------------------------
@@ -184,15 +184,15 @@ projectors-commute = filters-commute radiusOne chargeOne
 --
 -- Factory IV's own two mass placements, one witness each:
 --
---   primeAtRadiusTwo      exact-prime mass (charge 1) at radius 2 ‚î
+--   primeAtRadiusTwo      exact-prime mass (charge 1) at radius 2 ‚Äî
 --                         feeds the charge marginal, misses the corner;
---   chargeTwoAtRadiusOne  radius-one mass at charge 2 ‚î feeds the
+--   chargeTwoAtRadiusOne  radius-one mass at charge 2 ‚Äî feeds the
 --                         radius marginal, misses the corner.
 --
 -- Each marginal filter is nonempty; the joint filter, in either order,
 -- is empty.  This is the marginal-to-joint gap made checkable: both
 -- known recurrences can be inhabited while the corner is bare, so no
--- argument from the marginals alone ‚î commutation included ‚î can reach
+-- argument from the marginals alone ‚Äî commutation included ‚Äî can reach
 -- the corner.  Two witnesses suffice, and everything evaluates by refl
 -- because every projector here computes.
 ------------------------------------------------------------------------
@@ -206,15 +206,15 @@ chargeTwoAtRadiusOne = witness 1 semiprime-leg
 theWorld : List Witness
 theWorld = primeAtRadiusTwo ‚à∑ chargeTwoAtRadiusOne ‚à∑ []
 
--- Both marginals evaluate to nonempty lists‚¶
+-- Both marginals evaluate to nonempty lists‚Ä¶
 charge-marginal : filterC theWorld ‚â° primeAtRadiusTwo ‚à∑ []
 charge-marginal = refl
 
 radius-marginal : filterR theWorld ‚â° chargeTwoAtRadiusOne ‚à∑ []
 radius-marginal = refl
 
--- ‚¶and the joint corner is empty, in both orders (as it must be, by
--- projectors-commute ‚î the two refl's below are that theorem's
+-- ‚Ä¶and the joint corner is empty, in both orders (as it must be, by
+-- projectors-commute ‚Äî the two refl's below are that theorem's
 -- evaluation at theWorld).
 corner-empty : filterR (filterC theWorld) ‚â° []
 corner-empty = refl
@@ -231,7 +231,7 @@ private
 
 -- The marginal-to-joint gap, in one term: the charge face is
 -- inhabited, the radius face is inhabited, the joint corner is empty.
--- ¬ßXI's second box ‚î "a marginal-to-joint lower-bound problem" ‚î is
+-- ¬ßXI's second box ‚Äî "a marginal-to-joint lower-bound problem" ‚Äî is
 -- the demand for a hypothesis on witness fields that this term shows
 -- cannot be dropped.
 marginal-to-joint-gap :

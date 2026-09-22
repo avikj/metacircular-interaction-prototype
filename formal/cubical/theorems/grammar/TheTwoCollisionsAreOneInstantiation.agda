@@ -5,33 +5,33 @@
 --
 -- This module gives
 -- a second route to the same two theorems, through
--- `AnyonyaAbhava.anyonyaâ’samsarga` rather than
+-- `AnyonyaAbhava.anyonyaâ†’samsarga` rather than
 -- `TranscriptDescent.collisionObstructsDecoder`, and Â§4's observation
 -- about what that duplication can and cannot mean.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE COMMON TYPE
 --
 -- `AnyonyaAbhava.Collision` is already parametric in the
 -- presentation type:
 --
---     Collision q t = Î[ x ] Î[ x' ] ((q x â‰¡ q x') — Anyonya (t x) (t x'))
+--     Collision q t = Î£[ x ] Î£[ x' ] ((q x â‰¡ q x') Ã— Anyonya (t x) (t x'))
 --
 -- so `Collision eval size` and `Collision asSet cost` are the same type
--- at two different presentation types â” `Expr` and `List Rule` â” and
+-- at two different presentation types â€” `Expr` and `List Rule` â€” and
 -- nothing has to be built to relate them.  Â§1 and Â§2 below are the two
 -- existing collision terms, typed at that general type by `refl`-level
 -- agreement: the isolation those modules performed had already produced
 -- instances of it without saying so.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   Â§1  `Collision eval size`, from `Laghava.laghava-collision`;
 --   Â§2  `Collision asSet cost`, from `Anuvrtti.anuvrtti-collision`;
 --   Â§3  the general lemma applied at each, by the second route;
 --   Â§4  and that the two routes AGREE, provably and for a reason that
---       is not about either lemma: `Â FactorsThrough q t` is a
+--       is not about either lemma: `Â¬ FactorsThrough q t` is a
 --       proposition, so any two proofs of it are equal.  Two general
 --       lemmas reaching one negation are not two results.
 ------------------------------------------------------------------------
@@ -87,7 +87,7 @@ anuvrtti-does-not-factorâ€² =
 --
 -- `OneLemmaFiveSites` reaches these two theorems through
 -- `collisionObstructsDecoder`; Â§3 reaches them through
--- `anyonyaâ’samsarga`.  The results coincide, and the reason is that
+-- `anyonyaâ†’samsarga`.  The results coincide, and the reason is that
 -- the target is a negation and negations are propositions.  So the
 -- duplication is invisible in the conclusions and visible only in the imports.
 ------------------------------------------------------------------------

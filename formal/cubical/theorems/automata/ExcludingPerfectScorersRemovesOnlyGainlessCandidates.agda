@@ -14,7 +14,7 @@
 -- WHY the exclusion is there and WHEN dropping it is observable, and
 -- both are short.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   noStrictImprovementAtTheCap
@@ -24,8 +24,8 @@
 --       zero, and a scheduler sampling them spends mass where no
 --       improvement exists.
 --   eligible / eligibleKeepsEveryImperfectAgent
---       the eligibility filter, computed â” reusing the decidable-filter
---       kit and `discreteâ•` â” together with the fact that it keeps
+--       the eligibility filter, computed â€” reusing the decidable-filter
+--       kit and `discreteâ„•` â€” together with the fact that it keeps
 --       every agent below the cap
 --   theSeamIsInvisibleExactlyWhenNobodyIsPerfect
 --       so if no archived agent attains the cap, the two eligibility
@@ -36,7 +36,7 @@
 -- undetectable exactly where it is harmless.  For seam 3 the branch
 -- agreed with its comment only on a constant archive, where selection
 -- carries no information.  For seam 1 the missing exclusion changes
--- nothing until some agent is perfect â” and once one is, every sample
+-- nothing until some agent is perfect â€” and once one is, every sample
 -- drawn on it is provably gainless.  Neither seam is cosmetic and
 -- neither is visible in a benign archive.
 ------------------------------------------------------------------------

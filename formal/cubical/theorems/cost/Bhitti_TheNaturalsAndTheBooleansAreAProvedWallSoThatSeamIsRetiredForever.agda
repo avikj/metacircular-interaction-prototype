@@ -1,19 +1,19 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡ø‡‡‡‡ø‡ ‚î a wall.  The first ford-graph receipt of the SECOND kind.
+-- ‡§≠‡§ø‡§§‡•ç‡§§‡§ø‡§É ‚Äî a wall.  The first ford-graph receipt of the SECOND kind.
 --
 -- THE ECONOMY HAS TWO ASSETS AND THE LOOP ONLY MINTS ONE.  A ford is a
--- landed equivalence; it creates món free crossings between the components
--- it joins.  A WALL is a proved ¬(A ‚â B); it creates none, and it retires a
+-- landed equivalence; it creates m√ón free crossings between the components
+-- it joins.  A WALL is a proved ¬¨(A ‚âÉ B); it creates none, and it retires a
 -- candidate merge PERMANENTLY, which is worth almost as much and costs far
--- less.  ‡‡‡‡ template-matches for fords and can never produce a wall.
+-- less.  ‡§§‡§™‡§∏‡•ç template-matches for fords and can never produce a wall.
 --
 -- THIS WALL, and why this one.  On the snapshot (111 fords, 137 banks, 48
 -- components) the two largest components are headed by `Bool` (8 banks) and
--- by `‚ï`/`‚ï ó ‚ï` ‚î 6 and 7 banks, joined into 13 by
--- `SetuYugma_‚¶AndVivekaIsTheNaturalNumbers`.  So `‚ï ‚â Bool` is the single
--- largest candidate merge in the corpus, 13 ó 8 = 104 crossings.  It is
+-- by `‚Ñï`/`‚Ñï √ó ‚Ñï` ‚Äî 6 and 7 banks, joined into 13 by
+-- `SetuYugma_‚Ä¶AndVivekaIsTheNaturalNumbers`.  So `‚Ñï ‚âÉ Bool` is the single
+-- largest candidate merge in the corpus, 13 √ó 8 = 104 crossings.  It is
 -- impossible, and this file says so with a term.  Those 104 leave the
 -- candidate set for good.
 --
@@ -21,7 +21,7 @@
 -- equivalence classes.
 --
 -- The mathematics is elementary and classical (a finite type is not
--- equivalent to ‚ï; pigeonhole).  No source is claimed for it.  ‡‡ø‡‡‡‡ø is
+-- equivalent to ‚Ñï; pigeonhole).  No source is claimed for it.  ‡§≠‡§ø‡§§‡•ç‡§§‡§ø is
 -- ordinary  for a wall; the usage is the corpus's own ("seven
 -- walls"); the compound is built here.
 ------------------------------------------------------------------------
@@ -36,7 +36,7 @@ open import Cubical.Data.Sum using (_‚äé_ ; inl ; inr)
 open import Cubical.Data.Empty using (‚ä•) renaming (rec to ‚ä•-rec)
 
 ------------------------------------------------------------------------
--- ‡ß ¬ ‡ï‡ã‡‡‡†‡ï‡®‡‡Ø‡æ‡Ø ‚î the pigeonhole, at its smallest: of any three booleans,
+-- ‡•ß ¬∑ ‡§ï‡•ã‡§∑‡•ç‡§†‡§ï‡§®‡•ç‡§Ø‡§æ‡§Ø ‚Äî the pigeonhole, at its smallest: of any three booleans,
 -- two agree.  Eight cases, each `refl`.
 ------------------------------------------------------------------------
 
@@ -49,15 +49,15 @@ open import Cubical.Data.Empty using (‚ä•) renaming (rec to ‚ä•-rec)
 ‡§§‡•ç‡§∞‡§Ø‡§æ‡§£‡§æ‡§Ç-‡§¶‡•ç‡§µ‡•å false true  true  = inr (inr refl)
 
 ------------------------------------------------------------------------
--- ‡® ¬ An equivalence is injective: its retraction carries the collision back.
+-- ‡•® ¬∑ An equivalence is injective: its retraction carries the collision back.
 ------------------------------------------------------------------------
 
 ‡§Ö‡§≠‡•á‡§¶ : {A B : Type} (e : A ‚âÉ B) {x y : A} ‚Üí equivFun e x ‚â° equivFun e y ‚Üí x ‚â° y
 ‡§Ö‡§≠‡•á‡§¶ e {x} {y} p = sym (retEq e x) ‚àô cong (invEq e) p ‚àô retEq e y
 
 ------------------------------------------------------------------------
--- ‡© ¬ ‡‡ø‡‡‡‡ø‡ ‚î ‚ï ‚â Bool.  Three naturals, two booleans; the collision the
--- pigeonhole forces is undone by injectivity into a false equation on ‚ï.
+-- ‡•© ¬∑ ‡§≠‡§ø‡§§‡•ç‡§§‡§ø‡§É ‚Äî ‚Ñï ‚âÑ Bool.  Three naturals, two booleans; the collision the
+-- pigeonhole forces is undone by injectivity into a false equation on ‚Ñï.
 ------------------------------------------------------------------------
 
 ‡§≠‡§ø‡§§‡•ç‡§§‡§ø‡§É : (‚Ñï ‚âÉ Bool) ‚Üí ‚ä•
@@ -67,12 +67,12 @@ open import Cubical.Data.Empty using (‚ä•) renaming (rec to ‚ä•-rec)
 ... | inr (inr p) = znots (injSuc (‡§Ö‡§≠‡•á‡§¶ e p))           -- 1 ‚â° 2, so 0 ‚â° 1
 
 ------------------------------------------------------------------------
--- ‡ ¬ The graph statement.  Recorded as a comment because the ford graph
--- is data and not a type: the pair (‚ü®lib‚ü©.‚ï, ‚ü®lib‚ü©.Bool) is now a WALL and
+-- ‡•™ ¬∑ The graph statement.  Recorded as a comment because the ford graph
+-- is data and not a type: the pair (‚ü®lib‚ü©.‚Ñï, ‚ü®lib‚ü©.Bool) is now a WALL and
 -- must never again be counted as an unminted seam.  Row shape:
 --
 --     wallId                        bankA        bankB
---     Bhitti_‚¶ForEver.‡‡ø‡‡‡‡ø‡        ‚ü®lib‚ü©.‚ï      ‚ü®lib‚ü©.Bool
+--     Bhitti_‚Ä¶ForEver.‡§≠‡§ø‡§§‡•ç‡§§‡§ø‡§É        ‚ü®lib‚ü©.‚Ñï      ‚ü®lib‚ü©.Bool
 --
--- 13 ó 8 = 104 crossings retired.  Not lost ‚î they were never available.
+-- 13 √ó 8 = 104 crossings retired.  Not lost ‚Äî they were never available.
 ------------------------------------------------------------------------

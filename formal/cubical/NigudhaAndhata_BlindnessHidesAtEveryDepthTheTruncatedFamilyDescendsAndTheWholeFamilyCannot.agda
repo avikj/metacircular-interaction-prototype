@@ -1,46 +1,46 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡®‡ø‡ó‡‡-‡‡®‡‡ß‡‡æ ‚î hidden blindness.  Compound built here
--- (‡®‡ø‡ó‡‡, concealed; ‡‡®‡‡ß‡‡æ, blindness); not a source term.
+-- ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡§ï‡§æ‡§£‡•ç‡§°‡§Æ‡•ç‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡§ï‡§æ‡§£‡•ç‡§°‡§Æ‡•ç- ‚Äî hidden blindness.  Compound built here
+-- (‡§®‡§ø‡§ó‡•Ç‡§¢, concealed; ‡§Ö‡§®‡•ç‡§ß‡§§‡§æ, blindness); not a source term.
 --
 -- WHAT THIS ANSWERS.  Two constructions, taken in order:
 --
 --   DEPENDENT NOVELTY.  The probe
 --   (DependentFillerFactorizationProbe, outside the aggregate) states
---   dependent descent ‚î Desc_S(F) = Œ[D] Œ† (F x ‚â° D (S x)) ‚î and
+--   dependent descent ‚Äî Desc_S(F) = Œ£[D] Œ† (F x ‚â° D (S x)) ‚Äî and
 --   obstructs it in the inhabited/empty case by one transport.  The
---   general form is proved here (‡‡‡¶-‡‡æ‡ß‡): a blind pair whose fibres
---   are NOT EQUIVALENT ‚î at any stratum, for any reason ‚î already
+--   general form is proved here (‡§≠‡•á‡§¶-‡§¨‡§æ‡§ß‡§É): a blind pair whose fibres
+--   are NOT EQUIVALENT ‚Äî at any stratum, for any reason ‚Äî already
 --   obstructs descent, because descent forces the type path whose
 --   pathToEquiv the hypothesis refutes.  The inhabited/empty case is
---   derived from it in one line (‡‡‡∞‡æ‡‡‡®‡Æ‡), so the probe's theorem is
+--   derived from it in one line (‡§™‡•ç‡§∞‡§æ‡§ö‡•Ä‡§®‡§Æ‡•ç), so the probe's theorem is
 --   an instance, credited, not rediscovered.
 --
 --   DESCENT DEPTH.  "Blindness can hide arbitrarily high" as ONE
---   INDEXED THEOREM.  For every n, over the blind base Bool ‚í Unit,
+--   INDEXED THEOREM.  For every n, over the blind base Bool ‚Üí Unit,
 --   the family
 --
---       ‡‡∞‡ø‡µ‡æ‡∞‡ n :  true ‚¶ S‚ø‚∫¬,  false ‚¶ Unit
+--       ‡§™‡§∞‡§ø‡§µ‡§æ‡§∞‡§É n :  true ‚Ü¶ S‚Åø‚Å∫¬π,  false ‚Ü¶ Unit
 --
---   (a) DESCENDS after (2+n)-truncation ‚î both truncated fibres are
+--   (a) DESCENDS after (2+n)-truncation ‚Äî both truncated fibres are
 --       contractible (sphereConnected; the sphere is silent below its
---       charge stratum, AnantaraArpana's ‡Æ‡‡®‡Æ‡), so a descended family
+--       charge stratum, AnantaraArpana's ‡§Æ‡•å‡§®‡§Æ‡•ç), so a descended family
 --       is CONSTRUCTED, ua of the contractibility equivalence;
---   (b) does NOT descend whole ‚î S‚ø‚∫¬ ‚â Unit is refuted through the
+--   (b) does NOT descend whole ‚Äî S‚Åø‚Å∫¬π ‚âÉ Unit is refuted through the
 --       corpus's own charge ladder: contractibility would climb the
---       truncation and the loop tower into AnantaraArpana's ‡‡®‡®‡‡‡∞‡Æ‡,
---       forcing isContr ‚, i.e. pos 0 ‚â° pos 1.
+--       truncation and the loop tower into AnantaraArpana's ‡§Ö‡§®‡§®‡•ç‡§§‡§∞‡§Æ‡•ç,
+--       forcing isContr ‚Ñ§, i.e. pos 0 ‚â° pos 1.
 --
 --   So the n-th member is invisible to every observation that reads
---   only strata ‚â 2+n and refuses descent at the next stratum: the
+--   only strata ‚â§ 2+n and refuses descent at the next stratum: the
 --   first failure moves up with n, unboundedly.  No fixed truncation
---   level is a sufficient sensorium for an unbounded higher world ‚î
---   stated as the type ‡®‡ø‡ó‡‡-‡‡®‡‡ß‡‡æ, one n at a time, checked.
+--   level is a sufficient sensorium for an unbounded higher world ‚Äî
+--   stated as the type ‡§®‡§ø‡§ó‡•Ç‡§¢-‡§Ö‡§®‡•ç‡§ß‡§§‡§æ, one n at a time, checked.
 --
 -- SOURCES.  The engines are the library's (sphereConnected,
--- Cubical.HITs.Sn.Properties) and this corpus's own (‡‡®‡®‡‡‡∞‡Æ‡,
--- AnantaraArpana ‚î œ‚ô‚ä‚S‚ø‚∫¬ ‚â ‚ read at the stratum above silence).
+-- Cubical.HITs.Sn.Properties) and this corpus's own (‡§Ö‡§®‡§®‡•ç‡§§‡§∞‡§Æ‡•ç,
+-- AnantaraArpana ‚Äî œÄ‚Çô‚Çä‚ÇÅS‚Åø‚Å∫¬π ‚âÖ ‚Ñ§ read at the stratum above silence).
 -- The descent vocabulary follows the probe's, restated here because a
 -- --safe module cannot import a probe outside the aggregate.  NOVELTY
 -- CLAIMED: none of the mathematics; the composition into the indexed
@@ -84,8 +84,8 @@ private
 ‡§Ö‡§µ‡§∞‡•ã‡§π‡§É {X = X} {O = O} S F =
   Œ£[ D ‚àà (O ‚Üí Type _) ] ((x : X) ‚Üí F x ‚â° D (S x))
 
--- THE GENERALIZATION: non-equivalence of the fibres at a blind pair ‚î
--- at ANY stratum, for any reason ‚î obstructs descent, because descent
+-- THE GENERALIZATION: non-equivalence of the fibres at a blind pair ‚Äî
+-- at ANY stratum, for any reason ‚Äî obstructs descent, because descent
 -- forces the very type path whose equivalence is refuted.
 ‡§≠‡•á‡§¶-‡§¨‡§æ‡§ß‡§É : {X : Type ‚Ñì} {O : Type ‚Ñì'} (S : X ‚Üí O) (F : X ‚Üí Type ‚Ñì'')
   (x y : X)
@@ -122,7 +122,7 @@ private
 
 ------------------------------------------------------------------------
 -- ¬ß3  No sphere is a point, through the charge ladder: contractibility
---     would climb into ‡‡®‡®‡‡‡∞‡Æ‡ and force isContr ‚.
+--     would climb into ‡§Ö‡§®‡§®‡•ç‡§§‡§∞‡§Æ‡•ç and force isContr ‚Ñ§.
 ------------------------------------------------------------------------
 
 ‡§Ö‡§®‡•ç‡§ß‡§§‡§æ : (n : ‚Ñï) ‚Üí ¬¨ (S‚Çä (suc n) ‚âÉ Unit)

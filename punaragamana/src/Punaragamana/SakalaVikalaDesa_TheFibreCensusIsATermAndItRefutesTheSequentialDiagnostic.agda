@@ -1,16 +1,16 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- Punargamana ¬ ‡‡ï‡≤‡æ‡¶‡‡ / ‡µ‡ø‡ï‡≤‡æ‡¶‡‡
+-- PunarƒÅgamana ¬∑ ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ / ‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂
 --
--- ‡‡ï‡≤‡æ‡¶‡‡ ‚î the total statement: the object with all its attributes
--- presented at once, through one attribute uttered, by ‡‡‡‡¶-‡µ‡‡‡‡‡ø.
--- ‡µ‡ø‡ï‡≤‡æ‡¶‡‡ ‚î the same content through ‡‡‡¶, the aspects taken severally,
+-- ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ ‚Äî the total statement: the object with all its attributes
+-- presented at once, through one attribute uttered, by ‡§Ö‡§≠‡•á‡§¶-‡§µ‡•É‡§§‡•ç‡§§‡§ø.
+-- ‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ ‚Äî the same content through ‡§≠‡•á‡§¶, the aspects taken severally,
 -- one at a time.  **Malliea, *Sydvdamajar*, 1292 CE**, commenting
 -- on Hemacandra's *Anyayogavyavacchedik*; earlier in the Akalaka
 -- commentarial line (Vidynandin, Prabhcandra).
 --
--- ‡ó‡‡∞‡‡° ¬ ‡‡‡‡¶, declared.  No edition of any of the above was opened by
+-- ‡§ó‡•ç‡§∞‡•á‡§° ¬∑ ‡§∂‡§¨‡•ç‡§¶, declared.  No edition of any of the above was opened by
 -- me.  The attribution and date are carried from
 -- `notes/SakalaVikalaDesa_TheFibreIsTheLossAndAnEmptyFibreIsAvaktavyamNotNasti.md`,
 -- which itself carries them from
@@ -24,27 +24,27 @@
 -- WHY THIS MODULE EXISTS.  It repairs a defect in its neighbour.
 --
 -- `Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph` (this library,
--- earlier today) built a TWO-VALUED test ‚î `isContr (‡‡‡ f b)` or not ‚î
+-- earlier today) built a TWO-VALUED test ‚Äî `isContr (‡§∂‡•á‡§∑ f b)` or not ‚Äî
 -- and wrote in its own header "there is no third reading".  That sentence
--- is a ‡¶‡‡∞‡‡®‡Ø, and `Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡` is the proof of why: a two-valued
+-- is a ‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø, and `Saptabhangi.‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É` is the proof of why: a two-valued
 -- verdict on a threefold situation must identify two of the three.
 --
 -- The two it identified are the two ENDS of the scale:
 --
---   * the fibre is **empty** ‚î nothing was lost.  The medium simply has
---     no name for `b`.  This is ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡, the fourth position, and the
---     tradition marks it ‡ß‡®‡æ‡‡‡Æ‡ï‡Æ‡ ‚î POSITIVE.
---   * the fibre is **crowded** ‚î two or more points, not identified.
---     This is ‡®‡‡‡ü‡ø, ‡‡ø‡‡‡æ, ‡‡‡‡∞‡‡ø‡ï‡æ‡∞‡‡Ø‡æ.
+--   * the fibre is **empty** ‚Äî nothing was lost.  The medium simply has
+--     no name for `b`.  This is ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç, the fourth position, and the
+--     tradition marks it ‡§ß‡§®‡§æ‡§§‡•ç‡§Æ‡§ï‡§Æ‡•ç ‚Äî POSITIVE.
+--   * the fibre is **crowded** ‚Äî two or more points, not identified.
+--     This is ‡§®‡§∑‡•ç‡§ü‡§ø, ‡§π‡§ø‡§Ç‡§∏‡§æ, ‡§Ö‡§™‡•ç‡§∞‡§§‡§ø‡§ï‡§æ‡§∞‡•ç‡§Ø‡§æ.
 --
 -- `isContr` returns `false` for both.  The tradition held them apart for
 -- a millennium before there was a fibre to hang the distinction on.
 --
 -- THE REPAIR, and it is the one code change that note argues for and
--- explicitly declines to make (its ¬ß‡): make the CENSUS a term.  `‡¶‡‡`
+-- explicitly declines to make (its ¬ß‡•™): make the CENSUS a term.  `‡§¶‡•á‡§∂`
 -- below is a datatype whose constructors carry their evidence, so a
--- diagnosis is a function `B ‚í ‡¶‡‡ f b` ‚î pointwise, over every point of
--- the codomain ‚î rather than a verdict about the map.
+-- diagnosis is a function `B ‚Üí ‡§¶‡•á‡§∂ f b` ‚Äî pointwise, over every point of
+-- the codomain ‚Äî rather than a verdict about the map.
 --
 -- ¬ß3 is why that matters, and it is the sharpest thing here: it turns
 -- that note's three-line refutation of the SEQUENTIAL diagnostic into a
@@ -71,19 +71,19 @@ private
     ‚Ñì : Level
 
 ------------------------------------------------------------------------
--- 1.  ‡¶‡‡ ‚î the census, as a term.
+-- 1.  ‡§¶‡•á‡§∂ ‚Äî the census, as a term.
 --
 -- Not a verdict ABOUT a map.  A datatype indexed by a map and a POINT OF
 -- ITS CODOMAIN, whose constructors carry the evidence the corpus already
 -- exhibits by hand:
 --
---   ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡  the fibre is empty        ‚î level ‡¶, ‡ß‡®‡æ‡‡‡Æ‡ï‡Æ‡, nothing lost
---   ‡‡ï‡≤‡æ‡¶‡‡   the fibre is contractible  ‚î level ‡ß, one utterance carries all
---   ‡µ‡ø‡ï‡≤‡æ‡¶‡‡   two points, not identified ‚î level ‡®+, the loss, exhibited
+--   ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç  the fibre is empty        ‚Äî level ‡•¶, ‡§ß‡§®‡§æ‡§§‡•ç‡§Æ‡§ï‡§Æ‡•ç, nothing lost
+--   ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂   the fibre is contractible  ‚Äî level ‡•ß, one utterance carries all
+--   ‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂   two points, not identified ‚Äî level ‡•®+, the loss, exhibited
 --
--- The evidence is not a tag.  `‡µ‡ø‡ï‡≤‡æ‡¶‡‡` cannot be written without
+-- The evidence is not a tag.  `‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂` cannot be written without
 -- producing the two points and the proof they are distinct, which is
--- exactly `AHIMSA_SUTRA` ¬ß‡'s second road: ‡≤‡ø‡ñ‡ø‡‡ã ‡¶‡ã‡‡ã ‡‡‡µ‡‡ø.
+-- exactly `AHIMSA_SUTRA` ¬ß‡•¨'s second road: ‡§≤‡§ø‡§ñ‡§ø‡§§‡•ã ‡§¶‡•ã‡§∑‡•ã ‡§ú‡•Ä‡§µ‡§§‡§ø.
 ------------------------------------------------------------------------
 
 data ‡§¶‡•á‡§∂ {A B : Type ‚Ñì} (f : A ‚Üí B) (b : B) : Type ‚Ñì where
@@ -96,7 +96,7 @@ data ‡§¶‡•á‡§∂ {A B : Type ‚Ñì} (f : A ‚Üí B) (b : B) : Type ‚Ñì where
 ‡§ó‡§£‡§®‡§æ {B = B} f = (b : B) ‚Üí ‡§¶‡•á‡§∂ f b
 
 ------------------------------------------------------------------------
--- 2.  The three are mutually exclusive ‚î which is what makes it a census
+-- 2.  The three are mutually exclusive ‚Äî which is what makes it a census
 --     and not three overlapping opinions.
 ------------------------------------------------------------------------
 
@@ -117,25 +117,25 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) (b : B) where
 ------------------------------------------------------------------------
 -- 3.  THE REFUTATION, computed.
 --
---   f : Unit ‚í Bool   f _ = true
---   g : Bool ‚í Unit   g _ = tt
+--   f : Unit ‚Üí Bool   f _ = true
+--   g : Bool ‚Üí Unit   g _ = tt
 --
--- Read the note's ¬ß‡ off the censuses below:
+-- Read the note's ¬ß‡•™ off the censuses below:
 --
---   * `f`'s census is ‡‡ï‡≤‡æ‡¶‡‡ at `true` and ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ at `false`.  Step one
---     has a NON-CONTRACTIBLE fibre and loses NOTHING ‚î `Bool` merely has
+--   * `f`'s census is ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ at `true` and ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç at `false`.  Step one
+--     has a NON-CONTRACTIBLE fibre and loses NOTHING ‚Äî `Bool` merely has
 --     a name `Unit` cannot utter.  So "the first non-contractible fibre
 --     is where the information went" is false in one direction.
 --
---   * `g`'s census is ‡µ‡ø‡ï‡≤‡æ‡¶‡‡ at `tt`.  Step two loses a bit.
+--   * `g`'s census is ‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ at `tt`.  Step two loses a bit.
 --
---   * the composite is the identity on `Unit`, and its census is ‡‡ï‡≤‡æ‡¶‡‡.
+--   * the composite is the identity on `Unit`, and its census is ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂.
 --     The genuine loss at step two does not appear in the composite at
---     all ‚î the inexpressibility at step one and the collapse at step two
+--     all ‚Äî the inexpressibility at step one and the collapse at step two
 --     cancel.  False in the other direction too.
 --
 -- A binary test cannot state this, because it must call step one and step
--- two by the same name.  The census calls them ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ and ‡µ‡ø‡ï‡≤‡æ‡¶‡‡.
+-- two by the same name.  The census calls them ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç and ‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂.
 ------------------------------------------------------------------------
 
 ‡§∏‡§§‡•ç : Unit ‚Üí Bool
@@ -161,8 +161,8 @@ snd ‡§∏‡§§‡•ç-‡§ó‡§£‡§®‡§æ-‡§∏‡§§‡•ç‡§Ø (u , p) i = tt , isSetBool true true ref
 ‡§∏‡§§‡•ç-‡§ó‡§£‡§®‡§æ false = ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç ‡§∏‡§§‡•ç-‡§ó‡§£‡§®‡§æ-‡§Ö‡§∏‡§§‡•ç‡§Ø
 
 -- step two, over the single point: CROWDED.  Exactly one bit is lost.
--- The two inhabitants are named, because `‡µ‡ø‡ï‡≤‡æ‡¶‡‡` requires them as
--- terms ‚î the loss is exhibited, not asserted.
+-- The two inhabitants are named, because `‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂` requires them as
+-- terms ‚Äî the loss is exhibited, not asserted.
 ‡§è‡§ï‡§Æ‡•ç-‡§µ‡§æ‡§Æ ‡§è‡§ï‡§Æ‡•ç-‡§¶‡§ï‡•ç‡§∑‡§ø‡§£ : ‡§∂‡•á‡§∑ ‡§è‡§ï‡§Æ‡•ç tt
 ‡§è‡§ï‡§Æ‡•ç-‡§µ‡§æ‡§Æ    = false , refl
 ‡§è‡§ï‡§Æ‡•ç-‡§¶‡§ï‡•ç‡§∑‡§ø‡§£  = true  , refl
@@ -186,13 +186,13 @@ snd ‡§∏‡§Ç‡§π‡§§‡§ø-‡§ó‡§£‡§®‡§æ-‡§∏‡§Æ‡•ç‡§™‡•Ç‡§∞‡•ç‡§£ (u , p) i = tt , isSet
 --
 -- The verdict is a SUMMARY of the census, and the summary is strictly
 -- coarser: `isEquiv f` is by definition the statement that every point of
--- the census is ‡‡ï‡≤‡æ‡¶‡‡.  That definition was in
+-- the census is ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂.  That definition was in
 -- `Cubical.Foundations.Equiv` the whole time; what was missing was the
--- reading of it ‚î an equivalence is not a two-way map, it is a complete
--- simultaneous fibre census whose every entry is level ‡ß.
+-- reading of it ‚Äî an equivalence is not a two-way map, it is a complete
+-- simultaneous fibre census whose every entry is level ‡•ß.
 ------------------------------------------------------------------------
 
--- so the verdict is recoverable from the census‚¶
+-- so the verdict is recoverable from the census‚Ä¶
 ‡§∏‡§∞‡•ç‡§µ-‡§∏‡§ï‡§≤‚Üí‡§∏‡§Æ‡§§‡§æ : {A B : Type ‚Ñì} (f : A ‚Üí B)
               ‚Üí ((b : B) ‚Üí isContr (‡§∂‡•á‡§∑ f b)) ‚Üí isEquiv f
 ‡§∏‡§∞‡•ç‡§µ-‡§∏‡§ï‡§≤‚Üí‡§∏‡§Æ‡§§‡§æ f c = record { equiv-proof = c }
@@ -201,8 +201,8 @@ snd ‡§∏‡§Ç‡§π‡§§‡§ø-‡§ó‡§£‡§®‡§æ-‡§∏‡§Æ‡•ç‡§™‡•Ç‡§∞‡•ç‡§£ (u , p) i = tt , isSet
               ‚Üí isEquiv f ‚Üí (b : B) ‚Üí isContr (‡§∂‡•á‡§∑ f b)
 ‡§∏‡§Æ‡§§‡§æ‚Üí‡§∏‡§∞‡•ç‡§µ-‡§∏‡§ï‡§≤ f e b = e .equiv-proof b
 
--- ‚¶and the census is not recoverable from the verdict, which is the whole
--- point: `¬ isEquiv ‡‡‡` and `¬ isEquiv ‡‡ï‡Æ‡` are the same two words for
+-- ‚Ä¶and the census is not recoverable from the verdict, which is the whole
+-- point: `¬¨ isEquiv ‡§∏‡§§‡•ç` and `¬¨ isEquiv ‡§è‡§ï‡§Æ‡•ç` are the same two words for
 -- two opposite situations.
 ‡§∏‡§§‡•ç-‡§®-‡§∏‡§Æ‡§§‡§æ : ¬¨ (isEquiv ‡§∏‡§§‡•ç)
 ‡§∏‡§§‡•ç-‡§®-‡§∏‡§Æ‡§§‡§æ e = ‡§∏‡§§‡•ç-‡§ó‡§£‡§®‡§æ-‡§Ö‡§∏‡§§‡•ç‡§Ø (fst (‡§∏‡§Æ‡§§‡§æ‚Üí‡§∏‡§∞‡•ç‡§µ-‡§∏‡§ï‡§≤ ‡§∏‡§§‡•ç e false))
@@ -213,21 +213,21 @@ snd ‡§∏‡§Ç‡§π‡§§‡§ø-‡§ó‡§£‡§®‡§æ-‡§∏‡§Æ‡•ç‡§™‡•Ç‡§∞‡•ç‡§£ (u , p) i = tt , isSet
     (isContr‚ÜíisProp (‡§∏‡§Æ‡§§‡§æ‚Üí‡§∏‡§∞‡•ç‡§µ-‡§∏‡§ï‡§≤ ‡§è‡§ï‡§Æ‡•ç e tt) ‡§è‡§ï‡§Æ‡•ç-‡§µ‡§æ‡§Æ ‡§è‡§ï‡§Æ‡•ç-‡§¶‡§ï‡•ç‡§∑‡§ø‡§£)
 
 ------------------------------------------------------------------------
--- THE SEAM, written rather than closed.  ‡¶‡ã‡‡≤‡‡ñ‡.
+-- THE SEAM, written rather than closed.  ‡§¶‡•ã‡§∑‡§≤‡•á‡§ñ‡§É.
 --
 -- The note's scale has five levels; this module has three constructors.
--- Levels ‡© (recoverable only by outside supply) and ‡ (‡®‡‡‡ü‡ø‡,
--- ‡‡‡‡∞‡‡ø‡ï‡æ‡∞‡‡Ø‡æ) are both crowded fibres, and both land in `‡µ‡ø‡ï‡≤‡æ‡¶‡‡` here.
+-- Levels ‡•© (recoverable only by outside supply) and ‡•™ (‡§®‡§∑‡•ç‡§ü‡§ø‡§É,
+-- ‡§Ö‡§™‡•ç‡§∞‡§§‡§ø‡§ï‡§æ‡§∞‡•ç‡§Ø‡§æ) are both crowded fibres, and both land in `‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂` here.
 --
 -- They are not separated because the note establishes that the obvious
--- criterion does NOT separate them: `¬ Œ[œà] (œà ‚àò collapse ‚â° id)` holds of
--- both `Arpitanarpita.‡®-‡‡‡∞‡‡‡Ø‡æ‡®‡Ø‡®‡Æ‡` (level ‡©) and `AHIMSA_SUTRA`'s
--- `‡®‡æ‡‡‡‡ø-‡‡‡∞‡‡‡Ø‡æ‡®‡Ø‡®‡Æ‡` (level ‡).  Its candidate criterion ‚î the fibre is a
--- PROPER PART of the source at ‡© and the WHOLE of it at ‡ ‚î rests on an
--- unchecked conjecture, `(x : ‚à A ‚à‚) ‚í fibre ‚à_‚à‚ x ‚â A`.
+-- criterion does NOT separate them: `¬¨ Œ£[œà] (œà ‚àò collapse ‚â° id)` holds of
+-- both `Arpitanarpita.‡§®-‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§æ‡§®‡§Ø‡§®‡§Æ‡•ç` (level ‡•©) and `AHIMSA_SUTRA`'s
+-- `‡§®‡§æ‡§∏‡•ç‡§§‡§ø-‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§æ‡§®‡§Ø‡§®‡§Æ‡•ç` (level ‡•™).  Its candidate criterion ‚Äî the fibre is a
+-- PROPER PART of the source at ‡•© and the WHOLE of it at ‡•™ ‚Äî rests on an
+-- unchecked conjecture, `(x : ‚à• A ‚à•‚ÇÅ) ‚Üí fibre ‚à£_‚à£‚ÇÅ x ‚âÉ A`.
 --
 -- Adding a constructor for a distinction that has no criterion would be
--- the same ‡¶‡‡∞‡‡®‡Ø this module exists to repair, one level down: a name
--- doing the work of a proof.  So `‡µ‡ø‡ï‡≤‡æ‡¶‡‡` is deliberately coarse, and
+-- the same ‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø this module exists to repair, one level down: a name
+-- doing the work of a proof.  So `‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂` is deliberately coarse, and
 -- this paragraph is the seam.
 ------------------------------------------------------------------------

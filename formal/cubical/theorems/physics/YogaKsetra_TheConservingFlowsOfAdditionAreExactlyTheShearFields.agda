@@ -1,46 +1,46 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¯à‹à—à•àààààà° â” the conserving flows of addition are exactly the shear
+-- à¤¯à¥‹à¤—à¤•à¥à¤·à¥‡à¤¤à¥à¤° â€” the conserving flows of addition are exactly the shear
 -- fields, so the freedom of the cut is a function space.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHAT THIS IS.  `Dhruva_â¦.agda` proves the frame (conservation acts
--- inside the fibres; lossless forces Î¦ â‰¡ id) and `YogaDhruva_â¦.agda`
--- instantiates it (fiber à¯à‹à— n is a â-torsor under the shears).
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- WHAT THIS IS.  `Dhruva_â€¦.agda` proves the frame (conservation acts
+-- inside the fibres; lossless forces Î¦ â‰¡ id) and `YogaDhruva_â€¦.agda`
+-- instantiates it (fiber à¤¯à¥‹à¤— n is a â„¤-torsor under the shears).â€”
 -- This module classifies the conserving endomorphisms, for this
 -- observable, over an ARBITRARY commutative ring:
 --
---   Â§à§  every shear FIELD â” a shear whose parameter varies with the
---       point, k : R — R â’ R â” conserves the sum;
---   Â§à¨  every conserving flow IS the shear field of its own
---       displacement à•àààààà°-à®à¾àà Î¦ p = fst (Î¦ p) âˆ’ fst p;
---   Â§à©  the two constructions are inverse, so
+--   Â§à¥§  every shear FIELD â€” a shear whose parameter varies with the
+--       point, k : R Ã— R â†’ R â€” conserves the sum;
+--   Â§à¥¨  every conserving flow IS the shear field of its own
+--       displacement à¤•à¥à¤·à¥‡à¤¤à¥à¤°-à¤®à¤¾à¤ªà¤ƒ Î¦ p = fst (Î¦ p) âˆ’ fst p;
+--   Â§à¥©  the two constructions are inverse, so
 --
---         (Î[ Î¦ ] ààà°à•àààà®à à¯à‹à— Î¦)  â‰  (R — R â’ R)
+--         (Î£[ Î¦ ] à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ à¤¯à¥‹à¤— Î¦)  â‰ƒ  (R Ã— R â†’ R)
 --
---       â” the space of conserving flows of addition IS the function
+--       â€” the space of conserving flows of addition IS the function
 --       space.  One parameter of R per point, no more, no less.
 --
--- Read with Dhruva Â§à¨ this exhibits the two poles of one statement: a
+-- Read with Dhruva Â§à¥¨ this exhibits the two poles of one statement: a
 -- LOSSLESS observable has a contractible flow space (Î¦ â‰¡ id, nothing
--- hidden, no room to move), and THIS cut â” each fibre a full R-torsor â”
+-- hidden, no room to move), and THIS cut â€” each fibre a full R-torsor â€”
 -- has a flow space as large as a function space.  The freedom of a cut
 -- is measured by its conserving flows, and here the measure is exact.
 --
 -- PROOF-SHAPE NOTE: everything below is parametric in the CommRing, and
 -- every ring fact is discharged by the solver.
--- The â instance is taken at the end in one line.
+-- The â„¤ instance is taken at the end in one line.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
--- TERM.  à•àààààà° â” field â” is the standard term of the gaita tradition
--- for a plane figure: ryabhaa, àà°àà¯ààŸàà¯à®à, Gaitapda (499), and the
--- à•àààààà°àµàà¯àµàà¾à° chapter of Bhskara II's à²àà²à¾àµàà (1150).  LIMIT: the
+-- TERM.  à¤•à¥à¤·à¥‡à¤¤à¥à¤° â€” field â€” is the standard term of the gaá¹‡ita tradition
+-- for a plane figure: Ä€ryabhaá¹­a, à¤†à¤°à¥à¤¯à¤­à¤Ÿà¥€à¤¯à¤®à¥, Gaá¹‡itapÄda (499), and the
+-- à¤•à¥à¤·à¥‡à¤¤à¥à¤°à¤µà¥à¤¯à¤µà¤¹à¤¾à¤° chapter of BhÄskara II's à¤²à¥€à¤²à¤¾à¤µà¤¤à¥€ (1150).  LIMIT: the
 -- sources attest the word for a geometric figure/ground; its use here
 -- for a QUANTITY ASSIGNED OVER A DOMAIN (the sense physics gives
 -- "field") is this corpus's, and no text is claimed for the compound
--- à¯à‹à—à•àààààà°.
+-- à¤¯à¥‹à¤—à¤•à¥à¤·à¥‡à¤¤à¥à¤°.
 ------------------------------------------------------------------------
 
 module YogaKsetra_TheConservingFlowsOfAdditionAreExactlyTheShearFields where
@@ -93,14 +93,14 @@ module à¤•à¥à¤·à¥‡à¤¤à¥à¤°à¤®à¥ {â„“ : Level} (R' : CommRing â„“) where
     A2 x y a b h = A2a a b x âˆ™ cong (_- x) (sym h) âˆ™ A2b x y
 
   ------------------------------------------------------------------
-  -- Â§à§ Â every shear field conserves the sum
+  -- Â§à¥§ Â· every shear field conserves the sum
   ------------------------------------------------------------------
 
   à¤µà¥à¤¯à¤¾à¤ªà¤•-à¤¸à¤‚à¤°à¤•à¥à¤·à¤£ : (k : R Ã— R â†’ R) â†’ à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ à¤¯à¥‹à¤— (à¤¶à¤¿à¤¯à¤°à¤•à¥à¤·à¥‡à¤¤à¥à¤° k)
   à¤µà¥à¤¯à¤¾à¤ªà¤•-à¤¸à¤‚à¤°à¤•à¥à¤·à¤£ k (a , b) = A4 a b (k (a , b))
 
   ------------------------------------------------------------------
-  -- Â§à¨ Â every conserving flow is the shear field of its displacement
+  -- Â§à¥¨ Â· every conserving flow is the shear field of its displacement
   ------------------------------------------------------------------
 
   à¤à¤•à¤°à¥‚à¤ªà¤¤à¤¾ : (Î¦ : R Ã— R â†’ R Ã— R) â†’ à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ à¤¯à¥‹à¤— Î¦
@@ -110,7 +110,7 @@ module à¤•à¥à¤·à¥‡à¤¤à¥à¤°à¤®à¥ {â„“ : Level} (R' : CommRing â„“) where
     A2 (fst (Î¦ p)) (snd (Î¦ p)) (fst p) (snd p) (cons p) i
 
   ------------------------------------------------------------------
-  -- Â§à© Â the classification: conserving flows â‰ fields
+  -- Â§à¥© Â· the classification: conserving flows â‰ƒ fields
   ------------------------------------------------------------------
 
   à¤¸à¤®à¤¤à¤¾-Iso : Iso (Î£[ Î¦ âˆˆ (R Ã— R â†’ R Ã— R) ] à¤¸à¤‚à¤°à¤•à¥à¤·à¤£à¤®à¥ à¤¯à¥‹à¤— Î¦)
@@ -126,8 +126,8 @@ module à¤•à¥à¤·à¥‡à¤¤à¥à¤°à¤®à¥ {â„“ : Level} (R' : CommRing â„“) where
   à¤¸à¤®à¤¤à¤¾ = isoToEquiv à¤¸à¤®à¤¤à¤¾-Iso
 
 ------------------------------------------------------------------------
--- The â instance, one line: the conserving flows of integer addition
--- are exactly the maps â — â â’ â.
+-- The â„¤ instance, one line: the conserving flows of integer addition
+-- are exactly the maps â„¤ Ã— â„¤ â†’ â„¤.
 ------------------------------------------------------------------------
 
 module â„¤à¤•à¥à¤·à¥‡à¤¤à¥à¤°à¤®à¥ = à¤•à¥à¤·à¥‡à¤¤à¥à¤°à¤®à¥ â„¤CommRing

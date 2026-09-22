@@ -1,56 +1,56 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ààà¾ â” àµàà¨à à¨à¿à°ààà¾à§à¿à•à®à, àà™àà•à¨à àà àà®àà¾à®à àààà•àààà à
+-- à¤ªà¤¤à¤¾ â€” à¤µà¤¹à¤¨à¤‚ à¤¨à¤¿à¤°à¥à¤ªà¤¾à¤§à¤¿à¤•à¤®à¥, à¤…à¤™à¥à¤•à¤¨à¤‚ à¤¤à¥ à¤¸à¤®à¤¤à¤¾à¤®à¥ à¤…à¤ªà¥‡à¤•à¥à¤·à¤¤à¥‡ à¥¤
 --
 -- (the address: carrying is unconditional, but addressing requires the
 --  map to be an identification.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE DISTINCTION, which this corpus uses everywhere and states nowhere.
 --
--- The carrier law gives `A â‰ Carrier f` for EVERY f, with no hypothesis:
+-- The carrier law gives `A â‰ƒ Carrier f` for EVERY f, with no hypothesis:
 -- a derived datum may always be kept alongside what it was derived from,
 -- because the fibre `singl (f a)` is contractible.  That is a RECEIPT.
 --
 -- It does not follow that you may throw the base away.  For that you need
--- to get the base BACK from the datum, and `loss/â¦/Prastara_â¦`
+-- to get the base BACK from the datum, and `loss/â€¦/Prastara_â€¦`
 -- is where the difference becomes a theorem rather than a caution.  Two
 -- maps out of the same base behave oppositely:
 --
---   à®à¾ààà°à¾ : à°àà â’ â•    carriable, and the à°àà is NOT a function of it â”
---                      à²à˜à à²à˜à and à—àà°à both weigh 2.
---   à‰à¦àà¦à¿àààŸ : à°àà â’ â•    carriable, AND invertible by à¨àààŸ, so the reverse
+--   à¤®à¤¾à¤¤à¥à¤°à¤¾ : à¤°à¥‚à¤ª â†’ â„•    carriable, and the à¤°à¥‚à¤ª is NOT a function of it â€”
+--                      à¤²à¤˜à¥ à¤²à¤˜à¥ and à¤—à¥à¤°à¥ both weigh 2.
+--   à¤‰à¤¦à¥à¤¦à¤¿à¤·à¥à¤Ÿ : à¤°à¥‚à¤ª â†’ â„•    carriable, AND invertible by à¤¨à¤·à¥à¤Ÿ, so the reverse
 --                      Carrier also exists and
---                          ààà°àààà¾à° â‰¡ à°àà â‰¡ â• â‰¡ ààà°àà¿ààà°àààà¾à°.
+--                          à¤ªà¥à¤°à¤¸à¥à¤¤à¤¾à¤° â‰¡ à¤°à¥‚à¤ª â‰¡ â„• â‰¡ à¤ªà¥à¤°à¤¤à¤¿à¤ªà¥à¤°à¤¸à¥à¤¤à¤¾à¤°.
 --                      Base and carried may be EXCHANGED.
 --
--- and that exchange is exactly what makes à¨àààŸ/à‰à¦àà¦à¿àààŸ a storage-free
--- addressing scheme: keep the â•, drop the à°àà, recompute it when wanted,
+-- and that exchange is exactly what makes à¤¨à¤·à¥à¤Ÿ/à¤‰à¤¦à¥à¤¦à¤¿à¤·à¥à¤Ÿ a storage-free
+-- addressing scheme: keep the â„•, drop the à¤°à¥‚à¤ª, recompute it when wanted,
 -- and nothing has been lost.
 --
 -- So: RECEIPT is unconditional and ADDRESS is not, and the condition is
--- precisely that the map is an identification.  Â§à¨ and Â§à© are those two
--- statements; Â§à is Pigala's own counterexample, which is why the
+-- precisely that the map is an identification.  Â§à¥¨ and Â§à¥© are those two
+-- statements; Â§à¥ª is Piá¹…gala's own counterexample, which is why the
 -- distinction is a theorem here and not a style note.
 --
 -- WHY IT MATTERS OUTSIDE THE MATHEMATICS.  This machine is
--- content-addressed: `machine/Nama_â¦` names a definition by a digest over
+-- content-addressed: `machine/Nama_â€¦` names a definition by a digest over
 -- it AND its dependencies, and things are dropped and recomputed on that
 -- basis.  Every such scheme is a bet that the naming map is an address
--- and not merely a receipt, and Â§à is the shape of the bet going wrong â”
+-- and not merely a receipt, and Â§à¥ª is the shape of the bet going wrong â€”
 -- two distinct objects under one name, recovered as neither.  Stating the
 -- criterion does not audit any particular scheme and no such audit is
 -- claimed here.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- SOURCES. Pigala, àà¨àà¦ààà¾ààààà°à®à à®.à¨à©â“à©à (~300 BCE) â” the ààà°ààà¯à¯à¾à, of
--- which à¨àààŸ (given a place, recover the pattern) and à‰à¦àà¦à¿àààŸ (given the
--- pattern, recover its place) are the two directions, and à®à¾ààà°à¾ (à²à˜à = 1,
--- à—àà°à = 2) is the weight. Worked with the array in Halyudha, à®ààààààààµà¨à
--- (10th c. CE). What is claimed is that à®à¾ààà°à¾ is the weight his enumeration
--- uses and that two distinct patterns share a weight, which Â§à exhibits
--- rather than asserts.  ààà¾ is ordinary modern /Hindi for an address
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- SOURCES. Piá¹…gala, à¤›à¤¨à¥à¤¦à¤ƒà¤¶à¤¾à¤¸à¥à¤¤à¥à¤°à¤®à¥ à¥®.à¥¨à¥©â€“à¥©à¥« (~300 BCE) â€” the à¤ªà¥à¤°à¤¤à¥à¤¯à¤¯à¤¾à¤ƒ, of
+-- which à¤¨à¤·à¥à¤Ÿ (given a place, recover the pattern) and à¤‰à¤¦à¥à¤¦à¤¿à¤·à¥à¤Ÿ (given the
+-- pattern, recover its place) are the two directions, and à¤®à¤¾à¤¤à¥à¤°à¤¾ (à¤²à¤˜à¥ = 1,
+-- à¤—à¥à¤°à¥ = 2) is the weight. Worked with the array in HalÄyudha, à¤®à¥ƒà¤¤à¤¸à¤à¥à¤œà¥€à¤µà¤¨à¥€
+-- (10th c. CE). What is claimed is that à¤®à¤¾à¤¤à¥à¤°à¤¾ is the weight his enumeration
+-- uses and that two distinct patterns share a weight, which Â§à¥ª exhibits
+-- rather than asserts.  à¤ªà¤¤à¤¾ is ordinary modern /Hindi for an address
 -- and no text is claimed for it.
 ------------------------------------------------------------------------
 
@@ -70,18 +70,18 @@ private
     â„“ : Level
 
 ------------------------------------------------------------------------
--- à§ Â à—àà°à¾à â” the graph, and its two readings.  Written with Î directly
+-- à¥§ Â· à¤—à¥à¤°à¤¾à¤¹ â€” the graph, and its two readings.  Written with Î£ directly
 --     rather than as a record, because this lane has no general Carrier
---     type; the loss library packages the same Î as one.
+--     type; the loss library packages the same Î£ as one.
 ------------------------------------------------------------------------
 
 à¤—à¥à¤°à¤¾à¤¹ : {A B : Type â„“} â†’ (A â†’ B) â†’ Type â„“
 à¤—à¥à¤°à¤¾à¤¹ {A = A} {B = B} f = Î£[ a âˆˆ A ] Î£[ b âˆˆ B ] (f a â‰¡ b)
 
 ------------------------------------------------------------------------
--- à¨ Â àµàà¨à®à â” THE RECEIPT, unconditional.
+-- à¥¨ Â· à¤µà¤¹à¤¨à¤®à¥ â€” THE RECEIPT, unconditional.
 --
---     The graph is the base.  No hypothesis on f whatsoever: the inner Î
+--     The graph is the base.  No hypothesis on f whatsoever: the inner Î£
 --     is `singl (f a)`, contractible, and contracts away.  This is the
 --     whole of "carrying determined data is free", and the freeness is
 --     what makes it a receipt rather than a bet.
@@ -91,11 +91,11 @@ private
 à¤µà¤¹à¤¨à¤®à¥ {A = A} f = Î£-contractSnd (Î» a â†’ isContrSingl (f a))
 
 ------------------------------------------------------------------------
--- à© Â ààà¾ â” THE ADDRESS, and its exact condition.
+-- à¥© Â· à¤ªà¤¤à¤¾ â€” THE ADDRESS, and its exact condition.
 --
 --     To DROP the base and keep only the datum you need the base back,
 --     which is a recovery map with both round trips.  That is precisely
---     an isomorphism, hence an identification â” so "may I store the datum
+--     an isomorphism, hence an identification â€” so "may I store the datum
 --     instead of the object?" is not a storage question, it is the
 --     question whether f is an equivalence.
 ------------------------------------------------------------------------
@@ -114,12 +114,12 @@ private
 à¤ªà¥à¤¨à¤°à¥à¤¦à¥à¤§à¤¾à¤°à¤ƒ f (g , ret , _) = ret
 
 ------------------------------------------------------------------------
--- à Â à®à¾ààà°à¾ â” PIGALA'S COUNTEREXAMPLE: carriable, not addressable.
+-- à¥ª Â· à¤®à¤¾à¤¤à¥à¤°à¤¾ â€” PIá¹„GALA'S COUNTEREXAMPLE: carriable, not addressable.
 --
---     àà•ààà° with à²à˜à weighing 1 and à—àà°à weighing 2.  `à²à˜à âˆ à²à˜à âˆ []` and
---     `à—àà°à âˆ []` are distinct patterns of equal weight, so no recovery
---     map can exist â” it would have to return both.  Â§à¨ still applies to
---     à®à¾ààà°à¾ with no hypothesis, which is exactly the point: the receipt
+--     à¤…à¤•à¥à¤·à¤° with à¤²à¤˜à¥ weighing 1 and à¤—à¥à¤°à¥ weighing 2.  `à¤²à¤˜à¥ âˆ· à¤²à¤˜à¥ âˆ· []` and
+--     `à¤—à¥à¤°à¥ âˆ· []` are distinct patterns of equal weight, so no recovery
+--     map can exist â€” it would have to return both.  Â§à¥¨ still applies to
+--     à¤®à¤¾à¤¤à¥à¤°à¤¾ with no hypothesis, which is exactly the point: the receipt
 --     is free and the address is denied.
 ------------------------------------------------------------------------
 
@@ -162,16 +162,16 @@ data à¤…à¤•à¥à¤·à¤° : Typeâ‚€ where
   à¤­à¤¿à¤¨à¥à¤¨-à¤°à¥‚à¤ªà¥‡ (sym (ret à¤¦à¥à¤µà¤¿à¤²à¤˜à¥) âˆ™ cong g à¤¤à¥à¤²à¥à¤¯-à¤®à¤¾à¤¤à¥à¤°à¤¾ âˆ™ ret à¤à¤•à¤—à¥à¤°à¥)
 
 ------------------------------------------------------------------------
--- à Â What Â§à does and does not show.
+-- à¥« Â· What Â§à¥ª does and does not show.
 --
---     It shows à®à¾ààà°à¾ is not an address.  It does NOT show that the
---     ààà°àààà¾à°'s rank map fails to be one â” à‰à¦àà¦à¿àààŸ IS an address, and the
---     loss module proves it by exhibiting à¨àààŸ with both round
+--     It shows à¤®à¤¾à¤¤à¥à¤°à¤¾ is not an address.  It does NOT show that the
+--     à¤ªà¥à¤°à¤¸à¥à¤¤à¤¾à¤°'s rank map fails to be one â€” à¤‰à¤¦à¥à¤¦à¤¿à¤·à¥à¤Ÿ IS an address, and the
+--     loss module proves it by exhibiting à¤¨à¤·à¥à¤Ÿ with both round
 --     trips.  The contrast
 --     needs just one side to
 --     be exhibited to be a distinction rather than a preference.
 --
 --     And it shows the two are independent properties of the SAME map
---     type, not two grades of one property: `à®à¾ààà°à¾-àµàà¨à®à` and
---     `à®à¾ààà°à¾-à¨-ààà¾` hold simultaneously of one f.
+--     type, not two grades of one property: `à¤®à¤¾à¤¤à¥à¤°à¤¾-à¤µà¤¹à¤¨à¤®à¥` and
+--     `à¤®à¤¾à¤¤à¥à¤°à¤¾-à¤¨-à¤ªà¤¤à¤¾` hold simultaneously of one f.
 ------------------------------------------------------------------------

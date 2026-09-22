@@ -96,7 +96,7 @@ module Parity {ℓ} (R : CommRing ℓ) where
   --
   -- The `-shape` lemmas certify that these E and O really are the even
   -- and odd parts of the advertised monic polynomial.  They are stated
-  -- with y free and then specialised at y = x�x by the monomial lemmas,
+  -- with y free and then specialised at y = x·x by the monomial lemmas,
   -- which is exactly the substitution the notes perform silently.
   ----------------------------------------------------------------------
 

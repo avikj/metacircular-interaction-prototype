@@ -1,37 +1,37 @@
-THE HIGHER RUNG IS ALSO A NON-EQUIVALENCE: Â isEquiv, NOT NON-EXACTNESS,
+THE HIGHER RUNG IS ALSO A NON-EQUIVALENCE: Â¬ isEquiv, NOT NON-EXACTNESS,
 UNIFIES THE TOWER
 The general rung-relation is EkamChidram's
-aperture, and NotExact was only its abelian shadow â” with the HÂ²
+aperture, and NotExact was only its abelian shadow â€” with the HÂ²
 orientation rung landed in the same predicate as the cost rung
 
 The self-generating closure / the tower's unifier / one
 obstruction type across degrees and lanes
 
-NotExact is abelian-flavoured â” it needs the invariant to be a
-coboundary-valued cochain (â•, â).  The corpus's higher k-invariants are
-not of that kind: VakraValayaSanketa's rung is an ORIENTATION BIT (â/2 at
+NotExact is abelian-flavoured â€” it needs the invariant to be a
+coboundary-valued cochain (â„•, â„¤).  The corpus's higher k-invariants are
+not of that kind: VakraValayaSanketa's rung is an ORIENTATION BIT (â„¤/2 at
 HÂ²), the double twist the Klein bottle costs and the torus does not.
 Cost is a degree-1 object; there is no natural degree-2 cost.  So "cost
 is not exact at every degree" is the wrong induction.
 
 WHAT ACTUALLY SPANS THE RUNGS is the aperture EkamChidram already named:
-the level-n forgetful map is NOT AN EQUIVALENCE.  Â isEquiv is
-degree-blind and lane-blind â” it is the type of "a fibre survived", the
+the level-n forgetful map is NOT AN EQUIVALENCE.  Â¬ isEquiv is
+degree-blind and lane-blind â€” it is the type of "a fibre survived", the
 ea itself.
 
 THE HIGHER RUNG IS A NON-EQUIVALENCE.  For ANY map f between the two
-second-cohomology carriers âŸ¨HÂ²(ğ•Â²)âŸ© and âŸ¨HÂ²(TÂ²)âŸ©, Â isEquiv f: an
-equivalence would hand back the type-equivalence àà™àà•ààà refutes.  One
-line, every f at once (rungâ f ie = àà™àà•ààà (f , ie)).
+second-cohomology carriers âŸ¨HÂ²(ğ•‚Â²)âŸ© and âŸ¨HÂ²(TÂ²)âŸ©, Â¬ isEquiv f: an
+equivalence would hand back the type-equivalence à¤¸à¤™à¥à¤•à¥‡à¤¤à¤ƒ refutes.  One
+line, every f at once (rungâ‚‚ f ie = à¤¸à¤™à¥à¤•à¥‡à¤¤à¤ƒ (f , ie)).
 
-THE UNIFIER IS Â isEquiv.  theWiderAperture pairs EkamChidram's cost rung
-(Â isEquiv Î¼, at Ïâ) with this orientation rung (Â isEquiv f, at HÂ²) â”
+THE UNIFIER IS Â¬ isEquiv.  theWiderAperture pairs EkamChidram's cost rung
+(Â¬ isEquiv Î¼, at Ï€â‚) with this orientation rung (Â¬ isEquiv f, at HÂ²) â€”
 heterogeneous invariants, one obstruction type at different degrees.
 NotExact is the abelian special case, true only
 where the invariant is a group-valued cochain.
 
-SYT â” THE CLAIM, EXACTLY.  rungâ for every map between the HÂ² carriers,
-from àà™àà•ààà; theWiderAperture identifying this rung with the cost rung
+SYÄ€T â€” THE CLAIM, EXACTLY.  rungâ‚‚ for every map between the HÂ² carriers,
+from à¤¸à¤™à¥à¤•à¥‡à¤¤à¤ƒ; theWiderAperture identifying this rung with the cost rung
 under Â isEquiv.
 
 Machine-checked in cubical type theory, --safe.

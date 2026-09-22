@@ -7,7 +7,7 @@
 --
 --   Serre form (positive, then negated):
 --        Ind x y  =  every observation agrees on x and y
---        distinct =  � Ind x y
+--        distinct =  ¬ Ind x y
 --
 --   Dignaga form (apoha: the term IS its exclusion):
 --        Sep x y  =  SOME observation excludes the identification,
@@ -16,19 +16,19 @@
 -- Classically these are the same notion.  Constructively they are not,
 -- and the whole content of this file is WHERE they part company:
 --
---   * `Arbitrary.ind��sep` / `Arbitrary.�sep�ind`
---       The two NEGATIVE forms always agree: `� Sep` and `Ind` are
+--   * `Arbitrary.ind→¬sep` / `Arbitrary.¬sep→ind`
+--       The two NEGATIVE forms always agree: `¬ Sep` and `Ind` are
 --       interderivable for Bool-valued observables over ANY index type.
 --       So the disagreement is not about negation.  It is about the
 --       witness.
 --
---   * `Finite.�ind�sep`
---       For a FINITE observable family (a list), � Ind yields an actual
+--   * `Finite.¬ind→sep`
+--       For a FINITE observable family (a list), ¬ Ind yields an actual
 --       separating observation, by bounded search.  Witnessed apoha and
 --       negated indistinguishability coincide at every finite level.
 --
---   * `MP�Witnessed` / `Witnessed�MP`
---       At the horizon (observables indexed by �) the coincidence is
+--   * `MP→Witnessed` / `Witnessed→MP`
+--       At the horizon (observables indexed by ℕ) the coincidence is
 --       EXACTLY Markov's Principle -- an equivalence, both directions
 --       proved.  Not "hard", not "open": a named principle, and the
 --       reverse direction pins it from below with X := Bool.
@@ -38,7 +38,7 @@
 -- persistent_workers_emergent_object.md` builds a certificate complex
 -- whose stored proofs ARE shortest separating words.  The theorems below
 -- say that such a complex is complete at every finite observation level
--- (`Finite.�ind�sep`), that its stored witnesses survive refinement
+-- (`Finite.¬ind→sep`), that its stored witnesses survive refinement
 -- (`Finite.sepMono`), that its state meanings coarsen under forgetting
 -- (`Finite.indAnti`), and that the passage to the full family converts
 -- witnessed exclusion into bare negation with deficit precisely MP.
@@ -109,9 +109,9 @@ module Arbitrary {X : Type ℓ} {I : Type ℓ'} (O : I → X → Bool) where
   ind→¬sep : {x y : X} → Ind x y → ¬ Sep x y
   ind→¬sep ind (i , d) = d (ind i)
 
-  -- The converse of `ind��sep`.  This is the one that does NOT need any
+  -- The converse of `ind→¬sep`.  This is the one that does NOT need any
   -- finiteness or omniscience: Bool's decidable equality is enough,
-  -- because �Sep hands us ��(O i x ≡ O i y) at each single index and a
+  -- because ¬Sep hands us ¬¬(O i x ≡ O i y) at each single index and a
   -- Bool path is stable.
   ¬sep→ind : {x y : X} → ¬ Sep x y → Ind x y
   ¬sep→ind {x = x} {y = y} ns i with O i x ≟ O i y
@@ -127,8 +127,8 @@ module Arbitrary {X : Type ℓ} {I : Type ℓ'} (O : I → X → Bool) where
 -- 2.  Finite observation levels.  The witness is always recoverable.
 --
 --     A finite family is a list; this is not a coding trick, it is the
---     shape of the repository's own S� � S� � ⋯ chains (exp36's
---     {2} � {2,3} � ⋯ � {2,�,19}; U0006's "divisibility below �X").
+--     shape of the repository's own S₁ ⊆ S₂ ⊆ ⋯ chains (exp36's
+--     {2} ⊆ {2,3} ⊆ ⋯ ⊆ {2,…,19}; U0006's "divisibility below √X").
 ------------------------------------------------------------------------
 
 module Finite {X : Type ℓ} where
@@ -180,7 +180,7 @@ module Finite {X : Type ℓ} where
   sepMono (O ∷ L) M (inl d) = inl d
   sepMono (O ∷ L) M (inr s) = inr (sepMono L M s)
 
-  -- bullet 1: ~_{O�N} = ~_O ∩ ~_N, both inclusions.
+  -- bullet 1: ~_{O∪N} = ~_O ∩ ~_N, both inclusions.
   indAnti : (L M : List (X → Bool)) {x y : X} → Ind (L ++ M) x y → Ind L x y
   indAnti []      M _       = tt
   indAnti (O ∷ L) M (e , r) = e , indAnti L M r
@@ -198,8 +198,8 @@ module Finite {X : Type ℓ} where
 -- 3.  The horizon.  Exactly Markov's Principle.
 --
 --     `Witnessed` is the statement that the Dignaga form is recoverable
---     from the Serre form for an �-indexed Bool observable family on a
---     small type.  It is stated at Type� deliberately: the reverse
+--     from the Serre form for an ℕ-indexed Bool observable family on a
+--     small type.  It is stated at Type₀ deliberately: the reverse
 --     direction only ever instantiates X := Bool, so the equivalence
 --     below is tight from both sides.
 ------------------------------------------------------------------------
@@ -252,8 +252,8 @@ Witnessed→MP w f h = n , fn≡false
 ------------------------------------------------------------------------
 -- 4.  Reading of the pair.
 --
--- `Arbitrary.�sep�ind` + `Finite.�ind�sep` + `MP�Witnessed` /
--- `Witnessed�MP` together say:
+-- `Arbitrary.¬sep→ind` + `Finite.¬ind→sep` + `MP→Witnessed` /
+-- `Witnessed→MP` together say:
 --
 --   the Serre vocabulary (state the negation, delete the rest) and the
 --   Dignaga vocabulary (a term is its exclusions, exhibited) are the
@@ -263,7 +263,7 @@ Witnessed→MP w f h = n , fn≡false
 --
 -- Corollary for certificate complexes.  A proof store whose atoms are
 -- separating observations is complete at every finite level and refines
--- monotonically (`sepMono`).  Its completion along S� � S� � ⋯ is
+-- monotonically (`sepMono`).  Its completion along S₁ ⊆ S₂ ⊆ ⋯ is
 -- complete iff MP.  So an "incremental witness forest" can be exact
 -- forever at finite stages and still fail to represent a distinction
 -- that holds at the horizon -- and the failure is not a bug in the

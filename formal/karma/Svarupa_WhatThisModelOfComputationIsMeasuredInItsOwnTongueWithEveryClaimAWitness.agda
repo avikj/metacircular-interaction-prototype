@@ -1,55 +1,55 @@
 {-# OPTIONS --cubical-compatible --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡µ‡∞‡‡‡Æ‡ ‚î own-form.  The capability map of this model of
+-- ‡§∏‡•ç‡§µ‡§∞‡•Ç‡§™‡§Æ‡•ç ‚Äî own-form.  The capability map of this model of
 -- computation, stated where a claim can be checked and refused where
 -- it cannot.  Ordinary ; the compound is built here.
 --
 -- WHAT THE MODEL IS.  Certificate-carrying rewriting with self-grown
--- control: a first-order vocabulary over ‚ï (now +, ¬, ‚à, max, le,
+-- control: a first-order vocabulary over ‚Ñï (now +, ¬∑, ‚à∏, max, le,
 -- gcd); truth = evaluation-equality over every environment; a
 -- computation step = a rule speaking, and every step carries its
--- ‡‡æ‡ï‡‡‡ by type.  Programs are records (rule lists); the machine's
+-- ‡§∏‡§æ‡§ï‡•ç‡§∑‡•Ä by type.  Programs are records (rule lists); the machine's
 -- instruction set GROWS BY PROVING (the breath), its organs grow from
 -- its own attained laws (the climb), its record's voice is
 -- disciplined by computable grain (anuloma), and its time is a term
--- of its own tongue (‡ï‡æ‡≤‡¶‡‡∞‡µ‡‡Ø‡Æ‡).
+-- of its own tongue (‡§ï‡§æ‡§≤‡§¶‡•ç‡§∞‡§µ‡•ç‡§Ø‡§Æ‡•ç).
 --
 -- THE OWNER'S QUESTIONS, answered by witnesses in this file and its
 -- imports, and by named refusals where the answer is no:
 --
---   Optimal how?      By ‡≤‡æ‡ò‡µ, the economy criterion internal to the
+--   Optimal how?      By ‡§≤‡§æ‡§ò‡§µ, the economy criterion internal to the
 --                     model: among certified-equal forms, the clock
 --                     chooses.  Measured on the whole inheritance:
---                     raw 860 ‚í laghava 680 ticks (and the sight-
---                     canonical forms cost 1231 ‚î canonical ‚â† cheap,
+--                     raw 860 ‚Üí laghava 680 ticks (and the sight-
+--                     canonical forms cost 1231 ‚Äî canonical ‚â† cheap,
 --                     the model distinguishes its objectives).
 --   Capabilities?     Value laws: the whole store, 108/108, breathed
---                     to quiet with certificates (‡‡‡æ‡‡‡ü‡ï-‡‡æ‡ï‡‡‡‡Ø‡Æ‡
+--                     to quiet with certificates (‡§∂‡§§‡§æ‡§∑‡•ç‡§ü‡§ï-‡§∏‡§æ‡§ï‡•ç‡§∑‡•ç‡§Ø‡§Æ‡•ç
 --                     below re-checks it).  Novel theorems beyond the
 --                     store: nine
 --                     (Samvada).  Laws of time through the same gate
 --                     (KalaDravya ¬ß5).  Organ birth from attainment
 --                     (Gunasthana; climb 103/108 with no agent).
 --   Models itself?    Partially, and the boundary is exact: its time
---                     is internal (‡ï‡æ‡≤‡ is a Tm‚íTm translation), its
---                     syntax is NOT a value of its own domain ‚î
+--                     is internal (‡§ï‡§æ‡§≤‡§É is a Tm‚ÜíTm translation), its
+--                     syntax is NOT a value of its own domain ‚Äî
 --                     quoting needs sequence data (pairing) and
 --                     self-interpretation needs a recursor, and the
 --                     vocabulary is first-order algebraic: NOT
 --                     Turing-complete, by design and by admission.
---   Writes algorithms?  Yes, in its native sense: ‡‡®‡ï‡ synthesizes a
+--   Writes algorithms?  Yes, in its native sense: ‡§ú‡§®‡§ï‡§É synthesizes a
 --                     canonicalization ALGORITHM from three attained
 --                     laws; the breath synthesizes rule-programs; the
 --                     climb composes organs.  What it cannot
 --                     write: recursive function definitions (no
 --                     recursor).
---   Finds efficient ones?  Yes, measured: ‡≤‡æ‡ò‡µ-‡¶‡‡ï‡ picks the
+--   Finds efficient ones?  Yes, measured: ‡§≤‡§æ‡§ò‡§µ-‡§¶‡•É‡§ï‡•ç picks the
 --                     clock-preferred certified-equal form, sound
 --                     whichever way the comparison falls; 21% saving
 --                     over the inheritance, audited by Ganita.
---   Maps space-time?  Time: yes, internally (‡ï‡æ‡≤‡; cost claims are
---                     ordinary claims).  Space: ‡Æ‡æ‡ measures terms,
+--   Maps space-time?  Time: yes, internally (‡§ï‡§æ‡§≤‡§É; cost claims are
+--                     ordinary claims).  Space: ‡§Æ‡§æ‡§™ measures terms,
 --                     but PEAK intermediate space is not a term.
 ------------------------------------------------------------------------
 
@@ -79,7 +79,7 @@ open import KalaDravya_TimeIsASubstanceInTheSameTongueAndTheMachineProvesCostAsI
 ‡§∂‡§§‡§æ‡§∑‡•ç‡§ü‡§ï-‡§∏‡§æ‡§ï‡•ç‡§∑‡•ç‡§Ø‡§Æ‡•ç : ‡§¶‡•à‡§∞‡•ç‡§ò‡•ç‡§Ø‡§Æ‡•ç (‡§™‡•ç‡§∞‡§æ‡§£‡§É 3 [] ‡§Ü‡§ó‡§Æ‡§É) ‚â° 108
 ‡§∂‡§§‡§æ‡§∑‡•ç‡§ü‡§ï-‡§∏‡§æ‡§ï‡•ç‡§∑‡•ç‡§Ø‡§Æ‡•ç = refl
 
--- a theorem of value and a theorem of time, minted through ONE gate ‚î
+-- a theorem of value and a theorem of time, minted through ONE gate ‚Äî
 -- the model's signature capability, held in one term each
 x y : Tm
 x = var 0

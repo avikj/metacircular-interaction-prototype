@@ -210,6 +210,6 @@ coarse-environment-attains =
     isSetUnit isSetNew coarse-completes
 
 -- The old-to-new transition raises 2 -> 3 because the source grows.  On the
--- same four-point source, refining the constant chart to `newChartâ` instead
+-- same four-point source, refining the constant chart to `newChartâ‚` instead
 -- lowers the exact requirement 4 -> 3.  Both facts are certified above by
 -- matching lower embeddings and attaining certificate maps.

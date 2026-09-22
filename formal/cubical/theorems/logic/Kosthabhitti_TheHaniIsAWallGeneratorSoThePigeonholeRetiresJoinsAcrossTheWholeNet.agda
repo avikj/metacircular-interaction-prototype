@@ -1,31 +1,31 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à•à‹ààà -àà¿àààà¿à â” àà¾à¨à¿à ààµ àà¿àààà¿-àà¨à•à à
+-- à¤•à¥‹à¤·à¥à¤ -à¤­à¤¿à¤¤à¥à¤¤à¤¿à¤ƒ â€” à¤¹à¤¾à¤¨à¤¿à¤ƒ à¤à¤µ à¤­à¤¿à¤¤à¥à¤¤à¤¿-à¤œà¤¨à¤•à¤ƒ à¥¤
 --
--- (the pigeonhole wall: àà¾à¨à¿à is the wall generator, so one counting
+-- (the pigeonhole wall: à¤¹à¤¾à¤¨à¤¿à¤ƒ is the wall generator, so one counting
 --  argument retires joins across the whole net.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE THREE PIECES THIS JOINS, AND WHY THE JOIN IS THE POINT.
 --
--- `Kosthanyaya_â¦agda` separated two things the corpus had been running
--- together: the PIGEONHOLE is unconditional â” three points, a two-valued
--- readout, two images agree â” and the LOSS is a separate hypothesis,
--- needing the three points pairwise distinct.  `àà¾à¨à¿à` there returns the
+-- `Kosthanyaya_â€¦agda` separated two things the corpus had been running
+-- together: the PIGEONHOLE is unconditional â€” three points, a two-valued
+-- readout, two images agree â€” and the LOSS is a separate hypothesis,
+-- needing the three points pairwise distinct.  `à¤¹à¤¾à¤¨à¤¿à¤ƒ` there returns the
 -- merged pair TOGETHER WITH its distinctness, which at the time looked
 -- like bookkeeping.
 --
--- `Bhitti_â¦agda`, `BhittiDvaya_â¦`, `BhittiSaptabhangi_â¦` (another seat)
--- land WALLS â” proved non-identifications, `Â (A â‰ B)` â” each retiring a
+-- `Bhitti_â€¦agda`, `BhittiDvaya_â€¦`, `BhittiSaptabhangi_â€¦` (another seat)
+-- land WALLS â€” proved non-identifications, `Â¬ (A â‰ƒ B)` â€” each retiring a
 -- candidate join forever.
 --
--- `BhittiSanorder_â¦agda` (same seat) proves walls TRANSPORT:
---     àà¿àààà¿-ààà•àà°à®à : (A â‰ B) â’ Â (B â‰ C) â’ Â (A â‰ C)
+-- `BhittiSanorder_â€¦agda` (same seat) proves walls TRANSPORT:
+--     à¤­à¤¿à¤¤à¥à¤¤à¤¿-à¤¸à¤‚à¤•à¥à¤°à¤®à¤ƒ : (A â‰ƒ B) â†’ Â¬ (B â‰ƒ C) â†’ Â¬ (A â‰ƒ C)
 -- so a wall crosses every ford by itself, and "the candidate list shrinks
 -- quadratically in what is landed, not linearly in what is proved."
 --
--- Â§à¨ is the missing joint: **the distinctness half of àà¾à¨à¿à is exactly
+-- Â§à¥¨ is the missing joint: **the distinctness half of à¤¹à¤¾à¤¨à¤¿à¤ƒ is exactly
 -- what a wall needs, and supplying it makes the wall.**  A two-valued
 -- codomain and three pairwise-distinct points in the source are enough,
 -- with no arithmetic, no cardinality, and nothing about the particular
@@ -37,30 +37,30 @@
 -- turns "two images agree" into "not injective".  That is precisely the
 -- hypothesis `Kosthanyaya` peeled off, and this is what it was for.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHY A WALL TRANSPORTS AND A DEFECT DOES NOT â” recorded because it is
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- WHY A WALL TRANSPORTS AND A DEFECT DOES NOT â€” recorded because it is
 -- the structural reason behind the neighbour's result and neither file
 -- states it.
 --
--- A DEFECT is a property of a MAP: `Î[ b ] Â isContr (fiber f b)`.  It
--- needs a site, and `TritiyaMarga_â¦` proves that getting the site from
+-- A DEFECT is a property of a MAP: `Î£[ b ] Â¬ isContr (fiber f b)`.  It
+-- needs a site, and `TritiyaMarga_â€¦` proves that getting the site from
 -- the refutation costs at least Markov's Principle.
 --
--- A WALL is a property of a PAIR OF TYPES: `Â (A â‰ C)`.  Transport moves
+-- A WALL is a property of a PAIR OF TYPES: `Â¬ (A â‰ƒ C)`.  Transport moves
 -- statements about types.  So walls cross fords and defects do not, and
 -- that is the term/type distinction rather than a happy accident.
 --
 -- It also settles an over-reading available from
--- `Samyoge_â¦agda`'s title: "refutation does not compose" is true of
+-- `Samyoge_â€¦agda`'s title: "refutation does not compose" is true of
 -- sequential composition of MAPS and false of transport across the
 -- identification graph.  Two compositions, two answers.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
--- à•à‹ààà -à¨àà¯à¾à¯ is used as the ordinary name for the pigeonhole and no text
--- is claimed for it; àà¿àààà¿ (wall) is the neighbouring seat's term, used
--- in their sense.  à¦àà°àà¨à¯ is the Jaina term â” a naya asserting itself by
--- denying the others (Siddhasena Divkara, àà¨àà®àà¿àà°àà•; Akalaka's line) â”
+-- à¤•à¥‹à¤·à¥à¤ -à¤¨à¥à¤¯à¤¾à¤¯ is used as the ordinary name for the pigeonhole and no text
+-- is claimed for it; à¤­à¤¿à¤¤à¥à¤¤à¤¿ (wall) is the neighbouring seat's term, used
+-- in their sense.  à¤¦à¥à¤°à¥à¤¨à¤¯ is the Jaina term â€” a naya asserting itself by
+-- denying the others (Siddhasena DivÄkara, à¤¸à¤¨à¥à¤®à¤¤à¤¿à¤¤à¤°à¥à¤•; Akalaá¹…ka's line) â€”
 -- and what is taken from it is the SHAPE, a readout too narrow to hold
 -- the distinctions being forced to deny one, not a theorem of any Jaina
 -- logician.
@@ -83,7 +83,7 @@ private
     â„“ â„“' : Level
 
 ------------------------------------------------------------------------
--- à§ Â àà®àà¾-àà•àˆà•àààµà®à â” an equivalence is injective.  One line, and it is
+-- à¥§ Â· à¤¸à¤®à¤¤à¤¾-à¤à¤•à¥ˆà¤•à¤¤à¥à¤µà¤®à¥ â€” an equivalence is injective.  One line, and it is
 --     the only thing about equivalences this file uses.
 ------------------------------------------------------------------------
 
@@ -93,7 +93,7 @@ private
   sym (retEq e p) âˆ™ cong (invEq e) h âˆ™ retEq e q
 
 ------------------------------------------------------------------------
--- à¨ Â à•à‹ààà -àà¿àààà¿à â” THE WALL GENERATOR.
+-- à¥¨ Â· à¤•à¥‹à¤·à¥à¤ -à¤­à¤¿à¤¤à¥à¤¤à¤¿à¤ƒ â€” THE WALL GENERATOR.
 --
 --     Three pairwise-distinct points in the source, a two-valued
 --     codomain, and there is no identification between them.  No
@@ -109,15 +109,15 @@ private
   in pâ‰¢q (à¤¸à¤®à¤¤à¤¾-à¤à¤•à¥ˆà¤•à¤¤à¥à¤µà¤®à¥ e p q eq)
 
 ------------------------------------------------------------------------
--- à© Â The instance the neighbouring lane landed by hand, obtained.
+-- à¥© Â· The instance the neighbouring lane landed by hand, obtained.
 --
---     `Bhitti_TheNaturalsAndTheBooleansAreAProvedWallâ¦` proves Â (â• â‰ Bool).
---     Here it is three numerals and Â§à¨, with `Bool`'s two-valuedness the
---     only fact about `Bool` used.  Their module is NOT superseded â” it
+--     `Bhitti_TheNaturalsAndTheBooleansAreAProvedWallâ€¦` proves Â¬ (â„• â‰ƒ Bool).
+--     Here it is three numerals and Â§à¥¨, with `Bool`'s two-valuedness the
+--     only fact about `Bool` used.  Their module is NOT superseded â€” it
 --     is the named wall the economy cites, and it may well prove it by a
---     route that generalises differently.  What Â§à© shows is that the
+--     route that generalises differently.  What Â§à¥© shows is that the
 --     statement is an instance of a counting argument and needs nothing
---     about â• beyond three distinct numerals.
+--     about â„• beyond three distinct numerals.
 ------------------------------------------------------------------------
 
 Bool-à¤¦à¥à¤µà¤¿-à¤®à¥‚à¤²à¥à¤¯à¤®à¥ : à¤¦à¥à¤µà¤¿-à¤®à¥‚à¤²à¥à¤¯à¤®à¥ Bool true false

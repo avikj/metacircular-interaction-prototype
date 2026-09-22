@@ -4,21 +4,21 @@
 -- TheTruncationErrorIsExactAtEveryFiniteStage
 --
 -- The error of a truncated geometric series is not un-said in this
--- corpus: it is exactly râ¿, at every finite n, over â, with no limit and
+-- corpus: it is exactly râ¿, at every finite n, over â„¤, with no limit and
 -- no analysis.  What needs analysis is only its asymptotics.
 --
 -- And the truncated sum alone does not carry it: at n = 1 the partial
 -- sum is `1` for EVERY ratio, while the error is the ratio itself.  So
 -- the error term separates exactly what the truncation identifies.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- RELATION TO `Madhava.agda`
 --
--- `Madhava.à—ààààà°ààà-à¯à‹à—à : (1 âˆ’ r) Â âˆ_{k<n} rµ â‰¡ 1 âˆ’ râ¿` over â, by
+-- `Madhava.à¤—à¥à¤£à¤¶à¥à¤°à¥‡à¤¢à¥€-à¤¯à¥‹à¤—à¤ƒ : (1 âˆ’ r) Â· âˆ‘_{k<n} ráµ â‰¡ 1 âˆ’ râ¿` over â„¤, by
 -- induction.
--- Â§1 below is that module's own theorem plus `minusPlus`: the error is exactly râ¿.
+-- Â§1 below is that module's own theorem plus `minusPlus`: the error is exactly râ¿.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 ------------------------------------------------------------------------
 
 module TheTruncationErrorIsExactAtEveryFiniteStage where
@@ -38,9 +38,9 @@ open import TranscriptDescent using (collisionObstructsDecoder)
 ------------------------------------------------------------------------
 -- 1.  The remainder, exactly, at every finite n
 --
--- Reading `Madhava.à—ààààà°ààà-à¯à‹à—à` as a statement about error rather than
--- about the sum: the scaled partial sum plus râ¿ is exactly 1.  No limit,
--- no convergence, no â â” the same induction, rearranged.
+-- Reading `Madhava.à¤—à¥à¤£à¤¶à¥à¤°à¥‡à¤¢à¥€-à¤¯à¥‹à¤—à¤ƒ` as a statement about error rather than
+-- about the sum: the scaled partial sum plus râ¿ is exactly 1.  No limit,
+-- no convergence, no â„ â€” the same induction, rearranged.
 ------------------------------------------------------------------------
 
 exactRemainder :

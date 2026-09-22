@@ -27,14 +27,14 @@ The separation above is a property of **which field** the generalising record
 carries, not of generalisation: the generalising record does not have to hold
 an outcome family.
 
-`Kernel/Adesa_â¦` proves `subDeriv`: substitution is admissible on derivations,
+`Kernel/Adesa_â€¦` proves `subDeriv`: substitution is admissible on derivations,
 so a substitution witness pushes through a whole trace and yields a trace of
 the substituted endpoints.
 
 kernel/TheControlCarriesItsInstanceAndLocusSoOneTheoremFiresAtAClass drops `source`, `target` and `control-sound` and keeps the obligation
 they discharged as a field:
 
-    certify : (t : Tm) (c : Control t) â’ Derivation t (apply t c)
+    certify : (t : Tm) (c : Control t) â†’ Derivation t (apply t c)
 
 Both forms are constructors of one record. `ground` recovers the memorising
 skill with nothing lost; `schema` is installable and carries a real derivation

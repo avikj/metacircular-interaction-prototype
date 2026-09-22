@@ -17,8 +17,8 @@
 -- below.
 --
 -- This is NOT an instance of `ElsewhereCondition.directedRooted`: its
--- `Guard A = A � Bool`, so a guard there is a DECISION, while `D d`
--- below is a � � a search for the cofactor.  Turning `D d` into a
+-- `Guard A = A → Bool`, so a guard there is a DECISION, while `D d`
+-- below is a � — a search for the cofactor.  Turning `D d` into a
 -- `Guard` is exactly the step of deciding divisibility.  So §6.1's
 -- family is meet-closed as stated, and the thing standing between it
 -- and `directedRooted` is a decision.
@@ -51,7 +51,7 @@ divides-trans {a} {b} {c} (k , b≡ka) (j , c≡jb) =
   j · k , c≡jb ∙ cong (j ·_) b≡ka ∙ ·-assoc j k a
 
 ------------------------------------------------------------------------
--- 2.  The lcm by its universal property � no construction, no
+-- 2.  The lcm by its universal property — no construction, no
 --     factorisation
 ------------------------------------------------------------------------
 
@@ -90,10 +90,10 @@ divisibilityIsDirected isl x dx ex =
 -- 4.  The narrowing of §6.1
 --
 -- §6.1 says the meet law is "PROVED on paper in one line from unique
--- factorisation".  §3 uses no factorisation: `both�lcmGuard` IS the
--- universal property applied, and `lcmGuard�both` is two transitivities.
+-- factorisation".  §3 uses no factorisation: `both→lcmGuard` IS the
+-- universal property applied, and `lcmGuard→both` is two transitivities.
 -- Unique factorisation is needed for a different sentence in the same
--- paragraph � that `D_d ⋐ D_e` iff `v_p(e) � v_p(d)` for every p, which
+-- paragraph — that `D_d ⋐ D_e` iff `v_p(e) ≤ v_p(d)` for every p, which
 -- is about valuations and is not the subject of this module.
 --
 -- So: the meet law is the lcm's universal property and needs no

@@ -1,46 +1,46 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ррриррпрор тФ ррр░рррорЧрррррррп ррриррп-рЧрр┐ррор (ррр░р╛рррорррррЯрр┐ржррзр╛риррр, рриро рИ.) р  ррриррпр
--- рррЦррпр╛р░рррр ррр░ррор р╡ррпр╡рррр╛рр┐ррор рр тФ рпрЛрЧр, р╡р┐рпрЛрЧр, рЧрррир ррррп рир┐рпрор╛р р
+-- рд╢реВрдиреНрдпрдореН тАФ рдмреНрд░рд╣реНрдордЧреБрдкреНрддрд╕реНрдп рд╢реВрдиреНрдп-рдЧрдгрд┐рддрдореН (рдмреНрд░рд╛рд╣реНрдорд╕реНрдлреБрдЯрд╕рд┐рджреНрдзрд╛рдиреНрддрдГ, ремреирео рдИ.) ред  рд╢реВрдиреНрдпрдВ
+-- рд╕рдВрдЦреНрдпрд╛рд░реВрдкреЗрдг рдкреНрд░рдердордВ рд╡реНрдпрд╡рд╕реНрдерд╛рдкрд┐рддрдореН рдЗрд╣ тАФ рдпреЛрдЧреЗ, рд╡рд┐рдпреЛрдЧреЗ, рдЧреБрдгрдиреЗ рддрд╕реНрдп рдирд┐рдпрдорд╛рдГ ред
 --
--- ррр░рррорЧрррррррп рир┐рпрор╛р (ррржррзр╛р) : a+0=a, aтИТ0=a, a┬0=0 тФ ррр р╡р▓рп-ррррпр╛р р
+-- рдмреНрд░рд╣реНрдордЧреБрдкреНрддрд╕реНрдп рдирд┐рдпрдорд╛рдГ (рд╢реБрджреНрдзрд╛рдГ) : a+0=a, aтИТ0=a, a┬╖0=0 тАФ рдПрддреЗ рд╡рд▓рдп-рд╕рддреНрдпрд╛рдГ ред
 --
--- рХр┐риррр ррХрор ррр╛рзр : ррр░рррорЧррррр "00 = 0" ррр┐ рр╡ржрр тФ ржрр░ррирпр р  рпрр
--- рр░рр╡рррорИ x : 0┬x = 0 ; ррр 00 ри ррХр рорр▓ррпрор, рХр┐риррр ррир┐рррр┐ррор тФ рр╡рХррр╡ррпрор
--- (ррррррЩррЧррпр╛р рррр░ррр рржрор), ри ррриррпрор р  рр╛рррХр░р ржрр╡р┐рррпр (р▓рр▓р╛р╡рр, рзрзррж)
--- рЦрр░рр (n0 = рририрррор) рррр ррЛрзр┐рр╡р╛рир р  ррр░рррорЧрррррррп ррХр ржрЛрр тФ рир┐рррр┐рр
--- р╡ррирор рр╡рХррр╡ррпр тФ рр рр╡ р░рЛрЧр рпрор ррпр ррорррр ррр░рпр╛рр рир┐р╡р╛р░рпрр┐ р
+-- рдХрд┐рдиреНрддреБ рдПрдХрдореН рдЕрд╕рд╛рдзреБ : рдмреНрд░рд╣реНрдордЧреБрдкреНрддрдГ "0├╖0 = 0" рдЗрддрд┐ рдЕрд╡рджрддреН тАФ рджреБрд░реНрдирдпрдГ ред  рдпрддрдГ
+-- рд╕рд░реНрд╡рд╕реНрдореИ x : 0┬╖x = 0 ; рдЕрддрдГ 0├╖0 рди рдПрдХрдВ рдореВрд▓реНрдпрдореН, рдХрд┐рдиреНрддреБ рдЕрдирд┐рд╢реНрдЪрд┐рддрдореН тАФ рдЕрд╡рдХреНрддрд╡реНрдпрдореН
+-- (рд╕рдкреНрддрднрдЩреНрдЧреНрдпрд╛рдГ рдЪрддреБрд░реНрдердВ рдкрджрдореН), рди рд╢реВрдиреНрдпрдореН ред  рднрд╛рд╕реНрдХрд░рдГ рджреНрд╡рд┐рддреАрдпрдГ (рд▓реАрд▓рд╛рд╡рддреА, резрезрелреж)
+-- рдЦрд╣рд░реЗрдг (n├╖0 = рдЕрдирдиреНрддрдореН) рдПрддрддреН рд╢реЛрдзрд┐рддрд╡рд╛рдиреН ред  рдмреНрд░рд╣реНрдордЧреБрдкреНрддрд╕реНрдп рдПрдХрдГ рджреЛрд╖рдГ тАФ рдирд┐рд╢реНрдЪрд┐рддрдВ
+-- рд╡рдЪрдирдореН рдЕрд╡рдХреНрддрд╡реНрдпреЗ тАФ рдПрд╖ рдПрд╡ рд░реЛрдЧрдГ рдпрдореН рдЕрдпрдВ рд╕рдорд╕реНрддрдГ рдкреНрд░рдпрд╛рд╕рдГ рдирд┐рд╡рд╛рд░рдпрддрд┐ ред
 --
--- (Brahmagupta first systematized zero as a number (628 CE) тФ its rules
+-- (Brahmagupta first systematized zero as a number (628 CE) тАФ its rules
 -- under addition, subtraction, multiplication.  His correct rules are ring
--- truths.  But he made ONE error: he declared 00 = 0 тФ a durnaya.  For
--- every x, 0┬x = 0, so 00 is NOT a single value but indeterminate тФ
+-- truths.  But he made ONE error: he declared 0├╖0 = 0 тАФ a durnaya.  For
+-- every x, 0┬╖x = 0, so 0├╖0 is NOT a single value but indeterminate тАФ
 -- NOT zero.  Bhskara II (1150)
--- corrected division by zero via khahara.  Brahmagupta's one slip тФ a
--- definite verdict where the answer is un-said тФ is exactly the disease this
+-- corrected division by zero via khahara.  Brahmagupta's one slip тАФ a
+-- definite verdict where the answer is un-said тАФ is exactly the disease this
 -- whole effort removes.)
 ------------------------------------------------------------------------
 
--- The identification of 00 with рр╡рХррр╡ррпрор,
--- the saptabhag's fourth position, does not hold тФ and it fails by
+-- The identification of 00тИИ with ,
+-- the saptabhag's fourth position, does not hold тАФ and it fails by
 -- SaptabhangiNaya.agda's own criterion, in this same directory, not
 -- by an outside standard.  ┬з5 there defines avaktavyam as the case
 -- where NO SINGLE UTTERANCE denotes the content, proved exhaustively
 -- over the six atoms of its language.  00's situation IS denotable
--- in one utterance: every x whatsoever satisfies 0┬x = 0, which is
+-- in one utterance: every x whatsoever satisfies 0┬╖x = 0, which is
 -- one complete statement saying exactly what is wrong.
 --
 -- The two defects are opposite.  avaktavyam: the content is
--- determinate and the medium cannot say it in one go тФ an
+-- determinate and the medium cannot say it in one go тАФ an
 -- EXPRESSIBILITY failure.  00: the content is perfectly expressible
--- and the solution set is not a singleton тФ a UNIQUENESS failure.
+-- and the solution set is not a singleton тАФ a UNIQUENESS failure.
 --
 -- See
 -- AnuktaAvaktavya.agda ┬з6, where 00's defect is checked.
 --
 -- Three modules here now call three different structures
--- avaktavyam тФ Satyayantra, Khahara, Shunya.  Using one third
+-- avaktavyam тАФ Satyayantra, Khahara, Shunya.  Using one third
 -- position as a catch-all for "not a clean single answer" is the
 -- boolean collapse this corpus exists to fight, one level up.
 module Shunya where
@@ -52,7 +52,7 @@ open import Cubical.Algebra.CommRing.Instances.Int using (тДдCommRing)
 open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
 ------------------------------------------------------------------------
--- ррр░рррорЧрррррррп ррржррзр╛р рир┐рпрор╛р (his correct rules for zero) р
+-- рдмреНрд░рд╣реНрдордЧреБрдкреНрддрд╕реНрдп рд╢реБрджреНрдзрд╛рдГ рдирд┐рдпрдорд╛рдГ (his correct rules for zero) ред
 ------------------------------------------------------------------------
 
 рдпреЛрдЧреЗ-рд╢реВрдиреНрдпрдореН : (a : тДд) тЖТ a + pos 0 тЙб a
@@ -68,23 +68,23 @@ open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 рд╢реВрдиреНрдпреЗ-рд╢реВрдиреНрдпрдореН = refl , refl
 
 ------------------------------------------------------------------------
--- ррриррп-рр╛ррирор рр╡рХррр╡ррпрор тФ 00 ри ррриррпрор, рХр┐риррр ррир┐рррр┐ррор (рр╡рХррр╡ррпрор) р
--- рр░рр╡р x рррирр▓р рр╡р┐рррор рр░рррр┐, рпрр 0┬x = 0 тФ ррр ри ррХр рр▓рор р
--- (00 is not zero but indeterminate тФ avaktavya тФ since 0┬x = 0 for EVERY
+-- рд╢реВрдиреНрдп-рднрд╛рдЬрдирдореН рдЕрд╡рдХреНрддрд╡реНрдпрдореН тАФ 0├╖0 рди рд╢реВрдиреНрдпрдореН, рдХрд┐рдиреНрддреБ рдЕрдирд┐рд╢реНрдЪрд┐рддрдореН (рдЕрд╡рдХреНрддрд╡реНрдпрдореН) ред
+-- рд╕рд░реНрд╡рдГ x рднрдЬрдирдлрд▓рдВ рднрд╡рд┐рддреБрдореН рдЕрд░реНрд╣рддрд┐, рдпрддрдГ 0┬╖x = 0 тАФ рдЕрддрдГ рди рдПрдХрдВ рдлрд▓рдореН ред
+-- (0├╖0 is not zero but indeterminate тАФ avaktavya тАФ since 0┬╖x = 0 for EVERY
 -- x, so no unique quotient exists.  Brahmagupta's 00=0 was a durnaya.)
 ------------------------------------------------------------------------
 
--- ррр░рррпррХр x ррриррпрррп "рррирр▓рор" : 0 ┬ x тЙб 0 (ррр рр▓рор ррир┐рррр┐ррор) р
+-- рдкреНрд░рддреНрдпреЗрдХрдВ x рд╢реВрдиреНрдпрд╕реНрдп "рднрдЬрдирдлрд▓рдореН" : 0 ┬╖ x тЙб 0 (рдЕрддрдГ рдлрд▓рдореН рдЕрдирд┐рд╢реНрдЪрд┐рддрдореН) ред
 рд╕рд░реНрд╡рдГ-рднрдЬрдирдлрд▓рдореН : (x : тДд) тЖТ pos 0 ┬╖ x тЙб pos 0
 рд╕рд░реНрд╡рдГ-рднрдЬрдирдлрд▓рдореН x = solve! тДдCommRing
 
--- рЙржр╛рр░ррор : 0┬1 = 0 р 0┬7 = 0 тФ рр┐риррир "рр▓р" 1, 7 рЙрр рпрЛрЧррпр тЯ рр╡рХррр╡ррпрор р
+-- рдЙрджрд╛рд╣рд░рдгрдореН : 0┬╖1 = 0 рдЪ 0┬╖7 = 0 тАФ рднрд┐рдиреНрдиреМ "рдлрд▓реМ" 1, 7 рдЙрднреМ рдпреЛрдЧреНрдпреМ тЯ╣ рдЕрд╡рдХреНрддрд╡реНрдпрдореН ред
 рднрд┐рдиреНрди-рд╕рд╛рдХреНрд╖рд┐рдгреМ : (pos 0 ┬╖ pos 1 тЙб pos 0) ├Ч (pos 0 ┬╖ pos 7 тЙб pos 0)
 рднрд┐рдиреНрди-рд╕рд╛рдХреНрд╖рд┐рдгреМ = рд╕рд░реНрд╡рдГ-рднрдЬрдирдлрд▓рдореН (pos 1) , рд╕рд░реНрд╡рдГ-рднрдЬрдирдлрд▓рдореН (pos 7)
 
 ------------------------------------------------------------------------
--- The header separates two defects тФ expressibility (avaktavyam) versus
--- uniqueness (00) тФ and names the risk: one third position used as a
+-- The header separates two defects тАФ expressibility (avaktavyam) versus
+-- uniqueness (0├╖0) тАФ and names the risk: one third position used as a
 -- catch-all for "not a clean single answer" is the boolean collapse this
 -- corpus exists to fight, one level up.
 --
@@ -97,11 +97,11 @@ open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 --   unique    тИз expressible     self, onlyId
 --
 -- so neither defect implies the other and neither implies the other's
--- negation тФ they are not two readings of one thing at any strength.
+-- negation тАФ they are not two readings of one thing at any strength.
 -- The types also show WHY: non-uniqueness is a property of the content
 -- alone, inexpressibility of the content AND the medium.
 --
--- The third structure, Satyayantra's рриррХрррор, is deliberately NOT
+-- The third structure, Satyayantra's рдЕрдиреБрдХреНрддрдореН, is deliberately NOT
 -- brought onto that carrier: it is temporal, and
 -- the two third-positions' remedies live in different types.
 ------------------------------------------------------------------------

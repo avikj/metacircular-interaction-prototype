@@ -13,15 +13,15 @@ question of the ORDER in which its prime factors arrive is not answered by
 the number itself.  This development makes the order a datum and then
 measures exactly what forgetting it costs.
 
-The two histories.  A product pÂq of two DISTINCT primes admits its
+The two histories.  A product pÂ·q of two DISTINCT primes admits its
 factors in two orders; the history type is therefore Bool.  A prime SQUARE
-pÂp admits only one; its history type is Unit, and `square-history-unique`
+pÂ·p admits only one; its history type is Unit, and `square-history-unique`
 proves every inhabitant is that one point.  No ordering of the primes is
 imposed from outside -- the multiplicity of histories is a property of the
 number, not a convention.
 
 The integration.  A split profile is a pair of integer coefficients on the
-two ordered histories, â — â.  `augment` sends (x , y) to x + y -- it
+two ordered histories, â„¤ Ã— â„¤.  `augment` sends (x , y) to x + y -- it
 FORGETS the order and sums the histories -- and `relative` sends it to
 x - y, the primitive difference the augmentation discards.  This is the
 path-space integral in the small: the observable that integrates over the
@@ -30,7 +30,7 @@ orderings is exactly `augment`, and the channel it annihilates is exactly
 
 The kernel, computed exactly.  `kernel-is-sign` proves that every profile
 augmenting to zero has second coordinate the negation of its first: the
-augmentation kernel IS the sign embedding z â¦ (z , -z), no larger and no
+augmentation kernel IS the sign embedding z â†¦ (z , -z), no larger and no
 smaller.  `kernel-relative-exact` then reads that kernel through the
 relative channel and returns z + z -- the whole of the discarded history
 survives, doubled, in the difference.  The prime-square fiber has no such

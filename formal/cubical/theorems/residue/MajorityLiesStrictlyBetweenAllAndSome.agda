@@ -10,13 +10,13 @@
 -- with rate thresholds is a mixture of genuinely different strengths,
 -- not a stylistic one.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
---   majorityWithoutAll        `true âˆ true âˆ false âˆ []`
---                             â” 2 of 3, so `3 < 4`; the Î  fails
---   positiveWithoutMajority   `true âˆ false âˆ false âˆ []`
---                             â” 1 of 3, so `3 < 2` is refuted; the
+--   majorityWithoutAll        `true âˆ· true âˆ· false âˆ· []`
+--                             â€” 2 of 3, so `3 < 4`; the Î  fails
+--   positiveWithoutMajority   `true âˆ· false âˆ· false âˆ· []`
+--                             â€” 1 of 3, so `3 < 2` is refuted; the
 --                             existential still holds
 --
 -- With `RateOneIsExactlyTheUniversalClaim`'s equivalence (rate one IS
@@ -106,12 +106,12 @@ positiveWithoutMajority = someHolds , majorityFails
 -- The general family is in `TheThresholdOrderIsTotalAndTheClaimIsAntitone`.
 -- It states the family rather than exhibiting populations:
 --
---   AtLeast p q bs        = p Â length bs â‰ suc q Â count bs
---   (p , q) âŠ (p' , q')   = p Â suc q' â‰ p' Â suc q
+--   AtLeast p q bs        = p Â· length bs â‰¤ suc q Â· count bs
+--   (p , q) âŠ‘ (p' , q')   = p Â· suc q' â‰¤ p' Â· suc q
 --
---   âŠ-total          ANY two thresholds are comparable -- the chain,
+--   âŠ‘-total          ANY two thresholds are comparable -- the chain,
 --                    proved with no population in sight
---   atLeastAntitone  higher threshold â’ lower threshold, for EVERY
+--   atLeastAntitone  higher threshold â‡’ lower threshold, for EVERY
 --                    population at once
 --   allIsThresholdOne / thresholdOneFromAll
 --                    the Î  is exactly the top element (1 , 0)
@@ -120,7 +120,7 @@ positiveWithoutMajority = someHolds , majorityFails
 -- become two instances of it rather than the evidence for it.
 --
 -- RELATION to the module above.  `Majority` here is
--- STRICT (length < 2 Â count); `AtLeast 1 1` there is the non-strict
+-- STRICT (length < 2 Â· count); `AtLeast 1 1` there is the non-strict
 -- "at least half", which is weaker.  `â‰¤` is a total PREORDER and not an
 -- order: (1,1) and (2,3) name one rate and stay two pairs.
 -- And the converse of antitone fails -- `majorityWithoutAll` above

@@ -6,27 +6,27 @@
 -- `AnuktaAvaktavya` separates
 -- two third-positions by a swapped quantifier:
 --
---   àà¾à®à¯à¿à• bad = (i : I) â’ Î[ r âˆˆ R ] (Â bad i r)
---   à¨à¿ààà¯   bad = (r : R) â’ Î[ i âˆˆ I ] (   bad i r)
+--   à¤¸à¤¾à¤®à¤¯à¤¿à¤• bad = (i : I) â†’ Î£[ r âˆˆ R ] (Â¬ bad i r)
+--   à¤¨à¤¿à¤¤à¥à¤¯   bad = (r : R) â†’ Î£[ i âˆˆ I ] (   bad i r)
 --
 -- This module adds to it rather than restating it: the swap is not a negation.
 -- Both can hold of the SAME `bad`, and three of the four corners are
--- realised â” with the fourth impossible only in its strong form, which
+-- realised â€” with the fourth impossible only in its strong form, which
 -- is stated below rather than assumed.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS ADDED
 --
---   bothHold                 a `bad` with àà¾à®à¯à¿à• AND à¨à¿ààà¯ at once
---   samayikaWithoutNitya     àà¾à®à¯à¿à• holds, à¨à¿ààà¯ refuted
---   nityaWithoutSamayika     à¨à¿ààà¯ holds, àà¾à®à¯à¿à• refuted
---   nityaâ’noUniversalRemedy  à¨à¿ààà¯ refutes the STRONG failure of àà¾à®à¯à¿à•
---   samayikaâ’noInvincibleInstance
---                            àà¾à®à¯à¿à• refutes the STRONG failure of à¨à¿ààà¯
+--   bothHold                 a `bad` with à¤¸à¤¾à¤®à¤¯à¤¿à¤• AND à¤¨à¤¿à¤¤à¥à¤¯ at once
+--   samayikaWithoutNitya     à¤¸à¤¾à¤®à¤¯à¤¿à¤• holds, à¤¨à¤¿à¤¤à¥à¤¯ refuted
+--   nityaWithoutSamayika     à¤¨à¤¿à¤¤à¥à¤¯ holds, à¤¸à¤¾à¤®à¤¯à¤¿à¤• refuted
+--   nityaâ†’noUniversalRemedy  à¤¨à¤¿à¤¤à¥à¤¯ refutes the STRONG failure of à¤¸à¤¾à¤®à¤¯à¤¿à¤•
+--   samayikaâ†’noInvincibleInstance
+--                            à¤¸à¤¾à¤®à¤¯à¤¿à¤• refutes the STRONG failure of à¤¨à¤¿à¤¤à¥à¤¯
 --
 -- So the pair is independent in the strict sense: neither implies the
 -- other and neither implies the other's negation.  What each DOES refute
--- is the other's strong failure â” and those two strong failures are
+-- is the other's strong failure â€” and those two strong failures are
 -- jointly contradictory, which is why the fourth corner has no strong
 -- witness.
 ------------------------------------------------------------------------
@@ -43,7 +43,7 @@ open import Cubical.Relation.Nullary using (Â¬_)
 open import AnuktaAvaktavya using (à¤¸à¤¾à¤®à¤¯à¤¿à¤• ; à¤¨à¤¿à¤¤à¥à¤¯)
 
 ------------------------------------------------------------------------
--- 1.  Both at once â” so the swap is not a negation
+-- 1.  Both at once â€” so the swap is not a negation
 --
 -- Badness is "the remedy matches the instance".  Every instance has a
 -- remedy that misses it, AND every remedy is matched by some instance.
@@ -93,10 +93,10 @@ nityaWithoutSamayika = always-nitya , always-not-samayika
 ------------------------------------------------------------------------
 -- 3.  What each DOES refute: the other's strong failure
 --
---   a universal remedy   â” one r that clears every instance
---   an invincible instance â” one i that survives every remedy
+--   a universal remedy   â€” one r that clears every instance
+--   an invincible instance â€” one i that survives every remedy
 --
--- These are the strong forms of Â à¨à¿ààà¯ and Â àà¾à®à¯à¿à•.  Each of the two
+-- These are the strong forms of Â¬ à¤¨à¤¿à¤¤à¥à¤¯ and Â¬ à¤¸à¤¾à¤®à¤¯à¤¿à¤•.  Each of the two
 -- properties refutes one of them, and Â§3.3 shows the two cannot both
 -- hold, which is why the fourth corner has no strong witness.
 ------------------------------------------------------------------------
@@ -126,7 +126,7 @@ noBothStrongFailures bad ((i , survives) , (r , clears)) =
 ------------------------------------------------------------------------
 -- 4.  The sentence, and its exact scope
 --
--- "The difference is a swapped quantifier" is right, and Â§1â“Â§2 say what
+-- "The difference is a swapped quantifier" is right, and Â§1â€“Â§2 say what
 -- kind of difference it is: an INDEPENDENT one.  A `bad` may be
 -- temporary and permanent at once (Â§1), temporary and not permanent
 -- (Â§2), permanent and not temporary (Â§2).
@@ -135,8 +135,8 @@ noBothStrongFailures bad ((i , survives) , (r , clears)) =
 --
 -- Adjacent on the same axis, and reached earlier from other directions:
 -- `PermanentUnsaidIsStableAndTemporaryIsASearch` (the negative pole is
--- ÂÂ-stable for free, the positive pole is a search) and
--- `DivisibilityGuardsAreMeetClosed` (a Î-valued guard is not a Bool one,
+-- Â¬Â¬-stable for free, the positive pole is a search) and
+-- `DivisibilityGuardsAreMeetClosed` (a Î£-valued guard is not a Bool one,
 -- and a decision is what stands between).
 ------------------------------------------------------------------------
 
@@ -146,16 +146,16 @@ noBothStrongFailures bad ((i , survives) , (r , clears)) =
 -- `TheFourthCornerIsRefutedUnderPointwiseStability`:
 --
 --   noUniversalRemedyGivesPointwiseDoubleNegation :
---     Â UniversalRemedy bad â’ (r : R) â’ Â Â (Î[ i âˆˆ I ] bad i r)
+--     Â¬ UniversalRemedy bad â†’ (r : R) â†’ Â¬ Â¬ (Î£[ i âˆˆ I ] bad i r)
 --   pointwiseStabilityGivesNitya :
---     ((r) â’ Stable (Î[ i ] bad i r)) â’ Â UniversalRemedy bad â’ à¨à¿ààà¯ bad
+--     ((r) â†’ Stable (Î£[ i ] bad i r)) â†’ Â¬ UniversalRemedy bad â†’ à¤¨à¤¿à¤¤à¥à¤¯ bad
 --   fourthCornerRefutedUnderPointwiseStability :
---     ((r) â’ Stable (Î[ i ] bad i r)) â’ Â ((Â àà¾à®à¯à¿à• bad) — (Â à¨à¿ààà¯ bad))
+--     ((r) â†’ Stable (Î£[ i ] bad i r)) â†’ Â¬ ((Â¬ à¤¸à¤¾à¤®à¤¯à¤¿à¤• bad) Ã— (Â¬ à¤¨à¤¿à¤¤à¥à¤¯ bad))
 --
 -- WHERE THE CONSTRUCTIVE ARGUMENT STOPS: the first of those is
--- unconditional and is a one-line contrapositive; it delivers `Â Â Î`
--- where `à¨à¿ààà¯` wants the Î.  The double negation IS the gap, and
--- pointwise stability â” which a decision at each remedy supplies â” is
+-- unconditional and is a one-line contrapositive; it delivers `Â¬ Â¬ Î£`
+-- where `à¤¨à¤¿à¤¤à¥à¤¯` wants the Î£.  The double negation IS the gap, and
+-- pointwise stability â€” which a decision at each remedy supplies â€” is
 -- exactly what fills it.
 --
 ------------------------------------------------------------------------

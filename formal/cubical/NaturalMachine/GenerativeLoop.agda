@@ -10,11 +10,11 @@
 --   * the frequency proposer is closed under "already built", so a chain
 --     of its proposals leaves the matcher EQUAL (`plateau`, T7-T8);
 --   * a chain of obstruction-indexed proposals cannot leave the matcher
---     equal (`anti-plateau`, A2 below) � and it terminates on any target
+--     equal (`anti-plateau`, A2 below) — and it terminates on any target
 --     (`generative-loop`, B4 below), within a bound that is a measure of
 --     the target, not a hope.
 --
--- Source of the design: `runtime/vocabulary/README.md` §7 � a proposer
+-- Source of the design: `runtime/vocabulary/README.md` §7 — a proposer
 -- driven by the residual of a *failed* match, reading why the matcher
 -- failed and naming exactly the missing structure.  The loop modelled
 -- here is that sentence made operational: (i) attempt a match, (ii) read
@@ -30,17 +30,17 @@
 --
 --   A1 `obs-step-strict`      one obstruction step cannot leave the
 --                             matcher equal:
---                             � (Matches (extend V o) ≡ Matches V).
+--                             ¬ (Matches (extend V o) ≡ Matches V).
 --                             Pointwise converse of `extend-absorbed`.
 --   A2 `anti-plateau`         no obstruction chain whose FIRST step is a
 --                             named obstruction leaves it equal:
---                             ObsChain (extend V o) W � � (Matches W ≡ Matches V).
---   A2� `anti-plateau-step`   the same for chains presented as `ObsChain`
---                             presents them, i.e. by their LAST step �
+--                             ObsChain (extend V o) W → ¬ (Matches W ≡ Matches V).
+--   A2′ `anti-plateau-step`   the same for chains presented as `ObsChain`
+--                             presents them, i.e. by their LAST step —
 --                             which is what "any chain through at least
 --                             one step" actually requires, since a
 --                             nonempty `ObsChain V X` is `step ch o`.
---                             Together A2 and A2� are the converse of
+--                             Together A2 and A2′ are the converse of
 --                             `plateau`.
 --   A3 `obstruction-reaches`  such a chain matches the stuck term, at
 --                             every later stage (monotonicity, A0).
@@ -52,33 +52,33 @@
 --
 -- B. The measure and the loop.
 --
---   The measure is relative to a TARGET term t � the thing the loop is
+--   The measure is relative to a TARGET term t — the thing the loop is
 --   trying to become able to talk about:
 --
 --     deficit V t = the number of node positions of t whose head is not
 --                   installed in V.
 --
---   B0 `Over�deficit0`, `deficit0�Over`
+--   B0 `Over→deficit0`, `deficit0→Over`
 --                             the measure is faithful: deficit V t ≡ 0
 --                             exactly when V covers t.  (Without this
 --                             pair the measure would be decoration.)
---   B1 `deficit-split`        deficit V t ≡ gaps s V t + deficit (s � V) t
---                             � installing s removes exactly the
+--   B1 `deficit-split`        deficit V t ≡ gaps s V t + deficit (s ∷ V) t
+--                             — installing s removes exactly the
 --                             s-labelled gaps and nothing else.
 --   B2 `generative-step`      THE STEP FUNCTION: for every V and every
 --                             target t, either V already covers t, or
---                             the loop produces an obstruction o at V �
+--                             the loop produces an obstruction o at V —
 --                             read off the innermost uncovered head of t
---                             � TOGETHER WITH a proof that
+--                             — TOGETHER WITH a proof that
 --                             deficit (extend V o) t < deficit V t.
 --                             Strictly decreasing, checked, on every
 --                             obstruction step the loop takes.
---   B3 `loop`                 fuelled iteration: deficit V t � f gives a
+--   B3 `loop`                 fuelled iteration: deficit V t ≤ f gives a
 --                             chain of at most f obstruction-proposals
 --                             after which the target is covered.
 --   B4 `generative-loop`      TERMINATION, unconditional: for every V
 --                             and every t there is W, an ObsChain V W of
---                             length � deficit V t, and Over W t.  The
+--                             length ≤ deficit V t, and Over W t.  The
 --                             loop does not stall, and the number of
 --                             steps is bounded by the target's measure.
 --
@@ -88,7 +88,7 @@
 --
 -- C. Composition with the acceptance test.
 --
---   In `module Compile (k : �) (checkpoint : Shape)`:
+--   In `module Compile (k : ℕ) (checkpoint : Shape)`:
 --
 --   C1 `generated-definition-conservative`
 --                             every generated definition eliminates
@@ -159,10 +159,10 @@ Over-chain-mono (step ch o) t h = Over-mono _ (residual o) t (Over-chain-mono ch
 -- A1-A4.  The anti-plateau theorems.
 --
 -- `Obstruction.extend-absorbed` says: extension by an already-matched
--- head leaves `Matches` EQUAL as a function Tm � Type�.  `plateau`
+-- head leaves `Matches` EQUAL as a function Tm → Type₀.  `plateau`
 -- iterates that over a frequency chain.  Here is the exact converse for
 -- the obstruction-indexed proposer: its step can never leave `Matches`
--- equal, because the stuck term is a point of difference � unmatched
+-- equal, because the stuck term is a point of difference — unmatched
 -- before by `progress-before`, matched after by `progress-after`, and
 -- matched at every later stage by A0.
 ------------------------------------------------------------------------
@@ -185,11 +185,11 @@ anti-plateau V o ch p =
   progress-before V o
     (transport (cong (λ P → P (stuckTm o)) p) (obstruction-reaches V o ch))
 
--- A2�: the statement the header wants � ANY obstruction chain that takes
+-- A2′: the statement the header wants — ANY obstruction chain that takes
 -- at least one step leaves the matcher different.  A2 alone does not say
 -- this, because `ObsChain` grows at the RIGHT: a nonempty `ObsChain V X`
 -- is literally `step ch o` with `o` an obstruction at the chain's END and
--- `X = extend W o`, whereas A2 names an obstruction at its START.  A2�
+-- `X = extend W o`, whereas A2 names an obstruction at its START.  A2′
 -- covers every nonempty chain by pattern, and the argument is the mirror
 -- image: the last step's stuck term is unmatched at W, hence (by
 -- monotonicity, contrapositive) unmatched at V, and matched after.
@@ -233,7 +233,7 @@ gaps : Shape → Vocab → Tm → ℕ
 gaps s V var        = 0
 gaps s V (node c u) = gapAt s V c + gaps s V u
 
--- B0: the measure is faithful � zero exactly on covered targets.
+-- B0: the measure is faithful — zero exactly on covered targets.
 Over→deficit0 : (V : Vocab) (t : Tm) → Over V t → deficit V t ≡ 0
 Over→deficit0 V var        _         = refl
 Over→deficit0 V (node c u) (hc , hu) =
@@ -254,7 +254,7 @@ deficit0→Over V (node c u) p =
 ------------------------------------------------------------------------
 -- B1.  Installing one head splits the measure exactly.
 --
---   deficit V t  ≡  gaps s V t  +  deficit (s � V) t
+--   deficit V t  ≡  gaps s V t  +  deficit (s ∷ V) t
 --
 -- i.e. an installation removes precisely the gaps it names, and no
 -- others.  This is the arithmetic converse of `memb-absorb`: there,
@@ -321,7 +321,7 @@ deficit-split s V (node c u) =
 --
 -- `Occurs s V t`: the head s occurs UNCOVERED somewhere in the target.
 -- That is exactly the hypothesis under which installing s strictly
--- decreases the measure � and it is exactly what the loop's probe
+-- decreases the measure — and it is exactly what the loop's probe
 -- returns alongside the obstruction it read off t.
 ------------------------------------------------------------------------
 
@@ -336,7 +336,7 @@ occurs→decreases s V t (j , p) =
       ∙ sym (deficit-split s V t) )
 
 -- The exact complement: install a head with no uncovered occurrence in
--- the target and the measure is UNCHANGED � not merely non-decreasing.
+-- the target and the measure is UNCHANGED — not merely non-decreasing.
 -- This is the checked form of "there is no global well-founded measure
 -- on `Vocab` here": off the target, `deficit` is blind.
 no-gaps→no-decrease : (s : Shape) (V : Vocab) (t : Tm) → gaps s V t ≡ 0
@@ -349,7 +349,7 @@ no-gaps→no-decrease s V t p =
 --
 -- Innermost-first, so that when the loop reports an obstruction the
 -- failure really is at the ROOT of `node residual arg` and `arg` is
--- base � which is what `Obstruction`'s `argBase` field demands.  That
+-- base — which is what `Obstruction`'s `argBase` field demands.  That
 -- field is why the probe cannot simply return the first uncovered head
 -- from the outside in.
 ------------------------------------------------------------------------
@@ -378,8 +378,8 @@ probe V (node c u) = lift-probe (probe V u)
           , cong (_+ gaps c V u) (if≡true (eqℕ-refl c) ∙ if≡false e) )
 
 -- THE STEP FUNCTION, with its checked measure.  Either the vocabulary
--- already covers the target, or the loop names a missing head � read off
--- the residual of the failed match � and the measure strictly drops.
+-- already covers the target, or the loop names a missing head — read off
+-- the residual of the failed match — and the measure strictly drops.
 generative-step : (V : Vocab) (t : Tm)
   → Over V t ⊎ (Σ[ o ∈ Obstruction V ] (deficit (extend V o) t < deficit V t))
 generative-step V t = read (probe V t)
@@ -455,8 +455,8 @@ generative-loop-complete V t with generative-loop V t
 -- C.  Composition with the acceptance test.
 --
 -- `compile` is STIPULATED here: a compiler that consults the vocabulary
--- for one capability � a head named `checkpoint`, "you may resume from a
--- checkpoint" � and emits the resumed plan iff that name is installed.
+-- for one capability — a head named `checkpoint`, "you may resume from a
+-- checkpoint" — and emits the resumed plan iff that name is installed.
 -- Nothing derives this rule; it is the interface across which the two
 -- substrates are composed, and it is three lines so that it can be read.
 --
@@ -483,7 +483,7 @@ module Compile (k : ℕ) (checkpoint : Shape) where
                   → compile V m n ≡ resume m n
   compile-present V m n e = if≡true e
 
-  -- C1: every definition the loop generates eliminates � every term over
+  -- C1: every definition the loop generates eliminates — every term over
   -- the extended vocabulary unfolds to one all of whose heads are base.
   -- It is `Obstruction.propose-eliminable` under a new name (the
   -- definition below is a renaming, not a restatement: nothing about the
@@ -534,7 +534,7 @@ module Compile (k : ℕ) (checkpoint : Shape) where
   -- It is not.  Whenever the capability is absent from V the obstruction
   -- exists; it is the record `probe V ckTarget` builds on the target
   -- `node checkpoint var`, and that target's deficit strictly drops when
-  -- it is proposed � so this is a step the loop of B2-B4 really takes,
+  -- it is proposed — so this is a step the loop of B2-B4 really takes,
   -- not an ad-hoc inhabitant.
   ------------------------------------------------------------------------
 

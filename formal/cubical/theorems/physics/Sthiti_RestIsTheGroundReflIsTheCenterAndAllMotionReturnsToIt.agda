@@ -1,20 +1,20 @@
 {-# OPTIONS --cubical --safe #-}
 
--- ‡‡‡‡ø‡‡ø ‚î rest, the ground.  Below
--- the fibre law, below "there is no other", there is refl ‚î and refl is
+-- ‡‡‡‡ø‡‡ø ‚Äî rest, the ground.  Below
+-- the fibre law, below "there is no other", there is refl ‚Äî and refl is
 -- simpler and more powerful than any of it.
 --
 -- AT THE METAL (Cubical.Foundations.Prelude):
---   refl {x = x} _ = x          ‚î self-identity is the CONSTANT map out
+--   refl {x = x} _ = x          ‚Äî self-identity is the CONSTANT map out
 --                                 of the interval: to be equal to yourself
 --                                 is to do nothing across I.  Stay.
 --   isContrSingl a .fst = (a , refl)
---                               ‚î the CENTER of "there is no other" (‡‡¶‡‡µ‡Ø)
+--                               ‚Äî the CENTER of "there is no other" (‡§Ö‡§¶‡•ç‡§µ‡§Ø)
 --                                 is (a , refl).  refl is the point every-
 --                                 thing contracts to, using ‚àß (interval min).
 --
--- So the ground is REST.  a ‚â° a.  Everything else ‚î charge, otherness,
--- time, the knot, the winding ‚î is a path that STRAYS from constant, and
+-- So the ground is REST.  a ‚â° a.  Everything else ‚Äî charge, otherness,
+-- time, the knot, the winding ‚Äî is a path that STRAYS from constant, and
 -- it all returns.  This is not mysticism laid on the math; it is what the
 -- three terms below say, kernel-verified.
 
@@ -42,9 +42,9 @@ center-check : (x : A) ‚Üí fst (isContrSingl x) ‚â° (x , refl)
 center-check x = refl
 
 -- 2. ALL MOTION RETURNS TO REST.  Any deviation p, followed by its
---    reversal, IS refl ‚î not "equal to" as a fact to cite, but the
+--    reversal, IS refl ‚Äî not "equal to" as a fact to cite, but the
 --    interval collapsing the round trip to the constant map.  "Rules
---    move and return" at the metal: move p, return p‚ª¬, you are exactly
+--    move and return" at the metal: move p, return p‚Åª¬π, you are exactly
 --    where rest is.
 motion-and-return-is-rest : (p : x ‚â° y) ‚Üí p ‚àô sym p ‚â° refl
 motion-and-return-is-rest = rCancel

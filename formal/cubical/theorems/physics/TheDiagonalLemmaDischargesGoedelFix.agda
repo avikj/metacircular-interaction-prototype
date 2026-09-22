@@ -19,10 +19,10 @@ open import IndependenceNeedsAnInternalImplication
 -- This module writes representability down and discharges `GoedelFix`
 -- with it.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT `Theory` HAS AND WHAT THE DIAGONAL LEMMA NEEDS
 --
--- `Theory` carries `Sent`, `Pf`, `neg`, `prov`.  `prov : Sent â’ Sent`
+-- `Theory` carries `Sent`, `Pf`, `neg`, `prov`.  `prov : Sent â†’ Sent`
 -- is already "the formula applied at a code", so what is missing for a
 -- diagonal lemma is (i) one-place formulas as a type, (ii) their
 -- application to a sentence, and (iii) the fixed point itself.  Â§1
@@ -31,18 +31,18 @@ open import IndependenceNeedsAnInternalImplication
 -- conjunction and inventing one would be adding structure the corpus
 -- does not have.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS PROVED
 --
 --   Â§1  `HasDiagonal`: one-place formulas, application, and a fixed
 --       point for each, in the corpus's own vocabulary plus `imp`
 --       and `mp`.
 --
---   Â§2  the diagonal lemma at the formula `Â prov(âˆ’)` DISCHARGES
+--   Â§2  the diagonal lemma at the formula `Â¬ prov(âˆ’)` DISCHARGES
 --       `GoedelFix`.  Two applications of modus ponens; no consistency,
 --       no HBL1, no Ï‰-consistency.  So the first of `GodelSeparation`'s
 --       three hypotheses is not a hypothesis about the ambient
---       structure at all â” it is representability, and this is the
+--       structure at all â€” it is representability, and this is the
 --       term.
 --
 --   Â§3  what Â§2 alone does NOT give: the second conjunct.  Getting
@@ -53,11 +53,11 @@ open import IndependenceNeedsAnInternalImplication
 --
 --   Â§4  and then independence, from Â§2, Â§3 and Ï‰-consistency.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE INTERNAL FRAGMENT
 --
 -- What the lane needs is not a theory object but a connective former:
--- a PROPOSITIONAL FRAGMENT INTERNAL TO THE THEORY â”
+-- a PROPOSITIONAL FRAGMENT INTERNAL TO THE THEORY â€”
 -- `imp`, `mp`, contraposition, double-negation elimination,
 -- transitivity.  Stated exactly, since the careless version is wrong:
 -- the FIRST conjunct needs `imp` and `mp` (they discharge `GoedelFix`
@@ -89,7 +89,7 @@ record HasDiagonal (T : Theory â„“) : Type (â„“-suc â„“) where
     fix  : (Ï† : Form)
          â†’ Î£[ G âˆˆ Sent T ]
              (Pf T (imp G (app Ï† G)) Ã— Pf T (imp (app Ï† G) G))
-    -- the one formula Gdel's argument needs, and that it IS `Â prov`.
+    -- the one formula GÃ¶del's argument needs, and that it IS `Â¬ prov`.
     negProv    : Form
     negProv-is : (s : Sent T) â†’ app negProv s â‰¡ neg T (prov T s)
 
@@ -121,8 +121,8 @@ module _ (T : Theory â„“) (D : HasDiagonal T) where
 ------------------------------------------------------------------------
 -- 3.  The second conjunct needs three more internal rules
 --
--- From `Pf (imp (neg (prov G)) G)` â” the backward half of the diagonal
--- pair â” contraposition gives `Pf (imp (neg G) (neg (neg (prov G))))`,
+-- From `Pf (imp (neg (prov G)) G)` â€” the backward half of the diagonal
+-- pair â€” contraposition gives `Pf (imp (neg G) (neg (neg (prov G))))`,
 -- internal double-negation elimination gives
 -- `Pf (imp (neg (neg (prov G))) (prov G))`, and transitivity composes
 -- them.  Each is assumed by name.

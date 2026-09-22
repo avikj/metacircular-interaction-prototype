@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡‡-‡‡‡‡∞‡‡µ‡Æ‡ ‚î ‡‡®‡‡¶‡‡∞‡ø‡Ø-‡‡‡∞‡Æ‡æ‡‡ ‡‡‡‡‡‡µ‡‡ ‡‡®‡‡‡-‡µ‡ø‡ß‡ø‡ ; ‡‡Ø‡ ‡‡‡‡‡ ‡
+-- ‡§∏‡•á‡§§‡•Å-‡§Ö‡§™‡•Ç‡§∞‡•ç‡§µ‡§Æ‡•ç ‚Äî ‡§á‡§®‡•ç‡§¶‡•ç‡§∞‡§ø‡§Ø-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡§Ç ‡§§‡§§‡•ç‡§§‡•ç‡§µ‡§§‡§É ‡§§‡§®‡•ç‡§§‡•Å-‡§µ‡§ø‡§ß‡§ø‡§É ; ‡§Ö‡§Ø‡§Ç ‡§∏‡•á‡§§‡•Å‡§É ‡•§
 --
 -- (the sensorium criterion IS the quotient/fiber law; this is the adapter.)
 --
@@ -16,27 +16,27 @@
 --      against, one by one, each instantiation a `refl`-grade adapter rather
 --      than a note."
 --
--- `ApurvaIndriyam_‚¶` was written as a note ‚î a standalone module proving,
+-- `ApurvaIndriyam_‚Ä¶` was written as a note ‚Äî a standalone module proving,
 -- for an arbitrary reading S and proposal q, that a blind pair separated by
 -- q refutes every derivation of q from S.  That is the same law, and saying
 -- so in prose is worth nothing.  This module says it as a term:
 --
 --     collision-obstructs, the Law's own fiber-invisibility statement, is
---     `‡‡‡‡∞‡‡µ‡Æ‡` applied.
+--     `‡§Ö‡§™‡•Ç‡§∞‡•ç‡§µ‡§Æ‡•ç` applied.
 --
 -- WHAT THE PIECES CORRESPOND TO.  Reading the Law's definitions as a
--- sensorium: `obs os : X ‚í List Bool` IS a reading S, its transcript the
+-- sensorium: `obs os : X ‚Üí List Bool` IS a reading S, its transcript the
 -- observation; `AllBlind os x y` gives `obs os x ‚â° obs os y` by `obs-agree`,
--- which is a blind pair; `FactorsThrough os t` is `‡‡‡∞‡µ‡‡‡ø (obs os) t` with
+-- which is a blind pair; `FactorsThrough os t` is `‡§™‡•ç‡§∞‡§µ‡§π‡§§‡§ø (obs os) t` with
 -- the equation reversed, so ¬ß1 is `sym` and nothing more; and `t x ‚â° not (t y)`
 -- is separation at the two-valued codomain, so ¬ß3 converts it by `notFix`.
 --
 -- DIRECTION, and it is not symmetric.  This derives THEIRS from MINE.  The
--- reverse does not follow: `‡‡‡‡∞‡‡µ‡Æ‡` quantifies over an arbitrary codomain Q
+-- reverse does not follow: `‡§Ö‡§™‡•Ç‡§∞‡•ç‡§µ‡§Æ‡•ç` quantifies over an arbitrary codomain Q
 -- while `collision-obstructs` is stated at `Bool` with separation as `‚â° not`,
 -- so the Law's statement is an instance of the general one.  In exchange the
--- Law carries what this side does not ‚î `charged‚íseparator` CONSTRUCTS the
--- separator where `‡‡‡‡∞‡‡µ‡Æ‡` only refutes, plus `law`'s iff and `not-both`'s
+-- Law carries what this side does not ‚Äî `charged‚áíseparator` CONSTRUCTS the
+-- separator where `‡§Ö‡§™‡•Ç‡§∞‡•ç‡§µ‡§Æ‡•ç` only refutes, plus `law`'s iff and `not-both`'s
 -- exclusivity.  Neither module subsumes the other; this edge is the part that
 -- can be built, and the part that cannot is named here rather than left for a
 -- reader to discover.
@@ -59,7 +59,7 @@ module _ (X : Type) where
   open Law X
 
   ----------------------------------------------------------------------
-  -- ‡ß ¬ The Law's `FactorsThrough` IS `‡‡‡∞‡µ‡‡‡ø` of the transcript reading.
+  -- ‡•ß ¬∑ The Law's `FactorsThrough` IS `‡§™‡•ç‡§∞‡§µ‡§π‡§§‡§ø` of the transcript reading.
   -- Only the equation's direction differs, so the whole content is `sym`.
   ----------------------------------------------------------------------
 
@@ -68,7 +68,7 @@ module _ (X : Type) where
   ‡§™‡•ç‡§∞‡§µ‡§π‡§§‡§ø-‡§§‡§É os t (g , comm) = g , Œª x ‚Üí sym (comm x)
 
   ----------------------------------------------------------------------
-  -- ‡® ¬ Separation at Bool: a flipped pair is an unequal pair.
+  -- ‡•® ¬∑ Separation at Bool: a flipped pair is an unequal pair.
   ----------------------------------------------------------------------
 
   notFix : (b : Bool) ‚Üí ¬¨ (b ‚â° not b)
@@ -76,10 +76,10 @@ module _ (X : Type) where
   notFix false e = true‚â¢false (sym e)
 
   ----------------------------------------------------------------------
-  -- ‡© ¬ THE EDGE.  `collision-obstructs`, derived from `‡‡‡‡∞‡‡µ‡Æ‡`.
+  -- ‡•© ¬∑ THE EDGE.  `collision-obstructs`, derived from `‡§Ö‡§™‡•Ç‡§∞‡•ç‡§µ‡§Æ‡•ç`.
   --
   -- `obs-agree` turns AllBlind into the blind pair; `notFix` turns the flip
-  -- into separation; ¬ß‡ß turns FactorsThrough into ‡‡‡∞‡µ‡‡‡ø.  Then it is the
+  -- into separation; ¬ß‡•ß turns FactorsThrough into ‡§™‡•ç‡§∞‡§µ‡§π‡§§‡§ø.  Then it is the
   -- general criterion applied, and nothing else happens.
   ----------------------------------------------------------------------
 
@@ -94,7 +94,7 @@ module _ (X : Type) where
       (‡§™‡•ç‡§∞‡§µ‡§π‡§§‡§ø-‡§§‡§É os t fac)
 
 ------------------------------------------------------------------------
--- ‡Æ‡∞‡‡Ø‡æ‡¶‡æ, at the site.
+-- ‡§Æ‡§∞‡•ç‡§Ø‡§æ‡§¶‡§æ, at the site.
 --
 -- * This is one edge.  `ApurvaIndriyam` remains a costume of the Law and
 --   should be read as one; the honest effect of this module is to make that

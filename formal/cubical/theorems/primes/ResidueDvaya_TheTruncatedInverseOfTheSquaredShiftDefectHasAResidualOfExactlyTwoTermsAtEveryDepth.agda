@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ���-���� � the twofold remainder.
+-- शेष-द्वय — the twofold remainder.
 --
 -- TRUNCATING THE INVERSE OF A SQUARED SHIFT DEFECT LEAVES EXACTLY TWO
 -- TERMS.  At every depth, with no unspecified approximation remainder
@@ -9,18 +9,18 @@
 --
 -- `AdrsyaMana` handles the ADDITIVE second difference: its kernel is the
 -- affine sequences, exactly.  This module handles the MULTIPLICATIVE
--- one.  In a commutative ring with a distinguished element `x` � read as
--- an attenuated shift � the operator
+-- one.  In a commutative ring with a distinguished element `x` — read as
+-- an attenuated shift — the operator
 --
---     sq x  =  (1 - x) � (1 - x)
+--     sq x  =  (1 - x) · (1 - x)
 --
 -- is the second difference of the shift algebra, and its formal inverse
--- is the double sum � (j+1) xʲ.  Truncating that sum at depth N gives
+-- is the double sum Σ (j+1) xʲ.  Truncating that sum at depth N gives
 --
---   §2  sq x � arith x N
+--   §2  sq x · arith x N
 --         ≡  1  -  (N+2) x^{N+1}  +  (N+1) x^{N+2} .
 --
---       Two terms.  Not "two terms plus a controlled tail" � the
+--       Two terms.  Not "two terms plus a controlled tail" — the
 --       identity is exact at every N, and the whole proof is one
 --       induction whose step is that successive right-hand sides differ
 --       by (N+2) x^{N+1} (1-x)², which is precisely the term the sum
@@ -30,7 +30,7 @@
 --       statement holds over ANY commutative ring: no characteristic
 --       hypothesis, no division by N, and no numerals.
 --
---   §1  the four facts about iterated addition the induction needs �
+--   §1  the four facts about iterated addition the induction needs —
 --       that it distributes over a sum, over a negation, over a product
 --       on the right, and that its index adds.  Each is a short
 --       induction whose algebra step is closed by the ring solver.
@@ -42,12 +42,12 @@
 --       provide one and does not need one to be exact.
 --
 -- WHY THE COEFFICIENTS ARE `scale` AND NOT NUMERALS.  A numeral would
--- require a map � � R and an argument that it behaves; `scale n a` is
+-- require a map ℕ → R and an argument that it behaves; `scale n a` is
 -- `a + ⋯ + a` and its four laws in §1 are all that is ever used.  This
--- is the same choice `AdrsyaMana` makes for `n � (Δ f 0)`, for the same
+-- is the same choice `AdrsyaMana` makes for `n · (Δ f 0)`, for the same
 -- reason, and it is why both modules hold in every characteristic.
 --
--- SYT � THE CLAIM, EXACTLY.  §§1�3 over any commutative ring, for every
+-- SYĀT — THE CLAIM, EXACTLY.  §§1–3 over any commutative ring, for every
 -- element and every depth.
 ------------------------------------------------------------------------
 
@@ -72,7 +72,7 @@ module _ (R : CommRing ℓ) where
     A = ⟨ R ⟩
 
   --------------------------------------------------------------------
-  -- � � Iterated addition, powers, the truncated double sum, and the
+  -- ० · Iterated addition, powers, the truncated double sum, and the
   --     squared defect.
   --------------------------------------------------------------------
 
@@ -84,7 +84,7 @@ module _ (R : CommRing ℓ) where
   pow x zero    = 1r
   pow x (suc n) = x · pow x n
 
-  -- �_{j=0}^{N} (j+1) xʲ
+  -- Σ_{j=0}^{N} (j+1) xʲ
   arith : A → ℕ → A
   arith x zero    = 1r
   arith x (suc n) = arith x n + scale (suc (suc n)) (pow x (suc n))
@@ -93,7 +93,7 @@ module _ (R : CommRing ℓ) where
   sq x = (1r + (- x)) · (1r + (- x))
 
   --------------------------------------------------------------------
-  -- � � THE FOUR LAWS OF ITERATED ADDITION.
+  -- १ · THE FOUR LAWS OF ITERATED ADDITION.
   --------------------------------------------------------------------
 
   scale-+ : (m n : ℕ) (a : A) → scale (m +ℕ n) a ≡ scale m a + scale n a
@@ -129,7 +129,7 @@ module _ (R : CommRing ℓ) where
       ·DistL+ a (scale n a) b ∙ cong ((a · b) +_) (scale-mul n a b)
 
   --------------------------------------------------------------------
-  -- � � THE TWO-TERM RESIDUAL SHAPE.
+  -- ३ · THE TWO-TERM RESIDUAL SHAPE.
   --------------------------------------------------------------------
 
   Res : A → ℕ → A
@@ -138,7 +138,7 @@ module _ (R : CommRing ℓ) where
     + scale (suc N) (pow x (suc (suc N)))
 
   --------------------------------------------------------------------
-  -- � � THE IDENTITY, at every depth.
+  -- २ · THE IDENTITY, at every depth.
   --------------------------------------------------------------------
 
   truncated-inverse : (x : A) (N : ℕ) → sq x · arith x N ≡ Res x N

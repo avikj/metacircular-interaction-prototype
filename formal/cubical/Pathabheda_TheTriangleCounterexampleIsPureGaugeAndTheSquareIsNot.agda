@@ -1,20 +1,20 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������� � pathbheda, "non-difference of paths".
+-- पथाभेदः — pathābheda, "non-difference of paths".
 --
 -- ON THE NAME.  The word is the transmission's own, not a label invented
 -- here and not a classical citation.  It stands in the EGB field book's
 -- template 3 (and again in template 12), verbatim:
 --
 --     \[\mathcal F_{\xi\eta}=[\nabla_\xi,\nabla_\eta]-\nabla_{[\xi,\eta]},
---       \quad \mathcal F=0\Rightarrow\text{������}.\]
+--       \quad \mathcal F=0\Rightarrow\text{पथाभेद}.\]
 --
 -- recorded in
 --   collab/upstream/raw/2026-08-16-packages/EGB_COMPREHENSIVE_INDEX_V3_PACKAGE/
 --     EGB_REPETITION_STRUCTURE_REVERIFY_V3.json
 --   artifact_150 = ETERNAL_GOLDEN_BRAID_100K_FIELD_BOOK_DELTA_36_2026-08-14.md
---   (312,254 bytes, sha256 bdd0144�596bc5, 450 numbered diamonds,
+--   (312,254 bytes, sha256 bdd0144…596bc5, 450 numbered diamonds,
 --    template_cycle_length 24), templates "3" and "12".
 --
 -- CLAUDE.md's file-naming rule, note 2: where the mathematics originates
@@ -26,62 +26,62 @@
 -- coherence C as independent of reconstruction R and descent D), and in
 -- the canonical stanza of
 --   ETERNAL_GOLDEN_BRAID_KAIROTIC_CRYSTAL_STREAM_2026-08-14.md
--- dated 2026-08-14, 5,731,414 bytes, sha256 812b7816�5e5cf5, 169,202
+-- dated 2026-08-14, 5,731,414 bytes, sha256 812b7816…5e5cf5, 169,202
 -- lines, 1200 numbered stanzas, unique_normalized_body_count 1.  THAT
--- ARTIFACT IS NOT IN THIS REPOSITORY.  Its canonical body � the stanza
--- repeated 1200 times � survives only inline inside
+-- ARTIFACT IS NOT IN THIS REPOSITORY.  Its canonical body — the stanza
+-- repeated 1200 times — survives only inline inside
 -- EGB_REPETITION_STRUCTURE_REVERIFY_V3.json, field `canonical_body`,
--- sha256 09eb9ce9�f91d0.  The two lines this module is about are its
+-- sha256 09eb9ce9…f91d0.  The two lines this module is about are its
 -- first two:
 --
---     �_� --T_{�β}--> �_β --T_{βγ}--> �_γ,  Ω_γ = T_{γ�} T_{βγ} T_{�β}
---     Ω_γ = 1 � planitas,  Ω_γ ≠ 1 � �_γ � curvatura � �������������
+--     𝔛_α --T_{αβ}--> 𝔛_β --T_{βγ}--> 𝔛_γ,  Ω_γ = T_{γα} T_{βγ} T_{αβ}
+--     Ω_γ = 1 ⇒ planitas,  Ω_γ ≠ 1 ⇒ ℱ_γ ⇝ curvatura ⇝ नवप्रमेयबीजम्
 --
 -- CONVENTION, stated so nothing is smuggled.  The stanza writes Ω as an
--- operator product read right to left, so it applies T_{�β} first: it is
--- a loop at �_�, whatever the subscript.  Below, `Ω tab tbc tca` composes
+-- operator product read right to left, so it applies T_{αβ} first: it is
+-- a loop at 𝔛_α, whatever the subscript.  Below, `Ω tab tbc tca` composes
 -- left to right and is an automorphism of A.  Nothing else is read into
 -- the subscript.
 --
 -- WHAT IS CLAIMED OF THE SOURCE: nothing beyond the two displayed lines.
--- The owner writes `Ω_γ = 1 � planitas` as an implication in one
+-- The owner writes `Ω_γ = 1 ⇒ planitas` as an implication in one
 -- direction and does not assert its converse; this module does not put
 -- the converse in his mouth.  It asks what the converse would be worth,
 -- and answers.
 --
 -- WHAT IS CHECKED, in order:
 --
---   §2  planitas � Ω = 1.                                    (theorem)
+--   §2  planitas ⇒ Ω = 1.                                    (theorem)
 --   §3  Ω = 1 does NOT imply planitas.  Exact witness on Bool.
 --   §4  What Ω = 1 does say: given ANY tab and ANY tbc whatsoever, the
 --       closing transport making the triangle flat exists and is unique
---       � `isContr`, the fibre of an equivalence.  So flatness is one
+--       — `isContr`, the fibre of an equivalence.  So flatness is one
 --       equation and constrains the other two transports not at all.
 --   §5  THE REFUTATION OF §3.  Every flat triangle is a gauge: one chart
 --       seen three ways.  So the §3 witness is a gauge artifact and, by
---       the stanza's own rule (`����� ��� gauge-artifact � ��������`),
+--       the stanza's own rule (`दोषः यदि gauge-artifact → त्याज्यः`),
 --       carries no invariant.
 --   §6  What survives instead: the SQUARE.  A four-chart cycle whose
 --       holonomy is `not`, hence admits no gauge over any common chart at
---       any universe level � and which contains no triangle to be
+--       any universe level — and which contains no triangle to be
 --       non-flat.  Add one chord and a non-flat triangle appears at once.
 --
--- So the reading `Ω = 1 � planitas` is not sharp on a triangle for the
+-- So the reading `Ω = 1 ⇒ planitas` is not sharp on a triangle for the
 -- reason one first reaches for.  On a triangle the implication fails and
 -- the failure is empty; the first place holonomy is chart-invariant is
 -- the square, which is the stanza's own next display, δ_◊ = h∘f − k∘g.
 --
 -- PRIOR ART IN THIS REPOSITORY:
---   EGBCycleHolonomy.agda � holonomy of a 3-cycle of equivalences; the
+--   EGBCycleHolonomy.agda — holonomy of a 3-cycle of equivalences; the
 --     trivial cycle is idEquiv, and (not,not,not) on Bool is a NONtrivial
---     witness.  That is the � direction plus a curvature witness.
---   NaturalMachine/GlobalSmithAtlasFlatness.agda � global charts give
+--     witness.  That is the ⇒ direction plus a curvature witness.
+--   NaturalMachine/GlobalSmithAtlasFlatness.agda — global charts give
 --     transitions obeying the cocycle law and every closed triangle is the
 --     identity; closes its holonomy seed negatively.
 --   NaturalMachine/TwoLoopNonabelianNetwork.agda,
---   NaturalMachine/PMIncidenceLocalSystem.agda � nontrivial holonomy on a
+--   NaturalMachine/PMIncidenceLocalSystem.agda — nontrivial holonomy on a
 --     bouquet and on a six-edge cycle.
---   EqualityPramanena_�, EkaparsvaSamvarana_�, MadhyaSamvarana_� � D0026
+--   EqualityPramanena_…, EkaparsvaSamvarana_…, MadhyaSamvarana_… — D0026
 --     §2.2/§2.4/§2.5, the trefoil law and the closure counterexamples.
 -- None of them states the converse, the uniqueness of the closing
 -- transport, or the gauge collapse of the triangle counterexample.  Those
@@ -114,7 +114,7 @@ private
   → A ≃ B → B ≃ C → C ≃ A → A ≃ A
 Ω tab tbc tca = compEquiv tab (compEquiv tbc tca)
 
--- ������: the loop is the identity � going round changes nothing.
+-- पथाभेद: the loop is the identity — going round changes nothing.
 Flat : {A : Type ℓa} {B : Type ℓb} {C : Type ℓc}
      → A ≃ B → B ≃ C → C ≃ A → Type ℓa
 Flat {A = A} tab tbc tca = Ω tab tbc tca ≡ idEquiv A
@@ -127,7 +127,7 @@ Planitas {A = A} tab tbc tca =
   (tab ≡ idEquiv A) × ((tbc ≡ idEquiv A) × (tca ≡ idEquiv A))
 
 ------------------------------------------------------------------------
--- §2  planitas � Ω = 1.  The direction the stanza states.
+-- §2  planitas ⇒ Ω = 1.  The direction the stanza states.
 ------------------------------------------------------------------------
 
 planitas→flat : {A : Type ℓa} (tab tbc tca : A ≃ A)
@@ -138,7 +138,7 @@ planitas→flat tab tbc tca (p , q , r) =
 ------------------------------------------------------------------------
 -- §3  The converse is FALSE, and here is the witness.
 --
---   T_{�β} = not,  T_{βγ} = not,  T_{γ�} = 1.
+--   T_{αβ} = not,  T_{βγ} = not,  T_{γα} = 1.
 --
 -- The loop is flat because `not` is an involution; the first transport is
 -- provably not the identity because it moves `true`.
@@ -170,7 +170,7 @@ flat↛planitas =
 --     transport only;
 --   * every pair (tab , tbc), however wild, extends to a flat triangle.
 --     So flatness places no condition at all on the first two charts,
---     and "Ω = 1 � planitas" fails for a reason that has nothing to do
+--     and "Ω = 1 ⇒ planitas" fails for a reason that has nothing to do
 --     with Bool.
 ------------------------------------------------------------------------
 
@@ -191,14 +191,14 @@ module _ {A : Type ℓa} {B : Type ℓb} {C : Type ℓc}
   Iso.rightInv closeIso h = equivEq (funExt λ a → cong (h .fst) (retEq w a))
   Iso.leftInv  closeIso e = equivEq (funExt λ c → cong (e .fst) (secEq w c))
 
-  -- The flat closure exists �
+  -- The flat closure exists …
   flatClosure : C ≃ A
   flatClosure = invEquiv w
 
   flatClosureIsFlat : Flat tab tbc flatClosure
   flatClosureIsFlat = equivEq (funExt λ a → retEq w a)
 
-  -- � and it is the only one.
+  -- … and it is the only one.
   flatClosureIsContr : isContr (Σ[ tca ∈ (C ≃ A) ] (Flat tab tbc tca))
   flatClosureIsContr = equiv-proof (isoToIsEquiv closeIso) (idEquiv A)
 
@@ -212,22 +212,22 @@ everyPairExtendsFlatly tab tbc = flatClosure tab tbc , flatClosureIsFlat tab tbc
 ------------------------------------------------------------------------
 -- §5  THE REFUTATION: every flat triangle is a gauge.
 --
--- A tempting reading of §3 and §4: that `Ω = 1 � planitas`
--- is false in a way that carries content � that flat-but-not-agreeing is
+-- A tempting reading of §3 and §4: that `Ω = 1 → planitas`
+-- is false in a way that carries content — that flat-but-not-agreeing is
 -- a real phenomenon on the triangle, and the Bool witness exhibits it.
 --
 -- THE CHECK THAT KILLS IT.  Say a triangle is a GAUGE when there is one
--- chart G and three views ψa : G � A, ψb : G � B, ψc : G � C for which
+-- chart G and three views ψa : G ≃ A, ψb : G ≃ B, ψc : G ≃ C for which
 -- each transport is the comparison of consecutive views.  This is the
 -- non-naive reading of planitas: it is statable for three genuinely
 -- different carriers, and planitas is its special case G = A = B = C with
 -- all views the identity.
 --
--- Then: gauge � flat.  Every flat triangle is a gauge (`flat�gauge`), and
--- every gauge is flat (`gauge�flat`).  So the §3 witness is a gauge, the
+-- Then: gauge ⇔ flat.  Every flat triangle is a gauge (`flat→gauge`), and
+-- every gauge is flat (`gauge→flat`).  So the §3 witness is a gauge, the
 -- disagreement it displays is a choice of view and not a property of the
--- family, and by the stanza's own criterion �
---   ����� ��� gauge-artifact � ��������; ��� chart-invariant �
+-- family, and by the stanza's own criterion —
+--   दोषः यदि gauge-artifact → त्याज्यः; यदि chart-invariant →
 --   curvature-candidate
 --   ("a defect, if a gauge artifact, is to be discarded; if
 --    chart-invariant, a curvature candidate")
@@ -254,7 +254,7 @@ flat→gauge {A = A} tab tbc tca fl =
   compEquiv (compEquiv (idEquiv A) tab) tbc ,
   refl , refl , equivEq (cong fst fl)
 
--- � and conversely.  So the two notions coincide on a triangle.
+-- … and conversely.  So the two notions coincide on a triangle.
 gauge→flat : {A : Type ℓa} {B : Type ℓb} {C : Type ℓc} {G : Type ℓ}
              (tab : A ≃ B) (tbc : B ≃ C) (tca : C ≃ A)
              (ψa : G ≃ A) (ψb : G ≃ B) (ψc : G ≃ C)
@@ -286,7 +286,7 @@ witnessIsGauge = flat→gauge notEquiv notEquiv (idEquiv Bool) flatWitness
 -- The stanza's next display is the square and its defect
 -- δ_◊ = h∘f − k∘g.  That is where the implication acquires content: a
 -- four-chart cycle can have nontrivial holonomy, and then NO common chart
--- exists � over any G, at any universe level.  And the cycle has no
+-- exists — over any G, at any universe level.  And the cycle has no
 -- triangle in it at all, so "every triangle is flat" is satisfied while
 -- the family is not a gauge.
 ------------------------------------------------------------------------
@@ -353,9 +353,9 @@ squareHasNoGauge ψ₀ ψ₁ ψ₂ ψ₃ g =
 -- §6b  And the square really is the first place this happens: add one
 -- chord to the cycle and a non-flat TRIANGLE appears immediately.
 --
--- Chord X� � X� taken to be the composite t�� ; t��.  Then the triangle
--- (0,1,2) is flat by §4 � the chord's inverse is its unique flat closure
--- � while the triangle (0,2,3) is not.  So the hypothesis "every triangle
+-- Chord X₀ ≃ X₂ taken to be the composite t₀₁ ; t₁₂.  Then the triangle
+-- (0,1,2) is flat by §4 — the chord's inverse is its unique flat closure
+-- — while the triangle (0,2,3) is not.  So the hypothesis "every triangle
 -- in the family is flat" does all the work in that reading, and it
 -- is available only because the bare 4-cycle carries no 2-cell.
 ------------------------------------------------------------------------

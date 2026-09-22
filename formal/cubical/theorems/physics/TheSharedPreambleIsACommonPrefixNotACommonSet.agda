@@ -4,13 +4,13 @@
 -- TheSharedPreambleIsACommonPrefixNotACommonSet
 --
 -- `interactive/TraceLibrary.hs` computes the shared helper preamble of its
--- trace records as `foldr1 lcp` � the longest common PREFIX.
+-- trace records as `foldr1 lcp` — the longest common PREFIX.
 --
 -- Why the prefix and not the intersection is the right meet, checked:
 --
 --   * the common prefix IS the greatest common prefix (§2), so `lcp` is
 --     a meet and not a heuristic;
---   * the common SET is not a preamble at all (§3) � two records can
+--   * the common SET is not a preamble at all (§3) — two records can
 --     share every declaration and have empty common prefix, and any
 --     ordering of the shared set fails to be a prefix of one of them.
 --
@@ -19,13 +19,13 @@
 -- earlier ones, so a set of declarations is not a preamble until it is
 -- ordered, and no single ordering serves two records that disagree.
 --
--- The declaration names below �
--- `addZero`, `addSuc` � are that file's own, and `addZero : (a : �) �
+-- The declaration names below —
+-- `addZero`, `addSuc` — are that file's own, and `addZero : (a : ℕ) →
 -- (a + zero) ≡ a` is the lemma its header says every record carries.
 --
 -- ADJACENT AND NOT MERGED.  `Anuvrtti` proves that a
 -- measure sensitive to inheritance does not descend to the rule SET, and
--- §3 here is the same shape one level down � order carrying what the set
+-- §3 here is the same shape one level down — order carrying what the set
 -- does not.  They are different statements about different objects and
 -- neither derives the other: Anuvrtti is about a cost failing to factor
 -- through `asSet`; §3 is about a common set failing to BE a preamble.
@@ -136,8 +136,8 @@ neitherOrderingServesBoth =
 -- 4.  The reading
 --
 -- §2 says `foldr1 lcp` is not a conservative guess: it computes the
--- greatest object of the right kind.  §3 says the tempting alternative �
--- take the declarations both records share � is not an object of that
+-- greatest object of the right kind.  §3 says the tempting alternative —
+-- take the declarations both records share — is not an object of that
 -- kind at all, because a preamble is a SEQUENCE and a set has to be
 -- ordered before it can be one.  Two records sharing every declaration
 -- can share no prefix.

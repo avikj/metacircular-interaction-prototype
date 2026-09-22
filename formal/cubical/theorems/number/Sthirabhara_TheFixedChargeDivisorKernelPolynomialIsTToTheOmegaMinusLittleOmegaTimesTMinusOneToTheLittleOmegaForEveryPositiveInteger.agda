@@ -5,87 +5,87 @@
 --
 -- �����-����, the fixed charge.  D0026 §5.5 displays
 --
---     "Φ_n(t) = �_{d|n} μ(n/d) t^{Ω(d)} = t^{Ω(n)−ω(n)} (t−1)^{ω(n)}"
+--     "Φ_n(t) = Σ_{d|n} μ(n/d) t^{Ω(d)} = t^{Ω(n)−ω(n)} (t−1)^{ω(n)}"
 --
 -- whose coefficients are the fixed-charge divisor kernels κ_r(n).  The
--- package's (1.1)�(1.3) say, with �(d) = Ω(d) − ω(d) and j = ω(d), that
--- κ_r(d) = (−1)^{j−k} C(j,k) with k = r − �, so that κ�(d) = (−1)^{j−1} j
--- if � = 0, (−1)^j if � = 1, 0 if � � 2; and D0026 §5.4 says
+-- package's (1.1)–(1.3) say, with ρ(d) = Ω(d) − ω(d) and j = ω(d), that
+-- κ_r(d) = (−1)^{j−k} C(j,k) with k = r − ρ, so that κ₁(d) = (−1)^{j−1} j
+-- if ρ = 0, (−1)^j if ρ = 1, 0 if ρ ≥ 2; and D0026 §5.4 says
 --
---     "κ�(d) = �_{p|d} μ(d/p) � sparse and Mbius-coherent but not
+--     "κ₁(d) = Σ_{p|d} μ(d/p) — sparse and Möbius-coherent but not
 --      multiplicative".
 --
 -- `ChargePolynomialFinite.agda` certified the identity at n = 12, 30,
 -- 360 only, on factorisation TABLES taken as input.  This module proves the
--- identity for EVERY n � 1, from the corpus's own μ, divisibility and
+-- identity for EVERY n ≥ 1, from the corpus's own μ, divisibility and
 -- factorisation, with no table.
 --
--- DEFINITIONS (§1�2).  �[t] is represented as coefficient sequences,
--- Poly = � � �, so that κ_r(n) is literally the r-th coefficient:
+-- DEFINITIONS (§1–2).  ℤ[t] is represented as coefficient sequences,
+-- Poly = ℕ → ℤ, so that κ_r(n) is literally the r-th coefficient:
 --
---     term n d r     = [d � n] � μ(n/d) � [r = Ω(d)]
---     Φ n r          = �_{d=1}^{n} term n d r      -- Φ_n(t) = �_{d|n} μ(n/d) t^{Ω(d)}
---     κ r n          = Φ n r                        -- = �_{d|n, Ω(d)=r} μ(n/d)
+--     term n d r     = [d ∣ n] · μ(n/d) · [r = Ω(d)]
+--     Φ n r          = Σ_{d=1}^{n} term n d r      -- Φ_n(t) = Σ_{d|n} μ(n/d) t^{Ω(d)}
+--     κ r n          = Φ n r                        -- = Σ_{d|n, Ω(d)=r} μ(n/d)
 --     closedForm a b = t^a (t−1)^b                  -- tPow a (tm1Pow b)
 --
--- with μ = `mu`, [d � n] = `dividesb`, n/d = `_div_` and Ω = `bigOmega`,
+-- with μ = `mu`, [d ∣ n] = `dividesb`, n/d = `_div_` and Ω = `bigOmega`,
 -- all of `TransmissionRefutations` (fuel-bounded trial-division
--- programs, specified in `MobiusPhi_�`); ω is defined here by the same
+-- programs, specified in `MobiusPhi_…`); ω is defined here by the same
 -- least-prime-factor recursion as Ω, counting a prime at its last
 -- occurrence.  Both are then IDENTIFIED with the corpus's factorisation
 -- (§8, §9, §11):
 --
 --     Ω-is-length-of-every-firm-factorisation :
---       (n : �) (L : List �) � ����� ����� L � ��� L ≡ n � Ω n ≡ length L
+--       (n : ℕ) (L : List ℕ) → सर्वे दृढम् L → वधः L ≡ n → Ω n ≡ length L
 --     Ω-is-length-of-Drdha-factorisation :
---       (n : �) (0<n : 0 < n) � Ω n ≡ length (fst (�������� n 0<n))
---     Ω-additive       : (m n : �) � 1 � m � 1 � n � Ω (m � n) ≡ Ω m + Ω n
---     ω-is-smallOmega  : (n : �) � 1 � n � ω n ≡ smallOmega n
+--       (n : ℕ) (0<n : 0 < n) → Ω n ≡ length (fst (विभाजनम् n 0<n))
+--     Ω-additive       : (m n : ℕ) → 1 ≤ m → 1 ≤ n → Ω (m · n) ≡ Ω m + Ω n
+--     ω-is-smallOmega  : (n : ℕ) → 1 ≤ n → ω n ≡ smallOmega n
 --
--- so Ω(n) is the length of Drdha's list � of EVERY list of firm numbers
--- with product n, by Uniqueness's uniqueness (a Perm preserves length) �
+-- so Ω(n) is the length of Drdha's list — of EVERY list of firm numbers
+-- with product n, by Uniqueness's uniqueness (a Perm preserves length) —
 -- and ω(n) is TransmissionRefutations' exhaustive count of primes
--- dividing n, whose `isPrimeb` is shown to be Drdha's ����� in both
+-- dividing n, whose `isPrimeb` is shown to be Drdha's दृढम् in both
 -- directions (`isPrimeb-firm`, `firm-isPrimeb`).
 --
 -- WHAT IS PROVED.
 --
---   Φ-closed-form : (n : �) � 1 � n � Φ n ≡ closedForm (Ω n � ω n) (ω n)
---   κ-closed-form : (r n : �) � 1 � n � κ r n ≡ closedForm (Ω n � ω n) (ω n) r
+--   Φ-closed-form : (n : ℕ) → 1 ≤ n → Φ n ≡ closedForm (Ω n ∸ ω n) (ω n)
+--   κ-closed-form : (r n : ℕ) → 1 ≤ n → κ r n ≡ closedForm (Ω n ∸ ω n) (ω n) r
 --
 -- i.e. Φ_n(t) = t^{Ω(n)−ω(n)} (t−1)^{ω(n)} as an equality of coefficient
--- sequences (a path in � � �), for every n � 1.  The route is NOT
+-- sequences (a path in ℕ → ℤ), for every n ≥ 1.  The route is NOT
 -- multiplicativity but the peeling recursion along the least prime
--- factor p of m = p�c (§4):
+-- factor p of m = p·c (§4):
 --
---   Φ-peel-repeat : 2 � m � p � c � Φ m ≡ t � Φ c
---   Φ-peel-new    : 2 � m � p � c � Φ m ≡ (t − 1) � Φ c
+--   Φ-peel-repeat : 2 ≤ m → p ∣ c → Φ m ≡ t · Φ c
+--   Φ-peel-new    : 2 ≤ m → p ∤ c → Φ m ≡ (t − 1) · Φ c
 --
 -- The divisors of m split into the p-free ones, which are the p-free
--- divisors of c by Gauss's lemma, and the multiples p�e with e � c;
--- μ(p�(c/d)) is read off MobiusPhi's `mu-mult`, and Euclid's lemma from
--- Drdha (��������-��������) kills the first half when p � c.  With
--- Ω(m) = Ω(c) + 1 and ω(m) = ω(c) + [p � c] � the recursions of Ω and ω
--- with their fuel discharged (§3) � the closed form follows by
--- induction (§5).  Then for κ� (§6):
+-- divisors of c by Gauss's lemma, and the multiples p·e with e ∣ c;
+-- μ(p·(c/d)) is read off MobiusPhi's `mu-mult`, and Euclid's lemma from
+-- Drdha (युक्लिड-वाक्यम्) kills the first half when p ∣ c.  With
+-- Ω(m) = Ω(c) + 1 and ω(m) = ω(c) + [p ∤ c] — the recursions of Ω and ω
+-- with their fuel discharged (§3) — the closed form follows by
+-- induction (§5).  Then for κ₁ (§6):
 --
---   κ�-is-prime-cofactor-sum : (n : �) � κ 1 n ≡ primeCofactorSum n
---       -- �_{p � n} [p prime][p � n] μ(n/p), i.e. §5.4's �_{p|d} μ(d/p)
---   κ�-three-cases : (n : �) � 1 � n � κ 1 n ≡ threeCase (Ω n � ω n) (ω n)
---       -- threeCase 0 j = (−1)^{j−1}�j,  threeCase 1 j = (−1)^j,
---       -- threeCase (2+_) j = 0;  as κ�-�0, κ�-�1, κ�-��2 separately
---   κ�-not-multiplicative : � (κ 1 6 ≡ κ 1 2 � κ 1 3)      -- −2 ≠ 1
+--   κ₁-is-prime-cofactor-sum : (n : ℕ) → κ 1 n ≡ primeCofactorSum n
+--       -- Σ_{p ≤ n} [p prime][p ∣ n] μ(n/p), i.e. §5.4's Σ_{p|d} μ(d/p)
+--   κ₁-three-cases : (n : ℕ) → 1 ≤ n → κ 1 n ≡ threeCase (Ω n ∸ ω n) (ω n)
+--       -- threeCase 0 j = (−1)^{j−1}·j,  threeCase 1 j = (−1)^j,
+--       -- threeCase (2+_) j = 0;  as κ₁-ρ0, κ₁-ρ1, κ₁-ρ≥2 separately
+--   κ₁-not-multiplicative : ¬ (κ 1 6 ≡ κ 1 2 · κ 1 3)      -- −2 ≠ 1
 --
--- and the general kernel (1.1)�(1.3) (§10), with `binom` Pascal's
+-- and the general kernel (1.1)–(1.3) (§10), with `binom` Pascal's
 -- triangle and `parity k` = (−1)^k:
 --
---   κ-general : 1 � n � � � r � κ r n ≡ (−1)^{ω(n) − (r−�)} � C(ω(n), r−�)
---   κ-below-� : 1 � n � r < � � κ r n ≡ 0                (� := Ω n � ω n)
+--   κ-general : 1 ≤ n → ρ ≤ r → κ r n ≡ (−1)^{ω(n) − (r−ρ)} · C(ω(n), r−ρ)
+--   κ-below-ρ : 1 ≤ n → r < ρ → κ r n ≡ 0                (ρ := Ω n ∸ ω n)
 --
 -- CHECKED BY refl (§7), from the RAW divisor sum, not from the closed
 -- form:  coeffs (Φ 12) = (0, 1, −2, 1, 0),  coeffs (Φ 30) =
 -- (−1, 3, −3, 1, 0),  coeffs (Φ 360) = (0, 0, 0, −1, 3, −3, 1, 0), with
--- (Ω, ω) = (3, 2), (3, 3), (6, 3); and κ�(6) = −2 while κ�(2)�κ�(3) = 1.
+-- (Ω, ω) = (3, 2), (3, 3), (6, 3); and κ₁(6) = −2 while κ₁(2)·κ₁(3) = 1.
 --
 -- No postulates, no holes, no termination pragmas; every fuel-bounded
 -- program is used only on the range where its specification is proved.
@@ -137,7 +137,7 @@ open import TheUsualReasonsMadeExplicitTheInductivePermutationRelationEmbedsInAd
   using (Insert ; here ; there ; Perm ; pnil ; pcons)
 
 ------------------------------------------------------------------------
--- 1.  �[t] as coefficient sequences.  The r-th coefficient of P is P r.
+-- 1.  ℤ[t] as coefficient sequences.  The r-th coefficient of P is P r.
 ------------------------------------------------------------------------
 
 Poly : Type₀
@@ -168,7 +168,7 @@ tP P (suc r) = P r
 tm1P : Poly → Poly
 tm1P P = tP P +P (-P P)
 
--- t^a � Q
+-- t^a · Q
 tPow : ℕ → Poly → Poly
 tPow zero Q = Q
 tPow (suc a) Q = tP (tPow a Q)
@@ -191,7 +191,7 @@ coeffs : Poly → ℕ → List ℤ
 coeffs P = coeffsFrom P 0
 
 ------------------------------------------------------------------------
--- 2.  Ω, ω, and the divisor-sum polynomial Φ_n(t) = �_{d � n} μ(n/d) t^{Ω(d)}.
+-- 2.  Ω, ω, and the divisor-sum polynomial Φ_n(t) = Σ_{d ∣ n} μ(n/d) t^{Ω(d)}.
 --
 -- Ω is `bigOmega` of TransmissionRefutations: Ω(1) = 0 and
 -- Ω(n) = 1 + Ω(n / spf n), i.e. the number of steps of repeated
@@ -216,7 +216,7 @@ coeffs P = coeffsFrom P 0
 ω : ℕ → ℕ
 ω n = ωF n n
 
--- the summand [d � n] � μ(n/d) � t^{Ω(d)}, coefficient by coefficient
+-- the summand [d ∣ n] · μ(n/d) · t^{Ω(d)}, coefficient by coefficient
 term : ℕ → ℕ → Poly
 term n d r = if dividesb d n then mu (n divN d) ·ℤ X^ (Ω d) r else pos 0
 
@@ -225,7 +225,7 @@ term n d r = if dividesb d n then mu (n divN d) ·ℤ X^ (Ω d) r else pos 0
 Φ n r = Σ≤ (λ d → term n d r) n
 
 -- the fixed-charge divisor kernel κ_r(n) IS the r-th coefficient:
--- κ_r(n) = �_{d � n, Ω(d) = r} μ(n/d)
+-- κ_r(n) = Σ_{d ∣ n, Ω(d) = r} μ(n/d)
 κ : ℕ → ℕ → ℤ
 κ r n = Φ n r
 
@@ -283,7 +283,7 @@ quot-< n 2≤n = divN-< (spf n) n (2≤spf n 2≤n) (1≤ n 2≤n)
   where
   q = (suc n') divN spf (suc n')
 
--- the least prime factor of p�e is p when every divisor � 2 is � p
+-- the least prime factor of p·e is p when every divisor ≥ 2 is ≥ p
 spf-of-mult : (p e : ℕ) → 2 ≤ p → 1 ≤ e
             → ((d : ℕ) → 2 ≤ d → d ∣ (p · e) → p ≤ d)
             → (2 ≤ p · e) × ((spf (p · e) ≡ p) × ((p · e) divN p ≡ e))
@@ -362,7 +362,7 @@ spf-of-mult p e 2≤p 1≤e least = 2≤m , spf≡p , q≡e
   where
   s = spf-of-mult p e 2≤p 1≤e least
 
--- ω � Ω
+-- ω ≤ Ω
 if-bound : (b : Bool) (x y z : ℕ) → x ≤ z → y ≤ z → (if b then x else y) ≤ z
 if-bound true x y z hx hy = hx
 if-bound false x y z hx hy = hy
@@ -386,17 +386,17 @@ if-bound false x y z hx hy = hy
 ω≤Ω n 1≤n = ω≤Ω-fuel n n ≤-refl 1≤n
 
 ------------------------------------------------------------------------
--- 4.  THE PEELING IDENTITY.  For m � 2 with p = spf m and m = p�c:
+-- 4.  THE PEELING IDENTITY.  For m ≥ 2 with p = spf m and m = p·c:
 --
---     Φ_m(t) = t � Φ_c(t)          if p � c,
---     Φ_m(t) = (t − 1) � Φ_c(t)    if p � c.
+--     Φ_m(t) = t · Φ_c(t)          if p ∣ c,
+--     Φ_m(t) = (t − 1) · Φ_c(t)    if p ∤ c.
 --
 -- The divisors d of m split into the p-free ones, which are exactly the
--- p-free divisors of c (Gauss), and the multiples p�e with e � c.  On
--- the second half Ω(p�e) = 1 + Ω(e) and m/(p�e) = c/e, so it is t�Φ_c.
--- On the first half μ(m/d) = μ(p � (c/d)) is 0 when p � c/d and
--- −μ(c/d) otherwise; if p � c then, d being p-free, p � c/d (Euclid)
--- and the half vanishes; if p � c the half is −Φ_c.
+-- p-free divisors of c (Gauss), and the multiples p·e with e ∣ c.  On
+-- the second half Ω(p·e) = 1 + Ω(e) and m/(p·e) = c/e, so it is t·Φ_c.
+-- On the first half μ(m/d) = μ(p · (c/d)) is 0 when p ∣ c/d and
+-- −μ(c/d) otherwise; if p ∣ c then, d being p-free, p ∣ c/d (Euclid)
+-- and the half vanishes; if p ∤ c the half is −Φ_c.
 ------------------------------------------------------------------------
 
 Σ≤-neg : (f : ℕ → ℤ) (k : ℕ) → Σ≤ (λ i → - f i) k ≡ - Σ≤ f k
@@ -460,7 +460,7 @@ shift-sum c g k b (suc r) = refl
   d∣c→d∣m : (d : ℕ) → d ∣ c → d ∣ m
   d∣c→d∣m d d∣c = ∣-trans d∣c c∣m
 
-  -- for d � c:  m / d = p � (c / d),  c / d � 1,  and μ(m/d) by mu-mult
+  -- for d ∣ c:  m / d = p · (c / d),  c / d ≥ 1,  and μ(m/d) by mu-mult
   quot-split : (d : ℕ) → 1 ≤ d → d ∣ c → m divN d ≡ p · (c divN d)
   quot-split d 1≤d d∣c =
     fst (modN-unique m d (p · (c divN d)) 0 1≤d 1≤d
@@ -508,7 +508,7 @@ shift-sum c g k b (suc r) = refl
   stepA : Σ≤ A m ≡ Σ≤ A' c
   stepA = Σ≤-above A c m c≤m A-above ∙ Σ≤-ext A A' c A-below
 
-  -- the p-free half evaluated: 0 if p � c, −Φ_c if p � c
+  -- the p-free half evaluated: 0 if p ∣ c, −Φ_c if p ∤ c
   stepA' : Σ≤ A' c ≡ (if dividesb p c then pos 0 else - Φ c r)
   stepA' with dividesb-dec p c 0<p
   ... | inl (p∣c , e) =
@@ -562,7 +562,7 @@ shift-sum c g k b (suc r) = refl
                     (¬∣-dividesb p (c divN d) 0<p ¬p∣c/d)
              ∙ sym (pos0+ (- mu (c divN d)))
 
-  -- the multiples of p: t � Φ_c
+  -- the multiples of p: t · Φ_c
   stepB : Σ≤ B m ≡ tP (Φ c) r
   stepB =
     cong (Σ≤ B) (sym m≡pc)
@@ -615,7 +615,7 @@ shift-sum c g k b (suc r) = refl
   ∙ +Comm (- Φ (m divN spf m) r) (tP (Φ (m divN spf m)) r)
 
 ------------------------------------------------------------------------
--- 5.  THE THEOREM:  Φ_n(t) = t^{Ω(n) − ω(n)} (t − 1)^{ω(n)}  for n � 1.
+-- 5.  THE THEOREM:  Φ_n(t) = t^{Ω(n) − ω(n)} (t − 1)^{ω(n)}  for n ≥ 1.
 ------------------------------------------------------------------------
 
 -- t and (t − 1) commute
@@ -678,7 +678,7 @@ closed-fuel (suc f) (suc (suc n')) n≤sf _ = split (dividesb-dec p q 0<p)
 κ-closed-form r n 1≤n = cong (λ P → P r) (Φ-closed-form n 1≤n)
 
 ------------------------------------------------------------------------
--- 6.  κ�.  First κ�(n) = �_{p � n} μ(n/p) with p ranging over the
+-- 6.  κ₁.  First κ₁(n) = Σ_{p ∣ n} μ(n/p) with p ranging over the
 --     corpus's primes (`isPrimeb`, shown to be Drdha's firmness), then
 --     the three-case formula read off the closed form at t^1.
 ------------------------------------------------------------------------
@@ -756,7 +756,7 @@ quot-one n 2≤n with eqb-dec (n divN spf n) 1
   2≤d : 2 ≤ d
   2≤d = suc-≤-suc (suc-≤-suc zero-≤)
 
--- �_{p � n, p prime} μ(n/p), as a sum over p = 1..n
+-- Σ_{p ∣ n, p prime} μ(n/p), as a sum over p = 1..n
 primeCofactorSum : ℕ → ℤ
 primeCofactorSum n =
   Σ≤ (λ p → if isPrimeb p and dividesb p n then mu (n divN p) else pos 0) n
@@ -768,7 +768,7 @@ if-prime-fold true false z = ·AnnihilR z
 if-prime-fold false true z = refl
 if-prime-fold false false z = refl
 
--- κ�(n) = �_{p � n} μ(n/p)   (D0026 §5.4), for every n
+-- κ₁(n) = Σ_{p ∣ n} μ(n/p)   (D0026 §5.4), for every n
 κ₁-is-prime-cofactor-sum : (n : ℕ) → κ 1 n ≡ primeCofactorSum n
 κ₁-is-prime-cofactor-sum n = Σ≤-ext _ _ n per
   where
@@ -800,8 +800,8 @@ tm1Pow-at1 (suc (suc b)) =
   ∙ sym (·DistR+ (parity (suc b)) (pos 1) (pos (suc b)))
   ∙ cong (parity (suc b) ·ℤ_) (sym (pos+ 1 (suc b)))
 
--- the package's three cases, with � = Ω − ω and j = ω:
---   � = 0 : (−1)^{j−1} j,   � = 1 : (−1)^j,   � � 2 : 0
+-- the package's three cases, with ρ = Ω − ω and j = ω:
+--   ρ = 0 : (−1)^{j−1} j,   ρ = 1 : (−1)^j,   ρ ≥ 2 : 0
 threeCase : ℕ → ℕ → ℤ
 threeCase zero j = parity (j ∸ 1) ·ℤ pos j
 threeCase (suc zero) j = parity j
@@ -824,7 +824,7 @@ coef1-closedForm (suc (suc a)) b = refl
 κ₁-ρ≥2 : (n k : ℕ) → 1 ≤ n → Ω n ∸ ω n ≡ suc (suc k) → κ 1 n ≡ pos 0
 κ₁-ρ≥2 n k 1≤n ρ = κ₁-three-cases n 1≤n ∙ cong (λ a → threeCase a (ω n)) ρ
 
--- "not multiplicative": κ�(6) = μ(3) + μ(2) = −2, but κ�(2)�κ�(3) = 1
+-- "not multiplicative": κ₁(6) = μ(3) + μ(2) = −2, but κ₁(2)·κ₁(3) = 1
 κ₁-at-6 : κ 1 6 ≡ negsuc 1
 κ₁-at-6 = refl
 
@@ -835,7 +835,7 @@ coef1-closedForm (suc (suc a)) b = refl
 κ₁-not-multiplicative e = negsucNotpos 1 1 (sym κ₁-at-6 ∙ e ∙ κ₁-at-2·3)
 
 ------------------------------------------------------------------------
--- 7.  The values at 12 = 2²�3, 30 = 2�3�5, 360 = 2³�3²�5, by refl,
+-- 7.  The values at 12 = 2²·3, 30 = 2·3·5, 360 = 2³·3²·5, by refl,
 --     from the raw divisor sum (no closed form is used here).
 ------------------------------------------------------------------------
 
@@ -852,15 +852,15 @@ coef1-closedForm (suc (suc a)) b = refl
 ω-360 : ω 360 ≡ 3
 ω-360 = refl
 
--- Φ��(t) = t (t−1)² = t³ − 2t² + t
+-- Φ₁₂(t) = t (t−1)² = t³ − 2t² + t
 Φ-12 : coeffs (Φ 12) 5 ≡ pos 0 ∷ pos 1 ∷ negsuc 1 ∷ pos 1 ∷ pos 0 ∷ []
 Φ-12 = refl
 
--- Φ��(t) = (t−1)³ = t³ − 3t² + 3t − 1
+-- Φ₃₀(t) = (t−1)³ = t³ − 3t² + 3t − 1
 Φ-30 : coeffs (Φ 30) 5 ≡ negsuc 0 ∷ pos 3 ∷ negsuc 2 ∷ pos 1 ∷ pos 0 ∷ []
 Φ-30 = refl
 
--- Φ���(t) = t³ (t−1)³ = t� − 3t� + 3t� − t³
+-- Φ₃₆₀(t) = t³ (t−1)³ = t⁶ − 3t⁵ + 3t⁴ − t³
 Φ-360 : coeffs (Φ 360) 8 ≡ pos 0 ∷ pos 0 ∷ pos 0 ∷ negsuc 0 ∷ pos 3 ∷ negsuc 2 ∷ pos 1 ∷ pos 0 ∷ []
 Φ-360 = refl
 
@@ -953,9 +953,9 @@ Perm-length (pcons p ins) = cong suc (Perm-length p) ∙ sym (Insert-length ins)
 ------------------------------------------------------------------------
 -- 9.  ω IS THE NUMBER OF DISTINCT PRIMES DIVIDING n: it agrees with the
 --     exhaustive scan `smallOmega` of TransmissionRefutations.  With
---     m = p�c, p = spf m, a prime divides m iff it is p or divides c
---     (Euclid); when p � c the two alternatives are exclusive and the
---     count rises by one, when p � c the second absorbs the first.
+--     m = p·c, p = spf m, a prime divides m iff it is p or divides c
+--     (Euclid); when p ∤ c the two alternatives are exclusive and the
+--     count rises by one, when p ∣ c the second absorbs the first.
 ------------------------------------------------------------------------
 
 primeInd : ℕ → ℕ → ℤ       -- [j ∣ n] · [j prime]
@@ -970,7 +970,7 @@ omegaCount-Σ (suc k) n =
                 ∙ if-and (isPrimeb (suc k)) (dividesb (suc k) n) (pos 1))
                (omegaCount-Σ k n)
 
--- �_{j � k} [j = p] = 1 for 1 � p � k
+-- Σ_{j ≤ k} [j = p] = 1 for 1 ≤ p ≤ k
 Σ≤-delta : (p k : ℕ) → 1 ≤ p → p ≤ k → Σ≤ (λ j → if eqb j p then pos 1 else pos 0) k ≡ pos 1
 Σ≤-delta p zero 1≤p p≤0 = ⊥rec (¬-<-zero (≤-trans 1≤p p≤0))
 Σ≤-delta p (suc k) 1≤p p≤sk with ≤-split p≤sk
@@ -1033,7 +1033,7 @@ S-step m 2≤m = go (dividesb-dec p c 0<p)
   ...   | inl j≡1 = ⊥rec (¬m<m (subst (2 ≤_) j≡1 (fst (isPrimeb-firm j pj))))
   ...   | inr j≡p = inl j≡p
 
-  -- per j, when p � c
+  -- per j, when p ∣ c
   same : p ∣ c → (j : ℕ) → 1 ≤ j → j ≤ m → primeInd m j ≡ primeInd c j
   same p∣c j 1≤j _ with bool-dec (isPrimeb j)
   ... | inr e =
@@ -1056,7 +1056,7 @@ S-step m 2≤m = go (dividesb-dec p c 0<p)
       ... | inr h = h
     ... | inr (¬j∣m , e₁) = e₁ ∙ sym (¬∣-dividesb j c 1≤j (λ j∣c → ¬j∣m (∣-trans j∣c c∣m)))
 
-  -- per j, when p � c
+  -- per j, when p ∤ c
   δ : ℕ → ℤ
   δ j = if eqb j p then pos 1 else pos 0
 
@@ -1136,9 +1136,9 @@ pos-if-count false k = pos+ 1 k
 ω-is-smallOmega n 1≤n = injPos (ω-Σ-fuel n n ≤-refl 1≤n ∙ sym (omegaCount-Σ n n))
 
 ------------------------------------------------------------------------
--- 10.  THE GENERAL KERNEL, (1.1)�(1.3):  with � = Ω(n) − ω(n) and
---      j = ω(n),  κ_r(n) = (−1)^{j−k} C(j,k) for k = r − � � 0, and
---      κ_r(n) = 0 for r < �.  The three cases of §6 are r = 1.
+-- 10.  THE GENERAL KERNEL, (1.1)–(1.3):  with ρ = Ω(n) − ω(n) and
+--      j = ω(n),  κ_r(n) = (−1)^{j−k} C(j,k) for k = r − ρ ≥ 0, and
+--      κ_r(n) = 0 for r < ρ.  The three cases of §6 are r = 1.
 ------------------------------------------------------------------------
 
 binom : ℕ → ℕ → ℕ
@@ -1194,7 +1194,7 @@ tPow-coef-above zero Q r _ = refl
 tPow-coef-above (suc a) Q zero h = ⊥rec (¬-<-zero h)
 tPow-coef-above (suc a) Q (suc r) h = tPow-coef-above a Q r (pred-≤-pred h)
 
--- (1.1)�(1.3): κ_r(n) = (−1)^{j−k} C(j,k),  k = r − �,  when r � �
+-- (1.1)–(1.3): κ_r(n) = (−1)^{j−k} C(j,k),  k = r − ρ,  when r ≥ ρ
 κ-general : (r n : ℕ) → 1 ≤ n → Ω n ∸ ω n ≤ r
           → κ r n ≡ parity (ω n ∸ (r ∸ (Ω n ∸ ω n))) ·ℤ pos (binom (ω n) (r ∸ (Ω n ∸ ω n)))
 κ-general r n 1≤n ρ≤r =
@@ -1202,7 +1202,7 @@ tPow-coef-above (suc a) Q (suc r) h = tPow-coef-above a Q r (pred-≤-pred h)
   ∙ tPow-coef-above (Ω n ∸ ω n) (tm1Pow (ω n)) r ρ≤r
   ∙ tm1Pow-coef (ω n) (r ∸ (Ω n ∸ ω n))
 
--- and κ_r(n) = 0 below the fixed charge �
+-- and κ_r(n) = 0 below the fixed charge ρ
 κ-below-ρ : (r n : ℕ) → 1 ≤ n → r < Ω n ∸ ω n → κ r n ≡ pos 0
 κ-below-ρ r n 1≤n r<ρ = κ-closed-form r n 1≤n ∙ tPow-coef-below (Ω n ∸ ω n) (tm1Pow (ω n)) r r<ρ
 

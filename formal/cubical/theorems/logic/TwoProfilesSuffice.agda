@@ -5,7 +5,7 @@
 --
 -- CORRECTION TO `OneLemmaFiveSites` Â§3 AND ITS HEADER.
 --
--- That module drew a distinction between two routes to `Â FactorsThrough`:
+-- That module drew a distinction between two routes to `Â¬ FactorsThrough`:
 --
 --   COLLISION   exhibit two points the coarse map identifies and the
 --               fine map separates; one pair kills every decoder.
@@ -20,35 +20,35 @@
 -- The distinction is real.  That reason is false, and this module gives
 -- the pair.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS ACTUALLY TRUE
 --
---   ONE profile never suffices â” Â§2.  For every Ï there is an utterance
+--   ONE profile never suffices â€” Â§2.  For every Ï† there is an utterance
 --   agreeing with the joint content on it, so no single profile refutes
 --   the whole language.  That much of the prose was right, and it is now
 --   a theorem rather than an observation.
 --
---   TWO profiles do â” Â§3.  Ïâ = (âŠ,âŠ,âŠ) and Ïâ = (âŠ,âŠ,âŠ).  The joint
+--   TWO profiles do â€” Â§3.  Ï†â‚ = (âŠ¤,âŠ¤,âŠ¥) and Ï†â‚‚ = (âŠ¥,âŠ¥,âŠ¤).  The joint
 --   content is false on both, and each of the six utterances says `true`
 --   on one of them.  Their agreement sets are
 --
---       at Ïâ   { asti kernel-ind , nsti rewriter , nsti kernel-refl }
---       at Ïâ   { asti rewriter , asti kernel-refl , nsti kernel-ind }
+--       at Ï†â‚   { asti kernel-ind , nÄsti rewriter , nÄsti kernel-refl }
+--       at Ï†â‚‚   { asti rewriter , asti kernel-refl , nÄsti kernel-ind }
 --
---   which are complementary â” disjoint, and together all six.  So the
+--   which are complementary â€” disjoint, and together all six.  So the
 --   pair separates, and `avaktavya-does-not-factor` follows from two
 --   witnesses rather than from a six-fold case analysis.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT THE CORRECTED DISTINCTION IS
 --
 -- Not collision-versus-exhaustion.  The real invariant is the NUMBER OF
 -- WITNESSES an absence needs:
 --
---     à²à¾à˜àµ, àà¨ààµààààà¿, carry/borrow, the fuel obstructions   1
---     ààµà•àààµàà¯                                              2
+--     à¤²à¤¾à¤˜à¤µ, à¤…à¤¨à¥à¤µà¥ƒà¤¤à¥à¤¤à¤¿, carry/borrow, the fuel obstructions   1
+--     à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯                                              2
 --
--- and 6 was never the answer â” it was the size of the decoder space,
+-- and 6 was never the answer â€” it was the size of the decoder space,
 -- which is an upper bound anyone can read off, not a measure of the
 -- absence.  In Navya-Nyya terms the witnesses are the *avacchedaka*,
 -- the delimitor that makes an abhva over an infinite pratiyogin-space
@@ -56,8 +56,8 @@
 -- measures only the language.
 --
 -- This bears on the standing deflationary thread.  It does not move
--- anything up the abhva tower â” the absence here was exact before and
--- is exact now â” but it says the earlier reading was measuring the
+-- anything up the abhÄva tower â€” the absence here was exact before and
+-- is exact now â€” but it says the earlier reading was measuring the
 -- wrong thing, and that a "must be exhaustive" verdict is a claim about
 -- witness count that has to be proved, not read off a finite type.
 ------------------------------------------------------------------------
@@ -89,10 +89,10 @@ Separates Ï† Ïˆ = (v : Vacana) â†’ (Â¬ Says v Ï†) âŠ (Â¬ Says v Ïˆ)
 ------------------------------------------------------------------------
 -- 2.  ONE PROFILE IS NEVER ENOUGH
 --
--- joint Ï = Ï rewriter âˆ§ Â (Ï kernel-refl).  If `Ï kernel-refl` is
--- false the joint content is just `Ï rewriter`, said by asti-from
+-- joint Ï† = Ï† rewriter âˆ§ Â¬ (Ï† kernel-refl).  If `Ï† kernel-refl` is
+-- false the joint content is just `Ï† rewriter`, said by asti-from
 -- rewriter; if it is true the joint content is false, and when
--- `Ï rewriter` is also true that is said by nsti-from rewriter.  Every
+-- `Ï† rewriter` is also true that is said by nÄsti-from rewriter.  Every
 -- profile falls into one of these.
 ------------------------------------------------------------------------
 
@@ -186,30 +186,30 @@ says-nki-Ï†â‚‚ = refl
 -- STANDS.  `Saptabhangi.no-single-vacana` is correct and is not
 -- touched; Â§5 above is literally its six cases regrouped by which
 -- profile they use.  `AvaktavyaDoesNotFactor` is correct.  The
--- krama/yugapat contrast â” succession expresses the joint content,
--- simultaneity does not â” is untouched, and that is the Jain point.
+-- krama/yugapat contrast â€” succession expresses the joint content,
+-- simultaneity does not â€” is untouched, and that is the Jain point.
 --
 -- REMOVED.  The claim that exhaustion is FORCED here.  It is not; two
 -- witnesses do it, and the six-fold analysis was a convenience.  A
 -- verdict of "this one must be exhaustive" is a lower bound on witness
--- count and needs a proof of its own â” Â§2 is that proof for the bound 1,
+-- count and needs a proof of its own â€” Â§2 is that proof for the bound 1,
 -- and Â§3 shows the bound is exactly 2.
 ------------------------------------------------------------------------
 
 --
--- `WitnessNumberIsTwo` fixes one measure â” the least list
--- of points on which no decoder survives â” and under it:
+-- `WitnessNumberIsTwo` fixes one measure â€” the least list
+-- of points on which no decoder survives â€” and under it:
 --
 --   * one point is NEVER enough for any `FactorsThrough` obstruction,
---     with no hypotheses, because the constant decoder `Î» _ â’ t x`
+--     with no hypotheses, because the constant decoder `Î» _ â†’ t x`
 --     answers any single point;
 --   * a collision is exactly a refuting pair;
---   * the ààµà•àààµàà¯ site is 2 as well, by `every-profile-is-said` below
+--   * the à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯ site is 2 as well, by `every-profile-is-said` below
 --     for the floor and `pair-separates` for the ceiling.
 --
 -- So it is 2 versus 2, not 1 versus 2.  What differs between the sites
--- is the ROUTE to the pair â” constructed from a collision, or found by
--- looking â” which is a fact about obtaining the witness, not about the
+-- is the ROUTE to the pair â€” constructed from a collision, or found by
+-- looking â€” which is a fact about obtaining the witness, not about the
 -- absence.
 --
 -- The error is the same shape as the one this module was written to

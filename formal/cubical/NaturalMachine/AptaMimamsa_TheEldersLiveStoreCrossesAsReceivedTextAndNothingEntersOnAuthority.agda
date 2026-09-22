@@ -1,28 +1,28 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡‡‡Æ‡‡Æ‡æ‡‡‡æ ‚î Samantabhadra (c. 2nd‚ì5th c. CE): the title is the
--- doctrine ‚î the examination of the authority.  An pta is
+-- ‡§Ü‡§™‡•ç‡§§‡§Æ‡•Ä‡§Æ‡§æ‡§Ç‡§∏‡§æ ‚Äî Samantabhadra (c. 2nd‚Äì5th c. CE): the title is the
+-- doctrine ‚Äî the examination of the authority.  An ƒÅpta is
 -- established by examination, never by claim; received text (gama)
 -- is knowledge only downstream of that examination.  The
 -- classification is his.  School named: Jaina.
 --
 -- THE TWO-BODY PROBLEM, CROSSED.  The machine's LIVE store
--- ‚î the rewriter's rules in machine/library.terms, grown by ‡‡ø‡¶‡‡ß‡ø's
+-- ‚Äî the rewriter's rules in machine/library.terms, grown by ‡§∏‡§ø‡§¶‡•ç‡§ß‡§ø's
 -- welds and the completion's turns lives in the elder Haskell,
 -- as text a reader must trust.  Here the elder EMITS its
--- store as raw encounters (machine/AgamaLekhaka_‚¶.awk ‚î the elder
+-- store as raw encounters (machine/AgamaLekhaka_‚Ä¶.awk ‚Äî the elder
 -- writes, the kernel judges), and every utterance passes through the
--- one body's own knowing ‚î ‡Æ‡‡æ‡‡‡∞‡Æ‡æ‡‡Æ‡ with the full eye, no record,
+-- one body's own knowing ‚Äî ‡§Æ‡§π‡§æ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡§Æ‡•ç with the full eye, no record,
 -- each rule judged independently on its own content.  No authority:
 -- the elder's provenance annotations are not read; a rule enters as
--- ‡®‡ø‡Ø‡Æ‡ exactly when the body re-derives it, and what the body does
+-- ‡§®‡§ø‡§Ø‡§Æ‡§É exactly when the body re-derives it, and what the body does
 -- not reach is kept, counted, as the residue that names the knowing's
 -- present boundary from inside.
 --
 -- Outside the vocabulary and left with the elder:
 -- 11 store lines naming gcd or the completion's fresh constants
--- (c0 ‚¶) ‚î Tm carries neither.
+-- (c0 ‚Ä¶) ‚Äî Tm carries neither.
 --
 -- The counts below are computations, not reports: each ‚â° is checked
 -- by the kernel normalizing the entire judgment of the entire store.
@@ -156,7 +156,7 @@ open import NaturalMachine.YugapadArpana_BothCoordinatesDescendAtOnceAndTheDoubl
       ‚à∑ []
 
 ------------------------------------------------------------------------
--- ¬ß2  The examination.  Each utterance judged by the knowing alone ‚î
+-- ¬ß2  The examination.  Each utterance judged by the knowing alone ‚Äî
 --     full eye, single and double descent, no record, no authority.
 ------------------------------------------------------------------------
 

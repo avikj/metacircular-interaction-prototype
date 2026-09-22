@@ -1,7 +1,7 @@
 # isoToIsEquiv (Cubical.Foundations.Isomorphism, lemIso), transcribed:
 # an isomorphism (f, g, s, t) has CONTRACTIBLE FIBRES.  hfill is inlined as
 # hcompN with the extra (inot j) face.  Then totalEquiv: the fibre law
-# A ≃  B (fiber f) at the coherent level, for every f.
+# A ≃ Σ B (fiber f) at the coherent level, for every f.
 def isContr(A: Set) -> Set:
   any c: A. (all x: A. Path(A, c, x))
 def fiber(A: Set, B: Set, f: A -> B, y: B) -> Set:
@@ -50,7 +50,7 @@ def contrFib(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)),
 def isoToEquiv(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x)) -> Equiv(A, B):
   (f, isoToIsEquiv(A, B, f, g, s, t))
 
-# ---- the fibre law, coherent: A ≃  B (fiber f)  (HoTT 4.8.2, totalEquiv)
+# ---- the fibre law, coherent: A ≃ Σ B (fiber f)  (HoTT 4.8.2, totalEquiv)
 def Total(A: Set, B: Set, f: A -> B) -> Set:
   any b: B. fiber(A, B, f, b)
 def tot(A: Set, B: Set, f: A -> B, a: A) -> Total(A, B, f):

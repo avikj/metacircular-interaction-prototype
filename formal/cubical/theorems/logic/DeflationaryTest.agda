@@ -3,62 +3,62 @@
 ------------------------------------------------------------------------
 -- DeflationaryTest
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE ABSENCE TOWER
 --
 -- Decidability plays no part in the absence tower:
 --
---     Â-always-stable :  (A : Type â“) â’ Â Â (Â A) â’ Â A
+--     Â¬-always-stable :  (A : Type â„“) â†’ Â¬ Â¬ (Â¬ A) â†’ Â¬ A
 --
--- holds for EVERY A, decidable or not â” it is `Abhava`'s own `ÂÂÂâ’Â`,
+-- holds for EVERY A, decidable or not â€” it is `Abhava`'s own `Â¬Â¬Â¬â†’Â¬`,
 -- which never used a hypothesis.  So the absence tower is two-tall for
 -- every absence there has ever been.  Nothing in any corpus lives at
 -- level three, and the level therefore carries no information about the
 -- obstruction whatsoever.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHERE DECIDABILITY ACTUALLY ENTERS
 --
---     decâ’stable :  Dec A â’ (Â Â A â’ A)
+--     decâ†’stable :  Dec A â†’ (Â¬ Â¬ A â†’ A)
 --
--- â” a statement about the PRATIYOGIN A, not about the absence ÂA.  The
+-- â€” a statement about the PRATIYOGIN A, not about the absence Â¬A.  The
 -- Navya-Nyya distinction lands here:
 -- the absence is always level-two; it is the
 -- counterpositive whose own recoverability decidability governs.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHY THE STABLE FRAGMENT SWALLOWS THIS WHOLE CORPUS
 --
--- Stability is closed under Â, under â’, under —, and under Î 
+-- Stability is closed under Â¬, under â†’, under Ã—, and under Î 
 -- (`Î -stable`).  Every obstruction in this thread has one of the shapes
 --
---     Â A          (p âˆ suc n ;  Â Idempotent i ;  Â Reformulation)
---     (x : X) â’ Â A  (â-has-no-i ;  sign-is-not-accumulable)
+--     Â¬ A          (p âˆ¤ suc n ;  Â¬ Idempotent i ;  Â¬ Reformulation)
+--     (x : X) â†’ Â¬ A  (â„¤-has-no-i ;  sign-is-not-accumulable)
 --
 -- so all of them are stable by SHAPE, before anyone asks whether anything
 -- is decidable.  Â§7 below instantiates the closure lemmas at those exact
 -- shapes.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT A BARRIER CLAIM WOULD HAVE TO SAY INSTEAD
 --
--- If "barrier" is to mean more than "here is a proof of ÂA", it must be a
+-- If "barrier" is to mean more than "here is a proof of Â¬A", it must be a
 -- claim about A:
 --
 --   (a) A is undecidable, or
---   (b) ÂÂA holds while A fails.
+--   (b) Â¬Â¬A holds while A fails.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHERE DECIDABILITY ENTERS: THE DISJUNCTIONS
 --
--- Stability is NOT closed under âŠ â” a stable-closure proof for sums is
+-- Stability is NOT closed under âŠŽ â€” a stable-closure proof for sums is
 -- exactly excluded middle.  So every place this corpus asserts an
 -- either/or is a place where the deflation does not reach.  `Anekanta`'s
 -- `collapse-dichotomy`, `Apavada`'s `kinds-exclude`, `NoNormOnAJoin`'s
--- `two-valued` and `three-collide` are all âŠ-shaped, and each obtains its
--- disjunction from a DECIDABLE source (`splitâ•-â‰`, `discreteâ`, an
+-- `two-valued` and `three-collide` are all âŠŽ-shaped, and each obtains its
+-- disjunction from a DECIDABLE source (`splitâ„•-â‰¤`, `discreteâ„¤`, an
 -- explicit case split).  That is where decidability was doing work all
--- along â” in the disjunctions, not in the absences.
+-- along â€” in the disjunctions, not in the absences.
 ------------------------------------------------------------------------
 
 module DeflationaryTest where
@@ -102,7 +102,7 @@ decâ†’stable (yes a) _   = a
 decâ†’stable (no Â¬a) Â¬Â¬a = Empty.rec (Â¬Â¬a Â¬a)
 
 ------------------------------------------------------------------------
--- 4.  The stable fragment is closed under everything but âŠ
+-- 4.  The stable fragment is closed under everything but âŠŽ
 ------------------------------------------------------------------------
 
 Î -stable : {X : Type â„“} {P : X â†’ Type â„“'}
@@ -123,11 +123,11 @@ decâ†’stable (no Â¬a) Â¬Â¬a = Empty.rec (Â¬Â¬a Â¬a)
 ------------------------------------------------------------------------
 
 -- shape 1: a bare absence.  `disjoint-support`'s conclusion,
--- `bhavana-is-not-a-join`, `â-has-no-i` pointwise, `i-is-not-one`.
+-- `bhavana-is-not-a-join`, `â„¤-has-no-i` pointwise, `i-is-not-one`.
 shape-absence : (A : Type â„“) â†’ Stable (Â¬ A)
 shape-absence = Â¬-always-stable
 
--- shape 2: a family of absences.  `â-has-no-i`,
+-- shape 2: a family of absences.  `â„¤-has-no-i`,
 -- `sign-is-not-accumulable`, `disjoint-support` with its arguments.
 shape-family : {X : Type â„“} (P : X â†’ Type â„“')
              â†’ Stable ((x : X) â†’ Â¬ (P x))
@@ -141,8 +141,8 @@ shape-conditional P = Î -stable (Î» x â†’ â†’-stable (Â¬-always-stable (P x)))
 ------------------------------------------------------------------------
 -- 6.  What a barrier claim would have to be, as a type
 --
--- Not "here is ÂA" â” that is always stable and always exact.  A barrier
--- in the strong sense is a gap between ÂÂA and A, and the type below is
+-- Not "here is Â¬A" â€” that is always stable and always exact.  A barrier
+-- in the strong sense is a gap between Â¬Â¬A and A, and the type below is
 -- what would have to be inhabited to exhibit one.
 ------------------------------------------------------------------------
 
@@ -151,7 +151,7 @@ GenuineGap A = (Â¬ (Â¬ A)) Ã— (Â¬ A)
 
 -- and it cannot be inhabited: a "gap" in that sense is a contradiction.
 -- So even the strong reading has no room at the level of a single
--- proposition â” the only honest barrier claim is UNDECIDABILITY.
+-- proposition â€” the only honest barrier claim is UNDECIDABILITY.
 no-gap : {A : Type â„“} â†’ Â¬ (GenuineGap A)
 no-gap (Â¬Â¬a , Â¬a) = Â¬Â¬a Â¬a
 
@@ -166,12 +166,12 @@ BarrierClaim A = Â¬ (Dec A)
 --   * so the stabilisation level measures nothing;
 --   * decidability governs the counterpositive, not the absence;
 --   * every obstruction in this thread is stable BY SHAPE (Â§5);
---   * a gap between ÂÂA and A is contradictory (`no-gap`), so the only
---     surviving form of a barrier claim is `Â (Dec A)`.
+--   * a gap between Â¬Â¬A and A is contradictory (`no-gap`), so the only
+--     surviving form of a barrier claim is Â¬Â¬` (Dec A)`.
 --
 -- The barrier vocabulary is therefore unwarranted by these objects.
 --
--- Where decidability WAS doing work all along: the âŠ-shaped results.
+-- Where decidability WAS doing work all along: the âŠŽ-shaped results.
 -- Stability does not pass through sums, and `Anekanta.collapse-dichotomy`,
 -- `Apavada.kinds-exclude`, `NoNormOnAJoin.two-valued` and `three-collide`
 -- are all disjunctions obtained from decidable sources.  That is the
@@ -179,20 +179,20 @@ BarrierClaim A = Â¬ (Dec A)
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 8.  The âŠ-sites close too, and for a reason about the SUBSTRATE.
+-- 8.  The âŠŽ-sites close too, and for a reason about the SUBSTRATE.
 --
 -- Â§7 leaves the sum-shaped results as the one place a genuine barrier
--- could sit, since stability does not pass through âŠ:
+-- could sit, since stability does not pass through :âŠŽ
 --
---     **in a `--safe`, postulate-free development, every inhabited âŠ is a
+--     **in a `--safe`, postulate-free development, every inhabited âŠŽ is a
 --     decision, because it was constructed.**
 --
--- There is no way to write a term of `A âŠ B` without producing `inl a` or
+-- There is no way to write a term of `A âŠŽ B` without producing `inl a` or
 -- `inr b`.  A "non-constructive dichotomy" is not expressible in this
--- lane at all â” not hard to find, not absent by luck: unwritable.
+-- lane at all â€” not hard to find, not absent by luck: unwritable.
 --
 -- The anchor for that: a dichotomy of the
--- form `A âŠ Â A` is literally decidability, up to the obvious iso.
+-- form `A âŠŽ Â¬ A` is literally decidability, up to the obvious iso.
 ------------------------------------------------------------------------
 
 sumâ†’dec : {A : Type â„“} â†’ A âŠŽ (Â¬ A) â†’ Dec A
@@ -214,12 +214,12 @@ decâ†’sumâ†’dec (no  _) = refl
 ------------------------------------------------------------------------
 -- 9.  The deflation, closed.
 --
---   * every absence is stable, unconditionally (Â§2) â” nothing sits at
+--   * every absence is stable, unconditionally (Â§2) â€” nothing sits at
 --     level three, and the level measures nothing;
---   * every obstruction in this lane is Â-headed or a Î  of such, hence
+--   * every obstruction in this lane is Â¬-headed or a Î  of such, hence
 --     stable by shape (Â§5);
---   * a gap between ÂÂA and A is contradictory (Â§6), so the only
---     surviving barrier claim is Â (Dec A);
+--   * a gap between Â¬Â¬A and A is contradictory (Â§6), so the only
+--     surviving barrier claim is Â¬ (Dec A);
 --   * and every dichotomy that could have carried one is a decision,
 --     because in a postulate-free development it had to be built (Â§8).
 --
@@ -229,30 +229,30 @@ decâ†’sumâ†’dec (no  _) = refl
 
 ------------------------------------------------------------------------
 -- 10.  The last candidate barrier form is itself contradictory.
--- `Â (Dec A)` is CONTRADICTORY, for every A, constructively:
+-- `Â¬ (Dec A)` is CONTRADICTORY, for every A, constructively:
 --
---     no-barrier-claim :  (A : Type â“) â’ Â (Â (Dec A))
+--     no-barrier-claim :  (A : Type â„“) â†’ Â¬ (Â¬ (Dec A))
 --
---     assume k : Â (Dec A).  Then (Î» a â’ k (yes a)) : Â A,
---     so (no (Î» a â’ k (yes a))) : Dec A, and k applied to it gives âŠ.
+--     assume k : Â¬ (Dec A).  Then (Î» a â†’ k (yes a)) : Â¬ A,
+--     so (no (Î» a â†’ k (yes a))) : Dec A, and k applied to it gives âŠ¥.
 --
 -- Three lines.  So there is no barrier claim of that form to make, ever.
 -- Undecidability of a specific proposition
 -- is not something a constructive development can assert; what genuinely
 -- undecidable results assert is something else entirely (independence
 -- from a theory, or non-existence of an algorithm uniform in a
--- parameter), and neither is `Â (Dec A)` for a fixed A.
+-- parameter), and neither is `Â¬ (Dec A)` for a fixed A.
 --
 -- THE DEFLATION IS THEREFORE TOTAL:
 --
 --   * every absence is stable (Â§2);
---   * every obstruction here is Â-headed or a Î  of such (Â§5);
---   * a gap between ÂÂA and A is contradictory (Â§6);
+--   * every obstruction here is Â¬-headed or a Î  of such (Â§5);
+--   * a gap between Â¬Â¬A and A is contradictory (Â§6);
 --   * every dichotomy is a decision, since it had to be built (Â§8);
 --   * and the last candidate barrier form is itself contradictory (Â§10).
 --
 -- There is no sense available in this lane in which any statement here is
--- a barrier, other than "here is a proof of ÂA" â” and that reading is
+-- a barrier, other than "here is a proof of Â¬A" â€” and that reading is
 -- exact.  The word has nothing left to mean.
 ------------------------------------------------------------------------
 

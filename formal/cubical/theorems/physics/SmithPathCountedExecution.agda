@@ -13,7 +13,7 @@ open import CountedExecution using (run)
 -- `neg n` denotes -n.  The certification section at the bottom of this
 -- file proves, over the cubical library's own integer-matrix layer
 -- (Cubical.Algebra.IntegerMatrix.Smith), that the tables in the first
--- half really are Smith certificates for diag(2,3,2) � so nothing below
+-- half really are Smith certificates for diag(2,3,2) — so nothing below
 -- is trusted transcription.
 data Z : Type₀ where
   zro : Z
@@ -137,9 +137,9 @@ no-endpoint-only-readout read rp rq =
 -- Certification against the library integer-matrix layer.
 --
 -- Everything above this line is a finite state table.  Everything below
--- re-reads that table as matrices over the *library's* � and proves, by
+-- re-reads that table as matrices over the *library's* ℤ and proves, by
 -- exact closed computation (every equality is `refl` after entrywise
--- decomposition � certified symbolic computation, no floating point):
+-- decomposition — certified symbolic computation, no floating point):
 --
 --   1. for EVERY state s of the automaton, `leftAction s` is a genuine
 --      unimodular transformation carrying diag(2,3,2) to the diagonal
@@ -148,21 +148,21 @@ no-endpoint-only-readout read rp rq =
 --      in the sense of Cubical.Algebra.Matrix.CommRingCoefficient, and its
 --      transMatL is DEFINITIONALLY `toMat (leftAction s)`;
 --   2. the common endpoint diag(1,2,6) is Smith-normal in the library's
---      sense (`isSmithNormal`, i.e. consecutive divisibility 1 � 2 � 6);
+--      sense (`isSmithNormal`, i.e. consecutive divisibility 1 ∣ 2 ∣ 6);
 --   3. hence both schedules package into inhabitants of the library type
---      `Smith matA0` � the very type produced by the library normalizer
---      `Cubical.Algebra.IntegerMatrix.Smith.smith` � whose left transforms
+--      `Smith matA0` — the very type produced by the library normalizer
+--      `Cubical.Algebra.IntegerMatrix.Smith.smith` — whose left transforms
 --      are definitionally the counted execution's
 --      `leftAction (pExecution 2)` / `leftAction (qExecution 2)`;
 --   4. the holonomy content is real: the relative transport H with
---      H � Up ≡ Uq is unimodular, it carries the class vector (0,0,1) to
---      (0,1,4) modulo the relation lattice diag(1,2,6)��³ (explicit lattice
+--      H ⋆ Up ≡ Uq is unimodular, it carries the class vector (0,0,1) to
+--      (0,1,4) modulo the relation lattice diag(1,2,6)·ℤ³ (explicit lattice
 --      correction), and (0,1,4) is NOT congruent to (0,0,1) modulo that
 --      lattice (a parity obstruction, proved, not asserted).
 --
 -- What is certified here is the full defining SPECIFICATION of a Smith
 -- normalization (SimRel + isSmithNormal) instantiated by the transcribed
--- data � the transcription is checked against the source's mathematics,
+-- data — the transcription is checked against the source's mathematics,
 -- not against the source's unnormalized syntax tree.
 ------------------------------------------------------------------------
 
@@ -190,7 +190,7 @@ open SimRel
 open isSmithNormal
 open Smith
 
--- 3�3 and 3�1 matrices over the library's �, entry by entry.
+-- 3×3 and 3×1 matrices over the library's ℤ, entry by entry.
 
 mk3 : (x00 x01 x02 x10 x11 x12 x20 x21 x22 : ℤ) → Mat 3 3
 mk3 x00 x01 x02 x10 x11 x12 x20 x21 x22 fzero fzero = x00
@@ -219,7 +219,7 @@ mkCol a b c (fsuc (fsuc (fsuc ()))) fzero
 
 -- Matrix equality by one refl on the tuple of entries.  Both sides of the
 -- equalities below are closed, so `mat≡ refl` forces Agda to normalize the
--- full integer arithmetic � this is where the actual checking happens.
+-- full integer arithmetic — this is where the actual checking happens.
 
 Row3 : Type₀
 Row3 = ℤ × ℤ × ℤ
@@ -290,7 +290,7 @@ toMat M = mk3 (toℤ (a00 M)) (toℤ (a01 M)) (toℤ (a02 M))
               (toℤ (a10 M)) (toℤ (a11 M)) (toℤ (a12 M))
               (toℤ (a20 M)) (toℤ (a21 M)) (toℤ (a22 M))
 
--- The concrete matrix being normalized, A� = diag(2,3,2), and the decoded
+-- The concrete matrix being normalized, A₀ = diag(2,3,2), and the decoded
 -- meaning of each `Diagonal` name.
 
 matA0 : Mat 3 3
@@ -410,7 +410,7 @@ certR' q1 = mat≡ refl
 certR' q2 = mat≡ refl
 
 -- (1) The per-state binding theorem: every row of the transcription is a
--- similarity certificate over � in the library's sense, and its left
+-- similarity certificate over ℤ in the library's sense, and its left
 -- transform is DEFINITIONALLY the table entry `leftAction s`.
 
 stepCertificate : (s : SmithState) → SimRel matA0 (diagMat (endpoint s))
@@ -425,7 +425,7 @@ stepCertificate-binds-table
 stepCertificate-binds-table s = refl
 
 -- (2) The endpoint diag(1,2,6) is Smith-normal in the library's sense:
--- nonzero consecutive divisibility 1 � 2 � 6, exhibited, not named.
+-- nonzero consecutive divisibility 1 ∣ 2 ∣ 6, exhibited, not named.
 
 private
   nonZeroPos : (n : ℕ) → ¬ ℤpos (suc n) ≡ ℤpos 0
@@ -452,8 +452,8 @@ matD126-isSmithNormal .rowEq = refl
 matD126-isSmithNormal .colEq = refl
 matD126-isSmithNormal .matEq = mat≡ refl
 
--- (3) Both counted schedules package into the library's `Smith matA0` �
--- the type of `smith matA0` itself (`libraryProducer` below) � with the
+-- (3) Both counted schedules package into the library's `Smith matA0` —
+-- the type of `smith matA0` itself (`libraryProducer` below) — with the
 -- executed table entries as their transforms, definitionally.
 
 pScheduleSmith : Smith matA0
@@ -498,7 +498,7 @@ actions-differ-real
 actions-differ-real p = negsucNotpos 0 0 (λ t → p t fzero fzero)
 
 -- (4) The transported-class table certified.  H is the relative left
--- pinned down by the checked equation H � Up ≡ Uq plus unimodularity.
+-- pinned down by the checked equation H ⋆ Up ≡ Uq plus unimodularity.
 
 matH : Mat 3 3
 matH = mk3 (ℤpos 3)    (ℤnegsuc 3) (ℤpos 1)
@@ -517,7 +517,7 @@ holonomy-unimodular =
 
 -- The enum names c001 / c014 decoded as actual vectors, and the claimed
 -- transport realized: H carries (0,0,1) to (0,1,4) up to an EXPLICIT
--- element of the relation lattice diag(1,2,6)��³.
+-- element of the relation lattice diag(1,2,6)·ℤ³.
 
 classVector : FiberClass → Col
 classVector c001 = mkCol (ℤpos 0) (ℤpos 0) (ℤpos 1)
@@ -534,7 +534,7 @@ holonomy-transports-classes = col≡ refl
 
 -- ... and the two classes are genuinely distinct in coker(diag(1,2,6)):
 -- their difference has odd second coordinate, but every element of the
--- relation lattice has second coordinate 2�k.  This replaces the fiat
+-- relation lattice has second coordinate 2·k.  This replaces the fiat
 -- distinctness of the two enum constructors with a parity obstruction.
 
 private

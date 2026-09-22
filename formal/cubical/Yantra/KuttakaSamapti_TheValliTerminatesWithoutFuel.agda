@@ -1,13 +1,13 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 
 ------------------------------------------------------------------------
--- à•ààŸààŸà•-àà®à¾àààà¿ â” the pulveriser, and the fact that it stops.
+-- à¤•à¥à¤Ÿà¥à¤Ÿà¤•-à¤¸à¤®à¤¾à¤ªà¥à¤¤à¤¿ â€” the pulveriser, and the fact that it stops.
 --
--- TEXT AND DATE.  à•ààŸààŸà• / *kuaka*, the pulveriser, and àµà²àà²à / *vall*,
--- the creeper of quotients: ryabhaa, *ryabhaya*, Gaitapda 32â“33,
+-- TEXT AND DATE.  à¤•à¥à¤Ÿà¥à¤Ÿà¤• / *kuá¹­á¹­aka*, the pulveriser, and à¤µà¤²à¥à¤²à¥€ / *vallÄ«*,
+-- the creeper of quotients: Ä€ryabhaá¹­a, *Ä€ryabhaá¹­Ä«ya*, Gaá¹‡itapÄda 32â€“33,
 -- 499 CE; the vall worked out in Bhskara I, *ryabhayabhya*, 629 CE.
--- The instruction the method is named for is *ea raka* â” keep the
--- remainder â” and recurse on it.
+-- The instruction the method is named for is *Å›eá¹£aá¹ƒ raká¹£a* â€” keep the
+-- remainder â€” and recurse on it.
 --
 -- `Yantra.Kuttaka` generates the vall with a fuel
 -- constant (`valli 200 137 60`) and proves nothing about it; every claim
@@ -88,7 +88,7 @@ module _ where
   antyaâˆ£b a b = snd (snd (kuttaka a b))
 
 -- â•â•â• pressed: ryabhaa's own pair, and the stra's numbers â•â•â•
--- 137 = 2Â60+17, 60 = 3Â17+9, 17 = 1Â9+8, 9 = 1Â8+1, 8 = 8Â1+0
+-- 137 = 2Â·60+17, 60 = 3Â·17+9, 17 = 1Â·9+8, 9 = 1Â·8+1, 8 = 8Â·1+0
 _ : valli 137 60 â‰¡ 2 âˆ· 3 âˆ· 1 âˆ· 1 âˆ· 8 âˆ· []
 _ = refl
 
@@ -101,6 +101,6 @@ _ = refl
 _ : valli 60 24 â‰¡ 2 âˆ· 2 âˆ· []
 _ = refl
 
--- and the certificate is a real quotient, not a flag: 24 = 2 Â 12
+-- and the certificate is a real quotient, not a flag: 24 = 2 Â· 12
 _ : fst (antyaâˆ£b 60 24) â‰¡ 2
 _ = refl

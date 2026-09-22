@@ -1,30 +1,30 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡‡æ‡®‡ø‡µ‡¶‡‡‡æ‡µ‡ ‚î Adhyy 1.1.56, and ‡≤‡ã‡‡ ‚î 1.1.60, 1.1.62.
+-- ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§¶‡•ç‡§≠‡§æ‡§µ‡§É ‚Äî A·π£·π≠ƒÅdhyƒÅyƒ´ 1.1.56, and ‡§≤‡•ã‡§™‡§É ‚Äî 1.1.60, 1.1.62.
 --
 -- THE STRAS, in the vulgate text and numbering.
 --
---   1.1.56  ‡‡‡‡æ‡®‡ø‡µ‡¶‡æ‡¶‡‡‡ã‡Ω‡®‡≤‡‡µ‡ø‡ß‡   sthnivad deo 'nalvidhau
+--   1.1.56  ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§¶‡§æ‡§¶‡•á‡§∂‡•ã‡§Ω‡§®‡§≤‡•ç‡§µ‡§ø‡§ß‡•å   sthƒÅnivad ƒÅde≈õo 'nalvidhau
 --           An dea (substitute) is like the sthnin (the original it
---           stands in place of) ‚î EXCEPT in an al-vidhi, an operation
+--           stands in place of) ‚Äî EXCEPT in an al-vidhi, an operation
 --           conditioned on the sounds (aL is the pratyhra of the whole
 --           inventory).  So the substitute inherits the original's
 --           designations and not its form.
 --
---   1.1.60  ‡‡¶‡∞‡‡‡®‡ ‡≤‡ã‡‡            adarana lopa
+--   1.1.60  ‡§Ö‡§¶‡§∞‡•ç‡§∂‡§®‡§Ç ‡§≤‡•ã‡§™‡§É            adar≈õana·πÉ lopa·∏•
 --           Lopa is NON-APPEARANCE.
 --
---   1.1.62  ‡‡‡∞‡‡‡Ø‡Ø‡≤‡ã‡‡ ‡‡‡∞‡‡‡Ø‡Ø‡≤‡ï‡‡‡‡Æ‡  pratyayalope pratyayalakaam
+--   1.1.62  ‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§Ø‡§≤‡•ã‡§™‡•á ‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§Ø‡§≤‡§ï‡•ç‡§∑‡§£‡§Æ‡•ç  pratyayalope pratyayalak·π£a·πáam
 --           When an affix is elided, the operations conditioned by that
 --           affix still apply.
 --
---   1.3.9   ‡‡‡‡Ø ‡≤‡ã‡‡               tasya lopa
---           The it-marker is elided (having, by 1.3.2‚ì1.3.8, done its
+--   1.3.9   ‡§§‡§∏‡•ç‡§Ø ‡§≤‡•ã‡§™‡§É               tasya lopa·∏•
+--           The it-marker is elided (having, by 1.3.2‚Äì1.3.8, done its
 --           marking).
 --
---   1.1.5   ‡ï‡‡ô‡ø‡‡ø ‡                 kiti ca
---           No gua or vddhi when the affix is marked with k or  ‚î a
+--   1.1.5   ‡§ï‡•ç‡§ô‡§ø‡§§‡§ø ‡§ö                 k·πÖiti ca
+--           No gu·πáa or v·πõddhi when the affix is marked with k or ·πÖ ‚Äî a
 --           marking 1.3.9 erased before this rule is consulted.
 --
 -- Pini, ~500 BCE; Ktyyana's vrttikas ~250 BCE; Patajali's
@@ -43,7 +43,7 @@
 --   ec?-not-anal      The half that does not.  6.1.78 eco 'yavyva
 --                     asks whether the sound is in eC, and there is
 --                     provably NO function of the designations that
---                     agrees with it ‚î so 6.1.78 is not blind, cannot be
+--                     agrees with it ‚Äî so 6.1.78 is not blind, cannot be
 --                     made blind, and is exactly what `anal-vidhau`
 --                     excepts.  The barrier is not leaky by oversight.
 --
@@ -73,23 +73,23 @@
 --
 -- Striking `anal-vidhau` (`deriveSthanivatEverywhere`) gives:
 --
---   n ~ lyu   nayana ‚í neyu.  7.3.84 reads the  it has itself just
+--   nƒ´ ~ lyu·π≠   nayana ‚Üí neyu.  7.3.84 reads the ƒ´ it has itself just
 --               replaced, re-offers the SAME gua, the offer is a no-op,
 --               and the engine reads that as a fixpoint and halts three
 --               rules early.  A gua rule that counts its own output as
 --               the sthnin cannot tell that it has fired -- so without
 --               the clause the derivation ends in the wrong PLACE, not
 --               merely with the wrong sound.
---   tat + ca    tacca ‚í tajca.  8.4.40 keeps reading the t that 8.2.39
+--   tat + ca    tacca ‚Üí tajca.  8.4.40 keeps reading the t that 8.2.39
 --               replaced.
---   rmas       rma ‚í rmar.  8.3.15 reads the s it was given in place
+--   rƒÅmas       rƒÅma·∏• ‚Üí rƒÅmar.  8.3.15 reads the s it was given in place
 --               of, so its `r` condition is never met.
---   vc         vk ‚í vk, in FIVE steps rather than three: 8.2.39 cycles
---               k ‚í j ‚í g and 8.4.56 cycles g ‚í c ‚í k, and the cycle lands
+--   vƒÅc         vƒÅk ‚Üí vƒÅk, in FIVE steps rather than three: 8.2.39 cycles
+--               k ‚Üí j ‚Üí g and 8.4.56 cycles g ‚Üí c ‚Üí k, and the cycle lands
 --               back on the attested form.  Same word, different
 --               derivation -- a test on the form alone would have called
 --               this agreement.
---   tat + jalam tajjalam ‚í tajjalam, unchanged.
+--   tat + jalam tajjalam ‚Üí tajjalam, unchanged.
 --
 -- ONE MODELLING CHOICE, STATED.  1.1.56 is an atidea -- it EXTENDS the
 -- sthnin's properties to the dea.  Here that is rendered as a READING:
@@ -103,7 +103,7 @@
 -- 1.1.56 as opacity-with-an-exception is standard in the commentarial
 -- literature (the Kik's treatment of anal-vidhi; Kiparsky on the
 -- architecture of the grammar).  What is here is the mechanisation and
--- the impossibility half ‚î that no designation-function agrees with an
+-- the impossibility half ‚Äî that no designation-function agrees with an
 -- al-vidhi, and that no single reading serves both.
 --
 -- No postulates, no holes, --safe.
@@ -119,7 +119,7 @@ open import Cubical.Data.Empty using (‚ä•)
 open import Cubical.Relation.Nullary using (¬¨_)
 
 ------------------------------------------------------------------------
--- 1.  ‡µ‡∞‡‡‡ ‚î form, designation, and what it stands in place of.
+-- 1.  ‡§µ‡§∞‡•ç‡§£‡§É ‚Äî form, designation, and what it stands in place of.
 --
 --     The three forms are the ones the derivation n + lyu passes
 --     through at the aga's final position: , its gua substitute e,
@@ -158,7 +158,7 @@ adesa-replaces : (f : Rupa) (v : Varna) ‚Üí rupa (adesa f v) ‚â° f
 adesa-replaces f v = refl
 
 ------------------------------------------------------------------------
--- 2.  ‡‡®‡≤‡‡µ‡ø‡ß‡ø‡ ‚î a rule conditioned on designations and nothing else.
+-- 2.  ‡§Ö‡§®‡§≤‡•ç‡§µ‡§ø‡§ß‡§ø‡§É ‚Äî a rule conditioned on designations and nothing else.
 --
 --     "Reads only the designations" is not an annotation on a rule; it
 --     is the statement that the rule FACTORS THROUGH the designation.
@@ -176,7 +176,7 @@ anal-blind : {A : Type} (r : Varna ‚Üí A) ‚Üí AnalVidhi A r
 anal-blind r (g , h) f v = h (adesa f v) ‚àô sym (h v)
 
 ------------------------------------------------------------------------
--- 3.  ‡‡≤‡‡µ‡ø‡ß‡ø‡ ‚î and the exception clause, which is not a hedge.
+-- 3.  ‡§Ö‡§≤‡•ç‡§µ‡§ø‡§ß‡§ø‡§É ‚Äî and the exception clause, which is not a hedge.
 --
 --     6.1.78 eco 'yavyva operates on eC.  Asking whether a sound is
 --     in eC is asking about the sound.
@@ -192,7 +192,7 @@ eco-yavayavah : Varna ‚Üí Bool
 eco-yavayavah v = ec? (rupa v)
 
 -- Two varas with the SAME designation and different verdicts.  The
--- second is the first's gua substitute ‚î which is precisely the pair
+-- second is the first's gu·πáa substitute ‚Äî which is precisely the pair
 -- the derivation of nayana produces.
 ƒ´-anga  : Varna
 ƒ´-anga  = mk ƒ´ ƒ´ anga
@@ -201,7 +201,7 @@ e-anga  : Varna
 e-anga  = adesa e ƒ´-anga            -- 7.3.84's gu·πáa: e standing for ƒ´
 
 -- THEOREM (1.1.56, the half that fails, and provably must).  There is NO
--- function of the designations that agrees with 6.1.78 ‚î so 6.1.78 is
+-- function of the designations that agrees with 6.1.78 ‚Äî so 6.1.78 is
 -- not an anal-vidhi, cannot be recast as one, and `anal-vidhau` is
 -- naming a real class and not softening a claim.
 ec?-not-anal : ¬¨ (AnalVidhi Bool eco-yavayavah)
@@ -263,7 +263,7 @@ both-used : Œ£ (Œ£ Vidhi (Œª k ‚Üí ec? (drsta k e-anga) ‚â° true))
 both-used = (al , refl) , (anal , refl)
 
 ------------------------------------------------------------------------
--- 5.  ‡≤‡ã‡‡ ‚î 1.1.60 adarana lopa: NON-APPEARANCE.
+-- 5.  ‡§≤‡•ã‡§™‡§É ‚Äî 1.1.60 adar≈õana·πÉ lopa·∏•: NON-APPEARANCE.
 --
 --     An item is either present or elided.  The elided one contributes
 --     nothing to what appears and everything it did to what conditions.
@@ -283,7 +283,7 @@ darsana (lupta v ‚à∑ xs) = darsana xs
 adarsanam : (v : Varna) (xs : List Item) ‚Üí darsana (lupta v ‚à∑ xs) ‚â° darsana xs
 adarsanam v xs = refl
 
--- 1.1.5 ‡ï‡ô‡ø‡‡ø ‡, as the predicate it is: is anything here marked kit?
+-- 1.1.5 ‡§ï‡§ô‡§ø‡§§‡§ø ‡§ö, as the predicate it is: is anything here marked kit?
 -- It reads the elided item too, which is 1.1.62.
 kit? : Samjna ‚Üí Bool
 kit? anga     = false
@@ -298,7 +298,7 @@ knit (lupta v ‚à∑ xs) = kit? (samjna v) or knit xs
 ------------------------------------------------------------------------
 -- 6.  ci + kta, in the two implementations of "delete".
 --
---     ‡ï‡‡ is enunciated k-t-a.  1.3.8 makes the k an it, 1.3.9 elides it.
+--     ‡§ï‡•ç‡§§ is enunciated k-t-a.  1.3.8 makes the k an it, 1.3.9 elides it.
 --     The engine that keeps it as an adarana and the engine that removes
 --     it have the same surface and different conditions.
 ------------------------------------------------------------------------
@@ -333,7 +333,7 @@ knit-deleted = refl
 
 -- THEOREM.  Lopa is not deletion.  Two derivations that appear the same
 -- give opposite answers to the rule that decides whether gua applies,
--- so `adarana` is carrying information that `remove` destroys ‚î and the
+-- so `adar≈õana` is carrying information that `remove` destroys ‚Äî and the
 -- form that comes out is cita in the first case and ceta in the second.
 lopa-load-bearing : ¬¨ (knit elided ‚â° knit deleted)
 lopa-load-bearing p = true‚â¢false (sym knit-elided ‚àô p ‚àô knit-deleted)
@@ -352,26 +352,26 @@ darsana-cannot-see r = cong r same-surface
 -- anyway.  1.1.60 says a deletion removes the appearance and not the
 -- conditioning.  Both are statements about WHAT A LATER RULE MAY
 -- OBSERVE, and neither is a statement about what the form is.  ¬ß2 is the
--- first as a factorisation theorem; ¬ß5‚ì6 is the second as a separation.
+-- first as a factorisation theorem; ¬ß5‚Äì6 is the second as a separation.
 --
 -- The engine in machine/Astadhyayi.hs runs on exactly this, and the
 -- correspondence is stated with the engine's own names:
 --
---   `Varna` here          ‚í there the item and a PARALLEL channel `Prov`,
+--   `Varna` here          ‚Üí there the item and a PARALLEL channel `Prov`,
 --                           not one record.  The sthnin is a String and
 --                           can hold two sounds joined, because 6.1.84
 --                           eka prvaparayo heads a block whose
 --                           substitute replaces two.
---   `adesa`               ‚í `applyRwP`, which writes the dea into the
+--   `adesa`               ‚Üí `applyRwP`, which writes the ƒÅde≈õa into the
 --                           word and the sthnin into the channel.
---   `Vidhi` / `al` `anal` ‚í `Vidhi` / `AlVidhi` `AnalVidhi`, plus a third
+--   `Vidhi` / `al` `anal` ‚Üí `Vidhi` / `AlVidhi` `AnalVidhi`, plus a third
 --                           `NoVidhi` for a site holding no dea, where
 --                           the two readings coincide and 1.1.56 has
 --                           nothing to say.
---   `drsta`               ‚í `drsta`, and `seenBy` is it lifted over a
+--   `drsta`               ‚Üí `drsta`, and `seenBy` is it lifted over a
 --                           whole word for one stra.
---   which rules are which ‚í `alVidhiTable`, one entry per stra with its
+--   which rules are which ‚Üí `alVidhiTable`, one entry per s≈´tra with its
 --                           reason, checked total.
---   `lupta`               ‚í `Lupta`.
---   `knit`                ‚í `knitPratyaya`, read by 7.3.84's guard.
+--   `lupta`               ‚Üí `Lupta`.
+--   `knit`                ‚Üí `knitPratyaya`, read by 7.3.84's guard.
 ------------------------------------------------------------------------

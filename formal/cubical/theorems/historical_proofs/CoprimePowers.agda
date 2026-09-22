@@ -5,28 +5,28 @@
 --
 -- `CRTChain` needs that the walk's installed prime
 -- powers are pairwise coprime.  This is its algebra, and the
--- algebra is all of it â” no primality is needed, only that the BASES are
+-- algebra is all of it â€” no primality is needed, only that the BASES are
 -- coprime.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE STATEMENT
 --
--- Coprimality is carried as a B©zout pair, which is what ryabhaa's
+-- Coprimality is carried as a BÃ©zout pair, which is what Ä€ryabhaá¹­a's
 -- kuaka produces (`Kuttaka.bezout`, 499 CE, already checked here):
 --
---     Bez a b  =  Î x, Î y,  aÂx + bÂy â‰¡ 1
+--     Bez a b  =  Î£ x, Î£ y,  aÂ·x + bÂ·y â‰¡ 1
 --
 -- and then
 --
---     bez-mul       :  Bez a b â’ Bez a c â’ Bez a (b Â c)
---     bez-pow       :  Bez a b â’ (n : â•) â’ Bez a (b ^ n)
---     coprime-powers:  Bez a b â’ (m n : â•) â’ Bez (a ^ m) (b ^ n)
+--     bez-mul       :  Bez a b â†’ Bez a c â†’ Bez a (b Â· c)
+--     bez-pow       :  Bez a b â†’ (n : â„•) â†’ Bez a (b ^ n)
+--     coprime-powers:  Bez a b â†’ (m n : â„•) â†’ Bez (a ^ m) (b ^ n)
 --
 -- `bez-mul` is one polynomial identity:
 --
---     (ax + by)(au + cv)  =  aÂ(axu + cxv + byu)  +  (bc)Â(yv)
+--     (ax + by)(au + cv)  =  aÂ·(axu + cxv + byu)  +  (bc)Â·(yv)
 --
--- so a B©zout certificate for `(a, bc)` is assembled from the two given
+-- so a BÃ©zout certificate for `(a, bc)` is assembled from the two given
 -- ones by multiplication.  Everything else is two inductions and a
 -- symmetry.
 --
@@ -34,8 +34,8 @@
 -- because 2 and 3 are**, with the certificate computed rather than
 -- guessed (`bez-8-9`).
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
--- WHY B‰ZOUT AND NOT `gcd`
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- WHY BÃ‰ZOUT AND NOT `gcd`
 --
 -- Because the kuaka produces a certificate, not a predicate.  ryabhaa's
 -- procedure returns the multipliers; `Kuttaka.bezout` returns them as a
@@ -136,11 +136,11 @@ module Bezout (R : CommRing â„“) where
     bez-sym (bez-pow (bez-sym (bez-pow bab n)) m)
 
 ------------------------------------------------------------------------
--- 4.  The walk's own case, computed over â.
+-- 4.  The walk's own case, computed over â„¤.
 --
---   2Â(âˆ’1) + 3Â1 = 1, so Bez 2 3;  hence Bez (2Â³) (3Â²), i.e. 8 and 9.
+--   2Â·(âˆ’1) + 3Â·1 = 1, so Bez 2 3;  hence Bez (2Â³) (3Â²), i.e. 8 and 9.
 --
--- The certificate for 8 and 9 is not guessed â” it is what
+-- The certificate for 8 and 9 is not guessed â€” it is what
 -- `coprime-powers` builds out of the certificate for 2 and 3.
 ------------------------------------------------------------------------
 
@@ -164,6 +164,6 @@ pow-3-2-is-9 = refl
 --
 -- Coprimality of powers follows from
 -- coprimality of bases by one ring identity plus two inductions, with the
--- B©zout witness carried throughout â” which is the kuaka's output, not
+-- BÃ©zout witness carried throughout â€” which is the kuá¹­á¹­aka's output, not
 -- a predicate reconstructed after the fact.
 ------------------------------------------------------------------------

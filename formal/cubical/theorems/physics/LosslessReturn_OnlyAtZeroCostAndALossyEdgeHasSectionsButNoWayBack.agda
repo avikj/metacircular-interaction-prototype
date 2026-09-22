@@ -1,29 +1,29 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- рррир░р╛рЧрорирор тФ ррриррп-р╡ррпрпрри рр╡ рррир░р╛рЧрорирор р
+-- рдкреБрдирд░рд╛рдЧрдордирдореН тАФ рд╢реВрдиреНрдп-рд╡реНрдпрдпреЗрди рдПрд╡ рдкреБрдирд░рд╛рдЧрдордирдореН ред
 --
 -- (return only at zero cost.)
 --
--- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
--- THE WORD THIS CORPUS IS NAMED AFTER, AS A NO-GO.  ррррр░ рзр says return
+-- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
+-- THE WORD THIS CORPUS IS NAMED AFTER, AS A NO-GO.  рд╕реВрддреНрд░ резрем says return
 -- is only at zero cost, and README movement 6 reads that as chronology
 -- protection: you cannot come back with an unpaid debt.  This is the
 -- minimal term.
 --
 -- The asymmetry is sharper than "a lossy map is not invertible", and it
--- is the whole content.  `Bool тТ Unit` HAS a right inverse: leave the
+-- is the whole content.  `Bool тЖТ Unit` HAS a right inverse: leave the
 -- codomain, pick a preimage, come back, and you are exactly where you
--- started тФ `ррр░рр┐р╡ррирор` below, and `Varanam_тжagda` ┬зрй exhibits two such
+-- started тАФ `рдкреНрд░рддрд┐рд╡рд╣рдирдореН` below, and `Varanam_тАжagda` ┬зрей exhibits two such
 -- choices.  What it does NOT have is a left inverse: leave the DOMAIN and
 -- there is no way back to the point you left.
 --
---   ┬ out and back, in the codomain : always available, at any loss
---   ┬ out and back, in the DOMAIN   : available exactly at zero loss
+--   ┬╖ out and back, in the codomain : always available, at any loss
+--   ┬╖ out and back, in the DOMAIN   : available exactly at zero loss
 --
 -- So a debt does not stop you moving and does not stop you returning to
--- a description.  It stops you returning to the THING.  ┬зрй is that, and
--- ┬зр is its converse: at zero defect the way back exists and is the
+-- a description.  It stops you returning to the THING.  ┬зрей is that, and
+-- ┬зрек is its converse: at zero defect the way back exists and is the
 -- equivalence's own inverse.
 ------------------------------------------------------------------------
 
@@ -39,14 +39,14 @@ open import Cubical.Relation.Nullary using (┬м_)
 private variable тДУ : Level
 
 ------------------------------------------------------------------------
--- рз ┬ the lossy edge.
+-- рез ┬╖ the lossy edge.
 ------------------------------------------------------------------------
 
 рд▓реЛрдкрдГ : Bool тЖТ Unit
 рд▓реЛрдкрдГ _ = tt
 
 ------------------------------------------------------------------------
--- ри ┬ ррр┐р░ррЧрори-рррир░р╛рЧрорирор тФ out and back IN THE CODOMAIN is free, at any
+-- реи ┬╖ рдмрд╣рд┐рд░реНрдЧрдорди-рдкреБрдирд░рд╛рдЧрдордирдореН тАФ out and back IN THE CODOMAIN is free, at any
 --     loss.  Pick any preimage; you return to where you started.
 ------------------------------------------------------------------------
 
@@ -57,7 +57,7 @@ private variable тДУ : Level
 рдмрд╣рд┐рдГ-рдкреБрдирд░рд╛рдЧрдордирдореН _ = refl
 
 ------------------------------------------------------------------------
--- рй ┬ рриррр-рррир░р╛рЧрорир рир╛рррр┐ тФ AND OUT AND BACK IN THE DOMAIN IS NOT
+-- рей ┬╖ рдЕрдиреНрддрдГ-рдкреБрдирд░рд╛рдЧрдордирдВ рдирд╛рд╕реНрддрд┐ тАФ AND OUT AND BACK IN THE DOMAIN IS NOT
 --     AVAILABLE.  No map back returns every point to itself, and the
 --     obstruction is exactly the bit that was destroyed.
 --
@@ -69,7 +69,7 @@ private variable тДУ : Level
 рдЕрдиреНрддрдГ-рдкреБрдирд░рд╛рдЧрдордирдВ-рдирд╛рд╕реНрддрд┐ (r , ret) = falseтЙвtrue (sym (ret false) тИЩ ret true)
 
 ------------------------------------------------------------------------
--- р ┬ ррриррп-р╡ррпрпр рррир░р╛рЧрорирор тФ and at zero defect the way back exists,
+-- рек ┬╖ рд╢реВрдиреНрдп-рд╡реНрдпрдпреЗ рдкреБрдирд░рд╛рдЧрдордирдореН тАФ and at zero defect the way back exists,
 --     both ways, and it is the edge's own inverse.
 ------------------------------------------------------------------------
 

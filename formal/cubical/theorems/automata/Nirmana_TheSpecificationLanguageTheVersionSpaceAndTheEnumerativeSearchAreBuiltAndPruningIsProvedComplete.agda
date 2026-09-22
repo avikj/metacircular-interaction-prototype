@@ -1,45 +1,45 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ������� � construction; the making of a thing to order.
+-- निर्माण — construction; the making of a thing to order.
 --
 -- WHY THIS FILE EXISTS.
 --
 -- The specification language, the version space, the enumerative search
 -- and pruning are built here, and the statement about synthesisers becomes
 -- three theorems: pruning by observational equivalence is COMPLETE
--- (§�), the class it collapses is UNBOUNDED (§�), and any choice made
--- inside that class is EXTRA-SEMANTIC (§�) � not merely unjustified by
+-- (§४), the class it collapses is UNBOUNDED (§५), and any choice made
+-- inside that class is EXTRA-SEMANTIC (§६) — not merely unjustified by
 -- the specification, but not a function of the full input-output
 -- behaviour either.
 --
 -- WHAT IS CHECKED
 --
---   §�  `Exp`, `eval`, `size`   the candidate language.
---   §�  `Spec`, `Satisfies`     THE SPECIFICATION LANGUAGE: a finite
---                               list of input�output examples, which is
+--   §१  `Exp`, `eval`, `size`   the candidate language.
+--   §२  `Spec`, `Satisfies`     THE SPECIFICATION LANGUAGE: a finite
+--                               list of input–output examples, which is
 --                               what programming-by-example means.
 --       `VersionSpace`          the candidates consistent with a spec.
---   §�  `candidates`, `search`  THE ENUMERATIVE SEARCH PROCEDURE, and
+--   §३  `candidates`, `search`  THE ENUMERATIVE SEARCH PROCEDURE, and
 --       `search-sound`          that what it returns satisfies the spec.
---   §�  `behaviour`, `prune`    pruning by observational equivalence,
+--   §४  `behaviour`, `prune`    pruning by observational equivalence,
 --       `prune-covers`          every candidate has a survivor with its
 --                               behaviour, and therefore
 --       `prune-complete`        PRUNING NEVER LOSES A SOLUTION.
---   §�  `tower`, `tower-inj`    the collapsed class contains an
---       `fibre-unbounded`       injective copy of �: what dedup removed
+--   §५  `tower`, `tower-inj`    the collapsed class contains an
+--       `fibre-unbounded`       injective copy of ℕ: what dedup removed
 --                               was not a duplicate.
---   §�  `no-semantic-ranking`   and no function of the behaviour � not
+--   §६  `no-semantic-ranking`   and no function of the behaviour — not
 --                               of the specification, of the WHOLE
---                               input-output function � recovers the
+--                               input-output function — recovers the
 --                               size.  So size, cost and structural
 --                               heuristics are choices about the
 --                               residue, by theorem.
 --
 -- ONE IMPLEMENTATION FACT.  `anyWitness`, `prune-covers` and the
 -- decision lambdas match on indexed families, so Agda warns they will
--- not REDUCE under a transport.  Harmless here � all of them produce
--- proofs that are never transported along � and said rather than left
+-- not REDUCE under a transport.  Harmless here — all of them produce
+-- proofs that are never transported along — and said rather than left
 -- to be discovered.
 ------------------------------------------------------------------------
 
@@ -60,7 +60,7 @@ private
   absurd ()
 
 ------------------------------------------------------------------------
--- � � the candidate language.
+-- १ · the candidate language.
 ------------------------------------------------------------------------
 
 data Exp : Type where
@@ -79,9 +79,9 @@ size (lit _)   = 1
 size (add a b) = suc (size a + size b)
 
 ------------------------------------------------------------------------
--- � � THE SPECIFICATION LANGUAGE, and the version space.
+-- २ · THE SPECIFICATION LANGUAGE, and the version space.
 --
--- A specification is a finite list of input�output examples.  That is
+-- A specification is a finite list of input–output examples.  That is
 -- what programming-by-example means, and it is the whole language: no
 -- logical connectives, no types, no sketch.  The version space is the
 -- subtype of candidates consistent with it.
@@ -108,11 +108,11 @@ decSatisfies e ((i , o) ∷ s) with discreteℕ (eval e i) o | decSatisfies e s
 ... | no ¬p | _     = no λ r → ¬p (fst r)
 
 ------------------------------------------------------------------------
--- � � THE ENUMERATIVE SEARCH PROCEDURE.
+-- ३ · THE ENUMERATIVE SEARCH PROCEDURE.
 --
 -- Candidates by depth, bottom up, with no pruning; then the first one
 -- that passes every example.  This is the baseline every synthesiser
--- optimises away from, and §� is the proof that the optimisation is
+-- optimises away from, and §४ is the proof that the optimisation is
 -- allowed.
 ------------------------------------------------------------------------
 
@@ -155,12 +155,12 @@ search-sound : (n : ℕ) (s : Spec) (e : Exp) → search n s ≡ just e → Sati
 search-sound n s = first-sound s (candidates n)
 
 ------------------------------------------------------------------------
--- � � PRUNING BY OBSERVATIONAL EQUIVALENCE, AND ITS COMPLETENESS.
+-- ४ · PRUNING BY OBSERVATIONAL EQUIVALENCE, AND ITS COMPLETENESS.
 --
 -- The behaviour of a candidate on a specification is the vector of its
 -- outputs at the specification's inputs.  Two candidates with the same
--- behaviour satisfy the same specifications � §�.�, which is the whole
--- justification for dedup � and pruning keeps one candidate per
+-- behaviour satisfy the same specifications — §४.१, which is the whole
+-- justification for dedup — and pruning keeps one candidate per
 -- behaviour, so it never loses a solution.
 --
 -- `prune-complete` is stated for ANY pruner that covers behaviours, so
@@ -171,7 +171,7 @@ search-sound n s = first-sound s (candidates n)
 behaviour : Spec → Exp → List ℕ
 behaviour s e = map (λ p → eval e (fst p)) s
 
--- �.� � same behaviour, same satisfaction.  This is why dedup is sound.
+-- ४.१ · same behaviour, same satisfaction.  This is why dedup is sound.
 behaviour→Satisfies : (s : Spec) (e e' : Exp) → behaviour s e ≡ behaviour s e'
                     → Satisfies e s → Satisfies e' s
 behaviour→Satisfies []             e e' _ _        = tt
@@ -232,7 +232,7 @@ prune-covers s (x ∷ xs) e (there m) with decAny s x (prune s xs)
 ... | no  _ =
   let (e' , mm , p) = prune-covers s xs e m in e' , there mm , p
 
--- �hence pruning never loses a solution: the theorem a synthesiser
+-- …hence pruning never loses a solution: the theorem a synthesiser
 -- silently relies on every time it deduplicates.
 prune-complete : (s : Spec) (xs : List Exp) (e : Exp) → e ∈ xs → Satisfies e s
                → Σ[ e' ∈ Exp ] (e' ∈ prune s xs) × Satisfies e' s
@@ -241,10 +241,10 @@ prune-complete s xs e m sat =
   in  e' , mm , behaviour→Satisfies s e e' b sat
 
 ------------------------------------------------------------------------
--- � � AND WHAT IT COLLAPSED WAS NOT A DUPLICATE.
+-- ५ · AND WHAT IT COLLAPSED WAS NOT A DUPLICATE.
 --
 -- The class of candidates that are constantly zero contains an
--- injective copy of �.  A synthesiser that keeps one representative is
+-- injective copy of ℕ.  A synthesiser that keeps one representative is
 -- not removing redundancy; it is selecting one element of an unbounded
 -- fibre and discarding the rest.
 ------------------------------------------------------------------------
@@ -257,13 +257,13 @@ tower-eval : (n : ℕ) (i : ℕ) → eval (tower n) i ≡ 0
 tower-eval zero    i = refl
 tower-eval (suc n) i = tower-eval n i
 
--- every member of the family has the same behaviour, on every spec �
+-- every member of the family has the same behaviour, on every spec …
 tower-sameB : (s : Spec) (m n : ℕ) → SameB s (tower m) (tower n)
 tower-sameB []             m n = refl
 tower-sameB ((i , o) ∷ s) m n =
   cong₂ _∷_ (tower-eval m i ∙ sym (tower-eval n i)) (tower-sameB s m n)
 
--- � and they are pairwise distinct, because their sizes are.
+-- … and they are pairwise distinct, because their sizes are.
 depth : Exp → ℕ
 depth var       = 0
 depth (lit _)   = 0
@@ -282,11 +282,11 @@ fibre-unbounded : Σ[ f ∈ (ℕ → Exp) ]
 fibre-unbounded = tower , tower-sameB , tower-inj
 
 ------------------------------------------------------------------------
--- � � AND THE CHOICE INSIDE THE CLASS IS EXTRA-SEMANTIC.
+-- ६ · AND THE CHOICE INSIDE THE CLASS IS EXTRA-SEMANTIC.
 --
 -- Stronger than "the specification does not determine it": the WHOLE
 -- input-output function does not.  `tower 0` and `tower 1` are equal as
--- functions � � � and differ in size, so no functional of the semantics
+-- functions ℕ → ℕ and differ in size, so no functional of the semantics
 -- computes the size.  Size, cost and structural heuristics are
 -- therefore choices about the residue, and this is a theorem about them
 -- rather than a caution.

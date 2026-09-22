@@ -14,14 +14,14 @@
 --
 -- Not "is complicated".  Consecutive integers are coprime, so the
 -- derivations of n and n+1 share **not one coordinate**.  Every single
--- step along � is a total jump in the chart where multiplication is easy.
--- The two structures on the same set do not merely fail to commute � they
+-- step along ℕ is a total jump in the chart where multiplication is easy.
+-- The two structures on the same set do not merely fail to commute — they
 -- have disjoint support at every step.
 --
 -- That is this repository's central difficulty, stated exactly and
 -- elementarily.  Sieve and multiplicative methods live in the tropical
 -- chart because that is where their objects are simple; additive
--- questions � Goldbach, gaps, pairs � are questions about the successor;
+-- questions — Goldbach, gaps, pairs — are questions about the successor;
 -- and the successor is the one map with no expression there.  The
 -- "parity barrier" is a chart incompatibility, and `disjoint-support`
 -- below is its whole content.
@@ -50,9 +50,9 @@ open import WalkJumps using (IsPrime ; prime-¬∣1)
 ------------------------------------------------------------------------
 -- 1.  Consecutive integers have no common divisor but 1
 --
--- � has no subtraction, so the usual one-line proof is unavailable and
--- the argument goes through the witnesses: n = a�d and n+1 = b�d force
--- a < b, and then b = j + (a+1) makes (j+1)�d = 1 by cancellation.
+-- ℕ has no subtraction, so the usual one-line proof is unavailable and
+-- the argument goes through the witnesses: n = a·d and n+1 = b·d force
+-- a < b, and then b = j + (a+1) makes (j+1)·d = 1 by cancellation.
 ------------------------------------------------------------------------
 
 cd-consecutive : (d n : ℕ) → d ∣ n → d ∣ suc n → d ∣ 1
@@ -100,8 +100,8 @@ disjoint-support :
 disjoint-support p n pp p∣n p∣sn =
   prime-¬∣1 p pp (cd-consecutive p n p∣n p∣sn)
 
--- read the other way: whatever the walk knows about n � its entire
--- installed state, every register � tells it nothing whatsoever about
+-- read the other way: whatever the walk knows about n — its entire
+-- installed state, every register — tells it nothing whatsoever about
 -- n+1's registers, because they are a disjoint set of coordinates.
 successor-shares-nothing :
   (p n : ℕ) → IsPrime p → p ∣ suc n → ¬ (p ∣ n)
@@ -111,17 +111,17 @@ successor-shares-nothing p n pp p∣sn p∣n =
 ------------------------------------------------------------------------
 -- 3.  Three concrete failures of transport, by computation.
 --
---     Divisibility is the tropical order (pointwise � on derivations);
+--     Divisibility is the tropical order (pointwise ≤ on derivations);
 --     lcm is the tropical join.  The successor respects neither.  These
 --     are exact evaluations, not measurements.
 ------------------------------------------------------------------------
 
--- the successor does not preserve the divisibility order: 2 � 4 but 3 � 5
+-- the successor does not preserve the divisibility order: 2 ∣ 4 but 3 ∤ 5
 suc-breaks-order-lhs : 2 ∣ 4
 suc-breaks-order-lhs = ∣ 2 , refl ∣₁
 
--- 3�c ≡ 5 has no solution: c = 0 gives 0, c = 1 gives 3, c = 2 gives 6,
--- and c � 3 gives at least 9.  Four cases, all by peeling successors.
+-- 3·c ≡ 5 has no solution: c = 0 gives 0, c = 1 gives 3, c = 2 gives 6,
+-- and c ≥ 3 gives at least 9.  Four cases, all by peeling successors.
 suc-breaks-order-rhs : ¬ (3 ∣ 5)
 suc-breaks-order-rhs h with ∣-untrunc h
 ... | (zero                    , p) = znots p
@@ -134,7 +134,7 @@ suc-breaks-order-rhs h with ∣-untrunc h
 -- and it does not commute with the join:
 --   lcm 2 3 = 6, and its successor is 7,
 --   while lcm (suc 2) (suc 3) = lcm 3 4 = 12.
--- One step in �, and the tropical join lands somewhere unrelated.
+-- One step in ℕ, and the tropical join lands somewhere unrelated.
 join-does-not-follow : ¬ (7 ≡ 12)
 join-does-not-follow p =
   znots (injSuc (injSuc (injSuc (injSuc (injSuc (injSuc (injSuc p)))))))
@@ -142,15 +142,15 @@ join-does-not-follow p =
 ------------------------------------------------------------------------
 -- 4.  What this says, for the record.
 --
--- `SumProductTorus` gives �'s multiplicative structure a chart in which
+-- `SumProductTorus` gives ℕ's multiplicative structure a chart in which
 -- it is free: derivations under +, join under max, the two cohering
 -- tropically.  Every multiplicative question becomes easy there.
 --
 -- `disjoint-support` says the successor is invisible in that chart, in
--- the strongest possible sense � not distorted, not expensive, but
+-- the strongest possible sense — not distorted, not expensive, but
 -- supported on coordinates disjoint from the ones it came from.
 --
--- So the two structures � carries are not two views of one object that
+-- So the two structures ℕ carries are not two views of one object that
 -- some clever transport will reconcile.  There is a chart for each, and
 -- the transition map between them has no locality at any point.  Every
 -- method that works multiplicatively is working in one chart, every
@@ -159,7 +159,7 @@ join-does-not-follow p =
 --
 -- The honest consequence: looking for the obstruction inside either
 -- chart is looking in the wrong place.  It is not in the sieve and it is
--- not in the walk � both are single-chart objects, and this module says
+-- not in the walk — both are single-chart objects, and this module says
 -- what happens between charts.  The object to build is the transition
 -- itself.
 ------------------------------------------------------------------------
@@ -167,7 +167,7 @@ join-does-not-follow p =
 ------------------------------------------------------------------------
 -- 5.  Scope of §4.
 --
--- The theorem is about � **with the
+-- The theorem is about ℕ **with the
 -- successor**, whose generator 1 is a unit and therefore multiplicatively
 -- invisible by construction.  It is not a theorem about arithmetic
 -- carrying two structures.
@@ -176,14 +176,14 @@ join-does-not-follow p =
 -- additive law to Brahmagupta's composition (bhvan at D = −1, 628 CE).
 -- There the successor's analogue satisfies
 --
---     N (u ⊗ g) ≡ N u � N g
+--     N (u ⊗ g) ≡ N u · N g
 --
--- � multiplication by a constant in the very chart where �'s successor
+-- — multiplication by a constant in the very chart where ℕ's successor
 -- has no support at all.  Total locality against zero locality, same
 -- chart.  So the incompatibility measured here belongs to the line.
 --
--- The closing sentence of §4 � "the object to build is the transition
--- itself" � is answered there by `gen-hom`: squaring is a monoid
+-- The closing sentence of §4 — "the object to build is the transition
+-- itself" — is answered there by `gen-hom`: squaring is a monoid
 -- homomorphism from the parameter chart to the triple chart, so Euclid's
 -- parametrisation IS the transition, with no defect.
 ------------------------------------------------------------------------

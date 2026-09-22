@@ -1,18 +1,18 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Baddha ‚î what the calculus binds and cannot release.
+-- Baddha ‚Äî what the calculus binds and cannot release.
 --
--- TERM.  ‡‡¶‡‡ß, bound / held fast.  Used here in its plain sense, and the
+-- TERM.  ‡§¨‡§¶‡•ç‡§ß, bound / held fast.  Used here in its plain sense, and the
 -- compound is chosen here: no text is cited for it and nothing below is
--- anyone's theorem.  (The corpus uses ‡‡¶‡‡ß‡Æ‡ for the karma-count in
--- `Karma_‚¶`; that is a different object and no connection is claimed.)
+-- anyone's theorem.  (The corpus uses ‡§¨‡§¶‡•ç‡§ß‡§Æ‡•ç for the karma-count in
+-- `Karma_‚Ä¶`; that is a different object and no connection is claimed.)
 --
 -- THIS MODULE REFUTES A CONJECTURE STATED IN TWO OTHER MODULES.
--- `Anupurvi_‚¶.NormalisationConjecture` and
--- `Samkhyana_‚¶.CompleteInvariantConjecture` both propose that the word of
+-- `Anupurvi_‚Ä¶.NormalisationConjecture` and
+-- `Samkhyana_‚Ä¶.CompleteInvariantConjecture` both propose that the word of
 -- variable occurrences together with the count of successors is a COMPLETE
--- invariant for derivability ‚î that two terms agreeing on both are joined
+-- invariant for derivability ‚Äî that two terms agreeing on both are joined
 -- by some derivation.  They are not.  There is a third conservation law,
 -- it is independent of the other two, and it separates a pair on which
 -- they agree.
@@ -22,10 +22,10 @@
 -- `add` whose right child is `zero`; `add-suc` lifts a successor out of a
 -- right child to the front; the three congruences descend; `reverse`
 -- undoes.  Nothing re-brackets.  So a successor sitting in the LEFT operand
--- of an `add` can never reach the front ‚î unless that `add` is itself
+-- of an `add` can never reach the front ‚Äî unless that `add` is itself
 -- deleted, and `add-zero` deletes it only when its right child is `zero`.
 -- A right child that carries a variable can never become `zero`, because
--- `Anupurvi_‚¶` proves the word is conserved.  Hence:
+-- `Anupurvi_‚Ä¶` proves the word is conserved.  Hence:
 --
 --     A SUCCESSOR IN A LEFT OPERAND WHOSE SIBLING CARRIES A VARIABLE IS
 --     PERMANENTLY TRAPPED.
@@ -39,13 +39,13 @@
 -- operand must not change how many are trapped), and the congruence on the
 -- right needs the WORD to be conserved (the sibling must not stop carrying
 -- a variable).  So the third law is provable only in the presence of the
--- first two, and the three stand or fall together ‚î which is why the
+-- first two, and the three stand or fall together ‚Äî which is why the
 -- earlier conjecture was reasonable and why it is nonetheless false.
 --
 -- WHAT THE REFUTATION LEAVES STANDING.  Everything in the other modules.
 -- The word is conserved; the constant is conserved; the meaning is their
--- function; soundness follows.  What falls is only the CONVERSE ‚î that the
--- two suffice ‚î and it fell to a third invariant rather than to an error.
+-- function; soundness follows.  What falls is only the CONVERSE ‚Äî that the
+-- two suffice ‚Äî and it fell to a third invariant rather than to an error.
 -- The corrected statement, with no conjecture attached to it: derivability
 -- implies agreement on word, constant AND trapped count, and whether those
 -- three suffice is ¬ß4's conjecture.
@@ -90,7 +90,7 @@ trapped (suc t)   = trapped t
 trapped (add l r) = (trapped l +‚Ñï trapped r) +‚Ñï guard (word r) (constPart l)
 
 ------------------------------------------------------------------------
--- ¬ß2.  IT IS CONSERVED ‚î AND THE PROOF NEEDS BOTH OTHER LAWS.
+-- ¬ß2.  IT IS CONSERVED ‚Äî AND THE PROOF NEEDS BOTH OTHER LAWS.
 ------------------------------------------------------------------------
 
 step-preserves-trapped : {a b : Tm} ‚Üí Step a b ‚Üí trapped a ‚â° trapped b

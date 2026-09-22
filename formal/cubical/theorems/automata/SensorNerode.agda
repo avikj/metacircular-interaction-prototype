@@ -6,53 +6,53 @@
 -- THE WALK'S MINIMAL STATE IS ITS LCM.
 --
 -- A family `S` of moduli observes `n` only through
--- `lcm(S)`; the Nerode form of this: `S � lcm S` IS
+-- `lcm(S)`; the Nerode form of this: `S … lcm S` IS
 -- the quotient by observational equivalence, so the sensor list is a
 -- redundant presentation of one number.
 --
 -- The proof carries NO ARITHMETIC.  That is not economy, it is the
 -- content: `WalkCapacity`'s `IsLCM` is the universal property, and the
--- Nerode theorem is that property applied to one number � the distance
--- `dist a b` � rather than a computation about residues.
+-- Nerode theorem is that property applied to one number — the distance
+-- `dist a b` — rather than a computation about residues.
 --
 -- WHAT IS CHECKED
 --
---   §1  `dist`               |a − b|, as `(a � b) + (b � a)`, and
+--   §1  `dist`               |a − b|, as `(a ∸ b) + (b ∸ a)`, and
 --       `dist-0`             `dist n 0 ≡ n`.
 --
 --   §2  `Ind`                indistinguishability: every modulus in the
 --       `Ind≡CommonMultiple`  family divides the distance.  The pivot of
---                            the whole file is that this is `refl` �
+--                            the whole file is that this is `refl` —
 --                            `Ind S a b` IS `CommonMultiple S (dist a b)`
 --                            definitionally.  Once seen, both halves of
 --                            §3 are immediate, and that is the theorem.
 --
---   §3  `ind�lcm`            THE NERODE THEOREM.  For any `L` with
---       `lcm�ind`            `IsLCM S L`:  `Ind S a b  ⟺  L � dist a b`.
+--   §3  `ind→lcm`            THE NERODE THEOREM.  For any `L` with
+--       `lcm→ind`            `IsLCM S L`:  `Ind S a b  ⟺  L ∣ dist a b`.
 --       `nerode`             Forward is the universal property verbatim
 --                            (the distance is a common multiple, so `L`
 --                            divides it); backward is transitivity of
 --                            divisibility along `L`.  Packaged as a path
 --                            of types, since both sides are props.
 --
---   §4  `same-lcm�same-obs`  COROLLARY: two sensor
+--   §4  `same-lcm→same-obs`  COROLLARY: two sensor
 --                            families with the same lcm induce the SAME
---                            indistinguishability relation � equal as
+--                            indistinguishability relation — equal as
 --                            types, pointwise, not merely inter-derivable.
 --
---   §5  `obs�lcm≡`           MINIMALITY:
+--   §5  `obs→lcm≡`           MINIMALITY:
 --       `nerode-unique`      the relation DETERMINES the lcm.
 --                            If two families induce the same relation
 --                            then their lcms are equal, by testing at
 --                            `(L , 0)` and applying antisymmetry of
 --                            divisibility.  This is the uniqueness half
---                            of Myhill�Nerode � the minimal state is
---                            unique, not merely minimal � and §4 with §5
+--                            of Myhill–Nerode — the minimal state is
+--                            unique, not merely minimal — and §4 with §5
 --                            together say `lcm` is a bijection from
 --                            observational classes to state values.
 --
 --   §6  `nerode!`             the same three, UNCONDITIONAL, via
---       `same-lcm�same-obs!`  `LCMExists.lcmList-isLCM`.
+--       `same-lcm→same-obs!`  `LCMExists.lcmList-isLCM`.
 --       `nerode-unique!`
 ------------------------------------------------------------------------
 
@@ -73,7 +73,7 @@ open import LCMExists   using (lcmList ; lcmList-isLCM)
 ------------------------------------------------------------------------
 -- 1.  The distance.
 --
--- `dist a b` is |a − b| written without leaving �: one of the two
+-- `dist a b` is |a − b| written without leaving ℕ: one of the two
 -- truncated subtractions is zero, and the sum picks out the other.
 ------------------------------------------------------------------------
 
@@ -95,7 +95,7 @@ dist-0 n = cong (n +_) (zero∸ n) ∙ +-zero n
 -- mechanism of this file: that relation is, definitionally, the
 -- statement that the distance is a COMMON MULTIPLE of `S`.  So the
 -- question "what does S see?" is already, before any theorem, a question
--- about common multiples � and `IsLCM` answers questions about common
+-- about common multiples — and `IsLCM` answers questions about common
 -- multiples by construction.
 ------------------------------------------------------------------------
 
@@ -120,7 +120,7 @@ allTrans (x ∷ xs) (p , ps) q = ∣-trans p q , allTrans xs ps q
 --
 -- Everything a family of moduli can distinguish is decided by one
 -- number.  Forward: the distance is a common multiple of `S`, so the
--- lcm divides it � this is `IsLCM`'s second component applied and
+-- lcm divides it — this is `IsLCM`'s second component applied and
 -- nothing else.  Backward: each modulus divides the lcm, which divides
 -- the distance.
 ------------------------------------------------------------------------
@@ -201,9 +201,9 @@ nerode-unique isS isT h =
 ------------------------------------------------------------------------
 -- 6.  UNCONDITIONAL FORMS.
 --
--- §§3�5 above take
+-- §§3–5 above take
 -- `IsLCM S L` as a HYPOTHESIS; `LCMExists` discharges it:
--- `lcmList-isLCM : (xs : List �) � IsLCM xs (lcmList xs)`, no hypothesis,
+-- `lcmList-isLCM : (xs : List ℕ) → IsLCM xs (lcmList xs)`, no hypothesis,
 -- no positivity restriction.
 --
 -- The hypothetical
@@ -216,13 +216,13 @@ nerode-unique isS isT h =
 nerode! : (S : List ℕ) (a b : ℕ) → Ind S a b ≡ (lcmList S ∣ dist a b)
 nerode! S = nerode (lcmList-isLCM S)
 
--- Two families with the same lcm see the same thing �
+-- Two families with the same lcm see the same thing …
 same-lcm→same-obs! : (S T : List ℕ) → lcmList S ≡ lcmList T
                    → (a b : ℕ) → Ind S a b ≡ Ind T a b
 same-lcm→same-obs! S T p a b =
   nerode! S a b ∙ cong (_∣ dist a b) p ∙ sym (nerode! T a b)
 
--- � and conversely the relation determines the lcm.  Together: `lcmList`
+-- … and conversely the relation determines the lcm.  Together: `lcmList`
 -- is a bijection from observational behaviour to state value, with no
 -- hypothesis anywhere.
 nerode-unique! : (S T : List ℕ)

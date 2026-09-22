@@ -1,70 +1,70 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ààààààà¾ â” à¨à¾à® ààà°ààµà à¦àààà®à, à—àà¨à¾ àà à¨ àààà¯àà¿ à
+-- à¤¸à¤à¥à¤œà¥à¤à¤¾ â€” à¤¨à¤¾à¤® à¤ªà¥‚à¤°à¥à¤µà¤‚ à¤¦à¤¤à¥à¤¤à¤®à¥, à¤—à¤£à¤¨à¤¾ à¤¤à¥ à¤¨ à¤ªà¤¶à¥à¤¯à¤¤à¤¿ à¥¤
 --
 -- (the name was assigned already; it is the census that could not see it.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- TERM, TEXT, DATE.
 --
--- ààààààà¾ is Pini's device of technical designation: a stra assigns a
+-- à¤¸à¤à¥à¤œà¥à¤à¤¾ is PÄá¹‡ini's device of technical designation: a sÅ«tra assigns a
 -- name to a class of forms, and every later stra then operates by that
--- name and never re-describes the class.  ààààŸà¾à§àà¯à¾à¯à à§.à§.à§ àµàà¦àà§à¿à°à¾à¦àˆàà
--- (ààà and ààà receive the ààààààà¾ *vddhi*) and à§.à.à§à àààààà¿à™à¨ààà àà¦à®à
--- (what ends in àààà or àà¿à™à receives the ààààààà¾ *pada*), c. 500 BCE.
+-- name and never re-describes the class.  à¤…à¤·à¥à¤Ÿà¤¾à¤§à¥à¤¯à¤¾à¤¯à¥€ à¥§.à¥§.à¥§ à¤µà¥ƒà¤¦à¥à¤§à¤¿à¤°à¤¾à¤¦à¥ˆà¤šà¥
+-- (à¤†à¤¤à¥ and à¤à¤šà¥ receive the à¤¸à¤à¥à¤œà¥à¤à¤¾ *vá¹›ddhi*) and à¥§.à¥ª.à¥§à¥ª à¤¸à¥à¤ªà¥à¤¤à¤¿à¤™à¤¨à¥à¤¤à¤‚ à¤ªà¤¦à¤®à¥
+-- (what ends in à¤¸à¥à¤ªà¥ or à¤¤à¤¿à¤™à¥ receives the à¤¸à¤à¥à¤œà¥à¤à¤¾ *pada*), c. 500 BCE.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- WHAT IS HERE, AND WHAT IS DELIBERATELY NOT.
 --
--- `scripts/Abhijnana_â¦sh --check` was completed on 2026-08-22: it now
+-- `scripts/Abhijnana_â€¦sh --check` was completed on 2026-08-22: it now
 -- emits a probe per lead and lets the kernel answer.  Of 17 STRONG leads
 -- it turned 5 green.  **Four of those five are already published and are
--- NOT restated here** â” `matraOf`/`Metre` and `varna`/`Vak` in
--- `Chandomudra_â¦`, `chargeOneProjector`/`chargeOneFiber` and
--- `value`/`Fib` in `Tantusandhi_â¦`, which landed while this was being
+-- NOT restated here** â€” `matraOf`/`Metre` and `varna`/`Vak` in
+-- `Chandomudra_â€¦`, `chargeOneProjector`/`chargeOneFiber` and
+-- `value`/`Fib` in `Tantusandhi_â€¦`, which landed while this was being
 -- checked.  Restating them would inflate a count, which is the one thing
--- a recognition pass must not do.  Â§à§ is the fifth.
+-- a recognition pass must not do.  Â§à¥§ is the fifth.
 --
--- Â§à¨ is the more useful half and it comes out of the DEATHS.  Nine of
+-- Â§à¥¨ is the more useful half and it comes out of the DEATHS.  Nine of
 -- the fourteen probed leads failed, and **five of the nine failed the
 -- same way**: the written type is not `fiber f b` but
 --
---     Î[ n âˆˆ â• ] ((n âˆˆ domain) — (q n â‰¡ v)),
+--     Î£[ n âˆˆ â„• ] ((n âˆˆ domain) Ã— (q n â‰¡ v)),
 --
 -- the fibre of `q` RESTRICTED to a domain predicate.  The census has no
--- vocabulary for that at all, so it prices those edges at nothing.  Â§à¨
+-- vocabulary for that at all, so it prices those edges at nothing.  Â§à¥¨
 -- gives it one: such a type is the honest fibre of the restricted map,
--- and the passage between them is Î-associativity â” an equivalence, not
+-- and the passage between them is Î£-associativity â€” an equivalence, not
 -- a `refl`, and the gap is exactly the restriction.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE CENSUS THAT PRODUCED THIS, REPORTED WHOLE.
 --
 --   undecided one-way edges                     1056
 --   fibre rows usable after detection             244   (of Upalabdhi's 475)
 --   STRONG leads (source type AND map name)        17
---   WEAK   leads (source type only)              9209   â never probed
---   probed 17 Â GREEN 5 Â DEATH 9 Â SKIP 3
+--   WEAK   leads (source type only)              9209   â† never probed
+--   probed 17 Â· GREEN 5 Â· DEATH 9 Â· SKIP 3
 --
 -- **A source-and-map match is a LEAD, not a hit: 9 of 14 died.**  The
 -- deaths sort into four kinds and none of them is noise:
 --
---   (i)   fibre of a RESTRICTED map â” five of the nine, and Â§à¨ below;
---   (ii)  the same short name in two modules â” `Digits.value`
+--   (i)   fibre of a RESTRICTED map â€” five of the nine, and Â§à¥¨ below;
+--   (ii)  the same short name in two modules â€” `Digits.value`
 --         joined `CarryFiber.Fib` because both end in `value`;
 --         different maps out of different `Word`s;
---   (iii) the queued map is a FACTOR, not the map â” `EvenQuery` is the
---         fibre of `sgn âˆ˜ Î©` and the join saw only `Î©` (Tantusandhi Â§à©
+--   (iii) the queued map is a FACTOR, not the map â€” `EvenQuery` is the
+--         fibre of `sgn âˆ˜ Î©` and the join saw only `Î©` (Tantusandhi Â§à¥©
 --         names the composite);
---   (iv)  a bound variable read as a map name â” `Div Î = Î[ Îº âˆˆ â• ] Î[ d âˆˆ â• ]
---         (Îº + d â‰¡ Î)` BINDS `Îº`, and `ChargePolynomialFinite.Îº : â• â’ â`
+--   (iv)  a bound variable read as a map name â€” `Div Î± = Î£[ Îº âˆˆ â„• ] Î£[ d âˆˆ â„• ]
+--         (Îº + d â‰¡ Î±)` BINDS `Îº`, and `ChargePolynomialFinite.Îº : â„• â†’ â„¤`
 --         is a different thing spelled the same.
 --
 -- Three leads were SKIPPED, not refuted: `PingalaPrastara.Chosen`,
--- `TypedUnfold.Lang` and `Gurutama.à®` are JOINT fibres of
+-- `TypedUnfold.Lang` and `Gurutama.à¤®` are JOINT fibres of
 -- two or more observables, and a pair of equations is not an equation of
--- pairs until `ÎPathâ‰PathÎ` says so â” àà¨àà¦à‹à®àà¦àà°à¾ Â§à© performs exactly that
+-- pairs until `Î£Pathâ‰ƒPathÎ£` says so â€” à¤›à¤¨à¥à¤¦à¥‹à¤®à¥à¤¦à¥à¤°à¤¾ Â§à¥© performs exactly that
 -- passage for `Chosen`.
 ------------------------------------------------------------------------
 
@@ -82,12 +82,12 @@ open import SieveFiber
   using (Vis ; q ; domain ; _âˆˆ_ ; Fibre)
 
 ------------------------------------------------------------------------
--- à§ Â àà°àààà¨àààà â” the semantic fibre IS the fibre of the semantics map.
+-- à¥§ Â· à¤…à¤°à¥à¤¥à¤¤à¤¨à¥à¤¤à¥à¤ƒ â€” the semantic fibre IS the fibre of the semantics map.
 --
--- queue edge:  Configuration âŸ Bool
---              Â DependentOptimizationFibration.semantics
--- written at:  DependentOptimizationFibration.agda:36â“38, as
---              `SemanticFiber output = Î[ configuration âˆˆ Configuration ]
+-- queue edge:  Configuration âŸ¶ Bool
+--              Â« DependentOptimizationFibration.semantics
+-- written at:  DependentOptimizationFibration.agda:36â€“38, as
+--              `SemanticFiber output = Î£[ configuration âˆˆ Configuration ]
 --               semantics configuration â‰¡ output`.
 --
 -- The definition spans two lines, which is why the one-line grep the
@@ -106,20 +106,20 @@ open import SieveFiber
 à¤…à¤°à¥à¤¥-à¤¤à¤¨à¥à¤¤à¥‹à¤ƒ-à¤¬à¤¿à¤¨à¥à¤¦à¥‚ = left-point , right-point
 
 ------------------------------------------------------------------------
--- à¨ Â àà¾àµààààà¦àà¨àààà â” the fibre of a map cut down to a domain.
+-- à¥¨ Â· à¤¸à¤¾à¤µà¤šà¥à¤›à¥‡à¤¦à¤¤à¤¨à¥à¤¤à¥à¤ƒ â€” the fibre of a map cut down to a domain.
 --
 -- `SieveFiber` writes, at line 465,
 --
---     Fibre v = Î[ n âˆˆ â• ] ((n âˆˆ domain) — (q n â‰¡ v))
+--     Fibre v = Î£[ n âˆˆ â„• ] ((n âˆˆ domain) Ã— (q n â‰¡ v))
 --
 -- and the probe `fiber q v â‰¡ Fibre v` DIES: the membership conjunct is
 -- not in `fiber q v` and no amount of unfolding will put it there.  The
 -- kernel is right and the lead was wrong, but the death is informative,
--- because the written type is a fibre â” of a different map.  Cut `q`
+-- because the written type is a fibre â€” of a different map.  Cut `q`
 -- down to the subtype the domain predicate carves out, and `Fibre` is
--- that map's fibre, up to Î-associativity.
+-- that map's fibre, up to Î£-associativity.
 --
--- The same shape kills `SieveScaleTower.Fibreâ â â` and
+-- The same shape kills `SieveScaleTower.Fibreâ‚ â‚‚ â‚ƒ` and
 -- `ChargeGradedPeeling.G`; those five deaths are one phenomenon.
 --
 ------------------------------------------------------------------------
@@ -127,8 +127,8 @@ open import SieveFiber
 à¤…à¤µà¤šà¥à¤›à¤¿à¤¨à¥à¤¨à¤®à¥ : Type
 à¤…à¤µà¤šà¥à¤›à¤¿à¤¨à¥à¤¨à¤®à¥ = Î£[ n âˆˆ â„• ] (n âˆˆ domain)
 
--- projections, not a pattern match: `àà¾àµàààà¿à¨àà¨-q x` must reduce for a
--- VARIABLE `x`, or `fiber àà¾àµàààà¿à¨àà¨-q v` does not unfold to the Î below.
+-- projections, not a pattern match: `à¤¸à¤¾à¤µà¤šà¥à¤›à¤¿à¤¨à¥à¤¨-q x` must reduce for a
+-- VARIABLE `x`, or `fiber à¤¸à¤¾à¤µà¤šà¥à¤›à¤¿à¤¨à¥à¤¨-q v` does not unfold to the Î£ below.
 à¤¸à¤¾à¤µà¤šà¥à¤›à¤¿à¤¨à¥à¤¨-q : à¤…à¤µà¤šà¥à¤›à¤¿à¤¨à¥à¤¨à¤®à¥ â†’ Vis
 à¤¸à¤¾à¤µà¤šà¥à¤›à¤¿à¤¨à¥à¤¨-q x = q (fst x)
 
@@ -136,7 +136,7 @@ open import SieveFiber
 à¤¸à¤¾à¤µà¤šà¥à¤›à¥‡à¤¦-à¤¤à¤¨à¥à¤¤à¥à¤ƒ v = invEquiv Î£-assoc-â‰ƒ
 
 ------------------------------------------------------------------------
--- à© Â àààà â” what this leaves.
+-- à¥© Â· à¤¶à¥‡à¤·à¤ƒ â€” what this leaves.
 --
 -- The recognition pass is now closed as an instrument: it emits probes
 -- and the kernel answers them, so a lead can no longer be reported as a
@@ -148,8 +148,8 @@ open import SieveFiber
 -- the optimistic figure.
 --
 -- Open, in order of how much is already written: (a) the two joint
--- fibres skipped above; (b) the four other restricted fibres, which Â§à¨'s
+-- fibres skipped above; (b) the four other restricted fibres, which Â§à¥¨'s
 -- statement covers verbatim and which are four more modules' worth of
 -- imports; (c) death kind (iv), which is a defect of the extractor and
--- not of the corpus â” a Î binder must never be offered as a map name.
+-- not of the corpus â€” a Î£ binder must never be offered as a map name.
 ------------------------------------------------------------------------

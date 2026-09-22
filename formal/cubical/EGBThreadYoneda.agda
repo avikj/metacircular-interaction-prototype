@@ -14,7 +14,7 @@
 --     a jewel is completely determined, up to the correct equivalence,
 --       by how every other jewel maps into it
 --
--- and T25.A asks for `Map(x,y) � Nat(y x, y y)` in the chosen setting.
+-- and T25.A asks for `Map(x,y) ≃ Nat(y x, y y)` in the chosen setting.
 -- This file proves both directions of that correspondence for the
 -- prime-pair net of `EGBRootedNet`, with the naturality condition
 -- written out rather than inherited.
@@ -62,7 +62,7 @@ data Weave : Jewel → Jewel → Type where
 
 infixr 5 _◃_
 
--- composition, written in diagrammatic order: `p ⊙ q` goes i � j � k
+-- composition, written in diagrammatic order: `p ⊙ q` goes i → j → k
 _⊙_ : {i j k : Jewel} → Weave i j → Weave j k → Weave i k
 idPath  ⊙ q = q
 (t ◃ p) ⊙ q = t ◃ (p ⊙ q)
@@ -139,7 +139,7 @@ yoneda-from-to : {i j : Jewel} (t : Weave i j) → yonedaFrom (yonedaTo t) ≡ t
 yoneda-from-to t = refl
 
 -- The other is where naturality does the work.  Instantiating it at the
--- path `p` itself turns "� at p" into "� at the identity, transported
+-- path `p` itself turns "η at p" into "η at the identity, transported
 -- along p" -- which is precisely §4's claim that a jewel is determined
 -- by how everything maps into it.
 yoneda-to-from : {i j : Jewel} (η : Transformation i j) → Natural η
@@ -153,7 +153,7 @@ yoneda-to-from η nat k p =
 ------------------------------------------------------------------------
 -- §6  The reweave (D0025 §16, T25.F), in the one form available here
 --
--- "Suppose a new equivalence is proved, e : x � y.  Univalence supplies
+-- "Suppose a new equivalence is proved, e : x ≃ y.  Univalence supplies
 -- ua(e) : x = y.  Every dependent family P transports.  Therefore one
 -- local equivalence changes the reflection structure everywhere it is
 -- referenced."

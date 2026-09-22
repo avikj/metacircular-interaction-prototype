@@ -5,8 +5,8 @@
 --
 -- ENTRY POINT.  Read this before deciding what this repository is.
 --
--- TERM.  ‡‡µ‡‡∞‡‡ø‡ï‡æ ¬ avataraik -- the short passage a commentator supplies
--- to bring a reader DOWN into the section that follows; from ‡‡µ‡‡∞‡, descent.
+-- TERM.  ‡§Ö‡§µ‡§§‡§∞‡§£‡§ø‡§ï‡§æ ¬∑ avatara·πáikƒÅ -- the short passage a commentator supplies
+-- to bring a reader DOWN into the section that follows; from ‡§Ö‡§µ‡§§‡§∞‡§£, descent.
 -- It is standard across the bhya/k tradition.
 --
 -- WHY THIS FILE IS AGDA AND NOT PROSE.  Markdown is banned in this
@@ -71,14 +71,14 @@
 --
 --   punaragamana/src/Punaragamana/Carrier.agda   (153 lines)
 --
--- For f : A ‚í B, the question is WHICH SIDE OF `f a ‚â° b` IS BOUND.
+-- For f : A ‚Üí B, the question is WHICH SIDE OF `f a ‚â° b` IS BOUND.
 --
 --   bind the OUTPUT:  the fibre is `singl (f a)`, ALWAYS contractible.
---                     Hence A ‚â Carrier f: the carried datum rides free.
+--                     Hence A ‚âÉ Carrier f: the carried datum rides free.
 --   bind the INPUT:   the fibre is `fiber f b`, contractible exactly when f
 --                     is an equivalence.  That is the exact loss.
 --
--- Two theorems, one Œ.  Follow that same object through its six readings --
+-- Two theorems, one Œ£.  Follow that same object through its six readings --
 -- memory, charge, symmetry, price, distance, verdict -- and out to
 -- SankramanaSesa (every transport owes its residual), Saptabhangi (a boolean
 -- verdict is a theorem-grade error, not a simplification), and the kernel
@@ -100,7 +100,7 @@
 -- `Derivation a b` is a walk: `done` and `then-step`, no relations imposed,
 -- so two walks between the same endpoints are two distinct data.
 --
--- THE SEMANTICS.  `eval : Tm ‚í Env ‚í ‚ï`, and `derivation-sound` proves every
+-- THE SEMANTICS.  `eval : Tm ‚Üí Env ‚Üí ‚Ñï`, and `derivation-sound` proves every
 -- derivation preserves it at every environment.  `induction-sound` is the
 -- real inference rule: a base trace plus a step trace with the hypothesis
 -- available ONLY at the predecessor entails the equation for every
@@ -109,7 +109,7 @@
 --
 -- THE METACIRCULAR STEP, and it is one line:
 --
---     install : Derivation lhs rhs ‚í NativeOperation
+--     install : Derivation lhs rhs ‚Üí NativeOperation
 --
 -- A theorem the machine proved becomes a move the machine can make.  So the
 -- library of operations is a learned policy; `EnabledFuture seed` -- the
@@ -126,15 +126,15 @@
 --
 -- One fact generates all four: EVERY SOUNDNESS FIELD OF THIS KERNEL IS A MAP
 -- INTO A PROPOSITION.  `control-sound` lands in `t ‚â° source` and `Tm` is a
--- set; `derivation-sound` lands in `eval a œ ‚â° eval b œ` and ‚ï is a set.  A
+-- set; `derivation-sound` lands in `eval a œÅ ‚â° eval b œÅ` and ‚Ñï is a set.  A
 -- map into a proposition carries zero bits.
 ------------------------------------------------------------------------
 --
---   Vyapti_‚¶    THE INSTALLED OPERATION HAS NO PERVASION.  What it
+--   Vyapti_‚Ä¶    THE INSTALLED OPERATION HAS NO PERVASION.  What it
 --               establishes: EVERY OPERATION FIRES AT
 --               EXACTLY ONE CONTEXT, WHATEVER EVIDENCE TYPE ITS AUTHOR
 --               SUPPLIED, which is the safety property of an open interface.
---               `control-sound : Control t ‚í t ‚â° source` means the enabling
+--               `control-sound : Control t ‚Üí t ‚â° source` means the enabling
 --               evidence at t IS an identification of t with the one term the
 --               operation was installed at.  So every installed operation
 --               fires at exactly one context and emits a constant, and a
@@ -142,39 +142,39 @@
 --               while `Tm` is infinite.  Exhibited on the kernel's own
 --               library: `suc (suc (suc zero))` has no enabled future.
 --               REPAIR, checked: control carrying a substitution witness,
---               Œ[u] (t ‚â° subVar u lhs).  Soundness needs no new proof --
+--               Œ£[u] (t ‚â° subVar u lhs).  Soundness needs no new proof --
 --               `eval-subVar` was already in RewriteCertificate, unused.
 --               Generalisation is free in this calculus; memorisation is
 --               what costs.
 --
---   Sesa_‚¶      THE DERIVATION CARRIES NO MEANING, so all of it is remainder.
---               Soundness factors through ‚à Derivation a b ‚à‚ -- the
+--   Sesa_‚Ä¶      THE DERIVATION CARRIES NO MEANING, so all of it is remainder.
+--               Soundness factors through ‚à• Derivation a b ‚à•‚ÇÅ -- the
 --               semantics used only THAT one exists, never WHICH.  The
 --               truncation is strict: the kernel's own direct and detour
 --               histories are 2 steps and 4 steps, distinct, with EQUAL
 --               soundness proofs.  Hence cost does not factor, and then the
---               general no-go: for ANY C at any level and ANY œ of the
---               meaning, œ agrees on the cheap and the expensive derivation.
+--               general no-go: for ANY C at any level and ANY œÜ of the
+--               meaning, œÜ agrees on the cheap and the expensive derivation.
 --               No semantic criterion selects the short proof.  Selection is
 --               extra-semantic or it does not exist.
 --
---   Ankapasa_‚¶  SO THE SEMANTICS IS A DECATEGORIFICATION: eval keeps a
+--   Ankapasa_‚Ä¶  SO THE SEMANTICS IS A DECATEGORIFICATION: eval keeps a
 --               cardinality and drops the bijection.  The categorified
---               semantics is built there -- zero ‚¶ ‚ä, suc ‚¶ Unit ‚ä ‚àí,
---               add ‚¶ ‚ä, every Step an equivalence, `reverse` ‚¶ `invEquiv`.
+--               semantics is built there -- zero ‚Ü¶ ‚ä•, suc ‚Ü¶ Unit ‚äé ‚àí,
+--               add ‚Ü¶ ‚äé, every Step an equivalence, `reverse` ‚Ü¶ `invEquiv`.
 --               The calculus always admitted it.  Add
 --               commutativity (sound, by +-comm) and at `add var var` it is a
---               LOOP: ‚ï is forced to call it refl, the universe calls it the
+--               LOOP: ‚Ñï is forced to call it refl, the universe calls it the
 --               swap, and `ua` of it is not refl -- proved by transporting
 --               along it and getting `inr tt` back.  The bit a counting
 --               readout provably cannot hold is a transposition.
 --
---   Samvada_‚¶   AND THEN WHAT IT IS FOR.
+--   Samvada_‚Ä¶   AND THEN WHAT IT IS FOR.
 --               THE KERNEL
 --               IS AN INTERACTIVE SYSTEM.  State is a term; `advance` offers
 --               every enabled future with multiplicity conserved and nothing
 --               filtered; the CALLER chooses and supplies the control;
---               `execute` descends Type‚ ‚í Type‚, dropping the operation and
+--               `execute` descends Type‚ÇÅ ‚Üí Type‚ÇÄ, dropping the operation and
 --               the caller's evidence and keeping only the new term and the
 --               derivation that reached it -- small, replayable, free of who
 --               asked.  And `install` accepts exactly what `CheckedFuture`
@@ -188,8 +188,8 @@
 --               false, because a `NativeOperation` cannot be constructed at
 --               all without a checked derivation.
 --
---   Asesa_‚¶     THE SYNTHESIS, one lemma.  If M is a proposition then
---               fiber f m ‚â A for every m: the fibre is not part of the
+--   Asesa_‚Ä¶     THE SYNTHESIS, one lemma.  If M is a proposition then
+--               fiber f m ‚âÉ A for every m: the fibre is not part of the
 --               domain, it IS the domain.  So `Derivation a b` is one fibre
 --               of its own soundness, both bindings of ¬ß2's law coincide,
 --               and the kernel sits at the MAXIMALLY LOSSY end -- nothing is
@@ -224,7 +224,7 @@
 -- WHAT THE KERNEL CAN DO, each backed by a term in the three files:
 --   * represent terms, single rewrites, and their compositions PROOF-
 --     RELEVANTLY, reversals included;
---   * certify that a derivation preserves ‚ï-meaning at every environment
+--   * certify that a derivation preserves ‚Ñï-meaning at every environment
 --     (`derivation-sound`);
 --   * turn an induction certificate -- base trace, plus step trace with the
 --     hypothesis only at the predecessor -- into a universally quantified
@@ -241,7 +241,7 @@
 ------------------------------------------------------------------------
 --
 --   GENERALISATION AND CONTROL in NativeOperation, read forward.
---       * `Control : Tm ‚í Type‚` is a FIELD.  The CALLER supplies it and may
+--       * `Control : Tm ‚Üí Type‚ÇÄ` is a FIELD.  The CALLER supplies it and may
 --         supply any type family at all.  `install` is its trivial instance.
 --         So Vyapti_.enabled-set-is-subsingleton is not a diagnosis of a
 --         lookup table.  IT IS THE SAFETY THEOREM OF AN OPEN EXTENSION
@@ -257,7 +257,7 @@
 --         NON-DISPLACEMENT: a theorem forbids the machine from taking the
 --         choice from you.  The system is interactive by theorem, not by
 --         omission.
---     `Samvada_‚¶` supplies the corpus's first non-trivial `Control` and
+--     `Samvada_‚Ä¶` supplies the corpus's first non-trivial `Control` and
 --     closes the loop.
 --
 --   * NO MULTIPLICATION in the kernel's `Tm`.

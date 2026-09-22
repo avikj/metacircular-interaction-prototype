@@ -22,14 +22,14 @@ divmod (suc f) m n = if (m <ᵇ n) then (zero , m)
                      else (suc (fst r) , snd r)
   where r = divmod f (m ∸ n) n
 
--- �����: the creeper of quotients.  the remainder is KEPT and recursed on.
+-- वल्ली: the creeper of quotients.  the remainder is KEPT and recursed on.
 valli : ℕ → ℕ → ℕ → List ℕ
 valli zero    _ _ = []
 valli (suc f) a zero = []
 valli (suc f) a b = fst qr ∷ valli f b (snd qr)
   where qr = divmod a a b
 
--- ��������: climb back up the creeper.  convergents h� = q�h���+h���.
+-- आरोहणम्: climb back up the creeper.  convergents hₙ = qₙhₙ₋₁+hₙ₋₂.
 climb : List ℕ → (ℕ × ℕ) × (ℕ × ℕ)   -- ((h prev , k prev) , (h cur , k cur))
 climb [] = ((zero , suc zero) , (suc zero , zero))
 climb (q ∷ qs) = go q (climb qs)
@@ -58,6 +58,6 @@ _ = refl
 _ : 16 · 60 ∸ 7 · 137 ≡ 1                     -- the climb read the answer
 _ = refl
 
--- 137�x ≡ 10 (mod 60): x = 50, checked by direct computation
+-- 137·x ≡ 10 (mod 60): x = 50, checked by direct computation
 _ : snd (divmod 7000 (137 · 50) 60) ≡ 10
 _ = refl

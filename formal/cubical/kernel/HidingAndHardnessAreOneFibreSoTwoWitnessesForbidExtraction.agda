@@ -3,13 +3,13 @@
 ------------------------------------------------------------------------
 -- HidingAndHardnessAreOneFibreSoTwoWitnessesForbidExtraction
 --
--- TERM.  ‡ó‡‡‡‡‡ø ¬ gupti -- guarding, concealment; from ‡ó‡‡‡, to hide.  In
+-- TERM.  ‡§ó‡•Å‡§™‡•ç‡§§‡§ø ¬∑ gupti -- guarding, concealment; from ‡§ó‡•Å‡§™‡•ç, to hide.  In
 -- Jaina usage it is one of the means of savara -- the three guptis, the
 -- restraint of mind, speech and body.  The word is taken in its plain sense,
 -- which is concealment, because that is what ¬ß2 proves costs `isProp`.
 -- (
 -- has a technical vocabulary for secret communication -- Kauilya's
--- *Arthastra* uses ‡ó‡‡-compounds for it, and the Kmastra's list of arts
+-- *Artha≈õƒÅstra* uses ‡§ó‡•Ç‡§¢-compounds for it, and the KƒÅmas≈´tra's list of arts
 -- includes ‡Æ‡‡≤‡‡‡‡‡ø‡‡µ‡ø‡ï‡≤‡‡.)
 --
 ------------------------------------------------------------------------
@@ -18,12 +18,12 @@
 -- The corpus proves the structural content of zero-knowledge in at least
 -- five places and never once uses the phrase.  The five places:
 --
---   `TheWholeDerivationTypeIsOneFibre‚¶`  fibre-is-everything: a map into a
+--   `TheWholeDerivationTypeIsOneFibre‚Ä¶`  fibre-is-everything: a map into a
 --     proposition has every fibre equal to its whole domain.
---   `TheDerivationCarriesNoMeaning‚¶`     soundness-factors-through-truncation:
---     the verifier's view is a function of ‚à Derivation ‚à‚ and not of the
+--   `TheDerivationCarriesNoMeaning‚Ä¶`     soundness-factors-through-truncation:
+--     the verifier's view is a function of ‚à• Derivation ‚à•‚ÇÅ and not of the
 --     derivation.
---   `TritiyaMarga_‚¶`                     getting a witness back out of an
+--   `TritiyaMarga_‚Ä¶`                     getting a witness back out of an
 --     existence costs Markov's principle.
 --   `fibre/` and abstracts/05             bind the output and the fibre is
 --     contractible, free; bind the input and it is the exact loss.  Every
@@ -41,7 +41,7 @@
 --       holds the statement and outputs the statement; the real transcript
 --       and the simulated one are EQUAL -- not indistinguishable, not
 --       computationally close.  One line, and it is the whole of hiding.
---   ¬ß3  AND THE VIEW SHRINKS NOTHING.  `fiber view v ‚â W`: after the
+--   ¬ß3  AND THE VIEW SHRINKS NOTHING.  `fiber view v ‚âÉ W`: after the
 --       verifier has seen everything it will ever see, the space of
 --       witnesses consistent with what it saw is the space it started with,
 --       undiminished.  This is a stronger statement than ¬ß2 and it is where
@@ -53,7 +53,7 @@
 --       witnesses forbid extraction outright -- not "make it expensive",
 --       forbid.  Hiding is that fibre being everything; hardness is that
 --       same fibre being non-contractible.  ONE OBJECT, TWO READINGS.
---   ¬ß6  THE CANONICAL INSTANCE: `‚à_‚à‚` IS THE MODALITY.  Propositional
+--   ¬ß6  THE CANONICAL INSTANCE: `‚à£_‚à£‚ÇÅ` IS THE MODALITY.  Propositional
 --       truncation is not merely a tool for stating hiding, it is the
 --       maximal hiding view, and extraction from it is an equivalence
 --       exactly when the witness is unique.
@@ -73,11 +73,11 @@
 -- PRIOR ART IN THIS REPOSITORY, CITED AND NOT RESTATED.  None is imported: the kernel is kept self-contained on purpose,
 -- and a citation that is checked elsewhere is not weaker for being cited.
 --
---   `Laghava_TheCostAndTheInverseCannotCoexist‚¶`  A COST AND AN INVERSE
+--   `Laghava_TheCostAndTheInverseCannotCoexist‚Ä¶`  A COST AND AN INVERSE
 --     CANNOT COEXIST, and ¬ß2 of it is this file's ¬ß5 arrived at from the
 --     other side: a structure carrying a grading admits NO inverse -- not
 --     no obvious one, no function whatsoever.  `len` is such a grading on
---     `Derivation` (`the-scalar-is-additive`, in `TheEncounterOfTwoPeers‚¶`,
+--     `Derivation` (`the-scalar-is-additive`, in `TheEncounterOfTwoPeers‚Ä¶`,
 --     is exactly the `Matra` law), so derivation composition is already
 --     forbidden an inverse by additivity alone.  ¬ß5 below forbids
 --     extraction from MULTIPLICITY instead.  Two independent routes to one
@@ -109,12 +109,12 @@
 --     simulator argument.
 --
 --   * COMPLETENESS OF THE CALCULUS is the exact
---     hypothesis ¬ß4 takes.  `view : W ‚í V` says an
+--     hypothesis ¬ß4 takes.  `view : W ‚Üí V` says an
 --     honest party's view comes from a witness; it does not say an
 --     inhabitant of `V` entails one.  At the kernel, `Meaning a b` can hold
 --     with no `Derivation a b` -- two terms may be pointwise equal with no
 --     route between them -- so `uniqueness-gives-extraction` demands
---     `V ‚í W` explicitly.  This is COMPLETENESS, not soundness.
+--     `V ‚Üí W` explicitly.  This is COMPLETENESS, not soundness.
 ------------------------------------------------------------------------
 
 module HidingAndHardnessAreOneFibreSoTwoWitnessesForbidExtraction where
@@ -240,10 +240,10 @@ module _ {W : Type ‚Ñì} {V : Type ‚Ñì'} (isPropV : isProp V) (view : W ‚Üí V) wh
   a-unique-witness-hides-nothing extract isPropW v w = isPropW (extract v) w
 
 ------------------------------------------------------------------------
--- ¬ß6.  THE CANONICAL INSTANCE.  `‚à_‚à‚` IS THE HIDING MODALITY.
+-- ¬ß6.  THE CANONICAL INSTANCE.  `‚à£_‚à£‚ÇÅ` IS THE HIDING MODALITY.
 --
 -- Propositional truncation is not just a device for STATING that something
--- is hidden.  It is the maximal hiding view: `squash‚` is the `isProp`
+-- is hidden.  It is the maximal hiding view: `squash‚ÇÅ` is the `isProp`
 -- hypothesis, so every theorem above applies to it with nothing supplied.
 ------------------------------------------------------------------------
 
@@ -275,7 +275,7 @@ a-unique-witness-can-be-extracted {W = W} isPropW =
 -- `Meaning a b` is a proposition, so `sound a b` is a perfect-hiding view
 -- of the derivation.  The kernel is therefore a perfect zero-knowledge
 -- carrier for its own equations -- and unlike a cryptographic one it pays
--- nothing for it, because the payment was already made by ‚ï being a set.
+-- nothing for it, because the payment was already made by ‚Ñï being a set.
 ------------------------------------------------------------------------
 
 the-kernel-simulates-perfectly :

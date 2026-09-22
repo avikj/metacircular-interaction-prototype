@@ -1,8 +1,8 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- InteractionAssociator � the binary interaction coefficient c(p, q) of a
--- quadratic mode system (p + q � p + q) is a 2-cochain on the abelian
+-- InteractionAssociator — the binary interaction coefficient c(p, q) of a
+-- quadratic mode system (p + q → p + q) is a 2-cochain on the abelian
 -- group of modes with values in a commutative ring, and the comparison
 -- of the two binary derivations of p + q + r,
 --
@@ -12,21 +12,21 @@
 -- any commutative ring R, with Ω kept as a numerator/denominator pair
 -- so that no inverse is needed:
 --
---   §1  GAUGE INVARIANCE: under c(p,q) � �(p) �(q) ��(p+q) c(p,q) with
---       � �� = 1, both numerator and denominator of Ω acquire the same
---       factor �(p)�(q)�(r)��(p+q+r), so Ω is unchanged as a ratio;
---   §2  THE PENTAGON:  N(p,q,r) N(p,q+r,s) N(q,r,s) � D(p+q,r,s) D(p,q,r+s)
---                    ≡ D(p,q,r) D(p,q+r,s) D(q,r,s) � N(p+q,r,s) N(p,q,r+s),
+--   §1  GAUGE INVARIANCE: under c(p,q) ↦ χ(p) χ(q) χ̄(p+q) c(p,q) with
+--       χ χ̄ = 1, both numerator and denominator of Ω acquire the same
+--       factor χ(p)χ(q)χ(r)χ̄(p+q+r), so Ω is unchanged as a ratio;
+--   §2  THE PENTAGON:  N(p,q,r) N(p,q+r,s) N(q,r,s) · D(p+q,r,s) D(p,q,r+s)
+--                    ≡ D(p,q,r) D(p,q+r,s) D(q,r,s) · N(p+q,r,s) N(p,q,r+s),
 --       the cross-multiplied form of Ω(p,q,r)Ω(p,q+r,s)Ω(q,r,s) =
 --       Ω(p+q,r,s)Ω(p,q,r+s); every c cancels, after the two
 --       associativity rewrites (p+q)+r = p+(q+r), (q+r)+s = q+(r+s);
 --   §3  INTERFERENCE: for path magnitudes X, Y and a unit phase ω with
---       ω ω� = 1, (X + Yω)(X + Yω�) ≡ (X + Y)² − X�Y�(2 − ω − ω�): the
+--       ω ω̄ = 1, (X + Yω)(X + Yω̄) ≡ (X + Y)² − X·Y·(2 − ω − ω̄): the
 --       squared ancestry amplitude is the independent-path envelope
---       (X + Y)² less exactly 2XY(1 − cos �);
---   §4  over the Eisenstein integers �[ω], ω² + ω + 1 = 0, at the value
---       Ω = ω = e^{2�i/3} of the orthogonal-cube channel with X = Y = 1:
---       (1 + ω)(1 + ω�) = 1, so the amplitude is half the envelope.
+--       (X + Y)² less exactly 2XY(1 − cos ϑ);
+--   §4  over the Eisenstein integers ℤ[ω], ω² + ω + 1 = 0, at the value
+--       Ω = ω = e^{2πi/3} of the orthogonal-cube channel with X = Y = 1:
+--       (1 + ω)(1 + ω̄) = 1, so the amplitude is half the envelope.
 --
 -- READING.  The two derivations ((p q) r) and (p (q r)) of one Fourier
 -- descendant are two coterminal histories; Ω is what an evaluator
@@ -58,7 +58,7 @@ module Assoc {ℓ ℓ' : Level} (G : AbGroup ℓ) (R' : CommRing ℓ') where
     M : Type ℓ
     M = ⟨ G ⟩
 
-  -- a 2-cochain: the coefficient of the interaction p + q � p + q
+  -- a 2-cochain: the coefficient of the interaction p + q → p + q
   Cochain : Type (ℓ-max ℓ ℓ')
   Cochain = M → M → K
 
@@ -123,12 +123,12 @@ module Assoc {ℓ ℓ' : Level} (G : AbGroup ℓ) (R' : CommRing ℓ') where
            → N c p q r ·r N c p (q + r) s ·r N c q r s ·r (D c (p + q) r s ·r D c p q (r + s))
            ≡ D c p q r ·r D c p (q + r) s ·r D c q r s ·r (N c (p + q) r s ·r N c p q (r + s))
   pentagon c p q r s =
-    -- align the associated atom c (p + (q + r)) s on the left �
+    -- align the associated atom c (p + (q + r)) s on the left …
     cong (λ x → N c p q r ·r (c p (q + r) ·r c x s) ·r N c q r s ·r (D c (p + q) r s ·r D c p q (r + s)))
          (+AssocG p q r)
     ∙ identity (c p q) (c (p + q) r) (c p (q + r)) (c ((p + q) + r) s) (c q r) (c (q + r) s)
                (c r s) (c (p + q) (r + s)) (c q (r + s)) (c p (q + (r + s)))
-    -- � and the associated atom c p ((q + r) + s) on the right
+    -- … and the associated atom c p ((q + r) + s) on the right
     ∙ cong (λ y → D c p q r ·r (c (q + r) s ·r c p y) ·r D c q r s ·r (N c (p + q) r s ·r N c p q (r + s)))
            (+AssocG q r s)
     where
@@ -177,7 +177,7 @@ _·e_ : Eis → Eis → Eis
 ω-unit : ω ·e ω̄ ≡ 1e
 ω-unit = refl
 
--- X = Y = 1: the two-history amplitude squared is (1 + ω)(1 + ω�) = 1,
+-- X = Y = 1: the two-history amplitude squared is (1 + ω)(1 + ω̄) = 1,
 -- against the envelope (1 + 1)² = 4: exactly one half in amplitude
 cube-amplitude² : (1e +e ω) ·e (1e +e ω̄) ≡ 1e
 cube-amplitude² = refl

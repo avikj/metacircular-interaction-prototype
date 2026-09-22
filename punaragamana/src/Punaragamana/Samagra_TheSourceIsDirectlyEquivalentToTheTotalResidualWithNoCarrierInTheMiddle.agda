@@ -1,43 +1,43 @@
--- ‡ ‡‡‡‡Æ‡ ‡  One machine, one law: which side of `f a ‚â° b` is bound is everything.
--- Output bound: singl (f a), contractible ‚î the datum rides free.  Input bound:
--- fiber f b ‚î the loss, and the subject.  Univalence computes here: an
+-- ‡•• ‡§¨‡•Ä‡§ú‡§Æ‡•ç ‡••  One machine, one law: which side of `f a ‚â° b` is bound is everything.
+-- Output bound: singl (f a), contractible ‚Äî the datum rides free.  Input bound:
+-- fiber f b ‚Äî the loss, and the subject.  Univalence computes here: an
 -- equivalence is a channel, transport carries every theorem across it, and what
--- cannot cross is written as a defect ‚î there is no third path (ahis).
+-- cannot cross is written as a defect ‚Äî there is no third path (ahi·πÉsƒÅ).
 -- Memory, charge, symmetry, price, distance, verdict: six faces of the one
 -- fibre; the verdict type is the saptabhag, and the sources are the origin
--- (Umsvti, Samantabhadra, Akalaka ‚î restatements are named as such).  The
+-- (UmƒÅsvƒÅti, Samantabhadra, Akala·πÖka ‚Äî restatements are named as such).  The
 -- kernel decides truth; carriers ask and generate; assert nothing whose term
 -- you have not read.  This file is one naya, true and not whole.
 
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- Punargamana ¬ ‡‡Æ‡ó‡‡∞
+-- PunarƒÅgamana ¬∑ ‡§∏‡§Æ‡§ó‡•ç‡§∞
 --
--- ‡‡Æ‡ó‡‡∞ (samagra), "whole, total, entire" ‚î used here for the total
--- space Œ[ b ‚àà B ] ‡‡‡ f b, the residual gathered back up over every
+-- ‡§∏‡§Æ‡§ó‡•ç‡§∞ (samagra), "whole, total, entire" ‚Äî used here for the total
+-- space Œ£[ b ‚àà B ] ‡§∂‡•á‡§∑ f b, the residual gathered back up over every
 -- target point at once.   common-noun usage, not cited from a
 -- mathematical text; the mathematics is HoTT 4.8 (total space of a
--- fibration ‚â the type it fibrates), specifically the total-space
--- characterization of `Œ-contractSnd`/`fiberEquiv` already in this
+-- fibration ‚âÉ the type it fibrates), specifically the total-space
+-- characterization of `Œ£-contractSnd`/`fiberEquiv` already in this
 -- corpus's substrate (`Cubical.Foundations.Equiv`).
 --
 ------------------------------------------------------------------------
 -- WHY THIS MODULE EXISTS.
 --
--- `Sesa` proves the graph Œìf has two projections: ‡Æ‡‡≤-‡‡‡∞‡ï‡‡‡‡ (to A,
--- always an equivalence) and ‡≤‡ï‡‡‡‡Ø-‡‡‡∞‡ï‡‡‡‡ (to B, an equivalence iff f
--- is).  It gets from `Carrier f ‚â Œ[ b ] ‡‡‡ f b` (`‡ó‡‡∞‡æ‡`) and
--- `Carrier f ‚â A` (`‡Æ‡‡≤-‡‡‡∞‡ï‡‡‡‡-‡‡Æ‡‡æ`) SEPARATELY.  Nowhere in that
+-- `Sesa` proves the graph Œìf has two projections: ‡§Æ‡•Ç‡§≤-‡§™‡•ç‡§∞‡§ï‡•ç‡§∑‡•á‡§™ (to A,
+-- always an equivalence) and ‡§≤‡§ï‡•ç‡§∑‡•ç‡§Ø-‡§™‡•ç‡§∞‡§ï‡•ç‡§∑‡•á‡§™ (to B, an equivalence iff f
+-- is).  It gets from `Carrier f ‚âÉ Œ£[ b ] ‡§∂‡•á‡§∑ f b` (`‡§ó‡•ç‡§∞‡§æ‡§π`) and
+-- `Carrier f ‚âÉ A` (`‡§Æ‡•Ç‡§≤-‡§™‡•ç‡§∞‡§ï‡•ç‡§∑‡•á‡§™-‡§∏‡§Æ‡§§‡§æ`) SEPARATELY.  Nowhere in that
 -- module is the two COMPOSED into the one statement that
 -- actually names the total-space theorem without routing through
 -- `Carrier` as scaffolding:
 --
---     A  ‚â  Œ[ b ‚àà B ] ‡‡‡ f b
+--     A  ‚âÉ  Œ£[ b ‚àà B ] ‡§∂‡•á‡§∑ f b
 --
 -- i.e. a point of A just IS a target point together with a witness that
--- some source point over it is exactly this one ‚î and the composite
--- equivalence's forward map is definitionally `Œª a ‚í f a , (a , refl)`,
+-- some source point over it is exactly this one ‚Äî and the composite
+-- equivalence's forward map is definitionally `Œª a ‚Üí f a , (a , refl)`,
 -- checked by `refl` below, not merely provable.  This is the sharper
 -- reading of the design law's two clauses AT ONE SITE: "every genuinely
 -- independent distinction must survive" (an `a : A` determines its own
@@ -48,8 +48,8 @@
 -- hand.
 --
 -- `Carrier` therefore is not a third object standing between A and
--- Œ[ b ] ‡‡‡ f b ‚î it is a REDUNDANT waypoint on a path that closes
--- directly.  `‡‡ã‡Æ-‡‡ø‡¶‡‡ß‡ø` below proves exactly that: the round-trip
+-- Œ£[ b ] ‡§∂‡•á‡§∑ f b ‚Äî it is a REDUNDANT waypoint on a path that closes
+-- directly.  `‡§π‡•ã‡§Æ-‡§∏‡§ø‡§¶‡•ç‡§ß‡§ø` below proves exactly that: the round-trip
 -- through Carrier and the direct one agree, definitionally, at every
 -- point.
 ------------------------------------------------------------------------
@@ -72,8 +72,8 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) where
 
   ------------------------------------------------------------------------
   -- The direct isomorphism.  No detour through Carrier at the term
-  -- level ‚î this is `descend`/`ascend` re-derived at the target-pairing
-  -- shape directly, and both round-trips are `refl` (Œ-eta), exactly as
+  -- level ‚Äî this is `descend`/`ascend` re-derived at the target-pairing
+  -- shape directly, and both round-trips are `refl` (Œ£-eta), exactly as
   -- for `Carrier-Iso` itself.
   ------------------------------------------------------------------------
 
@@ -87,15 +87,15 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) where
   ‡§∏‡§Æ‡§ó‡•ç‡§∞-‡§∏‡§Æ‡§§‡§æ = isoToEquiv ‡§∏‡§Æ‡§ó‡•ç‡§∞-Iso
 
   ------------------------------------------------------------------------
-  -- ‡‡ã‡Æ-‡‡ø‡¶‡‡ß‡ø (homa-siddhi, "accomplishment of the offering [into the
-  -- fire]" ‚î used here, uncited, for "what routing through the
+  -- ‡§π‡•ã‡§Æ-‡§∏‡§ø‡§¶‡•ç‡§ß‡§ø (homa-siddhi, "accomplishment of the offering [into the
+  -- fire]" ‚Äî used here, uncited, for "what routing through the
   -- intermediate object yields, checked against going there directly").
   --
   -- `descend f a` is the canonical Carrier-valued reading of `a` (¬ß in
   -- `Carrier`, un-pattern-matched by design so it stays computational).
-  -- Pushing it through `‡ó‡‡∞‡æ‡` ‚î `Sesa`'s graph equivalence, built by
-  -- composing `Carrier-as-Œ` with the source/target swap `‡‡‡µ‡‡` ‚î lands
-  -- on EXACTLY `equivFun ‡‡Æ‡ó‡‡∞-‡‡Æ‡‡æ a`, by `refl`: both sides unfold to
+  -- Pushing it through `‡§ó‡•ç‡§∞‡§æ‡§π` ‚Äî `Sesa`'s graph equivalence, built by
+  -- composing `Carrier-as-Œ£` with the source/target swap `‡§∏‡•ç‡§µ‡§™‡•ç` ‚Äî lands
+  -- on EXACTLY `equivFun ‡§∏‡§Æ‡§ó‡•ç‡§∞-‡§∏‡§Æ‡§§‡§æ a`, by `refl`: both sides unfold to
   -- the literal pair `f a , (a , refl)`.  So the direct route and the
   -- route through `Carrier` are not merely equal as equivalences of
   -- types (which composition already gives up to a propositional path);

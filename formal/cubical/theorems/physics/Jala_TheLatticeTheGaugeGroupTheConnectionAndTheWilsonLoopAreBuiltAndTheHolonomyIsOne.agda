@@ -1,43 +1,43 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ��� � the lattice, the net.
+-- जाल — the lattice, the net.
 --
--- WHY THIS FILE EXISTS.  `Pradakshina_�` computes the holonomy of the
+-- WHY THIS FILE EXISTS.  `Pradakshina_…` computes the holonomy of the
 -- library's `helix` over the circle and proves it is the successor
 -- function, with no lattice, no gauge group, no connection form and no
 -- Wilson loop in its development; there the physical reading is a
 -- reading.
 --
 -- Every one of those objects is built here, in the generality it is
--- normally stated in, and the reading is then a THEOREM: §� proves that
+-- normally stated in, and the reading is then a THEOREM: §६ proves that
 -- the type-theoretic transport `subst helix loop` IS the Wilson loop of
 -- the one-plaquette integer connection acting on the fibre, as an
--- equality of functions � � �.
+-- equality of functions ℤ → ℤ.
 --
 -- WHAT IS CHECKED
 --
---   §�  `Grp`                  a group, written out; `inv-unique`.
---   §�  sites, oriented links, `Chain` (the lattice paths),
+--   §१  `Grp`                  a group, written out; `inv-unique`.
+--   §२  sites, oriented links, `Chain` (the lattice paths),
 --       `Connection`          a group element on every link.
---   §�  `wilson`              the ordered product along a chain � the
+--   §३  `wilson`              the ordered product along a chain — the
 --                              Wilson line, and the Wilson loop when the
 --                              chain closes.
---   §�  `wilson-gauge`        GAUGE COVARIANCE: a gauge transformation
+--   §४  `wilson-gauge`        GAUGE COVARIANCE: a gauge transformation
 --                              conjugates the Wilson line by the group
 --                              elements at its two endpoints, and the
 --                              interior telescopes away.
 --       `wilson-loop-gauge-invariant`
 --                              so on an abelian group the Wilson loop is
 --                              gauge invariant on the nose.
---   §�  `pure-gauge�trivial-holonomy`
+--   §५  `pure-gauge→trivial-holonomy`
 --       `holonomy-obstructs-pure-gauge`
 --                              a loop whose Wilson element is not the
 --                              identity cannot be gauged away.  This is
 --                              curvature as an obstruction, and it is
 --                              what makes a holonomy physical rather
 --                              than a coordinate artefact.
---   §�  `holonomy-is-wilson`   THE BRIDGE, and the point of the file.
+--   §६  `holonomy-is-wilson`   THE BRIDGE, and the point of the file.
 ------------------------------------------------------------------------
 
 module Jala_TheLatticeTheGaugeGroupTheConnectionAndTheWilsonLoopAreBuiltAndTheHolonomyIsOne where
@@ -54,7 +54,7 @@ open import Pradakshina_TheCircuitReturnsToTheBasePointWithTheFibreShiftedSoTheH
   using (प्रदक्षिणा ; सरणिः)
 
 ------------------------------------------------------------------------
--- � � the gauge group.
+-- १ · the gauge group.
 ------------------------------------------------------------------------
 
 record Grp (G : Type) : Type where
@@ -74,12 +74,12 @@ Abelian : {G : Type} → Grp G → Type
 Abelian {G = G} 𝔤 = (x y : G) → Grp._⋆_ 𝔤 x y ≡ Grp._⋆_ 𝔤 y x
 
 ------------------------------------------------------------------------
--- � � the lattice, the connection, and the paths.
+-- २ · the lattice, the connection, and the paths.
 --
 -- Sites, oriented links between them, and a group element on every
 -- link: that is a lattice gauge field, and there is no further axiom.
 -- Traversing a link backwards uses the inverse, which is why a group
--- and not a monoid is the right structure � and §� is where that is
+-- and not a monoid is the right structure — and §४ is where that is
 -- actually spent.
 ------------------------------------------------------------------------
 
@@ -109,7 +109,7 @@ module Gauge
   Connection = Link → G
 
   ------------------------------------------------------------------
-  -- � � the Wilson line, and the Wilson loop.
+  -- ३ · the Wilson line, and the Wilson loop.
   ------------------------------------------------------------------
 
   wilson : Connection → {a b : Site} → Chain a b → G
@@ -121,7 +121,7 @@ module Gauge
   WilsonLoop U c = wilson U c
 
   ------------------------------------------------------------------
-  -- � � gauge transformations, and covariance.
+  -- ४ · gauge transformations, and covariance.
   --
   -- The gauge field acts at the sites; the link variable is dressed at
   -- its source and undressed at its target.  Along a chain the interior
@@ -149,7 +149,7 @@ module Gauge
         ∙ sym (Grp.⋆assoc 𝔤 (U l) (wilson U c) (ι (g b))) )
 
   -- on an abelian group the conjugation is trivial, so the Wilson LOOP
-  -- is a gauge invariant � a genuine observable of the field.
+  -- is a gauge invariant — a genuine observable of the field.
   wilson-loop-gauge-invariant :
       Abelian 𝔤 → (g : Site → G) (U : Connection) {a : Site} (c : Chain a a)
     → WilsonLoop (gauge g U) c ≡ WilsonLoop U c
@@ -161,7 +161,7 @@ module Gauge
     ∙ Grp.⋆idl 𝔤 (wilson U c)
 
   ------------------------------------------------------------------
-  -- � � CURVATURE IS AN OBSTRUCTION.
+  -- ५ · CURVATURE IS AN OBSTRUCTION.
   --
   -- The trivial connection puts the identity on every link.  A field
   -- that is PURE GAUGE is a gauge transform of it, and every one of its
@@ -203,17 +203,17 @@ module Gauge
     ne (pure-gauge→trivial-holonomy U pg c)
 
 ------------------------------------------------------------------------
--- � � THE BRIDGE.
+-- ६ · THE BRIDGE.
 --
 -- The integers are an abelian gauge group.  The smallest lattice with a
--- loop is one site and one link from it to itself � a single plaquette.
+-- loop is one site and one link from it to itself — a single plaquette.
 -- Put the generator on that link.  Then the Wilson loop of the plaquette
 -- is that generator, the group acts on the fibre by translation, and the
 -- action of the Wilson loop is the map that `Pradakshina` computes as
 -- the holonomy of `helix` around the circle.
 --
 -- The two are the same function, and the last step is `refl`: `x + 1` is
--- `suc� x` by the definition of integer addition.  So the physical
+-- `sucℤ x` by the definition of integer addition.  So the physical
 -- reading of that theorem is not a reading.
 ------------------------------------------------------------------------
 
@@ -252,7 +252,7 @@ act u x = x + u
 holonomy-is-wilson : (x : ℤ) → प्रदक्षिणा x ≡ act (WilsonLoop plaquetteField plaquette) x
 holonomy-is-wilson x = सरणिः x
 
--- �and the holonomy is not a coordinate artefact: the plaquette's
+-- …and the holonomy is not a coordinate artefact: the plaquette's
 -- Wilson element is not the identity, so the field is not pure gauge.
 plaquette-not-pure-gauge : ¬ (WilsonLoop plaquetteField plaquette ≡ pos 0)
                          → ¬ PureGauge plaquetteField

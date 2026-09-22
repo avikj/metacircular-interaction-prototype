@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ���������� � neither channel inverts the sign section, and the host
+-- अनिर्धारित — neither channel inverts the sign section, and the host
 -- already held the reason as theorems.  The two conjectured identities
 -- augment (sign b) ≡ b and relative (sign b) ≡ b fail; the host's own
 -- `augment-sign` proves the first composite is CONSTANTLY zero, and
@@ -22,11 +22,11 @@ open import NaturalMachine.ChargeTwoHistories
 one : ℤ
 one = pos 1
 
--- augment ∘ sign is constantly zero (host theorem), and 0 � 1 in �:
+-- augment ∘ sign is constantly zero (host theorem), and 0 ≢ 1 in ℤ:
 augment-NOT-DETERMINED : augment (sign one) ≡ one → ⊥
 augment-NOT-DETERMINED p = znots (injPos (sym (augment-sign one) ∙ p))
 
--- relative ∘ sign doubles (host theorem), and 2 � 1 in �:
+-- relative ∘ sign doubles (host theorem), and 2 ≢ 1 in ℤ:
 predℕ : ℕ → ℕ
 predℕ 0 = 0
 predℕ (suc n) = n

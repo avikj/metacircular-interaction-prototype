@@ -1,27 +1,27 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
--- àà®-àµà¿àà® â” the count splits by parity into two copies of itself.
+-- à¤¸à¤®-à¤µà¤¿à¤·à¤® â€” the count splits by parity into two copies of itself.
 --
--- Source term: sama (àà®, "even") / viama (àµà¿àà®, "odd"). The evenâ“odd
+-- Source term: sama (à¤¸à¤®, "even") / viá¹£ama (à¤µà¤¿à¤·à¤®, "odd"). The evenâ€“odd
 -- dichotomy is Pigala's own casing in the naa procedure of the
 -- Chandastra (~300 BCE, ed. Weber 1863; Halyudha's Mtasajvan on
--- 8.24â“25): given a row-number, if it is sama (even) halve it and write one
+-- 8.24â€“25): given a row-number, if it is sama (even) halve it and write one
 -- syllable, if viama (odd) add one, halve, and write the other. The single
--- decision "sama or viama" is exactly a map â• â’ â• âŠ â•, and it is reversible.
+-- decision "sama or viá¹£ama" is exactly a map â„• â†’ â„• âŠ â„•, and it is reversible.
 --
 -- Scope of the claim. What is proved here is the type-level statement that
---   the even branch and the odd branch each carry a full copy of â• and
---   together exhaust it:  â• â‰ â• âŠ â•,  hence (univalence)  â• â‰¡ â• âŠ â•.
+--   the even branch and the odd branch each carry a full copy of â„• and
+--   together exhaust it:  â„• â‰ƒ â„• âŠ â„•,  hence (univalence)  â„• â‰¡ â„• âŠ â„•.
 -- The forward map is split (Pigala's parity decision recursed), the inverse
--- is merge (inl k â¦ 2k, inr k â¦ 2k+1). No claim is made that Pigala stated
+-- is merge (inl k â†¦ 2k, inr k â†¦ 2k+1). No claim is made that Piá¹…gala stated
 -- an equivalence of types; the naa rule is the source of the *dichotomy*,
 -- and the equivalence is the standard Hilbert-hotel bijection built here to
 -- carry that dichotomy as a channel (transport across it moves any theorem
--- about â• to one about its even and odd nayas, and back, on the nose).
+-- about â„• to one about its even and odd nayas, and back, on the nose).
 --
 -- Two nayas, one whole (nayavda): "even" and "odd" are disjoint standpoints,
--- neither the whole, and asserting both at once (âŠ) *is* the whole. The
--- equivalence is the proof they lose nothing between them â” ahis: the
+-- neither the whole, and asserting both at once (âŠ) *is* the whole. The
+-- equivalence is the proof they lose nothing between them â€” ahiá¹ƒsÄ: the
 -- split forges neither a presence nor an absence.
 
 module SamaVisama_TheCountSplitsByParityIntoTwoCopiesOfItselfAndEachNayaIsTheWhole where
@@ -38,7 +38,7 @@ double : â„• â†’ â„•
 double zero    = zero
 double (suc k) = suc (suc (double k))
 
--- The two branches of the inverse, packaged as one map out of â• âŠ â•.
+-- The two branches of the inverse, packaged as one map out of â„• âŠ â„•.
 merge : â„• âŠ â„• â†’ â„•
 merge (inl k) = double k        -- sama:   2k
 merge (inr k) = suc (double k)  -- viá¹£ama: 2k+1
@@ -55,7 +55,7 @@ split : â„• â†’ â„• âŠ â„•
 split zero    = inl zero
 split (suc n) = flip (split n)
 
--- â”â” section: merge âˆ˜ split â‰¡ id on â• â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€ section: merge âˆ˜ split â‰¡ id on â„• â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- direct induction; both cases close by refl after the IH is transported.
 mergeSplit : (n : â„•) â†’ merge (split n) â‰¡ n
 mergeSplit zero    = refl
@@ -63,7 +63,7 @@ mergeSplit (suc n) with split n | mergeSplit n
 ... | inl k | p = cong suc p        -- merge (flip (inl k)) = suc (double k) = suc n
 ... | inr k | p = cong suc p        -- merge (flip (inr k)) = double (suc k) = suc (suc (double k)) = suc n
 
--- â”â” retraction: split âˆ˜ merge â‰¡ id on â• âŠ â• â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€ retraction: split âˆ˜ merge â‰¡ id on â„• âŠ â„• â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- incr is what flipâˆ˜flip does; split (merge _) rebuilds the branch by induction.
 splitDouble : (k : â„•) â†’ split (double k) â‰¡ inl k
 splitDouble zero    = refl
@@ -83,7 +83,7 @@ splitMerge : (s : â„• âŠ â„•) â†’ split (merge s) â‰¡ s
 splitMerge (inl k) = splitDouble k
 splitMerge (inr k) = splitSucDouble k
 
--- â”â” the equivalence and the univalence path â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€ the equivalence and the univalence path â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 sama-viá¹£ama-Iso : Iso â„• (â„• âŠ â„•)
 sama-viá¹£ama-Iso = iso split merge splitMerge mergeSplit
 

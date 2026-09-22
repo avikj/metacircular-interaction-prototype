@@ -1,14 +1,14 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡‡à‡∞‡‡Ø-‡‡‡‡‡∞ ‚î the continuity thread.
+-- ‡§∏‡•ç‡§•‡•à‡§∞‡•ç‡§Ø-‡§∏‡•Ç‡§§‡•ç‡§∞ ‚Äî the continuity thread.
 --
 -- The topology arrives, in take-metric form.  Truncate a rope at
 -- depth n (kartana); call two ropes n-close when their truncations
 -- agree.  Then:
 --
 --   ¬ß2  EVERY CROSSING IS 1-LIPSCHITZ WITH UNIT LOOKAHEAD: (n+1)-close
---       inputs give n-close outputs, at every position ‚î the crossing
+--       inputs give n-close outputs, at every position ‚Äî the crossing
 --       reads at most one cell beyond what it writes, exactly as its
 --       four-equation reader profile dictates, and the proof is one
 --       induction unfolding the truncations with the two cons
@@ -22,7 +22,7 @@
 -- Causality, quantified: finite braiding transmits information at
 -- unit speed down the rope, so depth is time and the word's length
 -- is its light cone.  This names the missing hypothesis of the
--- centralizer question ‚î the uniform turn escapes finite words
+-- centralizer question ‚Äî the uniform turn escapes finite words
 -- because they are all uniformly continuous with finite lookahead,
 -- while centrality plus CONTINUITY is what the exhaustion conjecture
 -- should force to uniformity.  The completion of SimaSutra is a
@@ -51,7 +51,7 @@ open import NirupaSutra_EveryBraidWordIsItsBarePermutationFollowedByAComputedTwi
 open DhƒÅrƒÅ
 
 ------------------------------------------------------------------------
--- ‡ß ¬ The truncation.
+-- ‡•ß ¬∑ The truncation.
 ------------------------------------------------------------------------
 
 kartana : ‚Ñï ‚Üí Rajju ‚Üí List S≈´tra
@@ -59,7 +59,7 @@ kartana zero    s = []
 kartana (suc n) s = ≈õiras s ‚à∑ kartana n (≈õe·π£am s)
 
 ------------------------------------------------------------------------
--- ‡® ¬ The crossing: (n+1)-close in, n-close out.
+-- ‡•® ¬∑ The crossing: (n+1)-close in, n-close out.
 ------------------------------------------------------------------------
 
 -- Truncation equalities weaken: (m+1)-agreement gives m-agreement.
@@ -92,7 +92,7 @@ ve·πáƒ´-sthairya zero    (suc n) s t h =
                   (cons-inj‚ÇÇ (cons-inj‚ÇÇ h)))
 
 ------------------------------------------------------------------------
--- ‡© ¬ The word: (|w|+n)-close in, n-close out.
+-- ‡•© ¬∑ The word: (|w|+n)-close in, n-close out.
 ------------------------------------------------------------------------
 
 ≈õabda-sthairya : (w : List ‚Ñï) (n : ‚Ñï) (s t : Rajju)
@@ -104,9 +104,9 @@ ve·πáƒ´-sthairya zero    (suc n) s t h =
     (ve·πáƒ´-sthairya i (length w + n) s t h)
 
 ------------------------------------------------------------------------
--- ‡ ¬ The completion's new point is BETTER behaved than any word: the
--- uniform turn is continuous with ZERO lookahead ‚î n-close in, n-close
--- out ‚î because it is cellwise.  What finite words cannot reach is not
+-- ‡•™ ¬∑ The completion's new point is BETTER behaved than any word: the
+-- uniform turn is continuous with ZERO lookahead ‚Äî n-close in, n-close
+-- out ‚Äî because it is cellwise.  What finite words cannot reach is not
 -- wilder than they are; it is tamer: uniformity costs no lookahead at
 -- all, and the escape from the word-image happens entirely inside the
 -- best-behaved class of maps.

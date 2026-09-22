@@ -1,38 +1,38 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡Æ‡‡≤‡µ‡æ‡ï‡‡Ø‡Æ‡ ¬ PROVENANCE OF THE NAME.
+-- ‡§Æ‡•Ç‡§≤‡§µ‡§æ‡§ï‡•ç‡§Ø‡§Æ‡•ç ¬∑ PROVENANCE OF THE NAME.
 --
--- ‡‡‡æ‡µ ¬ abhva ‚î absence as a category in its own right: always the absence
--- OF something (its ‡‡‡∞‡‡ø‡Ø‡ã‡ó‡ø‡®‡, counterpositive) and always somewhere.
+-- ‡§Ö‡§≠‡§æ‡§µ ¬∑ abhƒÅva ‚Äî absence as a category in its own right: always the absence
+-- OF something (its ‡§™‡•ç‡§∞‡§§‡§ø‡§Ø‡•ã‡§ó‡§ø‡§®‡•ç, counterpositive) and always somewhere.
 -- **Kada, *Vaieikastra* 9.1 (~2nd c. BCE - 2nd c. CE); the fourfold
 -- division systematised in Praastapda, *Padrthadharmasagraha* (~6th c.);
 -- stated compactly in Annabhaa, *Tarkasagraha* ¬ß¬ß57, 80 (~1600).**
 --
--- The title line ‡Æ‡Æ-‡‡¶‡∞‡‡‡®‡Æ‡ ‚â† ‡‡‡‡Ø-‡‡‡æ‡µ‡ is the ‡‡®‡‡‡≤‡‡‡ß‡ø condition seen from
+-- The title line ‡§Æ‡§Æ-‡§Ö‡§¶‡§∞‡•ç‡§∂‡§®‡§Æ‡•ç ‚â† ‡§§‡§∏‡•ç‡§Ø-‡§Ö‡§≠‡§æ‡§µ‡§É is the ‡§Ö‡§®‡•Å‡§™‡§≤‡§¨‡•ç‡§ß‡§ø condition seen from
 -- the other side, and that is MMS, not Nyya: non-apprehension counts as
--- knowledge only as ‡Ø‡ã‡ó‡‡Ø‡æ‡®‡‡‡≤‡‡‡ß‡ø, non-apprehension of what WOULD have been
--- apprehended ‚î Kumrila Bhaa, *lokavrttika*, abhvapariccheda (~660).
--- **The two schools do not agree here.**  Mms admits ‡‡®‡‡‡≤‡‡‡ß‡ø as a
--- prama; Nyya does not, and analyses the same cases through ‡‡‡∞‡‡ø‡Ø‡ã‡ó‡ø‡®‡
--- and perception instead.  Taking the Naiyyika ‡‡‡æ‡µ apparatus and the
--- Mmsaka ‡‡®‡‡‡≤‡‡‡ß‡ø as one toolkit is the move CLAUDE.md names ‚î it keeps
+-- knowledge only as ‡§Ø‡•ã‡§ó‡•ç‡§Ø‡§æ‡§®‡•Å‡§™‡§≤‡§¨‡•ç‡§ß‡§ø, non-apprehension of what WOULD have been
+-- apprehended ‚Äî KumƒÅrila Bha·π≠·π≠a, *≈ölokavƒÅrttika*, abhƒÅvapariccheda (~660).
+-- **The two schools do not agree here.**  Mƒ´mƒÅ·πÉsƒÅ admits ‡§Ö‡§®‡•Å‡§™‡§≤‡§¨‡•ç‡§ß‡§ø as a
+-- pramƒÅ·πáa; NyƒÅya does not, and analyses the same cases through ‡§™‡•ç‡§∞‡§§‡§ø‡§Ø‡•ã‡§ó‡§ø‡§®‡•ç
+-- and perception instead.  Taking the NaiyƒÅyika ‡§Ö‡§≠‡§æ‡§µ apparatus and the
+-- Mƒ´mƒÅ·πÉsaka ‡§Ö‡§®‡•Å‡§™‡§≤‡§¨‡•ç‡§ß‡§ø as one toolkit is the move CLAUDE.md names ‚Äî it keeps
 -- from each the part that converts and drops the dispute, which here is the
 -- content.  Name the school before the term.
 --
 -- This module
--- CORRECTS a reading of ‡‡®‡‡Ø‡ã‡®‡‡Ø‡æ‡‡æ‡µ used elsewhere in this corpus: it is
+-- CORRECTS a reading of ‡§Ö‡§®‡•ç‡§Ø‡•ã‡§®‡•ç‡§Ø‡§æ‡§≠‡§æ‡§µ used elsewhere in this corpus: it is
 -- non-identity, NOT observational separation by itself.
 --
 ------------------------------------------------------------------------
 -- Abhava_MamaAdarsanamNaTasyaAbhavah
 --
--- ‡Æ‡Æ-‡‡¶‡∞‡‡‡®‡Æ‡ ‚â† ‡‡‡‡Ø-‡‡‡æ‡µ‡ ‚î my not-seeing is not its absence.
+-- ‡§Æ‡§Æ-‡§Ö‡§¶‡§∞‡•ç‡§∂‡§®‡§Æ‡•ç ‚â† ‡§§‡§∏‡•ç‡§Ø-‡§Ö‡§≠‡§æ‡§µ‡§É ‚Äî my not-seeing is not its absence.
 --
 -- The line is from the transmission captured as
 -- `collab/upstream/raw/D0027-net-dm-adhyayana-transmission-2026-08-17.md`,
--- where it stands beside ‡‡®‡‡‡‡‡∞‡ø‡‡Æ‡ ‚â† ‡‡®‡‡‡‡‡∞‡Æ‡ (unanswered ‚â† unanswerable)
--- and ‡‡‡∞‡ø‡‡ø‡‡Æ‡ ‚â† ‡‡‡‡ (unfamiliar ‚â† nonexistent).  That file is a TEACHING
+-- where it stands beside ‡§Ö‡§®‡•Å‡§§‡•ç‡§§‡§∞‡§ø‡§§‡§Æ‡•ç ‚â† ‡§Ö‡§®‡•Å‡§§‡•ç‡§§‡§∞‡§Æ‡•ç (unanswered ‚â† unanswerable)
+-- and ‡§Ö‡§™‡§∞‡§ø‡§ö‡§ø‡§§‡§Æ‡•ç ‚â† ‡§Ö‡§∏‡§§‡•ç (unfamiliar ‚â† nonexistent).  That file is a TEACHING
 -- TRANSMISSION and its own provenance note forbids promoting any line of it
 -- to a result.  What is claimed is
 -- that this corpus kept making one particular inference and that the
@@ -42,14 +42,14 @@
 -- making the step twice, in two registers, hours apart:
 --
 -- Navya-Nyya has the discipline: **no bare absences.**  An abhva carries
--- its *pratiyogin*, the counterpositive ‚î the thing whose absence it is ‚î
+-- its *pratiyogin*, the counterpositive ‚Äî the thing whose absence it is ‚Äî
 -- and, in the developed analysis, its *avacchedaka*, the limitor fixing the
 -- respect in which it is absent (`AbhavaAvacchedaka`, in this corpus,
 -- already makes the limitor a genuine dependent binder).  "No cycle since T"
 -- carries its counterpositive.  "The machine is dead" does not.
 --
 -- ¬ß1 is the negative half: a bare absence does not transport between
--- standpoints.  ¬ß2 is the positive half and it is the point ‚î absence DOES
+-- standpoints.  ¬ß2 is the positive half and it is the point ‚Äî absence DOES
 -- transport exactly when the standpoints agree, which is
 -- `AllNayasAgree` from `Durnaya_CollapseIffEveryNayaAgrees`.  So the
 -- limitor's job is not decoration: it is the hypothesis that makes the
@@ -81,17 +81,17 @@ private
 --     That says nothing about the other.
 ------------------------------------------------------------------------
 
--- ‡¶‡‡‡‡Ø‡Æ‡ ‚î what is visible from a standpoint.  Empty from one, inhabited
+-- ‡§¶‡•É‡§∂‡•ç‡§Ø‡§Æ‡•ç ‚Äî what is visible from a standpoint.  Empty from one, inhabited
 -- from the other: the smallest honest picture of a partial view.
 Drsya : Bool ‚Üí Type‚ÇÄ
 Drsya true  = ‚ä•
 Drsya false = Unit
 
--- ‡Æ‡Æ-‡‡¶‡∞‡‡‡®‡Æ‡ ‚î I do not see it (from the standpoint `true`).
+-- ‡§Æ‡§Æ-‡§Ö‡§¶‡§∞‡•ç‡§∂‡§®‡§Æ‡•ç ‚Äî I do not see it (from the standpoint `true`).
 adarsanam : ¬¨ (Drsya true)
 adarsanam ()
 
--- ‡‡‡‡Ø-‡‡æ‡µ‡ ‚î and it is there (from the standpoint `false`).
+-- ‡§§‡§∏‡•ç‡§Ø-‡§≠‡§æ‡§µ‡§É ‚Äî and it is there (from the standpoint `false`).
 tasya-bhavah : Drsya false
 tasya-bhavah = tt
 
@@ -120,8 +120,8 @@ Drsya-nayas-disagree a = equivFun (a false true) tt
 ------------------------------------------------------------------------
 -- 3.  What this licenses, stated so it is not over-read.
 --
--- LICENSED: report the absence and its counterpositive ‚î "no cycle has
--- been recorded since T" ‚î and stop.  Report the further claim only with
+-- LICENSED: report the absence and its counterpositive ‚Äî "no cycle has
+-- been recorded since T" ‚Äî and stop.  Report the further claim only with
 -- the agreement hypothesis discharged, which for an instrument means
 -- showing that what it observes separates the states it is being used to
 -- decide between.
@@ -129,7 +129,7 @@ Drsya-nayas-disagree a = equivFun (a false true) tt
 -- NOT LICENSED: that every absence in this corpus is of the ¬ß1 kind.  ¬ß2
 -- is a genuine sufficient condition and plenty of absences here meet it.
 -- The claim is only that the hypothesis must be MENTIONED, because the
--- instrument that failed was not wrong about its stamp ‚î it was silent
+-- instrument that failed was not wrong about its stamp ‚Äî it was silent
 -- about its hypothesis.
 --
 ------------------------------------------------------------------------

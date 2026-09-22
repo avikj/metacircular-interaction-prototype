@@ -7,7 +7,7 @@
 -- Birkhoff/Ore-era lattice theory and Lawvere 1973; there is no Indian
 -- source term for this object and none is invented.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- `TheMeetIsMaxAndTheProfileCutIsAGaloisConnection` has burdens forming a
 -- profile and residuals a single value, because that is what makes `up`
 -- land in â„•.  A cut with profiles on BOTH sides needs `up` to produce a
@@ -17,36 +17,36 @@
 -- WHAT IS PROVED
 --
 --   upV / dnV        the one-sided cut with the BURDENS TAKEN AS A
---                    PROFILE rather than read off the index list â”
---                    `upV ks b Ï = maxâ¼ (bâ¼ âˆ Ïâ¼)`, `dnV ks b Ïˆ =
---                    (bâ¼ âˆ Ïˆ)â¼`
+--                    PROFILE rather than read off the index list â€”
+--                    `upV ks b Ï† = maxâ±¼ (bâ±¼ âˆ¸ Ï†â±¼)`, `dnV ks b Ïˆ =
+--                    (bâ±¼ âˆ¸ Ïˆ)â±¼`
 --   goFwdV / goBwdV  and it is still a Galois connection, by the same
 --                    two monus adjunctions
 --   VProfileCut      packaged through the existing `Galois` module
 --   maxP + three laws
---                    componentwise max on profiles, with `âŠp`'s two
+--                    componentwise max on profiles, with `âŠ‘p`'s two
 --                    bounds and leastness
 --   Rows / UpP       a matrix of burdens as a profile of profiles, and
 --                    the residual PROFILE it produces
 --
 -- **WHY `upV` IS THE STEP THAT MATTERS.**  In the one-sided module the
--- burdens are the â• payloads of the index list, so a second residual
--- index would need a second index list carrying different payloads â”
+-- burdens are the â„• payloads of the index list, so a second residual
+-- index would need a second index list carrying different payloads â€”
 -- there is no room for a matrix.  Taking the burdens as a profile frees
 -- the index list to be pure shape, and then a matrix is just a profile
 -- of profiles (`Rows`), which is what `UpP` consumes.
 --
 -- **AND THE OBSTRUCTION IS THE EMPTY ROW SET, PRECISELY.**  The right
 -- adjoint must send a residual profile Ïˆ to the LARGEST burden profile
--- Ï with `UpP bs Ï âŠp Ïˆ`; componentwise that is `maxµ (bµâ¼ âˆ Ïˆµ)`.
--- With no rows the constraint is vacuous, so the largest such Ï is
--- unbounded â” **the empty meet is `âˆž`, which â• does not have.**  The
+-- Ï† with `UpP bs Ï† âŠ‘p Ïˆ`; componentwise that is `maxáµ¢ (báµ¢â±¼ âˆ¸ Ïˆáµ¢)`.
+-- With no rows the constraint is vacuous, so the largest such Ï† is
+-- unbounded â€” **the empty meet is `âˆž`, which â„• does not have.**  The
 -- one-sided module recorded this from the other side ("the empty
--- burden list gives `up ks Ï = 0` â¦ with `âˆž` present the empty meet
+-- burden list gives `up ks Ï† = 0` â€¦ with `âˆž` present the empty meet
 -- would be `âˆž`"); here it is the same fact obstructing the right
 -- adjoint rather than a convention about the left one.  So a two-sided
--- cut exists over a NON-EMPTY residual index set or over `â• âŠ âˆž`, and
--- not over â• with an arbitrary index set.
+-- cut exists over a NON-EMPTY residual index set or over `â„• âŠŽ âˆž`, and
+-- not over â„• with an arbitrary index set.
 ------------------------------------------------------------------------
 
 module TheTwoSidedProfileCutNeedsTheBurdensAsAProfile where
@@ -145,12 +145,12 @@ UpP (j âˆ· js) ks (b , bs) Ï† = upV ks b Ï† , UpP js ks bs Ï†
 --
 -- Three things about that construction:
 --
---   * The residual side needs its OWN order, `_â‰¼p_`, pointwise `â‰` â”
---     NOT `_âŠp_`, which is reverse pointwise `â‰` because more burden
+--   * The residual side needs its OWN order, `_â‰¼p_`, pointwise `â‰¤` â€”
+--     NOT `_âŠ‘p_`, which is reverse pointwise `â‰¤` because more burden
 --     absorbed is lower.
 --   * No accumulator is needed: structural recursion on `Rows` gives
 --     the fold, and with it the obvious induction.
---   * `maxP`'s three laws do all the work â” the two bounds split a
+--   * `maxP`'s three laws do all the work â€” the two bounds split a
 --     hypothesis about the fold into per-row hypotheses, leastness
 --     reassembles the conclusion, and each row is `goFwdV`/`goBwdV`
 --     unchanged.
@@ -161,11 +161,11 @@ UpP (j âˆ· js) ks (b , bs) Ï† = upV ks b Ï† , UpP js ks bs Ï†
 ------------------------------------------------------------------------
 
 --
--- The burden side is ordered by `_âŠp_`, which is REVERSE pointwise `â‰`.
--- The right adjoint must return the `âŠp`-GREATEST burden profile
--- satisfying the constraint; `âŠp`-greatest is `â‰`-LEAST; â•'s least
--- element is `0`.  The empty meet is `zeroProfile`, and â• has it.  No
--- `âˆž`, no `â• âŠ âˆž`, and no restriction on the residual index: `dnAll`,
+-- The burden side is ordered by `_âŠ‘p_`, which is REVERSE pointwise `â‰¤`.
+-- The right adjoint must return the `âŠ‘p`-GREATEST burden profile
+-- satisfying the constraint; `âŠ‘p`-greatest is `â‰¤`-LEAST; â„•'s least
+-- element is `0`.  The empty meet is `zeroProfile`, and â„• has it.  No
+-- `âˆž`, no `â„• âŠŽ âˆž`, and no restriction on the residual index: `dnAll`,
 -- `goFwdAll`, `goBwdAll` in
 -- `TheTwoSidedCutNeedsNoInfinityBecauseTheEmptyMeetIsZero` are the
 -- unrestricted adjunction.

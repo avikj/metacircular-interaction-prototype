@@ -3,11 +3,11 @@
 ------------------------------------------------------------------------
 -- NaturalMachine.SufficientInterfaces
 --
--- Sufficient Interfaces for Relational Computation � Delta 01, checked.
+-- Sufficient Interfaces for Relational Computation — Delta 01, checked.
 -- (collab/upstream/library/raw/SUFFICIENT_INTERFACES_DELTA_01_2026-08-13.md)
 --
 -- WHY THIS ONE.  Δ01 is the sufficient-interfaces delta whose content is finite, exact, and
--- decidable end to end � it needs no analytic input and no new
+-- decidable end to end — it needs no analytic input and no new
 -- mathematics to enter the substrate.  It is also the document that
 -- states, as a theorem, a failure mode of context compression:
 --
@@ -16,11 +16,11 @@
 --    decision-relevant distinction."
 --
 -- and then §3 exhibits the minimal witness that this can fail even when
--- every part looks fine � two individually sufficient interfaces whose
+-- every part looks fine — two individually sufficient interfaces whose
 -- join is not sufficient.  Delta 01 calls that "an exact finite gluing
 -- obstruction", and it is the finite shadow of the question the owner
--- asks in three separate places (U0006 §3; Delta 15 §§15.11�15.12,
--- Programs 15.47�15.49; Delta 17 §17.21): build a cover, compute the
+-- asks in three separate places (U0006 §3; Delta 15 §§15.11–15.12,
+-- Programs 15.47–15.49; Delta 17 §17.21): build a cover, compute the
 -- transition data, find the obstruction to gluing local sections.  Here
 -- the cover is a partition, the local sections are blockwise witnesses,
 -- and the obstruction is exhibited rather than conjectured.
@@ -29,16 +29,16 @@
 --
 --   Sufficient, Realization    §0/§1: a common witness per block; a
 --                              deterministic selector
---   suff�real, real�suff       T1, the selector criterion, both ways
+--   suff→real, real→suff       T1, the selector criterion, both ways
 --   IsSimplex, simplex-down    T12: N_R is a simplicial complex
---   suff�simplices             T13: sufficiency is blockwise simplexhood
---   simplices�suff             �and conversely, by construction
---   refine-sufficient          T4: Suff(R) is downward closed � a finer
+--   suff→simplices             T13: sufficiency is blockwise simplexhood
+--   simplices→suff             …and conversely, by construction
+--   refine-sufficient          T4: Suff(R) is downward closed — a finer
 --                              interface inherits every witness
---   data-processing            T7: Suff(R) � Suff(S∘R) for total S
---   join-fails                 P6: THE witness.  �, � sufficient, �∨� not
+--   data-processing            T7: Suff(R) ⊆ Suff(S∘R) for total S
+--   join-fails                 P6: THE witness.  π, σ sufficient, π∨σ not
 --   materialization-gap        T8/§5: the composite is realizable from
---                              one block while the intermediate is not �
+--                              one block while the intermediate is not —
 --                              an architectural boundary forcing a
 --                              distinction the end task does not need
 --   unsafe-compression         §15/§16 read back: a compressor whose
@@ -60,10 +60,10 @@ private
 ------------------------------------------------------------------------
 -- §1  The primitive, and Theorem 1
 --
--- Δ01 §0: a partition � of A is R-sufficient iff every block E has a
--- common valid output, �_{a∈E} R(a) ≠ �.
+-- Δ01 §0: a partition π of A is R-sufficient iff every block E has a
+-- common valid output, ⋂_{a∈E} R(a) ≠ ∅.
 --
--- A partition is presented by its quotient map q : A � Q; the block over
+-- A partition is presented by its quotient map q : A → Q; the block over
 -- c is the fibre {a : q a ≡ c}.  This is the presentation the rest of the
 -- development needs, because refinement (§3) is then just a factorisation
 -- of q, and it is faithful: any partition is the kernel of its own
@@ -81,14 +81,14 @@ module _ {A : Type ℓA} {B : Type ℓB} {Q : Type ℓQ}
   Realization : (A → Q) → Type (ℓ-max ℓA (ℓ-max ℓB (ℓ-max ℓQ ℓR)))
   Realization q = Σ[ s ∈ (Q → B) ] ((a : A) → R a (s (q a)))
 
-  -- T1, (i) � (ii).  The selector is the choice of witness at each block.
-  -- Constructively this is the type-theoretic axiom of choice � a Π of �
-  -- becoming a � of Π � which is exactly what Δ01's "choose s(E) from the
+  -- T1, (i) ⇒ (ii).  The selector is the choice of witness at each block.
+  -- Constructively this is the type-theoretic axiom of choice — a Π of Σ
+  -- becoming a Σ of Π — which is exactly what Δ01's "choose s(E) from the
   -- common intersection" is, and it is available here without assumption.
   suff→real : (q : A → Q) → Sufficient q → Realization q
   suff→real q σ = (λ c → fst (σ c)) , λ a → snd (σ (q a)) a refl
 
-  -- T1, (ii) � (i).  Conversely any blockwise selector lies in every fibre
+  -- T1, (ii) ⇒ (i).  Conversely any blockwise selector lies in every fibre
   -- in its block; the transport along `cong s p` is that sentence.
   real→suff : (q : A → Q) → Realization q → Sufficient q
   real→suff q (s , h) c = s c , λ a p → subst (R a) (cong s p) (h a)
@@ -96,12 +96,12 @@ module _ {A : Type ℓA} {B : Type ℓB} {Q : Type ℓQ}
 ------------------------------------------------------------------------
 -- §2  Theorems 12 and 13: the nerve
 --
--- Δ01 §10: N_R = {S � A : �_{a∈S} R(a) ≠ �} is an abstract simplicial
--- complex, and � is sufficient iff every block of � is a simplex.
+-- Δ01 §10: N_R = {S ⊆ A : ⋂_{a∈S} R(a) ≠ ∅} is an abstract simplicial
+-- complex, and π is sufficient iff every block of π is a simplex.
 --
 -- Note what T2 becomes here.  Δ01 T2 says S is an admissible block iff
--- S � E_b for some b, where E_b = {a : b ∈ R(a)}.  Since E_b is literally
--- `λ a � R a b`, the containment S � E_b *is* `(a : A) � S a � R a b`, so
+-- S ⊆ E_b for some b, where E_b = {a : b ∈ R(a)}.  Since E_b is literally
+-- `λ a → R a b`, the containment S ⊆ E_b *is* `(a : A) → S a → R a b`, so
 -- T2 is the definition of `IsSimplex` read twice.  Recording that rather
 -- than dressing it as a lemma.
 ------------------------------------------------------------------------
@@ -136,18 +136,18 @@ module _ {A : Type ℓA} {B : Type ℓB} (R : A → B → Type ℓR) where
 ------------------------------------------------------------------------
 -- §3  Theorem 4: Suff(R) is an order ideal
 --
--- Δ01 §3: if � is sufficient and � � � (� finer), then � is sufficient �
--- every �-block lies in a �-block and inherits its witness.
+-- Δ01 §3: if π is sufficient and ρ ≤ π (ρ finer), then ρ is sufficient —
+-- every ρ-block lies in a π-block and inherits its witness.
 --
--- "� finer than �" is presented as a factorisation: �'s quotient map
--- factors through �'s.  That is the same relation, and it makes the proof
+-- "ρ finer than π" is presented as a factorisation: π's quotient map
+-- factors through ρ's.  That is the same relation, and it makes the proof
 -- the transport it should be.
 ------------------------------------------------------------------------
 
 module _ {A : Type ℓA} {B : Type ℓB} {Q : Type ℓQ} {Q' : Type ℓQ'}
          (R : A → B → Type ℓR) where
 
-  -- � (presented by q') refines � (presented by q) when q factors as
+  -- ρ (presented by q') refines π (presented by q) when q factors as
   -- r ∘ q'.  Then each q'-fibre sits inside a q-fibre.
   Refines : (q' : A → Q') (q : A → Q) (r : Q' → Q) → Type (ℓ-max ℓA ℓQ)
   Refines q' q r = (a : A) → q a ≡ r (q' a)
@@ -161,11 +161,11 @@ module _ {A : Type ℓA} {B : Type ℓB} {Q : Type ℓQ} {Q' : Type ℓQ'}
 ------------------------------------------------------------------------
 -- §4  Theorem 7: the data-processing law
 --
--- Δ01 §4: (S∘R)(a) = �_{b∈R(a)} S(b), and if S is total on the usable
--- witnesses then Suff(R) � Suff(S∘R), hence κ�(S∘R) � κ�(R).
+-- Δ01 §4: (S∘R)(a) = ⋃_{b∈R(a)} S(b), and if S is total on the usable
+-- witnesses then Suff(R) ⊆ Suff(S∘R), hence κ₀(S∘R) ≤ κ₀(R).
 --
 -- "distinctions necessary for an intermediate task can become irrelevant
--- to the final task" � proved here, and made strict in §6.
+-- to the final task" — proved here, and made strict in §6.
 ------------------------------------------------------------------------
 
 -- `compose` and `Total` do not mention the interface, so the interface is
@@ -190,13 +190,13 @@ module _ {A : Type ℓA} {B : Type ℓB} {C : Type ℓC}
     in c , λ a p → b , hb a p , sc
 
 ------------------------------------------------------------------------
--- §5  Proposition 6 � the exact finite gluing obstruction
+-- §5  Proposition 6 — the exact finite gluing obstruction
 --
 -- Δ01 §3:
 --
 --     A = {1,2,3}, B = {x,y}, R(1)={x}, R(2)={x,y}, R(3)={y}.
---     � = {{1,2},{3}} and � = {{1},{2,3}} are sufficient,
---     but � ∨ � = {{1,2,3}} is not.
+--     π = {{1,2},{3}} and σ = {{1},{2,3}} are sufficient,
+--     but π ∨ σ = {{1,2,3}} is not.
 --
 --     "locally valid coarse-grainings can glue transitively into a
 --      globally invalid class.  This is an exact finite gluing
@@ -234,7 +234,7 @@ data Blk : Type where
   β0 β1 : Blk
 
 -- Separation of the two block labels, as a family; `subst` turns a path
--- between distinct labels into �.  This is the only discreteness the
+-- between distinct labels into ⊥.  This is the only discreteness the
 -- module needs.
 isβ0 : Blk → Type
 isβ0 β0 = Unit
@@ -243,26 +243,26 @@ isβ0 β1 = ⊥
 -- A point lying outside the block it is being tested against gives a path
 -- between distinct labels, hence anything.  Both orientations, so the
 -- witness clauses below read the same whether the required output type is
--- `Unit` (the point is admissible but absent) or `�` (it is inadmissible).
+-- `Unit` (the point is admissible but absent) or `⊥` (it is inadmissible).
 β0≢β1 : {X : Type ℓA} → β0 ≡ β1 → X
 β0≢β1 p = ⊥rec (subst isβ0 p tt)
 
 β1≢β0 : {X : Type ℓA} → β1 ≡ β0 → X
 β1≢β0 p = ⊥rec (subst isβ0 (sym p) tt)
 
--- � = {{1,2},{3}}
+-- π = {{1,2},{3}}
 qπ : Pt → Blk
 qπ a1 = β0
 qπ a2 = β0
 qπ a3 = β1
 
--- � = {{1},{2,3}}
+-- σ = {{1},{2,3}}
 qσ : Pt → Blk
 qσ a1 = β0
 qσ a2 = β1
 qσ a3 = β1
 
--- � is sufficient: block {1,2} takes witness x, block {3} takes y.
+-- π is sufficient: block {1,2} takes witness x, block {3} takes y.
 π-sufficient : Sufficient R6 qπ
 π-sufficient β0 = bx , w
   where
@@ -277,7 +277,7 @@ qσ a3 = β1
     w a2 p = β0≢β1 p
     w a3 _ = tt
 
--- � is sufficient: block {1} takes x, block {2,3} takes y.
+-- σ is sufficient: block {1} takes x, block {2,3} takes y.
 σ-sufficient : Sufficient R6 qσ
 σ-sufficient β0 = bx , w
   where
@@ -296,7 +296,7 @@ qσ a3 = β1
 qJ : Pt → Unit
 qJ _ = tt
 
--- �and it is NOT sufficient.  x fails at 3, y fails at 1; there is no
+-- …and it is NOT sufficient.  x fails at 3, y fails at 1; there is no
 -- third option.  P6.
 join-fails : ¬ (Sufficient R6 qJ)
 join-fails σ = no-common (fst (σ tt)) (snd (σ tt))
@@ -314,12 +314,12 @@ suff-not-a-sublattice = π-sufficient , σ-sufficient , join-fails
 ------------------------------------------------------------------------
 -- §6  Theorem 8 and the materialization gap
 --
--- Δ01 §5: there are R, S with κ�(S∘R) = 1 while every deterministic
--- protocol that materializes an R-valid intermediate needs κ�(R) > 1.
+-- Δ01 §5: there are R, S with κ₀(S∘R) = 1 while every deterministic
+-- protocol that materializes an R-valid intermediate needs κ₀(R) > 1.
 --
 --     R(a1)={b1}, R(a2)={b2};  S(b1)=S(b2)={c}.
 --
--- So Δmat = log κ�(R) − log κ�(S∘R) > 0: one full bit is forced by the
+-- So Δmat = log κ₀(R) − log κ₀(S∘R) > 0: one full bit is forced by the
 -- architectural boundary and is irrelevant to the end task.  This is the
 -- strictness that makes §4's data-processing law informative rather than
 -- an identity.
@@ -368,7 +368,7 @@ materialization-gap :
 materialization-gap = composite-sufficient , intermediate-insufficient
 
 ------------------------------------------------------------------------
--- §7  Δ01 §§11 and 15�16, read back
+-- §7  Δ01 §§11 and 15ℓ16, read back
 --
 -- Δ01 T11 defines an information edge exactly: given a quotient q, there
 -- is no task-relative obstruction precisely when ker(q) ∈ Suff(R).  §15
@@ -377,7 +377,7 @@ materialization-gap = composite-sufficient , intermediate-insufficient
 -- action selection iff every collapsed class shares a valid action.
 --
 -- `Sufficient` above IS that predicate, so the statement needs no new
--- definition � only the naming, and the negative witness, which §5
+-- definition — only the naming, and the negative witness, which §5
 -- already supplies.  An unsafe compressor is a `Sufficient` that fails,
 -- and `join-fails` is the smallest one: two summaries, each individually
 -- adequate for its own purpose, merged into a view from which no valid
@@ -402,7 +402,7 @@ SafeCompressor R q = Sufficient R q
 unsafe-compression : ¬ (SafeCompressor R6 qJ)
 unsafe-compression = join-fails
 
--- �and refinement is the repair.  Δ01 §17: on discovering a block with no
+-- …and refinement is the repair.  Δ01 §17: on discovering a block with no
 -- common valid action, the agent must refine.  T4 says refinement never
 -- costs validity, so the repair is always available and never breaks what
 -- already worked.

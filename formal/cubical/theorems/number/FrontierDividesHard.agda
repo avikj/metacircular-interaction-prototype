@@ -6,26 +6,26 @@
 -- Half (a) of the universal property `FrontierDivides` names:
 --
 --     frontier-divides-hard :
---       0 < m â’ m â‰ k â’ m âˆ prodOf (frontierList k)
+--       0 < m â†’ m â‰¤ k â†’ m âˆ£ prodOf (frontierList k)
 --
 -- Together with `FrontierDivides.frontier-divides` (the other half) this
 -- is the universal property of `prodOf (frontierList k)` as the lcm of
--- 1 â¦ k, which CLAUDE.md requires be stated that way because cubical
+-- 1 â€¦ k, which CLAUDE.md requires be stated that way because cubical
 -- v0.5 has no LCM module.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE ASSEMBLY
 --
 -- Strong induction on m, peeled one prime at a time:
 --
---   m > 1  âŸ  p prime with p âˆ m                    CoprimeSplitting
---   m = p^a Â m'  with  p âˆ m'                       PFreePart
---   a â‰ logOf p k                                    ExponentBound
+--   m > 1  âŸ¹  p prime with p âˆ£ m                    CoprimeSplitting
+--   m = p^a Â· m'  with  p âˆ¤ m'                       PFreePart
+--   a â‰¤ logOf p k                                    ExponentBound
 --   (p , logOf p k) âˆˆ frontierList k                 FrontierMember
---   p^a âˆ p^(logOf p k) âˆ prodOf (frontierList k)    Â§1, Â§2 below
---   m' âˆ prodOf (frontierList k)                     induction, m' < m
+--   p^a âˆ£ p^(logOf p k) âˆ£ prodOf (frontierList k)    Â§1, Â§2 below
+--   m' âˆ£ prodOf (frontierList k)                     induction, m' < m
 --   isGCD (p^a) m' 1                                 PrimeCofactorCoprime
---   âŸ (p^a Â m') âˆ prodOf                            FinCardinality.gauss
+--   âŸ¹ (p^a Â· m') âˆ£ prodOf                            FinCardinality.gauss
 ------------------------------------------------------------------------
 
 module FrontierDividesHard where
@@ -86,7 +86,7 @@ private
   0<p-of : {p : â„•} â†’ 1 < p â†’ 0 < p
   0<p-of 1<p = â‰¤-trans â‰¤-sucâ„• 1<p
 
-  -- 1 < p and 0 < p^e give 1 < p^(suc e), since p^(suc e) = p Â p^e â‰ p
+  -- 1 < p and 0 < p^e give 1 < p^(suc e), since p^(suc e) = p Â· p^e â‰¥ p
   1<pow : (p e : â„•) â†’ 1 < p â†’ 1 < (p ^ (suc e))
   1<pow p e 1<p = <â‰¤-trans 1<p step
     where
@@ -97,7 +97,7 @@ private
   mâ‰¢0 : (n : â„•) â†’ 0 < n â†’ Â¬ (n â‰¡ 0)
   mâ‰¢0 n 0<n q = Â¬-<-zero (subst (0 <_) q 0<n)
 
-  -- 0 < a Â b forces 0 < b
+  -- 0 < a Â· b forces 0 < b
   posSnd : (a b : â„•) â†’ 0 < (a Â· b) â†’ 0 < b
   posSnd a zero    0<ab = Empty.rec (Â¬-<-zero (subst (0 <_) (sym (0â‰¡mÂ·0 a)) 0<ab))
   posSnd a (suc b) _    = suc-â‰¤-suc zero-â‰¤
@@ -149,7 +149,7 @@ hard-fuel (suc f) k m 0<m mâ‰¤k mâ‰¤f = small (splitâ„•-â‰¤ m 1)
         paâˆ£P : (p ^ a) âˆ£ P
         paâˆ£P = âˆ£-trans (^-âˆ£ p a (logOf p k) aâ‰¤log) entryâˆ£
 
-        -- a â‰¡ 0 would make m' â‰¡ m, and then p âˆ m' contradicts p âˆ m
+        -- a â‰¡ 0 would make m' â‰¡ m, and then p âˆ¤ m' contradicts p âˆ£ m
         m'<m : m' < m
         m'<m = shrink a refl
           where
@@ -183,8 +183,8 @@ frontier-divides-hard :
 frontier-divides-hard k m 0<m mâ‰¤k = hard-fuel m k m 0<m mâ‰¤k â‰¤-refl
 
 ------------------------------------------------------------------------
--- 6.  It runs.  prodOf (frontierList 8) = 840, and every m â‰ 8 divides
---     it â” including 8, 7, 6 and 5, which is the content.
+-- 6.  It runs.  prodOf (frontierList 8) = 840, and every m â‰¤ 8 divides
+--     it â€” including 8, 7, 6 and 5, which is the content.
 ------------------------------------------------------------------------
 
 eight-divides : 8 âˆ£ prodOf (frontierList 8)
@@ -202,12 +202,12 @@ five-divides = frontier-divides-hard 8 5 (suc-â‰¤-suc zero-â‰¤) (3 , refl)
 ------------------------------------------------------------------------
 -- 7.  The universal property, both halves.
 --
---   (a)  every m â‰ k divides prodOf (frontierList k)        here
+--   (a)  every m â‰¤ k divides prodOf (frontierList k)        here
 --   (b)  prodOf (frontierList k) divides every common multiple
 --                                                  FrontierDivides Â§2
 --
--- So `prodOf (frontierList k)` IS lcm(1 â¦ k), stated by its universal
--- property because this lane has no LCM module â” which is what
+-- So `prodOf (frontierList k)` IS lcm(1 â€¦ k), stated by its universal
+-- property because this lane has no LCM module â€” which is what
 -- CLAUDE.md asks for, and it is now a theorem rather than a `refl` at
 -- k = 8.
 ------------------------------------------------------------------------

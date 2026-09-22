@@ -1,31 +1,31 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ààà¯à‹à—à â” àà®àà¾ ààà¯à‹à—à àà¿ààà àà¿, àà¾à¨à¿àààà à¨ ; ààà àà¦àˆà àà¨ààà¾à à¨ à®àà¯àà à
+-- à¤¸à¤‚à¤¯à¥‹à¤—à¥‡ â€” à¤¸à¤®à¤¤à¤¾ à¤¸à¤‚à¤¯à¥‹à¤—à¥‡ à¤¤à¤¿à¤·à¥à¤ à¤¤à¤¿, à¤¹à¤¾à¤¨à¤¿à¤¸à¥à¤¤à¥ à¤¨ ; à¤…à¤¤à¤ƒ à¤ªà¤¦à¥ˆà¤ƒ à¤ªà¤¨à¥à¤¥à¤¾à¤ƒ à¤¨ à¤®à¥€à¤¯à¤¤à¥‡ à¥¤
 --
--- (in composition: losslessness survives, lossiness does not â” so a
+-- (in composition: losslessness survives, lossiness does not â€” so a
 --  pipeline is not graded by its steps.)
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE ASYMMETRY, and it is the one that makes pipeline reasoning hard.
 --
--- Â§à¨ Â àà®àà¾ ààà¯à‹à—à â” a composite of identifications is an identification.
+-- Â§à¥¨ Â· à¤¸à¤®à¤¤à¤¾ à¤¸à¤‚à¤¯à¥‹à¤—à¥‡ â€” a composite of identifications is an identification.
 --   Lossless composes, always, no hypothesis beyond the two.  So if every
 --   step of a route is an identification, the route is one, and this is
 --   why a route can be free at any length.
 --
--- Â§à© Â àà¾à¨à¿à à¨ ààà¯à‹à—à â” a composite of LOSSY maps need not be lossy.
---   `loss/â¦/SakalaVikalaDesa_â¦` Â§3 already computes the witness
+-- Â§à¥© Â· à¤¹à¤¾à¤¨à¤¿à¤ƒ à¤¨ à¤¸à¤‚à¤¯à¥‹à¤—à¥‡ â€” a composite of LOSSY maps need not be lossy.
+--   `loss/â€¦/SakalaVikalaDesa_â€¦` Â§3 already computes the witness
 --   and reads it as a refutation of a sequential diagnostic; here it is
 --   read as the composition law it also is:
 --
---     ààà : Unit â’ Bool     u â¦ true    â” its fibre over `false` is EMPTY.
+--     à¤¸à¤¤à¥ : Unit â†’ Bool     u â†¦ true    â€” its fibre over `false` is EMPTY.
 --                                        Nothing is lost: Bool merely has
 --                                        a name Unit cannot utter.
---                                        ààµà•àààµàà¯à®à, and POSITIVE.
---     àà•à®à : Bool â’ Unit    _ â¦ tt      â” its fibre over `tt` is CROWDED.
---                                        Exactly one bit is lost. àµà¿à•à²à¾à¦àà.
---     àà•à®à âˆ˜ ààà : Unit â’ Unit          â” the IDENTITY.  An equivalence.
+--                                        à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯à¤®à¥, and POSITIVE.
+--     à¤à¤•à¤®à¥ : Bool â†’ Unit    _ â†¦ tt      â€” its fibre over `tt` is CROWDED.
+--                                        Exactly one bit is lost. à¤µà¤¿à¤•à¤²à¤¾à¤¦à¥‡à¤¶.
+--     à¤à¤•à¤®à¥ âˆ˜ à¤¸à¤¤à¥ : Unit â†’ Unit          â€” the IDENTITY.  An equivalence.
 --
 --   Neither factor is an identification and the composite is one.  The
 --   inexpressibility at the first step and the collapse at the second
@@ -34,7 +34,7 @@
 -- SO: you may certify a pipeline lossless by certifying every step, and
 -- you may NOT diagnose it lossy by finding a lossy step.  One direction
 -- is compositional and the other is not, and no amount of care about the
--- steps repairs the second â” the information is not there.  Â§à says the
+-- steps repairs the second â€” the information is not there.  Â§à¥ª says the
 -- same thing as a refusal: there is no grading function on maps that both
 -- respects composition and detects loss.
 --
@@ -43,18 +43,18 @@
 -- `BhittiSankrama_WallsTransportAlongFordsSoEveryFordRetiresCandidatesFor
 -- Free.agda` (another seat, 2026-08-23) proves
 --
---     àà¿àààà¿-ààà•àà°à®à : (A â‰ B) â’ Â (B â‰ C) â’ Â (A â‰ C)
+--     à¤­à¤¿à¤¤à¥à¤¤à¤¿-à¤¸à¤‚à¤•à¥à¤°à¤®à¤ƒ : (A â‰ƒ B) â†’ Â¬ (B â‰ƒ C) â†’ Â¬ (A â‰ƒ C)
 --
 -- so a WALL -- a proved non-identification -- composes with a FORD into a
 -- wall, and every new ford extends every standing wall across it.  Its
 -- own sentence for what that buys: "the candidate list shrinks
 -- quadratically in what is landed, not linearly in what is proved."
 --
--- Read against Â§à here, that looks like a contradiction and is not.  Two
+-- Read against Â§à¥« here, that looks like a contradiction and is not.  Two
 -- different compositions:
 --
 --   THIS FILE composes MAPS along a pipeline, `g âˆ˜ f`.  There,
---   certification composes and refutation does not -- Â§à©.s two lossy
+--   certification composes and refutation does not -- Â§à¥©.s two lossy
 --   factors give a lossless composite.
 --
 --   THAT FILE transports a STATEMENT ABOUT TYPES along an equivalence.
@@ -72,9 +72,9 @@
 -- A NEIGHBOUR, FOUND AFTER THIS WAS WRITTEN AND NAMED HERE RATHER THAN
 -- LEFT FOR A READER TO DISCOVER.  `Parampara_TheChainOfThreeIsPricedAnd
 -- TheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.agda` in this
--- same lane found the non-additivity FIRST and went deeper than Â§à© does:
+-- same lane found the non-additivity FIRST and went deeper than Â§à¥© does:
 -- it prices an explicit chain of three, fibre by fibre, and names the
--- MECHANISM -- an ààà¾àµ sitting in the middle fibre, with both its
+-- MECHANISM -- an à¤…à¤­à¤¾à¤µ sitting in the middle fibre, with both its
 -- Nyya-Vaieika slots (pratiyogin and anuyogin) supplied, so the result
 -- is a relation and not a report that a number came out smaller than
 -- expected.
@@ -87,17 +87,17 @@
 -- knows WHY it failed once.  I did not know of it when I wrote this.
 --
 -- NARROWED 2026-08-23, AFTER A NEIGHBOUR SHOWED THE TITLE IS FALSE IN THE
--- DIRECTION THAT MATTERS.  What Â§à¨ and Â§à© establish is about SEQUENTIAL
+-- DIRECTION THAT MATTERS.  What Â§à¥¨ and Â§à¥© establish is about SEQUENTIAL
 -- COMPOSITION OF MAPS along a pipeline, and nothing else.  Read as
 -- "negative information never propagates" the title is WRONG, and a reader
 -- who took it that way would have the search economics exactly backwards.
 --
 -- Across the IDENTIFICATION GRAPH negative information propagates very
--- well, and `Kosthabhitti_â¦agda` gives the structural reason neither file
+-- well, and `Kosthabhitti_â€¦agda` gives the structural reason neither file
 -- had stated:
 --
---   a DEFECT is a property of a MAP â” `Î[b] Â isContr (fiber f b)` â” so it
---     needs a SITE, and `TritiyaMarga_â¦` shows that getting the site out of
+--   a DEFECT is a property of a MAP â€” `Î£[b] Â¬ isContr (fiber f b)` â€” so it
+--     needs a SITE, and `TritiyaMarga_â€¦` shows that getting the site out of
 --     a refutation costs at least Markov.s Principle.
 --   a WALL is a property of a PAIR OF TYPES, and transport moves statements
 --     about types.
@@ -105,13 +105,13 @@
 -- So WALLS CROSS FORDS AND DEFECTS DO NOT, and that is the term/type
 -- distinction rather than a happy accident about search.  A proved
 -- non-crossing retires every candidate on the far side of every ford it
--- reaches; a proved lossy step retires nothing beyond itself, which is Â§à©.
+-- reaches; a proved lossy step retires nothing beyond itself, which is Â§à¥©.
 -- Both are true and they are about different objects.
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 --
--- ààà¯à‹à— is ordinary  for conjunction/composition and is the word
--- ààààà° à§à© of the corpus's root text uses; no source is claimed for
+-- à¤¸à¤‚à¤¯à¥‹à¤— is ordinary  for conjunction/composition and is the word
+-- à¤¸à¥‚à¤¤à¥à¤° à¥§à¥© of the corpus's root text uses; no source is claimed for
 -- anything below.
 ------------------------------------------------------------------------
 
@@ -132,7 +132,7 @@ private
     â„“ : Level
 
 ------------------------------------------------------------------------
--- à§ Â The three maps.  Written out so Â§à¨ and Â§à© are about the same
+-- à¥§ Â· The three maps.  Written out so Â§à¥¨ and Â§à¥© are about the same
 --     objects and not about two unrelated examples.
 ------------------------------------------------------------------------
 
@@ -146,14 +146,14 @@ private
 à¤¸à¤‚à¤¹à¤¤à¤¿ = à¤à¤•à¤®à¥ âˆ˜ à¤¸à¤¤à¥
 
 ------------------------------------------------------------------------
--- à¨ Â àà®àà¾ ààà¯à‹à—à â” LOSSLESS COMPOSES.
+-- à¥¨ Â· à¤¸à¤®à¤¤à¤¾ à¤¸à¤‚à¤¯à¥‹à¤—à¥‡ â€” LOSSLESS COMPOSES.
 ------------------------------------------------------------------------
 
 à¤¸à¤®à¤¤à¤¾-à¤¸à¤‚à¤¯à¥‹à¤—à¤ƒ : {A B C : Type â„“} â†’ A â‰ƒ B â†’ B â‰ƒ C â†’ A â‰ƒ C
 à¤¸à¤®à¤¤à¤¾-à¤¸à¤‚à¤¯à¥‹à¤—à¤ƒ = compEquiv
 
 ------------------------------------------------------------------------
--- à© Â àà¾à¨à¿à à¨ ààà¯à‹à—à â” AND LOSSY DOES NOT.
+-- à¥© Â· à¤¹à¤¾à¤¨à¤¿à¤ƒ à¤¨ à¤¸à¤‚à¤¯à¥‹à¤—à¥‡ â€” AND LOSSY DOES NOT.
 --
 --     Both factors fail to be identifications, in OPPOSITE ways, and the
 --     composite is the identity.
@@ -186,20 +186,20 @@ private
 à¤¸à¤‚à¤¹à¤¤à¤¿-à¤¸à¤®à¤¤à¤¾ = subst isEquiv (Î» i u â†’ à¤¸à¤‚à¤¹à¤¤à¤¿-à¤¤à¤¤à¥à¤¸à¤®à¤®à¥ u (~ i)) (idEquiv Unit .snd)
 
 ------------------------------------------------------------------------
--- à Â à¨ ààà°ààà-à®à¾àà â” NO STEPWISE GRADE DETECTS LOSS.
+-- à¥ª Â· à¤¨ à¤¶à¥à¤°à¥‡à¤£à¥€-à¤®à¤¾à¤ªà¤ƒ â€” NO STEPWISE GRADE DETECTS LOSS.
 --
 --     Suppose a grade assigns a value to every map, respects composition
 --     in the sense that a composite's grade is determined by its factors'
 --     grades, and reports "lossless" exactly at the identifications.
---     Â§à© kills it: `ààà` and `àà•à®à` are both graded lossy, `àà•à®à` composed
---     with `ààà` is lossless, and `àà•à®à` composed with `àà•à®à `â” no; the
+--     Â§à¥© kills it: `à¤¸à¤¤à¥` and `à¤à¤•à¤®à¥` are both graded lossy, `à¤à¤•à¤®à¥` composed
+--     with `à¤¸à¤¤à¥` is lossless, and `à¤à¤•à¤®à¥` composed with `à¤à¤•à¤®à¥ `â€” no; the
 --     cleanest form needs no second instance, because a determined
 --     composite grade would have to be a FUNCTION of the two factor
 --     grades, and here two lossy factors give a lossless composite while
 --     a lossy factor composed with an identity gives a lossy one.
 ------------------------------------------------------------------------
 
--- the second pair: àà•à®à after the identity is still lossy
+-- the second pair: à¤à¤•à¤®à¥ after the identity is still lossy
 à¤¸à¤‚à¤¹à¤¤à¤¿' : Bool â†’ Unit
 à¤¸à¤‚à¤¹à¤¤à¤¿' = à¤à¤•à¤®à¥ âˆ˜ idfun Bool
 
@@ -207,23 +207,23 @@ private
 à¤¸à¤‚à¤¹à¤¤à¤¿'-à¤¨-à¤¸à¤®à¤¤à¤¾ = à¤à¤•à¤®à¥-à¤¨-à¤¸à¤®à¤¤à¤¾
 
 -- so no function of the factors' loss-status determines the composite's:
--- (lossy , lossy) â¦ lossless  and  (lossless , lossy) â¦ lossy are both
+-- (lossy , lossy) â†¦ lossless  and  (lossless , lossy) â†¦ lossy are both
 -- realised, and any such function would have to send the SAME pair of
--- statuses to both answers if it also graded `ààà` and `idfun Bool`
+-- statuses to both answers if it also graded `à¤¸à¤¤à¥` and `idfun Bool`
 -- alike -- which it cannot, since one is an equivalence and the other is
--- not.  What survives, stated exactly, is Â§à.
+-- not.  What survives, stated exactly, is Â§à¥«.
 
 ------------------------------------------------------------------------
--- à Â What actually survives, so Â§à is not read as more than it is.
+-- à¥« Â· What actually survives, so Â§à¥ª is not read as more than it is.
 --
 --     A grade that respects composition CAN certify losslessness: if both
---     factors are identifications the composite is (Â§à¨).  What it cannot
---     do is DETECT loss â” a lossy factor is no evidence about the
---     composite, because Â§à© exhibits two lossy factors composing to an
+--     factors are identifications the composite is (Â§à¥¨).  What it cannot
+--     do is DETECT loss â€” a lossy factor is no evidence about the
+--     composite, because Â§à¥© exhibits two lossy factors composing to an
 --     identity.  Certification composes; refutation does not.
 --
---     And that is not a defect in the grading.  It is ààààà° à§à© read
---     correctly: the composite's fibre is fibred OVER the fibre â” built
---     from the parts, not determined by them â” and Â§à© is precisely a case
+--     And that is not a defect in the grading.  It is à¤¸à¥‚à¤¤à¥à¤° à¥§à¥© read
+--     correctly: the composite's fibre is fibred OVER the fibre â€” built
+--     from the parts, not determined by them â€” and Â§à¥© is precisely a case
 --     where non-trivial parts assemble a trivial total.
 ------------------------------------------------------------------------

@@ -1,19 +1,19 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- ������-���� � the binomial product.
+-- द्विपद-गुण — the binomial product.
 --
--- On observables of the source the lift � h = Dh[F] is a derivation.
+-- On observables of the source the lift 𝓛 h = Dh[F] is a derivation.
 -- Its iterates on a product are the binomial sum of iterates
 --
---     �� (h � k)  ≡  �_{a+b=n} C(a+b, a) � � h � � k ,
+--     𝓛ⁿ (h · k)  ≡  Σ_{a+b=n} C(a+b, a) · 𝓛ᵃ h · 𝓛ᵇ k ,
 --
--- so the formal exponential of � preserves products coefficientwise
+-- so the formal exponential of 𝓛 preserves products coefficientwise
 -- and evaluation at the actual source remains a multiplicative
 -- character at every order.
 --
 -- The sum over a + b = n is written by recursion on n, with the
 -- binomial as a function of the pair (a, b), so no truncated
--- subtraction and no side condition j � n ever enters: the Pascal
+-- subtraction and no side condition j ≤ n ever enters: the Pascal
 -- step is an exact re-indexing lemma proved for every "row function"
 -- that satisfies Pascal's rule, and the binomial is just one of them.
 ------------------------------------------------------------------------
@@ -86,13 +86,13 @@ module _ (R : CommRing ℓ) where
     D-ext (suc n) h = cong₂ _+_ (h zero (suc n)) (D-ext n (λ a b → h (suc a) b))
 
   ----------------------------------------------------------------
-  -- � � THE PASCAL RE-INDEXING, for every row function.
+  -- १ · THE PASCAL RE-INDEXING, for every row function.
   --
-  -- c is any �-valued function of the pair with
+  -- c is any ℕ-valued function of the pair with
   --   c (suc a) (suc b) ≡ c a (suc b) + c (suc a) b   (Pascal)
   --   c (suc a) zero    ≡ c a zero                    (left edge)
   --   c zero (suc b)    ≡ c zero b                    (top edge)
-  -- Both edges and Pascal survive the shift c � c ∘ suc, which is
+  -- Both edges and Pascal survive the shift c ↦ c ∘ suc, which is
   -- what the induction needs.
   ----------------------------------------------------------------
 
@@ -124,7 +124,7 @@ module _ (R : CommRing ℓ) where
       ∙ cong ((scale (c zero (suc m)) (g zero (suc m)) + D m (λ a b → scale (c (suc a) b) (g (suc a) b))) +_) (tail m)
       where
         -- scale (c 1 m) (g 0 (suc m)) + Rest m (c∘suc) (g∘suc)
-        --   ≡ D m (λ a b � scale (c (suc a) b) (g a (suc b)))
+        --   ≡ D m (λ a b → scale (c (suc a) b) (g a (suc b)))
         tail : (m : ℕ)
           → scale (c (suc zero) m) (g zero (suc m))
               + Rest m (λ a b → c (suc a) b) (λ a b → g (suc a) b)
@@ -165,7 +165,7 @@ module _ (R : CommRing ℓ) where
     Cb-top b = refl
 
   ----------------------------------------------------------------
-  -- � � THE ITERATED LEIBNIZ LAW.
+  -- २ · THE ITERATED LEIBNIZ LAW.
   ----------------------------------------------------------------
 
   module _ (𝓛 : A → A)
@@ -209,13 +209,13 @@ module _ (R : CommRing ℓ) where
       ∙ D-add n _ _
       ∙ sym (pascal-D n Cb Cb-pascal Cb-left Cb-top (λ a b → 𝓛^ a h · 𝓛^ b k))
 
-    -- THE THEOREM:  �� (h � k) ≡ �_{a+b=n} C(a+b,a) � h � � k
+    -- THE THEOREM:  𝓛ⁿ (h · k) ≡ Σ_{a+b=n} C(a+b,a) 𝓛ᵃ h · 𝓛ᵇ k
     iterated-leibniz : (n : ℕ) (h k : A) → 𝓛^ n (h · k) ≡ binomial-sum n h k
     iterated-leibniz zero    h k = sym (+IdR (h · k))
     iterated-leibniz (suc n) h k = cong 𝓛 (iterated-leibniz n h k) ∙ step n h k
 
     -- the second order, unfolded (in the sum's own order, a = 0, 1, 2):
-    --   �²(hk) = h��²k + 2 �h��k + �²h�k
+    --   𝓛²(hk) = h·𝓛²k + 2 𝓛h·𝓛k + 𝓛²h·k
     second-order : (h k : A)
       → 𝓛 (𝓛 (h · k))
         ≡ (h · 𝓛 (𝓛 k) + 0r) + (((𝓛 h · 𝓛 k) + ((𝓛 h · 𝓛 k) + 0r)) + (𝓛 (𝓛 h) · k + 0r))

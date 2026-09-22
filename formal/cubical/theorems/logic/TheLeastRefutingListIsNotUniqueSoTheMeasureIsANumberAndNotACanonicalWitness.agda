@@ -3,21 +3,21 @@
 ------------------------------------------------------------------------
 -- TheLeastRefutingListIsNotUniqueSoTheMeasureIsANumberAndNotACanonicalWitness
 --
--- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 -- THE QUESTION.  `WitnessNumberIsTwo`'s measure is the least list of
 -- points on which no decoder survives.  Is the least refuting list
 -- UNIQUE at a site?
 --
 -- **It is not, and the counterexample is the site's own pair reversed.**
 -- A collision is symmetric: `q x â‰¡ q x'` gives `q x' â‰¡ q x`, and
--- `Â (t x â‰¡ t x')` gives `Â (t x' â‰¡ t x)`.  So `collisionâ’refutes`
--- applies to `x' âˆ x âˆ []` exactly as it applies to `x âˆ x' âˆ []`, and
--- the two lists are distinct because the collision forces `x â‰ x'`.
+-- `Â¬ (t x â‰¡ t x')` gives `Â¬ (t x' â‰¡ t x)`.  So `collisionâ†’refutes`
+-- applies to `x' âˆ· x âˆ· []` exactly as it applies to `x âˆ· x' âˆ· []`, and
+-- the two lists are distinct because the collision forces `x â‰¢ x'`.
 --
 -- WHAT IS PROVED
 --
 --   theReversedPairAlsoRefutes   the same collision, read the other way
---   theTwoPointsDiffer           `x â‰ x'`, from `differ` by `cong t` â”
+--   theTwoPointsDiffer           `x â‰¢ x'`, from `differ` by `cong t` â€”
 --                                the hypothesis that makes it a
 --                                collision is exactly what separates
 --                                the points
@@ -34,7 +34,7 @@
 -- that DOES survive where `size` did not.  It survives as a **NUMBER**.
 -- The minimiser is not canonical, so there is no such thing as *the*
 -- least refuting list to transport, quotient by, or read a further
--- invariant off â” only its length.  That is not a defect: a measure is
+-- invariant off â€” only its length.  That is not a defect: a measure is
 -- allowed to be a number.  It does mean any future construction that
 -- says "take the least refuting list" is under-specified.
 ------------------------------------------------------------------------
@@ -54,7 +54,7 @@ private
     â„“x â„“y â„“t : Level
 
 ------------------------------------------------------------------------
--- 1.  A head with a default â” the only list surgery needed
+-- 1.  A head with a default â€” the only list surgery needed
 ------------------------------------------------------------------------
 
 hd : {â„“ : Level} {A : Type â„“} â†’ A â†’ List A â†’ A

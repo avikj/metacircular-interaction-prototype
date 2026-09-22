@@ -1,37 +1,37 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡µ‡æ‡∞‡‡‡æ‡®‡‡Æ‡æ‡®‡Æ‡ ‚î inference for oneself.  Siddhasena Divkara,
--- Nyyvatra (c. 5th c. CE): anumna divides into svrtha ‚î the
--- knower's own inference, complete in the act ‚î and parrtha, the
+-- ‡§∏‡•ç‡§µ‡§æ‡§∞‡•ç‡§•‡§æ‡§®‡•Å‡§Æ‡§æ‡§®‡§Æ‡•ç ‚Äî inference for oneself.  Siddhasena DivƒÅkara,
+-- NyƒÅyƒÅvatƒÅra (c. 5th c. CE): anumƒÅna divides into svƒÅrtha ‚Äî the
+-- knower's own inference, complete in the act ‚Äî and parƒÅrtha, the
 -- inference STATED FOR ANOTHER, the five-membered discourse.  And the
 -- hetu's force rests on the pervasion grasped WITHIN the subject
--- itself ‚î antarvypti (Nyyvatra 20; pressed by Ptrasvmin) ‚î
+-- itself ‚Äî antarvyƒÅpti (NyƒÅyƒÅvatƒÅra 20; pressed by PƒÅtrasvƒÅmin) ‚Äî
 -- against bahirvypti, pervasion gathered from outer examples.  The
 -- classification is theirs.  School named: Jaina.
 --
 -- WHAT THIS IS, in those terms exactly.  Elsewhere the machine's
--- inductive truths go out through ‡‡∞‡æ‡∞‡‡: ‡‡ø‡¶‡‡ß‡ø states each proof
--- FOR an external certifier ‚î a watched process, positive and
+-- inductive truths go out through ‡§™‡§∞‡§æ‡§∞‡•ç‡§•: ‡§∏‡§ø‡§¶‡•ç‡§ß‡§ø states each proof
+-- FOR an external certifier ‚Äî a watched process, positive and
 -- negative controls, an exit code read back by a carrier.  Proof as
--- discourse for another.  Here the same class closes as ‡‡‡µ‡æ‡∞‡‡: the
+-- discourse for another.  Here the same class closes as ‡§∏‡•ç‡§µ‡§æ‡§∞‡•ç‡§•: the
 -- ascent's base is discharged by the internal prover, and its step by
--- ‡‡®‡‡‡∞‡‡µ‡‡Ø‡æ‡‡‡‡ø‡ ‚î the connection is established inside the terms
+-- ‡§Ö‡§®‡•ç‡§§‡§∞‡•ç‡§µ‡•ç‡§Ø‡§æ‡§™‡•ç‡§§‡§ø‡§É ‚Äî the connection is established inside the terms
 -- themselves: normalize the successor instance, let the induction
--- hypothesis speak as a standpoint within it (‡µ‡ø‡®‡ø‡Æ‡Ø‡, the exchange,
+-- hypothesis speak as a standpoint within it (‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø‡§É, the exchange,
 -- with its witness), normalize again, and the path-returning test
 -- either closes the pervasion or is silent.  No outer example, no
--- controls, no carrier.  A failure is silence (‡Æ‡‡®‡Æ‡), never a false
--- verdict ‚î the conditional witness only exists where the exchange
+-- controls, no carrier.  A failure is silence (‡§Æ‡•å‡§®‡§Æ‡•ç), never a false
+-- verdict ‚Äî the conditional witness only exists where the exchange
 -- closed.
 --
--- Nothing here is a privileged act.  ‡‡‡µ‡æ‡∞‡‡-‡‡æ‡ß‡®‡Æ‡ is one more
--- partial voice ‚î try the flat prover, then each variable's ascent,
--- fuel bounding the nesting ‚î and what it proves enters the store
--- through the SAME gate (‡®‡ø‡Ø‡Æ‡) as everything else.  Its boundary is
--- part of the object: ‡‡‡Æ‡æ exhibits by refl that commutativity of ‚äï
+-- Nothing here is a privileged act.  ‡§∏‡•ç‡§µ‡§æ‡§∞‡•ç‡§•-‡§∏‡§æ‡§ß‡§®‡§Æ‡•ç is one more
+-- partial voice ‚Äî try the flat prover, then each variable's ascent,
+-- fuel bounding the nesting ‚Äî and what it proves enters the store
+-- through the SAME gate (‡§®‡§ø‡§Ø‡§Æ‡§É) as everything else.  Its boundary is
+-- part of the object: ‡§∏‡•Ä‡§Æ‡§æ exhibits by refl that commutativity of ‚äï
 -- is beyond the exchange (its step needs a lemma no hypothesis
--- supplies ‚î the AC frontier, named from inside).
+-- supplies ‚Äî the AC frontier, named from inside).
 ------------------------------------------------------------------------
 
 module NaturalMachine.SvarthaAnumana_TheMachineInfersForItselfAndThePervasionIsGraspedWithinWithNoOuterCarrier where
@@ -49,7 +49,7 @@ open import NaturalMachine.Aroha_TheInternalProverClimbsWhereItsFlatVoiceIsSilen
 ------------------------------------------------------------------------
 -- ¬ß1  The exchange: the hypothesis speaking inside a term, with its
 --     witness.  Every occurrence of p becomes s; the witness is
---     conditional on p and s agreeing at œ ‚î it exists only inside
+--     conditional on p and s agreeing at œÅ ‚Äî it exists only inside
 --     the ascent, which is where the hypothesis is real.
 ------------------------------------------------------------------------
 
@@ -89,7 +89,7 @@ open import NaturalMachine.Aroha_TheInternalProverClimbsWhereItsFlatVoiceIsSilen
   cong‚ÇÇ ‡§ó‡§ö‡•ç‡§õ‚Ñï (‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø-‡§∏‡§æ‡§ï‡•ç‡§∑‡•Ä p s œÅ h a) (‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø-‡§∏‡§æ‡§ï‡•ç‡§∑‡•Ä p s œÅ h b)
 
 ------------------------------------------------------------------------
--- ¬ß2  ‡‡®‡‡‡∞‡‡µ‡‡Ø‡æ‡‡‡‡ø‡ ‚î the step's pervasion, grasped within.
+-- ¬ß2  ‡§Ö‡§®‡•ç‡§§‡§∞‡•ç‡§µ‡•ç‡§Ø‡§æ‡§™‡•ç‡§§‡§ø‡§É ‚Äî the step's pervasion, grasped within.
 --     Normalize the successor instance; exchange the hypothesis's
 --     normal form into it; if the path-returning test closes, the
 --     conditional witness is assembled from soundness already in the
@@ -113,7 +113,7 @@ open import NaturalMachine.Aroha_TheInternalProverClimbsWhereItsFlatVoiceIsSilen
 
 ------------------------------------------------------------------------
 -- ¬ß3  The inference for oneself.  Try the flat voice; then each
---     variable's ascent, whose base recurses on fuel ‚î nesting is
+--     variable's ascent, whose base recurses on fuel ‚Äî nesting is
 --     ordinary, not privileged.  Everything is a partial voice;
 --     failure is silence.
 ------------------------------------------------------------------------
@@ -155,9 +155,9 @@ open import NaturalMachine.Aroha_TheInternalProverClimbsWhereItsFlatVoiceIsSilen
 
 ------------------------------------------------------------------------
 -- ¬ß4  The sweep, through the one gate.  Each row compiles exactly
---     when the machine proves it for itself ‚î the tt is the whole
+--     when the machine proves it for itself ‚Äî the tt is the whole
 --     licence.  These are the machine's own inductive class, the kind
---     that otherwise goes out as ‡‡∞‡æ‡∞‡‡ through the external
+--     that otherwise goes out as ‡§™‡§∞‡§æ‡§∞‡•ç‡§• through the external
 --     kernel under "induction on x".
 ------------------------------------------------------------------------
 
@@ -178,7 +178,7 @@ open import NaturalMachine.Aroha_TheInternalProverClimbsWhereItsFlatVoiceIsSilen
 ------------------------------------------------------------------------
 -- ¬ß5  The boundary, from inside.  Commutativity of ‚äï needs a lemma no
 --     hypothesis supplies (su on the recursion-blind side); the
---     exchange cannot close it, and the voice is silent ‚î by refl,
+--     exchange cannot close it, and the voice is silent ‚Äî by refl,
 --     not by report.  This names the AC frontier as part of
 --     the object.
 ------------------------------------------------------------------------
