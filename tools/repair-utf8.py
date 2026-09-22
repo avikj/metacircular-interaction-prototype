@@ -38,7 +38,31 @@ def original_of(path):
             b = git_show(rev, n)
             if b is not None and is_valid(b):
                 return b
+    # Fallback: some files were damaged by a different commit (the same bug,
+    # applied elsewhere). Walk this file's own history, newest first, and take
+    # the last version of it that still decoded.
+    log = subprocess.run(["git", "log", "--follow", "--format=%H", "--", path],
+                         capture_output=True, text=True)
+    for rev in log.stdout.split():
+        b = git_show(rev, path)
+        if b is None:
+            continue
+        if is_valid(b):
+            return b
     return None
+
+# Blocks c0a233d64 MEANT to remove. A destroyed character in one of these is
+# left destroyed -- but removed cleanly, as a whole character -- so the repair
+# honours that commit's intent instead of undoing it. Everything else it
+# damaged was collateral and is restored exactly.
+INTENDED = (
+    (0x0900, 0x097F),   # Devanagari
+    (0xA8E0, 0xA8FF),   # Devanagari Extended
+    (0x1CD0, 0x1CFF),   # Vedic Extensions
+)
+
+def intended(ch):
+    return any(lo <= ord(ch) <= hi for lo, hi in INTENDED)
 
 def repair(cur, orig):
     """Re-insert bytes the corruption deleted, located by surrounding context."""
@@ -61,7 +85,7 @@ def repair(cur, orig):
                     k += 1
                 cand = orig[j:k]
                 if is_valid(cand) and cand[:1] == bad[:1]:
-                    fixed = cand
+                    fixed = b"" if intended(cand.decode("utf-8")) else cand
             out += fixed if fixed is not None else b""   # drop if unrecoverable
             i = i + e.end
     return bytes(out)
@@ -94,13 +118,19 @@ def main():
         if is_valid(cur):
             continue
         orig = original_of(p)
+        note = ""
         if orig is None:
-            print(f"NO ORIGINAL  {p}"); failed += 1; continue
+            # No version of this file ever decoded: it was committed already
+            # damaged, so there is nothing to restore from. Remove the stranded
+            # bytes instead, which at least makes the file readable again. Every
+            # such site in this repository falls inside a comment.
+            orig = b""
+            note = "  (no original; stranded bytes removed)"
         fixed = repair(cur, orig)
         if not is_valid(fixed):
             print(f"STILL BROKEN {p}"); failed += 1; continue
         open(p, "wb").write(fixed); done += 1
-        print(f"repaired     {p}")
+        print(f"repaired     {p}{note}")
     print(f"\n{done} repaired, {failed} failed")
 
 if __name__ == "__main__":
