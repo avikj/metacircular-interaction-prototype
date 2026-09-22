@@ -347,7 +347,7 @@ open import Saptabhangi
 --
 -- 0÷0 is NOT सामयिक.  No resource resolves it: for EVERY candidate value
 -- there is a competing value satisfying the same defining condition.  In
--- the vocabulary of §1 that makes it ����� too.
+-- the vocabulary of §1 that makes it  too.  [was "the same pole as avaktavyam";
 --
 -- So the सामयिक/नित्य axis does NOT separate 0÷0 from the fourth bhaṅga,
 -- and my §6 was right for the wrong reason.  What separates them is the

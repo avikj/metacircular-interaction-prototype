@@ -351,7 +351,7 @@ Two directions, both now backed by running code rather than argument:
   bound, on hardware-scale parallelism.
 
 What exists is the corpus, the patched checker (cubical through complete
-univalence + `Sup � Path` + analysis), the closed loop to the HVM4 runtime, and
+univalence + `Sup  Path` + analysis), the closed loop to the HVM4 runtime, and
 this document. 4.1 (the self-quotient census) and 4.2 (the HVM4 emitter)
 together produce a result — a mathematical development computing its own
 behavioral structure on an optimal parallel runtime — that neither the proof-

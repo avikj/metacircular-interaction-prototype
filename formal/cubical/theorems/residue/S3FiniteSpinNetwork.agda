@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 -- Concrete finite-set calibration of AbstractSpinNetworkKinematics using the
--- natural Sâ-action on Fin 3.
+-- natural Sâ‚ƒ-action on Fin 3.  This is only equivariant finite-set data: no
 
 module S3FiniteSpinNetwork where
 

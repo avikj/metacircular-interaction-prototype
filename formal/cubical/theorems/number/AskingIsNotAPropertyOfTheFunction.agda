@@ -18,7 +18,7 @@
 -- à¤—à¤­à¥€à¤° (à¤­à¥‡à¤¦ a b)`, which is `refl`, where the same equation for a
 -- `discreteâ„•`-driven descent is not.
 --
--- The criterion is real â€” `àà•àà¦à`
+-- The criterion is real and I am not disputing the exhibit â€” ``
 -- IS `refl`.  What is proved here is where
 -- the criterion lives.  It is a predicate on PRESENTATIONS, and no
 -- invariant of the computed function can report it.  So it cannot be

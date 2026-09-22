@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡µ‡®-‡‡‡‡ ‚Äî the bridge into the forest.
+-- - ‚Äî the bridge into the forest.  The Liouville/parity program's
 -- The Liouville/parity program's exact arithmetic
 -- interface as a checked cubical term, orthogonal to the fibre/transport
 -- spine.  Two facts, both exact, no numerics:

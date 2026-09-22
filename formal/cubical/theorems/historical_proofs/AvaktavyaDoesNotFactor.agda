@@ -12,7 +12,7 @@
 --   `Laghava.laghava-is-not-semantic` — लाघव is not a function of the
 --       denotation (Pini's criterion, and why it had to exist).
 --   `TranscriptDescent.collisionObstructsDecoder` — the barrier B3 of
---       BARRIER.md, `� FactorsThrough`.
+--       BARRIER.md, ` FactorsThrough`.
 --
 -- All three have the shape
 --

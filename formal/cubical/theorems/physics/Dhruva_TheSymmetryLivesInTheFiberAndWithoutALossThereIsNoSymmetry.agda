@@ -18,7 +18,7 @@
 -- degenerate case where there is no index left to carry, and reading it
 -- as a cosmological necessity imports what the term cannot carry.
 --
--- WHAT HOLDS: `isEquiv f ‚í ‡‡‡∞‡ï‡‡‡‡Æ‡ ‚í
+-- WHAT HOLDS: `isEquiv f   
 -- Œ¶ ‚â° id` forces stillness only for flows conserving a LOSSLESS
 -- observable.  Nothing conservative remains at the apex.  That is a
 -- different sentence from *omniscience is stillness*.
@@ -150,7 +150,7 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) (Œ¶ : A ‚Üí A) where
   ‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§≠‡§æ‡§∞‡§É b c x y = sym (c .snd x) ‚àô c .snd y
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡‡‡‡ ‚Äî the conserved quantity.
+--    ‚Äî the conserved quantity.
 --
 -- The conserved quantity here is `f` itself: `‡§∏‡§Ç‡§∞‡§ï‡•ç‡§∑‡§£‡§Æ‡•ç` says exactly
 -- that `f` is Œ¶-invariant, so `f` descends to the orbits.

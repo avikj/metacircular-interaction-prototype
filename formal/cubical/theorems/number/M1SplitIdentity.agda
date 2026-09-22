@@ -51,7 +51,7 @@
 -- c = the Ramanujan sum c_q(n), this is Λ♯_Q(n) = M(Q).  The two
 -- arithmetic inputs are HYPOTHESES CARRIED IN THE SIGNATURE, and they
 -- are exactly:
---     (maximal) c_q(n) = �(q)  whenever q � n;
+--     (maximal) c_q(n) = φ(q)  whenever q  n;
 --     (cancel)  (μ(q)/φ(q))·φ(q) = μ(q)         -- φ(q) ≠ 0, in ℚ.
 -- §6 discharges the side condition,
 -- which is that a SINGLE n making `maximal` hold for all q ≤ Q exists:

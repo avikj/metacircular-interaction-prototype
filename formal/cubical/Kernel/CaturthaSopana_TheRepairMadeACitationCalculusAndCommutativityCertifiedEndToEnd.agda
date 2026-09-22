@@ -4,7 +4,7 @@
 -- Kernel.CaturthaSopana_TheRepairMadeACitationCalculusAnd
 --                                    CommutativityCertifiedEndToEnd
 --
--- ‡‡‡‡∞‡‡-‡‡ã‡‡æ‡®‡Æ‡ ¬ the fourth step of the stair.
+-- -  the fourth step of the stair.
 --
 -- WHERE THIS STANDS.  `TrtiyaSopana_‚Ä¶` proved the induction certificate
 -- does not reach commutativity: the wall is the type of the `base`

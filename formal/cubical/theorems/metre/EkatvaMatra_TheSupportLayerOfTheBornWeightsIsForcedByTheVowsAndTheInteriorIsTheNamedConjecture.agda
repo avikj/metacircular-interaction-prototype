@@ -2,7 +2,7 @@
 
 ------------------------------------------------------------------------
 -- एकत्व-मात्रा — ekatva (uniqueness) of the mātrā (measure/weight).
--- For program � of YugaParivartana
+-- For program  of YugaParivartana
 -- (Born as the ethics of information).  Sources as EkatvaNirnaya /
 -- AvaktavyaPrasava give them.
 --

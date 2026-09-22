@@ -7,7 +7,7 @@
 --
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT THIS IS.  In `Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThere
--- IsNoSymmetry.agda` §� the conserved quantity is `f` itself: `����������`
+-- IsNoSymmetry.agda` § the conserved quantity is `f` itself: `���`
 -- says exactly that `f` is Φ-invariant, so `f` descends to the orbits 
 -- "the charge is a function on the quotient, not on the cover".
 --
@@ -85,7 +85,7 @@ module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) where
     ध्रुवं-कक्ष्यायाम् cons m a ∙ sym (ध्रुवं-कक्ष्यायाम् cons n a)
 
 ------------------------------------------------------------------------
--- � � ���� — scope.
+--    — scope.
 --
 -- `Φ` is a bare endomorphism.  §नℓ§३ are stated on the cover and need
 -- no orbit relation, no quotient, and no inverse.
@@ -147,7 +147,7 @@ module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) where
 -- ७ · सङ्क्रमणे भारो नास्ति — WHERE THE FLOW IS TRANSITIVE, NO INVARIANT
 --     CARRIES A CHARGE.
 --
--- §� above: the orbit lies IN the fibre, and whether it EXHAUSTS the
+-- § above: the orbit lies IN the fibre, and whether it EXHAUSTS the
 -- fibre is transitivity.
 --
 -- Here transitivity is stated, as a hypothesis, and its consequence

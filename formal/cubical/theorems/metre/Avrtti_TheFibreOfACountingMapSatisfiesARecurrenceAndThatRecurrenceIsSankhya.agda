@@ -175,8 +175,8 @@ module _ {X : Type ℓ} where
 -- `f (x ∈ xs)` REDUCES to `w x + f xs`, so
 -- the path is carried across unchanged and both round trips close by
 -- `refl`.  The cons summand is equivalently
---     �[ x ∈ X ] �[ m ∈ � ] (w x + m ≡ n) � fiber f m
--- since `�[ m ] (f xs ≡ m) � �`
+--     fiber f n  ≃  Σ[ x ∈ X ] Σ[ m ∈ ℕ ] (w x + m ≡ n) × fiber f m
+-- `Σ[ m ]` form above is equivalent anyway, since `Σ[ m ] (f xs ≡ m) × …`
 -- carries a contractible `singl (f xs)`.
 -- The rung is above §१ because the codomain splits, not because
 -- fitting proofs must be built.

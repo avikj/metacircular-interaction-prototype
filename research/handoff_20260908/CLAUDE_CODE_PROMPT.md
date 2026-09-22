@@ -4,14 +4,14 @@ You are continuing Avik Jain's NS/RH work in `avikj/metacircular-interaction-pro
 
 First inspect the current working tree, source pin, existing agent work and toolchain. Do not reset or overwrite anyone's changes. The comparison pin in this handoff is `168ea8e240524f898af4b0e9cf70297c38422f08`, historically Agda 2.8.0 / Cubical v0.9. `infra/preflight.sh` is nonmutating. The actual Yantra wire is `sh interactive/run-yantra.sh --wire`; it exposes `sadhana.patra` for complete safe modules and `sadhana.vislesana` for types/normal forms. Use an isolated session log, preserve false controls and cache provenance, and audit the case-sensitive `Kernel` versus `kernel` path in the root checker.
 
-Read `HANDOFF.md` sections 0â“6 and 65â“67 before using a result. Then read the claim/source indices and the full originals relevant to your lane. The main handoff has a complete cross-linked mathematical synthesis. `SOURCE_ANTHOLOGY.md` contains the selected originals, including their historical scopes and corrections. Numeric note filenames are unstable aliases; use source IDs and SHA256.
+Read `HANDOFF.md` sections 0â€“6 and 65â€“67 before using a result. Then read the claim/source indices and the full originals relevant to your lane. The main handoff has a complete cross-linked mathematical synthesis. `SOURCE_ANTHOLOGY.md` contains the selected originals, including their historical scopes and corrections. Numeric note filenames are unstable aliases; use source IDs and SHA256.
 
 Priority inputs:
 - S12: complete radial matrix toroidal source, actual pressure Hessian -2/7 and nonzero l4 emission.
 - S13: actual-Xi cardinal interpolation with double-exponential source tails and logarithmic support overhead; exact H5 heat response.
 - S15: actual full-polarized 2->4->2 return and signed examples, not a frozen source surrogate.
 - S16: the supremum-inside-time heat bound, small energy/enstrophy control, signed radial memory and one-sided Landau arithmetic escape.
-- S17â“S18: complete source-sharing nonlinear evaluator, causal Volterra inverse with no spurious smallness boundary, analytic reconstruction on the actual existence domain and source-aware finite certificates.
+- S17â€“S18: complete source-sharing nonlinear evaluator, causal Volterra inverse with no spurious smallness boundary, analytic reconstruction on the actual existence domain and source-aware finite certificates.
 - S19: all-depth actual midpoint propagator and exact nonlinear returning kinetic-storage identity; rigorous Abel inverse repairing the earlier high-order arithmetic convergence shortcut.
 - S20 and the arithmetic portion of S22: direct dyadic pole residuals and direct quantitative Goldbach-square scale criterion.
 - S00/S25: broader foundational and arithmetic organism; do not narrow the repository to one named wrapper.
@@ -24,6 +24,6 @@ Do not infer an all-time theorem from a causal inverse on every already-bounded 
 
 Coordinate bounded work lanes described in handoff section 70. Produce actual native compiler/wire evidence, not another Python substitute. The Python artifacts remain useful regression controls; any new claim that they have been formalized requires the real native encoding and check. Keep analytical dependencies explicit when the proof assistant does not yet model the relevant function-space result.
 
-Update `CLAIM_GRAPH.json`-style records with concrete statements, source classes, parameters, dependency terms, current pin, exact commands, exit status, negative controls, correction edges and remaining assumptions. Progress means discharging an endpoint dependency, proving a needed adapter, or ruling out an invalid routeâ”not merely making another equivalent description.
+Update `CLAIM_GRAPH.json`-style records with concrete statements, source classes, parameters, dependency terms, current pin, exact commands, exit status, negative controls, correction edges and remaining assumptions. Progress means discharging an endpoint dependency, proving a needed adapter, or ruling out an invalid routeâ€”not merely making another equivalent description.
 
 No generic deterministic guarantee of solving RH or NS follows from the word metacircular. The deliverable is the actual composed endpoint proof if the required mathematical arguments can be found/established, otherwise the strongest concrete source-grounded results and precise unfilled dependencies. Do not claim those dependencies are absent from the full corpus without adequate search. Do not stop merely because the problem is famous; work on the actual mathematical objects supplied here.

@@ -19,7 +19,7 @@
 --     kills the second branch (both sides must then vanish identically).
 --
 -- WHAT IS PROVED HERE, exactly.  The same rigidity theorem, directly
--- over �: no polynomial ring, no �[X],
+-- second time in this lane, directly over ℕ: no polynomial ring, no ℤ[X],
 -- no finite-support hypothesis.  For any
 -- f : ℕ → ℕ the ordered pair count at N is the Cauchy square
 --

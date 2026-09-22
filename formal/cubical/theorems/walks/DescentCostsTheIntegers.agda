@@ -169,7 +169,7 @@ cone-is-proper b bs (x , xs) p = posNotnegsuc x 0 (cong fst p)
 -- 5.  THE FRAME.
 --
 -- "Descent costs the integers" puts ℤ in the position of the default and
--- � in the position of a purchase.  That is not the reading; what is
+-- ℚ in the position of a purchase.  That is not the reading; what is
 -- proved is:
 --
 --     ⊞ over ℤ-exponents is a group.  ⊕ over ℕ-exponents is its

@@ -4,7 +4,7 @@
 -- विवेक-तादात्म्यम् — the sum-type descent-record and the graph-of-plus
 -- record are ONE object.
 --
--- Two modules carry a ������:
+-- Two modules carry a , and until now nothing joined them:
 --
 --   • LosslessReturn.विवेक — a DATA type (सम d | वाम d k | दक्षिण d k), the
 --     lossless descent-record of ryabhaa's kuaka reading, which its

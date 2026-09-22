@@ -57,9 +57,9 @@
 -- one object, not a coarser and a finer version of one cut.  ¬ß‡•™ is that,
 -- both directions.
 --
--- ‡‡®‡‡µ‡‡‡ is ordinary  for searching/seeking
--- ‡‡æ‡ó‡‡æ‡∞ and ‡≤‡‡‡ß‡ø are the ‡ï‡‡ü‡‡ü‡ï vocabulary of
--- ‡‡‡∞‡æ‡‡‡Æ‡‡‡‡‡ü‡‡ø‡¶‡‡ß‡æ‡®‡‡‡ ‡ß‡Æ.
+--  is ordinary  for searching/seeking
+--  and  are the  vocabulary of
+--  .
 ------------------------------------------------------------------------
 
 module Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork where

@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- ‡§Ö‡§™‡•ç‡§∞‡§§‡§ø‡§≤‡•ã‡§Æ‡§Æ‡•ç ‚Äî without inverse.
 --
--- ‡‡‡µ‡‡®‡‡‡‡µ‡æ‡ (YogaKsetra / SvaTantuVasa) proves,
+-- WHAT IS BEING CORRECTED.   (YogaKsetra / SvaTantuVasa lane) proves,
 -- with no hypothesis on anything,
 --
 --     (Œ£[ Œ¶ ‚àà A ‚Üí A ] ((a : A) ‚Üí f (Œ¶ a) ‚â° f a))  ‚âÉ  ((a : A) ‚Üí fiber f (f a))
@@ -42,7 +42,7 @@
 -- this (monoid) invariance, so the undecided queue measures uncounted
 -- invariance and not merely uncounted structure.
 --
--- ‡‡‡‡∞‡‡ø‡≤‡ã‡Æ is ordinary
+-- No source is claimed for any of the mathematics;  is ordinary
 --  (‡§™‡•ç‡§∞‡§§‡§ø‡§≤‡•ã‡§Æ, inverse/reverse, is LosslessReturn's own word for the
 -- ascent), and the compound is built here.
 ------------------------------------------------------------------------

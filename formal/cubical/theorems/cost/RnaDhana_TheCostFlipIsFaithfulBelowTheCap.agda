@@ -22,7 +22,7 @@
 -- dominance implies product dominance of the capped-and-subtracted
 -- vectors and refuted the unrestricted converse.  The RESTRICTED
 -- converse is proved here, and the hypothesis needed is weaker than
--- "every cost is `� cap`".
+-- "every cost is ` cap`".
 --
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT IS PROVED

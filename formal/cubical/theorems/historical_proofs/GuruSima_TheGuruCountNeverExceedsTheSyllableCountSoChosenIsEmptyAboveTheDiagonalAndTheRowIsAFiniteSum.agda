@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
 -- गुरु-सीमा — the summand-wise statement of `Lagakriya_…` §८: `Chosen n k` is
--- empty for k > n, which lets the infinite `�[ k ∈ � ]` be replaced by a
+-- empty for k > n, which lets the infinite `[ k ∈  ]` be replaced by a
 -- finite one over `Fin (suc n)`.
 --
 -- Proved here, from `PingalaPrastara`'s own `varna` and `guruOf`:

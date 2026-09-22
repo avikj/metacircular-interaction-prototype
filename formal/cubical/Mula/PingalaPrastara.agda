@@ -495,7 +495,7 @@ _ = refl
 ------------------------------------------------------------------------
 -- RELATION TO `Pingala`.
 --
--- `Pingala` carries the ����������
+-- The two are not rivals.  `Pingala` now carries the →ℕ
 -- equivalence; this carries वाक्, सङ्ख्या, नष्ट/उद्दिष्ट, मात्रा and the
 -- meru with their counts.
 ------------------------------------------------------------------------

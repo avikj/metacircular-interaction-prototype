@@ -25,7 +25,7 @@
 --
 -- §3 re-exports it under a corpus name and states where its content sits:
 -- its `rightInv` is `ua`.  The classifier is a theorem OF univalence, not a
--- fact about �.
+-- fact about Σ.  Once again in this corpus a construction that looked
 --
 -- WHAT IS NEW HERE.
 --

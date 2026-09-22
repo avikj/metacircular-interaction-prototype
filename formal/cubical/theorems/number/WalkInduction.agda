@@ -59,7 +59,7 @@
 --     witnesses are included: they show the hypotheses are satisfiable
 --     and not silently empty.
 --   * `Reach` is indexed by an exact install count n.  Nothing is lost
---     (Î over n gives plain reachability).
+--     (Î£ over n gives plain reachability).
 --
 -- Nothing here re-proves WalkStream; the file's content is the
 -- frontier-jump lemma, the trajectory, and the induction that carries

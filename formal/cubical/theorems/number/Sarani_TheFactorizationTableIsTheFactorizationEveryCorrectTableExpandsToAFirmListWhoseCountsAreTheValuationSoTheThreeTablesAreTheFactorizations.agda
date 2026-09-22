@@ -347,7 +347,7 @@ tables-exponent n f g cf cg p =
   ∙ count-expOf p g (correct-distinct g cg)
 
 -- A correct table IS the factorization: its exponent at every p is the
--- valuation ����� p n of Uniqueness.
+-- valuation  p n of Uniqueness.
 table-valuation : (n : ℕ) (f : Fact) → Correct n f → (pos : 0 < n)
                 → (p : ℕ) → expOf p f ≡ मानम् p n pos
 table-valuation n f cf pos p =

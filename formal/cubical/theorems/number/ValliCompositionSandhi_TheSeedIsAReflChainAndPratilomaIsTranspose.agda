@@ -4,7 +4,7 @@
 --
 -- वल्ली: Āryabhaṭa, Āryabhaṭīya, Gaṇitapāda 32–33 (499).  भावना: Brahmagupta,
 -- Brāhmasphuṭasiddhānta 18.64–65 (628).  सन्धिः: junction; the compound
--- �����-�����-������ is built in this corpus.
+-- -- is built in this corpus.
 -- The vallī is the quotient column, the भावना is the
 -- composition rule (xx'+Dyy', xy'+x'y).
 --

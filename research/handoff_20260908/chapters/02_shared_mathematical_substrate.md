@@ -173,7 +173,7 @@ x_m=0\pmod{2^{a_m}},\qquad x_m=1\pmod{b_m}.
 
 All finite prefixes are realized by integers and all overlaps agree. No single integer realizes the whole history: divisibility by every power of two forces zero, contradicting the mod-three condition. This is an explicit empty original-source fibre despite perfect finite compatibility.
 
-For a weak-star compact class of positive measures with fixed mass, a different compactness theorem can still supply a global object. The compact admissible class is the hypothesis; do not transport that conclusion to smooth NS histories merely by using the same words ‚inverse limit.‚
+For a weak-star compact class of positive measures with fixed mass, a different compactness theorem can still supply a global object. The compact admissible class is the hypothesis; do not transport that conclusion to smooth NS histories merely by using the same words ‚Äúinverse limit.‚Äù
 
 ## 11. Return algebra, exact quotients, and history dependence
 
@@ -242,7 +242,7 @@ For a path starting at the identity, with integrable bounded symmetric part,
 \frac12\|\log(T^*T)\|\le\int\|B(t)\|dt.
 \]
 
-The reciprocal cycle \(JTJT^{-1}\) equals \((T^*T)^{-1}\). The research alternated orientations; compare formulas using the actual definition, not just the word ‚holonomy.‚
+The reciprocal cycle \(JTJT^{-1}\) equals \((T^*T)^{-1}\). The research alternated orientations; compare formulas using the actual definition, not just the word ‚Äúholonomy.‚Äù
 
 A zero coboundary and a zero cohomology class differ. If \(b(g,x)=F(gx)-F(x)\), it is a coboundary for every \(F\), so its class is always zero. Descent requires \(b\) itself to vanish. Separately, an additive character \(n\mapsto nA\) for a trivial group action is a genuine degree-one cocycle whose class vanishes iff \(A=0\). These are different coefficient/action diagrams.
 

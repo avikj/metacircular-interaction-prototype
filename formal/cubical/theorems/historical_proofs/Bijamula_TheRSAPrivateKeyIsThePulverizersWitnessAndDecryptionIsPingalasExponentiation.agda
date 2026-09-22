@@ -8,7 +8,7 @@
 -- कुट्टक, *Āryabhaṭīya* gaṇitapāda 32–33, 499 CE); it is also the word
 -- English borrowed nothing of when it named the thing "the private key".
 -- मूल is the root/seed.  The compound is built here from बीज (Āryabhaṭa)
--- and the ordinary ���.
+-- and the ordinary ; no sūtra is claimed for it.
 --
 -- WHAT RSA IS, stated so the decomposition is visible before the proof.
 -- Public modulus n, public exponent e.  Encryption of a message x is

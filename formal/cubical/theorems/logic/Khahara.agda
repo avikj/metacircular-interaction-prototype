@@ -18,7 +18,7 @@
 -- non-finite results that a boolean "undefined" collapses into one.)
 ------------------------------------------------------------------------
 
--- 00 is not ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡,
+-- 00 is not ,
 --  the saptabhag's fourth position, by
 --  SaptabhangiNaya.agda's own criterion:
 --  ¬ß5 there defines avaktavyam as the case

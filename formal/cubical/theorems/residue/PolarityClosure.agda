@@ -9,7 +9,7 @@
 -- APOHA_AND_POLARITY identifies D0020 §5's apoha display and §7's two-sided evaluation with
 -- Prop. 6.3 — the ANTITONE one, A(S) = {t : ∼_S ⊆ ∼_{t}}, the
 -- derivation closure of the formal context (X × X, T, Rᶜ).  It is NOT
--- Theorem B's monotone redundancy closure C_�; it is the antitone one
+-- Theorem B's monotone redundancy closure C_σ; it is the antitone one
 -- that is formalised below.  Every map called `perp` here reverses
 -- inclusion, which is the check that the right closure is in hand.
 --

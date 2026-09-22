@@ -2,7 +2,7 @@
 
 ------------------------------------------------------------------------
 -- तिर्यक्-तन्तुः — कला च गुणकश्च एकस्यैव चरस्य तिर्यग्-भागौ अनुसरतः ।
--- � �������� ���������� ������� �
+--     
 --
 -- (the phase and the coefficient factor through TRANSVERSE quotients of the
 -- same variable; neither factors through the other.)

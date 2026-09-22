@@ -175,7 +175,7 @@ data उपस्थिति : Type where
 -- भङ्गयोः संयोगः समः, तर्हि प्रत्यन्तर्भावेण द्वौ भङ्गौ समौ ।  अतः सप्तभङ्गी
 -- त्रि-संयोगेषु विश्वस्ततया निविशते — सप्त पृथक् संयोगाः, न न्यूनाः ।
 --
--- (The faithful embedding, as a term: �������
+-- (The faithful embedding, as a term: 
 --  (a section) already forces injectivity — equal profiles give, through
 --  प्रत्यन्तर्भाव, equal bhaṅgas.  So the seven predications occupy seven
 --  DISTINCT presence-profiles; none collapse.)

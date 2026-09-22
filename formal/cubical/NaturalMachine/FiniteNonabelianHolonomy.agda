@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 -- A finite, falsifiable nonabelian instance of the holonomy/refinement seam.
--- The group is Sym(Fin 3) â‰ Sâ.
+-- The group is Sym(Fin 3) â‰… Sâ‚ƒ.  This is a precursor test only: it is not
 
 module NaturalMachine.FiniteNonabelianHolonomy where
 

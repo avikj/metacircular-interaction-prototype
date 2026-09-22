@@ -7,7 +7,7 @@
 -- ‡§Æ‡§æ‡§≤‡§æ is a garland ‚Äî the standard  image for a list/sequence
 -- (akara-ml, the garland of syllables).  The free monoid on an
 -- alphabet A is the garland of its letters, `List A`, with concatenation.
--- ‡‡‡‡, the bridge: this file proves
+-- , the bridge: this file proves
 -- that Pigala's
 -- exponentiation and ryabhaa's vall-trace are the SAME map.
 -- Both words are ordinary.

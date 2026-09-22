@@ -8,7 +8,7 @@
 --
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT THIS IS.  `SvaTantuVasa` §६(a) and `SamraksakaGana` §५(a) both
--- identify, by currying along A � � B (fiber f),
+-- identify, by currying along A   B (fiber f),
 -- the section CARRIER with (b : B) → fiber f b → fiber f b.
 -- Carrying ⋆ onto pointwise composition needs the transport coherence of
 -- that currying, and this module gives it, over set carriers:

@@ -96,7 +96,7 @@ interference-nonzero : ¬ (V∞-collide (pos 1) (pos 1) - D (pos 1) (pos 1) ≡ 
 interference-nonzero p = snotz (injPos (sym interference-witness ∙ p))
 
 ------------------------------------------------------------------------
--- §4 � LEG SYMMETRY IS NOT COLLISION.
+-- §4 · LEG SYMMETRY IS NOT COLLISION (owner's three-multiplicity point).
 -- (γ_i,γ_j) ↔ (γ_j,γ_i) is the ordered relabeling — declared, reversible,
 -- and orthogonal to §1.  Modeled: swapping the two source LABELS leaves
 -- both D and every V∞ invariant, because both are symmetric in w₀,w₁.

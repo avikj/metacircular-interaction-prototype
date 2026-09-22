@@ -190,7 +190,7 @@ agree-example = refl
 -- deliberately, and `AnyonyaAbhava` Â§3 converts it into the à¤¸à¤‚à¤¸à¤°à¥à¤—à¤¾à¤­à¤¾à¤µ
 -- Â§4 states.  The grammar and the machine are running the same argument.
 --
--- Whether the ààà°à¿àà¾à¦à's asiddhatva is
+-- OPEN, named and not estimated.  Whether the 's asiddhatva is
 -- MINIMAL â€” whether Pini takes only the distinctions he needs
 -- is a question about the actual stras and this fragment cannot reach
 -- it; it would need the rule set, not a model of its shape.

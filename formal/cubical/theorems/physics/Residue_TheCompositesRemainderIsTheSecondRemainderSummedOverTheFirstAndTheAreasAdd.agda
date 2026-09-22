@@ -6,7 +6,7 @@
 -- kuaka's governing move is exactly that: divide, keep the remainder,
 -- recurse on it.
 --
--- ààà is borrowed
+--  is borrowed
 -- for its exact sense â€” the part not consumed by the step, carried into
 -- the next one â€” because that is what a fibre of a map is.
 --

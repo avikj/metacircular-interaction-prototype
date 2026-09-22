@@ -14,14 +14,14 @@
 -- here.
 --
 -- ────────────────────────────────────────────────────────────────────
--- `�-trans` is
+-- `-trans` is
 -- proved here, by the same multiply–rearrange–cancel that `⊑`'s other
 -- theorems use.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT IS PROVED
 --
---   �-trans            transitivity
+--   ⊑-trans            transitivity
 --   _≈_                same rate = mutual ⊑; an equivalence relation
 --   atLeastDescends    `AtLeast` is a property of the RATE
 --   aboveDescends      so is `Above` — both directions, both families

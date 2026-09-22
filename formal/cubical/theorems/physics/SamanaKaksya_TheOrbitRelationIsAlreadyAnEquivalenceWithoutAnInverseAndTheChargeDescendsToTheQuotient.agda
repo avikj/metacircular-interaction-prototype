@@ -16,7 +16,7 @@
 -- closure and accept a preorder rather than a quotient.
 --
 -- **The fork is over-specified, and neither rung is needed.**  The
--- reachability relation — `a ~ b := �[ n ] Φ� a ≡ b`, "b is
+-- reachability relation — `a ~ b := [ n ] Φ a ≡ b`, "b is
 -- downstream of a" — is indeed not symmetric.  But that is not the
 -- orbit relation; it is a different object.  Lying on ONE orbit is
 --
@@ -151,7 +151,7 @@ module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) where
 -- ४ · अवतरणम् — THE CHARGE IS A FUNCTION ON THE QUOTIENT.
 --
 -- The charge is a function on the quotient, with the quotient present.
--- `f�` is defined on
+-- `f` is defined on
 -- `A / समानकक्ष्या`, and the factorisation `f ≡ f̄ ∘ [_]` is `refl`,
 -- because `SetQuotients.rec` computes on a point class.
 --
@@ -184,7 +184,7 @@ module _ {A B : Type ℓ} (f : A → B) (Φ : A → A)
 --   (b) `Φ⁻¹ a` and `a` lie on one orbit, at stations `(1, 0)`.
 --
 -- So the group of invertible conserving flows acts within the classes
--- of §�, and §��§� do not use it.
+-- of §, and §§ do not use it.
 ------------------------------------------------------------------------
 
 module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) (e : isEquiv Φ) where
@@ -201,13 +201,13 @@ module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) (e : isEquiv Φ) where
   व्युत्क्रमः-समानकक्ष्ये a = suc zero , zero , secEq ε a
 
 ------------------------------------------------------------------------
--- � � ���� — the converse, and the h-level of the relation.
+--    — the converse, and the h-level of the relation.
 --
 -- The converse of §४ — that `अवतीर्णः` is injective, i.e. equal charge
 -- implies one orbit — is the subject of
 -- `Sankramana_TheFibreIsOneOrbitExactlyWhenTheChargeIs
 -- InjectiveAndOneSidedReachabilityIsStrictlyStronger.agda`.  `Kaksya`
--- §�'s one-sided `������������` is SUFFICIENT and NOT NECESSARY:
+-- §'s one-sided `���` is SUFFICIENT and NOT NECESSARY:
 -- `A = Bool`, `B = Unit`, `f = λ _ → tt`, `Φ = λ _ → true`.  Every pair
 -- meets at stations `(1,1)`, so `अवतीर्णः` is an equivalence, while
 -- `सङ्क्रमणम् tt → ⊥` — nothing ever reaches `false`.  The exact
@@ -222,6 +222,6 @@ module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) (e : isEquiv Φ) where
 -- diagonal meetings `(0,0,refl)` and `(1,1,refl)` are always there.
 --§  there proves the station ωᵀωᵀmapωω does not factor through `_`, and
 -- §३ computes the gap exactly in the smallest case:
--- `������������� id tt tt � � � �` on `Unit`.  `SetQuotients` truncates
+-- ` id tt tt    ` on `Unit`.  `SetQuotients` truncates
 -- the relation, which is the right move for §�.
 ------------------------------------------------------------------------

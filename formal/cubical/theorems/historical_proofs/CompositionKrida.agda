@@ -37,7 +37,7 @@
 -- value for ‚àö2:
 --
 --     BaudhƒÅyana ≈öulbas≈´tra 1.61‚Äì62 (c. 800 BCE)
---     ‡‡‡∞‡Æ‡æ‡‡ ‡‡‡‡‡Ø‡‡® ‡µ‡∞‡‡ß‡Ø‡‡‡ ‡‡‡‡ ‡‡‡‡∞‡‡‡‡®‡æ‡‡‡Æ‡‡‡‡‡‡‡‡∞‡ø‡‡‡ã‡®‡‡® ‡‡µ‡ø‡‡‡‡
+--          
 --     prama ttyena vardhayet tac ca caturthentmacatustrionena
 --     saviea
 --     "Increase the measure by its third, and that third by its own fourth

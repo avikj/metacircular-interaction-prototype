@@ -58,7 +58,7 @@
 -- The fibre Σ[ p ] (निर्धारितम् x ≡ p) = singl (निर्धारितम् x) is
 -- contractible, so आधार ≃ स्थानिवत् and, by univalence, आधार ≡ स्थानिवत्.
 --
--- WHY THE PAIR AND NOT THE �������� ALONE.
+-- WHY THE PAIR AND NOT THE  ALONE.  The candidate this module was
 -- The alternative `f (v , r) = रूपम् v`, carrying the स्थानी by itself.
 -- That is correct and it is not the whole of what is determined: सञ्ज्ञा
 -- is determined by the base in exactly the same way, and it is the

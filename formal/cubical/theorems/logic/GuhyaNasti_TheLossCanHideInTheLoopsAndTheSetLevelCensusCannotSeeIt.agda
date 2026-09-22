@@ -4,7 +4,7 @@
 -- गुह्य-नास्ति — the concealed loss: it can hide in the loops, and the
 -- set-level census cannot see it.
 --
--- `WholePartialDesa`'s trichotomy — and `�����-�����������` — grade a
+-- `WholePartialDesa`'s trichotomy — and `-` — grade a
 -- fibre by its POINTS: empty (अवक्तव्यम्), one up to path (सकलादेश), or two
 -- exhibitably distinct (विकलादेश).  In cubespace there is a fourth
 -- condition of a fibre, and it defeats all three detectors at once:

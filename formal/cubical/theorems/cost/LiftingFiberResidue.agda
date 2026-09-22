@@ -85,7 +85,7 @@
 --  * §4 quantifies over arbitrary maps `U : A → B` between sets, whereas
 --    the note quantifies over the hom-action of a forgetful FUNCTOR.
 --    These coincide, by the following construction: let `C` have
---    objects `{a,b}` with `Hom(a,b) = Dec P`, `Hom(b,a) = �`, and only
+--    objects `{a,b}` with `Hom(a,b) = Dec P`, `Hom(b,a) = ⊥`, and only
 --    identities otherwise; let `D` be the same with `Hom(a,b) = Unit*`;
 --    let `U` be the identity on objects and the constant map on homs.
 --    Composition never pairs two non-identity arrows, so both are

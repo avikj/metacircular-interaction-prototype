@@ -6,7 +6,7 @@
 -- `GaugeOrbitClasses` (theorems/physics) §7 proves the concatenated
 -- form `val σ (m ++ (k ++ k)) ≡ val σ m`, which is the core and avoids
 -- permutation machinery.  The full square-class theorem — that
--- val � m = val � n whenever m and n differ by a square in any
+-- val  m = val  n whenever m and n differ by a square in any
 -- arrangement — needs invariance of `val` under permutation of the
 -- factor multiset.
 --
@@ -14,8 +14,8 @@
 -- `Insert`/`Perm`/`_≈_` and the embedding `permIsAnAdjacentChain`
 -- (theorems/walks), `perm-sym`/`perm-trans` (PermSankramana), and
 -- `count-perm` in `Bahulya` (Ekatva) — and the only new arithmetic is
--- that ParitySeparator's `_�_` is commutative, which that module
--- proves (`�-comm`).
+-- that ParitySeparator's `_·_` is commutative, which that module
+-- proves (`-comm`).
 --
 -- PROVED HERE:
 --

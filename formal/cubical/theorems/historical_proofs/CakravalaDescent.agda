@@ -172,7 +172,7 @@ module Descent (CR : CommRing ℓ) where
   -- 3b.  THE FACTOR b REMOVED — the join with the kuṭṭaka.
   --
   -- `oneCongruence` above leaves b in the way: it gives k | b·(am + Db) and
-  -- k | b²�(m² − D), not the exactness the step needs.  Removing it is one lemma, and the
+  -- k | b²·(m² − D), not the exactness the step needs.  Removing it is one lemma, and the
   -- lemma is ryabhaa's, because what removes b is exactly the pulverizer's
   -- output: coefficients u, v with u·k + v·b = 1.
   --

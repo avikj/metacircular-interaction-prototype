@@ -1,8 +1,8 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡‡µ‡‡®‡‡‡‡µ‡æ‡‡ ‚Äî ‡‡‡∞‡ï‡‡‡ï‡ ‡‡‡∞‡µ‡æ‡‡ ‡‡‡µ‡‡®‡‡‡ ‡µ‡‡‡ø, ‡‡∞‡‡µ‡ ‡ ‡‡‡∞‡ï‡‡‡ï‡æ‡ ‡‡‡∞‡µ‡æ‡‡æ‡
--- ‡‡‡µ‡‡®‡‡‡‡‡æ‡≤‡‡‡Ø ‡‡‡¶‡æ‡ ‡‡µ ‡
+--  ‚Äî    ,    
+--    
 --
 -- (dwelling in one's own fibre: a conserving flow lives in its own fibre,
 --  and the conserving flows of ANY observable are exactly the sections of
@@ -14,8 +14,8 @@
 -- pole (zero loss ‚üπ the conserving flow is the identity), `Khahara_‚Ä¶.agda`
 -- the far pole (total loss ‚ü∫ total symmetry), `YogaKsetra_‚Ä¶.agda` one
 -- interior point (the conserving flows of addition are the shear fields)
--- ‚Äî and Khahara ¬ß‡(b) asks for monotonicity of the conserving monoid
---      Œ[ Œ¶ ] ‡‡‡∞‡ï‡‡‡‡Æ‡ f Œ¶ in the fibres.
+-- ‚Äî and Khahara ¬ß(b) asks for monotonicity of the conserving monoid
+--      [ Œ¶ ]  f Œ¶ in the fibres.
 --
 -- What is landed here is stronger than the monotonicity asked for: an
 -- IDENTIFICATION, with no hypotheses on f, A or B whatsoever ‚Äî
@@ -189,7 +189,7 @@ module _ {A B B' : Type ‚Ñì} (f : A ‚Üí B) (g : A ‚Üí B') where
   ‡§ó‡§æ‡§Æ‡§ø‡§®‡•Ä h œÉ = invEq (‡§µ‡§æ‡§∏‡§É g) (Œª a ‚Üí h a (equivFun (‡§µ‡§æ‡§∏‡§É f) œÉ a))
 
 ------------------------------------------------------------------------
--- ¬ß‡ ¬ ‡‡‡‡ ‚Äî the receipt-economy reading.
+-- ¬ß   ‚Äî the receipt-economy reading.
 --
 -- The receipt-economy reading, recorded because it prices symmetry
 -- itself: a conserving flow of f is EXACTLY one fibre-point per

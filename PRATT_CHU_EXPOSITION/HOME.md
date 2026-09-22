@@ -453,4 +453,4 @@ Pratt's dynamic logic and Action Logic restrict interaction to action/interval r
 
 The direction is always the same: establish the exact restriction/equivalence, then inherit the complete structure by transport. The specialization remains an inhabitant of the universal object and therefore becomes another route back into it.
 
-[Chu Spaces Completed](pages/03-chu-spaces-completed.md) Â [Concurrency Is Geometry](pages/04-concurrency-is-geometry.md) Â [Action, Logic, and Optimal Inference
+[Chu Spaces Completed](pages/03-chu-spaces-completed.md) Â· [Concurrency Is Geometry](pages/04-concurrency-is-geometry.md) Â· [Action, Logic, and Optimal Inference

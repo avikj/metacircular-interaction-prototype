@@ -452,6 +452,6 @@ chart-is-better-e13 = canonical-chart-is-better 3 3 fzero t13 can13 long-enough
 -- caveat: the numeric gaps of §3d must
 -- be NAMED definitions.  Inlining `(9984 , refl)` as an argument to
 -- `speedup-from-gap` sends the elaborator down a path that normalises
--- the �-witness arithmetic symbolically — a fact about Agda's constraint solver, not about the
+-- the ≤-witness arithmetic symbolically — a fact about Agda's constraint solver, not about the
 -- mathematics, and one that the named form avoids entirely.
 ------------------------------------------------------------------------

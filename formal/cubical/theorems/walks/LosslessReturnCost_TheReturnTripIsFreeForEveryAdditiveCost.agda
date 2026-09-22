@@ -34,7 +34,7 @@
 -- about this Î¦ â€” it is forced by the cost structure before any of those
 -- are chosen.  Â§1 below is that instantiation.
 --
--- `àà²à‹àà` is the semantic
+-- The direction of the debt is worth stating: `` is the semantic
 -- shadow of `loop-is-free`, not an independent result.
 ------------------------------------------------------------------------
 

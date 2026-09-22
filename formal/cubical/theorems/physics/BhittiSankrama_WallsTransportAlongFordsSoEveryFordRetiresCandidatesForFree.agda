@@ -12,7 +12,7 @@
 --
 --     भित्ति-संक्रमः : (A ≃ B) → ¬ (B ≃ C) → ¬ (A ≃ C)
 --
--- INSTANCE: ����-�������� landed
+-- INSTANCE, cashing this morning's ledger: - landed
 -- विवेक-प्रमाण ≃ ℕ, and भित्तिः stands at ¬ (ℕ ≃ Bool).  Composing:
 -- ¬ (विवेक-प्रमाण ≃ Bool) — which retires ./jiva's 3052-point candidate
 -- [436 @ Bool] × [7 @ विवेक-प्रमाण] with NO new mathematics.  The wall

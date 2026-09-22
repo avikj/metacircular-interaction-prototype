@@ -96,7 +96,7 @@ chart-is-better =
 --       is not free: `digits m` iterates the odometer m times, so the
 --       honest price of the chart edge is Î˜(m) in the very quantity the
 --       chart is supposed to make cheap.  Priced that way the conclusion
---       REVERSES: `â` becomes `â»` on this
+--       REVERSES: `` becomes `` on this
 --       word.  `TransportDivScale`'s quantified threshold does not repair
 --       this: `Edge.cost` is a scalar, so quantifying over the weights
 --       quantifies over CONSTANT weights only, and the threshold

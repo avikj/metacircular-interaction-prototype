@@ -5,7 +5,7 @@
 --
 -- `EveryThresholdHasABoundaryPopulationOfItsOwnDenominator` produced a
 -- boundary population of length `suc q` for every threshold p/(suc q)
--- with p â‰ suc q.
+-- with p â‰¤ suc q.
 -- Whether a SHORTER boundary population exists is the divisibility
 -- question, and this module checks the half that decides whether the
 -- lowest-terms condition is doing any work: **without

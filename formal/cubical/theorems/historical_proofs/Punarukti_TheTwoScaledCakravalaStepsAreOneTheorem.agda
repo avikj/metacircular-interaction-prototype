@@ -27,7 +27,7 @@
 -- The private lemma `Cakravala.Cycle.bhavana-trivial`
 -- (`solve! R`) is likewise `Bhavana.Form.cakravalaCleared` again, and
 -- `Cakravala.рдЪрдХреНрд░реАрдп-рдкрдж-рд░реВрдкрдореН` is that same identity a third time over тДд
--- from `Brahmagupta.рр╛р╡рир╛-рор╛ри`.
+-- from `Brahmagupta.-`.  Those are named here and NOT bridged:
 --
 -- SOURCE OF THE MATHEMATICS RESTATED, not of this file: Jayadeva
 -- (~950 CE, through Udayadivkara's *Sundar*, 1073) and Bhskara II,

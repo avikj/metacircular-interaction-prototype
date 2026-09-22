@@ -1,6 +1,6 @@
 # Mathematical Wiki Build Specification
 
-**Architecture:** Read [Bend2 — Unison reading and synthesis](BEND2_UNISON_READING_AND_SYNTHESIS.md) before implementing the site. The computational center is cubical Bend2 and its full HVM4 runtime. The target is to ground pages in addressable, checked, executable Bend2 constructions and their witnessed mathematical relations, retaining Agda source as relevant provenance during the port. The wiki is a view into that codebase.
+**Architecture:** Read [Bend2  Unison reading and synthesis](BEND2_UNISON_READING_AND_SYNTHESIS.md) before implementing the site. The computational center is cubical Bend2 and its full HVM4 runtime. The target is to ground pages in addressable, checked, executable Bend2 constructions and their witnessed mathematical relations, retaining Agda source as relevant provenance during the port. The wiki is a view into that codebase.
 
 ## Invariants
 

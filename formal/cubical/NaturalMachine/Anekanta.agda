@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- NaturalMachine.Anekanta
 --
--- ‡‡®‡‡ï‡æ‡®‡‡‡µ‡æ‡¶: the judgment structure of standpoints.
+-- : the judgment structure of standpoints.
 --
 -- Every proposition here has the
 -- form `P : Type`.  One proposition, one truth value, no index.  That is

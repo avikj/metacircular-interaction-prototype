@@ -5,7 +5,7 @@
 -- force the uniform measure.
 --
 -- TERM.  ‡§∏‡§Æ (equal) and ‡§µ‡§ø‡§≠‡§æ‡§ó (division, apportionment) are ordinary
--- ; the compound ‡‡Æ-‡µ‡ø‡‡æ‡ó means "the equal apportionment".
+-- ; the compound - means "the equal apportionment".
 --
 -- THE SLOGAN:
 --

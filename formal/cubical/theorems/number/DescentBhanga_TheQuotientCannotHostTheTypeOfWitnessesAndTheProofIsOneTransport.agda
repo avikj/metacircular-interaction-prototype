@@ -107,7 +107,7 @@ fillerDoesNotFactorThroughCarrier =
     sameCarrierTranscript K.‡§∏‡§Æ‡§Æ‡•ç K.‡§µ‡§ø‡§∑‡§Æ‡§Æ‡•ç
 
 ------------------------------------------------------------------------
--- 3. ‡‡µ‡‡∞‡-‡‡ô‡‡ó-‡‡æ‡Æ‡æ‡®‡‡Ø‡Æ‡ ‚Äî the generalization:
+-- 3. -- ‚Äî the generalization:
 -- the fibres need not be inhabited/empty; MERE NON-EQUIVALENCE of the
 -- two fibres over a collision already refutes descent, because a
 -- factorization forces a path of types and pathToEquiv turns it into

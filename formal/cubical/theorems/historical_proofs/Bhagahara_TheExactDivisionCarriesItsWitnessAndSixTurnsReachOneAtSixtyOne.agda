@@ -49,13 +49,13 @@
 --     inside the k=1 fibre cannot reach, because at D = 61 there is no
 --     small k=1 row to seed it with.
 --
--- The six m's of §� are supplied as data.
+--   * BHĀSKARA'S CHOICE RULE.  The six m's of § are supplied as data.
 -- The turn is sound for ANY
 -- m whose three divisions come out exact, which is what §३ states.
 -- The three भागहार of §३ are HYPOTHESES of the theorem.  §५ discharges
 -- them by computation for the six particular turns.
 --
--- The �������� STEP is formalised, and one
+-- SO WHAT MAY THIS BE CALLED.  The  STEP is formalised, and one
 -- complete चक्रवाल RUN is executed in the kernel.चक्रवाल
 --
 -- ────────────────────────────────────────────────────────────────────

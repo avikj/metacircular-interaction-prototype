@@ -2,7 +2,7 @@
 
 ------------------------------------------------------------------------
 -- शेषशेषलेखःलेखः — the price of the remainder.  Compound built here
--- (���, remainder; �����, price).
+-- (, remainder; , price).
 -- The DISCIPLINE in §1 is claimed for its source and it
 -- is the corpus's oldest: Āryabhaṭa, Āryabhaṭīya, Gaṇitapāda 32–33, 499
 -- — the kuṭṭaka's rule, यत् न विभजते तत् रक्ष्यते: what does not divide

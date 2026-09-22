@@ -23,7 +23,7 @@
 -- proceeds on its domain.
 --
 -- THE ONE NON-REFL STEP:
--- `рр╡рр░р-рЙрррр╛ри p = refl` does not hold.
+-- `- p = refl` does not hold.
 -- It is
 -- discharged below BY THE рдкреНрд░рдорд╛рдг FIELD (path in `v` is sym рдкреНрд░рдорд╛рдг; the
 -- рдкреНрд░рдорд╛рдг component by isSet рд╡рд┐рд╡реЗрдХ), which is what that field is for.

@@ -36,7 +36,7 @@
 -- Indian astronomy; used here for the entry that makes the scale rest.
 -- ‡§Ö‡§®‡§®‡•ç‡§§ (endless) is used for the archimedean place; in Jaina mathematics
 -- ‡§Ö‡§®‡§®‡•ç‡§§ is a technical term with its own orders, distinguished from
--- ‡‡‡‡ñ‡‡Ø‡æ‡ (Anuyogadvra, akhagama tradition); the word is borrowed
+--  (Anuyogadvra, akhagama tradition); the word is borrowed
 -- for the place at
 -- infinity.
 ------------------------------------------------------------------------

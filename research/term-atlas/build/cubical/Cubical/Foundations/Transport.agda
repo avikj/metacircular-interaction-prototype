@@ -118,7 +118,7 @@ transportUaInv : ∀ {ℓ} {A B : Type ℓ} (e : A ≃ B) → transport (ua (inv
 transportUaInv e = cong transport (uaInvEquiv e)
 -- notice that transport (ua e) would reduce, thus an alternative definition using EquivJ can give
 -- refl for the case of idEquiv:
--- transportUaInv e = EquivJ (λ _ e � transport (ua (invEquiv e)) ≡ transport (sym (ua e))) refl e
+-- transportUaInv e = EquivJ (λ _ e  transport (ua (invEquiv e)) ≡ transport (sym (ua e))) refl e
 
 isSet-subst : ∀ {ℓ ℓ'} {A : Type ℓ} {B : A → Type ℓ'}
                 → (isSet-A : isSet A)
@@ -155,8 +155,8 @@ constSubstCommSlice : ∀ {ℓ ℓ' ℓ''} {A : Type ℓ}
                    →  (F x u) ≡ F y (subst B p u)
 constSubstCommSlice B C F p Bx = (sym (transportRefl (F _ Bx)) ∙ substCommSlice B (λ _ → C) F p Bx)
 
--- transporting over (λ i � B (p i) � C (p i)) divides the transport into
--- transports over (λ i � C (p i)) and (λ i � B (p (~ i)))
+-- transporting over (λ i  B (p i)  C (p i)) divides the transport into
+-- transports over (λ i  C (p i)) and (λ i  B (p (~ i)))
 funTypeTransp : ∀ {ℓ ℓ' ℓ''} {A : Type ℓ} (B : A → Type ℓ') (C : A → Type ℓ'') {x y : A} (p : x ≡ y) (f : B x → C x)
          → PathP (λ i → B (p i) → C (p i)) f (subst C p ∘ f ∘ subst B (sym p))
 funTypeTransp B C {x = x} p f i b =

@@ -55,7 +55,7 @@
 --     `PMTorus.cycleEquiv` rather than measured.  `kernelIso` is the
 --     bridge: ker δ ≃ PMTorus.Cycle.
 --
--- Exactly as in `PMTorus`, "coker δ � F�" is
+-- Exactly as in `PMTorus`, "coker δ  F" is
 -- delivered in its usable form — im δ = ker total (both inclusions)
 -- together with total onto.
 -- The sign vector s enters here as a DATUM, transcribed from the note,

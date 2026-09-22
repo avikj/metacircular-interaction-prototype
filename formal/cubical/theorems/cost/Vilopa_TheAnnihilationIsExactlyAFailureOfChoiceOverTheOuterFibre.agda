@@ -35,7 +35,7 @@
 -- section is exactly what makes the composite's cost the OUTER cost, and
 -- §४ gives the converse direction as the honest limit.
 --
--- This is elementary type theory.  ������ is Pinian
+-- This is elementary type theory.   is Pinian
 -- (लोपः, 1.1.60 अदर्शनं लोपः — non-appearance) and is used here for the
 -- deletion of outer points by downstream emptiness, which is what the word
 -- means.

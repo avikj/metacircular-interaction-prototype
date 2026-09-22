@@ -25,7 +25,7 @@
 -- ℕ.  So `f` below is a POSITIVE INTEGER SURROGATE for the sigmoid
 -- factor, not the sigmoid.
 --
--- �(10(�−0.5)) is strictly between 0 and
+-- WHAT IS LOST: the sigmoid's range.  σ(10(α−0.5)) is strictly between 0 and
 -- 1 and never attains an integer.
 -- The disagreement proved is a property of the SHAPE of the weight, not of any
 -- particular run.

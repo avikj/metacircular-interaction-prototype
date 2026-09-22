@@ -27,7 +27,7 @@
 --       vertical, level 2 acts on level 1 over a FIXED level 0.
 --
 -- The weighted count (that |fibre| â‰¥ 2 with weights gives the
--- 2wâwâ interference) is SamyogaVyatikara's.  This is
+-- 2wâ‚€w interference) is SamyogaVyatikara's.  This is
 -- the exact skeleton: verticality, the reason the multiplicities never mix.
 ------------------------------------------------------------------------
 

@@ -18,7 +18,7 @@
 -- Â§1 exhibits bhagas ONE and TWO
 -- (syd-asti, syd-nsti) and the KRAMA reading of the THIRD -- both, in
 -- succession.  The fourth arises from
--- à¯àà—ààà Â yugapat, simultaneous assertion.
+--  Â· yugapat, simultaneous assertion, and is not what is proved here.
 --
 -- TERM (BAUDDHA).  à¤šà¤¤à¥à¤·à¥à¤•à¥‹à¤Ÿà¤¿ Â· catuá¹£koá¹­i -- the four corners, standard in
 -- Ngrjuna's *Mlamadhyamakakrik* (~2nd c. CE).  Â§2 formalises the

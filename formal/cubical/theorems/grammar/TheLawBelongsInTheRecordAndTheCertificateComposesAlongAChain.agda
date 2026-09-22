@@ -5,7 +5,7 @@
 --
 -- `ACertifiedRewriteComposesAndOnlyOneComponentNeedsATheorem` composes
 -- a four-component certificate whose migration is a bare function.
--- This module adds the law to the record, leaving that one's �
+-- This module adds the law to the record, leaving that one's 
 -- untouched.
 --
 -- ────────────────────────────────────────────────────────────────────

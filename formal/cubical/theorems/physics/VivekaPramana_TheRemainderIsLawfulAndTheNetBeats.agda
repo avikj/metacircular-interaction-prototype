@@ -23,8 +23,8 @@
 --
 -- ‚ñπ HERE IS NOT THE LATER MODALITY.  It is a record with `force : A`,
 -- i.e. the identity functor; the guarding is done by --guardedness on
--- ‡‡æ‡≤, not by ‚ñ.
--- The real ‚ñ needs --guarded and a clock
+-- , not by ‚ñπ.  Said plainly because calling it ‚ñπ asserts Nakano's
+-- modality and this is not that.  The real ‚ñπ needs --guarded and a clock
 -- (Cubical.Later), which is ABSENT FROM THE PIN (v0.9).
 ------------------------------------------------------------------------
 

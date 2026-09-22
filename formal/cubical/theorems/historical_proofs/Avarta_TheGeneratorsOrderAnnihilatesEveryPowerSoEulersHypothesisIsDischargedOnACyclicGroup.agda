@@ -41,7 +41,7 @@
 -- where it started.  The compound in the title is built here.  ‡§ò‡§æ‡§§ (exponentiation as a
 -- fold) is Pi·πÖgala's procedure, ‡§õ‡§®‡•ç‡§¶‡§É‡§∂‡§æ‡§∏‡•ç‡§§‡•ç‡§∞‡§Æ‡•ç ‡•Æ (~300 BCE), and the
 -- ku·π≠·π≠aka whose witness supplies e¬∑d ‚â° œÜ¬∑k+1 is ƒÄryabha·π≠a's,
--- ‡‡∞‡‡Ø‡‡ü‡‡Ø‡Æ‡ ‡ó‡‡ø‡‡‡æ‡¶‡ ‡©‡®‚ì‡©‡© (499).
+--    (499).
 -- The group theory is not Indian and is not dressed as Indian.
 ------------------------------------------------------------------------
 

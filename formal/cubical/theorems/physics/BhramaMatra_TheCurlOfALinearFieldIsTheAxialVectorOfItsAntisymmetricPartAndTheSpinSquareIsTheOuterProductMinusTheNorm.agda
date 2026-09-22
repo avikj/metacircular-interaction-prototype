@@ -46,7 +46,7 @@
 --       which any trace-free projection deletes.  So the antisymmetric
 --       part of a velocity gradient contributes to a trace-free strain
 --       law only through the outer product of the vorticity with itself
---       — the `(w�w)` term never survives.
+--       — the `(w·w)` term never survives.  The projection is not
 --
 -- §§1ℓ4 over any commutative ring, for every
 -- matrix presented by three columns and every pair of vectors.

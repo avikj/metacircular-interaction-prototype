@@ -457,7 +457,7 @@ module <-Reasoning where
   _ <≡⟨ p ⟩ q = _ ≤≡⟨ p ⟩ q
 
 
--- Some lemmas about �
+-- Some lemmas about 
 suc∸-fst : (n m : ℕ) → m < n → suc (n ∸ m) ≡ (suc n) ∸ m
 suc∸-fst zero zero p = refl
 suc∸-fst zero (suc m) p = ⊥.rec (¬-<-zero p)

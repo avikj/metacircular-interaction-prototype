@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡ê‡ï‡‡Ø ‚Äî forced oneness.
+--  ‚Äî forced oneness.  (Term used descriptively ‚Äî aikya, "unity/
 -- (aikya: "unity/identity".)
 --
 -- WHAT THIS IS.  machinery/crystal/'s engine issued IMPOSSIBLE for the

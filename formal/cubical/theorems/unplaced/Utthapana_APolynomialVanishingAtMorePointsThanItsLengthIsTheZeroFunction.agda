@@ -10,7 +10,7 @@
 -- identity "by exact evaluation on an integer grid whose size is a
 -- complete bound for the degree" — the completeness of that grid is the
 -- gate's license.  Its univariate core,
--- over �:
+-- checked here over ℤ:
 --
 --     a polynomial with MORE DISTINCT ROOTS THAN COEFFICIENTS is the
 --     zero function.
@@ -162,7 +162,7 @@ grid (a ∷ as) (c ∷ cs) len dist (cons va vs) x =
   ∙ mulZeroR (x - a)
 
 ------------------------------------------------------------------------
--- §4 � THE TWO-SIDED FORM.  The
+-- §4 · THE TWO-SIDED FORM — the scope note's debt, paid.  The
 -- coefficientwise difference, its evaluation law, and the agreement
 -- theorem: two polynomials agreeing at more distinct points than either
 -- has coefficients agree at EVERY point.  This is G7's actual univariate

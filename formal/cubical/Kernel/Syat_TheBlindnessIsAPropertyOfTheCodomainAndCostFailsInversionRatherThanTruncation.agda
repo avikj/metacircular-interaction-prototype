@@ -13,7 +13,7 @@
 -- The apparatus is laid out in Samantabhadra's *ptamms* (~6th c.) and
 -- developed by Akalaka (~8th c.) and Vidynanda; the governing rule taken
 -- here is the older one, that a naya asserting itself by denying the
--- others becomes a à¦àà°àà¨à¯ Â durnaya.
+-- others becomes a  Â· durnaya.  No first use is established.
 --
 ------------------------------------------------------------------------
 -- THE BLINDNESS IS A PROPERTY OF THE CODOMAIN.

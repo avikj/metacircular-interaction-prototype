@@ -384,7 +384,7 @@ syllepsis {A = A} n α β k i j =
                     ; (k = i1) → rUnit guy (j ∧ ~ r)})
           (rUnit guy (~ r ∧ ~ k))
 
------- Ω��� A � Ω�(Ω A) ------
+------ Ω A  Ω(Ω A) ------
 flipΩPath : {ℓ : Level} {A : Pointed ℓ} (n : ℕ)
                 → ((Ω^ (suc n)) A) ≡ (Ω^ n) (Ω A)
 flipΩPath {A = A} zero = refl

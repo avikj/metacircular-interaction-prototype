@@ -66,7 +66,7 @@ Thus \(\int\|B_u\|dt<\infty\) is a sufficient regularity condition, but its esse
 
 ## 19. Exactly one angular polarization generates central strain
 
-For smooth whole-space decaying vorticity, write \(y=rn\). Differentiating Biotâ“Savart gives
+For smooth whole-space decaying vorticity, write \(y=rn\). Differentiating Biotâ€“Savart gives
 
 \[
 S(0)=\frac3{8\pi}\operatorname{p.v.}\int_0^\infty\frac{dr}{r}
@@ -478,4 +478,4 @@ The same sources have uniformly bounded free heat-strain memory because \(\sum_j
 
 All cross-shell interactions at that specified stage are included. No uniform all-depth bound follows merely by inspecting these first three sums.
 
-[S16] goes further: after a common sufficiently small **Euler spatial compression** \(u_R(x)=Ru(x/R)\), the same shell families fall in the classical small energyâ“enstrophy regime, while vorticity and initial strain amplitudes remain unchanged. The scale-critical NS quantity \(\|u\|_2\|\omega\|_2\) changes under this compression; it is not the NS symmetry. Therefore one gets actual globally smooth solutions with uniformly bounded total peak stretching and arbitrarily large initial peak stretching. This is a restricted control family, not a way to rescale arbitrary NS data into small data.
+[S16] goes further: after a common sufficiently small **Euler spatial compression** \(u_R(x)=Ru(x/R)\), the same shell families fall in the classical small energyâ€“enstrophy regime, while vorticity and initial strain amplitudes remain unchanged. The scale-critical NS quantity \(\|u\|_2\|\omega\|_2\) changes under this compression; it is not the NS symmetry. Therefore one gets actual globally smooth solutions with uniformly bounded total peak stretching and arbitrarily large initial peak stretching. This is a restricted control family, not a way to rescale arbitrary NS data into small data.

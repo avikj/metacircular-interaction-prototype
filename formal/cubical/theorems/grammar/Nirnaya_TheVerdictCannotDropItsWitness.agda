@@ -183,9 +183,9 @@ module सन्दर्भ (E : Type) (योग्य : List E → Type) (श
   गर्भात्-अग्रिमः = गर्भः
 
 ------------------------------------------------------------------------
--- � � The reporting theorem.
+--  · The reporting theorem — the one the machine got wrong twice.
 --
--- Grouping by �������� is legitimate; treating the
+-- thrown the evidence away.  Grouping by  is legitimate; treating the
 -- कोटिः as if it still held the verdict is not, and this is why:
 --
 -- भङ्गः HAS NO SECTION.  Two refutations at different assignments carry the

@@ -13,7 +13,7 @@
 -- (N,0,0) + (−N,1,0) = (0,1,0) survives the projection while
 -- (2N,0,0), (−2N,2,0), (2N,−1,0) do not; hence
 -- ∇·R^σ = −(σA²/2) e₃ sin x₂, ∂_t U^σ(0) = (σA²/2) e₃ sin x₂, and against
--- w = e� sin x� the reading is �A²/4.
+-- w = e₃ sin x₂ the reading is σA²/4.  That computation was checked
 --
 --   §1  THE KERNEL.  A trigonometric polynomial on 𝕋³ is a list of
 --       (kind, frequency, coefficient) with one dyadic denominator 2^d.

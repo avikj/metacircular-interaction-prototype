@@ -90,7 +90,7 @@
 --   * mathlib4 (Lean),
 --     `Mathlib/Data/Nat/Prime/Defs.lean:124` and `:368`:
 --     `Nat.prime_def_le_sqrt : Prime p ↔ 2 ≤ p ∧ ∀ m, 2 ≤ m → m ≤ sqrt p
---     � � m � p`, and `Nat.minFac_sq_le_self`.
+--     → ¬ m ∣ p`, and `Nat.minFac_sq_le_self`.  PROVED-grade prior art,
 --     The X = n case (`roughSplitSelf` below) is
 --     mathlib's theorem, by the same square-comparison argument, and no
 --     novelty is claimed for it.  What is not in mathlib in this form is

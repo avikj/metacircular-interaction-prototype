@@ -12,7 +12,7 @@
 -- `CoprimePowers` proved certificates compose, over any ring.
 -- `DistinctPrimesAreCoprime` supplied the base case over ℕ.  The transfer
 -- between ℕ and
--- �, in both directions, is here.
+-- , in both directions, is here.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- PRIOR ART

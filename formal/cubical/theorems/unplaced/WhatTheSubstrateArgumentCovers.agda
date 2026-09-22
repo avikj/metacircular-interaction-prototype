@@ -22,7 +22,7 @@
 --   §1  the argument does not depend on `⊎`.  `A → Dec A` holds for
 --       EVERY type by `yes`, so "every inhabited X is a decision" is a
 --       statement about inhabitation, not about sums.  Instantiated at
---       `�`:
+--       `Σ`:
 --       an inhabited Σ is a decision, one line, same as for ⊎.
 --
 --   §2  and the argument delivers something STRICTLY STRONGER than
@@ -85,7 +85,7 @@ private
 inhabited-is-a-decision : {A : Type ℓ} → A → Dec A
 inhabited-is-a-decision = yes
 
--- at �.  The proof is
+-- at Σ.  The proof is
 -- the same one; nothing about Σ is used, exactly as nothing about ⊎ was.
 inhabitedΣ-is-a-decision :
   {A : Type ℓ} {B : A → Type ℓ'}

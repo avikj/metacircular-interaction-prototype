@@ -18,7 +18,7 @@
 -- (`NaturalMachine.SankramanaSesa_EveryTransportOwesItsResidual`), where the
 -- identical residual `‡§∂‡•á‡§∑ r = fiber r` already sits under `‡§Ö‡§≤‡•ã‡§™-‡§≤‡§ï‡•ç‡§∑‡§£‡§Æ‡•ç`
 -- (loss-free ‚ü∫ every residual contractible).
--- The split sits beside `‡‡≤‡ã‡-‡≤‡ï‡‡‡‡Æ‡`.
+-- The split sits beside `-`.
 ------------------------------------------------------------------------
 
 module SamataDvidha_TheContractibleFibreSplitsAsEmbeddingTimesSurjectionInTheTransportLane where

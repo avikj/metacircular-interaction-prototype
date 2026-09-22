@@ -10,7 +10,7 @@ Action residual phase gives a second exact observation theorem. For observation 
 
 This is precisely why [the Fibre Law](02-fibre-law.md) matters for measurement: a visible result never licenses discarding the distinctions in its fibre unless the desired downstream result descends through that observation.
 
-The four-phase algebra, quarter-turn, global charge, and exhausted cellwise centralizer connect this page to Pratt's `Chuâ` program. The physical carrier is developed in [Interaction Geometry Becomes Physics](09-interaction-geometry-physics.md).
+The four-phase algebra, quarter-turn, global charge, and exhausted cellwise centralizer connect this page to Pratt's `Chuâ‚„` program, but the exact algebraic identification must be proved at the level of his evaluation algebra, not inferred from cardinality. The physical carrier is developed in [Interaction Geometry Becomes Physics](09-interaction-geometry-physics.md).
 
 ## Canonical checked construction
 

@@ -27,7 +27,7 @@
 --       configuration: τ-unitarity is unconditional.
 --   §5  WHERE RH SITS.  E preserves the plain form for all vectors
 --       exactly when every mode has unit modulus, (E i)* E i = 1 — for
---       E = e^{(�−½)t} that is Re � = ½.
+--       E = e^{(ρ−½)t} that is Re ρ = ½.  The equivalence is finite
 --
 -- वलय (rpa, form) is ordinary .
 ------------------------------------------------------------------------

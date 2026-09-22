@@ -6,7 +6,7 @@
 -- Ramanujan asked (J. Indian Math. Soc., 1913): when is 2ⁿ − 7 a
 -- perfect square?  He listed n = 3, 4, 5, 7, 15 — squares 1, 9, 25,
 -- 121, 32761 — and conjectured there are no others.  Nagell proved
--- the full conjecture in 1948 in �[�−2].
+-- the full conjecture in 1948 in ℤ[−2].
 -- What
 -- IS proved, completely:
 --

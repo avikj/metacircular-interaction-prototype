@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ��������� — ����� ����� � �������, �������� ���������� �
+--  —    ,   
 --
 -- (the total statement: no single utterance denotes it — and yet its
 --  content folds.)
@@ -35,7 +35,7 @@
 -- whole job.  So the obstruction is not an artefact of three standpoints.
 --
 -- TWO DIFFERENT OBJECTS, WHICH THE READING "IRREDUCIBLY n-ARY" CONFLATES.
--- One might hold that ������� is "irreducibly n-ary" — that
+-- One might hold that  is "irreducibly n-ary" — that
 -- the total statement over n standpoints cannot be built from binary steps —
 -- on the ground that `Arpitanarpita_….सह-असङ्गतिः-ऊर्ध्वम्` proves सहार्पणम्
 -- non-associative.  That inference conflates two different objects:
@@ -272,7 +272,7 @@ data द्वि : Type₀ where
 अवक्तव्यम्-द्वि = सकलादेशो-न-सङ्गच्छते आदेशः-द्वि मिश्रः-अस्ति मिश्रः-नास्ति
 
 ------------------------------------------------------------------------
--- � � What the fourth position says.
+--   What the fourth position says.
 --
 -- It does not say the total statement is impossible — क्रम-सङ्कलनम् says
 -- succession expresses it exactly, and §6 exhibits a profile meeting the

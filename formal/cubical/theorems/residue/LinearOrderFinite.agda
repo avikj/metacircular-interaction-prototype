@@ -4,7 +4,7 @@
 -- LinearOrderFinite
 --
 -- SOURCE OF THE TARGET.  `AtlasResiduals` §4 checks
--- `LinOrd n X` DEFINED to be `X � Fin n`.
+-- `LinOrd n X` DEFINED to be `X ≃ Fin n`.  Its "WHAT IS DELIBERATELY
 --
 -- ====================================================================
 -- THE AXIOMS OF `LinOrd′`, AND WHICH WAY THEY ERR

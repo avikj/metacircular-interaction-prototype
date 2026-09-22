@@ -22,7 +22,7 @@
 -- selected.
 --
 -- Consequence for the finite Born/refinement lane: nested-versus-flat
--- coherence for the canonical `SumFinŒ‚â` encoder transfers to every
+-- coherence for the canonical `SumFinŒ£` encoder transfers to every
 -- reversible flat presentation, so one canonical coherence square
 -- suffices rather than one square per representation.
 --

@@ -15,7 +15,7 @@
 --   * uniqueGivenHead (certified here): any two solutions agreeing at 0
 --       agree everywhere, so the solution set injects into Bool = {ε₀};
 --   * existence of a solution for each ε₀ (the classical Thue–Morse
---       sequence, the explicit p = ��(1 − x^{2�})).
+--       sequence, the explicit p = (1 − x^{2})).
 --
 -- The obstruction "is one bit wide" (drishti): uniqueGivenHead says the
 -- fibre of the forget-the-diagonal map over a full-line partition is a

@@ -129,9 +129,9 @@ private
 त्रुटिः-सर्वहानिः = सर्व-तन्तुः-fiber
 
 ------------------------------------------------------------------------
--- � � The seam, and the refutation of the criterion.
+--   The seam, and the refutation of the criterion.
 --
--- `���������` is satisfied by
+-- `` is satisfied by
 -- the corpus's own level-न archetype;
 -- and the level-३ half of the scale — a proper fibre, with something
 -- out of the source still seeing the difference — is satisfied at the

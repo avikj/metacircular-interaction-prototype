@@ -246,7 +246,7 @@ module Lists&ALists {A : Type ℓ} (discA : Discrete A) where
   ALQassoc : hasAssociativeUnion (AList/Rᴬᴸ , ALQstructure)
   ALQassoc = subst hasAssociativeUnion List/Rᴸ≡AList/Rᴬᴸ LQassoc
 
-  -- We now show that List/R��FMSet
+  -- We now show that List/RFMSet
 
   _∷/_ : A → List/Rᴸ → List/Rᴸ
   _∷/_ = LQstructure .snd .fst

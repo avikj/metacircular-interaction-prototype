@@ -33,7 +33,7 @@
 -- so on THIS store the factoring heap eye with the surgical exchange
 -- DOMINATES — राशि alone suffices for all 102, the composite
 -- instrument buys nothing here.
--- The council of � and � reaches 102,
+-- run with ; this is new).  The council of  and  reaches 102,
 -- which is ब's own reach: the exchange lifts the weaker standpoint
 -- (+9) and costs the stronger nothing.  And the near-miss pair was
 -- probed: गूढ+सूक्ष्म (101) in council with norm+राशि (94) reaches

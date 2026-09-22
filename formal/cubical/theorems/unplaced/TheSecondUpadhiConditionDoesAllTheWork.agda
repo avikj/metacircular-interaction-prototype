@@ -191,7 +191,7 @@ probeAgreementDoesNotPervadeEquality =
 -- statement is exhibiting one, and §4 exhibits one for a probe while the
 -- shelf's own search for one among ACTUAL engine terms returned nothing.
 --
--- The two live on one axis: `� Vyapti` is a
+-- The two live on one axis: ` Vyapti` is a
 -- negation and is ¬¬-stable for free; `Σ U. Upadhi U` is a search, and
 -- its stability is not free — it is bought with a decision or with a
 -- construction.  Here the construction is `theUpadhi`, given outright.

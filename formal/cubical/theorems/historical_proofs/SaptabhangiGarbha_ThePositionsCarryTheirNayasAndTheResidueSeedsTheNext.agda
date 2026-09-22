@@ -42,7 +42,7 @@
 --       holding BOTH, so the fourth position is informative and not an
 --       error code.
 --
---   2.  Here ����������� is the failure of ONE
+--   2.  Here  is the failure of ONE
 --       UTTERANCE to carry the joint content (Mallisena: sakaldea
 --       demanded of a vikaldea-shaped medium), and a failure of
 --       expression is not a loss of what was to be expressed.
@@ -427,7 +427,7 @@ private
 --     AHIMSA_SUTRA_VISTARA applies literally — the collapse does not
 --     exist.
 --
--- §7's �����-�-�������
+-- §7's --
 -- is sharpened (`क्रम-विनिमयः-न-ऊर्ध्वम्`: identities descend
 -- along अनर्पणम् and do not lift).  But distinctness LIFTS, and the label
 -- lane's सह-असङ्गतिः lifts with it: `सह-असङ्गतिः-ऊर्ध्वम्` proves सहार्पणम् is

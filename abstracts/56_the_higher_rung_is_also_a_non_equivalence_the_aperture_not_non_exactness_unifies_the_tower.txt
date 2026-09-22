@@ -32,6 +32,6 @@ where the invariant is a group-valued cochain.
 
 SYĀT — THE CLAIM, EXACTLY.  rung₂ for every map between the H² carriers,
 from सङ्केतः; theWiderAperture identifying this rung with the cost rung
-under � isEquiv.
+under ¬ isEquiv.  NOT claimed: that ¬ isEquiv is the k-invariant in the
 
 Machine-checked in cubical type theory, --safe.

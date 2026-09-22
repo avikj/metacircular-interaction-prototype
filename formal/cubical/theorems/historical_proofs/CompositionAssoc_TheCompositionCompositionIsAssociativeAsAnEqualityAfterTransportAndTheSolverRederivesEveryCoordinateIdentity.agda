@@ -10,7 +10,7 @@
 -- be written between them without first bringing the indices together.
 --
 -- WHAT IS ALREADY THERE.  Section 7 of `BhavanaGenerative` assembles
--- `鈯Assoc`, `鈯Comm`,
+-- `Assoc`, `Comm`,
 -- `鈯汭dR`, `鈯汭dL` as PathPs over `路Assoc`/`路Comm`/`路IdR`/`路IdL`.
 -- Those are DEPENDENT paths.  What that file does NOT
 -- state, for general norm indices, is the non-dependent form the 搂7 note

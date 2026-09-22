@@ -1,8 +1,8 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- àµàààà-àà¿à¨àà¦àà â€” the point-level statement `Bahupratyanayana_â¦` needed.
+-- - â€” the point-level statement `Bahupratyanayana_` needed.
 --
--- `isConnectedSÂ : (s : SÂ) â’ âˆ base â‰¡ s âˆâ`
+-- `isConnectedS : (s : S)   base â‰¡ s `
 -- gives, for any two points, a mere path between them; a proof that
 -- they are distinct would refute that mere path.  So:
 --

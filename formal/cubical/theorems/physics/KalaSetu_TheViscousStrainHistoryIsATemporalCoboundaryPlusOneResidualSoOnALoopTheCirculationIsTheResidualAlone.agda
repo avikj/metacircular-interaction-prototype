@@ -43,7 +43,7 @@
 --
 -- SYĀT — THE CLAIM, EXACTLY.  §§1–4 in any commutative ring, for every
 -- three sequences, every `ν`, and every finite depth.
--- §§3�4 are stated with `ν �` on the
+-- carried; that `ν` is invertible, so §§3–4 are stated with `ν ·` on the
 -- left and are never divided through.
 ------------------------------------------------------------------------
 

@@ -7,7 +7,7 @@
 -- SOURCE AND DATE.  वज्राभ्यास ("thunderbolt multiplication") is BHĀSKARA II's
 -- own word for the crosswise product of two pairs; लीलावती and बीजगणितम्, 1150
 -- CE.  The चक्रवालम् is JAYADEVA's, ~950, surviving through Udayadivākara's
--- �������, 1073.  The ���������� that solves the congruence
+-- , 1073.  The  that solves the congruence
 -- is ĀRYABHAṬA's, आर्यभटीयम् गणितपादः ३२–३३, 499.  Nothing below claims any of
 -- them stated the theorem in this file; what is claimed is that the quantity
 -- this file turns on is the crosswise product they named, taken between a

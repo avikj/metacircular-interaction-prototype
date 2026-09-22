@@ -1,5 +1,5 @@
 {-# OPTIONS --cubical --safe --lossy-unification --guardedness --no-import-sorts #-}
--- àà¾à°àààà®ààà â€” the charge tower.
+--  â€” the charge tower.  EkaBhara named the loop charge Ï€â‚(SÂ¹)=â„¤ and
 -- The topological charges of physics
 -- ARE the Ï€â‚™(Sâ¿)=â„¤: the electric/winding charge is Ï€â‚(SÂ¹); the magnetic MONOPOLE
 -- charge is Ï€â‚‚(SÂ²) (Dirac 1931 â€” the degree of the field map on the enclosing

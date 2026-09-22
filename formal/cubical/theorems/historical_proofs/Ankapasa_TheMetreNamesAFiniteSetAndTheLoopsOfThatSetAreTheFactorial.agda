@@ -6,7 +6,7 @@
 --
 -- THE TERM, ITS TEXT AND ITS DATE.  `अङ्कपाश` is the name of the section
 -- on permutations in Bhskara II, *Llvat* (1150 CE): the arrangements
--- of n distinct digits number the product 1�2�⋯�n.  The metrical material is Pigala,
+-- of n distinct digits number the product 1·2⋯n.  The metrical material is Pigala,
 -- *छन्दःशास्त्रम्* ८.२४–२८ (~300 BCE): the प्रस्तार, and सङ्ख्या, the
 -- प्रत्यय that asks how many.
 --

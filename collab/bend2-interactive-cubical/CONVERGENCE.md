@@ -500,7 +500,7 @@ core and the HVM target:
 - **Composition + univalence:** general `hcomp` with **cofibration systems**
   (arbitrary DNF faces, per-cell boundary + adjacency checks); `hfill` sugar; full
   iso-univalence; the **coherent** round trip `pathToEquiv (uaE e) = e` via `Equiv
-  = � f. �y. isContr(fib f y)`.
+  = Σ f. y. isContr(fib f y)`.
 - **Native lowering:** transport **executes into its value-changing function**
   rather than being erased — `coe` along `ua(not)` compiles to boolean negation
   (`applyNeg(True) → 0`), `Sup×Path` to a label-matched DUP/SUP (`supRoute →
@@ -515,7 +515,7 @@ core and the HVM target:
   chains of equivalences performed by the net. The **census** ran: the corpus
   computing its own behavioral-equivalence structure by evaluation — the thing
   Agda could not run.
-- **`Glue` and the universe's Kan rules [T]**: `Glue A [(�,T,e)]` as a sound
+- **`Glue` and the universe's Kan rules [T]**: `Glue A [(,T,e)]` as a sound
   former with checked boundary laws;
   **transport through `Glue`**, **`hcomp` in `Set` = `Glue` with `transpEquiv`**,
   and **`ua` derived from `Glue` with `uaβ` definitional** (`uaglue.bend` 26✓,
@@ -716,7 +716,7 @@ to types: transport through `Glue`, `hcomp`-in-`Set` = `Glue`, and `ua` from
 (`uaglue.bend`, `hcompset.bend`, `glue.bend`; Part VI). `comp`/`coe` to a
 **symbolic** interval endpoint is the intended partial-knowledge behavior — the
 residue held as `#HCm` until the interval is decided. Quotient **effectivity**
-(`[x]≡[y] � x≈y`) holds, with `isSet hProp` proved from scratch (`hset.bend`).
+(`[x]≡[y] ⟹ x≈y`) holds, with `isSet hProp` proved from scratch (`hset.bend`).
 
 ---
 

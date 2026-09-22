@@ -8,7 +8,7 @@
 --
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT THIS IS.
--- Currying along A � � B (fiber f)
+-- Currying along A   B (fiber f)
 -- identifies the section CARRIER with (b : B) → fiber f b → fiber f b,
 -- and carrying ⋆ onto pointwise composition needs the transport
 -- coherence of that currying.  This module

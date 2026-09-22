@@ -4,7 +4,7 @@
 -- शोर — the classical half of quantum factoring is a zero-divisor split
 -- by the pulverizer; only the order-finding is quantum.
 --
--- Shor's factoring of N = p�q has
+-- This file draws the line exactly.  Shor's factoring of N = p·q has
 -- three parts, and two of them are classical and OLD:
 --
 --   1. FAITH.  Pick a random a coprime to N and hope its multiplicative

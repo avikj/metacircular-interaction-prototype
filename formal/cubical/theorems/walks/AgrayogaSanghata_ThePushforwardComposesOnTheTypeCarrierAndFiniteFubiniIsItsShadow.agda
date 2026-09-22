@@ -37,10 +37,10 @@
 -- Functoriality of pushforward = change of variables = Fubini: one
 -- theorem, and on the Type row it costs two library lemmas.
 --
--- COMPOUND BUILT HERE: ‡‡ó‡‡∞‡Ø‡ã‡ó (the forward
+-- COMPOUND BUILT HERE:  (the forward
 -- yoking ‚Äî the pushforward), ‡§∏‡§ô‡•ç‡§ò‡§æ‡§§ (composition/stacking, following
--- SankramanaSesa's ‡‡‡-‡‡ô‡‡ò‡æ‡‡).  The mathematics is HoTT-standard
--- (Œ over a fibre; the
+-- SankramanaSesa's -).  The mathematics is HoTT-standard
+-- ( over a fibre; the
 -- composite-fibre splitting is HoTT 4.8.2's neighbourhood), composed.
 ------------------------------------------------------------------------
 

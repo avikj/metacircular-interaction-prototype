@@ -4,9 +4,9 @@
 -- ‡§∞‡•á‡§ñ‡§æ-‡§∏‡§Æ‡§æ‡§∏‡§É ‚Äî the two-chart census, carried by the Chinese remainder
 -- equivalence from the product carrier to the residue line mod p¬∑q.
 --
--- ‡ï‡‡‡‡‡‡∞-‡‡Æ‡æ‡‡ (KsetraSamasa_TheTwoChartSurvivor
+-- - (KsetraSamasa_TheTwoChartSurvivor
 -- CensusIsTheProductPMinusTwoTimesQMinusTwo) counts the joint survivor
--- set on the PRODUCT carrier Fin p ó Fin q; this module carries
+-- set on the PRODUCT carrier Fin p  Fin q; this module carries
 -- that count to the residue line by the Chinese remainder equivalence.
 --
 -- The equivalence is FinCardinality's

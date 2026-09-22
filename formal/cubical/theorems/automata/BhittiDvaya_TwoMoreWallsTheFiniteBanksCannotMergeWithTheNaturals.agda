@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡ø‡‡‡‡ø-‡¶‡‡µ‡Ø‡Æ‡ ‚Äî two more walls.
+-- - ‚Äî two more walls, and the frontier shrinks honestly.
 --
 -- After ‡§∏‡•á‡§§‡•Å-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡§Æ‡•ç the big component holds 20 banks.  The next-largest
 -- candidate merges into it are Unit's component (6 banks) and Fin 840's

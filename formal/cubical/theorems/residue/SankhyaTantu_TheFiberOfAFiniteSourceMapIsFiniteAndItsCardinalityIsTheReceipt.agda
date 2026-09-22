@@ -2,7 +2,7 @@
 
 ------------------------------------------------------------------------
 -- ‡§∏‡§ô‡•ç‡§ñ‡•ç‡§Ø‡§æ-‡§§‡§®‡•ç‡§§‡•Å‡§É ‚Äî the fiber of a finite-source map is finite, and its
--- cardinality is the ‡‡ô‡‡ñ‡‡Ø‡æ receipt.
+-- cardinality is the  receipt.  The enzyme for the whole
 --
 -- For any map f : A ‚Üí B between FINITE SETS, every fiber is a finite set
 -- (this is the library's `isFinSetFiber`), so it carries a computable

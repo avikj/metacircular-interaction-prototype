@@ -227,5 +227,5 @@ Iso.leftInv  संहति-Iso-वाहकः ((b , q) , (u , p)) i =
 -- function exists: §५'s outcome depends on WHICH point of the outer fibre
 -- carries the empty inner fibre, and a census records only that the outer
 -- fibre is crowded, not which of its points are which.  That is precisely
--- why cost here is a � and not a weight.
+-- why cost here is a  and not a weight.
 ------------------------------------------------------------------------

@@ -4,7 +4,7 @@
 -- व्यत्यास-वर्ग — the crossing's square.
 --
 -- TERMS.  व्यत्यास · vyatyāsa — interchange, transposition; carried from
--- `Vyatyasa_�`.  ����� � varga — square.
+-- `Vyatyasa_…`, which states its own limits.   · varga — square.
 -- वर्ग is a technical term throughout Indian mathematics; Brahmagupta's
 -- *Brāhmasphuṭasiddhānta* (628) uses वर्गप्रकृति (varga-prakṛti,
 -- "square-nature") for x² − D·y² = 1.  IT IS USED HERE ONLY IN ITS

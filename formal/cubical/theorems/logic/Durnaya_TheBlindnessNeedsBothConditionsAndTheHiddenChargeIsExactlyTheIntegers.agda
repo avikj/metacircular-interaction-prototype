@@ -24,7 +24,7 @@
 -- identification of a fibre with a standard type, never a bound.  What
 -- every set-valued observable of the carrier destroys is not "some
 -- charge": it is exactly ℤ, by `ΩS¹Isoℤ`, and the identifying map IS
--- `winding` on the nose (§��, `refl`).
+-- `winding` on the nose (§, `refl`).
 -- This is the identification: the
 -- mode-regarding standpoint loses nothing at all, because `winding` is
 -- an equivalence and ℤ is a set.
@@ -112,7 +112,7 @@ import Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere as 
 पर्याय-अलोपः = Iso.leftInv ΩS¹Isoℤ
 
 ------------------------------------------------------------------------
--- � �� NON-DEPENDENCE ALONE IS NOT ENOUGH, OFF THE UNIVERSE.
+--   NON-DEPENDENCE ALONE IS NOT ENOUGH, OFF THE UNIVERSE.
 --
 -- `idfun S¹ : S¹ → S¹` is non-dependent post-composition, its codomain
 -- lives in Type₀, and `cong (idfun S¹) loop` is NOT refl — because S¹

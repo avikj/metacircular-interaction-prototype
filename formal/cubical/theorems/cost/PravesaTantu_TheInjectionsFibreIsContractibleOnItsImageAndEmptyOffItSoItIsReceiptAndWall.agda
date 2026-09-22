@@ -34,7 +34,7 @@
 -- (`⊎Path.Cover≃Path`, itself an encode–decode) with `Σ-cong-equiv-snd`,
 -- `isContr→≃Unit` and `uninhabEquiv`.  The mathematics is elementary and
 -- classical (coproduct injections are embeddings with disjoint images).
--- ������ is ordinary  for entering /
+-- source is claimed for it.   is ordinary Sanskrit for entering /
 -- insertion, the dual reading to प्रक्षेप (throwing / projection) already used
 -- in the corpus.
 ------------------------------------------------------------------------

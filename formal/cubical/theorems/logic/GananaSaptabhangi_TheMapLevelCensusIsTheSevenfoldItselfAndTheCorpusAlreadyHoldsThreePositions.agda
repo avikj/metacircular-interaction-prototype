@@ -34,7 +34,7 @@
 -- GRADE.  The classification records below are this module's;
 -- the sevenfold count and the seed reading are Saptabhangi's and
 -- SakalaVikalaDesa's respectively; Malliea (Sydvdamajar, 1292, at
--- ���� grade via the note) for sakaldea/vikaldea.  Their selection
+--  grade via the note) for sakaldea/vikaldea.  Their selection
 -- algebra is this classification's type, on the nose.
 ------------------------------------------------------------------------
 
@@ -149,7 +149,7 @@ asNat-अस्ति-अवक्तव्यम् = asNat-अस्ति , a
     (isContr→isProp c (fst (एकम्-नास्ति tt)) (fst (snd (एकम्-नास्ति tt))))
 
 ------------------------------------------------------------------------
--- � � ���������.  The selection "none of the three" is the empty
+--   .  The selection "none of the three" is the empty
 -- selection, excluded for inhabited B exactly as Saptabhangi's कुतः-सप्त
 -- excludes the empty combination: 2³ − 1.  The count is the theorem.
 ------------------------------------------------------------------------

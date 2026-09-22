@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ����-����� — offering by stratum.  A question: OrderSaha proves the
+-- - — offering by stratum.  A question: OrderSaha proves the
 -- set-level
 -- kills the circle's charge (its क्रमः-सेट्-प्रथमम्: Path ∥S¹∥₂ is
 -- contractible) while the other order keeps it (क्रमः-लूप-प्रथमम्:

@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡®‡‡‡‡‡®‡‡ß‡ø ‚Äî ‡‡®‡‡‡‡ ‡≤‡ø‡ñ‡ø‡‡, ‡ó‡‡®‡æ ‡‡ ‡‡®‡‡ß‡æ ‡
+--  ‚Äî  ,    
 --
 -- (the fibre was written; it was the census that could not see.)
 --

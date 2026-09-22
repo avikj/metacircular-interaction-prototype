@@ -45,7 +45,7 @@
 -- The term is used here for its literal content ‚Äî the tangent of a
 -- family at a point.
 --
--- ‡‡‡‡®‡‡Æ.  `Yamala_TheTwinChargeIsTheParityJet‚¶` is
+-- .  `Yamala_TheTwinChargeIsTheParityJet‚Ä¶` is
 -- the general machinery:
 -- (Dual, ‚äõ) a commutative monoid, the conditional hom J(ab) = J(a)‚äõJ(b)
 -- given the derivation hypotheses, and autodiff at ANY z.  This module

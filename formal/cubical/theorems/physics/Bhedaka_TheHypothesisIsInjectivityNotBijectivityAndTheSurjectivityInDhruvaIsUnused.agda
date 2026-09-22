@@ -192,7 +192,7 @@ module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) where
   नष्ट-अभावे-गति-अभावः′ e = भेदके-गति-अभावः (isEquiv→isEmbedding e)
 
 ------------------------------------------------------------------------
--- � � ���� — the asymmetry.
+--    — the asymmetry.
 --
 -- The dual weakening is NOT available and the asymmetry is the
 -- point.  There is no hypothesis on `f` that makes §१ fail: the

@@ -32,7 +32,7 @@
 --
 -- SYĀT — THE CLAIM, EXACTLY.  §1 for every map between the H² carriers,
 -- from सङ्केतः; §2 the identification of this rung with EkamChidram's
--- cost rung under � isEquiv.
+-- cost rung under ¬ isEquiv.  NOT claimed: that ¬ isEquiv is the k-
 -- What IS corrected: GarbhaShreni's "one
 -- predicate for all rungs" — that predicate is ¬ isEquiv, and NotExact
 -- was only the abelian shadow of it.

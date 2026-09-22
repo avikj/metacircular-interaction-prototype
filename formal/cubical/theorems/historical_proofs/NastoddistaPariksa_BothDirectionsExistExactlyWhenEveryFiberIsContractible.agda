@@ -37,7 +37,7 @@
 -- not as an equivalence of types: `isEquiv f` is a PROPOSITION and
 -- `नष्टोद्दिष्टयोगः f` is not, so the two are logically equivalent and
 -- NOT equal.  The round trip through `isEquiv` returns what it was
--- given (§�); quasi-inverse data can differ.
+-- given (§); quasi-inverse data can differ.
 --
 -- §६ is the discriminant exhibited on both roads at once: the प्रस्तार
 -- of any छेद-सूची carries the witness (road one, defect zero at every
@@ -151,7 +151,7 @@ Iso.leftInv  (योगः→इषो y) = नष्टोद्दिष्ट
 परीक्षा-लक्षणम् f = परीक्षा→एकम् , एकम्→परीक्षा
 
 ------------------------------------------------------------------------
--- � � THE LIMIT.
+--   THE LIMIT.
 --
 -- `isEquiv f` is a proposition: any two proofs are equal.  The record
 -- above is NOT — it carries a chosen quasi-inverse together with chosen

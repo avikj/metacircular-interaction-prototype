@@ -38,7 +38,7 @@
  },
  "vyaya": [
   "WHY each normal form is what it is: the kernel computes it, it does not narrate the reduction",
-  "whether the expression's NAME matches its meaning â” the type and value are agda's; reading them against the name is the reader's",
+  "whether the expression's NAME matches its meaning â€” the type and value are agda's; reading them against the name is the reader's",
   "any module the loaded one imports: trusted at the pin, not re-analyzed here"
  ],
  "pramana": [

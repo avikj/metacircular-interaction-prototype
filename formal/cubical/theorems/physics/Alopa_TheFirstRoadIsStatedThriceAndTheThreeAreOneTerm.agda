@@ -26,7 +26,7 @@
 --               set.  MadhyaVinimaya_â€¦ and Pratyaya_â€¦ .
 --   grade three different types.  Then Â§à¥¬'s first road needs an actual
 --               equivalence and ua, and where there is none the second road
---               applies and a ààà is written.
+--               applies and a  is written.  No instance of grade three is
 --
 -- The grade is the whole content of the finding.  A grade-one duplication
 -- costs nothing mathematically and costs everything in visibility: three

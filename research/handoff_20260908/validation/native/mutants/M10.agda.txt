@@ -1,135 +1,135 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- àà°àà§-àà² â” the half-plane.
+-- - â€” the half-plane.
 --
--- The Hardy/Bergman geometry of the receiver zeros (handoff Â§58â“60,
+-- The Hardy/Bergman geometry of the receiver zeros (handoff Â§58â€“60,
 -- [S09]).  In the half-plane Re z < s the Hardy feature has
--- âŸ¨Ï_z, Ï_wâŸ© = 1/(2s âˆ’ z âˆ’ wÌ), normÂ² 1/(2d_z), d_z = s âˆ’ Re z, and the
+-- âŸ¨Ï†_z, Ï†_wâŸ© = 1/(2s âˆ’ z âˆ’ wÌ„), normÂ² 1/(2d_z), d_z = s âˆ’ Re z, and the
 -- Bergman feature has the squared kernel.  Everything reduces to
 -- polynomial identities in the real and imaginary parts, with
--- x_i = s âˆ’ z_i, y_j = s âˆ’ zÌ_j for the Cauchy determinants:
+-- x_i = s âˆ’ z_i, y_j = s âˆ’ zÌ„_j for the Cauchy determinants:
 --
---   à§  |2s âˆ’ z âˆ’ wÌ|Â² âˆ’ |z âˆ’ w|Â² = 4 d_z d_w,  so
---      |âŸ¨h_z,h_wâŸ©|Â² = 1 âˆ’ ÏÂ²  and  |âŸ¨F_z,F_wâŸ©| = 1 âˆ’ ÏÂ²,
---      Ï = |z âˆ’ w| / |2s âˆ’ z âˆ’ wÌ|;
---   à¨  on a reflection pair z, Îz = âˆ’Ï + iÎ³:
---      det Gram(h_z, h_Îz) = ÏÂ²/sÂ²  and  â–F_z âˆ’ F_Îzâ–Â² = 2ÏÂ²/sÂ²;
---      the curvature readings ð’â³(0)/4 = Î w ÏÂ² = sÂ² Î w det = (sÂ²/2) Î w â–Ââ–Â²
+--     |2s âˆ’ z âˆ’ wÌ„|Â² âˆ’ |z âˆ’ w|Â² = 4 d_z d_w,  so
+--      |âŸ¨h_z,h_wâŸ©|Â² = 1 âˆ’ ÏÂ²  and  |âŸ¨F_z,F_wâŸ©| = 1 âˆ’ ÏÂ²,
+--      Ï = |z âˆ’ w| / |2s âˆ’ z âˆ’ wÌ„|;
+--     on a reflection pair z, Î¸z = âˆ’Ïƒ + iÎ³:
+--      det Gram(h_z, h_Î¸z) = ÏƒÂ²/sÂ²  and  â€–F_z âˆ’ F_Î¸zâ€–Â² = 2ÏƒÂ²/sÂ²;
+--      the curvature readings ð’«â€³(0)/4 = Î£ w ÏƒÂ² = sÂ² Î£ w det = (sÂ²/2) Î£ w â€–Â·â€–Â²
 --      agree mode by mode;
---   à©  the holonomy defect of one mode:  e^{âˆ’2tÏ} + e^{2tÏ} âˆ’ 2 = 4 sinhÂ²(tÏ);
---   à  the Cauchy determinants (rows cleared of denominators):
---        2—2:  det = (xâ âˆ’ xâ)(yâ âˆ’ yâ),
---        3—3:  det = (xââˆ’xâ)(xââˆ’xâ)(xââˆ’xâ)(yââˆ’yâ)(yââˆ’yâ)(yââˆ’yâ),
---      which is  det C_F = Î _{i<j} Ï(z_i,z_j)Â²  for the normalized atoms
---      and the new-atom residual  distÂ² = Î _{wâˆˆF} Ï(z,w)Â²  (Schur);
---   à  the amplitude-weighted Vandermonde:  det V = Î  a_i Â Î _{i<j}(z_j âˆ’ z_i).
+--     the holonomy defect of one mode:  e^{âˆ’2tÏƒ} + e^{2tÏƒ} âˆ’ 2 = 4 sinhÂ²(tÏƒ);
+--     the Cauchy determinants (rows cleared of denominators):
+--        2Ã—2:  det = (xâ‚‚ âˆ’ xâ‚)(yâ‚‚ âˆ’ yâ‚),
+--        3Ã—3:  det = (xâ‚‚âˆ’xâ‚)(xâ‚ƒâˆ’xâ‚)(xâ‚ƒâˆ’xâ‚‚)(yâ‚‚âˆ’yâ‚)(yâ‚ƒâˆ’yâ‚)(yâ‚ƒâˆ’yâ‚‚),
+--      which is  det C_F = Î _{i<j} Ï(z_i,z_j)Â²  for the normalized atoms
+--      and the new-atom residual  distÂ² = Î _{wâˆˆF} Ï(z,w)Â²  (Schur);
+--     the amplitude-weighted Vandermonde:  det V = Î  a_i Â· Î _{i<j}(z_j âˆ’ z_i).
 ------------------------------------------------------------------------
 module M10 where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (âŸ¨_âŸ©)
-open import Cubical.Data.Nat using (â• ; zero ; suc)
-open import Cubical.Data.Sigma using (_—_ ; _,_)
+open import Cubical.Data.Nat using (â„• ; zero ; suc)
+open import Cubical.Data.Sigma using (_Ã—_ ; _,_)
 open import Cubical.Algebra.CommRing
 open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
 private
   variable
-    â“ : Level
+    â„“ : Level
 
 ------------------------------------------------------------------------
-module _ (R : CommRing â“) where
+module _ (R : CommRing â„“) where
   open CommRingStr (snd R)
 
   private
     A = âŸ¨ R âŸ©
 
-  Î : â• â’ A
-  Î zero    = 0r
-  Î (suc n) = 1r + Î n
+  Î¹ : â„• â†’ A
+  Î¹ zero    = 0r
+  Î¹ (suc n) = 1r + Î¹ n
 
   ----------------------------------------------------------------
-  -- à§ Â the overlap identity:  z = x + iy,  w = u + iv
+  --  Â· the overlap identity:  z = x + iy,  w = u + iv
   ----------------------------------------------------------------
   overlap-identity : (s x y u v : A)
-    â’ (Î 2 Â s + (- x) + (- u)) Â (Î 2 Â s + (- x) + (- u)) + (y + (- v)) Â (y + (- v))
-      â‰¡ ((x + (- u)) Â (x + (- u)) + (y + (- v)) Â (y + (- v))) + Î 4 Â ((s + (- x)) Â (s + (- u)))
+    â†’ (Î¹ 2 Â· s + (- x) + (- u)) Â· (Î¹ 2 Â· s + (- x) + (- u)) + (y + (- v)) Â· (y + (- v))
+      â‰¡ ((x + (- u)) Â· (x + (- u)) + (y + (- v)) Â· (y + (- v))) + Î¹ 4 Â· ((s + (- x)) Â· (s + (- u)))
   overlap-identity s x y u v = shape s x y u v
     where
       shape : (s x y u v : A)
-        â’ ((1r + (1r + 0r)) Â s + (- x) + (- u)) Â ((1r + (1r + 0r)) Â s + (- x) + (- u)) + (y + (- v)) Â (y + (- v))
-          â‰¡ ((x + (- u)) Â (x + (- u)) + (y + (- v)) Â (y + (- v))) + (1r + (1r + (1r + (1r + 0r)))) Â ((s + (- x)) Â (s + (- u)))
+        â†’ ((1r + (1r + 0r)) Â· s + (- x) + (- u)) Â· ((1r + (1r + 0r)) Â· s + (- x) + (- u)) + (y + (- v)) Â· (y + (- v))
+          â‰¡ ((x + (- u)) Â· (x + (- u)) + (y + (- v)) Â· (y + (- v))) + (1r + (1r + (1r + (1r + 0r)))) Â· ((s + (- x)) Â· (s + (- u)))
       shape s x y u v = solve! R
 
   ----------------------------------------------------------------
-  -- à¨ Â the reflection pair  z = Ï + iÎ³,  Îz = âˆ’Ï + iÎ³
+  --  Â· the reflection pair  z = Ïƒ + iÎ³,  Î¸z = âˆ’Ïƒ + iÎ³
   ----------------------------------------------------------------
-  -- 2s âˆ’ z âˆ’ ÎzÌ = 2s, d_z d_Îz = (s âˆ’ Ï)(s + Ï):  Gram det = 1 âˆ’ (sâˆ’Ï)(s+Ï)/sÂ²
-  reflection-gram-determinant : (s Ï : A) â’ s Â s + (- ((s + (- Ï)) Â (s + Ï))) â‰¡ Ï Â Ï
-  reflection-gram-determinant s Ï = solve! R
+  -- 2s âˆ’ z âˆ’ Î¸zÌ„ = 2s, d_z d_Î¸z = (s âˆ’ Ïƒ)(s + Ïƒ):  Gram det = 1 âˆ’ (sâˆ’Ïƒ)(s+Ïƒ)/sÂ²
+  reflection-gram-determinant : (s Ïƒ : A) â†’ s Â· s + (- ((s + (- Ïƒ)) Â· (s + Ïƒ))) â‰¡ Ïƒ Â· Ïƒ
+  reflection-gram-determinant s Ïƒ = solve! R
 
-  -- â–F_z âˆ’ F_Îzâ–Â² = 2 âˆ’ 2âŸ¨F_z,F_ÎzâŸ© = 2 âˆ’ 2(sâˆ’Ï)(s+Ï)/sÂ²
-  bergman-reflection-difference : (s Ï : A)
-    â’ Î 2 Â (s Â s) + (- (Î 2 Â ((s + (- Ï)) Â (s + Ï)))) â‰¡ Î 2 Â (Ï Â Ï)
-  bergman-reflection-difference s Ï = shape s Ï
+  -- â€–F_z âˆ’ F_Î¸zâ€–Â² = 2 âˆ’ 2âŸ¨F_z,F_Î¸zâŸ© = 2 âˆ’ 2(sâˆ’Ïƒ)(s+Ïƒ)/sÂ²
+  bergman-reflection-difference : (s Ïƒ : A)
+    â†’ Î¹ 2 Â· (s Â· s) + (- (Î¹ 2 Â· ((s + (- Ïƒ)) Â· (s + Ïƒ)))) â‰¡ Î¹ 2 Â· (Ïƒ Â· Ïƒ)
+  bergman-reflection-difference s Ïƒ = shape s Ïƒ
     where
-      shape : (s Ï : A) â’ (1r + (1r + 0r)) Â (s Â s) + (- ((1r + (1r + 0r)) Â ((s + (- Ï)) Â (s + Ï)))) â‰¡ (1r + (1r + 0r)) Â (Ï Â Ï)
-      shape s Ï = solve! R
+      shape : (s Ïƒ : A) â†’ (1r + (1r + 0r)) Â· (s Â· s) + (- ((1r + (1r + 0r)) Â· ((s + (- Ïƒ)) Â· (s + Ïƒ)))) â‰¡ (1r + (1r + 0r)) Â· (Ïƒ Â· Ïƒ)
+      shape s Ïƒ = solve! R
 
   -- the three curvature readings agree mode by mode:
-  -- 4ÏÂ² = 4 sÂ² det = 2 sÂ² â–F_z âˆ’ F_Îzâ–Â²
-  curvature-readings : (s Ï det diff : A)
-    â’ (s Â s) Â det â‰¡ Ï Â Ï â’ (s Â s) Â diff â‰¡ Î 2 Â (Ï Â Ï)
-    â’ (Î 4 Â (Ï Â Ï) â‰¡ Î 4 Â ((s Â s) Â det)) — (Î 4 Â (Ï Â Ï) â‰¡ Î 2 Â ((s Â s) Â diff))
-  curvature-readings s Ï det diff hdet hdiff =
-    cong (Î 4 Â_) (sym hdet) , (shape Ï âˆ™ cong (Î 2 Â_) (sym hdiff))
+  -- 4ÏƒÂ² = 4 sÂ² det = 2 sÂ² â€–F_z âˆ’ F_Î¸zâ€–Â²
+  curvature-readings : (s Ïƒ det diff : A)
+    â†’ (s Â· s) Â· det â‰¡ Ïƒ Â· Ïƒ â†’ (s Â· s) Â· diff â‰¡ Î¹ 2 Â· (Ïƒ Â· Ïƒ)
+    â†’ (Î¹ 4 Â· (Ïƒ Â· Ïƒ) â‰¡ Î¹ 4 Â· ((s Â· s) Â· det)) Ã— (Î¹ 4 Â· (Ïƒ Â· Ïƒ) â‰¡ Î¹ 2 Â· ((s Â· s) Â· diff))
+  curvature-readings s Ïƒ det diff hdet hdiff =
+    cong (Î¹ 4 Â·_) (sym hdet) , (shape Ïƒ âˆ™ cong (Î¹ 2 Â·_) (sym hdiff))
     where
-      shape : (Ï : A) â’ (1r + (1r + (1r + (1r + 0r)))) Â (Ï Â Ï) â‰¡ (1r + (1r + 0r)) Â ((1r + (1r + 0r)) Â (Ï Â Ï))
-      shape Ï = solve! R
+      shape : (Ïƒ : A) â†’ (1r + (1r + (1r + (1r + 0r)))) Â· (Ïƒ Â· Ïƒ) â‰¡ (1r + (1r + 0r)) Â· ((1r + (1r + 0r)) Â· (Ïƒ Â· Ïƒ))
+      shape Ïƒ = solve! R
 
   ----------------------------------------------------------------
-  -- à© Â one mode's holonomy defect is 4 sinhÂ²(tÏ)
+  --  Â· one mode's holonomy defect is 4 sinhÂ²(tÏƒ)
   ----------------------------------------------------------------
-  sinh-defect : (c sh : A) â’ c Â c â‰¡ 1r + sh Â sh
-    â’ ((c + (- sh)) Â (c + (- sh)) + (c + sh) Â (c + sh)) + (- Î 2) â‰¡ Î 4 Â (sh Â sh)
-  sinh-defect c sh h = shape c sh âˆ™ cong (Î» u â’ Î 2 Â u + Î 2 Â (sh Â sh) + (- Î 2)) h âˆ™ shape' sh
+  sinh-defect : (c sh : A) â†’ c Â· c â‰¡ 1r + sh Â· sh
+    â†’ ((c + (- sh)) Â· (c + (- sh)) + (c + sh) Â· (c + sh)) + (- Î¹ 2) â‰¡ Î¹ 4 Â· (sh Â· sh)
+  sinh-defect c sh h = shape c sh âˆ™ cong (Î» u â†’ Î¹ 2 Â· u + Î¹ 2 Â· (sh Â· sh) + (- Î¹ 2)) h âˆ™ shape' sh
     where
-      shape : (c sh : A) â’ ((c + (- sh)) Â (c + (- sh)) + (c + sh) Â (c + sh)) + (- (1r + (1r + 0r)))
-                           â‰¡ (1r + (1r + 0r)) Â (c Â c) + (1r + (1r + 0r)) Â (sh Â sh) + (- (1r + (1r + 0r)))
+      shape : (c sh : A) â†’ ((c + (- sh)) Â· (c + (- sh)) + (c + sh) Â· (c + sh)) + (- (1r + (1r + 0r)))
+                           â‰¡ (1r + (1r + 0r)) Â· (c Â· c) + (1r + (1r + 0r)) Â· (sh Â· sh) + (- (1r + (1r + 0r)))
       shape c sh = solve! R
-      shape' : (sh : A) â’ (1r + (1r + 0r)) Â (1r + sh Â sh) + (1r + (1r + 0r)) Â (sh Â sh) + (- (1r + (1r + 0r))) â‰¡ (1r + (1r + (1r + (1r + 0r)))) Â (sh Â sh)
+      shape' : (sh : A) â†’ (1r + (1r + 0r)) Â· (1r + sh Â· sh) + (1r + (1r + 0r)) Â· (sh Â· sh) + (- (1r + (1r + 0r))) â‰¡ (1r + (1r + (1r + (1r + 0r)))) Â· (sh Â· sh)
       shape' sh = solve! R
 
   ----------------------------------------------------------------
-  -- à Â Cauchy determinants with the rows cleared of denominators
+  --  Â· Cauchy determinants with the rows cleared of denominators
   ----------------------------------------------------------------
-  cauchy-2 : (xâ xâ yâ yâ : A)
-    â’ (xâ + yâ) Â (xâ + yâ) + (- ((xâ + yâ) Â (xâ + yâ)))
-      â‰¡ (xâ + (- xâ)) Â (yâ + (- yâ))
-  cauchy-2 xâ xâ yâ yâ = solve! R
+  cauchy-2 : (xâ‚ xâ‚‚ yâ‚ yâ‚‚ : A)
+    â†’ (xâ‚ + yâ‚‚) Â· (xâ‚‚ + yâ‚) + (- ((xâ‚ + yâ‚) Â· (xâ‚‚ + yâ‚‚)))
+      â‰¡ (xâ‚‚ + (- xâ‚)) Â· (yâ‚‚ + (- yâ‚))
+  cauchy-2 xâ‚ xâ‚‚ yâ‚ yâ‚‚ = solve! R
 
   -- entry (i,j) of the cleared matrix is Î _{kâ‰ j} (x_i + y_k)
-  cauchy-3 : (xâ xâ xâ yâ yâ yâ : A)
-    â’ let mââ = (xâ + yâ) Â (xâ + yâ) ; mââ = (xâ + yâ) Â (xâ + yâ) ; mââ = (xâ + yâ) Â (xâ + yâ)
-          mââ = (xâ + yâ) Â (xâ + yâ) ; mââ = (xâ + yâ) Â (xâ + yâ) ; mââ = (xâ + yâ) Â (xâ + yâ)
-          mââ = (xâ + yâ) Â (xâ + yâ) ; mââ = (xâ + yâ) Â (xâ + yâ) ; mââ = (xâ + yâ) Â (xâ + yâ)
-      in  (mââ Â (mââ Â mââ + (- (mââ Â mââ))) + (- (mââ Â (mââ Â mââ + (- (mââ Â mââ))))))
-          + mââ Â (mââ Â mââ + (- (mââ Â mââ)))
-          â‰¡ ((xâ + (- xâ)) Â (xâ + (- xâ)) Â (xâ + (- xâ))) Â ((yâ + (- yâ)) Â (yâ + (- yâ)) Â (yâ + (- yâ)))
-  cauchy-3 xâ xâ xâ yâ yâ yâ = solve! R
+  cauchy-3 : (xâ‚ xâ‚‚ xâ‚ƒ yâ‚ yâ‚‚ yâ‚ƒ : A)
+    â†’ let mâ‚â‚ = (xâ‚ + yâ‚‚) Â· (xâ‚ + yâ‚ƒ) ; mâ‚â‚‚ = (xâ‚ + yâ‚) Â· (xâ‚ + yâ‚ƒ) ; mâ‚â‚ƒ = (xâ‚ + yâ‚) Â· (xâ‚ + yâ‚‚)
+          mâ‚‚â‚ = (xâ‚‚ + yâ‚‚) Â· (xâ‚‚ + yâ‚ƒ) ; mâ‚‚â‚‚ = (xâ‚‚ + yâ‚) Â· (xâ‚‚ + yâ‚ƒ) ; mâ‚‚â‚ƒ = (xâ‚‚ + yâ‚) Â· (xâ‚‚ + yâ‚‚)
+          mâ‚ƒâ‚ = (xâ‚ƒ + yâ‚‚) Â· (xâ‚ƒ + yâ‚ƒ) ; mâ‚ƒâ‚‚ = (xâ‚ƒ + yâ‚) Â· (xâ‚ƒ + yâ‚ƒ) ; mâ‚ƒâ‚ƒ = (xâ‚ƒ + yâ‚) Â· (xâ‚ƒ + yâ‚‚)
+      in  (mâ‚â‚ Â· (mâ‚‚â‚‚ Â· mâ‚ƒâ‚ƒ + (- (mâ‚‚â‚ƒ Â· mâ‚ƒâ‚‚))) + (- (mâ‚â‚‚ Â· (mâ‚‚â‚ Â· mâ‚ƒâ‚ƒ + (- (mâ‚‚â‚ƒ Â· mâ‚ƒâ‚))))))
+          + mâ‚â‚ƒ Â· (mâ‚‚â‚ Â· mâ‚ƒâ‚‚ + (- (mâ‚‚â‚‚ Â· mâ‚ƒâ‚)))
+          â‰¡ ((xâ‚‚ + (- xâ‚)) Â· (xâ‚ƒ + (- xâ‚)) Â· (xâ‚ƒ + (- xâ‚‚))) Â· ((yâ‚‚ + (- yâ‚)) Â· (yâ‚ƒ + (- yâ‚)) Â· (yâ‚‚ + (- yâ‚ƒ)))
+  cauchy-3 xâ‚ xâ‚‚ xâ‚ƒ yâ‚ yâ‚‚ yâ‚ƒ = solve! R
 
   ----------------------------------------------------------------
-  -- à Â the amplitude-weighted Vandermonde
+  --  Â· the amplitude-weighted Vandermonde
   ----------------------------------------------------------------
-  vandermonde-2 : (aâ aâ zâ zâ : A)
-    â’ aâ Â (aâ Â zâ) + (- ((aâ Â zâ) Â aâ)) â‰¡ (aâ Â aâ) Â (zâ + (- zâ))
-  vandermonde-2 aâ aâ zâ zâ = solve! R
+  vandermonde-2 : (aâ‚ aâ‚‚ zâ‚ zâ‚‚ : A)
+    â†’ aâ‚ Â· (aâ‚‚ Â· zâ‚‚) + (- ((aâ‚ Â· zâ‚) Â· aâ‚‚)) â‰¡ (aâ‚ Â· aâ‚‚) Â· (zâ‚‚ + (- zâ‚))
+  vandermonde-2 aâ‚ aâ‚‚ zâ‚ zâ‚‚ = solve! R
 
-  vandermonde-3 : (aâ aâ aâ zâ zâ zâ : A)
-    â’ let vââ = aâ ; vââ = aâ Â zâ ; vââ = aâ Â (zâ Â zâ)
-          vââ = aâ ; vââ = aâ Â zâ ; vââ = aâ Â (zâ Â zâ)
-          vââ = aâ ; vââ = aâ Â zâ ; vââ = aâ Â (zâ Â zâ)
-      in  (vââ Â (vââ Â vââ + (- (vââ Â vââ))) + (- (vââ Â (vââ Â vââ + (- (vââ Â vââ))))))
-          + vââ Â (vââ Â vââ + (- (vââ Â vââ)))
-          â‰¡ (aâ Â aâ Â aâ) Â ((zâ + (- zâ)) Â (zâ + (- zâ)) Â (zâ + (- zâ)))
-  vandermonde-3 aâ aâ aâ zâ zâ zâ = solve! R
+  vandermonde-3 : (aâ‚ aâ‚‚ aâ‚ƒ zâ‚ zâ‚‚ zâ‚ƒ : A)
+    â†’ let vâ‚â‚ = aâ‚ ; vâ‚â‚‚ = aâ‚ Â· zâ‚ ; vâ‚â‚ƒ = aâ‚ Â· (zâ‚ Â· zâ‚)
+          vâ‚‚â‚ = aâ‚‚ ; vâ‚‚â‚‚ = aâ‚‚ Â· zâ‚‚ ; vâ‚‚â‚ƒ = aâ‚‚ Â· (zâ‚‚ Â· zâ‚‚)
+          vâ‚ƒâ‚ = aâ‚ƒ ; vâ‚ƒâ‚‚ = aâ‚ƒ Â· zâ‚ƒ ; vâ‚ƒâ‚ƒ = aâ‚ƒ Â· (zâ‚ƒ Â· zâ‚ƒ)
+      in  (vâ‚â‚ Â· (vâ‚‚â‚‚ Â· vâ‚ƒâ‚ƒ + (- (vâ‚‚â‚ƒ Â· vâ‚ƒâ‚‚))) + (- (vâ‚â‚‚ Â· (vâ‚‚â‚ Â· vâ‚ƒâ‚ƒ + (- (vâ‚‚â‚ƒ Â· vâ‚ƒâ‚))))))
+          + vâ‚â‚ƒ Â· (vâ‚‚â‚ Â· vâ‚ƒâ‚‚ + (- (vâ‚‚â‚‚ Â· vâ‚ƒâ‚)))
+          â‰¡ (aâ‚ Â· aâ‚‚ Â· aâ‚ƒ) Â· ((zâ‚‚ + (- zâ‚)) Â· (zâ‚ƒ + (- zâ‚)) Â· (zâ‚ƒ + (- zâ‚‚)))
+  vandermonde-3 aâ‚ aâ‚‚ aâ‚ƒ zâ‚ zâ‚‚ zâ‚ƒ = solve! R

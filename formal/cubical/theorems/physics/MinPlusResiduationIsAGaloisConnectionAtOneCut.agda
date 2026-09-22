@@ -133,7 +133,7 @@ truncationBreaksTheNaiveOrder = naiveHolds , naiveFails
 --
 -- **The meet is `max`, not `min`.**  §2 here reverses ℕ's order because
 -- lower cost is better; a meet in a reversed order is a JOIN in the
--- original, so `�` over burdens is `max` in �.  Writing "min-plus, so
+-- original, so `` over burdens is `max` in ℕ.  Writing "min-plus, so
 -- take a min" names the operation by its role in the semiring rather
 -- than by its role in the order — the same error §2's reversal guards
 -- against, one level up.

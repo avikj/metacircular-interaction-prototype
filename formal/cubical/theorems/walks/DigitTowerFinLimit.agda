@@ -27,7 +27,7 @@ open import Cubical.Data.Fin using (Fin ; toℕ ; flast)
 import Cubical.Data.Empty as ⊥
 
 -- `injectSuc` is not a name in the pinned cubical v0.5; it comes from
--- FinTopSplit, which defines it as `inject< �-refl`.  See the note there.
+-- FinTopSplit, which defines it as `inject< -refl`.  See the note there.
 open import FinTopSplit using (topSplit ; injectSuc)
 
 private

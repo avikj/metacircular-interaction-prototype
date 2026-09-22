@@ -16,7 +16,7 @@ private
 module _ (R S : CommRing ℓ) (f : CommRingHom R S) where
   open CommRingStr (snd R)
 
-  -- If R and S were implicit, their �Comm component could (almost?) never be inferred.
+  -- If R and S were implicit, their Comm component could (almost?) never be inferred.
   kernelIdeal : IdealsIn R
   kernelIdeal = Ideal→CommIdeal (ringKernelIdeal (CommRingHom→RingHom f))
 

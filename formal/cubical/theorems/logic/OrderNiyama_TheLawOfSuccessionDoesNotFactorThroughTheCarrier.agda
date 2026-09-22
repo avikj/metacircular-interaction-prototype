@@ -8,7 +8,7 @@
 -- Akala·πÖka; Siddhasena DivƒÅkara ‚Äî as cited by `Saptabhangi.agda` and
 -- `KramaSaha_TheOrderOfStandpointsIsTheChargeItself.agda`, whose
 -- theorems this file uses as a lens and does not restate).  The
--- compound ‡ï‡‡∞‡Æ-‡®‡ø‡Ø‡Æ means "the rule of succession".
+-- compound - means "the rule of succession".
 --
 -- THE SLOGAN:
 --

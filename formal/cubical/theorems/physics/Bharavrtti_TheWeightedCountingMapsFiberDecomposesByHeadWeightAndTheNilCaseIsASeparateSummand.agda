@@ -6,7 +6,7 @@
 -- (the fiber of a weighted counting map splits by the head's weight.)
 --
 -- ────────────────────────────────────────────────────────────────────
--- `Avrtti_�agda` §� treats `length`:
+-- `Avrtti_…agda` § treats `length`:
 -- `length` charges one per constructor so its fiber recurrence has no
 -- guard, while a WEIGHTED map does.  This writes the general weighted
 -- emitter.

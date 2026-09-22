@@ -1,5 +1,5 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
--- ‡Ø‡®‡‡‡‡∞: the number-theory machine.
+-- : the number-theory machine built 2026-08-21.
 module PrimesAll where
 
 import Prakriti

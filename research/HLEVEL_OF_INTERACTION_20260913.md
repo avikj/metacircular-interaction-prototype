@@ -158,7 +158,7 @@ it drops is a symmetry) is usually a limitation. Here it is the tool:
 
 - The full object is `Derivation seed target₀`, proof-relevant, of
   unknown h-level.
-- Its h-level is not needed; one bit is: are there � 2 processes?
+- Its h-level is not needed; one bit is: are there  2 processes?
 - `dlen : Derivation → ℕ` is a decategorification into a *set*. It drops
   all the proof structure and keeps a count.
 - On that count, two lawful processes separate (`n` vs `n+2`), and a

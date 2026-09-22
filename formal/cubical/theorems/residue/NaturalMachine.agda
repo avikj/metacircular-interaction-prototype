@@ -723,7 +723,7 @@ import SelfImprovement
 -- and nothing else -- not the prover, the term generator, or how the
 -- fingerprint is computed.
 import MachineLoop
--- What `no-invariant-response-sees-Ï` proves:
+-- What `no-invariant-response-sees-Ï±` proves:
 -- an invariant response may READ the
 -- residual and may not DISTINGUISH on it.  Residual's theorem returns as
 -- the instance g = branchOf.

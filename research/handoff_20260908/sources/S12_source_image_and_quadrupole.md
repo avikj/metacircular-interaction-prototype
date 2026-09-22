@@ -1,4 +1,4 @@
-# Source-image rigidity for one Weil packet, and exact nonlinear leakage of the Navierâ“Stokes strain source
+# Source-image rigidity for one Weil packet, and exact nonlinear leakage of the Navierâ€“Stokes strain source
 
 Date: 7 September 2026.
 Repository inspected: `avikj/metacircular-interaction-prototype`, commit `168ea8e240524f898af4b0e9cf70297c38422f08`.
@@ -400,7 +400,7 @@ Saved source inputs retained:
 
 Primary background:
 
-- J. B. Conrey, More than two fifths of the zeros of the Riemann zeta function are on the critical line, J. reine angew. Math. 399 (1989), 1â“26, DOI 10.1515/crll.1989.399.1. Only the unconditional positive proportion of distinct simple critical-line zeros is needed.
+- J. B. Conrey, More than two fifths of the zeros of the Riemann zeta function are on the critical line, J. reine angew. Math. 399 (1989), 1â€“26, DOI 10.1515/crll.1989.399.1. Only the unconditional positive proportion of distinct simple critical-line zeros is needed.
 - M. Suzuki, Weil's quadratic form via the screw function, arXiv:2606.09096. The actual Weil reflection/explicit-formula background is retained; no conjectural limit is used.
 - M. Wilczek and C. Meneveau, Pressure Hessian and viscous contributions to velocity gradient statistics based on Gaussian random fields, arXiv:1401.3351. Relevant background for the familiar statistical -2/7 coefficient; not used as a proof of the deterministic source-projection identity derived here.
 

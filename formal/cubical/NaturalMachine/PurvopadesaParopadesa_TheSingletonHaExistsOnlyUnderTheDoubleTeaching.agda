@@ -35,7 +35,7 @@
 -- WHAT IS PROVED, and why it is not already in the module it extends
 --
 -- `NaturalMachine.Pratyahara_TheRepeatedHaBreaksIntersectionClosureAtExactlyOneSet`
--- proves ‡‡‡ ‚à© ‡‡≤‡ ‚â° ‡ ‚à [] and that ‡ ‚à []
+-- (cf-tessera-k-6, 691156fe) proves  ‚à©  ‚â°  ‚à∑ [] and that  ‚à∑ []
 -- bears no legal name, hence that the generated family is not closed
 -- under non-empty intersection.  It does NOT ask where that singleton
 -- comes from.

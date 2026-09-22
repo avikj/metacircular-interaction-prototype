@@ -47,7 +47,7 @@
 --     Leibniz rule; that structure is not built here either.
 --
 -- REFUTED, at the bottom of the file: the claim that
--- `Δ � ≡ 0` forces `�` constant.  It does
+-- formed while writing it — that `Δ φ ≡ 0` forces `φ` constant.  It does
 -- not, and `harmonic-does-not-force-constant` is the counterexample.  That
 -- is the precise place where Kirchhoff's connectivity count enters and the
 -- reason his β = |E| − |V| + c carries a `c`.

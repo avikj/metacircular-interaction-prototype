@@ -67,7 +67,7 @@ module _ (R' : CommRing ℓ) (S' : ℙ (fst R')) (SMultClosedSubset : isMultClos
                      → isProp (hasLocUniversalProp A φ φS⊆Aˣ)
  isPropUniversalProp A φ φS⊆Aˣ = isPropΠ3 (λ _ _ _ → isPropIsContr)
 
- -- S��R has the universal property
+ -- SR has the universal property
  module S⁻¹RUniversalProp where
   open Loc R' S' SMultClosedSubset
   _/1 : R → S⁻¹R

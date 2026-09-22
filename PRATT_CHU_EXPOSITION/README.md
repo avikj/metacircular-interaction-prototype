@@ -10,7 +10,7 @@ This is the top-level working locus for the Vaughan Pratt / Chu-spaces expositio
 4. **`WIKI_BUILD_SPEC.md`** — first complete website/wiki graph and page-inventory handoff.
 5. **`MATHEMATICAL_WIKI_BUILD_SPEC.md`** — expanded canonical build specification, including page ontology, identity/near-identity clustering, typed relations, canonical-Agda-per-page requirement, and build sequence.
 
-The newer [Bend2 � Unison reading and synthesis](../research/wiki/BEND2_UNISON_READING_AND_SYNTHESIS.md) updates the technology direction: the mathematical codebase and full cubical Bend2/HVM4 runtime are the computational center, and the wiki is a view into them.
+The newer [Bend2  Unison reading and synthesis](../research/wiki/BEND2_UNISON_READING_AND_SYNTHESIS.md) updates the technology direction: the mathematical codebase and full cubical Bend2/HVM4 runtime are the computational center, and the wiki is a view into them.
 
 ## Working rule
 

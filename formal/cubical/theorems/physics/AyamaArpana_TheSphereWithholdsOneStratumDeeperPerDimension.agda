@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- आयाम-अर्पण — offering by dimension.  StaraArpana proved the circle's
 -- charge is withheld at stratum 2 and offered whole at stratum 3
--- (Ω(�S�� 3) � �).  THE DIMENSIONAL QUESTION:
+-- (Ω(∥S 3)  ).  THE DIMENSIONAL QUESTION:
 -- does the withholding deepen by
 -- one stratum per dimension?
 --

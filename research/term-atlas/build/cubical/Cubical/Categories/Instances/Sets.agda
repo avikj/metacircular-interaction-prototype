@@ -163,7 +163,7 @@ univProp (completeSET J D) c cc =
 module _ {ℓ} where
 
 -- While pullbacks can be obtained from limits
--- (using `completeSET` & `LimitsOfShapeCospanCat�Pullbacks` from `Cubical.Categories.Limits.Pullback`),
+-- (using `completeSET` & `LimitsOfShapeCospanCatPullbacks` from `Cubical.Categories.Limits.Pullback`),
 -- this direct construction can be more convenient when only pullbacks are needed.
 -- It also has better behavior in terms of inferring implicit arguments
 
@@ -186,8 +186,8 @@ module _ {ℓ} where
      (funExt λ x → Σ≡Prop (λ _ → (snd m) _ _)
         λ i → fst (snd y) i x , snd (snd y) i x)
 
--- LiftF : SET � � SET (�-suc �) preserves "small" limits
--- i.e. limits over diagram shapes J : Category � �
+-- LiftF : SET   SET (-suc ) preserves "small" limits
+-- i.e. limits over diagram shapes J : Category  
 module _ {ℓ : Level} where
   preservesLimitsLiftF : preservesLimits {ℓJ = ℓ} {ℓJ' = ℓ} (LiftF {ℓ} {ℓ-suc ℓ})
   preservesLimitsLiftF = preservesLimitsChar _
@@ -196,7 +196,7 @@ module _ {ℓ : Level} where
                            limSetIso
                            λ _ _ _ → refl
     where
-    -- SET (�-suc �) has limits over shapes J : Category � �
+    -- SET (-suc ) has limits over shapes J : Category  
     completeSETSuc : Limits {ℓJ = ℓ} {ℓJ' = ℓ} (SET (ℓ-suc ℓ))
     lim (completeSETSuc J D) = Cone D (Unit* , isOfHLevelLift 2 isSetUnit) , isSetCone D _
     coneOut (limCone (completeSETSuc J D)) j e = coneOut e j tt*

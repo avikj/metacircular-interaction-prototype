@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- àµà¿ààà°à•à°àà â€” dispersion.  The dispersion step as a term, with NO
+--  â€” dispersion.  The dispersion step as a term, with NO
 -- coprimality fence: the joint reciprocal itself supplies the inverse.
 --
 --   Å«â‚ âˆ’ Å«â‚‚  â‰¡  (uâ‚‚ âˆ’ uâ‚) Â· w   (mod v),      w = (uâ‚Â·uâ‚‚)â»Â¹ mod v.

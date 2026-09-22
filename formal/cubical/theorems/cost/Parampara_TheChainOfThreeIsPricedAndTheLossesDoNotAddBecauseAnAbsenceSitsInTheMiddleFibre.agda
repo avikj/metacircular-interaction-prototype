@@ -574,14 +574,14 @@ snd समष्टिः-रिक्ता (tt , r) = Σ≡Prop (λ _ → isSe
 शेष-निवृत्तौ = शेष विस्मरण स्थापना tt
 
 ------------------------------------------------------------------------
--- � � ���� — scope.
+--    — scope.
 --
--- The result that generalises is §�'s, and it
+-- The result that generalises is §'s, and it
 -- is a NEGATIVE one: the per-step fibres do not determine the
 -- composite's fibre unless the earlier map's fibre is uniform.
 --
 -- Everything here is finite, decidable and a set.
 --
--- §� proves a non-equivalence of types; the
+-- § proves a non-equivalence of types; the
 -- subtraction is a reading.
 ------------------------------------------------------------------------

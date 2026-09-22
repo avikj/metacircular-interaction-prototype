@@ -4,7 +4,7 @@
 -- NaturalMachine.NonUniquenessAndInexpressibilityAreIndependent
 --
 -- Three modules here call three
--- different structures ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡
+-- different structures , and separated two of them by their
 -- by one name; two of them are separated by their defect:
 --
 --   ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç  the content is DETERMINATE and no single utterance says

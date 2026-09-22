@@ -25,13 +25,13 @@
 -- zero, and the exact logical asymmetry between the two directions.
 --
 -- §2 below is a FAITHFUL FINITE
--- MODEL of the K� argument:
+-- MODEL of the K₀ argument:
 -- it replaces an object of D^b(Vect_k) with the pair of its
 -- even/odd total ranks, ℕ × ℕ, replaces K₀ ≅ ℤ-by-Euler-characteristic
 -- with the honest difference m − n : ℤ, and replaces the note's
 -- k ⊕ k[1] with (1 , 1).  Under that replacement the note's witness is
 -- reproduced exactly: the model's χ(1,1) = 1 − 1 = 0 while
--- (1,1) � (0,0).
+-- (1,1) ≢ (0,0).
 -- The finite model is exhibited
 -- to show that the abstract shape is INHABITED, i.e. that the failure of the
 -- converse is not vacuous.

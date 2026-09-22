@@ -33,7 +33,7 @@
 -- `X`'s own level, not a mathematical restriction; a `Lift` would
 -- remove it and add nothing.
 --
--- A second remark: `�[ g ∈ A � A ] Stab g` is
+-- A second remark, recorded and not pursued: `Σ[ g ∈ A ≃ A ] Stab g` is
 -- the fibre of the orbit map `g ↦ subst Str (ua g) s` over `s`, so §4
 -- is also an instance of the fibre language in
 -- `CertificateFibration`.  Making that identification

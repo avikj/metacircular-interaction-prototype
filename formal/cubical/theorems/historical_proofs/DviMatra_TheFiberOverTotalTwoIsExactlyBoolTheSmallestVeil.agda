@@ -22,7 +22,7 @@
 --
 -- No new mathematics: every part is consumed, not reproved ‚Äî the fiber
 -- recurrence and both base contractions are Virahanka's own; ‚äé-equiv,
--- isContr‚í‚âUnit and Iso-‚ä‚ä‚ä-Bool are the cubical library's.  TERM ‡¶‡‡µ‡ø-‡Æ‡æ‡‡‡∞‡æ (two morae), Chandastra
+-- isContr‚ÜíUnit and Iso--Bool are the cubical library's.  TERM - (two morae), Chandastra
 -- vocabulary; substrate cubical (Voevodsky).
 ------------------------------------------------------------------------
 

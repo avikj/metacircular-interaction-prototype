@@ -22,7 +22,7 @@
 --     specialization of §1, exhibited.
 -- §3  FENCE — the per-prime real crystal r_{p,a}(t) = −2cos(2πat/p)/(p−2)
 --     and the survivor-count identity are the spectral reading;
---     they need � and the DFT.  What is checked
+--     they need ℝ and the DFT and are NOT checked here.  What is checked
 --     is the centering that renders the two-wall indicator symmetric, on
 --     which the reality of the crystal rests.
 ------------------------------------------------------------------------
@@ -77,7 +77,7 @@ twin-right : ((- pos 2) - (- pos 1)) ≡ - pos 1
 twin-right = refl
 
 ------------------------------------------------------------------------
--- §3 � FENCE (the spectral reading).
+-- §3 · FENCE (the owner's spectral reading, stated, NOT checked here).
 --
 -- After centering, the per-prime normalized Fourier crystal is REAL and
 -- signed: for p ∤ 2a,  r_{p,a}(0) = 1,  r_{p,a}(t) = −2cos(2πat/p)/(p−2)

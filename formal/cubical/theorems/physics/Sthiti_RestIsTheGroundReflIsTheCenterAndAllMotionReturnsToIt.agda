@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --safe #-}
 
--- àààà¿àà¿ â€” rest, the ground.  Below
+--  â€” rest, the ground.  Below
 -- the fibre law, below "there is no other", there is refl â€” and refl is
 -- simpler and more powerful than any of it.
 --

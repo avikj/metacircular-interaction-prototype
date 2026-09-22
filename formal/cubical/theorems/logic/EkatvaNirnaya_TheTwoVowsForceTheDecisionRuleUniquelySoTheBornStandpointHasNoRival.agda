@@ -3,7 +3,7 @@
 -- EkatvaNirnaya_TheTwoVowsForceTheDecisionRuleUniquelySoTheBornStandpointHasNoRival
 --
 -- एकत्व-निर्णयः — ekatva, uniqueness; nirṇaya, the decision.
--- For program � of YugaParivartana (measurement
+-- For program  of YugaParivartana (measurement
 -- as conflict resolution).  Sources as AvaktavyaPrasava's header gives
 -- them: Ktyyana's vrttika on
 -- 1.4.2 (the configuration), Umsvti 5.31 (asserted/unasserted),

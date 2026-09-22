@@ -7,8 +7,8 @@
 --
 -- ‡§Æ‡•Ç‡§≤‡§Æ‡•ç (the verse this module is about), ‡§ï‡•á‡§¶‡§æ‡§∞‡§≠‡§ü‡•ç‡§ü‡§É, ‡§µ‡•É‡§§‡•ç‡§§‡§∞‡§§‡•ç‡§®‡§æ‡§ï‡§∞‡§É ‡•¨.‡•Ø :
 --
---     ‡‡‡ñ‡‡Ø‡à‡µ ‡¶‡‡µ‡ø‡ó‡‡‡à‡ï‡ã‡®‡æ ‡‡¶‡‡‡ø‡∞‡ß‡‡µ‡æ ‡‡‡∞‡ï‡‡∞‡‡‡ø‡‡ ‡
---     ‡µ‡‡‡‡‡‡‡Ø‡æ‡ô‡‡ó‡‡≤‡ø‡ï‡‡ ‡µ‡‡Ø‡æ‡‡‡‡ø‡Æ‡ß‡ ‡ï‡‡∞‡‡Ø‡æ‡‡‡‡‡æ‡ô‡‡ó‡‡≤‡Æ‡ ‡
+--         
+--        
 --
 --   "the sakhy itself, doubled, less one (dvi-gu eka-n), is by the
 --    learned declared the adhvan, the road.  One should make the extent

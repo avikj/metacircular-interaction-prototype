@@ -5,10 +5,10 @@
 --
 -- TERM.  ‡§¶‡•ç‡§µ‡§Ø (the pair, the two) and ‡§∏‡•á‡§§‡•Å (bridge ‚Äî the corpus's own
 -- word for a checked identification, per Setubandha).  The compound
--- ‡¶‡‡µ‡Ø-‡‡‡‡ means "the bridge of the two".
+-- - means "the bridge of the two".
 --
 -- `SamaVibhaga_‚Ä¶`: at X = Fin 2 the iterate
--- ‡ó‡‡‡ 1 y is y +µ y, so `SamaVibhaga`'s `divideUniquely` hypothesis is
+--  1 y is y + y, so `SamaVibhaga`'s `divideUniquely` hypothesis is
 -- EXACTLY UniquenessMatraDvaya's halvesUniquely.
 -- The wire is a term, and the instantiation is definitional ‚Äî ‡§ó‡•Å‡§£‡§É 1 y and y +·µÇ y
 -- are the SAME normal form, so `halvesUniquely` is passed to

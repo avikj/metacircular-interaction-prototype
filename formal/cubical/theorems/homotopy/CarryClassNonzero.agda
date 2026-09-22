@@ -26,7 +26,7 @@
 -- its arithmetic instance can be checked independently.
 --
 -- Coefficients are `ker Ï€â‚™` as a group in its own right, NOT â„¤/b: the
--- isomorphism bâ¿â/bâ¿âºÂ â‰ â/b is not used.
+-- isomorphism bâ¿/b  /b is not used.
 ------------------------------------------------------------------------
 
 module CarryClassNonzero where

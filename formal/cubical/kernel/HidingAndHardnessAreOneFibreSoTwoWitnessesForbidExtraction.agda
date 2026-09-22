@@ -10,7 +10,7 @@
 -- (
 -- has a technical vocabulary for secret communication -- Kauilya's
 -- *Artha≈õƒÅstra* uses ‡§ó‡•Ç‡§¢-compounds for it, and the KƒÅmas≈´tra's list of arts
--- includes ‡Æ‡‡≤‡‡‡‡‡ø‡‡µ‡ø‡ï‡≤‡‡.)
+-- includes .)
 --
 ------------------------------------------------------------------------
 -- WHY THIS FILE EXISTS.

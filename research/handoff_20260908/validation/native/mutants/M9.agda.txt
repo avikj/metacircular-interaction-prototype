@@ -1,217 +1,217 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- àà‹àà¾à¨ â” the ladder.
+--  â€” the ladder.
 --
--- The damping-moment kernels  G_n = âˆ tâ¿ e^{âˆ’2st} Z(T+t) ZÌ(U+t) dt
--- (handoff Â§57, [S09]) obey, with  â’ = 2s âˆ’ âˆ_T âˆ’ âˆ_U  and  R = âˆ’Â½âˆ_s,
+-- The damping-moment kernels  G_n = âˆ« tâ¿ e^{âˆ’2st} Z(T+t) ZÌ„(U+t) dt
+-- (handoff Â§57, [S09]) obey, with  â„’ = 2s âˆ’ âˆ‚_T âˆ’ âˆ‚_U  and  R = âˆ’Â½âˆ‚_s,
 --
---     R G_n = G_{n+1},   â’ G_0 = ZâŠ—ZÌ,   â’ G_n = n G_{nâˆ’1},   [â’, R] = I,
+--     R G_n = G_{n+1},   â„’ G_0 = ZâŠ—ZÌ„,   â„’ G_n = n G_{nâˆ’1},   [â„’, R] = I,
 --
--- hence  â’â¿âºÂ G_n = n! ZâŠ—ZÌ.  Three finite pieces are checked here:
+-- hence  â„’â¿âºÂ¹ G_n = n! ZâŠ—ZÌ„.  Three finite pieces are checked here:
 --
---   à§  the ladder: for ANY additive â’ and sequence G with â’ Gâ = ZZ and
---      â’ G_{n+1} = (n+1) G_n,   â’â¿âºÂ G_n â‰¡ n! Â ZZ;
---   à¨  the Weyl pair: for a derivation âˆ (= âˆ_s) with âˆ s = 1 and an
---      additive D (= âˆ_T + âˆ_U) commuting with âˆ,
---         â’(âˆÏ) âˆ’ âˆ(â’Ï) â‰¡ âˆ’2Ï,     i.e.  [â’, âˆ’Â½âˆ] = I,
---      and raising is just âˆ of the damping factor:  âˆ(tâ¿E) = âˆ’2 tâ¿âºÂE
---      when âˆE = âˆ’2tE, âˆt = 0;
---   à©  the lossless oscillator of Â§61: with  aâ² = iÎ³ a + f  written in
---      real coordinates  pâ² = âˆ’Î³q + fâ,  qâ² = Î³p + fâ,
---         âˆ(pÂ² + qÂ²) â‰¡ 2 (p fâ + q fâ),
---      i.e. the stored energy changes exactly by the supplied work Re(fÌ a).
+--     the ladder: for ANY additive â„’ and sequence G with â„’ Gâ‚€ = ZZ and
+--      â„’ G_{n+1} = (n+1) G_n,   â„’â¿âºÂ¹ G_n â‰¡ n! Â· ZZ;
+--     the Weyl pair: for a derivation âˆ‚ (= âˆ‚_s) with âˆ‚ s = 1 and an
+--      additive D (= âˆ‚_T + âˆ‚_U) commuting with âˆ‚,
+--         â„’(âˆ‚Ï†) âˆ’ âˆ‚(â„’Ï†) â‰¡ âˆ’2Ï†,     i.e.  [â„’, âˆ’Â½âˆ‚] = I,
+--      and raising is just âˆ‚ of the damping factor:  âˆ‚(tâ¿E) = âˆ’2 tâ¿âºÂ¹E
+--      when âˆ‚E = âˆ’2tE, âˆ‚t = 0;
+--     the lossless oscillator of Â§61: with  aâ€² = iÎ³ a + f  written in
+--      real coordinates  pâ€² = âˆ’Î³q + fâ‚,  qâ€² = Î³p + fâ‚‚,
+--         âˆ‚(pÂ² + qÂ²) â‰¡ 2 (p fâ‚ + q fâ‚‚),
+--      i.e. the stored energy changes exactly by the supplied work Re(fÌ„ a).
 ------------------------------------------------------------------------
 module M9 where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (âŸ¨_âŸ©)
-open import Cubical.Data.Nat using (â• ; zero ; suc) renaming (_Â_ to _Ââ•_ ; _+_ to _+â•_)
+open import Cubical.Data.Nat using (â„• ; zero ; suc) renaming (_Â·_ to _Â·â„•_ ; _+_ to _+â„•_)
 open import Cubical.Algebra.CommRing
 open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
 private
   variable
-    â“ : Level
+    â„“ : Level
 
-fact : â• â’ â•
+fact : â„• â†’ â„•
 fact zero    = 1
-fact (suc n) = suc n Ââ• fact n
+fact (suc n) = suc n Â·â„• fact n
 
 ------------------------------------------------------------------------
-module _ (R : CommRing â“) where
+module _ (R : CommRing â„“) where
   open CommRingStr (snd R)
 
   private
     A = âŸ¨ R âŸ©
 
-  Î : â• â’ A
-  Î zero    = 0r
-  Î (suc n) = 1r + Î n
+  Î¹ : â„• â†’ A
+  Î¹ zero    = 0r
+  Î¹ (suc n) = 1r + Î¹ n
 
-  scale : â• â’ A â’ A
+  scale : â„• â†’ A â†’ A
   scale zero    x = 0r
   scale (suc n) x = x + scale n x
 
   private
-    scale-+ : (m n : â•) (x : A) â’ scale (m +â• n) x â‰¡ scale m x + scale n x
+    scale-+ : (m n : â„•) (x : A) â†’ scale (m +â„• n) x â‰¡ scale m x + scale n x
     scale-+ zero    n x = sym (+IdL (scale n x))
     scale-+ (suc m) n x = cong (x +_) (scale-+ m n x) âˆ™ +Assoc x (scale m x) (scale n x)
 
-    scale-Â : (m n : â•) (x : A) â’ scale (m Ââ• n) x â‰¡ scale m (scale n x)
-    scale-Â zero    n x = refl
-    scale-Â (suc m) n x = scale-+ n (m Ââ• n) x âˆ™ cong (scale n x +_) (scale-Â m n x)
+    scale-Â· : (m n : â„•) (x : A) â†’ scale (m Â·â„• n) x â‰¡ scale m (scale n x)
+    scale-Â· zero    n x = refl
+    scale-Â· (suc m) n x = scale-+ n (m Â·â„• n) x âˆ™ cong (scale n x +_) (scale-Â· m n x)
 
   ----------------------------------------------------------------
-  -- à§ Â THE LADDER
+  --  Â· THE LADDER
   ----------------------------------------------------------------
-  module Ladder (â’ : A â’ A) (â’-add : (x y : A) â’ â’ (x + y) â‰¡ â’ x + â’ y)
-                (G : â• â’ A) (ZZ : A)
-                (base : â’ (G zero) â‰¡ ZZ)
-                (step : (n : â•) â’ â’ (G (suc n)) â‰¡ scale (suc n) (G n))
+  module Ladder (â„’ : A â†’ A) (â„’-add : (x y : A) â†’ â„’ (x + y) â‰¡ â„’ x + â„’ y)
+                (G : â„• â†’ A) (ZZ : A)
+                (base : â„’ (G zero) â‰¡ ZZ)
+                (step : (n : â„•) â†’ â„’ (G (suc n)) â‰¡ scale (suc n) (G n))
                 where
 
-    -- iterate, applying â’ innermost first
-    â’^ : â• â’ A â’ A
-    â’^ zero    x = x
-    â’^ (suc n) x = â’^ n (â’ x)
+    -- iterate, applying â„’ innermost first
+    â„’^ : â„• â†’ A â†’ A
+    â„’^ zero    x = x
+    â„’^ (suc n) x = â„’^ n (â„’ x)
 
     private
-      â’-zero : â’ 0r â‰¡ 0r
-      â’-zero = sym ( sym (+InvR (â’ 0r)) âˆ™ cong (_+ (- (â’ 0r))) h âˆ™ cancelR (â’ 0r) (â’ 0r) )
+      â„’-zero : â„’ 0r â‰¡ 0r
+      â„’-zero = sym ( sym (+InvR (â„’ 0r)) âˆ™ cong (_+ (- (â„’ 0r))) h âˆ™ cancelR (â„’ 0r) (â„’ 0r) )
         where
-          h : â’ 0r â‰¡ â’ 0r + â’ 0r
-          h = cong â’ (sym (+IdR 0r)) âˆ™ â’-add 0r 0r
-          cancelR : (x y : A) â’ (x + y) + (- y) â‰¡ x
+          h : â„’ 0r â‰¡ â„’ 0r + â„’ 0r
+          h = cong â„’ (sym (+IdR 0r)) âˆ™ â„’-add 0r 0r
+          cancelR : (x y : A) â†’ (x + y) + (- y) â‰¡ x
           cancelR x y = solve! R
 
-      â’-scale : (n : â•) (x : A) â’ â’ (scale n x) â‰¡ scale n (â’ x)
-      â’-scale zero    x = â’-zero
-      â’-scale (suc n) x = â’-add x (scale n x) âˆ™ cong (â’ x +_) (â’-scale n x)
+      â„’-scale : (n : â„•) (x : A) â†’ â„’ (scale n x) â‰¡ scale n (â„’ x)
+      â„’-scale zero    x = â„’-zero
+      â„’-scale (suc n) x = â„’-add x (scale n x) âˆ™ cong (â„’ x +_) (â„’-scale n x)
 
-      â’^-scale : (m n : â•) (x : A) â’ â’^ m (scale n x) â‰¡ scale n (â’^ m x)
-      â’^-scale zero    n x = refl
-      â’^-scale (suc m) n x = cong (â’^ m) (â’-scale n x) âˆ™ â’^-scale m n (â’ x)
+      â„’^-scale : (m n : â„•) (x : A) â†’ â„’^ m (scale n x) â‰¡ scale n (â„’^ m x)
+      â„’^-scale zero    n x = refl
+      â„’^-scale (suc m) n x = cong (â„’^ m) (â„’-scale n x) âˆ™ â„’^-scale m n (â„’ x)
 
-    ladder : (n : â•) â’ â’^ (suc n) (G n) â‰¡ scale (fact n) ZZ
+    ladder : (n : â„•) â†’ â„’^ (suc n) (G n) â‰¡ scale (fact n) ZZ
     ladder zero    = base âˆ™ sym (+IdR ZZ)
     ladder (suc n) =
-        cong (â’^ (suc n)) (step n)
-      âˆ™ â’^-scale (suc n) (suc n) (G n)
+        cong (â„’^ (suc n)) (step n)
+      âˆ™ â„’^-scale (suc n) (suc n) (G n)
       âˆ™ cong (scale (suc n)) (ladder n)
-      âˆ™ sym (scale-Â (suc n) (fact n) ZZ)
+      âˆ™ sym (scale-Â· (suc n) (fact n) ZZ)
 
     -- the first three rungs, explicitly
-    _ : â’ (G 0) â‰¡ ZZ + 0r
+    _ : â„’ (G 0) â‰¡ ZZ + 0r
     _ = ladder 0
-    _ : â’ (â’ (G 1)) â‰¡ ZZ + 0r
+    _ : â„’ (â„’ (G 1)) â‰¡ ZZ + 0r
     _ = ladder 1
-    _ : â’ (â’ (â’ (G 2))) â‰¡ ZZ + (ZZ + 0r)
+    _ : â„’ (â„’ (â„’ (G 2))) â‰¡ ZZ + (ZZ + 0r)
     _ = ladder 2
 
   ----------------------------------------------------------------
-  -- à¨ Â THE WEYL PAIR
+  --  Â· THE WEYL PAIR
   ----------------------------------------------------------------
-  module _ (âˆ : A â’ A)
-           (âˆ-add  : (x y : A) â’ âˆ (x + y) â‰¡ âˆ x + âˆ y)
-           (âˆ-leib : (x y : A) â’ âˆ (x Â y) â‰¡ âˆ x Â y + x Â âˆ y)
+  module _ (âˆ‚ : A â†’ A)
+           (âˆ‚-add  : (x y : A) â†’ âˆ‚ (x + y) â‰¡ âˆ‚ x + âˆ‚ y)
+           (âˆ‚-leib : (x y : A) â†’ âˆ‚ (x Â· y) â‰¡ âˆ‚ x Â· y + x Â· âˆ‚ y)
            where
 
     private
-      âˆ-zero : âˆ 0r â‰¡ 0r
-      âˆ-zero = sym ( sym (+InvR (âˆ 0r)) âˆ™ cong (_+ (- (âˆ 0r))) h âˆ™ cancelR (âˆ 0r) (âˆ 0r) )
+      âˆ‚-zero : âˆ‚ 0r â‰¡ 0r
+      âˆ‚-zero = sym ( sym (+InvR (âˆ‚ 0r)) âˆ™ cong (_+ (- (âˆ‚ 0r))) h âˆ™ cancelR (âˆ‚ 0r) (âˆ‚ 0r) )
         where
-          h : âˆ 0r â‰¡ âˆ 0r + âˆ 0r
-          h = cong âˆ (sym (+IdR 0r)) âˆ™ âˆ-add 0r 0r
-          cancelR : (x y : A) â’ (x + y) + (- y) â‰¡ x
+          h : âˆ‚ 0r â‰¡ âˆ‚ 0r + âˆ‚ 0r
+          h = cong âˆ‚ (sym (+IdR 0r)) âˆ™ âˆ‚-add 0r 0r
+          cancelR : (x y : A) â†’ (x + y) + (- y) â‰¡ x
           cancelR x y = solve! R
 
-      âˆ-neg : (x : A) â’ âˆ (- x) â‰¡ - âˆ x
-      âˆ-neg x = negOf (âˆ x) (âˆ (- x)) (sym (âˆ-add x (- x)) âˆ™ cong âˆ (+InvR x) âˆ™ âˆ-zero)
+      âˆ‚-neg : (x : A) â†’ âˆ‚ (- x) â‰¡ - âˆ‚ x
+      âˆ‚-neg x = negOf (âˆ‚ x) (âˆ‚ (- x)) (sym (âˆ‚-add x (- x)) âˆ™ cong âˆ‚ (+InvR x) âˆ™ âˆ‚-zero)
         where
-          negOf : (a b : A) â’ a + b â‰¡ 0r â’ b â‰¡ - a
+          negOf : (a b : A) â†’ a + b â‰¡ 0r â†’ b â‰¡ - a
           negOf a b h = sym (+IdL b) âˆ™ cong (_+ b) (sym (+InvL a)) âˆ™ sym (+Assoc (- a) a b) âˆ™ cong ((- a) +_) h âˆ™ +IdR (- a)
 
-      âˆ-one : âˆ 1r â‰¡ 0r
-      âˆ-one = sym ( sym (+InvR (âˆ 1r)) âˆ™ cong (_+ (- (âˆ 1r))) h âˆ™ cancelR (âˆ 1r) (âˆ 1r) )
+      âˆ‚-one : âˆ‚ 1r â‰¡ 0r
+      âˆ‚-one = sym ( sym (+InvR (âˆ‚ 1r)) âˆ™ cong (_+ (- (âˆ‚ 1r))) h âˆ™ cancelR (âˆ‚ 1r) (âˆ‚ 1r) )
         where
-          h : âˆ 1r â‰¡ âˆ 1r + âˆ 1r
-          h = cong âˆ (sym (ÂIdR 1r)) âˆ™ âˆ-leib 1r 1r âˆ™ congâ _+_ (ÂIdR (âˆ 1r)) (ÂIdL (âˆ 1r))
-          cancelR : (x y : A) â’ (x + y) + (- y) â‰¡ x
+          h : âˆ‚ 1r â‰¡ âˆ‚ 1r + âˆ‚ 1r
+          h = cong âˆ‚ (sym (Â·IdR 1r)) âˆ™ âˆ‚-leib 1r 1r âˆ™ congâ‚‚ _+_ (Â·IdR (âˆ‚ 1r)) (Â·IdL (âˆ‚ 1r))
+          cancelR : (x y : A) â†’ (x + y) + (- y) â‰¡ x
           cancelR x y = solve! R
 
-      âˆÎ : (n : â•) â’ âˆ (Î n) â‰¡ 0r
-      âˆÎ zero    = âˆ-zero
-      âˆÎ (suc n) = âˆ-add 1r (Î n) âˆ™ congâ _+_ âˆ-one (âˆÎ n) âˆ™ +IdR 0r
+      âˆ‚Î¹ : (n : â„•) â†’ âˆ‚ (Î¹ n) â‰¡ 0r
+      âˆ‚Î¹ zero    = âˆ‚-zero
+      âˆ‚Î¹ (suc n) = âˆ‚-add 1r (Î¹ n) âˆ™ congâ‚‚ _+_ âˆ‚-one (âˆ‚Î¹ n) âˆ™ +IdR 0r
 
-      âˆÎx : (n : â•) (x : A) â’ âˆ (Î n Â x) â‰¡ Î n Â âˆ x
-      âˆÎx n x = âˆ-leib (Î n) x âˆ™ cong (_+ Î n Â âˆ x) (cong (_Â x) (âˆÎ n) âˆ™ zeroL x) âˆ™ +IdL (Î n Â âˆ x)
-        where zeroL : (y : A) â’ 0r Â y â‰¡ 0r
+      âˆ‚Î¹x : (n : â„•) (x : A) â†’ âˆ‚ (Î¹ n Â· x) â‰¡ Î¹ n Â· âˆ‚ x
+      âˆ‚Î¹x n x = âˆ‚-leib (Î¹ n) x âˆ™ cong (_+ Î¹ n Â· âˆ‚ x) (cong (_Â· x) (âˆ‚Î¹ n) âˆ™ zeroL x) âˆ™ +IdL (Î¹ n Â· âˆ‚ x)
+        where zeroL : (y : A) â†’ 0r Â· y â‰¡ 0r
               zeroL y = solve! R
 
-    module _ (s : A) (âˆs : âˆ s â‰¡ 1r)
-             (D : A â’ A) (D-add : (x y : A) â’ D (x + y) â‰¡ D x + D y)
-             (Dâˆ : (x : A) â’ D (âˆ x) â‰¡ âˆ (D x))
+    module _ (s : A) (âˆ‚s : âˆ‚ s â‰¡ 1r)
+             (D : A â†’ A) (D-add : (x y : A) â†’ D (x + y) â‰¡ D x + D y)
+             (Dâˆ‚ : (x : A) â†’ D (âˆ‚ x) â‰¡ âˆ‚ (D x))
              where
 
-      -- â’ = 2s âˆ’ D
-      â’ : A â’ A
-      â’ Ï = Î 2 Â (s Â Ï) + (- (D Ï))
+      -- â„’ = 2s âˆ’ D
+      â„’ : A â†’ A
+      â„’ Ï† = Î¹ 2 Â· (s Â· Ï†) + (- (D Ï†))
 
-      -- [â’, âˆ] = âˆ’2,  i.e.  [â’, âˆ’Â½âˆ] = 1
-      weyl : (Ï : A) â’ â’ (âˆ Ï) + (- (âˆ (â’ Ï))) â‰¡ - (Î 3 Â Ï)
-      weyl Ï =
-          cong (Î» u â’ â’ (âˆ Ï) + (- u)) âˆâ’
-        âˆ™ cong (Î» u â’ (Î 2 Â (s Â âˆ Ï) + (- u)) + (- (Î 2 Â (1r Â Ï + s Â âˆ Ï) + (- (âˆ (D Ï)))))) (Dâˆ Ï)
-        âˆ™ shape Ï (âˆ Ï) (âˆ (D Ï))
+      -- [â„’, âˆ‚] = âˆ’2,  i.e.  [â„’, âˆ’Â½âˆ‚] = 1
+      weyl : (Ï† : A) â†’ â„’ (âˆ‚ Ï†) + (- (âˆ‚ (â„’ Ï†))) â‰¡ - (Î¹ 3 Â· Ï†)
+      weyl Ï† =
+          cong (Î» u â†’ â„’ (âˆ‚ Ï†) + (- u)) âˆ‚â„’
+        âˆ™ cong (Î» u â†’ (Î¹ 2 Â· (s Â· âˆ‚ Ï†) + (- u)) + (- (Î¹ 2 Â· (1r Â· Ï† + s Â· âˆ‚ Ï†) + (- (âˆ‚ (D Ï†)))))) (Dâˆ‚ Ï†)
+        âˆ™ shape Ï† (âˆ‚ Ï†) (âˆ‚ (D Ï†))
         where
-          âˆâ’ : âˆ (â’ Ï) â‰¡ Î 2 Â (1r Â Ï + s Â âˆ Ï) + (- (âˆ (D Ï)))
-          âˆâ’ = âˆ-add _ _
-             âˆ™ congâ _+_ (âˆÎx 2 (s Â Ï) âˆ™ cong (Î 2 Â_) (âˆ-leib s Ï âˆ™ cong (_+ s Â âˆ Ï) (cong (_Â Ï) âˆs)))
-                         (âˆ-neg (D Ï))
-          shape : (Ï Ï' w : A)
-            â’ ((1r + (1r + 0r)) Â (s Â Ï') + (- w)) + (- ((1r + (1r + 0r)) Â (1r Â Ï + s Â Ï') + (- w))) â‰¡ - ((1r + (1r + 0r)) Â Ï)
-          shape Ï Ï' w = solve! R
+          âˆ‚â„’ : âˆ‚ (â„’ Ï†) â‰¡ Î¹ 2 Â· (1r Â· Ï† + s Â· âˆ‚ Ï†) + (- (âˆ‚ (D Ï†)))
+          âˆ‚â„’ = âˆ‚-add _ _
+             âˆ™ congâ‚‚ _+_ (âˆ‚Î¹x 2 (s Â· Ï†) âˆ™ cong (Î¹ 2 Â·_) (âˆ‚-leib s Ï† âˆ™ cong (_+ s Â· âˆ‚ Ï†) (cong (_Â· Ï†) âˆ‚s)))
+                         (âˆ‚-neg (D Ï†))
+          shape : (Ï† Ï†' w : A)
+            â†’ ((1r + (1r + 0r)) Â· (s Â· Ï†') + (- w)) + (- ((1r + (1r + 0r)) Â· (1r Â· Ï† + s Â· Ï†') + (- w))) â‰¡ - ((1r + (1r + 0r)) Â· Ï†)
+          shape Ï† Ï†' w = solve! R
 
-    -- raising:  âˆ of the damping factor,  âˆE = âˆ’2tE, âˆt = 0
-    module _ (t E : A) (âˆt : âˆ t â‰¡ 0r) (âˆE : âˆ E â‰¡ - (Î 2 Â (t Â E))) where
+    -- raising:  âˆ‚ of the damping factor,  âˆ‚E = âˆ’2tE, âˆ‚t = 0
+    module _ (t E : A) (âˆ‚t : âˆ‚ t â‰¡ 0r) (âˆ‚E : âˆ‚ E â‰¡ - (Î¹ 2 Â· (t Â· E))) where
 
-      pow : A â’ â• â’ A
+      pow : A â†’ â„• â†’ A
       pow x zero    = 1r
-      pow x (suc n) = x Â pow x n
+      pow x (suc n) = x Â· pow x n
 
       private
-        âˆpow : (n : â•) â’ âˆ (pow t n) â‰¡ 0r
-        âˆpow zero    = âˆ-one
-        âˆpow (suc n) = âˆ-leib t (pow t n) âˆ™ congâ _+_ (cong (_Â pow t n) âˆt âˆ™ zeroL _) (cong (t Â_) (âˆpow n) âˆ™ zeroR t) âˆ™ +IdR 0r
-          where zeroL : (y : A) â’ 0r Â y â‰¡ 0r
+        âˆ‚pow : (n : â„•) â†’ âˆ‚ (pow t n) â‰¡ 0r
+        âˆ‚pow zero    = âˆ‚-one
+        âˆ‚pow (suc n) = âˆ‚-leib t (pow t n) âˆ™ congâ‚‚ _+_ (cong (_Â· pow t n) âˆ‚t âˆ™ zeroL _) (cong (t Â·_) (âˆ‚pow n) âˆ™ zeroR t) âˆ™ +IdR 0r
+          where zeroL : (y : A) â†’ 0r Â· y â‰¡ 0r
                 zeroL y = solve! R
-                zeroR : (y : A) â’ y Â 0r â‰¡ 0r
+                zeroR : (y : A) â†’ y Â· 0r â‰¡ 0r
                 zeroR y = solve! R
 
-      raising : (n : â•) â’ âˆ (pow t n Â E) â‰¡ - (Î 2 Â (pow t (suc n) Â E))
+      raising : (n : â„•) â†’ âˆ‚ (pow t n Â· E) â‰¡ - (Î¹ 2 Â· (pow t (suc n) Â· E))
       raising n =
-          âˆ-leib (pow t n) E
-        âˆ™ congâ _+_ (cong (_Â E) (âˆpow n)) (cong (pow t n Â_) âˆE)
+          âˆ‚-leib (pow t n) E
+        âˆ™ congâ‚‚ _+_ (cong (_Â· E) (âˆ‚pow n)) (cong (pow t n Â·_) âˆ‚E)
         âˆ™ shape (pow t n)
         where
-          shape : (P : A) â’ 0r Â E + P Â (- ((1r + (1r + 0r)) Â (t Â E))) â‰¡ - ((1r + (1r + 0r)) Â ((t Â P) Â E))
+          shape : (P : A) â†’ 0r Â· E + P Â· (- ((1r + (1r + 0r)) Â· (t Â· E))) â‰¡ - ((1r + (1r + 0r)) Â· ((t Â· P) Â· E))
           shape P = solve! R
 
     ----------------------------------------------------------------
-    -- à© Â THE LOSSLESS OSCILLATOR STORES EXACTLY THE SUPPLIED WORK
+    --  Â· THE LOSSLESS OSCILLATOR STORES EXACTLY THE SUPPLIED WORK
     ----------------------------------------------------------------
-    module _ (Î³ p q fâ fâ : A)
-             (pâ² : âˆ p â‰¡ (- (Î³ Â q)) + fâ)
-             (qâ² : âˆ q â‰¡ Î³ Â p + fâ)
+    module _ (Î³ p q fâ‚ fâ‚‚ : A)
+             (pâ€² : âˆ‚ p â‰¡ (- (Î³ Â· q)) + fâ‚)
+             (qâ€² : âˆ‚ q â‰¡ Î³ Â· p + fâ‚‚)
              where
 
-      stored-work : âˆ (p Â p + q Â q) â‰¡ Î 2 Â (p Â fâ + q Â fâ)
+      stored-work : âˆ‚ (p Â· p + q Â· q) â‰¡ Î¹ 2 Â· (p Â· fâ‚ + q Â· fâ‚‚)
       stored-work =
-          âˆ-add (p Â p) (q Â q)
-        âˆ™ congâ _+_ (âˆ-leib p p) (âˆ-leib q q)
-        âˆ™ congâ (Î» u v â’ (u Â p + p Â u) + (v Â q + q Â v)) pâ² qâ²
+          âˆ‚-add (p Â· p) (q Â· q)
+        âˆ™ congâ‚‚ _+_ (âˆ‚-leib p p) (âˆ‚-leib q q)
+        âˆ™ congâ‚‚ (Î» u v â†’ (u Â· p + p Â· u) + (v Â· q + q Â· v)) pâ€² qâ€²
         âˆ™ shape
         where
-          shape : (((- (Î³ Â q)) + fâ) Â p + p Â ((- (Î³ Â q)) + fâ)) + ((Î³ Â p + fâ) Â q + q Â (Î³ Â p + fâ))
-                  â‰¡ (1r + (1r + 0r)) Â (p Â fâ + q Â fâ)
+          shape : (((- (Î³ Â· q)) + fâ‚) Â· p + p Â· ((- (Î³ Â· q)) + fâ‚)) + ((Î³ Â· p + fâ‚‚) Â· q + q Â· (Î³ Â· p + fâ‚‚))
+                  â‰¡ (1r + (1r + 0r)) Â· (p Â· fâ‚ + q Â· fâ‚‚)
           shape = solve! R

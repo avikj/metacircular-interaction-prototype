@@ -142,7 +142,7 @@ defect→¬isEquiv f (b , nc) e = nc (e .equiv-proof b)
 -- What is proved below is `writable→MP` and only that: Writable ⟹ MP.
 -- That is a LOWER BOUND -- writing defects costs AT LEAST MP -- and it
 -- is not an identification.  `Apoha` carries `MP→Witnessed` AND
--- `Witnessed�MP`, and `FalsifierAsymmetry` cites that pair; so
+-- `WitnessedMP`, and `FalsifierAsymmetry` cites that pair; so
 -- "precisely Markov.s Principle" is a true sentence about `Witnessed`.
 -- `Writable` is not `Witnessed`: it quantifies over all types and all
 -- maps and returns a defect SITE, where that biconditional is about a

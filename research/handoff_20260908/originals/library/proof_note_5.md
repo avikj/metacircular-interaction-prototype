@@ -5,11 +5,11 @@ Repository snapshot read: `avikj/metacircular-interaction-prototype`, `168ea8e24
 
 ## Scope
 
-The results below are smooth periodic operator identities, principal-symbol and essential-norm theorems, and exact recovery/conditioning results for the specified arithmetic receiver. Classical pseudodifferential symbol theory, Hardy-space factorization, and an unconditional positive proportion of simple critical-line zeros are declared analytic inputs. The finite check script verifies algebraic identities, not these analytic inputs or global PDE continuation. No proof of RH or general Navierâ“Stokes regularity, originality-priority claim, or proof-assistant build is made.
+The results below are smooth periodic operator identities, principal-symbol and essential-norm theorems, and exact recovery/conditioning results for the specified arithmetic receiver. Classical pseudodifferential symbol theory, Hardy-space factorization, and an unconditional positive proportion of simple critical-line zeros are declared analytic inputs. The finite check script verifies algebraic identities, not these analytic inputs or global PDE continuation. No proof of RH or general Navierâ€“Stokes regularity, originality-priority claim, or proof-assistant build is made.
 
 The main NS result identifies the essential norm of the previously defined coadjoint cross-helicity block with one half of the pointwise strain spectral spread. Its full principal symbol reconstructs the strain, including the signed source-dependent stretching pairing. The RH result recovers the original received arithmetic signal directly from its positive two-time Hardy Gram kernel by a first-order differential operator; it does not first recover individual zeros. The finite-mode extraction problem has an exact Cauchy/Schur residual product, and its infinite system is individually minimal but not uniformly conditioned.
 
-# I. Navierâ“Stokes: the essential cross-helicity operator is strain tomography
+# I. Navierâ€“Stokes: the essential cross-helicity operator is strain tomography
 
 ## 1. Declared generator and actual physical trajectory
 
@@ -245,7 +245,7 @@ Fix any \(s>1/2\), for example \(s=1\); this choice is unconditional. For real \
 \[
 \mathsf K_s(T,U)=\int_0^\infty t e^{-2st}Z(T+t)Z(U+t)\,dt.
 \]
-These are positive Gram kernels. The second is the polarized Hilbertâ“Schmidt Hankel pairing. The actual receiver is real, so the formulas coincide with the usual sesquilinear Gram convention on real observation times.
+These are positive Gram kernels. The second is the polarized Hilbertâ€“Schmidt Hankel pairing. The actual receiver is real, so the formulas coincide with the usual sesquilinear Gram convention on real observation times.
 
 ## 7. Exact source inverse by simultaneous time differentiation
 
@@ -386,7 +386,7 @@ The all-ones Rayleigh quotient yields
 \]
 So the unweighted normalized family has no uniform upper Bessel bound either.
 
-The faithful receiver weights make the corresponding synthesis operator Hilbertâ“Schmidt, but an injective infinite-rank compact operator has no bounded inverse onto its range equipped with the ambient norm. Exact source recovery in (11) and exact mode-by-mode recovery in (14) must therefore be kept separate from uniform stable spectral reconstruction.
+The faithful receiver weights make the corresponding synthesis operator Hilbertâ€“Schmidt, but an injective infinite-rank compact operator has no bounded inverse onto its range equipped with the ambient norm. Exact source recovery in (11) and exact mode-by-mode recovery in (14) must therefore be kept separate from uniform stable spectral reconstruction.
 
 # IV. Consequences for the theorem graph
 
@@ -398,11 +398,11 @@ The remaining global implications are not asserted here. In NS one must control 
 
 ## Primary analytic references
 
-S. T. Melo, *Norm closure of classical pseudodifferential operators does not contain Hrmander's class*, arXiv:math/0312261, especially Theorem 2 and Corollary 2. Matrix amplification and orthogonal pseudodifferential corners give the symbol-norm statement used here.
+S. T. Melo, *Norm closure of classical pseudodifferential operators does not contain HÃ¶rmander's class*, arXiv:math/0312261, especially Theorem 2 and Corollary 2. Matrix amplification and orthogonal pseudodifferential corners give the symbol-norm statement used here.
 
-N. Nikolski, *Distance formulae and invariant subspaces, with an application to localization of zeros of the Riemann zeta-function*, Annales de l'Institut Fourier 45 (1995), 143â“159, DOI 10.5802/aif.1451. The Hardy distance and invariant-subspace framework is classical.
+N. Nikolski, *Distance formulae and invariant subspaces, with an application to localization of zeros of the Riemann zeta-function*, Annales de l'Institut Fourier 45 (1995), 143â€“159, DOI 10.5802/aif.1451. The Hardy distance and invariant-subspace framework is classical.
 
-J. B. Conrey, *More than two fifths of the zeros of the Riemann zeta function are on the critical line*, Journal f¼r die reine und angewandte Mathematik 399 (1989), 1â“26, DOI 10.1515/crll.1989.399.1. Only the unconditional positive proportion of distinct simple critical-line zeros is used, not any assertion about the remaining zeros.
+J. B. Conrey, *More than two fifths of the zeros of the Riemann zeta function are on the critical line*, Journal fÃ¼r die reine und angewandte Mathematik 399 (1989), 1â€“26, DOI 10.1515/crll.1989.399.1. Only the unconditional positive proportion of distinct simple critical-line zeros is used, not any assertion about the remaining zeros.
 
 ## Verification
 

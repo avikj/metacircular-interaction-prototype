@@ -162,7 +162,7 @@ all-योग = go all-प्रकृति
 सप्तविंशतिः : length all-प्रकृति ≡ 27
 सप्तविंशतिः = refl
 
--- � and 9 � 9 � 9 unions, by the kernel.
+-- … and 9 × 9 × 9 unions, by the kernel.  (This counts the enumeration,
 नवशतम्-एकोनत्रिंशत् : length all-योग ≡ 729
 नवशतम्-एकोनत्रिंशत् = refl
 

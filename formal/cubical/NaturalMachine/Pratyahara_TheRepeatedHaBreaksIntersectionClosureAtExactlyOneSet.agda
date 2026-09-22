@@ -20,7 +20,7 @@
 --
 --   COMMENTARY LAYER.  Ktyyana's vrttikas and
 --   Patañjali's *Mahābhāṣya* (c. 150 BCE) are where the repetition of ह
---   and the two �� are argued.
+--   and the two  are argued.
 --
 -- WHAT IS CLAIMED OF PINI.  Only the data: the fourteen stras in the
 -- order given, the it-markers as given, ह twice, ण् twice.  That
@@ -479,7 +479,7 @@ illegal-start-names-ha = refl
 -- { ह } is an artefact of `from` taking the FIRST occurrence of the
 -- initial sound.  Take the LAST occurrence instead and { ह } becomes
 -- nameable — `between ha L` then runs from sūtra 14's ह to ल् and
--- denotes exactly { � } — and this half is checked below.
+-- denotes exactly {  } — and this half is checked below.
 --
 -- §6b is the cost: under last-occurrence search,
 -- हल् and हश् are not merely different — they are unnameable.  `fromLast
@@ -507,7 +507,7 @@ nameableLast : List Sym → Bool
 nameableLast t =
   anySym (λ s → anySym (λ m → eqList (betweenLast s m sivasutra14) t) allMarkers) allSounds
 
--- 6a.  { � } does become nameable.
+-- 6a.  {  } does become nameable.
 claimR-half-true : betweenLast ha L sivasutra14 ≡ ha ∷ []
 claimR-half-true = refl
 

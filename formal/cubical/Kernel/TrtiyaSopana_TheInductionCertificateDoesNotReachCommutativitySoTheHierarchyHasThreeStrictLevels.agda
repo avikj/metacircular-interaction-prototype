@@ -4,7 +4,7 @@
 -- Kernel.TrtiyaSopana_TheInductionCertificateDoesNotReach
 --            CommutativitySoTheHierarchyHasThreeStrictLevels
 --
--- ‡‡‡‡‡Ø-‡‡ã‡‡æ‡®‡Æ‡ ¬ the third step of the stair.
+-- - ¬∑ the third step of the stair.  The compound is assembled
 --
 -- WHERE THIS STANDS.  `Naya_‚Ä¶` proved two things:
 --

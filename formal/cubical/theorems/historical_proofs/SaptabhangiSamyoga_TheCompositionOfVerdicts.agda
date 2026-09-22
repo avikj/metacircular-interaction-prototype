@@ -425,7 +425,7 @@ x न्यूनः y = क्रम-योग x y ≡ y
 ------------------------------------------------------------------------
 -- १० · नयभेदः — भ्रातृ-प्रकारेण सह विवादः, लिखितः, न परिहृतः ।
 --
--- formal/cubical/NaturalMachine/SaptabhangiKernel_� (����� ������, ����������
+-- formal/cubical/NaturalMachine/SaptabhangiKernel_ ( , 
 -- दिने) भङ्गान् सनयान् करोति — चतुर्थं पदं स्वे मूले धारयति, अतः तत्र
 -- जिह्वाभेदो न नाशयति, क्रमश्च न विनिमयी ।  अत्र भङ्गो नाममात्रम्, अतः
 -- क्रमो विनिमयी, सहश्च नाशयति ।
@@ -445,7 +445,7 @@ x न्यूनः y = क्रम-योग x y ≡ y
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- �� � ������ �������� — the comparison with the record lane.
+--     — the comparison with the record lane.
 --
 -- Whether the forgetful map from records to labels is a homomorphism
 -- for order, for saha, or for neither is checked in

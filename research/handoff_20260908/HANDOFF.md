@@ -14,7 +14,7 @@
 
 ## 0. Transfer contract
 
-This is a research-state transfer, not a proof of the Riemann hypothesis (RH), a proof of unrestricted three-dimensional Navier‚ìStokes (NS) regularity, a novelty-priority declaration, or a claim that this conversation has exhausted the repository. The archive contains substantial concrete analytical constructions, exact source-dependent identities, counterexamples to several proposed shortcuts, complete finite calculations, and two standalone proof-carrying Python evaluators. Its chief purpose is to let infrastructure-capable agents **continue from those objects rather than reconstruct them**.
+This is a research-state transfer, not a proof of the Riemann hypothesis (RH), a proof of unrestricted three-dimensional Navier‚ÄìStokes (NS) regularity, a novelty-priority declaration, or a claim that this conversation has exhausted the repository. The archive contains substantial concrete analytical constructions, exact source-dependent identities, counterexamples to several proposed shortcuts, complete finite calculations, and two standalone proof-carrying Python evaluators. Its chief purpose is to let infrastructure-capable agents **continue from those objects rather than reconstruct them**.
 
 The user explicitly asked for an extremely comprehensive handoff of everything developed in this conversation. They repeatedly corrected the assistant for treating alternate representations as independent research problems, manually expanding one return at a time, ignoring machinery already in the repository, and equating a sharper reformulation with distance to a global proof. The correct continuation is to load the actual source and theorem graph into the actual metacircular proof workflow, find and discharge concrete dependencies, and preserve every source condition across each transformation.
 
@@ -22,7 +22,7 @@ The user explicitly asked for an extremely comprehensive handoff of everything d
 
 The research session could read GitHub and execute standalone Python/SymPy controls. It did **not** run the repository's Yantra process or the pinned Agda/Cubical toolchain. The execution probe found no `agda`, `ghc`, or `cabal`, and its sandbox could not resolve GitHub, Hackage, or Debian package hosts. The logs are preserved as [S24]. No mathematical conclusion should be inferred from those infrastructure failures.
 
-The earlier phrases ‚kernel executed,‚ ‚proof-carrying kernel,‚ and counts such as 43, 67, 141, or 86 checks refer, unless explicitly identified otherwise, to local Python programs. They do not mean that the mathematical claims were encoded in Agda, accepted through `sadhana.patra`, analyzed through `sadhana.vislesana`, or installed into the repository's `NativeOperation` language. This distinction is central to the handoff.
+The earlier phrases ‚Äúkernel executed,‚Äù ‚Äúproof-carrying kernel,‚Äù and counts such as 43, 67, 141, or 86 checks refer, unless explicitly identified otherwise, to local Python programs. They do not mean that the mathematical claims were encoded in Agda, accepted through `sadhana.patra`, analyzed through `sadhana.vislesana`, or installed into the repository's `NativeOperation` language. This distinction is central to the handoff.
 
 Repository source files advertise prior successful builds at their pin. In this transfer those are **source-reported historical checks**, not newly reproduced compiler verdicts. A `--safe` header is not a transcript of a new build. A Python assertion about a finite matrix is not a proof of an infinite analytic statement. Original scripts and reports are retained byte-for-byte so agents can independently replay what was actually checked.
 
@@ -44,7 +44,7 @@ Use the following statuses when importing claims:
 
 These are multiple readings of the evidence, not claims that the repository's own sevenfold logic has been replaced by a Boolean verdict. They make the transfer auditable.
 
-### 0.3 What ‚done‚ means
+### 0.3 What ‚Äúdone‚Äù means
 
 For RH the endpoint is the actual zeta statement
 
@@ -59,9 +59,9 @@ Completion requires a closed dependency graph from accepted foundations and clas
 ### 0.4 Immediate reading order
 
 1. Read the remainder of this chapter, the infrastructure chapter, and the correction ledger before executing or formalizing anything.
-2. Read the latest source-preserving kernel pair [S17‚ìS18], then the independently recovered midpoint/storage/Abel note [S19]. These are complementary, not competing, representations.
+2. Read the latest source-preserving kernel pair [S17‚ÄìS18], then the independently recovered midpoint/storage/Abel note [S19]. These are complementary, not competing, representations.
 3. For NS, read [S12], [S13], and [S15] for actual angular source geometry and [S16] for the moving-observer quantifier and small-data control.
-4. For RH, read [S02], [S08], [S11‚ìS13], then [S19], [S20], and the arithmetic part of [S22].
+4. For RH, read [S02], [S08], [S11‚ÄìS13], then [S19], [S20], and the arithmetic part of [S22].
 5. Use `SOURCE_INDEX.md` to locate complete original arguments and `CLAIM_GRAPH.json` to inspect dependencies and correction edges.
 6. Use the repository, not this prose, to settle any question about a formal theorem's current type or import closure.
 
@@ -69,9 +69,9 @@ The old six-September comprehensive handoff [S00] is bundled. It carries broader
 
 <a id="section-1"></a>
 
-## 1. The user‚ôs mathematical intent and the workflow failure to avoid
+## 1. The user‚Äôs mathematical intent and the workflow failure to avoid
 
-The user's repeated instruction ‚metacircular kernel‚ is not a request to append another analogy to a long list. It means: use the common proof-relevant source/history, represent its operations explicitly, expose the exact residual of a failed requested observation, prove the residual relation, install the derivation, and reuse it schematically at the same source and appropriate locus.
+The user's repeated instruction ‚Äúmetacircular kernel‚Äù is not a request to append another analogy to a long list. It means: use the common proof-relevant source/history, represent its operations explicitly, expose the exact residual of a failed requested observation, prove the residual relation, install the derivation, and reuse it schematically at the same source and appropriate locus.
 
 The intended progress is **actual source-specific theorem composition**. A new family of equivalent RH criteria, another renamed NS depletion quantity, or another isolated angular coefficient is not automatically progress toward the endpoint. It can be valuable as an adapter or a control, but its role must be stated.
 
@@ -80,7 +80,7 @@ Avoid both previous extremes:
 * Do not say that broad reconstruction/continuation machinery is unavailable until reading the actual graph. Much was already present.
 * Do not claim that a generic lossless completion proves a new positivity or regularity property of every source. The property must come from somewhere, then be transported with its hypotheses.
 
-The assistant's repeated ‚endgame,‚ ‚one mountain left,‚ and ‚almost done‚ phrasing was not backed by a demonstrated closing composition. It is not part of the mathematical evidence. The useful content is in the constructions, derivations, exact tests, and corrections preserved here.
+The assistant's repeated ‚Äúendgame,‚Äù ‚Äúone mountain left,‚Äù and ‚Äúalmost done‚Äù phrasing was not backed by a demonstrated closing composition. It is not part of the mathematical evidence. The useful content is in the constructions, derivations, exact tests, and corrections preserved here.
 
 The repository itself provides the right response to representation debt: a fully retained source is not lost and does not need to be reinvented after every new observation. If \(e_i:X\simeq X_i\), then
 
@@ -108,7 +108,7 @@ The archive combines four kinds of material:
 3. A reconstructed synthesis of visible conversation-only results whose original artifact was not available under its earlier sandbox path.
 4. Repository paths, types, interface details, and execution prerequisites actually read in the conversation and rechecked where specified.
 
-This is not a literal export of hidden reasoning or a promise that every message hidden behind a ‚Skipped messages‚ marker was recoverable. Where an earlier artifact could not be recovered, `RETRIEVAL_GAPS.md` says so. The substantial visible result families are integrated below; the original documents are also provided without editing away their historical corrections.
+This is not a literal export of hidden reasoning or a promise that every message hidden behind a ‚ÄúSkipped messages‚Äù marker was recoverable. Where an earlier artifact could not be recovered, `RETRIEVAL_GAPS.md` says so. The substantial visible result families are integrated below; the original documents are also provided without editing away their historical corrections.
 
 Library aliases such as `proof_note(3).md`, `proof_note(9).md`, and date-stamped copies sometimes materialize to the same bytes, and a few aliases resolve to a later version. **Never use a numeric filename alone as theorem identity.** Use semantic title, source ID, relative path, and SHA-256 in `MANIFEST.json`. The source anthology deduplicates exact bytes but preserves the alias mapping.
 
@@ -121,7 +121,7 @@ Canonical agent-ready synthesis. Complete source texts are additionally in `SOUR
 
 - [Metacircular Interaction Prototype: complete NS/RH research handoff](#part-00)
   - [0. Transfer contract](#section-0)
-  - [1. The user‚ôs mathematical intent and the workflow failure to avoid](#section-1)
+  - [1. The user‚Äôs mathematical intent and the workflow failure to avoid](#section-1)
   - [2. Coverage and provenance of this archive](#section-2)
 - [Part I. Execute the actual repository kernel](#part-01)
   - [3. Repository and toolchain baseline](#section-3)
@@ -284,7 +284,7 @@ The dispatch table contains these relevant operations:
 * `sadhana`: emits an arithmetic equation certificate using the declared fragment.
 * `sadhana.patra`: accepts a complete `--safe` Agda module as a list of source lines. The top-level module, if named, must be `Candidate`.
 * `sadhana.vislesana`: accepts that module plus named expressions, returning their inferred types and computed normal forms.
-* `dosa.lekha`, `dosa.suchi`, `dosa.pramanya`: retain and verify failure information rather than collapsing distinct causes into ‚false.‚
+* `dosa.lekha`, `dosa.suchi`, `dosa.pramanya`: retain and verify failure information rather than collapsing distinct causes into ‚Äúfalse.‚Äù
 
 The whole-module interface is the relevant entry for this research. **Do not assume that `sadhana`'s small arithmetic emitter can express a PDE theorem, and do not substitute an unrelated Python evaluator for the whole-module gate.**
 
@@ -332,10 +332,10 @@ The structural core includes `RewriteCertificate`, `ControlledGrammar`, `Generat
 The exact interface recovered from the interactive module is:
 
 ```agda
-learn : {s : Tm} ‚í CheckedFuture s ‚í NativeOperation
+learn : {s : Tm} ‚Üí CheckedFuture s ‚Üí NativeOperation
 learn f = install (CheckedFuture.derivation f)
 
-retire : Session ‚í NativeOperation
+retire : Session ‚Üí NativeOperation
 retire S = install (trace S)
 ```
 
@@ -344,17 +344,17 @@ A session carries `origin`, `here`, `trace : Derivation origin here`, and a libr
 The kernel-side certified normalizer has:
 
 ```agda
-norm : (t : Tm) ‚í Œ Tm (Œª s ‚í Derivation t s)
-normalize : (t : Tm) ‚í Derivation t (normalForm t)
+norm : (t : Tm) ‚Üí Œ£ Tm (Œª s ‚Üí Derivation t s)
+normalize : (t : Tm) ‚Üí Derivation t (normalForm t)
 learn t = install (normalize t)
 ```
 
-This closes discovery ‚í certificate ‚í installation on its own declared terms. It does not prove mathematical deductive completeness or global termination of arbitrary theorem discovery.
+This closes discovery ‚Üí certificate ‚Üí installation on its own declared terms. It does not prove mathematical deductive completeness or global termination of arbitrary theorem discovery.
 
 The instance/locus extension supplies an `Operation` with a stored derivation and control carrying the actual substitution and location. Its essential theorem is:
 
 ```agda
-apply-checked : (t : Tm) (c : Control t) ‚í Derivation t (apply t c)
+apply-checked : (t : Tm) (c : Control t) ‚Üí Derivation t (apply t c)
 ```
 
 The proof applies structural substitution and context transport to the stored certificate. The initial extension only generalized one variable and initially rewired `advance`; later appended results may extend retirement or other operations. Read the complete current file, including appended sections, rather than freezing an early header into a permanent limitation.
@@ -571,7 +571,7 @@ x_m=0\pmod{2^{a_m}},\qquad x_m=1\pmod{b_m}.
 
 All finite prefixes are realized by integers and all overlaps agree. No single integer realizes the whole history: divisibility by every power of two forces zero, contradicting the mod-three condition. This is an explicit empty original-source fibre despite perfect finite compatibility.
 
-For a weak-star compact class of positive measures with fixed mass, a different compactness theorem can still supply a global object. The compact admissible class is the hypothesis; do not transport that conclusion to smooth NS histories merely by using the same words ‚inverse limit.‚
+For a weak-star compact class of positive measures with fixed mass, a different compactness theorem can still supply a global object. The compact admissible class is the hypothesis; do not transport that conclusion to smooth NS histories merely by using the same words ‚Äúinverse limit.‚Äù
 
 <a id="section-11"></a>
 
@@ -644,7 +644,7 @@ For a path starting at the identity, with integrable bounded symmetric part,
 \frac12\|\log(T^*T)\|\le\int\|B(t)\|dt.
 \]
 
-The reciprocal cycle \(JTJT^{-1}\) equals \((T^*T)^{-1}\). The research alternated orientations; compare formulas using the actual definition, not just the word ‚holonomy.‚
+The reciprocal cycle \(JTJT^{-1}\) equals \((T^*T)^{-1}\). The research alternated orientations; compare formulas using the actual definition, not just the word ‚Äúholonomy.‚Äù
 
 A zero coboundary and a zero cohomology class differ. If \(b(g,x)=F(gx)-F(x)\), it is a coboundary for every \(F\), so its class is always zero. Descent requires \(b\) itself to vanish. Separately, an additive character \(n\mapsto nA\) for a trivial group action is a genuine degree-one cocycle whose class vanishes iff \(A=0\). These are different coefficient/action diagrams.
 
@@ -843,7 +843,7 @@ dS=M_uS\,dt+\sqrt{2\nu}\sum_jD_jS\circ dW_j,
 dR=J_uR\,dt+\sqrt{2\nu}\sum_jD_jR\circ dW_j.
 \]
 
-Their It¥ drifts add \(\nu\Delta\). Noise removal by a common spatial translation reduces the pathwise construction to smooth-coefficient transport equations. In the stated periodic smooth interval, forward and reverse transport give bounded invertible propagators; this is not inversion of the deterministic heat semigroup.
+Their It√¥ drifts add \(\nu\Delta\). Noise removal by a common spatial translation reduces the pathwise construction to smooth-coefficient transport equations. In the stated periodic smooth interval, forward and reverse transport give bounded invertible propagators; this is not inversion of the deterministic heat semigroup.
 
 The exact source-preserving identities are
 
@@ -871,7 +871,7 @@ The source-plus-compact decomposition is unique. On the actual physical source,
 \mathbb E K_{t,s}(u(s))=0.
 \]
 
-Differentiating \(\mathbb E[S[u]u(s)]\) differentiates both the initial source and the coefficient \(S[u]\). The term \(M_vu=\Pi_uv\) restores the omitted half and gives the true tangent equation. That calculation is a central regression test for every future claimed ‚self-generated propagator.‚
+Differentiating \(\mathbb E[S[u]u(s)]\) differentiates both the initial source and the coefficient \(S[u]\). The term \(M_vu=\Pi_uv\) restores the omitted half and gives the true tangent equation. That calculation is a central regression test for every future claimed ‚Äúself-generated propagator.‚Äù
 
 ### 16.1 Complete positivity does not give physical contraction
 
@@ -928,7 +928,7 @@ For smooth finite-energy whole-space sources,
 [\nabla u]_{BMO}\le C\|\omega\|_\infty.
 \]
 
-The local/far Calder≥n‚ìZygmund proof subtracts the remote kernel value at the ball centre. The estimate controls mean oscillation, **not mean strain**. It is invariant under the normalized scaling in the appropriate degree.
+The local/far Calder√≥n‚ÄìZygmund proof subtracts the remote kernel value at the ball centre. The estimate controls mean oscillation, **not mean strain**. It is invariant under the normalized scaling in the appropriate degree.
 
 In the realized endpoint class
 
@@ -956,7 +956,7 @@ one gets a canonical realized-image completion
 \boxed{\mathcal X\simeq\operatorname{curl}(\mathcal X)\times\operatorname{Sym}_0(3)\times\mathbb R^3.}
 \]
 
-The inverse is the unique normalized Biot‚ìSavart representative plus \(Ax+b\). It is over the actual vorticity image, not arbitrary independent data. After translation, five scalar linear readings are minimal on this fibre.
+The inverse is the unique normalized Biot‚ÄìSavart representative plus \(Ax+b\). It is over the actual vorticity image, not arbitrary independent data. After translation, five scalar linear readings are minimal on this fibre.
 
 For finite \(p,R\),
 
@@ -1058,7 +1058,7 @@ Thus \(\int\|B_u\|dt<\infty\) is a sufficient regularity condition, but its esse
 
 ## 19. Exactly one angular polarization generates central strain
 
-For smooth whole-space decaying vorticity, write \(y=rn\). Differentiating Biot‚ìSavart gives
+For smooth whole-space decaying vorticity, write \(y=rn\). Differentiating Biot‚ÄìSavart gives
 
 \[
 S(0)=\frac3{8\pi}\operatorname{p.v.}\int_0^\infty\frac{dr}{r}
@@ -1484,7 +1484,7 @@ The same sources have uniformly bounded free heat-strain memory because \(\sum_j
 
 All cross-shell interactions at that specified stage are included. No uniform all-depth bound follows merely by inspecting these first three sums.
 
-[S16] goes further: after a common sufficiently small **Euler spatial compression** \(u_R(x)=Ru(x/R)\), the same shell families fall in the classical small energy‚ìenstrophy regime, while vorticity and initial strain amplitudes remain unchanged. The scale-critical NS quantity \(\|u\|_2\|\omega\|_2\) changes under this compression; it is not the NS symmetry. Therefore one gets actual globally smooth solutions with uniformly bounded total peak stretching and arbitrarily large initial peak stretching. This is a restricted control family, not a way to rescale arbitrary NS data into small data.
+[S16] goes further: after a common sufficiently small **Euler spatial compression** \(u_R(x)=Ru(x/R)\), the same shell families fall in the classical small energy‚Äìenstrophy regime, while vorticity and initial strain amplitudes remain unchanged. The scale-critical NS quantity \(\|u\|_2\|\omega\|_2\) changes under this compression; it is not the NS symmetry. Therefore one gets actual globally smooth solutions with uniformly bounded total peak stretching and arbitrarily large initial peak stretching. This is a restricted control family, not a way to rescale arbitrary NS data into small data.
 
 
 ---
@@ -1603,7 +1603,7 @@ At \(L=C_0r_n^{-1/5}\),
 |S_{far,L}|\le C E_0^{1/2}C_0^{-5/2}
 \]
 
-uniformly in \(n\). This is tightness of the **whole far Biot‚ìSavart strain**, not just a harmonic completion term. The physical radius is \(C_0M_n^{-2/5}\).
+uniformly in \(n\). This is tightness of the **whole far Biot‚ÄìSavart strain**, not just a harmonic completion term. The physical radius is \(C_0M_n^{-2/5}\).
 
 Independently, a smooth Fourier cutoff obeys
 
@@ -1684,7 +1684,7 @@ For \(R_n=r_n^{-\alpha}\), \(1/5<\alpha<1\), and a fixed backward interval \(I=[
 \int_I\int_{\partial B_{\rho_n}}|U_n|^2\le SE_0r_n^{-1}R_n^{-1}.
 \]
 
-For \(\phi_m=\nabla H_{m+1}\), with homogeneous harmonic \(H_{m+1}\), Stokes and Cauchy‚ìSchwarz give
+For \(\phi_m=\nabla H_{m+1}\), with homogeneous harmonic \(H_{m+1}\), Stokes and Cauchy‚ÄìSchwarz give
 
 \[
 \boxed{\int_I\left|\rho_n^{-(m+3)}
@@ -1723,7 +1723,7 @@ It retains the global energy exactly (on the appropriately rescaled domain), and
 =\nu\int_{t_n-S/M_n}^{t_n}\|\nabla u\|_2^2dt\to0.
 \]
 
-Bounded local vorticity and energy give local div‚ìcurl bounds. A spacetime Euler limit requires a compatible time compactness/pressure argument, and nontriviality is **not** supplied by a point value under weak convergence. Claims about a conserved energy of the limit additionally need tightness and adequate strong convergence; exact conservation in the finite-stage chart does not alone provide them.
+Bounded local vorticity and energy give local div‚Äìcurl bounds. A spacetime Euler limit requires a compatible time compactness/pressure argument, and nontriviality is **not** supplied by a point value under weak convergence. Claims about a conserved energy of the limit additionally need tightness and adequate strong convergence; exact conservation in the finite-stage chart does not alone provide them.
 
 For \(0<\mu\le1\), define
 
@@ -1739,7 +1739,7 @@ For the principal Poisson-source symbol,
 =|W(x)-W(y)|.
 \]
 
-Thus \(\eta_\mu\) is exactly its spatial Hlder modulus, not merely an analogy. If it is uniformly bounded along snapshots, Arzel†‚ìAscoli preserves \(|W_*(0)|=1\); local div‚ìcurl/Rellich gives a nonzero spatial velocity limit. A nontrivial **spacetime** Euler realization and its time-zero trace remain separately to be checked. Conversely a sequence with no such spatial pointed subsequence has no bounded subsequence of \(\eta_\mu\).
+Thus \(\eta_\mu\) is exactly its spatial H√∂lder modulus, not merely an analogy. If it is uniformly bounded along snapshots, Arzel√†‚ÄìAscoli preserves \(|W_*(0)|=1\); local div‚Äìcurl/Rellich gives a nonzero spatial velocity limit. A nontrivial **spacetime** Euler realization and its time-zero trace remain separately to be checked. Conversely a sequence with no such spatial pointed subsequence has no bounded subsequence of \(\eta_\mu\).
 
 Let \(U=\|u\|_2\), \(H_\mu=[\omega]_{C^\mu}\). The finite-energy vorticity scale and its normalized form are
 
@@ -1765,7 +1765,7 @@ optimizes to
 
 Hence blow-up requires divergence of the corresponding integral in turnover time \(d\tau=Mdt\). This is an upper bound and a necessary divergence criterion, not a universal estimate proving finiteness.
 
-The original prose cited a current Constantin‚ìIgnatova‚ìVicol result as context. Verify the exact publication and its hypotheses before using that attribution; the scale algebra and kernel split above are independently written here.
+The original prose cited a current Constantin‚ÄìIgnatova‚ÄìVicol result as context. Verify the exact publication and its hypotheses before using that attribution; the scale algebra and kernel split above are independently written here.
 
 <a id="section-33"></a>
 
@@ -1816,7 +1816,7 @@ If \(|W(0)|=1\), \([W]_{C^\mu}=\eta\), a compact bump test aligned with \(W(0)\)
 
 The exponents follow from the \(\dot H^1\) and \(\dot H^{1/2}\) norms of the scaled test. Bounded \(\eta\) prevents critical-norm collapse and gives a logarithmic lower bound on accumulated \(\|B_V\|\).
 
-The ratio \(\ell_\eta/\ell_C=M^{1/10}\eta^{-1/\mu}\) and formal diffusion rate \(\nu M^{-1/5}\eta^{2/\mu}\) locate a crossover. With fixed viscosity suppressed in units the old expression was \(\eta\sim M^{\mu/10}\); unit diffusion rate includes \(\nu^{-\mu/2}\). **A global Hlder seminorm is not a localized frequency measurement and does not give a lower bound on \(-\Delta|\omega|\) at its maximum.** The toroidal shell-plus-flat-core example has large strain/Hlder variation and zero viscous derivative at the centre. Retire the claim that this crossover alone proves the peak cannot escape.
+The ratio \(\ell_\eta/\ell_C=M^{1/10}\eta^{-1/\mu}\) and formal diffusion rate \(\nu M^{-1/5}\eta^{2/\mu}\) locate a crossover. With fixed viscosity suppressed in units the old expression was \(\eta\sim M^{\mu/10}\); unit diffusion rate includes \(\nu^{-\mu/2}\). **A global H√∂lder seminorm is not a localized frequency measurement and does not give a lower bound on \(-\Delta|\omega|\) at its maximum.** The toroidal shell-plus-flat-core example has large strain/H√∂lder variation and zero viscous derivative at the centre. Retire the claim that this crossover alone proves the peak cannot escape.
 
 <a id="section-34"></a>
 
@@ -1900,7 +1900,7 @@ This supplies \(\mathsf B_{NS}\) on the stated small-data class. Applied to the 
 
 or \((l-1-\partial_\lambda)(l+2+\partial_\lambda)b=F\). This identifies the exact radial Green poles and the marginal \(l=2\) scale geometry. Retain the angular representation and matrix source; do not reduce an arbitrary nonlinear mode interaction to a positive scalar radial operator without proof.
 
-[S21] and [S22] additionally proposed dynamically matched dissipation bands and iterated octave suppression. Their arithmetic conclusions receive a repaired proof later in [S19]. Their unrestricted NS claims require independent audit. In particular, logarithmic factors such as \(1+m/j_\varepsilon\) cannot be replaced by a uniform constant while \(m\to\infty\); ‚must cross adjacent bands‚ needs an exact paraproduct support statement compatible with high‚ìhigh to low interactions and source-dependent coefficient tails. A claimed Gaussian-in-octave bound is not an established global theorem in this transfer. The rigorous whole-kernel statements in the next chapter do not depend on it.
+[S21] and [S22] additionally proposed dynamically matched dissipation bands and iterated octave suppression. Their arithmetic conclusions receive a repaired proof later in [S19]. Their unrestricted NS claims require independent audit. In particular, logarithmic factors such as \(1+m/j_\varepsilon\) cannot be replaced by a uniform constant while \(m\to\infty\); ‚Äúmust cross adjacent bands‚Äù needs an exact paraproduct support statement compatible with high‚Äìhigh to low interactions and source-dependent coefficient tails. A claimed Gaussian-in-octave bound is not an established global theorem in this transfer. The rigorous whole-kernel statements in the next chapter do not depend on it.
 
 
 ---
@@ -2636,7 +2636,7 @@ RH\iff\int_1^\infty e^{-2\sqrt t}|Z(t)|^2dt<\infty,
 \delta=\inf\left\{s>0:\int_1^\infty e^{-2st}|Z(t)|^2dt<\infty\right\}.
 \]
 
-If the subexponentially damped square is integrable, Cauchy‚ìSchwarz makes the received Laplace transform holomorphic on every right half-plane \(\Re w>0\). Its actual nonzero spectral residues exclude off-line zeros. Conversely under RH the receiver is bounded. The analogous argument at damping \(s\) yields the abscissa. These arguments avoid trying to identify a dominating mode in a possibly cancelling exponential sum.
+If the subexponentially damped square is integrable, Cauchy‚ÄìSchwarz makes the received Laplace transform holomorphic on every right half-plane \(\Re w>0\). Its actual nonzero spectral residues exclude off-line zeros. Conversely under RH the receiver is bounded. The analogous argument at damping \(s\) yields the abscissa. These arguments avoid trying to identify a dominating mode in a possibly cancelling exponential sum.
 
 <a id="section-55"></a>
 
@@ -2725,7 +2725,7 @@ The coordinates \(\Sigma=z+w\), \(\Delta=w-z\) are jointly invertible: \(z=(\Sig
 
 The original prose jumped from this coordinate inversion to generic uniqueness of a Laplace transform of a complex planar measure. That implication is not automatic. The safe source-reconstruction theorem is section 57: differentiate the actual Gram kernel to recover \(Z\), then use its actual meromorphic Laplace transform to recover the divisor. Do not use an unproved general moment determinacy theorem to justify a broader claim.
 
-On the arithmetic side, insertion of the actual explicit formula gives a prime‚ìprime term
+On the arithmetic side, insertion of the actual explicit formula gives a prime‚Äìprime term
 
 \[
 \sum_{m,n}\frac{\Lambda(m)\Lambda(n)}{\sqrt{mn}}W_{s;T,U}(m,n),
@@ -2881,7 +2881,7 @@ With any declared faithful weights \(w_z=m_z|G(z)|^2\), set \(\mathcal P_G(t)=\s
 =\frac{s^2}{2}\sum w_z\|F_{s,z}-F_{s,\theta z}\|^2.
 \]
 
-If the synthesis map from a **distinct-zero unweighted** \(\ell^2\) basis is \(\mathcal Be_z=\sqrt{w_z}F_{s,z}\), then \(\mathcal D=\mathcal B(I-J)\) is Hilbert‚ìSchmidt and \(\|\mathcal D\|_{HS}^2=2s^{-2}\sum w_z(\Re z)^2\). Its squared operator is positive trace class, zero exactly on RH. Using \(\ell^2(\Sigma,m)\) instead requires the normalized basis and corresponding weights. Never count multiplicity both in the index and in \(w_z\).
+If the synthesis map from a **distinct-zero unweighted** \(\ell^2\) basis is \(\mathcal Be_z=\sqrt{w_z}F_{s,z}\), then \(\mathcal D=\mathcal B(I-J)\) is Hilbert‚ÄìSchmidt and \(\|\mathcal D\|_{HS}^2=2s^{-2}\sum w_z(\Re z)^2\). Its squared operator is positive trace class, zero exactly on RH. Using \(\ell^2(\Sigma,m)\) instead requires the normalized basis and corresponding weights. Never count multiplicity both in the index and in \(w_z\).
 
 A discrete logarithmic positive-holonomy homomorphism can be viewed as an \(H^1\) cocycle for a specified trivial action, in which all coboundaries vanish. That construction is different from the feature-difference coboundary above and from an \(H^2\) extension obstruction. Its definition by the unknown horizontal operator does not prove its class vanishes.
 
@@ -2929,7 +2929,7 @@ Uniform stability fails anyway. Known distinct critical-line zeros have arbitrar
 \lambda_{min}=1-\frac{2s}{\sqrt{4s^2+d^2}}\le\frac{d^2}{8s^2}\to0.
 \]
 
-For \(N\) in one unit interval, the all-ones Rayleigh quotient gives \(\lambda_{max}\ge [4s^2/(4s^2+1)]N\). Thus the unweighted normalized family has neither a uniform lower Riesz bound nor a uniform upper Bessel bound. This pathology already occurs among zeros known to satisfy RH, so it cannot characterize off-criticality. Weighted synthesis remains Hilbert‚ìSchmidt; an infinite-rank compact operator cannot have a bounded inverse on its range with the ambient norm. [S09]
+For \(N\) in one unit interval, the all-ones Rayleigh quotient gives \(\lambda_{max}\ge [4s^2/(4s^2+1)]N\). Thus the unweighted normalized family has neither a uniform lower Riesz bound nor a uniform upper Bessel bound. This pathology already occurs among zeros known to satisfy RH, so it cannot characterize off-criticality. Weighted synthesis remains Hilbert‚ÄìSchmidt; an infinite-rank compact operator cannot have a bounded inverse on its range with the ambient norm. [S09]
 
 <a id="section-61"></a>
 
@@ -2950,7 +2950,7 @@ Then
 
 RH is equivalent to \(W(f)\ge0\) for every compact smooth input. Under RH the receiver is the Fourier transform of the positive weights \(m_zG(i\gamma)\); conversely two short pulses with optimally chosen relative sign give limiting work \(M_0-|Z(\tau)|\). The fixed two-packet theorem closes the implication.
 
-Under RH an explicit lossless oscillator realization has \(a_\gamma'=i\gamma a_\gamma+f\), output \(y=\sum c_\gamma a_\gamma\), energy \(\frac12\sum c_\gamma|a_\gamma|^2\), and derivative \(\Re(\bar f y)\). This is a conditional spectral realization, not an unconditional Hilbert‚ìP≥lya proof.
+Under RH an explicit lossless oscillator realization has \(a_\gamma'=i\gamma a_\gamma+f\), output \(y=\sum c_\gamma a_\gamma\), energy \(\frac12\sum c_\gamma|a_\gamma|^2\), and derivative \(\Re(\bar f y)\). This is a conditional spectral realization, not an unconditional Hilbert‚ÄìP√≥lya proof.
 
 The active control \(Z_a(t)=\cosh(at)\), \(a>0\), has finite positive damped Gram kernels of every moment order for \(s>a\), but two opposite impulses yield work \(1-\cosh(a\tau)<0\). Thus positivity of the already-positive completions cannot prove passivity of their boundary descendant. [S10]
 
@@ -3038,7 +3038,7 @@ For each \(\rho<1\), this is absolutely convergent in the declared sequence repr
 
 Thus boundedness of **any one fixed-order actual dyadic residual** implies bounded \(Z\) and RH. The inverse is source-boundary unique: a homogeneous normalized solution is a polynomial sequence of degree at most \(m-1\), and the zero boundary limit removes it.
 
-Retain the exact counterexample to the earlier shortcut: \(x_k=(-1)^k/(k+1)\to0\), but the ordinary \(m=2\) negative-binomial weighted difference sum does not converge. The Abel argument, not ‚the boundary tends to zero,‚ is the valid general theorem.
+Retain the exact counterexample to the earlier shortcut: \(x_k=(-1)^k/(k+1)\to0\), but the ordinary \(m=2\) negative-binomial weighted difference sum does not converge. The Abel argument, not ‚Äúthe boundary tends to zero,‚Äù is the valid general theorem.
 
 <a id="section-63"></a>
 
@@ -3120,7 +3120,7 @@ The exact resolved resolvent and time evolution are
 
 Let \(d=\lambda+i\gamma\). The intermediate \(\sigma^2/d\) has a pivot pole at \(d=0\), but for \(\sigma\ne0\) the full inverse there is \(\left(\begin{smallmatrix}0&1/\sigma\\1/\sigma&0\end{smallmatrix}\right)\). That singularity is removable from the full source problem. The poles \(d=\pm\sigma\) are genuine and have resolved residue \(1/2\). For \(\sigma=0\), the actual fixed orbit has a neutral \(1/d\) pole and no independent antisymmetric coordinate.
 
-Across all actual orbits, \(\Sigma(1)=0\iff RH\). Its real part is nonnegative on the right half-plane even when \(\sigma\ne0\), but it is **subtracted** as a positive-feedback term in the resolved denominator. Positive self-energy is not a dissipation proof. These facts are the exact finite reflection instance of the same source-retaining block normal form used on NS. [S17‚ìS18]
+Across all actual orbits, \(\Sigma(1)=0\iff RH\). Its real part is nonnegative on the right half-plane even when \(\sigma\ne0\), but it is **subtracted** as a positive-feedback term in the resolved denominator. Positive self-energy is not a dissipation proof. These facts are the exact finite reflection instance of the same source-retaining block normal form used on NS. [S17‚ÄìS18]
 
 
 ---
@@ -3137,117 +3137,117 @@ The following entries are not reasons to discard the research. They record exact
 
 ### Infrastructure and proof status
 
-**C01 ‚î Python is not the repository kernel.** Retain every exact Python calculation and the source-aware finite evaluators. Retire any reading that those programs invoked Yantra, Agda, Lean, `NativeOperation`, or the repository's actual rewrite calculus. The original execution probes found no native toolchain. This handoff replayed two standalone scripts only; see validation metadata.
+**C01 ‚Äî Python is not the repository kernel.** Retain every exact Python calculation and the source-aware finite evaluators. Retire any reading that those programs invoked Yantra, Agda, Lean, `NativeOperation`, or the repository's actual rewrite calculus. The original execution probes found no native toolchain. This handoff replayed two standalone scripts only; see validation metadata.
 
-**C02 ‚î A safe header is not a new build.** `--safe`, advertised historical green, a connector fetch, and a completed local symbolic check are different evidence. The agents must preserve exact compiler pin, import closure, working-tree state, command and output.
+**C02 ‚Äî A safe header is not a new build.** `--safe`, advertised historical green, a connector fetch, and a completed local symbolic check are different evidence. The agents must preserve exact compiler pin, import closure, working-tree state, command and output.
 
-**C03 ‚î A generic wrapper consumes its fields.** `RHReducesToBoundedness` and `NSReducesToDepletion` are read at their types, not as proof by name. Conversely, an argument slot in one wrapper does not prove that a required result is absent elsewhere. Search before assuming a mathematical gap.
+**C03 ‚Äî A generic wrapper consumes its fields.** `RHReducesToBoundedness` and `NSReducesToDepletion` are read at their types, not as proof by name. Conversely, an argument slot in one wrapper does not prove that a required result is absent elsewhere. Search before assuming a mathematical gap.
 
-**C04 ‚î The finite language normalizer is not a universal endpoint normalizer.** Actual `learn=install(normalize t)` is proved for its declared terms. `GenerativeLoop` coverage termination over missing syntax heads is not deductive completeness, a proof that a new analytic inequality is true, or an executable NS/RH encoding. Schematic instance/locus transport is real and should be used where the source language supports it.
+**C04 ‚Äî The finite language normalizer is not a universal endpoint normalizer.** Actual `learn=install(normalize t)` is proved for its declared terms. `GenerativeLoop` coverage termination over missing syntax heads is not deductive completeness, a proof that a new analytic inequality is true, or an executable NS/RH encoding. Schematic instance/locus transport is real and should be used where the source language supports it.
 
-**C05 ‚î Case, library and cache are part of execution evidence.** Audit `Kernel` versus `kernel`, exact `cubical-0.9` resolution, intentionally failing modules, and certificate caches that may omit imported dependency content. A cached verdict is not a fresh compile. New dependency content must invalidate/recheck the old verdict.
+**C05 ‚Äî Case, library and cache are part of execution evidence.** Audit `Kernel` versus `kernel`, exact `cubical-0.9` resolution, intentionally failing modules, and certificate caches that may omit imported dependency content. A cached verdict is not a fresh compile. New dependency content must invalidate/recheck the old verdict.
 
-**C06 ‚î The finish line was not demonstrated.** Repeated ‚endgame,‚ ‚one mountain,‚ or ‚almost done‚ remarks were not a measurement of remaining proof difficulty. Preserve concrete results and source-specific backward dependencies, not those estimates.
+**C06 ‚Äî The finish line was not demonstrated.** Repeated ‚Äúendgame,‚Äù ‚Äúone mountain,‚Äù or ‚Äúalmost done‚Äù remarks were not a measurement of remaining proof difficulty. Preserve concrete results and source-specific backward dependencies, not those estimates.
 
 ### Shared source, topology and limits
 
-**C07 ‚î Quadratic diagonal versus frozen operator.** Alternating bilinear perturbations do not change the autonomous quadratic field. They can change off-source frozen spectra. Use the canonical symmetric polarization for actual derivatives; include every occurrence of the common source.
+**C07 ‚Äî Quadratic diagonal versus frozen operator.** Alternating bilinear perturbations do not change the autonomous quadratic field. They can change off-source frozen spectra. Use the canonical symmetric polarization for actual derivatives; include every occurrence of the common source.
 
-**C08 ‚î Beltrami leakage cancels in the actual variation.** The same-eigenvalue control has nonzero frozen opposite-helicity output and zero actual nonlinear first variation. It is a permanent negative control against interpreting one frozen argument as the tangent dynamics.
+**C08 ‚Äî Beltrami leakage cancels in the actual variation.** The same-eigenvalue control has nonzero frozen opposite-helicity output and zero actual nonlinear first variation. It is a permanent negative control against interpreting one frozen argument as the tangent dynamics.
 
-**C09 ‚î Independent readings are not coherent CRT histories.** The product of capacities counts the ambient product. Its compatible diagonal has only endpoint cardinality. All finite CRT compatibility yields a profinite point, not necessarily an ordinary integer. Original-source membership is a separate constraint.
+**C09 ‚Äî Independent readings are not coherent CRT histories.** The product of capacities counts the ambient product. Its compatible diagonal has only endpoint cardinality. All finite CRT compatibility yields a profinite point, not necessarily an ordinary integer. Original-source membership is a separate constraint.
 
-**C10 ‚î Same residual is not same obstruction.** Include the diagram, actions, maps, source image and required commuting cells. An image-lift failure, a quotient non-descent, an extension class and a nontrivial loop are different predicates even with identical underlying sets.
+**C10 ‚Äî Same residual is not same obstruction.** Include the diagram, actions, maps, source image and required commuting cells. An image-lift failure, a quotient non-descent, an extension class and a nontrivial loop are different predicates even with identical underlying sets.
 
-**C11 ‚î A set base has no nontrivial homotopy-loop monodromy.** A set of arithmetic solutions does not itself supply a nontrivial base loop. A richer action/groupoid may, but must be exhibited. Do not infer monodromy from multiplicity alone.
+**C11 ‚Äî A set base has no nontrivial homotopy-loop monodromy.** A set of arithmetic solutions does not itself supply a nontrivial base loop. A richer action/groupoid may, but must be exhibited. Do not infer monodromy from multiplicity alone.
 
-**C12 ‚î An exact coboundary need not vanish as a cochain.** Feature differences `F(gz)-F(z)` are always cohomologically trivial. RH asks them to vanish pointwise in that construction. A logarithmic group homomorphism with trivial coefficients is a different legitimate H1 object. An exact scale connection has trivial closed-loop integral; endpoint divergence is not a new H2 obstruction.
+**C12 ‚Äî An exact coboundary need not vanish as a cochain.** Feature differences `F(gz)-F(z)` are always cohomologically trivial. RH asks them to vanish pointwise in that construction. A logarithmic group homomorphism with trivial coefficients is a different legitimate H1 object. An exact scale connection has trivial closed-loop integral; endpoint divergence is not a new H2 obstruction.
 
-**C13 ‚î Compact at each stage is not compact in the limit.** Finite-rank projections can converge strongly to identity. The finite-scale compact tangent/source residual must remain with its convergence and expectation hypotheses; it cannot simply be erased in a singular limit.
+**C13 ‚Äî Compact at each stage is not compact in the limit.** Finite-rank projections can converge strongly to identity. The finite-scale compact tangent/source residual must remain with its convergence and expectation hypotheses; it cannot simply be erased in a singular limit.
 
-**C14 ‚î Local ancestry is not an arbitrary ancient solution.** Running-record bounds, actual initial source, finite energy, full nonlocal reconstruction and topology must travel with the limit. Conversely a nonzero pointwise peak need not survive weak convergence. No recurrence, self-similarity or nonzero limiting profile is automatic.
+**C14 ‚Äî Local ancestry is not an arbitrary ancient solution.** Running-record bounds, actual initial source, finite energy, full nonlocal reconstruction and topology must travel with the limit. Conversely a nonzero pointwise peak need not survive weak convergence. No recurrence, self-similarity or nonzero limiting profile is automatic.
 
 ### NS source geometry and observables
 
-**C15 ‚î Source coadjoint transport is not the true tangent.** `M_u` maps the actual source along its trajectory; `DN(u)=M_u+Pi_u` differentiates the full common source. Their covariance and compact residual are distinct statements. Never replace the true variation by whichever factorization has a more convenient invariant.
+**C15 ‚Äî Source coadjoint transport is not the true tangent.** `M_u` maps the actual source along its trajectory; `DN(u)=M_u+Pi_u` differentiates the full common source. Their covariance and compact residual are distinct statements. Never replace the true variation by whichever factorization has a more convenient invariant.
 
-**C16 ‚î A positive operator majorant is not automatically an L-infinity contraction.** The stochastic completely positive transport has a moving order unit. Unless unitality relative to the correct source/metric is proved, positivity cannot be read as a fixed order bound. Global smooth shear controls exhibit auxiliary growth with physical vorticity decay.
+**C16 ‚Äî A positive operator majorant is not automatically an L-infinity contraction.** The stochastic completely positive transport has a moving order unit. Unless unitality relative to the correct source/metric is proved, positivity cannot be read as a fixed order bound. Global smooth shear controls exhibit auxiliary growth with physical vorticity decay.
 
-**C17 ‚î Essential source norm and interaction quotient differ.** The source map is injective/isometric in maximum vorticity on the declared periodic class, but nonzero compact commutators exist outside the source image. Quotient commutation does not mean exact commutation or conservation of every source interaction.
+**C17 ‚Äî Essential source norm and interaction quotient differ.** The source map is injective/isometric in maximum vorticity on the declared periodic class, but nonzero compact commutators exist outside the source image. Quotient commutation does not mean exact commutation or conservation of every source interaction.
 
-**C18 ‚î The cross-helicity operator norm is essentially full strain.** Its essential norm is half the strain eigenvalue spread. It is not, by itself, a cancellation-sensitive depletion quantity substantially smaller than the Lipschitz strain. Keep the actual signed source contraction; arbitrary-input norms discard that information.
+**C18 ‚Äî The cross-helicity operator norm is essentially full strain.** Its essential norm is half the strain eigenvalue spread. It is not, by itself, a cancellation-sensitive depletion quantity substantially smaller than the Lipschitz strain. Keep the actual signed source contraction; arbitrary-input norms discard that information.
 
-**C19 ‚î Harmonic ambiguity is finite only in the declared growth class.** With BMO gradient it is affine `Ax+b`, curl-free/divergence-free `A` symmetric trace free; translation leaves five strain coordinates. Without growth control, arbitrary harmonic fields remain. Anchored BMO means and a fixed strain datum are required for continuity of reconstruction.
+**C19 ‚Äî Harmonic ambiguity is finite only in the declared growth class.** With BMO gradient it is affine `Ax+b`, curl-free/divergence-free `A` symmetric trace free; translation leaves five strain coordinates. Without growth control, arbitrary harmonic fields remain. Anchored BMO means and a fixed strain datum are required for continuity of reconstruction.
 
-**C20 ‚î The 1/4 versus 1/5 comparison initially misaligned targets.** Raw pressure gradient carries an acceleration/frame coordinate. Physical velocity-gradient continuation needs pressure Hessian, whose energy exponent agrees with harmonic strain at 1/5. Original periodic mean/gauge data still cannot be silently deleted.
+**C20 ‚Äî The 1/4 versus 1/5 comparison initially misaligned targets.** Raw pressure gradient carries an acceleration/frame coordinate. Physical velocity-gradient continuation needs pressure Hessian, whose energy exponent agrees with harmonic strain at 1/5. Original periodic mean/gauge data still cannot be silently deleted.
 
-**C21 ‚î Higher-jet ‚sharpness‚ was energy-only.** The cutoff witnesses for a fixed nonzero m-th harmonic jet, m>=2, have remote vorticity growing with radius and do not respect normalized `||omega||infinity<=1`. Under the latter bound higher remote derivatives vanish at every expanding radius. Isolated highest-jet exponents are not a theorem about complete nonlinear continuation complexity.
+**C21 ‚Äî Higher-jet ‚Äúsharpness‚Äù was energy-only.** The cutoff witnesses for a fixed nonzero m-th harmonic jet, m>=2, have remote vorticity growing with radius and do not respect normalized `||omega||infinity<=1`. Under the latter bound higher remote derivatives vanish at every expanding radius. Isolated highest-jet exponents are not a theorem about complete nonlinear continuation complexity.
 
-**C22 ‚î Harmonic-gradient moments are blind to toroidal strain sources.** The moment extinction theorem is valid. The inference that it depletes central strain is false: the toroidal shell makes all such moments identically zero and imposes arbitrary strain. The exact angular selection is the toroidal l=2 projection.
+**C22 ‚Äî Harmonic-gradient moments are blind to toroidal strain sources.** The moment extinction theorem is valid. The inference that it depletes central strain is false: the toroidal shell makes all such moments identically zero and imposes arbitrary strain. The exact angular selection is the toroidal l=2 projection.
 
-**C23 ‚î Five central strain entries are not a five-dimensional invariant fluid.** The full l=2 source contains a matrix-valued radial profile. Its physical pressure Hessian has the exact -2/7 identity, but the actual nonlinearity emits l=4 immediately. The instantaneous -5/7 strain drift is not an autonomous invariant-manifold theorem.
+**C23 ‚Äî Five central strain entries are not a five-dimensional invariant fluid.** The full l=2 source contains a matrix-valued radial profile. Its physical pressure Hessian has the exact -2/7 identity, but the actual nonlinearity emits l=4 immediately. The instantaneous -5/7 strain drift is not an autonomous invariant-manifold theorem.
 
-**C24 ‚î Retain vorticity rotation and viscosity in the strain equation.** The complete formula includes `-(omega tensor omega)_0/4`, the complementary pressure cross-effect, and `nu Delta S`. An affine pressure-only limit ODE requires separately proved elimination of all these terms.
+**C24 ‚Äî Retain vorticity rotation and viscosity in the strain equation.** The complete formula includes `-(omega tensor omega)_0/4`, the complementary pressure cross-effect, and `nu Delta S`. An affine pressure-only limit ODE requires separately proved elimination of all these terms.
 
-**C25 ‚î Kernel positivity has more than one meaning.** The radial K(s,t)>0 is positive on the cone of nonnegative source profiles, but not positive semidefinite for signed profiles. Its exact Mellin multiplier changes sign at sqrt(8). Actual emitted beta2 and beta4 are signed. The later return can reinforce or oppose the initial strain.
+**C25 ‚Äî Kernel positivity has more than one meaning.** The radial K(s,t)>0 is positive on the cone of nonnegative source profiles, but not positive semidefinite for signed profiles. Its exact Mellin multiplier changes sign at sqrt(8). Actual emitted beta2 and beta4 are signed. The later return can reinforce or oppose the initial strain.
 
-**C26 ‚î Fixed-centre signed memory does not control moving-peak absolute strain.** `||integral S(x,t)dt||`, `sup_x integral ||S||dt`, and `integral sup_x||S||dt` are different. [S16] provides a valid bound for the last quantity for free heat sources and actual Duhamel forcing; its remaining nonlinear WP2 integral is not globally bounded here.
+**C26 ‚Äî Fixed-centre signed memory does not control moving-peak absolute strain.** `||integral S(x,t)dt||`, `sup_x integral ||S||dt`, and `integral sup_x||S||dt` are different. [S16] provides a valid bound for the last quantity for free heat sources and actual Duhamel forcing; its remaining nonlinear WP2 integral is not globally bounded here.
 
-**C27 ‚î The direction in stretching work also moves.** A strain-potential coboundary contracted with xi has an extra `2(D_t xi)^T Pi_pot xi` term. Recurrence of the matrix potential alone does not close the actual directional work loop.
+**C27 ‚Äî The direction in stretching work also moves.** A strain-potential coboundary contracted with xi has an extra `2(D_t xi)^T Pi_pot xi` term. Recurrence of the matrix potential alone does not close the actual directional work loop.
 
-**C28 ‚î Static Zeno stacks are not single singular histories.** Large initial strain and quadratic initial feedback coexist with bounded integrated heat response. Entire cross-shell contributions were included in the bounded first-injection and first-return calculations. Smooth small-data rescalings supply globally regular controls with arbitrarily large initial strain. No succession of separate examples is a blow-up solution.
+**C28 ‚Äî Static Zeno stacks are not single singular histories.** Large initial strain and quadratic initial feedback coexist with bounded integrated heat response. Entire cross-shell contributions were included in the bounded first-injection and first-return calculations. Smooth small-data rescalings supply globally regular controls with arbitrarily large initial strain. No succession of separate examples is a blow-up solution.
 
-**C29 ‚î Hlder seminorm is not a local viscous lower bound.** It gives an upper bound on differences and a guaranteed coherence ball, not the actual packet bandwidth, the exact oscillation scale, or a lower bound for the Laplacian at the maximum. The flat rotating core with remote toroidal strain refutes that shortcut. Restore viscosity units in any crossover threshold.
+**C29 ‚Äî H√∂lder seminorm is not a local viscous lower bound.** It gives an upper bound on differences and a guaranteed coherence ball, not the actual packet bandwidth, the exact oscillation scale, or a lower bound for the Laplacian at the maximum. The flat rotating core with remote toroidal strain refutes that shortcut. Restore viscosity units in any crossover threshold.
 
-**C30 ‚î Snapshot nontriviality is weaker than a spacetime Euler theorem.** Equi-Hlder vorticity at time zero gives a nonzero spatial limit there. Time compactness, pressure, trace compatibility and global tightness must be established separately before claiming a nontrivial finite-energy Euler evolution with all inherited identities.
+**C30 ‚Äî Snapshot nontriviality is weaker than a spacetime Euler theorem.** Equi-H√∂lder vorticity at time zero gives a nonzero spatial limit there. Time compactness, pressure, trace compatibility and global tightness must be established separately before claiming a nontrivial finite-energy Euler evolution with all inherited identities.
 
-**C31 ‚î Peak normalization does not imply an O(M) lower stretching rate at every record.** Blow-up forces accumulated positive log-growth. It does not supply a uniform pointwise ratio `alpha/M` on every chosen normalized window. Do not localize a divergent whole-history integral without additional selection proof.
+**C31 ‚Äî Peak normalization does not imply an O(M) lower stretching rate at every record.** Blow-up forces accumulated positive log-growth. It does not supply a uniform pointwise ratio `alpha/M` on every chosen normalized window. Do not localize a divergent whole-history integral without additional selection proof.
 
-**C32 ‚î Kinetic return passivity is real but metric-specific.** The full midpoint return satisfies an exact initial-storage minus final-storage minus dissipation identity. It need not be contractive as an arbitrary-input residual propagator and does not control absolute return work, critical norm, local vortex stretching, or BNS. Use it as a valid all-depth sign theorem, not as global regularity by changing the noun ‚energy.‚
+**C32 ‚Äî Kinetic return passivity is real but metric-specific.** The full midpoint return satisfies an exact initial-storage minus final-storage minus dissipation identity. It need not be contractive as an arbitrary-input residual propagator and does not control absolute return work, critical norm, local vortex stretching, or BNS. Use it as a valid all-depth sign theorem, not as global regularity by changing the noun ‚Äúenergy.‚Äù
 
-**C33 ‚î Orthogonal observable dynamics is not automatically a source flow.** `Qscript L` is not generally a derivation; its product defect is explicit. A composition-operator approximation changes the problem. The nonlinear mild reconstruction and actual midpoint propagator avoid the substitution, with their source-dependence stated.
+**C33 ‚Äî Orthogonal observable dynamics is not automatically a source flow.** `Qscript L` is not generally a derivation; its product defect is explicit. A composition-operator approximation changes the problem. The nonlinear mild reconstruction and actual midpoint propagator avoid the substitution, with their source-dependence stated.
 
-**C34 ‚î The source-dependent midpoint kernel is self-consistent.** Its coefficient `m=a+b/2` contains the complement. It packages all interactions correctly, but it is not a solved autonomous equation for arbitrary a. The separate analytic complementary-history theorem supplies local uniqueness and reconstruction on its actual existence domain.
+**C34 ‚Äî The source-dependent midpoint kernel is self-consistent.** Its coefficient `m=a+b/2` contains the complement. It packages all interactions correctly, but it is not a solved autonomous equation for arbitrary a. The separate analytic complementary-history theorem supplies local uniqueness and reconstruction on its actual existence domain.
 
-**C35 ‚î Catalan smallness is not a physical boundary.** Ordered weakly singular Volterra powers have Gamma denominators. Their causal inverse exists for any bounded coefficient on any fixed finite interval, without smallness. Rebase the nonlinear analytic chart around solved sources. None of this proves that the source norm remains bounded at every finite endpoint.
+**C35 ‚Äî Catalan smallness is not a physical boundary.** Ordered weakly singular Volterra powers have Gamma denominators. Their causal inverse exists for any bounded coefficient on any fixed finite interval, without smallness. Rebase the nonlinear analytic chart around solved sources. None of this proves that the source norm remains bounded at every finite endpoint.
 
-**C36 ‚î Elimination/gluing is on common existence domains.** Finite sector orders and finite time partitions agree by exact reconstruction and uniqueness. They do not imply that a sequence of intervals has divergent total physical length or that arbitrary infinite elimination orders are analytically admissible.
+**C36 ‚Äî Elimination/gluing is on common existence domains.** Finite sector orders and finite time partitions agree by exact reconstruction and uniqueness. They do not imply that a sequence of intervals has divergent total physical length or that arbitrary infinite elimination orders are analytically admissible.
 
-**C37 ‚î Dynamic octave-suppression claims remain under audit.** [S21/S22] contain a log-factor and scale-matching route not proved in the final causal/history theorem. Uniformity in depth, high‚ìhigh to low Fourier interactions, and moving coefficient/observer terms must be checked before using a Gaussian-in-octave assertion. Preserve the note as a research proposal, not a closing lemma.
+**C37 ‚Äî Dynamic octave-suppression claims remain under audit.** [S21/S22] contain a log-factor and scale-matching route not proved in the final causal/history theorem. Uniformity in depth, high‚Äìhigh to low Fourier interactions, and moving coefficient/observer terms must be checked before using a Gaussian-in-octave assertion. Preserve the note as a research proposal, not a closing lemma.
 
 ### RH source, positivity, spectra and arithmetic
 
-**C38 ‚î Keep the two packet constructions separate.** The fourfold delayed spline and the twofold exponential packet/autocorrelation have different supports, transforms, decay, zeros and endpoint formulas. Do not substitute H for G or reuse a support condition from the other packet.
+**C38 ‚Äî Keep the two packet constructions separate.** The fourfold delayed spline and the twofold exponential packet/autocorrelation have different supports, transforms, decay, zeros and endpoint formulas. Do not substitute H for G or reuse a support condition from the other packet.
 
-**C39 ‚î Real-part positivity of receiver weights is not Weil positivity.** It proves M0>0, not positivity on all arithmetic source combinations. The latter involves the reflection form and cross terms.
+**C39 ‚Äî Real-part positivity of receiver weights is not Weil positivity.** It proves M0>0, not positivity on all arithmetic source combinations. The latter involves the reflection form and cross terms.
 
-**C40 ‚î Completed source reflection is not a compact-source lift.** Linear J is not the standard conjugate-linear test involution. The translated fixed packet's reflection has a compact source iff RH, even though J exists unconditionally on the completion and all finite interpolation fibres are inhabited.
+**C40 ‚Äî Completed source reflection is not a compact-source lift.** Linear J is not the standard conjugate-linear test involution. The translated fixed packet's reflection has a compact source iff RH, even though J exists unconditionally on the completion and all finite interpolation fibres are inhabited.
 
-**C41 ‚î Distinct-zero coordinates and multiplicity must not be counted twice.** Use Sigma distinct and m weights, or repeated indices with unit weights consistently. Repeating an identical Hardy mode as independent columns gives a zero determinant for a different reason. Cardinal quotient uses the actual multiplicity.
+**C41 ‚Äî Distinct-zero coordinates and multiplicity must not be counted twice.** Use Sigma distinct and m weights, or repeated indices with unit weights consistently. Repeating an identical Hardy mode as independent columns gives a zero determinant for a different reason. Cardinal quotient uses the actual multiplicity.
 
-**C42 ‚î Noncompact cardinal sources do not contradict compact-source injectivity.** Their larger class contains the nonzero theta source phi with Ephi=0. A norm escape on fixed compact support is compatible with exact interpolation in a larger rapidly decaying class.
+**C42 ‚Äî Noncompact cardinal sources do not contradict compact-source injectivity.** Their larger class contains the nonzero theta source phi with Ephi=0. A norm escape on fixed compact support is compatible with exact interpolation in a larger rapidly decaying class.
 
-**C43 ‚î A negative Weil source is not a proof that one exists for zeta.** Xi-cardinal constructions are conditioned on a hypothetical off-line actual zero. Synthetic polynomial checks do not produce such a zero. The endpoint negative-bottom escape theorem needs an independent arithmetic lower bound to close RH.
+**C43 ‚Äî A negative Weil source is not a proof that one exists for zeta.** Xi-cardinal constructions are conditioned on a hypothetical off-line actual zero. Synthetic polynomial checks do not produce such a zero. The endpoint negative-bottom escape theorem needs an independent arithmetic lower bound to close RH.
 
-**C44 ‚î Damped Gram positivity is automatic, boundary work positivity is not.** The cosh active-device control passes every sufficiently damped squared-output test. The required passive-work/Toeplitz inequality is a different observation. An indefinite Weil form cannot be replaced by an unrelated positive Gramian.
+**C44 ‚Äî Damped Gram positivity is automatic, boundary work positivity is not.** The cosh active-device control passes every sufficiently damped squared-output test. The required passive-work/Toeplitz inequality is a different observation. An indefinite Weil form cannot be replaced by an unrelated positive Gramian.
 
-**C45 ‚î The lower-limit prefix cannot be discarded in the impedance transform.** The raw series `sum G(2k+1/2)/(w+2k+1/2)` diverges. Use the tail with T>1/2 plus its entire finite-prefix term. Evaluate Laplace residues at their actual pole; one earlier extra exponential was spurious.
+**C45 ‚Äî The lower-limit prefix cannot be discarded in the impedance transform.** The raw series `sum G(2k+1/2)/(w+2k+1/2)` diverges. Use the tail with T>1/2 plus its entire finite-prefix term. Evaluate Laplace residues at their actual pole; one earlier extra exponential was spurious.
 
-**C46 ‚î Higher moment formal identities need a derivative domain.** Finite packet derivatives are unproblematic; the actual fixed receiver gives only specified smoothness. The arbitrary-order Weyl ladder can be stated distributionally or with a proved regularization, but not as unrestricted classical independent-variable differentiability without further work.
+**C46 ‚Äî Higher moment formal identities need a derivative domain.** Finite packet derivatives are unproblematic; the actual fixed receiver gives only specified smoothness. The arbitrary-order Weyl ladder can be stated distributionally or with a proved regularization, but not as unrestricted classical independent-variable differentiability without further work.
 
-**C47 ‚î Coordinate faithfulness is not generic transform uniqueness.** Sum/difference labels invert an ordered pair. That does not prove determinacy of an arbitrary complex planar measure from a real-parameter Laplace family. The safe exact route recovers the actual scalar source from the positive two-time kernel and then its divisor by meromorphic continuation.
+**C47 ‚Äî Coordinate faithfulness is not generic transform uniqueness.** Sum/difference labels invert an ordered pair. That does not prove determinacy of an arbitrary complex planar measure from a real-parameter Laplace family. The safe exact route recovers the actual scalar source from the positive two-time kernel and then its divisor by meromorphic continuation.
 
-**C48 ‚î Finite Vandermonde inversion assumes the packet modes.** Its left inverse recovers a Gramian once the distinct z_i and nonzero amplitudes are supplied. It is not a free infinite modal reconstruction algorithm. Individual infinite Hardy extraction residuals are positive, but uniform Riesz/Bessel conditioning fails already for known critical-line zeros.
+**C48 ‚Äî Finite Vandermonde inversion assumes the packet modes.** Its left inverse recovers a Gramian once the distinct z_i and nonzero amplitudes are supplied. It is not a free infinite modal reconstruction algorithm. Individual infinite Hardy extraction residuals are positive, but uniform Riesz/Bessel conditioning fails already for known critical-line zeros.
 
-**C49 ‚î A Cayley or Stieltjes criterion needs its full analytic class.** Positive-real continuation or Stieltjes representation is equivalent to RH for the actual faithful signal. Merely checking finitely many derivatives, or even calling a function completely monotone without the required characterization, does not establish that continuation. The constructed self-adjoint realization is conditional until its arithmetic positivity is proved.
+**C49 ‚Äî A Cayley or Stieltjes criterion needs its full analytic class.** Positive-real continuation or Stieltjes representation is equivalent to RH for the actual faithful signal. Merely checking finitely many derivatives, or even calling a function completely monotone without the required characterization, does not establish that continuation. The constructed self-adjoint realization is conditional until its arithmetic positivity is proved.
 
-**C50 ‚î Preserve loop orientation.** With U_t=e^{-zt}, J U_t J U_t^{-1}=(U_t*U_t)^{-1}; J U_t^{-1}J U_t=U_t*U_t. Both detect the same horizontal size but are reciprocal matrices. Intermediate self-energy poles may be removable; full-source determinant poles remain.
+**C50 ‚Äî Preserve loop orientation.** With U_t=e^{-zt}, J U_t J U_t^{-1}=(U_t*U_t)^{-1}; J U_t^{-1}J U_t=U_t*U_t. Both detect the same horizontal size but are reciprocal matrices. Intermediate self-energy poles may be removable; full-source determinant poles remain.
 
-**C51 ‚î The high-order difference inverse needed Abel regularization.** A normalized sequence tending to its boundary limit does not justify ordinary polynomially weighted difference sums. [S19] supplies a strong-operator Abel proof; bounded residuals then justify rho=1 by absolute convergence. Keep that repair rather than reusing [S21]'s insufficient boundary sentence.
+**C51 ‚Äî The high-order difference inverse needed Abel regularization.** A normalized sequence tending to its boundary limit does not justify ordinary polynomially weighted difference sums. [S19] supplies a strong-operator Abel proof; bounded residuals then justify rho=1 by absolute convergence. Keep that repair rather than reusing [S21]'s insufficient boundary sentence.
 
-**C52 ‚î Positive self-energy is not negative feedback.** In the reflection block the real part of sigma¬≤/(lambda+i gamma) is nonnegative, but the term is subtracted from the effective resolvent denominator. It creates unstable poles when sigma !=0. Track the sign and the full coupled system.
+**C52 ‚Äî Positive self-energy is not negative feedback.** In the reflection block the real part of sigma¬≤/(lambda+i gamma) is nonnegative, but the term is subtracted from the effective resolvent denominator. It creates unstable poles when sigma !=0. Track the sign and the full coupled system.
 
-**C53 ‚î No finite height, finite prefix, or finite algebra control proves RH alone.** Each finite observation has its explicitly retained tail or conditional extension. Direct Goldbach residual criteria are useful because they name that tail and required rate; the rate is not supplied merely by reconstructing the source.
+**C53 ‚Äî No finite height, finite prefix, or finite algebra control proves RH alone.** Each finite observation has its explicitly retained tail or conditional extension. Direct Goldbach residual criteria are useful because they name that tail and required rate; the rate is not supplied merely by reconstructing the source.
 
 <a id="section-66"></a>
 
@@ -3262,7 +3262,7 @@ Several arguments are strong enough to use as formalization targets but still de
 * Re-run the arbitrary matrix radial pressure identity, not just commuting/diagonal A examples. Its sign and coefficient -2/7 feed every later source split.
 * Check the smooth-source justification for the thin-shell return limits and every boundary term in radial integration by parts. Point-radius delta controls are limiting algebra, not themselves smooth initial data.
 * For causal analytic reconstruction, specify real Banach spaces, continuity of the bilinear mild map, projection boundedness, and source regularity on the entire interval. The implicit-function theorem is applied at an already bounded solution, not at an assumed limiting singular object.
-* For spacetime Euler limits, prove the exact chosen topology and point-observation compatibility; do not cite the snapshot Arzel†‚ìAscoli argument as if it supplies temporal compactness.
+* For spacetime Euler limits, prove the exact chosen topology and point-observation compatibility; do not cite the snapshot Arzel√†‚ÄìAscoli argument as if it supplies temporal compactness.
 * Treat historical 2026 preprint descriptions as citation leads. Verify version, theorem and assumptions from the primary text before importing a named external theorem. The complete local derivations should remain usable without bibliographic embellishment.
 
 <a id="section-67"></a>
@@ -3291,17 +3291,17 @@ The small shell-command tail-formatting error after those runs did not affect ei
 
 There are several exact RH closing routes in the recovered material. They are not independent conjectures to prove one after another, and no one wrapper is the mandatory route.
 
-**RH route A ‚î received arithmetic boundedness.** The actual quantitative source reconstructs the received prime-shell discrepancy. Prove a tail bound for that discrepancy; the faithful received Laplace transform becomes holomorphic in the required right half-plane, so actual off-line poles are excluded by reflection. The sharp fixed tolerance M0 gives the complete two-packet criterion, but a mere bounded tail is already sufficient for the reverse implication. [S02]
+**RH route A ‚Äî received arithmetic boundedness.** The actual quantitative source reconstructs the received prime-shell discrepancy. Prove a tail bound for that discrepancy; the faithful received Laplace transform becomes holomorphic in the required right half-plane, so actual off-line poles are excluded by reflection. The sharp fixed tolerance M0 gives the complete two-packet criterion, but a mere bounded tail is already sufficient for the reverse implication. [S02]
 
-**RH route B ‚î one-sided arithmetic control.** Prove an eventual one-sided polynomial bound for the same actual receiver. The Landau sign-escape theorem forbids any off-line zero. This route may be weaker than two-sided boundedness and should remain live. [S16]
+**RH route B ‚Äî one-sided arithmetic control.** Prove an eventual one-sided polynomial bound for the same actual receiver. The Landau sign-escape theorem forbids any off-line zero. This route may be weaker than two-sided boundedness and should remain live. [S16]
 
-**RH route C ‚î semibounded actual Weil form.** The actual-Xi cardinal construction turns every hypothetical right-of-line zero into compact-source negative-bottom escape at endpoint exponent 2sigma. A globally uniform or subexponential lower bound for that actual form contradicts the escape. Positivity of a different damped Gram kernel does not supply the lower bound. [S11, S13]
+**RH route C ‚Äî semibounded actual Weil form.** The actual-Xi cardinal construction turns every hypothetical right-of-line zero into compact-source negative-bottom escape at endpoint exponent 2sigma. A globally uniform or subexponential lower bound for that actual form contradicts the escape. Positivity of a different damped Gram kernel does not supply the lower bound. [S11, S13]
 
-**RH route D ‚î original compact-source image.** Exhibit a compact source realizing the reflected specified packet. Source-image rigidity forces it to equal the original packet, whose strict modulus separation excludes every off-line pair. All finite interpolation solutions alone are insufficient; the actual global source and its support/norm class must be retained. [S12]
+**RH route D ‚Äî original compact-source image.** Exhibit a compact source realizing the reflected specified packet. Source-image rigidity forces it to equal the original packet, whose strict modulus separation excludes every off-line pair. All finite interpolation solutions alone are insufficient; the actual global source and its support/norm class must be retained. [S12]
 
-**RH route E ‚î fixed-order dyadic residual.** Bound one actual `(T_log2-sqrt2)^m S` on the tail. The exact Abel/negative-binomial inverse gives the receiver bound and closes route A. This includes m>1 without the old tail-convergence gap. [S19‚ìS21]
+**RH route E ‚Äî fixed-order dyadic residual.** Bound one actual `(T_log2-sqrt2)^m S` on the tail. The exact Abel/negative-binomial inverse gives the receiver bound and closes route A. This includes m>1 without the old tail-convergence gap. [S19‚ÄìS21]
 
-**RH route F ‚î direct Goldbach scale residual.** Prove, for every epsilon>0, the t^(1/2-epsilon) rate of `t^2 G_R(t)` under t->2t. Dyadic telescoping and the positive actual square root recover the critical prime Laplace error; Mellin continuation closes RH. This route avoids installing a separate receiver in the final statement. [S22, arithmetic portion]
+**RH route F ‚Äî direct Goldbach scale residual.** Prove, for every epsilon>0, the t^(1/2-epsilon) rate of `t^2 G_R(t)` under t->2t. Dyadic telescoping and the positive actual square root recover the critical prime Laplace error; Mellin continuation closes RH. This route avoids installing a separate receiver in the final statement. [S22, arithmetic portion]
 
 All of these have explicit source-derived hypotheses that remain unsupplied in this assembled argument. Their presence as hypotheses does not mean no other repository theorem supplies them. Search the actual graph for inhabitants or a bypass. Do not convert a `CONDITIONAL` arrow to `ANALYTIC` merely because its predicate has a familiar name.
 
@@ -3330,7 +3330,7 @@ There are three compatible realizations of the same actual nonlinear problem:
 
 Do not turn them into competing theories. Use their precise comparison maps. The tree coefficients make finite derivations executable and testable. The Volterra inverse removes fictitious smallness boundaries on existing smooth intervals. The midpoint propagator gives an actual all-depth signed work identity without summing a Taylor series. Each preserves something a naive quotient would erase.
 
-The next isolated angular coefficient is justified only if it establishes a new property of the full kernel, provides a necessary source-specific bound, or refutes a proposed closure. Otherwise derive the recursion once and install it as a schema. The user's repeated ‚metacircular‚ correction is specifically directed against indefinite manual enumeration of cases.
+The next isolated angular coefficient is justified only if it establishes a new property of the full kernel, provides a necessary source-specific bound, or refutes a proposed closure. Otherwise derive the recursion once and install it as a schema. The user's repeated ‚Äúmetacircular‚Äù correction is specifically directed against indefinite manual enumeration of cases.
 
 <a id="section-70"></a>
 
@@ -3338,37 +3338,37 @@ The next isolated angular coefficient is justified only if it establishes a new 
 
 A coordinator should first inspect the current worktree and existing agent assignments. The lanes below are suggested ownership boundaries, not permission to overwrite other agents' work.
 
-### Lane I ‚î native runtime, proof interfaces and evidence
+### Lane I ‚Äî native runtime, proof interfaces and evidence
 
 Run the nonmutating preflight. Reconcile the actual compiler pin, library files, case-sensitive module paths, negative controls and import roots. Smoke-test Yantra `sadhana.patra` and `sadhana.vislesana` on the already-proved native normalizer; record returned normal form, derivation type, and learned-operation type. Verify both positive and false controls before accepting a candidate gate verdict.
 
-Deliverable: exact commands/logs plus a machine-readable run report identifying the source tree, pinned libraries and exercised module closure. A command merely printing ‚green‚ without this context is not enough. Do not stage generated session logs or overwrite shared defect journals accidentally.
+Deliverable: exact commands/logs plus a machine-readable run report identifying the source tree, pinned libraries and exercised module closure. A command merely printing ‚Äúgreen‚Äù without this context is not enough. Do not stage generated session logs or overwrite shared defect journals accidentally.
 
-### Lane II ‚î metacircular source-aware algebra
+### Lane II ‚Äî metacircular source-aware algebra
 
 Locate current generalizations of `Operation`, substitution, locus, `Session`, `retire`, finite history and source fibre. Reuse them. Formalize the new **general** certificate-composition equations from section 45 in a suitable ring/module language, including transformed source T and reconstruction Z, not only Schur matrices. Formalize the quadratic midpoint identity and the all-order product/return recurrences once. Provide rejecting controls for missing source terms, single-slot differentiation and order-swapped compositions.
 
 Deliverable: reusable native derivations plus an explicit interpretation map to the finite exact reference evaluator. Do not claim the arithmetic `Tm` automatically already encodes arbitrary operators, PDE functions, bounds or integrals. Add the minimal typed interpretation needed, respecting the current architecture and agent conventions.
 
-### Lane III ‚î NS source geometry and radial finite identities
+### Lane III ‚Äî NS source geometry and radial finite identities
 
 Replay the full matrix pressure identity and outgoing l2/l4 calculation, not only a diagonal A special case. Encode the spherical-moment algebra and radial integration-by-parts certificates, with analytical boundary assumptions separated from ring identities. Preserve the exact first-return operator, H5 kernel normalization, scalar/radial moment coefficients, sign-changing source examples, and all geometric-stack cross terms.
 
-Deliverable: a verified algebraic core with named analytic hypotheses, exact interfaces to the actual toroidal projection and Biot‚ìSavart source, and the same-source derivative certificate. This is high-value native installation work even before full PDE formalization.
+Deliverable: a verified algebraic core with named analytic hypotheses, exact interfaces to the actual toroidal projection and Biot‚ÄìSavart source, and the same-source derivative certificate. This is high-value native installation work even before full PDE formalization.
 
-### Lane IV ‚î NS complete-history/energy and continuation bridge
+### Lane IV ‚Äî NS complete-history/energy and continuation bridge
 
 Start with [S19]'s all-depth midpoint storage law and [S18]'s causal inverse theorem, not the weaker earlier one-return estimates. Check the exact function spaces and domain closure. Determine whether current repository mathematics already transports kinetic storage into an appropriate source-specific critical or peak observation. Preserve the actual initial complement, moving-projection exchanges, viscosity, trace at restart times, and source-dependent coefficients.
 
 Deliverable: either a precise theorem strengthening the relevant actual observation, an instantiated existing theorem providing it, or a sharply exhibited separator showing why a proposed transfer fails. Do not call an unlocated result absent from the corpus. Avoid relabeling `UNSUPPLIED-HERE` as a new conjecture merely because a wrapper accepts it.
 
-### Lane V ‚î RH source interpolation and actual Weil operator
+### Lane V ‚Äî RH source interpolation and actual Weil operator
 
 Reconcile actual compact source classes, the fixed receiver, its pole/trivial/prefix terms, completed weighted space, and Xi normalization. Formalize the algebraic parts of the two-sided cardinal source identity, compact cutoff transport, negative reflection vector and bottom-escape construction. Independently audit the analytic tail/zero-count estimates and form-domain approximation.
 
 Deliverable: source-realized finite negative tests conditioned on a hypothetical actual off-line zero, with no assumption of zero simplicity or attained maximal real part. Then search the repository's exact arithmetic/Weil machinery for the required lower-bound or original-source-lift construction; the task is an actual source inequality, not another arbitrary positive Gram kernel.
 
-### Lane VI ‚î RH direct arithmetic residual and convergence repair
+### Lane VI ‚Äî RH direct arithmetic residual and convergence repair
 
 Read [S19]'s Abel proof before [S21]'s old high-order assertion. Encode the c0 shift identity, strong Abel convergence, bounded-input negative-binomial inverse, and source-boundary uniqueness. Independently verify [S22]'s direct Goldbach residual theorem and finite-prefix error. Keep the one-sided Landau option live. The exact CRT, Fourier, Kloosterman, pair-field centre/relative and spectral constructions in the broader handoff remain candidate inputs, not decorative context.
 
@@ -3411,7 +3411,7 @@ The first infrastructure-capable session is successful if it produces a verified
 
 It does **not** need to rediscover every archived formula, re-run every old source counterexample before reading the current stronger result, or produce another broad philosophical narrative. Conversely it must not say it has installed these analytic results merely by placing a Markdown file in the repository.
 
-The handoff contains several genuine substantive advances worth preserving irrespective of endpoint closure: actual Xi interpolation with logarithmic support overhead; compact-source reflection rigidity; exact nonlinear toroidal pressure and first-return signs; full nonlinear kinetic-storage accounting; causal analytic reconstruction without artificial smallness; and the repaired all-order arithmetic Abel inverse. Their combination is more useful than the repeated simplified ‚one remaining mountain‚ summaries that sometimes obscured them.
+The handoff contains several genuine substantive advances worth preserving irrespective of endpoint closure: actual Xi interpolation with logarithmic support overhead; compact-source reflection rigidity; exact nonlinear toroidal pressure and first-return signs; full nonlinear kinetic-storage accounting; causal analytic reconstruction without artificial smallness; and the repaired all-order arithmetic Abel inverse. Their combination is more useful than the repeated simplified ‚Äúone remaining mountain‚Äù summaries that sometimes obscured them.
 
 No deterministic finite proof-discovery schedule for RH or unrestricted NS has been established. The deterministic part is execution, source retention, checkable derivation transport, and dependency resolution once the appropriate arguments are present. Claim that distinction honestly while using the full mathematical power of the repository rather than stopping at the first unfamiliar presentation.
 
@@ -3430,7 +3430,7 @@ The numerical run labels are not a total ordering: branches ran in parallel, som
 
 **Foundation and source audit.** The earlier six-September handoff [S00] preserves the broad theorem organism. The user-supplied common-source note [S03] corrects frozen quadratic variations and independent CRT-history counting. The initial practical endpoint discipline is that the actual arithmetic/PDE source, not an abstraction with similar names, must be transported.
 
-**Faithful receivers and complete fibres.** [S01] constructs the delayed quartic receiver and actual NS future-separation examples. [S02] constructs the autocorrelation packet, strict sector positivity, complete two-packet criterion, finite-height transfer, and triangular exact viscous memory. [S04‚ìS07] derive source spectra, source-preserving stochastic transport, compact tangent residuals, the complete affine harmonic fibre and concrete continuation interfaces.
+**Faithful receivers and complete fibres.** [S01] constructs the delayed quartic receiver and actual NS future-separation examples. [S02] constructs the autocorrelation packet, strict sector positivity, complete two-packet criterion, finite-height transfer, and triangular exact viscous memory. [S04‚ÄìS07] derive source spectra, source-preserving stochastic transport, compact tangent residuals, the complete affine harmonic fibre and concrete continuation interfaces.
 
 **Weil and strain signatures.** [S08] joins actual Weil-space realizations, cyclic source observations and the finite-strain coordinate. [S09] computes the cross-helicity principal symbol, exact essential norm/tomography, direct Hardy-kernel source inverse and individual Hardy-atom residuals with nonuniform conditioning. [S10] identifies toroidal multipole blindness and supplied-work passivity versus squared-output positivity.
 
@@ -3440,7 +3440,7 @@ The numerical run labels are not a total ordering: branches ran in parallel, som
 
 **Whole metacircular evaluator.** [S17] replaces angular enumeration by a single source-sharing quadratic/mild/observable evaluator, exact elimination, Catalan certificates and finite proof controls. [S18] removes the artificial smallness boundary with causal Volterra powers, gives analytic source reconstruction on its existence domain, finite elimination-order/time-rebase invariance, and a standalone source-retaining proof-carrying matrix kernel.
 
-**Recovered parallel strengthening.** [S19] supplies an all-depth midpoint propagator and exact kinetic storage law and repairs high-order arithmetic inversion by Abel convergence. [S20‚ìS22] preserve dyadic source residuals, general radial angular spectra and direct Goldbach quadratic-scale criteria. Some proposed NS dynamic matching consequences in [S21‚ìS22] remain under independent audit and are not required by the stronger rigorous causal/storage route.
+**Recovered parallel strengthening.** [S19] supplies an all-depth midpoint propagator and exact kinetic storage law and repairs high-order arithmetic inversion by Abel convergence. [S20‚ÄìS22] preserve dyadic source residuals, general radial angular spectra and direct Goldbach quadratic-scale criteria. Some proposed NS dynamic matching consequences in [S21‚ÄìS22] remain under independent audit and are not required by the stronger rigorous causal/storage route.
 
 **Execution reality.** [S23] assembles actual endpoint deductions. [S24] establishes that this ChatGPT environment did not have the native runtime; this prompted the present transfer to agents with proper infrastructure. This archive is a continuation package, not evidence that the native runtime was exercised after that discovery.
 
@@ -3481,12 +3481,12 @@ The original notes include citations and URLs, retained in their source context.
 * Weil explicit formula/positivity for the actual completed zeta source; standard theta transform, functional equation, zero count and Euler-product half-plane.
 * Conrey (1989), positive proportion of simple critical-line zeros, used only for compact-source uniqueness and density/conditioning consequences.
 * Classical pseudodifferential essential-symbol norm on compact manifolds, used for the periodic Poisson and cross-helicity carrier.
-* Constantin‚ìFefferman geometric vorticity-direction cancellation as background, not a supplied universal depletion condition.
-* Fujita‚ìKato, vorticity/Lipschitz/BMO continuation theory, and critical Sobolev embeddings for the named NS endpoint deductions.
-* Hardy/Bergman spaces, Cauchy determinants, Blaschke/minimal-system distances, Herglotz/Stieltjes/passivity, Schur complements and nonlinear Mori‚ìZwanzig for exact representation language.
+* Constantin‚ÄìFefferman geometric vorticity-direction cancellation as background, not a supplied universal depletion condition.
+* Fujita‚ÄìKato, vorticity/Lipschitz/BMO continuation theory, and critical Sobolev embeddings for the named NS endpoint deductions.
+* Hardy/Bergman spaces, Cauchy determinants, Blaschke/minimal-system distances, Herglotz/Stieltjes/passivity, Schur complements and nonlinear Mori‚ÄìZwanzig for exact representation language.
 * Volterra weak-singularity estimates and the analytic implicit-function theorem for the causal history chart.
 
-The conversation also cited 2026 work by Suzuki, Seregin, Gruji, Constantin‚ìIgnatova‚ìVicol and other authors. Their exact versions, statements and scenario assumptions must be verified from primary sources before being made an imported proof dependency. No conclusion in this canonical synthesis is strengthened merely by the mention of a current paper. Most of the useful finite identities and source-dependent calculations are proved directly in the archive.
+The conversation also cited 2026 work by Suzuki, Seregin, Grujiƒá, Constantin‚ÄìIgnatova‚ÄìVicol and other authors. Their exact versions, statements and scenario assumptions must be verified from primary sources before being made an imported proof dependency. No conclusion in this canonical synthesis is strengthened merely by the mention of a current paper. Most of the useful finite identities and source-dependent calculations are proved directly in the archive.
 
 <a id="section-77"></a>
 

@@ -14,8 +14,8 @@
 -- pole (zero loss ⟹ the conserving flow is the identity), `Khahara_….agda`
 -- the far pole (total loss ⟺ total symmetry), `YogaKsetra_….agda` one
 -- interior point (the conserving flows of addition are the shear fields)
--- — and Khahara §�(b) asks for monotonicity of the conserving monoid
---      �[ Φ ] ���������� f Φ in the fibers.
+-- — and Khahara §(b) asks for monotonicity of the conserving monoid
+--      Σ[ Φ ]  f Φ in the fibers.
 --
 -- What is landed here is stronger than the monotonicity asked for: an
 -- IDENTIFICATION, with no hypotheses on f, A or B whatsoever —
@@ -189,7 +189,7 @@ module _ {A B B' : Type ℓ} (f : A → B) (g : A → B') where
   गामिनी h σ = invEq (वासः g) (λ a → h a (equivFun (वासः f) σ a))
 
 ------------------------------------------------------------------------
--- §� � ���� — the receipt-economy reading.
+-- §   — the receipt-economy reading.
 --
 -- The receipt-economy reading, recorded because it prices symmetry
 -- itself: a conserving flow of f is EXACTLY one fiber-point per

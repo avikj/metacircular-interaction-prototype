@@ -296,7 +296,7 @@ today's modules sit against them:
 
 - `FOUR_REPAIR_MODES` (Thm 2): `Γ^` is `Γ∅` performed by enlarging the
   coefficient module — the two are not independent; (Thm 6): `Γ∅` and `Γ↺`
-  are distinct exactly when `H� ≠ 0`.  `CatuhSamskara` supplies the instance: at the circle
+  are distinct exactly when `H¹ ≠ 0`.  `CatuhSamskara` supplies the instance: at the circle
   the descent datum `(const base, loop)` IS the defect promoted to a
   2-cell, it differs from the trivial datum, and set-truncating the
   codomain collapses it back — `Γ⇑` has a corpus defect, and it is
@@ -447,7 +447,7 @@ separation; coupling theorem) are not Lean's `W₃`/`W₄` (tensor ranks).
 `SarvatraApavartana` records that the rank-on-Spec-ℤ it decides is the
 drop-locus, "a strictly LOSSIER invariant than the cokernel", and strikes
 an earlier false identity in its own header. `CarryCohomologyAdapter.lean`
-constructs the H²(�/N; �/b) class for
+constructs the H²(ℤ/N; /b) class for
 `NaturalMachine.CarryObstruction`; identifying it with the explicit
 digit-section carry cocycle is a separate comparison theorem.
 

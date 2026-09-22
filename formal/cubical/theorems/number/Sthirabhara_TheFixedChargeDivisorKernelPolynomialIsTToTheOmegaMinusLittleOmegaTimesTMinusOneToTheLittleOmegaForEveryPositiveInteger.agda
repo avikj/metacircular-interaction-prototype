@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- Sthirabhara_TheFixedChargeDivisorKernelPolynomialIsTToTheOmegaMinusLittleOmegaTimesTMinusOneToTheLittleOmegaForEveryPositiveInteger
 --
--- àààà¿à°-àà¾à°à, the fixed charge.  D0026 Â§5.5 displays
+-- -, the fixed charge.  D0026 Â§5.5 displays
 --
 --     "Î¦_n(t) = Î£_{d|n} Î¼(n/d) t^{Î©(d)} = t^{Î©(n)âˆ’Ï‰(n)} (tâˆ’1)^{Ï‰(n)}"
 --

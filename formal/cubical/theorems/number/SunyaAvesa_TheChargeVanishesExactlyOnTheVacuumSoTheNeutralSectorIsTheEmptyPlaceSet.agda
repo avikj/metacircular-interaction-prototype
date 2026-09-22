@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --safe #-}
 --
--- ààà¨àà¯-ààµààà â€” the charge is zero.
+-- - â€” the charge is zero.  Written with holes and composed in
 --
 -- WHAT IS BEING ASKED.  `OjaYugma_...` checked that the squarefree prime
 -- charge is âˆ’ Î© Â· Î», with Î© the active-place count and Î» = (âˆ’1)^Î© the parity

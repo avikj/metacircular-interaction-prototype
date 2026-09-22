@@ -14,7 +14,7 @@ The object generates the linear operator that transports the object.
 
 This observation has two concrete consequences here.
 
-* RH. The quantitative Goldbach field is already the square of the positive prime Laplace field. After its natural scaling normalization, RH is exactly a Hlder-scale statement for one dyadic ActionResidual of the Goldbach field itself. No reconstruction of Lambda, compact receiver, square root, or zero interpolation is needed in the final criterion.
+* RH. The quantitative Goldbach field is already the square of the positive prime Laplace field. After its natural scaling normalization, RH is exactly a HÃ¶lder-scale statement for one dyadic ActionResidual of the Goldbach field itself. No reconstruction of Lambda, compact receiver, square root, or zero interpolation is needed in the final criterion.
 
 * Navier-Stokes. Along one actual solution, the quadratic vorticity nonlinearity is exactly a self-generated linear nonautonomous operator. Therefore every excursion out of an observed sector and every return from it resums into one exact Feshbach/Mori-Zwanzig Volterra memory kernel. The previously computed 2->4->2 return is precisely the diagonal first term of this kernel. The all-depth Borel tree is an expansion of the same kernel, not an independent obligation.
 
@@ -24,7 +24,7 @@ No proof of RH or unrestricted 3D Navier-Stokes regularity is claimed.
 
 ---
 
-# I. RH â” work directly on the quantitative Goldbach square
+# I. RH â€” work directly on the quantitative Goldbach square
 
 ## 1. The actual Goldbach Laplace field
 
@@ -189,7 +189,7 @@ No triangular reconstruction of Lambda is needed on this route.
 
 ---
 
-# II. Navier-Stokes â” the quadratic PDE is already a self-generated linear dynamics
+# II. Navier-Stokes â€” the quadratic PDE is already a self-generated linear dynamics
 
 ## 6. Quadratic metacircular identity
 
@@ -369,7 +369,7 @@ So ultra-fine content has only two components:
 1. a transient inherited tail, rapidly diffused;
 2. a freshly cascade-generated tail, Gaussian-small in octave distance from the matching band.
 
-The previous phrase âfresh regeneration at arbitrarily fine frequencyâ was too loose. Quadratic Fourier support does not permit a jump: regeneration must traverse the intervening frequency graph, and every step past matching pays an increasingly strong diffusive ratio.
+The previous phrase â€œfresh regeneration at arbitrarily fine frequencyâ€ was too loose. Quadratic Fourier support does not permit a jump: regeneration must traverse the intervening frequency graph, and every step past matching pays an increasingly strong diffusive ratio.
 
 ## 12. Consequence for the exact memory kernel
 
@@ -394,7 +394,7 @@ No contradiction has yet been proved for that matching-band memory.
 RH:
     R -> G_R=A^2 -> Gcal=t^2G_R -> (D_2-I)Gcal.
 
-The pole-normalized Goldbach object has fixed point 1; its scale residual is the exact obstruction. RH is exactly the near-1/2 Hlder bound on that residual.
+The pole-normalized Goldbach object has fixed point 1; its scale residual is the exact obstruction. RH is exactly the near-1/2 HÃ¶lder bound on that residual.
 
 Navier-Stokes:
     N(Omega)=(1/2)DN(Omega)[Omega].

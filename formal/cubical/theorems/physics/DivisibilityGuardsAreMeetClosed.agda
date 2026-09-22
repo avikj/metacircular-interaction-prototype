@@ -18,7 +18,7 @@
 --
 -- This is NOT an instance of `ElsewhereCondition.directedRooted`: its
 -- `Guard A = A → Bool`, so a guard there is a DECISION, while `D d`
--- below is a � — a search for the cofactor.  Turning `D d` into a
+-- below is a  — a search for the cofactor.  Turning `D d` into a
 -- `Guard` is exactly the step of deciding divisibility.  So §6.1's
 -- family is meet-closed as stated, and the thing standing between it
 -- and `directedRooted` is a decision.

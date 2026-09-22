@@ -110,7 +110,7 @@ oneLoopTwoVerdicts =
 
 ------------------------------------------------------------------------
 -- §2 proves invariant ⟹ unmoved.  The converse — unmoved
--- � invariant — is at the recording site,
+-- ⟹ invariant — is at the recording site,
 -- `HolonomyIsInvisibleExactlyToAnInvariantConsumerAndExactlyIsNowEarned`.  The
 -- same holds of §3: `nonTrivialHolonomyMovesTheRawInterface` goes one
 -- way only.

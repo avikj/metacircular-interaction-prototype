@@ -35,7 +35,7 @@
 --
 -- Their क्रम/सह distinction is this non-commutation's
 -- exact shape, and the fourth bhaga is its exact repair.
--- ΩS�Iso� and setTruncIdempotent are the
+-- ΩSIso and setTruncIdempotent are the
 -- library's.
 --
 -- The corpus's grammar lane has
@@ -43,7 +43,7 @@
 -- (Pini 8.2.1 krama vs 6.4.22 saha, tat+jalam, the regime decides the
 -- form).  The polarity
 -- CROSSES between the lanes (the grammar's feeding krama is this module's
--- untruncated ��).
+-- untruncated ).
 ------------------------------------------------------------------------
 
 module KramaSaha_TheOrderOfStandpointsIsTheChargeItself where
@@ -119,7 +119,7 @@ snd क्रमः-सेट्-प्रथमम् p = isSetSetTrunc ∣ bas
 ------------------------------------------------------------------------
 -- ४ · दोषलेखः.  This is the smallest instance of the interchange failure
 -- (one space, one basepoint, levels 0 and 1), not a general interchange
--- law for �_�� and Ω�.
+-- law for ∥_ and Ω.
 -- What is proved: the levels of the graded
 -- census interact by ORDER, the failure of commutation at the first
 -- rung is exactly ℤ, and सह — declining to order the standpoints — is

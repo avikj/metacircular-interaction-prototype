@@ -29,7 +29,7 @@ The following earlier conversation-linked directories were not present among the
 - `ns_rh_run15_weyl_ladder_holder_descent/`
 - `ns_rh_run16_impedance_thermostat/`
 
-Their visible mathematical developments are reconstructed in main sections 27‚ì33 and 54‚ì64, with stronger overlapping original sources indexed where available. Their old claimed check counts are not treated as newly replayable evidence. In particular, a historical file that merely said ‚identities executed in-session‚ is not a reproducible check script.
+Their visible mathematical developments are reconstructed in main sections 27‚Äì33 and 54‚Äì64, with stronger overlapping original sources indexed where available. Their old claimed check counts are not treated as newly replayable evidence. In particular, a historical file that merely said ‚Äúidentities executed in-session‚Äù is not a reproducible check script.
 
 ## Library alias behavior
 

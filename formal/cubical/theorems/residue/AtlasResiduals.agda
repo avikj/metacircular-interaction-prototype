@@ -17,9 +17,9 @@
 --     'ordinals rigidify what cardinals truncate'".
 --
 -- The loop-group half of Theorem 3.1 is in
--- `PathIsSymmetry` (ΩFin�Sym)
+-- `PathIsSymmetry` (ΩFin≃Sym)
 -- and `Decategorification` (ℕ≃π₀FinSet, card≡MereEq,
--- FinSetLoop�Sym).
+-- FinSetLoop≃Sym).
 --
 -- WHAT IS CHECKED
 --
@@ -320,7 +320,7 @@ isContrAlgIso {A = A} {B = B} iA iB =
 ------------------------------------------------------------------------
 -- 4.  Theorem 3.2: the total space of orders over BSₙ is contractible.
 --
--- `LinOrd` is DEFINED as `X � Fin n`.
+-- `LinOrd` is DEFINED as `X ≃ Fin n`.
 -- What is checked is that the truncation in BSₙ is redundant here, and
 -- that the resulting type is a based path space.
 ------------------------------------------------------------------------

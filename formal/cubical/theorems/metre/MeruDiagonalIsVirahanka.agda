@@ -8,9 +8,9 @@
 -- mƒÅtrƒÅmeru (`Matramerus`) ‚Äî `Fib(n+1) = ‚àë‚Çñ C(n‚àík,k)`  unifying
 -- the two combinatorics modules.
 --
--- The identity is proved, in the other encoding, by the `‡Æ‡‡∞‡ n k`
+-- The identity is proved, in the other encoding, by the ` n k`
 -- *function* form (Pascal refl) plus a bounded diagonal sum:
--- `PingalaPrastara.meru` IS the `‡Æ‡‡∞‡ n k` function form,
+-- `PingalaPrastara.meru` IS the ` n k` function form,
 -- `Sankalita.antidiag` IS the bounded diagonal sum, and
 --
 --     DiagonalIsMatra.diagonal-is-matra : matra n ‚â° antidiag n
@@ -81,7 +81,7 @@ matra-is-sarva (suc (suc n)) =
 ------------------------------------------------------------------------
 -- 3.  HALYUDHA'S IDENTITY
 --
--- Between the two modules: the count of n-‡Æ‡æ‡‡‡∞‡æ metres is the shallow
+-- Between the two modules: the count of n- metres is the shallow
 -- diagonal of the meru-prastra.
 ------------------------------------------------------------------------
 
@@ -104,7 +104,7 @@ check-9 = virahanka-is-the-diagonal 9
 ------------------------------------------------------------------------
 -- 5.  Dependencies.
 --
--- This bridges the two COUNTS (`‡‡∞‡‡µ` and `matra`) and inherits the
+-- This bridges the two COUNTS (`` and `matra`) and inherits the
 -- diagonal identity from `DiagonalIsMatra`, which is stated over
 -- `PingalaPrastara.meru`.
 ------------------------------------------------------------------------

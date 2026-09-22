@@ -32,7 +32,7 @@
 -- this module utters is judged by the cubical kernel before it can land, so a
 -- wrong proposal costs one refusal and nothing else. A pair over more than
 -- six variables is refused with its reason.
--- ‡‡‡‡‡Ø‡ã ‡Æ‡æ‡∞‡‡ó‡ã ‡® ‡µ‡ø‡¶‡‡Ø‡‡ ‡
+-- ride the ladder.)      
 ------------------------------------------------------------------------
 
 module Prastava where

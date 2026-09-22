@@ -47,7 +47,7 @@
 -- ────────────────────────────────────────────────────────────────────
 -- THE CORRECTION, WHICH IS THE LARGER HALF
 --
--- `� FactorsThrough` is not identified here with the fourth bhaga �
+-- ` FactorsThrough` is not identified here with the fourth bhaga 
 -- ───������.
 --
 -- What is true: `¬ FactorsThrough q t` says no single decoder expresses
@@ -73,7 +73,7 @@
 --   (iii) a demonstration that the simultaneous object is the
 --         non-factoring, rather than merely resembling it.
 --
--- None of the three is in this file.  The statement here is: `�
+-- None of the three is in this file.  The statement here is: `
 -- FactorsThrough` is an obstruction to expressibility by one decoder,
 -- and calling it the fourth bhaga is a naming convention, not a
 -- theorem.  A नय that asserts itself by denying the others is a

@@ -78,7 +78,7 @@
 -- THE INSTANCE IS NOT INVENTED.  `machine/MathMachine.hs:722` defines
 -- addition recursing on its second argument; `Agda/Builtin/Nat.agda:19`
 -- defines it recursing on its first.  Both are addition on ‚Ñï.  They are
--- one ‡¶‡‡∞‡µ‡‡Ø and two ‡‡æ‡µ.
+-- one  and two .
 --
 -- SOURCES.
 -- wisdomlib (Tattvrtha Stra with commentary, verses 1.5,

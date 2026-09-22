@@ -52,7 +52,7 @@ and interaction counts on the full runtime after the change.
 
 The Glue rule follows CCHM: compose inside each partial type `T` (where
 `Glue` *is* `T`), compose the UNGLUED tube in `A` with one extra face per â€”
-forcing `f` of the `T`-filler, then glue the Ï-parts onto the `A`-part.
+forcing `f` of the `T`-filler, then glue the -parts onto the `A`-part.
 Verified: type preservation, both boundary laws (a true tube face gives that
 tube's cap; no live tube gives the base), no change to any existing Glue
 program in the checker or on the runtime.

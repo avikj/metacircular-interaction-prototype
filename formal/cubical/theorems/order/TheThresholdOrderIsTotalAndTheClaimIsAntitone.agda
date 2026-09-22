@@ -216,7 +216,7 @@ universalImpliesEveryLowerThreshold p q bs cross a =
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- ยง2 proves `โ-refl` and `โ-total`.  Reflexive + total is not a preorder.
+-- ยง2 proves `-refl` and `-total`.  Reflexive + total is not a preorder.
 --
 -- Transitivity is proved in
 -- `WhichThresholdStatementsDescendToTheRate`

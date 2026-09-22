@@ -131,10 +131,10 @@ private
                   , ‡§¶‡•ç‡§µ‡§ø-‡§≤‡•ã‡§™‡§É a (-‚Çò a) ¬¨p )
 
 ------------------------------------------------------------------------
--- ‡ ¬ ‡¶‡ã‡‡≤‡‡ñ‡.
+--  ¬∑ .  The chart is closed; the atlas is not: the product over
 -- ‡§∏‡•ç‡§´‡§ü‡§ø‡§ï‡§É decides by discreteFin on the WALLS; deciding on
 -- the criterion (a +‚Çò a ‚â° ‡§∂‡•Ç‡§®‡•ç‡§Ø‡§Æ‡•ç) instead is the same decision through
--- ‡‡ô‡‡ó‡Æ-‡‡®‡‡‡∞‡.  p = 2 + m
+-- -.  Nothing here asserts anything about primes: p = 2 + m
 -- is any modulus ‚â• 2, and primality enters only at the atlas level,
 -- where ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï-‡§ï‡•ã‡§£ needs the charts at prime moduli.
 ------------------------------------------------------------------------

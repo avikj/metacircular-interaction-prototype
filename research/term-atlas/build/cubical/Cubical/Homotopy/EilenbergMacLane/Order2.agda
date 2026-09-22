@@ -80,7 +80,7 @@ module EM2 {ℓ : Level} (G : AbGroup ℓ)
           λ g → flipSquare (sym (emloop-sym (AbGroup→Group G) g)
                ∙ cong emloop (-Const g))
 
-  -- encode-decode proof that sym = id in ΩK(�/2,n)
+  -- encode-decode proof that sym = id in ΩK(/2,n)
   -- (reducing to (transport refl) refl for the case sym refl = refl)
   private
     symCode : (n : ℕ) (x : EM G (suc n))
@@ -233,7 +233,7 @@ symConst-ℤ/2-refl = EMZ/2.symConstEM-refl
 +ₖ≡id-ℤ/2 zero = ℤ/2-elim refl refl
 +ₖ≡id-ℤ/2 (suc n) x = cong (x +ₖ_) (sym (-ₖConst-ℤ/2 n x)) ∙ rCancelₖ (suc n) x
 
--- Commutativity of cup product with �/2 coeffs
+-- Commutativity of cup product with /2 coeffs
 -ₖ^[_·_]-const : (n m : ℕ) {k : ℕ} (x : EM ℤ/2 k) → -ₖ^[ n · m ] x ≡ x
 -ₖ^[_·_]-const n m x =
   ⊎.rec

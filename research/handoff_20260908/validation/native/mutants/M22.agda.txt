@@ -1,16 +1,16 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- à•à¾àà²à¾à¨-ààà®à¾ â” the Catalan bound.
+-- - â€” the Catalan bound.
 --
 -- Handoff Â§40 ([S18]): the hidden-history equation  q = g + C(q,q)
--- expands in causal trees, q = Î qâ™ with  qâ™âŠâ = Î_{a+c=n} C(qâ, q_c),
+-- expands in causal trees, q = Î£ qâ‚™ with  qâ‚™â‚Šâ‚ = Î£_{a+c=n} C(qâ‚, q_c),
 -- and the Catalan majorant controls it.  The exact finite control:
 --
---   for any â•-valued sequence x with  xâ â‰ g  and
---       x_{n+1} â‰ b Â Î_{a+c=n} xâ x_c,
---   one has   xâ™ â‰ bâ¿ Â Catâ™ Â gâ¿âºÂ   for every n,
+--   for any â„•-valued sequence x with  xâ‚€ â‰¤ g  and
+--       x_{n+1} â‰¤ b Â· Î£_{a+c=n} xâ‚ x_c,
+--   one has   xâ‚™ â‰¤ bâ¿ Â· Catâ‚™ Â· gâ¿âºÂ¹   for every n,
 --
--- where Catâ = 1, Catâ™âŠâ = Î_{a+c=n} Catâ Cat_c  (1, 1, 2, 5, 14, 42, â¦).
+-- where Catâ‚€ = 1, Catâ‚™â‚Šâ‚ = Î£_{a+c=n} Catâ‚ Cat_c  (1, 1, 2, 5, 14, 42, â€¦).
 -- The convergence when 4bg < 1 is the analytic statement; the majorant
 -- itself is this theorem, proved by strong induction over the pair sum.
 ------------------------------------------------------------------------
@@ -21,55 +21,55 @@ open import Cubical.Foundations.Function using (_âˆ˜_)
 open import Cubical.Data.Nat
 open import Cubical.Data.Nat.Order
 open import Cubical.Data.Sigma using (_,_ ; fst ; snd)
-open import Cubical.Data.Sum using (_âŠ_ ; inl ; inr)
-open import Cubical.Data.Empty using () renaming (elim to âŠ-elim)
-open import Cubical.Tactics.NatSolver.Reflection using (solveâ•!)
+open import Cubical.Data.Sum using (_âŠ_ ; inl ; inr)
+open import Cubical.Data.Empty using () renaming (elim to âŠ¥-elim)
+open import Cubical.Tactics.NatSolver.Reflection using (solveâ„•!)
 open import Cubical.Relation.Nullary using (Dec ; yes ; no ; decRec ; isPropDec)
 
 -- the sum over all pairs (a , c) with a + c = n
-D : (n : â•) â’ (â• â’ â• â’ â•) â’ â•
+D : (n : â„•) â†’ (â„• â†’ â„• â†’ â„•) â†’ â„•
 D zero    f = f zero zero
-D (suc n) f = f zero (suc n) + D n (Î» a c â’ f (suc a) c)
+D (suc n) f = f zero (suc n) + D n (Î» a c â†’ f (suc a) c)
 
 -- D respects pointwise equality on the pairs it sums
-D-ext : (n : â•) {f g : â• â’ â• â’ â•} â’ ((a c : â•) â’ a + c â‰¡ n â’ f a c â‰¡ g a c) â’ D n f â‰¡ D n g
+D-ext : (n : â„•) {f g : â„• â†’ â„• â†’ â„•} â†’ ((a c : â„•) â†’ a + c â‰¡ n â†’ f a c â‰¡ g a c) â†’ D n f â‰¡ D n g
 D-ext zero    h = h zero zero refl
-D-ext (suc n) h = congâ _+_ (h zero (suc n) refl) (D-ext n (Î» a c p â’ h (suc a) c (cong suc p)))
+D-ext (suc n) h = congâ‚‚ _+_ (h zero (suc n) refl) (D-ext n (Î» a c p â†’ h (suc a) c (cong suc p)))
 
-pow : â• â’ â• â’ â•
+pow : â„• â†’ â„• â†’ â„•
 pow b zero    = 1
-pow b (suc n) = b Â pow b n
+pow b (suc n) = b Â· pow b n
 
 private
-  pow-+ : (b m n : â•) â’ pow b (m + n) â‰¡ pow b m Â pow b n
+  pow-+ : (b m n : â„•) â†’ pow b (m + n) â‰¡ pow b m Â· pow b n
   pow-+ b zero    n = sym (+-zero (pow b n))
-  pow-+ b (suc m) n = cong (b Â_) (pow-+ b m n) âˆ™ Â-assoc b (pow b m) (pow b n)
+  pow-+ b (suc m) n = cong (b Â·_) (pow-+ b m n) âˆ™ Â·-assoc b (pow b m) (pow b n)
 
-  -- D respects pointwise â‰ on the pairs it sums
-  D-mono : (n : â•) {f g : â• â’ â• â’ â•} â’ ((a c : â•) â’ a + c â‰¡ n â’ f a c â‰ g a c) â’ D n f â‰ D n g
+  -- D respects pointwise â‰¤ on the pairs it sums
+  D-mono : (n : â„•) {f g : â„• â†’ â„• â†’ â„•} â†’ ((a c : â„•) â†’ a + c â‰¡ n â†’ f a c â‰¤ g a c) â†’ D n f â‰¤ D n g
   D-mono zero    h = h zero zero refl
-  D-mono (suc n) h = â‰-+-â‰ (h zero (suc n) refl) (D-mono n (Î» a c p â’ h (suc a) c (cong suc p)))
+  D-mono (suc n) h = â‰¤-+-â‰¤ (h zero (suc n) refl) (D-mono n (Î» a c p â†’ h (suc a) c (cong suc p)))
 
   -- constants pull out of D
-  D-scale : (n k : â•) (f : â• â’ â• â’ â•) â’ D n (Î» a c â’ k Â f a c) â‰¡ k Â D n f
+  D-scale : (n k : â„•) (f : â„• â†’ â„• â†’ â„•) â†’ D n (Î» a c â†’ k Â· f a c) â‰¡ k Â· D n f
   D-scale zero    k f = refl
-  D-scale (suc n) k f = cong (k Â f zero (suc n) +_) (D-scale n k (Î» a c â’ f (suc a) c)) âˆ™ Â-distribË¡ k (f zero (suc n)) (D n (Î» a c â’ f (suc a) c))
+  D-scale (suc n) k f = cong (k Â· f zero (suc n) +_) (D-scale n k (Î» a c â†’ f (suc a) c)) âˆ™ Â·-distribË¡ k (f zero (suc n)) (D n (Î» a c â†’ f (suc a) c))
 
-  -- k â‰ suc n splits
-  â‰-splitâ² : (k n : â•) â’ k â‰ suc n â’ (k â‰ n) âŠ (k â‰¡ suc n)
-  â‰-splitâ² k n (zero  , p) = inr p
-  â‰-splitâ² k n (suc d , p) = inl (d , injSuc p)
+  -- k â‰¤ suc n splits
+  â‰¤-splitâ€² : (k n : â„•) â†’ k â‰¤ suc n â†’ (k â‰¤ n) âŠ (k â‰¡ suc n)
+  â‰¤-splitâ€² k n (zero  , p) = inr p
+  â‰¤-splitâ€² k n (suc d , p) = inl (d , injSuc p)
 
-  â‰-Â-â‰ : {m n l k : â•} â’ m â‰ n â’ l â‰ k â’ m Â l â‰ n Â k
-  â‰-Â-â‰ {m} {n} {l} {k} p q = â‰-trans (â‰-Âk p) (subst2 _â‰_ (Â-comm l n) (Â-comm k n) (â‰-Âk q))
+  â‰¤-Â·-â‰¤ : {m n l k : â„•} â†’ m â‰¤ n â†’ l â‰¤ k â†’ m Â· l â‰¤ n Â· k
+  â‰¤-Â·-â‰¤ {m} {n} {l} {k} p q = â‰¤-trans (â‰¤-Â·k p) (subst2 _â‰¤_ (Â·-comm l n) (Â·-comm k n) (â‰¤-Â·k q))
 
 -- the Catalan numbers through a memo table (structural in the table size):
--- catTab n k = Cat k for k â‰ n
-catTab : â• â’ â• â’ â•
+-- catTab n k = Cat k for k â‰¤ n
+catTab : â„• â†’ â„• â†’ â„•
 catTab zero    k = 1
-catTab (suc n) k = decRec (Î» _ â’ D n (Î» a c â’ catTab n a Â catTab n c)) (Î» _ â’ catTab n k) (discreteâ• k (suc n))
+catTab (suc n) k = decRec (Î» _ â†’ D n (Î» a c â†’ catTab n a Â· catTab n c)) (Î» _ â†’ catTab n k) (discreteâ„• k (suc n))
 
-cat : â• â’ â•
+cat : â„• â†’ â„•
 cat k = catTab k k
 
 _ : cat 3 â‰¡ 5
@@ -79,75 +79,75 @@ _ = refl
 
 private
   -- the table is stable below its size
-  stable : (m k : â•) â’ k â‰ m â’ catTab m k â‰¡ cat k
-  stable zero    k kâ‰0 = subst (Î» j â’ catTab zero j â‰¡ catTab j j) (sym (â‰0â’â‰¡0 kâ‰0)) refl
-  stable (suc n) k kâ‰sn = lemma (discreteâ• k (suc n)) refl
+  stable : (m k : â„•) â†’ k â‰¤ m â†’ catTab m k â‰¡ cat k
+  stable zero    k kâ‰¤0 = subst (Î» j â†’ catTab zero j â‰¡ catTab j j) (sym (â‰¤0â†’â‰¡0 kâ‰¤0)) refl
+  stable (suc n) k kâ‰¤sn = lemma (discreteâ„• k (suc n)) refl
     where
-      lemma : (d : Dec (k â‰¡ suc n)) â’ discreteâ• k (suc n) â‰¡ d â’ catTab (suc n) k â‰¡ cat k
-      lemma (yes p) _ = congâ catTab (sym p) refl
-      lemma (no  q) e = cong (decRec _ _) e âˆ™ stable n k (drop (â‰-splitâ² k n kâ‰sn))
+      lemma : (d : Dec (k â‰¡ suc n)) â†’ discreteâ„• k (suc n) â‰¡ d â†’ catTab (suc n) k â‰¡ cat k
+      lemma (yes p) _ = congâ‚‚ catTab (sym p) refl
+      lemma (no  q) e = cong (decRec _ _) e âˆ™ stable n k (drop (â‰¤-splitâ€² k n kâ‰¤sn))
         where
-          drop : (k â‰ n) âŠ (k â‰¡ suc n) â’ k â‰ n
+          drop : (k â‰¤ n) âŠ (k â‰¡ suc n) â†’ k â‰¤ n
           drop (inl r) = r
-          drop (inr r) = âŠ-elim (q r)
+          drop (inr r) = âŠ¥-elim (q r)
 
 -- the recurrence
 cat-zero : cat 0 â‰¡ 1
 cat-zero = refl
 
-cat-suc : (n : â•) â’ cat (suc n) â‰¡ D n (Î» a c â’ cat a Â cat c)
+cat-suc : (n : â„•) â†’ cat (suc n) â‰¡ D n (Î» a c â†’ cat a Â· cat c)
 cat-suc n =
-    cong (decRec _ _) (isPropDec (isSetâ• (suc n) (suc n)) (discreteâ• (suc n) (suc n)) (yes refl))
-  âˆ™ D-ext n (Î» a c p â’ congâ _Â_ (stable n a (c , +-comm c a âˆ™ p)) (stable n c (a , p)))
+    cong (decRec _ _) (isPropDec (isSetâ„• (suc n) (suc n)) (discreteâ„• (suc n) (suc n)) (yes refl))
+  âˆ™ D-ext n (Î» a c p â†’ congâ‚‚ _Â·_ (stable n a (c , +-comm c a âˆ™ p)) (stable n c (a , p)))
 
 ------------------------------------------------------------------------
-module Majorant (x : â• â’ â•) (b g : â•)
-                (xâ : x 0 â‰ g)
-                (step : (n : â•) â’ x (suc n) â‰ b Â D n (Î» a c â’ x a Â x c))
+module Majorant (x : â„• â†’ â„•) (b g : â„•)
+                (xâ‚€ : x 0 â‰¤ g)
+                (step : (n : â„•) â†’ x (suc n) â‰¤ b Â· D n (Î» a c â†’ x a Â· x c))
                 where
 
-  bound : â• â’ â•
-  bound n = pow b n Â (cat n Â pow g (suc n))
+  bound : â„• â†’ â„•
+  bound n = pow b n Â· (cat n Â· pow g (suc n))
 
   private
-    -- the product of two bounds at a + c = n is the common scalar times cat a Â cat c
-    product-of-bounds : (n a c : â•) â’ a + c â‰¡ n
-      â’ bound a Â bound c â‰¡ (pow b n Â pow g (suc (suc n))) Â (cat a Â cat c)
+    -- the product of two bounds at a + c = n is the common scalar times cat a Â· cat c
+    product-of-bounds : (n a c : â„•) â†’ a + c â‰¡ n
+      â†’ bound a Â· bound c â‰¡ (pow b n Â· pow g (suc (suc n))) Â· (cat a Â· cat c)
     product-of-bounds n a c h =
         shape (pow b a) (cat a) (pow g (suc a)) (pow b c) (cat c) (pow g (suc c))
-      âˆ™ congâ (Î» u v â’ (u Â v) Â (cat a Â cat c))
+      âˆ™ congâ‚‚ (Î» u v â†’ (u Â· v) Â· (cat a Â· cat c))
               (sym (pow-+ b a c) âˆ™ cong (pow b) h)
               (sym (pow-+ g (suc a) (suc c)) âˆ™ cong (pow g) (cong suc (+-suc a c) âˆ™ cong (suc âˆ˜ suc) h))
       where
-        shape : (Ba Ca Ga Bc Cc Gc : â•) â’ (Ba Â (Ca Â Ga)) Â (Bc Â (Cc Â Gc)) â‰¡ ((Ba Â Bc) Â (Ga Â Gc)) Â (Ca Â Cc)
-        shape Ba Ca Ga Bc Cc Gc = solveâ•!
+        shape : (Ba Ca Ga Bc Cc Gc : â„•) â†’ (Ba Â· (Ca Â· Ga)) Â· (Bc Â· (Cc Â· Gc)) â‰¡ ((Ba Â· Bc) Â· (Ga Â· Gc)) Â· (Ca Â· Cc)
+        shape Ba Ca Ga Bc Cc Gc = solveâ„•!
 
-    below : (n : â•) (k : â•) â’ k â‰ n â’ x k â‰ bound k
-    below zero k kâ‰0 = subst (Î» k â’ x k â‰ bound k) (sym (â‰0â’â‰¡0 kâ‰0)) (subst (x 0 â‰_) (sym base) xâ)
+    below : (n : â„•) (k : â„•) â†’ k â‰¤ n â†’ x k â‰¤ bound k
+    below zero k kâ‰¤0 = subst (Î» k â†’ x k â‰¤ bound k) (sym (â‰¤0â†’â‰¡0 kâ‰¤0)) (subst (x 0 â‰¤_) (sym base) xâ‚€)
       where
-        base : 1 Â (1 Â (g Â 1)) â‰¡ g
-        base = solveâ•!
-    below (suc n) k kâ‰sn with â‰-splitâ² k n kâ‰sn
-    ... | inl kâ‰n = below n k kâ‰n
-    ... | inr kâ‰¡sn = subst (Î» k â’ x k â‰ bound k) (sym kâ‰¡sn) top
+        base : 1 Â· (1 Â· (g Â· 1)) â‰¡ g
+        base = solveâ„•!
+    below (suc n) k kâ‰¤sn with â‰¤-splitâ€² k n kâ‰¤sn
+    ... | inl kâ‰¤n = below n k kâ‰¤n
+    ... | inr kâ‰¡sn = subst (Î» k â†’ x k â‰¤ bound k) (sym kâ‰¡sn) top
       where
-        top : x (suc n) â‰ bound (suc n)
-        top = â‰-trans (step n)
-                (subst (b Â D n (Î» a c â’ x a Â x c) â‰_) closed
-                       (â‰-Â-â‰ (â‰-refl {b}) (D-mono n (Î» a c p â’ â‰-Â-â‰ (below n a (â‰-of a c p)) (below n c (â‰-of' a c p))))))
+        top : x (suc n) â‰¤ bound (suc n)
+        top = â‰¤-trans (step n)
+                (subst (b Â· D n (Î» a c â†’ x a Â· x c) â‰¤_) closed
+                       (â‰¤-Â·-â‰¤ (â‰¤-refl {b}) (D-mono n (Î» a c p â†’ â‰¤-Â·-â‰¤ (below n a (â‰¤-of a c p)) (below n c (â‰¤-of' a c p))))))
           where
-            â‰-of : (a c : â•) â’ a + c â‰¡ n â’ a â‰ n
-            â‰-of a c p = c , +-comm c a âˆ™ p
-            â‰-of' : (a c : â•) â’ a + c â‰¡ n â’ c â‰ n
-            â‰-of' a c p = a , p
-            closed : b Â D n (Î» a c â’ bound a Â bound c) â‰¡ bound (suc n)
-            closed = cong (b Â_) (D-ext n (product-of-bounds n) âˆ™ D-scale n (pow b n Â pow g (suc (suc n))) (Î» a c â’ cat a Â cat c)
-                                  âˆ™ cong ((pow b n Â pow g (suc (suc n))) Â_) (sym (cat-suc n)))
+            â‰¤-of : (a c : â„•) â†’ a + c â‰¡ n â†’ a â‰¤ n
+            â‰¤-of a c p = c , +-comm c a âˆ™ p
+            â‰¤-of' : (a c : â„•) â†’ a + c â‰¡ n â†’ c â‰¤ n
+            â‰¤-of' a c p = a , p
+            closed : b Â· D n (Î» a c â†’ bound a Â· bound c) â‰¡ bound (suc n)
+            closed = cong (b Â·_) (D-ext n (product-of-bounds n) âˆ™ D-scale n (pow b n Â· pow g (suc (suc n))) (Î» a c â†’ cat a Â· cat c)
+                                  âˆ™ cong ((pow b n Â· pow g (suc (suc n))) Â·_) (sym (cat-suc n)))
                    âˆ™ shape (pow b n) (pow g (suc (suc n))) (cat (suc n))
               where
-                shape : (P G C : â•) â’ b Â ((P Â G) Â C) â‰¡ (b Â P) Â (C Â G)
-                shape P G C = solveâ•!
+                shape : (P G C : â„•) â†’ b Â· ((P Â· G) Â· C) â‰¡ (b Â· P) Â· (C Â· G)
+                shape P G C = solveâ„•!
 
-  -- THE MAJORANT:  xâ™ â‰ bâ¿ Â Catâ™ Â gâ¿âºÂ
-  catalan-majorant : (n : â•) â’ x n â‰ pow b n Â (cat n Â pow g n)
-  catalan-majorant n = below n n â‰-refl
+  -- THE MAJORANT:  xâ‚™ â‰¤ bâ¿ Â· Catâ‚™ Â· gâ¿âºÂ¹
+  catalan-majorant : (n : â„•) â†’ x n â‰¤ pow b n Â· (cat n Â· pow g n)
+  catalan-majorant n = below n n â‰¤-refl

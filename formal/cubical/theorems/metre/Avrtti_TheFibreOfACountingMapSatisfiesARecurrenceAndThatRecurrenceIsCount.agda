@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡µ‡‡‡‡‡ø ‚Äî ‡‡®‡‡‡ã‡ ‡‡µ‡‡‡‡‡ø‡ ‡‡µ ‡‡ô‡‡ñ‡‡Ø‡æ ‡
+--  ‚Äî     
 --
 -- (the fibre's recurrence is exactly the count.)
 --
@@ -175,8 +175,8 @@ module _ {X : Type ‚Ñì} where
 -- `f (x ‚àà xs)` REDUCES to `w x + f xs`, so
 -- the path is carried across unchanged and both round trips close by
 -- `refl`.  The cons summand is equivalently
---     Œ[ x ‚àà X ] Œ[ m ‚àà ‚ï ] (w x + m ‚â° n) ó fiber f m
--- since `Œ[ m ] (f xs ‚â° m) ó ‚¶`
+--     [ x ‚àà X ] [ m ‚àà  ] (w x + m ‚â° n)  fiber f m
+-- since `[ m ] (f xs ‚â° m)  `
 -- carries a contractible `singl (f xs)`.
 -- The rung is above ¬ß‡•ß because the codomain splits, not because
 -- fitting proofs must be built.

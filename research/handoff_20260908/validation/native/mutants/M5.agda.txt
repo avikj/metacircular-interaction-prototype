@@ -1,23 +1,23 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- à¯à‹à—-àààà° â” the composite certificate.
+-- - â€” the composite certificate.
 --
 -- A source-aware elimination certificate for  M x = b  carries
 -- (E, S, T, R, Z) with  y = E x,  S y = T b,  x = R y + Z b,  and the
 -- checker demands the five identities
 --
---     E R = 1,   E Z = 0,   M R = Eµ S,   M Z + Eµ T = 1,   R E + Z M = 1.
+--     E R = 1,   E Z = 0,   M R = Eáµ€ S,   M Z + Eáµ€ T = 1,   R E + Z M = 1.
 --
 -- Three things are checked here, over any ring with an anti-
--- multiplicative additive map  µ  fixing 1 (a transpose):
+-- multiplicative additive map  áµ€  fixing 1 (a transpose):
 --
---   à§  the transport law  T M = S E  is a consequence of the five
+--     the transport law  T M = S E  is a consequence of the five
 --      identities, not a sixth axiom;
---   à¨  composition  E = EâEâ, S = Sâ, T = TâTâ, R = RâRâ,
---      Z = Zâ + RâZâTâ  of a certificate for M with a certificate for
---      its reduced operator Sâ is again a certificate for M â” so the
+--     composition  E = Eâ‚‚Eâ‚, S = Sâ‚‚, T = Tâ‚‚Tâ‚, R = Râ‚Râ‚‚,
+--      Z = Zâ‚ + Râ‚Zâ‚‚Tâ‚  of a certificate for M with a certificate for
+--      its reduced operator Sâ‚ is again a certificate for M â€” so the
 --      whole session installs from its steps (handoff Â§45, [S18]);
---   à©  a causal kernel with KÂ³ = 0 has  (1 âˆ’ zK)â»Â = 1 + zK + zÂ²KÂ²  for
+--     a causal kernel with KÂ³ = 0 has  (1 âˆ’ zK)â»Â¹ = 1 + zK + zÂ²KÂ²  for
 --      every z, whatever its norm: large norm is not a causal-inverse
 --      failure.
 ------------------------------------------------------------------------
@@ -31,165 +31,165 @@ open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
 private
   variable
-    â“ : Level
+    â„“ : Level
 
 ------------------------------------------------------------------------
-module _ (R : Ring â“) where
+module _ (R : Ring â„“) where
   open RingStr (snd R)
   open RingTheory R
 
   private
     A = âŸ¨ R âŸ©
 
-  module _ (t : A â’ A)
-           (t-add : (x y : A) â’ t (x + y) â‰¡ t x + t y)
-           (t-mul : (x y : A) â’ t (x Â y) â‰¡ t y Â t x)
+  module _ (t : A â†’ A)
+           (t-add : (x y : A) â†’ t (x + y) â‰¡ t x + t y)
+           (t-mul : (x y : A) â†’ t (x Â· y) â‰¡ t y Â· t x)
            (t-one : t 1r â‰¡ 1r)
            where
 
-    record Cert (M : A) : Type â“ where
+    record Cert (M : A) : Type â„“ where
       field
         E S T Rc Z   : A
-        eliminates   : E Â Rc â‰¡ 1r
-        source-blind : E Â Z â‰¡ 0r
-        reduces      : M Â Rc â‰¡ t E Â S
-        transforms   : M Â Z + t E Â T â‰¡ 1r
-        reconstructs : Rc Â E + Z Â M â‰¡ 1r
+        eliminates   : E Â· Rc â‰¡ 1r
+        source-blind : E Â· Z â‰¡ 0r
+        reduces      : M Â· Rc â‰¡ t E Â· S
+        transforms   : M Â· Z + t E Â· T â‰¡ 1r
+        reconstructs : Rc Â· E + Z Â· M â‰¡ 1r
 
     ----------------------------------------------------------------
-    -- à§ Â THE TRANSPORT LAW IS DERIVED.
+    --  Â· THE TRANSPORT LAW IS DERIVED.
     ----------------------------------------------------------------
 
     module _ {M : A} (c : Cert M) where
       open Cert c
 
       private
-        +cancelR : (a b x : A) â’ a + x â‰¡ b + x â’ a â‰¡ b
+        +cancelR : (a b x : A) â†’ a + x â‰¡ b + x â†’ a â‰¡ b
         +cancelR a b x h =
             sym (+IdR a) âˆ™ cong (a +_) (sym (+InvR x)) âˆ™ +Assoc a x (- x)
           âˆ™ cong (_+ (- x)) h
           âˆ™ sym (+Assoc b x (- x)) âˆ™ cong (b +_) (+InvR x) âˆ™ +IdR b
 
         -- M (R E + Z M) = M
-        stepA : t E Â (S Â E) + (M Â Z) Â M â‰¡ M
+        stepA : t E Â· (S Â· E) + (M Â· Z) Â· M â‰¡ M
         stepA =
-            congâ _+_ (ÂAssoc (t E) S E âˆ™ cong (_Â E) (sym reduces) âˆ™ sym (ÂAssoc M Rc E))
-                      (sym (ÂAssoc M Z M))
-          âˆ™ sym (ÂDistR+ M (Rc Â E) (Z Â M))
-          âˆ™ cong (M Â_) reconstructs
-          âˆ™ ÂIdR M
+            congâ‚‚ _+_ (Â·Assoc (t E) S E âˆ™ cong (_Â· E) (sym reduces) âˆ™ sym (Â·Assoc M Rc E))
+                      (sym (Â·Assoc M Z M))
+          âˆ™ sym (Â·DistR+ M (Rc Â· E) (Z Â· M))
+          âˆ™ cong (M Â·_) reconstructs
+          âˆ™ Â·IdR M
 
         -- (M Z + tE T) M = M
-        stepB : t E Â (T Â M) + (M Â Z) Â M â‰¡ M
+        stepB : t E Â· (T Â· M) + (M Â· Z) Â· M â‰¡ M
         stepB =
             +Comm _ _
-          âˆ™ cong ((M Â Z) Â M +_) (ÂAssoc (t E) T M)
-          âˆ™ sym (ÂDistL+ (M Â Z) (t E Â T) M)
-          âˆ™ cong (_Â M) transforms
-          âˆ™ ÂIdL M
+          âˆ™ cong ((M Â· Z) Â· M +_) (Â·Assoc (t E) T M)
+          âˆ™ sym (Â·DistL+ (M Â· Z) (t E Â· T) M)
+          âˆ™ cong (_Â· M) transforms
+          âˆ™ Â·IdL M
 
-        same-under-tE : t E Â (S Â E) â‰¡ t E Â (T Â M)
-        same-under-tE = +cancelR _ _ ((M Â Z) Â M) (stepA âˆ™ sym stepB)
+        same-under-tE : t E Â· (S Â· E) â‰¡ t E Â· (T Â· M)
+        same-under-tE = +cancelR _ _ ((M Â· Z) Â· M) (stepA âˆ™ sym stepB)
 
-        tR-tE : t Rc Â t E â‰¡ 1r
+        tR-tE : t Rc Â· t E â‰¡ 1r
         tR-tE = sym (t-mul E Rc) âˆ™ cong t eliminates âˆ™ t-one
 
-        peel : (x : A) â’ t Rc Â (t E Â x) â‰¡ x
-        peel x = ÂAssoc (t Rc) (t E) x âˆ™ cong (_Â x) tR-tE âˆ™ ÂIdL x
+        peel : (x : A) â†’ t Rc Â· (t E Â· x) â‰¡ x
+        peel x = Â·Assoc (t Rc) (t E) x âˆ™ cong (_Â· x) tR-tE âˆ™ Â·IdL x
 
-      transport-law : T Â M â‰¡ S Â E
-      transport-law = sym (peel (T Â M)) âˆ™ cong (t Rc Â_) (sym same-under-tE) âˆ™ peel (S Â E)
+      transport-law : T Â· M â‰¡ S Â· E
+      transport-law = sym (peel (T Â· M)) âˆ™ cong (t Rc Â·_) (sym same-under-tE) âˆ™ peel (S Â· E)
 
     ----------------------------------------------------------------
-    -- à¨ Â COMPOSITION.
+    --  Â· COMPOSITION.
     ----------------------------------------------------------------
 
-    module _ {M : A} (câ : Cert M) (câ : Cert (Cert.S câ)) where
+    module _ {M : A} (câ‚ : Cert M) (câ‚‚ : Cert (Cert.S câ‚)) where
       private
-        module Câ = Cert câ
-        module Câ = Cert câ
-        Eâ = Câ.E ; Sâ = Câ.S ; Tâ = Câ.T ; Râ = Câ.Rc ; Zâ = Câ.Z
-        Eâ = Câ.E ; Sâ = Câ.S ; Tâ = Câ.T ; Râ = Câ.Rc ; Zâ = Câ.Z
+        module Câ‚ = Cert câ‚
+        module Câ‚‚ = Cert câ‚‚
+        Eâ‚ = Câ‚.E ; Sâ‚ = Câ‚.S ; Tâ‚ = Câ‚.T ; Râ‚ = Câ‚.Rc ; Zâ‚ = Câ‚.Z
+        Eâ‚‚ = Câ‚‚.E ; Sâ‚‚ = Câ‚‚.S ; Tâ‚‚ = Câ‚‚.T ; Râ‚‚ = Câ‚‚.Rc ; Zâ‚‚ = Câ‚‚.Z
 
       Eâˆ˜ : A
-      Eâˆ˜ = Eâ Â Eâ
+      Eâˆ˜ = Eâ‚‚ Â· Eâ‚
       Sâˆ˜ : A
-      Sâˆ˜ = Sâ
+      Sâˆ˜ = Sâ‚‚
       Tâˆ˜ : A
-      Tâˆ˜ = Tâ Â Tâ
+      Tâˆ˜ = Tâ‚‚ Â· Tâ‚
       Râˆ˜ : A
-      Râˆ˜ = Râ Â Râ
+      Râˆ˜ = Râ‚ Â· Râ‚‚
       Zâˆ˜ : A
-      Zâˆ˜ = Zâ + (Râ Â Zâ)
+      Zâˆ˜ = Zâ‚ + (Râ‚ Â· Zâ‚‚)
 
       private
-        L1 : (Eâ Â Eâ) Â Râ â‰¡ Eâ
-        L1 = sym (ÂAssoc Eâ Eâ Râ) âˆ™ cong (Eâ Â_) Câ.eliminates âˆ™ ÂIdR Eâ
+        L1 : (Eâ‚‚ Â· Eâ‚) Â· Râ‚ â‰¡ Eâ‚‚
+        L1 = sym (Â·Assoc Eâ‚‚ Eâ‚ Râ‚) âˆ™ cong (Eâ‚‚ Â·_) Câ‚.eliminates âˆ™ Â·IdR Eâ‚‚
 
-      compose-eliminates : Eâˆ˜ Â Râˆ˜ â‰¡ 1r
-      compose-eliminates = ÂAssoc (Eâ Â Eâ) Râ Râ âˆ™ cong (_Â Râ) L1 âˆ™ Câ.eliminates
+      compose-eliminates : Eâˆ˜ Â· Râˆ˜ â‰¡ 1r
+      compose-eliminates = Â·Assoc (Eâ‚‚ Â· Eâ‚) Râ‚ Râ‚‚ âˆ™ cong (_Â· Râ‚‚) L1 âˆ™ Câ‚‚.eliminates
 
-      compose-source-blind : Eâˆ˜ Â Zâˆ˜ â‰¡ 0r
+      compose-source-blind : Eâˆ˜ Â· Zâˆ˜ â‰¡ 0r
       compose-source-blind =
-          ÂDistR+ (Eâ Â Eâ) Zâ ((Râ Â Zâ) Â Tâ)
-        âˆ™ congâ _+_ (sym (ÂAssoc Eâ Eâ Zâ) âˆ™ cong (Eâ Â_) Câ.source-blind âˆ™ 0RightAnnihilates Eâ)
-                    (ÂAssoc (Eâ Â Eâ) (Râ Â Zâ) Tâ
-                     âˆ™ cong (_Â Tâ) (ÂAssoc (Eâ Â Eâ) Râ Zâ âˆ™ cong (_Â Zâ) L1 âˆ™ Câ.source-blind)
-                     âˆ™ 0LeftAnnihilates Tâ)
+          Â·DistR+ (Eâ‚‚ Â· Eâ‚) Zâ‚ ((Râ‚ Â· Zâ‚‚) Â· Tâ‚)
+        âˆ™ congâ‚‚ _+_ (sym (Â·Assoc Eâ‚‚ Eâ‚ Zâ‚) âˆ™ cong (Eâ‚‚ Â·_) Câ‚.source-blind âˆ™ 0RightAnnihilates Eâ‚‚)
+                    (Â·Assoc (Eâ‚‚ Â· Eâ‚) (Râ‚ Â· Zâ‚‚) Tâ‚
+                     âˆ™ cong (_Â· Tâ‚) (Â·Assoc (Eâ‚‚ Â· Eâ‚) Râ‚ Zâ‚‚ âˆ™ cong (_Â· Zâ‚‚) L1 âˆ™ Câ‚‚.source-blind)
+                     âˆ™ 0LeftAnnihilates Tâ‚)
         âˆ™ +IdR 0r
 
-      compose-reduces : M Â Râˆ˜ â‰¡ t Eâˆ˜ Â Sâˆ˜
+      compose-reduces : M Â· Râˆ˜ â‰¡ t Eâˆ˜ Â· Sâˆ˜
       compose-reduces =
-          ÂAssoc M Râ Râ
-        âˆ™ cong (_Â Râ) Câ.reduces
-        âˆ™ sym (ÂAssoc (t Eâ) Sâ Râ)
-        âˆ™ cong (t Eâ Â_) Câ.reduces
-        âˆ™ ÂAssoc (t Eâ) (t Eâ) Sâ
-        âˆ™ cong (_Â Sâ) (sym (t-mul Eâ Eâ))
+          Â·Assoc M Râ‚ Râ‚‚
+        âˆ™ cong (_Â· Râ‚‚) Câ‚.reduces
+        âˆ™ sym (Â·Assoc (t Eâ‚) Sâ‚ Râ‚‚)
+        âˆ™ cong (t Eâ‚ Â·_) Câ‚‚.reduces
+        âˆ™ Â·Assoc (t Eâ‚) (t Eâ‚‚) Sâ‚‚
+        âˆ™ cong (_Â· Sâ‚‚) (sym (t-mul Eâ‚‚ Eâ‚))
 
-      compose-transforms : M Â Zâˆ˜ + t Eâˆ˜ Â Tâˆ˜ â‰¡ 1r
+      compose-transforms : M Â· Zâˆ˜ + t Eâˆ˜ Â· Tâˆ˜ â‰¡ 1r
       compose-transforms =
-          cong (_+ (t Eâˆ˜ Â Tâˆ˜)) (ÂDistR+ M Zâ ((Râ Â Zâ) Â Tâ))
-        âˆ™ sym (+Assoc (M Â Zâ) (M Â ((Râ Â Zâ) Â Tâ)) (t Eâˆ˜ Â Tâˆ˜))
-        âˆ™ cong (M Â Zâ +_) inner
-        âˆ™ Câ.transforms
+          cong (_+ (t Eâˆ˜ Â· Tâˆ˜)) (Â·DistR+ M Zâ‚ ((Râ‚ Â· Zâ‚‚) Â· Tâ‚))
+        âˆ™ sym (+Assoc (M Â· Zâ‚) (M Â· ((Râ‚ Â· Zâ‚‚) Â· Tâ‚)) (t Eâˆ˜ Â· Tâˆ˜))
+        âˆ™ cong (M Â· Zâ‚ +_) inner
+        âˆ™ Câ‚.transforms
         where
-          p1 : M Â ((Râ Â Zâ) Â Tâ) â‰¡ (t Eâ Â (Sâ Â Zâ)) Â Tâ
-          p1 = ÂAssoc M (Râ Â Zâ) Tâ
-             âˆ™ cong (_Â Tâ) (ÂAssoc M Râ Zâ âˆ™ cong (_Â Zâ) Câ.reduces âˆ™ sym (ÂAssoc (t Eâ) Sâ Zâ))
-          p2 : t Eâˆ˜ Â Tâˆ˜ â‰¡ (t Eâ Â (t Eâ Â Tâ)) Â Tâ
-          p2 = cong (_Â Tâˆ˜) (t-mul Eâ Eâ)
-             âˆ™ ÂAssoc (t Eâ Â t Eâ) Tâ Tâ
-             âˆ™ cong (_Â Tâ) (sym (ÂAssoc (t Eâ) (t Eâ) Tâ))
-          inner : M Â ((Râ Â Zâ) Â Tâ) + t Eâˆ˜ Â Tâˆ˜ â‰¡ t Eâ Â Tâ
+          p1 : M Â· ((Râ‚ Â· Zâ‚‚) Â· Tâ‚) â‰¡ (t Eâ‚ Â· (Sâ‚ Â· Zâ‚‚)) Â· Tâ‚
+          p1 = Â·Assoc M (Râ‚ Â· Zâ‚‚) Tâ‚
+             âˆ™ cong (_Â· Tâ‚) (Â·Assoc M Râ‚ Zâ‚‚ âˆ™ cong (_Â· Zâ‚‚) Câ‚.reduces âˆ™ sym (Â·Assoc (t Eâ‚) Sâ‚ Zâ‚‚))
+          p2 : t Eâˆ˜ Â· Tâˆ˜ â‰¡ (t Eâ‚ Â· (t Eâ‚‚ Â· Tâ‚‚)) Â· Tâ‚
+          p2 = cong (_Â· Tâˆ˜) (t-mul Eâ‚‚ Eâ‚)
+             âˆ™ Â·Assoc (t Eâ‚ Â· t Eâ‚‚) Tâ‚‚ Tâ‚
+             âˆ™ cong (_Â· Tâ‚) (sym (Â·Assoc (t Eâ‚) (t Eâ‚‚) Tâ‚‚))
+          inner : M Â· ((Râ‚ Â· Zâ‚‚) Â· Tâ‚) + t Eâˆ˜ Â· Tâˆ˜ â‰¡ t Eâ‚ Â· Tâ‚
           inner =
-              congâ _+_ p1 p2
-            âˆ™ sym (ÂDistL+ (t Eâ Â (Sâ Â Zâ)) (t Eâ Â (t Eâ Â Tâ)) Tâ)
-            âˆ™ cong (_Â Tâ) (sym (ÂDistR+ (t Eâ) (Sâ Â Zâ) (t Eâ Â Tâ))
-                            âˆ™ cong (t Eâ Â_) Câ.transforms
-                            âˆ™ ÂIdR (t Eâ))
+              congâ‚‚ _+_ p1 p2
+            âˆ™ sym (Â·DistL+ (t Eâ‚ Â· (Sâ‚ Â· Zâ‚‚)) (t Eâ‚ Â· (t Eâ‚‚ Â· Tâ‚‚)) Tâ‚)
+            âˆ™ cong (_Â· Tâ‚) (sym (Â·DistR+ (t Eâ‚) (Sâ‚ Â· Zâ‚‚) (t Eâ‚‚ Â· Tâ‚‚))
+                            âˆ™ cong (t Eâ‚ Â·_) Câ‚‚.transforms
+                            âˆ™ Â·IdR (t Eâ‚))
 
-      compose-reconstructs : Râˆ˜ Â Eâˆ˜ + Zâˆ˜ Â M â‰¡ 1r
+      compose-reconstructs : Râˆ˜ Â· Eâˆ˜ + Zâˆ˜ Â· M â‰¡ 1r
       compose-reconstructs =
-          congâ _+_ q1 (ÂDistL+ Zâ ((Râ Â Zâ) Â Tâ) M âˆ™ cong (Zâ Â M +_) q2)
+          congâ‚‚ _+_ q1 (Â·DistL+ Zâ‚ ((Râ‚ Â· Zâ‚‚) Â· Tâ‚) M âˆ™ cong (Zâ‚ Â· M +_) q2)
         âˆ™ rearr
-        âˆ™ cong (_+ (Zâ Â M))
-               (sym (ÂDistR+ Râ ((Râ Â Eâ) Â Eâ) ((Zâ Â Sâ) Â Eâ))
-                âˆ™ cong (Râ Â_) (sym (ÂDistL+ (Râ Â Eâ) (Zâ Â Sâ) Eâ)
-                                âˆ™ cong (_Â Eâ) Câ.reconstructs
-                                âˆ™ ÂIdL Eâ))
-        âˆ™ Câ.reconstructs
+        âˆ™ cong (_+ (Zâ‚ Â· M))
+               (sym (Â·DistR+ Râ‚ ((Râ‚‚ Â· Eâ‚‚) Â· Eâ‚) ((Zâ‚‚ Â· Sâ‚) Â· Eâ‚))
+                âˆ™ cong (Râ‚ Â·_) (sym (Â·DistL+ (Râ‚‚ Â· Eâ‚‚) (Zâ‚‚ Â· Sâ‚) Eâ‚)
+                                âˆ™ cong (_Â· Eâ‚) Câ‚‚.reconstructs
+                                âˆ™ Â·IdL Eâ‚))
+        âˆ™ Câ‚.reconstructs
         where
-          a = Râ Â ((Râ Â Eâ) Â Eâ)
-          b = Zâ Â M
-          c = Râ Â ((Zâ Â Sâ) Â Eâ)
-          q1 : (Râ Â Râ) Â (Eâ Â Eâ) â‰¡ a
-          q1 = sym (ÂAssoc Râ Râ (Eâ Â Eâ)) âˆ™ cong (Râ Â_) (ÂAssoc Râ Eâ Eâ)
-          q2 : ((Râ Â Zâ) Â Tâ) Â M â‰¡ c
-          q2 = sym (ÂAssoc (Râ Â Zâ) Tâ M)
-             âˆ™ cong ((Râ Â Zâ) Â_) (transport-law câ)
-             âˆ™ sym (ÂAssoc Râ Zâ (Sâ Â Eâ))
-             âˆ™ cong (Râ Â_) (ÂAssoc Zâ Sâ Eâ)
+          a = Râ‚ Â· ((Râ‚‚ Â· Eâ‚‚) Â· Eâ‚)
+          b = Zâ‚ Â· M
+          c = Râ‚ Â· ((Zâ‚‚ Â· Sâ‚) Â· Eâ‚)
+          q1 : (Râ‚ Â· Râ‚‚) Â· (Eâ‚‚ Â· Eâ‚) â‰¡ a
+          q1 = sym (Â·Assoc Râ‚ Râ‚‚ (Eâ‚‚ Â· Eâ‚)) âˆ™ cong (Râ‚ Â·_) (Â·Assoc Râ‚‚ Eâ‚‚ Eâ‚)
+          q2 : ((Râ‚ Â· Zâ‚‚) Â· Tâ‚) Â· M â‰¡ c
+          q2 = sym (Â·Assoc (Râ‚ Â· Zâ‚‚) Tâ‚ M)
+             âˆ™ cong ((Râ‚ Â· Zâ‚‚) Â·_) (transport-law câ‚)
+             âˆ™ sym (Â·Assoc Râ‚ Zâ‚‚ (Sâ‚ Â· Eâ‚))
+             âˆ™ cong (Râ‚ Â·_) (Â·Assoc Zâ‚‚ Sâ‚ Eâ‚)
           rearr : a + (b + c) â‰¡ (a + c) + b
           rearr = +Assoc a b c âˆ™ cong (_+ c) (+Comm a b) âˆ™ sym (+Assoc b a c) âˆ™ +Comm b (a + c)
 
@@ -202,19 +202,19 @@ module _ (R : Ring â“) where
         ; reconstructs = compose-reconstructs }
 
 ------------------------------------------------------------------------
--- à© Â A NILPOTENT CAUSAL KERNEL INVERTS POLYNOMIALLY, WHATEVER ITS NORM.
+--  Â· A NILPOTENT CAUSAL KERNEL INVERTS POLYNOMIALLY, WHATEVER ITS NORM.
 ------------------------------------------------------------------------
-module _ (R : CommRing â“) where
+module _ (R : CommRing â„“) where
   open CommRingStr (snd R)
 
-  nilpotent-causal-inverse : (z K : âŸ¨ R âŸ©) â’ (K Â K) Â K â‰¡ 0r
-    â’ (1r + (- (z Â K))) Â (1r + (z Â K + (z Â z) Â (K Â K))) â‰¡ 1r
+  nilpotent-causal-inverse : (z K : âŸ¨ R âŸ©) â†’ (K Â· K) Â· K â‰¡ 0r
+    â†’ (1r + (- (z Â· K))) Â· (1r + (z Â· K + (z Â· z) Â· (K Â· K))) â‰¡ 1r
   nilpotent-causal-inverse z K h =
-      expand z K âˆ™ cong (Î» w â’ 1r + (- (((z Â z) Â z) Â w))) h âˆ™ finish z
+      expand z K âˆ™ cong (Î» w â†’ 1r + (- (((z Â· z) Â· z) Â· w))) h âˆ™ finish z
     where
       expand : (z K : âŸ¨ R âŸ©)
-        â’ (1r + (- (z Â K))) Â (1r + (z Â K + (z Â z) Â (K Â K)))
-          â‰¡ 1r + (- (((z Â z) Â z) Â ((K Â K) Â K)))
+        â†’ (1r + (- (z Â· K))) Â· (1r + (z Â· K + (z Â· z) Â· (K Â· K)))
+          â‰¡ 1r + (- (((z Â· z) Â· z) Â· ((K Â· K) Â· K)))
       expand z K = solve! R
-      finish : (z : âŸ¨ R âŸ©) â’ 1r + (- (((z Â z) Â z) Â 0r)) â‰¡ 1r
+      finish : (z : âŸ¨ R âŸ©) â†’ 1r + (- (((z Â· z) Â· z) Â· 0r)) â‰¡ 1r
       finish z = solve! R

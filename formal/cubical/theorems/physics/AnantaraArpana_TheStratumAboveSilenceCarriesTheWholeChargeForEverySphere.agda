@@ -37,9 +37,9 @@
 -- उत्पादउत्पादThe reading-व्ययव्ययwordध्रौव्ययुक्तंध्रौव्ययुक्तं सत्सत्/ ——is Umāsvāti, Tattvārthasūtra 5.31
 -- (अर्पितानर्पितसिद्धेः), as in StaraArpana: the sūtra names
 -- establishment from the emphasized and the non-emphasized aspect.
--- ������ (without
+-- is NOT claimed to grade truncations by h-level.   (without
 -- interval, immediately adjacent) is ordinary ; the compound
--- ������-����� is built here.
+-- - is built here and claimed of no source.
 ------------------------------------------------------------------------
 
 module AnantaraArpana_TheStratumAboveSilenceCarriesTheWholeChargeForEverySphere where

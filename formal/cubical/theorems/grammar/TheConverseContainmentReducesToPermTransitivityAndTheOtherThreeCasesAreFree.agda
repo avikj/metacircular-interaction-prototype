@@ -14,7 +14,7 @@
 -- ────────────────────────────────────────────────────────────────────
 -- 1.  WHAT IS PROVED HERE
 --
--- `TheUsualReasonsMadeExplicit�` proves `Perm � ≈` (the inductive
+-- `TheUsualReasonsMadeExplicit` proves `Perm  ≈` (the inductive
 -- permutation relation embeds in the adjacent-transposition closure).
 -- Here the converse **reduces to exactly one lemma**:
 --

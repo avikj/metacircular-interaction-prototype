@@ -8,7 +8,7 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT THIS IS.
 --
--- `SamanaKaksya_�agda` §� states, in these words:
+-- `SamanaKaksya_…agda` § states, in these words:
 --
 --     "Unaddressed here: whether `समानकक्ष्या` is valued in propositions
 --      (it is not, in general — the meeting stations are data), and
@@ -60,7 +60,7 @@
 -- which is the sense borrowed here.  **The compound समागम-स्थानम् in the
 -- sense "the pair of iteration counts at which two forward trajectories
 -- coincide" is BUILT HERE.**
--- The LIMIT on ��������� is carried in unchanged
+-- The LIMIT on  is carried in unchanged
 -- from `Kaksya_…agda`: attested for a planet's orbit, and its use for the
 -- orbit of an endomorphism is this corpus's, not the tradition's.
 ------------------------------------------------------------------------

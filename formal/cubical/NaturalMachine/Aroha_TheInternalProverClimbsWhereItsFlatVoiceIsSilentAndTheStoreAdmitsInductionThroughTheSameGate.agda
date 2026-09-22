@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ������ — ascent.  The identifiers in
+--  — ascent.  The identifiers in
 -- this module (समानः, उपस्थापनम्, एकादेशः, आरोहः) are functional
 -- vocabulary built here, not source terms.
 -- The principle's descent form (establish at

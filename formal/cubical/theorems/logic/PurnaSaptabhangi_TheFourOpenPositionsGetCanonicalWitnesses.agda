@@ -14,7 +14,7 @@
 --                         crowded (injective into a set)     ‚Üí ‡§Ö‡§∏‡•ç‡§§‡§ø-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø
 --
 -- and this module supplies canonical witnesses for the remaining FOUR:
--- ‡®‡æ‡‡‡‡ø-‡‡µ‡ï‡‡‡µ‡‡Ø, ‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø, pure ‡‡µ‡ï‡‡‡µ‡‡Ø, and the full triple, so all seven bhagas
+-- -, -, pure , and the full triple, so all seven bhagas
 -- occupy the classification with a term.
 --
 -- The seeds, following `GananaSaptabhangi`'s readings:

@@ -228,4 +228,4 @@ insideViewS¹ = insideView
 -- The actual dependent section space `(a : A) → Σ[ x ∈ A ] (a ≡ x)` is
 -- contractible for every A; `Retracts₀ A` is left-inverse data for the
 -- set-truncation unit.  `ContractibleFiberSectionBoundary.agda` checks the
--- distinction and the S� no-equivalence control.
+-- distinction and the S¹ no-equivalence control.  The theorems above remain

@@ -4,7 +4,7 @@
 
 ## Scope
 
-This note proves an operator-norm and essential-spectrum statement for the canonical incompressible-fluid Poisson tensor, computes the identity defect of the common-noise tangent lift, and constructs its exact unital normalization. The stochastic statements hold on a closed interval on which the underlying periodic Navierâ“Stokes solution is smooth. They do not establish general global regularity or the Riemann hypothesis. No originality-priority claim or proof-assistant compilation is made.
+This note proves an operator-norm and essential-spectrum statement for the canonical incompressible-fluid Poisson tensor, computes the identity defect of the common-noise tangent lift, and constructs its exact unital normalization. The stochastic statements hold on a closed interval on which the underlying periodic Navierâ€“Stokes solution is smooth. They do not establish general global regularity or the Riemann hypothesis. No originality-priority claim or proof-assistant compilation is made.
 
 ## 1. The canonical source representation is isometric in maximum vorticity
 
@@ -203,6 +203,6 @@ Accordingly, the Poisson-source covariance equation alone is insensitive to addi
 
 `check_identities.py` executes nine exact symbolic controls and computes exact rational finite-Fourier norm witnesses for the shear source. The displayed decimal norm ratios are square roots of rational values. These checks are not substitutes for the localization argument, stochastic domain argument, or a global continuation proof.
 
-Classical ancestry: Peter Constantin and Gautam Iyer, *A stochastic Lagrangian representation of the three-dimensional incompressible Navierâ“Stokes equations*, Communications on Pure and Applied Mathematics 61 (2008), 330â“345, DOI 10.1002/cpa.20192. The common-noise lift here uses the full Euler derivative; it is not identified with the stochastic Weber propagator without an additional argument.
+Classical ancestry: Peter Constantin and Gautam Iyer, *A stochastic Lagrangian representation of the three-dimensional incompressible Navierâ€“Stokes equations*, Communications on Pure and Applied Mathematics 61 (2008), 330â€“345, DOI 10.1002/cpa.20192. The common-noise lift here uses the full Euler derivative; it is not identified with the stochastic Weber propagator without an additional argument.
 
-The standard maximum-vorticity continuation framework originates with Beale, Kato and Majda, *Remarks on the breakdown of smooth solutions for the 3-D Euler equations*, Communications in Mathematical Physics 94 (1984), 61â“66, DOI 10.1007/BF01212349; viscous Sobolev well-posedness and continuation use the corresponding energy and commutator estimates. The spectral norm theorem preserves the exact vorticity quantity appearing in that framework; it does not establish its integrability.
+The standard maximum-vorticity continuation framework originates with Beale, Kato and Majda, *Remarks on the breakdown of smooth solutions for the 3-D Euler equations*, Communications in Mathematical Physics 94 (1984), 61â€“66, DOI 10.1007/BF01212349; viscous Sobolev well-posedness and continuation use the corresponding energy and commutator estimates. The spectral norm theorem preserves the exact vorticity quantity appearing in that framework; it does not establish its integrability.

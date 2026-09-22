@@ -1,97 +1,97 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ààà¨à°à¾à—à®à¨ â” the return.
+--  â€” the return.
 --
 -- THE PROJECTED POWERS OF AN OPERATOR OBEY AN ORDERED RETURN
 -- RECURRENCE WHOSE KERNEL IS "LEAVE THE VISIBLE BLOCK, EVOLVE IN THE
 -- HIDDEN BLOCK, COME BACK"; AND A PROJECTED DERIVATION FAILS THE
 -- LEIBNIZ RULE BY EXACTLY THE TWO CROSS-SECTOR TERMS.
 --
--- Both are the algebra under the excursionâ“return representation
--- [S17 Â§Â§3â“4; handoff Â§11], stated once, in a ring, for every operator
+-- Both are the algebra under the excursionâ€“return representation
+-- [S17 Â§Â§3â€“4; handoff Â§11], stated once, in a ring, for every operator
 -- and every idempotent.
 --
--- PART ONE â” the recurrence.  With `P` idempotent, `Q = 1 - P`, and the
+-- PART ONE â€” the recurrence.  With `P` idempotent, `Q = 1 - P`, and the
 -- four blocks  A = PLP,  B = PLQ,  C = QLP,  D = QLQ,  put
 --
---     K n  =  P Lâ¿ P             the observed n-th power
---     W n  =  Î_{j<n} DÊ² C K(n-1-j)   in Horner form: W 0 = 0,
+--     K n  =  P Lâ¿ P             the observed n-th power
+--     W n  =  Î£_{j<n} DÊ² C K(n-1-j)   in Horner form: W 0 = 0,
 --                                     W (n+1) = C K n + D W n .
 --
 --   Â§1  ONE INSERTION OF  P + Q = 1  gives, for any X, Y and any front
 --       block E,   E (X Y) P  â‰¡  (E X P)(P Y P) + (E X Q)(Q Y P) .
 --       Every step below is this lemma at a different front.
 --
---   Â§2  THE HIDDEN COMPONENT IS THE HORNER SUM:  Q Lâ¿ P â‰¡ W n .
+--   Â§2  THE HIDDEN COMPONENT IS THE HORNER SUM:  Q Lâ¿ P â‰¡ W n .
 --
 --   Â§3  THE ORDERED RETURN RECURRENCE:
 --
---         K (n+1)  â‰¡  A Â K n  +  B Â W n ,
+--         K (n+1)  â‰¡  A Â· K n  +  B Â· W n ,
 --
---       i.e.  K_{n+1} = A K_n + Î_{j<n} (B DÊ² C) K_{n-1-j} .  No binomial
+--       i.e.  K_{n+1} = A K_n + Î£_{j<n} (B DÊ² C) K_{n-1-j} .  No binomial
 --       factor appears: this is the exponential-generating form, and the
 --       kernel M_j = B DÊ² C is literally "out through B, j steps in the
 --       hidden block, back through C".
 --
---   Â§4  THE FIRST RETURN:  K 2 â‰¡ AÂA + BÂC .  The second observed power
---       is the square of the observed block plus one excursion â” the
---       `2 â’ 4 â’ 2` coefficient is this term at the toroidal blocks.
+--   Â§4  THE FIRST RETURN:  K 2 â‰¡ AÂ·A + BÂ·C .  The second observed power
+--       is the square of the observed block plus one excursion â€” the
+--       `2 â†’ 4 â†’ 2` coefficient is this term at the toroidal blocks.
 --
--- PART TWO â” the defect.  For a derivation ð“ on a commutative algebra of
--- observables and an idempotent algebra homomorphism ð’ with ð’ = 1 - ð’,
+-- PART TWO â€” the defect.  For a derivation ð“› on a commutative algebra of
+-- observables and an idempotent algebra homomorphism ð’« with ð’¬ = 1 - ð’«,
 --
---   Â§5  ð’ð“(hk) âˆ’ (ð’ð“h)k âˆ’ h(ð’ð“k)  â‰¡  (ð’ð“h)(ð’k) + (ð’h)(ð’ð“k) .
+--   Â§5  ð’¬ð“›(hk) âˆ’ (ð’¬ð“›h)k âˆ’ h(ð’¬ð“›k)  â‰¡  (ð’«ð“›h)(ð’¬k) + (ð’¬h)(ð’«ð“›k) .
 --
 --       So the projected generator is not a derivation, and the failure
 --       is exactly the two terms that cross between the sectors.  Its
 --       exponential must therefore not be replaced by the pullback of a
---       guessed autonomous flow on the visible sector â” which is why the
+--       guessed autonomous flow on the visible sector â€” which is why the
 --       exact elimination of Part One is used instead.
 --
--- SYT â” THE CLAIM, EXACTLY.  Â§Â§1â“4 in any ring, for every `L` and every
+-- SYÄ€T â€” THE CLAIM, EXACTLY.  Â§Â§1â€“4 in any ring, for every `L` and every
 -- idempotent `P`.  Â§5 in any commutative ring, for every additive
--- Leibniz `ð“` and every additive multiplicative idempotent `ð’`.  NOT
--- claimed: convergence of anything â” `K`, `W` are finite ring elements
--- at each n; the resolvent form  P(Î»âˆ’L)â»ÂP = [Î» âˆ’ A âˆ’ B(Î»âˆ’D)â»ÂC]â»Â,
+-- Leibniz `ð“›` and every additive multiplicative idempotent `ð’«`.  NOT
+-- claimed: convergence of anything â€” `K`, `W` are finite ring elements
+-- at each n; the resolvent form  P(Î»âˆ’L)â»Â¹P = [Î» âˆ’ A âˆ’ B(Î»âˆ’D)â»Â¹C]â»Â¹,
 -- which needs inverses and is a separate statement; that any evolution
 -- is the exponential of `L`; and nothing about which `P` is the toroidal
--- projection â” the instance is named in the commentary only.
+-- projection â€” the instance is named in the commentary only.
 ------------------------------------------------------------------------
 
 module M1 where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (âŸ¨_âŸ©)
-open import Cubical.Data.Nat using (â• ; zero ; suc)
+open import Cubical.Data.Nat using (â„• ; zero ; suc)
 open import Cubical.Algebra.Ring
 open import Cubical.Algebra.CommRing
 open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
 private
   variable
-    â“ : Level
+    â„“ : Level
 
 ------------------------------------------------------------------------
--- PART ONE Â The ordered return recurrence.
+-- PART ONE Â· The ordered return recurrence.
 ------------------------------------------------------------------------
 
-module _ (R : Ring â“) where
+module _ (R : Ring â„“) where
   open RingStr (snd R)
   open RingTheory R
 
   private
-    A : Type â“
+    A : Type â„“
     A = âŸ¨ R âŸ©
 
-    cancelR : (x y : A) â’ (x + y) + (- y) â‰¡ x
+    cancelR : (x y : A) â†’ (x + y) + (- y) â‰¡ x
     cancelR x y = sym (+Assoc x y (- y)) âˆ™ cong (x +_) (+InvR y) âˆ™ +IdR x
 
-  pow : A â’ â• â’ A
+  pow : A â†’ â„• â†’ A
   pow x zero    = 1r
-  pow x (suc n) = x Â pow x n
+  pow x (suc n) = x Â· pow x n
 
-  module _ (L P : A) (PP : P Â P â‰¡ P) where
+  module _ (L P : A) (PP : P Â· P â‰¡ P) where
 
     Q : A
     Q = 1r + (- P)
@@ -100,14 +100,14 @@ module _ (R : Ring â“) where
       P+Q : P + Q â‰¡ 1r
       P+Q = +Assoc P 1r (- P) âˆ™ cong (_+ (- P)) (+Comm P 1r) âˆ™ cancelR 1r P
 
-      PQ : P Â Q â‰¡ 0r
-      PQ = ÂDistR+ P 1r (- P) âˆ™ congâ _+_ (ÂIdR P) (-DistRÂ P P âˆ™ cong -_ PP) âˆ™ +InvR P
+      PQ : P Â· Q â‰¡ 0r
+      PQ = Â·DistR+ P 1r (- P) âˆ™ congâ‚‚ _+_ (Â·IdR P) (-DistRÂ· P P âˆ™ cong -_ PP) âˆ™ +InvR P
 
-      QP : Q Â P â‰¡ 0r
-      QP = ÂDistL+ 1r (- P) P âˆ™ congâ _+_ (ÂIdL P) (-DistLÂ P P âˆ™ cong -_ PP) âˆ™ +InvR P
+      QP : Q Â· P â‰¡ 0r
+      QP = Â·DistL+ 1r (- P) P âˆ™ congâ‚‚ _+_ (Â·IdL P) (-DistLÂ· P P âˆ™ cong -_ PP) âˆ™ +InvR P
 
-      QQ : Q Â Q â‰¡ Q
-      QQ = ÂDistR+ Q 1r (- P) âˆ™ congâ _+_ (ÂIdR Q) (-DistRÂ Q P âˆ™ cong -_ QP)
+      QQ : Q Â· Q â‰¡ Q
+      QQ = Â·DistR+ Q 1r (- P) âˆ™ congâ‚‚ _+_ (Â·IdR Q) (-DistRÂ· Q P âˆ™ cong -_ QP)
          âˆ™ cong (Q +_) 0Selfinverse âˆ™ +IdR Q
 
     ------------------------------------------------------------------
@@ -115,128 +115,128 @@ module _ (R : Ring â“) where
     ------------------------------------------------------------------
 
     Ablk B C D : A
-    Ablk = P Â L Â P
-    B    = P Â L Â Q
-    C    = Q Â L Â P
-    D    = Q Â L Â Q
+    Ablk = P Â· L Â· P
+    B    = P Â· L Â· Q
+    C    = Q Â· L Â· P
+    D    = Q Â· L Â· Q
 
-    K : â• â’ A
-    K n = P Â pow L n Â P
+    K : â„• â†’ A
+    K n = P Â· pow L n Â· P
 
-    W : â• â’ A
+    W : â„• â†’ A
     W zero    = 0r
-    W (suc n) = C Â K n + D Â W n
+    W (suc n) = C Â· K n + D Â· W n
 
     ------------------------------------------------------------------
-    -- à§ Â ONE INSERTION OF  P + Q = 1.
+    --  Â· ONE INSERTION OF  P + Q = 1.
     ------------------------------------------------------------------
 
     insert : (E X Y : A)
-      â’ E Â (X Â Y) Â P â‰¡ (E Â X Â P) Â (P Â Y Â P) + (E Â X Â Q) Â (Q Â Y Â P)
+      â†’ E Â· (X Â· Y) Â· P â‰¡ (E Â· X Â· P) Â· (P Â· Y Â· P) + (E Â· X Â· Q) Â· (Q Â· Y Â· P)
     insert E X Y =
-        cong (_Â P) (ÂAssoc E X Y)
-      âˆ™ cong (Î» z â’ (E Â X Â z) Â P) (sym (ÂIdL Y) âˆ™ cong (_Â Y) (sym P+Q) âˆ™ ÂDistL+ P Q Y)
-      âˆ™ cong (_Â P) (ÂDistR+ (E Â X) (P Â Y) (Q Â Y))
-      âˆ™ ÂDistL+ ((E Â X) Â (P Â Y)) ((E Â X) Â (Q Â Y)) P
-      âˆ™ congâ _+_ (viaP) (viaQ)
+        cong (_Â· P) (Â·Assoc E X Y)
+      âˆ™ cong (Î» z â†’ (E Â· X Â· z) Â· P) (sym (Â·IdL Y) âˆ™ cong (_Â· Y) (sym P+Q) âˆ™ Â·DistL+ P Q Y)
+      âˆ™ cong (_Â· P) (Â·DistR+ (E Â· X) (P Â· Y) (Q Â· Y))
+      âˆ™ Â·DistL+ ((E Â· X) Â· (P Â· Y)) ((E Â· X) Â· (Q Â· Y)) P
+      âˆ™ congâ‚‚ _+_ (viaP) (viaQ)
       where
         -- (E X)(P Y) P  â‰¡  (E X P)(P Y P), using P = P P
-        viaP : (E Â X) Â (P Â Y) Â P â‰¡ (E Â X Â P) Â (P Â Y Â P)
+        viaP : (E Â· X) Â· (P Â· Y) Â· P â‰¡ (E Â· X Â· P) Â· (P Â· Y Â· P)
         viaP =
-            cong (Î» z â’ (E Â X) Â (z Â Y) Â P) (sym PP)
-          âˆ™ cong (_Â P) (cong ((E Â X) Â_) (sym (ÂAssoc P P Y)) âˆ™ ÂAssoc (E Â X) P (P Â Y))
-          âˆ™ sym (ÂAssoc (E Â X Â P) (P Â Y) P)
+            cong (Î» z â†’ (E Â· X) Â· (z Â· Y) Â· P) (sym PP)
+          âˆ™ cong (_Â· P) (cong ((E Â· X) Â·_) (sym (Â·Assoc P P Y)) âˆ™ Â·Assoc (E Â· X) P (P Â· Y))
+          âˆ™ sym (Â·Assoc (E Â· X Â· P) (P Â· Y) P)
 
-        viaQ : (E Â X) Â (Q Â Y) Â P â‰¡ (E Â X Â Q) Â (Q Â Y Â P)
+        viaQ : (E Â· X) Â· (Q Â· Y) Â· P â‰¡ (E Â· X Â· Q) Â· (Q Â· Y Â· P)
         viaQ =
-            cong (Î» z â’ (E Â X) Â (z Â Y) Â P) (sym QQ)
-          âˆ™ cong (_Â P) (cong ((E Â X) Â_) (sym (ÂAssoc Q Q Y)) âˆ™ ÂAssoc (E Â X) Q (Q Â Y))
-          âˆ™ sym (ÂAssoc (E Â X Â Q) (Q Â Y) P)
+            cong (Î» z â†’ (E Â· X) Â· (z Â· Y) Â· P) (sym QQ)
+          âˆ™ cong (_Â· P) (cong ((E Â· X) Â·_) (sym (Â·Assoc Q Q Y)) âˆ™ Â·Assoc (E Â· X) Q (Q Â· Y))
+          âˆ™ sym (Â·Assoc (E Â· X Â· Q) (Q Â· Y) P)
 
     ------------------------------------------------------------------
-    -- à¨ Â THE HIDDEN COMPONENT IS THE HORNER SUM.
+    --  Â· THE HIDDEN COMPONENT IS THE HORNER SUM.
     ------------------------------------------------------------------
 
-    hidden-is-horner : (n : â•) â’ Q Â pow L n Â P â‰¡ W n
-    hidden-is-horner zero    = cong (_Â P) (ÂIdR Q) âˆ™ QP
+    hidden-is-horner : (n : â„•) â†’ Q Â· pow L n Â· P â‰¡ W n
+    hidden-is-horner zero    = cong (_Â· P) (Â·IdR Q) âˆ™ QP
     hidden-is-horner (suc n) =
         insert Q L (pow L n)
-      âˆ™ cong (C Â K n +_) (cong (D Â_) (hidden-is-horner n))
+      âˆ™ cong (C Â· K n +_) (cong (D Â·_) (hidden-is-horner n))
 
     ------------------------------------------------------------------
-    -- à© Â THE ORDERED RETURN RECURRENCE.
+    --  Â· THE ORDERED RETURN RECURRENCE.
     ------------------------------------------------------------------
 
-    return-recurrence : (n : â•) â’ K (suc n) â‰¡ Ablk Â K n + B Â W n
+    return-recurrence : (n : â„•) â†’ K (suc n) â‰¡ Ablk Â· K n + B Â· W n
     return-recurrence n =
         insert P L (pow L n)
-      âˆ™ cong (Ablk Â K n +_) (cong (B Â_) (hidden-is-horner n))
+      âˆ™ cong (Ablk Â· K n +_) (cong (B Â·_) (hidden-is-horner n))
 
     ------------------------------------------------------------------
-    -- à Â THE FIRST RETURN:  K 2 â‰¡ AÂA + BÂC.
+    --  Â· THE FIRST RETURN:  K 2 â‰¡ AÂ·A + BÂ·C.
     ------------------------------------------------------------------
 
     private
       K0 : K 0 â‰¡ P
-      K0 = cong (_Â P) (ÂIdR P) âˆ™ PP
+      K0 = cong (_Â· P) (Â·IdR P) âˆ™ PP
 
-      AblkP : Ablk Â P â‰¡ Ablk
-      AblkP = sym (ÂAssoc (P Â L) P P) âˆ™ cong ((P Â L) Â_) PP
+      AblkP : Ablk Â· P â‰¡ Ablk
+      AblkP = sym (Â·Assoc (P Â· L) P P) âˆ™ cong ((P Â· L) Â·_) PP
 
-      CP : C Â P â‰¡ C
-      CP = sym (ÂAssoc (Q Â L) P P) âˆ™ cong ((Q Â L) Â_) PP
+      CP : C Â· P â‰¡ C
+      CP = sym (Â·Assoc (Q Â· L) P P) âˆ™ cong ((Q Â· L) Â·_) PP
 
-    first-return : K 2 â‰¡ Ablk Â Ablk
+    first-return : K 2 â‰¡ Ablk Â· Ablk
     first-return =
         return-recurrence 1
-      âˆ™ congâ _+_
-          ( cong (Ablk Â_)
+      âˆ™ congâ‚‚ _+_
+          ( cong (Ablk Â·_)
               ( return-recurrence 0
-              âˆ™ congâ _+_ (cong (Ablk Â_) K0 âˆ™ AblkP) (0RightAnnihilates B)
+              âˆ™ congâ‚‚ _+_ (cong (Ablk Â·_) K0 âˆ™ AblkP) (0RightAnnihilates B)
               âˆ™ +IdR Ablk ) )
-          ( cong (B Â_)
-              ( congâ _+_ (cong (C Â_) K0 âˆ™ CP) (0RightAnnihilates D)
+          ( cong (B Â·_)
+              ( congâ‚‚ _+_ (cong (C Â·_) K0 âˆ™ CP) (0RightAnnihilates D)
               âˆ™ +IdR C ) )
 
 ------------------------------------------------------------------------
--- PART TWO Â The projected derivation fails Leibniz by the cross terms.
+-- PART TWO Â· The projected derivation fails Leibniz by the cross terms.
 ------------------------------------------------------------------------
 
-module _ (O : CommRing â“) where
+module _ (O : CommRing â„“) where
   open CommRingStr (snd O)
 
   private
-    Obs : Type â“
+    Obs : Type â„“
     Obs = âŸ¨ O âŸ©
 
-  module _ (ð“ : Obs â’ Obs)
-           (ð“-add  : (x y : Obs) â’ ð“ (x + y) â‰¡ ð“ x + ð“ y)
-           (ð“-leib : (x y : Obs) â’ ð“ (x Â y) â‰¡ ð“ x Â y + x Â ð“ y)
-           (ð’ : Obs â’ Obs)
-           (ð’-add : (x y : Obs) â’ ð’ (x + y) â‰¡ ð’ x + ð’ y)
-           (ð’-mul : (x y : Obs) â’ ð’ (x Â y) â‰¡ ð’ x Â ð’ y)
+  module _ (ð“› : Obs â†’ Obs)
+           (ð“›-add  : (x y : Obs) â†’ ð“› (x + y) â‰¡ ð“› x + ð“› y)
+           (ð“›-leib : (x y : Obs) â†’ ð“› (x Â· y) â‰¡ ð“› x Â· y + x Â· ð“› y)
+           (ð’« : Obs â†’ Obs)
+           (ð’«-add : (x y : Obs) â†’ ð’« (x + y) â‰¡ ð’« x + ð’« y)
+           (ð’«-mul : (x y : Obs) â†’ ð’« (x Â· y) â‰¡ ð’« x Â· ð’« y)
            where
 
-    ð’ : Obs â’ Obs
-    ð’ x = x + (- ð’ x)
+    ð’¬ : Obs â†’ Obs
+    ð’¬ x = x + (- ð’« x)
 
     ------------------------------------------------------------------
-    -- à Â THE DEFECT IS EXACTLY THE TWO CROSS-SECTOR TERMS.
+    --  Â· THE DEFECT IS EXACTLY THE TWO CROSS-SECTOR TERMS.
     ------------------------------------------------------------------
 
     projected-leibniz-defect : (h k : Obs)
-      â’ (ð’ (ð“ (h Â k)) + (- (ð’ (ð“ h) Â k))) + (- (h Â ð’ (ð“ k)))
-        â‰¡ ð’ (ð“ h) Â ð’ k + ð’ h Â ð’ (ð“ k)
+      â†’ (ð’¬ (ð“› (h Â· k)) + (- (ð’¬ (ð“› h) Â· k))) + (- (h Â· ð’¬ (ð“› k)))
+        â‰¡ ð’« (ð“› h) Â· ð’¬ k + ð’¬ h Â· ð’« (ð“› k)
     projected-leibniz-defect h k =
-        cong (Î» z â’ (ð’ z + (- (ð’ (ð“ h) Â k))) + (- (h Â ð’ (ð“ k)))) (ð“-leib h k)
-      âˆ™ cong (Î» z â’ ((ð“ h Â k + h Â ð“ k) + (- z) + (- (ð’ (ð“ h) Â k))) + (- (h Â ð’ (ð“ k))))
-             ( ð’-add (ð“ h Â k) (h Â ð“ k)
-             âˆ™ congâ _+_ (ð’-mul (ð“ h) k) (ð’-mul h (ð“ k)) )
-      âˆ™ shape (ð“ h) (ð“ k) h k (ð’ (ð“ h)) (ð’ (ð“ k)) (ð’ h) (ð’ k)
+        cong (Î» z â†’ (ð’¬ z + (- (ð’¬ (ð“› h) Â· k))) + (- (h Â· ð’¬ (ð“› k)))) (ð“›-leib h k)
+      âˆ™ cong (Î» z â†’ ((ð“› h Â· k + h Â· ð“› k) + (- z) + (- (ð’¬ (ð“› h) Â· k))) + (- (h Â· ð’¬ (ð“› k))))
+             ( ð’«-add (ð“› h Â· k) (h Â· ð“› k)
+             âˆ™ congâ‚‚ _+_ (ð’«-mul (ð“› h) k) (ð’«-mul h (ð“› k)) )
+      âˆ™ shape (ð“› h) (ð“› k) h k (ð’« (ð“› h)) (ð’« (ð“› k)) (ð’« h) (ð’« k)
       where
         shape : (lh lk h k plh plk ph pk : Obs)
-          â’ (((lh Â k + h Â lk) + (- (plh Â pk + ph Â plk)))
-               + (- ((lh + (- plh)) Â k)))
-              + (- (h Â (lk + (- plk))))
-            â‰¡ plh Â (k + (- pk)) + (h + (- ph)) Â plk
+          â†’ (((lh Â· k + h Â· lk) + (- (plh Â· pk + ph Â· plk)))
+               + (- ((lh + (- plh)) Â· k)))
+              + (- (h Â· (lk + (- plk))))
+            â‰¡ plh Â· (k + (- pk)) + (h + (- ph)) Â· plk
         shape lh lk h k plh plk ph pk = solve! O

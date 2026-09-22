@@ -4,7 +4,7 @@
 -- TheStrictThresholdsAreTheSameChainAndDifferOnlyAtTheBoundary
 --
 -- STRICT thresholds (the `Majority` of the previous module is
--- strict: length < 2 Â count) are NOT in
+-- strict: length < 2  count) are NOT in
 -- `TheThresholdOrderIsTotalAndTheClaimIsAntitone`'s family; `AtLeast 1 1`
 -- is the non-strict 'at least half', which is weaker.  The
 -- strict/non-strict gap is exactly one point:
@@ -61,7 +61,7 @@ open import TheThresholdOrderIsTotalAndTheClaimIsAntitone
 ------------------------------------------------------------------------
 -- 1.  Strict cancellation
 --
--- `TheThresholdOrderIsTotalAndTheClaimIsAntitone` needed `m Â suc k â‰ n Â suc k â’ m â‰ n` and derived it,
+-- `TheThresholdOrderIsTotalAndTheClaimIsAntitone` needed `m  suc k  n  suc k  m  n` and derived it,
 -- cubical v0.5 having no such lemma.  The strict version is the same
 -- argument with the branches exchanged: `splitâ„•-<` supplies the case
 -- split, and the wrong branch dies because â‰¤-Â·k turns `n â‰¤ m` into a

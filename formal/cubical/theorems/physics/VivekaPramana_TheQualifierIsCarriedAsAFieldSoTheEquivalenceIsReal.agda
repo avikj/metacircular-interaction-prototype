@@ -2,7 +2,7 @@
 
 ------------------------------------------------------------------------
 -- विवेक-प्रमाण — उपाधिः क्षेत्रम् एव । अवतरणं न सर्वव्यापि ; यत्र प्रमाणं
--- ���� �� ���� �
+--    
 --
 -- (the upādhi is carried as a field.  अवतरण is not onto; the equivalence
 -- holds exactly where the प्रमाण holds, and the type says so.)
@@ -23,7 +23,7 @@
 -- proceeds on its domain.
 --
 -- THE ONE NON-REFL STEP:
--- `�����-������� p = refl` does not hold.
+-- `- p = refl` does not hold.
 -- It is
 -- discharged below BY THE प्रमाण FIELD (path in `v` is sym प्रमाण; the
 -- प्रमाण component by isSet विवेक), which is what that field is for.

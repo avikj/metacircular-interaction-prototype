@@ -35,7 +35,7 @@
 -- whole job.  So the obstruction is not an artefact of three standpoints.
 --
 -- TWO DIFFERENT OBJECTS, WHICH THE READING "IRREDUCIBLY n-ARY" CONFLATES.
--- One might hold that ������� is "irreducibly n-ary" — that
+-- One might hold that  is "irreducibly n-ary" — that
 -- the total statement over n standpoints cannot be built from binary steps —
 -- on the ground that `Arpitanarpita_….सह-असङ्गतिः-ऊर्ध्वम्` proves सहार्पणम्
 -- non-associative.  That inference conflates two different objects:

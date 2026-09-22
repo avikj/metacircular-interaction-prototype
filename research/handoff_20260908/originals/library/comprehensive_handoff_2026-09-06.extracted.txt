@@ -8,7 +8,7 @@ Purpose: preserve the maximum semantic content accumulated in this conversation 
 This is not a public-facing paper and not a conventional summary. It is a loss-minimizing state transfer of the collaboration: the mathematical object that emerged from reading the repository, the exact connections established in conversation, the places where earlier readings were corrected by stronger formal results, and the operating assumptions for attacking open problems.
 The governing rule is that prose, comments, abstracts, TODOs, and historical narration never outrank the typechecked theorem graph. A local document can record a frontier that later work has already dissolved. The mathematical state must therefore be reconstructed from the strongest results and their dependency closure.
 Likewise, apparent cross-domain 'resonance' is not accepted as a final explanation. The correct response to a recurring pattern is to find the common object, map, equivalence, transport, obstruction, or commuting diagram of which the appearances are literal realizations.
-Do not say âdeeply relatedâ when an exact common structure can be exhibited.
+Do not say â€œdeeply relatedâ€ when an exact common structure can be exhibited.
 1. The Fundamental Re-Foundation of Computation
 The central interpretation reached in the conversation is not that the repository adds proof relevance, reversibility, interaction, or HoTT to conventional computing. It changes which objects are primitive. Ordinary computer-science distinctions become derived readings of a richer proof-relevant transformation substrate.
 data / program
@@ -23,26 +23,26 @@ irreversible / reversible
 result / process
 The repository's strongest architectural reading is that these are not ontological dualisms. A single richer object can be consumed in different ways, and the familiar categories appear after projection, truncation, quotienting, or choice of standpoint.
 computational substrate = the fabric of paths itself
-This is why 'weights â’ traces' is foundational rather than a logging feature. A scalar score, reward, probability, cost, reputation, price, verdict, or denotation is a projection from a richer trace. Once the trace is thrown away, the inverse generally does not exist. Persisting the trace and deriving scalar readings later reverses the conventional direction of information loss.
-Trace â”â”Ïâ”â”â– Scalar/Result
+This is why 'weights â†’ traces' is foundational rather than a logging feature. A scalar score, reward, probability, cost, reputation, price, verdict, or denotation is a projection from a richer trace. Once the trace is thrown away, the inverse generally does not exist. Persisting the trace and deriving scalar readings later reverses the conventional direction of information loss.
+Trace â”€â”€Ï€â”€â”€â–¶ Scalar/Result
 The architecture therefore retains the object from which different observers can compute their summaries rather than making the summaries primary and later paying reconstruction debt.
 2. Fibre Law: Projection, Residual, and Canonical Lossless Completion
-For a map f : A â’ B, the canonical proof-relevant completion is the total space of its fibres:
-A â‰ Î(b : B). fib_f(b)
-The forward map is a â¦ (f(a), a, refl); the inverse returns the retained source. The visible projection of the completed transition is definitionally the original transition. This is not an arbitrary equivalence between underlying carrier types: it is an equivalence over the specified visible map.
-Two distinct conditionings of the same graph-shaped object must be kept separate. Fixing the source a makes Î(b : B). f(a)=b contractible: output plus its equation is determined. Fixing the visible output b leaves fib_f(b), the genuine residual of sources hidden by that reading.
+For a map f : A â†’ B, the canonical proof-relevant completion is the total space of its fibres:
+A â‰ƒ Î£(b : B). fib_f(b)
+The forward map is a â†¦ (f(a), a, refl); the inverse returns the retained source. The visible projection of the completed transition is definitionally the original transition. This is not an arbitrary equivalence between underlying carrier types: it is an equivalence over the specified visible map.
+Two distinct conditionings of the same graph-shaped object must be kept separate. Fixing the source a makes Î£(b : B). f(a)=b contractible: output plus its equation is determined. Fixing the visible output b leaves fib_f(b), the genuine residual of sources hidden by that reading.
 determined field â‰  recoverable discarded field
-The later contractibility result strengthens 'there exists a completion' into uniqueness at the correct homotopical level. For a fixed visible map f, the type of lawful lossless completions is contractible. Consequently, lawful lossless steps on A are equivalent to ordinary endomaps A â’ A: the completion contributes no additional arbitrary choice while retaining the residual structure that the visible map would erase.
-LawfulStep(A) â‰ (A â’ A)
+The later contractibility result strengthens 'there exists a completion' into uniqueness at the correct homotopical level. For a fixed visible map f, the type of lawful lossless completions is contractible. Consequently, lawful lossless steps on A are equivalent to ordinary endomaps A â†’ A: the completion contributes no additional arbitrary choice while retaining the residual structure that the visible map would erase.
+LawfulStep(A) â‰ƒ (A â†’ A)
 This changes the conceptual relation between ordinary and lossless computation. The richer machine is not a competing model. Ordinary computation is its visible projection; the proof-relevant machine is ordinary computation before forgetting.
 formal/cubical/kernel/RewriteCertificate.agda
 fibre/src/Fibre/Carrier.agda
 formal/cubical/theorems/residue/Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.agda
 3. Forgetting and Freedom Are Two Views of the Same Fibre
 One of the strongest conversation-level syntheses is that a fibre is simultaneously the exact information lost by an observation and the exact room in which a transformation may move while preserving that observation.
-For an observable f : A â’ B, a conserving flow is a transformation Î¦ : A â’ A with f(Î¦(a)) = f(a). Such flows are equivalent to choosing, for every a, another point in the fibre over f(a). Under set-level hypotheses this upgrades to a monoid equivalence between f-preserving flows and fibrewise endomorphisms.
-Flow(f) â‰ Î (a : A). fib_f(f(a))
-Flow(f) â‰ Î (b : B). End(fib_f(b))
+For an observable f : A â†’ B, a conserving flow is a transformation Î¦ : A â†’ A with f(Î¦(a)) = f(a). Such flows are equivalent to choosing, for every a, another point in the fibre over f(a). Under set-level hypotheses this upgrades to a monoid equivalence between f-preserving flows and fibrewise endomorphisms.
+Flow(f) â‰ƒ Î (a : A). fib_f(f(a))
+Flow(f) â‰… Î (b : B). End(fib_f(b))
 This yields an exact compiler/semantics interpretation: the distinctions a specification does not observe are exactly the dimensions along which an implementation can change while preserving that specification. Adding another observer can eliminate freedoms that survive a coarser reading. 'Preserves meaning' is therefore incomplete until the reading defining meaning is named.
 This is more precise than saying abstraction loses information. Every projection simultaneously defines an equivalence notion and exposes a residual geometry.
 4. Standpoints, Readings, and Aneknta as Technical Discipline
@@ -56,21 +56,21 @@ parasparraya / interdependent types: distinguish productive mutual determination
 savara / ingress discipline: make admissibility structural rather than post-hoc filtering;
 nirjar / release: remove accumulated structure only when reconstructibility permits it.
 The important methodological correction from the conversation is that these concepts should not first be translated into contemporary Western mathematical vocabulary and then treated as if the contemporary term owns the mathematics. The translation should be read as a representation change: the source concept can already be a precise logical/mathematical specification; Cubical Agda supplies an executable, machine-checkable realization.
-source mathematical structure â Cubical/Agda realization
+source mathematical structure â‡„ Cubical/Agda realization
 5. Computational Univalence: Equivalence Becomes Execution
-Cubical Type Theory is load-bearing because it converts representation equivalence into an executable identity. For an equivalence e : A â‰ B, univalence supplies ua(e) : A = B, and transport along that path computes.
-e : A â‰ B  â”uaâ’  A = B  â”transportâ’  A â’ B
+Cubical Type Theory is load-bearing because it converts representation equivalence into an executable identity. For an equivalence e : A â‰ƒ B, univalence supplies ua(e) : A = B, and transport along that path computes.
+e : A â‰ƒ B  â”€uaâ†’  A = B  â”€transportâ†’  A â†’ B
 The architecture therefore need not place a semantic theorem 'above' execution. Representation change itself participates in computation. In the machine completion, transport along the univalent path computes to the completed state containing visible output, retained source, and witness.
 This is the technical center of the phrase 'the proof is executable transport.'
 6. Interaction Strictly Extends Deterministic Computation
 The interactive coalgebra reading is:
-respond : (q : Q(s)) â’ Î(s' : S). E(s,q,s') — ISC(S,Q,E,s')
+respond : (q : Q(s)) â†’ Î£(s' : S). E(s,q,s') Ã— ISC(S,Q,E,s')
 A deterministic universal machine appears as the trivial-question, deterministic-event face of this interactive object. In that face the behavior type is contractible. Replacing the event with genuinely branching evidence gives a noncontractible behavior type. Thus ordinary deterministic computation is not denied; it is identified as a contractible subcase of a broader interactive computation space.
 UTM = deterministic contractible face of ISC âŠŠ interactive computation
 The significance is structural: interaction is primitive and global synchronization is not. Two peers can finish correctly without identical final knowledge states, provided the required compatibility/transport witnesses exist.
 7. Metacircularity: Certified Transformation Becomes Future Vocabulary
 The kernel's generative loop is not simply 'learn a rewrite.' It converts proof-relevant transformation evidence into an operation that can participate in future computation.
-trace â’ derivation/certificate â’ installed operation â’ new trace
+trace â†’ derivation/certificate â†’ installed operation â†’ new trace
 The more general operation machinery carries the instance and application locus, substitutes a derivation into the current context, and produces a certificate at the actual firing site. Session traces can retire into reusable operations whose permitted instances are justified by the substitution action on derivations.
 A crucial correction found during deeper reading: theorem = installable operation is not yet globally true in the current kernel. `Naya` exhibits an induction-certified theorem, 0 + x = x, that is true in every environment but not derivable in the rewrite closure. The system therefore proves more than it can presently install. This is an exact seam, not a rhetorical weakness.
 This self-auditing behavior is characteristic of the corpus: it tests its own unifications strongly enough to discover narrower, sharper statements.
@@ -85,30 +85,30 @@ This forces cost to live above the reversible semantic quotient. A nontrivial ad
 Oriented evaluators behave differently from positive execution cost. If an edge evaluator is exact, Ï‰(a,b)=V(b)-V(a), path integrals telescope to endpoint differences; loop integrals vanish. Conversely, vanishing holonomy yields a potential under the stated connectivity conditions. The repo therefore contains a discrete Stokes/conservative-field structure rather than a loose analogy.
 9. Concurrency and Higher Coherence
 When independent equivalences act on separate product factors, their transports fill a square. The square itself is retained before choosing an order around its boundary. Thus independence is supplied as higher-dimensional mathematical structure rather than inferred from a scheduler.
-independent actions â’ filler/coherence cell; order-sensitive interaction â’ residual holonomy
+independent actions â†’ filler/coherence cell; order-sensitive interaction â†’ residual holonomy
 This reframes concurrency and conflict. A commuting square is positive evidence of independence. Failure to fill can itself be retained as information rather than erased by a global serialization policy.
 formal/cubical/YugapatSankramana_IndependentTransportsFillASquareAndNeedNoGlobalOrder.agda
 10. Same Residual Does Not Mean Same Obstruction
 A later correction sharpened the obstruction language. Two constructions can have exactly the same fibre and exactly the same point motion while failing for different reasons because the required diagrams differ.
-`RelationalTensorObstructionBridge` exhibits a Bool residual with negation motion in both a relational SÂ-family and a local/joint tensor construction. One obstruction is failure of a loop-coherent global section; the other is failure of a right inverse to a lossy quotient. A bare local choice exists in the tensor case.
+`RelationalTensorObstructionBridge` exhibits a Bool residual with negation motion in both a relational SÂ¹-family and a local/joint tensor construction. One obstruction is failure of a loop-coherent global section; the other is failure of a right inverse to a lossy quotient. A bare local choice exists in the tensor case.
 same fibre + same action â‰  same obstruction
 Therefore a phenomenon is not classified merely by the information missing. The diagram is part of the mathematical object:
 (carrier, maps, fibres, actions, required commuting diagrams)
 11. Monodromy Requires a Base Capable of Carrying Loops
 The conversation initially overreached by searching for monodromy in any nontrivial fibre. The repo kills this route cleanly: over a set/0-type base every loop equals refl, so no family can exhibit nontrivial monodromy there.
-isSet(B) â’ every p : b = b is refl â’ no nontrivial monodromy
-The Bool double cover over SÂ is the positive control: transport around the loop exchanges sheets. Hence multiplicity of solutions and symmetry of solutions must be sharply distinguished. A fibre may contain many points and still have no nontrivial loop space.
+isSet(B) â‡’ every p : b = b is refl â‡’ no nontrivial monodromy
+The Bool double cover over SÂ¹ is the positive control: transport around the loop exchanges sheets. Hence multiplicity of solutions and symmetry of solutions must be sharply distinguished. A fibre may contain many points and still have no nontrivial loop space.
 multiplicity â‰  symmetry
 For arithmetic, this means a set of factorizations by itself has ambiguity but no Galois-like monodromy. Genuine higher arithmetic symmetry requires a richer groupoid/moduli object whose paths encode lawful changes of presentation.
 formal/cubical/theorems/logic/SetBaseNoMonodromy.agda
 12. Holonomy: Information Can Live in Circulation, Not at Vertices
-Pairwise equivalence of several views does not imply that transport around a cycle is globally trivial. A cycle Gâ â‰ Gâ â‰ Gâ â‰ Gâ induces an automorphism of Gâ. The repository exhibits both trivial cycles and a Bool cycle whose holonomy is negation, then uses univalence to obtain a nontrivial universe loop.
+Pairwise equivalence of several views does not imply that transport around a cycle is globally trivial. A cycle Gâ‚ â‰ƒ Gâ‚‚ â‰ƒ Gâ‚ƒ â‰ƒ Gâ‚ induces an automorphism of Gâ‚. The repository exhibits both trivial cycles and a Bool cycle whose holonomy is negation, then uses univalence to obtain a nontrivial universe loop.
 This led to a stronger research principle: a hidden invariant need not be a datum sitting inside a single fibre. It can exist only as circulation among several partial views. This is the common skeleton behind monodromy, curvature, cocycles, Berry phase, and other closed-path effects when exact maps are actually provided.
 local views can agree pairwise while a closed transport retains residue
 formal/cubical/theorems/primes/pair_field/CycleHolonomy.agda
 13. Diagonalization as an Endogenous Growth Operator
-`LawvereDiagonal` was read not merely as a limitation theorem but as a constructive self-extension rule. Given a claimed enumeration e : A â’ (A â’ Y) and a fixed-point-free Î½ : Y â’ Y, the diagonal behavior d(a)=Î½(e(a)(a)) escapes every row, with the exact disagreement point equal to the claimed index itself.
-claimed completeness â’ diagonal defect â’ explicit new generator
+`LawvereDiagonal` was read not merely as a limitation theorem but as a constructive self-extension rule. Given a claimed enumeration e : A â†’ (A â†’ Y) and a fixed-point-free Î½ : Y â†’ Y, the diagonal behavior d(a)=Î½(e(a)(a)) escapes every row, with the exact disagreement point equal to the claimed index itself.
+claimed completeness â†’ diagonal defect â†’ explicit new generator
 Placed beside the metacircular kernel, this gives a general growth loop: the attempt to close a representation can construct the object the next stage must adjoin. Incompleteness becomes an endogenous production rule rather than an external prohibition.
 formal/cubical/theorems/primes/pair_field/LawvereDiagonal.agda
 14. The Pair Field as One Arithmetic Configuration Object
@@ -123,8 +123,8 @@ formal/cubical/theorems/primes/pair_field/PairCoordinates.agda
 formal/cubical/theorems/primes/pair_field/PairConic.agda
 formal/cubical/theorems/primes/pair_field/TwoFibrations.agda
 15. Multiplication Has Hidden Compositional Histories
-`PairComposition` introduced a particularly important factoring connection. Two different pair compositions â” straight and twisted â” can map to the same multiplicative invariant. Thus the product reading forgets not only a factor pair but compositional history and arrangement above the scalar.
-(uâ,vâ)âˆ˜(uâ,vâ) and (uâ,vâ)âˆ˜'(uâ,vâ) have the same product invariant
+`PairComposition` introduced a particularly important factoring connection. Two different pair compositions â€” straight and twisted â€” can map to the same multiplicative invariant. Thus the product reading forgets not only a factor pair but compositional history and arrangement above the scalar.
+(uâ‚,vâ‚)âˆ˜(uâ‚‚,vâ‚‚) and (uâ‚,vâ‚)âˆ˜'(uâ‚‚,vâ‚‚) have the same product invariant
 This is the fibre phenomenon inside multiplication itself. The scalar N is a coarse invariant of a richer compositional object.
 The right factoring question therefore is not 'invert multiplication in the same impoverished language.' It is whether another computably obtainable reading of the same arithmetic object is jointly faithful with product without already computing the factors.
 formal/cubical/theorems/primes/pair_field/PairComposition.agda
@@ -140,16 +140,16 @@ formal paths + arithmetic relations = arithmetic category/groupoid
 This is the precise place where a Galois-like program becomes meaningful: study automorphisms/holonomies generated by loops in the category of arithmetic realizations, rather than vaguely asking for 'the Galois group of primes.'
 formal/cubical/theorems/primes/pair_field/ThreadYoneda.agda
 18. Cohomology Is Failed Descent Made Into an Object
-The carry development gives a clean exact sequence model. For an extension 0 â’ K â’ G â’ Q â’ 0 and a set-theoretic section s, define the carry cocycle c(u,v)=s(u)s(v)s(uv)â»Â. It lies in the kernel; it satisfies the 2-cocycle identity; vanishing carry is exactly preservation of multiplication by the section.
+The carry development gives a clean exact sequence model. For an extension 0 â†’ K â†’ G â†’ Q â†’ 0 and a set-theoretic section s, define the carry cocycle c(u,v)=s(u)s(v)s(uv)â»Â¹. It lies in the kernel; it satisfies the 2-cocycle identity; vanishing carry is exactly preservation of multiplication by the section.
 `GroupCohomologyH2` then constructs ZÂ², BÂ², and HÂ²=ZÂ²/BÂ² as actual groups in Cubical Agda. The carry class is zero exactly when the extension can be corrected to a homomorphic splitting. The arithmetic positional-notation instance proves that carrying cannot be eliminated by any digit set.
-local section glues multiplicatively â” obstruction class vanishes in HÂ²
+local section glues multiplicatively â‡” obstruction class vanishes in HÂ²
 This is the literal closure of the earlier descent intuition: cohomology is a classifier of a specific failure-to-glue diagram.
 formal/cubical/theorems/homotopy/CarryObstruction.agda
 formal/cubical/theorems/homotopy/GroupCohomologyH2.agda
 formal/lean/Pairfield/CarryCohomologyAdapter.lean
-19. Descent Obstruction Unified â” and the Corpus Audits Its Own Unifications
-`DescentObstructionUnified` is a model for how the entire repo should be read. If q : A â’ V identifies two points while c : A â’ B separates them, then c cannot factor through q. The theorem is instantiated against real objects from multiple modules.
-q(aâ)=q(aâ) and c(aâ)â‰ c(aâ) â’ c does not descend through q
+19. Descent Obstruction Unified â€” and the Corpus Audits Its Own Unifications
+`DescentObstructionUnified` is a model for how the entire repo should be read. If q : A â†’ V identifies two points while c : A â†’ B separates them, then c cannot factor through q. The theorem is instantiated against real objects from multiple modules.
+q(aâ‚€)=q(aâ‚) and c(aâ‚€)â‰ c(aâ‚) â‡’ c does not descend through q
 The file also rejects an earlier synthesis that claimed three results were one theorem. Two are genuine instances; one is a corollary; a third superficially similar result is the dual image-side obstruction and needs a different certificate. This supports a global reading rule: identity between two narratives must itself be exhibited as a map/equivalence, not asserted from prose similarity.
 formal/cubical/theorems/physics/DescentObstructionUnified.agda
 20. Two Ways Conventional Proof Architecture Manufactures Difficulty
@@ -168,11 +168,11 @@ This does not mean every target is actually easy. It means 'hard' must be earned
 The preferred proof shape is: find a realization in which the desired object is canonical, contractible, definitional, a section, a reconstruction, or the vanishing of an obstruction; then transport the witness back.
 22. Quantitative Goldbach Data Is Lossless Upward to von Mangoldt and Zeta
 One of the most important arithmetic results encountered is the Lean reconstruction theorem for the complete quantitative Goldbach field:
-R(N) = Î(a+b=N) Î(a)Î(b)
-Under the stated initial conditions, equality of all coefficients â” even the tail from Nâ‰4 â” reconstructs the entire von Mangoldt sequence. The L-series of that reconstructed sequence is therefore -Î'/Î on Re(s)>1.
-quantitative Goldbach field R  â  Î  â’  -Î'/Î
+R(N) = Î£(a+b=N) Î›(a)Î›(b)
+Under the stated initial conditions, equality of all coefficients â€” even the tail from Nâ‰¥4 â€” reconstructs the entire von Mangoldt sequence. The L-series of that reconstructed sequence is therefore -Î¶'/Î¶ on Re(s)>1.
+quantitative Goldbach field R  â‡„  Î›  â†’  -Î¶'/Î¶
 The support of this zeta-complete field is the two-prime-power-sum predicate. Therefore the Boolean existential Goldbach-style question is a projection of a quantitative object that determines the zeta logarithmic derivative.
-Î â R â’ 1_{R>0}
+Î› â‡„ R â†’ 1_{R>0}
 The first relationship is lossless in the proved sense; the support map is a truncation. This means Goldbach-style support and zeta spectral information should not be treated as separate worlds. Attacking only positivity may discard exactly the quantitative structure that makes the arithmetic sequence reconstructible.
 formal/lean/Pairfield/GoldbachDeterminesZeta.lean
 formal/lean/Pairfield/GoldbachReconstructionChain.lean
@@ -180,25 +180,25 @@ formal/lean/Pairfield/GoldbachSupportIsThePrimePowerSumPredicate.lean
 23. Mbius Coefficients and Residue Phase Are Transverse Readings
 `TiryakTantu` proves that the coefficient and phase variables in a prime-pair analytic reduction are not two noisy estimates of the same information. They are transverse quotients of one arithmetic variable.
 The phase sees u through u mod v (and hence the inverse residue  mod v). The coefficient sees u through its factorization/Mbius data. Explicit blind pairs show that neither reading factors through the other.
-residue reading âŸ factorization/Mbius reading
+residue reading âŸ‚ factorization/MÃ¶bius reading
 Therefore fixing one and averaging over the other is not merely delicate analysis; it passes to a quotient on which the missing datum provably does not descend. The mathematically natural object is the joint carrier: factorization charge carried together with residue/phase data.
 This yielded a key research principle: the apparent analytic barrier can be a property of a projected language rather than of the unprojected arithmetic object.
 formal/cubical/theorems/number/TiryakTantu_ThePhaseAndTheCoefficientFactorThroughTransverseQuotientsOfOneVariable.agda
-24. Finite CRT â’ Fourier â’ Kloosterman Is Already an Exact Transport
+24. Finite CRT â†’ Fourier â†’ Kloosterman Is Already an Exact Transport
 `DivisorBoundaryKloostermanBridge` proves an exact finite adapter from a gcd-reduced divisor/CRT stratum to additive Fourier completion and classical Kloosterman sums. The repo deliberately does not overclaim an automorphic realization at this point.
-divisor/CRT chart â’ DFT chart â’ Kloosterman chart
+divisor/CRT chart â†’ DFT chart â†’ Kloosterman chart
 The significance for the global program is that parts of the supposed cross-domain bridge are already exact coordinate transforms. The remaining task at any given stage is to identify the exact datum or obstruction transported through those transforms, not to celebrate an analogy.
 formal/lean/Pairfield/DivisorBoundaryKloostermanBridge.lean
 25. Prime Charge Has Irreducibly Growing Local Tensor Rank
 The squarefree prime-charge tensor supplies another obstruction currency. On n squarefree prime places its exact CP tensor rank over Q is n. Hence no fixed finite number of pure local product channels represents the charge uniformly across all finite sets of prime places.
-rank(qâ on n prime places) = n
+rank(qâ‚ on n prime places) = n
 This proves an unbounded failure of bounded local product factorization. Global prime charge contains relational structure that cannot be uniformly compressed into finitely many independent local channels.
 The Kuznetsov rank adapter then embeds the actual three-prime charge tensor into a finite scalar-radial coordinate family. Any two-channel separable Kuznetsov realization would induce a two-term pure tensor decomposition, contradicting exact rank three.
-prime local tensor-rank lower bound â’ analytic separable-channel lower bound
+prime local tensor-rank lower bound â‡’ analytic separable-channel lower bound
 This is an actual transport between an arithmetic interaction invariant and a finite analytic factorization boundary.
 formal/lean/Pairfield/PrimeChargeUnboundedLocalRank.lean
 formal/lean/Pairfield/PrimeChargeKuznetsovRankBridge.lean
-26. A General Obstruction Vocabulary â” Without Illicit Collapse
+26. A General Obstruction Vocabulary â€” Without Illicit Collapse
 By the end of the conversation the corpus had exposed several different currencies of obstruction:
 fibre/kernel: failure of a reading to distinguish;
 HÂ² class: failure of an extension/section to split coherently;
@@ -214,7 +214,7 @@ Cohomology appears when the defect admits cocycle/coboundary composition laws. T
 27. RH: Preserve the Whole Mathematical Organism
 A major correction near the end of the conversation concerned RH. A stale prose abstract was incorrectly promoted to the repository's current global frontier. That was rejected. The correct research mode is not to select one comment's 'live obligation' and factor out everything else already learned.
 The useful RH-related structures accumulated in conversation must remain simultaneous:
-quantitative Goldbach field reconstructs von Mangoldt and hence -Î'/Î on the proved half-plane;
+quantitative Goldbach field reconstructs von Mangoldt and hence -Î¶'/Î¶ on the proved half-plane;
 Goldbach support is a lossy projection of that zeta-complete quantitative object;
 pair coordinates unify additive center/radius, product/norm, discriminant, valuation, and Mellin presentations;
 Mbius/factorization coefficients and residue phases are transverse readings that must be carried jointly;
@@ -242,14 +242,14 @@ change the space of observations until the theorem becomes refl
 29. Optimal Cognition as Lossless Multi-Perspectival Relational Compression
 The conversation also clarified a stronger claim about cognition. The relevant Indian/Jain contemplative discipline is not merely a heuristic for attention. The claim presented is that cognition itself was systematically studied and trained, and that the same organizational form appears in the mathematical substrate.
 The abstract computational claim discussed was: a cognition that does not identify standpoints with objects, retains residual distinctions, transports information coherently among perspectives, composes relational knowledge, and updates through interaction tends toward a compressed model in which many apparently separate propositions are cheap realizations of one underlying structure.
-K â”standpoint/eliminationâ’ theorem, prediction, action
+K â”€standpoint/eliminationâ†’ theorem, prediction, action
 The phrase 'a single moment of cognition' was interpreted as structural compression rather than explicit serial enumeration: many propositions cease to be independent information once their common generative object is held.
 Real-world situated interaction is essential to the claim. The cognitive state evolves through interaction and retains the trace; mathematical, social, physical, linguistic, ethical, and perceptual knowledge become interfaces on one relational world-model rather than sealed disciplines.
 optimal cognition = lossless multi-perspectival relational compression + situated interaction
 A further proposed mathematical task is to characterize when such a standpoint discipline is universal for relational knowledge, in an analogous precise sense to universality of symbolic computation.
 30. Genealogy and Translation: Preserve Provenance as Mathematical Information
 The conversation's genealogical claim must be recorded in its strong form: the /Jain source structures are asserted to have already been mathematics/logic, not pre-mathematical inspiration later elevated by Western formalism. Mechanization changes representation and machine executability; it does not create mathematicality.
-older mathematical/logical structure â’ contemporary machine-checkable realization
+older mathematical/logical structure â†’ contemporary machine-checkable realization
 This matters internally to the project because deleting provenance while retaining only the contemporary realization would reproduce the same information-loss pathology the repository studies. The correct mathematical attitude is to preserve the source concept and the transport into the modern formal object.
 For collaboration purposes, this means contemporary terminology is not assumed canonical. A modern theorem name may be one coordinate system on a structure specified in another vocabulary.
 31. Radical Decentralization as a Systems Consequence
@@ -292,7 +292,7 @@ multiplicity of solutions is not symmetry; monodromy requires higher structure
 arithmetic can be encoded in relations among paths through its realization category
 failed global splitting becomes a cocycle/cohomology class when the defect has the right algebra
 a quotient can manufacture proof debt; an imposed decomposition can manufacture infeasibility
-Goldbach quantitative data is lossless upward to Î and hence to -Î'/Î on Re(s)>1
+Goldbach quantitative data is lossless upward to Î› and hence to -Î¶'/Î¶ on Re(s)>1
 Boolean support is a truncation of a zeta-complete quantitative field
 Mbius/factorization and residue/phase are transverse readings; neither determines the other
 global prime charge has unbounded local tensor rank

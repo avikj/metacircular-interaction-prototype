@@ -7,7 +7,7 @@ Repository snapshot inspected: `avikj/metacircular-interaction-prototype`, `168e
 
 This note derives two additions to the existing theorem graph. The arithmetic addition is an explicit source realizing any finitely supported zero-coordinate vector, together with a global alternative for the localized Weil spectral bottom. The fluid addition is the exact evolution/current law of the already-identified toroidal quadrupole observer under time-dependent parabolic renormalization.
 
-The arguments below use classical facts about the completed zeta function, the explicit formula, Fourier inversion, and smooth incompressible Navierâ“Stokes. They are mathematical proofs in the stated classes, not a proof-assistant build. No originality-priority claim, actual off-critical zeta zero, proof of RH, or exclusion of general NS blow-up is asserted. The executable companion checks finite algebra and differential identities only.
+The arguments below use classical facts about the completed zeta function, the explicit formula, Fourier inversion, and smooth incompressible Navierâ€“Stokes. They are mathematical proofs in the stated classes, not a proof-assistant build. No originality-priority claim, actual off-critical zeta zero, proof of RH, or exclusion of general NS blow-up is asserted. The executable companion checks finite algebra and differential identities only.
 
 # I. Arithmetic: interpolate the actual source, not an independent spectrum
 
@@ -255,7 +255,7 @@ The unconditional critical strip gives
 \tag{19}
 \]
 
-Choose any \(L\) with \(L\varepsilon>1/2-\alpha\). Then \(Ev_T\to a\), so \(Q_W(v_T,v_T)\to-1\). Equations (18)â“(19) prove, for all sufficiently large support parameters,
+Choose any \(L\) with \(L\varepsilon>1/2-\alpha\). Then \(Ev_T\to a\), so \(Q_W(v_T,v_T)\to-1\). Equations (18)â€“(19) prove, for all sufficiently large support parameters,
 
 \[
 \boxed{
@@ -340,7 +340,7 @@ For completeness, the full explicit formula yields a uniform finite-window lower
 \tag{26}
 \]
 
-Here is a direct proof. For \(h=f*\widetilde f\), \(h(0)=\|f\|_2^2\), \(|h(t)|\le h(0)\), and \(h\) is supported in \([-2a,2a]\). The two pole terms are bounded in absolute value by \(4\sinh(a)\|f\|_2^2\), by Cauchyâ“Schwarz for \(V_f(\pm1/2)\). The prime terms are bounded below by
+Here is a direct proof. For \(h=f*\widetilde f\), \(h(0)=\|f\|_2^2\), \(|h(t)|\le h(0)\), and \(h\) is supported in \([-2a,2a]\). The two pole terms are bounded in absolute value by \(4\sinh(a)\|f\|_2^2\), by Cauchyâ€“Schwarz for \(V_f(\pm1/2)\). The prime terms are bounded below by
 
 \[
 -2\|f\|_2^2\sum_{n\le e^{2a}}\frac{\Lambda(n)}{\sqrt n}
@@ -372,7 +372,7 @@ Together, under failure of RH,
 
 No assertion that the lower and upper exponents coincide is made.
 
-# II. Navierâ“Stokes: evolve the strain-bearing observer through renormalization
+# II. Navierâ€“Stokes: evolve the strain-bearing observer through renormalization
 
 ## 7. The retained five-component source observer
 
@@ -398,7 +398,7 @@ For a vorticity field \(\Omega\), let \(C_r\in\operatorname{Sym}_0(3)\) be deter
 \tag{29}
 \]
 
-For the decaying whole-space Biotâ“Savart source, the central strain is
+For the decaying whole-space Biotâ€“Savart source, the central strain is
 
 \[
 S(0)=-\frac35\operatorname{p.v.}\int_0^\infty C_r\frac{dr}{r}.
@@ -542,7 +542,7 @@ one has
 \tag{37}
 \]
 
-Time subdivision also telescopes. Equations (36)â“(37) are the explicit additive residual maps for this observer. They instantiate the repository's retained-residual/commutation pattern with a concrete smooth PDE calculation; the generic residual theorem alone is not being presented as that calculation.
+Time subdivision also telescopes. Equations (36)â€“(37) are the explicit additive residual maps for this observer. They instantiate the repository's retained-residual/commutation pattern with a concrete smooth PDE calculation; the generic residual theorem alone is not being presented as that calculation.
 
 ## 11. The small-radius endpoint is local viscous strain, not zero
 
@@ -587,7 +587,7 @@ where \(d\mu\) is normalized spherical measure. Together with (30), at a decayin
 
 Thus the essential operator reading, the local strain, and the logarithmic vorticity-shell primitive are readings of one source. Equation (35) evolves the last of these without replacing the actual nonlinear generator by an arbitrary five-component action.
 
-At every finite smooth renormalization, the candidate ancestry must include (31), (33), and (35)â“(37) simultaneously, along with the already retained pressure/boundary data, source-dependent Poisson tensor, true derivative, and stochastic-source residual where that representation is used. A proposed limiting continuation is not authorized to erase the endpoint current or to replace \(\mathcal N\) by an independent field.
+At every finite smooth renormalization, the candidate ancestry must include (31), (33), and (35)â€“(37) simultaneously, along with the already retained pressure/boundary data, source-dependent Poisson tensor, true derivative, and stochastic-source residual where that representation is used. A proposed limiting continuation is not authorized to erase the endpoint current or to replace \(\mathcal N\) by an independent field.
 
 These identities do not establish tightness of the logarithmic-scale history, convergence of all nonlinear products through a singular limit, or an incompatibility that excludes every actual blow-up ancestry. Those conclusions are not assumed.
 
@@ -595,13 +595,13 @@ These identities do not establish tightness of the logarithmic-scale history, co
 
 The repository source read in this run includes `formal/lean/Pairfield/LinearObservabilityKernel.lean` and `formal/cubical/theorems/automata/ActionResidual.agda`, at the pinned commit. The comprehensive conversation handoff and the subsequent notes on the fixed receiver, the Weil reflection signature, explicit receiver inversion, Poisson source transport, essential strain reconstruction, and toroidal quadrupole selection were also read. Their proved input maps are retained rather than replaced by the weaker abstract realization records.
 
-The new compositions developed here are (5)â“(25) and (31)â“(40). Cardinal interpolation, Fourier contour shifting, residual telescoping, and spherical harmonic calculus are classical techniques; no claim of historical priority is made for their application here.
+The new compositions developed here are (5)â€“(25) and (31)â€“(40). Cardinal interpolation, Fourier contour shifting, residual telescoping, and spherical harmonic calculus are classical techniques; no claim of historical priority is made for their application here.
 
 Classical references:
 
 * NIST Digital Library of Mathematical Functions, Sections 25.4 and 5.11: completed-zeta reflection formulas and gamma asymptotics.
 * Masatoshi Suzuki, *Weil's quadratic form via the screw function*, arXiv:2606.09096v2, manuscript version August 24, 2026: actual explicit formula, localized closed forms, self-adjoint realization, compact smooth form core, and localized spectral bottom.
 * The prior collaboration's note *Five-dimensional strain completion and the exact signature of the Weil form*: the source evaluation/reflection representation retained in (1).
-* The prior collaboration's note *Work balance and toroidal quadrupole selection*: the exact angular normalization and central-strain reconstruction retained in (28)â“(30).
+* The prior collaboration's note *Work balance and toroidal quadrupole selection*: the exact angular normalization and central-strain reconstruction retained in (28)â€“(30).
 
 `checks.py` executes 115 exact finite/symbolic controls. Its zero divisor is an explicitly labeled synthetic polynomial, not zeta. It checks multiplicity normalization, all cardinal evaluations on that divisor, reflection and negative-coordinate identities, translation amplitudes, toroidal angular normalization, the radial/logarithmic current identities, and the complete cubic-jet control for the inner diffusive flux. It does not execute the analytic limit arguments, evaluate a purported off-critical zeta zero, integrate NS, or compile Agda/Lean.

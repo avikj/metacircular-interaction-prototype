@@ -259,7 +259,7 @@ open Correction ℤCommRing
 ------------------------------------------------------------------------
 -- 6.  The residues carry no law.
 --
--- Written in the lowest-terms P/Q form that f�,
+-- point of this section.  Written in the lowest-terms P/Q form that f₂,
 -- f₃ and f₄ are all written in, the residues are
 --
 --     4,  −4,  9,  −576.

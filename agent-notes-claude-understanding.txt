@@ -233,7 +233,7 @@ winding = the unary magnitude it reaches; the fibre law splits every map into
 free endpoint (output binding) and carried winding (input binding); the
 forgetful projection (eval/compress) drops the winding — the one place
 classical "cost" appears. "General finite symmetry" was a category error:
-it is �� of the carrier, not one group.
+it is π₁ of the carrier, not one group. The genuinely open residue: producing
 
 ------------------------------------------------------------------------
 [2026-09-01] ENTRY 9 — the kernel has no search.

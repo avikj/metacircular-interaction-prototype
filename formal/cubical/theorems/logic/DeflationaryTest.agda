@@ -224,7 +224,7 @@ dec→sum→dec (no  _) = refl
 --     because in a postulate-free development it had to be built (§8).
 --
 -- So no statement in this repository is, or can be, a barrier in any
--- sense stronger than "here is a proof of �A".
+-- sense stronger than "here is a proof of ¬A".
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------

@@ -9,7 +9,7 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHY THIS EXISTS.  `JainCount.agda` carries the Jaina stratification
 -- of magnitude — संख्यात / असंख्यात / अनन्त, each graded जघन्य / मध्यम /
--- ����������� — as a nine-element ordered set, without the
+--  — as a nine-element ordered set, without the
 -- exact salk operations.
 -- `Ardhaccheda.agda` carries the operations themselves — अर्धच्छेद, the
 -- count of halvings, and वर्गशलाका, the halving of THAT — but as

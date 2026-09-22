@@ -91,7 +91,7 @@
 --     strengthening.
 --   * The bridge to ℤ takes the step's equation m² − D = k·k' as a
 --     HYPOTHESIS.
---   * The constant 36 is 4�(1 + 1/2)², the
+--   * The constant 36 is not claimed optimal.  It is 4·(1 + 1/2)², the
 --     value of the classical |k'| ≤ √D + K/4 at K = 2√D; iterating the
 --     same estimate drives it toward 4·(4/3)² = 64/9.
 --     All §4 needs is 36 < 64.

@@ -4,7 +4,7 @@
 -- NonUniquenessAndInexpressibilityAreIndependent
 --
 -- Three modules here call three
--- different structures ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡; two of them are separated by their
+-- different structures ; two of them are separated by their
 -- defect:
 --
 --   ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç  the content is DETERMINATE and no single utterance says

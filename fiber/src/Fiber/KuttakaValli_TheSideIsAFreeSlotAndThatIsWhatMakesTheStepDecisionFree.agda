@@ -40,7 +40,7 @@
 -- this decision-free step IS the Euclidean one in pair coordinates:
 -- (a , b) ↦ (a − b , b) when a > b, and (a , b − a) when b > a.
 --
--- `�������-���` (the round trip
+-- DEFECT, written rather than hidden.  `-` (the round trip
 -- उत्थान (भेद a b) ≡ (a , b)) is the same statement as `पुनरागमनम्` in
 -- `formal/cubical/theorems/walks/LosslessReturn.agda`, and is reproved here.  That is a
 -- duplication.  It is deliberate: this library takes no dependency
@@ -49,7 +49,7 @@
 --
 -- `वल्ली` is the SUBTRACTIVE step (anthyphairesis), not
 -- the division step a … a mod b.
--- The �����
+-- getting it without a decision procedure is not done here.  The 
 -- of the *ryabhaya* is the column of QUOTIENTS; what is formalised
 -- below is the column of subtractions that produces them.  Anything
 -- below that says "वल्ली" means the subtractive column.

@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡‡ô‡‡ï‡‡∞‡Æ‡‡Æ‡ ‚Äî ‡ï‡¶‡æ ‡‡®‡‡‡‡ ‡‡ï‡æ ‡‡µ ‡ï‡ï‡‡‡‡Ø‡æ ‡
+--  ‚Äî      
 --
 -- (when is the fiber exhausted by one orbit ‚Äî the converse of descent.)
 --

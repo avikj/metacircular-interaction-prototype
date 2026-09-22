@@ -24,7 +24,7 @@
 --   `formal/cubical/AbhavaAvacchedaka.agda`
 --       — the avacchedaka as a genuine dependent binder, load-bearing.
 --   `notes/EVERY_OBSTRUCTION_HERE_IS_EXACT.md`
---       — `�-always-stable` needs no
+--       — **withdraws** Abhava's reading: `¬-always-stable` needs no
 --         hypothesis, so the absence tower is two-tall for every `A`,
 --         and decidability lands on the PRATIYOGIN, not on the absence.
 --   `NaturalMachine.WhereTheTowerCanStillBeThree` §5

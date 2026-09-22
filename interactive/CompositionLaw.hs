@@ -154,7 +154,7 @@ reactor = reactorWithin defaultCap
 
 -- THE TURN BOUND IS A PARAMETER AND IT IS NAMED.  Termination of the cycle
 -- is Lagrange (1768) for the T = 0 case; `CakravalaBound.agda` proves the window
--- |k| � 2�D.  So a run that reaches the bound
+-- |k| ≤ 2√D, not that the wheel closes.  So a run that reaches the bound
 -- has NOT found a mathematical obstruction; it has hit a stated limit, and
 -- the defect it returns says which, with the norm it stopped at, so the two
 -- are never confused.  A scan of the 49762 discriminants Δ ≡ 1 (mod 4) below

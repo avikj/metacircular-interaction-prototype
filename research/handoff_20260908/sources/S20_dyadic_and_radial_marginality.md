@@ -1,4 +1,4 @@
-# Dyadic pole-annihilating arithmetic residual and the unique marginal toroidal Navierâ“Stokes channel
+# Dyadic pole-annihilating arithmetic residual and the unique marginal toroidal Navierâ€“Stokes channel
 
 Repository snapshot: `avikj/metacircular-interaction-prototype@168ea8e240524f898af4b0e9cf70297c38422f08`.
 
@@ -13,7 +13,7 @@ another reconstruction layer.
   observable.  RH is equivalent to boundedness of this observable, and even one eventual
   one-sided subexponential bound suffices.
 
-* On Navierâ“Stokes, the complete toroidal spherical-harmonic Biotâ“Savart inverse is written in
+* On Navierâ€“Stokes, the complete toroidal spherical-harmonic Biotâ€“Savart inverse is written in
   log radius.  Its operator factors as
       (D-(l-2))(D+(l+3)).
   After the translation/gauge `l=1` mode is removed, `l=2` is the unique zero exponent:
@@ -22,13 +22,13 @@ another reconstruction layer.
   specifically to the strain-bearing degree-two mode; emitted higher modes can matter only by
   returning nonlinearly to degree two.
 
-Neither statement proves RH or unrestricted 3D Navierâ“Stokes regularity.  The new results reduce
+Neither statement proves RH or unrestricted 3D Navierâ€“Stokes regularity.  The new results reduce
 the endpoint obligations and locate the exact scale channel in which a bad NS ancestry must keep
 regenerating information.
 
 ---
 
-# I. RH â” subtract the exact scale character of the pole
+# I. RH â€” subtract the exact scale character of the pole
 
 ## 1. Retained receiver
 
@@ -214,7 +214,7 @@ spectrum.
 
 ---
 
-# II. Navierâ“Stokes â” the radial transport spectrum of every toroidal angular degree
+# II. Navierâ€“Stokes â€” the radial transport spectrum of every toroidal angular degree
 
 ## 6. General toroidal source
 
@@ -223,7 +223,7 @@ harmonic.  Take
 
     omega_l(r,n)=f_l(r) T_l(n).
 
-Write its finite-energy Coulomb/Biotâ“Savart vector potential in the form
+Write its finite-energy Coulomb/Biotâ€“Savart vector potential in the form
 
     psi_l(r,n)=r^2 q_l(r) T_l(n).
 
@@ -299,7 +299,7 @@ A source shell lying outside the observation scale is therefore transmitted inwa
 
 Three cases have different physical meanings.
 
-### l=1 â” translation/gauge channel
+### l=1 â€” translation/gauge channel
 
 Inside a remote `l=1` source shell, `q_1 ~ r^(-1)`.  Then the full vector potential is
 `r^2 q_1 T_1 ~ r T_1 = x cross const`, whose curl is a constant velocity.
@@ -307,7 +307,7 @@ Its gradient and strain vanish.
 
 This is exactly the translation degree removed by Lagrangian centering.
 
-### l=2 â” marginal strain channel
+### l=2 â€” marginal strain channel
 
 Here
 
@@ -327,7 +327,7 @@ In log radius this is the zero-frequency source moment.  It is the boundary resi
 This is why every geometrically separated shell can contribute the same strain increment:
 `dr/r` is the Haar measure of multiplicative scale.
 
-### l>=3 â” irrelevant inward channels
+### l>=3 â€” irrelevant inward channels
 
 The inward exponent `l-2` is strictly positive.  A remote shell at radius `R` contributes at
 radius `r<R`

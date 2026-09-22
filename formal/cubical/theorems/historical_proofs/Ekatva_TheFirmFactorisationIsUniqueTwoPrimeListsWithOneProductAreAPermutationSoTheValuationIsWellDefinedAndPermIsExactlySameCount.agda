@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- ‡‡ï‡‡‡µ‡Æ‡ ‚Äî the uniqueness half of the firm factorisation.
+--  ‚Äî the uniqueness half of the firm factorisation.
 --
 -- `Drdha_TheFirmNumbersProductIsEveryPositiveIntegerAndTheirMembershipIs
 -- DecidedByDivision` proved existence (every n ‚â• 1 is SOME product of

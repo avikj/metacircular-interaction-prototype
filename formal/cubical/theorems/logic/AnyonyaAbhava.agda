@@ -185,7 +185,7 @@ categories-agree-when-decidable dT q t dC =
 -- TESTED, not assumed: that the Vai≈õe·π£ika division of ‡§Ö‡§≠‡§æ‡§µ into
 -- ‡§∏‡§Ç‡§∏‡§∞‡•ç‡§ó and ‡§Ö‡§®‡•ç‡§Ø‡•ã‡§®‡•ç‡§Ø is doing work.  It is.  One direction is free,
 -- the other costs a step of the negation tower, and the cost is
--- discharged by stability (`TheDelimitorNeedsOnlyStability`; decidability suffices) of the ‡‡‡∞‡‡ø‡Ø‡ã‡ó‡ø‡®‡.
+-- discharged by stability (`TheDelimitorNeedsOnlyStability`; decidability suffices) of the .
 --
 -- The classical reader cannot see this.  With excluded middle ¬ß4's ¬¨¬¨
 -- evaporates, the two categories are interderivable at every delimitor,

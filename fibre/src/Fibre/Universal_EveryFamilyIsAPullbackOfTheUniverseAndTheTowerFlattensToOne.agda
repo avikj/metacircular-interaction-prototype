@@ -25,7 +25,7 @@
 --
 -- §3 re-exports it under a corpus name and states where its content sits:
 -- its `rightInv` is `ua`.  The classifier is a theorem OF univalence, not a
--- fact about �.
+-- fact about .
 --
 -- WHAT IS NEW HERE.
 --
@@ -129,7 +129,7 @@ fibreOfπ {ℓ = ℓ} X = fiberEquiv (λ (Y : Type ℓ) → Y) X
 --       │  (a,b) ↦ (B a , b)  │
 --      fst                    π
 --       —                     —
---       �                     �
+--                            
 --       A ─────────→ Type ℓ
 --                B
 --

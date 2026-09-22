@@ -185,9 +185,9 @@ both-are-non-local = anuvrtti-does-not-factor , asiddha-does-not-factor
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 6.  CORRECTION to ¬ß5: the column ‡‡‡∞‡‡‡Ø‡æ is in.
+-- 6.  CORRECTION to ¬ß5: the column  is in.
 --
--- ¬ß5 puts ‡‡‡∞‡‡‡Ø‡æ‡‡æ‡∞ in the local column.  ‡‡Ø‡æ‡‡æ‡∞ is not local.
+-- ¬ß5 puts  in the local column.   is not local.
 --
 -- `PratyaharaBuysTotalityWithLocality` separates two
 -- costs the header above ran together:

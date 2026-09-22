@@ -3,7 +3,7 @@
 -- WalkBridge's bridge, restated hypothesis-free in `m`.
 --
 -- THE `1 ≤ m` HYPOTHESIS IS REMOVABLE.  `WalkBridge`'s bridge module
---    takes `1�m : 1 � m` as a parameter.  It is
+--    takes `1≤m : 1  m` as a parameter.  It is
 --    used in exactly one place -- `no-jump-skipped`, to produce `2 ≤ suc
 --    i` from `m ≤ i` so that `LeastNonDivisor`'s minimality clause
 --    (which only speaks about `r ≥ 2`) applies.  The `r = 1` case is not

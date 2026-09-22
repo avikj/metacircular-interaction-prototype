@@ -147,7 +147,7 @@ module CommRingReflection (cring : Term) (names : RingNames) where
   polynomialVariable : Maybe ℕ → Term
   polynomialVariable n = con (quote ∣) (finiteNumberAsTerm n v∷ [])
 
-  -- buildExpression : Term � Template � Vars
+  -- buildExpression : Term  Template  Vars
   buildExpression v@(var _ _) =
     returnTC ((λ ass → polynomialVariable (ass v)) ,
              v ∷ [])

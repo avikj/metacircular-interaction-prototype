@@ -96,7 +96,7 @@ open import Kuttaka
 --
 -- The convention: the modulus is pos (suc m) â€” positive by its shape â€” and
 -- the remainder is a NATURAL below suc m.  That is the mod/section
--- convention: the section of â â’ â/(suc m)
+-- convention" Kuttaka's header asked for: the section of â„¤ â†’ â„¤/(suc m)
 -- picking the least non-negative representative.
 ------------------------------------------------------------------------
 

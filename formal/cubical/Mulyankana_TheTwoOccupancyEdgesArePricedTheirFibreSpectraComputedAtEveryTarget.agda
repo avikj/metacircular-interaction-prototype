@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡Æ‡‡≤‡‡Ø‡æ‡ô‡‡ï‡®‡Æ‡ ‚Äî the pricing.
+--  ‚Äî the pricing.
 -- The mathematics is the fibre of a map (cubical, the one
 -- admitted non-Indian substrate); the three-verdict discipline is
 -- Avaccheda's (‡§∞‡§ø‡§ï‡•ç‡§§‡§Æ‡•ç / ‡§è‡§ï‡§Æ‡•ç / ‡§¨‡§π‡•Å ‚Äî a target nothing reaches, a
@@ -11,7 +11,7 @@
 -- WHY THIS MODULE EXISTS.  Two Bool ‚Üí ‚Ñï edges live in
 -- NaturalMachine.FiniteOccupancyChannelNoGo: `asNat` and `bothNat`.
 -- Lopa's deciding rules R1‚ÄìR4 cannot reach them (target ‚Ñï is neither
--- contractible nor ‚ä nor a truncation).
+-- contractible nor ‚ä• nor a truncation).
 -- This module
 -- forces the verdicts by computation: the COMPLETE fibre spectrum of both
 -- maps, at every target, so the edges are priced rather than graded.

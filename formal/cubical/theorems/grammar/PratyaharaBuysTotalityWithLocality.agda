@@ -157,7 +157,7 @@ the-trade = totality-fails-without-repetition , pratyahara-naming-does-not-facto
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 7.  THE ��� CLAIM, CHECKED.
+-- 7.  THE  CLAIM, CHECKED.
 --
 -- §"THE COLLISION" above states that the toy order
 -- `x y z x` models the ambiguity at अण्, "whose ण् is an अनुबन्ध in both

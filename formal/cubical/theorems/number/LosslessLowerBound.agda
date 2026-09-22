@@ -40,7 +40,7 @@
 -- because it quantifies over a class rather than negating a proposition.
 --
 -- A limitation you can state is a Π over machines.  A barrier you cannot
--- state is a � over propositions.
+-- state is a ¬ over propositions.  The corpus has been writing the second
 ------------------------------------------------------------------------
 
 module LosslessLowerBound where

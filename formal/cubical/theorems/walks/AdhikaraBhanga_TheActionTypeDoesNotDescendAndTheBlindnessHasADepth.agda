@@ -8,7 +8,7 @@
 -- stra's own word for what English calls affordance and agency (a
 -- text's adhikrin is the one *qualified to act* on it; BOOK.md's ¬ß2 is
 -- an adhikƒÅra statement).  ‡§≠‡§ô‡•ç‡§ó as in ‡§Ö‡§µ‡§§‡§∞‡§£‡§≠‡§ô‡•ç‡§ó‡§É.  The compound
--- ‡‡ß‡ø‡ï‡æ‡∞-‡‡ô‡‡ó is built here.
+-- - is built here; no source is claimed for it.
 --
 -- SEED.  Two constructions ("type-blindness"):
 --

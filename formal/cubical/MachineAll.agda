@@ -1,5 +1,5 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
--- ‡Ø‡®‡‡‡‡∞: the number-theory machine.
+-- : the number-theory machine.
 module YantraAll where
 
 import Yantra.Prakriti

@@ -52,7 +52,7 @@
 -- than baked into a substituted representation.
 --
 -- SYĀT — THE CLAIM, EXACTLY.  §§1–4 over any commutative ring, for every
--- 3�3 matrix.
+-- 3×3 matrix.  NOT claimed: anything about a material derivative — `X`
 ------------------------------------------------------------------------
 
 module CaturthaAnka_TheQuarticTraceIsTheSquareOfTheQuadraticUpToItsTraceSoTheCubeRateCoefficientIsExact where

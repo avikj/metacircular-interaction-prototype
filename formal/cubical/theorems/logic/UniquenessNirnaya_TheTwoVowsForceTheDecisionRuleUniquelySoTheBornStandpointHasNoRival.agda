@@ -2,8 +2,8 @@
 
 -- UniquenessNirnaya_TheTwoVowsForceTheDecisionRuleUniquelySoTheBornStandpointHasNoRival
 --
--- ‡‡ï‡‡‡µ-‡®‡ø‡∞‡‡‡Ø‡ ‚Äî uniqueness, uniqueness; niraya, the decision.
--- For program ‡ of YugaParivartana (measurement
+-- - ‚Äî uniqueness, uniqueness; niraya, the decision.
+-- For program  of YugaParivartana (measurement
 -- as conflict resolution).  Sources as AvaktavyaPrasava's header gives
 -- them: Ktyyana's vrttika on
 -- 1.4.2 (the configuration), Umsvti 5.31 (asserted/unasserted),

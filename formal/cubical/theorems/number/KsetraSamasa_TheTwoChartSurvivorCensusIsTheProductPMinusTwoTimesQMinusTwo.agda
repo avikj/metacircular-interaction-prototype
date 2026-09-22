@@ -5,7 +5,7 @@
 -- charts with distinct walls the joint survivor set is Fin (m · m'),
 -- i.e. (p−2)·(q−2).  The singular series' LOCAL PRODUCT, as a checked
 -- equivalence —— the two-chart case of the atlas दोषलेख that
--- ����-���� and �������� name.
+-- - and  name.
 --
 -- कुट्टक-कोण Lemma 3 (prose): the joint congruence system has exactly
 -- ∏ (p − ω_p) solutions per period.  Here, for two charts at distinct-wall
@@ -28,7 +28,7 @@
 -- carrier directly, where the count is exact and needs no CRT.  So the
 -- result is the DENSITY product, on the product carrier.
 --
--- Here p = 2+m is any modulus � 2 with two
+-- Here p = 2+m is any modulus ≥ 2 with two
 -- distinct walls; primality and coprimality enter only when this product
 -- is read as the singular series, which कुट्टक-कोण does.क्षेत्रसमासः
 ------------------------------------------------------------------------

@@ -17,7 +17,7 @@
 --
 -- SOURCE.  Umsvti, *Tattvrthastra* 5.22 (vetmbara numbering;
 -- stra number at this corpus's abda grade):
---     ‡µ‡∞‡‡‡®‡æ ‡‡∞‡ø‡‡æ‡Æ‡ ‡ï‡‡∞‡ø‡Ø‡æ ‡‡∞‡‡‡µ‡æ‡‡∞‡‡‡µ‡ ‡ ‡ï‡æ‡≤‡‡‡Ø ‚î
+--           
 -- continuance, modification, motion, and BEFORE-AND-AFTER (paratva-
 -- aparatva) are the functions of kla.  Time's fourth function is an
 -- ORDER, not a measure ‚Äî stated in the m≈´la itself.  And the Digambara

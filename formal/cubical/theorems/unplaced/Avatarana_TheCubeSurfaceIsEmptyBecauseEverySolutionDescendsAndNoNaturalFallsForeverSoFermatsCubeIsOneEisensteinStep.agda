@@ -72,7 +72,7 @@ record Soln : Type where
 
 ------------------------------------------------------------------------
 -- §2  The one irreducible step: every solution has a strictly smaller one.
---     Its inhabitant is the �[ω] descent.
+--     Its inhabitant is the ℤ[ω] descent; it is NOT built here.
 ------------------------------------------------------------------------
 
 Descent : Type

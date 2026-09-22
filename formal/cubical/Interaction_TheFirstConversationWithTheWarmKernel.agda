@@ -1,5 +1,5 @@
 {-# OPTIONS --cubical --safe #-}
--- àààµà¾à¦à â€” a conversation.
+--  â€” a conversation.
 -- The batch gate refuses (+ x y) â‰¡ (+ y x) because
 -- its step shapes cannot reach it; here the same claim is put to the kernel
 -- hole by hole.

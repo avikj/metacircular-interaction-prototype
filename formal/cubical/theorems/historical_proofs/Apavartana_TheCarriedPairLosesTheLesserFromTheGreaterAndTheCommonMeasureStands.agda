@@ -12,9 +12,9 @@
 -- reduction serves is ĀRYABHAṬA, *आर्यभटीयम्*, गणितपादः ३२–३३ (499 CE), worked
 -- out step by step in BHĀSKARA I, *आर्यभटीयभाष्यम्* (629 CE); the apavartana
 -- step itself is stated in BRAHMAGUPTA, *ब्राह्मस्फुटसिद्धान्तः* 18 (628 CE) and
--- worked in BHSKARA II, *����������* (1150 CE).
+-- worked in BHĀSKARA II, ** (1150 CE).  This citation is taken from
 --
--- The ���������� of
+-- them here.  NOT that any of them stated the subtractive form: the  of
 -- गणितपाद ३२–३३ is a DIVISION procedure (quotients written into the वल्ली),
 -- and what is formalised below is the subtractive column that produces those
 -- quotients — the same distinction `KuttakaValli_TheSideIsAFreeSlot…` in the

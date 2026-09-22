@@ -23,7 +23,7 @@
 --       fibre over `base` is `ΩS¹ ≃ ℤ`, so बहु holds of it.  Its two
 --       fibre points differ only in their WITNESS; their sources are
 --       equal.  So बहु does not obstruct undoing, and §२'s hypothesis is
---       strictly stronger than ���.
+--       strictly stronger than .
 --   §६  therefore `noDescentS¹` is NOT an instance of §२ and cannot be
 --       made one: S¹ is connected, so it has no two distinct points to
 --       feed the law.  Its obstruction is π₁ — one level up.  **The

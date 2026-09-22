@@ -1,70 +1,70 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- àµà¿àààà¾à° â” the dilation.
+--  â€” the dilation.
 --
 -- Handoff Â§33 ([S13]): the exact energy-neutral adaptive dilation has
--- generator  D_E = 3/5 + (2/5) yÂâˆ = (2/5)(yÂâˆ + 3/2),  which is skew
+-- generator  D_E = 3/5 + (2/5) yÂ·âˆ‡ = (2/5)(yÂ·âˆ‡ + 3/2),  which is skew
 -- in LÂ² because
 --
---     (yÂâˆf) g + f (yÂâˆg) + 3 f g  =  div(y f g)
+--     (yÂ·âˆ‡f) g + f (yÂ·âˆ‡g) + 3 f g  =  div(y f g)
 --
--- is an exact divergence: integrated over âÂ³ it vanishes, so
--- âŸ¨(yÂâˆ + 3/2)f, gâŸ© + âŸ¨f, (yÂâˆ + 3/2)gâŸ© = 0.  The identity is checked
--- over any commutative ring with three derivations âˆµ and coordinates
--- yµ with âˆµ yµ = 1 (only the diagonal derivatives enter).
+-- is an exact divergence: integrated over â„Â³ it vanishes, so
+-- âŸ¨(yÂ·âˆ‡ + 3/2)f, gâŸ© + âŸ¨f, (yÂ·âˆ‡ + 3/2)gâŸ© = 0.  The identity is checked
+-- over any commutative ring with three derivations âˆ‚áµ¢ and coordinates
+-- yáµ¢ with âˆ‚áµ¢ yáµ¢ = 1 (only the diagonal derivatives enter).
 ------------------------------------------------------------------------
 module M15 where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (âŸ¨_âŸ©)
-open import Cubical.Data.Nat using (â• ; zero ; suc)
+open import Cubical.Data.Nat using (â„• ; zero ; suc)
 open import Cubical.Algebra.CommRing
 open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
 private
   variable
-    â“ : Level
+    â„“ : Level
 
 ------------------------------------------------------------------------
-module _ (R : CommRing â“) where
+module _ (R : CommRing â„“) where
   open CommRingStr (snd R)
 
   private
     A = âŸ¨ R âŸ©
 
-  Î : â• â’ A
-  Î zero    = 0r
-  Î (suc n) = 1r + Î n
+  Î¹ : â„• â†’ A
+  Î¹ zero    = 0r
+  Î¹ (suc n) = 1r + Î¹ n
 
-  module _ (âˆâ âˆâ âˆâ : A â’ A)
-           (âˆâ-leib : (x y : A) â’ âˆâ (x Â y) â‰¡ âˆâ x Â y + x Â âˆâ y)
-           (âˆâ-leib : (x y : A) â’ âˆâ (x Â y) â‰¡ âˆâ x Â y + x Â âˆâ y)
-           (âˆâ-leib : (x y : A) â’ âˆâ (x Â y) â‰¡ âˆâ x Â y + x Â âˆâ y)
-           (yâ yâ yâ : A)
-           (âˆâyâ : âˆâ yâ â‰¡ 1r) (âˆâyâ : âˆâ yâ â‰¡ 1r) (âˆâyâ : âˆâ yâ â‰¡ 1r)
+  module _ (âˆ‚â‚ âˆ‚â‚‚ âˆ‚â‚ƒ : A â†’ A)
+           (âˆ‚â‚-leib : (x y : A) â†’ âˆ‚â‚ (x Â· y) â‰¡ âˆ‚â‚ x Â· y + x Â· âˆ‚â‚ y)
+           (âˆ‚â‚‚-leib : (x y : A) â†’ âˆ‚â‚‚ (x Â· y) â‰¡ âˆ‚â‚‚ x Â· y + x Â· âˆ‚â‚‚ y)
+           (âˆ‚â‚ƒ-leib : (x y : A) â†’ âˆ‚â‚ƒ (x Â· y) â‰¡ âˆ‚â‚ƒ x Â· y + x Â· âˆ‚â‚ƒ y)
+           (yâ‚ yâ‚‚ yâ‚ƒ : A)
+           (âˆ‚â‚yâ‚ : âˆ‚â‚ yâ‚ â‰¡ 1r) (âˆ‚â‚‚yâ‚‚ : âˆ‚â‚‚ yâ‚‚ â‰¡ 1r) (âˆ‚â‚ƒyâ‚ƒ : âˆ‚â‚ƒ yâ‚ƒ â‰¡ 1r)
            where
 
-    -- yÂâˆ
-    Y : A â’ A
-    Y f = (yâ Â âˆâ f + yâ Â âˆâ f) + yâ Â âˆâ f
+    -- yÂ·âˆ‡
+    Y : A â†’ A
+    Y f = (yâ‚ Â· âˆ‚â‚ f + yâ‚‚ Â· âˆ‚â‚‚ f) + yâ‚ƒ Â· âˆ‚â‚ƒ f
 
     -- div(y h)
-    div-y : A â’ A
-    div-y h = (âˆâ (yâ Â h) + âˆâ (yâ Â h)) + âˆâ (yâ Â h)
+    div-y : A â†’ A
+    div-y h = (âˆ‚â‚ (yâ‚ Â· h) + âˆ‚â‚‚ (yâ‚‚ Â· h)) + âˆ‚â‚ƒ (yâ‚ƒ Â· h)
 
-    -- (yÂâˆf) g + f (yÂâˆg) + 3 f g  â‰¡  div(y f g)
-    symmetric-part-is-exact : (f g : A) â’ (Y f Â g + f Â Y g) + Î 2 Â (f Â g) â‰¡ div-y (f Â g)
+    -- (yÂ·âˆ‡f) g + f (yÂ·âˆ‡g) + 3 f g  â‰¡  div(y f g)
+    symmetric-part-is-exact : (f g : A) â†’ (Y f Â· g + f Â· Y g) + Î¹ 2 Â· (f Â· g) â‰¡ div-y (f Â· g)
     symmetric-part-is-exact f g =
-        sym ( congâ _+_ (congâ _+_ (âˆâ-leib yâ (f Â g) âˆ™ congâ _+_ (cong (_Â (f Â g)) âˆâyâ) (cong (yâ Â_) (âˆâ-leib f g)))
-                                   (âˆâ-leib yâ (f Â g) âˆ™ congâ _+_ (cong (_Â (f Â g)) âˆâyâ) (cong (yâ Â_) (âˆâ-leib f g))))
-                        (âˆâ-leib yâ (f Â g) âˆ™ congâ _+_ (cong (_Â (f Â g)) âˆâyâ) (cong (yâ Â_) (âˆâ-leib f g)))
-            âˆ™ shape f g (âˆâ f) (âˆâ f) (âˆâ f) (âˆâ g) (âˆâ g) (âˆâ g) )
+        sym ( congâ‚‚ _+_ (congâ‚‚ _+_ (âˆ‚â‚-leib yâ‚ (f Â· g) âˆ™ congâ‚‚ _+_ (cong (_Â· (f Â· g)) âˆ‚â‚yâ‚) (cong (yâ‚ Â·_) (âˆ‚â‚-leib f g)))
+                                   (âˆ‚â‚‚-leib yâ‚‚ (f Â· g) âˆ™ congâ‚‚ _+_ (cong (_Â· (f Â· g)) âˆ‚â‚‚yâ‚‚) (cong (yâ‚‚ Â·_) (âˆ‚â‚‚-leib f g))))
+                        (âˆ‚â‚ƒ-leib yâ‚ƒ (f Â· g) âˆ™ congâ‚‚ _+_ (cong (_Â· (f Â· g)) âˆ‚â‚ƒyâ‚ƒ) (cong (yâ‚ƒ Â·_) (âˆ‚â‚ƒ-leib f g)))
+            âˆ™ shape f g (âˆ‚â‚ f) (âˆ‚â‚‚ f) (âˆ‚â‚ƒ f) (âˆ‚â‚ g) (âˆ‚â‚‚ g) (âˆ‚â‚ƒ g) )
       where
-        shape : (f g fâ fâ fâ gâ gâ gâ : A)
-          â’ ((1r Â (f Â g) + yâ Â (fâ Â g + f Â gâ)) + (1r Â (f Â g) + yâ Â (fâ Â g + f Â gâ))) + (1r Â (f Â g) + yâ Â (fâ Â g + f Â gâ))
-            â‰¡ ((((yâ Â fâ + yâ Â fâ) + yâ Â fâ) Â g + f Â ((yâ Â gâ + yâ Â gâ) + yâ Â gâ)) + (1r + (1r + (1r + 0r))) Â (f Â g))
-        shape f g fâ fâ fâ gâ gâ gâ = solve! R
+        shape : (f g fâ‚ fâ‚‚ fâ‚ƒ gâ‚ gâ‚‚ gâ‚ƒ : A)
+          â†’ ((1r Â· (f Â· g) + yâ‚ Â· (fâ‚ Â· g + f Â· gâ‚)) + (1r Â· (f Â· g) + yâ‚‚ Â· (fâ‚‚ Â· g + f Â· gâ‚‚))) + (1r Â· (f Â· g) + yâ‚ƒ Â· (fâ‚ƒ Â· g + f Â· gâ‚ƒ))
+            â‰¡ ((((yâ‚ Â· fâ‚ + yâ‚‚ Â· fâ‚‚) + yâ‚ƒ Â· fâ‚ƒ) Â· g + f Â· ((yâ‚ Â· gâ‚ + yâ‚‚ Â· gâ‚‚) + yâ‚ƒ Â· gâ‚ƒ)) + (1r + (1r + (1r + 0r))) Â· (f Â· g))
+        shape f g fâ‚ fâ‚‚ fâ‚ƒ gâ‚ gâ‚‚ gâ‚ƒ = solve! R
 
-    -- the generator:  5ÂD_E f = 3f + 2 yÂâˆf = 2 (yÂâˆ + 3/2) f
-    generator : (f : A) â’ Î 3 Â f + Î 2 Â Y f â‰¡ Î 2 Â Y f + Î 3 Â f
+    -- the generator:  5Â·D_E f = 3f + 2 yÂ·âˆ‡f = 2 (yÂ·âˆ‡ + 3/2) f
+    generator : (f : A) â†’ Î¹ 3 Â· f + Î¹ 2 Â· Y f â‰¡ Î¹ 2 Â· Y f + Î¹ 3 Â· f
     generator f = +Comm _ _

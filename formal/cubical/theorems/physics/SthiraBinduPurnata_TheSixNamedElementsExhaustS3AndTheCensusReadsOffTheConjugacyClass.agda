@@ -9,7 +9,7 @@
 -- prat = completeness; sthira-bindu = fixed point.
 --
 -- SthiraBinduGanana_TheFixedPointCountIsTheConjugationCensusForS3
--- names six elements of Sâ and computes the census values of those
+-- names six elements of S and computes the census values of those
 -- named representatives.  Completeness of the six-element enumeration
 -- (every equivalence of Fin 3 is equal to one of the six) is proved
 -- here.

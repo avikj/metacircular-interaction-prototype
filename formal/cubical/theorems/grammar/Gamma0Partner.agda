@@ -18,7 +18,7 @@
 --
 -- Python finite shadow: chk gamma0-stabilizer in
 -- machinery/core_knowledge.py (the iff, on windows); this module is
--- the forward direction over ALL of â.
+-- the forward direction over ALL of â„¤.  The converse (integrality of
 ------------------------------------------------------------------------
 
 module Gamma0Partner where
