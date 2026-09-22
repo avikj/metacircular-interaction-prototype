@@ -1,7 +1,7 @@
 # isoToIsEquiv (Cubical.Foundations.Isomorphism, lemIso), transcribed:
 # an isomorphism (f, g, s, t) has CONTRACTIBLE FIBRES.  hfill is inlined as
 # hcompN with the extra (inot j) face.  Then totalEquiv: the fibre law
-# A â‰ Î B (fiber f) at the coherent level, for every f.
+# A â‰ƒ  B (fiber f) at the coherent level, for every f.
 def isContr(A: Set) -> Set:
   any c: A. (all x: A. Path(A, c, x))
 def fiber(A: Set, B: Set, f: A -> B, y: B) -> Set:
@@ -50,7 +50,7 @@ def contrFib(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)),
 def isoToEquiv(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x)) -> Equiv(A, B):
   (f, isoToIsEquiv(A, B, f, g, s, t))
 
-# ---- the fibre law, coherent: A â‰ Î B (fiber f)  (HoTT 4.8.2, totalEquiv)
+# ---- the fibre law, coherent: A â‰ƒ  B (fiber f)  (HoTT 4.8.2, totalEquiv)
 def Total(A: Set, B: Set, f: A -> B) -> Set:
   any b: B. fiber(A, B, f, b)
 def tot(A: Set, B: Set, f: A -> B, a: A) -> Total(A, B, f):
@@ -70,7 +70,7 @@ def totalEquiv(A: Set, B: Set, f: A -> B) -> Equiv(A, Total(A, B, f)):
 
 
 # ---- ua of the fibre law: the lossless presentation as a PATH in Set,
-# transported natively (coe) â” the corpus's factoring a â¦ (f a, a, refl).
+# transported natively (coe) â€” the corpus's factoring a â†¦ (f a, a, refl).
 def invC(A: Set, B: Set, f: A -> B, y: B, c: isContr(fiber(A, B, f, y))) -> A:
   match c:
     case (cen, _):
@@ -175,7 +175,7 @@ def fiberFst(B: Set, T: B -> Set, b: B) -> Equiv(fiber(SigT(B,T), B, lambda s. f
              lambda t. ffSec(B,T,b,t), lambda w. ffRet(B,T,b,w))
 # ---- s1: reindex the fibre base by an equivalence (fiberPrecomp).
 # fun/inv/section done; the retraction needs the half-adjoint triangle identity
-# ap ef (eqT a) = eqS (ef a) (+ a unit law) â” the one coherence square remaining.
+# ap ef (eqT a) = eqS (ef a) (+ a unit law) â€” the one coherence square remaining.
 def cpf(A: Set, x: A, y: A, z: A, p: Path(A, x, y), q: Path(A, y, z))
   -> PathP(lambda j. Path(A, p @ j, z), pcomp(A,x,y,z,p,q), q):
   <j> <i> hcompN(A, [ (inot(i), <_> p @ j), (i, <k> q @ k), (j, <k> q @ iand(i, k)) ], p @ ior(i, j))
@@ -192,7 +192,7 @@ def fpSec(A: Set, Ap: Set, B: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), g: Ap -> B,
     case (a2, p):
       <j> ( eqS(A,Ap,ef,h,a2) @ j
           , cpf(B, g(ef(eqG(A,Ap,ef,h,a2))), g(a2), b, ap(Ap,B,g, ef(eqG(A,Ap,ef,h,a2)), a2, eqS(A,Ap,ef,h,a2)), p) @ j )
-# the coherent contraction path in fiber(ef, ef a) (Î-Î makes the centre reduce)
+# the coherent contraction path in fiber(ef, ef a) (Î£- makes the centre reduce)
 def cw(A: Set, Ap: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), a: A) -> Path(fiber(A, Ap, ef, ef(a)), (eqG(A,Ap,ef,h,ef(a)), eqS(A,Ap,ef,h,ef(a))), (a, <_> ef(a))):
   match (h(ef(a))):
     case (cen, contr):
@@ -273,9 +273,9 @@ def contractibleWhenExact(A: Set, B: Set, T: B -> Set, wf: A -> SigT(B,T), wh: i
   isContrRespectEquiv(fiber(A, B, lambda a. cRun(A,B,T,wf,a), b), T(b), fibreOfRun(A,B,T,wf,wh,b), re(b))
 
 # ============ THE HIGHEST CONSTRUCTION, INSTANTIATED AND RUN ============
-# Instance 1 â” a trace that records something: A = Î b:Bool. Bool (the whole
+# Instance 1 â€” a trace that records something: A = Î£ b:Bool. Bool (the whole
 # event), B = Bool (the visible result), T b = Bool (the residue), wf = id.
-# run = fst.  The forcing theorem says fiber(fst, b) â‰ Bool: the residue of
+# run = fst.  The forcing theorem says fiber(fst, b) â‰ƒ Bool: the residue of
 # the visible result b IS the trace bit, no smaller residue exists.
 def TB(b: Bool) -> Set:
   Bool
@@ -298,7 +298,7 @@ def eventFromTrace(b: Bool, t: Bool) -> SigT(Bool, TB):
         case (a, _):
           a
 
-# Instance 2 â” a trace that records nothing: A = Bool, B = Bool, T b = Unit,
+# Instance 2 â€” a trace that records nothing: A = Bool, B = Bool, T b = Unit,
 # wf a = (neg a, ()).  Contractible trace <=> run is an equivalence, both ways.
 def neg(x: Bool) -> Bool:
   if x:

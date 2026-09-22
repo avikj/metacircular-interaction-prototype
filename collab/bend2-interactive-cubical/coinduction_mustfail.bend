@@ -11,7 +11,7 @@ def twos() -> Stream:
 # UNGUARDED corecursive "proof": must be [unchecked] (refused by --total)
 def cheat() -> Path(Stream, ones(), twos()):
   cheat()
-# FALSE bisimulation: heads differ, must â—
+# FALSE bisimulation: heads differ, must âœ—
 def wrong() -> Path(Stream, ones(), twos()):
   <i> @Cons{1n, wrong() @ i}
 # guarded but through a non-constructor (tail of): must NOT be [productive]

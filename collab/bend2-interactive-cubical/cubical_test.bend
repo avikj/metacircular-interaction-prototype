@@ -14,7 +14,7 @@ def psym(A: Set, a: A, b: A, p: Path(A, a, b)) -> Path(A, b, a):
 def pcong(A: Set, B: Set, f: A -> B, a: A, b: A, p: Path(A, a, b)) -> Path(B, f(a), f(b)):
   <i> f(p @ i)
 
-# function extensionality â” the theorem Eql cannot prove
+# function extensionality â€” the theorem Eql cannot prove
 def funext(A: Set, B: Set, f: A -> B, g: A -> B, h: all x:A. Path(B, f(x), g(x))) -> Path(A -> B, f, g):
   <i> lambda x. h(x) @ i
 
@@ -23,7 +23,7 @@ def conn_left(A: Set, a: A, b: A, p: Path(A, a, b)) -> Path(A, a, b):
   <i> p @ iand(i, i1)
 
 # ---- the corpus lemma, cubical version ----
-# Pres A B f = Î b:B. Î a:A. Path(B, f a, b)
+# Pres A B f = Î£ b:B.  a:A. Path(B, f a, b)
 def PresP(A: Set, B: Set, f: A -> B) -> Set:
   any b: B. any a: A. Path(B, f(a), b)
 
@@ -35,7 +35,7 @@ def decodeP(A: Set, B: Set, f: A -> B, p: PresP(A, B, f)) -> A:
     case (b, a, e):
       a
 
-# Agda:  Iso.rightInv losslessIso (b , a , p) i = p i , a , Î» j â’ p (i âˆ§ j)
+# Agda:  Iso.rightInv losslessIso (b , a , p) i = p i , a , Î» j â†’ p (i âˆ§ j)
 def rightInv(A: Set, B: Set, f: A -> B, p: PresP(A, B, f)) -> Path(PresP(A, B, f), encodeP(A, B, f, decodeP(A, B, f, p)), p):
   match p:
     case (b, a, e):

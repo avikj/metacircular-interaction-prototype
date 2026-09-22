@@ -4,7 +4,7 @@
 # i.e. t descends: it never uses a distinction R destroys. The recursor's resp
 # obligation IS that descent condition, so the factorization type-checks exactly
 # when erasure is sound and is REJECTED exactly when it is not. No "erase if
-# outputs look equal" â” the substrate computes descent.
+# outputs look equal" â€” the substrate computes descent.
 
 def Unit() -> Set:
   all A: Set. A -> A
@@ -30,7 +30,7 @@ def tbad(x: Bool) -> Bool:
   x
 # to erase t_bad we would need it constant on R-classes: Path(Bool, x, y) from
 # R x y. That is False (True is not False), so no descent witness exists. Any
-# attempt (a fake resp) is rejected â” erasure that destroys a used distinction
+# attempt (a fake resp) is rejected â€” erasure that destroys a used distinction
 # is caught, not silently taken.
 def tbadResp(x: Bool, y: Bool, w: R(x,y)) -> Path(Bool, tbad(x), tbad(y)):
   <_> x
@@ -39,7 +39,7 @@ def erase_bad(setB: Nat, q: Q) -> Bool:
 
 # Coherence sharpening (the circle-doubling case): when V is a higher type, the
 # descent witness resp is a PATH, not an equation, and pointwise agreement is
-# insufficient â” the coherence must descend too. That is exactly why effectivity
+# insufficient â€” the coherence must descend too. That is exactly why effectivity
 # needed toPathP (coherent descent through the quotient's path constructor): a
 # locally plausible erasure can preserve pointwise reconstruction while destroying
 # the loop-level coherence a globally lawful computation uses. So the runtime rule

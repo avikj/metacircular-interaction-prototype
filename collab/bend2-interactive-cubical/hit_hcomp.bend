@@ -1,6 +1,6 @@
 # The dependent eliminator computes on hcomp CELLS of a HIT (the rule that
 # makes a function out of a HIT compute on composites): with a constant
-# motive, helim(hcomp [Ï â¦ u] x) IS hcomp [Ï â¦ helim(u)] (helim x),
+# motive, helim(hcomp [Ï†  u] x) IS hcomp [  helim(u)] (helim x),
 # definitionally; and transport along a HIT line commutes with hcomp.
 type Circle:
   case @base:

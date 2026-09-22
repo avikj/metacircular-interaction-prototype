@@ -13,7 +13,7 @@ def loop() -> Path(Circle, @pt, @pt):
 def loop0() -> Path(Circle, @lp @ i0, @pt):
   <_> @pt
 
-# recursor into any type: base â¦ b, loop â¦ l
+# recursor into any type: base â†¦ b, loop  l
 def rec(B: Set, b: B, l: Path(B, b, b), x: Circle) -> B:
   hrec(x) { @pt: b ; @lp: l }
 

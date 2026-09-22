@@ -1,9 +1,9 @@
 # SILENCE OF QUESTIONS IS DETERMINISM, coinductively and in general
 # (Prasna Â§3): for ANY interaction (X, Q, Î´) whose every question Q x is
-# contractible, the space of answer streams from x â” hence of histories â”
+# contractible, the space of answer streams from x â€” hence of histories 
 # is a point.  The contraction is built coinductively OVER A PATH of states
 # (a dependent path PathP(Î»i. Answers(p @ i))): the answer components are
-# collapsed by isPropâ’PathP, and the tails follow along the line the answers
+# collapsed by isPropâ†’PathP, and the tails follow along the line the answers
 # draw.  Exactly the Agda copattern proof, as corecursive PathP.
 def isContr(A: Set) -> Set:
   any c: A. (all x: A. Path(A, c, x))
