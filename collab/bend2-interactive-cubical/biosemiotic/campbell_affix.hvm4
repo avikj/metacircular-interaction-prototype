@@ -1,0 +1,18 @@
+// Campbell's monkey (Cercopithecus campbelli) call affixation — Ouattara,
+// Lemasson & Zuberbühler 2009, PNAS 106(51):22026 (doi:10.1073/pnas.0908118106).
+// Roots {krak, hok, wak, boom} take the suffix "-oo": krak (leopard) vs krak-oo
+// (general alarm), hok (eagle) vs hok-oo (general aerial disturbance), wak-oo.
+// The elucidator's factoring m ≃ (root, suffix): every call in the repertoire
+// is handed in as one superposition and decomposed into its root and its affix
+// in a single pass; roots that share a suffix and suffixes that share a root
+// appear as equal terms — the morphology as the shape × fibre reading.
+//
+// Symbols: roots 1=krak 2=hok 3=wak 4=boom ; affix 0 = none, 9 = "-oo"
+@factor = λ{[]: #Call{0, 0}; <>: λ&r. λ{[]: #Call{r, 0}; <>: λa. λt. #Call{r, a}}}
+@calls = &L{ [1],      // krak
+          &L{ [1, 9],  // krak-oo
+          &L{ [2],     // hok
+          &L{ [2, 9],  // hok-oo
+          &L{ [3, 9],  // wak-oo
+              [4] }}}}}// boom
+@main = @factor(@calls)

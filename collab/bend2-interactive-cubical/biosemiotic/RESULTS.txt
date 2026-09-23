@@ -1,0 +1,387 @@
+### coda_lens10.hvm4
+[3,2,2,3] #557
+[2,2,3,3] #628
+[2,2,2,3] #808
+[3,3,2,2] #879
+[4,3,2,1] #1167
+[4,3,2,2] #1238
+[4,3,3] #1381
+[3,3,2,2] #1779
+[3,2,2,3] #1850
+[3,3,2,2] #2030
+[6,4] #2075
+[5,5] #2225
+[4,6] #2262
+[5,3,2] #2429
+[4,3,3] #2568
+[3,3,4] #2622
+[5,3,2] #2759
+[5,3,2] #2813
+- Itrs: 2813 interactions
+- Heap: 5732 nodes
+- Time: 0.000 seconds
+- Perf: 27.07 M interactions/s
+
+### coda_spec.hvm4
+#OK{[242,231,171,145]} #947
+#OK{[89,92,77,71]} #1728
+#OK{[102,95,75,66]} #2025
+- Itrs: 2745 interactions
+- Heap: 6120 nodes
+- Time: 0.000 seconds
+- Perf: 27.86 M interactions/s
+
+### coda_transport.hvm4
+[83,81,81,84] #148
+- Itrs: 148 interactions
+- Heap: 663 nodes
+- Time: 0.000 seconds
+- Perf: 3.90 M interactions/s
+
+### coda_shape_only.hvm4
+[252,247,245,256] #547
+[239,250,255,256] #618
+[242,247,248,263] #798
+[307,293,217,184] #869
+[358,344,150,148] #1157
+[359,338,152,152] #1228
+[352,318,330] #1371
+[271,280,234,216] #1769
+[260,247,237,256] #1840
+[302,281,222,195] #2020
+[600,400] #2065
+[458,542] #2215
+[390,610] #2252
+[503,294,203] #2419
+[370,318,311] #2558
+[330,318,352] #2612
+[484,320,196] #2749
+[491,295,213] #2803
+- Itrs: 2803 interactions
+- Heap: 5678 nodes
+- Time: 0.000 seconds
+- Perf: 25.74 M interactions/s
+
+### cost: superposed pass vs separate passes (lens 1000, 18 real codas)
+sep_00: 87
+sep_01: 87
+sep_02: 87
+sep_03: 87
+sep_04: 87
+sep_05: 87
+sep_06: 67
+sep_07: 67
+sep_08: 67
+sep_09: 87
+sep_10: 87
+sep_11: 87
+sep_12: 47
+sep_13: 47
+sep_14: 47
+sep_15: 67
+sep_16: 67
+sep_17: 67
+SUM of separate passes: 1326 interactions
+ONE superposed pass  : 2803 interactions
+ratio superposed/separate: 2.114
+(18 different codas down 18 different lines: the regime SYNTHESIS.md §4 predicts costs ~1.4x;
+ the sharing that pays is a shared LINE over many values, not many lines.)
+### the shared-prefix regime: plain coda vs ornamented coda (shared line, superposed tail)
+5R3 [357, 350, 347, 363] + ornament: superposed-tail pass 205 itrs vs separate 87+107=194
+5R3 [284, 296, 302, 304] + ornament: superposed-tail pass 205 itrs vs separate 87+107=194
+5R3 [271, 276, 278, 294] + ornament: superposed-tail pass 205 itrs vs separate 87+107=194
+1+1+3 [242, 231, 171, 145] + ornament: superposed-tail pass 205 itrs vs separate 87+107=194
+1+1+3 [378, 364, 159, 156] + ornament: superposed-tail pass 205 itrs vs separate 87+107=194
+1+1+3 [435, 410, 184, 184] + ornament: superposed-tail pass 205 itrs vs separate 87+107=194
+TOTAL superposed 1230 vs separate 1164; ratio 1.057codas read: 8696   (from /tmp/claude-0/-home-user-metacircular-interaction-prototype/50a1bb82-ff97-5506-8714-a887d5daf397/scratchpad/sw-combinatoriality/data/DominicaCodas.csv)
+lossless check  coda == gcd * shape : 8696/8696 exact, 0 failures
+
+CodaType  n_codas  distinct_exact_shapes  distinct_permille_rhythms  largest_shared_node
+1+1+3        3589                   3446                       3412        2
+5R1          1510                   1440                       1437        2
+5R3           642                    642                        630        1
+4R2           340                    340                        326        1
+5R2           287                    275                        274        2
+5-NOISE       278                    276                        276        2
+4D            219                    217                        215        2
+6i            188                    188                        188        1
+8i            178                    176                        176        2
+7D1           177                    177                        177        1
+6-NOISE       166                    165                        164        2
+7i            150                    146                        146        2
+9i            137                    132                        132        2
+4R1            84                     84                         84        1
+2+3            77                     73                         73        2
+1+32           72                     72                         71        1
+6R             67                     67                         67        1
+3D             61                     61                         53        1
+8R             60                     60                         60        1
+10i            54                     52                         52        2
+4-NOISE        51                     51                         51        1
+1+31           51                     51                         51        1
+9R             43                     43                         43        1
+7D2            35                     32                         31        2
+10R            31                     31                         31        1
+7R             23                     23                         23        1
+3-NOISE        21                     21                         20        1
+3R             21                     20                         18        2
+8D             20                     20                         20        1
+7-NOISE        18                     18                         18        1
+9-NOISE        16                     16                         16        1
+8-NOISE        15                     15                         15        1
+10-NOISE        9                      9                          9        1
+2-NOISE         6                      1                          1        6
+
+TOTAL codas 8696; exact shape nodes 8440; per-mille rhythm nodes 8360; annotated rhythm types 34
+
+EC1 non-noise codas: 7266; annotated types: 24
+lens_res  shape_nodes  max_node  purity(nodes of one annotated type)
+    1000         6950         3   0.999
+     200         5066        17   0.979
+     100         3086        86   0.935
+      50         1632       333   0.886
+      20          632      1428   0.869
+      10          216      3230   0.727
+       5          160      3002   0.800
+       3           97      2702   0.701
+       2           45      4741   0.422
+largest nodes at lens 10 (shape -> annotated types): the annotated type mixes rhythm with TEMPO
+    (4, (3, 3, 2, 2)) {'1+1+3': 2068, '5R1': 1136, '5R2': 23, '5R3': 3}
+    (4, (4, 3, 2, 2)) {'1+1+3': 359, '5R1': 10}
+    (4, (4, 3, 1, 2)) {'1+1+3': 282}
+    (4, (4, 3, 2, 1)) {'1+1+3': 254, '5R1': 1}
+    (3, (5, 3, 2)) {'1+31': 17, '4R1': 1, '4D': 195, '1+32': 2}
+    (3, (3, 3, 3)) {'4R2': 205, '4R1': 6}
+exact shapes carrying >1 coda: 252; example fibres (type, shape) -> tempos(ms):
+    2-NOISE (1,) -> [69, 107, 212, 249, 776, 799] 
+    4D (245, 170, 112) -> [527, 527] 
+    4D (276, 171, 116) -> [563, 563] 
+    1+1+3 (225, 199, 152, 146) -> [722, 722] 
+    5R1 (101, 94, 76, 67) -> [338, 338] 
+    5R1 (43, 47, 38, 36) -> [328, 328] 
+
+wrote /home/user/metacircular-interaction-prototype/collab/bend2-cubical/biosemiotic/out/coda_superposition.hvm4, coda_shape_only.hvm4, coda_exact_roundtrip.hvm4, sample_codas.tsv (18 real codas)
+
+### coda_exchange.py / out/coda_exchange.hvm4 (rubato as fibre motion along the exchange)
+codas: 3822; consecutive same-whale pairs within 6 s: 2637
+shape (lens 10) preserved across the step: 1344 (51.0%); changed: 1293
+  |tempo drift| when shape kept: median 17 ms, mean 28 ms, n=1344
+  |tempo drift| when shape changed: median 34 ms, mean 85 ms, n=1293
+null (random same-whale pairs): shape equal 36.9%, median |drift| 116 ms
+wrote out/coda_exchange.hvm4 with 16 real consecutive pairs
+#Step{1,#Pos{3}} [2m#1876[0m
+#Step{1,#Neg{4}} [2m#2150[0m
+#Step{1,#Pos{9}} [2m#2800[0m
+#Step{1,#Pos{16}} [2m#3059[0m
+#Step{1,#Pos{31}} [2m#4099[0m
+#Step{1,#Pos{26}} [2m#4358[0m
+#Step{1,#Pos{15}} [2m#5008[0m
+#Step{1,#Neg{56}} [2m#5274[0m
+#Step{0,#Pos{409}} [2m#6076[0m
+#Step{0,#Pos{148}} [2m#6520[0m
+#Step{0,#Pos{36}} [2m#7176[0m
+#Step{0,#Neg{58}} [2m#7410[0m
+#Step{0,#Pos{73}} [2m#8276[0m
+#Step{0,#Pos{2}} [2m#8470[0m
+#Step{0,#Pos{30}} [2m#8846[0m
+#Step{0,#Neg{32}} [2m#9178[0m
+- Itrs: 9178 interactions
+
+### round_two.py (instrument_round_two.log)
+§G  OBSERVABILITY QUOTIENT — bisimulation refinement of the empirical whale machine, readout = metre
+  states (metre × tempo-bin) 285; readout classes (metres) 201; bisimulation classes 280
+  metres whose tempo variants are all identified by their futures: 148; metres split by tempo (future-distinguished): 53
+  examples of tempo variants identified by the quotient: []
+  GGLL: tempo bins present [0, 2, 3, 4] -> quotient blocks [34, 35, 36, 37]  (counts [60, 501, 318, 1315])
+  LLLL: tempo bins present [0, 1, 2, 3, 4] -> quotient blocks [196, 197, 198, 199, 200]  (counts [337, 156, 20, 2, 4])
+  LLL: tempo bins present [0, 1, 2, 3, 4] -> quotient blocks [171, 172, 173, 174, 175]  (counts [17, 2, 92, 76, 77])
+  GLL: tempo bins present [1, 2, 3] -> quotient blocks [75, 76, 76]  (counts [2, 1, 1])
+
+§H  REVERSAL — the ℤ/2 involution on codas; which readings are blind, and the repertoire's arrow of time
+  click count  reversal-blind on 7266/7266 codas (100.0%)
+  tempo (ms)   reversal-blind on 7266/7266 codas (100.0%)
+  mātrā        reversal-blind on 7266/7266 codas (100.0%)
+  guru count   reversal-blind on 7266/7266 codas (100.0%)
+  metre        reversal-blind on 1794/7266 codas (24.7%)
+  exact shape  reversal-blind on 7/7266 codas (0.1%)
+  fixed locus (palindromic metres): 1794/7266
+  metre vs its reversal (counts): the arrow of time in the repertoire
+    GGLL        3661   reversed LLGG           0
+    GLLL         301   reversed LLLG          16
+    GLL          257   reversed LLG           29
+    LGLL         196   reversed LLGL           1
+    GGL           81   reversed LGG            2
+    GGGLLL        79   reversed LLLGGG        13
+    LGGG          77   reversed GGGL          40
+    GGGGLL        55   reversed LLGGGG         6
+
+§I  PRASNA — is B's run its answer stream?  B's next coda vs A's last (the answer) vs B's own last
+  triples 1810;  H(B_next) 3.806 bits
+  H(B_next | A_last)  2.275   (shuffled null 3.151)   — the answer alone
+  H(B_next | B_last)  1.243   (shuffled null 3.157)   — B's own state alone
+  H(B_next | A_last, B_last) 0.768   (shuffled null 2.414)
+  information from the answer beyond B's own state: 0.475 bits; from B's state beyond the answer: 1.506 bits
+  B's next metre equals A's last metre: 921/1810 (50.9%);  equals B's own last metre: 1362/1810 (75.2%)
+
+### round_three.py (instrument_round_three.log)
+§J  KRAMA — order inside the Meru cell: what every total is blind to
+  H(metre) = H(cell) + H(arrangement | cell) = 3.064 + 0.375 = 3.439 bits; krama-indifferent bound on the second term (uniform over C(n,k)): 1.809 bits
+  cell (n,k) C(n,k)  codas  used  H(arr)  log2C  top arrangements
+      (4, 2)      6   3754     5   0.073  2.585  GGLL 3726, LLGG 20, GLGL 3, GLLG 3
+      (4, 0)      1   1865     1  -0.000  0.000  LLLL 1865
+      (4, 1)      4    612     4   1.323  2.000  GLLL 350, LGLL 211, LLLG 47, LLGL 4
+      (3, 0)      1    405     1  -0.000  0.000  LLL 405
+      (3, 1)      3    315     3   0.609  1.585  GLL 275, LLG 36, LGL 4
+      (4, 3)      4    152     4   1.189  2.000  LGGG 97, GGGL 47, GGLG 7, GLGG 1
+      (5, 0)      1    123     1  -0.000  0.000  LLLLL 123
+      (6, 3)     20    123     8   1.614  4.322  GGGLLL 79, GGLLLG 22, LLLGGG 14, GGLLGL 2
+      (5, 2)     10    119     6   1.294  3.322  GGLLL 86, LLLGG 21, GLLLG 5, LGLLG 4
+      (3, 2)      3     98     3   0.474  1.585  GGL 90, LGG 6, GLG 2
+      (7, 0)      1     88     1  -0.000  0.000  LLLLLLL 88
+      (6, 0)      1     86     1  -0.000  0.000  LLLLLL 86
+
+§K  SIGN BIRTH PER SIGN — which metres earn an entry in the sign table
+  metres 204; corpus 8696 codas; no signs: 78232 bits; born signs 77: 31781 bits (3.65 per coda)
+  last born sign: GGLGGG (3 codas, gain 1.1 bits); first refused: LGG (6 codas, gain -3.1)
+  human types with a majority metre: 17; their distinct metres: 12; of these born: 12
+  born signs with no human type name: 65  e.g. GLLL (350), LGLL (211), GGL (90), LLLLLLL (88), GGLLL (86), GGGLLL (79), GGGGLL (55), LLLG (47), LLLLLLG (47), GGGL (47), LLLLLLLG (39), LLG (36), GGLLLL (35), LLLLG (34), GLLLL (29), GGGLL (28), GGLL
+  born inventory (metre, codas, gain in bits, human names):
+    GGLL        3726  23631.2  1+1+3
+    LLLL        1865  11367.7  5R3 5R1 5R2
+    GLLL         350   1439.1  
+    LLL          405   1168.7  4R1 4R2
+    LGLL         211    791.2  
+    GLL          275    734.1  1+31 4D 1+32
+    LLLLLLL       88    619.5  
+    LLLLL        123    595.8  6R
+    LLLLLL        86    499.7  7R
+    GGGLLL        79    454.4  
+    LLLLLLLL      53    415.6  9R
+    GGLLL         86    395.0  
+    LGGG          97    326.6  2+3
+    LLLLLLG       47    308.9  
+    GGGGLL        55    304.7  
+    LLLLLLLG      39    299.2  
+    LLLLLLLLL     24    192.8  10R
+    GGL           90    175.2  
+    GGLLLL        35    176.2  
+    LLLG          47    126.8  
+    GGGL          47    130.3  
+    LLLLG         34    128.6  
+    LLLLLG        26    123.4  
+    GLLLLLL       20    111.8  
+    LLLLGG        23    105.6  
+    GLLLL         29    106.8  
+    GGGLL         28    102.9  
+    GGLLLG        22    102.5  
+    GGLLLLG       18    100.8  8D
+    GGLLG         27    101.3  
+    GLLLLLLL      14     89.2  
+    LLLLLLLLG     12     86.4  
+    LLLLLGG       15     80.3  
+    LLLGG         21     72.1  
+    LLLLLLGG      11     64.8  
+    LGLLL         18     57.7  
+    LLLGGG        14     56.9  
+    LLG           36     54.6  
+    GLLLLL        13     52.4  
+    GGLLLLLG       9     50.0  
+    GGLLLLL       10     46.9  
+    LLGG          20     45.0  
+    LGGGG         14     42.3  
+    LL            55     41.2  3R
+    LLLLGGG        8     35.1  
+    LLLGGGGG       6     27.4  
+    LGLLLLLG       6     27.6  
+    GL            42     25.1  3D
+    GLLLLLLLL      5     25.5  
+    LGLLLLLLG      5     25.6  
+    LLGGG          9     22.7  
+    LLLGGGG        6     22.6  
+    GGGGLLL        6     22.8  
+    LGGGGG         7     22.2  
+    LLGGGG         7     22.5  
+    LGGGGGGG       5     21.4  
+    LLLLLGGG       5     21.5  
+    LLGLLLLL       5     21.7  
+    GLLLLLLLG      4     17.2  
+    GLLLLLG        5     16.6  
+    LLGLLLLG       4     13.5  
+    LLGLLLL        4      9.6  
+    LLLLLLLGG      3      8.0  
+    LLLLLLGGG      3      8.1  
+    LGGGGGGGG      3      8.1  
+    GGLG           7      6.6  
+    GLLLG          5      6.1  
+    GGLGG          5      6.3  
+    GGGLLG         4      6.2  
+    GGLLLGGG       3      6.0  
+    LGGGGGG        3      3.4  
+    GGLGGGG        3      3.4  
+    LLLLGLG        3      3.5  
+    LGLLLGG        3      3.6  
+    LGLLG          4      2.4  
+    GGGGL          4      2.5  
+    GGLGGG         3      1.1  
+
+§L  TWO CLANS AS TWO READINGS — EC1 vs EC2
+  I(clan; metre         ) = 0.186 bits of H(clan) = 0.497
+  I(clan; tempo bin     ) = 0.080 bits of H(clan) = 0.497
+  I(clan; metre × tempo ) = 0.420 bits of H(clan) = 0.497
+  I(clan; click count   ) = 0.005 bits of H(clan) = 0.497
+  I(clan; human type    ) = 0.373 bits of H(clan) = 0.497
+  inside metre LLLL (1865 codas): EC1 1206, EC2 659; I(clan; tempo | LLLL) = 0.840 of H(clan | LLLL) = 0.937
+    EC1 LLLL tempo bins: 0:865 1:280 2:43 3:4 4:14   types: 5R1 842, 5R2 283, 5-NOISE 34
+    EC2 LLLL tempo bins: 0:0 1:1 2:17 3:177 4:464   types: 5R3 619, 5-NOISE 40
+  metres (≥10 codas) heard only in EC1: 20; only in EC2: 0 []
+  median LLLL tempo: EC1 334 ms, EC2 1144 ms (ratio 3.43)
+  EC2 5R3 [318, 307, 303, 322] → shape [254, 246, 242, 258] → at EC1 tempo [85, 82, 81, 86]; nearest real EC1 coda [87, 86, 79, 86] is a 5R1
+
+§M  ROUND TRIP ŚEṢA — c → lens → other tempo → lens → own tempo, versus c
+  lens    10: round trip exact on 9/8696 (0.1%); mean |śeṣa| 94.29 ms per coda
+  lens   100: round trip exact on 216/8696 (2.5%); mean |śeṣa| 7.63 ms per coda
+  lens  1000: round trip exact on 4976/8696 (57.2%); mean |śeṣa| 1.08 ms per coda
+  lens exact: round trip exact on 5901/8696 (67.9%); mean |śeṣa| 0.83 ms per coda
+  on the net (out/coda_roundtrip.hvm4): 18 trips collapsed; - Itrs: 6945 interactions
+    #Trip{0,[293,282,298,315]} [2m#371[0m
+    #Trip{2,[287,265,299,274]} [2m#742[0m
+    #Trip{1,[264,253,297,276]} [2m#1114[0m
+    #Trip{1,[269,265,271,285]} [2m#1486[0m
+    #Trip{1,[273,267,266,295]} [2m#1858[0m
+    #Trip{1,[278,270,269,271]} [2m#2229[0m
+    …
+
+### round_four.py (instrument_round_four.log)
+§N  NIYATI — how far the whale machine's space of runs is from a point
+  runs (rec × whale) 82; steps 3740; H(next | current) over all runs 1.766 bits (shuffled null 3.414)
+  runs with ≥ 8 codas: 57; per-run H(next | current): min 0.000 (len 8), median 0.700, max 1.846 (len 201)
+  runs whose stream is a point (H = 0, every step forced): 3 of 57
+  log2 |histories of length 1| under the observed support, mean over states weighted by visits: 4.60 bits  (4.60 per step)
+  log2 |histories of length 2| under the observed support, mean over states weighted by visits: 7.86 bits  (3.93 per step)
+  log2 |histories of length 3| under the observed support, mean over states weighted by visits: 11.49 bits  (3.83 per step)
+  log2 |histories of length 5| under the observed support, mean over states weighted by visits: 18.55 bits  (3.71 per step)
+
+§O  HIDING AND HARDNESS — what a reading hides is what makes its next step hard
+  next METRE | current metre, tempo hidden: 1.482 bits;  tempo shown: 1.292;  hardness the hiding costs: 0.190
+  next TEMPO | current tempo, metre hidden: 1.061 bits;  metre shown: 0.854;  hardness the hiding costs: 0.207
+  H(next metre) 2.935; H(next tempo) 2.047
+
+§P  ORNAMENTATION — is the (n+1)-click coda a born n-click coda plus one click?
+  born inventory used: 77 metres
+  5-click codas (6383): first 3 intervals form a born metre  94.7%; last 3 do  99.5%; ornament/mean-interval median 0.64 (p10 0.52, p90 1.04)
+  6-click codas ( 420): first 4 intervals form a born metre  98.1%; last 4 do  91.0%; ornament/mean-interval median 1.00 (p10 0.63, p90 1.59)
+  7-click codas ( 403): first 5 intervals form a born metre  95.5%; last 5 do  94.5%; ornament/mean-interval median 0.88 (p10 0.49, p90 1.68)
+  8-click codas ( 273): first 6 intervals form a born metre  87.2%; last 6 do  83.9%; ornament/mean-interval median 1.18 (p10 0.79, p90 1.80)
+  9-click codas ( 196): first 7 intervals form a born metre  82.1%; last 7 do  85.2%; ornament/mean-interval median 1.27 (p10 0.97, p90 1.97)
+  5-click codas: (human type, metre of first three intervals), top: 1+1+3/GGL 2971, 5R1/LLL 1254, 5R3/LLL 641, 1+1+3/LLL 304, 5R2/LLL 285, 1+1+3/LGL 171
+
+§P' ORNAMENT AS THE NEIGHBOUR'S LINE PLUS ONE CLICK (within a whale's run)
+  lens  4: neighbour pairs (n, n+1 clicks) 409; ornamented coda's prefix = neighbour's shape 195 (47.7%); null (random coda of the same length) 59.2%
+  lens 10: neighbour pairs (n, n+1 clicks) 409; ornamented coda's prefix = neighbour's shape 114 (27.9%); null (random coda of the same length) 19.4%
+  ornament interval / neighbour's mean interval: median 0.80, p10 0.44, p90 1.85
+
+### clan_transport.py (instrument_clan_transport.log)
+EC2 5R3 sources superposed: 24; EC1 median 5R1 tempo 329 ms, median intervals [94, 92, 74, 68], ε = 6 ms
+survivors (transported form within ε of EC1's median 5R1, certified inside the evaluation): 0
+  - Itrs: 8178 interactions
+over all 623 EC2 5R3 codas: 0 (0.0%) land within ε of EC1's median 5R1 when transported; EC1's own 5R1 codas within ε of their median: 225 of 1510 (14.9%)

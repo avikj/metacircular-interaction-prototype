@@ -1,0 +1,11 @@
+// Piṅgala's prastāra of the 4-syllable metres (saṅkhyā 2⁴ = 16) handed to the net as ONE
+// superposition; each metre carried as its mātrā list (laghu 1, guru 2).  @meru sorts a
+// metre into its Meru cell (varṇa, guru) — PrastaraPankti: the guru-count fibre IS C(n,k);
+// @matra reads its mātrā (MatraVarnaGuru: mātrā = varṇa + guru).  Collapse enumerates
+// every metre with its cell and weight in one pass.
+@len   = λ{[]: 0; <>: λh. λt. (1 + @len(t))}
+@guru  = λ{[]: 0; <>: λh. λt. ((h - 1) + @guru(t))}
+@sum   = λ{[]: 0; <>: λh. λt. (h + @sum(t))}
+@meru  = λ&m. #Cell{@len(m), @guru(m), @sum(m)}
+@prastara = &L{&L{&L{&L{[2, 2, 2, 2], [2, 2, 2, 1]}, &L{[2, 2, 1, 2], [2, 2, 1, 1]}}, &L{&L{[2, 1, 2, 2], [2, 1, 2, 1]}, &L{[2, 1, 1, 2], [2, 1, 1, 1]}}}, &L{&L{&L{[1, 2, 2, 2], [1, 2, 2, 1]}, &L{[1, 2, 1, 2], [1, 2, 1, 1]}}, &L{&L{[1, 1, 2, 2], [1, 1, 2, 1]}, &L{[1, 1, 1, 2], [1, 1, 1, 1]}}}}
+@main = @meru(@prastara)

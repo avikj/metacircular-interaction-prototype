@@ -1,0 +1,7 @@
+// real codas through the coarse lens (R = 10): equal shape terms = one class
+@sum   = λ{[]: 0; <>: λh. λt. (h + @sum(t))}
+@scale = λ&T. λ&R. λ{[]: []; <>: λh. λt. (((h * R) + (T / 2)) / T) <> @scale(T, R, t)}
+// lens: the rhythm read at R bins per unit of normalised duration
+@lens  = λR. λ&c. @scale(@sum(c), R, c)
+@codas = &L{&L{&L{&L{[357, 350, 347, 363], [284, 296, 302, 304]}, &L{[271, 276, 278, 294], [242, 231, 171, 145]}}, &L{&L{[378, 364, 159, 156], [435, 410, 184, 184]}, &L{[358, 323, 336], &L{[365, 314, 307], [269, 259, 287]}}}}, &L{&L{&L{[89, 92, 77, 71], [81, 77, 74, 80]}, &L{[102, 95, 75, 66], [102, 68]}}, &L{&L{[87, 103], [46, 72]}, &L{[263, 154, 106], &L{[247, 163, 100], [251, 151, 109]}}}}}
+@main = @lens(10, @codas)

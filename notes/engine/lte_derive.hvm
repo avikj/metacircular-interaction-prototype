@@ -1,0 +1,43 @@
+// LTE by DERIVATION, not search.
+// aⁿ - 1 = ∏_{d|n} Φ_d(a).  v_p is additive over a product, so
+//   v_p(aⁿ-1) = Σ_{d|n} v_p(Φ_d(a)).
+// We compute the LEFT side directly (v_p of aⁿ-1) and the RIGHT side as the
+// divisor-sum of v_p(Φ_d(a)) built from the SAME factorisation, and read that
+// they coincide with e + v_p(n).  No candidate coefficients; the equality is
+// forced by the factorisation, and evaluation just runs the derivation.
+
+@if = λ{ 0: λt.λf. f ; _: λc.λt.λf. t }
+@pw = λ&a. λ{ 0: 1 ; λ&k. (a * @pw(a,(k-1))) }
+@vp = λ&p. λ&x. @if(((x % p) == 0), (1 + @vp(p,(x / p))), 0)
+@ord = λ&p. λ&a. @ordk(p,a,1)
+@ordk = λ&p.λ&a.λ&k. @if(((@pw(a,k) % p) == 1), k, @ordk(p,a,(k+1)))
+
+// Φ_d(a) as an integer via  Φ_d(a) = (a^d - 1) / ∏_{c|d, c<d} Φ_c(a),
+// i.e. the standard recursive cyclotomic-at-a-point.  Deterministic.
+@prod_below = λ&p.λ&a.λ&d.λ&c.  // ∏_{c'|d, c'<d} Φ(c'), c ranges 1..d-1
+  @if((c == d), 1,
+    @if(((d % c) == 0), (@phi(p,a,c) * @prod_below(p,a,d,(c+1))),
+        @prod_below(p,a,d,(c+1))))
+@phi = λ&p.λ&a.λ&d. ((@pw(a,d) - 1) / @prod_below(p,a,d,1))
+
+// RIGHT side: Σ_{d|n} v_p(Φ_d(a))  — the derived decomposition
+@divsum = λ&p.λ&a.λ&n.λ&d.
+  @if((d > n), 0,
+    @if(((n % d) == 0), (@vp(p, @phi(p,a,d)) + @divsum(p,a,n,(d+1))),
+        @divsum(p,a,n,(d+1))))
+@rhs_deriv = λ&p.λ&a.λ&n. @divsum(p,a,n,1)
+
+// LEFT side: v_p(aⁿ-1) directly
+@lhs_direct = λ&p.λ&a.λ&n. @vp(p, (@pw(a,n) - 1))
+
+// the CLOSED FORM the derivation yields: e + v_p(n) on the order chain
+@closed = λ&p.λ&a.λ&n. (@vp(p, (@pw(a, @ord(p,a)) - 1)) + @vp(p,n))
+
+// run the derivation at one (p,a,n): all three agree ⇒ #OK, else #BAD with values
+@check1 = λ&p.λ&a.λ&j.
+  !&d = @ord(p,a); !&n = (d * j);
+  !&L = @lhs_direct(p,a,n); !&R = @rhs_deriv(p,a,n); !&C = @closed(p,a,n);
+  @if(((L == R) .&. (R == C)), #OK{p,a,n,L}, #BAD{p,a,n,L,R,C})
+
+@main = [ @check1(3,2,1), @check1(3,2,3), @check1(3,2,9),
+          @check1(5,2,5), @check1(7,3,4), @check1(11,2,11) ]

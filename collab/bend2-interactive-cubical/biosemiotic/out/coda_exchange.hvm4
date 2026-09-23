@@ -1,0 +1,15 @@
+// Consecutive codas by ONE whale in a real exchange (sperm-whale-dialogues.csv),
+// as a superposition of #Ex{before, after} pairs. @step reads each interaction
+// step as its transport witness: #Step{shapeKept, tempoAfter - tempoBefore}.
+// shapeKept = 1 : the rhythm (lens 10) crossed the step unchanged and only the
+// fibre (tempo) moved — Sharma et al.'s RUBATO as the fibre's motion along the braid.
+@sum   = λ{[]: 0; <>: λh. λt. (h + @sum(t))}
+@scale = λ&T. λ&R. λ{[]: []; <>: λh. λt. (((h * R) + (T / 2)) / T) <> @scale(T, R, t)}
+@lens  = λR. λ&c. @scale(@sum(c), R, c)
+// drift carried as a pair (sign, magnitude) since the net's numbers are unsigned
+@drift = λ&a. λ&b. λ{0: #Neg{(a - b)}; _: λp. #Pos{(b - a)}}((b >= a))
+// list equality by structural recursion (strict), so it reduces under the superposition
+@eqL   = λ{[]: λ{[]: 1; <>: λh. λt. 0}; <>: λh. λt. λ{[]: 0; <>: λh2. λt2. λ{0: 0; _: λp. @eqL(t, t2)}((h == h2))}}
+@step  = λ{#Ex: λ&a. λ&b. #Step{@eqL(@lens(10, a), @lens(10, b)), @drift(@sum(a), @sum(b))}}
+@pairs = &L{&L{&L{&L{#Ex{[93, 87, 71, 64], [87, 87, 74, 70]}, #Ex{[263, 255, 165, 140], [245, 250, 184, 140]}}, &L{#Ex{[89, 98, 71, 60], [88, 98, 77, 64]}, #Ex{[99, 93, 72, 68], [104, 98, 71, 75]}}}, &L{&L{#Ex{[378, 369, 209, 178], [404, 370, 203, 188]}, #Ex{[452, 426, 217, 206], [456, 447, 212, 212]}}, &L{#Ex{[275, 260, 168, 145], [295, 266, 150, 152]}, #Ex{[243, 226, 166, 169], [225, 196, 160, 167]}}}}, &L{&L{&L{#Ex{[283, 251, 159, 143], [443, 426, 187, 189]}, #Ex{[108, 144, 122, 119], [112, 129, 112, 112, 176]}}, &L{#Ex{[243, 269, 217, 135], [290, 274, 183, 153]}, #Ex{[435, 407, 164, 162], [396, 368, 169, 177]}}}, &L{&L{#Ex{[394, 346, 205, 152], [413, 392, 157, 208]}, #Ex{[359, 328, 184, 146], [361, 360, 146, 152]}}, &L{#Ex{[82, 102, 79, 76], [113, 109, 74, 73]}, #Ex{[88, 82, 66, 54, 47, 56], [114, 97, 80, 70]}}}}}
+@main  = @step(@pairs)

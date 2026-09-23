@@ -1,0 +1,44 @@
+// Grammar search = law mining. Reproduces CyclotomicMined on the net:
+// the miner is given only the evaluators v_p and ord_p, NOT the LTE lemma.
+// It superposes the affine hypothesis  v_p(a^n - 1) ?= c0 + c1*e + c2*w
+// (e = v_p(a^d - 1), d = ord_p(a), w = v_p(n)) over a coefficient grid,
+// tests each against a probe set of (p,a,n), erases rivals, collapses survivors.
+
+@if = λ{ 0: λt.λf. f ; _: λc.λt.λf. t }
+
+// a^k
+@pw = λ&a. λ{ 0: 1 ; λ&k. (a * @pw(a,(k-1))) }
+// v_p(x): p-adic valuation, x>0, p>=2  (bounded fuel via x itself)
+@vp = λ&p. λ&x. @if(((x % p) == 0), (1 + @vp(p, (x / p))), 0)
+// ord_p(a): least k>=1 with a^k ≡ 1 (mod p)  (search up to p)
+@ord = λ&p. λ&a. @ordk(p, a, 1)
+@ordk = λ&p. λ&a. λ&k. @if(((@pw(a,k) % p) == 1), k, @ordk(p, a, (k+1)))
+
+// the true target and the ingredients, for one (p,a,n) with d | n assumed by n=d*j
+@tgt = λ&p.λ&a.λ&n. @vp(p, (@pw(a,n) - 1))
+@ecoef = λ&p.λ&a. @vp(p, (@pw(a, @ord(p,a)) - 1))
+
+// affine hypothesis value
+@hyp = λ&c0.λ&c1.λ&c2.λ&e.λ&w. (c0 + (c1*e + c2*w))
+
+// test one coefficient triple over a fixed probe list of (p,a,j) with n=ord*j
+@probe1 = λ&c0.λ&c1.λ&c2.λ&p.λ&a.λ&j.
+  !&d = @ord(p,a);
+  !&n = (d * j);
+  !&e = @ecoef(p,a);
+  !&w = @vp(p, n);
+  (@tgt(p,a,n) == @hyp(c0,c1,c2, e, w))
+
+// AND over five probes: (p,a) in {(3,2),(5,2),(7,3),(5,3),(11,2)}, j in {1,2,3}
+@ok = λ&c0.λ&c1.λ&c2.
+  (@probe1(c0,c1,c2, 3,2,1) .&.
+  (@probe1(c0,c1,c2, 3,2,3) .&.
+  (@probe1(c0,c1,c2, 3,2,9) .&.
+  (@probe1(c0,c1,c2, 5,2,5) .&.
+  (@probe1(c0,c1,c2, 7,3,2) .&.
+   @probe1(c0,c1,c2, 11,2,2))))))
+
+@grid = λ&L. λ&lo. λ{ 0: &{} ; λ&k. &(L){lo, @grid(L,(lo+1),(k-1))} }
+// c0 in 0..2, c1 in 0..2, c2 in 0..2  (LTE is c0=0,c1=1,c2=1)
+@keep = λ&c0.λ&c1.λ&c2. @if(@ok(c0,c1,c2), #LAW{c0,c1,c2}, &{})
+@main = @keep(@grid(1,0,3), @grid(2,0,3), @grid(3,0,3))

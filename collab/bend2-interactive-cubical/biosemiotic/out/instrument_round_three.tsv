@@ -1,0 +1,98 @@
+J_cell	4	2	6	3754	5	0.073	2.585
+J_cell	4	0	1	1865	1	-0.0	0.0
+J_cell	4	1	4	612	4	1.323	2.0
+J_cell	3	0	1	405	1	-0.0	0.0
+J_cell	3	1	3	315	3	0.609	1.585
+J_cell	4	3	4	152	4	1.189	2.0
+J_cell	5	0	1	123	1	-0.0	0.0
+J_cell	6	3	20	123	8	1.614	4.322
+J_cell	5	2	10	119	6	1.294	3.322
+J_cell	3	2	3	98	3	0.474	1.585
+J_cell	7	0	1	88	1	-0.0	0.0
+J_cell	6	0	1	86	1	-0.0	0.0
+K_born	GGLL	3726	23631.2	1+1+3
+K_born	LLLL	1865	11367.7	5R3;5R1;5R2
+K_born	GLLL	350	1439.1	
+K_born	LLL	405	1168.7	4R1;4R2
+K_born	LGLL	211	791.2	
+K_born	GLL	275	734.1	1+31;4D;1+32
+K_born	LLLLLLL	88	619.5	
+K_born	LLLLL	123	595.8	6R
+K_born	LLLLLL	86	499.7	7R
+K_born	GGGLLL	79	454.4	
+K_born	LLLLLLLL	53	415.6	9R
+K_born	GGLLL	86	395.0	
+K_born	LGGG	97	326.6	2+3
+K_born	LLLLLLG	47	308.9	
+K_born	GGGGLL	55	304.7	
+K_born	LLLLLLLG	39	299.2	
+K_born	LLLLLLLLL	24	192.8	10R
+K_born	GGL	90	175.2	
+K_born	GGLLLL	35	176.2	
+K_born	LLLG	47	126.8	
+K_born	GGGL	47	130.3	
+K_born	LLLLG	34	128.6	
+K_born	LLLLLG	26	123.4	
+K_born	GLLLLLL	20	111.8	
+K_born	LLLLGG	23	105.6	
+K_born	GLLLL	29	106.8	
+K_born	GGGLL	28	102.9	
+K_born	GGLLLG	22	102.5	
+K_born	GGLLLLG	18	100.8	8D
+K_born	GGLLG	27	101.3	
+K_born	GLLLLLLL	14	89.2	
+K_born	LLLLLLLLG	12	86.4	
+K_born	LLLLLGG	15	80.3	
+K_born	LLLGG	21	72.1	
+K_born	LLLLLLGG	11	64.8	
+K_born	LGLLL	18	57.7	
+K_born	LLLGGG	14	56.9	
+K_born	LLG	36	54.6	
+K_born	GLLLLL	13	52.4	
+K_born	GGLLLLLG	9	50.0	
+K_born	GGLLLLL	10	46.9	
+K_born	LLGG	20	45.0	
+K_born	LGGGG	14	42.3	
+K_born	LL	55	41.2	3R
+K_born	LLLLGGG	8	35.1	
+K_born	LLLGGGGG	6	27.4	
+K_born	LGLLLLLG	6	27.6	
+K_born	GL	42	25.1	3D
+K_born	GLLLLLLLL	5	25.5	
+K_born	LGLLLLLLG	5	25.6	
+K_born	LLGGG	9	22.7	
+K_born	LLLGGGG	6	22.6	
+K_born	GGGGLLL	6	22.8	
+K_born	LGGGGG	7	22.2	
+K_born	LLGGGG	7	22.5	
+K_born	LGGGGGGG	5	21.4	
+K_born	LLLLLGGG	5	21.5	
+K_born	LLGLLLLL	5	21.7	
+K_born	GLLLLLLLG	4	17.2	
+K_born	GLLLLLG	5	16.6	
+K_born	LLGLLLLG	4	13.5	
+K_born	LLGLLLL	4	9.6	
+K_born	LLLLLLLGG	3	8.0	
+K_born	LLLLLLGGG	3	8.1	
+K_born	LGGGGGGGG	3	8.1	
+K_born	GGLG	7	6.6	
+K_born	GLLLG	5	6.1	
+K_born	GGLGG	5	6.3	
+K_born	GGGLLG	4	6.2	
+K_born	GGLLLGGG	3	6.0	
+K_born	LGGGGGG	3	3.4	
+K_born	GGLGGGG	3	3.4	
+K_born	LLLLGLG	3	3.5	
+K_born	LGLLLGG	3	3.6	
+K_born	LGLLG	4	2.4	
+K_born	GGGGL	4	2.5	
+K_born	GGLGGG	3	1.1	
+L_MI	metre	0.186	0.497
+L_MI	tempo bin	0.08	0.497
+L_MI	metre × tempo	0.42	0.497
+L_MI	click count	0.005	0.497
+L_MI	human type	0.373	0.497
+M_roundtrip	10	9	8696	94.29
+M_roundtrip	100	216	8696	7.63
+M_roundtrip	1000	4976	8696	1.08
+M_roundtrip	exact	5901	8696	0.83

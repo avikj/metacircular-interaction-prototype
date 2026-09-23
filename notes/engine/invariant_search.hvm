@@ -1,0 +1,39 @@
+// Layer 2 — the OUTER storey: search for the one uniform step.
+// The slot is: does a finite invariant, preserved by the step, cover every
+// stage? We hold a superposition of candidate invariants, run each against
+// the step-preservation spec over a bounded horizon in ONE shared evaluation,
+// erase the ones that break, and collapse the survivors.
+//
+// Concrete calibration target (PowerSumTrace.onCircle): the power-sum stream
+// of roots (a,b,c) under p_{k+1} = (a*p, b*p, c*p) summed. RH-finite shape:
+// the sum stays bounded. We SEARCH for the bound M that is a preserved
+// invariant of the two-state cycle for roots (1,-1,1), and REJECT it for
+// (2,1,1). The certificate is: |sum| <= M holds at stage 0 AND is preserved.
+
+@if = λ{ 0: λt.λf. f ; _: λc.λt.λf. t }
+@abs = λ&x. @if((x < 0), (0 - x), x)
+
+// one step of the trace on triple (a,b,c) carrying running powers (pa,pb,pc)
+// returns the next running powers; the observable is pa+pb+pc.
+@obs = λ&pa. λ&pb. λ&pc. (pa + (pb + pc))
+
+// run the trace for h steps from powers (1,1,1), checking |obs| <= M at each.
+// returns 1 if the bound held at every visited stage, 0 if it ever broke.
+@chk = λ&a. λ&b. λ&c. λ&M. λ&pa. λ&pb. λ&pc. λ{
+  0: 1
+  λ&h.
+    ! ok = @if((@abs(@obs(pa,pb,pc)) > M), 0, 1);
+    @if(ok, @chk(a,b,c,M, (a*pa),(b*pb),(c*pc), (h-1)), 0)
+}
+
+@holds = λ&a.λ&b.λ&c.λ&M.λ&h. @chk(a,b,c,M, 1,1,1, h)
+
+// candidate bounds M, superposed
+@cand = λ&L. λ&lo. λ{ 0: &{} ; λ&k. &(L){lo, @cand(L, (lo+1), (k-1))} }
+
+// SEARCH: least M in 0..15 that bounds the (1,-1,1) trace over 40 steps,
+// AND is refuted for the (2,1,1) trace (a real off-circle mode).
+@keep = λ&M. @if(
+  (@holds(1, (0-1), 1, M, 40) .&. @if(@holds(2,1,1,M,40), 0, 1)),
+  #INV{M}, &{})
+@main = @keep(@cand(1, 0, 16))

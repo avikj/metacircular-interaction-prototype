@@ -1,0 +1,25 @@
+// Japanese tit (Parus minor) call combinations — Suzuki, Wheatcroft & Griesser
+// 2016, Nature Communications 7:10986 (doi:10.1038/ncomms10986).
+// The ABC call ("scan for danger") and the D call ("approach") combine: the
+// natural order ABC-D elicits BOTH behaviours; the artificially reversed D-ABC
+// does not. The finding is an ORDERING rule — a regular language over the two
+// call types. Here the four orderings of {ABC, D} plus the bare calls are handed
+// in as ONE superposition, and the grammar "every D is preceded by an ABC"
+// (a two-state acceptor: the Nerode classes of the ordering rule) is run over
+// the whole superposition at once; the ungrammatical branches erase.
+//
+// Symbols: 1 = ABC, 2 = D.  Acceptor state: 0 = no ABC seen yet, 1 = ABC seen.
+@accept = λs. λ{[]: 1; <>: λh. λt. @step(s, h, t)}
+@step   = λs. λh. λ&t. λ{
+  1: @accept(1, t);                      // ABC: enter the "scanned" class
+  _: λp. λ{0: 0; _: λq. @accept(1, t)}(s) // D: legal only in the scanned class
+}(h)
+@keep = λ&seq. λ{0: &{}; _: λp. #Grammatical{seq}}(@accept(0, seq))
+// the superposition of candidate utterances, natural and artificial
+@utterances = &L{ [1, 2],          // ABC-D   (natural; both behaviours)
+               &L{ [2, 1],         // D-ABC   (reversed; behaviours not elicited)
+               &L{ [1],            // ABC alone
+               &L{ [2],            // D alone (in this grammar: no licensing ABC)
+               &L{ [1, 2, 1, 2],   // ABC-D-ABC-D
+                   [1, 1, 2] }}}}} // ABC-ABC-D
+@main = @keep(@utterances)
