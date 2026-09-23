@@ -164,8 +164,17 @@ written **twice**, once in `whnfHCm` and once in `Target/HVM4Full.hs`.
   (`roundtrip.bend`) and definitional `uaβ` on transport; from β alone the
   two paths induce the same equivalence, and concluding they ARE one path is
   exactly η.
-- **Totality is a `--total` gate, not a typing rule**, and guardedness is a
-  syntactic pass.
+- **Totality is a `--total` gate, not a typing rule** -- and that is Bend2's
+  design, not an oversight: `Core/Totality.hs` says so in its own header,
+  "an analysis, not a gate: Bend2's logic is non-total by design". What the
+  cubical lane does not need is that freedom, so `suite.sh` now runs every
+  file under `--total` as well, and a file containing an `[unchecked]`
+  definition fails the suite unless it is registered. 114 of the 118 files
+  are `[total]` or `[productive]` throughout. The four registered ones are
+  each deliberate: `loop.bend`'s unguarded loop, `recon_bach.bend`'s
+  fixed-point reconstruction, `streams.bend`'s registered counterexample to
+  guardedness, and a must-fail probe. Guardedness is still a syntactic pass;
+  what changed is that the lane is now held to it.
 
 ---
 
