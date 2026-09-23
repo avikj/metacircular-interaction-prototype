@@ -19,6 +19,29 @@ export LC_ALL=C.utf8 LANG=C.utf8   # HVM3 embeds .c files via Template Haskell;
                                    # a non-UTF-8 locale makes the build fail and
                                    # makes the built binary abort silently
 
+# HVM3 asks for the GHC2024 language edition, which GHC 9.8 and older do not
+# know. Cabal reports that as "rejecting: HVM-0.1.0.0 (conflict: requires
+# unknown language GHC2024)", which reads like a dependency problem and is
+# not one. If the GHC on PATH is too old, look for a new enough one under
+# ghcup before giving up.
+ghc_ok() { [ -x "$1" ] && case "$("$1" --numeric-version 2>/dev/null)" in
+  9.1[0-9]*|9.[2-9][0-9]*|[1-9][0-9]*) return 0 ;; *) return 1 ;; esac ; }
+if ! ghc_ok "$(command -v ghc || true)"; then
+  for cand in "$HOME"/.ghcup/bin/ghc-9.1[0-9]* "$HOME"/.ghcup/bin/ghc; do
+    if ghc_ok "$cand"; then
+      PATH="$(dirname "$cand"):$PATH"; export PATH
+      echo "using GHC $("$cand" --numeric-version) from $(dirname "$cand")"
+      break
+    fi
+  done
+fi
+if ! ghc_ok "$(command -v ghc || true)"; then
+  echo "need GHC 9.10 or newer (HVM3 uses the GHC2024 language edition);" >&2
+  echo "found $(ghc --numeric-version 2>/dev/null || echo none)." >&2
+  echo "  ghcup install ghc 9.12.2 && ghcup set ghc 9.12.2" >&2
+  exit 1
+fi
+
 mkdir -p "$WORK"
 
 # HVM3 must be a LOCAL package: its Runtime.c omits two includes that the
