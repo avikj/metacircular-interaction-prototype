@@ -33,6 +33,12 @@
 -- So termination, regime and the metarule ordering are done, and none of
 -- them is redone here.  What was not here is the structure the blindness
 -- HAS.  And the instrument for it was already in the corpus and had never
+-- THE CARRIER.  The carrier is the pada-final consonant of `vc`
+-- ("speech") along the trajectory the derivation actually takes, exactly as
+-- in `Asiddhatva.agda`, and the rules are their restrictions to it.  `ca` is
+-- never presented to 8.2.39 in a real derivation because 8.2.30 has already
+-- removed it; that is not assumed, it is `कस्यापि-न-चः` below.
+--
 -- been pointed at Pini: `Sesa_TheCompositesRemainderIsTheSecondRemainder
 -- SummedOverTheFirstAndTheAreasAdd.शेष` decomposes the fibre of a
 -- composite.  The tripādī IS a composite — 8.2.1 makes the enumeration

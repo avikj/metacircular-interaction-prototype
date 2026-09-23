@@ -73,6 +73,19 @@ module _ {A B : Type ℓ} (f : A → B) where
 
   -- The fibre over a is singl (f a) — and it is contractible.  Everything
   -- below is a consequence of this one line.
+  --
+  -- THE SPELLING CARRIES THE DISTINCTION, and that is why it is British.
+  -- This is not agda/cubical's `fiber`, and the two are not the same
+  -- object:
+  --
+  --   Cubical.Foundations.Equiv.Base   fiber f y = Σ[ x ∈ A ] (f x ≡ y)
+  --   here                             fibre   a = Σ[ b ∈ B ] (f a ≡ b)
+  --
+  -- Cubical's is a Σ over the DOMAIN — what f collapses onto y, i.e. the
+  -- loss.  This one is a Σ over the CODOMAIN — where f a is free to sit,
+  -- i.e. the carried slot, which is contractible and therefore free.  The
+  -- law below is that those differ, so spelling them alike would not be a
+  -- clash to paper over with `hiding`; it would hide the content.
   fibre : A → Type ℓ
   fibre a = singl (f a)
 

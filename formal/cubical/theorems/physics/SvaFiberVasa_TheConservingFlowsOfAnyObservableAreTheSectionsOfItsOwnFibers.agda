@@ -69,7 +69,7 @@ open import Cubical.Data.Sigma
 open import Cubical.Algebra.CommRing
 open import Cubical.Algebra.CommRing.Instances.Int
 
-open import Dhruva_TheSymmetryLivesInTheFiberAndWithoutALossThereIsNoSymmetry
+open import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
 open import Khahara_TheZeroDivisorEdgeIsPricedAtItsWholeDomainAndTotalLossIsExactlyTotalSymmetry
   using (सर्व-नाशः)
 open import YogaKsetra_TheConservingFlowsOfAdditionAreExactlyTheShearFields
