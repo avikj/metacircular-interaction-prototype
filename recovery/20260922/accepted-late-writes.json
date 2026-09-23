@@ -1,0 +1,17 @@
+{
+  "research/rubiks_cube/Cube3FibreQuery.bend": {
+    "snapshot": "/Users/avikjain/repo-backups/recovery-20260922/late-writes/20260923T032552Z/research/rubiks_cube/Cube3FibreQuery.bend",
+    "sha256": "84320139374f75e7bd8318d7fd104501aa73b2bed690fb31aa9f94751e467ab8",
+    "size": 1724
+  },
+  "research/rubiks_cube/Cube3Optimization.bend": {
+    "snapshot": "/Users/avikjain/repo-backups/recovery-20260922/late-writes/20260923T032552Z/research/rubiks_cube/Cube3Optimization.bend",
+    "sha256": "324d03978ef9c3af5b217263a036c39cc48e2f6d6ecc03b642a8acd7fa3dc379",
+    "size": 4294
+  },
+  "research/rubiks_cube/WORKLOG.md": {
+    "snapshot": "/Users/avikjain/repo-backups/recovery-20260922/late-writes/20260923T032552Z/research/rubiks_cube/WORKLOG.md",
+    "sha256": "964d8974fc5a7aa5578fc5c3064867d547bde6656bffa9018c4c8aaac7255842",
+    "size": 982
+  }
+}

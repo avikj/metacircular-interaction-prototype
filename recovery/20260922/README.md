@@ -75,3 +75,13 @@ v0.9 through an explicit local library file; no global configuration was changed
 
 This is an integration recovery, not a claim that every repository experiment or
 every unfinished local feature now passes its full test suite.
+
+## Late writes captured before cutover
+
+The final stability check caught changes after the initial backup. These were
+snapshotted separately, hashed and integrated before retrying the switch.
+The initial verified backup remains unchanged. See `accepted-late-writes.json`.
+
+- `research/rubiks_cube/Cube3FibreQuery.bend`
+- `research/rubiks_cube/Cube3Optimization.bend`
+- `research/rubiks_cube/WORKLOG.md`
