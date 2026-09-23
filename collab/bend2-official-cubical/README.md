@@ -336,6 +336,40 @@ used twice is a template parameter (`~f`: a template is a theorem, a
 closure is affine). `Equiv.from_iso` and the fibre law are written that
 way.
 
+## The second fork, and what it is for
+
+This one is the adoption case: the smallest cubical core that the public
+Bend 2 can take, against upstream's own issues and its own test suite.
+`collab/bend2-interactive-cubical/` is the other half of the argument -- the
+same theory taken as far as it goes, on DKormann/Bend2 and the HVM runtime:
+general `hcomp`, `Glue`, higher inductive types by a general schema, set
+quotients, genuine coinduction, and transport that runs on interaction nets.
+It exists to answer "does this scale past the demo", and it is built and run
+by one command (`run.sh`), 118 files.
+
+Three things it has established that bear on this document, each measured
+against the built checker rather than argued:
+
+- **Regularity is decided up to conversion, not syntax.** `coe` fires the
+  identity rule when the line, applied at a marker dimension and normalised,
+  no longer mentions it. `regularity.bend` shows lines that mention the
+  dimension in the source and still transport as the identity: through a
+  definition that discards it, under a De Morgan meet `k /\ -k` (its own
+  element, not `i0`), through an `hcomp` whose faces and cap agree where
+  `k \/ -k` is not `i1`, and through a `Glue` of identity equivalences.
+  This is where Cubical Agda puts `transp`'s side condition too.
+- **The whole lane is total or productive, and now gated.** `suite.sh` runs
+  every file under `--total`; 114 of 118 are `[total]` or `[productive]`
+  throughout, and the four that are not are registered and deliberate.
+- **Univalence needs one construction, not two.** The Glue line gives
+  `ua`'s computation rules definitionally in both directions, so the
+  primitive earns nothing in the checker. What kept it alive was the
+  runtime: `isSetLine` decided which path lambdas become a `(fwd, bwd)`
+  pair and did not list `Glue`, so a CCHM univalence path emitted as an
+  empty superposition -- silently. `glue-emit.patch` fixes that in both
+  emitters. The bug had hidden because the obvious test equivalence is
+  negation, which is its own inverse.
+
 ## What is left
 
 - A composition or glue whose face is a dimension *variable* in live code
@@ -344,7 +378,10 @@ way.
   `cubical.lean` specifies the fragment's rules and proves the interval,
   but canonicity for `coe`/`hcomp`/`Glue`, the kind rule for proof-valued
   functions with its positivity condition, and the guarded self-call are
-  stated, not proved.
+  stated, not proved. Canonicity for full CCHM is Huber's thesis, and no
+  language ships with it for its own core; what is missing here is the
+  delimited version -- determinism and subject reduction for the fragment
+  §6 already states -- not the open problem.
 - The emitter is not a term of the language: ownership is now decided by
   kinds for reads, but sealing still relies on the hot walk, and the
   lowering as a whole is trusted, not proved.
