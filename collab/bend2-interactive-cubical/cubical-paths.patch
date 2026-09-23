@@ -6287,6 +6287,14 @@ index 0000000..c1d7d4f
 +    Con h tl       -> "#Con{" ++ go d h ++ ", " ++ go d tl ++ "}"
 +    Val (U64_V v)  -> show v
 +    Val (CHR_V c)  -> "'" ++ [c] ++ "'"
++    -- Every other literal used to emit as "0" through a silent catch-all, so
++    -- an I64 program compiled to a program about zero and nothing said so.
++    -- HVM4 numbers are unsigned 32-bit and have no negative literal syntax,
++    -- so a negative is emitted as a subtraction and wraps mod 2^32 at
++    -- runtime -- a limitation that is now visible instead of a zero.
++    Val (I64_V v)  -> if v >= 0 then show v else "(0 - " ++ show (negate v) ++ ")"
++    Val (F64_V v)  -> error ("HVM4 emitter: F64 literal " ++ show v
++                             ++ " has no runtime representation")
 +    Val _          -> "0"
 +    Sym s          -> "#" ++ s
 +
