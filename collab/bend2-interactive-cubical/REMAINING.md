@@ -139,14 +139,31 @@ written **twice**, once in `whnfHCm` and once in `Target/HVM4Full.hs`.
 
 ## F. Not code — the honest caveats
 
-- **Regularity is a syntactic heuristic.** `whnfCoe` decides "constant line,
-  transport is the identity" by `not (occursMarker body)` — if the dimension
-  variable does not literally occur. Sound but incomplete: a line that is
-  semantically constant while mentioning `i` is not recognised.
+- **Regularity is decided up to conversion, not syntactically.** The earlier
+  wording here ("if the dimension variable does not literally occur") was
+  wrong about the code. `whnfCoe` applies the line to a marker dimension,
+  NORMALISES, and fires the identity rule when the marker is gone from the
+  normal form. `regularity.bend` pins what that buys, with every case
+  mentioning the dimension in the source and transporting as the identity
+  anyway: through a definition that discards it; under a De Morgan meet
+  `k ∧ ¬k`, which is its own element and not `i0`; through an `hcomp` whose
+  two tube faces and cap all agree, where `k ∨ ¬k` is not `i1` so no true
+  face collapses it; and through a `Glue` whose faces are identity
+  equivalences. The real boundary is that constancy is decided up to the
+  checker's conversion relation, which is where every cubical implementation
+  puts it — Cubical Agda checks `transp`'s side condition the same way.
 - **No canonicity or normalisation theorem** for the layer. The rules were
   implemented and tested against the must-fail suite, never proved sound.
-- **Two univalences coexist:** the primitive `Ua` constructor and `uaG`
-  derived from `Glue`. They agree on the tested cases; nothing forces that.
+- **Two univalences coexist, and they are not definitionally equal.**
+  `uaagree.bend` settles the first half of this: checking
+  `ua(A,B,f,g,gf,fg)` against the Glue line with a refl proof reports a
+  mismatch, because `Ua` is a Term constructor of its own rather than
+  notation for `Glue`. So agreement is a theorem, not a coincidence to be
+  checked case by case, and the proof needs the η direction of univalence
+  (`ua(pathToEquiv p) = p`), which this layer does not have. It has β
+  (`roundtrip.bend`) and definitional `uaβ` on transport; from β alone the
+  two paths induce the same equivalence, and concluding they ARE one path is
+  exactly η.
 - **Totality is a `--total` gate, not a typing rule**, and guardedness is a
   syntactic pass.
 
