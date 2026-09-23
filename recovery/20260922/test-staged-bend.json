@@ -1,0 +1,20 @@
+[
+  {
+    "file": "Argmin.bend",
+    "exit": 1,
+    "checks": 242,
+    "rejections": 5
+  },
+  {
+    "file": "RubiksFamily.bend",
+    "exit": 1,
+    "checks": 236,
+    "rejections": 3
+  },
+  {
+    "file": "Cube3ReadoutFull.bend",
+    "exit": 1,
+    "checks": 268,
+    "rejections": 8
+  }
+]

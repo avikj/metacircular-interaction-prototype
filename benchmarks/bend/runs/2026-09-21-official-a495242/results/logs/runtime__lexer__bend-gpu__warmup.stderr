@@ -1,0 +1,19 @@
+bend: compiling the GPU program (/private/tmp/bend-bench-20260921/build/lexer/bend-gpu.gpu is missing or stale)
+        4.77 real         0.00 user         0.10 sys
+            14319616  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                1283  page reclaims
+                   8  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                2247  involuntary context switches
+           671789201  instructions retired
+           397923338  cycles elapsed
+            27591328  peak memory footprint

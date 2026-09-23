@@ -1,0 +1,42 @@
+[
+  {
+    "file": "Argmin.bend",
+    "exit": 1,
+    "rejected_definitions": [
+      "argminWords",
+      "betterWord",
+      "evaluateTwistySpecification",
+      "readoutResidual",
+      "solvedCuboidFaces"
+    ],
+    "same_rejections_as_integrated": true,
+    "normalization": "Invalid bytes removed only from comments in isolated original-source staging copy"
+  },
+  {
+    "file": "RubiksFamily.bend",
+    "exit": 1,
+    "rejected_definitions": [
+      "evaluateTwistySpecification",
+      "readoutResidual",
+      "solvedCuboidFaces"
+    ],
+    "same_rejections_as_integrated": true,
+    "normalization": "Invalid bytes removed only from comments in isolated original-source staging copy"
+  },
+  {
+    "file": "Cube3ReadoutFull.bend",
+    "exit": 1,
+    "rejected_definitions": [
+      "completeReadout3",
+      "evaluateTwistySpecification",
+      "exactDiameter3",
+      "foldCandidates3",
+      "noShorter3",
+      "readoutResidual",
+      "solvedCuboidFaces",
+      "upperDiameter3"
+    ],
+    "same_rejections_as_integrated": true,
+    "normalization": "Invalid bytes removed only from comments in isolated original-source staging copy"
+  }
+]

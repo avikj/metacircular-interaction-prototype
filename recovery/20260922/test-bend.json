@@ -1,0 +1,30 @@
+[
+  {
+    "source": "research/rubiks_cube/Argmin.bend",
+    "exit": 1,
+    "checks": 0,
+    "rejections": 0,
+    "log": "/Users/avikjain/repo-backups/recovery-20260922/test-bend-Argmin.log"
+  },
+  {
+    "source": "research/rubiks_cube/RubiksFamily.bend",
+    "exit": 1,
+    "checks": 0,
+    "rejections": 0,
+    "log": "/Users/avikjain/repo-backups/recovery-20260922/test-bend-RubiksFamily.log"
+  },
+  {
+    "source": "research/rubiks_cube/Cube3ReadoutFull.bend",
+    "exit": 1,
+    "checks": 0,
+    "rejections": 0,
+    "log": "/Users/avikjain/repo-backups/recovery-20260922/test-bend-Cube3ReadoutFull.log"
+  },
+  {
+    "source": "collab/bend2-interactive-cubical/port/SchematicOperation.bend",
+    "exit": 0,
+    "checks": 82,
+    "rejections": 0,
+    "log": "/Users/avikjain/repo-backups/recovery-20260922/test-bend-SchematicOperation.log"
+  }
+]

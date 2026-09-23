@@ -1,0 +1,19 @@
+bend: compiling the GPU program (/private/tmp/bend-bench-20260921/build/tree-matmul/bend-gpu.gpu is missing or stale)
+        0.96 real         0.01 user         0.07 sys
+            14925824  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                1131  page reclaims
+                  24  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                  13  voluntary context switches
+                 237  involuntary context switches
+           648499722  instructions retired
+           273175538  cycles elapsed
+            27968160  peak memory footprint

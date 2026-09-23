@@ -1,0 +1,27 @@
+[
+  {
+    "file": "formal/cubical/Kernel/ControlledGrammar.agda",
+    "exit": 0,
+    "log": "/Users/avikjain/repo-backups/recovery-20260922/agda-formal_cubical_Kernel_ControlledGrammar.agda.log"
+  },
+  {
+    "file": "formal/cubical/Kernel/GenerativeKernel.agda",
+    "exit": 0,
+    "log": "/Users/avikjain/repo-backups/recovery-20260922/agda-formal_cubical_Kernel_GenerativeKernel.agda.log"
+  },
+  {
+    "file": "formal/cubical/kernel-flat/ControlledGrammar.agda",
+    "exit": 0,
+    "log": "/Users/avikjain/repo-backups/recovery-20260922/agda-formal_cubical_kernel-flat_ControlledGrammar.agda.log"
+  },
+  {
+    "file": "formal/cubical/kernel-flat/GenerativeKernel.agda",
+    "exit": 0,
+    "log": "/Users/avikjain/repo-backups/recovery-20260922/agda-formal_cubical_kernel-flat_GenerativeKernel.agda.log"
+  },
+  {
+    "file": "research/sat_fibre/InteractionLedger.agda",
+    "exit": 0,
+    "log": "/Users/avikjain/repo-backups/recovery-20260922/agda-research_sat_fibre_InteractionLedger.agda.log"
+  }
+]

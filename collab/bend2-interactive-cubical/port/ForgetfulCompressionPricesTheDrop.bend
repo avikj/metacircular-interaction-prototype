@@ -1,4 +1,4 @@
-# formal/cubical/kernel/ForgetfulCompressionPricesTheDrop.agda, in Bend.
+# formal/cubical/kernel-flat/ForgetfulCompressionPricesTheDrop.agda, in Bend.
 # The kernel's two histories between the same endpoints have equal image under
 # the semantics (Nat is a set) and provably different length (2 vs 4).
 import GenerativeKernel

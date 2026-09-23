@@ -1,0 +1,18 @@
+       29.28 real        29.04 user         0.34 sys
+            45858816  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                2948  page reclaims
+                  41  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+               31344  involuntary context switches
+        646257136593  instructions retired
+         94820896390  cycles elapsed
+            31326784  peak memory footprint

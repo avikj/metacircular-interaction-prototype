@@ -1,0 +1,6 @@
+local/
+work/
+__pycache__/
+# Raw run evidence must survive the repository-wide log ignore rules.
+!runs/**/*.jsonl
+!runs/**/*.log

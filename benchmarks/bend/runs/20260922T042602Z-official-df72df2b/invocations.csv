@@ -1,0 +1,5 @@
+suite,bench,lane,phase,status,wall_s,max_rss_mib,output_match
+runtime,bfs,bend,emit-c,ok,0.0953296669999999,85.9375,
+runtime,bfs,bend-cpu,build,ok,0.4398543749999999,57.765625,
+runtime,bfs,bend-seq,warmup,ok,4.434854416,1.84375,True
+runtime,bfs,bend-seq,timed,ok,4.013878125,1.84375,True

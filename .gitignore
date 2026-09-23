@@ -139,3 +139,14 @@ formal/cubical/corpus/identity-rows.tsv
 formal/cubical/corpus/corpus-rows.tsv
 CorpusProbe.generated.agda
 formal/cubical/CensusB.agda*
+
+# Machine-local toolchains, datasets and nested development checkouts.
+# Preserved by the verified recovery-20260922 backup; existing tracked files stay tracked.
+/research/biology_exact/build/
+/research/biology_exact/data/*.h5ad
+/research/term-atlas/build/
+/research/codebase-ui/
+/research/unison-desktop/
+/research/unison-local-ui/
+.unisonHistory
+.DS_Store

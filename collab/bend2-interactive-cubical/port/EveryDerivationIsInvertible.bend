@@ -1,4 +1,4 @@
-# formal/cubical/kernel/EveryDerivationIsInvertible.agda, in Bend: the calculus is a groupoid, reversal is grade-preserving.
+# formal/cubical/kernel-flat/EveryDerivationIsInvertible.agda, in Bend: the calculus is a groupoid, reversal is grade-preserving.
 import RewriteCertificate
 
 def len(a: Tm, b: Tm, d: Derivation(a, b)) -> Nat:

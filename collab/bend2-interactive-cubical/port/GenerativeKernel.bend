@@ -1,4 +1,4 @@
-# formal/cubical/kernel/GenerativeKernel.agda, in Bend: two derivations, one output.
+# formal/cubical/kernel-flat/GenerativeKernel.agda, in Bend: two derivations, one output.
 import ControlledGrammar
 
 type Branch(seed: Tm):

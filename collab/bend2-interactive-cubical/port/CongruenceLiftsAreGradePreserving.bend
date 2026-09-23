@@ -1,4 +1,4 @@
-# formal/cubical/kernel/CongruenceLiftsAreGradePreserving.agda, in Bend.
+# formal/cubical/kernel-flat/CongruenceLiftsAreGradePreserving.agda, in Bend.
 # The engine under every cost lemma: a derivation lifts under any one-hole
 # context (suc _, add _ z, add z _) step by step, and the lift preserves length.
 import RewriteCertificate

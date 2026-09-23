@@ -1,0 +1,19 @@
+ld64.lld: warning: directory not found for option -L/usr/local/lib
+        0.53 real         0.14 user         0.06 sys
+           146620416  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               13169  page reclaims
+                5639  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                  24  voluntary context switches
+                2657  involuntary context switches
+           248185100  instructions retired
+            77950599  cycles elapsed
+            10650272  peak memory footprint

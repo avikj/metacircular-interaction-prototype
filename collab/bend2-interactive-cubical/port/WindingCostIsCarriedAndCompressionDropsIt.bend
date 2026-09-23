@@ -1,4 +1,4 @@
-# formal/cubical/kernel/WindingCostIsCarriedAndCompressionDropsIt.agda, in Bend.
+# formal/cubical/kernel-flat/WindingCostIsCarriedAndCompressionDropsIt.agda, in Bend.
 # The winding derivation is sound (its endpoints compress to one value) yet
 # carries length n+1: the cost lives in the trace, and the compression drops it.
 import TheCompressionIsTheForgetfulProjection

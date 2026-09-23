@@ -1,4 +1,4 @@
-# formal/cubical/kernel/PvsNPGapLivesInTheForgetfulProjection.agda, in Bend.
+# formal/cubical/kernel-flat/PvsNPGapLivesInTheForgetfulProjection.agda, in Bend.
 import GenerativeKernel
 
 # §1 the carried model has no gap: the answer is projection, definitionally

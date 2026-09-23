@@ -1,0 +1,1819 @@
+<!DOCTYPE html>
+<html prefix="dc: http://purl.org/dc/terms/ mw: http://mediawiki.org/rdf/" about="//en.wikipedia.org/wiki/Special:Redirect/revision/1375171780"><head prefix="mwr: //en.wikipedia.org/wiki/Special:Redirect/"><base href="https://en.wikipedia.org/wiki/" target="_blank"><meta charset="utf-8"><style>html{color-scheme:light}body{margin:0 auto!important;padding:18px!important;max-width:100%!important;font:14px/1.65 Georgia,serif!important;color:#202820!important;background:#fffefb!important;overflow-wrap:anywhere}h1,h2,h3{font-family:Georgia,serif;line-height:1.3}h1{font-size:28px}h2{font-size:23px;border-bottom:1px solid #ddd;padding-top:18px}h3{font-size:18px}a{color:#315778}img{max-width:100%;height:auto}.infobox{float:none!important;width:100%!important;font-size:12px;border:1px solid #ddd;padding:10px}.sidebar,.navbox,.metadata,.mw-editsection{display:none}figure{margin:12px 0}table{max-width:100%;font-size:12px}math{font-size:1em}.mwe-math-fallback-image-inline{vertical-align:middle}pre{white-space:pre-wrap}.reflist{font-size:11px}.mwe-math-mathml-a11y{display:inline!important;position:static!important;clip:auto!important;width:auto!important;height:auto!important;overflow:visible!important}.mwe-math-mathml-display{display:block!important}.mwe-math-element:has(math) .mwe-math-fallback-image-inline,.mwe-math-element:has(math) .mwe-math-fallback-image-display{display:none!important}</style><meta charset="utf-8"><link rel="dc:replaces" resource="mwr:revision/1330530056"><meta property="mw:revisionSHA1" content="6rvevosa9iny0mdmbsm1ptojnd278ax"><meta property="dc:modified" content="2026-09-16T05:48:35Z"><meta property="mw:pageNamespace" content="0"><meta property="mw:pageId" content="964161"><meta property="mw:htmlVersion" content="2.8.0"><meta property="mw:html:version" content="2.8.0"><link rel="dc:isVersionOf" href="//en.wikipedia.org/wiki/Modulus_of_continuity"><title>Modulus of continuity</title><meta property="mw:jsConfigVars" content="{&quot;wgParsoidHtmlVersion&quot;:&quot;2.8.0&quot;}"><meta property="mw:generalModules" content="ext.math.polyfills|ext.cite.ux-enhancements"><meta property="mw:moduleStyles" content="ext.math.styles|ext.cite.parsoid.styles|ext.cite.styles|mediawiki.skinning.content.parsoid"></head><body class="mw-content-ltr sitedir-ltr ltr mw-body-content mediawiki mw-parser-output parsoid-body" lang="en" dir="ltr" data-mw-parsoid-version="0.24.0.0-alpha22" data-mw-html-version="2.8.0"><section data-mw-section-id="0" id="mwAQ"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none" about="#mwt1" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Short description&quot;,&quot;href&quot;:&quot;./Template:Short_description&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;Function in mathematical analysis&quot;}},&quot;i&quot;:0}}]}" id="mwAg">Function in mathematical analysis</div><span class="mw-empty-elt" about="#mwt1"><link rel="mw:PageProp/Category" href="./Category:Articles_with_short_description"><link rel="mw:PageProp/Category" href="./Category:Short_description_is_different_from_Wikidata"></span>
+<span class="mw-empty-elt" about="#mwt2" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;disputed&quot;,&quot;href&quot;:&quot;./Template:Disputed&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;The definition given does not match the one common in the literature?&quot;},&quot;date&quot;:{&quot;wt&quot;:&quot;November 2023&quot;}},&quot;i&quot;:0}}]}" id="mwAw"><style data-mw-deduplicate="TemplateStyles:r1364180890" typeof="mw:Extension/templatestyles" about="#mwt3" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Message box/ambox.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}">.mw-parser-output .ambox{border:1px solid #a2a9b1;border-left:10px solid #36c;background-color:#fbfbfb;box-sizing:border-box}.mw-parser-output .ambox+.mw-empty-elt+.ambox,.mw-parser-output .ambox+.mw-empty-elt+.mw-empty-elt+.ambox,.mw-parser-output .ambox+.mw-empty-elt+.mw-empty-elt+.mw-empty-elt+.ambox{margin-top:-1px}html body.mediawiki .mw-parser-output .ambox.mbox-small-left{margin:4px 1em 4px 0;overflow:hidden;width:238px;border-collapse:collapse;font-size:88%;line-height:1.25em}.mw-parser-output .ambox-speedy{border-left:10px solid #b32424;background-color:#fee7e6}.mw-parser-output .ambox-delete{border-left:10px solid #b32424}.mw-parser-output .ambox-content{border-left:10px solid #f28500}.mw-parser-output .ambox-style{border-left:10px solid #fc3}.mw-parser-output .ambox-move{border-left:10px solid #9932cc}.mw-parser-output .ambox-protection{border-left:10px solid #a2a9b1}.mw-parser-output .ambox .mbox-text{border:none;padding:0.25em 0.5em;width:100%}.mw-parser-output .ambox .mbox-image{border:none;padding:2px 0 2px 0.5em;text-align:center}.mw-parser-output .ambox .mbox-imageright{border:none;padding:2px 0.5em 2px 0;text-align:center}.mw-parser-output .ambox .mbox-empty-cell{border:none;padding:0;width:1px}.mw-parser-output .ambox .mbox-image-div{width:52px}@media(min-width:720px){.mw-parser-output .ambox{margin:0 10%}}@media print{body.ns-0 .mw-parser-output .ambox{display:none!important}}</style></span><table class="box-Disputed plainlinks metadata ambox ambox-content ambox-disputed" role="presentation" about="#mwt2"><tbody><tr><td class="mbox-image"><div class="mbox-image-div"><span typeof="mw:File"><span><img resource="./File:System-search.svg" src="//thumb.wikimedia.org/wikipedia/commons/thumb/1/17/System-search.svg/60px-System-search.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail" decoding="async" loading="lazy" srcset="//thumb.wikimedia.org/wikipedia/commons/thumb/1/17/System-search.svg/120px-System-search.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x" alt="" data-file-width="48" data-file-height="48" data-file-type="drawing" height="45" width="45" class="mw-file-element"></span></span></div></td><td class="mbox-text"><div class="mbox-text-span">This article's <b>factual accuracy is <a rel="mw:WikiLink" href="./Wikipedia:Accuracy_dispute" title="Wikipedia:Accuracy dispute">disputed</a></b>.<span class="hide-when-compact"> Relevant discussion may be found on the <a rel="mw:WikiLink" href="./Talk:Modulus_of_continuity#The_definition_given_does_not_match_the_one_common_in_the_literature?" title="Talk:Modulus of continuity">talk page</a>. Please help to ensure that disputed statements are <a rel="mw:WikiLink" href="./Wikipedia:Reliable_sources" title="Wikipedia:Reliable sources">reliably sourced</a>.</span>  <span class="date-container"><i>(<span class="date">November 2023</span>)</i></span><span class="hide-when-compact"><i> (<small><a rel="mw:WikiLink" href="./Help:Maintenance_template_removal" title="Help:Maintenance template removal">Learn how and when to remove this message</a></small>)</i></span></div></td></tr></tbody></table><span class="mw-empty-elt" about="#mwt2"><link rel="mw:PageProp/Category" href="./Category:Accuracy_disputes_from_November_2023"><link rel="mw:PageProp/Category" href="./Category:All_accuracy_disputes"></span>
+<p id="mwBA">In <a rel="mw:WikiLink" href="./Mathematical_analysis" title="Mathematical analysis" id="mwBQ">mathematical analysis</a>, a <b id="mwBg">modulus of continuity</b> is a function ω<span typeof="mw:DisplaySpace" id="mwBw"> </span>: [0, ∞] → [0, ∞] used to measure quantitatively the <a rel="mw:WikiLink" href="./Uniform_continuity" title="Uniform continuity" id="mwCA">uniform continuity</a> of functions. So, a function <i id="mwCQ">f</i><span typeof="mw:DisplaySpace" id="mwCg"> </span>: <i id="mwCw">I</i> → <b id="mwDA">R</b> admits ω as a modulus of continuity if</p>
+<dl id="mwDQ"><dd id="mwDg"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt4" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;|f(x)-f(y)|\\leq\\omega(|x-y|),&quot;}}" id="mwDw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle |f(x)-f(y)|\leq \omega (|x-y|),}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>−</mo>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mo>≤</mo>
+        <mi>ω</mi>
+        <mo stretchy="false">(</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>x</mi>
+        <mo>−</mo>
+        <mi>y</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mo stretchy="false">)</mo>
+        <mo>,</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle |f(x)-f(y)|\leq \omega (|x-y|),}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0352d5080a7cffe47e4cb400fccdbe395f480fd3" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:26.415ex; height:2.843ex;" alt="{\displaystyle |f(x)-f(y)|\leq \omega (|x-y|),}"></span></dd></dl>
+<p id="mwEA">for all <i id="mwEQ">x</i> and <i id="mwEg">y</i> in the domain of <i id="mwEw">f</i>. Since moduli of continuity are required to be infinitesimal at 0, a function turns out to be uniformly continuous <a rel="mw:WikiLink" href="./If_and_only_if" title="If and only if" id="mwFA">if and only if</a> it admits a modulus of continuity. Moreover, relevance to the notion is given by the fact that sets of functions sharing the same modulus of continuity are exactly <a rel="mw:WikiLink" href="./Equicontinuity" title="Equicontinuity" id="mwFQ">equicontinuous families</a>. For instance, the modulus ω(<i id="mwFg">t</i>)<span typeof="mw:DisplaySpace" id="mwFw"> </span>:= <i id="mwGA">kt</i> describes the k-<a rel="mw:WikiLink" href="./Lipschitz_functions" title="Lipschitz functions" class="mw-redirect" id="mwGQ">Lipschitz functions</a>, the moduli ω(<i id="mwGg">t</i>)<span typeof="mw:DisplaySpace" id="mwGw"> </span>:= <i id="mwHA">kt</i><sup id="mwHQ">α</sup> describe the <a rel="mw:WikiLink" href="./Hölder_continuity" title="Hölder continuity" class="mw-redirect" id="mwHg">Hölder continuity</a>, the modulus ω(<i id="mwHw">t</i>)<span typeof="mw:DisplaySpace" id="mwIA"> </span>:= <i id="mwIQ">kt</i>(|log <i id="mwIg">t</i>|+1) describes the <b id="mwIw">almost Lipschitz</b> class, and so on. In general, the role of ω is to fix some explicit functional dependence of ε on δ in the <a rel="mw:WikiLink" href="./(ε,_δ)-definition_of_limit#Uniform_continuity" title="(ε, δ)-definition of limit" class="mw-redirect" id="mwJA">(ε, δ) definition of uniform continuity</a>. The same notions generalize naturally to functions between <a rel="mw:WikiLink" href="./Metric_space" title="Metric space" id="mwJQ">metric spaces</a>. Moreover, a suitable local version of these notions allows to describe quantitatively the continuity at a point in terms of moduli of continuity.</p>
+
+<p id="mwJg">A special role is played by concave moduli of continuity, especially in connection with extension properties, and with approximation of <a rel="mw:WikiLink" href="./Uniform_continuity" title="Uniform continuity" id="mwJw">uniformly continuous functions</a>. For a function between metric spaces, it is equivalent to admit a modulus of continuity that is either concave, or subadditive, or uniformly continuous, or sublinear (in the sense of <a rel="mw:WikiLink" href="./Linear_growth" title="Linear growth" class="mw-redirect" id="mwKA">growth</a>). Actually, the existence of such special moduli of continuity for a uniformly continuous function is always ensured whenever the domain is either a compact, or a convex subset of a <a rel="mw:WikiLink" href="./Normed_vector_space" title="Normed vector space" id="mwKQ">normed space</a>. However, a uniformly continuous function on a general metric space admits a concave modulus of continuity if and only if the ratios</p>
+
+<dl id="mwKg"><dd id="mwKw"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt5" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\frac{d_Y(f(x),f(x&#x27;))}{d_X(x,x&#x27;)}&quot;}}" id="mwLA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle {\frac {d_{Y}(f(x),f(x&#x27;))}{d_{X}(x,x&#x27;)}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <msub>
+                <mi>d</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>Y</mi>
+                </mrow>
+              </msub>
+              <mo stretchy="false">(</mo>
+              <mi>f</mi>
+              <mo stretchy="false">(</mo>
+              <mi>x</mi>
+              <mo stretchy="false">)</mo>
+              <mo>,</mo>
+              <mi>f</mi>
+              <mo stretchy="false">(</mo>
+              <msup>
+                <mi>x</mi>
+                <mo>′</mo>
+              </msup>
+              <mo stretchy="false">)</mo>
+              <mo stretchy="false">)</mo>
+            </mrow>
+            <mrow>
+              <msub>
+                <mi>d</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>X</mi>
+                </mrow>
+              </msub>
+              <mo stretchy="false">(</mo>
+              <mi>x</mi>
+              <mo>,</mo>
+              <msup>
+                <mi>x</mi>
+                <mo>′</mo>
+              </msup>
+              <mo stretchy="false">)</mo>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\frac {d_{Y}(f(x),f(x'))}{d_{X}(x,x')}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7f1e347319057db1c70afcdd850184fd9c645070" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.671ex; width:15.894ex; height:6.509ex;" alt="{\displaystyle {\frac {d_{Y}(f(x),f(x&#x27;))}{d_{X}(x,x&#x27;)}}}"></span></dd></dl>
+
+<p id="mwLQ">are uniformly bounded for all pairs (<i id="mwLg">x</i>, <i id="mwLw">x</i>′) bounded away from the diagonal of <i id="mwMA">X x X</i>. The functions with the latter property constitute a special subclass of the uniformly continuous functions, that in the following we refer to as the <i id="mwMQ">special uniformly continuous</i> functions. Real-valued special uniformly continuous functions on the metric space <i id="mwMg">X</i> can also be characterized as the set of all functions that are restrictions to <i id="mwMw">X</i> of uniformly continuous functions over any normed space isometrically containing <i id="mwNA">X</i>. Also, it can be characterized as the uniform closure of the Lipschitz functions on <i id="mwNQ">X</i>.</p>
+
+<meta property="mw:PageProp/toc" data-mw="{&quot;autoGenerated&quot;:true}" id="mwNg"></section><section data-mw-section-id="1" id="mwNw"><h2 id="Formal_definition">Formal definition</h2>
+<p id="mwOA">Formally, a modulus of continuity is any increasing real-extended valued function ω<span typeof="mw:DisplaySpace" id="mwOQ"> </span>: [0, ∞] → [0, ∞], vanishing at 0 and continuous at 0, that is</p>
+<dl id="mwOg"><dd id="mwOw"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt6" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\lim_{t\\to0}\\omega(t)=\\omega(0)=0.&quot;}}" id="mwPA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \lim _{t\to 0}\omega (t)=\omega (0)=0.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <munder>
+          <mo movablelimits="true" form="prefix">lim</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+            <mo stretchy="false">→</mo>
+            <mn>0</mn>
+          </mrow>
+        </munder>
+        <mi>ω</mi>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>ω</mi>
+        <mo stretchy="false">(</mo>
+        <mn>0</mn>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mn>0.</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \lim _{t\to 0}\omega (t)=\omega (0)=0.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/047144003ceff9e19477611e139c681a6155c1c5" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.005ex; width:20.135ex; height:4.009ex;" alt="{\displaystyle \lim _{t\to 0}\omega (t)=\omega (0)=0.}"></span></dd></dl>
+
+<p id="mwPQ">Moduli of continuity are mainly used to give a quantitative account both of the continuity at a point, and of the uniform continuity, for functions between metric spaces, according to the following definitions.</p>
+
+<p id="mwPg">A function <i id="mwPw">f</i><span typeof="mw:DisplaySpace" id="mwQA"> </span>: (<i id="mwQQ">X</i>, <i id="mwQg">d<sub id="mwQw">X</sub></i>) → (<i id="mwRA">Y</i>, <i id="mwRQ">d<sub id="mwRg">Y</sub></i>) admits ω as (local) modulus of continuity at the point <i id="mwRw">x</i> in <i id="mwSA">X</i> if and only if,</p>
+<dl id="mwSQ"><dd id="mwSg"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt7" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\forall x&#x27;\\in X: d_Y(f(x),f(x&#x27;))\\leq\\omega(d_X(x,x&#x27;)).&quot;}}" id="mwSw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \forall x&#x27;\in X:d_{Y}(f(x),f(x&#x27;))\leq \omega (d_{X}(x,x&#x27;)).}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">∀</mi>
+        <msup>
+          <mi>x</mi>
+          <mo>′</mo>
+        </msup>
+        <mo>∈</mo>
+        <mi>X</mi>
+        <mo>:</mo>
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>Y</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>,</mo>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>x</mi>
+          <mo>′</mo>
+        </msup>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+        <mo>≤</mo>
+        <mi>ω</mi>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>X</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <msup>
+          <mi>x</mi>
+          <mo>′</mo>
+        </msup>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \forall x'\in X:d_{Y}(f(x),f(x'))\leq \omega (d_{X}(x,x')).}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/92ee594e345b5093e82dbfbcac3a03055073dc8d" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:41.152ex; height:3.009ex;" alt="{\displaystyle \forall x&#x27;\in X:d_{Y}(f(x),f(x&#x27;))\leq \omega (d_{X}(x,x&#x27;)).}"></span></dd></dl>
+<p id="mwTA">Also, <i id="mwTQ">f</i> admits ω as (global) modulus of continuity if and only if,</p>
+<dl id="mwTg"><dd id="mwTw"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt8" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\forall x,x&#x27;\\in X: d_Y(f(x),f(x&#x27;))\\leq\\omega(d_X(x,x&#x27;)).&quot;}}" id="mwUA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \forall x,x&#x27;\in X:d_{Y}(f(x),f(x&#x27;))\leq \omega (d_{X}(x,x&#x27;)).}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">∀</mi>
+        <mi>x</mi>
+        <mo>,</mo>
+        <msup>
+          <mi>x</mi>
+          <mo>′</mo>
+        </msup>
+        <mo>∈</mo>
+        <mi>X</mi>
+        <mo>:</mo>
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>Y</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>,</mo>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>x</mi>
+          <mo>′</mo>
+        </msup>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+        <mo>≤</mo>
+        <mi>ω</mi>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>X</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <msup>
+          <mi>x</mi>
+          <mo>′</mo>
+        </msup>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \forall x,x'\in X:d_{Y}(f(x),f(x'))\leq \omega (d_{X}(x,x')).}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a119c589293dc7511876993274f71164d51fdc72" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:43.516ex; height:3.009ex;" alt="{\displaystyle \forall x,x&#x27;\in X:d_{Y}(f(x),f(x&#x27;))\leq \omega (d_{X}(x,x&#x27;)).}"></span></dd></dl>
+<p id="mwUQ">One equivalently says that ω is a modulus of continuity (resp., at <i id="mwUg">x</i>) for <i id="mwUw">f</i>, or shortly, <i id="mwVA">f</i> is ω-continuous (resp., at <i id="mwVQ">x</i>). Here, we mainly treat the global notion.</p>
+
+<section data-mw-section-id="2" id="mwVg"><h3 id="Elementary_facts">Elementary facts</h3>
+<ul id="mwVw"><li id="mwWA">If <i id="mwWQ">f</i> has ω as modulus of continuity and ω<sub id="mwWg">1</sub> ≥ ω, then <i id="mwWw">f</i> admits ω<sub id="mwXA">1</sub> too as modulus of continuity.</li>
+<li id="mwXQ">If <i id="mwXg">f</i><span typeof="mw:DisplaySpace" id="mwXw"> </span>: <i id="mwYA">X</i> → <i id="mwYQ">Y</i> and <i id="mwYg">g</i><span typeof="mw:DisplaySpace" id="mwYw"> </span>: <i id="mwZA">Y</i> → <i id="mwZQ">Z</i> are functions between metric spaces with moduli respectively ω<sub id="mwZg">1</sub> and ω<sub id="mwZw">2</sub> then the composition map <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt9" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;g\\circ f:X\\to Z&quot;}}" id="mwaA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle g\circ f:X\to Z}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>g</mi>
+        <mo>∘</mo>
+        <mi>f</mi>
+        <mo>:</mo>
+        <mi>X</mi>
+        <mo stretchy="false">→</mo>
+        <mi>Z</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle g\circ f:X\to Z}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5e5cfd853da7199884ac0460cecd0b281f9846d6" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:13.801ex; height:2.509ex;" alt="{\displaystyle g\circ f:X\to Z}"></span> has modulus of continuity <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt10" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\omega_2\\circ\\omega_1&quot;}}" id="mwaQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \omega _{2}\circ \omega _{1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>ω</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>∘</mo>
+        <msub>
+          <mi>ω</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \omega _{2}\circ \omega _{1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/da8e9d25c3797aca47868b1c8fdc85a9053b8ada" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:7.195ex; height:2.009ex;" alt="{\displaystyle \omega _{2}\circ \omega _{1}}"></span>.</li>
+<li id="mwag">If <i id="mwaw">f</i> and <i id="mwbA">g</i> are functions from the metric space X to the Banach space <i id="mwbQ">Y</i>, with moduli respectively ω<sub id="mwbg">1</sub> and ω<sub id="mwbw">2</sub>, then any linear combination <i id="mwcA">af</i>+<i id="mwcQ">bg</i> has modulus of continuity |<i id="mwcg">a</i>|ω<sub id="mwcw">1</sub>+|<i id="mwdA">b</i>|ω<sub id="mwdQ">2</sub>. The set of all functions from <i id="mwdg">X</i> to <i id="mwdw">Y</i> that have ω as a modulus of continuity is a convex subset of the vector space <i id="mweA">C</i>(<i id="mweQ">X</i>, <i id="mweg">Y</i>), closed under <a rel="mw:WikiLink" href="./Pointwise_convergence" title="Pointwise convergence" id="mwew">pointwise convergence</a>.</li>
+<li id="mwfA">If <i id="mwfQ">f</i> and <i id="mwfg">g</i> are bounded real-valued functions on the metric space <i id="mwfw">X</i>, with moduli respectively ω<sub id="mwgA">1</sub> and ω<sub id="mwgQ">2</sub>, then the pointwise product <i id="mwgg">fg</i> has modulus of continuity <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt11" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\|g\\|_\\infty\\omega_1+\\|f\\|_\\infty \\omega_2&quot;}}" id="mwgw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \|g\|_{\infty }\omega _{1}+\|f\|_{\infty }\omega _{2}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">‖</mo>
+        <mi>g</mi>
+        <msub>
+          <mo fence="false" stretchy="false">‖</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="normal">∞</mi>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>ω</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>+</mo>
+        <mo fence="false" stretchy="false">‖</mo>
+        <mi>f</mi>
+        <msub>
+          <mo fence="false" stretchy="false">‖</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="normal">∞</mi>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>ω</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \|g\|_{\infty }\omega _{1}+\|f\|_{\infty }\omega _{2}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/bab4c579360e5c87bceb6b34e26345002c0ca04e" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:18.636ex; height:2.843ex;" alt="{\displaystyle \|g\|_{\infty }\omega _{1}+\|f\|_{\infty }\omega _{2}}"></span>.</li>
+<li id="mwhA">If <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt12" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\{f_\\lambda\\}_{\\lambda\\in\\Lambda}&quot;}}" id="mwhQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \{f_{\lambda }\}_{\lambda \in \Lambda }}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <msub>
+          <mi>f</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>λ</mi>
+          </mrow>
+        </msub>
+        <msub>
+          <mo fence="false" stretchy="false">}</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>λ</mi>
+            <mo>∈</mo>
+            <mi mathvariant="normal">Λ</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{f_{\lambda }\}_{\lambda \in \Lambda }}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/878a66df9b673f35b8396ae7d6784cd12ae98b4c" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:8.082ex; height:2.843ex;" alt="{\displaystyle \{f_{\lambda }\}_{\lambda \in \Lambda }}"></span> is a family of real-valued functions on the metric space <i id="mwhg">X</i> with common modulus of continuity ω, then the inferior envelope <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt13" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\inf_{\\lambda\\in\\Lambda}f_\\lambda&quot;}}" id="mwhw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \inf _{\lambda \in \Lambda }f_{\lambda }}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <munder>
+          <mo movablelimits="true" form="prefix">inf</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>λ</mi>
+            <mo>∈</mo>
+            <mi mathvariant="normal">Λ</mi>
+          </mrow>
+        </munder>
+        <msub>
+          <mi>f</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>λ</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \inf _{\lambda \in \Lambda }f_{\lambda }}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a834924ed74c84a17a6fef51692cb454c157a73c" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.171ex; width:5.912ex; height:4.009ex;" alt="{\displaystyle \inf _{\lambda \in \Lambda }f_{\lambda }}"></span>, respectively, the superior envelope <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt14" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\sup_{\\lambda\\in\\Lambda}f_\\lambda&quot;}}" id="mwiA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \sup _{\lambda \in \Lambda }f_{\lambda }}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <munder>
+          <mo movablelimits="true" form="prefix">sup</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>λ</mi>
+            <mo>∈</mo>
+            <mi mathvariant="normal">Λ</mi>
+          </mrow>
+        </munder>
+        <msub>
+          <mi>f</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>λ</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \sup _{\lambda \in \Lambda }f_{\lambda }}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b5f9dd441f82e9b2efb918578143fb3be8774270" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.505ex; width:6.218ex; height:4.343ex;" alt="{\displaystyle \sup _{\lambda \in \Lambda }f_{\lambda }}"></span>, is a <a rel="mw:WikiLink" href="./Real-valued_function" title="Real-valued function" id="mwiQ">real-valued function</a> with modulus of continuity ω, provided it is finite valued at every point. If ω is real-valued, it is sufficient that the envelope be finite at one point of <i id="mwig">X</i> at least.</li></ul>
+
+</section><section data-mw-section-id="3" id="mwiw"><h3 id="Remarks">Remarks</h3>
+<ul id="mwjA"><li id="mwjQ">Some authors do not require monotonicity, and some require additional properties such as ω being continuous. However, if f admits a modulus of continuity in the weaker definition, it also admits a modulus of continuity which is increasing and infinitely differentiable in (0, ∞). For instance, <span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt15" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;block&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\omega_1(t) := \\sup_{s\\leq t}\\omega(s)&quot;}}" id="mwjg"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle \omega _{1}(t):=\sup _{s\leq t}\omega (s)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>ω</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mo stretchy="false">)</mo>
+        <mo>:=</mo>
+        <munder>
+          <mo movablelimits="true" form="prefix">sup</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>s</mi>
+            <mo>≤</mo>
+            <mi>t</mi>
+          </mrow>
+        </munder>
+        <mi>ω</mi>
+        <mo stretchy="false">(</mo>
+        <mi>s</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \omega _{1}(t):=\sup _{s\leq t}\omega (s)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/06ca7740efd35bcd89008631a64760b7700eb784" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.671ex; width:17.128ex; height:4.676ex;" alt="{\displaystyle \omega _{1}(t):=\sup _{s\leq t}\omega (s)}"></span> is increasing, and ω<sub id="mwjw">1</sub> ≥ ω; <span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt16" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;block&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\omega_2(t):=\\frac{1}{t} \\int_t^{2t}\\omega_1(s)ds&quot;}}" id="mwkA"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle \omega _{2}(t):={\frac {1}{t}}\int _{t}^{2t}\omega _{1}(s)ds}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>ω</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mo stretchy="false">)</mo>
+        <mo>:=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <mi>t</mi>
+          </mfrac>
+        </mrow>
+        <msubsup>
+          <mo>∫</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+            <mi>t</mi>
+          </mrow>
+        </msubsup>
+        <msub>
+          <mi>ω</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>s</mi>
+        <mo stretchy="false">)</mo>
+        <mi>d</mi>
+        <mi>s</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \omega _{2}(t):={\frac {1}{t}}\int _{t}^{2t}\omega _{1}(s)ds}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a8c1bcea314ca7fb9a37b2f1e60a16f89be746da" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.338ex; width:23.485ex; height:6.176ex;" alt="{\displaystyle \omega _{2}(t):={\frac {1}{t}}\int _{t}^{2t}\omega _{1}(s)ds}"></span> is also continuous, and ω<sub id="mwkQ">2</sub> ≥ ω<sub id="mwkg">1</sub>, <br id="mwkw"> and a suitable variant of the preceding definition also makes ω<sub id="mwlA">2</sub> infinitely differentiable in [0, ∞].</li>
+<li id="mwlQ">Any uniformly continuous function admits a minimal modulus of continuity ω<sub id="mwlg"><i id="mwlw">f</i></sub>, that is sometimes referred to as <i id="mwmA">the</i> (optimal) modulus of continuity of <i id="mwmQ">f</i>: <span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt17" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;block&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\omega_f(t) := \\sup\\{ d_Y(f(x),f(x&#x27;)):x\\in X,x&#x27;\\in X,d_X(x,x&#x27;)\\le t \\} ,\\quad\\forall t\\geq0.&quot;}}" id="mwmg"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle \omega _{f}(t):=\sup\{d_{Y}(f(x),f(x&#x27;)):x\in X,x&#x27;\in X,d_{X}(x,x&#x27;)\leq t\},\quad \forall t\geq 0.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>ω</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>f</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mo stretchy="false">)</mo>
+        <mo>:=</mo>
+        <mo movablelimits="true" form="prefix">sup</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>Y</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>,</mo>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>x</mi>
+          <mo>′</mo>
+        </msup>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+        <mo>:</mo>
+        <mi>x</mi>
+        <mo>∈</mo>
+        <mi>X</mi>
+        <mo>,</mo>
+        <msup>
+          <mi>x</mi>
+          <mo>′</mo>
+        </msup>
+        <mo>∈</mo>
+        <mi>X</mi>
+        <mo>,</mo>
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>X</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <msup>
+          <mi>x</mi>
+          <mo>′</mo>
+        </msup>
+        <mo stretchy="false">)</mo>
+        <mo>≤</mo>
+        <mi>t</mi>
+        <mo fence="false" stretchy="false">}</mo>
+        <mo>,</mo>
+        <mspace width="1em"></mspace>
+        <mi mathvariant="normal">∀</mi>
+        <mi>t</mi>
+        <mo>≥</mo>
+        <mn>0.</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \omega _{f}(t):=\sup\{d_{Y}(f(x),f(x')):x\in X,x'\in X,d_{X}(x,x')\leq t\},\quad \forall t\geq 0.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ea4446fdf40b3f3004c572157a55da59138d7504" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -1.005ex; width:70.214ex; height:3.176ex;" alt="{\displaystyle \omega _{f}(t):=\sup\{d_{Y}(f(x),f(x&#x27;)):x\in X,x&#x27;\in X,d_{X}(x,x&#x27;)\leq t\},\quad \forall t\geq 0.}"></span> Similarly, any function continuous at the point <i id="mwmw">x</i> admits a minimal modulus of continuity at <i id="mwnA">x</i>, ω<sub id="mwnQ"><i id="mwng">f</i></sub>(<i id="mwnw">t</i>; <i id="mwoA">x</i>) (<i id="mwoQ">the</i> (optimal) modulus of continuity of <i id="mwog">f</i> at <i id="mwow">x</i>)<span typeof="mw:DisplaySpace" id="mwpA"> </span>: <span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt18" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;block&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\omega_f(t;x):=\\sup\\{ d_Y(f(x),f(x&#x27;)): x&#x27;\\in X,d_X(x,x&#x27;)\\le t \\},\\quad\\forall t\\geq0.&quot;}}" id="mwpQ"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle \omega _{f}(t;x):=\sup\{d_{Y}(f(x),f(x&#x27;)):x&#x27;\in X,d_{X}(x,x&#x27;)\leq t\},\quad \forall t\geq 0.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>ω</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>f</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mo>;</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>:=</mo>
+        <mo movablelimits="true" form="prefix">sup</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>Y</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>,</mo>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>x</mi>
+          <mo>′</mo>
+        </msup>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+        <mo>:</mo>
+        <msup>
+          <mi>x</mi>
+          <mo>′</mo>
+        </msup>
+        <mo>∈</mo>
+        <mi>X</mi>
+        <mo>,</mo>
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>X</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <msup>
+          <mi>x</mi>
+          <mo>′</mo>
+        </msup>
+        <mo stretchy="false">)</mo>
+        <mo>≤</mo>
+        <mi>t</mi>
+        <mo fence="false" stretchy="false">}</mo>
+        <mo>,</mo>
+        <mspace width="1em"></mspace>
+        <mi mathvariant="normal">∀</mi>
+        <mi>t</mi>
+        <mo>≥</mo>
+        <mn>0.</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \omega _{f}(t;x):=\sup\{d_{Y}(f(x),f(x')):x'\in X,d_{X}(x,x')\leq t\},\quad \forall t\geq 0.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2ed33156d36e3fdfdd584f2eaeb4b83470b801d4" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -1.005ex; width:65.394ex; height:3.176ex;" alt="{\displaystyle \omega _{f}(t;x):=\sup\{d_{Y}(f(x),f(x&#x27;)):x&#x27;\in X,d_{X}(x,x&#x27;)\leq t\},\quad \forall t\geq 0.}"></span> However, these restricted notions are not as relevant, for in most cases the optimal modulus of <i id="mwpg">f</i> could not be computed explicitly, but only bounded from above (by <i id="mwpw">any</i> modulus of continuity of <i id="mwqA">f</i>). Moreover, the main properties of moduli of continuity concern directly the unrestricted definition.</li>
+<li id="mwqQ">In general, the modulus of continuity of a uniformly continuous function on a metric space needs to take the value +∞. For instance, the function <i id="mwqg">f</i><span typeof="mw:DisplaySpace" id="mwqw"> </span>: <b id="mwrA">N</b> → <b id="mwrQ">R</b> such that <i id="mwrg">f</i>(<i id="mwrw">n</i>)<span typeof="mw:DisplaySpace" id="mwsA"> </span>:= <i id="mwsQ">n</i><sup id="mwsg">2</sup> is uniformly continuous with respect to the <a rel="mw:WikiLink" href="./Discrete_metric" title="Discrete metric" class="mw-redirect" id="mwsw">discrete metric</a> on <b id="mwtA">N</b>, and its minimal modulus of continuity is ω<sub id="mwtQ"><i id="mwtg">f</i></sub>(<i id="mwtw">t</i>) = +∞ for any  <i id="mwuA">t</i>≥1, and ω<sub id="mwuQ"><i id="mwug">f</i></sub>(<i id="mwuw">t</i>) = 0 otherwise. However, the situation is different for uniformly continuous functions defined on compact or convex subsets of normed spaces.</li></ul>
+
+</section></section><section data-mw-section-id="4" id="mwvA"><h2 id="Special_moduli_of_continuity">Special moduli of continuity</h2>
+<p id="mwvQ">Special moduli of continuity also reflect certain global properties of functions such as extendibility and uniform approximation. In this section we mainly deal with moduli of continuity that are <a rel="mw:WikiLink" href="./Concave_function" title="Concave function" id="mwvg">concave</a>, or <a rel="mw:WikiLink" href="./Subadditive" title="Subadditive" class="mw-redirect" id="mwvw">subadditive</a>, or uniformly continuous, or sublinear. These properties are essentially equivalent in that, for a modulus ω (more precisely, its restriction on [0, ∞)) each of the following implies the next:</p>
+<ul id="mwwA"><li id="mwwQ">ω is concave;</li>
+<li id="mwwg">ω is subadditive;</li>
+<li id="mwww">ω is uniformly continuous;</li>
+<li id="mwxA">ω is sublinear, that is, there are constants <i id="mwxQ">a</i> and <i id="mwxg">b</i> such that ω(<i id="mwxw">t</i>) ≤ <i id="mwyA">at</i>+<i id="mwyQ">b</i> for all <i id="mwyg">t</i>;</li>
+<li id="mwyw">ω is dominated by a concave modulus, that is, there exists a concave modulus of continuity <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt19" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\tilde\\omega&quot;}}" id="mwzA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle {\tilde {\omega }}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mover>
+              <mi>ω</mi>
+              <mo stretchy="false">~</mo>
+            </mover>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\tilde {\omega }}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e60cbeebb31255ddce04c7526d2631bfd49fb8bf" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.446ex; height:2.176ex;" alt="{\displaystyle {\tilde {\omega }}}"></span> such that <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt20" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\omega(t)\\leq \\tilde\\omega(t)&quot;}}" id="mwzQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \omega (t)\leq {\tilde {\omega }}(t)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>ω</mi>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mo stretchy="false">)</mo>
+        <mo>≤</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mover>
+              <mi>ω</mi>
+              <mo stretchy="false">~</mo>
+            </mover>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \omega (t)\leq {\tilde {\omega }}(t)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/bb9f9b576928fa13e70068437f9cbc4b9694134c" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:11.288ex; height:2.843ex;" alt="{\displaystyle \omega (t)\leq {\tilde {\omega }}(t)}"></span> for all <i id="mwzg">t</i>.</li></ul>
+
+<p id="mwzw">Thus, for a function <i id="mw0A">f</i> between metric spaces it is equivalent to admit a modulus of continuity which is either concave, or subadditive, or uniformly continuous, or sublinear. In this case, the function <i id="mw0Q">f</i> is sometimes called a <i id="mw0g">special uniformly continuous</i> map. This is always true in case of either compact or convex domains. Indeed, a uniformly continuous map <i id="mw0w">f</i><span typeof="mw:DisplaySpace" id="mw1A"> </span>: <i id="mw1Q">C</i> → <i id="mw1g">Y</i> defined on a <a rel="mw:WikiLink" href="./Convex_set" title="Convex set" id="mw1w">convex set</a> <i id="mw2A">C</i> of a normed space <i id="mw2Q">E</i> always admits a <a rel="mw:WikiLink" href="./Subadditive" title="Subadditive" class="mw-redirect" id="mw2g">subadditive</a> modulus of continuity; in particular, real-valued as a function ω<span typeof="mw:DisplaySpace" id="mw2w"> </span>: [0, ∞) → [0, ∞). Indeed, it is immediate to check that the optimal modulus of continuity ω<sub id="mw3A"><i id="mw3Q">f</i></sub> defined above is subadditive if the domain of <i id="mw3g">f</i> is convex: we have, for all <i id="mw3w">s</i> and <i id="mw4A">t</i>:</p>
+
+<dl id="mw4Q"><dd id="mw4g"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt21" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\begin{align}\n\\omega_f(s+t) &amp;=\\sup_{|x-x&#x27;|\\le t+s} d_Y(f(x),f(x&#x27;)) \\\\\n&amp;\\leq \\sup_{|x-x&#x27;|\\le t+s}\\left\\{d_Y\\left( f(x), f\\left(x-t\\frac{x-x&#x27;}{|x-x&#x27;|}\\right)\\right) + d_Y\\left( f\\left(x-t\\frac{x-x&#x27;}{|x-x&#x27;|}\\right), f(x&#x27;)\\right )\\right\\} \\\\\n&amp;\\leq \\omega_f(t)+\\omega_f(s).\n\\end{align}&quot;}}" id="mw4w"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle {\begin{aligned}\omega _{f}(s+t)&amp;=\sup _{|x-x&#x27;|\leq t+s}d_{Y}(f(x),f(x&#x27;))\\&amp;\leq \sup _{|x-x&#x27;|\leq t+s}\left\{d_{Y}\left(f(x),f\left(x-t{\frac {x-x&#x27;}{|x-x&#x27;|}}\right)\right)+d_{Y}\left(f\left(x-t{\frac {x-x&#x27;}{|x-x&#x27;|}}\right),f(x&#x27;)\right)\right\}\\&amp;\leq \omega _{f}(t)+\omega _{f}(s).\end{aligned}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
+            <mtr>
+              <mtd>
+                <msub>
+                  <mi>ω</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>f</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <mi>s</mi>
+                <mo>+</mo>
+                <mi>t</mi>
+                <mo stretchy="false">)</mo>
+              </mtd>
+              <mtd>
+                <mi></mi>
+                <mo>=</mo>
+                <munder>
+                  <mo movablelimits="true" form="prefix">sup</mo>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mo stretchy="false">|</mo>
+                    </mrow>
+                    <mi>x</mi>
+                    <mo>−</mo>
+                    <msup>
+                      <mi>x</mi>
+                      <mo>′</mo>
+                    </msup>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mo stretchy="false">|</mo>
+                    </mrow>
+                    <mo>≤</mo>
+                    <mi>t</mi>
+                    <mo>+</mo>
+                    <mi>s</mi>
+                  </mrow>
+                </munder>
+                <msub>
+                  <mi>d</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>Y</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <mi>f</mi>
+                <mo stretchy="false">(</mo>
+                <mi>x</mi>
+                <mo stretchy="false">)</mo>
+                <mo>,</mo>
+                <mi>f</mi>
+                <mo stretchy="false">(</mo>
+                <msup>
+                  <mi>x</mi>
+                  <mo>′</mo>
+                </msup>
+                <mo stretchy="false">)</mo>
+                <mo stretchy="false">)</mo>
+              </mtd>
+            </mtr>
+            <mtr>
+              <mtd></mtd>
+              <mtd>
+                <mi></mi>
+                <mo>≤</mo>
+                <munder>
+                  <mo movablelimits="true" form="prefix">sup</mo>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mo stretchy="false">|</mo>
+                    </mrow>
+                    <mi>x</mi>
+                    <mo>−</mo>
+                    <msup>
+                      <mi>x</mi>
+                      <mo>′</mo>
+                    </msup>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mo stretchy="false">|</mo>
+                    </mrow>
+                    <mo>≤</mo>
+                    <mi>t</mi>
+                    <mo>+</mo>
+                    <mi>s</mi>
+                  </mrow>
+                </munder>
+                <mrow>
+                  <mo>{</mo>
+                  <mrow>
+                    <msub>
+                      <mi>d</mi>
+                      <mrow class="MJX-TeXAtom-ORD">
+                        <mi>Y</mi>
+                      </mrow>
+                    </msub>
+                    <mrow>
+                      <mo>(</mo>
+                      <mrow>
+                        <mi>f</mi>
+                        <mo stretchy="false">(</mo>
+                        <mi>x</mi>
+                        <mo stretchy="false">)</mo>
+                        <mo>,</mo>
+                        <mi>f</mi>
+                        <mrow>
+                          <mo>(</mo>
+                          <mrow>
+                            <mi>x</mi>
+                            <mo>−</mo>
+                            <mi>t</mi>
+                            <mrow class="MJX-TeXAtom-ORD">
+                              <mfrac>
+                                <mrow>
+                                  <mi>x</mi>
+                                  <mo>−</mo>
+                                  <msup>
+                                    <mi>x</mi>
+                                    <mo>′</mo>
+                                  </msup>
+                                </mrow>
+                                <mrow>
+                                  <mrow class="MJX-TeXAtom-ORD">
+                                    <mo stretchy="false">|</mo>
+                                  </mrow>
+                                  <mi>x</mi>
+                                  <mo>−</mo>
+                                  <msup>
+                                    <mi>x</mi>
+                                    <mo>′</mo>
+                                  </msup>
+                                  <mrow class="MJX-TeXAtom-ORD">
+                                    <mo stretchy="false">|</mo>
+                                  </mrow>
+                                </mrow>
+                              </mfrac>
+                            </mrow>
+                          </mrow>
+                          <mo>)</mo>
+                        </mrow>
+                      </mrow>
+                      <mo>)</mo>
+                    </mrow>
+                    <mo>+</mo>
+                    <msub>
+                      <mi>d</mi>
+                      <mrow class="MJX-TeXAtom-ORD">
+                        <mi>Y</mi>
+                      </mrow>
+                    </msub>
+                    <mrow>
+                      <mo>(</mo>
+                      <mrow>
+                        <mi>f</mi>
+                        <mrow>
+                          <mo>(</mo>
+                          <mrow>
+                            <mi>x</mi>
+                            <mo>−</mo>
+                            <mi>t</mi>
+                            <mrow class="MJX-TeXAtom-ORD">
+                              <mfrac>
+                                <mrow>
+                                  <mi>x</mi>
+                                  <mo>−</mo>
+                                  <msup>
+                                    <mi>x</mi>
+                                    <mo>′</mo>
+                                  </msup>
+                                </mrow>
+                                <mrow>
+                                  <mrow class="MJX-TeXAtom-ORD">
+                                    <mo stretchy="false">|</mo>
+                                  </mrow>
+                                  <mi>x</mi>
+                                  <mo>−</mo>
+                                  <msup>
+                                    <mi>x</mi>
+                                    <mo>′</mo>
+                                  </msup>
+                                  <mrow class="MJX-TeXAtom-ORD">
+                                    <mo stretchy="false">|</mo>
+                                  </mrow>
+                                </mrow>
+                              </mfrac>
+                            </mrow>
+                          </mrow>
+                          <mo>)</mo>
+                        </mrow>
+                        <mo>,</mo>
+                        <mi>f</mi>
+                        <mo stretchy="false">(</mo>
+                        <msup>
+                          <mi>x</mi>
+                          <mo>′</mo>
+                        </msup>
+                        <mo stretchy="false">)</mo>
+                      </mrow>
+                      <mo>)</mo>
+                    </mrow>
+                  </mrow>
+                  <mo>}</mo>
+                </mrow>
+              </mtd>
+            </mtr>
+            <mtr>
+              <mtd></mtd>
+              <mtd>
+                <mi></mi>
+                <mo>≤</mo>
+                <msub>
+                  <mi>ω</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>f</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <mi>t</mi>
+                <mo stretchy="false">)</mo>
+                <mo>+</mo>
+                <msub>
+                  <mi>ω</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>f</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <mi>s</mi>
+                <mo stretchy="false">)</mo>
+                <mo>.</mo>
+              </mtd>
+            </mtr>
+          </mtable>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\begin{aligned}\omega _{f}(s+t)&amp;=\sup _{|x-x'|\leq t+s}d_{Y}(f(x),f(x'))\\&amp;\leq \sup _{|x-x'|\leq t+s}\left\{d_{Y}\left(f(x),f\left(x-t{\frac {x-x'}{|x-x'|}}\right)\right)+d_{Y}\left(f\left(x-t{\frac {x-x'}{|x-x'|}}\right),f(x')\right)\right\}\\&amp;\leq \omega _{f}(t)+\omega _{f}(s).\end{aligned}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b2aadb632014b21b96fdf69b5d21b511694cc2a1" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -6.846ex; margin-bottom: -0.326ex; width:90.056ex; height:15.509ex;" alt="{\displaystyle {\begin{aligned}\omega _{f}(s+t)&amp;=\sup _{|x-x&#x27;|\leq t+s}d_{Y}(f(x),f(x&#x27;))\\&amp;\leq \sup _{|x-x&#x27;|\leq t+s}\left\{d_{Y}\left(f(x),f\left(x-t{\frac {x-x&#x27;}{|x-x&#x27;|}}\right)\right)+d_{Y}\left(f\left(x-t{\frac {x-x&#x27;}{|x-x&#x27;|}}\right),f(x&#x27;)\right)\right\}\\&amp;\leq \omega _{f}(t)+\omega _{f}(s).\end{aligned}}}"></span></dd></dl>
+
+<p id="mw5A">Note that as an immediate consequence, any uniformly continuous function on a convex subset of a normed space has a sublinear growth: there are constants <i id="mw5Q">a</i> and <i id="mw5g">b</i> such that |<i id="mw5w">f</i>(<i id="mw6A">x</i>)| ≤ <i id="mw6Q">a</i>|<i id="mw6g">x</i>|+<i id="mw6w">b</i> for all <i id="mw7A">x</i>. However, a uniformly continuous function on a general metric space admits a concave modulus of continuity if and only if the ratios <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt22" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;d_Y(f(x),f(x&#x27;))/d_X(x,x&#x27;)&quot;}}" id="mw7Q"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle d_{Y}(f(x),f(x&#x27;))/d_{X}(x,x&#x27;)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>Y</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>,</mo>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>x</mi>
+          <mo>′</mo>
+        </msup>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>/</mo>
+        </mrow>
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>X</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <msup>
+          <mi>x</mi>
+          <mo>′</mo>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle d_{Y}(f(x),f(x'))/d_{X}(x,x')}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5752e7ec11d70ea5fd0a19650b9abcaadd1b3b76" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:25.249ex; height:3.009ex;" alt="{\displaystyle d_{Y}(f(x),f(x&#x27;))/d_{X}(x,x&#x27;)}"></span> are uniformly bounded for all pairs (<i id="mw7g">x</i>, <i id="mw7w">x</i>′) with distance bounded away from zero; this condition is certainly satisfied by any bounded uniformly continuous function; hence in particular, by any continuous function on a compact metric space.</p>
+
+<section data-mw-section-id="5" id="mw8A"><h3 id="Sublinear_moduli,_and_bounded_perturbations_from_Lipschitz"><span id="Sublinear_moduli.2C_and_bounded_perturbations_from_Lipschitz" typeof="mw:FallbackId"></span>Sublinear moduli, and bounded perturbations from Lipschitz</h3>
+<p id="mw8Q">A sublinear modulus of continuity can easily be found for any uniformly continuous function which is a bounded perturbation of a Lipschitz function: if <i id="mw8g">f</i> is a uniformly continuous function with modulus of continuity ω, and <i id="mw8w">g</i> is a <i id="mw9A">k</i> Lipschitz function with uniform distance <i id="mw9Q">r</i> from <i id="mw9g">f</i>, then <i id="mw9w">f</i> admits the sublinear modulus of continuity min{ω(<i id="mw-A">t</i>), 2<i id="mw-Q">r</i>+<i id="mw-g">kt</i>}. Conversely, at least for real-valued functions, any special uniformly continuous function is a bounded, uniformly continuous perturbation of some Lipschitz function; indeed more is true as shown below (Lipschitz approximation).</p>
+
+</section><section data-mw-section-id="6" id="mw-w"><h3 id="Subadditive_moduli,_and_extendibility"><span id="Subadditive_moduli.2C_and_extendibility" typeof="mw:FallbackId"></span>Subadditive moduli, and extendibility</h3>
+<p id="mw_A">The above property for uniformly continuous function on convex domains admits a sort of converse at least in the case of real-valued functions: that is, every special uniformly continuous real-valued function <i id="mw_Q">f</i><span typeof="mw:DisplaySpace" id="mw_g"> </span>: <i id="mw_w">X</i> → <b id="mwAQA">R</b> defined on a metric space <i id="mwAQE">X</i>, which is a metric subspace of a normed space <i id="mwAQI">E</i>, admits extensions over <i id="mwAQM">E</i> that preserves any subadditive modulus ω of <i id="mwAQQ">f</i>. The least and the greatest of such extensions are respectively:</p>
+
+<dl id="mwAQU"><dd id="mwAQY"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt23" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\begin{align}\nf_*(x) &amp;:=\\sup_{y\\in X}\\left\\{f(y)-\\omega(|x-y|)\\right\\}, \\\\\nf^*(x) &amp;:=\\inf_{y\\in X}\\left\\{f(y)+\\omega(|x-y|)\\right\\}.\n\\end{align}&quot;}}" id="mwAQc"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle {\begin{aligned}f_{*}(x)&amp;:=\sup _{y\in X}\left\{f(y)-\omega (|x-y|)\right\},\\f^{*}(x)&amp;:=\inf _{y\in X}\left\{f(y)+\omega (|x-y|)\right\}.\end{aligned}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
+            <mtr>
+              <mtd>
+                <msub>
+                  <mi>f</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mo>∗</mo>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <mi>x</mi>
+                <mo stretchy="false">)</mo>
+              </mtd>
+              <mtd>
+                <mi></mi>
+                <mo>:=</mo>
+                <munder>
+                  <mo movablelimits="true" form="prefix">sup</mo>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>y</mi>
+                    <mo>∈</mo>
+                    <mi>X</mi>
+                  </mrow>
+                </munder>
+                <mrow>
+                  <mo>{</mo>
+                  <mrow>
+                    <mi>f</mi>
+                    <mo stretchy="false">(</mo>
+                    <mi>y</mi>
+                    <mo stretchy="false">)</mo>
+                    <mo>−</mo>
+                    <mi>ω</mi>
+                    <mo stretchy="false">(</mo>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mo stretchy="false">|</mo>
+                    </mrow>
+                    <mi>x</mi>
+                    <mo>−</mo>
+                    <mi>y</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mo stretchy="false">|</mo>
+                    </mrow>
+                    <mo stretchy="false">)</mo>
+                  </mrow>
+                  <mo>}</mo>
+                </mrow>
+                <mo>,</mo>
+              </mtd>
+            </mtr>
+            <mtr>
+              <mtd>
+                <msup>
+                  <mi>f</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mo>∗</mo>
+                  </mrow>
+                </msup>
+                <mo stretchy="false">(</mo>
+                <mi>x</mi>
+                <mo stretchy="false">)</mo>
+              </mtd>
+              <mtd>
+                <mi></mi>
+                <mo>:=</mo>
+                <munder>
+                  <mo movablelimits="true" form="prefix">inf</mo>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>y</mi>
+                    <mo>∈</mo>
+                    <mi>X</mi>
+                  </mrow>
+                </munder>
+                <mrow>
+                  <mo>{</mo>
+                  <mrow>
+                    <mi>f</mi>
+                    <mo stretchy="false">(</mo>
+                    <mi>y</mi>
+                    <mo stretchy="false">)</mo>
+                    <mo>+</mo>
+                    <mi>ω</mi>
+                    <mo stretchy="false">(</mo>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mo stretchy="false">|</mo>
+                    </mrow>
+                    <mi>x</mi>
+                    <mo>−</mo>
+                    <mi>y</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mo stretchy="false">|</mo>
+                    </mrow>
+                    <mo stretchy="false">)</mo>
+                  </mrow>
+                  <mo>}</mo>
+                </mrow>
+                <mo>.</mo>
+              </mtd>
+            </mtr>
+          </mtable>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\begin{aligned}f_{*}(x)&amp;:=\sup _{y\in X}\left\{f(y)-\omega (|x-y|)\right\},\\f^{*}(x)&amp;:=\inf _{y\in X}\left\{f(y)+\omega (|x-y|)\right\}.\end{aligned}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/97c649f1c696fe29505f505aff80141e390f762c" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -4.171ex; width:34.216ex; height:9.509ex;" alt="{\displaystyle {\begin{aligned}f_{*}(x)&amp;:=\sup _{y\in X}\left\{f(y)-\omega (|x-y|)\right\},\\f^{*}(x)&amp;:=\inf _{y\in X}\left\{f(y)+\omega (|x-y|)\right\}.\end{aligned}}}"></span></dd></dl>
+
+<p id="mwAQg">As remarked, any subadditive modulus of continuity is uniformly continuous: in fact, it admits itself as a modulus of continuity. Therefore, <i id="mwAQk">f</i><sub id="mwAQo">∗</sub> and <i id="mwAQs">f*</i> are respectively inferior and superior envelopes of ω-continuous families; hence still ω-continuous. Incidentally, by the <a rel="mw:WikiLink" href="./Kuratowski_embedding" title="Kuratowski embedding" id="mwAQw">Kuratowski embedding</a> any metric space is isometric to a subset of a normed space. Hence, special uniformly continuous real-valued functions are essentially the restrictions of uniformly continuous functions on normed spaces. In particular, this construction provides a quick proof of the <a rel="mw:WikiLink" href="./Tietze_extension_theorem" title="Tietze extension theorem" id="mwAQ0">Tietze extension theorem</a> on compact metric spaces. However, for mappings with values in more general <a rel="mw:WikiLink" href="./Banach_space" title="Banach space" id="mwAQ4">Banach spaces</a> than <b id="mwAQ8">R</b>, the situation is quite more complicated; the first non-trivial result in this direction is the <a rel="mw:WikiLink" href="./Kirszbraun_theorem" title="Kirszbraun theorem" id="mwARA">Kirszbraun theorem</a>.</p>
+
+</section><section data-mw-section-id="7" id="mwARE"><h3 id="Concave_moduli_and_Lipschitz_approximation">Concave moduli and Lipschitz approximation</h3>
+<p id="mwARI">Every special uniformly continuous real-valued function <i id="mwARM">f</i><span typeof="mw:DisplaySpace" id="mwARQ"> </span>: <i id="mwARU">X</i> → <b id="mwARY">R</b> defined on the metric space <i id="mwARc">X</i> is <a rel="mw:WikiLink" href="./Uniform_convergence" title="Uniform convergence" id="mwARg">uniformly</a> approximable by means of Lipschitz functions. Moreover, the speed of convergence in terms of the Lipschitz constants of the approximations is strictly related to the modulus of continuity of <i id="mwARk">f</i>. Precisely, let ω be the minimal concave modulus of continuity of <i id="mwARo">f</i>, which is</p>
+<dl id="mwARs"><dd id="mwARw"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt24" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\omega(t)=\\inf\\big\\{at+b\\, :\\, a&gt;0,\\, b&gt;0,\\, \\forall x\\in X,\\, \\forall x&#x27;\\in X\\,\\,  |f(x)-f(x&#x27;)|\\leq ad(x,x&#x27;)+b\\big\\}.&quot;}}" id="mwAR0"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \omega (t)=\inf {\big \{}at+b\,:\,a&gt;0,\,b&gt;0,\,\forall x\in X,\,\forall x&#x27;\in X\,\,|f(x)-f(x&#x27;)|\leq ad(x,x&#x27;)+b{\big \}}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>ω</mi>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mo movablelimits="true" form="prefix">inf</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo maxsize="1.2em" minsize="1.2em">{</mo>
+          </mrow>
+        </mrow>
+        <mi>a</mi>
+        <mi>t</mi>
+        <mo>+</mo>
+        <mi>b</mi>
+        <mspace width="thinmathspace"></mspace>
+        <mo>:</mo>
+        <mspace width="thinmathspace"></mspace>
+        <mi>a</mi>
+        <mo>></mo>
+        <mn>0</mn>
+        <mo>,</mo>
+        <mspace width="thinmathspace"></mspace>
+        <mi>b</mi>
+        <mo>></mo>
+        <mn>0</mn>
+        <mo>,</mo>
+        <mspace width="thinmathspace"></mspace>
+        <mi mathvariant="normal">∀</mi>
+        <mi>x</mi>
+        <mo>∈</mo>
+        <mi>X</mi>
+        <mo>,</mo>
+        <mspace width="thinmathspace"></mspace>
+        <mi mathvariant="normal">∀</mi>
+        <msup>
+          <mi>x</mi>
+          <mo>′</mo>
+        </msup>
+        <mo>∈</mo>
+        <mi>X</mi>
+        <mspace width="thinmathspace"></mspace>
+        <mspace width="thinmathspace"></mspace>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>−</mo>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>x</mi>
+          <mo>′</mo>
+        </msup>
+        <mo stretchy="false">)</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mo>≤</mo>
+        <mi>a</mi>
+        <mi>d</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <msup>
+          <mi>x</mi>
+          <mo>′</mo>
+        </msup>
+        <mo stretchy="false">)</mo>
+        <mo>+</mo>
+        <mi>b</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo maxsize="1.2em" minsize="1.2em">}</mo>
+          </mrow>
+        </mrow>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \omega (t)=\inf {\big \{}at+b\,:\,a>0,\,b>0,\,\forall x\in X,\,\forall x'\in X\,\,|f(x)-f(x')|\leq ad(x,x')+b{\big \}}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/45f731e6f8f0d2b86ec6e238d443a625c8b8af2c" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -1.005ex; width:82.788ex; height:3.176ex;" alt="{\displaystyle \omega (t)=\inf {\big \{}at+b\,:\,a&gt;0,\,b&gt;0,\,\forall x\in X,\,\forall x&#x27;\in X\,\,|f(x)-f(x&#x27;)|\leq ad(x,x&#x27;)+b{\big \}}.}"></span></dd></dl>
+<p id="mwAR4">Let δ(<i id="mwAR8">s</i>) be the uniform <a rel="mw:WikiLink" href="./Metric_spaces#Distance_between_points_and_sets;_Hausdorff_distance_and_Gromov_metric" title="Metric spaces" class="mw-redirect" id="mwASA">distance</a> between the function <i id="mwASE">f</i> and the set Lip<sub id="mwASI"><i id="mwASM">s</i></sub> of all Lipschitz real-valued functions on <i id="mwASQ">C</i> having Lipschitz constant <i id="mwASU">s</i><span typeof="mw:DisplaySpace" id="mwASY"> </span>:</p>
+<dl id="mwASc"><dd id="mwASg"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt25" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\delta(s):=\\inf\\big\\{\\|f-u\\|_{\\infty,X}\\,:\\, u\\in \\mathrm{Lip}_s\\big\\}\\leq+\\infty.&quot;}}" id="mwASk"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \delta (s):=\inf {\big \{}\|f-u\|_{\infty ,X}\,:\,u\in \mathrm {Lip} _{s}{\big \}}\leq +\infty .}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>δ</mi>
+        <mo stretchy="false">(</mo>
+        <mi>s</mi>
+        <mo stretchy="false">)</mo>
+        <mo>:=</mo>
+        <mo movablelimits="true" form="prefix">inf</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo maxsize="1.2em" minsize="1.2em">{</mo>
+          </mrow>
+        </mrow>
+        <mo fence="false" stretchy="false">‖</mo>
+        <mi>f</mi>
+        <mo>−</mo>
+        <mi>u</mi>
+        <msub>
+          <mo fence="false" stretchy="false">‖</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="normal">∞</mi>
+            <mo>,</mo>
+            <mi>X</mi>
+          </mrow>
+        </msub>
+        <mspace width="thinmathspace"></mspace>
+        <mo>:</mo>
+        <mspace width="thinmathspace"></mspace>
+        <mi>u</mi>
+        <mo>∈</mo>
+        <msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="normal">L</mi>
+            <mi mathvariant="normal">i</mi>
+            <mi mathvariant="normal">p</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>s</mi>
+          </mrow>
+        </msub>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo maxsize="1.2em" minsize="1.2em">}</mo>
+          </mrow>
+        </mrow>
+        <mo>≤</mo>
+        <mo>+</mo>
+        <mi mathvariant="normal">∞</mi>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \delta (s):=\inf {\big \{}\|f-u\|_{\infty ,X}\,:\,u\in \mathrm {Lip} _{s}{\big \}}\leq +\infty .}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/24c77a0309f4c2bed9a47b6bf3b94dd765fb45fe" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -1.005ex; width:44.103ex; height:3.176ex;" alt="{\displaystyle \delta (s):=\inf {\big \{}\|f-u\|_{\infty ,X}\,:\,u\in \mathrm {Lip} _{s}{\big \}}\leq +\infty .}"></span></dd></dl>
+<p id="mwASo">Then the functions ω(<i id="mwASs">t</i>) and δ(<i id="mwASw">s</i>) can be related with each other via a <a rel="mw:WikiLink" href="./Legendre_transformation" title="Legendre transformation" id="mwAS0">Legendre transformation</a>: more precisely, the functions 2δ(<i id="mwAS4">s</i>) and −ω(−<i id="mwAS8">t</i>) (suitably extended to +∞ outside their domains of finiteness) are a pair of conjugated convex functions,<sup about="#mwt26" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-1&quot;}}"><a href="./Modulus_of_continuity#cite_note-1" id="mwATA"><span class="mw-reflink-text" id="mwATE"><span class="cite-bracket" id="mwATI">[</span>1<span class="cite-bracket" id="mwATM">]</span></span></a></sup> for</p>
+
+<dl id="mwATQ"><dd id="mwATU"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt27" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;2\\delta(s)=\\sup_{t\\geq0}\\left\\{\\omega(t)-st\\right\\},&quot;}}" id="mwATY"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle 2\delta (s)=\sup _{t\geq 0}\left\{\omega (t)-st\right\},}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>2</mn>
+        <mi>δ</mi>
+        <mo stretchy="false">(</mo>
+        <mi>s</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <munder>
+          <mo movablelimits="true" form="prefix">sup</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+            <mo>≥</mo>
+            <mn>0</mn>
+          </mrow>
+        </munder>
+        <mrow>
+          <mo>{</mo>
+          <mrow>
+            <mi>ω</mi>
+            <mo stretchy="false">(</mo>
+            <mi>t</mi>
+            <mo stretchy="false">)</mo>
+            <mo>−</mo>
+            <mi>s</mi>
+            <mi>t</mi>
+          </mrow>
+          <mo>}</mo>
+        </mrow>
+        <mo>,</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 2\delta (s)=\sup _{t\geq 0}\left\{\omega (t)-st\right\},}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b081c893f33737ba1e72360cd93a0d7cff6e7993" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.671ex; width:24.322ex; height:4.676ex;" alt="{\displaystyle 2\delta (s)=\sup _{t\geq 0}\left\{\omega (t)-st\right\},}"></span></dd>
+<dd id="mwATc"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt28" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\omega(t)=\\inf_{s\\geq0}\\left\\{2\\delta(s)+st\\right\\}.&quot;}}" id="mwATg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \omega (t)=\inf _{s\geq 0}\left\{2\delta (s)+st\right\}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>ω</mi>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <munder>
+          <mo movablelimits="true" form="prefix">inf</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>s</mi>
+            <mo>≥</mo>
+            <mn>0</mn>
+          </mrow>
+        </munder>
+        <mrow>
+          <mo>{</mo>
+          <mrow>
+            <mn>2</mn>
+            <mi>δ</mi>
+            <mo stretchy="false">(</mo>
+            <mi>s</mi>
+            <mo stretchy="false">)</mo>
+            <mo>+</mo>
+            <mi>s</mi>
+            <mi>t</mi>
+          </mrow>
+          <mo>}</mo>
+        </mrow>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \omega (t)=\inf _{s\geq 0}\left\{2\delta (s)+st\right\}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d5aa1d962df5f6e89d692a15ca84dcbc8ffc45ab" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.171ex; width:23.692ex; height:4.176ex;" alt="{\displaystyle \omega (t)=\inf _{s\geq 0}\left\{2\delta (s)+st\right\}.}"></span></dd></dl>
+
+<p id="mwATk">Since ω(<i id="mwATo">t</i>) = o(1) for <i id="mwATs">t</i> → 0<sup id="mwATw">+</sup>, it follows that δ(<i id="mwAT0">s</i>) = o(1) for <i id="mwAT4">s</i> → +∞, that exactly means that <i id="mwAT8">f</i> is uniformly approximable by Lipschitz functions. Correspondingly, an optimal approximation is given by the functions</p>
+<dl id="mwAUA"><dd id="mwAUE"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt29" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;f_s:=\\delta(s)+\\inf_{y\\in X}\\{f(y)+sd(x,y)\\}, \\quad  \\mathrm{for} \\ s\\in\\mathrm{dom}(\\delta):&quot;}}" id="mwAUI"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle f_{s}:=\delta (s)+\inf _{y\in X}\{f(y)+sd(x,y)\},\quad \mathrm {for} \ s\in \mathrm {dom} (\delta ):}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>f</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>s</mi>
+          </mrow>
+        </msub>
+        <mo>:=</mo>
+        <mi>δ</mi>
+        <mo stretchy="false">(</mo>
+        <mi>s</mi>
+        <mo stretchy="false">)</mo>
+        <mo>+</mo>
+        <munder>
+          <mo movablelimits="true" form="prefix">inf</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>y</mi>
+            <mo>∈</mo>
+            <mi>X</mi>
+          </mrow>
+        </munder>
+        <mo fence="false" stretchy="false">{</mo>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+        <mo>+</mo>
+        <mi>s</mi>
+        <mi>d</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+        <mo fence="false" stretchy="false">}</mo>
+        <mo>,</mo>
+        <mspace width="1em"></mspace>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">f</mi>
+          <mi mathvariant="normal">o</mi>
+          <mi mathvariant="normal">r</mi>
+        </mrow>
+        <mtext> </mtext>
+        <mi>s</mi>
+        <mo>∈</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">d</mi>
+          <mi mathvariant="normal">o</mi>
+          <mi mathvariant="normal">m</mi>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>δ</mi>
+        <mo stretchy="false">)</mo>
+        <mo>:</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f_{s}:=\delta (s)+\inf _{y\in X}\{f(y)+sd(x,y)\},\quad \mathrm {for} \ s\in \mathrm {dom} (\delta ):}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/35b8beaea651e100c2a36ef8502275d65f8c1b26" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.338ex; width:52.382ex; height:4.343ex;" alt="{\displaystyle f_{s}:=\delta (s)+\inf _{y\in X}\{f(y)+sd(x,y)\},\quad \mathrm {for} \ s\in \mathrm {dom} (\delta ):}"></span></dd></dl>
+<p id="mwAUM">each function <i id="mwAUQ">f<sub id="mwAUU">s</sub></i> has Lipschitz constant <i id="mwAUY">s</i> and</p>
+<dl id="mwAUc"><dd id="mwAUg"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt30" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\|f-f_s\\|_{\\infty,X}=\\delta(s);&quot;}}" id="mwAUk"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \|f-f_{s}\|_{\infty ,X}=\delta (s);}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">‖</mo>
+        <mi>f</mi>
+        <mo>−</mo>
+        <msub>
+          <mi>f</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>s</mi>
+          </mrow>
+        </msub>
+        <msub>
+          <mo fence="false" stretchy="false">‖</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="normal">∞</mi>
+            <mo>,</mo>
+            <mi>X</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mi>δ</mi>
+        <mo stretchy="false">(</mo>
+        <mi>s</mi>
+        <mo stretchy="false">)</mo>
+        <mo>;</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \|f-f_{s}\|_{\infty ,X}=\delta (s);}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a74578d0210f08313596750ac78daf6279ce53c1" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -1.005ex; width:20.013ex; height:3.009ex;" alt="{\displaystyle \|f-f_{s}\|_{\infty ,X}=\delta (s);}"></span></dd></dl>
+<p id="mwAUo">in fact, it is the greatest <i id="mwAUs">s</i>-Lipschitz function that realize the distance δ(<i id="mwAUw">s</i>). For example, the α-Hölder real-valued functions on a metric space are characterized as those functions that can be uniformly approximated by <i id="mwAU0">s</i>-Lipschitz functions with speed of convergence <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt31" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;O(s^{-\\frac{\\alpha}{1-\\alpha}}),&quot;}}" id="mwAU4"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle O(s^{-{\frac {\alpha }{1-\alpha }}}),}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>−</mo>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mfrac>
+                <mi>α</mi>
+                <mrow>
+                  <mn>1</mn>
+                  <mo>−</mo>
+                  <mi>α</mi>
+                </mrow>
+              </mfrac>
+            </mrow>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+        <mo>,</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(s^{-{\frac {\alpha }{1-\alpha }}}),}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2a68c026d23201e5145c82b59f87b68e41be5c97" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:10.226ex; height:3.843ex;" alt="{\displaystyle O(s^{-{\frac {\alpha }{1-\alpha }}}),}"></span> while the almost Lipschitz functions are characterized by an exponential speed of convergence <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt32" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;O(e^{-as}).&quot;}}" id="mwAU8"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle O(e^{-as}).}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>e</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>−</mo>
+            <mi>a</mi>
+            <mi>s</mi>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(e^{-as}).}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3da1c216dee4d1dd826ea06ffbd4276d5f34cf97" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:8.464ex; height:3.009ex;" alt="{\displaystyle O(e^{-as}).}"></span></p>
+
+</section></section><section data-mw-section-id="8" id="mwAVA"><h2 id="Examples_of_use">Examples of use</h2>
+<ul id="mwAVE"><li id="mwAVI">Let <i id="mwAVM">f</i><span typeof="mw:DisplaySpace" id="mwAVQ"> </span>: [<i id="mwAVU">a</i>, <i id="mwAVY">b</i>] → <b id="mwAVc">R</b> a continuous function. In the proof that <i id="mwAVg">f</i> is <a rel="mw:WikiLink" href="./Riemann_integrable" title="Riemann integrable" class="mw-redirect" id="mwAVk">Riemann integrable</a>, one usually  bounds the distance between the upper and lower <a rel="mw:WikiLink" href="./Riemann_sums" title="Riemann sums" class="mw-redirect" id="mwAVo">Riemann sums</a> with respect to the Riemann partition <i id="mwAVs">P</i><span typeof="mw:DisplaySpace" id="mwAVw"> </span>:= {<i id="mwAV0">t</i><sub id="mwAV4">0</sub>, ..., <i id="mwAV8">t<sub id="mwAWA">n</sub></i>} in terms of the modulus of continuity of <i id="mwAWE">f</i> and the <a rel="mw:WikiLink" href="./Riemann_integrable#Definition" title="Riemann integrable" class="mw-redirect" id="mwAWI">mesh</a> of the partition <i id="mwAWM">P</i> (which  is the number <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt33" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;inline&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot; |P| := \\max_{0\\le i&lt;n} (t_{i+1}-t_i) &quot;}}" id="mwAWQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\textstyle |P|:=\max _{0\leq i&lt;n}(t_{i+1}-t_{i})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>P</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mo>:=</mo>
+        <munder>
+          <mo movablelimits="true" form="prefix">max</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>0</mn>
+            <mo>≤</mo>
+            <mi>i</mi>
+            <mo>&lt;</mo>
+            <mi>n</mi>
+          </mrow>
+        </munder>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>t</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>−</mo>
+        <msub>
+          <mi>t</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle |P|:=\max _{0\leq i&lt;n}(t_{i+1}-t_{i})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/952a517e610cf6989d4d47c9fd190691fa62b234" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:26.304ex; height:2.843ex;" alt="{\textstyle |P|:=\max _{0\leq i&lt;n}(t_{i+1}-t_{i})}"></span>) <span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt34" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;block&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;S^*(f;P) - S_*(f;P) \\leq (b-a) \\omega(|P|).&quot;}}" id="mwAWU"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle S^{*}(f;P)-S_{*}(f;P)\leq (b-a)\omega (|P|).}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>S</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∗</mo>
+          </mrow>
+        </msup>
+        <mo stretchy="false">(</mo>
+        <mi>f</mi>
+        <mo>;</mo>
+        <mi>P</mi>
+        <mo stretchy="false">)</mo>
+        <mo>−</mo>
+        <msub>
+          <mi>S</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∗</mo>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>f</mi>
+        <mo>;</mo>
+        <mi>P</mi>
+        <mo stretchy="false">)</mo>
+        <mo>≤</mo>
+        <mo stretchy="false">(</mo>
+        <mi>b</mi>
+        <mo>−</mo>
+        <mi>a</mi>
+        <mo stretchy="false">)</mo>
+        <mi>ω</mi>
+        <mo stretchy="false">(</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>P</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mo stretchy="false">)</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle S^{*}(f;P)-S_{*}(f;P)\leq (b-a)\omega (|P|).}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d832e29168cdef3ffd8393ead355cd25591c8cc3" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:36.546ex; height:2.843ex;" alt="{\displaystyle S^{*}(f;P)-S_{*}(f;P)\leq (b-a)\omega (|P|).}"></span></li>
+<li id="mwAWY">For an example of use in the <a rel="mw:WikiLink" href="./Fourier_series" title="Fourier series" id="mwAWc">Fourier series</a>, see <a rel="mw:WikiLink" href="./Dini_test" title="Dini test" id="mwAWg">Dini test</a>.</li></ul>
+
+</section><section data-mw-section-id="9" id="mwAWk"><h2 id="History">History</h2>
+<p id="mwAWo">Steffens (2006, p.<span typeof="mw:Entity" id="mwAWs"> </span>160) attributes the first usage of omega for the modulus of continuity to <a rel="mw:WikiLink" href="./Lebesgue" title="Lebesgue" class="mw-redirect" id="mwAWw">Lebesgue</a> (1909, p.<span typeof="mw:Entity" id="mwAW0"> </span>309/p.<span typeof="mw:Entity" id="mwAW4"> </span>75) where omega refers to the oscillation of a <a rel="mw:WikiLink" href="./Fourier_transform" title="Fourier transform" id="mwAW8">Fourier transform</a>. <a rel="mw:WikiLink" href="./De_la_Vallée_Poussin" title="De la Vallée Poussin" class="mw-redirect" id="mwAXA">De la Vallée Poussin</a> (1919, pp.<span typeof="mw:Entity" id="mwAXE"> </span>7–8) mentions both names (1) "modulus of continuity" and (2) "modulus of oscillation" and then concludes "but we choose (1) to draw attention to the usage we will make of it".</p>
+
+</section><section data-mw-section-id="10" id="mwAXI"><h2 id="The_translation_group_of_Lp_functions,_and_moduli_of_continuity_Lp."><span id="The_translation_group_of_Lp_functions.2C_and_moduli_of_continuity_Lp." typeof="mw:FallbackId"></span>The translation group of <i id="mwAXM">L<sup id="mwAXQ">p</sup></i> functions, and moduli of continuity <i id="mwAXU">L<sup id="mwAXY">p</sup></i>.</h2>
+<p id="mwAXc">Let 1 ≤ <i id="mwAXg">p</i>; let <i id="mwAXk">f</i><span typeof="mw:DisplaySpace" id="mwAXo"> </span>: <b id="mwAXs">R</b><sup id="mwAXw"><i id="mwAX0">n</i></sup> → <b id="mwAX4">R</b> a function of class <i id="mwAX8">L<sup id="mwAYA">p</sup></i>, and let <i id="mwAYE">h</i> ∈ <b id="mwAYI">R</b><sup id="mwAYM"><i id="mwAYQ">n</i></sup>. The <i id="mwAYU">h</i>-<a rel="mw:WikiLink" href="./Translation_(geometry)" title="Translation (geometry)" id="mwAYY">translation</a> of <i id="mwAYc">f</i>, the function defined by (τ<sub id="mwAYg"><i id="mwAYk">h</i></sub><i id="mwAYo">f</i>)(<i id="mwAYs">x</i>)<span typeof="mw:DisplaySpace" id="mwAYw"> </span>:= <i id="mwAY0">f</i>(<i id="mwAY4">x</i>−<i id="mwAY8">h</i>), belongs to the <i id="mwAZA">L<sup id="mwAZE">p</sup></i> class; moreover, if 1 ≤ <i id="mwAZI">p</i> &lt; ∞, then as ǁ<i id="mwAZM">h</i>ǁ → 0 we have:</p>
+
+<dl id="mwAZQ"><dd id="mwAZU"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt35" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\|\\tau_h f - f\\|_p=o(1).&quot;}}" id="mwAZY"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \|\tau _{h}f-f\|_{p}=o(1).}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">‖</mo>
+        <msub>
+          <mi>τ</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>h</mi>
+          </mrow>
+        </msub>
+        <mi>f</mi>
+        <mo>−</mo>
+        <mi>f</mi>
+        <msub>
+          <mo fence="false" stretchy="false">‖</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>p</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mi>o</mi>
+        <mo stretchy="false">(</mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \|\tau _{h}f-f\|_{p}=o(1).}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3ad9bdd6c7a176ea2767d6ea1c1828eb6dc012c3" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -1.005ex; width:18.822ex; height:3.009ex;" alt="{\displaystyle \|\tau _{h}f-f\|_{p}=o(1).}"></span></dd></dl>
+
+<p id="mwAZc">Therefore, since translations are in fact  linear isometries, also</p>
+
+<dl id="mwAZg"><dd id="mwAZk"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt36" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\|\\tau_{v+h} f - \\tau_v f\\|_p=o(1),&quot;}}" id="mwAZo"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \|\tau _{v+h}f-\tau _{v}f\|_{p}=o(1),}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">‖</mo>
+        <msub>
+          <mi>τ</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>v</mi>
+            <mo>+</mo>
+            <mi>h</mi>
+          </mrow>
+        </msub>
+        <mi>f</mi>
+        <mo>−</mo>
+        <msub>
+          <mi>τ</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>v</mi>
+          </mrow>
+        </msub>
+        <mi>f</mi>
+        <msub>
+          <mo fence="false" stretchy="false">‖</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>p</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mi>o</mi>
+        <mo stretchy="false">(</mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+        <mo>,</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \|\tau _{v+h}f-\tau _{v}f\|_{p}=o(1),}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/df7c1afa44a83613d93174d260adb1440daf4b35" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -1.005ex; width:22.943ex; height:3.009ex;" alt="{\displaystyle \|\tau _{v+h}f-\tau _{v}f\|_{p}=o(1),}"></span></dd></dl>
+
+<p id="mwAZs">as ǁ<i id="mwAZw">h</i>ǁ → 0, uniformly on <i id="mwAZ0">v</i> ∈ <b id="mwAZ4">R</b><sup id="mwAZ8"><i id="mwAaA">n</i></sup>.</p>
+
+<p id="mwAaE">In other words, the map <i id="mwAaI">h</i> → τ<sub id="mwAaM"><i id="mwAaQ">h</i></sub> defines a strongly continuous group of linear isometries of <i id="mwAaU">L<sup id="mwAaY">p</sup></i>. In the case <i id="mwAac">p</i> = ∞ the above property does not hold in general: actually, it exactly reduces to the uniform continuity, and defines the uniform continuous functions. This leads to the following definition, that generalizes the notion of a modulus of continuity of the uniformly continuous functions: a modulus of continuity <i id="mwAag">L<sup id="mwAak">p</sup></i> for a measurable function <i id="mwAao">f</i><span typeof="mw:DisplaySpace" id="mwAas"> </span>: <i id="mwAaw">X</i> → <b id="mwAa0">R</b> is a modulus of continuity ω<span typeof="mw:DisplaySpace" id="mwAa4"> </span>: [0, ∞] → [0, ∞] such that</p>
+
+<dl id="mwAa8"><dd id="mwAbA"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt37" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\|\\tau_h f - f\\|_p\\leq \\omega(h).&quot;}}" id="mwAbE"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \|\tau _{h}f-f\|_{p}\leq \omega (h).}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">‖</mo>
+        <msub>
+          <mi>τ</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>h</mi>
+          </mrow>
+        </msub>
+        <mi>f</mi>
+        <mo>−</mo>
+        <mi>f</mi>
+        <msub>
+          <mo fence="false" stretchy="false">‖</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>p</mi>
+          </mrow>
+        </msub>
+        <mo>≤</mo>
+        <mi>ω</mi>
+        <mo stretchy="false">(</mo>
+        <mi>h</mi>
+        <mo stretchy="false">)</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \|\tau _{h}f-f\|_{p}\leq \omega (h).}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7c5d4447980e460a8443360ed76fc9ac1362d59e" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -1.005ex; width:19.316ex; height:3.009ex;" alt="{\displaystyle \|\tau _{h}f-f\|_{p}\leq \omega (h).}"></span></dd></dl>
+
+<p id="mwAbI">This way, moduli of continuity also give a quantitative account of the continuity property shared by all <i id="mwAbM">L<sup id="mwAbQ">p</sup></i> functions.</p>
+
+</section><section data-mw-section-id="11" id="mwAbU"><h2 id="Modulus_of_continuity_of_higher_orders">Modulus of continuity of higher orders</h2>
+<p id="mwAbY">It can be seen that formal definition of the modulus uses notion of <a rel="mw:WikiLink" href="./Finite_difference" title="Finite difference" id="mwAbc">finite difference</a> of first order:</p>
+
+<dl id="mwAbg"><dd id="mwAbk"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt38" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\omega_f(\\delta)=\\omega(f, \\delta)=\\sup\\limits_{x; |h|&lt;\\delta;}\\left|\\Delta_h(f,x)\\right|.&quot;}}" id="mwAbo"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \omega _{f}(\delta )=\omega (f,\delta )=\sup \limits _{x;|h|&lt;\delta ;}\left|\Delta _{h}(f,x)\right|.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>ω</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>f</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>δ</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>ω</mi>
+        <mo stretchy="false">(</mo>
+        <mi>f</mi>
+        <mo>,</mo>
+        <mi>δ</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <munder>
+          <mo form="prefix">sup</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>x</mi>
+            <mo>;</mo>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo stretchy="false">|</mo>
+            </mrow>
+            <mi>h</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo stretchy="false">|</mo>
+            </mrow>
+            <mo>&lt;</mo>
+            <mi>δ</mi>
+            <mo>;</mo>
+          </mrow>
+        </munder>
+        <mrow>
+          <mo>|</mo>
+          <mrow>
+            <msub>
+              <mi mathvariant="normal">Δ</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>h</mi>
+              </mrow>
+            </msub>
+            <mo stretchy="false">(</mo>
+            <mi>f</mi>
+            <mo>,</mo>
+            <mi>x</mi>
+            <mo stretchy="false">)</mo>
+          </mrow>
+          <mo>|</mo>
+        </mrow>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \omega _{f}(\delta )=\omega (f,\delta )=\sup \limits _{x;|h|&lt;\delta<span typeof="mw:DisplaySpace"> </span>;}\left|\Delta _{h}(f,x)\right|.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/56a01d497f5e8f80a935c710e5d3c68e79035fdf" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -3.005ex; width:35.271ex; height:5.009ex;" alt="{\displaystyle \omega _{f}(\delta )=\omega (f,\delta )=\sup \limits _{x;|h|&lt;\delta ;}\left|\Delta _{h}(f,x)\right|.}"></span></dd></dl>
+
+<p id="mwAbs">If we replace that difference with a <a rel="mw:WikiLink" href="./Finite_difference#Higher-order_differences" title="Finite difference" id="mwAbw">difference of order <i id="mwAb0">n</i></a>, we get a modulus of continuity of order <i id="mwAb4">n</i>:</p>
+
+<dl id="mwAb8"><dd id="mwAcA"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt39" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\omega_n(f, \\delta)=\\sup\\limits_{x; |h|&lt;\\delta;}\\left|\\Delta^n_h(f,x)\\right|.&quot;}}" id="mwAcE"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \omega _{n}(f,\delta )=\sup \limits _{x;|h|&lt;\delta ;}\left|\Delta _{h}^{n}(f,x)\right|.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>ω</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>f</mi>
+        <mo>,</mo>
+        <mi>δ</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <munder>
+          <mo form="prefix">sup</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>x</mi>
+            <mo>;</mo>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo stretchy="false">|</mo>
+            </mrow>
+            <mi>h</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo stretchy="false">|</mo>
+            </mrow>
+            <mo>&lt;</mo>
+            <mi>δ</mi>
+            <mo>;</mo>
+          </mrow>
+        </munder>
+        <mrow>
+          <mo>|</mo>
+          <mrow>
+            <msubsup>
+              <mi mathvariant="normal">Δ</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>h</mi>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>n</mi>
+              </mrow>
+            </msubsup>
+            <mo stretchy="false">(</mo>
+            <mi>f</mi>
+            <mo>,</mo>
+            <mi>x</mi>
+            <mo stretchy="false">)</mo>
+          </mrow>
+          <mo>|</mo>
+        </mrow>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \omega _{n}(f,\delta )=\sup \limits _{x;|h|&lt;\delta<span typeof="mw:DisplaySpace"> </span>;}\left|\Delta _{h}^{n}(f,x)\right|.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9f5da2b10fad494d56f189b203f3c7217d758c66" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -3.005ex; width:27.99ex; height:5.176ex;" alt="{\displaystyle \omega _{n}(f,\delta )=\sup \limits _{x;|h|&lt;\delta ;}\left|\Delta _{h}^{n}(f,x)\right|.}"></span></dd></dl>
+
+</section><section data-mw-section-id="12" id="mwAcI"><h2 id="See_also">See also</h2>
+<ul id="mwAcM"><li id="mwAcQ"><a rel="mw:WikiLink" href="./Constructive_analysis" title="Constructive analysis" id="mwAcU">Constructive analysis</a></li>
+<li id="mwAcY"><a rel="mw:WikiLink" href="./Modulus_of_convergence" title="Modulus of convergence" id="mwAcc">Modulus of convergence</a></li>
+<li id="mwAcg"><a rel="mw:WikiLink" href="./Lévy&#x27;s_modulus_of_continuity_theorem" title="Lévy&#x27;s modulus of continuity theorem" id="mwAck">Lévy's modulus of continuity theorem</a> for Brownian motion</li></ul>
+
+</section><section data-mw-section-id="13" id="mwAco"><h2 id="References">References</h2>
+<span class="mw-empty-elt" about="#mwt40" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Reflist&quot;,&quot;href&quot;:&quot;./Template:Reflist&quot;},&quot;params&quot;:{},&quot;i&quot;:0}}]}" id="mwAcs"><style data-mw-deduplicate="TemplateStyles:r1327269900" typeof="mw:Extension/templatestyles" about="#mwt41" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Reflist/styles.css&quot;}}">.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}body.skin-vector-2022 .mw-parser-output .reflist-columns-2{column-width:27em}body.skin-vector-2022 .mw-parser-output .reflist-columns-3{column-width:22.5em}.mw-parser-output .references[data-mw-group=upper-alpha]{list-style-type:upper-alpha}.mw-parser-output .references[data-mw-group=upper-roman]{list-style-type:upper-roman}.mw-parser-output .references[data-mw-group=lower-alpha]{list-style-type:lower-alpha}.mw-parser-output .references[data-mw-group=lower-greek]{list-style-type:lower-greek}.mw-parser-output .references[data-mw-group=lower-roman]{list-style-type:lower-roman}.mw-parser-output div.reflist-liststyle-upper-alpha .references{list-style-type:upper-alpha}.mw-parser-output div.reflist-liststyle-upper-roman .references{list-style-type:upper-roman}.mw-parser-output div.reflist-liststyle-lower-alpha .references{list-style-type:lower-alpha}.mw-parser-output div.reflist-liststyle-lower-greek .references{list-style-type:lower-greek}.mw-parser-output div.reflist-liststyle-lower-roman .references{list-style-type:lower-roman}</style></span><div about="#mwt40" id="mwAcw">
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt42" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{&quot;group&quot;:&quot;&quot;,&quot;responsive&quot;:&quot;1&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}" id="mwAc0"><ol class="mw-references references" id="mwAc4"><li about="#cite_note-1" id="cite_note-1" data-mw-footnote-number="1"><span class="mw-cite-backlink" id="mwAc8"><a href="./Modulus_of_continuity#cite_ref-1" rel="mw:referencedBy" id="mwAdA"><span class="mw-linkback-text" id="mwAdE">↑</span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text"><a rel="mw:ExtLink nofollow" href="https://mathoverflow.net/q/194890" class="external text" id="mwAdI">Legendre transform and Lipschitz approximation</a></span></li>
+</ol></div></div>
+<ul id="mwAdM"><li id="mwAdQ"><style data-mw-deduplicate="TemplateStyles:r1333433106" typeof="mw:Extension/templatestyles mw:Transclusion" about="#mwt43" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Citation/CS1/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;cite book &quot;,&quot;href&quot;:&quot;./Template:Cite_book&quot;},&quot;params&quot;:{&quot;first&quot;:{&quot;wt&quot;:&quot;G.&quot;},&quot;last&quot;:{&quot;wt&quot;:&quot;Choquet&quot;},&quot;series&quot;:{&quot;wt&quot;:&quot;Cours D&#x27;Analyse&quot;},&quot;volume&quot;:{&quot;wt&quot;:&quot;2&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;Topologie : espaces topologiques et espaces métriques, fonctions numériques, espaces vectoriels topologiques&quot;},&quot;oclc&quot;:{&quot;wt&quot;:&quot;299915897&quot;},&quot;edition&quot;:{&quot;wt&quot;:&quot;2nd&quot;},&quot;year&quot;:{&quot;wt&quot;:&quot;1969&quot;},&quot;publisher&quot;:{&quot;wt&quot;:&quot;Masson et C&lt;sup&gt;ie&lt;/sup&gt;&quot;},&quot;location&quot;:{&quot;wt&quot;:&quot;Paris&quot;},&quot;language&quot;:{&quot;wt&quot;:&quot;fr&quot;}},&quot;i&quot;:0}}]}" id="mwAdU">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free.id-lock-free a{background:url("//upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited.id-lock-limited a,.mw-parser-output .id-lock-registration.id-lock-registration a{background:url("//upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription.id-lock-subscription a{background:url("//upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:url("//upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-free a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-limited a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-registration a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-subscription a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .cs1-ws-icon a{background-size:contain;padding:0 1em 0 0}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:var(--color-error,#bf3c2c)}.mw-parser-output .cs1-visible-error{color:var(--color-error,#bf3c2c)}.mw-parser-output .cs1-maint{display:none;color:#085;margin-left:0.3em}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}@media screen{.mw-parser-output .cs1-format{font-size:95%}html.skin-theme-clientpref-night .mw-parser-output .cs1-maint{color:#18911f}}@media screen and (prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .cs1-maint{color:#18911f}}</style><cite id="CITEREFChoquet1969" class="citation book cs1 cs1-prop-foreign-lang-source" about="#mwt43">Choquet, G. (1969). <i>Topologie<span typeof="mw:DisplaySpace"> </span>: espaces topologiques et espaces métriques, fonctions numériques, espaces vectoriels topologiques</i>. Cours D'Analyse (in French). Vol.<span typeof="mw:Entity"> </span>2 (2nd<span typeof="mw:Entity"> </span>ed.). Paris: Masson et C<sup>ie</sup>. <a rel="mw:WikiLink" href="./OCLC_(identifier)" title="OCLC (identifier)" class="mw-redirect">OCLC</a><span typeof="mw:Entity"> </span><a rel="mw:ExtLink nofollow" href="https://search.worldcat.org/oclc/299915897" class="external text">299915897</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Topologie+%3A+espaces+topologiques+et+espaces+m%C3%A9triques%2C+fonctions+num%C3%A9riques%2C+espaces+vectoriels+topologiques&amp;rft.place=Paris&amp;rft.series=Cours+D%27Analyse&amp;rft.edition=2nd&amp;rft.pub=Masson+et+C%3Csup%3Eie%3C%2Fsup%3E&amp;rft.date=1969&amp;rft_id=info%3Aoclcnum%2F299915897&amp;rft.aulast=Choquet&amp;rft.aufirst=G.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AModulus+of+continuity" class="Z3988" about="#mwt43"></span><link rel="mw:PageProp/Category" href="./Category:CS1_French-language_sources_(fr)" about="#mwt43" id="mwAdY"></li>
+<li id="mwAdc"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt45" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Citation/CS1/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;SpringerEOM &quot;,&quot;href&quot;:&quot;./Template:SpringerEOM&quot;},&quot;params&quot;:{&quot;first&quot;:{&quot;wt&quot;:&quot;A. V.&quot;},&quot;last&quot;:{&quot;wt&quot;:&quot;Efimov&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;Continuity, modulus of&quot;},&quot;publisher&quot;:{&quot;wt&quot;:&quot;Springer&quot;},&quot;year&quot;:{&quot;wt&quot;:&quot;2001&quot;},&quot;isbn&quot;:{&quot;wt&quot;:&quot;1-4020-0609-8&quot;}},&quot;i&quot;:0}}]}" id="mwAdg"><cite id="CITEREFEfimov2001" class="citation cs2" about="#mwt45">Efimov, A. V. (2001) [1994], <a rel="mw:ExtLink nofollow" href="https://www.encyclopediaofmath.org/index.php?title=Continuity,_modulus_of" class="external text">"Continuity, modulus of"</a>, <i><a rel="mw:WikiLink" href="./Encyclopedia_of_Mathematics" title="Encyclopedia of Mathematics">Encyclopedia of Mathematics</a></i>, Springer, <a rel="mw:WikiLink" href="./ISBN_(identifier)" title="ISBN (identifier)" class="mw-redirect">ISBN</a><span typeof="mw:Entity"> </span><a rel="mw:WikiLink" href="./Special:BookSources/1-4020-0609-8" title="Special:BookSources/1-4020-0609-8"><bdi>1-4020-0609-8</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Continuity%2C+modulus+of&amp;rft.btitle=Encyclopedia+of+Mathematics&amp;rft.pub=Springer&amp;rft.date=2001&amp;rft.isbn=1-4020-0609-8&amp;rft.aulast=Efimov&amp;rft.aufirst=A.+V.&amp;rft_id=https%3A%2F%2Fwww.encyclopediaofmath.org%2Findex.php%3Ftitle%3DContinuity%2C_modulus_of&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AModulus+of+continuity" class="Z3988" about="#mwt45" id="mwAdk"></span></li>
+<li id="mwAdo"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt47" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Citation/CS1/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;cite journal &quot;,&quot;href&quot;:&quot;./Template:Cite_journal&quot;},&quot;params&quot;:{&quot;first&quot;:{&quot;wt&quot;:&quot;H.&quot;},&quot;last&quot;:{&quot;wt&quot;:&quot;Lebesgue&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;Sur les intégrales singulières&quot;},&quot;journal&quot;:{&quot;wt&quot;:&quot;Annales de la Faculté des Sciences de Toulouse: Mathématiques&quot;},&quot;volume&quot;:{&quot;wt&quot;:&quot;3&quot;},&quot;issue&quot;:{&quot;wt&quot;:&quot;1&quot;},&quot;year&quot;:{&quot;wt&quot;:&quot;1909&quot;},&quot;pages&quot;:{&quot;wt&quot;:&quot;25–117&quot;},&quot;doi&quot;:{&quot;wt&quot;:&quot;10.5802/afst.257&quot;}},&quot;i&quot;:0}}]}" id="mwAds"><cite id="CITEREFLebesgue1909" class="citation journal cs1" about="#mwt47">Lebesgue, H. (1909). "Sur les intégrales singulières". <i>Annales de la Faculté des Sciences de Toulouse: Mathématiques</i>. <b>3</b> (1): <span class="nowrap">25–</span>117. <a rel="mw:WikiLink" href="./Doi_(identifier)" title="Doi (identifier)" class="mw-redirect">doi</a>:<a rel="mw:ExtLink nofollow" href="https://doi.org/10.5802%2Fafst.257" class="external text">10.5802/afst.257</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Annales+de+la+Facult%C3%A9+des+Sciences+de+Toulouse%3A+Math%C3%A9matiques&amp;rft.atitle=Sur+les+int%C3%A9grales+singuli%C3%A8res&amp;rft.volume=3&amp;rft.issue=1&amp;rft.pages=25-117&amp;rft.date=1909&amp;rft_id=info%3Adoi%2F10.5802%2Fafst.257&amp;rft.aulast=Lebesgue&amp;rft.aufirst=H.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AModulus+of+continuity" class="Z3988" about="#mwt47" id="mwAdw"></span> Reproduced in: <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt49" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Citation/CS1/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;cite book &quot;,&quot;href&quot;:&quot;./Template:Cite_book&quot;},&quot;params&quot;:{&quot;first&quot;:{&quot;wt&quot;:&quot;Henri&quot;},&quot;last&quot;:{&quot;wt&quot;:&quot;Lebesgue&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;Œuvres scientifiques&quot;},&quot;volume&quot;:{&quot;wt&quot;:&quot;3&quot;},&quot;pages&quot;:{&quot;wt&quot;:&quot;259–351&quot;},&quot;language&quot;:{&quot;wt&quot;:&quot;fr&quot;}},&quot;i&quot;:0}}]}" id="mwAd0"><cite id="CITEREFLebesgue" class="citation book cs1 cs1-prop-foreign-lang-source" about="#mwt49">Lebesgue, Henri. <i>Œuvres scientifiques</i> (in French). Vol.<span typeof="mw:Entity"> </span>3. pp.<span typeof="mw:Entity"> </span><span class="nowrap">259–</span>351.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=%C5%92uvres+scientifiques&amp;rft.pages=259-351&amp;rft.aulast=Lebesgue&amp;rft.aufirst=Henri&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AModulus+of+continuity" class="Z3988" about="#mwt49"></span><link rel="mw:PageProp/Category" href="./Category:CS1_French-language_sources_(fr)" about="#mwt49" id="mwAd4"></li>
+<li id="mwAd8"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt51" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Citation/CS1/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;cite book &quot;,&quot;href&quot;:&quot;./Template:Cite_book&quot;},&quot;params&quot;:{&quot;first&quot;:{&quot;wt&quot;:&quot;Ch. de la Vallée&quot;},&quot;last&quot;:{&quot;wt&quot;:&quot;Poussin&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;L&#x27;approximation des fonctions d&#x27;une variable réelle&quot;},&quot;publisher&quot;:{&quot;wt&quot;:&quot;Gauthier-Villars&quot;},&quot;location&quot;:{&quot;wt&quot;:&quot;Paris&quot;},&quot;year&quot;:{&quot;wt&quot;:&quot;1952&quot;},&quot;orig-year&quot;:{&quot;wt&quot;:&quot;1919&quot;},&quot;language&quot;:{&quot;wt&quot;:&quot;fr&quot;}},&quot;i&quot;:0}}]}" id="mwAeA"><cite id="CITEREFPoussin1952" class="citation book cs1 cs1-prop-foreign-lang-source" about="#mwt51">Poussin, Ch. de la Vallée (1952) [1919]. <i>L'approximation des fonctions d'une variable réelle</i> (in French). Paris: Gauthier-Villars.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=L%27approximation+des+fonctions+d%27une+variable+r%C3%A9elle&amp;rft.place=Paris&amp;rft.pub=Gauthier-Villars&amp;rft.date=1952&amp;rft.aulast=Poussin&amp;rft.aufirst=Ch.+de+la+Vall%C3%A9e&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AModulus+of+continuity" class="Z3988" about="#mwt51"></span><link rel="mw:PageProp/Category" href="./Category:CS1_French-language_sources_(fr)" about="#mwt51" id="mwAeE"></li>
+<li id="mwAeI"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt53" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Citation/CS1/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;cite book &quot;,&quot;href&quot;:&quot;./Template:Cite_book&quot;},&quot;params&quot;:{&quot;first1&quot;:{&quot;wt&quot;:&quot;Y&quot;},&quot;last1&quot;:{&quot;wt&quot;:&quot;Benyamini&quot;},&quot;first2&quot;:{&quot;wt&quot;:&quot;J&quot;},&quot;last2&quot;:{&quot;wt&quot;:&quot;Lindenstrauss&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;Geometric Nonlinear Functional Analysis: Volume 1&quot;},&quot;publisher&quot;:{&quot;wt&quot;:&quot;American Mathematical Society&quot;},&quot;series&quot;:{&quot;wt&quot;:&quot;Colloquium Publications&quot;},&quot;volume&quot;:{&quot;wt&quot;:&quot;48&quot;},&quot;date&quot;:{&quot;wt&quot;:&quot;1998&quot;},&quot;isbn&quot;:{&quot;wt&quot;:&quot;978-0-8218-6963-5&quot;},&quot;url&quot;:{&quot;wt&quot;:&quot;{{GBurl|lXZ95EKwjYUC|pg=PP13}}&quot;}},&quot;i&quot;:0}}]}" id="mwAeM"><cite id="CITEREFBenyaminiLindenstrauss1998" class="citation book cs1" about="#mwt53">Benyamini, Y; Lindenstrauss, J (1998). <a rel="mw:ExtLink nofollow" href="https://books.google.com/books?id=lXZ95EKwjYUC&amp;pg=PP13" class="external text"><i>Geometric Nonlinear Functional Analysis: Volume 1</i></a>. Colloquium Publications. Vol.<span typeof="mw:Entity"> </span>48. American Mathematical Society. <a rel="mw:WikiLink" href="./ISBN_(identifier)" title="ISBN (identifier)" class="mw-redirect">ISBN</a><span typeof="mw:Entity"> </span><a rel="mw:WikiLink" href="./Special:BookSources/978-0-8218-6963-5" title="Special:BookSources/978-0-8218-6963-5"><bdi>978-0-8218-6963-5</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Geometric+Nonlinear+Functional+Analysis%3A+Volume+1&amp;rft.series=Colloquium+Publications&amp;rft.pub=American+Mathematical+Society&amp;rft.date=1998&amp;rft.isbn=978-0-8218-6963-5&amp;rft.aulast=Benyamini&amp;rft.aufirst=Y&amp;rft.au=Lindenstrauss%2C+J&amp;rft_id=https%3A%2F%2Fbooks.google.com%2Fbooks%3Fid%3DlXZ95EKwjYUC%26pg%3DPP13&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AModulus+of+continuity" class="Z3988" about="#mwt53" id="mwAeQ"></span></li>
+<li id="mwAeU"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt55" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Citation/CS1/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;cite book &quot;,&quot;href&quot;:&quot;./Template:Cite_book&quot;},&quot;params&quot;:{&quot;first&quot;:{&quot;wt&quot;:&quot;K.-G.&quot;},&quot;last&quot;:{&quot;wt&quot;:&quot;Steffens&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;The History of Approximation Theory&quot;},&quot;publisher&quot;:{&quot;wt&quot;:&quot;Birkhäuser&quot;},&quot;location&quot;:{&quot;wt&quot;:&quot;Boston&quot;},&quot;year&quot;:{&quot;wt&quot;:&quot;2006&quot;},&quot;isbn&quot;:{&quot;wt&quot;:&quot;0-8176-4353-2&quot;}},&quot;i&quot;:0}}]}" id="mwAeY"><cite id="CITEREFSteffens2006" class="citation book cs1" about="#mwt55">Steffens, K.-G. (2006). <i>The History of Approximation Theory</i>. Boston: Birkhäuser. <a rel="mw:WikiLink" href="./ISBN_(identifier)" title="ISBN (identifier)" class="mw-redirect">ISBN</a><span typeof="mw:Entity"> </span><a rel="mw:WikiLink" href="./Special:BookSources/0-8176-4353-2" title="Special:BookSources/0-8176-4353-2"><bdi>0-8176-4353-2</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=The+History+of+Approximation+Theory&amp;rft.place=Boston&amp;rft.pub=Birkh%C3%A4user&amp;rft.date=2006&amp;rft.isbn=0-8176-4353-2&amp;rft.aulast=Steffens&amp;rft.aufirst=K.-G.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AModulus+of+continuity" class="Z3988" about="#mwt55" id="mwAec"></span></li></ul>
+
+<link rel="mw:PageProp/Category" href="./Category:Lipschitz_continuity" id="mwAeg">
+<link rel="mw:PageProp/Category" href="./Category:Approximation_theory" id="mwAek">
+<link rel="mw:PageProp/Category" href="./Category:Constructivism_(philosophy_of_mathematics)" id="mwAeo">
+<link rel="mw:PageProp/Category" href="./Category:Fourier_analysis" id="mwAes"></section></body></html>

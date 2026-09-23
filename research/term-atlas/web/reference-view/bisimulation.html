@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+<html prefix="dc: http://purl.org/dc/terms/ mw: http://mediawiki.org/rdf/" about="//en.wikipedia.org/wiki/Special:Redirect/revision/1374639842"><head prefix="mwr: //en.wikipedia.org/wiki/Special:Redirect/"><base href="https://en.wikipedia.org/wiki/" target="_blank"><meta charset="utf-8"><style>html{color-scheme:light}body{margin:0 auto!important;padding:18px!important;max-width:100%!important;font:14px/1.65 Georgia,serif!important;color:#202820!important;background:#fffefb!important;overflow-wrap:anywhere}h1,h2,h3{font-family:Georgia,serif;line-height:1.3}h1{font-size:28px}h2{font-size:23px;border-bottom:1px solid #ddd;padding-top:18px}h3{font-size:18px}a{color:#315778}img{max-width:100%;height:auto}.infobox{float:none!important;width:100%!important;font-size:12px;border:1px solid #ddd;padding:10px}.sidebar,.navbox,.metadata,.mw-editsection{display:none}figure{margin:12px 0}table{max-width:100%;font-size:12px}math{font-size:1em}.mwe-math-fallback-image-inline{vertical-align:middle}pre{white-space:pre-wrap}.reflist{font-size:11px}.mwe-math-mathml-a11y{display:inline!important;position:static!important;clip:auto!important;width:auto!important;height:auto!important;overflow:visible!important}.mwe-math-mathml-display{display:block!important}.mwe-math-element:has(math) .mwe-math-fallback-image-inline,.mwe-math-element:has(math) .mwe-math-fallback-image-display{display:none!important}</style><meta charset="utf-8"><link rel="dc:replaces" resource="mwr:revision/1374539370"><meta property="mw:revisionSHA1" content="802pr8sg70z21hjxhmoazr7sqi8xctf"><meta property="dc:modified" content="2026-09-13T07:11:42Z"><meta property="mw:pageNamespace" content="0"><meta property="mw:pageId" content="397571"><meta property="mw:htmlVersion" content="2.8.0"><meta property="mw:html:version" content="2.8.0"><link rel="dc:isVersionOf" href="//en.wikipedia.org/wiki/Bisimulation"><title>Bisimulation</title><meta property="mw:jsConfigVars" content="{&quot;wgParsoidHtmlVersion&quot;:&quot;2.8.0&quot;}"><meta property="mw:generalModules" content="ext.math.polyfills|ext.cite.ux-enhancements|ext.scribunto.logs"><meta property="mw:moduleStyles" content="ext.math.styles|ext.cite.parsoid.styles|ext.cite.styles|mediawiki.skinning.content.parsoid"></head><body class="mw-content-ltr sitedir-ltr ltr mw-body-content mediawiki mw-parser-output parsoid-body" lang="en" dir="ltr" data-mw-parsoid-version="0.24.0.0-alpha22" data-mw-html-version="2.8.0"><section data-mw-section-id="0" id="mwAQ"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none" about="#mwt1" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Short description&quot;,&quot;href&quot;:&quot;./Template:Short_description&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;Relation between transition systems in computer science&quot;}},&quot;i&quot;:0}}]}" id="mwAg">Relation between transition systems in computer science</div><span class="mw-empty-elt" about="#mwt1"><link rel="mw:PageProp/Category" href="./Category:Articles_with_short_description"><link rel="mw:PageProp/Category" href="./Category:Short_description_matches_Wikidata"></span>
+<span class="mw-empty-elt" about="#mwt2" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;More citations needed&quot;,&quot;href&quot;:&quot;./Template:More_citations_needed&quot;},&quot;params&quot;:{&quot;date&quot;:{&quot;wt&quot;:&quot;February 2017&quot;}},&quot;i&quot;:0}}]}" id="mwAw"><style data-mw-deduplicate="TemplateStyles:r1364180890" typeof="mw:Extension/templatestyles" about="#mwt3" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Message box/ambox.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}">.mw-parser-output .ambox{border:1px solid #a2a9b1;border-left:10px solid #36c;background-color:#fbfbfb;box-sizing:border-box}.mw-parser-output .ambox+.mw-empty-elt+.ambox,.mw-parser-output .ambox+.mw-empty-elt+.mw-empty-elt+.ambox,.mw-parser-output .ambox+.mw-empty-elt+.mw-empty-elt+.mw-empty-elt+.ambox{margin-top:-1px}html body.mediawiki .mw-parser-output .ambox.mbox-small-left{margin:4px 1em 4px 0;overflow:hidden;width:238px;border-collapse:collapse;font-size:88%;line-height:1.25em}.mw-parser-output .ambox-speedy{border-left:10px solid #b32424;background-color:#fee7e6}.mw-parser-output .ambox-delete{border-left:10px solid #b32424}.mw-parser-output .ambox-content{border-left:10px solid #f28500}.mw-parser-output .ambox-style{border-left:10px solid #fc3}.mw-parser-output .ambox-move{border-left:10px solid #9932cc}.mw-parser-output .ambox-protection{border-left:10px solid #a2a9b1}.mw-parser-output .ambox .mbox-text{border:none;padding:0.25em 0.5em;width:100%}.mw-parser-output .ambox .mbox-image{border:none;padding:2px 0 2px 0.5em;text-align:center}.mw-parser-output .ambox .mbox-imageright{border:none;padding:2px 0.5em 2px 0;text-align:center}.mw-parser-output .ambox .mbox-empty-cell{border:none;padding:0;width:1px}.mw-parser-output .ambox .mbox-image-div{width:52px}@media(min-width:720px){.mw-parser-output .ambox{margin:0 10%}}@media print{body.ns-0 .mw-parser-output .ambox{display:none!important}}</style></span><table class="box-More_citations_needed plainlinks metadata ambox ambox-content ambox-Refimprove" role="presentation" about="#mwt2"><tbody><tr><td class="mbox-image"><div class="mbox-image-div"><span typeof="mw:File"><a href="./File:Question_book-new.svg" class="mw-file-description"><img resource="./File:Question_book-new.svg" src="//thumb.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/60px-Question_book-new.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail" decoding="async" loading="lazy" srcset="//thumb.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/120px-Question_book-new.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x" alt="icon" data-file-width="512" data-file-height="399" data-file-type="drawing" height="39" width="50" class="mw-file-element"></a></span></div></td><td class="mbox-text"><div class="mbox-text-span">This article <b>needs <a rel="mw:WikiLink" href="./Wikipedia:Verifiability" title="Wikipedia:Verifiability">more citations</a></b>.<span class="hide-when-compact"> Please help <a rel="mw:WikiLink" href="./Special:EditPage/Bisimulation" title="Special:EditPage/Bisimulation">improve this article</a> by <a rel="mw:WikiLink" href="./Help:Referencing_for_beginners" title="Help:Referencing for beginners">adding citations to reliable sources</a>. Unsourced material may be challenged and <a rel="mw:WikiLink" href="./Wikipedia:Verifiability#Burden_of_evidence" title="Wikipedia:Verifiability">removed</a>.<br><small><span class="plainlinks"><i>Find sources:</i><span typeof="mw:Entity"> </span><a rel="mw:ExtLink nofollow" href="https://www.google.com/search?as_eq=wikipedia&amp;q=%22Bisimulation%22" class="external text">"Bisimulation"</a><span typeof="mw:Entity"> </span>–<span typeof="mw:Entity"> </span><a rel="mw:ExtLink nofollow" href="https://www.google.com/search?tbm=nws&amp;q=%22Bisimulation%22+-wikipedia&amp;tbs=ar:1" class="external text">news</a> <b>·</b> <a rel="mw:ExtLink nofollow" href="https://www.google.com/search?&amp;q=%22Bisimulation%22&amp;tbs=bkt:s&amp;tbm=bks" class="external text">newspapers</a> <b>·</b> <a rel="mw:ExtLink nofollow" href="https://www.google.com/search?tbs=bks:1&amp;q=%22Bisimulation%22+-wikipedia" class="external text">books</a> <b>·</b> <a rel="mw:ExtLink nofollow" href="https://scholar.google.com/scholar?q=%22Bisimulation%22" class="external text">scholar</a> <b>·</b> <a rel="mw:ExtLink nofollow" href="https://www.jstor.org/action/doBasicSearch?Query=%22Bisimulation%22&amp;acc=on&amp;wc=on" class="external text">JSTOR</a></span></small></span>  <span class="date-container"><i>(<span class="date">February 2017</span>)</i></span><span class="hide-when-compact"><i> (<small><a rel="mw:WikiLink" href="./Help:Maintenance_template_removal" title="Help:Maintenance template removal">Learn how and when to remove this message</a></small>)</i></span></div></td></tr></tbody></table><span class="mw-empty-elt" about="#mwt2"><link rel="mw:PageProp/Category" href="./Category:Articles_needing_additional_references_from_February_2017"><link rel="mw:PageProp/Category" href="./Category:All_articles_needing_additional_references"></span>
+<p id="mwBA">In <a rel="mw:WikiLink" href="./Theoretical_computer_science" title="Theoretical computer science" id="mwBQ">theoretical computer science</a>, a <b id="mwBg">bisimulation</b> is a <a rel="mw:WikiLink" href="./Binary_relation" title="Binary relation" id="mwBw">binary relation</a> between state <a rel="mw:WikiLink" href="./Transition_system" title="Transition system" id="mwCA">transition systems</a>, associating systems that behave in the same way in that one system <a rel="mw:WikiLink" href="./Simulation_(computer_science)" title="Simulation (computer science)" id="mwCQ">simulates</a> the other and vice versa.</p>
+
+<p id="mwCg">Intuitively two systems are bisimilar if they, assuming we view them as playing a <i id="mwCw">game</i> according to some rules, match each other's moves. In this sense, each of the systems cannot be distinguished from the other by an observer.</p>
+
+<meta property="mw:PageProp/toc" data-mw="{&quot;autoGenerated&quot;:true}" id="mwDA"></section><section data-mw-section-id="1" id="mwDQ"><h2 id="Formal_definition">Formal definition</h2>
+<p id="mwDg">Given a <a rel="mw:WikiLink" href="./State_transition_system" title="State transition system" class="mw-redirect" id="mwDw">labeled state transition system</a> <span class="texhtml " about="#mwt4" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;math&quot;,&quot;href&quot;:&quot;./Template:Math&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;({{var|S}}, &amp;Lambda;, &amp;rarr;)&quot;}},&quot;i&quot;:0}}]}" id="mwEA">(<var style="padding-right: 1px;">S</var>, <span typeof="mw:Entity">Λ</span>, <span typeof="mw:Entity">→</span>)</span>,
+where <span class="texhtml mvar" style="font-style:italic;" about="#mwt5" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;mvar&quot;,&quot;href&quot;:&quot;./Template:Mvar&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;S&quot;}},&quot;i&quot;:0}}]}" id="mwEQ">S</span> is a set of states, <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt6" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\Lambda&quot;}}" id="mwEg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \Lambda }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">Λ</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Lambda }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0ac0a4a98a414e3480335f9ba652d12571ec6733" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.613ex; height:2.176ex;" alt="{\displaystyle \Lambda }"></span> is a set of labels and <span typeof="mw:Entity" id="mwEw">→</span> is a set of labelled transitions (i.e., a subset of <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt7" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;S \\times \\Lambda \\times S&quot;}}" id="mwFA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle S\times \Lambda \times S}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>S</mi>
+        <mo>×</mo>
+        <mi mathvariant="normal">Λ</mi>
+        <mo>×</mo>
+        <mi>S</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle S\times \Lambda \times S}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b33e37ce4a542e2949580c19ff9e01283fedd285" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:10.292ex; height:2.176ex;" alt="{\displaystyle S\times \Lambda \times S}"></span>),
+a <b id="mwFQ">bisimulation</b> is a <a rel="mw:WikiLink" href="./Binary_relation" title="Binary relation" id="mwFg">binary relation</a> <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt8" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;R \\subseteq S \\times S&quot;}}" id="mwFw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle R\subseteq S\times S}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>R</mi>
+        <mo>⊆</mo>
+        <mi>S</mi>
+        <mo>×</mo>
+        <mi>S</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle R\subseteq S\times S}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4957f9171a9ea27d56e924189350b5468f67579e" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.505ex; width:10.701ex; height:2.343ex;" alt="{\displaystyle R\subseteq S\times S}"></span>,
+such that both <span class="texhtml mvar" style="font-style:italic;" about="#mwt9" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;mvar&quot;,&quot;href&quot;:&quot;./Template:Mvar&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;R&quot;}},&quot;i&quot;:0}}]}" id="mwGA">R</span> and its <a rel="mw:WikiLink" href="./Converse_relation" title="Converse relation" id="mwGQ">converse</a> <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt13" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;R^T&quot;}}" id="mwGg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle R^{T}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>R</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>T</mi>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle R^{T}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/faa25e9ecd55e58fbd61ad74d59bc2d4f73d59a3" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:3.153ex; height:2.676ex;" alt="{\displaystyle R^{T}}"></span> are <a rel="mw:WikiLink" href="./Simulation_preorder" title="Simulation preorder" class="mw-redirect" id="mwGw">simulations</a>. From this follows that the <a rel="mw:WikiLink" href="./Symmetric_relation" title="Symmetric relation" id="mwHA">symmetric</a> closure of a bisimulation is a bisimulation, and that each symmetric simulation is a bisimulation. Thus some authors define bisimulation as a symmetric simulation.<sup about="#mwt10" class="mw-ref reference" id="cite_ref-FOOTNOTEJančarSrba2008_1-0" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;group&quot;:&quot;&quot;,&quot;name&quot;:&quot;FOOTNOTEJančarSrba2008&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-FOOTNOTEJančarSrba2008-1&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;sfn&quot;,&quot;href&quot;:&quot;./Template:Sfn&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;Jančar&quot;},&quot;2&quot;:{&quot;wt&quot;:&quot;Srba&quot;},&quot;3&quot;:{&quot;wt&quot;:&quot;2008&quot;}},&quot;i&quot;:0}}]}"><a href="./Bisimulation#cite_note-FOOTNOTEJančarSrba2008-1" id="mwHQ"><span class="mw-reflink-text" id="mwHg"><span class="cite-bracket" id="mwHw">[</span>1<span class="cite-bracket" id="mwIA">]</span></span></a></sup></p>
+
+<p id="mwIQ">Equivalently, <span class="texhtml mvar" style="font-style:italic;" about="#mwt14" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;mvar&quot;,&quot;href&quot;:&quot;./Template:Mvar&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;R&quot;}},&quot;i&quot;:0}}]}" id="mwIg">R</span> is a <b id="mwIw">bisimulation</b> if and only if for every pair of states <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt16" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;(p,q)&quot;}}" id="mwJA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (p,q)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>p</mi>
+        <mo>,</mo>
+        <mi>q</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (p,q)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9769c58523b9b639866a2d48e657d9c26911143a" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:5.082ex; height:2.843ex;" alt="{\displaystyle (p,q)}"></span> in <span class="texhtml mvar" style="font-style:italic;" about="#mwt15" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;mvar&quot;,&quot;href&quot;:&quot;./Template:Mvar&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;R&quot;}},&quot;i&quot;:0}}]}" id="mwJQ">R</span> and all labels <i id="mwJg"><span typeof="mw:Entity" id="mwJw">λ</span></i> in <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt17" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\Lambda&quot;}}" id="mwKA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \Lambda }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">Λ</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Lambda }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0ac0a4a98a414e3480335f9ba652d12571ec6733" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.613ex; height:2.176ex;" alt="{\displaystyle \Lambda }"></span>:</p>
+
+<ul id="mwKQ"><li id="mwKg">if <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt18" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;p \\mathrel{\\overset{\\lambda}{\\rightarrow}} p&#x27;&quot;}}" id="mwKw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle p\mathrel {\overset {\lambda }{\rightarrow }} p&#x27;}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>p</mi>
+        <mrow class="MJX-TeXAtom-REL">
+          <mover>
+            <mo stretchy="false">→</mo>
+            <mi>λ</mi>
+          </mover>
+        </mrow>
+        <msup>
+          <mi>p</mi>
+          <mo>′</mo>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle p\mathrel {\overset {\lambda }{\rightarrow }} p'}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1cb62f129037cfa12ed6645a3e057efee6a9f515" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; margin-left: -0.089ex; width:6.727ex; height:4.009ex;" alt="{\displaystyle p\mathrel {\overset {\lambda }{\rightarrow }} p&#x27;}"></span>, then there is <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt19" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;q \\mathrel{\\overset{\\lambda}{\\rightarrow}} q&#x27;&quot;}}" id="mwLA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle q\mathrel {\overset {\lambda }{\rightarrow }} q&#x27;}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>q</mi>
+        <mrow class="MJX-TeXAtom-REL">
+          <mover>
+            <mo stretchy="false">→</mo>
+            <mi>λ</mi>
+          </mover>
+        </mrow>
+        <msup>
+          <mi>q</mi>
+          <mo>′</mo>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle q\mathrel {\overset {\lambda }{\rightarrow }} q'}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ab58cb782be732d2dffc635dda6d96df6ffebf37" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:6.448ex; height:4.009ex;" alt="{\displaystyle q\mathrel {\overset {\lambda }{\rightarrow }} q&#x27;}"></span> such that <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt20" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;(p&#x27;,q&#x27;) \\in R&quot;}}" id="mwLQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (p&#x27;,q&#x27;)\in R}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>p</mi>
+          <mo>′</mo>
+        </msup>
+        <mo>,</mo>
+        <msup>
+          <mi>q</mi>
+          <mo>′</mo>
+        </msup>
+        <mo stretchy="false">)</mo>
+        <mo>∈</mo>
+        <mi>R</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (p',q')\in R}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/42f2387df3f3a1b61f2e1052169e7e02095ed442" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:11.066ex; height:3.009ex;" alt="{\displaystyle (p&#x27;,q&#x27;)\in R}"></span>;</li>
+<li id="mwLg">if <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt21" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;q \\mathrel{\\overset{\\lambda}{\\rightarrow}} q&#x27;&quot;}}" id="mwLw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle q\mathrel {\overset {\lambda }{\rightarrow }} q&#x27;}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>q</mi>
+        <mrow class="MJX-TeXAtom-REL">
+          <mover>
+            <mo stretchy="false">→</mo>
+            <mi>λ</mi>
+          </mover>
+        </mrow>
+        <msup>
+          <mi>q</mi>
+          <mo>′</mo>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle q\mathrel {\overset {\lambda }{\rightarrow }} q'}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ab58cb782be732d2dffc635dda6d96df6ffebf37" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:6.448ex; height:4.009ex;" alt="{\displaystyle q\mathrel {\overset {\lambda }{\rightarrow }} q&#x27;}"></span>, then there is <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt22" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;p \\mathrel{\\overset{\\lambda}{\\rightarrow}} p&#x27;&quot;}}" id="mwMA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle p\mathrel {\overset {\lambda }{\rightarrow }} p&#x27;}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>p</mi>
+        <mrow class="MJX-TeXAtom-REL">
+          <mover>
+            <mo stretchy="false">→</mo>
+            <mi>λ</mi>
+          </mover>
+        </mrow>
+        <msup>
+          <mi>p</mi>
+          <mo>′</mo>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle p\mathrel {\overset {\lambda }{\rightarrow }} p'}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1cb62f129037cfa12ed6645a3e057efee6a9f515" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; margin-left: -0.089ex; width:6.727ex; height:4.009ex;" alt="{\displaystyle p\mathrel {\overset {\lambda }{\rightarrow }} p&#x27;}"></span> such that <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt23" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;(p&#x27;,q&#x27;) \\in R&quot;}}" id="mwMQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (p&#x27;,q&#x27;)\in R}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>p</mi>
+          <mo>′</mo>
+        </msup>
+        <mo>,</mo>
+        <msup>
+          <mi>q</mi>
+          <mo>′</mo>
+        </msup>
+        <mo stretchy="false">)</mo>
+        <mo>∈</mo>
+        <mi>R</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (p',q')\in R}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/42f2387df3f3a1b61f2e1052169e7e02095ed442" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:11.066ex; height:3.009ex;" alt="{\displaystyle (p&#x27;,q&#x27;)\in R}"></span>.</li></ul>
+
+<p id="mwMg">Given two states <span class="texhtml mvar" style="font-style:italic;" about="#mwt24" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;mvar&quot;,&quot;href&quot;:&quot;./Template:Mvar&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;p&quot;}},&quot;i&quot;:0}}]}" id="mwMw">p</span> and <span class="texhtml mvar" style="font-style:italic;" about="#mwt25" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;mvar&quot;,&quot;href&quot;:&quot;./Template:Mvar&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;q&quot;}},&quot;i&quot;:0}}]}" id="mwNA">q</span> in <span class="texhtml mvar" style="font-style:italic;" about="#mwt26" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;mvar&quot;,&quot;href&quot;:&quot;./Template:Mvar&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;S&quot;}},&quot;i&quot;:0}}]}" id="mwNQ">S</span>, <span class="texhtml mvar" style="font-style:italic;" about="#mwt27" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;mvar&quot;,&quot;href&quot;:&quot;./Template:Mvar&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;p&quot;}},&quot;i&quot;:0}}]}" id="mwNg">p</span> is <b id="mwNw">bisimilar</b> to <span class="texhtml mvar" style="font-style:italic;" about="#mwt28" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;mvar&quot;,&quot;href&quot;:&quot;./Template:Mvar&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;q&quot;}},&quot;i&quot;:0}}]}" id="mwOA">q</span>, written <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt32" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;p \\, \\sim \\, q&quot;}}" id="mwOQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle p\,\sim \,q}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>p</mi>
+        <mspace width="thinmathspace"></mspace>
+        <mo>∼</mo>
+        <mspace width="thinmathspace"></mspace>
+        <mi>q</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle p\,\sim \,q}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/fb384bd3852596c3c3092510bb0022d544980bc8" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; margin-left: -0.089ex; width:6.201ex; height:2.009ex;" alt="{\displaystyle p\,\sim \,q}"></span>, if and only if there is a bisimulation <span class="texhtml mvar" style="font-style:italic;" about="#mwt29" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;mvar&quot;,&quot;href&quot;:&quot;./Template:Mvar&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;R&quot;}},&quot;i&quot;:0}}]}" id="mwOg">R</span> such that <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt33" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;(p, q) \\in R&quot;}}" id="mwOw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (p,q)\in R}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>p</mi>
+        <mo>,</mo>
+        <mi>q</mi>
+        <mo stretchy="false">)</mo>
+        <mo>∈</mo>
+        <mi>R</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (p,q)\in R}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/68416fab89bda4c6db561425a7f38d00a2ef8b6f" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:9.687ex; height:2.843ex;" alt="{\displaystyle (p,q)\in R}"></span>. This means that the bisimilarity relation <span style="font-size:150%;" about="#mwt30" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;resize&quot;,&quot;href&quot;:&quot;./Template:Resize&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;150%&quot;},&quot;2&quot;:{&quot;wt&quot;:&quot;&amp;sim;&quot;}},&quot;i&quot;:0}}]}" id="mwPA"><span typeof="mw:Entity">∼</span></span> is the union of all bisimulations: <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt34" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;(p,q) \\in\\,\\sim\\,&quot;}}" id="mwPQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (p,q)\in \,\sim \,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>p</mi>
+        <mo>,</mo>
+        <mi>q</mi>
+        <mo stretchy="false">)</mo>
+        <mo>∈</mo>
+        <mspace width="thinmathspace"></mspace>
+        <mo>∼</mo>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (p,q)\in \,\sim \,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/53a6a7e707478ea278271664e53a07fd53398c08" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:9.86ex; height:2.843ex;" alt="{\displaystyle (p,q)\in \,\sim \,}"></span> precisely when <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt35" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;(p, q) \\in R&quot;}}" id="mwPg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (p,q)\in R}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>p</mi>
+        <mo>,</mo>
+        <mi>q</mi>
+        <mo stretchy="false">)</mo>
+        <mo>∈</mo>
+        <mi>R</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (p,q)\in R}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/68416fab89bda4c6db561425a7f38d00a2ef8b6f" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:9.687ex; height:2.843ex;" alt="{\displaystyle (p,q)\in R}"></span> for some bisimulation <span class="texhtml mvar" style="font-style:italic;" about="#mwt31" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;mvar&quot;,&quot;href&quot;:&quot;./Template:Mvar&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;R&quot;}},&quot;i&quot;:0}}]}" id="mwPw">R</span>.</p>
+
+<p id="mwQA">The set of bisimulations is closed under union, that is, the union of two bisimulations is a bisimulation. Therefore, the bisimilarity relation is itself a bisimulation. Since it is the union of all bisimulations, it is the unique largest bisimulation. Bisimulations are also closed under reflexive, symmetric, and <a rel="mw:WikiLink" href="./Transitive_closure" title="Transitive closure" id="mwQQ">transitive closure</a>; therefore, the largest bisimulation must be reflexive, symmetric, and transitive. From this follows that the largest bisimulation—bisimilarity—is an <a rel="mw:WikiLink" href="./Equivalence_relation" title="Equivalence relation" id="mwQg">equivalence relation</a>.<sup about="#mwt36" class="mw-ref reference" id="cite_ref-FOOTNOTEMilner1989_2-0" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;group&quot;:&quot;&quot;,&quot;name&quot;:&quot;FOOTNOTEMilner1989&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-FOOTNOTEMilner1989-2&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;sfn&quot;,&quot;href&quot;:&quot;./Template:Sfn&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;Milner&quot;},&quot;2&quot;:{&quot;wt&quot;:&quot;1989&quot;}},&quot;i&quot;:0}}]}"><a href="./Bisimulation#cite_note-FOOTNOTEMilner1989-2" id="mwQw"><span class="mw-reflink-text" id="mwRA"><span class="cite-bracket" id="mwRQ">[</span>2<span class="cite-bracket" id="mwRg">]</span></span></a></sup></p>
+
+</section><section data-mw-section-id="2" id="mwRw"><h2 id="Alternative_definitions">Alternative definitions</h2>
+
+<section data-mw-section-id="3" id="mwSA"><h3 id="Relational_definition">Relational definition</h3>
+<p id="mwSQ">Bisimulation can be defined in terms of <a rel="mw:WikiLink" href="./Composition_of_relations" title="Composition of relations" id="mwSg">composition of relations</a> as follows.</p>
+
+<p id="mwSw">Given a <a rel="mw:WikiLink" href="./State_transition_system" title="State transition system" class="mw-redirect" id="mwTA">labelled state transition system</a> <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt42" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;(S, \\Lambda, \\rightarrow)&quot;}}" id="mwTQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (S,\Lambda ,\rightarrow )}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>S</mi>
+        <mo>,</mo>
+        <mi mathvariant="normal">Λ</mi>
+        <mo>,</mo>
+        <mo stretchy="false">→</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (S,\Lambda ,\rightarrow )}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2d7d2bcbcd840d282ace37dc17c1fd8c21ab8446" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:9.313ex; height:2.843ex;" alt="{\displaystyle (S,\Lambda ,\rightarrow )}"></span>, a <i id="mwTg">bisimulation</i> <a rel="mw:WikiLink" href="./Relation_(mathematics)" title="Relation (mathematics)" id="mwTw">relation</a> is a <a rel="mw:WikiLink" href="./Binary_relation" title="Binary relation" id="mwUA">binary relation</a> <span class="texhtml mvar" style="font-style:italic;" about="#mwt39" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;mvar&quot;,&quot;href&quot;:&quot;./Template:Mvar&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;R&quot;}},&quot;i&quot;:0}}]}" id="mwUQ">R</span> over <span class="texhtml mvar" style="font-style:italic;" about="#mwt40" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;mvar&quot;,&quot;href&quot;:&quot;./Template:Mvar&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;S&quot;}},&quot;i&quot;:0}}]}" id="mwUg">S</span> (i.e., <span class="texhtml " about="#mwt41" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;math&quot;,&quot;href&quot;:&quot;./Template:Math&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;{{var|R}} &amp;sube; {{var|S}} &amp;times; {{var|S}}&quot;}},&quot;i&quot;:0}}]}" id="mwUw"><var style="padding-right: 1px;">R</var> <span typeof="mw:Entity">⊆</span> <var style="padding-right: 1px;">S</var> <span typeof="mw:Entity">×</span> <var style="padding-right: 1px;">S</var></span>) such that <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt43" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\forall\\lambda\\in\\Lambda&quot;}}" id="mwVA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \forall \lambda \in \Lambda }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">∀</mi>
+        <mi>λ</mi>
+        <mo>∈</mo>
+        <mi mathvariant="normal">Λ</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \forall \lambda \in \Lambda }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f1d266bc2233fa9f833749f82786c0620b3fa555" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:7.101ex; height:2.176ex;" alt="{\displaystyle \forall \lambda \in \Lambda }"></span></p>
+
+<p id="mwVQ"><span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt44" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;block&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;R\\ ;\\ \\overset{\\lambda}{\\rightarrow}\\quad {\\subseteq}\\quad \\overset{\\lambda}{\\rightarrow}\\ ;\\ R&quot;}}" id="mwVg"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle R\ ;\ {\overset {\lambda }{\rightarrow }}\quad {\subseteq }\quad {\overset {\lambda }{\rightarrow }}\ ;\ R}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>R</mi>
+        <mtext> </mtext>
+        <mo>;</mo>
+        <mtext> </mtext>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <mo stretchy="false">→</mo>
+            <mi>λ</mi>
+          </mover>
+        </mrow>
+        <mspace width="1em"></mspace>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>⊆</mo>
+        </mrow>
+        <mspace width="1em"></mspace>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <mo stretchy="false">→</mo>
+            <mi>λ</mi>
+          </mover>
+        </mrow>
+        <mtext> </mtext>
+        <mo>;</mo>
+        <mtext> </mtext>
+        <mi>R</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle R\<span typeof="mw:DisplaySpace"> </span>;\ {\overset {\lambda }{\rightarrow }}\quad {\subseteq }\quad {\overset {\lambda }{\rightarrow }}\<span typeof="mw:DisplaySpace"> </span>;\ R}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0446438956923cf9c8df7bcc0002c53c6bd6eee6" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:19.019ex; height:4.009ex;" alt="{\displaystyle R\ ;\ {\overset {\lambda }{\rightarrow }}\quad {\subseteq }\quad {\overset {\lambda }{\rightarrow }}\ ;\ R}"></span>
+and
+<span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt45" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;block&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;R^{-1}\\ ;\\ \\overset{\\lambda}{\\rightarrow}\\quad {\\subseteq}\\quad \\overset{\\lambda}{\\rightarrow}\\ ;\\ R^{-1}&quot;}}" id="mwVw"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle R^{-1}\ ;\ {\overset {\lambda }{\rightarrow }}\quad {\subseteq }\quad {\overset {\lambda }{\rightarrow }}\ ;\ R^{-1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>R</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>−</mo>
+            <mn>1</mn>
+          </mrow>
+        </msup>
+        <mtext> </mtext>
+        <mo>;</mo>
+        <mtext> </mtext>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <mo stretchy="false">→</mo>
+            <mi>λ</mi>
+          </mover>
+        </mrow>
+        <mspace width="1em"></mspace>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>⊆</mo>
+        </mrow>
+        <mspace width="1em"></mspace>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <mo stretchy="false">→</mo>
+            <mi>λ</mi>
+          </mover>
+        </mrow>
+        <mtext> </mtext>
+        <mo>;</mo>
+        <mtext> </mtext>
+        <msup>
+          <mi>R</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>−</mo>
+            <mn>1</mn>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle R^{-1}\<span typeof="mw:DisplaySpace"> </span>;\ {\overset {\lambda }{\rightarrow }}\quad {\subseteq }\quad {\overset {\lambda }{\rightarrow }}\<span typeof="mw:DisplaySpace"> </span>;\ R^{-1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/87604571d74ec8700cc4850539379e22672f62b2" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:23.685ex; height:4.009ex;" alt="{\displaystyle R^{-1}\ ;\ {\overset {\lambda }{\rightarrow }}\quad {\subseteq }\quad {\overset {\lambda }{\rightarrow }}\ ;\ R^{-1}}"></span></p>
+
+<p id="mwWA">From the monotonicity and continuity of relation composition, it follows immediately that the set of bisimulations is closed under unions (<a rel="mw:WikiLink" href="./Join_(order_theory)" title="Join (order theory)" class="mw-redirect" id="mwWQ">joins</a> in the <a rel="mw:WikiLink" href="./Poset" title="Poset" class="mw-redirect" id="mwWg">poset</a> of relations), and a simple algebraic calculation shows that the relation of bisimilarity—the join of all bisimulations—is an equivalence relation. This definition, and the associated treatment of bisimilarity, can be interpreted in any involutive <a rel="mw:WikiLink" href="./Quantale" title="Quantale" id="mwWw">quantale</a>.</p>
+
+</section><section data-mw-section-id="4" id="mwXA"><h3 id="Fixpoint_definition">Fixpoint definition</h3>
+
+<p id="mwXQ">Bisimilarity can also be defined in <a rel="mw:WikiLink" href="./Order_theory" title="Order theory" id="mwXg">order-theoretical</a> fashion, in terms of <a rel="mw:WikiLink" href="./Knaster–Tarski_theorem" title="Knaster–Tarski theorem" id="mwXw">fixpoint theory</a>, more precisely as the greatest fixed point of a certain function defined below.</p>
+
+<p id="mwYA">Given a <a rel="mw:WikiLink" href="./State_transition_system" title="State transition system" class="mw-redirect" id="mwYQ">labelled state transition system</a> (<span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt46" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;S&quot;}}" id="mwYg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle S}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>S</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle S}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4611d85173cd3b508e67077d4a1252c9c05abca2" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.499ex; height:2.176ex;" alt="{\displaystyle S}"></span>, <span typeof="mw:Entity" id="mwYw">Λ</span>, <span typeof="mw:Entity" id="mwZA">→</span>), define <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt47" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;F:\\mathcal{P}(S \\times S) \\to \\mathcal{P}(S \\times S)&quot;}}" id="mwZQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle F:{\mathcal {P}}(S\times S)\to {\mathcal {P}}(S\times S)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>F</mi>
+        <mo>:</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">P</mi>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>S</mi>
+        <mo>×</mo>
+        <mi>S</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">→</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">P</mi>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>S</mi>
+        <mo>×</mo>
+        <mi>S</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle F:{\mathcal {P}}(S\times S)\to {\mathcal {P}}(S\times S)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7e4ec76a3b0f766bb55b068150c2bdcc10b5b693" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:25.996ex; height:2.843ex;" alt="{\displaystyle F:{\mathcal {P}}(S\times S)\to {\mathcal {P}}(S\times S)}"></span> to be a function from binary relations over <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt48" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;S&quot;}}" id="mwZg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle S}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>S</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle S}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4611d85173cd3b508e67077d4a1252c9c05abca2" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.499ex; height:2.176ex;" alt="{\displaystyle S}"></span> to binary relations over <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt49" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;S&quot;}}" id="mwZw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle S}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>S</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle S}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4611d85173cd3b508e67077d4a1252c9c05abca2" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.499ex; height:2.176ex;" alt="{\displaystyle S}"></span>, as follows:</p>
+
+<p id="mwaA">Let <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt50" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;R&quot;}}" id="mwaQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle R}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>R</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle R}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4b0bfb3769bf24d80e15374dc37b0441e2616e33" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.764ex; height:2.176ex;" alt="{\displaystyle R}"></span> be any binary relation over <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt51" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;S&quot;}}" id="mwag"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle S}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>S</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle S}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4611d85173cd3b508e67077d4a1252c9c05abca2" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.499ex; height:2.176ex;" alt="{\displaystyle S}"></span>. <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt52" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;F(R)&quot;}}" id="mwaw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle F(R)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>F</mi>
+        <mo stretchy="false">(</mo>
+        <mi>R</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle F(R)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1a0c921cc29dbda7c258de6325b6a6b95fbbdeeb" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:5.314ex; height:2.843ex;" alt="{\displaystyle F(R)}"></span> is defined to be the set of all pairs <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt53" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;(p,q)&quot;}}" id="mwbA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (p,q)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>p</mi>
+        <mo>,</mo>
+        <mi>q</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (p,q)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9769c58523b9b639866a2d48e657d9c26911143a" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:5.082ex; height:2.843ex;" alt="{\displaystyle (p,q)}"></span> in <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt54" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;S&quot;}}" id="mwbQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle S}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>S</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle S}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4611d85173cd3b508e67077d4a1252c9c05abca2" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.499ex; height:2.176ex;" alt="{\displaystyle S}"></span> <span typeof="mw:Entity" id="mwbg">×</span> <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt55" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;S&quot;}}" id="mwbw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle S}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>S</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle S}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4611d85173cd3b508e67077d4a1252c9c05abca2" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.499ex; height:2.176ex;" alt="{\displaystyle S}"></span> such that:</p>
+
+<p id="mwcA"><span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt56" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;block&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\n\\forall \\lambda\\in \\Lambda. \\, \\forall p&#x27; \\in S. \\,\np \\overset{\\lambda}{\\rightarrow} p&#x27; \\, \\Rightarrow \\, \n\\exists q&#x27; \\in S. \\, q \\overset{\\lambda}{\\rightarrow} q&#x27; \\,\\textrm{ and }\\, (p&#x27;,q&#x27;) \\in R\n&quot;}}" id="mwcQ"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle \forall \lambda \in \Lambda .\,\forall p&#x27;\in S.\,p{\overset {\lambda }{\rightarrow }}p&#x27;\,\Rightarrow \,\exists q&#x27;\in S.\,q{\overset {\lambda }{\rightarrow }}q&#x27;\,{\textrm {and}}\,(p&#x27;,q&#x27;)\in R}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">∀</mi>
+        <mi>λ</mi>
+        <mo>∈</mo>
+        <mi mathvariant="normal">Λ</mi>
+        <mo>.</mo>
+        <mspace width="thinmathspace"></mspace>
+        <mi mathvariant="normal">∀</mi>
+        <msup>
+          <mi>p</mi>
+          <mo>′</mo>
+        </msup>
+        <mo>∈</mo>
+        <mi>S</mi>
+        <mo>.</mo>
+        <mspace width="thinmathspace"></mspace>
+        <mi>p</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <mo stretchy="false">→</mo>
+            <mi>λ</mi>
+          </mover>
+        </mrow>
+        <msup>
+          <mi>p</mi>
+          <mo>′</mo>
+        </msup>
+        <mspace width="thinmathspace"></mspace>
+        <mo stretchy="false">⇒</mo>
+        <mspace width="thinmathspace"></mspace>
+        <mi mathvariant="normal">∃</mi>
+        <msup>
+          <mi>q</mi>
+          <mo>′</mo>
+        </msup>
+        <mo>∈</mo>
+        <mi>S</mi>
+        <mo>.</mo>
+        <mspace width="thinmathspace"></mspace>
+        <mi>q</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <mo stretchy="false">→</mo>
+            <mi>λ</mi>
+          </mover>
+        </mrow>
+        <msup>
+          <mi>q</mi>
+          <mo>′</mo>
+        </msup>
+        <mspace width="thinmathspace"></mspace>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>and</mtext>
+          </mrow>
+        </mrow>
+        <mspace width="thinmathspace"></mspace>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>p</mi>
+          <mo>′</mo>
+        </msup>
+        <mo>,</mo>
+        <msup>
+          <mi>q</mi>
+          <mo>′</mo>
+        </msup>
+        <mo stretchy="false">)</mo>
+        <mo>∈</mo>
+        <mi>R</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \forall \lambda \in \Lambda .\,\forall p'\in S.\,p{\overset {\lambda }{\rightarrow }}p'\,\Rightarrow \,\exists q'\in S.\,q{\overset {\lambda }{\rightarrow }}q'\,{\textrm {and}}\,(p',q')\in R}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/18f2fe8603a470709d9011043a7764985d0e408e" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:56.729ex; height:4.176ex;" alt="{\displaystyle \forall \lambda \in \Lambda .\,\forall p&#x27;\in S.\,p{\overset {\lambda }{\rightarrow }}p&#x27;\,\Rightarrow \,\exists q&#x27;\in S.\,q{\overset {\lambda }{\rightarrow }}q&#x27;\,{\textrm {and}}\,(p&#x27;,q&#x27;)\in R}"></span>
+and
+<span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt57" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;block&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\n\\forall \\lambda\\in \\Lambda. \\, \\forall q&#x27; \\in S. \\,\nq \\overset{\\lambda}{\\rightarrow} q&#x27; \\, \\Rightarrow \\, \n\\exists p&#x27; \\in S. \\, p \\overset{\\lambda}{\\rightarrow} p&#x27; \\,\\textrm{ and }\\, (p&#x27;,q&#x27;) \\in R\n&quot;}}" id="mwcg"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle \forall \lambda \in \Lambda .\,\forall q&#x27;\in S.\,q{\overset {\lambda }{\rightarrow }}q&#x27;\,\Rightarrow \,\exists p&#x27;\in S.\,p{\overset {\lambda }{\rightarrow }}p&#x27;\,{\textrm {and}}\,(p&#x27;,q&#x27;)\in R}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">∀</mi>
+        <mi>λ</mi>
+        <mo>∈</mo>
+        <mi mathvariant="normal">Λ</mi>
+        <mo>.</mo>
+        <mspace width="thinmathspace"></mspace>
+        <mi mathvariant="normal">∀</mi>
+        <msup>
+          <mi>q</mi>
+          <mo>′</mo>
+        </msup>
+        <mo>∈</mo>
+        <mi>S</mi>
+        <mo>.</mo>
+        <mspace width="thinmathspace"></mspace>
+        <mi>q</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <mo stretchy="false">→</mo>
+            <mi>λ</mi>
+          </mover>
+        </mrow>
+        <msup>
+          <mi>q</mi>
+          <mo>′</mo>
+        </msup>
+        <mspace width="thinmathspace"></mspace>
+        <mo stretchy="false">⇒</mo>
+        <mspace width="thinmathspace"></mspace>
+        <mi mathvariant="normal">∃</mi>
+        <msup>
+          <mi>p</mi>
+          <mo>′</mo>
+        </msup>
+        <mo>∈</mo>
+        <mi>S</mi>
+        <mo>.</mo>
+        <mspace width="thinmathspace"></mspace>
+        <mi>p</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <mo stretchy="false">→</mo>
+            <mi>λ</mi>
+          </mover>
+        </mrow>
+        <msup>
+          <mi>p</mi>
+          <mo>′</mo>
+        </msup>
+        <mspace width="thinmathspace"></mspace>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>and</mtext>
+          </mrow>
+        </mrow>
+        <mspace width="thinmathspace"></mspace>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>p</mi>
+          <mo>′</mo>
+        </msup>
+        <mo>,</mo>
+        <msup>
+          <mi>q</mi>
+          <mo>′</mo>
+        </msup>
+        <mo stretchy="false">)</mo>
+        <mo>∈</mo>
+        <mi>R</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \forall \lambda \in \Lambda .\,\forall q'\in S.\,q{\overset {\lambda }{\rightarrow }}q'\,\Rightarrow \,\exists p'\in S.\,p{\overset {\lambda }{\rightarrow }}p'\,{\textrm {and}}\,(p',q')\in R}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/87f344d4c28833989c506596798d46fc10c54b3e" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:56.729ex; height:4.176ex;" alt="{\displaystyle \forall \lambda \in \Lambda .\,\forall q&#x27;\in S.\,q{\overset {\lambda }{\rightarrow }}q&#x27;\,\Rightarrow \,\exists p&#x27;\in S.\,p{\overset {\lambda }{\rightarrow }}p&#x27;\,{\textrm {and}}\,(p&#x27;,q&#x27;)\in R}"></span></p>
+
+<p id="mwcw">Bisimilarity is then defined to be the <a rel="mw:WikiLink" href="./Greatest_fixed_point" title="Greatest fixed point" class="mw-redirect" id="mwdA">greatest fixed point</a> of <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt58" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;F&quot;}}" id="mwdQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle F}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>F</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle F}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/545fd099af8541605f7ee55f08225526be88ce57" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.741ex; height:2.176ex;" alt="{\displaystyle F}"></span>.</p>
+
+</section><section data-mw-section-id="5" id="mwdg"><h3 id="Ehrenfeucht–Fraïssé_game_definition"><span id="Ehrenfeucht.E2.80.93Fra.C3.AFss.C3.A9_game_definition" typeof="mw:FallbackId"></span>Ehrenfeucht–Fraïssé game definition</h3>
+<p id="mwdw">Bisimulation can also be thought of in terms of a game between two players:  attacker and defender.<sup about="#mwt59" class="mw-ref reference" id="cite_ref-FOOTNOTEStirling1999_3-0" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;group&quot;:&quot;&quot;,&quot;name&quot;:&quot;FOOTNOTEStirling1999&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-FOOTNOTEStirling1999-3&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;sfn&quot;,&quot;href&quot;:&quot;./Template:Sfn&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;Stirling&quot;},&quot;2&quot;:{&quot;wt&quot;:&quot;1999&quot;}},&quot;i&quot;:0}}]}"><a href="./Bisimulation#cite_note-FOOTNOTEStirling1999-3" id="mweA"><span class="mw-reflink-text" id="mweQ"><span class="cite-bracket" id="mweg">[</span>3<span class="cite-bracket" id="mwew">]</span></span></a></sup></p>
+
+<p id="mwfA">"Attacker" goes first and may choose any valid transition, <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt62" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\lambda&quot;}}" id="mwfQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \lambda }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>λ</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \lambda }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b43d0ea3c9c025af1be9128e62a18fa74bedda2a" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.355ex; height:2.176ex;" alt="{\displaystyle \lambda }"></span>, from <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt63" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;(p,q)&quot;}}" id="mwfg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (p,q)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>p</mi>
+        <mo>,</mo>
+        <mi>q</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (p,q)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9769c58523b9b639866a2d48e657d9c26911143a" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:5.082ex; height:2.843ex;" alt="{\displaystyle (p,q)}"></span>. That is,
+<span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt64" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;block&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\n(p,q) \\overset{\\lambda}{\\rightarrow} (p&#x27;,q)\n&quot;}}" id="mwfw"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle (p,q){\overset {\lambda }{\rightarrow }}(p&#x27;,q)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>p</mi>
+        <mo>,</mo>
+        <mi>q</mi>
+        <mo stretchy="false">)</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <mo stretchy="false">→</mo>
+            <mi>λ</mi>
+          </mover>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>p</mi>
+          <mo>′</mo>
+        </msup>
+        <mo>,</mo>
+        <mi>q</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (p,q){\overset {\lambda }{\rightarrow }}(p',q)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f3836d33b67ae115567413fcacc8d4acdae15451" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:13.173ex; height:4.176ex;" alt="{\displaystyle (p,q){\overset {\lambda }{\rightarrow }}(p&#x27;,q)}"></span>
+or 
+<span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt65" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;block&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\n(p,q) \\overset{\\lambda}{\\rightarrow} (p,q&#x27;)\n&quot;}}" id="mwgA"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle (p,q){\overset {\lambda }{\rightarrow }}(p,q&#x27;)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>p</mi>
+        <mo>,</mo>
+        <mi>q</mi>
+        <mo stretchy="false">)</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <mo stretchy="false">→</mo>
+            <mi>λ</mi>
+          </mover>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>p</mi>
+        <mo>,</mo>
+        <msup>
+          <mi>q</mi>
+          <mo>′</mo>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (p,q){\overset {\lambda }{\rightarrow }}(p,q')}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d4fe8615aa1b783d61e43bb9866e7dccdcf5464b" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:13.183ex; height:4.176ex;" alt="{\displaystyle (p,q){\overset {\lambda }{\rightarrow }}(p,q&#x27;)}"></span></p>
+
+<p id="mwgQ">The "Defender" must then attempt to match that transition, <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt66" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\lambda&quot;}}" id="mwgg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \lambda }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>λ</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \lambda }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b43d0ea3c9c025af1be9128e62a18fa74bedda2a" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.355ex; height:2.176ex;" alt="{\displaystyle \lambda }"></span> from either <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt67" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;(p&#x27;,q)&quot;}}" id="mwgw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (p&#x27;,q)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>p</mi>
+          <mo>′</mo>
+        </msup>
+        <mo>,</mo>
+        <mi>q</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (p',q)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/070888111744139c2b0ab70753e644864f08a0e6" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:5.767ex; height:3.009ex;" alt="{\displaystyle (p&#x27;,q)}"></span> or <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt68" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;(p,q&#x27;)&quot;}}" id="mwhA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (p,q&#x27;)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>p</mi>
+        <mo>,</mo>
+        <msup>
+          <mi>q</mi>
+          <mo>′</mo>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (p,q')}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6619bcae4f3c0240e4933d3ff32597c288facdaa" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:5.777ex; height:3.009ex;" alt="{\displaystyle (p,q&#x27;)}"></span> depending on the attacker's move.
+I.e., they must find an  <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt69" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\lambda&quot;}}" id="mwhQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \lambda }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>λ</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \lambda }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b43d0ea3c9c025af1be9128e62a18fa74bedda2a" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.355ex; height:2.176ex;" alt="{\displaystyle \lambda }"></span> such that:
+<span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt70" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;block&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\n(p&#x27;,q) \\overset{\\lambda}{\\rightarrow} (p&#x27;,q&#x27;)\n&quot;}}" id="mwhg"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle (p&#x27;,q){\overset {\lambda }{\rightarrow }}(p&#x27;,q&#x27;)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>p</mi>
+          <mo>′</mo>
+        </msup>
+        <mo>,</mo>
+        <mi>q</mi>
+        <mo stretchy="false">)</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <mo stretchy="false">→</mo>
+            <mi>λ</mi>
+          </mover>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>p</mi>
+          <mo>′</mo>
+        </msup>
+        <mo>,</mo>
+        <msup>
+          <mi>q</mi>
+          <mo>′</mo>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (p',q){\overset {\lambda }{\rightarrow }}(p',q')}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5a8a77656bab2261182f7dd6853252314edacdf8" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:14.552ex; height:4.176ex;" alt="{\displaystyle (p&#x27;,q){\overset {\lambda }{\rightarrow }}(p&#x27;,q&#x27;)}"></span>
+or 
+<span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt71" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;block&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\n(p,q&#x27;) \\overset{\\lambda}{\\rightarrow} (p&#x27;,q&#x27;)\n&quot;}}" id="mwhw"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle (p,q&#x27;){\overset {\lambda }{\rightarrow }}(p&#x27;,q&#x27;)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>p</mi>
+        <mo>,</mo>
+        <msup>
+          <mi>q</mi>
+          <mo>′</mo>
+        </msup>
+        <mo stretchy="false">)</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <mo stretchy="false">→</mo>
+            <mi>λ</mi>
+          </mover>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>p</mi>
+          <mo>′</mo>
+        </msup>
+        <mo>,</mo>
+        <msup>
+          <mi>q</mi>
+          <mo>′</mo>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (p,q'){\overset {\lambda }{\rightarrow }}(p',q')}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2a6bc801900501444f40c524b50fef6fae894de7" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:14.562ex; height:4.176ex;" alt="{\displaystyle (p,q&#x27;){\overset {\lambda }{\rightarrow }}(p&#x27;,q&#x27;)}"></span></p>
+
+<p id="mwiA">Attacker and defender continue to take alternating turns until:</p>
+
+<ul id="mwiQ"><li id="mwig">The defender is unable to find any valid transitions to match the attacker's move.  In this case the attacker wins.</li>
+<li id="mwiw">The game reaches states <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt72" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;(p,q)&quot;}}" id="mwjA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (p,q)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>p</mi>
+        <mo>,</mo>
+        <mi>q</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (p,q)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9769c58523b9b639866a2d48e657d9c26911143a" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:5.082ex; height:2.843ex;" alt="{\displaystyle (p,q)}"></span> that are both 'dead' (i.e., there are no transitions from either state) In this case the defender wins</li>
+<li id="mwjQ">The game goes on forever, in which case the defender wins.</li>
+<li id="mwjg">The game reaches states <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt73" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;(p,q)&quot;}}" id="mwjw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (p,q)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>p</mi>
+        <mo>,</mo>
+        <mi>q</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (p,q)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9769c58523b9b639866a2d48e657d9c26911143a" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:5.082ex; height:2.843ex;" alt="{\displaystyle (p,q)}"></span>, which have already been visited.  This is equivalent to an infinite play and counts as a win for the defender.</li></ul>
+
+<p id="mwkA">By the above definition the system is a bisimulation if and only if there exists a winning strategy for the defender.</p>
+
+</section><section data-mw-section-id="6" id="mwkQ"><h3 id="Coalgebraic_definition">Coalgebraic definition</h3>
+
+<p id="mwkg">A bisimulation for state transition systems is a special case of <a rel="mw:WikiLink" href="./F-coalgebra" title="F-coalgebra" id="mwkw">coalgebraic</a> bisimulation for the type of covariant powerset <a rel="mw:WikiLink" href="./Functor" title="Functor" id="mwlA">functor</a>.
+Note that every state transition system <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt74" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;(S, \\Lambda, \\rightarrow)&quot;}}" id="mwlQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (S,\Lambda ,\rightarrow )}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>S</mi>
+        <mo>,</mo>
+        <mi mathvariant="normal">Λ</mi>
+        <mo>,</mo>
+        <mo stretchy="false">→</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (S,\Lambda ,\rightarrow )}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2d7d2bcbcd840d282ace37dc17c1fd8c21ab8446" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:9.313ex; height:2.843ex;" alt="{\displaystyle (S,\Lambda ,\rightarrow )}"></span> can be mapped <a rel="mw:WikiLink" href="./Bijection" title="Bijection" id="mwlg">bijectively</a> to a function <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt75" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\xi_{\\rightarrow} &quot;}}" id="mwlw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \xi _{\rightarrow }}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>ξ</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo stretchy="false">→</mo>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \xi _{\rightarrow }}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/590e1873bc5f281719696a8386d7fde98a49d140" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.894ex; height:2.509ex;" alt="{\displaystyle \xi _{\rightarrow }}"></span> from <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt76" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;S&quot;}}" id="mwmA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle S}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>S</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle S}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4611d85173cd3b508e67077d4a1252c9c05abca2" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.499ex; height:2.176ex;" alt="{\displaystyle S}"></span> to the <a rel="mw:WikiLink" href="./Power_set" title="Power set" id="mwmQ">powerset</a> of <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt77" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;S&quot;}}" id="mwmg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle S}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>S</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle S}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4611d85173cd3b508e67077d4a1252c9c05abca2" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.499ex; height:2.176ex;" alt="{\displaystyle S}"></span> indexed by <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt78" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\Lambda&quot;}}" id="mwmw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \Lambda }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">Λ</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Lambda }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0ac0a4a98a414e3480335f9ba652d12571ec6733" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.613ex; height:2.176ex;" alt="{\displaystyle \Lambda }"></span> written as <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt79" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\mathcal{P}(\\Lambda \\times S)&quot;}}" id="mwnA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle {\mathcal {P}}(\Lambda \times S)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">P</mi>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi mathvariant="normal">Λ</mi>
+        <mo>×</mo>
+        <mi>S</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathcal {P}}(\Lambda \times S)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/070a7a0fc56093edf820898428060b029b39be87" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:9.466ex; height:2.843ex;" alt="{\displaystyle {\mathcal {P}}(\Lambda \times S)}"></span>, defined by
+<span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt80" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;block&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot; p \\mapsto \\{ (\\lambda, q) \\in \\Lambda \\times S : p \\overset{\\lambda}{\\rightarrow} q \\}.&quot;}}" id="mwnQ"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle p\mapsto \{(\lambda ,q)\in \Lambda \times S:p{\overset {\lambda }{\rightarrow }}q\}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>p</mi>
+        <mo stretchy="false">↦</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mo stretchy="false">(</mo>
+        <mi>λ</mi>
+        <mo>,</mo>
+        <mi>q</mi>
+        <mo stretchy="false">)</mo>
+        <mo>∈</mo>
+        <mi mathvariant="normal">Λ</mi>
+        <mo>×</mo>
+        <mi>S</mi>
+        <mo>:</mo>
+        <mi>p</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <mo stretchy="false">→</mo>
+            <mi>λ</mi>
+          </mover>
+        </mrow>
+        <mi>q</mi>
+        <mo fence="false" stretchy="false">}</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle p\mapsto \{(\lambda ,q)\in \Lambda \times S:p{\overset {\lambda }{\rightarrow }}q\}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f69034ead4b3812f8e6665ccf53925537ca2ff9d" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; margin-left: -0.089ex; width:28.406ex; height:4.176ex;" alt="{\displaystyle p\mapsto \{(\lambda ,q)\in \Lambda \times S:p{\overset {\lambda }{\rightarrow }}q\}.}"></span></p>
+
+<p id="mwng">Let <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt81" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\pi_i \\colon S \\times S \\to S&quot;}}" id="mwnw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \pi _{i}\colon S\times S\to S}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>π</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>:</mo>
+        <mi>S</mi>
+        <mo>×</mo>
+        <mi>S</mi>
+        <mo stretchy="false">→</mo>
+        <mi>S</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \pi _{i}\colon S\times S\to S}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c31c0d90f70b55c1e60f2a9b4fead5d1b1c9a2ed" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:14.111ex; height:2.509ex;" alt="{\displaystyle \pi _{i}\colon S\times S\to S}"></span> be <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt82" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;i&quot;}}" id="mwoA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle i}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>i</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle i}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/add78d8608ad86e54951b8c8bd6c8d8416533d20" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:0.802ex; height:2.176ex;" alt="{\displaystyle i}"></span>-th <a rel="mw:WikiLink" href="./Product_(category_theory)" title="Product (category theory)" id="mwoQ">projection</a>, mapping
+<span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt83" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;(p, q)&quot;}}" id="mwog"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (p,q)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>p</mi>
+        <mo>,</mo>
+        <mi>q</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (p,q)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9769c58523b9b639866a2d48e657d9c26911143a" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:5.082ex; height:2.843ex;" alt="{\displaystyle (p,q)}"></span> to <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt84" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;p&quot;}}" id="mwow"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle p}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>p</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle p}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/81eac1e205430d1f40810df36a0edffdc367af36" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; margin-left: -0.089ex; width:1.259ex; height:2.009ex;" alt="{\displaystyle p}"></span> and <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt85" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;q&quot;}}" id="mwpA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle q}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>q</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle q}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/06809d64fa7c817ffc7e323f85997f783dbdf71d" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:1.07ex; height:2.009ex;" alt="{\displaystyle q}"></span> respectively for <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt86" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;i = 1, 2&quot;}}" id="mwpQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle i=1,2}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>i</mi>
+        <mo>=</mo>
+        <mn>1</mn>
+        <mo>,</mo>
+        <mn>2</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle i=1,2}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/608b3c5e448c465889913a88a105e38e7316fba7" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:7.26ex; height:2.509ex;" alt="{\displaystyle i=1,2}"></span>; and
+<span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt87" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\mathcal{P}(\\Lambda \\times \\pi_1)&quot;}}" id="mwpg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle {\mathcal {P}}(\Lambda \times \pi _{1})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">P</mi>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi mathvariant="normal">Λ</mi>
+        <mo>×</mo>
+        <msub>
+          <mi>π</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathcal {P}}(\Lambda \times \pi _{1})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7a4dcfbaef7518fedb70a0c735820807cfdfac3f" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:10.346ex; height:2.843ex;" alt="{\displaystyle {\mathcal {P}}(\Lambda \times \pi _{1})}"></span> the forward image of <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt88" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\pi_1&quot;}}" id="mwpw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \pi _{1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>π</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \pi _{1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/542cbd3dacd0a061d666ed7fc4ed7ad15b47444b" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.379ex; height:2.009ex;" alt="{\displaystyle \pi _{1}}"></span> defined by dropping the third component
+<span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt89" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;block&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot; P \\mapsto \\{ (\\lambda, p) \\in \\Lambda \\times S : \\exists q . (\\lambda, p, q) \\in P \\}&quot;}}" id="mwqA"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle P\mapsto \{(\lambda ,p)\in \Lambda \times S:\exists q.(\lambda ,p,q)\in P\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>P</mi>
+        <mo stretchy="false">↦</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mo stretchy="false">(</mo>
+        <mi>λ</mi>
+        <mo>,</mo>
+        <mi>p</mi>
+        <mo stretchy="false">)</mo>
+        <mo>∈</mo>
+        <mi mathvariant="normal">Λ</mi>
+        <mo>×</mo>
+        <mi>S</mi>
+        <mo>:</mo>
+        <mi mathvariant="normal">∃</mi>
+        <mi>q</mi>
+        <mo>.</mo>
+        <mo stretchy="false">(</mo>
+        <mi>λ</mi>
+        <mo>,</mo>
+        <mi>p</mi>
+        <mo>,</mo>
+        <mi>q</mi>
+        <mo stretchy="false">)</mo>
+        <mo>∈</mo>
+        <mi>P</mi>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle P\mapsto \{(\lambda ,p)\in \Lambda \times S:\exists q.(\lambda ,p,q)\in P\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/972bcf10492d2bd75176889be51dd9d6bc9b0bb0" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:39.236ex; height:2.843ex;" alt="{\displaystyle P\mapsto \{(\lambda ,p)\in \Lambda \times S:\exists q.(\lambda ,p,q)\in P\}}"></span>
+where <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt90" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;P&quot;}}" id="mwqQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle P}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>P</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle P}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b4dc73bf40314945ff376bd363916a738548d40a" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.745ex; height:2.176ex;" alt="{\displaystyle P}"></span> is a subset of <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt91" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\Lambda \\times S \\times S&quot;}}" id="mwqg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \Lambda \times S\times S}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">Λ</mi>
+        <mo>×</mo>
+        <mi>S</mi>
+        <mo>×</mo>
+        <mi>S</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Lambda \times S\times S}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0bb125ab2c87391863a5465e322b8f4422b8ee31" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:10.292ex; height:2.176ex;" alt="{\displaystyle \Lambda \times S\times S}"></span>. Similarly for <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt92" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\mathcal{P}(\\Lambda \\times \\pi_2)&quot;}}" id="mwqw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle {\mathcal {P}}(\Lambda \times \pi _{2})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">P</mi>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi mathvariant="normal">Λ</mi>
+        <mo>×</mo>
+        <msub>
+          <mi>π</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathcal {P}}(\Lambda \times \pi _{2})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9bc97e1899c37609cc0f0526a387339ad6d3aca1" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:10.346ex; height:2.843ex;" alt="{\displaystyle {\mathcal {P}}(\Lambda \times \pi _{2})}"></span>.</p>
+
+<p id="mwrA">Using the above notations, a relation <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt93" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;R \\subseteq S \\times S &quot;}}" id="mwrQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle R\subseteq S\times S}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>R</mi>
+        <mo>⊆</mo>
+        <mi>S</mi>
+        <mo>×</mo>
+        <mi>S</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle R\subseteq S\times S}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4957f9171a9ea27d56e924189350b5468f67579e" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.505ex; width:10.701ex; height:2.343ex;" alt="{\displaystyle R\subseteq S\times S}"></span> is a <b id="mwrg">bisimulation</b> on a transition system <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt94" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;(S, \\Lambda, \\rightarrow)&quot;}}" id="mwrw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (S,\Lambda ,\rightarrow )}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>S</mi>
+        <mo>,</mo>
+        <mi mathvariant="normal">Λ</mi>
+        <mo>,</mo>
+        <mo stretchy="false">→</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (S,\Lambda ,\rightarrow )}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2d7d2bcbcd840d282ace37dc17c1fd8c21ab8446" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:9.313ex; height:2.843ex;" alt="{\displaystyle (S,\Lambda ,\rightarrow )}"></span> if and only if there exists a transition system <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt95" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\gamma \\colon R \\to \\mathcal{P}(\\Lambda \\times R)&quot;}}" id="mwsA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \gamma \colon R\to {\mathcal {P}}(\Lambda \times R)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>γ</mi>
+        <mo>:</mo>
+        <mi>R</mi>
+        <mo stretchy="false">→</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">P</mi>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi mathvariant="normal">Λ</mi>
+        <mo>×</mo>
+        <mi>R</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \gamma \colon R\to {\mathcal {P}}(\Lambda \times R)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a33a83583687554eb9b8b8bb4a76674eaae9c907" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:17.405ex; height:2.843ex;" alt="{\displaystyle \gamma \colon R\to {\mathcal {P}}(\Lambda \times R)}"></span> on the relation <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt96" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;R&quot;}}" id="mwsQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle R}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>R</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle R}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4b0bfb3769bf24d80e15374dc37b0441e2616e33" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.764ex; height:2.176ex;" alt="{\displaystyle R}"></span> such that the <a rel="mw:WikiLink" href="./Commutative_diagram" title="Commutative diagram" id="mwsg">diagram</a></p>
+
+<p id="mwsw"><span class="mw-default-size" typeof="mw:File/Frameless" id="mwtA"><a href="./File:Coalgebraic_bisimulation.svg" class="mw-file-description" id="mwtQ"><img resource="./File:Coalgebraic_bisimulation.svg" src="//thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Coalgebraic_bisimulation.svg/500px-Coalgebraic_bisimulation.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail" decoding="async" loading="lazy" srcset="//thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Coalgebraic_bisimulation.svg/960px-Coalgebraic_bisimulation.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x" data-file-width="1095" data-file-height="249" data-file-type="drawing" height="86" width="380" class="mw-file-element mw-file-upright" style="--mw-file-upright: 1.5" id="mwtg"></a></span></p>
+
+<p id="mwtw">commutes, i.e. for <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt97" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;i = 1, 2&quot;}}" id="mwuA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle i=1,2}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>i</mi>
+        <mo>=</mo>
+        <mn>1</mn>
+        <mo>,</mo>
+        <mn>2</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle i=1,2}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/608b3c5e448c465889913a88a105e38e7316fba7" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:7.26ex; height:2.509ex;" alt="{\displaystyle i=1,2}"></span>, the equations
+<span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt98" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;block&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot; \\xi_\\rightarrow \\circ \\pi_i = \\mathcal{P}(\\Lambda \\times \\pi_i) \\circ \\gamma &quot;}}" id="mwuQ"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle \xi _{\rightarrow }\circ \pi _{i}={\mathcal {P}}(\Lambda \times \pi _{i})\circ \gamma }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>ξ</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo stretchy="false">→</mo>
+          </mrow>
+        </msub>
+        <mo>∘</mo>
+        <msub>
+          <mi>π</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">P</mi>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi mathvariant="normal">Λ</mi>
+        <mo>×</mo>
+        <msub>
+          <mi>π</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <mo>∘</mo>
+        <mi>γ</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \xi _{\rightarrow }\circ \pi _{i}={\mathcal {P}}(\Lambda \times \pi _{i})\circ \gamma }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f43349c0410e936ea4cbaa107c377ac5aa31221b" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:23.86ex; height:2.843ex;" alt="{\displaystyle \xi _{\rightarrow }\circ \pi _{i}={\mathcal {P}}(\Lambda \times \pi _{i})\circ \gamma }"></span>
+hold
+where <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt99" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\xi_{\\rightarrow}&quot;}}" id="mwug"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \xi _{\rightarrow }}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>ξ</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo stretchy="false">→</mo>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \xi _{\rightarrow }}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/590e1873bc5f281719696a8386d7fde98a49d140" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.894ex; height:2.509ex;" alt="{\displaystyle \xi _{\rightarrow }}"></span> is the functional representation of <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt100" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;(S, \\Lambda, \\rightarrow)&quot;}}" id="mwuw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (S,\Lambda ,\rightarrow )}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>S</mi>
+        <mo>,</mo>
+        <mi mathvariant="normal">Λ</mi>
+        <mo>,</mo>
+        <mo stretchy="false">→</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (S,\Lambda ,\rightarrow )}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2d7d2bcbcd840d282ace37dc17c1fd8c21ab8446" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:9.313ex; height:2.843ex;" alt="{\displaystyle (S,\Lambda ,\rightarrow )}"></span>.</p>
+
+</section></section><section data-mw-section-id="7" id="mwvA"><h2 id="Variants_of_bisimulation">Variants of bisimulation</h2>
+<p id="mwvQ">In special contexts the notion of bisimulation is sometimes refined by adding additional requirements or constraints. An example is that of <a rel="mw:WikiLink" href="./Stutter_bisimulation" title="Stutter bisimulation" id="mwvg">stutter bisimulation</a>, in which one transition of one system may be matched with multiple transitions of the other, provided that the intermediate states are equivalent to the starting state ("stutters").<sup about="#mwt101" class="mw-ref reference" id="cite_ref-FOOTNOTEBaierKatoen2008529,_536–5787.8_Stutter_Bisimulation_4-0" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;group&quot;:&quot;&quot;,&quot;name&quot;:&quot;FOOTNOTEBaierKatoen2008529, 536–5787.8 Stutter Bisimulation&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-FOOTNOTEBaierKatoen2008529,_536–5787.8_Stutter_Bisimulation-4&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;sfn &quot;,&quot;href&quot;:&quot;./Template:Sfn&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;Baier&quot;},&quot;2&quot;:{&quot;wt&quot;:&quot;Katoen&quot;},&quot;3&quot;:{&quot;wt&quot;:&quot;2008&quot;},&quot;pages&quot;:{&quot;wt&quot;:&quot;529, 536-578&quot;},&quot;loc&quot;:{&quot;wt&quot;:&quot;7.8 Stutter Bisimulation&quot;}},&quot;i&quot;:0}}]}"><a href="./Bisimulation#cite_note-FOOTNOTEBaierKatoen2008529,_536–5787.8_Stutter_Bisimulation-4" id="mwvw"><span class="mw-reflink-text" id="mwwA"><span class="cite-bracket" id="mwwQ">[</span>4<span class="cite-bracket" id="mwwg">]</span></span></a></sup></p>
+
+<p id="mwww">A different variant applies if the state transition system includes a notion of <i id="mwxA">silent</i> (or <i id="mwxQ">internal</i>) action, often denoted with <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt104" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\tau&quot;}}" id="mwxg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \tau }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>τ</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \tau }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/38a7dcde9730ef0853809fefc18d88771f95206c" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.202ex; height:1.676ex;" alt="{\displaystyle \tau }"></span>, i.e. actions that are not visible by external observers, then bisimulation can be relaxed to be <i id="mwxw">weak bisimulation</i>, in which if two states <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt105" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;p&quot;}}" id="mwyA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle p}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>p</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle p}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/81eac1e205430d1f40810df36a0edffdc367af36" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; margin-left: -0.089ex; width:1.259ex; height:2.009ex;" alt="{\displaystyle p}"></span> and <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt106" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;q&quot;}}" id="mwyQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle q}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>q</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle q}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/06809d64fa7c817ffc7e323f85997f783dbdf71d" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:1.07ex; height:2.009ex;" alt="{\displaystyle q}"></span> are bisimilar and there is some number of internal actions leading from <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt107" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;p&quot;}}" id="mwyg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle p}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>p</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle p}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/81eac1e205430d1f40810df36a0edffdc367af36" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; margin-left: -0.089ex; width:1.259ex; height:2.009ex;" alt="{\displaystyle p}"></span> to some state <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt108" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;p&#x27;&quot;}}" id="mwyw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle p&#x27;}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>p</mi>
+          <mo>′</mo>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle p'}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/40e623e3163571a220ed60ecb31aa78c24104b85" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; margin-left: -0.089ex; width:1.944ex; height:2.843ex;" alt="{\displaystyle p&#x27;}"></span> then there must exist state <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt109" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;q&#x27;&quot;}}" id="mwzA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle q&#x27;}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>q</mi>
+          <mo>′</mo>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle q'}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/912405e5d416048908ea7978929975843d2ee4e6" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:1.764ex; height:2.843ex;" alt="{\displaystyle q&#x27;}"></span> such that there is some number (possibly zero) of internal actions leading from <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt110" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;q&quot;}}" id="mwzQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle q}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>q</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle q}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/06809d64fa7c817ffc7e323f85997f783dbdf71d" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:1.07ex; height:2.009ex;" alt="{\displaystyle q}"></span> to <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt111" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;q&#x27;&quot;}}" id="mwzg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle q&#x27;}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>q</mi>
+          <mo>′</mo>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle q'}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/912405e5d416048908ea7978929975843d2ee4e6" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:1.764ex; height:2.843ex;" alt="{\displaystyle q&#x27;}"></span>. A relation <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt112" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\mathcal{R}&quot;}}" id="mwzw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle {\mathcal {R}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">R</mi>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathcal {R}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/74532dc308c806964b832df0d0d73352195c2f2f" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.971ex; height:2.176ex;" alt="{\displaystyle {\mathcal {R}}}"></span> on processes is a weak bisimulation if the following holds (with <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt113" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\mathcal{S} \\in \\{ \\mathcal{R}, \\mathcal{R}^{-1} \\}&quot;}}" id="mw0A"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle {\mathcal {S}}\in \{{\mathcal {R}},{\mathcal {R}}^{-1}\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">S</mi>
+          </mrow>
+        </mrow>
+        <mo>∈</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">R</mi>
+          </mrow>
+        </mrow>
+        <mo>,</mo>
+        <msup>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi class="MJX-tex-caligraphic" mathvariant="script">R</mi>
+            </mrow>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>−</mo>
+            <mn>1</mn>
+          </mrow>
+        </msup>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathcal {S}}\in \{{\mathcal {R}},{\mathcal {R}}^{-1}\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2c548aba9f5a4f8534fff245ad4b5e78bb863454" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:13.966ex; height:3.176ex;" alt="{\displaystyle {\mathcal {S}}\in \{{\mathcal {R}},{\mathcal {R}}^{-1}\}}"></span>, and <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt114" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;a,\\tau&quot;}}" id="mw0Q"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle a,\tau }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>a</mi>
+        <mo>,</mo>
+        <mi>τ</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle a,\tau }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/95808834755f151df57ed56218dfec6f2cac25a5" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:3.466ex; height:2.009ex;" alt="{\displaystyle a,\tau }"></span> being an observable and mute transition respectively):</p>
+
+<p id="mw0g"><span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt115" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;block&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\forall p, q. \\quad (p,q) \\in \\mathcal{S} \\Rightarrow p \\stackrel{\\tau}{\\rightarrow} p&#x27; \\Rightarrow \\exists q&#x27; . \\quad q \\stackrel{\\tau^\\ast}{\\rightarrow} q&#x27; \\wedge (p&#x27;,q&#x27;) \\in \\mathcal{S} &quot;}}" id="mw0w"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle \forall p,q.\quad (p,q)\in {\mathcal {S}}\Rightarrow p{\stackrel {\tau }{\rightarrow }}p&#x27;\Rightarrow \exists q&#x27;.\quad q{\stackrel {\tau ^{\ast }}{\rightarrow }}q&#x27;\wedge (p&#x27;,q&#x27;)\in {\mathcal {S}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">∀</mi>
+        <mi>p</mi>
+        <mo>,</mo>
+        <mi>q</mi>
+        <mo>.</mo>
+        <mspace width="1em"></mspace>
+        <mo stretchy="false">(</mo>
+        <mi>p</mi>
+        <mo>,</mo>
+        <mi>q</mi>
+        <mo stretchy="false">)</mo>
+        <mo>∈</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">S</mi>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">⇒</mo>
+        <mi>p</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-REL">
+            <mover>
+              <mrow class="MJX-TeXAtom-OP MJX-fixedlimits">
+                <mo stretchy="false">→</mo>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>τ</mi>
+              </mrow>
+            </mover>
+          </mrow>
+        </mrow>
+        <msup>
+          <mi>p</mi>
+          <mo>′</mo>
+        </msup>
+        <mo stretchy="false">⇒</mo>
+        <mi mathvariant="normal">∃</mi>
+        <msup>
+          <mi>q</mi>
+          <mo>′</mo>
+        </msup>
+        <mo>.</mo>
+        <mspace width="1em"></mspace>
+        <mi>q</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-REL">
+            <mover>
+              <mrow class="MJX-TeXAtom-OP MJX-fixedlimits">
+                <mo stretchy="false">→</mo>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <msup>
+                  <mi>τ</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mo>∗</mo>
+                  </mrow>
+                </msup>
+              </mrow>
+            </mover>
+          </mrow>
+        </mrow>
+        <msup>
+          <mi>q</mi>
+          <mo>′</mo>
+        </msup>
+        <mo>∧</mo>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>p</mi>
+          <mo>′</mo>
+        </msup>
+        <mo>,</mo>
+        <msup>
+          <mi>q</mi>
+          <mo>′</mo>
+        </msup>
+        <mo stretchy="false">)</mo>
+        <mo>∈</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">S</mi>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \forall p,q.\quad (p,q)\in {\mathcal {S}}\Rightarrow p{\stackrel {\tau }{\rightarrow }}p'\Rightarrow \exists q'.\quad q{\stackrel {\tau ^{\ast }}{\rightarrow }}q'\wedge (p',q')\in {\mathcal {S}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ef94b89c4bc4af6c945faeb0adad36bcec133729" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:54.86ex; height:4.176ex;" alt="{\displaystyle \forall p,q.\quad (p,q)\in {\mathcal {S}}\Rightarrow p{\stackrel {\tau }{\rightarrow }}p&#x27;\Rightarrow \exists q&#x27;.\quad q{\stackrel {\tau ^{\ast }}{\rightarrow }}q&#x27;\wedge (p&#x27;,q&#x27;)\in {\mathcal {S}}}"></span>
+<span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt116" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;block&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\forall p, q. \\quad (p,q) \\in \\mathcal{S} \\Rightarrow p \\stackrel{a}{\\rightarrow} p&#x27; \\Rightarrow \\exists q&#x27; . \\quad q \\stackrel{\\tau^\\ast a \\tau^\\ast}{\\rightarrow} q&#x27; \\wedge (p&#x27;,q&#x27;) \\in \\mathcal{S}&quot;}}" id="mw1A"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle \forall p,q.\quad (p,q)\in {\mathcal {S}}\Rightarrow p{\stackrel {a}{\rightarrow }}p&#x27;\Rightarrow \exists q&#x27;.\quad q{\stackrel {\tau ^{\ast }a\tau ^{\ast }}{\rightarrow }}q&#x27;\wedge (p&#x27;,q&#x27;)\in {\mathcal {S}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">∀</mi>
+        <mi>p</mi>
+        <mo>,</mo>
+        <mi>q</mi>
+        <mo>.</mo>
+        <mspace width="1em"></mspace>
+        <mo stretchy="false">(</mo>
+        <mi>p</mi>
+        <mo>,</mo>
+        <mi>q</mi>
+        <mo stretchy="false">)</mo>
+        <mo>∈</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">S</mi>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">⇒</mo>
+        <mi>p</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-REL">
+            <mover>
+              <mrow class="MJX-TeXAtom-OP MJX-fixedlimits">
+                <mo stretchy="false">→</mo>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>a</mi>
+              </mrow>
+            </mover>
+          </mrow>
+        </mrow>
+        <msup>
+          <mi>p</mi>
+          <mo>′</mo>
+        </msup>
+        <mo stretchy="false">⇒</mo>
+        <mi mathvariant="normal">∃</mi>
+        <msup>
+          <mi>q</mi>
+          <mo>′</mo>
+        </msup>
+        <mo>.</mo>
+        <mspace width="1em"></mspace>
+        <mi>q</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-REL">
+            <mover>
+              <mrow class="MJX-TeXAtom-OP MJX-fixedlimits">
+                <mo stretchy="false">→</mo>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <msup>
+                  <mi>τ</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mo>∗</mo>
+                  </mrow>
+                </msup>
+                <mi>a</mi>
+                <msup>
+                  <mi>τ</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mo>∗</mo>
+                  </mrow>
+                </msup>
+              </mrow>
+            </mover>
+          </mrow>
+        </mrow>
+        <msup>
+          <mi>q</mi>
+          <mo>′</mo>
+        </msup>
+        <mo>∧</mo>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>p</mi>
+          <mo>′</mo>
+        </msup>
+        <mo>,</mo>
+        <msup>
+          <mi>q</mi>
+          <mo>′</mo>
+        </msup>
+        <mo stretchy="false">)</mo>
+        <mo>∈</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">S</mi>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \forall p,q.\quad (p,q)\in {\mathcal {S}}\Rightarrow p{\stackrel {a}{\rightarrow }}p'\Rightarrow \exists q'.\quad q{\stackrel {\tau ^{\ast }a\tau ^{\ast }}{\rightarrow }}q'\wedge (p',q')\in {\mathcal {S}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2fd46c03675f7393ee084a7c4c281ba2e4142920" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:56.848ex; height:4.176ex;" alt="{\displaystyle \forall p,q.\quad (p,q)\in {\mathcal {S}}\Rightarrow p{\stackrel {a}{\rightarrow }}p&#x27;\Rightarrow \exists q&#x27;.\quad q{\stackrel {\tau ^{\ast }a\tau ^{\ast }}{\rightarrow }}q&#x27;\wedge (p&#x27;,q&#x27;)\in {\mathcal {S}}}"></span></p>
+
+<p id="mw1Q">This is closely related<link rel="mw:PageProp/Category" href="./Category:Wikipedia_articles_needing_clarification_from_September_2023" about="#mwt117" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;how&quot;,&quot;href&quot;:&quot;./Template:How&quot;},&quot;params&quot;:{&quot;date&quot;:{&quot;wt&quot;:&quot;September 2023&quot;}},&quot;i&quot;:0}}]}" id="mw1g"><sup class="noprint Inline-Template " style="white-space:nowrap;" about="#mwt117" id="mw1w"><span typeof="mw:Entity">[</span><i><a rel="mw:WikiLink" href="./Wikipedia:Please_clarify" title="Wikipedia:Please clarify"><span title="Please clarify the preceding statement or statements with a good explanation from a reliable source. (September 2023)">how?</span></a></i><span typeof="mw:Entity">]</span></sup> to the notion of bisimulation "<a rel="mw:WikiLink" href="./Up_to" title="Up to" id="mw2A">up to</a>" a relation.<sup about="#mwt118" class="mw-ref reference" id="cite_ref-FOOTNOTEPous2005_5-0" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;group&quot;:&quot;&quot;,&quot;name&quot;:&quot;FOOTNOTEPous2005&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-FOOTNOTEPous2005-5&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;sfn&quot;,&quot;href&quot;:&quot;./Template:Sfn&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;Pous&quot;},&quot;2&quot;:{&quot;wt&quot;:&quot;2005&quot;}},&quot;i&quot;:0}}]}"><a href="./Bisimulation#cite_note-FOOTNOTEPous2005-5" id="mw2Q"><span class="mw-reflink-text" id="mw2g"><span class="cite-bracket" id="mw2w">[</span>5<span class="cite-bracket" id="mw3A">]</span></span></a></sup></p>
+
+<p id="mw3Q">Typically, if the <a rel="mw:WikiLink" href="./State_transition_system" title="State transition system" class="mw-redirect" id="mw3g">state transition system</a> gives the <a rel="mw:WikiLink" href="./Operational_semantics" title="Operational semantics" id="mw3w">operational semantics</a> of a <a rel="mw:WikiLink" href="./Programming_language" title="Programming language" id="mw4A">programming language</a>, then the precise definition of bisimulation will be specific to the restrictions of the programming language. Therefore, in general, there may be more than one kind of bisimulation (respectively bisimilarity) relationship depending on the context.</p>
+
+</section><section data-mw-section-id="8" id="mw4Q"><h2 id="Bisimulation_and_modal_logic">Bisimulation and modal logic</h2>
+
+<p id="mw4g">Since <a rel="mw:WikiLink" href="./Kripke_semantics" title="Kripke semantics" id="mw4w">Kripke models</a> are a special case of (labelled) state transition systems, bisimulation is also a topic in <a rel="mw:WikiLink" href="./Modal_logic" title="Modal logic" id="mw5A">modal logic</a>. In fact, modal logic is the fragment of <a rel="mw:WikiLink" href="./First-order_logic" title="First-order logic" id="mw5Q">first-order logic</a> invariant under bisimulation, known as <a rel="mw:WikiLink" href="./Van_Benthem&#x27;s_theorem" title="Van Benthem&#x27;s theorem" id="mw5g">van Benthem's theorem</a>.<sup about="#mwt121" class="mw-ref reference" id="cite_ref-FOOTNOTEvan_Benthem1976_6-0" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;group&quot;:&quot;&quot;,&quot;name&quot;:&quot;FOOTNOTEvan Benthem1976&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-FOOTNOTEvan_Benthem1976-6&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;sfn&quot;,&quot;href&quot;:&quot;./Template:Sfn&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;van Benthem&quot;},&quot;2&quot;:{&quot;wt&quot;:&quot;1976&quot;}},&quot;i&quot;:0}}]}"><a href="./Bisimulation#cite_note-FOOTNOTEvan_Benthem1976-6" id="mw5w"><span class="mw-reflink-text" id="mw6A"><span class="cite-bracket" id="mw6Q">[</span>6<span class="cite-bracket" id="mw6g">]</span></span></a></sup></p>
+
+</section><section data-mw-section-id="9" id="mw6w"><h2 id="Algorithm">Algorithm</h2>
+<p id="mw7A">Checking that two finite transition systems are bisimilar can be done in <a rel="mw:WikiLink" href="./Polynomial_time" title="Polynomial time" class="mw-redirect" id="mw7Q">polynomial time</a>.<sup about="#mwt124" class="mw-ref reference" id="cite_ref-FOOTNOTEBaierKatoen2008494Corollary_7.45_(Complexity_of_Checking_Bisimulation_Equivalence)_7-0" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;group&quot;:&quot;&quot;,&quot;name&quot;:&quot;FOOTNOTEBaierKatoen2008494Corollary 7.45 (Complexity of Checking Bisimulation Equivalence)&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-FOOTNOTEBaierKatoen2008494Corollary_7.45_(Complexity_of_Checking_Bisimulation_Equivalence)-7&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;sfn&quot;,&quot;href&quot;:&quot;./Template:Sfn&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;Baier&quot;},&quot;2&quot;:{&quot;wt&quot;:&quot;Katoen&quot;},&quot;3&quot;:{&quot;wt&quot;:&quot;2008&quot;},&quot;loc&quot;:{&quot;wt&quot;:&quot;Corollary 7.45 (Complexity of Checking Bisimulation Equivalence)&quot;},&quot;p&quot;:{&quot;wt&quot;:&quot;494&quot;}},&quot;i&quot;:0}}]}"><a href="./Bisimulation#cite_note-FOOTNOTEBaierKatoen2008494Corollary_7.45_(Complexity_of_Checking_Bisimulation_Equivalence)-7" id="mw7g"><span class="mw-reflink-text" id="mw7w"><span class="cite-bracket" id="mw8A">[</span>7<span class="cite-bracket" id="mw8Q">]</span></span></a></sup> The fastest algorithms are <a rel="mw:WikiLink" href="./Quasilinear_time" title="Quasilinear time" class="mw-redirect" id="mw8g">quasilinear time</a> using <a rel="mw:WikiLink" href="./Partition_refinement" title="Partition refinement" id="mw8w">partition refinement</a> through a reduction to the coarsest <a rel="mw:WikiLink" href="./Partition_problem" title="Partition problem" id="mw9A">partition problem</a>.</p>
+
+</section><section data-mw-section-id="10" id="mw9Q"><h2 id="See_also">See also</h2>
+<ul id="mw9g"><li id="mw9w"><a rel="mw:WikiLink" href="./Simulation_preorder" title="Simulation preorder" class="mw-redirect" id="mw-A">Simulation preorder</a></li>
+<li id="mw-Q"><a rel="mw:WikiLink" href="./Congruence_relation" title="Congruence relation" id="mw-g">Congruence relation</a></li>
+<li id="mw-w"><a rel="mw:WikiLink" href="./Probabilistic_bisimulation" title="Probabilistic bisimulation" id="mw_A">Probabilistic bisimulation</a></li></ul>
+</section><section data-mw-section-id="11" id="mw_Q"><h2 id="Bibliography">Bibliography</h2>
+<span class="mw-empty-elt" about="#mwt127" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;refbegin&quot;,&quot;href&quot;:&quot;./Template:Refbegin&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;2&quot;}},&quot;i&quot;:0}},&quot;\n*&quot;,{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;cite book &quot;,&quot;href&quot;:&quot;./Template:Cite_book&quot;},&quot;params&quot;:{&quot;last1&quot;:{&quot;wt&quot;:&quot;Baier&quot;},&quot;first1&quot;:{&quot;wt&quot;:&quot;Christel&quot;},&quot;author1-link&quot;:{&quot;wt&quot;:&quot;Christel Baier&quot;},&quot;last2&quot;:{&quot;wt&quot;:&quot;Katoen&quot;},&quot;first2&quot;:{&quot;wt&quot;:&quot;Joost-Pieter&quot;},&quot;author2-link&quot;:{&quot;wt&quot;:&quot;Joost-Pieter Katoen&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;[[Principles of Model Checking]]&quot;},&quot;date&quot;:{&quot;wt&quot;:&quot;2008&quot;},&quot;publisher&quot;:{&quot;wt&quot;:&quot;[[MIT Press]]&quot;},&quot;location&quot;:{&quot;wt&quot;:&quot;Cambridge, Mass&quot;},&quot;isbn&quot;:{&quot;wt&quot;:&quot;978-0-262-02649-9&quot;},&quot;lccn&quot;:{&quot;wt&quot;:&quot;2007037603&quot;}},&quot;i&quot;:1}},&quot;\n\n*&quot;,{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;cite book &quot;,&quot;href&quot;:&quot;./Template:Cite_book&quot;},&quot;params&quot;:{&quot;last1&quot;:{&quot;wt&quot;:&quot;van Benthem&quot;},&quot;first1&quot;:{&quot;wt&quot;:&quot;Johan&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;[[Principles of Model Checking]]&quot;},&quot;date&quot;:{&quot;wt&quot;:&quot;1976&quot;},&quot;publisher&quot;:{&quot;wt&quot;:&quot;Instituut voor Grondslagenonderzoek, University of Amsterdam&quot;}},&quot;i&quot;:2}},&quot;\n\n*&quot;,{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Cite journal &quot;,&quot;href&quot;:&quot;./Template:Cite_journal&quot;},&quot;params&quot;:{&quot;last1&quot;:{&quot;wt&quot;:&quot;Jančar&quot;},&quot;first1&quot;:{&quot;wt&quot;:&quot;Petr&quot;},&quot;last2&quot;:{&quot;wt&quot;:&quot;Srba&quot;},&quot;first2&quot;:{&quot;wt&quot;:&quot;Jiří&quot;},&quot;year&quot;:{&quot;wt&quot;:&quot;2008&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;Undecidability of Bisimilarity by Defender&#x27;s Forcing&quot;},&quot;url&quot;:{&quot;wt&quot;:&quot;https://doi.org/10.1145/1326554.1326559&quot;},&quot;journal&quot;:{&quot;wt&quot;:&quot;[[J. ACM]]&quot;},&quot;location&quot;:{&quot;wt&quot;:&quot;New York, NY, USA&quot;},&quot;publisher&quot;:{&quot;wt&quot;:&quot;Association for Computing Machinery&quot;},&quot;volume&quot;:{&quot;wt&quot;:&quot;55&quot;},&quot;pages&quot;:{&quot;wt&quot;:&quot;26&quot;},&quot;doi&quot;:{&quot;wt&quot;:&quot;10.1145/1326554.1326559&quot;},&quot;issn&quot;:{&quot;wt&quot;:&quot;0004-5411&quot;},&quot;url-access&quot;:{&quot;wt&quot;:&quot;subscription&quot;},&quot;number&quot;:{&quot;wt&quot;:&quot;1&quot;},&quot;s2cid&quot;:{&quot;wt&quot;:&quot;14878621&quot;}},&quot;i&quot;:3}},&quot;\n\n* &quot;,{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Cite book &quot;,&quot;href&quot;:&quot;./Template:Cite_book&quot;},&quot;params&quot;:{&quot;last&quot;:{&quot;wt&quot;:&quot;Milner&quot;},&quot;first&quot;:{&quot;wt&quot;:&quot;Robin&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;Communication and Concurrency&quot;},&quot;publisher&quot;:{&quot;wt&quot;:&quot;[[Prentice Hall]]&quot;},&quot;year&quot;:{&quot;wt&quot;:&quot;1989&quot;},&quot;isbn&quot;:{&quot;wt&quot;:&quot;0-13-114984-9&quot;},&quot;location&quot;:{&quot;wt&quot;:&quot;USA&quot;},&quot;authorlink&quot;:{&quot;wt&quot;:&quot;Robin Milner&quot;}},&quot;i&quot;:4}},&quot;\n\n* &quot;,{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;cite journal &quot;,&quot;href&quot;:&quot;./Template:Cite_journal&quot;},&quot;params&quot;:{&quot;first&quot;:{&quot;wt&quot;:&quot;Damien&quot;},&quot;last&quot;:{&quot;wt&quot;:&quot;Pous&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;Up-to techniques for weak bisimulation&quot;},&quot;journal&quot;:{&quot;wt&quot;:&quot;Proc. 32nd ICALP&quot;},&quot;series&quot;:{&quot;wt&quot;:&quot;[[Lecture Notes in Computer Science]]&quot;},&quot;volume&quot;:{&quot;wt&quot;:&quot;3580&quot;},&quot;publisher&quot;:{&quot;wt&quot;:&quot;Springer Verlag&quot;},&quot;year&quot;:{&quot;wt&quot;:&quot;2005&quot;},&quot;pages&quot;:{&quot;wt&quot;:&quot;730–741&quot;}},&quot;i&quot;:5}},&quot;\n\n* &quot;,{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Cite journal &quot;,&quot;href&quot;:&quot;./Template:Cite_journal&quot;},&quot;params&quot;:{&quot;last&quot;:{&quot;wt&quot;:&quot;Stirling&quot;},&quot;first&quot;:{&quot;wt&quot;:&quot;Colin&quot;},&quot;date&quot;:{&quot;wt&quot;:&quot;1999&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;Bisimulation, Modal Logic and Model Checking Games&quot;},&quot;url&quot;:{&quot;wt&quot;:&quot;https://academic.oup.com/jigpal/article-abstract/7/1/103/681726&quot;},&quot;journal&quot;:{&quot;wt&quot;:&quot;Logic Journal of the IGPL&quot;},&quot;volume&quot;:{&quot;wt&quot;:&quot;7&quot;},&quot;issue&quot;:{&quot;wt&quot;:&quot;1&quot;},&quot;pages&quot;:{&quot;wt&quot;:&quot;103-124&quot;}},&quot;i&quot;:6}},&quot;\n&quot;,{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;refend&quot;,&quot;href&quot;:&quot;./Template:Refend&quot;},&quot;params&quot;:{},&quot;i&quot;:7}}]}" id="mw_g"><style data-mw-deduplicate="TemplateStyles:r1365158831" typeof="mw:Extension/templatestyles" about="#mwt128" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Refbegin/styles.css&quot;}}">.mw-parser-output .refbegin{margin-bottom:0.5em}.mw-parser-output .refbegin-hanging-indents>ul,.mw-parser-output .refbegin-hanging-indents section>ul{margin-left:0}.mw-parser-output .refbegin-hanging-indents>ul>li,.mw-parser-output .refbegin-hanging-indents section>ul>li{margin-left:0;padding-left:3.2em;text-indent:-3.2em}.mw-parser-output .refbegin-hanging-indents ul,.mw-parser-output .refbegin-hanging-indents ul li{list-style:none}@media(max-width:720px){.mw-parser-output .refbegin-hanging-indents>ul>li,.mw-parser-output .refbegin-hanging-indents section>ul>li{padding-left:1.6em;text-indent:-1.6em}}.mw-parser-output .refbegin-columns{margin-top:0.3em}.mw-parser-output .refbegin-columns ul{margin-top:0}.mw-parser-output .refbegin-columns li{page-break-inside:avoid;break-inside:avoid-column}@media screen{.mw-parser-output .refbegin{font-size:90%}}</style></span><div class="refbegin  refbegin-columns references-column-width
+    " style="column-width: 30em" about="#mwt127" id="mw_w">
+<ul><li><style data-mw-deduplicate="TemplateStyles:r1333433106" typeof="mw:Extension/templatestyles" about="#mwt130" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Citation/CS1/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free.id-lock-free a{background:url("//upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited.id-lock-limited a,.mw-parser-output .id-lock-registration.id-lock-registration a{background:url("//upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription.id-lock-subscription a{background:url("//upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:url("//upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-free a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-limited a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-registration a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-subscription a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .cs1-ws-icon a{background-size:contain;padding:0 1em 0 0}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:var(--color-error,#bf3c2c)}.mw-parser-output .cs1-visible-error{color:var(--color-error,#bf3c2c)}.mw-parser-output .cs1-maint{display:none;color:#085;margin-left:0.3em}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}@media screen{.mw-parser-output .cs1-format{font-size:95%}html.skin-theme-clientpref-night .mw-parser-output .cs1-maint{color:#18911f}}@media screen and (prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .cs1-maint{color:#18911f}}</style><cite id="CITEREFBaierKatoen2008" class="citation book cs1"><a rel="mw:WikiLink" href="./Christel_Baier" title="Christel Baier">Baier, Christel</a>; <a rel="mw:WikiLink" href="./Joost-Pieter_Katoen" title="Joost-Pieter Katoen">Katoen, Joost-Pieter</a> (2008). <i><a rel="mw:WikiLink" href="./Principles_of_Model_Checking" title="Principles of Model Checking">Principles of Model Checking</a></i>. Cambridge, Mass: <a rel="mw:WikiLink" href="./MIT_Press" title="MIT Press">MIT Press</a>. <a rel="mw:WikiLink" href="./ISBN_(identifier)" title="ISBN (identifier)" class="mw-redirect">ISBN</a><span typeof="mw:Entity"> </span><a rel="mw:WikiLink" href="./Special:BookSources/978-0-262-02649-9" title="Special:BookSources/978-0-262-02649-9"><bdi>978-0-262-02649-9</bdi></a>. <a rel="mw:WikiLink" href="./LCCN_(identifier)" title="LCCN (identifier)" class="mw-redirect">LCCN</a><span typeof="mw:Entity"> </span><a rel="mw:ExtLink nofollow" href="https://lccn.loc.gov/2007037603" class="external text">2007037603</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Principles+of+Model+Checking&amp;rft.place=Cambridge%2C+Mass&amp;rft.pub=MIT+Press&amp;rft.date=2008&amp;rft_id=info%3Alccn%2F2007037603&amp;rft.isbn=978-0-262-02649-9&amp;rft.aulast=Baier&amp;rft.aufirst=Christel&amp;rft.au=Katoen%2C+Joost-Pieter&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABisimulation" class="Z3988"></span></li></ul>
+
+<ul><li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt132" typeof="mw:Extension/templatestyles" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Citation/CS1/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}"><cite id="CITEREFvan_Benthem1976" class="citation book cs1">van Benthem, Johan (1976). <i><a rel="mw:WikiLink" href="./Principles_of_Model_Checking" title="Principles of Model Checking">Principles of Model Checking</a></i>. Instituut voor Grondslagenonderzoek, University of Amsterdam.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Principles+of+Model+Checking&amp;rft.pub=Instituut+voor+Grondslagenonderzoek%2C+University+of+Amsterdam&amp;rft.date=1976&amp;rft.aulast=van+Benthem&amp;rft.aufirst=Johan&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABisimulation" class="Z3988"></span></li></ul>
+
+<ul><li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt134" typeof="mw:Extension/templatestyles" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Citation/CS1/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}"><cite id="CITEREFJančarSrba2008" class="citation journal cs1">Jančar, Petr; Srba, Jiří (2008). <span class="id-lock-subscription" title="Paid subscription required"><a rel="mw:ExtLink nofollow" href="https://doi.org/10.1145/1326554.1326559" class="external text">"Undecidability of Bisimilarity by Defender's Forcing"</a></span>. <i><a rel="mw:WikiLink" href="./J._ACM" title="J. ACM" class="mw-redirect">J. ACM</a></i>. <b>55</b> (1). New York, NY, USA: Association for Computing Machinery: 26. <a rel="mw:WikiLink" href="./Doi_(identifier)" title="Doi (identifier)" class="mw-redirect">doi</a>:<a rel="mw:ExtLink nofollow" href="https://doi.org/10.1145%2F1326554.1326559" class="external text">10.1145/1326554.1326559</a>. <a rel="mw:WikiLink" href="./ISSN_(identifier)" title="ISSN (identifier)" class="mw-redirect">ISSN</a><span typeof="mw:Entity"> </span><a rel="mw:ExtLink nofollow" href="https://search.worldcat.org/issn/0004-5411" class="external text">0004-5411</a>. <a rel="mw:WikiLink" href="./S2CID_(identifier)" title="S2CID (identifier)" class="mw-redirect">S2CID</a><span typeof="mw:Entity"> </span><a rel="mw:ExtLink nofollow" href="https://api.semanticscholar.org/CorpusID:14878621" class="external text">14878621</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=J.+ACM&amp;rft.atitle=Undecidability+of+Bisimilarity+by+Defender%27s+Forcing&amp;rft.volume=55&amp;rft.issue=1&amp;rft.pages=26&amp;rft.date=2008&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A14878621%23id-name%3DS2CID&amp;rft.issn=0004-5411&amp;rft_id=info%3Adoi%2F10.1145%2F1326554.1326559&amp;rft.aulast=Jan%C4%8Dar&amp;rft.aufirst=Petr&amp;rft.au=Srba%2C+Ji%C5%99%C3%AD&amp;rft_id=https%3A%2F%2Fdoi.org%2F10.1145%2F1326554.1326559&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABisimulation" class="Z3988"></span></li></ul>
+
+<ul><li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt136" typeof="mw:Extension/templatestyles" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Citation/CS1/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}"><cite id="CITEREFMilner1989" class="citation book cs1"><a rel="mw:WikiLink" href="./Robin_Milner" title="Robin Milner">Milner, Robin</a> (1989). <i>Communication and Concurrency</i>. USA: <a rel="mw:WikiLink" href="./Prentice_Hall" title="Prentice Hall">Prentice Hall</a>. <a rel="mw:WikiLink" href="./ISBN_(identifier)" title="ISBN (identifier)" class="mw-redirect">ISBN</a><span typeof="mw:Entity"> </span><a rel="mw:WikiLink" href="./Special:BookSources/0-13-114984-9" title="Special:BookSources/0-13-114984-9"><bdi>0-13-114984-9</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Communication+and+Concurrency&amp;rft.place=USA&amp;rft.pub=Prentice+Hall&amp;rft.date=1989&amp;rft.isbn=0-13-114984-9&amp;rft.aulast=Milner&amp;rft.aufirst=Robin&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABisimulation" class="Z3988"></span></li></ul>
+
+<ul><li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt138" typeof="mw:Extension/templatestyles" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Citation/CS1/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}"><cite id="CITEREFPous2005" class="citation journal cs1">Pous, Damien (2005). "Up-to techniques for weak bisimulation". <i>Proc. 32nd ICALP</i>. <a rel="mw:WikiLink" href="./Lecture_Notes_in_Computer_Science" title="Lecture Notes in Computer Science">Lecture Notes in Computer Science</a>. <b>3580</b>. Springer Verlag: <span class="nowrap">730–</span>741.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Proc.+32nd+ICALP&amp;rft.atitle=Up-to+techniques+for+weak+bisimulation&amp;rft.volume=3580&amp;rft.pages=730-741&amp;rft.date=2005&amp;rft.aulast=Pous&amp;rft.aufirst=Damien&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABisimulation" class="Z3988"></span></li></ul>
+
+<ul><li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt140" typeof="mw:Extension/templatestyles" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Citation/CS1/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}"><cite id="CITEREFStirling1999" class="citation journal cs1">Stirling, Colin (1999). <a rel="mw:ExtLink nofollow" href="https://academic.oup.com/jigpal/article-abstract/7/1/103/681726" class="external text">"Bisimulation, Modal Logic and Model Checking Games"</a>. <i>Logic Journal of the IGPL</i>. <b>7</b> (1): <span class="nowrap">103–</span>124.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Logic+Journal+of+the+IGPL&amp;rft.atitle=Bisimulation%2C+Modal+Logic+and+Model+Checking+Games&amp;rft.volume=7&amp;rft.issue=1&amp;rft.pages=103-124&amp;rft.date=1999&amp;rft.aulast=Stirling&amp;rft.aufirst=Colin&amp;rft_id=https%3A%2F%2Facademic.oup.com%2Fjigpal%2Farticle-abstract%2F7%2F1%2F103%2F681726&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABisimulation" class="Z3988"></span></li></ul>
+</div>
+
+</section><section data-mw-section-id="12" id="mwAQA"><h2 id="Further_reading">Further reading</h2>
+<span class="mw-empty-elt" about="#mwt142" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;refbegin&quot;,&quot;href&quot;:&quot;./Template:Refbegin&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;2&quot;}},&quot;i&quot;:0}},&quot;\n* &quot;,{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Cite conference\n &quot;,&quot;href&quot;:&quot;./Template:Cite_conference&quot;},&quot;params&quot;:{&quot;first&quot;:{&quot;wt&quot;:&quot;David&quot;},&quot;last&quot;:{&quot;wt&quot;:&quot;Park&quot;},&quot;author-link&quot;:{&quot;wt&quot;:&quot;David Park (computer scientist)&quot;},&quot;year&quot;:{&quot;wt&quot;:&quot;1981&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;Concurrency and Automata on Infinite Sequences&quot;},&quot;conference&quot;:{&quot;wt&quot;:&quot;Proceedings of the 5th GI-Conference, Karlsruhe&quot;},&quot;book-title&quot;:{&quot;wt&quot;:&quot;Theoretical Computer Science&quot;},&quot;series&quot;:{&quot;wt&quot;:&quot;[[Lecture Notes in Computer Science]]&quot;},&quot;editor&quot;:{&quot;wt&quot;:&quot;Deussen, Peter&quot;},&quot;pages&quot;:{&quot;wt&quot;:&quot;167–183&quot;},&quot;volume&quot;:{&quot;wt&quot;:&quot;104&quot;},&quot;publisher&quot;:{&quot;wt&quot;:&quot;[[Springer-Verlag]]&quot;},&quot;isbn&quot;:{&quot;wt&quot;:&quot;978-3-540-10576-3&quot;},&quot;doi&quot;:{&quot;wt&quot;:&quot;10.1007/BFb0017309&quot;}},&quot;i&quot;:1}},&quot;\n*&quot;,{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Cite book &quot;,&quot;href&quot;:&quot;./Template:Cite_book&quot;},&quot;params&quot;:{&quot;last&quot;:{&quot;wt&quot;:&quot;Sangiorgi&quot;},&quot;first&quot;:{&quot;wt&quot;:&quot;Davide&quot;},&quot;authorlink&quot;:{&quot;wt&quot;:&quot;Davide Sangiorgi&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;An introduction to Bisimulation and Coinduction&quot;},&quot;date&quot;:{&quot;wt&quot;:&quot;2011&quot;},&quot;publisher&quot;:{&quot;wt&quot;:&quot;Cambridge University Press&quot;},&quot;isbn&quot;:{&quot;wt&quot;:&quot;9781107003637&quot;},&quot;location&quot;:{&quot;wt&quot;:&quot;Cambridge, UK&quot;},&quot;oclc&quot;:{&quot;wt&quot;:&quot;773040572&quot;}},&quot;i&quot;:2}},&quot;\n&quot;,{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;refend&quot;,&quot;href&quot;:&quot;./Template:Refend&quot;},&quot;params&quot;:{},&quot;i&quot;:3}}]}" id="mwAQE"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1365158831" about="#mwt143" typeof="mw:Extension/templatestyles" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Refbegin/styles.css&quot;}}"></span><div class="refbegin  refbegin-columns references-column-width
+    " style="column-width: 30em" about="#mwt142" id="mwAQI">
+<ul><li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt145" typeof="mw:Extension/templatestyles" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Citation/CS1/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}"><cite id="CITEREFPark1981" class="citation conference cs1"><a rel="mw:WikiLink" href="./David_Park_(computer_scientist)" title="David Park (computer scientist)">Park, David</a> (1981). "Concurrency and Automata on Infinite Sequences". In Deussen, Peter (ed.). <i>Theoretical Computer Science</i>. Proceedings of the 5th GI-Conference, Karlsruhe. <a rel="mw:WikiLink" href="./Lecture_Notes_in_Computer_Science" title="Lecture Notes in Computer Science">Lecture Notes in Computer Science</a>. Vol.<span typeof="mw:Entity"> </span>104. <a rel="mw:WikiLink" href="./Springer-Verlag" title="Springer-Verlag" class="mw-redirect">Springer-Verlag</a>. pp.<span typeof="mw:Entity"> </span><span class="nowrap">167–</span>183. <a rel="mw:WikiLink" href="./Doi_(identifier)" title="Doi (identifier)" class="mw-redirect">doi</a>:<a rel="mw:ExtLink nofollow" href="https://doi.org/10.1007%2FBFb0017309" class="external text">10.1007/BFb0017309</a>. <a rel="mw:WikiLink" href="./ISBN_(identifier)" title="ISBN (identifier)" class="mw-redirect">ISBN</a><span typeof="mw:Entity"> </span><a rel="mw:WikiLink" href="./Special:BookSources/978-3-540-10576-3" title="Special:BookSources/978-3-540-10576-3"><bdi>978-3-540-10576-3</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.atitle=Concurrency+and+Automata+on+Infinite+Sequences&amp;rft.btitle=Theoretical+Computer+Science&amp;rft.series=Lecture+Notes+in+Computer+Science&amp;rft.pages=167-183&amp;rft.pub=Springer-Verlag&amp;rft.date=1981&amp;rft_id=info%3Adoi%2F10.1007%2FBFb0017309&amp;rft.isbn=978-3-540-10576-3&amp;rft.aulast=Park&amp;rft.aufirst=David&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABisimulation" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt147" typeof="mw:Extension/templatestyles" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Citation/CS1/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}"><cite id="CITEREFSangiorgi2011" class="citation book cs1"><a rel="mw:WikiLink" href="./Davide_Sangiorgi" title="Davide Sangiorgi">Sangiorgi, Davide</a> (2011). <i>An introduction to Bisimulation and Coinduction</i>. Cambridge, UK: Cambridge University Press. <a rel="mw:WikiLink" href="./ISBN_(identifier)" title="ISBN (identifier)" class="mw-redirect">ISBN</a><span typeof="mw:Entity"> </span><a rel="mw:WikiLink" href="./Special:BookSources/9781107003637" title="Special:BookSources/9781107003637"><bdi>9781107003637</bdi></a>. <a rel="mw:WikiLink" href="./OCLC_(identifier)" title="OCLC (identifier)" class="mw-redirect">OCLC</a><span typeof="mw:Entity"> </span><a rel="mw:ExtLink nofollow" href="https://search.worldcat.org/oclc/773040572" class="external text">773040572</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=An+introduction+to+Bisimulation+and+Coinduction&amp;rft.place=Cambridge%2C+UK&amp;rft.pub=Cambridge+University+Press&amp;rft.date=2011&amp;rft_id=info%3Aoclcnum%2F773040572&amp;rft.isbn=9781107003637&amp;rft.aulast=Sangiorgi&amp;rft.aufirst=Davide&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABisimulation" class="Z3988"></span></li></ul>
+</div>
+
+</section><section data-mw-section-id="13" id="mwAQM"><h2 id="External_links">External links</h2>
+
+<section data-mw-section-id="14" id="mwAQQ"><h3 id="Software_tools">Software tools</h3>
+<ul id="mwAQU"><li id="mwAQY"><a rel="mw:WikiLink" href="./CADP" title="CADP" class="mw-redirect" id="mwAQc">CADP</a>: <a rel="mw:ExtLink nofollow" href="http://cadp.inria.fr" class="external text" id="mwAQg">tools to minimize and compare finite-state systems according to various bisimulations</a></li>
+<li id="mwAQk"><a rel="mw:WikiLink" href="./MCRL2" title="MCRL2" id="mwAQo">mCRL2</a>: tools to minimize and compare finite-state systems according to various bisimulations</li>
+<li id="mwAQs"><a rel="mw:ExtLink nofollow" href="http://www.brics.dk/bisim/" class="external text" id="mwAQw">The Bisimulation Game Game</a></li></ul>
+
+<div class="navbox-styles" about="#mwt149" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Authority control&quot;,&quot;href&quot;:&quot;./Template:Authority_control&quot;},&quot;params&quot;:{},&quot;i&quot;:0}}]}" id="mwAQ0"><span class="mw-empty-elt"><style data-mw-deduplicate="TemplateStyles:r1374427404" typeof="mw:Extension/templatestyles" about="#mwt150" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Hlist/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}">.mw-parser-output .hlist dl,.mw-parser-output .hlist ol,.mw-parser-output .hlist ul{margin:0;padding:0}.mw-parser-output .hlist dd,.mw-parser-output .hlist dt,.mw-parser-output .hlist li{margin:0;display:inline}.mw-parser-output .hlist.inline,.mw-parser-output .hlist.inline dl,.mw-parser-output .hlist.inline ol,.mw-parser-output .hlist.inline ul,.mw-parser-output .hlist dl dl,.mw-parser-output .hlist dl ol,.mw-parser-output .hlist dl ul,.mw-parser-output .hlist ol dl,.mw-parser-output .hlist ol ol,.mw-parser-output .hlist ol ul,.mw-parser-output .hlist ul dl,.mw-parser-output .hlist ul ol,.mw-parser-output .hlist ul ul{display:inline}.mw-parser-output .hlist .mw-empty-li{display:none}.mw-parser-output .hlist dt::after{content:": "}.mw-parser-output .hlist dd::after,.mw-parser-output .hlist li::after{content:"\a0 · ";font-weight:bold}.mw-parser-output .hlist dd:last-child::after,.mw-parser-output .hlist dt:last-child::after,.mw-parser-output .hlist li:last-child::after{content:none}.mw-parser-output .hlist dd dd:first-child::before,.mw-parser-output .hlist dd dt:first-child::before,.mw-parser-output .hlist dd li:first-child::before,.mw-parser-output .hlist dt dd:first-child::before,.mw-parser-output .hlist dt dt:first-child::before,.mw-parser-output .hlist dt li:first-child::before,.mw-parser-output .hlist li dd:first-child::before,.mw-parser-output .hlist li dt:first-child::before,.mw-parser-output .hlist li li:first-child::before{content:" (";font-weight:normal}.mw-parser-output .hlist dd dd:last-child::after,.mw-parser-output .hlist dd dt:last-child::after,.mw-parser-output .hlist dd li:last-child::after,.mw-parser-output .hlist dt dd:last-child::after,.mw-parser-output .hlist dt dt:last-child::after,.mw-parser-output .hlist dt li:last-child::after,.mw-parser-output .hlist li dd:last-child::after,.mw-parser-output .hlist li dt:last-child::after,.mw-parser-output .hlist li li:last-child::after{content:")";font-weight:normal}.mw-parser-output .hlist ol{counter-reset:listitem}.mw-parser-output .hlist ol>li{counter-increment:listitem}.mw-parser-output .hlist ol>li::before{content:" "counter(listitem)"\a0 "}.mw-parser-output .hlist dd ol>li:first-child::before,.mw-parser-output .hlist dt ol>li:first-child::before,.mw-parser-output .hlist li ol>li:first-child::before{content:" ("counter(listitem)"\a0 "}</style><style data-mw-deduplicate="TemplateStyles:r1364279517" typeof="mw:Extension/templatestyles" about="#mwt151" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Navbox/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}">.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox-styles+.navbox,.mw-parser-output .navbox+span.mw-empty-elt+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd;color:inherit}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf;color:inherit}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf;color:inherit}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff;color:inherit}.mw-parser-output .navbox-even{background-color:#f7f7f7;color:inherit}.mw-parser-output .navbox-odd{background-color:transparent;color:inherit}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}body.skin--responsive .mw-parser-output .navbox-image img{max-width:none!important}@media print{body.ns-0 .mw-parser-output .navbox{display:none!important}}</style></span></div><div role="navigation" class="navbox authority-control" aria-labelledby="Authority_control_databases_frameless&amp;#124;text-top&amp;#124;10px&amp;#124;alt=Edit_this_at_Wikidata&amp;#124;link=https&amp;#58;//www.wikidata.org/wiki/Q866364#identifiers&amp;#124;class=noprint&amp;#124;Edit_this_at_Wikidata376" style="padding:3px" about="#mwt149" id="mwAQ4"><table class="nowraplinks hlist navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th id="Authority_control_databases_frameless&amp;#124;text-top&amp;#124;10px&amp;#124;alt=Edit_this_at_Wikidata&amp;#124;link=https&amp;#58;//www.wikidata.org/wiki/Q866364#identifiers&amp;#124;class=noprint&amp;#124;Edit_this_at_Wikidata376" scope="row" class="navbox-group" style="width:1%"><a rel="mw:WikiLink" href="./Help:Authority_control" title="Help:Authority control">Authority control databases</a> <span class="mw-valign-text-top noprint" typeof="mw:File/Frameless" data-mw="{&quot;caption&quot;:&quot;Edit this at Wikidata&quot;}"><a href="https://www.wikidata.org/wiki/Q866364#identifiers" title="Edit this at Wikidata"><img resource="./File:OOjs_UI_icon_edit-ltr-progressive.svg" src="//thumb.wikimedia.org/wikipedia/en/thumb/8/8a/OOjs_UI_icon_edit-ltr-progressive.svg/20px-OOjs_UI_icon_edit-ltr-progressive.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail" decoding="async" loading="lazy" alt="Edit this at Wikidata" data-file-width="20" data-file-height="20" data-file-type="drawing" height="10" width="10" class="mw-file-element"></a></span></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"><ul><li><span class="uid"><a rel="mw:ExtLink nofollow" href="https://d-nb.info/gnd/4619739-4" class="external text">GND</a></span></li></ul></div></td></tr></tbody></table></div>
+
+<link rel="mw:PageProp/Category" href="./Category:Theoretical_computer_science" id="mwAQ8">
+<link rel="mw:PageProp/Category" href="./Category:Formal_methods" id="mwARA">
+<link rel="mw:PageProp/Category" href="./Category:Logic_in_computer_science" id="mwARE">
+<link rel="mw:PageProp/Category" href="./Category:Transition_systems" id="mwARI">
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt152" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;autoGenerated&quot;:true}" id="mwARM"><ol class="mw-references references" id="mwARQ"><li about="#cite_note-FOOTNOTEJančarSrba2008-1" id="cite_note-FOOTNOTEJančarSrba2008-1" data-mw-footnote-number="1"><span class="mw-cite-backlink" id="mwARU"><a href="./Bisimulation#cite_ref-FOOTNOTEJančarSrba2008_1-0" rel="mw:referencedBy" id="mwARY"><span class="mw-linkback-text" id="mwARc">↑</span></a></span> <span id="mw-reference-text-cite_note-FOOTNOTEJančarSrba2008-1" class="mw-reference-text reference-text"><a rel="mw:WikiLink" href="./Bisimulation#CITEREFJančarSrba2008" class="mw-selflink-fragment" id="mwARg">Jančar <span typeof="mw:Entity" id="mwARk">&amp;</span> Srba 2008</a>.</span></li>
+<li about="#cite_note-FOOTNOTEMilner1989-2" id="cite_note-FOOTNOTEMilner1989-2" data-mw-footnote-number="2"><span class="mw-cite-backlink" id="mwARo"><a href="./Bisimulation#cite_ref-FOOTNOTEMilner1989_2-0" rel="mw:referencedBy" id="mwARs"><span class="mw-linkback-text" id="mwARw">↑</span></a></span> <span id="mw-reference-text-cite_note-FOOTNOTEMilner1989-2" class="mw-reference-text reference-text"><a rel="mw:WikiLink" href="./Bisimulation#CITEREFMilner1989" class="mw-selflink-fragment" id="mwAR0">Milner 1989</a>.</span></li>
+<li about="#cite_note-FOOTNOTEStirling1999-3" id="cite_note-FOOTNOTEStirling1999-3" data-mw-footnote-number="3"><span class="mw-cite-backlink" id="mwAR4"><a href="./Bisimulation#cite_ref-FOOTNOTEStirling1999_3-0" rel="mw:referencedBy" id="mwAR8"><span class="mw-linkback-text" id="mwASA">↑</span></a></span> <span id="mw-reference-text-cite_note-FOOTNOTEStirling1999-3" class="mw-reference-text reference-text"><a rel="mw:WikiLink" href="./Bisimulation#CITEREFStirling1999" class="mw-selflink-fragment" id="mwASE">Stirling 1999</a>.</span></li>
+<li about="#cite_note-FOOTNOTEBaierKatoen2008529,_536–5787.8_Stutter_Bisimulation-4" id="cite_note-FOOTNOTEBaierKatoen2008529,_536–5787.8_Stutter_Bisimulation-4" data-mw-footnote-number="4"><span class="mw-cite-backlink" id="mwASI"><a href="./Bisimulation#cite_ref-FOOTNOTEBaierKatoen2008529,_536–5787.8_Stutter_Bisimulation_4-0" rel="mw:referencedBy" id="mwASM"><span class="mw-linkback-text" id="mwASQ">↑</span></a></span> <span id="mw-reference-text-cite_note-FOOTNOTEBaierKatoen2008529,_536–5787.8_Stutter_Bisimulation-4" class="mw-reference-text reference-text"><a rel="mw:WikiLink" href="./Bisimulation#CITEREFBaierKatoen2008" class="mw-selflink-fragment" id="mwASU">Baier <span typeof="mw:Entity" id="mwASY">&amp;</span> Katoen 2008</a>, pp.<span typeof="mw:Entity" id="mwASc"> </span>529, 536–578, 7.8 Stutter Bisimulation.</span></li>
+<li about="#cite_note-FOOTNOTEPous2005-5" id="cite_note-FOOTNOTEPous2005-5" data-mw-footnote-number="5"><span class="mw-cite-backlink" id="mwASg"><a href="./Bisimulation#cite_ref-FOOTNOTEPous2005_5-0" rel="mw:referencedBy" id="mwASk"><span class="mw-linkback-text" id="mwASo">↑</span></a></span> <span id="mw-reference-text-cite_note-FOOTNOTEPous2005-5" class="mw-reference-text reference-text"><a rel="mw:WikiLink" href="./Bisimulation#CITEREFPous2005" class="mw-selflink-fragment" id="mwASs">Pous 2005</a>.</span></li>
+<li about="#cite_note-FOOTNOTEvan_Benthem1976-6" id="cite_note-FOOTNOTEvan_Benthem1976-6" data-mw-footnote-number="6"><span class="mw-cite-backlink" id="mwASw"><a href="./Bisimulation#cite_ref-FOOTNOTEvan_Benthem1976_6-0" rel="mw:referencedBy" id="mwAS0"><span class="mw-linkback-text" id="mwAS4">↑</span></a></span> <span id="mw-reference-text-cite_note-FOOTNOTEvan_Benthem1976-6" class="mw-reference-text reference-text"><a rel="mw:WikiLink" href="./Bisimulation#CITEREFvan_Benthem1976" class="mw-selflink-fragment" id="mwAS8">van Benthem 1976</a>.</span></li>
+<li about="#cite_note-FOOTNOTEBaierKatoen2008494Corollary_7.45_(Complexity_of_Checking_Bisimulation_Equivalence)-7" id="cite_note-FOOTNOTEBaierKatoen2008494Corollary_7.45_(Complexity_of_Checking_Bisimulation_Equivalence)-7" data-mw-footnote-number="7"><span class="mw-cite-backlink" id="mwATA"><a href="./Bisimulation#cite_ref-FOOTNOTEBaierKatoen2008494Corollary_7.45_(Complexity_of_Checking_Bisimulation_Equivalence)_7-0" rel="mw:referencedBy" id="mwATE"><span class="mw-linkback-text" id="mwATI">↑</span></a></span> <span id="mw-reference-text-cite_note-FOOTNOTEBaierKatoen2008494Corollary_7.45_(Complexity_of_Checking_Bisimulation_Equivalence)-7" class="mw-reference-text reference-text"><a rel="mw:WikiLink" href="./Bisimulation#CITEREFBaierKatoen2008" class="mw-selflink-fragment" id="mwATM">Baier <span typeof="mw:Entity" id="mwATQ">&amp;</span> Katoen 2008</a>, p.<span typeof="mw:Entity" id="mwATU"> </span>494, Corollary 7.45 (Complexity of Checking Bisimulation Equivalence).</span></li>
+</ol></div></section></section></body></html>

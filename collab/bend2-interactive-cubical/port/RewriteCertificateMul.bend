@@ -1,4 +1,4 @@
-# formal/cubical/kernel/RewriteCertificateMul.agda, in Bend: the certificate
+# formal/cubical/kernel-flat/RewriteCertificateMul.agda, in Bend: the certificate
 # language widened to multiplication, and the conservativity of the widening.
 # Bend imports are unqualified, so the widened language carries an `M` / `_m`
 # suffix where the Agda mirrors the additive names exactly; `embed` is the

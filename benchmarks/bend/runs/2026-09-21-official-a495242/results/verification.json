@@ -1,0 +1,28 @@
+{
+  "runtime": {
+    "ok": 109,
+    "memory_limit_3GiB": 2,
+    "error": 1
+  },
+  "checker": {
+    "ok": 13,
+    "not_supplied": 4,
+    "timeout": 5,
+    "memory_limit_3GiB": 3
+  },
+  "compiler": {
+    "ok": 16
+  },
+  "source_integrity": {
+    "benchmark_files_unchanged": 89,
+    "compiler_and_runner_files_match_archive": [
+      "bend2/main.ts",
+      "bend2/bend.ts",
+      "bend2/comp.ts",
+      "bend2/base.bend",
+      "gates/perf.ts",
+      "bend2/docs/gen_pins.ts"
+    ]
+  },
+  "finished_utc": "2026-09-22T04:11:16Z"
+}

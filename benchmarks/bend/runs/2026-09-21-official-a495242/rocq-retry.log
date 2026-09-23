@@ -1,0 +1,3 @@
+{"suite": "checker", "bench": "defs_12800", "lane": "rocq", "phase": "timed", "status": "ok", "wall_s": 2.7641732919999997, "max_rss_mib": 611.484375, "output_match": null}
+{"suite": "checker", "bench": "generics_3200", "lane": "rocq", "phase": "timed", "status": "ok", "wall_s": 6.400432792, "max_rss_mib": 799.03125, "output_match": null}
+SUITE COMPLETE checker rocq

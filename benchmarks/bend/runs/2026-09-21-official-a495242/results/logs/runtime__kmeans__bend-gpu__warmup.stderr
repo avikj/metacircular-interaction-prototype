@@ -1,0 +1,19 @@
+bend: compiling the GPU program (/private/tmp/bend-bench-20260921/build/kmeans/bend-gpu.gpu is missing or stale)
+        1.55 real         0.01 user         0.04 sys
+            14893056  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                1164  page reclaims
+                  13  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                 887  involuntary context switches
+           335789851  instructions retired
+           165245180  cycles elapsed
+            27984520  peak memory footprint
