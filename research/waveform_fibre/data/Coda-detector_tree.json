@@ -1,0 +1,839 @@
+{
+  "sha": "9974e04c0ababe93086583cfce512c27beac28d9",
+  "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/trees/9974e04c0ababe93086583cfce512c27beac28d9",
+  "tree": [
+    {
+      "path": "Data",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "80bc46d654c362013acabdbc631da31acaa682da",
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/trees/80bc46d654c362013acabdbc631da31acaa682da"
+    },
+    {
+      "path": "Data/Far-field",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9cfdd289c107374ffa79fcc175d93651e7e4a782",
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/trees/9cfdd289c107374ffa79fcc175d93651e7e4a782"
+    },
+    {
+      "path": "Data/Far-field/Far_field_audioclip.wav",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d5a8ebaedbfa0ce9fba3dbd20200c5c433a7d20f",
+      "size": 5760046,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/d5a8ebaedbfa0ce9fba3dbd20200c5c433a7d20f"
+    },
+    {
+      "path": "Data/Near-field",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "de59f169af8b4e84df31a691d7787fde8bcb9720",
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/trees/de59f169af8b4e84df31a691d7787fde8bcb9720"
+    },
+    {
+      "path": "Data/Near-field/Near_field_audioclip.flac",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "22397ffc0e2aab11f68065f5cc679fa59d74da90",
+      "size": 680690,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/22397ffc0e2aab11f68065f5cc679fa59d74da90"
+    },
+    {
+      "path": "Data/Noise",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1d2698173839845321deca2708aa2cef27076d3a",
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/trees/1d2698173839845321deca2708aa2cef27076d3a"
+    },
+    {
+      "path": "Data/Noise/Echolocation_noise.wav",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "db49f8eedc0d5714c8f368abb6e2b882a1402626",
+      "size": 9375046,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/db49f8eedc0d5714c8f368abb6e2b882a1402626"
+    },
+    {
+      "path": "Data/Noise/Echolocation_noise.xls",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "72b272caf161a8985e769be713aca2551d4d30d7",
+      "size": 6656,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/72b272caf161a8985e769be713aca2551d4d30d7"
+    },
+    {
+      "path": "Data/Noise/General_noise.wav",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2fd94b32e0858dbd63256386ffe9bdc51fd298e0",
+      "size": 9375046,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/2fd94b32e0858dbd63256386ffe9bdc51fd298e0"
+    },
+    {
+      "path": "Data/Noise/General_noise.xls",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "72b272caf161a8985e769be713aca2551d4d30d7",
+      "size": 6656,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/72b272caf161a8985e769be713aca2551d4d30d7"
+    },
+    {
+      "path": "Echolocation removal before coda detection",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e4427c45bb1441987412bfa044683d1545ca5a98",
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/trees/e4427c45bb1441987412bfa044683d1545ca5a98"
+    },
+    {
+      "path": "Echolocation removal before coda detection/Click_elimination_and_coda_detection.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f5f77f546cb2615a942731bb8e6adf13eeed050c",
+      "size": 13085,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/f5f77f546cb2615a942731bb8e6adf13eeed050c"
+    },
+    {
+      "path": "Echolocation removal before coda detection/Coda detector",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6d7f3a6aa99d35c97cdce1974cc530c8266e67d5",
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/trees/6d7f3a6aa99d35c97cdce1974cc530c8266e67d5"
+    },
+    {
+      "path": "Echolocation removal before coda detection/Coda detector/Apply_constraints.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "29842f03da1c77908b9ee0d6b4754b78af247bcb",
+      "size": 1010,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/29842f03da1c77908b9ee0d6b4754b78af247bcb"
+    },
+    {
+      "path": "Echolocation removal before coda detection/Coda detector/Cluster_codas.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bd4ded8491f55569396d40ca3fd865680c606ae2",
+      "size": 8008,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/bd4ded8491f55569396d40ca3fd865680c606ae2"
+    },
+    {
+      "path": "Echolocation removal before coda detection/Coda detector/Coda_clusters_annotation.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "01871dc32f79013255c46ddcaf132cdda17340b0",
+      "size": 2066,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/01871dc32f79013255c46ddcaf132cdda17340b0"
+    },
+    {
+      "path": "Echolocation removal before coda detection/Coda detector/Crop_transient.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8a76fe1794a7d292b50b62f74a3c75199bf31ef3",
+      "size": 734,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/8a76fe1794a7d292b50b62f74a3c75199bf31ef3"
+    },
+    {
+      "path": "Echolocation removal before coda detection/Coda detector/DB_prompt.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a9c0889769ca6a58d7162ce1cf9297c1c50db242",
+      "size": 2834,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/a9c0889769ca6a58d7162ce1cf9297c1c50db242"
+    },
+    {
+      "path": "Echolocation removal before coda detection/Coda detector/EigV.mat",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "af04828666082f004af7c39e42e14acb1858b5d6",
+      "size": 993,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/af04828666082f004af7c39e42e14acb1858b5d6"
+    },
+    {
+      "path": "Echolocation removal before coda detection/Coda detector/EigV_3D.mat",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9392b03af3d83a20004e151f388025dc4ea8db62",
+      "size": 879,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/9392b03af3d83a20004e151f388025dc4ea8db62"
+    },
+    {
+      "path": "Echolocation removal before coda detection/Coda detector/Extract_signal.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "22cf5b2d96ee5fd44f0e6e1b9001fbf865fbe2c8",
+      "size": 1996,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/22cf5b2d96ee5fd44f0e6e1b9001fbf865fbe2c8"
+    },
+    {
+      "path": "Echolocation removal before coda detection/Coda detector/MGGD_fun.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c739f799a86d0f0de4f5d7fb06cb722f2fe1903f",
+      "size": 1120,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/c739f799a86d0f0de4f5d7fb06cb722f2fe1903f"
+    },
+    {
+      "path": "Echolocation removal before coda detection/Coda detector/MPS_estimate.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "376dc77d35f365575bd0217b16cb998323d2ab4d",
+      "size": 1763,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/376dc77d35f365575bd0217b16cb998323d2ab4d"
+    },
+    {
+      "path": "Echolocation removal before coda detection/Coda detector/MPS_estimate_all.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4ec0697b9880e22bdf39b201c6754ce4a549e99c",
+      "size": 1027,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/4ec0697b9880e22bdf39b201c6754ce4a549e99c"
+    },
+    {
+      "path": "Echolocation removal before coda detection/Coda detector/MPS_extract.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b8828a2b7f5f1cc296df5f3b29a592613b655380",
+      "size": 522,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/b8828a2b7f5f1cc296df5f3b29a592613b655380"
+    },
+    {
+      "path": "Echolocation removal before coda detection/Coda detector/PSF_extract.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1c6593e459b39806baa5c3054036ce61e149288b",
+      "size": 3271,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/1c6593e459b39806baa5c3054036ce61e149288b"
+    },
+    {
+      "path": "Echolocation removal before coda detection/Coda detector/Params.mat",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "db59dbc30fc58e50d506b41674796fb4261ecd33",
+      "size": 2173,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/db59dbc30fc58e50d506b41674796fb4261ecd33"
+    },
+    {
+      "path": "Echolocation removal before coda detection/Coda detector/Params3D_rev.mat",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "de12ff8b510d04f8acac6a4bbc4a0d329b3637a0",
+      "size": 3211,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/de12ff8b510d04f8acac6a4bbc4a0d329b3637a0"
+    },
+    {
+      "path": "Echolocation removal before coda detection/Coda detector/Params_mix.mat",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "798d9925cb9f911ff955a63b016145a2daa8513d",
+      "size": 507,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/798d9925cb9f911ff955a63b016145a2daa8513d"
+    },
+    {
+      "path": "Echolocation removal before coda detection/Coda detector/Plot_Detections.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "337a487b724dbb5d2db654f800be2b5619cb36b1",
+      "size": 499,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/337a487b724dbb5d2db654f800be2b5619cb36b1"
+    },
+    {
+      "path": "Echolocation removal before coda detection/Coda detector/Transient_selection.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d27b963c3f246eadd3bc5d2793e516ac2d0890a9",
+      "size": 2659,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/d27b963c3f246eadd3bc5d2793e516ac2d0890a9"
+    },
+    {
+      "path": "Echolocation removal before coda detection/Coda detector/Windowing_el.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7d575ea839f9efb1dcbb83d1d81263dd1dc31709",
+      "size": 2283,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/7d575ea839f9efb1dcbb83d1d81263dd1dc31709"
+    },
+    {
+      "path": "Echolocation removal before coda detection/Coda detector/aslt.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "62d26ae94727f55b8964921cef2b05d205f6f5fc",
+      "size": 5949,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/62d26ae94727f55b8964921cef2b05d205f6f5fc"
+    },
+    {
+      "path": "Echolocation removal before coda detection/Coda detector/detect_creaks.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2ed9e888c57e1918e336454104ffb89286b7bf3c",
+      "size": 1678,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/2ed9e888c57e1918e336454104ffb89286b7bf3c"
+    },
+    {
+      "path": "Echolocation removal before coda detection/Coda detector/energyop.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "012074329bc97b8d9eb446509312b2b0415c3fd1",
+      "size": 1623,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/012074329bc97b8d9eb446509312b2b0415c3fd1"
+    },
+    {
+      "path": "Echolocation removal before coda detection/Coda detector/mat2inds.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "031c166bde3958e4e778a5e6eb77679867fbd877",
+      "size": 173,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/031c166bde3958e4e778a5e6eb77679867fbd877"
+    },
+    {
+      "path": "Echolocation removal before coda detection/Coda detector/uniquearray.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "117c68881e03176b39b012e1016ffd7d95ec29d7",
+      "size": 7049,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/117c68881e03176b39b012e1016ffd7d95ec29d7"
+    },
+    {
+      "path": "Echolocation removal before coda detection/Coda detector/val_return.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ece573c3ac71f704bf33c1651139a02be12c760b",
+      "size": 154,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/ece573c3ac71f704bf33c1651139a02be12c760b"
+    },
+    {
+      "path": "Echolocation removal before coda detection/Coda detector/waveform_features_extraction.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a31ebfb5ed6c3222c22e92beeadb0f46c3dbdf4e",
+      "size": 923,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/a31ebfb5ed6c3222c22e92beeadb0f46c3dbdf4e"
+    },
+    {
+      "path": "Echolocation removal before coda detection/Coda detector/waveform_features_extraction2.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c0d69d6fc61fa01349dafbc0033b27a7c1467f30",
+      "size": 461,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/c0d69d6fc61fa01349dafbc0033b27a7c1467f30"
+    },
+    {
+      "path": "Echolocation removal before coda detection/README.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8fe5e4287e0af4987fcf1bb7331728e4bb934dce",
+      "size": 1697,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/8fe5e4287e0af4987fcf1bb7331728e4bb934dce"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "111e451a1406c9c1f8ca08c0819d2522b014c31b",
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/trees/111e451a1406c9c1f8ca08c0819d2522b014c31b"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/All_objs.mat",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c26e9db1fa197cfcaa6ef465a118cf0642222b19",
+      "size": 1891,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/c26e9db1fa197cfcaa6ef465a118cf0642222b19"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/Buffer_Params.mat",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2b2f0428a73754136b0f95ad44e62c7e445c768f",
+      "size": 1339,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/2b2f0428a73754136b0f95ad44e62c7e445c768f"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/Buffer_pairing_likelihood.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3e4d4a520c0f077388fd6320504f04539bed81a4",
+      "size": 1063,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/3e4d4a520c0f077388fd6320504f04539bed81a4"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/Eliminate_ref.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "815644baecb9e363ac89c7b0d121783a30009cc4",
+      "size": 703,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/815644baecb9e363ac89c7b0d121783a30009cc4"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/F_weights.mat",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "232873577ceca880f8341d4c7beb9213bf54e660",
+      "size": 217,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/232873577ceca880f8341d4c7beb9213bf54e660"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/Mean_JF.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "40c5c6d32dacd0c33c6100bd74cf558d793e7884",
+      "size": 1667,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/40c5c6d32dacd0c33c6100bd74cf558d793e7884"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/Merge_chains.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "538777005a9b09d7b0521fa2ad6a435165e0379c",
+      "size": 2618,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/538777005a9b09d7b0521fa2ad6a435165e0379c"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/Peaks_extract.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "111bc16fdfb78d1615f6c714b1083fafc5181f43",
+      "size": 203,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/111bc16fdfb78d1615f6c714b1083fafc5181f43"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/Power_estimates.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a335684d65f9daef195ab9c08acce524ed772f17",
+      "size": 223,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/a335684d65f9daef195ab9c08acce524ed772f17"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/Utility_f.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cdf5037f685fe2f0cac1ac9e8ee2e96b044f8248",
+      "size": 603,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/cdf5037f685fe2f0cac1ac9e8ee2e96b044f8248"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/Waveform_average.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "818e673731ba59ed380db3c9e15a2347acad6067",
+      "size": 1125,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/818e673731ba59ed380db3c9e15a2347acad6067"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/aslt.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "62d26ae94727f55b8964921cef2b05d205f6f5fc",
+      "size": 5949,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/62d26ae94727f55b8964921cef2b05d205f6f5fc"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/cinda_funcs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fd17752555b27d017db26025e9c73e1e00afe9ec",
+      "size": 56280,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/fd17752555b27d017db26025e9c73e1e00afe9ec"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/detection_arcs.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f2306342a5ab876027debd5b6003696fd485a4d2",
+      "size": 5645,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/f2306342a5ab876027debd5b6003696fd485a4d2"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/determine_reflection_ToAs.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7da63fd1b5f2922db3a9f50aca4403c26cb54365",
+      "size": 1214,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/7da63fd1b5f2922db3a9f50aca4403c26cb54365"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/do_assignment.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "325894b65a4c2455b3443dcae608c6899e6ec33a",
+      "size": 332,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/325894b65a4c2455b3443dcae608c6899e6ec33a"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/estimate_slant_delays.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "061a893684c0a34f891380cf5b4ffbfbe75f0a6a",
+      "size": 510,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/061a893684c0a34f891380cf5b4ffbfbe75f0a6a"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/extract_click_pair_features_V3.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2c4f7ccaa31f84d24c970152677a89c47f68ba20",
+      "size": 1094,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/2c4f7ccaa31f84d24c970152677a89c47f68ba20"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/jains_fairness_index.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4359654d182b5550fdc8da3635f1338b1ce34d89",
+      "size": 694,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/4359654d182b5550fdc8da3635f1338b1ce34d89"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/lapjv.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cb55307e763dba1eb03a38c740362484d1019c45",
+      "size": 10055,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/cb55307e763dba1eb03a38c740362484d1019c45"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/lib_cinda_funcs.dll",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9f7da4f43de8f4163c8545738b2cd45c7185ca85",
+      "size": 512815,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/9f7da4f43de8f4163c8545738b2cd45c7185ca85"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/mat2inds.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "031c166bde3958e4e778a5e6eb77679867fbd877",
+      "size": 173,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/031c166bde3958e4e778a5e6eb77679867fbd877"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/mcc4mot.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d503951f859df2e6b5ac38f0d0e04eb4502a5c13",
+      "size": 3345,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/d503951f859df2e6b5ac38f0d0e04eb4502a5c13"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/remove_multipass.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "44fc17fdf01484b9aa8424d91d91393748ee8394",
+      "size": 2986,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/44fc17fdf01484b9aa8424d91d91393748ee8394"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/run_subtrain.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "17d81e2380468490400f55cfde9b0931b829c2e6",
+      "size": 26169,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/17d81e2380468490400f55cfde9b0931b829c2e6"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/run_subtrain_detect.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0d8fb427cf03be23cd034791be7ef2e1fb73d8ff",
+      "size": 5623,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/0d8fb427cf03be23cd034791be7ef2e1fb73d8ff"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/run_train.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "98073163b13021c7b76c6c8a3b43ad78b572e401",
+      "size": 6814,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/98073163b13021c7b76c6c8a3b43ad78b572e401"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/run_trains_association_algo.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a2e48968ef9b858c30744861e3649b099bde2bb5",
+      "size": 7218,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/a2e48968ef9b858c30744861e3649b099bde2bb5"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/spectral_similarity.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a9dc22f23450c0598e1c6d2544c099bb8e66edd4",
+      "size": 558,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/a9dc22f23450c0598e1c6d2544c099bb8e66edd4"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/subtrain_detect.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0200a3fe385f4290b6b18c13581cd7ab4013aa12",
+      "size": 8545,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/0200a3fe385f4290b6b18c13581cd7ab4013aa12"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/transition_arcs.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e36f0610fe62334b32c22b181b805aa72dfe9e90",
+      "size": 3502,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/e36f0610fe62334b32c22b181b805aa72dfe9e90"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/waveform_features_extraction.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "626d83b576f081cdae6e5c5bcd9f9110598906dc",
+      "size": 460,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/626d83b576f081cdae6e5c5bcd9f9110598906dc"
+    },
+    {
+      "path": "Echolocation removal before coda detection/functions/write_circulation_Into_TxtFile.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e3ec1090b34adb4d36d8fc81e71a575c8f10f297",
+      "size": 1674,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/e3ec1090b34adb4d36d8fc81e71a575c8f10f297"
+    },
+    {
+      "path": "Functions",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c2c63b2818371621c43283509249e7171a2aaf83",
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/trees/c2c63b2818371621c43283509249e7171a2aaf83"
+    },
+    {
+      "path": "Functions/Apply_constraints.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ae0091cb78955407693bd4ec8b2339b62163b8d8",
+      "size": 1039,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/ae0091cb78955407693bd4ec8b2339b62163b8d8"
+    },
+    {
+      "path": "Functions/Cluster_codas.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f0d238946d683ac36707202ca454698fdcfb681c",
+      "size": 8191,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/f0d238946d683ac36707202ca454698fdcfb681c"
+    },
+    {
+      "path": "Functions/Coda_clusters_annotation.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "da232d4e9f9fd5102c72410e9751bac4a87259b9",
+      "size": 2148,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/da232d4e9f9fd5102c72410e9751bac4a87259b9"
+    },
+    {
+      "path": "Functions/Crop_transient.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9ee2d9b63ff9b02b803b5d58e4459e370dc25d24",
+      "size": 748,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/9ee2d9b63ff9b02b803b5d58e4459e370dc25d24"
+    },
+    {
+      "path": "Functions/DB_prompt.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7b470ee90d95937ee869d41340bec3411c6dce5d",
+      "size": 3993,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/7b470ee90d95937ee869d41340bec3411c6dce5d"
+    },
+    {
+      "path": "Functions/EigV.mat",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "af04828666082f004af7c39e42e14acb1858b5d6",
+      "size": 993,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/af04828666082f004af7c39e42e14acb1858b5d6"
+    },
+    {
+      "path": "Functions/EigV_3D.mat",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9392b03af3d83a20004e151f388025dc4ea8db62",
+      "size": 879,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/9392b03af3d83a20004e151f388025dc4ea8db62"
+    },
+    {
+      "path": "Functions/Extract_signal.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "10a66e0e12a1d267a5ad306f8434b6bc5f573362",
+      "size": 1546,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/10a66e0e12a1d267a5ad306f8434b6bc5f573362"
+    },
+    {
+      "path": "Functions/MGGD_fun.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d5325646d8790bb87e34990948c70f6f2ff1e5ff",
+      "size": 1165,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/d5325646d8790bb87e34990948c70f6f2ff1e5ff"
+    },
+    {
+      "path": "Functions/MPS_estimate.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "83453d55f91c61ac9e2a3d4c4eefdd5658ee29f7",
+      "size": 1809,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/83453d55f91c61ac9e2a3d4c4eefdd5658ee29f7"
+    },
+    {
+      "path": "Functions/MPS_estimate_all.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d491da4ea7aacd2aaaff6bd9860c6c830b199d49",
+      "size": 1061,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/d491da4ea7aacd2aaaff6bd9860c6c830b199d49"
+    },
+    {
+      "path": "Functions/MPS_extract.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cbeeba1510556d1e657786bc22b35093bb06d010",
+      "size": 545,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/cbeeba1510556d1e657786bc22b35093bb06d010"
+    },
+    {
+      "path": "Functions/PSF_extract.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cea547b105e5aa5bb0157e602fe7e9a59def09a7",
+      "size": 3363,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/cea547b105e5aa5bb0157e602fe7e9a59def09a7"
+    },
+    {
+      "path": "Functions/Params.mat",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "db59dbc30fc58e50d506b41674796fb4261ecd33",
+      "size": 2173,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/db59dbc30fc58e50d506b41674796fb4261ecd33"
+    },
+    {
+      "path": "Functions/Params3D_rev.mat",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "de12ff8b510d04f8acac6a4bbc4a0d329b3637a0",
+      "size": 3211,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/de12ff8b510d04f8acac6a4bbc4a0d329b3637a0"
+    },
+    {
+      "path": "Functions/Params_mix.mat",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "798d9925cb9f911ff955a63b016145a2daa8513d",
+      "size": 507,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/798d9925cb9f911ff955a63b016145a2daa8513d"
+    },
+    {
+      "path": "Functions/Peaks_extract.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "111bc16fdfb78d1615f6c714b1083fafc5181f43",
+      "size": 203,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/111bc16fdfb78d1615f6c714b1083fafc5181f43"
+    },
+    {
+      "path": "Functions/Plot_Detections.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d80c3db199422bccade1d46ccbf6da8c674757c2",
+      "size": 512,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/d80c3db199422bccade1d46ccbf6da8c674757c2"
+    },
+    {
+      "path": "Functions/Transient_selection.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b85d7743049451d8ba3e51f61a2ab802d016fe03",
+      "size": 2675,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/b85d7743049451d8ba3e51f61a2ab802d016fe03"
+    },
+    {
+      "path": "Functions/Windowing_el.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7d575ea839f9efb1dcbb83d1d81263dd1dc31709",
+      "size": 2283,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/7d575ea839f9efb1dcbb83d1d81263dd1dc31709"
+    },
+    {
+      "path": "Functions/aslt.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "62d26ae94727f55b8964921cef2b05d205f6f5fc",
+      "size": 5949,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/62d26ae94727f55b8964921cef2b05d205f6f5fc"
+    },
+    {
+      "path": "Functions/detect_creaks.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dfa3eac39cf186fed545eb874e628410effa87aa",
+      "size": 1727,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/dfa3eac39cf186fed545eb874e628410effa87aa"
+    },
+    {
+      "path": "Functions/energyop.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "012074329bc97b8d9eb446509312b2b0415c3fd1",
+      "size": 1623,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/012074329bc97b8d9eb446509312b2b0415c3fd1"
+    },
+    {
+      "path": "Functions/mat2inds.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "922715acedde5d2f2f461397ec71edb6ff9893b8",
+      "size": 183,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/922715acedde5d2f2f461397ec71edb6ff9893b8"
+    },
+    {
+      "path": "Functions/uniquearray.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b266c0213d1e9eaa1b5f5760e06597e4ecf4f8aa",
+      "size": 7293,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/b266c0213d1e9eaa1b5f5760e06597e4ecf4f8aa"
+    },
+    {
+      "path": "Functions/val_return.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c012a6fce240a8d1d76e8aaf2935a1cb5965794c",
+      "size": 163,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/c012a6fce240a8d1d76e8aaf2935a1cb5965794c"
+    },
+    {
+      "path": "Functions/waveform_features_extraction.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bf89215c48172b4f94f08c3d2ca73074a27f9471",
+      "size": 950,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/bf89215c48172b4f94f08c3d2ca73074a27f9471"
+    },
+    {
+      "path": "Main_Program.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2bb3d8da44f88f964609bd52c7ca6893cf9a59f5",
+      "size": 10484,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/2bb3d8da44f88f964609bd52c7ca6893cf9a59f5"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "03e59e065e42b7f791ac711f47b59f0b5ed6ab6d",
+      "size": 791,
+      "url": "https://api.github.com/repos/Project-CETI/Coda-detector/git/blobs/03e59e065e42b7f791ac711f47b59f0b5ed6ab6d"
+    }
+  ],
+  "truncated": false
+}

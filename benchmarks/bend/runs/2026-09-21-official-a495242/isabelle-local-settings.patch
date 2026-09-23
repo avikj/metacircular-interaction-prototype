@@ -1,0 +1,28 @@
+--- 
++++ 
+@@ -12,7 +12,7 @@
+ ### Isabelle/Scala
+ ###
+ 
+-ISABELLE_JAVA_SYSTEM_OPTIONS="-server -Dfile.encoding=UTF-8 -Disabelle.threads=0 -XX:+UseZGC -XX:+ZGenerational -XX:+UseStringDeduplication"
++ISABELLE_JAVA_SYSTEM_OPTIONS="-server -Duser.home=/private/tmp/bend-bench-20260921/isabelle-java-user -Dfile.encoding=UTF-8 -Disabelle.threads=0 -XX:+UseZGC -XX:+ZGenerational -XX:+UseStringDeduplication"
+ 
+ ISABELLE_TOOL_JAVA_OPTIONS="-Djava.awt.headless=true -Xms512m -Xmx4g -Xss16m"
+ 
+@@ -72,13 +72,13 @@
+ isabelle_directory '$ISABELLE_COMPONENTS_BASE'
+ 
+ ISABELLE_COMPONENT_REPOSITORY="https://isabelle.sketis.net/components"
+-ISABELLE_COMPONENTS_BASE="$USER_HOME/.isabelle/contrib"
++ISABELLE_COMPONENTS_BASE="/private/tmp/bend-bench-20260921/isabelle-components"
+ 
+ # The place for user configuration, heap files, etc.
+ if [ -z "$ISABELLE_IDENTIFIER" ]; then
+-  ISABELLE_HOME_USER="$USER_HOME/.isabelle"
++  ISABELLE_HOME_USER="/private/tmp/bend-bench-20260921/isabelle-user"
+ else
+-  ISABELLE_HOME_USER="$USER_HOME/.isabelle/$ISABELLE_IDENTIFIER"
++  ISABELLE_HOME_USER="/private/tmp/bend-bench-20260921/isabelle-user"
+ fi
+ 
+ # Where to look for isabelle tools (multiple dirs separated by ':').

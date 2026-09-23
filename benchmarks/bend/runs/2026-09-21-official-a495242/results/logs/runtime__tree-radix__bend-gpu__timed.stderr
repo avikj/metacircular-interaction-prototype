@@ -1,0 +1,19 @@
+bend: compiling the GPU program (/private/tmp/bend-bench-20260921/build/tree-radix/bend-gpu.gpu is missing or stale)
+        1.44 real         0.01 user         0.08 sys
+            14467072  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                1118  page reclaims
+                   5  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   1  voluntary context switches
+                 307  involuntary context switches
+           645986496  instructions retired
+           312213601  cycles elapsed
+            27656840  peak memory footprint

@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html prefix="dc: http://purl.org/dc/terms/ mw: http://mediawiki.org/rdf/" about="//en.wikipedia.org/wiki/Special:Redirect/revision/1373489695"><head prefix="mwr: //en.wikipedia.org/wiki/Special:Redirect/"><meta charset="utf-8"/><link rel="dc:replaces" resource="mwr:revision/1373070036"/><meta property="mw:revisionSHA1" content="nsvqdd1nqryjpjjmq4tpbqetpqrocyw"/><meta property="dc:modified" content="2026-09-06T06:37:03Z"/><meta property="mw:pageNamespace" content="0"/><meta property="mw:pageId" content="1338683"/><meta property="mw:htmlVersion" content="2.8.0"/><meta property="mw:html:version" content="2.8.0"/><base href="//en.wikipedia.org/wiki/"/><link rel="dc:isVersionOf" href="//en.wikipedia.org/wiki/Corecursion"/><title>Corecursion</title><meta property="mw:jsConfigVars" content='{"wgParsoidHtmlVersion":"2.8.0"}'/><meta property="mw:generalModules" content="ext.pygments.view|ext.math.polyfills|ext.cite.ux-enhancements|ext.scribunto.logs"/><meta property="mw:moduleStyles" content="ext.pygments|ext.math.styles|ext.cite.parsoid.styles|ext.cite.styles|mediawiki.skinning.content.parsoid"/><link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=ext.pygments%7Cext.math.styles%7Cext.cite.parsoid.styles%7Cext.cite.styles%7Cmediawiki.skinning.content.parsoid%7Cmediawiki.skinning.interface%7Csite.styles&amp;only=styles&amp;skin=vector"/><meta http-equiv="content-language" content="en"/><meta http-equiv="vary" content="Accept"/><meta http-equiv="x-mediawiki-render-id" content="2b765beb-b1e5-11f1-a1c6-1b3017c05a41"/></head><body class="mw-content-ltr sitedir-ltr ltr mw-body-content mediawiki mw-parser-output parsoid-body" lang="en" dir="ltr" data-mw-parsoid-version="0.24.0.0-alpha22" data-mw-html-version="2.8.0"><section data-mw-section-id="0" id="mwAQ"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none" about="#mwt1" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"Short description","href":"./Template:Short_description"},"params":{"1":{"wt":"Type of algorithm in computer science"}},"i":0}}]}' id="mwAg">Type of algorithm in computer science</div><span class="mw-empty-elt" about="#mwt1"><link rel="mw:PageProp/Category" href="./Category:Articles_with_short_description"/><link rel="mw:PageProp/Category" href="./Category:Short_description_matches_Wikidata"/></span>
+<span class="mw-empty-elt" about="#mwt2" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"distinguish","href":"./Template:Distinguish"},"params":{"1":{"wt":"Mutual recursion"}},"i":0}}]}' id="mwAw"><style data-mw-deduplicate="TemplateStyles:r1368532237" typeof="mw:Extension/templatestyles" about="#mwt3" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Hatnote/styles.css"},"body":{"extsrc":""}}'>.mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+.mw-empty-elt+.hatnote{margin-top:-0.5em}@media print{body.ns-0 .mw-parser-output .hatnote{display:none!important}}</style></span><div role="note" class="hatnote navigation-not-searchable" about="#mwt2" id="mwBA">Not to be confused with <a rel="mw:WikiLink" href="./Mutual_recursion" title="Mutual recursion">Mutual recursion</a>.</div>
+<span class="mw-empty-elt" about="#mwt4" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"Merge portions from","href":"./Template:Merge_portions_from"},"params":{"1":{"wt":"Coinduction"},"discuss":{"wt":"Talk:Corecursion#Merge proposal"},"date":{"wt":"March 2026"}},"i":0}},"\nIn [[computer science]], &apos;&apos;&apos;corecursion&apos;&apos;&apos; is a type of operation that is [[Dual (category theory)|dual]] to [[Structural induction|(structural) recursion]]. Whereas recursion consumes a data structure by first handling the topmost layer before descending into its inner parts, corecursion produces a data structure by first defining the topmost layer before defining its inner parts. Corecursion is a particularly important in [[Total language|total languages]], as it allows encoding potentially non-terminating computations in a context where every function must terminate. It is supported by theorem provers Agda&lt;ref>{{Cite web |last=Agda Authors |title=Coinduction |url=https://agda.readthedocs.io/en/stable/language/coinduction.html |url-status=live |archive-url=https://web.archive.org/web/20260218012134/https://agda.readthedocs.io/en/stable/language/coinduction.html#coinduction |archive-date=2026-02-18 |access-date=2026-03-13 |website=Agda 2.8.0 documentation}}&lt;/ref> and Rocq.&lt;ref>{{Cite web |last=((Inria, CNRS and contributors)) |title=Coinductive types and corecursive functions |url=https://rocq-prover.org/doc/V9.1.0/refman/language/core/coinductive.html |access-date=2026-03-13 |website=The Rocq Prover 9.1.0 documentation}}&lt;/ref>"]}' id="mwBQ"><style data-mw-deduplicate="TemplateStyles:r1364180890" typeof="mw:Extension/templatestyles" about="#mwt5" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Message box/ambox.css"},"body":{"extsrc":""}}'>.mw-parser-output .ambox{border:1px solid #a2a9b1;border-left:10px solid #36c;background-color:#fbfbfb;box-sizing:border-box}.mw-parser-output .ambox+.mw-empty-elt+.ambox,.mw-parser-output .ambox+.mw-empty-elt+.mw-empty-elt+.ambox,.mw-parser-output .ambox+.mw-empty-elt+.mw-empty-elt+.mw-empty-elt+.ambox{margin-top:-1px}html body.mediawiki .mw-parser-output .ambox.mbox-small-left{margin:4px 1em 4px 0;overflow:hidden;width:238px;border-collapse:collapse;font-size:88%;line-height:1.25em}.mw-parser-output .ambox-speedy{border-left:10px solid #b32424;background-color:#fee7e6}.mw-parser-output .ambox-delete{border-left:10px solid #b32424}.mw-parser-output .ambox-content{border-left:10px solid #f28500}.mw-parser-output .ambox-style{border-left:10px solid #fc3}.mw-parser-output .ambox-move{border-left:10px solid #9932cc}.mw-parser-output .ambox-protection{border-left:10px solid #a2a9b1}.mw-parser-output .ambox .mbox-text{border:none;padding:0.25em 0.5em;width:100%}.mw-parser-output .ambox .mbox-image{border:none;padding:2px 0 2px 0.5em;text-align:center}.mw-parser-output .ambox .mbox-imageright{border:none;padding:2px 0.5em 2px 0;text-align:center}.mw-parser-output .ambox .mbox-empty-cell{border:none;padding:0;width:1px}.mw-parser-output .ambox .mbox-image-div{width:52px}@media(min-width:720px){.mw-parser-output .ambox{margin:0 10%}}@media print{body.ns-0 .mw-parser-output .ambox{display:none!important}}</style></span><table class="plainlinks metadata ambox ambox-move" role="presentation" about="#mwt4"><tbody><tr><td class="mbox-image"><div class="mbox-image-div"><span typeof="mw:File"><span><img resource="./File:Mergefrom.svg" src="//thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Mergefrom.svg/60px-Mergefrom.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail" decoding="async" loading="lazy" srcset="//thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Mergefrom.svg/120px-Mergefrom.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x" alt="" data-file-width="50" data-file-height="20" data-file-type="drawing" height="20" width="50" class="mw-file-element"/></span></span></div></td><td class="mbox-text"><div class="mbox-text-span">It has been suggested that <b>portions of <i><a rel="mw:WikiLink" href="./Coinduction" title="Coinduction">Coinduction</a></i> be <a rel="mw:WikiLink" href="./Wikipedia:Splitting" title="Wikipedia:Splitting">split</a> out</b> from it and <a rel="mw:WikiLink" href="./Wikipedia:Merging" title="Wikipedia:Merging">merged</a> into this article. (<a rel="mw:WikiLink" href="./Talk:Corecursion#Merge_proposal" title="Talk:Corecursion"><b>Discuss</b></a>)  <span class="date-container"><i>(<span class="date">March 2026</span>)</i></span></div></td></tr></tbody></table><span about="#mwt4">
+</span><p about="#mwt4"><link rel="mw:PageProp/Category" href="./Category:Articles_proposed_for_splitting_from_March_2026"/><link rel="mw:PageProp/Category" href="./Category:All_articles_proposed_for_splitting"/>
+In <a rel="mw:WikiLink" href="./Computer_science" title="Computer science">computer science</a>, <b>corecursion</b> is a type of operation that is <a rel="mw:WikiLink" href="./Dual_(category_theory)" title="Dual (category theory)">dual</a> to <a rel="mw:WikiLink" href="./Structural_induction" title="Structural induction">(structural) recursion</a>. Whereas recursion consumes a data structure by first handling the topmost layer before descending into its inner parts, corecursion produces a data structure by first defining the topmost layer before defining its inner parts. Corecursion is a particularly important in <a rel="mw:WikiLink" href="./Total_language" title="Total language" class="mw-redirect">total languages</a>, as it allows encoding potentially non-terminating computations in a context where every function must terminate. It is supported by theorem provers Agda<sup about="#mwt8" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-1"}}'><a href="./Corecursion#cite_note-1" id="mwBg"><span class="mw-reflink-text" id="mwBw"><span class="cite-bracket" id="mwCA">[</span>1<span class="cite-bracket" id="mwCQ">]</span></span></a></sup> and Rocq.<sup about="#mwt11" class="mw-ref reference" id="cite_ref-2" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-2"}}'><a href="./Corecursion#cite_note-2" id="mwCg"><span class="mw-reflink-text" id="mwCw"><span class="cite-bracket" id="mwDA">[</span>2<span class="cite-bracket" id="mwDQ">]</span></span></a></sup></p>
+
+<p id="mwDg">Both corecursion and recursion can be thought of as operating on <a rel="mw:WikiLink" href="./Tree_(abstract_data_type)" title="Tree (abstract data type)" id="mwDw">trees</a>, which include <a rel="mw:WikiLink" href="./Data_structure" title="Data structure" id="mwEA">data structures</a> like <a rel="mw:WikiLink" href="./List_(abstract_data_type)" title="List (abstract data type)" id="mwEQ">lists</a> and <a rel="mw:WikiLink" href="./Stream_(abstract_data_type)" title="Stream (abstract data type)" id="mwEg">streams</a> as special cases. Since recursion must terminate, it only works on trees that are <a rel="mw:WikiLink" href="./Well-founded_relation" title="Well-founded relation" id="mwEw">well-founded</a>, i.e. not infinitely deep, which are called <i id="mwFA">data</i> or <i id="mwFQ">initial data types</i>; on the other hand, corecursion produces <i id="mwFg">codata</i> or <i id="mwFw">final data types</i>, which includes infinitely deep trees. Codata cannot be represented in memory directly, so is often implemented using <a rel="mw:WikiLink" href="./Self-reference" title="Self-reference" id="mwGA">self-referential</a> data structures or <a rel="mw:WikiLink" href="./Lazy_evaluation" title="Lazy evaluation" id="mwGQ">lazy evaluation</a>.</p>
+
+<meta property="mw:PageProp/toc" data-mw='{"autoGenerated":true}' id="mwGg"/></section><section data-mw-section-id="1" id="mwGw"><h2 id="Data_and_codata">Data and codata</h2>
+<p id="mwHA">In total programming languages, the <a rel="mw:WikiLink" href="./Natural_number" title="Natural number" id="mwHQ">natural numbers</a> may be defined as follows (using <a rel="mw:WikiLink" href="./Haskell" title="Haskell" id="mwHg">Haskell</a> syntax<sup about="#mwt12" class="mw-ref reference" id="cite_ref-3" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref" data-mw='{"name":"ref","attrs":{"group":"lower-alpha"},"body":{"id":"mw-reference-text-cite_note-3"},"parts":[{"template":{"target":{"wt":"efn","href":"./Template:Efn"},"params":{"1":{"wt":"Haskell, being a partial and lazy language, does not support either data or codata; we use its syntax for familiarity."}},"i":0}}]}'><a href="./Corecursion#cite_note-3" data-mw-group="lower-alpha" id="mwHw"><span class="mw-reflink-text" id="mwIA"><span class="cite-bracket" id="mwIQ">[</span>a<span class="cite-bracket" id="mwIg">]</span></span></a></sup>):</p>
+
+<div class="mw-highlight mw-highlight-lang-haskell mw-content-ltr" dir="ltr" typeof="mw:Extension/syntaxhighlight" about="#mwt15" data-mw='{"name":"syntaxhighlight","attrs":{"lang":"haskell"},"body":{"extsrc":"data Nat = Zero | Succ Nat"}}' id="mwIw"><pre id="mwJA"><span id="mwJQ"></span><span class="kr" id="mwJg">data</span><span class="w" id="mwJw"> </span><span class="kt" id="mwKA">Nat</span><span class="w" id="mwKQ"> </span><span class="ow" id="mwKg">=</span><span class="w" id="mwKw"> </span><span class="kt" id="mwLA">Zero</span><span class="w" id="mwLQ"> </span><span class="o" id="mwLg">|</span><span class="w" id="mwLw"> </span><span class="kt" id="mwMA">Succ</span><span class="w" id="mwMQ"> </span><span class="kt" id="mwMg">Nat</span>
+</pre></div>
+
+<p id="mwMw">This states that every natural number is either zero or the successor of an existing natural number. For example, the number one is represented as <code id="mwNA">Succ Zero</code>, two as <code id="mwNQ">Succ (Succ Zero)</code>, three as <code id="mwNg">Succ (Succ (Succ Zero))</code> and so on.</p>
+
+<p id="mwNw">If we interpret the above declaration in an <i id="mwOA">inductive</i> way, then all natural numbers are generated like this, and we get our familiar set of natural numbers. Importantly, we can do recursion<sup about="#mwt16" class="mw-ref reference" id="cite_ref-4" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref" data-mw='{"name":"ref","attrs":{"group":"lower-alpha"},"body":{"id":"mw-reference-text-cite_note-4"},"parts":[{"template":{"target":{"wt":"efn","href":"./Template:Efn"},"params":{"1":{"wt":"\"Recursion\" here is used in the technical sense of [[structural recursion]], which is a type of recursion that analyses the structure of a type and always terminates. In the more general sense of the word used in computer science, corecursion is also a type of recursion."}},"i":0}}]}'><a href="./Corecursion#cite_note-4" data-mw-group="lower-alpha" id="mwOQ"><span class="mw-reflink-text" id="mwOg"><span class="cite-bracket" id="mwOw">[</span>b<span class="cite-bracket" id="mwPA">]</span></span></a></sup> on this set: for example, we can use it to make a list that repeats a value <code id="mwPQ">n</code> times:</p>
+
+<div class="mw-highlight mw-highlight-lang-haskell mw-content-ltr" dir="ltr" typeof="mw:Extension/syntaxhighlight" about="#mwt19" data-mw='{"name":"syntaxhighlight","attrs":{"lang":"haskell"},"body":{"extsrc":"\nrepeat :: a -> Nat -> [a]\nrepeat x Zero = []                  -- Base case\nrepeat x (Succ n) = x : repeat x n  -- Inductive step\n"}}' id="mwPg"><pre id="mwPw"><span id="mwQA"></span><span class="nf" id="mwQQ">repeat</span><span class="w" id="mwQg"> </span><span class="ow" id="mwQw">::</span><span class="w" id="mwRA"> </span><span class="n" id="mwRQ">a</span><span class="w" id="mwRg"> </span><span class="ow" id="mwRw">-></span><span class="w" id="mwSA"> </span><span class="kt" id="mwSQ">Nat</span><span class="w" id="mwSg"> </span><span class="ow" id="mwSw">-></span><span class="w" id="mwTA"> </span><span class="p" id="mwTQ">[</span><span class="n" id="mwTg">a</span><span class="p" id="mwTw">]</span>
+<span class="nf" id="mwUA">repeat</span><span class="w" id="mwUQ"> </span><span class="n" id="mwUg">x</span><span class="w" id="mwUw"> </span><span class="kt" id="mwVA">Zero</span><span class="w" id="mwVQ"> </span><span class="ow" id="mwVg">=</span><span class="w" id="mwVw"> </span><span class="kt" id="mwWA">[]</span><span class="w" id="mwWQ">                  </span><span class="c1" id="mwWg">-- Base case</span>
+<span class="nf" id="mwWw">repeat</span><span class="w" id="mwXA"> </span><span class="n" id="mwXQ">x</span><span class="w" id="mwXg"> </span><span class="p" id="mwXw">(</span><span class="kt" id="mwYA">Succ</span><span class="w" id="mwYQ"> </span><span class="n" id="mwYg">n</span><span class="p" id="mwYw">)</span><span class="w" id="mwZA"> </span><span class="ow" id="mwZQ">=</span><span class="w" id="mwZg"> </span><span class="n" id="mwZw">x</span><span class="w" id="mwaA"> </span><span class="kt" id="mwaQ">:</span><span class="w" id="mwag"> </span><span class="n" id="mwaw">repeat</span><span class="w" id="mwbA"> </span><span class="n" id="mwbQ">x</span><span class="w" id="mwbg"> </span><span class="n" id="mwbw">n</span><span class="w" id="mwcA">  </span><span class="c1" id="mwcQ">-- Inductive step</span>
+</pre></div>
+
+<p id="mwcg">Note that the use of <code id="mwcw">repeat x n</code> is crucial—we could not have written <code id="mwdA">repeat x (Succ n)</code>, because that is the function we are trying to define, and therefore it would loop forever. More specifically, the input must get smaller—or rather deeper, if seen as a data structure—each time we recurse.</p>
+
+<p id="mwdQ">The declaration may also be interpreted in a <i id="mwdg">coinductive</i> way, which may be denoted as:</p>
+
+<div class="mw-highlight mw-highlight-lang-haskell mw-content-ltr" dir="ltr" typeof="mw:Extension/syntaxhighlight" about="#mwt20" data-mw='{"name":"syntaxhighlight","attrs":{"lang":"haskell"},"body":{"extsrc":"\ncodata CoNat = Zero | Succ CoNat\n"}}' id="mwdw"><pre id="mweA"><span id="mweQ"></span><span class="nf" id="mweg">codata</span><span class="w" id="mwew"> </span><span class="kt" id="mwfA">CoNat</span><span class="w" id="mwfQ"> </span><span class="ow" id="mwfg">=</span><span class="w" id="mwfw"> </span><span class="kt" id="mwgA">Zero</span><span class="w" id="mwgQ"> </span><span class="o" id="mwgg">|</span><span class="w" id="mwgw"> </span><span class="kt" id="mwhA">Succ</span><span class="w" id="mwhQ"> </span><span class="kt" id="mwhg">CoNat</span>
+</pre></div>
+
+<p id="mwhw"><code id="mwiA">CoNat</code> has all the natural numbers that <code id="mwiQ">Nat</code> has automatically. But because codata can be infinitely deep, it has an extra term <code id="mwig">Succ (Succ (Succ (Succ …)))</code> that continues on indefinitely—often denoted ∞.<sup about="#mwt23" class="mw-ref reference" id="cite_ref-conat_5-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"conat"},"body":{"id":"mw-reference-text-cite_note-conat-5"}}'><a href="./Corecursion#cite_note-conat-5" id="mwiw"><span class="mw-reflink-text" id="mwjA"><span class="cite-bracket" id="mwjQ">[</span>3<span class="cite-bracket" id="mwjg">]</span></span></a></sup> This is unique to the conatural numbers, so it can only be constructed using corecursion:</p>
+
+<div class="mw-highlight mw-highlight-lang-haskell mw-content-ltr" dir="ltr" typeof="mw:Extension/syntaxhighlight" about="#mwt24" data-mw='{"name":"syntaxhighlight","attrs":{"lang":"haskell"},"body":{"extsrc":"\ninfinity :: CoNat\ninfinity = Succ infinity\n"}}' id="mwjw"><pre id="mwkA"><span id="mwkQ"></span><span class="nf" id="mwkg">infinity</span><span class="w" id="mwkw"> </span><span class="ow" id="mwlA">::</span><span class="w" id="mwlQ"> </span><span class="kt" id="mwlg">CoNat</span>
+<span class="nf" id="mwlw">infinity</span><span class="w" id="mwmA"> </span><span class="ow" id="mwmQ">=</span><span class="w" id="mwmg"> </span><span class="kt" id="mwmw">Succ</span><span class="w" id="mwnA"> </span><span class="n" id="mwnQ">infinity</span>
+</pre></div>
+
+<p id="mwng">While recursion requires that the input of the recursive call must get smaller each time, corecursion requires that the output of the recursive call must get larger each time. This is why we must write <code id="mwnw">Succ infinity</code>; just <code id="mwoA">infinity = infinity</code> would be disallowed as it loops forever.</p>
+
+<p id="mwoQ">To illustrate the duality between recursion and corecursion, we can encapsulate them in two functions, <code id="mwog">rec</code> and <code id="mwow">corec</code>. These functions' existence, together with the regular two constructors of <code id="mwpA">Nat</code> and <code id="mwpQ">CoNat</code>, uniquely identify their respective types, and therefore allow rewriting all forms of recursion and corecursion in terms of them.<sup about="#mwt25" class="mw-ref reference" id="cite_ref-coalgebra_6-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"coalgebra"}}'><a href="./Corecursion#cite_note-coalgebra-6" id="mwpg"><span class="mw-reflink-text" id="mwpw"><span class="cite-bracket" id="mwqA">[</span>4<span class="cite-bracket" id="mwqQ">]</span></span></a></sup></p>
+
+<div class="mw-highlight mw-highlight-lang-haskell mw-content-ltr" dir="ltr" typeof="mw:Extension/syntaxhighlight" about="#mwt26" data-mw='{"name":"syntaxhighlight","attrs":{"lang":"haskell"},"body":{"extsrc":"rec :: Nat -> (Maybe c -> c) -> c\nrec Zero f = f Nothing\nrec (Succ n) f = f (Just (rec n f))\n\ncorec :: (c -> Maybe c) -> c -> CoNat\ncorec f base =\n  case f base of\n    Nothing -> Zero\n    Just x -> Succ (corec f x)"}}' id="mwqg"><pre id="mwqw"><span id="mwrA"></span><span class="nf" id="mwrQ">rec</span><span class="w" id="mwrg"> </span><span class="ow" id="mwrw">::</span><span class="w" id="mwsA"> </span><span class="kt" id="mwsQ">Nat</span><span class="w" id="mwsg"> </span><span class="ow" id="mwsw">-></span><span class="w" id="mwtA"> </span><span class="p" id="mwtQ">(</span><span class="kt" id="mwtg">Maybe</span><span class="w" id="mwtw"> </span><span class="n" id="mwuA">c</span><span class="w" id="mwuQ"> </span><span class="ow" id="mwug">-></span><span class="w" id="mwuw"> </span><span class="n" id="mwvA">c</span><span class="p" id="mwvQ">)</span><span class="w" id="mwvg"> </span><span class="ow" id="mwvw">-></span><span class="w" id="mwwA"> </span><span class="n" id="mwwQ">c</span>
+<span class="nf" id="mwwg">rec</span><span class="w" id="mwww"> </span><span class="kt" id="mwxA">Zero</span><span class="w" id="mwxQ"> </span><span class="n" id="mwxg">f</span><span class="w" id="mwxw"> </span><span class="ow" id="mwyA">=</span><span class="w" id="mwyQ"> </span><span class="n" id="mwyg">f</span><span class="w" id="mwyw"> </span><span class="kt" id="mwzA">Nothing</span>
+<span class="nf" id="mwzQ">rec</span><span class="w" id="mwzg"> </span><span class="p" id="mwzw">(</span><span class="kt" id="mw0A">Succ</span><span class="w" id="mw0Q"> </span><span class="n" id="mw0g">n</span><span class="p" id="mw0w">)</span><span class="w" id="mw1A"> </span><span class="n" id="mw1Q">f</span><span class="w" id="mw1g"> </span><span class="ow" id="mw1w">=</span><span class="w" id="mw2A"> </span><span class="n" id="mw2Q">f</span><span class="w" id="mw2g"> </span><span class="p" id="mw2w">(</span><span class="kt" id="mw3A">Just</span><span class="w" id="mw3Q"> </span><span class="p" id="mw3g">(</span><span class="n" id="mw3w">rec</span><span class="w" id="mw4A"> </span><span class="n" id="mw4Q">n</span><span class="w" id="mw4g"> </span><span class="n" id="mw4w">f</span><span class="p" id="mw5A">))</span>
+
+<span class="nf" id="mw5Q">corec</span><span class="w" id="mw5g"> </span><span class="ow" id="mw5w">::</span><span class="w" id="mw6A"> </span><span class="p" id="mw6Q">(</span><span class="n" id="mw6g">c</span><span class="w" id="mw6w"> </span><span class="ow" id="mw7A">-></span><span class="w" id="mw7Q"> </span><span class="kt" id="mw7g">Maybe</span><span class="w" id="mw7w"> </span><span class="n" id="mw8A">c</span><span class="p" id="mw8Q">)</span><span class="w" id="mw8g"> </span><span class="ow" id="mw8w">-></span><span class="w" id="mw9A"> </span><span class="n" id="mw9Q">c</span><span class="w" id="mw9g"> </span><span class="ow" id="mw9w">-></span><span class="w" id="mw-A"> </span><span class="kt" id="mw-Q">CoNat</span>
+<span class="nf" id="mw-g">corec</span><span class="w" id="mw-w"> </span><span class="n" id="mw_A">f</span><span class="w" id="mw_Q"> </span><span class="n" id="mw_g">base</span><span class="w" id="mw_w"> </span><span class="ow" id="mwAQA">=</span>
+<span class="w" id="mwAQE">  </span><span class="kr" id="mwAQI">case</span><span class="w" id="mwAQM"> </span><span class="n" id="mwAQQ">f</span><span class="w" id="mwAQU"> </span><span class="n" id="mwAQY">base</span><span class="w" id="mwAQc"> </span><span class="kr" id="mwAQg">of</span>
+<span class="w" id="mwAQk">    </span><span class="kt" id="mwAQo">Nothing</span><span class="w" id="mwAQs"> </span><span class="ow" id="mwAQw">-></span><span class="w" id="mwAQ0"> </span><span class="kt" id="mwAQ4">Zero</span>
+<span class="w" id="mwAQ8">    </span><span class="kt" id="mwARA">Just</span><span class="w" id="mwARE"> </span><span class="n" id="mwARI">x</span><span class="w" id="mwARM"> </span><span class="ow" id="mwARQ">-></span><span class="w" id="mwARU"> </span><span class="kt" id="mwARY">Succ</span><span class="w" id="mwARc"> </span><span class="p" id="mwARg">(</span><span class="n" id="mwARk">corec</span><span class="w" id="mwARo"> </span><span class="n" id="mwARs">f</span><span class="w" id="mwARw"> </span><span class="n" id="mwAR0">x</span><span class="p" id="mwAR4">)</span>
+</pre></div>
+
+<p id="mwAR8">Conceptually, <code id="mwASA">CoNat</code> can be thought of as a <a rel="mw:WikiLink" href="./Finite-state_machine" title="Finite-state machine" id="mwASE">state machine</a>, where <code id="mwASI">c</code> is a type encapsulating the "current state". The function <code id="mwASM">c -> Maybe c</code> is a state transition function that either results in termination with <code id="mwASQ">Zero</code> or continuation with <code id="mwASU">Succ</code>. We can rewrite the examples above using the functions:</p>
+
+<div class="mw-highlight mw-highlight-lang-haskell mw-content-ltr" dir="ltr" typeof="mw:Extension/syntaxhighlight" about="#mwt27" data-mw='{"name":"syntaxhighlight","attrs":{"lang":"haskell"},"body":{"extsrc":"repeat x n = rec n (\\ s ->\n  case s of\n    Nothing -> []\n    Just a -> x : a)\n    \ninfinity = corec (\\ () -> Just ()) ()\n"}}' id="mwASY"><pre id="mwASc"><span id="mwASg"></span><span class="nf" id="mwASk">repeat</span><span class="w" id="mwASo"> </span><span class="n" id="mwASs">x</span><span class="w" id="mwASw"> </span><span class="n" id="mwAS0">n</span><span class="w" id="mwAS4"> </span><span class="ow" id="mwAS8">=</span><span class="w" id="mwATA"> </span><span class="n" id="mwATE">rec</span><span class="w" id="mwATI"> </span><span class="n" id="mwATM">n</span><span class="w" id="mwATQ"> </span><span class="p" id="mwATU">(</span><span class="nf" id="mwATY">\</span><span class="w" id="mwATc"> </span><span class="n" id="mwATg">s</span><span class="w" id="mwATk"> </span><span class="ow" id="mwATo">-></span>
+<span class="w" id="mwATs">  </span><span class="kr" id="mwATw">case</span><span class="w" id="mwAT0"> </span><span class="n" id="mwAT4">s</span><span class="w" id="mwAT8"> </span><span class="kr" id="mwAUA">of</span>
+<span class="w" id="mwAUE">    </span><span class="kt" id="mwAUI">Nothing</span><span class="w" id="mwAUM"> </span><span class="ow" id="mwAUQ">-></span><span class="w" id="mwAUU"> </span><span class="kt" id="mwAUY">[]</span>
+<span class="w" id="mwAUc">    </span><span class="kt" id="mwAUg">Just</span><span class="w" id="mwAUk"> </span><span class="n" id="mwAUo">a</span><span class="w" id="mwAUs"> </span><span class="ow" id="mwAUw">-></span><span class="w" id="mwAU0"> </span><span class="n" id="mwAU4">x</span><span class="w" id="mwAU8"> </span><span class="kt" id="mwAVA">:</span><span class="w" id="mwAVE"> </span><span class="n" id="mwAVI">a</span><span class="p" id="mwAVM">)</span>
+<span class="w" id="mwAVQ">    </span>
+<span class="nf" id="mwAVU">infinity</span><span class="w" id="mwAVY"> </span><span class="ow" id="mwAVc">=</span><span class="w" id="mwAVg"> </span><span class="n" id="mwAVk">corec</span><span class="w" id="mwAVo"> </span><span class="p" id="mwAVs">(</span><span class="nf" id="mwAVw">\</span><span class="w" id="mwAV0"> </span><span class="nb" id="mwAV4">()</span><span class="w" id="mwAV8"> </span><span class="ow" id="mwAWA">-></span><span class="w" id="mwAWE"> </span><span class="kt" id="mwAWI">Just</span><span class="w" id="mwAWM"> </span><span class="nb" id="mwAWQ">()</span><span class="p" id="mwAWU">)</span><span class="w" id="mwAWY"> </span><span class="nb" id="mwAWc">()</span>
+</pre></div>
+
+<p id="mwAWg">A more complex example of codata is that of <a rel="mw:WikiLink" href="./Binary_tree" title="Binary tree" id="mwAWk">binary trees</a>, where each node is either a leaf node, holding some data, or is a branch node that has exactly two children:</p>
+
+<div class="mw-highlight mw-highlight-lang-haskell mw-content-ltr" dir="ltr" typeof="mw:Extension/syntaxhighlight" about="#mwt28" data-mw='{"name":"syntaxhighlight","attrs":{"lang":"haskell"},"body":{"extsrc":"\ncodata BinaryTree a = Leaf a | Branch (BinaryTree a) (BinaryTree a)\n"}}' id="mwAWo"><pre id="mwAWs"><span id="mwAWw"></span><span class="nf" id="mwAW0">codata</span><span class="w" id="mwAW4"> </span><span class="kt" id="mwAW8">BinaryTree</span><span class="w" id="mwAXA"> </span><span class="n" id="mwAXE">a</span><span class="w" id="mwAXI"> </span><span class="ow" id="mwAXM">=</span><span class="w" id="mwAXQ"> </span><span class="kt" id="mwAXU">Leaf</span><span class="w" id="mwAXY"> </span><span class="n" id="mwAXc">a</span><span class="w" id="mwAXg"> </span><span class="o" id="mwAXk">|</span><span class="w" id="mwAXo"> </span><span class="kt" id="mwAXs">Branch</span><span class="w" id="mwAXw"> </span><span class="p" id="mwAX0">(</span><span class="kt" id="mwAX4">BinaryTree</span><span class="w" id="mwAX8"> </span><span class="n" id="mwAYA">a</span><span class="p" id="mwAYE">)</span><span class="w" id="mwAYI"> </span><span class="p" id="mwAYM">(</span><span class="kt" id="mwAYQ">BinaryTree</span><span class="w" id="mwAYU"> </span><span class="n" id="mwAYY">a</span><span class="p" id="mwAYc">)</span>
+</pre></div>
+
+<p id="mwAYg">This example has many more infinitely deep terms that can only be constructed by corecursion. For example, it can be infinitely deep only on the left-hand side, or on both sides, or alternating left and right:</p>
+
+<div class="mw-highlight mw-highlight-lang-haskell mw-content-ltr" dir="ltr" typeof="mw:Extension/syntaxhighlight" about="#mwt29" data-mw='{"name":"syntaxhighlight","attrs":{"lang":"haskell"},"body":{"extsrc":"\ninfiniteLeft :: a -> BinaryTree a\ninfiniteLeft x = Branch (infiniteLeft x) (Leaf x)\n\ninfiniteBoth :: BinaryTree a\ninfiniteBoth = Branch infiniteBoth infiniteBoth\n\ninfiniteAlternating :: a -> Bool -> BinaryTree a\ninfiniteAlternating x False = Branch (infiniteAlternating x True) (Leaf x)\ninfiniteAlternating x True = Branch (Leaf x) (infiniteAlternating x False)\n"}}' id="mwAYk"><pre id="mwAYo"><span id="mwAYs"></span><span class="nf" id="mwAYw">infiniteLeft</span><span class="w" id="mwAY0"> </span><span class="ow" id="mwAY4">::</span><span class="w" id="mwAY8"> </span><span class="n" id="mwAZA">a</span><span class="w" id="mwAZE"> </span><span class="ow" id="mwAZI">-></span><span class="w" id="mwAZM"> </span><span class="kt" id="mwAZQ">BinaryTree</span><span class="w" id="mwAZU"> </span><span class="n" id="mwAZY">a</span>
+<span class="nf" id="mwAZc">infiniteLeft</span><span class="w" id="mwAZg"> </span><span class="n" id="mwAZk">x</span><span class="w" id="mwAZo"> </span><span class="ow" id="mwAZs">=</span><span class="w" id="mwAZw"> </span><span class="kt" id="mwAZ0">Branch</span><span class="w" id="mwAZ4"> </span><span class="p" id="mwAZ8">(</span><span class="n" id="mwAaA">infiniteLeft</span><span class="w" id="mwAaE"> </span><span class="n" id="mwAaI">x</span><span class="p" id="mwAaM">)</span><span class="w" id="mwAaQ"> </span><span class="p" id="mwAaU">(</span><span class="kt" id="mwAaY">Leaf</span><span class="w" id="mwAac"> </span><span class="n" id="mwAag">x</span><span class="p" id="mwAak">)</span>
+
+<span class="nf" id="mwAao">infiniteBoth</span><span class="w" id="mwAas"> </span><span class="ow" id="mwAaw">::</span><span class="w" id="mwAa0"> </span><span class="kt" id="mwAa4">BinaryTree</span><span class="w" id="mwAa8"> </span><span class="n" id="mwAbA">a</span>
+<span class="nf" id="mwAbE">infiniteBoth</span><span class="w" id="mwAbI"> </span><span class="ow" id="mwAbM">=</span><span class="w" id="mwAbQ"> </span><span class="kt" id="mwAbU">Branch</span><span class="w" id="mwAbY"> </span><span class="n" id="mwAbc">infiniteBoth</span><span class="w" id="mwAbg"> </span><span class="n" id="mwAbk">infiniteBoth</span>
+
+<span class="nf" id="mwAbo">infiniteAlternating</span><span class="w" id="mwAbs"> </span><span class="ow" id="mwAbw">::</span><span class="w" id="mwAb0"> </span><span class="n" id="mwAb4">a</span><span class="w" id="mwAb8"> </span><span class="ow" id="mwAcA">-></span><span class="w" id="mwAcE"> </span><span class="kt" id="mwAcI">Bool</span><span class="w" id="mwAcM"> </span><span class="ow" id="mwAcQ">-></span><span class="w" id="mwAcU"> </span><span class="kt" id="mwAcY">BinaryTree</span><span class="w" id="mwAcc"> </span><span class="n" id="mwAcg">a</span>
+<span class="nf" id="mwAck">infiniteAlternating</span><span class="w" id="mwAco"> </span><span class="n" id="mwAcs">x</span><span class="w" id="mwAcw"> </span><span class="kt" id="mwAc0">False</span><span class="w" id="mwAc4"> </span><span class="ow" id="mwAc8">=</span><span class="w" id="mwAdA"> </span><span class="kt" id="mwAdE">Branch</span><span class="w" id="mwAdI"> </span><span class="p" id="mwAdM">(</span><span class="n" id="mwAdQ">infiniteAlternating</span><span class="w" id="mwAdU"> </span><span class="n" id="mwAdY">x</span><span class="w" id="mwAdc"> </span><span class="kt" id="mwAdg">True</span><span class="p" id="mwAdk">)</span><span class="w" id="mwAdo"> </span><span class="p" id="mwAds">(</span><span class="kt" id="mwAdw">Leaf</span><span class="w" id="mwAd0"> </span><span class="n" id="mwAd4">x</span><span class="p" id="mwAd8">)</span>
+<span class="nf" id="mwAeA">infiniteAlternating</span><span class="w" id="mwAeE"> </span><span class="n" id="mwAeI">x</span><span class="w" id="mwAeM"> </span><span class="kt" id="mwAeQ">True</span><span class="w" id="mwAeU"> </span><span class="ow" id="mwAeY">=</span><span class="w" id="mwAec"> </span><span class="kt" id="mwAeg">Branch</span><span class="w" id="mwAek"> </span><span class="p" id="mwAeo">(</span><span class="kt" id="mwAes">Leaf</span><span class="w" id="mwAew"> </span><span class="n" id="mwAe0">x</span><span class="p" id="mwAe4">)</span><span class="w" id="mwAe8"> </span><span class="p" id="mwAfA">(</span><span class="n" id="mwAfE">infiniteAlternating</span><span class="w" id="mwAfI"> </span><span class="n" id="mwAfM">x</span><span class="w" id="mwAfQ"> </span><span class="kt" id="mwAfU">False</span><span class="p" id="mwAfY">)</span>
+</pre></div>
+
+<p id="mwAfc">Again, corecursion on binary trees has a more general form based on a "state machine"-like constructor:</p>
+
+<div class="mw-highlight mw-highlight-lang-haskell mw-content-ltr" dir="ltr" typeof="mw:Extension/syntaxhighlight" about="#mwt30" data-mw='{"name":"syntaxhighlight","attrs":{"lang":"haskell"},"body":{"extsrc":"\ncorec :: (c -> Either a (c, c)) -> c -> BinaryTree a\ncorec f base =\n  case f base of\n    Left x -> Leaf x\n    Right (x, y) -> Branch (corec f x) (corec f y)\n"}}' id="mwAfg"><pre id="mwAfk"><span id="mwAfo"></span><span class="nf" id="mwAfs">corec</span><span class="w" id="mwAfw"> </span><span class="ow" id="mwAf0">::</span><span class="w" id="mwAf4"> </span><span class="p" id="mwAf8">(</span><span class="n" id="mwAgA">c</span><span class="w" id="mwAgE"> </span><span class="ow" id="mwAgI">-></span><span class="w" id="mwAgM"> </span><span class="kt" id="mwAgQ">Either</span><span class="w" id="mwAgU"> </span><span class="n" id="mwAgY">a</span><span class="w" id="mwAgc"> </span><span class="p" id="mwAgg">(</span><span class="n" id="mwAgk">c</span><span class="p" id="mwAgo">,</span><span class="w" id="mwAgs"> </span><span class="n" id="mwAgw">c</span><span class="p" id="mwAg0">))</span><span class="w" id="mwAg4"> </span><span class="ow" id="mwAg8">-></span><span class="w" id="mwAhA"> </span><span class="n" id="mwAhE">c</span><span class="w" id="mwAhI"> </span><span class="ow" id="mwAhM">-></span><span class="w" id="mwAhQ"> </span><span class="kt" id="mwAhU">BinaryTree</span><span class="w" id="mwAhY"> </span><span class="n" id="mwAhc">a</span>
+<span class="nf" id="mwAhg">corec</span><span class="w" id="mwAhk"> </span><span class="n" id="mwAho">f</span><span class="w" id="mwAhs"> </span><span class="n" id="mwAhw">base</span><span class="w" id="mwAh0"> </span><span class="ow" id="mwAh4">=</span>
+<span class="w" id="mwAh8">  </span><span class="kr" id="mwAiA">case</span><span class="w" id="mwAiE"> </span><span class="n" id="mwAiI">f</span><span class="w" id="mwAiM"> </span><span class="n" id="mwAiQ">base</span><span class="w" id="mwAiU"> </span><span class="kr" id="mwAiY">of</span>
+<span class="w" id="mwAic">    </span><span class="kt" id="mwAig">Left</span><span class="w" id="mwAik"> </span><span class="n" id="mwAio">x</span><span class="w" id="mwAis"> </span><span class="ow" id="mwAiw">-></span><span class="w" id="mwAi0"> </span><span class="kt" id="mwAi4">Leaf</span><span class="w" id="mwAi8"> </span><span class="n" id="mwAjA">x</span>
+<span class="w" id="mwAjE">    </span><span class="kt" id="mwAjI">Right</span><span class="w" id="mwAjM"> </span><span class="p" id="mwAjQ">(</span><span class="n" id="mwAjU">x</span><span class="p" id="mwAjY">,</span><span class="w" id="mwAjc"> </span><span class="n" id="mwAjg">y</span><span class="p" id="mwAjk">)</span><span class="w" id="mwAjo"> </span><span class="ow" id="mwAjs">-></span><span class="w" id="mwAjw"> </span><span class="kt" id="mwAj0">Branch</span><span class="w" id="mwAj4"> </span><span class="p" id="mwAj8">(</span><span class="n" id="mwAkA">corec</span><span class="w" id="mwAkE"> </span><span class="n" id="mwAkI">f</span><span class="w" id="mwAkM"> </span><span class="n" id="mwAkQ">x</span><span class="p" id="mwAkU">)</span><span class="w" id="mwAkY"> </span><span class="p" id="mwAkc">(</span><span class="n" id="mwAkg">corec</span><span class="w" id="mwAkk"> </span><span class="n" id="mwAko">f</span><span class="w" id="mwAks"> </span><span class="n" id="mwAkw">y</span><span class="p" id="mwAk0">)</span>
+</pre></div>
+
+<section data-mw-section-id="2" id="mwAk4"><h3 id="M-types">M-types</h3><p id="mwAk8">
+In a <a rel="mw:WikiLink" href="./Dependent_type" title="Dependent type" id="mwAlA">dependently-typed</a> setting, codata can be encoded using M-types, which are dual to <a rel="mw:WikiLink" href="./Inductive_type#W-_and_M-types" title="Inductive type" id="mwAlE">W-types</a>. Given a type <i id="mwAlI">A</i> and an <i id="mwAlM">A</i>-<a rel="mw:WikiLink" href="./Indexed_family" title="Indexed family" id="mwAlQ">indexed family</a> of types <i id="mwAlU">B</i>, one can form the M-type <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt31" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\mathsf{M}_{a:A}B(a)"}}' id="mwAlY"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle {\mathsf {M}}_{a:A}B(a)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="sans-serif">M</mi>
+            </mrow>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>a</mi>
+            <mo>:</mo>
+            <mi>A</mi>
+          </mrow>
+        </msub>
+        <mi>B</mi>
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathsf {M}}_{a:A}B(a)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/634d3ccaccc80b9137e727b126d1573647487890" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:9.628ex; height:2.843ex;" alt="{\displaystyle {\mathsf {M}}_{a:A}B(a)}"/></span>, representing the type of trees whose nodes are labelled with elements of <i id="mwAlc">A</i> and who child nodes are indexed by the set <i id="mwAlg">B</i>(<i id="mwAlk">a</i>). In <a rel="mw:WikiLink" href="./Pseudocode" title="Pseudocode" id="mwAlo">pseudocode</a>, M-types (and their corecursion principle) may be defined as:</p><div class="mw-highlight mw-highlight-lang-haskell mw-content-ltr" dir="ltr" typeof="mw:Extension/syntaxhighlight" about="#mwt32" data-mw='{"name":"syntaxhighlight","attrs":{"lang":"haskell"},"body":{"extsrc":"\ncodata M a (b :: a -> *) = M\n  { root :: a\n  , branch :: b root -> M a b } \n  \ncorec :: (c -> (root :: a, b root -> c)) -> c -> M a b\ncorec f base =\n  let (root, branch) = f base\n  in M { root = root, branch = \\ i -> corec f (branch i) }\n"}}' id="mwAls"><pre id="mwAlw"><span id="mwAl0"></span><span class="nf" id="mwAl4">codata</span><span class="w" id="mwAl8"> </span><span class="kt" id="mwAmA">M</span><span class="w" id="mwAmE"> </span><span class="n" id="mwAmI">a</span><span class="w" id="mwAmM"> </span><span class="p" id="mwAmQ">(</span><span class="n" id="mwAmU">b</span><span class="w" id="mwAmY"> </span><span class="ow" id="mwAmc">::</span><span class="w" id="mwAmg"> </span><span class="n" id="mwAmk">a</span><span class="w" id="mwAmo"> </span><span class="ow" id="mwAms">-></span><span class="w" id="mwAmw"> </span><span class="o" id="mwAm0">*</span><span class="p" id="mwAm4">)</span><span class="w" id="mwAm8"> </span><span class="ow" id="mwAnA">=</span><span class="w" id="mwAnE"> </span><span class="kt" id="mwAnI">M</span>
+<span class="w" id="mwAnM">  </span><span class="p" id="mwAnQ">{</span><span class="w" id="mwAnU"> </span><span class="n" id="mwAnY">root</span><span class="w" id="mwAnc"> </span><span class="ow" id="mwAng">::</span><span class="w" id="mwAnk"> </span><span class="n" id="mwAno">a</span>
+<span class="w" id="mwAns">  </span><span class="p" id="mwAnw">,</span><span class="w" id="mwAn0"> </span><span class="n" id="mwAn4">branch</span><span class="w" id="mwAn8"> </span><span class="ow" id="mwAoA">::</span><span class="w" id="mwAoE"> </span><span class="n" id="mwAoI">b</span><span class="w" id="mwAoM"> </span><span class="n" id="mwAoQ">root</span><span class="w" id="mwAoU"> </span><span class="ow" id="mwAoY">-></span><span class="w" id="mwAoc"> </span><span class="kt" id="mwAog">M</span><span class="w" id="mwAok"> </span><span class="n" id="mwAoo">a</span><span class="w" id="mwAos"> </span><span class="n" id="mwAow">b</span><span class="w" id="mwAo0"> </span><span class="p" id="mwAo4">}</span><span class="w" id="mwAo8"> </span>
+<span class="w" id="mwApA">  </span>
+<span class="nf" id="mwApE">corec</span><span class="w" id="mwApI"> </span><span class="ow" id="mwApM">::</span><span class="w" id="mwApQ"> </span><span class="p" id="mwApU">(</span><span class="n" id="mwApY">c</span><span class="w" id="mwApc"> </span><span class="ow" id="mwApg">-></span><span class="w" id="mwApk"> </span><span class="p" id="mwApo">(</span><span class="n" id="mwAps">root</span><span class="w" id="mwApw"> </span><span class="ow" id="mwAp0">::</span><span class="w" id="mwAp4"> </span><span class="n" id="mwAp8">a</span><span class="p" id="mwAqA">,</span><span class="w" id="mwAqE"> </span><span class="n" id="mwAqI">b</span><span class="w" id="mwAqM"> </span><span class="n" id="mwAqQ">root</span><span class="w" id="mwAqU"> </span><span class="ow" id="mwAqY">-></span><span class="w" id="mwAqc"> </span><span class="n" id="mwAqg">c</span><span class="p" id="mwAqk">))</span><span class="w" id="mwAqo"> </span><span class="ow" id="mwAqs">-></span><span class="w" id="mwAqw"> </span><span class="n" id="mwAq0">c</span><span class="w" id="mwAq4"> </span><span class="ow" id="mwAq8">-></span><span class="w" id="mwArA"> </span><span class="kt" id="mwArE">M</span><span class="w" id="mwArI"> </span><span class="n" id="mwArM">a</span><span class="w" id="mwArQ"> </span><span class="n" id="mwArU">b</span>
+<span class="nf" id="mwArY">corec</span><span class="w" id="mwArc"> </span><span class="n" id="mwArg">f</span><span class="w" id="mwArk"> </span><span class="n" id="mwAro">base</span><span class="w" id="mwArs"> </span><span class="ow" id="mwArw">=</span>
+<span class="w" id="mwAr0">  </span><span class="kr" id="mwAr4">let</span><span class="w" id="mwAr8"> </span><span class="p" id="mwAsA">(</span><span class="n" id="mwAsE">root</span><span class="p" id="mwAsI">,</span><span class="w" id="mwAsM"> </span><span class="n" id="mwAsQ">branch</span><span class="p" id="mwAsU">)</span><span class="w" id="mwAsY"> </span><span class="ow" id="mwAsc">=</span><span class="w" id="mwAsg"> </span><span class="n" id="mwAsk">f</span><span class="w" id="mwAso"> </span><span class="n" id="mwAss">base</span>
+<span class="w" id="mwAsw">  </span><span class="kr" id="mwAs0">in</span><span class="w" id="mwAs4"> </span><span class="kt" id="mwAs8">M</span><span class="w" id="mwAtA"> </span><span class="p" id="mwAtE">{</span><span class="w" id="mwAtI"> </span><span class="n" id="mwAtM">root</span><span class="w" id="mwAtQ"> </span><span class="ow" id="mwAtU">=</span><span class="w" id="mwAtY"> </span><span class="n" id="mwAtc">root</span><span class="p" id="mwAtg">,</span><span class="w" id="mwAtk"> </span><span class="n" id="mwAto">branch</span><span class="w" id="mwAts"> </span><span class="ow" id="mwAtw">=</span><span class="w" id="mwAt0"> </span><span class="nf" id="mwAt4">\</span><span class="w" id="mwAt8"> </span><span class="n" id="mwAuA">i</span><span class="w" id="mwAuE"> </span><span class="ow" id="mwAuI">-></span><span class="w" id="mwAuM"> </span><span class="n" id="mwAuQ">corec</span><span class="w" id="mwAuU"> </span><span class="n" id="mwAuY">f</span><span class="w" id="mwAuc"> </span><span class="p" id="mwAug">(</span><span class="n" id="mwAuk">branch</span><span class="w" id="mwAuo"> </span><span class="n" id="mwAus">i</span><span class="p" id="mwAuw">)</span><span class="w" id="mwAu0"> </span><span class="p" id="mwAu4">}</span>
+</pre></div><p id="mwAu8">As an example, the natural and conatural numbers may be constructed as W- and M-types of the same function:</p><div class="mw-highlight mw-highlight-lang-haskell mw-content-ltr" dir="ltr" typeof="mw:Extension/syntaxhighlight" about="#mwt33" data-mw='{"name":"syntaxhighlight","attrs":{"lang":"haskell"},"body":{"extsrc":"\nf :: Bool -> *\nf False = Void -- Zero case (no branches)\nf True = ()    -- Succ case (one branch)\n\nNat = W Bool f\nCoNat = M Bool f\n"}}' id="mwAvA"><pre id="mwAvE"><span id="mwAvI"></span><span class="nf" id="mwAvM">f</span><span class="w" id="mwAvQ"> </span><span class="ow" id="mwAvU">::</span><span class="w" id="mwAvY"> </span><span class="kt" id="mwAvc">Bool</span><span class="w" id="mwAvg"> </span><span class="ow" id="mwAvk">-></span><span class="w" id="mwAvo"> </span><span class="o" id="mwAvs">*</span>
+<span class="nf" id="mwAvw">f</span><span class="w" id="mwAv0"> </span><span class="kt" id="mwAv4">False</span><span class="w" id="mwAv8"> </span><span class="ow" id="mwAwA">=</span><span class="w" id="mwAwE"> </span><span class="kt" id="mwAwI">Void</span><span class="w" id="mwAwM"> </span><span class="c1" id="mwAwQ">-- Zero case (no branches)</span>
+<span class="nf" id="mwAwU">f</span><span class="w" id="mwAwY"> </span><span class="kt" id="mwAwc">True</span><span class="w" id="mwAwg"> </span><span class="ow" id="mwAwk">=</span><span class="w" id="mwAwo"> </span><span class="nb" id="mwAws">()</span><span class="w" id="mwAww">    </span><span class="c1" id="mwAw0">-- Succ case (one branch)</span>
+
+<span class="kt" id="mwAw4">Nat</span><span class="w" id="mwAw8"> </span><span class="ow" id="mwAxA">=</span><span class="w" id="mwAxE"> </span><span class="kt" id="mwAxI">W</span><span class="w" id="mwAxM"> </span><span class="kt" id="mwAxQ">Bool</span><span class="w" id="mwAxU"> </span><span class="n" id="mwAxY">f</span>
+<span class="kt" id="mwAxc">CoNat</span><span class="w" id="mwAxg"> </span><span class="ow" id="mwAxk">=</span><span class="w" id="mwAxo"> </span><span class="kt" id="mwAxs">M</span><span class="w" id="mwAxw"> </span><span class="kt" id="mwAx0">Bool</span><span class="w" id="mwAx4"> </span><span class="n" id="mwAx8">f</span>
+</pre></div><p id="mwAyA">M-types can be proven to exist in many <a rel="mw:WikiLink" href="./Topos" title="Topos" id="mwAyE">elementary topoi</a>, and their existence follows from the existence of W-types.<sup about="#mwt36" class="mw-ref reference" id="cite_ref-mtype_7-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"mtype"},"body":{"id":"mw-reference-text-cite_note-mtype-7"}}'><a href="./Corecursion#cite_note-mtype-7" id="mwAyI"><span class="mw-reflink-text" id="mwAyM"><span class="cite-bracket" id="mwAyQ">[</span>5<span class="cite-bracket" id="mwAyU">]</span></span></a></sup></p>
+
+</section></section><section data-mw-section-id="3" id="mwAyY"><h2 id="Mathematical_description">Mathematical description</h2>
+<p id="mwAyc">The above section showed that there is an intimate link between natural and conatural numbers and <code id="mwAyg">Maybe c</code>, and similarly between binary trees and <code id="mwAyk">Either a (c, c)</code>. This link is made precise by showing that <code id="mwAyo">Nat</code> is in <a rel="mw:WikiLink" href="./Bijection" title="Bijection" id="mwAys">bijection</a> with <code id="mwAyw">Maybe Nat</code>, and <code id="mwAy0">CoNat</code> with <code id="mwAy4">Maybe CoNat</code>; explicitly, this bijection associates <code id="mwAy8">Zero</code> with <code id="mwAzA">Nothing</code> and <code id="mwAzE">Succ n</code> with <code id="mwAzI">Just n</code>. In other words, <code id="mwAzM">Nat</code> and <code id="mwAzQ">CoNat</code> are <a rel="mw:WikiLink" href="./Fixed_point_(mathematics)" title="Fixed point (mathematics)" id="mwAzU">fixed points</a> (<a rel="mw:WikiLink" href="./Up_to" title="Up to" id="mwAzY">up to isomorphism</a>) of the map <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt37" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"X \\mapsto X + 1"}}' id="mwAzc"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle X\mapsto X+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+        <mo stretchy="false">↦<!-- ↦ --></mo>
+        <mi>X</mi>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X\mapsto X+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/bc4701afe42c0340d73e95fa0656dfb6eb1d0275" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.505ex; width:11.577ex; height:2.343ex;" alt="{\displaystyle X\mapsto X+1}"/></span>.</p>
+
+<p id="mwAzg">The difference between data and codata is that data is the least such fixed point, while codata is the greatest. In this way, recursion can be summarized as the statement that "every element of the type was generated only by the given constructors (<code id="mwAzk">Zero</code> and <code id="mwAzo">Succ</code> in the case of <code id="mwAzs">Nat</code>/<code id="mwAzw">CoNat</code>)", while corecursion states that "every value that can be analysed using the constructors as cases exists".</p>
+
+<p id="mwAz0">From a category-theoretic perspective, <code id="mwAz4">CoNat</code> can be precisely defined as the <a rel="mw:WikiLink" href="./Initial_algebra#Final_coalgebra" title="Initial algebra" id="mwAz8">final coalgebra</a> of the <a rel="mw:WikiLink" href="./Endofunctor" title="Endofunctor" class="mw-redirect" id="mwA0A">endofunctor</a><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt38" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"X \\mapsto X + 1"}}' id="mwA0E"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle X\mapsto X+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+        <mo stretchy="false">↦<!-- ↦ --></mo>
+        <mi>X</mi>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X\mapsto X+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/bc4701afe42c0340d73e95fa0656dfb6eb1d0275" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.505ex; width:11.577ex; height:2.343ex;" alt="{\displaystyle X\mapsto X+1}"/></span>.<sup about="#mwt41" class="mw-ref reference" id="cite_ref-coalgebra_6-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"coalgebra"},"body":{"id":"mw-reference-text-cite_note-coalgebra-6"}}'><a href="./Corecursion#cite_note-coalgebra-6" id="mwA0I"><span class="mw-reflink-text" id="mwA0M"><span class="cite-bracket" id="mwA0Q">[</span>4<span class="cite-bracket" id="mwA0U">]</span></span></a></sup> Unfolding this definition, we have that:</p>
+
+<ul id="mwA0Y"><li id="mwA0c">There is a function <code id="mwA0g">pred<span typeof="mw:DisplaySpace" id="mwA0k"> </span>:: CoNat -> Maybe CoNat</code>. "Pred" stands for "predecessor", and the intuition is that it subtracts one from the conatural number or gives <code id="mwA0o">Nothing</code> otherwise. In other words, <code id="mwA0s">pred Zero = Nothing</code> and <code id="mwA0w">pred (Succ n) = Just n</code>. This shows that <code id="mwA00">CoNat</code> is a coalgebra of the functor, but not necessarily the final one.</li>
+<li id="mwA04">For every type <code id="mwA08">c</code> and function <code id="mwA1A">f<span typeof="mw:DisplaySpace" id="mwA1E"> </span>:: c -> Maybe c</code>, there is a function <code id="mwA1I">corec f<span typeof="mw:DisplaySpace" id="mwA1M"> </span>:: c -> CoNat</code> such that <code id="mwA1Q">pred (corec f x) = fmap (corec f) (f x)</code>.<br id="mwA1U"/><br id="mwA1Y"/>Breaking this down further, if <code id="mwA1c">f x = Just y</code> then <code id="mwA1g">corec f x = Succ (corec f y)</code>, while if <code id="mwA1k">f x = Nothing</code> then <code id="mwA1o">corec f x = Zero</code>—this matches the definition of <code id="mwA1s">corec</code> we are familiar with.</li>
+<li id="mwA1w"><code id="mwA10">corec</code> is <i id="mwA14">unique</i> in the following sense: for any other function <code id="mwA18">g<span typeof="mw:DisplaySpace" id="mwA2A"> </span>:: c -> CoNat</code> that also satisfies <code id="mwA2E">pred (g x) = fmap g (f x)</code>, <code id="mwA2I">g x = corec f x</code>. This ensures that <code id="mwA2M">CoNat</code> is a <i id="mwA2Q">final</i> coalgebra.</li></ul>
+<p id="mwA2U"><code id="mwA2Y">Maybe c</code> can be replaced with any other functor in the above description to obtain the definition of any other coinductive type.</p>
+
+<p id="mwA2c">Not all functors have final coalgebras. For example, <a rel="mw:WikiLink" href="./Cantor's_theorem" title="Cantor's theorem" id="mwA2g">Cantor's theorem</a> tells us that no set can be in bijection with its powerset, and therefore the <a rel="mw:WikiLink" href="./Power_set#Functors_and_quantifiers" title="Power set" id="mwA2k">powerset functor</a> <code id="mwA2o">a -> Bool</code> has no final coalgebra. However, in the case of <a rel="mw:WikiLink" href="./Polynomial_functor_(type_theory)" title="Polynomial functor (type theory)" id="mwA2s">polynomial functors</a> or quotient polynomial functors,<sup about="#mwt45" class="mw-ref reference" id="cite_ref-8" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-8"}}'><a href="./Corecursion#cite_note-8" id="mwA2w"><span class="mw-reflink-text" id="mwA20"><span class="cite-bracket" id="mwA24">[</span>6<span class="cite-bracket" id="mwA28">]</span></span></a></sup> final coalgebras always exist; polynomial functors are functors that can be expressed in the form <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt46" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\textstyle X \\mapsto \\sum_{a : \\alpha} X^{\\beta(a)}"}}' id="mwA3A"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \textstyle X\mapsto \sum _{a:\alpha }X^{\beta (a)}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mstyle displaystyle="false" scriptlevel="0">
+          <mi>X</mi>
+          <mo stretchy="false">↦<!-- ↦ --></mo>
+          <munder>
+            <mo>∑<!-- ∑ --></mo>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi>a</mi>
+              <mo>:</mo>
+              <mi>α<!-- α --></mi>
+            </mrow>
+          </munder>
+          <msup>
+            <mi>X</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi>β<!-- β --></mi>
+              <mo stretchy="false">(</mo>
+              <mi>a</mi>
+              <mo stretchy="false">)</mo>
+            </mrow>
+          </msup>
+        </mstyle>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \textstyle X\mapsto \sum _{a:\alpha }X^{\beta (a)}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2d669aa6325417129f6732a2ec132f4b4dcea57b" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -1.005ex; width:16.366ex; height:3.343ex;" alt="{\displaystyle \textstyle X\mapsto \sum _{a:\alpha }X^{\beta (a)}}"/></span> for a type <i id="mwA3E">α</i> and <i id="mwA3I">α</i>-indexed type family <i id="mwA3M">β</i>(<i id="mwA3Q">a</i>). The M-type is exactly the construction of this final coalgebra.<sup about="#mwt47" class="mw-ref reference" id="cite_ref-mtype_7-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"mtype"}}'><a href="./Corecursion#cite_note-mtype-7" id="mwA3U"><span class="mw-reflink-text" id="mwA3Y"><span class="cite-bracket" id="mwA3c">[</span>5<span class="cite-bracket" id="mwA3g">]</span></span></a></sup></p>
+
+</section><section data-mw-section-id="4" id="mwA3k"><h2 id="Coinduction">Coinduction</h2>
+<p id="mwA3o">While one can reason about coinductive data types using the uniqueness of <code id="mwA3s">corec</code> directly, it is often more convenient to use <b id="mwA3w">coinduction</b>, which can prove equalities of codata. Given a final coalgebra <i id="mwA30">A</i> of a polynomial functor <i id="mwA34">F</i>—i.e. <i id="mwA38"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt48" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\textstyle F(X) = \\sum_{a : \\alpha} X^{\\beta(a)}"}}' id="mwA4A"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \textstyle F(X)=\sum _{a:\alpha }X^{\beta (a)}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mstyle displaystyle="false" scriptlevel="0">
+          <mi>F</mi>
+          <mo stretchy="false">(</mo>
+          <mi>X</mi>
+          <mo stretchy="false">)</mo>
+          <mo>=</mo>
+          <munder>
+            <mo>∑<!-- ∑ --></mo>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi>a</mi>
+              <mo>:</mo>
+              <mi>α<!-- α --></mi>
+            </mrow>
+          </munder>
+          <msup>
+            <mi>X</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi>β<!-- β --></mi>
+              <mo stretchy="false">(</mo>
+              <mi>a</mi>
+              <mo stretchy="false">)</mo>
+            </mrow>
+          </msup>
+        </mstyle>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \textstyle F(X)=\sum _{a:\alpha }X^{\beta (a)}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/26ef10c2797df4e5e968cbd81fff5656aedfa5da" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -1.005ex; width:19.401ex; height:3.343ex;" alt="{\displaystyle \textstyle F(X)=\sum _{a:\alpha }X^{\beta (a)}}"/></span></i>— we say that a <a rel="mw:WikiLink" href="./Binary_relation" title="Binary relation" id="mwA4E">relation</a> <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt49" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"R \\subseteq A \\times A"}}' id="mwA4I"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle R\subseteq A\times A}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>R</mi>
+        <mo>⊆<!-- ⊆ --></mo>
+        <mi>A</mi>
+        <mo>×<!-- × --></mo>
+        <mi>A</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle R\subseteq A\times A}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f1775ab557b087b8e611a033c69a6ac72dd06bcf" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.505ex; width:11.189ex; height:2.343ex;" alt="{\displaystyle R\subseteq A\times A}"/></span> is a <a rel="mw:WikiLink" href="./Bisimulation" title="Bisimulation" id="mwA4M">bisimulation</a> if, for all <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt50" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"(a, b) \\in R"}}' id="mwA4Q"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (a,b)\in R}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo>,</mo>
+        <mi>b</mi>
+        <mo stretchy="false">)</mo>
+        <mo>∈<!-- ∈ --></mo>
+        <mi>R</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (a,b)\in R}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/74368fbf491df6119b707e6a93b6918b0564b659" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:9.675ex; height:2.843ex;" alt="{\displaystyle (a,b)\in R}"/></span>, <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt51" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\text{root}(a) = \\text{root}(b)"}}' id="mwA4U"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle {\text{root}}(a)={\text{root}}(b)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>root</mtext>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>root</mtext>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>b</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\text{root}}(a)={\text{root}}(b)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ec1d055a66bb33a85277e8034c53f857ed64762e" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:17.227ex; height:2.843ex;" alt="{\displaystyle {\text{root}}(a)={\text{root}}(b)}"/></span> and <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt52" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\text{branch}(a, i)R\\text{branch}(b, i)"}}' id="mwA4Y"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle {\text{branch}}(a,i)R{\text{branch}}(b,i)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>branch</mtext>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo>,</mo>
+        <mi>i</mi>
+        <mo stretchy="false">)</mo>
+        <mi>R</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>branch</mtext>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>b</mi>
+        <mo>,</mo>
+        <mi>i</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\text{branch}}(a,i)R{\text{branch}}(b,i)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/484b7c4742074c4cd6c143a2cb11cf0802c511f6" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:25.251ex; height:2.843ex;" alt="{\displaystyle {\text{branch}}(a,i)R{\text{branch}}(b,i)}"/></span> for all <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt53" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"i : B(\\text{root}(a))"}}' id="mwA4c"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle i:B({\text{root}}(a))}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>i</mi>
+        <mo>:</mo>
+        <mi>B</mi>
+        <mo stretchy="false">(</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>root</mtext>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle i:B({\text{root}}(a))}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/632d20d209a96b5a06a6cb530a1d4ec5e167b66c" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:13.493ex; height:2.843ex;" alt="{\displaystyle i:B({\text{root}}(a))}"/></span>. Here, <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt54" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\text{root}"}}' id="mwA4g"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle {\text{root}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>root</mtext>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\text{root}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/66b29952447eccd4988e84fcc790181ef7817afe" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:4.141ex; height:2.009ex;" alt="{\displaystyle {\text{root}}}"/></span> and <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt55" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\text{branch}"}}' id="mwA4k"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle {\text{branch}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>branch</mtext>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\text{branch}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0a1beb2f0abc96320823991d056d31df9f52a1fd" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:6.984ex; height:2.176ex;" alt="{\displaystyle {\text{branch}}}"/></span> refer to the maps:</p>
+
+<p id="mwA4o"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt56" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\begin{align}\n\\text{root} &amp;: A \\rightarrow \\alpha\n\\\\\n\\text{branch} &amp;: \\prod_{a : A} \\beta(\\text{root}(a)) \\rightarrow A\n\\end{align}"}}' id="mwA4s"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle {\begin{aligned}{\text{root}}&amp;:A\rightarrow \alpha \\{\text{branch}}&amp;:\prod _{a:A}\beta ({\text{root}}(a))\rightarrow A\end{aligned}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
+            <mtr>
+              <mtd>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext>root</mtext>
+                </mrow>
+              </mtd>
+              <mtd>
+                <mi></mi>
+                <mo>:</mo>
+                <mi>A</mi>
+                <mo stretchy="false">→<!-- → --></mo>
+                <mi>α<!-- α --></mi>
+              </mtd>
+            </mtr>
+            <mtr>
+              <mtd>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext>branch</mtext>
+                </mrow>
+              </mtd>
+              <mtd>
+                <mi></mi>
+                <mo>:</mo>
+                <munder>
+                  <mo>∏<!-- ∏ --></mo>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>a</mi>
+                    <mo>:</mo>
+                    <mi>A</mi>
+                  </mrow>
+                </munder>
+                <mi>β<!-- β --></mi>
+                <mo stretchy="false">(</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext>root</mtext>
+                </mrow>
+                <mo stretchy="false">(</mo>
+                <mi>a</mi>
+                <mo stretchy="false">)</mo>
+                <mo stretchy="false">)</mo>
+                <mo stretchy="false">→<!-- → --></mo>
+                <mi>A</mi>
+              </mtd>
+            </mtr>
+          </mtable>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\begin{aligned}{\text{root}}&amp;:A\rightarrow \alpha \\{\text{branch}}&amp;:\prod _{a:A}\beta ({\text{root}}(a))\rightarrow A\end{aligned}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a16fe94d295dda6b02ed89a137fe2a644bd2c599" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -3.465ex; margin-bottom: -0.207ex; width:28.708ex; height:8.509ex;" alt="{\displaystyle {\begin{aligned}{\text{root}}&amp;:A\rightarrow \alpha \\{\text{branch}}&amp;:\prod _{a:A}\beta ({\text{root}}(a))\rightarrow A\end{aligned}}}"/></span></p>
+
+<p id="mwA4w">The principle of coinduction states that for all bisimulations <i id="mwA40">R</i> on <i id="mwA44">A</i> and <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt57" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"(a, b) \\in R"}}' id="mwA48"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (a,b)\in R}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo>,</mo>
+        <mi>b</mi>
+        <mo stretchy="false">)</mo>
+        <mo>∈<!-- ∈ --></mo>
+        <mi>R</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (a,b)\in R}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/74368fbf491df6119b707e6a93b6918b0564b659" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:9.675ex; height:2.843ex;" alt="{\displaystyle (a,b)\in R}"/></span>, <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt58" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"a = b"}}' id="mwA5A"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle a=b}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>a</mi>
+        <mo>=</mo>
+        <mi>b</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle a=b}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1956b03d1314c7071ac1f45ed7b1e29422dcfcc4" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:5.326ex; height:2.176ex;" alt="{\displaystyle a=b}"/></span>.</p>
+
+<p id="mwA5E">More generally, for a coalgebra map <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt59" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\text{get} : A \\rightarrow F(A)"}}' id="mwA5I"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle {\text{get}}:A\rightarrow F(A)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>get</mtext>
+        </mrow>
+        <mo>:</mo>
+        <mi>A</mi>
+        <mo stretchy="false">→<!-- → --></mo>
+        <mi>F</mi>
+        <mo stretchy="false">(</mo>
+        <mi>A</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\text{get}}:A\rightarrow F(A)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0ef3435d4abdc862428e902c569409542a0f299f" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:15.687ex; height:2.843ex;" alt="{\displaystyle {\text{get}}:A\rightarrow F(A)}"/></span>, a relation <i id="mwA5M">R</i> on <i id="mwA5Q">A</i> is a bisimulation if there exists a function <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt60" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"f : R \\rightarrow F(R)"}}' id="mwA5U"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle f:R\rightarrow F(R)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>f</mi>
+        <mo>:</mo>
+        <mi>R</mi>
+        <mo stretchy="false">→<!-- → --></mo>
+        <mi>F</mi>
+        <mo stretchy="false">(</mo>
+        <mi>R</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f:R\rightarrow F(R)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/cbff8ff462e6c3dbbed386962c063b1528924065" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:13.908ex; height:2.843ex;" alt="{\displaystyle f:R\rightarrow F(R)}"/></span> satisfying, for all <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt61" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"(a, b) \\in R"}}' id="mwA5Y"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (a,b)\in R}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo>,</mo>
+        <mi>b</mi>
+        <mo stretchy="false">)</mo>
+        <mo>∈<!-- ∈ --></mo>
+        <mi>R</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (a,b)\in R}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/74368fbf491df6119b707e6a93b6918b0564b659" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:9.675ex; height:2.843ex;" alt="{\displaystyle (a,b)\in R}"/></span>,</p>
+
+<ul id="mwA5c"><li id="mwA5g"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt62" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\text{get}(a) = F(\\pi_1)(f(a, b))"}}' id="mwA5k"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle {\text{get}}(a)=F(\pi _{1})(f(a,b))}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>get</mtext>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>F</mi>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>π<!-- π --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">(</mo>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo>,</mo>
+        <mi>b</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\text{get}}(a)=F(\pi _{1})(f(a,b))}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5fa93db2461a23b4eaec54cfaca88b7e80346d0c" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:23.325ex; height:2.843ex;" alt="{\displaystyle {\text{get}}(a)=F(\pi _{1})(f(a,b))}"/></span> and</li>
+<li id="mwA5o"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt63" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\text{get}(b) = F(\\pi_2)(f(a, b))"}}' id="mwA5s"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle {\text{get}}(b)=F(\pi _{2})(f(a,b))}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>get</mtext>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>b</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>F</mi>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>π<!-- π --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">(</mo>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo>,</mo>
+        <mi>b</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\text{get}}(b)=F(\pi _{2})(f(a,b))}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/643be86dfa3c6664dd9032f89a92caf71e1613b5" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:23.093ex; height:2.843ex;" alt="{\displaystyle {\text{get}}(b)=F(\pi _{2})(f(a,b))}"/></span>,</li></ul>
+
+<p id="mwA5w">where <i id="mwA50">π</i>₁ and <i id="mwA54">π</i>₂ are the first and second projection maps <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt64" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"R \\rightarrow A"}}' id="mwA58"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle R\rightarrow A}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>R</mi>
+        <mo stretchy="false">→<!-- → --></mo>
+        <mi>A</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle R\rightarrow A}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/284d5b4d833af1f6b9b046787ebeab7a6e147d1f" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:7.121ex; height:2.176ex;" alt="{\displaystyle R\rightarrow A}"/></span>. It can be seen this equivalent to the polynomial case by setting <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt65" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"f(a, b) = (\\text{root}(a), i \\mapsto (\\text{branch}(a, i), \\text{branch}(b, i)))"}}' id="mwA6A"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle f(a,b)=({\text{root}}(a),i\mapsto ({\text{branch}}(a,i),{\text{branch}}(b,i)))}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo>,</mo>
+        <mi>b</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mo stretchy="false">(</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>root</mtext>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo stretchy="false">)</mo>
+        <mo>,</mo>
+        <mi>i</mi>
+        <mo stretchy="false">↦<!-- ↦ --></mo>
+        <mo stretchy="false">(</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>branch</mtext>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo>,</mo>
+        <mi>i</mi>
+        <mo stretchy="false">)</mo>
+        <mo>,</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>branch</mtext>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>b</mi>
+        <mo>,</mo>
+        <mi>i</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f(a,b)=({\text{root}}(a),i\mapsto ({\text{branch}}(a,i),{\text{branch}}(b,i)))}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3d353cff4cb1a9eefad9e1fd317844b24269174c" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:50.218ex; height:2.843ex;" alt="{\displaystyle f(a,b)=({\text{root}}(a),i\mapsto ({\text{branch}}(a,i),{\text{branch}}(b,i)))}"/></span>. The required equalities can also be expressed as a <a rel="mw:WikiLink" href="./Commutative_diagram" title="Commutative diagram" id="mwA6E">commutative diagram</a>:</p>
+
+<p id="mwA6I"><span typeof="mw:File/Frameless" id="mwA6M"><a href="./File:Commutative_diagram_of_bisimulations_used_in_coinduction.svg" class="mw-file-description" id="mwA6Q"><img resource="./File:Commutative_diagram_of_bisimulations_used_in_coinduction.svg" src="//thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Commutative_diagram_of_bisimulations_used_in_coinduction.svg/330px-Commutative_diagram_of_bisimulations_used_in_coinduction.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail" decoding="async" loading="lazy" srcset="//thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Commutative_diagram_of_bisimulations_used_in_coinduction.svg/960px-Commutative_diagram_of_bisimulations_used_in_coinduction.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x" data-file-width="333" data-file-height="157" data-file-type="drawing" height="151" width="320" class="mw-file-element" id="mwA6U"/></a></span></p>
+
+<p id="mwA6Y">Coinduction is easy to prove from the uniqueness of <code id="mwA6c">corec</code>: <i id="mwA6g">π</i>₁ and <i id="mwA6k">π</i>₂ both satisfy the required property to be equal to <code id="mwA6o">corec f</code>, and are therefore equal to each other, thus showing that <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt66" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"a = \\pi_1(a, b) = \\pi_2(a, b) = b"}}' id="mwA6s"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle a=\pi _{1}(a,b)=\pi _{2}(a,b)=b}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>a</mi>
+        <mo>=</mo>
+        <msub>
+          <mi>π<!-- π --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo>,</mo>
+        <mi>b</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <msub>
+          <mi>π<!-- π --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo>,</mo>
+        <mi>b</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>b</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle a=\pi _{1}(a,b)=\pi _{2}(a,b)=b}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6105530e9df1b0a1bd635a7389c4ea9a6d113d09" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:26.423ex; height:2.843ex;" alt="{\displaystyle a=\pi _{1}(a,b)=\pi _{2}(a,b)=b}"/></span>.<sup about="#mwt67" class="mw-ref reference" id="cite_ref-coalgebra_6-2" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"coalgebra"}}'><a href="./Corecursion#cite_note-coalgebra-6" id="mwA6w"><span class="mw-reflink-text" id="mwA60"><span class="cite-bracket" id="mwA64">[</span>4<span class="cite-bracket" id="mwA68">]</span></span></a></sup></p>
+
+<section data-mw-section-id="5" id="mwA7A"><h3 id="Example:_Conatural_number_addition">Example: Conatural number addition</h3><p id="mwA7E">
+To demonstrate the usage of coinduction, we will prove some basic properties about addition on conatural numbers. Addition can be defined identically to how it is defined for natural numbers:<sup about="#mwt68" class="mw-ref reference" id="cite_ref-conat_5-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"conat"}}'><a href="./Corecursion#cite_note-conat-5" id="mwA7I"><span class="mw-reflink-text" id="mwA7M"><span class="cite-bracket" id="mwA7Q">[</span>3<span class="cite-bracket" id="mwA7U">]</span></span></a></sup></p><div class="mw-highlight mw-highlight-lang-haskell mw-content-ltr" dir="ltr" typeof="mw:Extension/syntaxhighlight" about="#mwt69" data-mw='{"name":"syntaxhighlight","attrs":{"lang":"haskell"},"body":{"extsrc":"add :: CoNat -> CoNat -> CoNat\nadd a Zero = a\nadd a (Succ b) = Succ (add a b)"}}' id="mwA7Y"><pre id="mwA7c"><span id="mwA7g"></span><span class="nf" id="mwA7k">add</span><span class="w" id="mwA7o"> </span><span class="ow" id="mwA7s">::</span><span class="w" id="mwA7w"> </span><span class="kt" id="mwA70">CoNat</span><span class="w" id="mwA74"> </span><span class="ow" id="mwA78">-></span><span class="w" id="mwA8A"> </span><span class="kt" id="mwA8E">CoNat</span><span class="w" id="mwA8I"> </span><span class="ow" id="mwA8M">-></span><span class="w" id="mwA8Q"> </span><span class="kt" id="mwA8U">CoNat</span>
+<span class="nf" id="mwA8Y">add</span><span class="w" id="mwA8c"> </span><span class="n" id="mwA8g">a</span><span class="w" id="mwA8k"> </span><span class="kt" id="mwA8o">Zero</span><span class="w" id="mwA8s"> </span><span class="ow" id="mwA8w">=</span><span class="w" id="mwA80"> </span><span class="n" id="mwA84">a</span>
+<span class="nf" id="mwA88">add</span><span class="w" id="mwA9A"> </span><span class="n" id="mwA9E">a</span><span class="w" id="mwA9I"> </span><span class="p" id="mwA9M">(</span><span class="kt" id="mwA9Q">Succ</span><span class="w" id="mwA9U"> </span><span class="n" id="mwA9Y">b</span><span class="p" id="mwA9c">)</span><span class="w" id="mwA9g"> </span><span class="ow" id="mwA9k">=</span><span class="w" id="mwA9o"> </span><span class="kt" id="mwA9s">Succ</span><span class="w" id="mwA9w"> </span><span class="p" id="mwA90">(</span><span class="n" id="mwA94">add</span><span class="w" id="mwA98"> </span><span class="n" id="mwA-A">a</span><span class="w" id="mwA-E"> </span><span class="n" id="mwA-I">b</span><span class="p" id="mwA-M">)</span>
+</pre></div><p id="mwA-Q">This definition, while valid, hides some amount of complexity. We may alternatively write:</p><div class="mw-highlight mw-highlight-lang-haskell mw-content-ltr" dir="ltr" typeof="mw:Extension/syntaxhighlight" about="#mwt70" data-mw='{"name":"syntaxhighlight","attrs":{"lang":"haskell"},"body":{"extsrc":"\nadd Zero Zero = Zero\nadd (Succ a) Zero = Succ (add a Zero)\nadd a (Succ b) = Succ (add a b)\n"}}' id="mwA-U"><pre id="mwA-Y"><span id="mwA-c"></span><span class="nf" id="mwA-g">add</span><span class="w" id="mwA-k"> </span><span class="kt" id="mwA-o">Zero</span><span class="w" id="mwA-s"> </span><span class="kt" id="mwA-w">Zero</span><span class="w" id="mwA-0"> </span><span class="ow" id="mwA-4">=</span><span class="w" id="mwA-8"> </span><span class="kt" id="mwA_A">Zero</span>
+<span class="nf" id="mwA_E">add</span><span class="w" id="mwA_I"> </span><span class="p" id="mwA_M">(</span><span class="kt" id="mwA_Q">Succ</span><span class="w" id="mwA_U"> </span><span class="n" id="mwA_Y">a</span><span class="p" id="mwA_c">)</span><span class="w" id="mwA_g"> </span><span class="kt" id="mwA_k">Zero</span><span class="w" id="mwA_o"> </span><span class="ow" id="mwA_s">=</span><span class="w" id="mwA_w"> </span><span class="kt" id="mwA_0">Succ</span><span class="w" id="mwA_4"> </span><span class="p" id="mwA_8">(</span><span class="n" id="mwBAA">add</span><span class="w" id="mwBAE"> </span><span class="n" id="mwBAI">a</span><span class="w" id="mwBAM"> </span><span class="kt" id="mwBAQ">Zero</span><span class="p" id="mwBAU">)</span>
+<span class="nf" id="mwBAY">add</span><span class="w" id="mwBAc"> </span><span class="n" id="mwBAg">a</span><span class="w" id="mwBAk"> </span><span class="p" id="mwBAo">(</span><span class="kt" id="mwBAs">Succ</span><span class="w" id="mwBAw"> </span><span class="n" id="mwBA0">b</span><span class="p" id="mwBA4">)</span><span class="w" id="mwBA8"> </span><span class="ow" id="mwBBA">=</span><span class="w" id="mwBBE"> </span><span class="kt" id="mwBBI">Succ</span><span class="w" id="mwBBM"> </span><span class="p" id="mwBBQ">(</span><span class="n" id="mwBBU">add</span><span class="w" id="mwBBY"> </span><span class="n" id="mwBBc">a</span><span class="w" id="mwBBg"> </span><span class="n" id="mwBBk">b</span><span class="p" id="mwBBo">)</span>
+</pre></div><p id="mwBBs">This definition makes the translation to <code id="mwBBw">corec</code> straightforward:</p><div class="mw-highlight mw-highlight-lang-haskell mw-content-ltr" dir="ltr" typeof="mw:Extension/syntaxhighlight" about="#mwt71" data-mw='{"name":"syntaxhighlight","attrs":{"lang":"haskell"},"body":{"extsrc":"\niterate :: (CoNat, CoNat) -> Maybe (CoNat, CoNat)\niterate Zero Zero = Nothing\niterate (Succ a) Zero = Just (a, Zero)\niterate a (Succ b) = Just (a, b)\n\nadd a b = corec iterate (a, b)\n"}}' id="mwBB0"><pre id="mwBB4"><span id="mwBB8"></span><span class="nf" id="mwBCA">iterate</span><span class="w" id="mwBCE"> </span><span class="ow" id="mwBCI">::</span><span class="w" id="mwBCM"> </span><span class="p" id="mwBCQ">(</span><span class="kt" id="mwBCU">CoNat</span><span class="p" id="mwBCY">,</span><span class="w" id="mwBCc"> </span><span class="kt" id="mwBCg">CoNat</span><span class="p" id="mwBCk">)</span><span class="w" id="mwBCo"> </span><span class="ow" id="mwBCs">-></span><span class="w" id="mwBCw"> </span><span class="kt" id="mwBC0">Maybe</span><span class="w" id="mwBC4"> </span><span class="p" id="mwBC8">(</span><span class="kt" id="mwBDA">CoNat</span><span class="p" id="mwBDE">,</span><span class="w" id="mwBDI"> </span><span class="kt" id="mwBDM">CoNat</span><span class="p" id="mwBDQ">)</span>
+<span class="nf" id="mwBDU">iterate</span><span class="w" id="mwBDY"> </span><span class="kt" id="mwBDc">Zero</span><span class="w" id="mwBDg"> </span><span class="kt" id="mwBDk">Zero</span><span class="w" id="mwBDo"> </span><span class="ow" id="mwBDs">=</span><span class="w" id="mwBDw"> </span><span class="kt" id="mwBD0">Nothing</span>
+<span class="nf" id="mwBD4">iterate</span><span class="w" id="mwBD8"> </span><span class="p" id="mwBEA">(</span><span class="kt" id="mwBEE">Succ</span><span class="w" id="mwBEI"> </span><span class="n" id="mwBEM">a</span><span class="p" id="mwBEQ">)</span><span class="w" id="mwBEU"> </span><span class="kt" id="mwBEY">Zero</span><span class="w" id="mwBEc"> </span><span class="ow" id="mwBEg">=</span><span class="w" id="mwBEk"> </span><span class="kt" id="mwBEo">Just</span><span class="w" id="mwBEs"> </span><span class="p" id="mwBEw">(</span><span class="n" id="mwBE0">a</span><span class="p" id="mwBE4">,</span><span class="w" id="mwBE8"> </span><span class="kt" id="mwBFA">Zero</span><span class="p" id="mwBFE">)</span>
+<span class="nf" id="mwBFI">iterate</span><span class="w" id="mwBFM"> </span><span class="n" id="mwBFQ">a</span><span class="w" id="mwBFU"> </span><span class="p" id="mwBFY">(</span><span class="kt" id="mwBFc">Succ</span><span class="w" id="mwBFg"> </span><span class="n" id="mwBFk">b</span><span class="p" id="mwBFo">)</span><span class="w" id="mwBFs"> </span><span class="ow" id="mwBFw">=</span><span class="w" id="mwBF0"> </span><span class="kt" id="mwBF4">Just</span><span class="w" id="mwBF8"> </span><span class="p" id="mwBGA">(</span><span class="n" id="mwBGE">a</span><span class="p" id="mwBGI">,</span><span class="w" id="mwBGM"> </span><span class="n" id="mwBGQ">b</span><span class="p" id="mwBGU">)</span>
+
+<span class="nf" id="mwBGY">add</span><span class="w" id="mwBGc"> </span><span class="n" id="mwBGg">a</span><span class="w" id="mwBGk"> </span><span class="n" id="mwBGo">b</span><span class="w" id="mwBGs"> </span><span class="ow" id="mwBGw">=</span><span class="w" id="mwBG0"> </span><span class="n" id="mwBG4">corec</span><span class="w" id="mwBG8"> </span><span class="n" id="mwBHA">iterate</span><span class="w" id="mwBHE"> </span><span class="p" id="mwBHI">(</span><span class="n" id="mwBHM">a</span><span class="p" id="mwBHQ">,</span><span class="w" id="mwBHU"> </span><span class="n" id="mwBHY">b</span><span class="p" id="mwBHc">)</span>
+</pre></div><p id="mwBHg">We can prove that <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt72" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"a + 0 = a"}}' id="mwBHk"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle a+0=a}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>a</mi>
+        <mo>+</mo>
+        <mn>0</mn>
+        <mo>=</mo>
+        <mi>a</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle a+0=a}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4564e28f0f8274644ca4e58664c0593ed48de541" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.505ex; width:9.561ex; height:2.343ex;" alt="{\displaystyle a+0=a}"/></span> by coinduction on the relation <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt73" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\{(a + 0, a) | a \\in \\N^\\infty\\}"}}' id="mwBHo"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \{(a+0,a)|a\in \mathbb {N} ^{\infty }\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo>+</mo>
+        <mn>0</mn>
+        <mo>,</mo>
+        <mi>a</mi>
+        <mo stretchy="false">)</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>a</mi>
+        <mo>∈<!-- ∈ --></mo>
+        <msup>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="double-struck">N</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="normal">∞<!-- ∞ --></mi>
+          </mrow>
+        </msup>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{(a+0,a)|a\in \mathbb {N} ^{\infty }\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8e2f4839c35d6631c3fbc4814ca370d4a46db5a5" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:19.901ex; height:2.843ex;" alt="{\displaystyle \{(a+0,a)|a\in \mathbb {N} ^{\infty }\}}"/></span> (where <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt74" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\N^\\infty"}}' id="mwBHs"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \mathbb {N} ^{\infty }}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="double-struck">N</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="normal">∞<!-- ∞ --></mi>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbb {N} ^{\infty }}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/da9f9ea7346a4099eba9d3069c2f01275402dba5" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:3.553ex; height:2.343ex;" alt="{\displaystyle \mathbb {N} ^{\infty }}"/></span> is the set of conatural numbers). First, it follows from the definition of addition that <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt75" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"a + 0 = 0 \\iff a = 0"}}' id="mwBHw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle a+0=0\iff a=0}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>a</mi>
+        <mo>+</mo>
+        <mn>0</mn>
+        <mo>=</mo>
+        <mn>0</mn>
+        <mspace width="thickmathspace"></mspace>
+        <mo stretchy="false">⟺<!-- ⟺ --></mo>
+        <mspace width="thickmathspace"></mspace>
+        <mi>a</mi>
+        <mo>=</mo>
+        <mn>0</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle a+0=0\iff a=0}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/99b360e4f79434df588151a8cdd6a709a811dc0d" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.505ex; width:21.881ex; height:2.343ex;" alt="{\displaystyle a+0=0\iff a=0}"/></span>; second, if we assume that <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt76" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"(x + 1, y + 1)"}}' id="mwBH0"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (x+1,y+1)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>+</mo>
+        <mn>1</mn>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo>+</mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (x+1,y+1)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/69f61460a77b7ea79290f58b04be838ce6a48c8a" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:13.334ex; height:2.843ex;" alt="{\displaystyle (x+1,y+1)}"/></span> is of the form <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt77" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"(a + 0, a)"}}' id="mwBH4"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (a+0,a)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo>+</mo>
+        <mn>0</mn>
+        <mo>,</mo>
+        <mi>a</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (a+0,a)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/afa30b0ba85ac8f7c8bb273a3401db70cf18a451" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:9.306ex; height:2.843ex;" alt="{\displaystyle (a+0,a)}"/></span> for some <i id="mwBH8">a</i>, we must show that <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt78" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"(x, y)"}}' id="mwBIA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (x,y)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (x,y)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/41cf50e4a314ca8e2c30964baa8d26e5be7a9386" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:5.328ex; height:2.843ex;" alt="{\displaystyle (x,y)}"/></span> is also of this form. We have: <span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt79" data-mw='{"name":"math","attrs":{"display":"block"},"body":{"extsrc":"x + 1 = a + 0 = (y + 1) + 0 = (y + 0) + 1"}}' id="mwBIE"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle x+1=a+0=(y+1)+0=(y+0)+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+        <mo>+</mo>
+        <mn>1</mn>
+        <mo>=</mo>
+        <mi>a</mi>
+        <mo>+</mo>
+        <mn>0</mn>
+        <mo>=</mo>
+        <mo stretchy="false">(</mo>
+        <mi>y</mi>
+        <mo>+</mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+        <mo>+</mo>
+        <mn>0</mn>
+        <mo>=</mo>
+        <mo stretchy="false">(</mo>
+        <mi>y</mi>
+        <mo>+</mo>
+        <mn>0</mn>
+        <mo stretchy="false">)</mo>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x+1=a+0=(y+1)+0=(y+0)+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/98ef51f1816091749eb1d8e06dea948857aebad4" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:41.802ex; height:2.843ex;" alt="{\displaystyle x+1=a+0=(y+1)+0=(y+0)+1}"/></span>Thus <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt80" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"x = y + 0"}}' id="mwBII"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle x=y+0}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+        <mo>=</mo>
+        <mi>y</mi>
+        <mo>+</mo>
+        <mn>0</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x=y+0}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/03b0c9578556329ec8c0f4dd36c2c171345b8da6" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:9.586ex; height:2.509ex;" alt="{\displaystyle x=y+0}"/></span>, and therefore <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt81" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"(x, y) = (y + 0, y)"}}' id="mwBIM"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (x,y)=(y+0,y)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mo stretchy="false">(</mo>
+        <mi>y</mi>
+        <mo>+</mo>
+        <mn>0</mn>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (x,y)=(y+0,y)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/57d6865b014eb41c496f44d825ae7cee74ea7cc7" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:17.584ex; height:2.843ex;" alt="{\displaystyle (x,y)=(y+0,y)}"/></span> as required.</p>
+
+<p id="mwBIQ">The identity <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt82" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"(a + 1) + b = (a + b) + 1"}}' id="mwBIU"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (a+1)+b=(a+b)+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo>+</mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+        <mo>+</mo>
+        <mi>b</mi>
+        <mo>=</mo>
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo>+</mo>
+        <mi>b</mi>
+        <mo stretchy="false">)</mo>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (a+1)+b=(a+b)+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/19ad6859895471ce71e0d86e3203585bf491fde3" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:24.858ex; height:2.843ex;" alt="{\displaystyle (a+1)+b=(a+b)+1}"/></span> may be similarly proven by coinduction on <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt83" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\{(((a + 1) + b) - 1, a + b) | a, b \\in \\N^\\infty\\}"}}' id="mwBIY"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \{(((a+1)+b)-1,a+b)|a,b\in \mathbb {N} ^{\infty }\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <mo stretchy="false">(</mo>
+        <mo stretchy="false">(</mo>
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo>+</mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+        <mo>+</mo>
+        <mi>b</mi>
+        <mo stretchy="false">)</mo>
+        <mo>−<!-- − --></mo>
+        <mn>1</mn>
+        <mo>,</mo>
+        <mi>a</mi>
+        <mo>+</mo>
+        <mi>b</mi>
+        <mo stretchy="false">)</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>a</mi>
+        <mo>,</mo>
+        <mi>b</mi>
+        <mo>∈<!-- ∈ --></mo>
+        <msup>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="double-struck">N</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="normal">∞<!-- ∞ --></mi>
+          </mrow>
+        </msup>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{(((a+1)+b)-1,a+b)|a,b\in \mathbb {N} ^{\infty }\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3f8d58f988b21fb3eac3a61bb8a68e1e302a9471" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:37.23ex; height:2.843ex;" alt="{\displaystyle \{(((a+1)+b)-1,a+b)|a,b\in \mathbb {N} ^{\infty }\}}"/></span> (remember the relation must necessarily include <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt84" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"(0, 0)"}}' id="mwBIc"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (0,0)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mn>0</mn>
+        <mo>,</mo>
+        <mn>0</mn>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (0,0)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5d630d3e781a53b0a3559ae7e5b45f9479a3141a" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:5.168ex; height:2.843ex;" alt="{\displaystyle (0,0)}"/></span>); finally, commutativity—<span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt85" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"a + b = b + a"}}' id="mwBIg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle a+b=b+a}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>a</mi>
+        <mo>+</mo>
+        <mi>b</mi>
+        <mo>=</mo>
+        <mi>b</mi>
+        <mo>+</mo>
+        <mi>a</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle a+b=b+a}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/684f43b5094501674e8314be5e24a80ee64682e3" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.505ex; width:13.234ex; height:2.343ex;" alt="{\displaystyle a+b=b+a}"/></span>—results from similar straightforward coinduction on <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt86" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\{(a + b, b + a)|a,b \\in \\N^\\infty\\}"}}' id="mwBIk"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \{(a+b,b+a)|a,b\in \mathbb {N} ^{\infty }\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo>+</mo>
+        <mi>b</mi>
+        <mo>,</mo>
+        <mi>b</mi>
+        <mo>+</mo>
+        <mi>a</mi>
+        <mo stretchy="false">)</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>a</mi>
+        <mo>,</mo>
+        <mi>b</mi>
+        <mo>∈<!-- ∈ --></mo>
+        <msup>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="double-struck">N</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="normal">∞<!-- ∞ --></mi>
+          </mrow>
+        </msup>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{(a+b,b+a)|a,b\in \mathbb {N} ^{\infty }\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1bbae26729a3d9064d4dc0e691abdc4305d54000" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:25.606ex; height:2.843ex;" alt="{\displaystyle \{(a+b,b+a)|a,b\in \mathbb {N} ^{\infty }\}}"/></span>.<sup about="#mwt89" class="mw-ref reference" id="cite_ref-9" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-9"}}'><a href="./Corecursion#cite_note-9" id="mwBIo"><span class="mw-reflink-text" id="mwBIs"><span class="cite-bracket" id="mwBIw">[</span>7<span class="cite-bracket" id="mwBI0">]</span></span></a></sup></p>
+
+</section></section><section data-mw-section-id="6" id="mwBI4"><h2 id="In_programming_languages">In programming languages</h2>
+<p id="mwBI8">If the domain of discourse is the <a rel="mw:WikiLink" href="./Category_of_sets" title="Category of sets" id="mwBJA">category of sets</a> and <a rel="mw:WikiLink" href="./Total_function" title="Total function" class="mw-redirect" id="mwBJE">total functions</a> (such as in theorem provers like Agda and Rocq), then final types (codata) may contain infinite, <a rel="mw:WikiLink" href="./Non-well-founded_set_theory" title="Non-well-founded set theory" id="mwBJI">non-wellfounded</a> values, whereas initial types (data) do not.<sup about="#mwt90" class="mw-ref reference" id="cite_ref-10" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-10"}}'><a href="./Corecursion#cite_note-10" id="mwBJM"><span class="mw-reflink-text" id="mwBJQ"><span class="cite-bracket" id="mwBJU">[</span>8<span class="cite-bracket" id="mwBJY">]</span></span></a></sup><sup about="#mwt91" class="mw-ref reference" id="cite_ref-11" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-11"}}'><a href="./Corecursion#cite_note-11" id="mwBJc"><span class="mw-reflink-text" id="mwBJg"><span class="cite-bracket" id="mwBJk">[</span>9<span class="cite-bracket" id="mwBJo">]</span></span></a></sup> On the other hand, if the domain of discourse is the category of <a rel="mw:WikiLink" href="./Complete_partial_order" title="Complete partial order" id="mwBJs">complete partial orders</a> and <a rel="mw:WikiLink" href="./Scott_continuity" title="Scott continuity" id="mwBJw">continuous functions</a>, which corresponds roughly to the <a rel="mw:WikiLink" href="./Haskell_(programming_language)" title="Haskell (programming language)" class="mw-redirect" id="mwBJ0">Haskell</a> programming language, then final types coincide with initial types, and the corresponding final coalgebra and initial algebra form an isomorphism.<sup about="#mwt92" class="mw-ref reference" id="cite_ref-12" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-12"}}'><a href="./Corecursion#cite_note-12" id="mwBJ4"><span class="mw-reflink-text" id="mwBJ8"><span class="cite-bracket" id="mwBKA">[</span>10<span class="cite-bracket" id="mwBKE">]</span></span></a></sup></p>
+
+</section><section data-mw-section-id="7" id="mwBKI"><h2 id="History">History</h2>
+<p id="mwBKM">Corecursion, referred to as <i id="mwBKQ">circular programming,</i> dates at least to <span about="#mwt93" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"Harv","href":"./Template:Harv"},"params":{"1":{"wt":"Bird"},"2":{"wt":"1984"}},"i":0}}]}' id="mwBKU">(</span><a rel="mw:WikiLink" href="./Corecursion#CITEREFBird1984" about="#mwt93" class="mw-selflink-fragment">Bird 1984</a><span about="#mwt93">)</span>, who credits <a rel="mw:WikiLink" href="./John_Hughes_(computer_scientist)" title="John Hughes (computer scientist)" id="mwBKY">John Hughes</a> and <a rel="mw:WikiLink" href="./Philip_Wadler" title="Philip Wadler" id="mwBKc">Philip Wadler</a>; more general forms were developed in <span about="#mwt94" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"Harv","href":"./Template:Harv"},"params":{"1":{"wt":"Allison"},"2":{"wt":"1989"}},"i":0}}]}' id="mwBKg">(</span><a rel="mw:WikiLink" href="./Corecursion#CITEREFAllison1989" about="#mwt94" class="mw-selflink-fragment">Allison 1989</a><span about="#mwt94">)</span>. The original motivations included producing more efficient algorithms (allowing a single pass over data in some cases, instead of requiring multiple passes) and implementing classical data structures, such as <a rel="mw:WikiLink" href="./Doubly_linked_list" title="Doubly linked list" id="mwBKk">doubly linked lists</a> and queues, in functional languages.</p>
+
+</section><section data-mw-section-id="8" id="mwBKo"><h2 id="See_also">See also</h2>
+<ul id="mwBKs"><li id="mwBKw"><a rel="mw:WikiLink" href="./Bisimulation" title="Bisimulation" id="mwBK0">Bisimulation</a></li>
+<li id="mwBK4"><a rel="mw:WikiLink" href="./Coinduction" title="Coinduction" id="mwBK8">Coinduction</a></li>
+<li id="mwBLA"><a rel="mw:WikiLink" href="./Recursion" title="Recursion" id="mwBLE">Recursion</a></li>
+<li id="mwBLI"><a rel="mw:WikiLink" href="./Anamorphism" title="Anamorphism" id="mwBLM">Anamorphism</a></li></ul>
+
+</section><section data-mw-section-id="9" id="mwBLQ"><h2 id="Notes">Notes</h2>
+<span class="mw-empty-elt" about="#mwt95" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"notelist","href":"./Template:Notelist"},"params":{},"i":0}}]}' id="mwBLU"><style data-mw-deduplicate="TemplateStyles:r1327269900" typeof="mw:Extension/templatestyles" about="#mwt96" data-mw='{"name":"templatestyles","attrs":{"src":"Reflist/styles.css"}}'>.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}body.skin-vector-2022 .mw-parser-output .reflist-columns-2{column-width:27em}body.skin-vector-2022 .mw-parser-output .reflist-columns-3{column-width:22.5em}.mw-parser-output .references[data-mw-group=upper-alpha]{list-style-type:upper-alpha}.mw-parser-output .references[data-mw-group=upper-roman]{list-style-type:upper-roman}.mw-parser-output .references[data-mw-group=lower-alpha]{list-style-type:lower-alpha}.mw-parser-output .references[data-mw-group=lower-greek]{list-style-type:lower-greek}.mw-parser-output .references[data-mw-group=lower-roman]{list-style-type:lower-roman}.mw-parser-output div.reflist-liststyle-upper-alpha .references{list-style-type:upper-alpha}.mw-parser-output div.reflist-liststyle-upper-roman .references{list-style-type:upper-roman}.mw-parser-output div.reflist-liststyle-lower-alpha .references{list-style-type:lower-alpha}.mw-parser-output div.reflist-liststyle-lower-greek .references{list-style-type:lower-greek}.mw-parser-output div.reflist-liststyle-lower-roman .references{list-style-type:lower-roman}</style></span><div about="#mwt95" id="mwBLY">
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt97" data-mw='{"name":"references","attrs":{"group":"lower-alpha","responsive":"1"},"body":{"extsrc":""}}' id="mwBLc"><ol class="mw-references references" data-mw-group="lower-alpha" id="mwBLg"><li about="#cite_note-3" id="cite_note-3" data-mw-footnote-number="a"><span class="mw-cite-backlink" id="mwBLk"><a href="./Corecursion#cite_ref-3" data-mw-group="lower-alpha" rel="mw:referencedBy" id="mwBLo"><span class="mw-linkback-text" id="mwBLs">↑</span></a></span> <span id="mw-reference-text-cite_note-3" class="mw-reference-text reference-text" data-mw-group="lower-alpha">Haskell, being a partial and lazy language, does not support either data or codata; we use its syntax for familiarity.</span></li>
+<li about="#cite_note-4" id="cite_note-4" data-mw-footnote-number="b"><span class="mw-cite-backlink" id="mwBLw"><a href="./Corecursion#cite_ref-4" data-mw-group="lower-alpha" rel="mw:referencedBy" id="mwBL0"><span class="mw-linkback-text" id="mwBL4">↑</span></a></span> <span id="mw-reference-text-cite_note-4" class="mw-reference-text reference-text" data-mw-group="lower-alpha">"Recursion" here is used in the technical sense of <a rel="mw:WikiLink" href="./Structural_recursion" title="Structural recursion" class="mw-redirect" id="mwBL8">structural recursion</a>, which is a type of recursion that analyses the structure of a type and always terminates. In the more general sense of the word used in computer science, corecursion is also a type of recursion.</span></li>
+</ol></div></div>
+
+</section><section data-mw-section-id="10" id="mwBMA"><h2 id="References">References</h2>
+<span class="mw-empty-elt" about="#mwt98" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"Reflist","href":"./Template:Reflist"},"params":{"1":{"wt":"2"}},"i":0}}]}' id="mwBME"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1327269900" about="#mwt99" typeof="mw:Extension/templatestyles" data-mw='{"name":"templatestyles","attrs":{"src":"Reflist/styles.css"}}'/></span><div class="mw-references-wrap mw-references-columns reflist-columns-2" about="#mwt98" id="mwBMI"><ol class="mw-references references" typeof="mw:Extension/references" about="#mwt100" data-mw='{"name":"references","attrs":{"group":"","responsive":"0"},"body":{"extsrc":""}}' id="mwBMM"><li about="#cite_note-1" id="cite_note-1" data-mw-footnote-number="1"><span class="mw-cite-backlink" id="mwBMQ"><a href="./Corecursion#cite_ref-1" rel="mw:referencedBy" id="mwBMU"><span class="mw-linkback-text" id="mwBMY">↑</span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text"><style data-mw-deduplicate="TemplateStyles:r1333433106" typeof="mw:Extension/templatestyles mw:Transclusion" about="#mwt6" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Citation/CS1/styles.css"},"body":{"extsrc":""},"parts":[{"template":{"target":{"wt":"Cite web ","href":"./Template:Cite_web"},"params":{"last":{"wt":"Agda Authors"},"title":{"wt":"Coinduction"},"url":{"wt":"https://agda.readthedocs.io/en/stable/language/coinduction.html"},"url-status":{"wt":"live"},"archive-url":{"wt":"https://web.archive.org/web/20260218012134/https://agda.readthedocs.io/en/stable/language/coinduction.html#coinduction"},"archive-date":{"wt":"2026-02-18"},"access-date":{"wt":"2026-03-13"},"website":{"wt":"Agda 2.8.0 documentation"}},"i":0}}]}' id="mwBMc">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free.id-lock-free a{background:url("//upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited.id-lock-limited a,.mw-parser-output .id-lock-registration.id-lock-registration a{background:url("//upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription.id-lock-subscription a{background:url("//upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:url("//upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-free a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-limited a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-registration a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-subscription a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .cs1-ws-icon a{background-size:contain;padding:0 1em 0 0}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:var(--color-error,#bf3c2c)}.mw-parser-output .cs1-visible-error{color:var(--color-error,#bf3c2c)}.mw-parser-output .cs1-maint{display:none;color:#085;margin-left:0.3em}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}@media screen{.mw-parser-output .cs1-format{font-size:95%}html.skin-theme-clientpref-night .mw-parser-output .cs1-maint{color:#18911f}}@media screen and (prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .cs1-maint{color:#18911f}}</style><cite id="CITEREFAgda_Authors" class="citation web cs1" about="#mwt6">Agda Authors. <a rel="mw:ExtLink nofollow" href="https://agda.readthedocs.io/en/stable/language/coinduction.html" class="external text" id="mwBMg">"Coinduction"</a>. <i id="mwBMk">Agda 2.8.0 documentation</i>. <a rel="mw:ExtLink nofollow" href="https://web.archive.org/web/20260218012134/https://agda.readthedocs.io/en/stable/language/coinduction.html#coinduction" class="external text" id="mwBMo">Archived</a> from the original on 2026-02-18<span class="reference-accessdate" id="mwBMs">. Retrieved <span class="nowrap" id="mwBMw">2026-03-13</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=Agda+2.8.0+documentation&amp;rft.atitle=Coinduction&amp;rft.au=Agda+Authors&amp;rft_id=https%3A%2F%2Fagda.readthedocs.io%2Fen%2Fstable%2Flanguage%2Fcoinduction.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACorecursion" class="Z3988" about="#mwt6" id="mwBM0"></span></span></li>
+<li about="#cite_note-2" id="cite_note-2" data-mw-footnote-number="2"><span class="mw-cite-backlink" id="mwBM4"><a href="./Corecursion#cite_ref-2" rel="mw:referencedBy" id="mwBM8"><span class="mw-linkback-text" id="mwBNA">↑</span></a></span> <span id="mw-reference-text-cite_note-2" class="mw-reference-text reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt9" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Citation/CS1/styles.css"},"body":{"extsrc":""},"parts":[{"template":{"target":{"wt":"Cite web ","href":"./Template:Cite_web"},"params":{"last":{"wt":"((Inria, CNRS and contributors))"},"title":{"wt":"Coinductive types and corecursive functions"},"url":{"wt":"https://rocq-prover.org/doc/V9.1.0/refman/language/core/coinductive.html"},"access-date":{"wt":"2026-03-13"},"website":{"wt":"The Rocq Prover 9.1.0 documentation"}},"i":0}}]}' id="mwBNE"/><cite id="CITEREFInria,_CNRS_and_contributors" class="citation web cs1" about="#mwt9">Inria, CNRS and contributors. <a rel="mw:ExtLink nofollow" href="https://rocq-prover.org/doc/V9.1.0/refman/language/core/coinductive.html" class="external text" id="mwBNI">"Coinductive types and corecursive functions"</a>. <i id="mwBNM">The Rocq Prover 9.1.0 documentation</i><span class="reference-accessdate" id="mwBNQ">. Retrieved <span class="nowrap" id="mwBNU">2026-03-13</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=The+Rocq+Prover+9.1.0+documentation&amp;rft.atitle=Coinductive+types+and+corecursive+functions&amp;rft.au=Inria%2C+CNRS+and+contributors&amp;rft_id=https%3A%2F%2Frocq-prover.org%2Fdoc%2FV9.1.0%2Frefman%2Flanguage%2Fcore%2Fcoinductive.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACorecursion" class="Z3988" about="#mwt9" id="mwBNY"></span></span></li>
+<li about="#cite_note-conat-5" id="cite_note-conat-5" data-mw-footnote-number="3"><span rel="mw:referencedBy" class="mw-cite-backlink" id="mwBNc"><a href="./Corecursion#cite_ref-conat_5-0" id="mwBNg"><span class="mw-linkback-text" id="mwBNk">1</span></a> <a href="./Corecursion#cite_ref-conat_5-1" id="mwBNo"><span class="mw-linkback-text" id="mwBNs">2</span></a></span> <span id="mw-reference-text-cite_note-conat-5" class="mw-reference-text reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt21" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Citation/CS1/styles.css"},"body":{"extsrc":""},"parts":[{"template":{"target":{"wt":"Cite book ","href":"./Template:Cite_book"},"params":{"last1":{"wt":"Xie"},"first1":{"wt":"Szumi"},"last2":{"wt":"Bense"},"first2":{"wt":"Viktor"},"chapter":{"wt":"The Conatural Numbers Form an Exponential Commutative Semiring"},"date":{"wt":"2025-10-09"},"title":{"wt":"Proceedings of the 10th ACM SIGPLAN International Workshop on Type-Driven Development"},"chapter-url":{"wt":"https://doi.org/10.1145/3759538.3759654"},"series":{"wt":"TyDe &apos;25"},"location":{"wt":"New York, NY, USA"},"publisher":{"wt":"Association for Computing Machinery"},"pages":{"wt":"52–63"},"doi":{"wt":"10.1145/3759538.3759654"},"isbn":{"wt":"979-8-4007-2163-2"}},"i":0}}]}' id="mwBNw"/><cite id="CITEREFXieBense2025" class="citation book cs1" about="#mwt21">Xie, Szumi; Bense, Viktor (2025-10-09). <a rel="mw:ExtLink nofollow" href="https://doi.org/10.1145/3759538.3759654" class="external text" id="mwBN0">"The Conatural Numbers Form an Exponential Commutative Semiring"</a>. <i id="mwBN4">Proceedings of the 10th ACM SIGPLAN International Workshop on Type-Driven Development</i>. TyDe '25. New York, NY, USA: Association for Computing Machinery. pp.<span typeof="mw:Entity" id="mwBN8"> </span><span class="nowrap" id="mwBOA">52–</span>63. <a rel="mw:WikiLink" href="./Doi_(identifier)" title="Doi (identifier)" class="mw-redirect" id="mwBOE">doi</a>:<a rel="mw:ExtLink nofollow" href="https://doi.org/10.1145%2F3759538.3759654" class="external text" id="mwBOI">10.1145/3759538.3759654</a>. <a rel="mw:WikiLink" href="./ISBN_(identifier)" title="ISBN (identifier)" class="mw-redirect" id="mwBOM">ISBN</a><span typeof="mw:Entity" id="mwBOQ"> </span><a rel="mw:WikiLink" href="./Special:BookSources/979-8-4007-2163-2" title="Special:BookSources/979-8-4007-2163-2" id="mwBOU"><bdi id="mwBOY">979-8-4007-2163-2</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=The+Conatural+Numbers+Form+an+Exponential+Commutative+Semiring&amp;rft.btitle=Proceedings+of+the+10th+ACM+SIGPLAN+International+Workshop+on+Type-Driven+Development&amp;rft.place=New+York%2C+NY%2C+USA&amp;rft.series=TyDe+%2725&amp;rft.pages=52-63&amp;rft.pub=Association+for+Computing+Machinery&amp;rft.date=2025-10-09&amp;rft_id=info%3Adoi%2F10.1145%2F3759538.3759654&amp;rft.isbn=979-8-4007-2163-2&amp;rft.aulast=Xie&amp;rft.aufirst=Szumi&amp;rft.au=Bense%2C+Viktor&amp;rft_id=https%3A%2F%2Fdoi.org%2F10.1145%2F3759538.3759654&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACorecursion" class="Z3988" about="#mwt21" id="mwBOc"></span></span></li>
+<li about="#cite_note-coalgebra-6" id="cite_note-coalgebra-6" data-mw-footnote-number="4"><span rel="mw:referencedBy" class="mw-cite-backlink" id="mwBOg"><a href="./Corecursion#cite_ref-coalgebra_6-0" id="mwBOk"><span class="mw-linkback-text" id="mwBOo">1</span></a> <a href="./Corecursion#cite_ref-coalgebra_6-1" id="mwBOs"><span class="mw-linkback-text" id="mwBOw">2</span></a> <a href="./Corecursion#cite_ref-coalgebra_6-2" id="mwBO0"><span class="mw-linkback-text" id="mwBO4">3</span></a></span> <span id="mw-reference-text-cite_note-coalgebra-6" class="mw-reference-text reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt39" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Citation/CS1/styles.css"},"body":{"extsrc":""},"parts":[{"template":{"target":{"wt":"Citation ","href":"./Template:Citation"},"params":{"last1":{"wt":"Jacobs"},"first1":{"wt":"Bart"},"chapter":{"wt":"An introduction to (co)algebra and (co)induction"},"date":{"wt":"2011"},"title":{"wt":"Advanced Topics in Bisimulation and Coinduction"},"pages":{"wt":"38–99"},"editor-last":{"wt":"Sangiorgi"},"editor-first":{"wt":"Davide"},"url":{"wt":"https://www.cambridge.org/core/books/advanced-topics-in-bisimulation-and-coinduction/an-introduction-to-coalgebra-and-coinduction/66DC248BC84647119DE50988F591481A"},"access-date":{"wt":"2026-03-14"},"series":{"wt":"Cambridge Tracts in Theoretical Computer Science"},"place":{"wt":"Cambridge"},"publisher":{"wt":"Cambridge University Press"},"doi":{"wt":"10.1017/CBO9780511792588.003"},"isbn":{"wt":"978-1-107-00497-9"},"last2":{"wt":"Rutten"},"first2":{"wt":"Jan"},"editor2-last":{"wt":"Rutten"},"editor2-first":{"wt":"Jan"}},"i":0}}]}' id="mwBO8"/><cite id="CITEREFJacobsRutten2011" class="citation cs2" about="#mwt39">Jacobs, Bart; Rutten, Jan (2011), "An introduction to (co)algebra and (co)induction", in Sangiorgi, Davide; Rutten, Jan (eds.), <a rel="mw:ExtLink nofollow" href="https://www.cambridge.org/core/books/advanced-topics-in-bisimulation-and-coinduction/an-introduction-to-coalgebra-and-coinduction/66DC248BC84647119DE50988F591481A" class="external text" id="mwBPA"><i id="mwBPE">Advanced Topics in Bisimulation and Coinduction</i></a>, Cambridge Tracts in Theoretical Computer Science, Cambridge: Cambridge University Press, pp.<span typeof="mw:Entity" id="mwBPI"> </span><span class="nowrap" id="mwBPM">38–</span>99, <a rel="mw:WikiLink" href="./Doi_(identifier)" title="Doi (identifier)" class="mw-redirect" id="mwBPQ">doi</a>:<a rel="mw:ExtLink nofollow" href="https://doi.org/10.1017%2FCBO9780511792588.003" class="external text" id="mwBPU">10.1017/CBO9780511792588.003</a>, <a rel="mw:WikiLink" href="./ISBN_(identifier)" title="ISBN (identifier)" class="mw-redirect" id="mwBPY">ISBN</a><span typeof="mw:Entity" id="mwBPc"> </span><a rel="mw:WikiLink" href="./Special:BookSources/978-1-107-00497-9" title="Special:BookSources/978-1-107-00497-9" id="mwBPg"><bdi id="mwBPk">978-1-107-00497-9</bdi></a><span class="reference-accessdate" id="mwBPo">, retrieved <span class="nowrap" id="mwBPs">2026-03-14</span></span></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=An+introduction+to+%28co%29algebra+and+%28co%29induction&amp;rft.btitle=Advanced+Topics+in+Bisimulation+and+Coinduction&amp;rft.place=Cambridge&amp;rft.series=Cambridge+Tracts+in+Theoretical+Computer+Science&amp;rft.pages=38-99&amp;rft.pub=Cambridge+University+Press&amp;rft.date=2011&amp;rft_id=info%3Adoi%2F10.1017%2FCBO9780511792588.003&amp;rft.isbn=978-1-107-00497-9&amp;rft.aulast=Jacobs&amp;rft.aufirst=Bart&amp;rft.au=Rutten%2C+Jan&amp;rft_id=https%3A%2F%2Fwww.cambridge.org%2Fcore%2Fbooks%2Fadvanced-topics-in-bisimulation-and-coinduction%2Fan-introduction-to-coalgebra-and-coinduction%2F66DC248BC84647119DE50988F591481A&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACorecursion" class="Z3988" about="#mwt39" id="mwBPw"></span></span></li>
+<li about="#cite_note-mtype-7" id="cite_note-mtype-7" data-mw-footnote-number="5"><span rel="mw:referencedBy" class="mw-cite-backlink" id="mwBP0"><a href="./Corecursion#cite_ref-mtype_7-0" id="mwBP4"><span class="mw-linkback-text" id="mwBP8">1</span></a> <a href="./Corecursion#cite_ref-mtype_7-1" id="mwBQA"><span class="mw-linkback-text" id="mwBQE">2</span></a></span> <span id="mw-reference-text-cite_note-mtype-7" class="mw-reference-text reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt34" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Citation/CS1/styles.css"},"body":{"extsrc":""},"parts":[{"template":{"target":{"wt":"Cite journal ","href":"./Template:Cite_journal"},"params":{"last1":{"wt":"van den Berg"},"first1":{"wt":"Benno"},"last2":{"wt":"De Marchi"},"first2":{"wt":"Federico"},"date":{"wt":"2007-04-01"},"title":{"wt":"Non-well-founded trees in categories"},"url":{"wt":"https://www.sciencedirect.com/science/article/pii/S0168007207000024"},"journal":{"wt":"Annals of Pure and Applied Logic"},"volume":{"wt":"146"},"issue":{"wt":"1"},"pages":{"wt":"40–59"},"doi":{"wt":"10.1016/j.apal.2006.12.001"},"issn":{"wt":"0168-0072"}},"i":0}}]}' id="mwBQI"/><cite id="CITEREFvan_den_BergDe_Marchi2007" class="citation journal cs1" about="#mwt34">van den Berg, Benno; De Marchi, Federico (2007-04-01). <a rel="mw:ExtLink nofollow" href="https://www.sciencedirect.com/science/article/pii/S0168007207000024" class="external text" id="mwBQM">"Non-well-founded trees in categories"</a>. <i id="mwBQQ">Annals of Pure and Applied Logic</i>. <b id="mwBQU">146</b> (1): <span class="nowrap" id="mwBQY">40–</span>59. <a rel="mw:WikiLink" href="./Doi_(identifier)" title="Doi (identifier)" class="mw-redirect" id="mwBQc">doi</a>:<a rel="mw:ExtLink nofollow" href="https://doi.org/10.1016%2Fj.apal.2006.12.001" class="external text" id="mwBQg">10.1016/j.apal.2006.12.001</a>. <a rel="mw:WikiLink" href="./ISSN_(identifier)" title="ISSN (identifier)" class="mw-redirect" id="mwBQk">ISSN</a><span typeof="mw:Entity" id="mwBQo"> </span><a rel="mw:ExtLink nofollow" href="https://search.worldcat.org/issn/0168-0072" class="external text" id="mwBQs">0168-0072</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Annals+of+Pure+and+Applied+Logic&amp;rft.atitle=Non-well-founded+trees+in+categories&amp;rft.volume=146&amp;rft.issue=1&amp;rft.pages=40-59&amp;rft.date=2007-04-01&amp;rft_id=info%3Adoi%2F10.1016%2Fj.apal.2006.12.001&amp;rft.issn=0168-0072&amp;rft.aulast=van+den+Berg&amp;rft.aufirst=Benno&amp;rft.au=De+Marchi%2C+Federico&amp;rft_id=https%3A%2F%2Fwww.sciencedirect.com%2Fscience%2Farticle%2Fpii%2FS0168007207000024&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACorecursion" class="Z3988" about="#mwt34" id="mwBQw"></span></span></li>
+<li about="#cite_note-8" id="cite_note-8" data-mw-footnote-number="6"><span class="mw-cite-backlink" id="mwBQ0"><a href="./Corecursion#cite_ref-8" rel="mw:referencedBy" id="mwBQ4"><span class="mw-linkback-text" id="mwBQ8">↑</span></a></span> <span id="mw-reference-text-cite_note-8" class="mw-reference-text reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt42" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Citation/CS1/styles.css"},"body":{"extsrc":""},"parts":[{"template":{"target":{"wt":"Cite journal ","href":"./Template:Cite_journal"},"params":{"last1":{"wt":"Avigad"},"first1":{"wt":"Jeremy"},"last2":{"wt":"Carneiro"},"first2":{"wt":"Mario"},"last3":{"wt":"Hudon"},"first3":{"wt":"Simon"},"date":{"wt":"2019"},"editor-last":{"wt":"Harrison"},"editor-first":{"wt":"John"},"editor2-last":{"wt":"O&apos;Leary"},"editor2-first":{"wt":"John"},"editor3-last":{"wt":"Tolmach"},"editor3-first":{"wt":"Andrew"},"title":{"wt":"Data Types as Quotients of Polynomial Functors"},"journal":{"wt":"Lipics, Volume 141, Itp 2019"},"series":{"wt":"Leibniz International Proceedings in Informatics (LIPIcs)"},"location":{"wt":"Dagstuhl, Germany"},"publisher":{"wt":"Schloss Dagstuhl – Leibniz-Zentrum für Informatik"},"volume":{"wt":"141"},"pages":{"wt":"6:1–6:19"},"doi":{"wt":"10.4230/LIPIcs.ITP.2019.6"},"isbn":{"wt":"978-3-95977-122-1"},"doi-access":{"wt":"free"}},"i":0}}]}' id="mwBRA"/><cite id="CITEREFAvigadCarneiroHudon2019" class="citation journal cs1" about="#mwt42">Avigad, Jeremy; Carneiro, Mario; Hudon, Simon (2019). Harrison, John; O'Leary, John; Tolmach, Andrew (eds.). <a rel="mw:ExtLink nofollow" href="https://doi.org/10.4230%2FLIPIcs.ITP.2019.6" class="external text" id="mwBRE">"Data Types as Quotients of Polynomial Functors"</a>. <i id="mwBRI">Lipics, Volume 141, Itp 2019</i>. Leibniz International Proceedings in Informatics (LIPIcs). <b id="mwBRM">141</b>. Dagstuhl, Germany: Schloss Dagstuhl – Leibniz-Zentrum für Informatik: 6:1–6:19. <a rel="mw:WikiLink" href="./Doi_(identifier)" title="Doi (identifier)" class="mw-redirect" id="mwBRQ">doi</a>:<span class="id-lock-free" title="Freely accessible" id="mwBRU"><a rel="mw:ExtLink nofollow" href="https://doi.org/10.4230%2FLIPIcs.ITP.2019.6" class="external text" id="mwBRY">10.4230/LIPIcs.ITP.2019.6</a></span>. <a rel="mw:WikiLink" href="./ISBN_(identifier)" title="ISBN (identifier)" class="mw-redirect" id="mwBRc">ISBN</a><span typeof="mw:Entity" id="mwBRg"> </span><a rel="mw:WikiLink" href="./Special:BookSources/978-3-95977-122-1" title="Special:BookSources/978-3-95977-122-1" id="mwBRk"><bdi id="mwBRo">978-3-95977-122-1</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Lipics%2C+Volume+141%2C+Itp+2019&amp;rft.atitle=Data+Types+as+Quotients+of+Polynomial+Functors&amp;rft.volume=141&amp;rft.pages=6%3A1-6%3A19&amp;rft.date=2019&amp;rft_id=info%3Adoi%2F10.4230%2FLIPIcs.ITP.2019.6&amp;rft.isbn=978-3-95977-122-1&amp;rft.aulast=Avigad&amp;rft.aufirst=Jeremy&amp;rft.au=Carneiro%2C+Mario&amp;rft.au=Hudon%2C+Simon&amp;rft_id=https%3A%2F%2Fdoi.org%2F10.4230%252FLIPIcs.ITP.2019.6&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACorecursion" class="Z3988" about="#mwt42" id="mwBRs"></span><span class="cs1-maint citation-comment" about="#mwt42" id="mwBRw"><code class="cs1-code" id="mwBR0">{{<a rel="mw:WikiLink" href="./Template:Cite_journal" title="Template:Cite journal" id="mwBR4">cite journal</a>}}</code>:  CS1 maint: periodical has ISBN (<a rel="mw:WikiLink" href="./Category:CS1_maint:_periodical_has_ISBN" title="Category:CS1 maint: periodical has ISBN" id="mwBR8">link</a>)</span><link rel="mw:PageProp/Category" href="./Category:CS1_maint:_periodical_has_ISBN" about="#mwt42" id="mwBSA"/></span></li>
+<li about="#cite_note-9" id="cite_note-9" data-mw-footnote-number="7"><span class="mw-cite-backlink" id="mwBSE"><a href="./Corecursion#cite_ref-9" rel="mw:referencedBy" id="mwBSI"><span class="mw-linkback-text" id="mwBSM">↑</span></a></span> <span id="mw-reference-text-cite_note-9" class="mw-reference-text reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt87" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Citation/CS1/styles.css"},"body":{"extsrc":""},"parts":[{"template":{"target":{"wt":"Cite journal ","href":"./Template:Cite_journal"},"params":{"last":{"wt":"Rutten"},"first":{"wt":"J. J. M. M."},"date":{"wt":"2000-10-17"},"title":{"wt":"Universal coalgebra: a theory of systems"},"journal":{"wt":"Theoretical Computer Science"},"series":{"wt":"Modern Algebra"},"volume":{"wt":"249"},"issue":{"wt":"1"},"pages":{"wt":"3–80"},"doi":{"wt":"10.1016/S0304-3975(00)00056-6"},"issn":{"wt":"0304-3975"},"doi-access":{"wt":"free"}},"i":0}}]}' id="mwBSQ"/><cite id="CITEREFRutten2000" class="citation journal cs1" about="#mwt87">Rutten, J. J. M. M. (2000-10-17). <a rel="mw:ExtLink nofollow" href="https://doi.org/10.1016%2FS0304-3975%2800%2900056-6" class="external text" id="mwBSU">"Universal coalgebra: a theory of systems"</a>. <i id="mwBSY">Theoretical Computer Science</i>. Modern Algebra. <b id="mwBSc">249</b> (1): <span class="nowrap" id="mwBSg">3–</span>80. <a rel="mw:WikiLink" href="./Doi_(identifier)" title="Doi (identifier)" class="mw-redirect" id="mwBSk">doi</a>:<span class="id-lock-free" title="Freely accessible" id="mwBSo"><a rel="mw:ExtLink nofollow" href="https://doi.org/10.1016%2FS0304-3975%2800%2900056-6" class="external text" id="mwBSs">10.1016/S0304-3975(00)00056-6</a></span>. <a rel="mw:WikiLink" href="./ISSN_(identifier)" title="ISSN (identifier)" class="mw-redirect" id="mwBSw">ISSN</a><span typeof="mw:Entity" id="mwBS0"> </span><a rel="mw:ExtLink nofollow" href="https://search.worldcat.org/issn/0304-3975" class="external text" id="mwBS4">0304-3975</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Theoretical+Computer+Science&amp;rft.atitle=Universal+coalgebra%3A+a+theory+of+systems&amp;rft.volume=249&amp;rft.issue=1&amp;rft.pages=3-80&amp;rft.date=2000-10-17&amp;rft_id=info%3Adoi%2F10.1016%2FS0304-3975%2800%2900056-6&amp;rft.issn=0304-3975&amp;rft.aulast=Rutten&amp;rft.aufirst=J.+J.+M.+M.&amp;rft_id=https%3A%2F%2Fdoi.org%2F10.1016%252FS0304-3975%252800%252900056-6&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACorecursion" class="Z3988" about="#mwt87" id="mwBS8"></span></span></li>
+<li about="#cite_note-10" id="cite_note-10" data-mw-footnote-number="8"><span class="mw-cite-backlink" id="mwBTA"><a href="./Corecursion#cite_ref-10" rel="mw:referencedBy" id="mwBTE"><span class="mw-linkback-text" id="mwBTI">↑</span></a></span> <span id="mw-reference-text-cite_note-10" class="mw-reference-text reference-text">Barwise and Moss 1996.</span></li>
+<li about="#cite_note-11" id="cite_note-11" data-mw-footnote-number="9"><span class="mw-cite-backlink" id="mwBTM"><a href="./Corecursion#cite_ref-11" rel="mw:referencedBy" id="mwBTQ"><span class="mw-linkback-text" id="mwBTU">↑</span></a></span> <span id="mw-reference-text-cite_note-11" class="mw-reference-text reference-text">Moss and Danner 1997.</span></li>
+<li about="#cite_note-12" id="cite_note-12" data-mw-footnote-number="10"><span class="mw-cite-backlink" id="mwBTY"><a href="./Corecursion#cite_ref-12" rel="mw:referencedBy" id="mwBTc"><span class="mw-linkback-text" id="mwBTg">↑</span></a></span> <span id="mw-reference-text-cite_note-12" class="mw-reference-text reference-text">Smyth and Plotkin 1982.</span></li>
+</ol></div>
+<span class="mw-empty-elt" about="#mwt101" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"refbegin","href":"./Template:Refbegin"},"params":{},"i":0}},"\n* ",{"template":{"target":{"wt":"Cite journal ","href":"./Template:Cite_journal"},"params":{"last":{"wt":"Bird"},"first":{"wt":"Richard Simpson"},"author-link":{"wt":"Richard Bird (computer scientist)"},"title":{"wt":"Using circular programs to eliminate multiple traversals of data"},"doi":{"wt":"10.1007/BF00264249"},"journal":{"wt":"[[Acta Informatica]]"},"volume":{"wt":"21"},"issue":{"wt":"3"},"pages":{"wt":"239–250"},"year":{"wt":"1984"},"s2cid":{"wt":"27392591"}},"i":1}},"\n* ",{"template":{"target":{"wt":"cite journal\n","href":"./Template:Cite_journal"},"params":{"doi":{"wt":"10.1002/spe.4380190202"},"first":{"wt":"Lloyd"},"last":{"wt":"Allison"},"date":{"wt":"April 1989"},"title":{"wt":"Circular Programs and Self-Referential Structures"},"url":{"wt":"http://www.csse.monash.edu.au/~lloyd/tildeFP/1989SPE/"},"journal":{"wt":"Software: Practice and Experience"},"volume":{"wt":"19"},"issue":{"wt":"2"},"pages":{"wt":"99–109"},"s2cid":{"wt":"21298473"},"arxiv":{"wt":"2403.01866"}},"i":2}},"\n* ",{"template":{"target":{"wt":"cite tech report\n","href":"./Template:Cite_tech_report"},"params":{"author":{"wt":"Geraint Jones and [[Jeremy Gibbons]]"},"title":{"wt":"Linear-time breadth-first tree algorithms: An exercise in the arithmetic of folds and zips"},"institution":{"wt":"Dept of Computer Science, University of Auckland"},"year":{"wt":"1992"},"url":{"wt":"http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.32.5446"}},"i":3}},"\n* ",{"template":{"target":{"wt":"cite book ","href":"./Template:Cite_book"},"params":{"author1":{"wt":"Jon Barwise"},"author2":{"wt":"Lawrence S. Moss"},"title":{"wt":"Vicious Circles"},"url":{"wt":"http://www.press.uchicago.edu/presssite/metadata.epl?mode=synopsis&amp;bookkey=3630257"},"publisher":{"wt":"Center for the Study of Language and Information"},"date":{"wt":"June 1996"},"isbn":{"wt":"978-1-57586-009-1"},"author1-link":{"wt":"Jon Barwise"},"access-date":{"wt":"2011-01-24"},"archive-url":{"wt":"https://web.archive.org/web/20100621142601/http://www.press.uchicago.edu/presssite/metadata.epl?mode=synopsis&amp;bookkey=3630257"},"archive-date":{"wt":"2010-06-21"},"url-status":{"wt":"dead"}},"i":4}},"\n* ",{"template":{"target":{"wt":"cite journal\n","href":"./Template:Cite_journal"},"params":{"doi":{"wt":"10.1093/jigpal/5.2.231"},"author1":{"wt":"Lawrence S. Moss"},"author2":{"wt":"Norman Danner"},"title":{"wt":"On the Foundations of Corecursion"},"journal":{"wt":"Logic Journal of the IGPL"},"volume":{"wt":"5"},"issue":{"wt":"2"},"pages":{"wt":"231–257"},"year":{"wt":"1997"},"citeseerx":{"wt":"10.1.1.40.4243"}},"i":5}},"\n* ",{"template":{"target":{"wt":"cite book\n","href":"./Template:Cite_book"},"params":{"author1":{"wt":"Kees Doets"},"author2":{"wt":"Jan van Eijck"},"title":{"wt":"The Haskell Road to Logic, Maths, and Programming"},"url":{"wt":"http://homepages.cwi.nl/~jve/HR/"},"publisher":{"wt":"King&apos;s College Publications"},"date":{"wt":"May 2004"},"isbn":{"wt":"978-0-9543006-9-2"}},"i":6}},"\n* ",{"template":{"target":{"wt":"cite journal\n","href":"./Template:Cite_journal"},"params":{"author":{"wt":"David Turner"},"date":{"wt":"2004-07-28"},"title":{"wt":"Total Functional Programming"},"url":{"wt":"http://www.jucs.org/jucs_10_7/total_functional_programming"},"journal":{"wt":"[[Journal of Universal Computer Science]]"},"volume":{"wt":"10"},"issue":{"wt":"7"},"pages":{"wt":"751–768"},"doi":{"wt":"10.3217/jucs-010-07-0751"},"author-link":{"wt":"David Turner (computer scientist)"}},"i":7}},"\n* ",{"template":{"target":{"wt":"cite journal\n","href":"./Template:Cite_journal"},"params":{"author1":{"wt":"Jeremy Gibbons"},"author2":{"wt":"Graham Hutton"},"title":{"wt":"Proof methods for corecursive programs"},"journal":{"wt":"[[Fundamenta Informaticae]]"},"volume":{"wt":"66"},"issue":{"wt":"4"},"pages":{"wt":"353–366"},"date":{"wt":"April 2005"},"url":{"wt":"http://www.cs.nott.ac.uk/~gmh/bib.html#corecursion"}},"i":8}},"\n* ",{"template":{"target":{"wt":"citation\n","href":"./Template:Citation"},"params":{"author":{"wt":"Leon P. Smith"},"date":{"wt":"2009-07-29"},"title":{"wt":"Lloyd Allison&apos;s Corecursive Queues: Why Continuations Matter"},"url":{"wt":"http://themonadreader.wordpress.com/2009/07/29/issue-14/"},"journal":{"wt":"The Monad Reader"},"issue":{"wt":"14"},"pages":{"wt":"37–68"}},"i":9}},"\n* ",{"template":{"target":{"wt":"cite web\n","href":"./Template:Cite_web"},"params":{"author":{"wt":"Raymond Hettinger"},"title":{"wt":"Recipe 576961: Technique for cyclical iteration"},"url":{"wt":"http://code.activestate.com/recipes/576961/"},"date":{"wt":"2009-11-19"}},"i":10}},"\n* ",{"template":{"target":{"wt":"cite journal\n","href":"./Template:Cite_journal"},"params":{"author":{"wt":"M. B. Smyth and [[Gordon Plotkin|G. D. Plotkin]]"},"year":{"wt":"1982"},"title":{"wt":"The Category-Theoretic Solution of Recursive Domain Equations"},"journal":{"wt":"[[SIAM Journal on Computing]]"},"volume":{"wt":"11"},"issue":{"wt":"4"},"pages":{"wt":"761–783"},"doi":{"wt":"10.1137/0211062"},"s2cid":{"wt":"8517995"},"url":{"wt":"http://wrap.warwick.ac.uk/46312/1/WRAP_Smyth_cs-rr-014.pdf"}},"i":11}},"\n* ",{"template":{"target":{"wt":"cite book\n","href":"./Template:Cite_book"},"params":{"author1":{"wt":"Leclerc, Francois"},"author2":{"wt":"Paulin-Mohring, Christine"},"author2link":{"wt":"Christine Paulin-Mohring"},"title":{"wt":"Programming with Streams in Coq: A Case Study: the Sieve of Eratosthenes"},"series":{"wt":"Types for Proofs and Programs: International Workshop TYPES &apos;93."},"year":{"wt":"1993"},"isbn":{"wt":"978-3-540-58085-0"},"pages":{"wt":"191–212"},"url":{"wt":"http://dl.acm.org/citation.cfm?id=189973.189981"},"publisher":{"wt":"Springer-Verlag New York, Inc."}},"i":12}},"\n",{"template":{"target":{"wt":"refend","href":"./Template:Refend"},"params":{},"i":13}}]}' id="mwBTk"><style data-mw-deduplicate="TemplateStyles:r1365158831" typeof="mw:Extension/templatestyles" about="#mwt102" data-mw='{"name":"templatestyles","attrs":{"src":"Refbegin/styles.css"}}'>.mw-parser-output .refbegin{margin-bottom:0.5em}.mw-parser-output .refbegin-hanging-indents>ul,.mw-parser-output .refbegin-hanging-indents section>ul{margin-left:0}.mw-parser-output .refbegin-hanging-indents>ul>li,.mw-parser-output .refbegin-hanging-indents section>ul>li{margin-left:0;padding-left:3.2em;text-indent:-3.2em}.mw-parser-output .refbegin-hanging-indents ul,.mw-parser-output .refbegin-hanging-indents ul li{list-style:none}@media(max-width:720px){.mw-parser-output .refbegin-hanging-indents>ul>li,.mw-parser-output .refbegin-hanging-indents section>ul>li{padding-left:1.6em;text-indent:-1.6em}}.mw-parser-output .refbegin-columns{margin-top:0.3em}.mw-parser-output .refbegin-columns ul{margin-top:0}.mw-parser-output .refbegin-columns li{page-break-inside:avoid;break-inside:avoid-column}@media screen{.mw-parser-output .refbegin{font-size:90%}}</style></span><div class="refbegin  
+    " style="" about="#mwt101" id="mwBTo">
+<ul><li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt104" typeof="mw:Extension/templatestyles" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Citation/CS1/styles.css"},"body":{"extsrc":""}}'/><cite id="CITEREFBird1984" class="citation journal cs1"><a rel="mw:WikiLink" href="./Richard_Bird_(computer_scientist)" title="Richard Bird (computer scientist)">Bird, Richard Simpson</a> (1984). "Using circular programs to eliminate multiple traversals of data". <i><a rel="mw:WikiLink" href="./Acta_Informatica" title="Acta Informatica">Acta Informatica</a></i>. <b>21</b> (3): <span class="nowrap">239–</span>250. <a rel="mw:WikiLink" href="./Doi_(identifier)" title="Doi (identifier)" class="mw-redirect">doi</a>:<a rel="mw:ExtLink nofollow" href="https://doi.org/10.1007%2FBF00264249" class="external text">10.1007/BF00264249</a>. <a rel="mw:WikiLink" href="./S2CID_(identifier)" title="S2CID (identifier)" class="mw-redirect">S2CID</a><span typeof="mw:Entity"> </span><a rel="mw:ExtLink nofollow" href="https://api.semanticscholar.org/CorpusID:27392591" class="external text">27392591</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Acta+Informatica&amp;rft.atitle=Using+circular+programs+to+eliminate+multiple+traversals+of+data&amp;rft.volume=21&amp;rft.issue=3&amp;rft.pages=239-250&amp;rft.date=1984&amp;rft_id=info%3Adoi%2F10.1007%2FBF00264249&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A27392591%23id-name%3DS2CID&amp;rft.aulast=Bird&amp;rft.aufirst=Richard+Simpson&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACorecursion" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt106" typeof="mw:Extension/templatestyles" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Citation/CS1/styles.css"},"body":{"extsrc":""}}'/><cite id="CITEREFAllison1989" class="citation journal cs1">Allison, Lloyd (April 1989). <a rel="mw:ExtLink nofollow" href="http://www.csse.monash.edu.au/~lloyd/tildeFP/1989SPE/" class="external text">"Circular Programs and Self-Referential Structures"</a>. <i>Software: Practice and Experience</i>. <b>19</b> (2): <span class="nowrap">99–</span>109. <a rel="mw:WikiLink" href="./ArXiv_(identifier)" title="ArXiv (identifier)" class="mw-redirect">arXiv</a>:<span class="id-lock-free" title="Freely accessible"><a rel="mw:ExtLink nofollow" href="https://arxiv.org/abs/2403.01866" class="external text">2403.01866</a></span>. <a rel="mw:WikiLink" href="./Doi_(identifier)" title="Doi (identifier)" class="mw-redirect">doi</a>:<a rel="mw:ExtLink nofollow" href="https://doi.org/10.1002%2Fspe.4380190202" class="external text">10.1002/spe.4380190202</a>. <a rel="mw:WikiLink" href="./S2CID_(identifier)" title="S2CID (identifier)" class="mw-redirect">S2CID</a><span typeof="mw:Entity"> </span><a rel="mw:ExtLink nofollow" href="https://api.semanticscholar.org/CorpusID:21298473" class="external text">21298473</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Software%3A+Practice+and+Experience&amp;rft.atitle=Circular+Programs+and+Self-Referential+Structures&amp;rft.volume=19&amp;rft.issue=2&amp;rft.pages=99-109&amp;rft.date=1989-04&amp;rft_id=info%3Aarxiv%2F2403.01866&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A21298473%23id-name%3DS2CID&amp;rft_id=info%3Adoi%2F10.1002%2Fspe.4380190202&amp;rft.aulast=Allison&amp;rft.aufirst=Lloyd&amp;rft_id=http%3A%2F%2Fwww.csse.monash.edu.au%2F~lloyd%2FtildeFP%2F1989SPE%2F&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACorecursion" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt108" typeof="mw:Extension/templatestyles" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Citation/CS1/styles.css"},"body":{"extsrc":""}}'/><cite id="CITEREFGeraint_Jones_and_Jeremy_Gibbons1992" class="citation techreport cs1">Geraint Jones and <a rel="mw:WikiLink" href="./Jeremy_Gibbons" title="Jeremy Gibbons">Jeremy Gibbons</a> (1992). <a rel="mw:ExtLink nofollow" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.32.5446" class="external text"><i>Linear-time breadth-first tree algorithms: An exercise in the arithmetic of folds and zips</i></a> (Technical report). Dept of Computer Science, University of Auckland.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=report&amp;rft.btitle=Linear-time+breadth-first+tree+algorithms%3A+An+exercise+in+the+arithmetic+of+folds+and+zips&amp;rft.pub=Dept+of+Computer+Science%2C+University+of+Auckland&amp;rft.date=1992&amp;rft.au=Geraint+Jones+and+Jeremy+Gibbons&amp;rft_id=http%3A%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.32.5446&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACorecursion" class="Z3988"></span><span class="cs1-maint citation-comment"><code class="cs1-code">{{<a rel="mw:WikiLink" href="./Template:Cite_tech_report" title="Template:Cite tech report">cite tech report</a>}}</code>:  CS1 maint: miscellaneous url (<a rel="mw:WikiLink" href="./Category:CS1_maint:_miscellaneous_url" title="Category:CS1 maint: miscellaneous url">link</a>)</span><link rel="mw:PageProp/Category" href="./Category:CS1_maint:_miscellaneous_url"/></li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt111" typeof="mw:Extension/templatestyles" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Citation/CS1/styles.css"},"body":{"extsrc":""}}'/><cite id="CITEREFJon_BarwiseLawrence_S._Moss1996" class="citation book cs1"><a rel="mw:WikiLink" href="./Jon_Barwise" title="Jon Barwise">Jon Barwise</a>; Lawrence S. Moss (June 1996). <a rel="mw:ExtLink nofollow" href="https://web.archive.org/web/20100621142601/http://www.press.uchicago.edu/presssite/metadata.epl?mode=synopsis&amp;bookkey=3630257" class="external text"><i>Vicious Circles</i></a>. Center for the Study of Language and Information. <a rel="mw:WikiLink" href="./ISBN_(identifier)" title="ISBN (identifier)" class="mw-redirect">ISBN</a><span typeof="mw:Entity"> </span><a rel="mw:WikiLink" href="./Special:BookSources/978-1-57586-009-1" title="Special:BookSources/978-1-57586-009-1"><bdi>978-1-57586-009-1</bdi></a>. Archived from <a rel="mw:ExtLink nofollow" href="http://www.press.uchicago.edu/presssite/metadata.epl?mode=synopsis&amp;bookkey=3630257" class="external text">the original</a> on 2010-06-21<span class="reference-accessdate">. Retrieved <span class="nowrap">2011-01-24</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Vicious+Circles&amp;rft.pub=Center+for+the+Study+of+Language+and+Information&amp;rft.date=1996-06&amp;rft.isbn=978-1-57586-009-1&amp;rft.au=Jon+Barwise&amp;rft.au=Lawrence+S.+Moss&amp;rft_id=http%3A%2F%2Fwww.press.uchicago.edu%2Fpresssite%2Fmetadata.epl%3Fmode%3Dsynopsis%26bookkey%3D3630257&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACorecursion" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt113" typeof="mw:Extension/templatestyles" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Citation/CS1/styles.css"},"body":{"extsrc":""}}'/><cite id="CITEREFLawrence_S._MossNorman_Danner1997" class="citation journal cs1">Lawrence S. Moss; Norman Danner (1997). "On the Foundations of Corecursion". <i>Logic Journal of the IGPL</i>. <b>5</b> (2): <span class="nowrap">231–</span>257. <a rel="mw:WikiLink" href="./CiteSeerX_(identifier)" title="CiteSeerX (identifier)" class="mw-redirect">CiteSeerX</a><span typeof="mw:Entity"> </span><span class="id-lock-free" title="Freely accessible"><a rel="mw:ExtLink nofollow" href="https://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.40.4243" class="external text">10.1.1.40.4243</a></span>. <a rel="mw:WikiLink" href="./Doi_(identifier)" title="Doi (identifier)" class="mw-redirect">doi</a>:<a rel="mw:ExtLink nofollow" href="https://doi.org/10.1093%2Fjigpal%2F5.2.231" class="external text">10.1093/jigpal/5.2.231</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Logic+Journal+of+the+IGPL&amp;rft.atitle=On+the+Foundations+of+Corecursion&amp;rft.volume=5&amp;rft.issue=2&amp;rft.pages=231-257&amp;rft.date=1997&amp;rft_id=https%3A%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.40.4243%23id-name%3DCiteSeerX&amp;rft_id=info%3Adoi%2F10.1093%2Fjigpal%2F5.2.231&amp;rft.au=Lawrence+S.+Moss&amp;rft.au=Norman+Danner&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACorecursion" class="Z3988"></span> <span class="cs1-visible-error citation-comment"><code class="cs1-code">{{<a rel="mw:WikiLink" href="./Template:Cite_journal" title="Template:Cite journal">cite journal</a>}}</code>: </span><span class="cs1-visible-error citation-comment">Cite uses deprecated parameter <code class="cs1-code"><span typeof="mw:Entity">|</span>citeseerx=</code> (<a rel="mw:WikiLink" href="./Help:CS1_errors#deprecated_params" title="Help:CS1 errors">help</a>)</span><link rel="mw:PageProp/Category" href="./Category:CS1_errors:_deprecated_parameters"/></li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt116" typeof="mw:Extension/templatestyles" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Citation/CS1/styles.css"},"body":{"extsrc":""}}'/><cite id="CITEREFKees_DoetsJan_van_Eijck2004" class="citation book cs1">Kees Doets; Jan van Eijck (May 2004). <a rel="mw:ExtLink nofollow" href="http://homepages.cwi.nl/~jve/HR/" class="external text"><i>The Haskell Road to Logic, Maths, and Programming</i></a>. King's College Publications. <a rel="mw:WikiLink" href="./ISBN_(identifier)" title="ISBN (identifier)" class="mw-redirect">ISBN</a><span typeof="mw:Entity"> </span><a rel="mw:WikiLink" href="./Special:BookSources/978-0-9543006-9-2" title="Special:BookSources/978-0-9543006-9-2"><bdi>978-0-9543006-9-2</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=The+Haskell+Road+to+Logic%2C+Maths%2C+and+Programming&amp;rft.pub=King%27s+College+Publications&amp;rft.date=2004-05&amp;rft.isbn=978-0-9543006-9-2&amp;rft.au=Kees+Doets&amp;rft.au=Jan+van+Eijck&amp;rft_id=http%3A%2F%2Fhomepages.cwi.nl%2F~jve%2FHR%2F&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACorecursion" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt118" typeof="mw:Extension/templatestyles" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Citation/CS1/styles.css"},"body":{"extsrc":""}}'/><cite id="CITEREFDavid_Turner2004" class="citation journal cs1"><a rel="mw:WikiLink" href="./David_Turner_(computer_scientist)" title="David Turner (computer scientist)">David Turner</a> (2004-07-28). <a rel="mw:ExtLink nofollow" href="http://www.jucs.org/jucs_10_7/total_functional_programming" class="external text">"Total Functional Programming"</a>. <i><a rel="mw:WikiLink" href="./Journal_of_Universal_Computer_Science" title="Journal of Universal Computer Science">Journal of Universal Computer Science</a></i>. <b>10</b> (7): <span class="nowrap">751–</span>768. <a rel="mw:WikiLink" href="./Doi_(identifier)" title="Doi (identifier)" class="mw-redirect">doi</a>:<a rel="mw:ExtLink nofollow" href="https://doi.org/10.3217%2Fjucs-010-07-0751" class="external text">10.3217/jucs-010-07-0751</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+Universal+Computer+Science&amp;rft.atitle=Total+Functional+Programming&amp;rft.volume=10&amp;rft.issue=7&amp;rft.pages=751-768&amp;rft.date=2004-07-28&amp;rft_id=info%3Adoi%2F10.3217%2Fjucs-010-07-0751&amp;rft.au=David+Turner&amp;rft_id=http%3A%2F%2Fwww.jucs.org%2Fjucs_10_7%2Ftotal_functional_programming&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACorecursion" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt120" typeof="mw:Extension/templatestyles" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Citation/CS1/styles.css"},"body":{"extsrc":""}}'/><cite id="CITEREFJeremy_GibbonsGraham_Hutton2005" class="citation journal cs1">Jeremy Gibbons; Graham Hutton (April 2005). <a rel="mw:ExtLink nofollow" href="http://www.cs.nott.ac.uk/~gmh/bib.html#corecursion" class="external text">"Proof methods for corecursive programs"</a>. <i><a rel="mw:WikiLink" href="./Fundamenta_Informaticae" title="Fundamenta Informaticae">Fundamenta Informaticae</a></i>. <b>66</b> (4): <span class="nowrap">353–</span>366.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Fundamenta+Informaticae&amp;rft.atitle=Proof+methods+for+corecursive+programs&amp;rft.volume=66&amp;rft.issue=4&amp;rft.pages=353-366&amp;rft.date=2005-04&amp;rft.au=Jeremy+Gibbons&amp;rft.au=Graham+Hutton&amp;rft_id=http%3A%2F%2Fwww.cs.nott.ac.uk%2F~gmh%2Fbib.html%23corecursion&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACorecursion" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt122" typeof="mw:Extension/templatestyles" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Citation/CS1/styles.css"},"body":{"extsrc":""}}'/><cite id="CITEREFLeon_P._Smith2009" class="citation cs2">Leon P. Smith (2009-07-29), <a rel="mw:ExtLink nofollow" href="http://themonadreader.wordpress.com/2009/07/29/issue-14/" class="external text">"Lloyd Allison's Corecursive Queues: Why Continuations Matter"</a>, <i>The Monad Reader</i> (14): <span class="nowrap">37–</span>68</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=The+Monad+Reader&amp;rft.atitle=Lloyd+Allison%27s+Corecursive+Queues%3A+Why+Continuations+Matter&amp;rft.issue=14&amp;rft.pages=37-68&amp;rft.date=2009-07-29&amp;rft.au=Leon+P.+Smith&amp;rft_id=http%3A%2F%2Fthemonadreader.wordpress.com%2F2009%2F07%2F29%2Fissue-14%2F&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACorecursion" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt124" typeof="mw:Extension/templatestyles" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Citation/CS1/styles.css"},"body":{"extsrc":""}}'/><cite id="CITEREFRaymond_Hettinger2009" class="citation web cs1">Raymond Hettinger (2009-11-19). <a rel="mw:ExtLink nofollow" href="http://code.activestate.com/recipes/576961/" class="external text">"Recipe 576961: Technique for cyclical iteration"</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Recipe+576961%3A+Technique+for+cyclical+iteration&amp;rft.date=2009-11-19&amp;rft.au=Raymond+Hettinger&amp;rft_id=http%3A%2F%2Fcode.activestate.com%2Frecipes%2F576961%2F&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACorecursion" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt126" typeof="mw:Extension/templatestyles" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Citation/CS1/styles.css"},"body":{"extsrc":""}}'/><cite id="CITEREFM._B._Smyth_and_G._D._Plotkin1982" class="citation journal cs1">M. B. Smyth and <a rel="mw:WikiLink" href="./Gordon_Plotkin" title="Gordon Plotkin">G. D. Plotkin</a> (1982). <a rel="mw:ExtLink nofollow" href="http://wrap.warwick.ac.uk/46312/1/WRAP_Smyth_cs-rr-014.pdf" class="external text">"The Category-Theoretic Solution of Recursive Domain Equations"</a> <span class="cs1-format">(PDF)</span>. <i><a rel="mw:WikiLink" href="./SIAM_Journal_on_Computing" title="SIAM Journal on Computing">SIAM Journal on Computing</a></i>. <b>11</b> (4): <span class="nowrap">761–</span>783. <a rel="mw:WikiLink" href="./Doi_(identifier)" title="Doi (identifier)" class="mw-redirect">doi</a>:<a rel="mw:ExtLink nofollow" href="https://doi.org/10.1137%2F0211062" class="external text">10.1137/0211062</a>. <a rel="mw:WikiLink" href="./S2CID_(identifier)" title="S2CID (identifier)" class="mw-redirect">S2CID</a><span typeof="mw:Entity"> </span><a rel="mw:ExtLink nofollow" href="https://api.semanticscholar.org/CorpusID:8517995" class="external text">8517995</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=SIAM+Journal+on+Computing&amp;rft.atitle=The+Category-Theoretic+Solution+of+Recursive+Domain+Equations&amp;rft.volume=11&amp;rft.issue=4&amp;rft.pages=761-783&amp;rft.date=1982&amp;rft_id=info%3Adoi%2F10.1137%2F0211062&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A8517995%23id-name%3DS2CID&amp;rft.au=M.+B.+Smyth+and+G.+D.+Plotkin&amp;rft_id=http%3A%2F%2Fwrap.warwick.ac.uk%2F46312%2F1%2FWRAP_Smyth_cs-rr-014.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACorecursion" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt128" typeof="mw:Extension/templatestyles" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Citation/CS1/styles.css"},"body":{"extsrc":""}}'/><cite id="CITEREFLeclerc,_FrancoisPaulin-Mohring,_Christine1993" class="citation book cs1">Leclerc, Francois; <a rel="mw:WikiLink" href="./Christine_Paulin-Mohring" title="Christine Paulin-Mohring">Paulin-Mohring, Christine</a> (1993). <a rel="mw:ExtLink nofollow" href="http://dl.acm.org/citation.cfm?id=189973.189981" class="external text"><i>Programming with Streams in Coq: A Case Study: the Sieve of Eratosthenes</i></a>. Types for Proofs and Programs: International Workshop TYPES '93. Springer-Verlag New York, Inc. pp.<span typeof="mw:Entity"> </span><span class="nowrap">191–</span>212. <a rel="mw:WikiLink" href="./ISBN_(identifier)" title="ISBN (identifier)" class="mw-redirect">ISBN</a><span typeof="mw:Entity"> </span><a rel="mw:WikiLink" href="./Special:BookSources/978-3-540-58085-0" title="Special:BookSources/978-3-540-58085-0"><bdi>978-3-540-58085-0</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Programming+with+Streams+in+Coq%3A+A+Case+Study%3A+the+Sieve+of+Eratosthenes&amp;rft.series=Types+for+Proofs+and+Programs%3A+International+Workshop+TYPES+%2793.&amp;rft.pages=191-212&amp;rft.pub=Springer-Verlag+New+York%2C+Inc.&amp;rft.date=1993&amp;rft.isbn=978-3-540-58085-0&amp;rft.au=Leclerc%2C+Francois&amp;rft.au=Paulin-Mohring%2C+Christine&amp;rft_id=http%3A%2F%2Fdl.acm.org%2Fcitation.cfm%3Fid%3D189973.189981&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACorecursion" class="Z3988"></span></li></ul>
+</div>
+
+<link rel="mw:PageProp/Category" href="./Category:Theoretical_computer_science" id="mwBTs"/>
+<link rel="mw:PageProp/Category" href="./Category:Self-reference" id="mwBTw"/>
+<link rel="mw:PageProp/Category" href="./Category:Articles_with_example_Haskell_code" id="mwBT0"/>
+<link rel="mw:PageProp/Category" href="./Category:Articles_with_example_Python_(programming_language)_code" id="mwBT4"/>
+<link rel="mw:PageProp/Category" href="./Category:Functional_programming" id="mwBT8"/>
+<link rel="mw:PageProp/Category" href="./Category:Category_theory" id="mwBUA"/>
+<link rel="mw:PageProp/Category" href="./Category:Recursion" id="mwBUE"/></section></body></html>

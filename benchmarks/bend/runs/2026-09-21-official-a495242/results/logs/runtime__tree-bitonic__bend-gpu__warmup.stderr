@@ -1,0 +1,19 @@
+bend: compiling the GPU program (/private/tmp/bend-bench-20260921/build/tree-bitonic/bend-gpu.gpu is missing or stale)
+        5.40 real         0.03 user         0.06 sys
+            14974976  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                1168  page reclaims
+                  11  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                  14  voluntary context switches
+                2227  involuntary context switches
+           362322041  instructions retired
+           252300298  cycles elapsed
+            28558008  peak memory footprint

@@ -1,0 +1,3 @@
+suite,bench,lane,phase,status,wall_s,max_rss_mib,output_match
+compiler,lexer,bend,warmup,ok,1.878333542,163.359375,
+compiler,lexer,bend,timed,ok,0.6193563339999999,107.890625,

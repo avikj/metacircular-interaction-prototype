@@ -1,0 +1,96 @@
+
+<--- Last few GCs --->
+
+[17868:0xa0680c000]    51587 ms: Scavenge (interleaved) 1901.6 (1935.1) -> 1888.8 (2016.6) MB, pooled: 0 MB, 10.58 / 0.00 ms  (average mu = 0.255, current mu = 0.203) allocation failure; 
+[17868:0xa0680c000]    52218 ms: Mark-Compact (reduce) 1889.0 (2016.6) -> 1849.6 (1867.1) MB, pooled: 0 MB, 629.42 / 0.00 ms  (+ 0.5 ms in 3 steps since start of marking, biggest step 0.4 ms, walltime since start of marking 631 ms) (average mu = 0.224, cu
+FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
+----- Native stack trace -----
+
+ 1: 0x102d0bf44 node::(anonymous namespace)::DefaultAbortHandler(char const*, char const*) [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+ 2: 0x102d0c1a8 node::OOMErrorHandler(char const*, v8::OOMDetails const&) [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+ 3: 0x102f8f2d0 v8::internal::V8::FatalProcessOutOfMemory(v8::internal::Isolate*, char const*, v8::OOMDetails const&) [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+ 4: 0x1031ee784 v8::internal::Heap::stack() [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+ 5: 0x1031f1b58 v8::internal::Heap::HasLowYoungGenerationAllocationRate() [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+ 6: 0x103202d4c v8::internal::Heap::CollectGarbage(v8::internal::AllocationSpace, v8::internal::GarbageCollectionReason, v8::GCCallbackFlags)::$_1::operator()() const [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+ 7: 0x103202620 void heap::base::Stack::SetMarkerAndCallbackImpl<v8::internal::Heap::CollectGarbage(v8::internal::AllocationSpace, v8::internal::GarbageCollectionReason, v8::GCCallbackFlags)::$_1>(heap::base::Stack*, void*, void const*) [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+ 8: 0x103bc8e30 PushAllRegistersAndIterateStack [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+ 9: 0x1031ec488 v8::internal::Heap::CollectGarbage(v8::internal::AllocationSpace, v8::internal::GarbageCollectionReason, v8::GCCallbackFlags) [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+10: 0x103163e4c v8::internal::StackGuard::HandleInterrupts(v8::internal::StackGuard::InterruptLevel) [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+11: 0x103651aec v8::internal::Runtime_StackGuardWithGap(int, unsigned long*, v8::internal::Isolate*) [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+12: 0x103cba234 Builtins_CEntry_Return1_ArgvOnStack_NoBuiltinExit [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+13: 0x126cc1d94 
+14: 0x126cc1b70 
+15: 0x126cc1b70 
+16: 0x126cc1b70 
+17: 0x126cc1af0 
+18: 0x126cc1af0 
+19: 0x126cc1b70 
+20: 0x126cc1b70 
+21: 0x126cc1b70 
+22: 0x126cc2db0 
+23: 0x126cc275c 
+24: 0x126cc3008 
+25: 0x126cc26e0 
+26: 0x126cc3008 
+27: 0x126cc275c 
+28: 0x126cc3008 
+29: 0x126cc26e0 
+30: 0x126cc3008 
+31: 0x126cc26e0 
+32: 0x126cc3008 
+33: 0x126cc26e0 
+34: 0x126cc3008 
+35: 0x126cc26e0 
+36: 0x126cc3008 
+37: 0x126cc275c 
+38: 0x126cc3008 
+39: 0x126cc275c 
+40: 0x126cc3008 
+41: 0x126cc26e0 
+42: 0x126cc3008 
+43: 0x126cc26e0 
+44: 0x126cc3008 
+45: 0x126cc26e0 
+46: 0x126cc3008 
+47: 0x126cc0b38 
+48: 0x103c1cbec Builtins_InterpreterEntryTrampoline [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+49: 0x103c1cbec Builtins_InterpreterEntryTrampoline [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+50: 0x103c1cbec Builtins_InterpreterEntryTrampoline [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+51: 0x103c1cbec Builtins_InterpreterEntryTrampoline [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+52: 0x103c1cbec Builtins_InterpreterEntryTrampoline [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+53: 0x103c1cbec Builtins_InterpreterEntryTrampoline [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+54: 0x103c1cbec Builtins_InterpreterEntryTrampoline [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+55: 0x103c1cbec Builtins_InterpreterEntryTrampoline [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+56: 0x103c1cbec Builtins_InterpreterEntryTrampoline [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+57: 0x103c1a8cc Builtins_JSEntryTrampoline [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+58: 0x103c1a570 Builtins_JSEntry [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+59: 0x1031329a8 v8::internal::(anonymous namespace)::Invoke(v8::internal::Isolate*, v8::internal::(anonymous namespace)::InvokeParams const&) [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+60: 0x10313230c v8::internal::Execution::Call(v8::internal::Isolate*, v8::internal::DirectHandle<v8::internal::Object>, v8::internal::DirectHandle<v8::internal::Object>, v8::base::Vector<v8::internal::DirectHandle<v8::internal::Object> const>) [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+61: 0x102fa6c90 v8::Function::Call(v8::Isolate*, v8::Local<v8::Context>, v8::Local<v8::Value>, int, v8::Local<v8::Value>*) [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+62: 0x102cdba84 node::builtins::BuiltinLoader::CompileAndCall(v8::Local<v8::Context>, char const*, node::Realm*) [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+63: 0x102dc16f4 node::Realm::ExecuteBootstrapper(char const*) [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+64: 0x102cb4d9c node::StartExecution(node::Environment*, char const*) [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+65: 0x102cb4cf0 node::StartExecution(node::Environment*, std::__1::function<v8::MaybeLocal<v8::Value> (node::StartExecutionCallbackInfoWithModule const&)>) [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+66: 0x102be58a0 node::LoadEnvironment(node::Environment*, std::__1::function<v8::MaybeLocal<v8::Value> (node::StartExecutionCallbackInfoWithModule const&)>, std::__1::function<void (node::Environment*, v8::Local<v8::Value>, v8::Local<v8::Value>)>) [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+67: 0x102d67ec0 node::NodeMainInstance::Run() [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+68: 0x102cb87d8 node::Start(int, char**) [/private/tmp/bend-bench-20260921/node-v24.21.0-darwin-arm64/bin/node]
+69: 0x1824104e4 start [/usr/lib/dyld]
+time: command terminated abnormally
+       52.33 real       123.50 user         1.38 sys
+          2221293568  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              163682  page reclaims
+                2583  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                  18  voluntary context switches
+              124366  involuntary context switches
+       1071557836692  instructions retired
+        322989161503  cycles elapsed
+          2317240920  peak memory footprint

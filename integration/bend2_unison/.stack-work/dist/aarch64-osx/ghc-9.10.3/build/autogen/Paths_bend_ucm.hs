@@ -46,12 +46,12 @@ getBinDir, getLibDir, getDynLibDir, getDataDir, getLibexecDir, getSysconfDir :: 
 
 
 bindir, libdir, dynlibdir, datadir, libexecdir, sysconfdir :: FilePath
-bindir     = "/private/tmp/unison-84b95a623711b57b9ff7163f124b214d626b81e4/.stack-work/install/aarch64-osx/a4be68debb28d83212c9305d5ac004a301d934a599926413e8ebb5918ab75462/9.10.3/bin"
-libdir     = "/private/tmp/unison-84b95a623711b57b9ff7163f124b214d626b81e4/.stack-work/install/aarch64-osx/a4be68debb28d83212c9305d5ac004a301d934a599926413e8ebb5918ab75462/9.10.3/lib/aarch64-osx-ghc-9.10.3-fe9c/bend-ucm-0.1.0.0-HJJibfEJl7qHkY5iecIBcb"
-dynlibdir  = "/private/tmp/unison-84b95a623711b57b9ff7163f124b214d626b81e4/.stack-work/install/aarch64-osx/a4be68debb28d83212c9305d5ac004a301d934a599926413e8ebb5918ab75462/9.10.3/lib/aarch64-osx-ghc-9.10.3-fe9c"
-datadir    = "/private/tmp/unison-84b95a623711b57b9ff7163f124b214d626b81e4/.stack-work/install/aarch64-osx/a4be68debb28d83212c9305d5ac004a301d934a599926413e8ebb5918ab75462/9.10.3/share/aarch64-osx-ghc-9.10.3-fe9c/bend-ucm-0.1.0.0"
-libexecdir = "/private/tmp/unison-84b95a623711b57b9ff7163f124b214d626b81e4/.stack-work/install/aarch64-osx/a4be68debb28d83212c9305d5ac004a301d934a599926413e8ebb5918ab75462/9.10.3/libexec/aarch64-osx-ghc-9.10.3-fe9c/bend-ucm-0.1.0.0"
-sysconfdir = "/private/tmp/unison-84b95a623711b57b9ff7163f124b214d626b81e4/.stack-work/install/aarch64-osx/a4be68debb28d83212c9305d5ac004a301d934a599926413e8ebb5918ab75462/9.10.3/etc"
+bindir     = "/Users/avikjain/metacircular-interaction-prototype/research/unison-desktop/.stack-work/install/aarch64-osx/a4be68debb28d83212c9305d5ac004a301d934a599926413e8ebb5918ab75462/9.10.3/bin"
+libdir     = "/Users/avikjain/metacircular-interaction-prototype/research/unison-desktop/.stack-work/install/aarch64-osx/a4be68debb28d83212c9305d5ac004a301d934a599926413e8ebb5918ab75462/9.10.3/lib/aarch64-osx-ghc-9.10.3-fe9c/bend-ucm-0.1.0.0-HJJibfEJl7qHkY5iecIBcb"
+dynlibdir  = "/Users/avikjain/metacircular-interaction-prototype/research/unison-desktop/.stack-work/install/aarch64-osx/a4be68debb28d83212c9305d5ac004a301d934a599926413e8ebb5918ab75462/9.10.3/lib/aarch64-osx-ghc-9.10.3-fe9c"
+datadir    = "/Users/avikjain/metacircular-interaction-prototype/research/unison-desktop/.stack-work/install/aarch64-osx/a4be68debb28d83212c9305d5ac004a301d934a599926413e8ebb5918ab75462/9.10.3/share/aarch64-osx-ghc-9.10.3-fe9c/bend-ucm-0.1.0.0"
+libexecdir = "/Users/avikjain/metacircular-interaction-prototype/research/unison-desktop/.stack-work/install/aarch64-osx/a4be68debb28d83212c9305d5ac004a301d934a599926413e8ebb5918ab75462/9.10.3/libexec/aarch64-osx-ghc-9.10.3-fe9c/bend-ucm-0.1.0.0"
+sysconfdir = "/Users/avikjain/metacircular-interaction-prototype/research/unison-desktop/.stack-work/install/aarch64-osx/a4be68debb28d83212c9305d5ac004a301d934a599926413e8ebb5918ab75462/9.10.3/etc"
 
 getBinDir     = catchIO (getEnv "bend_ucm_bindir")     (\_ -> return bindir)
 getLibDir     = catchIO (getEnv "bend_ucm_libdir")     (\_ -> return libdir)

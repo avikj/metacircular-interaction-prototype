@@ -1,0 +1,19 @@
+{
+  "setup_completed_utc": "2026-09-22T02:48:43Z",
+  "isabelle_local_settings_patch": "../isabelle-local-settings.patch",
+  "notes": "Initial runtime/checker timings overlapped toolchain download/extraction; source workload unchanged.",
+  "versions": {
+    "Lean": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+    "Rocq": "The Rocq Prover, version 9.1.0\ncompiled with OCaml 4.14.2",
+    "Isabelle": "Isabelle2025-2 (verified by isabelle version)"
+  },
+  "rocq_repairs": {
+    "archive_sha256": "62926964890e8e8823c9b9e2e4c9b5f21cb491d2c8e2372e7cd343ede24",
+    "archive_digest_verified_against_release": true,
+    "findlib": "Local rocq-findlib.conf and rocq-bin/rocq wrapper point to temporary library directories.",
+    "signature": "Packaged libgmp.10.dylib had an invalid signature (also present in signed DMG). Local ad-hoc signatures refreshed on rocqworker and libgmp.10.dylib. No benchmark sources changed.",
+    "verification": "RocqSmoke.v (Goal True. exact I. Qed.) compiled successfully."
+  },
+  "native_build_repair": "Bend CLI initially selected Lean bundled clang 22.1.4 from PATH, causing Apple SDK module failures. Retry explicitly sets CC=/usr/bin/clang (Apple clang 21.0.0), matching runtime builds.",
+  "conditions_note": "Toolchain setup/download/extraction also overlapped some checker runs. All observations are on a shared machine."
+}

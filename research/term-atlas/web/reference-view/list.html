@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html prefix="dc: http://purl.org/dc/terms/ mw: http://mediawiki.org/rdf/" about="//en.wikipedia.org/wiki/Special:Redirect/revision/1369366903"><head prefix="mwr: //en.wikipedia.org/wiki/Special:Redirect/"><base href="https://en.wikipedia.org/wiki/" target="_blank"><meta charset="utf-8"><style>html{color-scheme:light}body{margin:0 auto!important;padding:18px!important;max-width:100%!important;font:14px/1.65 Georgia,serif!important;color:#202820!important;background:#fffefb!important;overflow-wrap:anywhere}h1,h2,h3{font-family:Georgia,serif;line-height:1.3}h1{font-size:28px}h2{font-size:23px;border-bottom:1px solid #ddd;padding-top:18px}h3{font-size:18px}a{color:#315778}img{max-width:100%;height:auto}.infobox{float:none!important;width:100%!important;font-size:12px;border:1px solid #ddd;padding:10px}.sidebar,.navbox,.metadata,.mw-editsection{display:none}figure{margin:12px 0}table{max-width:100%;font-size:12px}math{font-size:1em}.mwe-math-fallback-image-inline{vertical-align:middle}pre{white-space:pre-wrap}.reflist{font-size:11px}.mwe-math-mathml-a11y{display:inline!important;position:static!important;clip:auto!important;width:auto!important;height:auto!important;overflow:visible!important}.mwe-math-mathml-display{display:block!important}.mwe-math-element:has(math) .mwe-math-fallback-image-inline,.mwe-math-element:has(math) .mwe-math-fallback-image-display{display:none!important}</style><meta charset="utf-8"><link rel="dc:replaces" resource="mwr:revision/1334267328"><meta property="mw:revisionSHA1" content="2oid3k4e1rocbr8274o2kbsbfqcakr2"><meta property="dc:modified" content="2026-08-14T14:58:17Z"><meta property="mw:pageNamespace" content="0"><meta property="mw:pageId" content="208382"><meta property="mw:htmlVersion" content="2.8.0"><meta property="mw:html:version" content="2.8.0"><link rel="dc:isVersionOf" href="//en.wikipedia.org/wiki/List_(abstract_data_type)"><title>List (abstract data type)</title><meta property="mw:jsConfigVars" content="{&quot;wgParsoidHtmlVersion&quot;:&quot;2.8.0&quot;}"><meta property="mw:generalModules" content="ext.math.polyfills|ext.cite.ux-enhancements|mediawiki.page.media"><meta property="mw:moduleStyles" content="ext.math.styles|ext.cite.parsoid.styles|ext.cite.styles|mediawiki.skinning.content.parsoid"></head><body class="mw-content-ltr sitedir-ltr ltr mw-body-content mediawiki mw-parser-output parsoid-body" lang="en" dir="ltr" data-mw-parsoid-version="0.24.0.0-alpha22" data-mw-html-version="2.8.0"><section data-mw-section-id="0" id="mwAQ"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none" about="#mwt1" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Short description&quot;,&quot;href&quot;:&quot;./Template:Short_description&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;Finite, ordered collection of items&quot;}},&quot;i&quot;:0}}]}" id="mwAg">Finite, ordered collection of items</div><span class="mw-empty-elt" about="#mwt1"><link rel="mw:PageProp/Category" href="./Category:Articles_with_short_description"><link rel="mw:PageProp/Category" href="./Category:Short_description_is_different_from_Wikidata"></span>
+<span class="mw-empty-elt" about="#mwt2" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;About&quot;,&quot;href&quot;:&quot;./Template:About&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;sequential data structures&quot;},&quot;2&quot;:{&quot;wt&quot;:&quot;the fundamental concept of information ordering&quot;},&quot;3&quot;:{&quot;wt&quot;:&quot;List&quot;},&quot;4&quot;:{&quot;wt&quot;:&quot;random-access data structures&quot;},&quot;5&quot;:{&quot;wt&quot;:&quot;Array (data type)&quot;}},&quot;i&quot;:0}}]}" id="mwAw"><style data-mw-deduplicate="TemplateStyles:r1368532237" typeof="mw:Extension/templatestyles" about="#mwt3" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Hatnote/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}">.mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+.mw-empty-elt+.hatnote{margin-top:-0.5em}@media print{body.ns-0 .mw-parser-output .hatnote{display:none!important}}</style></span><div role="note" class="hatnote navigation-not-searchable" about="#mwt2" id="mwBA">This article is about sequential data structures. For the fundamental concept of information ordering, see <a rel="mw:WikiLink" href="./List" title="List">List</a>. For random-access data structures, see <a rel="mw:WikiLink" href="./Array_(data_type)" title="Array (data type)">Array (data type)</a>.</div>
+<p id="mwBQ">In <a rel="mw:WikiLink" href="./Computer_science" title="Computer science" id="mwBg">computer science</a>, a <b id="mwBw">list</b> or <b id="mwCA">sequence</b> is a <a rel="mw:WikiLink" href="./Collection_(abstract_data_type)" title="Collection (abstract data type)" id="mwCQ">collection</a> of items that are finite in number and in a particular <a rel="mw:WikiLink" href="./Order_theory" title="Order theory" id="mwCg">order</a>. An <a rel="mw:WikiLink" href="./Instance_(computer_science)" title="Instance (computer science)" id="mwCw">instance</a> of a list is a computer representation of the <a rel="mw:WikiLink" href="./Mathematics" title="Mathematics" id="mwDA">mathematical</a> concept of a <a rel="mw:WikiLink" href="./Tuple" title="Tuple" id="mwDQ">tuple</a> or finite <a rel="mw:WikiLink" href="./Sequence" title="Sequence" id="mwDg">sequence</a>. </p>
+
+<p id="mwDw">A list may contain the same value more than once, and each occurrence is considered a distinct item.</p>
+
+<figure class="mw-default-size mw-halign-right" typeof="mw:File/Thumb" id="mwEA"><a href="./File:Singly-linked-list.svg" class="mw-file-description" id="mwEQ"><img resource="./File:Singly-linked-list.svg" src="//thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Singly-linked-list.svg/250px-Singly-linked-list.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail" decoding="async" loading="lazy" srcset="//thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Singly-linked-list.svg/500px-Singly-linked-list.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x" data-file-width="408" data-file-height="41" data-file-type="drawing" height="25" width="250" class="mw-file-element" id="mwEg"></a><figcaption id="mwEw">A singly-linked list structure, implementing a list with three integer elements</figcaption></figure>
+<p id="mwFA">The term <i id="mwFQ">list</i> is also used for several concrete <a rel="mw:WikiLink" href="./Data_structure" title="Data structure" id="mwFg">data structures</a> that can be used to implement <a rel="mw:WikiLink" href="./Abstract_type" title="Abstract type" id="mwFw">abstract</a> lists, especially <a rel="mw:WikiLink" href="./Linked_list" title="Linked list" id="mwGA">linked lists</a> and <a rel="mw:WikiLink" href="./Array_data_structure" title="Array data structure" class="mw-redirect" id="mwGQ">arrays</a>. In some contexts, such as in <a rel="mw:WikiLink" href="./Lisp_(programming_language)" title="Lisp (programming language)" id="mwGg">Lisp</a> programming, the term <i id="mwGw">list</i> may refer specifically to a linked list rather than an array. In <a rel="mw:WikiLink" href="./Class-based_programming" title="Class-based programming" class="mw-redirect" id="mwHA">class-based programming</a>, lists are usually provided as <a rel="mw:WikiLink" href="./Instance_(computer_science)" title="Instance (computer science)" id="mwHQ">instances</a> of subclasses of a generic "list" class, and traversed via separate <a rel="mw:WikiLink" href="./Iterator" title="Iterator" id="mwHg">iterators</a>.</p>
+
+<p id="mwHw">Many <a rel="mw:WikiLink" href="./Programming_language" title="Programming language" id="mwIA">programming languages</a> provide support for <b id="mwIQ">list data types</b>, and have special syntax and semantics for lists and list operations. A list can often be constructed by writing the items in sequence, separated by <a rel="mw:WikiLink" href="./Comma" title="Comma" id="mwIg">commas</a>, <a rel="mw:WikiLink" href="./Semicolon" title="Semicolon" id="mwIw">semicolons</a>, and/or <a rel="mw:WikiLink" href="./Space_(punctuation)" title="Space (punctuation)" id="mwJA">spaces</a>, within a pair of delimiters such as <a rel="mw:WikiLink" href="./Parentheses" title="Parentheses" class="mw-redirect" id="mwJQ">parentheses</a> '()', <a rel="mw:WikiLink" href="./Bracket" title="Bracket" id="mwJg">brackets</a> '[]', <a rel="mw:WikiLink" href="./Brace_(punctuation)" title="Brace (punctuation)" class="mw-redirect" id="mwJw">braces</a> '{}', or <a rel="mw:WikiLink" href="./Angle_bracket" title="Angle bracket" class="mw-redirect" id="mwKA">angle brackets</a> '&lt;>'. Some languages may allow list types to be <a rel="mw:WikiLink" href="./Array_index" title="Array index" class="mw-redirect" id="mwKQ">indexed</a> or <a rel="mw:WikiLink" href="./Array_slicing" title="Array slicing" id="mwKg">sliced</a> like <a rel="mw:WikiLink" href="./Array_data_type" title="Array data type" class="mw-redirect" id="mwKw">array types</a>, in which case the data type is more accurately described as an array.</p>
+
+<p id="mwLA">In <a rel="mw:WikiLink" href="./Type_theory" title="Type theory" id="mwLQ">type theory</a> and <a rel="mw:WikiLink" href="./Functional_programming" title="Functional programming" id="mwLg">functional programming</a>, abstract lists are usually defined <a rel="mw:WikiLink" href="./Inductive_type" title="Inductive type" id="mwLw">inductively</a> by two operations: <i id="mwMA">nil</i> that yields the empty list, and <i id="mwMQ">cons</i>, which adds an item at the beginning of a list.<sup about="#mwt6" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-1&quot;}}"><a href="./List_(abstract_data_type)#cite_note-1" id="mwMg"><span class="mw-reflink-text" id="mwMw"><span class="cite-bracket" id="mwNA">[</span>1<span class="cite-bracket" id="mwNQ">]</span></span></a></sup></p>
+
+<p id="mwNg">A <a rel="mw:WikiLink" href="./Stream_(abstract_data_type)" title="Stream (abstract data type)" id="mwNw">stream</a> is the potentially infinite analog of a list.<sup about="#mwt10" class="mw-ref reference" id="cite_ref-2" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;}}"><a href="./List_(abstract_data_type)#cite_note-2" id="mwOA"><span class="mw-reflink-text" id="mwOQ"><span class="cite-bracket" id="mwOg">[</span>2<span class="cite-bracket" id="mwOw">]</span></span></a></sup><sup class="reference nowrap" about="#mwt7" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;rp&quot;,&quot;href&quot;:&quot;./Template:Rp&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;§3.5&quot;}},&quot;i&quot;:0}}]}" id="mwPA"><span title="Page / location: §3.5"><span typeof="mw:Entity">:</span><span typeof="mw:Entity"> </span>§3.5<span typeof="mw:Entity"> </span></span></sup></p> 
+
+<meta property="mw:PageProp/toc" data-mw="{&quot;autoGenerated&quot;:true}" id="mwPQ"></section><section data-mw-section-id="1" id="mwPg"><h2 id="Operations">Operations</h2>
+<p id="mwPw">Implementation of the list data structure may provide some or all of the following <a rel="mw:WikiLink" href="./Operation_(mathematics)" title="Operation (mathematics)" id="mwQA">operations</a> as low level primitives:</p>
+
+<ul id="mwQQ"><li id="mwQg">Create an empty list</li>
+<li id="mwQw">Test for the list being empty</li>
+<li id="mwRA">Prepend an item to the list</li>
+<li id="mwRQ">Append an item at the list's end</li>
+<li id="mwRg">get the first or the last item of a list</li>
+<li id="mwRw">get the remainder of the list past its first or last item</li>
+<li id="mwSA">get an item by index of its position in a list</li>
+<li id="mwSQ">create a list containing a single given item</li>
+<li id="mwSg">create a list containing given items</li>
+<li id="mwSw">append two lists</li>
+<li id="mwTA">map, flatmap, filter, reduce, etc.</li></ul>
+
+</section><section data-mw-section-id="2" id="mwTQ"><h2 id="Implementations">Implementations</h2>
+<p id="mwTg">Lists are typically implemented either as <a rel="mw:WikiLink" href="./Linked_list" title="Linked list" id="mwTw">linked lists</a> (either singly or doubly linked) or as <a rel="mw:WikiLink" href="./Array_data_structure" title="Array data structure" class="mw-redirect" id="mwUA">arrays</a>, usually variable length or <a rel="mw:WikiLink" href="./Dynamic_array" title="Dynamic array" id="mwUQ">dynamic arrays</a>.</p>
+
+<p id="mwUg">The standard way of implementing lists, originating with the programming language <a rel="mw:WikiLink" href="./Lisp_(programming_language)" title="Lisp (programming language)" id="mwUw">Lisp</a>, is to have each element of the list contain both its value and a pointer indicating the location of the next element in the list. This results in either a <a rel="mw:WikiLink" href="./Linked_list" title="Linked list" id="mwVA">linked list</a> or a <a rel="mw:WikiLink" href="./Tree_data_structure" title="Tree data structure" class="mw-redirect" id="mwVQ">tree</a>, depending on whether the list has nested sublists. Some older Lisp implementations (such as the Lisp implementation of the <a rel="mw:WikiLink" href="./Symbolics" title="Symbolics" id="mwVg">Symbolics</a> 3600) also supported "compressed lists" (using <a rel="mw:WikiLink" href="./CDR_coding" title="CDR coding" id="mwVw">CDR coding</a>) which had a special internal representation (invisible to the user). Lists can be manipulated using <a rel="mw:WikiLink" href="./Iteration" title="Iteration" id="mwWA">iteration</a> or <a rel="mw:WikiLink" href="./Recursion" title="Recursion" id="mwWQ">recursion</a>. The former is often preferred in <a rel="mw:WikiLink" href="./Imperative_programming" title="Imperative programming" id="mwWg">imperative programming languages</a>, while the latter is the norm in <a rel="mw:WikiLink" href="./Functional_language" title="Functional language" class="mw-redirect" id="mwWw">functional languages</a>.</p>
+
+<p id="mwXA">Lists can be implemented as <a rel="mw:WikiLink" href="./Self-balancing_binary_search_tree" title="Self-balancing binary search tree" id="mwXQ">self-balancing binary search trees</a> holding index-value pairs, providing equal-time access to any element (e.g. all residing in the fringe, and internal nodes storing the right-most child's index, used to guide the search), taking the time logarithmic in the list's size, but as long as it doesn't change much will provide the illusion of <a rel="mw:WikiLink" href="./Random_access" title="Random access" id="mwXg">random access</a> and enable swap, prefix and append operations in logarithmic time as well.<sup about="#mwt13" class="mw-ref reference" id="cite_ref-3" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-3&quot;}}"><a href="./List_(abstract_data_type)#cite_note-3" id="mwXw"><span class="mw-reflink-text" id="mwYA"><span class="cite-bracket" id="mwYQ">[</span>3<span class="cite-bracket" id="mwYg">]</span></span></a></sup></p>
+
+</section><section data-mw-section-id="3" id="mwYw"><h2 id="Programming_language_support">Programming language support</h2>
+<p id="mwZA">Some <a rel="mw:WikiLink" href="./Computer_language" title="Computer language" id="mwZQ">languages</a> do not offer a list <a rel="mw:WikiLink" href="./Data_structure" title="Data structure" id="mwZg">data structure</a>, but offer the use of <a rel="mw:WikiLink" href="./Associative_array" title="Associative array" id="mwZw">associative arrays</a> or some kind of table to emulate lists. For example, <a rel="mw:WikiLink" href="./Lua_(programming_language)" title="Lua (programming language)" class="mw-redirect" id="mwaA">Lua</a> provides tables. Although Lua stores lists that have numerical indices as arrays internally, they still appear as dictionaries.<sup about="#mwt16" class="mw-ref reference" id="cite_ref-4" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-4&quot;}}"><a href="./List_(abstract_data_type)#cite_note-4" id="mwaQ"><span class="mw-reflink-text" id="mwag"><span class="cite-bracket" id="mwaw">[</span>4<span class="cite-bracket" id="mwbA">]</span></span></a></sup></p>
+
+<p id="mwbQ">In <a rel="mw:WikiLink" href="./Lisp_(programming_language)" title="Lisp (programming language)" id="mwbg">Lisp</a>, lists are the fundamental data type and can represent both program code and data. In most dialects, the list of the first three prime numbers could be written as <code id="mwbw">(list 2 3 5)</code>. In several dialects of Lisp, including <a rel="mw:WikiLink" href="./Scheme_(programming_language)" title="Scheme (programming language)" id="mwcA">Scheme</a>, a list is a collection of pairs, consisting of a value and a pointer to the next pair (or null value), making a singly linked list.<sup about="#mwt19" class="mw-ref reference" id="cite_ref-5" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-5&quot;}}"><a href="./List_(abstract_data_type)#cite_note-5" id="mwcQ"><span class="mw-reflink-text" id="mwcg"><span class="cite-bracket" id="mwcw">[</span>5<span class="cite-bracket" id="mwdA">]</span></span></a></sup></p>
+
+</section><section data-mw-section-id="4" id="mwdQ"><h2 id="Applications">Applications</h2>
+
+<p id="mwdg">Unlike in an <a rel="mw:WikiLink" href="./Array_data_structure" title="Array data structure" class="mw-redirect" id="mwdw">array</a>, a list can expand and shrink.</p>
+
+<p id="mweA">In computing, lists are easier to implement than sets. A finite <a rel="mw:WikiLink" href="./Set_(mathematics)" title="Set (mathematics)" id="mweQ">set</a> in the mathematical sense can be realized as a list with additional restrictions; that is, duplicate elements are disallowed and order is irrelevant. Sorting the list speeds up determining if a given item is already in the set, but in order to ensure the order, it requires more time to add a new entry to the list. In efficient implementations, however, sets are implemented using <a rel="mw:WikiLink" href="./Self-balancing_binary_search_tree" title="Self-balancing binary search tree" id="mweg">self-balancing binary search trees</a> or <a rel="mw:WikiLink" href="./Hash_table" title="Hash table" id="mwew">hash tables</a>, rather than a list.</p>
+
+<p id="mwfA">Lists also form the basis for other <a rel="mw:WikiLink" href="./Abstract_data_types" title="Abstract data types" class="mw-redirect" id="mwfQ">abstract data types</a> including the <a rel="mw:WikiLink" href="./Queue_(abstract_data_type)" title="Queue (abstract data type)" id="mwfg">queue</a>, the <a rel="mw:WikiLink" href="./Stack_(abstract_data_type)" title="Stack (abstract data type)" id="mwfw">stack</a>, and their variations.</p>
+
+</section><section data-mw-section-id="5" id="mwgA"><h2 id="Abstract_definition">Abstract definition</h2>
+<p id="mwgQ">The abstract list type <i id="mwgg">L</i> with elements of some type <i id="mwgw">E</i> (a <a rel="mw:WikiLink" href="./Type_polymorphism" title="Type polymorphism" class="mw-redirect" id="mwhA">monomorphic</a> list) is defined by the following functions:</p>
+
+<dl id="mwhQ"><dd id="mwhg">nil: () → <i id="mwhw">L</i></dd>
+<dd id="mwiA">cons: <i id="mwiQ">E</i> × <i id="mwig">L</i> → <i id="mwiw">L</i></dd>
+<dd id="mwjA">first: <i id="mwjQ">L</i> → <i id="mwjg">E</i></dd>
+<dd id="mwjw">rest: <i id="mwkA">L</i> → <i id="mwkQ">L</i></dd></dl>
+
+<p id="mwkg">with the axioms</p>
+
+<dl id="mwkw"><dd id="mwlA">first (cons (<i id="mwlQ">e</i>, <i id="mwlg">l</i>)) = <i id="mwlw">e</i></dd>
+<dd id="mwmA">rest (cons (<i id="mwmQ">e</i>, <i id="mwmg">l</i>)) = <i id="mwmw">l</i></dd></dl>
+
+<p id="mwnA">for any element <i id="mwnQ">e</i> and any list <i id="mwng">l</i>. It is implicit that</p>
+
+<dl id="mwnw"><dd id="mwoA">cons (<i id="mwoQ">e</i>, <i id="mwog">l</i>) ≠ <i id="mwow">l</i></dd>
+<dd id="mwpA">cons (<i id="mwpQ">e</i>, <i id="mwpg">l</i>) ≠ <i id="mwpw">e</i></dd>
+<dd id="mwqA">cons (<i id="mwqQ">e</i><sub id="mwqg">1</sub>, <i id="mwqw">l</i><sub id="mwrA">1</sub>) = cons (<i id="mwrQ">e</i><sub id="mwrg">2</sub>, <i id="mwrw">l</i><sub id="mwsA">2</sub>) if <i id="mwsQ">e</i><sub id="mwsg">1</sub> = <i id="mwsw">e</i><sub id="mwtA">2</sub> and <i id="mwtQ">l</i><sub id="mwtg">1</sub> = <i id="mwtw">l</i><sub id="mwuA">2</sub></dd></dl>
+
+<p id="mwuQ">Note that first (nil ()) and rest (nil ()) are not defined.</p>
+
+<p id="mwug">These axioms are equivalent to those of the abstract <a rel="mw:WikiLink" href="./Stack_(abstract_data_type)" title="Stack (abstract data type)" id="mwuw">stack</a> data type.</p>
+
+<p id="mwvA">In <a rel="mw:WikiLink" href="./Type_theory" title="Type theory" id="mwvQ">type theory</a>, the above definition is more simply regarded as an <a rel="mw:WikiLink" href="./Inductive_type" title="Inductive type" id="mwvg">inductive type</a> defined in terms of constructors: <i id="mwvw">nil</i> and <i id="mwwA">cons</i>. In algebraic terms, this can be represented as the transformation 1 + <i id="mwwQ">E</i> <span typeof="mw:Entity" id="mwwg">×</span> <i id="mwww">L</i> → <i id="mwxA">L</i>.  <i id="mwxQ">first</i> and <i id="mwxg">rest</i> are then obtained by <a rel="mw:WikiLink" href="./Pattern_matching" title="Pattern matching" id="mwxw">pattern matching</a> on the <i id="mwyA">cons</i> constructor and separately handling the <i id="mwyQ">nil</i> case.</p>
+
+<section data-mw-section-id="6" id="mwyg"><h3 id="The_list_monad">The list monad</h3>
+<p id="mwyw">The list type forms a <a rel="mw:WikiLink" href="./Monad_(functional_programming)" title="Monad (functional programming)" id="mwzA">monad</a> with the following functions (using <i id="mwzQ">E</i><sup id="mwzg">*</sup> rather than <i id="mwzw">L</i> to represent monomorphic lists with elements of type <i id="mw0A">E</i>):</p>
+
+<dl id="mw0Q"><dd id="mw0g"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt20" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\text{return}\\colon A \\to A^{*} = a \\mapsto \\text{cons} \\, a \\, \\text{nil}&quot;}}" id="mw0w"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle {\text{return}}\colon A\to A^{*}=a\mapsto {\text{cons}}\,a\,{\text{nil}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>return</mtext>
+        </mrow>
+        <mo>:</mo>
+        <mi>A</mi>
+        <mo stretchy="false">→</mo>
+        <msup>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∗</mo>
+          </mrow>
+        </msup>
+        <mo>=</mo>
+        <mi>a</mi>
+        <mo stretchy="false">↦</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>cons</mtext>
+        </mrow>
+        <mspace width="thinmathspace"></mspace>
+        <mi>a</mi>
+        <mspace width="thinmathspace"></mspace>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>nil</mtext>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\text{return}}\colon A\to A^{*}=a\mapsto {\text{cons}}\,a\,{\text{nil}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a800f1109e34ede6216a0f56eaa40f1ce85c0539" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:32.47ex; height:2.343ex;" alt="{\displaystyle {\text{return}}\colon A\to A^{*}=a\mapsto {\text{cons}}\,a\,{\text{nil}}}"></span></dd>
+<dd id="mw1A"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt21" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\text{bind}\\colon A^{*} \\to (A \\to B^{*}) \\to B^{*} = l \\mapsto f \\mapsto \\begin{cases} \\text{nil} &amp; \\text{if} \\ l = \\text{nil}\\\\ \\text{append} \\, (f \\, a) \\, (\\text{bind} \\, l&#x27; \\, f) &amp; \\text{if} \\ l = \\text{cons} \\, a \\, l&#x27; \\end{cases}&quot;}}" id="mw1Q"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle {\text{bind}}\colon A^{*}\to (A\to B^{*})\to B^{*}=l\mapsto f\mapsto {\begin{cases}{\text{nil}}&amp;{\text{if}}\ l={\text{nil}}\\{\text{append}}\,(f\,a)\,({\text{bind}}\,l&#x27;\,f)&amp;{\text{if}}\ l={\text{cons}}\,a\,l&#x27;\end{cases}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>bind</mtext>
+        </mrow>
+        <mo>:</mo>
+        <msup>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∗</mo>
+          </mrow>
+        </msup>
+        <mo stretchy="false">→</mo>
+        <mo stretchy="false">(</mo>
+        <mi>A</mi>
+        <mo stretchy="false">→</mo>
+        <msup>
+          <mi>B</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∗</mo>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">→</mo>
+        <msup>
+          <mi>B</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∗</mo>
+          </mrow>
+        </msup>
+        <mo>=</mo>
+        <mi>l</mi>
+        <mo stretchy="false">↦</mo>
+        <mi>f</mi>
+        <mo stretchy="false">↦</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow>
+            <mo>{</mo>
+            <mtable columnalign="left left" rowspacing=".2em" columnspacing="1em" displaystyle="false">
+              <mtr>
+                <mtd>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>nil</mtext>
+                  </mrow>
+                </mtd>
+                <mtd>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>if</mtext>
+                  </mrow>
+                  <mtext> </mtext>
+                  <mi>l</mi>
+                  <mo>=</mo>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>nil</mtext>
+                  </mrow>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>append</mtext>
+                  </mrow>
+                  <mspace width="thinmathspace"></mspace>
+                  <mo stretchy="false">(</mo>
+                  <mi>f</mi>
+                  <mspace width="thinmathspace"></mspace>
+                  <mi>a</mi>
+                  <mo stretchy="false">)</mo>
+                  <mspace width="thinmathspace"></mspace>
+                  <mo stretchy="false">(</mo>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>bind</mtext>
+                  </mrow>
+                  <mspace width="thinmathspace"></mspace>
+                  <msup>
+                    <mi>l</mi>
+                    <mo>′</mo>
+                  </msup>
+                  <mspace width="thinmathspace"></mspace>
+                  <mi>f</mi>
+                  <mo stretchy="false">)</mo>
+                </mtd>
+                <mtd>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>if</mtext>
+                  </mrow>
+                  <mtext> </mtext>
+                  <mi>l</mi>
+                  <mo>=</mo>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>cons</mtext>
+                  </mrow>
+                  <mspace width="thinmathspace"></mspace>
+                  <mi>a</mi>
+                  <mspace width="thinmathspace"></mspace>
+                  <msup>
+                    <mi>l</mi>
+                    <mo>′</mo>
+                  </msup>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo fence="true" stretchy="true" symmetric="true"></mo>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\text{bind}}\colon A^{*}\to (A\to B^{*})\to B^{*}=l\mapsto f\mapsto {\begin{cases}{\text{nil}}&amp;{\text{if}}\ l={\text{nil}}\\{\text{append}}\,(f\,a)\,({\text{bind}}\,l'\,f)&amp;{\text{if}}\ l={\text{cons}}\,a\,l'\end{cases}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1357ff035e880a0963d0dd17724b25f3a2655fc3" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.505ex; width:81.628ex; height:6.176ex;" alt="{\displaystyle {\text{bind}}\colon A^{*}\to (A\to B^{*})\to B^{*}=l\mapsto f\mapsto {\begin{cases}{\text{nil}}&amp;{\text{if}}\ l={\text{nil}}\\{\text{append}}\,(f\,a)\,({\text{bind}}\,l&#x27;\,f)&amp;{\text{if}}\ l={\text{cons}}\,a\,l&#x27;\end{cases}}}"></span></dd></dl>
+<p id="mw1g">where <i id="mw1w">append</i> is defined as:</p>
+<dl id="mw2A"><dd id="mw2Q"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt22" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\text{append}\\colon A^{*} \\to A^{*} \\to A^{*} = l_1 \\mapsto l_2 \\mapsto \\begin{cases} l_2 &amp; \\text{if} \\ l_1 = \\text{nil} \\\\ \\text{cons} \\, a \\, (\\text{append} \\, l_1&#x27; \\, l_2) &amp; \\text{if} \\ l_1 = \\text{cons} \\, a \\, l_1&#x27; \\end{cases}&quot;}}" id="mw2g"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle {\text{append}}\colon A^{*}\to A^{*}\to A^{*}=l_{1}\mapsto l_{2}\mapsto {\begin{cases}l_{2}&amp;{\text{if}}\ l_{1}={\text{nil}}\\{\text{cons}}\,a\,({\text{append}}\,l_{1}&#x27;\,l_{2})&amp;{\text{if}}\ l_{1}={\text{cons}}\,a\,l_{1}&#x27;\end{cases}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>append</mtext>
+        </mrow>
+        <mo>:</mo>
+        <msup>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∗</mo>
+          </mrow>
+        </msup>
+        <mo stretchy="false">→</mo>
+        <msup>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∗</mo>
+          </mrow>
+        </msup>
+        <mo stretchy="false">→</mo>
+        <msup>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∗</mo>
+          </mrow>
+        </msup>
+        <mo>=</mo>
+        <msub>
+          <mi>l</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">↦</mo>
+        <msub>
+          <mi>l</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">↦</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow>
+            <mo>{</mo>
+            <mtable columnalign="left left" rowspacing=".2em" columnspacing="1em" displaystyle="false">
+              <mtr>
+                <mtd>
+                  <msub>
+                    <mi>l</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>2</mn>
+                    </mrow>
+                  </msub>
+                </mtd>
+                <mtd>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>if</mtext>
+                  </mrow>
+                  <mtext> </mtext>
+                  <msub>
+                    <mi>l</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>1</mn>
+                    </mrow>
+                  </msub>
+                  <mo>=</mo>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>nil</mtext>
+                  </mrow>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>cons</mtext>
+                  </mrow>
+                  <mspace width="thinmathspace"></mspace>
+                  <mi>a</mi>
+                  <mspace width="thinmathspace"></mspace>
+                  <mo stretchy="false">(</mo>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>append</mtext>
+                  </mrow>
+                  <mspace width="thinmathspace"></mspace>
+                  <msubsup>
+                    <mi>l</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>1</mn>
+                    </mrow>
+                    <mo>′</mo>
+                  </msubsup>
+                  <mspace width="thinmathspace"></mspace>
+                  <msub>
+                    <mi>l</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>2</mn>
+                    </mrow>
+                  </msub>
+                  <mo stretchy="false">)</mo>
+                </mtd>
+                <mtd>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>if</mtext>
+                  </mrow>
+                  <mtext> </mtext>
+                  <msub>
+                    <mi>l</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>1</mn>
+                    </mrow>
+                  </msub>
+                  <mo>=</mo>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>cons</mtext>
+                  </mrow>
+                  <mspace width="thinmathspace"></mspace>
+                  <mi>a</mi>
+                  <mspace width="thinmathspace"></mspace>
+                  <msubsup>
+                    <mi>l</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>1</mn>
+                    </mrow>
+                    <mo>′</mo>
+                  </msubsup>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo fence="true" stretchy="true" symmetric="true"></mo>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\text{append}}\colon A^{*}\to A^{*}\to A^{*}=l_{1}\mapsto l_{2}\mapsto {\begin{cases}l_{2}&amp;{\text{if}}\ l_{1}={\text{nil}}\\{\text{cons}}\,a\,({\text{append}}\,l_{1}'\,l_{2})&amp;{\text{if}}\ l_{1}={\text{cons}}\,a\,l_{1}'\end{cases}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/22b53cf85999502c76869a5937d2fb81d929c0d9" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.505ex; width:77.45ex; height:6.176ex;" alt="{\displaystyle {\text{append}}\colon A^{*}\to A^{*}\to A^{*}=l_{1}\mapsto l_{2}\mapsto {\begin{cases}l_{2}&amp;{\text{if}}\ l_{1}={\text{nil}}\\{\text{cons}}\,a\,({\text{append}}\,l_{1}&#x27;\,l_{2})&amp;{\text{if}}\ l_{1}={\text{cons}}\,a\,l_{1}&#x27;\end{cases}}}"></span></dd></dl>
+
+<p id="mw2w">Alternatively, the monad may be defined in terms of operations <i id="mw3A">return</i>, <i id="mw3Q">fmap</i> and <i id="mw3g">join</i>, with:</p>
+<dl id="mw3w"><dd id="mw4A"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt23" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\text{fmap} \\colon (A \\to B) \\to (A^{*} \\to B^{*}) = f \\mapsto l \\mapsto \\begin{cases} \\text{nil} &amp; \\text{if} \\ l = \\text{nil}\\\\ \\text{cons} \\, (f \\, a) (\\text{fmap} f \\, l&#x27;) &amp; \\text{if} \\ l = \\text{cons} \\, a \\, l&#x27; \\end{cases}&quot;}}" id="mw4Q"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle {\text{fmap}}\colon (A\to B)\to (A^{*}\to B^{*})=f\mapsto l\mapsto {\begin{cases}{\text{nil}}&amp;{\text{if}}\ l={\text{nil}}\\{\text{cons}}\,(f\,a)({\text{fmap}}f\,l&#x27;)&amp;{\text{if}}\ l={\text{cons}}\,a\,l&#x27;\end{cases}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>fmap</mtext>
+        </mrow>
+        <mo>:</mo>
+        <mo stretchy="false">(</mo>
+        <mi>A</mi>
+        <mo stretchy="false">→</mo>
+        <mi>B</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">→</mo>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∗</mo>
+          </mrow>
+        </msup>
+        <mo stretchy="false">→</mo>
+        <msup>
+          <mi>B</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∗</mo>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>f</mi>
+        <mo stretchy="false">↦</mo>
+        <mi>l</mi>
+        <mo stretchy="false">↦</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow>
+            <mo>{</mo>
+            <mtable columnalign="left left" rowspacing=".2em" columnspacing="1em" displaystyle="false">
+              <mtr>
+                <mtd>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>nil</mtext>
+                  </mrow>
+                </mtd>
+                <mtd>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>if</mtext>
+                  </mrow>
+                  <mtext> </mtext>
+                  <mi>l</mi>
+                  <mo>=</mo>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>nil</mtext>
+                  </mrow>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>cons</mtext>
+                  </mrow>
+                  <mspace width="thinmathspace"></mspace>
+                  <mo stretchy="false">(</mo>
+                  <mi>f</mi>
+                  <mspace width="thinmathspace"></mspace>
+                  <mi>a</mi>
+                  <mo stretchy="false">)</mo>
+                  <mo stretchy="false">(</mo>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>fmap</mtext>
+                  </mrow>
+                  <mi>f</mi>
+                  <mspace width="thinmathspace"></mspace>
+                  <msup>
+                    <mi>l</mi>
+                    <mo>′</mo>
+                  </msup>
+                  <mo stretchy="false">)</mo>
+                </mtd>
+                <mtd>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>if</mtext>
+                  </mrow>
+                  <mtext> </mtext>
+                  <mi>l</mi>
+                  <mo>=</mo>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>cons</mtext>
+                  </mrow>
+                  <mspace width="thinmathspace"></mspace>
+                  <mi>a</mi>
+                  <mspace width="thinmathspace"></mspace>
+                  <msup>
+                    <mi>l</mi>
+                    <mo>′</mo>
+                  </msup>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo fence="true" stretchy="true" symmetric="true"></mo>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\text{fmap}}\colon (A\to B)\to (A^{*}\to B^{*})=f\mapsto l\mapsto {\begin{cases}{\text{nil}}&amp;{\text{if}}\ l={\text{nil}}\\{\text{cons}}\,(f\,a)({\text{fmap}}f\,l')&amp;{\text{if}}\ l={\text{cons}}\,a\,l'\end{cases}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/852077d01dd3fc2659175058023a7c1382638518" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.505ex; width:79.804ex; height:6.176ex;" alt="{\displaystyle {\text{fmap}}\colon (A\to B)\to (A^{*}\to B^{*})=f\mapsto l\mapsto {\begin{cases}{\text{nil}}&amp;{\text{if}}\ l={\text{nil}}\\{\text{cons}}\,(f\,a)({\text{fmap}}f\,l&#x27;)&amp;{\text{if}}\ l={\text{cons}}\,a\,l&#x27;\end{cases}}}"></span></dd>
+<dd id="mw4g"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt24" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\text{join} \\colon {A^{*}}^{*} \\to A^{*} = l \\mapsto \\begin{cases} \\text{nil} &amp; \\text{if} \\ l = \\text{nil}\\\\ \\text{append} \\, a \\, (\\text{join} \\, l&#x27;) &amp; \\text{if} \\ l = \\text{cons} \\, a \\, l&#x27; \\end{cases}&quot;}}" id="mw4w"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle {\text{join}}\colon {A^{*}}^{*}\to A^{*}=l\mapsto {\begin{cases}{\text{nil}}&amp;{\text{if}}\ l={\text{nil}}\\{\text{append}}\,a\,({\text{join}}\,l&#x27;)&amp;{\text{if}}\ l={\text{cons}}\,a\,l&#x27;\end{cases}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>join</mtext>
+        </mrow>
+        <mo>:</mo>
+        <msup>
+          <mrow class="MJX-TeXAtom-ORD">
+            <msup>
+              <mi>A</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo>∗</mo>
+              </mrow>
+            </msup>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∗</mo>
+          </mrow>
+        </msup>
+        <mo stretchy="false">→</mo>
+        <msup>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∗</mo>
+          </mrow>
+        </msup>
+        <mo>=</mo>
+        <mi>l</mi>
+        <mo stretchy="false">↦</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow>
+            <mo>{</mo>
+            <mtable columnalign="left left" rowspacing=".2em" columnspacing="1em" displaystyle="false">
+              <mtr>
+                <mtd>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>nil</mtext>
+                  </mrow>
+                </mtd>
+                <mtd>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>if</mtext>
+                  </mrow>
+                  <mtext> </mtext>
+                  <mi>l</mi>
+                  <mo>=</mo>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>nil</mtext>
+                  </mrow>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>append</mtext>
+                  </mrow>
+                  <mspace width="thinmathspace"></mspace>
+                  <mi>a</mi>
+                  <mspace width="thinmathspace"></mspace>
+                  <mo stretchy="false">(</mo>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>join</mtext>
+                  </mrow>
+                  <mspace width="thinmathspace"></mspace>
+                  <msup>
+                    <mi>l</mi>
+                    <mo>′</mo>
+                  </msup>
+                  <mo stretchy="false">)</mo>
+                </mtd>
+                <mtd>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>if</mtext>
+                  </mrow>
+                  <mtext> </mtext>
+                  <mi>l</mi>
+                  <mo>=</mo>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>cons</mtext>
+                  </mrow>
+                  <mspace width="thinmathspace"></mspace>
+                  <mi>a</mi>
+                  <mspace width="thinmathspace"></mspace>
+                  <msup>
+                    <mi>l</mi>
+                    <mo>′</mo>
+                  </msup>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo fence="true" stretchy="true" symmetric="true"></mo>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\text{join}}\colon {A^{*}}^{*}\to A^{*}=l\mapsto {\begin{cases}{\text{nil}}&amp;{\text{if}}\ l={\text{nil}}\\{\text{append}}\,a\,({\text{join}}\,l')&amp;{\text{if}}\ l={\text{cons}}\,a\,l'\end{cases}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/927c04792e715214a2f2c47fb0fa743891103c11" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.505ex; margin-left: -0.127ex; width:57.734ex; height:6.176ex;" alt="{\displaystyle {\text{join}}\colon {A^{*}}^{*}\to A^{*}=l\mapsto {\begin{cases}{\text{nil}}&amp;{\text{if}}\ l={\text{nil}}\\{\text{append}}\,a\,({\text{join}}\,l&#x27;)&amp;{\text{if}}\ l={\text{cons}}\,a\,l&#x27;\end{cases}}}"></span></dd></dl>
+
+<p id="mw5A">Note that <i id="mw5Q">fmap</i>, <i id="mw5g">join</i>, <i id="mw5w">append</i> and <i id="mw6A">bind</i> are well-defined, since they're applied to progressively deeper arguments at each recursive call.</p>
+
+<p id="mw6Q">The list type is an additive monad, with <i id="mw6g">nil</i> as the monadic zero and <i id="mw6w">append</i> as monadic sum.</p>
+
+<p id="mw7A">Lists form a <a rel="mw:WikiLink" href="./Monoid" title="Monoid" id="mw7Q">monoid</a> under the <i id="mw7g">append</i> operation. The identity element of the monoid is the empty list, <i id="mw7w">nil</i>. In fact, this is the <a rel="mw:WikiLink" href="./Free_monoid" title="Free monoid" id="mw8A">free monoid</a> over the set of list elements.</p>
+
+</section></section><section data-mw-section-id="7" id="mw8Q"><h2 id="See_also">See also</h2>
+<span class="mw-empty-elt" about="#mwt25" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Wiktionary&quot;,&quot;href&quot;:&quot;./Template:Wiktionary&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;list&quot;}},&quot;i&quot;:0}}]}" id="mw8g"><style data-mw-deduplicate="TemplateStyles:r1314755338" typeof="mw:Extension/templatestyles" about="#mwt26" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Side box/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}">.mw-parser-output .side-box{margin:4px 0;box-sizing:border-box;border:1px solid #aaa;font-size:88%;line-height:1.25em;background-color:var(--background-color-interactive-subtle,#f8f9fa);color:inherit;display:flow-root}.mw-parser-output .infobox .side-box{font-size:100%}.mw-parser-output .side-box-abovebelow,.mw-parser-output .side-box-text{padding:0.25em 0.9em}.mw-parser-output .side-box-image{padding:2px 0 2px 0.9em;text-align:center}.mw-parser-output .side-box-imageright{padding:2px 0.9em 2px 0;text-align:center}@media(min-width:500px){.mw-parser-output .side-box-flex{display:flex;align-items:center}.mw-parser-output .side-box-text{flex:1;min-width:0}}@media(min-width:640px){.mw-parser-output .side-box{width:238px}.mw-parser-output .side-box-right{clear:right;float:right;margin-left:1em}.mw-parser-output .side-box-left{margin-right:1em}}</style><style data-mw-deduplicate="TemplateStyles:r1374954486" typeof="mw:Extension/templatestyles" about="#mwt27" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Sister project/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}">@media print{body.ns-0 .mw-parser-output .sistersitebox{display:none!important}}@media screen{html.skin-theme-clientpref-night .mw-parser-output .sistersitebox img[src*="Wiktionary-logo-en-v2.svg"]{filter:invert(1)brightness(55%)contrast(250%)hue-rotate(180deg)}}@media screen and (prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .sistersitebox img[src*="Wiktionary-logo-en-v2.svg"]{filter:invert(1)brightness(55%)contrast(250%)hue-rotate(180deg)}}</style></span><div class="side-box side-box-right plainlinks sistersitebox" about="#mwt25" id="mw8w"><span class="mw-empty-elt"><style data-mw-deduplicate="TemplateStyles:r1126788409" typeof="mw:Extension/templatestyles" about="#mwt28" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Plainlist/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}">.mw-parser-output .plainlist ol,.mw-parser-output .plainlist ul{line-height:inherit;list-style:none;margin:0;padding:0}.mw-parser-output .plainlist ol li,.mw-parser-output .plainlist ul li{margin-bottom:0}</style></span>
+<div class="side-box-flex">
+<div class="side-box-image"><span class="noviewer skin-invert-image" typeof="mw:File"><a href="./File:Wiktionary-logo-en-v2.svg" class="mw-file-description"><img resource="./File:Wiktionary-logo-en-v2.svg" src="//thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Wiktionary-logo-en-v2.svg/40px-Wiktionary-logo-en-v2.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail" decoding="async" loading="lazy" srcset="//thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Wiktionary-logo-en-v2.svg/120px-Wiktionary-logo-en-v2.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x" alt="Wiktionary logo" data-file-width="512" data-file-height="512" data-file-type="drawing" height="40" width="40" class="mw-file-element"></a></span></div>
+<div class="side-box-text plainlist">Look up <i><b><a rel="mw:WikiLink/Interwiki" href="https://en.wiktionary.org/wiki/list" title="wiktionary:list" class="extiw">list</a></b></i> in Wiktionary, the free dictionary.</div></div>
+</div>
+<ul id="mw9A"><li id="mw9Q"><a rel="mw:WikiLink" href="./Array_data_type" title="Array data type" about="#mwt29" typeof="mw:Transclusion" class="mw-redirect" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Annotated link&quot;,&quot;href&quot;:&quot;./Template:Annotated_link&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;Array data type&quot;}},&quot;i&quot;:0}}]}" id="mw9g">Array data type</a><span typeof="mw:Entity" about="#mwt29"> </span><span about="#mwt29">– Data type that represents an ordered collection of elements (values or variables)</span><span style="display:none" class="category-annotation-with-redirected-description" about="#mwt29">Pages displaying short descriptions of redirect targets</span><link rel="mw:PageProp/Category" href="./Category:Pages_displaying_short_descriptions_of_redirect_targets_via_Module:Annotated_link" about="#mwt29" id="mw9w"></li>
+<li id="mw-A"><a rel="mw:WikiLink" href="./Queue_(abstract_data_type)" title="Queue (abstract data type)" about="#mwt30" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Annotated link&quot;,&quot;href&quot;:&quot;./Template:Annotated_link&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;Queue (abstract data type)&quot;},&quot;2&quot;:{&quot;wt&quot;:&quot;Queue&quot;}},&quot;i&quot;:0}}]}" id="mw-Q">Queue</a><span typeof="mw:Entity" about="#mwt30"> </span><span about="#mwt30">– Abstract data type</span></li>
+<li id="mw-g"><a rel="mw:WikiLink" href="./Set_(abstract_data_type)" title="Set (abstract data type)" about="#mwt31" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Annotated link&quot;,&quot;href&quot;:&quot;./Template:Annotated_link&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;Set (abstract data type)&quot;},&quot;2&quot;:{&quot;wt&quot;:&quot;Set&quot;}},&quot;i&quot;:0}}]}" id="mw-w">Set</a><span typeof="mw:Entity" about="#mwt31"> </span><span about="#mwt31">– Abstract data type for storing distinct values</span></li>
+<li id="mw_A"><a rel="mw:WikiLink" href="./Stack_(abstract_data_type)" title="Stack (abstract data type)" about="#mwt32" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Annotated link&quot;,&quot;href&quot;:&quot;./Template:Annotated_link&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;Stack (abstract data type)&quot;},&quot;2&quot;:{&quot;wt&quot;:&quot;Stack&quot;}},&quot;i&quot;:0}}]}" id="mw_Q">Stack</a><span typeof="mw:Entity" about="#mwt32"> </span><span about="#mwt32">– Abstract data type</span></li>
+<li id="mw_g"><a rel="mw:WikiLink" href="./Stream_(computing)" title="Stream (computing)" about="#mwt33" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Annotated link&quot;,&quot;href&quot;:&quot;./Template:Annotated_link&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;Stream (computing)&quot;},&quot;2&quot;:{&quot;wt&quot;:&quot;Stream&quot;}},&quot;i&quot;:0}}]}" id="mw_w">Stream</a><span typeof="mw:Entity" about="#mwt33"> </span><span about="#mwt33">– Sequence of data items available over time</span></li></ul>
+
+</section><section data-mw-section-id="8" id="mwAQA"><h2 id="References">References</h2>
+<span class="mw-empty-elt" about="#mwt34" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Reflist&quot;,&quot;href&quot;:&quot;./Template:Reflist&quot;},&quot;params&quot;:{},&quot;i&quot;:0}}]}" id="mwAQE"><style data-mw-deduplicate="TemplateStyles:r1327269900" typeof="mw:Extension/templatestyles" about="#mwt35" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Reflist/styles.css&quot;}}">.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}body.skin-vector-2022 .mw-parser-output .reflist-columns-2{column-width:27em}body.skin-vector-2022 .mw-parser-output .reflist-columns-3{column-width:22.5em}.mw-parser-output .references[data-mw-group=upper-alpha]{list-style-type:upper-alpha}.mw-parser-output .references[data-mw-group=upper-roman]{list-style-type:upper-roman}.mw-parser-output .references[data-mw-group=lower-alpha]{list-style-type:lower-alpha}.mw-parser-output .references[data-mw-group=lower-greek]{list-style-type:lower-greek}.mw-parser-output .references[data-mw-group=lower-roman]{list-style-type:lower-roman}.mw-parser-output div.reflist-liststyle-upper-alpha .references{list-style-type:upper-alpha}.mw-parser-output div.reflist-liststyle-upper-roman .references{list-style-type:upper-roman}.mw-parser-output div.reflist-liststyle-lower-alpha .references{list-style-type:lower-alpha}.mw-parser-output div.reflist-liststyle-lower-greek .references{list-style-type:lower-greek}.mw-parser-output div.reflist-liststyle-lower-roman .references{list-style-type:lower-roman}</style></span><div about="#mwt34" id="mwAQI">
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt36" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{&quot;group&quot;:&quot;&quot;,&quot;responsive&quot;:&quot;1&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}" id="mwAQM"><ol class="mw-references references" id="mwAQQ"><li about="#cite_note-1" id="cite_note-1" data-mw-footnote-number="1"><span class="mw-cite-backlink" id="mwAQU"><a href="./List_(abstract_data_type)#cite_ref-1" rel="mw:referencedBy" id="mwAQY"><span class="mw-linkback-text" id="mwAQc">↑</span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text"><style data-mw-deduplicate="TemplateStyles:r1333433106" typeof="mw:Extension/templatestyles mw:Transclusion" about="#mwt4" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Citation/CS1/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;cite book&quot;,&quot;href&quot;:&quot;./Template:Cite_book&quot;},&quot;params&quot;:{&quot;last1&quot;:{&quot;wt&quot;:&quot;Reingold&quot;},&quot;first1&quot;:{&quot;wt&quot;:&quot;Edward&quot;},&quot;last2&quot;:{&quot;wt&quot;:&quot;Nievergelt&quot;},&quot;first2&quot;:{&quot;wt&quot;:&quot;Jurg&quot;},&quot;last3&quot;:{&quot;wt&quot;:&quot;Narsingh&quot;},&quot;first3&quot;:{&quot;wt&quot;:&quot;Deo&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;Combinatorial Algorithms: Theory and Practice&quot;},&quot;date&quot;:{&quot;wt&quot;:&quot;1977&quot;},&quot;publisher&quot;:{&quot;wt&quot;:&quot;Prentice Hall&quot;},&quot;location&quot;:{&quot;wt&quot;:&quot;Englewood Cliffs, New Jersey&quot;},&quot;isbn&quot;:{&quot;wt&quot;:&quot;0-13-152447-X&quot;},&quot;pages&quot;:{&quot;wt&quot;:&quot;38–41&quot;}},&quot;i&quot;:0}}]}" id="mwAQg">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free.id-lock-free a{background:url("//upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited.id-lock-limited a,.mw-parser-output .id-lock-registration.id-lock-registration a{background:url("//upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription.id-lock-subscription a{background:url("//upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:url("//upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-free a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-limited a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-registration a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-subscription a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .cs1-ws-icon a{background-size:contain;padding:0 1em 0 0}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:var(--color-error,#bf3c2c)}.mw-parser-output .cs1-visible-error{color:var(--color-error,#bf3c2c)}.mw-parser-output .cs1-maint{display:none;color:#085;margin-left:0.3em}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}@media screen{.mw-parser-output .cs1-format{font-size:95%}html.skin-theme-clientpref-night .mw-parser-output .cs1-maint{color:#18911f}}@media screen and (prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .cs1-maint{color:#18911f}}</style><cite id="CITEREFReingoldNievergeltNarsingh1977" class="citation book cs1" about="#mwt4">Reingold, Edward; Nievergelt, Jurg; Narsingh, Deo (1977). <i id="mwAQk">Combinatorial Algorithms: Theory and Practice</i>. Englewood Cliffs, New Jersey: Prentice Hall. pp.<span typeof="mw:Entity" id="mwAQo"> </span><span class="nowrap" id="mwAQs">38–</span>41. <a rel="mw:WikiLink" href="./ISBN_(identifier)" title="ISBN (identifier)" class="mw-redirect" id="mwAQw">ISBN</a><span typeof="mw:Entity" id="mwAQ0"> </span><a rel="mw:WikiLink" href="./Special:BookSources/0-13-152447-X" title="Special:BookSources/0-13-152447-X" id="mwAQ4"><bdi id="mwAQ8">0-13-152447-X</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Combinatorial+Algorithms%3A+Theory+and+Practice&amp;rft.place=Englewood+Cliffs%2C+New+Jersey&amp;rft.pages=38-41&amp;rft.pub=Prentice+Hall&amp;rft.date=1977&amp;rft.isbn=0-13-152447-X&amp;rft.aulast=Reingold&amp;rft.aufirst=Edward&amp;rft.au=Nievergelt%2C+Jurg&amp;rft.au=Narsingh%2C+Deo&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AList+%28abstract+data+type%29" class="Z3988" about="#mwt4" id="mwARA"></span></span></li>
+<li about="#cite_note-2" id="cite_note-2" data-mw-footnote-number="2"><span class="mw-cite-backlink" id="mwARE"><a href="./List_(abstract_data_type)#cite_ref-2" rel="mw:referencedBy" id="mwARI"><span class="mw-linkback-text" id="mwARM">↑</span></a></span> <span id="mw-reference-text-cite_note-2" class="mw-reference-text reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt8" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Citation/CS1/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;cite book &quot;,&quot;href&quot;:&quot;./Template:Cite_book&quot;},&quot;params&quot;:{&quot;title&quot;:{&quot;wt&quot;:&quot;[[Structure and Interpretation of Computer Programs]]&quot;},&quot;first1&quot;:{&quot;wt&quot;:&quot;Harold&quot;},&quot;last1&quot;:{&quot;wt&quot;:&quot;Abelson&quot;},&quot;first2&quot;:{&quot;wt&quot;:&quot;Gerald Jay&quot;},&quot;last2&quot;:{&quot;wt&quot;:&quot;Sussman&quot;},&quot;year&quot;:{&quot;wt&quot;:&quot;1996&quot;},&quot;publisher&quot;:{&quot;wt&quot;:&quot;MIT Press&quot;}},&quot;i&quot;:0}}]}" id="mwARQ"><cite id="CITEREFAbelsonSussman1996" class="citation book cs1" about="#mwt8">Abelson, Harold; Sussman, Gerald Jay (1996). <i id="mwARU"><a rel="mw:WikiLink" href="./Structure_and_Interpretation_of_Computer_Programs" title="Structure and Interpretation of Computer Programs" id="mwARY">Structure and Interpretation of Computer Programs</a></i>. MIT Press.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Structure+and+Interpretation+of+Computer+Programs&amp;rft.pub=MIT+Press&amp;rft.date=1996&amp;rft.aulast=Abelson&amp;rft.aufirst=Harold&amp;rft.au=Sussman%2C+Gerald+Jay&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AList+%28abstract+data+type%29" class="Z3988" about="#mwt8" id="mwARc"></span></span></li>
+<li about="#cite_note-3" id="cite_note-3" data-mw-footnote-number="3"><span class="mw-cite-backlink" id="mwARg"><a href="./List_(abstract_data_type)#cite_ref-3" rel="mw:referencedBy" id="mwARk"><span class="mw-linkback-text" id="mwARo">↑</span></a></span> <span id="mw-reference-text-cite_note-3" class="mw-reference-text reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt11" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Citation/CS1/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;cite web&quot;,&quot;href&quot;:&quot;./Template:Cite_web&quot;},&quot;params&quot;:{&quot;last1&quot;:{&quot;wt&quot;:&quot;Barnett&quot;},&quot;first1&quot;:{&quot;wt&quot;:&quot;Granville&quot;},&quot;last2&quot;:{&quot;wt&quot;:&quot;Del tonga&quot;},&quot;first2&quot;:{&quot;wt&quot;:&quot;Luca&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;Data Structures and Algorithms&quot;},&quot;url&quot;:{&quot;wt&quot;:&quot;http://www.mta.ca/~rrosebru/oldcourse/263114/Dsa.pdf&quot;},&quot;website&quot;:{&quot;wt&quot;:&quot;mta.ca&quot;},&quot;access-date&quot;:{&quot;wt&quot;:&quot;12 November 2014&quot;},&quot;date&quot;:{&quot;wt&quot;:&quot;2008&quot;}},&quot;i&quot;:0}}]}" id="mwARs"><cite id="CITEREFBarnettDel_tonga2008" class="citation web cs1" about="#mwt11">Barnett, Granville; Del tonga, Luca (2008). <a rel="mw:ExtLink nofollow" href="http://www.mta.ca/~rrosebru/oldcourse/263114/Dsa.pdf" class="external text" id="mwARw">"Data Structures and Algorithms"</a> <span class="cs1-format" id="mwAR0">(PDF)</span>. <i id="mwAR4">mta.ca</i><span class="reference-accessdate" id="mwAR8">. Retrieved <span class="nowrap" id="mwASA">12 November</span> 2014</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=mta.ca&amp;rft.atitle=Data+Structures+and+Algorithms&amp;rft.date=2008&amp;rft.aulast=Barnett&amp;rft.aufirst=Granville&amp;rft.au=Del+tonga%2C+Luca&amp;rft_id=http%3A%2F%2Fwww.mta.ca%2F~rrosebru%2Foldcourse%2F263114%2FDsa.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AList+%28abstract+data+type%29" class="Z3988" about="#mwt11" id="mwASE"></span></span></li>
+<li about="#cite_note-4" id="cite_note-4" data-mw-footnote-number="4"><span class="mw-cite-backlink" id="mwASI"><a href="./List_(abstract_data_type)#cite_ref-4" rel="mw:referencedBy" id="mwASM"><span class="mw-linkback-text" id="mwASQ">↑</span></a></span> <span id="mw-reference-text-cite_note-4" class="mw-reference-text reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt14" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Citation/CS1/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;cite book&quot;,&quot;href&quot;:&quot;./Template:Cite_book&quot;},&quot;params&quot;:{&quot;last1&quot;:{&quot;wt&quot;:&quot;Lerusalimschy&quot;},&quot;first1&quot;:{&quot;wt&quot;:&quot;Roberto&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;Programming in Lua (first edition)&quot;},&quot;date&quot;:{&quot;wt&quot;:&quot;December 2003&quot;},&quot;publisher&quot;:{&quot;wt&quot;:&quot;Lua.org&quot;},&quot;isbn&quot;:{&quot;wt&quot;:&quot;8590379817&quot;},&quot;edition&quot;:{&quot;wt&quot;:&quot;First&quot;},&quot;url&quot;:{&quot;wt&quot;:&quot;http://www.lua.org/pil/11.3.html&quot;},&quot;access-date&quot;:{&quot;wt&quot;:&quot;12 November 2014&quot;}},&quot;i&quot;:0}}]}" id="mwASU"><cite id="CITEREFLerusalimschy2003" class="citation book cs1" about="#mwt14">Lerusalimschy, Roberto (December 2003). <a rel="mw:ExtLink nofollow" href="http://www.lua.org/pil/11.3.html" class="external text" id="mwASY"><i id="mwASc">Programming in Lua (first edition)</i></a> (First<span typeof="mw:Entity" id="mwASg"> </span>ed.). Lua.org. <a rel="mw:WikiLink" href="./ISBN_(identifier)" title="ISBN (identifier)" class="mw-redirect" id="mwASk">ISBN</a><span typeof="mw:Entity" id="mwASo"> </span><a rel="mw:WikiLink" href="./Special:BookSources/8590379817" title="Special:BookSources/8590379817" id="mwASs"><bdi id="mwASw">8590379817</bdi></a><span class="reference-accessdate" id="mwAS0">. Retrieved <span class="nowrap" id="mwAS4">12 November</span> 2014</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Programming+in+Lua+%28first+edition%29&amp;rft.edition=First&amp;rft.pub=Lua.org&amp;rft.date=2003-12&amp;rft.isbn=8590379817&amp;rft.aulast=Lerusalimschy&amp;rft.aufirst=Roberto&amp;rft_id=http%3A%2F%2Fwww.lua.org%2Fpil%2F11.3.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AList+%28abstract+data+type%29" class="Z3988" about="#mwt14" id="mwAS8"></span></span></li>
+<li about="#cite_note-5" id="cite_note-5" data-mw-footnote-number="5"><span class="mw-cite-backlink" id="mwATA"><a href="./List_(abstract_data_type)#cite_ref-5" rel="mw:referencedBy" id="mwATE"><span class="mw-linkback-text" id="mwATI">↑</span></a></span> <span id="mw-reference-text-cite_note-5" class="mw-reference-text reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt17" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Citation/CS1/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;cite book&quot;,&quot;href&quot;:&quot;./Template:Cite_book&quot;},&quot;params&quot;:{&quot;last1&quot;:{&quot;wt&quot;:&quot;Steele&quot;},&quot;first1&quot;:{&quot;wt&quot;:&quot;Guy&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;Common Lisp&quot;},&quot;date&quot;:{&quot;wt&quot;:&quot;1990&quot;},&quot;publisher&quot;:{&quot;wt&quot;:&quot;Digital Press&quot;},&quot;isbn&quot;:{&quot;wt&quot;:&quot;1-55558-041-6&quot;},&quot;pages&quot;:{&quot;wt&quot;:&quot;29–31&quot;},&quot;edition&quot;:{&quot;wt&quot;:&quot;Second&quot;}},&quot;i&quot;:0}}]}" id="mwATM"><cite id="CITEREFSteele1990" class="citation book cs1" about="#mwt17">Steele, Guy (1990). <i id="mwATQ">Common Lisp</i> (Second<span typeof="mw:Entity" id="mwATU"> </span>ed.). Digital Press. pp.<span typeof="mw:Entity" id="mwATY"> </span><span class="nowrap" id="mwATc">29–</span>31. <a rel="mw:WikiLink" href="./ISBN_(identifier)" title="ISBN (identifier)" class="mw-redirect" id="mwATg">ISBN</a><span typeof="mw:Entity" id="mwATk"> </span><a rel="mw:WikiLink" href="./Special:BookSources/1-55558-041-6" title="Special:BookSources/1-55558-041-6" id="mwATo"><bdi id="mwATs">1-55558-041-6</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Common+Lisp&amp;rft.pages=29-31&amp;rft.edition=Second&amp;rft.pub=Digital+Press&amp;rft.date=1990&amp;rft.isbn=1-55558-041-6&amp;rft.aulast=Steele&amp;rft.aufirst=Guy&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AList+%28abstract+data+type%29" class="Z3988" about="#mwt17" id="mwATw"></span></span></li>
+</ol></div></div>
+
+<div class="navbox-styles" about="#mwt37" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Data structures&quot;,&quot;href&quot;:&quot;./Template:Data_structures&quot;},&quot;params&quot;:{},&quot;i&quot;:0}}]}" id="mwAT0"><span class="mw-empty-elt"><style data-mw-deduplicate="TemplateStyles:r1374427404" typeof="mw:Extension/templatestyles" about="#mwt38" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Hlist/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}">.mw-parser-output .hlist dl,.mw-parser-output .hlist ol,.mw-parser-output .hlist ul{margin:0;padding:0}.mw-parser-output .hlist dd,.mw-parser-output .hlist dt,.mw-parser-output .hlist li{margin:0;display:inline}.mw-parser-output .hlist.inline,.mw-parser-output .hlist.inline dl,.mw-parser-output .hlist.inline ol,.mw-parser-output .hlist.inline ul,.mw-parser-output .hlist dl dl,.mw-parser-output .hlist dl ol,.mw-parser-output .hlist dl ul,.mw-parser-output .hlist ol dl,.mw-parser-output .hlist ol ol,.mw-parser-output .hlist ol ul,.mw-parser-output .hlist ul dl,.mw-parser-output .hlist ul ol,.mw-parser-output .hlist ul ul{display:inline}.mw-parser-output .hlist .mw-empty-li{display:none}.mw-parser-output .hlist dt::after{content:": "}.mw-parser-output .hlist dd::after,.mw-parser-output .hlist li::after{content:"\a0 · ";font-weight:bold}.mw-parser-output .hlist dd:last-child::after,.mw-parser-output .hlist dt:last-child::after,.mw-parser-output .hlist li:last-child::after{content:none}.mw-parser-output .hlist dd dd:first-child::before,.mw-parser-output .hlist dd dt:first-child::before,.mw-parser-output .hlist dd li:first-child::before,.mw-parser-output .hlist dt dd:first-child::before,.mw-parser-output .hlist dt dt:first-child::before,.mw-parser-output .hlist dt li:first-child::before,.mw-parser-output .hlist li dd:first-child::before,.mw-parser-output .hlist li dt:first-child::before,.mw-parser-output .hlist li li:first-child::before{content:" (";font-weight:normal}.mw-parser-output .hlist dd dd:last-child::after,.mw-parser-output .hlist dd dt:last-child::after,.mw-parser-output .hlist dd li:last-child::after,.mw-parser-output .hlist dt dd:last-child::after,.mw-parser-output .hlist dt dt:last-child::after,.mw-parser-output .hlist dt li:last-child::after,.mw-parser-output .hlist li dd:last-child::after,.mw-parser-output .hlist li dt:last-child::after,.mw-parser-output .hlist li li:last-child::after{content:")";font-weight:normal}.mw-parser-output .hlist ol{counter-reset:listitem}.mw-parser-output .hlist ol>li{counter-increment:listitem}.mw-parser-output .hlist ol>li::before{content:" "counter(listitem)"\a0 "}.mw-parser-output .hlist dd ol>li:first-child::before,.mw-parser-output .hlist dt ol>li:first-child::before,.mw-parser-output .hlist li ol>li:first-child::before{content:" ("counter(listitem)"\a0 "}</style><style data-mw-deduplicate="TemplateStyles:r1364279517" typeof="mw:Extension/templatestyles" about="#mwt39" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Navbox/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}">.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox-styles+.navbox,.mw-parser-output .navbox+span.mw-empty-elt+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd;color:inherit}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf;color:inherit}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf;color:inherit}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff;color:inherit}.mw-parser-output .navbox-even{background-color:#f7f7f7;color:inherit}.mw-parser-output .navbox-odd{background-color:transparent;color:inherit}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}body.skin--responsive .mw-parser-output .navbox-image img{max-width:none!important}@media print{body.ns-0 .mw-parser-output .navbox{display:none!important}}</style></span></div><div role="navigation" class="navbox" aria-labelledby="Data_structures1489" style="padding:3px" about="#mwt37" id="mwAT4"><table class="nowraplinks hlist mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><span class="mw-empty-elt"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1374427404" about="#mwt40" typeof="mw:Extension/templatestyles" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Hlist/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}"><style data-mw-deduplicate="TemplateStyles:r1239400231" typeof="mw:Extension/templatestyles" about="#mwt41" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Navbar/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}">.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}html.skin-theme-clientpref-night .mw-parser-output .navbar li a abbr{color:var(--color-base)!important}@media(prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .navbar li a abbr{color:var(--color-base)!important}}@media print{.mw-parser-output .navbar{display:none!important}}</style></span><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a rel="mw:WikiLink" href="./Template:Data_structures" title="Template:Data structures"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a rel="mw:WikiLink" href="./Template_talk:Data_structures" title="Template talk:Data structures"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a rel="mw:WikiLink" href="./Special:EditPage/Template:Data_structures" title="Special:EditPage/Template:Data structures"><abbr title="Edit this template">e</abbr></a></li></ul></div><div id="Data_structures1489" style="font-size:114%;margin:0 4em"><a rel="mw:WikiLink" href="./Data_structure" title="Data structure">Data structures</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%">Types</th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a rel="mw:WikiLink" href="./Collection_(abstract_data_type)" title="Collection (abstract data type)">Collection</a></li>
+<li><a rel="mw:WikiLink" href="./Container_(abstract_data_type)" title="Container (abstract data type)">Container</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a rel="mw:WikiLink" href="./Abstract_data_type" title="Abstract data type">Abstract</a></th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a rel="mw:WikiLink" href="./Associative_array" title="Associative array">Associative array</a>
+<ul><li><a rel="mw:WikiLink" href="./Multimap" title="Multimap">Multimap</a></li>
+<li><a rel="mw:WikiLink" href="./Retrieval_Data_Structure" title="Retrieval Data Structure">Retrieval Data Structure</a></li></ul></li>
+<li><a rel="mw:WikiLink" href="./List_(abstract_data_type)" class="mw-selflink selflink">List</a></li>
+<li><a rel="mw:WikiLink" href="./Stack_(abstract_data_type)" title="Stack (abstract data type)">Stack</a></li>
+<li><a rel="mw:WikiLink" href="./Queue_(abstract_data_type)" title="Queue (abstract data type)">Queue</a></li>
+<li><a rel="mw:WikiLink" href="./Double-ended_queue" title="Double-ended queue">Double-ended queue</a></li>
+<li><a rel="mw:WikiLink" href="./Priority_queue" title="Priority queue">Priority queue</a>
+<ul><li><a rel="mw:WikiLink" href="./Double-ended_priority_queue" title="Double-ended priority queue">Double-ended priority queue</a></li></ul></li>
+<li><a rel="mw:WikiLink" href="./Set_(abstract_data_type)" title="Set (abstract data type)">Set</a>
+<ul><li><a rel="mw:WikiLink" href="./Set_(abstract_data_type)#Multiset" title="Set (abstract data type)">Multiset</a></li>
+<li><a rel="mw:WikiLink" href="./Disjoint-set_data_structure" title="Disjoint-set data structure">Disjoint-set</a></li></ul></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a rel="mw:WikiLink" href="./Array_(data_structure)" title="Array (data structure)">Arrays</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a rel="mw:WikiLink" href="./Bit_array" title="Bit array">Bit array</a></li>
+<li><a rel="mw:WikiLink" href="./Circular_buffer" title="Circular buffer">Circular buffer</a></li>
+<li><a rel="mw:WikiLink" href="./Dynamic_array" title="Dynamic array">Dynamic array</a></li>
+<li><a rel="mw:WikiLink" href="./Hash_table" title="Hash table">Hash table</a></li>
+<li><a rel="mw:WikiLink" href="./Hashed_array_tree" title="Hashed array tree">Hashed array tree</a></li>
+<li><a rel="mw:WikiLink" href="./Sparse_matrix" title="Sparse matrix">Sparse matrix</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a rel="mw:WikiLink" href="./Linked_data_structure" title="Linked data structure">Linked</a></th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a rel="mw:WikiLink" href="./Association_list" title="Association list">Association list</a></li>
+<li><a rel="mw:WikiLink" href="./Linked_list" title="Linked list">Linked list</a></li>
+<li><a rel="mw:WikiLink" href="./Skip_list" title="Skip list">Skip list</a></li>
+<li><a rel="mw:WikiLink" href="./Unrolled_linked_list" title="Unrolled linked list">Unrolled linked list</a></li>
+<li><a rel="mw:WikiLink" href="./XOR_linked_list" title="XOR linked list">XOR linked list</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a rel="mw:WikiLink" href="./Tree_(data_structure)" title="Tree (data structure)" class="mw-redirect">Trees</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a rel="mw:WikiLink" href="./B-tree" title="B-tree">B-tree</a></li>
+<li><a rel="mw:WikiLink" href="./Binary_search_tree" title="Binary search tree">Binary search tree</a> 
+<ul><li><a rel="mw:WikiLink" href="./AA_tree" title="AA tree">AA tree</a></li>
+<li><a rel="mw:WikiLink" href="./AVL_tree" title="AVL tree">AVL tree</a></li>
+<li><a rel="mw:WikiLink" href="./Red–black_tree" title="Red–black tree">Red–black tree</a></li>
+<li><a rel="mw:WikiLink" href="./Self-balancing_binary_search_tree" title="Self-balancing binary search tree">Self-balancing tree</a></li>
+<li><a rel="mw:WikiLink" href="./Splay_tree" title="Splay tree">Splay tree</a></li></ul></li>
+<li><a rel="mw:WikiLink" href="./Heap_(data_structure)" title="Heap (data structure)">Heap</a> 
+<ul><li><a rel="mw:WikiLink" href="./Binary_heap" title="Binary heap">Binary heap</a></li>
+<li><a rel="mw:WikiLink" href="./Binomial_heap" title="Binomial heap">Binomial heap</a></li>
+<li><a rel="mw:WikiLink" href="./Fibonacci_heap" title="Fibonacci heap">Fibonacci heap</a></li></ul></li>
+<li><a rel="mw:WikiLink" href="./R-tree" title="R-tree">R-tree</a>
+<ul><li><a rel="mw:WikiLink" href="./R*_tree" title="R* tree" class="mw-redirect">R* tree</a></li>
+<li><a rel="mw:WikiLink" href="./R+_tree" title="R+ tree">R+ tree</a></li>
+<li><a rel="mw:WikiLink" href="./Hilbert_R-tree" title="Hilbert R-tree">Hilbert R-tree</a></li></ul></li>
+<li><a rel="mw:WikiLink" href="./Rope_(data_structure)" title="Rope (data structure)">Rope</a></li>
+<li><a rel="mw:WikiLink" href="./Trie" title="Trie">Trie</a>
+<ul><li><a rel="mw:WikiLink" href="./Hash_tree_(persistent_data_structure)" title="Hash tree (persistent data structure)">Hash tree</a></li></ul></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a rel="mw:WikiLink" href="./Graph_(abstract_data_type)" title="Graph (abstract data type)">Graphs</a></th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a rel="mw:WikiLink" href="./Binary_decision_diagram" title="Binary decision diagram">Binary decision diagram</a></li>
+<li><a rel="mw:WikiLink" href="./Directed_acyclic_graph" title="Directed acyclic graph">Directed acyclic graph</a></li>
+<li><a rel="mw:WikiLink" href="./Deterministic_acyclic_finite_state_automaton" title="Deterministic acyclic finite state automaton">Directed acyclic word graph</a></li></ul>
+</div></td></tr><tr><td class="navbox-abovebelow" colspan="2"><div>
+<ul><li><a rel="mw:WikiLink" href="./List_of_data_structures" title="List of data structures">List of data structures</a></li></ul>
+</div></td></tr></tbody></table></div>
+<div class="navbox-styles" about="#mwt42" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Data types&quot;,&quot;href&quot;:&quot;./Template:Data_types&quot;},&quot;params&quot;:{},&quot;i&quot;:0}}]}" id="mwAT8"><span class="mw-empty-elt"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1374427404" about="#mwt43" typeof="mw:Extension/templatestyles" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Hlist/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1364279517" about="#mwt44" typeof="mw:Extension/templatestyles" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Navbox/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}"></span></div><div role="navigation" class="navbox" aria-labelledby="Data_types2873" style="padding:3px" about="#mwt42" id="mwAUA"><table class="nowraplinks hlist mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><span class="mw-empty-elt"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1374427404" about="#mwt45" typeof="mw:Extension/templatestyles" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Hlist/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1239400231" about="#mwt46" typeof="mw:Extension/templatestyles" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Navbar/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}"></span><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a rel="mw:WikiLink" href="./Template:Data_types" title="Template:Data types"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a rel="mw:WikiLink" href="./Template_talk:Data_types" title="Template talk:Data types"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a rel="mw:WikiLink" href="./Special:EditPage/Template:Data_types" title="Special:EditPage/Template:Data types"><abbr title="Edit this template">e</abbr></a></li></ul></div><div id="Data_types2873" style="font-size:114%;margin:0 4em"><a rel="mw:WikiLink" href="./Data_type" title="Data type">Data types</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a rel="mw:WikiLink" href="./Units_of_information" title="Units of information">Uninterpreted</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a rel="mw:WikiLink" href="./Bit" title="Bit">Bit</a></li>
+<li><a rel="mw:WikiLink" href="./Byte" title="Byte">Byte</a></li>
+<li><a rel="mw:WikiLink" href="./Ternary_numeral_system" title="Ternary numeral system">Trit</a></li>
+<li><a rel="mw:WikiLink" href="./Ternary_numeral_system#Tryte" title="Ternary numeral system">Tryte</a></li>
+<li><a rel="mw:WikiLink" href="./Word_(computer_architecture)" title="Word (computer architecture)">Word</a></li>
+<li><a rel="mw:WikiLink" href="./Bit_array" title="Bit array">Bit array</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Numeric</th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a rel="mw:WikiLink" href="./Arbitrary-precision_arithmetic" title="Arbitrary-precision arithmetic">Arbitrary-precision or bignum</a></li>
+<li><a rel="mw:WikiLink" href="./Complex_data_type" title="Complex data type">Complex</a></li>
+<li><a rel="mw:WikiLink" href="./Decimal_data_type" title="Decimal data type">Decimal</a></li>
+<li><a rel="mw:WikiLink" href="./Fixed-point_arithmetic" title="Fixed-point arithmetic">Fixed point</a></li>
+<li><a rel="mw:WikiLink" href="./Block_floating_point" title="Block floating point">Block floating point</a></li>
+<li><a rel="mw:WikiLink" href="./Floating-point_arithmetic" title="Floating-point arithmetic">Floating point</a>
+<ul><li>Reduced precision
+<ul><li><a rel="mw:WikiLink" href="./Minifloat" title="Minifloat">Minifloat</a></li>
+<li><a rel="mw:WikiLink" href="./Half-precision_floating-point_format" title="Half-precision floating-point format">Half precision</a></li>
+<li><a rel="mw:WikiLink" href="./Bfloat16_floating-point_format" title="Bfloat16 floating-point format">bfloat16</a></li></ul></li>
+<li><a rel="mw:WikiLink" href="./Single-precision_floating-point_format" title="Single-precision floating-point format">Single precision</a></li>
+<li><a rel="mw:WikiLink" href="./Double-precision_floating-point_format" title="Double-precision floating-point format">Double precision</a></li>
+<li><a rel="mw:WikiLink" href="./Quadruple-precision_floating-point_format" title="Quadruple-precision floating-point format">Quadruple precision</a></li>
+<li><a rel="mw:WikiLink" href="./Octuple-precision_floating-point_format" title="Octuple-precision floating-point format">Octuple precision</a></li>
+<li><a rel="mw:WikiLink" href="./Extended_precision" title="Extended precision">Extended precision</a>
+<ul><li><a rel="mw:WikiLink" href="./Long_double" title="Long double">Long double</a></li></ul></li></ul></li>
+<li><a rel="mw:WikiLink" href="./Integer_(computer_science)" title="Integer (computer science)">Integer</a>
+<ul><li><a rel="mw:WikiLink" href="./Signedness" title="Signedness">signedness</a></li></ul></li>
+<li><a rel="mw:WikiLink" href="./Interval_arithmetic#Implementations" title="Interval arithmetic">Interval</a></li>
+<li><a rel="mw:WikiLink" href="./Rational_data_type" title="Rational data type">Rational</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a rel="mw:WikiLink" href="./Reference_(computer_science)" title="Reference (computer science)">Reference</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a rel="mw:WikiLink" href="./Memory_address" title="Memory address">Address</a>
+<ul><li><a rel="mw:WikiLink" href="./Physical_address" title="Physical address">physical</a></li>
+<li><a rel="mw:WikiLink" href="./Virtual_address_space" title="Virtual address space">virtual</a></li></ul></li>
+<li><a rel="mw:WikiLink" href="./Pointer_(computer_programming)" title="Pointer (computer programming)">Pointer</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a rel="mw:WikiLink" href="./Plain_text" title="Plain text">Text</a></th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a rel="mw:WikiLink" href="./Character_(computing)" title="Character (computing)">Character</a></li>
+<li><a rel="mw:WikiLink" href="./String_(computer_science)" title="String (computer science)">String</a>
+<ul><li><a rel="mw:WikiLink" href="./Null-terminated_string" title="Null-terminated string">null-terminated</a></li></ul></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a rel="mw:WikiLink" href="./Composite_data_type" title="Composite data type">Composite</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a rel="mw:WikiLink" href="./Algebraic_data_type" title="Algebraic data type">Algebraic data type</a>
+<ul><li><a rel="mw:WikiLink" href="./Generalized_algebraic_data_type" title="Generalized algebraic data type">generalized</a></li></ul></li>
+<li><a rel="mw:WikiLink" href="./Array_(data_type)" title="Array (data type)">Array</a></li>
+<li><a rel="mw:WikiLink" href="./Associative_array" title="Associative array">Associative array</a></li>
+<li><a rel="mw:WikiLink" href="./Class_(programming)" title="Class (programming)">Class</a></li>
+<li><a rel="mw:WikiLink" href="./Dependent_type" title="Dependent type">Dependent</a></li>
+<li><a rel="mw:WikiLink" href="./Intuitionistic_type_theory#Equality_type" title="Intuitionistic type theory">Equality</a></li>
+<li><a rel="mw:WikiLink" href="./Inductive_type" title="Inductive type">Inductive</a></li>
+<li><a rel="mw:WikiLink" href="./Intersection_type" title="Intersection type">Intersection</a></li>
+<li><a rel="mw:WikiLink" href="./List_(abstract_data_type)" class="mw-selflink selflink">List</a></li>
+<li><a rel="mw:WikiLink" href="./Object_(computer_science)" title="Object (computer science)">Object</a>
+<ul><li><a rel="mw:WikiLink" href="./Metaobject" title="Metaobject">metaobject</a></li></ul></li>
+<li><a rel="mw:WikiLink" href="./Option_type" title="Option type">Option type</a></li>
+<li><a rel="mw:WikiLink" href="./Product_type" title="Product type">Product</a></li>
+<li><a rel="mw:WikiLink" href="./Record_(computer_science)" title="Record (computer science)">Record or Struct</a></li>
+<li><a rel="mw:WikiLink" href="./Refinement_type" title="Refinement type">Refinement</a></li>
+<li><a rel="mw:WikiLink" href="./Set_(abstract_data_type)" title="Set (abstract data type)">Set</a></li>
+<li><a rel="mw:WikiLink" href="./Union_type" title="Union type">Union</a>
+<ul><li><a rel="mw:WikiLink" href="./Tagged_union" title="Tagged union">tagged</a></li></ul></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Other</th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a rel="mw:WikiLink" href="./Any_type" title="Any type">Any type</a></li>
+<li><a rel="mw:WikiLink" href="./Boolean_data_type" title="Boolean data type">Boolean</a></li>
+<li><a rel="mw:WikiLink" href="./Bottom_type" title="Bottom type">Bottom type</a></li>
+<li><a rel="mw:WikiLink" href="./Container_(abstract_data_type)" title="Container (abstract data type)">Collection</a></li>
+<li><a rel="mw:WikiLink" href="./Enumerated_type" title="Enumerated type">Enumerated type</a></li>
+<li><a rel="mw:WikiLink" href="./Exception_handling" title="Exception handling">Exception</a></li>
+<li><a rel="mw:WikiLink" href="./Function_type" title="Function type">Function type</a></li>
+<li><a rel="mw:WikiLink" href="./Opaque_data_type" title="Opaque data type">Opaque data type</a></li>
+<li><a rel="mw:WikiLink" href="./Recursive_data_type" title="Recursive data type">Recursive data type</a></li>
+<li><a rel="mw:WikiLink" href="./Semaphore_(programming)" title="Semaphore (programming)">Semaphore</a></li>
+<li><a rel="mw:WikiLink" href="./Stream_(computing)" title="Stream (computing)">Stream</a></li>
+<li><a rel="mw:WikiLink" href="./Strongly_typed_identifier" title="Strongly typed identifier">Strongly typed identifier</a></li>
+<li><a rel="mw:WikiLink" href="./Type_class" title="Type class">Type class</a></li>
+<li><a rel="mw:WikiLink" href="./Empty_type" title="Empty type">Empty type</a></li>
+<li><a rel="mw:WikiLink" href="./Unit_type" title="Unit type">Unit type</a></li>
+<li><a rel="mw:WikiLink" href="./Void_type" title="Void type">Void</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Related<br>topics</th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a rel="mw:WikiLink" href="./Value_(computer_science)" title="Value (computer science)"> Value</a></li>
+<li><a rel="mw:WikiLink" href="./Abstract_data_type" title="Abstract data type">Abstract data type</a></li>
+<li><a rel="mw:WikiLink" href="./Boxing_(computer_programming)" title="Boxing (computer programming)">Boxing</a></li>
+<li><a rel="mw:WikiLink" href="./Data_structure" title="Data structure">Data structure</a></li>
+<li><a rel="mw:WikiLink" href="./Generic_programming" title="Generic programming">Generic</a></li>
+<li><a rel="mw:WikiLink" href="./Kind_(type_theory)" title="Kind (type theory)">Kind</a>
+<ul><li><a rel="mw:WikiLink" href="./Metaclass" title="Metaclass">metaclass</a></li></ul></li>
+<li><a rel="mw:WikiLink" href="./Parametric_polymorphism" title="Parametric polymorphism">Parametric polymorphism</a></li>
+<li><a rel="mw:WikiLink" href="./Primitive_data_type" title="Primitive data type">Primitive data type</a></li>
+<li><a rel="mw:WikiLink" href="./Interface_(object-oriented_programming)" title="Interface (object-oriented programming)">Interface</a></li>
+<li><a rel="mw:WikiLink" href="./Subtyping" title="Subtyping">Subtyping</a></li>
+<li><a rel="mw:WikiLink" href="./Type_constructor" title="Type constructor">Type constructor</a></li>
+<li><a rel="mw:WikiLink" href="./Type_conversion" title="Type conversion">Type conversion</a></li>
+<li><a rel="mw:WikiLink" href="./Type_system" title="Type system">Type system</a></li>
+<li><a rel="mw:WikiLink" href="./Type_theory" title="Type theory">Type theory</a></li>
+<li><a rel="mw:WikiLink" href="./Variable_(computer_science)" title="Variable (computer science)" class="mw-redirect">Variable</a></li></ul>
+</div></td></tr></tbody></table></div>
+<div class="navbox-styles" about="#mwt47" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Authority control&quot;,&quot;href&quot;:&quot;./Template:Authority_control&quot;},&quot;params&quot;:{},&quot;i&quot;:0}}]}" id="mwAUE"><span class="mw-empty-elt"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1374427404" about="#mwt48" typeof="mw:Extension/templatestyles" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Hlist/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1364279517" about="#mwt49" typeof="mw:Extension/templatestyles" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Navbox/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}"></span></div><div role="navigation" class="navbox authority-control" aria-labelledby="Authority_control_databases_frameless&amp;#124;text-top&amp;#124;10px&amp;#124;alt=Edit_this_at_Wikidata&amp;#124;link=https&amp;#58;//www.wikidata.org/wiki/Q27948#identifiers&amp;#124;class=noprint&amp;#124;Edit_this_at_Wikidata736" style="padding:3px" about="#mwt47" id="mwAUI"><table class="nowraplinks hlist mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><div id="Authority_control_databases_frameless&amp;#124;text-top&amp;#124;10px&amp;#124;alt=Edit_this_at_Wikidata&amp;#124;link=https&amp;#58;//www.wikidata.org/wiki/Q27948#identifiers&amp;#124;class=noprint&amp;#124;Edit_this_at_Wikidata736" style="font-size:114%;margin:0 4em"><a rel="mw:WikiLink" href="./Help:Authority_control" title="Help:Authority control">Authority control databases</a> <span class="mw-valign-text-top noprint" typeof="mw:File/Frameless" data-mw="{&quot;caption&quot;:&quot;Edit this at Wikidata&quot;}"><a href="https://www.wikidata.org/wiki/Q27948#identifiers" title="Edit this at Wikidata"><img resource="./File:OOjs_UI_icon_edit-ltr-progressive.svg" src="//thumb.wikimedia.org/wikipedia/en/thumb/8/8a/OOjs_UI_icon_edit-ltr-progressive.svg/20px-OOjs_UI_icon_edit-ltr-progressive.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail" decoding="async" loading="lazy" alt="Edit this at Wikidata" data-file-width="20" data-file-height="20" data-file-type="drawing" height="10" width="10" class="mw-file-element"></a></span></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%">International</th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"><ul><li><span class="uid"><a rel="mw:ExtLink nofollow" href="https://d-nb.info/gnd/4783888-7" class="external text">GND</a></span></li></ul></div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">National</th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em"><ul><li><span class="uid"><a rel="mw:ExtLink nofollow" href="https://id.loc.gov/authorities/sh85077455" class="external text">United States</a></span></li><li><span class="uid"><a rel="mw:ExtLink nofollow" href="https://www.nli.org.il/en/authorities/987007531493105171" class="external text">Israel</a></span></li></ul></div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Other</th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"><ul><li><span class="uid"><a rel="mw:ExtLink nofollow" href="https://lux.collections.yale.edu/view/concept/66608c1c-cfe1-470b-81bf-286f8cc399e7" class="external text">Yale LUX</a></span></li></ul></div></td></tr></tbody></table></div>
+
+<span about="#mwt50" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;DEFAULTSORT:List (Computing)&quot;,&quot;function&quot;:&quot;defaultsort&quot;},&quot;params&quot;:{},&quot;i&quot;:0}}]}" id="mwAUM"></span>
+<link rel="mw:PageProp/Category" href="./Category:Data_types" id="mwAUQ">
+<link rel="mw:PageProp/Category" href="./Category:Composite_data_types" id="mwAUU">
+<link rel="mw:PageProp/Category" href="./Category:Abstract_data_types" id="mwAUY"></section></body></html>

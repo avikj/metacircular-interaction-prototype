@@ -1,0 +1,21 @@
+{"suite": "checker", "bench": "compute_1600", "lane": "agda", "phase": "timed", "status": "not_supplied", "wall_s": null, "max_rss_mib": null, "output_match": null}
+{"suite": "checker", "bench": "compute_1600", "lane": "lean", "phase": "timed", "status": "not_supplied", "wall_s": null, "max_rss_mib": null, "output_match": null}
+{"suite": "checker", "bench": "compute_1600", "lane": "rocq", "phase": "timed", "status": "not_supplied", "wall_s": null, "max_rss_mib": null, "output_match": null}
+{"suite": "checker", "bench": "compute_1600", "lane": "isabelle", "phase": "timed", "status": "not_supplied", "wall_s": null, "max_rss_mib": null, "output_match": null}
+{"suite": "checker", "bench": "defs_12800", "lane": "agda", "phase": "timed", "status": "timeout", "wall_s": 300.18498208399996, "max_rss_mib": null, "output_match": null}
+{"suite": "checker", "bench": "defs_12800", "lane": "lean", "phase": "timed", "status": "ok", "wall_s": 48.20073374999998, "max_rss_mib": 2684.0625, "output_match": null}
+{"suite": "checker", "bench": "defs_12800", "lane": "rocq", "phase": "timed", "status": "error", "wall_s": 0.016960625000024265, "max_rss_mib": 8.0, "output_match": null}
+{"suite": "checker", "bench": "defs_12800", "lane": "isabelle", "phase": "timed", "status": "timeout", "wall_s": 301.0820492920001, "max_rss_mib": null, "output_match": null}
+{"suite": "checker", "bench": "generics_3200", "lane": "agda", "phase": "timed", "status": "timeout", "wall_s": 300.09913437500006, "max_rss_mib": null, "output_match": null}
+{"suite": "checker", "bench": "generics_3200", "lane": "lean", "phase": "timed", "status": "ok", "wall_s": 27.44333933300004, "max_rss_mib": 3382.890625, "output_match": null}
+{"suite": "checker", "bench": "generics_3200", "lane": "rocq", "phase": "timed", "status": "error", "wall_s": 0.0221753330000638, "max_rss_mib": 0.75, "output_match": null}
+{"suite": "checker", "bench": "generics_3200", "lane": "isabelle", "phase": "timed", "status": "memory_limit_3GiB", "wall_s": 10.081690500000036, "max_rss_mib": null, "output_match": null}
+{"suite": "checker", "bench": "proofs_3200", "lane": "agda", "phase": "timed", "status": "timeout", "wall_s": 300.1738223330001, "max_rss_mib": null, "output_match": null}
+{"suite": "checker", "bench": "proofs_3200", "lane": "lean", "phase": "timed", "status": "timeout", "wall_s": 300.2491681670001, "max_rss_mib": null, "output_match": null}
+{"suite": "checker", "bench": "proofs_3200", "lane": "rocq", "phase": "timed", "status": "ok", "wall_s": 9.256333584000004, "max_rss_mib": 1365.46875, "output_match": null}
+{"suite": "checker", "bench": "proofs_3200", "lane": "isabelle", "phase": "timed", "status": "memory_limit_3GiB", "wall_s": 8.064879583999982, "max_rss_mib": null, "output_match": null}
+{"suite": "checker", "bench": "trees_400", "lane": "agda", "phase": "timed", "status": "ok", "wall_s": 4.283173041000055, "max_rss_mib": 156.546875, "output_match": null}
+{"suite": "checker", "bench": "trees_400", "lane": "lean", "phase": "timed", "status": "ok", "wall_s": 3.178835124999978, "max_rss_mib": 446.9375, "output_match": null}
+{"suite": "checker", "bench": "trees_400", "lane": "rocq", "phase": "timed", "status": "ok", "wall_s": 1.4616402919998563, "max_rss_mib": 365.390625, "output_match": null}
+{"suite": "checker", "bench": "trees_400", "lane": "isabelle", "phase": "timed", "status": "memory_limit_3GiB", "wall_s": 14.188233500000024, "max_rss_mib": null, "output_match": null}
+SUITE COMPLETE checker agda,lean,rocq,isabelle
