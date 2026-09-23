@@ -1,7 +1,7 @@
 # Implementation map
 
-The integrated working branch is `integration/main-bend-20260922`, rebased on
-`origin/main` at `51a67c10ed`. Both canonical fork directories are present:
+The recovered work is published on `main`, incorporating upstream main at
+`51a67c10ed`. Both canonical fork directories are present:
 `collab/bend2-interactive-cubical/` and `collab/bend2-official-cubical/`.
 The old `collab/bend2-cubical` path is a compatibility symlink, not another fork.
 The public cubical fork provides a patch, runner and tests against public Bend

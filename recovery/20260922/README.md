@@ -1,7 +1,7 @@
 # Workspace recovery — 22 September 2026
 
-The working branch is `integration/main-bend-20260922`, based on `origin/main`
-at `51a67c10ed`. Main now includes both `collab/bend2-interactive-cubical/`
+The recovered work is published on `main`, based on upstream main
+at `51a67c10ed`. Main includes both `collab/bend2-interactive-cubical/`
 and `collab/bend2-official-cubical/`. The old `collab/bend2-cubical` path is a
 compatibility symlink, not a third compiler.
 
@@ -47,7 +47,9 @@ Agda include paths were updated. Both variants remain available and were checked
 Local build caches, large `.h5ad` datasets and the three nested UI/Unison checkouts
 are ignored at the root-repo level and preserved on disk. No nested repository was
 converted into an unconfigured gitlink. Existing tracked build artifacts were not
-silently removed. No remote branch was rewritten or pushed.
+silently removed. Publication fast-forwards remote `main` and preserves the
+`recovery/pre-integration-20260922` and `recovery/paused-work-20260922` refs
+on origin. No remote history is rewritten. The usual workspace is on `main`.
 
 ## Validation
 
