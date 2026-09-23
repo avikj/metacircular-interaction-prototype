@@ -18,7 +18,7 @@
 -- construction receipt is what its impossibilities travel on.
 ------------------------------------------------------------------------
 
-module Fibre.BhittiSthanivat_PaninisCarrierIsNotTwoValuedAndTheWallCrossesItsOwnFord where
+module Fibre.BhittiPositional_PaninisCarrierIsNotTwoValuedAndTheWallCrossesItsOwnFord where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_≃_ ; equivFun ; invEq ; retEq)

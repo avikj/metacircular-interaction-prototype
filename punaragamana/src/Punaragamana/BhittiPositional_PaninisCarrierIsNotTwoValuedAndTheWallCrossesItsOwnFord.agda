@@ -22,7 +22,7 @@
 -- proved here in the source module's own coding style (its ई≢ए pattern).
 ------------------------------------------------------------------------
 
-module Punaragamana.BhittiSthanivat_PaninisCarrierIsNotTwoValuedAndTheWallCrossesItsOwnFord where
+module Punaragamana.BhittiPositional_PaninisCarrierIsNotTwoValuedAndTheWallCrossesItsOwnFord where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_≃_ ; equivFun ; invEq ; retEq)

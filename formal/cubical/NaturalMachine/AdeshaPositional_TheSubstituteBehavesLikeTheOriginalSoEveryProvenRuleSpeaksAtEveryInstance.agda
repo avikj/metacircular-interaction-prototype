@@ -40,7 +40,7 @@
 -- instance le(0, s(s 0)) — matched, certified, uttered, all by refl.
 ------------------------------------------------------------------------
 
-module NaturalMachine.AdeshaSthanivat_TheSubstituteBehavesLikeTheOriginalSoEveryProvenRuleSpeaksAtEveryInstance where
+module NaturalMachine.AdeshaPositional_TheSubstituteBehavesLikeTheOriginalSoEveryProvenRuleSpeaksAtEveryInstance where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)

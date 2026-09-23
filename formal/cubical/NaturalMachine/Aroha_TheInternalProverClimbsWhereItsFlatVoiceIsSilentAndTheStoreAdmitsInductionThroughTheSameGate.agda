@@ -44,7 +44,7 @@ open import Cubical.Data.Maybe using (Maybe ; nothing ; just)
 open import Cubical.Data.Unit using (Unit ; tt)
 
 open import NaturalMachine.EkaBhasha_TheStoreCarriesItsProofsTheGateIsTheTypeAndTheProverLivesInside
-open import NaturalMachine.AdeshaSthanivat_TheSubstituteBehavesLikeTheOriginalSoEveryProvenRuleSpeaksAtEveryInstance
+open import NaturalMachine.AdeshaPositional_TheSubstituteBehavesLikeTheOriginalSoEveryProvenRuleSpeaksAtEveryInstance
   using (आदेशनम् ; स्थानिवत् ; सर्वत्र-शासनम्)
 
 ------------------------------------------------------------------------

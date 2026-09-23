@@ -59,7 +59,7 @@ open import Fibre.Composition_TheKsepaIsDeterminedByTheRootsAndCompositionMultip
 open import Fibre.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried
 
 -- भित्ति: the carrier is not two-valued, and the wall crosses its own ford.
-open import Fibre.BhittiSthanivat_PaninisCarrierIsNotTwoValuedAndTheWallCrossesItsOwnFord
+open import Fibre.BhittiPositional_PaninisCarrierIsNotTwoValuedAndTheWallCrossesItsOwnFord
 
 -- स्थानिवत्सङ्ख्या — the machine's own frontier ask (jīva join score 2970):
 -- the ādeśa state space enumerated, स्थानिवत् ≃ Fin 81, the carried datum
