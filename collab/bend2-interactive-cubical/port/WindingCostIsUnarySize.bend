@@ -1,4 +1,4 @@
-# formal/cubical/kernel/WindingCostIsUnarySize.agda, in Bend: the winding to standpoint n costs n+1 steps.
+# formal/cubical/kernel-flat/WindingCostIsUnarySize.agda, in Bend: the winding to standpoint n costs n+1 steps.
 import RewriteCertificate
 
 def unary(n: Nat) -> Tm:

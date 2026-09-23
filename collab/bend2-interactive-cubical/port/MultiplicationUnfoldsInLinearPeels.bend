@@ -1,4 +1,4 @@
-# formal/cubical/kernel/MultiplicationUnfoldsInLinearPeels.agda, in Bend:
+# formal/cubical/kernel-flat/MultiplicationUnfoldsInLinearPeels.agda, in Bend:
 # mul x (unary b) unfolds into b right-nested copies of x in exactly b+1 steps.
 import RewriteCertificateMul
 

@@ -1,27 +1,25 @@
 # Implementation map
 
-Branch context (verified after fetching origin): this working tree is on
-`bend2-unison-recovered` at `40f2e1f2e5`. The organized pair exists on
-`origin/claude/metacircular-interaction-prototype-ly3qjn` at `3934625d58`:
+The integrated working branch is `integration/main-bend-20260922`, rebased on
+`origin/main` at `51a67c10ed`. Both canonical fork directories are present:
 `collab/bend2-interactive-cubical/` and `collab/bend2-official-cubical/`.
-The latter contains `cubical.patch`, `run.sh`, and tests against public Bend
-2.0.21 at `6018e28`. The rename commit is `9a24c0357c`. Fetched `origin/main`
-at `a8f143cc7c` still has the old `collab/bend2-cubical` path. The initial
-checkout-only audit missed this branch; the public fork is located, not missing.
-
+The old `collab/bend2-cubical` path is a compatibility symlink, not another fork.
+The public cubical fork provides a patch, runner and tests against public Bend
+2.0.21 at `6018e28`; the measured official baseline is 2.0.25 at `a495242`.
+Version alignment must be explicit before comparing their performance.
 
 | Target ID | Lineage / execution | Source of truth or current location | Readiness |
 |---|---|---|---|
 | `official-public` | `bendlang/bend`, TypeScript compiler, C/Metal backend; new public Bend 2 | Pinned `a49524265bdfa5753a4bf38e25f0574a705dd868`; local copy under `local/toolchains/2026-09-21/bend-a49524265bdfa5753a4bf38e25f0574a705dd868` | Baseline complete; rerun adapter available |
-| `cubical-inet` | Older Haskell Bend2 fork, cubical extensions, HVM interaction-net execution | [Patch series, examples and design](../../collab/bend2-cubical/README.md); working compiler at `research/biology_exact/build/toolchain/Bend2-f026483`; HVM3/HVM4 and runtime variants alongside it | Located; exact compiler/patch/runtime snapshot and workload ports required before measurement |
-| `cubical-public` | Cubical fork of the new public TypeScript Bend compiler | `origin/claude/metacircular-interaction-prototype-ly3qjn:collab/bend2-official-cubical/` | Located as patch + runner + tests; based on `6018e28`, not baseline `a495242`; adapter and version alignment still needed |
+| `cubical-inet` | Older Haskell Bend2 fork, cubical extensions, HVM interaction-net execution | [Patch series, examples and design](../../collab/bend2-interactive-cubical/README.md); working compiler at `research/biology_exact/build/toolchain/Bend2-f026483`; HVM3/HVM4 and runtime variants alongside it | Located; exact compiler/patch/runtime snapshot and workload ports required before measurement |
+| `cubical-public` | Cubical fork of the new public TypeScript Bend compiler | `collab/bend2-official-cubical/` | Located as patch + runner + tests; based on `6018e28`, not baseline `a495242`; adapter and version alignment still needed |
 
 Other similarly named directories:
 
 - `integration/bend2_unison/` is Unison/UCM integration for the older fork. Its scripts
   directly reference `research/biology_exact/build/toolchain/Bend2-f026483`; moving that
   compiler would break those consumers.
-- `collab/bend2-cubical/` contains the older fork's patch series, specifications and fixtures.
+- `collab/bend2-interactive-cubical/` contains the older fork's patch series, specifications and fixtures.
   It is not the new public TypeScript compiler.
 - `research/` currently mixes experiment reports, applications and local toolchain builds.
   It does not identify a single Bend implementation. This campaign now has its own home.

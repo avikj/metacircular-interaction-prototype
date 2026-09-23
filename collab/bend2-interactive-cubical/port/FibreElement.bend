@@ -1,5 +1,5 @@
 # fibre/src/Fibre/FibreElement.agda, in Bend: THE LAW. Bind the output and the fibre
-# is a contractible singleton, so A â‰ FibreElement f by univalence; contracting the
+# is a contractible singleton, so A = FibreElement f by univalence; contracting the
 # second component IS the content.
 import Prelude
 

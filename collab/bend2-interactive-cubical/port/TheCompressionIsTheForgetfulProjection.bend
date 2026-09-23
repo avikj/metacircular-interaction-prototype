@@ -1,4 +1,4 @@
-# formal/cubical/kernel/TheCompressionIsTheForgetfulProjection.agda, in Bend.
+# formal/cubical/kernel-flat/TheCompressionIsTheForgetfulProjection.agda, in Bend.
 # eval at a fixed environment is the compression from a term to its value; its
 # input-side fibre over a+b holds two provably distinct terms (the drop), while
 # binding the output makes the fibre a contractible singleton (carrying is free).

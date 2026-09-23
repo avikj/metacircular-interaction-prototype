@@ -1,4 +1,4 @@
-# formal/cubical/kernel/ClosedAdditionCostIsLinear.agda, in Bend: a closed sum
+# formal/cubical/kernel-flat/ClosedAdditionCostIsLinear.agda, in Bend: a closed sum
 # unary a + unary b reduces to its normal form in b+1 steps.
 import WindingCostIsUnarySize
 

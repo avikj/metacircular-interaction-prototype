@@ -66,7 +66,7 @@ interleave repetitions, and compare distributions rather than the old single obs
 
 ## What is ready next?
 
-The official campaign is rerunnable here. Both fork directories were located on `origin/claude/metacircular-interaction-prototype-ly3qjn`, not this working branch. Their identities and compatibility work
+The official campaign is rerunnable here. Both fork directories are now present on the integrated branch, under `collab/bend2-interactive-cubical/` and `collab/bend2-official-cubical/`. Their identities and compatibility work
 are tracked in [TARGETS.md](TARGETS.md). Fork adapters and full fork campaigns are **not yet
 implemented/run**. In particular, the old interaction-net language must not silently receive
 new public Bend programs and be treated as the same experiment.

@@ -1,4 +1,4 @@
-# formal/cubical/kernel/RewriteCertificate.agda, in Bend.
+# formal/cubical/kernel-flat/RewriteCertificate.agda, in Bend.
 # The syntax Tm, the step relation (WITH reverse: a groupoid), proof-relevant
 # derivations, one-hypothesis induction certificates, the evaluation
 # standpoint, and soundness of everything against it.
