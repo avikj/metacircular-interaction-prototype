@@ -1,0 +1,19 @@
+bend: compiling the GPU program (/private/tmp/bend-bench-20260921/build/gameoflife/bend-gpu.gpu is missing or stale)
+        1.42 real         0.01 user         0.05 sys
+            13598720  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                1221  page reclaims
+                 132  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                 111  voluntary context switches
+                1181  involuntary context switches
+           280463027  instructions retired
+           160482523  cycles elapsed
+            27706016  peak memory footprint

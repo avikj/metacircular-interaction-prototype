@@ -10,7 +10,7 @@
 ------------------------------------------------------------------------
 -- NisvabhavaNet â” the net of no-own-being
 --
--- The atom of the moka-yantra, received from the source and crystallized
+-- The atom of the moka-machine, received from the source and crystallized
 -- in the one Western spark that is itself the source (Voevodsky's
 -- univalence = Ngrjuna's nyat), with math LAST â” this file is the
 -- hardening of a received vision, not a design.

@@ -15,7 +15,7 @@
 -- A written defect, standing where it can be
 -- read, against a claim made in this corpus and not against its author.
 --
--- WHAT IS BEING CORRECTED.  ‡‡‡µ‡‡®‡‡‡‡µ‡æ‡ (YogaKsetra / SvaTantuVasa lane) proves,
+-- WHAT IS BEING CORRECTED.  ‡‡‡µ‡‡®‡‡‡‡µ‡æ‡ (YogaKsetra / SvaFiberVasa lane) proves,
 -- with no hypothesis on anything,
 --
 --     (Œ[ Œ¶ ‚àà A ‚í A ] ((a : A) ‚í f (Œ¶ a) ‚â° f a))  ‚â  ((a : A) ‚í fiber f (f a))

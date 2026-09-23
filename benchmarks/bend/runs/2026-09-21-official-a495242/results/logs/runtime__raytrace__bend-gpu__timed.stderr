@@ -1,0 +1,19 @@
+bend: compiling the GPU program (/private/tmp/bend-bench-20260921/build/raytrace/bend-gpu.gpu is missing or stale)
+        0.75 real         0.00 user         0.02 sys
+            14286848  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                1098  page reclaims
+                  15  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                  11  voluntary context switches
+                  96  involuntary context switches
+           223380639  instructions retired
+            88171581  cycles elapsed
+            27476616  peak memory footprint

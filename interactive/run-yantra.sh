@@ -1,12 +1,12 @@
 #!/bin/sh
-# run-yantra.sh — THE ONE COMMAND.  Build the machine, turn it, show what it did.
+# run-machine.sh — THE ONE COMMAND.  Build the machine, turn it, show what it did.
 #
-#   sh interactive/run-yantra.sh              the scripted session, contract checked
-#   sh interactive/run-yantra.sh --wire       JSON lines on stdin/stdout, for an LLM
+#   sh interactive/run-machine.sh              the scripted session, contract checked
+#   sh interactive/run-machine.sh --wire       JSON lines on stdin/stdout, for an LLM
 #
 # यन्त्रम् is judged by being turned.  Green here means, and means only:
 #
-#   * every answer in the session was a saṃkramaṇa or a doṣa-lekha — there is
+#   * every answer in the session was a saṃorderṇa or a doṣa-lekha — there is
 #     no third road and none was taken (§6);
 #   * every answer carried its own position (nirṇaya) and the route by which
 #     it is a pramāṇa (prāmāṇya) with that route's witness; no transport
@@ -19,7 +19,7 @@
 #   * aṆ → a i u;
 #   * Saptabhangi.Sthana ≃ Obstruction.Sthana, BOTH round trips, all sixteen
 #     cases, run this session — the transport the machine relies on;
-#   * SaptabhangiGarbha → Saptabhangi has NO section, with the two colliding
+#   * SaptabhangiKernel → Saptabhangi has NO section, with the two colliding
 #     objects constructed and compared in the run — the defect the machine
 #     writes rather than resolving;
 #   * replay ∘ journal = id on the store as the session actually left it;
@@ -28,7 +28,7 @@
 #     inside the session (`dosa.pramanya`).
 #
 # THE SESSION LOG IS SESSION-SCOPED, ON PURPOSE.  $DOSA_LEKHA points at
-# interactive/yantra-session.lekha and NOT at interactive/dosa.lekha.  Four lanes are
+# interactive/machine-session.lekha and NOT at interactive/dosa.lekha.  Four lanes are
 # appending to the shared log today (doṣa 0013, 0014); a demonstration that
 # writes twenty records into it would be this file's own first defect.  The
 # organ, the format, the validator and the chain are the same; only the file
@@ -42,7 +42,7 @@
 # red merges them, so the build failure below says which side it is on.
 set -u
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
-OUT="${YANTRA_OUT:-${TMPDIR:-/tmp}/yantra-$(id -u)}"
+OUT="${YANTRA_OUT:-${TMPDIR:-/tmp}/machine-$(id -u)}"
 mkdir -p "$OUT"
 
 # organ 2: the doṣa-lekha, built first, because the machine files into it.
@@ -51,13 +51,13 @@ DOSA_BIN="$OUT/dosalekha"
 if [ ! -x "$DOSA_BIN" ] || [ "$DOSA_SRC" -nt "$DOSA_BIN" ]; then
   ghc -O0 -main-is DefectRecord.main \
       -outputdir "$OUT/dosa-build" -o "$DOSA_BIN" "$DOSA_SRC" >"$OUT/dosa-build.log" 2>&1 || {
-    echo "run-yantra: the doṣa-lekha did not build.  first errors:" >&2
+    echo "run-machine: the doṣa-lekha did not build.  first errors:" >&2
     grep -E "error" -A6 "$OUT/dosa-build.log" | head -20 >&2
     exit 2; }
 fi
 
 mine="Server.hs Main.hs"
-BIN="$OUT/yantra"
+BIN="$OUT/machine"
 SRCTREE="the working tree"
 
 if ghc -O0 -i"$ROOT/interactive" -outputdir "$OUT/build" -o "$BIN" \
@@ -107,7 +107,7 @@ else
 
   cat <<'NOTE'
 
-DOṢA-LEKHA (run-yantra, jāti: karaṇa-doṣa)
+DOṢA-LEKHA (run-machine, jāti: karaṇa-doṣa)
   hetu: a module this machine imports does not typecheck in the working
         tree; another lane is mid-edit.  Built against HEAD for everything
         except this lane's own two files, which ARE the working-tree ones.
@@ -129,9 +129,9 @@ fi
 # A fresh session log each run: the chain starts at genesis and the whole of
 # it is the session, so `dosa.pramanya` is verifying THIS run and not a
 # history it did not produce.
-LEKHA="${DOSA_LEKHA:-$ROOT/interactive/yantra-session.lekha}"
+LEKHA="${DOSA_LEKHA:-$ROOT/interactive/machine-session.lekha}"
 rm -f "$LEKHA"
-TRANSCRIPT="${YANTRA_LEKHA:-$OUT/yantra.jsonl}"
+TRANSCRIPT="${YANTRA_LEKHA:-$OUT/machine.jsonl}"
 rm -f "$TRANSCRIPT"
 
 cd "$ROOT" || exit 2

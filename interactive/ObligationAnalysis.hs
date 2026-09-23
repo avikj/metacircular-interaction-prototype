@@ -637,7 +637,7 @@ data Naya
 data Bhanga
   = B1Asti                  -- syd asti
   | B2Nasti                 -- syd nsti
-  | B3AstiNasti             -- syd asti nsti ca        (krama, in succession)
+  | B3AstiNasti             -- syd asti nsti ca        (order, in succession)
   | B4Avaktavya             -- syd avaktavyam           (yugapat, at once)
   | B5AstiAvaktavya         -- syd asti ca avaktavya ca
   | B6NastiAvaktavya        -- syd nsti ca avaktavya ca
@@ -925,7 +925,7 @@ selfTest = do
         -- REJECT string below is the citation: quoted, because machine.log
         -- is gitignored and regenerated and no position in it holds still.
         -- syad asti-nasti, taken KRAMA.  Neither line is wrong.
-        ( "krama: x = max x x, denied under refl and affirmed under induction"
+        ( "order: x = max x x, denied under refl and affirmed under induction"
         , st "  KERNEL-REJECT round=0 x = (xmaxx)  (0 agda calls) cached: x != max x x of type \8469 when checking that the expression refl has type x \8801 max x x"
         , Position B3AstiNasti )
 

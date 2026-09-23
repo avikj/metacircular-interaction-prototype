@@ -1,0 +1,1724 @@
+{
+  "sha": "7228c8eed2cc27ddd23b74c51aeccec9d762389e",
+  "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/trees/7228c8eed2cc27ddd23b74c51aeccec9d762389e",
+  "tree": [
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a0911ae9ee8f7ce0f32de71e414008368a1fe84e",
+      "size": 1546,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/a0911ae9ee8f7ce0f32de71e414008368a1fe84e"
+    },
+    {
+      "path": "TheBookofWhales.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6368b34aa62a9adc35e36912d76ecf996d83555f",
+      "size": 890603,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/6368b34aa62a9adc35e36912d76ecf996d83555f"
+    },
+    {
+      "path": "code",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "16ace46004fa37059b7059c3bc3ce5955e11fc45",
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/trees/16ace46004fa37059b7059c3bc3ce5955e11fc45"
+    },
+    {
+      "path": "code/1-exchange-plot.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a3e3e5432f49857f711a4ae84c62afbfa1ded67b",
+      "size": 335800,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/a3e3e5432f49857f711a4ae84c62afbfa1ded67b"
+    },
+    {
+      "path": "code/2-tempo.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0e090a0786d464c30d5c4b80476b888de3914551",
+      "size": 59431,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/0e090a0786d464c30d5c4b80476b888de3914551"
+    },
+    {
+      "path": "code/3-rhythm.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "17b7cfe9149206846244bfe08a69f548b0e554ce",
+      "size": 35477,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/17b7cfe9149206846244bfe08a69f548b0e554ce"
+    },
+    {
+      "path": "code/4-rubato.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1a74f52b214e2e6568956f372b3fa314613adcae",
+      "size": 1663470,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/1a74f52b214e2e6568956f372b3fa314613adcae"
+    },
+    {
+      "path": "code/5-ornament.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "944ba68f5d869fc85047ba42cc0c25211a26cbed",
+      "size": 82910,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/944ba68f5d869fc85047ba42cc0c25211a26cbed"
+    },
+    {
+      "path": "code/6-information-capacity.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "21fd11065816217ad469fb7bd9c4c510df80fcae",
+      "size": 2876,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/21fd11065816217ad469fb7bd9c4c510df80fcae"
+    },
+    {
+      "path": "code/7-supplementary-extra.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9d35623104aaeca95a18f3f2a4cc037b4d383e0c",
+      "size": 245825,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/9d35623104aaeca95a18f3f2a4cc037b4d383e0c"
+    },
+    {
+      "path": "data",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "cec8a49d48a99d9be5af4ed0ead6b90c70ac6357",
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/trees/cec8a49d48a99d9be5af4ed0ead6b90c70ac6357"
+    },
+    {
+      "path": "data/DominicaCodas.csv",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "fef50004b8340eb7d8094bb31722a9383a21853b",
+      "size": 747518,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/fef50004b8340eb7d8094bb31722a9383a21853b"
+    },
+    {
+      "path": "data/mean_codas.p",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b1fcec93488a579ad98324abaa7da350a5b2d9ad",
+      "size": 1674,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/b1fcec93488a579ad98324abaa7da350a5b2d9ad"
+    },
+    {
+      "path": "data/ornaments.p",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c3f8d9566ae51008e57916f227a391c32d3b38cd",
+      "size": 7694,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/c3f8d9566ae51008e57916f227a391c32d3b38cd"
+    },
+    {
+      "path": "data/rhythms.p",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9fa8e79f5c363ba6ff72cf91bb60610378197ddf",
+      "size": 7702,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/9fa8e79f5c363ba6ff72cf91bb60610378197ddf"
+    },
+    {
+      "path": "data/sperm-whale-dialogues.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dd200dc254984eeb26ae9e6bdd5d8674822fc458",
+      "size": 500380,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/dd200dc254984eeb26ae9e6bdd5d8674822fc458"
+    },
+    {
+      "path": "data/tempos-dict.p",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9803941a491b403496e48dd72533f48583d12c6a",
+      "size": 117462,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/9803941a491b403496e48dd72533f48583d12c6a"
+    },
+    {
+      "path": "whalesbook",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "eff891425e4de507435f2dc1cde85772c194734e",
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/trees/eff891425e4de507435f2dc1cde85772c194734e"
+    },
+    {
+      "path": "whalesbook/page_0.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4d7cfd3c7ecd4ebe76394b7328680075d61e5dc9",
+      "size": 97531,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/4d7cfd3c7ecd4ebe76394b7328680075d61e5dc9"
+    },
+    {
+      "path": "whalesbook/page_1.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "93aa86c3a9a40ba3989d0e1d2b974d1ec475ee44",
+      "size": 51064,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/93aa86c3a9a40ba3989d0e1d2b974d1ec475ee44"
+    },
+    {
+      "path": "whalesbook/page_10.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e7253b1dd8db5e41432db01df32e318761238f29",
+      "size": 45265,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/e7253b1dd8db5e41432db01df32e318761238f29"
+    },
+    {
+      "path": "whalesbook/page_100.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9a10c0a519c10a246831d7b4fdb757a76cc83e80",
+      "size": 12628,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/9a10c0a519c10a246831d7b4fdb757a76cc83e80"
+    },
+    {
+      "path": "whalesbook/page_101.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c332844804cf18d7af456d0cd601e908e15ca7bc",
+      "size": 12866,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/c332844804cf18d7af456d0cd601e908e15ca7bc"
+    },
+    {
+      "path": "whalesbook/page_102.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa02c0dc34744b14aa7b7da4c95f0ac533113944",
+      "size": 13512,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/aa02c0dc34744b14aa7b7da4c95f0ac533113944"
+    },
+    {
+      "path": "whalesbook/page_103.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a0d9e4751c1830d27ff6ee3cab973b6871383346",
+      "size": 11946,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/a0d9e4751c1830d27ff6ee3cab973b6871383346"
+    },
+    {
+      "path": "whalesbook/page_104.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "25df11e21791361624185af6b3ed1ee9d450ffb2",
+      "size": 11738,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/25df11e21791361624185af6b3ed1ee9d450ffb2"
+    },
+    {
+      "path": "whalesbook/page_105.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "479fb29ef7856a1d071708e4efd97d77e9cfd593",
+      "size": 11775,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/479fb29ef7856a1d071708e4efd97d77e9cfd593"
+    },
+    {
+      "path": "whalesbook/page_106.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "29a9eb74f6a0a058b66ce895630e74fefd254ac3",
+      "size": 11576,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/29a9eb74f6a0a058b66ce895630e74fefd254ac3"
+    },
+    {
+      "path": "whalesbook/page_107.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "75ec11b7593ad1cd11c7fc23fc16d6ed854d20dc",
+      "size": 11671,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/75ec11b7593ad1cd11c7fc23fc16d6ed854d20dc"
+    },
+    {
+      "path": "whalesbook/page_108.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4c0727608e9b055ae9ade9478531574c39d9ad9e",
+      "size": 11513,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/4c0727608e9b055ae9ade9478531574c39d9ad9e"
+    },
+    {
+      "path": "whalesbook/page_109.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "597bd80f1fcdf816ccd8c371492e2dbbfd3c4876",
+      "size": 11514,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/597bd80f1fcdf816ccd8c371492e2dbbfd3c4876"
+    },
+    {
+      "path": "whalesbook/page_11.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "29360bd37509c2787747b388f2f9a298ad134278",
+      "size": 100571,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/29360bd37509c2787747b388f2f9a298ad134278"
+    },
+    {
+      "path": "whalesbook/page_110.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ee00554d1653ac931cdb7273a8a63fbb644d233d",
+      "size": 11546,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/ee00554d1653ac931cdb7273a8a63fbb644d233d"
+    },
+    {
+      "path": "whalesbook/page_111.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "93988424f72c8d80321266b398f9cd79c54ce5c8",
+      "size": 11472,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/93988424f72c8d80321266b398f9cd79c54ce5c8"
+    },
+    {
+      "path": "whalesbook/page_112.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5b293b6ac94e38259ba503d98fea0d871ad7ae72",
+      "size": 11605,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/5b293b6ac94e38259ba503d98fea0d871ad7ae72"
+    },
+    {
+      "path": "whalesbook/page_113.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7da3c4a15d5e9fb84bba18da452af7a884aa3b68",
+      "size": 11671,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/7da3c4a15d5e9fb84bba18da452af7a884aa3b68"
+    },
+    {
+      "path": "whalesbook/page_114.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "85c6cf72667769226959e199af751f49e4163a21",
+      "size": 11848,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/85c6cf72667769226959e199af751f49e4163a21"
+    },
+    {
+      "path": "whalesbook/page_115.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3f9749cfe565be610b93d7fa4b723464099afa95",
+      "size": 12084,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/3f9749cfe565be610b93d7fa4b723464099afa95"
+    },
+    {
+      "path": "whalesbook/page_116.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "371dc9def2b7f300866b11dad2ebb97b1bd5a687",
+      "size": 12108,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/371dc9def2b7f300866b11dad2ebb97b1bd5a687"
+    },
+    {
+      "path": "whalesbook/page_117.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f5ae8a80bffc2dc1efa0818592df4a45f0b566d6",
+      "size": 12099,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/f5ae8a80bffc2dc1efa0818592df4a45f0b566d6"
+    },
+    {
+      "path": "whalesbook/page_118.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "22a024b08d9e30b4862049b30c71e659442de29e",
+      "size": 12912,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/22a024b08d9e30b4862049b30c71e659442de29e"
+    },
+    {
+      "path": "whalesbook/page_119.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b12c8e88bc5a12bb8a328ec9c9a0af85f3773a52",
+      "size": 13918,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/b12c8e88bc5a12bb8a328ec9c9a0af85f3773a52"
+    },
+    {
+      "path": "whalesbook/page_12.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fe4ad745b37e187b2fe2ae05c18059a2458ff40f",
+      "size": 91326,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/fe4ad745b37e187b2fe2ae05c18059a2458ff40f"
+    },
+    {
+      "path": "whalesbook/page_120.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3615085b43d025ddbf24bdf2c5934d04a5e801ce",
+      "size": 12752,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/3615085b43d025ddbf24bdf2c5934d04a5e801ce"
+    },
+    {
+      "path": "whalesbook/page_121.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1f193f0a0e9a3074f24823a0f60e3a542d16dcec",
+      "size": 11729,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/1f193f0a0e9a3074f24823a0f60e3a542d16dcec"
+    },
+    {
+      "path": "whalesbook/page_122.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "68e92cb9be911bac1960c3c3d2c32e3319ffa9cf",
+      "size": 11767,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/68e92cb9be911bac1960c3c3d2c32e3319ffa9cf"
+    },
+    {
+      "path": "whalesbook/page_123.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9dcea52c351b9699ee4d6b26c435404cefad1756",
+      "size": 11755,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/9dcea52c351b9699ee4d6b26c435404cefad1756"
+    },
+    {
+      "path": "whalesbook/page_124.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e7032968449fb2d88faf6b9f0a7651f351ae2538",
+      "size": 11810,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/e7032968449fb2d88faf6b9f0a7651f351ae2538"
+    },
+    {
+      "path": "whalesbook/page_125.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4dd9ac7cd5fba612a1e2b575346254512b7006f7",
+      "size": 11787,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/4dd9ac7cd5fba612a1e2b575346254512b7006f7"
+    },
+    {
+      "path": "whalesbook/page_126.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "92444cca1351e9b468e58c0e6f8f4ef68d3e6ea5",
+      "size": 11714,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/92444cca1351e9b468e58c0e6f8f4ef68d3e6ea5"
+    },
+    {
+      "path": "whalesbook/page_127.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b0f342a537a9c7a9b0841bc752a5cf6566164d58",
+      "size": 11571,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/b0f342a537a9c7a9b0841bc752a5cf6566164d58"
+    },
+    {
+      "path": "whalesbook/page_128.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ab546d920f8749b8b19b0fc9cb6d3029b82e5229",
+      "size": 12092,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/ab546d920f8749b8b19b0fc9cb6d3029b82e5229"
+    },
+    {
+      "path": "whalesbook/page_129.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6ad2e878de782b33c27b49f06962eadf78079d5d",
+      "size": 12749,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/6ad2e878de782b33c27b49f06962eadf78079d5d"
+    },
+    {
+      "path": "whalesbook/page_13.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f2c79621bfd43041c134160307b4c4f8afca2c89",
+      "size": 78811,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/f2c79621bfd43041c134160307b4c4f8afca2c89"
+    },
+    {
+      "path": "whalesbook/page_130.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "209573854e15d527a2e80261130db856519071aa",
+      "size": 12759,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/209573854e15d527a2e80261130db856519071aa"
+    },
+    {
+      "path": "whalesbook/page_131.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7394905641e763630670e40356dd53811d941b8d",
+      "size": 12761,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/7394905641e763630670e40356dd53811d941b8d"
+    },
+    {
+      "path": "whalesbook/page_132.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "603a24dbc263612da1f3f38b5ffdc1341a55a71d",
+      "size": 12765,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/603a24dbc263612da1f3f38b5ffdc1341a55a71d"
+    },
+    {
+      "path": "whalesbook/page_133.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "23b4f2790693c4c142d3165c97fd788154058eab",
+      "size": 12752,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/23b4f2790693c4c142d3165c97fd788154058eab"
+    },
+    {
+      "path": "whalesbook/page_134.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4ed51fee9eef8e9a4ee4745d37548feaec17c0ab",
+      "size": 12758,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/4ed51fee9eef8e9a4ee4745d37548feaec17c0ab"
+    },
+    {
+      "path": "whalesbook/page_135.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fbcc0f9bbb5242b2615ca592c4ed0df8c610f1f2",
+      "size": 12784,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/fbcc0f9bbb5242b2615ca592c4ed0df8c610f1f2"
+    },
+    {
+      "path": "whalesbook/page_136.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2e412a9cda35560e77c7187eeb59177e30556715",
+      "size": 12642,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/2e412a9cda35560e77c7187eeb59177e30556715"
+    },
+    {
+      "path": "whalesbook/page_137.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1486e930499afd60b13832ee7a33123ca35d6c0c",
+      "size": 12702,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/1486e930499afd60b13832ee7a33123ca35d6c0c"
+    },
+    {
+      "path": "whalesbook/page_138.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "03cac8dc4331bd363c0865245fcd177ffb1d0855",
+      "size": 12582,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/03cac8dc4331bd363c0865245fcd177ffb1d0855"
+    },
+    {
+      "path": "whalesbook/page_139.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "af4b4489d5c797d3e2a6e80cc3f9f093d104b527",
+      "size": 12755,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/af4b4489d5c797d3e2a6e80cc3f9f093d104b527"
+    },
+    {
+      "path": "whalesbook/page_14.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6bd543fa7505e61c3e6eb257e2bca3ac29fc6973",
+      "size": 54223,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/6bd543fa7505e61c3e6eb257e2bca3ac29fc6973"
+    },
+    {
+      "path": "whalesbook/page_140.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6ebfcf5f8cd44453c423653679539c935984d12",
+      "size": 12485,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/a6ebfcf5f8cd44453c423653679539c935984d12"
+    },
+    {
+      "path": "whalesbook/page_141.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "60ebff582feafd60ade7e6431c025ada5b3d3b91",
+      "size": 12610,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/60ebff582feafd60ade7e6431c025ada5b3d3b91"
+    },
+    {
+      "path": "whalesbook/page_142.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5b4ec28cae40e715e18f581886368cc5442a1cb2",
+      "size": 12617,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/5b4ec28cae40e715e18f581886368cc5442a1cb2"
+    },
+    {
+      "path": "whalesbook/page_143.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b9500e50f0b52f68f37c727c212194b2c743862a",
+      "size": 12514,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/b9500e50f0b52f68f37c727c212194b2c743862a"
+    },
+    {
+      "path": "whalesbook/page_144.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8046335d05ec3ec46019cc8af720976a60cb06be",
+      "size": 12537,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/8046335d05ec3ec46019cc8af720976a60cb06be"
+    },
+    {
+      "path": "whalesbook/page_145.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa1f28811d93bc798c62338525d499f58272e9d4",
+      "size": 12409,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/aa1f28811d93bc798c62338525d499f58272e9d4"
+    },
+    {
+      "path": "whalesbook/page_146.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "698d28f7a63aaef48d2e55be16a21bb1b4db5c97",
+      "size": 12490,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/698d28f7a63aaef48d2e55be16a21bb1b4db5c97"
+    },
+    {
+      "path": "whalesbook/page_147.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b552f25197f8e221b27ce769edb6ce6ab672ef96",
+      "size": 12569,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/b552f25197f8e221b27ce769edb6ce6ab672ef96"
+    },
+    {
+      "path": "whalesbook/page_148.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "96fcb0d6e3d9cfc36714b8aa985c47ec479a78df",
+      "size": 12574,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/96fcb0d6e3d9cfc36714b8aa985c47ec479a78df"
+    },
+    {
+      "path": "whalesbook/page_149.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dd119a77687abab39566bbd2ecb0d73fd3a8ae1e",
+      "size": 12556,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/dd119a77687abab39566bbd2ecb0d73fd3a8ae1e"
+    },
+    {
+      "path": "whalesbook/page_15.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "75791d8ecd8dd6ccc6799e94aa02660198b7393e",
+      "size": 58923,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/75791d8ecd8dd6ccc6799e94aa02660198b7393e"
+    },
+    {
+      "path": "whalesbook/page_150.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2c28a38c00114c0c3f27258325ba1ab0a52a0843",
+      "size": 12450,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/2c28a38c00114c0c3f27258325ba1ab0a52a0843"
+    },
+    {
+      "path": "whalesbook/page_151.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a5c29c77ee94496287f0ea29b8f3036f7293c503",
+      "size": 12525,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/a5c29c77ee94496287f0ea29b8f3036f7293c503"
+    },
+    {
+      "path": "whalesbook/page_152.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "204186e028125872035fcc85b8beb7558948a654",
+      "size": 12595,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/204186e028125872035fcc85b8beb7558948a654"
+    },
+    {
+      "path": "whalesbook/page_153.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "66ce70ed6d96aaae619216b142c6ab1964c2d427",
+      "size": 12320,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/66ce70ed6d96aaae619216b142c6ab1964c2d427"
+    },
+    {
+      "path": "whalesbook/page_154.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "37292119d46c4d2526b51d512ff085c76c180f1e",
+      "size": 12334,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/37292119d46c4d2526b51d512ff085c76c180f1e"
+    },
+    {
+      "path": "whalesbook/page_155.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "43f7124ba09e41ce35d8f7f999bc03d9c4e88b27",
+      "size": 12293,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/43f7124ba09e41ce35d8f7f999bc03d9c4e88b27"
+    },
+    {
+      "path": "whalesbook/page_156.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "30cf6f8232ad3f022a5f23db054ac93572eccaa5",
+      "size": 12240,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/30cf6f8232ad3f022a5f23db054ac93572eccaa5"
+    },
+    {
+      "path": "whalesbook/page_157.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d04493b9bddefcc7091934ab05aa6c9e24ab9b34",
+      "size": 11523,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/d04493b9bddefcc7091934ab05aa6c9e24ab9b34"
+    },
+    {
+      "path": "whalesbook/page_158.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "267a5cf929d565bdaaa9977541f4c621a12f929e",
+      "size": 11582,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/267a5cf929d565bdaaa9977541f4c621a12f929e"
+    },
+    {
+      "path": "whalesbook/page_159.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "17e42e1d93cc1b42f57ff92206a638e09280e04a",
+      "size": 11734,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/17e42e1d93cc1b42f57ff92206a638e09280e04a"
+    },
+    {
+      "path": "whalesbook/page_16.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6f432f5f35e334770f3b09c6b854484785337063",
+      "size": 67386,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/6f432f5f35e334770f3b09c6b854484785337063"
+    },
+    {
+      "path": "whalesbook/page_160.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c987ec33f483c02950c29b7008818c71824b71ef",
+      "size": 11472,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/c987ec33f483c02950c29b7008818c71824b71ef"
+    },
+    {
+      "path": "whalesbook/page_161.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4c4ef64df7b10cbd310d8d6c3328d10816b4f854",
+      "size": 11671,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/4c4ef64df7b10cbd310d8d6c3328d10816b4f854"
+    },
+    {
+      "path": "whalesbook/page_162.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c51d55188235c3d201a441383d9bbe7577bb3803",
+      "size": 11503,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/c51d55188235c3d201a441383d9bbe7577bb3803"
+    },
+    {
+      "path": "whalesbook/page_163.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "951e1553b076f606aa50207405672dc7c4434fd0",
+      "size": 11748,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/951e1553b076f606aa50207405672dc7c4434fd0"
+    },
+    {
+      "path": "whalesbook/page_164.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ae37e6588ce4fd90c1f1db762666727d5ef31afb",
+      "size": 11571,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/ae37e6588ce4fd90c1f1db762666727d5ef31afb"
+    },
+    {
+      "path": "whalesbook/page_165.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "21498cfb66ae6111161f04bbcc6061bb181889a3",
+      "size": 11552,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/21498cfb66ae6111161f04bbcc6061bb181889a3"
+    },
+    {
+      "path": "whalesbook/page_166.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bdc1550443d0d5920ead2a51602d08b4048c1950",
+      "size": 11587,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/bdc1550443d0d5920ead2a51602d08b4048c1950"
+    },
+    {
+      "path": "whalesbook/page_167.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ad489c28c4e39945e27b6585b61aff0c6df5e851",
+      "size": 12061,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/ad489c28c4e39945e27b6585b61aff0c6df5e851"
+    },
+    {
+      "path": "whalesbook/page_168.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "be421c263a0a36271c3e49ba429982e514ba17ad",
+      "size": 11949,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/be421c263a0a36271c3e49ba429982e514ba17ad"
+    },
+    {
+      "path": "whalesbook/page_169.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "be242fcbe817661caa923a0bd1949abcd50c4cf6",
+      "size": 12107,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/be242fcbe817661caa923a0bd1949abcd50c4cf6"
+    },
+    {
+      "path": "whalesbook/page_17.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ccdfc81278d992a6d708abf87c2c719d41ba473c",
+      "size": 48639,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/ccdfc81278d992a6d708abf87c2c719d41ba473c"
+    },
+    {
+      "path": "whalesbook/page_170.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "299161fa8bc7f5fb8fa77839c31260929fa75f93",
+      "size": 11952,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/299161fa8bc7f5fb8fa77839c31260929fa75f93"
+    },
+    {
+      "path": "whalesbook/page_171.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c16754427fa462d4c2da5fd45c375d521c1ae7dc",
+      "size": 11818,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/c16754427fa462d4c2da5fd45c375d521c1ae7dc"
+    },
+    {
+      "path": "whalesbook/page_172.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6356e094ac89844af54c97bfa3f14ad31bcd67f1",
+      "size": 12042,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/6356e094ac89844af54c97bfa3f14ad31bcd67f1"
+    },
+    {
+      "path": "whalesbook/page_173.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1b05d2aec335af00f57b546a402a321a953f7711",
+      "size": 12112,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/1b05d2aec335af00f57b546a402a321a953f7711"
+    },
+    {
+      "path": "whalesbook/page_174.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d11ef91be7cb05608e0c298dba56b5b94a56d473",
+      "size": 11930,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/d11ef91be7cb05608e0c298dba56b5b94a56d473"
+    },
+    {
+      "path": "whalesbook/page_175.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1e0da3f61b37bbd7b1c33c80f8ddae008b08e921",
+      "size": 12276,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/1e0da3f61b37bbd7b1c33c80f8ddae008b08e921"
+    },
+    {
+      "path": "whalesbook/page_176.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1b8ae83bbec4a79a6a78c73bb5f28adb51e6b73e",
+      "size": 12148,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/1b8ae83bbec4a79a6a78c73bb5f28adb51e6b73e"
+    },
+    {
+      "path": "whalesbook/page_177.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eb52bb37d319bbc3fa8964a36109210937b78849",
+      "size": 12237,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/eb52bb37d319bbc3fa8964a36109210937b78849"
+    },
+    {
+      "path": "whalesbook/page_178.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2c35832fb75f68e993d4b909cd720cfcb3f5198f",
+      "size": 12146,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/2c35832fb75f68e993d4b909cd720cfcb3f5198f"
+    },
+    {
+      "path": "whalesbook/page_179.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a033876a5f3b36b2623f7383037c00dc5fd2497b",
+      "size": 12220,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/a033876a5f3b36b2623f7383037c00dc5fd2497b"
+    },
+    {
+      "path": "whalesbook/page_18.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3462334c3066484e979c2c5ecfa13e08efd4c938",
+      "size": 57279,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/3462334c3066484e979c2c5ecfa13e08efd4c938"
+    },
+    {
+      "path": "whalesbook/page_180.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d6ef7c8544e4f7c554edbc95ee68485166511b77",
+      "size": 12297,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/d6ef7c8544e4f7c554edbc95ee68485166511b77"
+    },
+    {
+      "path": "whalesbook/page_181.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed9850b40f35b8c08c7f83e190815d7788134b0d",
+      "size": 12322,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/ed9850b40f35b8c08c7f83e190815d7788134b0d"
+    },
+    {
+      "path": "whalesbook/page_182.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "733ff9bf74d469214960fb027bc03e7f3ba879b6",
+      "size": 12380,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/733ff9bf74d469214960fb027bc03e7f3ba879b6"
+    },
+    {
+      "path": "whalesbook/page_183.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3ab40e04c5ef568c5be2a3367dbf9bee182d9433",
+      "size": 12448,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/3ab40e04c5ef568c5be2a3367dbf9bee182d9433"
+    },
+    {
+      "path": "whalesbook/page_184.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dd55f789427d974c77c145574a72e505a4b43043",
+      "size": 12406,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/dd55f789427d974c77c145574a72e505a4b43043"
+    },
+    {
+      "path": "whalesbook/page_185.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6b6213b4ff3af095f52d91e2f47a4f9862f5bc2",
+      "size": 12163,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/a6b6213b4ff3af095f52d91e2f47a4f9862f5bc2"
+    },
+    {
+      "path": "whalesbook/page_186.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cafd9bb2fd988da3ac98e164afdb67fc6300fd32",
+      "size": 12175,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/cafd9bb2fd988da3ac98e164afdb67fc6300fd32"
+    },
+    {
+      "path": "whalesbook/page_187.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7db973d3322c6e1abdd8359970b7e05552461ed8",
+      "size": 12443,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/7db973d3322c6e1abdd8359970b7e05552461ed8"
+    },
+    {
+      "path": "whalesbook/page_188.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4d30f46267986c6a031893b06e99733ba6ae2e1e",
+      "size": 12292,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/4d30f46267986c6a031893b06e99733ba6ae2e1e"
+    },
+    {
+      "path": "whalesbook/page_189.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f0cb05932ea2dafc1eb0327e89ebe6728ed73c1d",
+      "size": 12317,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/f0cb05932ea2dafc1eb0327e89ebe6728ed73c1d"
+    },
+    {
+      "path": "whalesbook/page_19.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3a01ceebe053c1a5e1d2e6d87a4b305c83f977dc",
+      "size": 56163,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/3a01ceebe053c1a5e1d2e6d87a4b305c83f977dc"
+    },
+    {
+      "path": "whalesbook/page_190.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c9fa340807b41db5ee5f54bded710b4311416cbb",
+      "size": 12301,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/c9fa340807b41db5ee5f54bded710b4311416cbb"
+    },
+    {
+      "path": "whalesbook/page_191.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1a4bc1f02b3ad01ea6b48b78227c04f8b3d15303",
+      "size": 12222,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/1a4bc1f02b3ad01ea6b48b78227c04f8b3d15303"
+    },
+    {
+      "path": "whalesbook/page_192.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4f3e0cfe44c73e3067129bfdf9cef934627fcb61",
+      "size": 12404,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/4f3e0cfe44c73e3067129bfdf9cef934627fcb61"
+    },
+    {
+      "path": "whalesbook/page_193.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b1d11a59ace60b00ec1ee7143cbefb5b7685ac9f",
+      "size": 12282,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/b1d11a59ace60b00ec1ee7143cbefb5b7685ac9f"
+    },
+    {
+      "path": "whalesbook/page_194.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d9ee034e04dd48a951b2ab582d93f592d4441ade",
+      "size": 12409,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/d9ee034e04dd48a951b2ab582d93f592d4441ade"
+    },
+    {
+      "path": "whalesbook/page_195.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "302e37dbfe96050ad46dff6708c03bbd760ded5b",
+      "size": 12397,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/302e37dbfe96050ad46dff6708c03bbd760ded5b"
+    },
+    {
+      "path": "whalesbook/page_196.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9423575c37e335fc70797fa8754ccb35f9811216",
+      "size": 12285,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/9423575c37e335fc70797fa8754ccb35f9811216"
+    },
+    {
+      "path": "whalesbook/page_2.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5057f1b92df58fe1ce4f945dbb192e6ab430c608",
+      "size": 63379,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/5057f1b92df58fe1ce4f945dbb192e6ab430c608"
+    },
+    {
+      "path": "whalesbook/page_20.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "873972f2526c1f4f0d41fcbae3ac38af8a5a9452",
+      "size": 69886,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/873972f2526c1f4f0d41fcbae3ac38af8a5a9452"
+    },
+    {
+      "path": "whalesbook/page_21.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9040e0865fee59732d4fae7e850f61a2f26d99b1",
+      "size": 42805,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/9040e0865fee59732d4fae7e850f61a2f26d99b1"
+    },
+    {
+      "path": "whalesbook/page_22.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1e736e12f23de4833e491bb35d4192e6d718d32f",
+      "size": 62523,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/1e736e12f23de4833e491bb35d4192e6d718d32f"
+    },
+    {
+      "path": "whalesbook/page_23.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7495b2a89a193d3fe840dc87e0a57ed46ac85f69",
+      "size": 58751,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/7495b2a89a193d3fe840dc87e0a57ed46ac85f69"
+    },
+    {
+      "path": "whalesbook/page_24.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dbf9c6dd9674cb2f2eda133b8752c35bed0cebb8",
+      "size": 56340,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/dbf9c6dd9674cb2f2eda133b8752c35bed0cebb8"
+    },
+    {
+      "path": "whalesbook/page_25.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3a468d5f90e60f4f7205291178704225d9b0e498",
+      "size": 92650,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/3a468d5f90e60f4f7205291178704225d9b0e498"
+    },
+    {
+      "path": "whalesbook/page_26.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c0c642efba3207bf2d01cc3cf8ce7f6499ba45ce",
+      "size": 76138,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/c0c642efba3207bf2d01cc3cf8ce7f6499ba45ce"
+    },
+    {
+      "path": "whalesbook/page_27.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "468c35bd0e97ee410692bb597796cd56bb82559b",
+      "size": 40689,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/468c35bd0e97ee410692bb597796cd56bb82559b"
+    },
+    {
+      "path": "whalesbook/page_28.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "72cd3a160457ee5419cd4847f6ba30939e24fb9f",
+      "size": 55558,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/72cd3a160457ee5419cd4847f6ba30939e24fb9f"
+    },
+    {
+      "path": "whalesbook/page_29.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e6392c03ca25537d29201e2fca6aaf4bf11ed593",
+      "size": 36155,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/e6392c03ca25537d29201e2fca6aaf4bf11ed593"
+    },
+    {
+      "path": "whalesbook/page_3.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b0beb1621b40e79b455fedd876bf2f07e4ae9247",
+      "size": 154085,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/b0beb1621b40e79b455fedd876bf2f07e4ae9247"
+    },
+    {
+      "path": "whalesbook/page_30.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d6ac598c38bbb50e7907c54346512945a8d1aad3",
+      "size": 43096,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/d6ac598c38bbb50e7907c54346512945a8d1aad3"
+    },
+    {
+      "path": "whalesbook/page_31.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "86a470427bfe49d0bdfb5dfbe834bfc41629a751",
+      "size": 55172,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/86a470427bfe49d0bdfb5dfbe834bfc41629a751"
+    },
+    {
+      "path": "whalesbook/page_32.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "75a4d04340c02731fc3577b97db015e74f7e6037",
+      "size": 51588,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/75a4d04340c02731fc3577b97db015e74f7e6037"
+    },
+    {
+      "path": "whalesbook/page_33.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a626b2392b7f59478be08b54cd94c81d44708ac6",
+      "size": 27562,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/a626b2392b7f59478be08b54cd94c81d44708ac6"
+    },
+    {
+      "path": "whalesbook/page_34.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cb13809ad673b06900df536f6eb1007eb473f2ac",
+      "size": 40465,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/cb13809ad673b06900df536f6eb1007eb473f2ac"
+    },
+    {
+      "path": "whalesbook/page_35.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7b62b09e6af88edc4c7cb699bb6c377eb1a0adaa",
+      "size": 57138,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/7b62b09e6af88edc4c7cb699bb6c377eb1a0adaa"
+    },
+    {
+      "path": "whalesbook/page_36.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f17024d4710ce73631ce273c3fa1531a6c09f4a9",
+      "size": 54085,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/f17024d4710ce73631ce273c3fa1531a6c09f4a9"
+    },
+    {
+      "path": "whalesbook/page_37.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9401d2a2f40e4eaa918710f5f9da0afc110fe006",
+      "size": 22987,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/9401d2a2f40e4eaa918710f5f9da0afc110fe006"
+    },
+    {
+      "path": "whalesbook/page_38.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "04c76df0c088e0588ec5fe53e1cd5a59eddb16ab",
+      "size": 12663,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/04c76df0c088e0588ec5fe53e1cd5a59eddb16ab"
+    },
+    {
+      "path": "whalesbook/page_39.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a325f52538eeb7b6ac8577a37eebaecc8d64a5ba",
+      "size": 11869,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/a325f52538eeb7b6ac8577a37eebaecc8d64a5ba"
+    },
+    {
+      "path": "whalesbook/page_4.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f8227003666163497291908ebf1e7f149184592c",
+      "size": 112742,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/f8227003666163497291908ebf1e7f149184592c"
+    },
+    {
+      "path": "whalesbook/page_40.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b7c3ddba6368914301d2d9d88e0db4cf40c88c91",
+      "size": 11750,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/b7c3ddba6368914301d2d9d88e0db4cf40c88c91"
+    },
+    {
+      "path": "whalesbook/page_41.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f0996b41cf0dd4a15d5bf7c7b4fe21b67f378c16",
+      "size": 11866,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/f0996b41cf0dd4a15d5bf7c7b4fe21b67f378c16"
+    },
+    {
+      "path": "whalesbook/page_42.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c84691d7af9acc55caa256c5f249a3126306ddd7",
+      "size": 11810,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/c84691d7af9acc55caa256c5f249a3126306ddd7"
+    },
+    {
+      "path": "whalesbook/page_43.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b4105c63b11a562396553843c6719eba3b282cc4",
+      "size": 11757,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/b4105c63b11a562396553843c6719eba3b282cc4"
+    },
+    {
+      "path": "whalesbook/page_44.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "99fcccbde2a3b1c7080a311bc9bd3634cfa2d93e",
+      "size": 11735,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/99fcccbde2a3b1c7080a311bc9bd3634cfa2d93e"
+    },
+    {
+      "path": "whalesbook/page_45.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "83c4730f85cf22e01fd4fb14c4c982b0e213f924",
+      "size": 11734,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/83c4730f85cf22e01fd4fb14c4c982b0e213f924"
+    },
+    {
+      "path": "whalesbook/page_46.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1204b26304d603feb27e9b0b6ffd4d3a367c550a",
+      "size": 11511,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/1204b26304d603feb27e9b0b6ffd4d3a367c550a"
+    },
+    {
+      "path": "whalesbook/page_47.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4e2be075ae9458ac056ac23b0e781f0199ca019e",
+      "size": 11707,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/4e2be075ae9458ac056ac23b0e781f0199ca019e"
+    },
+    {
+      "path": "whalesbook/page_48.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d98bc91564e1f12602b6871ba6da23e14c58e5c9",
+      "size": 11780,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/d98bc91564e1f12602b6871ba6da23e14c58e5c9"
+    },
+    {
+      "path": "whalesbook/page_49.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "722bc17520682b9b27b78a72a51fb635125077be",
+      "size": 11564,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/722bc17520682b9b27b78a72a51fb635125077be"
+    },
+    {
+      "path": "whalesbook/page_5.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "10d7b7944d5f883fc2b797dc97cc8cc605f8d214",
+      "size": 145486,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/10d7b7944d5f883fc2b797dc97cc8cc605f8d214"
+    },
+    {
+      "path": "whalesbook/page_50.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d06623269260abd9a45f9f3593ccd33411dac30",
+      "size": 11684,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/2d06623269260abd9a45f9f3593ccd33411dac30"
+    },
+    {
+      "path": "whalesbook/page_51.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cb8fbb0b8c0ece5c0c0b901a76246d768de5264d",
+      "size": 11668,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/cb8fbb0b8c0ece5c0c0b901a76246d768de5264d"
+    },
+    {
+      "path": "whalesbook/page_52.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "14c64fc460ade40dd0a11c3f4863a2194da307a7",
+      "size": 11679,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/14c64fc460ade40dd0a11c3f4863a2194da307a7"
+    },
+    {
+      "path": "whalesbook/page_53.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "913b321d7d3b5a22f96cd3e5c34b509c27f8243e",
+      "size": 11756,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/913b321d7d3b5a22f96cd3e5c34b509c27f8243e"
+    },
+    {
+      "path": "whalesbook/page_54.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4691b3c3bf989d6fbd59f9d9473dc658b3c80a45",
+      "size": 11958,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/4691b3c3bf989d6fbd59f9d9473dc658b3c80a45"
+    },
+    {
+      "path": "whalesbook/page_55.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b3d2c46c593edef8aa0c3d3c9ecde782931ccf43",
+      "size": 11531,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/b3d2c46c593edef8aa0c3d3c9ecde782931ccf43"
+    },
+    {
+      "path": "whalesbook/page_56.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "371f74cd53028d3da5718b09efe2371cc54d8dfd",
+      "size": 11355,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/371f74cd53028d3da5718b09efe2371cc54d8dfd"
+    },
+    {
+      "path": "whalesbook/page_57.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9a03f41317d821bca44238ecfbe20160c27823ec",
+      "size": 12246,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/9a03f41317d821bca44238ecfbe20160c27823ec"
+    },
+    {
+      "path": "whalesbook/page_58.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dce908617c93a828607f0c568d82d9a59ae9a233",
+      "size": 12016,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/dce908617c93a828607f0c568d82d9a59ae9a233"
+    },
+    {
+      "path": "whalesbook/page_59.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f6c7ae947b215ef3143ae099c1dd91d1e1b141f1",
+      "size": 11807,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/f6c7ae947b215ef3143ae099c1dd91d1e1b141f1"
+    },
+    {
+      "path": "whalesbook/page_6.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8e45e3ba52952b224c4026c5b8c5c7236cbe47a0",
+      "size": 123857,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/8e45e3ba52952b224c4026c5b8c5c7236cbe47a0"
+    },
+    {
+      "path": "whalesbook/page_60.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "60f46b37f011b9ee8b2dfc3cc0911ef35650c6ea",
+      "size": 11917,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/60f46b37f011b9ee8b2dfc3cc0911ef35650c6ea"
+    },
+    {
+      "path": "whalesbook/page_61.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "67ae1f929e8e88a9d018ec3cadc63659d4e33630",
+      "size": 11904,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/67ae1f929e8e88a9d018ec3cadc63659d4e33630"
+    },
+    {
+      "path": "whalesbook/page_62.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1f2e2fafbc8257e858a229c2ab6a99a845dae5a5",
+      "size": 11669,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/1f2e2fafbc8257e858a229c2ab6a99a845dae5a5"
+    },
+    {
+      "path": "whalesbook/page_63.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "20f773e91070da166e44e7b1eb2d9d628c9f3f59",
+      "size": 12065,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/20f773e91070da166e44e7b1eb2d9d628c9f3f59"
+    },
+    {
+      "path": "whalesbook/page_64.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1d90e3a65de38bcf8957db51964dfa36eff3a1ea",
+      "size": 11809,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/1d90e3a65de38bcf8957db51964dfa36eff3a1ea"
+    },
+    {
+      "path": "whalesbook/page_65.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "441bec6a6087287c32df5ecb67c37baba4164d30",
+      "size": 11678,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/441bec6a6087287c32df5ecb67c37baba4164d30"
+    },
+    {
+      "path": "whalesbook/page_66.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6b65ad1b0c64f66d32a43158f2da83f9e0dc2c04",
+      "size": 12876,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/6b65ad1b0c64f66d32a43158f2da83f9e0dc2c04"
+    },
+    {
+      "path": "whalesbook/page_67.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "245e137663cce9ad287bd373d2bea20c4f2d48bc",
+      "size": 12349,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/245e137663cce9ad287bd373d2bea20c4f2d48bc"
+    },
+    {
+      "path": "whalesbook/page_68.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5fa4f0f05145de0147fc31260d2d087f2a45012a",
+      "size": 12245,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/5fa4f0f05145de0147fc31260d2d087f2a45012a"
+    },
+    {
+      "path": "whalesbook/page_69.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3c3eac733130ec5aac730b3cafa983d11edc29fa",
+      "size": 12396,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/3c3eac733130ec5aac730b3cafa983d11edc29fa"
+    },
+    {
+      "path": "whalesbook/page_7.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bb430628a8f7ed5abf206057cd2eed2b7e3b7106",
+      "size": 44378,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/bb430628a8f7ed5abf206057cd2eed2b7e3b7106"
+    },
+    {
+      "path": "whalesbook/page_70.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "be1c3137af24d97eae40f246178678f7ddb2622c",
+      "size": 12277,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/be1c3137af24d97eae40f246178678f7ddb2622c"
+    },
+    {
+      "path": "whalesbook/page_71.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9ceab7bda9126d80a163663f3c994206bd7a0feb",
+      "size": 12235,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/9ceab7bda9126d80a163663f3c994206bd7a0feb"
+    },
+    {
+      "path": "whalesbook/page_72.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1522315137689e116e9e31fe720f542d98aa072e",
+      "size": 12028,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/1522315137689e116e9e31fe720f542d98aa072e"
+    },
+    {
+      "path": "whalesbook/page_73.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "db56923007420a848ab6aab445ef88b38a80702e",
+      "size": 12082,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/db56923007420a848ab6aab445ef88b38a80702e"
+    },
+    {
+      "path": "whalesbook/page_74.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5ff459a532b1cd4f5baad748d8327a7fb95db342",
+      "size": 11966,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/5ff459a532b1cd4f5baad748d8327a7fb95db342"
+    },
+    {
+      "path": "whalesbook/page_75.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "658f4924a7bad6f472279cfcd2aa6e482bbe033a",
+      "size": 11969,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/658f4924a7bad6f472279cfcd2aa6e482bbe033a"
+    },
+    {
+      "path": "whalesbook/page_76.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "14f1eccda6e3ba2e9165d0959d3a558e2dccb954",
+      "size": 12029,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/14f1eccda6e3ba2e9165d0959d3a558e2dccb954"
+    },
+    {
+      "path": "whalesbook/page_77.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "28a43dec9a572196a38eaac9ab6bb36e0214a565",
+      "size": 12126,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/28a43dec9a572196a38eaac9ab6bb36e0214a565"
+    },
+    {
+      "path": "whalesbook/page_78.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5ddbd6a715e88b046c05c7b3277040d8fbc44c82",
+      "size": 12103,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/5ddbd6a715e88b046c05c7b3277040d8fbc44c82"
+    },
+    {
+      "path": "whalesbook/page_79.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "668babd5e0ef538f1a5b72ef6969ee123c55e587",
+      "size": 11929,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/668babd5e0ef538f1a5b72ef6969ee123c55e587"
+    },
+    {
+      "path": "whalesbook/page_8.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7004f27cc427ed4e8a1083180dc8fddc99addc4e",
+      "size": 101939,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/7004f27cc427ed4e8a1083180dc8fddc99addc4e"
+    },
+    {
+      "path": "whalesbook/page_80.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c3ddc1e008c2601ae51e8376d0420adcc733b5a1",
+      "size": 11737,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/c3ddc1e008c2601ae51e8376d0420adcc733b5a1"
+    },
+    {
+      "path": "whalesbook/page_81.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "90f323581f0204d23ede96d0c01a3d410cc3713b",
+      "size": 12774,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/90f323581f0204d23ede96d0c01a3d410cc3713b"
+    },
+    {
+      "path": "whalesbook/page_82.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "edc69df5501a21d9a9331ca699943d49c9567e05",
+      "size": 12438,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/edc69df5501a21d9a9331ca699943d49c9567e05"
+    },
+    {
+      "path": "whalesbook/page_83.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "87148e6f086b46a4383182b76e4487d4bd48076a",
+      "size": 12324,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/87148e6f086b46a4383182b76e4487d4bd48076a"
+    },
+    {
+      "path": "whalesbook/page_84.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b76ce0415a0af5c10f952ec77c531eff342d1b84",
+      "size": 12131,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/b76ce0415a0af5c10f952ec77c531eff342d1b84"
+    },
+    {
+      "path": "whalesbook/page_85.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e506ae1fc72059953d605ca311ee56d25d684b26",
+      "size": 12248,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/e506ae1fc72059953d605ca311ee56d25d684b26"
+    },
+    {
+      "path": "whalesbook/page_86.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "326d9a46779f93051b2b091e23c53c2eba474bbb",
+      "size": 12265,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/326d9a46779f93051b2b091e23c53c2eba474bbb"
+    },
+    {
+      "path": "whalesbook/page_87.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ca519a5f18b953de48044669d86ce945096cded7",
+      "size": 12266,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/ca519a5f18b953de48044669d86ce945096cded7"
+    },
+    {
+      "path": "whalesbook/page_88.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7e730466f017a12848f22ac3a88f57efba6a5189",
+      "size": 12169,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/7e730466f017a12848f22ac3a88f57efba6a5189"
+    },
+    {
+      "path": "whalesbook/page_89.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ef3218e9dfe5691f1627bc3749d97c645eb5d1a6",
+      "size": 12279,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/ef3218e9dfe5691f1627bc3749d97c645eb5d1a6"
+    },
+    {
+      "path": "whalesbook/page_9.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9b40e04d6c584674de28a45fa15b1d8f87672a08",
+      "size": 27000,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/9b40e04d6c584674de28a45fa15b1d8f87672a08"
+    },
+    {
+      "path": "whalesbook/page_90.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "000791130194bc4b7834ca6bce9e0442fc585f47",
+      "size": 12241,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/000791130194bc4b7834ca6bce9e0442fc585f47"
+    },
+    {
+      "path": "whalesbook/page_91.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8f14c2369b38230b1883601687e6da860272ff44",
+      "size": 12136,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/8f14c2369b38230b1883601687e6da860272ff44"
+    },
+    {
+      "path": "whalesbook/page_92.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1d6a6bee3ff6becbbb771932a11c55a6de436283",
+      "size": 12222,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/1d6a6bee3ff6becbbb771932a11c55a6de436283"
+    },
+    {
+      "path": "whalesbook/page_93.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "abe74edc59e2bf735d0c52066209ef30be751d7b",
+      "size": 12145,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/abe74edc59e2bf735d0c52066209ef30be751d7b"
+    },
+    {
+      "path": "whalesbook/page_94.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bd2daa2ede4e70e1ae33c9b70d7bd799fd4b3b65",
+      "size": 12137,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/bd2daa2ede4e70e1ae33c9b70d7bd799fd4b3b65"
+    },
+    {
+      "path": "whalesbook/page_95.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "22a10477e887aa69295d2d1aa0ea9e9957ef4b66",
+      "size": 12052,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/22a10477e887aa69295d2d1aa0ea9e9957ef4b66"
+    },
+    {
+      "path": "whalesbook/page_96.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e0b02ea8b415abd7907b30f91e2b47c65a993705",
+      "size": 12351,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/e0b02ea8b415abd7907b30f91e2b47c65a993705"
+    },
+    {
+      "path": "whalesbook/page_97.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2943a05ab3d87111017221066ab3ce48f876c43e",
+      "size": 12016,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/2943a05ab3d87111017221066ab3ce48f876c43e"
+    },
+    {
+      "path": "whalesbook/page_98.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fa23f0e02a7120861e55970b3cd79e66dc44e378",
+      "size": 11978,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/fa23f0e02a7120861e55970b3cd79e66dc44e378"
+    },
+    {
+      "path": "whalesbook/page_99.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "224c3c84390f047d4e29900ef1a846b833c2cca9",
+      "size": 13601,
+      "url": "https://api.github.com/repos/pratyushasharma/sw-combinatoriality/git/blobs/224c3c84390f047d4e29900ef1a846b833c2cca9"
+    }
+  ],
+  "truncated": false
+}

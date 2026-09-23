@@ -60,7 +60,7 @@
 -- computation.
 --
 -- IT CUTS ACROSS THE CENSUS, and that is worth seeing rather than
--- reconciling.  `loss/‚¶/SakalaVikalaDesa` grades a fibre as
+-- reconciling.  `loss/‚¶/WholePartialDesa` grades a fibre as
 -- ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ (empty) / ‡‡ï‡≤‡æ‡¶‡‡ (contractible) / ‡µ‡ø‡ï‡≤‡æ‡¶‡‡ (two points, not
 -- identified).  `isProp` is the UNION of its first two constructors ‚î at
 -- most one ‚î so the h-level grading and the census are different cuts of

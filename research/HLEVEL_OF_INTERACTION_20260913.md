@@ -8,9 +8,9 @@ standpoint only. This pass revises the first: one claim I had filed [S]
 whole reading.
 
 The session built one abstract probing coalgebra `Core.Netra` on
-Fibre.Samvada's ISC and pointed it at four objects (SHA-256 in the
+Fibre.Interaction's ISC and pointed it at four objects (SHA-256 in the
 prior module; Riemann-finite, Navier‚ìStokes-Galerkin, and the
-metacircular kernel in `SamvadaPrasna`). The naØve summary ‚î "four
+metacircular kernel in `InteractionPrasna`). The naØve summary ‚î "four
 instances of one machine" ‚î is wrong and hides the content. The real
 content is a single theorem with a two-sided proof, and a trichotomy it
 forces.
@@ -92,7 +92,7 @@ construction:
   input-binding fibre `fiber sha256 d`, which Parimana forces to be a
   non-equivalence and pigeonhole forces to be infinite. **Cryptographic
   hardness = a large past fibre under a contractible forward process.**
-  Custody of that fibre is security (Sesa's reading), and the arrow of
+  Custody of that fibre is security (Residue's reading), and the arrow of
   time is what makes it custody rather than a wall (prior analysis).
 
 - **Riemann-finite and Navier‚ìStokes** are also forward-trivial
@@ -149,7 +149,7 @@ process-nondeterminism") was one cell; this session shows the cell has a
 neighbour, and the kernel lives there. `‡‡‡∞‡‡‡®-‡ï‡∞‡‡‡®‡Æ‡ [T]` ‚î observe
 under a constant strategy = the state trajectory ‚î is the reduction that
 keeps this honest: it shows the box-predicate apparatus really is about
-the interaction, collapsing to the stream (Srotas) exactly when the
+the interaction, collapsing to the stream (Stream) exactly when the
 demand is held constant.
 
 ---

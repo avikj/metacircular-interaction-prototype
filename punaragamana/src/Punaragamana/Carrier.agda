@@ -50,7 +50,7 @@
 -- 2. `descend` must NOT pattern match on its argument.  Pattern matching
 --    would force a case split where the eta rule already gives reduction.
 
-module Punaragamana.Carrier where
+module Return.Carrier where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism

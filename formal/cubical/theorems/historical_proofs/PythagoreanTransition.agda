@@ -32,7 +32,7 @@
 --
 -- This is **samsa-bhvan at D = −1** � Brhmasphuasiddhnta ch. 18,
 -- 628 CE, the composition law whose whole content is that the norm is
--- multiplicative.  `Bhavana.agda` in this repository already checks the
+-- multiplicative.  `Composition.agda` in this repository already checks the
 -- general D; this module takes D = −1, which is the case that is a
 -- CIRCLE, and asks what the circle's additive law does to the chart.
 --

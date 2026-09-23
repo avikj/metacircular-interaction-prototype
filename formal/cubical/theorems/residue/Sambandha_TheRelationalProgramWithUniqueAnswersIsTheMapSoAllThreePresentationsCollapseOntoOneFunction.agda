@@ -25,10 +25,10 @@
 -- space, one direction definitional, the other a pointwise univalence
 -- of Theorem 1.
 --
--- With Ekatva and Prashna this closes a triangle.  Three
+-- With Uniqueness and Prashna this closes a triangle.  Three
 -- presentations of the closed deterministic machine:
 --
---     LawfulStep A            â‰  (A â’ A)      (Ekatva)
+--     LawfulStep A            â‰  (A â’ A)      (Uniqueness)
 --     Î R. Fun R              â‰  (A â’ B)      (here)
 --     ISC, receipts, per s    is contractible (Prashna)
 --
@@ -51,7 +51,7 @@ open import Cubical.Foundations.Univalence using (ua)
 open import Cubical.Foundations.HLevels using (isPropÎ )
 open import Cubical.Data.Sigma
 
-open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
   using (Machine ; uStep)
 
 private

@@ -22,7 +22,7 @@
 -- it turned 5 green.  **Four of those five are already published and are
 -- NOT restated here** â” `matraOf`/`Metre` and `varna`/`Vak` in
 -- `Chandomudra_â¦`, `chargeOneProjector`/`chargeOneFiber` and
--- `value`/`Fib` in `Tantusandhi_â¦`, which landed while this was being
+-- `value`/`Fib` in `Fibersandhi_â¦`, which landed while this was being
 -- checked.  Restating them would inflate a count, which is the one thing
 -- a recognition pass must not do.  Â§à§ is the fifth.
 --
@@ -55,7 +55,7 @@
 --         joined `CarryFiber.Fib` because both end in `value`;
 --         different maps out of different `Word`s;
 --   (iii) the queued map is a FACTOR, not the map â” `EvenQuery` is the
---         fibre of `sgn âˆ˜ Î©` and the join saw only `Î©` (Tantusandhi Â§à©
+--         fibre of `sgn âˆ˜ Î©` and the join saw only `Î©` (Fibersandhi Â§à©
 --         names the composite);
 --   (iv)  a bound variable read as a map name â” `Div Î = Î[ Îº âˆˆ â• ] Î[ d âˆˆ â• ]
 --         (Îº + d â‰¡ Î)` BINDS `Îº`, and `ChargePolynomialFinite.Îº : â• â’ â`

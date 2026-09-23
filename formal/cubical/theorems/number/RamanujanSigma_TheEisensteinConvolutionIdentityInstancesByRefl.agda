@@ -27,7 +27,7 @@ open import Cubical.Data.Sigma
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_ ; _∸_)
 open import Cubical.Data.Maybe using (Maybe ; nothing ; just ; rec ; map-Maybe)
 
-open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
   using (eq?)
 
 ------------------------------------------------------------------------

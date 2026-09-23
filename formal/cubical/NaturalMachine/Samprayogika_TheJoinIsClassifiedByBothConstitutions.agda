@@ -121,7 +121,7 @@ compare (suc m) (suc n) = compare m n
 ‡§Ø‡§®‡•ç‡§§‡•ç‡§∞‡§Æ‡•ç : ‡§™‡•ç‡§∞‡§ï‡•É‡§§‡§ø
 ‡§Ø‡§®‡•ç‡§§‡•ç‡§∞‡§Æ‡•ç = ‡§Ö‡§∂‡•ç‡§µ , (‡§ö‡§£‡•ç‡§° , ‡§ö‡§ø‡§∞)
 
--- Punaragamanam_TheStepIsAConjugationAndNothingIsTouchedByIt.
+-- Returnm_TheStepIsAConjugationAndNothingIsTouchedByIt.
 --   ‡‡‡∞‡Æ‡æ‡ ‡‡   ‚î one triple, three slots: ‡‡ï‡‡‡, ‡‡∞‡ø‡Æ‡æ‡‡Æ‡, ‡‡‡‡.
 --   ‡µ‡‡ó ‡Æ‡®‡‡¶    ‚î the step is ‡‡µ‡‡∞‡ ‚àò Œ¶ ‚àò ‡â‡‡‡‡æ‡®, a single conjugation,
 --                and no fibre is collapsed by it.

@@ -1,9 +1,9 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
-module Yantra.Vibhajana where
+module Machine.Vibhajana where
 -- ‡µ‡ø‡‡æ‡‡®: every positive number is a product of primes, with certificates.
 -- The existence half of the fundamental theorem, as a running machine.
 
-open import Yantra.Prakriti
+open import Machine.Prakriti
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
 open import Cubical.Data.Nat.Order

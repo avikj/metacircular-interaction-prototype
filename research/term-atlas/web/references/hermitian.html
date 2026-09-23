@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html prefix="dc: http://purl.org/dc/terms/ mw: http://mediawiki.org/rdf/" about="//en.wikipedia.org/wiki/Special:Redirect/revision/1351214153"><head prefix="mwr: //en.wikipedia.org/wiki/Special:Redirect/"><meta charset="utf-8"/><link rel="dc:replaces" resource="mwr:revision/1348072393"/><meta property="mw:revisionSHA1" content="nz8bjcrwnvf2ekuhb3bruo2ubx84ijh"/><meta property="dc:modified" content="2026-04-26T17:18:00Z"/><meta property="mw:pageNamespace" content="0"/><meta property="mw:pageId" content="860138"/><meta property="mw:htmlVersion" content="2.8.0"/><meta property="mw:html:version" content="2.8.0"/><base href="//en.wikipedia.org/wiki/"/><link rel="dc:isVersionOf" href="//en.wikipedia.org/wiki/Sesquilinear_form"/><title>Sesquilinear form</title><meta property="mw:jsConfigVars" content='{"wgParsoidHtmlVersion":"2.8.0"}'/><meta property="mw:generalModules" content="ext.math.polyfills|ext.cite.ux-enhancements|ext.scribunto.logs"/><meta property="mw:moduleStyles" content="ext.math.styles|ext.cite.parsoid.styles|ext.cite.styles|mediawiki.skinning.content.parsoid"/><link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=ext.math.styles%7Cext.cite.parsoid.styles%7Cext.cite.styles%7Cmediawiki.skinning.content.parsoid%7Cmediawiki.skinning.interface%7Csite.styles&amp;only=styles&amp;skin=vector"/><meta http-equiv="content-language" content="en"/><meta http-equiv="vary" content="Accept"/><meta http-equiv="x-mediawiki-render-id" content="120ff59f-b1c2-11f1-8efe-19bb02bcea8d"/></head><body class="mw-content-ltr sitedir-ltr ltr mw-body-content mediawiki mw-parser-output parsoid-body" lang="en" dir="ltr" data-mw-parsoid-version="0.24.0.0-alpha22" data-mw-html-version="2.8.0"><section data-mw-section-id="0" id="mwAQ"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none" about="#mwt1" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"Short description","href":"./Template:Short_description"},"params":{"1":{"wt":"Generalization of complex inner products"}},"i":0}}]}' id="mwAg">Generalization of complex inner products</div><span class="mw-empty-elt" about="#mwt1"><link rel="mw:PageProp/Category" href="./Category:Articles_with_short_description"/><link rel="mw:PageProp/Category" href="./Category:Short_description_is_different_from_Wikidata"/></span>
+<p id="mwAw">In <a rel="mw:WikiLink" href="./Mathematics" title="Mathematics" id="mwBA">mathematics</a>, a <b id="mwBQ">sesquilinear form</b> is a generalization of <a rel="mw:WikiLink" href="./Inner_product" title="Inner product" class="mw-redirect" id="mwBg">inner products</a> of <a rel="mw:WikiLink" href="./Complex_vector_space" title="Complex vector space" class="mw-redirect" id="mwBw">complex vector spaces</a>, which are the most common sesquilinear forms. A bilinear form is <a rel="mw:WikiLink" href="./Linear_map" title="Linear map" id="mwCA">linear</a> in each of its arguments, but a sesquilinear form allows one of the arguments to be "twisted" in a <a rel="mw:WikiLink" href="./Semilinear_map" title="Semilinear map" id="mwCQ">semilinear</a> manner, thus the name; which originates from the Latin <a rel="mw:WikiLink" href="./Numerical_prefix" title="Numerical prefix" class="mw-redirect" id="mwCg">numerical prefix</a> <a rel="mw:WikiLink/Interwiki" href="https://en.wiktionary.org/wiki/sesqui-" title="wiktionary:sesqui-" class="extiw" id="mwCw"><i id="mwDA">sesqui-</i></a> meaning "one and a half". The basic concept of inner products – producing a <a rel="mw:WikiLink" href="./Scalar_(mathematics)" title="Scalar (mathematics)" id="mwDQ">scalar</a> from a pair of vectors – can be generalized by allowing a broader range of scalar values and, perhaps simultaneously, by widening the definition of a vector.</p>
+
+<p id="mwDg">A motivating special case is a sesquilinear form on a <a rel="mw:WikiLink" href="./Complex_vector_space" title="Complex vector space" class="mw-redirect" id="mwDw">complex vector space</a>, <span class="texhtml " about="#mwt2" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;V&apos;&apos;"}},"i":0}}]}' id="mwEA"><i>V</i></span>. This is a map <span class="texhtml " about="#mwt3" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;V&apos;&apos; × &apos;&apos;V&apos;&apos; → &apos;&apos;&apos;C&apos;&apos;&apos;"}},"i":0}}]}' id="mwEQ"><i>V</i> × <i>V</i> → <b>C</b></span> that is linear in one argument and "twists" the linearity of the other argument by <a rel="mw:WikiLink" href="./Complex_conjugate" title="Complex conjugate" id="mwEg">complex conjugation</a> (referred to as being <a rel="mw:WikiLink" href="./Antilinear" title="Antilinear" class="mw-redirect" id="mwEw">antilinear</a> in the other argument). This case arises naturally in mathematical physics applications. Another important case allows the scalars to come from any <a rel="mw:WikiLink" href="./Field_(mathematics)" title="Field (mathematics)" id="mwFA">field</a> and the twist is provided by a <a rel="mw:WikiLink" href="./Field_automorphism" title="Field automorphism" class="mw-redirect" id="mwFQ">field automorphism</a>.</p>
+
+<p id="mwFg">An application in <a rel="mw:WikiLink" href="./Projective_geometry" title="Projective geometry" id="mwFw">projective geometry</a> requires that the scalars come from a <a rel="mw:WikiLink" href="./Division_ring" title="Division ring" id="mwGA">division ring</a> (skew field), <span class="texhtml " about="#mwt4" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;K&apos;&apos;"}},"i":0}}]}' id="mwGQ"><i>K</i></span>, and this means that the "vectors" should be replaced by elements of a <a rel="mw:WikiLink" href="./R-module" title="R-module" class="mw-redirect" id="mwGg"><span class="texhtml " about="#mwt7" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;K&apos;&apos;"}},"i":0}}]}' id="mwGw"><i>K</i></span>-module</a>. In a very general setting, sesquilinear forms can be defined over <span class="texhtml " about="#mwt5" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;R&apos;&apos;"}},"i":0}}]}' id="mwHA"><i>R</i></span>-modules for arbitrary <a rel="mw:WikiLink" href="./Ring_(mathematics)" title="Ring (mathematics)" id="mwHQ">rings</a> <span class="texhtml " about="#mwt6" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;R&apos;&apos;"}},"i":0}}]}' id="mwHg"><i>R</i></span>.</p>
+<!-- Old lead
+In [[mathematics]], a '''sesquilinear form''' on a [[complex vector space]] {{math|''V''}} is a map {{math|''V'' × ''V'' → '''C'''}} that is [[linear operator|linear]] in one argument and [[antilinear]] in the other. The name originates from the Latin [[numerical prefix]] [[Wiktionary:sesqui&#x2D;|''sesqui&#x2D;'']] meaning "one and a half". Compare with a [[bilinear form]], which is linear in both arguments. However many authors, especially when working solely in a [[complex number|complex]] setting, refer to sesquilinear forms as bilinear forms.
+
+A motivating example is the [[inner product]] on a complex vector space, which is not bilinear, but instead sesquilinear. See {{section link||Geometric motivation}} below.
+
+Sesquilinear forms are not restricted to the complex numbers and may be defined on any [[R&#x2D;module|''K''&#x2D;module]] where ''K'' is a [[division ring]] (see {{section link||Generalization}} below).<ref&#x3E;also see {{harvnb|Gruenberg|Weir|1977|page=121}}</ref&#x3E;
+-->
+
+<meta property="mw:PageProp/toc" data-mw='{"autoGenerated":true}' id="mwHw"/></section><section data-mw-section-id="1" id="mwIA"><h2 id="Informal_introduction">Informal introduction</h2>
+<p id="mwIQ">Sesquilinear forms abstract and generalize the basic notion of a <b id="mwIg">Hermitian form</b> on <a rel="mw:WikiLink" href="./Complex_vector_space" title="Complex vector space" class="mw-redirect" id="mwIw">complex vector space</a>. Hermitian forms are commonly seen in <a rel="mw:WikiLink" href="./Physics" title="Physics" id="mwJA">physics</a>, as the <a rel="mw:WikiLink" href="./Inner_product" title="Inner product" class="mw-redirect" id="mwJQ">inner product</a> on a complex <a rel="mw:WikiLink" href="./Hilbert_space" title="Hilbert space" id="mwJg">Hilbert space</a>.  In such cases, the standard Hermitian form on <span class="texhtml " about="#mwt8" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;&apos;C&apos;&apos;&apos;&lt;sup>&apos;&apos;n&apos;&apos;&lt;/sup>"}},"i":0}}]}' id="mwJw"><b>C</b><sup><i>n</i></sup></span> is given by</p>
+<dl id="mwKA"><dd id="mwKQ"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt9" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\langle w,z \\rangle = \\sum_{i=1}^n \\overline{w}_i z_i."}}' id="mwKg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \langle w,z\rangle =\sum _{i=1}^{n}{\overline {w}}_{i}z_{i}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">⟨<!-- ⟨ --></mo>
+        <mi>w</mi>
+        <mo>,</mo>
+        <mi>z</mi>
+        <mo fence="false" stretchy="false">⟩<!-- ⟩ --></mo>
+        <mo>=</mo>
+        <munderover>
+          <mo>∑<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>=</mo>
+            <mn>1</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </munderover>
+        <msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mover>
+              <mi>w</mi>
+              <mo accent="false">¯<!-- ¯ --></mo>
+            </mover>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>z</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \langle w,z\rangle =\sum _{i=1}^{n}{\overline {w}}_{i}z_{i}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/068c328b1030876cc80b53dcbeac12344c565426" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -3.005ex; width:17.543ex; height:6.843ex;" alt="{\displaystyle \langle w,z\rangle =\sum _{i=1}^{n}{\overline {w}}_{i}z_{i}.}"/></span></dd></dl>
+
+<p id="mwKw">where <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt11" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\overline{w}_i"}}' id="mwLA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle {\overline {w}}_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mover>
+              <mi>w</mi>
+              <mo accent="false">¯<!-- ¯ --></mo>
+            </mover>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\overline {w}}_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4cf1e853d5cd50df4e632c8dd53e22be1b73c3c1" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.579ex; height:2.676ex;" alt="{\displaystyle {\overline {w}}_{i}}"/></span> denotes the <a rel="mw:WikiLink" href="./Complex_conjugate" title="Complex conjugate" id="mwLQ">complex conjugate</a> of <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt12" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"w_i ~."}}' id="mwLg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle w_{i}~.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mtext> </mtext>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle w_{i}~.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f761262e36b2883630b8cdb980c3e4bd04d0afe9" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:3.691ex; height:2.009ex;" alt="{\displaystyle w_{i}~.}"/></span> This product may be generalized to situations where one is not working with an orthonormal basis for <span class="texhtml " about="#mwt10" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;&apos;C&apos;&apos;&apos;&lt;sup>&apos;&apos;n&apos;&apos;&lt;/sup>"}},"i":0}}]}' id="mwLw"><b>C</b><sup><i>n</i></sup></span>, or even any basis at all.  By inserting an extra factor of <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt13" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"i"}}' id="mwMA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle i}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>i</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle i}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/add78d8608ad86e54951b8c8bd6c8d8416533d20" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:0.802ex; height:2.176ex;" alt="{\displaystyle i}"/></span> into the product, one obtains the <b id="mwMQ">skew-Hermitian form</b>, defined more precisely, below. There is no particular reason to restrict the definition to the complex numbers; it can be defined for arbitrary <a rel="mw:WikiLink" href="./Ring_(mathematics)" title="Ring (mathematics)" id="mwMg">rings</a> carrying an <a rel="mw:WikiLink" href="./Antiautomorphism" title="Antiautomorphism" class="mw-redirect" id="mwMw">antiautomorphism</a>, informally understood to be a generalized concept of "complex conjugation" for the ring.</p>
+
+</section><section data-mw-section-id="2" id="mwNA"><h2 id="Convention">Convention</h2>
+<p id="mwNQ">Conventions differ as to which argument should be linear. In the commutative case, we shall take the first to be linear, as is common in the mathematical literature, except in the section devoted to sesquilinear forms on complex vector spaces. There we use the other convention and take the first argument to be conjugate-linear (i.e. antilinear) and the second to be linear. This is the convention used mostly by physicists<sup about="#mwt14" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-1"}}'><a href="./Sesquilinear_form#cite_note-1" id="mwNg"><span class="mw-reflink-text" id="mwNw"><span class="cite-bracket" id="mwOA">[</span>1<span class="cite-bracket" id="mwOQ">]</span></span></a></sup> and originates in <a rel="mw:WikiLink" href="./Paul_Dirac" title="Paul Dirac" id="mwOg">Dirac's</a> <a rel="mw:WikiLink" href="./Bra–ket_notation" title="Bra–ket notation" id="mwOw">bra–ket notation</a> in <a rel="mw:WikiLink" href="./Quantum_mechanics" title="Quantum mechanics" id="mwPA">quantum mechanics</a>. It is also consistent with the definition of the usual (Euclidean) product of <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt15" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"w,z\\in\\mathbb C^n"}}' id="mwPQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle w,z\in \mathbb {C} ^{n}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>w</mi>
+        <mo>,</mo>
+        <mi>z</mi>
+        <mo>∈<!-- ∈ --></mo>
+        <msup>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="double-struck">C</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle w,z\in \mathbb {C} ^{n}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5d03c37bdd38f7591f6cd489381d1c86ef842d67" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:9.523ex; height:2.676ex;" alt="{\displaystyle w,z\in \mathbb {C} ^{n}}"/></span> as <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt16" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"w^*z"}}' id="mwPg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle w^{*}z}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∗<!-- ∗ --></mo>
+          </mrow>
+        </msup>
+        <mi>z</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle w^{*}z}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c2e3d8c0b8beb87d8d6f19d6c55b4e104d1f639e" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:3.807ex; height:2.343ex;" alt="{\displaystyle w^{*}z}"/></span>.</p>
+
+<p id="mwPw">In the more general noncommutative setting, with right modules we take the second argument to be linear and with left modules we take the first argument to be linear.</p>
+
+</section><section data-mw-section-id="3" id="mwQA"><h2 id="Complex_vector_spaces">Complex vector spaces</h2>
+<span class="mw-empty-elt" about="#mwt17" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"See also","href":"./Template:See_also"},"params":{"1":{"wt":"Antidual space"},"2":{"wt":"Dual system"}},"i":0}}]}' id="mwQQ"><style data-mw-deduplicate="TemplateStyles:r1368532237" typeof="mw:Extension/templatestyles" about="#mwt18" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Hatnote/styles.css"},"body":{"extsrc":""}}'>.mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+.mw-empty-elt+.hatnote{margin-top:-0.5em}@media print{body.ns-0 .mw-parser-output .hatnote{display:none!important}}</style></span><div role="note" class="hatnote navigation-not-searchable" about="#mwt17" id="mwQg">See also: <a rel="mw:WikiLink" href="./Antidual_space" title="Antidual space" class="mw-redirect">Antidual space</a> and <a rel="mw:WikiLink" href="./Dual_system" title="Dual system">Dual system</a></div>
+
+<dl id="mwQw"><dd id="mwRA"><b id="mwRQ">Assumption</b>: In this section, sesquilinear forms are <a rel="mw:WikiLink" href="./Antilinear_map" title="Antilinear map" id="mwRg">antilinear</a> in their first argument and <a rel="mw:WikiLink" href="./Linear_map" title="Linear map" id="mwRw">linear</a> in their second.</dd></dl>
+
+<p id="mwSA">Over a <a rel="mw:WikiLink" href="./Complex_vector_space" title="Complex vector space" class="mw-redirect" id="mwSQ">complex vector space</a> <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt19" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"V"}}' id="mwSg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle V}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>V</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/af0f6064540e84211d0ffe4dac72098adfa52845" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.787ex; height:2.176ex;" alt="{\displaystyle V}"/></span> a map <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt20" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\varphi : V \\times V \\to \\Complex"}}' id="mwSw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \varphi :V\times V\to \mathbb {C} }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>φ<!-- φ --></mi>
+        <mo>:</mo>
+        <mi>V</mi>
+        <mo>×<!-- × --></mo>
+        <mi>V</mi>
+        <mo stretchy="false">→<!-- → --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="double-struck">C</mi>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \varphi :V\times V\to \mathbb {C} }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a0071a77110ec7277254b064885ee8b48e7caf54" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:15.164ex; height:2.676ex;" alt="{\displaystyle \varphi :V\times V\to \mathbb {C} }"/></span> is sesquilinear if</p>
+<dl id="mwTA"><dd id="mwTQ"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt21" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\begin{align}\n&amp;\\varphi(x + y, z + w) = \\varphi(x, z) + \\varphi(x, w) + \\varphi(y, z) + \\varphi(y, w)\\\\\n&amp;\\varphi(a x, b y) = \\overline{a}b\\,\\varphi(x,y)\\end{align}"}}' id="mwTg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle {\begin{aligned}&amp;\varphi (x+y,z+w)=\varphi (x,z)+\varphi (x,w)+\varphi (y,z)+\varphi (y,w)\\&amp;\varphi (ax,by)={\overline {a}}b\,\varphi (x,y)\end{aligned}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
+            <mtr>
+              <mtd></mtd>
+              <mtd>
+                <mi>φ<!-- φ --></mi>
+                <mo stretchy="false">(</mo>
+                <mi>x</mi>
+                <mo>+</mo>
+                <mi>y</mi>
+                <mo>,</mo>
+                <mi>z</mi>
+                <mo>+</mo>
+                <mi>w</mi>
+                <mo stretchy="false">)</mo>
+                <mo>=</mo>
+                <mi>φ<!-- φ --></mi>
+                <mo stretchy="false">(</mo>
+                <mi>x</mi>
+                <mo>,</mo>
+                <mi>z</mi>
+                <mo stretchy="false">)</mo>
+                <mo>+</mo>
+                <mi>φ<!-- φ --></mi>
+                <mo stretchy="false">(</mo>
+                <mi>x</mi>
+                <mo>,</mo>
+                <mi>w</mi>
+                <mo stretchy="false">)</mo>
+                <mo>+</mo>
+                <mi>φ<!-- φ --></mi>
+                <mo stretchy="false">(</mo>
+                <mi>y</mi>
+                <mo>,</mo>
+                <mi>z</mi>
+                <mo stretchy="false">)</mo>
+                <mo>+</mo>
+                <mi>φ<!-- φ --></mi>
+                <mo stretchy="false">(</mo>
+                <mi>y</mi>
+                <mo>,</mo>
+                <mi>w</mi>
+                <mo stretchy="false">)</mo>
+              </mtd>
+            </mtr>
+            <mtr>
+              <mtd></mtd>
+              <mtd>
+                <mi>φ<!-- φ --></mi>
+                <mo stretchy="false">(</mo>
+                <mi>a</mi>
+                <mi>x</mi>
+                <mo>,</mo>
+                <mi>b</mi>
+                <mi>y</mi>
+                <mo stretchy="false">)</mo>
+                <mo>=</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mover>
+                    <mi>a</mi>
+                    <mo accent="false">¯<!-- ¯ --></mo>
+                  </mover>
+                </mrow>
+                <mi>b</mi>
+                <mspace width="thinmathspace"></mspace>
+                <mi>φ<!-- φ --></mi>
+                <mo stretchy="false">(</mo>
+                <mi>x</mi>
+                <mo>,</mo>
+                <mi>y</mi>
+                <mo stretchy="false">)</mo>
+              </mtd>
+            </mtr>
+          </mtable>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\begin{aligned}&amp;\varphi (x+y,z+w)=\varphi (x,z)+\varphi (x,w)+\varphi (y,z)+\varphi (y,w)\\&amp;\varphi (ax,by)={\overline {a}}b\,\varphi (x,y)\end{aligned}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/390fc9ae4336c34ecbcdc75d2702a99932baa5ee" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.505ex; width:55.581ex; height:6.176ex;" alt="{\displaystyle {\begin{aligned}&amp;\varphi (x+y,z+w)=\varphi (x,z)+\varphi (x,w)+\varphi (y,z)+\varphi (y,w)\\&amp;\varphi (ax,by)={\overline {a}}b\,\varphi (x,y)\end{aligned}}}"/></span></dd></dl>
+<p id="mwTw">for all <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt22" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"x, y, z, w \\in V"}}' id="mwUA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle x,y,z,w\in V}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo>,</mo>
+        <mi>z</mi>
+        <mo>,</mo>
+        <mi>w</mi>
+        <mo>∈<!-- ∈ --></mo>
+        <mi>V</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x,y,z,w\in V}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b6f84dd324c6a551e2f35a1af6e7e2073f4ec57c" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:12.967ex; height:2.509ex;" alt="{\displaystyle x,y,z,w\in V}"/></span> and all <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt23" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"a, b \\in \\Complex."}}' id="mwUQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle a,b\in \mathbb {C} .}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>a</mi>
+        <mo>,</mo>
+        <mi>b</mi>
+        <mo>∈<!-- ∈ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="double-struck">C</mi>
+        </mrow>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle a,b\in \mathbb {C} .}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/bed92058c64fbe105a8fc95381ca92c932fe2b74" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:8.427ex; height:2.509ex;" alt="{\displaystyle a,b\in \mathbb {C} .}"/></span> Here, <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt24" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\overline{a}"}}' id="mwUg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle {\overline {a}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <mi>a</mi>
+            <mo accent="false">¯<!-- ¯ --></mo>
+          </mover>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\overline {a}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/032e261791bd07a59cf1419352fc66f7901d4b1a" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.345ex; height:2.343ex;" alt="{\displaystyle {\overline {a}}}"/></span> is the complex conjugate of a scalar <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt25" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"a."}}' id="mwUw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle a.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>a</mi>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle a.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6b803da9c45c1186883bde55107e9ccb102c92c6" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.877ex; height:1.676ex;" alt="{\displaystyle a.}"/></span></p>
+
+<p id="mwVA">A complex sesquilinear form can also be viewed as a complex <a rel="mw:WikiLink" href="./Bilinear_map" title="Bilinear map" id="mwVQ">bilinear map</a>
+<span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt26" data-mw='{"name":"math","attrs":{"display":"block"},"body":{"extsrc":"\\overline{V} \\times V \\to \\Complex"}}' id="mwVg"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle {\overline {V}}\times V\to \mathbb {C} }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <mi>V</mi>
+            <mo accent="false">¯<!-- ¯ --></mo>
+          </mover>
+        </mrow>
+        <mo>×<!-- × --></mo>
+        <mi>V</mi>
+        <mo stretchy="false">→<!-- → --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="double-struck">C</mi>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\overline {V}}\times V\to \mathbb {C} }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f89e7e31586d627eb66a728adbfd265cba9c1f39" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:12.103ex; height:3.009ex;" alt="{\displaystyle {\overline {V}}\times V\to \mathbb {C} }"/></span>
+where <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt27" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\overline{V}"}}' id="mwVw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle {\overline {V}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <mi>V</mi>
+            <mo accent="false">¯<!-- ¯ --></mo>
+          </mover>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\overline {V}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/38cfbd5e453955544af57ce8845a6474944393f1" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:2.183ex; height:3.009ex;" alt="{\displaystyle {\overline {V}}}"/></span> is the <a rel="mw:WikiLink" href="./Complex_conjugate_vector_space" title="Complex conjugate vector space" class="mw-redirect" id="mwWA">complex conjugate vector space</a> to <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt28" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"V."}}' id="mwWQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle V.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>V</mi>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1b2661a49b86bd1a5548e527bbfb068aa9f59978" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:2.434ex; height:2.176ex;" alt="{\displaystyle V.}"/></span> By the <a rel="mw:WikiLink" href="./Universal_property" title="Universal property" id="mwWg">universal property</a> of <a rel="mw:WikiLink" href="./Tensor_product" title="Tensor product" id="mwWw">tensor products</a> these are in one-to-one correspondence with complex linear maps
+<span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt29" data-mw='{"name":"math","attrs":{"display":"block"},"body":{"extsrc":"\\overline{V} \\otimes V \\to \\Complex."}}' id="mwXA"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle {\overline {V}}\otimes V\to \mathbb {C} .}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <mi>V</mi>
+            <mo accent="false">¯<!-- ¯ --></mo>
+          </mover>
+        </mrow>
+        <mo>⊗<!-- ⊗ --></mo>
+        <mi>V</mi>
+        <mo stretchy="false">→<!-- → --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="double-struck">C</mi>
+        </mrow>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\overline {V}}\otimes V\to \mathbb {C} .}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4bea4a83a3777007b5a9c2ffa612319ef7d8602a" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.505ex; width:12.75ex; height:3.176ex;" alt="{\displaystyle {\overline {V}}\otimes V\to \mathbb {C} .}"/></span></p>
+
+<p id="mwXQ">For a fixed <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt30" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"z \\in V"}}' id="mwXg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle z\in V}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>z</mi>
+        <mo>∈<!-- ∈ --></mo>
+        <mi>V</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle z\in V}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b4e530fb380ba488705c57df90a2631e9055b7e7" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:5.716ex; height:2.176ex;" alt="{\displaystyle z\in V}"/></span> the map <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt31" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"w \\mapsto \\varphi(z, w)"}}' id="mwXw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle w\mapsto \varphi (z,w)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>w</mi>
+        <mo stretchy="false">↦<!-- ↦ --></mo>
+        <mi>φ<!-- φ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>z</mi>
+        <mo>,</mo>
+        <mi>w</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle w\mapsto \varphi (z,w)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/124e915f8ff79febe2d55c3a8f18b51597b250e8" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:12.394ex; height:2.843ex;" alt="{\displaystyle w\mapsto \varphi (z,w)}"/></span> is a <a rel="mw:WikiLink" href="./Linear_functional" title="Linear functional" class="mw-redirect" id="mwYA">linear functional</a> on <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt32" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"V"}}' id="mwYQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle V}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>V</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/af0f6064540e84211d0ffe4dac72098adfa52845" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.787ex; height:2.176ex;" alt="{\displaystyle V}"/></span> (i.e. an element of the <a rel="mw:WikiLink" href="./Dual_space" title="Dual space" id="mwYg">dual space</a> <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt33" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"V^*"}}' id="mwYw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle V^{*}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∗<!-- ∗ --></mo>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V^{*}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5910e6a94f4f7ee2ee85ceed9dacef3eff7a6242" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:2.971ex; height:2.343ex;" alt="{\displaystyle V^{*}}"/></span>). Likewise, the map <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt34" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"w \\mapsto \\varphi(w, z)"}}' id="mwZA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle w\mapsto \varphi (w,z)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>w</mi>
+        <mo stretchy="false">↦<!-- ↦ --></mo>
+        <mi>φ<!-- φ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>w</mi>
+        <mo>,</mo>
+        <mi>z</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle w\mapsto \varphi (w,z)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a5b79fd4da917b9fbcbde6d91c897db2bf4ed847" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:12.394ex; height:2.843ex;" alt="{\displaystyle w\mapsto \varphi (w,z)}"/></span> is a <a rel="mw:WikiLink" href="./Conjugate-linear" title="Conjugate-linear" class="mw-redirect" id="mwZQ">conjugate-linear</a> <a rel="mw:WikiLink" href="./Functional_(mathematics)" title="Functional (mathematics)" id="mwZg">functional</a> on <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt35" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"V."}}' id="mwZw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle V.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>V</mi>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1b2661a49b86bd1a5548e527bbfb068aa9f59978" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:2.434ex; height:2.176ex;" alt="{\displaystyle V.}"/></span></p>
+
+<p id="mwaA">Given any complex sesquilinear form <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt36" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\varphi"}}' id="mwaQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \varphi }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>φ<!-- φ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \varphi }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/33ee699558d09cf9d653f6351f9fda0b2f4aaa3e" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:1.52ex; height:2.176ex;" alt="{\displaystyle \varphi }"/></span> on <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt37" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"V"}}' id="mwag"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle V}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>V</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/af0f6064540e84211d0ffe4dac72098adfa52845" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.787ex; height:2.176ex;" alt="{\displaystyle V}"/></span> we can define a second complex sesquilinear form <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt38" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\psi"}}' id="mwaw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \psi }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>ψ<!-- ψ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \psi }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/45e5789e5d9c8f7c79744f43ecaaf8ba42a8553a" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:1.513ex; height:2.509ex;" alt="{\displaystyle \psi }"/></span> via the <a rel="mw:WikiLink" href="./Conjugate_transpose" title="Conjugate transpose" id="mwbA">conjugate transpose</a>:
+<span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt39" data-mw='{"name":"math","attrs":{"display":"block"},"body":{"extsrc":"\\psi(w,z) = \\overline{\\varphi(z,w)}."}}' id="mwbQ"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle \psi (w,z)={\overline {\varphi (z,w)}}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>ψ<!-- ψ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>w</mi>
+        <mo>,</mo>
+        <mi>z</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <mrow>
+              <mi>φ<!-- φ --></mi>
+              <mo stretchy="false">(</mo>
+              <mi>z</mi>
+              <mo>,</mo>
+              <mi>w</mi>
+              <mo stretchy="false">)</mo>
+            </mrow>
+            <mo accent="false">¯<!-- ¯ --></mo>
+          </mover>
+        </mrow>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \psi (w,z)={\overline {\varphi (z,w)}}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4a1dac310f502b2d1e21d2cbbbf36c16e4b16f5c" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:18.085ex; height:3.676ex;" alt="{\displaystyle \psi (w,z)={\overline {\varphi (z,w)}}.}"/></span>
+In general, <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt42" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\psi"}}' id="mwbg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \psi }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>ψ<!-- ψ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \psi }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/45e5789e5d9c8f7c79744f43ecaaf8ba42a8553a" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:1.513ex; height:2.509ex;" alt="{\displaystyle \psi }"/></span> and <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt43" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\varphi"}}' id="mwbw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \varphi }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>φ<!-- φ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \varphi }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/33ee699558d09cf9d653f6351f9fda0b2f4aaa3e" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:1.52ex; height:2.176ex;" alt="{\displaystyle \varphi }"/></span> will be different. If they are the same then <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt44" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\varphi"}}' id="mwcA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \varphi }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>φ<!-- φ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \varphi }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/33ee699558d09cf9d653f6351f9fda0b2f4aaa3e" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:1.52ex; height:2.176ex;" alt="{\displaystyle \varphi }"/></span> is said to be <em about="#mwt40" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"em","href":"./Template:Em"},"params":{"1":{"wt":"Hermitian"}},"i":0}}]}' id="mwcQ">Hermitian</em>. If they are negatives of one another, then <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt45" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\varphi"}}' id="mwcg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \varphi }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>φ<!-- φ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \varphi }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/33ee699558d09cf9d653f6351f9fda0b2f4aaa3e" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:1.52ex; height:2.176ex;" alt="{\displaystyle \varphi }"/></span> is said to be <em about="#mwt41" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"em","href":"./Template:Em"},"params":{"1":{"wt":"skew-Hermitian"}},"i":0}}]}' id="mwcw">skew-Hermitian</em>. Every sesquilinear form can be written as a sum of a Hermitian form and a skew-Hermitian form.</p>
+
+<section data-mw-section-id="4" id="mwdA"><h3 id="Matrix_representation">Matrix representation</h3>
+
+<p id="mwdQ">If <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt46" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"V"}}' id="mwdg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle V}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>V</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/af0f6064540e84211d0ffe4dac72098adfa52845" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.787ex; height:2.176ex;" alt="{\displaystyle V}"/></span> is a finite-dimensional complex vector space, then relative to any <a rel="mw:WikiLink" href="./Basis_(linear_algebra)" title="Basis (linear algebra)" id="mwdw">basis</a> <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt47" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\left\\{ e_i \\right\\}_i"}}' id="mweA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \left\{e_{i}\right\}_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mrow>
+            <mo>{</mo>
+            <msub>
+              <mi>e</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+              </mrow>
+            </msub>
+            <mo>}</mo>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \left\{e_{i}\right\}_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/268f7db5558d66a5651c6503ac9f8a5036b2888f" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -1.005ex; width:5.008ex; height:3.009ex;" alt="{\displaystyle \left\{e_{i}\right\}_{i}}"/></span> of <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt48" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"V,"}}' id="mweQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle V,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>V</mi>
+        <mo>,</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ace9595e3ce66fdec7e9d30202626accd676b11e" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.434ex; height:2.509ex;" alt="{\displaystyle V,}"/></span> a sesquilinear form is represented by a <a rel="mw:WikiLink" href="./Matrix_(mathematics)" title="Matrix (mathematics)" id="mweg">matrix</a> <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt49" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"A,"}}' id="mwew"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle A,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>A</mi>
+        <mo>,</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle A,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2746026864cc5896e3e52443a1c917be2df9d8ea" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.39ex; height:2.509ex;" alt="{\displaystyle A,}"/></span> and given by
+<span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt50" data-mw='{"name":"math","attrs":{"display":"block"},"body":{"extsrc":"\\varphi(w,z) = \\varphi \\left(\\sum_i w_i e_i, \\sum_j z_j e_j \\right) = \\sum_i \\sum_j \\overline{w_i} z_j \\varphi\\left(e_i, e_j\\right) = w^\\dagger A z ."}}' id="mwfA"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle \varphi (w,z)=\varphi \left(\sum _{i}w_{i}e_{i},\sum _{j}z_{j}e_{j}\right)=\sum _{i}\sum _{j}{\overline {w_{i}}}z_{j}\varphi \left(e_{i},e_{j}\right)=w^{\dagger }Az.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>φ<!-- φ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>w</mi>
+        <mo>,</mo>
+        <mi>z</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>φ<!-- φ --></mi>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <munder>
+              <mo>∑<!-- ∑ --></mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+              </mrow>
+            </munder>
+            <msub>
+              <mi>w</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+              </mrow>
+            </msub>
+            <msub>
+              <mi>e</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+              </mrow>
+            </msub>
+            <mo>,</mo>
+            <munder>
+              <mo>∑<!-- ∑ --></mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>j</mi>
+              </mrow>
+            </munder>
+            <msub>
+              <mi>z</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>j</mi>
+              </mrow>
+            </msub>
+            <msub>
+              <mi>e</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>j</mi>
+              </mrow>
+            </msub>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+        <mo>=</mo>
+        <munder>
+          <mo>∑<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </munder>
+        <munder>
+          <mo>∑<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </munder>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <msub>
+              <mi>w</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+              </mrow>
+            </msub>
+            <mo accent="false">¯<!-- ¯ --></mo>
+          </mover>
+        </mrow>
+        <msub>
+          <mi>z</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+        <mi>φ<!-- φ --></mi>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <msub>
+              <mi>e</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+              </mrow>
+            </msub>
+            <mo>,</mo>
+            <msub>
+              <mi>e</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>j</mi>
+              </mrow>
+            </msub>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+        <mo>=</mo>
+        <msup>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>†<!-- † --></mo>
+          </mrow>
+        </msup>
+        <mi>A</mi>
+        <mi>z</mi>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \varphi (w,z)=\varphi \left(\sum _{i}w_{i}e_{i},\sum _{j}z_{j}e_{j}\right)=\sum _{i}\sum _{j}{\overline {w_{i}}}z_{j}\varphi \left(e_{i},e_{j}\right)=w^{\dagger }Az.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/005b07257004c8b5b62e6fa88bf2f90827b3e98b" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -3.338ex; width:65.634ex; height:7.676ex;" alt="{\displaystyle \varphi (w,z)=\varphi \left(\sum _{i}w_{i}e_{i},\sum _{j}z_{j}e_{j}\right)=\sum _{i}\sum _{j}{\overline {w_{i}}}z_{j}\varphi \left(e_{i},e_{j}\right)=w^{\dagger }Az.}"/></span>
+where <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt51" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"w^\\dagger"}}' id="mwfQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle w^{\dagger }}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>†<!-- † --></mo>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle w^{\dagger }}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/aefa03b53301a1dd5f5791ab4b73099119b0baaa" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:2.626ex; height:2.676ex;" alt="{\displaystyle w^{\dagger }}"/></span> is the <a rel="mw:WikiLink" href="./Conjugate_transpose" title="Conjugate transpose" id="mwfg">conjugate transpose</a>. The components of the matrix <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt52" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"A"}}' id="mwfw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle A}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>A</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle A}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7daff47fa58cdfd29dc333def748ff5fa4c923e3" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.743ex; height:2.176ex;" alt="{\displaystyle A}"/></span> are given by <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt53" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"A_{ij} := \\varphi\\left(e_i, e_j\\right)."}}' id="mwgA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle A_{ij}:=\varphi \left(e_{i},e_{j}\right).}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mi>j</mi>
+          </mrow>
+        </msub>
+        <mo>:=</mo>
+        <mi>φ<!-- φ --></mi>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <msub>
+              <mi>e</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+              </mrow>
+            </msub>
+            <mo>,</mo>
+            <msub>
+              <mi>e</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>j</mi>
+              </mrow>
+            </msub>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle A_{ij}:=\varphi \left(e_{i},e_{j}\right).}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6564edd30632d7646340a815b4642a2d5909b1ff" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -1.005ex; width:16.626ex; height:3.009ex;" alt="{\displaystyle A_{ij}:=\varphi \left(e_{i},e_{j}\right).}"/></span></p>
+
+</section><section data-mw-section-id="5" id="mwgQ"><h3 id="Hermitian_form">Hermitian form</h3>
+<dl id="mwgg"><dd id="mwgw"><i id="mwhA">The term <b id="mwhQ">Hermitian form</b> may also refer to a different concept than that explained below: it may refer to a certain <a rel="mw:WikiLink" href="./Differential_form" title="Differential form" id="mwhg">differential form</a> on a <a rel="mw:WikiLink" href="./Hermitian_manifold" title="Hermitian manifold" id="mwhw">Hermitian manifold</a>.</i></dd></dl>
+
+<p id="mwiA">A complex <b id="mwiQ">Hermitian form</b> (also called a <b id="mwig">symmetric sesquilinear form</b>), is a sesquilinear form <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt54" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"h : V \\times V \\to \\Complex"}}' id="mwiw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle h:V\times V\to \mathbb {C} }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>h</mi>
+        <mo>:</mo>
+        <mi>V</mi>
+        <mo>×<!-- × --></mo>
+        <mi>V</mi>
+        <mo stretchy="false">→<!-- → --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="double-struck">C</mi>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle h:V\times V\to \mathbb {C} }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3bd723fdb3c6966980bfdc261b495ef840ae6704" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:14.983ex; height:2.176ex;" alt="{\displaystyle h:V\times V\to \mathbb {C} }"/></span> such that
+<span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt55" data-mw='{"name":"math","attrs":{"display":"block"},"body":{"extsrc":"h(w,z) = \\overline{h(z, w)}."}}' id="mwjA"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle h(w,z)={\overline {h(z,w)}}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>h</mi>
+        <mo stretchy="false">(</mo>
+        <mi>w</mi>
+        <mo>,</mo>
+        <mi>z</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <mrow>
+              <mi>h</mi>
+              <mo stretchy="false">(</mo>
+              <mi>z</mi>
+              <mo>,</mo>
+              <mi>w</mi>
+              <mo stretchy="false">)</mo>
+            </mrow>
+            <mo accent="false">¯<!-- ¯ --></mo>
+          </mover>
+        </mrow>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle h(w,z)={\overline {h(z,w)}}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f25413f079285528a40a10311c32db37d37a7472" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:17.729ex; height:3.676ex;" alt="{\displaystyle h(w,z)={\overline {h(z,w)}}.}"/></span>
+The standard Hermitian form on <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt56" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\Complex^n"}}' id="mwjQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \mathbb {C} ^{n}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="double-struck">C</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbb {C} ^{n}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a53b4e76242764d1bca004168353c380fef25258" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:2.897ex; height:2.343ex;" alt="{\displaystyle \mathbb {C} ^{n}}"/></span> is given (again, using the "physics" convention of linearity in the second and conjugate linearity in the first variable) by
+<span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt57" data-mw='{"name":"math","attrs":{"display":"block"},"body":{"extsrc":"\\langle w,z \\rangle = \\sum_{i=1}^n \\overline{w}_i z_i."}}' id="mwjg"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle \langle w,z\rangle =\sum _{i=1}^{n}{\overline {w}}_{i}z_{i}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">⟨<!-- ⟨ --></mo>
+        <mi>w</mi>
+        <mo>,</mo>
+        <mi>z</mi>
+        <mo fence="false" stretchy="false">⟩<!-- ⟩ --></mo>
+        <mo>=</mo>
+        <munderover>
+          <mo>∑<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>=</mo>
+            <mn>1</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </munderover>
+        <msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mover>
+              <mi>w</mi>
+              <mo accent="false">¯<!-- ¯ --></mo>
+            </mover>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>z</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \langle w,z\rangle =\sum _{i=1}^{n}{\overline {w}}_{i}z_{i}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/068c328b1030876cc80b53dcbeac12344c565426" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -3.005ex; width:17.543ex; height:6.843ex;" alt="{\displaystyle \langle w,z\rangle =\sum _{i=1}^{n}{\overline {w}}_{i}z_{i}.}"/></span>
+More generally, the <a rel="mw:WikiLink" href="./Inner_product" title="Inner product" class="mw-redirect" id="mwjw">inner product</a> on any complex <a rel="mw:WikiLink" href="./Hilbert_space" title="Hilbert space" id="mwkA">Hilbert space</a> is a Hermitian form.</p>
+
+<p id="mwkQ">A minus sign is introduced in the Hermitian form <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt58" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"w w^* - z z^*"}}' id="mwkg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle ww^{*}-zz^{*}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>w</mi>
+        <msup>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∗<!-- ∗ --></mo>
+          </mrow>
+        </msup>
+        <mo>−<!-- − --></mo>
+        <mi>z</mi>
+        <msup>
+          <mi>z</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∗<!-- ∗ --></mo>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle ww^{*}-zz^{*}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4154ee5dc62489869bf087baf74ac99caacc7a55" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.505ex; width:10.456ex; height:2.509ex;" alt="{\displaystyle ww^{*}-zz^{*}}"/></span> to define the group <a rel="mw:WikiLink" href="./SU(1,1)" title="SU(1,1)" class="mw-redirect" id="mwkw">SU(1,1)</a>.</p>
+
+<p id="mwlA">A vector space with a Hermitian form <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt59" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"(V, h)"}}' id="mwlQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (V,h)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>V</mi>
+        <mo>,</mo>
+        <mi>h</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (V,h)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c3217d450cf010fcd93b3284c557e6d20f764d19" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:5.969ex; height:2.843ex;" alt="{\displaystyle (V,h)}"/></span> is called a <b id="mwlg">Hermitian space</b>.</p>
+
+<p id="mwlw">The matrix representation of a complex Hermitian form is a <a rel="mw:WikiLink" href="./Hermitian_matrix" title="Hermitian matrix" id="mwmA">Hermitian matrix</a>.</p>
+
+<p id="mwmQ">A complex Hermitian form applied to a single vector
+<span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt60" data-mw='{"name":"math","attrs":{"display":"block"},"body":{"extsrc":"|z|_h = h(z, z)"}}' id="mwmg"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle |z|_{h}=h(z,z)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>z</mi>
+        <msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo stretchy="false">|</mo>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>h</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mi>h</mi>
+        <mo stretchy="false">(</mo>
+        <mi>z</mi>
+        <mo>,</mo>
+        <mi>z</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle |z|_{h}=h(z,z)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5a73465f9fc88d4c0bf88056ece158432011af7d" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -1.005ex; width:13.018ex; height:3.009ex;" alt="{\displaystyle |z|_{h}=h(z,z)}"/></span>
+is always a <a rel="mw:WikiLink" href="./Real_number" title="Real number" id="mwmw">real number</a>. One can show that a complex sesquilinear form is Hermitian <a rel="mw:WikiLink" href="./If_and_only_if" title="If and only if" id="mwnA">if and only if</a> the associated <a rel="mw:WikiLink" href="./Quadratic_form" title="Quadratic form" id="mwnQ">quadratic form</a> is real for all <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt61" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"z \\in V."}}' id="mwng"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle z\in V.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>z</mi>
+        <mo>∈<!-- ∈ --></mo>
+        <mi>V</mi>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle z\in V.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0eebd0fe215c765b5e26759e7c7a6616feb25ca2" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:6.363ex; height:2.176ex;" alt="{\displaystyle z\in V.}"/></span></p>
+
+</section><section data-mw-section-id="6" id="mwnw"><h3 id="Skew-Hermitian_form">Skew-Hermitian form</h3>
+
+<p id="mwoA">A complex <b id="mwoQ">skew-Hermitian form</b> (also called an <b id="mwog">antisymmetric sesquilinear form</b>), is a complex sesquilinear form <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt62" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"s : V \\times V \\to \\Complex"}}' id="mwow"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle s:V\times V\to \mathbb {C} }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>s</mi>
+        <mo>:</mo>
+        <mi>V</mi>
+        <mo>×<!-- × --></mo>
+        <mi>V</mi>
+        <mo stretchy="false">→<!-- → --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="double-struck">C</mi>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle s:V\times V\to \mathbb {C} }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5efcb8d626293ecc7075a63a4da78ab87c597443" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:14.735ex; height:2.176ex;" alt="{\displaystyle s:V\times V\to \mathbb {C} }"/></span> such that
+<span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt63" data-mw='{"name":"math","attrs":{"display":"block"},"body":{"extsrc":"s(w,z) = -\\overline{s(z, w)}."}}' id="mwpA"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle s(w,z)=-{\overline {s(z,w)}}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>s</mi>
+        <mo stretchy="false">(</mo>
+        <mi>w</mi>
+        <mo>,</mo>
+        <mi>z</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mo>−<!-- − --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <mrow>
+              <mi>s</mi>
+              <mo stretchy="false">(</mo>
+              <mi>z</mi>
+              <mo>,</mo>
+              <mi>w</mi>
+              <mo stretchy="false">)</mo>
+            </mrow>
+            <mo accent="false">¯<!-- ¯ --></mo>
+          </mover>
+        </mrow>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle s(w,z)=-{\overline {s(z,w)}}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e613584a34fdb77345a73617fc25fa1511678f27" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:19.04ex; height:3.676ex;" alt="{\displaystyle s(w,z)=-{\overline {s(z,w)}}.}"/></span>
+Every complex skew-Hermitian form can be written as the <a rel="mw:WikiLink" href="./Imaginary_unit" title="Imaginary unit" id="mwpQ">imaginary unit</a> <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt64" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"i := \\sqrt{-1}"}}' id="mwpg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle i:={\sqrt {-1}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>i</mi>
+        <mo>:=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <msqrt>
+            <mo>−<!-- − --></mo>
+            <mn>1</mn>
+          </msqrt>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle i:={\sqrt {-1}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ba853dab5eb8fe0488e7b816c83ef693c9873c85" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:9.454ex; height:3.009ex;" alt="{\displaystyle i:={\sqrt {-1}}}"/></span> times a Hermitian form.</p>
+
+<p id="mwpw">The matrix representation of a complex skew-Hermitian form is a <a rel="mw:WikiLink" href="./Skew-Hermitian_matrix" title="Skew-Hermitian matrix" id="mwqA">skew-Hermitian matrix</a>.</p>
+
+<p id="mwqQ">A complex skew-Hermitian form applied to a single vector
+<span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt65" data-mw='{"name":"math","attrs":{"display":"block"},"body":{"extsrc":"|z|_s = s(z, z)"}}' id="mwqg"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle |z|_{s}=s(z,z)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>z</mi>
+        <msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo stretchy="false">|</mo>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>s</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mi>s</mi>
+        <mo stretchy="false">(</mo>
+        <mi>z</mi>
+        <mo>,</mo>
+        <mi>z</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle |z|_{s}=s(z,z)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b6cba7395fc088aabc2d4ccae313733e725409f2" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -1.005ex; width:12.594ex; height:3.009ex;" alt="{\displaystyle |z|_{s}=s(z,z)}"/></span>
+is always a purely <a rel="mw:WikiLink" href="./Imaginary_number" title="Imaginary number" id="mwqw">imaginary number</a>.</p>
+
+</section></section><section data-mw-section-id="7" id="mwrA"><h2 id="Over_a_division_ring">Over a division ring</h2>
+<p id="mwrQ">This section applies unchanged when the division ring <span class="texhtml " about="#mwt66" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;K&apos;&apos;"}},"i":0}}]}' id="mwrg"><i>K</i></span> is <a rel="mw:WikiLink" href="./Commutative_ring" title="Commutative ring" id="mwrw">commutative</a>.  More specific terminology then also applies: the division ring is a field, the anti-automorphism is also an automorphism, and the right module is a vector space.  The following applies to a left module with suitable reordering of expressions.</p>
+
+<section data-mw-section-id="8" id="mwsA"><h3 id="Definition">Definition</h3>
+<p id="mwsQ">A <b id="mwsg"><span class="texhtml " about="#mwt67" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;σ&apos;&apos;"}},"i":0}}]}' id="mwsw"><i>σ</i></span>-sesquilinear form</b> over a right <span class="texhtml " about="#mwt68" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;K&apos;&apos;"}},"i":0}}]}' id="mwtA"><i>K</i></span>-module <span class="texhtml " about="#mwt69" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;M&apos;&apos;"}},"i":0}}]}' id="mwtQ"><i>M</i></span> is a <a rel="mw:WikiLink" href="./Bi-additive_map" title="Bi-additive map" class="mw-redirect" id="mwtg">bi-additive map</a> <span class="texhtml " about="#mwt70" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;φ&apos;&apos; : &apos;&apos;M&apos;&apos; × &apos;&apos;M&apos;&apos; → &apos;&apos;K&apos;&apos;"}},"i":0}}]}' id="mwtw"><i>φ</i><span typeof="mw:DisplaySpace"> </span>: <i>M</i> × <i>M</i> → <i>K</i></span> with an associated <a rel="mw:WikiLink" href="./Anti-automorphism" title="Anti-automorphism" class="mw-redirect" id="mwuA">anti-automorphism</a> <span class="texhtml " about="#mwt71" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;σ&apos;&apos;"}},"i":0}}]}' id="mwuQ"><i>σ</i></span> of a <a rel="mw:WikiLink" href="./Division_ring" title="Division ring" id="mwug">division ring</a> <span class="texhtml " about="#mwt72" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;K&apos;&apos;"}},"i":0}}]}' id="mwuw"><i>K</i></span> such that, for all <span class="texhtml " about="#mwt73" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;x&apos;&apos;, &apos;&apos;y&apos;&apos;"}},"i":0}}]}' id="mwvA"><i>x</i>, <i>y</i></span> in <span class="texhtml " about="#mwt74" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;M&apos;&apos;"}},"i":0}}]}' id="mwvQ"><i>M</i></span> and all <span class="texhtml " about="#mwt75" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;α&apos;&apos;, &apos;&apos;β&apos;&apos;"}},"i":0}}]}' id="mwvg"><i>α</i>, <i>β</i></span> in <span class="texhtml " about="#mwt76" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;K&apos;&apos;"}},"i":0}}]}' id="mwvw"><i>K</i></span>,</p>
+<dl id="mwwA"><dd id="mwwQ"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt77" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\varphi(x \\alpha, y \\beta) = \\sigma(\\alpha) \\, \\varphi(x, y) \\, \\beta ."}}' id="mwwg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \varphi (x\alpha ,y\beta )=\sigma (\alpha )\,\varphi (x,y)\,\beta .}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>φ<!-- φ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mi>α<!-- α --></mi>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mi>β<!-- β --></mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>σ<!-- σ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>α<!-- α --></mi>
+        <mo stretchy="false">)</mo>
+        <mspace width="thinmathspace"></mspace>
+        <mi>φ<!-- φ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+        <mspace width="thinmathspace"></mspace>
+        <mi>β<!-- β --></mi>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \varphi (x\alpha ,y\beta )=\sigma (\alpha )\,\varphi (x,y)\,\beta .}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/627858f52c0a990d6d99732336a23bd2114bb417" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:26.995ex; height:2.843ex;" alt="{\displaystyle \varphi (x\alpha ,y\beta )=\sigma (\alpha )\,\varphi (x,y)\,\beta .}"/></span></dd></dl>
+
+<p id="mwww">The associated anti-automorphism <span class="texhtml " about="#mwt78" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;σ&apos;&apos;"}},"i":0}}]}' id="mwxA"><i>σ</i></span> for any nonzero sesquilinear form <span class="texhtml " about="#mwt79" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;φ&apos;&apos;"}},"i":0}}]}' id="mwxQ"><i>φ</i></span> is uniquely determined by <span class="texhtml " about="#mwt80" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;φ&apos;&apos;"}},"i":0}}]}' id="mwxg"><i>φ</i></span>.</p>
+
+</section><section data-mw-section-id="9" id="mwxw"><h3 id="Orthogonality">Orthogonality</h3>
+<p id="mwyA">Given a sesquilinear form <span class="texhtml " about="#mwt81" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;φ&apos;&apos;"}},"i":0}}]}' id="mwyQ"><i>φ</i></span> over a module <span class="texhtml " about="#mwt82" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;M&apos;&apos;"}},"i":0}}]}' id="mwyg"><i>M</i></span> and a subspace (<a rel="mw:WikiLink" href="./Submodule" title="Submodule" class="mw-redirect" id="mwyw">submodule</a>) <span class="texhtml " about="#mwt83" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;W&apos;&apos;"}},"i":0}}]}' id="mwzA"><i>W</i></span> of <span class="texhtml " about="#mwt84" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;M&apos;&apos;"}},"i":0}}]}' id="mwzQ"><i>M</i></span>, the <b id="mwzg">orthogonal complement</b> of <span class="texhtml " about="#mwt85" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;W&apos;&apos;"}},"i":0}}]}' id="mwzw"><i>W</i></span> with respect to <span class="texhtml " about="#mwt86" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;φ&apos;&apos;"}},"i":0}}]}' id="mw0A"><i>φ</i></span> is</p>
+<dl id="mw0Q"><dd id="mw0g"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt87" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"W^{\\perp}=\\{\\mathbf{v} \\in M \\mid \\varphi (\\mathbf{v}, \\mathbf{w})=0,\\ \\forall \\mathbf{w}\\in W\\} . "}}' id="mw0w"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle W^{\perp }=\{\mathbf {v} \in M\mid \varphi (\mathbf {v} ,\mathbf {w} )=0,\ \forall \mathbf {w} \in W\}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>W</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>⊥<!-- ⊥ --></mo>
+          </mrow>
+        </msup>
+        <mo>=</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="bold">v</mi>
+        </mrow>
+        <mo>∈<!-- ∈ --></mo>
+        <mi>M</mi>
+        <mo>∣<!-- ∣ --></mo>
+        <mi>φ<!-- φ --></mi>
+        <mo stretchy="false">(</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="bold">v</mi>
+        </mrow>
+        <mo>,</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="bold">w</mi>
+        </mrow>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mn>0</mn>
+        <mo>,</mo>
+        <mtext> </mtext>
+        <mi mathvariant="normal">∀<!-- ∀ --></mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="bold">w</mi>
+        </mrow>
+        <mo>∈<!-- ∈ --></mo>
+        <mi>W</mi>
+        <mo fence="false" stretchy="false">}</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle W^{\perp }=\{\mathbf {v} \in M\mid \varphi (\mathbf {v} ,\mathbf {w} )=0,\ \forall \mathbf {w} \in W\}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d8dcf2f50f803aaf64bb6d6c9c4fd99ac6155385" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:40.801ex; height:3.176ex;" alt="{\displaystyle W^{\perp }=\{\mathbf {v} \in M\mid \varphi (\mathbf {v} ,\mathbf {w} )=0,\ \forall \mathbf {w} \in W\}.}"/></span></dd></dl>
+
+<p id="mw1A">Similarly, <span class="texhtml " about="#mwt88" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;x&apos;&apos; ∈ &apos;&apos;M&apos;&apos;"}},"i":0}}]}' id="mw1Q"><i>x</i> ∈ <i>M</i></span> is <b id="mw1g">orthogonal</b> to <span class="texhtml " about="#mwt89" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;y&apos;&apos; ∈ &apos;&apos;M&apos;&apos;"}},"i":0}}]}' id="mw1w"><i>y</i> ∈ <i>M</i></span> with respect to <span class="texhtml " about="#mwt90" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;φ&apos;&apos;"}},"i":0}}]}' id="mw2A"><i>φ</i></span>, written <span class="texhtml " about="#mwt91" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;x&apos;&apos; ⊥&lt;sub>&apos;&apos;φ&apos;&apos;&lt;/sub> &apos;&apos;y&apos;&apos;"}},"i":0}}]}' id="mw2Q"><i>x</i> ⊥<sub><i>φ</i></sub> <i>y</i></span> (or simply <span class="texhtml " about="#mwt92" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;x&apos;&apos; ⊥ &apos;&apos;y&apos;&apos;"}},"i":0}}]}' id="mw2g"><i>x</i> ⊥ <i>y</i></span> if <span class="texhtml " about="#mwt93" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;φ&apos;&apos;"}},"i":0}}]}' id="mw2w"><i>φ</i></span> can be inferred from the context), when <span class="texhtml " about="#mwt94" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;φ&apos;&apos;(&apos;&apos;x&apos;&apos;, &apos;&apos;y&apos;&apos;) = 0"}},"i":0}}]}' id="mw3A"><i>φ</i>(<i>x</i>, <i>y</i>) = 0</span>.  This <a rel="mw:WikiLink" href="./Binary_relation" title="Binary relation" id="mw3Q">relation</a> need not be <a rel="mw:WikiLink" href="./Symmetric_relation" title="Symmetric relation" id="mw3g">symmetric</a>, i.e. <span class="texhtml " about="#mwt95" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;x&apos;&apos; ⊥ &apos;&apos;y&apos;&apos;"}},"i":0}}]}' id="mw3w"><i>x</i> ⊥ <i>y</i></span> does not imply <span class="texhtml " about="#mwt96" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;y&apos;&apos; ⊥ &apos;&apos;x&apos;&apos;"}},"i":0}}]}' id="mw4A"><i>y</i> ⊥ <i>x</i></span> (but see <i id="mw4Q"><a rel="mw:WikiLink" href="./Sesquilinear_form#Reflexivity" about="#mwt97" typeof="mw:Transclusion" class="mw-selflink-fragment" data-mw='{"parts":[{"template":{"target":{"wt":"section link","href":"./Template:Section_link"},"params":{"1":{"wt":""},"2":{"wt":"Reflexivity"}},"i":0}}]}' id="mw4g">§<span typeof="mw:Entity"> </span>Reflexivity</a></i> below).</p>
+
+</section><section data-mw-section-id="10" id="mw4w"><h3 id="Reflexivity">Reflexivity</h3>
+<p id="mw5A">A sesquilinear form <span class="texhtml " about="#mwt98" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;φ&apos;&apos;"}},"i":0}}]}' id="mw5Q"><i>φ</i></span> is <b id="mw5g">reflexive</b> if, for all <span class="texhtml " about="#mwt99" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;x&apos;&apos;, &apos;&apos;y&apos;&apos;"}},"i":0}}]}' id="mw5w"><i>x</i>, <i>y</i></span> in <span class="texhtml " about="#mwt100" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;M&apos;&apos;"}},"i":0}}]}' id="mw6A"><i>M</i></span>,</p>
+<dl id="mw6Q"><dd id="mw6g"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt101" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\varphi(x, y) = 0"}}' id="mw6w"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \varphi (x,y)=0}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>φ<!-- φ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mn>0</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \varphi (x,y)=0}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/60541d9c733e45c31817ca23266b660488fd9f9c" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:11.109ex; height:2.843ex;" alt="{\displaystyle \varphi (x,y)=0}"/></span> implies <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt102" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\varphi(y, x) = 0."}}' id="mw7A"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \varphi (y,x)=0.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>φ<!-- φ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>y</mi>
+        <mo>,</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mn>0.</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \varphi (y,x)=0.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f05fefd8e25129847ac538c9b26aec472de3026e" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:11.756ex; height:2.843ex;" alt="{\displaystyle \varphi (y,x)=0.}"/></span></dd></dl>
+<p id="mw7Q">That is, a sesquilinear form is reflexive precisely when the derived orthogonality relation is symmetric.</p>
+
+</section><section data-mw-section-id="11" id="mw7g"><h3 id="Hermitian_variations">Hermitian variations</h3>
+<p id="mw7w">A <span class="texhtml " about="#mwt103" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;σ&apos;&apos;"}},"i":0}}]}' id="mw8A"><i>σ</i></span>-sesquilinear form <span class="texhtml " about="#mwt104" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;φ&apos;&apos;"}},"i":0}}]}' id="mw8Q"><i>φ</i></span> is called <b id="mw8g"><span class="texhtml " about="#mwt105" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"(&apos;&apos;σ&apos;&apos;, &apos;&apos;ε&apos;&apos;)"}},"i":0}}]}' id="mw8w">(<i>σ</i>, <i>ε</i>)</span>-Hermitian</b> if there exists <span class="texhtml " about="#mwt106" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;ε&apos;&apos;"}},"i":0}}]}' id="mw9A"><i>ε</i></span> in <span class="texhtml " about="#mwt107" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;K&apos;&apos;"}},"i":0}}]}' id="mw9Q"><i>K</i></span> such that, for all <span class="texhtml " about="#mwt108" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;x&apos;&apos;, &apos;&apos;y&apos;&apos;"}},"i":0}}]}' id="mw9g"><i>x</i>, <i>y</i></span> in <span class="texhtml " about="#mwt109" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;M&apos;&apos;"}},"i":0}}]}' id="mw9w"><i>M</i></span>,</p>
+<dl id="mw-A"><dd id="mw-Q"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt110" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\varphi(x, y) = \\sigma ( \\varphi (y, x)) \\, \\varepsilon ."}}' id="mw-g"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \varphi (x,y)=\sigma (\varphi (y,x))\,\varepsilon .}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>φ<!-- φ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>σ<!-- σ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>φ<!-- φ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>y</mi>
+        <mo>,</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+        <mspace width="thinmathspace"></mspace>
+        <mi>ε<!-- ε --></mi>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \varphi (x,y)=\sigma (\varphi (y,x))\,\varepsilon .}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8b673975eb81edbc3998ebe3151e77f07167a683" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:22.052ex; height:2.843ex;" alt="{\displaystyle \varphi (x,y)=\sigma (\varphi (y,x))\,\varepsilon .}"/></span></dd></dl>
+<p id="mw-w">If <span class="texhtml " about="#mwt111" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;ε&apos;&apos; = 1"}},"i":0}}]}' id="mw_A"><i>ε</i> = 1</span>, the form is called <span class="texhtml " about="#mwt112" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;σ&apos;&apos;"}},"i":0}}]}' id="mw_Q"><i>σ</i></span>-<i id="mw_g">Hermitian</i>, and if <span class="texhtml " about="#mwt113" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;ε&apos;&apos; = −1"}},"i":0}}]}' id="mw_w"><i>ε</i> = −1</span>, it is called <span class="texhtml " about="#mwt114" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;σ&apos;&apos;"}},"i":0}}]}' id="mwAQA"><i>σ</i></span>-<i id="mwAQE">anti-Hermitian</i>.  (When <span class="texhtml " about="#mwt115" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;σ&apos;&apos;"}},"i":0}}]}' id="mwAQI"><i>σ</i></span> is implied, respectively simply <i id="mwAQM">Hermitian</i> or <i id="mwAQQ">anti-Hermitian</i>.)</p>
+
+<p id="mwAQU">For a nonzero <span class="texhtml " about="#mwt116" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"(&apos;&apos;σ&apos;&apos;, &apos;&apos;ε&apos;&apos;)"}},"i":0}}]}' id="mwAQY">(<i>σ</i>, <i>ε</i>)</span>-Hermitian form, it follows that for all <span class="texhtml " about="#mwt117" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;α&apos;&apos;"}},"i":0}}]}' id="mwAQc"><i>α</i></span> in <span class="texhtml " about="#mwt118" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;K&apos;&apos;"}},"i":0}}]}' id="mwAQg"><i>K</i></span>,</p>
+<dl id="mwAQk"><dd id="mwAQo"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt119" data-mw='{"name":"math","attrs":{},"body":{"extsrc":" \\sigma ( \\varepsilon ) = \\varepsilon^{-1} "}}' id="mwAQs"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \sigma (\varepsilon )=\varepsilon ^{-1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>σ<!-- σ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>ε<!-- ε --></mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <msup>
+          <mi>ε<!-- ε --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>−<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \sigma (\varepsilon )=\varepsilon ^{-1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/459477be90edc4426f4d8c6e43adb12ebabe3327" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:10.737ex; height:3.176ex;" alt="{\displaystyle \sigma (\varepsilon )=\varepsilon ^{-1}}"/></span></dd>
+<dd id="mwAQw"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt120" data-mw='{"name":"math","attrs":{},"body":{"extsrc":" \\sigma ( \\sigma ( \\alpha ) ) = \\varepsilon \\alpha \\varepsilon^{-1} ."}}' id="mwAQ0"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \sigma (\sigma (\alpha ))=\varepsilon \alpha \varepsilon ^{-1}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>σ<!-- σ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>σ<!-- σ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>α<!-- α --></mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>ε<!-- ε --></mi>
+        <mi>α<!-- α --></mi>
+        <msup>
+          <mi>ε<!-- ε --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>−<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msup>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \sigma (\sigma (\alpha ))=\varepsilon \alpha \varepsilon ^{-1}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8fcd99c20fc7c59876f4aa35592d3491fa892a2f" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:17.498ex; height:3.176ex;" alt="{\displaystyle \sigma (\sigma (\alpha ))=\varepsilon \alpha \varepsilon ^{-1}.}"/></span></dd></dl>
+<p id="mwAQ4">It also follows that <span class="texhtml " about="#mwt121" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;φ&apos;&apos;(&apos;&apos;x&apos;&apos;, &apos;&apos;x&apos;&apos;)"}},"i":0}}]}' id="mwAQ8"><i>φ</i>(<i>x</i>, <i>x</i>)</span> is a <a rel="mw:WikiLink" href="./Fixed_point_(mathematics)" title="Fixed point (mathematics)" id="mwARA">fixed point</a> of the map <span class="texhtml " about="#mwt122" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;α&apos;&apos; ↦ &apos;&apos;σ&apos;&apos;(&apos;&apos;α&apos;&apos;)&apos;&apos;ε&apos;&apos;"}},"i":0}}]}' id="mwARE"><i>α</i> ↦ <i>σ</i>(<i>α</i>)<i>ε</i></span>.  The fixed points of this map form a <a rel="mw:WikiLink" href="./Subgroup" title="Subgroup" id="mwARI">subgroup</a> of the <a rel="mw:WikiLink" href="./Additive_group" title="Additive group" id="mwARM">additive group</a> of <span class="texhtml " about="#mwt123" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;K&apos;&apos;"}},"i":0}}]}' id="mwARQ"><i>K</i></span>.</p>
+
+<p id="mwARU">A <span class="texhtml " about="#mwt124" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"(&apos;&apos;σ&apos;&apos;, &apos;&apos;ε&apos;&apos;)"}},"i":0}}]}' id="mwARY">(<i>σ</i>, <i>ε</i>)</span>-Hermitian form is reflexive, and every reflexive <span class="texhtml " about="#mwt125" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;σ&apos;&apos;"}},"i":0}}]}' id="mwARc"><i>σ</i></span>-sesquilinear form is <span class="texhtml " about="#mwt126" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"(&apos;&apos;σ&apos;&apos;, &apos;&apos;ε&apos;&apos;)"}},"i":0}}]}' id="mwARg">(<i>σ</i>, <i>ε</i>)</span>-Hermitian for some <span class="texhtml " about="#mwt127" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;ε&apos;&apos;"}},"i":0}}]}' id="mwARk"><i>ε</i></span>.<sup about="#mwt130" class="mw-ref reference" id="cite_ref-2" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-2"}}'><a href="./Sesquilinear_form#cite_note-2" id="mwARo"><span class="mw-reflink-text" id="mwARs"><span class="cite-bracket" id="mwARw">[</span>2<span class="cite-bracket" id="mwAR0">]</span></span></a></sup><sup about="#mwt131" class="mw-ref reference" id="cite_ref-3" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-3"}}'><a href="./Sesquilinear_form#cite_note-3" id="mwAR4"><span class="mw-reflink-text" id="mwAR8"><span class="cite-bracket" id="mwASA">[</span>3<span class="cite-bracket" id="mwASE">]</span></span></a></sup><sup about="#mwt134" class="mw-ref reference" id="cite_ref-4" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-4"}}'><a href="./Sesquilinear_form#cite_note-4" id="mwASI"><span class="mw-reflink-text" id="mwASM"><span class="cite-bracket" id="mwASQ">[</span>4<span class="cite-bracket" id="mwASU">]</span></span></a></sup><sup about="#mwt136" class="mw-ref reference" id="cite_ref-Demb42_5-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"Demb42"},"body":{"id":"mw-reference-text-cite_note-Demb42-5"}}'><a href="./Sesquilinear_form#cite_note-Demb42-5" id="mwASY"><span class="mw-reflink-text" id="mwASc"><span class="cite-bracket" id="mwASg">[</span>5<span class="cite-bracket" id="mwASk">]</span></span></a></sup></p>
+
+<p id="mwASo">In the special case that <span class="texhtml " about="#mwt137" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;σ&apos;&apos;"}},"i":0}}]}' id="mwASs"><i>σ</i></span> is the <a rel="mw:WikiLink" href="./Identity_map" title="Identity map" class="mw-redirect" id="mwASw">identity map</a> (i.e., <span class="texhtml " about="#mwt138" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;σ&apos;&apos; = id"}},"i":0}}]}' id="mwAS0"><i>σ</i> = id</span>), <span class="texhtml " about="#mwt139" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;K&apos;&apos;"}},"i":0}}]}' id="mwAS4"><i>K</i></span> is commutative, <span class="texhtml " about="#mwt140" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;φ&apos;&apos;"}},"i":0}}]}' id="mwAS8"><i>φ</i></span> is a bilinear form and <span class="texhtml " about="#mwt141" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;ε&apos;&apos;&lt;sup>2&lt;/sup> = 1"}},"i":0}}]}' id="mwATA"><i>ε</i><sup>2</sup> = 1</span>.  Then for <span class="texhtml " about="#mwt142" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;ε&apos;&apos; = 1"}},"i":0}}]}' id="mwATE"><i>ε</i> = 1</span> the bilinear form is called <i id="mwATI">symmetric</i>, and for <span class="texhtml " about="#mwt143" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;ε&apos;&apos; = −1"}},"i":0}}]}' id="mwATM"><i>ε</i> = −1</span> is called <i id="mwATQ">skew-symmetric</i>.<sup about="#mwt146" class="mw-ref reference" id="cite_ref-6" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-6"}}'><a href="./Sesquilinear_form#cite_note-6" id="mwATU"><span class="mw-reflink-text" id="mwATY"><span class="cite-bracket" id="mwATc">[</span>6<span class="cite-bracket" id="mwATg">]</span></span></a></sup></p>
+<!--
+===Matrix representation of a Hermitian form===
+&#x2D;&#x2D;&#x2D;(as for over a field)
+Given an ordered basis {{math|{ ''e''<sub&#x3E;''i''</sub&#x3E; }{{null}}}} of the vector space {{math|''V''}}, a sesquilinear form {{math|''φ''}} on {{math|''V''}} uniquely determines the matrix {{math|''M''<sub&#x3E;''φ''</sub&#x3E;}} by:
+:<math&#x3E; \varphi (x, y) = x M_\varphi \sigma (y)^{\rm T}.</math&#x3E;
+--><!--
+&#x2D;&#x2D;&#x2D;(needs work)
+A sesquilinear form can also be viewed as an {{math|''F''}}&#x2D;[[bilinear map]]
+:<math&#x3E; V \times V^* \to F ,</math&#x3E;
+where {{math|''V''<sup&#x3E;∗</sup&#x3E;}} is the dual space of {{math|''V''}}.{{cn|reason=This seems dubious, since there is no associated automorphism; it would imply that a linear map V→V* induces an field automorphism.  A sesquilinear form induces a [[semilinear transformation]] V→V*.|date=July 2016}}
+-->
+
+</section><section data-mw-section-id="12" id="mwATk"><h3 id="Example">Example</h3>
+<p id="mwATo">Let <span class="texhtml " about="#mwt147" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;V&apos;&apos;"}},"i":0}}]}' id="mwATs"><i>V</i></span> be the three dimensional vector space over the <a rel="mw:WikiLink" href="./Finite_field" title="Finite field" id="mwATw">finite field</a> <span class="texhtml " about="#mwt148" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;F&apos;&apos; = GF(&apos;&apos;q&apos;&apos;&lt;sup>2&lt;/sup>)"}},"i":0}}]}' id="mwAT0"><i>F</i> = GF(<i>q</i><sup>2</sup>)</span>, where <span class="texhtml " about="#mwt149" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;q&apos;&apos;"}},"i":0}}]}' id="mwAT4"><i>q</i></span> is a <a rel="mw:WikiLink" href="./Prime_power" title="Prime power" id="mwAT8">prime power</a>. With respect to the standard basis we can write <span class="texhtml " about="#mwt150" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;x&apos;&apos; = (&apos;&apos;x&apos;&apos;&lt;sub>1&lt;/sub>, &apos;&apos;x&apos;&apos;&lt;sub>2&lt;/sub>, &apos;&apos;x&apos;&apos;&lt;sub>3&lt;/sub>)"}},"i":0}}]}' id="mwAUA"><i>x</i> = (<i>x</i><sub>1</sub>, <i>x</i><sub>2</sub>, <i>x</i><sub>3</sub>)</span> and <span class="texhtml " about="#mwt151" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;y&apos;&apos; = (&apos;&apos;y&apos;&apos;&lt;sub>1&lt;/sub>, &apos;&apos;y&apos;&apos;&lt;sub>2&lt;/sub>, &apos;&apos;y&apos;&apos;&lt;sub>3&lt;/sub>)"}},"i":0}}]}' id="mwAUE"><i>y</i> = (<i>y</i><sub>1</sub>, <i>y</i><sub>2</sub>, <i>y</i><sub>3</sub>)</span> and define the map <span class="texhtml " about="#mwt152" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;φ&apos;&apos;"}},"i":0}}]}' id="mwAUI"><i>φ</i></span> by:</p>
+<dl id="mwAUM"><dd id="mwAUQ"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt153" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\varphi(x, y) = x_1 y_1{}^q + x_2 y_2{}^q + x_3 y_3{}^q."}}' id="mwAUU"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \varphi (x,y)=x_{1}y_{1}{}^{q}+x_{2}y_{2}{}^{q}+x_{3}y_{3}{}^{q}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>φ<!-- φ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <msup>
+          <mrow class="MJX-TeXAtom-ORD">
+
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>q</mi>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <msup>
+          <mrow class="MJX-TeXAtom-ORD">
+
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>q</mi>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>3</mn>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>3</mn>
+          </mrow>
+        </msub>
+        <msup>
+          <mrow class="MJX-TeXAtom-ORD">
+
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>q</mi>
+          </mrow>
+        </msup>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \varphi (x,y)=x_{1}y_{1}{}^{q}+x_{2}y_{2}{}^{q}+x_{3}y_{3}{}^{q}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5e3b6c1a21b303595ed5b88c1d5e47f9a4be7155" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:32.972ex; height:2.843ex;" alt="{\displaystyle \varphi (x,y)=x_{1}y_{1}{}^{q}+x_{2}y_{2}{}^{q}+x_{3}y_{3}{}^{q}.}"/></span></dd></dl>
+<p id="mwAUY">The map <span class="texhtml " about="#mwt154" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;σ&apos;&apos; : &apos;&apos;t&apos;&apos; ↦ &apos;&apos;t&apos;&apos;&lt;sup>&apos;&apos;q&apos;&apos;&lt;/sup>"}},"i":0}}]}' id="mwAUc"><i>σ</i><span typeof="mw:DisplaySpace"> </span>: <i>t</i> ↦ <i>t</i><sup><i>q</i></sup></span> is an <a rel="mw:WikiLink" href="./Involution_(mathematics)" title="Involution (mathematics)" id="mwAUg">involutory</a> automorphism of <span class="texhtml " about="#mwt155" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;F&apos;&apos;"}},"i":0}}]}' id="mwAUk"><i>F</i></span>. The map <span class="texhtml " about="#mwt156" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;φ&apos;&apos;"}},"i":0}}]}' id="mwAUo"><i>φ</i></span> is then a <span class="texhtml " about="#mwt157" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;σ&apos;&apos;"}},"i":0}}]}' id="mwAUs"><i>σ</i></span>-sesquilinear form. The matrix <span class="texhtml " about="#mwt158" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;M&apos;&apos;&lt;sub>&apos;&apos;φ&apos;&apos;&lt;/sub>"}},"i":0}}]}' id="mwAUw"><i>M</i><sub><i>φ</i></sub></span> associated to this form is the <a rel="mw:WikiLink" href="./Identity_matrix" title="Identity matrix" id="mwAU0">identity matrix</a>. This is a Hermitian form.</p>
+
+</section></section><section data-mw-section-id="13" id="mwAU4"><h2 id="In_projective_geometry">In projective geometry</h2>
+
+<dl id="mwAU8"><dd id="mwAVA"><b id="mwAVE">Assumption</b>: In this section, sesquilinear forms are <a rel="mw:WikiLink" href="./Antilinear_map" title="Antilinear map" id="mwAVI">antilinear</a> (resp. <a rel="mw:WikiLink" href="./Linear_map" title="Linear map" id="mwAVM">linear</a>) in their second (resp. first) argument.</dd></dl>
+
+<p id="mwAVQ">In a <a rel="mw:WikiLink" href="./Projective_geometry" title="Projective geometry" id="mwAVU">projective geometry</a> <span class="texhtml " about="#mwt159" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;G&apos;&apos;"}},"i":0}}]}' id="mwAVY"><i>G</i></span>, a <a rel="mw:WikiLink" href="./Permutation" title="Permutation" id="mwAVc">permutation</a> <span class="texhtml " about="#mwt160" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;δ&apos;&apos;"}},"i":0}}]}' id="mwAVg"><i>δ</i></span> of the subspaces that inverts inclusion, i.e.</p>
+<dl id="mwAVk"><dd id="mwAVo"><span class="texhtml " about="#mwt161" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;math&quot;,&quot;href&quot;:&quot;./Template:Math&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;''S'' ⊆ ''T'' ⇒ ''T''&lt;sup>''δ''&lt;/sup> ⊆ ''S''&lt;sup>''δ''&lt;/sup>&quot;}},&quot;i&quot;:0}}]}" id="mwAVs"><i>S</i> ⊆ <i>T</i> ⇒ <i>T</i><sup><i>δ</i></sup> ⊆ <i>S</i><sup><i>δ</i></sup></span> for all subspaces <span class="texhtml " about="#mwt162" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;S&apos;&apos;"}},"i":0}}]}' id="mwAVw"><i>S</i></span>, <span class="texhtml " about="#mwt163" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;T&apos;&apos;"}},"i":0}}]}' id="mwAV0"><i>T</i></span> of <span class="texhtml " about="#mwt164" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;G&apos;&apos;"}},"i":0}}]}' id="mwAV4"><i>G</i></span>,</dd></dl>
+<p id="mwAV8">is called a <a rel="mw:WikiLink" href="./Correlation_(projective_geometry)" title="Correlation (projective geometry)" id="mwAWA">correlation</a>. A result of <a rel="mw:WikiLink" href="./Garrett_Birkhoff" title="Garrett Birkhoff" id="mwAWE">Birkhoff</a> and <a rel="mw:WikiLink" href="./John_von_Neumann" title="John von Neumann" id="mwAWI">von Neumann</a> (1936)<sup about="#mwt172" class="mw-ref reference" id="cite_ref-7" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-7"}}'><a href="./Sesquilinear_form#cite_note-7" id="mwAWM"><span class="mw-reflink-text" id="mwAWQ"><span class="cite-bracket" id="mwAWU">[</span>7<span class="cite-bracket" id="mwAWY">]</span></span></a></sup> shows that the correlations of <a rel="mw:WikiLink" href="./Desarguesian" title="Desarguesian" class="mw-redirect" id="mwAWc">desarguesian</a> projective geometries correspond to the nondegenerate sesquilinear forms on the underlying vector space.<sup about="#mwt173" class="mw-ref reference" id="cite_ref-Demb42_5-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"Demb42"}}'><a href="./Sesquilinear_form#cite_note-Demb42-5" id="mwAWg"><span class="mw-reflink-text" id="mwAWk"><span class="cite-bracket" id="mwAWo">[</span>5<span class="cite-bracket" id="mwAWs">]</span></span></a></sup> A sesquilinear form <span class="texhtml " about="#mwt165" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;φ&apos;&apos;"}},"i":0}}]}' id="mwAWw"><i>φ</i></span> is <i id="mwAW0">nondegenerate</i> if <span class="texhtml " about="#mwt166" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;φ&apos;&apos;(&apos;&apos;x&apos;&apos;, &apos;&apos;y&apos;&apos;) = 0"}},"i":0}}]}' id="mwAW4"><i>φ</i>(<i>x</i>, <i>y</i>) = 0</span> for all <span class="texhtml " about="#mwt167" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;y&apos;&apos;"}},"i":0}}]}' id="mwAW8"><i>y</i></span> in <span class="texhtml " about="#mwt168" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;V&apos;&apos;"}},"i":0}}]}' id="mwAXA"><i>V</i></span> (if and) only if <span class="texhtml " about="#mwt169" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;x&apos;&apos; = 0"}},"i":0}}]}' id="mwAXE"><i>x</i> = 0</span>.</p>
+
+<p id="mwAXI">To achieve full generality of this statement, and since every desarguesian projective geometry may be coordinatized by a <a rel="mw:WikiLink" href="./Division_ring" title="Division ring" id="mwAXM">division ring</a>, <a rel="mw:WikiLink" href="./Reinhold_Baer" title="Reinhold Baer" id="mwAXQ">Reinhold Baer</a> extended the definition of a sesquilinear form to a division ring, which requires replacing vector spaces by <a rel="mw:WikiLink" href="./Module_(mathematics)" title="Module (mathematics)" id="mwAXU"><span class="texhtml " about="#mwt178" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;R&apos;&apos;"}},"i":0}}]}' id="mwAXY"><i>R</i></span>-modules</a>.<sup about="#mwt176" class="mw-ref reference" id="cite_ref-8" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-8"}}'><a href="./Sesquilinear_form#cite_note-8" id="mwAXc"><span class="mw-reflink-text" id="mwAXg"><span class="cite-bracket" id="mwAXk">[</span>8<span class="cite-bracket" id="mwAXo">]</span></span></a></sup> (In the geometric literature these are still referred to as either left or right vector spaces over skewfields.)<sup about="#mwt177" class="mw-ref reference" id="cite_ref-9" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-9"}}'><a href="./Sesquilinear_form#cite_note-9" id="mwAXs"><span class="mw-reflink-text" id="mwAXw"><span class="cite-bracket" id="mwAX0">[</span>9<span class="cite-bracket" id="mwAX4">]</span></span></a></sup></p> 
+<!--
+A generalization called a '''{{visible anchor|semi&#x2D;bilinear form}}''' was used by [[Reinhold Baer]] to characterize linear manifolds ([[projective space]]s) that are dual to each other in chapter 4 of his book ''Linear Algebra and Projective Geometry'' (1952).<ref&#x3E;{{citation|first=Reinhold|last=Baer|title=Linear Algebra and Projective Geometry|publisher=Dover|year=2005|orig&#x2D;year=1952|isbn=978&#x2D;0&#x2D;486&#x2D;44565&#x2D;6}}</ref&#x3E; For a [[vector space]] {{math|''A''}} over a [[division ring|skewfield]] {{math|''F''}} he requires:<ref&#x3E;Baer uses the term ''(not necessarily commutative) field'' for [[division ring]] (= skewfield) and refers to {{math|''A''}} as an abelian group linear over {{math|''F''}}, meaning an [[Module (mathematics)|{{math|''F''}}&#x2D;module]] (more colloquially known as a vector space over a skewfield).</ref&#x3E;
+
+:A pair consisting of an [[anti&#x2D;automorphism]] {{math|''α''}} of the skewfield {{math|''F''}} and a function {{math|''f'' : ''A'' × ''A'' → ''F''}} satisfying
+:for all {{math|''a'', ''b'', ''c'' ∈ ''A''}}: {{math|1=''f''(''a'' + ''b'', ''c'') = ''f''(''a'', ''c'') + ''f''(''b'', ''c'')}}, {{math|1=''f''(''a'', ''b'' + ''c'') = ''f''(''a'', ''b'') + ''f''(''a'', ''c'')}}, and
+:for all {{math|''t'' ∈ ''F''}} and {{math|''x'', ''y'' ∈ ''A''}}: {{math|1=''f''(''tx'', ''y'') = ''tf''(''x'', y'')''}}, {{math|1=''f''(''x'', ''ty'') = ''f''(''x'', ''y'') ''t<sup&#x3E;α</sup&#x3E;''}} (page 101)
+:(The "transformation exponential notation" {{math|''t'' ↦ ''t<sup&#x3E;α</sup&#x3E;''}} is adopted in group theory literature.)
+
+Baer calls such a form an {{math|''α''}}&#x2D;form over {{math|''A''}}. The complex sesquilinear form described above has [[complex conjugation]] for {{math|''α''}}.  When {{math|''α''}} is the identity, then {{math|''f''}} is a [[bilinear form]].
+
+In the algebraic structure called a [[*&#x2D;ring]] the anti&#x2D;automorphism is denoted by * and forms are constructed as indicated for {{math|''α''}}. Special constructions such as skew&#x2D;symmetric bilinear forms, Hermitian forms, and skew&#x2D;Hermitian forms are all considered in the broader context.
+
+Particularly in [[L&#x2D;theory]], one also sees the term '''{{math|''ε''}}&#x2D;symmetric''' form, where {{math|1=''ε'' = ±1}}, to refer to both symmetric and skew&#x2D;symmetric forms.
+-->
+
+</section><section data-mw-section-id="14" id="mwAX8"><h2 id="Over_arbitrary_rings">Over arbitrary rings</h2>
+<p id="mwAYA">The specialization of the above section to skewfields was a consequence of the application to projective geometry, and not intrinsic to the nature of sesquilinear forms. Only the minor modifications needed to take into account the non-commutativity of multiplication are required to generalize the arbitrary field version of the definition to arbitrary rings.</p>
+
+<p id="mwAYE">Let <span class="texhtml " about="#mwt179" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;R&apos;&apos;"}},"i":0}}]}' id="mwAYI"><i>R</i></span> be a <a rel="mw:WikiLink" href="./Ring_(mathematics)" title="Ring (mathematics)" id="mwAYM">ring</a>, <span class="texhtml " about="#mwt180" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;V&apos;&apos;"}},"i":0}}]}' id="mwAYQ"><i>V</i></span> an <span class="texhtml " about="#mwt181" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;R&apos;&apos;"}},"i":0}}]}' id="mwAYU"><i>R</i></span>-<a rel="mw:WikiLink" href="./Module_(mathematics)" title="Module (mathematics)" id="mwAYY">module</a> and <span class="texhtml " about="#mwt182" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;σ&apos;&apos;"}},"i":0}}]}' id="mwAYc"><i>σ</i></span> an <a rel="mw:WikiLink" href="./Antiautomorphism" title="Antiautomorphism" class="mw-redirect" id="mwAYg">antiautomorphism</a> of <span class="texhtml " about="#mwt183" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;R&apos;&apos;"}},"i":0}}]}' id="mwAYk"><i>R</i></span>.</p>
+
+<p id="mwAYo">A map <span class="texhtml " about="#mwt184" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;φ&apos;&apos; : &apos;&apos;V&apos;&apos; × &apos;&apos;V&apos;&apos; → &apos;&apos;R&apos;&apos;"}},"i":0}}]}' id="mwAYs"><i>φ</i><span typeof="mw:DisplaySpace"> </span>: <i>V</i> × <i>V</i> → <i>R</i></span> is <b id="mwAYw"><span class="texhtml " about="#mwt185" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;σ&apos;&apos;"}},"i":0}}]}' id="mwAY0"><i>σ</i></span>-sesquilinear</b> if</p>
+<dl id="mwAY4"><dd id="mwAY8"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt186" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\varphi(x + y, z + w) = \\varphi(x, z) + \\varphi(x, w) + \\varphi(y, z) + \\varphi(y, w)"}}' id="mwAZA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \varphi (x+y,z+w)=\varphi (x,z)+\varphi (x,w)+\varphi (y,z)+\varphi (y,w)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>φ<!-- φ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>+</mo>
+        <mi>y</mi>
+        <mo>,</mo>
+        <mi>z</mi>
+        <mo>+</mo>
+        <mi>w</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>φ<!-- φ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <mi>z</mi>
+        <mo stretchy="false">)</mo>
+        <mo>+</mo>
+        <mi>φ<!-- φ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <mi>w</mi>
+        <mo stretchy="false">)</mo>
+        <mo>+</mo>
+        <mi>φ<!-- φ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>y</mi>
+        <mo>,</mo>
+        <mi>z</mi>
+        <mo stretchy="false">)</mo>
+        <mo>+</mo>
+        <mi>φ<!-- φ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>y</mi>
+        <mo>,</mo>
+        <mi>w</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \varphi (x+y,z+w)=\varphi (x,z)+\varphi (x,w)+\varphi (y,z)+\varphi (y,w)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1dea34d35063e6b3e80897adcfa2f9803c80f0b1" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:54.83ex; height:2.843ex;" alt="{\displaystyle \varphi (x+y,z+w)=\varphi (x,z)+\varphi (x,w)+\varphi (y,z)+\varphi (y,w)}"/></span></dd>
+<dd id="mwAZE"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt187" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\varphi(c x, d y) = c \\, \\varphi(x,y) \\, \\sigma(d)"}}' id="mwAZI"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \varphi (cx,dy)=c\,\varphi (x,y)\,\sigma (d)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>φ<!-- φ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>c</mi>
+        <mi>x</mi>
+        <mo>,</mo>
+        <mi>d</mi>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>c</mi>
+        <mspace width="thinmathspace"></mspace>
+        <mi>φ<!-- φ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+        <mspace width="thinmathspace"></mspace>
+        <mi>σ<!-- σ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>d</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \varphi (cx,dy)=c\,\varphi (x,y)\,\sigma (d)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a9378d078669a6fcb1c3ad697472fdabd42c6a08" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:25.154ex; height:2.843ex;" alt="{\displaystyle \varphi (cx,dy)=c\,\varphi (x,y)\,\sigma (d)}"/></span></dd></dl>
+<p id="mwAZM">for all <span class="texhtml " about="#mwt188" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;x&apos;&apos;, &apos;&apos;y&apos;&apos;, &apos;&apos;z&apos;&apos;, &apos;&apos;w&apos;&apos;"}},"i":0}}]}' id="mwAZQ"><i>x</i>, <i>y</i>, <i>z</i>, <i>w</i></span> in <span class="texhtml " about="#mwt189" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;V&apos;&apos;"}},"i":0}}]}' id="mwAZU"><i>V</i></span> and all <span class="texhtml " about="#mwt190" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;c&apos;&apos;, &apos;&apos;d&apos;&apos;"}},"i":0}}]}' id="mwAZY"><i>c</i>, <i>d</i></span> in <span class="texhtml " about="#mwt191" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;R&apos;&apos;"}},"i":0}}]}' id="mwAZc"><i>R</i></span>.</p>
+
+<p id="mwAZg">An element <span class="texhtml " about="#mwt192" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;x&apos;&apos;"}},"i":0}}]}' id="mwAZk"><i>x</i></span> is <b id="mwAZo">orthogonal</b> to another element <span class="texhtml " about="#mwt193" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;y&apos;&apos;"}},"i":0}}]}' id="mwAZs"><i>y</i></span> with respect to the sesquilinear form <span class="texhtml " about="#mwt194" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;φ&apos;&apos;"}},"i":0}}]}' id="mwAZw"><i>φ</i></span> (written <span class="texhtml " about="#mwt195" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;x&apos;&apos; ⊥ &apos;&apos;y&apos;&apos;"}},"i":0}}]}' id="mwAZ0"><i>x</i> ⊥ <i>y</i></span>) if <span class="texhtml " about="#mwt196" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;φ&apos;&apos;(&apos;&apos;x&apos;&apos;, &apos;&apos;y&apos;&apos;) = 0"}},"i":0}}]}' id="mwAZ4"><i>φ</i>(<i>x</i>, <i>y</i>) = 0</span>.  This relation need not be symmetric, i.e. <span class="texhtml " about="#mwt197" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;x&apos;&apos; ⊥ &apos;&apos;y&apos;&apos;"}},"i":0}}]}' id="mwAZ8"><i>x</i> ⊥ <i>y</i></span> does not imply <span class="texhtml " about="#mwt198" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;y&apos;&apos; ⊥ &apos;&apos;x&apos;&apos;"}},"i":0}}]}' id="mwAaA"><i>y</i> ⊥ <i>x</i></span>.</p>
+
+<p id="mwAaE">A sesquilinear form <span class="texhtml " about="#mwt199" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;φ&apos;&apos; : &apos;&apos;V&apos;&apos; × &apos;&apos;V&apos;&apos; → &apos;&apos;R&apos;&apos;"}},"i":0}}]}' id="mwAaI"><i>φ</i><span typeof="mw:DisplaySpace"> </span>: <i>V</i> × <i>V</i> → <i>R</i></span> is <b id="mwAaM">reflexive</b> (or <i id="mwAaQ">orthosymmetric</i>) if <span class="texhtml " about="#mwt200" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;φ&apos;&apos;(&apos;&apos;x&apos;&apos;, &apos;&apos;y&apos;&apos;) = 0"}},"i":0}}]}' id="mwAaU"><i>φ</i>(<i>x</i>, <i>y</i>) = 0</span> implies <span class="texhtml " about="#mwt201" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;φ&apos;&apos;(&apos;&apos;y&apos;&apos;, &apos;&apos;x&apos;&apos;) = 0"}},"i":0}}]}' id="mwAaY"><i>φ</i>(<i>y</i>, <i>x</i>) = 0</span> for all <span class="texhtml " about="#mwt202" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;x&apos;&apos;, &apos;&apos;y&apos;&apos;"}},"i":0}}]}' id="mwAac"><i>x</i>, <i>y</i></span> in <span class="texhtml " about="#mwt203" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;V&apos;&apos;"}},"i":0}}]}' id="mwAag"><i>V</i></span>.</p>
+
+<p id="mwAak">A sesquilinear form <span class="texhtml " about="#mwt204" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;φ&apos;&apos; : &apos;&apos;V&apos;&apos; × &apos;&apos;V&apos;&apos; → &apos;&apos;R&apos;&apos;"}},"i":0}}]}' id="mwAao"><i>φ</i><span typeof="mw:DisplaySpace"> </span>: <i>V</i> × <i>V</i> → <i>R</i></span> is <b id="mwAas">Hermitian</b> if there exists <span class="texhtml " about="#mwt205" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;σ&apos;&apos;"}},"i":0}}]}' id="mwAaw"><i>σ</i></span> such that<sup about="#mwt209" class="mw-ref reference" id="cite_ref-10" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-10"}}'><a href="./Sesquilinear_form#cite_note-10" id="mwAa0"><span class="mw-reflink-text" id="mwAa4"><span class="cite-bracket" id="mwAa8">[</span>10<span class="cite-bracket" id="mwAbA">]</span></span></a></sup><sup class="reference nowrap" about="#mwt206" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"rp","href":"./Template:Rp"},"params":{"1":{"wt":"325"}},"i":0}}]}' id="mwAbE"><span title="Page / location: 325"><span typeof="mw:Entity">:</span><span typeof="mw:Entity"> </span>325<span typeof="mw:Entity"> </span></span></sup></p>
+<dl id="mwAbI"><dd id="mwAbM"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt210" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"\\varphi(x, y) = \\sigma(\\varphi(y, x))"}}' id="mwAbQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \varphi (x,y)=\sigma (\varphi (y,x))}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>φ<!-- φ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>σ<!-- σ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>φ<!-- φ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>y</mi>
+        <mo>,</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \varphi (x,y)=\sigma (\varphi (y,x))}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/12c91008544bf3595f683b7bb5b6dfb47ff67770" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:19.935ex; height:2.843ex;" alt="{\displaystyle \varphi (x,y)=\sigma (\varphi (y,x))}"/></span></dd></dl>
+<p id="mwAbU">for all <span class="texhtml " about="#mwt211" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;x&apos;&apos;, &apos;&apos;y&apos;&apos;"}},"i":0}}]}' id="mwAbY"><i>x</i>, <i>y</i></span> in <span class="texhtml " about="#mwt212" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;V&apos;&apos;"}},"i":0}}]}' id="mwAbc"><i>V</i></span>.  A Hermitian form is necessarily reflexive, and if it is nonzero, the associated antiautomorphism <span class="texhtml " about="#mwt213" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;σ&apos;&apos;"}},"i":0}}]}' id="mwAbg"><i>σ</i></span> is an <a rel="mw:WikiLink" href="./Involution_(mathematics)" title="Involution (mathematics)" id="mwAbk">involution</a> (i.e. of order 2).</p>
+
+<p id="mwAbo">Since for an antiautomorphism <span class="texhtml " about="#mwt214" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;σ&apos;&apos;"}},"i":0}}]}' id="mwAbs"><i>σ</i></span> we have <span class="texhtml " about="#mwt215" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;math&quot;,&quot;href&quot;:&quot;./Template:Math&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;''σ''(''st'') = ''σ''(''t'')''σ''(''s'')&quot;}},&quot;i&quot;:0}}]}" id="mwAbw"><i>σ</i>(<i>st</i>) = <i>σ</i>(<i>t</i>)<i>σ</i>(<i>s</i>)</span> for all <span class="texhtml " about="#mwt216" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;s&apos;&apos;, &apos;&apos;t&apos;&apos;"}},"i":0}}]}' id="mwAb0"><i>s</i>, <i>t</i></span> in <span class="texhtml " about="#mwt217" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;R&apos;&apos;"}},"i":0}}]}' id="mwAb4"><i>R</i></span>, if <span class="texhtml " about="#mwt218" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;σ&apos;&apos; = id"}},"i":0}}]}' id="mwAb8"><i>σ</i> = id</span>, then <span class="texhtml " about="#mwt219" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;R&apos;&apos;"}},"i":0}}]}' id="mwAcA"><i>R</i></span> must be commutative and <span class="texhtml " about="#mwt220" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;φ&apos;&apos;"}},"i":0}}]}' id="mwAcE"><i>φ</i></span> is a bilinear form. In particular, if, in this case, <span class="texhtml " about="#mwt221" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;R&apos;&apos;"}},"i":0}}]}' id="mwAcI"><i>R</i></span> is a skewfield, then <span class="texhtml " about="#mwt222" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;R&apos;&apos;"}},"i":0}}]}' id="mwAcM"><i>R</i></span> is a field and <span class="texhtml " about="#mwt223" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;V&apos;&apos;"}},"i":0}}]}' id="mwAcQ"><i>V</i></span> is a vector space with a bilinear form.</p>
+
+<p id="mwAcU">An antiautomorphism <span class="texhtml " about="#mwt224" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;σ&apos;&apos; : &apos;&apos;R&apos;&apos; → &apos;&apos;R&apos;&apos;"}},"i":0}}]}' id="mwAcY"><i>σ</i><span typeof="mw:DisplaySpace"> </span>: <i>R</i> → <i>R</i></span> can also be viewed as an <a rel="mw:WikiLink" href="./Ring_homomorphism" title="Ring homomorphism" id="mwAcc">isomorphism</a> <span class="texhtml " about="#mwt225" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;R&apos;&apos; → &apos;&apos;R&apos;&apos;&lt;sup>op&lt;/sup>"}},"i":0}}]}' id="mwAcg"><i>R</i> → <i>R</i><sup>op</sup></span>, where <span class="texhtml " about="#mwt226" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;R&apos;&apos;&lt;sup>op&lt;/sup>"}},"i":0}}]}' id="mwAck"><i>R</i><sup>op</sup></span> is the <a rel="mw:WikiLink" href="./Opposite_ring" title="Opposite ring" id="mwAco">opposite ring</a> of <span class="texhtml " about="#mwt227" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;R&apos;&apos;"}},"i":0}}]}' id="mwAcs"><i>R</i></span>, which has the same underlying set and the same addition, but whose multiplication operation (<span class="texhtml " about="#mwt228" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"∗"}},"i":0}}]}' id="mwAcw">∗</span>) is defined by <span class="texhtml " about="#mwt229" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;a&apos;&apos; ∗ &apos;&apos;b&apos;&apos; = &apos;&apos;ba&apos;&apos;"}},"i":0}}]}' id="mwAc0"><i>a</i> ∗ <i>b</i> = <i>ba</i></span>, where the product on the right is the product in <span class="texhtml " about="#mwt230" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;R&apos;&apos;"}},"i":0}}]}' id="mwAc4"><i>R</i></span>. It follows from this that a right (left) <span class="texhtml " about="#mwt231" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;R&apos;&apos;"}},"i":0}}]}' id="mwAc8"><i>R</i></span>-module <span class="texhtml " about="#mwt232" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;V&apos;&apos;"}},"i":0}}]}' id="mwAdA"><i>V</i></span> can be turned into a left (right) <span class="texhtml " about="#mwt233" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;R&apos;&apos;&lt;sup>op&lt;/sup>"}},"i":0}}]}' id="mwAdE"><i>R</i><sup>op</sup></span>-module, <span class="texhtml " about="#mwt234" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;V&apos;&apos;&lt;sup>o&lt;/sup>"}},"i":0}}]}' id="mwAdI"><i>V</i><sup>o</sup></span>.<sup about="#mwt238" class="mw-ref reference" id="cite_ref-11" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-11"}}'><a href="./Sesquilinear_form#cite_note-11" id="mwAdM"><span class="mw-reflink-text" id="mwAdQ"><span class="cite-bracket" id="mwAdU">[</span>11<span class="cite-bracket" id="mwAdY">]</span></span></a></sup> Thus, the sesquilinear form <span class="texhtml " about="#mwt235" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;φ&apos;&apos; : &apos;&apos;V&apos;&apos; × &apos;&apos;V&apos;&apos; → &apos;&apos;R&apos;&apos;"}},"i":0}}]}' id="mwAdc"><i>φ</i><span typeof="mw:DisplaySpace"> </span>: <i>V</i> × <i>V</i> → <i>R</i></span> can be viewed as a bilinear form <span class="texhtml " about="#mwt236" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"&apos;&apos;φ&apos;&apos;′ : &apos;&apos;V&apos;&apos; × &apos;&apos;V&apos;&apos;&lt;sup>o&lt;/sup> → &apos;&apos;R&apos;&apos;"}},"i":0}}]}' id="mwAdg"><i>φ</i>′<span typeof="mw:DisplaySpace"> </span>: <i>V</i> × <i>V</i><sup>o</sup> → <i>R</i></span>.</p>
+
+</section><section data-mw-section-id="15" id="mwAdk"><h2 id="See_also">See also</h2>
+<ul id="mwAdo"><li id="mwAds"><a rel="mw:WikiLink" href="./*-ring" title="*-ring" class="mw-redirect" id="mwAdw">*-ring</a></li></ul>
+
+</section><section data-mw-section-id="16" id="mwAd0"><h2 id="Notes">Notes</h2>
+<span class="mw-empty-elt" about="#mwt239" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"reflist","href":"./Template:Reflist"},"params":{},"i":0}}]}' id="mwAd4"><style data-mw-deduplicate="TemplateStyles:r1327269900" typeof="mw:Extension/templatestyles" about="#mwt240" data-mw='{"name":"templatestyles","attrs":{"src":"Reflist/styles.css"}}'>.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}body.skin-vector-2022 .mw-parser-output .reflist-columns-2{column-width:27em}body.skin-vector-2022 .mw-parser-output .reflist-columns-3{column-width:22.5em}.mw-parser-output .references[data-mw-group=upper-alpha]{list-style-type:upper-alpha}.mw-parser-output .references[data-mw-group=upper-roman]{list-style-type:upper-roman}.mw-parser-output .references[data-mw-group=lower-alpha]{list-style-type:lower-alpha}.mw-parser-output .references[data-mw-group=lower-greek]{list-style-type:lower-greek}.mw-parser-output .references[data-mw-group=lower-roman]{list-style-type:lower-roman}.mw-parser-output div.reflist-liststyle-upper-alpha .references{list-style-type:upper-alpha}.mw-parser-output div.reflist-liststyle-upper-roman .references{list-style-type:upper-roman}.mw-parser-output div.reflist-liststyle-lower-alpha .references{list-style-type:lower-alpha}.mw-parser-output div.reflist-liststyle-lower-greek .references{list-style-type:lower-greek}.mw-parser-output div.reflist-liststyle-lower-roman .references{list-style-type:lower-roman}</style></span><div about="#mwt239" id="mwAd8">
+<div class="mw-references-wrap mw-references-columns" typeof="mw:Extension/references" about="#mwt241" data-mw='{"name":"references","attrs":{"group":"","responsive":"1"},"body":{"extsrc":""}}' id="mwAeA"><ol class="mw-references references" id="mwAeE"><li about="#cite_note-1" id="cite_note-1" data-mw-footnote-number="1"><span class="mw-cite-backlink" id="mwAeI"><a href="./Sesquilinear_form#cite_ref-1" rel="mw:referencedBy" id="mwAeM"><span class="mw-linkback-text" id="mwAeQ">↑</span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text">footnote 1 in <a rel="mw:ExtLink nofollow" href="https://books.google.com/books?id=NSXCaGSVaX4C&amp;dq=sesquilinear+forms+over+general+fields&amp;pg=PA255" class="external text" id="mwAeU">Anthony Knapp <i id="mwAeY">Basic Algebra</i> (2007) pg. 255</a></span></li>
+<li about="#cite_note-2" id="cite_note-2" data-mw-footnote-number="2"><span class="mw-cite-backlink" id="mwAec"><a href="./Sesquilinear_form#cite_ref-2" rel="mw:referencedBy" id="mwAeg"><span class="mw-linkback-text" id="mwAek">↑</span></a></span> <span id="mw-reference-text-cite_note-2" class="mw-reference-text reference-text">
+<style data-mw-deduplicate="TemplateStyles:r1333433106" typeof="mw:Extension/templatestyles mw:Transclusion" about="#mwt128" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Citation/CS1/styles.css"},"body":{"extsrc":""},"parts":[{"template":{"target":{"wt":"citation","href":"./Template:Citation"},"params":{"year":{"wt":"1975"},"title":{"wt":"Combinatorics"},"journal":{"wt":"Proceedings of the NATO Advanced Study Institute, Held at Nijenrode Castle, Breukelen, the Netherlands, 8–20 July 1974"},"publisher":{"wt":"[[D. Reidel]]"},"pages":{"wt":"456–457"}},"i":0}}]}' id="mwAeo">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free.id-lock-free a{background:url("//upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited.id-lock-limited a,.mw-parser-output .id-lock-registration.id-lock-registration a{background:url("//upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription.id-lock-subscription a{background:url("//upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:url("//upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-free a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-limited a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-registration a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-subscription a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .cs1-ws-icon a{background-size:contain;padding:0 1em 0 0}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:var(--color-error,#bf3c2c)}.mw-parser-output .cs1-visible-error{color:var(--color-error,#bf3c2c)}.mw-parser-output .cs1-maint{display:none;color:#085;margin-left:0.3em}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}@media screen{.mw-parser-output .cs1-format{font-size:95%}html.skin-theme-clientpref-night .mw-parser-output .cs1-maint{color:#18911f}}@media screen and (prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .cs1-maint{color:#18911f}}</style><cite class="citation cs2" about="#mwt128" id="mwAes">"Combinatorics", <i id="mwAew">Proceedings of the NATO Advanced Study Institute, Held at Nijenrode Castle, Breukelen, the Netherlands, 8–20 July 1974</i>, <a rel="mw:WikiLink" href="./D._Reidel" title="D. Reidel" id="mwAe0">D. Reidel</a>: <span class="nowrap" id="mwAe4">456–</span>457, 1975</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Proceedings+of+the+NATO+Advanced+Study+Institute%2C+Held+at+Nijenrode+Castle%2C+Breukelen%2C+the+Netherlands%2C+8%E2%80%9320+July+1974&amp;rft.atitle=Combinatorics&amp;rft.pages=456-457&amp;rft.date=1975&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASesquilinear+form" class="Z3988" about="#mwt128" id="mwAe8"></span> – <a rel="mw:ExtLink nofollow" href="https://books.google.com/books?id=S9q8uKabV60C&amp;pg=PA456" class="external autonumber" id="mwAfA"></a>
+</span></li>
+<li about="#cite_note-3" id="cite_note-3" data-mw-footnote-number="3"><span class="mw-cite-backlink" id="mwAfE"><a href="./Sesquilinear_form#cite_ref-3" rel="mw:referencedBy" id="mwAfI"><span class="mw-linkback-text" id="mwAfM">↑</span></a></span> <span id="mw-reference-text-cite_note-3" class="mw-reference-text reference-text">
+<a rel="mw:ExtLink nofollow" href="https://www.encyclopediaofmath.org/index.php/Sesquilinear_form" class="external text" id="mwAfQ">Sesquilinear form</a> at the <a rel="mw:WikiLink" href="./Encyclopedia_of_Mathematics" title="Encyclopedia of Mathematics" id="mwAfU">Encyclopedia of Mathematics</a></span></li>
+<li about="#cite_note-4" id="cite_note-4" data-mw-footnote-number="4"><span class="mw-cite-backlink" id="mwAfY"><a href="./Sesquilinear_form#cite_ref-4" rel="mw:referencedBy" id="mwAfc"><span class="mw-linkback-text" id="mwAfg">↑</span></a></span> <span id="mw-reference-text-cite_note-4" class="mw-reference-text reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt132" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Citation/CS1/styles.css"},"body":{"extsrc":""},"parts":[{"template":{"target":{"wt":"citation","href":"./Template:Citation"},"params":{"author":{"wt":"Simeon Ball"},"year":{"wt":"2015"},"title":{"wt":"Finite Geometry and Combinatorial Applications"},"publisher":{"wt":"[[Cambridge University Press]]"},"page":{"wt":"28"}},"i":0}}]}' id="mwAfk"/><cite id="CITEREFSimeon_Ball2015" class="citation cs2" about="#mwt132">Simeon Ball (2015), <i id="mwAfo">Finite Geometry and Combinatorial Applications</i>, <a rel="mw:WikiLink" href="./Cambridge_University_Press" title="Cambridge University Press" id="mwAfs">Cambridge University Press</a>, p.<span typeof="mw:Entity" id="mwAfw"> </span>28</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Finite+Geometry+and+Combinatorial+Applications&amp;rft.pages=28&amp;rft.pub=Cambridge+University+Press&amp;rft.date=2015&amp;rft.au=Simeon+Ball&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASesquilinear+form" class="Z3988" about="#mwt132" id="mwAf0"></span> – <a rel="mw:ExtLink nofollow" href="https://books.google.com/books?id=ScvSCQAAQBAJ&amp;pg=PA28" class="external autonumber" id="mwAf4"></a>
+</span></li>
+<li about="#cite_note-Demb42-5" id="cite_note-Demb42-5" data-mw-footnote-number="5"><span rel="mw:referencedBy" class="mw-cite-backlink" id="mwAf8"><a href="./Sesquilinear_form#cite_ref-Demb42_5-0" id="mwAgA"><span class="mw-linkback-text" id="mwAgE">1</span></a> <a href="./Sesquilinear_form#cite_ref-Demb42_5-1" id="mwAgI"><span class="mw-linkback-text" id="mwAgM">2</span></a></span> <span id="mw-reference-text-cite_note-Demb42-5" class="mw-reference-text reference-text">
+<a rel="mw:WikiLink" href="./Sesquilinear_form#CITEREFDembowski1968" about="#mwt135" typeof="mw:Transclusion" class="mw-selflink-fragment" data-mw='{"parts":[{"template":{"target":{"wt":"harvnb","href":"./Template:Harvnb"},"params":{"1":{"wt":"Dembowski"},"2":{"wt":"1968"},"page":{"wt":"42"}},"i":0}}]}' id="mwAgQ">Dembowski 1968</a><span about="#mwt135" id="mwAgU">, p.</span><span typeof="mw:Entity" about="#mwt135" id="mwAgY"> </span><span about="#mwt135" id="mwAgc">42</span>
+</span></li>
+<li about="#cite_note-6" id="cite_note-6" data-mw-footnote-number="6"><span class="mw-cite-backlink" id="mwAgg"><a href="./Sesquilinear_form#cite_ref-6" rel="mw:referencedBy" id="mwAgk"><span class="mw-linkback-text" id="mwAgo">↑</span></a></span> <span id="mw-reference-text-cite_note-6" class="mw-reference-text reference-text">When <span class="texhtml " about="#mwt144" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"[[Characteristic (algebra)|char]] &apos;&apos;K&apos;&apos; = 2"}},"i":0}}]}' id="mwAgs"><a rel="mw:WikiLink" href="./Characteristic_(algebra)" title="Characteristic (algebra)" id="mwAgw">char</a> <i id="mwAg0">K</i> = 2</span>, skew-symmetric and symmetric bilinear forms coincide since then <span class="texhtml " about="#mwt145" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"math","href":"./Template:Math"},"params":{"1":{"wt":"1 = −1"}},"i":0}}]}' id="mwAg4">1 = −1</span>.  In all cases, alternating bilinear forms are a subset of skew-symmetric bilinear forms, and need not be considered separately.</span></li>
+<li about="#cite_note-7" id="cite_note-7" data-mw-footnote-number="7"><span class="mw-cite-backlink" id="mwAg8"><a href="./Sesquilinear_form#cite_ref-7" rel="mw:referencedBy" id="mwAhA"><span class="mw-linkback-text" id="mwAhE">↑</span></a></span> <span id="mw-reference-text-cite_note-7" class="mw-reference-text reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt170" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Citation/CS1/styles.css"},"body":{"extsrc":""},"parts":[{"template":{"target":{"wt":"citation","href":"./Template:Citation"},"params":{"first1":{"wt":"G."},"last1":{"wt":"Birkhoff"},"first2":{"wt":"J."},"last2":{"wt":"von Neumann"},"title":{"wt":"The logic of quantum mechanics"},"journal":{"wt":"Annals of Mathematics"},"year":{"wt":"1936"},"volume":{"wt":"37"},"issue":{"wt":"4"},"pages":{"wt":"823–843"},"doi":{"wt":"10.2307/1968621"},"jstor":{"wt":"1968621"}},"i":0}}]}' id="mwAhI"/><cite id="CITEREFBirkhoffvon_Neumann1936" class="citation cs2" about="#mwt170">Birkhoff, G.; von Neumann, J. (1936), "The logic of quantum mechanics", <i id="mwAhM">Annals of Mathematics</i>, <b id="mwAhQ">37</b> (4): <span class="nowrap" id="mwAhU">823–</span>843, <a rel="mw:WikiLink" href="./Doi_(identifier)" title="Doi (identifier)" class="mw-redirect" id="mwAhY">doi</a>:<a rel="mw:ExtLink nofollow" href="https://doi.org/10.2307%2F1968621" class="external text" id="mwAhc">10.2307/1968621</a>, <a rel="mw:WikiLink" href="./JSTOR_(identifier)" title="JSTOR (identifier)" class="mw-redirect" id="mwAhg">JSTOR</a><span typeof="mw:Entity" id="mwAhk"> </span><a rel="mw:ExtLink nofollow" href="https://www.jstor.org/stable/1968621" class="external text" id="mwAho">1968621</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Annals+of+Mathematics&amp;rft.atitle=The+logic+of+quantum+mechanics&amp;rft.volume=37&amp;rft.issue=4&amp;rft.pages=823-843&amp;rft.date=1936&amp;rft_id=info%3Adoi%2F10.2307%2F1968621&amp;rft_id=https%3A%2F%2Fwww.jstor.org%2Fstable%2F1968621%23id-name%3DJSTOR&amp;rft.aulast=Birkhoff&amp;rft.aufirst=G.&amp;rft.au=von+Neumann%2C+J.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASesquilinear+form" class="Z3988" about="#mwt170" id="mwAhs"></span></span></li>
+<li about="#cite_note-8" id="cite_note-8" data-mw-footnote-number="8"><span class="mw-cite-backlink" id="mwAhw"><a href="./Sesquilinear_form#cite_ref-8" rel="mw:referencedBy" id="mwAh0"><span class="mw-linkback-text" id="mwAh4">↑</span></a></span> <span id="mw-reference-text-cite_note-8" class="mw-reference-text reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt174" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Citation/CS1/styles.css"},"body":{"extsrc":""},"parts":[{"template":{"target":{"wt":"citation","href":"./Template:Citation"},"params":{"first":{"wt":"Reinhold"},"last":{"wt":"Baer"},"title":{"wt":"Linear Algebra and Projective Geometry"},"publisher":{"wt":"Dover"},"year":{"wt":"2005"},"orig-year":{"wt":"1952"},"isbn":{"wt":"978-0-486-44565-6"}},"i":0}}]}' id="mwAh8"/><cite id="CITEREFBaer2005" class="citation cs2" about="#mwt174">Baer, Reinhold (2005) [1952], <i id="mwAiA">Linear Algebra and Projective Geometry</i>, Dover, <a rel="mw:WikiLink" href="./ISBN_(identifier)" title="ISBN (identifier)" class="mw-redirect" id="mwAiE">ISBN</a><span typeof="mw:Entity" id="mwAiI"> </span><a rel="mw:WikiLink" href="./Special:BookSources/978-0-486-44565-6" title="Special:BookSources/978-0-486-44565-6" id="mwAiM"><bdi id="mwAiQ">978-0-486-44565-6</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Linear+Algebra+and+Projective+Geometry&amp;rft.pub=Dover&amp;rft.date=2005&amp;rft.isbn=978-0-486-44565-6&amp;rft.aulast=Baer&amp;rft.aufirst=Reinhold&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASesquilinear+form" class="Z3988" about="#mwt174" id="mwAiU"></span></span></li>
+<li about="#cite_note-9" id="cite_note-9" data-mw-footnote-number="9"><span class="mw-cite-backlink" id="mwAiY"><a href="./Sesquilinear_form#cite_ref-9" rel="mw:referencedBy" id="mwAic"><span class="mw-linkback-text" id="mwAig">↑</span></a></span> <span id="mw-reference-text-cite_note-9" class="mw-reference-text reference-text">Baer's terminology gives a third way to refer to these ideas, so he must be read with caution.</span></li>
+<li about="#cite_note-10" id="cite_note-10" data-mw-footnote-number="10"><span class="mw-cite-backlink" id="mwAik"><a href="./Sesquilinear_form#cite_ref-10" rel="mw:referencedBy" id="mwAio"><span class="mw-linkback-text" id="mwAis">↑</span></a></span> <span id="mw-reference-text-cite_note-10" class="mw-reference-text reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt207" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Citation/CS1/styles.css"},"body":{"extsrc":""},"parts":[{"template":{"target":{"wt":"citation","href":"./Template:Citation"},"params":{"last1":{"wt":"Faure"},"first1":{"wt":"Claude-Alain"},"last2":{"wt":"Frölicher"},"first2":{"wt":"Alfred"},"year":{"wt":"2000"},"title":{"wt":"Modern Projective Geometry"},"publisher":{"wt":"[[Kluwer Academic Publishers]]"}},"i":0}}]}' id="mwAiw"/><cite id="CITEREFFaureFrölicher2000" class="citation cs2" about="#mwt207">Faure, Claude-Alain; Frölicher, Alfred (2000), <i id="mwAi0">Modern Projective Geometry</i>, <a rel="mw:WikiLink" href="./Kluwer_Academic_Publishers" title="Kluwer Academic Publishers" class="mw-redirect" id="mwAi4">Kluwer Academic Publishers</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Modern+Projective+Geometry&amp;rft.pub=Kluwer+Academic+Publishers&amp;rft.date=2000&amp;rft.aulast=Faure&amp;rft.aufirst=Claude-Alain&amp;rft.au=Fr%C3%B6licher%2C+Alfred&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASesquilinear+form" class="Z3988" about="#mwt207" id="mwAi8"></span></span></li>
+<li about="#cite_note-11" id="cite_note-11" data-mw-footnote-number="11"><span class="mw-cite-backlink" id="mwAjA"><a href="./Sesquilinear_form#cite_ref-11" rel="mw:referencedBy" id="mwAjE"><span class="mw-linkback-text" id="mwAjI">↑</span></a></span> <span id="mw-reference-text-cite_note-11" class="mw-reference-text reference-text"><a rel="mw:WikiLink" href="./Sesquilinear_form#CITEREFJacobson2009" about="#mwt237" typeof="mw:Transclusion" class="mw-selflink-fragment" data-mw='{"parts":[{"template":{"target":{"wt":"harvnb","href":"./Template:Harvnb"},"params":{"1":{"wt":"Jacobson"},"2":{"wt":"2009"},"page":{"wt":"164"}},"i":0}}]}' id="mwAjM">Jacobson 2009</a><span about="#mwt237" id="mwAjQ">, p.</span><span typeof="mw:Entity" about="#mwt237" id="mwAjU"> </span><span about="#mwt237" id="mwAjY">164</span></span></li>
+</ol></div></div>
+
+</section><section data-mw-section-id="17" id="mwAjc"><h2 id="References">References</h2>
+<ul id="mwAjg"><li id="mwAjk"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt242" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Citation/CS1/styles.css"},"body":{"extsrc":""},"parts":[{"template":{"target":{"wt":"Citation ","href":"./Template:Citation"},"params":{"last1":{"wt":"Dembowski"},"first1":{"wt":"Peter"},"title":{"wt":"Finite geometries"},"publisher":{"wt":"[[Springer-Verlag]]"},"location":{"wt":"Berlin, New York"},"series":{"wt":"[[Ergebnisse der Mathematik und ihrer Grenzgebiete]], Band 44"},"mr":{"wt":"0233275"},"year":{"wt":"1968"},"isbn":{"wt":"3-540-61786-8"},"url-access":{"wt":"registration"},"url":{"wt":"https://archive.org/details/finitegeometries0000demb"}},"i":0}}]}' id="mwAjo"/><cite id="CITEREFDembowski1968" class="citation cs2" about="#mwt242">Dembowski, Peter (1968), <span class="id-lock-registration" title="Free registration required"><a rel="mw:ExtLink nofollow" href="https://archive.org/details/finitegeometries0000demb" class="external text"><i>Finite geometries</i></a></span>, <a rel="mw:WikiLink" href="./Ergebnisse_der_Mathematik_und_ihrer_Grenzgebiete" title="Ergebnisse der Mathematik und ihrer Grenzgebiete">Ergebnisse der Mathematik und ihrer Grenzgebiete</a>, Band 44, Berlin, New York: <a rel="mw:WikiLink" href="./Springer-Verlag" title="Springer-Verlag" class="mw-redirect">Springer-Verlag</a>, <a rel="mw:WikiLink" href="./ISBN_(identifier)" title="ISBN (identifier)" class="mw-redirect">ISBN</a><span typeof="mw:Entity"> </span><a rel="mw:WikiLink" href="./Special:BookSources/3-540-61786-8" title="Special:BookSources/3-540-61786-8"><bdi>3-540-61786-8</bdi></a>, <a rel="mw:WikiLink" href="./MR_(identifier)" title="MR (identifier)" class="mw-redirect">MR</a><span typeof="mw:Entity"> </span><a rel="mw:ExtLink nofollow" href="https://mathscinet.ams.org/mathscinet-getitem?mr=0233275" class="external text">0233275</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Finite+geometries&amp;rft.place=Berlin%2C+New+York&amp;rft.series=Ergebnisse+der+Mathematik+und+ihrer+Grenzgebiete%2C+Band+44&amp;rft.pub=Springer-Verlag&amp;rft.date=1968&amp;rft.isbn=3-540-61786-8&amp;rft_id=https%3A%2F%2Fmathscinet.ams.org%2Fmathscinet-getitem%3Fmr%3D0233275%23id-name%3DMR&amp;rft.aulast=Dembowski&amp;rft.aufirst=Peter&amp;rft_id=https%3A%2F%2Farchive.org%2Fdetails%2Ffinitegeometries0000demb&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASesquilinear+form" class="Z3988" about="#mwt242" id="mwAjs"></span></li>
+<li id="mwAjw"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt244" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Citation/CS1/styles.css"},"body":{"extsrc":""},"parts":[{"template":{"target":{"wt":"citation","href":"./Template:Citation"},"params":{"first1":{"wt":"K.W."},"last1":{"wt":"Gruenberg"},"first2":{"wt":"A.J."},"last2":{"wt":"Weir"},"year":{"wt":"1977"},"title":{"wt":"Linear Geometry"},"edition":{"wt":"2nd"},"publisher":{"wt":"Springer"},"isbn":{"wt":"0-387-90227-9"}},"i":0}}]}' id="mwAj0"/><cite id="CITEREFGruenbergWeir1977" class="citation cs2" about="#mwt244">Gruenberg, K.W.; Weir, A.J. (1977), <i>Linear Geometry</i> (2nd<span typeof="mw:Entity"> </span>ed.), Springer, <a rel="mw:WikiLink" href="./ISBN_(identifier)" title="ISBN (identifier)" class="mw-redirect">ISBN</a><span typeof="mw:Entity"> </span><a rel="mw:WikiLink" href="./Special:BookSources/0-387-90227-9" title="Special:BookSources/0-387-90227-9"><bdi>0-387-90227-9</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Linear+Geometry&amp;rft.edition=2nd&amp;rft.pub=Springer&amp;rft.date=1977&amp;rft.isbn=0-387-90227-9&amp;rft.aulast=Gruenberg&amp;rft.aufirst=K.W.&amp;rft.au=Weir%2C+A.J.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASesquilinear+form" class="Z3988" about="#mwt244" id="mwAj4"></span></li>
+<li id="mwAj8"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt246" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Citation/CS1/styles.css"},"body":{"extsrc":""},"parts":[{"template":{"target":{"wt":"citation","href":"./Template:Citation"},"params":{"first":{"wt":"Nathan J."},"last":{"wt":"Jacobson"},"author-link":{"wt":"Nathan Jacobson"},"title":{"wt":"Basic Algebra I"},"edition":{"wt":"2nd"},"year":{"wt":"2009"},"orig-year":{"wt":"1985"},"publisher":{"wt":"Dover"},"isbn":{"wt":"978-0-486-47189-1"}},"i":0}}]}' id="mwAkA"/><cite id="CITEREFJacobson2009" class="citation cs2" about="#mwt246"><a rel="mw:WikiLink" href="./Nathan_Jacobson" title="Nathan Jacobson">Jacobson, Nathan J.</a> (2009) [1985], <i>Basic Algebra I</i> (2nd<span typeof="mw:Entity"> </span>ed.), Dover, <a rel="mw:WikiLink" href="./ISBN_(identifier)" title="ISBN (identifier)" class="mw-redirect">ISBN</a><span typeof="mw:Entity"> </span><a rel="mw:WikiLink" href="./Special:BookSources/978-0-486-47189-1" title="Special:BookSources/978-0-486-47189-1"><bdi>978-0-486-47189-1</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Basic+Algebra+I&amp;rft.edition=2nd&amp;rft.pub=Dover&amp;rft.date=2009&amp;rft.isbn=978-0-486-47189-1&amp;rft.aulast=Jacobson&amp;rft.aufirst=Nathan+J.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASesquilinear+form" class="Z3988" about="#mwt246" id="mwAkE"></span></li></ul>
+
+</section><section data-mw-section-id="18" id="mwAkI"><h2 id="External_links">External links</h2>
+
+<ul id="mwAkM"><li id="mwAkQ"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt248" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Citation/CS1/styles.css"},"body":{"extsrc":""},"parts":[{"template":{"target":{"wt":"Springer","href":"./Template:Springer"},"params":{"id":{"wt":"Sesquilinear_form&amp;oldid=35196"},"title":{"wt":"Sesquilinear form"}},"i":0}}]}' id="mwAkU"/><cite class="citation cs2" about="#mwt248"><a rel="mw:ExtLink nofollow" href="https://www.encyclopediaofmath.org/index.php?title=Sesquilinear_form" class="external text">"Sesquilinear form"</a>, <i><a rel="mw:WikiLink" href="./Encyclopedia_of_Mathematics" title="Encyclopedia of Mathematics">Encyclopedia of Mathematics</a></i>, EMS Press, 2001 [1994]</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Sesquilinear+form&amp;rft.btitle=Encyclopedia+of+Mathematics&amp;rft.pub=EMS+Press&amp;rft.date=2001&amp;rft_id=https%3A%2F%2Fwww.encyclopediaofmath.org%2Findex.php%3Ftitle%3DSesquilinear_form&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASesquilinear+form" class="Z3988" about="#mwt248" id="mwAkY"></span></li></ul>
+
+<div class="navbox-styles" about="#mwt250" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"Hilbert space","href":"./Template:Hilbert_space"},"params":{},"i":0}}]}' id="mwAkc"><span class="mw-empty-elt"><style data-mw-deduplicate="TemplateStyles:r1374427404" typeof="mw:Extension/templatestyles" about="#mwt251" data-mw='{"name":"templatestyles","attrs":{"src":"Hlist/styles.css"},"body":{"extsrc":""}}'>.mw-parser-output .hlist dl,.mw-parser-output .hlist ol,.mw-parser-output .hlist ul{margin:0;padding:0}.mw-parser-output .hlist dd,.mw-parser-output .hlist dt,.mw-parser-output .hlist li{margin:0;display:inline}.mw-parser-output .hlist.inline,.mw-parser-output .hlist.inline dl,.mw-parser-output .hlist.inline ol,.mw-parser-output .hlist.inline ul,.mw-parser-output .hlist dl dl,.mw-parser-output .hlist dl ol,.mw-parser-output .hlist dl ul,.mw-parser-output .hlist ol dl,.mw-parser-output .hlist ol ol,.mw-parser-output .hlist ol ul,.mw-parser-output .hlist ul dl,.mw-parser-output .hlist ul ol,.mw-parser-output .hlist ul ul{display:inline}.mw-parser-output .hlist .mw-empty-li{display:none}.mw-parser-output .hlist dt::after{content:": "}.mw-parser-output .hlist dd::after,.mw-parser-output .hlist li::after{content:"\a0 · ";font-weight:bold}.mw-parser-output .hlist dd:last-child::after,.mw-parser-output .hlist dt:last-child::after,.mw-parser-output .hlist li:last-child::after{content:none}.mw-parser-output .hlist dd dd:first-child::before,.mw-parser-output .hlist dd dt:first-child::before,.mw-parser-output .hlist dd li:first-child::before,.mw-parser-output .hlist dt dd:first-child::before,.mw-parser-output .hlist dt dt:first-child::before,.mw-parser-output .hlist dt li:first-child::before,.mw-parser-output .hlist li dd:first-child::before,.mw-parser-output .hlist li dt:first-child::before,.mw-parser-output .hlist li li:first-child::before{content:" (";font-weight:normal}.mw-parser-output .hlist dd dd:last-child::after,.mw-parser-output .hlist dd dt:last-child::after,.mw-parser-output .hlist dd li:last-child::after,.mw-parser-output .hlist dt dd:last-child::after,.mw-parser-output .hlist dt dt:last-child::after,.mw-parser-output .hlist dt li:last-child::after,.mw-parser-output .hlist li dd:last-child::after,.mw-parser-output .hlist li dt:last-child::after,.mw-parser-output .hlist li li:last-child::after{content:")";font-weight:normal}.mw-parser-output .hlist ol{counter-reset:listitem}.mw-parser-output .hlist ol>li{counter-increment:listitem}.mw-parser-output .hlist ol>li::before{content:" "counter(listitem)"\a0 "}.mw-parser-output .hlist dd ol>li:first-child::before,.mw-parser-output .hlist dt ol>li:first-child::before,.mw-parser-output .hlist li ol>li:first-child::before{content:" ("counter(listitem)"\a0 "}</style><style data-mw-deduplicate="TemplateStyles:r1364279517" typeof="mw:Extension/templatestyles" about="#mwt252" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Navbox/styles.css"},"body":{"extsrc":""}}'>.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox-styles+.navbox,.mw-parser-output .navbox+span.mw-empty-elt+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd;color:inherit}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf;color:inherit}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf;color:inherit}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff;color:inherit}.mw-parser-output .navbox-even{background-color:#f7f7f7;color:inherit}.mw-parser-output .navbox-odd{background-color:transparent;color:inherit}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}body.skin--responsive .mw-parser-output .navbox-image img{max-width:none!important}@media print{body.ns-0 .mw-parser-output .navbox{display:none!important}}</style></span></div><div role="navigation" class="navbox" aria-labelledby="Hilbert_spaces1070" style="padding:3px" about="#mwt250" id="mwAkg"><table class="nowraplinks hlist mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><span class="mw-empty-elt"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1374427404" about="#mwt253" typeof="mw:Extension/templatestyles" data-mw='{"name":"templatestyles","attrs":{"src":"Hlist/styles.css"},"body":{"extsrc":""}}'/><style data-mw-deduplicate="TemplateStyles:r1239400231" typeof="mw:Extension/templatestyles" about="#mwt254" data-mw='{"name":"templatestyles","attrs":{"src":"Module:Navbar/styles.css"},"body":{"extsrc":""}}'>.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}html.skin-theme-clientpref-night .mw-parser-output .navbar li a abbr{color:var(--color-base)!important}@media(prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .navbar li a abbr{color:var(--color-base)!important}}@media print{.mw-parser-output .navbar{display:none!important}}</style></span><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a rel="mw:WikiLink" href="./Template:Hilbert_space" title="Template:Hilbert space"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a rel="mw:WikiLink" href="./Template_talk:Hilbert_space" title="Template talk:Hilbert space"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a rel="mw:WikiLink" href="./Special:EditPage/Template:Hilbert_space" title="Special:EditPage/Template:Hilbert space"><abbr title="Edit this template">e</abbr></a></li></ul></div><div id="Hilbert_spaces1070" style="font-size:114%;margin:0 4em"><a rel="mw:WikiLink" href="./Hilbert_space" title="Hilbert space">Hilbert spaces</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%">Basic concepts</th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a rel="mw:WikiLink" href="./Hermitian_adjoint" title="Hermitian adjoint">Adjoint</a></li>
+<li><a rel="mw:WikiLink" href="./Inner_product_space" title="Inner product space">Inner product</a> and <a rel="mw:WikiLink" href="./L-semi-inner_product" title="L-semi-inner product">L-semi-inner product</a></li>
+<li><a rel="mw:WikiLink" href="./Hilbert_space" title="Hilbert space">Hilbert space</a> and <a rel="mw:WikiLink" href="./Prehilbert_space" title="Prehilbert space" class="mw-redirect">Prehilbert space</a></li>
+<li><a rel="mw:WikiLink" href="./Orthogonal_complement" title="Orthogonal complement">Orthogonal complement</a></li>
+<li><a rel="mw:WikiLink" href="./Orthonormal_basis" title="Orthonormal basis">Orthonormal basis</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Main results</th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a rel="mw:WikiLink" href="./Bessel's_inequality" title="Bessel's inequality">Bessel's inequality</a></li>
+<li><a rel="mw:WikiLink" href="./Cauchy–Schwarz_inequality" title="Cauchy–Schwarz inequality">Cauchy–Schwarz inequality</a></li>
+<li><a rel="mw:WikiLink" href="./Riesz_representation_theorem" title="Riesz representation theorem">Riesz representation</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Other results</th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a rel="mw:WikiLink" href="./Hilbert_projection_theorem" title="Hilbert projection theorem">Hilbert projection theorem</a></li>
+<li><a rel="mw:WikiLink" href="./Parseval's_identity" title="Parseval's identity">Parseval's identity</a></li>
+<li><a rel="mw:WikiLink" href="./Polarization_identity" title="Polarization identity">Polarization identity</a> (<a rel="mw:WikiLink" href="./Parallelogram_law#The_parallelogram_law_in_inner_product_spaces" title="Parallelogram law">Parallelogram law</a>)</li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Maps</th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a rel="mw:WikiLink" href="./Compact_operator_on_Hilbert_space" title="Compact operator on Hilbert space">Compact operator on Hilbert space</a></li>
+<li><a rel="mw:WikiLink" href="./Densely_defined_operator" title="Densely defined operator">Densely defined</a></li>
+<li><a rel="mw:WikiLink" href="./Sesquilinear_form#Hermitian_form" class="mw-selflink-fragment">Hermitian form</a></li>
+<li><a rel="mw:WikiLink" href="./Hilbert–Schmidt_operator" title="Hilbert–Schmidt operator">Hilbert–Schmidt</a></li>
+<li><a rel="mw:WikiLink" href="./Normal_operator" title="Normal operator">Normal</a></li>
+<li><a rel="mw:WikiLink" href="./Self-adjoint_operator" title="Self-adjoint operator">Self-adjoint</a></li>
+<li><a rel="mw:WikiLink" href="./Sesquilinear_form" class="mw-selflink selflink">Sesquilinear form</a></li>
+<li><a rel="mw:WikiLink" href="./Trace_class" title="Trace class">Trace class</a></li>
+<li><a rel="mw:WikiLink" href="./Unitary_operator" title="Unitary operator">Unitary</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Examples</th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a rel="mw:WikiLink" href="./Distribution_(mathematics)" title="Distribution (mathematics)" class="mw-redirect"><i>C</i><sup><i>n</i></sup>(<i>K</i>) with <i>K</i> compact &amp; <i>n</i>&lt;∞</a></li>
+<li><a rel="mw:WikiLink" href="./Segal–Bargmann_space" title="Segal–Bargmann space">Segal–Bargmann <i>F</i></a></li></ul>
+</div></td></tr></tbody></table></div>
+
+<link rel="mw:PageProp/Category" href="./Category:Functional_analysis" id="mwAkk"/>
+<link rel="mw:PageProp/Category" href="./Category:Linear_algebra" id="mwAko"/></section></body></html>

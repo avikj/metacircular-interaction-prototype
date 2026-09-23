@@ -3,12 +3,12 @@
 ------------------------------------------------------------------------
 -- ‡‡‡‡‡Ø-‡‡ø‡¶‡‡∞‡Æ‡ ‚î the third aperture, and a correction I owe the ladder.
 --
--- GarbhaShreni claimed the tower's rungs are ONE predicate, "cost is not
+-- KernelShreni claimed the tower's rungs are ONE predicate, "cost is not
 -- exact" (NotExact ‚à V), instanced at œ‚ and œ‚.  That is TRUE for those
 -- two rungs and FALSE as the general rung-relation, and the second claim
 -- is the one that matters.  NotExact is abelian-flavoured: it needs the
 -- invariant to be a coboundary-valued cochain (‚ï, ‚).  The higher
--- k-invariants of this corpus are not of that kind ‚î VakraValayaSanketa's
+-- k-invariants of this corpus are not of that kind ‚î CurvedLoopSanketa's
 -- rung is an ORIENTATION BIT (‚/2 at H¬≤), the double-twist the Klein
 -- bottle costs and the torus does not.  "Cost is not exact at every
 -- degree" is therefore the WRONG induction: cost is a degree-1 object;
@@ -35,7 +35,7 @@
 -- cost rung under ¬ isEquiv.  NOT claimed: that ¬ isEquiv is the k-
 -- invariant in the technical Postnikov sense (it is the obstruction's
 -- INHABITANT ‚î a surviving fibre ‚î not the cohomology class as such);
--- nor the full ‚àû-tower.  What IS corrected: GarbhaShreni's "one
+-- nor the full ‚àû-tower.  What IS corrected: KernelShreni's "one
 -- predicate for all rungs" ‚î that predicate is ¬ isEquiv, and NotExact
 -- was only the abelian shadow of it.
 ------------------------------------------------------------------------
@@ -53,7 +53,7 @@ open import Cubical.HITs.Sn using (S‚Çä)
 open import Cubical.Algebra.Group.Base using (Group)
 open import Cubical.ZCohomology.GroupStructure using (coHomGr)
 
-open import VakraValayaSanketa_TheForgottenSuccessionPrecipitatesTypeLevelAsOneBitAndTheFirstVeilIsItsFee
+open import CurvedLoopSanketa_TheForgottenSuccessionPrecipitatesTypeLevelAsOneBitAndTheFirstVeilIsItsFee
   using (‡§∏‡§ô‡•ç‡§ï‡•á‡§§‡§É)
 
 private

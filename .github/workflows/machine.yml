@@ -1,8 +1,8 @@
-# CI for the one runnable: the yantra builds and answers, on every push.
+# CI for the one runnable: the machine builds and answers, on every push.
 #
 # Two gates, and they are the machine's own:
-#   1. the scripted session — run-yantra.sh with no arguments IS the contract
-#      check (every answer a saṃkramaṇa or a doṣa-lekha, cakravāla D=61,
+#   1. the scripted session — run-machine.sh with no arguments IS the contract
+#      check (every answer a saṃorderṇa or a doṣa-lekha, cakravāla D=61,
 #      aṆ → a i u, both Saptabhaṅgī round trips, replay ∘ journal = id,
 #      chain intact).  Its exit code is the verdict.
 #   2. a wire probe — one JSON query on --wire must return Bhāskara II's
@@ -20,7 +20,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  yantra:
+  machine:
     name: the machine builds and answers
     runs-on: ubuntu-latest
     env:
@@ -35,12 +35,12 @@ jobs:
           ghc-version: '9.12.2'   # matches the version the lane is developed on
 
       - name: scripted session — the contract check
-        run: sh interactive/run-yantra.sh
+        run: sh interactive/run-machine.sh
 
       - name: wire probe — cakravāla D=61 answers Bhāskara's pair
         run: |
-          out=$(printf '{"kriya":"vargaprakrti","angani":{"D":61}}\n' | sh interactive/run-yantra.sh --wire)
+          out=$(printf '{"kriya":"vargaprakrti","angani":{"D":61}}\n' | sh interactive/run-machine.sh --wire)
           printf '%s\n' "$out" | tail -1
-          printf '%s\n' "$out" | grep -q '"uttara":"samkramana"'
+          printf '%s\n' "$out" | grep -q '"uttara":"samorderna"'
           printf '%s\n' "$out" | grep -q '1766319049'
           printf '%s\n' "$out" | grep -q '226153980'

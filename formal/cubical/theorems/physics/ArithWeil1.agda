@@ -10,9 +10,9 @@ open import Cubical.Data.Bool using (true)
 open import Cubical.Data.List using (List ; [] ; _∷_)
 open import Cubical.Data.Rationals
 open import Cubical.Data.Rationals.Order using (_≤_)
-open import Sankhya_SignedIntegersOverTheBuiltinNaturalsWithSoundArithmeticIntoTheLibrarysIntegersSoCertificatesComputeAtMachineSpeed using (𝕊 ; ⁺_ ; ⁻_)
+open import Count_SignedIntegersOverTheBuiltinNaturalsWithSoundArithmeticIntoTheLibrarysIntegersSoCertificatesComputeAtMachineSpeed using (𝕊 ; ⁺_ ; ⁻_)
 open import Sadhaka_AnIntegerLDLTCertificateCheckedAtMachineSpeedYieldsThePositivityOfTheRationalFormThroughPramanika using (toℚ)
-open import SadhakaSesa_ADyadicSlackCertificateCheckedAtMachineSpeedYieldsAStrictSpectralGapOfTheRationalFormThroughGersgorinAndPramanika
+open import SadhakaResidue_ADyadicSlackCertificateCheckedAtMachineSpeedYieldsAStrictSpectralGapOfTheRationalFormThroughGersgorinAndPramanika
 open import VrddhiSima_ADiscreteGronwallWithASummableWeightClosesWithoutExponentialsSoTheTypeIEnergyBoundIsScaleInvariantAsATerm using (Σ⟨_⟩)
 import Gersgorin_ADiagonallyDominantMatrixWithNonnegativeDiagonalHasANonnegativeQuadraticFormSoASlackTermInACertificateIsAbsorbedRowByRow as G
 atL : List (List 𝕊) → ℕ → List 𝕊

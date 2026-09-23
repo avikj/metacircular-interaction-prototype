@@ -42,10 +42,10 @@ module Sama (R : CommRing ℓ-zero) where
        → (a · w - v · b) · (a · w - v · b) ≡ ((w · w) · (a · a) + (v · v) · (b · b)) - ((1r + 1r) · (v · w)) · (a · b)
   pada a b v w = solve! R
   -- the induction step, given S² + D = V W as the atom VW
-  krama : (S D V W v w : ⟨ R ⟩)
+  order : (S D V W v w : ⟨ R ⟩)
         → (S + v · w) · (S + v · w) + (D + (((w · w) · V + (v · v) · W) - ((1r + 1r) · (v · w)) · S))
         ≡ (S · S + D) + ((w · w) · V + (v · v) · W + (v · v) · (w · w))
-  krama S D V W v w = solve! R
+  order S D V W v w = solve! R
   antya : (V W v w : ⟨ R ⟩) → V · W + ((w · w) · V + (v · v) · W + (v · v) · (w · w)) ≡ (V + v · v) · (W + w · w)
   antya V W v w = solve! R
   śūnya : 0r · 0r + 0r ≡ 0r · 0r
@@ -113,7 +113,7 @@ module _ (v w : ℕ → ℚ) where
   lagrange zero    = Sama.śūnya ℚRing
   lagrange (suc n) =
       cong (λ z → (S n + v n · w n) · (S n + v n · w n) + (D n + z)) (nava n)
-    ∙ Sama.krama ℚRing (S n) (D n) (V n) (W n) (v n) (w n)
+    ∙ Sama.order ℚRing (S n) (D n) (V n) (W n) (v n) (w n)
     ∙ cong (_+ ((w n · w n) · V n + (v n · v n) · W n + (v n · v n) · (w n · w n))) (lagrange n)
     ∙ Sama.antya ℚRing (V n) (W n) (v n) (w n)
 

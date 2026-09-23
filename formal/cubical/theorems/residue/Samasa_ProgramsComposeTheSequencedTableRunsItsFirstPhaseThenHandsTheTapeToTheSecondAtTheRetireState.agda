@@ -5,7 +5,7 @@
 -- FIRST PHASE, THEN HANDS THE TAPE TO THE SECOND AT THE RETIRE STATE.
 --
 -- Sequential composition of Turing tables, mechanized on the universal
--- machine of Vishvayantra.  Given Mâ with source states below H and
+-- machine of Vishvamachine.  Given Mâ with source states below H and
 -- Mâ arbitrary, the compound is
 --
 --     Mâ â¨Ÿ Mâ  =  Mâ ++ shift H Mâ
@@ -46,7 +46,7 @@ open import Cubical.Data.Maybe
 open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Relation.Nullary using (Â¬_)
 
-open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
 open import AnulomaViloma_TheTraceComposesTheCompletedRunRunsBackwardsByReflAndWhenTheMachineHaltsIsAProposition
   using (run-additive)
 open import Vistara_ThePaddingLemmaABehaviorHasUnboundedlyManyProgramsSoTheCodeIsNotDeterminedByTheRun

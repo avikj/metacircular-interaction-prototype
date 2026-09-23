@@ -334,12 +334,12 @@
       "sha256": "ee526e2031e15c7b482fa4832b169c045f8559b6016fbc62262c18fe1b4bf867"
     },
     {
-      "path": "originals/conversation/yantra_runtime_probe/environment.log",
+      "path": "originals/conversation/machine_runtime_probe/environment.log",
       "bytes": 794,
       "sha256": "53f624aa2d9936ca690a3126eae29a3746a6d59f262baeaca67e5f7e4c55d0a8"
     },
     {
-      "path": "originals/conversation/yantra_runtime_probe/setup-report.log",
+      "path": "originals/conversation/machine_runtime_probe/setup-report.log",
       "bytes": 555,
       "sha256": "f955306fedf1f0727bd49dc1443016d39b642e304bbe83bc5600fbb98eab6cde"
     },

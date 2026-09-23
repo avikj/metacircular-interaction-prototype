@@ -43,7 +43,7 @@
 --
 -- DEFECT, written rather than hidden.  `‡â‡‡‡‡æ‡®-‡‡‡¶` (the round trip
 -- ‡â‡‡‡‡æ‡® (‡‡‡¶ a b) ‚â° (a , b)) is the same statement as `‡‡‡®‡∞‡æ‡ó‡Æ‡®‡Æ‡` in
--- `formal/cubical/Punaragamana.agda`, and is reproved here.  That is a
+-- `formal/cubical/Return.agda`, and is reproved here.  That is a
 -- duplication.  It is deliberate: this library takes no dependency
 -- outside itself, and the alternative ‚î importing across the repository
 -- ‚î would make `check.sh` no longer check what it says it checks.
@@ -238,7 +238,7 @@ data ‡§§‡•ç‡§∞‡§ø‡§ï‡•ç : Type where
 ‡§ó‡§≠‡•Ä‡§∞-‡§â‡§§‡•ç‡§•‡§æ‡§® (‡§¶‡§ï‡•ç‡§∑‡§ø‡§£ d k) = refl
 
 -- the round trip.  See DEFECT in the header: this is `‡‡‡®‡∞‡æ‡ó‡Æ‡®‡Æ‡` of
--- formal/cubical/Punaragamana.agda, reproved so the library stays standalone.
+-- formal/cubical/Return.agda, reproved so the library stays standalone.
 ‡§â‡§§‡•ç‡§•‡§æ‡§®-‡§≠‡•á‡§¶ : (a b : ‚Ñï) ‚Üí ‡§â‡§§‡•ç‡§•‡§æ‡§® (‡§≠‡•á‡§¶ a b) ‚â° (a , b)
 ‡§â‡§§‡•ç‡§•‡§æ‡§®-‡§≠‡•á‡§¶ zero    zero    = refl
 ‡§â‡§§‡•ç‡§•‡§æ‡§®-‡§≠‡•á‡§¶ zero    (suc b) = refl

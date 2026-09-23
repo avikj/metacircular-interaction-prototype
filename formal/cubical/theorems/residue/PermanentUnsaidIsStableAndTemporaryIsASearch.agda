@@ -6,12 +6,12 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Relation.Nullary using (¬_ ; Dec ; Stable)
 open import Cubical.Relation.Nullary.Properties using (Dec→Stable)
 open import Cubical.Data.Sigma using (_×_ ; _,_)
-open import AmshaSatyayantra using (कदाचित्-उक्तम् ; स्थायि-अनुक्तम्)
+open import AmshaSatyamachine using (कदाचित्-उक्तम् ; स्थायि-अनुक्तम्)
 
 ------------------------------------------------------------------------
 -- PermanentUnsaidIsStableAndTemporaryIsASearch
 --
--- `formal/cubical/AmshaSatyayantra.agda` was found by a zero-importer
+-- `formal/cubical/AmshaSatyamachine.agda` was found by a zero-importer
 -- census over `formal/cubical` and read.  It draws a distinction this
 -- thread's closure results have an exact word for, and this module says
 -- which word, using its predicates rather than restating them.
@@ -62,7 +62,7 @@ open import AmshaSatyayantra using (कदाचित्-उक्तम् ; �
 -- That decidability holds anywhere. §2 is conditional and nothing here
 -- decides any machine's `��������-��������`.
 --
--- PRIOR ART, grep run and quoted: `grep -rn AmshaSatyayantra
+-- PRIOR ART, grep run and quoted: `grep -rn AmshaSatyamachine
 -- formal/cubical/ --include=*.agda` outside the file itself returns
 -- nothing. It has no importers, which is how the census found it; this
 -- is its first use. A module reaching it through `Everything.agda`'s

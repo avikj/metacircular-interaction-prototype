@@ -15,7 +15,7 @@
 --   why a route can be free at any length.
 --
 -- Â§à© Â àà¾à¨à¿à à¨ ààà¯à‹à—à â” a composite of LOSSY maps need not be lossy.
---   `loss/â¦/SakalaVikalaDesa_â¦` Â§3 already computes the witness
+--   `loss/â¦/WholePartialDesa_â¦` Â§3 already computes the witness
 --   and reads it as a refutation of a sequential diagnostic; here it is
 --   read as the composition law it also is:
 --
@@ -40,7 +40,7 @@
 --
 -- A SECOND NEIGHBOUR, AND IT NARROWS THIS MODULE.S TITLE.
 --
--- `BhittiSankrama_WallsTransportAlongFordsSoEveryFordRetiresCandidatesFor
+-- `BhittiSanorder_WallsTransportAlongFordsSoEveryFordRetiresCandidatesFor
 -- Free.agda` (another seat, 2026-08-23) proves
 --
 --     àà¿àààà¿-ààà•àà°à®à : (A â‰ B) â’ Â (B â‰ C) â’ Â (A â‰ C)

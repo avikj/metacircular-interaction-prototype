@@ -35,7 +35,7 @@
 -- already proved, bundled into this one reusable interface.)
 ------------------------------------------------------------------------
 
-module Satyayantra where
+module Satyamachine where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; +-comm)

@@ -11,7 +11,7 @@
 -- SEED.  The owner's transmission of 2026-08-23 ("causal horizon"):
 -- "the next finite theorem is Fubini as transport."  The full statement
 -- ‚î g_!(f_!w) ‚â° (g‚àòf)_!w across the fibre-composition equivalence ‡‡‡
--- (fc/Sesa_TheCompositesRemainder‚¶:92) ‚î needs fibre ENUMERATIONS,
+-- (fc/Residue_TheCompositesRemainder‚¶:92) ‚î needs fibre ENUMERATIONS,
 -- which the corpus does not yet carry for arbitrary maps.  What is
 -- landable exactly, today, is the RECTANGULAR case, which is also the
 -- interchange law the span/path-integral reading consumes first:

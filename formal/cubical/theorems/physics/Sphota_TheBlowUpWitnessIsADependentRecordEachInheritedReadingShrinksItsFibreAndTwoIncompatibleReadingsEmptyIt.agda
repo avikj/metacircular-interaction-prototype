@@ -141,7 +141,7 @@ record ClayNegation (ℓb ℓc ℓa : Level) : Type (ℓ-suc (ℓ-max ℓb (ℓ-
     Ancestry  : Candidate → Type ℓa
     -- OBLIGATION 1: the lossless blow-up transport (the compactness
     -- extraction, carrying every inherited reading)
-    saṅkramaṇa : BU → Witness Ancestry
+    saṅorderṇa : BU → Witness Ancestry
     -- OBLIGATION 2: two inherited readings that cannot coexist
     A B       : Candidate → Type ℓa
     forcesA   : (U : Candidate) → Ancestry U → A U
@@ -150,7 +150,7 @@ record ClayNegation (ℓb ℓc ℓa : Level) : Type (ℓ-suc (ℓ-max ℓb (ℓ-
 
   -- and then the theorem is the composite
   negate : BU → ⊥
-  negate b = dvi-virodha Ancestry forcesA forcesB clash (saṅkramaṇa b)
+  negate b = dvi-virodha Ancestry forcesA forcesB clash (saṅorderṇa b)
 
 ------------------------------------------------------------------------
 -- � � Descent: local escape does not glue.  The exemplar, imported.

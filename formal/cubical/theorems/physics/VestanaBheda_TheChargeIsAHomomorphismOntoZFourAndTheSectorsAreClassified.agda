@@ -37,7 +37,7 @@ open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_ ; length)
 open import Cubical.Data.List.Properties using (length++)
 
-open import CatuhSesaSiddhanta_ATwistWordActsTriviallyExactlyWhenEveryCountVanishesModFour
+open import CatuhResidueSiddhanta_ATwistWordActsTriviallyExactlyWhenEveryCountVanishesModFour
   using (catuḥśeṣa)
 
 ------------------------------------------------------------------------

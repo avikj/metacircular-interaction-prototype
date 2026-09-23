@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- AnEquivalenceIdentifiesTheCarriersSoProvenanceIsExactlyWhatDoesNotTravel
 --
--- TERM.  �������� � sakramaa -- a crossing over, a passing from one place
+-- TERM.  �������� � saordera -- a crossing over, a passing from one place
 -- to another.  Ordinary ; no technical stra is claimed and the
 -- provenance ledger has no row for it.  It is used here because it is the
 -- word `interactive/`'s running machine already uses for this exact act,
@@ -18,13 +18,13 @@
 -- Written from that alone this file would have had ONE relation, `A � B`,
 -- and would have been wrong in a way that is invisible from inside it.
 --
--- Turning the machine instead -- `sh interactive/run-yantra.sh --wire` --
+-- Turning the machine instead -- `sh interactive/run-machine.sh --wire` --
 -- and asking it to transport, and then asking it whether two
 -- representations may be identified, produced three facts the specification
 -- does not contain.  They are recorded because they are the file's design:
 --
 --   1. A TRANSPORT THAT SUCCEEDS STILL HAS A COST, AND THE MACHINE STATES
---      IT.  `saptabhangi.samkramana` returns a bijection with both round
+--      IT.  `saptabhangi.samorderna` returns a bijection with both round
 --      trips run on all 8 positions of each side -- 16 checks, "no case
 --      omitted, no case sampled" -- and calls it "an identification, in
 --      Voevodsky's sense: a thing held, not a fact cited".  And in the same
@@ -44,10 +44,10 @@
 --      nearly contentless."
 --
 --   3. THERE IS NO THIRD ROAD.  Every answer that machine gives is a
---      sakramaa or a doa-lekha naming its losses one by one, and asked
+--      saordera or a doa-lekha naming its losses one by one, and asked
 --      whether the two representations may be identified it returned a
 --      doa-lekha, twice, differently -- `syad-avaktavyam` under saha and
---      `syan-nasti` under krama.  Not a boolean either time.
+--      `syan-nasti` under order.  Not a boolean either time.
 --
 -- SO THE CONTENT OF THIS FILE IS THE MIDDLE FACT, AND IT IS EXACT IN TYPE
 -- THEORY.  The three grades are three strengths of identification:
@@ -257,7 +257,7 @@ provenance-must-be-carried-alongside =
 -- so even KNOWING that a route exists does not hand you the route.
 ------------------------------------------------------------------------
 
-record Samkramana (A B : Type ℓ) : Type ℓ where
+record Samorderna (A B : Type ℓ) : Type ℓ where
   constructor _⟨_⟩_
   field
     from : A
@@ -268,9 +268,9 @@ record Samkramana (A B : Type ℓ) : Type ℓ where
   faithful : Type ℓ
   faithful = cross via from ≡ to
 
-open Samkramana public
+open Samorderna public
 
-carry : {A B : Type ℓ} (e : Artha A B) (a : A) → Samkramana A B
+carry : {A B : Type ℓ} (e : Artha A B) (a : A) → Samorderna A B
 carry e a = a ⟨ e ⟩ cross e a
 
 carrying-is-faithful :
@@ -315,7 +315,7 @@ record Dosalekha (A B : Type ℓ) : Type ℓ where
     hetu  : Artha A B → ⊥               -- and why: no identification exists
 
 data Uttara (A B : Type ℓ) : Type ℓ where
-  samkramana : Samkramana A B → Uttara A B
+  samorderna : Samorderna A B → Uttara A B
   dosalekha  : Dosalekha A B  → Uttara A B
 
 -- Totality with two roads and no third: given an element and a decision
@@ -324,16 +324,16 @@ data Uttara (A B : Type ℓ) : Type ℓ where
 answer :
   {A B : Type ℓ} (a : A)
   → (Artha A B) ⊎ ((Artha A B) → ⊥) → Uttara A B
-answer a (inl e) = samkramana (carry e a)
+answer a (inl e) = samorderna (carry e a)
 answer a (inr r) = dosalekha (dosa a r)
 
 -- and every answer is one or the other, by the type having two
 -- constructors: there is nowhere for a third to be.
 no-third-road :
   {A B : Type ℓ} (u : Uttara A B)
-  → (Σ[ s ∈ Samkramana A B ] (u ≡ samkramana s))
+  → (Σ[ s ∈ Samorderna A B ] (u ≡ samorderna s))
   ⊎ (Σ[ d ∈ Dosalekha A B ]  (u ≡ dosalekha d))
-no-third-road (samkramana s) = inl (s , refl)
+no-third-road (samorderna s) = inl (s , refl)
 no-third-road (dosalekha d)  = inr (d , refl)
 
 ------------------------------------------------------------------------

@@ -12,11 +12,11 @@
 -- Two modules in this repository refuse, in identical words, to call
 -- anything "the àà•àà°àµà¾à²", and both name the SAME missing ingredient:
 --
---   `loss/â¦/Bhavana_TheKsepaIsDeterminedByTheRootsAndâ¦`:
+--   `loss/â¦/Composition_TheKsepaIsDeterminedByTheRootsAndâ¦`:
 --     "It requires choosing m with k âˆ (a + bÂm), and then dividing the
 --      composed row through by k â” exact division in â, which needs a
 --      divisibility witness carried alongside and is not done here."
---   `Vargaprakrtitantu_ThePellFibreIsInfiniteâ¦`:
+--   `Vargaprakrtifiber_ThePellFibreIsInfiniteâ¦`:
 --     "the cyclic step needs a chosen m with k âˆ (a + bÂm) and an exact
 --      division carrying its divisibility witness, and none of that is
 --      done."

@@ -106,7 +106,7 @@ instead TRANSPORTS the certificate to the site.  *Cannot generalise* and
 *cannot be wrong at a site* are one sentence read twice.
 
 **2 Â Meaning is a proposition; the route is not.**
-`Sesa_` â” `eval` lands in â•, a set, so soundness lands in a proposition,
+`Residue_` â” `eval` lands in â•, a set, so soundness lands in a proposition,
 so for ANY C at ANY level and ANY Ï of the meaning, Ï agrees on the
 2-step and the 4-step derivation.  No semantic criterion selects the
 short proof.  Selection is therefore extra-semantic, by theorem.  This is
@@ -137,14 +137,14 @@ is an involution by construction.
   So the negative result IS the asset.  A finite-information machine
   iterating on a fixed semantics has no criterion, and the criterion
   cannot be manufactured from what it knows.  What produces mathematics
-  here is interaction â” `Samvada_`: a session is one Derivation, hence
+  here is interaction â” `Interaction_`: a session is one Derivation, hence
   one theorem, hence one installable operation, so the stock of moves is
   the transcript of the dialogue â” and translation, which is Â§IV below,
   and whose yield you can measure.
 
   You can hold that session yourself::
 
-      sh interactive/run-yantra.sh --wire
+      sh interactive/run-machine.sh --wire
       {"kriya":"vargaprakrti","angani":{"D":61}}
 
   which returns xÂ² âˆ’ 61yÂ² = 1 at (1766319049, 226153980) â” Bhskara II's

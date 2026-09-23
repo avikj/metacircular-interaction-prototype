@@ -5,7 +5,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
   using (ℕ ; zero ; suc ; _+_ ; _·_ ; +-assoc ; +-comm)
 open import Cubical.Data.Nat.Properties using (+-zero)
-open import Cubical.Data.Nat.Order using (_≤_ ; ≤-+k)
+open import Cubical.Data.Nat.Order using (_≤_ ; ≤-refl ; ≤-+k ; ≤SumLeft)
 
 -- The runtime has more than one cost receiver. This event alphabet keeps
 -- the interaction count and fresh term-heap allocation in one explicit
@@ -102,9 +102,21 @@ heap-monotone-prefix : {m n : ℕ} (xs : Trace m) (ys : Trace n)
   → heapWords (ledger xs) ≤ heapWords (ledger (append xs ys))
 heap-monotone-prefix xs ys =
   subst (λ z → heapWords (ledger xs) ≤ heapWords z)
-    (ledger-append xs ys)
+    (sym (ledger-append xs ys))
     (heap-prefix xs ys)
   where
   heap-prefix : {m n : ℕ} (xs : Trace m) (ys : Trace n)
     → heapWords (ledger xs) ≤ heapWords (ledger xs ⊞ ledger ys)
-  heap-prefix xs ys = ≤-+k (heapWords (ledger xs)) (heapWords (ledger ys))
+  heap-prefix xs ys =
+    ≤SumLeft {n = heapWords (ledger xs)} {k = heapWords (ledger ys)}
+
+-- A concrete mixed trace: unequal-label sharing, short-circuit erasure, and
+-- application distribution. Its two receivers are computed by reduction.
+exampleTrace : Trace 3
+exampleTrace = step dupSupDifferent (step andZero (step appSup done))
+
+example-interactions : interactionTotal exampleTrace ≡ 3
+example-interactions = refl
+
+example-heap : heapTotal exampleTrace ≡ 7
+example-heap = refl

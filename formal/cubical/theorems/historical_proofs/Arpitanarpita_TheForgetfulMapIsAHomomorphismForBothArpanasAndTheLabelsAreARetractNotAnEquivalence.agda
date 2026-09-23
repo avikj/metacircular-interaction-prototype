@@ -31,7 +31,7 @@
 --     ‚î a position is a LABEL and its presence-profile in {‡‡Æ‡, ‡®}¬≥ is all
 --       there is.  There ‡ï‡‡∞‡Æ-‡Ø‡ã‡ó is commutative and ‡‡-‡Ø‡ã‡ó destroys which
 --       two seeds it consumed.
---   `SaptabhangiGarbha_ThePositionsCarryTheirNayasAnd‚¶`
+--   `SaptabhangiKernel_ThePositionsCarryTheirNayasAnd‚¶`
 --     ‚î a position is a RECORD carrying the standpoints and their
 --       witnesses.  There the fourth position destroys nothing
 --       (`‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡-‡-‡≤‡‡‡‡‡Æ‡`) and ‡ï‡‡∞‡Æ‡æ‡∞‡‡‡‡Æ‡ is NOT commutative, which that
@@ -41,7 +41,7 @@
 -- question, in the same words:
 --
 --     "whether the forgetful map from records to labels is a homomorphism
---      for krama, for saha, or for neither, and that is not checked here
+--      for order, for saha, or for neither, and that is not checked here
 --      and therefore not claimed."
 --
 -- This file checks it.  The answer is BOTH, and the consequences are not
@@ -137,7 +137,7 @@ open import Anekanta using (syƒÅdasti ; syƒÅdnƒÅsti ; syƒÅdastinƒÅsti)
 
 import Saptabhangi as L
 import SaptabhangiSamyoga_TheCompositionOfVerdicts as LA
-import SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext as G
+import SaptabhangiKernel_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext as G
 
 private
   variable
@@ -546,7 +546,7 @@ private
 --
 -- Together with ¬ß‡Æ: identities descend and do not lift; distinctness
 -- lifts and does not descend.  That is the exact shape of the defect,
--- and it is the answer to "is the forgetful map a homomorphism for krama,
+-- and it is the answer to "is the forgetful map a homomorphism for order,
 -- for saha, or for neither" ‚î it is one for both, and being one for both
 -- is precisely what makes the two lanes inequivalent in a stateable way
 -- rather than merely different.
@@ -675,19 +675,19 @@ private
 --     settle it, for the same reason ¬ß‡ß‡ß gives about Malliea.
 --
 --   `machine/Naya.hs` ‚î a fifth carving, `Verdict` = Ekartha | Durnaya |
---     KramaBhanga | Avaktavya | Abhinna.  It is NOT the seven: it drops
+--     OrderBhanga | Avaktavya | Abhinna.  It is NOT the seven: it drops
 --     positions five, six and seven, and adds two that are not bhagas at
 --     all (Ekartha, "collapse permitted, you said one thing twice", and
 --     Abhinna, "the looking was unfit").  It is also mixed in the record/
 --     label sense settled above ‚î its INPUT standpoints carry their
---     witness sets, and its `KramaBhanga` and `Avaktavya` carry only the
+--     witness sets, and its `OrderBhanga` and `Avaktavya` carry only the
 --     standpoint NAMES.  So it unasserts the naya at exactly the point of
 --     composition, which is the map of ¬ß‡ß, applied halfway.
 --
 -- Whether the two label types are the same object is a question with a
 -- likely-cheap answer (both are the seven, so a bijection is immediate)
 -- and it is NOT the interesting one; the disagreement between them is at
--- `sthana`, not at `krama`/`saha`, and settling the algebra would settle
+-- `sthana`, not at `order`/`saha`, and settling the algebra would settle
 -- nothing there.  Whether `Naya.hs`'s five-way carving is a quotient, a
 -- subalgebra, or neither is open and is not claimed here in any
 -- direction.

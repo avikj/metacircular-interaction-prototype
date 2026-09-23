@@ -14,7 +14,7 @@ Thus final coalgebra, observational topology, productive computation, and causal
 
 ## Canonical checked construction
 
-[`Nucleus.agda`](../../fibre/src/Fibre/Nucleus.agda) for carrier/orbit/transport; [`Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers.agda`](../../fibre/src/Fibre/Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers.agda) for ISC versus orbit; causal/geodesic theorem ledger in [`PNP_GEODESIC_REDUCTION_20260916.md`](../../research/PNP_GEODESIC_REDUCTION_20260916.md).
+[`Nucleus.agda`](../../fibre/src/Fibre/Nucleus.agda) for carrier/orbit/transport; [`Interaction_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers.agda`](../../fibre/src/Fibre/Interaction_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers.agda) for ISC versus orbit; causal/geodesic theorem ledger in [`PNP_GEODESIC_REDUCTION_20260916.md`](../../research/PNP_GEODESIC_REDUCTION_20260916.md).
 
 ## External coordinates
 

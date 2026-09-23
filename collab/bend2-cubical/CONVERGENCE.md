@@ -265,7 +265,7 @@ else.**
 
 ### III.5 The machine is a groupoid; the missing inverse is the heat
 
-**[T]** (`Yantraâ¦`): a classical computer's operations form a **monoid** â”
+**[T]** (`Machineâ¦`): a classical computer's operations form a **monoid** â”
 compose, identity, no inverse. The missing inverse *is* the heat: erasing a bit
 costs `kT ln2` (Landauer); reversible computation removes the per-erasure floor
 (Bennett). A computer whose operations are proofs of equivalence `e : A â‰ B â¦ ua
@@ -354,7 +354,7 @@ behavioral-equivalence quotient over reflected syntax) type-checked in Agda but
 exhausted ~13 GB and could not be run there: Agda re-does the shared DAG, paying
 exactly the cost the corpus proves unnecessary. The mathematics was executable in
 principle; the substrate charged the execution tax. An optimal, groupoid-shaped
-reducer is the substrate the mathematics itself specifies (`Yantra` named it
+reducer is the substrate the mathematics itself specifies (`Machine` named it
 before it was in hand), and HVM is it.
 
 ---
@@ -583,14 +583,14 @@ problems â” live.
 
 ### VII.2 The interactive symbolic computer; determinism as one fact
 
-**[T]** (`Fibre/Samvada`): the interactive machine is the coalgebra
+**[T]** (`Fibre/Interaction`): the interactive machine is the coalgebra
 
 ```
     react : (q : Q w) â’ Î(w' : W) Î(o : O w q w') (E w q w' o — Machine w').
 ```
 
 At each state, per question: a successor, an observation, a proof-carrying
-receipt `E`, a continuation. **[T]** (`Niyati`, `SamvadaPrasna`): the space of
+receipt `E`, a continuation. **[T]** (`Niyati`, `InteractionPrasna`): the space of
 productive runs is **contractible exactly when `E` is a proposition** â” so
 **determinism is "the whole unfolding collapses to a point," and it holds iff the
 receipt carries no information of its own.** Proof-relevant `E` âŸ the process
@@ -653,7 +653,7 @@ Each reads "how much a map fails to be invertible, and where."
   nontrivial preimage); the lossless completion has none (injective, find =
   check). The gap forcing search exists only in the projection; carry the
   preimage and it is gone. **Complexity is the cost of forgetting.**
-- **One-wayness = the exact leftover, located.** `Sha256Sesa`;
+- **One-wayness = the exact leftover, located.** `Sha256Residue`;
   `GhataBhedaBhanga` (discrete log fails *exactly* the embedding factor);
   `HidingAndHardnessAreOneFibre`. SHA-256's loss has one address â” Daviesâ“Meyer
   feed-forward + the padding quotient; 64 rounds are a permutation; 256-bit digest
@@ -677,7 +677,7 @@ Each reads "how much a map fails to be invertible, and where."
 - **Confluence = order-independence, native.** Strategy-independence *is*
   confluence; no matcher, no critical pairs (abstract 04). Its only cost is the
   deduplication it would erase (abstract 20).
-- **Order is a fiber: dependence is data, serialization is gauge.** `Krama`;
+- **Order is a fiber: dependence is data, serialization is gauge.** `Order`;
   `PairwiseCommutationGivesEveryOrder`; a conflict is a **proof the observed state
   is off the image** (abstract 14), not a relation between patches.
 - **Consensus is derived, needed only where preimages are non-contractible.**
@@ -685,7 +685,7 @@ Each reads "how much a map fails to be invertible, and where."
   consistency with no clocks/quorum/leader; Byzantine unforgeability from the
   value type. `Avirodha`; `Coordination.Serialization` (Merkle dependency DAG +
   consensus **only per declared conflict domain**).
-- **Exactly-once = semilattice algebra, not a delivery guarantee.** `Srotas` â”
+- **Exactly-once = semilattice algebra, not a delivery guarantee.** `Stream` â”
   the consumer's state depends only on the *set* of records; the dedup store
   disappears.
 - **Branching histories = the fiber of the merge.** Abstract 07 + the ruliad
@@ -837,19 +837,19 @@ is why its value is that object's value times the scale it can now reach.
 the content, so the index is usable without reading the names as words.)*
 
 Fiber law: `theorems/CompressionIsTransportSoTheOnlyCostIsTheNonContractibleFibre`,
-`fibre/src/Fibre/Carrier`, the uniqueness/`Ekatva` module. Cost & thermodynamics:
-`theorems/cost/{Yantraâ¦, AvarohaNisedhaâ¦, BharaGanaâ¦, GhataLekhaâ¦}`,
-`NaturalMachine/Laghava`, `kernel/{AnswerIsProjectionAtOutputSize, VyayaSesaâ¦}`.
-SHA/complexity: `Sha256`, `Sha256{Lossless,PeqNP,Parimana,Sesa,Sthana,Varga,N}`,
+`fibre/src/Fibre/Carrier`, the uniqueness/`Uniqueness` module. Cost & thermodynamics:
+`theorems/cost/{Machineâ¦, AvarohaNisedhaâ¦, BharaGanaâ¦, GhataLekhaâ¦}`,
+`NaturalMachine/Laghava`, `kernel/{AnswerIsProjectionAtOutputSize, VyayaResidueâ¦}`.
+SHA/complexity: `Sha256`, `Sha256{Lossless,PeqNP,Parimana,Residue,Sthana,Varga,N}`,
 `GhataBhedaBhangaâ¦`, `kernel/{SubsetSumOverKernel, HidingAndHardnessAreOneFibreâ¦}`,
 `Kernel/Syatâ¦`, `theorems/cost/{Chalaâ¦, AParetoFitnessâ¦}`,
-`theorems/automata/{Sankirnataâ¦, Gananaâ¦}`. Concurrency: `fibre/src/Fibre/Kramaâ¦`,
-`theorems/automata/{PairwiseCommutationGivesEveryOrder, Kosaâ¦, Srotasâ¦}`,
+`theorems/automata/{Sankirnataâ¦, Gananaâ¦}`. Concurrency: `fibre/src/Fibre/Orderâ¦`,
+`theorems/automata/{PairwiseCommutationGivesEveryOrder, Shellâ¦, Streamâ¦}`,
 `Coordination/Serialization`, `kernel/Avirodhaâ¦`, abstracts 02/04/07/11/14/20.
 Coinductive/interactive: `Parasparasrayaâ¦`, `PurnataSutraâ¦`, `HistoryCompletionâ¦`,
-`fibre/src/Fibre/Samvadaâ¦`, `theorems/residue/{Niyatiâ¦, Prashnaâ¦, Vishvayantraâ¦}`,
-`SamvadaPrasnaâ¦`, `Sha256Srotasâ¦`, `Sha256Samvadaâ¦`. Kernel/safety:
-`kernel/{RewriteCertificate, ControlledGrammar, GenerativeKernel}`, `Apunaragamanaâ¦`,
+`fibre/src/Fibre/Interactionâ¦`, `theorems/residue/{Niyatiâ¦, Prashnaâ¦, Vishvamachineâ¦}`,
+`InteractionPrasnaâ¦`, `Sha256Streamâ¦`, `Sha256Interactionâ¦`. Kernel/safety:
+`kernel/{RewriteCertificate, ControlledGrammar, GenerativeKernel}`, `Areturnâ¦`,
 `run-corpus-calculus/Siddhasadhanaâ¦`, `NayaPramanaâ¦`. Frontier: `research/FRONTIER.md`,
 `research/ANALYTIC_INTERFACE.md`, `SamastaSimaâ¦`. Physics/life:
 `papers/for_michael_levinâ¦`. Convergence: `collab/bend2-cubical/{cubical-paths.patch,

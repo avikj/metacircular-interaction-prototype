@@ -6,7 +6,7 @@ Date: 6 September 2026.
 
 Repository source reads are pinned to commit `64effa62411bad3c12d513b2df5a1e5e55946afb` of `avikj/metacircular-interaction-prototype`. These are mathematical derivations, not newly compiled Agda or Lean modules. The accompanying SymPy scripts verify finite algebraic identities only. Neither the Riemann hypothesis nor global Navierâ“Stokes regularity is proved here. No novelty-priority claim is made.
 
-The repository inputs inspected are `formal/lean/Pairfield/VonMangoldtTriangularReconstruction.lean`, `GoldbachReconstructionChain.lean`, and `VandermondeFrequencyResponse.lean`; `formal/cubical/theorems/automata/ObservableInterface.agda`; `formal/cubical/theorems/physics/DefectCalculus.agda`; and `formal/cubical/kernel/SankramanaShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot.agda`.
+The repository inputs inspected are `formal/lean/Pairfield/VonMangoldtTriangularReconstruction.lean`, `GoldbachReconstructionChain.lean`, and `VandermondeFrequencyResponse.lean`; `formal/cubical/theorems/automata/ObservableInterface.agda`; `formal/cubical/theorems/physics/DefectCalculus.agda`; and `formal/cubical/kernel/TransportShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot.agda`.
 
 The arithmetic reconstruction theorem supplies the von Mangoldt sequence and its logarithmic-derivative Dirichlet series only in the Euler half-plane. Analytic continuation, the functional equation, the classical explicit formula, and the standard zero-counting bound are separate classical inputs. An authoritative statement of the explicit formula used below is E. Bombieri, *Problems of the Millennium: the Riemann Hypothesis*, Â§V, Clay Mathematics Institute.
 

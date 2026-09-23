@@ -7,10 +7,10 @@ one k-invariant type, read back by the analyzer
 The self-generating closure / the tower's step as one type / cost's
 non-exactness at every degree
 
-GarbhaDhara built one step: install cones off an obstruction and
+KernelDhara built one step: install cones off an obstruction and
 precipitates the fee one level up (the non-descending cost).  The open
 item it left was the ITERATION â” that the fee at level n is the carrier
-at level n+1, endlessly.  GarbhaShreni does not build the whole âˆž-tower;
+at level n+1, endlessly.  KernelShreni does not build the whole âˆž-tower;
 it builds the RUNG RELATION as a term, so that "climb a level" is
 re-instantiating ONE predicate one degree up, not a new phenomenon each
 time.
@@ -21,7 +21,7 @@ k-invariant type, degree-agnostic.
 
 RUNG 0 (Ïâ).  V = len; Ï ranges over functions  â’ â• on the
 localization; âˆ Ï d = Ï (L d).  "Cost is not a FUNCTION on the
-set-quotient" â” SankramanaShreni.kernelCostDoesNotDescend â” IS NotExact
+set-quotient" â” TransportShreni.kernelCostDoesNotDescend â” IS NotExact
 on the nose: the pass-through is refl, the two types are definitionally
 one.  The analyzer read costNotExactâ back as `NotExact âˆâ len`.
 

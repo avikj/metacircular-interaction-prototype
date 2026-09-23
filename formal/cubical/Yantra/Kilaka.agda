@@ -1,12 +1,12 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
-module Yantra.Kilaka where
+module Machine.Kilaka where
 -- à•àà²à•: the bolt.  A square prime factor forces a duplicate in the
 -- canonical factorization, so Î¼Ì n â‰¡ 0 whenever pÂ² âˆ n.
 
-open import Yantra.Prakriti
-open import Yantra.Vibhajana using (Prati; product; factor)
-open import Yantra.Bhajaka using (Mem; pdp)
-open import Yantra.Shodhita using (MemV; HasDup; decDup; Î¼Ì‚)
+open import Machine.Prakriti
+open import Machine.Vibhajana using (Prati; product; factor)
+open import Machine.Bhajaka using (Mem; pdp)
+open import Machine.Shodhita using (MemV; HasDup; decDup; Î¼Ì‚)
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
 open import Cubical.Data.Nat.Order

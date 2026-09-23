@@ -68,13 +68,13 @@ open import Cubical.Foundations.Univalence using (ua ; uaβ)
 open import Cubical.Data.Nat using (ℕ)
 open import Cubical.Data.Fin using (Fin)
 
-open import PingalaPrastara using (Vak ; sankhya ; uddistaIso ; Metre ; matra ; matraCount)
+open import PingalaPrastara using (Vak ; count ; uddistaIso ; Metre ; matra ; matraCount)
 
 ------------------------------------------------------------------------
 -- 1.  Each enumeration is a path
 ------------------------------------------------------------------------
 
-vak-path : (n : ℕ) → Vak n ≡ Fin (sankhya n)
+vak-path : (n : ℕ) → Vak n ≡ Fin (count n)
 vak-path n = ua (isoToEquiv (uddistaIso n))
 
 metre-path : (n : ℕ) → Metre n ≡ Fin (matra n)
@@ -85,13 +85,13 @@ metre-path n = ua (isoToEquiv (matraCount n))
 ------------------------------------------------------------------------
 
 same-count→same-type :
-  (n m : ℕ) → sankhya n ≡ matra m → Vak n ≡ Metre m
+  (n m : ℕ) → count n ≡ matra m → Vak n ≡ Metre m
 same-count→same-type n m p =
   vak-path n ∙ cong Fin p ∙ sym (metre-path m)
 
 -- concretely: one-syllable patterns and duration-two metres.
 -- sakhy 1 = 2 = mtr 2, both by computation.
-count-1-2 : sankhya 1 ≡ matra 2
+count-1-2 : count 1 ≡ matra 2
 count-1-2 = refl
 
 vak1≡metre2 : Vak 1 ≡ Metre 2

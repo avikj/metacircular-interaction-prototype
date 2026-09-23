@@ -1,12 +1,12 @@
-# Rule 30's middle column, through the yantra (2026-09-11)
+# Rule 30's middle column, through the machine (2026-09-11)
 
 Everything here was decided by the machine in `interactive/` over its wire
-(`sh interactive/run-yantra.sh --wire`): each candidate module was sent as a
+(`sh interactive/run-machine.sh --wire`): each candidate module was sent as a
 `sadhana.patra` request, every rejection's obligation (the kernel's own first
 error line) was repaired and the module resent, until the kernel accepted it.
-`yantra_answers.jsonl` is the full transcript (38 turns: 19 accepted, 19 rejected â” every rejection an error in what I sent, repaired and resent); `yantra_session.lekha`
+`machine_answers.jsonl` is the full transcript (38 turns: 19 accepted, 19 rejected â” every rejection an error in what I sent, repaired and resent); `machine_session.lekha`
 is the session's doa-lekha, one record per rejection; `candidate_*.agda`
-are the modules as accepted; `yantra_client.py` / `pack.py` drive the wire;
+are the modules as accepted; `machine_client.py` / `pack.py` drive the wire;
 `agda-compacting.sh` is the shim that gives the kernel's agda a compacting
 collector, needed by the depth-4096 certificate.
 

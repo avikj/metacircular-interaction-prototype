@@ -29,7 +29,7 @@
 -- The chain: ‡â‡‡‡‡‡æ‡‡®‡Æ‡ (environment update) and ‡‡ï‡æ‡¶‡‡‡ (one-place
 -- substitution) are the same test (‡‡Æ‡æ‡®‡) read at value and at term
 -- level; ‡‡Æ‡ says so pointwise; ‡â‡‡‡‡‡æ‡‡®-‡‡‡‡æ‡®‡ø‡µ‡‡ ‚î through
--- AdeshaSthanivat's ‡‡‡‡æ‡®‡ø‡µ‡‡ ‚î converts substitution into
+-- AdeshaPositional's ‡‡‡‡æ‡®‡ø‡µ‡‡ ‚î converts substitution into
 -- environment update; and ‡‡∞‡ã‡‡ climbs: base at k‚âîze, step from the
 -- hypothesis at k to the conclusion at k‚âîsu(var k), landing ‚ä® (l , r)
 -- entire.  The induction hypothesis enters the step as a genuine
@@ -46,7 +46,7 @@ open import Cubical.Data.Maybe using (Maybe ; nothing ; just)
 open import Cubical.Data.Unit using (Unit ; tt)
 
 open import NaturalMachine.EkaBhasha_TheStoreCarriesItsProofsTheGateIsTheTypeAndTheProverLivesInside
-open import NaturalMachine.AdeshaSthanivat_TheSubstituteBehavesLikeTheOriginalSoEveryProvenRuleSpeaksAtEveryInstance
+open import NaturalMachine.AdeshaPositional_TheSubstituteBehavesLikeTheOriginalSoEveryProvenRuleSpeaksAtEveryInstance
   using (‡§Ü‡§¶‡•á‡§∂‡§®‡§Æ‡•ç ; ‡§∏‡•ç‡§•‡§æ‡§®‡§ø‡§µ‡§§‡•ç ; ‡§∏‡§∞‡•ç‡§µ‡§§‡•ç‡§∞-‡§∂‡§æ‡§∏‡§®‡§Æ‡•ç)
 
 ------------------------------------------------------------------------

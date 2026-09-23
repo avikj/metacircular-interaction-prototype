@@ -1,7 +1,7 @@
 -- ààà°à¾à®à¾ààà¯ â” the five routes an answer arrives by, each with its witness.
 --
 -- EXTRACTED FROM Server, 2026-08-23, moved
--- not copied: Yantra imports and re-exports this module, so its wire
+-- not copied: Machine imports and re-exports this module, so its wire
 -- interface is unchanged, and Aisthesis imports it directly â” the light
 -- dependency that lets the heartbeat (./jiva, runghc) speak the same route
 -- vocabulary without interpreting the whole assembly on every beat.  The
@@ -28,7 +28,7 @@ data Pramanya
   = Pratyaksa String
     -- ^ the object is IN the answer.  Nothing is asserted about anything
     --   not shown; the reader checks by reading.
-  | Nihsesa Int String
+  | Nihresidue Int String
     -- ^ exhaustive over n cases, all of them run.  A finite exhaustive
     --   verification is proof (CLAUDE.md), and the n is stated so that the
     --   domain of the claim is visible.
@@ -39,14 +39,14 @@ data Pramanya
     -- ^ agda typechecked an emitted module, with the two controls having
     --   been watched first (ProofGate.kernelStatus).
   | Ayogya String
-    -- ^ NO route.  Legal only on a doa-lekha; Yantra's `mudra` turns a
+    -- ^ NO route.  Legal only on a doa-lekha; Machine's `mudra` turns a
     --   transport carrying it into a defect about itself.
   deriving (Eq, Show)
 
 pramanyaJ :: Pramanya -> J
 pramanyaJ p = case p of
   Pratyaksa w  -> JObj [("marga", JStr "pratyaksa"), ("saksin", JStr w)]
-  Nihsesa n w  -> JObj [("marga", JStr "nihsesa"), ("ganana", JInt (fromIntegral n))
+  Nihresidue n w  -> JObj [("marga", JStr "nihresidue"), ("ganana", JInt (fromIntegral n))
                        , ("saksin", JStr w)]
   Ganita w     -> JObj [("marga", JStr "ganita"), ("saksin", JStr w)]
   Kernel w     -> JObj [("marga", JStr "kernel"), ("saksin", JStr w)]
@@ -54,5 +54,5 @@ pramanyaJ p = case p of
 
 pramanyaWitness :: Pramanya -> String
 pramanyaWitness p = case p of
-  Pratyaksa w -> w; Nihsesa _ w -> w; Ganita w -> w
+  Pratyaksa w -> w; Nihresidue _ w -> w; Ganita w -> w
   Kernel w -> w; Ayogya w -> w

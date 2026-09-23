@@ -6,7 +6,7 @@
 -- The cyclic method's step, as a checked term.
 --
 -- This thread has quoted the cakravla in eight modules and built it in
--- none.  `Bhavana.agda` has the composition law and the two divisibility
+-- none.  `Composition.agda` has the composition law and the two divisibility
 -- conversions; what has been missing is the STEP � the thing that makes
 -- the method cyclic � and this file supplies exactly it and nothing more.
 --
@@ -102,11 +102,11 @@ module Cycle (R : CommRing ℓ) where
 
     -- BRAHMAGUPTA, at the trivial triple (m, 1, m² − D).  This is the
     -- whole engine of the cyclic method.
-    bhavana-trivial : (D a b m : A) →
+    composition-trivial : (D a b m : A) →
       (((a · m) + (D · b)) · ((a · m) + (D · b)))
       - (D · ((a + (b · m)) · (a + (b · m))))
       ≡ ((a · a) - (D · (b · b))) · ((m · m) - D)
-    bhavana-trivial D a b m = solve! R
+    composition-trivial D a b m = solve! R
 
     regroup : (k k' : A) → k · (k · k') ≡ (k · k) · k'
     regroup k k' = solve! R
@@ -125,7 +125,7 @@ module Cycle (R : CommRing ℓ) where
   cakravala-step D a b k m a' b' k' onform ha hb hk =
       homog D k a' b'
     ∙ cong₂ (λ p q → (p · p) - (D · (q · q))) ha hb
-    ∙ bhavana-trivial D a b m
+    ∙ composition-trivial D a b m
     ∙ cong₂ _·_ onform (sym hk)
     ∙ regroup k k'
 

@@ -95,7 +95,7 @@
 -- â” the door is not open: each fibre is either contracted or refuted,
 -- uniformly, by the bit the living step computes.
 --
--- RELATION TO THE CORPUS, checked before writing.  `Tantutrayam_â¦` puts
+-- RELATION TO THE CORPUS, checked before writing.  `Fibertrayam_â¦` puts
 -- the three fibre verdicts over ONE codomain with three maps; here the
 -- same three verdicts (contractible / empty / two-point) occur as
 -- readings of ONE construction, the product comparison, varying the

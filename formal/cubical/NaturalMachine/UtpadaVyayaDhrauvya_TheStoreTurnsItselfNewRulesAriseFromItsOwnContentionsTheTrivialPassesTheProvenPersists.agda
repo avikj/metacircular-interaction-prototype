@@ -39,7 +39,7 @@ open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_ ; map)
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 
 open import NaturalMachine.EkaBhasha_TheStoreCarriesItsProofsTheGateIsTheTypeAndTheProverLivesInside
-open import NaturalMachine.AdeshaSthanivat_TheSubstituteBehavesLikeTheOriginalSoEveryProvenRuleSpeaksAtEveryInstance
+open import NaturalMachine.AdeshaPositional_TheSubstituteBehavesLikeTheOriginalSoEveryProvenRuleSpeaksAtEveryInstance
   using (आदेशनम् ; ⊨-आदेशः ; _≫=_)
 open import NaturalMachine.Aroha_TheInternalProverClimbsWhereItsFlatVoiceIsSilentAndTheStoreAdmitsInductionThroughTheSameGate
   using (एकादेशः)

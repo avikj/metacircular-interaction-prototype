@@ -293,10 +293,10 @@ factorsThrough-transfer-discreteTarget isSetT discT q q' t ce ft =
 --   The syd form, stated with the bhaga named correctly, since this
 --   corpus has already proved that the two are not interchangeable
 --   (`SaptabhangiNaya` â” the top-level module, whose `yugapat-empty`
---   proves `Â Î[ n ] (P n — Â P n)` and whose `kramaâ’yugapat-fails`
---   proves `Â (Krama â’ Yugapat)`; the citation in an earlier draft of
+--   proves `Â Î[ n ] (P n — Â P n)` and whose `orderâ’yugapat-fails`
+--   proves `Â (Order â’ Yugapat)`; the citation in an earlier draft of
 --   this file named a `` module that does not exist and
---   summarised it as "krama â‰  sah", which is not what is proved
+--   summarised it as "order â‰  sah", which is not what is proved
 --   there):
 --
 --     ààà¯à¾à¦àààà¿ â” in the respect of discrete targets, exclusion is

@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- ‡‡‡-‡‡‡‡Ø‡Ø‡®‡‡‡‡∞‡Æ‡ ‚î ‡‡‡‡ø‡ï‡Æ‡ ‡‡‡‡∞‡æ‡®‡‡-‡Ø‡®‡‡‡‡∞‡Æ‡ (the PARTIAL honest machine) ‡
 --
--- ‡‡‡‡Ø‡Ø‡®‡‡‡‡∞‡ (Satyayantra) ‡‡‡∞‡‡‡‡æ‡ (‡‡∞‡ø‡‡‡∞‡‡‡‡æ) ‡Ø‡æ‡‡‡ : ‡‡‡‡Ø ‡‡®‡‡ï‡‡‡Æ‡
+-- ‡‡‡‡Ø‡Ø‡®‡‡‡‡∞‡ (Satyamachine) ‡‡‡∞‡‡‡‡æ‡ (‡‡∞‡ø‡‡‡∞‡‡‡‡æ) ‡Ø‡æ‡‡‡ : ‡‡‡‡Ø ‡‡®‡‡ï‡‡‡Æ‡
 -- (avaktavya) ‡‡∞‡‡µ‡¶‡æ *‡‡‡‡‡æ‡Ø‡ø* ‚î ‡‡∞‡‡Ø‡æ‡‡‡‡æ‡®‡‡¶‡æ‡®‡‡® ‡‡µ‡‡‡Ø‡ ‡‡∞‡ø‡‡‡∞‡ø‡Ø‡‡ ‡  ‡‡‡
 -- ‡‡®‡‡ï‡‡‡Æ‡ ‡‡®‡‡Ø‡ã‡ó‡¶‡‡µ‡æ‡∞‡‡‡‡‡∞‡‡‡Ø ‡‡‡ñ‡‡Ø‡‡Ø-‡ï‡ã‡ü‡ (sakhyta) ‡µ‡æ ‡‡‡‡ñ‡‡Ø‡‡Ø-‡ï‡ã‡ü‡
 -- (asakhyta ‚î ‡ó‡‡‡Ø‡ ‡‡ ‡® ‡‡‡ï‡∞‡Æ‡) ‡µ‡∞‡‡‡‡ : ‡‡∞‡ø‡Æ‡ø‡‡‡® ‡‡‡∞‡Ø‡‡‡®‡‡® ‡‡‡∞‡æ‡‡‡Ø‡Æ‡ ‡
@@ -17,7 +17,7 @@
 -- ‡‡‡ ‡‡‡-‡‡‡‡Ø‡Ø‡®‡‡‡‡∞‡ ‡¶‡‡µ‡ø-‡ß‡∞‡‡Æ-‡‡¶‡‡ß‡Æ‡ ‡‡µ : ‡‡æ‡ß‡‡‡æ + ‡‡‡‡à‡∞‡‡Ø‡Æ‡, ‡‡‡∞‡‡‡‡æ‡ ‡µ‡ø‡®‡æ ‡
 -- ‡‡‡∞‡‡‡‡æ ‡µ‡ø‡‡‡®‡æ ‡‡‡ø ‡® ‡¶‡ã‡‡ ‚î ‡‡‡ø ‡‡ ‡‡®‡®‡‡-‡‡µ‡ï‡‡‡µ‡‡Ø‡‡‡Ø ‡ã‡‡‡ ‡‡‡µ‡‡ï‡æ‡∞‡ ‡
 --
--- (the partial honest machine.  Satyayantra demands completeness ‚î its
+-- (the partial honest machine.  Satyamachine demands completeness ‚î its
 -- un-said is always TEMPORARY, resolved by enough grant; that un-said lives
 -- in the Anuyogadvra's sakhyta (numerable) or asakhyta (innumerable-
 -- but-bounded, reachable by finite effort) grades.  But genuine partiality
@@ -30,7 +30,7 @@
 -- avaktavya.)
 ------------------------------------------------------------------------
 
-module AmshaSatyayantra where
+module AmshaSatyamachine where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (‚Ñï ; zero ; suc ; _+_)
@@ -38,7 +38,7 @@ open import Cubical.Data.Sigma using (Œ£-syntax ; _,_ ; fst ; snd)
 open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Empty using (‚ä•) renaming (rec to ‚ä•-rec)
 open import Cubical.Relation.Nullary using (¬¨_)
-open import Satyayantra using (‡§∏‡•Ç‡§ö‡§®‡§æ ; ‡§â‡§ï‡•ç‡§§ ; ‡§Ö‡§®‡•Å‡§ï‡•ç‡§§ ; ‡§∏‡§§‡•ç‡§Ø‡§Ø‡§®‡•ç‡§§‡•ç‡§∞)
+open import Satyamachine using (‡§∏‡•Ç‡§ö‡§®‡§æ ; ‡§â‡§ï‡•ç‡§§ ; ‡§Ö‡§®‡•Å‡§ï‡•ç‡§§ ; ‡§∏‡§§‡•ç‡§Ø‡§Ø‡§®‡•ç‡§§‡•ç‡§∞)
 
 ------------------------------------------------------------------------
 -- ‡ï‡¶‡æ‡‡ø‡‡-‡â‡ï‡‡‡Æ‡ ‚î "‡ï‡¶‡æ‡‡ø‡‡ ‡‡ó‡Æ‡ ‡â‡‡‡‡∞‡ ‡¶‡‡‡‡Æ‡" : ‡ï‡ø‡û‡‡‡ø‡‡ ‡‡®‡‡¶‡æ‡®‡Æ‡ ‡â‡ï‡‡‡Æ‡ ‡‡®‡Ø‡‡ø ‡
@@ -140,7 +140,7 @@ private
 -- ‡® ‡ï‡ø‡û‡‡‡ø‡‡ ‡‡®‡‡¶‡æ‡®‡ ‡‡‡ ‡â‡‡‡‡∞‡Æ‡ ‡‡®‡Ø‡‡ø ‚î ‡‡®‡®‡‡-‡ï‡ã‡ü‡‡ ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡, ‡ã‡‡ ‡‡‡∞‡Æ‡æ‡‡‡® ‡
 -- (main theorem: the partial machine's un-said at input (suc zero) is
 -- PERMANENT ‚î no grant f ever answers.  Ananta avaktavya, proved directly.
--- Contrast Satyayantra.‡‡®‡‡ï‡‡-‡‡‡µ‡‡ø, where the un-said was merely temporary,
+-- Contrast Satyamachine.‡‡®‡‡ï‡‡-‡‡‡µ‡‡ø, where the un-said was merely temporary,
 -- dissolved by more grant via ‡‡∞‡ø‡‡‡∞‡‡‡‡æ.)
 ------------------------------------------------------------------------
 

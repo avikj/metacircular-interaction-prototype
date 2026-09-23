@@ -14,7 +14,7 @@
 ------------------------------------------------------------------------
 -- ‡Æ‡‡ñ ‚î the mouth: the ONLY unchecked part of the ‡‡ô‡‡ò‡ü‡‡ü-‡Ø‡®‡‡‡‡∞ organ.
 -- The typed world-leaf.  The whole computation is the --safe checked core
--- (SanghattaYantra_‚¶); this module is the ~dozen-line IO membrane that
+-- (SanghattaMachine_‚¶); this module is the ~dozen-line IO membrane that
 -- reads the file and prints the report.  It is NOT --safe, because
 -- reading the world and printing to it cannot be a checked term ‚î and
 -- that boundary is exactly where code stops and the world begins.
@@ -25,7 +25,7 @@ module SanghattaMukha where
 open import Agda.Builtin.IO
 open import Agda.Builtin.Unit
 open import Agda.Builtin.String
-open import SanghattaYantra_TheCriticalPairOrganAsCheckedTermsCompiledByTheKernelsOwnBackend
+open import SanghattaMachine_TheCriticalPairOrganAsCheckedTermsCompiledByTheKernelsOwnBackend
   using (report)
 
 postulate

@@ -8,7 +8,7 @@
 --  section identification carries the monoid ‚î by refl.)
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- WHAT THIS IS.  `SvaTantuVasa_‚¶.agda`, landed earlier today, closes the
+-- WHAT THIS IS.  `SvaFiberVasa_‚¶.agda`, landed earlier today, closes the
 -- loss‚ìsymmetry scale's middle with the identification
 --
 --     ‡‡‡∞‡µ‡æ‡‡ f  =  (Œ[ Œ¶ ] ‡‡‡∞‡ï‡‡‡‡Æ‡ f Œ¶)  ‚â  ((a : A) ‚í fiber f (f a))
@@ -68,7 +68,7 @@ open import Cubical.Algebra.Monoid
 open import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
 open import Mula.Khahara_TheZeroDivisorEdgeIsPricedAtItsWholeDomainAndTotalLossIsExactlyTotalSymmetry
   using (‡§∏‡§∞‡•ç‡§µ-‡§®‡§æ‡§∂‡§É)
-open import SvaTantuVasa_TheConservingFlowsOfAnyObservableAreTheSectionsOfItsOwnFibres
+open import SvaFiberVasa_TheConservingFlowsOfAnyObservableAreTheSectionsOfItsOwnFibres
 
 private variable ‚Ñì : Level
 
@@ -156,7 +156,7 @@ module ‡§ó‡§£‡•á {A B : Type ‚Ñì} (setA : isSet A) (setB : isSet B) (f : A ‚Üí B
 module _ {A B : Type ‚Ñì} (f : A ‚Üí B) where
 
   -- Near pole: zero loss, trivial gaa.  No h-level hypothesis ‚î the
-  -- flow space is contractible (SvaTantuVasa's ‡ß‡‡∞‡‡µ-‡‡ø‡®‡‡¶‡‡), so every
+  -- flow space is contractible (SvaFiberVasa's ‡ß‡‡∞‡‡µ-‡‡ø‡®‡‡¶‡‡), so every
   -- conserving flow already IS the unit.
   ‡§§‡•Å‡§ö‡•ç‡§õ‡§§‡§æ : isEquiv f ‚Üí (œÉ : ‡§™‡•ç‡§∞‡§µ‡§æ‡§π‡§É f) ‚Üí œÉ ‚â° ‡§è‡§ï‡§É f
   ‡§§‡•Å‡§ö‡•ç‡§õ‡§§‡§æ e œÉ = isContr‚ÜíisProp (‡§ß‡•ç‡§∞‡•Å‡§µ-‡§¨‡§ø‡§®‡•ç‡§¶‡•Å‡§É f e) œÉ (‡§è‡§ï‡§É f)

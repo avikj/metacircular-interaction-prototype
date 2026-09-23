@@ -23,13 +23,13 @@ answer to something I had marked open.
 | `Œ_X : A(X) ‚í B(X)` | two readings of one object, compared | every "two routes" module: `TwoProjections`, `TranscriptDescent`, `Vyatireka` |
 | `î(Œ) := cofib(Œ)` | the defect is the cofibre of the comparison | `QuotientFiberLaw`, `¬FactorsThrough`, `BarrierIsTwoWitnesses` (witness number exactly 2 = the two points of a fibre) |
 | `Œì_Œ∫` | the repair, in four kinds `Œì‚à Œì‚ Œì‚∫ Œì^` | `ObstructionCalculus` ¬ßD (two visible), `CatuhSamskara` (all four, at S¬) |
-| `Œ¶` | NOT a change of the object; the expansion of the field of visible distinctions (`Œ¶ = ‡¶‡‡‡‡Ø‡‡‡¶‡ï‡‡‡‡‡‡∞‡µ‡ø‡‡‡‡æ‡∞‡`) | `ObstructionCalculus` ¬ßB‚ìC (`Œ¶-monotone`, `break-blindness`), `SamuhaDrstih`, `ObservableHorizon`; today's 23 ledger closures are Œ¶ applied to the corpus's own absences |
+| `Œ¶` | NOT a change of the object; the expansion of the field of visible distinctions (`Œ¶ = ‡¶‡‡‡‡Ø‡‡‡¶‡ï‡‡‡‡‡‡∞‡µ‡ø‡‡‡‡æ‡∞‡`) | `ObstructionCalculus` ¬ßB‚ìC (`Œ¶-monotone`, `break-blindness`), `SetDrstih`, `ObservableHorizon`; today's 23 ledger closures are Œ¶ applied to the corpus's own absences |
 | `Q = ‚‚àí‚` | quotation; `E‚àòQ ‚â id` but not `‚â°` | `RewriteCertificate`, `MetacircularReplay`, every header that quotes the absence it closes |
 | `diag` | `‡‡‡µ‡‡‡∞‡‡ø‡‡ø‡Æ‡‡‡‡‡Ø ‡‡æ‡∞‡‡‡‡µ‡®‡ø‡∞‡‡ó‡Æ‡®‡Æ‡`, the lateral exit from one's own reflection | `Lawvere`, `Naya` (0+x=x true outside the rewrite closure), `QuestionMachine`, `KFlow` (Œ¥_end ‚â† 0 unconditionally) |
 | `(‚àí)^‚à®` | swap points and tests (`e^‚à®(t,f) = e(f,t)`) | `ChuAdvance`, the Chu core of D0016; `Nerode`/`FutureEq` are `‚àº_X` |
 | `hocolim` / `holim` | generation (`‡‡®‡®`) / reflection (`‡‡‡∞‡‡ø‡‡ø‡Æ‡‡`) | `ObstructionCalculus` ¬ßE: `Generates` ‚â `Reconstructs`; `FillabilityCertificate` (Fill_term ‚ää Fill_‚àû) |
 | `Tr` | decategorification; cyclic invariance | `kernel/TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry` ‚î the bit Tr drops is exactly the `Aut(∫ê)` the RH box asks for |
-| `^` | completion, `‚àXÃ ‚â 0` | `SmithSignNormal` (abs‚, idempotent), `Sha256Sesa`, `EkaKriya`; at S¬ the universal cover `helix` |
+| `^` | completion, `‚àXÃ ‚â 0` | `SmithSignNormal` (abs‚, idempotent), `Sha256Residue`, `EkaKriya`; at S¬ the universal cover `helix` |
 
 ## 1. The four guards (II, second box)
 
@@ -129,7 +129,7 @@ conjugation census for S‚, now with the enumeration completed by
 `Apavartana` (the drop divisor) and `Prthakkarana` (p-adic splitting, today)
 are the refraction `‡‡‡µ‡∞‡‡‡®‡Æ‡ = ‡¶‡‡‡‡ü‡ø‡‡∞‡ø‡µ‡∞‡‡‡®‡‡®‡ø‡ ‡‡‡‡‡ï‡‡ü‡‡∞‡Æ‡µ‡ø‡ò‡ü‡®‡Æ‡` at the
 integers: one crystal, many refraction paths. `‡‡ï‡‡‡µ‡Æ‡ ‚ ‡‡ï‡∞‡‡‡‡æ` is the
-corpus's `Ekatva` (unique factorisation up to `Perm`, not up to `‚â°`).
+corpus's `Uniqueness` (unique factorisation up to `Perm`, not up to `‚â°`).
 
 ## 9. `œ`, the golden boundary
 
@@ -238,13 +238,13 @@ better form, twice today, and not destroyed.
 | III | `interactive/` |
 |---|---|
 | `Q ‚í R ‚í Œ` | a request on the wire; `Answer.Tulyata` (two sides and a witness) |
-| `î(Œ)`, `‡‡‡‡‡Ø‡ã ‡Æ‡æ‡∞‡‡ó‡ã ‡® ‡µ‡ø‡¶‡‡Ø‡‡` | `Uttara` has exactly two constructors: `Samkramana` (transport, nothing lost) or `Dosalekha` (the loss named item by item); no third |
+| `î(Œ)`, `‡‡‡‡‡Ø‡ã ‡Æ‡æ‡∞‡‡ó‡ã ‡® ‡µ‡ø‡¶‡‡Ø‡‡` | `Uttara` has exactly two constructors: `Samorderna` (transport, nothing lost) or `Dosalekha` (the loss named item by item); no third |
 | `Class(D)` | three non-commensurable classifiers, kept apart on purpose: `ObligationAnalysis.Obstruction` (TacticTooWeak / Residual / Unparsed), its `Verdict` (unrefuted-with-domain / refuted-with-assignment / no-subject / declines), `RewriteEngine.Hetu` (no-letter / no-stra / undecided / unfinished) |
 | `Œì‚ü®Œ¥‚ü©` | the residual IS the next lemma: `curriculum` ranks residuals by how many distinct stalled parents one lemma unblocks (`ŒîReach`), top 8 of 78 unblock 54 of 130 |
 | `Attack(Œ)` | `saksiPariksa`: every process must watch its own constructor accept ryabhaa's kuaka identity and reject it moved by one, uncached; `ProofGate` must watch the kernel reject `suc x ‚â° x` before any acceptance counts |
 | `diag` on itself | `Server.mudra`: a transport with no evidence route is rewritten by the machine into a defect about itself; the `Server` header records that the supersession dropped the falsifier and every answer until then came from a process that had never watched itself refuse |
 | `œ > 1`, `‡µ‡ø‡ò‡‡®‡‡æ‡ñ‡‡ï‡∞‡‡Æ‡` | the named livelock: residuals of FALSE parents (`x¬x = s(x)`, 30; `x¬max(x,1) = s(x)`, 100) regenerate forever; "it is the kuaka, therefore it terminates" is stated to be false because these residuals do not decrease |
-| the seven verdicts | `Verdict` (labels), `VerdictResidue` (records), `ObligationAnalysis.Sthana`: `Sthana ‚â Sthana` proved both ways over all cases, and `Garbha ‚í Saptabhangi` has NO section, both colliding objects constructed in the turn |
+| the seven verdicts | `Verdict` (labels), `VerdictResidue` (records), `ObligationAnalysis.Sthana`: `Sthana ‚â Sthana` proved both ways over all cases, and `Kernel ‚í Saptabhangi` has NO section, both colliding objects constructed in the turn |
 | `‚â ‡‡‡µ‡æ ‚â° ‡‡‡µ‡æ ‚â†` | `StandpointStore`'s three indices satya ‚ä artha ‚ä mla, and `decide`'s verdict per level |
 
 Open items the daemon names in its own words: cakravla termination ("the
@@ -511,7 +511,7 @@ the diagonal of the full pair-sum field recovers œ ‚î D0020 ¬ß8's
 W-trick restrictions compose as `(W‚W‚, W‚r‚ + r‚)`, order-sensitive, and
 "the flattening printed in LENS_CIRCUIT Lemma R.3 belongs to the opposite
 composite". `Nada`, `Sulba`, `Virahanka`, `Chandahsastra`, `Kuttaka`,
-`Bhavana`, `Cakravala`, `Madhava`, `Pramanasruti`: the Indic sources with
+`Composition`, `Cakravala`, `Madhava`, `Pramanasruti`: the Indic sources with
 "the theorem is Mathlib's; the bridge is ours" attribution, and the
 Cakravla file's scope correction (the bred sequence is the squares
 subsequence, "the infinitude of the FULL set is proved in the cubical

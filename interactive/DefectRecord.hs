@@ -111,7 +111,7 @@
 -- not the saptabhangi and no correspondence is claimed.  Each is here
 -- because collapsing it into a neighbour destroys something nameable.
 --
---   sankramana-asambhava  transport is not possible: no equivalence exists
+--   sanorderna-asambhava  transport is not possible: no equivalence exists
 --                         between the two sides.  Â§6.  The base case.
 --   nasti-krta            a truncation was PERFORMED; the loss is already
 --                         incurred and is irreversible.  Â§5.  Distinct from
@@ -124,7 +124,7 @@
 --                         prints the loss; this records it.
 --   avaktavya             two standpoints asserted SIMULTANEOUSLY (saha /
 --                         yugapat), where no single utterance carries them.
---                         Akalanka, Laghiyastraya, c. 720-780, kramarpana
+--                         Akalanka, Laghiyastraya, c. 720-780, orderrpana
 --                         against saharpana.  NOT a failure and NOT
 --                         ignorance: the fourth bhanga is positive.  It is
 --                         logged because an unlogged avaktavya becomes, one
@@ -135,9 +135,9 @@
 --                         and NO verdict on the object is issued.  This is
 --                         the entry that must never be read as a negative
 --                         result.
---   upadhi-anaviskrta     a generalisation was made without searching for
+--   qualifier-anaviskrta     a generalisation was made without searching for
 --                         the condition that defeats it.  Nyaya: vyapti is
---                         killed by an upadhi, and an upadhi must be
+--                         killed by an qualifier, and an qualifier must be
 --                         SOUGHT, not waited for.  The fitted-constant
 --                         failure (exp27) is this shape.
 --   karana-dosa           the instrument or its environment is defective:
@@ -212,12 +212,12 @@ field1 k d = case fieldsNamed k d of
 -- | The seven kinds, each with the distinction it protects.
 jatis :: [(String, String)]
 jatis =
-  [ ("sankramana-asambhava", "transport is not possible: no equivalence exists (VISTARA Â§6)")
+  [ ("sanorderna-asambhava", "transport is not possible: no equivalence exists (VISTARA Â§6)")
   , ("nasti-krta",           "a truncation was performed; the loss is incurred and irreversible (Â§5)")
   , ("durnaya-nirodha",      "a collapse of standpoints was attempted and refused (Sanmatitarka 1.21)")
   , ("avaktavya",            "two standpoints asserted saha; no single utterance carries them (Akalanka)")
   , ("ayogya-darsana",       "the looking was unfit; NO verdict on the object (Slokavarttika, Abhavapariccheda)")
-  , ("upadhi-anaviskrta",    "generalised without searching for the defeating condition (Nyaya: upadhi)")
+  , ("qualifier-anaviskrta",    "generalised without searching for the defeating condition (Nyaya: qualifier)")
   , ("karana-dosa",          "the instrument or its environment is defective, not the mathematics")
   ]
 
@@ -237,11 +237,11 @@ required =
   , ("punarabhinaya",   "no replay command: a defect nobody can re-exhibit is a rumour with a date")
   ]
 
--- | Optional fields.  `sesa` and `pramana` are here because a sibling lane
+-- | Optional fields.  `residue` and `pramana` are here because a sibling lane
 --   had already got them right and this record had nowhere to put them.
 --   interactive/Answer.hs builds the
 --   IN-MEMORY answer type for the same sutra Â§6, and its `Dosalekha`
---   constructor carries `uSesa` -- the REMAINDER, handed forward.  Â§3:
+--   constructor carries `uResidue` -- the REMAINDER, handed forward.  Â§3:
 --    ÂÂ ÂÂµ ÂÂ• ÂÂ ÂÂ ÂÂµ ÂÂ ÂÂ¯ ÂÂ  ÂÂ ÂÂ ÂÂ ÂÂ‹  ÂÂµ ÂÂ ÂÂ ÂÂ¿  ÂÂ  ÂÂ ÂÂ ÂÂ ÂÂ‹  ÂÂ— ÂÂ° ÂÂ ÂÂ ÂÂ,  ÂÂ¨  ÂÂµ ÂÂ¿ ÂÂ ÂÂ² ÂÂ ÂÂ¾ ÂÂ” the remainder lives in the
 --   inexpressible; it is a womb, not a failure.  Â§17, the kuttaka:  ÂÂ¯ ÂÂ ÂÂ  ÂÂ¨
 --    ÂÂµ ÂÂ¿ ÂÂ ÂÂ ÂÂ ÂÂ  ÂÂ ÂÂ ÂÂ  ÂÂ° ÂÂ• ÂÂ ÂÂ ÂÂ ÂÂ¯ ÂÂ ÂÂ, what does not divide is KEPT and is the material of
@@ -253,7 +253,7 @@ required =
 --   serialises into a record without loss:
 --
 --       uKriya   -> yatna        uHetu    -> hetu
---       uNasta   -> nasta        uSesa    -> sesa
+--       uNasta   -> nasta        uResidue    -> residue
 --       uPramana -> pramana
 --
 --   The four fields that type does not carry -- kala, karta, yogyata-*,
@@ -264,7 +264,7 @@ optional_ :: [(String, String)]
 optional_ =
   [ ("vastu",   "the object: path, path:line, module, or claim the defect is about")
   , ("phala",   "expected outcome of the replay: exit=<n>, or out~<substring>")
-  , ("sesa",    "the remainder handed forward: what the next step should pick up (repeatable)")
+  , ("residue",    "the remainder handed forward: what the next step should pick up (repeatable)")
   , ("pramana", "a source, earliest statement first; or note/commit/module carrying more (repeatable)")
   , ("uttara",  "the id of an earlier dosa this record answers, repairs or supersedes")
   ]
@@ -480,7 +480,7 @@ schema = mapM_ putStrLn $
   , "    | continuation of the previous value"
   , "  ."
   , ""
-  , "  Repeatable: hetu, nasta, sesa, pramana, uttara.  Order is preserved and is part"
+  , "  Repeatable: hetu, nasta, residue, pramana, uttara.  Order is preserved and is part"
   , "  of the exhibit.  `sara` is computed by `write`; never write it by hand."
   , ""
   , "REQUIRED â” each refusal below is a refusal to store an unreadable entry"
@@ -498,7 +498,7 @@ schema = mapM_ putStrLn $
   , "  constructor serialises here field for field --"
   , ""
   , "    uKriya -> yatna     uHetu -> hetu     uNasta -> nasta"
-  , "    uSesa  -> sesa      uPramana -> pramana"
+  , "    uResidue  -> residue      uPramana -> pramana"
   , ""
   , "  and the four this store adds -- kala, karta, yogyata-*, punarabhinaya --"
   , "  are what a PERSISTED defect needs and an in-memory one does not: a"

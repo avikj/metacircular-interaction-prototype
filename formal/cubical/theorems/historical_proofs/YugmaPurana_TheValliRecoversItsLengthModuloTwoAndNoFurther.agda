@@ -40,7 +40,7 @@
 -- the preimage ‚î and this module computes exactly how much of it the
 -- matrix sees: the parity, and nothing else.
 --
--- So the three verdicts of `Tantujala_TheFibreHasThreeVerdictsAndIsContr-
+-- So the three verdicts of `Fiberjala_TheFibreHasThreeVerdictsAndIsContr-
 -- MergesTwoOfThem.agda` are not the whole story at a lossy map.  A fibre
 -- with MANY points still admits an exact statement of WHAT IS RECOVERED,
 -- and here it is a quotient group.  ‡®‡‡‡ü‡ø is not "everything is lost":

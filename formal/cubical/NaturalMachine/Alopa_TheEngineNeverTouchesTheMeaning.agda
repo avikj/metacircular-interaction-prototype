@@ -30,7 +30,7 @@
 --       samples, all confirming ‚î and they are not equal.  What a sample
 --       confirms is a property of the distribution it was drawn from.
 --
--- THE FIELD IS THE OWNER'S MOVE.  `VivekaPramana_TheUpadhiIsCarriedAsA
+-- THE FIELD IS THE OWNER'S MOVE.  `VivekaPramana_TheQualifierIsCarriedAsA
 -- Field` carries the defeating condition as a field instead of asserting
 -- an equivalence that is false; the third pass sharpens the field to
 -- ‡‡‡∞‡Æ‡æ‡ : ‡¶‡ï‡‡‡ø‡ ‚â° ‡‡Æ + ‡µ‡æ‡Æ, which makes the record the graph of + and

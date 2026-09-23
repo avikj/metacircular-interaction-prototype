@@ -25,7 +25,7 @@
 --   `Asiddhatva.agda`     � 8.2.1 buys TERMINATION: the unstratified
 --                           system has no normal form and, sharply, no
 --                           strict order orients it at all.
---   `AsiddhavatRegime.agda` � 8.2.1 (krama) and 6.4.22 (saha) are
+--   `AsiddhavatRegime.agda` � 8.2.1 (order) and 6.4.22 (saha) are
 --                           different devices and the choice CHANGES THE
 --                           DERIVED FORM.
 --   `ElsewhereCondition.agda` � utsarga/apavda is logically INDEPENDENT
@@ -34,7 +34,7 @@
 -- So termination, regime and the metarule ordering are done, and none of
 -- them is redone here.  What was not here is the structure the blindness
 -- HAS.  And the instrument for it was already in the corpus and had never
--- been pointed at Pini: `Sesa_TheCompositesRemainderIsTheSecondRemainder
+-- been pointed at Pini: `Residue_TheCompositesRemainderIsTheSecondRemainder
 -- SummedOverTheFirstAndTheAreasAdd.���` decomposes the fibre of a
 -- composite.  The tripd IS a composite � 8.2.1 makes the enumeration
 -- order into function composition � so its blindness decomposes, rule by
@@ -93,7 +93,7 @@ open import Cubical.Data.Bool using (Bool ; true ; false ; not ; true≢false)
 open import Cubical.Data.Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 
-import Sesa_TheCompositesRemainderIsTheSecondRemainderSummedOverTheFirstAndTheAreasAdd as Sesa
+import Residue_TheCompositesRemainderIsTheSecondRemainderSummedOverTheFirstAndTheAreasAdd as Residue
 
 private
   variable
@@ -247,12 +247,12 @@ punar-ga = refl
 
 शेष-असिद्धम् : (z : Rupa)
               → fiber after30 z ≃ (Σ[ p ∈ fiber r56 z ] fiber r39 (fst p))
-शेष-असिद्धम् = Sesa.शेष r56 r39
+शेष-असिद्धम् = Residue.शेष r56 r39
 
 शून्य-असिद्धम् : ((z : Rupa) → isContr (fiber r39 z))
                → ((z : Rupa) → isContr (fiber r56 z))
                → (z : Rupa) → isContr (fiber after30 z)
-शून्य-असिद्धम् = Sesa.शून्यशेष r56 r39
+शून्य-असिद्धम् = Residue.शून्यशेष r56 r39
 
 ------------------------------------------------------------------------
 -- �.  THE NECESSITY, LOCALISED.  Put §� against §� and §�: if no later

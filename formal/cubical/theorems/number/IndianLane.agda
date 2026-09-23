@@ -9,9 +9,9 @@
 -- BUILD.md prescribes: TWELVE top-level modules were outside its import
 -- closure, and all twelve were from one lane ‚î
 --
---     Kuttaka  Bhavana  BhavanaSemiring  BhavanaGenerative  Pingala
---     Sivasutra  Anekanta  JainSankhya  AbhavaAvacchedaka
---     MachineCurriculum  BhedaAvatarana  LosslessReturn
+--     Kuttaka  Composition  CompositionSemiring  CompositionGenerative  Pingala
+--     Sivasutra  Anekanta  JainCount  AbhavaAvacchedaka
+--     MachineCurriculum  BhedaDescent  LosslessReturn
 --
 -- The newest and most emphasised work in the repository was built by
 -- nothing while the older lane was guarded.  That is the sourcing skew
@@ -51,16 +51,16 @@ import Kuttaka
 -- BRAHMAGUPTA, Brhmasphuasiddhnta 18 (628).  Bhvan over an arbitrary
 -- commutative ring; subtraction-free over ‚ï as a semiring identity; and as
 -- a typed OPERATION on solutions, which is what "production" names.
-import Bhavana
+import Composition
 -- The same composition made into an OBJECT rather than restated as a law:
 -- the invariant lives in the type, so an unlawful card is not rejected but
 -- UNSAYABLE, and the single move ‡‡æ‡µ‡®‡æ carries the norm in its own type.
 -- Eight moves from the one obvious card at D = 2 reach (577, 408), which is
 -- Baudhyana's ‚à2 -- ulbastra 1.61‚ì62, c. 800 BCE, older than the
 -- composition law it is reached by.
-import BhavanaKrida
-import BhavanaSemiring
-import BhavanaGenerative
+import CompositionKrida
+import CompositionSemiring
+import CompositionGenerative
 
 -- The cycle's step with every subtraction cleared, so a concrete run is
 -- certifiable in arithmetic the kernel actually computes.
@@ -129,7 +129,7 @@ import Niksepa
 -- (no rejection path); the taxonomy of the unbounded, sakhyta /
 -- asakhyta / ananta; abhva with its avacchedaka.
 import Anekanta
-import JainSankhya
+import JainCount
 import AbhavaAvacchedaka
 
 -- ADDED 2026-08-19, AFTER A SURVEY -- AND THE SURVEY'S FIRST VERDICT
@@ -182,7 +182,7 @@ import PingalaPrastara
 -- ‡®‡‡‡ü‡ã‡¶‡‡¶‡ø‡‡‡ü‡Æ‡ ‚î ‡‡ø‡ô‡‡ó‡≤‡‡‡Ø ‡®‡‡‡ü/‡â‡¶‡‡¶‡ø‡‡‡ü ‡‡‡‡æ‡®-‡‡‡‡ï‡-‡‡‡¶‡‡‡ ‡µ‡ø‡‡‡‡æ‡∞‡ø‡‡, ‡‡∞‡‡‡‡∞-‡‡‡∞‡‡ø‡≤‡ã‡Æ‡ (‡‡ô‡‡ï‡‡‡‡æ‡® rs ‚â Fin (‡‡ô‡‡ñ‡‡Ø‡æ rs)) ;
 -- ‡Æ‡‡∞‡-‡‡ô‡‡ï‡‡‡ø‡ ‡‡ï-‡‡ô‡‡ï‡‡‡‡Ø‡æ ‡‡®‡‡Ø‡‡, ‡Æ‡æ‡‡‡∞‡æ‡Æ‡‡∞‡‡ ‡Ø‡‡ó‡≤‡‡® ‡  ‡‡‡‡ machine/Prastara_*.hs-‡Æ‡ß‡‡Ø‡ ‡‡≤‡‡ø ‡
 import NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn
--- ‡‡‡ñ‡‡Ø‡æ-‡‡ô‡‡ï‡‡‡ø-‡‡‡‡‡ ‚î ‡‡ø‡ô‡‡ó‡≤‡‡‡Ø ‡‡‡ñ‡‡Ø‡æ-‡‡‡∞‡‡‡Ø‡Ø‡ = ‡Æ‡‡∞‡-‡‡ô‡‡ï‡‡‡ø-‡Ø‡ã‡ó‡ (sankhya n = ‚à‚ñ C(n,k))
+-- ‡‡‡ñ‡‡Ø‡æ-‡‡ô‡‡ï‡‡‡ø-‡‡‡‡‡ ‚î ‡‡ø‡ô‡‡ó‡≤‡‡‡Ø ‡‡‡ñ‡‡Ø‡æ-‡‡‡∞‡‡‡Ø‡Ø‡ = ‡Æ‡‡∞‡-‡‡ô‡‡ï‡‡‡ø-‡Ø‡ã‡ó‡ (count n = ‚à‚ñ C(n,k))
 import PrastaraPankti
 
 -- The saptabhag: Bhagavat Stra (pre-CE strata, redacted c. 5th c.);
@@ -201,10 +201,10 @@ import SaptabhangiNaya
 -- (the sine-chord); the aa reading of the truth-instrument.
 import Madhava
 import Jiva
-import AmshaSatyayantra
+import AmshaSatyamachine
 
 -- ‡‡®‡‡ï‡‡‡Æ‡ is not ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡, and the difference is a swapped quantifier.
--- Satyayantra.agda glossed its third position as avaktavyam; Purnata
+-- Satyamachine.agda glossed its third position as avaktavyam; Purnata
 -- proves that position ‡‡æ‡Æ‡Ø‡ø‡ï (for every instance SOME grant removes
 -- it) and SaptabhangiNaya proves the fourth bhaga ‡®‡ø‡‡‡Ø (for every
 -- single utterance SOME profile survives it).  Dual shapes, one word.
@@ -222,7 +222,7 @@ import Saptabhangi
 
 -- The machine's own material read back: the curriculum its obligations
 -- demand, descent by distinction, and return.
-import BhedaAvatarana
+import BhedaDescent
 import LosslessReturn
 
 ------------------------------------------------------------------------
@@ -324,7 +324,7 @@ import LosslessReturn
 ------------------------------------------------------------------------
 
 import SamayikaAndNityaAreIndependent
-import KramaAstiNasti_TheFourthCornerIsRefutedUnderPointwiseStability
+import OrderAstiNasti_TheFourthCornerIsRefutedUnderPointwiseStability
 
 ------------------------------------------------------------------------
 -- APPENDED 2026-08-19, fifth append.

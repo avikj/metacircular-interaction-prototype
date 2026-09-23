@@ -76,7 +76,7 @@ open import Cubical.Data.Empty as ⊥ using (⊥)
 open import Cubical.Relation.Nullary
   using (¬_ ; Dec ; yes ; no ; Discrete ; Dec→Stable)
 
-open import KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet
+open import OrderAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet
   using (Enumerated ; decΣOverEnumerated)
 open import TheParetoStratumIsDecidableAndTheFilterIsExact
   using (decNeg)

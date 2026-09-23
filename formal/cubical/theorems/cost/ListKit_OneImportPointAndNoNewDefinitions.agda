@@ -28,7 +28,7 @@
 --
 -- **`All` IS DELIBERATELY ABSENT.**  There are three definitions â”
 -- `TheParetoStratumIsDecidableAndTheFilterIsExact.All`,
--- `KramaAstiNasti_AnEnumerableRemedySetKillsTheFourthCorner.All`
+-- `OrderAstiNasti_AnEnumerableRemedySetKillsTheFourthCorner.All`
 -- (identical), `EveryRemainderMemberIsStrictlyDominated.AllL` (same
 -- again, different name), and `RateOneIsExactlyTheUniversalClaim.All`
 -- (a different, `Bool`-specific thing).  Re-exporting one would pick a
@@ -43,7 +43,7 @@
 
 module ListKit_OneImportPointAndNoNewDefinitions where
 
-open import KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet public
+open import OrderAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet public
   using (Any ; decAny ; memberToAny)
 open import ANonEmptyArchiveHasANonEmptyStratum public
   using (anyMap)

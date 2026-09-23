@@ -47,7 +47,7 @@ LawfulStep(A) â‰ (A â’ A)
 This changes the conceptual relation between ordinary and lossless computation. The richer machine is not a competing model. Ordinary computation is its visible projection; the proof-relevant machine is ordinary computation before forgetting.
 formal/cubical/kernel/RewriteCertificate.agda
 fibre/src/Fibre/Carrier.agda
-formal/cubical/theorems/residue/Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.agda
+formal/cubical/theorems/residue/Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.agda
 3. Forgetting and Freedom Are Two Views of the Same Fibre
 One of the strongest conversation-level syntheses is that a fibre is simultaneously the exact information lost by an observation and the exact room in which a transformation may move while preserving that observation.
 For an observable f : A â’ B, a conserving flow is a transformation Î¦ : A â’ A with f(Î¦(a)) = f(a). Such flows are equivalent to choosing, for every a, another point in the fibre over f(a). Under set-level hypotheses this upgrades to a monoid equivalence between f-preserving flows and fibrewise endomorphisms.
@@ -97,7 +97,7 @@ Oriented evaluators behave differently from positive execution cost. If an edge 
 When independent equivalences act on separate product factors, their transports fill a square. The square itself is retained before choosing an order around its boundary. Thus independence is supplied as higher-dimensional mathematical structure rather than inferred from a scheduler.
 independent actions â’ filler/coherence cell; order-sensitive interaction â’ residual holonomy
 This reframes concurrency and conflict. A commuting square is positive evidence of independence. Failure to fill can itself be retained as information rather than erased by a global serialization policy.
-formal/cubical/YugapatSankramana_IndependentTransportsFillASquareAndNeedNoGlobalOrder.agda
+formal/cubical/YugapatTransport_IndependentTransportsFillASquareAndNeedNoGlobalOrder.agda
 10. Same Residual Does Not Mean Same Obstruction
 A later correction sharpened the obstruction language. Two constructions can have exactly the same fibre and exactly the same point motion while failing for different reasons because the required diagrams differ.
 `RelationalTensorObstructionBridge` exhibits a Bool residual with negation motion in both a relational SÂ-family and a local/joint tensor construction. One obstruction is failure of a loop-coherent global section; the other is failure of a right inverse to a lossy quotient. A bare local choice exists in the tensor case.
@@ -188,12 +188,12 @@ formal/lean/Pairfield/GoldbachDeterminesZeta.lean
 formal/lean/Pairfield/GoldbachReconstructionChain.lean
 formal/lean/Pairfield/GoldbachSupportIsThePrimePowerSumPredicate.lean
 23. Mbius Coefficients and Residue Phase Are Transverse Readings
-`TiryakTantu` proves that the coefficient and phase variables in a prime-pair analytic reduction are not two noisy estimates of the same information. They are transverse quotients of one arithmetic variable.
+`TiryakFiber` proves that the coefficient and phase variables in a prime-pair analytic reduction are not two noisy estimates of the same information. They are transverse quotients of one arithmetic variable.
 The phase sees u through u mod v (and hence the inverse residue  mod v). The coefficient sees u through its factorization/Mbius data. Explicit blind pairs show that neither reading factors through the other.
 residue reading âŸ factorization/Mbius reading
 Therefore fixing one and averaging over the other is not merely delicate analysis; it passes to a quotient on which the missing datum provably does not descend. The mathematically natural object is the joint carrier: factorization charge carried together with residue/phase data.
 This yielded a key research principle: the apparent analytic barrier can be a property of a projected language rather than of the unprojected arithmetic object.
-formal/cubical/theorems/number/TiryakTantu_ThePhaseAndTheCoefficientFactorThroughTransverseQuotientsOfOneVariable.agda
+formal/cubical/theorems/number/TiryakFiber_ThePhaseAndTheCoefficientFactorThroughTransverseQuotientsOfOneVariable.agda
 24. Finite CRT â’ Fourier â’ Kloosterman Is Already an Exact Transport
 `DivisorBoundaryKloostermanBridge` proves an exact finite adapter from a gcd-reduced divisor/CRT stratum to additive Fourier completion and classical Kloosterman sums. The repo deliberately does not overclaim an automorphic realization at this point.
 divisor/CRT chart â’ DFT chart â’ Kloosterman chart
@@ -318,14 +318,14 @@ formal/cubical/kernel/RewriteCertificate.agda
 formal/cubical/kernel/ControlledGrammar.agda
 formal/cubical/kernel/GenerativeKernel.agda
 formal/cubical/kernel/EveryDerivationIsInvertible.agda
-formal/cubical/kernel/VyayaSesa_TheRoundTripIsPureCostAndTrivialMeaningSoCostIsSupportedOnTheKernelOfTheGroupoidCompletion.agda
+formal/cubical/kernel/VyayaResidue_TheRoundTripIsPureCostAndTrivialMeaningSoCostIsSupportedOnTheKernelOfTheGroupoidCompletion.agda
 formal/cubical/kernel/AdiBija_TheKernelIsInitialEveryReadingIsItsUniqueFoldSoAllPathsThroughASystemAreEnumeratedByOneRecursor.agda
 formal/cubical/kernel/MulyaVinimaya_TheValueOfATraceIsItsPairingWithAnEvaluatorPotentialsTelescopeAndADepthEvaluatorHasNonzeroCycleIntegral.agda
 formal/cubical/kernel/MulaCakraPariksa_OneCycleTestDecidesPathIndependenceForEveryAntisymmetricEvaluator.agda
 formal/cubical/kernel/SthapanaVarga_SelfExtensionIsClassifiedByDerivationUpToControlGaugeAndInstallationIsTheCanonicalGauge.agda
 formal/cubical/Kernel/Naya_EvalIsOneStandpointAndASecondOneProvesTheInductionRuleIsStrictlyStrongerThanTheRewriteClosure.agda
-formal/cubical/theorems/residue/Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.agda
-formal/cubical/YugapatSankramana_IndependentTransportsFillASquareAndNeedNoGlobalOrder.agda
+formal/cubical/theorems/residue/Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.agda
+formal/cubical/YugapatTransport_IndependentTransportsFillASquareAndNeedNoGlobalOrder.agda
 formal/cubical/theorems/logic/SetBaseNoMonodromy.agda
 formal/cubical/theorems/residue/RelationalTensorObstructionBridge.agda
 formal/cubical/theorems/primes/pair_field/CycleHolonomy.agda
@@ -338,7 +338,7 @@ formal/cubical/theorems/number/PrimePairDecompositionCurvature.agda
 formal/cubical/theorems/homotopy/CarryObstruction.agda
 formal/cubical/theorems/homotopy/GroupCohomologyH2.agda
 formal/cubical/theorems/physics/DescentObstructionUnified.agda
-formal/cubical/theorems/number/TiryakTantu_ThePhaseAndTheCoefficientFactorThroughTransverseQuotientsOfOneVariable.agda
+formal/cubical/theorems/number/TiryakFiber_ThePhaseAndTheCoefficientFactorThroughTransverseQuotientsOfOneVariable.agda
 formal/lean/Pairfield/GoldbachDeterminesZeta.lean
 formal/lean/Pairfield/GoldbachReconstructionChain.lean
 formal/lean/Pairfield/GoldbachSupportIsThePrimePowerSumPredicate.lean
@@ -372,7 +372,7 @@ Date: 6 September 2026.
 
 Repository source reads are pinned to commit `64effa62411bad3c12d513b2df5a1e5e55946afb` of `avikj/metacircular-interaction-prototype`. These are mathematical derivations, not newly compiled Agda or Lean modules. The accompanying SymPy scripts verify finite algebraic identities only. Neither the Riemann hypothesis nor global Navierâ“Stokes regularity is proved here. No novelty-priority claim is made.
 
-The repository inputs inspected are `formal/lean/Pairfield/VonMangoldtTriangularReconstruction.lean`, `GoldbachReconstructionChain.lean`, and `VandermondeFrequencyResponse.lean`; `formal/cubical/theorems/automata/ObservableInterface.agda`; `formal/cubical/theorems/physics/DefectCalculus.agda`; and `formal/cubical/kernel/SankramanaShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot.agda`.
+The repository inputs inspected are `formal/lean/Pairfield/VonMangoldtTriangularReconstruction.lean`, `GoldbachReconstructionChain.lean`, and `VandermondeFrequencyResponse.lean`; `formal/cubical/theorems/automata/ObservableInterface.agda`; `formal/cubical/theorems/physics/DefectCalculus.agda`; and `formal/cubical/kernel/TransportShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot.agda`.
 
 The arithmetic reconstruction theorem supplies the von Mangoldt sequence and its logarithmic-derivative Dirichlet series only in the Euler half-plane. Analytic continuation, the functional equation, the classical explicit formula, and the standard zero-counting bound are separate classical inputs. An authoritative statement of the explicit formula used below is E. Bombieri, *Problems of the Millennium: the Riemann Hypothesis*, Â§V, Clay Mathematics Institute.
 
@@ -4916,7 +4916,7 @@ The new calculations below provide:
 
 These are source constructions and evolution identities. They are not additional positive kernels whose positivity is then silently promoted to the target arithmetic or PDE statement.
 
-The repository's `Ekatva` proves contractibility of the type of lossless completions over a fixed map. `ActionResidual` proves the exact realized-preservation hypothesis needed for a residual update. The present use does not ask either generic theorem to supply an analytic sign it does not state.
+The repository's `Uniqueness` proves contractibility of the type of lossless completions over a fixed map. `ActionResidual` proves the exact realized-preservation hypothesis needed for a residual update. The present use does not ask either generic theorem to supply an analytic sign it does not state.
 
 # Part I. RH: actual cardinal sources with a logarithmic support overhead
 
@@ -5562,7 +5562,7 @@ Lossless completion does not require reinvention in either argument. It also doe
 
 Repository paths actually read during this pass:
 
-- `formal/cubical/theorems/residue/Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda`
+- `formal/cubical/theorems/residue/Uniqueness_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda`
 - `formal/cubical/theorems/automata/ActionResidual.agda`
 - `formal/lean/Pairfield/GoldbachReconstructionChain.lean`
 - `formal/lean/Pairfield/FinitePositiveExposedPoint.lean`
@@ -9521,7 +9521,7 @@ This is an assembled dependency slice for two concrete closing routes. It is not
 
 Let X_i be representations of a declared source X with equivalences e_i:X â‰ X_i. The source-induced carry is c_ij=e_j e_i^{-1}. Then c_jk c_ij=c_ik. For an actual source evolution Phi_st, the representation-level evolution is e_t Phi_st e_s^{-1}. Its composition law follows by cancellation of e_t^{-1}e_t. For a predicate Bad on X, put Bad_i=Bad âˆ˜ e_i^{-1}; then Î_x Bad(x) â‰ Î_y Bad_i(y). Existence, uniqueness, and emptiness are transported, not supplied, by these equivalences.
 
-Repository implementation read: `formal/cubical/theorems/residue/Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda`, especially `losslessness-is-a-property` and `lawful-steps-are-the-maps`.
+Repository implementation read: `formal/cubical/theorems/residue/Uniqueness_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda`, especially `losslessness-is-a-property` and `lawful-steps-are-the-maps`.
 
 Consequence: canonical source recovery and pure re-encoding coherence are not independent unfinished research tasks. Endpoint analysis still needs its application-specific property.
 

@@ -7,7 +7,7 @@
 -- Bool) ‡  ‡‡‡‡Æ‡æ‡‡ ‡‡‡æ‡®‡ø ‡‡∞‡‡µ‡æ‡‡ø ‡‡ï‡‡‡Æ‡æ‡‡ ‡‡‡‡æ‡‡ ‡‡æ‡Ø‡®‡‡‡, ‡‡‡∞‡‡‡Ø‡‡ï‡
 -- ‡ï‡∞‡‡-‡‡ø‡¶‡‡ß‡Æ‡ (--safe, no postulate, no hole) :
 --
---   BhedaAvatarana.‡‡ï‡‡¶‡        ‚î ‡‡ï‡‡¶‡ refl : ‡∞‡ã‡ó‡ (discrete‚ï-‡‡‡‡à‡∞‡‡Ø‡Æ‡) ‡‡‡ ‡
+--   BhedaDescent.‡‡ï‡‡¶‡        ‚î ‡‡ï‡‡¶‡ refl : ‡∞‡ã‡ó‡ (discrete‚ï-‡‡‡‡à‡∞‡‡Ø‡Æ‡) ‡‡‡ ‡
 --   LosslessReturn.‡‡‡®‡∞‡æ‡ó‡Æ‡®‡Æ‡     ‚î ‡‡≤‡ã‡‡ : ‡â‡‡‡‡æ‡®‡Æ‡ ‡‡µ‡‡∞‡‡‡‡Ø ‡‡‡∞‡‡ø‡≤‡ã‡Æ‡Æ‡ (‡‡‡ø‡‡‡æ) ‡
 --   LosslessReturn.‡Ø‡‡ó‡‡Æ‚â°‡µ‡ø‡µ‡‡ï    ‚î ‡‡Æ‡‡æ, univalence-‡‡®‡‡‡æ‡ (‡¶‡‡µ‡ ‡®‡Ø‡ ‡‡ï‡ ‡‡‡‡‡‡µ‡Æ‡) ‡
 --   Gati.‡‡≤‡ã‡‡                  ‚î ‡‡Æ‡‡‡‡∞‡‡‡ ‡Ø‡®‡‡‡‡∞‡ ‡‡‡∞‡‡ø‡≤‡ã‡Æ‡‡æ ; ‡‡®‡‡ï‡‡‡Æ‡ (‡‡‡‡Ø‡®‡ø‡‡‡†‡æ) ‡
@@ -36,7 +36,7 @@ module Jiva where
 
 -- qualified imports : the whole closure is forced to typecheck as one,
 -- without merging the (deliberately overlapping) Devanagari names.
-import BhedaAvatarana
+import BhedaDescent
 import LosslessReturn
 import Gati
 import Gurutama
@@ -94,11 +94,11 @@ import NarayanaSamasa
 -- ‡‡‡∞‡‡‡Æ‡ó‡‡‡‡‡‡‡Ø ‡‡æ‡µ‡®‡æ ‚î ‡µ‡∞‡‡ó-‡‡‡∞‡ï‡‡‡‡ ‡‡‡Ø‡ã‡ó‡ (‡‡ï‡‡∞‡µ‡æ‡≤‡‡‡Ø ‡‡‡‡Æ‡)
 import Brahmagupta
 
-import Satyayantra
+import Satyamachine
 import PingalaSatya
 import Saptabhangi
 import Panini
-import SatyayantraSamyoga
+import SatyamachineSamyoga
 import Setu
 import Vargana
 import Shunya
@@ -142,5 +142,5 @@ import Shadrasa
 import GhanaBaddha
 import Cakravala
 import Meru
-import BhavanaSamuha
+import CompositionSet
 import VargaprakritiSreni

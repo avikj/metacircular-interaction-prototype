@@ -17,13 +17,13 @@
 -- head by refl the way the other two can.  It closes by
 -- carry-transport-descend, i.e. by the β rule.
 
-module Punaragamana.Nucleus where
+module Return.Nucleus where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
 
-open import Punaragamana.Carrier
-open import Punaragamana.Orbit
+open import Return.Carrier
+open import Return.Orbit
 
 private
   variable

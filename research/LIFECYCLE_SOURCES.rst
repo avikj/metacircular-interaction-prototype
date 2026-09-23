@@ -43,14 +43,14 @@ source-linked documentation; no new proof or native run is claimed.
 2. Interactive self-presentation
 ===============================
 
-`Fibre.Samvada <../fibre/src/Fibre/Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers.agda>`_
+`Fibre.Interaction <../fibre/src/Fibre/Interaction_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers.agda>`_
     ``ISC``, ``react``, ``visit``, ``continue``, ``observe``.
 
     ``react`` returns a successor, a successor-indexed observation, its event
     content, and ``ISC`` at that successor. Finite observation consumes finite
     demand. The continuing process is not the resulting list of observations.
 
-`Fibre.CorpusSamvada <../fibre/src/Fibre/CorpusSamvada.agda>`_
+`Fibre.CorpusInteraction <../fibre/src/Fibre/CorpusInteraction.agda>`_
     ``Point``, ``Question``, ``target``, ``run``.
 
     ``Point = Sigma(A : Type). A``; a question contains a target type and a

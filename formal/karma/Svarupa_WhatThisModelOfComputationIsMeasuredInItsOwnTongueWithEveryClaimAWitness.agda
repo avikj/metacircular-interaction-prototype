@@ -29,7 +29,7 @@
 --                     to quiet with certificates (‡‡‡æ‡‡‡ü‡ï-‡‡æ‡ï‡‡‡‡Ø‡Æ‡
 --                     below re-checks it).  Novel theorems beyond the
 --                     store: nine in the first sitting, milliseconds
---                     (Samvada).  Laws of time through the same gate
+--                     (Interaction).  Laws of time through the same gate
 --                     (KalaDravya ¬ß5).  Organ birth from attainment
 --                     (Gunasthana; climb 103/108 with no agent).
 --   Models itself?    Partially, and the boundary is exact: its time

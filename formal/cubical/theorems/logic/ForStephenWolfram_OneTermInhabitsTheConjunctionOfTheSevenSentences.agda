@@ -109,7 +109,7 @@
 -- Exit 0 checks this file and, through it, the three dictionary
 -- modules.  --safe means a green check is the theorem, not a report of
 -- one.  The prose form is abstracts/26_*.txt; the running machine is
--- `sh interactive/run-yantra.sh` â” every answer a transport with an
+-- `sh interactive/run-machine.sh` â” every answer a transport with an
 -- exhibited identification, or a written defect naming its losses.
 --
 -- CHECKED: Agda 2.8.0 + agda/cubical v0.9 â” the repository pin.

@@ -339,4 +339,4 @@ Z=Z_1+R_1Z_2T_1.
 
 [S17]'s independent exact evaluator implements \(M_n=\mathscr P\mathscr L\mathscr Q(\mathscr Q\mathscr L\mathscr Q)^n\mathscr Q\mathscr L\mathscr P\) and checks renewal coefficients, product laws, nonzero initial complements, and a finite periodic NS Fourier primitive with energy/helicity controls.
 
-These are **standalone Python realizations**. Their original reports claim 141 checks for [S17] and 86 for [S18]. They were not proofs installed into the actual Agda kernel. Preserve them as reference implementations and regression suites; encode the typed general rules natively before saying Yantra has learned them.
+These are **standalone Python realizations**. Their original reports claim 141 checks for [S17] and 86 for [S18]. They were not proofs installed into the actual Agda kernel. Preserve them as reference implementations and regression suites; encode the typed general rules natively before saying Machine has learned them.

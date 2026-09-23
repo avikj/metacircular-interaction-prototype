@@ -73,7 +73,7 @@
 --
 -- CORRECTED 2026-08-20, when the engine side was spliced in and the
 -- claims became checkable.  This paragraph previously predicted what
--- striking `anal-vidhau` (`deriveSthanivatEverywhere`) would give:
+-- striking `anal-vidhau` (`derivePositionalEverywhere`) would give:
 -- `neana` for n ~ lyu, `vj` for vc, `tadjalam` for tat + jalam.
 -- All three are wrong, and the machine's answers are sharper than the
 -- guesses were:

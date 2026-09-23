@@ -22,7 +22,7 @@
 -- m + pos n � m` � so a `refl` on nine-digit � literals asks for ~10��
 -- unfoldings and never returns.  Cubical's � is `Agda.Builtin.Nat`, whose
 -- `_+_` and `_�_` are GMP-backed, so the same statement over � is instant.
--- Clearing the subtraction is exactly what `BhavanaSemiring.agda` does for
+-- Clearing the subtraction is exactly what `CompositionSemiring.agda` does for
 -- bhvan, for the same reason.
 --
 -- THE TRACE BELOW IS THE GENERATOR'S WORD, NOT THE KERNEL'S.  It is here
@@ -44,7 +44,7 @@ module CakravalaWitness where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; _+_ ; _·_)
 open import Cubical.Data.Sigma using (_×_ ; _,_)
-open import BhavanaSemiring using (cx ; cy ; bhavanaℕ)
+open import CompositionSemiring using (cx ; cy ; compositionℕ)
 open import CakravalaNat using (ca ; cb ; cakravalaℕ)
 
 D : ℕ
@@ -206,7 +206,7 @@ shortLaw7 : cx D 29718 3805 29718 3805 · cx D 29718 3805 29718 3805
      ≡ 29718 · 29718 · (29718 · 29718)
      + (D · D · (3805 · 3805 · (3805 · 3805))
         + D · (cy 29718 3805 29718 3805 · cy 29718 3805 29718 3805))
-shortLaw7 = bhavanaℕ D 29718 3805 29718 3805
+shortLaw7 = compositionℕ D 29718 3805 29718 3805
 
 
 ------------------------------------------------------------------------
@@ -225,7 +225,7 @@ fundamental = refl
 --
 -- The next solution is not searched for.  It is Brahmagupta's composition
 -- of the solution with itself � tulya-bhvan � and `cx`/`cy` below are
--- his own two coordinates, taken from `BhavanaSemiring` rather than
+-- his own two coordinates, taken from `CompositionSemiring` rather than
 -- rewritten here.
 ------------------------------------------------------------------------
 
@@ -235,8 +235,8 @@ b² = 798920165762330040
 
 -- the composite really is Brahmagupta's composite, not a number this
 -- generator chose: cx and cy at (a, b, a, b) evaluate to it
-compositeIsBhavana : (cx D a b a b ≡ a²) × (cy a b a b ≡ b²)
-compositeIsBhavana = refl , refl
+compositeIsComposition : (cx D a b a b ≡ a²) × (cy a b a b ≡ b²)
+compositeIsComposition = refl , refl
 
 -- and it solves the same equation
 composed : a² · a² ≡ D · (b² · b²) + 1
@@ -245,7 +245,7 @@ composed = refl
 ------------------------------------------------------------------------
 -- THE GENERAL THEOREM, FIRED AT THESE NUMBERS.
 --
--- `bhavana�` is proved in `BhavanaSemiring.agda` for ALL naturals, as a
+-- `composition�` is proved in `CompositionSemiring.agda` for ALL naturals, as a
 -- commutative-semiring identity.  Instantiating it here is what makes the
 -- two `refl`s above an instance of Brahmagupta's law rather than an
 -- arithmetic coincidence that happens to hold at one pair of numbers.
@@ -256,4 +256,4 @@ law : cx D a b a b · cx D a b a b
     ≡ a · a · (a · a)
         + (D · D · (b · b · (b · b))
            + D · (cy a b a b · cy a b a b))
-law = bhavanaℕ D a b a b
+law = compositionℕ D a b a b

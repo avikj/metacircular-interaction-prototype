@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 
-module Samkramana where
+module Samorderna where
 
 open import Cubical.Foundations.Prelude     using (Type; _≡_; PathP; refl; sym; cong; _∙_; transport; transport-filler; ~_; _∨_)
 open import Cubical.Foundations.Isomorphism using (Iso; iso; isoToEquiv)
@@ -46,14 +46,14 @@ yugma≃rāśi-traya = isoToEquiv yugma-rāśi-traya-Iso
 yugma≡rāśi-traya : (ℕ × ℕ) ≡ rāśi-traya
 yugma≡rāśi-traya = ua yugma≃rāśi-traya
 
-saṃkramaṇa : ℕ × ℕ → rāśi-traya
-saṃkramaṇa x = transport (λ i → yugma≡rāśi-traya i) x
+saṃorderṇa : ℕ × ℕ → rāśi-traya
+saṃorderṇa x = transport (λ i → yugma≡rāśi-traya i) x
 
-saṃkramaṇa-anuloma : (x : ℕ × ℕ) → saṃkramaṇa x ≡ anuloma x
-saṃkramaṇa-anuloma x = refl
+saṃorderṇa-anuloma : (x : ℕ × ℕ) → saṃorderṇa x ≡ anuloma x
+saṃorderṇa-anuloma x = refl
 
-pratisaṃkramaṇa : (v : rāśi-traya) → transport (λ i → yugma≡rāśi-traya (~ i)) v ≡ viloma v
-pratisaṃkramaṇa v = refl
+pratisaṃorderṇa : (v : rāśi-traya) → transport (λ i → yugma≡rāśi-traya (~ i)) v ≡ viloma v
+pratisaṃorderṇa v = refl
 
 Φ : ℕ × ℕ → ℕ × ℕ
 Φ (s , l) = suc s , suc l
@@ -61,8 +61,8 @@ pratisaṃkramaṇa v = refl
 Φ-rāśi-traya : rāśi-traya → rāśi-traya
 Φ-rāśi-traya v = anuloma (Φ (viloma v))
 
-Φ-saṃkramaṇa : transport (λ i → yugma≡rāśi-traya i → yugma≡rāśi-traya i) Φ ≡ Φ-rāśi-traya
-Φ-saṃkramaṇa = refl
+Φ-saṃorderṇa : transport (λ i → yugma≡rāśi-traya i → yugma≡rāśi-traya i) Φ ≡ Φ-rāśi-traya
+Φ-saṃorderṇa = refl
 
 Φ-patha : PathP (λ i → yugma≡rāśi-traya i → yugma≡rāśi-traya i) Φ Φ-rāśi-traya
 Φ-patha = transport-filler (λ i → yugma≡rāśi-traya i → yugma≡rāśi-traya i) Φ
@@ -111,8 +111,8 @@ eka-pada v = refl
 eka-pada-viloma : (v : rāśi-traya) → viloma (pada 1 (grathana v)) ≡ Φ (viloma v)
 eka-pada-viloma v = refl
 
-eka-pada-saṃkramaṇa : (v : rāśi-traya) → saṃkramaṇa (Φ (viloma v)) ≡ pada 1 (grathana v)
-eka-pada-saṃkramaṇa v = refl
+eka-pada-saṃorderṇa : (v : rāśi-traya) → saṃorderṇa (Φ (viloma v)) ≡ pada 1 (grathana v)
+eka-pada-saṃorderṇa v = refl
 
 ārambha-viloma-anuloma : (x : ℕ × ℕ) → viloma (pada 0 (ārambha x)) ≡ x
 ārambha-viloma-anuloma x = refl

@@ -18,7 +18,7 @@
 -- WHY THIS MODULE EXISTS.  Its neighbour repaired a collapse and
 -- committed the same collapse one level up, hours later.
 --
--- `SakalaVikalaDesa_‚¶` (this library, today) replaced a two-valued test
+-- `WholePartialDesa_‚¶` (this library, today) replaced a two-valued test
 -- with a three-valued census ‚î empty / contractible / crowded ‚î because
 -- `isContr` was merging ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ with ‡®‡‡‡ü‡ø.  That was right.
 --
@@ -76,7 +76,7 @@
 -- --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
-module Punaragamana.Adharmin_TheUnposedQuestionIsNotAnEmptyFibreAndTheCensusCannotSayIt where
+module Return.Adharmin_TheUnposedQuestionIsNotAnEmptyFibreAndTheCensusCannotSayIt where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sigma
@@ -85,7 +85,7 @@ open import Cubical.Data.Maybe using (Maybe ; nothing ; just)
 open import Cubical.Data.Unit using (Unit* ; tt*)
 open import Cubical.Relation.Nullary using (¬¨_)
 
-open import Punaragamana.SakalaVikalaDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic
+open import Return.WholePartialDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic
   using (‡§¶‡•á‡§∂ ; ‡§ó‡§£‡§®‡§æ)
 
 private

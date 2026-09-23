@@ -7,7 +7,7 @@
 -- THE COMPLETION OF THE ‡¶‡‡∞‡µ‡‡Ø‡‡∞‡‡Ø‡æ‡Ø ‚î ‡ï‡‡∞‡Æ-‡‡ JOIN.  `DravyaParyaya_‚¶`
 -- (Umsvti, Tattvrthastra 5.29/5.37; Siddhasena, Sanmatitarka 1.3‚ì6)
 -- identified the two standpoints in cubespace: dravyrthika reads the
--- type, paryyrthika reads the paths.  `KramaSaha_‚¶` proved they do not
+-- type, paryyrthika reads the paths.  `OrderSaha_‚¶` proved they do not
 -- commute and priced the commutator: exactly ‚.  Siddhasena's sentence is
 -- stronger than either: EACH standpoint, taken as sole, denies the other
 -- ‚î a durnaya ‚î and this module checks that sentence in BOTH directions,
@@ -55,7 +55,7 @@ open import Cubical.HITs.SetTruncation
   using (‚à•_‚à•‚ÇÇ ; ‚à£_‚à£‚ÇÇ ; isSetSetTrunc ; setTruncIso)
   renaming (rec to rec‚ÇÇ ; elim to elim‚ÇÇ)
 
-open import KramaSaha_TheOrderOfStandpointsIsTheChargeItself
+open import OrderSaha_TheOrderOfStandpointsIsTheChargeItself
   using (‡§ï‡•ç‡§∞‡§Æ‡§É-‡§≤‡•Ç‡§™-‡§™‡•ç‡§∞‡§•‡§Æ‡§Æ‡•ç ; ‡§Ö‡§ï‡•ç‡§∞‡§Æ‡§§‡§æ)
 
 ------------------------------------------------------------------------
@@ -91,7 +91,7 @@ open import KramaSaha_TheOrderOfStandpointsIsTheChargeItself
 
 ------------------------------------------------------------------------
 -- ‡® ¬ ‡‡∞‡‡Ø‡æ‡Ø-‡‡‡‡ï‡ ‚î the paryya census separates that very pair.
--- ‚à Œ© S¬ ‚à‚ ‚â ‚ (KramaSaha) is not contractible (‡‡ï‡‡∞‡Æ‡‡æ); ‚à Œ© Unit ‚à‚ is.
+-- ‚à Œ© S¬ ‚à‚ ‚â ‚ (OrderSaha) is not contractible (‡‡ï‡‡∞‡Æ‡‡æ); ‚à Œ© Unit ‚à‚ is.
 ------------------------------------------------------------------------
 
 ‡§¨‡§ø‡§®‡•ç‡§¶‡•Å-‡§≤‡•Ç‡§™-‡§∏‡§ô‡•ç‡§ï‡•ã‡§ö‡§É : isContr ‚à• Path Unit tt tt ‚à•‚ÇÇ

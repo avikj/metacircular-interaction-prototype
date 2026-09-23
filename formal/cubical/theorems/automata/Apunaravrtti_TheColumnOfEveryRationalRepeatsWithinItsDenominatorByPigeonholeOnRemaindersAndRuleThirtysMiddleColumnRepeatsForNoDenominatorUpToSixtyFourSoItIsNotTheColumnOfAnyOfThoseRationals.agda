@@ -19,11 +19,11 @@
 -- � 64 (§5: instances at depths 64, 128, 256).  Whether it returns at all is Wolfram's first Rule 30
 -- prize problem (2019), open; what is decided here is decided exactly.
 --
--- Every module in this file was submitted to the yantra
--- (interactive/run-yantra.sh --wire, sadhana.patra) and accepted by its
+-- Every module in this file was submitted to the machine
+-- (interactive/run-machine.sh --wire, sadhana.patra) and accepted by its
 -- kernel on 2026-09-11; the wire transcript is
--- research/rule30/yantra_answers.jsonl and the session's doa-lekha is
--- research/rule30/yantra_session.lekha.
+-- research/rule30/machine_answers.jsonl and the session's doa-lekha is
+-- research/rule30/machine_session.lekha.
 --
 --   §1  the column of a rational;  §2  it repeats, with the bounds;
 --   §3  Rule 30's column in one pass;  §4  the finite decision;
@@ -83,9 +83,9 @@ punar a b i j e (suc k) =
 sthiti : (a b : ℕ) → Fin (suc (suc b)) → Fin (suc b)
 sthiti a b (k , _) = śeṣa a b k , śeṣa< a b k
 
-krama : (a b : ℕ) (i j : Fin (suc (suc b))) → ¬ i ≡ j → sthiti a b i ≡ sthiti a b j
+order : (a b : ℕ) (i j : Fin (suc (suc b))) → ¬ i ≡ j → sthiti a b i ≡ sthiti a b j
       → Σ[ u ∈ ℕ ] Σ[ v ∈ ℕ ] (u < v) × (v < suc (suc b)) × (śeṣa a b u ≡ śeṣa a b v)
-krama a b (i , i<) (j , j<) ne e with i ≟ j
+order a b (i , i<) (j , j<) ne e with i ≟ j
 ... | lt i<j = i , j , i<j , j< , cong fst e
 ... | gt j<i = j , i , j<i , i< , sym (cong fst e)
 ... | eq i≡j = E.rec (ne (toℕ-injective i≡j))
@@ -93,7 +93,7 @@ krama a b (i , i<) (j , j<) ne e with i ≟ j
 rational→periodic : (a b : ℕ) → EventuallyPeriodic (aṅka a b) (suc b)
 rational→periodic a b =
   let (i , j , ne , e) = pigeonhole ≤-refl (sthiti a b)
-      (u , v , (d , du) , v< , eu) = krama a b i j ne e
+      (u , v , (d , du) , v< , eu) = order a b i j ne e
   in suc d , u
    , (d , +-suc d 0 ∙ cong suc (+-zero d))
    , p≤ d u v du v<

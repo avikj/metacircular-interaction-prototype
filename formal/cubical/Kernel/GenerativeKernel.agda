@@ -1,13 +1,13 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
-module Kernel.GenerativeKernel where
+module GenerativeKernel where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.List using (List ; [] ; _∷_ ; map ; length)
 open import Cubical.Data.Nat using (ℕ)
 
-open import Kernel.RewriteCertificate
-open import Kernel.ControlledGrammar
+open import RewriteCertificate
+open import ControlledGrammar
 
 -- This is both formation state and executable branch. No certificate is
 -- exported to a second language: operation, applicability, result, and the

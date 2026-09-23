@@ -163,7 +163,7 @@
 --    pin itself and this module checked under Agda 2.6.3 + cubical v0.5,
 --    exit 0.  No postulates, no holes, no TERMINATING.  See README,
 --    "Toolchain".
---    Nothing here imports outside `Punaragamana`: the vocabulary ‡µ‡∞‡‡ /
+--    Nothing here imports outside `Return`: the vocabulary ‡µ‡∞‡‡ /
 --    ‡‡¶‡‡ / AnalVidhi is redefined rather than imported from
 --    `formal/cubical`, so the library stays standalone and `check.sh`
 --    keeps checking what it says it checks.  That duplication is

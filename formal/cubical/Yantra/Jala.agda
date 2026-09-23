@@ -1,9 +1,9 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
-module Yantra.Jala where
+module Machine.Jala where
 -- ‡‡æ‡≤: the infinite prime stream, every state carrying its certificate.
 
-open import Yantra.Prakriti
-open import Yantra.Anantata
+open import Machine.Prakriti
+open import Machine.Anantata
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
 open import Cubical.Data.Nat.Order

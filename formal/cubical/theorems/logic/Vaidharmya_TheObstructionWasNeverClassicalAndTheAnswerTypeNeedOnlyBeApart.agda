@@ -60,7 +60,7 @@
 -- **That asymmetry is the content, not a defect.**  Blindness is free and
 -- universal; separation costs a point.  Which is the same shape as
 -- everything else here: ‡‡‡ is cheap to be stuck in and expensive to get
--- out of, and `Tantujala` proves `isContr` merges the two ends.
+-- out of, and `Fiberjala` proves `isContr` merges the two ends.
 --
 -- Nothing below computes a rank, a PSD dimension, or an entropy.  The
 -- tables, ordinary rank 4 both, PSD dimensions 2 and 4) is NOT derived

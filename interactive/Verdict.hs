@@ -19,7 +19,7 @@
 -- `Unparsed` cannot say it either.
 --
 -- SOURCES, EARLIEST FIRST.  The classification below is theirs.  The
--- algebra (`krama`, `saha`, and the laws in `selfTest`) is not claimed to be
+-- algebra (`order`, `saha`, and the laws in `selfTest`) is not claimed to be
 -- in any of them; what is theirs is three seed predicates, two modes of
 -- assertion, the rule that the simultaneous mode of asti-and-nasti is a
 -- FOURTH position rather than the sequential pair, and that the total is
@@ -40,12 +40,12 @@
 --     forgotten it is one.
 --   Samantabhadra, Aptamimamsa, c. 6th c. CE ‚î the saptabhangi as a fixed
 --     seven-membered scheme, each member prefixed `syat`.
---   Akalanka, Laghiyastraya / Astasati, c. 720‚ì780 CE ‚î krama (sequential)
+--   Akalanka, Laghiyastraya / Astasati, c. 720‚ì780 CE ‚î order (sequential)
 --     against saha / yugapat (simultaneous), and the argument that the
---     number is exactly seven.  The krama/saha distinction is his, and it is
+--     number is exactly seven.  The order/saha distinction is his, and it is
 --     the entire content of the two composition operators here.
---   Mallisena, Syadvadamanjari, 1292 CE ‚î sakaladesa (total statement,
---     pramana) against vikaladesa (partial statement, naya).
+--   Mallisena, Syadvadamanjari, 1292 CE ‚î wholedesa (total statement,
+--     pramana) against partialdesa (partial statement, naya).
 --
 -- CHECKED, NOT ASSERTED.  Every law this module states is proved in
 -- `formal/cubical/SaptabhangiSamyoga_TheCompositionOfVerdicts.agda`
@@ -56,12 +56,12 @@
 --
 -- WHAT IS DELIBERATELY ABSENT.
 --
---   * no `Ord` instance.  `<=` here is the krama order, and it is PARTIAL.
+--   * no `Ord` instance.  `<=` here is the order order, and it is PARTIAL.
 --     A derived `Ord` would supply a total order nobody proved.
 --   * no `Monoid`/`Semigroup` instance.  There are TWO compositions, and
 --     `saha` is not associative (`sahaNotAssociative` below, and
 --     `‡‡-‡‡‡ô‡‡ó‡‡ø‡` in the Agda), so a Semigroup instance for it would be a
---     lie and picking `krama` silently as "the" one would be the durnaya
+--     lie and picking `order` silently as "the" one would be the durnaya
 --     this module exists to remove.
 --   * no meet, no bottom, no `mempty` over `Bhanga`.  `syad-asti` and
 --     `syad-nasti` have no greatest lower bound among the seven: the
@@ -75,13 +75,13 @@
 -- day) gives the seven positions as constructors CARRYING the nayas and
 -- witnesses that produced them, so its fourth position remembers which two
 -- seeds it was made of and `caturthatTritiya` recovers the third from it.
--- On that type `krama` is NOT commutative -- succession keeps the first
+-- On that type `order` is NOT commutative -- succession keeps the first
 -- speaker's witness -- and its header withdraws the claim made here that
 -- consumption of the seeds is the doctrine's and not the model's.
 --
 -- Both modules are checked, and they are not the same object: here a
 -- position is a LABEL and the presence profile is all there is, there a
--- position is a RECORD.  On labels krama is commutative and saha destroys;
+-- position is a RECORD.  On labels order is commutative and saha destroys;
 -- on records it does not.  The reading of Mallisena (Syadvadamanjari, 1292)
 -- that separates them -- whether avaktavya is failure of expression only, or
 -- consumption of what was to be expressed -- is a real question in the
@@ -90,7 +90,7 @@
 -- So it is NOT reconciled here.  Two nayas that genuinely differ have no
 -- collapse to make (AHIMSA_SUTRA_VISTARA ¬ß7: it is not forbidden, it does
 -- not exist), and what is owed instead is the comparison: whether the
--- forgetful map from records to labels is a homomorphism for krama, for
+-- forgetful map from records to labels is a homomorphism for order, for
 -- saha, or for neither.  It is not claimed here in either direction,
 -- because it has not been checked.
 --
@@ -100,7 +100,7 @@
 -- (--cubical --guardedness --safe, exit 0, no postulates, no holes) and
 -- re-verified exhaustively in the sibling module's `selfTest` as
 -- `anarpana`.  The answer is BOTH: the forgetful map is a homomorphism
--- for krama AND for saha, for every standpoint family; it has a section
+-- for order AND for saha, for every standpoint family; it has a section
 -- (Tattvarthasutra 5.31's arpita to its anarpita) which is also a
 -- homomorphism for both; and it has NO inverse.  So THIS type is a
 -- RETRACT of the record type -- a subalgebra and a quotient of it at once
@@ -122,17 +122,17 @@
 --
 -- The Mallisena reading is still unsettled, and is now known to be
 -- undecidable BY THE COMPOSITION LAWS: the two lanes agree across it, so
--- any argument for a reading that runs through krama or saha proves
+-- any argument for a reading that runs through order or saha proves
 -- nothing.  It is a question about what a position IS.
 --
--- defect, and no third.  `krama` is the transport ‚î nothing is lost, and
+-- defect, and no third.  `order` is the transport ‚î nothing is lost, and
 -- that is why it is a semilattice.  `saha` writes the defect: it destroys
 -- which two seeds it consumed, which is why it does not associate.
 
 module Verdict
   ( Bhanga(..), Sthana(..), Upasthiti(..), Samavesa
   , profile, unprofile, isVerdict
-  , krama, saha, kramaS, sahaS, nyuna
+  , order, saha, orderS, sahaS, nyuna
   , Vacana(..), noVacana, sthana, seeds
   , vacanaOfRejection, sakshin
   , sanskritOf, glossOf, renderSthana, tallySthana
@@ -161,7 +161,7 @@ type Samavesa = (Upasthiti, Upasthiti, Upasthiti)
 data Bhanga
   = SyadAsti                 -- ‡‡‡Ø‡æ‡¶‡ ‡‡‡‡‡ø
   | SyadNasti                -- ‡‡‡Ø‡æ‡®‡ ‡®‡æ‡‡‡‡ø
-  | SyadAstiNasti            -- ‡‡‡Ø‡æ‡¶‡ ‡‡‡‡‡ø ‡ ‡®‡æ‡‡‡‡ø ‡        (krama)
+  | SyadAstiNasti            -- ‡‡‡Ø‡æ‡¶‡ ‡‡‡‡‡ø ‡ ‡®‡æ‡‡‡‡ø ‡        (order)
   | SyadAvaktavya            -- ‡‡‡Ø‡æ‡¶‡ ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡              (saha / yugapat)
   | SyadAstiAvaktavya        -- ‡‡‡Ø‡æ‡¶‡ ‡‡‡‡‡ø ‡ ‡‡µ‡ï‡‡‡µ‡‡Ø‡ ‡
   | SyadNastiAvaktavya       -- ‡‡‡Ø‡æ‡®‡ ‡®‡æ‡‡‡‡ø ‡ ‡‡µ‡ï‡‡‡µ‡‡Ø‡ ‡
@@ -201,19 +201,19 @@ isVerdict _           = True
 samyoga :: Samavesa -> Samavesa -> Samavesa
 samyoga (a1,n1,v1) (a2,n2,v2) = (va a1 a2, va n1 n2, va v1 v2)
 
--- ------------------------------------------------- ‡© krama: succession
+-- ------------------------------------------------- ‡© order: succession
 
 -- Asserted one after the other, nothing is lost: what either said, the pair
--- still says.  So krama IS the join of profiles ‚î transport, not collapse ‚î
+-- still says.  So order IS the join of profiles ‚î transport, not collapse ‚î
 -- and it is associative, commutative and idempotent (all three checked).
-krama :: Bhanga -> Bhanga -> Bhanga
-krama x y = forceVerdict (unprofile (samyoga (profile x) (profile y)))
+order :: Bhanga -> Bhanga -> Bhanga
+order x y = forceVerdict (unprofile (samyoga (profile x) (profile y)))
   where
     -- The union of two non-empty profiles is non-empty; `‡‡‡Ø‡ã‡ó-‡‡∞‡ø‡ï‡‡‡Æ‡` in
     -- the Agda is that fact, and this branch is unreachable BECAUSE of it.
     forceVerdict (Position b) = b
     forceVerdict Apratipatti  =
-      error "krama: unreachable (see ‡‡‡Ø‡ã‡ó-‡‡∞‡ø‡ï‡‡‡Æ‡, checked in Agda)"
+      error "order: unreachable (see ‡‡‡Ø‡ã‡ó-‡‡∞‡ø‡ï‡‡‡Æ‡, checked in Agda)"
 
 -- The tongue breaks.  If the join carries both asti and nasti, no single
 -- utterance carries it: the two seeds are consumed into avaktavya.  Akalanka's
@@ -234,20 +234,20 @@ saha x y = forceVerdict (unprofile (jihvabheda (samyoga (profile x) (profile y))
 
 -- On `Sthana`, `Apratipatti` is the unit of succession: composing a verdict
 -- with "nothing was said" is that verdict.  It is still not a verdict.
-kramaS :: Sthana -> Sthana -> Sthana
-kramaS Apratipatti s = s
-kramaS s Apratipatti = s
-kramaS (Position a) (Position b) = Position (krama a b)
+orderS :: Sthana -> Sthana -> Sthana
+orderS Apratipatti s = s
+orderS s Apratipatti = s
+orderS (Position a) (Position b) = Position (order a b)
 
 sahaS :: Sthana -> Sthana -> Sthana
 sahaS Apratipatti s = s
 sahaS s Apratipatti = s
 sahaS (Position a) (Position b) = Position (saha a b)
 
--- The krama order.  PARTIAL ‚î `nyuna SyadAsti SyadNasti` and
+-- The order order.  PARTIAL ‚î `nyuna SyadAsti SyadNasti` and
 -- `nyuna SyadNasti SyadAsti` are both False and the two have no lower bound.
 nyuna :: Bhanga -> Bhanga -> Bool
-nyuna x y = krama x y == y
+nyuna x y = order x y == y
 
 -- --------------------------------------------------- ‡ live evidence
 
@@ -315,7 +315,7 @@ glossOf (Position b) = case b of
   SyadAsti  -> "in some respect it is: a naya affirmed it"
   SyadNasti -> "in some respect it is not: a naya denied it, and no naya affirmed it"
   SyadAstiNasti ->
-    "affirmed by one naya and denied by another, IN SUCCESSION (krama) -- \
+    "affirmed by one naya and denied by another, IN SUCCESSION (order) -- \
     \not a contradiction, and not a tie"
   SyadAvaktavya ->
     "no single utterance carries it (saha/yugapat) -- NOT unknown, NOT \
@@ -344,20 +344,20 @@ tallySthana xs =
 
 selfTest :: [(String, Bool)]
 selfTest =
-  [ ("krama associative  (‡ï‡‡∞‡Æ-‡‡ô‡‡ó‡‡ø‡)",
-      and [ krama (krama x y) z == krama x (krama y z) | x <- bs, y <- bs, z <- bs ])
-  , ("krama commutative  (‡ï‡‡∞‡Æ-‡µ‡ø‡®‡ø‡Æ‡Ø‡)",
-      and [ krama x y == krama y x | x <- bs, y <- bs ])
-  , ("krama idempotent   (‡ï‡‡∞‡Æ-‡‡‡µ‡Ø‡Æ‡)",
-      and [ krama x x == x | x <- bs ])
-  , ("krama has a top    (‡‡ø‡ñ‡∞‡Æ‡)",
+  [ ("order associative  (‡ï‡‡∞‡Æ-‡‡ô‡‡ó‡‡ø‡)",
+      and [ order (order x y) z == order x (order y z) | x <- bs, y <- bs, z <- bs ])
+  , ("order commutative  (‡ï‡‡∞‡Æ-‡µ‡ø‡®‡ø‡Æ‡Ø‡)",
+      and [ order x y == order y x | x <- bs, y <- bs ])
+  , ("order idempotent   (‡ï‡‡∞‡Æ-‡‡‡µ‡Ø‡Æ‡)",
+      and [ order x x == x | x <- bs ])
+  , ("order has a top    (‡‡ø‡ñ‡∞‡Æ‡)",
       and [ nyuna x SyadAstiNastiAvaktavya | x <- bs ])
-  , ("krama of asti,nasti is the THIRD  (‡ï‡‡∞‡Æ‡‡-‡â‡‡Ø‡Æ‡)",
-      krama SyadAsti SyadNasti == SyadAstiNasti)
+  , ("order of asti,nasti is the THIRD  (‡ï‡‡∞‡Æ‡‡-‡â‡‡Ø‡Æ‡)",
+      order SyadAsti SyadNasti == SyadAstiNasti)
   , ("saha  of asti,nasti is the FOURTH (‡‡-‡â‡‡Ø‡Æ‡)",
       saha SyadAsti SyadNasti == SyadAvaktavya)
   , ("third /= fourth: saha is not sequential both-ness  (‡ï‡‡∞‡Æ-‡‡-‡‡‡¶‡)",
-      krama SyadAsti SyadNasti /= saha SyadAsti SyadNasti)
+      order SyadAsti SyadNasti /= saha SyadAsti SyadNasti)
   , ("saha commutative   (‡‡-‡µ‡ø‡®‡ø‡Æ‡Ø‡)",
       and [ saha x y == saha y x | x <- bs, y <- bs ])
   , ("saha NOT associative -- witness (B3 saha B1) saha B2 = B6, B3 saha (B1 saha B2) = B4",
@@ -365,9 +365,9 @@ selfTest =
       && saha SyadAstiNasti (saha SyadAsti SyadNasti) == SyadAvaktavya
       && saha (saha SyadAstiNasti SyadAsti) SyadNasti
          /= saha SyadAstiNasti (saha SyadAsti SyadNasti))
-  , ("avaktavya is NOT reachable by krama from the sequential three \
+  , ("avaktavya is NOT reachable by order from the sequential three \
      \(‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡-‡®-‡ï‡‡∞‡Æ‡‡Æ‡): it must be supplied",
-      SyadAvaktavya `notElem` kramaClosure [SyadAsti, SyadNasti, SyadAstiNasti])
+      SyadAvaktavya `notElem` orderClosure [SyadAsti, SyadNasti, SyadAstiNasti])
   , ("...and saha does reach it: the fourth position is positive, not an absence",
       SyadAvaktavya `elem` [ saha x y | x <- seedsOnly, y <- seedsOnly ])
   , ("asti and nasti have NO greatest lower bound (‡Æ‡‡≤‡®‡Æ‡-‡®‡æ‡‡‡‡ø): \
@@ -389,9 +389,9 @@ selfTest =
     seedsOnly = [SyadAsti, SyadNasti, SyadAvaktavya]
     allProfiles = [ (a,n,v) | a <- us, n <- us, v <- us ]
     us = [Aam, Na]
-    kramaClosure gen = go gen
+    orderClosure gen = go gen
       where
-        go cur = let nxt = nub (cur ++ [ krama x y | x <- cur, y <- cur ])
+        go cur = let nxt = nub (cur ++ [ order x y | x <- cur, y <- cur ])
                  in if length nxt == length cur then cur else go nxt
     -- all 2^7 maps into a two-element type, as their truth tables
     allBoolMaps = [ tbl | tbl <- sequence (replicate 7 [False, True]) ]
@@ -455,7 +455,7 @@ vacanaOfRejection nayaNote err = Vacana
 -- line 146 denies `x = (xmaxx)` and line 174 accepts it, same round, same
 -- process: under a Bool those were `False` and `True` about one claim and
 -- nothing in the codebase could say they were not a contradiction.  They are
--- krama -- two standpoints in succession -- and with this filled in the
+-- order -- two standpoints in succession -- and with this filled in the
 -- position is `syad-asti-nasti`, the THIRD bhanga, which is a real position
 -- and not a tie.
 sakshin :: [String] -> String -> Vacana -> Vacana

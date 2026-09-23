@@ -125,15 +125,15 @@ dist-newstyle/
 # still answer, and so a claim can be traced to the script it came from.
 zzz/**/*.pyc
 
-# interactive/yantra-session.lekha — the per-run session defect log.
-# run-yantra.sh does `rm -f "$LEKHA"` on EVERY invocation, by design: its
+# interactive/machine-session.lekha — the per-run session defect log.
+# run-machine.sh does `rm -f "$LEKHA"` on EVERY invocation, by design: its
 # own header says the chain must start at genesis so that `dosa.pramanya`
 # verifies THIS run and not a history it did not produce.  So a committed
 # copy is, by construction, always some other container's run — and a
 # `--wire` session deletes it and writes nothing, which is how it showed
 # up as a staged deletion.  interactive/dosa.lekha, the shared append-only
 # log several lanes write to, is a different file and stays tracked.
-interactive/yantra-session.lekha
+interactive/machine-session.lekha
 formal/cubical/corpus/Chunk*.agda
 formal/cubical/corpus/identity-rows.tsv
 formal/cubical/corpus/corpus-rows.tsv

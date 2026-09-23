@@ -15,7 +15,7 @@ resolved next to the importing file, then in the working directory).
 | `kernel/PvsNPGapLivesInTheForgetfulProjection.agda` (answer is projection; `forgetful-is-blind-to-route` via `isSet‚ï`) | `PvsNPGapLivesInTheForgetfulProjection.bend` | 98 | 4 (the detour's length) |
 | `kernel/EveryDerivationIsInvertible.agda` (`revD`, `len-revD`, `revD-sound`) | `EveryDerivationIsInvertible.bend` | 63 | ‚î |
 | `kernel/WindingCostIsUnarySize.agda` (`addTower`, cost = unary size) | `WindingCostIsUnarySize.bend` | 64 | `len (addTower 5)` ‚í 6 |
-| `SamvadaPrasna_‚¶.agda` ‚î the two-sided h-level theorem: `Netra` over `ISC`, the corecursive contraction `smyaP`, ‡‡ï-‡®‡‡‡‡∞‡Æ‡ (`oneEye`: over sets the process space is a point); `Vardhana` over the kernel, the length shadow `dlen`, ‡µ‡∞‡‡ß‡®-‡‡‡‡‡‡µ‡Æ‡ (`vardhanaNotContr`), `¬isProp Derivation` | `HLevelOfInteraction.bend` | 104 | `emitLen p2` ‚í 4 |
+| `InteractionPrasna_‚¶.agda` ‚î the two-sided h-level theorem: `Netra` over `ISC`, the corecursive contraction `smyaP`, ‡‡ï-‡®‡‡‡‡∞‡Æ‡ (`oneEye`: over sets the process space is a point); `Vardhana` over the kernel, the length shadow `dlen`, ‡µ‡∞‡‡ß‡®-‡‡‡‡‡‡µ‡Æ‡ (`vardhanaNotContr`), `¬isProp Derivation` | `HLevelOfInteraction.bend` | 104 | `emitLen p2` ‚í 4 |
 | `Cubical.HITs.SetQuotients` (`_/_`, `rec`, `elimProp`, `elimProp2`, `squash/`), `isSetŒ†`, `isPropŒ†` | `SetQuotient.bend` (on the declared HIT; `isPropPathP` is the dependent isProp‚íisSet square) | 57 | ‚î |
 | `hset.bend`: `hProp`, `isPropIso`, `uaEta`, `isSet hProp` | `HProp.bend` | 66 | ‚î |
 | `SQ.effective` (encode‚ìdecode over `Code : Q ‚í hProp`) | `Effective.bend` | 84 | ‚î |

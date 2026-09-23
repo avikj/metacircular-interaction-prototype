@@ -9,12 +9,12 @@
 -- substitution and says, in its own docstring, that this is the failure
 -- such a check *cannot* see: "the answer is true and wrong" -- a pair
 -- (x,y) with x^2 - D y^2 = 1 that is not the fundamental solution.  Its
--- shipped screen `is_bhavana_square` catches only the case where the
--- offender is a bhavana SQUARE.
+-- shipped screen `is_composition_square` catches only the case where the
+-- offender is a composition SQUARE.
 --
 -- The reason it can only catch squares is exact, and it is the content
 -- of this module.  The solutions form a group under Brahmagupta's
--- bhavana, and the FIRST COORDINATE of the n-th power depends on n and
+-- composition, and the FIRST COORDINATE of the n-th power depends on n and
 -- on the first coordinate of the base alone:
 --
 --     fst (delta ^ n)  =  T n (fst delta)      whenever N(delta) = 1
@@ -22,7 +22,7 @@
 -- with T n the Chebyshev polynomial of the first kind.  D and the second
 -- coordinate drop out completely.  So the index n -- the WEIGHT -- is
 -- readable off x by inverting a one-variable integer polynomial, and
--- `is_bhavana_square` is exactly the n = 2 member of that family:
+-- `is_composition_square` is exactly the n = 2 member of that family:
 --
 --     T 2 u = 2u^2 - 1    <=>    u^2 = (x+1)/2      (the shipped test)
 --     T 3 u = 4u^3 - 3u                            (missed: see below)
@@ -33,7 +33,7 @@
 -- test graded by 2 can see it.
 --
 -- Contents
---   bhavana-norm        Brahmagupta's samasa-bhavana is norm-multiplicative
+--   composition-norm        Brahmagupta's samasa-composition is norm-multiplicative
 --   trace-is-Chebyshev  fst (delta ^ n) = T n (fst delta) for N = 1  [object]
 --   T2                  the graded piece the shipped screen implements
 --   witness-*           the D = 3 weight-3 escape, by computation
@@ -69,7 +69,7 @@ R = fst ℤCommRing
 Sol : Type
 Sol = R × R
 
--- samasa-bhavana (Brahmagupta, 628 CE): multiplication in Z[sqrt D]
+-- samasa-composition (Brahmagupta, 628 CE): multiplication in Z[sqrt D]
 mulS : R → Sol → Sol → Sol
 mulS D (a , b) (c , d) = (a · c + D · (b · d) , a · d + b · c)
 
@@ -81,14 +81,14 @@ N D (a , b) = a · a - D · (b · b)
 -- ---------------------------------------------------------------------
 
 private
-  bhavana-raw : (D a b c d : R)
+  composition-raw : (D a b c d : R)
     →   (a · c + D · (b · d)) · (a · c + D · (b · d))
       - D · ((a · d + b · c) · (a · d + b · c))
     ≡ (a · a - D · (b · b)) · (c · c - D · (d · d))
-  bhavana-raw _ _ _ _ _ = solve! ℤCommRing
+  composition-raw _ _ _ _ _ = solve! ℤCommRing
 
-bhavana-norm : (D : R) (p q : Sol) → N D (mulS D p q) ≡ N D p · N D q
-bhavana-norm D (a , b) (c , d) = bhavana-raw D a b c d
+composition-norm : (D : R) (p q : Sol) → N D (mulS D p q) ≡ N D p · N D q
+composition-norm D (a , b) (c , d) = composition-raw D a b c d
 
 -- ---------------------------------------------------------------------
 -- powers in the solution group, and the Chebyshev polynomials
@@ -170,7 +170,7 @@ private
   T2gen : (e u : R) → ((e + e) · u) · u - e ≡ (e + e) · (u · u) - e
   T2gen _ _ = solve! ℤCommRing
 
--- T 2 u = 2u^2 - 1.  `is_bhavana_square` solves this for u, i.e. tests
+-- T 2 u = 2u^2 - 1.  `is_composition_square` solves this for u, i.e. tests
 -- whether (x+1)/2 is a perfect square: it is the weight-2 test and only
 -- the weight-2 test.
 T2 : (u : R) → T u 2 ≡ (1r + 1r) · (u · u) - 1r
@@ -183,7 +183,7 @@ T2 u = T2gen 1r u
 --   * (26,15) is the CUBE of (2,1), hence not fundamental;
 --   * 26 = T 3 (2), and 26 is not in the image of T 2 over Z
 --     (T 2 u = 26 forces 2u^2 = 27, impossible by parity), which is
---     precisely why `is_bhavana_square(3, 26, 15)` returns False:
+--     precisely why `is_composition_square(3, 26, 15)` returns False:
 --     its first guard is `(x + 1) % 2`, and 27 is odd.
 -- ---------------------------------------------------------------------
 

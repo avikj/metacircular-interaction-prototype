@@ -10,7 +10,7 @@
 -- (bhvan, "production, bringing-into-being") is his name for the
 -- composition that multiplies it: ‡‡‡∞‡æ‡‡‡Æ‡‡‡‡‡ü‡‡ø‡¶‡‡ß‡æ‡®‡‡ ‡ß‡Æ.‡‡‚ì‡‡, 628 CE.
 -- The identity itself is checked over a commutative ring in
--- `Bhavana.agda` and subtraction-free over ‚ï in `BhavanaSemiring.agda`;
+-- `Composition.agda` and subtraction-free over ‚ï in `CompositionSemiring.agda`;
 -- it is NOT re-proved here.  The descent that ITERATES it is the
 -- cakravla ‚î Jayadeva ~950 CE, Bhskara II, ‡‡‡‡ó‡‡ø‡, 1150 CE.
 --

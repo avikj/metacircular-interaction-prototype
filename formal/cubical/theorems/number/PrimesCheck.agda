@@ -25,7 +25,7 @@
 --               recursion on the remainder, and the divisor comes back
 --               carrying proofs that it divides both inputs.
 --
---   Upadhi      `Shodhita`/`Ekam` call `|M(k)|Â² â‰ k` a fragment of the
+--   Qualifier      `Shodhita`/`Ekam` call `|M(k)|Â² â‰ k` a fragment of the
 --               Riemann Hypothesis.  It is the Mertens conjecture, which
 --               was disproved in 1985.  The universal statement and the
 --               finite check are separated into two types with a map in
@@ -37,4 +37,4 @@ module PrimesCheck where
 import Chaya_TheShadowHasNoSectionThoughItHasAMap
 import Pramanya_TheBooleanCarriesNoWarrantSoTheSweepCarriesTheProof
 import KuttakaSamapti_TheValliTerminatesWithoutFuel
-import Upadhi_TheMertensGateIsTheDisprovedConjectureNotTheHypothesis
+import Qualifier_TheMertensGateIsTheDisprovedConjectureNotTheHypothesis

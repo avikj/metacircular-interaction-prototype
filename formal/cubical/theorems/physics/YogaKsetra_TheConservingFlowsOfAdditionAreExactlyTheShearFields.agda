@@ -29,7 +29,7 @@
 -- has a flow space as large as a function space.  The freedom of a cut
 -- is measured by its conserving flows, and here the measure is exact.
 --
--- PROOF-SHAPE NOTE, following the precedent of `PraksepaTantu_‚¶.agda`
+-- PROOF-SHAPE NOTE, following the precedent of `PraksepaFiber_‚¶.agda`
 -- (landed 2026-08-22 as the shape a ‡‡‡‡ fst/snd emitter instantiates):
 -- everything below is parametric in the CommRing, and every ring fact is
 -- discharged by the solver, so this is the shape a future T-SHEAR

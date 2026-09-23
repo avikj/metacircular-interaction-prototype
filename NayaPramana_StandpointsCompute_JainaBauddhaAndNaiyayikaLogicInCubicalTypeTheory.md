@@ -284,7 +284,7 @@ Both unqualified forms are refuted. The two qualified ones hold. `P` is a family
 over `Env` whose fibres disagree. For a pair the calculus derives, the two
 refutations fail.
 
-This exhibits bhagas one and two, and the *krama* reading of the third. It does
+This exhibits bhagas one and two, and the *order* reading of the third. It does
 not exhibit the fourth, which arises from ‡Ø‡‡ó‡‡‡.
 
 ### 7.2 Bauddha
@@ -312,7 +312,7 @@ assertable; this term is constructive and theirs is not.
 | depends on | the particular pair | no hypothesis |
 | holds | contingently | universally |
 
-*Krama* ‚î sequential joint assertion ‚î is composition, and is throughout the
+*Order* ‚î sequential joint assertion ‚î is composition, and is throughout the
 kernel. *Yugapat* ‚î two derivations with the same endpoints asserted at once ‚î
 would be a square over them. `Derivation` has no constructor producing one.
 

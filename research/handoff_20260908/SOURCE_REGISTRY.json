@@ -262,12 +262,12 @@
   {
     "id": "S24",
     "title": "Native-runtime availability probes",
-    "path": "originals/conversation/yantra_runtime_probe/environment.log",
+    "path": "originals/conversation/machine_runtime_probe/environment.log",
     "sha256": "53f624aa2d9936ca690a3126eae29a3746a6d59f262baeaca67e5f7e4c55d0a8",
     "bytes": 794,
     "status": "Execution environment evidence, not a mathematical failure.",
     "related_files": [
-      "originals/conversation/yantra_runtime_probe/setup-report.log"
+      "originals/conversation/machine_runtime_probe/setup-report.log"
     ]
   },
   {

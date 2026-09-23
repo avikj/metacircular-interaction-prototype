@@ -47,7 +47,7 @@
 --  Â§à§  fiber à¯à‹à— n â‰¡ Pairs n.  Definitional; the identification is refl.
 --  Â§à¨  fiber à¯à‹à— n â‰ SumFin (suc n).  The loss at n is EXACTLY n+1-fold.
 --      Not "at least", not measured â” the equivalence is `pairsFin`.
---  Â§à©  The three verdicts of `Avaccheda_â¦` / `Tantujala_â¦`, all three
+--  Â§à©  The three verdicts of `Avaccheda_â¦` / `Fiberjala_â¦`, all three
 --      decided at this one edge, which is what makes it worth writing:
 --        à°à¿à•ààà®à  NEVER â” à¯à‹à— is surjective, witness given.
 --        àà•à®à    at n = 0 and nowhere else.

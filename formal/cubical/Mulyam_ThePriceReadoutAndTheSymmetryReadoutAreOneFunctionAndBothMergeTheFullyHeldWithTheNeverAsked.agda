@@ -53,7 +53,7 @@
 -- the signal is a function of one coordinate and `Saptabhangi.à¦àà°àà¨à¯à` says a
 -- two-valued function of three seeds must merge two.
 --
--- And it is the same defect as `YantraTantu_â¦Â§6`'s: an engine whose
+-- And it is the same defect as `MachineFiber_â¦Â§6`'s: an engine whose
 -- invention trigger reads a crowding quantity cannot see the empty fibre
 -- where invention is the only move.  Market and machine share the
 -- instrument and therefore share the blindness.

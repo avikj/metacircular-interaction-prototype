@@ -1,10 +1,10 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
-module Yantra.Prakasha where
+module Machine.Prakasha where
 -- �������: the problems as instruments.  One conjecture, its strata as
 -- types, the maps that exist, and the map that provably does not.
 
-open import Yantra.Prakriti
-open import Yantra.Anantata using (euclid)
+open import Machine.Prakriti
+open import Machine.Anantata using (euclid)
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Function using (_∘_)
 open import Cubical.HITs.PropositionalTruncation using (∥_∥₁; ∣_∣₁; squash₁)
@@ -14,8 +14,8 @@ open import Cubical.Data.Sigma
 open import Cubical.Data.Empty as Empty using (⊥)
 
 -- the object mathematics calls "Goldbach": four different types
-G-sakala : Type₀     -- with the witness pair, untruncated
-G-sakala = (m : ℕ) → 2 ≤ m →
+G-whole : Type₀     -- with the witness pair, untruncated
+G-whole = (m : ℕ) → 2 ≤ m →
   Σ[ p ∈ ℕ ] Σ[ q ∈ ℕ ] IsPrime p × IsPrime q × (p + q ≡ m + m)
 
 G-chaya : Type₀      -- the shadow: witness truncated away
@@ -23,8 +23,8 @@ G-chaya = (m : ℕ) → 2 ≤ m →
   ∥ Σ[ p ∈ ℕ ] Σ[ q ∈ ℕ ] IsPrime p × IsPrime q × (p + q ≡ m + m) ∥₁
 
 -- the collapse always exists
-sakala→chaya : G-sakala → G-chaya
-sakala→chaya g m h = ∣ g m h ∣₁
+whole→chaya : G-whole → G-chaya
+whole→chaya g m h = ∣ g m h ∣₁
 
 -- the twin statement and the proved theorem, side by side:
 -- their difference is ONE conjunct.

@@ -18,7 +18,7 @@
 -- Nyya vocabulary, not Jaina.  A Jaina logician would not describe the
 -- situation this way at all â” for anekntavda the two candidate readings
 -- of "the map back" would be two nayas to be indexed and held together,
--- and `Tantujala_â¦agda` is where this corpus does that.  Nyya's move here
+-- and `Fiberjala_â¦agda` is where this corpus does that.  Nyya's move here
 -- is the opposite one and it is the right one HERE, because the question
 -- has a determinate answer: one of the two maps is the inverse and the
 -- other provably is not.

@@ -40,7 +40,7 @@
 --  AnuktaAvaktavya.agda ¬ß6, where 00's defect is checked.
 --
 --  Three modules here now call three different structures
---  avaktavyam ‚î Satyayantra, Khahara, Shunya.  Using one third
+--  avaktavyam ‚î Satyamachine, Khahara, Shunya.  Using one third
 --  position as a catch-all for "not a clean single answer" is the
 --  boolean collapse this corpus exists to fight, one level up.]
 module Khahara where
@@ -151,7 +151,7 @@ _‚äñ_ : ‡§ñ‡§π‡§∞ ‚Üí ‡§ñ‡§π‡§∞ ‚Üí ‡§ñ‡§π‡§∞
 -- CONTENT alone, inexpressibility of the content AND the MEDIUM ‚î which
 -- is the asymmetry that makes one word for both lossy.
 --
--- That module deliberately does NOT bring Satyayantra's ‡‡®‡‡ï‡‡‡Æ‡ onto
+-- That module deliberately does NOT bring Satyamachine's ‡‡®‡‡ï‡‡‡Æ‡ onto
 -- the same carrier: it is temporal, and d909db0d already says the two
 -- third-positions' remedies live in different types.  And it offers no
 -- verdict on which module should keep the word ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ ‚î that is this

@@ -22,7 +22,7 @@
 --
 --   (‡ß) `Saptabhangi.‡‡‡‡‡‡ô‡‡ó‡`
 --   (‡®) `Anekanta.‡‡‡‡‡‡ô‡‡ó‡`
---   (‡©) `SaptabhangiGarbha_‚¶.‡‡‡‡‡‡ô‡‡ó‡ P`
+--   (‡©) `SaptabhangiKernel_‚¶.‡‡‡‡‡‡ô‡‡ó‡ P`
 --
 -- The graph program deliberately merged none of them, on the ground that
 -- ‡®‡Ø‡‡‡¶‡ ‡‡ô‡‡ï‡‡‡‡‡ã ‡® ‡µ‡ø‡¶‡‡Ø‡‡ ‚î where the standpoints differ there is no
@@ -43,7 +43,7 @@
 --   whose constructors carry WITNESSES (a sydasti is a standpoint AND a
 --   proof), so its cardinality is a function of the predicate.  ¬ß‡ makes
 --   this a checked separation rather than an opinion: at the empty
---   standpoint-set the garbha ‡‡‡‡‡‡ô‡‡ó‡ has NO elements at all, while the
+--   standpoint-set the kernel ‡‡‡‡‡‡ô‡‡ó‡ has NO elements at all, while the
 --   labelled type has exactly seven.  A merge would have to erase the
 --   witness, which is the erasure both files exist to refuse.
 --
@@ -69,7 +69,7 @@ open import Cubical.Relation.Nullary using (¬¨_)
 
 import Saptabhangi as S
 import AnekantaTransitional as A
-import SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext as G
+import SaptabhangiKernel_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext as G
 
 ------------------------------------------------------------------------
 -- ‡ß ¬ THE CAUSEWAY.  Two declarations, one type.
@@ -159,7 +159,7 @@ import SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext as
 
 ------------------------------------------------------------------------
 -- ‡© ¬ WHAT CROSSES.  `Anekanta.agda` declares its ‡‡‡‡‡‡ô‡‡ó‡ and its
---     ‡‡∞‡‡‡‡Æ‡ and proves NOTHING about either.  Akalaka's krama/saha
+--     ‡‡∞‡‡‡‡Æ‡ and proves NOTHING about either.  Akalaka's order/saha
 --     distinction, the mechanical durnaya, and the 2¬≥ = 7 + 1 count are
 --     all in `Saptabhangi.agda` only.  Here they arrive on the other
 --     side, and none of them is proved again: each is `cong` of the
@@ -198,7 +198,7 @@ import SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext as
 ------------------------------------------------------------------------
 -- ‡ ¬ THE DENIAL, AND IT IS A RESULT.
 --
---     `SaptabhangiGarbha_‚¶.‡‡‡‡‡‡ô‡‡ó‡ P` is not a third
+--     `SaptabhangiKernel_‚¶.‡‡‡‡‡‡ô‡‡ó‡ P` is not a third
 --     copy of the seven names.  Its constructors take the WITNESSES ‚î
 --     `sydasti P = Œ[ s ‚àà S ] P s` is a standpoint together with a proof
 --     ‚î so `‡‡‡‡‡‡ô‡‡ó‡ P` is a seven-way sum of witness types and its
@@ -211,7 +211,7 @@ import SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext as
 --     So no equivalence exists, and `‡‡‡®‡∞‡‡ï‡‡‡ø` is the wrong diagnosis
 --     for the third: it is not a repetition, it is a different question.
 --
---     Read the other way, this is the reason the garbha module exists.
+--     Read the other way, this is the reason the kernel module exists.
 --     A label can be asserted with nothing behind it; a witness cannot.
 --     Collapsing (‡©) into (‡ß) would delete exactly the difference
 --     between having a standpoint and naming one ‚î the erasure that
@@ -248,7 +248,7 @@ import SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext as
 --     bug in it, and that repair is part of this corpus's history.  What
 --     is established is narrower: its ‡‡‡‡‡‡ô‡‡ó‡ is not a second object
 --     to be maintained, because it is the first one.
---   * That the garbha ‡‡‡‡‡‡ô‡‡ó‡ is NEVER seven.  For particular P it may
+--   * That the kernel ‡‡‡‡‡‡ô‡‡ó‡ is NEVER seven.  For particular P it may
 --     well have seven elements; the separation proved is that it is not
 --     seven UNIFORMLY, which is what a merge would require.
 --   * Anything about the Naiyyika‚ìJaina dispute itself.  The Naiyyikas

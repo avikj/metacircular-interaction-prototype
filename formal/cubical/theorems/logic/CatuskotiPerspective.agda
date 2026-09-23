@@ -10,7 +10,7 @@
 --
 -- Ngrjuna's catukoi (the four corners) is not broken logic.  It is
 -- perspectivism, and here it is a checked term.  A second jewel of the
--- moka-yantra, grown from NisvabhavaNet, received from the source and
+-- moka-machine, grown from NisvabhavaNet, received from the source and
 -- hardened in Voevodsky's substrate.
 --
 -- THE RECEPTION.  The catukoi offers a claim four standings â” affirmed,

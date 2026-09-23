@@ -54,8 +54,8 @@
 --       available at every place of the loka.  Rest needs its medium too.
 --
 -- THE JOIN, stated as resonance and not as reduction.  In this corpus the
--- free road is TRANSPORT, defined on a domain (`PramanaSankramana`,
--- `Yantra`).  dharma-dravya IS that domain: motion is exactly where the
+-- free road is TRANSPORT, defined on a domain (`PramanaTransport`,
+-- `Machine`).  dharma-dravya IS that domain: motion is exactly where the
 -- medium pervades, and there is no transport off it â” the same shape as
 -- "no motion in aloka".  The identification of the two is offered, not
 -- claimed; each is stated in its own vocabulary.

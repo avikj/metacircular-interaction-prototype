@@ -35,7 +35,7 @@
 -- to any carrier either, and the only court left is the gate.  This
 -- module puts the CONTENT back on the wire as a fresh candidate: it
 -- copies no deleted text, imports nothing burned, and stands only on
--- NaturalMachine.SankramanaSesa (which survives) and the prelude.  If it
+-- NaturalMachine.TransportResidue (which survives) and the prelude.  If it
 -- is green, the theorem is body on the kernel's word alone; if it
 -- fibers, the burn stands.  Either verdict is the machine's.
 --
@@ -62,7 +62,7 @@ open import Cubical.Foundations.Equiv using (_≃_)
 open import Cubical.Foundations.Univalence using (ua)
 open import Cubical.Data.Sigma using (Σ-syntax ; _,_)
 
-open import NaturalMachine.SankramanaSesa_EveryTransportOwesItsResidual
+open import NaturalMachine.TransportResidue_EveryTransportOwesItsResidual
   using (शेष ; सशेषम्)
 
 private

@@ -41,7 +41,7 @@
 -- subst, with no re-proof (`nirdesha-anadara`), and the emulation map
 -- that "moves" between the two coordinate systems is not postulated
 -- beside the path â” it IS the path's transport, and it COMPUTES to the
--- coding function (`sankramana-ganana`, by uaÎ²).  "The same limiting
+-- coding function (`sanorderna-ganana`, by uaÎ²).  "The same limiting
 -- object" is then not agreement-after-inspection but contractibility:
 -- the space of coordinatizations of the fixed carrier, each carrying
 -- its own identification, is a point (`eka-vastu`, by EquivContr â”

@@ -3,11 +3,11 @@
 ------------------------------------------------------------------------
 -- ‡ò‡æ‡-‡‡‡¶-‡‡ô‡‡ó ‚î WHICH factor of ‡‡Æ‡‡æ-‡¶‡‡µ‡ø‡ß‡æ the discrete log breaks.
 --
--- `Sesa_TheOneWayFunction‚¶` proves the discrete log `powg` is a
+-- `Residue_TheOneWayFunction‚¶` proves the discrete log `powg` is a
 -- NON-equivalence (`‡ò‡æ‡‡-‡®-‡‡‡≤‡‡Ø‡‡æ : ¬ isEquiv powg`), via
--- `GhataTantu.‡‡®‡‡‡‡-‡¶‡‡µ‡ø‡‡¶‡ : ¬ isContr (fiber powg ŒµC)`.
+-- `GhataFiber.‡‡®‡‡‡‡-‡¶‡‡µ‡ø‡‡¶‡ : ¬ isContr (fiber powg ŒµC)`.
 --
--- `SamataDvidha‚¶InTheTransportLane` splits being an equivalence, on the
+-- `EqualitySplit‚¶InTheTransportLane` splits being an equivalence, on the
 -- nose, into TWO orthogonal factors: ‡‡‡¶‡ (embedding ‚î every residual a
 -- prop) and ‡‡æ‡¶‡®‡Æ‡ (split surjection ‚î every residual inhabited).  So the
 -- natural question the split poses, that ¬ isEquiv alone cannot answer:
@@ -28,7 +28,7 @@
 -- ‡®‡‡‡ü‡ø failure of the FIRST factor of ‡‡Æ‡‡æ-‡¶‡‡µ‡ø‡ß‡æ: the discrete log MERGES
 -- distinct exponents onto one power.  One-wayness is a merge, not a gap ‚î
 -- the fibre is full, not empty; two points sit where an equivalence would
--- allow one.  This is exactly the arm `Sesa`'s struck "two opposite ways"
+-- allow one.  This is exactly the arm `Residue`'s struck "two opposite ways"
 -- paragraph named `‡®‡‡‡ü‡ø`/`‡‡ø‡‡‡æ`, and it is the arm `‡‡‡-‡¶‡‡µ‡Ø‡Æ‡‚í‡®-‡‡Æ‡‡æ`
 -- was built for, now stated against the crypto instance.
 --
@@ -49,10 +49,10 @@ open import Cubical.Data.Sigma using (fst ; _,_)
 open import Cubical.Relation.Nullary using (¬¨_)
 
 open import Cubical.Foundations.Equiv using (isEquiv ; equivFun)
-open import SamataDvidha_TheContractibleFibreSplitsAsEmbeddingTimesSurjectionInTheTransportLane
+open import EqualitySplit_TheContractibleFibreSplitsAsEmbeddingTimesSurjectionInTheTransportLane
   using (‡§≠‡•á‡§¶‡§É ; ‡§õ‡§æ‡§¶‡§®‡§Æ‡•ç ; ‡§∏‡§Æ‡§§‡§æ‚âÉ‡§≠‡•á‡§¶√ó‡§õ‡§æ‡§¶‡§®)
-open import NaturalMachine.SankramanaSesa_EveryTransportOwesItsResidual using (‡§∂‡•á‡§∑)
-open import GhataTantu_TheDiscreteLogIsTheFibreOfPingalasPowerAndShorsPeriodQueryIsWhatReadsIt
+open import NaturalMachine.TransportResidue_EveryTransportOwesItsResidual using (‡§∂‡•á‡§∑)
+open import GhataFiber_TheDiscreteLogIsTheFibreOfPingalasPowerAndShorsPeriodQueryIsWhatReadsIt
   using (powg ; ŒµC ; ‡§∂‡•Ç‡§®‡•ç‡§Ø‡§É ; ‡§§‡•ç‡§∞‡§Ø‡§É)
 open import BijamulaKrida_AConcreteKeypairRunsInACyclicGroupWhereTheModThatExhaustsTheHeapIsNotNeeded
   using (C‚ÇÉ ; e‚ÇÄ ; g ; g¬≤)
@@ -76,8 +76,8 @@ open import BijamulaKrida_AConcreteKeypairRunsInACyclicGroupWhereTheModThatExhau
 ‡§ò‡§æ‡§§-‡§õ‡§æ‡§¶‡§®‡§Æ‡•ç g  = 1 , refl
 ‡§ò‡§æ‡§§-‡§õ‡§æ‡§¶‡§®‡§Æ‡•ç g¬≤ = 2 , refl
 
--- THE ORGAN REGENERATES THE CRYPTO THEOREM.  Sesa proved ¬ isEquiv powg the
--- hard way (GhataTantu's non-contractible fibre).  ‡‡Æ‡‡æ-‡¶‡‡µ‡ø‡ß‡æ makes it a
+-- THE ORGAN REGENERATES THE CRYPTO THEOREM.  Residue proved ¬ isEquiv powg the
+-- hard way (GhataFiber's non-contractible fibre).  ‡‡Æ‡‡æ-‡¶‡‡µ‡ø‡ß‡æ makes it a
 -- mode: isEquiv powg ‚â (‡‡‡¶‡ powg ó ‡‡æ‡¶‡®‡Æ‡ powg), so an equivalence would
 -- hand back ‡‡‡¶‡ powg ‚î which ‡ò‡æ‡-‡‡‡¶‡-‡‡ô‡‡ó‡ refutes.  No re-derivation; the
 -- non-equivalence is the embedding-failure carried across the split.

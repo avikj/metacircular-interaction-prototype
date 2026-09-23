@@ -51,7 +51,7 @@ on the ramification locus is not a number, and that is the whole content of
 
 (the defect is a fibre dimension; and the fence — linear ranks satisfy
 Ingleton, entropies do not, so this does not read as entropy),
-`formal/cubical/Sesa_TheCompositesRemainderIsTheSecondRemainderSummedOverTheFirstAndTheAreasAdd.agda`.
+`formal/cubical/Residue_TheCompositesRemainderIsTheSecondRemainderSummedOverTheFirstAndTheAreasAdd.agda`.
 
 ## What is checked here and what is prose
 

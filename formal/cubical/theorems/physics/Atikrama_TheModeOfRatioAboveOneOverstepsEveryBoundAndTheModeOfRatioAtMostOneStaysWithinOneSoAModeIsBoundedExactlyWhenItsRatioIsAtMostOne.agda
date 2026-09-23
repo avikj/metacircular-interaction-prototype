@@ -15,10 +15,10 @@
 --       The � direction is by trichotomy and §1; the truncation is
 --       eliminated into �.
 --
--- �������� (atikrama, overstepping/transgression) is ordinary .
+-- �������� (atiorder, overstepping/transgression) is ordinary .
 ------------------------------------------------------------------------
 
-module Atikrama_TheModeOfRatioAboveOneOverstepsEveryBoundAndTheModeOfRatioAtMostOneStaysWithinOneSoAModeIsBoundedExactlyWhenItsRatioIsAtMostOne where
+module Atiorder_TheModeOfRatioAboveOneOverstepsEveryBoundAndTheModeOfRatioAtMostOneStaysWithinOneSoAModeIsBoundedExactlyWhenItsRatioIsAtMostOne where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (⟨_⟩)
@@ -52,8 +52,8 @@ open import Parimana_EveryRationalLiesBelowANaturalAndEveryPositiveRationalHasAN
 -- � � Ratio above one oversteps every bound.
 ------------------------------------------------------------------------
 
-atikrama : (m : ℚ) → 1 < m → (K : ℚ) → ∥ Σ[ t ∈ ℕ ] K < m ^ t ∥₁
-atikrama m 1<m K = PT.map go (archimedes x 0<x (K - 1))
+atiorder : (m : ℚ) → 1 < m → (K : ℚ) → ∥ Σ[ t ∈ ℕ ] K < m ^ t ∥₁
+atiorder m 1<m K = PT.map go (archimedes x 0<x (K - 1))
   where
   x : ℚ
   x = m - 1
@@ -95,7 +95,7 @@ sīmita→eka : (m : ℚ) → Sīmita m → m ≤ 1
 sīmita→eka m (K , bd) with m ≟ 1
 ... | lt m<1 = <Weaken≤ m 1 m<1
 ... | eq p   = subst (m ≤_) p (isRefl≤ m)
-... | gt 1<m = ⊥-elim (PT.rec isProp⊥ (λ { (t , K<mt) → ≤→≯ (m ^ t) K (bd t) K<mt }) (atikrama m 1<m K))
+... | gt 1<m = ⊥-elim (PT.rec isProp⊥ (λ { (t , K<mt) → ≤→≯ (m ^ t) K (bd t) K<mt }) (atiorder m 1<m K))
 
 eka→sīmita : (m : ℚ) → 0 ≤ m → m ≤ 1 → Sīmita m
 eka→sīmita m 0≤m m≤1 = 1 , λ t → snd (antar m 0≤m m≤1 t)

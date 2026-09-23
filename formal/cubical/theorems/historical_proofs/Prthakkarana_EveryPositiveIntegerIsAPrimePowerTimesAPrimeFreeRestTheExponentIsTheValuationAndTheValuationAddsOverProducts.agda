@@ -44,7 +44,7 @@
 --                ‡µ‡ø‡‡æ‡‡®‡Æ‡ (every n ‚â 1 is the product of a list of firm
 --                numbers), ‡Ø‡‡ï‡‡≤‡ø‡°-‡µ‡æ‡ï‡‡Ø‡Æ‡ (Euclid VII.30), ‡‡®‡‡‡∞‡‡‡æ‡µ‡ (a
 --                firm p dividing the product of a firm list occurs in it).
---   `Ekatva_‚¶` : ‡‡ï‡‡‡µ‡Æ‡ (two firm lists with one product are a Perm),
+--   `Uniqueness_‚¶` : ‡‡ï‡‡‡µ‡Æ‡ (two firm lists with one product are a Perm),
 --                ‡‡ï‡‡‡µ-‡ó‡‡®‡æ (hence same count of every p), and the
 --                valuation ‡Æ‡æ‡®‡Æ‡ p n pos := count of p in Drdha's list,
 --                well defined by ‡Æ‡æ‡®-‡®‡ø‡‡‡‡Ø‡.
@@ -66,7 +66,7 @@
 --       n ‚â 1:
 --           Œ[ m ‚àà ‚ï ] ((n ‚â° p ^ ‡Æ‡æ‡®‡Æ‡ p n pos ¬ m) ó (¬ (p ‚à m)))
 --       with m := ‡µ‡ß‡ (‡‡‡‡ p L) for L Drdha's list of n.  The exponent
---       is LITERALLY Ekatva's valuation, not a new counter.
+--       is LITERALLY Uniqueness's valuation, not a new counter.
 --
 --   ¬ß‡©  ‡Æ‡æ‡®-‡‡ï‡‡‡µ‡Æ‡ ‚î UNIQUENESS of the exponent.  If n ‚â° p ^ e ¬ m with
 --       ¬ (p ‚à m) then e ‚â° ‡Æ‡æ‡®‡Æ‡ p n pos.  Proof: expand m into its own
@@ -134,7 +134,7 @@ open import Cubical.Relation.Nullary using (¬¨_ ; Dec ; yes ; no)
 open import Drdha_TheFirmNumbersProductIsEveryPositiveIntegerAndTheirMembershipIsDecidedByDivision
   using (‡§¶‡•É‡§¢‡§Æ‡•ç ; ‡§µ‡§ß‡§É ; ‡§∏‡§∞‡•ç‡§µ‡•á ; _‡§∏‡§¶‡§∏‡•ç‡§Ø‡§É_ ; ‡§µ‡§ø‡§≠‡§æ‡§ú‡§®‡§Æ‡•ç ; ‡§Ö‡§®‡•ç‡§§‡§∞‡•ç‡§≠‡§æ‡§µ‡§É ; ‡§∏‡§¶‡§∏‡•ç‡§Ø-‡§≠‡§æ‡§ú‡§ï‡§É
        ; ‡§µ‡§ß-++ ; ‡§∏‡§∞‡•ç‡§µ‡•á-++ ; ‡§¶‡•É‡§¢‡§§‡•ç‡§µ‡§Æ‡•ç ; ‡§Ö‡§®‡•ç‡§µ‡•á‡§∑‡§£‡§Æ‡•ç)
-open import Ekatva_TheFirmFactorisationIsUniqueTwoPrimeListsWithOneProductAreAPermutationSoTheValuationIsWellDefinedAndPermIsExactlySameCount
+open import Uniqueness_TheFirmFactorisationIsUniqueTwoPrimeListsWithOneProductAreAPermutationSoTheValuationIsWellDefinedAndPermIsExactlySameCount
   using (module Bahulya ; ‡§Æ‡§æ‡§®‡§Æ‡•ç ; ‡§Æ‡§æ‡§®-‡§®‡§ø‡§∂‡•ç‡§ö‡§Ø‡§É)
 
 open Bahulya discrete‚Ñï using (‡§¶‡§∂ ; ‡§¶‡§∂-‡§∏‡•ç‡§µ‡§Ø‡§Æ‡•ç ; ‡§è‡§ï‡§É ; ‡§ó‡§£‡§®‡§æ)
@@ -385,7 +385,7 @@ private
   ‡§∂‡•á‡§∑-‡•´-‡•ß‡•® : fst (‡§™‡•É‡§•‡§ï‡•ç‡§ï‡§∞‡§£‡§Æ‡•ç 5 ‡§¶‡•É-‡•´ 12 ‡•¶<‡•ß‡•®) ‚â° 12
   ‡§∂‡•á‡§∑-‡•´-‡•ß‡•® = refl
 
-  -- the exponents, read off the same splitting, are Ekatva's valuations
+  -- the exponents, read off the same splitting, are Uniqueness's valuations
   ‡§ò‡§æ‡§§-‡•®-‡•ß‡•® : ‡§Æ‡§æ‡§®‡§Æ‡•ç 2 12 ‡•¶<‡•ß‡•® ‚â° 2
   ‡§ò‡§æ‡§§-‡•®-‡•ß‡•® = refl
 

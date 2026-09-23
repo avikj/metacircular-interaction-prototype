@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
-module Kernel.RewriteCertificate where
+module RewriteCertificate where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; +-zero ; +-suc)
@@ -81,7 +81,7 @@ eval (add l r) ρ = eval l ρ + eval r ρ
 
 -- Every certificate step preserves that meaning.  Therefore the Haskell
 -- gate cannot install a rule merely because it inhabits an uninterpreted
--- rewrite calculus: its exact checked endpoints are pointwise equal on ℕ.
+-- rewrite calculus: its exact checked endpoints are pointwise equal on �.
 step-sound : {a b : Tm} → Step a b → (ρ : Env) → eval a ρ ≡ eval b ρ
 step-sound (add-zero t)    ρ = +-zero (eval t ρ)
 step-sound (add-suc l r)   ρ = +-suc (eval l ρ) (eval r ρ)

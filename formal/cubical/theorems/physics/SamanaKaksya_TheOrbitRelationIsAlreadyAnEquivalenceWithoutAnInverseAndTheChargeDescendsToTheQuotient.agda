@@ -50,7 +50,7 @@
 -- if `Î¦` IS an equivalence, its inverse conserves automatically â”
 -- conservation of `Î¦` propagates backwards, one `sym` and one `cong`
 -- â” and `Î¦â»Â a â‰ˆ a` holds by `(1, 0, secEq)`.  So the group of
--- `SamraksakaSamuha_â¦` sits inside this, and nothing in Â§à§â“Â§à was
+-- `SamraksakaSet_â¦` sits inside this, and nothing in Â§à§â“Â§à was
 -- waiting on it.
 --
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
@@ -196,7 +196,7 @@ module _ {A B : Type â„“} (f : A â†’ B) (Î¦ : A â†’ A)
 -- If it is, two things follow and neither is needed above:
 --
 --   (a) conservation propagates BACKWARDS with no extra hypothesis â”
---       so the "conserving inverse" that `SamraksakaSamuha_â¦` carries
+--       so the "conserving inverse" that `SamraksakaSet_â¦` carries
 --       as stored data is derivable whenever the flow is invertible;
 --   (b) `Î¦â»Â a` and `a` lie on one orbit, at stations `(1, 0)`.
 --
@@ -227,7 +227,7 @@ module _ {A B : Type â„“} (f : A â†’ B) (Î¦ : A â†’ A) (e : isEquiv Î¦) where
 --
 -- **STRUCK, and by a checked counterexample, not by a re-reading.  Left
 -- standing because striking silently is how this repository loses its
--- own history.**  `Sankramana_TheFibreIsOneOrbitExactlyWhenTheChargeIs
+-- own history.**  `Transport_TheFibreIsOneOrbitExactlyWhenTheChargeIs
 -- InjectiveAndOneSidedReachabilityIsStrictlyStronger.agda` shows
 -- `àà™àà•àà°à®àà®à` is SUFFICIENT and NOT NECESSARY, and exhibits the gap:
 -- `A = Bool`, `B = Unit`, `f = Î» _ â’ tt`, `Î¦ = Î» _ â’ true`.  Every pair

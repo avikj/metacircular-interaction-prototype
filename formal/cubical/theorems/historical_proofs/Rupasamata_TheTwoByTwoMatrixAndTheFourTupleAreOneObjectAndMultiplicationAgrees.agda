@@ -43,7 +43,7 @@
 -- across, both ways, on the nose.
 ------------------------------------------------------------------------
 
-module Rupasamata_TheTwoByTwoMatrixAndTheFourTupleAreOneObjectAndMultiplicationAgrees where
+module Rupaequality_TheTwoByTwoMatrixAndTheFourTupleAreOneObjectAndMultiplicationAgrees where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_≃_)

@@ -25,7 +25,7 @@
 -- WHAT THIS REFUTES, and it is this author's own module from yesterday.
 --
 -- (recoverable only by outside supply) and ‡ (‡®‡‡‡ü‡ø‡, ‡‡‡‡∞‡‡ø‡ï‡æ‡∞‡‡Ø‡æ) are
--- both crowded fibres; `Loss.SakalaVikalaDesa_‚¶` refuses a fourth
+-- both crowded fibres; `Loss.WholePartialDesa_‚¶` refuses a fourth
 -- constructor for `‡¶‡‡` because no criterion separated them.  The note
 -- proposes one, in two halves:
 --
@@ -43,7 +43,7 @@
 -- everything.  ‡‡∞‡‡µ‡‡æ‡®‡ø‡ says which."*
 --
 -- **That sentence is false, and ¬ß‡ß is one line.**  `‡‡∞‡‡µ‡à‡ï‡Æ‡ : Bool ‚í Unit`
--- is the map that drops one bit ‚î `Sesa_‚¶`'s own ¬ß5, and its struck
+-- is the map that drops one bit ‚î `Residue_‚¶`'s own ¬ß5, and its struck
 -- header names it "level ‡® of a five-level scale".  Its fibre over `tt`
 -- is `Bool`, which IS the whole source.  So `‡‡∞‡‡µ‡‡æ‡®‡ø‡` holds of it, and
 -- the criterion does not separate ‡ from ‡©; it does not separate ‡
@@ -137,7 +137,7 @@ private
 -- ‡ß.  THE REFUTATION.  The level-‡® archetype satisfies the level-‡
 --     criterion.
 --
--- `‡‡∞‡‡µ‡à‡ï‡Æ‡` is `Sesa_‚¶` ¬ß5's map, whose struck header calls it "level ‡® of
+-- `‡‡∞‡‡µ‡à‡ï‡Æ‡` is `Residue_‚¶` ¬ß5's map, whose struck header calls it "level ‡® of
 -- a five-level scale" and whose loss it prices at exactly one bit.  Its
 -- fibre over the single target point is `Bool` ‚î the whole source ‚î
 -- because `Unit` is a proposition, so the path component of the Œ is

@@ -15,7 +15,7 @@
 -- This module closes that absence.  The permutation machinery now
 -- exists in the corpus � `Insert`/`Perm`/`_≈_` and the embedding
 -- `permIsAnAdjacentChain` (theorems/walks), `perm-sym`/`perm-trans`
--- (PermSankramana), and `count-perm` in `Bahulya` (Ekatva) � and the
+-- (PermTransport), and `count-perm` in `Bahulya` (Uniqueness) � and the
 -- only new arithmetic is that ParitySeparator's `_�_` is commutative,
 -- which that module already proves (`�-comm`).
 --
@@ -65,7 +65,7 @@
 -- No arithmetic beyond Bool; `Number` is `List �` as in ParitySeparator.
 --
 -- Agda reports `UnsupportedIndexedMatch` warnings while checking this
--- file; all of them come from the imported PermSankramana module
+-- file; all of them come from the imported PermTransport module
 -- (`insert-comm`, `exchange`), none from definitions here.
 ------------------------------------------------------------------------
 
@@ -84,9 +84,9 @@ open import GaugeOrbitClasses
 open import TheUsualReasonsMadeExplicitTheInductivePermutationRelationEmbedsInAdjacentTranspositions
   using (Insert ; here ; there ; Perm ; pnil ; pcons
        ; _≈_ ; ≈nil ; ≈cons ; ≈swap ; ≈trans ; ≈-refl ; permIsAnAdjacentChain)
-open import PermSankramana_ThePermutationRelationIsTransitiveBecauseTwoInsertionsCommuteSoTheFourConstructorRelationIsContainedInPermAndBothAreEquivalenceRelations
+open import PermTransport_ThePermutationRelationIsTransitiveBecauseTwoInsertionsCommuteSoTheFourConstructorRelationIsContainedInPermAndBothAreEquivalenceRelations
   using (perm-refl ; perm-sym ; perm-trans ; ≈→Perm)
-open import Ekatva_TheFirmFactorisationIsUniqueTwoPrimeListsWithOneProductAreAPermutationSoTheValuationIsWellDefinedAndPermIsExactlySameCount
+open import Uniqueness_TheFirmFactorisationIsUniqueTwoPrimeListsWithOneProductAreAPermutationSoTheValuationIsWellDefinedAndPermIsExactlySameCount
   using (module Bahulya)
 
 -- counting factors of a Number, at the corpus's own count
@@ -131,7 +131,7 @@ val-Perm′ σ (pcons {x = x} p ins) =
   ∙ sym (val-Insert σ ins)
 
 -- On the discrete factor type �, equal counts of every factor is the
--- same as being a permutation (Ekatva), so `val` reads only the counts.
+-- same as being a permutation (Uniqueness), so `val` reads only the counts.
 val-count : (σ : Signs) (m n : Number)
           → ((z : ℕ) → गणना z m ≡ गणना z n) → val σ m ≡ val σ n
 val-count σ m n h = val-Perm σ (count-perm m n h)

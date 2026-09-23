@@ -194,7 +194,7 @@ parseLine s =
 -- the AC classifier.  + and � are associative-commutative in the
 -- library (commutativity is literally in library.terms), and plain
 -- completion provably diverges on an AC theory (Baader�Nipkow §7;
--- notes/SamataChakra).  A pair whose two sides are equal as AC-canonical
+-- notes/EqualityChakra).  A pair whose two sides are equal as AC-canonical
 -- forms is an AC rearrangement: true, joinable under completion modulo
 -- AC, and the WRONG thing to land as one lemma per shuffle.  The
 -- classifier refuses it with the law named, so the store stays clean
@@ -482,7 +482,7 @@ proposeParsed name (just lr) =
   if ltN 6 (nVarsOf l r)
   then refusal "more than six variables: outside the emitter's binder range"
   else if acShuffle l r
-  then refusal "AC rearrangement: the sides are equal modulo associativity-commutativity of +/·; the close is completion modulo AC (Peterson-Stickel; notes/SamataChakra), not one lemma per shuffle"
+  then refusal "AC rearrangement: the sides are equal modulo associativity-commutativity of +/·; the close is completion modulo AC (Peterson-Stickel; notes/EqualityChakra), not one lemma per shuffle"
   else if nfEqual l r
   then candidates (reflCandidate name l r ∷ nfCandidate name l r ∷ [])
   else candidates

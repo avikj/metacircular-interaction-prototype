@@ -174,14 +174,14 @@
 --    pin itself and this module checked under Agda 2.6.3 + cubical v0.5,
 --    exit 0.  No postulates, no holes, no TERMINATING.  See README,
 --    "Toolchain".
---    Nothing here imports outside `Punaragamana`: the vocabulary ‡µ‡∞‡‡ /
+--    Nothing here imports outside `Return`: the vocabulary ‡µ‡∞‡‡ /
 --    ‡‡¶‡‡ / AnalVidhi is redefined rather than imported from
 --    `formal/cubical`, so the library stays standalone and `check.sh`
 --    keeps checking what it says it checks.  That duplication is
 --    deliberate, and it is the same trade the ‡ï‡‡ü‡‡ü‡ï module records.
 ------------------------------------------------------------------------
 
-module Punaragamana.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried where
+module Return.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism using (Iso)
@@ -191,9 +191,9 @@ open import Cubical.Data.Sigma using (Œ£; _√ó_; _,_; fst; snd)
 open import Cubical.Data.Unit using (Unit; tt)
 open import Cubical.Data.Empty using (‚ä•)
 
-open import Punaragamana.Carrier
-open import Punaragamana.Orbit
-open import Punaragamana.Nucleus
+open import Return.Carrier
+open import Return.Orbit
+open import Return.Nucleus
 
 private
   ¬¨_ : Type ‚Üí Type

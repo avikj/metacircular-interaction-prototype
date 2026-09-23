@@ -1,0 +1,6 @@
+{"suite": "checker", "bench": "compute_1600", "lane": "bend", "phase": "timed", "status": "ok", "wall_s": 1.1101328749999997, "max_rss_mib": 180.734375, "output_match": null}
+{"suite": "checker", "bench": "defs_12800", "lane": "bend", "phase": "timed", "status": "ok", "wall_s": 0.5128003749999994, "max_rss_mib": 327.25, "output_match": null}
+{"suite": "checker", "bench": "generics_3200", "lane": "bend", "phase": "timed", "status": "ok", "wall_s": 0.5944509579999995, "max_rss_mib": 387.6875, "output_match": null}
+{"suite": "checker", "bench": "proofs_3200", "lane": "bend", "phase": "timed", "status": "ok", "wall_s": 1.3207482499999994, "max_rss_mib": 817.375, "output_match": null}
+{"suite": "checker", "bench": "trees_400", "lane": "bend", "phase": "timed", "status": "ok", "wall_s": 0.9504197919999999, "max_rss_mib": 78.765625, "output_match": null}
+SUITE COMPLETE checker bend

@@ -8,7 +8,7 @@
 -- as one checked term over the universal machine, that on the lossless
 -- completion the two are not two operations with a gap between them:
 -- they are the two projections of a SINGLE equivalence, and separating
--- them is impossible because that equivalence is unique (Ekatva).
+-- them is impossible because that equivalence is unique (Uniqueness).
 --
 --   decide  : Machine â’ Î Machine (fiber uStep)     -- complete the input
 --   verify  : (b) â’ fiber uStep b â’ Machine          -- read the witness
@@ -41,9 +41,9 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_â‰ƒ_ ; equivFun ; invEq ; fiber ; retEq ; secEq)
 open import Cubical.Data.Sigma
 
-open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
   using (Machine ; uStep ; lossless ; losslessIso)
-open import Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique
+open import Uniqueness_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique
   using (machine-lossless-unique ; Lossless)
 
 ------------------------------------------------------------------------
@@ -101,7 +101,7 @@ decide-retract mc = retEq completeâ‰ƒ mc
 -- Â§4  The absence of a gap is forced, not chosen.
 ------------------------------------------------------------------------
 
--- `completeâ‰` is THE lossless completion of uStep, and by Ekatva it is the
+-- `completeâ‰` is THE lossless completion of uStep, and by Uniqueness it is the
 -- unique one (isContr). So there is no alternative completion in which a
 -- find/check gap could be reintroduced: the P/NP distinction has no
 -- carrier over the lossless universal machine. This is the whole claim,

@@ -4,7 +4,7 @@
 -- FillerReceiptProbe
 --
 -- A daemon-facing probe, not a landed theorem.  The previous
--- YugapatSankramana proposal did two things separately:
+-- YugapatTransport proposal did two things separately:
 --
 --   (1) proved that the two coordinatewise compiler composites are equal
 --       as equivalences;

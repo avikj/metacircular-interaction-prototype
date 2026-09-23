@@ -37,7 +37,7 @@ specs=[
 ('S21','Higher residuals and dynamic matching proposal','sources/S21_higher_residuals_dynamic_matching.md','AUDIT: higher difference convergence repaired by S19; NS matching claims not promoted.',[]),
 ('S22','Direct quadratic Goldbach residual and all-depth source-dependent memory','sources/S22_quadratic_goldbach_and_memory.md','Arithmetic derivation retained; Gaussian-in-octave NS suppression remains AUDIT.',[]),
 ('S23','Actual-endpoint backward assembly','originals/conversation/ns_rh_endpoint_assembly/endpoint_graph.md','Conditional actual endpoints; not an exhaustive repo closure.',['originals/conversation/ns_rh_endpoint_assembly/endpoint_graph.json']),
-('S24','Native-runtime availability probes','originals/conversation/yantra_runtime_probe/environment.log','Execution environment evidence, not a mathematical failure.',['originals/conversation/yantra_runtime_probe/setup-report.log']),
+('S24','Native-runtime availability probes','originals/conversation/machine_runtime_probe/environment.log','Execution environment evidence, not a mathematical failure.',['originals/conversation/machine_runtime_probe/setup-report.log']),
 ('S25','Prime-Pair Delta 19: complete first-return, Schur and future-observation algebra','sources/S25_delta19.md','Historical source theorem/program note; formal module coverage differs by statement.',[]),
 ]
 registry=[]

@@ -16,7 +16,7 @@
 -- The determinant of that pair is -(d+2), and this module carries the
 -- consequences of that one number without ever dividing by it � every
 -- statement below is an identity in an arbitrary commutative ring, with
--- integer coefficients as iterated addition imported from `SesaDvaya`.
+-- integer coefficients as iterated addition imported from `ResidueDvaya`.
 --
 --   §1  EACH READING ALONE IS BLIND, and the fibre is exhibited rather
 --       than asserted: `peak` is unchanged along (a,λ) � (a+t, λ-t),
@@ -85,7 +85,7 @@ open import Cubical.Algebra.CommRing
 open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 open import Cubical.Tactics.NatSolver using (solveℕ!)
 
-import SesaDvaya_TheTruncatedInverseOfTheSquaredShiftDefectHasAResidualOfExactlyTwoTermsAtEveryDepth as SD
+import ResidueDvaya_TheTruncatedInverseOfTheSquaredShiftDefectHasAResidualOfExactlyTwoTermsAtEveryDepth as SD
 
 private
   variable

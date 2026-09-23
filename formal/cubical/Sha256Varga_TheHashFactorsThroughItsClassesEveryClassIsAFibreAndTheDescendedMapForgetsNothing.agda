@@ -35,7 +35,7 @@
 --       answerable this way â” the kernel computes both digests and
 --       compares.  What remains open is exhibiting two DISTINCT
 --       messages in ONE class: that inhabitant of âˆ¼ off the diagonal
---       is precisely a collision, Sesa's exchange rate.
+--       is precisely a collision, Residue's exchange rate.
 --
 -- Reading: the equivalence-class map is computed in the only sense
 -- available to anyone â” pointwise, by running the hash â” and it is

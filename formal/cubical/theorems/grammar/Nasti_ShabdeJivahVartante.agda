@@ -48,7 +48,7 @@
 -- by nothing.  BUILD.md and Everything.agda both name this exact failure
 -- mode; it happened anyway, to the module that says nothing perishes.
 -- Fixed here (import ua ; uaβ), and the module is now imported by
--- Samkramana_TransportCarriesStructure..., which is itself in Everything.agda,
+-- Samorderna_TransportCarriesStructure..., which is itself in Everything.agda,
 -- so it has a parent and will fail a build rather than rot.
 ------------------------------------------------------------------------
 

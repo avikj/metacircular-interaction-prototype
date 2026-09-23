@@ -70,13 +70,13 @@
 --         succession.  What this corpus actually has, in the top-level
 --         module `SaptabhangiNaya` â” read, not recalled â” is
 --         `yugapat-empty : Â Î[ n ] (P n — Â P n)` and
---         `kramaâ’yugapat-fails : Â (Krama â’ Yugapat)`.  That is the
+--         `orderâ’yugapat-fails : Â (Order â’ Yugapat)`.  That is the
 --         opposite of a simultaneity operation: it says the obvious
 --         candidate for à¯àà—ààà is EMPTY, being a contradiction at one
 --         à¨à¯.  So the distinction is not merely unused here, it is
 --         unbuilt â” and three of this thread's modules have been citing
 --         a `SaptabhangiNaya` that does not exist, with
---         a summary ("krama â‰  sah") that is not what the real module
+--         a summary ("order â‰  sah") that is not what the real module
 --         proves.  Both errors are corrected at their sites;
 --   (iii) a demonstration that the simultaneous object is the
 --         non-factoring, rather than merely resembling it.

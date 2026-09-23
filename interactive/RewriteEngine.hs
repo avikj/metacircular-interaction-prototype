@@ -75,7 +75,7 @@
 --      REASON which of the two readings that sutra takes, `seenBy` hands
 --      each rule the view it is entitled to, and every `Step` records
 --      which reading fired at which site.  Cancelling the exception
---      clause is a RUN (`deriveSthanivatEverywhere`), not an edit, and it
+--      clause is a RUN (`derivePositionalEverywhere`), not an edit, and it
 --      changes four derived forms.
 --
 --      1.1.60 `adarsanam lopah` is the companion: an elided element is
@@ -196,7 +196,7 @@ module RewriteEngine
   , deriveV
   , deriveTraceV
   , deriveLekhaV
-  , deriveSthanivatEverywhere
+  , derivePositionalEverywhere
   , deriveRupamEverywhere
   , deriveWithoutLopa
   , deriveWithoutLopaTrace
@@ -215,23 +215,23 @@ module RewriteEngine
   , stepANUnder
   , Hetu(..)
   , Sandhi
-  , Sesa(..)
-  , SesaKey
-  , sesaKey
-  , sesaPrccha
-  , sesaPada
+  , Residue(..)
+  , ResidueKey
+  , residueKey
+  , residuePrccha
+  , residuePada
   , showSandhi
   , Nirnaya(..)
   , nirnaya
   , vidhiRefs
   , Pravesha(..)
   , pravesha
-  , sesah
-  , sesaKosha
-  , sesaPrasna
-  , sesaPrasnaNava
+  , residueh
+  , residueKosha
+  , residuePrasna
+  , residuePrasnaNava
   , abhyasa
-  , sesaLekha
+  , residueLekha
     -- the karaka layer (2.3.1, 2.3.2, 2.3.18)
   , Karaka(..)
   , Vibhakti(..)
@@ -1596,7 +1596,7 @@ alVidhiTable =
 -- two strike one half of 1.1.56 each and are COUNTERFACTUALS -- they are
 -- here so the stra's clause can be shown to be load-bearing rather than
 -- described as load-bearing.
-data Drsti = Yathasutram | SthanivatSarvatra | RupamSarvatra
+data Drsti = Yathasutram | PositionalSarvatra | RupamSarvatra
   deriving (Eq, Show)
 
 -- The lopa half is a separate switch because it is a separate stra.
@@ -1623,7 +1623,7 @@ drstiVidhi :: Drsti -> Ref -> Vidhi
 drstiVidhi d r = case (d, vidhiOf r) of
   (_, NoVidhi)               -> NoVidhi
   (Yathasutram, v)           -> v
-  (SthanivatSarvatra, _)     -> AnalVidhi   -- `anal-vidhau` struck out
+  (PositionalSarvatra, _)     -> AnalVidhi   -- `anal-vidhau` struck out
   (RupamSarvatra, _)         -> AlVidhi     -- `sthnivat` struck out
 
 -- ‡¶‡‡‡‡ü‡Æ‡ -- WHAT A RULE IS HANDED.  This is the barrier itself: an
@@ -1882,7 +1882,7 @@ deriveLekhaV vd nv start =
 --                                the rules apply AS IF SIMULTANEOUSLY.
 --
 -- The corpus already carries the distinction under its Jain name --
--- `formal/cubical/Saptabhangi.agda` proves krama (successive) and saha
+-- `formal/cubical/Saptabhangi.agda` proves order (successive) and saha
 -- (simultaneous) arpana reach DIFFERENT positions, so simultaneity is not
 -- sequential both-ness -- and `formal/cubical/Asiddhatva.agda` proves the
 -- ordered regime buys termination.  This is the simultaneous regime, so
@@ -1975,8 +1975,8 @@ deriveTraceV :: Vidhana -> [Item] -> ([Step], [Item])
 deriveTraceV vd start = let (sts, xs, _) = deriveLekhaV vd [] start in (sts, xs)
 
 -- `sthanivat` with the exception struck: every rule reads the sthanin.
-deriveSthanivatEverywhere :: String -> String
-deriveSthanivatEverywhere = deriveV (Vidhana SthanivatSarvatra True)
+derivePositionalEverywhere :: String -> String
+derivePositionalEverywhere = deriveV (Vidhana PositionalSarvatra True)
 
 -- the other half struck: every rule reads the form, which is the engine as
 -- it stood before this section existed.
@@ -1995,7 +1995,7 @@ deriveWithoutLopaTrace = deriveTraceV (Vidhana Yathasutram False)
 -- the site held an adesa AND the rule was an al-vidhi, so it read past the
 -- barrier to the form.  Where this list is empty the barrier was never
 -- tested in that derivation; where it is not, the counterfactual
--- `deriveSthanivatEverywhere` on the same input gives a different word.
+-- `derivePositionalEverywhere` on the same input gives a different word.
 barrierAudit :: [Item] -> [(Ref, Vidhi, String, String)]
 barrierAudit start =
   [ (stSutra st, stView st, stSthanin st, stForm st)
@@ -2090,7 +2090,7 @@ asiddhaAudit start =
 -- demanded it -- so the debt is traceable to what asked for it.  Then
 -- `nirnaya` triages WITH EVIDENCE, `pravesha` admits or turns back WITH ITS
 -- GROUND (the discipline of ObligationAnalysis.hs: ‡®‡ï‡æ‡∞‡ ‡ñ‡‡‡°‡®‡ ‡¶‡¶‡æ‡‡ø, ‡‡‡µ‡‡ï‡æ‡∞‡
--- ‡‡æ‡ï‡‡‡ø‡‡Æ‡ -- nowhere a bare truth-value), and `sesaPrasna` ranks what
+-- ‡‡æ‡ï‡‡‡ø‡‡Æ‡ -- nowhere a bare truth-value), and `residuePrasna` ranks what
 -- entered by HOW MANY DISTINCT PARENTS demand it.  That ranking is the
 -- machine stating which stra it needs next, derived from where its own work
 -- stalled rather than guessed by a person from a frequency table.
@@ -2110,7 +2110,7 @@ data Hetu
 type Sandhi = (Maybe String, Item, Maybe String)
 
 -- ‡‡‡‡.  Everything the stall knew at the moment it stalled.
-data Sesa = Sesa
+data Residue = Residue
   { sHetu    :: Hetu
   , sSandhi  :: Sandhi     -- the configuration at the stall, localised
   , sSthana  :: Int        -- WHERE, as an index into sRupa
@@ -2123,14 +2123,14 @@ data Sesa = Sesa
 -- The key a residual is remembered by.  The parent is DELIBERATELY not in
 -- it: counting distinct parents per key is the ranking, so a key that
 -- included the parent would rank everything 1 and say nothing.
-type SesaKey = (Hetu, Sandhi)
+type ResidueKey = (Hetu, Sandhi)
 
-sesaKey :: Sesa -> SesaKey
-sesaKey s = (sHetu s, sSandhi s)
+residueKey :: Residue -> ResidueKey
+residueKey s = (sHetu s, sSandhi s)
 
 -- What the machine is asking for, in one line.
-sesaPrccha :: Sesa -> String
-sesaPrccha s = case sHetu s of
+residuePrccha :: Residue -> String
+residuePrccha s = case sHetu s of
   Anaksaram t -> "no sound " ++ show t ++ " in the varasammnya: "
                  ++ "no pratyhra reaches it, so no stra can condition on it"
   Asutram     -> "no stra offers at " ++ showSandhi (sSandhi s)
@@ -2152,15 +2152,15 @@ showSandhi (l, b, r) =
 
 -- The juncture alone, restated as an input.
 --
--- THIS IS NOT EQUIVALENT TO THE PARENT, and the machine says so: `sesah` on
+-- THIS IS NOT EQUIVALENT TO THE PARENT, and the machine says so: `residueh` on
 -- it gives a DIFFERENT key.  Extracted from "tam + ca" the pair m + c has the
 -- c at avasana, where 8.2.30 cohkuh turns it into k, and the juncture the
 -- residual named no longer exists.  A residual does not survive being taken
 -- out of the trace that produced it -- which is why `sJanaka` is carried and
 -- why `abhyasa` re-asks the PARENT and not this.  Kept, and checked, because
 -- the negative result is the content.
-sesaPada :: Sesa -> String
-sesaPada s = case sSandhi s of
+residuePada :: Residue -> String
+residuePada s = case sSandhi s of
   (Just l, Pada,  Just r) -> l ++ " + " ++ r
   (Just l, Morph, Just r) -> l ++ " - " ++ r
   (Just l, _,     Just r) -> l ++ " " ++ r
@@ -2188,7 +2188,7 @@ data Nirnaya
                       -- token outside its sound system that silenced it.
   deriving (Eq, Show)
 
-nirnaya :: Sesa -> Nirnaya
+nirnaya :: Residue -> Nirnaya
 nirnaya s = case sHetu s of
   Anaksaram t  -> Tusnim t
   Anirnitam rs -> Aviruddha rs
@@ -2244,7 +2244,7 @@ pravesha v@(Nirdharmin _) = Nivartate v
 -- matched by ordinal from the left.  Rewrites consume boundaries (6.1.101
 -- takes the Pada with the two vowels) and never create them, so where a
 -- boundary to the LEFT of this one is consumed mid-run the ordinal shifts and
--- the match is wrong.  Every input in `sesaKosha` carries at most one
+-- the match is wrong.  Every input in `residueKosha` carries at most one
 -- boundary, where the identification is exact.  With more, this
 -- under-reports what reached for a juncture, which emits residuals that are
 -- not owed -- so it is the direction that must be fixed before the queue is
@@ -2274,19 +2274,19 @@ sprsati b (_, i, n) = b >= i - 1 && b <= i + n
 
 -- ‡‡‡‡æ‡ -- every residual one derivation produces.  The parent is the input
 -- string, so every debt below names what demanded it.
-sesah :: String -> [Sesa]
-sesah src = alien ++ undecided ++ unfinished ++ gaps
+residueh :: String -> [Residue]
+residueh src = alien ++ undecided ++ unfinished ++ gaps
   where
     xs0 = parseInput src
     (_, final, lg) = deriveLekha xs0
-    at cfg i h drsta spardhi = Sesa h (sandhiAt cfg i) i cfg spardhi drsta src
+    at cfg i h drsta spardhi = Residue h (sandhiAt cfg i) i cfg spardhi drsta src
 
     alien = [ at xs0 i (Anaksaram t) [] []
             | (i, P t) <- zip [0 ..] xs0, phoneOf t == Nothing ]
 
     undecided = [ at cfg i (Anirnitam rs) [] rs | (cfg, i, rs) <- lAnirnita lg ]
 
-    unfinished = [ Sesa (Asamaptam k) (Nothing, Pada, Nothing) 0 final []
+    unfinished = [ Residue (Asamaptam k) (Nothing, Pada, Nothing) 0 final []
                         (nub [ r | (_, os) <- lVrtta lg, (r, _, _) <- os ]) src
                  | Just k <- [lAsamapta lg] ]
 
@@ -2308,8 +2308,8 @@ sesah src = alien ++ undecided ++ unfinished ++ gaps
 -- Refuted and degenerate residuals are dropped BEFORE the queue rather than
 -- filtered where they are used.  A queue carrying objects nobody may act on
 -- is a queue that will be acted on.
-sesaPrasna :: [String] -> [(Sesa, Int)]
-sesaPrasna = sesaPrasnaNava []
+residuePrasna :: [String] -> [(Residue, Int)]
+residuePrasna = residuePrasnaNava []
 
 -- ‡‡‡®‡∞‡æ‡µ‡‡‡‡‡ø‡®‡ø‡µ‡æ‡∞‡‡Æ‡ -- requeue suppression, load-bearing rather than tidy.
 --
@@ -2325,48 +2325,48 @@ sesaPrasna = sesaPrasnaNava []
 -- These do not decrease at all; a residual can be a larger object than the
 -- configuration that produced it.  What holds here is only finiteness -- the
 -- juncture alphabet is finite -- plus this suppression.
-sesaPrasnaNava :: [SesaKey] -> [String] -> [(Sesa, Int)]
-sesaPrasnaNava held corpus =
+residuePrasnaNava :: [ResidueKey] -> [String] -> [(Residue, Int)]
+residuePrasnaNava held corpus =
     sortOn (\(s, n) -> (negate n, showSandhi (sSandhi s)))
       [ (g, length (nub (map sJanaka grp)))
-      | k <- nub (map sesaKey entered), k `notElem` held
-      , let grp = [ s | s <- entered, sesaKey s == k ]
+      | k <- nub (map residueKey entered), k `notElem` held
+      , let grp = [ s | s <- entered, residueKey s == k ]
       , g <- take 1 grp ]
   where
-    entered = [ s | s <- concatMap sesah corpus
+    entered = [ s | s <- concatMap residueh corpus
                   , Pravishati _ <- [pravesha (nirnaya s)] ]
 
 -- ‡‡‡‡Ø‡æ‡‡ -- the loop that livelocks without `held`.  Each round re-asks the
 -- parents that stalled; a round that adds no new key ends it.  Returns one
 -- list per round.
-abhyasa :: Int -> [String] -> [[(Sesa, Int)]]
+abhyasa :: Int -> [String] -> [[(Residue, Int)]]
 abhyasa n corpus = go n [] corpus
   where
     go 0 _ _ = []
     go k held cs =
-      case sesaPrasnaNava held cs of
+      case residuePrasnaNava held cs of
         [] -> []
-        q  -> q : go (k - 1) (held ++ map (sesaKey . fst) q)
+        q  -> q : go (k - 1) (held ++ map (residueKey . fst) q)
                     (nub (map (sJanaka . fst) q))
 
 -- WHAT THE MACHINE ASKS FOR, printed -- not a summary of the queue, the queue
 -- in its own words.
-sesaLekha :: [String] -> [String]
-sesaLekha corpus =
+residueLekha :: [String] -> [String]
+residueLekha corpus =
   [ "the machine asks for " ++ show (length q) ++ " thing"
       ++ (if length q == 1 then "" else "s") ++ ", best first:" ]
   ++ [ "  demanded by " ++ show n ++ " derivation"
-       ++ (if n == 1 then "" else "s") ++ ": " ++ sesaPrccha s
+       ++ (if n == 1 then "" else "s") ++ ": " ++ residuePrccha s
        ++ "   [from " ++ sJanaka s ++ "]"
      | (s, n) <- q ]
-  where q = sesaPrasna corpus
+  where q = residuePrasna corpus
 
 -- ‡ï‡ã‡‡ -- the corpus the queue is measured over: every derivation this file
 -- already tests, and nothing invented to make the queue look busy.  The four
 -- additions at the end are the probes that exhibit each verdict, and each is
 -- ordinary  or, in one case, deliberately not  at all.
-sesaKosha :: [String]
-sesaKosha =
+residueKosha :: [String]
+residueKosha =
   [ "dadhi + indra", "deva + indra", "mah + indra", "su + ukta"
   , "deva + i", "mah + i", "madhu + ari", "deva + aivarya"
   , "te + api", "ne - ana", "ne + ana", "rmas", "tat + ca"
@@ -2450,9 +2450,9 @@ coverage =
   , ""
   , "‡‡‡‡, section 7b: the engine's stalls are kept rather than swallowed."
   , "  A derivation that cannot proceed emits the configuration, the position,"
-  , "  the contending stras and the parent that demanded it, and `sesaPrasna`"
+  , "  the contending stras and the parent that demanded it, and `residuePrasna`"
   , "  ranks the debts by how many distinct derivations each would unblock."
-  , "  Run it: `sesaLekha sesaKosha`.  What the machine currently asks for is"
+  , "  Run it: `residueLekha residueKosha`.  What the machine currently asks for is"
   , "  a stra at m + c -- which the Adhyy has (8.3.23 `mo 'nusvra`)"
   , "  and this file does not.  The machine derived the gap; the number is"
   , "  supplied here by a reader and is not part of the residual."
@@ -2672,7 +2672,7 @@ selfTest = concat
   , sutraTableTests
   , anuvrttiTests
   , inheritanceIsLoadBearingTests
-  , sesaTests
+  , residueTests
   , laghavaTests
   , sthanivatTests
   ]
@@ -3084,16 +3084,16 @@ selfTest = concat
           (barrierAudit (parseInput "deva + indra")) []
       -- THE TWO READINGS DIFFER, on the encoded rules
       , chk "striking anal-vidhau changes four corpus words"
-          [ (w, derive w, deriveSthanivatEverywhere w)
+          [ (w, derive w, derivePositionalEverywhere w)
           | w <- [ "tat + ca", "ne - ana", "rmas", "n ~ lyu" ] ]
           [ ("tat + ca",  "tacca",  "tajca")
           , ("ne - ana",  "nayana", "naaiana")
           , ("rmas",     "rma",  "rmar")
           , ("n ~ lyu", "nayana", "neyu") ]
       , chk "and on vc it changes the derivation and not the form"
-          ( derive "vc" == deriveSthanivatEverywhere "vc"
+          ( derive "vc" == derivePositionalEverywhere "vc"
           , length (fst (deriveTrace (parseInput "vc")))
-          , length (fst (deriveTraceV (Vidhana SthanivatSarvatra True) (parseInput "vc"))) )
+          , length (fst (deriveTraceV (Vidhana PositionalSarvatra True) (parseInput "vc"))) )
           (True, 3, 5)
       -- and the OTHER half is declared, not exercised: say so with a test
       , chk "striking sthnivat changes nothing here -- the inheritance half"
@@ -3143,11 +3143,11 @@ selfTest = concat
     -- does NOT name it: the machine states where it stalled, not the answer,
     -- and asserting a stra number the machine did not derive would be the
     -- fitted constant this repository's protocol exists to prevent.
-    sesaTests =
-      let gaps  = [ s | s <- sesah "tam + ca", sHetu s == Asutram ]
-          seen  = [ s | s <- sesah "rmas + ca", sHetu s == Asutram ]
-          alien = [ s | s <- sesah "tat + fala", isAnaksara (sHetu s) ]
-          edge  = [ s | s <- sesah "+ ca", sHetu s == Asutram ]
+    residueTests =
+      let gaps  = [ s | s <- residueh "tam + ca", sHetu s == Asutram ]
+          seen  = [ s | s <- residueh "rmas + ca", sHetu s == Asutram ]
+          alien = [ s | s <- residueh "tat + fala", isAnaksara (sHetu s) ]
+          edge  = [ s | s <- residueh "+ ca", sHetu s == Asutram ]
           isAnaksara (Anaksaram _) = True
           isAnaksara _             = False
           isAnirnita (Anirnitam _) = True
@@ -3171,7 +3171,7 @@ selfTest = concat
       , chk "and it enters, carried in by that verdict"
           (map (pravesha . nirnaya) gaps) [Pravishati (Aviruddha vidhiRefs)]
       , chk "and this is what it asks for"
-          (map sesaPrccha gaps) ["no stra offers at m + c"]
+          (map residuePrccha gaps) ["no stra offers at m + c"]
       -- the three that must NOT enter.  The khandita witness is 8.2.66
       -- `sasajuso ruh`, not 8.3.15: 8.2.66 is the FIRST rule to reach for
       -- that juncture, and the verdict carries who refuted it rather than
@@ -3186,7 +3186,7 @@ selfTest = concat
           (all (\s -> case pravesha (nirnaya s) of Nivartate _ -> True; _ -> False) edge)
           True
       , chk "a resolved derivation leaves no debt"
-          (sesaPrasna ["deva + indra"]) []
+          (residuePrasna ["deva + indra"]) []
       -- the sound system's own silence
       , chk "f is not a sound of the varasammnya"     (phoneOf "f") Nothing
       , chk "so the residual is ‡‡‡‡‡‡‡Æ‡, carrying the token"
@@ -3203,33 +3203,33 @@ selfTest = concat
       , chk "distinct Refs: 1.4.2 decides, and nothing is owed"
           (undec [r1, r3]) Nothing
       , chk "the encoded rule set never trips it (exhaustive over the corpus)"
-          [ sHetu s | i <- sesaKosha, s <- sesah i, isAnirnita (sHetu s) ] []
+          [ sHetu s | i <- residueKosha, s <- residueh i, isAnirnita (sHetu s) ] []
       , chk "and no derivation in the corpus hits the fixpoint guard"
-          [ sHetu s | i <- sesaKosha, s <- sesah i
+          [ sHetu s | i <- residueKosha, s <- residueh i
                     , case sHetu s of Asamaptam _ -> True; _ -> False ] []
       -- the queue
       , chk "ranked by DISTINCT PARENTS, not by occurrences"
-          (map snd (sesaPrasna ["tam + ca", "kim + ca", "tam + ca"])) [2]
+          (map snd (residuePrasna ["tam + ca", "kim + ca", "tam + ca"])) [2]
       , chk "one juncture, two parents, one queue entry"
-          (map (showSandhi . sSandhi . fst) (sesaPrasna ["tam + ca", "kim + ca"]))
+          (map (showSandhi . sSandhi . fst) (residuePrasna ["tam + ca", "kim + ca"]))
           ["m + c"]
       -- ‡‡‡®‡∞‡æ‡µ‡‡‡‡‡ø‡ -- the livelock, and the thing that stops it
       , chk "re-asking the same parent yields THE SAME KEY -- stationary,\
             \ so an unsuppressed loop never ends"
-          (map (sesaKey . fst) (sesaPrasna ["tam + ca"])
-             == map (sesaKey . fst) (sesaPrasna ["tam + ca"])) True
+          (map (residueKey . fst) (residuePrasna ["tam + ca"])
+             == map (residueKey . fst) (residuePrasna ["tam + ca"])) True
       , chk "suppression: abhyasa over that parent stops after one round"
           (length (abhyasa 16 ["tam + ca"])) 1
       , chk "and holding the key empties the queue"
-          (sesaPrasnaNava (map (sesaKey . fst) (sesaPrasna ["tam + ca"])) ["tam + ca"])
+          (residuePrasnaNava (map (residueKey . fst) (residuePrasna ["tam + ca"])) ["tam + ca"])
           []
       -- and the residual does NOT survive extraction from its parent
       , chk "the juncture alone renders as an input"
-          (map (sesaPada . fst) (sesaPrasna ["tam + ca"])) ["m + c"]
+          (map (residuePada . fst) (residuePrasna ["tam + ca"])) ["m + c"]
       , chk "but that input is a different question: 8.2.30 cohkuh applies at\
             \ avasana and the juncture the residual named is gone"
-          (map (sesaKey . fst) (sesaPrasna ["m + c"])
-             == map (sesaKey . fst) (sesaPrasna ["tam + ca"])) False
+          (map (residueKey . fst) (residuePrasna ["m + c"])
+             == map (residueKey . fst) (residuePrasna ["tam + ca"])) False
       , chk "which is why the trace is kept and the parent is carried"
           (derive "m + c") "m k"
       ]

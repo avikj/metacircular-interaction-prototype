@@ -20,7 +20,7 @@
 -- PratyaharaBuysTotalityWithLocality` proved that repeating a letter
 -- DESTROYS locality of naming ‚î repetition as a cost.  `NaturalMachine/
 -- TheSecondNaIsTheCollision` computed the doubled A-marker's ambiguity
--- at a ‚î repetition as a collision.  `Krama_NoRecitationOrderSeats-
+-- at a ‚î repetition as a collision.  `Order_NoRecitationOrderSeats-
 -- TheCycle‚¶` proved on three abstract sounds that the three pair-classes
 -- are unnameable in any recited-once line, and its header records ‚î as a
 -- correction of its own first draft ‚î that the ATTESTED family contains
@@ -34,7 +34,7 @@
 --         aL (‚¶Ml)  =   s h                          (4 sounds)
 --         yaR (y‚¶Mr)  = the 32 consonants without h
 --       and their restrictions to {h y } are the three pairs
---       {h y}, { h}, {y } ‚î the Krama cycle, attested.
+--       {h y}, { h}, {y } ‚î the Order cycle, attested.
 --
 --   ¬ß6  `‡‡ï‡‡‡∞‡‡‡-‡‡‡∞‡Ø‡Æ‡-‡‡‡æ‡ß‡‡Ø‡Æ‡` ‚î for ANY line ‚ì over this alphabet
 --       whose {h y }-subsequence is one of the six permutations (i.e.
@@ -82,7 +82,7 @@
 --     (¬ß3), which any occurrence convention satisfies; but ¬ß6 as a term
 --     is about this extractor.
 --   * Œº_k in general, Petersen 2004, the consecutive-ones theory: all
---     still open or owed, as recorded in `PratyaharaLaghava` and `Krama`.
+--     still open or owed, as recorded in `PratyaharaLaghava` and `Order`.
 --
 -- No postulates, no holes, --safe.  ¬ß¬ß2‚ì4 are inductions; every concrete
 -- claim is refl.
@@ -443,7 +443,7 @@ eqSig‚ÇÉ (sg‚ÇÉ p‚ÇÅ p‚ÇÇ p‚ÇÉ) (sg‚ÇÉ r‚ÇÅ r‚ÇÇ r‚ÇÉ) = eqB p‚ÇÅ r‚ÇÅ and (eqB 
            ‚à∑ k ‚à∑ p ‚à∑ ≈õ ‚à∑ ·π£ ‚à∑ s ‚à∑ []
 ‡§Ø‡§∞‡•ç-‡§µ‡§∞‡•ç‡§£‡§æ‡§É = refl
 
--- the three restrictions to {h y } are the Krama cycle, attested
+-- the three restrictions to {h y } are the Order cycle, attested
 ‡§Ö‡§ü‡•ç-‡§π‡§Ø‡§∂‡•á‡§∑‡•Å : sig‚ÇÉ (keep tHY≈ö ‡§Ö‡§ü‡•ç-‡§Ü‡§Ø‡§æ‡§Æ‡§É) ‚â° ‡§π‡§Ø-‡§Ø‡•Å‡§ó‡§Æ‡•ç
 ‡§Ö‡§ü‡•ç-‡§π‡§Ø‡§∂‡•á‡§∑‡•Å = refl
 

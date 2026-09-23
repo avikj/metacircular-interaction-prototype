@@ -15,7 +15,7 @@
 -- 1794 at n = 11 for a list that ran ten windows past the end with zero
 -- padding, and that correction is why `take` is there.
 --
--- Submitted to the yantra (sadhana.patra) and accepted by its kernel,
+-- Submitted to the machine (sadhana.patra) and accepted by its kernel,
 -- 2026-09-11; ~13 GB live, run under `check`'s heap cap, alone.
 ------------------------------------------------------------------------
 
@@ -64,9 +64,9 @@ punar a b i j e (suc k) =
 sthiti : (a b : ℕ) → Fin (suc (suc b)) → Fin (suc b)
 sthiti a b (k , _) = śeṣa a b k , śeṣa< a b k
 
-krama : (a b : ℕ) (i j : Fin (suc (suc b))) → ¬ i ≡ j → sthiti a b i ≡ sthiti a b j
+order : (a b : ℕ) (i j : Fin (suc (suc b))) → ¬ i ≡ j → sthiti a b i ≡ sthiti a b j
       → Σ[ u ∈ ℕ ] Σ[ v ∈ ℕ ] (u < v) × (v < suc (suc b)) × (śeṣa a b u ≡ śeṣa a b v)
-krama a b (i , i<) (j , j<) ne e with i ≟ j
+order a b (i , i<) (j , j<) ne e with i ≟ j
 ... | lt i<j = i , j , i<j , j< , cong fst e
 ... | gt j<i = j , i , j<i , i< , sym (cong fst e)
 ... | eq i≡j = E.rec (ne (toℕ-injective i≡j))
@@ -74,7 +74,7 @@ krama a b (i , i<) (j , j<) ne e with i ≟ j
 rational→periodic : (a b : ℕ) → Σ[ d ∈ ℕ ] Σ[ N ∈ ℕ ] (N + suc d ≤ b + suc b) × Periodic (aṅka a b) N (suc d)
 rational→periodic a b =
   let (i , j , ne , e) = pigeonhole ≤-refl (sthiti a b)
-      (u , v , (d , du) , v< , eu) = krama a b i j ne e
+      (u , v , (d , du) , v< , eu) = order a b i j ne e
   in d , u
    , N+p≤ d u v du v<
    , λ n (l , lu) →

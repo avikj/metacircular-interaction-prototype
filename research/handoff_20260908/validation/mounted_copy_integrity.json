@@ -185,13 +185,13 @@
     "byte_identical": true
   },
   {
-    "archived": "originals/conversation/yantra_runtime_probe/environment.log",
-    "mounted_original": "/mnt/data/yantra_runtime_probe/environment.log",
+    "archived": "originals/conversation/machine_runtime_probe/environment.log",
+    "mounted_original": "/mnt/data/machine_runtime_probe/environment.log",
     "byte_identical": true
   },
   {
-    "archived": "originals/conversation/yantra_runtime_probe/setup-report.log",
-    "mounted_original": "/mnt/data/yantra_runtime_probe/setup-report.log",
+    "archived": "originals/conversation/machine_runtime_probe/setup-report.log",
+    "mounted_original": "/mnt/data/machine_runtime_probe/setup-report.log",
     "byte_identical": true
   }
 ]

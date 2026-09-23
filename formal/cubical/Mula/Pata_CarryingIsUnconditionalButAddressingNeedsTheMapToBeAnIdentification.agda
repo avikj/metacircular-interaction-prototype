@@ -14,7 +14,7 @@
 -- because the fibre `singl (f a)` is contractible.  That is a RECEIPT.
 --
 -- It does not follow that you may throw the base away.  For that you need
--- to get the base BACK from the datum, and `punaragamana/‚¶/Prastara_‚¶`
+-- to get the base BACK from the datum, and `return/‚¶/Prastara_‚¶`
 -- is where the difference becomes a theorem rather than a caution.  Two
 -- maps out of the same base behave oppositely:
 --
@@ -75,7 +75,7 @@ private
 ------------------------------------------------------------------------
 -- ‡ß ¬ ‡ó‡‡∞‡æ‡ ‚î the graph, and its two readings.  Written with Œ directly
 --     rather than as a record, because this lane has no general Carrier
---     type; the punaragamana library packages the same Œ as one.
+--     type; the return library packages the same Œ as one.
 ------------------------------------------------------------------------
 
 ‡§ó‡•ç‡§∞‡§æ‡§π : {A B : Type ‚Ñì} ‚Üí (A ‚Üí B) ‚Üí Type ‚Ñì
@@ -169,7 +169,7 @@ data ‡§Ö‡§ï‡•ç‡§∑‡§∞ : Type‚ÇÄ where
 --
 --     It shows ‡Æ‡æ‡‡‡∞‡æ is not an address.  It does NOT show that the
 --     ‡‡‡∞‡‡‡‡æ‡∞'s rank map fails to be one ‚î ‡â‡¶‡‡¶‡ø‡‡‡ü IS an address, and the
---     punaragamana module proves it by exhibiting ‡®‡‡‡ü with both round
+--     return module proves it by exhibiting ‡®‡‡‡ü with both round
 --     trips.  That direction is not reproved here and is not claimed;
 --     what is claimed is only the contrast, which needs just one side to
 --     be exhibited to be a distinction rather than a preference.

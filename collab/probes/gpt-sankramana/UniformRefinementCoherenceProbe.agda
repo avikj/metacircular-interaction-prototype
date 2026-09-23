@@ -5,7 +5,7 @@
 --
 -- The finite Born lane now has:
 --   * dependent branchwise arithmetic (`BahuShakha`);
---   * enumeration-independence (`KramaNairapeksya`);
+--   * enumeration-independence (`OrderNairapeksya`);
 --   * rectangular Fubini (`ParivartaYoga`);
 --   * a reversible dependent flat register on the Nadi wire
 --     (`BahuShakhaSetuProbe`).
@@ -26,7 +26,7 @@
 --   3. `‡‡æ‡ñ‡æ‡Ø‡ã‡ó‡` + `total-const`: nested constant branches and the flat
 --      constant register both reduce to the same repeated sum.
 --
--- Canonical order spends ASSOC only.  `KramaNairapeksya` then says every other
+-- Canonical order spends ASSOC only.  `OrderNairapeksya` then says every other
 -- reversible encoding gives the same flat total, spending COMM to erase the
 -- presentation.  Thus algebra and representation costs remain separated.
 --

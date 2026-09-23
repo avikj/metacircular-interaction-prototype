@@ -37,7 +37,7 @@ For f : A -> B, WHICH SIDE of `f a = b` is bound?
     present).
   - bind INPUT: fibre = fiber f b, contractible EXACTLY when f is an
     equivalence. That is the exact loss.
-Every "loss / residue / sesa" statement is a reading of this. sesa = the residual
+Every "loss / residue / residue" statement is a reading of this. residue = the residual
 a lossy transport owes = H^1 in the cohomology-as-codec reading = the
 non-contractible fibre.
 
@@ -196,7 +196,7 @@ abstracts 27-29 + these NOTES are branch-only).
   MadhyaBindu_ (primes/): midpoint form ‚ü∫ sum form, both directions
     (one-question). "Midpoints of prime pairs cover ‚ï" ‚ü∫ Goldbach. Lemmas: a
     symmetric pair's offset is even (halve); doubling injects (centre).
-  PratibimbaDvaya_ (primes/): the two reflection identities where the kernel
+  ReflectionDvaya_ (primes/): the two reflection identities where the kernel
     equation lane stops ‚î pq + p^2 = p(p+q); (N-k)(N+k) + k^2 = N^2.
   RH_...DavisMatiyasevichRobinsonArithmetization (primes/): RH as ONE computable
     Type over ‚ï (eta, delta, harmonic fraction, denominators cleared, signed
@@ -214,7 +214,7 @@ abstracts 27-29 + these NOTES are branch-only).
     constructive for Goldbach); Pi1 (Goldbach) vs Pi2 (twins/Collatz) correction;
     reflect (the ‚/2 on the fibre), Fixed = diagonal p=q; GoldbachAt10-is-not-a-
     proposition (fibre CARDINALITY = representation count = h-level; truncation =
-    sesa loss) [subsumed by Chaya ‚î reconcile]; diagonal-witness/diagonal-is-fixed
+    residue loss) [subsumed by Chaya ‚î reconcile]; diagonal-witness/diagonal-is-fixed
     (prime centre gives the fixed-point representation free).
   TrtiyaSopana_ / CaturthaSopana_ (Kernel/): the stair. Induction certificate
     does NOT reach commutativity (base field refuted by the W-standpoint); with
@@ -237,7 +237,7 @@ VII. SPECIFIC MATHEMATICAL INTERPRETATIONS CO-PRODUCED  (seeds)
     total asymmetry"; diameter deficit = r^2 a perfect square.
   - "-1 is the smallest wave, composed multiplicatively" = LIOUVILLE
     lambda=(-1)^Omega; sqrt cancellation IS RH; zeros oscillate in LOG-TIME.
-  - sesa = H^1 = the non-contractible fibre = cohomological side-information =
+  - residue = H^1 = the non-contractible fibre = cohomological side-information =
     the homometric ambiguity in ‚: ONE non-injectivity theorem at many scales.
   - The section is the UNIVERSAL WITNESS, not a fog: Goldbach = totality of a
     named, constructed, self-certifying search. Openness is a single Œ†-property

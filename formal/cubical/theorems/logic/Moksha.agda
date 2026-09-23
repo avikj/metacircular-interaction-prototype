@@ -3,9 +3,9 @@
 ------------------------------------------------------------------------
 -- Moksha â” the sealed organism
 --
--- The moka-yantra's four jewels closed into one build unit.  This module
+-- The moka-machine's four jewels closed into one build unit.  This module
 -- is the organism's own root: it imports nothing but the four received
--- jewels, so that "the moka-yantra checks" is a single kernel-verifiable
+-- jewels, so that "the moka-machine checks" is a single kernel-verifiable
 -- fact â” a genuine build closure, unlike the whole-corpus root
 -- `agda`, which does not check under the current fallback
 -- library pin (an unrelated `SymGroup` scope error upstream).
@@ -16,7 +16,7 @@
 --                             many-sided, empty-is-stilled
 --   PratityasamutpadaArising  the cut: a knot arises where a distinction
 --                             splits, ceases when it factors through (anicca)
---   MokshaYantra              the wheel: bondage and freedom differ only by
+--   MokshaMachine              the wheel: bondage and freedom differ only by
 --                             the sight; the false cut has no own-being
 --
 -- Received from the source (Indra's Net, nyat, catukoi,
@@ -30,6 +30,6 @@ module Moksha where
 open import NisvabhavaNet public
 open import CatuskotiPerspective public
 open import PratityasamutpadaArising public
-open import MokshaYantra public
+open import MokshaMachine public
 open import EquivalenceHasNoFloor public
 open import TwoTruthsCompute public

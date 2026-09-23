@@ -20,7 +20,7 @@
 --
 -- **There is a third, and it sits strictly between them.**
 --
---   Krama Q    = (¬ ‡‡æ‡Æ‡Ø‡ø‡ï) ó (¬ ‡®‡ø‡‡‡Ø)     both denied, in sequence
+--   Order Q    = (¬ ‡‡æ‡Æ‡Ø‡ø‡ï) ó (¬ ‡®‡ø‡‡‡Ø)     both denied, in sequence
 --   Vikalpa Q  = (¬ ‡‡æ‡Æ‡Ø‡ø‡ï) ‚ä (¬ ‡®‡ø‡‡‡Ø)     one of them denied, said
 --                                            without saying which
 --   Yugapat Q  = ¬ (‡‡æ‡Æ‡Ø‡ø‡ï ó ‡®‡ø‡‡‡Ø)         their joint assertion
@@ -28,24 +28,24 @@
 --
 -- WHAT IS PROVED
 --
---   kramaGivesVikalpa      Krama ‚í Vikalpa, one line
+--   orderGivesVikalpa      Order ‚í Vikalpa, one line
 --   vikalpaGivesYugapat    Vikalpa ‚í Yugapat, two lines
---   trivialHasVikalpa / trivialLacksKrama
+--   trivialHasVikalpa / trivialLacksOrder
 --                          **the first step is STRICT, and refuted
 --                          outright rather than reduced to a taboo**:
 --                          at the trivially-true family, `¬ ‡‡æ‡Æ‡Ø‡ø‡ï`
 --                          holds while `¬ ‡®‡ø‡‡‡Ø` fails, so Vikalpa
---                          holds and Krama does not
+--                          holds and Order does not
 --   yugapatToVikalpaIsWeakExcludedMiddle
 --                          the second step's converse, as a general
 --                          principle, yields WLEM (this is the earlier
 --                          module's lemma, imported and named here for
 --                          the chain)
---   yugapatToKramaIsAlsoTaboo
+--   yugapatToOrderIsAlsoTaboo
 --                          hence so does the composite
 --
 -- **THE TWO GAPS ARE OF DIFFERENT KINDS, AND THAT IS THE RESULT.**  The
--- Krama/Vikalpa gap is a fact about my instance family and is settled
+-- Order/Vikalpa gap is a fact about my instance family and is settled
 -- by an example.  The Vikalpa/Yugapat gap is not about the family at
 -- all: it is a constructive taboo, and no example can settle it inside
 -- `--safe`.  A chain of three positions whose gaps have different
@@ -69,9 +69,9 @@ open import Cubical.Data.Sigma using (_√ó_ ; _,_ ; fst ; snd)
 open import Cubical.Relation.Nullary using (¬¨_)
 
 open import AnuktaAvaktavya using (‡§∏‡§æ‡§Æ‡§Ø‡§ø‡§ï ; ‡§®‡§ø‡§§‡•ç‡§Ø)
-open import KramaAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift
+open import OrderAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift
   using (one)
-open import KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition
+open import OrderSaha_TheFourthCornerIWasNamingIsTheSequentialPosition
   using (trivial ; firstAloneHolds ; secondFailsThere)
 open import Yugapat_TheDenialOfJointAssertionDoesNotDecompose
   using (yugapatDecompositionGivesWeakExcludedMiddle)
@@ -84,8 +84,8 @@ private
 -- 1.  Three positions
 ------------------------------------------------------------------------
 
-Krama : (R ‚Üí Type) ‚Üí Type
-Krama Q = (¬¨ ‡§∏‡§æ‡§Æ‡§Ø‡§ø‡§ï (one Q)) √ó (¬¨ ‡§®‡§ø‡§§‡•ç‡§Ø (one Q))
+Order : (R ‚Üí Type) ‚Üí Type
+Order Q = (¬¨ ‡§∏‡§æ‡§Æ‡§Ø‡§ø‡§ï (one Q)) √ó (¬¨ ‡§®‡§ø‡§§‡•ç‡§Ø (one Q))
 
 Vikalpa : (R ‚Üí Type) ‚Üí Type
 Vikalpa Q = (¬¨ ‡§∏‡§æ‡§Æ‡§Ø‡§ø‡§ï (one Q)) ‚äé (¬¨ ‡§®‡§ø‡§§‡•ç‡§Ø (one Q))
@@ -97,8 +97,8 @@ Yugapat Q = ¬¨ (‡§∏‡§æ‡§Æ‡§Ø‡§ø‡§ï (one Q) √ó ‡§®‡§ø‡§§‡•ç‡§Ø (one Q))
 -- 2.  The chain
 ------------------------------------------------------------------------
 
-kramaGivesVikalpa : (Q : R ‚Üí Type) ‚Üí Krama Q ‚Üí Vikalpa Q
-kramaGivesVikalpa Q k = inl (fst k)
+orderGivesVikalpa : (Q : R ‚Üí Type) ‚Üí Order Q ‚Üí Vikalpa Q
+orderGivesVikalpa Q k = inl (fst k)
 
 vikalpaGivesYugapat : (Q : R ‚Üí Type) ‚Üí Vikalpa Q ‚Üí Yugapat Q
 vikalpaGivesYugapat Q (inl ns) both = ns (fst both)
@@ -111,8 +111,8 @@ vikalpaGivesYugapat Q (inr nn) both = nn (snd both)
 trivialHasVikalpa : Vikalpa trivial
 trivialHasVikalpa = inl firstAloneHolds
 
-trivialLacksKrama : ¬¨ Krama trivial
-trivialLacksKrama k = secondFailsThere (snd k)
+trivialLacksOrder : ¬¨ Order trivial
+trivialLacksOrder k = secondFailsThere (snd k)
 
 ------------------------------------------------------------------------
 -- 4.  The second step's converse is a taboo, not an example
@@ -124,9 +124,9 @@ yugapatToVikalpaIsWeakExcludedMiddle :
 yugapatToVikalpaIsWeakExcludedMiddle =
   yugapatDecompositionGivesWeakExcludedMiddle
 
-yugapatToKramaIsAlsoTaboo :
+yugapatToOrderIsAlsoTaboo :
   ((A B : Type) ‚Üí ¬¨ (A √ó B) ‚Üí ((¬¨ A) √ó (¬¨ B)))
   ‚Üí (A : Type) ‚Üí (¬¨ A) ‚äé (¬¨ (¬¨ A))
-yugapatToKramaIsAlsoTaboo dec =
+yugapatToOrderIsAlsoTaboo dec =
   yugapatDecompositionGivesWeakExcludedMiddle
     (Œª A B h ‚Üí inl (fst (dec A B h)))

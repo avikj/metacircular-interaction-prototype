@@ -50,7 +50,7 @@
 --
 -- What that module claims is narrower than what this one claims and that
 -- is the point: it identifies NO Jaina grade with any number, and does not
--- import `JainSankhya` for exactly that reason.  It gives the tradition an
+-- import `JainCount` for exactly that reason.  It gives the tradition an
 -- instrument, not a translation.
 --
 -- So the reading below stands as a RESTATEMENT, after the source and named

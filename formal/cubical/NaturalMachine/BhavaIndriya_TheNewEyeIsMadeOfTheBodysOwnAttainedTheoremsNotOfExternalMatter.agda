@@ -43,7 +43,7 @@ open import Cubical.Data.Sigma using (_,_)
 open import NaturalMachine.EkaBhasha_TheStoreCarriesItsProofsTheGateIsTheTypeAndTheProverLivesInside
 open import NaturalMachine.Aroha_TheInternalProverClimbsWhereItsFlatVoiceIsSilentAndTheStoreAdmitsInductionThroughTheSameGate
   using (उपस्थापनम्)
-open import NaturalMachine.SyatSakaladesha_TheHypothesisCompletedWithItsStandpointIsAbsoluteAndTheDoubleDescentCloses
+open import NaturalMachine.SyatWholedesha_TheHypothesisCompletedWithItsStandpointIsAbsoluteAndTheDoubleDescentCloses
   using (ज्येष्ठ-समता ; शून्य-ज्येष्ठम्)
 open import NaturalMachine.ArpitaAnarpita_EveryOrderedPresentationOfOneAggregateMeetsInTheSequenceFreeFormAndTheACFrontierFallsToAJoinerSwap
   using ( पङ्क्तिः ; सुम् ; सुम्-++ ; पङ्क्ति-सत्यम्

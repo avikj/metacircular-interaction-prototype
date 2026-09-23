@@ -10,7 +10,7 @@
 --     QUARTER TURN.
 --
 -- A cellwise symmetry applies a family of cell maps down the rope
--- (the rope-level assembled residue family of SesaSamavaya).  If it
+-- (the rope-level assembled residue family of ResidueSamavaya).  If it
 -- commutes with every crossing, then reading the commutation at the
 -- crossing pair against one-cell witness ropes forces, pointwise:
 --

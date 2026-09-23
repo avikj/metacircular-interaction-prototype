@@ -3,8 +3,8 @@
 ------------------------------------------------------------------------
 -- ‡‡ï‡‡‡∞-‡¶‡‡µ‡ø‡ó‡‡‡ ‚î ‡‡ø‡ô‡‡ó‡≤‡‡‡Ø ‡µ‡∞‡‡-‡‡‡∞‡‡‡‡æ‡∞‡‡‡Ø ‡¶‡‡µ‡ø‡ó‡‡‡®‡Æ‡, ‡µ‡‡‡‡-‡‡‡‡∞‡ (‡® ‡ï‡‡µ‡≤‡ ‡ó‡‡®‡) ‡
 --
--- ‡‡ø‡ô‡‡ó‡≤‡‡‡Ø ‡‡‡ñ‡‡Ø‡æ-‡‡‡∞‡‡‡Ø‡Ø‡ : n-‡‡ï‡‡‡∞-‡‡®‡‡¶‡æ‡‡‡ø 2‚ø (sankhya (suc n) = sankhya n +
--- sankhya n) ‚î ‡ï‡ø‡®‡‡‡ ‡‡‡æ ‡‡µ‡‡‡‡‡ø‡ ‡ï‡‡µ‡≤‡ ‡ó‡‡®‡æ ‡  ‡ï‡ø‡Æ‡∞‡‡‡ ‡¶‡‡µ‡ø‡ó‡‡‡Æ‡ ?  ‡Ø‡‡ ‡‡‡∞‡‡ø
+-- ‡‡ø‡ô‡‡ó‡≤‡‡‡Ø ‡‡‡ñ‡‡Ø‡æ-‡‡‡∞‡‡‡Ø‡Ø‡ : n-‡‡ï‡‡‡∞-‡‡®‡‡¶‡æ‡‡‡ø 2‚ø (count (suc n) = count n +
+-- count n) ‚î ‡ï‡ø‡®‡‡‡ ‡‡‡æ ‡‡µ‡‡‡‡‡ø‡ ‡ï‡‡µ‡≤‡ ‡ó‡‡®‡æ ‡  ‡ï‡ø‡Æ‡∞‡‡‡ ‡¶‡‡µ‡ø‡ó‡‡‡Æ‡ ?  ‡Ø‡‡ ‡‡‡∞‡‡ø
 -- (suc n)-‡‡ï‡‡‡∞-‡‡®‡‡¶‡ ‡¶‡‡µ‡Ø‡ã‡ ‡‡ï‡Æ‡ : ‡‡¶‡ ‡≤‡ò‡‡, ‡‡‡ n-‡‡ï‡‡‡∞-‡‡®‡‡¶‡ ; ‡‡‡µ‡æ ‡‡¶‡ ‡ó‡‡∞‡‡,
 -- ‡‡‡ n-‡‡ï‡‡‡∞-‡‡®‡‡¶‡ ‡  ‡‡‡‡ ‡µ‡‡‡‡-‡‡‡‡∞‡‡Ø‡ ‡‡‡≤‡‡Ø‡‡æ-‡∞‡‡‡Æ‡ :
 --     Vak (suc n) ‚â Vak n ‚ä Vak n
@@ -12,7 +12,7 @@
 -- ‡Æ‡æ‡‡‡∞‡æ-‡µ‡‡‡‡‡ matrameruIso (Metre) ‡‡‡‡‡ø ; ‡‡‡‡∞ ‡µ‡∞‡‡-‡µ‡‡‡‡‡ (Vak) ‡‡‡ ‡‡æ‡ß‡ø‡‡Æ‡ ‡
 --
 -- (Pigala's sakhy pratyaya says n-syllable metres number 2‚ø, encoded as
---  sankhya(suc n) = sankhya n + sankhya n ‚î but that recurrence only COUNTS.
+--  count(suc n) = count n + count n ‚î but that recurrence only COUNTS.
 --  Why does it double?  Because every (n+1)-syllable metre is exactly one of
 --  two things: a laghu followed by an n-metre, or a guru followed by one ‚î
 --  a type equivalence Vak (suc n) ‚â Vak n ‚ä Vak n, split by the first

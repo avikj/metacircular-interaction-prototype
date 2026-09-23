@@ -12,7 +12,7 @@
 -- `formal/cubical/Pingala.agda` carries the Chandastra's pratyaya as
 -- checked types, including
 --
---     uddistaIso : (n : �) � Iso (Vak n) (Fin (sankhya n))
+--     uddistaIso : (n : �) � Iso (Vak n) (Fin (count n))
 --
 -- whose forward map is the explicit uddia algorithm (pattern � row
 -- number), whose inverse is the explicit naa halving algorithm (row
@@ -30,7 +30,7 @@
 --
 --     pingala-optimal :
 --       (n : �) (Y : FinSet �-zero) (obs : Vak n � Y .fst)
---       � Injective obs � sankhya n � card Y
+--       � Injective obs � count n � card Y
 --
 -- No scheme whatever � not uddia, not a cleverer one, not one nobody
 -- has thought of � observes the metres of n syllables losslessly with
@@ -73,7 +73,7 @@ open import Cubical.HITs.PropositionalTruncation using (∣_∣₁)
 open import Cubical.Data.SumFin using () renaming (SumFin≃Fin to sumFin≃Fin)
 
 open import Cubical.Data.Nat using (suc ; _+_)
-open import PingalaPrastara using (Vak ; sankhya ; uddistaIso ; Metre ; matra ; matraCount ; matraRecurrence)
+open import PingalaPrastara using (Vak ; count ; uddistaIso ; Metre ; matra ; matraCount ; matraRecurrence)
 
 ------------------------------------------------------------------------
 -- 1.  The metres of n syllables, as a finite set of size sakhy n
@@ -84,10 +84,10 @@ Injective {A = A} f = {x y : A} → f x ≡ f y → x ≡ y
 
 VakFinSet : (n : ℕ) → FinSet ℓ-zero
 VakFinSet n =
-  Vak n , sankhya n ,
-  ∣ compEquiv (isoToEquiv (uddistaIso n)) (invEquiv (sumFin≃Fin (sankhya n))) ∣₁
+  Vak n , count n ,
+  ∣ compEquiv (isoToEquiv (uddistaIso n)) (invEquiv (sumFin≃Fin (count n))) ∣₁
 
-card-Vak : (n : ℕ) → card (VakFinSet n) ≡ sankhya n
+card-Vak : (n : ℕ) → card (VakFinSet n) ≡ count n
 card-Vak n = refl
 
 ------------------------------------------------------------------------
@@ -97,7 +97,7 @@ card-Vak n = refl
 pingala-optimal :
   (n : ℕ) (Y : FinSet ℓ-zero) (obs : Vak n → Y .fst)
   → Injective obs
-  → sankhya n ≤ card Y
+  → count n ≤ card Y
 pingala-optimal n Y obs inj =
   card↪Inequality' (VakFinSet n) Y obs
     (injEmbedding (isFinSet→isSet (Y .snd)) inj)
@@ -105,12 +105,12 @@ pingala-optimal n Y obs inj =
 ------------------------------------------------------------------------
 -- 3.  And uddia attains it, because it is an equivalence.
 --
--- `uddistaIso n : Iso (Vak n) (Fin (sankhya n))` � the target has
+-- `uddistaIso n : Iso (Vak n) (Fin (count n))` � the target has
 -- sakhy n elements, which by §2 is the minimum.  Bound and attainment,
 -- both terms.
 --
 -- The sakhy recurrence sakhy (n+1) = sakhy n + sakhy n is
--- `Pingala.sankhya` by definition, so the count is the doubling Pigala
+-- `Pingala.count` by definition, so the count is the doubling Pigala
 -- states, not a translation of it.
 ------------------------------------------------------------------------
 

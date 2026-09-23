@@ -45,7 +45,7 @@
 -- embedding**, and that this is an equivalence of propositions, not a
 -- pair of implications.
 --
--- `SvaTantuVasa_‚¶agda` identifies the second type with the conserving
+-- `SvaFiberVasa_‚¶agda` identifies the second type with the conserving
 -- flows themselves ‚î `(Œ[ Œ¶ ] ‡‡‡∞‡ï‡‡‡‡Æ‡ f Œ¶) ‚â ((a : A) ‚í fiber f (f a))`.
 -- That identification is ITS result and is not redone here; ¬ß‡®b instead
 -- derives only the contractibility, directly through the library's

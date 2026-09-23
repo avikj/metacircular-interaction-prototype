@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Dyadic slack certificate (JSON: n, A, L, D, E, c as scaled integers with
 A − c·I = L·D·Lᵀ + E exactly, D ≥ 0, 4E_ii ≥ Σ_j|E_ij| + Σ_j|E_ji|) → Agda module
-checked by SadhakaSesa.  Usage: cert_dyadic_to_agda.py cert.json ModuleName > ModuleName.agda"""
+checked by SadhakaResidue.  Usage: cert_dyadic_to_agda.py cert.json ModuleName > ModuleName.agda"""
 import sys, json
 sys.set_int_max_str_digits(0)
 c=json.load(open(sys.argv[1])); n=c["n"]; mod=sys.argv[2]
@@ -24,9 +24,9 @@ open import Cubical.Data.Bool using (true)
 open import Cubical.Data.List using (List ; [] ; _∷_)
 open import Cubical.Data.Rationals
 open import Cubical.Data.Rationals.Order using (_≤_)
-open import Sankhya_SignedIntegersOverTheBuiltinNaturalsWithSoundArithmeticIntoTheLibrarysIntegersSoCertificatesComputeAtMachineSpeed using (𝕊 ; ⁺_ ; ⁻_)
+open import Count_SignedIntegersOverTheBuiltinNaturalsWithSoundArithmeticIntoTheLibrarysIntegersSoCertificatesComputeAtMachineSpeed using (𝕊 ; ⁺_ ; ⁻_)
 open import Sadhaka_AnIntegerLDLTCertificateCheckedAtMachineSpeedYieldsThePositivityOfTheRationalFormThroughPramanika using (toℚ)
-open import SadhakaSesa_ADyadicSlackCertificateCheckedAtMachineSpeedYieldsAStrictSpectralGapOfTheRationalFormThroughGersgorinAndPramanika
+open import SadhakaResidue_ADyadicSlackCertificateCheckedAtMachineSpeedYieldsAStrictSpectralGapOfTheRationalFormThroughGersgorinAndPramanika
 open import VrddhiSima_ADiscreteGronwallWithASummableWeightClosesWithoutExponentialsSoTheTypeIEnergyBoundIsScaleInvariantAsATerm using (Σ⟨_⟩)
 import Gersgorin_ADiagonallyDominantMatrixWithNonnegativeDiagonalHasANonnegativeQuadraticFormSoASlackTermInACertificateIsAbsorbedRowByRow as G
 atL : List (List 𝕊) → ℕ → List 𝕊

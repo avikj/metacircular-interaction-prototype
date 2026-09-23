@@ -16,7 +16,7 @@
 ------------------------------------------------------------------------
 -- WHAT IS SEEN HERE, AND IT IS ONE THING SAID THREE WAYS.
 --
--- `SaptabhangiSamyoga` gives the sevenfold two composition laws: krama
+-- `SaptabhangiSamyoga` gives the sevenfold two composition laws: order
 -- (profile join ‚î associative, commutative, idempotent, a semilattice)
 -- and saha (join, then `‡‡ø‡‡‡µ‡æ‡‡‡¶‡`, which on a profile carrying BOTH asti
 -- and nsti destroys the two seed markings and writes avaktavya alone).
@@ -36,13 +36,13 @@
 --       ‚î the fixed point (‡®,‡®,‡‡Æ‡) itself, plus ONE BIT, and that bit is
 --       the third slot of the profile that broke: whether avaktavya was
 --       already present when the tongue broke.  So `‡µ‡ø‡ï‡≤‡æ‡¶‡‡` at (‡®,‡®,‡‡Æ‡),
---       and by `Sesa`/`‡¶‡‡` this is the second cell, ‡®‡‡‡ü‡ø, exhibited ‚î
+--       and by `Residue`/`‡¶‡‡` this is the second cell, ‡®‡‡‡ü‡ø, exhibited ‚î
 --       the loss is a TYPE and it is holdable.
 --
 --   ¬ß2  THE NON-ASSOCIATIVITY IS THAT CROWDING, DERIVED.  ¬ß2.1 proves the
 --       implication nobody had stated: IF `‡‡ø‡‡‡µ‡æ‡‡‡¶‡` were the identity ‚î
 --       i.e. if the tongue-break destroyed nothing ‚î THEN saha would be
---       associative, because it would BE krama.  So the corpus's existing
+--       associative, because it would BE order.  So the corpus's existing
 --       counterexample stops being a curiosity and becomes a proof:
 --       `‡‡ô‡‡ï‡‡‡‡‡-‡‡‡‡‡ø` (¬ß2.2) derives ¬((t : ‡‡Æ‡æ‡µ‡‡) ‚í ‡‡ø‡‡‡µ‡æ‡‡‡¶‡ t ‚â° t)
 --       FROM `‡‡-‡‡‡ô‡‡ó‡‡ø‡`.  Collapse is not observed; it is entailed.
@@ -63,7 +63,7 @@
 --
 -- WHAT THIS BUYS DOWNSTREAM, and it is why the module is worth its lines.
 -- `AvaktavyaPrasava` (machine/) can only exist because `Vipratisedha`'s
--- Avaktavya carries a `Sesa` as a VALUE rather than a rendering ‚î and it
+-- Avaktavya carries a `Residue` as a VALUE rather than a rendering ‚î and it
 -- calls what it does from that residue a BIRTH.  ¬ß1.4 says what a birth is:
 -- choosing a point of a non-contractible fibre, i.e. a SECTION.  Which is
 -- exactly why prasava cannot be automatic (a canonical choice is what
@@ -75,7 +75,7 @@
 -- AND WHY THE FOURTH POSITION IS NOT A PRIMITIVE OF THE SCHEME.  It is the
 -- image of a crowded fibre.  `Saptabhangi.‡ï‡‡∞‡Æ-‡‡-‡‡‡¶‡` proves it is not
 -- reachable by succession, and `SaptabhangiSamyoga.‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡-‡®-‡ï‡‡∞‡Æ‡‡Æ‡`
--- proves the krama-closure of the first three never touches it.  ¬ß1 says
+-- proves the order-closure of the first three never touches it.  ¬ß1 says
 -- what it IS instead: where ‡‡ø‡‡‡µ‡æ‡‡‡¶‡ is not injective.  The two facts are
 -- the same fact ‚î a point with a crowded fibre is a point no injection
 -- reaches from its preimages, and the seed-free fragment is precisely the
@@ -85,7 +85,7 @@
 -- no holes, checked against this lane's own `.agda-lib`.
 ------------------------------------------------------------------------
 
-module Avaktavyagarbha_TheFourthPositionIsTheCrowdedFibreOfTheTongueBreakAndItsResidualIsExactlyWhatWasSaidAtOnce where
+module Avaktavyakernel_TheFourthPositionIsTheCrowdedFibreOfTheTongueBreakAndItsResidualIsExactlyWhatWasSaidAtOnce where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism using (Iso ; iso)
@@ -144,7 +144,7 @@ open import SaptabhangiSamyoga_TheCompositionOfVerdicts
 ‡§ö‡§§‡•Å‡§∞‡•ç‡§•‡§Æ‡•ç-‡§Ö‡§®‡•ç‡§§‡§∞‡•ç‡§≠‡§æ‡§µ‡§É : ‡§Ö‡§®‡•ç‡§§‡§∞‡•ç‡§≠‡§æ‡§µ ‡§∏‡•ç‡§Ø‡§æ‡§§‡•ç-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç ‚â° ‡§ö‡§§‡•Å‡§∞‡•ç‡§•‡§Æ‡•ç
 ‡§ö‡§§‡•Å‡§∞‡•ç‡§•‡§Æ‡•ç-‡§Ö‡§®‡•ç‡§§‡§∞‡•ç‡§≠‡§æ‡§µ‡§É = refl
 
--- ‡‡‡, at this map and this point.  Punaragamana.Sesa's `‡‡‡ f b` is
+-- ‡‡‡, at this map and this point.  Return.Residue's `‡‡‡ f b` is
 -- Œ[ a ] (f a ‚â° b); that library cannot be imported from this lane (two
 -- .agda-libs, two pins), so the Œ is written out.  It is the same Œ.
 ‡§∂‡•á‡§∑-‡§ú‡§ø‡§π‡•ç‡§µ‡§æ : Type
@@ -208,13 +208,13 @@ open import SaptabhangiSamyoga_TheCompositionOfVerdicts
 -- ‡® ¬ ‡‡‡ô‡‡ó‡‡ø‡ ‡‡ô‡‡ï‡‡‡‡‡ ‡‡µ ‚î NON-ASSOCIATIVITY IS THE COLLAPSE, DERIVED.
 ------------------------------------------------------------------------
 
--- ‡®.‡ß  IF the tongue-break destroyed nothing, saha WOULD be krama‚¶
+-- ‡®.‡ß  IF the tongue-break destroyed nothing, saha WOULD be order‚¶
 ‡§Ö‡§≤‡•ã‡§™‡•á-‡§∏‡§π-‡§ï‡•ç‡§∞‡§Æ‡§É : ((t : ‡§∏‡§Æ‡§æ‡§µ‡•á‡§∂) ‚Üí ‡§ú‡§ø‡§π‡•ç‡§µ‡§æ‡§≠‡•á‡§¶‡§É t ‚â° t)
                ‚Üí (x y : ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä) ‚Üí ‡§∏‡§π-‡§Ø‡•ã‡§ó x y ‚â° ‡§ï‡•ç‡§∞‡§Æ-‡§Ø‡•ã‡§ó x y
 ‡§Ö‡§≤‡•ã‡§™‡•á-‡§∏‡§π-‡§ï‡•ç‡§∞‡§Æ‡§É h x y =
   cong ‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§®‡•ç‡§§‡§∞‡•ç‡§≠‡§æ‡§µ (h (‡§∏‡§Ç‡§Ø‡•ã‡§ó (‡§Ö‡§®‡•ç‡§§‡§∞‡•ç‡§≠‡§æ‡§µ x) (‡§Ö‡§®‡•ç‡§§‡§∞‡•ç‡§≠‡§æ‡§µ y)))
 
--- ‚¶and therefore associative, since krama is.
+-- ‚¶and therefore associative, since order is.
 ‡§Ö‡§≤‡•ã‡§™‡•á-‡§∏‡§ô‡•ç‡§ó‡§§‡§ø‡§É : ((t : ‡§∏‡§Æ‡§æ‡§µ‡•á‡§∂) ‚Üí ‡§ú‡§ø‡§π‡•ç‡§µ‡§æ‡§≠‡•á‡§¶‡§É t ‚â° t)
               ‚Üí (x y z : ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä)
               ‚Üí ‡§∏‡§π-‡§Ø‡•ã‡§ó (‡§∏‡§π-‡§Ø‡•ã‡§ó x y) z ‚â° ‡§∏‡§π-‡§Ø‡•ã‡§ó x (‡§∏‡§π-‡§Ø‡•ã‡§ó y z)

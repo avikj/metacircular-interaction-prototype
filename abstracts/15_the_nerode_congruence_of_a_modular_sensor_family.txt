@@ -48,7 +48,7 @@ the two directions above are that the minimisation is complete and that it
 is faithful.  The residue is the Nerode class.
 
 RESOLVED.  The formerly absent objects are now constructed and the
-reading is a theorem: theorems/automata/NerodeYantra gives the Moore
+reading is a theorem: theorems/automata/NerodeMachine gives the Moore
 machine (states the naturals, advance the successor, observation the
 joint (parity, mod-3) readout), proves generically that whenever the
 next observation factors through the current one the entire Nerode

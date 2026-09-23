@@ -41,7 +41,7 @@ center and a difference.  The homometric pair is the theorem that
 difference data does not determine the set -- the encoding has a kernel,
 and the kernel is exhibited, minimal, at six points.  This is the same
 statement, in the integers, as the fibre law's lossy binding and as
-SankramanaSesa's every-transport-owes-its-residual: the transport
+TransportResidue's every-transport-owes-its-residual: the transport
 set â¦ autocorrelation is not injective, and the homometric ambiguity IS
 its residue.  It is also the number-theoretic incarnation of the
 cohomological reading in which a field is reconstructed from its local

@@ -57,7 +57,7 @@ CommitDate: Tue Sep 8 05:53:23 2026 +0000
     
     so the bracket never vanishes and never turns; at s ≡ t it is still
     t³ > 0. Its ratio bound is exact in subtraction-free form: with
-    2·s³ + d ≡ 3·t³, s·d ≤ s·(3·t³), discarding nothing. And SesaDvaya's
+    2·s³ + d ≡ 3·t³, s·d ≤ s·(3·t³), discarding nothing. And ResidueDvaya's
     truncated inverse IS the closed form of the tower's sum: whenever
     (1-x)² has an inverse c, Σ_{j≤N}(j+1)xʲ ≡ c·(1 - (N+2)x^{N+1} +
     (N+1)x^{N+2}) — no numerals, no division, no convergence.
@@ -142,7 +142,7 @@ COMMAND: [sh] [-c] [grep -n -E "kriya|sadhana.patra|sadhana.vislesana|kernel|Ker
 interactive/Server.hs:22:-- WHAT IT SUPERSEDES.  Sabha_TheSessionKernelAnLLMTalksTo runs the same
 interactive/Server.hs:46:--   Certificate                       the Agda kernel, with its two controls.
 interactive/Server.hs:92:  , kriyah
-interactive/Server.hs:159:        [ "name the route — pratyaksa, nihsesa, ganita or kernel — and exhibit its witness, then ask again" ]
+interactive/Server.hs:159:        [ "name the route — pratyaksa, nihresidue, ganita or kernel — and exhibit its witness, then ask again" ]
 interactive/Server.hs:165:--   two added fields spliced in after `kriya` so a reader meets the
 interactive/Server.hs:170:    let (before, after) = span ((`elem` ["uttara", "kriya"]) . fst) kvs
 interactive/Server.hs:187:      Kernel _    -> "kernel (agda typechecked it, controls watched first)"
@@ -150,7 +150,7 @@ interactive/Server.hs:198:  , yRoot  :: FilePath                -- repository ro
 interactive/Server.hs:225:  where names = map kName kriyah
 interactive/Server.hs:227:kriyah :: [Kriya]
 interactive/Server.hs:228:kriyah =
-interactive/Server.hs:229:  [ Kriya "yantra.kriyah"
+interactive/Server.hs:229:  [ Kriya "machine.kriyah"
 interactive/Server.hs:272:      "Emit an Agda module for an equation and give it to the kernel.  The kernel's two controls are watched FIRST; a kernel that has not been seen to reject a falsehood certifies nothing."
 interactive/Server.hs:277:  , Kriya "sadhana.patra"
 interactive/Server.hs:278:      "Give the kernel a WHOLE Agda module, verbatim, and carry back its verdict.  This is the wire's door to what the lanes always did by hand — write a full problem statement as a module and run agda on it.  The corpus at formal/cubical and the pinned cubical library are importable; the two controls are watched FIRST, exactly as for `sadhana`."
@@ -159,9 +159,9 @@ interactive/Server.hs:281:  , Kriya "sadhana.vislesana"
 interactive/Server.hs:282:      "Analyze objects on the atom: load a WHOLE Agda module and read back, for each expression you name, its NORMAL FORM (what the kernel computes it to) and its TYPE (what it is).  Not a verdict — the kernel's own semantic analysis of the object, returned as data.  The corpus and the pinned library are importable; the two controls are watched first."
 interactive/Server.hs:284:      , ("padani", "list of expressions to analyze, each in scope in the module; the kernel returns each one's computed normal form and inferred type") ]
 interactive/Server.hs:301:      [ ("kriya", "what you were attempting"), ("hetu", "why transport was impossible")
-interactive/Server.hs:334:          (Nihsesa (length kriyah)
+interactive/Server.hs:334:          (Nihresidue (length kriyah)
 interactive/Server.hs:335:             ("every one of the " ++ show (length kriyah)
-interactive/Server.hs:339:    u = samkramana "yantra.kriyah"
+interactive/Server.hs:339:    u = samorderna "machine.kriyah"
 interactive/Server.hs:344:          [ ("kriyah", JArr [ JObj [ ("nama", JStr (kName k))
 interactive/Server.hs:348:                            | k <- kriyah ])
 interactive/Server.hs:898:-- ---- the kernel
@@ -187,7 +187,7 @@ interactive/Server.hs:1071:                 ("the top-level module is named `" +
 interactive/Server.hs:1076:        st <- C.kernelStatus (yRoot y)
 interactive/Server.hs:1078:          C.KernelChecking -> do
 interactive/Server.hs:1084:                    (Kernel ("agda typechecked the module as sent, under --safe, with "
-interactive/Server.hs:1088:                , samkramana "sadhana.patra"
+interactive/Server.hs:1088:                , samorderna "sadhana.patra"
 interactive/Server.hs:1089:                    (tulyata "the module as uttered, identified with a module the kernel accepts"
 interactive/Server.hs:1098:                    , "whether the kernel is honest in general — what was watched is that it rejected ONE falsehood, today, in this container" ]
 interactive/Server.hs:1103:                           (Ayogya ("the kernel could not be asked: " ++ firstLine out))
@@ -212,7 +212,7 @@ interactive/Server.hs:1189:        st <- C.kernelStatus (yRoot y)
 interactive/Server.hs:1191:          C.KernelChecking -> do
 interactive/Server.hs:1200:                           (Ayogya "the kernel could not be asked; the environment failed, not the object")
 interactive/Server.hs:1201:                    , dosalekha "sadhana.vislesana"
-interactive/Server.hs:1214:                , samkramana "sadhana.vislesana"
+interactive/Server.hs:1214:                , samorderna "sadhana.vislesana"
 interactive/Server.hs:1215:                    (tulyata "each expression as uttered, identified with the kernel's own computation of it"
 interactive/Server.hs:1221:                    [ "WHY each normal form is what it is: the kernel computes it, it does not narrate the reduction"
 interactive/Server.hs:1229:                , dosalekha "sadhana.vislesana"
@@ -221,7 +221,7 @@ interactive/Server.hs:1239:                 , dosalekha "sadhana.vislesana"
 interactive/Server.hs:1240:                     ("no analysis, because the kernel has not been seen to work: " ++ show other)
 interactive/Server.hs:1241:                     [ "the analysis you asked for; a kernel not watched rejecting a falsehood analyzes nothing trustworthy" ]
 interactive/Server.hs:1432:kDosaLekha y j = pure $ case (,,,) <$> jStr "kriya" j <*> jStr "hetu" j <*> jStrs "nasta" j
-interactive/Server.hs:1580:      [ "ask yantra.kriyah for the parameters this operation requires" ]
+interactive/Server.hs:1580:      [ "ask machine.kriyah for the parameters this operation requires" ]
 interactive/Server.hs:1682:  -- this repair.  The one hetu in this machine that carries both `kernel` and
 interactive/Server.hs:1683:  -- `environment` is kSadhana's kernel-not-usable branch, and its fixed
 interactive/Server.hs:1691:  | "kernel" `isInfixOf` h && "environment" `isInfixOf` h = "karana-dosa"
@@ -229,7 +229,7 @@ interactive/Server.hs:1706:    Right j -> case jStr "kriya" j of
 interactive/Server.hs:1708:      Right k -> case [ kr | kr <- kriyah, kName kr == k ] of
 interactive/Server.hs:1738:          ([ "operations available:" ] ++ [ "  " ++ kName kr | kr <- kriyah ])
 interactive/Server.hs:1797:  -- Sabha_TheSessionKernelAnLLMTalksTo, twice, and this file's own header
-interactive/Server.hs:1835:  [ "{\"kriya\":\"yantra.kriyah\"}"
+interactive/Server.hs:1835:  [ "{\"kriya\":\"machine.kriyah\"}"
 interactive/Server.hs:1838:  , "{\"kriya\":\"naya.sthapana\",\"angani\":{\"naya\":\"harm-is-real\",\"karta\":\"assembly-lane\",\"kala\":\"2026-08-20\",\"yogyata\":\"yogya\",\"yogyata-hetu\":\"read the primary statements and the reports; a contrary witness would have been found had one existed in that corpus\",\"saksin\":[{\"vacana\":\"the Oct 2022 statements\",\"mula\":\"the statements themselves, dated\"},{\"vacana\":\"the fear reported afterwards\",\"mula\":\"contemporaneous accounts\"}]}}"
 interactive/Server.hs:1839:  , "{\"kriya\":\"naya.sthapana\",\"angani\":{\"naya\":\"episode-is-real\",\"karta\":\"assembly-lane\",\"kala\":\"2026-08-20\",\"yogyata\":\"yogya\",\"yogyata-hetu\":\"read the clinical record and the dated public account\",\"saksin\":[{\"vacana\":\"the documented 2025 episode\",\"mula\":\"the dated account\"},{\"vacana\":\"the diagnosis at 39\",\"mula\":\"the clinical record\"}]}}"
 interactive/Server.hs:1842:  , "{\"kriya\":\"naya.sthapana\",\"angani\":{\"naya\":\"finding-A\",\"karta\":\"assembly-lane\",\"kala\":\"2026-08-20\",\"yogyata\":\"yogya\",\"yogyata-hetu\":\"the 1987 series read directly\",\"saksin\":[{\"vacana\":\"lithium response in bipolar I\",\"mula\":\"Wehr, Sack, Rosenthal 1987\"}]}}"

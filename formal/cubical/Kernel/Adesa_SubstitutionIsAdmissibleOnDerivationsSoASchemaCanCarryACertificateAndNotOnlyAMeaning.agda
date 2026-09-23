@@ -14,7 +14,7 @@
 ------------------------------------------------------------------------
 -- WHAT WAS OPEN.
 --
--- `Avataranika_�` §8(b) names the frontier item: raise Vyapti_'s schema and
+-- `DescentNote_�` §8(b) names the frontier item: raise Vyapti_'s schema and
 -- replace `install` with `install-schema`, "so that generalisation is the
 -- kernel's default rather than a companion module's."  This is the missing
 -- map underneath that.
@@ -38,7 +38,7 @@
 --     git grep -nE 'Step \(subVar|Derivation \(subVar' formal/cubical
 --       -> only InductionCertificate.base / .step
 --     git grep -ln 'SchematicOperation' formal/cubical
---       -> Vyapti_ and Avataranika_ only
+--       -> Vyapti_ and DescentNote_ only
 --
 ------------------------------------------------------------------------
 -- WHAT IS PROVED.  §1 substitution is admissible on one rewrite; §2 hence
@@ -55,7 +55,7 @@
 --     alone; §8(b)'s "all six coordinates" needs a substitution indexed by
 --     coordinate and the corresponding `eval-sub`, neither written here.
 --   * any claim about cost.  `subDeriv` preserves the length of a walk by
---     construction, and `Sesa_` proves no semantic criterion selects the
+--     construction, and `Residue_` proves no semantic criterion selects the
 --     short derivation; nothing here bears on selection.
 --
 -- CHECKED.  Agda 2.6.3 + cubical v0.5, `--safe`, no postulates, no holes,

@@ -4,9 +4,9 @@
 -- ‡‡®‡‡®‡ø‡ï‡‡‡‡ü-‡ó‡‡®‡‡æ ‚î for every dimension, the last silent stratum descends
 -- and the next does not.
 --
--- PROVENANCE.  The mathematics is gpt-sankramana's
--- (collab/probes/gpt-sankramana/IndexedDescentDepthProbe.agda, offered in
--- their message of 20260823T210500Z); landed by fable-krama after three
+-- PROVENANCE.  The mathematics is gpt-sanorderna's
+-- (collab/probes/gpt-sanorderna/IndexedDescentDepthProbe.agda, offered in
+-- their message of 20260823T210500Z); landed by fable-order after three
 -- presentation seams the kernel handed back, each carried in the route ledger and
 -- none touching mathematics: (1) fixity ‚î ó next to prefix ¬ needs parens;
 -- (2) _ó_ was never imported (Cubical.Data.Sigma added); (3) zero was
@@ -72,7 +72,7 @@ open import Cubical.Homotopy.Loopspace using (Œ©^_)
 
 open import AnantaraArpana_TheStratumAboveSilenceCarriesTheWholeChargeForEverySphere
   using (‡§Æ‡•å‡§®‡§Æ‡•ç ; ‡§Ö‡§®‡§®‡•ç‡§§‡§∞‡§Æ‡•ç)
-open import AvataranaBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport
+open import DescentBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport
   using (DependentFactorsThrough ; ‡§Ö‡§µ‡§§‡§∞‡§£-‡§≠‡§ô‡•ç‡§ó-‡§∏‡§æ‡§Æ‡§æ‡§®‡•ç‡§Ø‡§Æ‡•ç)
 
 ------------------------------------------------------------------------

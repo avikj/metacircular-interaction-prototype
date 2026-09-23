@@ -10,11 +10,11 @@ The prior decomposition of SHA-256 in this corpus was inductive and
 *spatial*: it located the loss (Sthana: the rounds are a permutation,
 so the loss has one address ‚î the feed-forward and the padding
 quotient), factored the hash through its classes (Varga), completed it
-losslessly (Sesa), and refuted equivalence by length (Parimana). This
+losslessly (Residue), and refuted equivalence by length (Parimana). This
 analysis applies the coinductive calculus ‚î Dhr and productivity
 (Parasparasraya), the take-metric and its completeness (SthairyaSutra,
 PurnataSutra, HistoryCompletion ¬ß1), determinism as contractibility
-(Niyati), and the interactive coalgebra ISC (Fibre.Samvada) ‚î and
+(Niyati), and the interactive coalgebra ISC (Fibre.Interaction) ‚î and
 finds that the decomposition it yields is *temporal*: the coinductive
 calculus does not relocate SHA-256's loss in space; it reveals that
 the loss was never anywhere in space at all. It is an asymmetry of
@@ -61,8 +61,8 @@ stating exactly because the temporal axis will invert them:
   onto hash-classes; the descended leg forgets *nothing* **[T]**
   (‡‡µ‡‡∞‡-‡‡ï‡à‡ï‡Æ‡). The secret's address book is the quotient.
 
-**The temporal axis** (the coinductive campaign, Sha256Srotas +
-Sha256Samvada) asks a different question: *given the unfolding as one
+**The temporal axis** (the coinductive campaign, Sha256Stream +
+Sha256Interaction) asks a different question: *given the unfolding as one
 object, which direction of time is contractible?*
 
 ---
@@ -71,7 +71,7 @@ object, which direction of time is contractible?*
 
 The one construction: for any step `s : S ‚í A ‚í S`,
 
-    gati : S ‚í Dhr A ‚í Dhr S        [T] (Srotas ¬ß2, guarded)
+    gati : S ‚í Dhr A ‚í Dhr S        [T] (Stream ¬ß2, guarded)
 
 instantiated at both layers ‚î `val = gati roundStep`, `Khaa = gati
 compress`. The finite hash embeds: `sha256ws m` is the last entry of
@@ -86,9 +86,9 @@ The temporal ledger:
 
 | direction | structure | h-level of the space | term |
 |---|---|---|---|
-| **future** from any (state, input stream) | one productive history | **contractible** | **[T]** ‡ß‡‡∞‡‡µ-‡‡∞‡ø‡‡Æ‡ (Srotas ¬ß3), ‡‡ï-‡‡‡µ‡æ‡¶‡ (Samvada ¬ß3) |
+| **future** from any (state, input stream) | one productive history | **contractible** | **[T]** ‡ß‡‡∞‡‡µ-‡‡∞‡ø‡‡Æ‡ (Stream ¬ß3), ‡‡ï-‡‡‡µ‡æ‡¶‡ (Interaction ¬ß3) |
 | **present ‚í next** | tail of chain = chain of stepped state | **definitional** (refl) | **[T]** ‡‡‡Æ‡‡‡ø-‡Æ‡‡ï‡‡‡ø‡ |
-| **past**, round layer, schedule known | one truncation of positive depth recovers the registers | contractible at **every** depth | **[T]** ‡‡µ‡≤‡-‡‡æ‡ï‡‡‡æ‡‡ (Srotas ¬ß4, via Sthana's permutation) |
+| **past**, round layer, schedule known | one truncation of positive depth recovers the registers | contractible at **every** depth | **[T]** ‡‡µ‡≤‡-‡‡æ‡ï‡‡‡æ‡‡ (Stream ¬ß4, via Sthana's permutation) |
 | **past**, block layer | the pasts of a digest | **non-contractible** (infinite) | **[T]** ‡®-‡‡‡≤‡‡Ø‡‡æ + [R]: no depth-injectivity theorem can exist one storey up |
 
 **The finding [R].** Read the two ledgers together. The spatial
@@ -100,13 +100,13 @@ the address and disagree on the ontology: spatially, loss is a
 property of one arrow; temporally, loss is the *orientation* of the
 whole object. SHA-256 forward is a deterministic, memoryless,
 1-Lipschitz flow with contractible histories; SHA-256 backward is the
-fibre calculus. One-wayness is not a wall in the map ‚î Sesa proved
+fibre calculus. One-wayness is not a wall in the map ‚î Residue proved
 the wall is the erasure ‚î and the coinductive calculus adds: the
 erasure has a *tense*. Everything SHA-256 ever loses, it loses into
 the past.
 
 **The fibre law is the arrow of time [R].** The corpus's one
-primitive (NOTES ¬ßI; Vishvayantra's `lossless`): for `f : A ‚í B`,
+primitive (NOTES ¬ßI; Vishvamachine's `lossless`): for `f : A ‚í B`,
 bind the *output* and the fibre is `singl (f a)` ‚î always
 contractible; bind the *input* and it is `fiber f b` ‚î contractible
 exactly when f is an equivalence. On the chain these two bindings
@@ -122,10 +122,10 @@ input-binding composes into a fattening past.** This is checkable at
 the term level, and it already was checked, twice, before this
 campaign noticed:
 
-**The same square [T]/[R].** `losslessIso.rightInv` (Vishvayantra ¬ß1)
+**The same square [T]/[R].** `losslessIso.rightInv` (Vishvamachine ¬ß1)
 closes with `Œª j ‚í p (i ‚àß j)` ‚î the singl-contraction filler. Niyati's
 `exec-unique` closes with `Œª j ‚í here e (~ i ‚à® j)` ‚î the same filler,
-reversed, run corecursively. Srotas's ‡‡ï-‡‡∞‡ø‡‡Æ‡ and Samvada's smyaP
+reversed, run corecursively. Stream's ‡‡ï-‡‡∞‡ø‡‡Æ‡ and Interaction's smyaP
 inherit it (smyaP routes it through `isProp‚íPathP`, legitimate
 because the E-receipt is paths-in-a-set, a proposition ‚î support, not
 mass, the kernel's own safety discipline). So the finite lossless
@@ -177,7 +177,7 @@ it than the object the metric was built for:
   HistoryCompletion ¬ß3 proves: ‚ñ°-predicates on streams are refuted by
   a failing truncation and confirmed by no depth. Collision-freedom
   of SHA-256 has exactly this shape *when read on the chain*: one
-  exhibited collision refutes at a finite depth (and by Sesa's
+  exhibited collision refutes at a finite depth (and by Residue's
   exchange rate kills every retraction forever ‚î **[T]**
   ‡‡‡∞‡‡‡Ø‡æ‡®‡Ø‡®‡-‡®‡ø‡∞‡‡ò‡æ‡‡Æ‡); no finite depth confirms. Under this
   standpoint, collision-freedom of the real hash is of the same
@@ -194,7 +194,7 @@ it than the object the metric was built for:
 ## 4. The interactive content: what the demand adds
 
 The stream is the degenerate interaction ‚î the environment with one
-utterance (Fibre.Samvada, verbatim). Sha256Samvada instantiates the
+utterance (Fibre.Interaction, verbatim). Sha256Interaction instantiates the
 ISC proper: queries ‡‡∞‡‡‡Ø b (offer a block) | ‡¶‡∞‡‡‡Ø (demand the
 digest); emit does not reset state; E is the receipt that the
 reaction answered `uttaram` and stepped `gamanam` ‚î lawfulness as a
@@ -207,14 +207,14 @@ exhibited on a real object:
 
 1. **The demand matters [T]** (‡‡‡‡‡‡æ-‡‡‡¶‡): two strategies at H0
    computably disagree at the first answer. The hash interface is
-   *properly* interactive ‚î Samvada's separation (`counter-demand-
+   *properly* interactive ‚î Interaction's separation (`counter-demand-
    matters`) at a NIST-certified object rather than a toy counter.
 2. **The process space is a point [T]** (‡‡ï-‡‡‡µ‡æ‡¶‡): smyaP builds a
    corecursive PathP between any two processes over a path of
    states. Niyati's determinism-as-contractibility, lifted from the
    closed machine to the open one.
 3. **The collapse [T]** (‡‡ï‡æ‡ó‡‡∞-‡‡æ‡‡): under an offer-only strategy,
-   `observe` is definitionally the take-truncation of the Srotas
+   `observe` is definitionally the take-truncation of the Stream
    chain ‚î the stream module recovered as the trivial-query case,
    exactly as Orbit embeds in ISC (`det-observe`).
 
@@ -231,7 +231,7 @@ has none. That is what a deterministic *service* is, as mathematics.
 *every* process of the interface ‚î not one implementation, the
 contractible space of all of them ‚î demand, offer b, demand again,
 and the third answer is `compress (first answer) b`. Three receipts
-composed; pure path algebra. Read against Sesa's closing meditation
+composed; pure path algebra. Read against Residue's closing meditation
 ("security is custody of the fibre"): the coinductive calculus
 assigns the custody a tense. The ‡¶‡∞‡‡‡Ø receipt (`o ‚â° w`) says the
 digest is *total disclosure of the present*; contractibility (2) says
@@ -299,7 +299,7 @@ coinductive ‡‡µ‡≤‡-‡‡æ‡ï‡‡‡æ‡‡ ‚î and neither absorbs the other.
 
 - **The collision** (‡®‡ø‡∞‡‡ò‡æ‡‡ at 64 rounds) remains the prize;
   everything here is arranged so that its exhibition would cascade:
-  it refutes every retraction (Sesa), refutes the block-layer ‚ñ°,
+  it refutes every retraction (Residue), refutes the block-layer ‚ñ°,
   and by Varga inhabits ‚àº off the diagonal.
 - **Backward non-determinism made exact [S].** The temporal ledger's
   block-layer past row is currently carried by ‡®-‡‡‡≤‡‡Ø‡‡æ (a length
@@ -314,7 +314,7 @@ coinductive ‡‡µ‡≤‡-‡‡æ‡ï‡‡‡æ‡‡ ‚î and neither absorbs the other.
   practical length-extension attack (with its padding thread) becomes
   a checked term about composed ISCs rather than a [S] remark.
 - **The ‚ñ-modality.** This campaign's productivity is syntactic
-  guardedness. Vishvayantra hands forward the guarded interactive
+  guardedness. Vishvamachine hands forward the guarded interactive
   generalisation as ea; SHA-256 is now the natural first object to
   carry through it.
 - **HMAC as a theorem.** ¬ß4 derives *why* HMAC's envelope exists; the

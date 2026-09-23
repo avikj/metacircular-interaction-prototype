@@ -44,7 +44,7 @@
 --  AnuktaAvaktavya.agda ¬ß6, where 00's defect is checked.
 --
 --  Three modules here now call three different structures
---  avaktavyam ‚î Satyayantra, Khahara, Shunya.  Using one third
+--  avaktavyam ‚î Satyamachine, Khahara, Shunya.  Using one third
 --  position as a catch-all for "not a clean single answer" is the
 --  boolean collapse this corpus exists to fight, one level up.]
 module Shunya where
@@ -110,7 +110,7 @@ open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 -- The types also show WHY: non-uniqueness is a property of the content
 -- alone, inexpressibility of the content AND the medium.
 --
--- The third structure, Satyayantra's ‡‡®‡‡ï‡‡‡Æ‡, is deliberately NOT
+-- The third structure, Satyamachine's ‡‡®‡‡ï‡‡‡Æ‡, is deliberately NOT
 -- brought onto that carrier: it is temporal, and d909db0d already says
 -- the two third-positions' remedies live in different types.  No verdict
 -- is offered there on which module should keep the word ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡, nor

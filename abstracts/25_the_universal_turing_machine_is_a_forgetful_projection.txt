@@ -110,7 +110,7 @@ other side of the ledger: rules living above every reachable state are
 invisible, configuration for configuration at every depth, so there is
 an injection â• â’ Code all of whose values run identically.  The
 contrast is exact and checked in both directions: the trace family of
-one step is contractible (Ekatva), while the preimage of one behavior
+one step is contractible (Uniqueness), while the preimage of one behavior
 in the space of tables is unbounded (the padding lemma) â” losslessness
 is a property of the step, multiplicity is a property of the code.
 

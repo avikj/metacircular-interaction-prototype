@@ -4,7 +4,7 @@ The kernel's one growth axis, `install`, identified as a Postnikov step â”
 one contractible cell attached, one residual precipitated a level up â”
 with the analyzer reading the identification back as data
 
-The self-generating closure / install = garbha.dhara / one Postnikov step
+The self-generating closure / install = kernel.dhara / one Postnikov step
 
 VYAYA_SESA named one genuinely-open object: whether `install` â” the act
 by which a theorem of the kernel becomes a structure map of the kernel â”
@@ -29,10 +29,10 @@ exactly a spoke: toSpoke sends a locus point into Î[ y âˆˆ Cone g ]
 prose, reduces install's applicability datum to a mapping-cone spoke.
 
 THE FEE IS THE NON-DESCENDING COST.  A Postnikov step does not only
-kill; it precipitates a new class one level up (VakraValayaSanketa: the
+kill; it precipitates a new class one level up (CurvedLoopSanketa: the
 forgotten succession precipitates as one bit, "the first veil is its
 fee").  In the kernel that residual is cost: after install collapses
-meaning-equal routes (L of SankramanaShreni), cost is exactly what does
+meaning-equal routes (L of TransportShreni), cost is exactly what does
 not descend.  theFee is that witness; the analyzer normal-forms it to
 `Localization.costDoesNotDescend â¦`, confirming the fee IS the ea.
 

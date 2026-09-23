@@ -9,14 +9,14 @@
 -- out as a top-level declaration:
 --
 --   Nasti_ShabdeJivahVartante.����������-������
---   SankramanaSesa_EveryTransportOwesItsResidual.������
+--   TransportResidue_EveryTransportOwesItsResidual.������
 --   Apratikaryatva_TheRetractionTypeIsTheHLevelHypothesis.���������-�-����������-������
 --
 -- Two of the three carry the same  stem under different module roofs.
 -- No one of the three imports another.  (Two of the three do cite a third in
 -- prose � Apratikaryatva's header records that it restates the line because
 -- §�'s own statement in Nasti_Shabde� had not typechecked at the time, and
--- Samkramana_� separately imports Nasti's.  Prose citation is not import, and
+-- Samorderna_� separately imports Nasti's.  Prose citation is not import, and
 -- the audit that found this group could not see the prose.  Recording that
 -- here so the finding is not overstated: this is not three modules ignorant
 -- of each other, it is three modules that never got wired.)
@@ -52,7 +52,7 @@ open import Cubical.Foundations.Equiv using (_≃_ ; equivFun)
 open import Cubical.Foundations.Univalence using (ua ; uaβ)
 
 import Nasti_ShabdeJivahVartante
-import SankramanaSesa_EveryTransportOwesItsResidual
+import TransportResidue_EveryTransportOwesItsResidual
 import Apratikaryatva_TheRetractionTypeIsTheHLevelHypothesis
 
 private
@@ -86,7 +86,7 @@ private
 
 शेष-तादात्म्यम्
   : {A B : Type ℓ} (e : A ≃ B) (a : A)
-  → SankramanaSesa_EveryTransportOwesItsResidual.अलोपः e a ≡ अलोपः e a
+  → TransportResidue_EveryTransportOwesItsResidual.अलोपः e a ≡ अलोपः e a
 शेष-तादात्म्यम् e a = refl
 
 अप्रतिकार्य-तादात्म्यम्
@@ -100,12 +100,12 @@ private
 समनामन्-तादात्म्यम्
   : {A B : Type ℓ} (e : A ≃ B) (a : A)
   → Nasti_ShabdeJivahVartante.संक्रमणम्-अलोपः e a
-  ≡ SankramanaSesa_EveryTransportOwesItsResidual.अलोपः e a
+  ≡ TransportResidue_EveryTransportOwesItsResidual.अलोपः e a
 समनामन्-तादात्म्यम् e a = refl
 
 तृतीय-तादात्म्यम्
   : {A B : Type ℓ} (e : A ≃ B) (a : A)
-  → SankramanaSesa_EveryTransportOwesItsResidual.अलोपः e a
+  → TransportResidue_EveryTransportOwesItsResidual.अलोपः e a
   ≡ Apratikaryatva_TheRetractionTypeIsTheHLevelHypothesis.संक्रमणे-न-किञ्चिन्-नश्यति e a
 तृतीय-तादात्म्यम् e a = refl
 
@@ -115,7 +115,7 @@ private
 संक्रमण-तादात्म्यम्
   : {A B : Type ℓ} (e : A ≃ B)
   → Nasti_ShabdeJivahVartante.संक्रमणम् e
-  ≡ SankramanaSesa_EveryTransportOwesItsResidual.संक्रमणम् e
+  ≡ TransportResidue_EveryTransportOwesItsResidual.संक्रमणम् e
 संक्रमण-तादात्म्यम् e = refl
 
 ------------------------------------------------------------------------
@@ -127,7 +127,7 @@ private
 --   � Nasti_ShabdeJivahVartante states it to set up the CONTRAST that is its
 --     subject: §�-�'s ������, propositional truncation, from which there is no
 --     retraction.  ������ is the thing truncation is not.
---   � SankramanaSesa_EveryTransportOwesItsResidual states it to CONSUME it:
+--   � TransportResidue_EveryTransportOwesItsResidual states it to CONSUME it:
 --     the module's claim is that a transport owes a residual, and ������ is
 --     the input to computing what the residual is.
 --   � Apratikaryatva_TheRetractionTypeIsTheHLevelHypothesis states it as
@@ -145,7 +145,7 @@ private
 -- is what one writes WHEN the theorem is unavailable.  Apratikaryatva argues
 -- that road two is nonetheless complete (the fibres of a map determine its
 -- domain over its codomain), which is the closest this corpus comes to
--- mechanising the second road, and SankramanaSesa argues that road one always
+-- mechanising the second road, and TransportResidue argues that road one always
 -- owes something to road two.  Whether those two claims are the same claim is
 -- not settled here, and neither module cites the other.
 ------------------------------------------------------------------------

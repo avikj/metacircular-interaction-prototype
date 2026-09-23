@@ -18,7 +18,7 @@
       "corrections": [],
       "repository_loci": [
         "fibre/src/Fibre/Carrier.agda",
-        "formal/cubical/theorems/residue/Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda"
+        "formal/cubical/theorems/residue/Uniqueness_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda"
       ],
       "external_inputs": [],
       "native_verification_this_transfer": false

@@ -1,11 +1,11 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
-module Yantra.Yojana where
+module Machine.Yojana where
 -- à¯à‹àà¨: valuations add over products.  vâ(mÂn) = vâ(m) + vâ(n),
 -- read through the canonical factorizations, for every prime at once.
 
-open import Yantra.Prakriti
-open import Yantra.Vibhajana using (Prati; product; factor)
-open import Yantra.Ananyata using (countP; sameCount)
+open import Machine.Prakriti
+open import Machine.Vibhajana using (Prati; product; factor)
+open import Machine.Ananyata using (countP; sameCount)
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
 open import Cubical.Data.Nat.Order

@@ -16,7 +16,7 @@ The user explicitly asked for an extremely comprehensive handoff of everything d
 
 ### 0.1 What has and has not been executed
 
-The research session could read GitHub and execute standalone Python/SymPy controls. It did **not** run the repository's Yantra process or the pinned Agda/Cubical toolchain. The execution probe found no `agda`, `ghc`, or `cabal`, and its sandbox could not resolve GitHub, Hackage, or Debian package hosts. The logs are preserved as [S24]. No mathematical conclusion should be inferred from those infrastructure failures.
+The research session could read GitHub and execute standalone Python/SymPy controls. It did **not** run the repository's Machine process or the pinned Agda/Cubical toolchain. The execution probe found no `agda`, `ghc`, or `cabal`, and its sandbox could not resolve GitHub, Hackage, or Debian package hosts. The logs are preserved as [S24]. No mathematical conclusion should be inferred from those infrastructure failures.
 
 The earlier phrases âkernel executed,â âproof-carrying kernel,â and counts such as 43, 67, 141, or 86 checks refer, unless explicitly identified otherwise, to local Python programs. They do not mean that the mathematical claims were encoded in Agda, accepted through `sadhana.patra`, analyzed through `sadhana.vislesana`, or installed into the repository's `NativeOperation` language. This distinction is central to the handoff.
 

@@ -148,7 +148,7 @@
 --    per pattern match on `Fin` at a fixed index (`zeroAt`, `pair`,
 --    `Pm`, `mat`, ...).  They say such functions may not compute under
 --    transports; they do not affect the checked identities, and the
---    corpus's `Gamma0` and `Rupasamata` match on `Fin 2` the same way.
+--    corpus's `Gamma0` and `Rupaequality` match on `Fin 2` the same way.
 ------------------------------------------------------------------------
 
 module PeirceGluing_TheChargeGluingDefectIsExactlyTheOffSectorMassAndProjectionIsLinearNotMultiplicative where

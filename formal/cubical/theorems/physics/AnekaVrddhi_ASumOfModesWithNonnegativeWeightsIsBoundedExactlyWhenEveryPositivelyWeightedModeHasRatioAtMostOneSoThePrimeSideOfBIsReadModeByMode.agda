@@ -4,14 +4,14 @@
 -- àà¨àà•-àµàà¦àà§à¿ â” growth of many.
 --
 -- B(t) = Î Î(n)/âˆn Â h(t âˆ’ log n) âˆ’ e^{t/2} H(Â½): the prime side of the
--- proof note's signal carries POSITIVE weights Î(n)/âˆn.  Atikrama read
+-- proof note's signal carries POSITIVE weights Î(n)/âˆn.  Atiorder read
 -- one mode; this file reads a finite positively weighted sum of modes
 -- B(t) = Î_{i<n} c_i m_i^t with c_i â‰ 0, m_i â‰ 0:
 --
 --   Â§1  A TERM IS AT MOST THE SUM when every term is nonnegative.
 --   Â§2  BOUNDED â’ EVERY POSITIVELY WEIGHTED MODE HAS RATIO â‰ 1: if some
 --       c_i > 0 had m_i > 1, Archimedes supplies q with 1 â‰ q c_i, and
---       Atikrama a t with q K < m_i^t, so c_i m_i^t > K â” cancelling the
+--       Atiorder a t with q K < m_i^t, so c_i m_i^t > K â” cancelling the
 --       positive q â” against the bound.
 --   Â§3  EVERY POSITIVELY WEIGHTED MODE HAS RATIO â‰ 1 â’ BOUNDED by Î c_i.
 --   Â§4  THE CRITERION, both directions.
@@ -40,8 +40,8 @@ open import Vrddhi_AModeOfRatioAboveOneGrowsPastEveryBoundAndAModeOfRatioAtMostO
   using (Î¹ ; _^_ ; aná¹›á¹‡a-guá¹‡a ; Î¹-aná¹›á¹‡a)
 open import Parimana_EveryRationalLiesBelowANaturalAndEveryPositiveRationalHasANaturalMultipleAtLeastOneSoTheRationalsAreArchimedean
   using (guá¹‡aka)
-open import Atikrama_TheModeOfRatioAboveOneOverstepsEveryBoundAndTheModeOfRatioAtMostOneStaysWithinOneSoAModeIsBoundedExactlyWhenItsRatioIsAtMostOne
-  using (atikrama ; antar ; 0â‰¤1)
+open import Atiorder_TheModeOfRatioAboveOneOverstepsEveryBoundAndTheModeOfRatioAtMostOneStaysWithinOneSoAModeIsBoundedExactlyWhenItsRatioIsAtMostOne
+  using (atiorder ; antar ; 0â‰¤1)
 open import VrddhiSima_ADiscreteGronwallWithASummableWeightClosesWithoutExponentialsSoTheTypeIEnergyBoundIsScaleInvariantAsATerm
   using (Î£âŸ¨_âŸ© ; â‰¤-yoga)
 
@@ -103,7 +103,7 @@ module _ (n : â„•) (c m : â„• â†’ â„š) (0â‰¤c : (i : â„•) â†’ 0 â‰¤ c i) (0â‰¤m 
   ... | gt 1<m = âŠ¥-elim (PT.rec isPropâŠ¥ go (guá¹‡aka (c i) 0<ci))
     where
     go : Î£[ q âˆˆ â„• ] 1 â‰¤ Î¹ q Â· c i â†’ âŠ¥
-    go (q , 1â‰¤qc) = PT.rec isPropâŠ¥ goâ€² (atikrama (m i) 1<m (Î¹ q Â· K))
+    go (q , 1â‰¤qc) = PT.rec isPropâŠ¥ goâ€² (atiorder (m i) 1<m (Î¹ q Â· K))
       where
       0<q : 0 < Î¹ q
       0<q = dhana-Î¹ q (c i) 1â‰¤qc

@@ -51,7 +51,7 @@ open import Cubical.Data.Int using (ℤ ; pos ; negsuc)
 open import Cubical.Data.List using (List ; [] ; _∷_)
 open import Cubical.Data.Maybe using (Maybe ; nothing ; just ; rec ; map-Maybe)
 
-open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
   using (eq?)
 open import Ramanujan1729_TheTaxicabNumberBothRepresentationsByReflAndMinimalityByBoundedReflection
   using (le?)

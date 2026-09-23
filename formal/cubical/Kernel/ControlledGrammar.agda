@@ -1,12 +1,12 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
-module Kernel.ControlledGrammar where
+module ControlledGrammar where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.List using (List ; [] ; _∷_ ; map ; length)
 open import Cubical.Data.Nat using (suc)
 
-open import Kernel.RewriteCertificate using (Tm ; Derivation)
+open import RewriteCertificate using (Tm ; Derivation)
 
 record NativeOperation : Type₁ where
   field

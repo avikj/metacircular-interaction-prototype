@@ -1,0 +1,192 @@
+While building module '_DarwinFoundation2' imported from /private/tmp/bend-bench-20260921/tmp/bend-Nr6sjx/official-compiled.c:21:
+While building module '_DarwinFoundation1' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/nl_types.h:44:
+In file included from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/module.modulemap:92:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/DarwinFoundation1.modulemap:306:8: error: module '_c_standard_library_obsolete' requires feature 'found_incompatible_headers__check_search_paths'
+  306 | module _c_standard_library_obsolete [system] {
+      |        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/math.h:69:17: note: submodule of top-level module '_c_standard_library_obsolete' implicitly imported here
+   69 | #       include <float.h>
+      |                 ^
+While building module '_DarwinFoundation2' imported from /private/tmp/bend-bench-20260921/tmp/bend-Nr6sjx/official-compiled.c:21:
+In file included from <module-includes>:1:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/nl_types.h:44:10: fatal error: could not build module '_DarwinFoundation1'
+   44 | #include <sys/cdefs.h>
+      |  ~~~~~~~~^
+/private/tmp/bend-bench-20260921/tmp/bend-Nr6sjx/official-compiled.c:21:10: fatal error: could not build module '_DarwinFoundation2'
+   21 | #include <stdint.h>
+      |  ~~~~~~~~^
+While building module '_DarwinFoundation3' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdlib.h:58:
+In file included from <module-includes>:1:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/pthread/pthread.h:55:10: fatal error: could not build module '_DarwinFoundation2'
+   55 | #include <_types.h>
+      |  ~~~~~~~~^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/copyfile.h:35:10: fatal error: could not build module '_DarwinFoundation1'
+   35 | #include <sys/cdefs.h>
+      |  ~~~~~~~~^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/mach-o/arch.h:32:10: fatal error: could not build module '_DarwinFoundation2'
+   32 | #include <stdint.h>
+      |  ~~~~~~~~^
+While building module 'Metal' imported from /private/tmp/bend-bench-20260921/tmp/bend-Nr6sjx/official-compiled.c:41:
+In file included from <module-includes>:1:
+In file included from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.h:8:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Metal.framework/Headers/MTLDefines.h:8:9: fatal error: could not build module '_DarwinFoundation1'
+    8 | #import <os/availability.h>
+      |  ~~~~~~~^
+While building module 'Metal' imported from /private/tmp/bend-bench-20260921/tmp/bend-Nr6sjx/official-compiled.c:41:
+While building module 'Foundation' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Metal.framework/Headers/MTLTypes.h:8:
+While building module 'CoreFoundation' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h:6:
+In file included from <module-includes>:1:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CoreFoundation.h:14:10: fatal error: could not build module '_DarwinFoundation1'
+   14 | #include <TargetConditionals.h>
+      |  ~~~~~~~~^
+While building module 'Metal' imported from /private/tmp/bend-bench-20260921/tmp/bend-Nr6sjx/official-compiled.c:41:
+While building module 'Foundation' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Metal.framework/Headers/MTLTypes.h:8:
+While building module 'CoreFoundation' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h:6:
+While building module 'Dispatch' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFStream.h:20:
+In file included from <module-includes>:1:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/dispatch/dispatch.h:25:10: fatal error: could not build module '_DarwinFoundation1'
+   25 | #include <Availability.h>
+      |  ~~~~~~~~^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/os/object.h:25:10: fatal error: could not build module '_DarwinFoundation1'
+   25 | #include <Availability.h>
+      |  ~~~~~~~~^
+While building module 'Metal' imported from /private/tmp/bend-bench-20260921/tmp/bend-Nr6sjx/official-compiled.c:41:
+While building module 'Foundation' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Metal.framework/Headers/MTLTypes.h:8:
+While building module 'CoreFoundation' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h:6:
+While building module 'Dispatch' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFStream.h:20:
+While building module 'os_object' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/dispatch/dispatch.h:63:
+While building module 'ObjectiveC' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/os/object.h:114:
+In file included from <module-includes>:2:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/objc/NSObjCRuntime.h:8:10: fatal error: could not build module '_DarwinFoundation1'
+    8 | #include <TargetConditionals.h>
+      |  ~~~~~~~~^
+While building module 'Metal' imported from /private/tmp/bend-bench-20260921/tmp/bend-Nr6sjx/official-compiled.c:41:
+While building module 'Foundation' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Metal.framework/Headers/MTLTypes.h:8:
+While building module 'CoreFoundation' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h:6:
+While building module 'Dispatch' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFStream.h:20:
+While building module 'os_workgroup' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/dispatch/dispatch.h:64:
+In file included from <module-includes>:1:
+In file included from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/os/workgroup.h:29:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/os/workgroup_base.h:8:10: fatal error: could not build module '_DarwinFoundation2'
+    8 | #include <sys/types.h>
+      |  ~~~~~~~~^
+While building module 'Metal' imported from /private/tmp/bend-bench-20260921/tmp/bend-Nr6sjx/official-compiled.c:41:
+While building module 'Foundation' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Metal.framework/Headers/MTLTypes.h:8:
+In file included from <module-includes>:1:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h:6:10: fatal error: could not build module 'CoreFoundation'
+    6 | #include <CoreFoundation/CoreFoundation.h>
+      |  ~~~~~~~~^
+While building module 'Metal' imported from /private/tmp/bend-bench-20260921/tmp/bend-Nr6sjx/official-compiled.c:41:
+While building module 'Foundation' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Metal.framework/Headers/MTLTypes.h:8:
+While building module 'CoreGraphics' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h:14:
+In file included from <module-includes>:1:
+In file included from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.h:8:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGBase.h:8:10: fatal error: 'stdbool.h' file not found
+    8 | #include <stdbool.h>
+      |          ^~~~~~~~~~~
+While building module 'Metal' imported from /private/tmp/bend-bench-20260921/tmp/bend-Nr6sjx/official-compiled.c:41:
+While building module 'Foundation' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Metal.framework/Headers/MTLTypes.h:8:
+While building module 'CoreGraphics' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h:14:
+While building module 'IOKit' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGDisplayConfiguration.h:12:
+In file included from <module-includes>:1:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/IOKit.framework/Headers/IOReturn.h:44:10: fatal error: could not build module 'Darwin'
+   44 | #include <mach/error.h>
+      |  ~~~~~~~~^
+While building module 'Metal' imported from /private/tmp/bend-bench-20260921/tmp/bend-Nr6sjx/official-compiled.c:41:
+While building module 'Foundation' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Metal.framework/Headers/MTLTypes.h:8:
+While building module 'CoreGraphics' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h:14:
+While building module 'IOKit' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGDisplayConfiguration.h:12:
+While building module 'libkern' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/IOKit.framework/Headers/IOTypes.h:77:
+In file included from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/module.modulemap:92:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/DarwinFoundation1.modulemap:306:8: error: module '_c_standard_library_obsolete' requires feature 'found_incompatible_headers__check_search_paths'
+  306 | module _c_standard_library_obsolete [system] {
+      |        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/libkern/OSCacheControl.h:27:13: note: submodule of top-level module '_c_standard_library_obsolete' implicitly imported here
+   27 | #include    <stddef.h>
+      |             ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/libkern/OSCacheControl.h:28:13: fatal error: could not build module '_DarwinFoundation1'
+   28 | #include    <sys/cdefs.h>
+      |  ~~~~~~~~~~~^
+While building module 'Metal' imported from /private/tmp/bend-bench-20260921/tmp/bend-Nr6sjx/official-compiled.c:41:
+While building module 'Foundation' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Metal.framework/Headers/MTLTypes.h:8:
+While building module 'Security' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLCredential.h:9:
+In file included from <module-includes>:1:
+In file included from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Security.framework/Headers/Security.h:27:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Security.framework/Headers/SecBase.h:27:10: fatal error: could not build module '_DarwinFoundation1'
+   27 | #include <TargetConditionals.h>
+      |  ~~~~~~~~^
+While building module 'Metal' imported from /private/tmp/bend-bench-20260921/tmp/bend-Nr6sjx/official-compiled.c:41:
+While building module 'Foundation' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Metal.framework/Headers/MTLTypes.h:8:
+While building module 'Security' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLCredential.h:9:
+While building module 'XPC' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Security.framework/Headers/SecCode.h:35:
+In file included from <module-includes>:1:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/xpc/xpc.h:6:10: fatal error: could not build module 'os_object'
+    6 | #include <os/object.h>
+      |  ~~~~~~~~^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/launch.h:16:10: fatal error: could not build module 'Darwin'
+   16 | #include <os/base.h>
+      |  ~~~~~~~~^
+While building module 'Metal' imported from /private/tmp/bend-bench-20260921/tmp/bend-Nr6sjx/official-compiled.c:41:
+While building module 'Foundation' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Metal.framework/Headers/MTLTypes.h:8:
+While building module 'Security' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLCredential.h:9:
+While building module 'libDER' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Security.framework/Headers/oids.h:35:
+In file included from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/module.modulemap:92:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/DarwinFoundation1.modulemap:306:8: error: module '_c_standard_library_obsolete' requires feature 'found_incompatible_headers__check_search_paths'
+  306 | module _c_standard_library_obsolete [system] {
+      |        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/libDER/libDER_config.h:34:10: note: submodule of top-level module '_c_standard_library_obsolete' implicitly imported here
+   34 | #include <stddef.h>
+      |          ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/libDER/libDER_config.h:35:10: fatal error: could not build module '_DarwinFoundation2'
+   35 | #include <stdint.h>
+      |  ~~~~~~~~^
+While building module 'Metal' imported from /private/tmp/bend-bench-20260921/tmp/bend-Nr6sjx/official-compiled.c:41:
+While building module 'Foundation' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Metal.framework/Headers/MTLTypes.h:8:
+While building module 'CoreServices' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLError.h:15:
+In file included from <module-includes>:1:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/CoreServices.framework/Headers/CoreServices.h:19:10: fatal error: could not build module 'CoreFoundation'
+   19 | #include <CoreFoundation/CoreFoundation.h>
+      |  ~~~~~~~~^
+While building module 'Metal' imported from /private/tmp/bend-bench-20260921/tmp/bend-Nr6sjx/official-compiled.c:41:
+While building module 'Foundation' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Metal.framework/Headers/MTLTypes.h:8:
+While building module 'CoreServices' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLError.h:15:
+While building module 'DiskArbitration' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Files.h:59:
+In file included from <module-includes>:1:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/DiskArbitration.framework/Headers/DiskArbitration.h:27:10: fatal error: could not build module 'CoreFoundation'
+   27 | #include <CoreFoundation/CoreFoundation.h>
+      |  ~~~~~~~~^
+While building module 'Metal' imported from /private/tmp/bend-bench-20260921/tmp/bend-Nr6sjx/official-compiled.c:41:
+While building module 'Foundation' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Metal.framework/Headers/MTLTypes.h:8:
+While building module 'CoreServices' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLError.h:15:
+While building module 'CFNetwork' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/CoreServices.framework/Headers/CoreServices.h:31:
+In file included from <module-includes>:1:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/CFNetwork.framework/Headers/CFNetwork.h:18:10: fatal error: could not build module 'CoreFoundation'
+   18 | #include <CoreFoundation/CoreFoundation.h>
+      |  ~~~~~~~~^
+While building module 'Metal' imported from /private/tmp/bend-bench-20260921/tmp/bend-Nr6sjx/official-compiled.c:41:
+While building module 'IOSurface' imported from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Metal.framework/Headers/MTLTexture.h:15:
+In file included from <module-includes>:1:
+In file included from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/IOSurface.framework/Headers/IOSurface.h:12:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/IOSurface.framework/Headers/IOSurfaceBase.h:12:10: fatal error: could not build module '_DarwinFoundation1'
+   12 | #include <sys/cdefs.h>
+      |  ~~~~~~~~^
+26 errors generated.
+Error: clang failed to build /private/tmp/bend-bench-20260921/build/terrain/official-compiled
+        0.51 real         0.81 user         0.10 sys
+           111902720  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               16902  page reclaims
+                  55  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   1  messages sent
+                   1  messages received
+                   0  signals received
+                   3  voluntary context switches
+                1893  involuntary context switches
+          3787882877  instructions retired
+          1478683690  cycles elapsed
+            83165880  peak memory footprint

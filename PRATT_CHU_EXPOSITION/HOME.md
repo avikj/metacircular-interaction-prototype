@@ -147,7 +147,7 @@ Finite towers flatten: repeatedly adjoining dependent structure remains one fami
 
 This is the classifier underlying the whole construction. Every later specialization remains itself classifiable by the same family.
 
-**Checked:** [`Visvarupa_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda`](../fibre/src/Fibre/Visvarupa_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda).
+**Checked:** [`Universal_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda`](../fibre/src/Fibre/Universal_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda).
 
 ---
 
@@ -222,7 +222,7 @@ There are not competing complete versions of a map. Once its visible action and 
 
 The conservative machine is not extra machinery placed around the map. It is the map, completely presented.
 
-**Checked:** [`Trace`](../fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda), [`Ekatva`](../formal/cubical/theorems/residue/Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda).
+**Checked:** [`Trace`](../fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda), [`Uniqueness`](../formal/cubical/theorems/residue/Uniqueness_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda).
 
 ---
 
@@ -365,7 +365,7 @@ A finite prefix is not discarded when interaction continues; it determines the p
 
 Compatible finite approximations admit a unique corecursively constructed limit. The observational prefix structure is therefore already the completion structure of the infinite carrier. **Coinduction is not an additional semantics for infinity; it is equality/fibre continued without an arbitrary terminal cut.**
 
-**Checked:** [`Samvada`](../fibre/src/Fibre/Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers.agda).
+**Checked:** [`Interaction`](../fibre/src/Fibre/Interaction_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers.agda).
 
 ---
 

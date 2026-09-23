@@ -10,13 +10,13 @@
 --   transp (Î» i â’ C) i0 c != c of type C
 --
 -- Constant-family transport is propositionally, not judgmentally, the
--- identity at that site.  `fable-krama` repaired each `refl` to
+-- identity at that site.  `fable-order` repaired each `refl` to
 -- `transportRefl`, drove both terms through Nadi `give`, received two
 -- acceptances and no remaining goals, reloaded the written module under
 -- `--safe`, and landed the complete receipt at:
 --
 --   formal/cubical/
---   YugapatSankramana_TheSquaresFourEdgesAreTheCompilerPathsAndTheReceiptIsClosed.agda
+--   YugapatTransport_TheSquaresFourEdgesAreTheCompilerPathsAndTheReceiptIsClosed.agda
 --
 -- That file is wired into `Everything.agda`.  It is the canonical theorem.
 -- The full probe and the refused candidates remain in Git history at this

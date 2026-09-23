@@ -269,7 +269,7 @@ Corrections recorded as standing:
    equality by the kernel (each step constant-time projection over symbols).
  - P/NP is architecture-free â” over all UTMs and algorithms â” not a question
    about a succinct measure on a lossy von-Neumann-style machine. Our
-   construction is a UTM (Vishvayantra) inside that scope.
+   construction is a UTM (Vishvamachine) inside that scope.
  - In arithmetic-encoded HoTT, programs/proofs/objects are all arithmetic
    objects; addTower/mulPeel are not "two special operations".
 

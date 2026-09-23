@@ -38,11 +38,11 @@
 -- and asserts nothing about any pair of them.  A mechanical root cannot
 -- notice that two of its rows are one theorem.
 --
--- The private lemma `Cakravala.Cycle.bhavana-trivial`
--- (`solve! R`) is likewise `Bhavana.Form.cakravalaCleared` again, and
+-- The private lemma `Cakravala.Cycle.composition-trivial`
+-- (`solve! R`) is likewise `Composition.Form.cakravalaCleared` again, and
 -- `Cakravala.‡‡ï‡‡∞‡‡Ø-‡‡¶-‡∞‡‡‡Æ‡` is that same identity a third time over ‚
 -- from `Brahmagupta.‡‡æ‡µ‡®‡æ-‡Æ‡æ‡®`.  Those are named here and NOT bridged:
--- one bridge is enough to place the finding, and `bhavana-trivial` is
+-- one bridge is enough to place the finding, and `composition-trivial` is
 -- private, so a bridge to it would have to edit another author's file.
 --
 -- SOURCE OF THE MATHEMATICS RESTATED, not of this file: Jayadeva
@@ -59,7 +59,7 @@ module Punarukti_TheTwoScaledCakravalaStepsAreOneTheorem where
 open import Cubical.Foundations.Prelude
 open import Cubical.Algebra.CommRing
 
-import Bhavana
+import Composition
 import CakravalaDescent
 import CakravalaStep as NMC
 
@@ -70,7 +70,7 @@ private
 module Bridge (CR : CommRing ‚Ñì) where
 
   open CommRingStr (snd CR)
-  open Bhavana.Form CR using (R ; N)
+  open Composition.Form CR using (R ; N)
   open CakravalaDescent.Descent CR using (cakravalaScaled)
   open NMC.Cycle CR using (OnForm ; cakravala-step)
 

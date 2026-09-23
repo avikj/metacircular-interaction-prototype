@@ -22,4 +22,4 @@ for e in man['files']:
 if fail:
     print(json.dumps({'verified':False,'errors':fail},indent=2));sys.exit(1)
 print(f"Integrity verified: {len(man['files'])} payload files, SHA-256 and sizes match.")
-print('This is an archive integrity result, not an Agda/Lean/Yantra or mathematical proof verdict.')
+print('This is an archive integrity result, not an Agda/Lean/Machine or mathematical proof verdict.')

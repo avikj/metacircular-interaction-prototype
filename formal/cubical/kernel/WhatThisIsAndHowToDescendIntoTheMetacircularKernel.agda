@@ -84,7 +84,7 @@
 --
 -- Two theorems, one Î.  Follow that same object through its six readings --
 -- memory, charge, symmetry, price, distance, verdict -- and out to
--- SankramanaSesa (every transport owes its residual), Saptabhangi (a boolean
+-- TransportResidue (every transport owes its residual), Saptabhangi (a boolean
 -- verdict is a theorem-grade error, not a simplification), and the kernel
 -- node that revised its own validity rule using only itself.
 --

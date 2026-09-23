@@ -22,7 +22,7 @@
 --       coterminal kernel histories (direct, detour) to the SAME value
 --       (meaning-agrees) though they are distinct (len 2 ≠ 4).  A
 --       witnessed non-equivalence of μ � cost's ea as � isEquiv.
---   §3  CRYPTO.  Sesa already proved � isEquiv powg (the discrete log is
+--   §3  CRYPTO.  Residue already proved � isEquiv powg (the discrete log is
 --       not an equivalence).  Carried here as the same conclusion the
 --       cost witness lands in � the two lanes' obstructions are one type.
 --
@@ -48,9 +48,9 @@ open import Cubical.Relation.Nullary using (¬_)
 open import RewriteCertificate using (Tm ; Derivation ; Env ; eval ; derivation-sound)
 open import GenerativeKernel using (seed ; target₀ ; direct-history ; detour-history)
 open import ForgetfulCompressionPricesTheDrop using (len ; 2≢4 ; meaning-agrees)
-open import GhataTantu_TheDiscreteLogIsTheFibreOfPingalasPowerAndShorsPeriodQueryIsWhatReadsIt
+open import GhataFiber_TheDiscreteLogIsTheFibreOfPingalasPowerAndShorsPeriodQueryIsWhatReadsIt
   using (powg)
-open import Sesa_TheOneWayFunctionIsExactlyANonEquivalenceAndCryptoLivesInTheResidualUnivalenceCannotErase
+open import Residue_TheOneWayFunctionIsExactlyANonEquivalenceAndCryptoLivesInTheResidualUnivalenceCannotErase
   using (घातः-न-तुल्यता)
 
 private variable ℓ ℓ' : Level
@@ -95,7 +95,7 @@ costIsNonEquiv : ¬ isEquiv μ
 costIsNonEquiv = witnessed→¬isEquiv μ costObstruction
 
 ------------------------------------------------------------------------
--- � � CRYPTO.  Sesa's discrete-log non-equivalence, the same conclusion.
+-- � � CRYPTO.  Residue's discrete-log non-equivalence, the same conclusion.
 ------------------------------------------------------------------------
 
 cryptoIsNonEquiv : ¬ isEquiv powg
@@ -105,7 +105,7 @@ cryptoIsNonEquiv = घातः-न-तुल्यता
 -- The one aperture: cost and crypto obstructions inhabit one type.
 -- Each forgetful map fails to be an equivalence; the ea is the fibre
 -- that failure leaves, and univalence (ua transports only equivalences)
--- therefore cannot erase it � the same floor Sesa names for crypto,
+-- therefore cannot erase it � the same floor Residue names for crypto,
 -- Laghava names for cost, and Yugapat names, truncated, for avaktavya.
 ------------------------------------------------------------------------
 

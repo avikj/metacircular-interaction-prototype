@@ -1,10 +1,10 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
-module Yantra.Dvichanel where
+module Machine.Dvichanel where
 -- à¦ààµà¿ààˆà¨à²: every prime beyond 3 lives in channel 1 or 5 mod 6,
 -- and the channel of a sum of two such primes is determined by the pair.
 
-open import Yantra.Prakriti
-open import Yantra.Bhaga using (eucl; Â¬2â‰¡1; Â¬3â‰¡1)
+open import Machine.Prakriti
+open import Machine.Bhaga using (eucl; Â¬2â‰¡1; Â¬3â‰¡1)
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
 open import Cubical.Data.Nat.Order

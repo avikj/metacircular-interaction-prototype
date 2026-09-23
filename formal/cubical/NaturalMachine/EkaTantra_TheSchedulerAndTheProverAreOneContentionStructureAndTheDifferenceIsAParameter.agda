@@ -25,7 +25,7 @@
 --
 --   SCHEDULER (machine/Vipratisedha_‚¶hs, the executable elder):
 --     ‡µ‡ï‡‡‡æ‡∞‡ = tSasanani (stras as partial offers)
---     ‡®‡ø‡∞‡‡‡‡‡Æ‡/‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ = Nirnita / Avaktavya+Sesa, field for field
+--     ‡®‡ø‡∞‡‡‡‡‡Æ‡/‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ = Nirnita / Avaktavya+Residue, field for field
 --     the joiner = the metarule order (paribh 38) ‚î DATA
 --     the birth = AvaktavyaPrasava's prasava (agreement under anugama)
 --

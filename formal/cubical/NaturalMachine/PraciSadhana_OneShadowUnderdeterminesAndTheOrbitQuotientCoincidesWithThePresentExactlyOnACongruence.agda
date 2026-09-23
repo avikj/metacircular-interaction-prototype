@@ -25,7 +25,7 @@
 --     *Pacasiddhntik*, c. 550, which is earlier than that recension.
 --   * al-Brn, 11th c., writes on the astrolabe.
 --   * Sawai Jai Singh II builds the Jantar Mantar instruments, 1724â“34,
---     in masonry: the Samr Yantra's precision comes from its size.
+--     in masonry: the Samr Machine's precision comes from its size.
 --
 -- Repository greps run before writing (text name, not author name):
 --   *Srya Siddhnta* 0, *Pacasiddhntik* 0, aku 0, chy 0,

@@ -13,7 +13,7 @@
 --
 -- A READING is a collapse `f : Source � Target` whose readout lands in a
 -- set (a reading decategorifies � the recurring fact of this corpus). From
--- it the Carrier/Sesa law derives, at the record level:
+-- it the Carrier/Residue law derives, at the record level:
 --
 --   middle          = Carrier f          -- the universal lossless middle
 --   residual b      = ��� f b            -- what the collapse forgets over b
@@ -35,7 +35,7 @@ open import Cubical.Data.Bool using (Bool)
 open import Cubical.Data.Unit using (Unit ; isSetUnit ; tt)
 
 open import Fibre.Carrier
-open import Fibre.Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph
+open import Fibre.Residue_TheResidualIsTheOtherProjectionOfTheSameGraph
 
 private
   variable
@@ -82,6 +82,6 @@ Target     verdict = Unit
 collapse   verdict = सर्वैकम्
 target-set verdict = isSetUnit
 
--- the residual of the verdict reading is one bit, from Fibre.Sesa
+-- the residual of the verdict reading is one bit, from Fibre.Residue
 verdict-residual-is-one-bit : residual verdict tt ≃ Bool
 verdict-residual-is-one-bit = शेष-सर्वैकम्≃Bool

@@ -7,6 +7,7 @@ module Core.Admission
   , AdmissionError(..)
   , admitSource
   , admitBook
+  , admitBookWithOrigins
   , memberDependencies
   ) where
 
@@ -15,7 +16,7 @@ import qualified Data.Set as S
 
 import Core.Check (check)
 import Core.Deps (getDeps)
-import Core.Parse.Book (doParseBook)
+import Core.Provenance (OriginMap, sourceOrigins)
 import Core.Type
 
 data CheckedMember
@@ -27,6 +28,7 @@ data CheckedSource = CheckedSource
   , checkedText :: String
   , checkedBook :: Book
   , checkedMembers :: [CheckedMember]
+  , checkedOrigins :: OriginMap
   }
 
 data AdmissionError
@@ -35,6 +37,7 @@ data AdmissionError
   | DefinitionTermFailure Name Error
   | HitTypeFailure Name Error
   | HitConstructorFailure Name Name Error
+  | OriginFailure String
 
 -- | Each dependency is reported, including references to other members of
 -- this Book. Component formation can classify local references after finding
@@ -48,20 +51,23 @@ memberDependencies (CheckedHit _ hit) =
 -- caller; 'admitBook' accepts the resulting assembled Book.
 admitSource :: FilePath -> String -> Either AdmissionError CheckedSource
 admitSource path source = do
-  book <- either (Left . ParseFailure) Right (doParseBook path source)
-  admitBook path source book
+  (book, origins, _) <- either (Left . OriginFailure) Right (sourceOrigins path source)
+  admitBookWithOrigins path source book origins
 
 -- | Check both declarations and terms without printing or exiting UCM.
 -- The ordinary CLI's checkBook only checks term bodies and its
 -- checkDefinitions routine has terminal-side effects.
 admitBook :: FilePath -> String -> Book -> Either AdmissionError CheckedSource
-admitBook path source book@(Book defs hits) = do
+admitBook path source book = admitBookWithOrigins path source book mempty
+
+admitBookWithOrigins :: FilePath -> String -> Book -> OriginMap -> Either AdmissionError CheckedSource
+admitBookWithOrigins path source book@(Book defs hits) origins = do
   mapM_ checkHit (M.toList hits)
   mapM_ checkDef (M.toList defs)
   let members =
         [CheckedDefn name inj term typ | (name, (inj, term, typ)) <- M.toList defs]
           ++ [CheckedHit name hit | (name, hit) <- M.toList hits]
-  pure (CheckedSource path source book members)
+  pure (CheckedSource path source book members origins)
   where
     emptyCtx = Ctx []
     checkTerm term typ = check 0 noSpan book emptyCtx term typ

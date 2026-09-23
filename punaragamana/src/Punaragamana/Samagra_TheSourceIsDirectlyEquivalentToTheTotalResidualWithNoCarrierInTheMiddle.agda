@@ -25,11 +25,11 @@
 ------------------------------------------------------------------------
 -- WHY THIS MODULE EXISTS.
 --
--- `Sesa` proves the graph Œìf has two projections: ‡Æ‡‡≤-‡‡‡∞‡ï‡‡‡‡ (to A,
+-- `Residue` proves the graph Œìf has two projections: ‡Æ‡‡≤-‡‡‡∞‡ï‡‡‡‡ (to A,
 -- always an equivalence) and ‡≤‡ï‡‡‡‡Ø-‡‡‡∞‡ï‡‡‡‡ (to B, an equivalence iff f
 -- is).  It gets from `Carrier f ‚â Œ[ b ] ‡‡‡ f b` (`‡ó‡‡∞‡æ‡`) and
 -- `Carrier f ‚â A` (`‡Æ‡‡≤-‡‡‡∞‡ï‡‡‡‡-‡‡Æ‡‡æ`) SEPARATELY.  Nowhere in that
--- module, or anywhere else searched in `punaragamana/src` or
+-- module, or anywhere else searched in `return/src` or
 -- `formal/cubical` (grepped for `Œ[ b`  ` ‡‡‡` composed against `A ‚â`,
 -- 2026-08-24: no hit), is the two COMPOSED into the one statement that
 -- actually names the total-space theorem without routing through
@@ -59,15 +59,15 @@
 -- --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
-module Punaragamana.Samagra_TheSourceIsDirectlyEquivalentToTheTotalResidualWithNoCarrierInTheMiddle where
+module Return.Samagra_TheSourceIsDirectlyEquivalentToTheTotalResidualWithNoCarrierInTheMiddle where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism
 open import Cubical.Foundations.Equiv
 open import Cubical.Data.Sigma
 
-open import Punaragamana.Carrier
-open import Punaragamana.Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph
+open import Return.Carrier
+open import Return.Residue_TheResidualIsTheOtherProjectionOfTheSameGraph
 
 private
   variable
@@ -98,7 +98,7 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) where
   --
   -- `descend f a` is the canonical Carrier-valued reading of `a` (¬ß in
   -- `Carrier`, un-pattern-matched by design so it stays computational).
-  -- Pushing it through `‡ó‡‡∞‡æ‡` ‚î `Sesa`'s graph equivalence, built by
+  -- Pushing it through `‡ó‡‡∞‡æ‡` ‚î `Residue`'s graph equivalence, built by
   -- composing `Carrier-as-Œ` with the source/target swap `‡‡‡µ‡‡` ‚î lands
   -- on EXACTLY `equivFun ‡‡Æ‡ó‡‡∞-‡‡Æ‡‡æ a`, by `refl`: both sides unfold to
   -- the literal pair `f a , (a , refl)`.  So the direct route and the

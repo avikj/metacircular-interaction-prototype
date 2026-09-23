@@ -37,7 +37,7 @@ open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 open import Cubical.Data.Bool using (true)
 open import Cubical.Data.Rationals
 open import Cubical.Data.Rationals.Order using (_≤_)
-open import Sankhya_SignedIntegersOverTheBuiltinNaturalsWithSoundArithmeticIntoTheLibrarysIntegersSoCertificatesComputeAtMachineSpeed using (𝕊 ; ⁺_ ; ⁻_)
+open import Count_SignedIntegersOverTheBuiltinNaturalsWithSoundArithmeticIntoTheLibrarysIntegersSoCertificatesComputeAtMachineSpeed using (𝕊 ; ⁺_ ; ⁻_)
 open import Sadhaka_AnIntegerLDLTCertificateCheckedAtMachineSpeedYieldsThePositivityOfTheRationalFormThroughPramanika
 import Pramanika_AnExactRationalLDLTFactorisationCertifiesThatAQuadraticFormIsNonnegativeSoAPositivityCertificateIsACheckableTerm as P
 open import Cubical.Data.List using (List ; [] ; _∷_)

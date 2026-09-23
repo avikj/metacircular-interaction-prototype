@@ -11,7 +11,7 @@
 -- equivalent to � � � at all.
 ------------------------------------------------------------------------
 
-module Punaragamana.Viveka where
+module Return.Viveka where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism
@@ -20,9 +20,9 @@ open import Cubical.Foundations.Univalence
 open import Cubical.Data.Nat using (ℕ; suc; _+_)
 open import Cubical.Data.Sigma using (_×_; _,_; fst; snd)
 
-open import Punaragamana.Carrier
-open import Punaragamana.Orbit
-open import Punaragamana.Nucleus
+open import Return.Carrier
+open import Return.Orbit
+open import Return.Nucleus
 
 योग : ℕ × ℕ → ℕ
 योग x = fst x + snd x

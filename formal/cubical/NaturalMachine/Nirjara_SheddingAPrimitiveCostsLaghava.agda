@@ -216,17 +216,17 @@ private
   bhrama-bheda : ¬ (artha (bhrama vama) ≡ artha (bhrama dakshina))
   bhrama-bheda p = snotz (injSuc (funExt⁻ p 1))
 
-upamana-upadhi-apeksate :
+upamana-qualifier-apeksate :
   ¬ ((s t : Laghu) → artha' s ≡ artha' t → artha (bhrama s) ≡ artha (bhrama t))
-upamana-upadhi-apeksate f = bhrama-bheda (f vama dakshina artha'-samam)
+upamana-qualifier-apeksate f = bhrama-bheda (f vama dakshina artha'-samam)
 
 sarvatra-samam : (n : ℕ) → artha' vama n ≡ artha' dakshina n
 sarvatra-samam n = +-zero n
 
-upadhi-anuvade-vasati :
+qualifier-anuvade-vasati :
   ((n : ℕ) → artha' vama n ≡ artha' dakshina n)
   × (¬ (artha (bhrama vama) ≡ artha (bhrama dakshina)))
-upadhi-anuvade-vasati = sarvatra-samam , bhrama-bheda
+qualifier-anuvade-vasati = sarvatra-samam , bhrama-bheda
 
 record Sadrsya : Type₀ where
   constructor sadrsyam
@@ -345,17 +345,17 @@ anu []       _       = cara
 anu (p ∷ _)  zero    = p
 anu (_ ∷ ps) (suc i) = anu ps i
 
-sanghata : List Pada → ℕ → Pada
-sanghata []       _       = cara
-sanghata (p ∷ _)  zero    = p
-sanghata (p ∷ ps) (suc k) = yoga p (sanghata ps k)
+aggregate : List Pada → ℕ → Pada
+aggregate []       _       = cara
+aggregate (p ∷ _)  zero    = p
+aggregate (p ∷ ps) (suc k) = yoga p (aggregate ps k)
 
 pada-of : Sutra → List Pada → Pada
 pada-of cara-s       _  = cara
 pada-of (mita-s m)   _  = mita m
 pada-of (yoga-s i j) ps = yoga (anu ps i) (anu ps j)
 pada-of (dvi-s i)    ps = dvi (anu ps i)
-pada-of (pratyahara-s k) ps = sanghata ps k
+pada-of (pratyahara-s k) ps = aggregate ps k
 
 sadhana : Prakriya → List Pada
 sadhana []       = []
@@ -409,10 +409,10 @@ pratyahara-matra : (k : ℕ) (P : Prakriya)
                  → matra-p (pratyahara k P) ≡ suc (matra-p P)
 pratyahara-matra k P = refl
 
-sanghata-vardhate : (p : Pada) (ps : List Pada) (k : ℕ)
-  → laghava (sanghata (p ∷ ps) (suc k))
-  ≡ suc (laghava p + laghava (sanghata ps k))
-sanghata-vardhate p ps k = refl
+aggregate-vardhate : (p : Pada) (ps : List Pada) (k : ℕ)
+  → laghava (aggregate (p ∷ ps) (suc k))
+  ≡ suc (laghava p + laghava (aggregate ps k))
+aggregate-vardhate p ps k = refl
 
 trini : Prakriya
 trini = cara-s ∷ cara-s ∷ cara-s ∷ []
@@ -487,9 +487,9 @@ sthula-matram-vardhayati h = snotz (h [])
 record Anujna : Type₀ where
   constructor anujnata
   field
-    krama             : Prakriya → Prakriya
-    artha-sthiram     : (P : Prakriya) → artha (phala (krama P)) ≡ artha (phala P)
-    matra-na-vardhate : (P : Prakriya) → matra-p (krama P) ≤ matra-p P
+    order             : Prakriya → Prakriya
+    artha-sthiram     : (P : Prakriya) → artha (phala (order P)) ≡ artha (phala P)
+    matra-na-vardhate : (P : Prakriya) → matra-p (order P) ≤ matra-p P
 open Anujna public
 
 apavada-anujna : Anujna
@@ -501,11 +501,11 @@ akriya-anujna = anujnata (λ P → P) (λ P → refl) (λ P → ≤-refl)
 
 sanghatita : Anujna → Anujna → Anujna
 sanghatita A B = anujnata
-  (λ P → krama A (krama B P))
-  (λ P → artha-sthiram A (krama B P) ∙ artha-sthiram B P)
-  (λ P → ≤-trans (matra-na-vardhate A (krama B P)) (matra-na-vardhate B P))
+  (λ P → order A (order B P))
+  (λ P → artha-sthiram A (order B P) ∙ artha-sthiram B P)
+  (λ P → ≤-trans (matra-na-vardhate A (order B P)) (matra-na-vardhate B P))
 
-sthula-na-anujnata : ¬ (Σ Anujna (λ A → krama A ≡ sthula-p))
+sthula-na-anujnata : ¬ (Σ Anujna (λ A → order A ≡ sthula-p))
 sthula-na-anujnata (A , q) =
   ¬-<-zero (subst (λ f → matra-p (f []) ≤ matra-p []) q (matra-na-vardhate A []))
 
@@ -538,11 +538,11 @@ mulyam-aparimitam : (b : ℕ) → Σ Sadrsya (λ S → b < laghava (anuvada S ca
 mulyam-aparimitam b = bahu-sthula-sadrsyam b , n<bahu b
 
 anujna-na-dirghayati : (A : Anujna) (P : Prakriya)
-                     → ¬ (matra-p P < matra-p (krama A P))
+                     → ¬ (matra-p P < matra-p (order A P))
 anujna-na-dirghayati A P h = ¬m<m (≤-trans h (matra-na-vardhate A P))
 
 sthulam-anujnaya-na-prapyate :
-  (A : Anujna) (P : Prakriya) → ¬ (krama A P ≡ sthula-p P)
+  (A : Anujna) (P : Prakriya) → ¬ (order A P ≡ sthula-p P)
 sthulam-anujnaya-na-prapyate A P q =
   ¬m<m (≤-trans ≤-sucℕ
          (subst (λ R → matra-p R ≤ matra-p P) q (matra-na-vardhate A P)))
@@ -586,10 +586,10 @@ maha-alpa {suc m} {suc g} {suc k} p q =
 record UbhayaAnujna : Type₀ where
   constructor ubhayam
   field
-    ukrama  : Prakriya → Prakriya
-    u-artha : (P : Prakriya) → artha (phala (ukrama P)) ≡ artha (phala P)
-    u-matra : (P : Prakriya) → matra-p (ukrama P) ≤ matra-p P
-    u-guru  : (P : Prakriya) → guru (ukrama P) ≤ guru P
+    uorder  : Prakriya → Prakriya
+    u-artha : (P : Prakriya) → artha (phala (uorder P)) ≡ artha (phala P)
+    u-matra : (P : Prakriya) → matra-p (uorder P) ≤ matra-p P
+    u-guru  : (P : Prakriya) → guru (uorder P) ≤ guru P
 open UbhayaAnujna public
 
 utsarga-p : Prakriya → Prakriya
@@ -642,7 +642,7 @@ utsarga-guru (yoga-s i j ∷ ss)     with discreteℕ i j
 utsarga-ubhaya : UbhayaAnujna
 utsarga-ubhaya = ubhayam utsarga-p utsarga-artha utsarga-matra utsarga-guru
 
-apavada-na-ubhayam : ¬ (Σ UbhayaAnujna (λ U → ukrama U ≡ apavada-p))
+apavada-na-ubhayam : ¬ (Σ UbhayaAnujna (λ U → uorder U ≡ apavada-p))
 apavada-na-ubhayam (U , q) =
   ¬m<m (subst (λ f → guru (f (dvi-s zero ∷ cara-s ∷ []))
                    ≤ guru (dvi-s zero ∷ cara-s ∷ []))
@@ -655,28 +655,28 @@ record SanujnaKaarya : Type₀ where
     anujna : Anujna
 open SanujnaKaarya public
 
-paraKrama : List SanujnaKaarya → Prakriya → Prakriya
-paraKrama []       P = P
-paraKrama (k ∷ ks) P with ksetra k P
-... | true  = krama (anujna k) P
-... | false = paraKrama ks P
+paraOrder : List SanujnaKaarya → Prakriya → Prakriya
+paraOrder []       P = P
+paraOrder (k ∷ ks) P with ksetra k P
+... | true  = order (anujna k) P
+... | false = paraOrder ks P
 
 para-artha : (ks : List SanujnaKaarya) (P : Prakriya)
-           → artha (phala (paraKrama ks P)) ≡ artha (phala P)
+           → artha (phala (paraOrder ks P)) ≡ artha (phala P)
 para-artha []       P = refl
 para-artha (k ∷ ks) P with ksetra k P
 ... | true  = artha-sthiram (anujna k) P
 ... | false = para-artha ks P
 
 para-matra : (ks : List SanujnaKaarya) (P : Prakriya)
-           → matra-p (paraKrama ks P) ≤ matra-p P
+           → matra-p (paraOrder ks P) ≤ matra-p P
 para-matra []       P = ≤-refl
 para-matra (k ∷ ks) P with ksetra k P
 ... | true  = matra-na-vardhate (anujna k) P
 ... | false = para-matra ks P
 
 para-anujna : List SanujnaKaarya → Anujna
-para-anujna ks = anujnata (paraKrama ks) (para-artha ks) (para-matra ks)
+para-anujna ks = anujnata (paraOrder ks) (para-artha ks) (para-matra ks)
 
 sada : Prakriya → Bool
 sada _ = true
@@ -686,8 +686,8 @@ kApavada = kaaryam sada apavada-anujna
 kAkriya  = kaaryam sada akriya-anujna
 
 purvam-na-nirnayah :
-  ¬ ((P : Prakriya) → paraKrama (kApavada ∷ kAkriya ∷ []) P
-                    ≡ paraKrama (kAkriya ∷ kApavada ∷ []) P)
+  ¬ ((P : Prakriya) → paraOrder (kApavada ∷ kAkriya ∷ []) P
+                    ≡ paraOrder (kAkriya ∷ kApavada ∷ []) P)
 purvam-na-nirnayah h =
   snotz (injSuc (injSuc (cong guru (h (dvi-s zero ∷ cara-s ∷ [])))))
 
@@ -697,8 +697,8 @@ Paribhasa = Prakriya → SanujnaKaarya → SanujnaKaarya → Maybe Bool
 nirnaya : Paribhasa → SanujnaKaarya → SanujnaKaarya → Prakriya → Maybe Prakriya
 nirnaya M k l P with M P k l
 ... | nothing     = nothing
-... | just true   = just (krama (anujna k) P)
-... | just false  = just (krama (anujna l) P)
+... | just true   = just (order (anujna k) P)
+... | just false  = just (order (anujna l) P)
 
 nirnaya-avaktavye-tusnim :
   (M : Paribhasa) (k l : SanujnaKaarya) (P : Prakriya)
@@ -713,8 +713,8 @@ utsarga-anujna = anujnata utsarga-p utsarga-artha utsarga-matra
 
 gurutva-vidhi : Paribhasa
 gurutva-vidhi P k l
-  with ≤Dec (guru (krama (anujna k) P)) (guru (krama (anujna l) P))
-     | ≤Dec (guru (krama (anujna l) P)) (guru (krama (anujna k) P))
+  with ≤Dec (guru (order (anujna k) P)) (guru (order (anujna l) P))
+     | ≤Dec (guru (order (anujna l) P)) (guru (order (anujna k) P))
 ... | yes _ | yes _ = nothing       -- equal weight: abstain, do not guess
 ... | yes _ | no  _ = just true
 ... | no  _ | yes _ = just false
@@ -727,15 +727,15 @@ vijeta M k l P with M P k l
 ... | just true  = just k
 ... | just false = just l
 
-vama-krama : Paribhasa → SanujnaKaarya → SanujnaKaarya → SanujnaKaarya
+vama-order : Paribhasa → SanujnaKaarya → SanujnaKaarya → SanujnaKaarya
            → Prakriya → Maybe SanujnaKaarya
-vama-krama M a b c P with vijeta M a b P
+vama-order M a b c P with vijeta M a b P
 ... | nothing = nothing
 ... | just w  = vijeta M w c P
 
-dakshina-krama : Paribhasa → SanujnaKaarya → SanujnaKaarya → SanujnaKaarya
+dakshina-order : Paribhasa → SanujnaKaarya → SanujnaKaarya → SanujnaKaarya
                → Prakriya → Maybe SanujnaKaarya
-dakshina-krama M a b c P with vijeta M b c P
+dakshina-order M a b c P with vijeta M b c P
 ... | nothing = nothing
 ... | just w  = vijeta M a w P
 
@@ -744,7 +744,7 @@ kApavada' = kaaryam sada (sanghatita apavada-anujna akriya-anujna)
 
 nirnaya-na-sahayogi :
   ¬ ((M : Paribhasa) (a b c : SanujnaKaarya) (P : Prakriya)
-     → vama-krama M a b c P ≡ dakshina-krama M a b c P)
+     → vama-order M a b c P ≡ dakshina-order M a b c P)
 nirnaya-na-sahayogi h =
   ¬just≡nothing
     (h gurutva-vidhi kAkriya kApavada kApavada' (dvi-s zero ∷ cara-s ∷ []))
@@ -810,12 +810,12 @@ apavada-akshara-vardhate h =
 record AksharaAnujna : Type₀ where
   constructor aksharam
   field
-    akrama   : Prakriya → Prakriya
-    a-artha  : (P : Prakriya) → artha (phala (akrama P)) ≡ artha (phala P)
-    a-matra  : (P : Prakriya) → matra-akshara (akrama P) ≤ matra-akshara P
+    aorder   : Prakriya → Prakriya
+    a-artha  : (P : Prakriya) → artha (phala (aorder P)) ≡ artha (phala P)
+    a-matra  : (P : Prakriya) → matra-akshara (aorder P) ≤ matra-akshara P
 open AksharaAnujna public
 
-apavada-na-aksharanujnatam : ¬ (Σ AksharaAnujna (λ A → akrama A ≡ apavada-p))
+apavada-na-aksharanujnatam : ¬ (Σ AksharaAnujna (λ A → aorder A ≡ apavada-p))
 apavada-na-aksharanujnatam (A , q) =
   ¬m<m
     (subst (λ f → matra-akshara (f (dvi-s (suc zero) ∷ cara-s ∷ cara-s ∷ []))
@@ -837,28 +837,28 @@ utsarga-akshara (yoga-s i j ∷ ss)     with discreteℕ i j
 record TriAnujna : Type₀ where
   constructor trayam
   field
-    tkrama   : Prakriya → Prakriya
-    t-artha  : (P : Prakriya) → artha (phala (tkrama P)) ≡ artha (phala P)
-    t-sutra  : (P : Prakriya) → matra-p (tkrama P) ≤ matra-p P
-    t-matra  : (P : Prakriya) → matra-akshara (tkrama P) ≤ matra-akshara P
-    t-guru   : (P : Prakriya) → guru (tkrama P) ≤ guru P
+    torder   : Prakriya → Prakriya
+    t-artha  : (P : Prakriya) → artha (phala (torder P)) ≡ artha (phala P)
+    t-sutra  : (P : Prakriya) → matra-p (torder P) ≤ matra-p P
+    t-matra  : (P : Prakriya) → matra-akshara (torder P) ≤ matra-akshara P
+    t-guru   : (P : Prakriya) → guru (torder P) ≤ guru P
 open TriAnujna public
 
 utsarga-trayam : TriAnujna
 utsarga-trayam = trayam utsarga-p utsarga-artha utsarga-matra
                         utsarga-akshara utsarga-guru
 
-apavada-na-trayam : ¬ (Σ TriAnujna (λ T → tkrama T ≡ apavada-p))
+apavada-na-trayam : ¬ (Σ TriAnujna (λ T → torder T ≡ apavada-p))
 apavada-na-trayam (T , q) =
   ¬m<m (subst (λ f → matra-akshara (f (dvi-s (suc zero) ∷ cara-s ∷ cara-s ∷ []))
                    ≤ matra-akshara (dvi-s (suc zero) ∷ cara-s ∷ cara-s ∷ []))
               q (t-matra T (dvi-s (suc zero) ∷ cara-s ∷ cara-s ∷ [])))
 
-sarvam-kramasya-samam :
+sarvam-ordersya-samam :
   {ℓ : Level} {X : Type ℓ} (g : (Prakriya → Prakriya) → X)
-  → g (krama akriya-anujna)
-  ≡ g (krama (sanghatita akriya-anujna akriya-anujna))
-sarvam-kramasya-samam g = refl
+  → g (order akriya-anujna)
+  ≡ g (order (sanghatita akriya-anujna akriya-anujna))
+sarvam-ordersya-samam g = refl
 
 data Nimitta : Type₀ where
   sarvatra : Nimitta
@@ -887,40 +887,40 @@ data Vidhi : Type₀ where
   akriya-v  : Vidhi                  -- अक्रिया, do nothing
   apavada-v : Vidhi                  -- dvi-s i  ↦  yoga-s i i
   utsarga-v : Vidhi                  -- yoga-s i i  ↦  dvi-s i
-  krama-v   : Vidhi → Vidhi → Vidhi  -- one, then the other
+  order-v   : Vidhi → Vidhi → Vidhi  -- one, then the other
   yadi      : Nimitta → Vidhi → Vidhi → Vidhi   -- the CARVED rule (§60)
 
 vidhi-matra : Vidhi → ℕ
 vidhi-matra akriya-v      = 1
 vidhi-matra apavada-v     = 1
 vidhi-matra utsarga-v     = 1
-vidhi-matra (krama-v a b) = suc (vidhi-matra a + vidhi-matra b)
+vidhi-matra (order-v a b) = suc (vidhi-matra a + vidhi-matra b)
 vidhi-matra (yadi c a b)  = suc (nimitta-matra c + vidhi-matra a + vidhi-matra b)
 
 artha-v : Vidhi → (Prakriya → Prakriya)
 artha-v akriya-v      = λ P → P
 artha-v apavada-v     = apavada-p
 artha-v utsarga-v     = utsarga-p
-artha-v (krama-v a b) = λ P → artha-v a (artha-v b P)
+artha-v (order-v a b) = λ P → artha-v a (artha-v b P)
 artha-v (yadi c a b)  = λ P → if sthiti c P then artha-v a P else artha-v b P
 
-vidhi-tulya : artha-v akriya-v ≡ artha-v (krama-v akriya-v akriya-v)
+vidhi-tulya : artha-v akriya-v ≡ artha-v (order-v akriya-v akriya-v)
 vidhi-tulya = refl
 
 sarvam-vidher-arthasya-samam :
   {ℓ : Level} {X : Type ℓ} (g : (Prakriya → Prakriya) → X)
-  → g (artha-v akriya-v) ≡ g (artha-v (krama-v akriya-v akriya-v))
+  → g (artha-v akriya-v) ≡ g (artha-v (order-v akriya-v akriya-v))
 sarvam-vidher-arthasya-samam g = cong g vidhi-tulya
 
 vidhi-matra-bheda :
-  ¬ (vidhi-matra akriya-v ≡ vidhi-matra (krama-v akriya-v akriya-v))
+  ¬ (vidhi-matra akriya-v ≡ vidhi-matra (order-v akriya-v akriya-v))
 vidhi-matra-bheda p = znots (injSuc p)
 
 vidhi-matra-na-arthasya :
   ¬ (Σ ((Prakriya → Prakriya) → ℕ)
        (λ f → (v : Vidhi) → f (artha-v v) ≡ vidhi-matra v))
 vidhi-matra-na-arthasya (f , h) =
-  znots (injSuc (sym (h akriya-v) ∙ h (krama-v akriya-v akriya-v)))
+  znots (injSuc (sym (h akriya-v) ∙ h (order-v akriya-v akriya-v)))
 
 sthanika : (P : Prakriya)
   → artha-v (yadi dviyoge apavada-v akriya-v) P ≡ artha-v apavada-v P
@@ -1124,11 +1124,11 @@ avrtti i ss with discreteℕ i i
 ... | no ¬p  = ⊥rec (¬p refl)
 
 avrtti-akriyavat : (i : ℕ) (ss : Prakriya)
-  → artha-v (krama-v utsarga-v apavada-v) (dvi-s i ∷ ss)
+  → artha-v (order-v utsarga-v apavada-v) (dvi-s i ∷ ss)
   ≡ artha-v akriya-v (dvi-s i ∷ ss)
 avrtti-akriyavat i ss = avrtti i ss
 
 avrtti-mulyam :
-  ¬ (vidhi-matra (krama-v utsarga-v apavada-v) ≡ vidhi-matra akriya-v)
+  ¬ (vidhi-matra (order-v utsarga-v apavada-v) ≡ vidhi-matra akriya-v)
 avrtti-mulyam p = snotz (injSuc p)
 

@@ -13,7 +13,7 @@
 -- WHAT THIS IS.  A SIMPLIFICATION of an existing theorem, not a
 -- correction of one.  Everything it leans on is checked and stands:
 --
---   ¬ `SamraksakaSamuha_‚¶.agda` ¬ß‡ß‚ì¬ß‡ builds the symmetry group over the
+--   ¬ `SamraksakaSet_‚¶.agda` ¬ß‡ß‚ì¬ß‡ builds the symmetry group over the
 --     carrier `Œ[ œ ‚àà ‡‡‡∞‡µ‡æ‡‡ f ] ‡µ‡‡Ø‡‡‡‡ï‡‡∞‡Æ-‡‡‡ œ` ‚î a flow bundled with
 --     STORED two-sided conserving-inverse evidence ‚î and proves that
 --     evidence is a proposition (‡µ‡‡Ø‡‡‡‡ï‡‡∞‡Æ-‡‡ï‡‡‡µ‡Æ‡), so the carrier is a
@@ -57,11 +57,11 @@
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- TERMS.  ‡‡‡‡Æ-‡‡Æ‡‡æ ‚î "self-sameness"; the compound ‡‡‡‡Æ-‡‡Æ‡‡æ-‡‡Æ‡‡‡ is
--- already this corpus's own name for Aut(A) (`SamraksakaSamuha` ¬ß‡b),
+-- already this corpus's own name for Aut(A) (`SamraksakaSet` ¬ß‡b),
 -- and it is MODERN mathematical : no classical text is claimed
 -- for it, there and not here either.  ‡â‡‡∞‡ø ‚î "above, over", ordinary
 -- , used here for the slice: "over B".  ‡‡‡∞‡ï‡‡‡ï, ‡‡‡∞‡µ‡æ‡, ‡ó‡, ‡‡Æ‡‡,
--- ‡µ‡‡Ø‡‡‡‡ï‡‡∞‡Æ as in `SamraksakaGana`/`SamraksakaSamuha`, with their limits
+-- ‡µ‡‡Ø‡‡‡‡ï‡‡∞‡Æ as in `SamraksakaGana`/`SamraksakaSet`, with their limits
 -- unchanged (‡ó‡ attested as the gaapha's device, Pini,
 -- ‡‡‡‡ü‡æ‡ß‡‡Ø‡æ‡Ø‡, ~500 BCE; the application to flows is this corpus's).
 -- The compound ‡‡‡‡Æ‡‡Æ‡‡æ-‡â‡‡∞‡ø is BUILT HERE, 2026-08-23; no source states
@@ -72,17 +72,17 @@
 -- CHECKED: Agda 2.6.3 + agda/cubical v0.5 ‚î the CONTAINER, not the
 -- repository pin (2.8.0 + v0.9).  --cubical --safe, no postulates, no
 -- holes, exit 0.  One caveat stated in full because it is load-bearing:
--- the import chain passes through `SvaTantuVasa`, which imports
+-- the import chain passes through `SvaFiberVasa`, which imports
 -- `YogaKsetra`, whose ring-solver calls are written `solve! R'` ‚î a name
 -- cubical v0.9 has and v0.5 does not (v0.5 calls the macro `solve`).
 -- That is container skew and not a verdict on any file.  This module was
 -- checked with `YogaKsetra`'s import and the `‡Ø‡ã‡ó‡` section of
--- `SvaTantuVasa` (neither of which anything below touches) locally
+-- `SvaFiberVasa` (neither of which anything below touches) locally
 -- commented out; that local edit is NOT committed and no file other than
 -- this one is changed by this landing.
 ------------------------------------------------------------------------
 
-module AtmasamataUpari_TheStoredInverseIsExactlyInvertibilityAndTheSymmetryGroupIsAutOverB where
+module AtmaequalityUpari_TheStoredInverseIsExactlyInvertibilityAndTheSymmetryGroupIsAutOverB where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv
@@ -105,11 +105,11 @@ open import Khahara_TheZeroDivisorEdgeIsPricedAtItsWholeDomainAndTotalLossIsExac
   using (‡§∏‡§∞‡•ç‡§µ-‡§®‡§æ‡§∂‡§É)
 open import SamanaKaksya_TheOrbitRelationIsAlreadyAnEquivalenceWithoutAnInverseAndTheChargeDescendsToTheQuotient
   using (‡§µ‡•ç‡§Ø‡•Å‡§§‡•ç‡§ï‡•ç‡§∞‡§Æ-‡§∏‡§Ç‡§∞‡§ï‡•ç‡§∑‡§£‡§Æ‡•ç)
-open import SvaTantuVasa_TheConservingFlowsOfAnyObservableAreTheSectionsOfItsOwnFibres
+open import SvaFiberVasa_TheConservingFlowsOfAnyObservableAreTheSectionsOfItsOwnFibres
   using (‡§ß‡•ç‡§∞‡•Å‡§µ-‡§¨‡§ø‡§®‡•ç‡§¶‡•Å‡§É)
 open import SamraksakaGana_TheConservingFlowsFormAGanaAndTheSectionIdentificationPreservesItByRefl
   using (‡§™‡•ç‡§∞‡§µ‡§æ‡§π‡§É ; _‚àò‡§™‡•ç‡§∞_ ; ‡§è‡§ï‡§É ; module ‡§ó‡§£‡•á)
-open import SamraksakaSamuha_TheInvertibleConservingFlowsAreTheSymmetryGroupAndTotalLossMakesItAllOfAut
+open import SamraksakaSet_TheInvertibleConservingFlowsAreTheSymmetryGroupAndTotalLossMakesItAllOfAut
   using (module ‡§∏‡§Æ‡•Ç‡§π‡•á)
 open import Apratiloma_TheConservingFlowsAreAMonoidNotAGroupSoNoethersFirstTheoremDoesNotTransfer
   using (‡§Ö‡§®‡•ç‡§ß ; ‡§ö‡•Ç‡§∞‡•ç‡§£)
@@ -256,7 +256,7 @@ module ‡§â‡§™‡§∞‡§ø {A B : Type ‚Ñì} (setA : isSet A) (setB : isSet B) (f : A ‚Ü
 ------------------------------------------------------------------------
 -- ¬ß‡c ¬ FAR POLE, intrinsically.  At total loss the conservation
 -- witness is free, so Aut_B(A) ‚â Aut(A) by the bare projection ‚î
--- which is `SamraksakaSamuha` ¬ß‡b's GroupEquiv seen without the stored
+-- which is `SamraksakaSet` ¬ß‡b's GroupEquiv seen without the stored
 -- inverse in the way.
 ------------------------------------------------------------------------
 
@@ -274,11 +274,11 @@ module ‡§Ö‡§®‡•ç‡§ß‡•á-‡§â‡§™‡§∞‡§ø {A B : Type ‚Ñì} (setA : isSet A) (setB : is
 -- ¬ß‡ ¬ ‡‡‡‡.
 --
 -- (a) The section-side units as a packaged `Group`, with ‡µ‡æ‡‡ a
---     `GroupEquiv` onto it ‚î `SamraksakaSamuha` ¬ß‡'s remainder, still
+--     `GroupEquiv` onto it ‚î `SamraksakaSet` ¬ß‡'s remainder, still
 --     open, and now cheaper: by ¬ß‡ß the section-side unit predicate can
 --     be stated as invertibility of the section's point component
 --     instead of as stored data.
--- (b) The group leg of `TantuVibhaga`'s decomposition: is
+-- (b) The group leg of `FiberVibhaga`'s decomposition: is
 --     ‡‡‡‡Æ‡‡Æ‡‡æ-‡â‡‡∞‡ø ‚â Œ† over the codomain of Aut(fibre f b)?  ¬ß‡®'s
 --     reassociation is what makes this a question about equivalences of
 --     Œ-types rather than about the monoid, but it is NOT proved here.

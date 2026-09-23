@@ -12,7 +12,7 @@
 -- README ¬ßII and `HolonomyIsInvisibleExactlyToAnInvariantSemantics`
 -- close with a disclaimer: "NOT anything about physical spacetime,
 -- quantum states, Hilbert spaces or SU(2) ‚î ¬ßII is about a semantics and
--- an equivalence."  `Visvarupa_‚¶` repeats it and adds "no bundle over a
+-- an equivalence."  `Universal_‚¶` repeats it and adds "no bundle over a
 -- manifold appears in this repository."
 --
 -- Half of that was true and half of it was a gap the disclaimer was
@@ -22,12 +22,12 @@
 -- absent, it was merely unwritten, and the corpus already holds every
 -- piece of it:
 --
---   `EkaSankramana_‚¶`     a torsor is an equivalence: the element
+--   `EkaTransport_‚¶`     a torsor is an equivalence: the element
 --                         carrying one point to another is exactly one
 --   `AbstractSpinNetworkKinematics`  gauge invariance IS the
 --                         equivariance square, not a constraint on top
 --   `Pradakshina_‚¶`       holonomy is transport around a loop, computed
---   `Visvarupa_‚¶`         a family is a map into the universe, and Œ is
+--   `Universal_‚¶`         a family is a map into the universe, and Œ is
 --                         its total space
 --
 -- What was missing is the one module that says how they are one object.
@@ -42,12 +42,12 @@
 --
 --   ¬ß1  Torsor ‚î a G-torsor packaged as a type with a free transitive
 --       action.  `‡‡ï‡` : the translating element is UNIQUE, imported as
---       a live use of `EkaSankramana`'s `regular` rather than restated.
+--       a live use of `EkaTransport`'s `regular` rather than restated.
 --       `‡‡æ‡∞‡‡ø‡` : hence the orbit map Carrier ‚í Pts is an equivalence.
 --
 --   ¬ß2  ‡‡‡≤‡ / ‡‡ß‡æ‡∞‡ / ‡‡®‡‡‡‡-‡‡‡≤‡‡‡Ø ‚î a principal G-bundle over B is a map
 --       B ‚í Torsor.  That IS its classifying map: by the object
---       classifier (`Visvarupa` ¬ß1) a family and a map into the universe
+--       classifier (`Universal` ¬ß1) a family and a map into the universe
 --       are the same thing, so "the bundle" and "the map into the type
 --       of torsors" are not two objects.  The total space is Œ, the
 --       projection is `fst`, and the fibre over b is the torsor over b.
@@ -111,7 +111,7 @@
 --   The search was run over every .agda, .lean, .rst and .md in the
 --   corpus for manifold / smooth structure / Lie group / differential
 --   form / de Rham / tangent bundle / curvature 2-form / Chern.  Five
---   .agda files match, and three of them are this module, `Visvarupa_`
+--   .agda files match, and three of them are this module, `Universal_`
 --   and the README.  agda/cubical v0.9 was listed directly: Algebra,
 --   CW, Cohomology, ZCohomology ‚î and no differential geometry at all.
 --   The one prior module in this territory, `Apratiloma_TheConserving
@@ -150,7 +150,7 @@ open import Cubical.Foundations.Transport using (substComposite)
 open import Cubical.Data.Sigma using (Œ£ ; _,_ ; fst ; snd ; Œ£-syntax)
 open import Cubical.Functions.Fibration using (fiberEquiv)
 
-open import EkaSankramana_AFreeTransitiveActionsTranslationIsUniqueSoTheTorsorIsAnEquivalence
+open import EkaTransport_AFreeTransitiveActionsTranslationIsUniqueSoTheTorsorIsAnEquivalence
   using (Group ; Action ; Free ; Transitive ; regular ; torsorIsEquiv)
 
 private
@@ -204,7 +204,7 @@ module _ (Grp : Group ‚Ñì) where
   _‚ñ∏[_]_ : {‚Ñì' : Level} ‚Üí Carrier ‚Üí (T : Torsor ‚Ñì') ‚Üí Pts T ‚Üí Pts T
   g ‚ñ∏[ T ] p = Action.act (Œ± T) g p
 
-  -- ‡‡ï‡ ‚î the translating element is exactly one.  `EkaSankramana`'s
+  -- ‡‡ï‡ ‚î the translating element is exactly one.  `EkaTransport`'s
   -- theorem, used rather than restated: if it is renamed or weakened,
   -- this file goes red.
   ‡§è‡§ï‡§É : {‚Ñì' : Level} (T : Torsor ‚Ñì') (p q : Pts T) (g h : Carrier)
@@ -238,7 +238,7 @@ module _ (Grp : Group ‚Ñì) where
   ‡§™‡•ç‡§∞‡§ï‡•ç‡§∑‡•á‡§™‡§É P = fst
 
   -- the fibre of the projection over b is the torsor over b.
-  -- HoTT Lemma 4.8.1 at this family; `Visvarupa` ¬ß2 is the same lemma at
+  -- HoTT Lemma 4.8.1 at this family; `Universal` ¬ß2 is the same lemma at
   -- the universal family.
   ‡§§‡§®‡•ç‡§§‡•Å‡§É-‡§™‡•Ç‡§≤‡§∏‡•ç‡§Ø : {‚Ñì' : Level} {B : Type ‚Ñìb} (P : ‡§™‡•Ç‡§≤‡§É {‚Ñì' = ‚Ñì'} B) (b : B)
               ‚Üí fiber (‡§™‡•ç‡§∞‡§ï‡•ç‡§∑‡•á‡§™‡§É P) b ‚âÉ Pts (P b)

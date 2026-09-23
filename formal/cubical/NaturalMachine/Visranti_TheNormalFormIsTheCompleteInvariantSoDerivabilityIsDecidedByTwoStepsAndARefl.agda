@@ -61,7 +61,7 @@
 --                   here);
 --     intensional   and everything that remains â” which route, how long,
 --                   which of the many derivations between two joinable
---                   terms â” is what `Sesa_â¦` proves no semantic criterion
+--                   terms â” is what `Residue_â¦` proves no semantic criterion
 --                   can select.
 --
 -- That is the sharp form of the corpus's standing claim.  It is not that

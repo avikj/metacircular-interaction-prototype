@@ -9,14 +9,14 @@
 -- propositionally, this module breaks and the others do not.
 ------------------------------------------------------------------------
 
-module Punaragamana.Compute where
+module Return.Compute where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ; suc; _+_)
 open import Cubical.Data.Sigma using (_×_; _,_)
 
-open import Punaragamana.Orbit
-open import Punaragamana.Viveka
+open import Return.Orbit
+open import Return.Viveka
 
 दो-पद : जाल
 दो-पद = पुनः (पुनः (आरम्भ (2 , 3)))

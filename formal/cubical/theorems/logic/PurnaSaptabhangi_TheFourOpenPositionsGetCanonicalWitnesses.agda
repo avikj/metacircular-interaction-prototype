@@ -113,7 +113,7 @@ isSetBU = isSet‚äé isSetBool isSetUnit
 ‡§®‡§æ‡§∏‡•ç‡§§‡§ø-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø-‡§™‡§¶‡§Æ‡•ç = ‡§®‡§ø‡§§‡•ç‡§Ø-‡§®‡§æ‡§∏‡•ç‡§§‡§ø , ‡§®‡§ø‡§§‡•ç‡§Ø-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø , ‡§®‡§ø‡§§‡•ç‡§Ø-‡§®-‡§Ö‡§∏‡•ç‡§§‡§ø
 
 ------------------------------------------------------------------------
--- ‡® ¬ ‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø ‚î the krama both-position (third bhaga): a surjection
+-- ‡® ¬ ‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø ‚î the order both-position (third bhaga): a surjection
 -- (Bool ‚ä Unit) ‚í Bool, contractible at false, crowded at true, and NO
 -- empty fibre, so ‡‡µ‡ï‡‡‡µ‡‡Ø is refuted.
 ------------------------------------------------------------------------

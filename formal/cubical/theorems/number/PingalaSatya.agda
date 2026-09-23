@@ -20,7 +20,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero)
 open import Cubical.Data.Sigma using (_,_)
 open import Pingala using (छन्दस् ; मूल्य ; विन्यास ; मूल्य-विन्यास)
-open import Satyayantra using (सत्ययन्त्र ; सूचना ; उक्त ; उक्त-एकैकम्)
+open import Satyamachine using (सत्ययन्त्र ; सूचना ; उक्त ; उक्त-एकैकम्)
 
 ------------------------------------------------------------------------
 -- ��������-������������ � I = �, O = ������, ����� n ds = (����� ds ≡ n) �

@@ -8,7 +8,7 @@
 ------------------------------------------------------------------------
 -- PratityasamutpadaArising
 --
--- Dependent arising as the cut.  Third jewel of the moka-yantra: a knot
+-- Dependent arising as the cut.  Third jewel of the moka-machine: a knot
 -- of the net arises exactly where a distinction splits, has no being of
 -- its own (it is a function of the cut, not of the things cut), and
 -- ceases when the cut is replaced by one that no longer separates.

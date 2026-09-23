@@ -33,7 +33,7 @@
 --
 -- Nothing in the corpus ruled that out, and `apply-sound` is proved for
 -- EVERY control, so both emissions would carry proofs: a generator with two
--- distinct certified outputs at one context.  That is `Sesa_â¦`'s semantic
+-- distinct certified outputs at one context.  That is `Residue_â¦`'s semantic
 -- statement (correctness does not select) arriving operationally.
 --
 -- The failure shape is not hypothetical outside the kernel.  Ask the

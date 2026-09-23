@@ -5,7 +5,7 @@
 --
 -- THE QUESTIONS, asked because their answers were not known to the
 -- asker, in the stratum vocabulary this corpus has been building
--- (KramaSaha â’ StaraArpana â’ AyamaArpana â’ AnantaraArpana):
+-- (OrderSaha â’ StaraArpana â’ AyamaArpana â’ AnantaraArpana):
 --
 --   1. Is the charge always â?  Or is "the charge" whatever the space
 --      holds â” a product, a NONABELIAN group?

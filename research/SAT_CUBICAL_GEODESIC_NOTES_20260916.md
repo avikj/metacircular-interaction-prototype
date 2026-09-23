@@ -265,8 +265,8 @@ The expected proof should be short once the correct incidence family is written:
 The following repository sources are directly relevant to resuming this notebook:
 
 - `fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda`
-- `fibre/src/Fibre/Visvarupa_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda`
-- `punaragamana/src/Punaragamana/SamyogaSesa_TheResidualOfACompositeIsTheResidualOfTheResidual.agda`
+- `fibre/src/Fibre/Universal_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda`
+- `return/src/Return/SamyogaResidue_TheResidualOfACompositeIsTheResidualOfTheResidual.agda`
 - `collab/bend2-cubical/CONVERGENCE.md`
 - `formal/cubical/theorems/walks/KFlow.agda`
 - `formal/cubical/theorems/walks/ResidualPath.agda`

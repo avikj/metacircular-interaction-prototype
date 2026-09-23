@@ -14,7 +14,7 @@ Pratt's `Chuâ â’ Chuâ â’ Chuâ` program should be read together with [Concurrency
 
 ## Canonical checked construction
 
-Chu-facing checked sources: [`ChuAdvance.agda`](../../formal/cubical/NaturalMachine/ChuAdvance.agda), [`ChuDefect.agda`](../../formal/cubical/NaturalMachine/ChuDefect.agda), [`ObsBridge.agda`](../../formal/cubical/theorems/logic/ObsBridge.agda). Forced completion is supplied by [`Trace...agda`](../../fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda) and [`Ekatva...agda`](../../formal/cubical/theorems/residue/Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda).
+Chu-facing checked sources: [`ChuAdvance.agda`](../../formal/cubical/NaturalMachine/ChuAdvance.agda), [`ChuDefect.agda`](../../formal/cubical/NaturalMachine/ChuDefect.agda), [`ObsBridge.agda`](../../formal/cubical/theorems/logic/ObsBridge.agda). Forced completion is supplied by [`Trace...agda`](../../fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda) and [`Uniqueness...agda`](../../formal/cubical/theorems/residue/Uniqueness_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda).
 
 ## External coordinates
 

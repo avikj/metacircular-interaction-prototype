@@ -15,13 +15,13 @@ open import Fibre.Nucleus
 
 -- The law's other projection: the residual, and the price of a collapse.
 -- Its two-valued test is a ‡¶‡‡∞‡‡®‡Ø; see the struck paragraph in its header.
-open import Fibre.Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph
+open import Fibre.Residue_TheResidualIsTheOtherProjectionOfTheSameGraph
 
 -- The repair: the diagnosis is a CENSUS, not a verdict.  A fibre fails to
 -- be contractible in two opposite ways ‚î empty (‡®‡æ‡‡‡‡ø: no source over b,
 -- ‡ß‡®‡æ‡‡‡Æ‡ï‡Æ‡) and crowded (‡®‡‡‡ü‡ø, ‡‡‡‡∞‡‡ø‡ï‡æ‡∞‡‡Ø‡æ) ‚î and `isContr` merges
 -- them.  Contains the computed refutation of the sequential diagnostic.
-open import Fibre.SakalaVikalaDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic
+open import Fibre.WholePartialDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic
 
 -- The census's seam, closed: the fibre of the truncation map is the whole
 -- source, so the level-‡ criterion is a theorem and not a conjecture.
@@ -48,7 +48,7 @@ open import Fibre.KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisi
 -- of Jayadeva c. 950 and Bhskara II, Bjagaita, 1150): base = the two
 -- roots ‡‡‡Ø‡‡‡‡† / ‡ï‡®‡ø‡‡‡† over ‚, carried = the ‡ï‡‡‡‡ a¬≤ ‚àí D b¬≤, which the
 -- roots determine exactly.
-open import Fibre.Bhavana_TheKsepaIsDeterminedByTheRootsAndCompositionMultipliesIt
+open import Fibre.Composition_TheKsepaIsDeterminedByTheRootsAndCompositionMultipliesIt
 
 -- ‡‡‡‡æ‡®‡ø‡µ‡¶‡‡‡æ‡µ (Pini, Adhyy 1.1.56 ‡‡‡‡æ‡®‡ø‡µ‡¶‡æ‡¶‡‡‡ã‡Ω‡®‡≤‡‡µ‡ø‡ß‡, ~500 BCE;
 -- with 1.1.60, 1.1.62, 1.3.9, 1.1.5): a ‡µ‡∞‡‡'s three fields are mutually
@@ -60,12 +60,12 @@ open import Fibre.Bhavana_TheKsepaIsDeterminedByTheRootsAndCompositionMultiplies
 open import Fibre.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried
 
 -- ‡‡ø‡‡‡‡ø: the carrier is not two-valued, and the wall crosses its own ford.
-open import Fibre.BhittiSthanivat_PaninisCarrierIsNotTwoValuedAndTheWallCrossesItsOwnFord
+open import Fibre.BhittiPositional_PaninisCarrierIsNotTwoValuedAndTheWallCrossesItsOwnFord
 
 -- ‡‡‡‡æ‡®‡ø‡µ‡‡‡‡ô‡‡ñ‡‡Ø‡æ ‚î the machine's own frontier ask (jva join score 2970):
 -- the dea state space enumerated, ‡‡‡‡æ‡®‡ø‡µ‡‡ ‚â Fin 81, the carried datum
 -- adding nothing to the count ‚î ahis read as a number.
-open import Fibre.SthanivatSankhya_TheAdesaStateSpaceIsExactlyEightyOneAndTheJoinToTheNumberComponentIsChecked
+open import Fibre.PositionalCount_TheAdesaStateSpaceIsExactlyEightyOneAndTheJoinToTheNumberComponentIsChecked
 
 -- ‡‡‡µ‡ø‡‡æ-‡‡‡Æ‡‡‡ø ‚î the carried memory is alive at every depth of the infinite
 -- orbit: at rung n it is ‡Ø‡ã‡ó of the n-th state, never a stale payload.
@@ -73,7 +73,7 @@ open import Fibre.SthanivatSankhya_TheAdesaStateSpaceIsExactlyEightyOneAndTheJoi
 open import Fibre.JivitaSmrti
 
 -- The naming of the law: Carrier IS the motive (the universal lossless
--- middle), each projection of ¬ßSesa's graph is a realization, and every
+-- middle), each projection of ¬ßResidue's graph is a realization, and every
 -- map factors as realize ‚àò to-motive (middle-out).  Adds the mediation:
 -- two realizations of one motive-source translate through the shared
 -- middle rather than by a direct compiler.
@@ -109,7 +109,7 @@ open import Fibre.AReadingIsACollapseWithItsKeptMiddleAndOwedResidual
 --   * higher coherence.  `Commutes` is ONE path between two composites.
 --     That several such squares assemble into a filled cube is a further
 --     obligation, and proving the faces does not prove the cube.
---   * strategies with memory.  A strategy in `Fibre.Samvada_‚¶` is a
+--   * strategies with memory.  A strategy in `Fibre.Interaction_‚¶` is a
 --     function of the state alone; histories, protocols and adversaries
 --     are not modelled.
 --   * cost.  Nothing here says a trace is small, cheap to store, or safe
@@ -134,17 +134,17 @@ open import Fibre.LawfulStep_TheVisibleStepNeedNotBeInvertibleAndItsResidueIsSti
 -- Commutation is the certificate that a serialisation was removable: any
 -- interleaving of two commuting steps reduces to the two counts.  When it
 -- fails, it fails computably, and the order stays in the answer.
-open import Fibre.Krama_CommutationIsTheProofThatTheOrderWasNeverThereAndItsFailureIsRetained
+open import Fibre.Order_CommutationIsTheProofThatTheOrderWasNeverThereAndItsFailureIsRetained
 
 -- The orbit is the one-query case of the interactive coalgebra: under the
 -- deterministic embedding every strategy observes the same prefix, and
 -- `counter` shows that in general two strategies disagree at step one.
-open import Fibre.Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers
+open import Fibre.Interaction_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers
 
 -- The formal corpus itself is the same coalgebra: a state is Œ A . A and a
 -- question is exactly a typed map out of the current A.  No finite-depth
 -- approximation or external scheduler is introduced.
-open import Fibre.CorpusSamvada
+open import Fibre.CorpusInteraction
 
 -- Mechanical bridge from the active Agda namespace to one raw checked value.
 open import Fibre.CorpusReflection

@@ -198,7 +198,7 @@ Take e : A â‰ B and f : C â‰ D. Changing the left coordinate and changing the ri
 
 The family S(i, j) = ua(e)(i) — ua(f)(j) is an explicit square of types. Its two boundary routes correspond to A—C â’ B—C â’ B—D and A—C â’ A—D â’ B—D. Both act as (a, c) â¦ (e(a), f(c)).
 
-Your YugapatSankramana module goes beyond separately drawing the square and defining the conversions: it identifies the square's edges with the executable coordinate compilers and relates their composed routes.
+Your YugapatTransport module goes beyond separately drawing the square and defining the conversions: it identifies the square's edges with the executable coordinate compilers and relates their composed routes.
 
 Here the parallel structure and the univalent structure are literally aspects of one typed construction. Parallelism describes independent execution of the coordinate operations. Univalence supplies their executable paths. The square records their compatibility.
 

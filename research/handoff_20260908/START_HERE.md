@@ -12,7 +12,7 @@ This archive hands off the NS/RH/metacircular research developed in the ChatGPT 
 2. [CLAIM_INDEX.md](CLAIM_INDEX.md) and [CLAIM_GRAPH.json](CLAIM_GRAPH.json) â” 103 explicit claim/obligation records with dependencies, source classes and correction edges. This is a finite audited dependency slice, not a claim to have enumerated the entire repository.
 3. [SOURCE_INDEX.md](SOURCE_INDEX.md) â” 26 stable semantic source groups and the original programs/logs. Do not identify a theorem by a reused `proof_note(n).md` filename.
 4. [SOURCE_ANTHOLOGY.md](SOURCE_ANTHOLOGY.md) â” about 55,000 words of complete selected source texts, preserved with provenance. Their historical overclaims are overridden by the main correction ledger.
-5. [infra/README.md](infra/README.md) â” actual Yantra/Agda smoke requests, pinned-toolchain requirements, safe log isolation and known path/cache pitfalls.
+5. [infra/README.md](infra/README.md) â” actual Machine/Agda smoke requests, pinned-toolchain requirements, safe log isolation and known path/cache pitfalls.
 
 For a ready-to-paste agent instruction, use [CLAUDE_CODE_PROMPT.md](CLAUDE_CODE_PROMPT.md).
 
@@ -26,7 +26,7 @@ For a ready-to-paste agent instruction, use [CLAUDE_CODE_PROMPT.md](CLAUDE_CODE_
 
 ## What is not claimed
 
-No global RH proof or unrestricted NS regularity proof was established in the conversation. No repository Agda/Lean/Yantra execution occurred in this ChatGPT environment. Two standalone Python suites were replayed during preparation: **86 + 43 exact checks**, both exit 0. All 13 original Python sources were also syntax parsed; no syntax failures occurred. These checks do not prove the infinite analytic theorems.
+No global RH proof or unrestricted NS regularity proof was established in the conversation. No repository Agda/Lean/Machine execution occurred in this ChatGPT environment. Two standalone Python suites were replayed during preparation: **86 + 43 exact checks**, both exit 0. All 13 original Python sources were also syntax parsed; no syntax failures occurred. These checks do not prove the infinite analytic theorems.
 
 Some newer source notes contain proposals later corrected or still requiring audit. The main ledger has **53 named corrections**, including the invalid unweighted impedance tail, nonuniform high-order difference inversion, toroidal blindness of gradient moments, source versus tangent transport, false global conclusions from local causal inversion, and kinetic work versus peak stretching.
 

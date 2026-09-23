@@ -20,7 +20,7 @@ The user explicitly asked for an extremely comprehensive handoff of everything d
 
 ### 0.1 What has and has not been executed
 
-The research session could read GitHub and execute standalone Python/SymPy controls. It did **not** run the repository's Yantra process or the pinned Agda/Cubical toolchain. The execution probe found no `agda`, `ghc`, or `cabal`, and its sandbox could not resolve GitHub, Hackage, or Debian package hosts. The logs are preserved as [S24]. No mathematical conclusion should be inferred from those infrastructure failures.
+The research session could read GitHub and execute standalone Python/SymPy controls. It did **not** run the repository's Machine process or the pinned Agda/Cubical toolchain. The execution probe found no `agda`, `ghc`, or `cabal`, and its sandbox could not resolve GitHub, Hackage, or Debian package hosts. The logs are preserved as [S24]. No mathematical conclusion should be inferred from those infrastructure failures.
 
 The earlier phrases âkernel executed,â âproof-carrying kernel,â and counts such as 43, 67, 141, or 86 checks refer, unless explicitly identified otherwise, to local Python programs. They do not mean that the mathematical claims were encoded in Agda, accepted through `sadhana.patra`, analyzed through `sadhana.vislesana`, or installed into the repository's `NativeOperation` language. This distinction is central to the handoff.
 
@@ -125,7 +125,7 @@ Canonical agent-ready synthesis. Complete source texts are additionally in `SOUR
   - [2. Coverage and provenance of this archive](#section-2)
 - [Part I. Execute the actual repository kernel](#part-01)
   - [3. Repository and toolchain baseline](#section-3)
-  - [4. The actual Yantra process and its proof interface](#section-4)
+  - [4. The actual Machine process and its proof interface](#section-4)
   - [5. Actual kernel terms and their exact scope](#section-5)
   - [6. What to formalize first](#section-6)
 - [Part II. Shared source, fibre, history, and kernel calculus](#part-02)
@@ -267,20 +267,20 @@ Preserve the exact command, working directory, Git commit, dirty-tree diff, Agda
 
 <a id="section-4"></a>
 
-## 4. The actual Yantra process and its proof interface
+## 4. The actual Machine process and its proof interface
 
 The entry point is:
 
 ```sh
-sh interactive/run-yantra.sh --wire
+sh interactive/run-machine.sh --wire
 ```
 
-The script builds `interactive/DefectRecord.hs` and the Haskell runtime with GHC, then runs `interactive/Main.hs`, whose `main` calls `Server.yantraMain`. `Server.hs` imports `ProofGate`. This is the actual route that was **not executed** in the ChatGPT mathematical session.
+The script builds `interactive/DefectRecord.hs` and the Haskell runtime with GHC, then runs `interactive/Main.hs`, whose `main` calls `Server.machineMain`. `Server.hs` imports `ProofGate`. This is the actual route that was **not executed** in the ChatGPT mathematical session.
 
 The dispatch table contains these relevant operations:
 
-* `yantra.kriyah`: returns the dispatch table itself.
-* `yantra.sthiti`: current store, defects, remainder queue, and session state.
+* `machine.kriyah`: returns the dispatch table itself.
+* `machine.sthiti`: current store, defects, remainder queue, and session state.
 * `sadhana`: emits an arithmetic equation certificate using the declared fragment.
 * `sadhana.patra`: accepts a complete `--safe` Agda module as a list of source lines. The top-level module, if named, must be `Candidate`.
 * `sadhana.vislesana`: accepts that module plus named expressions, returning their inferred types and computed normal forms.
@@ -409,7 +409,7 @@ A\simeq\sum_{b:B}\operatorname{fib}_f(b),\qquad
 \operatorname{fib}_f(b)=\sum_{a:A}(f(a)=b).
 \]
 
-Its inverse returns the stored source. The repository's `Ekatva`/`Fibre.LawfulStep` work identifies the canonical lossless completion and the exact equation connecting the visible projection to the declared transition. A random equivalence with the same cardinality is not that completion.
+Its inverse returns the stored source. The repository's `Uniqueness`/`Fibre.LawfulStep` work identifies the canonical lossless completion and the exact equation connecting the visible projection to the declared transition. A random equivalence with the same cardinality is not that completion.
 
 For a source-dependent property \(P:A\to\mathcal U\), transport the full dependent family, not merely the Boolean answer that a witness exists. In particular, finite compatible observations do not automatically provide an admissible infinite source. The source image can be a strict subset of its completion.
 
@@ -2266,7 +2266,7 @@ Z=Z_1+R_1Z_2T_1.
 
 [S17]'s independent exact evaluator implements \(M_n=\mathscr P\mathscr L\mathscr Q(\mathscr Q\mathscr L\mathscr Q)^n\mathscr Q\mathscr L\mathscr P\) and checks renewal coefficients, product laws, nonzero initial complements, and a finite periodic NS Fourier primitive with energy/helicity controls.
 
-These are **standalone Python realizations**. Their original reports claim 141 checks for [S17] and 86 for [S18]. They were not proofs installed into the actual Agda kernel. Preserve them as reference implementations and regression suites; encode the typed general rules natively before saying Yantra has learned them.
+These are **standalone Python realizations**. Their original reports claim 141 checks for [S17] and 86 for [S18]. They were not proofs installed into the actual Agda kernel. Preserve them as reference implementations and regression suites; encode the typed general rules natively before saying Machine has learned them.
 
 
 ---
@@ -3137,7 +3137,7 @@ The following entries are not reasons to discard the research. They record exact
 
 ### Infrastructure and proof status
 
-**C01 â” Python is not the repository kernel.** Retain every exact Python calculation and the source-aware finite evaluators. Retire any reading that those programs invoked Yantra, Agda, Lean, `NativeOperation`, or the repository's actual rewrite calculus. The original execution probes found no native toolchain. This handoff replayed two standalone scripts only; see validation metadata.
+**C01 â” Python is not the repository kernel.** Retain every exact Python calculation and the source-aware finite evaluators. Retire any reading that those programs invoked Machine, Agda, Lean, `NativeOperation`, or the repository's actual rewrite calculus. The original execution probes found no native toolchain. This handoff replayed two standalone scripts only; see validation metadata.
 
 **C02 â” A safe header is not a new build.** `--safe`, advertised historical green, a connector fetch, and a completed local symbolic check are different evidence. The agents must preserve exact compiler pin, import closure, working-tree state, command and output.
 
@@ -3276,7 +3276,7 @@ During handoff preparation, two scripts were replayed from **copies** under `val
 1. The source-aware causal matrix kernel: exit 0; 86 exact checks, including invalid-certificate rejection and removable/genuine RH pole controls.
 2. The midpoint/storage/Abel companion: exit 0; 43 exact algebraic checks, including an untruncated finite-Fourier NS calculation and a nonzero excursion/return.
 
-The small shell-command tail-formatting error after those runs did not affect either Python execution; each script's exit status and stdout are separately recorded. No Agda, Lean, Yantra or continuum PDE build/execution occurred during this handoff preparation. Additional validation checks syntax, manifests, file hashes, source links, Markdown structure and archive completeness only.
+The small shell-command tail-formatting error after those runs did not affect either Python execution; each script's exit status and stdout are separately recorded. No Agda, Lean, Machine or continuum PDE build/execution occurred during this handoff preparation. Additional validation checks syntax, manifests, file hashes, source links, Markdown structure and archive completeness only.
 
 
 ---
@@ -3340,7 +3340,7 @@ A coordinator should first inspect the current worktree and existing agent assig
 
 ### Lane I â” native runtime, proof interfaces and evidence
 
-Run the nonmutating preflight. Reconcile the actual compiler pin, library files, case-sensitive module paths, negative controls and import roots. Smoke-test Yantra `sadhana.patra` and `sadhana.vislesana` on the already-proved native normalizer; record returned normal form, derivation type, and learned-operation type. Verify both positive and false controls before accepting a candidate gate verdict.
+Run the nonmutating preflight. Reconcile the actual compiler pin, library files, case-sensitive module paths, negative controls and import roots. Smoke-test Machine `sadhana.patra` and `sadhana.vislesana` on the already-proved native normalizer; record returned normal form, derivation type, and learned-operation type. Verify both positive and false controls before accepting a candidate gate verdict.
 
 Deliverable: exact commands/logs plus a machine-readable run report identifying the source tree, pinned libraries and exercised module closure. A command merely printing âgreenâ without this context is not enough. Do not stage generated session logs or overwrite shared defect journals accidentally.
 
@@ -3530,5 +3530,5 @@ Keep that whole object. Rebuild the current theorem graph; replay and install re
 [S21]: sources/S21_higher_residuals_dynamic_matching.md "Higher residuals and dynamic matching proposal"
 [S22]: sources/S22_quadratic_goldbach_and_memory.md "Direct quadratic Goldbach residual and all-depth source-dependent memory"
 [S23]: originals/conversation/ns_rh_endpoint_assembly/endpoint_graph.md "Actual-endpoint backward assembly"
-[S24]: originals/conversation/yantra_runtime_probe/environment.log "Native-runtime availability probes"
+[S24]: originals/conversation/machine_runtime_probe/environment.log "Native-runtime availability probes"
 [S25]: sources/S25_delta19.md "Prime-Pair Delta 19: complete first-return, Schur and future-observation algebra"

@@ -15,7 +15,7 @@
 -- had to be killed.  Cubical's â• is `Agda.Builtin.Nat`, whose `_+_` and
 -- `_Â_` are GMP-backed, so the identical statement over â• is instant.
 --
--- THE REPAIR IS THE ONE THIS REPOSITORY ALREADY USES.  `BhavanaSemiring`
+-- THE REPAIR IS THE ONE THIS REPOSITORY ALREADY USES.  `CompositionSemiring`
 -- found that bhvan is FALSE over â• as classically written, because monus
 -- truncates, and that moving every negative term across makes it true with
 -- no hypothesis at all â” and, better, makes it a commutative-SEMIRING
@@ -23,7 +23,7 @@
 -- same move works here, and this file is that move applied to the cycle
 -- rather than to the composition.
 --
--- WHAT IS CLEARED.  `Bhavana.cakravalaCleared` says
+-- WHAT IS CLEARED.  `Composition.cakravalaCleared` says
 --
 --     N D a b Â (mÂ² âˆ’ D)  â‰¡  N D (am + Db) (a + bm)
 --
@@ -73,7 +73,7 @@ cb a b m = a + b Â· m
 
 -- THE STEP'S IDENTITY, SUBTRACTION-FREE, FOR ALL NATURALS.
 --
--- Read it as `Bhavana.cakravalaCleared` with both negative terms carried
+-- Read it as `Composition.cakravalaCleared` with both negative terms carried
 -- across.  `solve` discharges it because after expansion both sides are the
 -- same five monomials; the cross term DÂaÂbÂm appears twice on each side.
 --

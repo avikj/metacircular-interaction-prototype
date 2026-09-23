@@ -19,12 +19,12 @@
 -- this repository's own finding is that a rule violated repeatedly needs
 -- a mechanism that fires at the moment of the act (CLAUDE.md):
 --
---   Samkramana must name the EQUIVALENCE it moved along.  transport
+--   Samorderna must name the EQUIVALENCE it moved along.  transport
 --   without `ua e` is not transport, it is assertion.  Voevodsky's point
 --   is that the identification is a thing you hold, not a fact you cite;
 --   so `tulyata` carries both sides and the witness that they agree.
 --
---   Samkramana must also state its VYAYA.  Â§31: à¯àà àà™àà•àà°à®àà¯àà ààà à•à¿àžààà¿àà
+--   Samorderna must also state its VYAYA.  Â§31: à¯àà àà™àà•àà°à®àà¯àà ààà à•à¿àžààà¿àà
 --   ààà¯ààà¿ â” what is transported gives something up; à¯à‹ à¨ àµà¦àà¿ à à¨ àààà¯àà¿
 --   â” whoever does not say it does not see it.  Structure travels; who
 --   did it, for whom, and why does not.  A transport claiming zero cost
@@ -56,7 +56,7 @@ module Answer
   , tulyata
   , ganita
   , Uttara(..)
-  , samkramana
+  , samorderna
   , dosalekha
   , uttaraKind
   , uttaraJ
@@ -74,7 +74,7 @@ import System.IO (hPutStrLn, stderr)
 -- ------------------------------------------------------- what a witness is
 --
 -- DOA 0022, and it is the general form of six of the eight findings of
--- 2026-08-20.  `tuWitness` was one String.  `samkramana` turned back a
+-- 2026-08-20.  `tuWitness` was one String.  `samorderna` turned back a
 -- transport whose witness was EMPTY and could not turn back one that was FALSE,
 -- because a String bears no relation to the objects named on either side
 -- that any code here can examine.  Nothing in this lane had ever been
@@ -155,7 +155,7 @@ ganita n l r w lhs rhs = Tulyata n l r (Ganita w lhs rhs)
 -- | Two roads.  There is no third, and adding one is a change to the
 --   specification, not to this file.
 data Uttara
-  = Samkramana
+  = Samorderna
       { uKriya   :: String            -- the operation that was asked for
       , uTulyata :: Tulyata           -- the equivalence transported along
       , uVahita  :: [(String, J)]     -- what was carried across, in full
@@ -166,21 +166,21 @@ data Uttara
       { uKriya   :: String
       , uHetu    :: String            -- why transport is impossible here
       , uNasta   :: [String]          -- what a collapse would destroy, named
-      , uSesa    :: [String]          -- the remainder, handed forward
+      , uResidue    :: [String]          -- the remainder, handed forward
       , uPramana :: [String]
       }
   deriving (Eq, Show)
 
 uttaraKind :: Uttara -> String
-uttaraKind Samkramana{} = "samkramana"
+uttaraKind Samorderna{} = "samorderna"
 uttaraKind Dosalekha{}  = "dosalekha"
 
 -- | Build a transport, or state what stands in the way.  The negative
 --   answer is itself a written defect, so this function is total in the
 --   stra's sense: it
 --   never returns a third thing and never returns silence.
-samkramana :: String -> Tulyata -> [(String, J)] -> [String] -> [String] -> Uttara
-samkramana k t carried cost srcs
+samorderna :: String -> Tulyata -> [(String, J)] -> [String] -> [String] -> Uttara
+samorderna k t carried cost srcs
   -- THE ONE DEFECT THIS FILE COULD NOT YET WRITE.  A computed witness whose two
   -- sides differ is a transport along an equivalence that does not exist,
   -- and it takes the second road (Â§6) rather than going out with a false
@@ -221,7 +221,7 @@ samkramana k t carried cost srcs
             , "AHIMSA_SUTRA_VISTARA Â§31: à¯à‹ à¨ àµà¦àà¿ à à¨ àààà¯àà¿" ]
             [ "state what does not travel: who did it, for whom, on what occasion" ]
             srcs
-  | otherwise = Samkramana k t carried cost srcs
+  | otherwise = Samorderna k t carried cost srcs
 
 -- | Write a defect.  Refuses to write an empty one, because an empty
 --   defect entry is an unwritten defect wearing a filename.
@@ -262,7 +262,7 @@ raw = Dosalekha
 --            (ryabhaya, Gaitapda 32â“33, 499).  MUST transport.
 --   asatya â” the same identity with one side moved by one.  MUST NOT.
 --
--- Both go through the very `samkramana` every handler goes through.  If the
+-- Both go through the very `samorderna` every handler goes through.  If the
 -- false one transports, this process is not checking anything and nothing it
 -- says may be read as a transport; it refuses to serve rather than serve
 -- answers nobody has grounds to believe.  If the true one is turned back, the
@@ -275,15 +275,15 @@ raw = Dosalekha
 saksiPariksa :: (Bool, [String])
 saksiPariksa = (ok, lns)
   where
-    build w lhs rhs = samkramana "saksi.pariksa"
+    build w lhs rhs = samorderna "saksi.pariksa"
       (ganita "the pulverizer's own worked example, as an identity"
               "137Â(âˆ’7) + 60Â16" "gcd(137, 60)" w lhs rhs)
       [ ("mula", JInt lhs) ] [ "the occasion of the check" ]
       [ "ryabhaa, ryabhaya, Gaitapda 32â“33, 499 â” kuaka" ]
     satya  = build "137Â(âˆ’7) + 60Â16 = 1" (137 * (-7) + 60 * 16) 1
     asatya = build "137Â(âˆ’7) + 60Â16 = 2" (137 * (-7) + 60 * 16) 2
-    tOk = case satya  of { Samkramana{} -> True; Dosalekha{} -> False }
-    fOk = case asatya of { Dosalekha{}  -> True; Samkramana{} -> False }
+    tOk = case satya  of { Samorderna{} -> True; Dosalekha{} -> False }
+    fOk = case asatya of { Dosalekha{}  -> True; Samorderna{} -> False }
     ok = tOk && fOk
     lns =
       [ "àà¾à•ààà¿-àà°àà•ààà¾ â” the witness check, watched, once in this process:"
@@ -295,7 +295,7 @@ saksiPariksa = (ok, lns)
                    else "   !! TRANSPORTED â” this process is not checking anything")
       ] ++
       (if ok then
-        [ "  no sakramaa from this process is honoured by a run that has not"
+        [ "  no saordera from this process is honoured by a run that has not"
         , "  watched one rejected (GATE_AUDIT_DISPOSITION.md Â§2).  It has." ]
        else
         [ "  REFUSING TO SERVE.  An answer from a process whose own falsifier"
@@ -320,7 +320,7 @@ saksiPariksaLines = snd saksiPariksa
 -- ------------------------------------------------------------ the wire
 
 uttaraJ :: Uttara -> J
-uttaraJ u@(Samkramana k t carried cost srcs) = JObj
+uttaraJ u@(Samorderna k t carried cost srcs) = JObj
   [ ("uttara", JStr (uttaraKind u))
   , ("kriya", JStr k)
   , ("tulyata", JObj [ ("nama", JStr (tuName t))
@@ -344,7 +344,7 @@ uttaraJ u@(Dosalekha k hetu lost rest srcs) = JObj
   , ("kriya", JStr k)
   , ("hetu", JStr hetu)
   , ("nasta", JArr (map JStr lost))
-  , ("sesa", JArr (map JStr rest))
+  , ("residue", JArr (map JStr rest))
   , ("pramana", JArr (map JStr srcs))
   ]
 
@@ -352,7 +352,7 @@ uttaraJ u@(Dosalekha k hetu lost rest srcs) = JObj
 --   every field appears, because a summary of an answer about collapse
 --   would be the collapse.
 uttaraLines :: Uttara -> [String]
-uttaraLines (Samkramana k t carried cost srcs) =
+uttaraLines (Samorderna k t carried cost srcs) =
   [ "SAKRAMAA (" ++ k ++ ") â” transport; nothing lost."
   , "  along: " ++ tuName t
   , "    " ++ tuLeft t ++ "  â‰  " ++ tuRight t

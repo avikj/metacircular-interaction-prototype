@@ -4,7 +4,7 @@
 -- ‡‡ã‡‡æ‡® ‚î the ladder.  EVERY STRATUM OF THE HASSE LADDER IS DECIDED,
 -- WITH ITS EVIDENCE, FOR EVERY PRIME AND EVERY CURVE.
 --
--- Asked with no approach assumed, the machine's garbha.dhara birthed
+-- Asked with no approach assumed, the machine's kernel.dhara birthed
 -- a stream: at every stratum, syd-asti-nsti in succession ‚î the
 -- arithmetic affirms where it has looked, the pervasion stays
 -- unestablished ‚î and the totality avaktavya.  The construction that
@@ -49,7 +49,7 @@ open import Cubical.Data.Maybe using (Maybe ; nothing ; just ; rec)
 open import Cubical.Data.Empty as Empty using (‚ä•)
 open import Cubical.Relation.Nullary using (¬¨_)
 
-open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
   using (eq?)
 open import Ramanujan1729_TheTaxicabNumberBothRepresentationsByReflAndMinimalityByBoundedReflection
   using (le? ; eq?-complete)

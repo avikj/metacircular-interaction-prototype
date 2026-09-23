@@ -15,7 +15,7 @@
 -- relational composition, carrying both witnesses.)
 ------------------------------------------------------------------------
 
-module SatyayantraSamyoga where
+module SatyamachineSamyoga where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; _+_ ; +-comm)
@@ -23,7 +23,7 @@ open import Cubical.Data.Sigma using (Σ-syntax ; _×_ ; _,_ ; fst ; snd)
 open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Empty using (⊥) renaming (rec to ⊥-rec)
 open import Cubical.Relation.Nullary using (¬_)
-open import Satyayantra using (सत्ययन्त्र ; सूचना ; उक्त ; अनुक्त)
+open import Satyamachine using (सत्ययन्त्र ; सूचना ; उक्त ; अनुक्त)
 
 ------------------------------------------------------------------------
 -- �����-������ � �������-������ (bind) : ������� ����, �������� ������ �
@@ -87,7 +87,7 @@ private
 -- identity prama, completing the compositional picture with �������.)
 ------------------------------------------------------------------------
 
-open import Satyayantra using (उक्त-एकैकम्)
+open import Satyamachine using (उक्त-एकैकम्)
 
 तत्समता-यन्त्र : {I : Type} → सत्ययन्त्र I I (λ i o → i ≡ o)
 तत्समता-यन्त्र = record

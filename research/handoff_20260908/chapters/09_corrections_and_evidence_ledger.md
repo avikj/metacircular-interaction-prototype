@@ -6,7 +6,7 @@ The following entries are not reasons to discard the research. They record exact
 
 ### Infrastructure and proof status
 
-**C01 â” Python is not the repository kernel.** Retain every exact Python calculation and the source-aware finite evaluators. Retire any reading that those programs invoked Yantra, Agda, Lean, `NativeOperation`, or the repository's actual rewrite calculus. The original execution probes found no native toolchain. This handoff replayed two standalone scripts only; see validation metadata.
+**C01 â” Python is not the repository kernel.** Retain every exact Python calculation and the source-aware finite evaluators. Retire any reading that those programs invoked Machine, Agda, Lean, `NativeOperation`, or the repository's actual rewrite calculus. The original execution probes found no native toolchain. This handoff replayed two standalone scripts only; see validation metadata.
 
 **C02 â” A safe header is not a new build.** `--safe`, advertised historical green, a connector fetch, and a completed local symbolic check are different evidence. The agents must preserve exact compiler pin, import closure, working-tree state, command and output.
 
@@ -141,4 +141,4 @@ During handoff preparation, two scripts were replayed from **copies** under `val
 1. The source-aware causal matrix kernel: exit 0; 86 exact checks, including invalid-certificate rejection and removable/genuine RH pole controls.
 2. The midpoint/storage/Abel companion: exit 0; 43 exact algebraic checks, including an untruncated finite-Fourier NS calculation and a nonzero excursion/return.
 
-The small shell-command tail-formatting error after those runs did not affect either Python execution; each script's exit status and stdout are separately recorded. No Agda, Lean, Yantra or continuum PDE build/execution occurred during this handoff preparation. Additional validation checks syntax, manifests, file hashes, source links, Markdown structure and archive completeness only.
+The small shell-command tail-formatting error after those runs did not affect either Python execution; each script's exit status and stdout are separately recorded. No Agda, Lean, Machine or continuum PDE build/execution occurred during this handoff preparation. Additional validation checks syntax, manifests, file hashes, source links, Markdown structure and archive completeness only.

@@ -196,7 +196,7 @@ refl≢ind p = nayaEncode p
 --
 -- The third bhaga (`syd asti nsti ca`) and the fourth (`syd
 -- avaktavyam`) are built from the same two ingredients and differ ONLY in
--- the mode of assertion: krama, in succession, versus yugapat, at once.
+-- the mode of assertion: order, in succession, versus yugapat, at once.
 -- The classical texts insist this is a real difference and not a verbal
 -- one.  Here it is, as two types.
 --
@@ -216,8 +216,8 @@ module Modes (P : Naya → Type ℓ) where
   Nasti = Σ[ n ∈ Naya ] (¬ P n)
 
   -- KRAMA.  Two assertions, each at its own standpoint, uttered in turn.
-  Krama : Type ℓ
-  Krama = Asti × Nasti
+  Order : Type ℓ
+  Order = Asti × Nasti
 
   -- YUGAPAT.  One standpoint asked to affirm and deny at the same time.
   Yugapat : Type ℓ
@@ -229,8 +229,8 @@ module Modes (P : Naya → Type ℓ) where
   yugapat-empty (_ , p , ¬p) = ¬p p
 
   -- Simultaneity always implies succession.  The converse is refuted next.
-  yugapat→krama : Yugapat → Krama
-  yugapat→krama (n , p , ¬p) = (n , p) , (n , ¬p)
+  yugapat→order : Yugapat → Order
+  yugapat→order (n , p , ¬p) = (n , p) , (n , ¬p)
 
 -- Given a genuine disagreement between two standpoints, the third bhaga
 -- is inhabited and the fourth is not, so they are not the same type.
@@ -238,16 +238,16 @@ module _ (P : Naya → Type ℓ) (n m : Naya) (p : P n) (¬p : ¬ P m) where
 
   open Modes P
 
-  krama-witness : Krama
-  krama-witness = (n , p) , (m , ¬p)
+  order-witness : Order
+  order-witness = (n , p) , (m , ¬p)
 
-  krama→yugapat-fails : ¬ (Krama → Yugapat)
-  krama→yugapat-fails f = yugapat-empty (f krama-witness)
+  order→yugapat-fails : ¬ (Order → Yugapat)
+  order→yugapat-fails f = yugapat-empty (f order-witness)
 
   -- Stronger, and the reason this file is cubical: the two types are not
   -- even PATH-equal, since a path would transport the witness across.
-  krama≢yugapat : ¬ (Krama ≡ Yugapat)
-  krama≢yugapat e = yugapat-empty (transport e krama-witness)
+  order≢yugapat : ¬ (Order ≡ Yugapat)
+  order≢yugapat e = yugapat-empty (transport e order-witness)
 
 ------------------------------------------------------------------------
 -- §3  THE LANGUAGE OF STANDPOINTED PREDICATION
@@ -320,7 +320,7 @@ naya-not-pramana kernel-ind =
 --   NOT EMPTY.      It is inhabited.
 --
 -- What it IS: no single Vacana denotes it (`no-single-vacana`), while the
--- ordered PAIR of two Vacanas does (`krama-expresses`).  Inexpressible in
+-- ordered PAIR of two Vacanas does (`order-expresses`).  Inexpressible in
 -- one utterance; expressible in two taken in succession.  That is exactly
 -- the classical contrast between the fourth bhaga and the third, and it
 -- is the sense in which `syd avaktavyam` is a POSITIVE predication: it
@@ -350,9 +350,9 @@ joint-is-both false _     _ h = ⊥.rec (false≢true h)
 -- KRAMA EXPRESSES IT.  Two utterances in succession denote the joint
 -- content exactly, by definition � the point is that this holds and the
 -- next theorem's does not.
-krama-expresses : (φ : Profile)
+order-expresses : (φ : Profile)
   → joint φ ≡ (denotes (asti-from rewriter) φ and denotes (nasti-from kernel-refl) φ)
-krama-expresses _ = refl
+order-expresses _ = refl
 
 -- YUGAPAT DOES NOT.  For every single utterance there is a profile on
 -- which it disagrees with the joint content.  Exhaustive over the six
@@ -390,7 +390,7 @@ no-single-vacana (nasti-from kernel-ind) =
 data Bhanga : Type₀ where
   b1-asti                 : Bhanga   -- syād asti
   b2-nasti                : Bhanga   -- syād nāsti
-  b3-asti-nasti           : Bhanga   -- syād asti nāsti ca      (krama)
+  b3-asti-nasti           : Bhanga   -- syād asti nāsti ca      (order)
   b4-avaktavya            : Bhanga   -- syād avaktavyam         (yugapat)
   b5-asti-avaktavya       : Bhanga   -- syād asti ca avaktavyaṃ ca
   b6-nasti-avaktavya      : Bhanga   -- syād nāsti ca avaktavyaṃ ca

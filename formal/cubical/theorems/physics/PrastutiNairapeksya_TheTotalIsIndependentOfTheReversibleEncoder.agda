@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- EncodingIndependentTotalProbe
 --
--- `KramaNairapeksya` proves that `total` is invariant under every permutation
+-- `OrderNairapeksya` proves that `total` is invariant under every permutation
 -- of `Fin (suc n)`.  The next representation theorem is immediate but must
 -- stand as a term: any two reversible encoders of one state space into the
 -- same finite register induce the same total weight.
@@ -43,7 +43,7 @@ open import Cubical.Data.SumFin using (Fin)
 
 open import SamaVibhaga_TransitiveSymmetryNormalizationAndUniqueDivisionForceTheUniformMeasure
   using (total ; total-ext)
-open import KramaNairapeksya_TheTotalIsIndifferentToTheEnumerationSpendingOnlyAssocAndComm
+open import OrderNairapeksya_TheTotalIsIndifferentToTheEnumerationSpendingOnlyAssocAndComm
   using (permutation-invariant)
 
 private

@@ -1,5 +1,5 @@
---- a/src/Ucm/Api.elm
-+++ b/src/Ucm/Api.elm
+--- a/src/Ucm/Api.elm	2026-08-03 10:37:08
++++ b/src/Ucm/Api.elm	2026-09-17 00:34:51
 @@ -1,4 +1,4 @@
 -module Ucm.Api exposing (codebaseApiEndpointToEndpoint, pingUcm, projectBranches, projects)
 +module Ucm.Api exposing (bendMemberLink, codebaseApiEndpointToEndpoint, pingUcm, projectBranches, projects)
@@ -38,8 +38,8 @@
  codebaseApiEndpointToEndpoint : WorkspaceContext -> CodebaseApi.CodebaseEndpoint -> Endpoint
  codebaseApiEndpointToEndpoint context cbEndpoint =
      let
---- a/src/Ucm/WorkspaceScreen.elm
-+++ b/src/Ucm/WorkspaceScreen.elm
+--- a/src/Ucm/WorkspaceScreen.elm	2026-08-03 10:37:08
++++ b/src/Ucm/WorkspaceScreen.elm	2026-09-17 00:35:21
 @@ -4,11 +4,14 @@
  import Code.BranchRef as BranchRef
  import Code.CodebaseTree as CodebaseTree
@@ -147,15 +147,15 @@
  
  
  -- SUBSCRIPTIONS
---- a/src/Ucm/BendExternal.elm
-+++ b/src/Ucm/BendExternal.elm
+--- /dev/null	2026-09-19 04:24:51
++++ b/src/Ucm/BendExternal.elm	2026-09-17 00:34:51
 @@ -0,0 +1,4 @@
 +port module Ucm.BendExternal exposing (openBendMember)
 +
 +
 +port openBendMember : String -> Cmd msg
---- a/src/renderer.js
-+++ b/src/renderer.js
+--- a/src/renderer.js	2026-08-03 10:37:08
++++ b/src/renderer.js	2026-09-17 00:35:21
 @@ -53,6 +53,11 @@
    const app = Elm.Main.init({ flags });
  
@@ -168,18 +168,47 @@
      app.ports.saveWorkspaceContext?.subscribe(async (workspaceContext) => {
        appSettings.workspaceContexts = [workspaceContext];
        AppSettings.save(appSettings);
-@@ -31,6 +36,7 @@ const createWindow = () => {
+--- a/src/main.js	2026-08-03 10:37:08
++++ b/src/main.js	2026-09-19 03:58:02
+@@ -1,4 +1,5 @@
+ import { app, BrowserWindow } from "electron";
++app.commandLine.appendSwitch("remote-debugging-port", "9225");
+ import started from "electron-squirrel-startup";
+ 
+ // Handle creating/removing shortcuts on Windows when installing/uninstalling.
+@@ -25,6 +26,7 @@
+     ...(process.platform !== "darwin" ? titleBarOverlay : {}),
      trafficLightPosition: { x: 12, y: 12 },
      webPreferences: {
 +      sandbox: false,
        preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
      },
---- a/webpack.renderer.config.js
-+++ b/webpack.renderer.config.js
-@@ -14,6 +14,9 @@
+   });
+--- a/webpack.renderer.config.js	2026-08-03 10:37:08
++++ b/webpack.renderer.config.js	2026-09-19 04:23:08
+@@ -1,5 +1,13 @@
+-const rules = require("./webpack.rules");
++const rules = require("./webpack.rules").filter((rule) => {
++  const uses = Array.isArray(rule.use) ? rule.use : [rule.use];
++  return !uses.some(
++    (use) =>
++      (typeof use === "string" ? use : use?.loader) ===
++        "@vercel/webpack-asset-relocator-loader",
++  );
++});
+ const path = require("path");
++const webpack = require("webpack");
+ 
+ const UI_CORE_SRC = "elm-stuff/gitdeps/github.com/unisonweb/ui-core/src";
+ 
+@@ -14,6 +22,10 @@
+ });
  
  module.exports = {
 +  node: {
 +    __dirname: true,
 +  },
++  plugins: [new webpack.DefinePlugin({ __dirname: JSON.stringify(".") })],
    // Put your normal webpack config below here
+   module: {
+     rules,

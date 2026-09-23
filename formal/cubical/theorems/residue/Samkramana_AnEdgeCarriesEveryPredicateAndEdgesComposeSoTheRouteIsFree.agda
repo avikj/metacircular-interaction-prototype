@@ -29,7 +29,7 @@
 -- postulates, no holes, exit 0.
 ------------------------------------------------------------------------
 
-module Samkramana_AnEdgeCarriesEveryPredicateAndEdgesComposeSoTheRouteIsFree where
+module Samorderna_AnEdgeCarriesEveryPredicateAndEdgesComposeSoTheRouteIsFree where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_≃_ ; compEquiv ; invEquiv ; idEquiv)

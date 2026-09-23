@@ -38,10 +38,10 @@
 -- contenders whose results differ, the birth is provably `nothing`.
 --
 -- WHAT THIS DOES NOT TOUCH.  `Saptabhangi.no-single-vacana` and
--- `AnuktaAvaktavya` prove the fourth position is not reachable by krama
+-- `AnuktaAvaktavya` prove the fourth position is not reachable by order
 -- from the three: it must be SUPPLIED.  Nothing here derives it.  The birth
--- CONSUMES a fourth position -- in the Haskell, `prasava` takes a `Sesa`,
--- and a `Sesa` exists only where `nirnaya` already returned `Avaktavya`.
+-- CONSUMES a fourth position -- in the Haskell, `prasava` takes a `Residue`,
+-- and a `Residue` exists only where `nirnaya` already returned `Avaktavya`.
 --
 -- SOURCES, EARLIEST FIRST.
 --   Ktyyana, vrttika 1 on Pini's *Adhyy* 1.4.2, preserved in
@@ -64,7 +64,7 @@
 -- WHAT THE CHECKER SAYS BACK, recorded here rather than left in a terminal.
 -- `agda --cubical --safe --no-import-sorts` on this file: EXIT 0, no
 -- postulates, no holes, and FOUR `-WUnsupportedIndexedMatch` warnings, on
--- `na-vipakse`, `garbha-jayati`, and the two `with`-generated functions of
+-- `na-vipakse`, `kernel-jayati`, and the two `with`-generated functions of
 -- §2.  Each is the same fact: the clause matches on a proof of `_∈_`, whose
 -- index forces injectivity of `_�_`, which Cubical Agda does not yet
 -- support.  The consequence is precise and worth stating rather than
@@ -141,8 +141,8 @@ module _ {A : Type ℓ} (apa : A → A → Bool) where
   vipaksah []       = []
   vipaksah (x ∷ xs) = just x ∷ vipaksah xs
 
-  garbhaSabha : List A → List Praja
-  garbhaSabha xs = nothing ∷ vipaksah xs
+  kernelSabha : List A → List Praja
+  kernelSabha xs = nothing ∷ vipaksah xs
 
   -- the child is not one of the contenders, and this is what makes the
   -- selection below come out unique
@@ -150,15 +150,15 @@ module _ {A : Type ℓ} (apa : A → A → Bool) where
   na-vipakse (_ ∷ xs) (there p) = na-vipakse xs p
 
   -- 1a.  THE CHILD WINS.  No hypothesis on `apa`.
-  garbha-jayati : (xs : List A) → Jayati (garbhaSabha xs) nothing
-  garbha-jayati _  nothing  here      = inl refl
-  garbha-jayati xs nothing  (there p) = ⊥.rec (na-vipakse xs p)
-  garbha-jayati _  (just _) (there _) = inr refl
+  kernel-jayati : (xs : List A) → Jayati (kernelSabha xs) nothing
+  kernel-jayati _  nothing  here      = inl refl
+  kernel-jayati xs nothing  (there p) = ⊥.rec (na-vipakse xs p)
+  kernel-jayati _  (just _) (there _) = inr refl
 
   -- 1b.  AND NOBODY ELSE DOES.  A contender fails on the child alone: it
   -- is not the child, and it does not except the child.  So the winner of
   -- the extended selection is unique, and it is the one that was born.
-  eka-eva-jayati : (xs : List A) (a : A) → ¬ (Jayati (garbhaSabha xs) (just a))
+  eka-eva-jayati : (xs : List A) (a : A) → ¬ (Jayati (kernelSabha xs) (just a))
   eka-eva-jayati _ _ f with f nothing here
   ... | inl p = ¬nothing≡just p
   ... | inr q = false≢true q

@@ -30,7 +30,7 @@ open import Cubical.Data.Sigma
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Empty as Empty using (⊥)
 
-open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
 
 ------------------------------------------------------------------------
 -- §1  The eraser, and its computed collision.

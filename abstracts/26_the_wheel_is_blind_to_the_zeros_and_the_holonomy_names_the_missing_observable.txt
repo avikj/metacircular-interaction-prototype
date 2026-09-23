@@ -1,6 +1,6 @@
 THE WHEEL IS BLIND TO THE ZEROS, AND THE HOLONOMY THEOREM NAMES THE
 MISSING OBSERVABLE
-A session with the yantra: the reflection frame for Goldbach, its exact
+A session with the machine: the reflection frame for Goldbach, its exact
 coupling to the critical line, and the corpus's own biconditional locating
 the impasse
 
@@ -20,14 +20,14 @@ mod p, coinciding when p divides N -- which is where the resonance factor
 prod (p-1)/(p-2) over p | N comes from, derived once from the wheel and
 once from the wave integral, the same computation seen from two sides.
 
-The session drove this through the yantra's own organs.  The kuttaka
+The session drove this through the machine's own organs.  The kuttaka
 lifted survivor classes across the gears by CRT.  The three standpoints
 of the frame -- line (density zero), wheel (symmetry unconditional),
-lattice (primes as primitive axes) -- were installed in the nayakosa and
+lattice (primes as primitive axes) -- were installed in the nayashell and
 the verdict organs REFUSED to identify them: same truth value, different
 content, seventh bhanga, with the destruction inventory naming what each
 collapse would lose.  Seeded with (wheel affirms / line withholds), the
-garbha stream returned syad-asti-nasti in krama at every level: the two
+kernel stream returned syad-asti-nasti in order at every level: the two
 truths compose in succession indefinitely and never at once.  That is the
 finite/limit gap, held as a position rather than collapsed.
 
@@ -53,7 +53,7 @@ the residue is recoverable only by CHANGING the observable, never by
 refining it.  The wheels are the invariant observables; no larger wheel
 recovers what the wheels jointly miss.  The changed observable is the
 archimedean one -- succession in log-time -- whose spectrum is the zeros,
-and whose self-adjointness is the conjecture.  The session's sesa queue
+and whose self-adjointness is the conjecture.  The session's residue queue
 holds exactly this: construct the changed observable in the holonomy
 vocabulary.
 
@@ -79,8 +79,8 @@ arithmetic case an exact equivalence.  The machine's verdict on the three
 standpoints -- gas, trace formula, positivity -- was NOT IDENTIFIABLE,
 same truth value, different content: correct, because their
 identification IS the open content; in the geometric case the
-identification is proved, and the garbha holds spectrum-exists /
-spectrum-unexhibited as asti-nasti in krama, which is the exact state of
+identification is proved, and the kernel holds spectrum-exists /
+spectrum-unexhibited as asti-nasti in order, which is the exact state of
 the analogy.
 
 WHAT IS NOT CLAIMED.  No progress on either conjecture is asserted.  The

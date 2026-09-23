@@ -1,8 +1,8 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 module CorpusSelfPresentation where
 open import Cubical.Foundations.Prelude
-import Fibre.CorpusSamvada as C
-import Fibre.Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers as S
+import Fibre.CorpusInteraction as C
+import Fibre.Interaction_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers as S
 import CorpusLosslessPresentation as LP
 private variable ℓ : Level
 Event : (s : C.Point ℓ) (q : C.Question s) (s' : C.Point ℓ) → C.Receipt s q s' → Type (ℓ-suc ℓ)

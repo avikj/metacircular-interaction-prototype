@@ -17,7 +17,7 @@
 --
 -- For n equivalent outcomes it forces 1/n: finite Haar measure in the
 -- repository's carrier language.  The landed two-outcome theorem
--- (`EkatvaMatraDvaya_‚¶`, this directory) is the n = 2 instance: at
+-- (`UniquenessMatraDvaya_‚¶`, this directory) is the n = 2 instance: at
 -- X = Fin 2 the iterate ‡ó‡‡‡ 1 y is y +µ y, so this module's
 -- `divideUniquely` hypothesis is EXACTLY that module's
 -- `halvesUniquely`, over Fin 2 in place of Bool.  (The Bool ‚â Fin 2

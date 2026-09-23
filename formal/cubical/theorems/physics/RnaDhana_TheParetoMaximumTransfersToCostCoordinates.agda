@@ -76,7 +76,7 @@ open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Empty as ⊥ using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet
+open import OrderAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet
   using (Any ; memberToAny)
 open import EveryRemainderMemberIsStrictlyDominated
   using (anyToMember)

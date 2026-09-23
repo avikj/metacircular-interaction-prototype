@@ -28,7 +28,7 @@
 -- optimal one, and the optimality is a checked term, not an argument.
 --
 -- Every reduction rule used was certified on the wire first
--- (interactive/run-yantra.sh --wire); the kernel's rejections of the
+-- (interactive/run-machine.sh --wire); the kernel's rejections of the
 -- naive single-variable shapes named the stuck base clauses
 -- (le x (max x zero) â‰ 1, max zero y â‰ y), which is what fixed the
 -- shapes below.

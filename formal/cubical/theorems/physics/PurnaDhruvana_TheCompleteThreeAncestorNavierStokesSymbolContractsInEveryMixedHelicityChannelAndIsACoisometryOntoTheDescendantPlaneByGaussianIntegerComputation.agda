@@ -28,7 +28,7 @@ module PurnaDhruvana_TheCompleteThreeAncestorNavierStokesSymbolContractsInEveryM
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
-open import Sankhya_SignedIntegersOverTheBuiltinNaturalsWithSoundArithmeticIntoTheLibrarysIntegersSoCertificatesComputeAtMachineSpeed
+open import Count_SignedIntegersOverTheBuiltinNaturalsWithSoundArithmeticIntoTheLibrarysIntegersSoCertificatesComputeAtMachineSpeed
   using (𝕊 ; ⁺_ ; ⁻_) renaming (_⊕_ to _⊕𝕊_ ; _⊗_ to _⊗𝕊_)
 
 -- canonical zero: � 0 is read as � 0

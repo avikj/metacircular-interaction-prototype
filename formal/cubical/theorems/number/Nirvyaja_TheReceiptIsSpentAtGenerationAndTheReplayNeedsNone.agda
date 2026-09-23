@@ -11,10 +11,10 @@
 -- it carries no attribution.  It is used here only as an exact label for
 -- the fact §2 proves: the operation the machine keeps is receipt-free.
 --
--- WHAT THIS CONTINUES.  `Samvada_�` §1 built the first non-trivial
+-- WHAT THIS CONTINUES.  `Interaction_�` §1 built the first non-trivial
 -- `Control` in the corpus: `demand R d`, an operation the caller may fire
 -- only by ALSO handing over an `R` -- a receipt, an authority, a cost
--- witness, an oracle token.  `Samvada_�` §2 closed the learning loop:
+-- witness, an oracle token.  `Interaction_�` §2 closed the learning loop:
 -- `learn = install ∘ CheckedFuture.derivation`.  Put the two together and a
 -- fact falls out that neither states, and it is the whole strategic content
 -- of this project reduced to a definitional equality:
@@ -24,7 +24,7 @@
 -- To FIRE `demand R d` you must produce an `R` (§1).  But `execute` throws
 -- the caller's control away -- `CheckedFuture` (Type�) keeps only the new
 -- term and the derivation, "small, replayable, and free of who asked"
--- (Samvada §0).  So the operation the machine LEARNS from a demanded turn is
+-- (Interaction §0).  So the operation the machine LEARNS from a demanded turn is
 -- `install (derivation)`, whose `Control t` is `t ≡ source` -- the trivial
 -- one, with no `R` in it at all.  Whoever holds the learned move replays it
 -- for free; the authority the first caller had to muster is gone, not

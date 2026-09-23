@@ -169,7 +169,7 @@ abcBlock = 0x61626380 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 
 
 -- � � � face: message packed as one natural (16 words, low word first),
 -- digest packed as one natural (8 words, low word first).  This is the
--- shape the yantra's equation language speaks: sha256nat y ≡ X.
+-- shape the machine's equation language speaks: sha256nat y ≡ X.
 splitWords : ℕ → ℕ → List ℕ
 splitWords zero    _ = []
 splitWords (suc k) m = (m mod m32) ∷ splitWords k (m div m32)
@@ -181,7 +181,7 @@ packWords (x ∷ xs) = x + m32 * packWords xs
 sha256nat : ℕ → ℕ
 sha256nat n = packWords (sha256block (splitWords 16 n))
 
--- the abc digest as a named natural target, so the yantra proposition
+-- the abc digest as a named natural target, so the machine proposition
 -- `sha256nat y ≡ Xabc` needs no 256-bit literal on the wire
 Xabc : ℕ
 Xabc = packWords ( 0xba7816bf ∷ 0x8f01cfea ∷ 0x414140de ∷ 0x5dae2223

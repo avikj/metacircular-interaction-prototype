@@ -79,7 +79,7 @@ module _ {A : Type â„“} (step : A â†’ A) where
 --
 -- Â§à¨ says nothing about whether any particular target is REACHED; it
 -- prices the exploration, not the answer.  Reachability is a fibre
--- question, its three verdicts are `Tantutrayam_â¦agda`'s, and its empty
+-- question, its three verdicts are `Fibertrayam_â¦agda`'s, and its empty
 -- case is `Anupalabdhi_â¦agda`'s Î  over the whole field.  A search that
 -- conflates "I explored and did not arrive" with "there is no route" has
 -- produced the one verdict this corpus has no witness for.

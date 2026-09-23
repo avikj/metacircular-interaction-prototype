@@ -4,7 +4,7 @@ The RH-side residual of the renormalized-boundary-transport picture as a
 finite checked term: the truncated shift is not unitary, its commutation
 defect is a difference of two boundary projectors, trace zero but nonzero
 
-RH / renormalized boundary transport / descent / SankramanaShreni instance
+RH / renormalized boundary transport / descent / TransportShreni instance
 
 On the full line the shift is unitary (U‚ê‚ª¬ = U‚ã‚ê). On a finite window the
 truncated shift S has S*S = kill-top, SS* = kill-bottom: identity on the
@@ -26,7 +26,7 @@ window is not embedding one matrix in a larger one ‚î fresh shifts a = log n
 keep arriving at the moving boundary a ‚àº t, so new words always live at
 boundary scale, and bulk convergence can look perfect while the spectral
 information keeps entering through this residual. It is a literal
-descent/non-descent instance in the sense of SankramanaShreni and VyayaSesa.
+descent/non-descent instance in the sense of TransportShreni and VyayaResidue.
 
 SYT ‚î THE CLAIM, EXACTLY. The three facts for the N = 3 window (the shape
 is general, the witness is exhibited, per the corpus's concrete-witness

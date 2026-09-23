@@ -35,14 +35,14 @@
 --   Â§4  AND THE TRACE IS NON-RIVAL.  One trace enters two different
 --       composites and both stand â” a term, one `d` used twice.  Money is
 --       linear: spending consumes.  A proof term carries no linear
---       restriction.  (`PramanaSankramana_â¦`'s `àà•ààà¯à`, restated at the
+--       restriction.  (`PramanaTransport_â¦`'s `àà•ààà¯à`, restated at the
 --       kernel's own derivations rather than at abstract equivalences.)
 --
 --   Â§5  DISTILLATION, EXACTLY.  The total is a FREE FUNCTION of the trace
 --       (`derivation-sound`).  The converse is where the asymmetry lives,
 --       and the honest statement is sharper than "you cannot recover it":
 --       a recovery map EXISTS â” `Visranti_â¦`'s `same-nfâ’derivable` builds
---       one â” and it is NOT an inverse, because `Asesa_â¦` proves soundness
+--       one â” and it is NOT an inverse, because `Aresidue_â¦` proves soundness
 --       is not an equivalence at the kernel's own seed.  So:
 --
 --           RECOVERY FROM THE TOTAL RETURNS *A* ROUTE, NEVER *THE* ROUTE,
@@ -52,7 +52,7 @@
 --       observation about model economics.  A student trained on a
 --       teacher's outputs recovers a map that agrees on totals; which
 --       route it recovers is decided by the student's own economy, and
---       `Sesa_â¦`'s no-go says nothing in the teacher's outputs could have
+--       `Residue_â¦`'s no-go says nothing in the teacher's outputs could have
 --       told it otherwise.
 --
 -- WHY THE ECONOMICS FOLLOWS AND IS NOT AN ANALOGY.  Value in a total is
@@ -71,7 +71,7 @@
 -- structure Â§2 gives, and a weight consulted through its outputs is such a
 -- readout.  Nothing here concerns training dynamics, optimisation, or any
 -- empirical fact about neural networks; the terms are about this kernel.
--- `Visranti_â¦` and `Asesa_â¦` are cited in Â§5, not imported: the recovery
+-- `Visranti_â¦` and `Aresidue_â¦` are cited in Â§5, not imported: the recovery
 -- map and the non-equivalence live there and are not re-proved.
 --
 -- No postulates, no holes, --safe.  CHECKED this session, EXIT 0, at

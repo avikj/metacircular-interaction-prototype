@@ -132,7 +132,7 @@
 -- `kMaxAgdaCallsUnannotated`, and the annotated case is unchanged in reach,
 -- in shape and in budget.  Measured on `interactive/library.snapshot.txt` with
 -- every note stripped โ” which is exactly the shape a residual arrives in โ”
--- by `interactive/SesaPariksa_WhichOfTheSixOutstandingDemandsInductionReaches.hs`
+-- by `interactive/ResiduePariksa_WhichOfTheSixOutstandingDemandsInductionReaches.hs`
 -- on 2026-08-20:
 --
 --     note-less, before:  5/28 certified, 28 agda calls   (derived, exactly:
@@ -890,7 +890,7 @@ kMaxAgdaCalls = 1
 -- How many variables get tried when the caller's proof note names none.
 -- `equationVars` returns at most the six universe variables, so this is a
 -- cap and not a formality; three covers every equation MathMachine has ever
--- written, and the demands in interactive/SesaPariksa_...hs certify on the
+-- written, and the demands in interactive/ResiduePariksa_...hs certify on the
 -- FIRST variable in all three cases that certify.
 kMaxInductionVariables :: Int
 kMaxInductionVariables = 3
@@ -1911,7 +1911,7 @@ certifyWith defs root (eq, proofNote) =
     -- log accepts elsewhere.
     --
     -- Measured on the six lemmas the kernel demanded and no composition law
-    -- reaches (interactive/SesaPariksa_...hs, and ยง9 of
+    -- reaches (interactive/ResiduePariksa_...hs, and ยง9 of
     -- variable in turn moves THREE of the six from open to certified with the
     -- shape menu completely unchanged โ”
     --

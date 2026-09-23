@@ -22,7 +22,7 @@
 --   â Iso conserves everything EXCEPT presentation and sign â” Galois
 --     conjugation a+bâˆ2 â¦ aâˆ’bâˆ2 is a field iso of â(âˆ2) that exchanges its
 --     two orderings, so an iso does not carry order data.  (Witnessed at â
---     in RnaDhanaKrama: neg preserves abs, reverses sign.)
+--     in RnaDhanaOrder: neg preserves abs, reverses sign.)
 --   â Quotient conserves only task-sufficiency; in particular NOT sign.
 --   â Order is the only NON-identity kind conserving sign, and only relative
 --     to its named ordering (the avacchedaka/limitor).
@@ -36,7 +36,7 @@
 --
 -- FENCE.  This models the licensing/preservation lattice, not the edges'
 -- witnesses; that an Iso genuinely loses sign (not vacuously) is the â
--- witness in RnaDhanaKrama and the â(âˆ2) certificate in
+-- witness in RnaDhanaOrder and the â(âˆ2) certificate in
 -- table: runtime/kernel/edges.py, runtime/CRYSTAL.md Â§1.
 --
 -- CHECKED under the pin (Agda 2.8.0 + cubical v0.9).

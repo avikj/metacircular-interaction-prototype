@@ -50,11 +50,11 @@
 -- The interactive generalisation â” states with question types Q(s),
 -- environment-indexed events E(s,q,s',o), the guarded â– â” is a wider
 -- machine than this file's closed deterministic fragment, and it is
--- handed forward as a ea through the yantra's own `sesa.arpana`,
+-- handed forward as a ea through the machine's own `residue.arpana`,
 -- where the next step will find it.
 ------------------------------------------------------------------------
 
-module Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource where
+module Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism

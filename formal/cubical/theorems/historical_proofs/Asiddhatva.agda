@@ -285,11 +285,11 @@ producedByLater = refl
 -- appended at that file, with sources, altering none of its lines.
 --
 -- THE TWO ARE THE TWO POLES OF ONE DISTINCTION, and the corpus already
--- names it in Jain terms: `Saptabhangi.‡ï‡‡∞‡Æ-‡‡-‡‡‡¶‡` proves that krama
+-- names it in Jain terms: `Saptabhangi.‡ï‡‡∞‡Æ-‡‡-‡‡‡¶‡` proves that order
 -- (successive) and saha (simultaneous) arpaa reach different positions,
 -- so simultaneity is not sequential both-ness.  Read across:
 --
---     8.2.1  krama   ordered, one-way blindness   buys TERMINATION (here)
+--     8.2.1  order   ordered, one-way blindness   buys TERMINATION (here)
 --     6.4.22 saha    mutual, simultaneous         buys INFORMATION
 --                                                 (AsiddhatvaBreaksFactoring)
 --

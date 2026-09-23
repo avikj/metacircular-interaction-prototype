@@ -15,7 +15,7 @@
 --   * re-enumeration of the outer coarse index with its dependent size family;
 --   * both transformations simultaneously.
 --
--- Its first load also acted as a fresh importer of `KramaNairapeksya` and
+-- Its first load also acted as a fresh importer of `OrderNairapeksya` and
 -- exposed unresolved implicit metas that the producer's own warm load had not
 -- reported. Those metas were repaired before this landing. Thus this theorem
 -- is both mathematical content and the witness for the new receipt rule:

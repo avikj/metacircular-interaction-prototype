@@ -34,7 +34,7 @@ Forward: h becomes the family h_b(a,p)=h(a). Backward: evaluate the family at (f
 
 To remove the fibre too, the actual target must descend. Equal visible inputs with different target outputs obstruct descent. For an ordinary surjective set quotient, coherent descent reduces to constancy on classes; arbitrary higher targets require their higher compatibility. This distinction prevents an endpoint-only summary from impersonating the whole mathematical subject.
 
-The source `Fibre.Visvarupa` defines the universal family
+The source `Fibre.Universal` defines the universal family
 
 \[
 \pi:\sum_{X:\mathcal U_\ell}X\longrightarrow\mathcal U_\ell,
@@ -197,7 +197,7 @@ The native `supline.bend` implements a relevant correlation: a type line, value,
 
 # 7. Coinductive continuation and future-sensitive equality
 
-`Fibre.Samvada` returns a successor, dependent observation, event, and continuation at that successor. `CorpusSelfPresentation` places the actual query residual in the event. `Fibre.CorpusSamvada` has states sum_(A:Type) A, so the type of the live mathematical object can change.
+`Fibre.Interaction` returns a successor, dependent observation, event, and continuation at that successor. `CorpusSelfPresentation` places the actual query residual in the event. `Fibre.CorpusInteraction` has states sum_(A:Type) A, so the type of the live mathematical object can change.
 
 The spectrum can therefore lead to a reconstructed state, that state to a many-pair residual, and the residual to a new operator family without fixing every future question to one output format. Finite demand obtains finite observations of the continuing object; the object is not replaced by that finite list.
 
@@ -237,11 +237,11 @@ The central physical object is still the superconducting realization. The constr
 The source mechanisms behind this organization are:
 
 - `fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda`;
-- `fibre/src/Fibre/Visvarupa_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda`;
+- `fibre/src/Fibre/Universal_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda`;
 - `formal/lean/Pairfield/FutureBehavior.lean`;
 - `formal/cubical/kernel/TheControlCarriesItsInstanceAndLocusSoOneTheoremFiresAtAClass.agda`;
 - `fibre/src/Fibre/Nucleus.agda`;
-- `formal/cubical/theorems/residue/CorpusSelfPresentation.agda` and `fibre/src/Fibre/CorpusSamvada.agda`;
+- `formal/cubical/theorems/residue/CorpusSelfPresentation.agda` and `fibre/src/Fibre/CorpusInteraction.agda`;
 - `collab/bend2-cubical/supline.bend`;
 - `LIFECYCLE.rst` and `research/LIFECYCLE_SOURCES.rst` for the actual interfaces and their composition.
 

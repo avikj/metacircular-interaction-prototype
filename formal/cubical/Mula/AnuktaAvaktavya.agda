@@ -7,7 +7,7 @@
 -- WHAT THIS CORRECTS, and it is a claim already in this repository rather
 -- than one I am importing from outside it.
 --
--- `Satyayantra.agda` opens by describing its third position:
+-- `Satyamachine.agda` opens by describing its third position:
 --
 --     ‡‡®‡‡ï‡‡‡ ‡® ‡Æ‡ø‡‡‡Ø‡æ, ‡® ‚ä ‚î ‡‡‡‡‡Ø‡ ‡‡¶‡Æ‡ (avaktavyam), ‡‡‡≤‡ø‡Ø‡®‡-‡∞‡‡ø‡‡Æ‡ ‡
 --     "the un-said is not false, not ‚ä ‚î a third position (avaktavyam),
@@ -31,7 +31,7 @@
 --                  content, exhaustively over all six atoms of the
 --                  language, each with its own separating profile.  The
 --                  remedy is not more of anything.  It is a SECOND
---                  utterance, taken in succession (krama).
+--                  utterance, taken in succession (order).
 --
 -- So one third position is removed by giving the machine more, and the
 -- other is not removed by giving anything more.  Same word, opposite
@@ -92,7 +92,7 @@ open import Cubical.Data.Int using (‚Ñ§ ; pos ; discrete‚Ñ§) renaming (_¬∑_ to _
 open import Cubical.Relation.Nullary using (yes ; no)
 open import Mula.SaptabhangiNaya
   using ( Vacana ; Profile ; denotes ; joint ; no-single-vacana
-        ; krama-expresses ; asti-from ; nasti-from ; rewriter ; kernel-refl )
+        ; order-expresses ; asti-from ; nasti-from ; rewriter ; kernel-refl )
 
 ------------------------------------------------------------------------
 -- 1.  The two shapes.  [was "the two dual shapes"; STRUCK, ¬ß9]
@@ -147,7 +147,7 @@ open import Mula.SaptabhangiNaya
 -- is a separate statement I am not making.  What is exhibited is only
 -- this: the two theorems already in this repository realise the two
 -- shapes,  [was "sit at the two poles"; STRUCK, ¬ß9]
--- and `Satyayantra.agda`'s parenthetical puts one under the other's name.
+-- and `Satyamachine.agda`'s parenthetical puts one under the other's name.
 ------------------------------------------------------------------------
 
 -- the un-said, at the pole it actually occupies
@@ -166,14 +166,14 @@ open import Mula.SaptabhangiNaya
 -- in whether the remedy can stay in its own type.
 --
 --   ‡‡æ‡Æ‡Ø‡ø‡ï.  The remedy is an element of R, and remedies COMBINE inside R.
---   `SatyayantraSamyoga.‡‡‡Ø‡ã‡ó` proves this for the honest machine: the
+--   `SatyamachineSamyoga.‡‡‡Ø‡ã‡ó` proves this for the honest machine: the
 --   composite of two machines is a machine, and its ‡‡∞‡ø‡‡‡∞‡‡‡‡æ field is
 --   constructed at grant  g‡® + g‡ß  ‚î the two grants aligned by stability
 --   and then added.  So chaining honest machines keeps the un-said
 --   temporary, and the cost is additive.  You never leave ‚ï.
 --
 --   ‡®‡ø‡‡‡Ø.  No element of R works ‚î that is exactly `no-single-vacana`,
---   exhaustively.  What works is an ordered PAIR, `krama-expresses`.  The
+--   exhaustively.  What works is an ordered PAIR, `order-expresses`.  The
 --   remedy is not a bigger element of R; it is an element of R ó R.  You
 --   must leave the type.
 --
@@ -191,7 +191,7 @@ open import Mula.SaptabhangiNaya
       ((œÜ : Profile) ‚Üí joint œÜ ‚â° (denotes (fst vw) œÜ and denotes (snd vw) œÜ)))
 ‡§Ø‡•Å‡§ó‡•ç‡§Æ‡•á‡§®-‡§∏‡§æ‡§ß‡•ç‡§Ø‡§Æ‡•ç =
     no-single-vacana
-  , ((asti-from rewriter , nasti-from kernel-refl) , krama-expresses)
+  , ((asti-from rewriter , nasti-from kernel-refl) , order-expresses)
 
 ------------------------------------------------------------------------
 -- 6.  A THIRD USE OF THE WORD, AND IT FAILS THE SAME TEST FROM THE OTHER
@@ -231,7 +231,7 @@ open import Mula.SaptabhangiNaya
 -- both by the fourth bhaga's name is the boolean collapse this corpus
 -- exists to fight, committed one level up: a single third position used as
 -- a catch-all for "not a clean single answer".  Three modules now do it ‚î
--- Satyayantra (¬ß1 above), Khahara and Shunya ‚î with three different things
+-- Satyamachine (¬ß1 above), Khahara and Shunya ‚î with three different things
 -- underneath.
 --
 ------------------------------------------------------------------------
@@ -303,12 +303,12 @@ open import Mula.SaptabhangiNaya
 --   theorem is in `SaptabhangiNaya`, which is what it actually imports.)
 --
 --   `Saptabhangi.agda` proves `‡ï‡‡∞‡Æ-‡‡-‡‡‡¶‡`: the bhaga reached by
---   krama-arpaa is not the bhaga reached by saha-arpaa.  And `‡¶‡‡∞‡‡®‡Ø‡`:
+--   order-arpaa is not the bhaga reached by saha-arpaa.  And `‡¶‡‡∞‡‡®‡Ø‡`:
 --   ANY two-valued verdict on the sevenfold identifies two of the three
 --   seeds, by pigeonhole -- the boolean collapse, proved rather than
 --   deplored.
 --
--- THE APPARENT TENSION.  `SaptabhangiNaya.krama-expresses` says a PAIR of
+-- THE APPARENT TENSION.  `SaptabhangiNaya.order-expresses` says a PAIR of
 -- utterances denotes the joint content exactly.  `Saptabhangi.‡ï‡‡∞‡Æ-‡‡-‡‡‡¶‡`
 -- says the sequential position is not the simultaneous one.  Read
 -- carelessly these disagree about whether succession reaches avaktavyam.
@@ -329,7 +329,7 @@ open import Mula.SaptabhangiNaya
 --
 -- AND MY OWN FINDING IS AN INSTANCE OF ‡¶‡‡∞‡‡®‡Ø‡, ONE LEVEL UP.  ¬ß1 and ¬ß6
 -- found three distinct structures in this repository all called
--- avaktavyam -- Satyayantra's un-said (‡‡æ‡Æ‡Ø‡ø‡ï), 00 (underdetermined), and
+-- avaktavyam -- Satyamachine's un-said (‡‡æ‡Æ‡Ø‡ø‡ï), 00 (underdetermined), and
 -- the fourth bhaga (‡®‡ø‡‡‡Ø, non-factoring).  `‡¶‡‡∞‡‡®‡Ø‡` proves that mapping
 -- three distinct seeds into two values must identify two of them.  Mapping
 -- three distinct structures onto ONE name is the same pigeonhole with a
@@ -350,7 +350,7 @@ open import Saptabhangi
 ‡§Ö‡§∞‡•ç‡§•-‡§∏‡§æ‡§Æ‡•ç‡§Ø‡§Æ‡•ç : (œÜ : Profile)
              ‚Üí joint œÜ ‚â° (denotes (asti-from rewriter) œÜ
                           and denotes (nasti-from kernel-refl) œÜ)
-‡§Ö‡§∞‡•ç‡§•-‡§∏‡§æ‡§Æ‡•ç‡§Ø‡§Æ‡•ç = krama-expresses
+‡§Ö‡§∞‡•ç‡§•-‡§∏‡§æ‡§Æ‡•ç‡§Ø‡§Æ‡•ç = order-expresses
 
 ------------------------------------------------------------------------
 -- 8.  THE THREE-WAY SEPARATION, COMPLETED.
@@ -373,7 +373,7 @@ open import Saptabhangi
 -- separated by at least one:
 --
 --                        ‡‡æ‡Æ‡Ø‡ø‡ï?    sayable in one utterance?
---   ‡‡®‡‡ï‡‡‡Æ‡ (Satyayantra)   yes             --
+--   ‡‡®‡‡ï‡‡‡Æ‡ (Satyamachine)   yes             --
 --   00                     no             yes
 --   ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ (4th bhaga)  no             no
 ------------------------------------------------------------------------
@@ -524,7 +524,7 @@ open import NaturalMachine.NonUniquenessAndInexpressibilityAreIndependent
 ‡§®-‡§ß‡•ç‡§∞‡•Å‡§µ‡•å = corner-neither
 -- The other two corners, named rather than tupled.  A four-way tuple with
 -- an inferred type leaves Agda unable to solve which Œ it is (the same
--- ambiguity ¬ß5 of `BhavanaKrida` hit), and an anonymous meta is not a
+-- ambiguity ¬ß5 of `CompositionKrida` hit), and an anonymous meta is not a
 -- checked claim.  Four names, four checks.
 ‡§™‡•É‡§•‡§ï‡•ç-‡§Ö‡§®‡•á‡§ï‡§Æ‡•ç : _
 ‡§™‡•É‡§•‡§ï‡•ç-‡§Ö‡§®‡•á‡§ï‡§Æ‡•ç = corner-nonUnique-expressible

@@ -15,13 +15,13 @@ open import Fiber.Nucleus
 
 -- The law's other projection: the residual, and the price of a collapse.
 -- Its two-valued test is a ‡¶‡‡∞‡‡®‡Ø; see the struck paragraph in its header.
-open import Fiber.Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph
+open import Fiber.Residue_TheResidualIsTheOtherProjectionOfTheSameGraph
 
 -- The repair: the diagnosis is a CENSUS, not a verdict.  A fiber fails to
 -- be contractible in two opposite ways ‚î empty (‡®‡æ‡‡‡‡ø: no source over b,
 -- ‡ß‡®‡æ‡‡‡Æ‡ï‡Æ‡) and crowded (‡®‡‡‡ü‡ø, ‡‡‡‡∞‡‡ø‡ï‡æ‡∞‡‡Ø‡æ) ‚î and `isContr` merges
 -- them.  Contains the computed refutation of the sequential diagnostic.
-open import Fiber.SakalaVikalaDesa_TheFiberCensusIsATermAndItRefutesTheSequentialDiagnostic
+open import Fiber.WholePartialDesa_TheFiberCensusIsATermAndItRefutesTheSequentialDiagnostic
 
 -- ‚¶and the census's own collapse, one level up.  A fourth outcome exists
 -- that `‡¶‡‡` structurally cannot express ‚î the question with no subject ‚î
@@ -44,7 +44,7 @@ open import Fiber.KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisi
 -- of Jayadeva c. 950 and Bhskara II, Bjagaita, 1150): base = the two
 -- roots ‡‡‡Ø‡‡‡‡† / ‡ï‡®‡ø‡‡‡† over ‚, carried = the ‡ï‡‡‡‡ a¬≤ ‚àí D b¬≤, which the
 -- roots determine exactly.
-open import Fiber.Bhavana_TheKsepaIsDeterminedByTheRootsAndCompositionMultipliesIt
+open import Fiber.Composition_TheKsepaIsDeterminedByTheRootsAndCompositionMultipliesIt
 
 -- ‡‡‡‡æ‡®‡ø‡µ‡¶‡‡‡æ‡µ (Pini, Adhyy 1.1.56 ‡‡‡‡æ‡®‡ø‡µ‡¶‡æ‡¶‡‡‡ã‡Ω‡®‡≤‡‡µ‡ø‡ß‡, ~500 BCE;
 -- with 1.1.60, 1.1.62, 1.3.9, 1.1.5): a ‡µ‡∞‡‡'s three fields are mutually
@@ -56,12 +56,12 @@ open import Fiber.Bhavana_TheKsepaIsDeterminedByTheRootsAndCompositionMultiplies
 open import Fiber.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried
 
 -- ‡‡ø‡‡‡‡ø: the carrier is not two-valued, and the wall crosses its own ford.
-open import Fiber.BhittiSthanivat_PaninisCarrierIsNotTwoValuedAndTheWallCrossesItsOwnFord
+open import Fiber.BhittiPositional_PaninisCarrierIsNotTwoValuedAndTheWallCrossesItsOwnFord
 
 -- ‡‡‡‡æ‡®‡ø‡µ‡‡‡‡ô‡‡ñ‡‡Ø‡æ ‚î the machine's own frontier ask (jva join score 2970):
 -- the dea state space enumerated, ‡‡‡‡æ‡®‡ø‡µ‡‡ ‚â Fin 81, the carried datum
 -- adding nothing to the count ‚î ahis read as a number.
-open import Fiber.SthanivatSankhya_TheAdesaStateSpaceIsExactlyEightyOneAndTheJoinToTheNumberComponentIsChecked
+open import Fiber.PositionalCount_TheAdesaStateSpaceIsExactlyEightyOneAndTheJoinToTheNumberComponentIsChecked
 
 -- ‡‡‡µ‡ø‡‡æ-‡‡‡Æ‡‡‡ø ‚î the carried memory is alive at every depth of the infinite
 -- orbit: at rung n it is ‡Ø‡ã‡ó of the n-th state, never a stale payload.

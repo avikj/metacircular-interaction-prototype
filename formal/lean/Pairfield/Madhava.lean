@@ -80,7 +80,7 @@ error bound, and which are formalised in neither lane.
 
 ## History of this file
 
-Landed empty on 2026-08-18 in commit `e2772cca` ("Brahmagupta's bhavana and
+Landed empty on 2026-08-18 in commit `e2772cca` ("Brahmagupta's composition and
 Pingala's matrameru, both checked"), whose message does not mention it: three
 `import` lines, no declaration.  A module carrying Mādhava's name and
 containing no mathematics is the naming fault this repository's own file-name

@@ -37,7 +37,7 @@
 --   THE SECOND, and it is what is proved below.  A refuted round trip
 --   refutes THE PAIR.  It says nothing about the types.  Three verdicts
 --   live under the machine's single "not accepted", and
---   `Tantujala_â¦agda` already gives this repository the shape of that
+--   `Fiberjala_â¦agda` already gives this repository the shape of that
 --   complaint: a two-valued verdict on three positions identifies two of
 --   them.  Here the three are
 --

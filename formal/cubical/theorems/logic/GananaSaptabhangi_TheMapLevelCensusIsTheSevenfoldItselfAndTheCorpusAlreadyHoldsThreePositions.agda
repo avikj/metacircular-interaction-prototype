@@ -4,7 +4,7 @@
 -- ‡ó‡‡®‡æ-‡‡‡‡‡‡ô‡‡ó‡ ‚î the map-level census IS the sevenfold, and the corpus
 -- already holds witnesses of three distinct positions.
 --
--- THE IMPURITY REPAIRED.  `SakalaVikalaDesa` made the census a term ‚î but
+-- THE IMPURITY REPAIRED.  `WholePartialDesa` made the census a term ‚î but
 -- PER POINT: three constructors (‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ / ‡‡ï‡≤‡æ‡¶‡‡ / ‡µ‡ø‡ï‡≤‡æ‡¶‡‡) at each b.
 -- A MAP's character is which of the three kinds occur anywhere across its
 -- codomain ‚î a selection from three seeds ‚î and the non-empty selections
@@ -37,7 +37,7 @@
 --
 -- GRADE.  The classification records below are MINE (built 2026-08-23);
 -- the sevenfold count and the seed reading are Saptabhangi's and
--- SakalaVikalaDesa's respectively; Malliea (Sydvdamajar, 1292, at
+-- WholePartialDesa's respectively; Malliea (Sydvdamajar, 1292, at
 -- ‡‡‡‡¶ grade via the note) for sakaldea/vikaldea.  No claim that any
 -- Jain author classified functions; the claim is that their selection
 -- algebra is this classification's type, on the nose.

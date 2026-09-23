@@ -1,11 +1,11 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
-module Yantra.Shodhita where
+module Machine.Shodhita where
 -- àà‹à§à¿à: the RH lane rebuilt on the certified factorization.
 -- Î¼ read off factor n; every branch a Dec object; the Mertens gate
 -- |M(k)|Â² â‰ k checked at every k on the certified Î¼.
 
-open import Yantra.Prakriti
-open import Yantra.Vibhajana using (Prati; product; factor)
+open import Machine.Prakriti
+open import Machine.Vibhajana using (Prati; product; factor)
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
 open import Cubical.Data.Nat.Order

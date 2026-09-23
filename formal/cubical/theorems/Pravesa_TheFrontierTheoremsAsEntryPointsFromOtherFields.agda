@@ -23,7 +23,7 @@
 -- named term is.
 --
 -- ‚î‚î FROM CRYPTOGRAPHY & ECONOMICS ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- `replay-needs-no-receipt` (Nirvyaja), with PramanaSankramana's receipt
+-- `replay-needs-no-receipt` (Nirvyaja), with PramanaTransport's receipt
 -- calculus.  Firing an operation may DEMAND a receipt R; the machine keeps
 -- only the derivation, whose control is `t ‚â° source`, no R.  Generation pays
 -- R; replay pays `refl`.  Reading: a proof-carrying commons cannot be rented
@@ -62,7 +62,7 @@ module Pravesa_TheFrontierTheoremsAsEntryPointsFromOtherFields where
 -- cryptography & economics
 open import Nirvyaja_TheReceiptIsSpentAtGenerationAndTheReplayNeedsNone
   using (replay-needs-no-receipt ; replay-is-sound) public
-open import PramanaSankramana_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty
+open import PramanaTransport_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty
   using (Receipt ; ‡§∏‡§®‡•ç‡§ß‡§æ‡§®‡§Æ‡•ç ; ‡§Ö‡§ï‡•ç‡§∑‡§Ø‡§É ; ‡§Ö‡§®‡•É‡§£‡§Æ‡•ç ; ‡§µ‡•ç‡§Ø‡§Ø‡§∞‡§π‡§ø‡§§‡§É) public
 
 -- quantum computing

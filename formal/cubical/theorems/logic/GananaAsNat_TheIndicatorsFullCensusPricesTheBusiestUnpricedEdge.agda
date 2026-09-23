@@ -11,7 +11,7 @@
 -- One receipt prices the shape all five share: the indicator.
 --
 -- THE RECEIPT, an identification per point of the codomain (never a
--- bound), in SakalaVikalaDesa's three-verdict vocabulary:
+-- bound), in WholePartialDesa's three-verdict vocabulary:
 --
 --   fibre over 0        : contractible  ‚î ‡‡ï‡≤‡æ‡¶‡‡  (exactly false)
 --   fibre over 1        : contractible  ‚î ‡‡ï‡≤‡æ‡¶‡‡  (exactly true)

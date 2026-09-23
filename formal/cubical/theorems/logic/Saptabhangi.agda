@@ -15,7 +15,7 @@
 -- ‡‡µ‡ï‡‡‡µ‡‡Ø‡ ‡≤‡‡Æ‡‡‡‡ø ‚î ‡‡ ‡‡µ ‡∞‡ã‡ó‡ ‡Ø‡Æ‡ ‡ï‡‡ü‡‡ü‡ï-‡‡‡µ‡ ‡‡‡‡Ø‡‡‡ ‡
 --
 -- (Jain logic AS mathematics: from the two seed predicates asti and nsti,
--- two modes of assertion ‚î krama (sequential) and saha (simultaneous).
+-- two modes of assertion ‚î order (sequential) and saha (simultaneous).
 -- Sequential is speakable (asti-nsti); simultaneous BREAKS THE TONGUE ‚î
 -- avaktavya, a fourth, irreducibly distinct position.  The main theorem
 -- proves ‡‡‡Ø‡æ‡‡-‡‡‡‡‡ø-‡®‡æ‡‡‡‡ø ‚â ‡‡‡Ø‡æ‡‡-‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡: simultaneity is NOT
@@ -73,7 +73,7 @@ data ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä : Type where
 ------------------------------------------------------------------------
 -- ‡ï‡‡∞‡Æ-‡‡-‡‡‡¶‡ ‚î ‡Æ‡‡ñ‡‡Ø‡‡ø‡¶‡‡ß‡ø‡ : ‡â‡‡Ø‡‡‡Ø ‡ï‡‡∞‡Æ‡ ‡‡‡‡‡ ‡‡ø‡®‡‡®‡ ‡µ‡æ‡‡‡Ø‡ ; ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡
 -- ‡® ‡ï‡‡∞‡Æ-‡Ø‡ã‡ó‡ ‡  ‡µ‡ø‡‡‡¶-‡ï‡‡‡‡‡‡∞‡‡ (Bool ‡µ‡ø‡®‡æ) ‡‡‡∞‡Æ‡æ‡‡ø‡‡Æ‡ ‡
--- (the main theorem: krama and saha of ‡â‡‡Ø‡Æ‡ differ ‚î avaktavya is not
+-- (the main theorem: order and saha of ‡â‡‡Ø‡Æ‡ differ ‚î avaktavya is not
 -- sequential both-ness.  Proved via a type-valued discriminator, no Bool.)
 ------------------------------------------------------------------------
 

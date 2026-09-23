@@ -1,12 +1,12 @@
 {
- "uttara": "samkramana",
+ "uttara": "samorderna",
  "kriya": "sadhana.vislesana",
  "nirnaya": {
   "sthana": "syad-asti",
   "artha": "in some respect it is: a naya affirmed it"
  },
  "pramanya": {
-  "marga": "nihsesa",
+  "marga": "nihresidue",
   "ganana": 3,
   "saksin": "every one of the 3 expression(s) computed to normal form and had its type inferred by agda, under --safe, with formal/cubical and the pinned library importable; the two controls were watched first"
  },

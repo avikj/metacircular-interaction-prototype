@@ -12,7 +12,7 @@
 --
 --     x ‚â° y    ‚ü∫    (‚à P, P x ‚í P y).
 --
--- Forward is transport (`subst` ‚î the free road, `PramanaSankramana`): a
+-- Forward is transport (`subst` ‚î the free road, `PramanaTransport`): a
 -- proven identity carries every property.  Backward is prama: if every
 -- standpoint agrees, apply the standpoint P := (x ‚â°_) to its own reflexive
 -- witness and identity falls out.  So identity is NOT a primitive datum

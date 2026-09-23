@@ -46,19 +46,19 @@ SANSKRIT_LABEL = re.compile(r"\bSanskrit\b", re.I)
 # public presentation. Jain vocabulary such as naya, pramana, karma, moksa,
 # and saptabhangi is intentionally retained.
 NON_JAIN_SANSKRIT = {
-    "avataranika": "descent-note", "avatarana": "descent", "sesa": "residue",
-    "samvada": "interaction", "krama": "order", "niyama": "rule",
-    "yantra": "machine", "bhavana": "composition", "visvarupa": "universal",
-    "punaragamana": "return", "punaragam": "return", "kosa": "shell",
-    "ksitija": "horizon", "pratibimba": "reflection", "parivarta": "exchange",
-    "vakra": "curved", "valaya": "loop", "sima": "boundary",
-    "prastha": "block", "khanda": "segment", "adhah": "lower",
-    "shunya": "zero", "garbha": "kernel", "upadhi": "qualifier",
-    "kuttaka": "euclidean", "sthana": "position", "sankhya": "count",
-    "sakala": "whole", "vikala": "partial", "desa": "region",
-    "samagra": "total", "samata": "equality", "dvidha": "split",
-    "tantu": "fiber", "srotas": "stream", "sanghata": "aggregate",
-    "sankramana": "transport", "samuha": "set", "pratyahara": "contraction",
+    "avataranika": "descent-note", "descent": "descent", "residue": "residue",
+    "interaction": "interaction", "order": "order", "niyama": "rule",
+    "machine": "machine", "composition": "composition", "universal": "universal",
+    "return": "return", "punaragam": "return", "shell": "shell",
+    "horizon": "horizon", "reflection": "reflection", "parivarta": "exchange",
+    "curved": "curved", "loop": "loop", "sima": "boundary",
+    "block": "block", "segment": "segment", "adhah": "lower",
+    "shunya": "zero", "kernel": "kernel", "qualifier": "qualifier",
+    "kuttaka": "euclidean", "sthana": "position", "count": "count",
+    "whole": "whole", "partial": "partial", "desa": "region",
+    "samagra": "total", "equality": "equality", "split": "split",
+    "fiber": "fiber", "stream": "stream", "aggregate": "aggregate",
+    "sanorderna": "transport", "set": "set", "pratyahara": "contraction",
     "pratyaya": "evidence", "nirjara": "reduction", "kaivalya": "decoupling",
     "sutra": "rule-text", "pada": "term", "sakti": "capacity",
     "purna": "complete", "purnata": "completeness", "pariksa": "check",
@@ -352,10 +352,10 @@ def declaration_link(row, name):
 def enrich_pratt(markup, rows, names, types):
     by_path = {row["relative"]: row for row in rows if row["origin"] == "repository"}
     anchors = {
-        "Lossless": ("formal/cubical/theorems/residue/Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda", "Lossless"),
-        "π": ("fibre/src/Fibre/Visvarupa_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda", "π"),
+        "Lossless": ("formal/cubical/theorems/residue/Uniqueness_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda", "Lossless"),
+        "π": ("fibre/src/Fibre/Universal_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda", "π"),
         "LawfulStep": ("fibre/src/Fibre/LawfulStep_TheVisibleStepNeedNotBeInvertibleAndItsResidueIsStillExactlyOneFibre.agda", "LawfulStep"),
-        "ISC": ("fibre/src/Fibre/Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers.agda", "ISC"),
+        "ISC": ("fibre/src/Fibre/Interaction_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers.agda", "ISC"),
     }
     links = {}
     for symbol, (path, name) in anchors.items():
@@ -391,8 +391,8 @@ def enrich_pratt(markup, rows, names, types):
         ("classifier", anchors["π"][0], 121, 125, "Universal family"),
         ("classifier", anchors["π"][0], 194, 195, "Classifier"),
         ("productive-interaction", anchors["ISC"][0], 79, 85, "Interactive coalgebra"),
-        ("time-information", "formal/cubical/theorems/physics/Ksitija_TheCausalConeDescendsToTheHorizonAndFailsAtTheVeryNextStep.agda", 90, 92, "Causal future"),
-        ("time-information", "formal/cubical/theorems/physics/Ksitija_TheCausalConeDescendsToTheHorizonAndFailsAtTheVeryNextStep.agda", 119, 130, "Horizon obstruction"),
+        ("time-information", "formal/cubical/theorems/physics/Horizon_TheCausalConeDescendsToTheHorizonAndFailsAtTheVeryNextStep.agda", 90, 92, "Causal future"),
+        ("time-information", "formal/cubical/theorems/physics/Horizon_TheCausalConeDescendsToTheHorizonAndFailsAtTheVeryNextStep.agda", 119, 130, "Horizon obstruction"),
         ("observation-residual-phase", "formal/cubical/theorems/residue/ActionResidualPhase.agda", 88, 104, "Residual phase"),
     ]
     grouped = {}

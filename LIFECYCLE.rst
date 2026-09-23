@@ -43,7 +43,7 @@ The foundational order is::
         whose constructed transformations can return as operations
 
 It is not a finite kernel with an infinite loop and a biological metaphor
-attached afterward. ``Fibre.Samvada`` supplies the live process;
+attached afterward. ``Fibre.Interaction`` supplies the live process;
 ``CorpusSelfPresentation`` retains the actual transition residual;
 ``Fibre.Nucleus`` relates the carrier presentation to the whole coinductive
 orbit; the installation constructions close finite derivations back into

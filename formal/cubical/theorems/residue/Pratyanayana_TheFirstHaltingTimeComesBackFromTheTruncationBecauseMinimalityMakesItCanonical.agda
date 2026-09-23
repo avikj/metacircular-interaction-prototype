@@ -42,7 +42,7 @@ open import Cubical.Data.Empty as Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.HITs.PropositionalTruncation using (∥_∥₁ ; ∣_∣₁ ; rec)
 
-open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
 open import AnulomaViloma_TheTraceComposesTheCompletedRunRunsBackwardsByReflAndWhenTheMachineHaltsIsAProposition
   using (HaltsAt ; FirstHalt ; halting-time-is-a-proposition)
 open import TrtiyoMargoNaVidyate_EachStepIsATransportOrASilenceWithItsWitnessAndTheLimitIsNoThirdRoad

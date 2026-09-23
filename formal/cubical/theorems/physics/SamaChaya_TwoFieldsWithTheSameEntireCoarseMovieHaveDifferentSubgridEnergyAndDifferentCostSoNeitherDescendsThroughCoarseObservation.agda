@@ -25,7 +25,7 @@
 --   §2  THE PAIR.  The plane wave and zero have the same coarse movie
 --       at every time and every mode � K � because k > K.
 --   §3  ENERGY DISTINGUISHES.  Subgrid energy A² against 0; cost A²
---       against 0.  By SankramanaShreni's localization, neither descends
+--       against 0.  By TransportShreni's localization, neither descends
 --       through the coarse observation: no function of the resolved
 --       movie alone reconstructs them.
 --
@@ -45,7 +45,7 @@ open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; ≤Dec ; ¬m<m ; <≤-tr
 open import Cubical.Data.Empty using (⊥) renaming (rec to ⊥-elim)
 open import Cubical.Relation.Nullary using (¬_ ; Dec ; yes ; no)
 
-open import SankramanaShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot
+open import TransportShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot
   using (module Localization)
 
 ------------------------------------------------------------------------

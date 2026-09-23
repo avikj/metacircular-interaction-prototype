@@ -18,15 +18,15 @@ All paths below are relative to the repository root at the snapshot above. These
 
 **S1 ‚î forced completion.** `fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda`: `Conservative`, `fiberize`, `canonical`, `fibre-of-run`, `trace-is-forced`, `canonical-run`, `canonical-recovers`.
 
-**S2 ‚î classifier.** `fibre/src/Fibre/Visvarupa_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda`: universal family, canonical pullback, classifier, `invisible‚âcontractible`, finite tower flattening. The classifier is universal at the stated universe levels; it is not an assertion that inequivalent types become equal or that encodings preserve operational cost without structure.
+**S2 ‚î classifier.** `fibre/src/Fibre/Universal_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda`: universal family, canonical pullback, classifier, `invisible‚âcontractible`, finite tower flattening. The classifier is universal at the stated universe levels; it is not an assertion that inequivalent types become equal or that encodings preserve operational cost without structure.
 
 **S3 ‚î truncation fibre.** `fibre/src/Fibre/Avaccheda_TheTruncationsFibreIsTheWholeSourceSoTheSeamConjectureIsATheorem.agda`: `‡‡µ‡‡‡‡‡¶‡` (avaccheda), explicitly `fiber |_| p ‚â A`.
 
-**S4 ‚î composite fibre.** `punaragamana/src/Punaragamana/SamyogaSesa_TheResidualOfACompositeIsTheResidualOfTheResidual.agda`: `‡‡‡Ø‡ã‡ó‡‡‡` (samyoga-sesa), the fibre-of-composite equivalence.
+**S4 ‚î composite fibre.** `return/src/Return/SamyogaResidue_TheResidualOfACompositeIsTheResidualOfTheResidual.agda`: `‡‡‡Ø‡ã‡ó‡‡‡` (samyoga-residue), the fibre-of-composite equivalence.
 
 **S5 ‚î coinductive histories.** `formal/cubical/theorems/residue/Prasna_TheMachineThatAsksItsRunIsItsAnswerStreamAndSilenceOfQuestionsIsDeterminism.agda`: `Interaction`, `IExec`, `Answers`, `forgetStates`, `replay`, `run-is-answers`, `silence-is-determinism`. The last theorem is a sufficient condition, not an unrestricted iff about every state in every interaction.
 
-**S6 ‚î interactive coalgebra.** `fibre/src/Fibre/Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers.agda`: `ISC.react`, `det-observe`, `det-strategy-independent`, `counter-demand-matters`.
+**S6 ‚î interactive coalgebra.** `fibre/src/Fibre/Interaction_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers.agda`: `ISC.react`, `det-observe`, `det-strategy-independent`, `counter-demand-matters`.
 
 **S7 ‚î the crossing equations.** `formal/cubical/theorems/physics/AnantaVeni_TheInfiniteBraidActsOnTheInterdependentStreamAndEveryRelationOfEveryBraidGroupHoldsAtOnce.agda`: `Rajju`, `sayoga`, `ve‚àû`, `ve-stra`, `dra-stra`.
 

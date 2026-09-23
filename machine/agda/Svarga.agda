@@ -15,14 +15,14 @@
 -- to run on any CPU, in one page, with no kernel, no model, no float ‚î the
 -- akara form that survives every avatar.  Ordinary ; the compound
 -- is built here, 2026-08-23; no text is claimed for it and no source claims
--- the theorems, which are cubical-corpus facts (Punaragamana.Carrier;
+-- the theorems, which are cubical-corpus facts (Return.Carrier;
 -- Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡) restated as a FINITE EXHAUSTIVE computation, which is
 -- proof for the stated box per CLAUDE.md ("exact/certified symbolic
 -- computation is proof"), NOT a reproof of the general cubical terms.
 --
 -- Ported 2026-08-24 from machine/Svarga_‚¶hs, term-for-term, into --safe Agda,
 -- compiled by the kernel's own backend (MAlonzo/GHC) per the recipe in
--- SanghattaYantra (this repo).  `report : String` is the entire pure
+-- SanghattaMachine (this repo).  `report : String` is the entire pure
 -- computation; the IO membrane lives in SvargaMukha.agda.
 
 {-# OPTIONS --safe #-}

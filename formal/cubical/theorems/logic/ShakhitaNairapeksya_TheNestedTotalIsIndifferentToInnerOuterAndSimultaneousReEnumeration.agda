@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- BahuShakhaEnumerationIndependenceProbe
 --
--- Consequences of the checked `KramaNairapeksya` theorem. These are separated
+-- Consequences of the checked `OrderNairapeksya` theorem. These are separated
 -- from the generic finite-fold result so the kernel can distinguish a defect
 -- in dependent reindexing from the already-closed permutation theorem.
 --
@@ -34,7 +34,7 @@ open import SamaVibhaga_TransitiveSymmetryNormalizationAndUniqueDivisionForceThe
   using (total ; total-ext)
 open import BahuShakha_TheDependentRefinementSumsBranchwiseAndTheBooksBalance
   using (शाखितयोगः)
-open import KramaNairapeksya_TheTotalIsIndifferentToTheEnumerationSpendingOnlyAssocAndComm
+open import OrderNairapeksya_TheTotalIsIndifferentToTheEnumerationSpendingOnlyAssocAndComm
   using (permutation-invariant)
 
 private

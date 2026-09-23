@@ -92,7 +92,7 @@ private
 -- §� � THE GRAPH DECOMPOSITION IS AN INSTANCE (HoTT 4.8.2).
 --      A � �[ b ] fiber f b � one connection square, the singleton fact
 --      read at the total space.  The corpus's boundary/memory theorems
---      (Avaccheda, Sesa, SankramanaSesa §2) instantiate this.
+--      (Avaccheda, Residue, TransportResidue §2) instantiate this.
 ------------------------------------------------------------------------
 
 गुणसमष्टिः : {A : Type ℓ} {B : Type ℓ} (f : A → B)

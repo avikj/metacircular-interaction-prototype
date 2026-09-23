@@ -84,8 +84,8 @@ act s8-4-53 t = just d      -- jhaL t → jaŚ d, before jhaŚ j
 act _       _ = nothing
 
 -- the tripd in the order Pini enumerates it
-krama-order : List Sutra
-krama-order = s8-2-39 ∷ s8-4-40 ∷ s8-4-53 ∷ []
+order-order : List Sutra
+order-order = s8-2-39 ∷ s8-4-40 ∷ s8-4-53 ∷ []
 
 ------------------------------------------------------------------------
 -- 2.  ����� � each rule acts on what the previous ones produced (8.2.1).
@@ -96,8 +96,8 @@ apply1 x s with act s x
 ... | just y  = y
 ... | nothing = x
 
-krama : Antya → Antya
-krama x = foldl apply1 x krama-order
+order : Antya → Antya
+order x = foldl apply1 x order-order
 
 ------------------------------------------------------------------------
 -- 3.  �� � every rule is offered the SAME input (6.4.22), and where two
@@ -112,7 +112,7 @@ suc m <ᵇ suc n = m <ᵇ n
 
 -- every rule's offer against the UNMODIFIED form
 offers : Antya → List (Sutra × Antya)
-offers x = go krama-order
+offers x = go order-order
   where
     go : List Sutra → List (Sutra × Antya)
     go [] = []
@@ -139,8 +139,8 @@ saha x with best (offers x)
 ------------------------------------------------------------------------
 
 -- 8.2.39 fires, then 8.4.40 acts on its output: t � d � j.  `tajjalam`.
-krama-gives-j : krama t ≡ j
-krama-gives-j = refl
+order-gives-j : order t ≡ j
+order-gives-j = refl
 
 -- all three see t; 1.4.2 takes 8.4.53, and the pass stops.  `tadjalam`.
 saha-gives-d : saha t ≡ d
@@ -154,11 +154,11 @@ j≢d : ¬ (j ≡ d)
 j≢d p = true≢false (cong isJ p)
 
 -- so the device is load-bearing, not presentational
-regimes-differ : ¬ (krama t ≡ saha t)
+regimes-differ : ¬ (order t ≡ saha t)
 regimes-differ = j≢d
 
 -- and they agree wherever at most one rule ever offers
-agree-where-uncontested : krama c ≡ saha c
+agree-where-uncontested : order c ≡ saha c
 agree-where-uncontested = refl
 
 ------------------------------------------------------------------------
@@ -214,5 +214,5 @@ saha-fixed = refl
 
 -- iterated, the simultaneous regime reaches exactly what the ordered one
 -- reaches in a single traversal
-saha-converges-to-krama : saha (saha t) ≡ krama t
-saha-converges-to-krama = refl
+saha-converges-to-order : saha (saha t) ≡ order t
+saha-converges-to-order = refl

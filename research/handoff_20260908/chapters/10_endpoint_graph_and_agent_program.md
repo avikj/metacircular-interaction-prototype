@@ -49,7 +49,7 @@ A coordinator should first inspect the current worktree and existing agent assig
 
 ### Lane I â” native runtime, proof interfaces and evidence
 
-Run the nonmutating preflight. Reconcile the actual compiler pin, library files, case-sensitive module paths, negative controls and import roots. Smoke-test Yantra `sadhana.patra` and `sadhana.vislesana` on the already-proved native normalizer; record returned normal form, derivation type, and learned-operation type. Verify both positive and false controls before accepting a candidate gate verdict.
+Run the nonmutating preflight. Reconcile the actual compiler pin, library files, case-sensitive module paths, negative controls and import roots. Smoke-test Machine `sadhana.patra` and `sadhana.vislesana` on the already-proved native normalizer; record returned normal form, derivation type, and learned-operation type. Verify both positive and false controls before accepting a candidate gate verdict.
 
 Deliverable: exact commands/logs plus a machine-readable run report identifying the source tree, pinned libraries and exercised module closure. A command merely printing âgreenâ without this context is not enough. Do not stage generated session logs or overwrite shared defect journals accidentally.
 

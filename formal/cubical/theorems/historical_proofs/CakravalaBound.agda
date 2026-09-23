@@ -40,7 +40,7 @@
 --
 -- with the first stated subtraction-free as AÂA â‰ 4D together with
 -- A + K â‰¡ 2m  or  A + 2m â‰¡ K  (i.e. A = |2m âˆ’ K|), which is the same
--- clearing of monus that `BhavanaSemiring` and `CakravalaNat` perform for
+-- clearing of monus that `CompositionSemiring` and `CakravalaNat` perform for
 -- the composition law.  Nothing here needs â, and cubical's â product is
 -- unary, so â• is also the only substrate on which this computes.
 --

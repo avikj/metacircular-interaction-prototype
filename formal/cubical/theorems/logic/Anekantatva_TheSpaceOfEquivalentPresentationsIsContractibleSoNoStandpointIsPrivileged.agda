@@ -18,7 +18,7 @@
 -- `T â‰ A` â” form a CONTRACTIBLE space (`EquivContr`).  Read exactly:
 --   â there are MANY presentations (nayas): every equivalent T is one;
 --   â each is a TRUE view: it is genuinely â‰ A, loses nothing (transport,
---     `PramanaSankramana`);
+--     `PramanaTransport`);
 --   â NO presentation is privileged: the space of them has no distinguished
 --     point beyond being contractible â” A itself (with idEquiv) is not
 --     "more real" than any equivalent T;

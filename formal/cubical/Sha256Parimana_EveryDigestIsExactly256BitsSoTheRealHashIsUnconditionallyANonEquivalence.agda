@@ -4,7 +4,7 @@
 -- Sha256Parimana â” every digest is exactly 256 bits, for EVERY message,
 -- so the real hash is unconditionally a non-equivalence.
 --
--- Sha256Sesa fenced this off: "Â isEquiv sha256 is not asserted: the
+-- Sha256Residue fenced this off: "Â isEquiv sha256 is not asserted: the
 -- honest routes are a length invariant through the pipeline (unwritten)
 -- or an exhibited collision (open)."  This module walks the first
 -- route.  The invariant: every word the pipeline carries has 32 bits â”
@@ -18,7 +18,7 @@
 --
 -- The second is the first spent once: an equivalence would inhabit the
 -- fibre over the empty digest, whose preimage's digest has 256 â‰¡ 0.
--- With it, Sesa's "a one-way function is exactly a non-equivalence" is
+-- With it, Residue's "a one-way function is exactly a non-equivalence" is
 -- instantiated at the real hash UNCONDITIONALLY â” no collision needed,
 -- none exhibited.  (The fence stands for the sharper fact: Â injective
 -- sha256 on any compressing restriction is forced by pigeonhole and
@@ -43,7 +43,7 @@ open import Cubical.Data.Empty as Empty using ()
 open import Cubical.Relation.Nullary using (Â¬_)
 
 open import Sha256
-open import Sha256Sesa_TheCompletionInvertsTheRealHashFreelyAndAnInverterOfTheLossyProjectionIsExactlyCollisionFreedom
+open import Sha256Residue_TheCompletionInvertsTheRealHashFreelyAndAnInverterOfTheLossyProjectionIsExactlyCollisionFreedom
   using (sW-Î² ; forceWs-Î²)
 
 ------------------------------------------------------------------------
@@ -214,7 +214,7 @@ flat-len (w âˆ· ws) acc a =
 -- Â§6  à¨-ààà²àà¯àà¾ â” the real hash is unconditionally a non-equivalence.
 --     An equivalence inhabits every fibre; the fibre over the empty
 --     digest would hand over a message whose 256 bits are 0 of them.
---     Sesa's "one-way âŸº non-equivalence", landed on SHA-256 with no
+--     Residue's "one-way âŸº non-equivalence", landed on SHA-256 with no
 --     collision anywhere in the proof.
 ------------------------------------------------------------------------
 

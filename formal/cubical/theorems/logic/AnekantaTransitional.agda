@@ -5,7 +5,7 @@
 --
 -- ‡‡Ø‡ ‡‡‡∞‡‡Æ‡ ‡‡‡∞‡Ø‡‡‡®‡ ‡‡®‡®‡ discrete‚ï (‡µ‡ø‡‡æ‡∞‡Æ‡, Dec) ‡‡‡∞‡Ø‡‡ô‡‡ï‡‡‡ ; ‡‡ ‡Æ‡æ‡∞‡‡ó‡
 -- ‡‡‡ø‡ï‡‡∞‡Æ‡‡Ø ‡µ‡ø‡‡æ‡∞‡ ‡µ‡ø‡®‡æ ‡‡‡µ‡‡‡‡æ‡ ‡≤‡‡ñ‡æ‡ ‡∞‡‡ø‡‡æ‡ (Jiva-‡®‡ø‡∞‡ã‡ß‡) :
---   BhedaAvatarana  ‚î ‡µ‡ø‡‡æ‡∞‡ ‡µ‡ø‡®‡æ ‡‡µ‡‡∞‡‡Æ‡ (‡‡ï‡‡¶‡ refl : discrete‚ï ‡≤‡‡‡‡‡) ;
+--   BhedaDescent  ‚î ‡µ‡ø‡‡æ‡∞‡ ‡µ‡ø‡®‡æ ‡‡µ‡‡∞‡‡Æ‡ (‡‡ï‡‡¶‡ refl : discrete‚ï ‡≤‡‡‡‡‡) ;
 --   LosslessReturn    ‚î ‡‡‡∞‡‡ø‡≤‡ã‡Æ‡Æ‡, univalence-‡‡‡ ;  Gati ‚¶ Sadhyata ‚î ‡ï‡‡ü‡‡ü‡ï‡ ;
 --   Saptabhangi     ‚î ‡‡‡‡‡‡ô‡‡ó‡ ‡‡‡µ‡‡‡‡æ (‡ï‡‡∞‡Æ-‡‡-‡‡‡¶‡, ‡¶‡‡∞‡‡®‡Ø‡, ‡ï‡‡‡ ‡‡‡‡) ‡
 --
@@ -154,7 +154,7 @@ private
 --
 -- (`‡‡®‡‡ï‡‡‡Æ‡ a b ‡a ‡b` ‚î a and b agree, entry by entry, along everything
 -- that got said, and (‡a, ‡b) is exactly the pair of tails at the point
--- where one of them ran out.  This is the garbha made into evidence: the
+-- where one of them ran out.  This is the kernel made into evidence: the
 -- old `‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡` took two valls off the street.)
 ------------------------------------------------------------------------
 

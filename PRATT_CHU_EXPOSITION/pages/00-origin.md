@@ -69,7 +69,7 @@ Finite towers of dependent families flatten to one family over the original base
 
 This is the first sense in which the construction is universal. A [Chu space](03-chu-spaces-completed.md), a transition relation, a proof family, an observation family, a bundle, a continuation family, a space of transformations, and a runtime type are not required to inhabit distinct ontologies. They can all be presented as dependent mathematical structure inside the same classifier.
 
-**Checked construction:** [`Visvarupa_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda`](../../fibre/src/Fibre/Visvarupa_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda).
+**Checked construction:** [`Universal_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda`](../../fibre/src/Fibre/Universal_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda).
 
 ---
 
@@ -145,7 +145,7 @@ The lawful lossless machine is the map together with structure that is uniquely 
 
 This is the mathematical core of [The Fibre Law](02-fibre-law.md), [lossless Chu evaluation](03-chu-spaces-completed.md), retained provenance, reversible presentation, exact observation, and the later finding/checking result.
 
-**Checked constructions:** [`Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda`](../../fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda), [`Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda`](../../formal/cubical/theorems/residue/Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda).
+**Checked constructions:** [`Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda`](../../fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda), [`Uniqueness_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda`](../../formal/cubical/theorems/residue/Uniqueness_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda).
 
 ---
 
@@ -356,7 +356,7 @@ A length-\(m+n\) interaction is exactly a length-\(m\) realized prefix together 
 
 This is the central object of [The Interactive Symbolic Computer](10-interactive-symbolic-computer.md) and the productive completion of the finite interaction shadows appearing in Chu evaluation, dynamic logic, automata, proof search, and ordinary program execution.
 
-**Checked construction:** [`Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers.agda`](../../fibre/src/Fibre/Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers.agda).
+**Checked construction:** [`Interaction_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers.agda`](../../fibre/src/Fibre/Interaction_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers.agda).
 
 ---
 

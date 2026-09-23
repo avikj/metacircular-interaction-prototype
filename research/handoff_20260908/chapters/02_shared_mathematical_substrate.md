@@ -17,7 +17,7 @@ A\simeq\sum_{b:B}\operatorname{fib}_f(b),\qquad
 \operatorname{fib}_f(b)=\sum_{a:A}(f(a)=b).
 \]
 
-Its inverse returns the stored source. The repository's `Ekatva`/`Fibre.LawfulStep` work identifies the canonical lossless completion and the exact equation connecting the visible projection to the declared transition. A random equivalence with the same cardinality is not that completion.
+Its inverse returns the stored source. The repository's `Uniqueness`/`Fibre.LawfulStep` work identifies the canonical lossless completion and the exact equation connecting the visible projection to the declared transition. A random equivalence with the same cardinality is not that completion.
 
 For a source-dependent property \(P:A\to\mathcal U\), transport the full dependent family, not merely the Boolean answer that a witness exists. In particular, finite compatible observations do not automatically provide an admissible infinite source. The source image can be a strict subset of its completion.
 

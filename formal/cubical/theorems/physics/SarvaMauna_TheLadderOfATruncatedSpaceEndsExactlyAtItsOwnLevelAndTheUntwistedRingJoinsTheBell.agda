@@ -5,7 +5,7 @@
 -- Mauna stated, and this module states it.
 --
 -- THE QUESTION, asked because its answer was not known to the asker.
--- Mauna: a GROUPOID falls silent above the krama's stratum.  But ‡‡µ‡∞‡ã‡‡
+-- Mauna: a GROUPOID falls silent above the order's stratum.  But ‡‡µ‡∞‡ã‡‡
 -- (k loops peel k levels) never used level three specifically.  What is
 -- the actual law?  And does the torus ‚î the UNTWISTED ring, whose
 -- stratum-3 charge ‚ ó ‚ ArpanaSopana already uttered ‚î also fall
@@ -25,10 +25,10 @@
 --              every stratum above 3 is a point.
 --
 -- THE PICTURE, now closed on both sides.  Torus and Klein bottle: one
--- stratum-3 carrier ‚ ó ‚ (ArpanaSopana, VakraValaya), one strike each,
+-- stratum-3 carrier ‚ ó ‚ (ArpanaSopana, CurvedLoop), one strike each,
 -- silence above (this module) ‚î and the entire difference between the
 -- orientable and non-orientable surface is what the strike SAYS: whether
--- the two successions agree (‡‡Æ‡) or differ (‡‡‡¶‡).  The krama is not
+-- the two successions agree (‡‡Æ‡) or differ (‡‡‡¶‡).  The order is not
 -- one voice among strata; for both rings it is the whole voice, said
 -- once.  The sphere ladder (ArpanaSopana) stands alone as the shape
 -- that never finishes speaking ‚î and ‡‡∞‡‡µ‡Æ‡‡®‡Æ‡ says why: it is not
@@ -61,7 +61,7 @@ open import Cubical.HITs.S1 using (S¬π)
 open import Cubical.HITs.S1.Properties using (isGroupoidS¬π)
 open import Cubical.HITs.Torus.Base using (Torus ; point ; Torus‚â°S¬π√óS¬π)
 
-open import Mauna_TheTwistedRingUttersOnceAndAboveTheKramaEveryStratumIsSilent
+open import Mauna_TheTwistedRingUttersOnceAndAboveTheOrderEveryStratumIsSilent
   using (‡§Ö‡§µ‡§∞‡•ã‡§π‡§É)
 
 private
@@ -104,7 +104,7 @@ private
 
 ------------------------------------------------------------------------
 -- ‡‡Æ‡Æ‡‡®‡Æ‡ ‚î and therefore also a bell struck once: silence at every
--- stratum above the krama's.
+-- stratum above the order's.
 ------------------------------------------------------------------------
 
 ‡§∏‡§Æ‡§Æ‡•å‡§®‡§Æ‡•ç : (m : ‚Ñï)

@@ -16,7 +16,7 @@
 -- Canonical checked module, wired into `Everything.agda`:
 --
 --   formal/cubical/
---   KramaNairapeksya_TheTotalIsIndifferentToTheEnumerationSpendingOnlyAssocAndComm.agda
+--   OrderNairapeksya_TheTotalIsIndifferentToTheEnumerationSpendingOnlyAssocAndComm.agda
 --
 -- It proves for every `e : Fin (suc n) â‰ Fin (suc n)`:
 --

@@ -4,7 +4,7 @@
 -- checked type, normalised.  Normalisation is an observation (never a
 -- destructive ingestion); by ConservativeSemanticCompression the
 -- observer quotient it induces IS conservative semantic compression,
--- and by NerodeYantra its kernel â” group by stored normal form â” is
+-- and by NerodeMachine its kernel â” group by stored normal form â” is
 -- the greatest congruence for that observation.  No pairwise work:
 -- one normalise per declaration, then pure grouping.
 

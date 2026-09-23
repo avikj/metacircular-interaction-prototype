@@ -1,0 +1,85 @@
+{
+  "target": "official-public",
+  "suite_commit": "a49524265bdfa5753a4bf38e25f0574a705dd868",
+  "lanes": {
+    "runtime": [
+      "bend-seq"
+    ]
+  },
+  "only": [
+    "bfs"
+  ],
+  "work": "/Users/avikjain/metacircular-interaction-prototype/benchmarks/bend/work/20260922T042602Z-official-df72df2b",
+  "cache": "/Users/avikjain/metacircular-interaction-prototype/benchmarks/bend/local/toolchains/2026-09-21",
+  "argv": [
+    "benchmarks/bend/bench.py",
+    "run",
+    "--suite",
+    "runtime",
+    "--lanes",
+    "bend-seq",
+    "--only",
+    "bfs"
+  ],
+  "python": "3.9.6 (default, Aug 25 2026, 21:26:21) \n[Clang 21.0.0 (clang-2100.3.34.2)]",
+  "platform": "macOS-26.6-arm64-arm-64bit",
+  "harness_sha256": {
+    "bench.py": "cf2a29141e8b656268f0ca6865b4e959e880a7be583c60317693358152b9188e",
+    "lib/engine.py": "e649269fa8b8e5bc97fc7f98c4c751f86f4dcc90d386c139c077058d11668b7c",
+    "suite.lock.json": "1f1ddd09687e10fb7b6ea5983f116880ff6efe9312d4833b169d934b8fe5996e"
+  },
+  "state": "completed",
+  "started_utc": "2026-09-22T04:26:03Z",
+  "tool_inventory": {
+    "bun": {
+      "path": "/Users/avikjain/metacircular-interaction-prototype/benchmarks/bend/local/toolchains/2026-09-21/bun-darwin-aarch64/bun",
+      "resolved_path": "/Users/avikjain/metacircular-interaction-prototype/benchmarks/bend/local/toolchains/2026-09-21/bun-darwin-aarch64/bun",
+      "sha256": "35d20dd0263e5c950194434b925454fdfa9ba6e4467da960410fa05b08a7a5b5",
+      "version": "1.4.2",
+      "returncode": 0
+    },
+    "node": {
+      "path": "/Users/avikjain/metacircular-interaction-prototype/benchmarks/bend/local/toolchains/2026-09-21/node-v24.21.0-darwin-arm64/bin/node",
+      "resolved_path": "/Users/avikjain/metacircular-interaction-prototype/benchmarks/bend/local/toolchains/2026-09-21/node-v24.21.0-darwin-arm64/bin/node",
+      "sha256": "e4b5a3af0e05c75de2eae013904145f40fe7fc2a6e6f17510128bf45cca4e79b",
+      "version": "v24.21.0",
+      "returncode": 0
+    },
+    "lean": {
+      "path": "/Users/avikjain/metacircular-interaction-prototype/benchmarks/bend/local/toolchains/2026-09-21/lean-4.34.0-darwin_aarch64/bin/lean",
+      "resolved_path": "/Users/avikjain/metacircular-interaction-prototype/benchmarks/bend/local/toolchains/2026-09-21/lean-4.34.0-darwin_aarch64/bin/lean",
+      "sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+      "version": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "returncode": 0
+    },
+    "agda": {
+      "path": "/opt/homebrew/bin/agda",
+      "resolved_path": "/opt/homebrew/Cellar/agda/2.8.0.1/bin/agda",
+      "sha256": "ce2ad98721dbc97e4ab3bd531d105e99b3925875881f1ffd345a4eef1adf2d4e",
+      "version": "Agda version 2.8.0.1\nBuilt with flags (cabal -f)\n - enable-cluster-counting: unicode cluster counting in LaTeX backend using the ICU library\n - optimise-heavily: extra optimisations",
+      "returncode": 0
+    },
+    "rocq": {
+      "path": "/Users/avikjain/metacircular-interaction-prototype/benchmarks/bend/local/toolchains/2026-09-21/rocq-bin/rocq",
+      "resolved_path": "/Users/avikjain/metacircular-interaction-prototype/benchmarks/bend/local/toolchains/2026-09-21/rocq-bin/rocq",
+      "sha256": "c8b65998a563123e9eadcc8266bdb7faa1fc2c2cd2f81cb79657e6f4ea26fe69",
+      "version": "The Rocq Prover, version 9.1.0\ncompiled with OCaml 4.14.2",
+      "returncode": 0
+    },
+    "isabelle": {
+      "path": "/Users/avikjain/metacircular-interaction-prototype/benchmarks/bend/local/toolchains/2026-09-21/isabelle-bin/isabelle",
+      "resolved_path": "/Users/avikjain/metacircular-interaction-prototype/benchmarks/bend/local/toolchains/2026-09-21/Isabelle2025-2.app/bin/isabelle",
+      "sha256": "9fee030dddf4a6cb14e4e701d4885e6d12f67381e486ff6ce5d16af171ddedbc",
+      "version": "Isabelle2025-2",
+      "returncode": 0
+    },
+    "clang": {
+      "path": "/usr/bin/clang",
+      "resolved_path": "/usr/bin/clang",
+      "sha256": "44a68ddc1983d6cff3fd35ba3f9ba5f82004216f1dcde69892b3d1b06e408698",
+      "version": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin",
+      "returncode": 0
+    }
+  },
+  "finished_utc": "2026-09-22T04:26:13Z"
+}

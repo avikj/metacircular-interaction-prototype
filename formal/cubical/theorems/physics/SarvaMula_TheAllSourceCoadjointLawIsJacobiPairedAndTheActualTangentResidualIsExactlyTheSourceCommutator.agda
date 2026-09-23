@@ -7,7 +7,7 @@
 -- THE ACTUAL TANGENT IS PUT IN ITS PLACE THE ERROR IS EXACTLY THE
 -- COMMUTATOR OF THE TWO SOURCE TENSORS.  NOT BOUNDED BY IT � EQUAL.
 --
--- `EkaSesa` computes the congruence `lyap L x` at the unit.  This module
+-- `EkaResidue` computes the congruence `lyap L x` at the unit.  This module
 -- computes it at a SOURCE TENSOR, and the answer separates into two
 -- pieces of entirely different character.
 --
@@ -48,7 +48,7 @@
 --   anticommutator, and it is used exactly once.
 --
 --   §3  AT ITS OWN SOURCE the commutator is `bracket x x ≡ 0r`, so the
---       residual disappears and the identity `EkaSesa` uses is recovered
+--       residual disappears and the identity `EkaResidue` uses is recovered
 --       as a special case:  lyap (Mop + Π u) (Π u) ≡ Π (M u) .
 --
 --   §4  AND WHEN THE COADJOINT TERM VANISHES the whole tangent action is
@@ -56,7 +56,7 @@
 --       bracket (Π u) (Π w) .  So the tangent can move a source tensor
 --       in a direction whose entire content is a commutator � and
 --       whether such a direction is itself a source is a question about
---       the image of `Π`, answered separately in `RiktaTantu`.
+--       the image of `Π`, answered separately in `RiktaFiber`.
 --
 -- WHY THE TWO PARTS ARE NOT JOINED HERE.  Part One proves the law for
 -- the paired trilinear form; Part Two ASSUMES it as an equation between
@@ -74,7 +74,7 @@
 -- hypothesis (it is assumed, not verified � no Lie algebra is
 -- constructed here); that any pairing is nondegenerate, or that any form
 -- is represented by an operator; anything about compactness, ideals, or
--- quotients, which enter only in `RiktaTantu`; and nothing about
+-- quotients, which enter only in `RiktaFiber`; and nothing about
 -- solving, averaging, or lifting anything � there is no propagator and
 -- no expectation in this file.
 ------------------------------------------------------------------------
@@ -86,8 +86,8 @@ open import Cubical.Foundations.Structure using (⟨_⟩)
 open import Cubical.Algebra.Ring
 
 open import LeakageCommutator using (IsInvolution)
-import Vyatikrama_TheCommutatorOfASelfAdjointWithASkewAdjointIsSelfAdjointSoTheCrossSectorCurrentIsARealPairing as VY
-import VahanaSamata_TheCongruenceAndTheDiffusionTermPreserveAdjointParitySoARealCovarianceStaysRealUnderCommonSourceTransport as VS
+import Vyatiorder_TheCommutatorOfASelfAdjointWithASkewAdjointIsSelfAdjointSoTheCrossSectorCurrentIsARealPairing as VY
+import VahanaEquality_TheCongruenceAndTheDiffusionTermPreserveAdjointParitySoARealCovarianceStaysRealUnderCommonSourceTransport as VS
 
 private
   variable

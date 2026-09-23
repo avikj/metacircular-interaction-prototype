@@ -2,21 +2,21 @@
 
 Each record is one checked artifact on branch claude/interactive-daemon-math-vt8e9e over the handoff pin 168ea8e2. The received bundle under research/handoff_20260908/ is unchanged; research/CLAIM_GRAPH.json is the live graph pointing at these loci.
 
-## Lane I â” native Yantra gate (positive and false controls)
+## Lane I â” native Machine gate (positive and false controls)
 
 ```text
 claim_id: NV-GATE-20260908
-statement: The native Yantra wire accepts the handoff's positive Candidate through marga: kernel after watching the controls, returns the three vislesana normal forms, and rejects the false control with an Agda type error; both runs exit 0 with isolated logs.
+statement: The native Machine wire accepts the handoff's positive Candidate through marga: kernel after watching the controls, returns the three vislesana normal forms, and rejects the false control with an Agda type error; both runs exit 0 with isolated logs.
 source_class: infrastructure control (handoff Â§5 Lane I; infra/smoke_requests.jsonl, infra/false_candidate.jsonl)
 parameters_and_quantifiers: two fixed request streams; no mathematical quantifiers
 repository_commit: pin 168ea8e2; evidence committed at d706a72b (merged as 38013358 on claude/interactive-daemon-math-vt8e9e)
 working_tree_changes: research/handoff_20260908/validation/native/{preflight.log, positive.stdout.log, positive.stderr.log, positive.wire-transcript.jsonl, false.stdout.log, false.stderr.log, false.wire-transcript.jsonl, vislesana.record.json}
-imports_and_toolchain: sh interactive/run-yantra.sh --wire; env YANTRA_OUT, DOSA_LEKHA, YANTRA_LEKHA, MATH_CERTCACHE=0, AGDA_DIR=$HOME/.agda-pin; Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; Cubical.Tactics.CommRingSolver (solve!) and NatSolver (solveâ•!) for closed ring/â• identities
+imports_and_toolchain: sh interactive/run-machine.sh --wire; env YANTRA_OUT, DOSA_LEKHA, YANTRA_LEKHA, MATH_CERTCACHE=0, AGDA_DIR=$HOME/.agda-pin; Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; Cubical.Tactics.CommRingSolver (solve!) and NatSolver (solveâ•!) for closed ring/â• identities
 existing_terms_reused: sadhana.patra, sadhana.vislesana, ControlledGrammar.install, N.normalize, N.learn (formal/cubical/kernel)
 new_derivation_or_artifact: vislesana.record.json: answer â¦ suc var : Tm; N.normalize demo â¦ then-step (add-suc var zero) (then-step (suc-step (add-zero var)) (done (suc var))); N.learn demo â¦ ControlledGrammar.install (â¦) : ControlledGrammar.NativeOperation
 proof_status: finite executable control (not a theorem)
-executed_commands: sh interactive/run-yantra.sh --wire < infra/smoke_requests.jsonl ; sh interactive/run-yantra.sh --wire < infra/false_candidate.jsonl (env as above; each run in its own YANTRA_OUT)
-exit_status_and_log: exit 0 / exit 0; every answer is samkramana or dosalekha with nirnaya, pramanya, vyaya; logs listed above
+executed_commands: sh interactive/run-machine.sh --wire < infra/smoke_requests.jsonl ; sh interactive/run-machine.sh --wire < infra/false_candidate.jsonl (env as above; each run in its own YANTRA_OUT)
+exit_status_and_log: exit 0 / exit 0; every answer is samorderna or dosalekha with nirnaya, pramanya, vyaya; logs listed above
 negative_controls: false candidate rejected by the kernel with "0 != 1 of type â•" (false.stderr.log, false.wire-transcript.jsonl)
 correction_of: none
 endpoint_dependency_discharged: none (infrastructure)
@@ -166,7 +166,7 @@ executed_commands: cd formal/cubical && LC_ALL=C.UTF-8 AGDA_DIR=$HOME/.agda-pin 
 exit_status_and_log: exit 0
 negative_controls: NV-CONTROLS-2: dropping the Tâ factor from the composite Z is rejected
 correction_of: C01: "exact composition installs the full session" is now a checked term, not a kernel.py convention
-endpoint_dependency_discharged: K-CERT composition rule; what remains for K-CERT is wiring this Cert type to the Yantra install/retire path
+endpoint_dependency_discharged: K-CERT composition rule; what remains for K-CERT is wiring this Cert type to the Machine install/retire path
 remaining_assumptions: the transpose is a hypothesis (t-add, t-mul, t-one); over matrices it is the ordinary transpose
 ```
 
@@ -537,7 +537,7 @@ parameters_and_quantifiers: âˆ â“, âˆ propositions RH Bounded OneSided Lower Lif
 repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
 working_tree_changes: formal/cubical/theorems/unplaced/Sima_TheOpenFrontierIsOnePropositionUpToTheReceivedConditionalTheoremsSoEveryRouteReadsTheSameUnknownResolvingAnyResolvesAllAndEveryReadingTransportsAlongUnivalence.agda
 imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9, --safe; propBiimplâ’Equiv, ua, Îâ‰¡Prop, subst
-existing_terms_reused: the finite cores under each hypothesis: Grahaka, AbelaRupa, SesaDvaya, ArdhaTala, DviSthana, DviMana, PratibimbaTantu, RiktaTantu, Pratirodha, Sikhara (cited, not imported)
+existing_terms_reused: the finite cores under each hypothesis: Grahaka, AbelaRupa, ResidueDvaya, ArdhaTala, DviSthana, DviMana, ReflectionFiber, RiktaFiber, Pratirodha, Sikhara (cited, not imported)
 new_derivation_or_artifact: RH-Frontier: Boundedâ‰RH â¦ Goldbachâ‰RH, the six ua paths, Frontier and route-Aâ¦F in hProp, routes-name-one-unknown, All, Any, from-RH, to-RH, resolving-any-resolves-all, refuting-any-refutes-all, transport-reading, transport-any-reading, transport-computes; NS-Frontier: PeakWorkâ‰Global, PeakWorkâ‰¡Global, NS-Frontier-is-one
 proof_status: formal theorem checking (--safe, no postulates) of a conditional structure; the endpoints stay CONDITIONAL, their premises uninstantiated
 executed_commands: cd formal/cubical && LC_ALL=C.UTF-8 AGDA_DIR=$HOME/.agda-pin agda --safe <module>
@@ -552,17 +552,17 @@ remaining_assumptions: every hypothesis named by a graph node is the received an
 
 ```text
 claim_id: NV-GATE-FRONTIER
-statement: A Candidate importing Sima and deriving Dyadic â’ Goldbach and Dyadic â‰¡ Goldbach from the route hypotheses is accepted by the Yantra kernel gate (marga: kernel, controls watched first); vislesana returns the kernel's own normal form of the corollary, Î» â¦ d â’ hââ (hâ (hâ‰ d)) â” the composed proof is literally Goldbach-necessity âˆ˜ TwoPacket-sufficiency âˆ˜ Abel. The same Candidate with the Abel hypothesis removed is rejected with "Dyadic !=< Bounded when checking that hââ has type Dyadic â’ Bounded": the gate names exactly the missing analytic input.
+statement: A Candidate importing Sima and deriving Dyadic â’ Goldbach and Dyadic â‰¡ Goldbach from the route hypotheses is accepted by the Machine kernel gate (marga: kernel, controls watched first); vislesana returns the kernel's own normal form of the corollary, Î» â¦ d â’ hââ (hâ (hâ‰ d)) â” the composed proof is literally Goldbach-necessity âˆ˜ TwoPacket-sufficiency âˆ˜ Abel. The same Candidate with the Abel hypothesis removed is rejected with "Dyadic !=< Bounded when checking that hââ has type Dyadic â’ Bounded": the gate names exactly the missing analytic input.
 source_class: metacircular application (handoff Â§5, Â§69): the repository's knowledge about the frontier checked and normalized by its own kernel
 parameters_and_quantifiers: two fixed request streams
 repository_commit: pin 168ea8e2; evidence at (this commit; see git log for the hash)
 working_tree_changes: research/handoff_20260908/validation/native/frontier/{positive,false}.{requests.jsonl,wire-transcript.jsonl,stdout.log,stderr.log}, Candidate.{positive,false}.agda.txt
-imports_and_toolchain: sh interactive/run-yantra.sh --wire with YANTRA_OUT, DOSA_LEKHA, YANTRA_LEKHA, MATH_CERTCACHE=0, AGDA_DIR=$HOME/.agda-pin
+imports_and_toolchain: sh interactive/run-machine.sh --wire with YANTRA_OUT, DOSA_LEKHA, YANTRA_LEKHA, MATH_CERTCACHE=0, AGDA_DIR=$HOME/.agda-pin
 existing_terms_reused: sadhana.patra, sadhana.vislesana; Sima.RH-Frontier
 new_derivation_or_artifact: Candidate.positive (corollary, as-path); the normal forms in positive.wire-transcript.jsonl
 proof_status: finite executable control plus a formal theorem checked by the kernel gate
-executed_commands: sh interactive/run-yantra.sh --wire < frontier/positive.requests.jsonl ; â¦ < frontier/false.requests.jsonl
-exit_status_and_log: exit 0 / exit 0; positive: samkramana on all four requests; false: dosalekha with the UnequalTerms line
+executed_commands: sh interactive/run-machine.sh --wire < frontier/positive.requests.jsonl ; â¦ < frontier/false.requests.jsonl
+exit_status_and_log: exit 0 / exit 0; positive: samorderna on all four requests; false: dosalekha with the UnequalTerms line
 negative_controls: the false Candidate (Abel hypothesis removed) is rejected at the exact slot
 correction_of: none
 endpoint_dependency_discharged: none
@@ -620,12 +620,12 @@ source_class: metacircular application: the corpus's kernel evaluates the corpus
 parameters_and_quantifiers: two fixed request streams
 repository_commit: pin 168ea8e2; evidence at (this commit; see git log for the hash)
 working_tree_changes: research/handoff_20260908/validation/native/frontier-typed/
-imports_and_toolchain: sh interactive/run-yantra.sh --wire (env as before)
+imports_and_toolchain: sh interactive/run-machine.sh --wire (env as before)
 existing_terms_reused: sadhana.patra, sadhana.vislesana
 new_derivation_or_artifact: the five normal forms in positive.wire-transcript.jsonl
 proof_status: finite executable control
-executed_commands: sh interactive/run-yantra.sh --wire < frontier-typed/{positive,false}.requests.jsonl
-exit_status_and_log: exit 0 / exit 0; samkramana —2; dosalekha with the UnequalTerms line
+executed_commands: sh interactive/run-machine.sh --wire < frontier-typed/{positive,false}.requests.jsonl
+exit_status_and_log: exit 0 / exit 0; samorderna —2; dosalekha with the UnequalTerms line
 negative_controls: the false Candidate
 correction_of: none
 endpoint_dependency_discharged: none

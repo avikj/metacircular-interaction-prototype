@@ -1,0 +1,19 @@
+bend: compiling the GPU program (/private/tmp/bend-bench-20260921/build/mandelbrot/bend-gpu.gpu is missing or stale)
+        0.56 real         0.00 user         0.02 sys
+            14483456  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                1137  page reclaims
+                   8  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                 130  involuntary context switches
+           226298207  instructions retired
+           107301332  cycles elapsed
+            27656840  peak memory footprint

@@ -48,9 +48,9 @@ sthiti : (a b : ℕ) → Fin (suc (suc b)) → Fin (suc b)
 sthiti a b (k , _) = śeṣa a b k , śeṣa< a b k
 
 -- from a collision i ≠ j with equal state, an ordered pair i < j with equal state
-krama : (a b : ℕ) (i j : Fin (suc (suc b))) → ¬ i ≡ j → sthiti a b i ≡ sthiti a b j
+order : (a b : ℕ) (i j : Fin (suc (suc b))) → ¬ i ≡ j → sthiti a b i ≡ sthiti a b j
       → Σ[ u ∈ ℕ ] Σ[ v ∈ ℕ ] (u < v) × (śeṣa a b u ≡ śeṣa a b v)
-krama a b (i , _) (j , _) ne e with i ≟ j
+order a b (i , _) (j , _) ne e with i ≟ j
 ... | lt i<j = i , j , i<j , cong fst e
 ... | gt j<i = j , i , j<i , sym (cong fst e)
 ... | eq i≡j = E.rec (ne (toℕ-injective i≡j))
@@ -58,7 +58,7 @@ krama a b (i , _) (j , _) ne e with i ≟ j
 rational→periodic : (a b : ℕ) → EventuallyPeriodic (aṅka a b)
 rational→periodic a b =
   let (i , j , ne , e) = pigeonhole ≤-refl (sthiti a b)
-      (u , v , (d , du) , eu) = krama a b i j ne e
+      (u , v , (d , du) , eu) = order a b i j ne e
   in suc d , u , (d , +-suc d 0 ∙ cong suc (+-zero d)) , λ n (l , lu) →
        cong (λ r → dec→bool (≤Dec (suc b) (2 · r)))
             (subst2 (λ x y → śeṣa a b x ≡ śeṣa a b y)

@@ -1,0 +1,34 @@
+{
+  "target": "official-public",
+  "suite_commit": "a49524265bdfa5753a4bf38e25f0574a705dd868",
+  "lanes": {
+    "checker": [
+      "bend"
+    ]
+  },
+  "only": [
+    "defs_12800"
+  ],
+  "work": "/Users/avikjain/metacircular-interaction-prototype/benchmarks/bend/work/20260922T042524Z-official-d29aca01",
+  "cache": "/Users/avikjain/metacircular-interaction-prototype/benchmarks/bend/local/toolchains/2026-09-21",
+  "argv": [
+    "benchmarks/bend/bench.py",
+    "run",
+    "--suite",
+    "checker",
+    "--lanes",
+    "bend",
+    "--only",
+    "defs_12800"
+  ],
+  "python": "3.9.6 (default, Aug 25 2026, 21:26:21) \n[Clang 21.0.0 (clang-2100.3.34.2)]",
+  "platform": "macOS-26.6-arm64-arm-64bit",
+  "harness_sha256": {
+    "bench.py": "c7853f732ae8171fe078c5951af4eb4b081036c84e5839243bde70b811d22651",
+    "lib/engine.py": "3a107f6f6039b90594d6d07c256e02d0ae44590680ac754ba093e289a572c940",
+    "suite.lock.json": "1f1ddd09687e10fb7b6ea5983f116880ff6efe9312d4833b169d934b8fe5996e"
+  },
+  "state": "completed",
+  "started_utc": "2026-09-22T04:25:25Z",
+  "finished_utc": "2026-09-22T04:25:26Z"
+}

@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<html prefix="dc: http://purl.org/dc/terms/ mw: http://mediawiki.org/rdf/" about="//en.wikipedia.org/wiki/Special:Redirect/revision/1367995968"><head prefix="mwr: //en.wikipedia.org/wiki/Special:Redirect/"><base href="https://en.wikipedia.org/wiki/" target="_blank"><meta charset="utf-8"><style>html{color-scheme:light}body{margin:0 auto!important;padding:18px!important;max-width:100%!important;font:14px/1.65 Georgia,serif!important;color:#202820!important;background:#fffefb!important;overflow-wrap:anywhere}h1,h2,h3{font-family:Georgia,serif;line-height:1.3}h1{font-size:28px}h2{font-size:23px;border-bottom:1px solid #ddd;padding-top:18px}h3{font-size:18px}a{color:#315778}img{max-width:100%;height:auto}.infobox{float:none!important;width:100%!important;font-size:12px;border:1px solid #ddd;padding:10px}.sidebar,.navbox,.metadata,.mw-editsection{display:none}figure{margin:12px 0}table{max-width:100%;font-size:12px}math{font-size:1em}.mwe-math-fallback-image-inline{vertical-align:middle}pre{white-space:pre-wrap}.reflist{font-size:11px}.mwe-math-mathml-a11y{display:inline!important;position:static!important;clip:auto!important;width:auto!important;height:auto!important;overflow:visible!important}.mwe-math-mathml-display{display:block!important}.mwe-math-element:has(math) .mwe-math-fallback-image-inline,.mwe-math-element:has(math) .mwe-math-fallback-image-display{display:none!important}</style><meta charset="utf-8"><link rel="dc:replaces" resource="mwr:revision/1319361667"><meta property="mw:revisionSHA1" content="ei45188asju1rhpqg9nqt9avyxkkr26"><meta property="dc:modified" content="2026-08-06T12:22:31Z"><meta property="mw:pageNamespace" content="0"><meta property="mw:pageId" content="138404"><meta property="mw:htmlVersion" content="2.8.0"><meta property="mw:html:version" content="2.8.0"><link rel="dc:isVersionOf" href="//en.wikipedia.org/wiki/Chain_complex"><title>Chain complex</title><meta property="mw:jsConfigVars" content="{&quot;wgParsoidHtmlVersion&quot;:&quot;2.8.0&quot;}"><meta property="mw:generalModules" content="ext.math.polyfills|ext.cite.ux-enhancements"><meta property="mw:moduleStyles" content="ext.math.styles|ext.cite.parsoid.styles|ext.cite.styles|mediawiki.skinning.content.parsoid"></head><body class="mw-content-ltr sitedir-ltr ltr mw-body-content mediawiki mw-parser-output parsoid-body" lang="en" dir="ltr" data-mw-parsoid-version="0.24.0.0-alpha22" data-mw-html-version="2.8.0"><section data-mw-section-id="0" id="mwAQ"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none" about="#mwt1" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Short description&quot;,&quot;href&quot;:&quot;./Template:Short_description&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;Tool in homological algebra&quot;}},&quot;i&quot;:0}}]}" id="mwAg">Tool in homological algebra</div><span class="mw-empty-elt" about="#mwt1"><link rel="mw:PageProp/Category" href="./Category:Articles_with_short_description"><link rel="mw:PageProp/Category" href="./Category:Short_description_is_different_from_Wikidata"></span>
+<p id="mwAw">In <a rel="mw:WikiLink" href="./Mathematics" title="Mathematics" id="mwBA">mathematics</a>, a <b id="mwBQ">chain complex</b> is an <a rel="mw:WikiLink" href="./Algebraic_structure" title="Algebraic structure" id="mwBg">algebraic structure</a> that consists of a sequence of <a rel="mw:WikiLink" href="./Abelian_group" title="Abelian group" id="mwBw">abelian groups</a> (or <a rel="mw:WikiLink" href="./Module_(mathematics)" title="Module (mathematics)" id="mwCA">modules</a>) and a sequence of <a rel="mw:WikiLink" href="./Group_homomorphism" title="Group homomorphism" id="mwCQ">homomorphisms</a> between consecutive groups such that the <a rel="mw:WikiLink" href="./Image_(mathematics)" title="Image (mathematics)" id="mwCg">image</a> of each homomorphism is contained in the <a rel="mw:WikiLink" href="./Kernel_(algebra)#Group_homomorphisms" title="Kernel (algebra)" id="mwCw">kernel</a> of the next. Associated to a chain complex is its <a rel="mw:WikiLink" href="./Homology_(mathematics)" title="Homology (mathematics)" id="mwDA">homology</a>, which is (loosely speaking) a measure of the failure of a chain complex to be <a rel="mw:WikiLink" href="./Exact_sequence" title="Exact sequence" id="mwDQ">exact</a>.</p>
+
+<p id="mwDg">A <b id="mwDw">cochain complex</b> is similar to a chain complex, except that its homomorphisms are in the opposite direction. The homology of a cochain complex is called its <a rel="mw:WikiLink" href="./Cohomology" title="Cohomology" id="mwEA">cohomology</a>.</p>
+
+<p id="mwEQ">In <a rel="mw:WikiLink" href="./Algebraic_topology" title="Algebraic topology" id="mwEg">algebraic topology</a>, the singular chain complex of a <a rel="mw:WikiLink" href="./Topological_space" title="Topological space" id="mwEw">topological space</a> X is constructed using <a rel="mw:WikiLink" href="./Continuous_function#Continuous_functions_between_topological_spaces" title="Continuous function" id="mwFA">continuous maps</a> from a <a rel="mw:WikiLink" href="./Simplex" title="Simplex" id="mwFQ">simplex</a> to X, and the homomorphisms of the chain complex capture how these maps restrict to the boundary of the simplex. The homology of this chain complex is called the <a rel="mw:WikiLink" href="./Singular_homology" title="Singular homology" id="mwFg">singular homology</a> of X, and is a commonly used <a rel="mw:WikiLink" href="./Topological_invariant" title="Topological invariant" class="mw-redirect" id="mwFw">invariant</a> of a topological space.</p>
+
+<p id="mwGA">Chain complexes are studied in <a rel="mw:WikiLink" href="./Homological_algebra" title="Homological algebra" id="mwGQ">homological algebra</a>, but are used in several areas of mathematics, including <a rel="mw:WikiLink" href="./Abstract_algebra" title="Abstract algebra" id="mwGg">abstract algebra</a>, <a rel="mw:WikiLink" href="./Galois_theory" title="Galois theory" id="mwGw">Galois theory</a>, <a rel="mw:WikiLink" href="./Differential_geometry" title="Differential geometry" id="mwHA">differential geometry</a> and <a rel="mw:WikiLink" href="./Algebraic_geometry" title="Algebraic geometry" id="mwHQ">algebraic geometry</a>. They can be defined more generally in <a rel="mw:WikiLink" href="./Abelian_categories" title="Abelian categories" class="mw-redirect" id="mwHg">abelian categories</a>.</p>
+
+<meta property="mw:PageProp/toc" data-mw="{&quot;autoGenerated&quot;:true}" id="mwHw"></section><section data-mw-section-id="1" id="mwIA"><h2 id="Definitions">Definitions</h2>
+<p id="mwIQ">A <b id="mwIg">chain complex</b> <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt2" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;(A_\\bullet, d_\\bullet)&quot;}}" id="mwIw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (A_{\bullet },d_{\bullet })}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∙</mo>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∙</mo>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (A_{\bullet },d_{\bullet })}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/34e17fb870590ecf2315850f64ea8c17a195c1a7" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:7.904ex; height:2.843ex;" alt="{\displaystyle (A_{\bullet },d_{\bullet })}"></span> is a sequence of abelian groups or modules <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt3" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\cdots, A_0, A_1, A_2,\\dots&quot;}}" id="mwJA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \cdots ,A_{0},A_{1},A_{2},\dots }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo>⋯</mo>
+        <mo>,</mo>
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>0</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mo>…</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \cdots ,A_{0},A_{1},A_{2},\dots }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/07d18185df6b4aa35ed35d0664d64b81a2a61395" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:18.361ex; height:2.509ex;" alt="{\displaystyle \cdots ,A_{0},A_{1},A_{2},\dots }"></span> connected by homomorphisms (called <b id="mwJQ">boundary operators</b> or <b id="mwJg">differentials</b>) <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt4" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;d_n:A_n\\to A_{n-1}&quot;}}" id="mwJw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle d_{n}:A_{n}\to A_{n-1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo>:</mo>
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">→</mo>
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+            <mo>−</mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle d_{n}:A_{n}\to A_{n-1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/48186b3ae5c3f068b755a8cc80caae96492fe670" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:16.002ex; height:2.509ex;" alt="{\displaystyle d_{n}:A_{n}\to A_{n-1}}"></span>, such that the composition of any two consecutive maps is the zero map. Explicitly, the differentials satisfy <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt5" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;d_n\\circ d_{n+1}=0&quot;}}" id="mwKA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle d_{n}\circ d_{n+1}=0}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo>∘</mo>
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mn>0</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle d_{n}\circ d_{n+1}=0}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8da6f105533c85695b07124dfd4da76fe861260b" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:13.411ex; height:2.509ex;" alt="{\displaystyle d_{n}\circ d_{n+1}=0}"></span> for all <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt6" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;n&quot;}}" id="mwKQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="{\displaystyle n}"></span>, or, concisely, <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt7" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;d^2=0&quot;}}" id="mwKg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle d^{2}=0}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo>=</mo>
+        <mn>0</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle d^{2}=0}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1e9466655dcef8801f5d4e6f03da58b4fad2ab61" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:6.533ex; height:2.676ex;" alt="{\displaystyle d^{2}=0}"></span>. The complex may be written out as follows:</p>
+
+<dl id="mwKw"><dd id="mwLA"><dl id="mwLQ"><dd id="mwLg"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt8" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\n\\cdots\n\\xleftarrow{ d_0 } A_0\n\\xleftarrow{d_1} A_1\n\\xleftarrow{d_2} A_2\n\\xleftarrow{d_3} A_3\n\\xleftarrow{d_4} A_4\n\\xleftarrow{d_5}\n\\cdots\n&quot;}}" id="mwLw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \cdots \xleftarrow {d_{0}} A_{0}\xleftarrow {d_{1}} A_{1}\xleftarrow {d_{2}} A_{2}\xleftarrow {d_{3}} A_{3}\xleftarrow {d_{4}} A_{4}\xleftarrow {d_{5}} \cdots }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo>⋯</mo>
+        <mover>
+          <mo>←</mo>
+          <mpadded width="+0.556em" lspace="0.389em" voffset=".15em">
+            <msub>
+              <mi>d</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>0</mn>
+              </mrow>
+            </msub>
+          </mpadded>
+        </mover>
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>0</mn>
+          </mrow>
+        </msub>
+        <mover>
+          <mo>←</mo>
+          <mpadded width="+0.556em" lspace="0.389em" voffset=".15em">
+            <msub>
+              <mi>d</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>1</mn>
+              </mrow>
+            </msub>
+          </mpadded>
+        </mover>
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mover>
+          <mo>←</mo>
+          <mpadded width="+0.556em" lspace="0.389em" voffset=".15em">
+            <msub>
+              <mi>d</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>2</mn>
+              </mrow>
+            </msub>
+          </mpadded>
+        </mover>
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mover>
+          <mo>←</mo>
+          <mpadded width="+0.556em" lspace="0.389em" voffset=".15em">
+            <msub>
+              <mi>d</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>3</mn>
+              </mrow>
+            </msub>
+          </mpadded>
+        </mover>
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>3</mn>
+          </mrow>
+        </msub>
+        <mover>
+          <mo>←</mo>
+          <mpadded width="+0.556em" lspace="0.389em" voffset=".15em">
+            <msub>
+              <mi>d</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>4</mn>
+              </mrow>
+            </msub>
+          </mpadded>
+        </mover>
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>4</mn>
+          </mrow>
+        </msub>
+        <mover>
+          <mo>←</mo>
+          <mpadded width="+0.556em" lspace="0.389em" voffset=".15em">
+            <msub>
+              <mi>d</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>5</mn>
+              </mrow>
+            </msub>
+          </mpadded>
+        </mover>
+        <mo>⋯</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \cdots \xleftarrow {d_{0}} A_{0}\xleftarrow {d_{1}} A_{1}\xleftarrow {d_{2}} A_{2}\xleftarrow {d_{3}} A_{3}\xleftarrow {d_{4}} A_{4}\xleftarrow {d_{5}} \cdots }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2ca02feacf3e2237e1be103cdfb7614dc8f69aa3" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; margin-top: -0.329ex; width:44.974ex; height:4.176ex;" alt="{\displaystyle \cdots \xleftarrow {d_{0}} A_{0}\xleftarrow {d_{1}} A_{1}\xleftarrow {d_{2}} A_{2}\xleftarrow {d_{3}} A_{3}\xleftarrow {d_{4}} A_{4}\xleftarrow {d_{5}} \cdots }"></span></dd></dl></dd></dl>
+
+<p id="mwMA">The <b id="mwMQ">cochain complex</b> <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt9" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;(A^\\bullet, d^\\bullet)&quot;}}" id="mwMg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (A^{\bullet },d^{\bullet })}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∙</mo>
+          </mrow>
+        </msup>
+        <mo>,</mo>
+        <msup>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∙</mo>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (A^{\bullet },d^{\bullet })}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/21433f188db117119916e7263cf721b3eff9d5b3" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:7.913ex; height:2.843ex;" alt="{\displaystyle (A^{\bullet },d^{\bullet })}"></span> is the <a rel="mw:WikiLink" href="./Dual_(category_theory)" title="Dual (category theory)" id="mwMw">dual</a> notion to a chain complex. It consists of a sequence of abelian groups or modules <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt10" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\cdots, A^0, A^1, A^2,\\dots&quot;}}" id="mwNA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \cdots ,A^{0},A^{1},A^{2},\dots }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo>⋯</mo>
+        <mo>,</mo>
+        <msup>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>0</mn>
+          </mrow>
+        </msup>
+        <mo>,</mo>
+        <msup>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msup>
+        <mo>,</mo>
+        <msup>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo>,</mo>
+        <mo>…</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \cdots ,A^{0},A^{1},A^{2},\dots }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/92df673fa111f8c586f02f201efc7085646d57e3" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:18.361ex; height:3.009ex;" alt="{\displaystyle \cdots ,A^{0},A^{1},A^{2},\dots }"></span> connected by homomorphisms (<b id="mwNQ">coboundary operators</b>) <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt11" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;d^n:A^n\\to A^{n+1}&quot;}}" id="mwNg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle d^{n}:A^{n}\to A^{n+1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msup>
+        <mo>:</mo>
+        <msup>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msup>
+        <mo stretchy="false">→</mo>
+        <msup>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle d^{n}:A^{n}\to A^{n+1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e47240dbdf3154a608cc2a250c790aafe52f1b99" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:16.011ex; height:2.676ex;" alt="{\displaystyle d^{n}:A^{n}\to A^{n+1}}"></span> satisfying <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt12" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;d^{n+1}\\circ d^{n}=0&quot;}}" id="mwNw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle d^{n+1}\circ d^{n}=0}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+        </msup>
+        <mo>∘</mo>
+        <msup>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msup>
+        <mo>=</mo>
+        <mn>0</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle d^{n+1}\circ d^{n}=0}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3a09c55ba3582f714b0f136c2eee563cf9df012e" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:13.429ex; height:2.676ex;" alt="{\displaystyle d^{n+1}\circ d^{n}=0}"></span>. The cochain complex may be written out in a similar fashion to the chain complex:</p>
+
+<dl id="mwOA"><dd id="mwOQ"><dl id="mwOg"><dd id="mwOw"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt13" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\n\\cdots\n\\xrightarrow{ d^{-1} }\nA^0 \\xrightarrow{d^0}\nA^1 \\xrightarrow{d^1}\nA^2 \\xrightarrow{d^2}\nA^3 \\xrightarrow{d^3}\nA^4 \\xrightarrow{d^4}\n\\cdots\n&quot;}}" id="mwPA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \cdots \xrightarrow {d^{-1}} A^{0}\xrightarrow {d^{0}} A^{1}\xrightarrow {d^{1}} A^{2}\xrightarrow {d^{2}} A^{3}\xrightarrow {d^{3}} A^{4}\xrightarrow {d^{4}} \cdots }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo>⋯</mo>
+        <mover>
+          <mo>→</mo>
+          <mpadded width="+0.611em" lspace="0.278em" voffset=".15em">
+            <msup>
+              <mi>d</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo>−</mo>
+                <mn>1</mn>
+              </mrow>
+            </msup>
+          </mpadded>
+        </mover>
+        <msup>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>0</mn>
+          </mrow>
+        </msup>
+        <mover>
+          <mo>→</mo>
+          <mpadded width="+0.611em" lspace="0.278em" voffset=".15em">
+            <msup>
+              <mi>d</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>0</mn>
+              </mrow>
+            </msup>
+          </mpadded>
+        </mover>
+        <msup>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msup>
+        <mover>
+          <mo>→</mo>
+          <mpadded width="+0.611em" lspace="0.278em" voffset=".15em">
+            <msup>
+              <mi>d</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>1</mn>
+              </mrow>
+            </msup>
+          </mpadded>
+        </mover>
+        <msup>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mover>
+          <mo>→</mo>
+          <mpadded width="+0.611em" lspace="0.278em" voffset=".15em">
+            <msup>
+              <mi>d</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>2</mn>
+              </mrow>
+            </msup>
+          </mpadded>
+        </mover>
+        <msup>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>3</mn>
+          </mrow>
+        </msup>
+        <mover>
+          <mo>→</mo>
+          <mpadded width="+0.611em" lspace="0.278em" voffset=".15em">
+            <msup>
+              <mi>d</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>3</mn>
+              </mrow>
+            </msup>
+          </mpadded>
+        </mover>
+        <msup>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>4</mn>
+          </mrow>
+        </msup>
+        <mover>
+          <mo>→</mo>
+          <mpadded width="+0.611em" lspace="0.278em" voffset=".15em">
+            <msup>
+              <mi>d</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>4</mn>
+              </mrow>
+            </msup>
+          </mpadded>
+        </mover>
+        <mo>⋯</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \cdots \xrightarrow {d^{-1}} A^{0}\xrightarrow {d^{0}} A^{1}\xrightarrow {d^{1}} A^{2}\xrightarrow {d^{2}} A^{3}\xrightarrow {d^{3}} A^{4}\xrightarrow {d^{4}} \cdots }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2783d8735b32179fc8df9d604d2851b1c7271f2e" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.028ex; margin-top: -0.421ex; margin-bottom: -0.477ex; width:46.312ex; height:4.343ex;" alt="{\displaystyle \cdots \xrightarrow {d^{-1}} A^{0}\xrightarrow {d^{0}} A^{1}\xrightarrow {d^{1}} A^{2}\xrightarrow {d^{2}} A^{3}\xrightarrow {d^{3}} A^{4}\xrightarrow {d^{4}} \cdots }"></span></dd></dl></dd></dl>
+
+<p id="mwPQ">In both cases, the index <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt14" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;n&quot;}}" id="mwPg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="{\displaystyle n}"></span> is referred to as the <b id="mwPw">degree</b> (or <b id="mwQA">dimension</b>). The difference between chain and cochain complexes is that, in chain complexes, the differentials decrease dimension, whereas in cochain complexes they increase dimension. All the concepts and definitions for chain complexes apply to cochain complexes, except that they will follow this different convention for dimension, and often terms will be given the <a rel="mw:WikiLink" href="./Prefix" title="Prefix" id="mwQQ">prefix</a> <i id="mwQg">co-</i>. In this article, definitions will be given for chain complexes when the distinction is not required.</p>
+
+<p id="mwQw">A <b id="mwRA">bounded chain complex</b> is one in which <a rel="mw:WikiLink" href="./Almost_all#cardinality" title="Almost all" id="mwRQ">almost all</a> the <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt15" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;A_n&quot;}}" id="mwRg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle A_{n}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle A_{n}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/730f6906700685b6d52f3958b1c2ae659d2d97d2" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.962ex; height:2.509ex;" alt="{\displaystyle A_{n}}"></span> are 0; that is, a finite complex extended to the left and right by 0. An example is the chain complex defining the <a rel="mw:WikiLink" href="./Simplicial_homology" title="Simplicial homology" id="mwRw">simplicial homology</a> of a finite <a rel="mw:WikiLink" href="./Simplicial_complex" title="Simplicial complex" id="mwSA">simplicial complex</a>. A chain complex is <b id="mwSQ">bounded above</b> if all modules above some fixed degree <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt16" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;N&quot;}}" id="mwSg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle N}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>N</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle N}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f5e3890c981ae85503089652feb48b191b57aae3" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:2.064ex; height:2.176ex;" alt="{\displaystyle N}"></span> are 0, and is <b id="mwSw">bounded below</b> if all modules below some fixed degree are 0. Clearly, a complex is bounded both above and below if and only if the complex is bounded.</p>
+
+<p id="mwTA">The elements of the individual groups of a (co)chain complex are called <b id="mwTQ">(co)chains</b>. The elements in the kernel of <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt17" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;d&quot;}}" id="mwTg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle d}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>d</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle d}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e85ff03cbe0c7341af6b982e47e9f90d235c66ab" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.216ex; height:2.176ex;" alt="{\displaystyle d}"></span> are called <b id="mwTw">(co)cycles</b> (or <b id="mwUA">closed</b> elements), and the elements in the image of <i id="mwUQ">d</i> are called <b id="mwUg">(co)boundaries</b> (or <b id="mwUw">exact</b> elements). Right from the definition of the differential, all boundaries are cycles. The <b id="mwVA"><i id="mwVQ">n</i>-th (co)homology group</b> <i id="mwVg">H</i><sub id="mwVw"><i id="mwWA">n</i></sub> (<i id="mwWQ">H</i><sup id="mwWg"><i id="mwWw">n</i></sup>) is the group of (co)cycles <a rel="mw:WikiLink" href="./Modulo_(jargon)#structures" title="Modulo (jargon)" class="mw-redirect" id="mwXA">modulo</a> (co)boundaries in degree <i id="mwXQ">n</i>, that is,</p>
+
+<dl id="mwXg"><dd id="mwXw"><dl id="mwYA"><dd id="mwYQ"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt18" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;H_n = \\ker d_{n}/\\mbox{im } d_{n+1} \\quad \\left(H^n = \\ker d^{n}/\\mbox{im } d^{n-1} \\right)&quot;}}" id="mwYg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle H_{n}=\ker d_{n}/{\mbox{im }}d_{n+1}\quad \left(H^{n}=\ker d^{n}/{\mbox{im }}d^{n-1}\right)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>H</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mi>ker</mi>
+        <mo>⁡</mo>
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>/</mo>
+        </mrow>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mstyle displaystyle="false" scriptlevel="0">
+            <mtext>im </mtext>
+          </mstyle>
+        </mrow>
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mspace width="1em"></mspace>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <msup>
+              <mi>H</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>n</mi>
+              </mrow>
+            </msup>
+            <mo>=</mo>
+            <mi>ker</mi>
+            <mo>⁡</mo>
+            <msup>
+              <mi>d</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>n</mi>
+              </mrow>
+            </msup>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo>/</mo>
+            </mrow>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mstyle displaystyle="false" scriptlevel="0">
+                <mtext>im </mtext>
+              </mstyle>
+            </mrow>
+            <msup>
+              <mi>d</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>n</mi>
+                <mo>−</mo>
+                <mn>1</mn>
+              </mrow>
+            </msup>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle H_{n}=\ker d_{n}/{\mbox{im }}d_{n+1}\quad \left(H^{n}=\ker d^{n}/{\mbox{im }}d^{n-1}\right)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2e9a1e4d3065c9290b3b05310e5043b4c4bbbf93" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -1.005ex; width:47.206ex; height:3.343ex;" alt="{\displaystyle H_{n}=\ker d_{n}/{\mbox{im }}d_{n+1}\quad \left(H^{n}=\ker d^{n}/{\mbox{im }}d^{n-1}\right)}"></span></dd></dl></dd></dl>
+
+<section data-mw-section-id="2" id="mwYw"><h3 id="Exact_sequences">Exact sequences</h3>
+<span class="mw-empty-elt" about="#mwt19" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;main&quot;,&quot;href&quot;:&quot;./Template:Main&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;Exact sequence&quot;}},&quot;i&quot;:0}}]}" id="mwZA"><style data-mw-deduplicate="TemplateStyles:r1368532237" typeof="mw:Extension/templatestyles" about="#mwt20" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Hatnote/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}">.mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+.mw-empty-elt+.hatnote{margin-top:-0.5em}@media print{body.ns-0 .mw-parser-output .hatnote{display:none!important}}</style></span><div role="note" class="hatnote navigation-not-searchable" about="#mwt19" id="mwZQ">Main article: <a rel="mw:WikiLink" href="./Exact_sequence" title="Exact sequence">Exact sequence</a></div>
+<p id="mwZg">An <b id="mwZw">exact sequence</b> (or <b id="mwaA">exact</b> complex) is a chain complex whose homology groups are all zero. This means all closed elements in the complex are exact. A <b id="mwaQ">short exact sequence</b> is a bounded exact sequence in which only the groups <i id="mwag">A</i><sub id="mwaw"><i id="mwbA">k</i></sub>, <i id="mwbQ">A</i><sub id="mwbg"><i id="mwbw">k</i>+1</sub>, <i id="mwcA">A</i><sub id="mwcQ"><i id="mwcg">k</i>+2</sub> may be nonzero. For example, the following chain complex is a short exact sequence.</p>
+<dl id="mwcw"><dd id="mwdA"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt21" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\n\\cdots\n\\xrightarrow{} \\; 0 \\;\n\\xrightarrow{} \\; \\mathbf{Z} \\;\n\\xrightarrow{\\times p} \\; \\mathbf{Z}\n\\twoheadrightarrow \\mathbf{Z}/p\\mathbf{Z} \\;\n\\xrightarrow{} \\; 0 \\;\n\\xrightarrow{}\n\\cdots\n&quot;}}" id="mwdQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \cdots {\xrightarrow {}}\;0\;{\xrightarrow {}}\;\mathbf {Z} \;{\xrightarrow {\times p}}\;\mathbf {Z} \twoheadrightarrow \mathbf {Z} /p\mathbf {Z} \;{\xrightarrow {}}\;0\;{\xrightarrow {}}\cdots }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo>⋯</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <mo>→</mo>
+            <mpadded width="+0.611em" lspace="0.278em" voffset=".15em"></mpadded>
+          </mover>
+        </mrow>
+        <mspace width="thickmathspace"></mspace>
+        <mn>0</mn>
+        <mspace width="thickmathspace"></mspace>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <mo>→</mo>
+            <mpadded width="+0.611em" lspace="0.278em" voffset=".15em"></mpadded>
+          </mover>
+        </mrow>
+        <mspace width="thickmathspace"></mspace>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="bold">Z</mi>
+        </mrow>
+        <mspace width="thickmathspace"></mspace>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <mo>→</mo>
+            <mpadded width="+0.611em" lspace="0.278em" voffset=".15em">
+              <mo>×</mo>
+              <mi>p</mi>
+            </mpadded>
+          </mover>
+        </mrow>
+        <mspace width="thickmathspace"></mspace>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="bold">Z</mi>
+        </mrow>
+        <mo stretchy="false">↠</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="bold">Z</mi>
+        </mrow>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>/</mo>
+        </mrow>
+        <mi>p</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="bold">Z</mi>
+        </mrow>
+        <mspace width="thickmathspace"></mspace>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <mo>→</mo>
+            <mpadded width="+0.611em" lspace="0.278em" voffset=".15em"></mpadded>
+          </mover>
+        </mrow>
+        <mspace width="thickmathspace"></mspace>
+        <mn>0</mn>
+        <mspace width="thickmathspace"></mspace>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <mo>→</mo>
+            <mpadded width="+0.611em" lspace="0.278em" voffset=".15em"></mpadded>
+          </mover>
+        </mrow>
+        <mo>⋯</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \cdots {\xrightarrow {}}\;0\;{\xrightarrow {}}\;\mathbf {Z} \;{\xrightarrow {\times p}}\;\mathbf {Z} \twoheadrightarrow \mathbf {Z} /p\mathbf {Z} \;{\xrightarrow {}}\;0\;{\xrightarrow {}}\cdots }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e5c43cd42fdcb4decdce07bab5160bbcc41c9e59" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; margin-top: -0.364ex; width:38.913ex; height:4.009ex;" alt="{\displaystyle \cdots \xrightarrow {} \;0\;\xrightarrow {} \;\mathbf {Z} \;\xrightarrow {\times p} \;\mathbf {Z} \twoheadrightarrow \mathbf {Z} /p\mathbf {Z} \;\xrightarrow {} \;0\;\xrightarrow {} \cdots }"></span></dd></dl>
+<p id="mwdg">In the middle group, the closed elements are the elements p<b id="mwdw">Z</b>; these are clearly the exact elements in this group.</p>
+
+</section><section data-mw-section-id="3" id="mweA"><h3 id="Chain_maps">Chain maps</h3>
+<p id="mweQ">A <b id="mweg">chain map</b> <i id="mwew">f</i> between two chain complexes <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt22" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;(A_\\bullet, d_{A,\\bullet})&quot;}}" id="mwfA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (A_{\bullet },d_{A,\bullet })}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∙</mo>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>A</mi>
+            <mo>,</mo>
+            <mo>∙</mo>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (A_{\bullet },d_{A,\bullet })}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/75e07c9b325b2fdfd57849b6c294975343619200" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -1.005ex; width:9.594ex; height:3.009ex;" alt="{\displaystyle (A_{\bullet },d_{A,\bullet })}"></span> and <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt23" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;(B_\\bullet, d_{B,\\bullet})&quot;}}" id="mwfQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (B_{\bullet },d_{B,\bullet })}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>B</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∙</mo>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>B</mi>
+            <mo>,</mo>
+            <mo>∙</mo>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (B_{\bullet },d_{B,\bullet })}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0e756e5c016e30ac7d0087e0b60790471dd52b35" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -1.005ex; width:9.629ex; height:3.009ex;" alt="{\displaystyle (B_{\bullet },d_{B,\bullet })}"></span> is a sequence <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt24" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;f_\\bullet&quot;}}" id="mwfg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle f_{\bullet }}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>f</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∙</mo>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f_{\bullet }}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d470f991aa466d76069b7440d67d10752100483d" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.193ex; height:2.509ex;" alt="{\displaystyle f_{\bullet }}"></span> of homomorphisms <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt25" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;f_n : A_n \\rightarrow B_n&quot;}}" id="mwfw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle f_{n}:A_{n}\rightarrow B_{n}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>f</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo>:</mo>
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">→</mo>
+        <msub>
+          <mi>B</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f_{n}:A_{n}\rightarrow B_{n}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/46635b5bc7f3005959be5214da3285a71b4c01fd" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:13.853ex; height:2.509ex;" alt="{\displaystyle f_{n}:A_{n}\rightarrow B_{n}}"></span> for each <i id="mwgA">n</i> that commutes with the boundary operators on the two chain complexes, so <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt26" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot; d_{B,n} \\circ f_n = f_{n-1} \\circ d_{A,n}&quot;}}" id="mwgQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle d_{B,n}\circ f_{n}=f_{n-1}\circ d_{A,n}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>B</mi>
+            <mo>,</mo>
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo>∘</mo>
+        <msub>
+          <mi>f</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi>f</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+            <mo>−</mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>∘</mo>
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>A</mi>
+            <mo>,</mo>
+            <mi>n</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle d_{B,n}\circ f_{n}=f_{n-1}\circ d_{A,n}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9ef4925f18d5b4dc123803ab005c6e880209bb8c" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -1.005ex; width:22.553ex; height:2.843ex;" alt="{\displaystyle d_{B,n}\circ f_{n}=f_{n-1}\circ d_{A,n}}"></span>. This is written out in the following <a rel="mw:WikiLink" href="./Commutative_diagram" title="Commutative diagram" id="mwgg">commutative diagram</a>.</p>
+<dl id="mwgw"><dd id="mwhA"><span class="skin-invert" typeof="mw:File" id="mwhQ"><a href="./File:Chain_map.svg" class="mw-file-description" id="mwhg"><img resource="./File:Chain_map.svg" src="//thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Chain_map.svg/960px-Chain_map.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail" decoding="async" loading="lazy" srcset="//thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Chain_map.svg/1920px-Chain_map.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x" data-file-width="400" data-file-height="105" data-file-type="drawing" height="171" width="650" class="mw-file-element" id="mwhw"></a></span></dd></dl>
+
+<p id="mwiA">A chain map sends cycles to cycles and boundaries to boundaries, and thus induces a map on homology <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt27" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;(f_\\bullet)_*:H_\\bullet(A_\\bullet, d_{A,\\bullet}) \\rightarrow H_\\bullet(B_\\bullet, d_{B,\\bullet})&quot;}}" id="mwiQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (f_{\bullet })_{*}:H_{\bullet }(A_{\bullet },d_{A,\bullet })\rightarrow H_{\bullet }(B_{\bullet },d_{B,\bullet })}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>f</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∙</mo>
+          </mrow>
+        </msub>
+        <msub>
+          <mo stretchy="false">)</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∗</mo>
+          </mrow>
+        </msub>
+        <mo>:</mo>
+        <msub>
+          <mi>H</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∙</mo>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∙</mo>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>A</mi>
+            <mo>,</mo>
+            <mo>∙</mo>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">→</mo>
+        <msub>
+          <mi>H</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∙</mo>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>B</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∙</mo>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>B</mi>
+            <mo>,</mo>
+            <mo>∙</mo>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (f_{\bullet })_{*}:H_{\bullet }(A_{\bullet },d_{A,\bullet })\rightarrow H_{\bullet }(B_{\bullet },d_{B,\bullet })}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ebd765362103c4dc77ca76f8eb95f55b10e3aa97" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -1.005ex; width:35.802ex; height:3.009ex;" alt="{\displaystyle (f_{\bullet })_{*}:H_{\bullet }(A_{\bullet },d_{A,\bullet })\rightarrow H_{\bullet }(B_{\bullet },d_{B,\bullet })}"></span>.</p>
+
+<p id="mwig">A continuous map <i id="mwiw">f</i> between topological spaces <i id="mwjA">X</i> and <i id="mwjQ">Y</i> induces a chain map between the singular chain complexes of <i id="mwjg">X</i> and <i id="mwjw">Y</i>, and hence induces a map <i id="mwkA">f</i><sub id="mwkQ">*</sub> between the singular homology of <i id="mwkg">X</i> and <i id="mwkw">Y</i> as well. When <i id="mwlA">X</i> and <i id="mwlQ">Y</i> are both equal to the <a rel="mw:WikiLink" href="./N-sphere" title="N-sphere" id="mwlg"><i id="mwlw">n</i>-sphere</a>, the map induced on homology defines the <a rel="mw:WikiLink" href="./Degree_of_a_continuous_mapping#From_Sn_to_Sn" title="Degree of a continuous mapping" id="mwmA">degree</a> of the map <i id="mwmQ">f</i>.</p>
+
+<p id="mwmg">The concept of chain map reduces to the one of boundary through the construction of the <a rel="mw:WikiLink" href="./Mapping_cone_(homological_algebra)" title="Mapping cone (homological algebra)" id="mwmw">cone</a> of a chain map.</p>
+
+</section><section data-mw-section-id="4" id="mwnA"><h3 id="Chain_homotopy">Chain homotopy</h3>
+<span class="mw-empty-elt" about="#mwt28" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;See also&quot;,&quot;href&quot;:&quot;./Template:See_also&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;Homotopy category of chain complexes&quot;}},&quot;i&quot;:0}}]}" id="mwnQ"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1368532237" about="#mwt29" typeof="mw:Extension/templatestyles" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Hatnote/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}"></span><div role="note" class="hatnote navigation-not-searchable" about="#mwt28" id="mwng">See also: <a rel="mw:WikiLink" href="./Homotopy_category_of_chain_complexes" title="Homotopy category of chain complexes">Homotopy category of chain complexes</a></div>
+<p id="mwnw">A chain homotopy offers a way to relate two chain maps that induce the same map on homology groups, even though the maps may be different. Given two chain complexes <i id="mwoA">A</i> and <i id="mwoQ">B</i>, and two chain maps <span class="nowrap" about="#mwt30" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;nowrap&quot;,&quot;href&quot;:&quot;./Template:Nowrap&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;&#x27;&#x27;f&#x27;&#x27;, &#x27;&#x27;g&#x27;&#x27; : &#x27;&#x27;A&#x27;&#x27; → &#x27;&#x27;B&#x27;&#x27;&quot;}},&quot;i&quot;:0}}]}" id="mwog"><i>f</i>, <i>g</i><span typeof="mw:DisplaySpace"> </span>: <i>A</i> → <i>B</i></span>, a <b id="mwow">chain homotopy</b> is a sequence of homomorphisms <span class="nowrap" about="#mwt31" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;nowrap&quot;,&quot;href&quot;:&quot;./Template:Nowrap&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;&#x27;&#x27;h&#x27;&#x27;&lt;sub&gt;&#x27;&#x27;n&#x27;&#x27;&lt;/sub&gt; : &#x27;&#x27;A&#x27;&#x27;&lt;sub&gt;&#x27;&#x27;n&#x27;&#x27;&lt;/sub&gt; → &#x27;&#x27;B&#x27;&#x27;&lt;sub&gt;&#x27;&#x27;n&#x27;&#x27;+1&lt;/sub&gt;&quot;}},&quot;i&quot;:0}}]}" id="mwpA"><i>h</i><sub><i>n</i></sub><span typeof="mw:DisplaySpace"> </span>: <i>A</i><sub><i>n</i></sub> → <i>B</i><sub><i>n</i>+1</sub></span> such that <span class="nowrap" about="#mwt32" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;nowrap&quot;,&quot;href&quot;:&quot;./Template:Nowrap&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;&#x27;&#x27;hd&#x27;&#x27;&lt;sub&gt;&#x27;&#x27;A&#x27;&#x27;&lt;/sub&gt; + &#x27;&#x27;d&#x27;&#x27;&lt;sub&gt;&#x27;&#x27;B&#x27;&#x27;&lt;/sub&gt;&#x27;&#x27;h&#x27;&#x27; = &#x27;&#x27;f&#x27;&#x27; − &#x27;&#x27;g&#x27;&#x27;&quot;}},&quot;i&quot;:0}}]}" id="mwpQ"><i>hd</i><sub><i>A</i></sub> + <i>d</i><sub><i>B</i></sub><i>h</i> = <i>f</i> − <i>g</i></span>. The maps may be written out in a diagram as follows, but this diagram is not commutative.</p>
+
+<dl id="mwpg"><dd id="mwpw"><span class="skin-invert" typeof="mw:File" id="mwqA"><a href="./File:Chain_homotopy_between_chain_complexes.svg" class="mw-file-description" id="mwqQ"><img resource="./File:Chain_homotopy_between_chain_complexes.svg" src="//thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Chain_homotopy_between_chain_complexes.svg/960px-Chain_homotopy_between_chain_complexes.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail" decoding="async" loading="lazy" srcset="//thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Chain_homotopy_between_chain_complexes.svg/1920px-Chain_homotopy_between_chain_complexes.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x" data-file-width="400" data-file-height="105" data-file-type="drawing" height="171" width="650" class="mw-file-element" id="mwqg"></a></span></dd></dl>
+
+<p id="mwqw">The map <i id="mwrA">hd</i><sub id="mwrQ"><i id="mwrg">A</i></sub> + <i id="mwrw">d</i><sub id="mwsA"><i id="mwsQ">B</i></sub><i id="mwsg">h</i> is easily verified to induce the zero map on homology, for any <i id="mwsw">h</i>. It immediately follows that <i id="mwtA">f</i> and <i id="mwtQ">g</i> induce the same map on homology. One says <i id="mwtg">f</i> and <i id="mwtw">g</i> are <b id="mwuA">chain homotopic</b> (or simply <b id="mwuQ">homotopic</b>), and this property defines an <a rel="mw:WikiLink" href="./Equivalence_relation" title="Equivalence relation" id="mwug">equivalence relation</a> between chain maps.</p>
+
+<p id="mwuw">Let <i id="mwvA">X</i> and <i id="mwvQ">Y</i> be topological spaces. In the case of singular homology, a <a rel="mw:WikiLink" href="./Homotopy" title="Homotopy" id="mwvg">homotopy</a> between continuous maps <span class="nowrap" about="#mwt33" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;nowrap&quot;,&quot;href&quot;:&quot;./Template:Nowrap&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;&#x27;&#x27;f&#x27;&#x27;, &#x27;&#x27;g&#x27;&#x27; : &#x27;&#x27;X&#x27;&#x27; → &#x27;&#x27;Y&#x27;&#x27;&quot;}},&quot;i&quot;:0}}]}" id="mwvw"><i>f</i>, <i>g</i><span typeof="mw:DisplaySpace"> </span>: <i>X</i> → <i>Y</i></span> induces a chain homotopy between the chain maps corresponding to <i id="mwwA">f</i> and <i id="mwwQ">g</i>. This shows that two homotopic maps induce the same map  on singular homology. The name "chain homotopy" is motivated by this example.</p>
+
+</section></section><section data-mw-section-id="5" id="mwwg"><h2 id="Examples">Examples</h2>
+
+<section data-mw-section-id="6" id="mwww"><h3 id="Singular_homology">Singular homology</h3>
+<span class="mw-empty-elt" about="#mwt34" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;main&quot;,&quot;href&quot;:&quot;./Template:Main&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;Singular homology&quot;}},&quot;i&quot;:0}}]}" id="mwxA"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1368532237" about="#mwt35" typeof="mw:Extension/templatestyles" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Hatnote/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}"></span><div role="note" class="hatnote navigation-not-searchable" about="#mwt34" id="mwxQ">Main article: <a rel="mw:WikiLink" href="./Singular_homology" title="Singular homology">Singular homology</a></div>
+<p id="mwxg">Let <i id="mwxw">X</i> be a topological space. Define <i id="mwyA">C</i><sub id="mwyQ"><i id="mwyg">n</i></sub>(<i id="mwyw">X</i>) for <a rel="mw:WikiLink" href="./Natural_number" title="Natural number" id="mwzA">natural</a> <i id="mwzQ">n</i> to be the <a rel="mw:WikiLink" href="./Free_abelian_group" title="Free abelian group" id="mwzg">free abelian group</a> formally generated by <a rel="mw:WikiLink" href="./Singular_homology" title="Singular homology" id="mwzw">singular n-simplices</a> in <i id="mw0A">X</i>, and define the boundary map <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt36" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\partial_n: C_n(X) \\to C_{n-1}(X)&quot;}}" id="mw0Q"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \partial _{n}:C_{n}(X)\to C_{n-1}(X)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi mathvariant="normal">∂</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo>:</mo>
+        <msub>
+          <mi>C</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>X</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">→</mo>
+        <msub>
+          <mi>C</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+            <mo>−</mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>X</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \partial _{n}:C_{n}(X)\to C_{n-1}(X)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5cc8d5d6400bdd92a116c58ad45b0bcc683aa63a" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:23.444ex; height:2.843ex;" alt="{\displaystyle \partial _{n}:C_{n}(X)\to C_{n-1}(X)}"></span> to be</p>
+
+<dl id="mw0g"><dd id="mw0w"><dl id="mw1A"><dd id="mw1Q"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt37" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\partial_n : \\, (\\sigma: [v_0,\\ldots,v_n] \\to X) \\mapsto (\\sum_{i=0}^n (-1)^i \\sigma: [v_0,\\ldots, \\hat v_i, \\ldots, v_n] \\to X)&quot;}}" id="mw1g"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \partial _{n}:\,(\sigma :[v_{0},\ldots ,v_{n}]\to X)\mapsto (\sum _{i=0}^{n}(-1)^{i}\sigma :[v_{0},\ldots ,{\hat {v}}_{i},\ldots ,v_{n}]\to X)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi mathvariant="normal">∂</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo>:</mo>
+        <mspace width="thinmathspace"></mspace>
+        <mo stretchy="false">(</mo>
+        <mi>σ</mi>
+        <mo>:</mo>
+        <mo stretchy="false">[</mo>
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>0</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mo>…</mo>
+        <mo>,</mo>
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">]</mo>
+        <mo stretchy="false">→</mo>
+        <mi>X</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">↦</mo>
+        <mo stretchy="false">(</mo>
+        <munderover>
+          <mo>∑</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>=</mo>
+            <mn>0</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </munderover>
+        <mo stretchy="false">(</mo>
+        <mo>−</mo>
+        <mn>1</mn>
+        <msup>
+          <mo stretchy="false">)</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msup>
+        <mi>σ</mi>
+        <mo>:</mo>
+        <mo stretchy="false">[</mo>
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>0</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mo>…</mo>
+        <mo>,</mo>
+        <msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mover>
+                <mi>v</mi>
+                <mo stretchy="false">^</mo>
+              </mover>
+            </mrow>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mo>…</mo>
+        <mo>,</mo>
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">]</mo>
+        <mo stretchy="false">→</mo>
+        <mi>X</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \partial _{n}:\,(\sigma<span typeof="mw:DisplaySpace"> </span>:[v_{0},\ldots ,v_{n}]\to X)\mapsto (\sum _{i=0}^{n}(-1)^{i}\sigma<span typeof="mw:DisplaySpace"> </span>:[v_{0},\ldots ,{\hat {v}}_{i},\ldots ,v_{n}]\to X)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6d64d20dabc262201e2da3e8e282cd1e6c2a46ce" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -3.005ex; width:67.871ex; height:6.843ex;" alt="{\displaystyle \partial _{n}:\,(\sigma :[v_{0},\ldots ,v_{n}]\to X)\mapsto (\sum _{i=0}^{n}(-1)^{i}\sigma :[v_{0},\ldots ,{\hat {v}}_{i},\ldots ,v_{n}]\to X)}"></span></dd></dl></dd></dl>
+
+<p id="mw1w">where the hat denotes the omission of a <a rel="mw:WikiLink" href="./Vertex_(geometry)" title="Vertex (geometry)" id="mw2A">vertex</a>. That is, the boundary of a singular simplex is the alternating sum of restrictions to its faces. It can be shown that ∂<sup id="mw2Q">2</sup> = 0, so <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt38" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;(C_\\bullet, \\partial_\\bullet)&quot;}}" id="mw2g"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (C_{\bullet },\partial _{\bullet })}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>C</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∙</mo>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi mathvariant="normal">∂</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∙</mo>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (C_{\bullet },\partial _{\bullet })}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/86b93bebaabbfe85ee43367b9b68ee5fbbbfd2c3" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:7.848ex; height:2.843ex;" alt="{\displaystyle (C_{\bullet },\partial _{\bullet })}"></span> is a chain complex; the <b id="mw2w">singular homology</b> <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt39" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;H_\\bullet(X)&quot;}}" id="mw3A"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle H_{\bullet }(X)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>H</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∙</mo>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>X</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle H_{\bullet }(X)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1ac4d3c0970171399efd988a64f0e94c513940cf" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:6.775ex; height:2.843ex;" alt="{\displaystyle H_{\bullet }(X)}"></span> is the homology of this complex.</p>
+
+<p id="mw3Q">Singular homology is a useful invariant of topological spaces up to <a rel="mw:WikiLink" href="./Homotopy#homotopy_equivalence" title="Homotopy" id="mw3g">homotopy equivalence</a>. The degree zero homology group is a free abelian group on the <a rel="mw:WikiLink" href="./Connected_space#Path_connectedness" title="Connected space" id="mw3w">path-components</a> of <i id="mw4A">X</i>.</p>
+
+</section><section data-mw-section-id="7" id="mw4Q"><h3 id="de_Rham_cohomology">de Rham cohomology</h3>
+<span class="mw-empty-elt" about="#mwt40" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;main&quot;,&quot;href&quot;:&quot;./Template:Main&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;de Rham cohomology&quot;}},&quot;i&quot;:0}}]}" id="mw4g"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1368532237" about="#mwt41" typeof="mw:Extension/templatestyles" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Hatnote/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}"></span><div role="note" class="hatnote navigation-not-searchable" about="#mwt40" id="mw4w">Main article: <a rel="mw:WikiLink" href="./De_Rham_cohomology" title="De Rham cohomology">de Rham cohomology</a></div>
+<p id="mw5A">The <a rel="mw:WikiLink" href="./Differential_form" title="Differential form" id="mw5Q">differential <i id="mw5g">k</i>-forms</a> on any <a rel="mw:WikiLink" href="./Smooth_manifold" title="Smooth manifold" class="mw-redirect" id="mw5w">smooth manifold</a> <i id="mw6A">M</i> form a <a rel="mw:WikiLink" href="./Real_number" title="Real number" id="mw6Q">real</a> <a rel="mw:WikiLink" href="./Vector_space" title="Vector space" id="mw6g">vector space</a> called Ω<sup id="mw6w"><i id="mw7A">k</i></sup>(<i id="mw7Q">M</i>) under addition. 
+The <a rel="mw:WikiLink" href="./Exterior_derivative" title="Exterior derivative" id="mw7g">exterior derivative</a> <i id="mw7w">d</i> maps Ω<sup id="mw8A"><i id="mw8Q">k</i></sup>(<i id="mw8g">M</i>) to Ω<sup id="mw8w"><i id="mw9A">k</i>+1</sup>(<i id="mw9Q">M</i>), and <i id="mw9g">d</i><span style="padding-left:0.12em;" about="#mwt42" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;i sup&quot;,&quot;href&quot;:&quot;./Template:I_sup&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;2&quot;}},&quot;i&quot;:0}}]}" id="mw9w"><sup>2</sup></span> = 0 follows essentially from <a rel="mw:WikiLink" href="./Symmetry_of_second_derivatives" title="Symmetry of second derivatives" id="mw-A">symmetry of second derivatives</a>, so the vector spaces of <i id="mw-Q">k</i>-forms along with the exterior derivative are a cochain complex.</p>
+
+<dl id="mw-g"><dd id="mw-w"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt43" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot; 0\\stackrel{\\subset}{\\to}\\ {\\Re^{c}}  \\stackrel{\\subset}{\\to}\\ {\\Omega^0(M)} \\stackrel{d}{\\to}\\ {\\Omega^1(M)} \\stackrel{d}{\\to}\\ {\\Omega^2(M)} \\stackrel{d}{\\to}\\ \\Omega^3(M) \\to \\cdots&quot;}}" id="mw_A"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle 0{\stackrel {\subset }{\to }}\ {\Re ^{c}}{\stackrel {\subset }{\to }}\ {\Omega ^{0}(M)}{\stackrel {d}{\to }}\ {\Omega ^{1}(M)}{\stackrel {d}{\to }}\ {\Omega ^{2}(M)}{\stackrel {d}{\to }}\ \Omega ^{3}(M)\to \cdots }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>0</mn>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-REL">
+            <mover>
+              <mrow class="MJX-TeXAtom-OP MJX-fixedlimits">
+                <mo stretchy="false">→</mo>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo>⊂</mo>
+              </mrow>
+            </mover>
+          </mrow>
+        </mrow>
+        <mtext> </mtext>
+        <mrow class="MJX-TeXAtom-ORD">
+          <msup>
+            <mi mathvariant="normal">ℜ</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi>c</mi>
+            </mrow>
+          </msup>
+        </mrow>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-REL">
+            <mover>
+              <mrow class="MJX-TeXAtom-OP MJX-fixedlimits">
+                <mo stretchy="false">→</mo>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo>⊂</mo>
+              </mrow>
+            </mover>
+          </mrow>
+        </mrow>
+        <mtext> </mtext>
+        <mrow class="MJX-TeXAtom-ORD">
+          <msup>
+            <mi mathvariant="normal">Ω</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mn>0</mn>
+            </mrow>
+          </msup>
+          <mo stretchy="false">(</mo>
+          <mi>M</mi>
+          <mo stretchy="false">)</mo>
+        </mrow>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-REL">
+            <mover>
+              <mrow class="MJX-TeXAtom-OP MJX-fixedlimits">
+                <mo stretchy="false">→</mo>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>d</mi>
+              </mrow>
+            </mover>
+          </mrow>
+        </mrow>
+        <mtext> </mtext>
+        <mrow class="MJX-TeXAtom-ORD">
+          <msup>
+            <mi mathvariant="normal">Ω</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mn>1</mn>
+            </mrow>
+          </msup>
+          <mo stretchy="false">(</mo>
+          <mi>M</mi>
+          <mo stretchy="false">)</mo>
+        </mrow>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-REL">
+            <mover>
+              <mrow class="MJX-TeXAtom-OP MJX-fixedlimits">
+                <mo stretchy="false">→</mo>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>d</mi>
+              </mrow>
+            </mover>
+          </mrow>
+        </mrow>
+        <mtext> </mtext>
+        <mrow class="MJX-TeXAtom-ORD">
+          <msup>
+            <mi mathvariant="normal">Ω</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mn>2</mn>
+            </mrow>
+          </msup>
+          <mo stretchy="false">(</mo>
+          <mi>M</mi>
+          <mo stretchy="false">)</mo>
+        </mrow>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-REL">
+            <mover>
+              <mrow class="MJX-TeXAtom-OP MJX-fixedlimits">
+                <mo stretchy="false">→</mo>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>d</mi>
+              </mrow>
+            </mover>
+          </mrow>
+        </mrow>
+        <mtext> </mtext>
+        <msup>
+          <mi mathvariant="normal">Ω</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>3</mn>
+          </mrow>
+        </msup>
+        <mo stretchy="false">(</mo>
+        <mi>M</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">→</mo>
+        <mo>⋯</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 0{\stackrel {\subset }{\to }}\ {\Re ^{c}}{\stackrel {\subset }{\to }}\ {\Omega ^{0}(M)}{\stackrel {d}{\to }}\ {\Omega ^{1}(M)}{\stackrel {d}{\to }}\ {\Omega ^{2}(M)}{\stackrel {d}{\to }}\ \Omega ^{3}(M)\to \cdots }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/dd9d50e21f86162bac5f6b68bfba3816a1aaf15b" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:52.825ex; height:4.176ex;" alt="{\displaystyle 0{\stackrel {\subset }{\to }}\ {\Re ^{c}}{\stackrel {\subset }{\to }}\ {\Omega ^{0}(M)}{\stackrel {d}{\to }}\ {\Omega ^{1}(M)}{\stackrel {d}{\to }}\ {\Omega ^{2}(M)}{\stackrel {d}{\to }}\ \Omega ^{3}(M)\to \cdots }"></span></dd></dl>
+
+<p id="mw_Q">The cohomology of this complex is called the <b id="mw_g">de Rham cohomology</b> of <i id="mw_w">M</i>. <a rel="mw:WikiLink" href="./Locally_constant_function" title="Locally constant function" id="mwAQA">Locally constant functions</a> are designated with its isomorphism <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt44" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot; \\Re^c&quot;}}" id="mwAQE"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \Re ^{c}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi mathvariant="normal">ℜ</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>c</mi>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Re ^{c}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/41e564727a5ff59a58dab8badd9b9657fdcea4fc" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:2.868ex; height:2.343ex;" alt="{\displaystyle \Re ^{c}}"></span> with c the count of mutually disconnected components of <i id="mwAQI">M</i>. This way the complex was extended to leave the complex exact at zero-form level using the subset operator.</p>
+
+<p id="mwAQM"><a rel="mw:WikiLink" href="./Smoothness#Smooth_functions_on_and_between_manifolds" title="Smoothness" id="mwAQQ">Smooth maps</a> between manifolds induce chain maps, and smooth homotopies between maps induce chain homotopies.</p>
+
+</section></section><section data-mw-section-id="8" id="mwAQU"><h2 id="Category_of_chain_complexes">Category of chain complexes</h2>
+<p id="mwAQY">Chain complexes of <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt45" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;K&quot;}}" id="mwAQc"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle K}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>K</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle K}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2b76fce82a62ed5461908f0dc8f037de4e3686b0" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:2.066ex; height:2.176ex;" alt="{\displaystyle K}"></span>-modules with chain maps as <a rel="mw:WikiLink" href="./Morphism" title="Morphism" id="mwAQg">morphisms</a> form a <a rel="mw:WikiLink" href="./Category_(mathematics)" title="Category (mathematics)" id="mwAQk">category</a> <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt46" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\mathbf{Ch}_K&quot;}}" id="mwAQo"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \mathbf {Ch} _{K}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="bold">C</mi>
+            <mi mathvariant="bold">h</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>K</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbf {Ch} _{K}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3a55f2c3b62c5bb9204c60fb87f1e07c0bb34570" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:5.11ex; height:2.509ex;" alt="{\displaystyle \mathbf {Ch} _{K}}"></span>, where <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt47" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;K&quot;}}" id="mwAQs"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle K}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>K</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle K}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2b76fce82a62ed5461908f0dc8f037de4e3686b0" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:2.066ex; height:2.176ex;" alt="{\displaystyle K}"></span> is a commutative ring.</p>
+
+<p id="mwAQw">If <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt48" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;V=V_*&quot;}}" id="mwAQ0"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle V=V_{*}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>V</mi>
+        <mo>=</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∗</mo>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V=V_{*}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/35f2dc69388a066af502bb15d11eb27bf3637ba0" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.293ex; margin-bottom: -0.379ex; width:7.295ex; height:2.509ex;" alt="{\displaystyle V=V_{*}}"></span> and <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt49" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;W=W_*&quot;}}" id="mwAQ4"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle W=W_{*}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>W</mi>
+        <mo>=</mo>
+        <msub>
+          <mi>W</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>∗</mo>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle W=W_{*}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1b04cc10b0715cfe11bf482423c8790a3daf8a72" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.293ex; margin-bottom: -0.379ex; width:8.782ex; height:2.509ex;" alt="{\displaystyle W=W_{*}}"></span> are chain complexes, their <b id="mwAQ8">tensor product</b> <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt50" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot; V \\otimes W &quot;}}" id="mwARA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle V\otimes W}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>V</mi>
+        <mo>⊗</mo>
+        <mi>W</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V\otimes W}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a0d8e48e05a95d9c68f80f49e3d509ba9de064c9" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.505ex; width:7.063ex; height:2.343ex;" alt="{\displaystyle V\otimes W}"></span> is a chain complex with degree <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt51" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;n&quot;}}" id="mwARE"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="{\displaystyle n}"></span> elements given by </p>
+<dl id="mwARI"><dd id="mwARM"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt52" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot; (V \\otimes W)_n = \\bigoplus_{\\{i,j\\mid i+j=n\\}} V_i \\otimes W_j &quot;}}" id="mwARQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (V\otimes W)_{n}=\bigoplus _{\{i,j\mid i+j=n\}}V_{i}\otimes W_{j}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>V</mi>
+        <mo>⊗</mo>
+        <mi>W</mi>
+        <msub>
+          <mo stretchy="false">)</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <munder>
+          <mo>⨁</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo fence="false" stretchy="false">{</mo>
+            <mi>i</mi>
+            <mo>,</mo>
+            <mi>j</mi>
+            <mo>∣</mo>
+            <mi>i</mi>
+            <mo>+</mo>
+            <mi>j</mi>
+            <mo>=</mo>
+            <mi>n</mi>
+            <mo fence="false" stretchy="false">}</mo>
+          </mrow>
+        </munder>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>⊗</mo>
+        <msub>
+          <mi>W</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (V\otimes W)_{n}=\bigoplus _{\{i,j\mid i+j=n\}}V_{i}\otimes W_{j}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/73df0045149ecbf28eecc8f997d7a05e3a5f3780" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -3.505ex; width:30.267ex; height:6.009ex;" alt="{\displaystyle (V\otimes W)_{n}=\bigoplus _{\{i,j\mid i+j=n\}}V_{i}\otimes W_{j}}"></span></dd></dl>
+
+<p id="mwARU">and differential given by </p>
+<dl id="mwARY"><dd id="mwARc"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt53" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot; \\partial (a \\otimes b) = \\partial a \\otimes b + (-1)^{\\left|a\\right|} a \\otimes \\partial b &quot;}}" id="mwARg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \partial (a\otimes b)=\partial a\otimes b+(-1)^{\left|a\right|}a\otimes \partial b}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">∂</mi>
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo>⊗</mo>
+        <mi>b</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi mathvariant="normal">∂</mi>
+        <mi>a</mi>
+        <mo>⊗</mo>
+        <mi>b</mi>
+        <mo>+</mo>
+        <mo stretchy="false">(</mo>
+        <mo>−</mo>
+        <mn>1</mn>
+        <msup>
+          <mo stretchy="false">)</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow>
+              <mo>|</mo>
+              <mi>a</mi>
+              <mo>|</mo>
+            </mrow>
+          </mrow>
+        </msup>
+        <mi>a</mi>
+        <mo>⊗</mo>
+        <mi mathvariant="normal">∂</mi>
+        <mi>b</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \partial (a\otimes b)=\partial a\otimes b+(-1)^{\left|a\right|}a\otimes \partial b}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b2b56824474889ced2130252d70d3232b4ae3761" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:33.702ex; height:3.343ex;" alt="{\displaystyle \partial (a\otimes b)=\partial a\otimes b+(-1)^{\left|a\right|}a\otimes \partial b}"></span></dd></dl>
+<p id="mwARk">where <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt54" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;a&quot;}}" id="mwARo"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle a}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>a</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle a}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ffd2487510aa438433a2579450ab2b3d557e5edc" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.23ex; height:1.676ex;" alt="{\displaystyle a}"></span> and <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt55" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;b&quot;}}" id="mwARs"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle b}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>b</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle b}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f11423fbb2e967f986e36804a8ae4271734917c3" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:0.998ex; height:2.176ex;" alt="{\displaystyle b}"></span> are any two homogeneous vectors in <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt56" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;V&quot;}}" id="mwARw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle V}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>V</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/af0f6064540e84211d0ffe4dac72098adfa52845" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.787ex; height:2.176ex;" alt="{\displaystyle V}"></span> and <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt57" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;W&quot;}}" id="mwAR0"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle W}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>W</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle W}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/54a9c4c547f4d6111f81946cad242b18298d70b7" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:2.435ex; height:2.176ex;" alt="{\displaystyle W}"></span> respectively, and <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt58" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot; \\left|a\\right| &quot;}}" id="mwAR4"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \left|a\right|}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow>
+          <mo>|</mo>
+          <mi>a</mi>
+          <mo>|</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \left|a\right|}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/bc1989313eab6e17a909a3491eacf2b7a6c16e59" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:2.523ex; height:2.843ex;" alt="{\displaystyle \left|a\right|}"></span> denotes the degree of <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt59" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;a&quot;}}" id="mwAR8"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle a}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>a</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle a}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ffd2487510aa438433a2579450ab2b3d557e5edc" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.23ex; height:1.676ex;" alt="{\displaystyle a}"></span>.</p>
+
+<p id="mwASA">This tensor product makes the category <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt60" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\mathbf{Ch}_K&quot;}}" id="mwASE"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \mathbf {Ch} _{K}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="bold">C</mi>
+            <mi mathvariant="bold">h</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>K</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbf {Ch} _{K}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3a55f2c3b62c5bb9204c60fb87f1e07c0bb34570" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:5.11ex; height:2.509ex;" alt="{\displaystyle \mathbf {Ch} _{K}}"></span> into a <a rel="mw:WikiLink" href="./Symmetric_monoidal_category" title="Symmetric monoidal category" id="mwASI">symmetric monoidal category</a>. The identity object with respect to this monoidal product is the base ring <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt61" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;K&quot;}}" id="mwASM"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle K}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>K</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle K}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2b76fce82a62ed5461908f0dc8f037de4e3686b0" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:2.066ex; height:2.176ex;" alt="{\displaystyle K}"></span> viewed as a chain complex in degree <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt62" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;0&quot;}}" id="mwASQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle 0}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>0</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 0}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2aae8864a3c1fec9585261791a809ddec1489950" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.162ex; height:2.176ex;" alt="{\displaystyle 0}"></span>. The <a rel="mw:WikiLink" href="./Braided_monoidal_category" title="Braided monoidal category" id="mwASU">braiding</a> is given on simple tensors of homogeneous elements by </p>
+<dl id="mwASY"><dd id="mwASc"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt63" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot; a \\otimes b \\mapsto (-1)^{\\left|a\\right|\\left|b\\right|} b \\otimes a &quot;}}" id="mwASg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle a\otimes b\mapsto (-1)^{\left|a\right|\left|b\right|}b\otimes a}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>a</mi>
+        <mo>⊗</mo>
+        <mi>b</mi>
+        <mo stretchy="false">↦</mo>
+        <mo stretchy="false">(</mo>
+        <mo>−</mo>
+        <mn>1</mn>
+        <msup>
+          <mo stretchy="false">)</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow>
+              <mo>|</mo>
+              <mi>a</mi>
+              <mo>|</mo>
+            </mrow>
+            <mrow>
+              <mo>|</mo>
+              <mi>b</mi>
+              <mo>|</mo>
+            </mrow>
+          </mrow>
+        </msup>
+        <mi>b</mi>
+        <mo>⊗</mo>
+        <mi>a</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle a\otimes b\mapsto (-1)^{\left|a\right|\left|b\right|}b\otimes a}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7d31bcb7338b9b4d045801d8f9c4e2887530ef79" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:22.166ex; height:3.343ex;" alt="{\displaystyle a\otimes b\mapsto (-1)^{\left|a\right|\left|b\right|}b\otimes a}"></span></dd></dl>
+<p id="mwASk">The sign is necessary for the braiding to be a chain map.</p>
+
+<p id="mwASo">Moreover, the category of chain complexes of <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt64" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;K&quot;}}" id="mwASs"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle K}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>K</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle K}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2b76fce82a62ed5461908f0dc8f037de4e3686b0" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:2.066ex; height:2.176ex;" alt="{\displaystyle K}"></span>-modules also has <a rel="mw:WikiLink" href="./Closed_monoidal_category" title="Closed monoidal category" id="mwASw">internal Hom</a>: given chain complexes <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt65" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;V&quot;}}" id="mwAS0"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle V}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>V</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/af0f6064540e84211d0ffe4dac72098adfa52845" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.787ex; height:2.176ex;" alt="{\displaystyle V}"></span> and <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt66" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;W&quot;}}" id="mwAS4"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle W}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>W</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle W}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/54a9c4c547f4d6111f81946cad242b18298d70b7" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:2.435ex; height:2.176ex;" alt="{\displaystyle W}"></span>, the internal Hom of <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt67" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;V&quot;}}" id="mwAS8"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle V}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>V</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/af0f6064540e84211d0ffe4dac72098adfa52845" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.787ex; height:2.176ex;" alt="{\displaystyle V}"></span> and <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt68" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;W&quot;}}" id="mwATA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle W}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>W</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle W}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/54a9c4c547f4d6111f81946cad242b18298d70b7" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:2.435ex; height:2.176ex;" alt="{\displaystyle W}"></span>, denoted <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt69" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\mathrm{Hom}(V,W)&quot;}}" id="mwATE"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \mathrm {Hom} (V,W)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">H</mi>
+          <mi mathvariant="normal">o</mi>
+          <mi mathvariant="normal">m</mi>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>V</mi>
+        <mo>,</mo>
+        <mi>W</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathrm {Hom} (V,W)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/01b7a66830f3ef634e3e9cccc43bdf3b9ec259e9" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:11.907ex; height:2.843ex;" alt="{\displaystyle \mathrm {Hom} (V,W)}"></span>, is the chain complex with degree <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt70" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;n&quot;}}" id="mwATI"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="{\displaystyle n}"></span> elements given by <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt71" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\Pi_{i}\\text{Hom}_K (V_i,W_{i+n})&quot;}}" id="mwATM"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \Pi _{i}{\text{Hom}}_{K}(V_{i},W_{i+n})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi mathvariant="normal">Π</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>Hom</mtext>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>K</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>W</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>+</mo>
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Pi _{i}{\text{Hom}}_{K}(V_{i},W_{i+n})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ce5129fcb287adfef3ed2487a2169cf7090126a7" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:19.334ex; height:2.843ex;" alt="{\displaystyle \Pi _{i}{\text{Hom}}_{K}(V_{i},W_{i+n})}"></span> and differential given by</p>
+<dl id="mwATQ"><dd id="mwATU"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt72" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot; (\\partial f)(v) = \\partial(f(v)) - (-1)^{\\left|f\\right|} f(\\partial(v)) &quot;}}" id="mwATY"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (\partial f)(v)=\partial (f(v))-(-1)^{\left|f\right|}f(\partial (v))}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi mathvariant="normal">∂</mi>
+        <mi>f</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">(</mo>
+        <mi>v</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi mathvariant="normal">∂</mi>
+        <mo stretchy="false">(</mo>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>v</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+        <mo>−</mo>
+        <mo stretchy="false">(</mo>
+        <mo>−</mo>
+        <mn>1</mn>
+        <msup>
+          <mo stretchy="false">)</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow>
+              <mo>|</mo>
+              <mi>f</mi>
+              <mo>|</mo>
+            </mrow>
+          </mrow>
+        </msup>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi mathvariant="normal">∂</mi>
+        <mo stretchy="false">(</mo>
+        <mi>v</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (\partial f)(v)=\partial (f(v))-(-1)^{\left|f\right|}f(\partial (v))}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4c9703f66459e55a4e234155cad3118c5228ae34" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:34.798ex; height:3.343ex;" alt="{\displaystyle (\partial f)(v)=\partial (f(v))-(-1)^{\left|f\right|}f(\partial (v))}"></span>.</dd></dl>
+<p id="mwATc">We have a <a rel="mw:WikiLink" href="./Natural_isomorphism" title="Natural isomorphism" class="mw-redirect" id="mwATg">natural isomorphism</a></p>
+<dl id="mwATk"><dd id="mwATo"><span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt73" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\text{Hom}(A\\otimes B, C) \\cong \\text{Hom}(A,\\text{Hom}(B,C))&quot;}}" id="mwATs"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle {\text{Hom}}(A\otimes B,C)\cong {\text{Hom}}(A,{\text{Hom}}(B,C))}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>Hom</mtext>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>A</mi>
+        <mo>⊗</mo>
+        <mi>B</mi>
+        <mo>,</mo>
+        <mi>C</mi>
+        <mo stretchy="false">)</mo>
+        <mo>≅</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>Hom</mtext>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>A</mi>
+        <mo>,</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>Hom</mtext>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>B</mi>
+        <mo>,</mo>
+        <mi>C</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\text{Hom}}(A\otimes B,C)\cong {\text{Hom}}(A,{\text{Hom}}(B,C))}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ae1872bb957ae7a456576a72702464a9b684a899" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:39.54ex; height:2.843ex;" alt="{\displaystyle {\text{Hom}}(A\otimes B,C)\cong {\text{Hom}}(A,{\text{Hom}}(B,C))}"></span></dd></dl>
+
+</section><section data-mw-section-id="9" id="mwATw"><h2 id="Further_examples">Further examples</h2>
+<ul id="mwAT0"><li id="mwAT4"><a rel="mw:WikiLink" href="./Amitsur_complex" title="Amitsur complex" id="mwAT8">Amitsur complex</a></li>
+<li id="mwAUA"><a rel="mw:WikiLink" href="./Bloch&#x27;s_higher_Chow_groups" title="Bloch&#x27;s higher Chow groups" class="mw-redirect" id="mwAUE">Bloch's higher Chow groups</a></li>
+<li id="mwAUI"><a rel="mw:WikiLink" href="./Buchsbaum–Rim_complex?action=edit&amp;redlink=1" title="Buchsbaum–Rim complex" class="new" typeof="mw:LocalizedAttrs" data-mw-i18n="{&quot;title&quot;:{&quot;lang&quot;:&quot;x-page&quot;,&quot;key&quot;:&quot;red-link-title&quot;,&quot;params&quot;:[&quot;Buchsbaum–Rim complex&quot;]}}" id="mwAUM">Buchsbaum–Rim complex</a></li>
+<li id="mwAUQ"><a rel="mw:WikiLink" href="./Čech_complex" title="Čech complex" id="mwAUU">Čech complex</a></li>
+<li id="mwAUY"><a rel="mw:WikiLink" href="./Cousin_complex?action=edit&amp;redlink=1" title="Cousin complex" class="new" typeof="mw:LocalizedAttrs" data-mw-i18n="{&quot;title&quot;:{&quot;lang&quot;:&quot;x-page&quot;,&quot;key&quot;:&quot;red-link-title&quot;,&quot;params&quot;:[&quot;Cousin complex&quot;]}}" id="mwAUc">Cousin complex</a></li>
+<li id="mwAUg"><a rel="mw:WikiLink" href="./Eagon–Northcott_complex?action=edit&amp;redlink=1" title="Eagon–Northcott complex" class="new" typeof="mw:LocalizedAttrs" data-mw-i18n="{&quot;title&quot;:{&quot;lang&quot;:&quot;x-page&quot;,&quot;key&quot;:&quot;red-link-title&quot;,&quot;params&quot;:[&quot;Eagon–Northcott complex&quot;]}}" id="mwAUk">Eagon–Northcott complex</a></li>
+<li id="mwAUo"><a rel="mw:WikiLink" href="./Gersten_complex?action=edit&amp;redlink=1" title="Gersten complex" class="new" typeof="mw:LocalizedAttrs" data-mw-i18n="{&quot;title&quot;:{&quot;lang&quot;:&quot;x-page&quot;,&quot;key&quot;:&quot;red-link-title&quot;,&quot;params&quot;:[&quot;Gersten complex&quot;]}}" id="mwAUs">Gersten complex</a></li>
+<li id="mwAUw"><a rel="mw:WikiLink" href="./Graph_complex?action=edit&amp;redlink=1" title="Graph complex" class="new" typeof="mw:LocalizedAttrs" data-mw-i18n="{&quot;title&quot;:{&quot;lang&quot;:&quot;x-page&quot;,&quot;key&quot;:&quot;red-link-title&quot;,&quot;params&quot;:[&quot;Graph complex&quot;]}}" id="mwAU0">Graph complex</a><sup about="#mwt76" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-1&quot;}}"><a href="./Chain_complex#cite_note-1" id="mwAU4"><span class="mw-reflink-text" id="mwAU8"><span class="cite-bracket" id="mwAVA">[</span>1<span class="cite-bracket" id="mwAVE">]</span></span></a></sup></li>
+<li id="mwAVI"><a rel="mw:WikiLink" href="./Koszul_complex" title="Koszul complex" id="mwAVM">Koszul complex</a></li>
+<li id="mwAVQ"><a rel="mw:WikiLink" href="./Moore_complex" title="Moore complex" class="mw-redirect" id="mwAVU">Moore complex</a></li>
+<li id="mwAVY"><a rel="mw:WikiLink" href="./Schur_complex?action=edit&amp;redlink=1" title="Schur complex" class="new" typeof="mw:LocalizedAttrs" data-mw-i18n="{&quot;title&quot;:{&quot;lang&quot;:&quot;x-page&quot;,&quot;key&quot;:&quot;red-link-title&quot;,&quot;params&quot;:[&quot;Schur complex&quot;]}}" id="mwAVc">Schur complex</a></li></ul>
+
+</section><section data-mw-section-id="10" id="mwAVg"><h2 id="See_also">See also</h2>
+<ul id="mwAVk"><li id="mwAVo"><a rel="mw:WikiLink" href="./Differential_graded_algebra" title="Differential graded algebra" id="mwAVs">Differential graded algebra</a></li>
+<li id="mwAVw"><a rel="mw:WikiLink" href="./Differential_graded_Lie_algebra" title="Differential graded Lie algebra" id="mwAV0">Differential graded Lie algebra</a></li>
+<li id="mwAV4"><a rel="mw:WikiLink" href="./Dold–Kan_correspondence" title="Dold–Kan correspondence" id="mwAV8">Dold–Kan correspondence</a> says there is an equivalence between the category of chain complexes and the category of <a rel="mw:WikiLink" href="./Simplicial_abelian_group" title="Simplicial abelian group" class="mw-redirect" id="mwAWA">simplicial abelian groups</a>.</li>
+<li id="mwAWE"><a rel="mw:WikiLink" href="./Buchsbaum–Eisenbud_acyclicity_criterion?action=edit&amp;redlink=1" title="Buchsbaum–Eisenbud acyclicity criterion" class="new" typeof="mw:LocalizedAttrs" data-mw-i18n="{&quot;title&quot;:{&quot;lang&quot;:&quot;x-page&quot;,&quot;key&quot;:&quot;red-link-title&quot;,&quot;params&quot;:[&quot;Buchsbaum–Eisenbud acyclicity criterion&quot;]}}" id="mwAWI">Buchsbaum–Eisenbud acyclicity criterion</a></li>
+<li id="mwAWM"><a rel="mw:WikiLink" href="./Differential_graded_module" title="Differential graded module" id="mwAWQ">Differential graded module</a></li></ul>
+
+</section><section data-mw-section-id="11" id="mwAWU"><h2 id="References">References</h2>
+<span class="mw-empty-elt" about="#mwt77" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Reflist&quot;,&quot;href&quot;:&quot;./Template:Reflist&quot;},&quot;params&quot;:{},&quot;i&quot;:0}}]}" id="mwAWY"><style data-mw-deduplicate="TemplateStyles:r1327269900" typeof="mw:Extension/templatestyles" about="#mwt78" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Reflist/styles.css&quot;}}">.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}body.skin-vector-2022 .mw-parser-output .reflist-columns-2{column-width:27em}body.skin-vector-2022 .mw-parser-output .reflist-columns-3{column-width:22.5em}.mw-parser-output .references[data-mw-group=upper-alpha]{list-style-type:upper-alpha}.mw-parser-output .references[data-mw-group=upper-roman]{list-style-type:upper-roman}.mw-parser-output .references[data-mw-group=lower-alpha]{list-style-type:lower-alpha}.mw-parser-output .references[data-mw-group=lower-greek]{list-style-type:lower-greek}.mw-parser-output .references[data-mw-group=lower-roman]{list-style-type:lower-roman}.mw-parser-output div.reflist-liststyle-upper-alpha .references{list-style-type:upper-alpha}.mw-parser-output div.reflist-liststyle-upper-roman .references{list-style-type:upper-roman}.mw-parser-output div.reflist-liststyle-lower-alpha .references{list-style-type:lower-alpha}.mw-parser-output div.reflist-liststyle-lower-greek .references{list-style-type:lower-greek}.mw-parser-output div.reflist-liststyle-lower-roman .references{list-style-type:lower-roman}</style></span><div about="#mwt77" id="mwAWc">
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt79" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{&quot;group&quot;:&quot;&quot;,&quot;responsive&quot;:&quot;1&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}" id="mwAWg"><ol class="mw-references references" id="mwAWk"><li about="#cite_note-1" id="cite_note-1" data-mw-footnote-number="1"><span class="mw-cite-backlink" id="mwAWo"><a href="./Chain_complex#cite_ref-1" rel="mw:referencedBy" id="mwAWs"><span class="mw-linkback-text" id="mwAWw">↑</span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text"><style data-mw-deduplicate="TemplateStyles:r1333433106" typeof="mw:Extension/templatestyles mw:Transclusion" about="#mwt74" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Citation/CS1/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Cite web&quot;,&quot;href&quot;:&quot;./Template:Cite_web&quot;},&quot;params&quot;:{&quot;url&quot;:{&quot;wt&quot;:&quot;https://ncatlab.org/nlab/show/graph+complex&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;Graph complex&quot;}},&quot;i&quot;:0}}]}" id="mwAW0">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free.id-lock-free a{background:url("//upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited.id-lock-limited a,.mw-parser-output .id-lock-registration.id-lock-registration a{background:url("//upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription.id-lock-subscription a{background:url("//upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:url("//upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-free a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-limited a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-registration a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-subscription a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .cs1-ws-icon a{background-size:contain;padding:0 1em 0 0}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:var(--color-error,#bf3c2c)}.mw-parser-output .cs1-visible-error{color:var(--color-error,#bf3c2c)}.mw-parser-output .cs1-maint{display:none;color:#085;margin-left:0.3em}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}@media screen{.mw-parser-output .cs1-format{font-size:95%}html.skin-theme-clientpref-night .mw-parser-output .cs1-maint{color:#18911f}}@media screen and (prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .cs1-maint{color:#18911f}}</style><cite class="citation web cs1" about="#mwt74" id="mwAW4"><a rel="mw:ExtLink nofollow" href="https://ncatlab.org/nlab/show/graph+complex" class="external text" id="mwAW8">"Graph complex"</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Graph+complex&amp;rft_id=https%3A%2F%2Fncatlab.org%2Fnlab%2Fshow%2Fgraph%2Bcomplex&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AChain+complex" class="Z3988" about="#mwt74" id="mwAXA"></span></span></li>
+</ol></div></div>
+<ul id="mwAXE"><li id="mwAXI"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt80" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Citation/CS1/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Citation &quot;,&quot;href&quot;:&quot;./Template:Citation&quot;},&quot;params&quot;:{&quot;last1&quot;:{&quot;wt&quot;:&quot;Bott&quot;},&quot;first1&quot;:{&quot;wt&quot;:&quot;Raoul&quot;},&quot;author1-link&quot;:{&quot;wt&quot;:&quot;Raoul Bott&quot;},&quot;last2&quot;:{&quot;wt&quot;:&quot;Tu&quot;},&quot;first2&quot;:{&quot;wt&quot;:&quot;Loring W.&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;Differential Forms in Algebraic Topology&quot;},&quot;publisher&quot;:{&quot;wt&quot;:&quot;[[Springer-Verlag]]&quot;},&quot;location&quot;:{&quot;wt&quot;:&quot;Berlin, New York&quot;},&quot;isbn&quot;:{&quot;wt&quot;:&quot;978-0-387-90613-3&quot;},&quot;year&quot;:{&quot;wt&quot;:&quot;1982&quot;}},&quot;i&quot;:0}}]}" id="mwAXM"><cite id="CITEREFBottTu1982" class="citation cs2" about="#mwt80"><a rel="mw:WikiLink" href="./Raoul_Bott" title="Raoul Bott">Bott, Raoul</a>; Tu, Loring W. (1982), <i>Differential Forms in Algebraic Topology</i>, Berlin, New York: <a rel="mw:WikiLink" href="./Springer-Verlag" title="Springer-Verlag" class="mw-redirect">Springer-Verlag</a>, <a rel="mw:WikiLink" href="./ISBN_(identifier)" title="ISBN (identifier)" class="mw-redirect">ISBN</a><span typeof="mw:Entity"> </span><a rel="mw:WikiLink" href="./Special:BookSources/978-0-387-90613-3" title="Special:BookSources/978-0-387-90613-3"><bdi>978-0-387-90613-3</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Differential+Forms+in+Algebraic+Topology&amp;rft.place=Berlin%2C+New+York&amp;rft.pub=Springer-Verlag&amp;rft.date=1982&amp;rft.isbn=978-0-387-90613-3&amp;rft.aulast=Bott&amp;rft.aufirst=Raoul&amp;rft.au=Tu%2C+Loring+W.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AChain+complex" class="Z3988" about="#mwt80" id="mwAXQ"></span></li>
+<li id="mwAXU"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt82" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Citation/CS1/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;cite book &quot;,&quot;href&quot;:&quot;./Template:Cite_book&quot;},&quot;params&quot;:{&quot;last&quot;:{&quot;wt&quot;:&quot;Hatcher&quot;},&quot;first&quot;:{&quot;wt&quot;:&quot;Allen&quot;},&quot;author-link&quot;:{&quot;wt&quot;:&quot;Allen Hatcher&quot;},&quot;date&quot;:{&quot;wt&quot;:&quot;2002&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;Algebraic Topology&quot;},&quot;url&quot;:{&quot;wt&quot;:&quot;https://pi.math.cornell.edu/~hatcher/AT/ATpage.html&quot;},&quot;location&quot;:{&quot;wt&quot;:&quot;Cambridge&quot;},&quot;publisher&quot;:{&quot;wt&quot;:&quot;[[Cambridge University Press]]&quot;},&quot;isbn&quot;:{&quot;wt&quot;:&quot;0-521-79540-0&quot;}},&quot;i&quot;:0}}]}" id="mwAXY"><cite id="CITEREFHatcher2002" class="citation book cs1" about="#mwt82"><a rel="mw:WikiLink" href="./Allen_Hatcher" title="Allen Hatcher">Hatcher, Allen</a> (2002). <a rel="mw:ExtLink nofollow" href="https://pi.math.cornell.edu/~hatcher/AT/ATpage.html" class="external text"><i>Algebraic Topology</i></a>. Cambridge: <a rel="mw:WikiLink" href="./Cambridge_University_Press" title="Cambridge University Press">Cambridge University Press</a>. <a rel="mw:WikiLink" href="./ISBN_(identifier)" title="ISBN (identifier)" class="mw-redirect">ISBN</a><span typeof="mw:Entity"> </span><a rel="mw:WikiLink" href="./Special:BookSources/0-521-79540-0" title="Special:BookSources/0-521-79540-0"><bdi>0-521-79540-0</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Algebraic+Topology&amp;rft.place=Cambridge&amp;rft.pub=Cambridge+University+Press&amp;rft.date=2002&amp;rft.isbn=0-521-79540-0&amp;rft.aulast=Hatcher&amp;rft.aufirst=Allen&amp;rft_id=https%3A%2F%2Fpi.math.cornell.edu%2F~hatcher%2FAT%2FATpage.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AChain+complex" class="Z3988" about="#mwt82" id="mwAXc"></span></li></ul>
+
+<link rel="mw:PageProp/Category" href="./Category:Homological_algebra" id="mwAXg">
+<link rel="mw:PageProp/Category" href="./Category:Differential_topology" id="mwAXk"></section></body></html>

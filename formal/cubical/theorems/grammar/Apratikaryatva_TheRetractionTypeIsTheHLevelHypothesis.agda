@@ -151,7 +151,7 @@
 --        been checked by anything.  Repaired 2026-08-20 by adding the
 --        name to the `using` list â” a one-name additive fix, no
 --        mathematics touched.]
---     - `Samkramana_TransportCarriesStructureAndTruncationIsTransport
+--     - `Samorderna_TransportCarriesStructureAndTruncationIsTransport
 --       ExactlyWhenNothingWasThereToLose.agda` â” WRITTEN CONCURRENTLY WITH
 --       THIS ONE, by another lane, on the same Â§àâ“Â§à of the same stra.
 --       The overlap is REAL and is stated here rather than discovered by

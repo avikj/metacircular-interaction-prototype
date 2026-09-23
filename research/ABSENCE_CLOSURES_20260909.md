@@ -14,9 +14,9 @@ edited.  Nothing was assumed.
 
 | Absence (module, its own words) | Closing module | Content |
 |---|---|---|
-| Drdha: "UNIQUENESS IS NOT PROVED â¦ v_p IS NOT DEFINED HERE" | historical_proofs/Ekatva_â¦ | two firm lists with one product are a Perm; à®à¾à¨à®à p n well defined |
-| TheUsualReasons / PairwiseCommutation: Perm not shown to be same-multiset; converse containment not proved | Ekatva_â¦, automata/SamaSankhya_â¦ | on a discrete type Perm = â‰ˆ = same count of every element; the corpus's `_~_` is exactly same-count |
-| TheConverseContainment: "Transitivity of Perm is NOT proved" | walks/PermSankramana_â¦ | two insertions commute; exchange lemma; Perm and â‰ˆ are equivalence relations |
+| Drdha: "UNIQUENESS IS NOT PROVED â¦ v_p IS NOT DEFINED HERE" | historical_proofs/Uniqueness_â¦ | two firm lists with one product are a Perm; à®à¾à¨à®à p n well defined |
+| TheUsualReasons / PairwiseCommutation: Perm not shown to be same-multiset; converse containment not proved | Uniqueness_â¦, automata/SamaCount_â¦ | on a discrete type Perm = â‰ˆ = same count of every element; the corpus's `_~_` is exactly same-count |
+| TheConverseContainment: "Transitivity of Perm is NOT proved" | walks/PermTransport_â¦ | two insertions commute; exchange lemma; Perm and â‰ˆ are equivalence relations |
 | TheOpenPigeonhole / TheTwoPigeonholes: "FinPigeonhole is still NOT proved" | historical_proofs/Kapota_â¦ | injection SFin n â’ SFin n is an equivalence; TheOpenPigeonhole inhabited |
 | Bahupratyanayana: "SÂ has no two distinct points â¦ not invoked" | logic/VrttaBindu_â¦ | Â Î x y. Â x â‰¡ y on SÂ |
 | EffectiveDescent: non-set C at which Â§4 fails "would need Ïâ(SÂ) and is not done" | walks/AsetChidra_â¦ | at C = SÂ the datum (const base, loop) is not in the image; set hypothesis necessary |
@@ -24,7 +24,7 @@ edited.  Nothing was assumed.
 | EveryCommonDivisorOfAConvergent: units of â "NOT proved and NOT imported" | number/LowestTerms_â¦ | aÂb = 1 â’ a = Â1; convergents in lowest terms |
 | MinimalityOfABoundaryPopulation: general case "needs exactly one missing lemma, Euclid's" | historical_proofs/Laghutama_â¦ | in lowest terms every boundary population has length â‰ suc q |
 | GaugeOrbitClasses: invariance of val under permutation "NOT proved here" | physics/SquareClass_â¦ | val invariant under â‰ˆ, Perm, equal counts; full square-class theorem |
-| BhavanaGenerative Â§5: "associativity is unproved" (stale: Â§7 has PathP forms) | historical_proofs/BhavanaAssoc_â¦ | Solâ‰¡, non-dependent subst forms, solver rederivation |
+| CompositionGenerative Â§5: "associativity is unproved" (stale: Â§7 has PathP forms) | historical_proofs/CompositionAssoc_â¦ | Solâ‰¡, non-dependent subst forms, solver rederivation |
 | ThreadYoneda: "needs isSet (Weave i j) â¦ not proved here" | primes/pair_field/YonedaEquiv_â¦ | Weave is a set; Yoneda bijection is an equivalence |
 | TheTextPredicateIsUnique: round trip "not shown to be the identity" | cost/TheRoundTripsCloseâ¦ | both round trips; Decision â‰ Predicate under the module's hypothesis |
 | KsetraSamasa: CRT identification "NOT proved here" | number/RekhaSamasa_â¦ | crtEquiv restricts to survivors; residue-line census (pâˆ’2)(qâˆ’2) |
@@ -48,11 +48,11 @@ edited.  Nothing was assumed.
 - Petersen's optimality of the ivastras (Sivasutra, PratyaharaLaghava, Dvihpatha): a graded minimisation over all enumerations; unread source, no formal statement in the corpus.
 - â(âˆ2) has exactly two orderings (SamacaranaNityam): needs ordered-field theory absent from the pin.
 - Nontrivial factorisation of the norm form forces âˆ’1 a square (WhereTheCircleSplits): polynomial factorisation over a field, absent.
-- Aut â‰ Î  over the codomain of Aut(fibre) (AtmasamataUpari, SamraksakaSamuha): the currying coherence of Avaccheda; open in the corpus's own terms.
+- Aut â‰ Î  over the codomain of Aut(fibre) (AtmaequalityUpari, SamraksakaSet): the currying coherence of Avaccheda; open in the corpus's own terms.
 - Sha256Varga: two distinct colliding inputs.  A SHA-256 collision.
 - GunakaKsepa Â§5: sign normalisation preserving the congruence; a statement about the wheel's own reactor, not a composition.
 - KuttakaSamapti: the logarithmic bound on the vall length (Lam©) is now the Virahka bound of Svarnasima; the base-Ï logarithm as a function is still not composed.
-- Gleason's theorem (EkatvaMatra); Born interior.
+- Gleason's theorem (UniquenessMatra); Born interior.
 - The seven UNSUPPLIED nodes of research/handoff_20260908 (O-RBOUND, O-RONESIDE, O-RLOWER, O-RLIFT, O-RDYADIC, O-RGOLDBACH, O-NPEAK): analytic estimates; no real-analysis library at the pin; nothing here changes their status.
 - The section `(n : â•) â’ frontierb n â‰¡ true` of SamastaSima (RH — Goldbach): every stage is decided; the section is not inhabited by anything in this corpus.
 
@@ -60,7 +60,7 @@ edited.  Nothing was assumed.
 
 Twenty-six absences the corpus had recorded were compositions of terms it
 already held.  Several had been closed inside the corpus without the ledger
-noticing (BhavanaGenerative Â§7 already held the PathP forms; FinCardinality
+noticing (CompositionGenerative Â§7 already held the PathP forms; FinCardinality
 already held the CRT equivalence KsetraSamasa named as missing; WalkJumps
 already held the Euclid lemma MinimalityOfABoundaryPopulation said was not
 shipped).  The rest of the ledger is either a real theorem beyond the pinned

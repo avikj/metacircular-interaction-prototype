@@ -40,7 +40,7 @@ open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; ≤Dec ; ≤-refl ; ≤-
 open import Cubical.Data.Empty using (⊥) renaming (rec to ⊥-elim)
 open import Cubical.Relation.Nullary using (¬_ ; yes ; no)
 
-open import SimaSesa_OnAFiniteWindowTheTwoNetZeroShiftWordsAgreeInTheBulkAndDifferOnTheBoundaryStripsSoDisplacementDescendsAndBoundaryHistoryDoesNot
+open import SimaResidue_OnAFiniteWindowTheTwoNetZeroShiftWordsAgreeInTheBulkAndDifferOnTheBoundaryStripsSoDisplacementDescendsAndBoundaryHistoryDoesNot
   using (S)
 
 ------------------------------------------------------------------------

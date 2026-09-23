@@ -45,9 +45,9 @@
 --     is, structurally, the demand for exactly such an utterance, and it
 --     is refuted, not merely unavailable;
 --   * the joint IS recovered by two utterances in succession
---     (`krama-expresses`) � Rovelli's resolution, that comparison is a
+--     (`order-expresses`) � Rovelli's resolution, that comparison is a
 --     further physical interaction performed in sequence, at theorem
---     grade: krama succeeds precisely where yugapat is inexpressible.
+--     grade: order succeeds precisely where yugapat is inexpressible.
 --
 -- So a machine-checked model of RQM's fact-architecture has been running
 -- in this repository since the two provers first disagreed and their
@@ -116,9 +116,9 @@ open import SaptabhangiNaya
 ------------------------------------------------------------------------
 -- §4  THE RESOLUTION, as the sevenfold already holds it: two utterances
 -- in succession denote the joint exactly.  Comparison is a further
--- interaction, performed in krama � and it loses nothing.
+-- interaction, performed in order � and it loses nothing.
 ------------------------------------------------------------------------
 
 सम्प्रेषण-क्रमः : (φ : Profile)
   → joint φ ≡ (denotes (asti-from मित्रम्) φ and denotes (nasti-from विग्नरः) φ)
-सम्प्रेषण-क्रमः = krama-expresses
+सम्प्रेषण-क्रमः = order-expresses

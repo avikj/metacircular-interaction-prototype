@@ -21,11 +21,11 @@
 -- Then:
 --
 --   ParimanaAndha    |�| cannot see the Mbius sign      = �������� at �������
---   TiryakTantu      residue and factorisation transverse = ��������, twice
+--   TiryakFiber      residue and factorisation transverse = ��������, twice
 --   EkaVidhih        descent � blind on fibres           = �����-�����
 --   SamacaranaNityam a transitive symmetry flattens       = �����-����� at Unit
 --
--- The fifth costume, `SamuhaDrstih`, is NOT a face and is not forced into
+-- The fifth costume, `SetDrstih`, is NOT a face and is not forced into
 -- one: a reconstruction is a left inverse, which is a different structure
 -- from a factoring, and its theorem does not reduce to these.  Five faces,
 -- not six, and saying so is the whole difference between a census and a
@@ -42,7 +42,7 @@ open import ApurvaIndriyam_AMapThatFactorsIsBlindOnTheFibresSoASeparatedBlindPai
   using (प्रवहति ; तन्तौ-अन्धः ; अपूर्वम्)
 open import ParimanaAndha_TheModulusStandpointCannotSeeMobiusSoNoBoundThroughItSeparatesACancellingFamily
   as PA using (परिमाणम् ; योगः ; संहरत् ; न-संहरत् ; अन्धत्वम् ; भेदः)
-open import TiryakTantu_ThePhaseAndTheCoefficientFactorThroughTransverseQuotientsOfOneVariable
+open import TiryakFiber_ThePhaseAndTheCoefficientFactorThroughTransverseQuotientsOfOneVariable
   as TT using (शेषः ; म्यू ; कलायाम्-अन्धम् ; म्यू-भिनत्ति ; गुणके-अन्धम् ; शेषः-भिनत्ति)
 open import EkaVidhih_TheOneLawIsDescentTheFreeDirectionIsBindBAndTheCostlyOneNeedsASection
   as EV using (अवतरणात्-अन्धः)

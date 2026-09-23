@@ -1,0 +1,2 @@
+suite,bench,lane,phase,status,wall_s,max_rss_mib,output_match
+checker,defs_12800,bend,timed,ok,0.5374758750000002,327.171875,

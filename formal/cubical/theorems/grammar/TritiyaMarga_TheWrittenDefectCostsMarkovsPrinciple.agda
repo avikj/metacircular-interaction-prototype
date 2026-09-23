@@ -10,7 +10,7 @@
 -- than repeats:
 --
 --   * `Nasti_ShabdeJivahVartante` and
---     `Samkramana_TransportCarriesStructureAndTruncation‚¶` ‚î path one:
+--     `Samorderna_TransportCarriesStructureAndTruncation‚¶` ‚î path one:
 --     `uaŒ≤`, and that transport carries STRUCTURE and not only points.
 --   * `Apratikaryatva_TheRetractionTypeIsTheHLevelHypothesis`,
 --     ¬ß‡‡‡‡‡Ø‡-‡Æ‡æ‡∞‡‡ó‡ ‚î that DECIDING "path one or not path one",

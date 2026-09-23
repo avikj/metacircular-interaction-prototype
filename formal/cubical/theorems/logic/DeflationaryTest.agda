@@ -149,7 +149,7 @@ dec→stable (no ¬a) ¬¬a = Empty.rec (¬¬a ¬a)
 ------------------------------------------------------------------------
 
 -- shape 1: a bare absence.  `disjoint-support`'s conclusion,
--- `bhavana-is-not-a-join`, `�-has-no-i` pointwise, `i-is-not-one`.
+-- `composition-is-not-a-join`, `�-has-no-i` pointwise, `i-is-not-one`.
 shape-absence : (A : Type ℓ) → Stable (¬ A)
 shape-absence = ¬-always-stable
 

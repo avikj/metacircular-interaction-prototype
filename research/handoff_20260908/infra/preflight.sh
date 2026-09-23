@@ -1,5 +1,5 @@
 #!/bin/sh
-# Nonmutating repository/toolchain probe. Does not install, build or start Yantra.
+# Nonmutating repository/toolchain probe. Does not install, build or start Machine.
 # Usage: sh preflight.sh /absolute/repository/path [/absolute/output/directory]
 set -u
 ROOT=$(cd "${1:-.}" && pwd) || exit 2

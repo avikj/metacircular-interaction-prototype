@@ -10,7 +10,7 @@
 --   MOTIVE          = Carrier f (Fibre.Carrier): the universal lossless
 --                     middle, A lifted to carry its image. `A ‚â Carrier f`
 --                     ALWAYS ‚î the to-motive into the middle forgets nothing.
---   REALIZATION     = a projection OUT of the middle (Fibre.Sesa's two
+--   REALIZATION     = a projection OUT of the middle (Fibre.Residue's two
 --                     projections of the one graph). The target reading
 --                     `realize = ‡≤‡ï‡‡‡‡Ø-‡‡‡∞‡ï‡‡‡‡` is one realization; the source
 --                     reading is always an equivalence.
@@ -40,7 +40,7 @@ open import Cubical.Foundations.Equiv using (_‚âÉ_ ; isEquiv ; equivFun ; invEq 
 open import Cubical.Foundations.Function using (_‚àò_)
 
 open import Fibre.Carrier
-open import Fibre.Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph
+open import Fibre.Residue_TheResidualIsTheOtherProjectionOfTheSameGraph
 
 private
   variable
@@ -75,7 +75,7 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) where
 
   -- THE RESIDUAL a realization forgets, and the exact condition for it to
   -- forget nothing: every ea contractible ‚î the realization is an
-  -- equivalence. (Both directions are Fibre.Sesa terms, renamed.)
+  -- equivalence. (Both directions are Fibre.Residue terms, renamed.)
   realization-is-lossless-when-every-residual-vanishes :
     ((b : B) ‚Üí isContr (‡§∂‡•á‡§∑ f b)) ‚Üí motive ‚âÉ B
   realization-is-lossless-when-every-residual-vanishes = ‡§®‡§ø‡§É‡§∂‡•á‡§∑‡§É‚Üí‡§∏‡§Æ‡§§‡§æ f

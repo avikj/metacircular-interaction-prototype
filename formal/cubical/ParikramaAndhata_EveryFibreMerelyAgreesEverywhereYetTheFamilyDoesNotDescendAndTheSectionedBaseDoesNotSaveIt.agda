@@ -8,7 +8,7 @@
 -- single point of the path.
 --
 -- WHAT THIS IS.  The corpus's stage-1 descent organs ‚î ‡‡‡¶-‡‡æ‡ß‡
--- (NigudhaAndhata) and ‡‡µ‡‡∞‡-‡‡ô‡‡ó-‡‡æ‡Æ‡æ‡®‡‡Ø‡Æ‡ (AvataranaBhanga) ‚î detect
+-- (NigudhaAndhata) and ‡‡µ‡‡∞‡-‡‡ô‡‡ó-‡‡æ‡Æ‡æ‡®‡‡Ø‡Æ‡ (DescentBhanga) ‚î detect
 -- non-descent from ONE hypothesis: a blind pair whose fibres are not
 -- equivalent.  The transmission of 2026-08-23 names the next stage as
 -- the organ nobody has: descent failing while every pair of fibres IS
@@ -60,7 +60,7 @@
 -- section asymmetry against ChidraDosa ‚î is the contribution.
 ------------------------------------------------------------------------
 
-module ParikramaAndhata_EveryFibreMerelyAgreesEverywhereYetTheFamilyDoesNotDescendAndTheSectionedBaseDoesNotSaveIt where
+module PariorderAndhata_EveryFibreMerelyAgreesEverywhereYetTheFamilyDoesNotDescendAndTheSectionedBaseDoesNotSaveIt where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_‚âÉ_)
@@ -79,7 +79,7 @@ open import Cubical.HITs.S1.Properties using (isConnectedS¬π)
 open import Cubical.HITs.PropositionalTruncation as PT
   using (‚à•_‚à•‚ÇÅ ; ‚à£_‚à£‚ÇÅ ; isPropPropTrunc)
 
-open import AvataranaBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport
+open import DescentBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport
   using (DependentFactorsThrough)
 
 private

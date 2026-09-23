@@ -108,7 +108,7 @@ path constructors) remain open.
 
 ### What the green CI covers
 
-The repository's machine workflow builds and tests the existing Yantra
+The repository's machine workflow builds and tests the existing Machine
 executable and a wire query. It does **not** build the patched Bend2 compiler,
 run the cubical test suite, or run the full Agda corpus check. The cubical
 results reported here come from running the patched binary in the development

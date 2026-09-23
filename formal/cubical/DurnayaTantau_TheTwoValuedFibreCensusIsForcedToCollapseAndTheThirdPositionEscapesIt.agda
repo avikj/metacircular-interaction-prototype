@@ -11,9 +11,9 @@
 --
 --     "Whether `isContr`'s merging of *empty fibre* and *fibre with ‚â2
 --      points* is an instance of `Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡`. The note
---      `SakalaVikalaDesa_‚¶` argues it is; the instantiation is not written."
+--      `WholePartialDesa_‚¶` argues it is; the instantiation is not written."
 --
--- `Tantujala_‚¶agda` ¬ß‡ takes the nearest available step and says so: it
+-- `Fiberjala_‚¶agda` ¬ß‡ takes the nearest available step and says so: it
 -- re-exports `S.‡¶‡‡∞‡‡®‡Ø‡` under a fibre-flavoured name and asks the reader to
 -- *read* ‡∞‡ø‡ï‡‡‡Æ‡/‡‡ï‡Æ‡/‡‡‡ as ‡‡µ‡ï‡‡‡µ‡‡Ø/‡‡‡‡‡ø/‡®‡æ‡‡‡‡ø ‚î
 --
@@ -56,7 +56,7 @@
 --
 --  ‡ ¬ ‡‡ô‡‡ó‡æ‡ ‡‡‡Ø‡‡‡‡Ø‡®‡‡‡ ‚î the seeds COMBINE over the codomain, and that is
 --      why the fibre question is sevenfold and not threefold.  For a fixed
---      `b` the three verdicts exclude one another (`Tantujala` ¬ß‡©).  For a
+--      `b` the three verdicts exclude one another (`Fiberjala` ¬ß‡©).  For a
 --      MAP they do not: a map has a family of fibres and may be `‡‡ï‡Æ‡` at
 --      one point and `‡∞‡ø‡ï‡‡‡Æ‡` at another.  Three compound positions are
 --      realised by terms below.  `isEquiv f` is then exactly one position of
@@ -87,7 +87,7 @@ open import Cubical.Data.Empty as Empty using (‚ä•)
 open import Cubical.Relation.Nullary using (¬¨_)
 
 import Saptabhangi as S
-import Tantujala_TheFibreHasThreeVerdictsAndIsContrMergesTwoOfThem as T
+import Fiberjala_TheFibreHasThreeVerdictsAndIsContrMergesTwoOfThem as T
 
 private
   variable
@@ -255,7 +255,7 @@ private
 ------------------------------------------------------------------------
 -- ‡ ¬ ‡‡ô‡‡ó‡æ‡ ‡‡‡Ø‡‡‡‡Ø‡®‡‡‡ ‚î why the map-level question is sevenfold.
 --
--- At a FIXED b the three verdicts are mutually exclusive (`Tantujala` ¬ß‡©).
+-- At a FIXED b the three verdicts are mutually exclusive (`Fiberjala` ¬ß‡©).
 -- Over a MAP they are not: a map carries a family of fibres and can be
 -- ‡‡ï‡Æ‡ at one point and ‡∞‡ø‡ï‡‡‡Æ‡ at another.  That is precisely how the
 -- ‡‡‡‡‡‡ô‡‡ó‡'s seeds combine ‚î ‡ï‡‡∞‡Æ‡‡, one standpoint after another, where
@@ -277,7 +277,7 @@ module _ {A : Type ‚Ñì} {B : Type ‚Ñì'} (f : A ‚Üí B) where
   ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø? = Œ£[ b ‚àà B ] T.‡§∞‡§ø‡§ï‡•ç‡§§‡§Æ‡•ç f b
 
 -- ‡‡‡Ø‡æ‡‡-‡‡‡‡‡ø alone: the identity.  Every fibre ‡‡ï‡Æ‡, and by ¬ß‡ of
--- Tantujala's ‡µ‡ø‡∞‡ã‡ß lemmas neither of the other two can occur.
+-- Fiberjala's ‡µ‡ø‡∞‡ã‡ß lemmas neither of the other two can occur.
 ‡§∏‡§Æ‡§§‡§æ-‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É : Bool ‚Üí Bool
 ‡§∏‡§Æ‡§§‡§æ-‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É b = b
 
@@ -316,7 +316,7 @@ module _ {A : Type ‚Ñì} {B : Type ‚Ñì'} (f : A ‚Üí B) where
 ------------------------------------------------------------------------
 -- ‡ ¬ ‡‡Æ‡‡æ ‡‡ï‡ ‡‡¶‡Æ‡ ‚î `isEquiv` is one position of the seven.
 --
--- `isEquiv f` is `‡‡ï‡Æ‡` at every b at once (`Tantujala.‡‡ï‡≤‡æ‡¶‡‡‡`), so it
+-- `isEquiv f` is `‡‡ï‡Æ‡` at every b at once (`Fiberjala.‡‡ï‡≤‡æ‡¶‡‡‡`), so it
 -- forbids both other occurrences.  Hence `isEquiv` names exactly the
 -- position ‡‡‡Ø‡æ‡‡-‡‡‡‡‡ø, and `¬ isEquiv f` is ONE BIT over the remaining
 -- six.  By ¬ß‡® that bit merges at least two of them; ¬ß‡'s two compound maps

@@ -49,20 +49,20 @@ Likewise, `--all` includes directories containing intentional negative controls 
 
 Preserve the exact command, working directory, Git commit, dirty-tree diff, Agda version, Cubical tag/hash, library-file contents, exit status, and stdout/stderr for every reported build.
 
-## 4. The actual Yantra process and its proof interface
+## 4. The actual Machine process and its proof interface
 
 The entry point is:
 
 ```sh
-sh interactive/run-yantra.sh --wire
+sh interactive/run-machine.sh --wire
 ```
 
-The script builds `interactive/DefectRecord.hs` and the Haskell runtime with GHC, then runs `interactive/Main.hs`, whose `main` calls `Server.yantraMain`. `Server.hs` imports `ProofGate`. This is the actual route that was **not executed** in the ChatGPT mathematical session.
+The script builds `interactive/DefectRecord.hs` and the Haskell runtime with GHC, then runs `interactive/Main.hs`, whose `main` calls `Server.machineMain`. `Server.hs` imports `ProofGate`. This is the actual route that was **not executed** in the ChatGPT mathematical session.
 
 The dispatch table contains these relevant operations:
 
-* `yantra.kriyah`: returns the dispatch table itself.
-* `yantra.sthiti`: current store, defects, remainder queue, and session state.
+* `machine.kriyah`: returns the dispatch table itself.
+* `machine.sthiti`: current store, defects, remainder queue, and session state.
 * `sadhana`: emits an arithmetic equation certificate using the declared fragment.
 * `sadhana.patra`: accepts a complete `--safe` Agda module as a list of source lines. The top-level module, if named, must be `Candidate`.
 * `sadhana.vislesana`: accepts that module plus named expressions, returning their inferred types and computed normal forms.

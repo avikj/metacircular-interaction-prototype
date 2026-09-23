@@ -11,7 +11,7 @@ def pcomp(A: Set, a: A, b: A, c: A, p: Path(A, a, b), q: Path(A, b, c)) -> Path(
 def prunit(A: Set, a: A, b: A, p: Path(A, a, b)) -> Path(Path(A, a, b), pcomp(A, a, b, b, p, <_> b), p):
   <i> p
 
-# ---- the interactive coalgebra (Fibre.Samvada ISC), one-field form ----
+# ---- the interactive coalgebra (Fibre.Interaction ISC), one-field form ----
 # ISC Q O E w  =  (q : Q w) -> Î w'. Î o : O w q w'. E w q w' o — ISC w'
 # Coinduction via Fix: productivity is not checked (Bend2 has no totality),
 # exactly as Bend2 checks any recursive definition.

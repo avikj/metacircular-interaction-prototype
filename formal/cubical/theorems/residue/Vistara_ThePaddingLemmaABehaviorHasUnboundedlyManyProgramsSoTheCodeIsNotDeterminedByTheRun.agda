@@ -7,7 +7,7 @@
 -- Rules whose source states lie above everything a machine can reach
 -- are dead weight: appending them changes the code and changes nothing
 -- the tape ever sees.  This file proves it, and with it the classical
--- padding lemma for the universal machine of Vishvayantra:
+-- padding lemma for the universal machine of Vishvamachine:
 --
 --   `padding-invisible`  â” for M bounded below B, pad entirely at or
 --     above B, and a start state below B, every configuration of every
@@ -17,7 +17,7 @@
 --     whose values run identically: the visible behavior map from
 --     codes to runs has a fibre with unboundedly many points.
 --
--- Read against Ekatva: the lossless completion of a map is unique â”
+-- Read against Uniqueness: the lossless completion of a map is unique â”
 -- but the CODE of a behavior is maximally non-unique.  The fibre that
 -- is contractible is the trace of one fixed step; the fibre that is
 -- infinite is the preimage of a behavior in the space of tables.  The
@@ -45,7 +45,7 @@ open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Empty as Empty using (âŠ¥)
 open import Cubical.Relation.Nullary using (Â¬_)
 
-open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
 
 private
   Act : Type

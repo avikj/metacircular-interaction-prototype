@@ -13,7 +13,7 @@
 --   unit below which time does not divide â” Anuyogadvra-stra, and the
 --   kla-measurement of the karma-grantha tradition; jaghanya time = one
 --   samaya.  So Jain time is DISCRETE, quantised, exactly as Jain magnitude
---   is stratified (`JainSankhya.agda`).
+--   is stratified (`JainCount.agda`).
 --   MAXIMAL MOTION (commentarial, marked as such): the fastest motion in
 --   the loka â” a free paramu, or the soul's ju-gati at liberation â”
 --   traverses the whole loka (from one end to the other) in ONE samaya;

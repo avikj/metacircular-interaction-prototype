@@ -81,7 +81,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     SieveScaleTower.fibre‚List 
     SieveScaleTower.fibre‚List 
     SumProductTorus.primes4 
-    TheSecondUpadhiConditionDoesAllTheWork.probe
+    TheSecondQualifierConditionDoesAllTheWork.probe
 
 [38 members / 27 files]
     AdaptiveResidualAdapter.BoolExperimentTree 
@@ -102,7 +102,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     FitnessIsNecessaryUpToDoubleNegation.Stable 
     InvarianceConstant.Cost 
     JivaSantana_IdentityThroughChangeIsASectionThroughAChangingFamilyNotEqualityOfSnapshots.Lossless 
-    KramaAstiNasti_TheFourthCornerIsRefutedUnderPointwiseStability.Stable 
+    OrderAstiNasti_TheFourthCornerIsRefutedUnderPointwiseStability.Stable 
     LawfulContinuationCore.BranchingFiber 
     LawfulContinuationCore.EmptyFiber 
     LawfulContinuationCore.UniqueFiber 
@@ -120,11 +120,11 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     VanaSetu_TheShiftDilationInterfaceAndTheLiouvillePointIsTheAllMinusOneEigenvector.Seq 
     Vyatyasa_TheKernelsCrossingIsAnInvolutionSoTheHolonomyIsSymmetricAndCarriesNoAnyon.SymmetricCrossing 
     Vyatyasa_TheKernelsCrossingIsAnInvolutionSoTheHolonomyIsSymmetricAndCarriesNoAnyon.Tri 
-    Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps.GroupoidMachine 
-    Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps.MonoidMachine
+    Machine_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps.GroupoidMachine 
+    Machine_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps.MonoidMachine
 
 [32 members / 19 files]
-    Avasesa_TheResidueMapsFibreIsACopyOfTheNaturalsAndTheProgressionIsTheReceipt.‡‡‡∞‡‡‡ 
+    Avaresidue_TheResidueMapsFibreIsACopyOfTheNaturalsAndTheProgressionIsTheReceipt.‡‡‡∞‡‡‡ 
     FrontierList.expOf 
     Gamma0Index.gcdF 
     HeadDepthMergeBreaker.powAcc 
@@ -181,7 +181,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     Paryayarthika_TheHolonomyIsSetValuedAndSeesTheLoopSoTruncationIsNotTheBlindness.‡‡‡¶‡-‡‡µ-‡‡®‡‡ß‡‡‡µ‡Æ‡ 
     RadiusNoGo.PrimePairTheory 
     RelationalTensorObstructionBridge.ObstructionComparison 
-    SamanaAvatarana_RiemannNavierStokesAndFermatsCubeAreOneNoInfiniteDescentDifferingOnlyInWhetherTheSingleStepIsArithmeticOrAnalytic.OneDescent 
+    SamanaDescent_RiemannNavierStokesAndFermatsCubeAreOneNoInfiniteDescentDifferingOnlyInWhetherTheSingleStepIsArithmeticOrAnalytic.OneDescent 
     SemanticCrystal.CertifiedRewrite 
     SimplicialDefectFailure.SubZ 
     Sl2TensorProduct.Sl2Rep 
@@ -202,7 +202,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     FlipObservable.modBreakerBreaks 
     Gamma0PartnerRigidity.twistNeeded 
     GuhyaNasti_TheLossCanHideInTheLoopsAndTheSetLevelCensusCannotSeeIt.‡‡ï‚â‡‡‡®‡‡Ø 
-    KramaSaha_TheOrderOfStandpointsIsTheChargeItself.‡‡ï‚â‡‡‡®‡‡Ø 
+    OrderSaha_TheOrderOfStandpointsIsTheChargeItself.‡‡ï‚â‡‡‡®‡‡Ø 
     M2Unimodular.oneNotZero 
     PiPartialOnEveryPrime.1‚â0 
     Pradakshina_TheCircuitReturnsToTheBasePointWithTheFibreShiftedSoTheHolonomyIsInhabited.‡-‡‡‡®‡∞‡æ‡ó‡Æ‡ 
@@ -219,9 +219,9 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     TransmissionRefutations.2‚â1 
     TransmissionRefutations.Pi-fails-at-2 
     TransmissionRefutations.mobius-display-false 
-    VakraValayaSanketa_TheForgottenSuccessionPrecipitatesTypeLevelAsOneBitAndTheFirstVeilIsItsFee.‡¶‚â‡ß 
-    VakraValayaSanketa_TheForgottenSuccessionPrecipitatesTypeLevelAsOneBitAndTheFirstVeilIsItsFee.‡¶‚â‡® 
-    VakraValayaSanketa_TheForgottenSuccessionPrecipitatesTypeLevelAsOneBitAndTheFirstVeilIsItsFee.‡ß‚â‡®
+    CurvedLoopSanketa_TheForgottenSuccessionPrecipitatesTypeLevelAsOneBitAndTheFirstVeilIsItsFee.‡¶‚â‡ß 
+    CurvedLoopSanketa_TheForgottenSuccessionPrecipitatesTypeLevelAsOneBitAndTheFirstVeilIsItsFee.‡¶‚â‡® 
+    CurvedLoopSanketa_TheForgottenSuccessionPrecipitatesTypeLevelAsOneBitAndTheFirstVeilIsItsFee.‡ß‚â‡®
 
 [29 members / 8 files]
     HaskellDefinitionBoundary.haskell-le-suc-zero 
@@ -264,7 +264,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     BatchDepthMemoryBoundary.oldChart 
     Bijam_TheRetractionIsAlreadyABottomOfTheLossOrderSoDhruvaNeedsNoEquivalence.‡‡ï‡Æ‡ 
     ContextCloneEquivalence.constantObserve 
-    DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡ï‡Æ‡ 
+    DesaAggregate_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡ï‡Æ‡ 
     DisclosureDimension.q2 
     GananaSaptabhangi_TheMapLevelCensusIsTheSevenfoldItselfAndTheCorpusAlreadyHoldsThreePositions.‡‡ï‡Æ‡ 
     ObservationPresentation.collapse 
@@ -276,8 +276,8 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.‡‡‡‡‡ø' 
     SannikrstaGahanata_ForEveryDimensionTheLastSilentStratumDescendsAndTheNextDoesNot.‡¶‡∞‡‡‡®‡Æ‡ 
     SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype.‡‡∞‡‡µ‡à‡ï‡Æ‡ 
-    Tantujala_TheFibreHasThreeVerdictsAndIsContrMergesTwoOfThem.‡‡Æ‡æ‡‡æ‡∞-‡Æ‡æ‡∞‡‡ó‡ 
-    Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡‡-‡Æ‡æ‡∞‡‡ó‡ 
+    Fiberjala_TheFibreHasThreeVerdictsAndIsContrMergesTwoOfThem.‡‡Æ‡æ‡‡æ‡∞-‡Æ‡æ‡∞‡‡ó‡ 
+    Fibertrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡‡-‡Æ‡æ‡∞‡‡ó‡ 
     TerminalTraceCompression.collapsedTerminal 
     TheLawBelongsInTheRecordAndTheCertificateComposesAlongAChain.semB 
     TotalityNotSizeIsWhatTurnsAScopedFactorizationGlobal.allBoolIsTotal 
@@ -301,7 +301,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     FitnessIsNecessaryUpToDoubleNegation.Sought 
     FormationRelativeMinimality.AllFormed 
     FormationRelativeMinimality.OnlyFalse 
-    Ksitija_TheCausalConeDescendsToTheHorizonAndFailsAtTheVeryNextStep.‡‡µ‡‡‡∞‡‡‡Æ‡ 
+    Horizon_TheCausalConeDescendsToTheHorizonAndFailsAtTheVeryNextStep.‡‡µ‡‡‡∞‡‡‡Æ‡ 
     MigrationNeedsALawAndTheLawIsNotFree.BoolState 
     NamingIsNotAFunctionOfResemblance.everything 
     NamingIsNotAFunctionOfResemblance.nothing 
@@ -309,7 +309,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     PinnedSensorForcing.Extended 
     PinnedSensorForcing.Minimal 
     ProstheticImageAdapter.InheritedBoolState 
-    SankramanaSesa_EveryTransportOwesItsResidual.‡µ‡ø‡‡Æ-‡‡‡‡ 
+    TransportResidue_EveryTransportOwesItsResidual.‡µ‡ø‡‡Æ-‡‡‡‡ 
     SingletonWitnessStabilization.AllFormed 
     TheLawBelongsInTheRecordAndTheCertificateComposesAlongAChain.stateB 
     TransportPrice_AgreementDoesNotDetermineTheTransport.Twin 
@@ -386,15 +386,15 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     HolonomyIsInvisibleExactlyToAnInvariantSemantics.Holonomy 
     Jala_TheLatticeTheGaugeGroupTheConnectionAndTheWilsonLoopAreBuiltAndTheHolonomyIsOne.Grp 
     Kausalya_TheStochasticProcessAndTheSkillLibraryAreBuiltAndCoverageGrowsByOneStatePerSkill.Dist 
-    KramaAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift.Stable 
-    KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet.Enumerated 
+    OrderAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift.Stable 
+    OrderAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet.Enumerated 
     Parasparasraya_TheMutualDependenceObjectionChecksWhenTheLeaningIsProductive.Dhr 
     PratyaharaLaghava_TheMarkerCountIsForcedByTheAntichain.Varga 
     QuestionMachine.Machine 
     ReflectionAttachment.Reflection 
     ResponseCharacterKickback.PhaseSpace 
-    SamkramanaVahanam_TransportCarriesTheOperationAndItsLawsAndTheyCompute.Op 
-    Satyayantra.‡‡‡‡®‡æ 
+    SamordernaVahanam_TransportCarriesTheOperationAndItsLawsAndTheyCompute.Op 
+    Satyamachine.‡‡‡‡®‡æ 
     Sl2TensorProduct.Mod 
     Sl2TensorProduct.Op 
     StructuredDefect.Pointed 
@@ -442,7 +442,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     LeastWindowRadiusEdge.DoubleNegationLiftBoundary 
     LiftingFiberResidue.LEM 
     LiftingFiberResidue.LiftDNS 
-    MokshaYantra.Sight 
+    MokshaMachine.Sight 
     NisvabhavaNet.Jewel 
     OrientedSurfaceFlux.SignedFluxTarget 
     RenormalizedObserverTower.ObserverTower 
@@ -533,8 +533,8 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     InteractionAssociator_TheBinaryCoefficientPhaseIsATwoCochainItsAssociatorIsGaugeInvariantSatisfiesThePentagonAndMeasuresAncestryInterference.1e 
     InteractionAssociator_TheBinaryCoefficientPhaseIsATwoCochainItsAssociatorIsGaugeInvariantSatisfiesThePentagonAndMeasuresAncestryInterference.œâ 
     InteractionAssociator_TheBinaryCoefficientPhaseIsATwoCochainItsAssociatorIsGaugeInvariantSatisfiesThePentagonAndMeasuresAncestryInterference.œâÃ 
-    KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.g‚ 
-    KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.g‚ 
+    OrderNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.g‚ 
+    OrderNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.g‚ 
     PythagoreanTransition.tri345 
     PythagoreanTransition.tri51213 
     PythagoreanTransition.t‚‚ 
@@ -583,7 +583,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     NoObservationDepthDeterminesTheNet.Net 
     ProductiveIndraNet.Net 
     RootedIndraTotal.RootedView 
-    Samkramana._ó_ 
+    Samorderna._ó_ 
     Tantrayukti_ARetractionThatIsNotStrictIsNotARetraction.‡‡‡µ‡æ‡¶‡ 
     VivekaPramana_TheRemainderIsLawfulAndTheNetBeats._ó_
 
@@ -637,7 +637,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     FlipObservable.gcdZ 
     FlipObservable.valliZ 
     Jala_TheLatticeTheGaugeGroupTheConnectionAndTheWilsonLoopAreBuiltAndTheHolonomyIsOne.act 
-    KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.‡‡µ‡∞‡‡‡ 
+    OrderNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.‡‡µ‡∞‡‡‡ 
     ScaleFluxContinuity_EnergyIsNotDynamicallyClosedTheCompletionIsTheSignedFluxAndSingularityIsFluxThroughTheBoundary._‚ä_ 
     Sulba.‡ï‡∞‡‡ 
     Sulba.‡‡ø‡∞‡‡Ø‡ï‡ 
@@ -665,21 +665,21 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     WalkCapacity.range1
 
 [17 members / 7 files]
-    BhavanaKrida.‡‡ô‡‡ï‡æ‡‚ 
-    BhavanaKrida.‡‡ô‡‡ï‡æ‡‚ 
-    BhavanaKrida.‡‡ô‡‡ï‡æ‡‚ 
-    BhavanaKrida.‡‡ô‡‡ï‡æ‡‚ 
-    BhavanaKrida.‡‡ô‡‡ï‡æ‡‚ 
-    BhavanaKrida.‡‡ô‡‡ï‡æ‡‚ 
-    BhavanaKrida.‡‡ô‡‡ï‡æ‡‚ 
-    BhavanaKrida.‡‡ô‡‡ï‡æ‡‚à 
+    CompositionKrida.‡‡ô‡‡ï‡æ‡‚ 
+    CompositionKrida.‡‡ô‡‡ï‡æ‡‚ 
+    CompositionKrida.‡‡ô‡‡ï‡æ‡‚ 
+    CompositionKrida.‡‡ô‡‡ï‡æ‡‚ 
+    CompositionKrida.‡‡ô‡‡ï‡æ‡‚ 
+    CompositionKrida.‡‡ô‡‡ï‡æ‡‚ 
+    CompositionKrida.‡‡ô‡‡ï‡æ‡‚ 
+    CompositionKrida.‡‡ô‡‡ï‡æ‡‚à 
     GalerkinJets_TheTaylorJetsOfThePairAtTimeZeroAreExactOnAWideningWindowAndTheTruncationResidualSitsOnTheBoundaryRow.boundary-Jet‚ 
     GalerkinJets_TheTaylorJetsOfThePairAtTimeZeroAreExactOnAWideningWindowAndTheTruncationResidualSitsOnTheBoundaryRow.trunc‚-residual-nonzero 
     IdempotenceForbidsDescent.i-inverts 
     InteractionAssociator_TheBinaryCoefficientPhaseIsATwoCochainItsAssociatorIsGaugeInvariantSatisfiesThePentagonAndMeasuresAncestryInterference.cube-amplitude¬≤ 
     InteractionAssociator_TheBinaryCoefficientPhaseIsATwoCochainItsAssociatorIsGaugeInvariantSatisfiesThePentagonAndMeasuresAncestryInterference.envelope¬≤ 
     InteractionAssociator_TheBinaryCoefficientPhaseIsATwoCochainItsAssociatorIsGaugeInvariantSatisfiesThePentagonAndMeasuresAncestryInterference.œâ-unit 
-    KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.‡‡Æ‡Æ‡ 
+    OrderNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.‡‡Æ‡Æ‡ 
     PythagoreanTransition.gen-2-1 
     TheArithmeticCircleIsFourPeriodic.quarter-1
 
@@ -756,7 +756,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     WallCertificate.x‚
 
 [14 members / 9 files]
-    BhavanaSemiring.cy 
+    CompositionSemiring.cy 
     Dvikarani.‡‡æ‡µ‡®‡æ-‡‡‡ 
     Dvikarani.‡‡æ‡µ‡®‡æ-‡‡∞ 
     Gamma0Index.cnt3 
@@ -826,14 +826,14 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork.‡µ‡æ‡Æ 
     Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContractible.‡‡‡-‡â‡¶‡æ‡‡∞‡‡Æ‡ 
     Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContractible.‡‡‡-‡â‡¶‡æ‡‡∞‡‡Æ‡' 
-    DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡‡ø‡-‡¶‡ï‡‡‡ø‡ 
-    DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡‡ø‡-‡µ‡æ‡Æ 
+    DesaAggregate_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡‡ø‡-‡¶‡ï‡‡‡ø‡ 
+    DesaAggregate_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡‡ø‡-‡µ‡æ‡Æ 
     Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.‡‡ï‡Æ‡-‡¶‡ï‡‡‡ø‡ 
     Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.‡‡ï‡Æ‡-‡µ‡æ‡Æ 
     SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype.‡‡∞‡‡µ‡à‡ï‡Æ‡-‡¶‡ï‡‡‡ø‡ 
     SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype.‡‡∞‡‡µ‡à‡ï‡Æ‡-‡µ‡æ‡Æ 
-    Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡‡‡ 
-    Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡‡
+    Fibertrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡‡‡ 
+    Fibertrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡‡
 
 [13 members / 6 files]
     FrontierList.keepPrimes 
@@ -908,7 +908,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     TransmissionRefutations.muF
 
 [12 members / 4 files]
-    CakravalaWitness.compositeIsBhavana 
+    CakravalaWitness.compositeIsComposition 
     DivisorHistoryDSO.endpoint-counts 
     DivisorHistoryDSO.full-counts 
     DivisorHistoryDSO.snapshot-counts 
@@ -946,7 +946,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     SieveScaleTower.vb 
     SieveScaleTower.vc 
     TomographyConditioning.invMod 
-    Upadhi_TheMertensGateIsTheDisprovedConjectureNotTheHypothesis.Mcount
+    Qualifier_TheMertensGateIsTheDisprovedConjectureNotTheHypothesis.Mcount
 
 [11 members / 3 files]
     HeadDepthMergeBreaker.collisionB 
@@ -1001,7 +1001,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     WalkStreamHypothesisBoundary.¬6‚à2
 
 [11 members / 9 files]
-    BhavanaKrida.‡‡‡‡∞ 
+    CompositionKrida.‡‡‡‡∞ 
     CayleyPairChart.Chart 
     Ekamula_TheWallOrientationsAreSquareRootsOfOneBuiltFromFactorizationsByTheKloostermanReciprocal._‚à_ 
     EveryCommonDivisorOfAConvergentDividesTheDeterminant._divides_ 
@@ -1047,14 +1047,14 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     Asiddha.Asiddha 
     Durnaya_CollapseIffEveryNayaAgrees.AllNayasAgree 
     Durnaya_TheProhibitionHasContentOnlyOffThePropositionalWorld.MutuallyEntail 
-    SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext.‡‡‡ 
-    SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext.‡‡‡‡‡‡ô‡‡ó‡ 
+    SaptabhangiKernel_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext.‡‡‡ 
+    SaptabhangiKernel_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext.‡‡‡‡‡‡ô‡‡ó‡ 
     TheUniformFormIsNotRefuted.NoUniformProcedure 
     TheUniformFormIsNotRefuted.UniformlyDecidable
 
 [10 members / 6 files]
-    KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.‡ß‡®‡Æ‡ 
-    KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.‡µ‡ø‡‡Æ-‚ 
+    OrderNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.‡ß‡®‡Æ‡ 
+    OrderNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.‡µ‡ø‡‡Æ-‚ 
     PayloadMorphism.isZero‚ 
     PiPartialOnEveryPrime.isPos0 
     TheFibreIsTheSubject.isNeg‚ 
@@ -1082,7 +1082,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     LiftingFiberResidue.FactorsThroughTrunc 
     NastoddistaPariksa_BothDirectionsExistExactlyWhenEveryFibreIsContractible.‡â‡¶‡‡¶‡ø‡‡‡ü‡Æ‡æ‡‡‡∞‡Æ‡ 
     NastoddistaPariksa_BothDirectionsExistExactlyWhenEveryFibreIsContractible.‡®‡‡‡ü‡ã‡¶‡‡¶‡ø‡‡‡ü‡Ø‡ã‡ó‡ 
-    SamuhaDrstih_SinglyBlindReadingsAreJointlyFaithfulExactlyWhenAReconstructionExists.‡‡‡∞‡‡‡Ø‡æ‡®‡Ø‡®‡Æ‡ 
+    SetDrstih_SinglyBlindReadingsAreJointlyFaithfulExactlyWhenAReconstructionExists.‡‡‡∞‡‡‡Ø‡æ‡®‡Ø‡®‡Æ‡ 
     SanghattaBija_CollisionIsAnOffDiagonalKernelPairPointTheKernelPairIsTheFiberedPairingAndEveryCoinFaceIsACollision.Coll 
     SanghattaBija_CollisionIsAnOffDiagonalKernelPairPointTheKernelPairIsTheFiberedPairingAndEveryCoinFaceIsACollision.KernelPair 
     TranscriptComposition.isInj 
@@ -1184,11 +1184,11 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     LosslessReturnFinal.‡‡∞‡Æ‡‡-‡‡‡®‡∞‡æ‡ó‡Æ‡®‡Æ‡ 
     LosslessReturnFinal.‡‡‡®‡∞‡æ‡ó‡Æ‡®‡Æ‡ 
     LosslessReturn_TheHandProofWasUnnecessaryAndTransportGivesIt.‡‡Æ‡æ‡®-‡Æ‡æ‡∞‡‡ó‡ 
-    Samkramana.viloma-anuloma 
-    Samkramana.rambha-viloma-anuloma 
-    SamkramanaVahanam_TransportCarriesTheOperationAndItsLawsAndTheyCompute.‚äû-lunit 
+    Samorderna.viloma-anuloma 
+    Samorderna.rambha-viloma-anuloma 
+    SamordernaVahanam_TransportCarriesTheOperationAndItsLawsAndTheyCompute.‚äû-lunit 
     SieveScaleTower.sec-32 
-    VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal.‡â‡‡‡‡æ‡®-‡‡µ‡‡∞‡
+    VivekaPramana_TheQualifierIsCarriedAsAFieldSoTheEquivalenceIsReal.‡â‡‡‡‡æ‡®-‡‡µ‡‡∞‡
 
 [9 members / 6 files]
     CenterRelative.Q 
@@ -1230,7 +1230,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     FrontierIsWellFormed.NotIn 
     Gamma0IndexExponent.All‚â 
     SieveFiber._‚àà_ 
-    Srotas_TheBrokerThePartitionTheOffsetTheCheckpointAndTheWatermarkAreBuiltAndExactlyOnceIsAlgebra._‚àà‚_ 
+    Stream_TheBrokerThePartitionTheOffsetTheCheckpointAndTheWatermarkAreBuiltAndExactlyOnceIsAlgebra._‚àà‚_ 
     TheInstalledOperationHasNoPervasionSoTheKernelMemorises._‚àà‚ï_ 
     WalkCapacity._‚àà_
 
@@ -1257,8 +1257,8 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
 [8 members / 7 files]
     GuhyaNasti_TheLossCanHideInTheLoopsAndTheSetLevelCensusCannotSeeIt.‡‡‡ 
     KnowledgeProcess.HistoryPost 
-    KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition.alwaysFalse 
-    KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition.trivial 
+    OrderSaha_TheFourthCornerIWasNamingIsTheSequentialPosition.alwaysFalse 
+    OrderSaha_TheFourthCornerIWasNamingIsTheSequentialPosition.trivial 
     PinnedSensorForcing.GoodUnit 
     PrimeSquareOptionalComposite.LocalGood 
     PrimeSquarePinAdapter.LocalGood 
@@ -1279,8 +1279,8 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     ExactHadamardInterference._-G_ 
     InteractionAssociator_TheBinaryCoefficientPhaseIsATwoCochainItsAssociatorIsGaugeInvariantSatisfiesThePentagonAndMeasuresAncestryInterference._+e_ 
     InteractionAssociator_TheBinaryCoefficientPhaseIsATwoCochainItsAssociatorIsGaugeInvariantSatisfiesThePentagonAndMeasuresAncestryInterference._¬e_ 
-    KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.ŒºK 
-    KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.ŒºT 
+    OrderNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.ŒºK 
+    OrderNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.ŒºT 
     TatkalikiGati_ThePrimeChargeIsTheTangentOfTheParityCharacterAndTheJetIsMultiplicative._‚äô_ 
     Yamala_TheTwinChargeIsTheParityJetAndTwistedLeibnizIsDualNumberMultiplication._‚ä_
 
@@ -1306,16 +1306,16 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
 
 [8 members / 8 files]
     Bijam_TheRetractionIsAlreadyABottomOfTheLossOrderSoDhruvaNeedsNoEquivalence.‡‡‡ 
-    DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡‡ 
+    DesaAggregate_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡‡ 
     LawfulContinuationCore.flip-locally-inhabited 
     ObstructionCalculus.name 
     Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.‡‡‡‡æ‡‡®‡æ 
     Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.‡‡‡ 
-    SankramanaSesa_EveryTransportOwesItsResidual.‡µ‡ø‡‡Æ-‡‡‡‡‡ 
-    Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡â‡‡‡‡æ‡®‡Æ‡
+    TransportResidue_EveryTransportOwesItsResidual.‡µ‡ø‡‡Æ-‡‡‡‡‡ 
+    Fibertrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡â‡‡‡‡æ‡®‡Æ‡
 
 [8 members / 7 files]
-    BhavanaKrida.‡¶‡‡µ‡ø 
+    CompositionKrida.‡¶‡‡µ‡ø 
     ChargeTwoHistories.one 
     GalerkinJets_TheTaylorJetsOfThePairAtTimeZeroAreExactOnAWideningWindowAndTheTruncationResidualSitsOnTheBoundaryRow.ŒΩ 
     GrahaYuti.‡‡Æ‡æ‡ß‡æ‡®‡Æ‡ 
@@ -1348,7 +1348,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     PairComposition.compose' 
     Ramanujan691_TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.dadd 
     Ramanujan691_TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.dmul 
-    SamkramanaVahanam_TransportCarriesTheOperationAndItsLawsAndTheyCompute._‚äû_ 
+    SamordernaVahanam_TransportCarriesTheOperationAndItsLawsAndTheyCompute._‚äû_ 
     TheThresholdChainIsDenseAndTheMediantWitnessesIt.mediant 
     TomographyConditioning.addF
 
@@ -1452,7 +1452,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     Vargacitighana.‡Æ‡ß‡‡Ø-‡µ‡ø‡®‡ø‡Æ‡Ø‡
 
 [7 members / 6 files]
-    BhavanaSamuha.‡‡ï-‡µ‡æ‡Æ 
+    CompositionSet.‡‡ï-‡µ‡æ‡Æ 
     Brahmagupta.‡‡ï¬ 
     Gamma0Partner.oneL 
     Madhava.‡µ‡æ‡Æ-‡‡ï 
@@ -1461,7 +1461,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     TheTruncationErrorIsExactAtEveryFiniteStage.errorAtOneIsTheRatio
 
 [7 members / 4 files]
-    AvrttiSesa_TheKernelFillsTheMonoidStrictlyAndCarriesNoGroupoidSoTheRoundTripIsTheResidue.A 
+    AvrttiResidue_TheKernelFillsTheMonoidStrictlyAndCarriesNoGroupoidSoTheRoundTripIsTheResidue.A 
     GenerativeKernel.seed 
     GenerativeKernel.target‚ 
     MulyaVinimaya_TheValueOfATraceIsItsPairingWithAnEvaluatorPotentialsTelescopeAndADepthEvaluatorHasNonzeroCycleIntegral.nf 
@@ -1475,7 +1475,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     Apavartana_TheCarriedPairLosesTheLesserFromTheGreaterAndTheCommonMeasureStands.‡‡®‡‡‡∞‡ï‡∞‡ 
     FuelAdequacyIsACollision.withK 
     LosslessReturnFinal.Œ¶ 
-    Samkramana.Œ¶ 
+    Samorderna.Œ¶ 
     SetuYugma_TheSeamFordJoinsTheValliToPingalaAndVivekaIsTheNaturalNumbers.‡‡¶
 
 [7 members / 7 files]
@@ -1699,7 +1699,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     Anuvrtti_AnObserverSeesALawExactlyWhenItsClassIsACongruenceAndThenItCarriesForward.‡‡‡®‡∞‡æ‡µ‡‡‡‡‡ø‡ 
     Bijam_TheRetractionIsAlreadyABottomOfTheLossOrderSoDhruvaNeedsNoEquivalence.‡‡‡®‡∞‡æ‡µ‡‡‡‡‡ø‡ 
     KFlowWF.iter 
-    NerodeYantra_TheMooreMachineNowExistsAndWhenTheNextObservationFactorsThroughTheCurrentTheNerodeCongruenceIsOneObservationsKernel.cakra 
+    NerodeMachine_TheMooreMachineNowExistsAndWhenTheNextObservationFactorsThroughTheCurrentTheNerodeCongruenceIsOneObservationsKernel.cakra 
     PerspectiveCore.iter 
     SamanyaSopana_AnyObservableAliasingThroughGReadsTheCountThroughGsIterationAndPeriodsCollapseIt.vartana
 
@@ -1752,7 +1752,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
 [5 members / 3 files]
     SeamClosed.flagshipResidual 
     SeamClosed.parentClosed 
-    SesaSiddhi_TheKernelProvesByInductionTheFrontierLemmasTheEnginesCompositionCouldNotReach.‡ß‡‡µ‡‡ 
+    ResidueSiddhi_TheKernelProvesByInductionTheFrontierLemmasTheEnginesCompositionCouldNotReach.‡ß‡‡µ‡‡ 
     Sphatika.sp024 
     Sphatika.sp178
 
@@ -1780,9 +1780,9 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
 [5 members / 2 files]
     Prashna_TheInteractiveMachineStrictlyContainsTheTuringMachineAndDeterminismIsExactlyTheCollapse.DetISC 
     Prashna_TheInteractiveMachineStrictlyContainsTheTuringMachineAndDeterminismIsExactlyTheCollapse.FreeISC 
-    Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.Diverges 
-    Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.Exec 
-    Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.Halted
+    Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.Diverges 
+    Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.Exec 
+    Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.Halted
 
 [5 members / 2 files]
     MatraVarnaGuru.‡≤‡ò‡-‡‡ô‡‡ñ‡‡Ø‡æ 
@@ -1842,10 +1842,10 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
 
 [5 members / 5 files]
     Drdha_TheFirmNumbersProductIsEveryPositiveIntegerAndTheirMembershipIsDecidedByDivision.‡‡∞‡‡µ‡ 
-    KramaAstiNasti_AnEnumerableRemedySetKillsTheFourthCorner.All 
-    KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet.Any 
+    OrderAstiNasti_AnEnumerableRemedySetKillsTheFourthCorner.All 
+    OrderAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet.Any 
     TheParetoStratumIsDecidableAndTheFilterIsExact.All 
-    TheSecondUpadhiConditionDoesAllTheWork.All
+    TheSecondQualifierConditionDoesAllTheWork.All
 
 [5 members / 3 files]
     DSONucleusMiddleProduct._‚äôM_ 
@@ -1897,11 +1897,11 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     Sankalita_AryabhatasSeriesSumsAndTheCubeSumIsTheSquareOfTheSum.‡µ‡ø‡‡∞‡
 
 [5 members / 3 files]
-    Bhanga_ThePositionsOverTwoAtomsAreAThreeStepChain.Krama 
+    Bhanga_ThePositionsOverTwoAtomsAreAThreeStepChain.Order 
     Bhanga_ThePositionsOverTwoAtomsAreAThreeStepChain.Vikalpa 
     Bhanga_ThePositionsOverTwoAtomsAreAThreeStepChain.Yugapat 
-    KramaAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift.DNSFailure 
-    KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition.Corner
+    OrderAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift.DNSFailure 
+    OrderSaha_TheFourthCornerIWasNamingIsTheSequentialPosition.Corner
 
 [5 members / 2 files]
     BehavioralHankel.behavioralHankel 
@@ -1929,20 +1929,20 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     DharmaAdharma_TheMediaOfMotionAndRestPermitWithoutCausingAndTheirExtentBoundsTheCosmos.Arena 
     PolarityClosure.Pow 
     Prasna_TheMachineThatAsksItsRunIsItsAnswerStreamAndSilenceOfQuestionsIsDeterminism.Interaction 
-    Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.LawfulStep
+    Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.LawfulStep
 
 [5 members / 5 files]
     Alopa_TheFirstRoadIsStatedThriceAndTheThreeAreOneTerm.‡‡‡ï‡‡∞‡Æ‡‡Æ‡ 
     Nasti_ShabdeJivahVartante.‡‡‡ï‡‡∞‡Æ‡‡Æ‡ 
-    PramanaSankramana_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty.‡‡®‡‡‡Æ‡ 
-    SankramanaSesa_EveryTransportOwesItsResidual.‡‡‡ï‡‡∞‡Æ‡‡Æ‡ 
-    Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps.‡‡æ‡≤‡®‡Æ‡
+    PramanaTransport_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty.‡‡®‡‡‡Æ‡ 
+    TransportResidue_EveryTransportOwesItsResidual.‡‡‡ï‡‡∞‡Æ‡‡Æ‡ 
+    Machine_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps.‡‡æ‡≤‡®‡Æ‡
 
 [5 members / 5 files]
     Alopa_TheFirstRoadIsStatedThriceAndTheThreeAreOneTerm.‡‡≤‡ã‡‡ 
     Nasti_ShabdeJivahVartante.‡‡‡ï‡‡∞‡Æ‡‡Æ‡-‡‡≤‡ã‡‡ 
-    PramanaSankramana_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty.‡‡ï‡‡‡-‡Æ‡‡≤‡‡Ø‡Æ‡ 
-    SankramanaSesa_EveryTransportOwesItsResidual.‡‡≤‡ã‡‡ 
+    PramanaTransport_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty.‡‡ï‡‡‡-‡Æ‡‡≤‡‡Ø‡Æ‡ 
+    TransportResidue_EveryTransportOwesItsResidual.‡‡≤‡ã‡‡ 
     TwoTruthsCompute.ultimate-through-conventional
 
 [4 members / 4 files]
@@ -1960,14 +1960,14 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
 [4 members / 4 files]
     PurnaSaptabhangi_TheFourOpenPositionsGetCanonicalWitnesses.‡∞‡ø‡ï‡‡-‡‡‡∞‡ã‡‡ 
     ReachableActionRefinement.emptyObservation 
-    Tantujala_TheFibreHasThreeVerdictsAndIsContrMergesTwoOfThem.‡‡‡®‡‡Ø-‡Æ‡æ‡∞‡‡ó‡ 
-    Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡∞‡ø‡ï‡‡-‡Æ‡æ‡∞‡‡ó‡
+    Fiberjala_TheFibreHasThreeVerdictsAndIsContrMergesTwoOfThem.‡‡‡®‡‡Ø-‡Æ‡æ‡∞‡‡ó‡ 
+    Fibertrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡∞‡ø‡ï‡‡-‡Æ‡æ‡∞‡‡ó‡
 
 [4 members / 4 files]
-    PramanaSankramana_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty.‡‡®‡‡ß‡æ‡®‡Æ‡ 
-    Samkramana_AnEdgeCarriesEveryPredicateAndEdgesComposeSoTheRouteIsFree.‡Æ‡æ‡∞‡‡ó‡ 
+    PramanaTransport_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty.‡‡®‡‡ß‡æ‡®‡Æ‡ 
+    Samorderna_AnEdgeCarriesEveryPredicateAndEdgesComposeSoTheRouteIsFree.‡Æ‡æ‡∞‡‡ó‡ 
     Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.‡‡Æ‡‡æ-‡‡‡Ø‡ã‡ó‡ 
-    Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps._‚à_
+    Machine_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps._‚à_
 
 [4 members / 2 files]
     NonUniquenessAndInexpressibilityAreIndependent.onlyFalse 
@@ -2110,7 +2110,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
 [4 members / 4 files]
     DviVrddhi_TheComposedSuccessorAddsTwoTheCertificatesConcatenateAndTheStepCountsAdd.twice 
     Nasha_TheVisibleStepDestroysInformationAndTheCompletedStepCannotByConstruction.eraser 
-    Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.spin 
+    Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.spin 
     Vrddhi_AVerifiedProgramTheSuccessorMachineAddsOneStrokeAndItsCertificateIsAFibrePoint.incr
 
 [4 members / 4 files]
@@ -2127,9 +2127,9 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
 
 [4 members / 4 files]
     DecategorifiedDefect.discreteRank 
-    Kosa_TheWorkingTreeTheLineDiffAndTheBlameAreBuiltAndCommutationIsProvedNotAssumed.discreteLoc 
+    Shell_TheWorkingTreeTheLineDiffAndTheBlameAreBuiltAndCommutationIsProvedNotAssumed.discreteLoc 
     SelfImprovement.discreteGene 
-    Srotas_TheBrokerThePartitionTheOffsetTheCheckpointAndTheWatermarkAreBuiltAndExactlyOnceIsAlgebra.discreteKey
+    Stream_TheBrokerThePartitionTheOffsetTheCheckpointAndTheWatermarkAreBuiltAndExactlyOnceIsAlgebra.discreteKey
 
 [4 members / 2 files]
     DSONucleusMiddleProduct.clMid 
@@ -2146,8 +2146,8 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
 [4 members / 3 files]
     CurvatureIsNonVacuousBecauseHereIsOnePointOffTheImage.idU 
     Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.‡‡‡‡‡ø 
-    Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡ï-‡Æ‡æ‡∞‡‡ó‡ 
-    Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡‡Ø‡ã‡ó‡
+    Fibertrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡ï-‡Æ‡æ‡∞‡‡ó‡ 
+    Fibertrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡‡Ø‡ã‡ó‡
 
 [4 members / 3 files]
     CostGeometryEdgeBoundary.collapse-move-not-equiv 
@@ -2175,7 +2175,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
 
 [4 members / 4 files]
     ChargeIsStrictRefinement.probe-neutral-not-charged 
-    DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡®‡‡‡-‡∞‡ø‡ï‡‡‡Æ‡ 
+    DesaAggregate_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡®‡‡‡-‡∞‡ø‡ï‡‡‡Æ‡ 
     Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.‡‡‡‡æ‡‡®‡æ-‡‡‡æ‡µ‡ 
     Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.‡‡‡-‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡
 
@@ -2192,13 +2192,13 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     TrayoNirnayah_SurvivalUnderRetractionHasThreeVerdictsBecauseAPartialClassEnumerationCannotDecide.avoids
 
 [4 members / 3 files]
-    BhavanaSemiring.cx 
+    CompositionSemiring.cx 
     Gamma0Index.det2 
     Sopana_EveryStratumOfTheHasseLadderIsDecidedWithItsEvidenceForEveryPrimeAndEveryCurve.cntY 
     Sopana_EveryStratumOfTheHasseLadderIsDecidedWithItsEvidenceForEveryPrimeAndEveryCurve.indC
 
 [4 members / 3 files]
-    BhavanaKrida.‡®-‡‡‡‡∞‡Æ‡ 
+    CompositionKrida.‡®-‡‡‡‡∞‡Æ‡ 
     ChargePolynomialFinite.chen-fails-at-12 
     ChargePolynomialFinite.chen-fails-at-30 
     SignIsNotAccumulable.minusOne-is-not-one
@@ -2356,9 +2356,9 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     SieveFiber.anyOf
 
 [3 members / 3 files]
-    PravesaTantu_TheInjectionsFibreIsContractibleOnItsImageAndEmptyOffItSoItIsReceiptAndWall.‡‡‡‡≤‡Æ‡ 
+    PravesaFiber_TheInjectionsFibreIsContractibleOnItsImageAndEmptyOffItSoItIsReceiptAndWall.‡‡‡‡≤‡Æ‡ 
     SubgroupIndex.isContrŒ‚â° 
-    Tantujala_TheFibreHasThreeVerdictsAndIsContrMergesTwoOfThem.‡‡Æ‡‡æ-‡Æ‡æ‡∞‡‡ó‡
+    Fiberjala_TheFibreHasThreeVerdictsAndIsContrMergesTwoOfThem.‡‡Æ‡‡æ-‡Æ‡æ‡∞‡‡ó‡
 
 [3 members / 2 files]
     Prastuti_ThreeIndependentPresentationsGenerateSevenCombinationsAndBarrierListsThree.‡≤‡ø‡ñ‡ø‡-‡‡æ‡∞‡‡µ 
@@ -2371,9 +2371,9 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     SaptabhangiSamyoga_TheCompositionOfVerdicts.‡‡‡‡†‡
 
 [3 members / 3 files]
-    PramanaSankramana_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty.‡‡‡∞‡‡ø‡‡ô‡‡ï‡‡∞‡Æ‡ 
-    Samkramana_AnEdgeCarriesEveryPredicateAndEdgesComposeSoTheRouteIsFree.‡µ‡‡Ø‡‡‡Ø‡Ø‡ 
-    Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps.‡‡‡∞‡‡ø‡≤‡ã‡Æ‡
+    PramanaTransport_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty.‡‡‡∞‡‡ø‡‡ô‡‡ï‡‡∞‡Æ‡ 
+    Samorderna_AnEdgeCarriesEveryPredicateAndEdgesComposeSoTheRouteIsFree.‡µ‡‡Ø‡‡‡Ø‡Ø‡ 
+    Machine_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps.‡‡‡∞‡‡ø‡≤‡ã‡Æ‡
 
 [3 members / 2 files]
     PinnedSensorForcing.extendedContains 
@@ -2401,8 +2401,8 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     VerifyIsDecide_ThereIsNoGapBetweenFindingAndCheckingBecauseBothAreProjectionsOfOneEquivalence.verify-inverts-decide
 
 [3 members / 2 files]
-    NiyantranaGanana_TheLandscapeIsTheCosetOfTheObstructionSixteenToOne.nSat2 
-    NiyantranaGanana_TheLandscapeIsTheCosetOfTheObstructionSixteenToOne.nSatE 
+    NimachinenaGanana_TheLandscapeIsTheCosetOfTheObstructionSixteenToOne.nSat2 
+    NimachinenaGanana_TheLandscapeIsTheCosetOfTheObstructionSixteenToOne.nSatE 
     SandarbhaGanana_TheContextCountIsAlwaysOddAndTheLandscapeIsNinetySixThreeTwentyNinetySix.nSat
 
 [3 members / 3 files]
@@ -2421,8 +2421,8 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     Niksepa.‡µ‡‡‡‡
 
 [3 members / 2 files]
-    KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.‡ï‡‡∞‡Æ‡‡‡∞‡‡‡®‡ 
-    KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.‡µ‡æ‡‡ï-‡‡‡∞‡‡‡®‡ 
+    OrderNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.‡ï‡‡∞‡Æ‡‡‡∞‡‡‡®‡ 
+    OrderNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.‡µ‡æ‡‡ï-‡‡‡∞‡‡‡®‡ 
     SariraStara_TheCountStratumOfTheHeartbeatIsProvablyBlindToTheBodysLawOfSuccession.‡ó‡‡®‡æ‡‡‡∞‡‡‡®‡
 
 [3 members / 3 files]
@@ -2451,7 +2451,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     WallCertificate.worldSplit
 
 [3 members / 3 files]
-    IdempotenceForbidsDescent.bhavana-is-not-a-join 
+    IdempotenceForbidsDescent.composition-is-not-a-join 
     TheArithmeticCircleIsFourPeriodic.i¬≤‚âone 
     TheFibreIsTheSubject.rotated-differs
 
@@ -2482,7 +2482,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
 
 [3 members / 3 files]
     GaugeOrbitClasses.œ‚ã-is-neutral-for-probe-6 
-    KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.‡‡®‡‡ß‡Ø‡‡ó‡‡Æ‡Æ‡ 
+    OrderNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.‡‡®‡‡ß‡Ø‡‡ó‡‡Æ‡Æ‡ 
     SariraStara_TheCountStratumOfTheHeartbeatIsProvablyBlindToTheBodysLawOfSuccession.‡‡‡¶‡Ø‡‡æ‡Æ‡‡Ø‡Æ‡
 
 [3 members / 2 files]
@@ -2542,8 +2542,8 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
 
 [3 members / 3 files]
     EkaSutra_JTheGraphAndTheFundamentalTheoremAreInstancesOfSingletonContractionSoAuthorsRetireIntoInstantiation.‡®‡ø‡µ‡‡‡‡‡ø‡ 
-    Samkramana_AnEdgeCarriesEveryPredicateAndEdgesComposeSoTheRouteIsFree.‡µ‡‡®‡Æ‡ 
-    Samkramana_TransportCarriesStructureAndTruncationIsTransportExactlyWhenNothingWasThereToLose.‡µ‡‡®‡Æ‡
+    Samorderna_AnEdgeCarriesEveryPredicateAndEdgesComposeSoTheRouteIsFree.‡µ‡‡®‡Æ‡ 
+    Samorderna_TransportCarriesStructureAndTruncationIsTransportExactlyWhenNothingWasThereToLose.‡µ‡‡®‡Æ‡
 
 [3 members / 2 files]
     EkaGhataVivrtti_TheWholeChargeIsTheFirstOrderTermOfOneRankOneProduct.‡ò‡æ‡‡ 
@@ -2576,12 +2576,12 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     WallCertificate.Tup
 
 [3 members / 3 files]
-    DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡‡ 
-    PratibimbaSanghata_CostComposesMonotonicallyExactlyOnTheImageWhichIsWhatTypingTheDecoderOnItBuys.‡‡‡ 
+    DesaAggregate_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡‡ 
+    ReflectionAggregate_CostComposesMonotonicallyExactlyOnTheImageWhichIsWhatTypingTheDecoderOnItBuys.‡‡‡ 
     SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype.‡‡∞‡‡µ‡‡æ‡®‡ø‡
 
 [3 members / 3 files]
-    DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡‡ø‡-‡¶‡‡µ‡Ø‡Æ‡ 
+    DesaAggregate_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡‡ø‡-‡¶‡‡µ‡Ø‡Æ‡ 
     Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.‡‡ï‡Æ‡-‡µ‡ø‡ï‡≤‡æ‡¶‡‡ 
     SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype.‡‡∞‡‡µ‡à‡ï‡Æ‡-‡¶‡‡µ‡Ø‡Æ‡
 
@@ -2667,7 +2667,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
 
 [3 members / 3 files]
     Bhitti_TheNaturalsAndTheBooleansAreAProvedWallSoThatSeamIsRetiredForever.‡‡‡∞‡Ø‡æ‡‡æ‡-‡¶‡‡µ‡ 
-    VakraValayaSanketa_TheForgottenSuccessionPrecipitatesTypeLevelAsOneBitAndTheFirstVeilIsItsFee.‡‡‡∞‡ø-‡‡ô‡‡ï‡ã‡‡ 
+    CurvedLoopSanketa_TheForgottenSuccessionPrecipitatesTypeLevelAsOneBitAndTheFirstVeilIsItsFee.‡‡‡∞‡ø-‡‡ô‡‡ï‡ã‡‡ 
     Vyatireka_TheAbsentRoundTripDoesNotEntailTheAbsentEquivalence.pairOf
 
 [3 members / 3 files]
@@ -2676,12 +2676,12 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     Bhitti_TheNaturalsAndTheBooleansAreAProvedWallSoThatSeamIsRetiredForever.‡‡‡‡¶
 
 [3 members / 3 files]
-    BhavanaSamuha.‡‡‡®‡‡Ø-‡ó‡‡‡ 
+    CompositionSet.‡‡‡®‡‡Ø-‡ó‡‡‡ 
     DynamicDescent.pureLeakageIsFree 
     Shunya.‡ó‡‡‡®‡-‡‡‡®‡‡Ø‡Æ‡
 
 [3 members / 2 files]
-    BhavanaKrida.‡Ø‡‡ó‡‡Æ‡Æ‡ 
+    CompositionKrida.‡Ø‡‡ó‡‡Æ‡Æ‡ 
     GalerkinJets_TheTaylorJetsOfThePairAtTimeZeroAreExactOnAWideningWindowAndTheTruncationResidualSitsOnTheBoundaryRow.residual‚ 
     GalerkinJets_TheTaylorJetsOfThePairAtTimeZeroAreExactOnAWideningWindowAndTheTruncationResidualSitsOnTheBoundaryRow.residual‚
 
@@ -2691,7 +2691,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     Sankalita_AryabhatasSeriesSumsAndTheCubeSumIsTheSquareOfTheSum.‡µ‡æ‡Æ-‡µ‡ø‡‡∞‡
 
 [3 members / 2 files]
-    AvrttiSesa_TheKernelFillsTheMonoidStrictlyAndCarriesNoGroupoidSoTheRoundTripIsTheResidue.GroupoidOver 
+    AvrttiResidue_TheKernelFillsTheMonoidStrictlyAndCarriesNoGroupoidSoTheRoundTripIsTheResidue.GroupoidOver 
     Laghava_TheCostAndTheInverseCannotCoexistSoNoNontrivialGroupIsGradedAndTransportHasNoPrice.Laghava 
     Laghava_TheCostAndTheInverseCannotCoexistSoNoNontrivialGroupIsGradedAndTransportHasNoPrice.Matra
 
@@ -2737,8 +2737,8 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
 
 [3 members / 2 files]
     Abhijnana_TheReceiptAndTheElisionAgreeOnTheResultAndDifferOnlyInTheFibre.‡‡®‡‡‡‡-‡®-‡Æ‡‡ï‡‡‡ 
-    Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡‡ 
-    Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡Æ‡ß‡‡Ø‡Æ‡-‡ï‡‡‡Ø‡
+    Fibertrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡‡ 
+    Fibertrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡Æ‡ß‡‡Ø‡Æ‡-‡ï‡‡‡Ø‡
 
 [3 members / 3 files]
     Abhava.Abhva 
@@ -2780,7 +2780,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
 
 [2 members / 2 files]
     TomographyConditioning.sumCopies 
-    Upadhi_TheMertensGateIsTheDisprovedConjectureNotTheHypothesis.bump
+    Qualifier_TheMertensGateIsTheDisprovedConjectureNotTheHypothesis.bump
 
 [2 members / 2 files]
     TheStrataAreOrderedByDominationAndTheProofNeedsNoNewLemma.Ordered 
@@ -2828,7 +2828,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
 
 [2 members / 2 files]
     TheCeilingIsAboutReading.probe1 
-    YantraTantu_TheEngineLivesInTheFibreOfItsDenotation.‡‡ï‡
+    MachineFiber_TheEngineLivesInTheFibreOfItsDenotation.‡‡ï‡
 
 [2 members / 2 files]
     TermFreeMonoid.plug-unit-r 
@@ -2876,7 +2876,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
 
 [2 members / 2 files]
     SieveScaleTower.eq‚ 
-    Srotas_TheBrokerThePartitionTheOffsetTheCheckpointAndTheWatermarkAreBuiltAndExactlyOnceIsAlgebra.single
+    Stream_TheBrokerThePartitionTheOffsetTheCheckpointAndTheWatermarkAreBuiltAndExactlyOnceIsAlgebra.single
 
 [2 members / 2 files]
     SieveFiber.q 
@@ -2895,7 +2895,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     SieveScaleTower.Fibre‚
 
 [2 members / 2 files]
-    SesaRaksa_TheSeriesIsDivisionWithRemainderAtEveryStageAndTheRemainderRecurses.‡‡‡-‡‡∞‡Æ‡‡‡∞‡æ 
+    ResidueRaksa_TheSeriesIsDivisionWithRemainderAtEveryStageAndTheRemainderRecurses.‡‡‡-‡‡∞‡Æ‡‡‡∞‡æ 
     TheTruncationErrorIsExactAtEveryFiniteStage.errorStep
 
 [2 members / 2 files]
@@ -2907,20 +2907,20 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     TranslationInvariance_ClosenessOfRationalsIsInvariantUnderTranslationByARationalSoTranslationWillExtendToTheContinuum._+‚_
 
 [2 members / 2 files]
-    SankramanaSesa_EveryTransportOwesItsResidual.‡‡‡‡‡Æ‡ 
+    TransportResidue_EveryTransportOwesItsResidual.‡‡‡‡‡Æ‡ 
     SarvavibhagaH_EveryMapIsTheSumOfItsFibresOverItsCodomainSoTheIsomorphismTheoremIsAnekanta.‡‡∞‡‡µ‡µ‡ø‡‡æ‡ó‡
 
 [2 members / 2 files]
     Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.‡‡‡-‡®-‡‡Æ‡‡æ 
-    SankramanaSesa_EveryTransportOwesItsResidual.‡µ‡ø‡‡Æ-‡‡‡‡‡-‡®-‡‡Æ‡‡æ
+    TransportResidue_EveryTransportOwesItsResidual.‡µ‡ø‡‡Æ-‡‡‡‡‡-‡®-‡‡Æ‡‡æ
 
 [2 members / 2 files]
     Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.‡‡‡‡‡ø-‡‡Æ‡‡æ 
-    Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡‡Ø‡ã‡ó‡-‡‡ï‡‡‡Ø‡
+    Fibertrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡‡Ø‡ã‡ó‡-‡‡ï‡‡‡Ø‡
 
 [2 members / 2 files]
-    Samkramana_TransportCarriesStructureAndTruncationIsTransportExactlyWhenNothingWasThereToLose.‡ó‡‡ø 
-    SankramanaSesa_EveryTransportOwesItsResidual.‡‡‡‡‡‡‡ï‡‡∞‡Æ‡‡Æ‡
+    Samorderna_TransportCarriesStructureAndTruncationIsTransportExactlyWhenNothingWasThereToLose.‡ó‡‡ø 
+    TransportResidue_EveryTransportOwesItsResidual.‡‡‡‡‡‡‡ï‡‡∞‡Æ‡‡Æ‡
 
 [2 members / 2 files]
     SamayikaAndNityaAreIndependent.always-nitya 
@@ -2960,7 +2960,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
 
 [2 members / 2 files]
     ResponseCharacterKickback.Character 
-    SamkramanaVahanam_TransportCarriesTheOperationAndItsLawsAndTheyCompute.LUnit
+    SamordernaVahanam_TransportCarriesTheOperationAndItsLawsAndTheyCompute.LUnit
 
 [2 members / 2 files]
     ResidueGlue.and-right 
@@ -3027,7 +3027,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     PrimeSquarePinAdapter.subthreshold-cannot-refute
 
 [2 members / 2 files]
-    Pratibimba_TheBehaviorIsASetQuotientOfTheCodeItsFibreIsInfiniteAndTheLosslessTraceIsAPoint.dups 
+    Reflection_TheBehaviorIsASetQuotientOfTheCodeItsFibreIsInfiniteAndTheLosslessTraceIsAPoint.dups 
     Samasa_ProgramsComposeTheSequencedTableRunsItsFirstPhaseThenHandsTheTapeToTheSecondAtTheRetireState.shiftC
 
 [2 members / 2 files]
@@ -3055,20 +3055,20 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     SaptabhangiSamyoga_TheCompositionOfVerdicts.‡∞‡ø‡ï‡‡‡ã-‡®-‡‡ô‡‡ó‡
 
 [2 members / 2 files]
-    PramanaSankramana_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty.‡‡‡µ‡ 
-    Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps.‡®‡ã-‡ï‡∞‡‡Æ
+    PramanaTransport_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty.‡‡‡µ‡ 
+    Machine_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps.‡®‡ã-‡ï‡∞‡‡Æ
 
 [2 members / 2 files]
-    PramanaSankramana_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty.‡‡®‡‡ß‡æ‡®-‡‡‡∞‡Ø‡Æ‡ 
-    Samkramana_AnEdgeCarriesEveryPredicateAndEdgesComposeSoTheRouteIsFree.‡‡‡∞‡ø‡Æ‡æ‡∞‡‡ó‡
+    PramanaTransport_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty.‡‡®‡‡ß‡æ‡®-‡‡‡∞‡Ø‡Æ‡ 
+    Samorderna_AnEdgeCarriesEveryPredicateAndEdgesComposeSoTheRouteIsFree.‡‡‡∞‡ø‡Æ‡æ‡∞‡‡ó‡
 
 [2 members / 2 files]
-    PramanaSankramana_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty.‡µ‡‡Ø‡Ø‡∞‡‡ø‡‡ 
-    SankramanaSesa_EveryTransportOwesItsResidual.‡‡‡∞‡‡‡Ø‡æ‡ó‡Æ‡®‡Æ‡
+    PramanaTransport_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty.‡µ‡‡Ø‡Ø‡∞‡‡ø‡‡ 
+    TransportResidue_EveryTransportOwesItsResidual.‡‡‡∞‡‡‡Ø‡æ‡ó‡Æ‡®‡Æ‡
 
 [2 members / 2 files]
-    PramanaSankramana_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty.Receipt 
-    Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps.Program
+    PramanaTransport_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty.Receipt 
+    Machine_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps.Program
 
 [2 members / 2 files]
     PingalaPrastara.matraCount 
@@ -3180,7 +3180,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
 
 [2 members / 2 files]
     Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere.‡‡‡‡‡-‡‡‡ 
-    PramanaSankramana_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty.‡‡‡
+    PramanaTransport_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty.‡‡‡
 
 [2 members / 2 files]
     NaturalMachineRun.transported+ 
@@ -3188,7 +3188,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
 
 [2 members / 2 files]
     Nasha_TheVisibleStepDestroysInformationAndTheCompletedStepCannotByConstruction.collision 
-    Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.spin-steps
+    Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.spin-steps
 
 [2 members / 2 files]
     ModeAdjoint.Œ-Adm 
@@ -3228,7 +3228,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
 
 [2 members / 2 files]
     LosslessReturnFinal.Œ¶-injective 
-    Samkramana.Œ¶-injective
+    Samorderna.Œ¶-injective
 
 [2 members / 2 files]
     Lopa_TheSumsFibreIsExactlyNPlusOneAndNoLeftInverseExists.‡‡®‡‡‡-‡ó‡‡®‡æ 
@@ -3263,23 +3263,23 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     Ramanujan1729_TheTaxicabNumberBothRepresentationsByReflAndMinimalityByBoundedReflection.Out
 
 [2 members / 2 files]
-    KramaSaha_TheOrderOfStandpointsIsTheChargeItself.‚-‡®-‡‡ô‡‡ï‡ã‡‡ 
+    OrderSaha_TheOrderOfStandpointsIsTheChargeItself.‚-‡®-‡‡ô‡‡ï‡ã‡‡ 
     SannikrstaGahanata_ForEveryDimensionTheLastSilentStratumDescendsAndTheNextDoesNot.‚-‡®-‡‡ô‡‡ï‡‡‡ø‡‡
 
 [2 members / 2 files]
-    KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition.secondAloneHolds 
+    OrderSaha_TheFourthCornerIWasNamingIsTheSequentialPosition.secondAloneHolds 
     TheFloorIsAnswerability.not-answerable
 
 [2 members / 2 files]
-    KramaSahaSarvatra_TheInterchangeChargeIsOneStructureFromLoopsThroughContextualityToTheFourthBhanga.‡Æ‡‡∞‡‡‡ 
+    OrderSahaSarvatra_TheInterchangeChargeIsOneStructureFromLoopsThroughContextualityToTheFourthBhanga.‡Æ‡‡∞‡‡‡ 
     SpectatorPaddingCollapse.unary-order-distinct
 
 [2 members / 2 files]
-    KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.‡µ‡æ‡‡ï-‡¶‡‡‡‡ü‡ø‡ 
+    OrderNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.‡µ‡æ‡‡ï-‡¶‡‡‡‡ü‡ø‡ 
     SariraStara_TheCountStratumOfTheHeartbeatIsProvablyBlindToTheBodysLawOfSuccession.‡ó‡‡®‡æ‡‡‡‡∞‡
 
 [2 members / 2 files]
-    KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.‡ï‡‡∞‡Æ‡®‡ø‡Ø‡Æ‡ã-‡®-‡µ‡æ‡‡ï‡æ‡‡ 
+    OrderNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier.‡ï‡‡∞‡Æ‡®‡ø‡Ø‡Æ‡ã-‡®-‡µ‡æ‡‡ï‡æ‡‡ 
     SariraStara_TheCountStratumOfTheHeartbeatIsProvablyBlindToTheBodysLawOfSuccession.‡‡∞‡‡∞‡‡‡‡∞‡
 
 [2 members / 2 files]
@@ -3336,7 +3336,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
 
 [2 members / 2 files]
     HaskellDefinitionBoundary.haskell-max-zero-right 
-    SesaPurti_TheMachinesTopNonJoiningPairFedBackThroughTheWarmConduit.‡‡‡∞‡‡‡ø‡
+    ResiduePurti_TheMachinesTopNonJoiningPairFedBackThroughTheWarmConduit.‡‡‡∞‡‡‡ø‡
 
 [2 members / 2 files]
     GterTwoCoordinate.îó‚‚ 
@@ -3400,7 +3400,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
 
 [2 members / 2 files]
     FuelAdequacyIsACollision.saturated 
-    Srotas_TheBrokerThePartitionTheOffsetTheCheckpointAndTheWatermarkAreBuiltAndExactlyOnceIsAlgebra.‚à
+    Stream_TheBrokerThePartitionTheOffsetTheCheckpointAndTheWatermarkAreBuiltAndExactlyOnceIsAlgebra.‚à
 
 [2 members / 2 files]
     FrontierDividesHard.^-‚à 
@@ -3483,7 +3483,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     Lawvere.Œ¥-end
 
 [2 members / 2 files]
-    Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.machine-lossless-canonical 
+    Uniqueness_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.machine-lossless-canonical 
     VerifyIsDecide_ThereIsNoGapBetweenFindingAndCheckingBecauseBothAreProjectionsOfOneEquivalence.no-gap-is-forced
 
 [2 members / 2 files]
@@ -3492,11 +3492,11 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
 
 [2 members / 2 files]
     EkaVidhiMukhani_TheSessionsSixCostumesAreOneLawAndTheFacesAreRefl.‡Æ‡‡ñ‡Æ‡-‡‡‡‡ 
-    TiryakTantu_ThePhaseAndTheCoefficientFactorThroughTransverseQuotientsOfOneVariable.‡‡‡‡-‡®-‡Æ‡‡Ø‡‡‡
+    TiryakFiber_ThePhaseAndTheCoefficientFactorThroughTransverseQuotientsOfOneVariable.‡‡‡‡-‡®-‡Æ‡‡Ø‡‡‡
 
 [2 members / 2 files]
     EkaVidhiMukhani_TheSessionsSixCostumesAreOneLawAndTheFacesAreRefl.‡Æ‡‡ñ‡Æ‡-‡Æ‡‡Ø‡ 
-    TiryakTantu_ThePhaseAndTheCoefficientFactorThroughTransverseQuotientsOfOneVariable.‡Æ‡‡Ø‡-‡®-‡‡‡‡æ‡‡
+    TiryakFiber_ThePhaseAndTheCoefficientFactorThroughTransverseQuotientsOfOneVariable.‡Æ‡‡Ø‡-‡®-‡‡‡‡æ‡‡
 
 [2 members / 2 files]
     EkaSutra_JTheGraphAndTheFundamentalTheoremAreInstancesOfSingletonContractionSoAuthorsRetireIntoInstantiation.‡‡‡‡‡∞‡Æ‡ 
@@ -3535,11 +3535,11 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     DigitTowerFinLimit.dropMSD
 
 [2 members / 2 files]
-    DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡‡‡‡ø-‡‡ï‡≤‡Æ‡ 
+    DesaAggregate_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡‡‡‡ø-‡‡ï‡≤‡Æ‡ 
     Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.‡‡Æ‡‡‡ü‡ø‡-‡∞‡ø‡ï‡‡‡æ
 
 [2 members / 2 files]
-    DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡®‡‡‡-‡‡ï‡≤‡Æ‡ 
+    DesaAggregate_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡®‡‡‡-‡‡ï‡≤‡Æ‡ 
     Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.‡‡‡‡æ‡‡®‡æ-‡‡®‡‡‡‡-‡‡‡‡Ø‡
 
 [2 members / 2 files]
@@ -3548,7 +3548,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
 
 [2 members / 2 files]
     DefectCalculus.FailedAt 
-    SankramanaSesa_EveryTransportOwesItsResidual.‡‡‡
+    TransportResidue_EveryTransportOwesItsResidual.‡‡‡
 
 [2 members / 2 files]
     DeclaredRootedProfiles.north-added-separator 
@@ -3664,7 +3664,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
 
 [2 members / 2 files]
     ChargePolynomialFinite.distinctµ 
-    Tantusandhi_TheFourWrittenFibresWereAlreadyTheQueuesOwnMapsAndTwoEdgesTheCensusNeverSaw.sgnŒ©
+    Fibersandhi_TheFourWrittenFibresWereAlreadyTheQueuesOwnMapsAndTwoEdgesTheCensusNeverSaw.sgnŒ©
 
 [2 members / 2 files]
     ChargeIsStrictRefinement.neutralSet-blind 
@@ -3768,10 +3768,10 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
 
 [2 members / 2 files]
     Avinimaya_TheMachinesStepsAreAllUnitaryWhenCompletedAndStillDoNotExchange.c‚ 
-    Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.start
+    Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.start
 
 [2 members / 2 files]
-    AvataranaBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport.sameCarrierTranscript 
+    DescentBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport.sameCarrierTranscript 
     SariraStara_TheCountStratumOfTheHeartbeatIsProvablyBlindToTheBodysLawOfSuccession.mismatch-NONE
 
 [2 members / 2 files]
@@ -3816,7 +3816,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
 
 [2 members / 2 files]
     Apratiloma_TheConservingFlowsAreAMonoidNotAGroupSoNoethersFirstTheoremDoesNotTransfer.‡‡‡‡∞‡‡ø‡≤‡ã‡Æ‡ 
-    AtmasamataUpari_TheStoredInverseIsExactlyInvertibilityAndTheSymmetryGroupIsAutOverB.‡‡‡∞‡‡-‡‡‡∞‡µ‡æ‡‡
+    AtmaequalityUpari_TheStoredInverseIsExactlyInvertibilityAndTheSymmetryGroupIsAutOverB.‡‡‡∞‡‡-‡‡‡∞‡µ‡æ‡‡
 
 [2 members / 2 files]
     Apavartana_TheCarriedPairLosesTheLesserFromTheGreaterAndTheCommonMeasureStands.‚à-‡Ø‡ã‡ó 
@@ -3856,7 +3856,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
 
 [2 members / 2 files]
     AnuktaAvaktavya.‡‡∞‡‡-‡‡æ‡Æ‡‡Ø‡Æ‡ 
-    SaptabhangiNaya.krama-expresses
+    SaptabhangiNaya.order-expresses
 
 [2 members / 2 files]
     AnuktaAvaktavya.‡‡®‡‡ï‡‡‡Æ‡‡‡‡ø 
@@ -3879,8 +3879,8 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
     CaturamsaBhramana_TheQuarterWaveLivesOnlyOnTheInterdependentPairAndEachSenseCarriesExactlyItsSquare.catur-cakra
 
 [2 members / 2 files]
-    AmshaSatyayantra.‡‡‡-‡‡‡‡Ø‡Ø‡®‡‡‡‡∞ 
-    Satyayantra.‡‡‡‡Ø‡Ø‡®‡‡‡‡∞
+    AmshaSatyamachine.‡‡‡-‡‡‡‡Ø‡Ø‡®‡‡‡‡∞ 
+    Satyamachine.‡‡‡‡Ø‡Ø‡®‡‡‡‡∞
 
 [2 members / 2 files]
     AksharaDvaya_TheVirahankaBoolFibreAndThePingalaChandasFibreAreOneWeightedCount.‡‡Æ‡‡æ-‡‡æ‡ï‡‡‡-V 
@@ -3904,7 +3904,7 @@ CROSS-FILE TYPE IDENTITIES ‚î the same statement/object proved in different modu
 
 [2 members / 2 files]
     Abhijnana_TheReceiptAndTheElisionAgreeOnTheResultAndDifferOnlyInTheFibre.‡‡æ‡¶‡æ‡‡‡Æ‡‡Ø‡Æ‡ 
-    Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡ï‡Æ‡
+    Fibertrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡ï‡Æ‡
 
 [2 members / 2 files]
     AbhavaAvacchedaka.example 

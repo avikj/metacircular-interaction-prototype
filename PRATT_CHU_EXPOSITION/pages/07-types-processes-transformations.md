@@ -14,7 +14,7 @@ This is the point at which Pratt's transformational mathematics meets Lossless I
 
 ## Canonical checked construction
 
-Dynamic carrier/transport: [`Nucleus.agda`](../../fibre/src/Fibre/Nucleus.agda). Universal family: [`Visvarupa...agda`](../../fibre/src/Fibre/Visvarupa_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda). Metacircular lifecycle source: [`LIFECYCLE.rst`](../../LIFECYCLE.rst) plus the repository's `IntrinsicRewrite` / `ProductiveIndraNet` theorem modules.
+Dynamic carrier/transport: [`Nucleus.agda`](../../fibre/src/Fibre/Nucleus.agda). Universal family: [`Universal...agda`](../../fibre/src/Fibre/Universal_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda). Metacircular lifecycle source: [`LIFECYCLE.rst`](../../LIFECYCLE.rst) plus the repository's `IntrinsicRewrite` / `ProductiveIndraNet` theorem modules.
 
 ## External coordinates
 

@@ -4,7 +4,7 @@
 -- NaturalMachine.Yugapat_TheRefusalOfJointAssertionDoesNotDecompose
 --
 -- ‡Ø‡‡ó‡‡‡ ¬ yugapat ‚î "at once", the Jaina term for the simultaneous
--- mode of predication, paired with ‡ï‡‡∞‡Æ ¬ krama, "in sequence"
+-- mode of predication, paired with ‡ï‡‡∞‡Æ ¬ order, "in sequence"
 -- (saptabhag: Umsvti, *Tattvrthastra*; Samantabhadra; Akalaka;
 -- Siddhasena Divkara).  The distinction is theirs and so is its
 -- formalisation in this repository: `Saptabhangi` and
@@ -17,7 +17,7 @@
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- A CORRECTION OF MY OWN CLAIM, ONE CYCLE OLD.
 --
--- `KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition`
+-- `OrderSaha_TheFourthCornerIWasNamingIsTheSequentialPosition`
 -- concluded:
 --
 --   "this formalism, as it stands, cannot express avaktavya at all:
@@ -44,7 +44,7 @@
 --                       instance family, indexed by their `‡‡∞‡‡‡`:
 --                       ‡ï‡‡∞‡Æ‡ gives the sequential pair of refusals,
 --                       ‡‡‡ the refusal of the joint assertion
---   kramaGivesYugapat   the sequential position implies the
+--   orderGivesYugapat   the sequential position implies the
 --                       simultaneous one ‚î one line, and unconditional
 --   yugapatDecompositionGivesWeakExcludedMiddle
 --                       the CONVERSE, as a general principle, implies
@@ -76,7 +76,7 @@ open import Cubical.Relation.Nullary using (¬¨_)
 
 open import Saptabhangi using (‡§Ü‡§∞‡•ç‡§™‡§£ ; ‡§ï‡•ç‡§∞‡§Æ‡§É ; ‡§∏‡§π‡§É)
 open import Mula.AnuktaAvaktavya using (‡§∏‡§æ‡§Æ‡§Ø‡§ø‡§ï ; ‡§®‡§ø‡§§‡•ç‡§Ø)
-open import NaturalMachine.KramaAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift
+open import NaturalMachine.OrderAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift
   using (one)
 
 private
@@ -95,8 +95,8 @@ Assert ‡§∏‡§π‡§É  Q = ¬¨ (‡§∏‡§æ‡§Æ‡§Ø‡§ø‡§ï (one Q) √ó ‡§®‡§ø‡§§‡•ç‡§Ø (one Q))
 -- 2.  Sequential implies simultaneous, for nothing
 ------------------------------------------------------------------------
 
-kramaGivesYugapat : (Q : R ‚Üí Type) ‚Üí Assert ‡§ï‡•ç‡§∞‡§Æ‡§É Q ‚Üí Assert ‡§∏‡§π‡§É Q
-kramaGivesYugapat Q (ns , nn) both = ns (fst both)
+orderGivesYugapat : (Q : R ‚Üí Type) ‚Üí Assert ‡§ï‡•ç‡§∞‡§Æ‡§É Q ‚Üí Assert ‡§∏‡§π‡§É Q
+orderGivesYugapat Q (ns , nn) both = ns (fst both)
 
 ------------------------------------------------------------------------
 -- 3.  ‚¶and the converse is a constructive taboo
@@ -117,11 +117,11 @@ yugapatDecompositionGivesWeakExcludedMiddle dec A =
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
 -- cubical v0.5, NOT the declared pin).  There is:
 --
---   Krama = (¬ ‡‡æ‡Æ‡Ø‡ø‡ï) ó (¬ ‡®‡ø‡‡‡Ø)
+--   Order = (¬ ‡‡æ‡Æ‡Ø‡ø‡ï) ó (¬ ‡®‡ø‡‡‡Ø)
 --     ‚í Vikalpa = (¬ ‡‡æ‡Æ‡Ø‡ø‡ï) ‚ä (¬ ‡®‡ø‡‡‡Ø)
 --       ‚í Yugapat = ¬ (‡‡æ‡Æ‡Ø‡ø‡ï ó ‡®‡ø‡‡‡Ø)
 --
--- **and the two gaps are of different KINDS.**  Krama ‚ää Vikalpa is
+-- **and the two gaps are of different KINDS.**  Order ‚ää Vikalpa is
 -- settled outright by an example ‚î at the trivially-true family
 -- `¬ ‡‡æ‡Æ‡Ø‡ø‡ï` holds while `¬ ‡®‡ø‡‡‡Ø` fails ‚î so it is a fact about my
 -- instance family.  Vikalpa ‚ê Yugapat is not about the family at all:

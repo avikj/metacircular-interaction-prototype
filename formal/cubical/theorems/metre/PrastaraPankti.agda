@@ -5,12 +5,12 @@
 --
 -- ‡‡ø‡ô‡‡ó‡≤‡ (‡‡®‡‡¶‡‡‡æ‡‡‡‡‡∞‡Æ‡ ‡Æ) ‡‡‡∞‡‡‡Ø‡Ø‡æ‡®‡ ‡‡ : ‡‡‡∞‡‡‡‡æ‡∞‡, ‡®‡‡‡ü‡Æ‡, ‡â‡¶‡‡¶‡ø‡‡‡ü‡Æ‡, ‡‡‡ñ‡‡Ø‡æ
 -- (‡ï‡‡ø ‡‡®‡‡¶‡æ‡‡‡ø = 2‚ø), ‡Æ‡‡∞‡-‡‡‡∞‡‡‡‡æ‡∞‡ (‡‡‡∞‡ø‡ï‡ã‡-‡‡µ‡≤‡) ‡ ‡  ‡‡‡‡∞ ‡¶‡‡µ‡ ‡Æ‡ø‡≤‡‡ :
--- ‡‡‡ñ‡‡Ø‡æ (PingalaPrastara.sankhya, ‡Ø‡‡‡∞ Vak n ‚â Fin(sankhya n) ‡‡æ‡ß‡ø‡‡Æ‡) , ‡Æ‡‡∞‡-
+-- ‡‡‡ñ‡‡Ø‡æ (PingalaPrastara.count, ‡Ø‡‡‡∞ Vak n ‚â Fin(count n) ‡‡æ‡ß‡ø‡‡Æ‡) , ‡Æ‡‡∞‡-
 -- ‡‡ô‡‡ï‡‡‡ø-‡Ø‡ã‡ó‡ ‡ (PanktiYoga.‡‡‡∞‡‡µ n n = ‚à‚ñ C(n,k)) ‡  ‡â‡‡ 2‚ø , ‡‡‡ ‡‡Æ‡ :
--- sankhya n ‚â° ‡‡‡∞‡‡µ n n ‚î ‡‡®‡‡¶‡ã-‡ó‡‡®‡æ (‡‡‡ñ‡‡Ø‡æ) ‡Æ‡‡∞‡-‡‡ô‡‡ï‡‡‡ø-‡Ø‡ã‡ó‡ ‡‡µ ‡
+-- count n ‚â° ‡‡‡∞‡‡µ n n ‚î ‡‡®‡‡¶‡ã-‡ó‡‡®‡æ (‡‡‡ñ‡‡Ø‡æ) ‡Æ‡‡∞‡-‡‡ô‡‡ï‡‡‡ø-‡Ø‡ã‡ó‡ ‡‡µ ‡
 --
 -- (Pigala's sakhy ‚î the count of n-syllable metres, 2‚ø, established in
--- PingalaPrastara as Vak n ‚â Fin(sankhya n) ‚î equals the meru-prastra row sum
+-- PingalaPrastara as Vak n ‚â Fin(count n) ‚î equals the meru-prastra row sum
 -- ‚à‚ñ C(n,k) (PanktiYoga.‡‡‡∞‡‡µ, = ‡¶‡‡µ‡ø-‡ò‡æ‡).  The two pratyayas Pigala states side
 -- by side, sakhy and the meru, count the same 2‚ø, and here that identity is a
 -- proof: the metre-count IS the binomial row sum, not just numerically equal.)
@@ -25,7 +25,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (‚Ñï ; zero ; suc ; _+_)
 open import Cubical.Data.Nat.Properties using (+-comm)
 open import Cubical.Data.List using (length)
-open import PingalaPrastara using (sankhya ; meru ; matra)
+open import PingalaPrastara using (count ; meru ; matra)
 open import PanktiYoga using (‡§¶‡•ç‡§µ‡§ø-‡§ò‡§æ‡§§ ; ‡§™‡•Ç‡§∞‡•ç‡§µ ; ‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø-‡§Ø‡•ã‡§ó‡§É)
 open import Dvipada using (C)
 open import Matramerus using (‡§∏‡§∞‡•ç‡§µ ; ‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ‡§Æ‡•á‡§∞‡•Å)
@@ -35,15 +35,15 @@ open import MeruKarna using (‡§Æ‡•á‡§∞‡•Å-‡§ï‡§∞‡•ç‡§£ ; ‡§∏‡§Æ‡§§‡§æ-‡§ï‡§∞‡•ç‡
 -- ‡‡‡ñ‡‡Ø‡æ-‡¶‡‡µ‡ø‡ò‡æ‡ ‚î ‡‡‡ñ‡‡Ø‡æ-‡‡‡∞‡‡‡Ø‡Ø‡ ‡‡ø‡ô‡‡ó‡≤‡‡‡Ø 2‚ø (‡¶‡‡µ‡ø-‡ò‡æ‡) ‡‡µ (‡‡‡≤‡‡Ø-‡‡µ‡‡‡‡‡) ‡
 ------------------------------------------------------------------------
 
-‡§∏‡§Ç‡§ñ‡•ç‡§Ø‡§æ-‡§¶‡•ç‡§µ‡§ø‡§ò‡§æ‡§§ : (n : ‚Ñï) ‚Üí sankhya n ‚â° ‡§¶‡•ç‡§µ‡§ø-‡§ò‡§æ‡§§ n
+‡§∏‡§Ç‡§ñ‡•ç‡§Ø‡§æ-‡§¶‡•ç‡§µ‡§ø‡§ò‡§æ‡§§ : (n : ‚Ñï) ‚Üí count n ‚â° ‡§¶‡•ç‡§µ‡§ø-‡§ò‡§æ‡§§ n
 ‡§∏‡§Ç‡§ñ‡•ç‡§Ø‡§æ-‡§¶‡•ç‡§µ‡§ø‡§ò‡§æ‡§§ zero    = refl
 ‡§∏‡§Ç‡§ñ‡•ç‡§Ø‡§æ-‡§¶‡•ç‡§µ‡§ø‡§ò‡§æ‡§§ (suc n) = cong‚ÇÇ _+_ (‡§∏‡§Ç‡§ñ‡•ç‡§Ø‡§æ-‡§¶‡•ç‡§µ‡§ø‡§ò‡§æ‡§§ n) (‡§∏‡§Ç‡§ñ‡•ç‡§Ø‡§æ-‡§¶‡•ç‡§µ‡§ø‡§ò‡§æ‡§§ n)
 
 ------------------------------------------------------------------------
--- ‡‡‡ñ‡‡Ø‡æ-‡‡ô‡‡ï‡‡‡ø‡ ‚î ‡‡‡ñ‡‡Ø‡æ-‡‡‡∞‡‡‡Ø‡Ø‡ = ‡Æ‡‡∞‡-‡‡ô‡‡ï‡‡‡ø-‡Ø‡ã‡ó‡ : sankhya n = ‚à‚ñ C(n,k) ‡
+-- ‡‡‡ñ‡‡Ø‡æ-‡‡ô‡‡ï‡‡‡ø‡ ‚î ‡‡‡ñ‡‡Ø‡æ-‡‡‡∞‡‡‡Ø‡Ø‡ = ‡Æ‡‡∞‡-‡‡ô‡‡ï‡‡‡ø-‡Ø‡ã‡ó‡ : count n = ‚à‚ñ C(n,k) ‡
 ------------------------------------------------------------------------
 
-‡§∏‡§Ç‡§ñ‡•ç‡§Ø‡§æ-‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø‡§É : (n : ‚Ñï) ‚Üí sankhya n ‚â° ‡§™‡•Ç‡§∞‡•ç‡§µ n n
+‡§∏‡§Ç‡§ñ‡•ç‡§Ø‡§æ-‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø‡§É : (n : ‚Ñï) ‚Üí count n ‚â° ‡§™‡•Ç‡§∞‡•ç‡§µ n n
 ‡§∏‡§Ç‡§ñ‡•ç‡§Ø‡§æ-‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø‡§É n = ‡§∏‡§Ç‡§ñ‡•ç‡§Ø‡§æ-‡§¶‡•ç‡§µ‡§ø‡§ò‡§æ‡§§ n ‚àô sym (‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø-‡§Ø‡•ã‡§ó‡§É n)
 
 ------------------------------------------------------------------------

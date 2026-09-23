@@ -1,11 +1,11 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
-module Yantra.Purna where
+module Machine.Purna where
 -- ‡‡‡∞‡‡: the certified engines rebuilt on the proved ‚à-bound.
 -- Twin census and Goldbach sweep, every step a Dec object, at ‚à-cost.
 
-open import Yantra.Prakriti
-open import Yantra.Parisodhana using (primeDec‚àö)
-open import Yantra.Vada using (dec√ó)
+open import Machine.Prakriti
+open import Machine.Parisodhana using (primeDec‚àö)
+open import Machine.Vada using (dec√ó)
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
 open import Cubical.Data.Nat.Order

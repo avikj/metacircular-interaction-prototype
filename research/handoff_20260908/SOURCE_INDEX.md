@@ -231,14 +231,14 @@ Companion files:
 - [originals/conversation/ns_rh_endpoint_assembly/endpoint_graph.json](originals/conversation/ns_rh_endpoint_assembly/endpoint_graph.json)
 
 ## S24 â” Native-runtime availability probes
-**Source:** [originals/conversation/yantra_runtime_probe/environment.log](originals/conversation/yantra_runtime_probe/environment.log)
+**Source:** [originals/conversation/machine_runtime_probe/environment.log](originals/conversation/machine_runtime_probe/environment.log)
 
 Execution environment evidence, not a mathematical failure.
 
 `SHA256 53f624aa2d9936ca690a3126eae29a3746a6d59f262baeaca67e5f7e4c55d0a8`
 
 Companion files:
-- [originals/conversation/yantra_runtime_probe/setup-report.log](originals/conversation/yantra_runtime_probe/setup-report.log)
+- [originals/conversation/machine_runtime_probe/setup-report.log](originals/conversation/machine_runtime_probe/setup-report.log)
 
 ## S25 â” Prime-Pair Delta 19: complete first-return, Schur and future-observation algebra
 **Source:** [sources/S25_delta19.md](sources/S25_delta19.md)

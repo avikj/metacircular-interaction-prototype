@@ -4,7 +4,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (fiber ; _≃_ ; equivFun)
 open import Cubical.Foundations.Isomorphism using (Iso)
 open import Cubical.Data.Sigma using (Σ-syntax ; _,_ ; fst ; snd)
-import Fibre.CorpusSamvada as C
+import Fibre.CorpusInteraction as C
 import CompressionIsTransportSoTheOnlyCostIsTheNonContractibleFibre as Compression
 import FiniteInformation as FI
 private variable ℓ ℓt : Level

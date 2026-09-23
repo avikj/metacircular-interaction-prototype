@@ -189,7 +189,7 @@ says-nki-Ï†â‚‚ = refl
 -- STANDS.  `Saptabhangi.no-single-vacana` is correct and is not
 -- touched; Â§5 above is literally its six cases regrouped by which
 -- profile they use.  `AvaktavyaDoesNotFactor` is correct.  The
--- krama/yugapat contrast â” succession expresses the joint content,
+-- order/yugapat contrast â” succession expresses the joint content,
 -- simultaneity does not â” is untouched, and that is the Jain point.
 --
 -- REMOVED.  The claim that exhaustion is FORCED here.  It is not; two

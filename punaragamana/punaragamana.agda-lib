@@ -1,4 +1,4 @@
-name: punaragamana
+name: return
 include: src
 -- agda/cubical v0.5 declares `name: cubical-0.5` in its own cubical.agda-lib,
 -- so the version is part of the library's identifier and not merely a comment.

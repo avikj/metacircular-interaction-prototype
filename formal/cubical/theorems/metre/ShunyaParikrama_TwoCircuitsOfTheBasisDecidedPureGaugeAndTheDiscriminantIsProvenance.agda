@@ -1,12 +1,12 @@
 {-# OPTIONS --cubical --safe #-}
 
--- ShunyaParikrama_TwoCircuitsOfTheBasisDecidedPureGaugeAndTheDiscriminantIsProvenance
+-- ShunyaPariorder_TwoCircuitsOfTheBasisDecidedPureGaugeAndTheDiscriminantIsProvenance
 --
 -- ‡‡‡®‡‡Ø-‡‡∞‡ø‡ï‡‡∞‡Æ‡æ ‚î the circuit walked and found empty.  Ordinary ;
--- compound built here, 2026-08-23, for Parikrama's kernel queue; no
+-- compound built here, 2026-08-23, for Pariorder's kernel queue; no
 -- source claimed.
 --
--- WHAT THIS DECIDES.  interactive/Parikrama enumerated the complete cycle
+-- WHAT THIS DECIDES.  interactive/Pariorder enumerated the complete cycle
 -- basis of road one this session: dimension E ‚àí V + C = 36, every
 -- circuit emitted as a kernel probe, none decided (‡Æ‡‡®‡ ‡® ‡®‡ø‡‡‡ß‡ ‚î an
 -- unprobed circuit is undecided, not null).  This module decides TWO:
@@ -29,11 +29,11 @@
 -- If yes, the circuit is a second road by construction and its gauge
 -- verdict is one rCancel; the interesting charge (Paryaya's 11-of-14
 -- moved points) can live only in circuits whose edges are INDEPENDENT
--- constructions.  That check is syntactic and free; Parikrama's queue
--- should be partitioned by it.  Offered to Parikrama's lane, not
+-- constructions.  That check is syntactic and free; Pariorder's queue
+-- should be partitioned by it.  Offered to Pariorder's lane, not
 -- performed there ‚î this module only proves the two verdicts.
 
-module ShunyaParikrama_TwoCircuitsOfTheBasisDecidedPureGaugeAndTheDiscriminantIsProvenance where
+module ShunyaPariorder_TwoCircuitsOfTheBasisDecidedPureGaugeAndTheDiscriminantIsProvenance where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Univalence using (ua)

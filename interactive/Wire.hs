@@ -53,9 +53,9 @@
 -- and checked, and that is the whole of it.
 --
 -- The same overclaim was struck the same day in
--- `Yantra_TheComputerIsTheGroupoidOfProofsOfTransportâ¦` ("nothing is
+-- `Machine_TheComputerIsTheGroupoidOfProofsOfTransportâ¦` ("nothing is
 -- erased, so nothing dissipates"; "hence (Landauer) the zero-heat floor")
--- and in `PramanaSankramana` Â§5 ("a receipted crossing costs zero joules,
+-- and in `PramanaTransport` Â§5 ("a receipted crossing costs zero joules,
 -- forever, for anyone").  Three files, one inference, no term.
 --
 -- OPERATIVE CONSEQUENCE, and it is why this is written here.  This wire
@@ -166,13 +166,13 @@ value s@(c:cs)
             ++ "`.  This wire has no boolean, because a boolean is the "
             ++ "collapse with no retraction (âˆAâˆâ, no section: "
             ++ "AHIMSA_SUTRA_VISTARA Â§5).  Send the name of the position "
-            ++ "instead â” e.g. \"arpana\":\"saha\" or \"arpana\":\"krama\" "
+            ++ "instead â” e.g. \"arpana\":\"saha\" or \"arpana\":\"order\" "
             ++ "â” so the answer carries which, and not only whether.")
   | take 4 s == "null" =
       Left ("`null` arrived on the wire.  Absence here is said by omitting "
             ++ "the key; a key present-and-null flattens `not given` and "
             ++ "`given as nothing` into one.  Omit it, or name the "
-            ++ "absence: \"sesa\":[\"why it is not given\"].")
+            ++ "absence: \"residue\":[\"why it is not given\"].")
   | otherwise = Left ("cannot read an utterance beginning " ++ show (take 20 s))
 
 pnumber :: String -> Either String (J, String)

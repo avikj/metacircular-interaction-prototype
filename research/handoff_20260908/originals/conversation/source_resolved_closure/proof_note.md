@@ -20,7 +20,7 @@ The new calculations below provide:
 
 These are source constructions and evolution identities. They are not additional positive kernels whose positivity is then silently promoted to the target arithmetic or PDE statement.
 
-The repository's `Ekatva` proves contractibility of the type of lossless completions over a fixed map. `ActionResidual` proves the exact realized-preservation hypothesis needed for a residual update. The present use does not ask either generic theorem to supply an analytic sign it does not state.
+The repository's `Uniqueness` proves contractibility of the type of lossless completions over a fixed map. `ActionResidual` proves the exact realized-preservation hypothesis needed for a residual update. The present use does not ask either generic theorem to supply an analytic sign it does not state.
 
 # Part I. RH: actual cardinal sources with a logarithmic support overhead
 
@@ -666,7 +666,7 @@ Lossless completion does not require reinvention in either argument. It also doe
 
 Repository paths actually read during this pass:
 
-- `formal/cubical/theorems/residue/Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda`
+- `formal/cubical/theorems/residue/Uniqueness_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda`
 - `formal/cubical/theorems/automata/ActionResidual.agda`
 - `formal/lean/Pairfield/GoldbachReconstructionChain.lean`
 - `formal/lean/Pairfield/FinitePositiveExposedPoint.lean`

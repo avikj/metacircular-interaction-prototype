@@ -52,7 +52,7 @@ classes fused BY EQUIVALENCE  : 6   (definitional identity kept these key-distin
     Ramanujan691_TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.d0
     Ramanujan691_TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.d1
     Ramanujan691_TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.dm1
-    SamkramanaVahanam_TransportCarriesTheOperationAndItsLawsAndTheyCompute.Œµµ
+    SamordernaVahanam_TransportCarriesTheOperationAndItsLawsAndTheyCompute.Œµµ
     SelfImprovement.g‚
     SelfImprovement.g‚
     Sha256N.Mabc
@@ -127,7 +127,7 @@ classes fused BY EQUIVALENCE  : 6   (definitional identity kept these key-distin
     SieveScaleTower.fibre‚List
     SieveScaleTower.fibre‚List
     SumProductTorus.primes4
-    TheSecondUpadhiConditionDoesAllTheWork.probe
+    TheSecondQualifierConditionDoesAllTheWork.probe
 
 [29 decls / 4 distinct types fused]
     Abhijnana_TheReceiptAndTheElisionAgreeOnTheResultAndDifferOnlyInTheFibre.‡‡®‡‡Ø‡
@@ -138,8 +138,8 @@ classes fused BY EQUIVALENCE  : 6   (definitional identity kept these key-distin
     Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork.‡µ‡æ‡Æ
     Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContractible.‡‡‡-‡â‡¶‡æ‡‡∞‡‡Æ‡
     Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContractible.‡‡‡-‡â‡¶‡æ‡‡∞‡‡Æ‡'
-    DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡‡ø‡-‡¶‡ï‡‡‡ø‡
-    DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡‡ø‡-‡µ‡æ‡Æ
+    DesaAggregate_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡‡ø‡-‡¶‡ï‡‡‡ø‡
+    DesaAggregate_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.‡‡‡ø‡-‡µ‡æ‡Æ
     HeadDepthMergeBreaker.collisionB
     HeadDepthMergeBreaker.q2B
     HeadDepthMergeBreaker.strongB
@@ -155,8 +155,8 @@ classes fused BY EQUIVALENCE  : 6   (definitional identity kept these key-distin
     SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype.‡‡∞‡‡µ‡à‡ï‡Æ‡-‡µ‡æ‡Æ
     SpanWeave.throughFalse
     SpanWeave.throughTrue
-    Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡‡‡
-    Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡‡
+    Fibertrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡‡‡
+    Fibertrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.‡‡‡
     UnivalentTensorInteraction.minus
     UnivalentTensorInteraction.plus
 
@@ -179,7 +179,7 @@ classes fused BY EQUIVALENCE  : 6   (definitional identity kept these key-distin
     YamalaYugma_TheFourChannelJetAlgebraComputesBothLegChargesAndThePairChargeInOnePowering.one‚
 
 [11 decls / 2 distinct types fused]
-    BhavanaKrida.‡¶‡‡µ‡ø
+    CompositionKrida.‡¶‡‡µ‡ø
     ChargeTwoHistories.one
     Durnaya_TheBlindnessNeedsBothConditionsAndTheHiddenChargeIsExactlyTheIntegers.‡‡µ‡∞‡‡‡
     GalerkinJets_TheTaylorJetsOfThePairAtTimeZeroAreExactOnAWideningWindowAndTheTruncationResidualSitsOnTheBoundaryRow.ŒΩ

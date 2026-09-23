@@ -4,10 +4,10 @@
 -- ‡‡‡∞‡æ‡Æ‡æ‡‡‡Ø ‚î whether a verdict carries its own warrant.
 --
 -- SCOPE.  944676e4 ships two lanes that compute the same numbers and are
--- joined by nothing.  `Yantra.Ganana` and `Yantra.Ekam` decide primality
+-- joined by nothing.  `Machine.Ganana` and `Machine.Ekam` decide primality
 -- with `prime : ‚ï ‚í Bool`, fuelled trial division, and report
--- `fastsweep 500 4 ‚â° true`, `tcount 200 ‚â° 15`.  `Yantra.Purna` and
--- `Yantra.Sakshi` compute the same 15 and the same sweep through `Dec`
+-- `fastsweep 500 4 ‚â° true`, `tcount 200 ‚â° 15`.  `Machine.Purna` and
+-- `Machine.Sakshi` compute the same 15 and the same sweep through `Dec`
 -- objects.  The two agree, and nothing in the module set can see that
 -- they agree: there is no term of type `prime n ‚â° true ‚í IsPrime n`, and
 -- a `Bool` that is not the image of a decision asserts a verdict whose
@@ -32,10 +32,10 @@
 --
 ------------------------------------------------------------------------
 
-module Yantra.Pramanya_TheBooleanCarriesNoWarrantSoTheSweepCarriesTheProof where
+module Machine.Pramanya_TheBooleanCarriesNoWarrantSoTheSweepCarriesTheProof where
 
-open import Yantra.Prakriti using (IsPrime; divides)
-open import Yantra.Purna using (gdec; primeDecAll)
+open import Machine.Prakriti using (IsPrime; divides)
+open import Machine.Purna using (gdec; primeDecAll)
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
 open import Cubical.Data.Nat.Order

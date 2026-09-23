@@ -1,0 +1,1682 @@
+<!DOCTYPE html>
+<html prefix="dc: http://purl.org/dc/terms/ mw: http://mediawiki.org/rdf/" about="//en.wikipedia.org/wiki/Special:Redirect/revision/1351166832"><head prefix="mwr: //en.wikipedia.org/wiki/Special:Redirect/"><base href="https://en.wikipedia.org/wiki/" target="_blank"><meta charset="utf-8"><style>html{color-scheme:light}body{margin:0 auto!important;padding:18px!important;max-width:100%!important;font:14px/1.65 Georgia,serif!important;color:#202820!important;background:#fffefb!important;overflow-wrap:anywhere}h1,h2,h3{font-family:Georgia,serif;line-height:1.3}h1{font-size:28px}h2{font-size:23px;border-bottom:1px solid #ddd;padding-top:18px}h3{font-size:18px}a{color:#315778}img{max-width:100%;height:auto}.infobox{float:none!important;width:100%!important;font-size:12px;border:1px solid #ddd;padding:10px}.sidebar,.navbox,.metadata,.mw-editsection{display:none}figure{margin:12px 0}table{max-width:100%;font-size:12px}math{font-size:1em}.mwe-math-fallback-image-inline{vertical-align:middle}pre{white-space:pre-wrap}.reflist{font-size:11px}.mwe-math-mathml-a11y{display:inline!important;position:static!important;clip:auto!important;width:auto!important;height:auto!important;overflow:visible!important}.mwe-math-mathml-display{display:block!important}.mwe-math-element:has(math) .mwe-math-fallback-image-inline,.mwe-math-element:has(math) .mwe-math-fallback-image-display{display:none!important}</style><meta charset="utf-8"><link rel="dc:replaces" resource="mwr:revision/1351157540"><meta property="mw:revisionSHA1" content="lurrpippzlq7hsupfncydb2ndnzmhow"><meta property="dc:modified" content="2026-04-26T09:56:00Z"><meta property="mw:pageNamespace" content="0"><meta property="mw:pageId" content="10904266"><meta property="mw:htmlVersion" content="2.8.0"><meta property="mw:html:version" content="2.8.0"><link rel="dc:isVersionOf" href="//en.wikipedia.org/wiki/Coinduction"><title>Coinduction</title><meta property="mw:jsConfigVars" content="{&quot;wgParsoidHtmlVersion&quot;:&quot;2.8.0&quot;}"><meta property="mw:generalModules" content="ext.math.polyfills|ext.pygments.view|ext.cite.ux-enhancements"><meta property="mw:moduleStyles" content="ext.math.styles|ext.pygments|ext.cite.parsoid.styles|ext.cite.styles|mediawiki.skinning.content.parsoid"></head><body class="mw-content-ltr sitedir-ltr ltr mw-body-content mediawiki mw-parser-output parsoid-body" lang="en" dir="ltr" data-mw-parsoid-version="0.24.0.0-alpha22" data-mw-html-version="2.8.0"><section data-mw-section-id="0" id="mwAQ"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none" about="#mwt1" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Short description&quot;,&quot;href&quot;:&quot;./Template:Short_description&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;Proof method in mathematical logic&quot;}},&quot;i&quot;:0}}]}" id="mwAg">Proof method in mathematical logic</div><span class="mw-empty-elt" about="#mwt1"><link rel="mw:PageProp/Category" href="./Category:Articles_with_short_description"><link rel="mw:PageProp/Category" href="./Category:Short_description_matches_Wikidata"></span>
+<span class="mw-empty-elt" about="#mwt2" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;about&quot;,&quot;href&quot;:&quot;./Template:About&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;computer science&quot;},&quot;2&quot;:{&quot;wt&quot;:&quot;the term in abstract algebra&quot;},&quot;3&quot;:{&quot;wt&quot;:&quot;Change of rings&quot;},&quot;4&quot;:{&quot;wt&quot;:&quot;the use of this term in medicine and anaesthesia&quot;},&quot;5&quot;:{&quot;wt&quot;:&quot;coinduction (anaesthetics)&quot;}},&quot;i&quot;:0}}]}" id="mwAw"><style data-mw-deduplicate="TemplateStyles:r1368532237" typeof="mw:Extension/templatestyles" about="#mwt3" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Hatnote/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}">.mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+.mw-empty-elt+.hatnote{margin-top:-0.5em}@media print{body.ns-0 .mw-parser-output .hatnote{display:none!important}}</style></span><div role="note" class="hatnote navigation-not-searchable" about="#mwt2" id="mwBA">This article is about computer science. For the term in abstract algebra, see <a rel="mw:WikiLink" href="./Change_of_rings" title="Change of rings">Change of rings</a>. For the use of this term in medicine and anaesthesia, see <a rel="mw:WikiLink" href="./Coinduction_(anaesthetics)" title="Coinduction (anaesthetics)" class="mw-redirect">coinduction (anaesthetics)</a>.</div>
+<span class="mw-empty-elt" about="#mwt4" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Split portions&quot;,&quot;href&quot;:&quot;./Template:Split_portions&quot;},&quot;params&quot;:{&quot;existing&quot;:{&quot;wt&quot;:&quot;y&quot;},&quot;1&quot;:{&quot;wt&quot;:&quot;Corecursion&quot;},&quot;discuss&quot;:{&quot;wt&quot;:&quot;Talk:Corecursion#Merge proposal&quot;},&quot;date&quot;:{&quot;wt&quot;:&quot;March 2026&quot;}},&quot;i&quot;:0}}]}" id="mwBQ"><style data-mw-deduplicate="TemplateStyles:r1364180890" typeof="mw:Extension/templatestyles" about="#mwt5" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Message box/ambox.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}">.mw-parser-output .ambox{border:1px solid #a2a9b1;border-left:10px solid #36c;background-color:#fbfbfb;box-sizing:border-box}.mw-parser-output .ambox+.mw-empty-elt+.ambox,.mw-parser-output .ambox+.mw-empty-elt+.mw-empty-elt+.ambox,.mw-parser-output .ambox+.mw-empty-elt+.mw-empty-elt+.mw-empty-elt+.ambox{margin-top:-1px}html body.mediawiki .mw-parser-output .ambox.mbox-small-left{margin:4px 1em 4px 0;overflow:hidden;width:238px;border-collapse:collapse;font-size:88%;line-height:1.25em}.mw-parser-output .ambox-speedy{border-left:10px solid #b32424;background-color:#fee7e6}.mw-parser-output .ambox-delete{border-left:10px solid #b32424}.mw-parser-output .ambox-content{border-left:10px solid #f28500}.mw-parser-output .ambox-style{border-left:10px solid #fc3}.mw-parser-output .ambox-move{border-left:10px solid #9932cc}.mw-parser-output .ambox-protection{border-left:10px solid #a2a9b1}.mw-parser-output .ambox .mbox-text{border:none;padding:0.25em 0.5em;width:100%}.mw-parser-output .ambox .mbox-image{border:none;padding:2px 0 2px 0.5em;text-align:center}.mw-parser-output .ambox .mbox-imageright{border:none;padding:2px 0.5em 2px 0;text-align:center}.mw-parser-output .ambox .mbox-empty-cell{border:none;padding:0;width:1px}.mw-parser-output .ambox .mbox-image-div{width:52px}@media(min-width:720px){.mw-parser-output .ambox{margin:0 10%}}@media print{body.ns-0 .mw-parser-output .ambox{display:none!important}}</style></span><table class="plainlinks metadata ambox ambox-move" role="presentation" about="#mwt4"><tbody><tr><td class="mbox-image"><div class="mbox-image-div"><span typeof="mw:File"><span><img resource="./File:Split-arrows.svg" src="//thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Split-arrows.svg/60px-Split-arrows.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail" decoding="async" loading="lazy" srcset="//thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Split-arrows.svg/120px-Split-arrows.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x" alt="" data-file-width="60" data-file-height="20" data-file-type="drawing" height="17" width="50" class="mw-file-element"></span></span></div></td><td class="mbox-text"><div class="mbox-text-span">It has been suggested that portions of this article be <a rel="mw:WikiLink" href="./Wikipedia:Splitting" title="Wikipedia:Splitting"><b>split</b></a> out and merged into the article<span typeof="mw:Entity"> </span>titled <i><a rel="mw:WikiLink" href="./Corecursion" title="Corecursion">Corecursion</a></i>, which already exists. (<a rel="mw:WikiLink" href="./Talk:Corecursion#Merge_proposal" title="Talk:Corecursion"><b>Discuss</b></a>) <small><i>(March 2026)</i></small></div></td></tr></tbody></table><span typeof="mw:Nowiki" about="#mwt4"></span><link rel="mw:PageProp/Category" href="./Category:Articles_proposed_for_splitting_from_March_2026" about="#mwt4"><link rel="mw:PageProp/Category" href="./Category:All_articles_proposed_for_splitting" about="#mwt4" id="mwBg">
+<span class="mw-empty-elt" about="#mwt6" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;multiple issues&quot;,&quot;href&quot;:&quot;./Template:Multiple_issues&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;\n{{technical|date=October 2011}}\n{{primary sources|date=November 2019}}\n&quot;}},&quot;i&quot;:0}}]}" id="mwBw"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1364180890" about="#mwt7" typeof="mw:Extension/templatestyles" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Message box/ambox.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}"><style data-mw-deduplicate="TemplateStyles:r1248332772" typeof="mw:Extension/templatestyles" about="#mwt8" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Multiple issues/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}">.mw-parser-output .multiple-issues-text{width:95%;margin:0.2em 0}.mw-parser-output .multiple-issues-text>.mw-collapsible-content{margin-top:0.3em}.mw-parser-output .compact-ambox .ambox{border:none;border-collapse:collapse;background-color:transparent;margin:0 0 0 1.6em!important;padding:0!important;width:auto;display:block}body.mediawiki .mw-parser-output .compact-ambox .ambox.mbox-small-left{font-size:100%;width:auto;margin:0}.mw-parser-output .compact-ambox .ambox .mbox-text{padding:0!important;margin:0!important}.mw-parser-output .compact-ambox .ambox .mbox-text-span{display:list-item;line-height:1.5em;list-style-type:disc}body.skin-minerva .mw-parser-output .multiple-issues-text>.mw-collapsible-toggle,.mw-parser-output .compact-ambox .ambox .mbox-image,.mw-parser-output .compact-ambox .ambox .mbox-imageright,.mw-parser-output .compact-ambox .ambox .mbox-empty-cell,.mw-parser-output .compact-ambox .hide-when-compact{display:none}</style></span><table class="box-Multiple_issues plainlinks metadata ambox ambox-content ambox-multiple_issues compact-ambox" role="presentation" about="#mwt6"><tbody><tr><td class="mbox-image"><div class="mbox-image-div"><span typeof="mw:File"><span><img resource="./File:Ambox_important.svg" src="//thumb.wikimedia.org/wikipedia/en/thumb/b/b4/Ambox_important.svg/40px-Ambox_important.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail" decoding="async" loading="lazy" srcset="//thumb.wikimedia.org/wikipedia/en/thumb/b/b4/Ambox_important.svg/120px-Ambox_important.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x" alt="" data-file-width="40" data-file-height="40" data-file-type="drawing" height="40" width="40" class="mw-file-element"></span></span></div></td><td class="mbox-text"><div class="mbox-text-span"><div class="multiple-issues-text mw-collapsible"><b>This article has multiple issues.</b> Please help <b><a rel="mw:WikiLink" href="./Special:EditPage/Coinduction" title="Special:EditPage/Coinduction">improve it</a></b> or discuss these issues on the <b><a rel="mw:WikiLink" href="./Talk:Coinduction" title="Talk:Coinduction">talk page</a></b>. <small><i>(<a rel="mw:WikiLink" href="./Help:Maintenance_template_removal" title="Help:Maintenance template removal">Learn how and when to remove these messages</a>)</i></small>
+<div class="mw-collapsible-content">
+      <span class="mw-empty-elt"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1364180890" about="#mwt9" typeof="mw:Extension/templatestyles" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Message box/ambox.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}"></span><table class="box-Technical plainlinks metadata ambox ambox-style ambox-technical" role="presentation"><tbody><tr><td class="mbox-image"><div class="mbox-image-div"><span typeof="mw:File"><span><img resource="./File:Edit-clear.svg" src="//thumb.wikimedia.org/wikipedia/en/thumb/f/f2/Edit-clear.svg/40px-Edit-clear.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail" decoding="async" loading="lazy" srcset="//thumb.wikimedia.org/wikipedia/en/thumb/f/f2/Edit-clear.svg/120px-Edit-clear.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x" alt="" data-file-width="48" data-file-height="48" data-file-type="drawing" height="40" width="40" class="mw-file-element"></span></span></div></td><td class="mbox-text"><div class="mbox-text-span">This article <b>may be too technical for most readers to understand</b>.<span class="hide-when-compact"> Please <a rel="mw:ExtLink" href="https://en.wikipedia.org/w/index.php?title=Coinduction&amp;action=edit" class="external text" data-mw-original-href="//en.wikipedia.org/w/index.php?title=Coinduction&amp;action=edit">help improve it</a> to <a rel="mw:WikiLink" href="./Wikipedia:Make_technical_articles_understandable" title="Wikipedia:Make technical articles understandable">make it understandable to non-experts</a>, without removing the technical details.</span>  <span class="date-container"><i>(<span class="date">October 2011</span>)</i></span><span class="hide-when-compact"><i> (<small><a rel="mw:WikiLink" href="./Help:Maintenance_template_removal" title="Help:Maintenance template removal">Learn how and when to remove this message</a></small>)</i></span></div></td></tr></tbody></table><span class="mw-empty-elt"><link rel="mw:PageProp/Category" href="./Category:Wikipedia_articles_that_are_too_technical_from_October_2011"><link rel="mw:PageProp/Category" href="./Category:All_articles_that_are_too_technical"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1364180890" about="#mwt10" typeof="mw:Extension/templatestyles" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Message box/ambox.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}"></span><table class="box-Primary_sources plainlinks metadata ambox ambox-content ambox-Primary_sources" role="presentation"><tbody><tr><td class="mbox-image"><div class="mbox-image-div"><span typeof="mw:File"><a href="./File:Question_book-new.svg" class="mw-file-description"><img resource="./File:Question_book-new.svg" src="//thumb.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/60px-Question_book-new.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail" decoding="async" loading="lazy" srcset="//thumb.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/120px-Question_book-new.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x" alt="icon" data-file-width="512" data-file-height="399" data-file-type="drawing" height="39" width="50" class="mw-file-element"></a></span></div></td><td class="mbox-text"><div class="mbox-text-span">This article <b>relies excessively on <a rel="mw:WikiLink" href="./Wikipedia:Verifiability" title="Wikipedia:Verifiability">references</a> to <a rel="mw:WikiLink" href="./Wikipedia:No_original_research#Primary,_secondary_and_tertiary_sources" title="Wikipedia:No original research">primary sources</a></b>.<span class="hide-when-compact"> Please improve this article by adding <a rel="mw:WikiLink" href="./Wikipedia:No_original_research#Primary,_secondary_and_tertiary_sources" title="Wikipedia:No original research">secondary or tertiary sources</a>. <br><small><span class="plainlinks"><i>Find sources:</i><span typeof="mw:Entity"> </span><a rel="mw:ExtLink nofollow" href="https://www.google.com/search?as_eq=wikipedia&amp;q=%22Coinduction%22" class="external text">"Coinduction"</a><span typeof="mw:Entity"> </span>–<span typeof="mw:Entity"> </span><a rel="mw:ExtLink nofollow" href="https://www.google.com/search?tbm=nws&amp;q=%22Coinduction%22+-wikipedia&amp;tbs=ar:1" class="external text">news</a> <b>·</b> <a rel="mw:ExtLink nofollow" href="https://www.google.com/search?&amp;q=%22Coinduction%22&amp;tbs=bkt:s&amp;tbm=bks" class="external text">newspapers</a> <b>·</b> <a rel="mw:ExtLink nofollow" href="https://www.google.com/search?tbs=bks:1&amp;q=%22Coinduction%22+-wikipedia" class="external text">books</a> <b>·</b> <a rel="mw:ExtLink nofollow" href="https://scholar.google.com/scholar?q=%22Coinduction%22" class="external text">scholar</a> <b>·</b> <a rel="mw:ExtLink nofollow" href="https://www.jstor.org/action/doBasicSearch?Query=%22Coinduction%22&amp;acc=on&amp;wc=on" class="external text">JSTOR</a></span></small></span>  <span class="date-container"><i>(<span class="date">November 2019</span>)</i></span><span class="hide-when-compact"><i> (<small><a rel="mw:WikiLink" href="./Help:Maintenance_template_removal" title="Help:Maintenance template removal">Learn how and when to remove this message</a></small>)</i></span></div></td></tr></tbody></table><span class="mw-empty-elt"><link rel="mw:PageProp/Category" href="./Category:Articles_lacking_reliable_references_from_November_2019"><link rel="mw:PageProp/Category" href="./Category:All_articles_lacking_reliable_references"></span>
+    </div>
+</div><span class="hide-when-compact"><i> (<small><a rel="mw:WikiLink" href="./Help:Maintenance_template_removal" title="Help:Maintenance template removal">Learn how and when to remove this message</a></small>)</i></span></div></td></tr></tbody></table><span class="mw-empty-elt" about="#mwt6"><link rel="mw:PageProp/Category" href="./Category:Articles_with_multiple_maintenance_issues"></span>
+<p id="mwCA">In <a rel="mw:WikiLink" href="./Computer_science" title="Computer science" id="mwCQ">computer science</a>, <b id="mwCg">coinduction</b> is a technique for defining and proving properties of systems of <a rel="mw:WikiLink" href="./Concurrency_(computer_science)" title="Concurrency (computer science)" id="mwCw">concurrent</a> interacting <a rel="mw:WikiLink" href="./Object_(computing)" title="Object (computing)" class="mw-redirect" id="mwDA">objects</a>.</p>
+
+<p id="mwDQ">Coinduction is the <a rel="mw:WikiLink" href="./Mathematic" title="Mathematic" class="mw-redirect" id="mwDg">mathematical</a> <a rel="mw:WikiLink" href="./Dual_(category_theory)" title="Dual (category theory)" id="mwDw">dual</a> to <a rel="mw:WikiLink" href="./Structural_induction" title="Structural induction" id="mwEA">structural induction</a>.<link rel="mw:PageProp/Category" href="./Category:All_articles_with_unsourced_statements" about="#mwt11" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;citation needed&quot;,&quot;href&quot;:&quot;./Template:Citation_needed&quot;},&quot;params&quot;:{&quot;date&quot;:{&quot;wt&quot;:&quot;January 2023&quot;}},&quot;i&quot;:0}}]}" id="mwEQ"><link rel="mw:PageProp/Category" href="./Category:Articles_with_unsourced_statements_from_January_2023" about="#mwt11"><sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;" about="#mwt11" id="mwEg"><span typeof="mw:Entity">[</span><i><a rel="mw:WikiLink" href="./Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (January 2023)">citation needed</span></a></i><span typeof="mw:Entity">]</span></sup> Coinductively defined <a rel="mw:WikiLink" href="./Data_type" title="Data type" id="mwEw">data types</a> are known as <b id="mwFA">codata</b> and are typically <a rel="mw:WikiLink" href="./Infinity" title="Infinity" id="mwFQ">infinite</a> <a rel="mw:WikiLink" href="./Data_structures" title="Data structures" class="mw-redirect" id="mwFg">data structures</a>, such as <a rel="mw:WikiLink" href="./Stream_(computing)" title="Stream (computing)" id="mwFw">streams</a>.</p>
+
+<p id="mwGA">As a definition or <a rel="mw:WikiLink" href="./Specification_(computing)" title="Specification (computing)" class="mw-redirect" id="mwGQ">specification</a>, coinduction describes how an object may be "observed", "broken down" or "destructed" into simpler objects. As a <a rel="mw:WikiLink" href="./Proof_(math)" title="Proof (math)" class="mw-redirect" id="mwGg">proof</a> technique, it may be used to show that an equation is satisfied by all possible <a rel="mw:WikiLink" href="./Implementation_(computing)" title="Implementation (computing)" class="mw-redirect" id="mwGw">implementations</a> of such a specification.</p>
+
+<p id="mwHA">To generate and manipulate codata, one typically uses <a rel="mw:WikiLink" href="./Corecursion" title="Corecursion" id="mwHQ">corecursive</a> functions, in conjunction with <a rel="mw:WikiLink" href="./Lazy_evaluation" title="Lazy evaluation" id="mwHg">lazy evaluation</a>.  Informally, rather than defining a function by pattern-matching on each of the inductive constructors, one defines each of the "destructors" or "observers" over the function result.</p>
+
+<p id="mwHw">In programming, co-logic programming (co-LP for brevity) "is a natural generalization of <a rel="mw:WikiLink" href="./Logic_programming" title="Logic programming" id="mwIA">logic programming</a> and coinductive logic programming, which in turn generalizes other extensions of logic programming, such as infinite trees, lazy predicates, and concurrent communicating predicates. Co-LP has applications to rational trees, verifying infinitary properties, lazy evaluation, <a rel="mw:WikiLink" href="./Concurrent_logic_programming" title="Concurrent logic programming" id="mwIQ">concurrent logic programming</a>, <a rel="mw:WikiLink" href="./Model_checking" title="Model checking" id="mwIg">model checking</a>, <a rel="mw:WikiLink" href="./Bisimilarity" title="Bisimilarity" class="mw-redirect" id="mwIw">bisimilarity</a> proofs, etc."<sup about="#mwt14" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-1&quot;}}"><a href="./Coinduction#cite_note-1" id="mwJA"><span class="mw-reflink-text" id="mwJQ"><span class="cite-bracket" id="mwJg">[</span>1<span class="cite-bracket" id="mwJw">]</span></span></a></sup> Experimental implementations of co-LP are available from the <a rel="mw:WikiLink" href="./University_of_Texas_at_Dallas" title="University of Texas at Dallas" id="mwKA">University of Texas at Dallas</a><sup about="#mwt17" class="mw-ref reference" id="cite_ref-2" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;}}"><a href="./Coinduction#cite_note-2" id="mwKQ"><span class="mw-reflink-text" id="mwKg"><span class="cite-bracket" id="mwKw">[</span>2<span class="cite-bracket" id="mwLA">]</span></span></a></sup> and in the language <a rel="mw:WikiLink" href="./Logtalk" title="Logtalk" id="mwLQ">Logtalk</a> (for examples see  <sup about="#mwt20" class="mw-ref reference" id="cite_ref-3" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-3&quot;}}"><a href="./Coinduction#cite_note-3" id="mwLg"><span class="mw-reflink-text" id="mwLw"><span class="cite-bracket" id="mwMA">[</span>3<span class="cite-bracket" id="mwMQ">]</span></span></a></sup>) and <a rel="mw:WikiLink" href="./SWI-Prolog" title="SWI-Prolog" id="mwMg">SWI-Prolog</a>.</p>
+
+<meta property="mw:PageProp/toc" data-mw="{&quot;autoGenerated&quot;:true}" id="mwMw"></section><section data-mw-section-id="1" id="mwNA"><h2 id="Description">Description</h2>
+<p id="mwNQ">In his book <i id="mwNg">Types and Programming Languages</i>,<sup about="#mwt23" class="mw-ref reference" id="cite_ref-4" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-4&quot;}}"><a href="./Coinduction#cite_note-4" id="mwNw"><span class="mw-reflink-text" id="mwOA"><span class="cite-bracket" id="mwOQ">[</span>4<span class="cite-bracket" id="mwOg">]</span></span></a></sup> <a rel="mw:WikiLink" href="./Benjamin_C._Pierce" title="Benjamin C. Pierce" id="mwOw">Benjamin C. Pierce</a> gives a concise statement of both the <i id="mwPA">principle of induction</i> and the <i id="mwPQ">principle of coinduction</i>.  While this article is not primarily concerned with <i id="mwPg">induction</i>, it is useful to consider their somewhat generalized forms at once.  In order to state the principles, a few preliminaries are required.</p>
+
+<section data-mw-section-id="2" id="mwPw"><h3 id="Preliminaries">Preliminaries</h3>
+
+<p id="mwQA">Let <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt24" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;U&quot;}}" id="mwQQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle U}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>U</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle U}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/458a728f53b9a0274f059cd695e067c430956025" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.783ex; height:2.176ex;" alt="{\displaystyle U}"></span> be a set and <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt25" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;F&quot;}}" id="mwQg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle F}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>F</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle F}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/545fd099af8541605f7ee55f08225526be88ce57" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.741ex; height:2.176ex;" alt="{\displaystyle F}"></span> be a <a rel="mw:WikiLink" href="./Monotonic_function#In_order_theory" title="Monotonic function" id="mwQw">monotone function</a> <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt26" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;2^U \\rightarrow 2^U&quot;}}" id="mwRA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle 2^{U}\rightarrow 2^{U}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mn>2</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>U</mi>
+          </mrow>
+        </msup>
+        <mo stretchy="false">→</mo>
+        <msup>
+          <mn>2</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>U</mi>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 2^{U}\rightarrow 2^{U}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f6e0c3bfe36656d98dea9cf61d1f9ba2d7e96685" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:8.924ex; height:2.676ex;" alt="{\displaystyle 2^{U}\rightarrow 2^{U}}"></span>, that is:</p>
+
+<p id="mwRQ"><span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt27" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;block&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot; X \\subseteq Y \\Rightarrow F(X) \\subseteq F(Y) &quot;}}" id="mwRg"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle X\subseteq Y\Rightarrow F(X)\subseteq F(Y)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+        <mo>⊆</mo>
+        <mi>Y</mi>
+        <mo stretchy="false">⇒</mo>
+        <mi>F</mi>
+        <mo stretchy="false">(</mo>
+        <mi>X</mi>
+        <mo stretchy="false">)</mo>
+        <mo>⊆</mo>
+        <mi>F</mi>
+        <mo stretchy="false">(</mo>
+        <mi>Y</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X\subseteq Y\Rightarrow F(X)\subseteq F(Y)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ef1c2413443848572ddd1eef76ae6ad70e403e6b" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:24.418ex; height:2.843ex;" alt="{\displaystyle X\subseteq Y\Rightarrow F(X)\subseteq F(Y)}"></span></p>
+
+<p id="mwRw">Unless otherwise stated, <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt28" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;F&quot;}}" id="mwSA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle F}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>F</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle F}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/545fd099af8541605f7ee55f08225526be88ce57" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.741ex; height:2.176ex;" alt="{\displaystyle F}"></span> will be assumed to be monotone.</p>
+
+<ul id="mwSQ"><li id="mwSg"><i id="mwSw">X</i> is <i id="mwTA">F-closed</i> if <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt29" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;F(X) \\subseteq X &quot;}}" id="mwTQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle F(X)\subseteq X}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>F</mi>
+        <mo stretchy="false">(</mo>
+        <mi>X</mi>
+        <mo stretchy="false">)</mo>
+        <mo>⊆</mo>
+        <mi>X</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle F(X)\subseteq X}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0d28d29d6c734782ec7695562637800a4f7c0d12" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:10.609ex; height:2.843ex;" alt="{\displaystyle F(X)\subseteq X}"></span></li>
+<li id="mwTg"><i id="mwTw">X</i> is <i id="mwUA">F-consistent</i> if <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt30" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;X \\subseteq F(X) &quot;}}" id="mwUQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle X\subseteq F(X)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+        <mo>⊆</mo>
+        <mi>F</mi>
+        <mo stretchy="false">(</mo>
+        <mi>X</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X\subseteq F(X)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ff3700cc1409f41d9800921c5beb95c3b59a216f" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:10.609ex; height:2.843ex;" alt="{\displaystyle X\subseteq F(X)}"></span></li>
+<li id="mwUg"><i id="mwUw">X</i> is a <a rel="mw:WikiLink" href="./Fixed_point_(mathematics)#Fixed_points_of_partial_orders" title="Fixed point (mathematics)" id="mwVA">fixed point</a> if <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt31" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;X = F(X) &quot;}}" id="mwVQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle X=F(X)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+        <mo>=</mo>
+        <mi>F</mi>
+        <mo stretchy="false">(</mo>
+        <mi>X</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X=F(X)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/11c9c3c5e34e71117ccb213f3341fc16b5e8c111" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:10.609ex; height:2.843ex;" alt="{\displaystyle X=F(X)}"></span></li></ul>
+
+<p id="mwVg">These terms can be intuitively understood in the following way.  Suppose that <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt32" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;X&quot;}}" id="mwVw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle X}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/68baa052181f707c662844a465bfeeb135e82bab" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.98ex; height:2.176ex;" alt="{\displaystyle X}"></span> is a set of assertions, and <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt33" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;F(X)&quot;}}" id="mwWA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle F(X)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>F</mi>
+        <mo stretchy="false">(</mo>
+        <mi>X</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle F(X)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/00816772e8dff4e6733c478ec77fab0382264a93" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:5.53ex; height:2.843ex;" alt="{\displaystyle F(X)}"></span> is the operation that yields the consequences of <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt34" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;X&quot;}}" id="mwWQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle X}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/68baa052181f707c662844a465bfeeb135e82bab" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.98ex; height:2.176ex;" alt="{\displaystyle X}"></span>. Then <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt35" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;X&quot;}}" id="mwWg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle X}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/68baa052181f707c662844a465bfeeb135e82bab" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.98ex; height:2.176ex;" alt="{\displaystyle X}"></span> is <i id="mwWw">F-closed</i> when one cannot conclude any more than has already been asserted, while <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt36" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;X&quot;}}" id="mwXA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle X}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/68baa052181f707c662844a465bfeeb135e82bab" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.98ex; height:2.176ex;" alt="{\displaystyle X}"></span> is <i id="mwXQ">F-consistent</i> when all of the assertions are supported by other assertions (i.e. there are no "non-<i id="mwXg">F</i>-logical assumptions").</p>
+
+<p id="mwXw">The <a rel="mw:WikiLink" href="./Knaster–Tarski_theorem" title="Knaster–Tarski theorem" id="mwYA">Knaster–Tarski theorem</a> tells us that the <i id="mwYQ">least fixed-point</i> of <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt37" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;F&quot;}}" id="mwYg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle F}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>F</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle F}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/545fd099af8541605f7ee55f08225526be88ce57" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.741ex; height:2.176ex;" alt="{\displaystyle F}"></span> (denoted <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt38" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\mu F&quot;}}" id="mwYw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \mu F}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>μ</mi>
+        <mi>F</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mu F}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0d5f6c9433ccf012c18c83361354f4044feb7926" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:3.142ex; height:2.676ex;" alt="{\displaystyle \mu F}"></span>) is given by the intersection of all <i id="mwZA">F-closed</i> sets, while the <i id="mwZQ">greatest fixed-point</i> (denoted <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt39" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\nu F&quot;}}" id="mwZg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \nu F}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>ν</mi>
+        <mi>F</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \nu F}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/31cf127510e3682ff7a7a01df950b1fa3707f223" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:2.973ex; height:2.176ex;" alt="{\displaystyle \nu F}"></span>) is given by the union of all <i id="mwZw">F-consistent</i> sets.  We can now state the principles of induction and coinduction.</p>
+
+</section><section data-mw-section-id="3" id="mwaA"><h3 id="Definition">Definition</h3>
+
+<ul id="mwaQ"><li id="mwag"><i id="mwaw">Principle of induction</i>: If <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt40" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;X&quot;}}" id="mwbA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle X}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/68baa052181f707c662844a465bfeeb135e82bab" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.98ex; height:2.176ex;" alt="{\displaystyle X}"></span> is <i id="mwbQ">F-closed</i>, then <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt41" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\mu F \\subseteq X&quot;}}" id="mwbg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \mu F\subseteq X}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>μ</mi>
+        <mi>F</mi>
+        <mo>⊆</mo>
+        <mi>X</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mu F\subseteq X}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d3d503f8ab70781d7b2c82212ae73146ac8354d1" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:8.221ex; height:2.676ex;" alt="{\displaystyle \mu F\subseteq X}"></span></li>
+<li id="mwbw"><i id="mwcA">Principle of coinduction</i>: If <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt42" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;X&quot;}}" id="mwcQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle X}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/68baa052181f707c662844a465bfeeb135e82bab" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.98ex; height:2.176ex;" alt="{\displaystyle X}"></span> is <i id="mwcg">F-consistent</i>, then <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt43" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;X \\subseteq \\nu F&quot;}}" id="mwcw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle X\subseteq \nu F}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+        <mo>⊆</mo>
+        <mi>ν</mi>
+        <mi>F</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X\subseteq \nu F}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8b8f110746a1d1a87c949f93bfe144ea57393b9c" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.505ex; width:8.051ex; height:2.343ex;" alt="{\displaystyle X\subseteq \nu F}"></span></li></ul>
+
+</section></section><section data-mw-section-id="4" id="mwdA"><h2 id="Discussion">Discussion</h2>
+
+<p id="mwdQ">The principles, as stated, are somewhat opaque, but can be usefully thought of in the following way.  Suppose you wish to prove a property of <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt44" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\mu F&quot;}}" id="mwdg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \mu F}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>μ</mi>
+        <mi>F</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mu F}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0d5f6c9433ccf012c18c83361354f4044feb7926" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:3.142ex; height:2.676ex;" alt="{\displaystyle \mu F}"></span>.  By the <i id="mwdw">principle of induction</i>, it suffices to exhibit an <i id="mweA">F-closed</i> set <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt45" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;X&quot;}}" id="mweQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle X}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/68baa052181f707c662844a465bfeeb135e82bab" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.98ex; height:2.176ex;" alt="{\displaystyle X}"></span> for which the property holds.  Dually, suppose you wish to show that <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt46" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;x \\in \\nu F&quot;}}" id="mweg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle x\in \nu F}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+        <mo>∈</mo>
+        <mi>ν</mi>
+        <mi>F</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x\in \nu F}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a8241ab1daadfe312a61b425b231f5267fbd2aab" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:7.143ex; height:2.176ex;" alt="{\displaystyle x\in \nu F}"></span>.  Then it suffices to exhibit an <i id="mwew">F-consistent</i> set that <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt47" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;x&quot;}}" id="mwfA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle x}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/87f9e315fd7e2ba406057a97300593c4802b53e4" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.33ex; height:1.676ex;" alt="{\displaystyle x}"></span> is known to be a member of.</p>
+
+</section><section data-mw-section-id="5" id="mwfQ"><h2 id="Examples">Examples</h2>
+
+<section data-mw-section-id="6" id="mwfg"><h3 id="Defining_a_set_of_data_types">Defining a set of data types</h3>
+<span class="mw-empty-elt" about="#mwt48" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;see also&quot;,&quot;href&quot;:&quot;./Template:See_also&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;Data type&quot;}},&quot;i&quot;:0}}]}" id="mwfw"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1368532237" about="#mwt49" typeof="mw:Extension/templatestyles" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Hatnote/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}"></span><div role="note" class="hatnote navigation-not-searchable" about="#mwt48" id="mwgA">See also: <a rel="mw:WikiLink" href="./Data_type" title="Data type">Data type</a></div>
+<p id="mwgQ">Consider the following grammar of datatypes:</p>
+
+<p id="mwgg"><span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt50" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;block&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot; T = \\bot \\;|\\;\\top \\;|\\; T \\times T &quot;}}" id="mwgw"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle T=\bot \;|\;\top \;|\;T\times T}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>T</mi>
+        <mo>=</mo>
+        <mi mathvariant="normal">⊥</mi>
+        <mspace width="thickmathspace"></mspace>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mspace width="thickmathspace"></mspace>
+        <mi mathvariant="normal">⊤</mi>
+        <mspace width="thickmathspace"></mspace>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mspace width="thickmathspace"></mspace>
+        <mi>T</mi>
+        <mo>×</mo>
+        <mi>T</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle T=\bot \;|\;\top \;|\;T\times T}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/dc04b33b1e8c04a64eebdee403ccbc25b2d7bbc4" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:18.338ex; height:2.843ex;" alt="{\displaystyle T=\bot \;|\;\top \;|\;T\times T}"></span></p>
+
+<p id="mwhA">That is, the set of types includes the "bottom type" <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt51" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\bot&quot;}}" id="mwhQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \bot }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">⊥</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \bot }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f282c7bc331cc3bfcf1c57f1452cc23c022f58de" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.808ex; height:2.176ex;" alt="{\displaystyle \bot }"></span>, the "top type" <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt52" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\top&quot;}}" id="mwhg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \top }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">⊤</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \top }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/cf12e436fef2365e76fcb1034a51179d8328bb33" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.808ex; height:2.176ex;" alt="{\displaystyle \top }"></span>, and product types.  These types can be identified with strings over the alphabet <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt53" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\Sigma = \\{\\bot, \\top, \\times\\}&quot;}}" id="mwhw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \Sigma =\{\bot ,\top ,\times \}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">Σ</mi>
+        <mo>=</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mi mathvariant="normal">⊥</mi>
+        <mo>,</mo>
+        <mi mathvariant="normal">⊤</mi>
+        <mo>,</mo>
+        <mo>×</mo>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Sigma =\{\bot ,\top ,\times \}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/25e6606bcba8b0ee1d96444c4a72360293182d32" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:14.594ex; height:2.843ex;" alt="{\displaystyle \Sigma =\{\bot ,\top ,\times \}}"></span>.  Let <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt54" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\Sigma^{\\leq \\omega}&quot;}}" id="mwiA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \Sigma ^{\leq \omega }}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi mathvariant="normal">Σ</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>≤</mo>
+            <mi>ω</mi>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Sigma ^{\leq \omega }}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/246222167791fc39e006b375dd483a07cb3f038f" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:4.211ex; height:2.676ex;" alt="{\displaystyle \Sigma ^{\leq \omega }}"></span> denote all (possibly infinite) strings over <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt55" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\Sigma&quot;}}" id="mwiQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \Sigma }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">Σ</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Sigma }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9e1f558f53cda207614abdf90162266c70bc5c1e" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.678ex; height:2.176ex;" alt="{\displaystyle \Sigma }"></span>.  Consider the function <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt56" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;F: 2^{\\Sigma^{\\leq \\omega}} \\rightarrow 2^{\\Sigma^{\\leq \\omega}}&quot;}}" id="mwig"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle F:2^{\Sigma ^{\leq \omega }}\rightarrow 2^{\Sigma ^{\leq \omega }}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>F</mi>
+        <mo>:</mo>
+        <msup>
+          <mn>2</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <msup>
+              <mi mathvariant="normal">Σ</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo>≤</mo>
+                <mi>ω</mi>
+              </mrow>
+            </msup>
+          </mrow>
+        </msup>
+        <mo stretchy="false">→</mo>
+        <msup>
+          <mn>2</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <msup>
+              <mi mathvariant="normal">Σ</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo>≤</mo>
+                <mi>ω</mi>
+              </mrow>
+            </msup>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle F:2^{\Sigma ^{\leq \omega }}\rightarrow 2^{\Sigma ^{\leq \omega }}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5ec4ea6892d6669b90facdb4a208eb1e09f63406" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:16.519ex; height:3.009ex;" alt="{\displaystyle F:2^{\Sigma ^{\leq \omega }}\rightarrow 2^{\Sigma ^{\leq \omega }}}"></span>:</p>
+
+<p id="mwiw"><span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt57" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;block&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot; F(X) = \\{\\bot, \\top\\} \\cup \\{ x \\times y : x,y \\in X \\} &quot;}}" id="mwjA"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle F(X)=\{\bot ,\top \}\cup \{x\times y:x,y\in X\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>F</mi>
+        <mo stretchy="false">(</mo>
+        <mi>X</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mi mathvariant="normal">⊥</mi>
+        <mo>,</mo>
+        <mi mathvariant="normal">⊤</mi>
+        <mo fence="false" stretchy="false">}</mo>
+        <mo>∪</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mi>x</mi>
+        <mo>×</mo>
+        <mi>y</mi>
+        <mo>:</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo>∈</mo>
+        <mi>X</mi>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle F(X)=\{\bot ,\top \}\cup \{x\times y:x,y\in X\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4418f65fef366c9f1d6bbbf5b02cf4cb9a34e253" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:36.114ex; height:2.843ex;" alt="{\displaystyle F(X)=\{\bot ,\top \}\cup \{x\times y:x,y\in X\}}"></span></p>
+
+<p id="mwjQ">In this context, <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt58" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;x \\times y&quot;}}" id="mwjg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle x\times y}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+        <mo>×</mo>
+        <mi>y</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x\times y}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ec85d07724b6213a6af69367b22f33502f44dc4d" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:5.326ex; height:2.009ex;" alt="{\displaystyle x\times y}"></span> means "the concatenation of string <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt59" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;x&quot;}}" id="mwjw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle x}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/87f9e315fd7e2ba406057a97300593c4802b53e4" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.33ex; height:1.676ex;" alt="{\displaystyle x}"></span>, the symbol <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt60" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\times&quot;}}" id="mwkA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \times }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo>×</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \times }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0ffafff1ad26cbe49045f19a67ce532116a32703" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: 0.019ex; margin-bottom: -0.19ex; width:1.808ex; height:1.509ex;" alt="{\displaystyle \times }"></span>, and string <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt61" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;y&quot;}}" id="mwkQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle y}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>y</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle y}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b8a6208ec717213d4317e666f1ae872e00620a0d" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:1.155ex; height:2.009ex;" alt="{\displaystyle y}"></span>."  We should now define our set of datatypes as a fixpoint of <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt62" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;F&quot;}}" id="mwkg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle F}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>F</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle F}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/545fd099af8541605f7ee55f08225526be88ce57" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.741ex; height:2.176ex;" alt="{\displaystyle F}"></span>, but it matters whether we take the <i id="mwkw">least</i> or <i id="mwlA">greatest</i> fixpoint.</p>
+
+<p id="mwlQ">Suppose we take <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt63" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\mu F&quot;}}" id="mwlg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \mu F}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>μ</mi>
+        <mi>F</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mu F}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0d5f6c9433ccf012c18c83361354f4044feb7926" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:3.142ex; height:2.676ex;" alt="{\displaystyle \mu F}"></span> as our set of datatypes.  Using the <i id="mwlw">principle of induction</i>, we can prove the following claim:</p>
+
+<span class="mw-empty-elt" about="#mwt64" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;block indent&quot;,&quot;href&quot;:&quot;./Template:Block_indent&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot; All datatypes in &lt;math&gt;\\mu F&lt;/math&gt; are &#x27;&#x27;finite&#x27;&#x27;&quot;}},&quot;i&quot;:0}}]}" id="mwmA"><style data-mw-deduplicate="TemplateStyles:r996643573" typeof="mw:Extension/templatestyles" about="#mwt65" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Block indent/styles.css&quot;}}">.mw-parser-output .block-indent{padding-left:3em;padding-right:0;overflow:hidden}</style></span><div class="block-indent " about="#mwt64" id="mwmQ"> All datatypes in <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt66" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\mu F&quot;}}"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \mu F}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>μ</mi>
+        <mi>F</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mu F}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0d5f6c9433ccf012c18c83361354f4044feb7926" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:3.142ex; height:2.676ex;" alt="{\displaystyle \mu F}"></span> are <i>finite</i></div>
+
+<p id="mwmg">To arrive at this conclusion, consider the set of all finite strings over <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt67" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\Sigma&quot;}}" id="mwmw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \Sigma }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">Σ</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Sigma }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9e1f558f53cda207614abdf90162266c70bc5c1e" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.678ex; height:2.176ex;" alt="{\displaystyle \Sigma }"></span>.  Clearly <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt68" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;F&quot;}}" id="mwnA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle F}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>F</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle F}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/545fd099af8541605f7ee55f08225526be88ce57" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.741ex; height:2.176ex;" alt="{\displaystyle F}"></span> cannot produce an infinite string, so it turns out this set is <i id="mwnQ">F-closed</i> and the conclusion follows.</p>
+
+<p id="mwng">Now suppose that we take <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt69" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\nu F&quot;}}" id="mwnw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \nu F}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>ν</mi>
+        <mi>F</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \nu F}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/31cf127510e3682ff7a7a01df950b1fa3707f223" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:2.973ex; height:2.176ex;" alt="{\displaystyle \nu F}"></span> as our set of datatypes.  We would like to use the <i id="mwoA">principle of coinduction</i> to prove the following claim:</p>
+
+<span class="mw-empty-elt" about="#mwt70" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;block indent&quot;,&quot;href&quot;:&quot;./Template:Block_indent&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot; The type &lt;math&gt;\\bot \\times \\bot \\times \\cdots \\in \\nu F&lt;/math&gt;&quot;}},&quot;i&quot;:0}}]}" id="mwoQ"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r996643573" about="#mwt71" typeof="mw:Extension/templatestyles" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Block indent/styles.css&quot;}}"></span><div class="block-indent " about="#mwt70" id="mwog"> The type <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt72" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\bot \\times \\bot \\times \\cdots \\in \\nu F&quot;}}"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \bot \times \bot \times \cdots \in \nu F}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">⊥</mi>
+        <mo>×</mo>
+        <mi mathvariant="normal">⊥</mi>
+        <mo>×</mo>
+        <mo>⋯</mo>
+        <mo>∈</mo>
+        <mi>ν</mi>
+        <mi>F</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \bot \times \bot \times \cdots \in \nu F}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1051ef9a70e5a51628c9898ef3c9d68dd77d5179" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:17.834ex; height:2.176ex;" alt="{\displaystyle \bot \times \bot \times \cdots \in \nu F}"></span></div>
+
+<p id="mwow">Here <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt73" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\bot \\times \\bot \\times \\cdots &quot;}}" id="mwpA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \bot \times \bot \times \cdots }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">⊥</mi>
+        <mo>×</mo>
+        <mi mathvariant="normal">⊥</mi>
+        <mo>×</mo>
+        <mo>⋯</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \bot \times \bot \times \cdots }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b1e243d84625cc134664ec3cfbff9285a006a70a" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:12.02ex; height:2.176ex;" alt="{\displaystyle \bot \times \bot \times \cdots }"></span> denotes the infinite string <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt74" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;(\\bot, \\times, \\bot, \\times, \\ldots)&quot;}}" id="mwpQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle (\bot ,\times ,\bot ,\times ,\ldots )}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi mathvariant="normal">⊥</mi>
+        <mo>,</mo>
+        <mo>×</mo>
+        <mo>,</mo>
+        <mi mathvariant="normal">⊥</mi>
+        <mo>,</mo>
+        <mo>×</mo>
+        <mo>,</mo>
+        <mo>…</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (\bot ,\times ,\bot ,\times ,\ldots )}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d760c446b7e2b813a2216794f6bcfd3c2dadc1dc" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:15.901ex; height:2.843ex;" alt="{\displaystyle (\bot ,\times ,\bot ,\times ,\ldots )}"></span>.  To use the <i id="mwpg">principle of coinduction</i>, consider the set:</p>
+
+<p id="mwpw"><span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt75" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;block&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot; S = \\{\\bot,\\; \\bot \\times \\bot \\times \\cdots \\} &quot;}}" id="mwqA"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle S=\{\bot ,\;\bot \times \bot \times \cdots \}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>S</mi>
+        <mo>=</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mi mathvariant="normal">⊥</mi>
+        <mo>,</mo>
+        <mspace width="thickmathspace"></mspace>
+        <mi mathvariant="normal">⊥</mi>
+        <mo>×</mo>
+        <mi mathvariant="normal">⊥</mi>
+        <mo>×</mo>
+        <mo>⋯</mo>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle S=\{\bot ,\;\bot \times \bot \times \cdots \}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/86e2fa5ec499b1a921d242fea8dc4088605a376e" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:22.43ex; height:2.843ex;" alt="{\displaystyle S=\{\bot ,\;\bot \times \bot \times \cdots \}}"></span></p>
+
+<p id="mwqQ">This set is <i id="mwqg">F-consistent</i>.  First, <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt76" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\bot \\in \\{\\bot, \\top\\} \\subseteq F(S)&quot;}}" id="mwqw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \bot \in \{\bot ,\top \}\subseteq F(S)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">⊥</mi>
+        <mo>∈</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mi mathvariant="normal">⊥</mi>
+        <mo>,</mo>
+        <mi mathvariant="normal">⊤</mi>
+        <mo fence="false" stretchy="false">}</mo>
+        <mo>⊆</mo>
+        <mi>F</mi>
+        <mo stretchy="false">(</mo>
+        <mi>S</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \bot \in \{\bot ,\top \}\subseteq F(S)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/635787f4b9149beae705315ab8efe080ba4dc6d9" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:19.772ex; height:2.843ex;" alt="{\displaystyle \bot \in \{\bot ,\top \}\subseteq F(S)}"></span>.  Second, since <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt77" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\bot \\in S&quot;}}" id="mwrA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \bot \in S}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">⊥</mi>
+        <mo>∈</mo>
+        <mi>S</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \bot \in S}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/fbfc0a8e1b3a2dd5c09083cb6a2357b4dd8e9818" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:6.148ex; height:2.176ex;" alt="{\displaystyle \bot \in S}"></span> and <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt78" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\bot \\times \\bot \\times \\cdots \\in S&quot;}}" id="mwrQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \bot \times \bot \times \cdots \in S}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">⊥</mi>
+        <mo>×</mo>
+        <mi mathvariant="normal">⊥</mi>
+        <mo>×</mo>
+        <mo>⋯</mo>
+        <mo>∈</mo>
+        <mi>S</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \bot \times \bot \times \cdots \in S}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/cc83aabc80df342bfb15749542bdc6249c3364d1" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:16.36ex; height:2.176ex;" alt="{\displaystyle \bot \times \bot \times \cdots \in S}"></span>, we have <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt79" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\bot \\times (\\bot \\times \\bot \\times \\cdots) \\in F(S)&quot;}}" id="mwrg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \bot \times (\bot \times \bot \times \cdots )\in F(S)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">⊥</mi>
+        <mo>×</mo>
+        <mo stretchy="false">(</mo>
+        <mi mathvariant="normal">⊥</mi>
+        <mo>×</mo>
+        <mi mathvariant="normal">⊥</mi>
+        <mo>×</mo>
+        <mo>⋯</mo>
+        <mo stretchy="false">)</mo>
+        <mo>∈</mo>
+        <mi>F</mi>
+        <mo stretchy="false">(</mo>
+        <mi>S</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \bot \times (\bot \times \bot \times \cdots )\in F(S)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/016fdeafa34df97ece1391af93dcb77e3a0256b7" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:26.368ex; height:2.843ex;" alt="{\displaystyle \bot \times (\bot \times \bot \times \cdots )\in F(S)}"></span>.  Interpreting strings as <a rel="mw:WikiLink" href="./Sequence#Formal_definition_and_basic_properties" title="Sequence" id="mwrw">sequences</a> (functions from <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt80" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\mathbb{N} \\rightarrow \\Sigma&quot;}}" id="mwsA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \mathbb {N} \rightarrow \Sigma }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="double-struck">N</mi>
+        </mrow>
+        <mo stretchy="false">→</mo>
+        <mi mathvariant="normal">Σ</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbb {N} \rightarrow \Sigma }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c663008ffb66af5aeae09bddd32eb2372e60b4a7" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:6.97ex; height:2.176ex;" alt="{\displaystyle \mathbb {N} \rightarrow \Sigma }"></span>), prepending the finite prefix <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt81" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\bot \\times&quot;}}" id="mwsQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \bot \times }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">⊥</mi>
+        <mo>×</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \bot \times }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6757f82b154408569fde7b10f5f8d6556f6ebde3" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:3.616ex; height:2.176ex;" alt="{\displaystyle \bot \times }"></span> to the infinite string <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt82" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\bot \\times \\bot \\times \\cdots&quot;}}" id="mwsg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \bot \times \bot \times \cdots }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">⊥</mi>
+        <mo>×</mo>
+        <mi mathvariant="normal">⊥</mi>
+        <mo>×</mo>
+        <mo>⋯</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \bot \times \bot \times \cdots }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b1e243d84625cc134664ec3cfbff9285a006a70a" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:12.02ex; height:2.176ex;" alt="{\displaystyle \bot \times \bot \times \cdots }"></span> yields <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt83" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\bot \\times \\bot \\times \\cdots&quot;}}" id="mwsw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \bot \times \bot \times \cdots }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">⊥</mi>
+        <mo>×</mo>
+        <mi mathvariant="normal">⊥</mi>
+        <mo>×</mo>
+        <mo>⋯</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \bot \times \bot \times \cdots }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b1e243d84625cc134664ec3cfbff9285a006a70a" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:12.02ex; height:2.176ex;" alt="{\displaystyle \bot \times \bot \times \cdots }"></span> itself, so <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt84" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\bot \\times \\bot \\times \\cdots \\in F(S)&quot;}}" id="mwtA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \bot \times \bot \times \cdots \in F(S)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">⊥</mi>
+        <mo>×</mo>
+        <mi mathvariant="normal">⊥</mi>
+        <mo>×</mo>
+        <mo>⋯</mo>
+        <mo>∈</mo>
+        <mi>F</mi>
+        <mo stretchy="false">(</mo>
+        <mi>S</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \bot \times \bot \times \cdots \in F(S)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/169f17087cabcdf191f90ae4393a1cbbfe344cb7" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:19.91ex; height:2.843ex;" alt="{\displaystyle \bot \times \bot \times \cdots \in F(S)}"></span>.  Therefore <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt85" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;S \\subseteq F(S)&quot;}}" id="mwtQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle S\subseteq F(S)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>S</mi>
+        <mo>⊆</mo>
+        <mi>F</mi>
+        <mo stretchy="false">(</mo>
+        <mi>S</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle S\subseteq F(S)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a0544e16ec28175eaee6cadf213485b5af4531f7" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:9.647ex; height:2.843ex;" alt="{\displaystyle S\subseteq F(S)}"></span>, and by the <i id="mwtg">principle of coinduction</i>, <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt86" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\bot \\times \\bot \\times \\cdots \\in \\nu F&quot;}}" id="mwtw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \bot \times \bot \times \cdots \in \nu F}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">⊥</mi>
+        <mo>×</mo>
+        <mi mathvariant="normal">⊥</mi>
+        <mo>×</mo>
+        <mo>⋯</mo>
+        <mo>∈</mo>
+        <mi>ν</mi>
+        <mi>F</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \bot \times \bot \times \cdots \in \nu F}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1051ef9a70e5a51628c9898ef3c9d68dd77d5179" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:17.834ex; height:2.176ex;" alt="{\displaystyle \bot \times \bot \times \cdots \in \nu F}"></span>.</p>
+
+<p id="mwuA"><b id="mwuQ">Note.</b>  The representation of types as strings over <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt87" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\Sigma&quot;}}" id="mwug"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \Sigma }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">Σ</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Sigma }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9e1f558f53cda207614abdf90162266c70bc5c1e" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.678ex; height:2.176ex;" alt="{\displaystyle \Sigma }"></span> is not faithful to the underlying tree structure.  Finite strings such as <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt88" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\bot \\times \\top \\times \\bot&quot;}}" id="mwuw"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \bot \times \top \times \bot }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">⊥</mi>
+        <mo>×</mo>
+        <mi mathvariant="normal">⊤</mi>
+        <mo>×</mo>
+        <mi mathvariant="normal">⊥</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \bot \times \top \times \bot }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7891bf4803f230daa2a01236d3cd6a7f359895c0" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:11.105ex; height:2.176ex;" alt="{\displaystyle \bot \times \top \times \bot }"></span> are ambiguous without bracketing, and for any infinite string <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt89" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;s&quot;}}" id="mwvA"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle s}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>s</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle s}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/01d131dfd7673938b947072a13a9744fe997e632" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.09ex; height:1.676ex;" alt="{\displaystyle s}"></span> the concatenation <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt90" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;s \\times t = s&quot;}}" id="mwvQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle s\times t=s}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>s</mi>
+        <mo>×</mo>
+        <mi>t</mi>
+        <mo>=</mo>
+        <mi>s</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle s\times t=s}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7df2dcaaf3ab9d8e0bbe8cfeed0dfdc4172aec91" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:8.959ex; height:2.009ex;" alt="{\displaystyle s\times t=s}"></span> for all <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt91" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;t&quot;}}" id="mwvg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle t}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>t</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle t}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/65658b7b223af9e1acc877d848888ecdb4466560" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:0.84ex; height:2.009ex;" alt="{\displaystyle t}"></span>, so distinct trees may be identified.  This does not affect the argument above, which only illustrates the <i id="mwvw">principle of coinduction</i> via <i id="mwwA">F</i>-consistency, but it would matter in settings where constructor structure must be preserved.  A standard structural treatment represents types via the isomorphism <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt92" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;T \\cong 1 + 1 + (T \\times T)&quot;}}" id="mwwQ"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle T\cong 1+1+(T\times T)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>T</mi>
+        <mo>≅</mo>
+        <mn>1</mn>
+        <mo>+</mo>
+        <mn>1</mn>
+        <mo>+</mo>
+        <mo stretchy="false">(</mo>
+        <mi>T</mi>
+        <mo>×</mo>
+        <mi>T</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle T\cong 1+1+(T\times T)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/937527cf959d6029b5bb8de259a7b906b81db974" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:20.663ex; height:2.843ex;" alt="{\displaystyle T\cong 1+1+(T\times T)}"></span>; see <a rel="mw:WikiLink" href="./F-coalgebra" title="F-coalgebra" id="mwwg">F-coalgebra</a> for details.</p>
+
+</section><section data-mw-section-id="7" id="mwww"><h3 id="Coinductive_datatypes_in_programming_languages">Coinductive datatypes in programming languages</h3>
+
+<p id="mwxA">Consider the following definition of a <a rel="mw:WikiLink" href="./Stream_(computing)" title="Stream (computing)" id="mwxQ">stream</a> in <a rel="mw:WikiLink" href="./Haskell" title="Haskell" id="mwxg">Haskell</a>:<sup about="#mwt96" class="mw-ref reference" id="cite_ref-5" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-5&quot;}}"><a href="./Coinduction#cite_note-5" id="mwxw"><span class="mw-reflink-text" id="mwyA"><span class="cite-bracket" id="mwyQ">[</span>5<span class="cite-bracket" id="mwyg">]</span></span></a></sup></p>
+
+<div class="mw-highlight mw-highlight-lang-haskell mw-content-ltr" dir="ltr" typeof="mw:Extension/syntaxhighlight" about="#mwt97" data-mw="{&quot;name&quot;:&quot;syntaxhighlight&quot;,&quot;attrs&quot;:{&quot;lang&quot;:&quot;haskell&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\ndata Stream a = S a (Stream a)\n\n-- Stream \&quot;destructors\&quot;\nhead :: Stream a -&gt; a\nhead (S a astream) = a\ntail :: Stream a -&gt; Stream a\ntail (S a astream) = astream\n&quot;}}" id="mwyw"><pre id="mwzA"><span id="mwzQ"></span><span class="kr" id="mwzg">data</span><span class="w" id="mwzw"> </span><span class="kt" id="mw0A">Stream</span><span class="w" id="mw0Q"> </span><span class="n" id="mw0g">a</span><span class="w" id="mw0w"> </span><span class="ow" id="mw1A">=</span><span class="w" id="mw1Q"> </span><span class="kt" id="mw1g">S</span><span class="w" id="mw1w"> </span><span class="n" id="mw2A">a</span><span class="w" id="mw2Q"> </span><span class="p" id="mw2g">(</span><span class="kt" id="mw2w">Stream</span><span class="w" id="mw3A"> </span><span class="n" id="mw3Q">a</span><span class="p" id="mw3g">)</span>
+
+<span class="c1" id="mw3w">-- Stream "destructors"</span>
+<span class="nf" id="mw4A">head</span><span class="w" id="mw4Q"> </span><span class="ow" id="mw4g">::</span><span class="w" id="mw4w"> </span><span class="kt" id="mw5A">Stream</span><span class="w" id="mw5Q"> </span><span class="n" id="mw5g">a</span><span class="w" id="mw5w"> </span><span class="ow" id="mw6A">-></span><span class="w" id="mw6Q"> </span><span class="n" id="mw6g">a</span>
+<span class="nf" id="mw6w">head</span><span class="w" id="mw7A"> </span><span class="p" id="mw7Q">(</span><span class="kt" id="mw7g">S</span><span class="w" id="mw7w"> </span><span class="n" id="mw8A">a</span><span class="w" id="mw8Q"> </span><span class="n" id="mw8g">astream</span><span class="p" id="mw8w">)</span><span class="w" id="mw9A"> </span><span class="ow" id="mw9Q">=</span><span class="w" id="mw9g"> </span><span class="n" id="mw9w">a</span>
+<span class="nf" id="mw-A">tail</span><span class="w" id="mw-Q"> </span><span class="ow" id="mw-g">::</span><span class="w" id="mw-w"> </span><span class="kt" id="mw_A">Stream</span><span class="w" id="mw_Q"> </span><span class="n" id="mw_g">a</span><span class="w" id="mw_w"> </span><span class="ow" id="mwAQA">-></span><span class="w" id="mwAQE"> </span><span class="kt" id="mwAQI">Stream</span><span class="w" id="mwAQM"> </span><span class="n" id="mwAQQ">a</span>
+<span class="nf" id="mwAQU">tail</span><span class="w" id="mwAQY"> </span><span class="p" id="mwAQc">(</span><span class="kt" id="mwAQg">S</span><span class="w" id="mwAQk"> </span><span class="n" id="mwAQo">a</span><span class="w" id="mwAQs"> </span><span class="n" id="mwAQw">astream</span><span class="p" id="mwAQ0">)</span><span class="w" id="mwAQ4"> </span><span class="ow" id="mwAQ8">=</span><span class="w" id="mwARA"> </span><span class="n" id="mwARE">astream</span>
+</pre></div>
+
+<p id="mwARI">The first line says that a stream is made up of an element followed by a stream (S is a constructor of elements, and a denotes for an arbitrary type for the elements). As there is no <a rel="mw:WikiLink" href="./Base_case_(induction)" title="Base case (induction)" class="mw-redirect" id="mwARM">base case</a>, this would seem to be a definition that is <a rel="mw:WikiLink" href="./Non-well-founded_set_theory" title="Non-well-founded set theory" id="mwARQ">not well-founded</a>, but it is nonetheless useful in programming and can be reasoned about.  In any case, a stream is an infinite list of elements from which you may observe the first element, or place an element in front of to get another stream.</p>
+
+</section><section data-mw-section-id="8" id="mwARU"><h3 id="Relationship_with_F-coalgebras">Relationship with <i id="mwARY">F</i>-coalgebras</h3>
+<span class="mw-empty-elt" about="#mwt98" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;further&quot;,&quot;href&quot;:&quot;./Template:Further&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;F-coalgebra&quot;}},&quot;i&quot;:0}}]}" id="mwARc"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1368532237" about="#mwt99" typeof="mw:Extension/templatestyles" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Hatnote/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}"></span><div role="note" class="hatnote navigation-not-searchable" about="#mwt98" id="mwARg">Further information: <a rel="mw:WikiLink" href="./F-coalgebra" title="F-coalgebra">F-coalgebra</a></div>
+<p id="mwARk">Consider the <a rel="mw:WikiLink" href="./Functor#endofunctor" title="Functor" id="mwARo">endofunctor</a> <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt100" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;F&quot;}}" id="mwARs"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle F}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>F</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle F}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/545fd099af8541605f7ee55f08225526be88ce57" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.741ex; height:2.176ex;" alt="{\displaystyle F}"></span> in the <a rel="mw:WikiLink" href="./Category_of_sets" title="Category of sets" id="mwARw">category of sets</a>:</p>
+
+<p id="mwAR0"><span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt101" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;block&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\begin{align}\nF(x) &amp;= A \\times x \\\\\nF(f) &amp;= \\langle \\mathrm{id}_A, f \\rangle \n\\end{align}&quot;}}" id="mwAR4"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle {\begin{aligned}F(x)&amp;=A\times x\\F(f)&amp;=\langle \mathrm {id} _{A},f\rangle \end{aligned}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
+            <mtr>
+              <mtd>
+                <mi>F</mi>
+                <mo stretchy="false">(</mo>
+                <mi>x</mi>
+                <mo stretchy="false">)</mo>
+              </mtd>
+              <mtd>
+                <mi></mi>
+                <mo>=</mo>
+                <mi>A</mi>
+                <mo>×</mo>
+                <mi>x</mi>
+              </mtd>
+            </mtr>
+            <mtr>
+              <mtd>
+                <mi>F</mi>
+                <mo stretchy="false">(</mo>
+                <mi>f</mi>
+                <mo stretchy="false">)</mo>
+              </mtd>
+              <mtd>
+                <mi></mi>
+                <mo>=</mo>
+                <mo fence="false" stretchy="false">⟨</mo>
+                <msub>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi mathvariant="normal">i</mi>
+                    <mi mathvariant="normal">d</mi>
+                  </mrow>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>A</mi>
+                  </mrow>
+                </msub>
+                <mo>,</mo>
+                <mi>f</mi>
+                <mo fence="false" stretchy="false">⟩</mo>
+              </mtd>
+            </mtr>
+          </mtable>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\begin{aligned}F(x)&amp;=A\times x\\F(f)&amp;=\langle \mathrm {id} _{A},f\rangle \end{aligned}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2da8e38631f47e748ca2a3d863b9aaabe7314533" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.505ex; width:16.256ex; height:6.176ex;" alt="{\displaystyle {\begin{aligned}F(x)&amp;=A\times x\\F(f)&amp;=\langle \mathrm {id} _{A},f\rangle \end{aligned}}}"></span></p>
+
+<p id="mwAR8">The <i id="mwASA">final F-coalgebra</i> <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt102" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\nu F&quot;}}" id="mwASE"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \nu F}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>ν</mi>
+        <mi>F</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \nu F}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/31cf127510e3682ff7a7a01df950b1fa3707f223" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:2.973ex; height:2.176ex;" alt="{\displaystyle \nu F}"></span> has the following morphism associated with it:</p>
+
+<p id="mwASI"><span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt103" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;block&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot; \\mathrm{out}: \\nu F \\rightarrow F(\\nu F) = A \\times \\nu F &quot;}}" id="mwASM"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle \mathrm {out} :\nu F\rightarrow F(\nu F)=A\times \nu F}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">o</mi>
+          <mi mathvariant="normal">u</mi>
+          <mi mathvariant="normal">t</mi>
+        </mrow>
+        <mo>:</mo>
+        <mi>ν</mi>
+        <mi>F</mi>
+        <mo stretchy="false">→</mo>
+        <mi>F</mi>
+        <mo stretchy="false">(</mo>
+        <mi>ν</mi>
+        <mi>F</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>A</mi>
+        <mo>×</mo>
+        <mi>ν</mi>
+        <mi>F</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathrm {out}<span typeof="mw:DisplaySpace"> </span>:\nu F\rightarrow F(\nu F)=A\times \nu F}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/58117d5ee1526f0cd40e8c0b7336c8790d279758" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:29.062ex; height:2.843ex;" alt="{\displaystyle \mathrm {out} :\nu F\rightarrow F(\nu F)=A\times \nu F}"></span></p>
+
+<p id="mwASQ">This induces another coalgebra <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt104" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;F(\\nu F)&quot;}}" id="mwASU"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle F(\nu F)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>F</mi>
+        <mo stretchy="false">(</mo>
+        <mi>ν</mi>
+        <mi>F</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle F(\nu F)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1f8b9daa08544dc0673c5b0d48b710ea3a8f797a" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:6.523ex; height:2.843ex;" alt="{\displaystyle F(\nu F)}"></span> with associated morphism <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt105" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;F(\\mathrm{out})&quot;}}" id="mwASY"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle F(\mathrm {out} )}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>F</mi>
+        <mo stretchy="false">(</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">o</mi>
+          <mi mathvariant="normal">u</mi>
+          <mi mathvariant="normal">t</mi>
+        </mrow>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle F(\mathrm {out} )}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/01ba4eacd95befc8e64eac6d5437500335b2e192" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:6.91ex; height:2.843ex;" alt="{\displaystyle F(\mathrm {out} )}"></span>.  Because <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt106" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\nu F&quot;}}" id="mwASc"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \nu F}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>ν</mi>
+        <mi>F</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \nu F}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/31cf127510e3682ff7a7a01df950b1fa3707f223" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:2.973ex; height:2.176ex;" alt="{\displaystyle \nu F}"></span> is <i id="mwASg">final</i>, there is a unique morphism</p>
+
+<p id="mwASk"><span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt107" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;block&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot; \\overline{F(\\mathrm{out})}: F(\\nu F) \\rightarrow \\nu F &quot;}}" id="mwASo"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle {\overline {F(\mathrm {out} )}}:F(\nu F)\rightarrow \nu F}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <mrow>
+              <mi>F</mi>
+              <mo stretchy="false">(</mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi mathvariant="normal">o</mi>
+                <mi mathvariant="normal">u</mi>
+                <mi mathvariant="normal">t</mi>
+              </mrow>
+              <mo stretchy="false">)</mo>
+            </mrow>
+            <mo accent="false">¯</mo>
+          </mover>
+        </mrow>
+        <mo>:</mo>
+        <mi>F</mi>
+        <mo stretchy="false">(</mo>
+        <mi>ν</mi>
+        <mi>F</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">→</mo>
+        <mi>ν</mi>
+        <mi>F</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\overline {F(\mathrm {out} )}}:F(\nu F)\rightarrow \nu F}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/195ac69158fff74999d0809f6f09da1d7074af44" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:22.072ex; height:3.676ex;" alt="{\displaystyle {\overline {F(\mathrm {out} )}}:F(\nu F)\rightarrow \nu F}"></span></p>
+
+<p id="mwASs">such that</p>
+
+<p id="mwASw"><span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt108" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;block&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot; \\mathrm{out} \\circ \\overline{F(\\mathrm{out})} = F\\left(\\overline{F(\\mathrm{out})}\\right) \\circ F(\\mathrm{out}) \n= F\\left(\\overline{F(\\mathrm{out})} \\circ \\mathrm{out}\\right)&quot;}}" id="mwAS0"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle \mathrm {out} \circ {\overline {F(\mathrm {out} )}}=F\left({\overline {F(\mathrm {out} )}}\right)\circ F(\mathrm {out} )=F\left({\overline {F(\mathrm {out} )}}\circ \mathrm {out} \right)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">o</mi>
+          <mi mathvariant="normal">u</mi>
+          <mi mathvariant="normal">t</mi>
+        </mrow>
+        <mo>∘</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <mrow>
+              <mi>F</mi>
+              <mo stretchy="false">(</mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi mathvariant="normal">o</mi>
+                <mi mathvariant="normal">u</mi>
+                <mi mathvariant="normal">t</mi>
+              </mrow>
+              <mo stretchy="false">)</mo>
+            </mrow>
+            <mo accent="false">¯</mo>
+          </mover>
+        </mrow>
+        <mo>=</mo>
+        <mi>F</mi>
+        <mrow>
+          <mo>(</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mover>
+              <mrow>
+                <mi>F</mi>
+                <mo stretchy="false">(</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi mathvariant="normal">o</mi>
+                  <mi mathvariant="normal">u</mi>
+                  <mi mathvariant="normal">t</mi>
+                </mrow>
+                <mo stretchy="false">)</mo>
+              </mrow>
+              <mo accent="false">¯</mo>
+            </mover>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+        <mo>∘</mo>
+        <mi>F</mi>
+        <mo stretchy="false">(</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">o</mi>
+          <mi mathvariant="normal">u</mi>
+          <mi mathvariant="normal">t</mi>
+        </mrow>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>F</mi>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mover>
+                <mrow>
+                  <mi>F</mi>
+                  <mo stretchy="false">(</mo>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi mathvariant="normal">o</mi>
+                    <mi mathvariant="normal">u</mi>
+                    <mi mathvariant="normal">t</mi>
+                  </mrow>
+                  <mo stretchy="false">)</mo>
+                </mrow>
+                <mo accent="false">¯</mo>
+              </mover>
+            </mrow>
+            <mo>∘</mo>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">o</mi>
+              <mi mathvariant="normal">u</mi>
+              <mi mathvariant="normal">t</mi>
+            </mrow>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathrm {out} \circ {\overline {F(\mathrm {out} )}}=F\left({\overline {F(\mathrm {out} )}}\right)\circ F(\mathrm {out} )=F\left({\overline {F(\mathrm {out} )}}\circ \mathrm {out} \right)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d929b1492220fb1f56c9a3502402d1d5516ee6ca" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -1.838ex; width:57.291ex; height:4.843ex;" alt="{\displaystyle \mathrm {out} \circ {\overline {F(\mathrm {out} )}}=F\left({\overline {F(\mathrm {out} )}}\right)\circ F(\mathrm {out} )=F\left({\overline {F(\mathrm {out} )}}\circ \mathrm {out} \right)}"></span></p>
+
+<p id="mwAS4">The composition <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt109" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\overline{F(\\mathrm{out})} \\circ \\mathrm{out}&quot;}}" id="mwAS8"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle {\overline {F(\mathrm {out} )}}\circ \mathrm {out} }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <mrow>
+              <mi>F</mi>
+              <mo stretchy="false">(</mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi mathvariant="normal">o</mi>
+                <mi mathvariant="normal">u</mi>
+                <mi mathvariant="normal">t</mi>
+              </mrow>
+              <mo stretchy="false">)</mo>
+            </mrow>
+            <mo accent="false">¯</mo>
+          </mover>
+        </mrow>
+        <mo>∘</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">o</mi>
+          <mi mathvariant="normal">u</mi>
+          <mi mathvariant="normal">t</mi>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\overline {F(\mathrm {out} )}}\circ \mathrm {out} }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0958de6f6336a57fcd74fce1a2002260e1fd31b3" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:12.579ex; height:3.676ex;" alt="{\displaystyle {\overline {F(\mathrm {out} )}}\circ \mathrm {out} }"></span> induces another <i id="mwATA">F</i>-coalgebra homomorphism <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt110" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\nu F \\rightarrow \\nu F&quot;}}" id="mwATE"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \nu F\rightarrow \nu F}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>ν</mi>
+        <mi>F</mi>
+        <mo stretchy="false">→</mo>
+        <mi>ν</mi>
+        <mi>F</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \nu F\rightarrow \nu F}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/61130a77ede7c15598fb44d73bf6bc20843600fb" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:9.56ex; height:2.176ex;" alt="{\displaystyle \nu F\rightarrow \nu F}"></span>.  Since <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt111" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\nu F&quot;}}" id="mwATI"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \nu F}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>ν</mi>
+        <mi>F</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \nu F}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/31cf127510e3682ff7a7a01df950b1fa3707f223" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:2.973ex; height:2.176ex;" alt="{\displaystyle \nu F}"></span> is final, this homomorphism is unique and therefore <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt112" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\mathrm{id}_{\\nu F}&quot;}}" id="mwATM"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \mathrm {id} _{\nu F}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="normal">i</mi>
+            <mi mathvariant="normal">d</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>ν</mi>
+            <mi>F</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathrm {id} _{\nu F}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3f29e8745fbac65e3dbd72c763985906c7c4f3e1" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:4.274ex; height:2.509ex;" alt="{\displaystyle \mathrm {id} _{\nu F}}"></span>.  Altogether we have:</p>
+
+<p id="mwATQ"><span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt113" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;block&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\begin{align}\n\\overline{F(\\mathrm{out})} \\circ \\mathrm{out}\n&amp;= \\mathrm{id}_{\\nu F} \\\\[0.5ex]\n\\mathrm{out} \\circ \\overline{F(\\mathrm{out})}\n= F\\bigl(\\overline{F(\\mathrm{out})} \\circ \\mathrm{out}\\bigr)\n&amp;= \\mathrm{id}_{F(\\nu F)}\n\\end{align}\n&quot;}}" id="mwATU"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle {\begin{aligned}{\overline {F(\mathrm {out} )}}\circ \mathrm {out} &amp;=\mathrm {id} _{\nu F}\\[0.5ex]\mathrm {out} \circ {\overline {F(\mathrm {out} )}}=F{\bigl (}{\overline {F(\mathrm {out} )}}\circ \mathrm {out} {\bigr )}&amp;=\mathrm {id} _{F(\nu F)}\end{aligned}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtable columnalign="right left right left right left right left right left right left" rowspacing="0.515em 0.3em" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
+            <mtr>
+              <mtd>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mover>
+                    <mrow>
+                      <mi>F</mi>
+                      <mo stretchy="false">(</mo>
+                      <mrow class="MJX-TeXAtom-ORD">
+                        <mi mathvariant="normal">o</mi>
+                        <mi mathvariant="normal">u</mi>
+                        <mi mathvariant="normal">t</mi>
+                      </mrow>
+                      <mo stretchy="false">)</mo>
+                    </mrow>
+                    <mo accent="false">¯</mo>
+                  </mover>
+                </mrow>
+                <mo>∘</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi mathvariant="normal">o</mi>
+                  <mi mathvariant="normal">u</mi>
+                  <mi mathvariant="normal">t</mi>
+                </mrow>
+              </mtd>
+              <mtd>
+                <mi></mi>
+                <mo>=</mo>
+                <msub>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi mathvariant="normal">i</mi>
+                    <mi mathvariant="normal">d</mi>
+                  </mrow>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>ν</mi>
+                    <mi>F</mi>
+                  </mrow>
+                </msub>
+              </mtd>
+            </mtr>
+            <mtr>
+              <mtd>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi mathvariant="normal">o</mi>
+                  <mi mathvariant="normal">u</mi>
+                  <mi mathvariant="normal">t</mi>
+                </mrow>
+                <mo>∘</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mover>
+                    <mrow>
+                      <mi>F</mi>
+                      <mo stretchy="false">(</mo>
+                      <mrow class="MJX-TeXAtom-ORD">
+                        <mi mathvariant="normal">o</mi>
+                        <mi mathvariant="normal">u</mi>
+                        <mi mathvariant="normal">t</mi>
+                      </mrow>
+                      <mo stretchy="false">)</mo>
+                    </mrow>
+                    <mo accent="false">¯</mo>
+                  </mover>
+                </mrow>
+                <mo>=</mo>
+                <mi>F</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mrow class="MJX-TeXAtom-OPEN">
+                    <mo maxsize="1.2em" minsize="1.2em">(</mo>
+                  </mrow>
+                </mrow>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mover>
+                    <mrow>
+                      <mi>F</mi>
+                      <mo stretchy="false">(</mo>
+                      <mrow class="MJX-TeXAtom-ORD">
+                        <mi mathvariant="normal">o</mi>
+                        <mi mathvariant="normal">u</mi>
+                        <mi mathvariant="normal">t</mi>
+                      </mrow>
+                      <mo stretchy="false">)</mo>
+                    </mrow>
+                    <mo accent="false">¯</mo>
+                  </mover>
+                </mrow>
+                <mo>∘</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi mathvariant="normal">o</mi>
+                  <mi mathvariant="normal">u</mi>
+                  <mi mathvariant="normal">t</mi>
+                </mrow>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mrow class="MJX-TeXAtom-CLOSE">
+                    <mo maxsize="1.2em" minsize="1.2em">)</mo>
+                  </mrow>
+                </mrow>
+              </mtd>
+              <mtd>
+                <mi></mi>
+                <mo>=</mo>
+                <msub>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi mathvariant="normal">i</mi>
+                    <mi mathvariant="normal">d</mi>
+                  </mrow>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>F</mi>
+                    <mo stretchy="false">(</mo>
+                    <mi>ν</mi>
+                    <mi>F</mi>
+                    <mo stretchy="false">)</mo>
+                  </mrow>
+                </msub>
+              </mtd>
+            </mtr>
+          </mtable>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\begin{aligned}{\overline {F(\mathrm {out} )}}\circ \mathrm {out} &amp;=\mathrm {id} _{\nu F}\\[0.5ex]\mathrm {out} \circ {\overline {F(\mathrm {out} )}}=F{\bigl (}{\overline {F(\mathrm {out} )}}\circ \mathrm {out} {\bigr )}&amp;=\mathrm {id} _{F(\nu F)}\end{aligned}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/aea82f6d4277760473845d0bad0c7431164f9e9b" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -3.505ex; width:42.761ex; height:8.176ex;" alt="{\displaystyle {\begin{aligned}{\overline {F(\mathrm {out} )}}\circ \mathrm {out} &amp;=\mathrm {id} _{\nu F}\\[0.5ex]\mathrm {out} \circ {\overline {F(\mathrm {out} )}}=F{\bigl (}{\overline {F(\mathrm {out} )}}\circ \mathrm {out} {\bigr )}&amp;=\mathrm {id} _{F(\nu F)}\end{aligned}}}"></span></p>
+
+<p id="mwATY">This witnesses the isomorphism <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt115" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\nu F \\simeq F(\\nu F)&quot;}}" id="mwATc"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \nu F\simeq F(\nu F)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>ν</mi>
+        <mi>F</mi>
+        <mo>≃</mo>
+        <mi>F</mi>
+        <mo stretchy="false">(</mo>
+        <mi>ν</mi>
+        <mi>F</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \nu F\simeq F(\nu F)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d939288a5694fc66b1a80c297080f9d3a59d95b7" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:12.594ex; height:2.843ex;" alt="{\displaystyle \nu F\simeq F(\nu F)}"></span>, which in categorical terms indicates that <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt116" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\nu F&quot;}}" id="mwATg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \nu F}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>ν</mi>
+        <mi>F</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \nu F}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/31cf127510e3682ff7a7a01df950b1fa3707f223" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:2.973ex; height:2.176ex;" alt="{\displaystyle \nu F}"></span> is a fixed point of <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt117" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;F&quot;}}" id="mwATk"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle F}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>F</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle F}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/545fd099af8541605f7ee55f08225526be88ce57" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.741ex; height:2.176ex;" alt="{\displaystyle F}"></span> and justifies the notation.<sup about="#mwt120" class="mw-ref reference" id="cite_ref-6" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-6&quot;}}"><a href="./Coinduction#cite_note-6" id="mwATo"><span class="mw-reflink-text" id="mwATs"><span class="cite-bracket" id="mwATw">[</span>6<span class="cite-bracket" id="mwAT0">]</span></span></a></sup><link rel="mw:PageProp/Category" href="./Category:All_pages_needing_factual_verification" about="#mwt114" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;verify inline&quot;,&quot;href&quot;:&quot;./Template:Verify_inline&quot;},&quot;params&quot;:{&quot;reason&quot;:{&quot;wt&quot;:&quot;This was previously rather generically placed at the start. Unclear what exactly it was supporting&quot;},&quot;date&quot;:{&quot;wt&quot;:&quot;March 2025&quot;}},&quot;i&quot;:0}}]}" id="mwAT4"><link rel="mw:PageProp/Category" href="./Category:Wikipedia_articles_needing_factual_verification_from_March_2025" about="#mwt114"><sup class="noprint Inline-Template " style="white-space:nowrap;" about="#mwt114" id="mwAT8"><span typeof="mw:Entity">[</span><i><a rel="mw:WikiLink" href="./Wikipedia:Verifiability" title="Wikipedia:Verifiability"><span title="This was previously rather generically placed at the start. Unclear what exactly it was supporting (March 2025)">verification needed</span></a></i><span typeof="mw:Entity">]</span></sup></p>
+
+<section data-mw-section-id="9" id="mwAUA"><h4 id="Stream_as_a_final_coalgebra">Stream as a final coalgebra</h4>
+
+<p id="mwAUE">We will show that <code id="mwAUI">Stream A</code> is the final coalgebra of the functor <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt121" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;F(x) = A \\times x&quot;}}" id="mwAUM"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle F(x)=A\times x}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>F</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>A</mi>
+        <mo>×</mo>
+        <mi>x</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle F(x)=A\times x}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4ee343da6028f5c80e79fb46f3874c6ca3e03087" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:13.891ex; height:2.843ex;" alt="{\displaystyle F(x)=A\times x}"></span>.  Consider the following implementations:</p>
+
+<div class="mw-highlight mw-highlight-lang-haskell mw-content-ltr" dir="ltr" typeof="mw:Extension/syntaxhighlight" about="#mwt122" data-mw="{&quot;name&quot;:&quot;syntaxhighlight&quot;,&quot;attrs&quot;:{&quot;lang&quot;:&quot;haskell&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\nout astream = (head astream, tail astream)\nout&#x27; (a, astream) = S a astream\n&quot;}}" id="mwAUQ"><pre id="mwAUU"><span id="mwAUY"></span><span class="nf" id="mwAUc">out</span><span class="w" id="mwAUg"> </span><span class="n" id="mwAUk">astream</span><span class="w" id="mwAUo"> </span><span class="ow" id="mwAUs">=</span><span class="w" id="mwAUw"> </span><span class="p" id="mwAU0">(</span><span class="n" id="mwAU4">head</span><span class="w" id="mwAU8"> </span><span class="n" id="mwAVA">astream</span><span class="p" id="mwAVE">,</span><span class="w" id="mwAVI"> </span><span class="n" id="mwAVM">tail</span><span class="w" id="mwAVQ"> </span><span class="n" id="mwAVU">astream</span><span class="p" id="mwAVY">)</span>
+<span class="nf" id="mwAVc">out'</span><span class="w" id="mwAVg"> </span><span class="p" id="mwAVk">(</span><span class="n" id="mwAVo">a</span><span class="p" id="mwAVs">,</span><span class="w" id="mwAVw"> </span><span class="n" id="mwAV0">astream</span><span class="p" id="mwAV4">)</span><span class="w" id="mwAV8"> </span><span class="ow" id="mwAWA">=</span><span class="w" id="mwAWE"> </span><span class="kt" id="mwAWI">S</span><span class="w" id="mwAWM"> </span><span class="n" id="mwAWQ">a</span><span class="w" id="mwAWU"> </span><span class="n" id="mwAWY">astream</span>
+</pre></div>
+
+<p id="mwAWc">These are easily seen to be mutually inverse, witnessing the isomorphism.  See the reference for more details.</p>
+
+</section></section><section data-mw-section-id="10" id="mwAWg"><h3 id="Relationship_with_mathematical_induction">Relationship with mathematical induction</h3>
+<span class="mw-empty-elt" about="#mwt123" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;further&quot;,&quot;href&quot;:&quot;./Template:Further&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;Mathematical induction&quot;}},&quot;i&quot;:0}}]}" id="mwAWk"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1368532237" about="#mwt124" typeof="mw:Extension/templatestyles" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Hatnote/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}"></span><div role="note" class="hatnote navigation-not-searchable" about="#mwt123" id="mwAWo">Further information: <a rel="mw:WikiLink" href="./Mathematical_induction" title="Mathematical induction">Mathematical induction</a></div>
+<p id="mwAWs">We will demonstrate how the <i id="mwAWw">principle of induction</i> subsumes mathematical induction.
+Let <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt125" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;P&quot;}}" id="mwAW0"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle P}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>P</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle P}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b4dc73bf40314945ff376bd363916a738548d40a" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.745ex; height:2.176ex;" alt="{\displaystyle P}"></span> be some property of <a rel="mw:WikiLink" href="./Natural_numbers" title="Natural numbers" class="mw-redirect" id="mwAW4">natural numbers</a>.  We will take the following definition of mathematical induction:</p>
+
+<p id="mwAW8"><span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt126" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;block&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;0 \\in P \\and (n \\in P \\Rightarrow n+1 \\in P) \\Rightarrow \\mathbb{N} \\subseteq P&quot;}}" id="mwAXA"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle 0\in P\land (n\in P\Rightarrow n+1\in P)\Rightarrow \mathbb {N} \subseteq P}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>0</mn>
+        <mo>∈</mo>
+        <mi>P</mi>
+        <mo>∧</mo>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo>∈</mo>
+        <mi>P</mi>
+        <mo stretchy="false">⇒</mo>
+        <mi>n</mi>
+        <mo>+</mo>
+        <mn>1</mn>
+        <mo>∈</mo>
+        <mi>P</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">⇒</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="double-struck">N</mi>
+        </mrow>
+        <mo>⊆</mo>
+        <mi>P</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 0\in P\land (n\in P\Rightarrow n+1\in P)\Rightarrow \mathbb {N} \subseteq P}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d1192307c4c5962fcbeea6cb3ed3ccf71a0d893d" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:39.855ex; height:2.843ex;" alt="{\displaystyle 0\in P\land (n\in P\Rightarrow n+1\in P)\Rightarrow \mathbb {N} \subseteq P}"></span></p>
+
+<p id="mwAXE">Now consider the function <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt127" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;F: 2^{\\mathbb{N}} \\rightarrow 2^{\\mathbb{N}}&quot;}}" id="mwAXI"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle F:2^{\mathbb {N} }\rightarrow 2^{\mathbb {N} }}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>F</mi>
+        <mo>:</mo>
+        <msup>
+          <mn>2</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="double-struck">N</mi>
+            </mrow>
+          </mrow>
+        </msup>
+        <mo stretchy="false">→</mo>
+        <msup>
+          <mn>2</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="double-struck">N</mi>
+            </mrow>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle F:2^{\mathbb {N} }\rightarrow 2^{\mathbb {N} }}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e4268f0a5254e76ebf4c6a20b8742fbaf4ebcdb3" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:12.455ex; height:2.676ex;" alt="{\displaystyle F:2^{\mathbb {N} }\rightarrow 2^{\mathbb {N} }}"></span>:</p>
+
+<p id="mwAXM"><span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt128" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;block&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;F(X) = \\{0\\} \\cup \\{x + 1 : x \\in X \\}&quot;}}" id="mwAXQ"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle F(X)=\{0\}\cup \{x+1:x\in X\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>F</mi>
+        <mo stretchy="false">(</mo>
+        <mi>X</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mn>0</mn>
+        <mo fence="false" stretchy="false">}</mo>
+        <mo>∪</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mi>x</mi>
+        <mo>+</mo>
+        <mn>1</mn>
+        <mo>:</mo>
+        <mi>x</mi>
+        <mo>∈</mo>
+        <mi>X</mi>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle F(X)=\{0\}\cup \{x+1:x\in X\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/090ff57e9d6aad79f90c8399cc1860af473a2af6" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:30.443ex; height:2.843ex;" alt="{\displaystyle F(X)=\{0\}\cup \{x+1:x\in X\}}"></span></p>
+
+<p id="mwAXU">It should not be difficult to see that <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt129" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\mu F = \\mathbb{N}&quot;}}" id="mwAXY"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \mu F=\mathbb {N} }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>μ</mi>
+        <mi>F</mi>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="double-struck">N</mi>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mu F=\mathbb {N} }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b1868182471af1cd33feebb4e2db29db74f123cf" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:7.919ex; height:2.676ex;" alt="{\displaystyle \mu F=\mathbb {N} }"></span>.  Therefore, by the <i id="mwAXc">principle of induction</i>, if we wish to prove some property <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt130" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;P&quot;}}" id="mwAXg"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle P}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>P</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle P}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b4dc73bf40314945ff376bd363916a738548d40a" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.745ex; height:2.176ex;" alt="{\displaystyle P}"></span> of <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt131" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\mathbb{N}&quot;}}" id="mwAXk"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle \mathbb {N} }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="double-struck">N</mi>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbb {N} }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/fdf9a96b565ea202d0f4322e9195613fb26a9bed" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.678ex; height:2.176ex;" alt="{\displaystyle \mathbb {N} }"></span>, it suffices to show that <span class="mwe-math-element mwe-math-element-inline" typeof="mw:Extension/math" about="#mwt132" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;P&quot;}}" id="mwAXo"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" alttext="{\displaystyle P}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>P</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle P}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b4dc73bf40314945ff376bd363916a738548d40a" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.745ex; height:2.176ex;" alt="{\displaystyle P}"></span> is <i id="mwAXs">F-closed</i>.  In detail, we require:</p>
+
+<p id="mwAXw"><span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt133" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;block&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;F(P) \\subseteq P&quot;}}" id="mwAX0"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle F(P)\subseteq P}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>F</mi>
+        <mo stretchy="false">(</mo>
+        <mi>P</mi>
+        <mo stretchy="false">)</mo>
+        <mo>⊆</mo>
+        <mi>P</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle F(P)\subseteq P}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d1509322bc6b40a7f450f6f5dec03ba44f038ba4" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:10.139ex; height:2.843ex;" alt="{\displaystyle F(P)\subseteq P}"></span></p>
+
+<p id="mwAX4">That is,</p>
+
+<p id="mwAX8"><span class="mwe-math-element mwe-math-element-block" typeof="mw:Extension/math" about="#mwt134" data-mw="{&quot;name&quot;:&quot;math&quot;,&quot;attrs&quot;:{&quot;display&quot;:&quot;block&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\{0\\} \\cup \\{x + 1 : x \\in P \\} \\subseteq P &quot;}}" id="mwAYA"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" class="mathjax_ignore" display="block" alttext="{\displaystyle \{0\}\cup \{x+1:x\in P\}\subseteq P}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <mn>0</mn>
+        <mo fence="false" stretchy="false">}</mo>
+        <mo>∪</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mi>x</mi>
+        <mo>+</mo>
+        <mn>1</mn>
+        <mo>:</mo>
+        <mi>x</mi>
+        <mo>∈</mo>
+        <mi>P</mi>
+        <mo fence="false" stretchy="false">}</mo>
+        <mo>⊆</mo>
+        <mi>P</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{0\}\cup \{x+1:x\in P\}\subseteq P}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/54b53113822bd166cba4da9b5aea4f39c82ce235" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:26.424ex; height:2.843ex;" alt="{\displaystyle \{0\}\cup \{x+1:x\in P\}\subseteq P}"></span></p>
+
+<p id="mwAYE">This is precisely <i id="mwAYI">mathematical induction</i> as stated.</p>
+
+</section></section><section data-mw-section-id="11" id="mwAYM"><h2 id="See_also">See also</h2>
+<ul id="mwAYQ"><li id="mwAYU"><a rel="mw:WikiLink" href="./F-coalgebra" title="F-coalgebra" id="mwAYY">F-coalgebra</a></li>
+<li id="mwAYc"><a rel="mw:WikiLink" href="./Corecursion" title="Corecursion" id="mwAYg">Corecursion</a></li>
+<li id="mwAYk"><a rel="mw:WikiLink" href="./Bisimulation" title="Bisimulation" id="mwAYo">Bisimulation</a></li>
+<li id="mwAYs"><a rel="mw:WikiLink" href="./Anamorphism" title="Anamorphism" id="mwAYw">Anamorphism</a></li>
+<li id="mwAY0"><a rel="mw:WikiLink" href="./Total_functional_programming" title="Total functional programming" id="mwAY4">Total functional programming</a></li></ul>
+
+</section><section data-mw-section-id="12" id="mwAY8"><h2 id="References">References</h2>
+<span class="mw-empty-elt" about="#mwt135" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Reflist&quot;,&quot;href&quot;:&quot;./Template:Reflist&quot;},&quot;params&quot;:{},&quot;i&quot;:0}}]}" id="mwAZA"><style data-mw-deduplicate="TemplateStyles:r1327269900" typeof="mw:Extension/templatestyles" about="#mwt136" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Reflist/styles.css&quot;}}">.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}body.skin-vector-2022 .mw-parser-output .reflist-columns-2{column-width:27em}body.skin-vector-2022 .mw-parser-output .reflist-columns-3{column-width:22.5em}.mw-parser-output .references[data-mw-group=upper-alpha]{list-style-type:upper-alpha}.mw-parser-output .references[data-mw-group=upper-roman]{list-style-type:upper-roman}.mw-parser-output .references[data-mw-group=lower-alpha]{list-style-type:lower-alpha}.mw-parser-output .references[data-mw-group=lower-greek]{list-style-type:lower-greek}.mw-parser-output .references[data-mw-group=lower-roman]{list-style-type:lower-roman}.mw-parser-output div.reflist-liststyle-upper-alpha .references{list-style-type:upper-alpha}.mw-parser-output div.reflist-liststyle-upper-roman .references{list-style-type:upper-roman}.mw-parser-output div.reflist-liststyle-lower-alpha .references{list-style-type:lower-alpha}.mw-parser-output div.reflist-liststyle-lower-greek .references{list-style-type:lower-greek}.mw-parser-output div.reflist-liststyle-lower-roman .references{list-style-type:lower-roman}</style></span><div about="#mwt135" id="mwAZE">
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt137" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{&quot;group&quot;:&quot;&quot;,&quot;responsive&quot;:&quot;1&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;}}" id="mwAZI"><ol class="mw-references references" id="mwAZM"><li about="#cite_note-1" id="cite_note-1" data-mw-footnote-number="1"><span class="mw-cite-backlink" id="mwAZQ"><a href="./Coinduction#cite_ref-1" rel="mw:referencedBy" id="mwAZU"><span class="mw-linkback-text" id="mwAZY">↑</span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text"><style data-mw-deduplicate="TemplateStyles:r1333433106" typeof="mw:Extension/templatestyles mw:Transclusion" about="#mwt12" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Citation/CS1/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Cite web&quot;,&quot;href&quot;:&quot;./Template:Cite_web&quot;},&quot;params&quot;:{&quot;url&quot;:{&quot;wt&quot;:&quot;http://lambda-the-ultimate.org/node/2513&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;Co-Logic Programming &amp;#124; Lambda the Ultimate&quot;}},&quot;i&quot;:0}}]}" id="mwAZc">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free.id-lock-free a{background:url("//upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited.id-lock-limited a,.mw-parser-output .id-lock-registration.id-lock-registration a{background:url("//upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription.id-lock-subscription a{background:url("//upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:url("//upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-free a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-limited a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-registration a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-subscription a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .cs1-ws-icon a{background-size:contain;padding:0 1em 0 0}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:var(--color-error,#bf3c2c)}.mw-parser-output .cs1-visible-error{color:var(--color-error,#bf3c2c)}.mw-parser-output .cs1-maint{display:none;color:#085;margin-left:0.3em}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}@media screen{.mw-parser-output .cs1-format{font-size:95%}html.skin-theme-clientpref-night .mw-parser-output .cs1-maint{color:#18911f}}@media screen and (prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .cs1-maint{color:#18911f}}</style><cite class="citation web cs1" about="#mwt12" id="mwAZg"><a rel="mw:ExtLink nofollow" href="http://lambda-the-ultimate.org/node/2513" class="external text" id="mwAZk">"Co-Logic Programming <span typeof="mw:Entity" id="mwAZo">|</span> Lambda the Ultimate"</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Co-Logic+Programming+%26%23124%3B+Lambda+the+Ultimate&amp;rft_id=http%3A%2F%2Flambda-the-ultimate.org%2Fnode%2F2513&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACoinduction" class="Z3988" about="#mwt12" id="mwAZs"></span></span></li>
+<li about="#cite_note-2" id="cite_note-2" data-mw-footnote-number="2"><span class="mw-cite-backlink" id="mwAZw"><a href="./Coinduction#cite_ref-2" rel="mw:referencedBy" id="mwAZ0"><span class="mw-linkback-text" id="mwAZ4">↑</span></a></span> <span id="mw-reference-text-cite_note-2" class="mw-reference-text reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt15" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Citation/CS1/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Cite web&quot;,&quot;href&quot;:&quot;./Template:Cite_web&quot;},&quot;params&quot;:{&quot;url&quot;:{&quot;wt&quot;:&quot;http://www.utdallas.edu/~gupta/&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;Gopal Gupta&#x27;s Home Page&quot;}},&quot;i&quot;:0}}]}" id="mwAZ8"><cite class="citation web cs1" about="#mwt15" id="mwAaA"><a rel="mw:ExtLink nofollow" href="http://www.utdallas.edu/~gupta/" class="external text" id="mwAaE">"Gopal Gupta's Home Page"</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Gopal+Gupta%27s+Home+Page&amp;rft_id=http%3A%2F%2Fwww.utdallas.edu%2F~gupta%2F&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACoinduction" class="Z3988" about="#mwt15" id="mwAaI"></span></span></li>
+<li about="#cite_note-3" id="cite_note-3" data-mw-footnote-number="3"><span class="mw-cite-backlink" id="mwAaM"><a href="./Coinduction#cite_ref-3" rel="mw:referencedBy" id="mwAaQ"><span class="mw-linkback-text" id="mwAaU">↑</span></a></span> <span id="mw-reference-text-cite_note-3" class="mw-reference-text reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt18" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Citation/CS1/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Cite web&quot;,&quot;href&quot;:&quot;./Template:Cite_web&quot;},&quot;params&quot;:{&quot;url&quot;:{&quot;wt&quot;:&quot;https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/coinduction&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;Logtalk3/Examples/Coinduction at master · LogtalkDotOrg/Logtalk3&quot;},&quot;website&quot;:{&quot;wt&quot;:&quot;[[GitHub]]&quot;}},&quot;i&quot;:0}}]}" id="mwAaY"><cite class="citation web cs1" about="#mwt18" id="mwAac"><a rel="mw:ExtLink nofollow" href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/coinduction" class="external text" id="mwAag">"Logtalk3/Examples/Coinduction at master · LogtalkDotOrg/Logtalk3"</a>. <i id="mwAak"><a rel="mw:WikiLink" href="./GitHub" title="GitHub" id="mwAao">GitHub</a></i>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=GitHub&amp;rft.atitle=Logtalk3%2FExamples%2FCoinduction+at+master+%C2%B7+LogtalkDotOrg%2FLogtalk3&amp;rft_id=https%3A%2F%2Fgithub.com%2FLogtalkDotOrg%2Flogtalk3%2Ftree%2Fmaster%2Fexamples%2Fcoinduction&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACoinduction" class="Z3988" about="#mwt18" id="mwAas"></span></span></li>
+<li about="#cite_note-4" id="cite_note-4" data-mw-footnote-number="4"><span class="mw-cite-backlink" id="mwAaw"><a href="./Coinduction#cite_ref-4" rel="mw:referencedBy" id="mwAa0"><span class="mw-linkback-text" id="mwAa4">↑</span></a></span> <span id="mw-reference-text-cite_note-4" class="mw-reference-text reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt21" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Citation/CS1/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Cite book&quot;,&quot;href&quot;:&quot;./Template:Cite_book&quot;},&quot;params&quot;:{&quot;url&quot;:{&quot;wt&quot;:&quot;https://mitpress.mit.edu/9780262303828/types-and-programming-languages/&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;Types and Programming Languages&quot;},&quot;first&quot;:{&quot;wt&quot;:&quot;Benjamin C.&quot;},&quot;last&quot;:{&quot;wt&quot;:&quot;Pierce&quot;},&quot;author-link&quot;:{&quot;wt&quot;:&quot;Benjamin C. Pierce&quot;},&quot;publisher&quot;:{&quot;wt&quot;:&quot;MIT Press&quot;}},&quot;i&quot;:0}}]}" id="mwAa8"><cite id="CITEREFPierce" class="citation book cs1" about="#mwt21"><a rel="mw:WikiLink" href="./Benjamin_C._Pierce" title="Benjamin C. Pierce" id="mwAbA">Pierce, Benjamin C.</a> <a rel="mw:ExtLink nofollow" href="https://mitpress.mit.edu/9780262303828/types-and-programming-languages/" class="external text" id="mwAbE"><i id="mwAbI">Types and Programming Languages</i></a>. MIT Press.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Types+and+Programming+Languages&amp;rft.pub=MIT+Press&amp;rft.aulast=Pierce&amp;rft.aufirst=Benjamin+C.&amp;rft_id=https%3A%2F%2Fmitpress.mit.edu%2F9780262303828%2Ftypes-and-programming-languages%2F&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACoinduction" class="Z3988" about="#mwt21" id="mwAbM"></span></span></li>
+<li about="#cite_note-5" id="cite_note-5" data-mw-footnote-number="5"><span class="mw-cite-backlink" id="mwAbQ"><a href="./Coinduction#cite_ref-5" rel="mw:referencedBy" id="mwAbU"><span class="mw-linkback-text" id="mwAbY">↑</span></a></span> <span id="mw-reference-text-cite_note-5" class="mw-reference-text reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt93" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Citation/CS1/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Cite CiteSeerX&quot;,&quot;href&quot;:&quot;./Template:Cite_CiteSeerX&quot;},&quot;params&quot;:{&quot;title&quot;:{&quot;wt&quot;:&quot;Practical Coinduction&quot;},&quot;first1&quot;:{&quot;wt&quot;:&quot;Dexter&quot;},&quot;last1&quot;:{&quot;wt&quot;:&quot;Kozen&quot;},&quot;author1-link&quot;:{&quot;wt&quot;:&quot;Dexter Kozen&quot;},&quot;first2&quot;:{&quot;wt&quot;:&quot;Alexandra&quot;},&quot;last2&quot;:{&quot;wt&quot;:&quot;Silva&quot;},&quot;author2-link&quot;:{&quot;wt&quot;:&quot;Alexandra Silva&quot;},&quot;citeseerx&quot;:{&quot;wt&quot;:&quot;10.1.1.252.3961&quot;}},&quot;i&quot;:0}}]}" id="mwAbc"><cite id="CITEREFKozenSilva" class="citation citeseerx cs1" about="#mwt93"><a rel="mw:WikiLink" href="./Dexter_Kozen" title="Dexter Kozen" id="mwAbg">Kozen, Dexter</a>; <a rel="mw:WikiLink" href="./Alexandra_Silva" title="Alexandra Silva" id="mwAbk">Silva, Alexandra</a>. "Practical Coinduction". <a rel="mw:WikiLink" href="./CiteSeerX_(identifier)" title="CiteSeerX (identifier)" class="mw-redirect" id="mwAbo">CiteSeerX</a><span typeof="mw:Entity" id="mwAbs"> </span><span class="id-lock-free" title="Freely accessible" id="mwAbw"><a rel="mw:ExtLink nofollow" href="https://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.252.3961" class="external text" id="mwAb0">10.1.1.252.3961</a></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=preprint&amp;rft.jtitle=CiteSeerX&amp;rft.atitle=Practical+Coinduction&amp;rft_id=https%3A%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.252.3961%23id-name%3DCiteSeerX&amp;rft.aulast=Kozen&amp;rft.aufirst=Dexter&amp;rft.au=Silva%2C+Alexandra&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACoinduction" class="Z3988" about="#mwt93" id="mwAb4"></span><span about="#mwt93" id="mwAb8"> </span><span class="cs1-visible-error citation-comment" about="#mwt93" id="mwAcA"><code class="cs1-code" id="mwAcE">{{<a rel="mw:WikiLink" href="./Template:Cite_CiteSeerX" title="Template:Cite CiteSeerX" id="mwAcI">cite CiteSeerX</a>}}</code>: </span><span class="cs1-visible-error citation-comment" about="#mwt93" id="mwAcM">Cite uses deprecated parameter <code class="cs1-code" id="mwAcQ"><span typeof="mw:Entity" id="mwAcU">|</span>citeseerx=</code> (<a rel="mw:WikiLink" href="./Help:CS1_errors#deprecated_params" title="Help:CS1 errors" id="mwAcY">help</a>)</span><link rel="mw:PageProp/Category" href="./Category:CS1_errors:_deprecated_parameters" about="#mwt93" id="mwAcc"></span></li>
+<li about="#cite_note-6" id="cite_note-6" data-mw-footnote-number="6"><span class="mw-cite-backlink" id="mwAcg"><a href="./Coinduction#cite_ref-6" rel="mw:referencedBy" id="mwAck"><span class="mw-linkback-text" id="mwAco">↑</span></a></span> <span id="mw-reference-text-cite_note-6" class="mw-reference-text reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt118" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Citation/CS1/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Cite book&quot;,&quot;href&quot;:&quot;./Template:Cite_book&quot;},&quot;params&quot;:{&quot;chapter-url&quot;:{&quot;wt&quot;:&quot;https://link.springer.com/chapter/10.1007/978-3-642-32202-0_2&quot;},&quot;chapter&quot;:{&quot;wt&quot;:&quot;Generic Programming with Adjunctions&quot;},&quot;first&quot;:{&quot;wt&quot;:&quot;Ralf&quot;},&quot;last&quot;:{&quot;wt&quot;:&quot;Hinze&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;Generic and Indexed Programming&quot;},&quot;publisher&quot;:{&quot;wt&quot;:&quot;Springer&quot;},&quot;series&quot;:{&quot;wt&quot;:&quot;Lecture Notes in Computer Science&quot;},&quot;year&quot;:{&quot;wt&quot;:&quot;2012&quot;},&quot;volume&quot;:{&quot;wt&quot;:&quot;7470&quot;},&quot;pages&quot;:{&quot;wt&quot;:&quot;47–129&quot;},&quot;doi&quot;:{&quot;wt&quot;:&quot;10.1007/978-3-642-32202-0_2&quot;},&quot;isbn&quot;:{&quot;wt&quot;:&quot;978-3-642-32201-3&quot;}},&quot;i&quot;:0}}]}" id="mwAcs"><cite id="CITEREFHinze2012" class="citation book cs1" about="#mwt118">Hinze, Ralf (2012). <a rel="mw:ExtLink nofollow" href="https://link.springer.com/chapter/10.1007/978-3-642-32202-0_2" class="external text" id="mwAcw">"Generic Programming with Adjunctions"</a>. <i id="mwAc0">Generic and Indexed Programming</i>. Lecture Notes in Computer Science. Vol.<span typeof="mw:Entity" id="mwAc4"> </span>7470. Springer. pp.<span typeof="mw:Entity" id="mwAc8"> </span><span class="nowrap" id="mwAdA">47–</span>129. <a rel="mw:WikiLink" href="./Doi_(identifier)" title="Doi (identifier)" class="mw-redirect" id="mwAdE">doi</a>:<a rel="mw:ExtLink nofollow" href="https://doi.org/10.1007%2F978-3-642-32202-0_2" class="external text" id="mwAdI">10.1007/978-3-642-32202-0_2</a>. <a rel="mw:WikiLink" href="./ISBN_(identifier)" title="ISBN (identifier)" class="mw-redirect" id="mwAdM">ISBN</a><span typeof="mw:Entity" id="mwAdQ"> </span><a rel="mw:WikiLink" href="./Special:BookSources/978-3-642-32201-3" title="Special:BookSources/978-3-642-32201-3" id="mwAdU"><bdi id="mwAdY">978-3-642-32201-3</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Generic+Programming+with+Adjunctions&amp;rft.btitle=Generic+and+Indexed+Programming&amp;rft.series=Lecture+Notes+in+Computer+Science&amp;rft.pages=47-129&amp;rft.pub=Springer&amp;rft.date=2012&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-642-32202-0_2&amp;rft.isbn=978-3-642-32201-3&amp;rft.aulast=Hinze&amp;rft.aufirst=Ralf&amp;rft_id=https%3A%2F%2Flink.springer.com%2Fchapter%2F10.1007%2F978-3-642-32202-0_2&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACoinduction" class="Z3988" about="#mwt118" id="mwAdc"></span></span></li>
+</ol></div></div>
+
+</section><section data-mw-section-id="13" id="mwAdg"><h2 id="Further_reading">Further reading</h2>
+<dl id="mwAdk"><dt id="mwAdo">Textbooks</dt></dl>
+<ul id="mwAds"><li id="mwAdw"><a rel="mw:WikiLink" href="./Davide_Sangiorgi" title="Davide Sangiorgi" id="mwAd0">Davide Sangiorgi</a> (2012). <i id="mwAd4">Introduction to Bisimulation and Coinduction</i>. Cambridge University Press.</li>
+<li id="mwAd8"><a rel="mw:WikiLink" href="./Davide_Sangiorgi" title="Davide Sangiorgi" id="mwAeA">Davide Sangiorgi</a> and <a rel="mw:WikiLink" href="./Jan_Rutten?action=edit&amp;redlink=1" title="Jan Rutten" class="new" typeof="mw:LocalizedAttrs" data-mw-i18n="{&quot;title&quot;:{&quot;lang&quot;:&quot;x-page&quot;,&quot;key&quot;:&quot;red-link-title&quot;,&quot;params&quot;:[&quot;Jan Rutten&quot;]}}" id="mwAeE">Jan Rutten</a> (2011). <i id="mwAeI">Advanced Topics in Bisimulation and Coinduction</i>. Cambridge University Press.</li></ul>
+
+<dl id="mwAeM"><dt id="mwAeQ">Introductory texts</dt></dl>
+<ul id="mwAeU"><li id="mwAeY"><a rel="mw:WikiLink" href="./Andrew_D._Gordon" title="Andrew D. Gordon" id="mwAec">Andrew D. Gordon</a> (1994). <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" about="#mwt138" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw="{&quot;name&quot;:&quot;templatestyles&quot;,&quot;attrs&quot;:{&quot;src&quot;:&quot;Module:Citation/CS1/styles.css&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;cite CiteSeerX &quot;,&quot;href&quot;:&quot;./Template:Cite_CiteSeerX&quot;},&quot;params&quot;:{&quot;citeseerx&quot;:{&quot;wt&quot;:&quot;10.1.1.37.3914&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;A Tutorial on Co-induction and Functional Programming&quot;},&quot;year&quot;:{&quot;wt&quot;:&quot;1994&quot;},&quot;pages&quot;:{&quot;wt&quot;:&quot;78–95&quot;}},&quot;i&quot;:0}}]}" id="mwAeg"><cite class="citation citeseerx cs1" about="#mwt138">"A Tutorial on Co-induction and Functional Programming". 1994. pp.<span typeof="mw:Entity"> </span><span class="nowrap">78–</span>95. <a rel="mw:WikiLink" href="./CiteSeerX_(identifier)" title="CiteSeerX (identifier)" class="mw-redirect">CiteSeerX</a><span typeof="mw:Entity"> </span><span class="id-lock-free" title="Freely accessible"><a rel="mw:ExtLink nofollow" href="https://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.37.3914" class="external text">10.1.1.37.3914</a></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=preprint&amp;rft.jtitle=CiteSeerX&amp;rft.atitle=A+Tutorial+on+Co-induction+and+Functional+Programming&amp;rft.pages=78-95&amp;rft.date=1994&amp;rft_id=https%3A%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.37.3914%23id-name%3DCiteSeerX&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACoinduction" class="Z3988" about="#mwt138"></span><span about="#mwt138"> </span><span class="cs1-visible-error citation-comment" about="#mwt138"><code class="cs1-code">{{<a rel="mw:WikiLink" href="./Template:Cite_CiteSeerX" title="Template:Cite CiteSeerX">cite CiteSeerX</a>}}</code>: </span><span class="cs1-visible-error citation-comment" about="#mwt138">Cite uses deprecated parameter <code class="cs1-code"><span typeof="mw:Entity">|</span>citeseerx=</code> (<a rel="mw:WikiLink" href="./Help:CS1_errors#deprecated_params" title="Help:CS1 errors">help</a>)</span><link rel="mw:PageProp/Category" href="./Category:CS1_errors:_deprecated_parameters" about="#mwt138" id="mwAek"> <span typeof="mw:Entity" id="mwAeo">—</span> mathematically oriented description</li>
+<li id="mwAes"><a rel="mw:WikiLink" href="./Bart_Jacobs?action=edit&amp;redlink=1" title="Bart Jacobs" class="new" typeof="mw:LocalizedAttrs" data-mw-i18n="{&quot;title&quot;:{&quot;lang&quot;:&quot;x-page&quot;,&quot;key&quot;:&quot;red-link-title&quot;,&quot;params&quot;:[&quot;Bart Jacobs&quot;]}}" id="mwAew">Bart Jacobs</a> and <a rel="mw:WikiLink" href="./Jan_Rutten?action=edit&amp;redlink=1" title="Jan Rutten" class="new" typeof="mw:LocalizedAttrs" data-mw-i18n="{&quot;title&quot;:{&quot;lang&quot;:&quot;x-page&quot;,&quot;key&quot;:&quot;red-link-title&quot;,&quot;params&quot;:[&quot;Jan Rutten&quot;]}}" id="mwAe0">Jan Rutten</a> (1997). <a rel="mw:ExtLink nofollow" href="http://citeseer.ist.psu.edu/jacobs97tutorial.html" class="external text" id="mwAe4">A Tutorial on (Co)Algebras and (Co)Induction</a> (<a rel="mw:ExtLink nofollow" href="https://www.cs.ru.nl/B.Jacobs/PAPERS/JR.pdf" class="external text" id="mwAe8">alternate link</a>) <span typeof="mw:Entity" id="mwAfA">—</span> describes induction and coinduction simultaneously</li>
+<li id="mwAfE">Eduardo Giménez and Pierre Castéran (2007). <a rel="mw:ExtLink nofollow" href="http://www.labri.fr/perso/casteran/RecTutorial.pdf" class="external text" id="mwAfI">"A Tutorial on <span typeof="mw:Nowiki" id="mwAfM">[Co-]</span>Inductive Types in Coq"</a></li>
+<li id="mwAfQ"><a rel="mw:ExtLink nofollow" href="http://www.cs.ucsd.edu/groups/tatami/handdemos/doc/coind.htm" class="external text" id="mwAfU">Coinduction</a> <span typeof="mw:Entity" id="mwAfY">—</span> short introduction</li></ul>
+
+<dl id="mwAfc"><dt id="mwAfg">History</dt></dl>
+<ul id="mwAfk"><li id="mwAfo"><a rel="mw:WikiLink" href="./Davide_Sangiorgi" title="Davide Sangiorgi" id="mwAfs">Davide Sangiorgi</a>. "<a rel="mw:ExtLink nofollow" href="http://www.cs.unibo.it/~sangio/DOC_public/history_bis_coind.pdf" class="external text" id="mwAfw">On the Origins of Bisimulation and Coinduction</a>", <a rel="mw:WikiLink" href="./ACM_Transactions_on_Programming_Languages_and_Systems" title="ACM Transactions on Programming Languages and Systems" id="mwAf0">ACM Transactions on Programming Languages and Systems</a>, Vol. 31, Nb 4, Mai 2009.</li></ul>
+
+<dl id="mwAf4"><dt id="mwAf8">Miscellaneous</dt></dl>
+<ul id="mwAgA"><li id="mwAgE"><a rel="mw:ExtLink nofollow" href="http://www.utdallas.edu/~gupta/ppdp06.pdf" class="external text" id="mwAgI">Co-Logic Programming: Extending Logic Programming with Coinduction</a> <span typeof="mw:Entity" id="mwAgM">—</span> describes the co-logic programming paradigm</li></ul>
+
+<link rel="mw:PageProp/Category" href="./Category:Theoretical_computer_science" id="mwAgQ">
+<link rel="mw:PageProp/Category" href="./Category:Logic_programming" id="mwAgU">
+<link rel="mw:PageProp/Category" href="./Category:Functional_programming" id="mwAgY">
+<link rel="mw:PageProp/Category" href="./Category:Category_theory" id="mwAgc">
+<link rel="mw:PageProp/Category" href="./Category:Mathematical_induction" id="mwAgg"></section></body></html>

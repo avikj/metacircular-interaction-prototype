@@ -18,16 +18,16 @@
 ------------------------------------------------------------------------
 -- WHAT THIS REVISES, AND IT IS NOT A REFUTATION.
 --
--- `Sesa_â¦` proves `every-semantic-criterion-is-blind` and states it
+-- `Residue_â¦` proves `every-semantic-criterion-is-blind` and states it
 -- unqualified -- "No semantic criterion -- none, at any h-level, of any
 -- complexity -- selects the short proof."  THE THEOREM IS TRUE AND THE
 --
 --     syt: FROM A 0-TRUNCATED STANDPOINT, no criterion selects.
 --
 -- and "at any h-level" is the clause that does not survive -- the h-level
--- of the CRITERION is unrestricted in `Sesa_`'s statement, but the h-level
+-- of the CRITERION is unrestricted in `Residue_`'s statement, but the h-level
 -- of the CODOMAIN is what does the work, and it is fixed at 0 by â•.
--- `Sesa_` is not edited here; the general form is supplied beside it.
+-- `Residue_` is not edited here; the general form is supplied beside it.
 --
 ------------------------------------------------------------------------
 -- AND THE OBVIOUS REPAIR DOES NOT WORK, WHICH IS THE SHARPER HALF.
@@ -60,7 +60,7 @@
 -- SEA_'S OWN WITNESSES.  Truncation is what identifies parallel
 -- derivations in general; it is NOT what identifies THOSE TWO.  Those two
 -- are identified by inversion, which Â§2 already names as the deeper
--- obstruction -- and `Sesa_`'s exhibited proof-relevance, `len` 2 against
+-- obstruction -- and `Residue_`'s exhibited proof-relevance, `len` 2 against
 -- 4, is therefore visible to no functorial semantics at any level.  The
 -- pair was chosen to differ by a round trip, which is exactly the
 -- difference no semantics can see.

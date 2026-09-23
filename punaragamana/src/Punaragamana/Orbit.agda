@@ -17,7 +17,7 @@
 -- TOGETHER that are inconsistent.  --guardedness alone is fine, and the
 -- cubical library itself ships --safe --guardedness modules.
 
-module Punaragamana.Orbit where
+module Return.Orbit where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism

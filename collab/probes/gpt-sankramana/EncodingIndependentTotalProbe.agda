@@ -12,7 +12,7 @@
 -- For arbitrary `A`, `w : A â’ W`, and two reversible encoders
 -- `e e' : A â‰ Fin (suc n)`, the landed theorem proves the two induced totals
 -- equal. The change of encoder is itself a finite permutation; `retEq`,
--- `total-ext`, and checked `KramaNairapeksya` close the path.
+-- `total-ext`, and checked `OrderNairapeksya` close the path.
 --
 -- There were no new theorem-local seams. Importing the base permutation
 -- theorem surfaced its unresolved metas, which were repaired before this

@@ -367,17 +367,17 @@ root-order-5 = refl
 -- Brahmagupta's ����� of a root with itself:
 --   greater � ac + N bd,   lesser � ad + bc
 -- and the lesser root comes out divisible by the conductor.
-bhavana-square-7-greater : 8 · 8 + 7 · (3 · 3) ≡ 127
-bhavana-square-7-greater = refl
+composition-square-7-greater : 8 · 8 + 7 · (3 · 3) ≡ 127
+composition-square-7-greater = refl
 
-bhavana-square-7-lesser : 8 · 3 + 3 · 8 ≡ 2 · 24
-bhavana-square-7-lesser = refl
+composition-square-7-lesser : 8 · 3 + 3 · 8 ≡ 2 · 24
+composition-square-7-lesser = refl
 
-bhavana-square-5-greater : 9 · 9 + 5 · (4 · 4) ≡ 161
-bhavana-square-5-greater = refl
+composition-square-5-greater : 9 · 9 + 5 · (4 · 4) ≡ 161
+composition-square-5-greater = refl
 
-bhavana-square-5-lesser : 9 · 4 + 4 · 9 ≡ 3 · 24
-bhavana-square-5-lesser = refl
+composition-square-5-lesser : 9 · 4 + 4 · 9 ≡ 3 · 24
+composition-square-5-lesser = refl
 
 -- The traces are integers on both sides of the conductor, which is why
 -- a trace-only criterion cannot separate the two orders.

@@ -18,8 +18,8 @@
    "corrections": [],
    "repository_loci": [
     "fibre/src/Fibre/Carrier.agda",
-    "formal/cubical/theorems/residue/Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda",
-    "formal/cubical/theorems/physics/RiktaTantu_TheSourceFibreOverANonzeroResidualIsEmptyExactlyWhenTheSourceResidualSplittingIsAProposition.agda"
+    "formal/cubical/theorems/residue/Uniqueness_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda",
+    "formal/cubical/theorems/physics/RiktaFiber_TheSourceFibreOverANonzeroResidualIsEmptyExactlyWhenTheSourceResidualSplittingIsAProposition.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -27,7 +27,7 @@
     {
      "received_repository_loci": [
       "fibre/src/Fibre/Carrier.agda",
-      "formal/cubical/theorems/residue/Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda"
+      "formal/cubical/theorems/residue/Uniqueness_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda"
      ],
      "received_native_verification": false
     }
@@ -239,7 +239,7 @@
     "C50"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/unplaced/Vyatikrama_TheCommutatorOfASelfAdjointWithASkewAdjointIsSelfAdjointSoTheCrossSectorCurrentIsARealPairing.agda",
+    "formal/cubical/theorems/unplaced/Vyatiorder_TheCommutatorOfASelfAdjointWithASkewAdjointIsSelfAdjointSoTheCrossSectorCurrentIsARealPairing.agda",
     "formal/cubical/theorems/primes/DviMana_TheTwoMetricConservationLawMakesTheMetricTheReflectedInverseLoopTheLoopIsInvertedByJConjugationAndForANormalTransferTheReciprocalLoopIsItsInverse.agda"
    ],
    "external_inputs": [],
@@ -379,8 +379,8 @@
     "C16"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/physics/VahanaSamata_TheCongruenceAndTheDiffusionTermPreserveAdjointParitySoARealCovarianceStaysRealUnderCommonSourceTransport.agda",
-    "formal/cubical/theorems/physics/EkaSesa_TheIdentityDefectOfTheCommonNoiseGeneratorIsExactlyTheSymmetricPartOfTheDriftBecauseTheDiffusionCancelsTheLaplacian.agda",
+    "formal/cubical/theorems/physics/VahanaEquality_TheCongruenceAndTheDiffusionTermPreserveAdjointParitySoARealCovarianceStaysRealUnderCommonSourceTransport.agda",
+    "formal/cubical/theorems/physics/EkaResidue_TheIdentityDefectOfTheCommonNoiseGeneratorIsExactlyTheSymmetricPartOfTheDriftBecauseTheDiffusionCancelsTheLaplacian.agda",
     "formal/cubical/theorems/physics/SarvaMula_TheAllSourceCoadjointLawIsJacobiPairedAndTheActualTangentResidualIsExactlyTheSourceCommutator.agda"
    ],
    "external_inputs": [],
@@ -884,7 +884,7 @@
     "C28"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/physics/ManaSesa_TheScaleResidualIsTheDegreeTimesTheObservableSoZeroResidualIsCriticalityAndANegativeDegreeMonotoneForbidsShrinkingRecurrence.agda",
+    "formal/cubical/theorems/physics/ManaResidue_TheScaleResidualIsTheDegreeTimesTheObservableSoZeroResidualIsCriticalityAndANegativeDegreeMonotoneForbidsShrinkingRecurrence.agda",
     "formal/cubical/theorems/unplaced/YugmaVyaya_TwoBudgetsWithAFixedDifferenceDivergeTogetherSoNeitherSectorCanCarryTheBlowupAlone.agda"
    ],
    "external_inputs": [],
@@ -940,7 +940,7 @@
    ],
    "repository_loci": [
     "formal/cubical/theorems/physics/DviDrsti_EachScalingReadingHasAOneParameterFibreButTheirDeterminantIsDimensionPlusTwoSoTogetherTheyReconstructAndTheDerivedTimeReadingAddsNothing.agda",
-    "formal/cubical/theorems/physics/ManaSesa_TheScaleResidualIsTheDegreeTimesTheObservableSoZeroResidualIsCriticalityAndANegativeDegreeMonotoneForbidsShrinkingRecurrence.agda",
+    "formal/cubical/theorems/physics/ManaResidue_TheScaleResidualIsTheDegreeTimesTheObservableSoZeroResidualIsCriticalityAndANegativeDegreeMonotoneForbidsShrinkingRecurrence.agda",
     "formal/cubical/theorems/physics/Sikhara_TheUnitDirectionAbsorbsNoLaplacianSoTheVorticityMagnitudeObeysItsOwnEquationAndThePeakLedgerIsItsRearrangementWhileTheThreeScaleGainsObeyOneMonomialRelation.agda"
    ],
    "external_inputs": [],
@@ -1741,8 +1741,8 @@
     "C40"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/primes/PratibimbaTantu_TheReflectedFibreIsASingletonOrEmptySoALiftOfTheReflectionThroughTheSourceForcesItToBeTheIdentityOnTheImage.agda",
-    "formal/cubical/theorems/physics/RiktaTantu_TheSourceFibreOverANonzeroResidualIsEmptyExactlyWhenTheSourceResidualSplittingIsAProposition.agda"
+    "formal/cubical/theorems/primes/ReflectionFiber_TheReflectedFibreIsASingletonOrEmptySoALiftOfTheReflectionThroughTheSourceForcesItToBeTheIdentityOnTheImage.agda",
+    "formal/cubical/theorems/physics/RiktaFiber_TheSourceFibreOverANonzeroResidualIsEmptyExactlyWhenTheSourceResidualSplittingIsAProposition.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -2090,7 +2090,7 @@
     "C50"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/primes/PratibimbaBhramana_TheReflectionScaleCycleIsAMultiplicativeHolonomyTrivialExactlyOnTheFixedPairAndItsMidpointDefectIsASquare.agda",
+    "formal/cubical/theorems/primes/ReflectionBhramana_TheReflectionScaleCycleIsAMultiplicativeHolonomyTrivialExactlyOnTheFixedPairAndItsMidpointDefectIsASquare.agda",
     "formal/cubical/theorems/primes/ArdhaTala_TheHardyAndBergmanOverlapsOfTwoZerosAreOneMinusTheSameHyperbolicRatioTheReflectionPairReadsSigmaSquaredOverSSquaredInEveryReadingAndTheFiniteGramDeterminantIsTheProductOfTheRatios.agda"
    ],
    "external_inputs": [],
@@ -2260,7 +2260,7 @@
    "corrections": [],
    "repository_loci": [
     "formal/cubical/theorems/primes/AbelaRupa_TheResolventOfTheDampedShiftNormalizesTheShiftDefectSoItsPowersInvertEveryOrderAndTheDyadicDifferencesOfTheNormalizedSourceAreTheResidualTower.agda",
-    "formal/cubical/theorems/primes/SesaDvaya_TheTruncatedInverseOfTheSquaredShiftDefectHasAResidualOfExactlyTwoTermsAtEveryDepth.agda"
+    "formal/cubical/theorems/primes/ResidueDvaya_TheTruncatedInverseOfTheSquaredShiftDefectHasAResidualOfExactlyTwoTermsAtEveryDepth.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,

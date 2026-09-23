@@ -17,7 +17,7 @@
 -- The canonical checked theorem, wired into `Everything.agda`, is:
 --
 --   formal/cubical/
---   AvataranaBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport.agda
+--   DescentBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport.agda
 --
 -- It contains this probe's `dependent-collision-obstructs` and
 -- `fillerDoesNotFactorThroughCarrier`, plus the marked generalization that

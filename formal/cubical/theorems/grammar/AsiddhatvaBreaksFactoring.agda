@@ -233,7 +233,7 @@ agree-example = refl
 -- AND THE TWO DEVICES SIT AT THE TWO POLES OF ONE DISTINCTION.  The corpus
 -- already has that distinction under its Jain name:
 --
---   `Saptabhangi.‡ï‡‡∞‡Æ-‡‡-‡‡‡¶‡`  krama (successive) and saha (simultaneous)
+--   `Saptabhangi.‡ï‡‡∞‡Æ-‡‡-‡‡‡¶‡`  order (successive) and saha (simultaneous)
 --        arpaa produce DIFFERENT positions; simultaneity is not
 --        sequential both-ness.
 --

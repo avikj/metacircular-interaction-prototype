@@ -141,7 +141,7 @@
 -- arpitnarpitasiddhe â” the standpoint index, stated as an index. Siddhasena
 -- Divkara, Sanmatitarka (c. 5th c. CE) 1.21 â” a naya taken without regard to
 -- the others is the durnaya. Samantabhadra, ptamms (c. 6th c. CE) â” the
--- seven members. Akalaka, Laghyastraya (c. 720â“780 CE) â” krama against
+-- seven members. Akalaka, Laghyastraya (c. 720â“780 CE) â” order against
 -- saha, and the argument that the number is exactly seven. Kumrila Bhaa,
 -- lokavrttika, Abhvapariccheda (c. 7th c. CE) â” yogya-anupalabdhi. What is
 -- taken is the classification and the rule for which case is which.
@@ -225,13 +225,13 @@ mula :: Entry -> [(String, String)]
 mula = sort . nub . map (\s -> (sakLabel s, sakSource s)) . entWitness
 
 -- | The levels, ordered coarsest to finest.
-data Samata = SatyaSama | ArthaSama | MulaSama
+data Equality = SatyaSama | ArthaSama | MulaSama
   deriving (Eq, Ord, Show)
 
-samataName :: Samata -> String
-samataName SatyaSama = "satya (truth value only)"
-samataName ArthaSama = "artha (content: the same witness labels)"
-samataName MulaSama  = "mula (record: the same labels FROM THE SAME SOURCES)"
+equalityName :: Equality -> String
+equalityName SatyaSama = "satya (truth value only)"
+equalityName ArthaSama = "artha (content: the same witness labels)"
+equalityName MulaSama  = "mula (record: the same labels FROM THE SAME SOURCES)"
 
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” the store
 
@@ -315,7 +315,7 @@ byName k n = [ e | e <- koshaEntries k, entName e == n ]
 data Nirnaya
   = Nirnaya
       { nirSthana  :: Sthana              -- the sevenfold position (Obstruction)
-      , nirSamata  :: Maybe Samata        -- highest level of agreement, if any
+      , nirEquality  :: Maybe Equality        -- highest level of agreement, if any
       , nirVarga   :: [[EntryId]]         -- maximal collapsible sub-families
       , nirNashti  :: [(String, [String])]-- per standpoint, what a collapse destroys
       , nirMulaLoss:: [(String, [String])]-- sources a content-collapse discards
@@ -326,7 +326,7 @@ data Nirnaya
   deriving (Eq, Show)
 
 -- | THE DECISION.  `saha` = the standpoints are being asserted
---   simultaneously (Akalaka's sahrpaa); False = in succession (krama).
+--   simultaneously (Akalaka's sahrpaa); False = in succession (order).
 decide :: Bool -> [Entry] -> Nirnaya
 decide saha es0
   | any (any null . map sakLabel . entWitness) es0 =
@@ -350,7 +350,7 @@ decide saha es0
                ++ " (Kumarila, Abhavapariccheda)")
   | otherwise = Nirnaya
       { nirSthana   = position
-      , nirSamata   = lvl
+      , nirEquality   = lvl
       , nirVarga    = classes
       , nirNashti   = losses
       , nirMulaLoss = mulaLosses
@@ -456,7 +456,7 @@ decide saha es0
         ] ++ (if saha
                 then [ "Asserted at once (saha), one sentence is being asked to carry"
                      , "both 'one content' and 'two records'.  It cannot: seventh bhanga." ]
-                else [ "In succession (krama), both are sayable, in that order:"
+                else [ "In succession (order), both are sayable, in that order:"
                      , "as content one, as record two." ])
       Just SatyaSama ->
         [ "NOT IDENTIFIABLE.  They agree in TRUTH VALUE and differ in CONTENT."
@@ -479,8 +479,8 @@ decide saha es0
                      , "content is determinate; what fails is the single sentence."
                      , "It is NOT this store saying it cannot see -- that is Abhinna,"
                      , "a different answer, kept in a different constructor." ]
-                else [ "In succession (krama) they are assertable, in that order."
-                     , "Akalanka's kramarpana." ])
+                else [ "In succession (order) they are assertable, in that order."
+                     , "Akalanka's orderrpana." ])
 
 -- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” rendering
 
@@ -492,7 +492,7 @@ render (Abhinna msg) =
   , "  fourth bhanga.  Avaktavyam is positive; this is a verdict withheld." ]
 render n =
   [ "  bhanga : " ++ show (nirSthana n)
-  , "  samata : " ++ maybe "none -- not even truth-equal" samataName (nirSamata n)
+  , "  equality : " ++ maybe "none -- not even truth-equal" equalityName (nirEquality n)
   ] ++ map ("  " ++) (nirVakya n)
     ++ (if length (nirVarga n) > 1 || any ((>1) . length) (nirVarga n)
           then [ "", "  maximal collapsible sub-families (varga), by content:" ]
@@ -599,7 +599,7 @@ selfTest =
   [ ("round trip through the journal, separators and all", prop_roundtrip kTricky)
   , ("truth-equal, content-distinct is NOT identifiable (Unit/Bool)",
       case decide False [eUnit, eBool] of
-        Nirnaya{nirSamata = Just SatyaSama, nirSthana = Position B2Nasti} -> True
+        Nirnaya{nirEquality = Just SatyaSama, nirSthana = Position B2Nasti} -> True
         _ -> False)
   , ("and it exhibits the loss on both sides",
       case decide False [eUnit, eBool] of
@@ -607,7 +607,7 @@ selfTest =
         _ -> False)
   , ("content-equal, source-distinct is identifiable as content only",
       case decide False [ePingala, eHalayudha] of
-        Nirnaya{nirSamata = Just ArthaSama} -> True
+        Nirnaya{nirEquality = Just ArthaSama} -> True
         _ -> False)
   , ("and a content-collapse's cost is the sources, exhibited",
       case decide False [ePingala, eHalayudha] of
@@ -619,7 +619,7 @@ selfTest =
         _ -> False)
   , ("identical record: collapse permitted (the machine can say YES)",
       case decide False [ePingala, ePingala{entId = 99}] of
-        Nirnaya{nirSamata = Just MulaSama, nirSthana = Position B1Asti} -> True
+        Nirnaya{nirEquality = Just MulaSama, nirSthana = Position B1Asti} -> True
         _ -> False)
   , ("two fit DENIALS are turned back, not reported as agreeing (D4)",
       case decide False [eDenied, eDenied{entName = "something-else-entirely"}] of
@@ -629,7 +629,7 @@ selfTest =
   , ("empty witnesses under Ayogya is SILENCE",     satya eSilent  == Nothing)
   , ("silence does not become a nasti verdict; it becomes residue",
       case decide True [ePingala, eHalayudha, eSilent] of
-        Nirnaya{nirShesha = [(_, _)], nirSamata = Just ArthaSama} -> True
+        Nirnaya{nirShesha = [(_, _)], nirEquality = Just ArthaSama} -> True
         _ -> False)
   , ("a fit denial and an affirmation, saha, IS the fourth bhanga",
       case decide True [ePingala, eDenied] of

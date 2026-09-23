@@ -26,7 +26,7 @@
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- WHAT IS NOT DONE, and it is that identity's own point
 --
--- The THIRD structure ‚î Satyayantra's ‡‡®‡‡ï‡‡‡Æ‡, the un-said ‚î is NOT
+-- The THIRD structure ‚î Satyamachine's ‡‡®‡‡ï‡‡‡Æ‡, the un-said ‚î is NOT
 -- brought onto this carrier.  It is temporal (a grant may still say it),
 -- so it is not a predicate of a content and a language at all.  d909db0d
 -- already states that the two third-positions' remedies live in

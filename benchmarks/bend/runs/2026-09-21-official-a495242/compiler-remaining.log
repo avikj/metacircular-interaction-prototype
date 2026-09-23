@@ -1,0 +1,27 @@
+{"suite": "compiler", "bench": "bfs", "lane": "bend", "phase": "warmup", "status": "error", "wall_s": 0.6988270830000001, "max_rss_mib": 96.328125, "output_match": null}
+{"suite": "compiler", "bench": "editdist", "lane": "bend", "phase": "warmup", "status": "error", "wall_s": 0.5382997500000001, "max_rss_mib": 132.984375, "output_match": null}
+{"suite": "compiler", "bench": "gameoflife", "lane": "bend", "phase": "warmup", "status": "error", "wall_s": 0.529865625, "max_rss_mib": 102.46875, "output_match": null}
+{"suite": "compiler", "bench": "hashmap", "lane": "bend", "phase": "warmup", "status": "error", "wall_s": 0.46335991600000015, "max_rss_mib": 94.46875, "output_match": null}
+{"suite": "compiler", "bench": "kmeans", "lane": "bend", "phase": "warmup", "status": "error", "wall_s": 0.5113347499999996, "max_rss_mib": 103.6875, "output_match": null}
+{"suite": "compiler", "bench": "lexer", "lane": "bend", "phase": "warmup", "status": "error", "wall_s": 0.49343183400000035, "max_rss_mib": 100.078125, "output_match": null}
+{"suite": "compiler", "bench": "mandelbrot", "lane": "bend", "phase": "warmup", "status": "error", "wall_s": 0.5269864169999998, "max_rss_mib": 104.71875, "output_match": null}
+{"suite": "compiler", "bench": "merkle", "lane": "bend", "phase": "warmup", "status": "error", "wall_s": 0.6012907909999998, "max_rss_mib": 142.390625, "output_match": null}
+{"suite": "compiler", "bench": "nbody", "lane": "bend", "phase": "warmup", "status": "error", "wall_s": 0.5874474999999997, "max_rss_mib": 139.53125, "output_match": null}
+{"suite": "compiler", "bench": "queens", "lane": "bend", "phase": "warmup", "status": "error", "wall_s": 0.5001136670000008, "max_rss_mib": 102.203125, "output_match": null}
+{"suite": "compiler", "bench": "raytrace", "lane": "bend", "phase": "warmup", "status": "error", "wall_s": 0.5960288330000001, "max_rss_mib": 139.015625, "output_match": null}
+{"suite": "compiler", "bench": "symreg", "lane": "bend", "phase": "warmup", "status": "error", "wall_s": 0.4681124590000003, "max_rss_mib": 83.484375, "output_match": null}
+{"suite": "compiler", "bench": "terrain", "lane": "bend", "phase": "warmup", "status": "error", "wall_s": 0.5222676250000005, "max_rss_mib": 106.71875, "output_match": null}
+{"suite": "compiler", "bench": "tree-bitonic", "lane": "bend", "phase": "warmup", "status": "error", "wall_s": 0.47282825000000006, "max_rss_mib": 88.609375, "output_match": null}
+{"suite": "compiler", "bench": "tree-matmul", "lane": "bend", "phase": "warmup", "status": "error", "wall_s": 0.4993737910000009, "max_rss_mib": 96.5625, "output_match": null}
+{"suite": "compiler", "bench": "tree-radix", "lane": "bend", "phase": "warmup", "status": "error", "wall_s": 0.46393812499999854, "max_rss_mib": 91.734375, "output_match": null}
+{"suite": "diagnostic", "bench": "nbody", "lane": "c-no-fma", "phase": "build", "status": "ok", "wall_s": 0.10574391699999985, "max_rss_mib": 42.5625, "output_match": null}
+{"suite": "diagnostic", "bench": "nbody", "lane": "c-no-fma", "phase": "validate", "status": "ok", "wall_s": 6.124269207999999, "max_rss_mib": 1.25, "output_match": true}
+{"suite": "diagnostic", "bench": "raytrace", "lane": "c-no-fma", "phase": "build", "status": "ok", "wall_s": 0.06814191700000016, "max_rss_mib": 41.75, "output_match": null}
+{"suite": "diagnostic", "bench": "raytrace", "lane": "c-no-fma", "phase": "validate", "status": "ok", "wall_s": 5.751301, "max_rss_mib": 1.25, "output_match": true}
+{"suite": "diagnostic", "bench": "bfs", "lane": "bend-seq", "phase": "repeat-1", "status": "ok", "wall_s": 4.307471249999999, "max_rss_mib": 1.84375, "output_match": true}
+{"suite": "diagnostic", "bench": "bfs", "lane": "bend-seq", "phase": "repeat-2", "status": "ok", "wall_s": 4.279249167, "max_rss_mib": 1.84375, "output_match": true}
+{"suite": "diagnostic", "bench": "bfs", "lane": "bend-seq", "phase": "repeat-3", "status": "ok", "wall_s": 4.2411409589999955, "max_rss_mib": 1.84375, "output_match": true}
+{"suite": "diagnostic", "bench": "bfs", "lane": "bend-par", "phase": "repeat-1", "status": "ok", "wall_s": 1.4778635839999978, "max_rss_mib": 2.015625, "output_match": true}
+{"suite": "diagnostic", "bench": "bfs", "lane": "bend-par", "phase": "repeat-2", "status": "ok", "wall_s": 1.5042788339999973, "max_rss_mib": 2.015625, "output_match": true}
+{"suite": "diagnostic", "bench": "bfs", "lane": "bend-par", "phase": "repeat-3", "status": "ok", "wall_s": 1.5047562499999998, "max_rss_mib": 2.015625, "output_match": true}
+SUITE COMPLETE compiler bend

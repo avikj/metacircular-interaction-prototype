@@ -219,7 +219,7 @@ The universal family supplies the generality:
 The operative pieces are already represented in the formal development.
 
 - `fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda` proves the canonical fibre decomposition and the stronger `fibre-of-run` / `trace-is-forced` theorem for arbitrary conservative factorisations, together with the equivalence between contractible trace and exact visible map.
-- `fibre/src/Fibre/Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers.agda` gives the interactive coalgebra `react` with successor, observation, event, and continuation.
+- `fibre/src/Fibre/Interaction_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers.agda` gives the interactive coalgebra `react` with successor, observation, event, and continuation.
 - `fibre/src/Fibre/Nucleus.agda` supplies carrier/orbit and coinductive transport structure.
 - `LIFECYCLE.rst` gives the integrated reading: live process, retained transition residual, and reusable operation are aspects of one encounter and its continuation rather than separate perception, storage, training, and action modules.
 - Explicit Chu-facing formal work already includes `formal/cubical/NaturalMachine/ChuAdvance.agda`, `formal/cubical/NaturalMachine/ChuDefect.agda`, and `formal/cubical/theorems/logic/ObsBridge.agda`.

@@ -12,7 +12,7 @@
 -- General law: landscape = |kernel| ¬ coset weight enumerator;
 -- contextuality degree = coset leader weight.  The refl-pins below are
 -- what a verification is: downstream of the proof, never in its place.
--- (Journal: cf-sesa checkpoint 33.)
+-- (Journal: cf-residue checkpoint 33.)
 ------------------------------------------------------------------------
 -- ‡®‡ø‡Ø‡®‡‡‡‡∞‡-‡ó‡‡®‡æ ‚î the control censuses, and the complete law they force.
 --
@@ -48,7 +48,7 @@
 --
 ------------------------------------------------------------------------
 
-module NiyantranaGanana_TheLandscapeIsTheCosetOfTheObstructionSixteenToOne where
+module NimachinenaGanana_TheLandscapeIsTheCosetOfTheObstructionSixteenToOne where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (‚Ñï ; zero ; suc ; _+_)
