@@ -364,7 +364,7 @@ selfTest =
 
   , ("anarpana is a KRAMA homomorphism onto the label lane, 49 pairs \
      \(anarpana-krame)",
-      and [ anarpana (order x y) == L.order (anarpana x) (anarpana y)
+      and [ anarpana (order x y) == L.krama (anarpana x) (anarpana y)
           | x <- sample, y <- sample ])
 
   , ("anarpana is a SAHA homomorphism too -- the half expected to fail \

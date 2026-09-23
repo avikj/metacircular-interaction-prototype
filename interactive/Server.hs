@@ -657,7 +657,7 @@ organGarbha saha es = case mapM one es of
   Nothing -> ("(no reading)", ["this organ has no constructor for `nothing was said`: every one of its seven positions carries at least one naya WITH ITS WITNESS, so an entry whose looking was unfit cannot be represented here at all"])
   Just [] -> ("(no reading)", ["no entries"])
   Just (b:bs) ->
-    let fold_ = if saha then G.saha else G.krama
+    let fold_ = if saha then G.saha else G.order
         r = foldl fold_ b bs
     in ( head (G.renderBhanga r)
        , map ("  " ++) (G.renderBhanga r)
@@ -822,8 +822,8 @@ kSaptaNasti y _ = pure (y, m, u)
     nB = G.Naya "episode-is-real" [] "the documented 2025 episode"
     nC = G.Naya "record-is-partial" [] "the 1987 case series"
     nD = G.Naya "record-is-complete" [] "the 2019 registry sweep"
-    g1 = G.SyadAvaktavyam (G.Sesa nA nB)
-    g2 = G.SyadAvaktavyam (G.Sesa nC nD)
+    g1 = G.SyadAvaktavyam (G.Residue nA nB)
+    g2 = G.SyadAvaktavyam (G.Residue nC nD)
     img = smrtilopa g1
     collide = g1 /= g2 && smrtilopa g1 == smrtilopa g2
     -- and the other direction: Apratipatti has no preimage, because every
@@ -869,8 +869,8 @@ kGarbhaDhara y j = pure $ case pieces of
             [ "give two distinct standpoints; the fourth position is what arises when two DIFFERENT nayas are asserted at once" ]
             [ "ResidueStream, `viveka`" ] )
     | otherwise ->
-        let v = G.Sesa (G.Naya sn [] sw) (G.Naya bn [] bw)
-            stream = take k (G.garbhaDhara v)
+        let v = G.Residue (G.Naya sn [] sw) (G.Naya bn [] bw)
+            stream = take k (G.kernelDhara v)
         in ( y
            , Mudra (S.Position S.SyadAvaktavya)
                (Pratyaksa ("the first " ++ show k ++ " born positions are generated and emitted in full, "
@@ -1982,8 +1982,8 @@ selftest fp kala y0 = do
       isoOK = all (\s -> obToS (sToOb s) == s) allS
               && all (\b -> sToOb (obToS b) == b) allOB
       roundOK = K.replay (K.journal (yKosha final)) == Right (yKosha final)
-      g1 = G.SyadAvaktavyam (G.Sesa (G.Naya "a" [] "wa") (G.Naya "b" [] "wb"))
-      g2 = G.SyadAvaktavyam (G.Sesa (G.Naya "c" [] "wc") (G.Naya "d" [] "wd"))
+      g1 = G.SyadAvaktavyam (G.Residue (G.Naya "a" [] "wa") (G.Naya "b" [] "wb"))
+      g2 = G.SyadAvaktavyam (G.Residue (G.Naya "c" [] "wc") (G.Naya "d" [] "wd"))
       collideOK = g1 /= g2 && smrtilopa g1 == smrtilopa g2
       uniqOK = null nameCollisions
   putStrLn ("  cakravāla D=61, law as a value → " ++ show pell
