@@ -24,8 +24,16 @@
 --       unfolding, so an identification of state spaces carries the whole
 --       future and computes at every head.
 --
---   §7–§9 are the instances: interaction, locality, and the photon.  §10
---   is the machine.  §11 is what is not established.
+--   §7   INTERACTION.  §8  LOCALITY.  §9–§11 THE PHOTON: the quarter
+--        turn on an interdependent pair, the amplitude it generates, and
+--        interference.
+--   §12  THE EQUATIONS.  Two prop-valued specifications that imply each
+--        other are the same type; Maxwell and Schrödinger are the
+--        instance.
+--   §13  THE OBJECT.  The completion of the rational scale, the actual
+--        Fourier operator on it, and §12 instantiated there — so the
+--        identification is about a space, not a parameter list.
+--   §14  THE MACHINE.  §15  WHAT IS NOT ESTABLISHED.
 ------------------------------------------------------------------------
 
 module One where
@@ -38,19 +46,27 @@ open import Cubical.Foundations.Univalence
 open import Cubical.Foundations.HLevels
 open import Cubical.Foundations.Function using (_∘_)
 open import Cubical.Data.Sigma
-open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; isSetℕ ; snotz ; ·-comm)
-open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; ≤-refl ; ≤-trans ; ≤-k+ ; ¬m<m)
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; max ; isSetℕ ; snotz ; ·-comm)
+open import Cubical.Data.Nat.Order
+  using (_≤_ ; _<_ ; ≤-refl ; ≤-trans ; ≤-k+ ; ≤-sucℕ ; ¬m<m ; left-≤-max ; right-≤-max)
 open import Cubical.Data.Int using (ℤ ; pos ; negsuc ; -_ ; -Involutive ; negsucNotpos ; abs ; abs-)
 open import Cubical.Data.Bool using (Bool ; true ; false ; not ; notnot ; true≢false)
-open import Cubical.Data.List using (List ; [] ; _∷_ ; length)
+open import Cubical.Data.List using (List ; [] ; _∷_ ; length ; map)
 open import Cubical.Data.List.Properties using (cons-inj₁ ; cons-inj₂)
 open import Cubical.Data.Unit using (Unit ; tt ; isContrUnit ; Unit* ; tt* ; isContrUnit*)
 open import Cubical.Data.Empty as Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.HITs.SetQuotients as SQ using (_/_ ; [_] ; eq/)
-open import Cubical.Algebra.CommRing using (CommRing ; CommRingStr)
+open import Cubical.Algebra.CommRing using (CommRing ; CommRingStr ; makeCommRing)
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
 open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
+open import Cubical.Relation.Binary using (module BinaryRelation)
+open import Cubical.HITs.PropositionalTruncation as PT using (∥_∥₁ ; ∣_∣₁)
+import Cubical.Data.Rationals as Q
+import Cubical.Data.Rationals.Order as O
+open import Cubical.Data.NatPlusOne using (1+_)
+open import Cubical.Data.Nat.Literals
+open Q using (ℚ)
 
 private variable ℓ ℓ' : Level
 
@@ -654,45 +670,885 @@ transport-every-property :
   → (Prop* : Type ℓ → Type ℓ') → Prop* (Σ F P) → Prop* (Σ F Q)
 transport-every-property p Prop* = subst Prop* p
 
-module Field {V : Type ℓ} (setV : isSet V)
+-- An operator of physics need not be defined everywhere: ∂t and curl go
+-- from a DOMAIN to the space of values, which is what §13's graph norm
+-- delivers.  Taking D = V recovers the bounded case.
+module Field {D : Type ℓ} {V : Type ℓ} (setV : isSet V)
              (neg : V → V) (negneg : (v : V) → neg (neg v) ≡ v)
-             (∂t curl : V → V) where
+             (∂t curl : D → V) where
 
-  F : Type ℓ
-  F = V × V
+  Fl : Type ℓ
+  Fl = D × D
 
   -- multiplication by i on the pair: §9's `turn`, at V instead of Bool
-  rotI : F → F
+  rotI : V × V → V × V
   rotI (e , b) = neg b , e
 
-  Maxwell Schrodinger : F → Type ℓ
+  Maxwell Schrodinger : Fl → Type ℓ
   Maxwell (e , b) = (∂t e ≡ curl b) × (∂t b ≡ neg (curl e))
   Schrodinger x    = rotI (∂t (fst x) , ∂t (snd x)) ≡ (curl (fst x) , curl (snd x))
 
+  maxwell-isProp : (x : Fl) → isProp (Maxwell x)
+  maxwell-isProp (e , b) = isProp× (setV _ _) (setV _ _)
+  schrodinger-isProp : (x : Fl) → isProp (Schrodinger x)
+  schrodinger-isProp x = isSet× setV setV _ _
+
   private
-    pM : (x : F) → isProp (Maxwell x)
-    pM (e , b) = isProp× (setV _ _) (setV _ _)
-    pS : (x : F) → isProp (Schrodinger x)
-    pS x = isSet× setV setV _ _
-    m→s : (x : F) → Maxwell x → Schrodinger x
+    m→s : (x : Fl) → Maxwell x → Schrodinger x
     m→s (e , b) (el , mg) = cong₂ _,_ (cong neg mg ∙ negneg (curl e)) el
-    s→m : (x : F) → Schrodinger x → Maxwell x
+    s→m : (x : Fl) → Schrodinger x → Maxwell x
     s→m (e , b) p = cong snd p , sym (negneg (∂t b)) ∙ cong neg (cong fst p)
 
   -- THE IDENTIFICATION.  Not a change of variables: the same type.
-  maxwell≡schrodinger : Σ F Maxwell ≡ Σ F Schrodinger
-  maxwell≡schrodinger = spec≡ pM pS m→s s→m
+  maxwell≡schrodinger : Σ Fl Maxwell ≡ Σ Fl Schrodinger
+  maxwell≡schrodinger = spec≡ maxwell-isProp schrodinger-isProp m→s s→m
 
   -- so every property of the solution space travels, computing
-  transport-physics : (Prop* : Type ℓ → Type ℓ') → Prop* (Σ F Maxwell) → Prop* (Σ F Schrodinger)
+  transport-physics : (Prop* : Type ℓ → Type ℓ') → Prop* (Σ Fl Maxwell) → Prop* (Σ Fl Schrodinger)
   transport-physics = transport-every-property maxwell≡schrodinger
 
   -- and by §6 the whole future travels with it
-  solutions-and-their-futures : Stream (Σ F Maxwell) ≡ Stream (Σ F Schrodinger)
+  solutions-and-their-futures : Stream (Σ Fl Maxwell) ≡ Stream (Σ Fl Schrodinger)
   solutions-and-their-futures = cong Stream maxwell≡schrodinger
 
 ------------------------------------------------------------------------
--- §13  THE MACHINE.  §1 at a step function: the ordinary irreversible
+-- §13  THE OBJECT.  §12 identifies two specifications of a field; this
+-- section supplies the field.  An infinite-dimensional space is built
+-- from the rational scale by completion, the actual Fourier operator
+-- k × · and its quarter turn are lifted to it, and §12 is instantiated
+-- there — so `maxwell≡schrodinger` is about an object, not a parameter
+-- list.  Three things are worth stating in advance, because each is a
+-- section above read metrically:
+--
+--   * a NAME is a presentation (sequence, modulus, proof) and the
+--     completion is its quotient — §1, with the residue retained;
+--   * extending a map COMPOSES the two moduli, explicitly — §4's cost,
+--     carried through a map instead of discarded;
+--   * set-quotient EFFECTIVITY turns equality back into the approach
+--     data, which is how the completion keeps a distinction a setoid
+--     cannot state.
+--
+-- Everything metric is proved once at a record `Cell` and instantiated:
+-- scalar, product, lists, and the graph of an operator are all cells.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- A  RING LEMMAS.  Every polynomial identity used below, proved once by
+-- the ring solver, stated over an arbitrary commutative ring so that the
+-- rational metric and the Fourier symbol draw on the same list.
+------------------------------------------------------------------------
+
+module Ring {ℓ : Level} (R : CommRing ℓ) where
+  open CommRingStr (snd R) public using (0r ; 1r)
+    renaming (_+_ to _+r_ ; _·_ to _*r_ ; -_ to negr ; _-_ to _-r_)
+
+  square : fst R → fst R
+  square a = a *r a
+
+  twice : fst R → fst R
+  twice a = a +r a
+
+  neg-zero      : negr 0r ≡ 0r
+  neg-zero      = solve! R
+  neg-neg       : (a : fst R) → negr (negr a) ≡ a
+  neg-neg a     = solve! R
+  square-neg       : (a : fst R) → square (negr a) ≡ square a
+  square-neg a     = solve! R
+  square-zero       : square 0r ≡ 0r
+  square-zero       = solve! R
+  square-self      : (a : fst R) → square (a -r a) ≡ 0r
+  square-self a    = solve! R
+  square-sub-neg        : (a b : fst R) → square (negr a -r negr b) ≡ square (a -r b)
+  square-sub-neg a b    = solve! R
+  square-self+       : (a t : fst R) → square (a -r a) +r t ≡ t
+  square-self+ a t   = solve! R
+  square-sym        : (a b : fst R) → square (a -r b) ≡ square (b -r a)
+  square-sym a b    = solve! R
+  expand        : (a b c : fst R) → square (a -r b) +r square ((a -r c) -r (c -r b))
+                                  ≡ twice (square (a -r c) +r square (c -r b))
+  expand a b c  = solve! R
+  shuffle       : (a b c d : fst R) → twice (a +r b) +r twice (c +r d)
+                                    ≡ twice ((a +r c) +r (b +r d))
+  shuffle a b c d = solve! R
+  quarter-four  : (a b : fst R) → twice (twice (a *r b)) ≡ twice (twice a) *r b
+  quarter-four a b = solve! R
+  zero-twice    : twice (0r +r 0r) ≡ 0r
+  zero-twice    = solve! R
+  zero-sum      : 0r +r 0r ≡ 0r
+  zero-sum      = solve! R
+
+------------------------------------------------------------------------
+-- B  THE RATIONAL SCALE.  ℚ as a commutative ring, its squares are
+-- nonnegative, and a geometric accuracy scale ε n = 4⁻ⁿ whose only
+-- property used anywhere below is that two steps of ε (n+1) rebuild ε n.
+------------------------------------------------------------------------
+
+ℚRing : CommRing ℓ-zero
+ℚRing = makeCommRing {R = ℚ} 0 1 Q._+_ Q._·_ Q.-_ Q.isSetℚ
+  Q.+Assoc Q.+IdR Q.+InvR Q.+Comm Q.·Assoc Q.·IdR Q.·DistL+ Q.·Comm
+
+open Ring ℚRing using (twice) renaming (square to sqQ)
+module R = Ring ℚRing
+
+nonneg-sq : (x : ℚ) → 0 O.≤ sqQ x
+nonneg-sq x with x O.≟ 0
+... | O.lt h = subst (0 O.≤_) (R.square-neg x) (pos-prod (Q.- x) pos-neg)
+  where
+  pos-neg : 0 O.≤ (Q.- x)
+  pos-neg = O.<Weaken≤ 0 (Q.- x)
+    (subst2 O._<_ (Q.+InvR x) (Q.+IdL (Q.- x)) (O.<-+o x 0 (Q.- x) h))
+  pos-prod : (a : ℚ) → 0 O.≤ a → 0 O.≤ sqQ a
+  pos-prod a p = subst (O._≤ sqQ a) (Q.·AnnihilL a) (O.≤-·o 0 a a p p)
+... | O.eq p = subst (0 O.≤_) (sym (cong sqQ p ∙ R.square-zero)) (O.isRefl≤ 0)
+... | O.gt h = subst (O._≤ sqQ x) (Q.·AnnihilL x)
+  (O.≤-·o 0 x x (O.<Weaken≤ 0 x h) (O.<Weaken≤ 0 x h))
+
+nonneg-+ : (x y : ℚ) → 0 O.≤ x → 0 O.≤ y → 0 O.≤ (x Q.+ y)
+nonneg-+ x y p q = subst (O._≤ (x Q.+ y)) (Q.+IdR 0) (O.≤Monotone+ 0 x 0 y p q)
+
+quarterQ : ℚ
+quarterQ = Q.[ pos 1 / 1+ 3 ]
+
+ε : ℕ → ℚ
+ε zero    = 1
+ε (suc n) = quarterQ Q.· ε n
+
+ε-pos : (n : ℕ) → 0 O.≤ ε n
+ε-pos zero    = 1 , refl
+ε-pos (suc n) = subst (O._≤ ε (suc n)) (Q.·AnnihilL (ε n))
+  (O.≤-·o 0 quarterQ (ε n) (ε-pos n) (1 , refl))
+
+ε-step : (n : ℕ) → ε (suc n) O.≤ ε n
+ε-step n = subst (ε (suc n) O.≤_) (Q.·IdL (ε n))
+  (O.≤-·o quarterQ 1 (ε n) (ε-pos n) (3 , refl))
+
+ε-four : (n : ℕ) → twice (twice (ε (suc n))) ≡ ε n
+ε-four n = R.quarter-four quarterQ (ε n)
+  ∙ cong (Q._· ε n) (Q.eq/ _ _ refl) ∙ Q.·IdL (ε n)
+
+ε-mono : {n m : ℕ} → n ≤ m → ε m O.≤ ε n
+ε-mono {n} (k , p) = subst (λ m → ε m O.≤ ε n) p (go k n)
+  where
+  go : (k n : ℕ) → ε (Cubical.Data.Nat._+_ k n) O.≤ ε n
+  go zero    n = O.isRefl≤ (ε n)
+  go (suc k) n = O.isTrans≤ (ε (suc (Cubical.Data.Nat._+_ k n))) (ε (Cubical.Data.Nat._+_ k n)) (ε n)
+                   (ε-step (Cubical.Data.Nat._+_ k n)) (go k n)
+
+------------------------------------------------------------------------
+-- C  A CELL.  A type with a rational squared distance, a padding point,
+-- and four laws.  Everything metric below is proved ONCE at this record
+-- and then instantiated: the scalar, products, lists of cells, and the
+-- graph of an operator are all cells, so the completion is written once.
+------------------------------------------------------------------------
+
+record Cell : Type₁ where
+  field
+    Pt   : Type
+    null : Pt
+    d    : Pt → Pt → ℚ
+    d-pos  : (x y : Pt) → 0 O.≤ d x y
+    d-self : (x : Pt) → d x x ≡ 0
+    d-sym  : (x y : Pt) → d x y ≡ d y x
+    d-tri  : (x y w : Pt) → d x y O.≤ twice (d x w Q.+ d w y)
+open Cell
+
+-- the scalar cell
+scalarCell : Cell
+Pt     scalarCell = ℚ
+null   scalarCell = 0
+d      scalarCell x y = sqQ (x Q.- y)
+d-pos  scalarCell x y = nonneg-sq (x Q.- y)
+d-self scalarCell x   = R.square-self x
+d-sym  scalarCell x y = R.square-sym x y
+d-tri  scalarCell x y w = subst2 O._≤_ (Q.+IdR (sqQ (x Q.- y))) (R.expand x y w)
+  (O.≤-o+ 0 (sqQ ((x Q.- w) Q.- (w Q.- y))) (sqQ (x Q.- y))
+    (nonneg-sq ((x Q.- w) Q.- (w Q.- y))))
+
+-- the sum of two cell-distances read off one type: products and graphs
+sumCell : (K L : Cell) (P : Type) (p : P) (u : P → Pt K) (v : P → Pt L) → Cell
+Pt     (sumCell K L P p u v) = P
+null   (sumCell K L P p u v) = p
+d      (sumCell K L P p u v) x y = d K (u x) (u y) Q.+ d L (v x) (v y)
+d-pos  (sumCell K L P p u v) x y = nonneg-+ (d K (u x) (u y)) (d L (v x) (v y)) (d-pos K (u x) (u y)) (d-pos L (v x) (v y))
+d-self (sumCell K L P p u v) x = cong₂ Q._+_ (d-self K (u x)) (d-self L (v x)) ∙ R.zero-sum
+d-sym  (sumCell K L P p u v) x y = cong₂ Q._+_ (d-sym K (u x) (u y)) (d-sym L (v x) (v y))
+d-tri  (sumCell K L P p u v) x y w =
+  subst (d K (u x) (u y) Q.+ d L (v x) (v y) O.≤_)
+    (R.shuffle (d K (u x) (u w)) (d K (u w) (u y)) (d L (v x) (v w)) (d L (v w) (v y)))
+    (O.≤Monotone+ (d K (u x) (u y)) (twice (d K (u x) (u w) Q.+ d K (u w) (u y)))
+                  (d L (v x) (v y)) (twice (d L (v x) (v w) Q.+ d L (v w) (v y)))
+      (d-tri K (u x) (u y) (u w)) (d-tri L (v x) (v y) (v w)))
+
+prodCell : Cell → Cell → Cell
+prodCell K L = sumCell K L (Pt K × Pt L) (null K , null L) fst snd
+
+graphCell : (K : Cell) → (Pt K → Pt K) → Cell
+graphCell K g = sumCell K K (Pt K) (null K) (λ x → x) g
+
+-- lists of cells, padded by the cell's null: the finitely supported
+-- vectors over a cell, which is again a cell
+module ListOf (K : Cell) where
+  P : Type
+  P = Pt K
+
+  hd : List P → P
+  hd []      = null K
+  hd (x ∷ _) = x
+  tl : List P → List P
+  tl []       = []
+  tl (_ ∷ xs) = xs
+
+  ld : List P → List P → ℚ
+  ld []       []       = 0
+  ld []       (y ∷ ys) = d K (null K) y Q.+ ld [] ys
+  ld (x ∷ xs) []       = d K x (null K) Q.+ ld xs []
+  ld (x ∷ xs) (y ∷ ys) = d K x y Q.+ ld xs ys
+
+  ld-step : (x y : List P) → ld x y ≡ d K (hd x) (hd y) Q.+ ld (tl x) (tl y)
+  ld-step []       []       = sym (cong (Q._+ 0) (d-self K (null K)) ∙ Q.+IdL 0)
+  ld-step []       (y ∷ ys) = refl
+  ld-step (x ∷ xs) []       = refl
+  ld-step (x ∷ xs) (y ∷ ys) = refl
+
+  ld-pos : (x y : List P) → 0 O.≤ ld x y
+  ld-pos []       []       = O.isRefl≤ 0
+  ld-pos []       (y ∷ ys) = nonneg-+ (d K (null K) y) (ld [] ys)
+                               (d-pos K (null K) y) (ld-pos [] ys)
+  ld-pos (x ∷ xs) []       = nonneg-+ (d K x (null K)) (ld xs [])
+                               (d-pos K x (null K)) (ld-pos xs [])
+  ld-pos (x ∷ xs) (y ∷ ys) = nonneg-+ (d K x y) (ld xs ys)
+                               (d-pos K x y) (ld-pos xs ys)
+
+  ld-self : (x : List P) → ld x x ≡ 0
+  ld-self []       = refl
+  ld-self (x ∷ xs) = cong₂ Q._+_ (d-self K x) (ld-self xs) ∙ R.zero-sum
+
+  ld-sym : (x y : List P) → ld x y ≡ ld y x
+  ld-sym []       []       = refl
+  ld-sym []       (y ∷ ys) = cong₂ Q._+_ (d-sym K (null K) y) (ld-sym [] ys)
+  ld-sym (x ∷ xs) []       = cong₂ Q._+_ (d-sym K x (null K)) (ld-sym xs [])
+  ld-sym (x ∷ xs) (y ∷ ys) = cong₂ Q._+_ (d-sym K x y) (ld-sym xs ys)
+
+  ld-tri-step : (x y w : List P)
+    → ld (tl x) (tl y) O.≤ twice (ld (tl x) (tl w) Q.+ ld (tl w) (tl y))
+    → ld x y O.≤ twice (ld x w Q.+ ld w y)
+  ld-tri-step x y w p = subst2 O._≤_ (sym (ld-step x y)) target
+    (O.≤Monotone+ (d K (hd x) (hd y)) (twice (d K (hd x) (hd w) Q.+ d K (hd w) (hd y)))
+                  (ld (tl x) (tl y)) (twice (ld (tl x) (tl w) Q.+ ld (tl w) (tl y)))
+                  (d-tri K (hd x) (hd y) (hd w)) p)
+    where
+    target : twice (d K (hd x) (hd w) Q.+ d K (hd w) (hd y))
+             Q.+ twice (ld (tl x) (tl w) Q.+ ld (tl w) (tl y))
+           ≡ twice (ld x w Q.+ ld w y)
+    target = R.shuffle (d K (hd x) (hd w)) (d K (hd w) (hd y))
+                       (ld (tl x) (tl w)) (ld (tl w) (tl y))
+      ∙ cong twice (cong₂ Q._+_ (sym (ld-step x w)) (sym (ld-step w y)))
+
+  ld-tri : (x y w : List P) → ld x y O.≤ twice (ld x w Q.+ ld w y)
+  ld-tri []       []       []       = subst (0 O.≤_) (sym R.zero-twice) (O.isRefl≤ 0)
+  ld-tri []       []       (w ∷ ws) = ld-tri-step [] [] (w ∷ ws) (ld-tri [] [] ws)
+  ld-tri []       (y ∷ ys) []       = ld-tri-step [] (y ∷ ys) [] (ld-tri [] ys [])
+  ld-tri []       (y ∷ ys) (w ∷ ws) = ld-tri-step [] (y ∷ ys) (w ∷ ws) (ld-tri [] ys ws)
+  ld-tri (x ∷ xs) []       []       = ld-tri-step (x ∷ xs) [] [] (ld-tri xs [] [])
+  ld-tri (x ∷ xs) []       (w ∷ ws) = ld-tri-step (x ∷ xs) [] (w ∷ ws) (ld-tri xs [] ws)
+  ld-tri (x ∷ xs) (y ∷ ys) []       = ld-tri-step (x ∷ xs) (y ∷ ys) [] (ld-tri xs ys [])
+  ld-tri (x ∷ xs) (y ∷ ys) (w ∷ ws) = ld-tri-step (x ∷ xs) (y ∷ ys) (w ∷ ws) (ld-tri xs ys ws)
+
+  cell : Cell
+  Pt     cell = List P
+  null   cell = []
+  d      cell = ld
+  d-pos  cell = ld-pos
+  d-self cell = ld-self
+  d-sym  cell = ld-sym
+  d-tri  cell = ld-tri
+
+  -- a distance-preserving self-map of the cell acts on vectors the same way
+  lift-isometry : (h : P → P) → h (null K) ≡ null K
+    → ((x y : P) → d K (h x) (h y) ≡ d K x y)
+    → (xs ys : List P) → ld (map h xs) (map h ys) ≡ ld xs ys
+  lift-isometry h h0 pres []       []       = refl
+  lift-isometry h h0 pres []       (y ∷ ys) =
+    cong₂ Q._+_ (cong (λ z → d K z (h y)) (sym h0) ∙ pres (null K) y)
+                (lift-isometry h h0 pres [] ys)
+  lift-isometry h h0 pres (x ∷ xs) []       =
+    cong₂ Q._+_ (cong (d K (h x)) (sym h0) ∙ pres x (null K))
+                (lift-isometry h h0 pres xs [])
+  lift-isometry h h0 pres (x ∷ xs) (y ∷ ys) =
+    cong₂ Q._+_ (pres x y) (lift-isometry h h0 pres xs ys)
+
+listCell : Cell → Cell
+listCell K = ListOf.cell K
+
+------------------------------------------------------------------------
+-- D  THE COMPLETION.  Approximation NAMES — a sequence, a modulus, and
+-- the proof that the modulus works — quotiented by mutual approach.  A
+-- name is a *presentation* of a point and the quotient is §1's descent:
+-- the completion is the visible part, the name is the retained residue.
+-- Written once at an arbitrary cell.
+--
+-- Constructive-analysis reference: Russell O'Connor, "A Monadic,
+-- Functional Implementation of Real Numbers" (2006), completion by
+-- regular functions and lifting of uniformly continuous maps.
+------------------------------------------------------------------------
+
+module Metric (K : Cell) where
+  B : ℕ → Pt K → Pt K → Type
+  B n x y = d K x y O.≤ ε n
+
+  B-refl : (n : ℕ) (x : Pt K) → B n x x
+  B-refl n x = subst (O._≤ ε n) (sym (d-self K x)) (ε-pos n)
+
+  B-sym : (n : ℕ) (x y : Pt K) → B n x y → B n y x
+  B-sym n x y = subst (O._≤ ε n) (d-sym K x y)
+
+  B-weaken : {n m : ℕ} → n ≤ m → {x y : Pt K} → B m x y → B n x y
+  B-weaken {n} {m} h {x} {y} p = O.isTrans≤ (d K x y) (ε m) (ε n) p (ε-mono h)
+
+  B-tri : (n : ℕ) {x y w : Pt K} → B (suc n) x y → B (suc n) y w → B n x w
+  B-tri n {x} {y} {w} p q =
+    O.isTrans≤ (d K x w) (twice (d K x y Q.+ d K y w)) (ε n) (d-tri K x w y)
+      (subst (twice (d K x y Q.+ d K y w) O.≤_) (ε-four n)
+        (O.≤Monotone+ (d K x y Q.+ d K y w) (twice (ε (suc n)))
+                      (d K x y Q.+ d K y w) (twice (ε (suc n))) s s))
+    where
+    s : (d K x y Q.+ d K y w) O.≤ twice (ε (suc n))
+    s = O.≤Monotone+ (d K x y) (ε (suc n)) (d K y w) (ε (suc n)) p q
+
+  B-three : (n : ℕ) {x y w v : Pt K}
+    → B (suc (suc n)) x y → B (suc (suc n)) y w → B (suc (suc n)) w v → B n x v
+  B-three n p q r = B-tri n (B-tri (suc n) p q) (B-weaken {suc n} {suc (suc n)} ≤-sucℕ r)
+
+module Completion (K : Cell) where
+  open Metric K public
+
+  Tail : (ℕ → Pt K) → (ℕ → ℕ) → Type
+  Tail s m = (n i j : ℕ) → m n ≤ i → m n ≤ j → B n (s i) (s j)
+
+  Name : Type
+  Name = Σ[ s ∈ (ℕ → Pt K) ] Σ[ m ∈ (ℕ → ℕ) ] Tail s m
+
+  seq : Name → ℕ → Pt K
+  seq = fst
+  mod : Name → ℕ → ℕ
+  mod s = fst (snd s)
+  tail-of : (s : Name) → Tail (seq s) (mod s)
+  tail-of s = snd (snd s)
+
+  At : ℕ → Name → Name → Type
+  At n s t = Σ[ N ∈ ℕ ] ((i j : ℕ) → N ≤ i → N ≤ j → B n (seq s i) (seq t j))
+
+  CloseTo : Name → Name → Type
+  CloseTo s t = (n : ℕ) → At n s t
+
+  Related : Name → Name → Type
+  Related s t = ∥ CloseTo s t ∥₁
+
+  -- THE OBJECT
+  Space : Type
+  Space = Name / Related
+
+  isSetSpace : isSet Space
+  isSetSpace = SQ.squash/
+
+  same-seq : (s t : Name) → ((n : ℕ) → seq s n ≡ seq t n) → Related s t
+  same-seq s t p = ∣ (λ n → mod s n , λ i j hi hj →
+    subst (B n (seq s i)) (p j) (tail-of s n i j hi hj)) ∣₁
+
+  same-point : (s t : Name) → ((n : ℕ) → seq s n ≡ seq t n)
+             → Path Space SQ.[ s ] SQ.[ t ]
+  same-point s t p = SQ.eq/ s t (same-seq s t p)
+
+  -- the dense cell sits inside its completion as the constant names
+  point : Pt K → Name
+  point x = (λ _ → x) , (λ _ → zero) , (λ n i j _ _ → B-refl n x)
+
+  embed : Pt K → Space
+  embed x = SQ.[ point x ]
+
+  -- Related is an equivalence relation, so by set-quotient effectivity
+  -- equality in the completion RECOVERS the approximation data: nothing
+  -- is lost by quotienting that was not already a mutual approach.
+  Related-refl : (s : Name) → Related s s
+  Related-refl s = same-seq s s (λ _ → refl)
+
+  Related-sym : (s t : Name) → Related s t → Related t s
+  Related-sym s t = PT.rec PT.squash₁ λ p → ∣ (λ n →
+    fst (p n) , λ i j hi hj → B-sym n (seq s j) (seq t i) (snd (p n) j i hj hi)) ∣₁
+
+  Related-trans : (s t u : Name) → Related s t → Related t u → Related s u
+  Related-trans s t u = PT.rec2 PT.squash₁ λ p q → ∣ (λ n →
+    max (fst (p (suc n))) (fst (q (suc n))) , λ i j hi hj → B-tri n
+      (snd (p (suc n)) i (max (fst (p (suc n))) (fst (q (suc n))))
+        (≤-trans left-≤-max hi) left-≤-max)
+      (snd (q (suc n)) (max (fst (p (suc n))) (fst (q (suc n)))) j
+        right-≤-max (≤-trans right-≤-max hj))) ∣₁
+
+  Related-isEquivRel : BinaryRelation.isEquivRel Related
+  BinaryRelation.isEquivRel.reflexive  Related-isEquivRel = Related-refl
+  BinaryRelation.isEquivRel.symmetric  Related-isEquivRel = Related-sym
+  BinaryRelation.isEquivRel.transitive Related-isEquivRel = Related-trans
+
+  effective : (s t : Name) → Path Space SQ.[ s ] SQ.[ t ] → Related s t
+  effective = SQ.effective (λ _ _ → PT.squash₁) Related-isEquivRel
+
+  ----------------------------------------------------------------------
+  -- COMPLETENESS.  A regular family of names has a diagonal, and the
+  -- diagonal is a name whose point every member approaches.
+  ----------------------------------------------------------------------
+
+  Regular : (ℕ → Name) → Type
+  Regular f = (n i j : ℕ) → n ≤ i → n ≤ j → At n (f i) (f j)
+
+  diagonal : (ℕ → Name) → ℕ → Pt K
+  diagonal f i = seq (f i) (mod (f i) i)
+
+  diagonal-tail : (f : ℕ → Name) → Regular f → Tail (diagonal f) (λ n → suc (suc n))
+  diagonal-tail f reg n i j hi hj =
+    B-three n
+      (B-weaken hi (tail-of (f i) i mi p ≤-refl left-≤-max))
+      (snd rel p q right-≤-max right-≤-max)
+      (B-weaken hj (tail-of (f j) j q mj left-≤-max ≤-refl))
+    where
+    mi = mod (f i) i
+    mj = mod (f j) j
+    rel = reg (suc (suc n)) i j hi hj
+    p = max mi (fst rel)
+    q = max mj (fst rel)
+
+  limit-name : (f : ℕ → Name) → Regular f → Name
+  limit-name f reg = diagonal f , (λ n → suc (suc n)) , diagonal-tail f reg
+
+  limit : (f : ℕ → Name) → Regular f → Space
+  limit f reg = SQ.[ limit-name f reg ]
+
+  converges : (f : ℕ → Name) (reg : Regular f) (n i : ℕ) → suc (suc n) ≤ i
+            → At n (f i) (limit-name f reg)
+  converges f reg n i hi = max mi (suc (suc n)) , estimate
+    where
+    level = suc (suc n)
+    mi = mod (f i) level
+    estimate : (p q : ℕ) → max mi level ≤ p → max mi level ≤ q
+             → B n (seq (f i) p) (diagonal f q)
+    estimate p q hp hq = B-three n
+      (tail-of (f i) level p r (≤-trans left-≤-max hp) left-≤-max)
+      (snd rel r s right-≤-max right-≤-max)
+      (B-weaken q-bound (tail-of (f q) q s mq left-≤-max ≤-refl))
+      where
+      q-bound = ≤-trans right-≤-max hq
+      rel = reg level i q hi q-bound
+      mq = mod (f q) q
+      r = max mi (fst rel)
+      s = max mq (fst rel)
+
+-- A uniformly continuous map of cells extends to the completions, and the
+-- extension's modulus is the COMPOSITE of the two moduli: the cost of the
+-- map composed with the cost of the approximation, written down.
+module Extend (K L : Cell) (f : Pt K → Pt L) (modulus : ℕ → ℕ)
+  (uniform : (n : ℕ) (x y : Pt K)
+           → Metric.B K (modulus n) x y → Metric.B L n (f x) (f y)) where
+  module S = Completion K
+  module T = Completion L
+
+  map-name : S.Name → T.Name
+  map-name (s , m , t) = (λ n → f (s n)) , (λ n → m (modulus n))
+    , (λ n i j hi hj → uniform n (s i) (s j) (t (modulus n) i j hi hj))
+
+  modulus-composes : (s : S.Name) (n : ℕ) → T.mod (map-name s) n ≡ S.mod s (modulus n)
+  modulus-composes s n = refl
+
+  map-related : (s t : S.Name) → S.Related s t → T.Related (map-name s) (map-name t)
+  map-related s t = PT.rec PT.squash₁ λ p → ∣ (λ n →
+    fst (p (modulus n)) , λ i j hi hj →
+      uniform n (S.seq s i) (S.seq t j) (snd (p (modulus n)) i j hi hj)) ∣₁
+
+  extended : S.Space → T.Space
+  extended = SQ.rec SQ.squash/ (λ s → SQ.[ map-name s ])
+    (λ s t p → SQ.eq/ (map-name s) (map-name t) (map-related s t p))
+
+  extends-the-dense-map : (x : Pt K) → extended (S.embed x) ≡ T.embed (f x)
+  extends-the-dense-map x = T.same-point (map-name (S.point x)) (T.point (f x)) (λ _ → refl)
+
+-- lifting the identity is the identity (needed wherever one leg of a
+-- commuting square is trivial)
+extended-id : (K : Cell)
+  (u : (n : ℕ) (x y : Pt K) → Metric.B K n x y → Metric.B K n x y)
+  (x : Completion.Space K) → Extend.extended K K (λ z → z) (λ n → n) u x ≡ x
+extended-id K u = SQ.elimProp (λ _ → SQ.squash/ _ _) λ s →
+  Completion.same-point K (Extend.map-name K K (λ z → z) (λ n → n) u s) s (λ n → refl)
+
+-- A distance-preserving equivalence of cells is an identification of their
+-- completions: §1's law survives the limit.
+module Isometry (K L : Cell) (e : Pt K ≃ Pt L)
+  (pres : (x y : Pt K) → d L (equivFun e x) (equivFun e y) ≡ d K x y) where
+  module S = Completion K
+  module T = Completion L
+
+  fwd-u : (n : ℕ) (x y : Pt K) → S.B n x y → T.B n (equivFun e x) (equivFun e y)
+  fwd-u n x y = subst (O._≤ ε n) (sym (pres x y))
+
+  bwd-path : (x y : Pt L) → d L x y ≡ d K (invEq e x) (invEq e y)
+  bwd-path x y = cong₂ (d L) (sym (secEq e x)) (sym (secEq e y))
+               ∙ pres (invEq e x) (invEq e y)
+
+  bwd-u : (n : ℕ) (x y : Pt L) → T.B n x y → S.B n (invEq e x) (invEq e y)
+  bwd-u n x y = subst (O._≤ ε n) (bwd-path x y)
+
+  module F = Extend K L (equivFun e) (λ n → n) fwd-u
+  module G = Extend L K (invEq e)    (λ n → n) bwd-u
+
+  back-forth : (x : S.Space) → G.extended (F.extended x) ≡ x
+  back-forth = SQ.elimProp (λ _ → SQ.squash/ _ _) λ s →
+    S.same-point (G.map-name (F.map-name s)) s (λ n → retEq e (S.seq s n))
+
+  forth-back : (y : T.Space) → F.extended (G.extended y) ≡ y
+  forth-back = SQ.elimProp (λ _ → SQ.squash/ _ _) λ s →
+    T.same-point (F.map-name (G.map-name s)) s (λ n → secEq e (T.seq s n))
+
+  completion-equiv : S.Space ≃ T.Space
+  completion-equiv = isoToEquiv (iso F.extended G.extended forth-back back-forth)
+
+  completion-path : S.Space ≡ T.Space
+  completion-path = ua completion-equiv
+
+  -- and transport along it computes, at every point, by §1's uaβ
+  completion-transport : (x : S.Space) → transport completion-path x ≡ F.extended x
+  completion-transport = uaβ completion-equiv
+
+-- Commuting dense maps still commute after completion.  The four moduli
+-- may all differ; what is asserted is equality of represented points.
+module Square (C₁ C₂ C₃ C₄ : Cell)
+  (f : Pt C₁ → Pt C₂) (g : Pt C₁ → Pt C₃) (h : Pt C₂ → Pt C₄) (k : Pt C₃ → Pt C₄)
+  (mf mg mh mk : ℕ → ℕ)
+  (uf : (n : ℕ) (x y : Pt C₁) → Metric.B C₁ (mf n) x y → Metric.B C₂ n (f x) (f y))
+  (ug : (n : ℕ) (x y : Pt C₁) → Metric.B C₁ (mg n) x y → Metric.B C₃ n (g x) (g y))
+  (uh : (n : ℕ) (x y : Pt C₂) → Metric.B C₂ (mh n) x y → Metric.B C₄ n (h x) (h y))
+  (uk : (n : ℕ) (x y : Pt C₃) → Metric.B C₃ (mk n) x y → Metric.B C₄ n (k x) (k y))
+  (square : (a : Pt C₁) → h (f a) ≡ k (g a)) where
+  module F = Extend C₁ C₂ f mf uf
+  module G = Extend C₁ C₃ g mg ug
+  module H = Extend C₂ C₄ h mh uh
+  module J = Extend C₃ C₄ k mk uk
+  module S = Completion C₁
+  module T = Completion C₄
+
+  completed-square : (x : S.Space) → H.extended (F.extended x) ≡ J.extended (G.extended x)
+  completed-square = SQ.elimProp (λ _ → SQ.squash/ _ _) λ s →
+    T.same-point (H.map-name (F.map-name s)) (J.map-name (G.map-name s))
+      (λ n → square (S.seq s n))
+
+------------------------------------------------------------------------
+-- E  THE FOURIER SYMBOL.  The spatial operator of a single mode, over an
+-- arbitrary commutative ring: k × ·.  Three identities carry the physics
+-- — the square is −|k|², the operator is skew, and the curl of a curl is
+-- divergence-free — and the Schrödinger factorisation is `refl`.
+------------------------------------------------------------------------
+
+module Fourier {ℓ : Level} (R : CommRing ℓ) where
+  open Ring R public
+
+  Vec : Type ℓ
+  Vec = fst R × fst R × fst R
+
+  zeroV : Vec
+  zeroV = 0r , 0r , 0r
+  negV : Vec → Vec
+  negV (x , y , z) = negr x , negr y , negr z
+  scale : fst R → Vec → Vec
+  scale a (x , y , z) = a *r x , a *r y , a *r z
+  subV : Vec → Vec → Vec
+  subV (x , y , z) (u , v , w) = x -r u , y -r v , z -r w
+  dot : Vec → Vec → fst R
+  dot (x , y , z) (u , v , w) = (x *r u) +r ((y *r v) +r (z *r w))
+  cross : Vec → Vec → Vec
+  cross (x , y , z) (u , v , w) =
+    (y *r w) -r (z *r v) , (z *r u) -r (x *r w) , (x *r v) -r (y *r u)
+
+  pathV : {x y : Vec} → fst x ≡ fst y → fst (snd x) ≡ fst (snd y)
+        → snd (snd x) ≡ snd (snd y) → x ≡ y
+  pathV p q r = ΣPathP (p , ΣPathP (q , r))
+
+  -- the Laplacian in disguise: K² = −|k|² on the transverse subspace
+  cross-square : (k v : Vec) → cross k (cross k v) ≡ subV (scale (dot k v) k) (scale (dot k k) v)
+  cross-square (x , y , z) (u , v , w) = pathV (solve! R) (solve! R) (solve! R)
+  -- the operator is skew, hence its exponential is unitary
+  skew : (k v w : Vec) → dot (cross k v) w ≡ negr (dot v (cross k w))
+  skew (a , b , c) (x , y , z) (u , v , w) = solve! R
+  -- transversality is preserved, so the constraint is not an extra equation
+  divergence-curl : (k v : Vec) → dot k (cross k v) ≡ 0r
+  divergence-curl (x , y , z) (u , v , w) = solve! R
+  -- no energy flows out of a mode
+  energy-rate-zero : (k v : Vec) → dot v (cross k v) ≡ 0r
+  energy-rate-zero (x , y , z) (u , v , w) = solve! R
+  cross-neg : (k v : Vec) → cross k (negV v) ≡ negV (cross k v)
+  cross-neg (x , y , z) (u , v , w) = pathV (solve! R) (solve! R) (solve! R)
+  negV-zero : negV zeroV ≡ zeroV
+  negV-zero = pathV neg-zero neg-zero neg-zero
+  negV-negV : (v : Vec) → negV (negV v) ≡ v
+  negV-negV (x , y , z) = pathV (neg-neg x) (neg-neg y) (neg-neg z)
+
+  -- a complex field amplitude is an interdependent pair of real vectors:
+  -- §9's Pair, at ℚ³ instead of Bool
+  Fld : Type ℓ
+  Fld = Vec × Vec
+  zeroF : Fld
+  zeroF = zeroV , zeroV
+
+  quarterF : Fld → Fld          -- multiplication by i: §9's `turn`
+  quarterF (a , b) = negV b , a
+  generator : Vec → Fld → Fld   -- K = k × ·
+  generator k (a , b) = cross k a , cross k b
+  curlF : Vec → Fld → Fld       -- iK
+  curlF k (a , b) = negV (cross k b) , cross k a
+
+  -- MAXWELL IS SCHRÖDINGER AT ONE MODE, definitionally.
+  schrodinger-factorization : (k : Vec) (f : Fld) → quarterF (generator k f) ≡ curlF k f
+  schrodinger-factorization k f = refl
+
+  duality-natural : (k : Vec) (f : Fld) → generator k (quarterF f) ≡ quarterF (generator k f)
+  duality-natural k (a , b) = ΣPathP (cross-neg k b , refl)
+
+  quarterF-zero : quarterF zeroF ≡ zeroF
+  quarterF-zero = ΣPathP (negV-zero , refl)
+
+  quarterF⁴ : (f : Fld) → quarterF (quarterF (quarterF (quarterF f))) ≡ f
+  quarterF⁴ (a , b) = ΣPathP (negV-negV a , negV-negV b)
+
+------------------------------------------------------------------------
+-- F  THE OBJECT.  Not a parameter list: an actual infinite-dimensional
+-- space.  Cells are assembled from the scalar by product and list, the
+-- completion of §D is taken at that cell, and the operators of §E are
+-- lifted to it.  Everything below is about THIS space.
+------------------------------------------------------------------------
+
+module FS = Fourier ℚRing
+open FS using (Vec ; Fld ; zeroV ; zeroF ; negV ; cross ; quarterF ; generator ; curlF)
+
+cplxCell vecCell fldCell modeCell : Cell
+cplxCell = prodCell scalarCell scalarCell      -- ℚ × ℚ, one complex scalar
+vecCell  = prodCell scalarCell cplxCell        -- ℚ³
+fldCell  = prodCell vecCell vecCell            -- one complex Fourier coefficient
+modeCell = listCell fldCell                    -- finitely many coefficients
+
+module M = ListOf fldCell
+
+negV-dist : (u v : Vec) → d vecCell (negV u) (negV v) ≡ d vecCell u v
+negV-dist (a , b , c) (x , y , z) =
+  cong₂ Q._+_ (R.square-sub-neg a x) (cong₂ Q._+_ (R.square-sub-neg b y) (R.square-sub-neg c z))
+
+quarterF-dist : (x y : Fld) → d fldCell (quarterF x) (quarterF y) ≡ d fldCell x y
+quarterF-dist (a , b) (c , e) =
+  cong (Q._+ d vecCell a c) (negV-dist b e) ∙ Q.+Comm (d vecCell b e) (d vecCell a c)
+
+rotate : List Fld → List Fld
+rotate = map quarterF
+
+rotate-dist : (x y : List Fld) → d modeCell (rotate x) (rotate y) ≡ d modeCell x y
+rotate-dist = M.lift-isometry quarterF FS.quarterF-zero quarterF-dist
+
+rotate⁴ : (xs : List Fld) → rotate (rotate (rotate (rotate xs))) ≡ xs
+rotate⁴ []       = refl
+rotate⁴ (x ∷ xs) = cong₂ _∷_ (FS.quarterF⁴ x) (rotate⁴ xs)
+
+rotateEquiv : Pt modeCell ≃ Pt modeCell
+rotateEquiv = isoToEquiv (iso rotate (λ xs → rotate (rotate (rotate xs))) rotate⁴ rotate⁴)
+
+------------------------------------------------------------------------
+-- THE SPACE, and §10's phase loop on it.  `Amp` was ℤ²; this is the
+-- completed space of rational Fourier data, and the same quarter turn
+-- is a path from it to itself whose transport computes.
+------------------------------------------------------------------------
+
+rot-u : (n : ℕ) (x y : List Fld)
+      → Metric.B modeCell n x y → Metric.B modeCell n (rotate x) (rotate y)
+rot-u n x y = subst (O._≤ ε n) (sym (rotate-dist x y))
+
+id-u : (n : ℕ) (x y : List Fld) → Metric.B modeCell n x y → Metric.B modeCell n x y
+id-u n x y p = p
+
+module Mode = Completion modeCell
+
+Hilbert : Type
+Hilbert = Mode.Space
+
+module PhaseIso = Isometry modeCell modeCell rotateEquiv rotate-dist
+module Rot      = Extend modeCell modeCell rotate (λ n → n) rot-u
+
+completed-phase-loop : Hilbert ≡ Hilbert
+completed-phase-loop = PhaseIso.completion-path
+
+completed-phase-computes : (x : Hilbert) → transport completed-phase-loop x ≡ Rot.extended x
+completed-phase-computes = PhaseIso.completion-transport
+
+completed-phase-four : (x : Hilbert)
+  → Rot.extended (Rot.extended (Rot.extended (Rot.extended x))) ≡ x
+completed-phase-four = SQ.elimProp (λ _ → SQ.squash/ _ _) λ s →
+  Mode.same-point
+    (Rot.map-name (Rot.map-name (Rot.map-name (Rot.map-name s)))) s
+    (λ n → rotate⁴ (Mode.seq s n))
+
+-- the completed negation is the square of the quarter turn, exactly as on
+-- §9's pair, and it is an involution because the turn has order four
+negH : Hilbert → Hilbert
+negH x = Rot.extended (Rot.extended x)
+
+negH-involutive : (x : Hilbert) → negH (negH x) ≡ x
+negH-involutive = completed-phase-four
+
+-- reading one summand of a sum of nonnegative bounds
+left-of-sum : (a b c : ℚ) → 0 O.≤ b → (a Q.+ b) O.≤ c → a O.≤ c
+left-of-sum a b c hb h = O.isTrans≤ a (a Q.+ b) c
+  (subst (O._≤ (a Q.+ b)) (Q.+IdR a) (O.≤-o+ 0 b a hb)) h
+
+right-of-sum : (a b c : ℚ) → 0 O.≤ a → (a Q.+ b) O.≤ c → b O.≤ c
+right-of-sum a b c ha h = O.isTrans≤ b (a Q.+ b) c
+  (subst (O._≤ (a Q.+ b)) (Q.+IdL b) (O.≤-+o 0 a b ha)) h
+
+------------------------------------------------------------------------
+-- THE OPERATORS.  An unbounded operator is not a map of the space; it is
+-- a map out of its GRAPH, and the graph is a cell too (§C), so the same
+-- completion applies to it.  Teschl, Mathematical Methods in Quantum
+-- Mechanics (2009), §2.2: closure of the graph and the graph norm.
+------------------------------------------------------------------------
+
+module Waves (wave : ℕ → ℤ × ℤ × ℤ) where
+
+  waveQ : ℕ → Vec
+  waveQ n = Q.[ fst (wave n) / 1+ 0 ]
+          , Q.[ fst (snd (wave n)) / 1+ 0 ]
+          , Q.[ snd (snd (wave n)) / 1+ 0 ]
+
+  gen : ℕ → List Fld → List Fld
+  gen n []       = []
+  gen n (x ∷ xs) = generator (waveQ n) x ∷ gen (suc n) xs
+
+  crl : ℕ → List Fld → List Fld
+  crl n []       = []
+  crl n (x ∷ xs) = curlF (waveQ n) x ∷ crl (suc n) xs
+
+  -- MAXWELL IS SCHRÖDINGER, coefficient by coefficient
+  crl-is-phase-gen : (n : ℕ) (xs : List Fld) → rotate (gen n xs) ≡ crl n xs
+  crl-is-phase-gen n []       = refl
+  crl-is-phase-gen n (x ∷ xs) =
+    cong₂ _∷_ (FS.schrodinger-factorization (waveQ n) x) (crl-is-phase-gen (suc n) xs)
+
+  gen-commutes-with-phase : (n : ℕ) (xs : List Fld) → gen n (rotate xs) ≡ rotate (gen n xs)
+  gen-commutes-with-phase n []       = refl
+  gen-commutes-with-phase n (x ∷ xs) =
+    cong₂ _∷_ (FS.duality-natural (waveQ n) x) (gen-commutes-with-phase (suc n) xs)
+
+  K : List Fld → List Fld      -- the spatial operator
+  K = gen zero
+  iK : List Fld → List Fld     -- its quarter turn: the time derivative
+  iK = crl zero
+
+  grCell : Cell
+  grCell = graphCell modeCell K
+
+  module Dom = Completion grCell
+
+  Domain : Type
+  Domain = Dom.Space
+
+  -- the graph ball controls both coordinates, so each is readable off it
+  gr-left : (n : ℕ) (x y : List Fld) → Metric.B grCell n x y → Metric.B modeCell n x y
+  gr-left n x y = left-of-sum (M.ld x y) (M.ld (K x) (K y)) (ε n) (M.ld-pos (K x) (K y))
+
+  gr-right : (n : ℕ) (x y : List Fld) → Metric.B grCell n x y → Metric.B modeCell n (K x) (K y)
+  gr-right n x y = right-of-sum (M.ld x y) (M.ld (K x) (K y)) (ε n) (M.ld-pos x y)
+
+  iK-dist : (x y : List Fld) → d modeCell (iK x) (iK y) ≡ d modeCell (K x) (K y)
+  iK-dist x y = cong₂ (d modeCell) (sym (crl-is-phase-gen zero x)) (sym (crl-is-phase-gen zero y))
+              ∙ rotate-dist (K x) (K y)
+
+  gr-curl : (n : ℕ) (x y : List Fld) → Metric.B grCell n x y → Metric.B modeCell n (iK x) (iK y)
+  gr-curl n x y p = subst (O._≤ ε n) (sym (iK-dist x y)) (gr-right n x y p)
+
+  -- the quarter turn is an isometry of the GRAPH as well, because it
+  -- commutes with the operator
+  rotD-dist : (x y : List Fld) → d grCell (rotate x) (rotate y) ≡ d grCell x y
+  rotD-dist x y = cong₂ Q._+_ (rotate-dist x y)
+    (cong₂ (d modeCell) (gen-commutes-with-phase zero x) (gen-commutes-with-phase zero y)
+     ∙ rotate-dist (K x) (K y))
+
+  rotD-u : (n : ℕ) (x y : List Fld) → Metric.B grCell n x y → Metric.B grCell n (rotate x) (rotate y)
+  rotD-u n x y = subst (O._≤ ε n) (sym (rotD-dist x y))
+
+  module Curl  = Extend grCell   modeCell iK     (λ n → n) gr-curl
+  module Gen   = Extend grCell   modeCell K      (λ n → n) gr-right
+  module Incl  = Extend grCell   modeCell (λ x → x) (λ n → n) gr-left
+  module RotD  = Extend grCell   grCell   rotate (λ n → n) rotD-u
+
+  module Sch  = Square grCell modeCell modeCell modeCell
+                  K iK rotate (λ x → x)
+                  (λ n → n) (λ n → n) (λ n → n) (λ n → n)
+                  gr-right gr-curl rot-u id-u
+                  (crl-is-phase-gen zero)
+  module Dual = Square grCell grCell modeCell modeCell
+                  rotate K K rotate
+                  (λ n → n) (λ n → n) (λ n → n) (λ n → n)
+                  rotD-u gr-right gr-right rot-u
+                  (gen-commutes-with-phase zero)
+
+  -- ON THE COMPLETED SPACE: the time derivative is the quarter turn of
+  -- the spatial operator.  This is Maxwell ≡ Schrödinger, at an object.
+  completed-schrodinger : (x : Domain) → Rot.extended (Gen.extended x) ≡ Curl.extended x
+  completed-schrodinger x = Sch.completed-square x ∙ extended-id modeCell id-u (Curl.extended x)
+
+  completed-duality : (x : Domain) → Gen.extended (RotD.extended x) ≡ Rot.extended (Gen.extended x)
+  completed-duality = Dual.completed-square
+
+------------------------------------------------------------------------
+-- G  THE EQUATIONS, at the object.
+------------------------------------------------------------------------
+
+module Physics (wave : ℕ → ℤ × ℤ × ℤ) where
+  open Waves wave
+
+  -- THE INSTANCE.  Values in the completed space; operators the actual
+  -- Fourier cross product and its quarter turn; negation the square of
+  -- the quarter turn.  No parameter is left open.
+  module Eq = Field {D = Domain} {V = Hilbert} SQ.squash/ negH negH-involutive
+                      Curl.extended Gen.extended
+
+  -- every field in the domain, paired with its quarter turn, solves them
+  solution : Domain → Σ Eq.Fl Eq.Maxwell
+  solution E = (E , RotD.extended E)
+    , sym (completed-duality E ∙ completed-schrodinger E)
+    , sym (completed-schrodinger (RotD.extended E))
+      ∙ cong Rot.extended (completed-duality E)
+
+  schrodinger-solution : Domain → Σ Eq.Fl Eq.Schrodinger
+  schrodinger-solution E = transport Eq.maxwell≡schrodinger (solution E)
+
+------------------------------------------------------------------------
+-- H  THE COMPLETION RETAINS A DISTINCTION.  Set-quotient effectivity
+-- turns equality of completed points back into the approximation data,
+-- and a single rational bound then separates two points.  Constructive
+-- apartness, from the quotient itself — a setoid cannot state this.
+------------------------------------------------------------------------
+
+unitMode : List Fld
+unitMode = ((1 , 0 , 0) , (0 , 0 , 0)) ∷ []
+
+distance-unit : d modeCell [] unitMode ≡ 1
+distance-unit = Q.eq/ _ _ refl
+
+quarter<1 : quarterQ O.< 1
+quarter<1 = 2 , refl
+
+apart : ¬ (Mode.embed [] ≡ Mode.embed unitMode)
+apart p = PT.rec (λ ()) contra
+  (Mode.effective (Mode.point []) (Mode.point unitMode) p)
+  where
+  contra : Mode.CloseTo (Mode.point []) (Mode.point unitMode) → ⊥
+  contra close = O.isIrrefl< 1 (O.isTrans≤< 1 quarterQ 1
+    (subst2 O._≤_ distance-unit (Q.·IdR quarterQ)
+      (snd (close 1) (fst (close 1)) (fst (close 1)) ≤-refl ≤-refl))
+    quarter<1)
+
+------------------------------------------------------------------------
+-- §14  THE MACHINE.  §1 at a step function: the ordinary irreversible
 -- step is the visible projection of its completion, §2 says that
 -- completion is unique, and therefore finding and checking are the two
 -- directions of one equivalence with nothing between them.  Nothing here
@@ -734,7 +1590,7 @@ routes-through-ℕ-are-identified : {m n : ℕ} (p q : m ≡ n) → p ≡ q
 routes-through-ℕ-are-identified = forgetful-is-blind isSetℕ
 
 ------------------------------------------------------------------------
--- §14  WHAT IS NOT ESTABLISHED, said here because a development that
+-- §15  WHAT IS NOT ESTABLISHED, said here because a development that
 -- lists only its theorems has dropped half its witness.
 --
 --   * Univalence transports a PROVED equivalence.  It does not turn a
@@ -747,9 +1603,25 @@ routes-through-ℕ-are-identified = forgetful-is-blind isSetℕ
 --     protocols and adversaries are not modelled.
 --   * Nothing here says a trace is small, cheap to store, or safe to
 --     transmit.  It says what it is.
---   * §12 is stated for an abstract V with an abstract ∂t and curl.  The
---     analytic content of a particular field theory — domains, moduli,
---     completeness — is not supplied by the identification.
+--   * §13 completes the RATIONAL scale.  Its points are limits of finite
+--     rational Fourier data with explicit moduli; ℝ is never constructed
+--     and no classical completeness (least upper bounds, compactness) is
+--     available or claimed.
+--   * §13's operators are the Fourier symbol k × · and its quarter turn.
+--     The one-parameter group they generate — exp(c t K), and with it the
+--     frequency |k| and any statement about evolution in continuous time
+--     — is NOT constructed.  What is proved is the algebraic identity at
+--     each mode, that it survives completion, and that the two readings
+--     of it are the same type.
+--   * The transversality constraint k · a = 0 is proved to be preserved
+--     (`divergence-curl`) but is not imposed: §13's space is all finite
+--     rational coefficient data, not the transverse subspace.
+--   * §13's domain is the completion of the operator's GRAPH.  That this
+--     is a subspace of the completed field — closability, that the input
+--     coordinate determines the output — is not proved here.
+--   * §12's identification is about specifications.  It does not assert
+--     that solutions exist for given data; §13 exhibits one family of
+--     them (a field and its quarter turn) and nothing more.
 --   * effects, capability, disclosure, authority, verifier correctness,
 --     protocol security, revocation, privacy accounting, specification
 --     adequacy: none is a corollary of a transport law, and none appears.
