@@ -380,8 +380,15 @@ against the built checker rather than argued:
   functions with its positivity condition, and the guarded self-call are
   stated, not proved. Canonicity for full CCHM is Huber's thesis, and no
   language ships with it for its own core; what is missing here is the
-  delimited version -- determinism and subject reduction for the fragment
-  §6 already states -- not the open problem.
+  delimited version, not the open problem -- and half of that is now
+  carried: **§7 proves the fragment's reduction deterministic**, with a
+  premise the specification had left implicit. Two faces of one system may
+  both hold, and `hcm_face` / `glu_face` / `gle_face` then select two
+  different bodies, so `Step` is a function only if systems are coherent
+  (faces that both hold carry the same body). The checker enforces that;
+  §6 did not say it. Every case of the proof that needs the premise is a
+  system case, and every other rule is deterministic outright. Subject
+  reduction for the fragment is still open here.
 - The emitter is not a term of the language: ownership is now decided by
   kinds for reads, but sealing still relies on the hot walk, and the
   lowering as a whole is trusted, not proved.
