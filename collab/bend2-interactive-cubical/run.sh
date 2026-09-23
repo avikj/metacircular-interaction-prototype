@@ -1,7 +1,8 @@
 #!/bin/bash
 # Builds the cubical Bend/HVM fork from scratch and runs its suite.
 #
-# Clones DKormann/Bend2 at the pinned commit, applies cubical-paths.patch,
+# Clones DKormann/Bend2 at the pinned commit, applies cubical-paths.patch
+# and glue-emit.patch,
 # clones HVM3 as a local package with the one include fix it needs, builds
 # with GHC 9.12.2, and runs suite.sh (112 .bend files; the registered
 # must-fail probes must each be rejected).
@@ -63,6 +64,10 @@ cd "$WORK/Bend2"
 git checkout -q $UPSTREAM
 git checkout -q -- .
 git apply "$HERE/cubical-paths.patch"
+# glue-emit.patch is kept separate on purpose: it is the change that lets a
+# univalence path written the CCHM way (a Glue line) reach the runtime, and
+# a reviewer should be able to read it without reading 7,000 lines first.
+git apply "$HERE/glue-emit.patch"
 # keep upstream's hs-highlight source-repository (HVM3 needs >=1.0.5, which
 # is not on Hackage); replace only the HVM3 entry with the patched local copy
 cat > cabal.project <<EOF

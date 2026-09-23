@@ -1,0 +1,71 @@
+diff --git a/src/Core/WHNF.hs b/src/Core/WHNF.hs
+--- a/src/Core/WHNF.hs
++++ b/src/Core/WHNF.hs
+@@ -1413,6 +1413,14 @@
+         pa <- lineRep a
+         pb <- lineRep (b depMarker)
+         Just (cubSig pa pb)
++      -- A CCHM univalence line
++      --   Glue(B, [(inot i, A, e), (i, B, idEquiv B)])
++      -- carries exactly the two maps the runtime pair is made of, so read
++      -- them off the equivalence on the face that is not the marker's own
++      -- endpoint. Without this case `ua` can only reach the runtime as the
++      -- primitive Ua, which is the only reason that primitive still exists.
++      Glu b fs | Just e <- uaGlueFace b fs ->
++        Just (cubPair (equivFun e) (equivInv e))
+       HCm a0 fs base | Set <- cut a0 -> case [ (p, u) | (p, u) <- fs, isMarkerFace p ] of
+         [(_, u)] | not (occursMarker u), all constTube [ u0 | (p, u0) <- fs, not (isMarkerFace p) ] -> do
+           pb <- lineRep base
+@@ -1421,6 +1429,22 @@
+         _ -> Nothing
+       _ -> Nothing
+   where
++    -- exactly the two-face ua shape, in either order, with the dimension
++    -- appearing nowhere but the two faces: one `inot i` carrying the
++    -- equivalence, one `i` carrying the identity on the base.
++    uaGlueFace b fs
++      | not (occursMarker b)
++      , [(pn, tn, en), (pp, tp, ep)] <- ordered fs
++      , isNotMarker pn, isMarkerFace pp
++      , not (any occursMarker [tn, en, tp, ep])
++      = Just en
++      | otherwise = Nothing
++    ordered fs = case fs of
++      [f1@(p1,_,_), f2] | isMarkerFace p1 -> [f2, f1]
++      _                                   -> fs
++    isNotMarker p = case cut p of
++      INot v -> isCoeMarker (cut v)
++      _      -> False
+     isMarkerFace p = case cut p of { Var "__coe_i__" (-1) -> True; _ -> False }
+     constTube u = case cut u of
+       PLm _ f -> let b = f depMarker in not (occursDep b) && not (occursMarker b)
+diff --git a/src/Target/HVM4.hs b/src/Target/HVM4.hs
+--- a/src/Target/HVM4.hs
++++ b/src/Target/HVM4.hs
+@@ -184,6 +184,11 @@
+     All _ _     -> True
+     Sig _ _     -> True
+     HCm a _ _   -> case cut a of { Set -> True; _ -> False }
++    -- A Glue line is a universe line too. Without this it fell to the
++    -- erasing branch below, so a univalence path written the CCHM way
++    -- emitted as an EMPTY superposition -- silently, which is the one
++    -- outcome the strict emitter exists to prevent.
++    Glu _ _     -> True
+     _           -> False
+ 
+   -- Function position of an application: atomic heads print bare; any
+diff --git a/src/Target/HVM.hs b/src/Target/HVM.hs
+--- a/src/Target/HVM.hs
++++ b/src/Target/HVM.hs
+@@ -246,6 +246,11 @@
+   All _ _     -> True
+   Sig _ _     -> True
+   HCm a _ _   -> case cut a of { Set -> True; _ -> False }
++  -- A Glue line is a universe line too. Without this it fell to the erasing
++  -- branch, so a univalence path written the CCHM way emitted as an empty
++  -- superposition -- silently, which is the one outcome this emitter exists
++  -- to prevent.
++  Glu _ _     -> True
+   _           -> False
+ 
+ -- a path lambda whose body is a type former is a constant line in Set:
