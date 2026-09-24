@@ -39,4 +39,17 @@ for f in *.bend; do
     { [ "$ko" -eq 0 ] && [ "$ok" -ge 1 ]; } || { echo "FAIL $nm ok=$ok ko=$ko"; bad=$((bad+1)); }
   fi
 done
+
+# Language-level conductive bridge: this source has no fibre import/call.
+# The full target itself must attach the canonical lossless process.
+cond_tmp=$(mktemp)
+if timeout 300 "$BEND" conductive_entry_smoke.bend --to-hvm4-full >"$cond_tmp" 2>/dev/null \
+   && python3 check_conductive_entry.py "$cond_tmp" >/dev/null; then
+  echo "CONDUCTIVE-ENTRY OK"
+else
+  echo "FAIL conductive compiler entry"
+  bad=$((bad+1))
+fi
+rm -f "$cond_tmp"
+
 echo "files=$n bad=$bad"; [ "$bad" -eq 0 ]
