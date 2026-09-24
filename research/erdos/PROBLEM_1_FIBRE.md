@@ -1,3 +1,10 @@
+> **Negative benchmark only.** This bounded experiment deliberately fixes `N=7,n=3`,
+> compiles the problem to CNF, and materializes the complete satisfying model fibre.
+> Its 15,001-node heap is a cost of that finite SAT/model-enumeration presentation;
+> it is not evidence about the universal Erdős proposition or universal cubical
+> inference. Do not use this file as the architecture for Problem 1. The direct
+> dependent proposition is `collab/bend2-interactive-cubical/erdos1/Problem1Statement.bend`.
+
 # Erdős Problem 1: bounded fibre execution
 
 ## Source statement
