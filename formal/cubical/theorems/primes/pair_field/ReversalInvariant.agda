@@ -137,7 +137,7 @@ pal₃ = refl
 ¬pal-w₂ p = false≢true (cons-inj₁ p)
 
 ------------------------------------------------------------------------
--- Successor seed (not attempted here): the same trichotomy —
+-- Successor seed: the same trichotomy —
 -- involution / blind observables / fixed locus — for the pair field's
 -- r ↦ −r.  There the involution is negation on the offset coordinate,
 -- the blind observables are the even data (|r|, r², the wedge-norm),

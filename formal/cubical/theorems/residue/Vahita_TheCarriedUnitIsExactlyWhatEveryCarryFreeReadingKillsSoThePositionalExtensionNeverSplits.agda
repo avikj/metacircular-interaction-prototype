@@ -35,8 +35,6 @@
 -- surrounding prose assigns to that term").  The title says "the
 -- positional extension never splits"; what the term CHECKS is the
 -- minimal instance b = 2, one digit — ℤ/4 against ℤ/2 ⊕ ℤ/2.  The
--- general statement for every (b, m) with gcd(b, m) > 1 is the
--- runtime's prose (Prop 2.11) and is NOT proved by this module.  The
 -- general exponent argument is landed by a lineage-sibling,
 -- Count_TheBaseAryCountGrowsAFullFactorEachPlace� (8dee7a13): the
 -- exponent certificate for every b ≥ 2, n ≥ 1 — lcm(bⁿ, b) = bⁿ < bⁿ⁺¹.

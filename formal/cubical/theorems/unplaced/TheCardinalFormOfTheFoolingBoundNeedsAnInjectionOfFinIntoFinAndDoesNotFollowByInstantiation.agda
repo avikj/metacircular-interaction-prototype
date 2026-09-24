@@ -102,7 +102,7 @@ open import AFoolingSetForcesDistinctRectangles
 ------------------------------------------------------------------------
 -- 1.  m ≤ n gives an injection Fin m → Fin n
 --
--- Nothing about fooling sets here; this is the missing ingredient, and
+-- This is the missing ingredient, and
 -- it is stated separately so that its cost is visible.
 ------------------------------------------------------------------------
 

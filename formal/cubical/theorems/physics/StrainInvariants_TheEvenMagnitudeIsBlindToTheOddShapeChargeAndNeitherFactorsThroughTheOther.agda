@@ -35,7 +35,7 @@
 -- Navier–Stokes is invariant under u ↦ −u, which is S ↦ −S on strain;
 -- §1 and §3 say such an estimate is provably blind to the sign of the
 -- enstrophy production, whose integral on the torus is −4∫det S
--- (Betchov's identity — an integration by parts, NOT proved here).
+-- (Betchov's identity — an integration by parts).
 --
 -- SYĀT — THE CLAIM, EXACTLY.  Ring identities and two-point witnesses over
 -- ℤ.  No matrices as a type, no eigenvalues, no SO(3), no integral, no

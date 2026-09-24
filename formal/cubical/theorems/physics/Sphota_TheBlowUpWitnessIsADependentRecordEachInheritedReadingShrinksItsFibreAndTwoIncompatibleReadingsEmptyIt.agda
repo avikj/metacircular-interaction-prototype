@@ -10,7 +10,7 @@
 -- estimate" into "carry every inherited property and find two that
 -- cannot coexist" — with the analytic inputs it needs isolated as the
 -- fields of one record.  What is proved here is proved for any
--- candidate type and any readings; what is not proved is named exactly.
+-- candidate type and any readings.
 --
 --   §1  THE DEPENDENT WITNESS.  A boundary witness is a candidate U with
 --       a family of inherited readings.  Adding a reading maps the

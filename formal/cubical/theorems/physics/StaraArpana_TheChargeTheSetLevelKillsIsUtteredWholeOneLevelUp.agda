@@ -28,8 +28,7 @@
 -- The word-pair arpita/anarpita is Umsvti, Tattvrthastra 5.31
 -- (अर्पितानर्पितसिद्धेः — establishment from the emphasized and the
 -- non-emphasized), taken as the READING of standpoint-graded
--- establishment; the stra is not claimed to grade truncations by
--- h-level.  The stratum grading is this repository's statement.
+-- establishment.  The stratum grading is this repository's statement.
 --
 -- Composed through नाडी against the warm kernel.
 ------------------------------------------------------------------------

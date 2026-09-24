@@ -134,7 +134,6 @@ join-cannot-forget (b ∷ bs) (x , xs) (y , ys) (z , zs) p i =
 --   laws the walk’s own state space carries, exactly one has it — the
 --   one whose states are ratios.
 --
--- The general principle this suggests, that bounded state requires a
--- group law, is not proved here and is not asserted.  Three instances and
+-- Three instances and
 -- two independent obstructions are what the file contains.
 ------------------------------------------------------------------------

@@ -144,7 +144,7 @@ detHom = detUT , monoidequiv detUT-id detConserve
 -- (d) The sector witness for the full-matrix contrast
 --
 -- Over ℤ, det [[a,b],[c,d]] = a·d − b·c.  Over ℕ that subtraction is
--- unavailable, so a full-matrix det is not stated here at all.  The
+-- unavailable.  The
 -- checked fact below is the upper-triangular witness: in this sector
 -- c = 0, so the term the subtraction would remove is already zero,
 -- and the ℤ-determinant restricted to the sector IS the

@@ -67,13 +67,6 @@
 -- sublist of fam d k, L2), and WalkForcing.coprime-divisors-multiply
 -- closes.  No lcm is constructed anywhere; `lcmList` appears only as a
 -- witness in L1 and in the instances.
---
--- WHAT IS NOT PROVED HERE.  The note's §1 Nerode corollary — that
--- profile_S(a) = profile_S(b) iff lcm(S) ∣ (a−b), i.e. that S ↦ lcm(S)
--- is the quotient by observational equivalence — is not formalised.
--- Nor is the §3 identification of this divisor lattice with the
--- codex-catuskoti divisor-lattice frontier (co-atoms, 1 + π(k) points).
--- Only the §2 Theorem, the "interior" row, is proved.
 ------------------------------------------------------------------------
 
 module Antarala_EveryDivisorOfTheCapacityIsTheLcmOfASensorFamilyBelowTheFrontierSoTheReachableStatesAreExactlyTheDivisorLatticeOfTheCapacity where

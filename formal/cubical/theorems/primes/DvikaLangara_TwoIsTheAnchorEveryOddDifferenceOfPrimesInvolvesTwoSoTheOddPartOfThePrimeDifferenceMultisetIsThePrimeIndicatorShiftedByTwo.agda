@@ -39,11 +39,7 @@
 --
 -- So the odd part of the prime difference multiset IS the prime indicator
 -- shifted by two, and the note's O(D) reconstruction reads the primes off
--- it exactly.  This is the arithmetic half of the corollary.  What is NOT
--- here: the set-rigidity layers (an arbitrary B with c_B = c_{P_X} is a
--- translate or reflection), which live in ParityRigidity.lean's `core`
--- and `rigidity_normalized` and whose translation bookkeeping neither
--- lane has.  Nothing about that is claimed.
+-- it exactly.  This is the arithmetic half of the corollary.
 --
 -- Checked at the pin (Agda 2.8.0, agda/cubical v0.9, --safe).  No
 -- postulates, no holes.
