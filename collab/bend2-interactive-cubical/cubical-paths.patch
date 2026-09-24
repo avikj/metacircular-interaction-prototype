@@ -4727,6 +4727,19 @@ index 953410d..3af8583 100644
 +-- proof-relevant native event when one exists.
 +whnfViaStep :: EvalLevel -> Book -> Term -> Term
 +whnfViaStep lv book t = maybe (whnfGo lv book t) stepEnd (nativeStep lv book t)
++
++-- Productive native execution.  The list is lazy: finite normalization yields
++-- a finite derivation; divergence is represented by a productive infinite
++-- stream of native motions rather than by a separate meta-level search.
++nativeRun :: EvalLevel -> Book -> Term -> [NativeStep]
++nativeRun lv book t = case nativeStep lv book t of
++  Nothing -> []
++  Just s  -> s : nativeRun lv book (stepTarget s)
++
++nativeDerivation :: EvalLevel -> Book -> Term -> NativeDerivation
++nativeDerivation lv book t = case nativeStep lv book t of
++  Nothing -> NativeDone t
++  Just s  -> NativeThen s (nativeDerivation lv book (stepTarget s))
  
  import System.IO.Unsafe
  import Data.IORef
