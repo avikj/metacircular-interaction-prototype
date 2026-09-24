@@ -60,7 +60,7 @@ jobs:
           source "$RUNNER_TEMP/conductive-build/env.sh"
           cd research/sat_fibre
           "$BEND" SATProcess.bend --to-hvm4-full > "$RUNNER_TEMP/SATProcess.hvm4"
-          grep -q '^@__whole_main = @__fibreCoalgebra' "$RUNNER_TEMP/SATProcess.hvm4"
+          grep -q '^@conductiveWholeMain = @cfCoalgebra' "$RUNNER_TEMP/SATProcess.hvm4"
           "$HVM" "$RUNNER_TEMP/SATProcess.hvm4" -s | tee "$RUNNER_TEMP/sat-runtime.log"
 
       - name: Retain exact generated/runtime evidence
