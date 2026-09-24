@@ -1,3 +1,17 @@
+# IMPORTANT: THIS IS A NEGATIVE EXAMPLE, NOT THE UNIVERSAL-FIBRE SOLVER.
+#
+# The implementation below explicitly constructs Word[] by branching over the
+# move alphabet, then constructs candidate lists and folds them.  That expands
+# the free-word presentation (roughly |M|^d) BEFORE cubical identity/factorization
+# can identify equivalent action histories.  Heap blow-up here therefore measures
+# this enumeration encoding, not the complexity of the universal cubical machine.
+#
+# Correct architecture: represent the Rubik action/group, its move equivalences
+# and unit cost as the mathematical object; state the dependent diameter witness
+# directly (attaining state/path + leastness + global maximality); let universal
+# cubical inference/factorization operate on that object.  Do not generate Word[].
+# Keep this file only as an explicit record of the failed enumeration approach.
+
 import RubiksFamily
 import FibreCoalgebra
 
