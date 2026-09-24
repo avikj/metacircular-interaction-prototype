@@ -35,7 +35,7 @@ def meaning(A: Set, x: A, y: A,
     case @then{mid,step,rest}:
       compPath(A,x,mid,y,nativePath(A,x,mid,step),meaning(A,mid,y,rest))
 
-# Cost is a receiver of the same derivation.
+# Structural length is a receiver; exact HVM interaction cost is lower-level.
 def structuralLength(A: Set, x: A, y: A,
          d: Derivation(A,NativeMotion(A),x,y)) -> Nat:
   derivationLengthReading(A,NativeMotion(A),x,y,d)
@@ -45,4 +45,4 @@ def observeEndpoint(A: Set, B: Set, f: A -> B, x: A) -> FibreElement(A,B,f):
   presentMap(A,B,f,x)
 
 def main() -> Nat:
-  cost(Nat,2n,2n,nativeDerivation(Nat,2n,2n,fromPath(Nat,2n,2n,<_> 2n)))
+  structuralLength(Nat,2n,2n,nativeDerivation(Nat,2n,2n,fromPath(Nat,2n,2n,<_> 2n)))
