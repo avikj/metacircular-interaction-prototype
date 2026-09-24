@@ -47,3 +47,12 @@ if "$BEND" "$HERE/gate_mustfail.bend" --to-hvm4-full > "$TMP/gate.hvm4" 2>/dev/n
 fi
 [ ! -s "$TMP/gate.hvm4" ] || { echo "ill-typed input produced output" >&2; exit 1; }
 echo "CHECK-GATE OK"
+
+# Refuse, never miscompile: a well-typed cell the emitter cannot yet lower
+# exactly (unary `not` needs its operand's type) yields no program at all.
+if "$BEND" "$HERE/emit_refuses_unary_not.bend" --to-hvm4-full > "$TMP/refuse.hvm4" 2>/dev/null; then
+  echo "unary not was emitted" >&2
+  exit 1
+fi
+[ ! -s "$TMP/refuse.hvm4" ] || { echo "refused emission left partial output" >&2; exit 1; }
+echo "REFUSE-NOT-MISCOMPILE OK"

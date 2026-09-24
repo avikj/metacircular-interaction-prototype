@@ -183,7 +183,7 @@ class Reader {
     const bits=[]; let n=0;
     for (;;) {
       this.ws();
-      if (this.s.startsWith('#Nil',this.p)) { this.p+=4; break; }
+      if (this.s.startsWith('#Nil',this.p)) { this.p+=4; if (this.s.startsWith('{}',this.p)) this.p+=2; break; }
       this.take('#Con'); this.take('{'); this.ws();
       const b=this.s[this.p++]; requireThat(b==='0'||b==='1','non-Boolean or unresolved bit in native output');
       bits.push(Number(b)); this.take(','); ++n;
@@ -208,13 +208,17 @@ export function validateHeader(job,header) {
 }
 function readText(file) { requireThat(fs.statSync(file).size<=128*1024*1024,'output exceeds parser memory cap; raw output retained'); return stripAnsi(fs.readFileSync(file,'utf8')); }
 function checkNoise(noise) {
-  for(const line of noise.split('\n').map(x=>x.trim()).filter(Boolean)) {
+  // `-C` prints each collapsed result followed by its interaction count, `#N`
+  for(const line of noise.split('\n').map(x=>x.trim()).filter(x=>x&&!/^#\d+$/.test(x))) {
     requireThat(/^[-=]/.test(line) && !/error|fail|stuck|invalid|usage/i.test(line),'unexpected runtime output: '+line.slice(0,160));
   }
 }
+// The full runtime's root is the checked entry as its typed point (A, a);
+// the gate's entry is `main : Bool[]`.
+const GATE_POINT='#Pair{#List{#Bool{}},';
 export function verifyGate(text) {
-  const s=stripAnsi(text), start=s.indexOf('#Con'); requireThat(start>=0,'native gate returned no Boolean list');
-  const r=new Reader(s); r.p=start; const bs=r.bits();
+  const s=stripAnsi(text), start=s.indexOf(GATE_POINT); requireThat(start>=0,'native gate returned no Bool[] point');
+  const r=new Reader(s); r.p=start+GATE_POINT.length; const bs=r.bits(); r.take('}');
   requireThat(bs.length===6&&bs.every(b=>b===1),'native SHA/Bitcoin/transport conformance gate failed');
   checkNoise(s.slice(0,start)+'\n'+s.slice(r.p)); return bs;
 }

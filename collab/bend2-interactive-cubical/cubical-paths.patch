@@ -2106,7 +2106,7 @@ index 939a19f..d318a1f 100644
    Sup l a b  -> Sup (binder lv l ctx vars) (binder lv a ctx vars) (binder lv b ctx vars)
    SupM x l f -> SupM (binder lv x ctx vars) (binder lv l ctx vars) (binder lv f ctx vars)
 diff --git a/src/Core/CLI.hs b/src/Core/CLI.hs
-index f94d1ce..dea0245 100644
+index f94d1ce..23138e7 100644
 --- a/src/Core/CLI.hs
 +++ b/src/Core/CLI.hs
 @@ -5,6 +5,10 @@ module Core.CLI
@@ -2125,7 +2125,7 @@ index f94d1ce..dea0245 100644
  import System.Process (readProcessWithExitCode)
  import System.Exit (ExitCode(..))
 -import Control.Exception (catch, IOException)
-+import Control.Exception (catch, finally, IOException)
++import Control.Exception (catch, finally, evaluate, IOException)
 +import GHC.IO.Handle (hDuplicate, hDuplicateTo)
 +import System.IO (stdout, stderr, hFlush)
  
@@ -2279,7 +2279,7 @@ index f94d1ce..dea0245 100644
  -- | List all dependencies of a Bend file (including transitive dependencies)
  listDependencies :: FilePath -> IO ()
  listDependencies file = do
-@@ -135,7 +217,36 @@ listDependencies file = do
+@@ -135,7 +217,39 @@ listDependencies file = do
  
  -- | Collect all refs from a Book
  collectAllRefs :: Book -> S.Set Name
@@ -2315,7 +2315,10 @@ index f94d1ce..dea0245 100644
 +  saved <- hDuplicate stdout
 +  hDuplicateTo stderr stdout
 +  checkDefinitions book `finally` (hFlush stdout >> hDuplicateTo saved stdout)
-+  putStrLn (HVM4Full.compileFull book)
++  -- emit all or nothing: a refused cell must not leave a partial program
++  let prog = HVM4Full.compileFull book
++  _ <- evaluate (length prog)
++  putStrLn prog
 +
 diff --git a/src/Core/Check.hs b/src/Core/Check.hs
 index cdd6756..40fc69f 100644

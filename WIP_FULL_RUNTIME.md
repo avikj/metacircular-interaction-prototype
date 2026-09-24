@@ -73,8 +73,8 @@ contractible (§7, `fibre-of-run`); cost is the net's own interaction count.
 | # | Phase | State |
 |---|---|---|
 | P1 | Seam: check gate, no deleted cells, types emitted, typed-point root, remove companions/bootstrap | done (commit 1) |
-| P2 | Fix breakages from P1 (mining gate reader, `sat_fibre.bend` `not`) | next |
-| P3 | Diamond audit: classify every HVM4 primitive rule the emitter can reach; rewrite emission so only diamond rules are used (explicit erasure, demand in state) | todo |
+| P2 | Fix breakages from P1 (mining gate reader, `sat_fibre.bend` `not`, all-or-nothing emission) | done (commit 3) |
+| P3 | Diamond audit: classify every HVM4 primitive rule the emitter can reach; rewrite emission so only diamond rules are used (explicit erasure, demand in state) | next |
 | P4 | Interaction entry: `Q`/`δ` loop at the root | todo |
 | P5 | Checking on the net (`verify` projection): the checker as a net program | todo |
 | P6 | Delete the Haskell evaluator from the compile path; bootstrap + CI green; delete this file | todo |
@@ -109,11 +109,21 @@ contractible (§7, `fibre-of-run`); cost is the net's own interaction count.
   ~14 GB).
 - `mining/transport-checks.mjs`: 18/18.
 
-### Known broken (P2)
-- `mining.mjs verifyGate` expects the old root; must read the typed point
-  `#Pair{#List{#Bool{}}, bits}`.
-- `research/sat_fibre/sat_fibre.bend` calls its own `not(…)`, which the parser
-  reads as unary `not`; baseline output `1` came from the identity bug.
+### P2 results
+- `mining.mjs verifyGate` reads the typed point `#Pair{#List{#Bool{}}, bits}`.
+  Two pre-existing reader bugs fixed on the way (they had only ever met the
+  synthetic unit-test strings): HVM4 prints `#Nil{}` not `#Nil`, and `-C`
+  prints each result followed by its interaction count `#N`. Real run:
+  prepare → typecheck (116 ✓) → emit → link → gate: all six SHA-256/Bitcoin
+  checks = 1, 35,372,404 interactions, `NATIVE_GATE_PASS`. The unbounded
+  native search phase was not run.
+- `research/sat_fibre/sat_fibre.bend`: its `def not` renamed `bnot` (a call
+  spelled `not(` always parses as unary `not`, so the def was uncallable).
+  At the witness (T,T,T) F is True with or without the old identity bug, so
+  the baseline `1` was right by coincidence; now `#Pair{#Bool{},1}` in 52.
+- Emission is all-or-nothing: `compileFull` is forced before printing, so a
+  refused cell leaves empty stdout (was: partial program + exit 1).
+  `emit_refuses_unary_not.bend` + verify stage REFUSE-NOT-MISCOMPILE.
 
 ## 4. How to work here (pitfalls already paid for)
 
