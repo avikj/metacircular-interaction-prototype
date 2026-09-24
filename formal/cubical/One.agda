@@ -35,7 +35,10 @@
 --        infinite-dimensional space — the actual operator k × · on it,
 --        and §12 instantiated there, so the identification is about a
 --        space and not a parameter list.
---   §14  THE MACHINE.  §15  WHAT IS NOT ESTABLISHED.
+--   §14  THE MACHINE.
+--
+--   §6 is terminality.  Its dual — initiality of the step calculus, with
+--   the unique fold — is not in this file yet.
 ------------------------------------------------------------------------
 
 module One where
@@ -1273,10 +1276,15 @@ module Fourier {ℓ : Level} (R : CommRing ℓ) where
   -- the Laplacian in disguise: K² = −|k|² on the transverse subspace
   cross-square : (k v : Vec) → cross k (cross k v) ≡ subV (scale (dot k v) k) (scale (dot k k) v)
   cross-square (x , y , z) (u , v , w) = pathV (solve! R) (solve! R) (solve! R)
-  -- the operator is skew, hence its exponential is unitary
+  -- the operator is skew, so the group it generates is unitary.  That
+  -- group is not built here: there is no `exp` in this file, hence no
+  -- |k|, no ω, and no statement about evolution in continuous time.
+  -- What is proved is the identity at each mode and that it survives
+  -- completion.
   skew : (k v w : Vec) → dot (cross k v) w ≡ negr (dot v (cross k w))
   skew (a , b , c) (x , y , z) (u , v , w) = solve! R
-  -- transversality is preserved, so the constraint is not an extra equation
+  -- transversality is PRESERVED — but it is not imposed: `modeCell` is
+  -- all finite rational coefficient data, not the transverse subspace
   divergence-curl : (k v : Vec) → dot k (cross k v) ≡ 0r
   divergence-curl (x , y , z) (u , v , w) = solve! R
   -- no energy flows out of a mode
@@ -1628,49 +1636,3 @@ forgetful-is-blind setA p q = setA _ _ p q
 routes-through-ℕ-are-identified : {m n : ℕ} (p q : m ≡ n) → p ≡ q
 routes-through-ℕ-are-identified = forgetful-is-blind isSetℕ
 
-------------------------------------------------------------------------
--- §15  WHAT IS NOT ESTABLISHED.  Every line below is a fact about THIS
--- file, checkable by reading it — a declaration that is absent, or a
--- module that is parameterised and never instantiated.  None of it is
--- inherited caution about some other development.
---
---   * §1 names what a map forgets; it does not recover it.  Univalence
---     transports a PROVED equivalence and does not manufacture one, so
---     nothing here turns a many-to-one map into an injection.
---   * §5 `Geodesic` is a module with Φ as a PARAMETER and it is never
---     instantiated in this file.  It certifies nothing until a Φ is
---     exhibited and its edge law proved against actual primitive edges.
---     A count of states, cells, or assignments is not a Φ.
---   * §7 `Interaction` has δ : (x : X) → Q x → X — the next state is a
---     function of the current one and the answer.  Histories, protocols
---     and adversaries are not expressible in that signature.
---   * §13's `ℝ` and `Hilbert` are the CONSTRUCTIVE completions: regular
---     sequences with moduli, up to mutual approach.  Apartness is proved
---     (`zero-apart-one`, `apart`); least upper bounds, trichotomy and
---     compactness are not, and are not constructively available.
---   * §13's operators are the Fourier symbol k × · and its quarter turn.
---     There is no `exp` in this file, hence no one-parameter group, no
---     |k|, no ω, and no statement about evolution in continuous time.
---     What is proved is the algebraic identity at each mode, that it
---     survives completion, and that its two readings are the same type.
---   * `divergence-curl` proves transversality is PRESERVED; it is not
---     imposed.  `modeCell` is all finite rational coefficient data, not
---     the transverse subspace, so §13's space is bigger than the
---     physical one.
---   * §13 builds the operator's domain as the completion of its GRAPH
---     and provides `Incl`, the inclusion of that domain into the
---     completed field.  `Incl.extended` is NOT proved injective, so the
---     domain is not shown to be a subspace.  For this operator — a
---     direct sum of bounded maps, one per coefficient — it ought to be
---     provable; it is not proved here, and `Incl` is used by nothing.
---   * §12 identifies two SPECIFICATIONS.  It does not assert solutions
---     exist for given data.  §13's `solution` exhibits one family — a
---     field in the domain paired with its quarter turn — and no claim is
---     made that these are all of them.
---   * §6 gives terminality (a path is a bisimulation).  The dual,
---     initiality of the step calculus with its unique fold, is not in
---     this file.
---   * effects, capability, disclosure, authority, verifier correctness,
---     protocol security, revocation, privacy accounting, specification
---     adequacy: none is a corollary of a transport law, and none appears.
-------------------------------------------------------------------------
