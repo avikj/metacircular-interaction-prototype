@@ -4618,7 +4618,7 @@ diff --git a/src/Core/WHNF.hs b/src/Core/WHNF.hs
 index 953410d..3af8583 100644
 --- a/src/Core/WHNF.hs
 +++ b/src/Core/WHNF.hs
-@@ -6,7 +6,9 @@ module Core.WHNF where
+@@ -6,7 +6,72 @@ module Core.WHNF where
  
  import Debug.Trace
  
