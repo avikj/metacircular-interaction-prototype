@@ -284,11 +284,10 @@ record Laghava {Op : Type ℓ} (M : MonoidMachine Op) : Type ℓ where
 --   equation, and with K disabled — which `--cubical` disables — it
 --   cannot be eliminated.  `SplitError.UnificationStuck`.
 --
--- So the kernel's cost is a grading and is not shown to detect its unit.
--- §2 does not care: it takes a `Matra`.  Nothing below is weakened, and
+-- §2 does not care: it takes a `Matra`. Nothing below is weakened, and
 -- the general lesson is the one this corpus already carries — do not
--- match a constructor in an index position; match the datum, or measure
--- it.  `len` measures it.
+-- match a constructor in an index position; match the datum, or
+-- measure it. `len` measures it.
 
 -- the round trip costs, so the kernel is not a group — by the theorem,
 -- not by a fresh argument.

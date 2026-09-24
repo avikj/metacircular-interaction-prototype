@@ -6,11 +6,10 @@
 -- Closes the absence stated in
 -- `EveryCommonDivisorOfAConvergentDividesTheDeterminant`, which says:
 --
---   "SYĀT — THE CLAIM, EXACTLY.  NOT that the convergents are in lowest
---    terms.  That needs "a divisor of ±1 in ℤ is ±1", a classification
---    of units which is NOT proved here and NOT imported.  §2 stops
---    exactly where the algebra stops: the common divisor divides a
---    unit.  Calling that "coprime" would be asserting the missing step."
+-- "SYĀT — THE CLAIM, EXACTLY. NOT that the convergents are in lowest
+-- terms. §2 stops exactly where the algebra stops: the common divisor
+-- divides a unit. Calling that "coprime" would be asserting the
+-- missing step."
 --
 -- WHAT IS PROVED HERE.
 --
@@ -31,11 +30,11 @@
 -- (d divides x  =  Σ c. x ≡ c · d), imported, not redefined, so §4 is
 -- stated in exactly its terms.
 --
--- WHAT IS NOT PROVED HERE.  Nothing about the third face (COMPLETE):
--- this module says nothing about where the vall comes from or that it
--- terminates.  "Lowest terms" here means precisely: every common divisor
--- of numerator and denominator is a unit of ℤ, and the units of ℤ are
--- exactly ±1.  No gcd is computed and no Bézout witness is produced.
+-- Nothing about the third face (COMPLETE): this module says nothing
+-- about where the vall comes from or that it terminates. "Lowest
+-- terms" here means precisely: every common divisor of numerator and
+-- denominator is a unit of ℤ, and the units of ℤ are exactly ±1. No
+-- gcd is computed and no Bézout witness is produced.
 --
 -- --safe, no postulates, no holes.
 ------------------------------------------------------------------------

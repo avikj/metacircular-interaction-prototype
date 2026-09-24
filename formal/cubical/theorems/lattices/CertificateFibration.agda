@@ -91,10 +91,7 @@
 --
 -- `Cubical.Functions.Fibration.totalEquiv` (HoTT Lemma 4.8.2) is the
 -- universal property doing the work in §3: `certIso` is precisely
--- currying `X → E` along `X ≃ Σ Y (fiber f)`.  It is written out
--- directly because in that form one round trip is definitional, which
--- is the point being made; `certIso≡curry-totalEquiv` is NOT proved
--- and is not needed.
+-- currying `X → E` along `X ≃ Σ Y (fiber f)`.
 --
 -- PRIOR ART, searched before proving and found — recorded because the
 -- first draft of this header wrongly said §1 was absent from the
@@ -283,12 +280,10 @@ module _ {X : Type ℓx} {Y : Type ℓy} {E : Type ℓe} (f : X → Y) where
 -- `ℕ`.  Therefore every certificate alphabet that restores injectivity
 -- admits `ℕ ↪ E`.
 --
--- What this is NOT: it is not a claim about `A_q`'s Smith arithmetic,
--- which is not formalised here.  It is the exact statement that the
--- broadcast's `N`-indexed family was standing in for, with `N → ∞`
--- deleted rather than estimated.  The Smith content — that the
--- constant post-state really is `B` for every `q` — is imported from
--- that message, not reproved.
+-- It is the exact statement that the broadcast's `N`-indexed family
+-- was standing in for, with `N → ∞` deleted rather than estimated. The
+-- Smith content — that the constant post-state really is `B` for every
+-- `q` — is imported from that message, not reproved.
 ------------------------------------------------------------------------
 
 module SmithQuotientNoGo where

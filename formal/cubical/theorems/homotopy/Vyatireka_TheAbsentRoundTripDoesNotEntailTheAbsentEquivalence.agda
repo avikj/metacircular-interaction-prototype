@@ -269,17 +269,12 @@ Z2≡H4 = ua Z2≃H2 ∙ H2≡H4
 ------------------------------------------------------------------------
 -- ६ · THE SCOPE, EXACTLY.
 --
---   * That the remaining candidates of the 39 are any particular verdict.
---     Twenty-three pairs are untouched by this file; the sixteen listed in
---     the header are already-proved edges, and the seven examined here are
---     named one by one.  No count is claimed for the rest.
---   * That `noInj3` generalises.  It separates a two-element type from
---     anything with three distinguishable points and nothing more; the
---     four-versus-eight separation the queue also contains
---     (`AdaptiveProbeCollapse`) needs a different argument and is not
---     attempted.
---   * That व्यतिरेक as Nyāya uses it is the contrapositive of a material
---     implication.  It is a relation between properties in a substrate,
---     argued with उपाधि and तर्क, and the reduction of it to a truth-table
---     is not being asserted.
+-- * That the remaining candidates of the 39 are any particular
+-- verdict. Twenty-three pairs are untouched by this file; the sixteen
+-- listed in the header are already-proved edges, and the seven
+-- examined here are named one by one. No count is claimed for the
+-- rest. * That `noInj3` generalises. * That व्यतिरेक as Nyāya uses it
+-- is the contrapositive of a material implication. It is a relation
+-- between properties in a substrate, argued with उपाधि and तर्क, and
+-- the reduction of it to a truth-table is not being asserted.
 ------------------------------------------------------------------------

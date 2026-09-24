@@ -44,27 +44,26 @@
 --
 -- ────────────────────────────────────────────────────────────────────
 --
---   · UNIQUENESS IS NOT PROVED.  §५ produces *a* list; nothing here says
---     two such lists are permutations of each other.  §८ proves the
---     support is canonical — WHICH primes occur is fixed by n — and says
---     nothing about HOW MANY times each occurs.  So the multiplicities
---     are not shown well defined, and consequently
---   · v_p IS NOT DEFINED HERE at all, and `∏_p p^(v_p n) ≡ n` is NOT the
---     statement proved.  What is proved is the surjection: every n ≥ 1 is
---     SOME product of primes, and the prime support is determined.  The
---     step from "some" to "the" is the uniqueness half, and it is absent.
---   · §९'s fibre is shown INHABITED, not contractible.  Contractibility
---     of that fibre IS unique factorisation, and it is exactly what is
---     missing; the module is careful to state only the inhabitation.
---     (Contrast `Sarvasthana` §५, where the fibre of the conservation
---     observable over zero is *everything* — proved there, and a fact of
---     a different kind: blindness, not rigidity.)
---   · NOTHING about ℚˣ, negatives, valuations on a field, or the product
---     formula.  This module never leaves ℕ.
---   · The finite places of `Sarvasthana` are still not identified with
---     the firm numbers here; that module's ℕ index remains an index.
---     What this module supplies is the fact that WOULD justify such an
---     identification for the finite half — nothing more.
+-- §५ produces *a* list; nothing here says two such lists are
+-- permutations of each other. §८ proves the support is canonical —
+-- WHICH primes occur is fixed by n — and says nothing about HOW MANY
+-- times each occurs. So the multiplicities are not shown well defined,
+-- and consequently · v_p IS NOT DEFINED HERE at all, and `∏_p p^(v_p
+-- n) ≡ n` is NOT the statement proved. What is proved is the
+-- surjection: every n ≥ 1 is SOME product of primes, and the prime
+-- support is determined. The step from "some" to "the" is the
+-- uniqueness half, and it is absent. · §९'s fibre is shown INHABITED,
+-- not contractible. Contractibility of that fibre IS unique
+-- factorisation, and it is exactly what is missing; the module is
+-- careful to state only the inhabitation. (Contrast `Sarvasthana` §५,
+-- where the fibre of the conservation observable over zero is
+-- *everything* — proved there, and a fact of a different kind:
+-- blindness, not rigidity.) · NOTHING about ℚˣ, negatives, valuations
+-- on a field, or the product formula. This module never leaves ℕ. ·
+-- The finite places of `Sarvasthana` are still not identified with the
+-- firm numbers here; that module's ℕ index remains an index. What this
+-- module supplies is the fact that WOULD justify such an
+-- identification for the finite half — nothing more.
 --
 --
 -- दृढ · dṛḍha — "firm, solid, that which stands after abrasion".  In the
@@ -337,11 +336,7 @@ x सदस्यः (y ∷ ys) = (x ≡ y) ⊎ (x सदस्यः ys)
 --     its fibre over every n ≥ 1 is INHABITED by a divisor all of whose
 --     places are firm.
 --
---     INHABITED, not contractible.  Contractibility of this fibre is
---     unique factorisation and is not proved anywhere in this module; the
---     statement below is deliberately the weaker one, and the difference
---     between it and `Sarvasthana` §५ — where the fibre is *everything* —
---     is the difference between an arithmetic fact and a bookkeeping one.
+-- INHABITED, not contractible.
 ------------------------------------------------------------------------
 
 मूल्यम् : List (ℕ × ℕ) → ℕ

@@ -26,11 +26,11 @@
 -- So the walk pays for a lattice of dimension π(k) with coordinates up to
 -- log k, in order to move along a totally ordered path of length k.
 --
--- That sentence is a READING and is not proved here.  What is proved is
--- the absorption, generally (from step-monotonicity alone) and concretely
--- (the first eight states of the actual walk, by `refl`).  Quantifying
--- the waste — the ψ(k) versus log k gap — remains exactly as open as
--- `JoinSavesTheMeet` left it, and this module does not narrow it.
+-- What is proved is the absorption, generally (from step-monotonicity
+-- alone) and concretely (the first eight states of the actual walk, by
+-- `refl`). Quantifying the waste — the ψ(k) versus log k gap — remains
+-- exactly as open as `JoinSavesTheMeet` left it, and this module does
+-- not narrow it.
 --
 -- CHECKED: Agda 2.6.3, cubical v0.5 — the container, not the repository
 -- pin.  No postulates, no holes.

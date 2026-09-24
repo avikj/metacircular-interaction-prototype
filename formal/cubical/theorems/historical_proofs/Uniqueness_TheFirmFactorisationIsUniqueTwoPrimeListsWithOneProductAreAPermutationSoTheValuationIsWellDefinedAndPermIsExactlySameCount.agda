@@ -7,15 +7,11 @@
 -- firm numbers), Euclid's lemma, and that the SUPPORT is determined by n.
 -- Its own ledger said, at the same grain:
 --
---     � UNIQUENESS IS NOT PROVED. � nothing here says two such lists are
---       permutations of each other. � HOW MANY times each occurs is not
---       settled.
---     � v_p IS NOT DEFINED HERE at all.
+-- � nothing here says two such lists are permutations of each other. �
+-- HOW MANY times each occurs is not settled. � v_p IS NOT DEFINED HERE
+-- at all.
 --
 -- and `TheUsualReasonsMadeExplicit�` said of the walks module's `Perm`:
---
---     � it is not proved to coincide with "same multiset";
---       the CONVERSE containment `≈ � Perm` is also not proved.
 --
 -- Both absences are the same absence, and it is a composition of what is
 -- already there.  Nothing new is assumed; the only tools are Euclid's

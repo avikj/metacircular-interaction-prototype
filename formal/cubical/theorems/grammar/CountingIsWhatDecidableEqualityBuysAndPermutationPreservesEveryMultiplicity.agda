@@ -57,13 +57,8 @@
 --   permPreservesCount
 --                  `Perm xs ys → (a : A) → count a xs ≡ count a ys`
 --
--- **WHY THIS IS ONLY HALF, STATED SHARPLY.**  The CONVERSE — equal
--- counts everywhere implies `Perm` — is NOT proved here and is a
--- different kind of statement: it must BUILD a permutation from
--- numerical data, which needs to find, for each element of `xs`, a
--- matching position in `ys`, and that search is where finiteness and
--- decidability do real work rather than bookkeeping.  Nothing below
--- attempts it and nothing below should be read as evidence for it.
+-- Nothing below attempts it and nothing below should be read as
+-- evidence for it.
 --
 -- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 — NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.

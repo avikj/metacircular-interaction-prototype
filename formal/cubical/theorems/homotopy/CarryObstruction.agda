@@ -14,12 +14,9 @@
 --
 --     cₙ(u,v) = sₙ(u) + sₙ(v) − sₙ(u+v)
 --
--- is the carry.  The note proves the class of cₙ is nonzero in
--- H²(ℤ/bⁿ; ℤ/b), and derives Corollary 2.11.1 from it: a carry-free
--- positional system would be a group-theoretic splitting, which does not
--- exist.  **This module proves Corollary 2.11.1 directly, by the exponent
--- argument the note gives, with no cohomology machinery.**  H² itself is
--- NOT constructed here; see the rigor boundary at the bottom.
+-- is the carry. The note proves the class of cₙ is nonzero in H²(ℤ/bⁿ;
+-- ℤ/b), and derives Corollary 2.11.1 from it: a carry-free positional
+-- system would be a group-theoretic splitting, which does not exist.
 --
 -- The argument, in three separated layers:
 --

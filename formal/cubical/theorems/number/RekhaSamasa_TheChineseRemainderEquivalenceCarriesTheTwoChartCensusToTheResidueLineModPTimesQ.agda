@@ -8,13 +8,9 @@
 -- CensusIsTheProductPMinusTwoTimesQMinusTwo) counts the joint survivor
 -- set on the PRODUCT carrier Fin p × Fin q and says, verbatim:
 --
---   "The identification of this product with the survivors inside
---    Fin (p·q) is the Chinese Remainder ring-iso (ℤ/pq ≃ ℤ/p × ℤ/q,
---    coprime), which is NOT proved here — this module works on the
---    product carrier directly, where the count is exact and needs no
---    CRT.  So the result is the DENSITY product, honestly on the
---    product carrier; the CRT identification with the residue line
---    mod p·q is the remaining, named, half of the atlas."
+-- So the result is the DENSITY product, honestly on the product
+-- carrier; the CRT identification with the residue line mod p·q is the
+-- remaining, named, half of the atlas."
 --
 -- and in its दोषलेख: "the CRT identification of the product carrier
 -- with the residue line mod p·q is the named other half."

@@ -85,9 +85,9 @@ theFigureAloneSettlesNothing =
 ------------------------------------------------------------------------
 -- 3.  With the input shared, exactly one direction is recovered
 --
--- A MISMATCH at a common input refutes report-identity.  A MATCH does
--- not establish it.  So pinning the input turns the guard into a
--- one-sided test, which is what a regression guard actually is.
+-- A MISMATCH at a common input refutes report-identity. So pinning the
+-- input turns the guard into a one-sided test, which is what a
+-- regression guard actually is.
 ------------------------------------------------------------------------
 
 mismatchAtSharedInputRefutes :

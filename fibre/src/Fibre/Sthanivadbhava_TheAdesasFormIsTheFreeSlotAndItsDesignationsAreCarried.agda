@@ -96,18 +96,18 @@
 --   n+1 is the रूपम् standing at step n, so the chain back to the
 --   original is unbroken at arbitrary depth.
 --
---   NOT ESTABLISHED.  This is NOT a proof of 1.1.62 and must not be read
---   as one.  1.1.62 is about an ELIDED affix — लोप, 1.1.60's अदर्शन —
---   continuing to condition operations after it has ceased to appear.
---   Nothing here models elision, appearance, or a sequence of items:
---   there is no लुप्त, no दर्शन, no word.  That material is in
---   `formal/cubical/Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm.agda`
---   §5–6 and is NOT lifted here.  What the orbit theorem establishes is
---   the weaker, prior statement 1.1.62 PRESUPPOSES: that the designation
---   a later rule wants to read is still there to be read at arbitrary
---   derivational depth.  1.1.62 asserts that this holds even when the
---   bearer has disappeared from the surface.  That extra step is exactly
---   what is missing, and it is missing because elision is not modelled.
+-- This is NOT a proof of 1.1.62 and must not be read as one. 1.1.62 is
+-- about an ELIDED affix — लोप, 1.1.60's अदर्शन — continuing to
+-- condition operations after it has ceased to appear. Nothing here
+-- models elision, appearance, or a sequence of items: there is no
+-- लुप्त, no दर्शन, no word. That material is in `formal/cubical/Sthani
+-- vadbhava_TheSubstituteInheritsDesignationsNotForm.agda` §5–6 and is
+-- NOT lifted here. What the orbit theorem establishes is the weaker,
+-- prior statement 1.1.62 PRESUPPOSES: that the designation a later
+-- rule wants to read is still there to be read at arbitrary
+-- derivational depth. 1.1.62 asserts that this holds even when the
+-- bearer has disappeared from the surface. That extra step is exactly
+-- what is missing, and it is missing because elision is not modelled.
 --
 ------------------------------------------------------------------------
 -- DEFECTS, WRITTEN RATHER THAN HIDDEN.  (§६ द्वौ मार्गौ of

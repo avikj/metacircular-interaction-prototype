@@ -28,12 +28,9 @@
 -- trial-division tester certifies isPrime 15 ≡ false, isPrime 35 ≡
 -- false, while 3, 5, 7 test true — all by refl.
 --
--- SEED (stated, not proved here): for u₁,v₁,u₂,v₂ ≥ 2 every composed
--- leg is a product of two factors ≥ 2, hence composite; so no
--- composite of two ≥2-legged pairs is ever a prime pair.  Primality
--- is exactly the condition of falling out of every proper
--- composition.  The general lemma is a two-line
--- ¬isPrime-of-product; only the finite witness is checked below.
+-- Primality is exactly the condition of falling out of every proper
+-- composition. The general lemma is a two-line ¬isPrime-of-product;
+-- only the finite witness is checked below.
 --
 -- Adjacent known result (notes/REPORT.md, Lemma 1.3): the integral
 -- isometry group of q(S,D)=S²−D² is {±I} — the pair field has no

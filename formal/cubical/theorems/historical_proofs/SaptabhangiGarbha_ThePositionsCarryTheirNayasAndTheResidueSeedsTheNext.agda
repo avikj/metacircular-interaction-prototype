@@ -6,9 +6,7 @@
 -- सप्तभङ्गी — the sevenfold predication, as the machine's return type, with
 -- every position carrying the standpoints that produced it.
 --
--- SOURCES, EARLIEST FIRST.  The classification is theirs.  The two
--- operations below are named for a distinction they draw; the algebra
--- (क्रमार्पणम्, सहार्पणम्, प्ररोहः, प्रसवः) is not claimed to be in any of them.
+-- SOURCES, EARLIEST FIRST. The classification is theirs.
 --
 --   Bhagavat Stra (Viyha-pannatti), fifth Aga of the vetmbara canon;
 --     oldest strata pre-Common-Era, redacted at Valabhī c. 5th c. CE —

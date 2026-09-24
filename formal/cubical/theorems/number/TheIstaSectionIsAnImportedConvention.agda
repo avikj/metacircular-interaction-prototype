@@ -18,9 +18,6 @@ open import Kuttaka using (solutionFamily)
 --     "Still NOT done, named there: only the ia least-non-negative
 --      section (needs a mod/section convention)."
 --
--- and from `formal/cubical/Kuttaka.agda`'s own header, line 47: the ia
--- section "needs a mod/section convention and is not supplied here."
---
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT IS PROVED, AND WHAT IS STILL NOT
 --

@@ -232,17 +232,17 @@ module _ {A : Type ℓ} (_⊕_ : A → A → A)
 -- total; the identity between the sayings does not exist, and asserting it
 -- would be the collapse §१ names as हिंसा — बहून् एकनाम्ना गृह्णाति.
 --
--- WHAT IS ACTUALLY OPEN, and it is the real find, not the deduplication.
--- The medial law is a commutative-SEMIGROUP fact, and this corpus reaches
--- for it at ℕ under two operations while its stated subject — भावना — is a
--- composition on a structure with TWO operations at once.  §2's homomorphism
--- reading is stated here at one operation.  The composition Brahmagupta
--- actually wrote is not medial in one operation; it is the norm form, where
--- the two operations interact and the medial law alone does not suffice.
--- PairComposition says as much in its own header when it records that in
--- split coordinates the identity "degenerates to the interchange law".  So:
+-- WHAT IS ACTUALLY OPEN, and it is the real find, not the
+-- deduplication. The medial law is a commutative-SEMIGROUP fact, and
+-- this corpus reaches for it at ℕ under two operations while its
+-- stated subject — भावना — is a composition on a structure with TWO
+-- operations at once. §2's homomorphism reading is stated here at one
+-- operation. The composition Brahmagupta actually wrote is not medial
+-- in one operation; it is the norm form, where the two operations
+-- interact and the medial law alone does not suffice. PairComposition
+-- says as much in its own header when it records that in split
+-- coordinates the identity "degenerates to the interchange law". So:
 -- the six-fold coincidence is the SHADOW of भावना cast by the split
--- coordinates, and the question the coincidence raises is what the medial
--- law becomes when the degeneration is undone.  That is not answered here
--- and is not claimed to be.
+-- coordinates, and the question the coincidence raises is what the
+-- medial law becomes when the degeneration is undone.
 ------------------------------------------------------------------------

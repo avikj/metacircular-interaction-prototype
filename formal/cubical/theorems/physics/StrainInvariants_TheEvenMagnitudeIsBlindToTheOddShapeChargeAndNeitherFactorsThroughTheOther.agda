@@ -31,11 +31,7 @@
 --       production 4 and −2 — the VitaranaYugma shape (marginals agree,
 --       the joint escapes), with the production as the named point.
 --
--- READING, offered as a reading.  Every energy-type estimate for
--- Navier–Stokes is invariant under u ↦ −u, which is S ↦ −S on strain;
--- §1 and §3 say such an estimate is provably blind to the sign of the
--- enstrophy production, whose integral on the torus is −4∫det S
--- (Betchov's identity — an integration by parts, NOT proved here).
+-- READING, offered as a reading.
 --
 -- SYĀT — THE CLAIM, EXACTLY.  Ring identities and two-point witnesses over
 -- ℤ.  No matrices as a type, no eigenvalues, no SO(3), no integral, no

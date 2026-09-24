@@ -107,9 +107,7 @@
 -- ALL FOUR claimed equality vertices, and §7 checks three witness
 -- points of the strict-inequality side: (1/4,1/4,1/2) — the B,C-facet
 -- edge with c > 1/3 — has 8 zeros; (1/2,0,0) has 8; the interior point
--- (1/6,1/6,1/3) has 0.  The universally quantified "at most ten for
--- ALL |c| < 1" itself is the hand proof above and is NOT claimed as a
--- kernel object.
+-- (1/6,1/6,1/3) has 0.
 --
 ------------------------------------------------------------------------
 

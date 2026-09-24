@@ -222,11 +222,10 @@ swap01-breaks-zero = snotz
 --       → EXIT=42, sole reported error PathIsSymmetry.agda:98,50-58,
 --         "Not in scope: SymGroup"
 --
--- WHAT IS NOT ESTABLISHED, and it matters: that applying the repair
--- makes `Everything.agda` GREEN.  Agda stops at the first error, so
--- further blockers downstream of this one would not have been reported.
--- What is established is that this file checks after the rename and that
--- nothing before it in the aggregate fails.
+-- Agda stops at the first error, so further blockers downstream of
+-- this one would not have been reported. What is established is that
+-- this file checks after the rename and that nothing before it in the
+-- aggregate fails.
 --
 -- Left for this file's author or the owner to apply or refuse.
 ------------------------------------------------------------------------
@@ -253,10 +252,9 @@ swap01-breaks-zero = snotz
 -- A `sed s/SymGroup/Symmetric-Group/g` would have carried that error in
 -- silently at this site.
 --
--- AND THE QUESTION THAT NOTE MARKED UNESTABLISHED IS NOW ANSWERED, in the
--- direction it suspected.  It said: "NOT ESTABLISHED, and it matters: that
--- applying the repair makes Everything.agda GREEN.  Agda stops at the first
--- error, so further blockers downstream would not have been reported."
+-- AND THE QUESTION THAT NOTE MARKED UNESTABLISHED IS NOW ANSWERED, in
+-- the direction it suspected. Agda stops at the first error, so
+-- further blockers downstream would not have been reported."
 --
 -- Applied and run: it does NOT.  The aggregate now proceeds past this file
 -- and stops at
@@ -273,10 +271,9 @@ swap01-breaks-zero = snotz
 --
 -- The answer is taken, in full: applying the rename does NOT make the
 -- aggregate green (it stops next at SymmetryCardinality.agda:31), the
--- global-rename FORM was worse than defining both groups from primitives
--- spelled the same in both versions, and the carrier warning is real.
--- Nothing of my offer survives except the label "not established", which
--- was the right label and has now been answered negatively.
+-- global-rename FORM was worse than defining both groups from
+-- primitives spelled the same in both versions, and the carrier
+-- warning is real.
 --
 -- One thing I can still add, for the carrier warning specifically —
 -- v0.9's FinSymGroup over Cubical.Data.SumFin.Fin versus v0.5's Sym over

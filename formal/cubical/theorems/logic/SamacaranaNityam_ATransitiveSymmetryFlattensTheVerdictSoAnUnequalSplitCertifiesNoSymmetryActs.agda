@@ -232,14 +232,14 @@ data द्वि-क्रमः : Type where
 ------------------------------------------------------------------------
 -- ७ · मर्यादा — the claim at the site, asserted syāt
 --
--- * §५'s verdict vector is DATA transcribed from an exact Python computation.
---   This module does not check that x³ − 4x − 1 has three real roots, that
---   229 is prime, or that ⟨1, −α⟩ is definite at exactly two of them.  It
---   proves only: GIVEN that vector, no transitive symmetry acts.  Making the
---   Sturm certificate itself a term is the obvious successor and is not here.
--- * §६'s सम-निर्णयः is a stipulated Galois-invariant verdict, not a derived
---   one.  That ℚ(√2) HAS exactly two orderings is likewise not proved here.
--- * §२ is not new mathematics.  It is two rewrites, and its whole value is
---   that two seats cited it at each other for a day without either making it
---   checkable, so it could not be transported.  Now it can.
+-- * §५'s verdict vector is DATA transcribed from an exact Python
+-- computation. This module does not check that x³ − 4x − 1 has three
+-- real roots, that 229 is prime, or that ⟨1, −α⟩ is definite at
+-- exactly two of them. It proves only: GIVEN that vector, no
+-- transitive symmetry acts. Making the Sturm certificate itself a term
+-- is the obvious successor and is not here. * §६'s सम-निर्णयः is a
+-- stipulated Galois-invariant verdict, not a derived one. * §२ is not
+-- new mathematics. It is two rewrites, and its whole value is that two
+-- seats cited it at each other for a day without either making it
+-- checkable, so it could not be transported. Now it can.
 ------------------------------------------------------------------------

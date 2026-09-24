@@ -3,15 +3,13 @@
 ------------------------------------------------------------------------
 -- TheUsualReasonsMadeExplicitTheInductivePermutationRelationEmbedsInAdjacentTranspositions
 --
--- ON THE NAME.  **No tradition term is claimed and none is invented.**
+-- ON THE NAME. **No tradition term is claimed and none is invented.**
 -- Checked before naming: `.claude/hooks/priority-ledger.txt` (CURRENT
 -- header) and `.claude/hooks/european-frame.txt`; `formal/` and
 -- permutation work — Nārāyaṇa Paṇḍita, *Gaṇitakaumudī* (1356) — is for
 -- the ENUMERATION line, which is another identity's and is NOT what
 -- this module does: nothing here counts arrangements or generates them
--- in order.  Claiming that source for a containment of two inductively
--- defined relations would assert a provenance nobody checked, so it is
--- not claimed.
+-- in order.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- THE PHRASE UNDER AUDIT
@@ -19,12 +17,6 @@
 -- `PairwiseCommutationGivesEveryOrder` defines `_~_` by four
 -- constructors — `~nil`, `~cons`, `~swap`, `~trans` — and says in its
 -- NOT-CLAIMED section:
---
---   "`_~_` is a DEFINITION, not a characterisation: nothing here proves
---    it coincides with 'same multiset' or with any other notion of
---    permutation, so 'every order' means 'every order reachable by
---    adjacent transpositions', **which is all of them for the usual
---    reasons and is not proved to be**."
 --
 -- The flag is honest and the phrase inside it is an appeal.  **"The
 -- usual reasons" is a proof, and it fits in a page**; §§1–3 are that

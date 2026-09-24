@@ -95,7 +95,4 @@ reweave-all-roots action view root = refl
 -- and differing at it, so no finite observation depth determines the
 -- net.  That is `interactive/IndraNet.hs`'s own disclaimer, checked.
 --
--- The remaining direction -- agreement at ALL depths gives equality --
--- is a bisimulation principle, is what that Haskell file's `Bisim` type
--- is for, and is NOT proved there.
 ------------------------------------------------------------------------

@@ -12,25 +12,20 @@
 -- is there any OTHER polynomial first integral, i.e. a coercive fold
 -- the closed quotient dynamics might respect?
 --
---   §1  A polynomial of total degree ≤ 3 in (q, r) is ten coefficients.
---       Its derivative along W is a polynomial of degree ≤ 4, computed
---       SYMBOLICALLY as a linear map on coefficients (`along`), and
---       `along-evaluates` checks (solver, twelve variables) that the
---       symbolic derivative evaluates to ∂F/∂q·W₁ + ∂F/∂r·W₂.
---   §2  THE CLASSIFICATION.  If the symbolic derivative is the zero
---       polynomial then all coefficients vanish except c₀₀ and c₃₀, and
---       c₀₂ ≡ −6·c₃₀: F ≡ c₀₀ + c₃₀·(q³ − 6r²) = c₀₀ − c₃₀·Δ.  Each step is
---       a cancellation in ℤ (isIntegralℤ).  So up to cubic degree the
---       discriminant is the only first integral, and it is not coercive
---       (VieillefosseFibre: its zero fibre carries ℕ).
---   §3  THE PUSHFORWARD FIBRE IS UNBOUNDED.  Over the observed point
---       y₀ = (Q₂ A₀ , R₃ A₀), scaling the Hessian direction H by t gives
---       Q̇ right-hand sides −3·tr A₀³ − 6t, an injection of ℤ into the
---       pushforward set.  Read with the fact that for a spatially linear
---       field u = Ax the deviatoric Hessian is a free parameter (a
---       reading, not proved here): the escape move at every point of the
---       tail is inhabited at every magnitude and both signs, so nothing
---       confined to (Q, R, H) can empty it.
+-- §1  A polynomial of total degree ≤ 3 in (q, r) is ten coefficients.
+-- Its derivative along W is a polynomial of degree ≤ 4, computed
+-- SYMBOLICALLY as a linear map on coefficients (`along`), and `along-
+-- evaluates` checks (solver, twelve variables) that the symbolic
+-- derivative evaluates to ∂F/∂q·W₁ + ∂F/∂r·W₂. §2  THE CLASSIFICATION.
+-- If the symbolic derivative is the zero polynomial then all
+-- coefficients vanish except c₀₀ and c₃₀, and c₀₂ ≡ −6·c₃₀: F ≡ c₀₀ +
+-- c₃₀·(q³ − 6r²) = c₀₀ − c₃₀·Δ. Each step is a cancellation in ℤ
+-- (isIntegralℤ). So up to cubic degree the discriminant is the only
+-- first integral, and it is not coercive (VieillefosseFibre: its zero
+-- fibre carries ℕ). §3  THE PUSHFORWARD FIBRE IS UNBOUNDED. Over the
+-- observed point y₀ = (Q₂ A₀ , R₃ A₀), scaling the Hessian direction H
+-- by t gives Q̇ right-hand sides −3·tr A₀³ − 6t, an injection of ℤ
+-- into the pushforward set.
 --
 -- SYĀT — THE CLAIM, EXACTLY.  Linear algebra over ℤ on ten coefficients,
 -- one solver identity, one injection.  Degree ≤ 3 only; no claim about

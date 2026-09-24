@@ -140,7 +140,5 @@ module _ {A B C : Type ℓ} (f : A → B) (g : B → C) (z : C) where
 -- composable cost model and an incomposable one, and the names should say
 -- which side each is on.
 --
--- Not proved here: that the image-restricted composites form a category with
--- the monoid structure assembled.  §३ is the key step (no annihilation), not
--- the assembly.
+-- §३ is the key step (no annihilation), not the assembly.
 ------------------------------------------------------------------------

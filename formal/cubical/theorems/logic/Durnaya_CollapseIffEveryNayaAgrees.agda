@@ -9,13 +9,12 @@
 -- of when a naya is a durnaya.  This module answers it exactly, and in
 -- doing so corrects one sentence of `Anekanta`.
 --
--- WHAT IS BEING CLAIMED OF THE SOURCE, precisely.  Siddhasena Divkara
--- (*Sanmatitarka*) and Akalaka use `durnaya` for a naya asserted to the
--- exclusion of the rest; that a naya so asserted is defective is theirs.
--- The characterisation below — collapse is available iff every pair of
--- fibres is equivalent — is NOT claimed to be in those texts.  It is
--- this corpus's mathematics, named for the act the tradition already
--- named, in the sense `Anekanta.agda` argues for at length.
+-- WHAT IS BEING CLAIMED OF THE SOURCE, precisely. Siddhasena Divkara
+-- (*Sanmatitarka*) and Akalaka use `durnaya` for a naya asserted to
+-- the exclusion of the rest; that a naya so asserted is defective is
+-- theirs. It is this corpus's mathematics, named for the act the
+-- tradition already named, in the sense `Anekanta.agda` argues for at
+-- length.
 --
 -- THE CORRECTION.  `Anekanta.agda` §5 proves two true theorems:
 --

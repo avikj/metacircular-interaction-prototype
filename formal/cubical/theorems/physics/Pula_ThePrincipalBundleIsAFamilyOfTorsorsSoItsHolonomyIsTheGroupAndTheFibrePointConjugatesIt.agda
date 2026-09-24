@@ -95,15 +95,13 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT IS **NOT** CLAIMED.
 --
--- * NOT that this is a theorem about physical spacetime.  There is no
---   manifold here, no smooth structure, no Lie group, no connection
---   1-form and no curvature.  The base is an arbitrary type and the
---   "connection" is `subst`.  What is shown is that the homotopical
---   skeleton of a principal bundle — fibres that are torsors, transport
---   that is equivariant, holonomy valued in the group up to conjugation
---   — needs none of that apparatus and follows from the fibre law.  The
---   step from a smooth principal bundle to this skeleton is standard
---   differential geometry and is NOT formalised here.
+-- * NOT that this is a theorem about physical spacetime. There is no
+-- manifold here, no smooth structure, no Lie group, no connection
+-- 1-form and no curvature. The base is an arbitrary type and the
+-- "connection" is `subst`. What is shown is that the homotopical
+-- skeleton of a principal bundle — fibres that are torsors, transport
+-- that is equivariant, holonomy valued in the group up to conjugation
+-- — needs none of that apparatus and follows from the fibre law.
 --
 --   THE LOOKING, because that last sentence is an ABSENCE, and an
 --   absence asserted without a search is silence and not a finding
@@ -130,11 +128,9 @@
 --   theorem and needs connectedness and more), and NOT that every
 --   G-bundle here is smooth, locally trivial, or has a global section.
 --
--- * §6's associated bundle is the HoTT formulation — a representation as
---   a family on the classifying type — not the quotient construction
---   (P × V)/G, which would need a quotient HIT and is not built.  For
---   the tautological representation the two agree trivially; in general
---   the identification is not proved here.
+-- * §6's associated bundle is the HoTT formulation — a representation
+-- as a family on the classifying type — not the quotient construction
+-- (P × V)/G, which would need a quotient HIT and is not built.
 --
 -- No postulates, no holes, --safe.
 --

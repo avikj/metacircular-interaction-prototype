@@ -42,15 +42,8 @@
 -- Same record, twice.  The difference is the joiner parameter and
 -- nothing else — which is the owner's "identical or almost", located.
 --
--- SOURCES (the classification is theirs; the code is not claimed to be
--- in any of them): Umāsvāti, Tattvārthasūtra 5.31 (arpita/anarpita —
--- the birth reads the residue under the asserted aspect); Siddhasena
--- Divākara, Sanmatitarka 1.21 (durnaya — why the verdict never picks
--- without a fact); Akalaṅka, Laghīyastraya (sahārpaṇa — why the held
--- position carries both); Ktyyana as above (the contention);
--- the anavaka reasoning from the paribh literature via
--- machine/AvaktavyaPrasava's header.  NOVELTY CLAIMED: none of the
--- mathematics; the identification, checked.
+-- NOVELTY CLAIMED: none of the mathematics; the identification,
+-- checked.
 ------------------------------------------------------------------------
 
 module NaturalMachine.EkaTantra_TheSchedulerAndTheProverAreOneContentionStructureAndTheDifferenceIsAParameter where

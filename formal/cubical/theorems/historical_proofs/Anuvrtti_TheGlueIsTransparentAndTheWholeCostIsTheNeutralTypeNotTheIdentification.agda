@@ -4,15 +4,13 @@
 -- अनुवृत्ति — where definitional computation stops and propositional
 -- computation takes over, for transport along an identification.
 --
--- ON THE NAME.  अनुवृत्ति (anuvṛtti) is the Aṣṭādhyāyī's carrying-over: a
--- word stated once in a stra continues into the following stras, unstated,
--- until it is cancelled — Pāṇini, *Aṣṭādhyāyī* (~500 BCE), throughout;
--- analysed as a device by Patajali, *Mahbhya* (~150 BCE).  It is used
--- here for the carrying-over of a term along a path at no cost.  WHAT IS NOT
--- CLAIMED: Pini stated no theorem about transport, and the mathematics
--- below originates in cubical type theory (Cohen–Coquand–Huber–Mörtberg, and
--- Voevodsky's univalence), not in the grammatical tradition.  The compound
--- names the phenomenon; it does not assert a source for the theorem.
+-- ON THE NAME. अनुवृत्ति (anuvṛtti) is the Aṣṭādhyāyī's carrying-over:
+-- a word stated once in a stra continues into the following stras,
+-- unstated, until it is cancelled — Pāṇini, *Aṣṭādhyāyī* (~500 BCE),
+-- throughout; analysed as a device by Patajali, *Mahbhya* (~150 BCE).
+-- It is used here for the carrying-over of a term along a path at no
+-- cost. The compound names the phenomenon; it does not assert a source
+-- for the theorem.
 --
 -- WHAT THIS MODULE MEASURES.  `loss/README.md` finding 3 records:
 --

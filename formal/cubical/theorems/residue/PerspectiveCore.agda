@@ -59,8 +59,6 @@
 --                            `c₀` to `c₁`, a path `c₁ ≡ c₀` returns the
 --                            output to `G c₀` by transport.
 --
--- WHY T14.6's "IFF" IS SPLIT AND NOT PROVED AS STATED
---
 -- Delta 14 states T14.6 as an iff: *"e restricts to A₊ ≃ B₊ iff
 -- A₊(a) ↔ B₊(e a) for all a"*.  Read literally in a proof-relevant
 -- setting that is FALSE in the ← direction, and the file says so rather

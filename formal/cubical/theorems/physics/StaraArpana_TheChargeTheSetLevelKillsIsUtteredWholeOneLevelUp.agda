@@ -20,16 +20,12 @@
 -- uttered whole at level n+1" — अर्पित / अनर्पित: what one stratum
 -- withholds (anarpita), the next offers (arpita).
 --
--- SOURCES AND SCOPE (the six rules).  The level-shift engine is the
+-- SOURCES AND SCOPE (the six rules). The level-shift engine is the
 -- LIBRARY's PathIdTruncIso (Cubical.HITs.Truncation.Properties; the
 -- shift Ω∥X∥ₙ₊₁ ≃ ∥ΩX∥ₙ is standard HoTT — this module's content is
 -- its INSTANTIATION at the corpus's own charge, against OrderSaha's
 -- checked pair, closing a question the corpus's doctrine left open).
--- The word-pair arpita/anarpita is Umsvti, Tattvrthastra 5.31
--- (अर्पितानर्पितसिद्धेः — establishment from the emphasized and the
--- non-emphasized), taken as the READING of standpoint-graded
--- establishment; the stra is not claimed to grade truncations by
--- h-level.  The stratum grading is this repository's statement.
+-- The stratum grading is this repository's statement.
 --
 -- Composed through नाडी against the warm kernel.
 ------------------------------------------------------------------------

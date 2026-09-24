@@ -4,14 +4,12 @@
 -- Sha256Parimana — every digest is exactly 256 bits, for EVERY message,
 -- so the real hash is unconditionally a non-equivalence.
 --
--- Sha256Sesa fenced this off: "¬ isEquiv sha256 is not asserted: the
--- honest routes are a length invariant through the pipeline (unwritten)
--- or an exhibited collision (open)."  This module walks the first
--- route.  The invariant: every word the pipeline carries has 32 bits —
--- through addition (a ripple-carry keeps its first argument's length),
--- through nth (the default zeroW is itself 32 bits, so no bound on the
--- index is ever needed), through the strictness binder (sW-β says it is
--- invisible), through all 64 rounds, all blocks, and the final flatten.
+-- The invariant: every word the pipeline carries has 32 bits — through
+-- addition (a ripple-carry keeps its first argument's length), through
+-- nth (the default zeroW is itself 32 bits, so no bound on the index
+-- is ever needed), through the strictness binder (sW-β says it is
+-- invisible), through all 64 rounds, all blocks, and the final
+-- flatten.
 --
 --   परिमाणम्   : (m : List Bool) → length (sha256 m) ≡ 256
 --   न-तुल्यता  : ¬ isEquiv sha256

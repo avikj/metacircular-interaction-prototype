@@ -56,13 +56,11 @@ open import NegationCompletenessForbidsIndependence
 -- ────────────────────────────────────────────────────────────────────
 -- THE HONEST LIMIT, WHICH IS LARGE
 --
--- This is NOT Gdel's theorem and is not a step of it.  The independent
+-- This is NOT Gdel's theorem and is not a step of it. The independent
 -- sentence is an atom, independent because the rules never mention it;
 -- there is no diagonal, no fixed point, no ω-consistency, and the
--- theory's `prov` is the identity, which is not a provability predicate
--- in any sense beyond typing.  `HasDiagonal` is not claimed for it and
--- would fail: with one atom and these rules there is no formula to
--- diagonalise.
+-- theory's `prov` is the identity, which is not a provability
+-- predicate in any sense beyond typing.
 --
 -- What this settles is narrower and was genuinely open: the criterion
 -- has an instance, the two accumulated obstructions are not jointly

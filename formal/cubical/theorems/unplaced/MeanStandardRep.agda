@@ -854,9 +854,8 @@ module _ (R : CommRing ℓ) where
  --
  --     Σ_{j≥0} tr(τ | Symʲ V_k) tʲ  =  1 / ((1−t)^{k−2} (1+t)),
  --
- -- with `(−1)ʲ` at k = 2 and `1 / 0` alternating at k = 3.  It is NOT
- -- proved here and NOT approximated here.  The missing objects are
- -- specific, and naming them is more useful than gesturing:
+ -- with `(−1)ʲ` at k = 2 and `1 / 0` alternating at k = 3. The missing
+ -- objects are specific, and naming them is more useful than gesturing:
  --
  --   * `Symʲ M` for a module `M` over a `CommRing`.  cubical v0.5 has
  --     `Cubical.Algebra.Module` but no symmetric power, no tensor

@@ -155,24 +155,20 @@ import ObstructionSubstrate
 -- WHAT IS NOT DONE HERE, stated because leaving it unsaid would be the
 -- sanitised version of this module.
 --
---   · Neither `eqℕ` should exist.  `Cubical.Relation.Nullary.Discrete` and
---     `Cubical.Data.Nat.Properties.discreteℕ` give decidable equality on ℕ
---     with soundness and completeness together, in the library, checked, and
---     both modules wrote their own instead.  This module identifies the two
---     copies with each other; it does not identify either with the library's,
---     and until that is done the corpus still carries a third statement of
---     the same fact that it did not write and cannot see.
---   · The transport in §5 gives ResidueGlue's tester completeness at ℕ.
---     It does NOT thereby give the Fin layer anything: eqFin-complete already
---     existed and is a different statement (x ≡ y → eqFin x y ≡ true, the
---     positive direction), and the negative direction at Fin — x ≢ y →
---     eqFin x y ≡ false — needs toℕ-injectivity in the other direction and is
---     not proved here.
---   · The pattern generalises and is not generalised.  Any two structurally
---     identical definitions in two modules admit exactly this treatment: one
---     induction to agree pointwise, one abstraction to a path, and then every
---     theorem either module holds is available to the other.  Whether the
---     corpus has more instances of it is a question for the audit tool, which
---     currently reports only same-PRINTED-type groups and would miss a pair
---     whose definitions agree under different names.
+-- · Neither `eqℕ` should exist. `Cubical.Relation.Nullary.Discrete`
+-- and `Cubical.Data.Nat.Properties.discreteℕ` give decidable equality
+-- on ℕ with soundness and completeness together, in the library,
+-- checked, and both modules wrote their own instead. This module
+-- identifies the two copies with each other; it does not identify
+-- either with the library's, and until that is done the corpus still
+-- carries a third statement of the same fact that it did not write and
+-- cannot see. · The transport in §5 gives ResidueGlue's tester
+-- completeness at ℕ. · The pattern generalises and is not generalised.
+-- Any two structurally identical definitions in two modules admit
+-- exactly this treatment: one induction to agree pointwise, one
+-- abstraction to a path, and then every theorem either module holds is
+-- available to the other. Whether the corpus has more instances of it
+-- is a question for the audit tool, which currently reports only same-
+-- PRINTED-type groups and would miss a pair whose definitions agree
+-- under different names.
 ------------------------------------------------------------------------

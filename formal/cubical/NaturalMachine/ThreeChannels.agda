@@ -34,10 +34,7 @@
 -- RELATION TO ChenProjector: parity (1−λ)/2 reads the CHARGE and is
 -- complete on the envelope; the primitive projector reads the CHANNEL
 -- STRUCTURE (which of μ², π₁ fails) and so distinguishes p² from pq —
--- information parity cannot see (both have λ = +1).  Factory VIII's
--- analytic claim (square branch negligible at Chen scale) is exactly
--- the statement that this extra resolution costs nothing
--- asymptotically; that claim is analytic and NOT formalized here.
+-- information parity cannot see (both have λ = +1).
 --
 -- RECONSTRUCTION DISCIPLINE: nothing here claims to match the absent
 -- Factory VIII/IX texts beyond the index's stated identities; when the

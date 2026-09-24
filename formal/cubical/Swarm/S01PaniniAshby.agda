@@ -359,11 +359,7 @@ sigDistinct12 e = t≢f (cong snd e)
 ------------------------------------------------------------------------
 -- 9.  Where the general statement stops
 --
---   `requisiteVariety` is the injection form of Ashby's law: it says
---   the signature map separates whatever the action map separates.  The
---   counting form — n binary patterns cannot compute an action with
---   more than 2ⁿ classes on a single observable fibre — follows by
---   pigeonhole on Bool^n and is NOT formalized here; only its n = 1
---   instance (`oneCondCannotSeparateThree`) is.  Nothing below depends
---   on the unformalized version.
+-- `requisiteVariety` is the injection form of Ashby's law: it says the
+-- signature map separates whatever the action map separates. Nothing
+-- below depends on the unformalized version.
 ------------------------------------------------------------------------

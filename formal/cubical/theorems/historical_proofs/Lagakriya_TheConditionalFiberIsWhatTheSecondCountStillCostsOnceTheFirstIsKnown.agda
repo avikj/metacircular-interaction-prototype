@@ -279,12 +279,9 @@ _ = refl
 ------------------------------------------------------------------------
 -- ८ · शेषः — what is not settled here.
 --
--- §६ counts the sum WITHOUT ever showing a summand empty.  What is
--- therefore still not proved is the summand-wise statement — that
--- `Chosen n k` is empty for k > n — which is true, is what would let
--- the infinite `Σ[ k ∈ ℕ ]` be replaced by a finite one over `Fin
--- (suc n)`, and is not needed for anything above.  Someone who wants
--- the row read term by term rather than in total has to prove it.
+-- §६ counts the sum WITHOUT ever showing a summand empty. Someone who
+-- wants the row read term by term rather than in total has to prove
+-- it.
 --
 -- Also not here: the अध्वयोग, the sixth pratyaya, which measures the
 -- SPACE the प्रस्तार would occupy if written out.  That is the one the

@@ -42,14 +42,9 @@
 --       product and the anticommutativity of the cross product, and
 --       needs neither.
 --
---       WHAT IT GIVES A DEVIATORIC READING, stated as a reading and not
---       proved here: the two sides differ by a multiple of the identity,
---       which any trace-free projection deletes.  So the antisymmetric
---       part of a velocity gradient contributes to a trace-free strain
---       law only through the outer product of the vorticity with itself
---       — the `(w·w)` term never survives.  The projection is not
---       constructed in this file, so the factor of a quarter carried by
---       the half in `Ω = ½[ω]` is part of that reading and not of §4.
+-- So the antisymmetric part of a velocity gradient contributes to a
+-- trace-free strain law only through the outer product of the
+-- vorticity with itself — the `(w·w)` term never survives.
 --
 -- SYĀT — THE CLAIM, EXACTLY.  §§1–4 over any commutative ring, for every
 -- matrix presented by three columns and every pair of vectors.  NOT

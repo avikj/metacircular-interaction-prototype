@@ -599,8 +599,7 @@ snd समष्टिः-रिक्ता (tt , r) = Σ≡Prop (λ _ → isSe
 --     given edge misses — is open, and it is the question that decides
 --     whether the ledger is computable or only checkable.
 --
--- (d) Not attempted: any claim that the arithmetic 4 − 3 = 1 is the
---     "size" of the absence.  §६ proves a non-equivalence of types; the
---     subtraction is a reading, and the corpus has been burned before by
---     a number that looked like knowledge.
+-- §६ proves a non-equivalence of types; the subtraction is a reading,
+-- and the corpus has been burned before by a number that looked like
+-- knowledge.
 ------------------------------------------------------------------------

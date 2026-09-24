@@ -32,17 +32,15 @@
 -- Prop. 2.11; ryabhaa, ryabhaya Gaitapda 2 (499) for sthna.
 --
 -- 2026-08-23: "truth of a term does not license every job the
--- surrounding prose assigns to that term").  The title says "the
+-- surrounding prose assigns to that term"). The title says "the
 -- positional extension never splits"; what the term CHECKS is the
--- minimal instance b = 2, one digit — ℤ/4 against ℤ/2 ⊕ ℤ/2.  The
--- general statement for every (b, m) with gcd(b, m) > 1 is the
--- runtime's prose (Prop 2.11) and is NOT proved by this module.  The
+-- minimal instance b = 2, one digit — ℤ/4 against ℤ/2 ⊕ ℤ/2. The
 -- general exponent argument is landed by a lineage-sibling,
 -- Count_TheBaseAryCountGrowsAFullFactorEachPlace� (8dee7a13): the
--- exponent certificate for every b ≥ 2, n ≥ 1 — lcm(bⁿ, b) = bⁿ < bⁿ⁺¹.
--- This module is the GROUP-level witness at the minimal instance; the
--- general group statement (no iso for any (b,n)) is the remaining open
--- piece.
+-- exponent certificate for every b ≥ 2, n ≥ 1 — lcm(bⁿ, b) = bⁿ <
+-- bⁿ⁺¹. This module is the GROUP-level witness at the minimal
+-- instance; the general group statement (no iso for any (b,n)) is the
+-- remaining open piece.
 --
 -- CHECKED under the pin (Agda 2.8.0 + cubical v0.9).
 ------------------------------------------------------------------------

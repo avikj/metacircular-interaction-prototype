@@ -425,19 +425,17 @@ left≤right c = refl
 left≤right d = refl
 
 ------------------------------------------------------------------------
--- 7.  What is NOT claimed.
+-- 7.
 --
 -- Not that the counterexample is new: §2.4 marks it ↳ inherited, and
--- that mark stands.  Not that ⊙_L is non-associative in general — one
--- instance is exhibited, which is exactly what a counterexample is, and
--- §2.4's own conclusion is the negative universal ("There is no
--- universal compiler that records only one-sided binary closure ... and
--- still guarantees associative semantic composition"), which this
--- instance witnesses and does not extend.  Not middle associativity:
--- D0026 §2.5 repairs the failure with the two-sided middle nucleus, and
--- that repair is NOT formalized here.  §14.1's remaining clauses —
--- middle associativity, the residual laws, the derived nucleus — remain
--- open.
+-- that mark stands. Not that ⊙_L is non-associative in general — one
+-- instance is exhibited, which is exactly what a counterexample is,
+-- and §2.4's own conclusion is the negative universal ("There is no
+-- universal compiler that records only one-sided binary closure ...
+-- and still guarantees associative semantic composition"), which this
+-- instance witnesses and does not extend. §14.1's remaining clauses —
+-- middle associativity, the residual laws, the derived nucleus —
+-- remain open.
 --
 -- One thing IS added rather than reproduced: §2.4 does not state that
 -- its four-element table is associative, and the counterexample is

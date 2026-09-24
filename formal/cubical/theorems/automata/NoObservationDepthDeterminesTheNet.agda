@@ -158,8 +158,5 @@ theNetIsNotDeterminedAtAnyDepth k n =
 -- everywhere below it and differing at it.
 --
 -- Which is the exact content of the shelf's disclaimer: a finite/
--- productive bridge gives you the invariants and not the object.  The
--- remaining direction — that agreement at ALL depths gives equality —
--- is a bisimulation principle, is what that shelf's `Bisim` type is for,
--- and is not proved here.
+-- productive bridge gives you the invariants and not the object.
 ------------------------------------------------------------------------

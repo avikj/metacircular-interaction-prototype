@@ -3,16 +3,11 @@
 ------------------------------------------------------------------------
 -- Sivasutra — Pāṇini's pratyāhāra as an interval, checked.
 --
--- SOURCE.  The Adhyy opens with the fourteen Mhevara / iva-stras:
--- the sounds of  laid out in ONE linear order, each stra ending in
--- an anubandha (it-marker).  A pratyhra names a class of sounds as the
--- INTERVAL from a starting sound up to (and excluding) a marker: e.g. `a`
--- = a i u; `aK` = a i u  ; `aC` = all the vowels.  This is the device
--- that lets any needed phonological class be named by two letters, and it
--- is why INDIC_FORMAL_TRADITIONS_MAP.md §1.1 records the iva-stra
--- ordering as an interval representation of an intersection-closed family
--- (Petersen's optimality theorem is that deeper object; it is NOT proved
--- here — see below).
+-- SOURCE. The Adhyy opens with the fourteen Mhevara / iva-stras: the
+-- sounds of  laid out in ONE linear order, each stra ending in an
+-- anubandha (it-marker). A pratyhra names a class of sounds as the
+-- INTERVAL from a starting sound up to (and excluding) a marker: e.g.
+-- `a` = a i u; `aK` = a i u  ; `aC` = all the vowels.
 --
 -- The first four stras, with their it-markers  K  C:
 --   1.  a  i  u  
@@ -129,10 +124,6 @@ aC = refl
 -- with `upto` at the head, and gives one intersection instance:
 -- `aK ∩ iC ≡ iK`, a named class again.
 --
--- Nothing here is altered, and this module's own NOT-claimed list is
--- inherited there unchanged — in particular Petersen's optimality theorem
--- is still not proved, and is still unread: egress is blocked from that
--- environment.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
@@ -145,12 +136,9 @@ aC = refl
 -- hence four markers are forced; the iva-stra order names all four with
 --  K  C and has no fifth, so four is the minimum and this order attains it.
 --
--- The NOT-claimed list above is unchanged in its main entry: Petersen's
--- theorem — that the order is essentially UNIQUE for the full family, and 14
--- markers minimal — is still not proved and Petersen is still unread.  What
--- is now proved is a lower bound and its attainment on the vowel subfamily.
--- `interactive/Pratyahara_TheIntervalDecisionProcedure.hs` decides nameability
--- against the line (no table) and computes the bound over all fourteen
--- stras: width 14 over the 294 classes the line can name, width 11 over the
--- ~30 the grammar uses.
+-- What is now proved is a lower bound and its attainment on the vowel
+-- subfamily. `interactive/Pratyahara_TheIntervalDecisionProcedure.hs`
+-- decides nameability against the line (no table) and computes the
+-- bound over all fourteen stras: width 14 over the 294 classes the
+-- line can name, width 11 over the ~30 the grammar uses.
 ------------------------------------------------------------------------

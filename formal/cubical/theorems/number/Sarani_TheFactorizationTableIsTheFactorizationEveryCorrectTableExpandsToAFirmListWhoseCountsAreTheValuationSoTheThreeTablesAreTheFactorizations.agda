@@ -9,14 +9,11 @@
 -- prime by `isPrimeᵇ`, (iii) bases distinct by `distinctᵇ`, (iv) Ω
 -- against SieveFiber's trial division).  Its header then says, exactly:
 --
---     What (i)–(iv) do NOT give is that the table is *the* factorization:
---     that step is unique factorization, which is not proved here and
---     not available in the imported library at the shape needed.  So the
---     precise reading of everything below is: **these are theorems about
---     factorization tables, together with a four-way check that the
---     three tables used are correct tables for 12, 30 and 360.**  Under
---     unique factorization — and only under it — they are the note's
---     theorems at those n.
+-- So the precise reading of everything below is: **these are theorems
+-- about factorization tables, together with a four-way check that the
+-- three tables used are correct tables for 12, 30 and 360.**  Under
+-- unique factorization — and only under it — they are the note's
+-- theorems at those n.
 --
 -- and its rigor boundary repeats: "unique factorization … the bridge from
 -- a table to the integer it names is checked four ways and is still a

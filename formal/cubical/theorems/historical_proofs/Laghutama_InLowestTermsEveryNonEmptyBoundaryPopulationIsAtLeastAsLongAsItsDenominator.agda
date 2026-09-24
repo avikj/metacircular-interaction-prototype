@@ -7,9 +7,7 @@
 -- of a boundary population at numerator one, refuted it at 2/4, and
 -- said of the general case:
 --
---   "The general case — gcd p (suc q) ≡ 1 ⇒ every non-empty boundary
---    population has length ≥ suc q — is NOT proved.  It needs exactly
---    one missing lemma, Euclid's:
+-- It needs exactly one missing lemma, Euclid's:
 --
 --      gcd a b ≡ 1  →  a ∣ b · c  →  a ∣ c
 --
@@ -68,14 +66,10 @@
 -- hypothesis, as before.
 --
 -- ────────────────────────────────────────────────────────────────────
--- THE SCOPE, EXACTLY.  Nothing here says which lengths ARE achievable:
--- `popIsMinimal` says suc q is achieved and nothing non-empty is
--- shorter, not that every multiple of suc q is achieved or that only
--- multiples are (the latter is `boundaryDividesInLowestTerms`, and
--- the former is not claimed).  Nothing is quotiented: `gcd p (suc q)
--- ≡ 1` is a property of the PAIR, and 2/4 still fails where 1/2
--- succeeds — that is `twoOverFourIsNotInLowestTerms` next to
--- `minimalityInLowestTermsGcd`, not a contradiction.  No Bézout
+-- THE SCOPE, EXACTLY. Nothing is quotiented: `gcd p (suc q) ≡ 1` is a
+-- property of the PAIR, and 2/4 still fails where 1/2 succeeds — that
+-- is `twoOverFourIsNotInLowestTerms` next to
+-- `minimalityInLowestTermsGcd`, not a contradiction. No Bézout
 -- identity is used or proved; `coprime-cancel` does not need one.
 --
 -- CHECKED at the declared pin (Agda 2.8.0, cubical v0.9).  --safe, no

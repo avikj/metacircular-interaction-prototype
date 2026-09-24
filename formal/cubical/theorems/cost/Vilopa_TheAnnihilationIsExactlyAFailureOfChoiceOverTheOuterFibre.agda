@@ -94,13 +94,12 @@ snd (छेद-सङ्कोचः s c) b = cong fst (snd c (b , s b))
 ------------------------------------------------------------------------
 -- ४ · दोषलेखः — the limit, written.
 --
--- विलोपः gives ¬ ((b : B) → P b) — the NON-EXISTENCE of a section.  It does
--- NOT hand back a specific b with `¬ P b`; extracting one from the failure
--- of a Π is exactly a choice principle, and this corpus does not have one
--- (no Dec, no LEM, no Bool verdict in the core).  So the deleted point is
--- proved to exist in the sense that no total assignment can, and is NOT
--- constructed.  That gap is not sloppiness: it is the same refusal that
--- makes the census three-valued instead of two, one level up.
+-- विलोपः gives ¬ ((b : B) → P b) — the NON-EXISTENCE of a section. It
+-- does NOT hand back a specific b with `¬ P b`; extracting one from
+-- the failure of a Π is exactly a choice principle, and this corpus
+-- does not have one (no Dec, no LEM, no Bool verdict in the core).
+-- That gap is not sloppiness: it is the same refusal that makes the
+-- census three-valued instead of two, one level up.
 --
 -- Consequence for the cost model, stated plainly: even the OBSTRUCTION to
 -- composing costs is non-constructive here.  A router cannot test for

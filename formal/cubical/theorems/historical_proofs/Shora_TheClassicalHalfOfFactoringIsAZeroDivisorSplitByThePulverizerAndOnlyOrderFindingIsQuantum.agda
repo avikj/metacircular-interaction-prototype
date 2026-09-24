@@ -8,22 +8,18 @@
 -- This file draws the line exactly.  Shor's factoring of N = p·q has
 -- three parts, and two of them are classical and OLD:
 --
---   1. FAITH.  Pick a random a coprime to N and hope its multiplicative
---      order r is even with a^(r/2) ≢ ±1 (mod N).  This holds with
---      probability ≥ 1/2 for N with two odd prime factors — a
---      classical, probabilistic guarantee.  NOT formalised here; it is
---      the "faith".
---   2. ORDER-FINDING.  Compute r, the least positive exponent with
---      घात a r ≡ 1 (mod N).  The one step no classical algorithm is
---      known to do in polynomial time; Shor's quantum period-finding
---      does.  NOT formalised here; it is the quantum wedge, and it is the
---      SAME inverse-of-घात that breaks RSA and DH (`Bijamula` §4,
---      `Samvit` §4, `GhataViparyaya`).
---   3. THE SPLIT.  Given such an r, set y = घात a (r/2).  Then y·y ≡ 1
---      (mod N) but y ≢ ±1, so y is a NON-TRIVIAL square root of unity —
---      and gcd(y − 1, N) is a non-trivial factor of N.  The gcd is
---      ryabhaa's kuaka (499 CE), already checked here (`Bija`,
---      `Kuttaka`).  So the classical extraction is the pulverizer again.
+-- 1. FAITH. Pick a random a coprime to N and hope its multiplicative
+-- order r is even with a^(r/2) ≢ ±1 (mod N). This holds with
+-- probability ≥ 1/2 for N with two odd prime factors — a classical,
+-- probabilistic guarantee. 2. ORDER-FINDING. Compute r, the least
+-- positive exponent with घात a r ≡ 1 (mod N). The one step no
+-- classical algorithm is known to do in polynomial time; Shor's
+-- quantum period-finding does. 3. THE SPLIT. Given such an r, set y =
+-- घात a (r/2). Then y·y ≡ 1 (mod N) but y ≢ ±1, so y is a NON-TRIVIAL
+-- square root of unity — and gcd(y − 1, N) is a non-trivial factor of
+-- N. The gcd is ryabhaa's kuaka (499 CE), already checked here
+-- (`Bija`, `Kuttaka`). So the classical extraction is the pulverizer
+-- again.
 --
 -- WHAT IS PROVED (the algebraic heart of part 3, over any commutative
 -- ring — the mod-N ring is one instance):

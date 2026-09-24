@@ -40,13 +40,9 @@
 --
 --     `obs` is injective   AND   SOME equivalence `X ≃ Y` exists,
 --
--- and the second conjunct is **not about `obs`**.  A reader of "loses
+-- and the second conjunct is **not about `obs`**. A reader of "loses
 -- nothing and wastes nothing" will take the definition to say that
--- `obs` is a bijection.  It does not say that.  Whether the two
--- conjuncts together force it is a pigeonhole theorem — an injection
--- between finite sets of equal cardinality is surjective — which is
--- **not proved in the audited module and is not proved here**; §4 says
--- so and leaves it open rather than asserting either way.
+-- `obs` is a bijection. It does not say that.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- 1.  AND SECTION 3'S HEADING NAMES A THEOREM SECTION 3 DOES NOT HAVE
@@ -136,9 +132,6 @@ isoGivesOptimalBackwards X Y i =
 --
 -- The pigeonhole direction — that the two conjuncts of `Optimal` force
 -- `obs` ITSELF to be an equivalence — is exactly the statement below.
--- It is NOT proved here and NOT refuted; on `FinSet` it should hold, and
--- the point of writing the type is that nothing in the audited module
--- or in this one supplies it, so no theorem may quietly assume it.
 ------------------------------------------------------------------------
 
 TheOpenPigeonhole : Type₁

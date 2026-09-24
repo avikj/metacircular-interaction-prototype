@@ -13,10 +13,9 @@
 -- DischargedOnACyclicGroup.agda` proves `यूलर-सिद्धिः` for a group GIVEN
 -- as cyclic and lists, under WHAT IS **NOT** CLAIMED:
 --
---     "LAGRANGE, or Euler's theorem for a general finite group.  Not
---      proved, not approached.  The general case needs cosets and
---      cardinality; nothing below counts anything.  §२ is the cyclic
---      case and is stated as the cyclic case."
+-- "LAGRANGE, or Euler's theorem for a general finite group. The
+-- general case needs cosets and cardinality; nothing below counts
+-- anything. §२ is the cyclic case and is stated as the cyclic case."
 --
 -- Lagrange, however, IS in this corpus: `theorems/unplaced/
 -- SubgroupIndex.agda` proves, for a group `G` with `finG : isFinSet ⟨ G ⟩`

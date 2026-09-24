@@ -9,10 +9,10 @@
 -- Nothing here is claimed as new mathematics; what is new is that the
 -- three brackets are now a checked term rather than hand algebra.
 --
--- WHAT IS FORMALIZED: the RANK-ONE case, V_α = k[ξ]/(ξ^{α+1}), with all
--- three brackets, the truncation, the basis laws and the grading.
--- WHAT IS NOT: the multi-index case B_n = ⨂_i V_{α_i} of the note's §1.
--- It is NOT proved below and no statement below refers to it.  See §6.
+-- WHAT IS FORMALIZED: the RANK-ONE case, V_α = k[ξ]/(ξ^{α+1}), with
+-- all three brackets, the truncation, the basis laws and the grading.
+-- WHAT IS NOT: the multi-index case B_n = ⨂_i V_{α_i} of the note's
+-- §1. See §6.
 --
 -- HEADLINE STATEMENTS (all checked, no postulates, no holes, --safe):
 --

@@ -168,21 +168,19 @@ open import TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMe
 
 ------------------------------------------------------------------------
 --
--- * NOT that the five are instances of one formal statement in this file.
---   They are not: their types differ, their ambient structures differ,
---   and no functor between them is constructed here.  What is exhibited
---   is that each is the same SENTENCE about collapse and blindness, and
---   that two of them (III and V) are literally about one object.  A
---   common generalisation would be a real theorem; it is not proved.
--- * NOT that Pini, Bhskara II, Jaimini or any Mmsaka proved,
---   stated or anticipated any of this.  §I quotes stras; the fibre
---   reading is not Pini's.
--- * NOT anything about physical spacetime, quantum states, Hilbert
---   spaces or SU(2).  §II is about a semantics and an equivalence.
--- * NOT that §IV's machine-learning reading is a theorem about any
---   deployed system.  The theorem is about functions of a count-valued
---   semantics; that a reward model is such a function is an
---   interpretation, and is stated as one.
+-- * NOT that the five are instances of one formal statement in this
+-- file. They are not: their types differ, their ambient structures
+-- differ, and no functor between them is constructed here. What is
+-- exhibited is that each is the same SENTENCE about collapse and
+-- blindness, and that two of them (III and V) are literally about one
+-- object. * NOT that Pini, Bhskara II, Jaimini or any Mmsaka proved,
+-- stated or anticipated any of this. §I quotes stras; the fibre
+-- reading is not Pini's. * NOT anything about physical spacetime,
+-- quantum states, Hilbert spaces or SU(2). §II is about a semantics
+-- and an equivalence. * NOT that §IV's machine-learning reading is a
+-- theorem about any deployed system. The theorem is about functions of
+-- a count-valued semantics; that a reward model is such a function is
+-- an interpretation, and is stated as one.
 --
 -- WHAT IS CLAIMED: the named terms exist, are checked, say what is
 -- written above them, and are imported here — so this file is false the

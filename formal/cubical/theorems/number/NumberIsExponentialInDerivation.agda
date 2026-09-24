@@ -43,13 +43,13 @@
 --
 -- ────────────────────────────────────────────────────────────────────
 --
--- ψ(k) ≈ k is NOT proved here and is not used.  Turning
--- "coordinatewise exponential" into "ψ(k) versus its derivation's size"
--- requires summing over primes p ≤ k with exponents ⌊log_p k⌋, which is
--- Chebyshev's estimate and belongs to the analytic lane (`formal/
--- pairfield/`), not to this one.  CLAUDE.md's HOLOGRAM §7 lesson applies
--- directly: a constant measured at one scale hides its scaling, so the
--- comparison is stated at every coordinate and at no particular k.
+-- Turning "coordinatewise exponential" into "ψ(k) versus its
+-- derivation's size" requires summing over primes p ≤ k with exponents
+-- ⌊log_p k⌋, which is Chebyshev's estimate and belongs to the analytic
+-- lane (`formal/ pairfield/`), not to this one. CLAUDE.md's HOLOGRAM
+-- §7 lesson applies directly: a constant measured at one scale hides
+-- its scaling, so the comparison is stated at every coordinate and at
+-- no particular k.
 --
 -- Nor is it claimed that a derivation-stepping machine is realisable, or
 -- that the walk could store exponents without changing what it computes.

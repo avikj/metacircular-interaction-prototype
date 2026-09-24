@@ -13,10 +13,6 @@
 --
 -- THE ABSENCE THIS FILE CLOSES.  `Kuttaka.agda` says, in its header:
 --
---     "NOT done (named honestly, per §5.2): the iṣṭa section — the reduction
---      of the solution family to the LEAST non-negative representative —
---      which needs a mod/section convention and is not supplied here."
---
 -- and `KuttakaSamapti_TheValliIsFiniteForEveryPair.agda` repeats it:
 --
 --     "The इष्ट section — reduction of the solution family to its least
@@ -73,16 +69,15 @@
 --                 — all by refl, and its uniqueness among all solutions with
 --                 0 ≤ x < 5 by `iṣṭaUnique₁`.
 --
--- THE SCOPE, EXACTLY.
---   * Reduction is modulo b, the modulus `solutionFamily` actually uses.
---     For g ≠ 1 the full solution set is parametrised by b/g, not by b, so
---     for g ≠ 1 `iaUnique` is uniqueness WITHIN the coarse family only;
---     completeness (every solution is a family member) is proved here only
---     at g = 1 (`complete₁`).  For general g the missing step is the one
---     `Kuttaka.agda` itself names after `solutionsDiffer`: the fine family
---     with modulus b/g and the coprimality of a/g and b/g.  It is NOT
---     proved here.
---   * Nothing about the length of the vall, or the cakravla, is touched.
+-- THE SCOPE, EXACTLY. * Reduction is modulo b, the modulus
+-- `solutionFamily` actually uses. For g ≠ 1 the full solution set is
+-- parametrised by b/g, not by b, so for g ≠ 1 `iaUnique` is uniqueness
+-- WITHIN the coarse family only; completeness (every solution is a
+-- family member) is proved here only at g = 1 (`complete₁`). For
+-- general g the missing step is the one `Kuttaka.agda` itself names
+-- after `solutionsDiffer`: the fine family with modulus b/g and the
+-- coprimality of a/g and b/g. * Nothing about the length of the vall,
+-- or the cakravla, is touched.
 ------------------------------------------------------------------------
 
 module KuttakaIsta_TheSolutionFamilyHasALeastNonNegativeRepresentativeAndItIsUnique where

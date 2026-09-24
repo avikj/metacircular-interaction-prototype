@@ -60,24 +60,15 @@
 --
 -- ────────────────────────────────────────────────────────────────────
 --
--- 1.  **No cokernel is constructed here.**  `|coker(ℤ²/Dℤ²)| = 24` is
---     NOT proved in this file; it is proved for this very matrix in the
---     Lean lane (`Apavartana_…SpecZ…`, `cok_card`).  What this file
---     checks is the ARITHMETIC of the two divisor formulas on the
---     invariant factors, which is where the struck claim broke.  A
---     reader who wants the group must go to the Lean module.
+-- 1. What this file checks is the ARITHMETIC of the two divisor
+-- formulas on the invariant factors, which is where the struck claim
+-- broke. A reader who wants the group must go to the Lean module.
 --
--- 2.  **No Smith normal form is computed.**  That diag(2,12) has
---     invariant factors (2,12) and diag(2,6) has (2,6) is used as
---     input, not proved.  It is immediate (2 ∣ 12, 2 ∣ 6, and the
---     matrices are already diagonal with divisibility in order), but
---     immediate is not checked, so it is fenced.
+-- 2. It is immediate (2 ∣ 12, 2 ∣ 6, and the matrices are already
+-- diagonal with divisibility in order), but immediate is not checked,
+-- so it is fenced.
 --
--- 3.  **No general theorem.**  A counterexample refutes; it does not
---     establish the repaired identity in general.  §२ checks the
---     repaired formula ON THIS DATUM only.  The general statement
---     ∏_p p^(∑_i v_p(dᵢ)) = ∏_i dᵢ is just unique factorization and is
---     not proved here.
+-- 3. §२ checks the repaired formula ON THIS DATUM only.
 --
 -- 4.  **The primes are fixed to {2,3}.**  Every dᵢ occurring below is
 --     {2,3}-smooth, so the two-place exponent vector is faithful for

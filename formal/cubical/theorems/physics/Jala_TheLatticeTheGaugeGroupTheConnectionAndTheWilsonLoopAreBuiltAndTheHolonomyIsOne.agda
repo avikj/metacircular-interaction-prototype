@@ -3,12 +3,9 @@
 ------------------------------------------------------------------------
 -- जाल — the lattice, the net.
 --
--- WHY THIS FILE EXISTS.  `Pradakshina_…` computes the holonomy of the
+-- WHY THIS FILE EXISTS. `Pradakshina_…` computes the holonomy of the
 -- library's `helix` over the circle and proves it is the successor
--- function.  The abstract for that result then says, under WHAT IS NOT
--- CLAIMED, that there is no lattice, no gauge group, no connection form
--- and no Wilson loop anywhere in the development, and that the physical
--- reading is a reading and is not proved.
+-- function.
 --
 -- Every one of those objects is built here, in the generality it is
 -- normally stated in, and the reading is then a THEOREM: §६ proves that

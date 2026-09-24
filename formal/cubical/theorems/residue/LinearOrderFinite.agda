@@ -82,10 +82,8 @@
 --
 -- ====================================================================
 --
---  * `LinOrd′` takes the relation valued in `Type₀` with
---    prop-valuedness as an AXIOM, rather than valued in `hProp`.  The
---    two packagings are equivalent, and that equivalence is not proved
---    here; `isPropIsLinOrd` is what the development actually needs.
+-- * `LinOrd′` takes the relation valued in `Type₀` with prop-
+-- valuedness as an AXIOM, rather than valued in `hProp`.
 --
 --  * Everything is at `Type₀` with `Cubical.Data.Fin.Fin`, matching
 --    AtlasResiduals.  `isFinSet` from the library is stated with

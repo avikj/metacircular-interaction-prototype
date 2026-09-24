@@ -87,21 +87,19 @@
 --   महत्तम-सर्वत्र    and g divides both and is divisible by every common
 --                   divisor — the gcd, for every pair, constructively.
 --
---   * The SHARP length bound.  `≤ b` is what the measure gives directly and
---     it is honest.  The true worst case is logarithmic in b — attained on
---     consecutive Virahka numbers (Virahka, c. 700, the recurrence
---     usually credited to Fibonacci), where every quotient is 1 — and that
---     is NOT proved here.  Quoting `≤ b` as the truth about the length would
---     be the error `HOLOGRAM.md` §7 records: a bound stated without its real
---     scaling, which looks like knowledge.  So: `≤ b` is CHECKED, O(log b) is
---     TRUE, and the gap is named and open.
---   * The इष्ट section — reduction of the solution family to its least
---     non-negative representative — is open in `Kuttaka.agda` and stays open.
---   * Nothing here touches the cakravla's termination, open in
---     `CakravalaBound.agda`.  That is a different and harder question: this
---     module's measure decreases at every step BY CONSTRUCTION, and the
---     wheel's does not — which is why the wheel needs a window argument and
---     the pulverizer does not.
+-- * The SHARP length bound. `≤ b` is what the measure gives directly
+-- and it is honest. The true worst case is logarithmic in b — attained
+-- on consecutive Virahka numbers (Virahka, c. Quoting `≤ b` as the
+-- truth about the length would be the error `HOLOGRAM.md` §7 records:
+-- a bound stated without its real scaling, which looks like knowledge.
+-- So: `≤ b` is CHECKED, O(log b) is TRUE, and the gap is named and
+-- open. * The इष्ट section — reduction of the solution family to its
+-- least non-negative representative — is open in `Kuttaka.agda` and
+-- stays open. * Nothing here touches the cakravla's termination, open
+-- in `CakravalaBound.agda`. That is a different and harder question:
+-- this module's measure decreases at every step BY CONSTRUCTION, and
+-- the wheel's does not — which is why the wheel needs a window
+-- argument and the pulverizer does not.
 ------------------------------------------------------------------------
 
 module KuttakaSamapti_TheValliIsFiniteForEveryPair where

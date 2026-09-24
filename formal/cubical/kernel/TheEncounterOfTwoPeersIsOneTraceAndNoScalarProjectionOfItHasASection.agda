@@ -327,9 +327,8 @@ the-pair-holds-it-after = inr (inr (inl refl)) , inr (inr (inl refl))
 ------------------------------------------------------------------------
 -- §4.  CONSERVATIVITY.  Learning does not destroy what was valid.
 --
--- Three separate obligations, and each is discharged separately because
--- they are three different claims.  Note what is NOT claimed: that the
--- representation is unchanged.  It is changed -- §5.
+-- Three separate obligations, and each is discharged separately
+-- because they are three different claims. It is changed -- §5.
 ------------------------------------------------------------------------
 
 -- (i) THE PRIOR TRACE SURVIVES AS A PREFIX, AS DATA.  Not "is recoverable

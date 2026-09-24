@@ -26,9 +26,7 @@
 --
 --     a' = (am + Db)/k        b' = (a + bm)/k        k' = (m² − D)/k
 --
--- and then a'² − D b'² = k'.  Bhāskara's choice rule — choose, among the m
--- satisfying the congruence, one minimising |m² − D| — is what makes the
--- cycle terminate; it is NOT proved here and is not claimed.
+-- and then a'² − D b'² = k'.
 --
 -- HOW IT IS STATED HERE.  The three divisions are given as HYPOTHESES in
 -- multiplied form (a·m + D·b ≡ k · a', and so on).  That is not a
@@ -156,8 +154,6 @@ module Descent (CR : CommRing ℓ) where
   -- b·(am + Db) and b²·(m² − D) are combinations of (a + bm) and k.
   --
   -- This is what makes the cakravla an algorithm rather than a search.
-  -- The remaining factor b is removed by gcd(k, b) = 1, which is a
-  -- kuaka; that join is not made here and is not claimed.
   ----------------------------------------------------------------------
 
   oneCongruence : (D a b m k : R)

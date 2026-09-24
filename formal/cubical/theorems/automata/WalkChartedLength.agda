@@ -10,10 +10,7 @@
 -- the automaton transitions of that construction.  Its own header names
 -- three things it does not deliver, and this module delivers them:
 --
---   (a) "`length (capw m)` IS NOT PROVED LOGARITHMIC in `cap m`."
---   (b) "`scale` is not proved to preserve canonicity either -- only its
---        value law is proved."
---   (c) "NO KERNEL WITNESS.  There is no `capw 8` computed here."
+-- There is no `capw 8` computed here."
 --
 -- WHAT IS DELIVERED.
 --

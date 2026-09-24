@@ -245,10 +245,8 @@ agree-example = refl
 --   this file (6.4.22, simultaneous)  the mutually-invisible block RETAINS
 --        INFORMATION the current form has destroyed.
 --
--- So: succession buys termination; simultaneity buys information.  Pini
--- spends a stra on each, and they are not variants of one device.  That
--- reading is offered, not proved; what is established here is only the
--- correction of the number, which is sourced.
+-- So: succession buys termination; simultaneity buys information. Pini
+-- spends a stra on each, and they are not variants of one device.
 --
 -- SOURCES for the correction, checked 2026-08-19 rather than recalled: 8.2.1
 -- is an adhikra running to the end of the text, making an operation in

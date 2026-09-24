@@ -168,12 +168,9 @@ module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) where
 ------------------------------------------------------------------------
 -- ३ · The degenerate case: a fiber with one point carries no charge.
 --
--- If the fiber over `b` is contractible then the flow's action on it is
--- trivial in the only sense available — any two points of it are equal,
--- so moving is indistinguishable from staying.  That is the shape of
--- Noether's SECOND theorem's conclusion (pure gauge: the whole orbit is
--- one physical state) exhibited at the smallest fiber, and it is NOT the
--- general dichotomy, which needs transitivity and is not stated here.
+-- If the fiber over `b` is contractible then the flow's action on it
+-- is trivial in the only sense available — any two points of it are
+-- equal, so moving is indistinguishable from staying.
 ------------------------------------------------------------------------
 
   शून्य-भारः : (b : B) → isContr (fiber f b)

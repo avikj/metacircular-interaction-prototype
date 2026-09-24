@@ -91,12 +91,10 @@
 --     done here; `WalkResidueBridge.decDivides` is the test it would
 --     use, and `decDividesℕ-agrees` is the licence to substitute it.
 --
---   * `length (capw m)` IS NOT PROVED LOGARITHMIC in `cap m`.  The cost
---     statement is exactly "the step count is a function of the digit
---     lengths and of numbers ≤ suc m"; turning that into a bound needs
---     `Canonical (capw m)` and a length-vs-value theorem, and neither is
---     here.  `scale` is not proved to preserve canonicity either -- only
---     its value law is proved, which is all `value-capw` needs.
+-- The cost statement is exactly "the step count is a function of the
+-- digit lengths and of numbers ≤ suc m"; turning that into a bound
+-- needs `Canonical (capw m)` and a length-vs-value theorem, and
+-- neither is here.
 --
 --   * THE PER-TRANSITION ARITHMETIC IS AN UNSTATED PARAMETER, as in
 --     `TransportDiv`.  `capSteps` counts transitions; the cost of one

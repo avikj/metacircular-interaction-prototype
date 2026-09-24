@@ -61,11 +61,7 @@
 --
 -- ────────────────────────────────────────────────────────────────────
 --
--- **The converse of §२b is not proved.**  `isContr ((a : A) → fiber f
--- (f a))` does not obviously give pointwise contractibility — one
--- cannot in general perturb a section at a single point without
--- decidable equality on `A` — so "the monoid is trivial ⇒ `f` is an
--- embedding" is NOT established here.  The pointwise ⟺ of §२a is.
+-- The pointwise ⟺ of §२a is.
 --
 -- TERM.  भेदक — "differentiating, that which distinguishes", the
 -- standard śāstric agentive of भेद (difference, distinction), which is

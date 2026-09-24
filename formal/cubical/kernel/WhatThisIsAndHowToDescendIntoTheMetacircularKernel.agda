@@ -327,31 +327,28 @@
 -- §8.  THE FRONTIER, DERIVED FROM §7 RATHER THAN LISTED.
 ------------------------------------------------------------------------
 --
---   (a) A `Tm`-morphism from Obstruction's language to the kernel's, under
---       which `propose` becomes `install`.  That is what closes the loop:
---       failed match → named missing structure → new operation → larger
---       enabled set, with the deficit measure already proved to descend.
---       ADVANCED, 2026-09-01: `Kernel.Siddhasadhana_` establishes the plateau
---       direction on the kernel (see §7); the loop-driving / anti-plateau
---       direction is the remaining half.
---   (b) The schema of TheInstalledOperationHasNoPervasion raised from `subVar`'s one variable to all six
---       coordinates, and `install` replaced by `install-schema` in
---       ControlledGrammar so that generalisation is the kernel's default
---       rather than a companion module's.
---       ADVANCED, 2026-09-01: `Kernel.Adesa_SubstitutionIsAdmissibleOn-
---       Derivations…` proves substitution admissible on `Step`/`Derivation`,
---       supplying the certificate a schema needs -- `apply-checked` as a
---       Derivation, not only Vyapti_'s `apply-sound` eval-equality.  Its
---       header marks what remains: `install-schema` as a record change (the
---       `apply`/`apply-checked` fields, since `control-sound` forces the
---       subsingleton), and substitution for the other five coordinates.
---   (c) A policy over the enabled list that is honestly extra-semantic --
---       TheDerivationCarriesNoMeaning proves no semantic one exists, and lghava is the obvious
---       candidate order.  It must not collapse to a boolean verdict
---       (Saptabhangi) and it must not dedupe (§3).
---   (d) The categorified semantics of TheCountingSemanticsIsADecategorification carried from an example to a
---       theorem: relate ⟦t⟧ to `eval t` by cardinality, which needs
---       finiteness and is not proved anywhere here.
+-- (a) A `Tm`-morphism from Obstruction's language to the kernel's,
+-- under which `propose` becomes `install`. That is what closes the
+-- loop: failed match → named missing structure → new operation →
+-- larger enabled set, with the deficit measure already proved to
+-- descend. ADVANCED, 2026-09-01: `Kernel.Siddhasadhana_` establishes
+-- the plateau direction on the kernel (see §7); the loop-driving /
+-- anti-plateau direction is the remaining half. (b) The schema of
+-- TheInstalledOperationHasNoPervasion raised from `subVar`'s one
+-- variable to all six coordinates, and `install` replaced by `install-
+-- schema` in ControlledGrammar so that generalisation is the kernel's
+-- default rather than a companion module's. ADVANCED, 2026-09-01:
+-- `Kernel.Adesa_SubstitutionIsAdmissibleOn- Derivations…` proves
+-- substitution admissible on `Step`/`Derivation`, supplying the
+-- certificate a schema needs -- `apply-checked` as a Derivation, not
+-- only Vyapti_'s `apply-sound` eval-equality. Its header marks what
+-- remains: `install-schema` as a record change (the `apply`/`apply-
+-- checked` fields, since `control-sound` forces the subsingleton), and
+-- substitution for the other five coordinates. (c) A policy over the
+-- enabled list that is honestly extra-semantic --
+-- TheDerivationCarriesNoMeaning proves no semantic one exists, and
+-- lghava is the obvious candidate order. It must not collapse to a
+-- boolean verdict (Saptabhangi) and it must not dedupe (§3).
 --
 ------------------------------------------------------------------------
 

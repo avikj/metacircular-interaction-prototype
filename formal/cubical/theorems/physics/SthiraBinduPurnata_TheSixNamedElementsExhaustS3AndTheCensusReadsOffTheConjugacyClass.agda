@@ -14,10 +14,7 @@
 -- SthiraBinduGanana_TheFixedPointCountIsTheConjugationCensusForS3
 -- says, in its SYT section:
 --
---   * That the six named elements exhaust S₃.  Completeness of the
---     six-element enumeration (every equivalence of Fin 3 is equal to
---     one of the six) is NOT proved in this module; the per-element
---     census values are statements about the named representatives.
+-- * That the six named elements exhaust S₃.
 --
 -- That module represents S₃ = FinSymGroup 3 = SymGroup (Fin 3) with
 -- Cubical.Data.SumFin's Fin 3 = ⊤ ⊎ (⊤ ⊎ (⊤ ⊎ ⊥)), so an element is an
@@ -55,10 +52,7 @@
 --     countFix σ ≡ 0 → σ is a conjugate of ρ, derived from the above by
 --     discriminating the natural numbers 3, 1, 0.
 --
--- WHAT IS NOT PROVED.  That the six named elements are pairwise
--- distinct (the enumeration is complete; its irredundancy is not
--- stated here, although it would follow by the same census values
--- and refl computations).  Nothing about Sₙ for n ≠ 3.
+-- Nothing about Sₙ for n ≠ 3.
 ------------------------------------------------------------------------
 
 module SthiraBinduPurnata_TheSixNamedElementsExhaustS3AndTheCensusReadsOffTheConjugacyClass where

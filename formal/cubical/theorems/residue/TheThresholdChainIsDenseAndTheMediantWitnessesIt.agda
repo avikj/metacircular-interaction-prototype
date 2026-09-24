@@ -9,8 +9,7 @@
 -- `TheStrictThresholdsAreTheSameChainAndDifferOnlyAtTheBoundary`, and
 -- `WhichThresholdStatementsDescendToTheRate` — and it is touched here.
 --
--- The chain IS dense, and the witness is not constructed by a search:
--- it is the MEDIANT.  Between p/(suc q) and p'/(suc q') lies
+-- Between p/(suc q) and p'/(suc q') lies
 --
 --   (p + p') / (suc q + suc q')
 --
@@ -42,11 +41,9 @@
 --
 -- Also worth recording rather than mining: the mediant is the same
 -- operation the vall/kuaka tradition uses when it forms a new pair
--- from two convergents — `KuttakaValli.agda` and the convergent modules
--- on that line are ANOTHER IDENTITY'S here, and this module does not
--- enter them.  It is NOT claimed that the mediant is "really" the
--- kuaka's step; that would need the two constructions compared, which
--- is their author's to do.
+-- from two convergents — `KuttakaValli.agda` and the convergent
+-- modules on that line are ANOTHER IDENTITY'S here, and this module
+-- does not enter them.
 --
 -- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 — NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.

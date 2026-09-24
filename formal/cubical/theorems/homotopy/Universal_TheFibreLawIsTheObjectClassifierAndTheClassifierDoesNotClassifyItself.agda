@@ -17,10 +17,9 @@
 -- exhibits five theorems, written in five lanes about five subjects, as
 -- one SENTENCE, and its closing section says exactly what it withholds:
 --
---     NOT that the five are instances of one formal statement.  They are
---     not: their types differ, their ambient structures differ, and no
---     functor between them is constructed.  A common generalisation
---     would be a real theorem; it is not proved.
+-- NOT that the five are instances of one formal statement. They are
+-- not: their types differ, their ambient structures differ, and no
+-- functor between them is constructed.
 --
 -- This file is not that functor and does not weaken that disclaimer.
 -- What it does is name the AMBIENT FACT the five lanes are all speaking
@@ -128,16 +127,11 @@
 --   file — it is a constraint ON it.
 --
 -- * NOT anything about physical spacetime, gauge fields, the Standard
---   Model, or SU(3)×SU(2)×U(1).  §4 and §5 are about transport in a
---   type family.  That the connection of a principal bundle is an
---   instance is standard differential geometry and is not formalised
---   here; no smooth structure, no Lie group, and no bundle over a
---   manifold appears in this file.  README §II's disclaimer stands.
+-- Model, or SU(3)×SU(2)×U(1). §4 and §5 are about transport in a type
+-- family. README §II's disclaimer stands.
 --
--- * NOT that iterating the fibre law generates every homotopy type.
---   §8 is ONE application producing ℤ.  That every type arises from
---   iterated suspensions, Postnikov stages or cell attachments is not
---   proved here and is not a corollary of the object classifier.
+-- * NOT that iterating the fibre law generates every homotopy type. §8
+-- is ONE application producing ℤ.
 --
 --   THE LOOKING, stated because the claim is an ABSENCE, and an absence
 --   asserted without a search is silence rather than a finding
@@ -158,10 +152,9 @@
 --   does not make the tower of homotopy groups of spheres computable in
 --   any usable sense, and most of them are unknown.
 --
--- * §6 proves DESCENT → CONSTANT ON FIBRES only.  The converse needs
---   surjectivity of f and a truncation, is a different theorem, and is
---   not attempted here.  The forward direction is the one the grammar
---   lane uses, because it is refutation that lane performs.
+-- * §6 proves DESCENT → CONSTANT ON FIBRES only. The forward direction
+-- is the one the grammar lane uses, because it is refutation that lane
+-- performs.
 --
 -- WHAT IS CLAIMED: the named terms exist, are checked at the pin, and
 -- say what is written above them.
@@ -356,11 +349,10 @@ the-universal-fibration-is-classified-one-level-up ℓ = fiber (universal {ℓ})
 ------------------------------------------------------------------------
 -- §8  One turn of the fibre law is not vacuous.
 --
--- `helix : S¹ → Type₀` is a single family over a single circle.  The
+-- `helix : S¹ → Type₀` is a single family over a single circle. The
 -- winding number is, definitionally, §4's transport in it — and that
--- transport is an isomorphism onto ℤ.  A group nobody put in comes out
--- of one application of the law.  ONE application; see WHAT IS NOT
--- CLAIMED for what does not follow.
+-- transport is an isomorphism onto ℤ. A group nobody put in comes out
+-- of one application of the law.
 ------------------------------------------------------------------------
 
 वेष्टनम्-अनुवृत्तिः-एव : (p : ΩS¹) → winding p ≡ अनुवृत्तिः helix p (pos zero)

@@ -4,14 +4,10 @@
 -- प्रतिबिम्ब — the reflection.  The rooted fibre over a jewel IS that
 -- jewel's local datum together with all its reflections.
 --
--- SOURCE / SCOPE.  The metaphor is इन्द्रजाल, Indra's net: at every knot
--- a jewel, and in each jewel the reflection of every other (the net of
--- Indra, Atharvaveda 8.8.6–8; the interpenetration reading is Huayan,
--- Fazang 643–712).  The MATHEMATICS is not claimed for any text: it is
--- Voevodsky-substrate homotopy type theory (the fibration lemma HoTT
--- 4.8.1, and the final-coalgebra / domain-equation form of Indra's net),
--- already checked in this repository as `IndraNet.agda`, whose module
--- header names them as targets T25.B and T25.D of
+-- SOURCE / SCOPE. The metaphor is इन्द्रजाल, Indra's net: at every
+-- knot a jewel, and in each jewel the reflection of every other (the
+-- net of Indra, Atharvaveda 8.8.6–8; the interpenetration reading is
+-- Huayan, Fazang 643–712).
 --
 -- THE GAP THIS FILE CLOSES.  `IndraNet.agda` proves two equivalences and
 -- never joins them, though its own `IndraRoot` comment says it is

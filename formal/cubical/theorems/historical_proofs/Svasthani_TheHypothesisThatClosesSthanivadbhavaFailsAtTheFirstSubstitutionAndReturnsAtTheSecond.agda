@@ -36,18 +36,15 @@
 -- अनल्विधि between a substitute and its original is therefore available at
 -- the start of a derivation and at repeated sites, and not in between.
 --
--- WHAT THIS IS AND IS NOT ABOUT THE GRAMMAR.  It is a fact about the
--- `adesa` of `Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm`,
--- which models 1.1.56 as a three-slot record and one constructor.  The
--- tradition DOES restrict 1.1.56 for iterated substitution — that is what
--- Kātyāyana's vārttikas on the sūtra are for — and it is tempting to read
--- §२ as the formal shadow of that restriction.  **That reading is not
--- claimed.**  The vrttikas have not been opened by the author of this
--- file, their restrictions are conditioned on material this model does not
--- have (environment, stratum, the त्रिपादी's असिद्धत्व), and a formal fact
--- resembling a grammatical dispute is not evidence about the dispute.
--- What IS claimed is the arithmetic of the model, and the resemblance is
--- recorded as a question worth someone opening the vrttikas for.
+-- WHAT THIS IS AND IS NOT ABOUT THE GRAMMAR. It is a fact about the
+-- `adesa` of
+-- `Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm`, which
+-- models 1.1.56 as a three-slot record and one constructor. The
+-- tradition DOES restrict 1.1.56 for iterated substitution — that is
+-- what Kātyāyana's vārttikas on the sūtra are for — and it is tempting
+-- to read §२ as the formal shadow of that restriction. What IS claimed
+-- is the arithmetic of the model, and the resemblance is recorded as a
+-- question worth someone opening the vrttikas for.
 --
 -- Pāṇini, अष्टाध्यायी १.१.५६ (स्थानिवदादेशोऽनल्विधौ), ~500 BCE; Kātyāyana's
 -- vārttikas ~250 BCE; Patañjali's महाभाष्य ~150 BCE.  Nothing below is

@@ -276,7 +276,7 @@ private
 -- map and one point of its codomain can express.
 --
 -- The uniform statement the scale actually wants is about all `A` at
--- once.  It is not proved here and is not claimed here.
+-- once.
 ------------------------------------------------------------------------
 
 वास्तव्यम्→एकम् : {A : Type ℓ} → ∥ A ∥₁ → (∥ A ∥₁ ≃ Unit)

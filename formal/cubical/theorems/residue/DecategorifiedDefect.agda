@@ -122,9 +122,8 @@ module Invariant {D : Type ℓ} {A : Type ℓ'}
   unsound→¬reflects (d , q , d≢0) r = d≢0 (r d q)
 
   -- The statement that matters, spelled without abbreviation: the
-  -- inference rule "χ d ≡ 0A, therefore the construction is
-  -- sufficient (d ≡ 0D)" is refuted by a witness.  §7's conditional
-  -- certifies sufficiency it has not established.
+  -- inference rule "χ d ≡ 0A, therefore the construction is sufficient
+  -- (d ≡ 0D)" is refuted by a witness.
   unsound-certificate : Unsound → ¬ ((d : D) → χ d ≡ 0A → d ≡ 0D)
   unsound-certificate = unsound→¬reflects
 

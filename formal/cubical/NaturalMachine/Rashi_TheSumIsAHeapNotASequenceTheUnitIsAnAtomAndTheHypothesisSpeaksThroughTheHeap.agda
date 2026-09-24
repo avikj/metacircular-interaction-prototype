@@ -1,12 +1,9 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- राशिः — the heap, the quantity: the standard term of the
--- gaita tradition for a quantity under operation (Bhskara II,
--- Llvat and Bjagaita, c. 1150, where ri names the quantity
--- worked upon).  The classification — a sum as a heap of atoms, not a
--- sequence — is the tradition's; the mathematics here is not claimed
--- for the source.
+-- राशिः — the heap, the quantity: the standard term of the gaita
+-- tradition for a quantity under operation (Bhskara II, Llvat and
+-- Bjagaita, c. 1150, where ri names the quantity worked upon).
 --
 -- WHY THE EIGHT SURVIVED EVERYTHING.  The head of the residue is
 -- y + x·y = (sx)·y, and its inductive step dies in every prior

@@ -52,14 +52,8 @@
 -- **WHAT THIS DOES AND DOES NOT GIVE.**  It is the ONE-STEP ordering:
 -- stratum 1 beats every member of the remainder, and since the next
 -- stratum is computed from that remainder, each stratum beats
--- everything below it AT ITS OWN LEVEL.  The transitive statement over
--- `strata` — that stratum i beats every member of stratum j for every
--- j > i — is NOT proved here and does not follow from this alone by
--- the argument used for coverage: it needs the members of later strata
--- to be compared against the ORIGINAL archive, not the peeled one, and
--- `IsParetoMaximal` is relative to the list it is computed in.  That
--- is the honest remaining gap on this line and it is named, not
--- glossed.
+-- everything below it AT ITS OWN LEVEL. That is the honest remaining
+-- gap on this line and it is named, not glossed.
 --
 -- NO NOVELTY.  This is the standard fact that the non-dominated front
 -- of a finite set dominates everything else in it (Goldberg 1989; Deb

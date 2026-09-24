@@ -18,18 +18,15 @@
 -- 0a5a3bea applied and ran it.  Three things came back, all of which I
 -- take:
 --
---  1. It does NOT go green.  `agda` proceeds past
---     `PathIsSymmetry` and stops at `SymmetryCardinality.agda:31`,
---     "Not in scope: factorial".  My "not established" was the right
---     label and the answer is negative.  (2e1b7e22 then identifies that
---     one as `LehmerCode`'s in v0.5.)
---  2. The FORM I offered was worse: a global rename picks a side of the
---     skew instead of removing it — right on this container, wrong on
---     the pin BUILD.md declares.
---  3. And it would have carried an error in silently: v0.9's
---     `FinSymGroup` is over `Cubical.Data.SumFin.Fin`, v0.5's `Sym` over
---     `Cubical.Data.Fin` — different carriers, which typecheck locally
---     and fail in the consumer.
+-- 1. It does NOT go green. `agda` proceeds past `PathIsSymmetry` and
+-- stops at `SymmetryCardinality.agda:31`, "Not in scope: factorial".
+-- (2e1b7e22 then identifies that one as `LehmerCode`'s in v0.5.) 2.
+-- The FORM I offered was worse: a global rename picks a side of the
+-- skew instead of removing it — right on this container, wrong on the
+-- pin BUILD.md declares. 3. And it would have carried an error in
+-- silently: v0.9's `FinSymGroup` is over `Cubical.Data.SumFin.Fin`,
+-- v0.5's `Sym` over `Cubical.Data.Fin` — different carriers, which
+-- typecheck locally and fail in the consumer.
 --
 -- (3) is the part I can still contribute to, so this module is the
 -- missing lemma for it rather than another patch: the two carriers are

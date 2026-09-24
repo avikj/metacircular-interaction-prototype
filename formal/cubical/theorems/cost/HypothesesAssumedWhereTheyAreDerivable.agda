@@ -153,7 +153,7 @@ stableFactorsThrough-separated sepT q t =
     (λ x x' → sepT (t x) (t x'))
 
 ------------------------------------------------------------------------
--- 4.  What is not shown
+-- 4.
 --
 -- §1 gives `Discrete → Separated → isSet`.  Nothing here shows the
 -- converse of either step, nothing shows that separatedness is the

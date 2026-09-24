@@ -41,18 +41,15 @@
 --       carrying a 3-chain and a 2-chain, and §3 predicts all five classes
 --       with no enumeration.
 --
--- WHAT THIS SETTLES, and it is the point of the file.  With repetition
--- unrestricted, a family covered by w chains is named by w markers: lay
--- each chain's stretch down in order, close it with its own antya, and §3
--- delivers that chain's whole nesting from that one antya.  Since sounds
--- may recur across stretches and §3 asks only for freshness WITHIN a
--- stretch, the stretches never interfere.  With Dilworth's theorem —
--- CITED, not proved here, and not proved anywhere in this repository —
--- chain-cover number equals ⊆-width, and `PratyaharaLaghava.markersDistinct`
--- gives the matching lower bound.  So the antichain bound is exactly the
--- answer when repetition is free, and the entire content of the
--- iva-stra problem is the economy of repetition.  Pini's line recites
--- one sound twice.
+-- WHAT THIS SETTLES, and it is the point of the file. With repetition
+-- unrestricted, a family covered by w chains is named by w markers:
+-- lay each chain's stretch down in order, close it with its own antya,
+-- and §3 delivers that chain's whole nesting from that one antya.
+-- Since sounds may recur across stretches and §3 asks only for
+-- freshness WITHIN a stretch, the stretches never interfere. So the
+-- antichain bound is exactly the answer when repetition is free, and
+-- the entire content of the iva-stra problem is the economy of
+-- repetition. Pini's line recites one sound twice.
 --
 -- WHAT IS **NOT** PROVED HERE, said plainly because the paragraph above is
 -- the kind that gets quoted without its qualifications:

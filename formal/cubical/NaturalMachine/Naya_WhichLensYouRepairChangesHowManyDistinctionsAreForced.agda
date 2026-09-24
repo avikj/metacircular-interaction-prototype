@@ -10,14 +10,13 @@
 --
 -- What is claimed of the sources, precisely.
 --
---   * The mathematics of commuting partitions is not claimed for any Indian
---     source and no  label is invented for it.  Per the repository's
---     own `notes/COARSEST_REPAIR_IS_COLOUR_REFINEMENT.md`, the operative
---     prior art is: commuting partitions = orthogonal partitions (Tjur,
---     *Int. Stat. Rev.* 52, 1984; Bailey, *Des. Codes Cryptogr.* 8, 1996;
---     Nelder 1965); the coarsest equitable refinement is colour refinement
---     (Paige–Tarjan 1987); the profile relation used below is Benzécri's
---     distributional equivalence (*L'Analyse des Données*, Dunod 1973).
+-- Per the repository's own
+-- `notes/COARSEST_REPAIR_IS_COLOUR_REFINEMENT.md`, the operative prior
+-- art is: commuting partitions = orthogonal partitions (Tjur, *Int.
+-- Stat. Rev.* 52, 1984; Bailey, *Des. Codes Cryptogr.* 8, 1996; Nelder
+-- 1965); the coarsest equitable refinement is colour refinement
+-- (Paige–Tarjan 1987); the profile relation used below is Benzécri's
+-- distributional equivalence (*L'Analyse des Données*, Dunod 1973).
 --
 --   * `Naya` in the file name names the DIAGNOSIS, not the theorem.  In
 --     Jaina epistemology a *naya* is a standpoint and a *durnaya* is a

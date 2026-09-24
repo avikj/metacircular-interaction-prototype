@@ -89,19 +89,15 @@
 -- (−1, 3, −3, 1, 0),  coeffs (Φ 360) = (0, 0, 0, −1, 3, −3, 1, 0), with
 -- (Ω, ω) = (3, 2), (3, 3), (6, 3); and κ₁(6) = −2 while κ₁(2)·κ₁(3) = 1.
 --
--- WHAT IS NOT PROVED.
---   * Multiplicativity of Φ as a statement of its own, Φ_{mn} = Φ_m·Φ_n
---     for coprime m, n, and the prime-power evaluation
---     Φ_{p^a}(t) = t^a − t^{a−1}: neither is needed on this route and
---     neither is stated.  Each is an instance of Φ-closed-form once
---     ω(mn) = ω(m) + ω(n) for coprime m, n (resp. Ω(p^a) = a and
---     ω(p^a) = 1) is known; those facts about ω are not proved here.
---   * "Mbius-coherent" in §5.4 is not given a meaning here, and
---     nothing is proved about it.
---   * The partition of unity Σ_{d|n} Φ_d(t) = t^{Ω(n)} of
---     ChargePolynomialFinite §5 is not touched.
---   * Everything is stated for n ≥ 1; Φ 0 is the empty sum and nothing
---     is claimed about it.
+-- * Multiplicativity of Φ as a statement of its own, Φ_{mn} = Φ_m·Φ_n
+-- for coprime m, n, and the prime-power evaluation Φ_{p^a}(t) = t^a −
+-- t^{a−1}: neither is needed on this route and neither is stated. Each
+-- is an instance of Φ-closed-form once ω(mn) = ω(m) + ω(n) for coprime
+-- m, n (resp. * "Mbius-coherent" in §5.4 is not given a meaning here,
+-- and nothing is proved about it. * The partition of unity Σ_{d|n}
+-- Φ_d(t) = t^{Ω(n)} of ChargePolynomialFinite §5 is not touched. *
+-- Everything is stated for n ≥ 1; Φ 0 is the empty sum and nothing is
+-- claimed about it.
 --
 -- No postulates, no holes, no termination pragmas; every fuel-bounded
 -- program is used only on the range where its specification is proved.

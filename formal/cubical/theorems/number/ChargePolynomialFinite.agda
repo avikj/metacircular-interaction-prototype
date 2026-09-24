@@ -67,15 +67,13 @@
 --   (iv)  Ω agrees with an INDEPENDENT trial-division Ω, imported from
 --         `SieveFiber`, on every divisor of the table.
 --
--- What (i)–(iv) do NOT give is that the table is *the* factorization:
--- that step is unique factorization, which is not proved here and not
--- available in the imported library at the shape needed.  So the precise
--- reading of everything below is: **these are theorems about
--- factorization tables, together with a four-way check that the three
--- tables used are correct tables for 12, 30 and 360.**  Under unique
--- factorization — and only under it — they are the note's theorems at
--- those n.  This is the single unformalized bridge in the module and it
--- is named again in the rigor boundary at the end of this header.
+-- So the precise reading of everything below is: **these are theorems
+-- about factorization tables, together with a four-way check that the
+-- three tables used are correct tables for 12, 30 and 360.**  Under
+-- unique factorization — and only under it — they are the note's
+-- theorems at those n. This is the single unformalized bridge in the
+-- module and it is named again in the rigor boundary at the end of
+-- this header.
 --
 -- ℕ VERSUS ℤ.  Ω, ω, μ², `value` and every exhaustion flag live in ℕ.
 -- The charge polynomial does not: μ takes the value −1, κ_r(30) = −1,
@@ -833,12 +831,10 @@ outside-envelope-12 = refl
 outside-envelope-30 : Ω f30 ≡ 3
 outside-envelope-30 = refl
 
--- Lemma B2, the half of the fence that points the other way: a prime has
--- Ω = 1 and therefore always lies in the envelope, so intersecting any
--- family with the envelope condition discards no primes.  In this
+-- Lemma B2, the half of the fence that points the other way: a prime
+-- has Ω = 1 and therefore always lies in the envelope, so intersecting
+-- any family with the envelope condition discards no primes. In this
 -- encoding that is exactly `classify1` read backwards, and it is the
--- statement that makes the note's B3/B4 counts FULL counts.  (Those
--- counting theorems themselves quantify over primes in a window and are
--- deliberately not formalized here — see the rigor boundary.)
+-- statement that makes the note's B3/B4 counts FULL counts.
 primes-are-in-envelope : (p : ℕ) → (Ω ((p , 0) ∷ []) ≡ 1) ⊎ (Ω ((p , 0) ∷ []) ≡ 2)
 primes-are-in-envelope p = inl refl

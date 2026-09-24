@@ -2,11 +2,9 @@
 ------------------------------------------------------------------------
 -- वृत्त-बिन्दुः — the one sentence `Bahupratyanayana_…` left unproved.
 --
--- That module says, exactly: "NOT PROVED HERE: that S¹ has no two
--- distinct points (that is connectedness, in the library, and is not
--- invoked)."  It is invoked here.  `isConnectedS¹ : (s : S¹) → ∥ base ≡ s ∥₁`
--- gives, for any two points, a mere path between them; a proof that
--- they are distinct would refute that mere path.  So:
+-- `isConnectedS¹ : (s : S¹) → ∥ base ≡ s ∥₁` gives, for any two
+-- points, a mere path between them; a proof that they are distinct
+-- would refute that mere path. So:
 --
 --   no-two-points : ¬ (Σ[ x ∈ S¹ ] Σ[ y ∈ S¹ ] (¬ x ≡ y))
 --

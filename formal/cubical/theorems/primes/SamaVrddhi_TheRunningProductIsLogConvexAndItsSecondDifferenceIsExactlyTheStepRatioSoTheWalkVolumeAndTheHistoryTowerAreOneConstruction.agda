@@ -54,15 +54,12 @@
 --       cumulative product of stage sizes — it IS one, and §§2–4 apply
 --       to it verbatim.
 --
--- THE READING THAT IS NOT PROVED HERE.  `Πη m = Π_{j ≤ m} η j` collects
--- one prime for each prime power below m, which is the standard product
--- formula for `lcm(1,…,m)`; under that identification §5 says the walk
--- volume and the cumulative CRT stage tower are literally the same
--- sequence, and the two consumers of it — the harmonic observer and the
--- local curvature receiver — read one source in two coordinates.  THAT
--- IDENTIFICATION IS ARITHMETIC AND IS NOT PROVED ANYWHERE BELOW: no
--- `lcm` is defined in this corpus, and `η`'s definition through `spf`
--- would have to be related to it.  Everything §§1–5 claims is
+-- `Πη m = Π_{j ≤ m} η j` collects one prime for each prime power below
+-- m, which is the standard product formula for `lcm(1,…,m)`; under
+-- that identification §5 says the walk volume and the cumulative CRT
+-- stage tower are literally the same sequence, and the two consumers
+-- of it — the harmonic observer and the local curvature receiver —
+-- read one source in two coordinates. Everything §§1–5 claims is
 -- independent of it, because `C` is arbitrary.
 --
 -- SYĀT — THE CLAIM, EXACTLY.  §§1–3 for every sequence `C` and every n,

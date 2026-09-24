@@ -11,16 +11,10 @@
 -- generalized to composition of quadratic forms.  Associativity of both
 -- coordinates is established here as ℤ ring identities via the solver.)
 --
--- सूचना : पूर्वं तत्समता (1,0) व्युत्क्रमश्च (a,−b) प्रोक्ते "स्पष्टे" इति ,
--- न तु साधिते — इदम् अवक्तव्यम् आसीत् (प्रोक्तिः न प्रमाणम्) ।  अधुना उभे
--- कर्ण-सिद्धे : वाम-दक्षिण-तत्समता (संयोग N (1,0) = तत् एव) , व्युत्क्रमः
--- (संयोग N (a,b)(a,−b) = (मान N a b, 0) , अतः मानं १ चेत् एककम्) ।  साहचर्येण
--- सह पूर्णः समूह-नियमः — ℤ[√N]-गुणनम् ।
--- (formerly identity and inverse were called "clear" but not proved — that
--- was an avaktavya, an assertion standing in for a proof.  Both are now
--- kernel-checked: left/right identity (1,0), and the conjugate inverse
--- (a,−b) composing to (मान N a b, 0), the identity exactly when the norm is
--- 1.  With associativity, the full group law of ℤ[√N].)
+-- Both are now kernel-checked: left/right identity (1,0), and the
+-- conjugate inverse (a,−b) composing to (मान N a b, 0), the identity
+-- exactly when the norm is 1. With associativity, the full group law
+-- of ℤ[√N].)
 ------------------------------------------------------------------------
 
 module CompositionSet where

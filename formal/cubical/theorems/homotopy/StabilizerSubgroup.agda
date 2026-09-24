@@ -6,13 +6,11 @@
 -- T15.9 AS A SUBGROUP.  A completion of `DefectCalculus`
 -- §4, written as a separate module so that nobody's file is edited.
 --
--- THE OBJECTION.  `DefectCalculus`'s ledger records, under WHAT IS NOT
--- CLAIMED:
+-- THE OBJECTION.
 --
---     "T15.9 is not proved as 'subgroup'.  §4 takes a family of
---      self-equivalences and proves closure under identity, composition
---      and inverse.  The *group* statement wants a group object acting;
---      packaging one here would be scope creep."
+-- §4 takes a family of self-equivalences and proves closure under
+-- identity, composition and inverse. The *group* statement wants a
+-- group object acting; packaging one here would be scope creep."
 --
 -- The first half of that sentence is not accurate and the diagnosis in
 -- the second half is the wrong one.  §4's parameter is not "a family of

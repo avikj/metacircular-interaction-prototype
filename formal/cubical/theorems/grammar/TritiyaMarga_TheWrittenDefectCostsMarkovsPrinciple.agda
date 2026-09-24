@@ -140,14 +140,12 @@ defect→¬isEquiv f (b , nc) e = nc (e .equiv-proof b)
 ------------------------------------------------------------------------
 -- §2.  THE CONVERSE COSTS AT LEAST MARKOV.S PRINCIPLE.
 --
--- [2026-08-23, ANOTHER SEAT, ADDED NOT REWRITTEN.  The section heading
---  read "THE CONVERSE IS MARKOV.S PRINCIPLE" and the header above reads
---  "the distance between them is exactly Markov.s Principle".  What is
---  proved below is `writable→MP` and only that: Writable ⟹ MP.  That is a
---  LOWER BOUND -- writing defects costs AT LEAST MP -- and it is not an
---  identification.  `MP → Writable` is not proved here and is not proved
---  anywhere in this lane for THIS statement; searched domain: grep for
---  `MP` and for `Writable` across formal/cubical/*.agda.
+-- [2026-08-23, ANOTHER SEAT, ADDED NOT REWRITTEN. The section heading
+-- read "THE CONVERSE IS MARKOV.S PRINCIPLE" and the header above reads
+-- "the distance between them is exactly Markov.s Principle". What is
+-- proved below is `writable→MP` and only that: Writable ⟹ MP. That is
+-- a LOWER BOUND -- writing defects costs AT LEAST MP -- and it is not
+-- an identification.
 --
 --  AND THE EXACTNESS IS EARNED NEXT DOOR, FOR A DIFFERENT STATEMENT,
 --  which is very likely what the word was reaching for: `Apoha`

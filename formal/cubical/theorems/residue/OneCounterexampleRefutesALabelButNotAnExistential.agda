@@ -103,10 +103,9 @@ bothAtOnce = theLabelIsRefuted , theExistentialSurvives
 -- APPENDED 2026-08-19 by this module's author, at the end, altering no
 -- line above.
 --
--- §"WHAT IS NOT MODELLED" above says: "a genuine RATE claim ('more than
--- half', 'at most 25%') … needs a measure and a count, neither of which
--- appears below.  §3 therefore does NOT establish the comparison §7's
--- list invites."
+-- §"WHAT IS NOT MODELLED" above says: "a genuine RATE claim ('more
+-- than half', 'at most 25%') … needs a measure and a count, neither of
+-- which appears below.
 --
 -- The count is now supplied, in
 -- `RateOneIsExactlyTheUniversalClaim`, over a finite
