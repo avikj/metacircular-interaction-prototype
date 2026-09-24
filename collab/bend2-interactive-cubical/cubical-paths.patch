@@ -6431,7 +6431,7 @@ diff --git a/src/Target/HVM4Full.hs b/src/Target/HVM4Full.hs
 new file mode 100644
 --- /dev/null
 +++ b/src/Target/HVM4Full.hs
-@@ -0,0 +1,609 @@
+@@ -0,0 +1,613 @@
 +{-./../Core/Type.hs-}
 +
 +{-# LANGUAGE ViewPatterns #-}
@@ -6503,6 +6503,9 @@ new file mode 100644
 +          ++ ", λx. x, @cfObservationValue(@cfObserve("
 +          ++ emitFull book mainTy ++ ", @" ++ hvmName "main"
 +          ++ ", @conductiveWholeMain, " ++ emitFull book mainTy ++ ", λx. x)))\n"
++          ++ "// second observation traverses the retained continuation and recovers source\n"
++          ++ "@conductiveTwiceMain = @cfSecondIdentity("
++          ++ emitFull book mainTy ++ ", @" ++ hvmName "main" ++ ", @conductiveWholeMain)\n"
 +          ++ mapEntry mainTy
 +        Nothing -> ""
 +
@@ -6543,6 +6546,7 @@ new file mode 100644
 +  , "@cfObserve = λ&A. λ&a. λ&p. λ&B. λ&f. (λ{#Pair: λ&tag. λ&xs. (λ{#fibreCoalgebra: (λ{#Pair: λ&respond. λ&one. respond(B)(f)})(xs); λz. &{}})(tag)})(p)"
 +  , "@cfObservationValue = λ&o. (λ{#Pair: λ&tag. λ&xs. (λ{#fibreObservation: (λ{#Pair: λ&value. λ&rest. value})(xs); λz. &{}})(tag)})(o)"
 +  , "@cfObservationNext = λ&o. (λ{#Pair: λ&tag. λ&xs. (λ{#fibreObservation: (λ{#Pair: λ&value. λ&rest. (λ{#Pair: λ&source. λ&tail. (λ{#Pair: λ&next. λ&one. next})(tail)})(rest)})(xs); λz. &{}})(tag)})(o)"
++  , "@cfSecondIdentity = λ&A. λ&a. λ&p. ! &o1 = @cfObserve(A)(a)(p)(A)(λx. x); ! &v1 = @cfObservationValue(o1); ! &n1 = @cfObservationNext(o1); @cfObservedValue(@cfElementType(A)(A)(λx. x))(A)(λc. @cfAscend(A)(A)(λx. x)(c))(@cfObservationValue(@cfObserve(@cfElementType(A)(A)(λx. x))(v1)(n1)(A)(λc. @cfAscend(A)(A)(λx. x)(c))))"
 +  , "// ---- intervals"
 +  , "@inot = λ{#I0: #I1; #I1: #I0; λx. #INot{x}}"
 +  , "// (linear: a value is never cloned merely because it is used in several match ARMS —"
