@@ -6497,6 +6497,12 @@ new file mode 100644
 +          "\n// canonical conductive presentation of checked @main\n"
 +          ++ "@__whole_main = @__fibreCoalgebra("
 +          ++ emitFull book mainTy ++ ", @" ++ hvmName "main" ++ ")\n"
++          ++ "// identity observation: executable differential oracle; must equal @main\n"
++          ++ "@__conductive_main = @__observedValue("
++          ++ emitFull book mainTy ++ ", " ++ emitFull book mainTy
++          ++ ", λx. x, @__observationValue(@__observe("
++          ++ emitFull book mainTy ++ ", @" ++ hvmName "main"
++          ++ ", @__whole_main, " ++ emitFull book mainTy ++ ", λx. x)))\n"
 +        Nothing -> ""
 +
 +prelude :: String
@@ -6513,6 +6519,7 @@ new file mode 100644
 +  , "@__fibreObservation = λ&A. λ&a. λ&B. λ&f. λ&value. λ&source. #Pair{#fibreObservation, #Pair{value, #Pair{source, #Pair{@__fibreCoalgebra(&{})(value), #One}}}}"
 +  , "@__fibreCoalgebra = λ&A. λ&a. #Pair{#fibreCoalgebra, #Pair{λ&B. λ&f. @__fibreObservation(A)(a)(B)(f)(@__descend(A)(B)(f)(a))(#PLm{λ&i. a}), #One}}"
 +  , "@__observe = λ&A. λ&a. λ&p. λ&B. λ&f. (λ{#Pair: λ&tag. λ&xs. (λ{#fibreCoalgebra: (λ{#Pair: λ&respond. λ&one. respond(B)(f)})(xs); λz. &{}})(tag)})(p)"
++  , "@__observationValue = λ&o. (λ{#Pair: λ&tag. λ&xs. (λ{#fibreObservation: (λ{#Pair: λ&value. λ&rest. value})(xs); λz. &{}})(tag)})(o)"
 +  , "// ---- intervals"
 +  , "@inot = λ{#I0: #I1; #I1: #I0; λx. #INot{x}}"
 +  , "// (linear: a value is never cloned merely because it is used in several match ARMS —"
