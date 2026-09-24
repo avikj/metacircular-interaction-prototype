@@ -2317,7 +2317,7 @@ index f94d1ce..b1a3b67 100644
 +  case M.lookup "main" defs of
 +    Nothing -> putStrLn "native-step: no main"
 +    Just (_, tm, _) ->
-+      case nativeStep Full book tm of
++      case nativeStep Full book mainTm of
 +        Nothing -> putStrLn ("native-step: normal " ++ show tm)
 +        Just s  -> do
 +          putStrLn ("native-step: " ++ ruleName (stepRule s))
@@ -6587,7 +6587,7 @@ new file mode 100644
 +    -- observation.  The generated companion presents the whole checked value.
 +    conductiveEntries =
 +      case M.lookup "main" defs of
-+        Just (_, _, mainTy) ->
++        Just (_, mainTm, mainTy) ->
 +          "\n// canonical conductive presentation of checked @main\n"
 +          ++ "@conductiveWholeMain = @cfCoalgebra("
 +          ++ emitFull book mainTy ++ ", @sourceMain)\n"
