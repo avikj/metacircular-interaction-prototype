@@ -6431,7 +6431,7 @@ diff --git a/src/Target/HVM4Full.hs b/src/Target/HVM4Full.hs
 new file mode 100644
 --- /dev/null
 +++ b/src/Target/HVM4Full.hs
-@@ -0,0 +1,605 @@
+@@ -0,0 +1,608 @@
 +{-./../Core/Type.hs-}
 +
 +{-# LANGUAGE ViewPatterns #-}
