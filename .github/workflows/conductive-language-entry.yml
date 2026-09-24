@@ -56,6 +56,15 @@ jobs:
           grep -q '^@conductiveMapMain = ' "$RUNNER_TEMP/conductive-map.hvm4"
           grep -q '@cfPresentMap' "$RUNNER_TEMP/conductive-map.hvm4"
 
+      - name: Execute canonical Bend universal presentation
+        shell: bash
+        run: |
+          set -euo pipefail
+          source "$RUNNER_TEMP/conductive-build/env.sh"
+          "$BEND" collab/bend2-interactive-cubical/universal_presentation.bend --to-hvm4-full > "$RUNNER_TEMP/universal-presentation.hvm4"
+          "$HVM" "$RUNNER_TEMP/universal-presentation.hvm4" -s | tee "$RUNNER_TEMP/universal-presentation.log"
+          grep -Eq '(^|[^0-9])2([^0-9]|$)' "$RUNNER_TEMP/universal-presentation.log"
+
       - name: Run complete Cubical Bend suite
         shell: bash
         run: |
