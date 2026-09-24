@@ -44,11 +44,10 @@
 --     general": at M = 2 the s = 1 projector returns Σ_{r odd} κ_r, and
 --     for d = p²q that is 2, not κ₁ = 1.
 --
--- WHAT IS FORMALIZED, AND WHAT IS NOT.  The step from the left side of
--- (2.1) to the right side is character orthogonality over ℂ — inherited
--- elementary harmonic analysis, and the note claims no novelty for it.
--- It is NOT reproved here; no root of unity and no complex number
--- occurs in this module.  What IS formalized is everything (2.1)
+-- WHAT IS FORMALIZED.  The step from the left side of (2.1) to the
+-- right side is character orthogonality over ℂ — inherited elementary
+-- harmonic analysis.  No root of unity and no complex number occurs in
+-- this module.  What IS formalized is everything (2.1)
 -- reduces to once that step is taken, which is where the operational
 -- content lives: the right-hand side of (2.1) is taken as the
 -- DEFINITION of the projector (`aliasSum`), over a discrete carrier

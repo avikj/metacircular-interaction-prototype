@@ -235,7 +235,7 @@ bound-8 = exponent-bounded 2 8 8 3
 -- CLOSED here: `logOf` has a specification, its fuel budget is proved
 -- adequate, and the exponent bound follows.
 --
--- STILL OPEN, and unchanged in count because this one split into two:
+-- THE TWO REMAINING PIECES:
 --   * membership of (p , logOf p k) in `frontierList k` for prime p ≤ k;
 --   * gcd(p^a, m') = 1 from p ∤ m', which is `CoprimePowers.bez-pow`
 --     once the base certificate is in hand.

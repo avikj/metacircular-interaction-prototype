@@ -152,8 +152,7 @@ import ObstructionSubstrate
 ------------------------------------------------------------------------
 -- §6 · शेषः — the remainder that stays a remainder.
 --
--- WHAT IS NOT DONE HERE, stated because leaving it unsaid would be the
--- sanitised version of this module.
+-- WHERE THIS SITS.
 --
 --   · Neither `eqℕ` should exist.  `Cubical.Relation.Nullary.Discrete` and
 --     `Cubical.Data.Nat.Properties.discreteℕ` give decidable equality on ℕ
@@ -166,8 +165,7 @@ import ObstructionSubstrate
 --     It does NOT thereby give the Fin layer anything: eqFin-complete already
 --     existed and is a different statement (x ≡ y → eqFin x y ≡ true, the
 --     positive direction), and the negative direction at Fin — x ≢ y →
---     eqFin x y ≡ false — needs toℕ-injectivity in the other direction and is
---     not proved here.
+--     eqFin x y ≡ false — needs toℕ-injectivity in the other direction.
 --   · The pattern generalises and is not generalised.  Any two structurally
 --     identical definitions in two modules admit exactly this treatment: one
 --     induction to agree pointwise, one abstraction to a path, and then every

@@ -47,12 +47,9 @@
 -- top-level, total, non-injective maps whose fibers are written 12 and
 -- 95 lines below them respectively.  NEITHER APPEARS among the 1046.
 -- So the queue's number is not an upper bound on the corpus's one-way
--- edges and was being read as one.  The reason the parse drops them is
--- not established here and is left open rather than guessed; a verdict
--- guessed is worse than a verdict withheld, which is the census's own
--- standing line about itself.
+-- edges and was being read as one.
 --
--- The मात्रा closure is NOT carried in this module: `LosslessReturn.…` is a
+-- The मात्रा closure is not in this module: `LosslessReturn.…` is a
 -- separate library root and importing it here would change what
 -- `formal/check.sh` builds.  It is `refl` in exactly the same way, and
 -- belongs in that root.

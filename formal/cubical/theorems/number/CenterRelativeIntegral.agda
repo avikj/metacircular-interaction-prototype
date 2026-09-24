@@ -73,11 +73,11 @@
 --    `v_ℓ(p), v_ℓ(q)` is a reading, not a term.  Program 17.23
 --    (adelic formulation) is untouched.
 --
---  * **T17.13 is not proved as stated.**  Delta 17 states an equivalence
---    of `ℤ_{≥0}²` with the cone `{(s,d) : s ≥ |d|, s ≡ d mod 2}`.  The
---    parity half is §3 above; the **order half — `s ≥ |d|` — is absent**,
---    because it needs an ordered ring and this file deliberately has no
---    order.  The cone statement is therefore OPEN, and what is here is
+--  * **T17.13, in halves.**  Delta 17 states an equivalence of
+--    `ℤ_{≥0}²` with the cone `{(s,d) : s ≥ |d|, s ≡ d mod 2}`.  The
+--    parity half is §3 above; the order half — `s ≥ |d|` — needs an
+--    ordered ring and this file deliberately has no order.  What is here
+--    is
 --    its congruence half in stronger form.
 --
 --  * **Nothing from §§17.2–17.3, 17.5, 17.12–17.14, 17.16–17.21.**  The

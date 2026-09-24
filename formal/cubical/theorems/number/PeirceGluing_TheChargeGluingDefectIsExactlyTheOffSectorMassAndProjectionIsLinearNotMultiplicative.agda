@@ -103,7 +103,7 @@
 --         Π-not-mult       Π_1 (ind₁ ⊠ ind₁) ≢ Π_1 ind₁ · Π_1 ind₁
 --         Π-not-mult-∀     ¬ ∀ F G c. Π_c (F ⊠ G) ≡ Π_c F · Π_c G
 --
--- WHAT IS NOT PROVED, exactly.
+-- SCOPE, exactly.
 --
 --  * Orthogonality (e_r e_s ≡ 0 for r ≠ s) is part of the hypothesis
 --    "complete orthogonal family of idempotents" in the task and in
@@ -130,9 +130,8 @@
 --    U_h U_k ≡ U_{h+k}; "non-prime intermediate charge mass" is D0026's
 --    name for Σ_{s≠1} of the summands, and the name is not a theorem.
 --
---  * `Graded` proves the projection formula and linearity; it does NOT
---    prove that ⊠ makes ℕ → R a ring (associativity of the Cauchy
---    product is not needed for any statement here and is not claimed).
+--  * `Graded` proves the projection formula and linearity.  Associativity
+--    of the Cauchy product is not needed for any statement here.
 --
 --  * DynamicDescent is not imported (its module carries a different
 --    option set); §3 restates its three scalars as matrix entries and

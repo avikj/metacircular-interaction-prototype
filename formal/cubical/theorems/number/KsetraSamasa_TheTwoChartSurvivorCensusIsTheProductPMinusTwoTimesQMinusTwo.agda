@@ -24,11 +24,10 @@
 -- the condition at a coprime prime, so a joint survivor is a tuple of
 -- local survivors.  The identification of this product with the survivors
 -- inside Fin (p·q) is the Chinese Remainder ring-iso (ℤ/pq ≃ ℤ/p × ℤ/q,
--- coprime), which is NOT proved here — this module works on the product
--- carrier directly, where the count is exact and needs no CRT.  So the
--- result is the DENSITY product, honestly on the product carrier; the
--- CRT identification with the residue line mod p·q is the remaining,
--- named, half of the atlas.
+-- coprime).  This module works on the product carrier directly, where
+-- the count is exact and needs no CRT.  The result is the DENSITY
+-- product on the product carrier; the CRT identification with the
+-- residue line mod p·q is the other half of the atlas.
 --
 -- No claim about primes as such: p = 2+m is any modulus ≥ 2 with two
 -- distinct walls; primality and coprimality enter only when this product

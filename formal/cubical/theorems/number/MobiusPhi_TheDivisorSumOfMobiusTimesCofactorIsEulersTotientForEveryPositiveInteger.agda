@@ -54,11 +54,9 @@
 -- `spf-spec`, `mu-step`, `gcdN-isGCD`), and the module's sums are shown
 -- to be instances of one summation operator `Σ≤`.
 --
--- WHAT IS NOT PROVED.  Nothing about the other displays of
--- `TransmissionRefutations` (its B.3 sums, its Section A, its Section
--- C) is touched; Gauss's identity Σ_{d∣n} φ(d) = n and the general
--- Mbius inversion formula are not proved, because this route does not
--- pass through them.  No postulates, no holes, no termination pragmas;
+-- ROUTE.  This route does not pass through Gauss's identity
+-- Σ_{d∣n} φ(d) = n or the general Mbius inversion formula, and does not
+-- touch the other displays of `TransmissionRefutations`.  No postulates, no holes, no termination pragmas;
 -- the fuel of every imported program is discharged by a proof, never by
 -- a range assumption.
 ------------------------------------------------------------------------

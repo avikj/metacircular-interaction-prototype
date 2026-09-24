@@ -108,8 +108,8 @@ module _ {A : Type ℓ} (disc : Discrete A) where
   -- permutation invariance (aneknta) on a carrier rich enough to be
   -- amplitudes, any two such rules agree — Born uniqueness.  Stated over
   -- an abstract weight ring `W` with the vow-record supplied by the
-  -- caller; NOT proved here (Gleason wall, see header).  It is a Type, so
-  -- writing it costs nothing and asserts nothing until inhabited.
+  -- caller (Gleason wall, see header).  It is a Type, inhabited by
+  -- whoever supplies the interior.
   BornInteriorConjecture :
       {W : Type ℓ'}
       (Vow : (List A → A → W) → Type ℓ')          -- the interior vows

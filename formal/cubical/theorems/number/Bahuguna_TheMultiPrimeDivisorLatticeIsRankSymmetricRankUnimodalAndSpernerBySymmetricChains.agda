@@ -67,8 +67,8 @@
 --       elements with the same image lie on one chain, so are
 --       comparable, so are equal by the antichain hypothesis.
 --
--- WHAT IS NOT PROVED, and is not claimed: nothing here uses 𝔰𝔩₂.  The
--- route is the 1951 combinatorial one (symmetric chains), not Stanley's
+-- Nothing here uses 𝔰𝔩₂.  The route is the 1951 combinatorial one
+-- (symmetric chains), not Stanley's
 -- hard-Lefschetz route through the injectivity of ε^{A−2k}; the CharZero
 -- hypothesis of SpernerFromSl2 §7 is therefore never needed and never
 -- assumed.  The "tensor product carries the coproduct triple" and

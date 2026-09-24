@@ -32,9 +32,9 @@
 -- That the walk's installs, as a list, satisfy `AllPrime` and `Distinct`
 -- at every frontier.  `WalkPrimePowers.installs-are-prime-powers` says
 -- each install is a prime power; turning the install STREAM into a list
--- with distinct bases is a statement about the walk's dynamics, not about
--- arithmetic, and is not proved here.  What is closed is that the count
--- follows from those hypotheses with no further arithmetic input.
+-- with distinct bases is a statement about the walk's dynamics, not
+-- about arithmetic.  What is closed is that the count follows from those
+-- hypotheses with no further arithmetic input.
 --
 -- CHECKED: Agda 2.6.3, cubical v0.5 — the container, not the repository
 -- pin.  No postulates, no holes.

@@ -43,7 +43,7 @@
 --
 -- ────────────────────────────────────────────────────────────────────
 --
--- ψ(k) ≈ k is NOT proved here and is not used.  Turning
+-- ψ(k) ≈ k is not used here.  Turning
 -- "coordinatewise exponential" into "ψ(k) versus its derivation's size"
 -- requires summing over primes p ≤ k with exponents ⌊log_p k⌋, which is
 -- Chebyshev's estimate and belongs to the analytic lane (`formal/

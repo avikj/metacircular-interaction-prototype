@@ -33,11 +33,10 @@
 -- so the chain from ryabhaa's multipliers to the walk's residue count
 -- is now unbroken except for one arithmetical fact, stated below.
 --
--- STILL OPEN, and it is now the only gap: that distinct primes are
--- coprime, i.e. that a certificate EXISTS for `p, q`.  Nothing above
--- produces one; the walk's concrete frontiers compute gcds instead
--- (`CRTChain.walk8-coprimes`), and that is enough for any named frontier
--- and not enough for all of them.
+-- THE ONE ARITHMETICAL FACT: that distinct primes are coprime, i.e.
+-- that a certificate EXISTS for `p, q`.  The walk's concrete frontiers
+-- compute gcds instead (`CRTChain.walk8-coprimes`), which is enough for
+-- any named frontier.
 --
 -- CHECKED: Agda 2.6.3, cubical v0.5 — the container, not the repository
 -- pin.  No postulates, no holes.

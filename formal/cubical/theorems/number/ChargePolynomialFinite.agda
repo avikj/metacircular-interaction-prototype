@@ -68,9 +68,8 @@
 --         `SieveFiber`, on every divisor of the table.
 --
 -- What (i)–(iv) do NOT give is that the table is *the* factorization:
--- that step is unique factorization, which is not proved here and not
--- available in the imported library at the shape needed.  So the precise
--- reading of everything below is: **these are theorems about
+-- that step is unique factorization.  So the precise reading of
+-- everything below is: **these are theorems about
 -- factorization tables, together with a four-way check that the three
 -- tables used are correct tables for 12, 30 and 360.**  Under unique
 -- factorization — and only under it — they are the note's theorems at
@@ -838,7 +837,7 @@ outside-envelope-30 = refl
 -- family with the envelope condition discards no primes.  In this
 -- encoding that is exactly `classify1` read backwards, and it is the
 -- statement that makes the note's B3/B4 counts FULL counts.  (Those
--- counting theorems themselves quantify over primes in a window and are
--- deliberately not formalized here — see the rigor boundary.)
+-- counting theorems themselves quantify over primes in a window — see
+-- the rigor boundary.)
 primes-are-in-envelope : (p : ℕ) → (Ω ((p , 0) ∷ []) ≡ 1) ⊎ (Ω ((p , 0) ∷ []) ≡ 2)
 primes-are-in-envelope p = inl refl

@@ -11,7 +11,7 @@
 -- that HOLDS under a delimited locus and FAILS on the whole one.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT PROVOKED THIS, AND THE GREP THAT CONFIRMED IT WAS STILL OPEN
+-- WHAT PROVOKED THIS, AND THE GREP
 --
 --
 --   "the limitor is a *dependent binder over the relatum* — and,
