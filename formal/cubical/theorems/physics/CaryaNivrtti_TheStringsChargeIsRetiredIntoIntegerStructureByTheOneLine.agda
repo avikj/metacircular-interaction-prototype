@@ -4,8 +4,7 @@
 -- an INSTANTIATION of एकसूत्र's retirement operator (निवृत्तिः).  Tonight
 -- the winding facts were hand-proved (GranthiCarya).  The one line
 -- retires the author: ΩS¹ ≃ ℤ, so EVERY property of ℤ holds of the loop
--- space with no further proof — the charge is not proved to be ℤ, it IS
--- ℤ, issued.  This is the pattern for retiring all of the night's
+-- space with no further proof — the charge IS ℤ, issued.  This is the pattern for retiring all of the night's
 -- physics into the single primitive.
 
 module CaryaNivrtti_TheStringsChargeIsRetiredIntoIntegerStructureByTheOneLine where

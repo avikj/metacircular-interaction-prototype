@@ -240,11 +240,9 @@
 --  * H2 is a no-go about DECODERS FROM THE STATE, not an impossibility
 --    theorem about the enterprise: it says a function of `(Vocab , Tm)`
 --    cannot be the answer.  It does not say no extension of the substrate
---    can carry the answer — §I names one that could.  §I is not proved to
---    be sufficient, only to be a type; and no term of it is built.
---  * NEITHER §I RECORD IS INHABITED, and `ArithmeticPayloadOver` is not
---    claimed to be sufficient either — it is `ArithmeticPayload` with
---    one omission repaired, not a construction.  Its `carrier` field
+--    can carry the answer — §I names one that could.  §I is a type.
+--  * `ArithmeticPayloadOver` is `ArithmeticPayload` with one omission
+--    repaired.  Its `carrier` field
 --    demands a minimal carrier for a task's ANSWER in the declared
 --    class; nothing here relates that number to `deficit`, and the
 --    corpus's termination measure remains the structural one.  The

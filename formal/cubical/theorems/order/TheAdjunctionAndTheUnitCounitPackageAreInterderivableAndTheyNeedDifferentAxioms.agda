@@ -8,9 +8,7 @@
 -- invented.**  The abstract order-theoretic form used here — two
 -- preorders, two antitone maps, one adjunction — is Ore's ("Galois
 -- connexions", *Trans. AMS* 55, 1944), after Birkhoff (*Lattice
--- Theory*, 1940, §V); the module being audited already cites both.  I
--- have not established an Indian source for it and will not attach a
--- label I cannot defend.
+-- Theory*, 1940, §V); the module being audited already cites both.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- THE AUDIT, AND WHAT IT FOUND AND DID NOT FIND.

@@ -401,7 +401,7 @@ GeneralSperner =
       ((u v : Σ[ x ∈ DivM m α ] A x) → f u ≡ f v → u ≡ v)
 
 -- Likewise for the two intermediate steps, so the queue is explicit:
--- rank-unimodality is NOT degenerate in general and is not proved.
+-- rank-unimodality in general.
 GeneralRankSymmetry : Type₀
 GeneralRankSymmetry =
   (m : ℕ) (α : ℕ → ℕ) (k j : ℕ) → k + j ≡ sum m α

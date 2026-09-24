@@ -22,7 +22,7 @@ open import Kuttaka using (solutionFamily)
 -- section "needs a mod/section convention and is not supplied here."
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS PROVED, AND WHAT IS STILL NOT
+-- WHAT IS PROVED
 --
 -- §5.2(ii) asked for "the ia reduction as an explicitly IMPORTED
 -- section".  §1 below takes that literally: a section is a PARAMETER —

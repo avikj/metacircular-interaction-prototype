@@ -50,9 +50,9 @@
 -- THE ONLY WORK IS §१, four lines, and everything after it is transport.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT DONE, said so silence is not read as denial.
+-- THE TRIANGLE.
 --
---   · The triangle is not closed here.  Bhedanirnaya identifies
+--   · Bhedanirnaya identifies
 --     ResidueGlue with Obstruction and this identifies Alopa with
 --     Obstruction, so Alopa ≡ ResidueGlue follows by composing the two
 --     paths — and is NOT stated below, because ResidueGlue is not

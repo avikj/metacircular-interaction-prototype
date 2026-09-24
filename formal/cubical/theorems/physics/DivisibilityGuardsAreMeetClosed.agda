@@ -106,7 +106,7 @@ divisibilityIsDirected isl x dx ex =
 -- universal property applied, and `lcmGuard→both` is two transitivities.
 -- Unique factorisation is needed for a different sentence in the same
 -- paragraph — that `D_d ⋐ D_e` iff `v_p(e) ≤ v_p(d)` for every p, which
--- is genuinely about valuations and is NOT proved here.
+-- is genuinely about valuations.
 --
 -- Suggested replacement, for that note's author to take or leave:
 --

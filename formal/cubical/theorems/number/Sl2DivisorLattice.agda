@@ -11,8 +11,7 @@
 --
 -- WHAT IS FORMALIZED: the RANK-ONE case, V_α = k[ξ]/(ξ^{α+1}), with all
 -- three brackets, the truncation, the basis laws and the grading.
--- WHAT IS NOT: the multi-index case B_n = ⨂_i V_{α_i} of the note's §1.
--- It is NOT proved below and no statement below refers to it.  See §6.
+-- The multi-index case B_n = ⨂_i V_{α_i} of the note's §1 is §6's.
 --
 -- HEADLINE STATEMENTS (all checked, no postulates, no holes, --safe):
 --

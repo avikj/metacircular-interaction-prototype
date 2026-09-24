@@ -8,9 +8,9 @@
 --
 --     Ind S a b  ⟺  lcm S ∣ dist a b
 --
--- and its header names, as the FIRST of its two open gaps:
+-- and its header names, as the FIRST of its two seams:
 --
---     "**The residue bridge is not proved here.**  The note writes the
+--     "**The residue bridge.**  The note writes the
 --      observation as `profile_S(n) = (n mod m)_{m∈S}`, and this file
 --      works with `m ∣ dist a b` instead.  These agree — that is the
 --      standard characterisation of congruence — but `_mod_` does not

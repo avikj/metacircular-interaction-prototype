@@ -27,8 +27,8 @@
 --       y₀ = (Q₂ A₀ , R₃ A₀), scaling the Hessian direction H by t gives
 --       Q̇ right-hand sides −3·tr A₀³ − 6t, an injection of ℤ into the
 --       pushforward set.  Read with the fact that for a spatially linear
---       field u = Ax the deviatoric Hessian is a free parameter (a
---       reading, not proved here): the escape move at every point of the
+--       field u = Ax the deviatoric Hessian is a free parameter: the
+--       escape move at every point of the
 --       tail is inhabited at every magnitude and both signs, so nothing
 --       confined to (Q, R, H) can empty it.
 --

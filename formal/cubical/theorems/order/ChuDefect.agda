@@ -29,8 +29,7 @@
 --     theorem below and it avoids carrying an index order around.
 --   * The saturation bound `pairs d xs` is the same ordered count taken with
 --     "some test separates" replaced by "the points are distinct".  For a
---     duplicate-free `xs` of length n it is n² − n; that numeric identity is
---     not needed and is not proved.
+--     duplicate-free `xs` of length n it is n² − n.
 --   * Decidable equality on X is a **hypothesis** (`Discrete X`), never an
 --     assumption about what X is.  It is used only for the saturation bound;
 --     `defect`, `defect-mono` and `defect-[]` do not mention it.

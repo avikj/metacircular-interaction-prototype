@@ -833,7 +833,7 @@ private
     funExt⁻ (swap-rop-lop εK φK u12) ((0 , 1) , (3 , 0))
 
 ------------------------------------------------------------------------
--- §8  What is NOT here.
+-- §8  Where the general case sits.
 --
 --  * A multi-index δ and the display ε ξ^κ = Σ_{i=1}^m ξ^{κ+e_i} for
 --    GENERAL m.  What is proved for general m is the action (§5) and

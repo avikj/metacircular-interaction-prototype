@@ -68,9 +68,9 @@
 --                    of indicators is the reflection of HomometricPair
 --                    (`reflect11` there, with 11 replaced by d).
 --
--- WHAT IS NOT PROVED.  (i) `reflect-iv` and `reflect-support` are
--- established by exhaustion for diameter ≤ 10, not as general lemmas
--- for all d; the minimality theorem does not depend on them — the sweep
+-- SCOPE.  (i) `reflect-iv` and `reflect-support` are established by
+-- exhaustion for diameter ≤ 10, not as general lemmas for all d; the
+-- minimality theorem does not depend on them — the sweep
 -- compares every pair directly, without symmetry reduction — they are
 -- consistency checks tying reversal to the reflection of the existence
 -- half.  (ii) The reduction of ℤ-congruence to the normal-form shapes is

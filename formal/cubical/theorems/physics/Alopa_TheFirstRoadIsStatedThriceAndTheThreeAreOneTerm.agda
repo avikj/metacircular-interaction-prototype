@@ -139,7 +139,7 @@ private
 -- it did not happen is the fact the audit surfaced, and it is a fact about
 -- how this corpus was written, not about univalence.
 --
--- WHAT REMAINS OPEN.  §६ says there are exactly two roads and no third.  The
+-- THE SECOND ROAD.  §६ says there are exactly two roads and no third.  The
 -- three modules above state road one.  Road two — the written शेष — has no
 -- corresponding single declaration anywhere, because it is not a theorem: it
 -- is what one writes WHEN the theorem is unavailable.  Apratikaryatva argues

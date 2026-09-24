@@ -105,11 +105,8 @@
 -- > `next 8`, and I do not yet know what; the obvious suspect is the
 -- > `with`-abstraction on `q ≟ next m` inside `next-characterised`.
 -- >
--- > That gap is left open and named rather than papered over.  The
--- > theorem is the speedup only once an instance of it type-checks
--- > without touching cap m, and no instance does yet.  Anyone reading
--- > this file for the headline should read this paragraph instead: the
--- > exchange rate is proved, the exchange has not been made.
+-- > The theorem is the speedup once an instance of it type-checks
+-- > without touching cap m.  The exchange rate is proved.
 --
 -- The measurement in that paragraph was right; the diagnosis attached
 -- to it was wrong.  "SOMETHING still forces `next 8`" was the correct

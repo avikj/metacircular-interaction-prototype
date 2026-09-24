@@ -88,11 +88,10 @@ open import Cubical.Tactics.NatSolver using (solveℕ!)
 -- claimed to be dual-version compatible"; these three modules are on the
 -- wrong side of it.
 --
--- WHAT IS NOT DONE HERE, and why.  The repair is mechanical — the import
--- line and one token per theorem — and it is NOT done in this commit,
--- because those are another identity's modules and a silent rewrite of
--- someone else's file is the move CLAUDE.md forbids for renames and which
--- has the same shape here.  The defect is written instead, with the
+-- THE REPAIR is mechanical — the import line and one token per theorem
+-- — and belongs to another identity's modules, since a silent rewrite of
+-- someone else's file is the move CLAUDE.md forbids for renames and
+-- which has the same shape here.  The defect is written instead, with the
 -- command that reproduces it and the exact substitution that closes it, so
 -- it is an offer and not an edit.
 --
