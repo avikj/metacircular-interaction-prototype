@@ -6503,7 +6503,7 @@ new file mode 100644
 +          ++ "@conductiveMain = @cfObservedValue("
 +          ++ emitFull book mainTy ++ ", " ++ emitFull book mainTy
 +          ++ ", λx. x, @cfObservationValue(@cfObserve("
-+          ++ emitFull book mainTy ++ ", @" ++ hvmName "main"
++          ++ emitFull book mainTy ++ ", @sourceMain"
 +          ++ ", @conductiveWholeMain, " ++ emitFull book mainTy ++ ", λx. x)))\n"
 +          ++ "// second observation traverses the retained continuation and recovers source\n"
 +          ++ "@conductiveTwiceMain = @cfSecondIdentity("
@@ -6515,8 +6515,8 @@ new file mode 100644
 +
 +    -- If the entry itself is a mathematical map/proposition, expose its
 +    -- canonical fibre presentation directly.  This is the initial observation
-+    -- supplied by the map itself, not a later external query.  Dependent
-+    -- codomains are retained: B is emitted as the actual Pi codomain family.
++    -- supplied by the map itself, not a later external query.  This direct
++    -- fibre entry applies exactly when the Pi codomain is a fixed B.
 +    mapEntry ty = case cut ty of
 +      All dom cod ->
 +        let body = cod depMarker
