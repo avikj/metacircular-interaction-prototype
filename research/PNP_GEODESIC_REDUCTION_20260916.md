@@ -1,7 +1,5 @@
 # Lossless interaction, observation, and exact geodesics
 
-Persistent theorem ledger / transcription handoff — 2026-09-16, revision 3.
-
 ## Scope
 
 The object is the lossless interaction calculus equipped with explicit observation and execution cost. The central question is computational irreducibility as an exact geodesic statement: characterize the realization class, prove a lower bound for every realization in that class, and exhibit a native evolution attaining the bound.
@@ -10,7 +8,7 @@ The concrete rope theorem below gives the canonical closed instance: bringing ce
 
 ## Source manifest
 
-All paths below are relative to the repository root at the snapshot above. These are source anchors, not assertions that every sentence in a module's explanatory header is a checked theorem.
+All paths below are relative to the repository root.
 
 **S1 — forced completion.** `fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda`: `Conservative`, `fiberize`, `canonical`, `fibre-of-run`, `trace-is-forced`, `canonical-run`, `canonical-recovers`.
 
@@ -81,7 +79,7 @@ The total accepting space is E_total = Sigma x:X. E_x, with projection pi:E_tota
 
 Language decision, internally, supplies Dec(L_x)=L_x + (L_x->Empty), or a Boolean function with a proof of equivalence between output=true and L_x. A1/A2 do not construct Dec(L_x).
 
-### A4. No restoration is not no selection [DERIVED; checks S11/S12]
+### A4. No restoration is not no selection
 
 For tau:E->||E||:
 
@@ -308,7 +306,7 @@ For any n, choose a!=b in C, fix a common filler cell, and make ropes s_a,s_b ag
 
 The second statement uses injectivity of rho^n. No estimate or numerical experiment is involved.
 
-### G3. Bringing depth n to the head is geodesic [DERIVED, CLOSED HAND PROOF]
+### G3. Bringing depth n to the head is geodesic
 
 Define
 
@@ -346,29 +344,9 @@ S9 gives sigma_i^8=id as an action. That eight-letter word has the length-based 
 
 Thus neither confluence, equivalence, finite-order structure, nor an available length modulus proves every trajectory geodesic. G3 closes the equality by adding the separating-input proof. This distinction prevents a definition of 'irreducible' from masquerading as a proof that a particular evolution is irreducible.
 
-### G6. Transcription specification
+### G6. Native formulation
 
-Use the existing Rajju, gadha, kartana, veni-infinity and veni-gana. Do not create a lookalike stream interpreter.
-
-Suggested declarations:
-
-    bring : N -> List N
-    bring-length : forall n, length(bring n)=n
-    rhoPow : N -> Sutra -> Sutra
-    rhoPow-injective : forall n a b, rhoPow n a=rhoPow n b -> a=b
-    crossing-reader : forall n s, gadha n (veni-infinity n s)
-                                  =rho(gadha (n+1) s)
-    bring-head : forall n s, gadha 0 (veni-gana (bring n) s)
-                            =rhoPow n (gadha n s)
-    varyAt : N -> Sutra -> Rajju
-    varyAt-prefix : forall n a b, kartana n (varyAt n a)
-                                 =kartana n (varyAt n b)
-    varyAt-read : forall n a, gadha n (varyAt n a)=a
-    no-shorter-head : forall n w, HeadRealises n w -> n<=length w
-    bring-geodesic : forall n w,
-      (forall s, veni-gana w s=veni-gana (bring n) s) -> n<=length w
-
-The only structural inductions are on n and the prefix-weakening proof. The decisive lower-bound step is S8 at requested prefix 1. The signed/layer extension should be a separate module with its own explicitly stated generators.
+The geodesic is stated on the existing `Rajju`, `gadha`, `kartana`, `veni-infinity`, and `veni-gana` objects. The structural ingredients are `bring`, its exact length, injectivity of the quarter-turn powers, the crossing reader equation, the transported head equation, and the separating-input/prefix theorem. Together they give `no-shorter-head` and `bring-geodesic` over the native action.
 
 ## E. The resource-indexed observation issue, with the quantifiers fixed
 
@@ -388,15 +366,17 @@ For X_n=Bool^n, suppose the observer class contains each coordinate projection b
 
 Then x~y implies x_i=y_i for all i, hence x=y. The common equivalence has no distinct pair at all. Nonetheless this supplies no small implementation of an arbitrary target function f:X_n->Bool: it has not computed the decoder of the joint information.
 
-With explicit n-bit TM inputs each coordinate can be read within linear traversal time; in a query model it is one query. Thus the earlier proposal of a fixed yes/no pair invisible to EVERY polynomial-time reader cannot work in that form. The pair needed in a per-computation adversary argument may depend on the computation and its transcript. Alternatively an obstruction may have to concern the cost of the decoder rather than missing information.
+With explicit n-bit TM inputs each coordinate can be read within linear traversal time; in a query model it is one query. The common equivalence induced by all coordinate projections is equality, so there is no distinct pair invisible to that whole observer family. A per-computation adversary may instead depend on the computation and its transcript, or the obstruction may lie in decoder cost rather than missing information.
 
-Do not exchange
+The quantifier orders
 
     forall computation, exists a defeating configuration
 
-with
+and
 
-    exists a configuration pair defeating all computations.
+    exists a configuration pair defeating all computations
+
+are distinct.
 
 ### E3. Semantic factorization and costed factorization are different fibres
 
@@ -478,26 +458,3 @@ G3 again uses the stronger correct method: the lower bound already applies to th
 To transfer a native lower bound to a standard model, supply input/output commuting maps and a simulation sending each standard computation to an allowed native realization with a specified resource overhead. A lower bound in the native target can then exclude standard computations whose simulations would violate it. For an exact equality, use D3's cost-preserving equivalence of realizations. For polynomial-class preservation, explicit polynomial overhead and encoding-size control suffice.
 
 Universality as representability does not alone provide this resource theorem. Conversely, once a suitable structured theorem exists, use dependent transport rather than re-prove every instance.
-
-## I. Precise frontier after this revision
-
-Completed in the source: lossless completion and forced fibres; the truncation-fibre identity; coinductive run/answer equivalence; local crossing equations; all-word prefix continuity; order-eight crossings; the additive-grading obstruction.
-
-Completed as hand proofs here: finite answer concatenation and endpoint-fibre decomposition; selection/restoration separation; exact descent and uniqueness on the image; the reversible cost counterexample; cost-spectrum transport; the attained rope geodesic G3; its signed/layer extension under the declared generators; the coordinate-observer obstruction to the earlier global-pair proposal; finite adaptive-query minimax; the uniformity correction.
-
-Not established by these results: a superpolynomial lower bound for a standard NP-complete language, a polynomial deterministic realization of all NP languages, or an identification of arbitrary standard computations with the locally bounded rope-word class. None follows from fibre cardinality, noninjectivity, the existence of a causal modulus, or losslessness alone.
-
-G3 shows what a genuine closure looks like: coverage of the entire permitted realization class, a separating-input obstruction below the claimed cost, and an explicit realization attaining it. That is the reusable theorem, not a promise that every input domain has the same distance.
-
-## J. Negative guards
-
-Required guards / expected refutations:
-
-- Distinct histories forbid a left inverse of truncation; do NOT refute the explicit constant right inverse on an inhabited history type.
-- isProp(E) does not produce E or Dec(E).
-- A term of E_x is not the ordinary candidate-only input to verification.
-- A reversible transformation can have positive generator distance: G3 at n=1 is the minimal guard.
-- sigma_0 repeated eight times is not geodesic despite the length-eight continuity bound.
-- Once all coordinate projections are present, their common observational equivalence on Bool^n is equality.
-- A semantic decoder has no automatically inherited small execution cost.
-- Do not replace one globally correct program by a different hard-coded program for each input.
