@@ -6594,11 +6594,28 @@ new file mode 100644
 +
 +compileFull :: Book -> String
 +compileFull book@(Book defs hits) =
-+  prelude ++ hitPrelude book ++ unlines (map def (M.toList defs)) ++ conductiveEntries
++  prelude ++ hitPrelude book ++ unlines (map def (M.toList defs))
++  ++ unlines (map nativeDef (M.toList defs)) ++ conductiveEntries
 +  where
 +    def (nam, (_, tm, _)) =
 +      let out = if nam == "main" then "sourceMain" else hvmName nam
 +      in "@" ++ out ++ " = " ++ emitFull book tm
++
++    -- Every checked definition gets a proof-relevant native semantic companion
++    -- when its root performs a Core reduction.  The HVM graph remains the
++    -- execution itself; these values make that motion available to receivers.
++    nativeDef (nam, (_, tm, ty)) =
++      case nativeStep Full book tm of
++        Nothing -> ""
++        Just s  ->
++          let n = filter isAlphaNum (hvmName nam)
++          in "@nativeStep" ++ n ++ " = #NativeStep{#Rule" ++ ruleCtor (stepRule s)
++             ++ ", " ++ emitFull book ty
++             ++ ", " ++ emitFull book (stepSource s)
++             ++ ", " ++ emitFull book (stepTarget s) ++ "}\n"
++             ++ "@nativeDerivation" ++ n ++ " = #NativeThen{@nativeStep" ++ n
++             ++ ", #NativeDone{" ++ emitFull book (stepTarget s) ++ "}}"
+
 +
 +    -- The selected checked entry is already a typed point (A,a). The full runtime
 +    -- contains the canonical parametric fibre process below, so expose the
@@ -6630,14 +6647,10 @@ new file mode 100644
 +          ++ "// are companions of this same graph, not wrappers around its result.\n"
 +          ++ "@main = @sourceMain\n"
 +          where
-+            nativeEntry = case nativeStep Full book tm of
++            nativeEntry = case nativeStep Full book mainTm of
 +              Nothing -> ""
-+              Just s  -> "\n// proof-relevant native Core motion for the entry\n"
-+                      ++ "@nativeMainStep = #NativeStep{#Rule_" ++ ruleName (stepRule s)
-+                      ++ ", " ++ emitFull book (stepSource s)
-+                      ++ ", " ++ emitFull book (stepTarget s) ++ "}\n"
-+                      ++ "@nativeMainDerivation = #NativeThen{@nativeMainStep, "
-+                      ++ "#NativeDone{" ++ emitFull book (stepTarget s) ++ "}}\n"
++              Just _  -> "\n@nativeMainStep = @nativeStepmain\n"
++                      ++ "@nativeMainDerivation = @nativeDerivationmain\n"
 +        Nothing -> ""
 +
 +    -- If the entry itself is a mathematical map/proposition, expose its
