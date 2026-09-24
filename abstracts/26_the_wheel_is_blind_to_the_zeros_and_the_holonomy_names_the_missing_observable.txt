@@ -83,9 +83,9 @@ identification is proved, and the garbha holds spectrum-exists /
 spectrum-unexhibited as asti-nasti in krama, which is the exact state of
 the analogy.
 
-WHAT IS NOT CLAIMED.  No progress on either conjecture is asserted.  The
-cumulative identity and the equivalence of its square-root error with RH
-are classical.  What is recorded is the assembly: the reflection frame,
+WHAT IS RECORDED.  The cumulative identity and the equivalence of its
+square-root error with RH are classical.  What is recorded is the
+assembly: the reflection frame,
 the wheel's provable blindness, the identity coupling the blind residue
 to the zeros, and the corpus's own biconditional locating why refinement
 of wheels cannot close the question -- with the machine's verdict organs

@@ -17,6 +17,6 @@ and no anyon models in this development. "Three Boolean strands" is a three-
 fold product of the two-element type, and "unitary" abbreviates "equipped with
 a two-sided inverse and its unit laws". The results are about equivalences of
 finite types and about a term calculus; their bearing on a physical
-implementation is a reading and is not proved.
+implementation is a reading.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

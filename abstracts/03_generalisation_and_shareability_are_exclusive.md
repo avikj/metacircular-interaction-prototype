@@ -18,7 +18,7 @@ There is no Markov decision process, no reward signal, no stochasticity, no
 discounting and no optimisation in this development. "Skill" names a record,
 "state" names a term, and "fires" names inhabitation of an applicability
 family. Whether a deployed learner's skill representation has this shape is a
-reading and is not proved.
+reading.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.
 

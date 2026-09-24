@@ -17,6 +17,6 @@ The cost, stated exactly.  Nothing may be deduplicated, so there are no tombston
 There is no message broker, no partition, no offset, no checkpoint and no
 watermark in this development. A "message" is an operation and the "pipeline"
 is a library under concatenation. The reading as a stream processing system is
-a reading and is not proved.
+a reading.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

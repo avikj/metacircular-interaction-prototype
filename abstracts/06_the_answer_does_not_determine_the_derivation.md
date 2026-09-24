@@ -17,7 +17,6 @@ Finally, the cost, stated exactly.  Because the derivation must be carried as a 
 There is no provenance semiring in this development, no forgetful homomorphism
 to the boolean semiring, no relational algebra and no query language. The
 object is a term rewriting calculus with an interpreter into the naturals. The
-reading of these results as statements about how-provenance is a reading and
-is not proved.
+reading of these results as statements about how-provenance is a reading.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

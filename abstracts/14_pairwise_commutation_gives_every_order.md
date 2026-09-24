@@ -17,6 +17,6 @@ The cost is stated rather than tuned.  Nothing may be deduplicated, because dedu
 There is no working tree, no file, no line-based diff, no blame algorithm and
 no repository format here. A patch is a step on an abstract state and
 commutation is a hypothesis discharged by the caller. The reading as a version
-control system is a reading and is not proved.
+control system is a reading.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

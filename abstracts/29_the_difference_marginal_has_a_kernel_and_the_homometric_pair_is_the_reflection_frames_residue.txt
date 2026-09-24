@@ -59,9 +59,9 @@ a marginal; its kernel is real; and naming what survives the marginal and
 what is lost by it is the same accounting the corpus performs everywhere
 else, now at the scale of a six-element set of integers.
 
-WHAT IS NOT CLAIMED.  Minimality is not formalized here -- that no
-homometric pair has diameter ≤ 10 is a larger subset sweep and still rests
-on the legacy search; this module discharges existence only.  The
+SCOPE.  That no homometric pair has diameter ≤ 10 is a larger subset
+sweep and rests on the legacy search; this module discharges existence.
+The
 reduction of ℤ-congruence to the four normalized shapes is a definition in
 the module, elementary and assumed, not a theorem of it.  No claim is made
 that homometry and cohomological side information are related by more than

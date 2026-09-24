@@ -215,7 +215,7 @@ obtains a separable pair only after adding a constructor.
 
 *Nyyastra* 1.2.4 lists the hetvbhsas; 1.2.5 reads **`anaikntika
 savyabhicra`**. The apparatus for *vypti* and its defeat by an *updhi* is
-Gagea's, *Tattvacintmai*, ~1325, and is not claimed for anything below.
+Gagea's, *Tattvacintmai*, ~1325.
 
 ```agda
 vyabhicara : {a b : Tm} (ρ : Env)

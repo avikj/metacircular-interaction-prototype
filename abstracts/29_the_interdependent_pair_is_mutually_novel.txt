@@ -50,13 +50,11 @@ type equality that transports.  A dashboard buys no vision; only a
 sense that survives the refutation above can.
 
 SYĀT — THE CLAIM, EXACTLY.  No general theory of circular definition is
-given: "productive" means exactly what the guardedness checker accepts,
-and no claim is made beyond that boundary.  The primary-text loci of
-the parasparasraya objection are cited as the tradition's and are
-unverified here; no theorem is attributed to any historical author.
+given: "productive" means exactly what the guardedness checker accepts.
+The primary-text loci of the parasparasraya objection are cited as the
+tradition's.
 The reading of the record as a family of realization functors, and of
-mutual novelty as the independence of cohomology theories, is a reading
-and is not proved.
+mutual novelty as the independence of cohomology theories, is a reading.
 
 Machine-checked in cubical type theory, no postulates, no admitted
 goals; the negative control fails to typecheck at the productivity
