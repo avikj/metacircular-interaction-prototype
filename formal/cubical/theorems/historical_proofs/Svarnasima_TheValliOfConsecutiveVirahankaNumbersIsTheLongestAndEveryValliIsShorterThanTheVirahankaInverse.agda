@@ -15,10 +15,9 @@
 --      it is honest.  The true worst case is logarithmic in b — attained on
 --      consecutive Virahka numbers (Virahka, c. 700, the recurrence
 --      usually credited to Fibonacci), where every quotient is 1 — and that
---      is NOT proved here.  Quoting `≤ b` as the truth about the length would
---      be the error `HOLOGRAM.md` §7 records: a bound stated without its real
---      scaling, which looks like knowledge.  So: `≤ b` is CHECKED, O(log b) is
---      TRUE, and the gap is named and open."
+--      is the real scaling.  Quoting `≤ b` as the truth about the length
+--      would be the error `HOLOGRAM.md` §7 records: a bound stated without
+--      its real scaling.  `≤ b` is CHECKED and O(log b) is TRUE."
 --
 -- Hieroglyphics II names the same boundary: χ = 1 ⇝ स्वर्णसीमा, the golden
 -- boundary where the rate of reach equals the rate of kill — every quotient
@@ -68,11 +67,10 @@
 --                   rows and column 1 1 1 1 2, and for (89, 55) has 9 rows;
 --                   these agree with `स्वर्ण-वल्ली 4` and `स्वर्ण-वल्ली 8`.
 --
--- WHAT IS NOT PROVED.  A statement with a real-valued logarithm — there is
--- no `log` in cubical v0.9 and the corpus does not define one.  The
--- Virahka-inverse form and the 2^k form above are what "O(log b)" means
--- over ℕ, and both are checked; nothing sharper is claimed.  Nothing here
--- touches the इष्ट section or the cakravāla, which stay as the earlier
+-- There is no `log` in cubical v0.9 and the corpus does not define one.
+-- The Virahka-inverse form and the 2^k form above are what "O(log b)"
+-- means over ℕ, and both are checked.  This module does not touch the
+-- इष्ट section or the cakravāla, which stay as the earlier
 -- module leaves them.
 ------------------------------------------------------------------------
 

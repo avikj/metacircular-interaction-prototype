@@ -24,8 +24,8 @@
 --
 -- GRADE.  No critical edition was opened.  The attributions above are carried
 -- from this repository's own `ANEKANTA.md` §4 and `interactive/Yogyata.hs`, and
--- are abda at that grade, stated as such.  What is NOT carried from anywhere
--- is the formalisation; it is argued here.
+-- are abda at that grade, stated as such.  The formalisation is argued
+-- here.
 --
 -- WHOSE SCHOOL, SO THE TOOLKIT DOES NOT GET BLENDED.  This is the
 -- Nyya-Mms analysis of absence and nothing here is Jaina.  A Jaina

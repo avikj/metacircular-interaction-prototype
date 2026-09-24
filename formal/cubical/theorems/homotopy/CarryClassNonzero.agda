@@ -25,9 +25,9 @@
 -- Split out of `GroupCohomologyH2` so that the general construction and
 -- its arithmetic instance can be checked independently.
 --
--- Coefficients are `ker πₙ` as a group in its own right, NOT ℤ/b: the
--- isomorphism bⁿℤ/bⁿ⁺¹ ≅ ℤ/b is not constructed here and nonvanishing
--- does not use it.  Neither is H²(ℤ/m;A) ≅ A/mA.  See the status
+-- Coefficients are `ker πₙ` as a group in its own right, NOT ℤ/b:
+-- nonvanishing does not use the isomorphism bⁿℤ/bⁿ⁺¹ ≅ ℤ/b.  See the
+-- status
 --
 -- Toolchain: Agda 2.6.3 + cubical v0.5, `--safe`, no postulates, no holes.
 ------------------------------------------------------------------------

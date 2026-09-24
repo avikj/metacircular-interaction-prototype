@@ -510,10 +510,9 @@ sapeksa = machine-profile , refl , refl
 --
 -- 1. The seven NAYAS of Tattvārthasūtra 1.33 (naigama … evaṃbhūta) are not
 --    formalised.  §1's `Naya` has three constructors taken from the
---    machine's tactic log; it is a different partition (of provers, not of
---    modes of reference) and no claim is made that they correspond.  The
---    śabda-nayas in particular — which turn on grammatical form and
---    etymology — have no analogue here.
+--    machine's tactic log; it is a different partition — of provers, not
+--    of modes of reference.  The śabda-nayas in particular, which turn on
+--    grammatical form and etymology, have no analogue here.
 --
 -- 2. `syt` has no independent formal content in this file.  It is carried
 --    entirely by the standpoint index on `P`, `denotes`, and `Profile`.

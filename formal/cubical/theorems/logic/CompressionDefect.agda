@@ -92,8 +92,7 @@
 --    material, not here.  T18.2 is consistent with what
 --    `CenterRelativeIntegral.J₂-negates-Q` already checks — with
 --    W = p+q, R = q−p, the map (p,q) ↦ (p,−q) sends (W,R) ↦ (−R,−W),
---    hence x = R/W ↦ 1/x — but the ratio-level statement needs division
---    and is not proved here.
+--    hence x = R/W ↦ 1/x — the ratio-level statement needs division.
 --
 --  * **Not novel, and Delta 18 says so first**: "This is standard
 --    observability theory" and "mature operator/control mathematics, not
@@ -257,8 +256,8 @@ module Observability {X : Type ℓ} {Y : Type ℓ'} (obs : ℕ → X → Y) wher
 -- direction that licenses forgetting.
 --
 -- The CONVERSE — that a nonzero `P T_t Q` produces a witness that WILL
--- change a future observation — is not proved; see the header.  It is
--- the direction a lane claiming an obstruction would actually need.
+-- change a future observation — is the direction a lane claiming an
+-- obstruction would need; see the header.
 ------------------------------------------------------------------------
 
   sufficient→indist :

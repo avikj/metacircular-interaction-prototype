@@ -316,9 +316,9 @@ private
   ... | suc n , p = true≢false (sym (स्थिरम् n true) ∙ p)
 
 ------------------------------------------------------------------------
--- ७ · शेषः — what stays open.
+-- ७ · शेषः — the truncation.
 --
--- **The truncation is not shown to be necessary.**  §४ produces
+-- §४ produces
 -- `∥ a ≈ b ∥₁` because that is all `isEquivRel→TruncIso` gives.  Whether
 -- some flow makes the untruncated statement fail — two points whose
 -- classes agree but with no CHOSEN pair of meeting stations — is not

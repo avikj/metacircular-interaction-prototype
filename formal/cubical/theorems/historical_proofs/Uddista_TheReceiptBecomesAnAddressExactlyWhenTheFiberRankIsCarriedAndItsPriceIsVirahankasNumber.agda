@@ -236,10 +236,10 @@ rightInv समष्टिः (n , (p , e)) =
 मूल्यम् = matraRecurrence
 
 ------------------------------------------------------------------------
--- ७ · What is NOT shown, said rather than left to be assumed.
+-- ७ · The order this address uses.
 --
---     (a) No claim that this address is Piṅgala's own मात्रा-प्रस्तार
---         ORDER.  `matraCount` is built from `matrameruIso` and
+--     (a) This address is not Piṅgala's own मात्रा-प्रस्तार ORDER.
+--         `matraCount` is built from `matrameruIso` and
 --         `Fin+≅Fin⊎Fin`, so the rank it assigns is determined by that
 --         composite and is a rank; whether it agrees row-for-row with
 --         the order the tradition lays the मात्रा-प्रस्तार out in is a

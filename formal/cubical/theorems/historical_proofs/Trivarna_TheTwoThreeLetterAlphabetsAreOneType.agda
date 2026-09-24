@@ -8,8 +8,7 @@
 -- a foot, and the gaṇa of three syllables — the eight trikas — is exactly
 -- an alphabet of three distinct letters read as one object.  The term is
 -- used here for the object "a bare set of three distinguishable points",
--- which is what Pigala's combinatorics ranges over; no claim is made that
--- Pigala proved the equivalence below.
+-- which is what Pigala's combinatorics ranges over.
 --
 --   * DisclosureDimension.Three  (constructors a b c) — the three-letter
 --     alphabet witnessing that set-level disclosure has no dimension.

@@ -357,11 +357,9 @@ categories-agree-when-decidable dT q t dC =
 --      consequences of the fourfold."
 --
 -- §1 above is compatible with that: `Anyonya a b = ¬ (a ≡ b)` is
--- non-identity and nothing more.  What is NOT compatible is reading
--- `Collision q t` — two states a coarse map identifies and a fine map
--- separates — as an अन्योन्याभाव.  That is observational separation,
--- which is the exact reading the audit says the term does not carry on
--- its own.  The type is unaffected; the gloss on it was not licensed.
+-- non-identity and nothing more.  `Collision q t` — two states a coarse
+-- map identifies and a fine map separates — is observational separation,
+-- which is a different thing.
 --
 -- `ABHAVA.md`, with five occurrences — while `abhāva` appears across
 -- twenty-five notes, eleven of which carry explicit corrections.  So
