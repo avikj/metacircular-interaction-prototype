@@ -4625,6 +4625,62 @@ index 953410d..3af8583 100644
 +import Data.List (sortBy)
  import Core.Type
 +import Control.Monad (foldM)
++
++-- Proof-relevant native reduction events.  WHNF remains the endpoint
++-- projection; this type exposes the actual language motion instead of
++-- reconstructing a second toy object language above Core.Term.
++data NativeStep = NativeStep
++  { stepRule   :: String
++  , stepSource :: Term
++  , stepTarget :: Term
++  } deriving (Show)
++
++data NativeDerivation
++  = NativeDone Term
++  | NativeThen NativeStep NativeDerivation
++  deriving (Show)
++
++stepEnd :: NativeStep -> Term
++stepEnd = stepTarget
++
++-- One root reduction event.  The target is obtained from the SAME evaluator
++-- that defines Bend semantics; the tag records the native constructor/rule
++-- family.  Congruence/context closure is represented by the surrounding Core
++-- term itself and HVM sharing, rather than by a separate syntax.
++nativeStep :: EvalLevel -> Book -> Term -> Maybe NativeStep
++nativeStep lv book src =
++  let dst = whnfGo lv book src
++      emit tag = if show dst == show src then Nothing else Just (NativeStep tag src dst)
++  in case cut src of
++    App{}   -> emit "app"
++    Let{}   -> emit "let"
++    Ref{}   -> emit "ref"
++    Fix{}   -> emit "fix"
++    PAp{}   -> emit "path-app"
++    Coe{}   -> emit "coe"
++    HCm{}   -> emit "hcomp"
++    GlB{}   -> emit "glue"
++    UnG{}   -> emit "unglue"
++    QRec{}  -> emit "quot-rec"
++    HEl{}   -> emit "hit-elim"
++    HRec{}  -> emit "hit-rec"
++    TRec{}  -> emit "trunc-rec"
++    CRec{}  -> emit "circle-rec"
++    SupM{}  -> emit "sup-match"
++    EqlM{}  -> emit "eq-match"
++    NatM{}  -> emit "nat-match"
++    BitM{}  -> emit "bool-match"
++    LstM{}  -> emit "list-match"
++    SigM{}  -> emit "sigma-match"
++    EnuM{}  -> emit "enum-match"
++    Op1{}   -> emit "unary-op"
++    Op2{}   -> emit "binary-op"
++    _       -> Nothing
++
++-- The ordinary WHNF endpoint is now explicitly the projection of a
++-- proof-relevant native event when one exists.
++whnfViaStep :: EvalLevel -> Book -> Term -> Term
++whnfViaStep lv book t = maybe (whnfGo lv book t) stepEnd (nativeStep lv book t)
  
  import System.IO.Unsafe
  import Data.IORef
