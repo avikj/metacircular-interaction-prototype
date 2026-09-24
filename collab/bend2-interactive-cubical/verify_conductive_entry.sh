@@ -22,7 +22,7 @@ src = pathlib.Path(sys.argv[1]).read_text()
 # HVM definition references are token-like here; this smoke program has no
 # user identifier containing "main", so exact @main replacement is sufficient.
 src = src.replace("@main", "@ordinary_main")
-src += "\n@main = @__conductive_main\n"
+src += "\n@main = @conductiveMain\n"
 pathlib.Path(sys.argv[2]).write_text(src)
 PY
 
