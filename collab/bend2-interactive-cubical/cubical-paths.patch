@@ -6496,21 +6496,19 @@ new file mode 100644
 +    conductiveEntries =
 +      case M.lookup "main" defs of
 +        Just (_, _, mainTy) ->
-+          "\n// canonical conductive presentation of checked @main\n"
-+          ++ "@conductiveWholeMain = @cfCoalgebra("
-+          ++ emitFull book mainTy ++ ", @sourceMain)\n"
-+          ++ "// identity observation: executable differential oracle; must equal @main\n"
-+          ++ "@conductiveMain = @cfObservedValue("
-+          ++ emitFull book mainTy ++ ", " ++ emitFull book mainTy
-+          ++ ", λx. x, @cfObservationValue(@cfObserve("
-+          ++ emitFull book mainTy ++ ", @sourceMain"
-+          ++ ", @conductiveWholeMain, " ++ emitFull book mainTy ++ ", λx. x)))\n"
-+          ++ "// second observation traverses the retained continuation and recovers source\n"
-+          ++ "@conductiveTwiceMain = @cfSecondIdentity("
-+          ++ emitFull book mainTy ++ ", @sourceMain, @conductiveWholeMain)\n"
-+          ++ mapEntry mainTy
-+          ++ "\n// Full-runtime execution enters through the lossless presentation.\n"
-+          ++ "@main = @conductiveMain\n"
++          let whole = call3 "fibreCoalgebra" mainTy (Ref "sourceMain")
++              ident = Lam "x" (Var 0)
++              obs   = call5 "observe" mainTy (Ref "sourceMain") whole mainTy ident
++              val   = call5 "observationValue" mainTy (Ref "sourceMain") mainTy ident obs
++              visible = call4 "observedValue" mainTy mainTy ident val
++              recovered = call4 "observe_recover" mainTy (Ref "sourceMain") mainTy ident
++          in "\n// canonical conductive presentation of checked @main\n"
++             ++ "@conductiveWholeMain = " ++ emitFull runtimeBook whole ++ "\n"
++             ++ "@conductiveMain = " ++ emitFull runtimeBook visible ++ "\n"
++             ++ "@conductiveTwiceMain = " ++ emitFull runtimeBook recovered ++ "\n"
++             ++ mapEntry mainTy
++             ++ "\n// Full-runtime execution enters through the lossless presentation.\n"
++             ++ "@main = @conductiveMain\n"
 +        Nothing -> ""
 +
 +    -- If the entry itself is a mathematical map/proposition, expose its
