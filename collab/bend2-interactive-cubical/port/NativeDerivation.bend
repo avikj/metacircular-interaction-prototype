@@ -36,9 +36,9 @@ def meaning(A: Set, x: A, y: A,
       compPath(A,x,mid,y,nativePath(A,x,mid,step),meaning(A,mid,y,rest))
 
 # Cost is a receiver of the same derivation.
-def cost(A: Set, x: A, y: A,
+def structuralLength(A: Set, x: A, y: A,
          d: Derivation(A,NativeMotion(A),x,y)) -> Nat:
-  unitCost(A,NativeMotion(A),x,y,d)
+  derivationLengthReading(A,NativeMotion(A),x,y,d)
 
 # Observing an endpoint never destroys the source distinction.
 def observeEndpoint(A: Set, B: Set, f: A -> B, x: A) -> FibreElement(A,B,f):
