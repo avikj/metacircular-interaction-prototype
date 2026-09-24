@@ -21,9 +21,6 @@ clone_pin https://github.com/HigherOrderCO/HVM3.git "$WORK/HVM3" fba2e9c82faf6e2
 clone_pin https://github.com/HigherOrderCO/HVM4.git "$WORK/HVM4" 6defdfc7dae2a3cca5dd6e74ed0612385b5646a8
 git -C "$WORK/Bend2" apply --check "$HERE/../cubical-paths.patch"
 git -C "$WORK/Bend2" apply "$HERE/../cubical-paths.patch"
-# Full-runtime List transport must map coe over the element-type line.
-git -C "$WORK/Bend2" apply --check "$HERE/../list-transport.patch"
-git -C "$WORK/Bend2" apply "$HERE/../list-transport.patch"
 # The pinned HVM3 package omits two FFI definitions from its C aggregator.
 node --input-type=module - "$WORK/HVM3" <<'JS'
 import fs from 'node:fs'; import path from 'node:path';
@@ -53,6 +50,6 @@ printf 'export BEND=%q\nexport HVM=%q\n' "$BEND" "$HVM" > "$WORK/env.sh"
 {
   ghc --version; cabal --version; "$CC" --version
   for name in Bend2 HVM3 HVM4; do printf '%s=' "$name"; git -C "$WORK/$name" rev-parse HEAD; done
-  sha256sum "$HERE/../cubical-paths.patch" "$HERE/../list-transport.patch" "$BEND" "$HVM"
+  sha256sum "$HERE/../cubical-paths.patch" "$BEND" "$HVM"
 } > "$WORK/build-identity.txt"
 printf 'Built. Load executables with: source %q\nThen invoke mining/run.sh; native gates remain mandatory.\n' "$WORK/env.sh"
