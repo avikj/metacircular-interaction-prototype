@@ -6483,10 +6483,10 @@ new file mode 100644
 +  where
 +    def (nam, (_, tm, _)) = "@" ++ hvmName nam ++ " = " ++ emitFull book tm
 +
-+    -- Every checked entry is already a typed point (A,a).  When the canonical
-+    -- FibreCoalgebra implementation is linked in the Book, expose the
-+    -- lossless/coinductive presentation automatically instead of requiring
-+    -- application source to spell `fibreCoalgebra(A,a)` by hand.
++    -- Every checked entry is already a typed point (A,a).  The full runtime
++    -- contains the canonical parametric fibre process below, so expose the
++    -- lossless/coinductive presentation automatically with no source import
++    -- and no application call to FibreCoalgebra.
 +    --
 +    -- This is deliberately a TARGET-BOUNDARY elaboration, not an App rewrite:
 +    -- internal applications remain the reductions used to evaluate one
