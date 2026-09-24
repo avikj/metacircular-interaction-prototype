@@ -5,7 +5,7 @@
 --
 -- The exact conditioning constants of
 --
--- THE SETTING (the note's model, not proved here).  B a normed space,
+-- THE SETTING (the note's model).  B a normed space,
 -- G(z) = Σ_{j=0}^R a_j z^j with a_j ∈ B; in the arithmetic application
 -- a_j = μ_{j+1} = P U_h Π_{j+1} U_k P, so a_0 = P U_h P U_k P is the
 -- charge-one intermediate path and G(1) = P U_{h+k} P is the glued one.
