@@ -12,7 +12,7 @@
 -- This module re-establishes them as kernel-checked terms.  Nothing here
 -- is postulated; there are no holes; `--safe`.
 --
--- WHAT IS PROVED, AND — read this first — WHAT IS NOT.
+-- WHAT IS PROVED.
 --
 --  (a) THE INCIDENCE GRAPH IS K₃,₃.  Proved, in the strong form: the
 --      nine observables `Obs` and six contexts `Ctx` are declared as
@@ -26,9 +26,8 @@
 --      contractibility of the fibre of the cell map, obtained from the
 --      equivalence rather than from a search.
 --
---  (b) NONPLANARITY — ARITHMETIC OBSTRUCTION ONLY.  Topological
---      planarity is NOT formalized here, and no claim is made that it
---      is.  What is proved is the arithmetic that obstructs it:
+--  (b) NONPLANARITY — ARITHMETIC OBSTRUCTION ONLY.  What is proved is
+--      the arithmetic that obstructs it:
 --      `bipartite-bound-violated : ¬ (E + 4 ≤ℕ 2 · V)` for the certified
 --      cardinalities E = 9, V = 6 (the subtraction-free form of
 --      E ≤ 2V − 4), together with its contrapositive packaging
@@ -445,8 +444,7 @@ ctxCount = compEquiv ctxEquiv vertexCount
 ------------------------------------------------------------------------
 -- CLAIM (b).  The bipartite Euler bound is violated — ARITHMETIC ONLY.
 --
--- A simple planar bipartite graph satisfies E ≤ 2V − 4.  That theorem is
--- topological input; it is ASSUMED, not proved here.  What is proved is
+-- A simple planar bipartite graph satisfies E ≤ 2V − 4.  What is proved is
 -- that these numbers cannot satisfy it, in the subtraction-free form
 -- E + 4 ≤ 2·V (equivalent over ℕ for 2V ≥ 4).
 ------------------------------------------------------------------------

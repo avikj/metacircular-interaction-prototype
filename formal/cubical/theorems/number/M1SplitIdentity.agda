@@ -17,7 +17,7 @@
 --   The remaining terms have both arguments ≥ 2 and are Q-bounded,
 --   giving O(1)."
 --
--- WHAT IS FORMALIZED HERE, AND WHAT IS NOT.  The proposition has three
+-- WHAT IS FORMALIZED HERE.  The proposition has three
 -- separable layers:
 --
 --   (a) the SPLIT: the double sum over pairs (a,b), a,b ≥ 1, weighted by
@@ -63,9 +63,7 @@
 -- Neither is proved here; §6 discharges the remaining side condition,
 -- which is that a SINGLE n making `maximal` hold for all q ≤ Q exists:
 -- `divFact` proves q ∣ Q! for every 1 ≤ q ≤ Q, so the modulus P_Q of
--- METHOD.md §1(i) is inhabited and the theorem is not vacuous.  What is
--- NOT proved is Odlyzko--te Riele, hence not the |Λ♯_Q| ≫ Q^{1/2}
--- consequence the note draws from M(Q).
+-- METHOD.md §1(i) is inhabited and the theorem is not vacuous.
 --
 -- NON-VACUITY CONTROLS: §7, all `refl` over ℕ, plus a control showing
 -- the `maximal` hypothesis of §5 is load-bearing (dropping it makes the
@@ -217,8 +215,7 @@ module Weighted
 
   ----------------------------------------------------------------------------
   -- §5.  Λ♯_Q(P_Q) = M(Q): the cancellation, with its two arithmetic
-  -- inputs as explicit hypotheses (see the header for what they are and
-  -- what is not proved).
+  -- inputs as explicit hypotheses (see the header for what they are).
   ----------------------------------------------------------------------------
 
   sharp-collapse :

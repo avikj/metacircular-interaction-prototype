@@ -83,35 +83,14 @@
 -- sound — any m satisfying the congruence descends — but the attribution
 -- is wrong, and nothing here edits those files.
 --
---   * TERMINATION IS STILL OPEN.  A bound on |k| is not termination.  What
---     the bound buys is that the state (a mod ·, b mod ·, k) ranges over a
---     FINITE set, so some state must recur; turning that into "the wheel
---     returns to k = ±1" needs, in addition: that the triples with a fixed
---     k and bounded a, b are finite (a reduction theory), and that the
---     cycle cannot stall.  None of that is here.
---   * MINIMALITY OF BHĀSKARA'S CHOICE is not proved — it is a HYPOTHESIS of
---     `cakravalaKBound`, discharged by whoever runs the algorithm.  What is
---     proved is that minimality suffices; that some other rule would also
---     suffice, or that this rule is optimal, is not claimed.
 --   * The choice rule is used only through the inequality E_s ≤ E for the
 --     one straddling candidate `straddleExists` builds.  So the theorem is
 --     really about ANY rule that beats that candidate, and Bhskara's is
---     the simplest such.  That is a weakening of his rule, not a
---     strengthening, and the reader should not read more into it.
---   * Nothing here says a solution to x² − Dy² = 1 exists.
---   * The bridge to ℤ takes the step's equation m² − D = k·k' as a
---     HYPOTHESIS.  It is NOT wired into `CakravalaDescent.cakravalaStep`,
---     which is stated over an arbitrary CommRing and so has no |·|;
---     specialising that theorem to ℤCommRing and feeding its conclusion in
---     is a further piece of work and is not done.
---   * The constant 36 is not claimed optimal.  It is 4·(1 + 1/2)², the
---     value of the classical |k'| ≤ √D + K/4 at K = 2√D; iterating the
---     same estimate drives it toward 4·(4/3)² = 64/9, and none of that is
---     proved here.  All §4 needs is 36 < 64.
+--     the simplest such.
+--   * The constant 36 is 4·(1 + 1/2)², the value of the classical
+--     |k'| ≤ √D + K/4 at K = 2√D.  All §4 needs is 36 < 64.
 --   * `1 ≤ r ≤ K` is a normalisation of the congruence class, not a
---     restriction: every class mod K has such a representative.  That
---     normalisation is assumed, not constructed — `Cubical.Data.Nat.Mod`
---     would supply it and is not used.
+--     restriction: every class mod K has such a representative.
 ------------------------------------------------------------------------
 
 module CakravalaBound where

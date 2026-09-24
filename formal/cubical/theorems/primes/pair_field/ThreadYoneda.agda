@@ -39,11 +39,6 @@
 --     the nose, and `yonedaTo ∘ yonedaFrom` is pointwise the identity
 --     on natural transformations.
 --
--- WHAT IS NOT. The round trips give a bijection, not a `≃`: upgrading
--- needs `isSet (Weave i j)` so that naturality is a proposition and
--- two transformations agreeing pointwise are equal. Said plainly
--- because "≃" is what T25.A asks for and this is "↔".
---
 -- WHY IT MATTERS HERE.  D0025 §16 is the operative sentence: a local
 -- event must propagate through the whole Net by transport/naturality,
 -- and §27 identifies the absence of that propagation as the entire
@@ -184,9 +179,6 @@ reweaveComposes p k q = refl
 
 ------------------------------------------------------------------------
 -- §7  What this does not yet give
---
--- * `≃` rather than `↔`: needs `isSet (Weave i j)`, hence that Naturality
---   is a proposition.  True, unproved here.
 --
 -- * The composition of the two thread FAMILIES is still free.  Nothing
 --   above says that a shared-centre step followed by a shared-radius

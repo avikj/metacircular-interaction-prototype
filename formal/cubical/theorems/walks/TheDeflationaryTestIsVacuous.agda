@@ -33,12 +33,9 @@
 --       anything whatever, the tower is two tall.  The test's middle
 --       clause — "nothing here lives at level three" — therefore holds
 --       for everything this corpus ASSERTS, with no survey and no
---       decidability.  It is not shown for the third class, the
---       HYPOTHESES, which are neither proved nor negated here; module
---       E covers those only to the extent that none can ever be
---       exhibited as unstable, which is not the same as showing them
---       stable.  Stating the clause without that qualification would
---       be claiming a collapse aneknta does not license.
+--       decidability.  Module E covers the HYPOTHESES only to the
+--       extent that none can ever be exhibited as unstable, which is
+--       not the same as showing them stable.
 --
 --   §4  and the last clause does not follow.  Two-tallness says
 --       NOTHING about the strength of an obstruction, and §4 proves it

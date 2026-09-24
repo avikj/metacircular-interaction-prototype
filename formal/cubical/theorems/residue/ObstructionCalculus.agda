@@ -23,7 +23,7 @@
 -- Section E is `जननीयता ≢ पुनर्निर्मेयता`: generability and
 -- reconstructibility are independent, with both witnesses.
 --
--- WHAT IS NOT HERE, and why.  This module is 0-truncated and finite.  It is
+-- This module is 0-truncated and finite.  It is
 -- the decategorified shadow of the document, not the document:
 --
 --   * `δ◁ = cofib(hocolim 𝔐ᵢ → X)` and `δ▷ = fib(X → holim 𝔐ᵢ)` appear only

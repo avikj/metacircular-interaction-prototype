@@ -40,10 +40,10 @@
 --   * `yonedaPath`  : the corresponding path of types, by univalence
 --                     (`isoToPath`), so the "≃" is also an "≡".
 --
--- WHAT IS NOT.  Nothing in this file adds relations to `Weave`; it is
+-- Nothing in this file adds relations to `Weave`; it is
 -- still the free category of `ThreadYoneda` §1, and the other two
 -- items of §7 there (relations between the thread families, and the
--- tear) are untouched.  Only the first item of §7 is closed.
+-- tear) are untouched.
 ------------------------------------------------------------------------
 
 module YonedaEquiv_WeaveIsASetAndThreadYonedaIsAnEquivalence where

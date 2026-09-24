@@ -8,8 +8,7 @@
 -- coordinate and a cost coordinate are that same magnitude under the
 -- two readings, and this line is about what it costs to turn one into
 -- the other.  The sign rules are his; the cap, the adjunction, and the
--- per-coordinate refinement below are not, and no claim is made that
--- they are.
+-- per-coordinate refinement below are not.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- `RnaDhana_TheCostFlipIsFaithfulBelowTheCap` closed the restricted
