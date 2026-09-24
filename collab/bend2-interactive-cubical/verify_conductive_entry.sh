@@ -15,7 +15,7 @@ python3 "$HERE/check_conductive_entry.py" "$TMP/raw.hvm4"
 # testing; no textual retargeting of the generated net is necessary.
 OUT="$("$HVM" "$TMP/raw.hvm4" -s 2>&1)"
 printf '%s\n' "$OUT"
-printf '%s\n' "$OUT" | grep -Eq '(^|[^0-9])2([^0-9]|$)' || {
+printf '%s\n' "$OUT" | grep -Fq '#Suc{#Suc{#Zer{}}}' || {
   echo "intrinsic conductive main did not report 2" >&2
   exit 1
 }
@@ -30,7 +30,7 @@ pathlib.Path(sys.argv[2]).write_text(src)
 PY
 OUT2="$("$HVM" "$TMP/twice.hvm4" -s 2>&1)"
 printf '%s\n' "$OUT2"
-printf '%s\n' "$OUT2" | grep -Eq '(^|[^0-9])2([^0-9]|$)' || {
+printf '%s\n' "$OUT2" | grep -Fq '#Suc{#Suc{#Zer{}}}' || {
   echo "conductive continuation smoke did not report 2" >&2
   exit 1
 }
