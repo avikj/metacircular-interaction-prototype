@@ -2320,7 +2320,7 @@ index f94d1ce..b1a3b67 100644
 +      case nativeStep Full book tm of
 +        Nothing -> putStrLn ("native-step: normal " ++ show tm)
 +        Just s  -> do
-+          putStrLn ("native-step: " ++ stepRule s)
++          putStrLn ("native-step: " ++ ruleName (stepRule s))
 +          putStrLn ("source: " ++ show (stepSource s))
 +          putStrLn ("target: " ++ show (stepTarget s))
 diff --git a/src/Core/Check.hs b/src/Core/Check.hs
@@ -4648,8 +4648,15 @@ index 953410d..3af8583 100644
 +-- Proof-relevant native reduction events.  WHNF remains the endpoint
 +-- projection; this type exposes the actual language motion instead of
 +-- reconstructing a second toy object language above Core.Term.
++data NativeRule
++  = RApp | RLet | RRef | RFix | RPathApp | RCoe | RHComp | RGlue | RUnglue
++  | RQuotRec | RHITElim | RHITRec | RTruncRec | RCircleRec | RSupMatch
++  | REqMatch | RNatMatch | RBoolMatch | RListMatch | RSigmaMatch | REnumMatch
++  | RUnaryOp | RBinaryOp
++  deriving (Eq, Show)
++
 +data NativeStep = NativeStep
-+  { stepRule   :: String
++  { stepRule   :: NativeRule
 +  , stepSource :: Term
 +  , stepTarget :: Term
 +  } deriving (Show)
@@ -4658,6 +4665,16 @@ index 953410d..3af8583 100644
 +  = NativeDone Term
 +  | NativeThen NativeStep NativeDerivation
 +  deriving (Show)
++
++ruleName :: NativeRule -> String
++ruleName r = case r of
++  RApp -> "app"; RLet -> "let"; RRef -> "ref"; RFix -> "fix"
++  RPathApp -> "path-app"; RCoe -> "coe"; RHComp -> "hcomp"; RGlue -> "glue"
++  RUnglue -> "unglue"; RQuotRec -> "quot-rec"; RHITElim -> "hit-elim"
++  RHITRec -> "hit-rec"; RTruncRec -> "trunc-rec"; RCircleRec -> "circle-rec"
++  RSupMatch -> "sup-match"; REqMatch -> "eq-match"; RNatMatch -> "nat-match"
++  RBoolMatch -> "bool-match"; RListMatch -> "list-match"; RSigmaMatch -> "sigma-match"
++  REnumMatch -> "enum-match"; RUnaryOp -> "unary-op"; RBinaryOp -> "binary-op"
 +
 +stepEnd :: NativeStep -> Term
 +stepEnd = stepTarget
@@ -4671,29 +4688,29 @@ index 953410d..3af8583 100644
 +  let dst = whnfGo lv book src
 +      emit tag = if show dst == show src then Nothing else Just (NativeStep tag src dst)
 +  in case cut src of
-+    App{}   -> emit "app"
-+    Let{}   -> emit "let"
-+    Ref{}   -> emit "ref"
-+    Fix{}   -> emit "fix"
-+    PAp{}   -> emit "path-app"
-+    Coe{}   -> emit "coe"
-+    HCm{}   -> emit "hcomp"
-+    GlB{}   -> emit "glue"
-+    UnG{}   -> emit "unglue"
-+    QRec{}  -> emit "quot-rec"
-+    HEl{}   -> emit "hit-elim"
-+    HRec{}  -> emit "hit-rec"
-+    TRec{}  -> emit "trunc-rec"
-+    CRec{}  -> emit "circle-rec"
-+    SupM{}  -> emit "sup-match"
-+    EqlM{}  -> emit "eq-match"
-+    NatM{}  -> emit "nat-match"
-+    BitM{}  -> emit "bool-match"
-+    LstM{}  -> emit "list-match"
-+    SigM{}  -> emit "sigma-match"
-+    EnuM{}  -> emit "enum-match"
-+    Op1{}   -> emit "unary-op"
-+    Op2{}   -> emit "binary-op"
++    App{}   -> emit RApp
++    Let{}   -> emit RLet
++    Ref{}   -> emit RRef
++    Fix{}   -> emit RFix
++    PAp{}   -> emit RPathApp
++    Coe{}   -> emit RCoe
++    HCm{}   -> emit RHComp
++    GlB{}   -> emit RGlue
++    UnG{}   -> emit RUnglue
++    QRec{}  -> emit RQuotRec
++    HEl{}   -> emit RHITElim
++    HRec{}  -> emit RHITRec
++    TRec{}  -> emit RTruncRec
++    CRec{}  -> emit RCircleRec
++    SupM{}  -> emit RSupMatch
++    EqlM{}  -> emit REqMatch
++    NatM{}  -> emit RNatMatch
++    BitM{}  -> emit RBoolMatch
++    LstM{}  -> emit RListMatch
++    SigM{}  -> emit RSigmaMatch
++    EnuM{}  -> emit REnumMatch
++    Op1{}   -> emit RUnaryOp
++    Op2{}   -> emit RBinaryOp
 +    _       -> Nothing
 +
 +-- The ordinary WHNF endpoint is now explicitly the projection of a
