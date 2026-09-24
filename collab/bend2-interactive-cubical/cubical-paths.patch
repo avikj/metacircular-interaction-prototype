@@ -6492,16 +6492,27 @@ new file mode 100644
 +    -- internal applications remain the reductions used to evaluate one
 +    -- observation.  The generated companion presents the whole checked value.
 +    conductiveEntries =
-+      case (M.lookup "main" defs, M.lookup "fibreCoalgebra" defs) of
-+        (Just (_, _, mainTy), Just _) ->
++      case M.lookup "main" defs of
++        Just (_, _, mainTy) ->
 +          "\n// canonical conductive presentation of checked @main\n"
-+          ++ "@__whole_main = @" ++ hvmName "fibreCoalgebra"
-+          ++ "(" ++ emitFull book mainTy ++ ", @" ++ hvmName "main" ++ ")\n"
-+        _ -> ""
++          ++ "@__whole_main = @__fibreCoalgebra("
++          ++ emitFull book mainTy ++ ", @" ++ hvmName "main" ++ ")\n"
++        Nothing -> ""
 +
 +prelude :: String
 +prelude = unlines
 +  [ "// Bend2 -> HVM4 FULL RUNTIME (no erasure, no pre-normalisation)"
++  , "// ---- canonical lossless/conductive process (language intrinsic)"
++  , "// Runtime representation is intentionally the same constructor shape as"
++  , "// port/FibreElement.bend + port/FibreCoalgebra.bend. Types are retained"
++  , "// by the full emitter at the generated entry; the process itself is"
++  , "// parametric in them, so no application import is required."
++  , "@__descend = λ&A. λ&B. λ&f. λ&a. #Pair{#fibreCarry, #Pair{a, #Pair{f(a), #Pair{#PLm{λ&i. f(a)}, #One}}}}"
++  , "@__ascend = λ&A. λ&B. λ&f. λ&c. (λ{#Pair: λ&tag. λ&xs. (λ{#fibreCarry: (λ{#Pair: λ&a. λ&ys. a})(xs); λz. &{}})(tag)})(c)"
++  , "@__observedValue = λ&A. λ&B. λ&f. λ&c. (λ{#Pair: λ&tag. λ&xs. (λ{#fibreCarry: (λ{#Pair: λ&a. λ&ys. (λ{#Pair: λ&b. λ&zs. b})(ys)})(xs); λz. &{}})(tag)})(c)"
++  , "@__fibreObservation = λ&A. λ&a. λ&B. λ&f. λ&value. λ&source. #Pair{#fibreObservation, #Pair{value, #Pair{source, #Pair{@__fibreCoalgebra(&{})(value), #One}}}}"
++  , "@__fibreCoalgebra = λ&A. λ&a. #Pair{#fibreCoalgebra, #Pair{λ&B. λ&f. @__fibreObservation(A)(a)(B)(f)(@__descend(A)(B)(f)(a))(#PLm{λ&i. a}), #One}}"
++  , "@__observe = λ&A. λ&a. λ&p. λ&B. λ&f. (λ{#Pair: λ&tag. λ&xs. (λ{#fibreCoalgebra: (λ{#Pair: λ&respond. λ&one. respond(B)(f)})(xs); λz. &{}})(tag)})(p)"
 +  , "// ---- intervals"
 +  , "@inot = λ{#I0: #I1; #I1: #I0; λx. #INot{x}}"
 +  , "// (linear: a value is never cloned merely because it is used in several match ARMS —"
