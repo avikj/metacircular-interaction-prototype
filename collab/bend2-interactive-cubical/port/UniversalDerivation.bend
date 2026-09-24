@@ -24,7 +24,7 @@ type Receiver(A: Set, Step: A -> A -> Set):
     prepend: all a: A. all b: A. all c: A.
              Step(a, b) -> Motion(b, c) -> Motion(a, c)
 
-def fold<A>(A: Set, Step: A -> A -> Set,
+def foldType(A: Set, Step: A -> A -> Set,
             R: Receiver(A, Step), src: A, dst: A,
             d: Derivation(A, Step, src, dst)) -> Set:
   match R:
@@ -33,7 +33,7 @@ def fold<A>(A: Set, Step: A -> A -> Set,
 
 # The executable fold is specialized by a receiver's result carrier. Bend's
 # dependent eliminator computes directly on the same Derivation object.
-def foldValue<A,Step,Motion>(
+def foldValue(
     A: Set,
     Step: A -> A -> Set,
     Motion: A -> A -> Set,
@@ -48,7 +48,7 @@ def foldValue<A,Step,Motion>(
       coe(lambda i. Motion(src, witness @ i), i0, i1, epsilon(src))
     case @thenStep{mid, step, rest}:
       prepend(src, mid, dst, step,
-              foldValue<A,Step,Motion>(A,Step,Motion,epsilon,prepend,mid,dst,rest))
+              foldValue(A,Step,Motion,epsilon,prepend,mid,dst,rest))
 
 # A path itself is the maximally intrinsic primitive motion: no certificate
 # wrapper is needed because formation of the value is already the witness.
