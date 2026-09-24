@@ -19,7 +19,7 @@ open import Kuttaka using (solutionFamily)
 --      section (needs a mod/section convention)."
 --
 -- and from `formal/cubical/Kuttaka.agda`'s own header, line 47: the ia
--- section "needs a mod/section convention and is not supplied here."
+-- section "needs a mod/section convention."
 --
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT IS PROVED

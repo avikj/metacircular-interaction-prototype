@@ -58,13 +58,9 @@
 --     `PMTorus.cycleEquiv` rather than measured.  `kernelIso` is the
 --     bridge: ker δ ≃ PMTorus.Cycle.
 --
--- WHAT IS *NOT* PROVED.  The quotient type F₂⁶/im δ is not constructed
--- (no SetQuotient), exactly as in `PMTorus`; "coker δ ≅ F₂" is
--- delivered in its usable form — im δ = ker total (both inclusions)
--- together with total onto.  The upstream operator data (the Weyl
--- 2-cocycle μ and the gauge 1-cochain φ of the note) is NOT formalized:
--- the sign vector s enters here as a DATUM, transcribed from the note,
--- not derived from Gaussian-integer Pauli matrices.  What is proved is
+-- "coker δ ≅ F₂" is delivered in its usable form — im δ = ker total
+-- (both inclusions) together with total onto.  The sign vector s enters
+-- here as a DATUM, transcribed from the note.  What is proved is
 -- everything downstream of s.
 --
 -- Reuses `PMTorus` (same square, same F₂ toolkit, same

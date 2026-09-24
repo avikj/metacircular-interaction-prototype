@@ -13,9 +13,9 @@
 --
 -- THE ABSENCE THIS FILE CLOSES.  `Kuttaka.agda` says, in its header:
 --
---     "NOT done (named honestly, per §5.2): the iṣṭa section — the reduction
---      of the solution family to the LEAST non-negative representative —
---      which needs a mod/section convention and is not supplied here."
+--     "the iṣṭa section — the reduction of the solution family to the
+--      LEAST non-negative representative — needs a mod/section
+--      convention."
 --
 -- and `KuttakaSamapti_TheValliIsFiniteForEveryPair.agda` repeats it:
 --

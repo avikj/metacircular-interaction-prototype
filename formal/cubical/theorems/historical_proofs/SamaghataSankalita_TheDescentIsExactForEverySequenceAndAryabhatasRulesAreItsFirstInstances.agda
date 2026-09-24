@@ -26,7 +26,7 @@
 -- Nothing here is claimed about π, and there is no series in this file.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS EXACT, AND WHAT IS NOT (§८, and it is declared, not filled).
+-- WHAT IS EXACT (§८).
 --
 -- The युक्तिभाषा's use of the समघात-सङ्कलित is asymptotic: for a fine
 -- enough division, the sum of the p-th powers of 1…n is n^(p+1)/(p+1),

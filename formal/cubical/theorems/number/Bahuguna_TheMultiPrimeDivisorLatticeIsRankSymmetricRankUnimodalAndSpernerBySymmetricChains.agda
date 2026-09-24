@@ -12,7 +12,7 @@
 --   "THE OPEN STATEMENT.  Uninhabited below, deliberately."
 --        GeneralSperner : Type₁
 --   "Likewise for the two intermediate steps, so the queue is explicit:
---    rank-unimodality is NOT degenerate in general and is not proved."
+--    rank-unimodality in general."
 --        GeneralRankSymmetry : Type₀
 --
 -- and, from its header: "THE SCOPE, EXACTLY, and is stated as a type

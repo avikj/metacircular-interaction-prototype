@@ -224,8 +224,7 @@ truncationBreaksTheNaiveOrder = naiveHolds , naiveFails
 -- made the error.  Nothing was needed to fix it except reading my own
 -- file.
 --
--- WHAT IS NOT RETRACTED.  Everything else in this module and in the
--- append above.  `∸-adjˡ`/`∸-adjʳ`, the two adjunction directions,
+-- WHAT STANDS.  Everything else in this module and in the append above.  `∸-adjˡ`/`∸-adjʳ`, the two adjunction directions,
 -- `MinPlusCut`, and `truncationBreaksTheNaiveOrder` are unaltered and
 -- true.  CONVOLUTION is still absent everywhere, so Δ 28's COMPOSITION
 -- step is untouched by any of this.

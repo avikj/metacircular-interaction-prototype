@@ -20,7 +20,7 @@
 -- proposition the kernel has not established.  The arithmetic
 -- formulations are standard.
 --
--- WHY THIS IS A REAL ARTIFACT AND NOT NOISE.  In this repository the
+-- WHY THIS IS A REAL ARTIFACT.  In this repository the
 -- honest frontier is the obligation, not the answer.  A machine that holds
 -- Goldbach and RH in one type universe, pins each to a kernel that
 -- cannot be flattered, and declines all four, is doing the one thing a

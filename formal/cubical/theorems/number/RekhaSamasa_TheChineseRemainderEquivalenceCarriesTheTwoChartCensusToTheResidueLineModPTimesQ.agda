@@ -10,11 +10,10 @@
 --
 --   "The identification of this product with the survivors inside
 --    Fin (p·q) is the Chinese Remainder ring-iso (ℤ/pq ≃ ℤ/p × ℤ/q,
---    coprime), which is NOT proved here — this module works on the
---    product carrier directly, where the count is exact and needs no
---    CRT.  So the result is the DENSITY product, honestly on the
---    product carrier; the CRT identification with the residue line
---    mod p·q is the remaining, named, half of the atlas."
+--    coprime).  That module works on the product carrier directly,
+--    where the count is exact and needs no CRT.  The result is the
+--    DENSITY product on the product carrier; the CRT identification
+--    with the residue line mod p·q is the other half of the atlas."
 --
 -- and in its दोषलेख: "the CRT identification of the product carrier
 -- with the residue line mod p·q is the named other half."
@@ -56,11 +55,11 @@
 --   (CRT reduction, two exchanges-and-elisions per chart, factorEquiv)
 --   COMPUTES on a closed residue.
 --
--- WHAT IS NOT PROVED.  Coprimality of p and q is a HYPOTHESIS (isGCD
--- p q 1), as in crtEquiv; nothing here derives it from primality — that
--- is DistinctPrimesAreCoprime's business, not repeated.  The merged-wall
--- case (p ∣ 2a, count p−1) and the atlas over a list of charts are still
--- KsetraSamasa's named next steps; this module closes exactly the
+-- SCOPE.  Coprimality of p and q is a HYPOTHESIS (isGCD p q 1), as in
+-- crtEquiv; deriving it from primality is DistinctPrimesAreCoprime's
+-- business.  The merged-wall case (p ∣ 2a, count p−1) and the atlas over
+-- a list of charts are KsetraSamasa's next steps; this module closes
+-- exactly the
 -- two-chart CRT half.  No claim about primes as such.
 ------------------------------------------------------------------------
 

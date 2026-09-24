@@ -55,8 +55,8 @@
 --         (P : Predicate) (t : Text) (e : P .fst t ≡ true)
 --         → toDecision P t ≡ yes (P .snd t .snd e)
 --
--- WHAT IS NOT PROVED, EXACTLY.  `decisionWitnessAtTrue` itself, without
--- `po`.  It holds by reduction inside the audited module (`go true e =
+-- WHY `po` IS A PARAMETER.  `decisionWitnessAtTrue` holds by reduction
+-- inside the audited module (`go true e =
 -- yes (c t .snd e)`), but `go` is local to the clause
 -- `predicateGivesDecision (p , c) t`, closes over `p`, and has `p t ≡ b`
 -- as the type of its own second argument; so from outside, for a

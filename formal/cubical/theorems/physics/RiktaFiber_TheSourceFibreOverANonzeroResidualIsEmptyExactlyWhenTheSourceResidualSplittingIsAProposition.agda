@@ -46,9 +46,8 @@
 --
 -- WHAT IS CARRIED AND WHAT IS PROVED.  Faithfulness is a HYPOTHESIS
 -- here, not a theorem.  In the intended reading it comes from a norm
--- identity — a source's residual class has the same norm as the source
--- — and no norm exists anywhere in this corpus, so that derivation is
--- not available and is not attempted.  What is proved is that
+-- identity — a source's residual class has the same norm as the source.
+-- What is proved is that
 -- faithfulness is exactly equivalent to uniqueness of the splitting,
 -- which is the step that would otherwise be waved through.
 --

@@ -8,8 +8,7 @@
 -- said of the general case:
 --
 --   "The general case — gcd p (suc q) ≡ 1 ⇒ every non-empty boundary
---    population has length ≥ suc q — is NOT proved.  It needs exactly
---    one missing lemma, Euclid's:
+--    population has length ≥ suc q — turns on one lemma, Euclid's:
 --
 --      gcd a b ≡ 1  →  a ∣ b · c  →  a ∣ c
 --

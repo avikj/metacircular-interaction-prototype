@@ -32,7 +32,7 @@
 -- equivalence; the point is that "only one equivalence" is a THEOREM here
 -- (equivEq on judgmentally-equal maps), not a reason one may state and skip.
 --
--- WHAT IS NOT TOUCHED.  Neither `LosslessReturn_…` nor `VivekaPramana_…` is
+-- A NEW ROAD.  Neither `LosslessReturn_…` nor `VivekaPramana_…` is
 -- edited (नयभेदे सङ्क्षेपो न विद्यते — §7 of the ahiṃsā-sūtra: no collapsing
 -- of a standpoint by deletion).  This is a new road laid beside theirs,
 -- carrying the derivation their road only gestured at.

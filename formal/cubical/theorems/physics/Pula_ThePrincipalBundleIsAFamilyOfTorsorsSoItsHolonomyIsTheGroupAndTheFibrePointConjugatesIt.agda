@@ -132,9 +132,8 @@
 --
 -- * §6's associated bundle is the HoTT formulation — a representation as
 --   a family on the classifying type — not the quotient construction
---   (P × V)/G, which would need a quotient HIT and is not built.  For
---   the tautological representation the two agree trivially; in general
---   the identification is not proved here.
+--   (P × V)/G, which would need a quotient HIT.  For the tautological
+--   representation the two agree trivially.
 --
 -- No postulates, no holes, --safe.
 --

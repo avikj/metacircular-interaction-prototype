@@ -37,8 +37,7 @@
 --       this container, tonight), proven by the internal prover and
 --       installed as नियम values — the store growing as typed truth.
 --
--- WHAT IS NOT YET HERE, named so the migration is a plan and not a
--- gesture:  (a) the induction combinator (substitution lemmas; it lifts
+-- THE MIGRATION, as a plan:  (a) the induction combinator (substitution lemmas; it lifts
 -- सिद्धि's per-variable induction inside — the IH becomes a locally
 -- installed नियम, same machinery, no reflection needed);  (b) the
 -- critical-pair census internalized;  (c) a MAlonzo `main`, after which

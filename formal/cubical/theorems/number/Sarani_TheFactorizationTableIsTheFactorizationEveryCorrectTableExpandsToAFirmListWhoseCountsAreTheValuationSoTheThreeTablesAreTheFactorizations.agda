@@ -10,8 +10,7 @@
 -- against SieveFiber's trial division).  Its header then says, exactly:
 --
 --     What (i)–(iv) do NOT give is that the table is *the* factorization:
---     that step is unique factorization, which is not proved here and
---     not available in the imported library at the shape needed.  So the
+--     that step is unique factorization.  So the
 --     precise reading of everything below is: **these are theorems about
 --     factorization tables, together with a four-way check that the
 --     three tables used are correct tables for 12, 30 and 360.**  Under

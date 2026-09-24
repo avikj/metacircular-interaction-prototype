@@ -26,10 +26,9 @@
 --       "— is NOT attempted.  It needs prime-power machinery beyond
 --        WalkForcing's \"no proper coprime splitting\"."
 --
---   `CoprimeSplitting`: its §"WHAT REMAINS OPEN" lists two items, and
---   its own 2026-08-15/18 audit marks both CLOSED (the WalkBridge
---   composition and `PrimalityDecision.decIsPrime`), so that section
---   records no open valuation item.  What the file does record, in
+--   `CoprimeSplitting`: the WalkBridge composition and
+--   `PrimalityDecision.decIsPrime` carry its two items, and it records no
+--   valuation item.  What the file does record, in
 --   "WHAT IS PROVED" (A), is that its p-part is "a = p^e is the full
 --   p-part of n and b its p-free cofactor, both produced by
 --   `WalkJumps.strip` -- the fuel recursion … so no valuation function
