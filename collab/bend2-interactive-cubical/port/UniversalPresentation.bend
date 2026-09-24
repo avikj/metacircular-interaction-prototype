@@ -33,6 +33,9 @@ def presentMap(A: Set, B: Set, f: A -> B, a: A) -> FibreElement(A, B, f):
 def presentPoint(A: Set, a: A) -> FibreCoalgebra(A, a):
   fibreCoalgebra(A, a)
 
+# One observation does not target merely (B,f(a)); its new whole is the exact
+# fibre presentation. This is the point/question calculus after lossless
+# completion.
 def react(A: Set, a: A, p: FibreCoalgebra(A, a), q: Question(A)) -> Point:
   match q:
     case @question{B, f}:
