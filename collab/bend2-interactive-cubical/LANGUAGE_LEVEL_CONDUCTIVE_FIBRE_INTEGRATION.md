@@ -726,3 +726,453 @@ Keep this model in view while coding:
 The proposition/map itself supplies the initial observation. The arbitrary question family is the interface for further projections of the already-presented whole.
 
 The central implementation problem is not to invent this machine. **The machine already exists. Make the language actually run through it by default.**
+
+
+# 26. Resolved implementation blueprint — do not make the next agent rediscover this
+
+The previous sections provide context and source verification. This section is the concrete engineering conclusion. Start here after completing the mandatory reading. Do not send another agent back to "figure out the architecture."
+
+## 26.1 What is already implemented
+
+The following are facts of the current tree, not design proposals.
+
+### A. The fibre equivalence is executable
+
+Carrier.bend already provides the exact functions required for a lossless presentation:
+
+    descend : (A,B,f,a) -> Carrier(A,B,f)
+    ascend  : Carrier(A,B,f) -> A
+    CarrierEquiv : A ≃ Carrier(A,B,f)
+    CarrierPath  : Path Set A (Carrier(A,B,f))
+    carry_transport : A -> Carrier(A,B,f)
+
+The ua beta rule makes carry_transport compute to descend.
+
+Therefore **do not reimplement the fibre law in Haskell or HVM**.
+
+### B. The continuing process is executable
+
+FibreCoalgebra.bend already provides:
+
+    fibreCoalgebra(A,a)
+    observe(A,a,p,B,f)
+    observedValue(A,B,f,value)
+
+and each observation returns a next FibreCoalgebra over the FibreElement just produced.
+
+Therefore **do not invent a continuation protocol**.
+
+### C. The compiler already has the required cubical evaluator
+
+Core.WHNF already knows how coe/hcomp/ua/SUP behave. HVM4Full already emits the full runtime representation.
+
+Therefore **do not add a second cubical evaluator**.
+
+### D. The compiler currently bypasses the generic process unless source explicitly calls it
+
+HVM4Full.compileFull emits each checked Core term directly. There is no compiler-generated call to Carrier/FibreCoalgebra.
+
+That is the concrete missing language integration.
+
+### E. The earliest running proof is SATProcess
+
+SATProcess is not architecture to redesign. It is the reference implementation of the desired generic runtime behavior spelled manually in source.
+
+The language-level implementation should make most of its present/wholeProcess/interact boilerplate unnecessary.
+
+---
+
+# 27. Exact first patch: make the existing generic process intrinsic, without changing Core.Term
+
+Do **not** begin with a new AST constructor.
+
+The Book already contains, for every definition:
+
+    name -> (metadata, term, type)
+
+HVM4Full.compileFull therefore has both the term and its checked type.
+
+The first patch should operate entirely at the full-target/linkage boundary.
+
+## 27.1 Link the existing process implementation automatically
+
+Make the full target automatically include/link the definitions currently supplied by:
+
+- Prelude.bend dependencies needed by Carrier/FibreElement;
+- FibreElement.bend (or Carrier.bend, choose one canonical naming lane);
+- FibreCoalgebra.bend.
+
+Do not maintain two independent copies of their mathematics. Prefer compiling/linking canonical Bend definitions into the Book/runtime prelude. If the current compiler cannot link those definitions as a standard prelude, add a small canonical prelude module mechanism rather than transliterating the law into Haskell.
+
+The target state is that any --to-hvm4-full compilation can reference:
+
+    fibreCoalgebra
+    observe
+    observedValue
+    descend
+    ascend
+
+without application source importing them.
+
+## 27.2 Generate a canonical whole companion for every checked value
+
+For a definition:
+
+    @foo : A = t
+
+the full target has enough information to generate the semantic companion:
+
+    @foo$whole = fibreCoalgebra(A, @foo)
+
+Conceptually this is:
+
+    foo$whole : FibreCoalgebra(A, foo)
+
+This is valid for every typed value. It requires no new theorem and no source annotation.
+
+Do this generically for checked definitions, or initially for the selected entry definition while validating the design.
+
+**Important:** this companion is the interactive completion of the value. It is not yet the complete proposition-classification entry described below when foo itself is a map.
+
+## 27.3 Preserve the ordinary entry as a projection, not a separate semantics
+
+Keep the old @main during bring-up for differential testing.
+
+Add a generated whole entry beside it. The invariant is:
+
+    source projection of main$whole == main
+
+and for any chosen observation f:
+
+    observedValue(observe(main$whole,f).value) == f(main)
+
+This should be tested mechanically.
+
+After the intrinsic path is validated, ordinary execution can be routed through the visible projection of the richer path. During bring-up, retain both to make regressions obvious.
+
+---
+
+# 28. Exact second patch: maps/propositions must be presented as maps, not merely as function values
+
+Generating:
+
+    P$whole = fibreCoalgebra(X -> B, P)
+
+for P : X -> B is useful but **not sufficient** for proposition classification. That treats P as one point of the function type. It does not yet take the fibres of P over X.
+
+The map itself determines the relevant lossless presentation:
+
+    X ≃ Σ (b:B). fiber P b.
+
+Therefore the full target needs a canonical **map-presentation entry** for function-valued definitions.
+
+For a checked nondependent function:
+
+    P : X -> B
+
+generate a companion equivalent to the generic operation:
+
+    presentMap(P) :
+      X -> Carrier(X,B,P)
+
+    presentMap(P,x) = descend(X,B,P,x)
+
+The whole-domain execution object is the existing mathematical domain presented through P. If X is already represented as a shared/superposed/dependent object, applying presentMap conducts P through that whole object using the existing SUP/DUP + cubical runtime.
+
+Do not synthesize a host list of x : X. The domain must remain the mathematical object supplied by the program/type.
+
+For dependent functions, use the corresponding dependent family rather than coercing to a flat list or Bool.
+
+---
+
+# 29. Proposition entry: the proposition supplies the first observation
+
+For:
+
+    P : X -> Bool
+
+the default proposition presentation is not "wait for a question." It is:
+
+    descend(X, Bool, P, x)
+
+conducted over the presented X.
+
+Its fibres are definitionally the classifications:
+
+    Σ x:X. Path Bool (P x) False
+    Σ x:X. Path Bool (P x) True.
+
+Thus the initial proposition run is determined by P itself.
+
+The arbitrary FibreCoalgebra question family becomes the **follow-up interface** after this presentation. It is not required to choose P.
+
+For a proposition encoded directly as a dependent type rather than Bool, preserve that dependent type. Do not Booleanize it merely to reuse this finite interface.
+
+---
+
+# 30. Where the unresolved domain comes from — do not invent enumeration
+
+This is the point at which prior agents repeatedly went wrong.
+
+A function P : X -> B does not imply that the compiler should enumerate X.
+
+The unresolved X must already be represented by the mathematical program/type. Examples include:
+
+- labelled SUP coordinates for a finite Boolean cube;
+- dependent Σ/Π structure;
+- an inductive/HIT object;
+- a quotient;
+- a coinductive object;
+- a program/derivation object already present in the theory.
+
+SATProcess manually supplies a shared Boolean cube. That is why it works.
+
+The language-level bridge should **conduct over the domain representation**, not convert the type X into a host enumeration.
+
+If a program supplies only a bare function P with no value/object of X to conduct, the compiler cannot manufacture a distinguished x : X from the fibre law alone. Do not fake one.
+
+The universal derivational machinery is what supplies/generates mathematical transformations and proof-relevant futures of an object. That is a separate issue from host enumeration and must remain inside the theory.
+
+---
+
+# 31. The derivational closure that must be connected, not reinvented
+
+The Bend tree already contains the executable kernel pattern:
+
+- RewriteCertificate.bend: proof-relevant Step/Derivation plus semantic soundness;
+- ControlledGrammar.bend: a proved derivation becomes a NativeOperation; exact applicability is a Path to its source; apply_checked transports the derivation through that path;
+- GenerativeKernel.bend: enabled lawful futures become checked branches;
+- EveryDerivationIsInvertible.bend: derivations form the reversible/groupoidal geometry expected by the cubical account.
+
+The important engineering conclusion is **not** "copy GenerativeKernel's toy Tm grammar into the compiler." That file is an executable finite presentation of the general pattern.
+
+The language-level integration must ensure that the actual running Bend object/program can participate in the same cycle:
+
+    derived transformation
+       -> checked/native operation
+       -> executable path/equivalence
+       -> available to continued interaction
+
+Do not add a host rewrite table as a substitute.
+
+The existing intrinsic rewrite / installation ports and README's universal-closure account are the relevant implementation reading. If a particular generic Bend port is missing while only a finite executable instance exists, port the already-stated generic construction mechanically; do not redesign it.
+
+---
+
+# 32. Compiler files to touch first
+
+The first implementation attempt should be narrowly scoped.
+
+## Target/HVM4Full.hs
+
+This is the primary file.
+
+Modify compileFull/linkage so the full target can emit:
+
+1. the ordinary definitions as today;
+2. the canonical fibre runtime definitions automatically;
+3. generated whole companions for selected/checked values;
+4. generated map-presentation companions for function-valued definitions where useful;
+5. a stable entrypoint for the richer execution object.
+
+Do not modify HVM reduction rules first.
+
+## Core/CLI.hs
+
+Add a temporary explicit mode if useful for validation, e.g. a conductive/full-presentation emission mode. This is acceptable during bring-up because it lets old and new output be compared.
+
+Once validated, merge the behavior into the canonical full target rather than leaving it as an obscure experimental mode.
+
+## Core.Check / Core.Type
+
+Do not change them in the first patch unless compilation proves that information already present in Book is insufficient.
+
+The current Book stores term and type. That is enough for the first generated wrappers.
+
+## Core.WHNF
+
+Do not change it in the first patch. It already has the cubical computation required by the wrappers.
+
+Only touch WHNF if a concrete generated intrinsic test gets stuck on a cubical form that should reduce and the missing rule is demonstrated.
+
+---
+
+# 33. Concrete generated shape for the first compiler experiment
+
+Take an existing ordinary checked definition:
+
+    def foo() -> Nat:
+      2n
+
+The compiler should still emit ordinary foo, plus a generated whole companion semantically equivalent to:
+
+    def __whole_foo() -> FibreCoalgebra(Nat, foo()):
+      fibreCoalgebra(Nat, foo())
+
+Then generate a test observation:
+
+    idNat : Nat -> Nat
+    idNat(n) = n
+
+and verify:
+
+    observedValue(
+      observe(Nat, foo(), __whole_foo(), Nat, idNat).value
+    ) == foo()
+
+Do this first because it tests the compiler linkage without requiring SUP, SAT, synthesis, or proposition classification.
+
+Next use a non-injective observation, e.g. parity, and verify source recovery from the returned FibreElement.
+
+Then use a second observation on next and verify the coinductive continuation.
+
+Only after those generic tests pass should SATProcess be simplified.
+
+---
+
+# 34. Concrete SAT migration target
+
+Current SATProcess manually contains:
+
+    present(a)
+    wholeProcess(Assignment,a)
+    interact(... Bool, formula)
+    interact(next, ... ascend ...)
+
+After language integration, the first two should be generic/intrinsic.
+
+The SAT-specific content should approach only:
+
+    Assignment
+    formula
+    the shared Assignment object
+    desired output/readout
+
+The compiler/runtime supplies the canonical lossless process.
+
+The regression test is strong:
+
+- old manual SATProcess output;
+- new intrinsic SATProcess output;
+- same four XOR readings;
+- both use --to-hvm4-full;
+- inspect generated net to ensure the new path is not four host calls;
+- compare interaction structure/counts and explain any fixed wrapper overhead.
+
+Do not declare success merely because outputs match if the new compiler eagerly enumerates assignments outside the net.
+
+---
+
+# 35. Concrete proposition-classification test after SAT migration
+
+Use a tiny proposition over a shared domain:
+
+    X = &L{False, True}
+    P = not / identity / constant / XOR coordinate
+
+Compile through the intrinsic map presentation.
+
+Verify that:
+
+- P is the initial observation;
+- true/false alternatives arise from conducting P over X;
+- source distinctions are retained in the fibre;
+- asking only for the visible Bool does not eagerly serialize source;
+- asking the continuation/source does recover it.
+
+This is the smallest direct test of "a proposition runs without a separate question."
+
+---
+
+# 36. Do not confuse corpus self-presentation with the simple Corpus3 test
+
+cubical_test3.bend contains a small Corpus3:
+
+    target3(s,q)
+    refl
+    run3(target3(s,q))
+
+This proves the coinductive point/question shape runs natively, but its event is only the reflexive target equality.
+
+The stronger corpus construction described in LIFECYCLE / CorpusSelfPresentation retains the actual current residual:
+
+    target s q
+    refl
+    current-residual s q
+    present(target s q)
+
+Do not use the small Corpus3 test as evidence that the exact residual is already wired into the language entrypoint.
+
+For implementation, the proper lossless runtime reference is Carrier/FibreCoalgebra plus the actual self-presentation/installation construction, not Corpus3 alone.
+
+---
+
+# 37. One remaining distinction the implementation must preserve
+
+There are two closures:
+
+**Lossless observational closure:** every observation f : A -> B can be represented as visible result + exact fibre, and the process continues.
+
+**Derivational/metacircular closure:** transformations/properties derived about the object become executable structure available to subsequent interaction.
+
+Carrier/FibreCoalgebra implements the first directly.
+
+The kernel/installation/intrinsic-rewrite material implements the second pattern.
+
+The final language-level capability requires them to meet in ordinary execution. Do not falsely declare the entire job complete after merely generating foo$whole companions if derived transformations are still trapped in an application-level island.
+
+Conversely, do not postpone the first patch until inventing a new derivation engine. Close the already-obvious lossless entry seam first, then connect the existing derivational installation path to that same continuing object.
+
+---
+
+# 38. What the next agent is allowed to decide
+
+Very little architecture remains open.
+
+The agent may choose, based on actual compiler constraints:
+
+- whether canonical fibre definitions are linked as a standard Bend prelude or emitted as target runtime definitions;
+- the exact generated symbol names;
+- whether bring-up uses a temporary CLI flag;
+- whether companions are emitted for every definition or only exported/entry definitions initially;
+- how UCM persists a continuation between interactive invocations.
+
+The agent is **not** being asked to decide:
+
+- what the mathematical law is;
+- what the residual is;
+- what coinduction means;
+- whether univalence is required;
+- whether SAT should enumerate candidates;
+- whether to invent a solver;
+- whether to use HVM sharing;
+- whether source semantics are preserved;
+- whether the proposition is itself the initial observation;
+- whether the continuation should retain the whole;
+- whether to create a new optimizer.
+
+Those questions are settled by the existing construction.
+
+---
+
+# 39. Immediate coding checklist
+
+A coding agent should be able to execute this without conceptual research:
+
+1. Build current cubical Bend2 and run existing suite.
+2. Read HVM4Full.compileFull and identify its definition-emission loop.
+3. Add canonical automatic linkage for FibreElement/Carrier + FibreCoalgebra.
+4. Generate __whole_main from main's stored checked type and term.
+5. Compile a Nat identity-observation test.
+6. Compile a non-injective observation and reconstruct source.
+7. Compile two sequential observations using next.
+8. Run all three on HVM4-full.
+9. Migrate SAT XOR so its generic process boilerplate is compiler-supplied.
+10. Compare old/new emitted HVM4 and receipts.
+11. Add intrinsic map-presentation entry for a function-valued proposition over an explicitly represented shared domain.
+12. Verify proposition runs with P as initial observation, no external question selection.
+13. Connect installed/derived transformations to the same continuing object rather than a separate host rewrite phase.
+14. Run the full cubical suite.
+15. Only then broaden to arbitrary existing mathematical programs.
+
+If step 3 cannot be implemented without changing Core, document the exact compiler limitation and make the smallest Core change that removes it. Do not branch into a redesign.
