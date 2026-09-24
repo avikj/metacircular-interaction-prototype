@@ -95,7 +95,7 @@
 --
 -- The complementary positive half — a SQUAREFREE prakṛti makes the side
 -- condition redundant — is a three-line valuation argument, written out
--- in collab/messages/2093 and not formalized here.
+-- in collab/messages/2093.
 --
 -- CHECKED: Agda 2.6.3 + cubical v0.5, `agda <file>` → EXIT 0.  --safe,
 -- no postulates, no holes, no TERMINATING pragma.

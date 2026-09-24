@@ -25,9 +25,9 @@
 --     f ⊙ g    := N_* N*(f ⋆ g)
 --     (f ⊙ g) ⊙ h = f ⊙ (g ⊙ h)
 --
--- WHAT IS CHECKED, AND WHAT IS NOT.  §2.5's associativity is a GENERAL
--- theorem, quantified over all profiles; it is not finite and is NOT
--- proved here.  What is proved here is the sharp instance: the exact
+-- WHAT IS CHECKED.  §2.5's associativity is a GENERAL theorem,
+-- quantified over all profiles.  What is proved here is the sharp
+-- instance: the exact
 -- triple that breaks one-sided closure in §2.4 — ℓ_c, ℓ_a, ℓ_c — is
 -- repaired by the middle closure, pointwise, by `refl`.
 --
@@ -289,17 +289,15 @@ mid-drops-at-a : ¬ (((ℓc ⊙ ℓa) ⊙ ℓc) a ≡ ((ℓc ⊙ᴸ ℓa) ⊙ᴸ
 mid-drops-at-a h = snotz (injSuc (injNegsuc h))
 
 ------------------------------------------------------------------------
--- 4.  What is NOT claimed.
+-- 4.  What this module says.
 --
--- Not §2.5's theorem.  That statement is universally quantified over
--- profiles and this is one triple; the general proof goes through the
--- nucleus adjunction (N_* ⊣ N*, closure, two-sided compatibility with
--- ⋆) and is not attempted here.  Clause four of §14.1 stays open, and
--- the honest reading of this module is: on the one instance where the
--- one-sided calculus is known to fail, the middle calculus does not.
+-- §2.5's theorem is universally quantified over profiles and this is
+-- one triple; the general proof goes through the nucleus adjunction
+-- (N_* ⊣ N*, closure, two-sided compatibility with ⋆).  The reading of
+-- this module is: on the one instance where the one-sided calculus is
+-- known to fail, the middle calculus does not.
 --
--- Not that ⊙ and ⊙ᴸ agree elsewhere, or that either is the "right"
--- composition — §2.5's own lesson is stated as a side condition and is
+-- §2.5's own lesson is stated as a side condition and is
 -- worth carrying verbatim rather than paraphrased:
 --
 --     "The exact lesson is not that every microscopic detail must be

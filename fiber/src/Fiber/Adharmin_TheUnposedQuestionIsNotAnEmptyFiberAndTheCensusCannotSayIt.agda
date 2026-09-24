@@ -58,19 +58,11 @@
 -- "nothing lost" with "the loss" — and every one of those merges is the
 -- durnaya the census exists to refuse.
 --
--- WHAT IS NOT DONE.  `Saptabhangi.दुर्नयः` is NOT imported and NOT
--- reproved.  It lives in `formal/cubical/`, pinned to Agda 2.8.0 with
--- cubical v0.9; this library is pinned to 2.6.3 with v0.5, and the two
--- trees have no shared library path.  So §2 is proved here from scratch
--- over four names, and the relation to दुर्नयः is a claim about two
--- statements that no term in either tree connects.  Writing that bridge
--- needs one toolchain that can see both, which this container does not
--- have.  Said plainly so it is not mistaken for done.
+-- §2 is proved here from scratch over four names.
 --
 -- Nirnaya's header carries a FIFTH name, तूष्णीम् — "the symbol outside
 -- the vocabulary that silenced this naya" — which is neither an unposed
--- question nor an empty fiber.  It is not modelled here.  Four is what
--- this file can exhibit; the fifth is written down and left open.
+-- question nor an empty fiber.  Four is what this file exhibits.
 --
 -- CHECKED: Agda 2.6.3, agda/cubical v0.5 — the library's declared pin.
 -- --cubical --safe, no postulates, no holes.

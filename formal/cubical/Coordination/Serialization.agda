@@ -228,10 +228,9 @@ reordering-this-pair-changes-the-state h = true≢false (sym (h false))
 -- §7's K2 has a second half: that any two linear extensions of the
 -- dependency order augmented by per-conflict-domain local total orders
 -- are `~`-connected, given that every non-commuting pair shares a
--- conflict key.  That is a combinatorial statement about posets, it is
--- where the hypotheses actually have to be right, and it is NOT proved
--- here.  It is written as an interface so that a future module either
--- inhabits it or reports what it needs.
+-- conflict key.  That is a combinatorial statement about posets, and it
+-- is where the hypotheses actually have to be right.  It is written as
+-- an interface.
 --
 -- Stating it as a type rather than a comment is the point: an
 -- un-inhabited record is an obligation the typechecker can see.

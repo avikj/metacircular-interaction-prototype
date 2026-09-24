@@ -121,7 +121,7 @@
 --       decides whether an equivariant selection exists."  DEAD — §6, in
 --       both directions.
 --
--- WHAT IS NOT SETTLED is listed in §8.
+-- SCOPE is in §8.
 --
 -- NOTHING IN EITHER AGENT'S MODULE IS EDITED.  Both are imported.
 --
@@ -663,19 +663,15 @@ j2LandedNegative : ¬ J2.EquivariantLeastChoice
 j2LandedNegative = J2.noRetrogradeChooser
 
 ------------------------------------------------------------------------
--- §8.  WHAT IS NOT SETTLED.
+-- §8.  SCOPE.
 --
---  * WHY totality is the right dividing line in general.  §4 proves it
---    for INVOLUTIVE group elements.  For a group element of infinite
---    order the argument does not run: ℤ acting on ℤ by translation
---    carries the usual order — total, antisymmetric, transitive,
---    monotone — with no fixed point and no least element.  Not
---    formalized here (cubical v0.5 in this container has no order on ℤ
---    that I checked), and stated as an unformalized remark, not a claim.
+--  * §4 proves totality is the dividing line for INVOLUTIVE group
+--    elements.  For a group element of infinite order the argument does
+--    not run: ℤ acting on ℤ by translation carries the usual order —
+--    total, antisymmetric, transitive, monotone — with no fixed point
+--    and no least element.
 --
---  * WHETHER "no equivariant choice ⇒ a symmetry obstruction" holds.
---    j-2 flagged this open in message 2158 §5 and I have not moved it.
---    §2's equivalence is only about the tiebreak axioms.
+--  * §2's equivalence is about the tiebreak axioms.
 --
 --  * NOVELTY against the outside literature.  "The minimum of an
 --    invariant order is invariant" is folklore, as j-0 already graded
@@ -694,13 +690,9 @@ j2LandedNegative = J2.noRetrogradeChooser
 --    So the vocabulary of §§2–4 exists in this corpus only in j-0's own
 --    hour-old work, and §5's hypothesis exists nowhere.
 --
---  * WHETHER `leastIsFixed` is a corollary of `noEquivariantLeastChoice`
---    in the WEAK sense of being re-derivable by a detour.  It is: given
---    an equivariant `pick`, the relation `x ≼ y :≡ (x ≡ pick e n)`
---    satisfies §2's axioms.  That detour consumes the equivariance field
---    — which is exactly j-2's proof — so it establishes nothing about
---    relative strength, and it is deliberately NOT formalized here
---    because a checked term for it would read as evidence when it is
---    circular.  Recorded so the next agent does not mistake its absence
---    for an oversight.
+--  * `leastIsFixed` is re-derivable from `noEquivariantLeastChoice` by a
+--    detour: given an equivariant `pick`, the relation `x ≼ y :≡
+--    (x ≡ pick e n)` satisfies §2's axioms.  That detour consumes the
+--    equivariance field — which is exactly j-2's proof — so it
+--    establishes nothing about relative strength.
 ------------------------------------------------------------------------

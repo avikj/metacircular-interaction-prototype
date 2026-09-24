@@ -9,8 +9,7 @@
 -- because the sdhya is already siddha for the opponent, so the inference
 -- accomplishes nothing.  Discussed under the निग्रहस्थान / जाति apparatus
 -- descending from Gautama's *Nyyastra* (~2nd c. CE) book 5 and developed
--- in the later Naiyyika manuals; I have not established a first use of the
--- compound with a date I checked, and I am not supplying one.
+-- in the later Naiyyika manuals.
 --
 ------------------------------------------------------------------------
 -- WHAT WAS OPEN.

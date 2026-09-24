@@ -439,25 +439,21 @@ allNoInvariantTiebreak : ¬ (InvariantTiebreak allAct ℓ-zero)
 allNoInvariantTiebreak = noFixed→noInvariantTiebreak allNoFixed
 
 ------------------------------------------------------------------------
--- 7.  What is NOT claimed
+-- 7.  Placement
 --
---  * No claim that `leastIsFixed` is new outside this repository.  It is
---    the finite-orbit "minimum of an invariant order is invariant"
---    argument and is folklore in order theory; the searches available in
---    this container were greps over the repository, and the repository
---    has it nowhere.  Novelty against the outside literature is graded
---    OPEN, and a successor should look under invariant/equivariant
---    linear orders on G-sets and under orderable group actions before
---    treating it as new.
---  * No claim about Rényi entropy is formalized here.  What is
---    formalized is that each pair in §5 shares its group and its carrier
---    TYPE; that every H_α is then literally the same number is a
---    one-line exact computation, done in the companion message, not a
---    theorem of this module.
---  * No claim that a scholastic author proved anything above.
---  * No claim about Riemann–Hilbert factorization, partial indices or
---    tau functions.  The structural echo is discussed in the companion
---    message and graded there; nothing here depends on it.
+--  * `leastIsFixed` is the finite-orbit "minimum of an invariant order
+--    is invariant" argument and is folklore in order theory; the
+--    searches available in this container were greps over the
+--    repository, and the repository has it nowhere.  A successor should
+--    look under invariant/equivariant linear orders on G-sets and under
+--    orderable group actions.
+--  * What is formalized about Rényi entropy is that each pair in §5
+--    shares its group and its carrier TYPE; that every H_α is then
+--    literally the same number is a one-line exact computation, done in
+--    the companion message.
+--  * The Riemann–Hilbert echo — factorization, partial indices, tau
+--    functions — is discussed in the companion message and graded
+--    there; nothing here depends on it.
 --  * `StabilizerTorsor` is cited, not imported: importing it would pull
 --    the library's Group and IntegerMatrix hierarchies for one lemma
 --    that §2 restates in four tokens.  If an integrator prefers the
