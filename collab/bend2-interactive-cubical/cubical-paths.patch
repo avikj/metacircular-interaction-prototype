@@ -6485,7 +6485,7 @@ new file mode 100644
 +      let out = if nam == "main" then "sourceMain" else hvmName nam
 +      in "@" ++ out ++ " = " ++ emitFull book tm
 +
-+    -- Every checked entry is already a typed point (A,a).  The full runtime
++    -- The selected checked entry is already a typed point (A,a). The full runtime
 +    -- contains the canonical parametric fibre process below, so expose the
 +    -- lossless/coinductive presentation automatically with no source import
 +    -- and no application call to FibreCoalgebra.
@@ -6515,8 +6515,10 @@ new file mode 100644
 +
 +    -- If the entry itself is a mathematical map/proposition, expose its
 +    -- canonical fibre presentation directly.  This is the initial observation
-+    -- supplied by the map itself, not a later external query.  This direct
-+    -- fibre entry applies exactly when the Pi codomain is a fixed B.
++    -- supplied by the map itself, not a later external query. This direct
++    -- ordinary fibre entry applies exactly when the Pi codomain is a fixed B;
++    -- genuinely dependent sections remain in their native dependent/cubical
++    -- presentation rather than being flattened into a fake fixed codomain.
 +    mapEntry ty = case cut ty of
 +      All dom cod ->
 +        let body = cod depMarker
