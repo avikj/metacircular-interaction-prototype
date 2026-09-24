@@ -101,6 +101,16 @@ jobs:
  "$RUNNER_TEMP/native-step.log"
           grep -q '^target: 2' "$RUNNER_TEMP/native-step.log"
 
+      - name: Typecheck generic native derivation machine
+        shell: bash
+        run: |
+          set -euo pipefail
+          source "$RUNNER_TEMP/conductive-build/env.sh"
+          "$BEND" collab/bend2-interactive-cubical/port/UniversalDerivation.bend --total
+          "$BEND" collab/bend2-interactive-cubical/port/UniversalElucidator.bend --total
+          "$BEND" collab/bend2-interactive-cubical/port/NativeDerivation.bend --total
+          "$BEND" collab/bend2-interactive-cubical/port/UniversalMachine.bend --total
+
       - name: Execute compiler-generated conductive path and continuation
         shell: bash
         run: |
