@@ -74,7 +74,7 @@ contractible (§7, `fibre-of-run`); cost is the net's own interaction count.
 |---|---|---|
 | P1 | Seam: check gate, no deleted cells, types emitted, typed-point root, remove companions/bootstrap | done (commit 1) |
 | P2 | Fix breakages from P1 (mining gate reader, `sat_fibre.bend` `not`, all-or-nothing emission) | done (commit 3) |
-| P3 | Diamond audit: classify every HVM4 primitive rule the emitter can reach; rewrite emission so only diamond rules are used (explicit erasure, demand in state) | next |
+| P3 | Diamond + label audit of the reachable HVM4 rules (§3a); label capture found: fresh dimension names per instantiation | in progress |
 | P4 | Interaction entry: `Q`/`δ` loop at the root | todo |
 | P5 | Checking on the net (`verify` projection): the checker as a net program | todo |
 | P6 | Delete the Haskell evaluator from the compile path; bootstrap + CI green; delete this file | todo |
@@ -124,6 +124,52 @@ contractible (§7, `fibre-of-run`); cost is the net's own interaction count.
 - Emission is all-or-nothing: `compileFull` is forced before printing, so a
   refused cell leaves empty stdout (was: partial program + exit 1).
   `emit_refuses_unary_not.bend` + verify stage REFUSE-NOT-MISCOMPILE.
+
+## 3a. P3 audit (in progress)
+
+### Reachable rule set
+HVM4 `hvm.c` (6defdfc) counted rules: APP-{LAM,ERA,SUP,INC,MAT-SUP,MAT-CTR-MAT,
+MAT-CTR-MIS,MAT-NUM-MAT,MAT-NUM-MIS}, DUP-{LAM,SUP,NOD,NAM}, OP2-*, AND-*, OR-*,
+EQL-*, DSU-*, DDU-*, USE-*, MAT-INC, WNF-UNS. Uncounted: REF/ALO (δ-unfolding,
+lazy node-by-node copy of the book term), APP-NAM/APP-DRY (stuck).
+Scanning all 222 emitted programs: none contain `.&.` `.|.` `===` `↑` `&(…)`
+`!${` `*`; `SupM` and `Fix` are never emitted by the corpus. Reachable:
+LAM (incl. erased binder), APP, VAR, DUP (auto-dup `λ&`, `!&`), SUP, ERA,
+CTR, MAT, SWI, NUM, OP2, REF/ALO. Bend `&&`/`||` lower to strict OP2
+(bitwise), NOT to the short-circuit AND/OR nodes.
+
+### Diamond / cost
+- `AND-ZER`, `OR-ONE`, and APP-LAM with an erased binder all drop an
+  unevaluated subgraph. Under a context-closed relation that breaks the
+  equal-length conclusion (REDUCTION_FOUNDATIONS). Under the demand-restricted
+  relation (a redex fires only when demanded; the evaluator's actual
+  relation) a dropped subgraph was never demanded, so this does not arise.
+  TODO: state the demand-restricted step relation precisely and check an
+  instance of `InteractionGeodesic.RandomDescent` for the reachable rules.
+- δ (REF/ALO) is uncounted: definitional unfolding is refl, consistent with
+  "transport is free".
+
+### LABEL CAPTURE — a correctness bug, not a cost question (found)
+Reading (exact): `&L{a,b}` is a 1-cell in dimension L; `!&L{x,y}=v` takes its
+two faces. DUP-SUP same label = face map on its own dimension (annihilate);
+different labels = faces in different dimensions commute. DUP-LAM pushes the
+face map under a binder. **A label is a dimension name.** Correctness needs
+every dimension name bound by one correlation (capture-free).
+HVM4 assigns auto-dup labels once per SOURCE binder (parse counter), and every
+δ-unfolding of a definition reuses them. Two dynamic instances of one
+definition therefore share dimension names: capture.
+Evidence (`probes/label_capture/`): `two(Nat->Nat, λg. two(Nat,g), suc, 0)`:
+Core = 4, runtime = `λa.#Suc{a}` (wrong). Same program with two identical
+defs `twoA`/`twoB` (distinct static labels): runtime = 4, 27 itrs. Triple
+nesting: Core 16, runtime OOM-killed.
+Also: `Fix` emission uses the literal static label `F` for every knot.
+Fix direction (math-forced): α-rename bound dimensions at instantiation —
+fresh labels per δ-unfolding (and per Fix knot). Engineering constraint:
+HVM4 labels are 24-bit (term ext); DSU/DDU dynamic labels also land in 24
+bits; there is no fresh-label primitive. A monotone per-unfolding counter
+wraps after 2^24 unfoldings, so exactness needs wider labels or label
+reclamation. DECISION PENDING with the user (see chat).
+Differential Core-vs-runtime check over the corpus: running.
 
 ## 4. How to work here (pitfalls already paid for)
 
