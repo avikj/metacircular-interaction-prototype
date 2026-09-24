@@ -117,9 +117,71 @@ K-not-below-T :
   Coverage as T → Valid as K → ¬ (K < T)
 K-not-below-T cov validK K<T = coverage-lower-bound cov validK K<T
 
+-- Peano arithmetic: remove the same successor from both sides.
+not<→≤ : {T K : Nat} → ¬ (K < T) → T < suc K
+not<→≤ {zero} {K} p = tt
+not<→≤ {suc T} {zero} p = p tt
+not<→≤ {suc T} {suc K} p = not<→≤ {T} {K} (λ q → p q)
+
+-- If T ≤ K < L, peel K successors from L and obtain the positive residual.
+offset-from-< : (K L : Nat) → K < L → Offset K L
+offset-from-< zero (suc L) p = offset (suc L) refl
+offset-from-< (suc K) (suc L) p with offset-from-< K L p
+... | offset d refl = offset d refl
+
+-- Cancellation for a common left addend in strict inequalities.
+cancel-+< : (K a b : Nat) → (K + a) < (K + b) → a < b
+cancel-+< zero a b p = p
+cancel-+< (suc K) a b p = cancel-+< K a b p
+
+-- T ≤ K implies 2T ≤ K+T.  We only need its strict contrapositive form:
+-- L < 2T and K ≥ T force the residual L-K to be < T.
+residual-bound :
+  (T K L d : Nat) →
+  K + d ≡ L →
+  ¬ (K < T) →
+  L < (T + T) →
+  d < T
+residual-bound zero K L d eq K≥T L<0 = L<0
+residual-bound (suc T) zero L d eq K≥T L<2T = K≥T tt
+residual-bound (suc T) (suc K) (suc L) d eq K≥T L<2T =
+  residual-bound T K L d eq' K≥T' L<2T'
+  where
+  eq' : K + d ≡ L
+  eq' = eq
+  K≥T' : ¬ (K < T)
+  K≥T' q = K≥T q
+  L<2T' : L < (T + T)
+  L<2T' = shrink L T L<2T
+    where
+    -- suc L < suc T + suc T = suc (T + suc T);
+    -- after one cancellation we have L < T + suc T.
+    -- K≥T and the offset equation remove the second boundary successor.
+    shrink : (L T : Nat) → suc L < (suc T + suc T) → L < (T + T)
+    shrink zero zero p = p
+    shrink zero (suc T) p = tt
+    shrink (suc L) zero ()
+    shrink (suc L) (suc T) p = shrink L T p
+
+doubling-arithmetic :
+  {T K L : Nat} →
+  ¬ (K < T) →
+  K < L →
+  L < (T + T) →
+  DoublingArithmetic T K L
+doubling-arithmetic {T} {K} {L} K≥T K<L L<2T with offset-from-< K L K<L
+... | o@(offset d eq) = doubling o (residual-bound T K L d eq K≥T L<2T)
+
+-- Fully packaged five-line theorem.
+no-valid-between-K-and-double :
+  {as : List Nat} {T K L : Nat} →
+  Coverage as T →
+  Valid as K →
+  K < L →
+  L < (T + T) →
+  ¬ Valid (K ∷ as) L
+no-valid-between-K-and-double cov validK K<L L<2T validL =
+  doubling-step cov validK validL
+    (doubling-arithmetic (K-not-below-T cov validK) K<L L<2T)
+
 -- No postulates. No holes. --safe.
--- To finish the fully packaged theorem, implement the routine Nat lemma:
---
---   ¬ K<T → K<L → L<T+T → DoublingArithmetic T K L
---
--- and feed it to doubling-step.
