@@ -181,9 +181,9 @@ module _ {B Z : Type₀} (sem : Z → B) (h : H.Holonomy Z) where
 कोशः-चलितः = H.theCacheIsMoved
 
 ------------------------------------------------------------------------
--- ७ · शेषः — what is not claimed.
+-- ७ · शेषः — placement.
 --
--- Not that every holonomy statement in this corpus is a पुनरागमन statement:
+-- Not every holonomy statement in this corpus is a पुनरागमन statement:
 -- the gauge lane (`PMGaugeCohomology`, `HolonomyDescent`,
 -- `RelationalHolonomyRefinement`, `FiniteGraphHolonomyGroupoid`) has group
 -- structure this module never touches, and `HolonomyDescent`'s

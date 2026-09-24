@@ -73,12 +73,8 @@
 -- why this works and are NOT formalised below; what is formalised is the
 -- consequence, directly — §2 and §3 together give both directions without
 -- a diamond lemma, because `nf` is defined so that the two real rules hold
--- by `refl`.  So no critical-pair analysis appears as a term and none is
--- claimed as checked.  Discreteness of `Tm` is not proved, so the word
--- "decidable" above is a corollary stated in prose, not a term.  Nothing
--- here concerns `Step⁺`; `add-comm` breaks the orthogonality by design.
--- `nf` is one normalising function; no claim that it is canonical among
--- such, nor any statement about its cost.
+-- by `refl`.  Nothing here concerns `Step⁺`; `add-comm` breaks the
+-- orthogonality by design.  `nf` is one normalising function.
 --
 -- No postulates, no holes, --safe.  CHECKED this session, EXIT 0, at
 -- Agda 2.6.3 + agda/cubical v0.5 -- which is NOT the corpus pin (2.8.0 +

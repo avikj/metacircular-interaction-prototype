@@ -4,9 +4,8 @@
 -- श्रुतं मतिपूर्वम् — Umāsvāti, Tattvārthasūtra 1.20 (c. 2nd–5th c.
 -- CE): śruta — the recorded, transmitted knowledge — is preceded by
 -- mati, direct cognition; and cognition working WITH the record
--- reaches further than cognition alone.  The classification is his;
--- the mathematics here is not claimed for the source.  School named:
--- Jaina.
+-- reaches further than cognition alone.  The classification is his.
+-- School named: Jaina.
 --
 -- THIS IS THE LOOP, closed in the one language.  Until this module
 -- the store received proofs; it did not GIVE them back to the prover.

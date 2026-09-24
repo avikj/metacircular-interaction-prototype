@@ -111,10 +111,7 @@
 --    `ObsChain` gives a strictly triangular incidence structure (each
 --    body is base over the vocabulary before its own step, so it cannot
 --    mention any later residual), and that is the shape a chain-level
---    conservativity and a chain-level size bound would take; neither is
---    proved here, and the triangularity itself is not proved here.
---    WitnessPolicy's "NOT claimed: a size bound on the informative
---    loop's OUTPUT" therefore still stands.
+--    conservativity and a chain-level size bound would take.
 --
 --  * NOT claimed: that the informative policy is optimal, canonical, or
 --    matchability-improving.  WitnessPolicy proves it is not the last

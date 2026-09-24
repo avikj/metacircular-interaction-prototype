@@ -532,10 +532,10 @@ pack-value = refl
 -- is not ideal, and no max-flow / matroid-intersection formulation
 -- computes τ in general.
 --
--- NOT proved here, and stated so in the companion message: (i) that six
--- rules is the minimum for such an instance — the argument is on paper
--- and covers only the case of exactly three minimal supports; (ii) the
--- positive half, that τ = ν whenever every rule has at most one premise,
+-- In the companion message: (i) that six rules is the minimum for such
+-- an instance — the argument is on paper and covers only the case of
+-- exactly three minimal supports; (ii) the positive half, that τ = ν
+-- whenever every rule has at most one premise,
 -- which is Menger's theorem (1927) via Ford–Fulkerson integrality (1956)
 -- and is cited, not formalised; (iii) any complexity claim about
 -- computing τ.

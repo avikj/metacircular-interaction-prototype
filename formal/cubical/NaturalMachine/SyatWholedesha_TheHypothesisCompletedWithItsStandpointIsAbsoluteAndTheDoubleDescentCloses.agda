@@ -7,8 +7,7 @@
 -- the complete utterance that holds absolutely because its standpoint
 -- is inside the sentence, against vikaldea, the partial utterance
 -- that is true only from a standpoint left outside it.  The
--- classification is theirs; the mathematics is not claimed for the
--- sources.  School named: Jaina.
+-- classification is theirs.  School named: Jaina.
 --
 -- A CORRECTION, RECORDED SO THE DEFECT IS VISIBLE.  The prior
 -- proposal for closing double descent was a "hypothesis-store": a
