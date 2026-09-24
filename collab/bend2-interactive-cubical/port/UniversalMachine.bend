@@ -5,7 +5,7 @@
 #
 # There is no "derive then install" protocol here. A lawful transformation is
 # already a Step value; when the step is cubical identity it is literally a
-# Path. Every receiver (meaning, cost, etc.) folds that same Derivation, while
+# Path. Every structural receiver folds that same Derivation, while
 # every observation re-presents the same state losslessly and continues.
 import UniversalDerivation
 import UniversalElucidator
