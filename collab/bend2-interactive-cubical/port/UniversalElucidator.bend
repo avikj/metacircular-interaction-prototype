@@ -21,9 +21,9 @@ def read(A: Set, Step: A -> A -> Set, R: Set,
 
 # Cost is not a second execution mechanism; it is a lens/receiver of the same
 # derivation object.
-def unitCostLens(A: Set, Step: A -> A -> Set) -> Lens(A,Step,Nat):
+def lengthLens(A: Set, Step: A -> A -> Set) -> Lens(A,Step,Nat):
   @lens{0n, lambda a. lambda b. lambda s. lambda n. 1n + n}
 
-def unitCost(A: Set, Step: A -> A -> Set,
+def derivationLengthReading(A: Set, Step: A -> A -> Set,
              x: A, z: A, d: Derivation(A,Step,x,z)) -> Nat:
-  read(A,Step,Nat,unitCostLens(A,Step),x,z,d)
+  read(A,Step,Nat,lengthLens(A,Step),x,z,d)
