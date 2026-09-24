@@ -39,6 +39,16 @@ if [[ -f "$HERE/../hvm3-gcc15.patch" ]]; then
 fi
 cat > "$WORK/Bend2/cabal.project" <<'PROJECT'
 packages: . ../HVM3
+
+package *
+  optimization: 2
+
+# HVM3 requires hs-highlight >=1.0.5; that release is supplied by HOC's
+# source repository and is not published on Hackage.
+source-repository-package
+  type: git
+  location: https://github.com/HigherOrderCO/hs-highlight
+
 package zlib
   flags: +bundled-c-zlib
 PROJECT
