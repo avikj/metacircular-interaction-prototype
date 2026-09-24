@@ -36,9 +36,6 @@
 --        and §12 instantiated there, so the identification is about a
 --        space and not a parameter list.
 --   §14  THE MACHINE.
---
---   §6 is terminality.  Its dual — initiality of the step calculus, with
---   the unique fold — is not in this file yet.
 ------------------------------------------------------------------------
 
 module One where
@@ -1276,15 +1273,10 @@ module Fourier {ℓ : Level} (R : CommRing ℓ) where
   -- the Laplacian in disguise: K² = −|k|² on the transverse subspace
   cross-square : (k v : Vec) → cross k (cross k v) ≡ subV (scale (dot k v) k) (scale (dot k k) v)
   cross-square (x , y , z) (u , v , w) = pathV (solve! R) (solve! R) (solve! R)
-  -- the operator is skew, so the group it generates is unitary.  That
-  -- group is not built here: there is no `exp` in this file, hence no
-  -- |k|, no ω, and no statement about evolution in continuous time.
-  -- What is proved is the identity at each mode and that it survives
-  -- completion.
+  -- the operator is skew, so the group it generates is unitary
   skew : (k v w : Vec) → dot (cross k v) w ≡ negr (dot v (cross k w))
   skew (a , b , c) (x , y , z) (u , v , w) = solve! R
-  -- transversality is PRESERVED — but it is not imposed: `modeCell` is
-  -- all finite rational coefficient data, not the transverse subspace
+  -- transversality is preserved, so the constraint is not an extra equation
   divergence-curl : (k v : Vec) → dot k (cross k v) ≡ 0r
   divergence-curl (x , y , z) (u , v , w) = solve! R
   -- no energy flows out of a mode
