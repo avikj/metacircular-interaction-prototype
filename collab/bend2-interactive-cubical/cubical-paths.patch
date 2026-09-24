@@ -6551,7 +6551,7 @@ new file mode 100644
 +import qualified Data.Map as M
 +
 +import Core.Type
-+import Core.WHNF (coeMarker, occursMarker, substMarker, depMarker, occursDep, force, hitCtorTypeAt, ctorFieldType)
++import Core.WHNF (coeMarker, occursMarker, substMarker, depMarker, occursDep, force, hitCtorTypeAt, ctorFieldType, nativeStep, stepRule, stepSource, stepTarget, ruleName, EvalLevel(..))
 +import Data.IORef
 +import System.IO.Unsafe (unsafePerformIO)
 +
@@ -6601,8 +6601,16 @@ new file mode 100644
 +          ++ "@conductiveTwiceMain = @cfSecondIdentity("
 +          ++ emitFull book mainTy ++ ", @sourceMain, @conductiveWholeMain)\n"
 +          ++ mapEntry mainTy
++          ++ nativeEntry
 +          ++ "\n// Full-runtime execution enters through the lossless presentation.\n"
 +          ++ "@main = @conductiveMain\n"
++          where
++            nativeEntry = case nativeStep Full book tm of
++              Nothing -> ""
++              Just s  -> "\n// proof-relevant native Core motion for the entry\n"
++                      ++ "@nativeMainStep = #NativeStep{#Rule_" ++ ruleName (stepRule s)
++                      ++ ", " ++ emitFull book (stepSource s)
++                      ++ ", " ++ emitFull book (stepTarget s) ++ "}\n"
 +        Nothing -> ""
 +
 +    -- If the entry itself is a mathematical map/proposition, expose its
