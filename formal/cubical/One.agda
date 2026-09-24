@@ -30,9 +30,11 @@
 --   §12  THE EQUATIONS.  Two prop-valued specifications that imply each
 --        other are the same type; Maxwell and Schrödinger are the
 --        instance.
---   §13  THE OBJECT.  The completion of the rational scale, the actual
---        Fourier operator on it, and §12 instantiated there — so the
---        identification is about a space, not a parameter list.
+--   §13  THE OBJECT.  The completion of the rational scale — at one
+--        dimension the constructive reals, at the Fourier cell an
+--        infinite-dimensional space — the actual operator k × · on it,
+--        and §12 instantiated there, so the identification is about a
+--        space and not a parameter list.
 --   §14  THE MACHINE.  §15  WHAT IS NOT ESTABLISHED.
 ------------------------------------------------------------------------
 
@@ -1526,26 +1528,63 @@ module Physics (wave : ℕ → ℤ × ℤ × ℤ) where
 -- turns equality of completed points back into the approximation data,
 -- and a single rational bound then separates two points.  Constructive
 -- apartness, from the quotient itself — a setoid cannot state this.
+--
+-- Proved once at an arbitrary cell, then read at two of them.
 ------------------------------------------------------------------------
 
+quarter<1 : quarterQ O.< 1
+quarter<1 = 2 , refl
+
+separated : (K : Cell) (x y : Pt K) → 1 O.≤ d K x y
+          → ¬ (Completion.embed K x ≡ Completion.embed K y)
+separated K x y big p = PT.rec (λ ()) contra
+  (Completion.effective K (Completion.point K x) (Completion.point K y) p)
+  where
+  contra : Completion.CloseTo K (Completion.point K x) (Completion.point K y) → ⊥
+  contra close = O.isIrrefl< 1 (O.isTrans≤< 1 quarterQ 1 one≤quarter quarter<1)
+    where
+    one≤quarter : 1 O.≤ quarterQ
+    one≤quarter = O.isTrans≤ 1 (d K x y) quarterQ big
+      (subst (d K x y O.≤_) (Q.·IdR quarterQ)
+        (snd (close 1) (fst (close 1)) (fst (close 1)) ≤-refl ≤-refl))
+
+at-least-one : {x : ℚ} → x ≡ 1 → 1 O.≤ x
+at-least-one q = subst (1 O.≤_) (sym q) (O.isRefl≤ 1)
+
+------------------------------------------------------------------------
+-- THE SCALAR CASE IS ℝ.  §13's ball at `scalarCell` is (x−y)² ≤ 4⁻ⁿ,
+-- that is |x−y| ≤ 2⁻ⁿ: the completion of ℚ at its own metric.  So the
+-- constructive reals are not extra machinery here, they are the one-
+-- dimensional reading of the same construction — a regular sequence of
+-- rationals carrying its modulus, up to mutual approach (O'Connor 2006).
+-- They are NOT the classical reals: no least upper bounds, no
+-- trichotomy, no compactness is available or claimed.  What IS available
+-- is apartness, and it comes from effectivity, not from an axiom.
+------------------------------------------------------------------------
+
+module Real = Completion scalarCell
+
+ℝ : Type
+ℝ = Real.Space
+
+fromℚ : ℚ → ℝ
+fromℚ = Real.embed
+
+scalar-unit : d scalarCell 0 1 ≡ 1
+scalar-unit = Q.eq/ _ _ refl
+
+zero-apart-one : ¬ (fromℚ 0 ≡ fromℚ 1)
+zero-apart-one = separated scalarCell 0 1 (at-least-one scalar-unit)
+
+-- the same statement at the infinite-dimensional space, same proof
 unitMode : List Fld
 unitMode = ((1 , 0 , 0) , (0 , 0 , 0)) ∷ []
 
 distance-unit : d modeCell [] unitMode ≡ 1
 distance-unit = Q.eq/ _ _ refl
 
-quarter<1 : quarterQ O.< 1
-quarter<1 = 2 , refl
-
 apart : ¬ (Mode.embed [] ≡ Mode.embed unitMode)
-apart p = PT.rec (λ ()) contra
-  (Mode.effective (Mode.point []) (Mode.point unitMode) p)
-  where
-  contra : Mode.CloseTo (Mode.point []) (Mode.point unitMode) → ⊥
-  contra close = O.isIrrefl< 1 (O.isTrans≤< 1 quarterQ 1
-    (subst2 O._≤_ distance-unit (Q.·IdR quarterQ)
-      (snd (close 1) (fst (close 1)) (fst (close 1)) ≤-refl ≤-refl))
-    quarter<1)
+apart = separated modeCell [] unitMode (at-least-one distance-unit)
 
 ------------------------------------------------------------------------
 -- §14  THE MACHINE.  §1 at a step function: the ordinary irreversible
@@ -1590,38 +1629,47 @@ routes-through-ℕ-are-identified : {m n : ℕ} (p q : m ≡ n) → p ≡ q
 routes-through-ℕ-are-identified = forgetful-is-blind isSetℕ
 
 ------------------------------------------------------------------------
--- §15  WHAT IS NOT ESTABLISHED, said here because a development that
--- lists only its theorems has dropped half its witness.
+-- §15  WHAT IS NOT ESTABLISHED.  Every line below is a fact about THIS
+-- file, checkable by reading it — a declaration that is absent, or a
+-- module that is parameterised and never instantiated.  None of it is
+-- inherited caution about some other development.
 --
---   * Univalence transports a PROVED equivalence.  It does not turn a
---     many-to-one map into one, and §1 does not pretend otherwise: it
---     names what the map forgets, it does not recover it.
---   * §5 is a lower-bound SCHEMA.  It certifies a family only when a Φ
---     is exhibited and its edge law proved against the actual primitive
---     edges.  A count of states, cells, or assignments is not a Φ.
---   * §7 models strategies as functions of the state.  Histories,
---     protocols and adversaries are not modelled.
---   * Nothing here says a trace is small, cheap to store, or safe to
---     transmit.  It says what it is.
---   * §13 completes the RATIONAL scale.  Its points are limits of finite
---     rational Fourier data with explicit moduli; ℝ is never constructed
---     and no classical completeness (least upper bounds, compactness) is
---     available or claimed.
+--   * §1 names what a map forgets; it does not recover it.  Univalence
+--     transports a PROVED equivalence and does not manufacture one, so
+--     nothing here turns a many-to-one map into an injection.
+--   * §5 `Geodesic` is a module with Φ as a PARAMETER and it is never
+--     instantiated in this file.  It certifies nothing until a Φ is
+--     exhibited and its edge law proved against actual primitive edges.
+--     A count of states, cells, or assignments is not a Φ.
+--   * §7 `Interaction` has δ : (x : X) → Q x → X — the next state is a
+--     function of the current one and the answer.  Histories, protocols
+--     and adversaries are not expressible in that signature.
+--   * §13's `ℝ` and `Hilbert` are the CONSTRUCTIVE completions: regular
+--     sequences with moduli, up to mutual approach.  Apartness is proved
+--     (`zero-apart-one`, `apart`); least upper bounds, trichotomy and
+--     compactness are not, and are not constructively available.
 --   * §13's operators are the Fourier symbol k × · and its quarter turn.
---     The one-parameter group they generate — exp(c t K), and with it the
---     frequency |k| and any statement about evolution in continuous time
---     — is NOT constructed.  What is proved is the algebraic identity at
---     each mode, that it survives completion, and that the two readings
---     of it are the same type.
---   * The transversality constraint k · a = 0 is proved to be preserved
---     (`divergence-curl`) but is not imposed: §13's space is all finite
---     rational coefficient data, not the transverse subspace.
---   * §13's domain is the completion of the operator's GRAPH.  That this
---     is a subspace of the completed field — closability, that the input
---     coordinate determines the output — is not proved here.
---   * §12's identification is about specifications.  It does not assert
---     that solutions exist for given data; §13 exhibits one family of
---     them (a field and its quarter turn) and nothing more.
+--     There is no `exp` in this file, hence no one-parameter group, no
+--     |k|, no ω, and no statement about evolution in continuous time.
+--     What is proved is the algebraic identity at each mode, that it
+--     survives completion, and that its two readings are the same type.
+--   * `divergence-curl` proves transversality is PRESERVED; it is not
+--     imposed.  `modeCell` is all finite rational coefficient data, not
+--     the transverse subspace, so §13's space is bigger than the
+--     physical one.
+--   * §13 builds the operator's domain as the completion of its GRAPH
+--     and provides `Incl`, the inclusion of that domain into the
+--     completed field.  `Incl.extended` is NOT proved injective, so the
+--     domain is not shown to be a subspace.  For this operator — a
+--     direct sum of bounded maps, one per coefficient — it ought to be
+--     provable; it is not proved here, and `Incl` is used by nothing.
+--   * §12 identifies two SPECIFICATIONS.  It does not assert solutions
+--     exist for given data.  §13's `solution` exhibits one family — a
+--     field in the domain paired with its quarter turn — and no claim is
+--     made that these are all of them.
+--   * §6 gives terminality (a path is a bisimulation).  The dual,
+--     initiality of the step calculus with its unique fold, is not in
+--     this file.
 --   * effects, capability, disclosure, authority, verifier correctness,
 --     protocol security, revocation, privacy accounting, specification
 --     adequacy: none is a corollary of a transport law, and none appears.
