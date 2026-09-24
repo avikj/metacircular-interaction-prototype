@@ -8,6 +8,8 @@ on:
       - 'collab/bend2-interactive-cubical/hvm3-gcc15.patch'
       - 'collab/bend2-interactive-cubical/conductive_entry_smoke.bend'
       - 'collab/bend2-interactive-cubical/conductive_map_smoke.bend'
+      - 'collab/bend2-interactive-cubical/universal_presentation.bend'
+      - 'collab/bend2-interactive-cubical/port/UniversalPresentation.bend'
       - 'collab/bend2-interactive-cubical/check_conductive_entry.py'
       - 'collab/bend2-interactive-cubical/verify_conductive_entry.sh'
       - 'collab/bend2-interactive-cubical/suite.sh'
