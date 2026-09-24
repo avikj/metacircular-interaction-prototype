@@ -24,8 +24,8 @@ def pathMotion(A: Set, a: A, b: A, p: Path(A,a,b)) ->
   Derivation(A,PathStep(A),a,b):
   pathDerivation(A,a,b,p)
 
-def pathCost(A: Set, a: A, b: A, p: Path(A,a,b)) -> Nat:
-  unitCost(A,PathStep(A),a,b,pathMotion(A,a,b,p))
+def pathLength(A: Set, a: A, b: A, p: Path(A,a,b)) -> Nat:
+  derivationLengthReading(A,PathStep(A),a,b,pathMotion(A,a,b,p))
 
 # Observation remains THE LAW: visible coordinate plus exact residual.
 def observeMachine(A: Set, a: A, B: Set, f: A -> B) -> FibreElement(A,B,f):
@@ -36,4 +36,4 @@ def observeMachineBeta(A: Set, a: A, B: Set, f: A -> B) ->
   <_> f(a)
 
 def main() -> Nat:
-  pathCost(Nat,2n,2n,<_> 2n)
+  pathLength(Nat,2n,2n,<_> 2n)
