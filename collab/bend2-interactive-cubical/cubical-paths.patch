@@ -6612,8 +6612,10 @@ new file mode 100644
 +          ++ emitFull book mainTy ++ ", @sourceMain, @conductiveWholeMain)\n"
 +          ++ mapEntry mainTy
 +          ++ nativeEntry
-+          ++ "\n// Full-runtime execution enters through the lossless presentation.\n"
-+          ++ "@main = @conductiveMain\n"
++          ++ "\n// The native full-runtime graph IS the execution object. Keep its\n"
++          ++ "// ordinary projection zero-overhead; conductive/derivational readings\n"
++          ++ "// are companions of this same graph, not wrappers around its result.\n"
++          ++ "@main = @sourceMain\n"
 +          where
 +            nativeEntry = case nativeStep Full book tm of
 +              Nothing -> ""
