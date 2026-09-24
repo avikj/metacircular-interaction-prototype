@@ -1176,3 +1176,20 @@ A coding agent should be able to execute this without conceptual research:
 15. Only then broaden to arbitrary existing mathematical programs.
 
 If step 3 cannot be implemented without changing Core, document the exact compiler limitation and make the smallest Core change that removes it. Do not branch into a redesign.
+
+
+# 41. Final implementation state
+
+The generic source-level process is no longer duplicated across applications.
+
+- `FibreCoalgebra.bend` now explicitly defines the exact whole transition, typed continuation, visible projection, and two-observation source recovery.
+- `ConductiveRuntime.bend` is the checked canonical source/oracle for the tiny intrinsic HVM bootstrap.
+- `UniversalPresentation.bend` is the point/question reading of that same process.
+- `SATProcess.bend` no longer imports `WholeProcess` or spells `interact`; it contains only the SAT object/proposition/readout and uses the universal presentation.
+- `Target.HVM4Full` retains the original checked entry as `@sourceMain` and makes `@main` the intrinsic conductive projection.
+- Fixed-codomain function entries additionally expose their own canonical fibre presentation.
+- The first continuation retains the exact `FibreElement(A,B,f)` type and is exercised by a second observation.
+
+The only intentionally temporary duplication is the small `@cf*` HVM spelling embedded in `Target.HVM4Full`. It exists because the upstream compiler has no packaged standard-library linker: `parseFile` resolves source imports from filesystem paths, while `compileFull :: Book -> String` is pure and receives only the already-closed Book. Moving canonical Bend source into the target would therefore require either embedding/parsing source in Haskell or changing compiler packaging. Neither changes the semantics. `ConductiveRuntime.bend` is the source of truth and CI executes both paths.
+
+Do not expand this into a new architecture project. Replacing the bootstrap with packaged canonical-library linkage is cleanup once Bend has a standard-library packaging mechanism; it is not a missing mathematical/runtime capability.
