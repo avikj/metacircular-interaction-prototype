@@ -14,14 +14,14 @@ python3 "$HERE/check_conductive_entry.py" "$TMP/raw.hvm4"
 
 # HVM4 executes @main. Retarget the emitted program to the compiler-generated
 # identity observation while preserving the ordinary source main as
-# @ordinary_main. The generated conductive definitions must then reduce to the
+# @ordinaryMain. The generated conductive definitions must then reduce to the
 # same value (2), through fibreCoalgebra -> observe -> FibreElement projection.
 python3 - "$TMP/raw.hvm4" "$TMP/run.hvm4" <<'PY'
 import pathlib, sys
 src = pathlib.Path(sys.argv[1]).read_text()
 # HVM definition references are token-like here; this smoke program has no
 # user identifier containing "main", so exact @main replacement is sufficient.
-src = src.replace("@main", "@ordinary_main")
+src = src.replace("@main", "@ordinaryMain")
 src += "\n@main = @conductiveMain\n"
 pathlib.Path(sys.argv[2]).write_text(src)
 PY
@@ -40,7 +40,7 @@ echo "CONDUCTIVE-RUNTIME OK"
 # retained a typed continuation from which the original source is recovered.
 python3 - "$TMP/raw.hvm4" "$TMP/twice.hvm4" <<'PY'
 import pathlib, sys
-src = pathlib.Path(sys.argv[1]).read_text().replace("@main", "@ordinary_main")
+src = pathlib.Path(sys.argv[1]).read_text().replace("@main", "@ordinaryMain")
 src += "\n@main = @conductiveTwiceMain\n"
 pathlib.Path(sys.argv[2]).write_text(src)
 PY
