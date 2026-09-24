@@ -1,7 +1,9 @@
-# Compiler-generated conductive entry smoke test.
-#
-# There is intentionally NO import and NO source-level fibre call.
-# Target.HVM4Full must emit a canonical @__whole_main automatically.
+# Compiler-generated universal execution smoke test.
+# No fibre/derivation imports: the compiler must expose both the native
+# reduction event and the lossless observation companions.
+
+def id(x: Nat) -> Nat:
+  x
 
 def main() -> Nat:
-  2n
+  id(2n)
