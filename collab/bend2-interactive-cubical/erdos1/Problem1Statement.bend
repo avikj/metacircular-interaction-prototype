@@ -1,3 +1,14 @@
+# THIS IS THE RIGHT LEVEL OF INPUT FOR UNIVERSAL INFERENCE.
+# ErdosProblem1() is already the complete dependent proposition.  Do not lower
+# its binders into a manually scheduled (c,n0,n,N,A) state stream, Booleanize it,
+# enumerate finite candidates, or compile a bounded slice to SAT before invoking
+# the universal machinery.  Those transformations discard the cubical dependency
+# geometry we want the kernel itself to conduct/factor through.
+#
+# The remaining missing adapter should be generic: ask the universal cubical
+# kernel to inhabit proposition() using its full identity-preserving inference
+# calculus.  No Erdos-specific search algorithm belongs here.
+
 # Complete, unbounded Erdos Problem 1 as a proposition presentation.
 #
 # This file does not enumerate candidates, choose a cutoff, or import SAT.
