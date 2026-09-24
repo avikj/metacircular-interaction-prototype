@@ -229,7 +229,7 @@ module _ (R : CommRing ℓ) where
   --
   -- This is `Transport.transport-+-is-⊕` one arity down,
   -- with `transportUAop₁` in place of `transportUAop₂`; the idiom is
-  -- borrowed wholesale and is not claimed as new.
+  -- borrowed wholesale.
   ----------------------------------------------------------------------
 
   transport-τ-is-ρ :

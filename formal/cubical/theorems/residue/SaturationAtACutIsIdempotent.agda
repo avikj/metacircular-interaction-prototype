@@ -54,7 +54,7 @@
 -- The note's ↑ and ↓ are min-plus RESIDUATIONS over a semiring-valued
 -- kernel, taking burden profiles to residual profiles.  The ↑ and ↓
 -- below are the two-valued polarities of a RELATION.  That the former
--- is an instance of the latter is NOT proved here and is not obvious:
+-- is an instance of the latter is not obvious:
 -- it needs the kernel's values to form a quantale and the residuations
 -- to be its adjoints, none of which is set up in this repository.  So
 -- what is established is that the SATURATION discipline is sound

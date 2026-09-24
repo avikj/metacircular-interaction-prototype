@@ -164,7 +164,5 @@ module _ {A B : Type ℓ} (f : A → B) (b : B) where
 --     that uniqueness is not part of the problem — which is what makes a
 --     search well posed, not what makes it succeed.  Whether an m exists
 --     with the three divisions exact is, at D = 61, six facts discharged
---     by computation in `Bhagahara` §५ and no theorem at all in general;
---     that module is explicit that no decision procedure for them is
---     built and that termination of the wheel is not proved.
+--     by computation in `Bhagahara` §५ and no theorem at all in general.
 ------------------------------------------------------------------------

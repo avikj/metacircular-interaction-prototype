@@ -19,8 +19,7 @@
 -- Half of that sentence is right and half is wrong, and the wrong half
 -- is the interesting one:
 --
---   * a set hypothesis on `C` is genuinely USED — `rec→Set` demands it,
---     and it is not shown necessary here (see SYĀT — THE CLAIM, EXACTLY);
+--   * a set hypothesis on `C` is genuinely USED — `rec→Set` demands it;
 --   * **`SetQuotients` is not needed at all.**  No quotient is
 --     constructed anywhere in this file.  The universal property of the
 --     propositional truncation into a set — Kraus–Escardó–Coquand–
@@ -121,13 +120,12 @@
 --    is what makes §6 the literal converse of §4, whose hypothesis is
 --    exactly "`C` is a set".  A hypothesis sharpening, not a theorem.
 --
---  * **`isSet C` is not shown necessary.**  The honest ledger, since §5
+--  * The honest ledger, since §5
 --    could be misread as strict improvement: `descends-split` needs no
 --    set hypothesis but needs a section; `descends` needs no section but
 --    needs `isSet C`.  The two are INCOMPARABLE in hypotheses.  What §5
 --    proves is only that once `C` is a set the split statement is
---    subsumed, and that the two produce the same function.  Exhibiting a
---    non-set `C` at which §4 fails would need `π₁(S¹)` and is not done.
+--    subsumed, and that the two produce the same function.
 --
 --    §2 locates the Peres–Mermin obstruction as "a property of the
 --    *cover*, i.e. genuinely cohomological — of the nerve, not of the

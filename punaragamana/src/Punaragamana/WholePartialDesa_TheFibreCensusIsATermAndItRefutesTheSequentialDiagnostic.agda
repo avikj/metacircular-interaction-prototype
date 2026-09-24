@@ -52,7 +52,7 @@
 -- first non-contractible fibre is where the information went".  It is
 -- unsound in BOTH directions, and §3 exhibits both failures as censuses.
 --
--- WHAT IS NOT DONE HERE, said so it is not mistaken for done.  The note's
+-- The note's
 -- scale has five levels; this module builds THREE, because three are what
 -- the corpus can exhibit.  Levels ३ and ४ are not separated — the note
 -- establishes that "does a retraction exist" does NOT separate them, and

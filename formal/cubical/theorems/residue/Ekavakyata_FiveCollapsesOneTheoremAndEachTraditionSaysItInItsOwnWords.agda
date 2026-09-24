@@ -172,8 +172,7 @@ open import TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMe
 --   They are not: their types differ, their ambient structures differ,
 --   and no functor between them is constructed here.  What is exhibited
 --   is that each is the same SENTENCE about collapse and blindness, and
---   that two of them (III and V) are literally about one object.  A
---   common generalisation would be a real theorem; it is not proved.
+--   that two of them (III and V) are literally about one object.
 -- * NOT that Pini, Bhskara II, Jaimini or any Mmsaka proved,
 --   stated or anticipated any of this.  §I quotes stras; the fibre
 --   reading is not Pini's.

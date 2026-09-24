@@ -97,5 +97,5 @@ reweave-all-roots action view root = refl
 --
 -- The remaining direction -- agreement at ALL depths gives equality --
 -- is a bisimulation principle, is what that Haskell file's `Bisim` type
--- is for, and is NOT proved there.
+-- is for.
 ------------------------------------------------------------------------

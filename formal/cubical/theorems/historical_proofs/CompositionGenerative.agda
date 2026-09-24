@@ -122,8 +122,6 @@ module Generative (CR : CommRing ℓ) where
 
   ----------------------------------------------------------------------
   -- 5.  The trivial solution (1, 0), and composition of unit-norm solutions.
-  -- NOT "as a monoid": associativity is unproved (see §7).  Closure and a
-  -- unit are what is shown.
   ----------------------------------------------------------------------
 
   unit : (D : R) → Sol D 1r

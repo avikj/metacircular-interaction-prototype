@@ -69,8 +69,7 @@
 --
 -- Nirnaya's header carries a FIFTH name, तूष्णीम् — "the symbol outside
 -- the vocabulary that silenced this naya" — which is neither an unposed
--- question nor an empty fibre.  It is not modelled here.  Four is what
--- this file can exhibit; the fifth is written down and left open.
+-- question nor an empty fibre.
 --
 -- CHECKED: Agda 2.6.3, agda/cubical v0.5 — the library's declared pin.
 -- --cubical --safe, no postulates, no holes.

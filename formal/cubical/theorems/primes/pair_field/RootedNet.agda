@@ -156,22 +156,3 @@ View : Jewel → Type
 View j = (i : Jewel) → Thread i j → Jewel
 
 open Rooted Jewel View public renaming (Root to IndraRoot ; π to root)
-
-------------------------------------------------------------------------
--- §5  What is NOT here, named so the gap is legible
---
--- * `Prime` does not occur.  A jewel here is a centre/radius point, not
---   a prime-pair WITNESS; §19's ξ = (w,r,p,q,π_p,π_q) carries the two
---   primality proofs and this type does not.  Adding them changes
---   nothing above and everything about what the Net means.
---
--- * `Thread` has no composition and no identity, so this is not yet a
---   category and Yoneda (T25.A: Map(x,y) ≃ Nat(y x, y y)) cannot be
---   stated, let alone proved.  Shared centre and shared radius are both
---   equivalence relations, so the composition exists; it is not written.
---
--- * Nothing here reweaves.  D0025 §16 and T25.F require that adjoining
---   an equivalence change every rooted profile functorially; that is the
---   operation whose absence D0025 §27 identifies as the whole failure,
---   and it is the next thing, not this thing.
-------------------------------------------------------------------------

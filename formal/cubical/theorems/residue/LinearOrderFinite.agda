@@ -84,13 +84,12 @@
 --
 --  * `LinOrd′` takes the relation valued in `Type₀` with
 --    prop-valuedness as an AXIOM, rather than valued in `hProp`.  The
---    two packagings are equivalent, and that equivalence is not proved
---    here; `isPropIsLinOrd` is what the development actually needs.
+--    two packagings are equivalent;
+--    `isPropIsLinOrd` is what the development actually needs.
 --
 --  * Everything is at `Type₀` with `Cubical.Data.Fin.Fin`, matching
 --    AtlasResiduals.  `isFinSet` from the library is stated with
---    `SumFin`; `finFinℕ` bridges, and no claim is made about the two
---    presentations beyond that bridge.
+--    `SumFin`; `finFinℕ` bridges.
 --
 --  * `embSurj` is proved only for `FinSet ℓ-zero`, and only in the
 --    direction needed (embedding + equal cardinality ⇒ surjection).
