@@ -169,6 +169,31 @@ HVM4 labels are 24-bit (term ext); DSU/DDU dynamic labels also land in 24
 bits; there is no fresh-label primitive. A monotone per-unfolding counter
 wraps after 2^24 unfoldings, so exactness needs wider labels or label
 reclamation. DECISION PENDING with the user (see chat).
+Where freshness must happen (from the code, not assumed):
+- `term_clone` always makes a lazy shared DUP of its value, so copies of an
+  unevaluated REF (or of any fresh-number term) share ONE evaluation. A fresh
+  label drawn at the reference site is therefore shared by all lazy copies of
+  that reference: not enough.
+- The single shared δ-unfolding is what gets copied (DUP-NOD / DUP-LAM over
+  the unfolded body). Capture = a DUP-L copying a term containing a dup of
+  the same L. Drawing the dimension names at the unfolding (ALO) makes the
+  unfolded instance's names differ from every name live when it was created;
+  a DUP of another instance then commutes with it, as IC requires.
+- Implementation shape in hvm.c: parse already allocates one contiguous
+  static-label range per definition (PARSE_FRESH_LAB increments while that
+  def parses) -> record [lo, count) per book entry; at `case REF` unfolding
+  take base = FRESH_LAB; FRESH_LAB += count; every ALO copy of a
+  SUP/DUP/DP0/DP1/BJ0/BJ1 remaps a static label s in [lo, lo+count) to
+  base + (s - lo). ALO must carry base: it currently packs (ls,tm) in one
+  word and len in ext, with the len==0 fast path allocating nothing.
+- Label width: ext is 24 bits and parse labels occupy [0x800000, 2^24). The
+  dynamic range [0, 0x800000) holds 8.4M names; programs with millions of
+  unfoldings (the mining gate runs 35M interactions) exhaust it. Exactness
+  needs either wider labels (label moved from the term word into the node:
+  SUP 3 words, DUP node 2 words; touches every rule reading term_ext for a
+  label, plus collapse/printing) or level-indexed names (Lamping brackets:
+  bookkeeping interactions, Asperti–Mairson overhead, counted). Never wrap
+  silently: exhaustion must abort ("refuse, never miscompile").
 Differential Core-vs-runtime check over the corpus: running.
 
 ## 4. How to work here (pitfalls already paid for)
