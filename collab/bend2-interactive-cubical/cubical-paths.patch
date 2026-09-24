@@ -6656,9 +6656,8 @@ new file mode 100644
 +    -- If the entry itself is a mathematical map/proposition, expose its
 +    -- canonical fibre presentation directly.  This is the initial observation
 +    -- supplied by the map itself, not a later external query. This direct
-+    -- ordinary fibre entry applies exactly when the Pi codomain is a fixed B;
-+    -- genuinely dependent sections remain in their native dependent/cubical
-+    -- presentation rather than being flattened into a fake fixed codomain.
++    -- fixed codomains use the ordinary fibre; genuinely dependent sections
++    -- use the dependent graph completion Σa.Σb:B(a).Path(f(a),b).
 +    mapEntry ty = case cut ty of
 +      All dom cod ->
 +        let body = cod depMarker
