@@ -6636,6 +6636,8 @@ new file mode 100644
 +                      ++ "@nativeMainStep = #NativeStep{#Rule_" ++ ruleName (stepRule s)
 +                      ++ ", " ++ emitFull book (stepSource s)
 +                      ++ ", " ++ emitFull book (stepTarget s) ++ "}\n"
++                      ++ "@nativeMainDerivation = #NativeThen{@nativeMainStep, "
++                      ++ "#NativeDone{" ++ emitFull book (stepTarget s) ++ "}}\n"
 +        Nothing -> ""
 +
 +    -- If the entry itself is a mathematical map/proposition, expose its
