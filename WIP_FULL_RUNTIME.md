@@ -194,7 +194,14 @@ Where freshness must happen (from the code, not assumed):
   label, plus collapse/printing) or level-indexed names (Lamping brackets:
   bookkeeping interactions, Asperti–Mairson overhead, counted). Never wrap
   silently: exhaustion must abort ("refuse, never miscompile").
-Differential Core-vs-runtime check over the corpus: running.
+Differential Core-vs-runtime over the corpus (`tools/diff/diff.py`, 228 files
++ 2 lab): AGREE 118 (Nat 86, word 27, Unit 3, List 1, HIT ctor 1); DISAGREE 2
+(both the `two∘two` capture shape); NOT-COMPARABLE 18 (16 superpositions whose
+collapsed branches all match Core line by line, incl. SATProcess; 2 lambdas);
+REFUSED 79 (74 also fail in Core; 5 are emitter refusals: 4 I64 files +
+the unary-not probe); NO-MAIN 11; CORE-TIMEOUT 1 (census_corpus: runtime
+finishes, 11.1M itrs); HVM-CRASH 1 (the triple probe, OOM). So the corpus
+itself does not hit capture; the probes show the language admits it.
 
 ## 4. How to work here (pitfalls already paid for)
 
