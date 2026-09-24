@@ -10,6 +10,8 @@ on:
       - 'collab/bend2-interactive-cubical/conductive_map_smoke.bend'
       - 'collab/bend2-interactive-cubical/universal_presentation.bend'
       - 'collab/bend2-interactive-cubical/port/UniversalPresentation.bend'
+      - 'collab/bend2-interactive-cubical/port/ConductiveRuntime.bend'
+      - 'collab/bend2-interactive-cubical/port/FibreCoalgebra.bend'
       - 'collab/bend2-interactive-cubical/check_conductive_entry.py'
       - 'collab/bend2-interactive-cubical/verify_conductive_entry.sh'
       - 'collab/bend2-interactive-cubical/suite.sh'
@@ -59,6 +61,15 @@ jobs:
           grep -q '@cfPresentMap' "$RUNNER_TEMP/conductive-map.hvm4"
           grep -q '^@sourceMain = ' "$RUNNER_TEMP/conductive-map.hvm4"
           grep -q '^@main = @conductiveMain
+
+      - name: Execute canonical checked conductive runtime
+        shell: bash
+        run: |
+          set -euo pipefail
+          source "$RUNNER_TEMP/conductive-build/env.sh"
+          "$BEND" collab/bend2-interactive-cubical/port/ConductiveRuntime.bend --to-hvm4-full > "$RUNNER_TEMP/conductive-runtime-source.hvm4"
+          "$HVM" "$RUNNER_TEMP/conductive-runtime-source.hvm4" -s | tee "$RUNNER_TEMP/conductive-runtime-source.log"
+          grep -Eq '(^|[^0-9])2([^0-9]|$)' "$RUNNER_TEMP/conductive-runtime-source.log"
 
       - name: Execute canonical Bend universal presentation
         shell: bash
