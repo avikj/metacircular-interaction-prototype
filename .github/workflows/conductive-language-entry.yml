@@ -119,6 +119,8 @@ jobs:
           "$BEND" collab/bend2-interactive-cubical/port/UniversalElucidator.bend --total
           "$BEND" collab/bend2-interactive-cubical/port/NativeDerivation.bend --total
           "$BEND" collab/bend2-interactive-cubical/port/UniversalMachine.bend --total
+          "$BEND" collab/bend2-interactive-cubical/port/DependentFibreElement.bend --total
+          "$BEND" collab/bend2-interactive-cubical/port/DependentFibreCoalgebra.bend --total
 
       - name: Execute compiler-generated conductive path and continuation
         shell: bash
