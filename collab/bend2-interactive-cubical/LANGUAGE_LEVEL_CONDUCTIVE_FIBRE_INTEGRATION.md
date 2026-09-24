@@ -174,3 +174,189 @@ These are successive equivalent presentations of the same information, not histo
 **Coinductive continuation:** after an observation, retain the fibre-completed whole and allow another observation.
 
 One observation is not one HVM interaction.
+
+
+# 4. A proposition already supplies the observation
+
+This is essential for the language-level integration.
+
+For a finite Boolean proposition:
+
+    P : X -> Bool
+
+the proposition itself is the map whose fibres classify X:
+
+    True(P)  = Σ x : X. Path Bool (P x) True
+    False(P) = Σ x : X. Path Bool (P x) False
+
+Presenting P over its domain already presents conditions/witnesses where P holds, conditions/counterexamples where it fails, universal truth when the false fibre is empty, universal falsity when the true fibre is empty, and the exact nontrivial classification otherwise.
+
+No human must issue a separate "solve P" opcode. The proposition is already the observation.
+
+For general dependent propositions/types, the same principle is proof-relevant rather than merely Boolean: dependencies and witnesses remain coordinates of the object.
+
+The FibreCoalgebra respond(B,f) interface is additional interactive power: after an object is presented/conducted, request further projections while retaining everything each projection forgets. Do not mistake that follow-up interface for the inference engine itself.
+
+SAT demonstrates both levels: the proposition defines the true/false fibres; query then demonstrates subsequent projections of the retained whole.
+
+---
+
+# 5. Univalence executes equivalence; the rest of the mathematics derives it
+
+Do not claim ua discovers every equivalent representation for free.
+
+Given e : A ≃ B:
+
+    ua(e) : Path Set A B
+
+and transport along that path computes the representation change.
+
+The broader universal mathematical machinery derives properties/identities/equivalences of the object. Those results are themselves objects in the same theory. Univalence makes derived equivalences executable.
+
+Do not invent a separate heuristic optimizer above the theory.
+
+---
+
+# 6. What the compiler already gets right
+
+The cubical surgery is foundational, not superficial.
+
+## 6.1 Checker
+
+Core.Check understands paths, dependent paths, interval structure, hcomp, Glue, quotients, HITs, truncations, endpoint constraints, and typed path-spine normalization.
+
+## 6.2 WHNF
+
+Core.WHNF contains real type-directed cubical computation.
+
+whnfCoe structurally handles:
+
+- Π: argument backward, result forward;
+- Σ: first component plus dependent second;
+- ua: transport computes to forward/backward equivalence;
+- PathP: endpoint-preserving composition;
+- Glue: fibre/equivalence-based transport;
+- lists and HIT constructors;
+- superposed type lines: coherent duplication at the label, branch transport, re-superposition.
+
+whnfHCm likewise computes according to the type.
+
+This already realizes the principle that the mathematical structure determines computation.
+
+## 6.3 Sharing
+
+dup traverses cubical terms. Cubical structure participates in Bend/HVM sharing.
+
+## 6.4 Full target
+
+--to-hvm4-full is the relevant target. It preserves the cubical runtime. Do not validate this project using an erasing or pre-normalizing backend.
+
+---
+
+# 7. The actual compiler seam
+
+The key implementation fact is:
+
+> **There is no generic lossless/fibre presentation pass between a checked Bend term and HVM4Full.compileFull.**
+
+The path is approximately:
+
+    parseFile
+      -> checkBook
+      -> Book(Core.Term, type, ...)
+      -> HVM4Full.compileFull
+      -> emitFull term
+      -> HVM4
+
+compileFull faithfully emits the Core term it receives.
+
+Therefore ordinary source code that never explicitly constructs Carrier/FibreCoalgebra does not automatically become the canonical lossless presentation merely because the language supports cubical TT.
+
+Once fibre/cubical/superposed structure is present, the evaluator handles it powerfully. The missing issue is making canonical lossless presentation intrinsic at the language/program presentation boundary rather than requiring applications to manually import and invoke WholeProcess/FibreCoalgebra.
+
+This is the integration task.
+
+---
+
+# 8. Do not wrap every nested App
+
+A tempting wrong direction is rewriting every App f x into an explicit fibre object.
+
+Do not do this blindly.
+
+The semantic unit is the current mathematical whole plus an observation of that whole. Internal calls used while evaluating one observation are not necessarily successive top-level observations. Arithmetic, recursion, comparison, folds, etc. inside a mathematical observation are part of evaluating that observation.
+
+The goal is not an append-only trace of every beta redex. It is lossless presentation of the mathematical map/object being evaluated.
+
+---
+
+# 9. SAT already demonstrates the missing language behavior manually
+
+SATProcess manually does what the language should make intrinsic.
+
+It constructs a shared unresolved mathematical object, constructs WholeProcess for it, conducts formula through it, receives Carrier + source path + continuation, and optionally asks the continuation for another projection.
+
+This proves:
+
+1. The fibre process is executable Bend today.
+2. HVM4-full can run it.
+3. SUP/DUP and cubical transport interact in a deployed run.
+4. Demand affects how much retained structure is exposed.
+5. The continuation can remain lazy.
+6. No new HVM primitive is obviously required merely to make the process intrinsic.
+
+Therefore the first implementation attempt should generalize the already-running pattern, not replace it.
+
+---
+
+# 10. Presentation effects are not evidence against conductive fibre
+
+The SAT corpus records very large interaction-count differences for different presentations of the same Boolean denotation. TSP similarly distinguishes a shared min-plus presentation from a reference-expanding one.
+
+Interpret this correctly.
+
+The runtime conducts/factors structure that is actually represented/exposed in the net. An equivalence that exists mathematically but has not yet become executable structure cannot be reduced through by raw HVM merely because it is true.
+
+The complete mathematical system derives properties/equivalences of its objects; those derived identities can then become executable cubical structure. The language integration must not replace this with a heuristic optimizer. It must ensure the existing derivational/lossless machinery is actually in the execution loop rather than available only to programs that manually invoke it.
+
+---
+
+# 11. Naturals, min/max, and premature decategorification
+
+Do not reduce the system to ordinary scalar programming.
+
+The corpus identifies naturals with the set-truncated connected components of finite sets:
+
+    Nat ≃ π0(FinSet)
+
+Before truncation, an n-element finite object has its full equivalence/automorphism geometry. The numeral is a decategorified reading.
+
+Likewise a mathematically correct minimum/maximum can be represented proof-relevantly, with witnesses and leastness/greatestness evidence retained as dependent coordinates. The cubical theory then computes over the whole object; the scalar is a projection.
+
+However, do not infer that legacy scalar-looking functions are forever opaque. Functions/programs are themselves objects of the same theory and can be related to equivalent presentations. The implementation question is whether execution exposes/uses those derived identities, not whether programmers guessed one blessed syntax.
+
+---
+
+# 12. The likely language-level model
+
+The elemental universal state is already:
+
+    Point = Σ A : Set. A
+
+Every checked Bend value a : A canonically determines a point (A,a).
+
+Every map f : A -> B is already an observation of that point.
+
+The lossy target is:
+
+    (A,a) --f--> (B,f(a))
+
+The lossless completion is:
+
+    (A,a) ≃ (Carrier(A,B,f), descend(A,B,f))
+
+and the continuation is the same universal machine over that new equivalent presentation.
+
+A checked program/object should therefore not need to opt into FibreCoalgebra. A canonical fibre process exists for every typed point.
+
+The exact compiler representation should be chosen only after reading the complete core and existing process code. Do not prematurely force one particular AST design.
