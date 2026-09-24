@@ -24,10 +24,10 @@
 -- strength, and one word cannot cover both without loss.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT DONE, and it is that identity's own point
+-- THE THIRD STRUCTURE, and it is that identity's own point
 --
--- The THIRD structure — Satyayantra's अनुक्तम्, the un-said — is NOT
--- brought onto this carrier.  It is temporal (a grant may still say it),
+-- Satyayantra's अनुक्तम्, the un-said, is not on this carrier.  It is
+-- temporal (a grant may still say it),
 -- so it is not a predicate of a content and a language at all.  d909db0d
 -- already states that the two third-positions' remedies live in
 -- different types; forcing all three onto one carrier would be the

@@ -42,8 +42,7 @@
 -- Same record, twice.  The difference is the joiner parameter and
 -- nothing else — which is the owner's "identical or almost", located.
 --
--- SOURCES (the classification is theirs; the code is not claimed to be
--- in any of them): Umāsvāti, Tattvārthasūtra 5.31 (arpita/anarpita —
+-- SOURCES (the classification is theirs): Umāsvāti, Tattvārthasūtra 5.31 (arpita/anarpita —
 -- the birth reads the residue under the asserted aspect); Siddhasena
 -- Divākara, Sanmatitarka 1.21 (durnaya — why the verdict never picks
 -- without a fact); Akalaṅka, Laghīyastraya (sahārpaṇa — why the held

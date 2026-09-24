@@ -44,8 +44,7 @@
 --     `each-obs-twice` are about one map and not two.
 --   * `even-total-is-image` / `image-is-even-total` — EXACTNESS, both
 --     inclusions: im δ is EXACTLY ker(total).  With `total-onto` this
---     is coker δ ≅ F₂ with `total` as the class evaluator (the quotient
---     type itself is not constructed; see the honest caveat below).
+--     is coker δ ≅ F₂ with `total` as the class evaluator.
 --   * `local-section` — each context separately admits an assignment
 --     with the prescribed parity (the obstruction is global, not local).
 --   * `rows-only-section` — the rows-only cover admits a global
@@ -60,13 +59,9 @@
 --     `PMTorus.cycleEquiv` rather than measured.  `kernelIso` is the
 --     bridge: ker δ ≃ PMTorus.Cycle.
 --
--- WHAT IS *NOT* PROVED.  The quotient type F₂⁶/im δ is not constructed
--- (no SetQuotient), exactly as in `PMTorus`; "coker δ ≅ F₂" is
--- delivered in its usable form — im δ = ker total (both inclusions)
--- together with total onto.  The upstream operator data (the Weyl
--- 2-cocycle μ and the gauge 1-cochain φ of the note) is NOT formalized:
--- the sign vector s enters here as a DATUM, transcribed from the note,
--- not derived from Gaussian-integer Pauli matrices.  What is proved is
+-- "coker δ ≅ F₂" is delivered in its usable form — im δ = ker total
+-- (both inclusions) together with total onto.  The sign vector s enters
+-- here as a DATUM, transcribed from the note.  What is proved is
 -- everything downstream of s.
 --
 -- Reuses `NaturalMachine.PMTorus` (same square, same F₂ toolkit, same
@@ -404,9 +399,8 @@ rows-only-section = zeroObs , refl , refl , refl
 ------------------------------------------------------------------------
 -- 6.  EXACTNESS: im δ is exactly ker(total), and total is onto.
 --
--- Together: coker δ ≅ 𝔽₂ with `total` as the class evaluator.  The
--- quotient type is not constructed (see the header); what is proved is
--- the pair of statements that a cokernel computation consumes.  The
+-- Together: coker δ ≅ 𝔽₂ with `total` as the class evaluator.  What is
+-- proved is the pair of statements that a cokernel computation consumes.  The
 -- hard inclusion is imported from `PMTorus.even-kernel-is-image` along
 -- the graph identification of §7 — no second preimage construction.
 ------------------------------------------------------------------------

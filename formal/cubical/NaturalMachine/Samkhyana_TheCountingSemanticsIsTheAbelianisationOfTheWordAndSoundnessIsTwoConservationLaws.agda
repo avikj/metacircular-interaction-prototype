@@ -60,13 +60,9 @@
 --       is the corpus's normalisation conjecture, restated here in its
 --       sharp form and left open, with what it needs named.
 --
--- WHAT IS **NOT** CLAIMED.  The converse of §5 is not proved and is not
--- believed on the strength of the forward half.  `sumWord` is defined by a
--- fold and its commutativity with `++` is proved (§3) rather than assumed.
--- Nothing here is about `Step⁺`.  No claim that (word, constPart) is
--- decidable to compare — it plainly is, and nothing below needs it.
--- The abelianisation is not constructed as a monoid map; §3 is the
--- statement in the only form this calculus requires.
+-- `sumWord` is defined by a fold and its commutativity with `++` is
+-- proved (§3) rather than assumed.  §3 is the abelianisation statement in
+-- the only form this calculus requires.
 --
 -- No postulates, no holes, --safe.  CHECKED this session, EXIT 0, at
 -- Agda 2.6.3 + agda/cubical v0.5 -- which is NOT the corpus pin (2.8.0 +

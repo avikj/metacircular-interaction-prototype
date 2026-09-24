@@ -5,8 +5,7 @@
 -- c. CE): what seems contradictory is established according to
 -- emphasis (arpita) and non-emphasis (anarpita) — the presented
 -- aspect and the thing free of the presentation are one existent.
--- The classification is his; the mathematics is not claimed for the
--- source.  School named: Jaina.
+-- The classification is his.  School named: Jaina.
 --
 -- THE AC FRONTIER, AND WHERE IT FALLS.  Twice tonight the same wall
 -- arose: सिद्धि measured plain completion going generative on the

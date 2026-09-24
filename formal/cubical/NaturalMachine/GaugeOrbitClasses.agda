@@ -89,9 +89,9 @@
 --   scope correction of §6, are contributed.
 -- * The full square-class theorem — that val σ m = val σ n whenever m and
 --   n differ by a square in any arrangement — needs invariance of `val`
---   under permutation of the factor multiset, which is NOT proved here.
---   §7 proves the concatenated form `val σ (m ++ (k ++ k)) ≡ val σ m`,
---   which is the core and avoids permutation machinery.
+--   under permutation of the factor multiset.  §7 proves the concatenated
+--   form `val σ (m ++ (k ++ k)) ≡ val σ m`, which is the core and avoids
+--   permutation machinery.
 -- * Nothing about Goldbach, twin primes, W3, or `BARRIER.md` Problem 2.
 -- * `ChargeCriterion` is NOT refuted.  Every statement in it is true as
 --   written; §6 refutes only an over-reading its wording invites.

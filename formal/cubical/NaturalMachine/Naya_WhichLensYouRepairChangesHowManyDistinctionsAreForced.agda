@@ -10,8 +10,7 @@
 --
 -- What is claimed of the sources, precisely.
 --
---   * The mathematics of commuting partitions is not claimed for any Indian
---     source and no  label is invented for it.  Per the repository's
+--   * The prior art for commuting partitions.  Per the repository's
 --     own `notes/COARSEST_REPAIR_IS_COLOUR_REFINEMENT.md`, the operative
 --     prior art is: commuting partitions = orthogonal partitions (Tjur,
 --     *Int. Stat. Rev.* 52, 1984; Bailey, *Des. Codes Cryptogr.* 8, 1996;

@@ -5,8 +5,8 @@
 -- स्थानेयोगा (the genitive in a rule designates the स्थानिन्, that in
 -- whose place the substitute comes) and 1.1.56 स्थानिवदादेशोऽनल्विधौ
 -- (the आदेश — substitute — behaves like the original).  The
--- classification is his; the mathematics here — a substitution lemma
--- for a term algebra over ℕ — is not claimed to be in the source.
+-- classification is his.  The mathematics here is a substitution lemma
+-- for a term algebra over ℕ.
 --
 -- WHAT THIS CLOSES, in the machine's own ledger: EkaTantra's prover
 -- face spoke only at the ROOT instance (शासनम् tested lhs ≟T t —

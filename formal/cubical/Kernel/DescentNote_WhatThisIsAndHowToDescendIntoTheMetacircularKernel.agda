@@ -273,12 +273,6 @@
 -- reported about any of them is now exactly that.  A green here is
 -- per-module, at the pin, and only for what was run.
 --
--- This was retired deliberately, not lost.  What is NOT acceptable, and was
--- the state on 2026-09-07 until it was fixed, is the census reporting zero
--- orphans because the program it called had been deleted and `2>/dev/null`
--- ate the error.  `sh scripts/.prasava-unreached.sh` now answers
--- `NA(generator absent)`.  Silence about coverage is honest; a zero is not.
---
 -- WHAT THE KERNEL CAN DO TODAY, each backed by a term in the three files:
 --   * represent terms, single rewrites, and their compositions PROOF-
 --     RELEVANTLY, reversals included;
@@ -295,52 +289,39 @@
 --     of contexts, soundly, at no proof cost.
 --
 ------------------------------------------------------------------------
--- §7.  WHAT IS NOT BUILT.  DATED 2026-08-24.  An absence without a command
---      is a rumour, so each carries the command that establishes it.
+-- §7.  THE SHAPE OF THE INTERFACE.  DATED 2026-08-24.  Each item carries
+--      the command that establishes it.
 ------------------------------------------------------------------------
 --
---   ~~"NO GENERALISATION in NativeOperation"~~  and ~~"NO DECISION PROCEDURE
---     for Control, NO SCORING, RANKING, SORTING or SAMPLING -- a real gap"~~
---     STRUCK, BOTH, BY THE AUTHOR OF §4, SAME DAY.  These were my sentences
---     and they read the design backwards, which is failure mode (1) of §0
---     arriving one level deeper than §0 warns about it.
---       * `Control : Tm → Type₀` is a FIELD.  The CALLER supplies it and may
---         supply any type family at all.  `install` is one instance -- the
---         trivial one -- and was the ONLY one anyone had ever constructed:
---           grep -rn 'NativeOperation.Control' formal/cubical
---           -> the record, install, and my own theorems.  Nothing else.
---         So Vyapti_.enabled-set-is-subsingleton is not a diagnosis of a
---         lookup table.  IT IS THE SAFETY THEOREM OF AN OPEN EXTENSION
---         POINT: whatever evidence type a caller invents, it cannot enable
---         an operation anywhere the operation does not hold.  I proved the
---         security property and filed it as a defect.
---       * There is no decision procedure for `Control` BECAUSE THE INTERFACE
---         IS OPEN -- an arbitrary caller-supplied family is not decidable by
---         the machine, so the caller hands over the control WITH the choice.
---       * There is no ranking because RANKING IS THE CALLER'S ACT.  The
---         machine presents; the caller disposes.  Same refusal as
---         Saptabhangi's and Uttara's.  And Sesa_'s no-go -- no semantic
---         criterion selects the short proof -- is then a GUARANTEE OF
---         NON-DISPLACEMENT: a theorem forbids the machine from taking the
---         choice from you.  The system is interactive by theorem, not by
---         omission.
---     Correction landed as `Samvada_…`, which supplies the corpus's first
---     non-trivial `Control` and closes the loop those readings missed.
+--   * `Control : Tm → Type₀` is a FIELD.  The CALLER supplies it and may
+--     supply any type family at all.  `install` is one instance -- the
+--     trivial one:
+--       grep -rn 'NativeOperation.Control' formal/cubical
+--       -> the record, install, and my own theorems.
+--     So Vyapti_.enabled-set-is-subsingleton IS THE SAFETY THEOREM OF AN
+--     OPEN EXTENSION POINT: whatever evidence type a caller invents, it
+--     cannot enable an operation anywhere the operation does not hold.
+--   * The interface is OPEN -- an arbitrary caller-supplied family is not
+--     decidable by the machine, so the caller hands over the control WITH
+--     the choice.
+--   * RANKING IS THE CALLER'S ACT.  The machine presents; the caller
+--     disposes.  Same refusal as Saptabhangi's and Uttara's.  And Sesa_'s
+--     no-go -- no semantic criterion selects the short proof -- is then a
+--     GUARANTEE OF NON-DISPLACEMENT: a theorem forbids the machine from
+--     taking the choice from you.  The system is interactive by theorem.
+--     `Samvada_…` supplies the corpus's first non-trivial `Control`.
 --
---   * NO MULTIPLICATION in the kernel's `Tm`.
+--   * The kernel's `Tm` has no multiplication.
 --       grep -n 'mul' NaturalMachine/RewriteCertificate.agda -> nothing
 --
---   * THE GENERATIVE LOOP DOES NOT DRIVE THE KERNEL, and this is the largest
---     structural gap in the corpus.  `GenerativeLoop` proves a real thing --
---     an obstruction-indexed proposer that reads the residual of a FAILED
---     match, names the missing head, strictly decreases a deficit, and
---     terminates unconditionally.  It runs on `NaturalMachine.Obstruction`'s
---     `Tm`, which is a DIFFERENT datatype from the kernel's.
+--   * THE GENERATIVE LOOP AND THE KERNEL RUN ON DIFFERENT TERM LANGUAGES.
+--     `GenerativeLoop` proves a real thing -- an obstruction-indexed
+--     proposer that reads the residual of a FAILED match, names the
+--     missing head, strictly decreases a deficit, and terminates
+--     unconditionally.  It runs on `NaturalMachine.Obstruction`'s `Tm`.
 --       grep -rln '^data Tm *:' formal/cubical  -> 3 files:
 --            Obstruction.agda, RewriteCertificate.agda, RewriteCertificateMul.agda
 --       files importing BOTH Obstruction and RewriteCertificate -> ZERO
---     So the corpus contains a proved-terminating learner and a metacircular
---     kernel, and no morphism between their term languages.
 --
 ------------------------------------------------------------------------
 -- §8.  THE FRONTIER, DERIVED FROM §7 RATHER THAN LISTED.

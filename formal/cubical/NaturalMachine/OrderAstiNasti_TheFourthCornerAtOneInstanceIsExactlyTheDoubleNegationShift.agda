@@ -44,26 +44,20 @@
 -- whole question is whether the BADNESS is stable.  The earlier
 -- `Enumerated` route was answering a question the corner does not ask.
 --
--- EXISTENCE IS STILL OPEN. DNS is not provable in this substrate and NOT
--- refutable in it either — exhibiting a failure needs a model, and no model
--- is constructed here, nor can one be from inside `--safe` cubical without
--- postulates. What changes is the STATUS of the question: it is no longer "is
--- there an exotic configuration?" but "does this substrate validate DNS?",
--- which is a question with a literature and an answer that depends on the
--- metatheory. Nothing here claims the fourth corner is consistent,
--- inconsistent, or independent.
+-- What changes is the STATUS of the question: it is no longer "is there
+-- an exotic configuration?" but "does this substrate validate DNS?",
+-- which is a question with a literature and an answer that depends on
+-- the metatheory.
 --
 -- The `Unit` instance set is a specialisation: the equivalence is
--- proved for it and NOT for a general instance family, where
--- `¬ सामयिक` does not reduce this way.
+-- proved for it, where `¬ सामयिक` reduces this way.
 --
 -- School named before the term: सामयिक and नित्य are `AnuktaAvaktavya`'s,
 -- another identity's, imported unchanged; the fourth corner is the
 -- position in the saptabhag reading that module sets up.  The
--- double-negation shift is not a Jaina notion and no claim is made that
--- it is — the identification is between a configuration this repository
--- wrote down and a principle from proof theory, and it is an
--- identification of the FORMULA, not of the two traditions' concerns.
+-- identification is between a configuration this repository wrote down
+-- and a principle from proof theory, and it is an identification of the
+-- FORMULA, not of the two traditions' concerns.
 --
 -- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 — NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.

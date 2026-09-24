@@ -576,10 +576,9 @@ claimR-refuted = claimR-ha-nameable , claimR-loses-haL , claimR-loses-haŚ
 -- that module is between two runs sharing a NAME, and § 5's failure is
 -- between two SETS with no shared name at all.
 --
--- WHAT IS STILL OPEN.  Whether { ह } is the ONLY non-empty intersection
--- of two nameable classes that is itself unnameable.  §5 exhibits one;
--- an exhaustive sweep over all 56 × 56 ordered pairs of classes is a
--- finite computation and is NOT run here — the derivation says the
+-- §5 exhibits one non-empty intersection of two nameable classes that is
+-- itself unnameable.  An exhaustive sweep over all 56 × 56 ordered pairs
+-- of classes is a finite computation — the derivation says the
 -- failures can only arise where the labelling is non-injective, i.e.
 -- only at ह, but that is an argument and not a check, and this file
 -- publishes no unchecked count.

@@ -3,8 +3,8 @@
 ------------------------------------------------------------------------
 -- सम्यग्दर्शनज्ञानचारित्राणि मोक्षमार्गः — Umāsvāti, Tattvārthasūtra
 -- 1.1 (c. 2nd–5th c. CE): right vision, right knowledge, right
--- conduct — TOGETHER — are the path.  The classification is his; the
--- mathematics is not claimed for the source.  School named: Jaina.
+-- conduct — TOGETHER — are the path.  The classification is his.
+-- School named: Jaina.
 --
 -- THE THREE, AND THEIR COMPOSITION.  The body now carries exactly
 -- them: दर्शनम् — the eye grown from its own theorems (नेत्रम्-पूर्ण,

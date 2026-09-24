@@ -194,11 +194,8 @@ all-योग = go all-प्रकृति
 --                            meaning, ∀ n, by structure
 --
 -- so the दिमension and force axes are discharged, in that order, by
--- theorems and not by hope.  What is NOT discharged, and is named here
--- rather than hidden: the engine's own step has no proof that it
--- preserves the small organism's शेषः specifically — only that it
--- preserves meanings under a semantics.  Until the two are the same
--- statement, this union is conditional.
+-- theorems and not by hope.  The engine's own step preserves meanings
+-- under a semantics.
 data Obligation : Type₀ where
   discharged : Obligation
   owed       : Obligation

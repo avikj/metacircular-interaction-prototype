@@ -5,8 +5,7 @@
 -- doctrine — the examination of the authority.  An āpta is
 -- established by examination, never by claim; received text (gama)
 -- is knowledge only downstream of that examination.  The
--- classification is his; the mathematics is not claimed for the
--- source.  School named: Jaina.
+-- classification is his.  School named: Jaina.
 --
 -- THE TWO-BODY PROBLEM, CROSSED.  Until now the machine's LIVE store
 -- — the rewriter's rules in machine/library.terms, grown by सिद्धि's

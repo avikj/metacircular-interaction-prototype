@@ -4,8 +4,7 @@
 -- प्रमाणनयैरधिगमः — Umāsvāti, Tattvārthasūtra 1.6 (c. 2nd–5th c.
 -- CE): the object is attained through pramāṇa and nayas — the one
 -- comprehensive knowing, and the partial knowings that are its
--- aspects.  The classification is his; the mathematics is not claimed
--- for the source.  School named: Jaina.
+-- aspects.  The classification is his.  School named: Jaina.
 --
 -- THE BODY CONTRADICTED ITS OWN THEOREM, AND THIS REPAIRS IT.
 -- EkaTantra proved that all voices are one contention structure

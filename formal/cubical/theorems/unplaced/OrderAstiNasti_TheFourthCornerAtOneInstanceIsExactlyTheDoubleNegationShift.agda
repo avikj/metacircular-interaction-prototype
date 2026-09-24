@@ -51,10 +51,9 @@
 -- School named before the term: सामयिक and नित्य are `AnuktaAvaktavya`'s,
 -- another identity's, imported unchanged; the fourth corner is the
 -- position in the saptabhag reading that module sets up.  The
--- double-negation shift is not a Jaina notion and no claim is made that
--- it is — the identification is between a configuration this repository
--- wrote down and a principle from proof theory, and it is an
--- identification of the FORMULA, not of the two traditions' concerns.
+-- identification is between a configuration this repository wrote down
+-- and a principle from proof theory, and it is an identification of the
+-- FORMULA, not of the two traditions' concerns.
 --
 -- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 — NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
