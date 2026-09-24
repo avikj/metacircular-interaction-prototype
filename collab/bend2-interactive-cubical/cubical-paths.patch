@@ -6431,7 +6431,7 @@ diff --git a/src/Target/HVM4Full.hs b/src/Target/HVM4Full.hs
 new file mode 100644
 --- /dev/null
 +++ b/src/Target/HVM4Full.hs
-@@ -0,0 +1,586 @@
+@@ -0,0 +1,602 @@
 +{-./../Core/Type.hs-}
 +
 +{-# LANGUAGE ViewPatterns #-}
@@ -6503,7 +6503,20 @@ new file mode 100644
 +          ++ ", λx. x, @cfObservationValue(@cfObserve("
 +          ++ emitFull book mainTy ++ ", @" ++ hvmName "main"
 +          ++ ", @conductiveWholeMain, " ++ emitFull book mainTy ++ ", λx. x)))\n"
++          ++ mapEntry mainTy
 +        Nothing -> ""
++
++    -- If the entry itself is a mathematical map/proposition, expose its
++    -- canonical fibre presentation directly.  This is the initial observation
++    -- supplied by the map itself, not a later external query.  Dependent
++    -- codomains are retained: B is emitted as the actual Pi codomain family.
++    mapEntry ty = case cut ty of
++      All dom cod ->
++        "\n// canonical lossless presentation of @main as a map\n"
++        ++ "@conductiveMapMain = λx. @cfPresentMap("
++        ++ emitFull book dom ++ ", " ++ emitFull book (Lam "x" cod)
++        ++ ", @" ++ hvmName "main" ++ ", x)\n"
++      _ -> ""
 +
 +prelude :: String
 +prelude = unlines
@@ -6516,6 +6529,8 @@ new file mode 100644
 +  , "@cfDescend = λ&A. λ&B. λ&f. λ&a. #Pair{#fibreCarry, #Pair{a, #Pair{f(a), #Pair{#PLm{λ&i. f(a)}, #One}}}}"
 +  , "@cfAscend = λ&A. λ&B. λ&f. λ&c. (λ{#Pair: λ&tag. λ&xs. (λ{#fibreCarry: (λ{#Pair: λ&a. λ&ys. a})(xs); λz. &{}})(tag)})(c)"
 +  , "@cfObservedValue = λ&A. λ&B. λ&f. λ&c. (λ{#Pair: λ&tag. λ&xs. (λ{#fibreCarry: (λ{#Pair: λ&a. λ&ys. (λ{#Pair: λ&b. λ&zs. b})(ys)})(xs); λz. &{}})(tag)})(c)"
++  , "// Dependent map presentation: x ↦ (f(x), exact fibre/source witness)."
++  , "@cfPresentMap = λ&A. λ&BFam. λ&f. λ&x. @cfDescend(A)(BFam(x))(f)(x)"
 +  , "@cfObservation = λ&A. λ&a. λ&B. λ&f. λ&value. λ&source. #Pair{#fibreObservation, #Pair{value, #Pair{source, #Pair{@cfCoalgebra(&{})(value), #One}}}}"
 +  , "@cfCoalgebra = λ&A. λ&a. #Pair{#fibreCoalgebra, #Pair{λ&B. λ&f. @cfObservation(A)(a)(B)(f)(@cfDescend(A)(B)(f)(a))(#PLm{λ&i. a}), #One}}"
 +  , "@cfObserve = λ&A. λ&a. λ&p. λ&B. λ&f. (λ{#Pair: λ&tag. λ&xs. (λ{#fibreCoalgebra: (λ{#Pair: λ&respond. λ&one. respond(B)(f)})(xs); λz. &{}})(tag)})(p)"
