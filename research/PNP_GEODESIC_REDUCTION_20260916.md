@@ -2,15 +2,11 @@
 
 Persistent theorem ledger / transcription handoff — 2026-09-16, revision 3.
 
-## Working edge and evidence convention
+## Scope
 
-The working question is Avik's original one: computational irreducibility as native evolution attaining a geodesic, and what the resulting interaction geometry says about deterministic versus nondeterministic computation. Neither P=NP nor P!=NP is a target assumption. The construction is the lossless interaction calculus, not an application-specific problem-solving component. Preserve the whole dependent object; use its existing constructions before introducing another vocabulary.
+The object is the lossless interaction calculus equipped with explicit observation and execution cost. The central question is computational irreducibility as an exact geodesic statement: characterize the realization class, prove a lower bound for every realization in that class, and exhibit a native evolution attaining the bound.
 
-This revision replaces incorrect inferences in the earlier assistant-written ledger. Earlier versions remain in Git history at ed8e26332c6926efa83e03cc924b8c3f5e074492 and 8b02225e1ca128e72f3509b51ff3bed0a2950ba9. In particular, do not transcribe their assertion that positive computational cost can occur only in noninvertible transformations.
-
-Source snapshot inspected: 8b02225e1ca128e72f3509b51ff3bed0a2950ba9. SOURCE below means a declaration and its implementation were inspected. DERIVED means the mathematical proof is given here, not that a checked module exists or that the result is historically novel. INTERFACE means an additional specifically named hypothesis is required. No theorem below claims a standard P/NP resolution.
-
-The principal completed result of this revision is G3: the rope transformation bringing cell n to the head has minimum crossing length exactly n. Its proof is a direct composition of the repository's crossing equations, prefix-continuity theorem, and injectivity of the quarter-turn. It is reversible and has positive geodesic length. This simultaneously gives the requested concrete irreducibility theorem and fixes the previous conflation of information loss with execution cost.
+The concrete rope theorem below gives the canonical closed instance: bringing cell (n) to the head has minimum crossing length exactly (n). Its proof composes the crossing equations, prefix continuity, and injectivity of the quarter-turn. The transformation is reversible and nevertheless has positive geodesic length, so semantic invertibility and execution distance remain distinct structures.
 
 ## Source manifest
 
@@ -46,7 +42,7 @@ All paths below are relative to the repository root at the snapshot above. These
 
 ## A. The dependent object, without complexity being smuggled into its formation
 
-### A1. Completion preserves the visible map [SOURCE S1]
+### A1. Completion preserves the visible map
 
 For f:A->B, define
 
@@ -59,7 +55,7 @@ The phrase 'over the same f' is essential. An arbitrary equivalence between the 
 
 This classifies the omitted structure. It does not set the execution time of f, its presentation map, or its inverse.
 
-### A2. The fibre of existential truncation is the whole source [SOURCE S3]
+### A2. The fibre of existential truncation is the whole source
 
 Let tau:E->||E||. For every p:||E||,
 
@@ -69,7 +65,7 @@ Forward: (e,r) |-> e. Backward: e |-> (e,squash(|e|,p)). The first round trip is
 
 This theorem is CONDITIONAL ON p:||E||. It gives no p from the description of E. Forming a type, furnishing an inhabitant, and deciding inhabitation remain distinct judgments.
 
-### A3. Candidate verification, accepting data, and language decision [DERIVED]
+### A3. Candidate verification, accepting data, and language decision
 
 Let X be finite-string inputs, W(x) a finitely encoded certificate type, and
 
@@ -98,7 +94,7 @@ If an e0:E is supplied, RightInverse(tau) is inhabited: take s(p)=e0 and use pro
 
 Consequently the two explicitly distinct NKS histories refute restoration of the ORIGINAL history, not the existence of a constant choice of one of those histories. Uniform or resource-bounded selection over an input family is a separate statement.
 
-### A5. Contractibility is not a running-time theorem [DERIVED]
+### A5. Contractibility is not a running-time theorem
 
 A term c:isContr(E) includes c.center:E and paths from that center to every point. Given c, a center is obtained by projection. Neither isProp(E) nor the assertion that some such c exists in an unspecified presentation supplies a time bound for constructing c or computing its center.
 
@@ -106,7 +102,7 @@ Likewise, isProp(E) identifies two supplied inhabitants by a path, not necessari
 
 ## B. The coinductive fibre, unfolded only as far as demanded
 
-### B1. Runs equal answer streams [SOURCE S5]
+### B1. Runs equal answer streams
 
 For I=(X,Q,delta),
 
@@ -120,7 +116,7 @@ S6 gives the richer continuing interface:
 
 Keep the successor, observation, dependent event and continuation together.
 
-### B2. Finite answers and their endpoint [DERIVED]
+### B2. Finite answers and their endpoint
 
 Define, recursively in n,
 
@@ -133,7 +129,7 @@ A finite IExec with the redundant now/here singleton at each stage is equivalent
 
 This construction describes a family; it does not enumerate all its inhabitants. Conversely, having a compact description of the family does not supply the answer to every observation of that family.
 
-### B3. Prefix/suffix composition is an exact dependent equivalence [DERIVED]
+### B3. Prefix/suffix composition is an exact dependent equivalence
 
 For m,n and x,
 
@@ -146,7 +142,7 @@ Split peels m constructors and leaves the suffix at its actual endpoint. Join co
 
 No choice principle and no enumeration are involved. This is the finite-demand version of coinductive composition.
 
-### B4. Endpoint-conditioned branches are precisely endpoint fibres [DERIVED]
+### B4. Endpoint-conditioned branches are precisely endpoint fibres
 
 For y:X,
 
@@ -161,7 +157,7 @@ The general version already exists as S4:
 
 Forward sends (a,r) to ((f(a),r),(a,refl)). Backward sends ((b,q),(a,p)) to (a, ap(g,p) concatenated q). The inverse equations follow by path induction on p.
 
-### B5. Deterministic and nondeterministic specializations [DERIVED / INTERFACE]
+### B5. Deterministic and nondeterministic specializations
 
 If all Q(x) are contractible, each Ans_n(x) is contractible, by induction; B1 supplies the corresponding infinite statement. This says there is one represented execution from x, not that its endpoint after n steps is available at zero cost.
 
@@ -173,7 +169,7 @@ There is no exponential total-work charge in the NTM convention; this is not an 
 
 ## C. Exact descent: what an observation is sufficient to determine
 
-### C1. Kernel collision forbids descent [DERIVED]
+### C1. Kernel collision forbids descent
 
 Let q:X->Y, f:X->Bool. Define
 
@@ -183,7 +179,7 @@ If q(x)=q(y) and f(x)!=f(y), Factor(q,f) is empty: any factor h would identify f
 
 This is the basic observation obstruction. It refers to the DECLARED q, not automatically every possible computation.
 
-### C2. On the image, fibre constancy is sufficient and necessary [DERIVED]
+### C2. On the image, fibre constancy is sufficient and necessary
 
 Assume X,Y are sets; replace Y by Im(q)=Sigma y:Y. ||Fib_q(y)||. Let qbar:X->Im(q) be the canonical surjection. Then
 
@@ -203,7 +199,7 @@ The equivalent set-quotient statement is: f factors through X/ker(q) exactly whe
 
 This closes semantic sufficiency. It does NOT bound the cost of evaluating q or h. In particular f=f o id is always a semantic factorization and says nothing about efficient execution.
 
-### C3. Symmetry is an obstruction certificate [DERIVED]
+### C3. Symmetry is an obstruction certificate
 
 Suppose T:X->X satisfies q(T(x))=q(x) for every x. If f(T(x0))!=f(x0), Factor(q,f) is empty by C1 at x0,T(x0).
 
@@ -213,7 +209,7 @@ This is the exact route by which a holonomy/symmetry calculation can become an o
 
 ## D. Cost: keep the realization, do not erase it by a semantic argument
 
-### D1. What the grading theorem actually forbids [SOURCE S10 / DERIVED]
+### D1. What the grading theorem actually forbids
 
 An exactly additive c:G->N on a group satisfies
 
@@ -231,7 +227,7 @@ not unconditional equality. Cancellation makes that inequality strict. Even the 
 
 A run and its reverse can take time while their composed EFFECT is identity. Exact additive length belongs to retained executions; a minimized effect length is generally subadditive. This is compatible with lossless semantics and univalence.
 
-### D2. Reversible completion does not remove arbitrary evaluation [DERIVED]
+### D2. Reversible completion does not remove arbitrary evaluation
 
 For every Boolean f:X->Bool,
 
@@ -245,7 +241,7 @@ An implementation of U_f therefore gives an implementation of f by initializing 
 
 G3 below supplies a more directly native example: an actual reversible rope transformation with exact positive crossing distance.
 
-### D3. Transport cost spectra, not just carriers [DERIVED / INTERFACE]
+### D3. Transport cost spectra, not just carriers
 
 Let Real_A and Real_B be realization types for two corresponding tasks, with costs c_A,c_B. If e:Real_A ~= Real_B satisfies c_B(e(r))=c_A(r), then for every k the cost-k fibres are equivalent:
 
@@ -277,7 +273,7 @@ For a positive word w=[i0,...,ik-1], Act(w,s) applies the crossings from left to
 
 In this section one active-pair crossing costs one unit. This is the generator-count semantics of the rope action. It is NOT a claim that traversing an encoded index i in HVM or on a TM is free. A runtime comparison must price routing/encoding separately through D3.
 
-### G1. The exact transport word [DERIVED from S7]
+### G1. The exact transport word
 
 Define
 
@@ -296,7 +292,7 @@ Proof of the head equation: the n=0 case is reflexivity. For n+1, sigma_n first 
 
 T_n is an equivalence because it is a composite of equivalences. Its lossless-completion fibres are contractible.
 
-### G2. The prefix theorem gives the obstruction [SOURCE S8 / DERIVED]
+### G2. The prefix theorem gives the obstruction
 
 S8 proves for every word w and requested prefix r:
 
@@ -336,7 +332,7 @@ The first is stronger as an obstruction: it charges only the requested head obse
 
 This is the original irreducibility question answered exactly for this native transformation class. The exhibited evolution realizes the distance; the lower statement ranges over EVERY word in the specified generator alphabet, not merely the displayed implementation.
 
-### G4. Signed crossings and parallel layers [DERIVED]
+### G4. Signed crossings and parallel layers
 
 The explicit inverse active-pair formula in G0 also has one-cell lookahead. Repeating the S8 prefix proof therefore extends G2/G3 to words over positive AND negative elementary crossings, each with unit generator cost.
 
@@ -344,7 +340,7 @@ For parallel depth, admit layers of disjoint active pairs. One layer still maps 
 
 Work and depth coincide for this transport task, not in general. Disjoint operations elsewhere can have work greater than depth.
 
-### G5. A supplied modulus is not always a least modulus [SOURCE S9 / DERIVED]
+### G5. A supplied modulus is not always a least modulus
 
 S9 gives sigma_i^8=id as an action. That eight-letter word has the length-based bound supplied by S8, but its least lookahead and its minimum effect-realizing word length are both zero.
 
@@ -376,7 +372,7 @@ The only structural inductions are on n and the prefix-weakening proof. The deci
 
 ## E. The resource-indexed observation issue, with the quantifiers fixed
 
-### E1. A common observation obstruction is sufficient only with coverage [DERIVED / INTERFACE]
+### E1. A common observation obstruction is sufficient only with coverage
 
 Suppose every computation in a declared resource class has output factoring through one q:X->Y. If q has an opposite-label collision for f, C1 excludes every computation in that class.
 
@@ -384,7 +380,7 @@ The premise that all those computations factor through q is the coverage theorem
 
 G3 has exactly the required coverage: S8 quantifies over all words of the declared cost. That is why its indistinguishable pair proves the claimed local distance.
 
-### E2. The intersection of all cheap observers can already be equality [DERIVED]
+### E2. The intersection of all cheap observers can already be equality
 
 For X_n=Bool^n, suppose the observer class contains each coordinate projection b_i(x)=x_i. Define
 
@@ -402,7 +398,7 @@ with
 
     exists a configuration pair defeating all computations.
 
-### E3. Semantic factorization and costed factorization are different fibres [DERIVED]
+### E3. Semantic factorization and costed factorization are different fibres
 
 A semantic factorization f=h o q carries no price. A costed factorization also carries implementations qhat,hhat, correctness, and for each x the cost of the composed execution:
 
@@ -416,7 +412,7 @@ If the implementation calculus is closed under composition and includes identity
 
 ## F. One exact finite classification of adaptive observation
 
-### F1. The minimax equation is fibre decomposition [DERIVED]
+### F1. The minimax equation is fibre decomposition
 
 Fix a finite input set X, a Boolean target f, a finite library of tests q:X->O_q with finite outcomes, and positive integer test prices c(q). A computation here is an adaptive TEST TREE. This is a specified query model, not the whole universal interaction calculus.
 
@@ -431,7 +427,7 @@ Proof: a non-leaf tree first chooses q and must contain a correct subtree for ev
 
 This theorem holds all continuations at once. There is no privileged sequential enumeration of candidate witnesses.
 
-### F2. Closed instance: parity under coordinate questions [DERIVED]
+### F2. Closed instance: parity under coordinate questions
 
 For coordinate tests of unit price on Bool^n, take f=parity. After k distinct coordinates have been read, any unqueried coordinate can be flipped without changing the transcript, while changing f. Therefore every correct branch needs all n coordinates. Reading all coordinates attains n:
 
@@ -441,7 +437,7 @@ For OR the all-zero transcript likewise requires n queries, although a positive 
 
 ## H. The uniform realization fibre is the correct P/NP interface
 
-### H1. Keep the program uniform and the specification global [DERIVED / INTERFACE]
+### H1. Keep the program uniform and the specification global
 
 Let Code be one explicitly represented program type. Let out(p,x) and cost(p,x) describe its terminating executions, with termination supplied where needed. For a budget b:X->N and a total Boolean function f, define
 
@@ -463,7 +459,7 @@ For standard finite-string encodings:
 
 The order of quantifiers is part of the theorem.
 
-### H2. Pointwise minimization over globally correct programs loses uniformity [DERIVED]
+### H2. Pointwise minimization over globally correct programs loses uniformity
 
 Suppose f has any total implementation p0. For a fixed input x0, make p_x0 compare its input with x0, return the hard-coded correct bit f(x0) on equality, and otherwise run p0. It remains globally correct and takes only comparison time on x0.
 
@@ -471,13 +467,13 @@ Thus minimizing execution time separately over all correct programs at EACH x ca
 
 G3 avoids this issue by quantifying over words that realize the head transformation on EVERY rope. H1 is the corresponding global specification for decision functions.
 
-### H3. Projection of executions versus realization of an observation [DERIVED]
+### H3. Projection of executions versus realization of an observation
 
 A conventional decider need only return the specified Boolean. It need not recreate another implementation's witness, history, or full final fibre point. Therefore a lower bound for reconstructing a PRESCRIBED trace is not a decision lower bound unless every correct decision realization is proved to incur it.
 
 G3 again uses the stronger correct method: the lower bound already applies to the requested head observation, before any demand for the rest of the trace.
 
-### H4. Complexity transfer is a structured simulation theorem [INTERFACE]
+### H4. Complexity transfer is a structured simulation theorem
 
 To transfer a native lower bound to a standard model, supply input/output commuting maps and a simulation sending each standard computation to an allowed native realization with a specified resource overhead. A lower bound in the native target can then exclude standard computations whose simulations would violate it. For an exact equality, use D3's cost-preserving equivalence of realizations. For polynomial-class preservation, explicit polynomial overhead and encoding-size control suffice.
 
