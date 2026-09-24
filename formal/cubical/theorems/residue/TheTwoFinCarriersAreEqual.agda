@@ -20,8 +20,8 @@
 --
 --  1. It does NOT go green.  `agda` proceeds past
 --     `PathIsSymmetry` and stops at `SymmetryCardinality.agda:31`,
---     "Not in scope: factorial".  My "not established" was the right
---     label and the answer is negative.  (2e1b7e22 then identifies that
+--     "Not in scope: factorial".  The answer is negative.  (2e1b7e22
+--     then identifies that
 --     one as `LehmerCode`'s in v0.5.)
 --  2. The FORM I offered was worse: a global rename picks a side of the
 --     skew instead of removing it — right on this container, wrong on

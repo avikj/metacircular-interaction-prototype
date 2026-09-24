@@ -261,7 +261,7 @@ module Polarity {X Y : Type} (K : X → Y → Type) where
 -- sites carrying the same wrong word.  Grepping for the word, not for
 -- the module, is what catches it.
 --
--- WHAT IS NOT RETRACTED.  Everything else above.  §1–§5 are unaltered
+-- WHAT STANDS.  Everything else above.  §1–§5 are unaltered
 -- and true; the reduction of Δ 28 §31–32's obligation to two lines
 -- stands; the reversal paragraph in the earlier append is correct and
 -- is what convicts the sentence three lines below it.  CONVOLUTION is

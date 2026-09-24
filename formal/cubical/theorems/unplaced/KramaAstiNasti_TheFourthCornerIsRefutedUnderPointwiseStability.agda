@@ -34,8 +34,7 @@
 --
 --   "NOT PROVED and NOT ASSERTED: that the fourth corner is impossible
 --    in the PLAIN negated forms.  `¬ सामयिक` does not constructively
---    yield an instance no remedy removes, so `¬ (¬ सामयिक bad × ¬ नित्य
---    bad)` is NOT proved here and is not asserted."
+--    yield an instance no remedy removes."
 --
 -- It is refuted under one named hypothesis, and the hypothesis is
 -- exactly a stability, pointwise in the remedy:
@@ -135,10 +134,8 @@ fourthCornerRefutedUnderPointwiseStability bad stab (noSam , noNit) =
 -- if it exists at all, exists only where some `Σ[ i ] bad i r` is not
 -- stable, i.e. where finding a surviving instance is a genuine search.
 --
--- NOT SETTLED: whether it exists.  The hypothesis is not shown
--- necessary, and no model realising `¬ सामयिक × ¬ नित्य` is exhibited.
 -- The unconditional question is where it was, and this narrows where to
--- look rather than answering it.
+-- look.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------

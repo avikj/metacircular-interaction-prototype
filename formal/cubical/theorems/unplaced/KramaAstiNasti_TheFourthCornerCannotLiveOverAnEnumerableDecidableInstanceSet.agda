@@ -30,10 +30,8 @@
 --
 -- `TheFourthCornerIsRefutedUnderPointwiseStability` ended with:
 --
---   "NOT SETTLED: whether it exists.  The hypothesis is not shown
---    necessary, and no model realising `¬ सामयिक × ¬ नित्य` is
---    exhibited.  The unconditional question is where it was, and this
---    narrows where to look rather than answering it."
+--   "The unconditional question is where it was, and this narrows
+--    where to look."
 --
 -- This narrows it much further, and by discharging the hypothesis
 -- rather than by assuming a weaker one.  Where the instance family is

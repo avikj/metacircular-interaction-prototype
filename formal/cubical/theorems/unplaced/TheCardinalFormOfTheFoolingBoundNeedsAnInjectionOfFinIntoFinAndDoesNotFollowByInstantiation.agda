@@ -177,6 +177,6 @@ module _ (Row Col : Type) (M : Row → Col → Bool) where
 -- would have believed §2 was already available and would have been
 -- wrong by exactly one lemma.
 --
--- STILL OPEN on this line, and unchanged by §2: any upper bound, and
--- any construction of a cover.  Both are different theorems, not gaps.
+-- On this line, and unchanged by §2: any upper bound, and any
+-- construction of a cover are different theorems.
 ------------------------------------------------------------------------

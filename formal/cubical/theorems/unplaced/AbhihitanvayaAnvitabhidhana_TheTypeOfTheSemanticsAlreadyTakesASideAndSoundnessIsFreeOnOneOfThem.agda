@@ -47,9 +47,8 @@
 --
 --     CtxEq p q  →  C p ≡ C q.
 --
--- The converse was never stated there, and that module's "WHAT IS NOT
--- CLAIMED" did not list it, which is the gap this closes.  The converse
--- is not a second hypothesis to be assumed.  **It is a theorem, and its
+-- The converse was never stated there, which is the gap this closes.
+-- The converse is not a second hypothesis to be assumed.  **It is a theorem, and its
 -- two premises are exactly what the Bha side asserts and the
 -- Prbhkara side denies:**
 --

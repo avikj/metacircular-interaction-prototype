@@ -3,10 +3,9 @@
 -- Perm-������������ � the transitivity `TheConverseContainmentReducesTo
 -- PermTransitivity�` left as a hypothesis.
 --
--- That module said, exactly: "Transitivity of `Perm` is NOT proved and
--- NOT refuted � it is true and standard � it needs an exchange lemma
--- moving an `Insert` past a `Perm`, which is NOT written here and is
--- NOT assumed to be hard."  Here is the exchange lemma, and it rests on
+-- That module named what it needs: "Transitivity of `Perm` � is true
+-- and standard � it needs an exchange lemma moving an `Insert` past a
+-- `Perm`."  Here is the exchange lemma, and it rests on
 -- one fact: two insertions commute.  Nothing about the element type is
 -- assumed � no decidable equality, no set-ness.
 --

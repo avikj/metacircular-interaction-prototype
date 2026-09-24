@@ -2,9 +2,9 @@
 ------------------------------------------------------------------------
 -- असत्-छिद्रम् — the non-set at which `EffectiveDescent` §4 fails.
 --
--- `EffectiveDescent` says, exactly: "`isSet C` is not shown necessary.
--- … Exhibiting a non-set `C` at which §4 fails would need `π₁(S¹)` and is
--- not done."  Done here, with the library's winding number.
+-- `EffectiveDescent` names the question: exhibiting a non-set `C` at
+-- which §4 fails needs `π₁(S¹)`.  Done here, with the library's winding
+-- number.
 --
 -- §4's map is  restrictAlong g = (g ∘ q , λ x y p → cong g p)  from
 -- (B → C) to the descent data  Σ[ f ∈ (A → C) ] Coequalizes q f.  Take

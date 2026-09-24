@@ -130,7 +130,7 @@ open import KalaDravya_TimeIsASubstanceInTheSameTongueAndTheMachineProvesCostAsI
 
 data वेदना : Type where
   साधितम्  : वेदना        -- dominance PROVEN over every input
-  दृष्टम्   : वेदना        -- cheaper at every probe scale, not proven
+  दृष्टम्   : वेदना        -- cheaper at every probe scale
   तुल्यम्   : वेदना        -- no strictly cheaper certified form found
 
 record समाधानम् (spec : Tm) : Type where

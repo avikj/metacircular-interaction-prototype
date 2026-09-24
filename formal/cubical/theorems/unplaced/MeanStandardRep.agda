@@ -25,7 +25,7 @@
 -- `V₂ ≅ R`, so C14.10 is that file's `ρ` and is not a second object.
 --
 --
--- WHAT IS A TERM HERE, AND WHAT IS NOT
+-- WHAT IS A TERM HERE
 --
 --   T14.8    k = 2 (`split₂`), k = 3 (`split₃`), and **GENERAL `k`**
 --            (`splitₖ`, §4), with "`k` invertible" presented as the

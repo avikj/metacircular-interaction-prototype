@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- KFlowWF
 --
--- WHAT IS NEW, AND WHAT IS NOT.
+-- WHAT IS NEW.
 --
 -- `KFlow.decay` and `QuestionMachine.halts` both prove that a
 -- contracting obstruction flow reaches 0, and both do it with a FUEL

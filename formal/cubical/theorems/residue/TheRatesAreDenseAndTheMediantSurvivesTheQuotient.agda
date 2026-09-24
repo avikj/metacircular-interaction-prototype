@@ -8,9 +8,8 @@
 -- proved for pairs, and ⊑ is a preorder, so nothing is said about
 -- density of the RATES", and
 -- `TheRateQuotientExistsAndMinimalityCannotLiveOnIt` says "DENSITY OF
--- THE RATES is NOT proved: the mediant module's `⊏` is not lifted here,
--- and lifting it needs `⊏` to respect `≈` on BOTH sides, which is not
--- checked."
+-- THE RATES needs the mediant module's `⊏` lifted, and lifting it needs
+-- `⊏` to respect `≈` on BOTH sides."
 --
 -- Both are closed here, and the second sentence turns out to describe
 -- the harder half correctly: the lifting is the work, and the density

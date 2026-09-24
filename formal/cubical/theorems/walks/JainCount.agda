@@ -18,7 +18,7 @@
 -- ordered orders — the Jains distinguished sizes of the infinite as a
 -- matter of doctrine, and worked with them.
 --
--- WHAT IS FORMALIZED, AND WHAT IS NOT.  This file takes the Jain object
+-- WHAT IS FORMALIZED.  This file takes the Jain object
 -- AS ITSELF — the qualitative ordered stratification — and proves the
 -- structural facts that are textually solid.  It does NOT identify any
 -- grade with any outside cardinal or ordinal (that would be the reverse

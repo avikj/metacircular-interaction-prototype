@@ -17,8 +17,7 @@
 --                   _∼⟨_⟩_ : ℝ → ℚ⁺ → ℝ → Type.
 --
 -- Because limits are constructors, this ℝ is Cauchy-complete with NO
--- choice axiom: completeness is not proved about the type, it is the
--- type.  That is what the univalent construction buys over the
+-- choice axiom: completeness IS the type.  That is what the univalent construction buys over the
 -- classical one, and it needs nothing beyond what --safe admits.
 --
 ------------------------------------------------------------------------

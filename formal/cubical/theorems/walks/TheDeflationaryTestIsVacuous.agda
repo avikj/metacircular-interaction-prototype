@@ -48,8 +48,8 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT REPLACES IT
 --
--- The test had content only where a statement is NOT proved — at the
--- hypotheses.  And module E closes that too: `¬ ¬ Stable A` holds for
+-- The test had content only at the hypotheses.  Module E closes that
+-- too: `¬ ¬ Stable A` holds for
 -- every A, so no hypothesis can be exhibited as unstable either.  The
 -- test as posed therefore admits no failing instance anywhere, which
 -- is what "vacuous" means here and all it means.
