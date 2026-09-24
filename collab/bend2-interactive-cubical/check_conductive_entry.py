@@ -12,12 +12,12 @@ import pathlib, sys
 
 s = pathlib.Path(sys.argv[1]).read_text()
 required = [
-    "@__descend =",
-    "@__fibreCoalgebra =",
-    "@__observe =",
-    "@__observedValue =",
-    "@__whole_main = @__fibreCoalgebra(",
-    "@__conductive_main = @__observedValue(",
+    "@cfDescend =",
+    "@cfCoalgebra =",
+    "@cfObserve =",
+    "@cfObservedValue =",
+    "@conductiveWholeMain = @cfCoalgebra(",
+    "@conductiveMain = @cfObservedValue(",
     "@main =",
 ]
 missing = [x for x in required if x not in s]
