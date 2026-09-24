@@ -47,10 +47,10 @@
 -- route through §7's PathPs.  The final lemma then checks that the two routes
 -- agree, which they must since `Sol D k` is a set.
 --
--- Nothing about injectivity or growth of the chain (that is
--- `NoReturn_…`'s business); nothing new about `_⊝_`; and no packaging
--- of the graded family as a graded monoid object, since the corpus has
--- no such structure to package into. No lemma is missing for what is
+-- WHAT IS NOT PROVED.  Nothing about injectivity or growth of the chain
+-- (that is `NoReturn_…`'s business); nothing new about `_⊝_`; and no
+-- packaging of the graded family as a graded monoid object, since the corpus
+-- has no such structure to package into.  No lemma is missing for what is
 -- claimed above.
 ------------------------------------------------------------------------
 

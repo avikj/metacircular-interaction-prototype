@@ -136,9 +136,11 @@ open import SymmetryEnumeration using (symmetryEnum)
 छन्दो-भ्रमणम् ds =
   compEquiv (FinSetLoop≃Sym (मूल्य ds)) (symmetryEnum (मूल्य ds))
 
--- The next row of the प्रस्तार adds one letter, and the अङ्कपाश count
--- of the next row is therefore the count of this one times the new
--- index.
+-- The next row of the प्रस्तार adds one letter, and the अङ्कपाश count of
+-- the next row is therefore the count of this one times the new index.
+-- Stated, not proved arithmetically: the equivalence below is the SAME
+-- construction at the successor's value, and its codomain is where the
+-- factorial recurrence lives.
 अनुक्रमस्य-भ्रमणम् : (ds : छन्दस्)
                    → (नामकः (अनुक्रम ds) ≡ नामकः (अनुक्रम ds))
                    ≃ Fin ((मूल्य (अनुक्रम ds)) !)

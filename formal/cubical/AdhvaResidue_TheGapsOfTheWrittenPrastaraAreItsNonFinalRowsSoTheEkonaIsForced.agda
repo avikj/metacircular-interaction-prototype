@@ -20,6 +20,8 @@
 --   no gap below it.  That subtraction — एकोना — is what this module
 --   proves is forced rather than conventional.
 --
+-- SOURCES, with dates, and what is and is NOT claimed of each.
+--
 --   केदारभट्टः, वृत्तरत्नाकरः ६.१–६.९, the ṣaṭ-pratyaya chapter.  Text:
 --   GRETIL file 1_sanskr/5_poetry/1_chandas/kedvratu.htm, from the
 --   edition of r Kedra Ntha arm (Kashi  Series 55,

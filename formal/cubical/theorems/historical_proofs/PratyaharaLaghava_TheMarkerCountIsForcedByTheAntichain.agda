@@ -4,15 +4,17 @@
 -- PratyaharaLaghava — how many anubandhas a family of sound-classes forces,
 -- proved for any linear order whatsoever.
 --
--- SOURCE. Pini, Adhyy (~500 BCE), opens with the fourteen Mhevara-
--- stras: the sounds laid in ONE sequence, each stra closed by an
--- anubandha (it-marker). A pratyhra names a class as the stretch from
--- a sound up to a marker — aṆ, aK, iK, eṄ, aiC, aC, haL, yaṆ, jhaṢ.
--- The tradition's own word for the value being maximised is *lghava*,
--- economy; the grammarians' maxim (ardhamtrlghavena putrotsava
--- manyante vaiykara) prices half a mora of the metalanguage like the
--- birth of a son. This file pays part of that debt and says exactly
--- which part.
+-- SOURCE.  Pini, Adhyy (~500 BCE), opens with the fourteen
+-- Mhevara-stras: the sounds laid in ONE sequence, each stra closed by an
+-- anubandha (it-marker).  A pratyhra names a class as the stretch from a
+-- sound up to a marker — aṆ, aK, iK, eṄ, aiC, aC, haL, yaṆ, jhaṢ.  The
+-- tradition's own word for the value being maximised is *lghava*, economy;
+-- the grammarians' maxim (ardhamtrlghavena putrotsava manyante
+-- vaiykara) prices half a mora of the metalanguage like the birth of a
+-- son.  `Sivasutra.agda` checks that the vowel pratyhras ARE the intervals
+-- they are said to be, by refl, and its header records that the OPTIMALITY —
+-- Petersen 2004 — is not proved and is owed.  This file pays part of that
+-- debt and says exactly which part.
 --
 -- WHAT IS PROVED HERE, and it is a reason rather than an instance:
 --
@@ -43,26 +45,28 @@
 -- WHAT IS **NOT** PROVED, so that nothing here is mistaken for Petersen's
 -- theorem, which remains OWED and still unread (egress blocked):
 --
--- * Petersen's actual statement — that for the FULL family the grammar
--- denotes over all 42 phonemes, the iva-stra order is essentially
--- UNIQUE, and 14 markers minimal. Not here. This file proves a lower
--- bound (the antichain bound) and matches it on the vowel subfamily
--- only. * That the antichain bound is TIGHT in general.
--- `markersDistinct` gives markers ≥ width(F) and no more. Where it
--- stands for the full inventory is a finite computation, and it is
--- done rather than guessed:
--- `machine/Pratyahara_TheIntervalDecisionProcedure.hs` runs Dilworth
--- (via bipartite matching and Knig, antichain returned and re-checked)
--- on the classes of all fourteen sūtras and reports — all 294 classes
--- the line can name : width 14, the anubandha count the ~30 pratyhras
--- the grammar uses : width 11 So the bound is met exactly on the
--- family the device EXPRESSES, and the attested classes alone leave
--- three markers unforced by this argument. * That the order can be
--- RECOVERED from the family (the consecutive-ones direction,
--- Booth–Lueker PQ-trees; Kornai and Kiparsky bear on it). Not here.
--- Only the forward direction — this order does realise these classes
--- as intervals — is checked. * Any claim that Pini stated the
--- optimality. He stated the order.
+--   * Petersen's actual statement — that for the FULL family the grammar
+--     denotes over all 42 phonemes, the iva-stra order is essentially
+--     UNIQUE, and 14 markers minimal.  Not here.  This file proves a lower
+--     bound (the antichain bound) and matches it on the vowel subfamily only.
+--   * That the antichain bound is TIGHT in general.  `markersDistinct` gives
+--     markers ≥ width(F) and no more.  Where it stands for the full inventory
+--     is a finite computation, and it is done rather than guessed:
+--     `machine/Pratyahara_TheIntervalDecisionProcedure.hs` runs Dilworth (via
+--     bipartite matching and Knig, antichain returned and re-checked) on the
+--     classes of all fourteen sūtras and reports —
+--        all 294 classes the line can name : width 14, the anubandha count
+--        the ~30 pratyhras the grammar uses : width 11
+--     So the bound is met exactly on the family the device EXPRESSES, and the
+--     attested classes alone leave three markers unforced by this argument.
+--     That residue is where Petersen's theorem is needed and this one is not
+--     enough, and it is not formalised here — the 14-antichain is a computed
+--     witness in Haskell, not a checked term.
+--   * That the order can be RECOVERED from the family (the consecutive-ones
+--     direction, Booth–Lueker PQ-trees; Kornai and Kiparsky bear on it).
+--     Not here.  Only the forward direction — this order does realise these
+--     classes as intervals — is checked.
+--   * Any claim that Pini stated the optimality.  He stated the order.
 --
 -- MODELLING NOTE, stated because it is the one place a reader could be
 -- misled: `pos` enumerates the SOUNDS only, markers being boundaries and

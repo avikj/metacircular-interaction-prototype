@@ -199,61 +199,67 @@
 --   INHABITED.
 --
 --
--- §G's `resumeCap`/`tickCap`/`readCap` are numerals with suggestive
--- identifiers; the mathematics is unchanged if they are renamed. * E1
--- locates the checkpoint-naming step SOMEWHERE in the chain and
--- returns the intermediate vocabulary `X` at which it occurs. It does
--- NOT claim the step is the first, nor that it is unique, nor that `X
--- ≡ V`. Only in the concrete instance §G is the step shown to be the
--- first, and that is by computation on numerals (G1 is `refl`), which
--- generalises to nothing. That the computation has a SPECIFIC answer
--- rather than being satisfied by any `refl` is the negative control
--- `NaturalMachine/Control/WrongFirstStep.agda` (excluded from `agda`;
--- it must fail, and does). * H2 negates a Σ-type and is therefore
--- worth nothing until that Σ-type is known to be inhabitable. It is,
--- at fixed arguments: H3 `decoder-exists-pointwise` in this file. Both
--- controls for this module are landed and are cited by path, not
--- described — the positive one here as H3, the negative one at
--- `NaturalMachine/Control/WrongFirstStep.agda`. Neither control builds
--- a decoder that reads anything off `(V , t)`: H3's witness is a
--- constant function and certifies non-vacuity only. * D3 is a
--- statement about `ObsChain`s, not about the loop's search strategy.
--- It says a chain that made a head appear must have named it. It says
--- nothing about which head the probe picks, in what order, or whether
--- that order is good. * No optimality, no minimality: inherited from
--- `GenerativeLoop` (the step bound `chainLen ch ≤ deficit V t` is a
--- bound). * The cost model is inherited unchanged from
--- `AcceptanceTest`: `cost` counts `sucC` ticks a plan SCHEDULES,
--- priced at one unit each. "Strictly cheaper" means strictly fewer
--- scheduled transitions of the certified odometer. No native-work
--- theorem is claimed here, and the open cost edge of the corpus is not
--- closed. * NO ARITHMETIC INTEGRATION IS CLAIMED, and by H2 none is
--- available from this state. In particular §F does NOT unify the
--- substrates: `compileTm` reads one bit off the term (`demands
--- checkpoint t`) and takes the task's numbers natively. A reader who
--- wants "the term determines the program" gets only that bit;
--- everything numerical is passed around the term, not through it. The
--- corresponding sector- number encoding, which would look like
--- integration, is refused here on vajra's grounds and is not present
--- anywhere in this file. * H2 is a no-go about DECODERS FROM THE
--- STATE, not an impossibility theorem about the enterprise: it says a
--- function of `(Vocab , Tm)` cannot be the answer. It does not say no
--- extension of the substrate can carry the answer — §I names one that
--- could. Its `carrier` field demands a minimal carrier for a task's
--- ANSWER in the declared class; nothing here relates that number to
--- `deficit`, and the corpus's termination measure remains the
--- structural one. The morphism class the ARITHMETIC wants is still
--- unfixed (see the "not claimed" section of `PayloadMorphism`): what
--- is fixed is that the interface must name one. * `ArithmeticPayload`
--- is kept, superseded, so that the correction is legible; it is not
--- deleted and it is not inhabited. * The witness policy is still
--- degenerate wherever the loop builds obstructions (`witness = var`);
--- conservativity holds for any base witness, and nothing here makes
--- bodies informative. * Everything inherited from `Obstruction`'s and
--- `GenerativeLoop`'s disclaimers stands: single-parameter bodies,
--- matching only at the root, no arity structure in the residual, gates
--- D2-D7 unmodelled, and no relation to the Python runtime in
--- `runtime/vocabulary/`.
+--    §G's `resumeCap`/`tickCap`/`readCap` are numerals with suggestive
+--    identifiers; the mathematics is unchanged if they are renamed.
+--  * E1 locates the checkpoint-naming step SOMEWHERE in the chain and
+--    returns the intermediate vocabulary `X` at which it occurs.  It does
+--    NOT claim the step is the first, nor that it is unique, nor that
+--    `X ≡ V`.  Only in the concrete instance §G is the step shown to be
+--    the first, and that is by computation on numerals (G1 is `refl`),
+--    which generalises to nothing.  That the computation has a SPECIFIC
+--    answer rather than being satisfied by any `refl` is the negative
+--    control `NaturalMachine/Control/WrongFirstStep.agda` (excluded from
+--    `agda`; it must fail, and does).
+--  * H2 negates a Σ-type and is therefore worth nothing until that
+--    Σ-type is known to be inhabitable.  It is, at fixed arguments:
+--    H3 `decoder-exists-pointwise` in this file.  Both controls for this
+--    module are landed and are cited by path, not described — the
+--    positive one here as H3, the negative one at
+--    `NaturalMachine/Control/WrongFirstStep.agda`.  Neither control
+--    builds a decoder that reads anything off `(V , t)`: H3's witness is
+--    a constant function and certifies non-vacuity only.
+--  * D3 is a statement about `ObsChain`s, not about the loop's search
+--    strategy.  It says a chain that made a head appear must have named
+--    it.  It says nothing about which head the probe picks, in what
+--    order, or whether that order is good.
+--  * No optimality, no minimality: inherited from `GenerativeLoop` (the
+--    step bound `chainLen ch ≤ deficit V t` is a bound).
+--  * The cost model is inherited unchanged from `AcceptanceTest`: `cost`
+--    counts `sucC` ticks a plan SCHEDULES, priced at one unit each.
+--    "Strictly cheaper" means strictly fewer scheduled transitions of the
+--    certified odometer.  No native-work theorem is claimed here, and the
+--    open cost edge of the corpus is not closed.
+--  * NO ARITHMETIC INTEGRATION IS CLAIMED, and by H2 none is available
+--    from this state.  In particular §F does NOT unify the substrates:
+--    `compileTm` reads one bit off the term (`demands checkpoint t`) and
+--    takes the task's numbers natively.  A reader who wants "the term
+--    determines the program" gets only that bit; everything numerical is
+--    passed around the term, not through it.  The corresponding sector-
+--    number encoding, which would look like integration, is refused here
+--    on vajra's grounds and is not present anywhere in this file.
+--  * H2 is a no-go about DECODERS FROM THE STATE, not an impossibility
+--    theorem about the enterprise: it says a function of `(Vocab , Tm)`
+--    cannot be the answer.  It does not say no extension of the substrate
+--    can carry the answer — §I names one that could.  §I is not proved to
+--    be sufficient, only to be a type; and no term of it is built.
+--  * NEITHER §I RECORD IS INHABITED, and `ArithmeticPayloadOver` is not
+--    claimed to be sufficient either — it is `ArithmeticPayload` with
+--    one omission repaired, not a construction.  Its `carrier` field
+--    demands a minimal carrier for a task's ANSWER in the declared
+--    class; nothing here relates that number to `deficit`, and the
+--    corpus's termination measure remains the structural one.  The
+--    morphism class the ARITHMETIC wants is still unfixed (see the "not
+--    claimed" section of `PayloadMorphism`): what is
+--    fixed is that the interface must name one.
+--  * `ArithmeticPayload` is kept, superseded, so that the correction is
+--    legible; it is not deleted and it is not inhabited.
+--  * The witness policy is still degenerate wherever the loop builds
+--    obstructions (`witness = var`); conservativity holds for any base
+--    witness, and nothing here makes bodies informative.
+--  * Everything inherited from `Obstruction`'s and `GenerativeLoop`'s
+--    disclaimers stands: single-parameter bodies, matching only at the
+--    root, no arity structure in the residual, gates D2-D7 unmodelled,
+--    and no relation to the Python runtime in `runtime/vocabulary/`.
 ------------------------------------------------------------------------
 
 module CompileBridge where

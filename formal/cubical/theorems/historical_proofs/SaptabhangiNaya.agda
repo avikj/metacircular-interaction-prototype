@@ -533,12 +533,12 @@ sapeksa = machine-profile , refl , refl
 --    object, independent of any language, is not modelled, and this file
 --    should not be cited as formalising it.
 --
--- 5. A type-level statement of it would be a function ℕ → Profile that
--- is non-constant, which is trivially inhabited and would prove
--- nothing. Its content in this repository is empirical — some claims
--- in `machine/machine.log` appear in BOTH the accept and the reject
--- stream — and it is recorded where empirical facts belong, in the
--- census and in
+-- 5. Utpda-vyaya-dhrauvya (TS 5.29) is NOT formalised here.  A type-level
+--    statement of it would be a function ℕ → Profile that is non-constant,
+--    which is trivially inhabited and would prove nothing.  Its content in
+--    this repository is empirical — some claims in `machine/machine.log`
+--    appear in BOTH the accept and the reject stream — and it is recorded
+--    where empirical facts belong, in the census and in
 --
 --    AS OF 2026-08-18, at `wc -l machine/machine.log` = 10700 lines, that
 --    overlap is 40 claims, out of 98 distinct accepted and 432 distinct

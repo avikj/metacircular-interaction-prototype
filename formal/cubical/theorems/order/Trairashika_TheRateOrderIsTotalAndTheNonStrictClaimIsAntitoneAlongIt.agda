@@ -6,9 +6,12 @@
 -- `TheStrictRateOrderIsAnOrderAndTheClaimIsAntitoneOnIt` proved
 -- irreflexivity and transitivity of `⊏R` on `Rate` and closed with:
 --
--- No claim relates `⊏R` to `AtLeastOnRate` — only to `AboveOnRate`;
--- the non-strict claim's antitonicity along the STRICT order is a
--- different statement and is not made."
+--   "ASYMMETRY and TRICHOTOMY are not proved: `⊏-total`-style
+--    comparability was proved for `⊑` on PAIRS and is not transported
+--    here, so nothing says two rates are always comparable.  No claim
+--    relates `⊏R` to `AtLeastOnRate` — only to `AboveOnRate`; the
+--    non-strict claim's antitonicity along the STRICT order is a
+--    different statement and is not made."
 --
 -- All of it is closed here, on `Rate` itself.
 --

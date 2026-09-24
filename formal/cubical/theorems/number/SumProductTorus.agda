@@ -44,7 +44,11 @@
 -- for someone who threw the derivation away and is trying to invert
 -- `val` from the outside.
 --
--- What is proved here is everything on the Σ side and the map across.
+-- Which locates unique factorisation exactly, and it is worth saying in
+-- these words: **unique factorisation is the injectivity of the map from
+-- sums to products.**  Not proved here, and not needed here — the walk
+-- never asks for it.  What is proved here is everything on the Σ side
+-- and the map across.
 --
 -- Number is ratio, and ratio is the exponent vector: the number is the
 -- magnitude, the derivation is the structure, and the Pythagorean claim

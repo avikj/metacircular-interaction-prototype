@@ -5,17 +5,20 @@
 --
 -- The exact conditioning constants of
 --
--- B a normed space, G(z) = Σ_{j=0}^R a_j z^j with a_j ∈ B; in the
--- arithmetic application a_j = μ_{j+1} = P U_h Π_{j+1} U_k P, so a_0 =
--- P U_h P U_k P is the charge-one intermediate path and G(1) = P
--- U_{h+k} P is the glued one. Three probe families recover a_0 from
--- linear functionals of G, each with a worst-case ℓ∞→B error
--- amplification κ = Σ_m |coefficient_m| under the note's error model:
--- INDEPENDENT ABSOLUTE errors in the probes, and the natural SUPPORT
--- NORMALIZATION of each family. What IS formalized is every
--- combinatorial core — the exact value of Σ_m |γ_m| for each of the
--- three families, which is where the note's content and all of its
--- arithmetic risk sit.
+-- THE SETTING (the note's model, not proved here).  B a normed space,
+-- G(z) = Σ_{j=0}^R a_j z^j with a_j ∈ B; in the arithmetic application
+-- a_j = μ_{j+1} = P U_h Π_{j+1} U_k P, so a_0 = P U_h P U_k P is the
+-- charge-one intermediate path and G(1) = P U_{h+k} P is the glued one.
+-- Three probe families recover a_0 from linear functionals of G, each
+-- with a worst-case ℓ∞→B error amplification κ = Σ_m |coefficient_m|
+-- under the note's error model: INDEPENDENT ABSOLUTE errors in the
+-- probes, and the natural SUPPORT NORMALIZATION of each family.  That
+-- the worst-case amplification of a linear inversion a_0 = Σ_m γ_m Q_m
+-- equals Σ_m |γ_m| is one line of normed-space duality; it is NOT
+-- formalized here (no normed spaces in this module).  What IS
+-- formalized is every combinatorial core — the exact value of Σ_m |γ_m|
+-- for each of the three families, which is where the note's content and
+-- all of its arithmetic risk sit.
 --
 -- WHAT IS PROVED GENERALLY IN R (no instance, no fitting):
 --

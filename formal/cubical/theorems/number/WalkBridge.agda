@@ -2,13 +2,14 @@
 
 -- jump points of the capacity function, in increasing order.
 --
--- This was the last gap in the walk lane. §(c) is closed in both
+-- This was the last gap in the walk lane.  §(c) is closed in both
 -- directions (WalkForcing + CoprimeSplitting: an install is a prime
--- power; WalkJumps: a prime power is a jump point). Capacity is
--- unconditional (WalkUnconditional, on LCMExists). But nothing said
+-- power; WalkJumps: a prime power is a jump point).  Capacity is
+-- unconditional (WalkUnconditional, on LCMExists).  But nothing said
 -- that the walk's install EVENTS coincide with the capacity function's
--- jump POINTS -- both halves were checked and the composed statement
--- was not a term. the ordering statement is untouched").
+-- jump POINTS -- both halves were checked and the composed statement was
+-- not a term.  WalkJumps says so in its own header ("§(b) of the note is
+-- not formalised here either ... the ordering statement is untouched").
 --
 -- THE ARGUMENT, in four lines of arithmetic and no new machinery.
 -- Write cap k = lcm(1..k), and call k a jump when suc k ∤ cap k.

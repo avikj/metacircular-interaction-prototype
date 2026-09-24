@@ -318,9 +318,11 @@ private
 ------------------------------------------------------------------------
 -- ७ · शेषः — what stays open.
 --
--- Whether some flow makes the untruncated statement fail — two points
--- whose classes agree but with no CHOSEN pair of meeting stations — is
--- not settled here. `SamanaKaksya` §६'s last paragraph is the same
+-- **The truncation is not shown to be necessary.**  §४ produces
+-- `∥ a ≈ b ∥₁` because that is all `isEquivRel→TruncIso` gives.  Whether
+-- some flow makes the untruncated statement fail — two points whose
+-- classes agree but with no CHOSEN pair of meeting stations — is not
+-- settled here.  `SamanaKaksya` §६'s last paragraph is the same
 -- question and it is still open.
 --
 -- **Sufficient conditions are not surveyed.**  §५ reduces "the fiber is

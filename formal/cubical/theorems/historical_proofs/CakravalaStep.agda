@@ -58,9 +58,13 @@
 --
 -- ────────────────────────────────────────────────────────────────────
 --
--- Those are the substance of the method and none of them is a ring
--- identity. This file proves the invariant is preserved by one step,
--- which is the part that is algebra, and says so.
+-- NOT proved here: that a suitable m exists; that Bhskara's rule
+-- (choose m minimising |m² − D| subject to k | a + bm) is well defined or
+-- optimal; that k' is smaller than k; that the cycle TERMINATES at k = 1;
+-- or that a solution exists for every non-square D.  Those are the
+-- substance of the method and none of them is a ring identity.  This file
+-- proves the invariant is preserved by one step, which is the part that
+-- is algebra, and says so.
 --
 -- CHECKED: Agda 2.6.3, cubical v0.5 — the container, not the repository
 -- pin.  No postulates, no holes.

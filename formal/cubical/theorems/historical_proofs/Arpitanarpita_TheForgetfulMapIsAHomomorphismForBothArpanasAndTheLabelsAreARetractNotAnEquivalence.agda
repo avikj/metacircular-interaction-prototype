@@ -685,10 +685,12 @@ private
 --     composition, which is the map of §१, applied halfway.
 --
 -- Whether the two label types are the same object is a question with a
--- likely-cheap answer (both are the seven, so a bijection is
--- immediate) and it is NOT the interesting one; the disagreement
--- between them is at `sthana`, not at `krama`/`saha`, and settling the
--- algebra would settle nothing there.
+-- likely-cheap answer (both are the seven, so a bijection is immediate)
+-- and it is NOT the interesting one; the disagreement between them is at
+-- `sthana`, not at `krama`/`saha`, and settling the algebra would settle
+-- nothing there.  Whether `Naya.hs`'s five-way carving is a quotient, a
+-- subalgebra, or neither is open and is not claimed here in any
+-- direction.
 --
 -- Written rather than reconciled, per §६: a defect that is recorded lives
 -- (लिखितो दोषो जीवति), and one that is not is the हिंसा.

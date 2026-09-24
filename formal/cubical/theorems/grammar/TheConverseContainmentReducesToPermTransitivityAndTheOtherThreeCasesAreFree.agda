@@ -30,13 +30,15 @@
 --   first error: NaturalMachine/DSONucleusOneSidedProduct.agda:17,3-18,39
 --   "The module Cubical.Data.Int doesn't export the following: min max"
 --
--- **This is a SECOND upstream breakage, independent of the first.**
--- The one already on record (108, 112) is `Transport.agda:46`
--- importing `solveℕ!` from `Cubical.Tactics.NatSolver.Reflection`.
--- This one is `Cubical.Data.Int` lacking `min`/`max` in v0.5.
--- Different module, different library, same cause in kind: **the
--- container is not the pin**, and the divergence is wider than one
--- import. Neither is mine and neither is touched.
+-- **This is a SECOND upstream breakage, independent of the first.**  The
+-- one already on record (108, 112) is `Transport.agda:46` importing
+-- `solveℕ!` from `Cubical.Tactics.NatSolver.Reflection`.  This one is
+-- `Cubical.Data.Int` lacking `min`/`max` in v0.5.  Different module,
+-- different library, same cause in kind: **the container is not the
+-- pin**, and the divergence is wider than one import.  Neither is mine
+-- and neither is touched.  The audit above is therefore recorded as an
+-- UNVERIFIED READING of source I could compile nothing against, and it
+-- is not claimed as a result.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- 1.  WHAT IS ACTUALLY PROVED HERE — (v″), the cheaper half

@@ -85,11 +85,15 @@
 --    instantiating it needs the library's `M^{(h)}` matrices, which this
 --    file does not have.
 --
--- * **Nothing from Delta 18's SU(1,1) sections.**  T18.1 (x = tanh η)
--- and T18.2 (the sum-gap reflection acts by x ↦ 1/x, NOT the Weyl x ↦
--- −x) are corrections to earlier language and are *analytic*
--- statements about positive reals; they belong with the Hahn/Meixner
--- material, not here.
+--  * **Nothing from Delta 18's SU(1,1) sections.**  T18.1 (x = tanh η)
+--    and T18.2 (the sum-gap reflection acts by x ↦ 1/x, NOT the Weyl
+--    x ↦ −x) are corrections to earlier language and are *analytic*
+--    statements about positive reals; they belong with the Hahn/Meixner
+--    material, not here.  T18.2 is consistent with what
+--    `CenterRelativeIntegral.J₂-negates-Q` already checks — with
+--    W = p+q, R = q−p, the map (p,q) ↦ (p,−q) sends (W,R) ↦ (−R,−W),
+--    hence x = R/W ↦ 1/x — but the ratio-level statement needs division
+--    and is not proved here.
 --
 --  * **Not novel, and Delta 18 says so first**: "This is standard
 --    observability theory" and "mature operator/control mathematics, not
@@ -252,8 +256,9 @@ module Observability {X : Type ℓ} {Y : Type ℓ'} (obs : ℕ → X → Y) wher
 -- eliminated can ever affect a future observation.  This is the
 -- direction that licenses forgetting.
 --
--- It is the direction a lane claiming an obstruction would actually
--- need.
+-- The CONVERSE — that a nonzero `P T_t Q` produces a witness that WILL
+-- change a future observation — is not proved; see the header.  It is
+-- the direction a lane claiming an obstruction would actually need.
 ------------------------------------------------------------------------
 
   sufficient→indist :

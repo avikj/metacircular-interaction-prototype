@@ -12,7 +12,12 @@
 -- is the second reader on ledger rows 8.5, 1.5 and 0.3.  Its scope note
 -- A.4 is scrupulous about one gap:
 --
--- "* 'the display fails by 1 at ν, given the prime values' — THEOREM.
+--     "* 'the display fails by 1 at ν, given the prime values' — THEOREM.
+--      * 'every prime has those values' — checked here only at
+--        ν = 2, 3, 5, 7, 11, 13, 17, 19, 23 (A.5), by computation …
+--      The universal claim of ledger row 8.5 is therefore established
+--      modulo that standard evaluation, and is NOT claimed as a closed
+--      Agda theorem over all primes."
 --
 -- That gap is real: nine witnesses are not "every prime".  It is closed
 -- here by changing the representation rather than the argument.  Instead

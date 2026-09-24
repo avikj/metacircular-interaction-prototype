@@ -97,12 +97,14 @@
 --        not a Boolean table, and it is NOT refl-material.  Nothing
 --        below claims the shape is minimal.
 --
--- (b) PROPOSITION 7, non-invariance of the tear under truncation —
--- that replacing relations by Set-valued profunctors makes the
--- canonical comparison γ a 2-to-1 surjection on witness (ii), so ⋏ = 0
--- relationally and ⋏ ≠ 0 in the Set-valued reading, on the SAME cut
--- system. It needs the honest coend ⨿_{b ∈ Σ₁} 𝔗₀₁(a,b) × 𝔗₁₂(b,c) and
--- the comparison map: a real construction, not a Boolean table.
+--    (b) PROPOSITION 7, non-invariance of the tear under truncation —
+--        that replacing relations by Set-valued profunctors makes the
+--        canonical comparison γ a 2-to-1 surjection on witness (ii), so
+--        ⋏ = 0 relationally and ⋏ ≠ 0 in the Set-valued reading, on the
+--        SAME cut system.  It needs the honest coend
+--        ⨿_{b ∈ Σ₁} 𝔗₀₁(a,b) × 𝔗₁₂(b,c) and the comparison map: a real
+--        construction, not a Boolean table.  NOT refl-material and not
+--        attempted.
 --
 --        Consequence to keep in view, since this module lives entirely
 --        on the relational side of it: `tear` below is the

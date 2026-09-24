@@ -331,8 +331,9 @@ cardFinSetFin : (n : ℕ) → card (FinSetFin n) ≡ n
 cardFinSetFin n = refl
 
 -- The Chinese remainder theorem, in the form a count transports along:
--- for coprime moduli the residue-pair map is an EQUIVALENCE, not
--- merely an injection.
+-- for coprime moduli the residue-pair map is an EQUIVALENCE, not merely an
+-- injection.  Surjectivity is not proved by hand: it is the counting principle
+-- of §2 applied to the (definitional) equality of cardinalities.
 crtEquiv : (m n : ℕ) → isGCD (suc m) (suc n) 1
   → Fin (suc m · suc n) ≃ (Fin (suc m) × Fin (suc n))
 crtEquiv m n cop =

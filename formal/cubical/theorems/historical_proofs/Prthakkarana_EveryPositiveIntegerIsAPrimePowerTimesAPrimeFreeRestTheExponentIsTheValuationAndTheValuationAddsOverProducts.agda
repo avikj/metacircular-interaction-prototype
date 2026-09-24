@@ -21,8 +21,10 @@
 --        not use it, and tracking it would drag in `pow` and a second
 --        induction for no gain here."
 --
--- It needs prime-power machinery beyond WalkForcing's \"no proper
--- coprime splitting\"."
+--   `WalkInduction` (under "WHAT IS WEAKENED, honestly", on the claim
+--   that the installs are exactly the ordered prime powers):
+--       "— is NOT attempted.  It needs prime-power machinery beyond
+--        WalkForcing's \"no proper coprime splitting\"."
 --
 --   `CoprimeSplitting`: its §"WHAT REMAINS OPEN" lists two items, and
 --   its own 2026-08-15/18 audit marks both CLOSED (the WalkBridge

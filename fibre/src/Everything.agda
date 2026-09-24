@@ -98,6 +98,9 @@ open import Fibre.AReadingIsACollapseWithItsKeptMiddleAndOwedResidual
 --   univalence transports a PROVED EQUIVALENCE.  It does not turn a
 --   many-to-one map into one, and nothing here pretends otherwise.
 --
+-- WHAT IS NOT ESTABLISHED BY ANY OF IT, stated here because a library
+-- that only lists its theorems has dropped half its witness:
+--
 --   * effects, capability, disclosure, authority.  `Conservative` has two
 --     fields and both are mathematics.  Naming a field `Admissible` does
 --     not make a system admissible; no obligation of that kind is

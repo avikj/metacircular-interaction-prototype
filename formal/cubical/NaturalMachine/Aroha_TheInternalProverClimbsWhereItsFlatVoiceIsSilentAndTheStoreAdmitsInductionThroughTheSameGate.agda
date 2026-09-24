@@ -1,7 +1,14 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- आरोहः — ascent.
+-- आरोहः — ascent.  Compound built here, 2026-08-24; the identifiers in
+-- this module (समानः, उपस्थापनम्, एकादेशः, आरोहः) are functional
+-- vocabulary built here, not source terms, and the principle proved —
+-- structural induction over ℕ, internalized as a combinator on ⊨ — is
+-- not claimed for any Indian source.  Its descent form (establish at
+-- the base, recurse on the smaller) is kin to the kuaka discipline
+-- this corpus already carries from ryabhaya (499); kinship, not
+-- provenance.
 --
 -- WHAT THIS CLOSES, in the ledger of the seams: the proposer's
 -- vocabulary was bounded by the flat normalizer — साधनम् proves

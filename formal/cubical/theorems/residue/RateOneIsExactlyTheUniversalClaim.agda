@@ -8,9 +8,10 @@
 -- label — a Π — is refuted by one counterexample, and said in its own
 -- words:
 --
--- "WHAT IS NOT MODELLED, said rather than glossed: a genuine RATE
--- claim ('more than half', 'at most 25%'). That needs a measure and a
--- count, neither of which appears below.
+--   "WHAT IS NOT MODELLED, said rather than glossed: a genuine RATE
+--    claim ('more than half', 'at most 25%').  That needs a measure and
+--    a count, neither of which appears below.  §3 therefore does NOT
+--    establish the comparison §7's list invites."
 --
 -- The count is here, over a finite population as a `List Bool`, and it
 -- gives the comparison exactly: the universal claim IS the rate-one

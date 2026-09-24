@@ -45,8 +45,10 @@
 --                 GREATEST).  Together: g is the gcd, and bezout is its
 --                 Bézout identity — the whole pulverizer.
 --
--- (g being the gcd needs no r < b: gcdDivides/gcdGreatest hold for any
--- genuine-division run.)
+-- NOT done (named honestly, per §5.2): the iṣṭa section — the reduction of
+-- the solution family to the LEAST non-negative representative — which needs
+-- a mod/section convention and is not supplied here.  (g being the gcd needs
+-- no r < b: gcdDivides/gcdGreatest hold for any genuine-division run.)
 ------------------------------------------------------------------------
 
 module Kuttaka where

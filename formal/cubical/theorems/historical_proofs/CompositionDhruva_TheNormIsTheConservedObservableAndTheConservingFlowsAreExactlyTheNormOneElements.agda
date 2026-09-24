@@ -67,9 +67,13 @@
 --     of a MONOID MAP and the flows are its unit set.  Reading that as
 --     "the product formula" is an ANALOGY; it is stated as one in
 --
--- 2. **No classification of conserving flows.**  §१–§२ is a
--- biconditional about the flows OF BHĀVANĀ FORM `प्रवाह u`. It does
--- NOT say every endomorphism of R × R conserving N is one of these.
+-- 2.  **No classification of conserving flows.**  §१–§२ is a
+--     biconditional about the flows OF BHĀVANĀ FORM `प्रवाह u`.  It does
+--     NOT say every endomorphism of R × R conserving N is one of these.
+--     (Over ℤ with D non-square that stronger statement is true and is
+--     not proved here.)  The title says "the conserving flows", meaning
+--     the conserving flows among the bhvan flows, and this sentence
+--     is what fixes the quantifier.
 --
 -- 3.  **No solutions, no termination, no minimality.**  Nothing here
 --     says a norm-one element other than (±1, 0) exists, nor anything
@@ -166,7 +170,10 @@ module Samrakshana (CR : CommRing ℓ) (D : fst CR) where
   -- ३ · The conserving elements are closed under bhāvanā.
   --
   -- So the conserving flows compose; with (1,0) conserving, they are a
-  -- submonoid of the bhvan monoid.
+  -- submonoid of the bhvan monoid.  (A GROUP needs inverses, which is
+  -- the अन्तरभावना with (u₁ , −u₂) and is NOT claimed here — it needs
+  -- N D u₁ (- u₂) ≡ 1 and the coordinate identity, neither of which is
+  -- proved in this file.)
   ----------------------------------------------------------------------
 
   एकत्व-संवृति : (u v : युग्म) → नियम u ≡ 1r → नियम v ≡ 1r

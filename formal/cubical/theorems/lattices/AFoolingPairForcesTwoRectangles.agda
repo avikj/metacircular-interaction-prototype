@@ -122,7 +122,8 @@ module _ (Row Col : Type) (M : Row → Col → Bool) where
 -- corner carries the 0 may differ per pair, so the hypothesis is a `⊎`
 -- and both cases are done.
 --
--- Turning "distinct cells get distinct rectangles" into "at least k
--- rectangles" is a pigeonhole over a finite index; neither finiteness
--- nor counting appears in that module. Injectivity is what is proved.
+-- STILL NOT PROVED, and still not claimed: the numeric form.  Turning
+-- "distinct cells get distinct rectangles" into "at least k rectangles"
+-- is a pigeonhole over a finite index; neither finiteness nor counting
+-- appears in that module.  Injectivity is what is proved.
 ------------------------------------------------------------------------

@@ -613,4 +613,6 @@ module ChainAtTwo where
   3≢99 : ¬ (pos 3 ≡ pos 99)
   3≢99 p = true≢false (cong is3 p)
 
-  -- So the family at D = 2 is not the constant family.
+  -- So the family at D = 2 is not the constant family.  This is a fact about
+  -- D = 2 established by three terms; it is NOT the injectivity of `chain`,
+  -- which is not proved anywhere in this file.

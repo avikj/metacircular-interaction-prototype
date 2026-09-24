@@ -12,12 +12,14 @@
 {-# OPTIONS --safe #-}
 
 ------------------------------------------------------------------------
--- मेरु-प्रस्तारः — ported from
--- machine/MeruPrastara_TheSignedArrayIsOne
--- ProductAndTheZetaDualityIsAShiftOfOne.hs (owner, 2026-08-24: "almost
--- all the Haskell needs to go"). The default (no-argument) report of
--- that program, term for term, as a --safe checked value compiled by
--- the kernel's own backend (MAlonzo/GHC). Checked identity behind this
+-- मेरु-प्रस्तारः — ported from machine/MeruPrastara_TheSignedArrayIsOne
+-- ProductAndTheZetaDualityIsAShiftOfOne.hs (owner, 2026-08-24: "almost all
+-- the Haskell needs to go").  The default (no-argument) report of that
+-- program, term for term, as a --safe checked value compiled by the
+-- kernel's own backend (MAlonzo/GHC).  प्रस्तार is Piṅgala's word for the
+-- systematic laying-out of metres (Chandastra 8, ~300 BCE; Halyudha's
+-- Mtasajvan, 10th c., names the meru); the sign on the array is the
+-- Mbius sign and is not claimed for him.  Checked identity behind this
 -- display: formal/cubical/MulaShakti_TheMarkingParameterIsAPowerAndThe
 -- ZetaTwistIsTranslationByOne.agda.
 ------------------------------------------------------------------------

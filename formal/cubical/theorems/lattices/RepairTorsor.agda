@@ -13,6 +13,11 @@
 --      repaired object over the defective one, so the repair is
 --      canonical iff that group is trivial"
 --
+-- stated for an abstract category S of repairs (objects: pairs
+-- (Y , ι : X → Y) solving the defect; morphisms: maps under X — the
+-- slice is NOT constructed here, because the schema never uses it: it
+-- holds verbatim in any category, and the note states it that way).
+--
 -- HEADLINE STATEMENTS (all checked, no postulates, no holes, --safe):
 --
 --  1. AutGroup            Aut_S(y) = CatIso S y y is a group.
@@ -53,10 +58,13 @@
 --                         carrying one to the other is `true`, and this
 --                         is checked BY COMPUTATION (`refl`).
 --
--- They are the note's cited inputs; the general lemma they feed — item
--- 3 — is what is proved here. Item 5 is the abstract shape of Thm
--- 6(iv): two square roots of −1 interchanged by a group of order two,
--- with no claim that it IS ℂ/ℝ.
+-- Inputs quoted from the note, NOT formalised here and deliberately so:
+-- Aut(ℤ) = Aut(ℚ) = Aut(ℝ) = 1 and Aut(ℂ/ℝ) ≅ ℤ/2 (note Thm 6) need
+-- real and complex analysis and are out of reach of this lane.  They are
+-- the note's cited inputs; the general lemma they feed — item 3 — is
+-- what is proved here.  Item 5 is the abstract shape of Thm 6(iv): two
+-- square roots of −1 interchanged by a group of order two, with no
+-- claim that it IS ℂ/ℝ.
 --
 -- Delta against PathIsSymmetry, which already proves a
 -- rigidity result (ℕ-algebra-Aut-trivial, swap01-≢-id): that module

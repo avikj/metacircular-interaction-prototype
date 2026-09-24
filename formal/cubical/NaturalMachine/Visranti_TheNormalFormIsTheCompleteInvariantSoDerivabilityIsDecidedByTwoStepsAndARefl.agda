@@ -52,20 +52,33 @@
 --
 -- WHAT IT DOES TO THE KERNEL'S PICTURE.  Three levels, now all computed:
 --
+--     extensional   `eval` sees the multiset of variables and a constant
+--                   (`Samkhyana_…`), so the ℕ-theory is trivial and
+--                   identifies terms the calculus cannot join;
+--     derivational  `Derivation a b` holds exactly when `nf a ≡ nf b`, so
+--                   THE EXISTENCE QUESTION IS DECIDABLE (given
+--                   discreteness of `Tm`, which is routine and not proved
+--                   here);
+--     intensional   and everything that remains — which route, how long,
+--                   which of the many derivations between two joinable
+--                   terms — is what `Sesa_…` proves no semantic criterion
+--                   can select.
+--
 -- That is the sharp form of the corpus's standing claim.  It is not that
 -- checking is hard and search is hard; it is that in this calculus
 -- JOINABILITY IS DECIDABLE AND STILL SAYS NOTHING ABOUT THE ROUTE, and the
 -- route is where every quantity a policy needs lives.
 --
--- WHAT IS **NOT** CLAIMED. Confluence and termination are the ARGUMENT
--- for why this works and are NOT formalised below; what is formalised
--- is the consequence, directly — §2 and §3 together give both
--- directions without a diamond lemma, because `nf` is defined so that
--- the two real rules hold by `refl`. So no critical-pair analysis
--- appears as a term and none is claimed as checked. Nothing here
--- concerns `Step⁺`; `add-comm` breaks the orthogonality by design.
--- `nf` is one normalising function; no claim that it is canonical
--- among such, nor any statement about its cost.
+-- WHAT IS **NOT** CLAIMED.  Confluence and termination are the ARGUMENT for
+-- why this works and are NOT formalised below; what is formalised is the
+-- consequence, directly — §2 and §3 together give both directions without
+-- a diamond lemma, because `nf` is defined so that the two real rules hold
+-- by `refl`.  So no critical-pair analysis appears as a term and none is
+-- claimed as checked.  Discreteness of `Tm` is not proved, so the word
+-- "decidable" above is a corollary stated in prose, not a term.  Nothing
+-- here concerns `Step⁺`; `add-comm` breaks the orthogonality by design.
+-- `nf` is one normalising function; no claim that it is canonical among
+-- such, nor any statement about its cost.
 --
 -- No postulates, no holes, --safe.  CHECKED this session, EXIT 0, at
 -- Agda 2.6.3 + agda/cubical v0.5 -- which is NOT the corpus pin (2.8.0 +

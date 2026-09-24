@@ -88,20 +88,22 @@
 --
 -- ────────────────────────────────────────────────────────────────────
 --
--- * NO COMPLETENESS. Nothing here proves residue-domination implies
--- `⊑`. * NO UNDECIDABILITY. §3 shows the delimited Σ IS decidable
--- given `Discrete A`. It does NOT show the undelimited Σ is
--- undecidable without it — that needs a countermodel and none is
--- built. What is exhibited is that `Discrete A` appears in §2–§4 and
--- is absent from §1: a statement about these proofs, not a lower
--- bound. * NO CLAIM ABOUT AGGREGATE RESIDUES. §1 covers every monoid
--- homomorphism, a single sum-hash included. §2–§4 concern the PER-
--- ELEMENT counting residue. Whether a rejection by an aggregate
--- residue yields an element witness is not settled here — and for
--- `Discrete A` it trivially does, by ignoring the aggregate and
--- running §3, which is itself the point: the aggregate contributes
--- cost, not level. * `_⊑_` is one presentation of sub-multiset
--- containment.
+--  * NO COMPLETENESS.  Nothing here proves residue-domination implies
+--    `⊑`.  That is the converse and it is not attempted.
+--  * NO UNDECIDABILITY.  §3 shows the delimited Σ IS decidable given
+--    `Discrete A`.  It does NOT show the undelimited Σ is undecidable
+--    without it — that needs a countermodel and none is built.  What is
+--    exhibited is that `Discrete A` appears in §2–§4 and is absent from
+--    §1: a statement about these proofs, not a lower bound.
+--  * NO CLAIM ABOUT AGGREGATE RESIDUES.  §1 covers every monoid
+--    homomorphism, a single sum-hash included.  §2–§4 concern the
+--    PER-ELEMENT counting residue.  Whether a rejection by an aggregate
+--    residue yields an element witness is not settled here — and for
+--    `Discrete A` it trivially does, by ignoring the aggregate and
+--    running §3, which is itself the point: the aggregate contributes
+--    cost, not level.
+--  * `_⊑_` is one presentation of sub-multiset containment.  Its
+--    agreement with any other presentation in this corpus is not proved.
 --
 -- CHECKED on the CONTAINER: Agda 2.6.3 + cubical v0.5 at
 -- /root/agda-libs/cubical; `agda` with no CLI flags, `LC_ALL=C.UTF-8`.

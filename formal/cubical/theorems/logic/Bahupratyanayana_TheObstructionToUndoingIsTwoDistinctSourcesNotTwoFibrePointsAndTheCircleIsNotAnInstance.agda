@@ -192,6 +192,9 @@ private
 वृत्त-मूल-अभेदः = refl
 
 ------------------------------------------------------------------------
+-- ६ · शेषः — why `noDescentS¹` is a different theorem, stated and not
+--     proved here.
+--
 -- §२ needs two points of A that are provably distinct.  S¹ is connected,
 -- so it has none: `base ≡ base` is inhabited by `refl`, and the law
 -- cannot fire anywhere on it.  `SetTruncationDescentBoundary.noDescentS¹`
@@ -202,4 +205,8 @@ private
 -- the retraction EXISTS.  So the corpus's two no-return theorems live at
 -- two levels and neither implies the other.
 --
+-- NOT PROVED HERE: that S¹ has no two distinct points (that is
+-- connectedness, in the library, and is not invoked); and nothing about
+-- higher levels — whether the pattern continues at π₂ and above is not
+-- addressed and no conjecture is offered.
 ------------------------------------------------------------------------

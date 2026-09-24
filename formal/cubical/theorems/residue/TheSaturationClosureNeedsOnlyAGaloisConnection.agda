@@ -6,6 +6,12 @@
 -- `SaturationAtACutIsIdempotent` proved that Δ 28 §31–32's "re-saturate"
 -- is idempotent, and then said, as the load-bearing limitation:
 --
+--   "§31–32's ↑ and ↓ are min-plus RESIDUATIONS over a semiring-valued
+--    kernel … That the former is an instance of the latter is NOT
+--    proved here and is not obvious … So what is established is that
+--    the SATURATION discipline is sound wherever the adjunction holds —
+--    not that Δ 28's particular ↑/↓ satisfy it."
+--
 -- That sentence names a gap without saying what would close it.  This
 -- module says exactly what would: the whole closure argument uses
 -- NOTHING about `Type`, `⊆`, or the relation K.  It uses two preorders,

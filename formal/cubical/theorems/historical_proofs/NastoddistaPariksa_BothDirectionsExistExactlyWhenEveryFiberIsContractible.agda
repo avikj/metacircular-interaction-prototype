@@ -36,7 +36,9 @@
 -- §५ is the honest limit, and it is why this is stated as two maps and
 -- not as an equivalence of types: `isEquiv f` is a PROPOSITION and
 -- `नष्टोद्दिष्टयोगः f` is not, so the two are logically equivalent and
--- NOT equal.
+-- NOT equal.  The round trip through `isEquiv` returns what it was
+-- given (§५); the round trip through the record is not claimed, and
+-- the reason is that quasi-inverse data can differ.
 --
 -- §६ is the discriminant exhibited on both roads at once: the प्रस्तार
 -- of any छेद-सूची carries the witness (road one, defect zero at every
@@ -162,9 +164,9 @@ Iso.leftInv  (योगः→इषो y) = नष्टोद्दिष्ट
 -- logical equivalence and cannot be strengthened to an equivalence of
 -- types by these terms.
 --
--- One round trip does close, definitionally up to the
--- propositionality: starting from an `isEquiv`, unpacking to the pair
--- and repacking returns what it was given.
+-- One round trip does close, definitionally up to the propositionality:
+-- starting from an `isEquiv`, unpacking to the pair and repacking
+-- returns what it was given.  The other direction is NOT claimed here.
 ------------------------------------------------------------------------
 
 समता-प्रतिष्ठा : {A : Type ℓ} {B : Type ℓ'} (f : A → B) → isProp (isEquiv f)

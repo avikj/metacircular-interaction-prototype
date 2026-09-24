@@ -19,14 +19,18 @@
 -- route acquired holonomy / higher coherence filled / new receptor
 -- separated an old blind pair.
 --
--- Two BODIES are exhibited: the same carrier, the same counts at every
--- P₀-grade a count-stratum heartbeat can read (both are ℤ × ℤ with one
--- binary operation — every cardinality and arity datum agrees),
--- differing only in the law of succession. The count-stratum
--- observation is blind on the pair; the succession receptor separates
--- it; QuotientFiberLaw's `collision-obstructs` closes the box: NO
--- post-processing of count-stratum readings reconstructs the law
--- stratum.
+-- THIS MODULE IS THE FIRST STONE OF THAT, AS A TERM: it proves the
+-- transmitted sentence "the count projection matching does not
+-- establish identity" — not about graphs in general, but in the
+-- sharpest available form, using the same succession pair that
+-- OrderNiyama landed.  Two BODIES are exhibited: the same carrier,
+-- the same counts at every P₀-grade a count-stratum heartbeat can
+-- read (both are ℤ × ℤ with one binary operation — every cardinality
+-- and arity datum agrees), differing only in the law of succession.
+-- The count-stratum observation is blind on the pair; the succession
+-- receptor separates it; QuotientFiberLaw's `collision-obstructs`
+-- closes the box: NO post-processing of count-stratum readings
+-- reconstructs the law stratum.
 --
 -- CONSEQUENCE FOR THE ORGANS, stated so the next carrier can wire it:
 -- जीव's JIVA-HEARTBEAT line and चक्र's delta are count-stratum

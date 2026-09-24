@@ -6,6 +6,10 @@
 -- `TheRatesAreDenseAndTheMediantSurvivesTheQuotient` lifted the strict
 -- threshold order to `Rate` and closed with:
 --
+--   "`⊏R` is a relation into `hProp`, not an order: irreflexivity,
+--    transitivity, and the relation to `AtLeastOnRate` / `AboveOnRate`
+--    are not proved on `Rate`."
+--
 -- All three are proved here, and none of them needs a new idea — which
 -- is the point of having lifted along `rec2` in the first place.  Every
 -- statement is a PROPOSITION, so `elimProp` reduces each to

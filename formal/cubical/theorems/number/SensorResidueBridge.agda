@@ -10,10 +10,13 @@
 --
 -- and its header names, as the FIRST of its two open gaps:
 --
--- These agree — that is the standard characterisation of congruence —
--- but `_mod_` does not appear below, so a reader should take §3 as a
--- theorem about divisibility of the distance, and the identification
--- with equal residues as an unchecked (if entirely standard) step."
+--     "**The residue bridge is not proved here.**  The note writes the
+--      observation as `profile_S(n) = (n mod m)_{m∈S}`, and this file
+--      works with `m ∣ dist a b` instead.  These agree — that is the
+--      standard characterisation of congruence — but `_mod_` does not
+--      appear below, so a reader should take §3 as a theorem about
+--      divisibility of the distance, and the identification with equal
+--      residues as an unchecked (if entirely standard) step."
 --
 -- This module is that step, checked.  It closes gap (i).  It does NOT
 -- close gap (ii) — the divisor lattice — and §7 says exactly what is

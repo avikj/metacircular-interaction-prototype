@@ -46,6 +46,10 @@
 --     "post-processing" includes every consensus rule: majority,
 --     stake-weighting, reputation, a second round, an appeal.
 --
+--     This is the checked form of the sentence asserted but not proved
+--     protocol can vote a theorem true", narrowed to the case where the
+--     theorem in question is an identity: is this the same as that.
+--
 -- §2  `sees-exactly` upgrades QuotientFiberLaw's `obs-agree` to an IFF.
 --     Blindness of the whole list is EQUIVALENT to equality of
 --     transcripts, so the relation a network can see is exactly the

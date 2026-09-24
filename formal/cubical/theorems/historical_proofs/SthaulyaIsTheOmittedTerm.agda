@@ -9,9 +9,13 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT THIS SETTLES
 --
--- It is what the four cases make worth proving, and the proof would
--- have to come from the continued fraction's determinant recurrence,
--- not from the list."
+-- `AntyaSamskaraSthaulya` checks, one at a time, that the first four
+-- end-corrections to Mādhava's series have स्थौल्य numerator constant in
+-- n, and says in §7 that the general statement — every convergent, not
+-- just four — "is not proved here and is not being asserted from four
+-- cases.  It is what the four cases make worth proving, and the proof
+-- would have to come from the continued fraction's determinant
+-- recurrence, not from the list."
 --
 -- This module is that proof.  Not from the list, and not four more
 -- cases: the degree-10 identity for k = 5 does not get past the ring
@@ -61,7 +65,9 @@
 --     which is why §6 of the other module says no sequence of residues
 --     can carry a law and this one can.
 --
--- It cannot be: see the closing section.
+-- The order statement — that the स्थौल्य drops by two orders in n at each
+-- step — is the analytic gloss on the second bullet and is NOT proved
+-- here.  It cannot be: see the closing section.
 --
 -- The proof is the determinant recurrence and nothing else.  The form
 --

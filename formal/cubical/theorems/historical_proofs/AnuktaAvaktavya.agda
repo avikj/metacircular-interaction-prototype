@@ -276,8 +276,10 @@ open import SaptabhangiNaya
 -- instance — and those two cannot both hold, which is why the fourth
 -- corner has no strong witness.
 --
--- ¬ सामयिक does not constructively yield an invincible instance, so ¬
--- (¬ सामयिक bad × ¬ नित्य bad) is neither proved nor asserted.
+-- Explicitly NOT proved there: that the fourth corner is impossible in
+-- the plain negated forms.  ¬ सामयिक does not constructively yield an
+-- invincible instance, so ¬ (¬ सामयिक bad × ¬ नित्य bad) is neither
+-- proved nor asserted.
 --
 -- That module says nothing about the WORDS अनुक्तम् and अवक्तव्यम्, about
 -- the saptabhaṅgī, or about which module here uses which — those are

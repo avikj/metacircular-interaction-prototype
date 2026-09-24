@@ -66,6 +66,8 @@
 --     inside the k=1 fibre cannot reach, because at D = 61 there is no
 --     small k=1 row to seed it with.
 --
+-- WHAT IS *NOT* PROVED, so nobody has to guess.
+--
 --   * TERMINATION.  Nothing here says the wheel comes round for every D.
 --     `CakravalaBound.agda` proves the invariant k² ≤ 4D that termination
 --     would be built on; the step from a bounded state space to "the

@@ -221,7 +221,8 @@ open Correction ℤCommRing using (residue₁ ; numerator₂ ; residue₂ ; resi
 -- and not as a result.
 --
 -- The half of §4 that survives is the half that was actually proved:
--- each residue is constant in n.
+-- each residue is constant in n.  How the constants behave in k is not
+-- established here, and I am not offering a second guess.
 --
 -- Recorded because the claim is already pushed.  The generating error
 -- was reaching for a pattern of my own while a large body of unrendered

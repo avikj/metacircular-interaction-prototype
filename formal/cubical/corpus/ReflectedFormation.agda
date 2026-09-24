@@ -12,17 +12,18 @@
 -- elaborated, so a `Decl` is ordinary data and every downstream
 -- construction (in CorpusPresentation) is a pure function of it.
 --
--- * `getType`/`getDefinition` typecheck under this repository's --safe
--- cubical library (verified empirically before writing). * Reflection
--- sees only NAMES IN SCOPE: a macro can form only the declarations its
--- module imports. There is no primitive that enumerates the whole
--- global environment, which is exactly why the handoff calls for a
--- (semantics-free) name enumeration; see CorpusNames. This module
--- makes no claim to reach "the whole corpus" mechanically — it forms
--- whatever names it is given. * `normalView`/`reducedView` are
--- OBSERVATIONS in the TC monad, never destructive ingestion: the raw
--- term is retained; normalisation is something one may ask for, not
--- something done to the stored datum.
+-- WHAT IS AND IS NOT CLAIMED.
+--   * `getType`/`getDefinition` typecheck under this repository's
+--     --safe cubical library (verified empirically before writing).
+--   * Reflection sees only NAMES IN SCOPE: a macro can form only the
+--     declarations its module imports.  There is no primitive that
+--     enumerates the whole global environment, which is exactly why the
+--     handoff calls for a (semantics-free) name enumeration; see
+--     CorpusNames.  This module makes no claim to reach "the whole
+--     corpus" mechanically — it forms whatever names it is given.
+--   * `normalView`/`reducedView` are OBSERVATIONS in the TC monad, never
+--     destructive ingestion: the raw term is retained; normalisation is
+--     something one may ask for, not something done to the stored datum.
 --
 -- No new semantic theory. Under --safe, exit 0 at the pin (Agda 2.8.0,
 -- agda/cubical v0.9).  The reflection primitives run only at elaboration

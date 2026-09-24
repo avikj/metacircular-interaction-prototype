@@ -59,15 +59,16 @@
 --       inverse field; the groupoid adds प्रतिलोमः.  The added field is
 --       the reversibility.  (NOT the heat — see the correction inset.)
 --
--- WHY THIS IS THE RIGHT COMPUTER FOR COMPUTATIONAL SPACETIME. Physics
--- is reversible (unitary evolution, time-symmetric microdynamics); its
--- state moves by PARALLEL TRANSPORT along paths, and indistinguishable
--- configurations are genuinely identified (gauge / general
--- covariance). A groupoid of transports is exactly that structure:
--- paths compose and invert, and univalence (`ua`) makes equivalent
--- types EQUAL — so the machine cannot even express a difference
--- between physically indistinguishable states. General covariance is
--- not imposed on this computer; it is what its equality IS.
+-- WHY THIS IS THE RIGHT COMPUTER FOR COMPUTATIONAL SPACETIME.  Physics is
+-- reversible (unitary evolution, time-symmetric microdynamics); its state
+-- moves by PARALLEL TRANSPORT along paths, and indistinguishable
+-- configurations are genuinely identified (gauge / general covariance).
+-- A groupoid of transports is exactly that structure: paths compose and
+-- invert, and univalence (`ua`) makes equivalent types EQUAL — so the
+-- machine cannot even express a difference between physically
+-- indistinguishable states.  General covariance is not imposed on this
+-- computer; it is what its equality IS.  (Stated as motivation, not
+-- proved here — the proved content is §§2–4, the groupoid.)
 --
 -- WHAT IS **NOT** CLAIMED:
 --   * The physics correspondence (unitarity, gauge) as a theorem — it is

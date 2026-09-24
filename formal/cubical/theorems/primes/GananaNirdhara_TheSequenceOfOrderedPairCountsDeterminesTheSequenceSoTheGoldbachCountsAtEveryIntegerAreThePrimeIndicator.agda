@@ -18,6 +18,9 @@
 --     ℝ[X]); A² = B² forces A = B or A = −B, and nonnegativity of the coefficients
 --     kills the second branch (both sides must then vanish identically).
 --
+-- SOURCE 2 (formal/lean/Pairfield/YugmaPurana_TheEvenPaddingIsForcedAnd
+-- TheDeterminantSaysWhy.lean, the closing "what is not claimed" list), quoted:
+--
 --     * It does not transport anything from the Agda lane.  See the header: the two
 --       proofs are independent, and their agreeing is the content.
 --

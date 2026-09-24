@@ -75,15 +75,17 @@
 -- claimed: two maps can factor through each other without being equal.
 -- Nothing below quotients by it.
 --
--- **§३ and §५ are one direction only.**  That `संरक्षणम् f ⊆ संरक्षणम्
--- g` implies `f व्याप्नोति g` is FALSE in general and no weakened
--- converse is offered.
+-- **§३ and §५ are one direction only.**  That `संरक्षणम् f ⊆ संरक्षणम् g`
+-- implies `f व्याप्नोति g` is FALSE in general and no weakened converse is
+-- offered.  Likewise §५·२: `f a ≡ f a' → g a ≡ g a'` follows from the
+-- order; recovering the order from it would need a choice of section and
+-- is not attempted.
 --
--- **§६ is not a characterisation of non-injectivity.**  `isEquiv Φ → ¬
--- विस्मृतिः Φ` is proved; the converse — that a non-equivalence
--- exhibits a विस्मृतिः — is CLASSICAL (it needs a collision to be
--- found, and a ¬(a ≡ a') to be produced from ¬(a ≡ a') failing) and is
--- not available constructively.
+-- **§६ is not a characterisation of non-injectivity.**  `isEquiv Φ →
+-- ¬ विस्मृतिः Φ` is proved; the converse — that a non-equivalence
+-- exhibits a विस्मृतिः — is CLASSICAL (it needs a collision to be found,
+-- and a ¬(a ≡ a') to be produced from ¬(a ≡ a') failing) and is not
+-- available constructively.  It is not proved and not used.
 --
 -- **Everything lives at ONE universe level.**  Not for depth: `Dhruva`
 -- declares `संरक्षणम्` in a telescope `{A B : Type ℓ}` with a single ℓ,
@@ -145,7 +147,7 @@ _व्याप्नोति_ {A = A} {B = B} {C = C} f g =
   Σ[ h ∈ (B → C) ] ((a : A) → g a ≡ h (f a))
 
 ------------------------------------------------------------------------
--- २ · It is a preorder.
+-- २ · It is a preorder.  Antisymmetry is not claimed (see the fence).
 ------------------------------------------------------------------------
 
 व्याप्ति-स्वतः : {A : Type ℓ} {B : Type ℓ} (f : A → B) → f व्याप्नोति f
@@ -294,20 +296,21 @@ _व्याप्नोति_ {A = A} {B = B} {C = C} f g =
 -- ७ · शेषः — what stays open, named so the next rung is not
 --     over-specified.
 --
--- * ANTISYMMETRY. `f व्याप्नोति g` and `g व्याप्नोति f` gives a pair
--- of maps between the images; whether they compose to identities is a
--- genuine question and is not answered here. The right object is
--- probably the order on IMAGES rather than on maps, and this corpus
--- already types cost on the image (`ReflectionAggregate_�`). * THE
--- CONVERSE OF §३, which is false as stated; what could be true is a
--- converse relative to the orbit relation of `SamanaKaksya_…` §२,
--- since that file's `अवतीर्णः` already descends the charge. *
--- `विस्मृतिः` uses a bare `¬ (a ≡ a')`, which is the weak apartness.
--- `Vaidharmya_…agda` argues in this corpus that the answer type need
--- only be APART, and a positive apartness would make ६·२ constructive
--- in a stronger sense. Not done here. * Nothing above says which
--- fibres are BIG. There is no size notion in this file at all,
--- deliberately; supplying one (a cardinality, a measure) is exactly
--- where a fitted constant would enter, and the order is what makes the
--- statement possible without one.
+--  * ANTISYMMETRY.  `f व्याप्नोति g` and `g व्याप्नोति f` gives a pair of
+--    maps between the images; whether they compose to identities is a
+--    genuine question and is not answered here.  The right object is
+--    probably the order on IMAGES rather than on maps, and this corpus
+--    already types cost on the image (`ReflectionAggregate_�`).
+--  * THE CONVERSE OF §३, which is false as stated; what could be true is
+--    a converse relative to the orbit relation of `SamanaKaksya_…` §२,
+--    since that file's `अवतीर्णः` already descends the charge.  Not
+--    attempted.
+--  * `विस्मृतिः` uses a bare `¬ (a ≡ a')`, which is the weak apartness.
+--    `Vaidharmya_…agda` argues in this corpus that the answer type need
+--    only be APART, and a positive apartness would make ६·२ constructive
+--    in a stronger sense.  Not done here.
+--  * Nothing above says which fibres are BIG.  There is no size notion
+--    in this file at all, deliberately; supplying one (a cardinality, a
+--    measure) is exactly where a fitted constant would enter, and the
+--    order is what makes the statement possible without one.
 ------------------------------------------------------------------------

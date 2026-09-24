@@ -240,9 +240,11 @@ import LosslessReturn
 -- is that one line.  Details, commands and exit codes are appended at
 -- the end of `NaturalMachine/PathIsSymmetry.agda`, at its own site.
 --
--- So this file's reason for existing is not withdrawn by the finding;
--- if the repair is applied and the aggregate goes green, THEN this
--- file's own closing sentence applies and it should be deleted.
+-- NOT established: that applying it makes `Everything.agda` green —
+-- Agda stops at the first error, so downstream blockers would not have
+-- shown.  So this file's reason for existing is not withdrawn by the
+-- finding; if the repair is applied and the aggregate goes green, THEN
+-- this file's own closing sentence applies and it should be deleted.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------

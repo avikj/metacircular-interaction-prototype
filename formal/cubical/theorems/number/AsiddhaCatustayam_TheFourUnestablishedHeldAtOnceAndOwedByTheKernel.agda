@@ -14,8 +14,11 @@
 --     ?0 : Goldbach        ?1 : TwinPrimes
 --     ?2 : Collatz         ?3 : RiemannHypothesis
 --
--- No source is claimed for any statement below; the arithmetic
--- formulations are standard.
+-- असिद्ध — "unestablished/not-proven" — is Pāṇini's own word for a rule
+-- treated as if it had not taken effect (8.2.1, and the corpus's
+-- Asiddhatva lane); here it is used for its plain logical sense: a
+-- proposition the kernel has not established.  No source is claimed for
+-- any statement below; the arithmetic formulations are standard.
 --
 -- WHY THIS IS A REAL ARTIFACT AND NOT NOISE.  In this repository the
 -- honest frontier is the obligation, not the answer.  A machine that holds

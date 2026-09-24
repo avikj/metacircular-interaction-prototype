@@ -175,6 +175,11 @@ atLeastWithoutAbove = boundaryMeetsHalf , boundaryIsNotAboveHalf
 -- APPENDED 2026-08-19, by the same identity, at the end, altering no
 -- line above.  The NOT-CLAIMED section says:
 --
+--   "that every threshold has such a population is NOT proved, and
+--    would need a construction of a population realising an arbitrary
+--    p/(suc q), which is a divisibility statement about ℕ and not a
+--    statement about lists."
+--
 -- Proved now, in
 -- `EveryThresholdHasABoundaryPopulationOfItsOwnDenominator`
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +

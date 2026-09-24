@@ -32,12 +32,14 @@
 -- the corpus's own `len` and `cardπ₀`, that the finite set a tally word
 -- is sent to has cardinality equal to the length of the word.
 --
--- PROVENANCE / SCOPE. एकाक्षर ("single-syllable / single-letter")
--- names `Tally` honestly: it is the set of words over a one-symbol
--- alphabet, which is exactly a tally of single marks. सेतु ("ford /
--- bridge") is the tirtha-graph vocabulary `SetuYugma` established for
--- this region. Naming `Tally` एकाक्षर does not claim any source
--- enumerated finite sets.
+-- PROVENANCE / SCOPE.  एकाक्षर ("single-syllable / single-letter") names
+-- `Tally` honestly: it is the set of words over a one-symbol alphabet,
+-- which is exactly a tally of single marks.  सेतु ("ford / bridge") is
+-- the tirtha-graph vocabulary `SetuYugma` established for this region.
+-- The decategorification side (π₀ of finite sets, cardinality of a finite
+-- set) is category-theoretic and is NOT claimed for any Indian source;
+-- the compound एकाक्षर-सेतु is built here, 2026-08-22.  Naming `Tally`
+-- एकाक्षर does not claim any source enumerated finite sets.
 --
 -- No sorry / postulate / axiom / hole; no Bool, no decision.
 ------------------------------------------------------------------------

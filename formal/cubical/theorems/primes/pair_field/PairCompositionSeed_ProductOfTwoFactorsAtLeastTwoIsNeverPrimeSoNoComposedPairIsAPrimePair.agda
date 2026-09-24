@@ -6,9 +6,12 @@
 -- Closes the seed left open in PairComposition, which states (header,
 -- "SEED"):
 --
--- Primality is exactly the condition of falling out of every proper
--- composition. The general lemma is a two-line ¬isPrime-of-product;
--- only the finite witness is checked below."
+--   "SEED (stated, not proved here): for u₁,v₁,u₂,v₂ ≥ 2 every composed
+--    leg is a product of two factors ≥ 2, hence composite; so no
+--    composite of two ≥2-legged pairs is ever a prime pair.  Primality
+--    is exactly the condition of falling out of every proper
+--    composition.  The general lemma is a two-line
+--    ¬isPrime-of-product; only the finite witness is checked below."
 --
 -- WHAT IS PROVED.
 --
@@ -64,7 +67,10 @@
 -- divH*/noDiv* under pattern matching.  Nothing is postulated: if the
 -- recovered Name were wrong, those two refls would fail to check.
 --
--- Nothing from the seed is left open.
+-- WHAT IS NOT PROVED.  Nothing from the seed is left open.  The
+-- converse direction of the tester's specification (divides d n ≡ true
+-- → d ∣ n, and isPrime n ≡ true → दृढम् n) is not needed for the seed
+-- and is not attempted here.
 ------------------------------------------------------------------------
 
 module PairCompositionSeed_ProductOfTwoFactorsAtLeastTwoIsNeverPrimeSoNoComposedPairIsAPrimePair where

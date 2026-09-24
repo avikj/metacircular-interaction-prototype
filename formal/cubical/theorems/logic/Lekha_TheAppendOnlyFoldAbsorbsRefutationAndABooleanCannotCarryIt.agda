@@ -20,17 +20,22 @@
 --
 -- The theorems, in the repository's own vocabulary:
 --
--- 1. PENDING IS MADELESS: the pending status holds exactly on the
--- empty log. No event sustains "not yet decided"; it is what there is
--- before any event, and one proof ends it. 2. REFUTATION ABSORBS: once
--- the fold reads refuted, no later event changes the reading. A
--- refutation cannot be outvoted by enthusiasm — the absorbing law the
--- organism's design ("genuinely proven conclusions flood; refutations
--- are permanent") requires of its fold. 3. The two-valued verdict on
--- the three-valued question cannot compute the future; refuted claims
--- would come back to life. This is the typed zero's founding defect
--- (machinery/crystal's UNDECIDED split; Saptabhangi's दुर्नयः), here
--- as a ⊥ about the ledger itself.
+--   1. PENDING IS MADELESS: the pending status holds exactly on the
+--      empty log.  No event sustains "not yet decided"; it is what
+--      there is before any event, and one proof ends it.
+--   2. REFUTATION ABSORBS: once the fold reads refuted, no later
+--      event changes the reading.  A refutation cannot be outvoted
+--      by enthusiasm — the absorbing law the organism's design
+--      ("genuinely proven conclusions flood; refutations are
+--      permanent") requires of its fold.
+--   3. A BOOLEAN CANNOT CARRY IT: merge pending and refuted into one
+--      "not proved" bit and no transition function on the bit can
+--      simulate the fold — [] and [refute] read equal and diverge
+--      under prove.  The two-valued verdict on the three-valued
+--      question cannot compute the future; refuted claims would come
+--      back to life.  This is the typed zero's founding defect
+--      (machinery/crystal's UNDECIDED split; Saptabhangi's दुर्नयः),
+--      here as a ⊥ about the ledger itself.
 --
 -- Provenance fence: whether this algebra matches the Vaieika
 -- temporal characterisations (andi/snta for prior absence,
@@ -115,7 +120,9 @@ refuted-absorbs log refute _ = refl
 refuted-absorbs log prove  p = cong step p
 
 ------------------------------------------------------------------------
--- 3 · a boolean cannot carry it.
+-- 3 · a boolean cannot carry it.  Merge pending and refuted into one
+-- "not proved" bit; no transition function on the bit simulates the
+-- fold, because [] and [refute] read equal and diverge under prove.
 
 boolRead : Status → Bool     -- true = "not proved"
 boolRead pending     = true

@@ -274,15 +274,19 @@ module अन्धे-उपरि {A B : Type ℓ} (setA : isSet A) (setB : is
 -- §५ · शेषः.
 --
 -- (a) The section-side units as a packaged `Group`, with वासः a
--- `GroupEquiv` onto it — `SamraksakaSamuha` §५'s remainder, still
--- open, and now cheaper: by §१ the section-side unit predicate can be
--- stated as invertibility of the section's point component instead of
--- as stored data. (b) The group leg of `TantuVibhaga`'s decomposition:
--- is आत्मसमता-उपरि ≃ Π over the codomain of Aut(fibre f b)? (c) The
--- ∞-version. Over arbitrary types isEquiv is still a proposition, so
--- §१ has a chance of surviving verbatim while व्युत्क्रम-एकत्वम् does
--- not (its uniqueness argument used प्रवाह-समता, hence setB). Untried.
--- (d) Whether `उपरि-समूहः` and `संरक्षक-समूहः` being GroupEquiv
--- upgrades to a path of `Group`s by univalence for groups — the
--- library has it; nothing below consumes it, so it is not invoked.
+--     `GroupEquiv` onto it — `SamraksakaSamuha` §५'s remainder, still
+--     open, and now cheaper: by §१ the section-side unit predicate can
+--     be stated as invertibility of the section's point component
+--     instead of as stored data.
+-- (b) The group leg of `TantuVibhaga`'s decomposition: is
+--     आत्मसमता-उपरि ≃ Π over the codomain of Aut(fibre f b)?  §२'s
+--     reassociation is what makes this a question about equivalences of
+--     Σ-types rather than about the monoid, but it is NOT proved here.
+-- (c) The ∞-version.  Over arbitrary types isEquiv is still a
+--     proposition, so §१ has a chance of surviving verbatim while
+--     व्युत्क्रम-एकत्वम् does not (its uniqueness argument used
+--     प्रवाह-समता, hence setB).  Untried.
+-- (d) Whether `उपरि-समूहः` and `संरक्षक-समूहः` being GroupEquiv upgrades
+--     to a path of `Group`s by univalence for groups — the library has
+--     it; nothing below consumes it, so it is not invoked.
 ------------------------------------------------------------------------

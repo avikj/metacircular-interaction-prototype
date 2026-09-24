@@ -227,6 +227,9 @@ module _ (R : CommRing ℓ) where
   -- literally the reflection.  Not "corresponds to", not "is conjugate
   -- to" — the two functions are equal.
   --
+  -- This is `Transport.transport-+-is-⊕` one arity down,
+  -- with `transportUAop₁` in place of `transportUAop₂`; the idiom is
+  -- borrowed wholesale and is not claimed as new.
   ----------------------------------------------------------------------
 
   transport-τ-is-ρ :

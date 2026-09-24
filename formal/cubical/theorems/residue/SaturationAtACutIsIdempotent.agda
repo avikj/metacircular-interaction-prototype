@@ -52,11 +52,14 @@
 -- ────────────────────────────────────────────────────────────────────
 --
 -- The note's ↑ and ↓ are min-plus RESIDUATIONS over a semiring-valued
--- kernel, taking burden profiles to residual profiles. The ↑ and ↓
--- below are the two-valued polarities of a RELATION. So what is
--- established is that the SATURATION discipline is sound wherever the
--- adjunction holds — not that Δ 28's particular ↑/↓ satisfy it.
--- Reading this as a theorem about min-plus convolution would be
+-- kernel, taking burden profiles to residual profiles.  The ↑ and ↓
+-- below are the two-valued polarities of a RELATION.  That the former
+-- is an instance of the latter is NOT proved here and is not obvious:
+-- it needs the kernel's values to form a quantale and the residuations
+-- to be its adjoints, none of which is set up in this repository.  So
+-- what is established is that the SATURATION discipline is sound
+-- wherever the adjunction holds — not that Δ 28's particular ↑/↓ satisfy
+-- it.  Reading this as a theorem about min-plus convolution would be
 -- exactly the error of quoting a figure without its input.
 --
 -- Inclusion is used, not equality: `A ⊆ B` and `B ⊆ A` are proved

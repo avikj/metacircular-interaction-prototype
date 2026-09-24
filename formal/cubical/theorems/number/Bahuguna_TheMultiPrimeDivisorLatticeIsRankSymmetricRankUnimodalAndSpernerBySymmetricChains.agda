@@ -9,7 +9,11 @@
 --
 -- THE ABSENCE, quoted from SpernerFromSl2 §8, verbatim:
 --
--- "THE OPEN STATEMENT.
+--   "THE OPEN STATEMENT.  Uninhabited below, deliberately."
+--        GeneralSperner : Type₁
+--   "Likewise for the two intermediate steps, so the queue is explicit:
+--    rank-unimodality is NOT degenerate in general and is not proved."
+--        GeneralRankSymmetry : Type₀
 --
 -- and, from its header: "THE SCOPE, EXACTLY, and is stated as a type
 -- with NO inhabitant (§8): the general case B_n = ⨂_i V_{α_i}, i.e. the

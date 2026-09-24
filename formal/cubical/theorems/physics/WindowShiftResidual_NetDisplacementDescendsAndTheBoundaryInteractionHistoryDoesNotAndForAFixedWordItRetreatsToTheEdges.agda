@@ -22,11 +22,11 @@
 --       window action does not factor through displacement
 --       (DescentObstructionUnified.factorObstruction).
 --
--- READING. The finite prime-translation operator of the compact-window
--- Weil formula introduces shifts a = log n up to the window size, so
--- fresh words always live at boundary scale; this is the exact-layer
--- reason bulk convergence of finite operators is not spectral
--- convergence.
+-- READING.  The finite prime-translation operator of the compact-window
+-- Weil formula introduces shifts a = log n up to the window size, so fresh
+-- words always live at boundary scale; this is the exact-layer reason
+-- bulk convergence of finite operators is not spectral convergence.
+-- That reading is not proved here; §§1–3 are.
 --
 -- SYĀT — THE CLAIM, EXACTLY.  Functions ℕ → ℤ read on a window, two
 -- truncated shifts, pointwise identities by case analysis on ℕ's order.

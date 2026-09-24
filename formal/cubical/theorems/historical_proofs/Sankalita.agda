@@ -192,7 +192,8 @@ vara3-is-meru = varasankalita 3 5
 --     mātrā n  =  Σ_k  C(n − k, k),
 --
 -- and it is checked numerically by `Pingala`'s own worked instances at
--- small n.
+-- small n.  It is NOT proved here, and the reason is worth recording so
+-- the next attempt does not repeat it.
 --
 -- THE NATURAL ENCODING, which walks the diagonal by decreasing the first
 -- index by two and increasing the second by one:

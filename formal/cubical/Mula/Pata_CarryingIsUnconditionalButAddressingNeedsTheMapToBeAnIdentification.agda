@@ -167,10 +167,12 @@ data अक्षर : Type₀ where
 ------------------------------------------------------------------------
 -- ५ · What §४ does and does not show.
 --
--- It shows मात्रा is not an address. It does NOT show that the
--- प्रस्तार's rank map fails to be one — उद्दिष्ट IS an address, and
--- the punaragamana module proves it by exhibiting नष्ट with both round
--- trips.
+--     It shows मात्रा is not an address.  It does NOT show that the
+--     प्रस्तार's rank map fails to be one — उद्दिष्ट IS an address, and the
+--     punaragamana module proves it by exhibiting नष्ट with both round
+--     trips.  That direction is not reproved here and is not claimed;
+--     what is claimed is only the contrast, which needs just one side to
+--     be exhibited to be a distinction rather than a preference.
 --
 --     And it shows the two are independent properties of the SAME map
 --     type, not two grades of one property: `मात्रा-वहनम्` and

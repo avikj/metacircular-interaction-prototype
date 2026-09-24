@@ -3,13 +3,14 @@
 ------------------------------------------------------------------------
 -- TheAdjunctionAndTheUnitCounitPackageAreInterderivableAndTheyNeedDifferentAxioms
 --
--- ON THE NAME. Checked before naming: `.claude/hooks/priority-
--- ledger.txt` (CURRENT header) and `.claude/hooks/european-frame.txt`;
--- `formal/` and invented.**  The abstract order-theoretic form used
--- here — two preorders, two antitone maps, one adjunction — is Ore's
--- ("Galois connexions", *Trans. AMS* 55, 1944), after Birkhoff
--- (*Lattice Theory*, 1940, §V); the module being audited already cites
--- both.
+-- ON THE NAME.  Checked before naming: `.claude/hooks/priority-ledger.txt`
+-- (CURRENT header) and `.claude/hooks/european-frame.txt`; `formal/` and
+-- invented.**  The abstract order-theoretic form used here — two
+-- preorders, two antitone maps, one adjunction — is Ore's ("Galois
+-- connexions", *Trans. AMS* 55, 1944), after Birkhoff (*Lattice
+-- Theory*, 1940, §V); the module being audited already cites both.  I
+-- have not established an Indian source for it and will not attach a
+-- label I cannot defend.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- THE AUDIT, AND WHAT IT FOUND AND DID NOT FIND.

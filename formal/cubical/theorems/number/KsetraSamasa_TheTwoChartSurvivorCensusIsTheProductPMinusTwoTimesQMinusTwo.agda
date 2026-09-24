@@ -18,13 +18,17 @@
 -- factorEquiv.  Three lines; the content is that each factor is exactly
 -- the elided-two-residue count and the counts multiply.
 --
--- THE MODELLING CHOICE, stated so it is not smuggled. The joint
--- survivor set is taken to be the PRODUCT of the local survivor sets.
--- That is the sieve's own model: the two-wall condition at a prime is
--- independent of the condition at a coprime prime, so a joint survivor
--- is a tuple of local survivors. So the result is the DENSITY product,
--- honestly on the product carrier; the CRT identification with the
--- residue line mod p·q is the remaining, named, half of the atlas.
+-- THE MODELLING CHOICE, stated so it is not smuggled.  The joint survivor
+-- set is taken to be the PRODUCT of the local survivor sets.  That is the
+-- sieve's own model: the two-wall condition at a prime is independent of
+-- the condition at a coprime prime, so a joint survivor is a tuple of
+-- local survivors.  The identification of this product with the survivors
+-- inside Fin (p·q) is the Chinese Remainder ring-iso (ℤ/pq ≃ ℤ/p × ℤ/q,
+-- coprime), which is NOT proved here — this module works on the product
+-- carrier directly, where the count is exact and needs no CRT.  So the
+-- result is the DENSITY product, honestly on the product carrier; the
+-- CRT identification with the residue line mod p·q is the remaining,
+-- named, half of the atlas.
 --
 -- No claim about primes as such: p = 2+m is any modulus ≥ 2 with two
 -- distinct walls; primality and coprimality enter only when this product

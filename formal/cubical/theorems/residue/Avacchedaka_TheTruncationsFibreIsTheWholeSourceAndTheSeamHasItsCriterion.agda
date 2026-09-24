@@ -41,12 +41,13 @@
 -- of the map can see which point it came from.  That is what makes
 -- truncation अप्रतिकार्या rather than merely lossy.
 --
--- §२ settles the level-४ side by exhibiting the archetype; the note's
--- level-३ side (`fibre अनर्पणम् (स्यात्-अस्ति) ≃ syādasti P`, a PROPER
--- part, with other maps out of the source still seeing the difference)
--- is a second instance in another lane and is not reproved here. Two
--- instances are two instances. The general claim needs the scale, and
--- the scale is that note's.
+-- NOT ESTABLISHED: that "fibre ≃ whole source" is THE criterion
+-- separating ३ from ४ in general.  §२ settles the level-४ side by
+-- exhibiting the archetype; the note's level-३ side (`fibre अनर्पणम्
+-- (स्यात्-अस्ति) ≃ syādasti P`, a PROPER part, with other maps out of the
+-- source still seeing the difference) is a second instance in another
+-- lane and is not reproved here.  Two instances are two instances.  The
+-- general claim needs the scale, and the scale is that note's.
 --
 -- ALSO NOT DONE, and deliberately: this does NOT add the fourth
 -- constructor to `देश`.  That datatype is in another library, and the

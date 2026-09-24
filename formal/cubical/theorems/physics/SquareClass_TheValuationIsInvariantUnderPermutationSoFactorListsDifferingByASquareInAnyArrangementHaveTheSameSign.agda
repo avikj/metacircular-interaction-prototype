@@ -5,8 +5,12 @@
 --
 -- `GaugeOrbitClasses` (theorems/physics) states, in its SYT paragraph:
 --
--- §7 proves the concatenated form `val σ (m ++ (k ++ k)) ≡ val σ m`,
--- which is the core and avoids permutation machinery.
+--   * The full square-class theorem — that val σ m = val σ n whenever m
+--     and n differ by a square in any arrangement — needs invariance of
+--     `val` under permutation of the factor multiset, which is NOT
+--     proved here.  §7 proves the concatenated form
+--     `val σ (m ++ (k ++ k)) ≡ val σ m`, which is the core and avoids
+--     permutation machinery.
 --
 -- This module closes that absence.  The permutation machinery now
 -- exists in the corpus — `Insert`/`Perm`/`_≈_` and the embedding
@@ -51,11 +55,12 @@
 --       m = p₀p₁p₀ is an arrangement of p₁ · p₀², so val agrees on p₁
 --       and on p₀p₁p₀ — by the theorem, and also by `refl`.
 --
--- That is the statement that the characters separate the square-class
--- group, and it needs a separator constructed from the factor multiset
--- (the sign assignment that flips exactly the primes of odd count in m
--- ++ n); GaugeOrbitClasses does not state it as an absence and it is
--- left open.
+-- NOT PROVED (and not claimed): the converse — that val σ m ≡ val σ n
+-- for every σ forces m and n into one square class.  That is the
+-- statement that the characters separate the square-class group, and
+-- it needs a separator constructed from the factor multiset (the
+-- sign assignment that flips exactly the primes of odd count in m ++ n);
+-- GaugeOrbitClasses does not state it as an absence and it is left open.
 --
 -- No arithmetic beyond Bool; `Number` is `List ℕ` as in ParitySeparator.
 --

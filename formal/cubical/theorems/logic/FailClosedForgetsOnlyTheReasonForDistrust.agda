@@ -26,10 +26,11 @@
 -- passing probe says 'this kernel checks this class of module'; it
 -- certifies nothing about the axioms of any registered library."*
 --
--- It does not, the shelf says so first, and §3 does not try to bridge
--- it — a kernel accepting one true statement is compatible with a
--- library that proves a false one, and nothing below models libraries
--- or axioms at all.
+-- NOT PROVED HERE, and it is the shelf's own limit rather than a gap in
+-- it: that capability implies soundness.  It does not, the shelf says so
+-- first, and §3 does not try to bridge it — a kernel accepting one true
+-- statement is compatible with a library that proves a false one, and
+-- nothing below models libraries or axioms at all.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- HOW THIS DIFFERS FROM THE PREVIOUS CYCLE, kept apart deliberately

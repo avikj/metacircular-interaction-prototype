@@ -34,7 +34,10 @@
 --             bound itself justifies.
 --
 -- So a monotone ℕ-sourced edge is priced by one application, and the
--- verdict computes.
+-- verdict computes.  What is NOT claimed: anything about non-monotone
+-- ℕ-sourced maps — for those सोपानः is a step, not a decision, and
+-- pretending otherwise would be a guessed verdict, which Saptabhangi's
+-- दुर्नयः rules out.
 ------------------------------------------------------------------------
 
 module ResidueMulya_TheNatSourcedFibrePeelsLikeTheKuttakaAndMonotoneEdgesNeverForget where

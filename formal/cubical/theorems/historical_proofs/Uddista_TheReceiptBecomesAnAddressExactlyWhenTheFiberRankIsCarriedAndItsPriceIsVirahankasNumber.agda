@@ -66,6 +66,9 @@
 --                   recurrence is not decoration on this statement; it
 --                   is the size of the field that had to be added.
 --
+-- ────────────────────────────────────────────────────────────────────
+-- SOURCES, and what is NOT claimed of them.
+--
 -- Piṅgala, छन्दःशास्त्रम् ८.२३–३५ (~300 BCE), the प्रत्ययाः: प्रस्तार (lay the
 -- table out by a rule, do not store it), नष्ट (given a place, recover the
 -- pattern), उद्दिष्ट (given the pattern, recover its place, ८.२४–२५), and

@@ -3,9 +3,12 @@
 ------------------------------------------------------------------------
 -- नेरोड-यन्त्र — the machine, constructed.
 --
--- RESOLUTION OF A FORMER SCOPE LINE. This file ends that: THE
--- AUTOMATON NOW EXISTS, and the reading is a theorem, in its strongest
--- form:
+-- RESOLUTION OF A FORMER SCOPE LINE.  Abstract 15 proved the
+-- indistinguishability relation of a modular sensor family equal to
+-- divisibility by the lcm, and its closing section said the automaton
+-- itself was absent — the automata-theoretic reading was offered, not
+-- proved.  This file ends that: THE AUTOMATON NOW EXISTS, and the
+-- reading is a theorem, in its strongest form:
 --
 --   §1  A Moore machine is a transition function δ : S → S (unary
 --       alphabet — the input letter is "advance") with an observation

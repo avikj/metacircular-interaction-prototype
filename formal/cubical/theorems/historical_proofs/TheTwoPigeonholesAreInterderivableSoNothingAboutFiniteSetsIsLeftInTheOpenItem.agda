@@ -41,7 +41,9 @@
 -- ────────────────────────────────────────────────────────────────────
 -- 1.  WHAT IS PROVED, and it closes the smaller half of (w″)
 --
--- It is, and here it is:
+-- At 806bd0ea I proved `FinPigeonhole → TheOpenPigeonhole` and wrote
+-- that the converse *"is not proved either, though it should be
+-- immediate at `X = Y = SFin n`"*.  It is, and here it is:
 --
 --   finSetOn n     the `FinSet` structure carried by `SFin n` itself —
 --                  `card` is `n` and the mere equivalence is `idEquiv`

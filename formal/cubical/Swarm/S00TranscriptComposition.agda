@@ -226,6 +226,9 @@ module RecordBound {X : Type ℓ} where
 --
 -- Proved: everything above, with no postulates and no holes.
 --
+-- Not proved here (proved by hand, elementarily, in the accompanying
+-- note): the exact finite composition law
+--
 --     r₁  ≤  R  ≤  r₁ · f,
 --
 -- where `r₁` is the stage-1 record size, `f` the merge multiplicity of

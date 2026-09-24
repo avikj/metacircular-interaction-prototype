@@ -9,7 +9,12 @@
 -- is met as written and defeated as meant.  The word is used here for
 -- that literal content; no source is claimed to state anything below.
 --
--- WHY THIS FILE EXISTS.
+-- WHY THIS FILE EXISTS.  The abstract "NO SCORING FUNCTION OF THE
+-- OUTCOME DISTINGUISHES TWO ROUTES TO IT" says, under WHAT IS NOT
+-- CLAIMED, that no MDP, no policy, no return, no estimator and no
+-- training dynamics appear in the development, and that naming reward
+-- hacking and specification gaming as the phenomena it explains is a
+-- reading and is not proved.
 --
 -- All of it is built here, and the identification becomes a theorem.
 -- A Markov decision process; policies; the return, both undiscounted

@@ -44,12 +44,14 @@
 --       substitution the reader performs in whatever ring has them; the
 --       theorem does not need them and does not name them.
 --
--- WHAT THESE TWO HALVES ARE DOING TOGETHER. §§1–2 say the memory
+-- WHAT THESE TWO HALVES ARE DOING TOGETHER.  §§1–2 say the memory
 -- kernel is positive and controlled by the radius ratio; §3 says the
 -- sum of a geometric tower against such a control has an exact closed
--- form at every truncation depth. What is asserted is that neither the
--- positivity nor the closed form is where that analysis is needed —
--- both are algebra, and both are checked.
+-- form at every truncation depth.  The finiteness conclusion drawn from
+-- them is a bound on a limit and needs an ordered complete field; it is
+-- not asserted here.  What is asserted is that neither the positivity
+-- nor the closed form is where that analysis is needed — both are
+-- algebra, and both are checked.
 --
 -- SYĀT — THE CLAIM, EXACTLY.  §§1–2 in ℕ, for every pair of radii.  §3
 -- in any commutative ring, for every element, every inverse of its

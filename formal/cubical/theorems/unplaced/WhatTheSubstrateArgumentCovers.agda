@@ -31,10 +31,15 @@
 --       holds while `⊥` is empty, so stability never yields
 --       inhabitation.  Exhibited, not argued.
 --
--- §3  so the two deflations have different ranges, and §3 states them
--- as such: the substrate argument ranges over what is PROVED and gives
--- inhabitation; the stability argument ranges over what is ¬¬-provable
--- and gives no inhabitation.
+--   §3  so the two deflations have different ranges, and §3 states them
+--       as such: the substrate argument ranges over what is PROVED and
+--       gives inhabitation; the stability argument ranges over what is
+--       ¬¬-provable and gives no inhabitation.  Between them sits
+--       exactly the class of statements that are ¬¬-provable and not
+--       proved — which is where `WhereTheTowerCanStillBeThree` §5's Σ
+--       question lives, and which by
+--       `TheUnstableGroundCannotBeExhibited` can never be populated by
+--       an exhibited example.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- SAID WITH ITS RESPECT, BECAUSE §3 COULD BE MISREAD AS A COMPLAINT

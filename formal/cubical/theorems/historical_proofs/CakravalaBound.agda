@@ -88,7 +88,8 @@
 --     really about ANY rule that beats that candidate, and Bhskara's is
 --     the simplest such.
 --   * The constant 36 is 4·(1 + 1/2)², the value of the classical
---     |k'| ≤ √D + K/4 at K = 2√D.  All §4 needs is 36 < 64.
+--     |k'| ≤ √D + K/4 at K = 2√D; iterating the same estimate drives it
+--     toward 4·(4/3)² = 64/9.  All §4 needs is 36 < 64.
 --   * `1 ≤ r ≤ K` is a normalisation of the congruence class, not a
 --     restriction: every class mod K has such a representative.
 ------------------------------------------------------------------------

@@ -299,7 +299,13 @@ factorsThrough-transfer-discreteTarget isSetT discT q q' t ce ft =
 --   summarised it as "krama ≠ sah", which is not what is proved
 --   there):
 --
--- It is not युगपत्.
+--     स्यादस्ति — in the respect of discrete targets, exclusion is
+--                 ground (§6);
+--     स्यान्नास्ति — in the respect of arbitrary set targets, it is not
+--                 shown to be (§4 characterises transfer by ground
+--                 alone, and §6 does not reach that far);
+--     and asserting these two IN SUCCESSION, which is what the two
+--     lines above do, is क्रम — the third bhaṅga.  It is not युगपत्.
 --
 --   The युगपत् position would be a single assertion, not indexed to a
 --   respect, holding both at once; in this setting that is precisely a

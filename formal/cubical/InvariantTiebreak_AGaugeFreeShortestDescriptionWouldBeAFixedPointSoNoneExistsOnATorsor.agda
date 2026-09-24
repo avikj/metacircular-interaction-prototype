@@ -439,7 +439,7 @@ allNoInvariantTiebreak : ¬ (InvariantTiebreak allAct ℓ-zero)
 allNoInvariantTiebreak = noFixed→noInvariantTiebreak allNoFixed
 
 ------------------------------------------------------------------------
--- 7.
+-- 7.  What is NOT claimed
 --
 --  * No claim that `leastIsFixed` is new outside this repository.  It is
 --    the finite-orbit "minimum of an invariant order is invariant"

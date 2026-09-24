@@ -79,12 +79,14 @@ open import Cubical.Tactics.NatSolver using (solveℕ!)
 --
 --     cd formal/cubical && agda BhavanaSemiring.agda
 --
--- The consequence reaches further than this file:
--- `interactive/NalandaEmit.hs` emits a witness importing
--- `BhavanaSemiring` and `CakravalaNat`, and
--- `interactive/NalandaCertify.hs` hands that witness to the kernel and
--- reports the verdict. Under the pinned toolchain that pipeline cannot
--- return a green, because its dependencies do not check.
+-- The consequence reaches further than this file: `interactive/NalandaEmit.hs`
+-- emits a witness importing `BhavanaSemiring` and `CakravalaNat`, and
+-- `interactive/NalandaCertify.hs` hands that witness to the kernel and reports
+-- the verdict.  Under the pinned toolchain that pipeline cannot return a
+-- green, because its dependencies do not check.  BUILD.md §"Where the skew
+-- bites" catalogues the 2.6.3 → 2.8.0 migration and says the tree "is not
+-- claimed to be dual-version compatible"; these three modules are on the
+-- wrong side of it.
 --
 -- WHAT IS NOT DONE HERE, and why.  The repair is mechanical — the import
 -- line and one token per theorem — and it is NOT done in this commit,
@@ -199,11 +201,13 @@ vpQIsSquare x y = solveℕ!
 ------------------------------------------------------------------------
 -- THE CONTAINMENT, AS A CHECKED TERM.
 --
--- The statement below is `BhavanaSemiring.bhavanaℕ` verbatim —
--- Brahmagupta's composition law over ℕ as this repository already
--- states it. It is `transport`ed out of `bhavanaTraceℕ 0 D x₁ y₁ x₂
--- y₂` along the two coordinate equalities above. So: the general law
--- AT T = 0 IS his law, and the kernel says so.
+-- The statement below is `BhavanaSemiring.bhavanaℕ` verbatim — Brahmagupta's
+-- composition law over ℕ as this repository already states it.  It is NOT
+-- proved here by calling the solver again, which would show only that both
+-- are semiring identities and would leave the generalisation and the source
+-- as two unrelated true things.  It is `transport`ed out of
+-- `bhavanaTraceℕ 0 D x₁ y₁ x₂ y₂` along the two coordinate equalities
+-- above.  So: the general law AT T = 0 IS his law, and the kernel says so.
 --
 -- The `0 · (X · Y) +` summand of the general statement disappears
 -- definitionally at T = 0, because ℕ's builtin `_·_` reduces `zero · m` to

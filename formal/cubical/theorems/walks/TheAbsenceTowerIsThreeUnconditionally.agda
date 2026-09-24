@@ -50,11 +50,14 @@
 --       already at the fixed point and can never be the top of a
 --       three-tall tower.
 --
--- HOW MUCH OF THIS CORPUS THAT COVERS IS A COUNT, NOT A LAW. A grep of
--- `formal/cubical/NaturalMachine` on 2026-08-19: 396 modules, of which
--- 235 have a `¬` somewhere in a top-level signature and 20 mention `¬
--- FactorsThrough`. That is a count produced by pattern-matching on
--- text.
+--       HOW MUCH OF THIS CORPUS THAT COVERS IS A COUNT, NOT A LAW.  A
+--       grep of `formal/cubical/NaturalMachine` on 2026-08-19: 396
+--       modules, of which 235 have a `¬` somewhere in a top-level
+--       signature and 20 mention `¬ FactorsThrough`.  That is a count
+--       produced by pattern-matching on text.  It is not a
+--       classification of the corpus's obstructions, it does not
+--       establish that the obstruction of any particular module has
+--       negation form, and no claim below rests on it.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- THE DICHOTOMY IS THE ONE ANEKNTA NAMES

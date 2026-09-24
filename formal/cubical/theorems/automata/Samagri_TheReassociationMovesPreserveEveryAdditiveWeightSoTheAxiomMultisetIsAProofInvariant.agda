@@ -1,11 +1,13 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- सामग्री — the complete apparatus. Nyāya's name for the total
--- collection of causes that produces an effect; here, the multiset of
--- AXIOMS a proof path consumes. runtime/propagate quotients proof
--- paths by exactly this (STATUS.md: "two paths are one proof when they
--- consume the same multiset of axiom justifications, i.e. Proved here:
+-- सामग्री — the complete apparatus.  Nyāya's name for the total collection
+-- of causes that produces an effect; here, the multiset of AXIOMS a proof
+-- path consumes.  runtime/propagate quotients proof paths by exactly this
+-- (STATUS.md: "two paths are one proof when they consume the same multiset
+-- of axiom justifications, i.e. when reassociating congruence/symmetry/
+-- transitivity carries one to the other") — and the well-definedness of
+-- that quotient is declared, not proved.  Proved here:
 --
 --   §2  EVERY reassociation move preserves EVERY additive weighting of
 --       the axioms.  Universal linear invariance is multiset equality

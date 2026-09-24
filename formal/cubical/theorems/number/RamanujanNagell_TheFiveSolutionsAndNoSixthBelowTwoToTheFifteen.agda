@@ -4,9 +4,11 @@
 -- रामानुजन्–नागेल् — THE FIVE SOLUTIONS, AND NO SIXTH BELOW 2¹⁵.
 --
 -- Ramanujan asked (J. Indian Math. Soc., 1913): when is 2ⁿ − 7 a
--- perfect square? He listed n = 3, 4, 5, 7, 15 — squares 1, 9, 25,
--- 121, 32761 — and conjectured there are no others. What IS proved,
--- completely:
+-- perfect square?  He listed n = 3, 4, 5, 7, 15 — squares 1, 9, 25,
+-- 121, 32761 — and conjectured there are no others.  Nagell proved
+-- the full conjecture in 1948 in ℤ[√−2]; that argument is beyond
+-- this file's exact-arithmetic discipline and is not claimed.  What
+-- IS proved, completely:
 --
 --   `sol₃ … sol₁₅` — the five solutions, subtraction-free
 --     (x² + 7 ≡ 2ⁿ), each by refl; the famous 181² + 7 ≡ 32768
@@ -187,7 +189,9 @@ x-bounded n x hn sq = go (splitℕ-≤ x 181)
 ------------------------------------------------------------------------
 
 -- Every solution of x² + 7 = 2ⁿ with n ≤ 15 is one of Ramanujan's
--- five.
+-- five.  The range includes his largest; what lies beyond is
+-- Nagell's, by other instruments, and is not claimed here — it is
+-- named.
 ramanujan-nagell-below-15 : (n x : ℕ) → n ≤ 15 →
   x · x + 7 ≡ pow2 n → Five n x
 ramanujan-nagell-below-15 n x hn sq =

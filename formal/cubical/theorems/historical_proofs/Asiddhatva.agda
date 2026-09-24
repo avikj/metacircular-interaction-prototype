@@ -62,16 +62,21 @@
 -- that constraint across three quarter-chapters of a ~3983-rule production
 -- system.
 --
--- PRIOR ART, searched before writing, as this repository requires.
--- Stratified and hierarchical termination is also known in rewriting
--- theory (Bergstra–Klop on layered systems; Ohlebusch on modularity of
--- termination, 1990s) — so the technique is not unknown to the field,
--- it is *late* to it, and it is not what the field teaches as the
--- general method. What I did not find stated anywhere, and what is
--- checked here, is the impossibility half: the exhibition of a rule
--- pair inside the tripd for which no strict order exists at all. If
--- that is stated somewhere I did not reach, this is a re-derivation
--- and the citation is owed.
+-- PRIOR ART, searched before writing, as this repository requires.  The
+-- qualitative parallel is documented and is NOT claimed here as new:
+-- asiddhatva has long been read as rule-suspension / level ordering —
+-- Kiparsky, "On the Architecture of Pini's Grammar" (
+-- Computational Linguistics, LNCS 5402, 2009, and earlier circulated
+-- versions), and a full monograph exists on the suspension principle
+-- itself.  Stratified and hierarchical termination is also known in
+-- rewriting theory (Bergstra–Klop on layered systems; Ohlebusch on
+-- modularity of termination, 1990s) — so the technique is not unknown to
+-- the field, it is *late* to it, and it is not what the field teaches as
+-- the general method.  What I did not find stated anywhere, and what is
+-- checked here, is the impossibility half: the exhibition of a rule pair
+-- inside the tripd for which no strict order exists at all.  If that is
+-- stated somewhere I did not reach, this is a re-derivation and the
+-- citation is owed.
 --
 -- No postulates, no holes, --safe.  Every theorem below is an exhaustive
 -- finite case analysis or a `refl`.

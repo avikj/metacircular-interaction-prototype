@@ -141,9 +141,10 @@ bounded-collision-obstructs-bisim-upgrade fuel bounded word separates upgrade =
 ------------------------------------------------------------------------
 -- Boundary
 --
--- If it is absent, SingletonActionObservability's maps remain checked,
--- but maps both ways between proof-relevant types do not by themselves
--- supply inverse laws. Nothing here concerns indexed branching, a
--- later modality, clocks, a final coalgebra, or decidable/finite-state
--- discovery of closure.
+-- `isSet TotalView` is sufficient for the proposition-level packaging; it is
+-- not claimed necessary for a particular pair to admit an equivalence.  If
+-- it is absent, SingletonActionObservability's maps remain checked, but maps
+-- both ways between proof-relevant types do not by themselves supply inverse
+-- laws.  Nothing here concerns indexed branching, a later modality, clocks,
+-- a final coalgebra, or decidable/finite-state discovery of closure.
 ------------------------------------------------------------------------

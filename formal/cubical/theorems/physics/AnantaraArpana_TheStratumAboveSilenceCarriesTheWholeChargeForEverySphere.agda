@@ -29,14 +29,18 @@
 -- arrives whole or not at all.  (At strata BELOW the silence boundary
 -- the truncation is contractible a fortiori by the same connectivity.)
 --
--- SOURCES AND SCOPE (the six rules). The engines are the LIBRARY's:
+-- SOURCES AND SCOPE (the six rules).  The engines are the LIBRARY's:
 -- sphereConnected (Cubical.HITs.Sn.Properties) for the silence;
--- πTruncIso and isSetΩTrunc (Cubical.Homotopy.Group.Base) and πₙSⁿ≅ℤ
--- (Cubical.Homotopy.Group.PinSn) for the utterance. This module's
--- content is their COMPOSITION into the adjacency statement, closing
--- the question the corpus's own doctrine left open. अनन्तर (without
--- interval, immediately adjacent) is ordinary ; the compound अनन्तर-
--- अर्पण is built here and claimed of no source.
+-- πTruncIso and isSetΩTrunc (Cubical.Homotopy.Group.Base) and
+-- πₙSⁿ≅ℤ (Cubical.Homotopy.Group.PinSn) for the utterance.  This
+-- module's content is their COMPOSITION into the adjacency statement,
+-- closing the question the corpus's own doctrine left open.  The
+-- reading-word अर्पित/अनर्पित is Umāsvāti, Tattvārthasūtra 5.31
+-- (अर्पितानर्पितसिद्धेः), as in StaraArpana: the sūtra names
+-- establishment from the emphasized and the non-emphasized aspect and
+-- is NOT claimed to grade truncations by h-level.  अनन्तर (without
+-- interval, immediately adjacent) is ordinary ; the compound
+-- अनन्तर-अर्पण is built here and claimed of no source.
 --
 -- Composed against the warm kernel; the library was read first
 -- (Group/Base 655–810, PinSn 116–186) and the terms fit on the first

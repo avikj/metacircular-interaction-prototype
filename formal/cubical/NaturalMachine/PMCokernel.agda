@@ -60,11 +60,14 @@
 --     `PMTorus.cycleEquiv` rather than measured.  `kernelIso` is the
 --     bridge: ker δ ≃ PMTorus.Cycle.
 --
--- The upstream operator data (the Weyl 2-cocycle μ and the gauge
--- 1-cochain φ of the note) is NOT formalized: the sign vector s enters
--- here as a DATUM, transcribed from the note, not derived from
--- Gaussian-integer Pauli matrices. What is proved is everything
--- downstream of s.
+-- WHAT IS *NOT* PROVED.  The quotient type F₂⁶/im δ is not constructed
+-- (no SetQuotient), exactly as in `PMTorus`; "coker δ ≅ F₂" is
+-- delivered in its usable form — im δ = ker total (both inclusions)
+-- together with total onto.  The upstream operator data (the Weyl
+-- 2-cocycle μ and the gauge 1-cochain φ of the note) is NOT formalized:
+-- the sign vector s enters here as a DATUM, transcribed from the note,
+-- not derived from Gaussian-integer Pauli matrices.  What is proved is
+-- everything downstream of s.
 --
 -- Reuses `NaturalMachine.PMTorus` (same square, same F₂ toolkit, same
 -- conventions) and duplicates none of it: PMTorus works on the
@@ -401,9 +404,11 @@ rows-only-section = zeroObs , refl , refl , refl
 ------------------------------------------------------------------------
 -- 6.  EXACTNESS: im δ is exactly ker(total), and total is onto.
 --
--- Together: coker δ ≅ 𝔽₂ with `total` as the class evaluator. The hard
--- inclusion is imported from `PMTorus.even-kernel-is-image` along the
--- graph identification of §7 — no second preimage construction.
+-- Together: coker δ ≅ 𝔽₂ with `total` as the class evaluator.  The
+-- quotient type is not constructed (see the header); what is proved is
+-- the pair of statements that a cokernel computation consumes.  The
+-- hard inclusion is imported from `PMTorus.even-kernel-is-image` along
+-- the graph identification of §7 — no second preimage construction.
 ------------------------------------------------------------------------
 
 -- δ and PMTorus's ∂ are the same map, read through Obs ≃ Edge and

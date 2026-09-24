@@ -80,8 +80,8 @@ module Field (IsPrime : ℤ → Type) where
   ----------------------------------------------------------------------
   -- 2.  The two conjectures, as DEFINITIONS (Delta 23 §2)
   --
-  -- They are here so that §3's structural theorems have something to be
-  -- about.
+  -- Stated, not proved, not weakened.  They are here so that §3's
+  -- structural theorems have something to be about.
   ----------------------------------------------------------------------
 
   -- Goldbach: every sufficiently large centre fibre is inhabited.

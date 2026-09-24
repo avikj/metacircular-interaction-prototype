@@ -137,14 +137,16 @@ pal₃ = refl
 ¬pal-w₂ p = false≢true (cons-inj₁ p)
 
 ------------------------------------------------------------------------
--- There the involution is negation on the offset coordinate, the blind
--- observables are the even data (|r|, r², the wedge-norm), the sighted
--- observable is sign, and the fixed locus is r = 0, the diagonal. This
--- should connect to PairCoordinates' wedge-antisym: the wedge is not
--- blind but ANTI-blind (picks up exactly the sign of the ℤ/2), which
--- is the third character — equivariant of weight −1 — that lists
--- already exhibit via rev-++ swapping the concatenation order. A
--- second seed: transport length along revPath above and check
--- transport (λ i → revPath i → ℕ) length ≡ length — the ua-computation
--- making "achromatic = transports trivially" literal.
+-- Successor seed (not attempted here): the same trichotomy —
+-- involution / blind observables / fixed locus — for the pair field's
+-- r ↦ −r.  There the involution is negation on the offset coordinate,
+-- the blind observables are the even data (|r|, r², the wedge-norm),
+-- the sighted observable is sign, and the fixed locus is r = 0, the
+-- diagonal.  This should connect to PairCoordinates' wedge-antisym:
+-- the wedge is not blind but ANTI-blind (picks up exactly the sign of
+-- the ℤ/2), which is the third character — equivariant of weight −1 —
+-- that lists already exhibit via rev-++ swapping the concatenation
+-- order.  A second seed: transport length along revPath above and
+-- check transport (λ i → revPath i → ℕ) length ≡ length — the
+-- ua-computation making "achromatic = transports trivially" literal.
 ------------------------------------------------------------------------

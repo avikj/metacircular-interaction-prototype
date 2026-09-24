@@ -90,10 +90,12 @@ module _ {M : Type ℓ} (CM : CMonoid M) where
   बॉब्-सिद्धिः g a b = sym (घात-गुणः CM g b a) ∙ cong (pow g) (·-comm b a)
 
 ------------------------------------------------------------------------
--- §4  The break, as a reduction shape. DH's secret a is recoverable
--- iff the discrete log of `pow g a` is — the inverse of घात. Given the
--- exponent a (which order-finding yields), the shared secret is one
--- more घात.
+-- §4  The break, as a reduction shape.  DH's secret a is recoverable iff
+--     the discrete log of `pow g a` is — the inverse of घात.  Given the
+--     exponent a (which order-finding yields), the shared secret is one
+--     more घात.  So the secret is exactly one घात-inverse away, and that
+--     inverse is Shor's territory (Bijamula §4); the quantum step is not
+--     proved here.
 --
 --     Stated as: if an oracle returns the exponent a from A = pow g a,
 --     then the shared secret साधारणम् g a b follows from the public B by

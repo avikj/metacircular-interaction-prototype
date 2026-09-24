@@ -68,15 +68,15 @@
 --                    of indicators is the reflection of HomometricPair
 --                    (`reflect11` there, with 11 replaced by d).
 --
--- (i) `reflect-iv` and `reflect-support` are established by exhaustion
--- for diameter ≤ 10, not as general lemmas for all d; the minimality
--- theorem does not depend on them — the sweep compares every pair
--- directly, without symmetry reduction — they are consistency checks
--- tying reversal to the reflection of the existence half. (ii) The
--- reduction of ℤ-congruence to the normal-form shapes is inherited
--- from HomometricPair, where it is a definition, not a theorem. (iii)
--- The second minimality clause ("6 distinct pairs across 12 collision
--- events", a statement about diameter 11) is not touched.
+-- WHAT IS NOT PROVED.  (i) `reflect-iv` and `reflect-support` are
+-- established by exhaustion for diameter ≤ 10, not as general lemmas
+-- for all d; the minimality theorem does not depend on them — the sweep
+-- compares every pair directly, without symmetry reduction — they are
+-- consistency checks tying reversal to the reflection of the existence
+-- half.  (ii) The reduction of ℤ-congruence to the normal-form shapes is
+-- inherited from HomometricPair, where it is a definition, not a
+-- theorem.  (iii) The second minimality clause ("6 distinct pairs across
+-- 12 collision events", a statement about diameter 11) is not touched.
 --
 -- TIMINGS (Agda 2.8.0, --safe, this machine): the whole file with the
 -- sweep bound at diameter ≤ 6 (64 sets) checks in about 3 s; at

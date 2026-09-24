@@ -43,11 +43,14 @@
 -- THE TWO EDGES THE CENSUS NEVER SAW, which is the finding.
 --
 -- `triple : ℤ → ℤ` (`S3IntegerRelativeCoordinates.agda:83`) and
--- `मात्रा : रूप → ℕ` (`fibre/src/…/Prastara_….agda:157`) are top-
--- level, total, non-injective maps whose fibres are written 12 and 95
--- lines below them respectively. NEITHER APPEARS among the 1046. So
--- the queue's number is not an upper bound on the corpus's one-way
--- edges and was being read as one.
+-- `मात्रा : रूप → ℕ` (`fibre/src/…/Prastara_….agda:157`) are
+-- top-level, total, non-injective maps whose fibres are written 12 and
+-- 95 lines below them respectively.  NEITHER APPEARS among the 1046.
+-- So the queue's number is not an upper bound on the corpus's one-way
+-- edges and was being read as one.  The reason the parse drops them is
+-- not established here and is left open rather than guessed; a verdict
+-- guessed is worse than a verdict withheld, which is the census's own
+-- standing line about itself.
 --
 -- The मात्रा closure is NOT carried in this module: `LosslessReturn.…` is a
 -- separate library root and importing it here would change what

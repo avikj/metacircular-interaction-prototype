@@ -20,12 +20,13 @@
 -- each with the closure recorded underneath, because deleting a
 -- confession loses the record of what it cost to discharge.
 --
--- Its coprime-splitting core is already the checked term
--- NaturalMachine.WalkForcing.leastNonDivisor-no-coprime- split; what
--- is still missing is the arithmetic fact that a number with no proper
--- coprime splitting IS a prime power (i.e. that every n > 1 which is
--- not a prime power admits such a splitting). That is a factorisation
--- statement, and nothing here supplies it.
+--   * The CONVERSE of §(c), (⇒) -- "a jump point is a prime power" --
+--     is not proved here.  Its coprime-splitting core is already the
+--     checked term NaturalMachine.WalkForcing.leastNonDivisor-no-coprime-
+--     split; what is still missing is the arithmetic fact that a number
+--     with no proper coprime splitting IS a prime power (i.e. that every
+--     n > 1 which is not a prime power admits such a splitting).  That
+--     is a factorisation statement, and nothing here supplies it.
 --
 --     CLOSED, 2026-08-13, by NaturalMachine.CoprimeSplitting:
 --     `two-primes→coprime-split` is the missing factorisation statement
@@ -34,6 +35,10 @@
 --     v0.5 -- decidable divisibility -- was derivable in ten lines from
 --     `Cubical.Data.Nat.Mod` (`dec∣` there); no valuation and no
 --     factorisation theory was needed.
+--
+--   * §(b) of the note -- that the walk installs exactly the jump points
+--     -- is not formalised here either; WalkInduction proves the step,
+--     the ordering statement is untouched.
 --
 --     CLOSED, 2026-08-14, by NaturalMachine.WalkBridge, whose header
 --     quotes this very sentence.  The content is that cap is FLAT across

@@ -74,25 +74,29 @@
 --    particular no module here proves any negation of a classical
 --    principle, and none could under `--safe` without postulates.
 --
--- * §5 uses a GIVEN enumeration `A ≃ Fin n`, which is structure.
--- (Contrast `LinearOrderFinite`, where mere totality DOES suffice
--- because the target `Dec (x ≤ y)` is a proposition. The target here,
--- an element of `A`, is not.)
+--  * §5 uses a GIVEN enumeration `A ≃ Fin n`, which is structure.  Mere
+--    finiteness `∥ A ≃ Fin n ∥₁` is NOT claimed to suffice and I do not
+--    believe it does: the search that produces the witness runs along a
+--    chosen enumeration.  (Contrast `LinearOrderFinite`,
+--    where mere totality DOES suffice because the target `Dec (x ≤ y)`
+--    is a proposition.  The target here, an element of `A`, is not.)
 --
 --  * The equivalence in §4 is with excluded middle for PROPOSITIONS, at
 --    one universe level.  No choice principle is analysed.
 --
--- §4 quantifies over arbitrary maps `U : A → B` between sets, whereas
--- the note quantifies over the hom-action of a forgetful FUNCTOR. I
--- claim these coincide, by the following construction, which is argued
--- in prose and NOT checked: let `C` have objects `{a,b}` with
--- `Hom(a,b) = Dec P`, `Hom(b,a) = ⊥`, and only identities otherwise;
--- let `D` be the same with `Hom(a,b) = Unit*`; let `U` be the identity
--- on objects and the constant map on homs. Composition never pairs two
--- non-identity arrows, so both are categories and `U` is a functor. If
--- that construction is wrong, §4 degrades from "the note's sentence IS
--- excluded middle" to "the sentence as I have generalised it is", and
--- §3 and §5 are untouched. This is the step to attack.
+--  * MY LEAST-SURE STEP, and it is not formalised here.  §4 quantifies
+--    over arbitrary maps `U : A → B` between sets, whereas the note
+--    quantifies over the hom-action of a forgetful FUNCTOR.  I claim
+--    these coincide, by the following construction, which is argued in
+--    prose and NOT checked: let `C` have objects `{a,b}` with
+--    `Hom(a,b) = Dec P`, `Hom(b,a) = ⊥`, and only identities otherwise;
+--    let `D` be the same with `Hom(a,b) = Unit*`; let `U` be the
+--    identity on objects and the constant map on homs.  Composition
+--    never pairs two non-identity arrows, so both are categories and `U`
+--    is a functor.  If that construction is wrong, §4 degrades from "the
+--    note's sentence IS excluded middle" to "the sentence as I have
+--    generalised it is", and §3 and §5 are untouched.  This is the step
+--    to attack.
 --
 --  * `¬ ¬ X → ∥ X ∥₁ ⟺ LEM` is standard folklore in univalent
 --    foundations (CITED; web search "HoTT double negation propositional

@@ -256,5 +256,8 @@ readout-separates p = 19≢18 (cong fst p)
 -- whole of what a labelled readout buys over an aggregate one — which is
 -- the theorem, not an aside.
 --
--- Two instances and a mechanism are two instances and a mechanism.
+-- The generalisation is left OPEN and is not claimed here: that for every
+-- n, p with 0 < n mod p < p the labelled count vector determines the phase
+-- uniquely.  Two instances and a mechanism are two instances and a
+-- mechanism.
 ------------------------------------------------------------------------

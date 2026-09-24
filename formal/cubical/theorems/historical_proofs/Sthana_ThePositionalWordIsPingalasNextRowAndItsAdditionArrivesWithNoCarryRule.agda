@@ -169,6 +169,8 @@ CanWord-Monoid = CanWord , subst MonoidStr ℕ≡CanWord (snd ℕ-Monoid)
 संकलन-शून्य-वामे : (x : CanWord) → संकलन शून्य x ≡ x
 संकलन-शून्य-वामे = MonoidStr.·IdL (snd CanWord-Monoid)
 
+-- `Digits.agda` proves `isSetCanWord` directly; here it is again, and it
+-- was not proved again — it rode across inside the record.
 isSetCanWord-routed : isSet CanWord
 isSetCanWord-routed = MonoidStr.is-set (snd CanWord-Monoid)
 

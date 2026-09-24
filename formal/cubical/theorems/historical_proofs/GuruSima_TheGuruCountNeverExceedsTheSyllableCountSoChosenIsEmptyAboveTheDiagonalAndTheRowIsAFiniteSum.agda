@@ -2,6 +2,10 @@
 ------------------------------------------------------------------------
 -- गुरु-सीमा — the summand-wise statement `Lagakriya_…` §८ left.
 --
+-- That module says, exactly: "What is therefore still not proved is the
+-- summand-wise statement — that `Chosen n k` is empty for k > n — which
+-- is true, is what would let the infinite `Σ[ k ∈ ℕ ]` be replaced by a
+-- finite one over `Fin (suc n)`, and is not needed for anything above.
 -- Someone who wants the row read term by term rather than in total has
 -- to prove it."
 --

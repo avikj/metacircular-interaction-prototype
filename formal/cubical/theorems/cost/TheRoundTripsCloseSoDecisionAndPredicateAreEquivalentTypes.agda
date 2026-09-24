@@ -59,19 +59,20 @@
 --         (P : Predicate) (t : Text) (e : P .fst t ≡ true)
 --         → toDecision P t ≡ yes (P .snd t .snd e)
 --
--- `decisionWitnessAtTrue` itself, without `po`. It holds by reduction
--- inside the audited module (`go true e = yes (c t .snd e)`), but `go`
--- is local to the clause `predicateGivesDecision (p , c) t`, closes
--- over `p`, and has `p t ≡ b` as the type of its own second argument;
--- so from outside, for a general `P`, no with-abstraction of `p t` is
--- well-typed (Agda reports an ill-typed with-abstraction, `w != p t`),
--- and case analysis on the VALUE `toDecision P t` yields `yes o` with
--- `o` opaque. What the `Correct` data forces about the value is
--- exactly `decisionAtTrue` (some witness) and `decisionAtFalse` (the
--- given refutation, by `isProp¬`), and those suffice for everything
--- else above. Under `po` the lemma is immediate (`isPropDec`), which
--- is why §4 needs no such parameter. Nothing here examines `Outside`,
--- which remains a parameter, and nothing is empirical.
+-- WHAT IS NOT PROVED, EXACTLY.  `decisionWitnessAtTrue` itself, without
+-- `po`.  It holds by reduction inside the audited module (`go true e =
+-- yes (c t .snd e)`), but `go` is local to the clause
+-- `predicateGivesDecision (p , c) t`, closes over `p`, and has `p t ≡ b`
+-- as the type of its own second argument; so from outside, for a
+-- general `P`, no with-abstraction of `p t` is well-typed (Agda reports
+-- an ill-typed with-abstraction, `w != p t`), and case analysis on the
+-- VALUE `toDecision P t` yields `yes o` with `o` opaque.  What the
+-- `Correct` data forces about the value is exactly `decisionAtTrue`
+-- (some witness) and `decisionAtFalse` (the given refutation, by
+-- `isProp¬`), and those suffice for everything else above.  Under `po`
+-- the lemma is immediate (`isPropDec`), which is why §4 needs no such
+-- parameter.  Nothing here examines `Outside`, which remains a
+-- parameter, and nothing is empirical.
 --
 -- CHECKED: Agda 2.8.0 + cubical v0.9, --safe, no postulates, no holes.
 ------------------------------------------------------------------------

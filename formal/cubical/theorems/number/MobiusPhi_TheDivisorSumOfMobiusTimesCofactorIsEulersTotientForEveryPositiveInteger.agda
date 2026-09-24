@@ -7,8 +7,10 @@
 -- B.2, which checks the identification of the Mbius divisor sum with
 -- Euler's totient at twelve points and says of the rest:
 --
--- "SCOPE: this is the ledger's identification of the sum, checked at
--- twelve points.
+--     "SCOPE: this is the ledger's identification of the sum, checked at
+--      twelve points.  The general identity Σ_{d|n} μ(d)(n/d) = φ(n) is
+--      classical (Möbius inversion of n = Σ_{d|n} φ(d)) and is NOT
+--      proved here; the refutation of the display does not need it."
 --
 -- WHAT IS PROVED.  For every n ≥ 1, in that module's OWN definitions
 -- (`mobiusDivSum`, `mu`, `phi`, `spf`, `gcdN`, `_div_`, `dividesb`, all
@@ -52,9 +54,13 @@
 -- `spf-spec`, `mu-step`, `gcdN-isGCD`), and the module's sums are shown
 -- to be instances of one summation operator `Σ≤`.
 --
--- No postulates, no holes, no termination pragmas; the fuel of every
--- imported program is discharged by a proof, never by a range
--- assumption.
+-- WHAT IS NOT PROVED.  Nothing about the other displays of
+-- `TransmissionRefutations` (its B.3 sums, its Section A, its Section
+-- C) is touched; Gauss's identity Σ_{d∣n} φ(d) = n and the general
+-- Mbius inversion formula are not proved, because this route does not
+-- pass through them.  No postulates, no holes, no termination pragmas;
+-- the fuel of every imported program is discharged by a proof, never by
+-- a range assumption.
 ------------------------------------------------------------------------
 
 module MobiusPhi_TheDivisorSumOfMobiusTimesCofactorIsEulersTotientForEveryPositiveInteger where
