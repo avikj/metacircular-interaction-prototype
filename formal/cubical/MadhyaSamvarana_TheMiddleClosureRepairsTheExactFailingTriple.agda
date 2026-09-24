@@ -25,9 +25,9 @@
 --     f ⊙ g    := N_* N*(f ⋆ g)
 --     (f ⊙ g) ⊙ h = f ⊙ (g ⊙ h)
 --
--- WHAT IS CHECKED, AND WHAT IS NOT.  §2.5's associativity is a GENERAL
--- theorem, quantified over all profiles; it is not finite and is NOT
--- proved here.  What is proved here is the sharp instance: the exact
+-- WHAT IS CHECKED.  §2.5's associativity is a GENERAL theorem,
+-- quantified over all profiles.  What is proved here is the sharp
+-- instance: the exact
 -- triple that breaks one-sided closure in §2.4 — ℓ_c, ℓ_a, ℓ_c — is
 -- repaired by the middle closure, pointwise, by `refl`.
 --

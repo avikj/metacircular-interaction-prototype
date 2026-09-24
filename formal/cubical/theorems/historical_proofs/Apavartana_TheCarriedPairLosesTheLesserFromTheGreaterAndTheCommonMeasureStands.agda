@@ -62,10 +62,10 @@
 -- two-way certificate — म measures 48 and 18 exactly when म measures 6.
 --
 ------------------------------------------------------------------------
--- WHAT IS NOT NEW HERE.
+-- WHERE THE INVARIANCE ALREADY LIVES.
 --
--- The invariance of §4 is NOT a new fact in this corpus and is not offered as
--- one.  `Gurutama` (∣-योग, and the descent's result divides both inputs),
+-- The invariance of §4 is in this corpus already.  `Gurutama` (∣-योग, and
+-- the descent's result divides both inputs),
 -- `GurutamaSiddha` (∣-अन्तर, महत्, सिद्धः — the FULL gcd theorem for the fuelled
 -- descent, for every pair), `Apavartana_TwoPresentationsOfDividesAnd…` (the
 -- difference law crossing between the truncated and untruncated presentations)
@@ -419,8 +419,8 @@ _∣_ : ℕ → ℕ → Type
 -- §5 · IT RUNS.
 --
 -- Every equation in this section holds by `refl`, so Agda executes them.
--- The corollaries are for THESE TWO PAIRS and no others — see "WHAT IS NOT
--- NEW HERE" and DEFECT 3.
+-- The corollaries are for THESE TWO PAIRS and no others — see "WHERE THE
+-- INVARIANCE ALREADY LIVES" and DEFECT 3.
 ------------------------------------------------------------------------
 
 गणना-प्रथमम् : अन्तरकरण (137 , 60) ≡ (77 , 60)

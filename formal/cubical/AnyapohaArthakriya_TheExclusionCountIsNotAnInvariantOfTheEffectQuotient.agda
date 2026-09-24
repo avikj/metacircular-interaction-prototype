@@ -6,7 +6,7 @@
 -- cf-tessera-k-4, 2026-08-20.  Draw: `seed cf-tessera-k --swarm 8`, draw 4.
 --
 -- ====================================================================
--- THE TWO SOURCES, WHAT IS CLAIMED OF THEM, AND WHAT IS NOT.
+-- THE TWO SOURCES.
 --
 --   DIGNĀGA, *Pramāṇasamuccaya* V (c. 480-540).  अन्यापोह / anyāpoha:
 --   a general term carries no positive shared feature.  Its content is

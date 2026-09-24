@@ -179,9 +179,7 @@
 --   installed payloads to answers, semantic preservation under
 --   `unfold`, and a cost that is a separate field from the structural
 --   measure — plus `payload-separates`, the field that demands the F/G
---   collision be resolvable.  IT IS DEFINED AND NOT INHABITED;
---   it is an interface in the style of
---   `CapabilityGraph.ObservationalClassCompiler`.
+--   collision be resolvable.
 --
 --   I2 `ArithmeticPayloadOver`  THE JOINT WITH THE MORPHISM CLASS, and why it exists.
 --   `ArithmeticPayload` fixes DATA and never fixes the
@@ -583,10 +581,6 @@ module Bridge (k : ℕ) (checkpoint : Shape) where
 -- What an arithmetic payload must carry: the five fields below, plus
 -- `payload-separates`, which is the demand that the F/G collision be
 -- resolvable — exactly what §H proves the bare state cannot do.
---
--- THIS RECORD IS DEFINED AND NOT INHABITED; the record is an
--- interface written in the type language, in the style of
--- `CapabilityGraph.ObservationalClassCompiler`.
 ------------------------------------------------------------------------
 
 record ArithmeticPayload : Type₁ where
@@ -653,10 +647,6 @@ record ArithmeticPayload : Type₁ where
 -- `payload-carrier-determined` below, which is the precise sense in
 -- which naming the class buys something.
 --
--- THIS RECORD IS ALSO DEFINED AND NOT INHABITED.  Nothing in this file
--- constructs one; the five original items are unchanged, `Ans` has moved
--- from a field to a parameter (the class must be over it), and no claim
--- is made that the fields are sufficient for the arithmetic task.
 ------------------------------------------------------------------------
 
 record ArithmeticPayloadOver (Ans : Type₀) (M : MorphismClass Ans) : Type₁ where

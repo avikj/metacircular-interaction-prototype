@@ -64,7 +64,7 @@
 --
 -- Nirnaya's header carries a FIFTH name, तूष्णीम् — "the symbol outside
 -- the vocabulary that silenced this naya" — which is neither an unposed
--- question nor an empty fibre.  It is not modelled here.
+-- question nor an empty fibre.
 ------------------------------------------------------------------------
 
 module Fibre.Adharmin_TheUnposedQuestionIsNotAnEmptyFibreAndTheCensusCannotSayIt where
