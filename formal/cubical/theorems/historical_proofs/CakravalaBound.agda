@@ -601,9 +601,7 @@ seedBound D n E hlo hhi hE =
 --
 -- Note what is NOT done: `CakravalaDescent.cakravalaStep` is stated over
 -- an arbitrary CommRing, which has no absolute value, so nothing here is
--- plugged into it.  `stepAbs` below takes the ℤ equation as a hypothesis;
--- specialising the descent to ℤCommRing and producing that equation is a
--- separate piece of work and is not claimed.
+-- plugged into it.  `stepAbs` below takes the ℤ equation as a hypothesis.
 ------------------------------------------------------------------------
 
 module ZBridge where

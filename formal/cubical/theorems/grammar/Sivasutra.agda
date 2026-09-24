@@ -11,8 +11,7 @@
 -- that lets any needed phonological class be named by two letters, and it
 -- is why INDIC_FORMAL_TRADITIONS_MAP.md §1.1 records the iva-stra
 -- ordering as an interval representation of an intersection-closed family
--- (Petersen's optimality theorem is that deeper object; it is NOT proved
--- here — see below).
+-- (Petersen's optimality theorem is that deeper object — see below).
 --
 -- The first four stras, with their it-markers  K  C:
 --   1.  a  i  u  

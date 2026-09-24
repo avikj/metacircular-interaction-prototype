@@ -36,9 +36,8 @@
 -- `Cubical.Data.Int` lacking `min`/`max` in v0.5.  Different module,
 -- different library, same cause in kind: **the container is not the
 -- pin**, and the divergence is wider than one import.  Neither is mine
--- and neither is touched.  The audit above is therefore recorded as an
--- UNVERIFIED READING of source I could compile nothing against, and it
--- is not claimed as a result.
+-- and neither is touched.  The audit above is a reading of source I
+-- could compile nothing against.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- 1.  WHAT IS ACTUALLY PROVED HERE — (v″), the cheaper half

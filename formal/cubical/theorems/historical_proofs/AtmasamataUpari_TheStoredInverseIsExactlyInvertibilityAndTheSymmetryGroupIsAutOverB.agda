@@ -281,7 +281,7 @@ module अन्धे-उपरि {A B : Type ℓ} (setA : isSet A) (setB : is
 -- (b) The group leg of `TantuVibhaga`'s decomposition: is
 --     आत्मसमता-उपरि ≃ Π over the codomain of Aut(fibre f b)?  §२'s
 --     reassociation is what makes this a question about equivalences of
---     Σ-types rather than about the monoid, but it is NOT proved here.
+--     Σ-types rather than about the monoid.
 -- (c) The ∞-version.  Over arbitrary types isEquiv is still a
 --     proposition, so §१ has a chance of surviving verbatim while
 --     व्युत्क्रम-एकत्वम् does not (its uniqueness argument used

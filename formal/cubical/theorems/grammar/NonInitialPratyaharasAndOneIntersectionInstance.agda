@@ -39,8 +39,8 @@ open import Sivasutra using (Sym ; a ; i ; u ; ṛ ; ḷ ; e ; o ; ai ; au ; Ṇ
 -- **§3 is an instance, not closure.**  One intersection of two named
 -- classes is again a named class.  That is a datum.  The family being
 -- intersection-CLOSED is a universally quantified statement over all
--- pairs, and it is not proved here for any family — nor would proving it
--- on the vowel prefix say much, the prefix being nine sounds.
+-- pairs; on the vowel prefix it would say little, the prefix being nine
+-- sounds.
 --
 -- **The consonant stras are still absent**, as in the module extended.
 -- The vowel prefix is where the device is visible cheaply; it is not

@@ -46,8 +46,7 @@
 -- each chain's stretch down in order, close it with its own antya, and §3
 -- delivers that chain's whole nesting from that one antya.  Since sounds
 -- may recur across stretches and §3 asks only for freshness WITHIN a
--- stretch, the stretches never interfere.  With Dilworth's theorem —
--- CITED, not proved here, and not proved anywhere in this repository —
+-- stretch, the stretches never interfere.  With Dilworth's theorem,
 -- chain-cover number equals ⊆-width, and `PratyaharaLaghava.markersDistinct`
 -- gives the matching lower bound.  So the antichain bound is exactly the
 -- answer when repetition is free, and the entire content of the

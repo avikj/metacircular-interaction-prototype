@@ -42,8 +42,8 @@
 --
 --        nextw≡next : (m : ℕ) → nextw m ≡ next m
 --
---      for EVERY m, with no side hypothesis.  It is not proved by
---      matching the two searches clause for clause; it is proved from
+--      for EVERY m, with no side hypothesis.  It is proved not by
+--      matching the two searches clause for clause but from
 --      the SPECIFICATION both searches satisfy, because a least
 --      non-divisor is unique (`lnd-unique`, three lines of trichotomy).
 --      `value-capw` moves that specification from `value (capw m)` to

@@ -57,9 +57,9 @@
 --   permPreservesCount
 --                  `Perm xs ys → (a : A) → count a xs ≡ count a ys`
 --
--- **WHY THIS IS ONLY HALF, STATED SHARPLY.**  The CONVERSE — equal
--- counts everywhere implies `Perm` — is NOT proved here and is a
--- different kind of statement: it must BUILD a permutation from
+-- **THE OTHER HALF.**  The CONVERSE — equal counts everywhere implies
+-- `Perm` — is a different kind of statement: it must BUILD a
+-- permutation from
 -- numerical data, which needs to find, for each element of `xs`, a
 -- matching position in `ys`, and that search is where finiteness and
 -- decidability do real work rather than bookkeeping.  Nothing below

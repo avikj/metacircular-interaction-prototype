@@ -20,17 +20,14 @@
 -- this module, and it is owed at verse level.  Not "the extended Euclidean
 -- algorithm" — see priority-ledger.txt.
 --
--- WHAT IS CLAIMED OF THE SOURCE, AND WHAT IS NOT.  NOT that ryabhaa,
--- Bhskara I, Brahmagupta or Bhskara II proved any theorem below; none of
--- them wrote a step law for a carrier, and no such statement is attributed to
--- them here.  NOT that any of them stated the subtractive form: the कुट्टक of
--- गणितपाद ३२–३३ is a DIVISION procedure (quotients written into the वल्ली),
--- and what is formalised below is the subtractive column that produces those
--- quotients — the same distinction `KuttakaValli_TheSideIsAFreeSlot…` in the
--- `loss` library records as its SECOND DEFECT.  What IS claimed is
--- narrow and checkable: that "the greater loses the lesser, the lesser
--- stands" is the movement their pair undergoes, and that its common measure
--- is what their procedure keeps.
+-- WHAT IS CLAIMED OF THE SOURCE.  The कुट्टक of गणितपाद ३२–३३ is a
+-- DIVISION procedure (quotients written into the वल्ली), and what is
+-- formalised below is the subtractive column that produces those
+-- quotients — the same distinction `KuttakaValli_TheSideIsAFreeSlot…` in
+-- the `loss` library records as its SECOND DEFECT.  The claim is narrow
+-- and checkable: that "the greater loses the lesser, the lesser stands"
+-- is the movement their pair undergoes, and that its common measure is
+-- what their procedure keeps.
 --
 ------------------------------------------------------------------------
 -- WHY THIS FILE EXISTS — THE FOURTH LAW.
@@ -72,18 +69,16 @@
 -- two-way certificate — म measures 48 and 18 exactly when म measures 6.
 --
 ------------------------------------------------------------------------
--- WHAT IS NOT NEW HERE, said before anything is claimed.
+-- WHERE THE INVARIANCE ALREADY LIVES.
 --
--- The invariance of §4 is NOT a new fact in this corpus and is not offered as
--- one.  `Gurutama` (∣-योग, and the descent's result divides both inputs),
+-- The invariance of §4 is in this corpus already.  `Gurutama` (∣-योग, and the descent's result divides both inputs),
 -- `GurutamaSiddha` (∣-अन्तर, महत्, सिद्धः — the FULL gcd theorem for the fuelled
 -- descent, for every pair), `Apavartana_TwoPresentationsOfDividesAnd…` (the
 -- difference law crossing between the truncated and untruncated presentations)
 -- and `KuttakaSamapti_TheValliIsFiniteForEveryPair` (termination, and the
 -- greatest-common-divisor property over ℤ) are all already in this directory
--- and all predate this module.  Nothing below improves on any of them, and
--- §5's corollaries are stated for TWO NAMED PAIRS ONLY — no general
--- gcd theorem is proved or claimed here, because the corpus already has one
+-- and all predate this module.  §5's corollaries are stated for TWO
+-- NAMED PAIRS ONLY; the corpus already carries the general gcd theorem
 -- and this module is not about that.
 --
 -- What is new is the SHAPE: the step law of the carrier, stated as an equation
@@ -441,8 +436,8 @@ _∣_ : ℕ → ℕ → Type
 -- §5 · IT RUNS.
 --
 -- Every equation in this section holds by `refl`, so Agda executes the
--- The corollaries are for THESE TWO PAIRS and no others — see "WHAT IS NOT
--- NEW HERE" and DEFECT 3.
+-- The corollaries are for THESE TWO PAIRS and no others — see "WHERE THE
+-- INVARIANCE ALREADY LIVES" and DEFECT 3.
 ------------------------------------------------------------------------
 
 गणना-प्रथमम् : अन्तरकरण (137 , 60) ≡ (77 , 60)

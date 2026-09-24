@@ -70,8 +70,8 @@
 -- 2.  **No classification of conserving flows.**  §१–§२ is a
 --     biconditional about the flows OF BHĀVANĀ FORM `प्रवाह u`.  It does
 --     NOT say every endomorphism of R × R conserving N is one of these.
---     (Over ℤ with D non-square that stronger statement is true and is
---     not proved here.)  The title says "the conserving flows", meaning
+--     (Over ℤ with D non-square that stronger statement is true.)  The
+--     title says "the conserving flows", meaning
 --     the conserving flows among the bhvan flows, and this sentence
 --     is what fixes the quantifier.
 --

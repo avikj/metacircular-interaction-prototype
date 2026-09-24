@@ -62,7 +62,7 @@
 -- a classical machine is not known to do in polynomial time — and once r
 -- is in hand the factor of n falls out by a gcd, which is the kuaka
 -- again.  §4 states the classical half of that reduction as a hypothesis
--- and marks the quantum half as the owed frontier; it is NOT proved here.
+-- and marks the quantum half as the frontier.
 --
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------

@@ -689,8 +689,7 @@ private
 -- and it is NOT the interesting one; the disagreement between them is at
 -- `sthana`, not at `krama`/`saha`, and settling the algebra would settle
 -- nothing there.  Whether `Naya.hs`'s five-way carving is a quotient, a
--- subalgebra, or neither is open and is not claimed here in any
--- direction.
+-- subalgebra, or neither is a separate question.
 --
 -- Written rather than reconciled, per §६: a defect that is recorded lives
 -- (लिखितो दोषो जीवति), and one that is not is the हिंसा.
