@@ -118,11 +118,11 @@ export function inputSource(job) {
     prefixDefs.join('\n') + '\n' +
     `@btcPrefixes = ${balanced(job.headers.map((_,i) => '@btcTemplate'+i))}\n` +
     `@btcNonces = ${hvmBits(nonceBits)}\n` +
-    '@btcCandidates = @btcAppend(@btcPrefixes, @btcNonces)\n' +
+    '@btcCandidates = @DbtcAppend(@btcPrefixes, @btcNonces)\n' +
     `@btcTarget = ${hvmBits(bitsOf(Buffer.from(job.search_target,'hex')))}\n` +
     '// Existing SupGen keep/filter pattern: no host enumeration; failure is ERA.\n' +
     '@btcKeep = λ{#Pair: λbtcVerdict. λbtcReceipt. (λ{0: λbtcNo. &{}; _: λbtcYes. λ{#Pair: λbtcHeader. λbtcProof. #Hit{btcHeader, btcProof}}})(btcVerdict)(btcReceipt)}\n' +
-    '@main = @btcKeep(@btcRun(@btcTarget, @btcCandidates))\n';
+    '@main = @btcKeep(@DbtcRun(@btcTarget, @btcCandidates))\n';
 }
 export function gateSource() {
   const empty = Buffer.from(''), abc = Buffer.from('abc');
@@ -170,7 +170,7 @@ export function prepare(jobFile,out) {
   console.log(`Prepared ${job.candidate_count} candidates as ${fs.statSync(path.join(out,'input.hvm4')).size} bytes of native input, not enumerated headers.`);
 }
 export function link(compiled,input) {
-  requireThat(compiled.includes('FULL RUNTIME') && /^@coe\s*=/m.test(compiled) && /@btcRun\s*=/m.test(compiled), 'not the cubical full-runtime emitter output or missing btcRun');
+  requireThat(compiled.includes('FULL RUNTIME') && /^@coe\s*=/m.test(compiled) && /^@DbtcRun\s*=/m.test(compiled), 'not the cubical full-runtime emitter output or missing btcRun');
   requireThat((compiled.match(/^@main\s*=/gm)||[]).length===1, 'expected exactly one library main');
   return compiled.replace(/^@main\s*=/m,'@btcLibraryMain =')+'\n'+input;
 }

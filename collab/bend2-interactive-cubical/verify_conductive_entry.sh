@@ -1,50 +1,49 @@
 #!/usr/bin/env bash
-# End-to-end check of the compiler-generated conductive path.
+# End-to-end check of the full-runtime seam: one checker, one emitter, one net.
+#   - only a checked book is emitted, and ill-typed input yields no program;
+#   - the root is the checked entry as a typed point (A, a) of Σ(A : Set). A;
+#   - types are emitted cells like any other (Eql, Enum, ua with coherences);
+#   - the fibre law and its coinductive continuation are ordinary Bend
+#     (port/FibreCoalgebra.bend) running through the same emitter.
 set -euo pipefail
+export LC_ALL=C.UTF-8 LANG=C.UTF-8
 BEND="${1:-bend}"
 HVM="${2:-hvm}"
 HERE="$(cd "$(dirname "$0")" && pwd)"
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
 
-"$BEND" "$HERE/conductive_entry_smoke.bend" --to-hvm4-full > "$TMP/raw.hvm4"
-python3 "$HERE/check_conductive_entry.py" "$TMP/raw.hvm4"
-
-# The full target now routes @main through the intrinsic lossless presentation.
-# The original checked entry is retained as @sourceMain for exact differential
-# testing; no textual retargeting of the generated net is necessary.
-OUT="$("$HVM" "$TMP/raw.hvm4" -s 2>&1)"
-printf '%s\n' "$OUT"
-printf '%s\n' "$OUT" | grep -Fq '#Suc{#Suc{#Zer{}}}' || {
-  echo "intrinsic conductive main did not report 2" >&2
-  exit 1
+# run FILE EXPECTED: compile (from FILE's directory, so imports resolve), then
+# require the exact normal form of the root.
+run() {
+  local src="$1" want="$2" out
+  (cd "$(dirname "$src")" && "$BEND" "$(basename "$src")" --to-hvm4-full) > "$TMP/p.hvm4" 2> "$TMP/check.log"
+  grep -Fqx '@main = #Pair{@Tmain, @Dmain}' "$TMP/p.hvm4"
+  out="$("$HVM" "$TMP/p.hvm4" -s 2>&1)"
+  printf '%s\n' "$out"
+  [ "$(printf '%s\n' "$out" | head -1)" = "$want" ] || {
+    echo "$src: expected root $want" >&2
+    exit 1
+  }
 }
-echo "NATIVE-RUNTIME OK"
 
-# Execute the first lossless observation companion explicitly and require the
-# same visible result.
-python3 - "$TMP/raw.hvm4" "$TMP/conductive.hvm4" <<'PY'
-import pathlib, re, sys
-src = pathlib.Path(sys.argv[1]).read_text()
-src = re.sub(r'(?m)^@main = [^\n]*', '@main = @conductiveMain', src, count=1)
-pathlib.Path(sys.argv[2]).write_text(src)
-PY
-OUTC="$("$HVM" "$TMP/conductive.hvm4" -s 2>&1)"
-printf '%s\n' "$OUTC"
-printf '%s\n' "$OUTC" | grep -Fq '#Suc{#Suc{#Zer{}}}' || exit 1
-echo "CONDUCTIVE-RUNTIME OK"
+run "$HERE/conductive_entry_smoke.bend" '#Pair{#Nat{},#Suc{#Suc{#Zer{}}}}'
+grep -Eqx '@Tid = #Pi\{#Nat, λ&b[0-9]+u[0-9]+\. #Nat\}' "$TMP/p.hvm4"
+echo "TYPED-POINT OK"
 
-# Execute the retained continuation directly by changing only the root name.
-python3 - "$TMP/raw.hvm4" "$TMP/twice.hvm4" <<'PY'
-import pathlib, re, sys
-src = pathlib.Path(sys.argv[1]).read_text()
-src = re.sub(r'(?m)^@main = [^\n]*', '@main = @conductiveTwiceMain', src, count=1)
-pathlib.Path(sys.argv[2]).write_text(src)
-PY
-OUT2="$("$HVM" "$TMP/twice.hvm4" -s 2>&1)"
-printf '%s\n' "$OUT2"
-printf '%s\n' "$OUT2" | grep -Fq '#Suc{#Suc{#Zer{}}}' || {
-  echo "conductive continuation smoke did not report 2" >&2
+run "$HERE/port/FibreCoalgebra.bend" '#Pair{#Nat{},#Suc{#Suc{#Zer{}}}}'
+run "$HERE/port/ConductiveRuntime.bend" '#Pair{#Nat{},#Suc{#Suc{#Zer{}}}}'
+echo "FIBRE-LAW-AND-CONTINUATION OK"
+
+run "$HERE/complex_cells_smoke.bend" '#Pair{#Bool{},0}'
+grep -Fqx '@DnegPath = #UaU{#Bool, #Bool, @Dneg, @Dneg, @DnegLnv, @DnegLnv}' "$TMP/p.hvm4"
+grep -Fqx '@DColour = #Enum{#Con{#red, #Con{#green, #Nil}}}' "$TMP/p.hvm4"
+grep -Eq '^@Trefl = .*#Eql\{(b[0-9]+u[0-9]+), (b[0-9]+u[0-9]+), \2\}' "$TMP/p.hvm4"
+echo "CELLS OK"
+
+if "$BEND" "$HERE/gate_mustfail.bend" --to-hvm4-full > "$TMP/gate.hvm4" 2>/dev/null; then
+  echo "ill-typed input was emitted" >&2
   exit 1
-}
-echo "CONDUCTIVE-CONTINUATION OK"
+fi
+[ ! -s "$TMP/gate.hvm4" ] || { echo "ill-typed input produced output" >&2; exit 1; }
+echo "CHECK-GATE OK"

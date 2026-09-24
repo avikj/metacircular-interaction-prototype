@@ -1,6 +1,5 @@
-# Compiler-generated universal execution smoke test.
-# No fibre/derivation imports: the compiler must expose both the native
-# reduction event and the lossless observation companions.
+# The checked entry is emitted as the typed point (A, a) of Σ(A : Set). A:
+# no imports, no generated companions, one emitter for terms and types.
 
 def id(x: Nat) -> Nat:
   x

@@ -1,5 +1,5 @@
-# Function-valued entry: the map itself is the first observation.
-# The compiler must emit @conductiveMapMain without source fibre boilerplate.
+# A map-valued entry is the typed point (Bool -> Bool, f); nothing is added
+# beside it.
 
 def main(x: Bool) -> Bool:
   if x:
