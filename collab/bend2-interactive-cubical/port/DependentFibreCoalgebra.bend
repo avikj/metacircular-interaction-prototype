@@ -11,9 +11,8 @@ type DependentFibreObservation(A: Set, B: A -> Set,
 
 def observeDependent(A: Set, B: A -> Set, f: all a: A. B(a), a: A) ->
   DependentFibreObservation(A,B,f,a):
-  value = dependentDescend(A,B,f,a)
   @dependentFibreObservation{
-    value,
+    dependentDescend(A,B,f,a),
     <_> a,
-    fibreCoalgebra(DependentFibreElement(A,B,f), value)
+    fibreCoalgebra(DependentFibreElement(A,B,f), dependentDescend(A,B,f,a))
   }
