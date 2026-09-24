@@ -395,9 +395,8 @@ rows-only-section = zeroObs , refl , refl , refl
 ------------------------------------------------------------------------
 -- 6.  EXACTNESS: im δ is exactly ker(total), and total is onto.
 --
--- Together: coker δ ≅ 𝔽₂ with `total` as the class evaluator.  The
--- quotient type is not constructed (see the header); what is proved is
--- the pair of statements that a cokernel computation consumes.  The
+-- Together: coker δ ≅ 𝔽₂ with `total` as the class evaluator.  What is
+-- proved is the pair of statements that a cokernel computation consumes.  The
 -- hard inclusion is imported from `PMTorus.even-kernel-is-image` along
 -- the graph identification of §7 — no second preimage construction.
 ------------------------------------------------------------------------

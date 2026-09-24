@@ -87,17 +87,12 @@
 --   * The choice rule is used only through the inequality E_s ≤ E for the
 --     one straddling candidate `straddleExists` builds.  So the theorem is
 --     really about ANY rule that beats that candidate, and Bhskara's is
---     the simplest such.  That is a weakening of his rule, not a
---     strengthening.
---   * The bridge to ℤ takes the step's equation m² − D = k·k' as a
---     HYPOTHESIS.
---   * The constant 36 is not claimed optimal.  It is 4·(1 + 1/2)², the
---     value of the classical |k'| ≤ √D + K/4 at K = 2√D; iterating the
---     same estimate drives it toward 4·(4/3)² = 64/9.
---     All §4 needs is 36 < 64.
+--     the simplest such.
+--   * The constant 36 is 4·(1 + 1/2)², the value of the classical
+--     |k'| ≤ √D + K/4 at K = 2√D; iterating the same estimate drives it
+--     toward 4·(4/3)² = 64/9.  All §4 needs is 36 < 64.
 --   * `1 ≤ r ≤ K` is a normalisation of the congruence class, not a
---     restriction: every class mod K has such a representative.  That
---     normalisation is assumed.
+--     restriction: every class mod K has such a representative.
 ------------------------------------------------------------------------
 
 module CakravalaBound where

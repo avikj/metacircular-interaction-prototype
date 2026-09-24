@@ -1,0 +1,16 @@
+# Modules under Pairfield/ that Pairfield.lean deliberately does not import.
+# Read by `sh check` (lean root closure).  One fully-qualified module name per
+# line; `#` starts a comment.  Every entry must say WHY the root cannot reach
+# it, in a way that discriminates this module from one that was merely
+# forgotten.
+#
+# The two entries below are byte-identical copies (md5 a949b64b…, dc9af0dd…)
+# of Bhavana_TheCompositionOfTwoNormsIsANormBrahmaguptasIdentity and
+# Cakravala_TheBhavanaStepBreedsAVargaprakrtiSolutionForNTwo, created by the
+# English-naming pass (ae31f8f).  They declare the SAME namespace and the SAME
+# constants as their twins, so importing both into Pairfield.lean would be a
+# duplicate-declaration error; `lake build` still compiles them via `globs`.
+# They are excluded, not forgotten.  Remove the entry when the twin is
+# deleted or the copy is turned into a re-export.
+Pairfield.Composition_TheCompositionOfTwoNormsIsANormBrahmaguptasIdentity
+Pairfield.Cakravala_TheCompositionStepBreedsAVargaprakrtiSolutionForNTwo

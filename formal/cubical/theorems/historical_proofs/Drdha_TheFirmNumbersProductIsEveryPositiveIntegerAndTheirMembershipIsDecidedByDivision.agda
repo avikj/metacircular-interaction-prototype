@@ -56,10 +56,9 @@
 -- PAIR — two magnitudes with no common measure left — and it is a step in
 -- a solving procedure, not a classification of numbers.  Using it here
 -- for a SINGLE number that admits no nontrivial factorisation is an
--- extension, and it is ours, not theirs.  None of these authors states
--- the theorem in §, and no claim is made that they did.  The choice of
--- the word is because it names the right thing — what remains when
--- reduction can do no more — not because the theorem is in the source.
+-- extension, and it is ours, not theirs.  The choice of the word is
+-- because it names the right thing — what remains when reduction can do
+-- no more.
 --
 -- **§६ is Greek and is named so.**  The lemma "a prime dividing a product
 -- divides a factor" is Euclid, *Elements* VII.30 (c. 300 BCE).  It is not

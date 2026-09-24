@@ -41,8 +41,8 @@
 --
 --   §3  d (r · x) ≡ x + r · (d x)  and  d (r·r) ≡ r + r, from `d r ≡ 1`.
 --
--- WHAT IS NOT NEEDED, and it is worth saying because it is what makes
--- the identity transportable: `r` is NOT assumed central.  Centrality is
+-- WHAT MAKES THE IDENTITY TRANSPORTABLE: `r` is NOT assumed central.
+-- Centrality is
 -- needed only to rewrite the integrand into the `V = r·B`, `W = r·r·C`
 -- variables in which it is usually displayed; the identity itself, in
 -- the form above, never moves `r` past anything.

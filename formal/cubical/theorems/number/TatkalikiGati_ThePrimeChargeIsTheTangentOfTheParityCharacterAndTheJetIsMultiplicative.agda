@@ -17,8 +17,8 @@
 -- One prime contributes the jet unit (−1 + ε); a squarefree d
 -- contributes (−1 + ε)^{ω(d)}; the value is μ(d) and the ε-coefficient
 -- is κ₁(d).  Multiplication of dual numbers IS the twisted Leibniz law,
--- so the law is not proved separately here — it is read off, one
--- component of one homomorphism path (सङ्कलनम् below).
+-- so the law is read off — one component of one homomorphism path
+-- (सङ्कलनम् below).
 --
 -- NORMALIZATION, the olympiad move, stated so it is not smuggled: only
 -- ω(d) enters any of these quantities, so the object is normalized from
