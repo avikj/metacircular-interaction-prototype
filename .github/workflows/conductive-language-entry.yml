@@ -7,6 +7,7 @@ on:
       - 'collab/bend2-interactive-cubical/list-transport.patch'
       - 'collab/bend2-interactive-cubical/hvm3-gcc15.patch'
       - 'collab/bend2-interactive-cubical/conductive_entry_smoke.bend'
+      - 'collab/bend2-interactive-cubical/conductive_map_smoke.bend'
       - 'collab/bend2-interactive-cubical/check_conductive_entry.py'
       - 'collab/bend2-interactive-cubical/verify_conductive_entry.sh'
       - 'collab/bend2-interactive-cubical/suite.sh'
@@ -45,6 +46,15 @@ jobs:
           set -euo pipefail
           source "$RUNNER_TEMP/conductive-build/env.sh"
           bash collab/bend2-interactive-cubical/verify_conductive_entry.sh "$BEND" "$HVM"
+
+      - name: Verify intrinsic map/proposition presentation
+        shell: bash
+        run: |
+          set -euo pipefail
+          source "$RUNNER_TEMP/conductive-build/env.sh"
+          "$BEND" collab/bend2-interactive-cubical/conductive_map_smoke.bend --to-hvm4-full > "$RUNNER_TEMP/conductive-map.hvm4"
+          grep -q '^@conductiveMapMain = ' "$RUNNER_TEMP/conductive-map.hvm4"
+          grep -q '@cfPresentMap' "$RUNNER_TEMP/conductive-map.hvm4"
 
       - name: Run complete Cubical Bend suite
         shell: bash
