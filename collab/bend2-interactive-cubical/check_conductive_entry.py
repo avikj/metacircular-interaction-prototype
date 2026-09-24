@@ -21,7 +21,7 @@ required = [
     "@conductiveMain = @cfObservedValue(",
     "@conductiveTwiceMain = @cfSecondIdentity(",
     "@sourceMain =",
-    "@main = @conductiveMain",
+    "@main = @sourceMain",
 ]
 missing = [x for x in required if x not in s]
 if missing:
