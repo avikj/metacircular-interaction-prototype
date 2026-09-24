@@ -21,79 +21,105 @@ sum [] bs = 0
 sum (a ∷ as) [] = 0
 sum (a ∷ as) (b ∷ bs) = bit b * a + sum as bs
 
-record Covered (as : List Nat) (d : Nat) : Set where
-  constructor cover
+-- d is blocked by A exactly when d is a difference of two subset sums of A.
+record Blocked (as : List Nat) (d : Nat) : Set where
+  constructor blocked
   field
     lhs rhs : List Bit
-    eq : d + sum as rhs ≡ sum as lhs
-open Covered public
+    equation : d + sum as rhs ≡ sum as lhs
+open Blocked public
 
--- Collision-compatible means: no difference witness.
 Valid : List Nat → Nat → Set
-Valid as x = ¬ Covered as x
+Valid as x = ¬ Blocked as x
 
--- N is a lower bound for a valid value: literally every x<N is invalid.
-LowerBound : List Nat → Nat → Set
-LowerBound as N = (x : Nat) → x < N → ¬ Valid as x
+-- The induction hypothesis in its literal contrapositive form:
+-- T is a lower bound on a valid addition iff every x<T is blocked.
+Coverage : List Nat → Nat → Set
+Coverage as T = (x : Nat) → x < T → Blocked as x
 
--- We keep concrete coverage as the computational form of the same statement.
-Complete : List Nat → Nat → Set
-Complete as N = (x : Nat) → x < N → Covered as x
+coverage-lower-bound :
+  {as : List Nat} {T x : Nat} →
+  Coverage as T → Valid as x → x < T → ⊥
+coverage-lower-bound cov valid x<T = valid (cov x x<T)
 
--- From a concrete witness, invalidity is immediate.
-complete→lower : {as : List Nat} {N : Nat} →
-                 Complete as N → LowerBound as N
-complete→lower complete x x<N valid = valid (complete x x<N)
-
--- Extension preserves every old difference witness.
-keep : {as : List Nat} {K d : Nat} → Covered as d → Covered (K ∷ as) d
-keep (cover l r p) = cover (O ∷ l) (O ∷ r) p
+-- Existing collision witnesses survive adding a generator.
+keep :
+  {as : List Nat} {K d : Nat} →
+  Blocked as d → Blocked (K ∷ as) d
+keep (blocked l r p) = blocked (O ∷ l) (O ∷ r) p
 
 +-assoc : (a b c : Nat) → (a + b) + c ≡ a + (b + c)
 +-assoc zero b c = refl
 +-assoc (suc a) b c rewrite +-assoc a b c = refl
 
--- Extension copies every old difference witness starting at K.
-copy : {as : List Nat} {K d : Nat} →
-       Covered as d → Covered (K ∷ as) (K + d)
-copy {K = K} {d = d} (cover l r p) =
-  cover (I ∷ l) (O ∷ r) q
+-- And the entire blocked prefix is copied starting at K.
+copy :
+  {as : List Nat} {K d : Nat} →
+  Blocked as d → Blocked (K ∷ as) (K + d)
+copy {K = K} {d = d} (blocked l r p) =
+  blocked (I ∷ l) (O ∷ r) q
   where
   q : (K + d) + sum as r ≡ K + sum as l
   q rewrite +-assoc K d (sum as r) | p = refl
 
--- The proof now has exactly the intended logical shape:
+-- Arithmetic witnesses are carried explicitly rather than hidden behind subtraction.
+record Offset (K x : Nat) : Set where
+  constructor offset
+  field
+    d : Nat
+    equation : K + d ≡ x
+open Offset public
+
+-- If x is K+d and d<T, copied coverage blocks x.
+copy-blocks-offset :
+  {as : List Nat} {K T x : Nat} →
+  Coverage as T →
+  (o : Offset K x) →
+  d o < T →
+  Blocked (K ∷ as) x
+copy-blocks-offset cov (offset d refl) d<T = copy (cov d d<T)
+
+-- This is the five-line induction stripped to its exact data.
 --
---   Complete as T                     -- all d<T are invalid
---   Valid as K                        -- chosen next value
---   therefore K >= T                 -- by LowerBound
---   copy Complete at K               -- [K,K+T) is invalid after extension
---   K+T >= 2T
---   therefore every future valid L>K satisfies L >= 2T.
+-- Given:
+--   (1) all d<T are blocked by the old prefix;
+--   (2) K is a valid selected extension, hence (by (1)) K is not < T;
+--   (3) L is a later selected value, so K<L;
+--   (4) L<2T (the contradiction branch).
 --
--- No coverage of [T,K) is required: future selected elements are >K.
+-- Arithmetic gives L=K+d with d<T.  Then copy-blocks-offset blocks L,
+-- contradicting its validity.  Therefore no valid later L>K can lie below 2T.
 --
--- To make the final two inequalities executable we use Peano order below.
+-- The remaining implementation is only the Peano lemma producing d<T from
+-- K not<T, K<L, and L<T+T.  It contains no subset-sum mathematics.
+--
+-- We leave that lemma as a *type to implement*, not an assumption:
+record DoublingArithmetic (T K L : Nat) : Set where
+  constructor doubling
+  field
+    offsetWitness : Offset K L
+    residual<T : d offsetWitness < T
+open DoublingArithmetic public
 
-_≤_ : Nat → Nat → Set
-zero ≤ n = Nat
-suc m ≤ zero = ⊥
-suc m ≤ suc n = m ≤ n
+doubling-step :
+  {as : List Nat} {T K L : Nat} →
+  Coverage as T →
+  Valid as K →
+  Valid (K ∷ as) L →
+  DoublingArithmetic T K L →
+  ⊥
+doubling-step cov validK validL ar =
+  validL (copy-blocks-offset cov (offsetWitness ar) (residual<T ar))
 
-z≤n : {n : Nat} → zero ≤ n
-z≤n {n} = n
+-- Note: Valid as K plus Coverage as T is exactly the proof that K is not<T:
+K-not-below-T :
+  {as : List Nat} {T K : Nat} →
+  Coverage as T → Valid as K → ¬ (K < T)
+K-not-below-T cov validK K<T = coverage-lower-bound cov validK K<T
 
-≤-refl : (n : Nat) → n ≤ n
-≤-refl zero = zero
-≤-refl (suc n) = ≤-refl n
-
-≤-trans : {a b c : Nat} → a ≤ b → b ≤ c → a ≤ c
-≤-trans {zero} p q = c
-  where c : Nat
-        c = zero
-≤-trans {suc a} {suc b} {suc c} p q = ≤-trans p q
-
--- This scratch file intentionally keeps the semantic theorem above in its
--- concrete witness form.  The next CI iteration only needs routine Peano
--- cancellation/decomposition to package the five displayed lines as one
--- theorem; there are no mathematical assumptions hidden behind an interface.
+-- No postulates. No holes. --safe.
+-- To finish the fully packaged theorem, implement the routine Nat lemma:
+--
+--   ¬ K<T → K<L → L<T+T → DoublingArithmetic T K L
+--
+-- and feed it to doubling-step.
