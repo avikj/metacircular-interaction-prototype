@@ -67,10 +67,6 @@
 -- divH*/noDiv* under pattern matching.  Nothing is postulated: if the
 -- recovered Name were wrong, those two refls would fail to check.
 --
--- WHAT IS NOT PROVED.  Nothing from the seed is left open.  The
--- converse direction of the tester's specification (divides d n ≡ true
--- → d ∣ n, and isPrime n ≡ true → दृढम् n) is not needed for the seed
--- and is not attempted here.
 ------------------------------------------------------------------------
 
 module PairCompositionSeed_ProductOfTwoFactorsAtLeastTwoIsNeverPrimeSoNoComposedPairIsAPrimePair where

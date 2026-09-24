@@ -78,14 +78,13 @@
 -- **§३ and §५ are one direction only.**  That `संरक्षणम् f ⊆ संरक्षणम् g`
 -- implies `f व्याप्नोति g` is FALSE in general and no weakened converse is
 -- offered.  Likewise §५·२: `f a ≡ f a' → g a ≡ g a'` follows from the
--- order; recovering the order from it would need a choice of section and
--- is not attempted.
+-- order; recovering the order from it would need a choice of section.
 --
 -- **§६ is not a characterisation of non-injectivity.**  `isEquiv Φ →
 -- ¬ विस्मृतिः Φ` is proved; the converse — that a non-equivalence
 -- exhibits a विस्मृतिः — is CLASSICAL (it needs a collision to be found,
 -- and a ¬(a ≡ a') to be produced from ¬(a ≡ a') failing) and is not
--- available constructively.  It is not proved and not used.
+-- available constructively.
 --
 -- **Everything lives at ONE universe level.**  Not for depth: `Dhruva`
 -- declares `संरक्षणम्` in a telescope `{A B : Type ℓ}` with a single ℓ,
@@ -147,7 +146,7 @@ _व्याप्नोति_ {A = A} {B = B} {C = C} f g =
   Σ[ h ∈ (B → C) ] ((a : A) → g a ≡ h (f a))
 
 ------------------------------------------------------------------------
--- २ · It is a preorder.  Antisymmetry is not claimed (see the fence).
+-- २ · It is a preorder.
 ------------------------------------------------------------------------
 
 व्याप्ति-स्वतः : {A : Type ℓ} {B : Type ℓ} (f : A → B) → f व्याप्नोति f

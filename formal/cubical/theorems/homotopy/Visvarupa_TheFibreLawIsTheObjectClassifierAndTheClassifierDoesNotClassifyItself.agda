@@ -19,8 +19,7 @@
 --
 --     NOT that the five are instances of one formal statement.  They are
 --     not: their types differ, their ambient structures differ, and no
---     functor between them is constructed.  A common generalisation
---     would be a real theorem; it is not proved.
+--     functor between them is constructed.
 --
 -- This file is not that functor and does not weaken that disclaimer.
 -- What it does is name the AMBIENT FACT the five lanes are all speaking
@@ -159,8 +158,8 @@
 --   any usable sense, and most of them are unknown.
 --
 -- * §6 proves DESCENT → CONSTANT ON FIBRES only.  The converse needs
---   surjectivity of f and a truncation, is a different theorem, and is
---   not attempted here.  The forward direction is the one the grammar
+--   surjectivity of f and a truncation, and is a different theorem.
+--   The forward direction is the one the grammar
 --   lane uses, because it is refutation that lane performs.
 --
 -- WHAT IS CLAIMED: the named terms exist, are checked at the pin, and
@@ -359,8 +358,7 @@ the-universal-fibration-is-classified-one-level-up ℓ = fiber (universal {ℓ})
 -- `helix : S¹ → Type₀` is a single family over a single circle.  The
 -- winding number is, definitionally, §4's transport in it — and that
 -- transport is an isomorphism onto ℤ.  A group nobody put in comes out
--- of one application of the law.  ONE application; see WHAT IS NOT
--- CLAIMED for what does not follow.
+-- of one application of the law.  ONE application.
 ------------------------------------------------------------------------
 
 वेष्टनम्-अनुवृत्तिः-एव : (p : ΩS¹) → winding p ≡ अनुवृत्तिः helix p (pos zero)

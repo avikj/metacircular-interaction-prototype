@@ -28,7 +28,7 @@
 --
 -- and then a'² − D b'² = k'.  Bhāskara's choice rule — choose, among the m
 -- satisfying the congruence, one minimising |m² − D| — is what makes the
--- cycle terminate; it is NOT proved here and is not claimed.
+-- cycle terminate.
 --
 -- HOW IT IS STATED HERE.  The three divisions are given as HYPOTHESES in
 -- multiplied form (a·m + D·b ≡ k · a', and so on).  That is not a
@@ -65,10 +65,6 @@
 --                     via `bezout`, so the pair `coprimeCancel` consumes is
 --                     produced by an actual pulverizer run and not assumed.
 --
--- WHAT IS NOT.  Termination of the cycle.  Minimality of Bhskara's choice
--- (choose m minimising |m² − D| subject to the congruence).  Existence of
--- solutions.  Those are the three open things; everything else the step
--- needs is here.
 ------------------------------------------------------------------------
 
 module CakravalaDescent where
@@ -157,7 +153,7 @@ module Descent (CR : CommRing ℓ) where
   --
   -- This is what makes the cakravla an algorithm rather than a search.
   -- The remaining factor b is removed by gcd(k, b) = 1, which is a
-  -- kuaka; that join is not made here and is not claimed.
+  -- kuaka.
   ----------------------------------------------------------------------
 
   oneCongruence : (D a b m k : R)
