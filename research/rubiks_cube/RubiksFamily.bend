@@ -1,3 +1,15 @@
+# IMPORTANT INTERFACE NOTE.
+#
+# The cube action definitions below are useful mathematical data.  The later
+# TwistyPuzzleSpecification -> CubeReadout -> FibreCoalgebra demo is NOT a solver:
+# cubeReadout merely repackages the specification and its predicates, and the
+# continuation reconstructs that specification.  It never asks the universal
+# kernel to inhabit the minimum-distance/diameter proposition.  A fast run of
+# this file therefore demonstrates lossless construction/reconstruction only.
+#
+# For actual inference, keep the action/equivalences/cost and present the desired
+# dependent proposition itself to the universal cubical inference interface.
+
 # A declarative Rubik-family state/action object.
 #
 # This file contains the puzzle construction only.  It does not implement a
