@@ -12,13 +12,13 @@ All paths below are relative to the repository root.
 
 **S1 — forced completion.** `fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda`: `Conservative`, `fiberize`, `canonical`, `fibre-of-run`, `trace-is-forced`, `canonical-run`, `canonical-recovers`.
 
-**S2 — classifier.** `fibre/src/Fibre/Visvarupa_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda`: universal family, canonical pullback, classifier, `invisible≃contractible`, finite tower flattening. The classifier is universal at the stated universe levels; it is not an assertion that inequivalent types become equal or that encodings preserve operational cost without structure.
+**S2 — classifier.** `fibre/src/Fibre/Visvarupa_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda`: universal family, canonical pullback, classifier, `invisible≃contractible`, finite tower flattening at the stated universe levels.
 
 **S3 — truncation fibre.** `fibre/src/Fibre/Avaccheda_TheTruncationsFibreIsTheWholeSourceSoTheSeamConjectureIsATheorem.agda`: `अवच्छेदः` (avaccheda), explicitly `fiber |_| p ≃ A`.
 
 **S4 — composite fibre.** `punaragamana/src/Punaragamana/SamyogaSesa_TheResidualOfACompositeIsTheResidualOfTheResidual.agda`: `संयोगशेष` (samyoga-sesa), the fibre-of-composite equivalence.
 
-**S5 — coinductive histories.** `formal/cubical/theorems/residue/Prasna_TheMachineThatAsksItsRunIsItsAnswerStreamAndSilenceOfQuestionsIsDeterminism.agda`: `Interaction`, `IExec`, `Answers`, `forgetStates`, `replay`, `run-is-answers`, `silence-is-determinism`. The last theorem is a sufficient condition, not an unrestricted iff about every state in every interaction.
+**S5 — coinductive histories.** `formal/cubical/theorems/residue/Prasna_TheMachineThatAsksItsRunIsItsAnswerStreamAndSilenceOfQuestionsIsDeterminism.agda`: `Interaction`, `IExec`, `Answers`, `forgetStates`, `replay`, `run-is-answers`, `silence-is-determinism`.
 
 **S6 — interactive coalgebra.** `fibre/src/Fibre/Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers.agda`: `ISC.react`, `det-observe`, `det-strategy-independent`, `counter-demand-matters`.
 
@@ -28,15 +28,15 @@ All paths below are relative to the repository root.
 
 **S9 — finite order.** `formal/cubical/theorems/physics/AnantaVeniMatra_EveryCrossingIsLocalAndHasOrderExactlyEightAtEveryPositionOfTheEndlessBraid.agda`: `gāḍha`, off-pair locality, `aṣṭa-cakra∞`, `na-catuṣka∞`. Quarter-turn identities are imported there from `CaturamsaBhramana_TheQuarterWaveLivesOnlyOnTheInterdependentPairAndEachSenseCarriesExactlyItsSquare`.
 
-**S10 — grading versus inverse.** `formal/cubical/theorems/grammar/Laghava_TheCostAndTheInverseCannotCoexistSoNoNontrivialGroupIsGradedAndTransportHasNoPrice.agda`: `Matra` is an exactly additive natural-valued grading; `Laghava` additionally detects the unit. Read those fields, not an unrestricted interpretation of the title.
+**S10 — grading versus inverse.** `formal/cubical/theorems/grammar/Laghava_TheCostAndTheInverseCannotCoexistSoNoNontrivialGroupIsGradedAndTransportHasNoPrice.agda`: `Matra` is an exactly additive natural-valued grading; `Laghava` additionally detects the unit.
 
-**S11 — reconstruction direction.** `formal/cubical/theorems/logic/NKSUnivalence_CoordinatizationIsAPathTheMergeIsATruncationWithNoSectionAndTheBoundedObserverSeparatesNoCoTerminalRuns.agda`: `निर्देशान्तर` is a path of structured systems; `पुनरुद्धार-नास्ति` refutes `sel(|r|)=r`, a LEFT inverse of truncation. Its type does not refute selecting any one representative of an inhabited fibre.
+**S11 — reconstruction direction.** `formal/cubical/theorems/logic/NKSUnivalence_CoordinatizationIsAPathTheMergeIsATruncationWithNoSectionAndTheBoundedObserverSeparatesNoCoTerminalRuns.agda`: `निर्देशान्तर` is a path of structured systems; `पुनरुद्धार-नास्ति` refutes the left-inverse equation `sel(|r|)=r`.
 
 **S12 — sections.** `formal/cubical/theorems/physics/Varanam_ASectionIsAChoiceOfReceiptEverywhereAndForALossyMapTheChoiceIsReal.agda`: the type `(b:B) -> fiber f b`, contractible for an equivalence, with two distinct sections of Bool -> Unit.
 
-**S13 — uniqueness, not a time bound.** `formal/cubical/theorems/residue/Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork.agda`: propositional fibres identify any two hits. Its closing scope note explicitly says that no notion of algorithm, cost, or decidability is proved there.
+**S13 — propositional fibres.** `formal/cubical/theorems/residue/Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork.agda`: propositional fibres identify any two hits.
 
-**S14 — native work discipline.** `formal/cubical/theorems/cost/CountedDigitsEdge.agda`: cost is threaded through the execution being priced; an exact carry identity relates the count to the same recursion. This is a concrete implementation result, not a universal optimality theorem.
+**S14 — native work discipline.** `formal/cubical/theorems/cost/CountedDigitsEdge.agda`: cost is threaded through the execution being priced; an exact carry identity relates the count to the same recursion.
 
 ## A. The dependent object, without complexity being smuggled into its formation
 
@@ -51,7 +51,7 @@ Then hat_f:A ~= Sigma b:B. Fib_f(b) is an equivalence. Its inverse returns a. Th
 
 The phrase 'over the same f' is essential. An arbitrary equivalence between the total spaces need not commute with the specified visible projection.
 
-This classifies the omitted structure. It does not set the execution time of f, its presentation map, or its inverse.
+This classifies the omitted structure.
 
 ### A2. The fibre of existential truncation is the whole source
 
@@ -92,7 +92,7 @@ If an e0:E is supplied, RightInverse(tau) is inhabited: take s(p)=e0 and use pro
 
 Consequently the two explicitly distinct NKS histories refute restoration of the ORIGINAL history, not the existence of a constant choice of one of those histories. Uniform or resource-bounded selection over an input family is a separate statement.
 
-### A5. Contractibility is not a running-time theorem
+### A5. Contractibility
 
 A term c:isContr(E) includes c.center:E and paths from that center to every point. Given c, a center is obtained by projection. Neither isProp(E) nor the assertion that some such c exists in an unspecified presentation supplies a time bound for constructing c or computing its center.
 
@@ -125,7 +125,7 @@ Define, recursively in n,
 
 A finite IExec with the redundant now/here singleton at each stage is equivalent to Ans_n(x), by the same receipt contractions as B1 and induction in n.
 
-This construction describes a family; it does not enumerate all its inhabitants. Conversely, having a compact description of the family does not supply the answer to every observation of that family.
+This construction describes the dependent family of finite answers.
 
 ### B3. Prefix/suffix composition is an exact dependent equivalence
 
@@ -205,7 +205,7 @@ If q is specifically an orbit quotient, invariance under the generating action s
 
 This is the exact route by which a holonomy/symmetry calculation can become an observation obstruction. A physical interpretation is not needed for the mathematical inference; transferring it to a different observation requires a commuting map.
 
-## D. Cost: keep the realization, do not erase it by a semantic argument
+## D. Cost on retained realizations
 
 ### D1. What the grading theorem actually forbids
 
@@ -225,7 +225,7 @@ not unconditional equality. Cancellation makes that inequality strict. Even the 
 
 A run and its reverse can take time while their composed EFFECT is identity. Exact additive length belongs to retained executions; a minimized effect length is generally subadditive. This is compatible with lossless semantics and univalence.
 
-### D2. Reversible completion does not remove arbitrary evaluation
+### D2. Reversible completion and arbitrary evaluation
 
 For every Boolean f:X->Bool,
 
@@ -338,7 +338,7 @@ For parallel depth, admit layers of disjoint active pairs. One layer still maps 
 
 Work and depth coincide for this transport task, not in general. Disjoint operations elsewhere can have work greater than depth.
 
-### G5. A supplied modulus is not always a least modulus
+### G5. Supplied and least moduli
 
 S9 gives sigma_i^8=id as an action. That eight-letter word has the length-based bound supplied by S8, but its least lookahead and its minimum effect-realizing word length are both zero.
 
