@@ -57,6 +57,107 @@ jobs:
           "$BEND" collab/bend2-interactive-cubical/conductive_map_smoke.bend --to-hvm4-full > "$RUNNER_TEMP/conductive-map.hvm4"
           grep -q '^@conductiveMapMain = ' "$RUNNER_TEMP/conductive-map.hvm4"
           grep -q '@cfPresentMap' "$RUNNER_TEMP/conductive-map.hvm4"
+          grep -q '^@sourceMain = ' "$RUNNER_TEMP/conductive-map.hvm4"
+          grep -q '^@main = @conductiveMain
+
+      - name: Execute canonical Bend universal presentation
+        shell: bash
+        run: |
+          set -euo pipefail
+          source "$RUNNER_TEMP/conductive-build/env.sh"
+          "$BEND" collab/bend2-interactive-cubical/universal_presentation.bend --to-hvm4-full > "$RUNNER_TEMP/universal-presentation.hvm4"
+          "$HVM" "$RUNNER_TEMP/universal-presentation.hvm4" -s | tee "$RUNNER_TEMP/universal-presentation.log"
+          grep -Eq '(^|[^0-9])2([^0-9]|$)' "$RUNNER_TEMP/universal-presentation.log"
+
+      - name: Run complete Cubical Bend suite
+        shell: bash
+        run: |
+          set -euo pipefail
+          source "$RUNNER_TEMP/conductive-build/env.sh"
+          bash collab/bend2-interactive-cubical/suite.sh "$BEND"
+
+      - name: Compile SAT process through full runtime
+        shell: bash
+        run: |
+          set -euo pipefail
+          source "$RUNNER_TEMP/conductive-build/env.sh"
+          cd research/sat_fibre
+          "$BEND" SATProcess.bend --to-hvm4-full > "$RUNNER_TEMP/SATProcess.hvm4"
+          grep -q '^@conductiveWholeMain = @cfCoalgebra' "$RUNNER_TEMP/SATProcess.hvm4"
+          grep -q '^@main = @conductiveMain
+          "$HVM" "$RUNNER_TEMP/SATProcess.hvm4" -s | tee "$RUNNER_TEMP/sat-runtime.log"
+
+      - name: Retain exact generated/runtime evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: conductive-language-entry-evidence
+          path: |
+            ${{ runner.temp }}/conductive-build/build-identity.txt
+            ${{ runner.temp }}/conductive-build/bend-build.log
+            ${{ runner.temp }}/conductive-build/hvm-build.log
+            ${{ runner.temp }}/SATProcess.hvm4
+            ${{ runner.temp }}/sat-runtime.log
+          retention-days: 14
+          if-no-files-found: warn
+ "$RUNNER_TEMP/conductive-map.hvm4"
+
+      - name: Execute canonical Bend universal presentation
+        shell: bash
+        run: |
+          set -euo pipefail
+          source "$RUNNER_TEMP/conductive-build/env.sh"
+          "$BEND" collab/bend2-interactive-cubical/universal_presentation.bend --to-hvm4-full > "$RUNNER_TEMP/universal-presentation.hvm4"
+          "$HVM" "$RUNNER_TEMP/universal-presentation.hvm4" -s | tee "$RUNNER_TEMP/universal-presentation.log"
+          grep -Eq '(^|[^0-9])2([^0-9]|$)' "$RUNNER_TEMP/universal-presentation.log"
+
+      - name: Run complete Cubical Bend suite
+        shell: bash
+        run: |
+          set -euo pipefail
+          source "$RUNNER_TEMP/conductive-build/env.sh"
+          bash collab/bend2-interactive-cubical/suite.sh "$BEND"
+
+      - name: Compile SAT process through full runtime
+        shell: bash
+        run: |
+          set -euo pipefail
+          source "$RUNNER_TEMP/conductive-build/env.sh"
+          cd research/sat_fibre
+          "$BEND" SATProcess.bend --to-hvm4-full > "$RUNNER_TEMP/SATProcess.hvm4"
+          grep -q '^@conductiveWholeMain = @cfCoalgebra' "$RUNNER_TEMP/SATProcess.hvm4"
+          "$HVM" "$RUNNER_TEMP/SATProcess.hvm4" -s | tee "$RUNNER_TEMP/sat-runtime.log"
+
+      - name: Retain exact generated/runtime evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: conductive-language-entry-evidence
+          path: |
+            ${{ runner.temp }}/conductive-build/build-identity.txt
+            ${{ runner.temp }}/conductive-build/bend-build.log
+            ${{ runner.temp }}/conductive-build/hvm-build.log
+            ${{ runner.temp }}/SATProcess.hvm4
+            ${{ runner.temp }}/sat-runtime.log
+          retention-days: 14
+          if-no-files-found: warn
+ "$RUNNER_TEMP/SATProcess.hvm4"
+          "$HVM" "$RUNNER_TEMP/SATProcess.hvm4" -s | tee "$RUNNER_TEMP/sat-runtime.log"
+
+      - name: Retain exact generated/runtime evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: conductive-language-entry-evidence
+          path: |
+            ${{ runner.temp }}/conductive-build/build-identity.txt
+            ${{ runner.temp }}/conductive-build/bend-build.log
+            ${{ runner.temp }}/conductive-build/hvm-build.log
+            ${{ runner.temp }}/SATProcess.hvm4
+            ${{ runner.temp }}/sat-runtime.log
+          retention-days: 14
+          if-no-files-found: warn
+ "$RUNNER_TEMP/conductive-map.hvm4"
 
       - name: Execute canonical Bend universal presentation
         shell: bash
