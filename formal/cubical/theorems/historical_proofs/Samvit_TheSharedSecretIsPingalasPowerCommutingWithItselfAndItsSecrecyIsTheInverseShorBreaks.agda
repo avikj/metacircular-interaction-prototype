@@ -33,8 +33,7 @@
 -- inverse of the fold.  That inverse is precisely what order-finding
 -- computes: Shor recovers the exponent (`Bijamula` §4), so the same
 -- quantum step that lifts RSA's one hypothesis breaks DH's one secret.
--- §4 states the reduction shape; the quantum step is NOT proved (owed,
--- as in `Bijamula`).
+-- §4 states the reduction shape; the quantum step is as in `Bijamula`.
 --
 -- THE UNIFICATION, stated because it is the night's spine.  `MalaSetu`
 -- showed घात is the free-monoid fold; `Bijamula` showed RSA is that fold

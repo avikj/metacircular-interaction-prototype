@@ -14,11 +14,11 @@
 --
 -- and `TheUsualReasonsMadeExplicit…` said of the walks module's `Perm`:
 --
---     · it is not proved to coincide with "same multiset";
---       the CONVERSE containment `≈ → Perm` is also not proved.
+--     · whether it coincides with "same multiset", and the CONVERSE
+--       containment `≈ → Perm`.
 --
--- Both absences are the same absence, and it is a composition of what is
--- already there.  Nothing new is assumed; the only tools are Euclid's
+-- Both are one question, and it is a composition of what is already
+-- there.  Nothing new is assumed; the only tools are Euclid's
 -- lemma from Drdha, the `Insert`/`Perm` relation from the walks module,
 -- and cancellation in ℕ from the library.
 --

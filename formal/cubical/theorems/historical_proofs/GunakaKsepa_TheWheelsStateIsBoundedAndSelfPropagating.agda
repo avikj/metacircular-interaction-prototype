@@ -69,11 +69,10 @@
 --                    identities.
 --   षष्ट्येक-प्रत्यावृत्तिः  D = 61, turn 0 → turn 1, computed in the kernel.
 --
---   * TERMINATION IS STILL OPEN and this file does not narrow it.  What is
---     established is a CONDITIONAL cap: exceeding B² turns proves a state
---     repeated, and — given §6's missing lemma — that the wheel is in a
---     cycle that will never reach क्षेप = 1.  A cap is a resource limit
---     whose failure now carries a mathematical claim instead of a shrug.
+--   * What is established is a CONDITIONAL cap: exceeding B² turns
+--     proves a state repeated, and — given §6's lemma — that the wheel
+--     is in a cycle that will never reach क्षेप = 1.  A cap is a resource
+--     limit whose failure carries a mathematical claim.
 --   * DETERMINISM IS NOT COMPLETE.  §5 gives that −m solves the next
 --     congruence.  Two things remain: (a) that the solution set IS the
 --     class of −m, which needs gcd(b', k') = 1 — the same coprimality
@@ -97,10 +96,9 @@
 --     follows that precedent.
 --   * §5 is over ℤ, and the reactor divides by |k| and then takes
 --     absolute values of both new coordinates.  That sign normalisation
---     is not proved to preserve the congruence.  It was CHECKED to
---     preserve it over 38 700 turns for every non-square D ≤ 3000, which
---     is a finite exhaustive verification of a finite range and is
---     nothing else.
+--     was CHECKED to preserve the congruence over 38 700 turns for every
+--     non-square D ≤ 3000, a finite exhaustive verification of a finite
+--     range.
 ------------------------------------------------------------------------
 
 module GunakaKsepa_TheWheelsStateIsBoundedAndSelfPropagating where

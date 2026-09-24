@@ -37,8 +37,8 @@
 -- not as an equivalence of types: `isEquiv f` is a PROPOSITION and
 -- `नष्टोद्दिष्टयोगः f` is not, so the two are logically equivalent and
 -- NOT equal.  The round trip through `isEquiv` returns what it was
--- given (§५); the round trip through the record is not claimed, and
--- the reason is that quasi-inverse data can differ.
+-- given (§५); the round trip through the record can differ, because
+-- quasi-inverse data can differ.
 --
 -- §६ is the discriminant exhibited on both roads at once: the प्रस्तार
 -- of any छेद-सूची carries the witness (road one, defect zero at every

@@ -243,6 +243,5 @@ module _ {A : Type ℓ} (_⊕_ : A → A → A)
 -- split coordinates the identity "degenerates to the interchange law".  So:
 -- the six-fold coincidence is the SHADOW of भावना cast by the split
 -- coordinates, and the question the coincidence raises is what the medial
--- law becomes when the degeneration is undone.  That is not answered here
--- and is not claimed to be.
+-- law becomes when the degeneration is undone.
 ------------------------------------------------------------------------

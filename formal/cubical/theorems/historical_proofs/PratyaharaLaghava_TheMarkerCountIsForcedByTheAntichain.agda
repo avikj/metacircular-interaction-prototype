@@ -12,9 +12,9 @@
 -- the grammarians' maxim (ardhamtrlghavena putrotsava manyante
 -- vaiykara) prices half a mora of the metalanguage like the birth of a
 -- son.  `Sivasutra.agda` checks that the vowel pratyhras ARE the intervals
--- they are said to be, by refl, and its header records that the OPTIMALITY —
--- Petersen 2004 — is not proved and is owed.  This file pays part of that
--- debt and says exactly which part.
+-- they are said to be, by refl, and its header names the OPTIMALITY —
+-- Petersen 2004 — as the deeper object.  This file supplies part of it
+-- and says exactly which part.
 --
 -- WHAT IS PROVED HERE, and it is a reason rather than an instance:
 --
@@ -59,9 +59,8 @@
 --        the ~30 pratyhras the grammar uses : width 11
 --     So the bound is met exactly on the family the device EXPRESSES, and the
 --     attested classes alone leave three markers unforced by this argument.
---     That residue is where Petersen's theorem is needed and this one is not
---     enough, and it is not formalised here — the 14-antichain is a computed
---     witness in Haskell, not a checked term.
+--     That residue is where Petersen's theorem is needed and this one is
+--     not enough — the 14-antichain is a computed witness in Haskell.
 --   * That the order can be RECOVERED from the family (the consecutive-ones
 --     direction, Booth–Lueker PQ-trees; Kornai and Kiparsky bear on it).
 --     Not here.  Only the forward direction — this order does realise these

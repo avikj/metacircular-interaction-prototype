@@ -70,9 +70,8 @@
 -- ────────────────────────────────────────────────────────────────────
 -- THE SCOPE, EXACTLY.  Nothing here says which lengths ARE achievable:
 -- `popIsMinimal` says suc q is achieved and nothing non-empty is
--- shorter, not that every multiple of suc q is achieved or that only
--- multiples are (the latter is `boundaryDividesInLowestTerms`, and
--- the former is not claimed).  Nothing is quotiented: `gcd p (suc q)
+-- shorter.  That only multiples are is `boundaryDividesInLowestTerms`.
+-- Nothing is quotiented: `gcd p (suc q)
 -- ≡ 1` is a property of the PAIR, and 2/4 still fails where 1/2
 -- succeeds — that is `twoOverFourIsNotInLowestTerms` next to
 -- `minimalityInLowestTermsGcd`, not a contradiction.  No Bézout

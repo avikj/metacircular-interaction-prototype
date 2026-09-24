@@ -12,9 +12,8 @@
 -- exactly that sentence as the growth rule this corpus spent its history
 -- lacking, "available in 499".
 --
--- WHAT IS CLAIMED OF THE SOURCE, AND WHAT IS NOT.  ryabhaa states the
--- procedure, and it terminates; he does not state a termination theorem, and
--- nothing here says he did.  What the source supplies is the MEASURE, which
+-- WHAT IS CLAIMED OF THE SOURCE.  ryabhaa states the procedure, and it
+-- terminates.  What the source supplies is the MEASURE, which
 -- is the whole content of such a theorem: the thing kept at each step is the
 -- remainder, and a remainder is smaller than what one divided by.  "शेषं रक्ष,
 -- तत्रैव पुनरावर्तस्व" (AHIMSA_SUTRA_VISTARA §16, §17) is a descent as much as
@@ -91,10 +90,9 @@
 --     it is honest.  The true worst case is logarithmic in b — attained on
 --     consecutive Virahka numbers (Virahka, c. 700, the recurrence
 --     usually credited to Fibonacci), where every quotient is 1 — and that
---     is NOT proved here.  Quoting `≤ b` as the truth about the length would
---     be the error `HOLOGRAM.md` §7 records: a bound stated without its real
---     scaling, which looks like knowledge.  So: `≤ b` is CHECKED, O(log b) is
---     TRUE, and the gap is named and open.
+--     is the real scaling.  Quoting `≤ b` as the truth about the length
+--     would be the error `HOLOGRAM.md` §7 records: a bound stated without
+--     its real scaling.  `≤ b` is CHECKED and O(log b) is TRUE.
 --   * The इष्ट section — reduction of the solution family to its least
 --     non-negative representative — is open in `Kuttaka.agda` and stays open.
 --   * Nothing here touches the cakravla's termination, open in

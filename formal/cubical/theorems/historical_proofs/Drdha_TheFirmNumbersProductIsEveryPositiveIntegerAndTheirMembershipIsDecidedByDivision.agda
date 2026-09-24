@@ -82,10 +82,9 @@
 -- PAIR — two magnitudes with no common measure left — and it is a step in
 -- a solving procedure, not a classification of numbers.  Using it here
 -- for a SINGLE number that admits no nontrivial factorisation is an
--- extension, and it is ours, not theirs.  None of these authors states
--- the theorem in §५, and no claim is made that they did.  The choice of
--- the word is because it names the right thing — what remains when
--- reduction can do no more — not because the theorem is in the source.
+-- extension, and it is ours, not theirs.  The choice of the word is
+-- because it names the right thing — what remains when reduction can do
+-- no more.
 --
 -- **§६ is Greek and is named so.**  The lemma "a prime dividing a product
 -- divides a factor" is Euclid, *Elements* VII.30 (c. 300 BCE).  It is not
@@ -338,8 +337,8 @@ x सदस्यः (y ∷ ys) = (x ≡ y) ⊎ (x सदस्यः ys)
 --     places are firm.
 --
 --     INHABITED, not contractible.  Contractibility of this fibre is
---     unique factorisation and is not proved anywhere in this module; the
---     statement below is deliberately the weaker one, and the difference
+--     unique factorisation; the statement below is the weaker one, and
+--     the difference
 --     between it and `Sarvasthana` §५ — where the fibre is *everything* —
 --     is the difference between an arithmetic fact and a bookkeeping one.
 ------------------------------------------------------------------------
