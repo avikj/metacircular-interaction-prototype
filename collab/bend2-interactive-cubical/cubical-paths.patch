@@ -6512,10 +6512,13 @@ new file mode 100644
 +    -- codomains are retained: B is emitted as the actual Pi codomain family.
 +    mapEntry ty = case cut ty of
 +      All dom cod ->
-+        "\n// canonical lossless presentation of @main as a map\n"
-+        ++ "@conductiveMapMain = λx. @cfPresentMap("
-+        ++ emitFull book dom ++ ", " ++ emitFull book (Lam "x" cod)
-+        ++ ", @" ++ hvmName "main" ++ ", x)\n"
++        let body = cod depMarker
++        in if occursDep body
++             then ""  -- a dependent section has no single codomain B to fibre over
++             else "\n// canonical lossless presentation of @main as a map\n"
++                  ++ "@conductiveMapMain = λx. @cfPresentMap("
++                  ++ emitFull book dom ++ ", " ++ emitFull book body
++                  ++ ", @" ++ hvmName "main" ++ ", x)\n"
 +      _ -> ""
 +
 +prelude :: String
