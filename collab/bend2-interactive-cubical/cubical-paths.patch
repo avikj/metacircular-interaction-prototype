@@ -6478,9 +6478,26 @@ new file mode 100644
 +  return ("b" ++ show d ++ "u" ++ show n)
 +
 +compileFull :: Book -> String
-+compileFull book@(Book defs hits) = prelude ++ hitPrelude book ++ unlines (map def (M.toList defs))
++compileFull book@(Book defs hits) =
++  prelude ++ hitPrelude book ++ unlines (map def (M.toList defs)) ++ conductiveEntries
 +  where
 +    def (nam, (_, tm, _)) = "@" ++ hvmName nam ++ " = " ++ emitFull book tm
++
++    -- Every checked entry is already a typed point (A,a).  When the canonical
++    -- FibreCoalgebra implementation is linked in the Book, expose the
++    -- lossless/coinductive presentation automatically instead of requiring
++    -- application source to spell `fibreCoalgebra(A,a)` by hand.
++    --
++    -- This is deliberately a TARGET-BOUNDARY elaboration, not an App rewrite:
++    -- internal applications remain the reductions used to evaluate one
++    -- observation.  The generated companion presents the whole checked value.
++    conductiveEntries =
++      case (M.lookup "main" defs, M.lookup "fibreCoalgebra" defs) of
++        (Just (_, _, mainTy), Just _) ->
++          "\n// canonical conductive presentation of checked @main\n"
++          ++ "@__whole_main = @" ++ hvmName "fibreCoalgebra"
++          ++ "(" ++ emitFull book mainTy ++ ", @" ++ hvmName "main" ++ ")\n"
++        _ -> ""
 +
 +prelude :: String
 +prelude = unlines
