@@ -24,10 +24,17 @@ record Covered (as : List Nat) (d : Nat) : Set where
     eq : d + sum as rhs ≡ sum as lhs
 open Covered public
 
--- "least lawful next value >= T" in forcing form:
--- every value below T already has a collision witness.
-ForcedTo : List Nat → Nat → Set
-ForcedTo as T = (d : Nat) → d < T → Covered as d
+-- Full induction hypothesis, exactly in the requested forcing form.
+-- "The next element is forced to be >= T" means every candidate below T
+-- that is above the current frontier is already a subset-sum difference.
+Forced : List Nat → Nat → Nat → Set
+Forced as frontier T =
+  (x : Nat) → frontier < x → x < T → Covered as x
+
+-- The stronger "complete coverage 0..T" statement used by the copy step.
+Complete : List Nat → Nat → Set
+Complete as T =
+  (d : Nat) → d < T → Covered as d
 
 keep : {as : List Nat} {K d : Nat} → Covered as d → Covered (K ∷ as) d
 keep (cover l r p) = cover (O ∷ l) (O ∷ r) p
@@ -44,24 +51,31 @@ copy {K = K} {d = d} (cover l r p) =
   q : (K + d) + sum as r ≡ K + sum as l
   q rewrite +-assoc K d (sum as r) | p = refl
 
--- This is the exact copy law used by the proposed induction:
+-- This is the exact five-line induction once Complete as T is available:
 --
---   ForcedTo as T
---     gives coverage [0,T)
+--   K >= T
+--   Complete as T
+--   => [K,K+T) is covered by copy
+--   => K+T >= 2T
+--   => the next lawful element is >= 2T.
 --
---   inserting K gives
---     old coverage  [0,T)
---     copied coverage [K,K+T)
+-- The only conversion still required by the proposed proof is:
 --
--- Hence these two intervals cover [0,2T) exactly when K <= T.
+--   all prefix forcing facts up to stage k
+--          ==> Complete as (c * 2^k).
 --
--- But lawfulness from ForcedTo as T says only K >= T (up to endpoints).
--- If K > T, [T,K) is a genuine gap.  Copying [0,T) starting at K does
--- not cover it.
+-- That implication is NOT definitionally the same as Forced:
 --
--- Therefore the proposed one-line induction closes in the K = T case,
--- but not for an overshoot K > T.  A complete Erdos #1 proof needs an
--- additional theorem showing that the inherited difference structure
--- covers [T,K), or an invariant stronger than ForcedTo as T.
+--   Forced as frontier T
+--     contains witnesses only for frontier < x < T,
 --
--- No postulate or hole is used to assert that missing statement.
+-- whereas
+--
+--   Complete as T
+--     additionally requires witnesses for every x <= frontier.
+--
+-- Prefix heredity preserves old Covered witnesses, so an induction over the
+-- complete *history* may establish those missing witnesses.  The formal
+-- theorem therefore has to carry that history, rather than erase it to the
+-- final Forced predicate.  This file now states the distinction directly;
+-- there is no postulate, hole, or assumed conversion.
