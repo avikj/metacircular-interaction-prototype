@@ -6663,7 +6663,10 @@ new file mode 100644
 +      All dom cod ->
 +        let body = cod depMarker
 +        in if occursDep body
-+             then ""  -- a dependent section has no single codomain B to fibre over
++             then "\n// canonical dependent graph/fibre presentation of @main\n"
++                  ++ "@conductiveDependentMapMain = λx. @cfDepPresentMap("
++                  ++ emitFull book dom ++ ", " ++ emitFull book (Lam "x" cod)
++                  ++ ", @sourceMain, x)\n"
 +             else "\n// canonical lossless presentation of @main as a map\n"
 +                  ++ "@conductiveMapMain = λx. @cfPresentMap("
 +                  ++ emitFull book dom ++ ", " ++ emitFull book body
@@ -6683,6 +6686,8 @@ new file mode 100644
 +  , "@cfObservedValue = λ&A. λ&B. λ&f. λ&c. (λ{#Pair: λ&tag. λ&xs. (λ{#fibreCarry: (λ{#Pair: λ&a. λ&ys. (λ{#Pair: λ&b. λ&zs. b})(ys)})(xs); λz. &{}})(tag)})(c)"
 +  , "// Dependent map presentation: x ↦ (f(x), exact fibre/source witness)."
 +  , "@cfPresentMap = λ&A. λ&B. λ&f. λ&x. @cfDescend(A)(B)(f)(x)"
++  , "// Dependent graph completion: x ↦ (x, f(x), refl) with B depending on x."
++  , "@cfDepPresentMap = λ&A. λ&BFam. λ&f. λ&x. #Pair{#dependentFibreCarry, #Pair{x, #Pair{f(x), #Pair{#PLm{λ&i. f(x)}, #One}}}}"
 +  , "// Runtime type of FibreElement(A,B,f), matching the checked Bend datatype."
 +  , "// Keeping this type in the continuation matters: the next whole is not an"
 +  , "// untyped log cell but the same mathematical object in fibre coordinates."
