@@ -6452,10 +6452,10 @@ index 0000000..18c963a
 +  op2 XOR = "^"; op2 SHL = "<<"; op2 SHR = ">>"; op2 POW = "*"
 diff --git a/src/Target/HVM4Full.hs b/src/Target/HVM4Full.hs
 new file mode 100644
-index 0000000..11f707a
+index 0000000..c516ec2
 --- /dev/null
 +++ b/src/Target/HVM4Full.hs
-@@ -0,0 +1,578 @@
+@@ -0,0 +1,584 @@
 +{-./../Core/Type.hs-}
 +
 +{-# LANGUAGE ViewPatterns #-}
@@ -6908,10 +6908,16 @@ index 0000000..11f707a
 +    PLm _ f -> let b = f depMarker in not (occursDep b) && not (occursMarker b)
 +    _       -> False
 +
++  -- A label is a dimension name.  Source labels are explicit, global names:
++  -- they are placed in their own region [2^18, 2^19) (name 'a' + three base-64
++  -- digits), disjoint from the runtime's fresh names and from parse-time auto
++  -- labels, so δ-unfolding never renames them and they never capture.
 +  label (Loc _ t)       = label t
-+  label (Val (U64_V v)) = "L" ++ show v
-+  label (Sym s)         = s
-+  label _               = "L"
++  label (Val (U64_V v))
++    | v < 262144        = 'a' : [ b64 ((fromIntegral v `div` (64 ^ k)) `mod` 64) | k <- [2, 1, 0 :: Int] ]
++    | otherwise         = error "HVM4 full: a SUP label must be below 2^18 (the explicit dimension-name region)"
++  label _               = error "HVM4 full: a SUP label must be a numeric literal; a symbolic or computed label has no dimension-name region"
++  b64 i = "_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$" !! i
 +
 +  op2 o = case o of
 +    ADD -> "+"; SUB -> "-"; MUL -> "*"; DIV -> "/"; MOD -> "%"

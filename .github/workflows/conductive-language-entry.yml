@@ -44,6 +44,17 @@ jobs:
           set -euo pipefail
           source "$RUNNER_TEMP/conductive-build/env.sh"
           bash collab/bend2-interactive-cubical/verify_conductive_entry.sh "$BEND" "$HVM"
+      - name: Differential Core vs full runtime over the whole corpus
+        shell: bash
+        run: |
+          set -euo pipefail
+          source "$RUNNER_TEMP/conductive-build/env.sh"
+          export LC_ALL=C.UTF-8
+          DIFF_OUT="$RUNNER_TEMP/diff" python3 collab/bend2-interactive-cubical/tools/diff/diff.py > "$RUNNER_TEMP/diff.log" 2>&1
+          cut -f2 "$RUNNER_TEMP/diff/report.tsv" | sort | uniq -c
+          # a well-typed program whose runtime value differs from Core, or
+          # that crashes the runtime, is a miscompile
+          if awk -F'\t' '$2=="DISAGREE" || $2=="HVM-CRASH" || $2=="HVM-TIMEOUT"' "$RUNNER_TEMP/diff/report.tsv" | grep .; then exit 1; fi
       - name: Map-valued entries are typed points
         shell: bash
         run: |
@@ -87,11 +98,12 @@ jobs:
           cd research/sat_fibre
           "$BEND" SATProcess.bend --to-hvm4-full > "$RUNNER_TEMP/SATProcess.hvm4"
           grep -Fqx '@main = #Pair{@Tmain, @Dmain}' "$RUNNER_TEMP/SATProcess.hvm4"
-          ! grep -q '@DwholeProcess' "$RUNNER_TEMP/SATProcess.hvm4"
-          ! grep -q '@Dinteract' "$RUNNER_TEMP/SATProcess.hvm4"
+          # (a `!`-negated command never trips set -e; test explicitly)
+          if grep -q '@DwholeProcess\|@Dinteract' "$RUNNER_TEMP/SATProcess.hvm4"; then exit 1; fi
           "$HVM" "$RUNNER_TEMP/SATProcess.hvm4" -s | tee "$RUNNER_TEMP/sat-runtime.log"
-          # the XOR fibre, shared: (a, b, a xor b) over superposed a and b
-          head -1 "$RUNNER_TEMP/sat-runtime.log" | grep -Fq '#Pair{#reading{},#Pair{&L100{0,1},#Pair{&L101{0,1},#Pair{&L100{&L101{0,1},&L101{1,0}},#One{}}}}}'
+          # the XOR fibre, shared: (a, b, a xor b) over superposed a and b;
+          # source labels 100 and 101 are the explicit dimension names a_aJ, a_aK
+          head -1 "$RUNNER_TEMP/sat-runtime.log" | grep -Fq '#Pair{#reading{},#Pair{&a_aJ{0,1},#Pair{&a_aK{0,1},#Pair{&a_aJ{&a_aK{0,1},&a_aK{1,0}},#One{}}}}}'
       - name: Retain exact generated/runtime evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
@@ -107,5 +119,6 @@ jobs:
             ${{ runner.temp }}/universal-presentation.hvm4
             ${{ runner.temp }}/SATProcess.hvm4
             ${{ runner.temp }}/sat-runtime.log
+            ${{ runner.temp }}/diff/report.tsv
           retention-days: 14
           if-no-files-found: warn

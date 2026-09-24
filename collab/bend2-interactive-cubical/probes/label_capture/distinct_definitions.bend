@@ -1,5 +1,5 @@
 # Control for same_definition_twice.bend: identical defs under two names get
-# distinct static labels, and the runtime returns #Suc^4 #Zer (27 itrs).
+# distinct static labels even on stock HVM4: #Suc^4 #Zer in 27 interactions.
 
 def twoA(A: Set, f: A -> A, x: A) -> A:
   f(f(x))

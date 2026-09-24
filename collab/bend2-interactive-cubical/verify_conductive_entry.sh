@@ -56,3 +56,9 @@ if "$BEND" "$HERE/emit_refuses_unary_not.bend" --to-hvm4-full > "$TMP/refuse.hvm
 fi
 [ ! -s "$TMP/refuse.hvm4" ] || { echo "refused emission left partial output" >&2; exit 1; }
 echo "REFUSE-NOT-MISCOMPILE OK"
+
+# Dimension names: each δ-unfolding instantiates a definition's bound labels
+# freshly, so two or three instances of one definition never capture.
+run "$HERE/probes/label_capture/same_definition_twice.bend" '#Pair{#Nat{},#Suc{#Suc{#Suc{#Suc{#Zer{}}}}}}'
+run "$HERE/probes/label_capture/same_definition_thrice.bend" '#Pair{#Nat{},#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Zer{}}}}}}}}}}}}}}}}}}'
+echo "FRESH-DIMENSIONS OK"

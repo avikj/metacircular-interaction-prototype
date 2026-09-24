@@ -74,7 +74,9 @@ contractible (§7, `fibre-of-run`); cost is the net's own interaction count.
 |---|---|---|
 | P1 | Seam: check gate, no deleted cells, types emitted, typed-point root, remove companions/bootstrap | done (commit 1) |
 | P2 | Fix breakages from P1 (mining gate reader, `sat_fibre.bend` `not`, all-or-nothing emission) | done (commit 3) |
-| P3 | Diamond + label audit of the reachable HVM4 rules (§3a); label capture found: fresh dimension names per instantiation | in progress |
+| P3a | Label capture: fresh dimension names per δ-unfolding (`hvm4-dimensions.patch`), explicit source labels in their own region, refusal of symbolic/computed labels | done (stage 1: exact-or-abort in 24-bit names) |
+| P3b | Widen dimension names (label out of the term word) so exhaustion is not a limit | todo |
+| P3c | Diamond: state the demand-restricted relation, check an instance of `RandomDescent` for the reachable rules | todo |
 | P4 | Interaction entry: `Q`/`δ` loop at the root | todo |
 | P5 | Checking on the net (`verify` projection): the checker as a net program | todo |
 | P6 | Delete the Haskell evaluator from the compile path; bootstrap + CI green; delete this file | todo |
@@ -168,7 +170,7 @@ fresh labels per δ-unfolding (and per Fix knot). Engineering constraint:
 HVM4 labels are 24-bit (term ext); DSU/DDU dynamic labels also land in 24
 bits; there is no fresh-label primitive. A monotone per-unfolding counter
 wraps after 2^24 unfoldings, so exactness needs wider labels or label
-reclamation. DECISION PENDING with the user (see chat).
+reclamation. DECIDED and implemented (stage 1), see "P3a results" below.
 Where freshness must happen (from the code, not assumed):
 - `term_clone` always makes a lazy shared DUP of its value, so copies of an
   unevaluated REF (or of any fresh-number term) share ONE evaluation. A fresh
@@ -202,6 +204,32 @@ REFUSED 79 (74 also fail in Core; 5 are emitter refusals: 4 I64 files +
 the unary-not probe); NO-MAIN 11; CORE-TIMEOUT 1 (census_corpus: runtime
 finishes, 11.1M itrs); HVM-CRASH 1 (the triple probe, OOM). So the corpus
 itself does not hit capture; the probes show the language admits it.
+
+### P3a results
+- `hvm4-dimensions.patch` (applied by bootstrap after the HVM4 clone):
+  parse records each definition's contiguous auto-label range
+  (`BOOK_LAB_LO/CNT`); `case REF` draws a fresh block from
+  `[DIM_LO, DIM_HI) = [2^20, 2^23)` and packs `base|lo|cnt` into a dimension
+  map word; a mapped ALO node is two words with `ALO_DIM_FLAG` in ext;
+  ALO copies of SUP (ext) and DP0/DP1/BJ0/BJ1 (ext) rename labels in the
+  definition's range. Exhaustion aborts (`RUNTIME_ERROR … refusing to reuse a
+  live name`), never wraps. Renaming is part of δ, so it is not counted.
+- Emitter: source label v < 2^18 is emitted as the name `a` + three base-64
+  digits, i.e. value 2^18 + v in the explicit region [2^18, 2^19); symbolic or
+  computed labels are refused (they were all emitted as the constant `L`).
+  SAT labels 100/101 now print as `a_aJ`/`a_aK`.
+- Label space: [0,2^18) unused by the emitter, [2^18,2^19) explicit,
+  [2^20,2^23) fresh (7.3M names), [2^23,2^24) parse-time auto labels.
+- Evidence: probes now 4 (27 itrs, equal to the distinct-defs control) and 16
+  (50 itrs; was OOM). Differential over the corpus: 119 AGREE, 0 DISAGREE,
+  0 crash; every superposed result matches Core branch by branch.
+  ITRS identical on 135 programs; `port/SchematicOperation.bend` 790 → 798
+  with the same (correct) value: stock HVM4 was already capturing there and
+  undercounting by an illegitimate annihilation. Mining gate: identical
+  35,372,404 itrs, NATIVE_GATE_PASS, heap +3% (two-word ALO nodes).
+- CI: differential step fails on any DISAGREE/HVM-CRASH/HVM-TIMEOUT; verify
+  stage FRESH-DIMENSIONS; SAT grep updated. Fixed two mid-script
+  `! grep -q` assertions that `set -e` never enforced.
 
 ## 4. How to work here (pitfalls already paid for)
 

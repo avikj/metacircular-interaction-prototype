@@ -1,7 +1,9 @@
-# Label-capture probe: Core evaluates main to 4 (1n+1n+1n+1n+0n). On the
-# full runtime two δ-instances of `two` reuse its static dup label, so the
-# inner dup annihilates the outer SUP it should commute with: result is
-# λa.#Suc{a}. See distinct_definitions.bend (same program, two defs: 4).
+# Label-capture regression: Core evaluates main to 4 (1n+1n+1n+1n+0n). A
+# SUP label is a dimension name; stock HVM4 reuses a definition's static
+# labels in every δ-unfolding, so the two instances of `two` captured each
+# other and the runtime returned λa.#Suc{a}. With hvm4-dimensions.patch each
+# unfolding gets fresh names: 4 in 27 interactions, exactly the count of
+# distinct_definitions.bend (renaming bound dimensions is free).
 
 def two(A: Set, f: A -> A, x: A) -> A:
   f(f(x))
