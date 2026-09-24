@@ -54,13 +54,7 @@ def visible_beta(A: Set, B: Set, f: A -> B, a: A) -> Path(B, visible(A, B, f, a)
 # exact fibre coordinates.  Recovering the source is therefore an ordinary
 # second observation, not replay or an external history lookup.
 def recover(A: Set, B: Set, f: A -> B, a: A) -> A:
-  match observe(A, a, presentPoint(A, a), B, f):
-    case @fibreObservation{value, source, next}:
-      match observe(FibreElement(A, B, f), value, next, A,
-                    lambda c. ascend(A, B, f, c)):
-        case @fibreObservation{value2, source2, next2}:
-          observedValue(FibreElement(A, B, f), A,
-                        lambda c. ascend(A, B, f, c), value2)
+  observe_recover(A, a, B, f)
 
 def recover_beta(A: Set, B: Set, f: A -> B, a: A) -> Path(A, recover(A, B, f, a), a):
   <_> a
