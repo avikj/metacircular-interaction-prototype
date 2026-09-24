@@ -6431,7 +6431,7 @@ diff --git a/src/Target/HVM4Full.hs b/src/Target/HVM4Full.hs
 new file mode 100644
 --- /dev/null
 +++ b/src/Target/HVM4Full.hs
-@@ -0,0 +1,613 @@
+@@ -0,0 +1,617 @@
 +{-./../Core/Type.hs-}
 +
 +{-# LANGUAGE ViewPatterns #-}
@@ -6481,7 +6481,9 @@ new file mode 100644
 +compileFull book@(Book defs hits) =
 +  prelude ++ hitPrelude book ++ unlines (map def (M.toList defs)) ++ conductiveEntries
 +  where
-+    def (nam, (_, tm, _)) = "@" ++ hvmName nam ++ " = " ++ emitFull book tm
++    def (nam, (_, tm, _)) =
++      let out = if nam == "main" then "sourceMain" else hvmName nam
++      in "@" ++ out ++ " = " ++ emitFull book tm
 +
 +    -- Every checked entry is already a typed point (A,a).  The full runtime
 +    -- contains the canonical parametric fibre process below, so expose the
@@ -6496,7 +6498,7 @@ new file mode 100644
 +        Just (_, _, mainTy) ->
 +          "\n// canonical conductive presentation of checked @main\n"
 +          ++ "@conductiveWholeMain = @cfCoalgebra("
-+          ++ emitFull book mainTy ++ ", @" ++ hvmName "main" ++ ")\n"
++          ++ emitFull book mainTy ++ ", @sourceMain)\n"
 +          ++ "// identity observation: executable differential oracle; must equal @main\n"
 +          ++ "@conductiveMain = @cfObservedValue("
 +          ++ emitFull book mainTy ++ ", " ++ emitFull book mainTy
@@ -6505,8 +6507,10 @@ new file mode 100644
 +          ++ ", @conductiveWholeMain, " ++ emitFull book mainTy ++ ", λx. x)))\n"
 +          ++ "// second observation traverses the retained continuation and recovers source\n"
 +          ++ "@conductiveTwiceMain = @cfSecondIdentity("
-+          ++ emitFull book mainTy ++ ", @" ++ hvmName "main" ++ ", @conductiveWholeMain)\n"
++          ++ emitFull book mainTy ++ ", @sourceMain, @conductiveWholeMain)\n"
 +          ++ mapEntry mainTy
++          ++ "\n// Full-runtime execution enters through the lossless presentation.\n"
++          ++ "@main = @conductiveMain\n"
 +        Nothing -> ""
 +
 +    -- If the entry itself is a mathematical map/proposition, expose its
@@ -6521,7 +6525,7 @@ new file mode 100644
 +             else "\n// canonical lossless presentation of @main as a map\n"
 +                  ++ "@conductiveMapMain = λx. @cfPresentMap("
 +                  ++ emitFull book dom ++ ", " ++ emitFull book body
-+                  ++ ", @" ++ hvmName "main" ++ ", x)\n"
++                  ++ ", @sourceMain, x)\n"
 +      _ -> ""
 +
 +prelude :: String
