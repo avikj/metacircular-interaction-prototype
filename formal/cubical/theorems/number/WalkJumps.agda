@@ -5,63 +5,34 @@
 --
 --   q = p^a  (p prime, a ≥ 1)  ⟹  q ∤ lcm(1 .. q−1).
 --
--- WHAT REMAINS OPEN, stated plainly -- AND ITS 2026-08-15 AUDIT.  The
--- three items below were written on 2026-08-13 and two of them have
--- since been closed elsewhere.  They are kept in their original wording,
--- each with the closure recorded underneath, because deleting a
--- confession loses the record of what it cost to discharge.
+-- WHERE THE SURROUNDING PIECES LIVE.
 --
---   * The CONVERSE of §(c), (⇒) -- "a jump point is a prime power" --
---     is not proved here.  Its coprime-splitting core is already the
---     checked term WalkForcing.leastNonDivisor-no-coprime-
---     split; what is still missing is the arithmetic fact that a number
---     with no proper coprime splitting IS a prime power (i.e. that every
---     n > 1 which is not a prime power admits such a splitting).  That
---     is a factorisation statement, and nothing here supplies it.
---
---     CLOSED, 2026-08-13, by CoprimeSplitting:
---     `two-primes→coprime-split` is the missing factorisation statement
---     in positive form, and `leastNonDivisor-isPrimePower` is (⇒)
---     itself.  The ingredient that had been thought absent from cubical
---     v0.5 -- decidable divisibility -- was derivable in ten lines from
+--   * The CONVERSE of §(c), (⇒) -- "a jump point is a prime power" -- is
+--     CoprimeSplitting: `two-primes→coprime-split` is the factorisation
+--     statement in positive form, and `leastNonDivisor-isPrimePower` is
+--     (⇒) itself.  Decidable divisibility came in ten lines from
 --     `Cubical.Data.Nat.Mod` (`dec∣` there); no valuation and no
---     factorisation theory was needed.
+--     factorisation theory was needed.  Its coprime-splitting core is the
+--     checked term WalkForcing.leastNonDivisor-no-coprime-split.
 --
 --   * §(b) of the note -- that the walk installs exactly the jump points
---     -- is not formalised here either; WalkInduction proves the step,
---     the ordering statement is untouched.
---
---     CLOSED, 2026-08-14, by WalkBridge, whose header
---     quotes this very sentence.  The content is that cap is FLAT across
---     the interval the walk skips; `WalkBridge` also makes the step a
---     total function `next : ℕ → ℕ`.  The composition of §(b) with §(c)
---     in both directions -- "the walk installs exactly the prime powers,
---     in increasing order" -- is WalkPrimePowers, which
---     notes that the ordering theorem is needed only for the
---     `prime-powers-are-installed` half.
+--     -- is WalkBridge: cap is FLAT across the interval the walk skips,
+--     and the step becomes a total function `next : ℕ → ℕ`.  The
+--     composition of §(b) with §(c) in both directions -- "the walk
+--     installs exactly the prime powers, in increasing order" -- is
+--     WalkPrimePowers.
 --
 --   * `IsPrime` is defined here (cubical v0.5 has NO primality anywhere
---     in the library -- checked).  Primality of a given numeral is
---     therefore a proof obligation; `isPrime2` and `isPrime3` discharge
---     it for 2 and 3 by finite case analysis.  No decision procedure for
---     primality is provided.
---
---     STILL OPEN, and checked to be so on 2026-08-15: there is no
---     `Dec (IsPrime n)` anywhere in NaturalMachine/.  What DOES exist is
---     `WalkFast.decIsPrimePower : (n : ℕ) →
---     Dec (IsPrimePower n)`, which decides prime-power-hood at size n
---     and is what the walk actually needs (a least non-divisor is a
---     prime power, not a prime), plus `CoprimeSplitting.primeDivisor`,
---     which PRODUCES a prime divisor with its primality proof by a fuel
---     search.  Deciding `IsPrime` itself is a bounded search that nobody
---     in this lane has had a use for; it is unwritten, not blocked.
---
---     CLOSED, 2026-08-18, by `PrimalityDecision`:
---     `decIsPrime : (n : ℕ) → Dec (IsPrime n)`.  The diagnosis above was
---     exactly right -- unwritten, not blocked, and no new number theory:
---     it dispatches on `CoprimeSplitting.searchDiv n (n-1)`, sending
---     `NoDivBelow` to `noDiv→prime` and a nontrivial divisor ≤ n-1 to a
---     one-line refutation of primality.
+--     in the library -- checked).  `isPrime2` and `isPrime3` discharge
+--     primality for 2 and 3 by finite case analysis.  The decision
+--     procedure is `PrimalityDecision.decIsPrime : (n : ℕ) →
+--     Dec (IsPrime n)`, which dispatches on
+--     `CoprimeSplitting.searchDiv n (n-1)`, sending `NoDivBelow` to
+--     `noDiv→prime` and a nontrivial divisor ≤ n-1 to a one-line
+--     refutation.  What the walk actually needs is
+--     `WalkFast.decIsPrimePower` (a least non-divisor is a prime power,
+--     not a prime), plus `CoprimeSplitting.primeDivisor`, which PRODUCES
+--     a prime divisor with its primality proof by a fuel search.
 --
 -- METHOD, and why no p-adic valuation appears.  A valuation function
 -- v_p : ℕ → ℕ is painful in cubical v0.5 (no well-founded division, no
