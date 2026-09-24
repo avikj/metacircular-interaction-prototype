@@ -49,6 +49,15 @@ jobs:
           grep -q '@cfPresentMap' "$RUNNER_TEMP/conductive-map.hvm4"
           grep -q '^@sourceMain = ' "$RUNNER_TEMP/conductive-map.hvm4"
           grep -q '^@main = @sourceMain$' "$RUNNER_TEMP/conductive-map.hvm4"
+      - name: Verify dependent map presentation
+        shell: bash
+        run: |
+          set -euo pipefail
+          source "$RUNNER_TEMP/conductive-build/env.sh"
+          "$BEND" collab/bend2-interactive-cubical/conductive_dependent_map_smoke.bend --to-hvm4-full > "$RUNNER_TEMP/conductive-dependent-map.hvm4"
+          grep -q '^@conductiveDependentMapMain = ' "$RUNNER_TEMP/conductive-dependent-map.hvm4"
+          grep -q '@cfDepPresentMap' "$RUNNER_TEMP/conductive-dependent-map.hvm4"
+
       - name: Execute canonical checked conductive runtime
         shell: bash
         run: |
