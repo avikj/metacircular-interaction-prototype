@@ -2,108 +2,66 @@
 
 module Erdos1 where
 
-open import Agda.Builtin.Nat using (Nat; zero; suc; _+_; _<_)
+open import Agda.Builtin.Nat using (Nat; zero; suc; _+_; _*_; _<_)
 open import Agda.Builtin.Equality using (_≡_; refl)
-open import Agda.Builtin.Sigma using (Σ; _,_)
+open import Agda.Builtin.List using (List; []; _∷_)
 
--- A deliberately tiny formalization of the induction skeleton.
--- No postulates, no holes, no external mathematical development.
+data Bit : Set where O I : Bit
 
-data ⊥ : Set where
+bit : Bit → Nat
+bit O = 0
+bit I = 1
 
-¬_ : Set → Set
-¬ P = P → ⊥
+sum : List Nat → List Bit → Nat
+sum [] bs = 0
+sum (a ∷ as) [] = 0
+sum (a ∷ as) (b ∷ bs) = bit b * a + sum as bs
 
-_≤_ : Nat → Nat → Set
-zero  ≤ n     = Agda.Builtin.Unit.⊤
-suc m ≤ zero  = ⊥
-suc m ≤ suc n = m ≤ n
+record Covered (as : List Nat) (d : Nat) : Set where
+  constructor cover
+  field
+    lhs rhs : List Bit
+    eq : d + sum as rhs ≡ sum as lhs
+open Covered public
 
-open import Agda.Builtin.Unit using (⊤; tt)
+-- "least lawful next value >= T" in forcing form:
+-- every value below T already has a collision witness.
+ForcedTo : List Nat → Nat → Set
+ForcedTo as T = (d : Nat) → d < T → Covered as d
 
-two : Nat
-two = suc (suc zero)
+keep : {as : List Nat} {K d : Nat} → Covered as d → Covered (K ∷ as) d
+keep (cover l r p) = cover (O ∷ l) (O ∷ r) p
 
-double : Nat → Nat
-double n = n + n
++-assoc : (a b c : Nat) → (a + b) + c ≡ a + (b + c)
++-assoc zero b c = refl
++-assoc (suc a) b c rewrite +-assoc a b c = refl
 
--- "Covered from frontier k through bound t": every candidate strictly
--- above k and strictly below t is forbidden.
-Covered : Nat → Nat → (Nat → Set) → Set
-Covered k t Forbidden =
-  (x : Nat) → k < x → x < t → Forbidden x
+copy : {as : List Nat} {K d : Nat} →
+       Covered as d → Covered (K ∷ as) (K + d)
+copy {K = K} {d = d} (cover l r p) =
+  cover (I ∷ l) (O ∷ r) q
+  where
+  q : (K + d) + sum as r ≡ K + sum as l
+  q rewrite +-assoc K d (sum as r) | p = refl
 
--- "t is a lower bound for every valid next value above k".
-Forces : Nat → Nat → (Nat → Set) → Set
-Forces k t Valid =
-  (x : Nat) → k < x → Valid x → t ≤ x
-
--- Pointwise identity between valid and forbidden is all that is needed
--- to turn least-valid/lower-bound language into coverage language.
-Complement : (Nat → Set) → (Nat → Set) → Set
-Complement Valid Forbidden =
-  (x : Nat) → (Valid x → ¬ Forbidden x) × (¬ Forbidden x → Valid x)
-
-record _×_ (A B : Set) : Set where
-  constructor _,×_
-  field fst : A
-        snd : B
-open _×_ public
-
--- Elementary order lemmas, proved structurally.
-≤-refl : (n : Nat) → n ≤ n
-≤-refl zero = tt
-≤-refl (suc n) = ≤-refl n
-
-≤-step : {m n : Nat} → m ≤ n → m ≤ suc n
-≤-step {zero} p = tt
-≤-step {suc m} {suc n} p = ≤-step {m} {n} p
-
-<-to-≤ : {m n : Nat} → m < n → suc m ≤ n
-<-to-≤ p = p
-
--- The forcing/coverage direction used by the induction:
--- if every candidate below t is forbidden and valid candidates cannot
--- be forbidden, every valid candidate is at least t.
-covered→forces :
-  {k t : Nat} {Valid Forbidden : Nat → Set} →
-  ((x : Nat) → Valid x → ¬ Forbidden x) →
-  Covered k t Forbidden →
-  Forces k t Valid
-covered→forces disjoint covered x k<x vx with t ≤? x
-... | yes t≤x = t≤x
-... | no ¬t≤x = ⊥-elim (disjoint x vx (covered x k<x (not≤→< ¬t≤x)))
-
--- Small decidable-order machinery, still entirely constructive.
-data Dec (P : Set) : Set where
-  yes : P → Dec P
-  no  : ¬ P → Dec P
-
-_≤?_ : (m n : Nat) → Dec (m ≤ n)
-zero ≤? n = yes tt
-suc m ≤? zero = no (λ ())
-suc m ≤? suc n with m ≤? n
-... | yes p = yes p
-... | no p  = no p
-
-not≤→< : {m n : Nat} → ¬ (m ≤ n) → n < m
-not≤→< {zero} {n} p = ⊥-elim (p tt)
-not≤→< {suc m} {zero} p = tt
-not≤→< {suc m} {suc n} p = not≤→< {m} {n} p
-
-⊥-elim : {A : Set} → ⊥ → A
-⊥-elim ()
-
--- The exact copy/translate induction is isolated as its own assumption-free
--- interface: old coverage of length T, when copied at lawful K, covers the
--- next frontier through K+T.  A concrete subset-sum implementation proves
--- this by transporting a difference witness d = s-t to K+d = (K+s)-t.
-CopyCoverage : (Forbidden : Nat → Set) → Set
-CopyCoverage Forbidden =
-  (frontier K T : Nat) →
-  Covered frontier T Forbidden →
-  Covered K (K + T) Forbidden
-
--- Once coverage has been copied, the numerical doubling step is just
--- arithmetic/order.  This file intentionally exposes that exact boundary:
--- the concrete difference-set witness must instantiate CopyCoverage.
+-- This is the exact copy law used by the proposed induction:
+--
+--   ForcedTo as T
+--     gives coverage [0,T)
+--
+--   inserting K gives
+--     old coverage  [0,T)
+--     copied coverage [K,K+T)
+--
+-- Hence these two intervals cover [0,2T) exactly when K <= T.
+--
+-- But lawfulness from ForcedTo as T says only K >= T (up to endpoints).
+-- If K > T, [T,K) is a genuine gap.  Copying [0,T) starting at K does
+-- not cover it.
+--
+-- Therefore the proposed one-line induction closes in the K = T case,
+-- but not for an overshoot K > T.  A complete Erdos #1 proof needs an
+-- additional theorem showing that the inherited difference structure
+-- covers [T,K), or an invariant stronger than ForcedTo as T.
+--
+-- No postulate or hole is used to assert that missing statement.
