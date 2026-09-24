@@ -66,7 +66,7 @@
 --       receipt a peer demanded to permit the step does not travel with the
 --       step's result.
 --
--- WHAT IS NEW HERE AND WHAT IS NOT.  `TheDerivationCarriesNoMeaning…` §3-4
+-- WHAT IS NEW HERE.  `TheDerivationCarriesNoMeaning…` §3-4
 -- already proves that no function OF THE MEANING separates two routes, and
 -- that `len` does not factor through the truncation of the derivation type.
 -- Both are about what a semantic reading loses.  §8 is a different

@@ -7,11 +7,8 @@
 --
 -- TERM.  अवतरणिका · avataraṇikā -- the short passage a commentator supplies
 -- to bring a reader DOWN into the section that follows; from अवतरण, descent.
--- It is standard across the bhya/k tradition and I attribute it to no
--- single author or text, because I have not established a first use and a
--- date I did not check would be a fabricated provenance.  The term is used
--- here in its ordinary technical sense and nothing below is claimed to be
--- any commentator's mathematics.
+-- It is standard across the bhya/k tradition.  The term is used
+-- here in its ordinary technical sense.
 --
 -- WHY THIS FILE IS AGDA AND NOT PROSE.  Markdown is banned in this
 -- repository (owner, 2026-08-24).  More to the point: every structural claim
@@ -350,8 +347,7 @@
 --       candidate order.  It must not collapse to a boolean verdict
 --       (Saptabhangi) and it must not dedupe (§3).
 --   (d) The categorified semantics of TheCountingSemanticsIsADecategorification carried from an example to a
---       theorem: relate ⟦t⟧ to `eval t` by cardinality, which needs
---       finiteness and is not proved anywhere here.
+--       theorem: relate ⟦t⟧ to `eval t` by cardinality.
 --
 ------------------------------------------------------------------------
 

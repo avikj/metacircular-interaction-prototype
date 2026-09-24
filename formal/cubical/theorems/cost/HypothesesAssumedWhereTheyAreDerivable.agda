@@ -53,10 +53,6 @@
 -- would be asserting a standpoint by denying the other.  Both are
 -- proved below.
 --
--- What is NOT said: that either form is better.  There is no scale
--- here on which to say it, and inventing one to rank them would be the
--- move this thread has been correcting all session.
---
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT IS PROVED
 --
@@ -153,16 +149,11 @@ stableFactorsThrough-separated sepT q t =
     (λ x x' → sepT (t x) (t x'))
 
 ------------------------------------------------------------------------
--- 4.  What is not shown
+-- 4.  What §1 establishes
 --
--- §1 gives `Discrete → Separated → isSet`.  Nothing here shows the
--- converse of either step, nothing shows that separatedness is the
--- weakest hypothesis yielding `isSet`, and nothing shows that
--- pointwise stability along a single `t` fails to yield it.  Those are
--- three separate open statements and none is claimed in either
--- direction.  What IS established is only this: at two sites in this
--- thread a hypothesis was assumed that the site could derive, and one
--- of the two was genuinely redundant.
+-- §1 gives `Discrete → Separated → isSet`.  What IS established is this:
+-- at two sites in this thread a hypothesis was assumed that the site
+-- could derive, and one of the two was genuinely redundant.
 ------------------------------------------------------------------------
 
 -- recorded as an object so the redundancy cannot quietly return: the

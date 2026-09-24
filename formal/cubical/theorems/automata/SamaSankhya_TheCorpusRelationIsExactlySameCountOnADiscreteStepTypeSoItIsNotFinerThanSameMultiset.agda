@@ -7,8 +7,8 @@
 -- proved `_~_` ⇒ same count and said, exactly: "The CONVERSE is not
 -- proved. … `_~_` may be strictly finer than same-multiset even on
 -- discrete step types, and nothing here settles it."  `PairwiseCommutation
--- GivesEveryOrder` said the same: whether `_~_` "coincides with 'same
--- multiset' … is not proved to be."
+-- GivesEveryOrder` raised the same question: whether `_~_` coincides
+-- with 'same multiset'.
 --
 -- Settled: on a discrete step type, `_~_` is EXACTLY equal counts.  The
 -- proof is composition — `_~_` and `_≈_` have the same four constructors

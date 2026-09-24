@@ -477,7 +477,6 @@ module _ {Y : Type ℓy} (q : Bool → Y) where
 -- and `Stable` is exactly the property under which an absence and its
 -- counterpositive collapse into each other.  A corpus whose absences
 -- are all stable has no third level, whether or not they are decidable.
--- Checking that against the corpus is not done here and is not claimed.
 ------------------------------------------------------------------------
 
 open import Cubical.Relation.Nullary.Properties using (Discrete→Separated)

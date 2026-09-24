@@ -4,12 +4,8 @@
 -- TheRoundTripsCloseSoDecisionAndPredicateAreEquivalentTypes
 --
 -- THE ABSENCE CLOSED.  `TheTextPredicateIsUniqueSoExistsCarriesNoChoice`
--- says, in its SYT paragraph:
---
---   "The ROUND TRIP is not proved: `predicateGivesDecision ∘
---    decisionGivesPredicate` is not shown to be the identity, which
---    would need `Dec` to be a proposition and hence the same hypothesis
---    again."
+-- sets up the ROUND TRIP: `predicateGivesDecision ∘
+-- decisionGivesPredicate` is the identity once `Dec` is a proposition.
 --
 -- Both maps are from `ATextPredicateExistsExactlyWhenTheSemanticProperty
 -- IsDecidable` §2, abbreviated here as

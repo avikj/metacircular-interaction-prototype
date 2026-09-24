@@ -5,11 +5,10 @@
 --
 -- WHY THIS FILE EXISTS.  `PairwiseCommutationGivesEveryOrder` proves
 -- that pairwise commutation of steps gives order-independence of every
--- permutation of a run.  Its abstract then says, under WHAT IS NOT
--- CLAIMED, that there is no working tree, no file, no line-based diff,
--- no blame algorithm and no repository format in the development — that
--- a patch is a step on an abstract state, and that COMMUTATION IS A
--- HYPOTHESIS DISCHARGED BY THE CALLER.
+-- permutation of a run.  There, a patch is a step on an abstract state
+-- — no working tree, no file, no line-based diff, no blame algorithm, no
+-- repository format — and COMMUTATION IS A HYPOTHESIS DISCHARGED BY THE
+-- CALLER.
 --
 -- That last clause is the one that matters, and it is closed here by
 -- exhibiting a calculus in which commutation is a THEOREM.  A caller

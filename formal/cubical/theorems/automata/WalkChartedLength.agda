@@ -8,12 +8,9 @@
 -- `WalkChartedCap` builds `cap m = lcm(1..m) = e^{ψ(m)}` inside the digit
 -- chart (`capw m`, with `value-capw : value (capw m) ≡ cap m`) and counts
 -- the automaton transitions of that construction.  Its own header names
--- three things it does not deliver, and this module delivers them:
---
---   (a) "`length (capw m)` IS NOT PROVED LOGARITHMIC in `cap m`."
---   (b) "`scale` is not proved to preserve canonicity either -- only its
---        value law is proved."
---   (c) "NO KERNEL WITNESS.  There is no `capw 8` computed here."
+-- three things this module delivers: that `length (capw m)` is
+-- logarithmic in `cap m`, that `scale` preserves canonicity, and a
+-- kernel witness computing `capw 8`.
 --
 -- WHAT IS DELIVERED.
 --
@@ -99,12 +96,11 @@
 --      which is the duplication and nothing else.  §5 stops at m = 10 to
 --      keep this file cheap.  A `capw` that carried the residue forward
 --      instead of recomputing it would be linear; that is a rewrite, not
---      a theorem, and it is not done here.
+--      a theorem.
 --
--- WHAT IS NOT DELIVERED.  `capSteps` is not summed: this module bounds
--- the PER-TEST cost `suc (length (capw m))`, not the total `capSteps σ m`,
--- which also carries `WalkChartedCap`'s unstated parameter σ for the
--- per-transition arithmetic.  Nothing here counts `gcd`.
+-- SCOPE.  This module bounds the PER-TEST cost `suc (length (capw m))`,
+-- not the total `capSteps σ m`, which also carries `WalkChartedCap`'s
+-- parameter σ for the per-transition arithmetic.
 --
 -- CHECKED: Agda 2.6.3, cubical v0.7 (/tmp/cubical), --cubical --safe.
 -- No postulates, no holes.

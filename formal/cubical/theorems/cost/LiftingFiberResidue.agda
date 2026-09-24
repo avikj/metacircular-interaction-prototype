@@ -84,19 +84,16 @@
 --  * The equivalence in §4 is with excluded middle for PROPOSITIONS, at
 --    one universe level.  No choice principle is analysed.
 --
---  * MY LEAST-SURE STEP, and it is not formalised here.  §4 quantifies
---    over arbitrary maps `U : A → B` between sets, whereas the note
---    quantifies over the hom-action of a forgetful FUNCTOR.  I claim
---    these coincide, by the following construction, which is argued in
---    prose and NOT checked: let `C` have objects `{a,b}` with
+--  * THE STEP TO ATTACK.  §4 quantifies over arbitrary maps
+--    `U : A → B` between sets, whereas the note quantifies over the
+--    hom-action of a forgetful FUNCTOR.  These coincide, by the
+--    following construction: let `C` have objects `{a,b}` with
 --    `Hom(a,b) = Dec P`, `Hom(b,a) = ⊥`, and only identities otherwise;
 --    let `D` be the same with `Hom(a,b) = Unit*`; let `U` be the
 --    identity on objects and the constant map on homs.  Composition
 --    never pairs two non-identity arrows, so both are categories and `U`
---    is a functor.  If that construction is wrong, §4 degrades from "the
---    note's sentence IS excluded middle" to "the sentence as I have
---    generalised it is", and §3 and §5 are untouched.  This is the step
---    to attack.
+--    is a functor.  On it, §4 reads "the note's sentence IS excluded
+--    middle"; §3 and §5 do not depend on it.
 --
 --  * `¬ ¬ X → ∥ X ∥₁ ⟺ LEM` is standard folklore in univalent
 --    foundations (CITED; web search "HoTT double negation propositional

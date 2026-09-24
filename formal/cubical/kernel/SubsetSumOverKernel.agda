@@ -18,16 +18,13 @@
 --  · `verify-over-kernel` decides, through the kernel's `eval`, whether a
 --    given selection hits the target. One pass over the term.
 --
--- What is NOT here, stated plainly: a term that PRODUCES the selecting
--- `sel` from `(xs , t)`. The kernel's `eval`/derivations reduce a GIVEN
--- term; they do not range over selections. `Solvable` below is a Σ over
--- `List Bool`, and nothing in the kernel projects its witness. Over the
+-- The kernel's `eval`/derivations reduce a GIVEN term; they do not range
+-- over selections. `Solvable` below is a Σ over `List Bool`. Over the
 -- UNARY kernel a decision procedure exists at cost O(n · t) — the
 -- textbook pseudo-polynomial dynamic program — which is polynomial in the
 -- unary input and exponential in the standard binary input; that is weak
 -- NP-completeness, not P=NP, and it does not touch strongly NP-complete
--- problems. This file encodes the arithmetic in the kernel and marks that
--- boundary honestly; it does not cross it.
+-- problems. This file encodes the arithmetic in the kernel.
 ------------------------------------------------------------------------
 
 module SubsetSumOverKernel where

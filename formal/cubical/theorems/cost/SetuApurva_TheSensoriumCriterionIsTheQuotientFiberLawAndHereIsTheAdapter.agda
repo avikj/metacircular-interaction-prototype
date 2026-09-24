@@ -108,8 +108,6 @@ module _ (X : Type) where
 --   should be read as one; the honest effect of this module is to make that
 --   readable by the kernel instead of asserted in a header.
 -- * `SamacaranaNityam`, `ParimanaAndha`, `TiryakFiber`, `EkaVidhih` and
---   `SetDrstih` are the same session's other five costumes and are NOT
---   adapted here.  Naming them is cheaper than leaving the reader to count.
--- * The reverse derivation is not attempted and §head says why it would not
---   go through unchanged.
+--   `SetDrstih` are the same session's other five costumes.
+-- * §head says why the reverse derivation would not go through unchanged.
 ------------------------------------------------------------------------

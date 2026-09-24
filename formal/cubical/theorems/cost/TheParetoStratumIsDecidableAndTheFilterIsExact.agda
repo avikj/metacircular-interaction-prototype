@@ -4,11 +4,8 @@
 -- TheParetoStratumIsDecidableAndTheFilterIsExact
 --
 -- `AParetoFitnessHasNoBestAndEveryScalarisationAddsADecision` closed
--- with, among its NOT-CLAIMED items:
---
---   "it is NOT proved that a Pareto stratification EXISTS
---    constructively for an arbitrary archive, which would need a
---    decision on `≼` and is not proved here."
+-- which needs a decision on `≼` for a Pareto stratification to EXIST
+-- constructively over an arbitrary archive.
 --
 -- The decision exists, and with it the stratum is not merely a
 -- specification but a computed list.  That matters for

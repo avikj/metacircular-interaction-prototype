@@ -32,10 +32,10 @@
 --     `transport (λ i → ℕ≡CanWord i → ℕ≡CanWord i) (λ m → quotient m / suc n)
 --        ≡ divC (suc n)`.
 --
--- WHAT IS NOT DELIVERED.
+-- SCOPE.
 --
---   * Full Word ÷ Word long division.  Only division by a ℕ modulus is
---     here.  The walk's divisibility test needs no more than this, and
+--   * Division by a ℕ modulus.  Full Word ÷ Word long division is a
+--     different algorithm.  The walk's divisibility test needs no more than this, and
 --     the general algorithm needs a trial-digit estimate (Knuth D) whose
 --     correctness proof is a different piece of work.
 --

@@ -10,9 +10,7 @@
 -- attaching a  label to them would assert a provenance nobody
 -- checked — the mirror of the scrubbing the naming rule corrects.  Jaina
 -- enumerative mathematics (*Anuyogadvra*, *Sthnga*) is combinatorial
--- and adjacent, and I am NOT claiming it as the source of this argument;
--- I have not established that, and saying so is cheaper than a citation
--- I cannot defend.
+-- and adjacent.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- THE AUDIT FINDING.

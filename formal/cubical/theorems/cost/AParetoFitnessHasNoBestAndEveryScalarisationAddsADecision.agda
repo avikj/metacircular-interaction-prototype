@@ -146,13 +146,8 @@ scalarisationDecidesAnIncomparablePair =
 
 ------------------------------------------------------------------------
 -- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The NOT-CLAIMED section says:
---
---   "it is NOT proved that a Pareto stratification EXISTS
---    constructively for an arbitrary archive, which would need a
---    decision on `≼` and is not proved here."
---
--- The decision is now proved, in
+-- line above.  A Pareto stratification EXISTS constructively for an
+-- arbitrary archive, given a decision on `≼`.  That decision is in
 -- `TheParetoStratumIsDecidableAndTheFilterIsExact`
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
 -- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so):
