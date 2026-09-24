@@ -20,7 +20,8 @@ required = [
     "@conductiveWholeMain = @cfCoalgebra(",
     "@conductiveMain = @cfObservedValue(",
     "@conductiveTwiceMain = @cfSecondIdentity(",
-    "@main =",
+    "@sourceMain =",
+    "@main = @conductiveMain",
 ]
 missing = [x for x in required if x not in s]
 if missing:
