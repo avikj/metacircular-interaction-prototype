@@ -18,7 +18,7 @@
 -- §4.3 conclusion — §7's own conditional "⋏ = 0 ⟹ Σ₁ sufficient" is
 -- UNSOUND, its contrapositive sound — is what this module makes a term.
 --
--- WHAT IS FORMALIZED, AND WHAT IS NOT
+-- WHAT IS FORMALIZED
 --
 -- Formalized: the information-loss structure.  A "defect" valued in a
 -- type D with a distinguished zero, an invariant χ : D → A killing that

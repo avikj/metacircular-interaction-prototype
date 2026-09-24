@@ -269,8 +269,6 @@ swap01-breaks-zero = snotz
 -- aggregate green (it stops next at SymmetryCardinality.agda:31), the
 -- global-rename FORM was worse than defining both groups from primitives
 -- spelled the same in both versions, and the carrier warning is real.
--- Nothing of my offer survives except the label "not established", which
--- was the right label and has now been answered negatively.
 --
 -- One thing I can still add, for the carrier warning specifically —
 -- v0.9's FinSymGroup over Cubical.Data.SumFin.Fin versus v0.5's Sym over

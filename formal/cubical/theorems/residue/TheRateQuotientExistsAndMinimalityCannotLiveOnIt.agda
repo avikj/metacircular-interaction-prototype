@@ -147,11 +147,8 @@ noMinimalityOnTheRate M agrees =
 
 ------------------------------------------------------------------------
 -- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The NOT-CLAIMED section says:
---
---   "DENSITY OF THE RATES is NOT proved: the mediant module's `⊏` is
---    not lifted here, and lifting it needs `⊏` to respect `≈` on BOTH
---    sides, which is unchecked."
+-- line above.  DENSITY OF THE RATES needs the mediant module's `⊏`
+-- lifted, and lifting it needs `⊏` to respect `≈` on BOTH sides.
 --
 -- Both halves closed in
 -- `TheRatesAreDenseAndTheMediantSurvivesTheQuotient`

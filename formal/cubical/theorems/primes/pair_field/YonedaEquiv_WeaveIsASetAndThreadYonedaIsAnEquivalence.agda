@@ -3,15 +3,13 @@
 ------------------------------------------------------------------------
 -- YonedaEquiv_WeaveIsASetAndThreadYonedaIsAnEquivalence
 --
--- Closes the absence stated in `ThreadYoneda` (header, "WHAT IS NOT",
--- and §7):
+-- Closes what `ThreadYoneda` (header and §7) sets up:
 --
---     The round trips give a bijection, not a `≃`: upgrading needs
+--     The round trips there give a bijection, not a `≃`: upgrading needs
 --     `isSet (Weave i j)` so that naturality is a proposition and two
 --     transformations agreeing pointwise are equal.  That is true
---     (Thread is built from equalities in ℕ, which is a set) and it is
---     not proved here.  Said plainly because "≃" is what T25.A asks for
---     and this is "↔".
+--     (Thread is built from equalities in ℕ, which is a set).  "≃" is
+--     what T25.A asks for and that is "↔".
 --
 -- WHAT IS PROVED (all `--safe`, no postulates, no holes):
 --

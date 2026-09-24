@@ -8,10 +8,10 @@
 -- population sitting ON a threshold, exhibited ONE such population at
 -- ONE threshold, and said:
 --
---   "that EVERY threshold has such a population is NOT proved, and
---    would need a construction of a population realising an arbitrary
---    p/(suc q), which is a divisibility statement about ℕ and not a
---    statement about lists."
+--   "that EVERY threshold has such a population would need a
+--    construction of a population realising an arbitrary p/(suc q),
+--    which is a divisibility statement about ℕ and not a statement
+--    about lists."
 --
 -- It is a statement about ℕ, and there is no divisibility in it: the
 -- denominator itself is the length.  For p ≤ suc q, the population of

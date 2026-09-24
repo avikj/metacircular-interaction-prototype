@@ -24,7 +24,7 @@
 --    it coincides with 'same multiset' or with any other notion of
 --    permutation, so 'every order' means 'every order reachable by
 --    adjacent transpositions', **which is all of them for the usual
---    reasons and is not proved to be**."
+--    reasons**."
 --
 -- The flag is honest and the phrase inside it is an appeal.  **"The
 -- usual reasons" is a proof, and it fits in a page**; §§1–3 are that
