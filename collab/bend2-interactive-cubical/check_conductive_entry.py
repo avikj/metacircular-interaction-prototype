@@ -21,8 +21,10 @@ required = [
     "@conductiveMain = @cfObservedValue(",
     "@conductiveTwiceMain = @cfSecondIdentity(",
     "@sourceMain =",
-    "@nativeMainStep = #NativeStep{",
-    "@nativeMainDerivation = #NativeThen{",
+    "@nativeStepmain = #NativeStep{",
+    "@nativeDerivationmain = #NativeThen{",
+    "@nativeMainStep = @nativeStepmain",
+    "@nativeMainDerivation = @nativeDerivationmain",
     "@main = @sourceMain",
 ]
 missing = [x for x in required if x not in s]

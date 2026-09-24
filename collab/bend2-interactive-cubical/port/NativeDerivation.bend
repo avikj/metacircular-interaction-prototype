@@ -11,7 +11,7 @@ import UniversalPresentation
 
 type NativeMotion(A: Set, x: A, y: A):
   case @nativePath:
-    path: Path(A,x,y)
+    witness: Path(A,x,y)
 
 # Cubical identities are native motions directly.
 def fromPath(A: Set, x: A, y: A, p: Path(A,x,y)) -> NativeMotion(A,x,y):

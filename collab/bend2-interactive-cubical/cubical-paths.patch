@@ -11,7 +11,7 @@ index e8b579d..d9ddcd4 100644
  
  -- | Show usage information
  showUsage :: IO ()
-@@ -14,6 +14,10 @@ showUsage = do
+@@ -14,6 +14,11 @@ showUsage = do
    putStrLn "Options:"
    putStrLn "  --to-javascript    Compile to JavaScript"
    putStrLn "  --to-hvm           Compile to HVM"
@@ -23,7 +23,7 @@ index e8b579d..d9ddcd4 100644
    putStrLn "  --list-dependencies List all dependencies (recursive)"
  
  -- | Main entry point
-@@ -23,6 +27,11 @@ main = do
+@@ -23,6 +28,12 @@ main = do
    case args of
      [file, "--to-javascript"] | ".bend"    `isSuffixOf` file -> processFileToJS file
      [file, "--to-javascript"] | ".bend.py" `isSuffixOf` file -> processFileToJS file
@@ -2108,21 +2108,22 @@ index 939a19f..d318a1f 100644
    Sup l a b  -> Sup (binder lv l ctx vars) (binder lv a ctx vars) (binder lv b ctx vars)
    SupM x l f -> SupM (binder lv x ctx vars) (binder lv l ctx vars) (binder lv f ctx vars)
 diff --git a/src/Core/CLI.hs b/src/Core/CLI.hs
-index f94d1ce..b1a3b67 100644
+index f94d1ce..348835b 100644
 --- a/src/Core/CLI.hs
 +++ b/src/Core/CLI.hs
-@@ -5,6 +5,10 @@ module Core.CLI
+@@ -5,6 +5,11 @@ module Core.CLI
    , processFile
    , processFileToJS
    , processFileToHVM
 +  , processFileToHVM4
 +  , processFileToHVM4Raw
 +  , processFileToHVM4Full
++  , processFileNativeSteps
 +  , processFileTotal
    , listDependencies
    ) where
  
-@@ -18,36 +22,81 @@ import System.Exit (ExitCode(..))
+@@ -18,36 +23,81 @@ import System.Exit (ExitCode(..))
  import Control.Exception (catch, IOException)
  
  import Core.Bind
@@ -2212,7 +2213,7 @@ index f94d1ce..b1a3b67 100644
    unless success exitFailure
    where
      checkDef book term typ = do
-@@ -59,7 +108,7 @@ checkDefinitions book@(Book defs) = do
+@@ -59,7 +109,7 @@ checkDefinitions book@(Book defs) = do
      checkAll bBook ((name, (_, term, typ)):rest) = do
        case checkDef bBook term typ of
          Done () -> do
@@ -2221,7 +2222,7 @@ index f94d1ce..b1a3b67 100644
            checkAll bBook rest
          Fail e -> do
            putStrLn $ "\x1b[31m✗ " ++ name ++ "\x1b[0m"
-@@ -67,6 +116,25 @@ checkDefinitions book@(Book defs) = do
+@@ -67,6 +117,25 @@ checkDefinitions book@(Book defs) = do
            _ <- checkAll bBook rest
            return False
  
@@ -2247,7 +2248,7 @@ index f94d1ce..b1a3b67 100644
  -- | Run the main function from a book
  runMain :: Book -> IO ()
  runMain book = do
-@@ -80,7 +148,7 @@ runMain book = do
+@@ -80,7 +149,7 @@ runMain book = do
            putStrLn $ show e
            exitFailure
          Done typ -> do
@@ -2256,7 +2257,7 @@ index f94d1ce..b1a3b67 100644
            putStrLn ""
            forM_ results $ \ term -> do
              print term
-@@ -123,6 +191,18 @@ processFileToHVM file = do
+@@ -123,6 +192,18 @@ processFileToHVM file = do
    let hvmCode = HVM.compile book
    putStrLn hvmCode
  
@@ -2275,7 +2276,7 @@ index f94d1ce..b1a3b67 100644
  -- | List all dependencies of a Bend file (including transitive dependencies)
  listDependencies :: FilePath -> IO ()
  listDependencies file = do
-@@ -135,7 +215,29 @@ listDependencies file = do
+@@ -135,7 +216,46 @@ listDependencies file = do
  
  -- | Collect all refs from a Book
  collectAllRefs :: Book -> S.Set Name
@@ -2317,7 +2318,7 @@ index f94d1ce..b1a3b67 100644
 +  case M.lookup "main" defs of
 +    Nothing -> putStrLn "native-step: no main"
 +    Just (_, tm, _) ->
-+      case nativeStep Full book mainTm of
++      case nativeStep Full book tm of
 +        Nothing -> putStrLn ("native-step: normal " ++ show tm)
 +        Just s  -> do
 +          putStrLn ("native-step: " ++ ruleName (stepRule s))
@@ -4634,17 +4635,22 @@ index a5d92e8..8017fc8 100644
  cut :: Term -> Term
  cut (Loc _ t) = cut t
 diff --git a/src/Core/WHNF.hs b/src/Core/WHNF.hs
-index 953410d..3af8583 100644
+index 953410d..b8fe475 100644
 --- a/src/Core/WHNF.hs
 +++ b/src/Core/WHNF.hs
-@@ -6,7 +6,72 @@ module Core.WHNF where
+@@ -6,13 +6,112 @@ module Core.WHNF where
  
  import Debug.Trace
  
 +import Data.List (sortBy)
  import Core.Type
 +import Control.Monad (foldM)
-+
+ 
+ import System.IO.Unsafe
+ import Data.IORef
+ import Data.Bits
+ import GHC.Float (castDoubleToWord64, castWord64ToDouble)
+ 
 +-- Proof-relevant native reduction events.  WHNF remains the endpoint
 +-- projection; this type exposes the actual language motion instead of
 +-- reconstructing a second toy object language above Core.Term.
@@ -4740,10 +4746,12 @@ index 953410d..3af8583 100644
 +nativeDerivation lv book t = case nativeStep lv book t of
 +  Nothing -> NativeDone t
 +  Just s  -> NativeThen s (nativeDerivation lv book (stepTarget s))
++
++
+ -- Evaluation
+ -- ==========
  
- import System.IO.Unsafe
- import Data.IORef
-@@ -38,7 +40,14 @@ whnfGo lv book term =
+@@ -38,7 +137,14 @@ whnfGo lv book term =
      Let v f    -> whnfLet lv book v f
      Ref k      -> whnfRef lv book k
      Fix k f    -> whnfFix lv book k f
@@ -4759,7 +4767,7 @@ index 953410d..3af8583 100644
      App f x    -> whnfApp lv book f x
      Loc _ t    -> whnf lv book t
      Op2 o a b  -> whnfOp2 lv book o a b
-@@ -53,9 +62,611 @@ whnfGo lv book term =
+@@ -53,9 +159,611 @@ whnfGo lv book term =
      EqlM x f   -> whnfEqlM lv book x f
      SupM x l f -> whnfSupM lv book x l f
      Log s x    -> whnfLog lv book s x
@@ -5371,7 +5379,7 @@ index 953410d..3af8583 100644
  whnfLet :: EvalLevel -> Book -> Term -> Term -> Term
  whnfLet lv book v f = whnf lv book (App f v)
  
-@@ -146,6 +757,21 @@ whnfSigM lv book x f =
+@@ -146,6 +854,21 @@ whnfSigM lv book x f =
        where (f0, f1) = dup book l f
      x'      -> SigM x' f
  
@@ -5393,7 +5401,7 @@ index 953410d..3af8583 100644
  -- Normalizes an enum match
  whnfEnuM :: EvalLevel -> Book -> Term -> [(String,Term)] -> Term -> Term
  whnfEnuM lv book x c f =
-@@ -401,6 +1027,47 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
+@@ -401,6 +1124,47 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
    where (t0,t1)         = dup book l t
  dup book l (Frz t)      = (Frz t0, Frz t1)
    where (t0,t1)         = dup book l t
@@ -5441,7 +5449,7 @@ index 953410d..3af8583 100644
  dup book l Era          = (Era, Era)
  dup book l (Sup r a b)
    | ieql book l r       = (a, b)
-@@ -429,6 +1096,19 @@ dup book l (Pri p)      = (Pri p, Pri p)
+@@ -429,6 +1193,19 @@ dup book l (Pri p)      = (Pri p, Pri p)
  dup book l (Log s x)    = (Log s0 x0, Log s1 x1)
    where (s0,s1)         = dup book l s
          (x0,x1)         = dup book l x
@@ -5461,7 +5469,7 @@ index 953410d..3af8583 100644
  dup book l (Frk _ _ _)  = error "unreachable"
  dup book l (Pat _ _ _)  = error "unreachable"
  
-@@ -485,11 +1165,50 @@ normal d book term =
+@@ -485,11 +1262,50 @@ normal d book term =
      Loc l t    -> Loc l (normal d book t)
      Rwt a b x  -> Rwt (normal d book a) (normal d book b) (normal d book x)
      Log s x    -> Log (normal d book s) (normal d book x)
@@ -5512,7 +5520,7 @@ index 953410d..3af8583 100644
      Val v      -> Val v
      Op2 o a b  -> Op2 o (normal d book a) (normal d book b)
      Op1 o a    -> Op1 o (normal d book a)
-@@ -501,6 +1220,106 @@ normalCtx :: Int -> Book -> Ctx -> Ctx
+@@ -501,6 +1317,106 @@ normalCtx :: Int -> Book -> Ctx -> Ctx
  normalCtx d book (Ctx ctx) = Ctx (map normalAnn ctx)
    where normalAnn (k,v,t) = (k, normal d book v, normal d book t)
  
@@ -5619,7 +5627,7 @@ index 953410d..3af8583 100644
  -- Utils
  -- =====
  
-@@ -514,6 +1333,13 @@ ugly (cut -> LstM _ _ _) = True
+@@ -514,6 +1430,13 @@ ugly (cut -> LstM _ _ _) = True
  ugly (cut -> EnuM _ _ _) = True
  ugly (cut -> SigM _ _  ) = True
  ugly (cut -> EqlM _ _  ) = True
@@ -5633,7 +5641,7 @@ index 953410d..3af8583 100644
  ugly _                   = False
  
  -- Evaluates terms that whnf won't, including:
-@@ -547,3 +1373,327 @@ ieql :: Book -> Term -> Term -> Bool
+@@ -547,3 +1470,327 @@ ieql :: Book -> Term -> Term -> Bool
  ieql book a b = case (termToInt book a, termToInt book b) of
    (Just x, Just y) -> x == y
    _                -> False
@@ -6305,7 +6313,7 @@ new file mode 100644
 index 0000000..c1d7d4f
 --- /dev/null
 +++ b/src/Target/HVM4.hs
-@@ -0,0 +1,228 @@
+@@ -0,0 +1,236 @@
 +{-./../Core/Type.hs-}
 +
 +{-# LANGUAGE ViewPatterns #-}
@@ -6544,9 +6552,10 @@ index 0000000..c1d7d4f
 +  op2 XOR = "^"; op2 SHL = "<<"; op2 SHR = ">>"; op2 POW = "*"
 diff --git a/src/Target/HVM4Full.hs b/src/Target/HVM4Full.hs
 new file mode 100644
+index 0000000..4f48858
 --- /dev/null
 +++ b/src/Target/HVM4Full.hs
-@@ -0,0 +1,619 @@
+@@ -0,0 +1,648 @@
 +{-./../Core/Type.hs-}
 +
 +{-# LANGUAGE ViewPatterns #-}
@@ -6615,7 +6624,7 @@ new file mode 100644
 +             ++ ", " ++ emitFull book (stepTarget s) ++ "}\n"
 +             ++ "@nativeDerivation" ++ n ++ " = #NativeThen{@nativeStep" ++ n
 +             ++ ", #NativeDone{" ++ emitFull book (stepTarget s) ++ "}}"
-
++
 +
 +    -- The selected checked entry is already a typed point (A,a). The full runtime
 +    -- contains the canonical parametric fibre process below, so expose the
@@ -6660,11 +6669,11 @@ new file mode 100644
 +    -- use the dependent graph completion Σa.Σb:B(a).Path(f(a),b).
 +    mapEntry ty = case cut ty of
 +      All dom cod ->
-+        let body = cod depMarker
++        let body = case cut cod of { Lam _ b -> b depMarker ; _ -> App cod depMarker }
 +        in if occursDep body
 +             then "\n// canonical dependent graph/fibre presentation of @main\n"
 +                  ++ "@conductiveDependentMapMain = λx. @cfDepPresentMap("
-+                  ++ emitFull book dom ++ ", " ++ emitFull book (Lam "x" cod)
++                  ++ emitFull book dom ++ ", " ++ emitFull book cod
 +                  ++ ", @sourceMain, x)\n"
 +             else "\n// canonical lossless presentation of @main as a map\n"
 +                  ++ "@conductiveMapMain = λx. @cfPresentMap("

@@ -33,83 +33,8 @@ jobs:
           set -euo pipefail
           source "$RUNNER_TEMP/conductive-build/env.sh"
           "$BEND" collab/bend2-interactive-cubical/native_step_smoke.bend --native-steps | tee "$RUNNER_TEMP/native-step.log"
-          grep -q '^native-step: app
-        shell: bash
-        run: |
-          set -euo pipefail
-          source "$RUNNER_TEMP/conductive-build/env.sh"
-          bash collab/bend2-interactive-cubical/verify_conductive_entry.sh "$BEND" "$HVM"
-      - name: Verify intrinsic map/proposition presentation
-        shell: bash
-        run: |
-          set -euo pipefail
-          source "$RUNNER_TEMP/conductive-build/env.sh"
-          "$BEND" collab/bend2-interactive-cubical/conductive_map_smoke.bend --to-hvm4-full > "$RUNNER_TEMP/conductive-map.hvm4"
-          grep -q '^@conductiveMapMain = ' "$RUNNER_TEMP/conductive-map.hvm4"
-          grep -q '@cfPresentMap' "$RUNNER_TEMP/conductive-map.hvm4"
-          grep -q '^@sourceMain = ' "$RUNNER_TEMP/conductive-map.hvm4"
-          grep -q '^@main = @sourceMain$' "$RUNNER_TEMP/conductive-map.hvm4"
-      - name: Verify dependent map presentation
-        shell: bash
-        run: |
-          set -euo pipefail
-          source "$RUNNER_TEMP/conductive-build/env.sh"
-          "$BEND" collab/bend2-interactive-cubical/conductive_dependent_map_smoke.bend --to-hvm4-full > "$RUNNER_TEMP/conductive-dependent-map.hvm4"
-          grep -q '^@conductiveDependentMapMain = ' "$RUNNER_TEMP/conductive-dependent-map.hvm4"
-          grep -q '@cfDepPresentMap' "$RUNNER_TEMP/conductive-dependent-map.hvm4"
-
-      - name: Execute canonical checked conductive runtime
-        shell: bash
-        run: |
-          set -euo pipefail
-          source "$RUNNER_TEMP/conductive-build/env.sh"
-          "$BEND" collab/bend2-interactive-cubical/port/ConductiveRuntime.bend --to-hvm4-full > "$RUNNER_TEMP/conductive-runtime-source.hvm4"
-          "$HVM" "$RUNNER_TEMP/conductive-runtime-source.hvm4" -s | tee "$RUNNER_TEMP/conductive-runtime-source.log"
-      - name: Execute canonical Bend universal presentation
-        shell: bash
-        run: |
-          set -euo pipefail
-          source "$RUNNER_TEMP/conductive-build/env.sh"
-          "$BEND" collab/bend2-interactive-cubical/universal_presentation.bend --to-hvm4-full > "$RUNNER_TEMP/universal-presentation.hvm4"
-          "$HVM" "$RUNNER_TEMP/universal-presentation.hvm4" -s | tee "$RUNNER_TEMP/universal-presentation.log"
-      - name: Run complete Cubical Bend suite
-        shell: bash
-        run: |
-          set -euo pipefail
-          source "$RUNNER_TEMP/conductive-build/env.sh"
-          bash collab/bend2-interactive-cubical/suite.sh "$BEND"
-      - name: Compile and execute SAT through intrinsic full runtime
-        shell: bash
-        run: |
-          set -euo pipefail
-          source "$RUNNER_TEMP/conductive-build/env.sh"
-          cd research/sat_fibre
-          "$BEND" SATProcess.bend --to-hvm4-full > "$RUNNER_TEMP/SATProcess.hvm4"
-          grep -q '^@conductiveWholeMain = @cfCoalgebra' "$RUNNER_TEMP/SATProcess.hvm4"
-          grep -q '^@main = @sourceMain$' "$RUNNER_TEMP/SATProcess.hvm4"
-          ! grep -q '@wholeProcess' "$RUNNER_TEMP/SATProcess.hvm4"
-          ! grep -q '@interact' "$RUNNER_TEMP/SATProcess.hvm4"
-          "$HVM" "$RUNNER_TEMP/SATProcess.hvm4" -s | tee "$RUNNER_TEMP/sat-runtime.log"
-      - name: Retain exact generated/runtime evidence
-        if: always()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
-        with:
-          name: conductive-language-entry-evidence
-          path: |
-            ${{ runner.temp }}/conductive-build/build-identity.txt
-            ${{ runner.temp }}/conductive-build/bend-build.log
-            ${{ runner.temp }}/conductive-build/hvm-build.log
-            ${{ runner.temp }}/native-step.log
-            ${{ runner.temp }}/conductive-map.hvm4
-            ${{ runner.temp }}/conductive-runtime-source.hvm4
-            ${{ runner.temp }}/universal-presentation.hvm4
-            ${{ runner.temp }}/SATProcess.hvm4
-            ${{ runner.temp }}/sat-runtime.log
-          retention-days: 14
-          if-no-files-found: warn
- "$RUNNER_TEMP/native-step.log"
-          grep -q '^target: 2' "$RUNNER_TEMP/native-step.log"
-
+          grep -Fqx 'native-step: app' "$RUNNER_TEMP/native-step.log"
+          grep -Fqx 'target: 1n+1n+0n' "$RUNNER_TEMP/native-step.log"
       - name: Typecheck generic native derivation machine
         shell: bash
         run: |
@@ -121,7 +46,6 @@ jobs:
           "$BEND" collab/bend2-interactive-cubical/port/UniversalMachine.bend --total
           "$BEND" collab/bend2-interactive-cubical/port/DependentFibreElement.bend --total
           "$BEND" collab/bend2-interactive-cubical/port/DependentFibreCoalgebra.bend --total
-
       - name: Execute compiler-generated conductive path and continuation
         shell: bash
         run: |
@@ -137,7 +61,15 @@ jobs:
           grep -q '^@conductiveMapMain = ' "$RUNNER_TEMP/conductive-map.hvm4"
           grep -q '@cfPresentMap' "$RUNNER_TEMP/conductive-map.hvm4"
           grep -q '^@sourceMain = ' "$RUNNER_TEMP/conductive-map.hvm4"
-          grep -q '^@main = @sourceMain$' "$RUNNER_TEMP/conductive-map.hvm4"
+          grep -Fqx '@main = @sourceMain' "$RUNNER_TEMP/conductive-map.hvm4"
+      - name: Verify dependent map presentation
+        shell: bash
+        run: |
+          set -euo pipefail
+          source "$RUNNER_TEMP/conductive-build/env.sh"
+          "$BEND" collab/bend2-interactive-cubical/conductive_dependent_map_smoke.bend --to-hvm4-full > "$RUNNER_TEMP/conductive-dependent-map.hvm4"
+          grep -q '^@conductiveDependentMapMain = ' "$RUNNER_TEMP/conductive-dependent-map.hvm4"
+          grep -q '@cfDepPresentMap' "$RUNNER_TEMP/conductive-dependent-map.hvm4"
       - name: Execute canonical checked conductive runtime
         shell: bash
         run: |
@@ -166,7 +98,7 @@ jobs:
           cd research/sat_fibre
           "$BEND" SATProcess.bend --to-hvm4-full > "$RUNNER_TEMP/SATProcess.hvm4"
           grep -q '^@conductiveWholeMain = @cfCoalgebra' "$RUNNER_TEMP/SATProcess.hvm4"
-          grep -q '^@main = @sourceMain$' "$RUNNER_TEMP/SATProcess.hvm4"
+          grep -Fqx '@main = @sourceMain' "$RUNNER_TEMP/SATProcess.hvm4"
           ! grep -q '@wholeProcess' "$RUNNER_TEMP/SATProcess.hvm4"
           ! grep -q '@interact' "$RUNNER_TEMP/SATProcess.hvm4"
           "$HVM" "$RUNNER_TEMP/SATProcess.hvm4" -s | tee "$RUNNER_TEMP/sat-runtime.log"
@@ -179,7 +111,9 @@ jobs:
             ${{ runner.temp }}/conductive-build/build-identity.txt
             ${{ runner.temp }}/conductive-build/bend-build.log
             ${{ runner.temp }}/conductive-build/hvm-build.log
+            ${{ runner.temp }}/native-step.log
             ${{ runner.temp }}/conductive-map.hvm4
+            ${{ runner.temp }}/conductive-dependent-map.hvm4
             ${{ runner.temp }}/conductive-runtime-source.hvm4
             ${{ runner.temp }}/universal-presentation.hvm4
             ${{ runner.temp }}/SATProcess.hvm4

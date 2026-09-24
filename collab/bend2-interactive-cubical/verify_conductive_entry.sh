@@ -26,21 +26,7 @@ echo "NATIVE-RUNTIME OK"
 python3 - "$TMP/raw.hvm4" "$TMP/conductive.hvm4" <<'PY'
 import pathlib, re, sys
 src = pathlib.Path(sys.argv[1]).read_text()
-src = re.sub(r'(?m)^@main = .*
-python3 - "$TMP/raw.hvm4" "$TMP/twice.hvm4" <<'PY'
-import pathlib, re, sys
-src = pathlib.Path(sys.argv[1]).read_text()
-src = re.sub(r'(?m)^@main = .*$', '@main = @conductiveTwiceMain', src, count=1)
-pathlib.Path(sys.argv[2]).write_text(src)
-PY
-OUT2="$("$HVM" "$TMP/twice.hvm4" -s 2>&1)"
-printf '%s\n' "$OUT2"
-printf '%s\n' "$OUT2" | grep -Fq '#Suc{#Suc{#Zer{}}}' || {
-  echo "conductive continuation smoke did not report 2" >&2
-  exit 1
-}
-echo "CONDUCTIVE-CONTINUATION OK"
-, '@main = @conductiveMain', src, count=1)
+src = re.sub(r'(?m)^@main = [^\n]*', '@main = @conductiveMain', src, count=1)
 pathlib.Path(sys.argv[2]).write_text(src)
 PY
 OUTC="$("$HVM" "$TMP/conductive.hvm4" -s 2>&1)"
@@ -52,7 +38,7 @@ echo "CONDUCTIVE-RUNTIME OK"
 python3 - "$TMP/raw.hvm4" "$TMP/twice.hvm4" <<'PY'
 import pathlib, re, sys
 src = pathlib.Path(sys.argv[1]).read_text()
-src = re.sub(r'(?m)^@main = .*$', '@main = @conductiveTwiceMain', src, count=1)
+src = re.sub(r'(?m)^@main = [^\n]*', '@main = @conductiveTwiceMain', src, count=1)
 pathlib.Path(sys.argv[2]).write_text(src)
 PY
 OUT2="$("$HVM" "$TMP/twice.hvm4" -s 2>&1)"
