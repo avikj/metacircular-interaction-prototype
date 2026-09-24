@@ -7,7 +7,7 @@ index e8b579d..d9ddcd4 100644
  import System.Environment (getArgs)
  import System.Exit (exitFailure)
 -import Core.CLI (processFile, processFileToJS, processFileToHVM, listDependencies)
-+import Core.CLI (processFile, processFileToJS, processFileToHVM, processFileToHVM4, processFileToHVM4Raw, processFileToHVM4Full, processFileTotal, listDependencies)
++import Core.CLI (processFile, processFileToJS, processFileToHVM, processFileToHVM4, processFileToHVM4Raw, processFileToHVM4Full, processFileTotal, processFileNativeSteps, listDependencies)
  
  -- | Show usage information
  showUsage :: IO ()
@@ -19,6 +19,7 @@ index e8b579d..d9ddcd4 100644
 +  putStrLn "  --to-hvm4-raw      Compile to HVM4 surface without pre-normalisation"
 +  putStrLn "  --to-hvm4-full     Compile to HVM4 with the full cubical runtime (no erasure)"
 +  putStrLn "  --total            Check, then fail if any definition is [unchecked]"
++  putStrLn "  --native-steps     Show proof-relevant native reduction event for main"
    putStrLn "  --list-dependencies List all dependencies (recursive)"
  
  -- | Main entry point
@@ -29,6 +30,7 @@ index e8b579d..d9ddcd4 100644
 +    [file, "--to-hvm4-raw"] | ".bend" `isSuffixOf` file -> processFileToHVM4Raw file
 +    [file, "--to-hvm4-full"] | ".bend" `isSuffixOf` file -> processFileToHVM4Full file
 +    [file, "--total"] | ".bend" `isSuffixOf` file -> processFileTotal file
++    [file, "--native-steps"] | ".bend" `isSuffixOf` file -> processFileNativeSteps file
 +    [file, "--to-hvm4"] | ".bend"    `isSuffixOf` file -> processFileToHVM4 file
 +    [file, "--to-hvm4"] | ".bend.py" `isSuffixOf` file -> processFileToHVM4 file
      [file, "--to-hvm"] | ".bend"    `isSuffixOf` file -> processFileToHVM file
@@ -2304,6 +2306,23 @@ index f94d1ce..b1a3b67 100644
 +processFileToHVM4Full file = do
 +  book <- parseFile file
 +  putStrLn (HVM4Full.compileFull book)
++
++-- | Expose the proof-relevant native Core reduction event for the checked
++-- main call. This is a diagnostic/readout of the SAME WHNF semantics, not a
++-- second evaluator.
++processFileNativeSteps :: FilePath -> IO ()
++processFileNativeSteps file = do
++  book@(Book defs _) <- parseFile file
++  checkDefinitions book
++  case M.lookup "main" defs of
++    Nothing -> putStrLn "native-step: no main"
++    Just (_, tm, _) ->
++      case nativeStep Full book tm of
++        Nothing -> putStrLn ("native-step: normal " ++ show tm)
++        Just s  -> do
++          putStrLn ("native-step: " ++ stepRule s)
++          putStrLn ("source: " ++ show (stepSource s))
++          putStrLn ("target: " ++ show (stepTarget s))
 diff --git a/src/Core/Check.hs b/src/Core/Check.hs
 index cdd6756..40fc69f 100644
 --- a/src/Core/Check.hs
