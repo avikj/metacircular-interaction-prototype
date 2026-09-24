@@ -6431,7 +6431,7 @@ diff --git a/src/Target/HVM4Full.hs b/src/Target/HVM4Full.hs
 new file mode 100644
 --- /dev/null
 +++ b/src/Target/HVM4Full.hs
-@@ -0,0 +1,601 @@
+@@ -0,0 +1,605 @@
 +{-./../Core/Type.hs-}
 +
 +{-# LANGUAGE ViewPatterns #-}
@@ -6531,7 +6531,11 @@ new file mode 100644
 +  , "@cfObservedValue = λ&A. λ&B. λ&f. λ&c. (λ{#Pair: λ&tag. λ&xs. (λ{#fibreCarry: (λ{#Pair: λ&a. λ&ys. (λ{#Pair: λ&b. λ&zs. b})(ys)})(xs); λz. &{}})(tag)})(c)"
 +  , "// Dependent map presentation: x ↦ (f(x), exact fibre/source witness)."
 +  , "@cfPresentMap = λ&A. λ&BFam. λ&f. λ&x. @cfDescend(A)(BFam(x))(f)(x)"
-+  , "@cfObservation = λ&A. λ&a. λ&B. λ&f. λ&value. λ&source. #Pair{#fibreObservation, #Pair{value, #Pair{source, #Pair{@cfCoalgebra(&{})(value), #One}}}}"
++  , "// Runtime type of FibreElement(A,B,f), matching the checked Bend datatype."
++  , "// Keeping this type in the continuation matters: the next whole is not an"
++  , "// untyped log cell but the same mathematical object in fibre coordinates."
++  , "@cfElementType = λ&A. λ&B. λ&f. #Sig{#Enum, λ&cfetag. (λ{#fibreCarry: λ&cfeA. λ&cfeB. λ&cfef. #Sig{cfeA, λ&cfea. #Sig{cfeB, λ&cfeb. #Sig{#Path{λ&cfei. cfeB, cfef(cfea), cfeb}, λ&cfew. #Unit}}}; λ&cfeother. λ&cfeA2. λ&cfeB2. λ&cfef2. #One})(cfetag)(A)(B)(f)}"
++  , "@cfObservation = λ&A. λ&a. λ&B. λ&f. λ&value. λ&source. #Pair{#fibreObservation, #Pair{value, #Pair{source, #Pair{@cfCoalgebra(@cfElementType(A)(B)(f))(value), #One}}}}"
 +  , "@cfCoalgebra = λ&A. λ&a. #Pair{#fibreCoalgebra, #Pair{λ&B. λ&f. @cfObservation(A)(a)(B)(f)(@cfDescend(A)(B)(f)(a))(#PLm{λ&i. a}), #One}}"
 +  , "@cfObserve = λ&A. λ&a. λ&p. λ&B. λ&f. (λ{#Pair: λ&tag. λ&xs. (λ{#fibreCoalgebra: (λ{#Pair: λ&respond. λ&one. respond(B)(f)})(xs); λz. &{}})(tag)})(p)"
 +  , "@cfObservationValue = λ&o. (λ{#Pair: λ&tag. λ&xs. (λ{#fibreObservation: (λ{#Pair: λ&value. λ&rest. value})(xs); λz. &{}})(tag)})(o)"
