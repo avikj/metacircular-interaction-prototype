@@ -1,3 +1,11 @@
+> **Encoding warning.** The `State = (c,n₀,n,N,A,...)` / `observe : State → Bool`
+> coalgebra described below is an obsolete manual scheduler, not the natural input
+> to the universal cubical inference machinery. The proposition `E1 : Set` already
+> is the complete dependent object. Turning its binders into a stream of parameter
+> tuples and Boolean observations flattens the proof geometry before inference.
+> Use `Problem1Statement.bend:ErdosProblem1()` directly as the proposition to inhabit;
+> the default move space is the kernel's identity-preserving cubical inference.
+
 # Erdős Problem 1: the complete parameterized fibre object
 
 ## Original proposition
