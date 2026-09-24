@@ -13,11 +13,13 @@ import pathlib, sys
 s = pathlib.Path(sys.argv[1]).read_text()
 required = [
     "@cfDescend =",
+    "@cfElementType =",
     "@cfCoalgebra =",
     "@cfObserve =",
     "@cfObservedValue =",
     "@conductiveWholeMain = @cfCoalgebra(",
     "@conductiveMain = @cfObservedValue(",
+    "@conductiveTwiceMain = @cfSecondIdentity(",
     "@main =",
 ]
 missing = [x for x in required if x not in s]
