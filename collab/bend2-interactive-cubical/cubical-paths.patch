@@ -6431,7 +6431,7 @@ diff --git a/src/Target/HVM4Full.hs b/src/Target/HVM4Full.hs
 new file mode 100644
 --- /dev/null
 +++ b/src/Target/HVM4Full.hs
-@@ -0,0 +1,608 @@
+@@ -0,0 +1,609 @@
 +{-./../Core/Type.hs-}
 +
 +{-# LANGUAGE ViewPatterns #-}
@@ -6542,6 +6542,7 @@ new file mode 100644
 +  , "@cfCoalgebra = λ&A. λ&a. #Pair{#fibreCoalgebra, #Pair{λ&B. λ&f. @cfObservation(A)(a)(B)(f)(@cfDescend(A)(B)(f)(a))(#PLm{λ&i. a}), #One}}"
 +  , "@cfObserve = λ&A. λ&a. λ&p. λ&B. λ&f. (λ{#Pair: λ&tag. λ&xs. (λ{#fibreCoalgebra: (λ{#Pair: λ&respond. λ&one. respond(B)(f)})(xs); λz. &{}})(tag)})(p)"
 +  , "@cfObservationValue = λ&o. (λ{#Pair: λ&tag. λ&xs. (λ{#fibreObservation: (λ{#Pair: λ&value. λ&rest. value})(xs); λz. &{}})(tag)})(o)"
++  , "@cfObservationNext = λ&o. (λ{#Pair: λ&tag. λ&xs. (λ{#fibreObservation: (λ{#Pair: λ&value. λ&rest. (λ{#Pair: λ&source. λ&tail. (λ{#Pair: λ&next. λ&one. next})(tail)})(rest)})(xs); λz. &{}})(tag)})(o)"
 +  , "// ---- intervals"
 +  , "@inot = λ{#I0: #I1; #I1: #I0; λx. #INot{x}}"
 +  , "// (linear: a value is never cloned merely because it is used in several match ARMS —"
