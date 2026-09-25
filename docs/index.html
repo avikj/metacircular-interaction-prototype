@@ -79,7 +79,7 @@ y \mid x \ (\text{multiplicative}) : \ x = y \cdot c
 $$
 <ul>
 <li>The relation is then completely fixed: it places each n above all of its divisors and below all of its multiples, with 1 at the bottom beneath everything and 0 at the top above everything.</li>
-<li>This is one construction from the ground, not an analogy: it rests on nothing but 0, the successor, and =. Addition is recursion on the successor (x + 0 = x, x + Sc = S(x + c)); multiplication is recursion that iterates addition (x·0 = 0, x·Sc = x·c + x). So y ≤ x := ∃c. x = y + c and y ∣ x := ∃c. x = y·c are one predicate — some c completes the equation — read off addition and off the operation that iterates it. Divisibility is the number line's own order one step up the tower successor, +, ·, and so exactly as primitive.</li>
+<li>Multiplication is iterated addition, and addition iterated succession — each built from the one below by recursion on = alone (x + 0 = x, x + Sc = S(x + c); x·0 = 0, x·Sc = x·c + x).</li>
 <li>The additive line is total: any two numbers are comparable, so "the smaller of the two" always already exists. Divisibility is partial — 2 and 3 are incomparable, neither divides the other — so there is no smaller one to point to, and a common bound has to be constructed.</li>
 <li>The greatest number dividing both a and b is where they meet; the least number that both a and b divide is where they join:</li>
 </ul>
