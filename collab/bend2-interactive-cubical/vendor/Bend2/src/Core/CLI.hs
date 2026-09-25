@@ -303,9 +303,15 @@ processFileInteract file = do
                      else if not (equal 0 book dom ty)
                        then refuse (name ++ " expects " ++ show dom ++ ", the point has type " ++ show ty) >> loop ty
                      else do
-                       hPutStrLn hin ("λ&pt. @present(@" ++ HVM4Full.defName name ++ ", " ++ HVM4Full.emitFull book cb ++ ", pt)")
+                       -- One §1: present a = (f a, (a, refl)) : Σ b:B. fiber f b,
+                       -- as a Core term over the typed point, through the one emitter
+                       let f     = Ref name
+                           ty'   = Sig cb (Lam "b" (\b -> Sig ty (Lam "x" (\x -> Pth (Lam "_" (\_ -> cb)) (App f x) b))))
+                           step  = Lam "pt" (\pt -> SigM pt (Lam "A" (\_ -> Lam "a" (\a ->
+                                     Tup ty' (Tup (App f a) (Tup a (PLm "i" (\_ -> App f a))))))))
+                       hPutStrLn hin (HVM4Full.emitFull book step)
                        answer
-                       loop (Sig cb (Lam "b" (\b -> Sig ty (Lam "x" (\x -> Pth (Lam "_" (\_ -> cb)) (App (Ref name) x) b)))))
+                       loop ty'
                 _ -> refuse (name ++ " is not a map") >> loop ty
             _ -> refuse "usage: NAME | :type" >> loop ty
   answer

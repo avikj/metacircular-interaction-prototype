@@ -61,9 +61,6 @@ compileFull book@(Book defs _) =
 prelude :: String
 prelude = unlines
   [ "// Bend2 -> HVM4 FULL RUNTIME (no erasure, no pre-normalisation)"
-  , "// ---- the law as the runtime's step (One §1 `present`): a typed point"
-  , "// (A, a) asked a map f : A -> B becomes (Σ b:B. fiber f b, (f a, (a, refl)))"
-  , "@present = λ&f. λ&B. λpt. (λ{#Pair: λA. λ&a. #Pair{#Sig{B, λb. @fiberT(A, B, f, b)}, #Pair{f(a), #Pair{a, #PLm{λi. f(a)}}}}})(pt)"
   , "// ---- numbers: pow by repetition; chars ARE numbers in HVM4"
   , "@pow = λ&b. λe. (λ{0: 1; λ&n. (b * @pow(b, (n - 1)))})(e)"
   , "@u64ToChar = λx. x"

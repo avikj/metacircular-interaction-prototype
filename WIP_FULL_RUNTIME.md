@@ -262,8 +262,9 @@ test_list_transport.py 26/26 (stock and patched HVM4). Fixed on the way:
   definition (its own auto-label range, so δ-unfolding gives fresh names),
   applied to the current point by reference, and normalised. Output per
   question: root, `- Itrs: N` for this question, `- End`.
-- The law as the step: prelude `@present = λf. λB. λ(A,a). (Σ B (fiber f),
-  (f a, (a, refl)))`, One §1 `present`; iterating it is §6 `carried`.
+- The law as the step: the host lowers the Core term
+  `λ(A,a). (Σ b:B. fiber f b, (f a, (a, refl)))` (One §1 `present`) through
+  the one emitter; iterating it is §6 `carried`.
 - Host: `bend FILE --interact`; input lines `NAME` | `:type`. NAME must be a
   non-dependent map whose domain is `equal` (Core) to the tracked point type;
   the tracked type becomes `Σb:B. Σx:A. PathP(λ_.B, f x, b)`. Refusals print
@@ -346,9 +347,9 @@ until it leaves the compile path (P6).
 - Patch files as source: replaced by vendored trees (`vendor/`), one build
   script (`build.sh`); `run.sh`, `mining/bootstrap.sh` delegate to it.
 - Quoted-syntax checker: withdrawn (§3c).
-- Hand-written `@present` in the prelude: to be replaced by the host
-  lowering the Core term of `present` through the one emitter (same reason
-  the `@cf*` bootstrap was deleted).
+- Hand-written `@present` in the prelude: removed; the host builds the Core
+  term of One §1 `present` over the typed point and lowers it through the one
+  emitter (same reason the `@cf*` bootstrap was deleted). Done.
 - AWAITING THE USER'S APPROVAL TO DELETE (the auto-mode classifier blocked
   the deletion as irreversible; all are in git history): the superseded
   `cubical-paths.patch`, `hvm4-runtime.patch`, `glue-emit.patch` (already
