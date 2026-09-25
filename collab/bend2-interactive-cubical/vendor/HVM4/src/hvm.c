@@ -4881,6 +4881,7 @@ __attribute__((cold, noinline)) static Term wnf_rebuild(Term cur, Term *stack, u
 
 // Primitive semantics
 // -------------------
+fn void print_term_ex(FILE *f, Term term);
 // Called from inside wnf with WNF_S_POS synced, so the nested wnf calls that
 // force arguments push above the caller's frames.
 
@@ -4891,6 +4892,10 @@ fn Term wnf(Term term);
 // primitive's answer is &L{prim(side 0), prim(side 1)}. Inspection points
 // record the first superposition met here; pri_fire then distributes.
 static Name PRI_SUP = 0;
+// Set when inspection finds an argument outside the primitive's domain (a
+// neutral, or a cell of another shape): the application is then stuck, a
+// neutral itself, exactly as an elimination of a neutral is.
+static int  PRI_STUCK = 0;
 
 fn int pri_sup(Term r) {
   if (term_tag(r) == SUP) {
@@ -4908,8 +4913,8 @@ fn u32 pri_num(Term t) {
     return 0;
   }
   if (term_tag(r) != NUM) {
-    fprintf(stderr, "RUNTIME_ERROR: primitive expected a number\n");
-    exit(1);
+    PRI_STUCK = 1;
+    return 0;
   }
   return (u32)term_val(r);
 }
@@ -4928,8 +4933,10 @@ fn void pri_unpair(Term t, Term *a, Term *b) {
     return;
   }
   if (term_tag(r) != C02 || term_ext(r) != SYM_PAIR) {
-    fprintf(stderr, "RUNTIME_ERROR: primitive expected a pair\n");
-    exit(1);
+    PRI_STUCK = 1;
+    *a = term_new_era();
+    *b = term_new_era();
+    return;
   }
   *a = heap_read(term_val(r) + 0);
   *b = heap_read(term_val(r) + 1);
@@ -5009,6 +5016,23 @@ fn int conv_go(Term a, Term b, int nd) {
   b = conv_whnf(b, nd);
   if (pri_sup(b)) {
     return 0;
+  }
+  // without δ a folded call is compared as is; against anything but a call
+  // it unfolds once (Core.Equal: Ref against another head is dereferenced),
+  // so conversion does not depend on how far a shared term was reduced
+  if (nd) {
+    u8 at0 = term_tag(a);
+    u8 bt0 = term_tag(b);
+    int af = at0 == REF || at0 == APP;
+    int bf = bt0 == REF || bt0 == APP;
+    if (af && !bf) {
+      a = conv_whnf(a, 0);
+    } else if (bf && !af) {
+      b = conv_whnf(b, 0);
+    }
+    if (pri_sup(a) || pri_sup(b)) {
+      return 0;
+    }
   }
   u8 at = term_tag(a);
   u8 bt = term_tag(b);
@@ -5201,12 +5225,19 @@ fn Term pri_fire(u32 id, Term arg) {
   if (getenv("NODIST") || id == P_FRESH || id == P_VAL || id == P_VAPP || id == P_TRACE || id == P_CODE || id == P_IDOF) {
     return pri_fire_go(id, arg);
   }
-  Copy c     = term_clone(rw_name(), arg);
-  Name saved = PRI_SUP;
-  PRI_SUP    = 0;
-  Term r     = pri_fire_go(id, c.k0);
-  Name hit   = PRI_SUP;
-  PRI_SUP    = saved;
+  Copy c      = term_clone(rw_name(), arg);
+  Name saved  = PRI_SUP;
+  int  savedS = PRI_STUCK;
+  PRI_SUP     = 0;
+  PRI_STUCK   = 0;
+  Term r      = pri_fire_go(id, c.k0);
+  Name hit    = PRI_SUP;
+  int  stuck  = PRI_STUCK;
+  PRI_SUP     = saved;
+  PRI_STUCK   = savedS;
+  if (stuck && !hit) {
+    return term_new_dry(term_new(0, PRI, id, 0), c.k1);
+  }
   if (hit) {
     Copy d  = term_clone(hit, c.k1);
     Term p0 = term_new_app(term_new(0, PRI, id, 0), d.k0);
@@ -5292,8 +5323,14 @@ fn Term pri_fire_go(u32 id, Term arg) {
       Term r = wnf(v);
       pri_sup(r);
       u32  k = pri_num(i);
-      // a field of a cell; anything else (or past its arity) has none
-      if (term_tag(r) < C00 || term_tag(r) > C16 || k >= (u32)(term_tag(r) - C00)) {
+      // a field of a cell (none past its arity); of a neutral it is stuck
+      if (term_tag(r) < C00 || term_tag(r) > C16) {
+        if (term_tag(r) != ERA && term_tag(r) != NUM && term_tag(r) != LAM) {
+          PRI_STUCK = 1;
+        }
+        return term_new_era();
+      }
+      if (k >= (u32)(term_tag(r) - C00)) {
         return term_new_era();
       }
       return heap_read(term_val(r) + k);

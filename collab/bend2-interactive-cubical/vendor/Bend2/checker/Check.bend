@@ -795,7 +795,12 @@ def Chk/checkApp(es: Val[], ctx: Ent[], d: U64, sm: U64[], c: U64, h: U64, xs: U
     if ht === 2:
       Chk/checkLamApp(es, ctx, d, sm, h, xs, goal)
     else:
-      Chk/verify(es, ctx, d, sm, c, goal)
+      # a primitive of the runtime (an extern body): its declared type is
+      # its specification (Core: Pri EXTERN checks)
+      if ht === 45:
+        0
+      else:
+        Chk/verify(es, ctx, d, sm, c, goal)
 
 # (λx. b)(a1)..(an): a1 is substituted; each later argument is a generic
 # element of its inferred type (Core: check f against ∀(typeof x). goal)

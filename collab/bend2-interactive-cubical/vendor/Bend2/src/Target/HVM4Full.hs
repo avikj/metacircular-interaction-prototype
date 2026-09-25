@@ -74,7 +74,7 @@ compileCells book@(Book defs _) =
       let prim = reverse (takeWhile (/= '/') (reverse nam))
           xs   = [ "e" ++ show i | i <- [1 .. n] ]
           tup  = foldr1 (\a b -> "#Pair{" ++ a ++ ", " ++ b ++ "}") xs
-      in if n == 0 then "#X_" ++ escName prim
+      in if n == 0 then "@@val(#X_" ++ escName prim ++ ")"
          else concatMap (\x -> "λ&" ++ x ++ ". ") xs ++ "@@" ++ prim ++ "(" ++ tup ++ ")"
 
 prelude :: String
