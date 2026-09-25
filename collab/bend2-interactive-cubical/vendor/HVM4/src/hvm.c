@@ -6105,9 +6105,54 @@ fn void ct_prepend(u64 *spn, u32 *sp, u32 *sn, u32 n) {
   *sn = n + rest;
 }
 
+// A partial call keeps the frame its walk has built: record
+// [kind, tl, ls, len, dim, n_own, own...] (kind 1: tl holds a closure word
+// still to be entered), keyed by the location of the spine's outermost node.
+static u64 *PC_KEYS = NULL;
+static u64 *PC_VALS = NULL;
+static u64  PC_CAP  = 0;
+static u64  PC_LEN  = 0;
+
+fn void pc_put(u64 key, u64 rec) {
+  if (PC_LEN * 2 >= PC_CAP) {
+    u64 ncap = PC_CAP ? PC_CAP * 2 : 1024;
+    u64 *nk = calloc(ncap, sizeof(u64));
+    u64 *nv = calloc(ncap, sizeof(u64));
+    for (u64 i = 0; i < PC_CAP; i++) {
+      if (PC_KEYS[i]) {
+        u64 h = (PC_KEYS[i] * 0x9E3779B97F4A7C15ULL) & (ncap - 1);
+        while (nk[h]) h = (h + 1) & (ncap - 1);
+        nk[h] = PC_KEYS[i];
+        nv[h] = PC_VALS[i];
+      }
+    }
+    free(PC_KEYS);
+    free(PC_VALS);
+    PC_KEYS = nk;
+    PC_VALS = nv;
+    PC_CAP  = ncap;
+  }
+  u64 h = (key * 0x9E3779B97F4A7C15ULL) & (PC_CAP - 1);
+  while (PC_KEYS[h] && PC_KEYS[h] != key) h = (h + 1) & (PC_CAP - 1);
+  if (!PC_KEYS[h]) PC_LEN++;
+  PC_KEYS[h] = key;
+  PC_VALS[h] = rec;
+}
+
+fn u64 pc_get(u64 key) {
+  if (!PC_CAP) return 0;
+  u64 h = (key * 0x9E3779B97F4A7C15ULL) & (PC_CAP - 1);
+  while (PC_KEYS[h]) {
+    if (PC_KEYS[h] == key) return PC_VALS[h];
+    h = (h + 1) & (PC_CAP - 1);
+  }
+  return 0;
+}
+
 // 1: the call steps; *out is its reduct, *nframes the frames it consumed.
-// 0: the call is normal.
-fn int ct_exec(u32 nam, u64 *pre, u32 npre, Term *stack, u32 s_pos, u32 base, Term *out, u32 *nframes) {
+// 0: the call is normal (stuck); 2: partial, *state is the frame so far.
+// `resume` (a partial call's record, or 0) continues a walk already begun.
+fn int ct_exec(u32 nam, u64 resume, u64 *pre, u32 npre, Term *stack, u32 s_pos, u32 base, Term *out, u32 *nframes, u64 *state) {
   if (CT_POOL == NULL) {
     CT_POOL = (u64 *)sys_mmap_anon(CT_POOL_LEN * sizeof(u64));
     if (CT_POOL == NULL) {
@@ -6134,6 +6179,22 @@ fn int ct_exec(u32 nam, u64 *pre, u32 npre, Term *stack, u32 s_pos, u32 base, Te
   u64 tl = 0, ls = 0, dim = 0;
   u32 len = 0;
   Term clo;
+  *nframes = nf;
+
+  if (resume) {
+    u64 kind = heap_read(resume + 0);
+    tl  = heap_read(resume + 1);
+    ls  = heap_read(resume + 2);
+    len = (u32)heap_read(resume + 3);
+    dim = heap_read(resume + 4);
+    no  = (u32)heap_read(resume + 5);
+    for (u32 i = 0; i < no; i++) own[i] = heap_read(resume + 6 + i);
+    if (kind == 1) {
+      clo = (Term)tl;
+      goto enter_clo;
+    }
+    goto walk;
+  }
 
   // the definition's coordinate
   Term cv = ref_cell_var(nam);
@@ -6152,7 +6213,7 @@ fn int ct_exec(u32 nam, u64 *pre, u32 npre, Term *stack, u32 s_pos, u32 base, Te
 
 enter_clo: {
     // β on the closure `clo`
-    if (sp >= sn) { res = 0; goto done; }
+    if (sp >= sn) { res = 2; tl = (u64)clo; goto partial_k1; }
     u64 c = term_val(clo);
     if (!(term_ext(clo) & LAM_LET_MASK)) n_lam++;
     tl  = heap_read(c + 0);
@@ -6162,11 +6223,12 @@ enter_clo: {
     dim = heap_read(c + 3);
   }
 
+walk:
   for (;;) {
     Term t = term_sub_set(heap_read(tl), 0);
     switch (term_tag(t)) {
       case LAM: {
-        if (sp >= sn) { res = 0; goto done; }       // partial: not yet one step
+        if (sp >= sn) { res = 2; goto partial; }    // partial: not yet one step
         if (!(term_ext(t) & LAM_LET_MASK)) n_lam++;
         ls  = ct_bind(ls, spn[sp++]);
         len = len + 1;
@@ -6234,7 +6296,7 @@ enter_clo: {
       case MAT:
       case SWI:
       case USE: {
-        if (sp >= sn) { res = 0; goto done; }       // partial: not yet one step
+        if (sp >= sn) { res = 2; goto partial; }    // partial: not yet one step
         u64 sc = spn[sp];
         u32 saved = WNF_S_POS;
         Term w = wnf_at(sc);
@@ -6285,6 +6347,32 @@ enter_clo: {
     }
   }
 
+partial: {
+    u64 rec = heap_alloc(6 + no);
+    heap_set(rec + 0, 0);
+    heap_set(rec + 1, tl);
+    heap_set(rec + 2, ls);
+    heap_set(rec + 3, len);
+    heap_set(rec + 4, dim);
+    heap_set(rec + 5, no);
+    for (u32 i = 0; i < no; i++) heap_set(rec + 6 + i, own[i]);
+    *state = rec;
+    goto done;
+  }
+
+partial_k1: {
+    u64 rec = heap_alloc(6 + no);
+    heap_set(rec + 0, 1);
+    heap_set(rec + 1, tl);
+    heap_set(rec + 2, ls);
+    heap_set(rec + 3, len);
+    heap_set(rec + 4, dim);
+    heap_set(rec + 5, no);
+    for (u32 i = 0; i < no; i++) heap_set(rec + 6 + i, own[i]);
+    *state = rec;
+    goto done;
+  }
+
 fire: {
     Term r = term_new_alo_dim(ls, len, tl, dim);
     for (u32 i = sp; i < sn; i++) {
@@ -6294,8 +6382,7 @@ fire: {
   }
 
 done:
-  if (res) {
-    *nframes = nf;
+  if (res == 1) {
     for (u64 i = 0; i < n_lam; i++) ITRS_INC("APP-LAM");
     for (u64 i = 0; i < n_hit; i++) ITRS_INC("APP-MAT-CTR-MAT");
     for (u64 i = 0; i < n_mis; i++) ITRS_INC("APP-MAT-CTR-MIS");
@@ -6586,16 +6673,22 @@ __attribute__((hot)) fn Term wnf(Term term) {
           u64  pre = term_val(frame) + 1;
           Term red;
           u32  nfr = 0;
+          u64  st  = 0;
           WNF_S_POS = s_pos;
-          int steps = ct_exec(nam, &pre, 1, stack, s_pos, base, &red, &nfr);
+          int steps = ct_exec(nam, 0, &pre, 1, stack, s_pos, base, &red, &nfr, &st);
           WNF_S_POS = s_pos;
-          if (!steps) {
-            whnf = wnf_app_nam(term_val(frame), whnf);
-            continue;
+          if (steps == 1) {
+            s_pos -= nfr;
+            next = red;
+            goto enter;
           }
-          s_pos -= nfr;
-          next = red;
-          goto enter;
+          // normal: the whole spine is the name applied to its arguments
+          whnf = wnf_app_nam(term_val(frame), whnf);
+          for (u32 i = 0; i < nfr; i++) {
+            whnf = wnf_app_dry(term_val(stack[--s_pos]), whnf);
+          }
+          if (steps == 2) pc_put(term_val(whnf), st);
+          continue;
         }
         if (ft != F_UPD && ft != DP0 && ft != DP1) {
           stack[s_pos++] = frame;
@@ -6639,23 +6732,38 @@ __attribute__((hot)) fn Term wnf(Term term) {
                 na++;
               }
               if (term_tag(h) == REF && BOOK[term_ext(h)] != 0 && na < 256) {
-                u64 pre[257];
-                Term d = whnf;
-                for (u32 i = na; i > 0; i--) {
-                  pre[i - 1] = term_val(d) + 1;
-                  d = term_sub_set(heap_read(term_val(d)), 0);
+                u64  rec = pc_get(term_val(whnf));
+                u64  pre[257];
+                u32  np = 0;
+                if (rec) {
+                  // resume the partial call's walk: its frame is already built
+                  pre[np++] = app_loc + 1;
+                } else {
+                  Term d = whnf;
+                  for (u32 i = na; i > 0; i--) {
+                    pre[i - 1] = term_val(d) + 1;
+                    d = term_sub_set(heap_read(term_val(d)), 0);
+                  }
+                  np = na;
+                  pre[np++] = app_loc + 1;
                 }
-                pre[na] = app_loc + 1;
                 Term red;
                 u32  nfr = 0;
+                u64  st  = 0;
                 WNF_S_POS = s_pos;
-                int steps = ct_exec(term_ext(h), pre, na + 1, stack, s_pos, base, &red, &nfr);
+                int steps = ct_exec(term_ext(h), rec, pre, np, stack, s_pos, base, &red, &nfr, &st);
                 WNF_S_POS = s_pos;
-                if (steps) {
+                if (steps == 1) {
                   s_pos -= nfr;
                   next = red;
                   goto enter;
                 }
+                whnf = wnf_app_dry(app_loc, whnf);
+                for (u32 i = 0; i < nfr; i++) {
+                  whnf = wnf_app_dry(term_val(stack[--s_pos]), whnf);
+                }
+                if (steps == 2) pc_put(term_val(whnf), st);
+                continue;
               }
               whnf = wnf_app_dry(app_loc, whnf);
               continue;

@@ -510,9 +510,14 @@ flaw, never justifies a design choice.
   neutral scrutinee (unbound variable, name, stuck match) or running out of
   arguments leaves the call normal. A head that is not the definition's own
   code (an argument, a partial call) is a leaf.
-- Open: when a call is judged normal, the coordinates the walk created for
-  computed scrutinees are dropped; a later re-walk of the same spine (more
-  arguments) forces them again. Keep them on the spine.
+- A partial call keeps the frame its walk built (record keyed by the
+  spine's outermost node); applying it resumes the walk, so work that
+  depends only on the early arguments is done once for every later
+  application (probe: shared `@f(N)` used 3×: 35 itrs, old binary 64).
+  Conductive runtime 137 → 111, presentation 139 → 113 itrs, same values.
+- Open: a copy of a partial call made by a dup (dry_copy) does not carry
+  the record; its walk restarts. Separately written equal closed subterms
+  are separate subterms (descent is about dependency, not identification).
 
 ## 4. How to work here (pitfalls already paid for)
 
