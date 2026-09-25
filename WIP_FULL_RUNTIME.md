@@ -449,6 +449,34 @@ every ITRS identical except neutral_type_smoke (now the canonical
 `conv` still references the now-inert WNF_NO_DELTA; it goes with (4)]; (2) DUP/SUP rules derived as commuting squares (labels bound); (3) interval nf in the prelude; (4) NbE
 checker on (1)–(3); then the cubical stages.
 
+## 3f. The substrate is the construction (One §1, §6, §7; ledger C)
+
+RULE (user): the proofs decide; a measurement only detects an implementation
+flaw, never justifies a design choice.
+
+- A step is `present`: applying f to a keeps a as a coordinate; a second use
+  of a is a projection of the retained Σ (free, §4). No copying, so no
+  duplication nodes for variables, no auto labels, no capture; superposition
+  labels remain only for genuine fibres and are bound by position.
+- SHARING IS DESCENT. `graph≃dom`: a datum determined by a is retained at a
+  for free (singleton contraction), and it is ONE point: every use of it is
+  that point. Ledger C2: a computation factoring through q is a function on
+  the image of q, so it is performed once per point of the coarsest base it
+  factors through, and C1 says no coarser. Syntactically: every subterm of a
+  body is presented over exactly what it depends on (its free variables), so
+  its coordinate lives in the frame of its innermost dependency and is shared
+  by every application that agrees on that frame. Work independent of x is a
+  coordinate of the closure, computed at most once for all applications;
+  under λx.λy, work depending on x but not y is a coordinate of the x-frame,
+  shared across all y. That is the construction's sharing, and it is optimal
+  by C1/C2 (nothing coarser is lawful, nothing finer is repeated).
+- Runtime shape: each static subterm carries its dependency level (the
+  deepest free binder); instantiation places its lazy coordinate in that
+  binder's frame; β extends a frame instead of substituting into a λ; forcing
+  writes the weak head back to the coordinate (transport along the walk,
+  counted once). Rules that reuse storage of a value with other readers
+  allocate instead.
+
 ## 4. How to work here (pitfalls already paid for)
 
 - SOURCE: the compiler and runtime are vendored as ordinary source:
