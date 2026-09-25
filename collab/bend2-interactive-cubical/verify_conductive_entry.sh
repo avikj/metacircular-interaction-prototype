@@ -37,7 +37,7 @@ echo "FIBRE-LAW-AND-CONTINUATION OK"
 
 run "$HERE/complex_cells_smoke.bend" '#Pair{#Bool{},0}'
 grep -Fqx '@DnegPath = #UaU{#Bool, #Bool, @Dneg, @Dneg, @DnegLnv, @DnegLnv}' "$TMP/p.hvm4"
-grep -Fqx '@DColour = #Enum{#Con{#red, #Con{#green, #Nil}}}' "$TMP/p.hvm4"
+grep -Fqx '@DColour = #Enum{#Con{#s_red, #Con{#s_green, #Nil}}}' "$TMP/p.hvm4"
 grep -Eq '^@Trefl = .*#Eql\{(b[0-9]+u[0-9]+), (b[0-9]+u[0-9]+), \2\}' "$TMP/p.hvm4"
 echo "CELLS OK"
 

@@ -67,18 +67,72 @@ def Num/val(n: U64) -> Val:
 
 # ---- cell names ---------------------------------------------------------------
 
-def Tag() -> Set:
-  &{&Pi, &Sig, &Set, &Nat, &Bool, &Unit, &Empty, &List, &Enum, &Num, &U64, &Chr, &Eql, &Zer, &Suc, &Nil, &Con, &One, &Pair, &Refl}
-
-def Tag/vpeek(t: Tag()) -> any t: U64. any e: U64. U64:
+# the checker's names for the built-in cells; each id is read off a real
+# cell of the one lowering (typed casts through the identity primitive), so
+# a symbol never stands in for a constructor
+def Set/val(t: Set) -> Val:
   extern
 
+def Nat/val(n: Nat) -> Val:
+  extern
+
+def List/val(xs: U64[]) -> Val:
+  extern
+
+def Pair/val(p: any a: U64. U64) -> Val:
+  extern
+
+def Unit/val(u: Unit) -> Val:
+  extern
+
+def Refl/val(e: Nat{0n == 0n}) -> Val:
+  extern
+
+def Chk/cell(t: Tag()) -> Val:
+  match t:
+    case &Pi:
+      Set/val(all x: Nat. Nat)
+    case &Sig:
+      Set/val(any x: Nat. Nat)
+    case &Set:
+      Set/val(Set)
+    case &Nat:
+      Set/val(Nat)
+    case &Bool:
+      Set/val(Bool)
+    case &Unit:
+      Set/val(Unit)
+    case &Empty:
+      Set/val(Empty)
+    case &List:
+      Set/val(Nat[])
+    case &Num:
+      Set/val(U64)
+    case &U64:
+      Prim/vfield(Set/val(U64), 0)
+    case &Chr:
+      Prim/vfield(Set/val(Char), 0)
+    case &Eql:
+      Set/val(Nat{0n == 0n})
+    case &Zer:
+      Nat/val(0n)
+    case &Suc:
+      Nat/val(1n)
+    case &Nil:
+      List/val([])
+    case &Con:
+      List/val([0])
+    case &One:
+      Unit/val(())
+    case &Pair:
+      Pair/val((0, 0))
+    case &Refl:
+      Refl/val(finally)
+    case &Enum:
+      Set/val(&{&a})
+
 def Chk/id(t: Tag()) -> U64:
-  match Tag/vpeek(t):
-    case (a, r):
-      match r:
-        case (e, v):
-          e
+  Chk/vext(Chk/cell(t))
 
 # the static node / cell head: (tag, ext, val)
 def Chk/tag(c: U64) -> U64:
@@ -724,7 +778,25 @@ def Chk/check(es: Val[], ctx: Ent[], d: U64, sm: U64[], c: U64, goal: G) -> U64:
                 if (t === 12) or (t === 31):
                   1000 + t
                 else:
-                  Chk/verify(es, ctx, d, sm, c, goal)
+                  if (t === 42) or (t === 43) or (t === 44):
+                    Chk/checkVar(es, ctx, d, sm, c, Chk/slot(sm, v), goal)
+                  else:
+                    Chk/verify(es, ctx, d, sm, c, goal)
+
+# a variable bound to code (a let, a dup of code) is that code: it is
+# checked where it is used (Core substitutes the let)
+def Chk/checkVar(es: Val[], ctx: Ent[], d: U64, sm: U64[], c: U64, k: U64, goal: G) -> U64:
+  match Chk/ent(ctx, d, k):
+    case @Let{loc, sm2}:
+      Chk/check(es, ctx, d, sm2, loc, goal)
+    case @Dup{loc, sm2}:
+      Chk/check(es, ctx, d, sm2, loc, goal)
+    case @Alias{lvl, kind}:
+      Chk/checkVar(es, ctx, d, sm, c, lvl, goal)
+    case @Free{nam, ty}:
+      Chk/verify(es, ctx, d, sm, c, goal)
+    case @Refn{val, ty}:
+      Chk/verify(es, ctx, d, sm, c, goal)
 
 def Chk/verify(es: Val[], ctx: Ent[], d: U64, sm: U64[], c: U64, goal: G) -> U64:
   match Chk/infer(es, ctx, d, sm, c):
@@ -1042,3 +1114,8 @@ def Chk/each(es: Val[], defs: (any c: U64. any t: U64. U64)[]) -> (any i: U64. U
             case (tc, i):
               r = Chk/then(Chk/check(es, [], 0, [], tc, Chk/set()), Chk/check(es, [], 0, [], c, @V{Prim/typeof(i)}))
               (i, r) <> Chk/each(es, rest)
+
+# (enum types last: the parser reads no `A{a == b}` signature after one)
+def Tag() -> Set:
+  &{&Pi, &Sig, &Set, &Nat, &Bool, &Unit, &Empty, &List, &Enum, &Num, &U64, &Chr, &Eql, &Zer, &Suc, &Nil, &Con, &One, &Pair, &Refl}
+

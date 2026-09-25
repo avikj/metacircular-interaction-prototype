@@ -278,6 +278,12 @@ defName, typeName :: Name -> String
 defName  nam = "D" ++ escName nam
 typeName nam = "T" ++ escName nam
 
+-- An enum symbol is its own kind of cell: `s_` + its escaped name, disjoint
+-- from every built-in and prelude constructor (&Nil is not [], &Pair is not
+-- a pair), so the lowering keeps apart what Core keeps apart.
+symName :: String -> String
+symName s = "s_" ++ escName s
+
 escName :: Name -> String
 escName = concatMap (\c -> case c of { '_' -> "_u"; '/' -> "_s"; _ -> [c] })
 
@@ -310,7 +316,7 @@ emitFull book t0 = go 0 t0 where
     Val (CHR_V c)  -> "@@ann(#Num{#Chr}, " ++ show (fromEnum c) ++ ")"
     Val (F64_V _)  -> error "HVM4 full: F64 requires an explicit IEEE representation; refusing to replace a floating-point value with zero"
     Val (I64_V _)  -> error "HVM4 full: signed integers require an explicit signed representation"
-    Sym s          -> "#" ++ s
+    Sym s          -> "#" ++ symName s
     Tup a b        -> "#Pair{" ++ go d a ++ ", " ++ go d b ++ "}"
     Rfl            -> "#Refl"
     BitM x f tr    -> branchMatch d x [("0", 0, f), ("_", -1, tr)]
@@ -320,7 +326,7 @@ emitFull book t0 = go 0 t0 where
     SigM x f       -> "λ{#Pair: " ++ go d f ++ "}(" ++ go d x ++ ")"
     EqlM x f       -> "λ{#Refl: " ++ go d f ++ "}(" ++ go d x ++ ")"
     EmpM x         -> "λ{}(" ++ go d x ++ ")"
-    EnuM x cs df   -> branchMatch d x ([("#" ++ sy, 0, b) | (sy,b) <- cs] ++ [("_", 1, df)])
+    EnuM x cs df   -> branchMatch d x ([("#" ++ symName sy, 0, b) | (sy,b) <- cs] ++ [("_", 1, df)])
     Op2 POW a b    -> "@pow(" ++ go d a ++ ", " ++ go d b ++ ")"
     Op2 o a b      -> "(" ++ go d a ++ " " ++ op2 o ++ " " ++ go d b ++ ")"
     Op1 o _        -> error ("HVM4 full: unary " ++ show o ++ " is type-directed in Core (Bool vs U64) and both share the runtime word; write it as a match or a binary op")
@@ -333,7 +339,7 @@ emitFull book t0 = go 0 t0 where
     Era            -> "&{}"
     -- TYPES ARE DATA
     Set            -> "#Set"; Bit -> "#Bool"; Nat -> "#Nat"; Uni -> "#Unit"; Emp -> "#Empty"
-    Lst e          -> "#List{" ++ go d e ++ "}"; Enu ss -> "#Enum{" ++ foldr (\sy acc -> "#Con{#" ++ sy ++ ", " ++ acc ++ "}") "#Nil" ss ++ "}"; Num k -> "#Num{#" ++ numTag k ++ "}"; Itv -> "#Itv"
+    Lst e          -> "#List{" ++ go d e ++ "}"; Enu ss -> "#Enum{" ++ foldr (\sy acc -> "#Con{#" ++ symName sy ++ ", " ++ acc ++ "}") "#Nil" ss ++ "}"; Num k -> "#Num{#" ++ numTag k ++ "}"; Itv -> "#Itv"
     Eql a x y      -> "#Eql{" ++ go d a ++ ", " ++ go d x ++ ", " ++ go d y ++ "}"
     -- QUOTIENTS (SetQuotient HIT): the type is data, [a] is a point, eq/ is a
     -- PATH constructor (so @pathAt must know it), squash/ is opaque, and the
