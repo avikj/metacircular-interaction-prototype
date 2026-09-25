@@ -25,7 +25,7 @@ import Target.HVM (freeVars)
 import qualified Data.Map as M
 
 import Core.Type
-import Core.WHNF (coeMarker, occursMarker, substMarker, depMarker, occursDep, force, hitCtorTypeAt, ctorFieldType)
+import Core.WHNF (appCod, coeMarker, occursMarker, substMarker, depMarker, occursDep, force, hitCtorTypeAt, ctorFieldType)
 import Data.IORef
 import System.IO.Unsafe (unsafePerformIO)
 
@@ -60,7 +60,7 @@ compileCells book@(Book defs _) =
     -- A checked definition is a typed point (A, a): both are cells of the one
     -- complex and both are emitted, by the same emitter.
     def (nam, (_, tm, ty)) =
-      [ "@" ++ defName nam  ++ " = " ++ maybe (emitFull book tm) (externCell nam) (externArity tm)
+      [ "@" ++ defName nam  ++ " = " ++ maybe (emitDefCell book tm ty) (externCell nam) (externArity tm)
       , "@" ++ typeName nam ++ " = " ++ emitFull book ty ]
 
     -- `def name(x1..xn) -> T: extern` is the runtime primitive @@name. A
@@ -75,7 +75,15 @@ compileCells book@(Book defs _) =
           xs   = [ "e" ++ show i | i <- [1 .. n] ]
           tup  = foldr1 (\a b -> "#Pair{" ++ a ++ ", " ++ b ++ "}") xs
       in if n == 0 then "@@val(#X_" ++ escName prim ++ ")"
-         else concatMap (\x -> "λ&" ++ x ++ ". ") xs ++ "@@" ++ prim ++ "(" ++ tup ++ ")"
+         -- a function of the runtime's prelude (the reduction rules written
+         -- as a program) is provided the same way as a primitive
+         else if prim `elem` preludeFns
+           then concatMap (\x -> "λ&" ++ x ++ ". ") xs ++ "@" ++ prim ++ concatMap (\x -> "(" ++ x ++ ")") xs
+           else concatMap (\x -> "λ&" ++ x ++ ". ") xs ++ "@@" ++ prim ++ "(" ++ tup ++ ")"
+
+-- The prelude's functions an `extern` may name.
+preludeFns :: [String]
+preludeFns = [ n | l <- lines prelude, ('@' : rest) <- [l], let n = takeWhile (\c -> isAlphaNum c || c == '_') rest, not (null n) ]
 
 prelude :: String
 prelude = unlines
@@ -94,6 +102,14 @@ prelude = unlines
   , "// forward direction test: r=I0,s=I1 -> 1 ; r=I1,s=I0 -> 0"
   , "@fwd = λ{#I0: λs. 1; #I1: λs. 0; λr. λs. 0}"
   , "// ---- paths applied to intervals (universe paths are data; value paths are functions)"
+  , "// a line with its faces attached (a 1-cell with its boundary): at i0 and"
+  , "// i1 it is its faces, elsewhere its interior; a definition of path type is"
+  , "// emitted as one, so a call stuck on a neutral still has its endpoints"
+  , "@pbnd = λ{#I0: λa. λb. λp. a; #I1: λa. λb. λp. b; λi. λa. λb. λp. @pathAt(p, i)}"
+  , "@pbndL = λa. λb. λp. #PLm{λ&i. @pbnd(i, a, b, p)}"
+  , "// the generic element of a type (η-long): a function is a λ of generic"
+  , "// results, a path is a line whose faces are its type's endpoints"
+  , "@reflect = λT. λn. (λ{#Pi: λA. λB. λn. λ&x. @reflect(B(x), n(x)); #Path: λt. λa. λb. λn. @pbndL(a, b, n); λT0. λn. n})(T)(n)"
   , "@pathAt = λp. λi. (λ{#I0: λp. @pL(p); #I1: λp. @pR(p); λi. λp. @pAtSym(p, i)})(i)(p)"
   , "@pAtSym = λ{#PLm: λf. λi. f(i); #TSq: λu. λv. λi. #At{#TSq{u, v}, i}; #Loop: λi. #At{#Loop, i}; #QEq: λa. λb. λw. λi. #At{#QEq{a, b, w}, i}; #UaU: λA. λB. λf. λg. λgf. λfg. λi. #At{#UaU{A, B, f, g, gf, fg}, i}; #CompU: λP. λQ. λi. #At{#CompU{P, Q}, i}; λv. λi. #StuckAt{v, i}}"
   , "@pL = λ{#PLm: λf. f(#I0); #TSq: λu. λv. u; #Loop: #Base; #QEq: λa. λb. λw. #QCl{a}; #UaU: λA. λB. λf. λg. λgf. λfg. A; #CompU: λP. λQ. P(#I0); λv. #StuckAt{v, #I0}}"
@@ -287,8 +303,23 @@ symName s = "s_" ++ escName s
 escName :: Name -> String
 escName = concatMap (\c -> case c of { '_' -> "_u"; '/' -> "_s"; _ -> [c] })
 
+-- A definition whose type (after its Π telescope) is Path(t, a, b) is a
+-- 1-cell with its faces attached: λxs. @pbndL(a, b, body). The body is kept
+-- whole; the faces are the type's own endpoints (definitionally equal to the
+-- body's at i0 and i1 once it checks).
+emitDefCell :: Book -> Term -> Term -> String
+emitDefCell book tm ty = walk 0 tm ty where
+  walk d t y = case (cut t, cut (force book y)) of
+    (Lam _ f, All _ b) -> let n = freshName d; v = Var n d
+                          in "λ&" ++ n ++ ". " ++ walk (d+1) (f v) (appCod b v)
+    (_, Pth _ a b)     -> "@pbndL(" ++ emitFullD book d a ++ ", " ++ emitFullD book d b ++ ", " ++ emitFullD book d t ++ ")"
+    _                  -> emitFullD book d t
+
 emitFull :: Book -> Term -> String
-emitFull book t0 = go 0 t0 where
+emitFull book t0 = emitFullD book 0 t0
+
+emitFullD :: Book -> Int -> Term -> String
+emitFullD book d0 t0 = go d0 t0 where
   go :: Int -> Term -> String
   go d t = case t of
     Var n i        -> if i < 0 then "#IMark" else n
