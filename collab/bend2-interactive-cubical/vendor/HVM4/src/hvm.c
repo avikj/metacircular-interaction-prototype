@@ -4226,6 +4226,37 @@ fn Term term_new_clo(u32 era, u64 tm, u64 ls, u32 len, u64 dim) {
   return term_new(0, LAM, era | LAM_CLO_MASK, loc);
 }
 
+// the two faces of a frame in dimension L: every coordinate taken on side
+// 0 / side 1 (entries in the same order; `ents` receives the originals)
+fn void frame_project(Name lab, u64 ls, u32 len, u64 *ents, u64 *new0, u64 *new1, u64 *p0o, u64 *p1o) {
+  u32 n = 0;
+  for (u64 it = ls; it != 0; it = term_val(heap_read(it + 1))) {
+    if (term_ext(heap_read(it + 1)) != 0) {
+      fprintf(stderr, "RUNTIME_ERROR: projecting a frame with a dup binder is not implemented\n");
+      exit(1);
+    }
+    ents[n++] = it;
+  }
+  u64 p0 = 0, p1 = 0;
+  for (u32 k = n; k > 0; k--) {
+    u64 e = ents[k - 1];
+    Copy c = term_clone(lab, term_new_var(e));
+    u64 e0 = heap_alloc(2);
+    u64 e1 = heap_alloc(2);
+    heap_set(e0 + 0, term_sub_set(c.k0, 1));
+    heap_set(e0 + 1, term_new(0, NUM, 0, p0));
+    heap_set(e1 + 0, term_sub_set(c.k1, 1));
+    heap_set(e1 + 1, term_new(0, NUM, 0, p1));
+    p0 = e0;
+    p1 = e1;
+    if (new0) new0[k - 1] = e0;
+    if (new1) new1[k - 1] = e1;
+  }
+  *p0o = p0;
+  *p1o = p1;
+  (void)len;
+}
+
 // the two faces of a closure in dimension L: its code is shared, every
 // coordinate of its frame is taken on side 0 / side 1 of L
 fn void clo_project(Name lab, Term lam, Term *l0, Term *l1) {
@@ -4486,6 +4517,9 @@ fn Term wnf_dup_sup(Name lab, u64 loc, u8 side, Term sup) {
 // ...
 // X₀ ← T{A₀,B₀,...}
 // X₁ ← T{A₁,B₁,...}
+fn u64 pc_get(u64 key);
+fn void pc_put(u64 key, u64 rec);
+
 // the two faces of a neutral spine in dimension lab: head chain copied,
 // arguments projected lazily
 fn void dry_copy(Name lab, Term d, Term *d0, Term *d1) {
@@ -4503,6 +4537,44 @@ fn void dry_copy(Name lab, Term d, Term *d0, Term *d1) {
   Copy A = term_clone(lab, slot_ref(dl + 1));
   *d0 = term_new_dry(h0, A.k0);
   *d1 = term_new_dry(h1, A.k1);
+  // a partial call's frame goes with it, taken on each side
+  u64 rec = pc_get(dl);
+  if (rec) {
+    u64 kind = heap_read(rec + 0);
+    u64 tl   = heap_read(rec + 1);
+    u64 ls   = heap_read(rec + 2);
+    u32 len  = (u32)heap_read(rec + 3);
+    u64 dim  = heap_read(rec + 4);
+    u32 no   = (u32)heap_read(rec + 5);
+    u64 *ents = malloc(sizeof(u64) * (len + 1));
+    u64 *n0   = malloc(sizeof(u64) * (len + 1));
+    u64 *n1   = malloc(sizeof(u64) * (len + 1));
+    u64 p0, p1;
+    frame_project(lab, ls, len, ents, n0, n1, &p0, &p1);
+    u64 tl0 = tl, tl1 = tl;
+    if (kind == 1) {
+      Term c0, c1;
+      clo_project(lab, (Term)tl, &c0, &c1);
+      tl0 = (u64)c0;
+      tl1 = (u64)c1;
+    }
+    for (int side = 0; side < 2; side++) {
+      u64 r = heap_alloc(6 + no);
+      heap_set(r + 0, kind);
+      heap_set(r + 1, side ? tl1 : tl0);
+      heap_set(r + 2, side ? p1 : p0);
+      heap_set(r + 3, len);
+      heap_set(r + 4, dim_with_face(dim, lab, side));
+      heap_set(r + 5, no);
+      for (u32 i = 0; i < no; i++) {
+        u64 o = heap_read(rec + 6 + i), m = o;
+        for (u32 j = 0; j < len; j++) if (ents[j] == o) { m = side ? n1[j] : n0[j]; break; }
+        heap_set(r + 6 + i, m);
+      }
+      pc_put(term_val(side ? *d1 : *d0), r);
+    }
+    free(ents); free(n0); free(n1);
+  }
 }
 
 fn Term wnf_dup_nod(Name lab, u64 loc, u8 side, Term term) {

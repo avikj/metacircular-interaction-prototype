@@ -515,9 +515,14 @@ flaw, never justifies a design choice.
   depends only on the early arguments is done once for every later
   application (probe: shared `@f(N)` used 3×: 35 itrs, old binary 64).
   Conductive runtime 137 → 111, presentation 139 → 113 itrs, same values.
-- Open: a copy of a partial call made by a dup (dry_copy) does not carry
-  the record; its walk restarts. Separately written equal closed subterms
-  are separate subterms (descent is about dependency, not identification).
+- A dup's copy of a partial call carries its frame, projected onto each
+  side (`frame_project`, faces in the dim word), like a closure's.
+- Separately written equal closed subterms are separate subterms (descent
+  is about dependency, not identification).
+- Paired check, pre-session binary on the old emission vs this runtime on the
+  new emission, every corpus program: identical values except cap4 (fixed),
+  neutral_type_smoke (canonical `@Ddouble(a)`), conductive_dependent_map
+  (dup residue gone).
 
 ## 4. How to work here (pitfalls already paid for)
 
