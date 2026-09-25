@@ -75,7 +75,7 @@ contractible (§7, `fibre-of-run`); cost is the net's own interaction count.
 | P1 | Seam: check gate, no deleted cells, types emitted, typed-point root, remove companions/bootstrap | done (commit 1) |
 | P2 | Fix breakages from P1 (mining gate reader, `sat_fibre.bend` `not`, all-or-nothing emission) | done (commit 3) |
 | P3a | Label capture: fresh dimension names per δ-unfolding (`hvm4-runtime.patch`), explicit source labels in their own region, refusal of symbolic/computed labels | done (stage 1: exact-or-abort in 24-bit names) |
-| P3x | CI green end to end on a fresh bootstrap (both patches) | done |
+| P3x | CI green end to end on a fresh bootstrap (both patches) | done; re-verified after P4 (8/8 steps + list transport 26/26 on stock HVM4) |
 | P3b | Widen dimension names (label out of the term word) so exhaustion is not a limit | todo |
 | P3c | Diamond: state the demand-restricted relation, check an instance of `RandomDescent` for the reachable rules | todo |
 | P4 | Machine that asks: `hvm --interact` keeps heap + point; `bend --interact` checks named maps and applies the law (`@present`); neutral calls stay folded under stuck eliminations | done (v1: non-dependent named maps) |
@@ -279,6 +279,28 @@ test_list_transport.py 26/26 (stock and patched HVM4). Fixed on the way:
 - Not yet: dependent maps (the dependent graph Σa.Σb:B(a).Path), questions
   given as expressions rather than names (needs term parsing in the host),
   and a readable type display (the runtime prints the type through sharing).
+
+## 3c. P5 design: checking on the net (the `verify` projection, §14)
+
+- Why quoted syntax: an HVM4 net cannot pattern-match on a λ (MAT dispatches
+  on constructors and numbers; no readback primitive), and checking needs
+  syntax, not values (a reduced β-redex has lost its structure). So the net
+  checker works over the book emitted as DATA: a `Term` datatype (de Bruijn,
+  one constructor per Core former, cubical ones included), produced by the
+  host alongside the executable cells.
+- The checker is a program in cubical Bend (`port/Check*.bend`), compiled by
+  the same emitter and run on the same net: bidirectional infer/check, with
+  conversion by normalisation of quoted terms (NbE over the same cubical
+  rules the prelude runs: coe/hcomp/Glue/ua/HIT). Its cost is the net's
+  interaction count like any other inference — the one operation.
+- Correctness discipline: differential against Core's checker over the whole
+  corpus (every ✓/✗ must agree, including every registered *_mustfail),
+  grown former by former: MLTT core (Π, Σ, Nat, Bool, Unit, Empty, Enum,
+  Eql, Set) → paths/interval → coe/hcomp → Glue/ua → HITs/quotients.
+- Then P6: `--to-hvm4-full` and `--interact` check on the net; Core's Haskell
+  evaluator leaves the compile path (the host only parses and lowers).
+- Scale: Check.hs + WHNF.hs are ~2,900 lines of Haskell. This is the largest
+  remaining piece.
 
 ## 4. How to work here (pitfalls already paid for)
 
