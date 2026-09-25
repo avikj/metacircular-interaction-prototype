@@ -446,7 +446,7 @@ call is a DRY spine headed by its REF, copied and compared as a name.
 Over all 237 emitted corpus programs, old vs new binary: every value and
 every ITRS identical except neutral_type_smoke (now the canonical
 `@Ddouble(a)`, 5 → 4 itrs). verify_conductive_entry: all stages OK. The old
-`conv` still references the now-inert WNF_NO_DELTA; it goes with (4)]; (2) DUP/SUP rules derived as commuting squares (labels bound); (3) interval nf in the prelude; (4) NbE
+`conv` still references the now-inert WNF_NO_DELTA; it goes with (4)]; (2) DUP/SUP rules derived as commuting squares (labels bound); (3) interval nf in the prelude [DONE: @inot/@iand/@ior compute the free De Morgan algebra's normal form over generators #IVar{k}/#IMark (antichain of sorted cubes of keyed literals); commutativity, absorption, double negation, De Morgan, distributivity hold by `===`, and x∧~x ≠ 0; a neutral non-generator interval stays a stuck call (not yet ordered)]; (4) NbE
 checker on (1)–(3); then the cubical stages.
 
 ## 3f. The substrate is the construction (One §1, §6, §7; ledger C)
