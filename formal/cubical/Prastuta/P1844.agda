@@ -5,8 +5,8 @@
 module Prastuta.P1844 where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
-open import PrastavaHrdaya_TheClassifierHasOneSpellingSharedByProposerAndTheorem
-open import PrastavaSatya_TheClassifiersACClaimIsJudgedByTheKernel
+open import TheClassifierHasOneSpellingSharedByProposerAndTheorem
+open import TheClassifiersACClaimIsJudgedByTheKernel
   using (eval ; nf-sound ; _∸'_ ; le ; max' ; gcd')
 
 prastava : (a : ℕ) → (a · (le (zero) (zero) + le (zero) (zero))) ≡ (a + a)

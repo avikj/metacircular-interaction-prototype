@@ -265,6 +265,6 @@ report =
        ∷ withNl blindLines
        ∷ "  identical at every level.  The array factors through ω, so the\n  rule is blind to WHICH primes divide and sees only HOW MANY."
        ∷ nl
-       ∷ "\n(checked: formal/cubical/MulaShakti_TheMarkingParameterIsAPowerAndTheZetaTwistIsTranslationByOne.agda)"
+       ∷ "\n(checked: formal/cubical/TheMarkingParameterIsAPowerAndTheZetaTwistIsTranslationByOne.agda)"
        ∷ nl
        ∷ [] )

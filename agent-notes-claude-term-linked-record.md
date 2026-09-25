@@ -30,35 +30,35 @@ Agda → fibre/src/Fibre/Carrier.agda :: fibre-isContr, Carrier≃, Carrier≡
 
 ## Exact computation remainder: the trace family is forced
 
-SOURCE → fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda :: Conservative, Trace, whole, run, trace, fibre-of-run, trace-is-forced, exact-when-contractible, contractible-when-exact, fiberize, canonical, canonical-run, canonical-recovers, representation
+SOURCE → fibre/src/Fibre/TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda :: Conservative, Trace, whole, run, trace, fibre-of-run, trace-is-forced, exact-when-contractible, contractible-when-exact, fiberize, canonical, canonical-run, canonical-recovers, representation
 
 A conservative computation is an equivalence A ≃ Σ[b ∈ B] Trace b; its visible computation is not supplied separately but read off as the first projection run.
 
-Agda → fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda :: Conservative, whole, run, trace
+Agda → fibre/src/Fibre/TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda :: Conservative, whole, run, trace
 
 For any conservative factorization, fibre-of-run proves the fibre of run over b equivalent to the chosen Trace b; trace-is-forced gives the reverse orientation.
 
-Agda → fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda :: fibre-of-run, trace-is-forced
+Agda → fibre/src/Fibre/TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda :: fibre-of-run, trace-is-forced
 
 The remainder beside a visible result is therefore not arbitrary provenance: up to equivalence it is fixed by what the visible computation fails to determine.
 
-Agda → fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda :: fibre-of-run, trace-is-forced
+Agda → fibre/src/Fibre/TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda :: fibre-of-run, trace-is-forced
 
 Contractible trace exactly yields an invertible visible map, and an invertible visible map has contractible trace.
 
-Agda → fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda :: exact-when-contractible, contractible-when-exact
+Agda → fibre/src/Fibre/TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda :: exact-when-contractible, contractible-when-exact
 
 Every map admits the canonical factorization through its fibres, with visible behavior definitionally equal to the original map and source recovery by refl.
 
-Agda → fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda :: fiberize, canonical, canonical-run, canonical-recovers
+Agda → fibre/src/Fibre/TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda :: fiberize, canonical, canonical-run, canonical-recovers
 
 The unitTrace / alwaysTrue counterexample proves why an arbitrary Σ-equivalence is insufficient if it is not an equivalence over the intended visible map.
 
-Agda → fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda :: unitTrace, unitTrace-run, alwaysTrue-misses-false, unitTrace-is-not-a-trace-of-alwaysTrue
+Agda → fibre/src/Fibre/TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda :: unitTrace, unitTrace-run, alwaysTrue-misses-false, unitTrace-is-not-a-trace-of-alwaysTrue
 
 High-information formulation retained: the full evolving event may be richer than the visible result, and the exact missing part is mathematically pinned by the visible map.
 
-Agda → fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda :: run, trace, fibre-of-run
+Agda → fibre/src/Fibre/TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda :: run, trace, fibre-of-run
 
 ## Knowledge as exact interaction plus future capability
 
@@ -258,47 +258,47 @@ Agda → formal/cubical/theorems/grammar/Laghava.agda :: Laghava
 
 ## Productive circularity and interdependent types
 
-SOURCE → formal/cubical/theorems/logic/Parasparasraya_TheMutualDependenceObjectionChecksWhenTheLeaningIsProductive.agda :: Dhārā, jina, ajina, jina≢ajina, dvicakram, dvicakram', Parasparāśraya, dṛś₁, dṛś₂, andha₁, andha₂, yugma, dvitīya-paśyati, prathama-paśyati, na-ekākin₁, na-ekākin₂, yugmanetra
+SOURCE → formal/cubical/theorems/logic/TheMutualDependenceObjectionChecksWhenTheLeaningIsProductive.agda :: Dhārā, jina, ajina, jina≢ajina, dvicakram, dvicakram', Parasparāśraya, dṛś₁, dṛś₂, andha₁, andha₂, yugma, dvitīya-paśyati, prathama-paśyati, na-ekākin₁, na-ekākin₂, yugmanetra
 
 Two streams are mutually defined through each other in one guarded block, remain distinct, and compute their two-step period by refl.
 
-Agda → formal/cubical/theorems/logic/Parasparasraya_TheMutualDependenceObjectionChecksWhenTheLeaningIsProductive.agda :: jina, ajina, jina≢ajina, dvicakram, dvicakram'
+Agda → formal/cubical/theorems/logic/TheMutualDependenceObjectionChecksWhenTheLeaningIsProductive.agda :: jina, ajina, jina≢ajina, dvicakram, dvicakram'
 
 High-information formulation retained: a productive circle is computation; guardedness mechanically separates it from a vicious circle.
 
-Agda → formal/cubical/theorems/logic/Parasparasraya_TheMutualDependenceObjectionChecksWhenTheLeaningIsProductive.agda :: jina, ajina, dvicakram
+Agda → formal/cubical/theorems/logic/TheMutualDependenceObjectionChecksWhenTheLeaningIsProductive.agda :: jina, ajina, dvicakram
 
 Parasparāśraya packages two observables, one named blind pair for each, and joint faithfulness.
 
-Agda → formal/cubical/theorems/logic/Parasparasraya_TheMutualDependenceObjectionChecksWhenTheLeaningIsProductive.agda :: Parasparāśraya, dṛś₁, dṛś₂, andha₁, andha₂, yugma
+Agda → formal/cubical/theorems/logic/TheMutualDependenceObjectionChecksWhenTheLeaningIsProductive.agda :: Parasparāśraya, dṛś₁, dṛś₂, andha₁, andha₂, yugma
 
 Each sense must separate the other's blind pair, and neither sense can be discarded by replacing it with a constant observation.
 
-Agda → formal/cubical/theorems/logic/Parasparasraya_TheMutualDependenceObjectionChecksWhenTheLeaningIsProductive.agda :: dvitīya-paśyati, prathama-paśyati, na-ekākin₁, na-ekākin₂
+Agda → formal/cubical/theorems/logic/TheMutualDependenceObjectionChecksWhenTheLeaningIsProductive.agda :: dvitīya-paśyati, prathama-paśyati, na-ekākin₁, na-ekākin₂
 
 High-information formulation retained: neither side need contain the information that exists in their interaction.
 
-Agda → formal/cubical/theorems/logic/Parasparasraya_TheMutualDependenceObjectionChecksWhenTheLeaningIsProductive.agda :: yugma, na-ekākin₁, na-ekākin₂
+Agda → formal/cubical/theorems/logic/TheMutualDependenceObjectionChecksWhenTheLeaningIsProductive.agda :: yugma, na-ekākin₁, na-ekākin₂
 
 ## Instrument growth: derived view versus mutual novelty
 
-SOURCE → formal/cubical/theorems/grammar/UpakaranaVrddhi_ADerivedSenseAddsNoSeparationAndAnInterdependentPairIsNeverSourceAndDashboard.agda :: vṛddhi, vṛddhi-abheda, na-praṇālī, na-praṇālī'
+SOURCE → formal/cubical/theorems/grammar/ADerivedSenseAddsNoSeparationAndAnInterdependentPairIsNeverSourceAndDashboard.agda :: vṛddhi, vṛddhi-abheda, na-praṇālī, na-praṇālī'
 
 If q is derived from S, adjoining q does not change the agreement type; the before/after agreement types are equal by univalence.
 
-Agda → formal/cubical/theorems/grammar/UpakaranaVrddhi_ADerivedSenseAddsNoSeparationAndAnInterdependentPairIsNeverSourceAndDashboard.agda :: vṛddhi, vṛddhi-abheda
+Agda → formal/cubical/theorems/grammar/ADerivedSenseAddsNoSeparationAndAnInterdependentPairIsNeverSourceAndDashboard.agda :: vṛddhi, vṛddhi-abheda
 
 High-information formulation retained: a dashboard buys no vision.
 
-Agda → formal/cubical/theorems/grammar/UpakaranaVrddhi_ADerivedSenseAddsNoSeparationAndAnInterdependentPairIsNeverSourceAndDashboard.agda :: vṛddhi-abheda
+Agda → formal/cubical/theorems/grammar/ADerivedSenseAddsNoSeparationAndAnInterdependentPairIsNeverSourceAndDashboard.agda :: vṛddhi-abheda
 
 An interdependent pair cannot factor in either direction: neither member is post-processing of the other.
 
-Agda → formal/cubical/theorems/grammar/UpakaranaVrddhi_ADerivedSenseAddsNoSeparationAndAnInterdependentPairIsNeverSourceAndDashboard.agda :: na-praṇālī, na-praṇālī'
+Agda → formal/cubical/theorems/grammar/ADerivedSenseAddsNoSeparationAndAnInterdependentPairIsNeverSourceAndDashboard.agda :: na-praṇālī, na-praṇālī'
 
 High-information formulation retained: interdependence is mutual novelty, not shared redundancy.
 
-Agda → formal/cubical/theorems/grammar/UpakaranaVrddhi_ADerivedSenseAddsNoSeparationAndAnInterdependentPairIsNeverSourceAndDashboard.agda :: na-praṇālī, na-praṇālī'
+Agda → formal/cubical/theorems/grammar/ADerivedSenseAddsNoSeparationAndAnInterdependentPairIsNeverSourceAndDashboard.agda :: na-praṇālī, na-praṇālī'
 
 ## Structured transport and typed failure
 
@@ -510,23 +510,23 @@ Agda → formal/cubical/theorems/automata/ObservableInterface.agda :: Observable
 
 ## History completion and finite observation
 
-SOURCE → formal/cubical/theorems/physics/HistoryCompletion_TheValueStreamOfATraceUnderAnEvaluatorCompletesByCorecursionItsLimitDescendsToTruncationsAndBoundednessDoesNot.agda :: HistoryCompletion
+SOURCE → formal/cubical/theorems/physics/TheValueStreamOfATraceUnderAnEvaluatorCompletesByCorecursionItsLimitDescendsToTruncationsAndBoundednessDoesNot.agda :: HistoryCompletion
 
 History is treated coinductively as a stream of steps; evaluators produce running value streams, and finite-prefix agreement supplies the take metric.
 
-Agda → formal/cubical/theorems/physics/HistoryCompletion_TheValueStreamOfATraceUnderAnEvaluatorCompletesByCorecursionItsLimitDescendsToTruncationsAndBoundednessDoesNot.agda :: HistoryCompletion
+Agda → formal/cubical/theorems/physics/TheValueStreamOfATraceUnderAnEvaluatorCompletesByCorecursionItsLimitDescendsToTruncationsAndBoundednessDoesNot.agda :: HistoryCompletion
 
 Cauchy stream histories have a corecursively constructed limit, and equality of all finite truncations gives equality of the stream.
 
-Agda → formal/cubical/theorems/physics/HistoryCompletion_TheValueStreamOfATraceUnderAnEvaluatorCompletesByCorecursionItsLimitDescendsToTruncationsAndBoundednessDoesNot.agda :: HistoryCompletion
+Agda → formal/cubical/theorems/physics/TheValueStreamOfATraceUnderAnEvaluatorCompletesByCorecursionItsLimitDescendsToTruncationsAndBoundednessDoesNot.agda :: HistoryCompletion
 
 A forever-property can be finitely refuted while no finite depth decides it in general.
 
-Agda → formal/cubical/theorems/physics/HistoryCompletion_TheValueStreamOfATraceUnderAnEvaluatorCompletesByCorecursionItsLimitDescendsToTruncationsAndBoundednessDoesNot.agda :: HistoryCompletion
+Agda → formal/cubical/theorems/physics/TheValueStreamOfATraceUnderAnEvaluatorCompletesByCorecursionItsLimitDescendsToTruncationsAndBoundednessDoesNot.agda :: HistoryCompletion
 
 High-information formulation retained: no one finite observation determines the infinite object, while the coherent totality of finite observations can.
 
-Agda → formal/cubical/theorems/physics/HistoryCompletion_TheValueStreamOfATraceUnderAnEvaluatorCompletesByCorecursionItsLimitDescendsToTruncationsAndBoundednessDoesNot.agda :: HistoryCompletion
+Agda → formal/cubical/theorems/physics/TheValueStreamOfATraceUnderAnEvaluatorCompletesByCorecursionItsLimitDescendsToTruncationsAndBoundednessDoesNot.agda :: HistoryCompletion
 
 ## Relational identity
 
@@ -622,7 +622,7 @@ Agda → formal/cubical/theorems/physics/ConservativePrimitiveExtension.agda :: 
 
 High-information formulation retained: interaction can generate language rather than language being a prerequisite for interaction.
 
-Agda → formal/cubical/theorems/grammar/UpakaranaVrddhi_ADerivedSenseAddsNoSeparationAndAnInterdependentPairIsNeverSourceAndDashboard.agda :: vṛddhi-abheda, na-praṇālī, na-praṇālī'
+Agda → formal/cubical/theorems/grammar/ADerivedSenseAddsNoSeparationAndAnInterdependentPairIsNeverSourceAndDashboard.agda :: vṛddhi-abheda, na-praṇālī, na-praṇālī'
 
 High-information formulation retained: stop requiring the future space of possible interactions to be encoded in a language fixed before those interactions occur.
 
@@ -682,7 +682,7 @@ Agda → formal/cubical/kernel/TheKernelIsAReversibleGroupoidWhoseJoinIsConflict
 
 High-information formulation retained: never destroy information by heuristic pruning; continuously prove which distinctions have become reconstructible, then compress exactly those.
 
-Agda → formal/cubical/theorems/walks/TranscriptDescent.agda :: transcriptDecoder, collisionObstructsDecoder, soundRecordSeparatesCollision, eraseDeterminedRecord; fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda :: trace-is-forced, exact-when-contractible
+Agda → formal/cubical/theorems/walks/TranscriptDescent.agda :: transcriptDecoder, collisionObstructsDecoder, soundRecordSeparatesCollision, eraseDeterminedRecord; fibre/src/Fibre/TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda :: trace-is-forced, exact-when-contractible
 
 ## Universal capacity and optimal physical distinction
 
@@ -700,7 +700,7 @@ Agda → formal/cubical/theorems/walks/WalkCapacity.agda :: capacity, capacity-a
 
 High-information formulation retained: allocate physical distinction exactly where mathematical distinction survives interaction. Represent every independent distinction; spend zero independent capacity on what is already determined.
 
-Agda → formal/cubical/theorems/number/LosslessLowerBound.agda :: lossless-needs-room; fibre/src/Fibre/Carrier.agda :: fibre-isContr, Carrier≃; fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda :: trace-is-forced; formal/cubical/theorems/grammar/UpakaranaVrddhi_ADerivedSenseAddsNoSeparationAndAnInterdependentPairIsNeverSourceAndDashboard.agda :: vṛddhi-abheda, na-praṇālī, na-praṇālī'
+Agda → formal/cubical/theorems/number/LosslessLowerBound.agda :: lossless-needs-room; fibre/src/Fibre/Carrier.agda :: fibre-isContr, Carrier≃; fibre/src/Fibre/TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda :: trace-is-forced; formal/cubical/theorems/grammar/ADerivedSenseAddsNoSeparationAndAnInterdependentPairIsNeverSourceAndDashboard.agda :: vṛddhi-abheda, na-praṇālī, na-praṇālī'
 
 High-information formulation retained: the physical network can approach the topology of the information itself: storage where independent information exists, communication where an interaction contributes genuinely new distinction, and richer path structure exactly where future behavior still depends on it.
 
@@ -720,19 +720,19 @@ Agda → formal/cubical/theorems/automata/ObservableInterface.agda :: Observable
 
 2026 Starlink frontier question retained as a concrete integration reading rather than a vague application: links need not perpetually move standardized full representations when the receiver can reconstruct determined structure from local state plus already-established relations; physical bandwidth should be reserved for distinctions that do not descend through the current interface.
 
-Agda → formal/cubical/theorems/walks/TranscriptDescent.agda :: transcriptDecoder, collisionObstructsDecoder, eraseDeterminedRecord; formal/cubical/theorems/number/LosslessLowerBound.agda :: lossless-needs-room; formal/cubical/theorems/grammar/UpakaranaVrddhi_ADerivedSenseAddsNoSeparationAndAnInterdependentPairIsNeverSourceAndDashboard.agda :: vṛddhi-abheda
+Agda → formal/cubical/theorems/walks/TranscriptDescent.agda :: transcriptDecoder, collisionObstructsDecoder, eraseDeterminedRecord; formal/cubical/theorems/number/LosslessLowerBound.agda :: lossless-needs-room; formal/cubical/theorems/grammar/ADerivedSenseAddsNoSeparationAndAnInterdependentPairIsNeverSourceAndDashboard.agda :: vṛddhi-abheda
 
 ## Neuralink-class safe mutually adapting interfaces
 
-SOURCE → formal/cubical/theorems/logic/Parasparasraya_TheMutualDependenceObjectionChecksWhenTheLeaningIsProductive.agda :: Parasparāśraya, andha₁, andha₂, yugma, dvitīya-paśyati, prathama-paśyati; formal/cubical/theorems/grammar/UpakaranaVrddhi_ADerivedSenseAddsNoSeparationAndAnInterdependentPairIsNeverSourceAndDashboard.agda :: vṛddhi-abheda, na-praṇālī, na-praṇālī'; formal/cubical/theorems/automata/ObservableInterface.agda :: ObservableInterface; formal/cubical/theorems/physics/DefectCalculus.agda :: StructuredEquiv, Def, noEquiv→badFibre, FailedAt
+SOURCE → formal/cubical/theorems/logic/TheMutualDependenceObjectionChecksWhenTheLeaningIsProductive.agda :: Parasparāśraya, andha₁, andha₂, yugma, dvitīya-paśyati, prathama-paśyati; formal/cubical/theorems/grammar/ADerivedSenseAddsNoSeparationAndAnInterdependentPairIsNeverSourceAndDashboard.agda :: vṛddhi-abheda, na-praṇālī, na-praṇālī'; formal/cubical/theorems/automata/ObservableInterface.agda :: ObservableInterface; formal/cubical/theorems/physics/DefectCalculus.agda :: StructuredEquiv, Def, noEquiv→badFibre, FailedAt
 
 2026 systems interpretation: a brain-machine interface is a canonical partial-visibility, mutually adapting interaction in which neither biological nor computational side begins with a complete shared language; Parasparāśraya supplies a checked shape for jointly faithful information that is absent from either projection alone.
 
-Agda → formal/cubical/theorems/logic/Parasparasraya_TheMutualDependenceObjectionChecksWhenTheLeaningIsProductive.agda :: Parasparāśraya, yugma, na-ekākin₁, na-ekākin₂
+Agda → formal/cubical/theorems/logic/TheMutualDependenceObjectionChecksWhenTheLeaningIsProductive.agda :: Parasparāśraya, yugma, na-ekākin₁, na-ekākin₂
 
 A learned neural feature that factors through already available observation adds no separation, while genuinely complementary observations cannot factor through one another.
 
-Agda → formal/cubical/theorems/grammar/UpakaranaVrddhi_ADerivedSenseAddsNoSeparationAndAnInterdependentPairIsNeverSourceAndDashboard.agda :: vṛddhi-abheda, na-praṇālī, na-praṇālī'
+Agda → formal/cubical/theorems/grammar/ADerivedSenseAddsNoSeparationAndAnInterdependentPairIsNeverSourceAndDashboard.agda :: vṛddhi-abheda, na-praṇālī, na-praṇālī'
 
 Safe adaptive representation change should preserve explicitly declared observables by transport and make failed preservation a typed local object rather than silently continuing through an opaque approximation.
 
@@ -792,13 +792,13 @@ Agda → formal/cubical/theorems/physics/DefectCalculus.agda :: Def, noEquiv→b
 
 High-information formulation retained: catching up with every detail in the repository while holding the actual 2026 computational world in view is itself a frontier, because it reveals which apparently futuristic system designs are already materialized as checked mathematics and which exact composition remains to be written.
 
-Agda → README.rst; formal/cubical/kernel/TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous.agda :: merge, validity-travels-with-the-operation; formal/cubical/theorems/physics/FiniteGraphHolonomyGroupoid.agda :: refinement-holonomy; formal/cubical/theorems/logic/Parasparasraya_TheMutualDependenceObjectionChecksWhenTheLeaningIsProductive.agda :: Parasparāśraya; formal/cubical/theorems/number/LosslessLowerBound.agda :: lossless-needs-room
+Agda → README.rst; formal/cubical/kernel/TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous.agda :: merge, validity-travels-with-the-operation; formal/cubical/theorems/physics/FiniteGraphHolonomyGroupoid.agda :: refinement-holonomy; formal/cubical/theorems/logic/TheMutualDependenceObjectionChecksWhenTheLeaningIsProductive.agda :: Parasparāśraya; formal/cubical/theorems/number/LosslessLowerBound.agda :: lossless-needs-room
 
 ## 2026-09-10 continuation — physical/computational/economic future
 
 ### Universal computation is a forgetful projection
 
-SOURCE → abstracts/25_the_universal_turing_machine_is_a_forgetful_projection.md; formal/cubical/theorems/residue/Siddhanta_TheLosslessMachinePaperInOneModuleEveryClaimOneTerm.agda
+SOURCE → abstracts/25_the_universal_turing_machine_is_a_forgetful_projection.md; formal/cubical/theorems/residue/TheLosslessMachinePaperInOneModuleEveryClaimOneTerm.agda
 
 For every map f : A → B, the visible map is definitionally the first projection of A ≃ Σ b , fib f b; trace-is-fibre forces every lawful retained family to be the homotopy fibre family, and Lossless f is contractible. Lossless completion is therefore not an auxiliary design space: for a fixed visible transformation, the additional information needed for exact reconstruction is determined by the transformation itself. LawfulStep A ≃ (A → A) states that proof-relevant lossless machines and ordinary programs are presentations of the same map.
 
@@ -808,7 +808,7 @@ High-information formulation retained: ordinary irreversible computation is the 
 
 ### Interaction and determinism
 
-SOURCE → formal/cubical/theorems/residue/Prasna_TheMachineThatAsksItsRunIsItsAnswerStreamAndSilenceOfQuestionsIsDeterminism.agda; formal/cubical/theorems/residue/Sakshin_ReceiptedAnswersCollapseEveryQuestionAlphabetSoFreedomLivesOnlyInTheUnwitnessedEvent.agda
+SOURCE → formal/cubical/theorems/residue/TheMachineThatAsksItsRunIsItsAnswerStreamAndSilenceOfQuestionsIsDeterminism.agda; formal/cubical/theorems/residue/ReceiptedAnswersCollapseEveryQuestionAlphabetSoFreedomLivesOnlyInTheUnwitnessedEvent.agda
 
 For an interaction Q : X → Type, δ : (x : X) → Q x → X, complete productive histories are equivalent to the answer stream: IExec I x ≃ Answers I x. The state sequence is reconstructible from the independent information entering through interaction. More generally, for arbitrary question alphabet Q and action act, when the successor is dependently tied to the interaction by act s q ≡ s', the entire behavior space is contractible. Rich interaction does not imply indeterminacy; independent behavioral degrees of freedom occur exactly where the interaction leaves them open.
 
@@ -838,11 +838,11 @@ High-information formulations retained: a fact is intrinsically indexed by the i
 
 ### Naya / exact erasure and observer dimension
 
-SOURCE → formal/cubical/theorems/logic/Durnaya_CollapseIffEveryNayaAgrees.agda; formal/cubical/theorems/logic/Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere.agda
+SOURCE → formal/cubical/theorems/logic/CollapseIffEveryNayaAgrees.agda; formal/cubical/theorems/logic/TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere.agda
 
 A standpoint index can be erased exactly when every pair of fibres is equivalent (AllNayasAgree ↔ existence of collapse, with inhabited base). Mere absence of explicit contradiction is insufficient: Unit and Bool provide a checked third case. Separately, every set-valued observable annihilates every loop, while ua notEquiv supplies a nontrivial loop that remains present. The observer's codomain itself fixes which dimensions of information it cannot report.
 
-Agda → Durnaya_CollapseIffEveryNayaAgrees.agda :: collapse→agree, agree→collapse, collapse-characterisation, third-option-exists; Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere.agda :: नय-निरोधः, आवर्तः, लोपाभावः, स्थान-संयोगः
+Agda → CollapseIffEveryNayaAgrees.agda :: collapse→agree, agree→collapse, collapse-characterisation, third-option-exists; TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere.agda :: नय-निरोधः, आवर्तः, लोपाभावः, स्थान-संयोगः
 
 High-information formulations retained: difference need not appear as contradiction to be information; plurality persists exactly as long as it contains information; a fixed observational category can be mathematically incapable of seeing structure that remains present.
 

@@ -20,4 +20,4 @@ module JabrLane where
 -- Prop 4.2 and mixed-sector-prescribed-center.md Thm 5.1 at k characters.
 ------------------------------------------------------------------------
 
-import Muqabala_TheAntidiagonalSectorPairingIsSupportedOnConjugates
+import TheAntidiagonalSectorPairingIsSupportedOnConjugates

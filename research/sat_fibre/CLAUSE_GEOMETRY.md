@@ -64,11 +64,11 @@ zero. If a clause removes every survivor, conditioning on satisfaction is
 undefined; the exact object is the empty fibre, not a finite entropy value.
 
 This is the finite counting reading of
-[Lagakriya](../../formal/cubical/theorems/historical_proofs/Lagakriya_TheConditionalFibreIsWhatTheSecondCountStillCostsOnceTheFirstIsKnown.agda):
+[Lagakriya](../../formal/cubical/theorems/historical_proofs/TheConditionalFibreIsWhatTheSecondCountStillCostsOnceTheFirstIsKnown.agda):
 the joint fibre is the second observable's fibre INSIDE the first fibre.
-[BharaGana](../../formal/cubical/theorems/cost/BharaGana_MassIsConservedPermutedAndMultipliedThePreLogarithmicSecondLaw.agda)
+[BharaGana](../../formal/cubical/theorems/cost/MassIsConservedPermutedAndMultipliedThePreLogarithmicSecondLaw.agda)
 proves product mass for independent weights;
-[GhataLekha](../../formal/cubical/theorems/cost/GhataLekha_EntropyIsTheExponentTheLogIsExactOnPowersAndAdditiveBecauseMassMultiplies.agda)
+[GhataLekha](../../formal/cubical/theorems/cost/EntropyIsTheExponentTheLogIsExactOnPowersAndAdditiveBecauseMassMultiplies.agda)
 proves exact additive exponents on powers of two. Seven surviving local
 assignments are not a power of two. The logarithmic formulas above are
 ordinary finite-probability derivations, not assertions that GhataLekha
@@ -255,7 +255,7 @@ are different objects. Kan composition requires compatible partial data in
 the appropriate type; it does not make an arbitrary constraint family
 inhabited. Bool has no path from false to true. The repository itself
 distinguishes homogeneous composition from transport in
-[Adhisthana](../../formal/cubical/theorems/physics/Adhisthana_TheFreeReversalStandsOnTheDeMorganSiteAndTheKanFloorHasTwoOperationsNotOne.agda).
+[Adhisthana](../../formal/cubical/theorems/physics/TheFreeReversalStandsOnTheDeMorganSiteAndTheKanFloorHasTwoOperationsNotOne.agda).
 The computational account of univalence is given by
 [Cohen, Coquand, Huber, and Mrtberg](https://arxiv.org/abs/1611.02108).
 For this SAT application, the precise connection is through typed families,

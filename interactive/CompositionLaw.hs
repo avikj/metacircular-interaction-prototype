@@ -121,7 +121,7 @@ data Law v = Law
   }
 
 -- LEG 2, CHECKED AT EVERY USE.  The general theorem is in
--- formal/cubical/VargaPrakrti_TraceCompositionOverN.agda; this is the run
+-- formal/cubical/TraceCompositionOverN.agda; this is the run
 -- refusing to trust it silently.  If multiplicativity ever failed the
 -- composition would be a different operation than the one proved, and the
 -- whole certificate would be about something else.
@@ -672,7 +672,7 @@ vargaPrakrtiWide t c w
 -- of concrete points.  This is NOT the proof — a
 -- finite box proves only what it exhausts — it is the generator refusing to
 -- emit a shape it has not itself checked.  The proof is `solve` in
--- formal/cubical/VargaPrakrti_TraceCompositionOverN.agda, over all naturals.
+-- formal/cubical/TraceCompositionOverN.agda, over all naturals.
 natIdentities :: (Bool, Bool)
 natIdentities = (all bhav pts4, all cakr pts3)
   where

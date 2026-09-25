@@ -234,7 +234,7 @@ The central physical object is still the superconducting realization. The constr
 
 The source mechanisms behind this organization are:
 
-- `fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda`;
+- `fibre/src/Fibre/TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda`;
 - `fibre/src/Fibre/Visvarupa_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda`;
 - `formal/lean/Pairfield/FutureBehavior.lean`;
 - `formal/cubical/kernel/TheControlCarriesItsInstanceAndLocusSoOneTheoremFiresAtAClass.agda`;

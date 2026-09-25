@@ -28,7 +28,7 @@
 -- question: is the forgetful map records -> labels a homomorphism for
 -- order, for saha, or for neither?  It is one for BOTH (`anarpana` below,
 -- 49 + 49 exhaustive pairs here, proved for every standpoint family in
--- formal/cubical/Arpitanarpita_TheForgetfulMapIsAHomomorphismForBothArpanasAndTheLabelsAreARetractNotAnEquivalence.agda);
+-- formal/cubical/TheForgetfulMapIsAHomomorphismForBothArpanasAndTheLabelsAreARetractNotAnEquivalence.agda);
 -- it has a section which is one for both; and it has NO inverse.  So the
 -- label lane is a RETRACT of this one -- a subalgebra and a quotient at
 -- once, not a rival account and not an independent object -- and no
@@ -49,7 +49,7 @@
 -- by the composition laws: the two lanes agree across it.
 --
 -- EVERY LAW BELOW IS PROVED, NOT MEASURED, in
--- formal/cubical/NaturalMachine/SaptabhangiKernel_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext.agda
+-- formal/cubical/NaturalMachine/ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext.agda
 -- (--cubical --safe, exit 0, no postulates, no holes).  The Agda term name
 -- is given with each entry of `selfTest`; the tests here are exhaustive
 -- finite re-verification, which CLAUDE.md counts as proof, not sampling.
@@ -283,7 +283,7 @@ renderBhanga b = case b of
 -- This map is a homomorphism for order and for saha, it has a section
 -- that is one for both, and it has no inverse.
 -- Proved for every standpoint family in
--- formal/cubical/Arpitanarpita_TheForgetfulMapIsAHomomorphismForBothArpanasAndTheLabelsAreARetractNotAnEquivalence.agda
+-- formal/cubical/TheForgetfulMapIsAHomomorphismForBothArpanasAndTheLabelsAreARetractNotAnEquivalence.agda
 -- (--cubical --guardedness --safe, exit 0, no postulates, no holes);
 -- re-verified exhaustively over the 49 pairs of `sample` in `selfTest`.
 anarpana :: Bhanga -> L.Bhanga

@@ -14,23 +14,23 @@ open import Fibre.Orbit
 open import Fibre.Nucleus
 
 -- The law's other projection: the residual, and the price of a collapse.
-open import Fibre.Residue_TheResidualIsTheOtherProjectionOfTheSameGraph
+open import Fibre.TheResidualIsTheOtherProjectionOfTheSameGraph
 
 -- The repair: the diagnosis is a CENSUS, not a verdict.  A fibre fails to
 -- be contractible in two opposite ways — empty (नास्ति: no source over b,
 -- धनात्मकम्) and crowded (नष्टि, अप्रतिकार्या) — and `isContr` merges
 -- them.  Contains the computed refutation of the sequential diagnostic.
-open import Fibre.WholePartialDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic
+open import Fibre.TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic
 
 -- The census's seam, closed: the fibre of the truncation map is the whole
 -- source, so the level-४ criterion is a theorem and not a conjecture.
-open import Fibre.Avaccheda_TheTruncationsFibreIsTheWholeSourceSoTheSeamConjectureIsATheorem
+open import Fibre.TheTruncationsFibreIsTheWholeSourceSoTheSeamConjectureIsATheorem
 
 -- …and the census's own collapse, one level up.  A fourth outcome exists
 -- that `देश` structurally cannot express — the question with no subject —
 -- and `interactive/Obstruction.hs` has carried it in a type all along while
 -- the Agda lane has never had it.  Silence is not denial.
-open import Fibre.Adharmin_TheUnposedQuestionIsNotAnEmptyFibreAndTheCensusCannotSayIt
+open import Fibre.TheUnposedQuestionIsNotAnEmptyFibreAndTheCensusCannotSayIt
 
 -- The arithmetic instance, and the proof that it computes.
 open import Fibre.Viveka
@@ -41,13 +41,13 @@ open import Fibre.Compute
 -- कुट्टक (Āryabhaṭa, Āryabhaṭīya, गणितपाद 32–33, 499 CE): base = the three
 -- slots पक्षः / परिमाणम् / शेषः, none of which is a function of the other
 -- two — three theorems say so — and carried = the pair of magnitudes.
-open import Fibre.KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree
+open import Fibre.TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree
 
 -- वर्गप्रकृति (Brahmagupta, Brāhmasphuṭasiddhānta 18, 628 CE; the चक्रवाल
 -- of Jayadeva c. 950 and Bhskara II, Bjagaita, 1150): base = the two
 -- roots ज्येष्ठ / कनिष्ठ over ℤ, carried = the क्षेप a² − D b², which the
 -- roots determine exactly.
-open import Fibre.Composition_TheKsepaIsDeterminedByTheRootsAndCompositionMultipliesIt
+open import Fibre.TheKsepaIsDeterminedByTheRootsAndCompositionMultipliesIt
 
 -- स्थानिवद्भाव (Pāṇini, Aṣṭādhyāyī 1.1.56 स्थानिवदादेशोऽनल्विधौ, ~500 BCE;
 -- with 1.1.60, 1.1.62, 1.3.9, 1.1.5): a वर्ण's three fields are mutually
@@ -56,15 +56,15 @@ open import Fibre.Composition_TheKsepaIsDeterminedByTheRootsAndCompositionMultip
 -- both functions of the base.  The अल्/अनल् exception of 1.1.56 is the
 -- base/carried split, and the orbit carries the designation through the
 -- whole derivation rather than one step.
-open import Fibre.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried
+open import Fibre.TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried
 
 -- भित्ति: the carrier is not two-valued, and the wall crosses its own ford.
-open import Fibre.BhittiPositional_PaninisCarrierIsNotTwoValuedAndTheWallCrossesItsOwnFord
+open import Fibre.PaninisCarrierIsNotTwoValuedAndTheWallCrossesItsOwnFord
 
 -- स्थानिवत्सङ्ख्या — the machine's own frontier ask (jīva join score 2970):
 -- the ādeśa state space enumerated, स्थानिवत् ≃ Fin 81, the carried datum
 -- adding nothing to the count — ahiṃsā read as a number.
-open import Fibre.PositionalCount_TheAdesaStateSpaceIsExactlyEightyOneAndTheJoinToTheNumberComponentIsChecked
+open import Fibre.TheAdesaStateSpaceIsExactlyEightyOneAndTheJoinToTheNumberComponentIsChecked
 
 -- जीविता-स्मृति — the carried memory is alive at every depth of the infinite
 -- orbit: at rung n it is योग of the n-th state, never a stale payload.
@@ -100,23 +100,23 @@ open import Fibre.AReadingIsACollapseWithItsKeptMiddleAndOwedResidual
 -- The trace family of a factorisation is FORCED to be the fibre family of
 -- the map it induces — so the residue of a computation is not a design
 -- choice.  Carrier is the contractible end of that same scale.
-open import Fibre.Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase
+open import Fibre.TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase
 
 -- A state transition need not be invertible for its residue to be typed.
 -- `collapse` (n ↦ 0) is the witness: provably not an equivalence, residue
 -- provably ℕ, and lossless all the same.  `suc` is the opposite failure —
 -- an EMPTY fibre — which isContr alone cannot distinguish from the first.
-open import Fibre.LawfulStep_TheVisibleStepNeedNotBeInvertibleAndItsResidueIsStillExactlyOneFibre
+open import Fibre.TheVisibleStepNeedNotBeInvertibleAndItsResidueIsStillExactlyOneFibre
 
 -- Commutation is the certificate that a serialisation was removable: any
 -- interleaving of two commuting steps reduces to the two counts.  When it
 -- fails, it fails computably, and the order stays in the answer.
-open import Fibre.Order_CommutationIsTheProofThatTheOrderWasNeverThereAndItsFailureIsRetained
+open import Fibre.CommutationIsTheProofThatTheOrderWasNeverThereAndItsFailureIsRetained
 
 -- The orbit is the one-query case of the interactive coalgebra: under the
 -- deterministic embedding every strategy observes the same prefix, and
 -- `counter` shows that in general two strategies disagree at step one.
-open import Fibre.Interaction_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers
+open import Fibre.TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers
 
 -- The formal corpus itself is the same coalgebra: a state is Σ A . A and a
 -- question is exactly a typed map out of the current A.  No finite-depth

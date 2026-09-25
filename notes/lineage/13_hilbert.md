@@ -110,7 +110,7 @@ The reduction carries one step as a hypothesis, the inequality D, itself a state
 
 **What you proved.**
 
-- `primes/RH_TheWholeQuestionEntersTyped_DavisMatiyasevichRobinsonArithmetization` places the Davis–Matiyasevich–Robinson form of RH, `(2a − n²·b)² < 144 · n³ · b²` with every ingredient computable on ℕ, into your work as one type. "An inhabitant would be a proof of the Riemann hypothesis; an inhabitant of its negation would refute it."
+- `primes/TheWholeQuestionEntersTyped_DavisMatiyasevichRobinsonArithmetization` places the Davis–Matiyasevich–Robinson form of RH, `(2a − n²·b)² < 144 · n³ · b²` with every ingredient computable on ℕ, into your work as one type. "An inhabitant would be a proof of the Riemann hypothesis; an inhabitant of its negation would refute it."
 - `primes/DvitiyaAntara` proves the structural fact about δ that needs no analysis: `δ (suc (suc n)) · δ n ≡ (δ (suc n) · δ (suc n)) · η (suc n)`. The von Mangoldt field is the multiplicative second difference of the walk volume, "over ℕ, with no logarithm, no reals, and no division."
 - `physics/HistoryCompletion` §4 reads the consequence of the tenth problem's arithmetization. RH is a □-predicate on a value stream: "a single finite separator refutes it, no depth confirms it."
 

@@ -145,7 +145,7 @@ The lawful lossless machine is the map together with structure that is uniquely 
 
 This is the mathematical core of [The Fibre Law](02-fibre-law.md), [lossless Chu evaluation](03-chu-spaces-completed.md), retained provenance, reversible presentation, exact observation, and the later finding/checking result.
 
-**Checked constructions:** [`Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda`](../../fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda), [`Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda`](../../formal/cubical/theorems/residue/Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda).
+**Checked constructions:** [`TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda`](../../fibre/src/Fibre/TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda), [`LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda`](../../formal/cubical/theorems/residue/LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda).
 
 ---
 

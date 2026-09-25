@@ -5,7 +5,7 @@
 -- `Everything.agda` at:
 --
 --   formal/cubical/
---   PrastutiNairapeksya_TheTotalIsIndependentOfTheReversibleEncoder.agda
+--   TheTotalIsIndependentOfTheReversibleEncoder.agda
 --
 -- For arbitrary `A`, `w : A → W`, and two reversible encoders
 -- `e e' : A ≃ Fin (suc n)`, the theorem proves the two induced totals

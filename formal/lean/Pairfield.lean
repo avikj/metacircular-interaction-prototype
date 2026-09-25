@@ -140,7 +140,7 @@ import Pairfield.LosslessReturnPrayoga_TheTraceWitnessAndTheMergeCertificateAreC
 import Pairfield.Ekarupata_TheFourSmithSpellingsAreOneCarrierShapeAndOneObligation
 
 -- The parity transfer from
--- `formal/cubical/YugmaPurana_TheValliRecoversItsLengthModuloTwoAndNoFurther.agda`
+-- `formal/cubical/TheValliRecoversItsLengthModuloTwoAndNoFurther.agda`
 -- §5, constructed natively here rather than imported: the two no-decoder
 -- theorems in this lane are TIGHT at the parity quotient, and their `+2`
 -- witnesses were forced to be even.

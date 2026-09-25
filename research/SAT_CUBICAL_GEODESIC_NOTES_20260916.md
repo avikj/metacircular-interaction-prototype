@@ -264,7 +264,7 @@ The expected proof should be short once the correct incidence family is written:
 
 The following repository sources are directly relevant to resuming this notebook:
 
-- `fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda`
+- `fibre/src/Fibre/TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda`
 - `fibre/src/Fibre/Visvarupa_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda`
 - `punaragamana/src/Punaragamana/SamyogaSesa_TheResidualOfACompositeIsTheResidualOfTheResidual.agda`
 - `collab/bend2-interactive-cubical/CONVERGENCE.md`
@@ -274,8 +274,8 @@ The following repository sources are directly relevant to resuming this notebook
 - `formal/cubical/theorems/cost/TransportDivScale.agda`
 - `formal/cubical/kernel/AnswerIsProjectionAtOutputSize.agda`
 - `formal/cubical/kernel/SubsetSumCostLocus.agda`
-- `formal/cubical/theorems/physics/SthairyaSutra_EveryCrossingIsOneLipschitzWithUnitLookaheadSoEveryWordIsUniformlyContinuousWithModulusItsLength.agda`
-- `formal/cubical/theorems/physics/AnantaVeni_TheInfiniteBraidActsOnTheInterdependentStreamAndEveryRelationOfEveryBraidGroupHoldsAtOnce.agda`
+- `formal/cubical/theorems/physics/EveryCrossingIsOneLipschitzWithUnitLookaheadSoEveryWordIsUniformlyContinuousWithModulusItsLength.agda`
+- `formal/cubical/theorems/physics/TheInfiniteBraidActsOnTheInterdependentStreamAndEveryRelationOfEveryBraidGroupHoldsAtOnce.agda`
 - `research/PNP_GEODESIC_REDUCTION_20260916.md`.
 
 ## 11. Guardrails against regression

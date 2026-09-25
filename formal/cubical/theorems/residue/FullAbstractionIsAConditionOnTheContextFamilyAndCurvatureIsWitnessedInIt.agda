@@ -66,7 +66,7 @@ open import Cubical.Data.Empty as ⊥ using (⊥)
 open import Cubical.Relation.Nullary
   using (¬_ ; Dec ; yes ; no ; Discrete ; Dec→Stable)
 
-open import OrderAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet
+open import TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet
   using (Enumerated ; decΣOverEnumerated)
 open import TheParetoStratumIsDecidableAndTheFilterIsExact
   using (decNeg)
@@ -124,7 +124,7 @@ module _ {Tm O : Type} (Ctx : Type) (plug : Ctx → Tm → Tm) (obs : Tm → O)
 ------------------------------------------------------------------------
 -- THE CONVERSE.  Everything above states ONE implication,
 -- `CtxEq p q → C p ≡ C q`.  The converse is proved in
--- `AbhihitanvayaAnvitabhidhana_TheTypeOfTheSemanticsAlreadyTakesASideAndSoundnessIsFreeOnOneOfThem`.
+-- `TheTypeOfTheSemanticsAlreadyTakesASideAndSoundnessIsFreeOnOneOfThem`.
 --
 -- **AND THE CONVERSE IS NOT A SECOND HYPOTHESIS.**  It follows from two
 -- premises about `C`, by `cong` three times:

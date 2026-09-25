@@ -19,7 +19,7 @@ open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 
 open import Sha256 using
   (Word ; pad ; blocks ; compress ; H0 ; foldlL ; revL ; sha256 ; fromBytes)
-open import EkaKriya_TheCompletionIsAFoldOverCodeOneInductionRunsTheProgramKeepsTheTraceProjectsTheVisibleAndBuildsTheInverse
+open import TheCompletionIsAFoldOverCodeOneInductionRunsTheProgramKeepsTheTraceProjectsTheVisibleAndBuildsTheInverse
   using (Prog ; prim ; _⨾_ ; ⟦_⟧ ; Trace ; T⟦_⟧ ; R⟦_⟧)
 
 Bits : Type

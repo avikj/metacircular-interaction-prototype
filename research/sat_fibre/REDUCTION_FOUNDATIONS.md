@@ -161,7 +161,7 @@ normalization does not price these two demands identically.
 
 The repository already supplies the deeper reason cost cannot simply be
 read from meaning:
-[MulyaVinimaya](../../formal/cubical/Kernel/MulyaVinimaya_TheValueOfATraceIsItsPairingWithAnEvaluatorPotentialsTelescopeAndADepthEvaluatorHasNonzeroCycleIntegral.agda)
+[MulyaVinimaya](../../formal/cubical/Kernel/TheValueOfATraceIsItsPairingWithAnEvaluatorPotentialsTelescopeAndADepthEvaluatorHasNonzeroCycleIntegral.agda)
 defines cost-like evaluators on histories and proves when they telescope;
 [SankramanaShreni](../../formal/cubical/Kernel/SankramanaShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot.agda)
 exhibits meaning-equivalent histories whose costs cannot descend to the

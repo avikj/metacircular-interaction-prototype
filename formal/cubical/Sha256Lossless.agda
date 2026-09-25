@@ -23,7 +23,7 @@ open import Cubical.Data.Sigma using (Σ-syntax ; _×_ ; _,_ ; fst ; snd)
 open import Cubical.Relation.Nullary using (¬_)
 
 open import Sha256N using (sha256nat)
-open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
   using (lossless)
 
 ------------------------------------------------------------------------

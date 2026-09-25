@@ -16,7 +16,7 @@ open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_)
 open import Cubical.Data.Sigma using (_×_ ; _,_)
 open import Sha256 using
   (Word ; roundStep ; foldlL ; nth ; addW ; takeN ; dropN ; revL)
-open import Sha256Parimana_EveryDigestIsExactly256BitsSoTheRealHashIsUnconditionallyANonEquivalence
+open import EveryDigestIsExactly256BitsSoTheRealHashIsUnconditionallyANonEquivalence
   using (roundStep-≡ ; T1of)
 
 State : Type₀
@@ -216,7 +216,7 @@ untilLast3-exact initial s (p ∷ q ∷ r ∷ u ∷ rest) target =
 -- e-register updates: no newly computed a-register / Sigma0 / Maj needed.
 ------------------------------------------------------------------------
 
-open import Sha256Parimana_EveryDigestIsExactly256BitsSoTheRealHashIsUnconditionallyANonEquivalence
+open import EveryDigestIsExactly256BitsSoTheRealHashIsUnconditionallyANonEquivalence
   using (T2of)
 
 roundLazy : State → Round → State

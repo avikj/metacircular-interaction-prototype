@@ -172,7 +172,7 @@ excluded-middle-intact = no-standpoint-carries-both Two
 -- (Unit and Bool, over Bool) and the exhaustive statement
 -- — collapse exists iff EVERY pair of fibres is equivalent, of
 -- which plurality-blocks-collapse is a corollary — are in
--- Durnaya_CollapseIffEveryNayaAgrees.
+-- CollapseIffEveryNayaAgrees.
 --
 -- That is the structure identity principle read as a prohibition rather
 -- than as a permission, which is what makes it an ethics and not merely

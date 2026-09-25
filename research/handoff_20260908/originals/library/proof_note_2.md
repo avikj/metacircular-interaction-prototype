@@ -666,7 +666,7 @@ Lossless completion does not require reinvention in either argument. It also doe
 
 Repository paths actually read during this pass:
 
-- `formal/cubical/theorems/residue/Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda`
+- `formal/cubical/theorems/residue/LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda`
 - `formal/cubical/theorems/automata/ActionResidual.agda`
 - `formal/lean/Pairfield/GoldbachReconstructionChain.lean`
 - `formal/lean/Pairfield/FinitePositiveExposedPoint.lean`

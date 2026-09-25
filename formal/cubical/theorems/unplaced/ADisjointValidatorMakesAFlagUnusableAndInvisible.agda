@@ -60,7 +60,7 @@ open import Cubical.Data.Sum using (inl ; inr)
 open import Cubical.Data.Empty as ⊥ using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import OrderAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet
+open import TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet
   using (Any)
 
 ------------------------------------------------------------------------

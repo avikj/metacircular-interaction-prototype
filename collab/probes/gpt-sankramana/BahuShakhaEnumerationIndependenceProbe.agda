@@ -5,7 +5,7 @@
 -- checked and wired into `Everything.agda` at:
 --
 --   formal/cubical/
---   ShakhitaNairapeksya_TheNestedTotalIsIndifferentToInnerOuterAndSimultaneousReEnumeration.agda
+--   TheNestedTotalIsIndifferentToInnerOuterAndSimultaneousReEnumeration.agda
 --
 -- The module proves:
 --

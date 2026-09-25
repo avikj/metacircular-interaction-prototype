@@ -12,9 +12,9 @@ classes fused BY EQUIVALENCE  : 6   (definitional identity kept these key-distin
 [76 decls / 3 distinct types fused]
     AnuvrttiIsTheSameTrade.underFirst
     AnuvrttiIsTheSameTrade.underSecond
-    Apavartana_TheDropDivisorCountsHowManyAndTheCokernelNeedsHowMuchSoTheStruckIdentityIsFalse.द्वादश
-    Apavartana_TheDropDivisorCountsHowManyAndTheCokernelNeedsHowMuchSoTheStruckIdentityIsFalse.द्वि
-    Apavartana_TheDropDivisorCountsHowManyAndTheCokernelNeedsHowMuchSoTheStruckIdentityIsFalse.षट्
+    TheDropDivisorCountsHowManyAndTheCokernelNeedsHowMuchSoTheStruckIdentityIsFalse.द्वादश
+    TheDropDivisorCountsHowManyAndTheCokernelNeedsHowMuchSoTheStruckIdentityIsFalse.द्वि
+    TheDropDivisorCountsHowManyAndTheCokernelNeedsHowMuchSoTheStruckIdentityIsFalse.षट्
     CakravalaWitness.D
     CakravalaWitness.a
     CakravalaWitness.a²
@@ -47,12 +47,12 @@ classes fused BY EQUIVALENCE  : 6   (definitional identity kept these key-distin
     PairComposition.p57
     ParetoCost.compiledRoute
     ParetoCost.fullRoute
-    Pramanya_TheBooleanCarriesNoWarrantSoTheSweepCarriesTheProof.head-p
-    Pramanya_TheBooleanCarriesNoWarrantSoTheSweepCarriesTheProof.head-q
-    Ramanujan691_TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.d0
-    Ramanujan691_TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.d1
-    Ramanujan691_TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.dm1
-    SamkramanaVahanam_TransportCarriesTheOperationAndItsLawsAndTheyCompute.εᵣ
+    TheBooleanCarriesNoWarrantSoTheSweepCarriesTheProof.head-p
+    TheBooleanCarriesNoWarrantSoTheSweepCarriesTheProof.head-q
+    TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.d0
+    TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.d1
+    TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.dm1
+    TransportCarriesTheOperationAndItsLawsAndTheyCompute.εᵣ
     SelfImprovement.g₀
     SelfImprovement.g₁
     Sha256N.Mabc
@@ -67,23 +67,23 @@ classes fused BY EQUIVALENCE  : 6   (definitional identity kept these key-distin
     TheScoreOrderAndTheWeightOrderDisagree.fresh
     TomographyConditioning.oneF
     TomographyConditioning.zeroF
-    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.C
-    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.T
-    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.e2x
-    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.e2y
-    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.e3x
-    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.e3y
-    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.e4x
-    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.e4y
-    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.e5x
-    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.e5y
-    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.e6x
-    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.e6y
-    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.u
-    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.v
-    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.x
-    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.y
-    VargaPrakrtiWitness_FundamentalUnitOfTheOrder.Δ
+    FundamentalUnitOfTheOrder.C
+    FundamentalUnitOfTheOrder.T
+    FundamentalUnitOfTheOrder.e2x
+    FundamentalUnitOfTheOrder.e2y
+    FundamentalUnitOfTheOrder.e3x
+    FundamentalUnitOfTheOrder.e3y
+    FundamentalUnitOfTheOrder.e4x
+    FundamentalUnitOfTheOrder.e4y
+    FundamentalUnitOfTheOrder.e5x
+    FundamentalUnitOfTheOrder.e5y
+    FundamentalUnitOfTheOrder.e6x
+    FundamentalUnitOfTheOrder.e6y
+    FundamentalUnitOfTheOrder.u
+    FundamentalUnitOfTheOrder.v
+    FundamentalUnitOfTheOrder.x
+    FundamentalUnitOfTheOrder.y
+    FundamentalUnitOfTheOrder.Δ
     WhichThresholdStatementsDescendToTheRate.oneHalf
     WhichThresholdStatementsDescendToTheRate.twoQuarters
 
@@ -130,14 +130,14 @@ classes fused BY EQUIVALENCE  : 6   (definitional identity kept these key-distin
     TheSecondUpadhiConditionDoesAllTheWork.probe
 
 [29 decls / 4 distinct types fused]
-    Abhijnana_TheReceiptAndTheElisionAgreeOnTheResultAndDifferOnlyInTheFibre.अन्यः
-    Abhijnana_TheReceiptAndTheElisionAgreeOnTheResultAndDifferOnlyInTheFibre.द्विपदः
+    TheReceiptAndTheElisionAgreeOnTheResultAndDifferOnlyInTheFibre.अन्यः
+    TheReceiptAndTheElisionAgreeOnTheResultAndDifferOnlyInTheFibre.द्विपदः
     AchromaticToy.cInl
     AchromaticToy.cInr
-    Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork.दक्षिण
-    Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork.वाम
-    Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContractible.बहु-उदाहरणम्
-    Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContractible.बहु-उदाहरणम्'
+    TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork.दक्षिण
+    TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork.वाम
+    TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContractible.बहु-उदाहरणम्
+    TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContractible.बहु-उदाहरणम्'
     DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.बहिः-दक्षिण
     DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid.बहिः-वाम
     HeadDepthMergeBreaker.collisionB
@@ -149,10 +149,10 @@ classes fused BY EQUIVALENCE  : 6   (definitional identity kept these key-distin
     HeadDepthTwo.strongCollapseCertificate
     HeadDepthTwo.w3TwoCertificate
     HeadDepthTwo.w4TwoCertificate
-    Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.एकम्-दक्षिण
-    Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.एकम्-वाम
-    SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype.सर्वैकम्-दक्षिण
-    SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype.सर्वैकम्-वाम
+    LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.एकम्-दक्षिण
+    LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.एकम्-वाम
+    TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype.सर्वैकम्-दक्षिण
+    TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype.सर्वैकम्-वाम
     SpanWeave.throughFalse
     SpanWeave.throughTrue
     Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly.असत्
@@ -168,23 +168,23 @@ classes fused BY EQUIVALENCE  : 6   (definitional identity kept these key-distin
     M2Unimodular.idm
     Rank1DihedralChart.Amat
     Rank1DihedralChart.Dmat
-    ShiftBoundaryDefect_NetDisplacementDescendsButBoundaryInteractionHistoryIsTheResidual.S*S
-    ShiftBoundaryDefect_NetDisplacementDescendsButBoundaryInteractionHistoryIsTheResidual.SS*
-    ShiftBoundaryDefect_NetDisplacementDescendsButBoundaryInteractionHistoryIsTheResidual.defect
+    NetDisplacementDescendsButBoundaryInteractionHistoryIsTheResidual.S*S
+    NetDisplacementDescendsButBoundaryInteractionHistoryIsTheResidual.SS*
+    NetDisplacementDescendsButBoundaryInteractionHistoryIsTheResidual.defect
     SmithPathCountedExecution.matA0
     SmithPathCountedExecution.matD126
     SmithPathCountedExecution.matH
-    StrainInvariants_TheEvenMagnitudeIsBlindToTheOddShapeChargeAndNeitherFactorsThroughTheOther.e₁
-    StrainInvariants_TheEvenMagnitudeIsBlindToTheOddShapeChargeAndNeitherFactorsThroughTheOther.e₂'
-    YamalaYugma_TheFourChannelJetAlgebraComputesBothLegChargesAndThePairChargeInOnePowering.one₂
+    TheEvenMagnitudeIsBlindToTheOddShapeChargeAndNeitherFactorsThroughTheOther.e₁
+    TheEvenMagnitudeIsBlindToTheOddShapeChargeAndNeitherFactorsThroughTheOther.e₂'
+    TheFourChannelJetAlgebraComputesBothLegChargesAndThePairChargeInOnePowering.one₂
 
 [11 decls / 2 distinct types fused]
     BhavanaKrida.द्वि
     ChargeTwoHistories.one
-    Durnaya_TheBlindnessNeedsBothConditionsAndTheHiddenChargeIsExactlyTheIntegers.आवर्तः
-    GalerkinJets_TheTaylorJetsOfThePairAtTimeZeroAreExactOnAWideningWindowAndTheTruncationResidualSitsOnTheBoundaryRow.ν
+    TheBlindnessNeedsBothConditionsAndTheHiddenChargeIsExactlyTheIntegers.आवर्तः
+    TheTaylorJetsOfThePairAtTimeZeroAreExactOnAWideningWindowAndTheTruncationResidualSitsOnTheBoundaryRow.ν
     GrahaYuti.समाधानम्
-    MulaShakti_TheMarkingParameterIsAPowerAndTheZetaTwistIsTranslationByOne.एकम्
+    TheMarkingParameterIsAPowerAndTheZetaTwistIsTranslationByOne.एकम्
     RepairGrading.repair₀
     RepairGrading.repair₁
     S3IntegerPermutationModule.one
@@ -196,6 +196,6 @@ classes fused BY EQUIVALENCE  : 6   (definitional identity kept these key-distin
     S3ConjugacyObservation.identity-fixed-one
     S3ConjugacyObservation.zero3
     S3EquivariantEndomorphismRigidity.one3
-    SthiraBinduGanana_TheFixedPointCountIsTheConjugationCensusForS3.f0
-    SthiraBinduGanana_TheFixedPointCountIsTheConjugationCensusForS3.f1
-    SthiraBinduGanana_TheFixedPointCountIsTheConjugationCensusForS3.f2
+    TheFixedPointCountIsTheConjugationCensusForS3.f0
+    TheFixedPointCountIsTheConjugationCensusForS3.f1
+    TheFixedPointCountIsTheConjugationCensusForS3.f2

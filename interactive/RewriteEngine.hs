@@ -516,7 +516,7 @@ data SutraType
 --            adarsana of 1.1.60 -- and readable by rules that condition on the
 --            designation, which is 1.1.62 pratyayalaksanam.
 --
--- This is `formal/cubical/Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm.agda`
+-- This is `formal/cubical/TheSubstituteInheritsDesignationsNotForm.agda`
 -- section 5's `ph`/`lupta` split, with the marked-but-not-yet-elided state the
 -- Agda does not carry because there 1.3.9 has already run.
 data Item = P String | Pada | Morph | Avagraha | Avasana
@@ -1555,7 +1555,7 @@ alVidhiTable =
   , ((6,1,78),  AlVidhi,   "eco 'yavyva -- substituend eC.  This is the "
                            ++ "worked case: no function of the designations "
                            ++ "agrees with it, proved in "
-                           ++ "formal/cubical/Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm.agda")
+                           ++ "formal/cubical/TheSubstituteInheritsDesignationsNotForm.agda")
   , ((6,1,84),  NoVidhi,   "eka prvaparayo -- adhikra")
   , ((6,1,87),  AlVidhi,   "d gua -- substituend a/ before aC")
   , ((6,1,88),  AlVidhi,   "vddhir eci -- substituend a/ before eC")

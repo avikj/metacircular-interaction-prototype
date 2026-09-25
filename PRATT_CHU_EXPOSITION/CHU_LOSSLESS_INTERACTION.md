@@ -354,12 +354,12 @@ meet the Bend/HVM local interaction calculus with native sharing/superposition a
 
 ## 12. Checked repository anchors
 
-- `fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda`
+- `fibre/src/Fibre/TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda`
 - `fibre/src/Fibre/Visvarupa_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda`
 - `fibre/src/Fibre/Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers.agda`
 - `fibre/src/Fibre/Nucleus.agda`
-- `formal/cubical/theorems/residue/Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda`
-- `formal/cubical/theorems/residue/VerifyIsDecide_ThereIsNoGapBetweenFindingAndCheckingBecauseBothAreProjectionsOfOneEquivalence.agda`
+- `formal/cubical/theorems/residue/LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda`
+- `formal/cubical/theorems/residue/ThereIsNoGapBetweenFindingAndCheckingBecauseBothAreProjectionsOfOneEquivalence.agda`
 - `formal/cubical/theorems/residue/ActionResidualPhase.agda`
 - `formal/cubical/NaturalMachine/ChuAdvance.agda`
 - `formal/cubical/NaturalMachine/ChuDefect.agda`

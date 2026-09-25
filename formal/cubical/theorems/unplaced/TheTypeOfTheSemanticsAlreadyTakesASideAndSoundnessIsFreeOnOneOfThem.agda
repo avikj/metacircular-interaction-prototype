@@ -1,0 +1,163 @@
+{-# OPTIONS --cubical --safe --no-import-sorts #-}
+
+------------------------------------------------------------------------
+-- AbhihitanvayaAnvitabhidhana_
+--   TheTypeOfTheSemanticsAlreadyTakesASideAndSoundnessIsFreeOnOneOfThem
+--
+-- The two terms are the names of the two positions in the Mms
+-- dispute over śābdabodha — how the cognition of a sentence stands to
+-- the cognitions of its words:
+--
+--   ABHIHITNVAYA, the Bha position.  Kumrila Bhaa,
+--   *lokavrttika* (c. 650), and after him Prthasrathi Mira.  Words
+--   denote their own meanings FIRST (abhihita); those meanings are then
+--   connected (anvaya).  The connection is a second cognition, taking
+--   already-completed word-meanings as its objects.
+--
+--   ANVITBHIDHNA, the Prbhkara position.  Prabhkara, *Bhat*
+--   (c. 700), stated sharply by likantha Mira, *Vkyrthamtk*
+--   (c. 800).  A word denotes only AS ALREADY CONNECTED (anvita).  There
+--   is no prior stage at which a word-meaning stands complete and
+--   unconnected, waiting to be joined; the connection is in the
+--   denotation, not after it.
+--
+-- **WHAT THE TWO SCHOOLS SAY TO EACH OTHER**, because they are rivals
+-- and not one toolkit.  The Bha objection is that anvitbhidhna
+-- makes a word's denotative power (akti) unlearnable and unbounded:
+-- a word would have to denote differently in every sentence, so there
+-- is no single akti to be fixed by usage.  The Prbhkara objection is
+-- that abhihitnvaya must posit a SECOND capacity, over and above
+-- denotation, to do the connecting — tātparya — and that this is an
+-- unneeded entity purchased to repair a stage that was never observed;
+-- their evidence is the child learning language from commands, where
+-- what is grasped is the connected injunction and never a bare
+-- word-meaning.  Neither concedes.  The dispute is live in the sources
+-- and is not resolved here.
+--
+-- ────────────────────────────────────────────────────────────────────
+-- THE SETTING.
+--
+-- `FullAbstractionIsAConditionOnTheContextFamilyAndCurvatureIsWitnessedInIt`
+-- has `CtxEq` — agreement of `obs` under every context in a
+-- family — and `FullyAbstract`, which is ONE implication:
+--
+--     CtxEq p q  →  C p ≡ C q.
+--
+-- The converse
+-- is not a second hypothesis to be assumed.  **It is a theorem, and its
+-- two premises are exactly what the Bha side asserts and the
+-- Prbhkara side denies:**
+--
+--   Compositional  C (plug c t) ≡ act c (C t)
+--                  the part `t` HAS a meaning `C t` standing on its own,
+--                  and the context acts on that completed meaning
+--   Factors        obs t ≡ obsD (C t)
+--                  what is observed of a term is read off that meaning
+--
+-- Given those, `C p ≡ C q → CtxEq p q` is `cong` three times.
+--
+-- **AND THE SIDE IS TAKEN IN THE SIGNATURE, NOT IN THE PROOF.**  Writing
+-- `C : Tm → D` at all already grants a meaning to a term in isolation.
+-- On the Prābhākara account there is no such map to write — only the
+-- connected form `Ctx → Tm → D` is ever given, and `Compositional` is
+-- not false there but UNSTATABLE, having no `C t` to be an equation
+-- about.  So this module does not adjudicate the dispute; it locates
+-- where a formalisation commits to a side, which is one line above the
+-- first theorem.
+--
+-- ────────────────────────────────────────────────────────────────────
+-- WHAT IS PROVED
+--
+--   soundness        `C p ≡ C q → CtxEq p q`, from `Compositional` and
+--                    `Factors`.  No decidability, no enumerability, no
+--                    `FullyAbstract`.
+--   separatingContextForcesSemanticDifference
+--                    a separating context gives `¬ (C p ≡ C q)` —
+--                    FREE.  Compare `curvatureExhibitsAContext` in
+--                    that module, which goes the other way and PAYS
+--                    `Enumerated K` + `Discrete O` + `FullyAbstract`.
+--                    The asymmetry is now visible: one direction is a
+--                    congruence, the other is a search.
+--   kernelIsExactlyContextualEquivalence
+--                    with `FullyAbstract` as well, `CtxEq p q` and
+--                    `C p ≡ C q` imply each other — `CtxEq` IS the
+--                    kernel of `C`, not merely contained in it
+--   connectedOf / connectedAgrees
+--                    the abhihitnvaya-shaped data DETERMINES the
+--                    connected form: `act c (C t) ≡ C (plug c t)`.
+------------------------------------------------------------------------
+
+module TheTypeOfTheSemanticsAlreadyTakesASideAndSoundnessIsFreeOnOneOfThem where
+
+open import Cubical.Foundations.Prelude
+open import Cubical.Data.Sigma using (Σ-syntax ; _×_ ; _,_ ; fst ; snd)
+open import Cubical.Relation.Nullary using (¬_)
+
+open import FullAbstractionIsAConditionOnTheContextFamilyAndCurvatureIsWitnessedInIt
+  using (CtxEq ; FullyAbstract)
+
+------------------------------------------------------------------------
+-- 1.  The two hypotheses, both of them abhihitnvaya-shaped
+------------------------------------------------------------------------
+
+module _ {Tm O D : Type} (Ctx : Type) (plug : Ctx → Tm → Tm) (obs : Tm → O)
+         (C : Tm → D) (act : Ctx → D → D) (obsD : D → O)
+  where
+
+  Compositional : Type
+  Compositional = (c : Ctx) (t : Tm) → C (plug c t) ≡ act c (C t)
+
+  Factors : Type
+  Factors = (t : Tm) → obs t ≡ obsD (C t)
+
+  ----------------------------------------------------------------------
+  -- 2.  The connected form is determined by them
+  ----------------------------------------------------------------------
+
+  connectedOf : Ctx → Tm → D
+  connectedOf c t = act c (C t)
+
+  connectedAgrees :
+    Compositional → (c : Ctx) (t : Tm) → connectedOf c t ≡ C (plug c t)
+  connectedAgrees comp c t = sym (comp c t)
+
+  ----------------------------------------------------------------------
+  -- 3.  Soundness, over any context family
+  ----------------------------------------------------------------------
+
+  module _ (K : Type) (ctxOf : K → Ctx) where
+
+    soundness :
+      Compositional → Factors
+      → (p q : Tm) → C p ≡ C q → CtxEq Ctx plug obs K ctxOf p q
+    soundness comp fac p q e k =
+        fac (plug (ctxOf k) p)
+      ∙ cong obsD ( comp (ctxOf k) p
+                  ∙ cong (act (ctxOf k)) e
+                  ∙ sym (comp (ctxOf k) q))
+      ∙ sym (fac (plug (ctxOf k) q))
+
+    ------------------------------------------------------------------
+    -- 4.  So a separating context is free evidence of a semantic gap
+    ------------------------------------------------------------------
+
+    separatingContextForcesSemanticDifference :
+      Compositional → Factors
+      → (p q : Tm)
+      → Σ[ k ∈ K ] (¬ (obs (plug (ctxOf k) p) ≡ obs (plug (ctxOf k) q)))
+      → ¬ (C p ≡ C q)
+    separatingContextForcesSemanticDifference comp fac p q (k , ¬e) e =
+      ¬e (soundness comp fac p q e k)
+
+    ------------------------------------------------------------------
+    -- 5.  And with full abstraction, CtxEq is exactly the kernel of C
+    ------------------------------------------------------------------
+
+    kernelIsExactlyContextualEquivalence :
+      Compositional → Factors
+      → FullyAbstract Ctx plug obs K ctxOf C
+      → (p q : Tm)
+      → (CtxEq Ctx plug obs K ctxOf p q → C p ≡ C q)
+      × (C p ≡ C q → CtxEq Ctx plug obs K ctxOf p q)
+    kernelIsExactlyContextualEquivalence comp fac fa p q =
+      fa p q , soundness comp fac p q

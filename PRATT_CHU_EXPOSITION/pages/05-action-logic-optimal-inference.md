@@ -14,7 +14,7 @@ The internal finding/checking result belongs here too. On the lossless universal
 
 ## Canonical checked construction
 
-Lossless decision/verification: [`VerifyIsDecide...agda`](../../formal/cubical/theorems/residue/VerifyIsDecide_ThereIsNoGapBetweenFindingAndCheckingBecauseBothAreProjectionsOfOneEquivalence.agda). Observation/descent: [`ObsBridge.agda`](../../formal/cubical/theorems/logic/ObsBridge.agda). Geodesic ledger: [`PNP_GEODESIC_REDUCTION_20260916.md`](../../research/PNP_GEODESIC_REDUCTION_20260916.md).
+Lossless decision/verification: [`VerifyIsDecide...agda`](../../formal/cubical/theorems/residue/ThereIsNoGapBetweenFindingAndCheckingBecauseBothAreProjectionsOfOneEquivalence.agda). Observation/descent: [`ObsBridge.agda`](../../formal/cubical/theorems/logic/ObsBridge.agda). Geodesic ledger: [`PNP_GEODESIC_REDUCTION_20260916.md`](../../research/PNP_GEODESIC_REDUCTION_20260916.md).
 
 ## External coordinates
 

@@ -51,7 +51,7 @@ open import Agda.Builtin.Equality using (_≡_ ; refl)
 -- with the soundness theorem (PrastavaSatya, cubical lane): the same
 -- clauses are extracted here and proved about there.  Nothing below
 -- respells them.
-open import PrastavaHrdaya_TheClassifierHasOneSpellingSharedByProposerAndTheorem
+open import TheClassifierHasOneSpellingSharedByProposerAndTheorem
 
 ------------------------------------------------------------------------
 -- small library, total and closed
@@ -392,8 +392,8 @@ nfHeader name =
   & "module Prastuta." & name & " where\n"
   & "open import Cubical.Foundations.Prelude\n"
   & "open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)\n"
-  & "open import PrastavaHrdaya_TheClassifierHasOneSpellingSharedByProposerAndTheorem\n"
-  & "open import PrastavaSatya_TheClassifiersACClaimIsJudgedByTheKernel\n"
+  & "open import TheClassifierHasOneSpellingSharedByProposerAndTheorem\n"
+  & "open import TheClassifiersACClaimIsJudgedByTheKernel\n"
   & "  using (eval ; nf-sound ; _∸'_ ; le ; max' ; gcd')\n\n"
 
 nfCandidate : String → Tm → Tm → String

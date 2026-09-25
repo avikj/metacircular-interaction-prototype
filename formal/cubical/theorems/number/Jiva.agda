@@ -113,7 +113,7 @@ import Dvikarani
 import Trikarani
 -- श्रेढी-फलम् — आर्यभटस्य समान्तर-श्रेढी-योगः (2S = n(2a)+n(n−1)d, गणितपादः १९)
 import Shredhi
-import Sankalita_AryabhatasSeriesSumsAndTheCubeSumIsTheSquareOfTheSum
+import AryabhatasSeriesSumsAndTheCubeSumIsTheSquareOfTheSum
 -- चितिघनः — आर्यभटस्य वृन्द-सङ्कलितम् (∑ त्रिकोणानि = n(n+1)(n+2)/6, गणितपादः २१)
 import Citighana
 -- चिति-द्विपद-सेतुः — आर्यभटस्य वृन्दम् = तृतीय-मेरु-कर्णः C(n+2,3) (सङ्कलित↔प्रस्तार)

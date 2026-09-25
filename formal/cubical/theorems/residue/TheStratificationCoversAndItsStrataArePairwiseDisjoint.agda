@@ -63,7 +63,7 @@ open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Empty as ⊥ using (⊥)
 open import Cubical.Relation.Nullary using (¬_ ; Dec ; yes ; no)
 
-open import OrderAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet
+open import TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet
   using (Any)
 open import TheParetoStratumIsDecidableAndTheFilterIsExact
   using (filterDec ; stratum)

@@ -1,0 +1,128 @@
+{-# OPTIONS --cubical --safe --no-import-sorts #-}
+
+------------------------------------------------------------------------
+-- ThePositionsOverTwoAtomsAreAThreeStepChain
+--
+-- भङ्ग · bhaṅga — a "figure" or mode of predication, the unit the
+-- saptabhag counts seven of (Umsvti, *Tattvrthastra*;
+-- Samantabhadra; Akalaka; Siddhasena Divkara).  The seven, and the
+-- proof that the fourth is irreducible, are in
+-- `Saptabhangi` and `SaptabhangiNaya`.  This
+-- module is about two atoms only — `सामयिक` and `नित्य`, imported
+-- as instances from `AnuktaAvaktavya`.
+--
+-- ────────────────────────────────────────────────────────────────────
+-- `TheDenialOfJointAssertionDoesNotDecompose` found a second
+-- position and asked the obvious next question: is there a THIRD,
+-- between the sequential pair and the denial of the joint assertion,
+-- or are two all there are?
+--
+-- **There is a third, and it sits strictly between them.**
+--
+--   Krama Q    = (¬ सामयिक) × (¬ नित्य)     both denied, in sequence
+--   Vikalpa Q  = (¬ सामयिक) ⊎ (¬ नित्य)     one of them denied, said
+--                                            without saying which
+--   Yugapat Q  = ¬ (सामयिक × नित्य)         their joint assertion
+--                                            denied, as one act
+--
+-- WHAT IS PROVED
+--
+--   kramaGivesVikalpa      Krama ⇒ Vikalpa, one line
+--   vikalpaGivesYugapat    Vikalpa ⇒ Yugapat, two lines
+--   trivialHasVikalpa / trivialLacksKrama
+--                          **the first step is STRICT, and refuted
+--                          outright rather than reduced to a taboo**:
+--                          at the trivially-true family, `¬ सामयिक`
+--                          holds while `¬ नित्य` fails, so Vikalpa
+--                          holds and Krama does not
+--   yugapatToVikalpaIsWeakExcludedMiddle
+--                          the second step's converse, as a general
+--                          principle, yields WLEM (this is the earlier
+--                          module's lemma, imported and named here for
+--                          the chain)
+--   yugapatToKramaIsAlsoTaboo
+--                          hence so does the composite
+--
+-- **THE TWO GAPS ARE OF DIFFERENT KINDS, AND THAT IS THE RESULT.**  The
+-- Krama/Vikalpa gap is a fact about the instance family and is settled
+-- by an example.  The Vikalpa/Yugapat gap is not about the family at
+-- all: it is a constructive taboo, and no example can settle it inside
+-- `--safe`.  A chain of three positions whose gaps have different
+-- character is a more informative object than a count of positions.
+--
+-- ────────────────────────────────────────────────────────────────────
+-- The De Morgan chain `(¬A) × (¬B) → (¬A) ⊎ (¬B) →→
+-- ¬ (A × B)` and the taboo status of its converses are standard
+-- intuitionistic logic.
+------------------------------------------------------------------------
+
+module ThePositionsOverTwoAtomsAreAThreeStepChain where
+
+open import Cubical.Foundations.Prelude
+open import Cubical.Data.Unit using (Unit ; tt)
+open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
+open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
+open import Cubical.Relation.Nullary using (¬_)
+
+open import AnuktaAvaktavya using (सामयिक ; नित्य)
+open import TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift
+  using (one)
+open import TheFourthCornerIWasNamingIsTheSequentialPosition
+  using (trivial ; firstAloneHolds ; secondFailsThere)
+open import TheDenialOfJointAssertionDoesNotDecompose
+  using (yugapatDecompositionGivesWeakExcludedMiddle)
+
+private
+  variable
+    R : Type
+
+------------------------------------------------------------------------
+-- 1.  Three positions
+------------------------------------------------------------------------
+
+Krama : (R → Type) → Type
+Krama Q = (¬ सामयिक (one Q)) × (¬ नित्य (one Q))
+
+Vikalpa : (R → Type) → Type
+Vikalpa Q = (¬ सामयिक (one Q)) ⊎ (¬ नित्य (one Q))
+
+Yugapat : (R → Type) → Type
+Yugapat Q = ¬ (सामयिक (one Q) × नित्य (one Q))
+
+------------------------------------------------------------------------
+-- 2.  The chain
+------------------------------------------------------------------------
+
+kramaGivesVikalpa : (Q : R → Type) → Krama Q → Vikalpa Q
+kramaGivesVikalpa Q k = inl (fst k)
+
+vikalpaGivesYugapat : (Q : R → Type) → Vikalpa Q → Yugapat Q
+vikalpaGivesYugapat Q (inl ns) both = ns (fst both)
+vikalpaGivesYugapat Q (inr nn) both = nn (snd both)
+
+------------------------------------------------------------------------
+-- 3.  The first step is strict, by an example
+------------------------------------------------------------------------
+
+trivialHasVikalpa : Vikalpa trivial
+trivialHasVikalpa = inl firstAloneHolds
+
+trivialLacksKrama : ¬ Krama trivial
+trivialLacksKrama k = secondFailsThere (snd k)
+
+------------------------------------------------------------------------
+-- 4.  The second step's converse is a taboo, not an example
+------------------------------------------------------------------------
+
+yugapatToVikalpaIsWeakExcludedMiddle :
+  ((A B : Type) → ¬ (A × B) → ((¬ A) ⊎ (¬ B)))
+  → (A : Type) → (¬ A) ⊎ (¬ (¬ A))
+yugapatToVikalpaIsWeakExcludedMiddle =
+  yugapatDecompositionGivesWeakExcludedMiddle
+
+yugapatToKramaIsAlsoTaboo :
+  ((A B : Type) → ¬ (A × B) → ((¬ A) × (¬ B)))
+  → (A : Type) → (¬ A) ⊎ (¬ (¬ A))
+yugapatToKramaIsAlsoTaboo dec =
+  yugapatDecompositionGivesWeakExcludedMiddle
+    (λ A B h → inl (fst (dec A B h)))

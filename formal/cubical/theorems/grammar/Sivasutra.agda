@@ -131,7 +131,7 @@ aC = refl
 
 ------------------------------------------------------------------------
 -- EXTENSION: A LOWER BOUND ON THE MARKER COUNT.
--- `PratyaharaLaghava_TheMarkerCountIsForcedByTheAntichain.agda` proves, for
+-- `TheMarkerCountIsForcedByTheAntichain.agda` proves, for
 -- ANY linear order of the sounds and ANY placement of markers, that two
 -- classes ending at the same anubandha are ⊆-comparable — so the classes
 -- carried by one marker are a chain, and a ⊆-ANTICHAIN of classes forces that

@@ -15,7 +15,7 @@ and proves `fibreOfÏ`, the canonical pullback comparison, `classifier`, `invisib
 
 The base matters. `invisibleâ‰contractible` is about the specified projection, not the existence of some equivalence of total spaces. The module exhibits a total space equivalent to Bool whose designated projection has an empty fibre and a two-point fibre. An arbitrary recoding of the total set is insufficient to justify a claim about that observation.
 
-[Fibre.Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase](../../fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda) gives the next fact: for any conservative factorization, `fibre-of-run` identifies its retained family with the fibres of its actual visible map. [Uniqueness_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique](../../formal/cubical/theorems/residue/Uniqueness_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda) strengthens this to contractibility of the entire type of lossless completions over a fixed map. Its proof passes through sections over the map, fibrewise equivalences, and univalence. Thus the residue is forced up to equivalence, rather than selected as arbitrary extra metadata.
+[Fibre.TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase](../../fibre/src/Fibre/TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda) gives the next fact: for any conservative factorization, `fibre-of-run` identifies its retained family with the fibres of its actual visible map. [LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique](../../formal/cubical/theorems/residue/LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda) strengthens this to contractibility of the entire type of lossless completions over a fixed map. Its proof passes through sections over the map, fibrewise equivalences, and univalence. Thus the residue is forced up to equivalence, rather than selected as arbitrary extra metadata.
 
 This does not mean the fibre itself is contractible. The *space of lawful completions* is contractible even when an individual observation fibre contains many distinguishable sources. Confusing these two contractions would erase the theorem's content.
 
@@ -53,7 +53,7 @@ Different elimination orders therefore reorganize the same indexed content. Thei
 
 ## Existing receivers already connect provenance, counts, and support
 
-[Anvaya_TheProvenanceSemiringTheBooleanHomomorphismAndTheQueryLanguageAreBuiltAndTheHierarchyIsStrict](../../formal/cubical/theorems/logic/Anvaya_TheProvenanceSemiringTheBooleanHomomorphismAndTheQueryLanguageAreBuiltAndTheHierarchyIsStrict.agda) supplies `CommSemiring`, `Hom`, provenance syntax, `hom-eval`, a query language with selection/join/projection, and `query-hom`.
+[TheProvenanceSemiringTheBooleanHomomorphismAndTheQueryLanguageAreBuiltAndTheHierarchyIsStrict](../../formal/cubical/theorems/logic/TheProvenanceSemiringTheBooleanHomomorphismAndTheQueryLanguageAreBuiltAndTheHierarchyIsStrict.agda) supplies `CommSemiring`, `Hom`, provenance syntax, `hom-eval`, a query language with selection/join/projection, and `query-hom`.
 
 For a semiring homomorphism h it proves, in its actual query language,
 
@@ -61,7 +61,7 @@ For a semiring homomorphism h it proves, in its actual query language,
 
 It constructs positivity â•â’Bool as a homomorphism, and proves both strict collapses: provenance to multiplicity, and multiplicity to existence. `no-bag-from-set` and `no-how-from-bag` reject arbitrary reconstruction functions with the stated global recovery laws.
 
-[ChhayaRig_TheBooleanShadowOfCountingProvenanceIsAHomomorphismWithNoHomomorphicSection](../../formal/cubical/theorems/cost/ChhayaRig_TheBooleanShadowOfCountingProvenanceIsAHomomorphismWithNoHomomorphicSection.agda) proves a different, sharper algebraic obstruction: no additive section of positivity exists. Idempotence of Boolean disjunction would force the chosen positive count to equal twice itself, hence zero. An ordinary set-theoretic section does exist (falseâ¦0, trueâ¦1); `research/BooleanProvenanceFibreConnections.agda` explicitly exhibits it and computes the shadow's fibres. These two no-recovery statements must not be conflated.
+[TheBooleanShadowOfCountingProvenanceIsAHomomorphismWithNoHomomorphicSection](../../formal/cubical/theorems/cost/TheBooleanShadowOfCountingProvenanceIsAHomomorphismWithNoHomomorphicSection.agda) proves a different, sharper algebraic obstruction: no additive section of positivity exists. Idempotence of Boolean disjunction would force the chosen positive count to equal twice itself, hence zero. An ordinary set-theoretic section does exist (falseâ¦0, trueâ¦1); `research/BooleanProvenanceFibreConnections.agda` explicitly exhibits it and computes the shadow's fibres. These two no-recovery statements must not be conflated.
 
 For SAT, a duplicate-free complete assignment catalogue, weighted by 1 for a satisfying assignment and 0 otherwise, gives the actual model count. Its positivity is the Boolean existence reading by the installed homomorphism theorem. A witness-labelled sum retains which assignments contributed.
 
@@ -97,9 +97,9 @@ For TSP, the visited-set/endpoint interface is justified by which continuations 
 
 ## Cost is another structural reading, with different laws
 
-[AdiBija_TheKernelIsInitialEveryReadingIsItsUniqueFoldSoAllPathsThroughASystemAreEnumeratedByOneRecursor](../../formal/cubical/Kernel/AdiBija_TheKernelIsInitialEveryReadingIsItsUniqueFoldSoAllPathsThroughASystemAreEnumeratedByOneRecursor.agda) proves existence and uniqueness of the fold into a receiver specifying an identity reading and an action for each generating step. Soundness, length, and signed integrals are instances. `Vivarana` bundles three such readings and separates the existing two-step and four-step coterminal histories by length while identifying their meanings.
+[TheKernelIsInitialEveryReadingIsItsUniqueFoldSoAllPathsThroughASystemAreEnumeratedByOneRecursor](../../formal/cubical/Kernel/TheKernelIsInitialEveryReadingIsItsUniqueFoldSoAllPathsThroughASystemAreEnumeratedByOneRecursor.agda) proves existence and uniqueness of the fold into a receiver specifying an identity reading and an action for each generating step. Soundness, length, and signed integrals are instances. `Vivarana` bundles three such readings and separates the existing two-step and four-step coterminal histories by length while identifying their meanings.
 
-[Laghava_TheCostAndTheInverseCannotCoexistSoNoNontrivialGroupIsGradedAndTransportHasNoPrice](../../formal/cubical/theorems/grammar/Laghava_TheCostAndTheInverseCannotCoexistSoNoNontrivialGroupIsGradedAndTransportHasNoPrice.agda) explains why these receivers cannot all descend to the same quotient. A natural-valued additive grading on a group must vanish:
+[TheCostAndTheInverseCannotCoexistSoNoNontrivialGroupIsGradedAndTransportHasNoPrice](../../formal/cubical/theorems/grammar/TheCostAndTheInverseCannotCoexistSoNoNontrivialGroupIsGradedAndTransportHasNoPrice.agda) explains why these receivers cannot all descend to the same quotient. A natural-valued additive grading on a group must vanish:
 
     c(g)+c(gâ»Â)=c(1)=0.
 

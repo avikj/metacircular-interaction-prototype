@@ -212,7 +212,7 @@ On the declared mean-zero periodic source image, J_u is a derived reading of the
 
 ## References and verification
 
-Repository modules actually read include `ExcursionReturn.agda`, `GoldbachReconstructionChain.lean`, and `StrainInvariants_TheEvenMagnitudeIsBlindToTheOddShapeChargeAndNeitherFactorsThroughTheOther.agda`, pinned to the snapshot above.
+Repository modules actually read include `ExcursionReturn.agda`, `GoldbachReconstructionChain.lean`, and `TheEvenMagnitudeIsBlindToTheOddShapeChargeAndNeitherFactorsThroughTheOther.agda`, pinned to the snapshot above.
 
 J. B. Conrey, *More than two fifths of the zeros of the Riemann zeta function are on the critical line*, Journal fuer die reine und angewandte Mathematik 399 (1989), 1-26. DOI 10.1515/crll.1989.399.1. Its introduction states the positive-proportion result for simple critical-line zeros.
 

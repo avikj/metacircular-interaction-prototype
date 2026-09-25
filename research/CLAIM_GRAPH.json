@@ -18,7 +18,7 @@
    "corrections": [],
    "repository_loci": [
     "fibre/src/Fibre/Carrier.agda",
-    "formal/cubical/theorems/residue/Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda",
+    "formal/cubical/theorems/residue/LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda",
     "formal/cubical/theorems/physics/RiktaTantu_TheSourceFibreOverANonzeroResidualIsEmptyExactlyWhenTheSourceResidualSplittingIsAProposition.agda"
    ],
    "external_inputs": [],
@@ -27,7 +27,7 @@
     {
      "received_repository_loci": [
       "fibre/src/Fibre/Carrier.agda",
-      "formal/cubical/theorems/residue/Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda"
+      "formal/cubical/theorems/residue/LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda"
      ],
      "received_native_verification": false
     }
@@ -109,7 +109,7 @@
    "corrections": [],
    "repository_loci": [
     "formal/cubical/theorems/automata/ExcursionReturn.agda",
-    "formal/cubical/theorems/physics/PunarAgamana_TheProjectedPowersOfAnOperatorObeyAnOrderedReturnRecurrenceWhoseKernelIsExcursionThroughTheHiddenBlockAndTheProjectedDerivationFailsLeibnizByExactlyTheCrossSectorTerms.agda"
+    "formal/cubical/theorems/physics/TheProjectedPowersOfAnOperatorObeyAnOrderedReturnRecurrenceWhoseKernelIsExcursionThroughTheHiddenBlockAndTheProjectedDerivationFailsLeibnizByExactlyTheCrossSectorTerms.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -156,8 +156,8 @@
     "C07"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/unplaced/Samamsa_TheQuadraticDiagonalFixesOnlyTheSymmetricPartSoAFrozenActionIsNotIntrinsicButItsPolarizationIs.agda",
-    "formal/cubical/theorems/physics/MadhyaCheda_TheQuadraticSecantIsTheDerivativeAtTheMidpointFreezingAtEitherEndMissesTheHiddenSquareAndTheReturningWorkIsExactlyMinusTheHiddenWork.agda"
+    "formal/cubical/theorems/unplaced/TheQuadraticDiagonalFixesOnlyTheSymmetricPartSoAFrozenActionIsNotIntrinsicButItsPolarizationIs.agda",
+    "formal/cubical/theorems/physics/TheQuadraticSecantIsTheDerivativeAtTheMidpointFreezingAtEitherEndMissesTheHiddenSquareAndTheReturningWorkIsExactlyMinusTheHiddenWork.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -184,7 +184,7 @@
    ],
    "corrections": [],
    "repository_loci": [
-    "formal/cubical/theorems/physics/UpaGuna_TheMixedDerivativeOfAProductIsTheSumOverSubsetsOfWhichFactorEachDerivationHitsAndTheLinearizedGeneratorOfAQuadraticFlowIsItsLinearPartPlusTwiceThePolarization.agda"
+    "formal/cubical/theorems/physics/TheMixedDerivativeOfAProductIsTheSumOverSubsetsOfWhichFactorEachDerivationHitsAndTheLinearizedGeneratorOfAQuadraticFlowIsItsLinearPartPlusTwiceThePolarization.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -211,7 +211,7 @@
     "C09"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/unplaced/EkagraSreni_ACompatibleHistoryIsAChainOfSinglesSoTheTowerContractsToItsTopAndTheAmbientProductOverCounts.agda"
+    "formal/cubical/theorems/unplaced/ACompatibleHistoryIsAChainOfSinglesSoTheTowerContractsToItsTopAndTheAmbientProductOverCounts.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -239,8 +239,8 @@
     "C50"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/unplaced/Vyatikrama_TheCommutatorOfASelfAdjointWithASkewAdjointIsSelfAdjointSoTheCrossSectorCurrentIsARealPairing.agda",
-    "formal/cubical/theorems/primes/DviMana_TheTwoMetricConservationLawMakesTheMetricTheReflectedInverseLoopTheLoopIsInvertedByJConjugationAndForANormalTransferTheReciprocalLoopIsItsInverse.agda"
+    "formal/cubical/theorems/unplaced/TheCommutatorOfASelfAdjointWithASkewAdjointIsSelfAdjointSoTheCrossSectorCurrentIsARealPairing.agda",
+    "formal/cubical/theorems/primes/TheTwoMetricConservationLawMakesTheMetricTheReflectedInverseLoopTheLoopIsInvertedByJConjugationAndForANormalTransferTheReciprocalLoopIsItsInverse.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -269,7 +269,7 @@
     "C08"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/physics/SamaCakra_OnOneCurlEigenspaceEachFrozenFactorLeaksLambdaTimesTheCrossProductWithOppositeSignsSoTheActualDerivativeVanishesWhileTheHelicityCrossProductIsTransverseAndNonzero.agda"
+    "formal/cubical/theorems/physics/OnOneCurlEigenspaceEachFrozenFactorLeaksLambdaTimesTheCrossProductWithOppositeSignsSoTheActualDerivativeVanishesWhileTheHelicityCrossProductIsTransverseAndNonzero.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -299,7 +299,7 @@
     "C14"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/physics/Trikona_TheTriangularFamilyHasConvectiveTermZeroZeroAdvectedVIsDivergenceFreeWithZeroPressureAndItsStrictlyLowerTriangularGradientKillsBothVelocityGradientInvariants.agda"
+    "formal/cubical/theorems/physics/TheTriangularFamilyHasConvectiveTermZeroZeroAdvectedVIsDivergenceFreeWithZeroPressureAndItsStrictlyLowerTriangularGradientKillsBothVelocityGradientInvariants.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -346,8 +346,8 @@
     "C17"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/physics/SamanaMula_TranslationCovarianceIteratesSoTheSummedDoubleCommutatorIsTheSourcesLaplacianAndTheProductDefectIsTheDifferentiatedPair.agda",
-    "formal/cubical/theorems/physics/SarvaMula_TheAllSourceCoadjointLawIsJacobiPairedAndTheActualTangentResidualIsExactlyTheSourceCommutator.agda"
+    "formal/cubical/theorems/physics/TranslationCovarianceIteratesSoTheSummedDoubleCommutatorIsTheSourcesLaplacianAndTheProductDefectIsTheDifferentiatedPair.agda",
+    "formal/cubical/theorems/physics/TheAllSourceCoadjointLawIsJacobiPairedAndTheActualTangentResidualIsExactlyTheSourceCommutator.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -381,7 +381,7 @@
    "repository_loci": [
     "formal/cubical/theorems/physics/VahanaSamata_TheCongruenceAndTheDiffusionTermPreserveAdjointParitySoARealCovarianceStaysRealUnderCommonSourceTransport.agda",
     "formal/cubical/theorems/physics/EkaSesa_TheIdentityDefectOfTheCommonNoiseGeneratorIsExactlyTheSymmetricPartOfTheDriftBecauseTheDiffusionCancelsTheLaplacian.agda",
-    "formal/cubical/theorems/physics/SarvaMula_TheAllSourceCoadjointLawIsJacobiPairedAndTheActualTangentResidualIsExactlyTheSourceCommutator.agda"
+    "formal/cubical/theorems/physics/TheAllSourceCoadjointLawIsJacobiPairedAndTheActualTangentResidualIsExactlyTheSourceCommutator.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -409,10 +409,10 @@
     "C19"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/physics/SahagunaVaha_TheAdjugateIdentityMakesTheCofactorCurrentOfAnAffineFieldTheDeterminantDilationSoItsTwoProductionTermsCancelExactly.agda",
-    "formal/cubical/theorems/physics/BhramaMatra_TheCurlOfALinearFieldIsTheAxialVectorOfItsAntisymmetricPartAndTheSpinSquareIsTheOuterProductMinusTheNorm.agda",
-    "formal/cubical/theorems/unplaced/TryaSresthaDosa_TheTriadicProductionDefectIsACollinearityDeterminantSoAffineWeightsAreItsKernelAndTheMagnitudeWeightIsNotInIt.agda",
-    "formal/cubical/theorems/physics/CaturthaAnka_TheQuarticTraceIsTheSquareOfTheQuadraticUpToItsTraceSoTheCubeRateCoefficientIsExact.agda"
+    "formal/cubical/theorems/physics/TheAdjugateIdentityMakesTheCofactorCurrentOfAnAffineFieldTheDeterminantDilationSoItsTwoProductionTermsCancelExactly.agda",
+    "formal/cubical/theorems/physics/TheCurlOfALinearFieldIsTheAxialVectorOfItsAntisymmetricPartAndTheSpinSquareIsTheOuterProductMinusTheNorm.agda",
+    "formal/cubical/theorems/unplaced/TheTriadicProductionDefectIsACollinearityDeterminantSoAffineWeightsAreItsKernelAndTheMagnitudeWeightIsNotInIt.agda",
+    "formal/cubical/theorems/physics/TheQuarticTraceIsTheSquareOfTheQuadraticUpToItsTraceSoTheCubeRateCoefficientIsExact.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -439,8 +439,8 @@
    ],
    "corrections": [],
    "repository_loci": [
-    "formal/cubical/theorems/physics/TiryakChihna_TheTransverseSymbolIsTheAxialVorticityTimesAComplexStructureSoItsSquareIsMinusThatScalarSquared.agda",
-    "formal/cubical/theorems/physics/GolakaTantra_TheAveragedCrossHelicitySymbolIsMinusTwoFifthsOfTheStrainSoTheStrainIsRecoveredFromTheSphericalMeanOfItsSymbolAndThePressureCrossEffectIsTheBilinearRemainder.agda"
+    "formal/cubical/theorems/physics/TheTransverseSymbolIsTheAxialVorticityTimesAComplexStructureSoItsSquareIsMinusThatScalarSquared.agda",
+    "formal/cubical/theorems/physics/TheAveragedCrossHelicitySymbolIsMinusTwoFifthsOfTheStrainSoTheStrainIsRecoveredFromTheSphericalMeanOfItsSymbolAndThePressureCrossEffectIsTheBilinearRemainder.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -487,8 +487,8 @@
    ],
    "corrections": [],
    "repository_loci": [
-    "formal/cubical/theorems/physics/GolakaMatra_TheFourthMomentOfTheSphereContractsToTheSymmetrizedEntryPlusTraceTimesIdentityAndTheSecondMomentContractsToFiveTimesTheEntry.agda",
-    "formal/cubical/theorems/physics/GolakaTantra_TheAveragedCrossHelicitySymbolIsMinusTwoFifthsOfTheStrainSoTheStrainIsRecoveredFromTheSphericalMeanOfItsSymbolAndThePressureCrossEffectIsTheBilinearRemainder.agda"
+    "formal/cubical/theorems/physics/TheFourthMomentOfTheSphereContractsToTheSymmetrizedEntryPlusTraceTimesIdentityAndTheSecondMomentContractsToFiveTimesTheEntry.agda",
+    "formal/cubical/theorems/physics/TheAveragedCrossHelicitySymbolIsMinusTwoFifthsOfTheStrainSoTheStrainIsRecoveredFromTheSphericalMeanOfItsSymbolAndThePressureCrossEffectIsTheBilinearRemainder.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -514,8 +514,8 @@
    "dependencies": [],
    "corrections": [],
    "repository_loci": [
-    "formal/cubical/theorems/physics/Vartana_TheFirstReturnRadialOperatorIsThreeBoundaryFormsPlusAnExactDerivativeAndTheIndicialPolynomialOfEveryToroidalDegreeFactorsSoDegreeTwoIsTheOnlyMarginalChannel.agda",
-    "formal/cubical/theorems/physics/PurnaAvakalana_TheQuadraticSourceIntegrandIsExactlyADerivativeSoTheWholeCoefficientIsABoundaryTerm.agda"
+    "formal/cubical/theorems/physics/TheFirstReturnRadialOperatorIsThreeBoundaryFormsPlusAnExactDerivativeAndTheIndicialPolynomialOfEveryToroidalDegreeFactorsSoDegreeTwoIsTheOnlyMarginalChannel.agda",
+    "formal/cubical/theorems/physics/TheQuadraticSourceIntegrandIsExactlyADerivativeSoTheWholeCoefficientIsABoundaryTerm.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -562,7 +562,7 @@
    ],
    "corrections": [],
    "repository_loci": [
-    "formal/cubical/theorems/physics/Vartana_TheFirstReturnRadialOperatorIsThreeBoundaryFormsPlusAnExactDerivativeAndTheIndicialPolynomialOfEveryToroidalDegreeFactorsSoDegreeTwoIsTheOnlyMarginalChannel.agda"
+    "formal/cubical/theorems/physics/TheFirstReturnRadialOperatorIsThreeBoundaryFormsPlusAnExactDerivativeAndTheIndicialPolynomialOfEveryToroidalDegreeFactorsSoDegreeTwoIsTheOnlyMarginalChannel.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -592,8 +592,8 @@
     "C24"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/physics/PidaMatra_TheSphericalPressureBracketOfARadialMatrixProfileIsRTimesTheDerivativeOfAQuadraticFormEvenWhenTheProfileAndItsDerivativesDoNotCommute.agda",
-    "formal/cubical/theorems/physics/BhramaMatra_TheCurlOfALinearFieldIsTheAxialVectorOfItsAntisymmetricPartAndTheSpinSquareIsTheOuterProductMinusTheNorm.agda"
+    "formal/cubical/theorems/physics/TheSphericalPressureBracketOfARadialMatrixProfileIsRTimesTheDerivativeOfAQuadraticFormEvenWhenTheProfileAndItsDerivativesDoNotCommute.agda",
+    "formal/cubical/theorems/physics/TheCurlOfALinearFieldIsTheAxialVectorOfItsAntisymmetricPartAndTheSpinSquareIsTheOuterProductMinusTheNorm.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -620,7 +620,7 @@
    ],
    "corrections": [],
    "repository_loci": [
-    "formal/cubical/theorems/physics/GolakaTantra_TheAveragedCrossHelicitySymbolIsMinusTwoFifthsOfTheStrainSoTheStrainIsRecoveredFromTheSphericalMeanOfItsSymbolAndThePressureCrossEffectIsTheBilinearRemainder.agda"
+    "formal/cubical/theorems/physics/TheAveragedCrossHelicitySymbolIsMinusTwoFifthsOfTheStrainSoTheStrainIsRecoveredFromTheSphericalMeanOfItsSymbolAndThePressureCrossEffectIsTheBilinearRemainder.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -650,7 +650,7 @@
     "C23"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/physics/SmrtiMula_TheEmittedForcingsAreExactDerivativesTheWeightedQuadrupoleForcingIsTheMemoryQuadraticPlusAnExactDerivativeTheLogRadiusSourceIsAFactoredOperatorAndItsSymbolIsTheProductOfTwoShiftedSquares.agda"
+    "formal/cubical/theorems/physics/TheEmittedForcingsAreExactDerivativesTheWeightedQuadrupoleForcingIsTheMemoryQuadraticPlusAnExactDerivativeTheLogRadiusSourceIsAFactoredOperatorAndItsSymbolIsTheProductOfTwoShiftedSquares.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -677,7 +677,7 @@
    ],
    "corrections": [],
    "repository_loci": [
-    "formal/cubical/theorems/unplaced/DhruvaMula_TheShiftedDerivativeLowersExponentialTimesPowersSoItsMthPowerKillsDegreeBelowMAndKeepsTheTopCoefficientAndTheFreeViscousResponseIsTheAntiderivativeOfAQuarticGaussian.agda"
+    "formal/cubical/theorems/unplaced/TheShiftedDerivativeLowersExponentialTimesPowersSoItsMthPowerKillsDegreeBelowMAndKeepsTheTopCoefficientAndTheFreeViscousResponseIsTheAntiderivativeOfAQuarticGaussian.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -724,7 +724,7 @@
     "C27"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/physics/KalaSetu_TheViscousStrainHistoryIsATemporalCoboundaryPlusOneResidualSoOnALoopTheCirculationIsTheResidualAlone.agda"
+    "formal/cubical/theorems/physics/TheViscousStrainHistoryIsATemporalCoboundaryPlusOneResidualSoOnALoopTheCirculationIsTheResidualAlone.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -753,8 +753,8 @@
    ],
    "corrections": [],
    "repository_loci": [
-    "formal/cubical/theorems/physics/SmrtiBija_TheTwoScaleMemoryKernelIsStrictlyPositiveAndItsRatioBoundIsExactAndTheTruncatedDoubleSumClosesAgainstAnyInverse.agda",
-    "formal/cubical/theorems/physics/SmrtiMula_TheEmittedForcingsAreExactDerivativesTheWeightedQuadrupoleForcingIsTheMemoryQuadraticPlusAnExactDerivativeTheLogRadiusSourceIsAFactoredOperatorAndItsSymbolIsTheProductOfTwoShiftedSquares.agda"
+    "formal/cubical/theorems/physics/TheTwoScaleMemoryKernelIsStrictlyPositiveAndItsRatioBoundIsExactAndTheTruncatedDoubleSumClosesAgainstAnyInverse.agda",
+    "formal/cubical/theorems/physics/TheEmittedForcingsAreExactDerivativesTheWeightedQuadrupoleForcingIsTheMemoryQuadraticPlusAnExactDerivativeTheLogRadiusSourceIsAFactoredOperatorAndItsSymbolIsTheProductOfTwoShiftedSquares.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -783,8 +783,8 @@
     "C25"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/physics/SmrtiBija_TheTwoScaleMemoryKernelIsStrictlyPositiveAndItsRatioBoundIsExactAndTheTruncatedDoubleSumClosesAgainstAnyInverse.agda",
-    "formal/cubical/theorems/physics/SmrtiMula_TheEmittedForcingsAreExactDerivativesTheWeightedQuadrupoleForcingIsTheMemoryQuadraticPlusAnExactDerivativeTheLogRadiusSourceIsAFactoredOperatorAndItsSymbolIsTheProductOfTwoShiftedSquares.agda"
+    "formal/cubical/theorems/physics/TheTwoScaleMemoryKernelIsStrictlyPositiveAndItsRatioBoundIsExactAndTheTruncatedDoubleSumClosesAgainstAnyInverse.agda",
+    "formal/cubical/theorems/physics/TheEmittedForcingsAreExactDerivativesTheWeightedQuadrupoleForcingIsTheMemoryQuadraticPlusAnExactDerivativeTheLogRadiusSourceIsAFactoredOperatorAndItsSymbolIsTheProductOfTwoShiftedSquares.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -812,7 +812,7 @@
    ],
    "corrections": [],
    "repository_loci": [
-    "formal/cubical/theorems/physics/Vartana_TheFirstReturnRadialOperatorIsThreeBoundaryFormsPlusAnExactDerivativeAndTheIndicialPolynomialOfEveryToroidalDegreeFactorsSoDegreeTwoIsTheOnlyMarginalChannel.agda"
+    "formal/cubical/theorems/physics/TheFirstReturnRadialOperatorIsThreeBoundaryFormsPlusAnExactDerivativeAndTheIndicialPolynomialOfEveryToroidalDegreeFactorsSoDegreeTwoIsTheOnlyMarginalChannel.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -885,7 +885,7 @@
    ],
    "repository_loci": [
     "formal/cubical/theorems/physics/ManaSesa_TheScaleResidualIsTheDegreeTimesTheObservableSoZeroResidualIsCriticalityAndANegativeDegreeMonotoneForbidsShrinkingRecurrence.agda",
-    "formal/cubical/theorems/unplaced/YugmaVyaya_TwoBudgetsWithAFixedDifferenceDivergeTogetherSoNeitherSectorCanCarryTheBlowupAlone.agda"
+    "formal/cubical/theorems/unplaced/TwoBudgetsWithAFixedDifferenceDivergeTogetherSoNeitherSectorCanCarryTheBlowupAlone.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -912,7 +912,7 @@
     "C31"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/physics/Sikhara_TheUnitDirectionAbsorbsNoLaplacianSoTheVorticityMagnitudeObeysItsOwnEquationAndThePeakLedgerIsItsRearrangementWhileTheThreeScaleGainsObeyOneMonomialRelation.agda"
+    "formal/cubical/theorems/physics/TheUnitDirectionAbsorbsNoLaplacianSoTheVorticityMagnitudeObeysItsOwnEquationAndThePeakLedgerIsItsRearrangementWhileTheThreeScaleGainsObeyOneMonomialRelation.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -939,9 +939,9 @@
     "C14"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/physics/DviDrsti_EachScalingReadingHasAOneParameterFibreButTheirDeterminantIsDimensionPlusTwoSoTogetherTheyReconstructAndTheDerivedTimeReadingAddsNothing.agda",
+    "formal/cubical/theorems/physics/EachScalingReadingHasAOneParameterFibreButTheirDeterminantIsDimensionPlusTwoSoTogetherTheyReconstructAndTheDerivedTimeReadingAddsNothing.agda",
     "formal/cubical/theorems/physics/ManaSesa_TheScaleResidualIsTheDegreeTimesTheObservableSoZeroResidualIsCriticalityAndANegativeDegreeMonotoneForbidsShrinkingRecurrence.agda",
-    "formal/cubical/theorems/physics/Sikhara_TheUnitDirectionAbsorbsNoLaplacianSoTheVorticityMagnitudeObeysItsOwnEquationAndThePeakLedgerIsItsRearrangementWhileTheThreeScaleGainsObeyOneMonomialRelation.agda"
+    "formal/cubical/theorems/physics/TheUnitDirectionAbsorbsNoLaplacianSoTheVorticityMagnitudeObeysItsOwnEquationAndThePeakLedgerIsItsRearrangementWhileTheThreeScaleGainsObeyOneMonomialRelation.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -1094,7 +1094,7 @@
     "C29"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/physics/Vistara_TheDilationGeneratorPlusThreeHalvesIsSkewBecauseItsSymmetricPartOnAProductIsAnExactDivergence.agda"
+    "formal/cubical/theorems/physics/TheDilationGeneratorPlusThreeHalvesIsSkewBecauseItsSymmetricPartOnAProductIsAnExactDivergence.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -1198,8 +1198,8 @@
     "C33"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/physics/DvitiyaLeibniz_TheSecondOrderDefectOfADerivationIsExactlyTwiceTheCrossTermSoALaplacianSeesOnlyTheProduct.agda",
-    "formal/cubical/theorems/physics/DvipadaGuna_TheIteratesOfADerivationOnAProductAreTheBinomialSumOfIteratesSoTheObservableLiftPreservesProductsCoefficientwiseAtEveryOrder.agda"
+    "formal/cubical/theorems/physics/TheSecondOrderDefectOfADerivationIsExactlyTwiceTheCrossTermSoALaplacianSeesOnlyTheProduct.agda",
+    "formal/cubical/theorems/physics/TheIteratesOfADerivationOnAProductAreTheBinomialSumOfIteratesSoTheObservableLiftPreservesProductsCoefficientwiseAtEveryOrder.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -1228,7 +1228,7 @@
     "C33"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/physics/PunarAgamana_TheProjectedPowersOfAnOperatorObeyAnOrderedReturnRecurrenceWhoseKernelIsExcursionThroughTheHiddenBlockAndTheProjectedDerivationFailsLeibnizByExactlyTheCrossSectorTerms.agda"
+    "formal/cubical/theorems/physics/TheProjectedPowersOfAnOperatorObeyAnOrderedReturnRecurrenceWhoseKernelIsExcursionThroughTheHiddenBlockAndTheProjectedDerivationFailsLeibnizByExactlyTheCrossSectorTerms.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -1257,7 +1257,7 @@
    ],
    "corrections": [],
    "repository_loci": [
-    "formal/cubical/theorems/physics/PunarAgamana_TheProjectedPowersOfAnOperatorObeyAnOrderedReturnRecurrenceWhoseKernelIsExcursionThroughTheHiddenBlockAndTheProjectedDerivationFailsLeibnizByExactlyTheCrossSectorTerms.agda"
+    "formal/cubical/theorems/physics/TheProjectedPowersOfAnOperatorObeyAnOrderedReturnRecurrenceWhoseKernelIsExcursionThroughTheHiddenBlockAndTheProjectedDerivationFailsLeibnizByExactlyTheCrossSectorTerms.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -1285,7 +1285,7 @@
    ],
    "corrections": [],
    "repository_loci": [
-    "formal/cubical/theorems/unplaced/KatalanaSima_AQuadraticallyMajorizedSequenceIsBoundedByCatalanNumbersTimesPowersSoTheTreeExpansionOfTheHiddenHistoryHasAnExplicitMajorant.agda"
+    "formal/cubical/theorems/unplaced/AQuadraticallyMajorizedSequenceIsBoundedByCatalanNumbersTimesPowersSoTheTreeExpansionOfTheHiddenHistoryHasAnExplicitMajorant.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -1314,7 +1314,7 @@
     "C35"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/unplaced/KatalanaSima_AQuadraticallyMajorizedSequenceIsBoundedByCatalanNumbersTimesPowersSoTheTreeExpansionOfTheHiddenHistoryHasAnExplicitMajorant.agda"
+    "formal/cubical/theorems/unplaced/AQuadraticallyMajorizedSequenceIsBoundedByCatalanNumbersTimesPowersSoTheTreeExpansionOfTheHiddenHistoryHasAnExplicitMajorant.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -1424,7 +1424,7 @@
     "C34"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/physics/MadhyaCheda_TheQuadraticSecantIsTheDerivativeAtTheMidpointFreezingAtEitherEndMissesTheHiddenSquareAndTheReturningWorkIsExactlyMinusTheHiddenWork.agda"
+    "formal/cubical/theorems/physics/TheQuadraticSecantIsTheDerivativeAtTheMidpointFreezingAtEitherEndMissesTheHiddenSquareAndTheReturningWorkIsExactlyMinusTheHiddenWork.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -1453,8 +1453,8 @@
     "C32"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/physics/MadhyaCheda_TheQuadraticSecantIsTheDerivativeAtTheMidpointFreezingAtEitherEndMissesTheHiddenSquareAndTheReturningWorkIsExactlyMinusTheHiddenWork.agda",
-    "formal/cubical/theorems/physics/PurnaAvakalana_TheQuadraticSourceIntegrandIsExactlyADerivativeSoTheWholeCoefficientIsABoundaryTerm.agda"
+    "formal/cubical/theorems/physics/TheQuadraticSecantIsTheDerivativeAtTheMidpointFreezingAtEitherEndMissesTheHiddenSquareAndTheReturningWorkIsExactlyMinusTheHiddenWork.agda",
+    "formal/cubical/theorems/physics/TheQuadraticSourceIntegrandIsExactlyADerivativeSoTheWholeCoefficientIsABoundaryTerm.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -1502,8 +1502,8 @@
     "C01"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/physics/PramanaPatra_BlockEliminationByAnIdempotentIsALosslessCertificateTheReducedAndFullEquationsAreEquivalentForEverySourceAndTheForcingMapTransportsTheOperator.agda",
-    "formal/cubical/theorems/physics/YogaPatra_TheCompositeOfTwoEliminationCertificatesIsACertificateTheTransportLawFollowsFromTheFiveCheckedIdentitiesAndANilpotentCausalKernelHasAPolynomialInverseWhateverItsNorm.agda"
+    "formal/cubical/theorems/physics/BlockEliminationByAnIdempotentIsALosslessCertificateTheReducedAndFullEquationsAreEquivalentForEverySourceAndTheForcingMapTransportsTheOperator.agda",
+    "formal/cubical/theorems/physics/TheCompositeOfTwoEliminationCertificatesIsACertificateTheTransportLawFollowsFromTheFiveCheckedIdentitiesAndANilpotentCausalKernelHasAPolynomialInverseWhateverItsNorm.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -1569,7 +1569,7 @@
     "C39"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/primes/Grahaka_TheFixedPacketIsTheProductOfItsTwoHalfPacketsSoItsSymbolIsARealSquareOverSixteenMinusZSquaredAndTheTwoPacketWeilMatrixIsPositiveExactlyWhenTheResponseIsBoundedByItsDiagonal.agda"
+    "formal/cubical/theorems/primes/TheFixedPacketIsTheProductOfItsTwoHalfPacketsSoItsSymbolIsARealSquareOverSixteenMinusZSquaredAndTheTwoPacketWeilMatrixIsPositiveExactlyWhenTheResponseIsBoundedByItsDiagonal.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -1598,7 +1598,7 @@
     "C45"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/primes/Grahaka_TheFixedPacketIsTheProductOfItsTwoHalfPacketsSoItsSymbolIsARealSquareOverSixteenMinusZSquaredAndTheTwoPacketWeilMatrixIsPositiveExactlyWhenTheResponseIsBoundedByItsDiagonal.agda"
+    "formal/cubical/theorems/primes/TheFixedPacketIsTheProductOfItsTwoHalfPacketsSoItsSymbolIsARealSquareOverSixteenMinusZSquaredAndTheTwoPacketWeilMatrixIsPositiveExactlyWhenTheResponseIsBoundedByItsDiagonal.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -1625,7 +1625,7 @@
    ],
    "corrections": [],
    "repository_loci": [
-    "formal/cubical/theorems/primes/Grahaka_TheFixedPacketIsTheProductOfItsTwoHalfPacketsSoItsSymbolIsARealSquareOverSixteenMinusZSquaredAndTheTwoPacketWeilMatrixIsPositiveExactlyWhenTheResponseIsBoundedByItsDiagonal.agda"
+    "formal/cubical/theorems/primes/TheFixedPacketIsTheProductOfItsTwoHalfPacketsSoItsSymbolIsARealSquareOverSixteenMinusZSquaredAndTheTwoPacketWeilMatrixIsPositiveExactlyWhenTheResponseIsBoundedByItsDiagonal.agda"
    ],
    "external_inputs": [
     "Actual Weil explicit formula",
@@ -1791,7 +1791,7 @@
     "C42"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/unplaced/DhruvaMula_TheShiftedDerivativeLowersExponentialTimesPowersSoItsMthPowerKillsDegreeBelowMAndKeepsTheTopCoefficientAndTheFreeViscousResponseIsTheAntiderivativeOfAQuarticGaussian.agda"
+    "formal/cubical/theorems/unplaced/TheShiftedDerivativeLowersExponentialTimesPowersSoItsMthPowerKillsDegreeBelowMAndKeepsTheTopCoefficientAndTheFreeViscousResponseIsTheAntiderivativeOfAQuarticGaussian.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -1818,7 +1818,7 @@
    ],
    "corrections": [],
    "repository_loci": [
-    "formal/cubical/theorems/unplaced/DhruvaMula_TheShiftedDerivativeLowersExponentialTimesPowersSoItsMthPowerKillsDegreeBelowMAndKeepsTheTopCoefficientAndTheFreeViscousResponseIsTheAntiderivativeOfAQuarticGaussian.agda"
+    "formal/cubical/theorems/unplaced/TheShiftedDerivativeLowersExponentialTimesPowersSoItsMthPowerKillsDegreeBelowMAndKeepsTheTopCoefficientAndTheFreeViscousResponseIsTheAntiderivativeOfAQuarticGaussian.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -1906,7 +1906,7 @@
    ],
    "corrections": [],
    "repository_loci": [
-    "formal/cubical/theorems/primes/Pratirodha_OneSpectralModeOfTheImpedanceHasRealPartXOverXSquaredPlusTheOffsetSquaredThePairedModesAreAStieltjesTermTheCayleyCoefficientIsContractiveExactlyOnTheRightHalfPlaneAndTheDyadicGoldbachResidualIsTheNormalizedDifference.agda"
+    "formal/cubical/theorems/primes/OneSpectralModeOfTheImpedanceHasRealPartXOverXSquaredPlusTheOffsetSquaredThePairedModesAreAStieltjesTermTheCayleyCoefficientIsContractiveExactlyOnTheRightHalfPlaneAndTheDyadicGoldbachResidualIsTheNormalizedDifference.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -1975,7 +1975,7 @@
     "C47"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/primes/ArdhaTala_TheHardyAndBergmanOverlapsOfTwoZerosAreOneMinusTheSameHyperbolicRatioTheReflectionPairReadsSigmaSquaredOverSSquaredInEveryReadingAndTheFiniteGramDeterminantIsTheProductOfTheRatios.agda"
+    "formal/cubical/theorems/primes/TheHardyAndBergmanOverlapsOfTwoZerosAreOneMinusTheSameHyperbolicRatioTheReflectionPairReadsSigmaSquaredOverSSquaredInEveryReadingAndTheFiniteGramDeterminantIsTheProductOfTheRatios.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -2003,7 +2003,7 @@
    ],
    "corrections": [],
    "repository_loci": [
-    "formal/cubical/theorems/primes/Sopana_TheDampingMomentLadderIsAWeylPairSoTheLoweringOperatorAppliedNPlusOneTimesToTheNthMomentIsNFactorialTimesTheSourceSquareAndTheLosslessOscillatorStoresExactlyTheSuppliedWork.agda"
+    "formal/cubical/theorems/primes/TheDampingMomentLadderIsAWeylPairSoTheLoweringOperatorAppliedNPlusOneTimesToTheNthMomentIsNFactorialTimesTheSourceSquareAndTheLosslessOscillatorStoresExactlyTheSuppliedWork.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -2032,7 +2032,7 @@
     "C46"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/primes/Sopana_TheDampingMomentLadderIsAWeylPairSoTheLoweringOperatorAppliedNPlusOneTimesToTheNthMomentIsNFactorialTimesTheSourceSquareAndTheLosslessOscillatorStoresExactlyTheSuppliedWork.agda"
+    "formal/cubical/theorems/primes/TheDampingMomentLadderIsAWeylPairSoTheLoweringOperatorAppliedNPlusOneTimesToTheNthMomentIsNFactorialTimesTheSourceSquareAndTheLosslessOscillatorStoresExactlyTheSuppliedWork.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -2060,7 +2060,7 @@
    ],
    "corrections": [],
    "repository_loci": [
-    "formal/cubical/theorems/primes/ArdhaTala_TheHardyAndBergmanOverlapsOfTwoZerosAreOneMinusTheSameHyperbolicRatioTheReflectionPairReadsSigmaSquaredOverSSquaredInEveryReadingAndTheFiniteGramDeterminantIsTheProductOfTheRatios.agda"
+    "formal/cubical/theorems/primes/TheHardyAndBergmanOverlapsOfTwoZerosAreOneMinusTheSameHyperbolicRatioTheReflectionPairReadsSigmaSquaredOverSSquaredInEveryReadingAndTheFiniteGramDeterminantIsTheProductOfTheRatios.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -2091,7 +2091,7 @@
    ],
    "repository_loci": [
     "formal/cubical/theorems/primes/PratibimbaBhramana_TheReflectionScaleCycleIsAMultiplicativeHolonomyTrivialExactlyOnTheFixedPairAndItsMidpointDefectIsASquare.agda",
-    "formal/cubical/theorems/primes/ArdhaTala_TheHardyAndBergmanOverlapsOfTwoZerosAreOneMinusTheSameHyperbolicRatioTheReflectionPairReadsSigmaSquaredOverSSquaredInEveryReadingAndTheFiniteGramDeterminantIsTheProductOfTheRatios.agda"
+    "formal/cubical/theorems/primes/TheHardyAndBergmanOverlapsOfTwoZerosAreOneMinusTheSameHyperbolicRatioTheReflectionPairReadsSigmaSquaredOverSSquaredInEveryReadingAndTheFiniteGramDeterminantIsTheProductOfTheRatios.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -2121,7 +2121,7 @@
     "C41"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/primes/ArdhaTala_TheHardyAndBergmanOverlapsOfTwoZerosAreOneMinusTheSameHyperbolicRatioTheReflectionPairReadsSigmaSquaredOverSSquaredInEveryReadingAndTheFiniteGramDeterminantIsTheProductOfTheRatios.agda"
+    "formal/cubical/theorems/primes/TheHardyAndBergmanOverlapsOfTwoZerosAreOneMinusTheSameHyperbolicRatioTheReflectionPairReadsSigmaSquaredOverSSquaredInEveryReadingAndTheFiniteGramDeterminantIsTheProductOfTheRatios.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -2148,7 +2148,7 @@
    ],
    "corrections": [],
    "repository_loci": [
-    "formal/cubical/theorems/primes/ArdhaTala_TheHardyAndBergmanOverlapsOfTwoZerosAreOneMinusTheSameHyperbolicRatioTheReflectionPairReadsSigmaSquaredOverSSquaredInEveryReadingAndTheFiniteGramDeterminantIsTheProductOfTheRatios.agda"
+    "formal/cubical/theorems/primes/TheHardyAndBergmanOverlapsOfTwoZerosAreOneMinusTheSameHyperbolicRatioTheReflectionPairReadsSigmaSquaredOverSSquaredInEveryReadingAndTheFiniteGramDeterminantIsTheProductOfTheRatios.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -2198,8 +2198,8 @@
     "C44"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/physics/MadhyaCheda_TheQuadraticSecantIsTheDerivativeAtTheMidpointFreezingAtEitherEndMissesTheHiddenSquareAndTheReturningWorkIsExactlyMinusTheHiddenWork.agda",
-    "formal/cubical/theorems/primes/Sopana_TheDampingMomentLadderIsAWeylPairSoTheLoweringOperatorAppliedNPlusOneTimesToTheNthMomentIsNFactorialTimesTheSourceSquareAndTheLosslessOscillatorStoresExactlyTheSuppliedWork.agda"
+    "formal/cubical/theorems/physics/TheQuadraticSecantIsTheDerivativeAtTheMidpointFreezingAtEitherEndMissesTheHiddenSquareAndTheReturningWorkIsExactlyMinusTheHiddenWork.agda",
+    "formal/cubical/theorems/primes/TheDampingMomentLadderIsAWeylPairSoTheLoweringOperatorAppliedNPlusOneTimesToTheNthMomentIsNFactorialTimesTheSourceSquareAndTheLosslessOscillatorStoresExactlyTheSuppliedWork.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -2231,7 +2231,7 @@
     "C49"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/primes/Pratirodha_OneSpectralModeOfTheImpedanceHasRealPartXOverXSquaredPlusTheOffsetSquaredThePairedModesAreAStieltjesTermTheCayleyCoefficientIsContractiveExactlyOnTheRightHalfPlaneAndTheDyadicGoldbachResidualIsTheNormalizedDifference.agda"
+    "formal/cubical/theorems/primes/OneSpectralModeOfTheImpedanceHasRealPartXOverXSquaredPlusTheOffsetSquaredThePairedModesAreAStieltjesTermTheCayleyCoefficientIsContractiveExactlyOnTheRightHalfPlaneAndTheDyadicGoldbachResidualIsTheNormalizedDifference.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -2259,7 +2259,7 @@
    ],
    "corrections": [],
    "repository_loci": [
-    "formal/cubical/theorems/primes/AbelaRupa_TheResolventOfTheDampedShiftNormalizesTheShiftDefectSoItsPowersInvertEveryOrderAndTheDyadicDifferencesOfTheNormalizedSourceAreTheResidualTower.agda",
+    "formal/cubical/theorems/primes/TheResolventOfTheDampedShiftNormalizesTheShiftDefectSoItsPowersInvertEveryOrderAndTheDyadicDifferencesOfTheNormalizedSourceAreTheResidualTower.agda",
     "formal/cubical/theorems/primes/SesaDvaya_TheTruncatedInverseOfTheSquaredShiftDefectHasAResidualOfExactlyTwoTermsAtEveryDepth.agda"
    ],
    "external_inputs": [],
@@ -2289,7 +2289,7 @@
     "C51"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/primes/AbelaRupa_TheResolventOfTheDampedShiftNormalizesTheShiftDefectSoItsPowersInvertEveryOrderAndTheDyadicDifferencesOfTheNormalizedSourceAreTheResidualTower.agda"
+    "formal/cubical/theorems/primes/TheResolventOfTheDampedShiftNormalizesTheShiftDefectSoItsPowersInvertEveryOrderAndTheDyadicDifferencesOfTheNormalizedSourceAreTheResidualTower.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -2314,7 +2314,7 @@
    "dependencies": [],
    "corrections": [],
    "repository_loci": [
-    "formal/cubical/theorems/primes/Pratirodha_OneSpectralModeOfTheImpedanceHasRealPartXOverXSquaredPlusTheOffsetSquaredThePairedModesAreAStieltjesTermTheCayleyCoefficientIsContractiveExactlyOnTheRightHalfPlaneAndTheDyadicGoldbachResidualIsTheNormalizedDifference.agda"
+    "formal/cubical/theorems/primes/OneSpectralModeOfTheImpedanceHasRealPartXOverXSquaredPlusTheOffsetSquaredThePairedModesAreAStieltjesTermTheCayleyCoefficientIsContractiveExactlyOnTheRightHalfPlaneAndTheDyadicGoldbachResidualIsTheNormalizedDifference.agda"
    ],
    "external_inputs": [
     "Actual quantitative Goldbach convolution identity",
@@ -2344,7 +2344,7 @@
    ],
    "corrections": [],
    "repository_loci": [
-    "formal/cubical/theorems/primes/Pratirodha_OneSpectralModeOfTheImpedanceHasRealPartXOverXSquaredPlusTheOffsetSquaredThePairedModesAreAStieltjesTermTheCayleyCoefficientIsContractiveExactlyOnTheRightHalfPlaneAndTheDyadicGoldbachResidualIsTheNormalizedDifference.agda"
+    "formal/cubical/theorems/primes/OneSpectralModeOfTheImpedanceHasRealPartXOverXSquaredPlusTheOffsetSquaredThePairedModesAreAStieltjesTermTheCayleyCoefficientIsContractiveExactlyOnTheRightHalfPlaneAndTheDyadicGoldbachResidualIsTheNormalizedDifference.agda"
    ],
    "external_inputs": [
     "Actual Mellin/logarithmic-derivative continuation bounds under RH"
@@ -2378,7 +2378,7 @@
     "C52"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/primes/DviSthana_TheTwoSectorReflectionBlockResolvesExactlyThePivotPoleOfTheSelfEnergyIsRemovableTheGenuinePolesSitAtPlusMinusSigmaWithResidueOneHalfAndTheRetainedChannelIsADampedCosh.agda"
+    "formal/cubical/theorems/primes/TheTwoSectorReflectionBlockResolvesExactlyThePivotPoleOfTheSelfEnergyIsRemovableTheGenuinePolesSitAtPlusMinusSigmaWithResidueOneHalfAndTheRetainedChannelIsADampedCosh.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -2598,19 +2598,19 @@
  "native_records": "research/NATIVE_RECORDS.md",
  "updated": "2026-09-09",
  "unmapped_native_modules": [
-  "formal/cubical/theorems/primes/AdrsyaMana_TheKernelOfTheDiscreteSecondDifferenceIsExactlyTheAffineSequencesSoAnAdditiveReceiverBlindToThemDescendsToTheFibre.agda",
-  "formal/cubical/theorems/primes/SamaVrddhi_TheRunningProductIsLogConvexAndItsSecondDifferenceIsExactlyTheStepRatioSoTheWalkVolumeAndTheHistoryTowerAreOneConstruction.agda",
-  "formal/cubical/theorems/primes/DvitiyaAntara_TheLocalPrimePowerFieldIsTheMultiplicativeSecondDifferenceOfTheDMRWalkVolume.agda",
-  "formal/cubical/theorems/unplaced/VyarthaCakra_TheDescentDefectSatisfiesItsCocycleIdentityForEveryFeatureSoTheClassSeparatesNothingAndOnlyPointwiseVanishingDoes.agda"
+  "formal/cubical/theorems/primes/TheKernelOfTheDiscreteSecondDifferenceIsExactlyTheAffineSequencesSoAnAdditiveReceiverBlindToThemDescendsToTheFibre.agda",
+  "formal/cubical/theorems/primes/TheRunningProductIsLogConvexAndItsSecondDifferenceIsExactlyTheStepRatioSoTheWalkVolumeAndTheHistoryTowerAreOneConstruction.agda",
+  "formal/cubical/theorems/primes/TheLocalPrimePowerFieldIsTheMultiplicativeSecondDifferenceOfTheDMRWalkVolume.agda",
+  "formal/cubical/theorems/unplaced/TheDescentDefectSatisfiesItsCocycleIdentityForEveryFeatureSoTheClassSeparatesNothingAndOnlyPointwiseVanishingDoes.agda"
  ],
  "typed_frontier": {
-  "module": "formal/cubical/theorems/primes/SamastaSima_TheTypedFrontierOfTheCorpusIsOneComputableBooleanTrueAtEveryStageTheRHFibreIsDecidedLikeTheGoldbachFibreSoTheWholeOpenSectionIsOneSectionAndTheOracleComputesItsPrefix.agda",
+  "module": "formal/cubical/theorems/primes/TheTypedFrontierOfTheCorpusIsOneComputableBooleanTrueAtEveryStageTheRHFibreIsDecidedLikeTheGoldbachFibreSoTheWholeOpenSectionIsOneSectionAndTheOracleComputesItsPrefix.agda",
   "statement": "the corpus RH (DMR arithmetization) and Goldbach are the section of one decided Boolean family frontierb; every stage is a computation, the section is the only open object; stages 0,1,2 computed by the kernel",
   "kernel_gate": "research/handoff_20260908/validation/native/frontier-typed/",
   "supersedes": "frontier_composition as the statement of the unknown"
  },
  "frontier_composition": {
-  "module": "formal/cubical/theorems/unplaced/Sima_TheOpenFrontierIsOnePropositionUpToTheReceivedConditionalTheoremsSoEveryRouteReadsTheSameUnknownResolvingAnyResolvesAllAndEveryReadingTransportsAlongUnivalence.agda",
+  "module": "formal/cubical/theorems/unplaced/TheOpenFrontierIsOnePropositionUpToTheReceivedConditionalTheoremsSoEveryRouteReadsTheSameUnknownResolvingAnyResolvesAllAndEveryReadingTransportsAlongUnivalence.agda",
   "statement": "with the conditional theorems of every alternative route as hypotheses, the six RH unknowns are equivalent to END-RH (and to each other, by univalence one point of hProp); O-NPEAK is equivalent to END-NS given the ledger, BKM and the maximal-solution formulation",
   "rh_routes": {
    "A": [

@@ -31,7 +31,7 @@ statement: Over any ring with a biadditive B, N v = B v v, DN x b = B x b + B b 
 source_class: algebraic core of N-MIDPOINT, N-STORAGE, A-POLARIZE (handoff §43–44, [S19]); R-PASSIVE rational identity
 parameters_and_quantifiers: ∀ Ring R, ∀ biadditive B, ∀ a b; conserved pairing as a hypothesis; passivity: ∀ y ν in a CommRing
 repository_commit: pin 168ea8e2; module at d706a72b (merged as 38013358 on claude/interactive-daemon-math-vt8e9e)
-working_tree_changes: formal/cubical/theorems/physics/MadhyaCheda_TheQuadraticSecantIsTheDerivativeAtTheMidpointFreezingAtEitherEndMissesTheHiddenSquareAndTheReturningWorkIsExactlyMinusTheHiddenWork.agda
+working_tree_changes: formal/cubical/theorems/physics/TheQuadraticSecantIsTheDerivativeAtTheMidpointFreezingAtEitherEndMissesTheHiddenSquareAndTheReturningWorkIsExactlyMinusTheHiddenWork.agda
 imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; Cubical.Tactics.CommRingSolver (solve!) and NatSolver (solveℕ!) for closed ring/ℕ identities
 existing_terms_reused: Cubical.Algebra.Ring / CommRing, RingTheory (+ShufflePairs, -Dist, ·DistL+ …)
 new_derivation_or_artifact: secant-is-midpoint-derivative, frozen-at-source-loses-the-square, frozen-at-sum-doubles-the-square, returning-work-is-minus-hidden-work, passive-despite-amplification
@@ -52,7 +52,7 @@ statement: In a ring with an idempotent P, Q = 1 − P, and a hidden-block inver
 source_class: algebraic core of K-CERT (handoff §45, [S18]) with E = P (projection form, no transpose)
 parameters_and_quantifiers: ∀ Ring, ∀ M P H with the three hidden-inverse hypotheses, ∀ sources b, ∀ x y
 repository_commit: pin 168ea8e2; module at d706a72b (merged as 38013358 on claude/interactive-daemon-math-vt8e9e)
-working_tree_changes: formal/cubical/theorems/physics/PramanaPatra_BlockEliminationByAnIdempotentIsALosslessCertificateTheReducedAndFullEquationsAreEquivalentForEverySourceAndTheForcingMapTransportsTheOperator.agda
+working_tree_changes: formal/cubical/theorems/physics/BlockEliminationByAnIdempotentIsALosslessCertificateTheReducedAndFullEquationsAreEquivalentForEverySourceAndTheForcingMapTransportsTheOperator.agda
 imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; Cubical.Tactics.CommRingSolver (solve!) and NatSolver (solveℕ!) for closed ring/ℕ identities
 existing_terms_reused: Cubical.Algebra.Ring, RingTheory
 new_derivation_or_artifact: visible-round-trip, no-visible-correction, reduction-of-M, source-equation, every-solution-reconstructs, transport-law, reduced-solves-full, full-reduces, full-reconstructs, unique-solution
@@ -73,7 +73,7 @@ statement: For an idempotent P with blocks A = PLP, B = PLQ, C = QLP, D = QLQ an
 source_class: algebraic core of N-RENEWAL, K-EXCURSION, N-OBSRETRACT (handoff §38, [S17],[S25])
 parameters_and_quantifiers: ∀ Ring, ∀ L, ∀ idempotent P, ∀ n; Leibniz defect: ∀ CommRing, derivation 𝓛, additive idempotent 𝒫 (𝒫 need not be a ring hom), ∀ h k
 repository_commit: pin 168ea8e2; module at d706a72b (merged as 38013358 on claude/interactive-daemon-math-vt8e9e)
-working_tree_changes: formal/cubical/theorems/physics/PunarAgamana_TheProjectedPowersOfAnOperatorObeyAnOrderedReturnRecurrenceWhoseKernelIsExcursionThroughTheHiddenBlockAndTheProjectedDerivationFailsLeibnizByExactlyTheCrossSectorTerms.agda
+working_tree_changes: formal/cubical/theorems/physics/TheProjectedPowersOfAnOperatorObeyAnOrderedReturnRecurrenceWhoseKernelIsExcursionThroughTheHiddenBlockAndTheProjectedDerivationFailsLeibnizByExactlyTheCrossSectorTerms.agda
 imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; Cubical.Tactics.CommRingSolver (solve!) and NatSolver (solveℕ!) for closed ring/ℕ identities
 existing_terms_reused: Cubical.Algebra.Ring; the insert lemma E·(X·Y)·P = (E·X·P)(P·Y·P) + (E·X·Q)(Q·Y·P) plays the role of formal/cubical/theorems/automata/ExcursionReturn
 new_derivation_or_artifact: insert, hidden-is-horner, return-recurrence, first-return, projected-leibniz-defect
@@ -94,7 +94,7 @@ statement: In a commutative ring with a resolvent c·(1 − ρT) = 1 and B = (1�
 source_class: algebraic core of R-ABEL, R-DYADIC (handoff §62, [S19],[S20])
 parameters_and_quantifiers: ∀ CommRing, ∀ ρ T c with the resolvent identity, ∀ m k, ∀ sequences S
 repository_commit: pin 168ea8e2; module at d706a72b (merged as 38013358 on claude/interactive-daemon-math-vt8e9e)
-working_tree_changes: formal/cubical/theorems/primes/AbelaRupa_TheResolventOfTheDampedShiftNormalizesTheShiftDefectSoItsPowersInvertEveryOrderAndTheDyadicDifferencesOfTheNormalizedSourceAreTheResidualTower.agda
+working_tree_changes: formal/cubical/theorems/primes/TheResolventOfTheDampedShiftNormalizesTheShiftDefectSoItsPowersInvertEveryOrderAndTheDyadicDifferencesOfTheNormalizedSourceAreTheResidualTower.agda
 imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; Cubical.Tactics.CommRingSolver (solve!) and NatSolver (solveℕ!) for closed ring/ℕ identities
 existing_terms_reused: Cubical.Algebra.CommRing; +-suc from Cubical.Data.Nat
 new_derivation_or_artifact: normal-form, normal-form-power, difference-is-rescaled-residual
@@ -115,7 +115,7 @@ statement: For a derivation d on a commutative ring with a radius r, d r = 1: r�
 source_class: algebraic core of N-RETURN24, N-INVERSE2, N-TOROIDAL (handoff §19–25, [S12],[S15])
 parameters_and_quantifiers: ∀ CommRing, ∀ derivation d with d r = 1, ∀ g h p f, ∀ k : ℕ, ∀ k l in the ring
 repository_commit: pin 168ea8e2; module at d706a72b (merged as 38013358 on claude/interactive-daemon-math-vt8e9e)
-working_tree_changes: formal/cubical/theorems/physics/Vartana_TheFirstReturnRadialOperatorIsThreeBoundaryFormsPlusAnExactDerivativeAndTheIndicialPolynomialOfEveryToroidalDegreeFactorsSoDegreeTwoIsTheOnlyMarginalChannel.agda
+working_tree_changes: formal/cubical/theorems/physics/TheFirstReturnRadialOperatorIsThreeBoundaryFormsPlusAnExactDerivativeAndTheIndicialPolynomialOfEveryToroidalDegreeFactorsSoDegreeTwoIsTheOnlyMarginalChannel.agda
 imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; Cubical.Tactics.CommRingSolver (solve!) and NatSolver (solveℕ!) for closed ring/ℕ identities; NatSolver for the ℕ coefficient k(k+5)
 existing_terms_reused: the derivation lemmas d-zero, d-neg, d-scale, d-pow follow formal/cubical/theorems/physics/PurnaAvakalana
 new_derivation_or_artifact: return-integrates-by-parts, radial-power, indicial-factors, inward-root-coefficient
@@ -136,7 +136,7 @@ statement: For a derivation 𝓛 on a commutative ring, 𝓛ⁿ(h·k) ≡ Σ_{a+
 source_class: algebraic core of N-LIFT (FORMAL-SERIES, [S17]); makes the coefficientwise product preservation of exp(𝓛) exact
 parameters_and_quantifiers: ∀ CommRing, ∀ additive Leibniz 𝓛, ∀ n : ℕ, ∀ h k
 repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
-working_tree_changes: formal/cubical/theorems/physics/DvipadaGuna_TheIteratesOfADerivationOnAProductAreTheBinomialSumOfIteratesSoTheObservableLiftPreservesProductsCoefficientwiseAtEveryOrder.agda
+working_tree_changes: formal/cubical/theorems/physics/TheIteratesOfADerivationOnAProductAreTheBinomialSumOfIteratesSoTheObservableLiftPreservesProductsCoefficientwiseAtEveryOrder.agda
 imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; Cubical.Tactics.CommRingSolver (solve!) for closed commutative identities
 existing_terms_reused: RingTheory (+ShufflePairs); the derivation lemmas follow PurnaAvakalana/Vartana
 new_derivation_or_artifact: Cb (pair binomial, C(4,2)=6 by refl), D (sum over a+b=n), shift-row, pascal-D, step, iterated-leibniz, second-order
@@ -157,7 +157,7 @@ statement: In any ring with an additive anti-multiplicative t fixing 1 (a transp
 source_class: algebraic core of K-CERT (EXACT-CONTROL, handoff §45, [S18]); (३) is the "large norm is not a causal-inverse failure" control, checked in the form 1 + zK + z²K² (the chapter prints the last term as z²K)
 parameters_and_quantifiers: ∀ Ring, ∀ t with t-add, t-mul, t-one, ∀ M, ∀ certificates c₁ c₂ (the mismatched-intermediate rejection is the type: c₂ must be a Cert of Cert.S c₁); (३) ∀ CommRing, ∀ z K
 repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
-working_tree_changes: formal/cubical/theorems/physics/YogaPatra_TheCompositeOfTwoEliminationCertificatesIsACertificateTheTransportLawFollowsFromTheFiveCheckedIdentitiesAndANilpotentCausalKernelHasAPolynomialInverseWhateverItsNorm.agda
+working_tree_changes: formal/cubical/theorems/physics/TheCompositeOfTwoEliminationCertificatesIsACertificateTheTransportLawFollowsFromTheFiveCheckedIdentitiesAndANilpotentCausalKernelHasAPolynomialInverseWhateverItsNorm.agda
 imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; Cubical.Tactics.CommRingSolver (solve!) for closed commutative identities
 existing_terms_reused: RingTheory (0LeftAnnihilates, 0RightAnnihilates); the projection-form certificate is PramanaPatra (NV-CERT-PROJ)
 new_derivation_or_artifact: record Cert, transport-law, compose-eliminates, compose-source-blind, compose-reduces, compose-transforms, compose-reconstructs, compose, nilpotent-causal-inverse
@@ -178,7 +178,7 @@ statement: In the commutative block algebra α·I + β·X with X² = I, for the 
 source_class: exact finite instance of R-SCHUR (handoff §64, [S17–S18]); the same block normal form as the NS return (PunarAgamana)
 parameters_and_quantifiers: ∀ CommRing, ∀ d σ (∀ Σ with Σd = σ²; ∀ inverse (ρ,τ); ∀ s with σs = 1); evolution: ∀ derivation ∂ and e c s g σ with the three ODE hypotheses
 repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
-working_tree_changes: formal/cubical/theorems/primes/DviSthana_TheTwoSectorReflectionBlockResolvesExactlyThePivotPoleOfTheSelfEnergyIsRemovableTheGenuinePolesSitAtPlusMinusSigmaWithResidueOneHalfAndTheRetainedChannelIsADampedCosh.agda
+working_tree_changes: formal/cubical/theorems/primes/TheTwoSectorReflectionBlockResolvesExactlyThePivotPoleOfTheSelfEnergyIsRemovableTheGenuinePolesSitAtPlusMinusSigmaWithResidueOneHalfAndTheRetainedChannelIsADampedCosh.agda
 imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; Cubical.Tactics.CommRingSolver (solve!) for closed commutative identities
 existing_terms_reused: Cubical.Data.Sigma pairs; derivation lemmas as in Vartana
 new_derivation_or_artifact: _⊗_, X-squares-to-𝟙, resolvent-factor, resolved-plus-plus, resolved-plus-minus, schur-denominator, pivot-inverse, residues-are-halves, evolves, retained-channel, starts-at-one
@@ -199,7 +199,7 @@ statement: Over a commutative ring with a derivation ∂ and ∂r = 1: r⁴g·(5
 source_class: algebraic cores of N-LEAK4, N-MEMORYK, N-SIGNEDK (handoff §21, §24; [S12],[S16])
 parameters_and_quantifiers: ∀ CommRing, ∀ derivation ∂, ∀ r with ∂r = 1 (resp. Dr = r), ∀ g f h φ ξ
 repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
-working_tree_changes: formal/cubical/theorems/physics/SmrtiMula_TheEmittedForcingsAreExactDerivativesTheWeightedQuadrupoleForcingIsTheMemoryQuadraticPlusAnExactDerivativeTheLogRadiusSourceIsAFactoredOperatorAndItsSymbolIsTheProductOfTwoShiftedSquares.agda
+working_tree_changes: formal/cubical/theorems/physics/TheEmittedForcingsAreExactDerivativesTheWeightedQuadrupoleForcingIsTheMemoryQuadraticPlusAnExactDerivativeTheLogRadiusSourceIsAFactoredOperatorAndItsSymbolIsTheProductOfTwoShiftedSquares.agda
 imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; CommRingSolver on shape lemmas whose numerals are written as explicit sums of 1r (ι n unfolds to them definitionally)
 existing_terms_reused: derivation lemmas as in Vartana; the two-radius kernel positivity itself is SmrtiBija
 new_derivation_or_artifact: β₂-is-exact, β₄-is-exact, weighted-forcing-is-memory-plus-exact (with toroidal-f and memory-bracket), factored-operator, memory-integrand, symbol-modulus, kernel-eigenvalue-19, kernel-eigenvalue-minus-3
@@ -220,7 +220,7 @@ statement: Over any ring (noncommutative) with a derivation ∂ and a central ra
 source_class: algebraic core of N-PRESSURE (handoff §20, [S12]); the Lane III "full matrix identity, not only the diagonal A case"
 parameters_and_quantifiers: ∀ Ring, ∀ derivation ∂, ∀ central r with ∂r = 1, ∀ G
 repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
-working_tree_changes: formal/cubical/theorems/physics/PidaMatra_TheSphericalPressureBracketOfARadialMatrixProfileIsRTimesTheDerivativeOfAQuadraticFormEvenWhenTheProfileAndItsDerivativesDoNotCommute.agda
+working_tree_changes: formal/cubical/theorems/physics/TheSphericalPressureBracketOfARadialMatrixProfileIsRTimesTheDerivativeOfAQuadraticFormEvenWhenTheProfileAndItsDerivativesDoNotCommute.agda
 imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; Cubical.Tactics.MonoidSolver (solveCommMonoid) on the additive commutative monoid of the ring, applied through an abstract-monoid lemma so the goal is not normalized away
 existing_terms_reused: AbGroup→CommMonoid, Ring→AbGroup, RingTheory (-Dist, -DistR·, 0RightAnnihilates)
 new_derivation_or_artifact: AdditiveShape.rearrange (the seven-monomial multiset identity), L1–L3, R1–R4, pressure-bracket-is-exact
@@ -241,7 +241,7 @@ statement: (१) For any additive ℒ and sequence G with ℒG₀ = ZZ and ℒG_
 source_class: algebraic cores of R-LADDER (FORMAL-SERIES), R-INVERSE, and the §61 lossless-oscillator realization under R-PASSIVE (handoff §57, §61; [S09],[S10])
 parameters_and_quantifiers: ∀ CommRing; (१) ∀ additive ℒ, ∀ G ZZ with the two rung hypotheses, ∀ n; (२) ∀ derivation ∂, ∀ s with ∂s = 1, ∀ additive D with D∂ = ∂D, ∀ φ; ∀ t E n; (३) ∀ γ p q f₁ f₂ with the two ODE hypotheses
 repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
-working_tree_changes: formal/cubical/theorems/primes/Sopana_TheDampingMomentLadderIsAWeylPairSoTheLoweringOperatorAppliedNPlusOneTimesToTheNthMomentIsNFactorialTimesTheSourceSquareAndTheLosslessOscillatorStoresExactlyTheSuppliedWork.agda
+working_tree_changes: formal/cubical/theorems/primes/TheDampingMomentLadderIsAWeylPairSoTheLoweringOperatorAppliedNPlusOneTimesToTheNthMomentIsNFactorialTimesTheSourceSquareAndTheLosslessOscillatorStoresExactlyTheSuppliedWork.agda
 imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; CommRingSolver on shape lemmas with numerals as explicit sums of 1r
 existing_terms_reused: scale-+/scale-· as in Vartana; derivation lemmas as before
 new_derivation_or_artifact: Ladder.ladder (with ℒ^ and fact), weyl, raising, stored-work
@@ -262,7 +262,7 @@ statement: (१) |2s − z − w̄|² − |z − w|² ≡ 4(s − Re z)(s − Re
 source_class: algebraic cores of R-GEOMETRY (CONDITIONAL), R-CURVATURE, R-MINORS, and the §59 defect identity under R-HOLONOMY (handoff §58–60; [S09])
 parameters_and_quantifiers: ∀ CommRing; identities in the real/imaginary parts s x y u v, σ, c sh, x_i y_j, a_i z_i
 repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
-working_tree_changes: formal/cubical/theorems/primes/ArdhaTala_TheHardyAndBergmanOverlapsOfTwoZerosAreOneMinusTheSameHyperbolicRatioTheReflectionPairReadsSigmaSquaredOverSSquaredInEveryReadingAndTheFiniteGramDeterminantIsTheProductOfTheRatios.agda
+working_tree_changes: formal/cubical/theorems/primes/TheHardyAndBergmanOverlapsOfTwoZerosAreOneMinusTheSameHyperbolicRatioTheReflectionPairReadsSigmaSquaredOverSSquaredInEveryReadingAndTheFiniteGramDeterminantIsTheProductOfTheRatios.agda
 imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; CommRingSolver on shape lemmas with numerals as explicit sums of 1r
 existing_terms_reused: none beyond the library
 new_derivation_or_artifact: overlap-identity, reflection-gram-determinant, bergman-reflection-difference, curvature-readings, sinh-defect, cauchy-2, cauchy-3, vandermonde-2, vandermonde-3
@@ -283,7 +283,7 @@ statement: In any ring with J² = 1, a transfer T with two-sided inverse, and S 
 source_class: algebraic core of A-JUNITARY (handoff §12, [S14]); the loop orientations of §59 both stated with exact hypotheses
 parameters_and_quantifiers: ∀ Ring (noncommutative), ∀ J T S T⁻¹ with the four hypotheses; ४ additionally S·T = T·S
 repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
-working_tree_changes: formal/cubical/theorems/primes/DviMana_TheTwoMetricConservationLawMakesTheMetricTheReflectedInverseLoopTheLoopIsInvertedByJConjugationAndForANormalTransferTheReciprocalLoopIsItsInverse.agda
+working_tree_changes: formal/cubical/theorems/primes/TheTwoMetricConservationLawMakesTheMetricTheReflectedInverseLoopTheLoopIsInvertedByJConjugationAndForANormalTransferTheReciprocalLoopIsItsInverse.agda
 imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9, --safe; hand associativity only (no solver)
 existing_terms_reused: none
 new_derivation_or_artifact: star-is-reflected-inverse, metric-is-reflected-loop, reverse-conservation, J-conjugation-inverts, C-inverts-J-conjugation, reciprocal-loop-is-inverse
@@ -304,7 +304,7 @@ statement: With ∂E = zE and ∂t = 1, ℒ = ∂ − z satisfies ℒ(E·t⁰) =
 source_class: algebraic cores of R-THETA / R-CARDINAL (the finite Ξ-derivative polynomial in the two-sided (D−z)^m inverse difference, handoff §51) and N-H5 (handoff §22)
 parameters_and_quantifiers: ∀ CommRing, ∀ derivation ∂, ∀ z E t with the two hypotheses, ∀ k; ∀ κ e erf q with the four hypotheses
 repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
-working_tree_changes: formal/cubical/theorems/unplaced/DhruvaMula_TheShiftedDerivativeLowersExponentialTimesPowersSoItsMthPowerKillsDegreeBelowMAndKeepsTheTopCoefficientAndTheFreeViscousResponseIsTheAntiderivativeOfAQuarticGaussian.agda
+working_tree_changes: formal/cubical/theorems/unplaced/TheShiftedDerivativeLowersExponentialTimesPowersSoItsMthPowerKillsDegreeBelowMAndKeepsTheTopCoefficientAndTheFreeViscousResponseIsTheAntiderivativeOfAQuarticGaussian.agda
 imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; CommRingSolver on shape lemmas with numerals as explicit sums of 1r; imports Sopana (Ladder, ι, scale, fact)
 existing_terms_reused: Sopana.Ladder (ladder, ℒ^), Sopana.ι, Sopana.scale, Sopana.fact
 new_derivation_or_artifact: pow, G, ℒ, t∂pow, base, step, kills-below, keeps-top, H5₃, h5-derivative
@@ -325,7 +325,7 @@ statement: Over a commutative ring with derivations, for ω = mξ with ξ₁² +
 source_class: algebraic cores of N-PEAK (handoff §27, [S13]) and N-SCALE (handoff §28)
 parameters_and_quantifiers: ∀ CommRing, ∀ derivations ∂₁ ∂₂ ∂₃ D, ∀ ξᵢ m ν α Sᵢ with unit, vorticity and stretch hypotheses; ∀ A ℓ λ with ℓλ = 1; ∀ μ μ⁻¹ with μμ⁻¹ = 1
 repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
-working_tree_changes: formal/cubical/theorems/physics/Sikhara_TheUnitDirectionAbsorbsNoLaplacianSoTheVorticityMagnitudeObeysItsOwnEquationAndThePeakLedgerIsItsRearrangementWhileTheThreeScaleGainsObeyOneMonomialRelation.agda
+working_tree_changes: formal/cubical/theorems/physics/TheUnitDirectionAbsorbsNoLaplacianSoTheVorticityMagnitudeObeysItsOwnEquationAndThePeakLedgerIsItsRearrangementWhileTheThreeScaleGainsObeyOneMonomialRelation.agda
 imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; CommRingSolver on shape lemmas with numerals as explicit sums of 1r
 existing_terms_reused: DviDrsti (the d+2 determinant) is the companion scale module
 new_derivation_or_artifact: OneDirection.direction-absorbs-nothing, OneDirection.direction-absorbs-no-rate, Magnitude.magnitude-equation, Magnitude.peak-ledger, gain-relation, energy-chart
@@ -346,7 +346,7 @@ statement: With w·w̄ = 1: (1 − Ew̄)(1 − Ew) ≡ 1 − E(w + w̄) + E² an
 source_class: algebraic core of R-PACKET, R-Z, R-TWOPACKET (handoff §46–47, [S02])
 parameters_and_quantifiers: ∀ CommRing, ∀ E w w̄ z M₀ Z x y L S J with w w̄ = 1
 repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
-working_tree_changes: formal/cubical/theorems/primes/Grahaka_TheFixedPacketIsTheProductOfItsTwoHalfPacketsSoItsSymbolIsARealSquareOverSixteenMinusZSquaredAndTheTwoPacketWeilMatrixIsPositiveExactlyWhenTheResponseIsBoundedByItsDiagonal.agda
+working_tree_changes: formal/cubical/theorems/primes/TheFixedPacketIsTheProductOfItsTwoHalfPacketsSoItsSymbolIsARealSquareOverSixteenMinusZSquaredAndTheTwoPacketWeilMatrixIsPositiveExactlyWhenTheResponseIsBoundedByItsDiagonal.agda
 imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; CommRingSolver on shape lemmas with numerals as explicit sums of 1r
 existing_terms_reused: none
 new_derivation_or_artifact: packet-product, denominator, symbol-assembles, weil-determinant, weil-trace, weil-form, weil-form-on-sum, weil-form-on-difference, weil-form-diagonalizes, closing-argument
@@ -367,7 +367,7 @@ statement: Over a commutative ring with three derivations ∂ᵢ and coordinates
 source_class: algebraic core of N-ADAPT (handoff §33, [S13])
 parameters_and_quantifiers: ∀ CommRing, ∀ Leibniz ∂₁ ∂₂ ∂₃, ∀ y₁ y₂ y₃ with the diagonal derivatives = 1, ∀ f g
 repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
-working_tree_changes: formal/cubical/theorems/physics/Vistara_TheDilationGeneratorPlusThreeHalvesIsSkewBecauseItsSymmetricPartOnAProductIsAnExactDivergence.agda
+working_tree_changes: formal/cubical/theorems/physics/TheDilationGeneratorPlusThreeHalvesIsSkewBecauseItsSymmetricPartOnAProductIsAnExactDivergence.agda
 imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; CommRingSolver on shape lemmas with numerals as explicit sums of 1r
 existing_terms_reused: none
 new_derivation_or_artifact: Y, div-y, symmetric-part-is-exact, generator
@@ -388,7 +388,7 @@ statement: With the sphere moments taken as the tensors 15⟨nᵢnⱼ⟩ = 5δ�
 source_class: the spherical-moment algebra the Lane III deliverable asks for (handoff §18–21, [S11],[S12])
 parameters_and_quantifiers: ∀ CommRing, ∀ nine entries a₁₁…a₃₃, ∀ i l ∈ {1,2,3} (27 + 1 cases by solve!)
 repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
-working_tree_changes: formal/cubical/theorems/physics/GolakaMatra_TheFourthMomentOfTheSphereContractsToTheSymmetrizedEntryPlusTraceTimesIdentityAndTheSecondMomentContractsToFiveTimesTheEntry.agda
+working_tree_changes: formal/cubical/theorems/physics/TheFourthMomentOfTheSphereContractsToTheSymmetrizedEntryPlusTraceTimesIdentityAndTheSecondMomentContractsToFiveTimesTheEntry.agda
 imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; CommRingSolver on shape lemmas with numerals as explicit sums of 1r; the matrix is built from nine explicit entries so each entry is its own solver atom
 existing_terms_reused: none
 new_derivation_or_artifact: Ix, δ, Σ₃, mat, symm, tr, m4, fourth-contraction, left5, right5, trace5
@@ -409,7 +409,7 @@ statement: For q_u(n) = −P_nSP_n − ½(nᵀSn)P_n: 30⟨q⟩ ≡ −11S − S
 source_class: algebraic cores of N-TOMOGRAPHY, N-SYMBOL (handoff §18) and N-PRESSURERES (§20)
 parameters_and_quantifiers: ∀ CommRing, ∀ entries, ∀ i l; ∀ symmetric biadditive H, ∀ u₂ u⊥ (S²)₀ with the N-PRESSURE hypothesis
 repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
-working_tree_changes: formal/cubical/theorems/physics/GolakaTantra_TheAveragedCrossHelicitySymbolIsMinusTwoFifthsOfTheStrainSoTheStrainIsRecoveredFromTheSphericalMeanOfItsSymbolAndThePressureCrossEffectIsTheBilinearRemainder.agda
+working_tree_changes: formal/cubical/theorems/physics/TheAveragedCrossHelicitySymbolIsMinusTwoFifthsOfTheStrainSoTheStrainIsRecoveredFromTheSphericalMeanOfItsSymbolAndThePressureCrossEffectIsTheBilinearRemainder.agda
 imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; CommRingSolver on shape lemmas with numerals as explicit sums of 1r; imports GolakaMatra
 existing_terms_reused: GolakaMatra.Contractions
 new_derivation_or_artifact: PSP15, nSnP15, q30, tomography, tomography-tracefree, cross-effect, pressure-residual
@@ -430,7 +430,7 @@ statement: ∂₁∂₂(fg) ≡ ∂₁∂₂f·g + ∂₂f·∂₁g + ∂₁f·�
 source_class: algebraic core of A-JETS (handoff §8, [S03]); companion of DvipadaGuna (single-derivation all orders) and PunarAgamana (projected failure)
 parameters_and_quantifiers: ∀ CommRing, ∀ ∂₁ ∂₂ ∂₃ additive Leibniz, ∀ f g; ∀ L B ω v
 repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
-working_tree_changes: formal/cubical/theorems/physics/UpaGuna_TheMixedDerivativeOfAProductIsTheSumOverSubsetsOfWhichFactorEachDerivationHitsAndTheLinearizedGeneratorOfAQuadraticFlowIsItsLinearPartPlusTwiceThePolarization.agda
+working_tree_changes: formal/cubical/theorems/physics/TheMixedDerivativeOfAProductIsTheSumOverSubsetsOfWhichFactorEachDerivationHitsAndTheLinearizedGeneratorOfAQuadraticFlowIsItsLinearPartPlusTwiceThePolarization.agda
 imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; CommRingSolver on shape lemmas with numerals as explicit sums of 1r
 existing_terms_reused: none
 new_derivation_or_artifact: subset-rule-2, subset-rule-3, F, DF, linearized-generator
@@ -451,7 +451,7 @@ statement: With an antisymmetric biadditive ×, additive P, and curl u = λu, cu
 source_class: algebraic core of N-BELTRAMI (handoff §9, [S02])
 parameters_and_quantifiers: ∀ CommRing, ∀ × P curl λ u v with the stated hypotheses; ∀ i
 repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
-working_tree_changes: formal/cubical/theorems/physics/SamaCakra_OnOneCurlEigenspaceEachFrozenFactorLeaksLambdaTimesTheCrossProductWithOppositeSignsSoTheActualDerivativeVanishesWhileTheHelicityCrossProductIsTransverseAndNonzero.agda
+working_tree_changes: formal/cubical/theorems/physics/OnOneCurlEigenspaceEachFrozenFactorLeaksLambdaTimesTheCrossProductWithOppositeSignsSoTheActualDerivativeVanishesWhileTheHelicityCrossProductIsTransverseAndNonzero.agda
 imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; CommRingSolver on closed identities
 existing_terms_reused: none
 new_derivation_or_artifact: A-frozen, K-frozen, N, A-reproduces, K-reproduces, A-leaks, K-leaks, derivative-vanishes, cross, dot, helicity-cross, transverse
@@ -472,7 +472,7 @@ statement: (x, y−γ)·conj = (x² + (y−γ)², 0) so Re 1/(w−iγ) = x/(x²+
 source_class: algebraic cores of R-IMPEDANCE, R-OUTPUT (handoff §61) and R-GSQUARE / R-GCRITERION (§63)
 parameters_and_quantifiers: ∀ CommRing, ∀ x y γ w α Y t G₁ G₂ A
 repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
-working_tree_changes: formal/cubical/theorems/primes/Pratirodha_OneSpectralModeOfTheImpedanceHasRealPartXOverXSquaredPlusTheOffsetSquaredThePairedModesAreAStieltjesTermTheCayleyCoefficientIsContractiveExactlyOnTheRightHalfPlaneAndTheDyadicGoldbachResidualIsTheNormalizedDifference.agda
+working_tree_changes: formal/cubical/theorems/primes/OneSpectralModeOfTheImpedanceHasRealPartXOverXSquaredPlusTheOffsetSquaredThePairedModesAreAStieltjesTermTheCayleyCoefficientIsContractiveExactlyOnTheRightHalfPlaneAndTheDyadicGoldbachResidualIsTheNormalizedDifference.agda
 imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; CommRingSolver on closed identities
 existing_terms_reused: complex pairs as in DviSthana
 new_derivation_or_artifact: _⊗_, conj, ∣_∣², mode-denominator, mode-real-part, paired-modes, stieltjes-numerator, cayley, dyadic-normalization, normalized-square
@@ -493,7 +493,7 @@ statement: For u = (0, a, v) with ∂₂a = ∂₃a = ∂₃v = 0 over a commuta
 source_class: algebraic core of N-FUTURE (handoff §14, [S02]): the exact family behind the finite-jet separator
 parameters_and_quantifiers: ∀ CommRing, ∀ derivations, ∀ a v ν with the ansatz hypotheses; ∀ p q r
 repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
-working_tree_changes: formal/cubical/theorems/physics/Trikona_TheTriangularFamilyHasConvectiveTermZeroZeroAdvectedVIsDivergenceFreeWithZeroPressureAndItsStrictlyLowerTriangularGradientKillsBothVelocityGradientInvariants.agda
+working_tree_changes: formal/cubical/theorems/physics/TheTriangularFamilyHasConvectiveTermZeroZeroAdvectedVIsDivergenceFreeWithZeroPressureAndItsStrictlyLowerTriangularGradientKillsBothVelocityGradientInvariants.agda
 imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; CommRingSolver on closed identities
 existing_terms_reused: leib-zero (∂0 = 0 from Leibniz alone)
 new_derivation_or_artifact: advect, convective, convective-collapses, div, convective-is-divergence-free, u-is-divergence-free, Δ, NS₁ NS₂ NS₃, first-component-is-trivial, second-component-is-heat, third-component-is-advected-heat, Q-invariant-vanishes, square-is-one-corner, R-invariant-vanishes, cube-vanishes
@@ -514,7 +514,7 @@ statement: For ℕ-valued x with x₀ ≤ g and x_{n+1} ≤ b·Σ_{a+c=n} x_a x_
 source_class: exact finite control of N-CATALAN (handoff §40, [S18]); the majorant of the causal tree expansion q = Σ qₙ, qₙ₊₁ = Σ_{a+c=n} C(qₐ,q_c) of N-HISTORY
 parameters_and_quantifiers: ∀ x : ℕ → ℕ, ∀ b g, the two hypotheses, ∀ n; proved by strong induction over the pair sum with D-mono, D-ext, D-scale
 repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
-working_tree_changes: formal/cubical/theorems/unplaced/KatalanaSima_AQuadraticallyMajorizedSequenceIsBoundedByCatalanNumbersTimesPowersSoTheTreeExpansionOfTheHiddenHistoryHasAnExplicitMajorant.agda
+working_tree_changes: formal/cubical/theorems/unplaced/AQuadraticallyMajorizedSequenceIsBoundedByCatalanNumbersTimesPowersSoTheTreeExpansionOfTheHiddenHistoryHasAnExplicitMajorant.agda
 imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9, --safe; Cubical.Data.Nat.Order (≤-+-≤, ≤-·k, ≤-trans, ≤0→≡0), Cubical.Relation.Nullary (decRec, isPropDec), NatSolver (solveℕ!)
 existing_terms_reused: the pair-sum D of DvipadaGuna, now over ℕ
 new_derivation_or_artifact: D, D-ext, pow, pow-+, D-mono, D-scale, ≤-split′, ≤-·-≤, catTab, cat, stable, cat-zero, cat-suc, Majorant.bound, product-of-bounds, below, catalan-majorant
@@ -535,7 +535,7 @@ statement: With the six route unknowns (O-RBOUND, O-RONESIDE, O-RLOWER, O-RLIFT,
 source_class: the composition of handoff §68 / CLAIM_GRAPH.alternative_routes; no analytic claim is proved, the SHAPE of the frontier is
 parameters_and_quantifiers: ∀ ℓ, ∀ propositions RH Bounded OneSided Lower Lift Dyadic Goldbach (resp. Global Maximal PeakWork VortBounded Continuation) with their isProp proofs, ∀ the twelve (resp. six) conditional hypotheses
 repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
-working_tree_changes: formal/cubical/theorems/unplaced/Sima_TheOpenFrontierIsOnePropositionUpToTheReceivedConditionalTheoremsSoEveryRouteReadsTheSameUnknownResolvingAnyResolvesAllAndEveryReadingTransportsAlongUnivalence.agda
+working_tree_changes: formal/cubical/theorems/unplaced/TheOpenFrontierIsOnePropositionUpToTheReceivedConditionalTheoremsSoEveryRouteReadsTheSameUnknownResolvingAnyResolvesAllAndEveryReadingTransportsAlongUnivalence.agda
 imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9, --safe; propBiimpl→Equiv, ua, Σ≡Prop, subst
 existing_terms_reused: the finite cores under each hypothesis: Grahaka, AbelaRupa, SesaDvaya, ArdhaTala, DviSthana, DviMana, PratibimbaTantu, RiktaTantu, Pratirodha, Sikhara (cited, not imported)
 new_derivation_or_artifact: RH-Frontier: Bounded≃RH … Goldbach≃RH, the six ua paths, Frontier and route-A…F in hProp, routes-name-one-unknown, All, Any, from-RH, to-RH, resolving-any-resolves-all, refuting-any-refutes-all, transport-reading, transport-any-reading, transport-computes; NS-Frontier: PeakWork≃Global, PeakWork≡Global, NS-Frontier-is-one
@@ -598,7 +598,7 @@ statement: Over the corpus's actual objects: the RH fibre RHAt n of the Davis–
 source_class: composition of the corpus's typed open problems (RH_TheWholeQuestionEntersTyped, SamastaPrasna, KotiNirnaya); this replaces the abstract Sima composition as the object-level statement of the frontier
 parameters_and_quantifiers: none free: every ingredient is the corpus's computable definition; the section (n : ℕ) → frontierb n ≡ true is the open object
 repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
-working_tree_changes: formal/cubical/theorems/primes/SamastaSima_TheTypedFrontierOfTheCorpusIsOneComputableBooleanTrueAtEveryStageTheRHFibreIsDecidedLikeTheGoldbachFibreSoTheWholeOpenSectionIsOneSectionAndTheOracleComputesItsPrefix.agda
+working_tree_changes: formal/cubical/theorems/primes/TheTypedFrontierOfTheCorpusIsOneComputableBooleanTrueAtEveryStageTheRHFibreIsDecidedLikeTheGoldbachFibreSoTheWholeOpenSectionIsOneSectionAndTheOracleComputesItsPrefix.agda
 imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9, --safe; <Dec from Cubical.Data.Nat.Order
 existing_terms_reused: DMR.RH, DMR.δ, DMR.Hfrac, DMR.diffSq; SamastaPrasna.Goldbach, GoldbachAt; KotiNirnaya.gcheck, goldbach-sound, goldbach-complete
 new_derivation_or_artifact: RHAt, RH-is-section, rh-dec, decb, rhb, rhb-sound, rhb-complete, RHBool, rh-definite, _and_, Frontier, frontierb, FrontierBool, frontier-definite, frontier-refuted-by, prefix, prefix-sound, first-three-stages, stages-below-three

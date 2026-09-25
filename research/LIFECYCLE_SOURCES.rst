@@ -71,7 +71,7 @@ source-linked documentation; no new proof or native run is claimed.
 3. Two precise faces of interdependence
 ======================================
 
-`Parasparasraya <../formal/cubical/theorems/logic/Parasparasraya_TheMutualDependenceObjectionChecksWhenTheLeaningIsProductive.agda>`_
+`Parasparasraya <../formal/cubical/theorems/logic/TheMutualDependenceObjectionChecksWhenTheLeaningIsProductive.agda>`_
     ``Dhr``, the mutual ``jina``/``ajina`` definitions, ``dvicakram``;
     ``Parasparraya``, ``yugma``, ``dvitya-payati``,
     ``na-ekākin₁``, ``na-ekākin₂``.
@@ -82,7 +82,7 @@ source-linked documentation; no new proof or native run is claimed.
     Productive recursive dependence and joint observational sufficiency are
     both present, but they are not asserted to be definitionally the same type.
 
-`Jiva: joint dependence and the living step <../formal/cubical/theorems/logic/Jiva_EntanglementIsTheFibreOfTheProductComparisonAndTheLivingStepRefusesToDescendToTheMarginals.agda>`_
+`Jiva: joint dependence and the living step <../formal/cubical/theorems/logic/EntanglementIsTheFibreOfTheProductComparisonAndTheLivingStepRefusesToDescendToTheMarginals.agda>`_
     ``तुलना`` (comparison), ``संकलनम्`` (total-space reconstruction),
     ``जीवन-पदम्`` (living step), ``युगलम्-उभयतः`` (two-sided descent
     characterization), ``जीवति`` (visible non-descent),
@@ -104,7 +104,7 @@ source-linked documentation; no new proof or native run is claimed.
 4. Development and retained organization
 =======================================
 
-`JivaSantana <../formal/cubical/theorems/physics/JivaSantana_IdentityThroughChangeIsASectionThroughAChangingFamilyNotEqualityOfSnapshots.agda>`_
+`JivaSantana <../formal/cubical/theorems/physics/IdentityThroughChangeIsASectionThroughAChangingFamilyNotEqualityOfSnapshots.agda>`_
     ``Jiva``, ``chase``, ``biography``, ``Fate``.
 
     For supplied ``W : Nat -> Type`` and transitions ``tau``, a coherent
@@ -118,7 +118,7 @@ source-linked documentation; no new proof or native run is claimed.
     not, by a tag alone, provide a decoder for every old claim or implement
     every transition span discussed in the header.
 
-`SariraStara <../formal/cubical/theorems/physics/SariraStara_TheCountStratumOfTheHeartbeatIsProvablyBlindToTheBodysLawOfSuccession.agda>`_
+`SariraStara <../formal/cubical/theorems/physics/TheCountStratumOfTheHeartbeatIsProvablyBlindToTheBodysLawOfSuccession.agda>`_
     ``mismatch-NONE``, ``स्तरभेदः`` (law-stratum distinction),
     ``शरीरस्तरः`` (nonfactorization), ``गणनासाम्यं-न-तादात्म्यम्``
     (count agreement is not identity).
@@ -132,7 +132,7 @@ source-linked documentation; no new proof or native run is claimed.
 5. Recombination, installation, and continued propagation
 =======================================================
 
-`SamasaSetu <../formal/cubical/theorems/walks/SamasaSetu_TheChildEdgeIsTheCompositionOfTwoParentFordsSexualNotAsexual.agda>`_
+`SamasaSetu <../formal/cubical/theorems/walks/TheChildEdgeIsTheCompositionOfTwoParentFordsSexualNotAsexual.agda>`_
     ``समास-सेतुः`` (samasa-setu, the recombined connection).
 
     The term is ``compEquiv विवेक≃वाहकः सेतुः``: two existing equivalences

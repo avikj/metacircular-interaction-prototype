@@ -6,7 +6,7 @@
 -- Canonical checked module, wired into `Everything.agda`:
 --
 --   formal/cubical/
---   SannikrstaGahanata_ForEveryDimensionTheLastSilentStratumDescendsAndTheNextDoesNot.agda
+--   ForEveryDimensionTheLastSilentStratumDescendsAndTheNextDoesNot.agda
 --
 -- It proves for every n, over one blind base, that the family at truncation
 -- 2+n descends and the immediately adjacent family at 3+n does not.

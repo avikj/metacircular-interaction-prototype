@@ -130,7 +130,7 @@ flipIsNotFaithful = bothFlipToZero , dearDoesNotDominate
 
 ------------------------------------------------------------------------
 -- The RESTRICTED converse of `flipIsSound` is proved in
--- `RnaDhana_TheCostFlipIsFaithfulBelowTheCap`.  Not every cost needs
+-- `TheCostFlipIsFaithfulBelowTheCap`.  Not every cost needs
 -- the bound: only the costs of `w`, the vector claimed to dominate.
 -- `v`'s costs may exceed the cap arbitrarily.  So the modelling
 -- obligation is a cap above the costs of the candidates one wants to

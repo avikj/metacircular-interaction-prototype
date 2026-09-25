@@ -387,7 +387,7 @@ The results above therefore add exact common-ancestry constraints at every finit
 
 Repository sources read at the pinned commit:
 
-- `formal/cubical/theorems/physics/QRClosure_TheRestrictedEulerQuotientClosesByRingIdentityAndThePressureHessianCouplingDoesNotDescendThroughIt.agda`. Algebraic pressure/viscous correction, not a PDE continuation theorem.
+- `formal/cubical/theorems/physics/TheRestrictedEulerQuotientClosesByRingIdentityAndThePressureHessianCouplingDoesNotDescendThroughIt.agda`. Algebraic pressure/viscous correction, not a PDE continuation theorem.
 - `formal/cubical/theorems/physics/DescentObstructionUnified.agda`. Separated-pair descent and missed-image obstruction are distinct diagrams.
 - `formal/lean/Pairfield/InvariantCorrectiveClosure.lean`. Linear corrective closure with explicit invariance hypotheses.
 

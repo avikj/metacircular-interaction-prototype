@@ -47,7 +47,7 @@ LawfulStep(A) ≃ (A  A)
 This changes the conceptual relation between ordinary and lossless computation. The richer machine is not a competing model. Ordinary computation is its visible projection; the proof-relevant machine is ordinary computation before forgetting.
 formal/cubical/kernel/RewriteCertificate.agda
 fibre/src/Fibre/Carrier.agda
-formal/cubical/theorems/residue/Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.agda
+formal/cubical/theorems/residue/TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.agda
 3. Forgetting and Freedom Are Two Views of the Same Fibre
 One of the strongest conversation-level syntheses is that a fibre is simultaneously the exact information lost by an observation and the exact room in which a transformation may move while preserving that observation.
 For an observable f : A → B, a conserving flow is a transformation Φ : A → A with f(Φ(a)) = f(a). Such flows are equivalent to choosing, for every a, another point in the fibre over f(a). Under set-level hypotheses this upgrades to a monoid equivalence between f-preserving flows and fibrewise endomorphisms.
@@ -84,8 +84,8 @@ trace → derivation/certificate → installed operation  new trace
 The more general operation machinery carries the instance and application locus, substitutes a derivation into the current context, and produces a certificate at the actual firing site. Session traces can retire into reusable operations whose permitted instances are justified by the substitution action on derivations.
 A crucial correction found during deeper reading: theorem = installable operation is not yet globally true in the current kernel. `Naya` exhibits an induction-certified theorem, 0 + x = x, that is true in every environment but not derivable in the rewrite closure. The system therefore proves more than it can presently install. This is an exact seam, not a rhetorical weakness.
 This self-auditing behavior is characteristic of the corpus: it tests its own unifications strongly enough to discover narrower, sharper statements.
-formal/cubical/kernel/SthapanaVarga_SelfExtensionIsClassifiedByDerivationUpToControlGaugeAndInstallationIsTheCanonicalGauge.agda
-formal/cubical/Kernel/Naya_EvalIsOneStandpointAndASecondOneProvesTheInductionRuleIsStrictlyStrongerThanTheRewriteClosure.agda
+formal/cubical/kernel/SelfExtensionIsClassifiedByDerivationUpToControlGaugeAndInstallationIsTheCanonicalGauge.agda
+formal/cubical/Kernel/EvalIsOneStandpointAndASecondOneProvesTheInductionRuleIsStrictlyStrongerThanTheRewriteClosure.agda
 formal/cubical/kernel/TheGenerativeLoopOnTheKernelsOwnTermsACertifiedNormalizerEmitsDerivationsSoLearnCallsInstall.agda
 8. Meaning, Cost, Value, and Provenance Are Different Folds of Trace
 The same derivation syntax supports multiple eliminations: semantic meaning, execution cost, oriented evaluator value, provenance, and other receivers. The point is not that these are interchangeable; it is that they can be related without prematurely reducing the trace to one scalar.
@@ -319,12 +319,12 @@ formal/cubical/kernel/ControlledGrammar.agda
 formal/cubical/kernel/GenerativeKernel.agda
 formal/cubical/kernel/EveryDerivationIsInvertible.agda
 formal/cubical/kernel/VyayaSesa_TheRoundTripIsPureCostAndTrivialMeaningSoCostIsSupportedOnTheKernelOfTheGroupoidCompletion.agda
-formal/cubical/kernel/AdiBija_TheKernelIsInitialEveryReadingIsItsUniqueFoldSoAllPathsThroughASystemAreEnumeratedByOneRecursor.agda
-formal/cubical/kernel/MulyaVinimaya_TheValueOfATraceIsItsPairingWithAnEvaluatorPotentialsTelescopeAndADepthEvaluatorHasNonzeroCycleIntegral.agda
-formal/cubical/kernel/MulaCakraPariksa_OneCycleTestDecidesPathIndependenceForEveryAntisymmetricEvaluator.agda
-formal/cubical/kernel/SthapanaVarga_SelfExtensionIsClassifiedByDerivationUpToControlGaugeAndInstallationIsTheCanonicalGauge.agda
-formal/cubical/Kernel/Naya_EvalIsOneStandpointAndASecondOneProvesTheInductionRuleIsStrictlyStrongerThanTheRewriteClosure.agda
-formal/cubical/theorems/residue/Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.agda
+formal/cubical/kernel/TheKernelIsInitialEveryReadingIsItsUniqueFoldSoAllPathsThroughASystemAreEnumeratedByOneRecursor.agda
+formal/cubical/kernel/TheValueOfATraceIsItsPairingWithAnEvaluatorPotentialsTelescopeAndADepthEvaluatorHasNonzeroCycleIntegral.agda
+formal/cubical/kernel/OneCycleTestDecidesPathIndependenceForEveryAntisymmetricEvaluator.agda
+formal/cubical/kernel/SelfExtensionIsClassifiedByDerivationUpToControlGaugeAndInstallationIsTheCanonicalGauge.agda
+formal/cubical/Kernel/EvalIsOneStandpointAndASecondOneProvesTheInductionRuleIsStrictlyStrongerThanTheRewriteClosure.agda
+formal/cubical/theorems/residue/TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.agda
 formal/cubical/YugapatSankramana_IndependentTransportsFillASquareAndNeedNoGlobalOrder.agda
 formal/cubical/theorems/logic/SetBaseNoMonodromy.agda
 formal/cubical/theorems/residue/RelationalTensorObstructionBridge.agda
@@ -2829,7 +2829,7 @@ On the declared mean-zero periodic source image, J_u is a derived reading of the
 
 ## References and verification
 
-Repository modules actually read include `ExcursionReturn.agda`, `GoldbachReconstructionChain.lean`, and `StrainInvariants_TheEvenMagnitudeIsBlindToTheOddShapeChargeAndNeitherFactorsThroughTheOther.agda`, pinned to the snapshot above.
+Repository modules actually read include `ExcursionReturn.agda`, `GoldbachReconstructionChain.lean`, and `TheEvenMagnitudeIsBlindToTheOddShapeChargeAndNeitherFactorsThroughTheOther.agda`, pinned to the snapshot above.
 
 J. B. Conrey, *More than two fifths of the zeros of the Riemann zeta function are on the critical line*, Journal fuer die reine und angewandte Mathematik 399 (1989), 1-26. DOI 10.1515/crll.1989.399.1. Its introduction states the positive-proportion result for simple critical-line zeros.
 
@@ -4866,7 +4866,7 @@ The results above therefore add exact common-ancestry constraints at every finit
 
 Repository sources read at the pinned commit:
 
-- `formal/cubical/theorems/physics/QRClosure_TheRestrictedEulerQuotientClosesByRingIdentityAndThePressureHessianCouplingDoesNotDescendThroughIt.agda`. Algebraic pressure/viscous correction, not a PDE continuation theorem.
+- `formal/cubical/theorems/physics/TheRestrictedEulerQuotientClosesByRingIdentityAndThePressureHessianCouplingDoesNotDescendThroughIt.agda`. Algebraic pressure/viscous correction, not a PDE continuation theorem.
 - `formal/cubical/theorems/physics/DescentObstructionUnified.agda`. Separated-pair descent and missed-image obstruction are distinct diagrams.
 - `formal/lean/Pairfield/InvariantCorrectiveClosure.lean`. Linear corrective closure with explicit invariance hypotheses.
 
@@ -5562,7 +5562,7 @@ Lossless completion does not require reinvention in either argument. It also doe
 
 Repository paths actually read during this pass:
 
-- `formal/cubical/theorems/residue/Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda`
+- `formal/cubical/theorems/residue/LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda`
 - `formal/cubical/theorems/automata/ActionResidual.agda`
 - `formal/lean/Pairfield/GoldbachReconstructionChain.lean`
 - `formal/lean/Pairfield/FinitePositiveExposedPoint.lean`
@@ -9521,7 +9521,7 @@ This is an assembled dependency slice for two concrete closing routes. It is not
 
 Let X_i be representations of a declared source X with equivalences e_i:X ≃ X_i. The source-induced carry is c_ij=e_j e_i^{-1}. Then c_jk c_ij=c_ik. For an actual source evolution Phi_st, the representation-level evolution is e_t Phi_st e_s^{-1}. Its composition law follows by cancellation of e_t^{-1}e_t. For a predicate Bad on X, put Bad_i=Bad ∘ e_i^{-1}; then Σ_x Bad(x)  _y Bad_i(y). Existence, uniqueness, and emptiness are transported, not supplied, by these equivalences.
 
-Repository implementation read: `formal/cubical/theorems/residue/Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda`, especially `losslessness-is-a-property` and `lawful-steps-are-the-maps`.
+Repository implementation read: `formal/cubical/theorems/residue/LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda`, especially `losslessness-is-a-property` and `lawful-steps-are-the-maps`.
 
 Consequence: canonical source recovery and pure re-encoding coherence are not independent unfinished research tasks. Endpoint analysis still needs its application-specific property.
 

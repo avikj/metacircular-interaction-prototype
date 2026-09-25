@@ -17,7 +17,7 @@
 -- TRUTH VALUE are different cases, and a store that keys on one of them
 -- has already committed the collapse it exists to prevent.  This is not
 -- an opinion about tidiness; it is
--- `formal/cubical/NaturalMachine/Durnaya_CollapseIffEveryNayaAgrees.agda`,
+-- `formal/cubical/NaturalMachine/CollapseIffEveryNayaAgrees.agda`,
 -- which proves that a standpoint index may be dropped exactly when every
 -- pair of fibres is EQUIVALENT, and exhibits `Mixed : Bool → Type` with
 -- fibres `Unit` and `Bool` — both inhabited, so equal in truth value,
@@ -72,7 +72,7 @@
 --
 --  3. PARTIAL AGREEMENT IS NOW REPORTED AS A PARTITION.  With three or
 --     more standpoints of which some agree, `Naya.hs` returns one flat
---     `Durnaya`.  By Durnaya_CollapseIffEveryNayaAgrees, collapse of a
+--     `Durnaya`.  By CollapseIffEveryNayaAgrees, collapse of a
 --     family exists iff its members agree PAIRWISE; agreement at a fixed
 --     index is an equivalence relation; so the maximal collapsible
 --     sub-families are exactly its classes, and the store computes them.
@@ -460,7 +460,7 @@ decide saha es0
                      , "as content one, as record two." ])
       Just SatyaSama ->
         [ "NOT IDENTIFIABLE.  They agree in TRUTH VALUE and differ in CONTENT."
-        , "This is Durnaya_CollapseIffEveryNayaAgrees exactly: collapse is"
+        , "This is CollapseIffEveryNayaAgrees exactly: collapse is"
         , "available iff every pair of fibres is equivalent, and `Mixed` with"
         , "fibres Unit and Bool is the checked witness that both-inhabited is"
         , "not enough.  Any single verdict here discards the difference below."
@@ -677,14 +677,14 @@ kTricky = k3
     (_,_,k2) = insert eUnit k1
     (_,_,k3) = insert eBool k2
 
--- The checked witness from Durnaya_CollapseIffEveryNayaAgrees, as data:
+-- The checked witness from CollapseIffEveryNayaAgrees, as data:
 -- both fibres inhabited, and inequivalent.
 eUnit, eBool :: Entry
 eUnit = mk "Mixed-at-true" (Yogya "the fibre is Unit; enumerated")
-          [("tt", "NaturalMachine/Durnaya_CollapseIffEveryNayaAgrees.agda")]
+          [("tt", "NaturalMachine/CollapseIffEveryNayaAgrees.agda")]
 eBool = mk "Mixed-at-false" (Yogya "the fibre is Bool; enumerated")
-          [("true",  "NaturalMachine/Durnaya_CollapseIffEveryNayaAgrees.agda")
-          ,("false", "NaturalMachine/Durnaya_CollapseIffEveryNayaAgrees.agda")]
+          [("true",  "NaturalMachine/CollapseIffEveryNayaAgrees.agda")
+          ,("false", "NaturalMachine/CollapseIffEveryNayaAgrees.agda")]
 
 -- One content, two records.  Pingala states the prastara; Halayudha's
 -- Mrtasanjivani (10th c.) is the commentary through which it is read.

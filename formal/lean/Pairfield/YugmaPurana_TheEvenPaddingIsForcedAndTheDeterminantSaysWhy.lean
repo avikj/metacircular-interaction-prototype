@@ -37,7 +37,7 @@ rather than as a remark.
 
 ## Relation to the Agda lane
 
-`formal/cubical/YugmaPurana_TheValliRecoversItsLengthModuloTwoAndNoFurther.agda`
+`formal/cubical/TheValliRecoversItsLengthModuloTwoAndNoFurther.agda`
 proves the same thing about Āryabhaṭa's वल्ली: `detReplay` gives
 `det (replay v) ≡ (-1)^(length v)` for the step matrices `L q = (q 1 / 1 0)`,
 The Lean statements live over a different matrix type in a system without

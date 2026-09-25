@@ -847,7 +847,7 @@ import PolynomialAttachmentGrowth
 import QuadraticRefinement
 import QuotientUnitSourceCutBoundary
 import RootedGrothendieck
-import TransportResidue_EveryTransportOwesItsResidual
+import EveryTransportOwesItsResidual
 import SpernerFromSl2
 import StructuredSymmetryTransport
 -- NB: TransportCost is NOT here.  It `open import`s this
@@ -860,7 +860,7 @@ import Vacuity
 -- laws that keep it from being a tie-breaker (§1 it decides, §2 it can say
 -- only what the contenders already said).  Wired to the running scheduler
 -- in machine/AvaktavyaPrasava_TheFourthPositionBearsTheRuleThatDecidesIt.hs.
-import AvaktavyaPrasava_TheBornStandpointDecidesAndAssertsOnlyWhatAllAsserted
+import TheBornStandpointDecidesAndAssertsOnlyWhatAllAsserted
 
 ------------------------------------------------------------------------
 -- The rest of the `NaturalMachine/` subtree, imported so a command builds it.
@@ -893,7 +893,7 @@ import AsymmetryOnTheRateIsFreeAndTheWeakClaimIsAntitoneToo
 import AvaktavyaDoesNotFactor
 import BarrierIsTwoWitnesses
 import BezoutIsGCD
-import Bhanga_ThePositionsOverTwoAtomsAreAThreeStepChain
+import ThePositionsOverTwoAtomsAreAThreeStepChain
 import BoundedStateNeedsAGroup
 import CRTChain
 import CakravalaStep
@@ -932,12 +932,12 @@ import HypothesesAssumedWhereTheyAreDerivable
 import IdempotenceForbidsDescent
 import IndependenceNeedsAnInternalImplication
 import JoinSavesTheMeet
-import OrderAstiNasti_AnEnumerableRemedySetKillsTheFourthCorner
-import OrderAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift
-import OrderSaha_TheFourthCornerIWasNamingIsTheSequentialPosition
+import AnEnumerableRemedySetKillsTheFourthCorner
+import TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift
+import TheFourthCornerIWasNamingIsTheSequentialPosition
 import Laghava
 import LaghavaUnderdeterminesSoTheMetarulesAreNotOptional
-import ListKit_OneImportPointAndNoNewDefinitions
+import OneImportPointAndNoNewDefinitions
 import LocatingIsEnough
 import LosslessLowerBound
 import MergingASeparatedPairBreaksAtTheSeparatingContinuation
@@ -971,12 +971,12 @@ import PythagoreanTransition
 import QuotientFiberLaw
 import RefutingLaghavaIsASearch
 import RepresentabilityIsNotEnoughForIndependence
-import RnaDhana_TheMixedLayerCoversAndBeatsTheMixedRemainder
-import RnaDhana_TheMixedStrataArePairwiseDisjointAndOrdered
-import RnaDhana_TheMixedStratificationTerminatesAndCovers
-import RnaDhana_TheWholeMixedStratificationIsTheFlippedOne
+import TheMixedLayerCoversAndBeatsTheMixedRemainder
+import TheMixedStrataArePairwiseDisjointAndOrdered
+import TheMixedStratificationTerminatesAndCovers
+import TheWholeMixedStratificationIsTheFlippedOne
 import RootsThreadLatch
-import Samacchheda_TheUntruncatedTrichotomyOnTheRate
+import TheUntruncatedTrichotomyOnTheRate
 import Sankalita
 import SaturationAtACutIsIdempotent
 import SignIsNotAccumulable
@@ -1025,8 +1025,8 @@ import TheUniformFormIsNotRefuted
 import TheUnstableGroundCannotBeExhibited
 import TheValliConvergentDeterminantAlternates
 import TransportPrice
-import TransportPrice_AgreementDoesNotDetermineTheTransport
-import LosslessReturnCost_TheReturnTripIsFreeForEveryAdditiveCost
+import AgreementDoesNotDetermineTheTransport
+import TheReturnTripIsFreeForEveryAdditiveCost
 import TrichotomyIsCheapOnPairsAndTheLiftCostsATruncation
 import TwoTruthsCompute
 import UnderExtensionalFlatnessOneCostDifferenceSuffices
@@ -1042,10 +1042,10 @@ import WitnessNumberCanBeInfinite
 import WitnessNumberIsInvariant
 import WitnessNumberIsThePotential
 import WitnessNumberIsUnbounded
-import Yugapat_TheDenialOfJointAssertionDoesNotDecompose
+import TheDenialOfJointAssertionDoesNotDecompose
 
-import Alopa_TheEngineNeverTouchesTheMeaning
-import MachineFiber_TheEngineLivesInTheFibreOfItsDenotation
+import TheEngineNeverTouchesTheMeaning
+import TheEngineLivesInTheFibreOfItsDenotation
 
 import ActionResidualCoordinateFibers
 import CompositionalMagmaFactorization
@@ -1082,95 +1082,95 @@ import DerivationSoundnessIsTheCardinalityShadowOfTheCategorifiedEquivalence
 import TheGenerativeLoopOnTheKernelsOwnTermsACertifiedNormalizerEmitsDerivationsSoLearnCallsInstall
 
 -- Kernel/ : seven modules.
-import Kernel.Adesa_SubstitutionIsAdmissibleOnDerivationsSoASchemaCanCarryACertificateAndNotOnlyAMeaning
-import Kernel.Ananta_TheDerivationsBetweenTwoConnectedTermsExceedEveryBoundWhileEveryOfferingHasADefiniteCount
-import Kernel.Naya_EvalIsOneStandpointAndASecondOneProvesTheInductionRuleIsStrictlyStrongerThanTheRewriteClosure
-import Kernel.Nirapeksa_NeitherUnqualifiedFormSurvivesAndTheTwoSchoolsFourthPositionsSitAtDifferentLevels
-import Kernel.Siddhasadhana_InstallingWhatYouCanAlreadyReachIsAPlateauSoTheKernelsOwnLibraryCannotGrowItsReach
-import Kernel.Syat_TheBlindnessIsAPropertyOfTheCodomainAndCostFailsInversionRatherThanTruncation
-import Kernel.Vyabhicara_OneEnvironmentWhereItFailsForbidsTheDerivationEntirelySoTheSixCoordinatesAreNeverIdentified
+import Kernel.SubstitutionIsAdmissibleOnDerivationsSoASchemaCanCarryACertificateAndNotOnlyAMeaning
+import Kernel.TheDerivationsBetweenTwoConnectedTermsExceedEveryBoundWhileEveryOfferingHasADefiniteCount
+import Kernel.EvalIsOneStandpointAndASecondOneProvesTheInductionRuleIsStrictlyStrongerThanTheRewriteClosure
+import Kernel.NeitherUnqualifiedFormSurvivesAndTheTwoSchoolsFourthPositionsSitAtDifferentLevels
+import Kernel.InstallingWhatYouCanAlreadyReachIsAPlateauSoTheKernelsOwnLibraryCannotGrowItsReach
+import Kernel.TheBlindnessIsAPropertyOfTheCodomainAndCostFailsInversionRatherThanTruncation
+import Kernel.OneEnvironmentWhereItFailsForbidsTheDerivationEntirelySoTheSixCoordinatesAreNeverIdentified
 
 -- Parampara_ : the free zigzag calculus over an ARBITRARY generator
 -- relation, proved sound and complete against the equivalence closure.
 -- It is the kernel's own `Derivation` with the generators left open.
-import Parampara_TheDerivableEqualitiesAreExactlyTheWitnessChainsSoExplanationIsTotalAndSound
+import TheDerivableEqualitiesAreExactlyTheWitnessChainsSoExplanationIsTotalAndSound
 
 -- StrainInvariants: the even magnitude tr S² and the odd charge det S of a
 -- trace-free symmetric matrix are each blind to the other and neither
 -- factors through the other (DescentObstructionUnified's lemma, both ways);
 -- the pointwise interaction ωᵀSω escapes (S, |ω|²) and the coupling escapes
 -- the marginals.
-import StrainInvariants_TheEvenMagnitudeIsBlindToTheOddShapeChargeAndNeitherFactorsThroughTheOther
+import TheEvenMagnitudeIsBlindToTheOddShapeChargeAndNeitherFactorsThroughTheOther
 -- QRClosure: the restricted-Euler quotient (tr A², tr A³) closes by two ring
 -- identities (fractions cleared) and the pressure-Hessian couplings
 -- tr(AH), tr(A²H) do not descend through it: witness pair over ℤ, both
 -- obstructions by DescentObstructionUnified's lemma.
-import QRClosure_TheRestrictedEulerQuotientClosesByRingIdentityAndThePressureHessianCouplingDoesNotDescendThroughIt
+import TheRestrictedEulerQuotientClosesByRingIdentityAndThePressureHessianCouplingDoesNotDescendThroughIt
 -- VieillefosseFibre: the discriminant is a first integral of the restricted-
 -- Euler field (polynomial identity), its zero fibre carries the sheet strains
 -- diag(n,n,−2n) (an injection of ℕ), and the pushforward of the true Q̇ to
 -- the (Q,R) plane is a LawfulContinuationCore.BranchingFiber.
-import VieillefosseFibre_TheDiscriminantIsAFirstIntegralOfRestrictedEulerItsZeroFibreIsUnboundedAndThePushforwardOfTheTrueFieldBranches
+import TheDiscriminantIsAFirstIntegralOfRestrictedEulerItsZeroFibreIsUnboundedAndThePushforwardOfTheTrueFieldBranches
 -- DiscriminantIsTheOnlyFirstIntegral: up to cubic degree every polynomial
 -- first integral of the restricted-Euler field is affine in the
 -- discriminant (linear algebra over ℤ on ten coefficients, with the
 -- symbolic derivative checked against the analytic one by the solver), and
 -- ℤ injects into the pushforward fibre over a (Q,R) point by scaling the
 -- Hessian direction.
-import DiscriminantIsTheOnlyFirstIntegral_UpToCubicDegreeEveryPolynomialFirstIntegralOfRestrictedEulerIsAffineInTheDiscriminantAndThePushforwardFibreIsUnbounded
+import UpToCubicDegreeEveryPolynomialFirstIntegralOfRestrictedEulerIsAffineInTheDiscriminantAndThePushforwardFibreIsUnbounded
 -- WindowShiftResidual: on a finite window the two zero-displacement shift
 -- words act differently (closed forms), agree away from both edges, and the
 -- operator reading does not factor through net displacement.
-import WindowShiftResidual_NetDisplacementDescendsAndTheBoundaryInteractionHistoryDoesNotAndForAFixedWordItRetreatsToTheEdges
+import NetDisplacementDescendsAndTheBoundaryInteractionHistoryDoesNotAndForAFixedWordItRetreatsToTheEdges
 -- SecantCriterion: reconstruction of a cone C from a homomorphic observation
 -- O holds exactly when ker O ∩ (C − C) = {0}; over ℤ × ℤ one observation
 -- reconstructs the axis and not the quadrant.
-import SecantCriterion_ReconstructionOnAConeFromALinearObservationHoldsExactlyWhenNoSecantOfTheConeLiesInTheKernel
+import ReconstructionOnAConeFromALinearObservationHoldsExactlyWhenNoSecantOfTheConeLiesInTheKernel
 -- TriangularPair: the shear pair u^σ = (0, a, σv) shares every σ-even stress
 -- invariant and has σ-odd continuation, so continuation does not descend
 -- through the invariants.
-import TriangularPair_TwoShearFlowsShareEveryEvenStressInvariantAndTheirContinuationIsOddSoContinuationDoesNotDescendThroughTheInvariants
+import TwoShearFlowsShareEveryEvenStressInvariantAndTheirContinuationIsOddSoContinuationDoesNotDescendThroughTheInvariants
 -- BoundaryBlock: the mean square of a received signal equals the pair field
 -- paired with the receiver's autocorrelation — positivity at h = f ∗ f̃ is
 -- an identity.
-import BoundaryBlock_ThePrimeSideMeanSquareOfAReceivedSignalIsThePairFieldPairedWithTheReceiversAutocorrelation
+import ThePrimeSideMeanSquareOfAReceivedSignalIsThePairFieldPairedWithTheReceiversAutocorrelation
 -- BoundaryBlockGeneral: the same identity at every width — for any finite
 -- receiver and coefficient signal, Σ (Σ c_k S^k f)² ≡ Σ c_k c_l ρ(|k−l|).
-import BoundaryBlockGeneral_ForEveryFiniteReceiverAndEveryFiniteCoefficientSignalTheMeanSquareIsThePairFieldPairedWithTheAutocorrelationLags
+import ForEveryFiniteReceiverAndEveryFiniteCoefficientSignalTheMeanSquareIsThePairFieldPairedWithTheAutocorrelationLags
 -- CyclicParseval: given orthogonal characters, Σ_θ b̂(θ)č(θ) ≡ N·Σ_t b_t c_t —
 -- the block is a spectral sum of products, and a sum of squares there
 -- exactly when the dual character is the conjugate (the frequencies real).
-import CyclicParseval_TheBlockIsASpectralSumOfProductsWheneverTheCharactersAreOrthogonalSoPositivityOnTheSpectralSideIsWhereTheFrequenciesAreReal
+import TheBlockIsASpectralSumOfProductsWheneverTheCharactersAreOrthogonalSoPositivityOnTheSpectralSideIsWhereTheFrequenciesAreReal
 -- TorusFourierLayer: the triangular pair derived from its velocity field in
 -- an exact Fourier calculus on the torus — divergence-free, nonlinear term
 -- (0,0,σ a∂₂v) itself divergence-free so the pressure is constant, coarse
 -- stress and coarse continuation computed at both signs.
-import TorusFourierLayer_TheTriangularPairIsDerivedFromItsVelocityFieldTheNonlinearTermIsDivergenceFreeSoThePressureIsConstantAndTheCoarseStressAndContinuationAreComputed
+import TheTriangularPairIsDerivedFromItsVelocityFieldTheNonlinearTermIsDivergenceFreeSoThePressureIsConstantAndTheCoarseStressAndContinuationAreComputed
 -- GalerkinJets: the Taylor jets of the pair's advected component at t = 0
 -- to all orders, exact on a window widening by one mode per order; the
 -- Galerkin truncation residual is exactly the boundary row.
-import GalerkinJets_TheTaylorJetsOfThePairAtTimeZeroAreExactOnAWideningWindowAndTheTruncationResidualSitsOnTheBoundaryRow
+import TheTaylorJetsOfThePairAtTimeZeroAreExactOnAWideningWindowAndTheTruncationResidualSitsOnTheBoundaryRow
 -- FiniteExplicitFormula: Newton's identities — power sums of the roots equal
 -- the coefficient recursion, i.e. −zP′/P = Σ p_k zᵏ coefficientwise — and
 -- the power sums grow at least like the largest root.
-import FiniteExplicitFormula_NewtonsIdentitiesArePowerSumsOfTheRootsEqualToCoefficientRecursionsAndTheGrowthOfThePowerSumsIsTheLargestRoot
+import NewtonsIdentitiesArePowerSumsOfTheRootsEqualToCoefficientRecursionsAndTheGrowthOfThePowerSumsIsTheLargestRoot
 -- InteractionAssociator: the binary coefficient of a quadratic mode system
 -- is a 2-cochain; its associator (the ratio of the two binary derivations
 -- of p+q+r) is gauge-invariant, satisfies the pentagon, and measures
 -- ancestry interference (X+Yω)(X+Yω̄) = (X+Y)² − XY(2−ω−ω̄); at the
 -- orthogonal cube's ω = e^{2πi/3} in ℤ[ω] the amplitude is half the envelope.
-import InteractionAssociator_TheBinaryCoefficientPhaseIsATwoCochainItsAssociatorIsGaugeInvariantSatisfiesThePentagonAndMeasuresAncestryInterference
+import TheBinaryCoefficientPhaseIsATwoCochainItsAssociatorIsGaugeInvariantSatisfiesThePentagonAndMeasuresAncestryInterference
 -- TwoScaleSubgroup: 2ᵐ = 3ⁿ only at m = n = 0 — the arithmetic behind the
 -- density of the (2,3)-scale samples in the C(𝕋²)-descent reading of RH.
-import TwoScaleSubgroup_ThePowersOfTwoAndThreeMeetOnlyAtOneSoTheTwoGeneratorScaleSubgroupIsFreeOfRankTwo
+import ThePowersOfTwoAndThreeMeetOnlyAtOneSoTheTwoGeneratorScaleSubgroupIsFreeOfRankTwo
 -- HistoryCompletion: the one construction under both frontiers — the value
 -- stream of a history under an evaluator, complete by corecursion in the
 -- take-metric (PurnataSutra freed to any carrier), its limit determined by
 -- truncations, and □ (at every depth) refuted by one truncation and decided
 -- by none; instantiated on the power-sum trace (bounded iff roots on the
 -- circle) and on the Galerkin jet stream.
-import HistoryCompletion_TheValueStreamOfATraceUnderAnEvaluatorCompletesByCorecursionItsLimitDescendsToTruncationsAndBoundednessDoesNot
+import TheValueStreamOfATraceUnderAnEvaluatorCompletesByCorecursionItsLimitDescendsToTruncationsAndBoundednessDoesNot
 -- GalerkinLookahead: for every window M the truncated jet stream agrees
 -- with the exact one to depth M — the support lemma of convolution with a
 -- and the closure of row-support under the field operations.
-import GalerkinLookahead_TheJetOfOrderNReachesRowNPlusOneAndNoFurtherSoTruncationToAnyWindowIsExactToTheWindowsDepthTheCrossingProfileOfThePairsEquation
+import TheJetOfOrderNReachesRowNPlusOneAndNoFurtherSoTruncationToAnyWindowIsExactToTheWindowsDepthTheCrossingProfileOfThePairsEquation

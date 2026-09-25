@@ -43,7 +43,7 @@ module VargaPrakrtiWitness109 where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; _+_ ; _·_)
 open import Cubical.Data.Sigma using (_×_ ; _,_)
-open import VargaPrakrti_TraceCompositionOverN
+open import TraceCompositionOverN
   using (vpX ; vpY ; vpQ ; vpStepX ; vpStepY
         ; compositionTraceℕ ; cakravalaTraceℕ)
 

@@ -326,7 +326,7 @@ padded by one, and `8` against `6` is the least gap any witness can exhibit.
 Proved in `Pairfield/YugmaPurana_TheEvenPaddingIsForcedAndTheDeterminantSaysWhy.lean`:
 `DiagonalEuclidTranscript.det_leftWord`, `leftWord_cons_ne`, and
 `endpoints_force_even_actionCost_gap`.  The same statement about Āryabhaṭa's
-वल्ली is `formal/cubical/YugmaPurana_TheValliRecoversItsLengthModuloTwoAndNoFurther.agda`
+वल्ली is `formal/cubical/TheValliRecoversItsLengthModuloTwoAndNoFurther.agda`
 (Agda; independent proof, nothing is transported). -/
 theorem no_historical_actionCost_decoder :
     ¬ ∃ decode : IntMat2 → IntMat2 → Nat,

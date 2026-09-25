@@ -222,7 +222,7 @@ There are not competing complete versions of a map. Once its visible action and 
 
 The conservative machine is not extra machinery placed around the map. It is the map, completely presented.
 
-**Checked:** [`Trace`](../fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda), [`Ekatva`](../formal/cubical/theorems/residue/Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda).
+**Checked:** [`Trace`](../fibre/src/Fibre/TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda), [`Ekatva`](../formal/cubical/theorems/residue/LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda).
 
 ---
 
@@ -266,7 +266,7 @@ A result descends through an observation exactly when that result does not disti
 
 A single observation may fail to separate distinct sources. The full separating class does not. The distinction between local appearance and complete information is itself internal to the same law rather than a second information-theoretic semantics.
 
-**Checked:** [`Abhedabheda_OneObservationFailsToSeparateWhatIsDistinctAndTheFullClassNeverDoes.agda`](../formal/cubical/theorems/residue/Abhedabheda_OneObservationFailsToSeparateWhatIsDistinctAndTheFullClassNeverDoes.agda).
+**Checked:** [`OneObservationFailsToSeparateWhatIsDistinctAndTheFullClassNeverDoes.agda`](../formal/cubical/theorems/residue/OneObservationFailsToSeparateWhatIsDistinctAndTheFullClassNeverDoes.agda).
 
 ---
 

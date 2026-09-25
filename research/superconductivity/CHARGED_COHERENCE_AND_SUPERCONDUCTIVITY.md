@@ -1003,15 +1003,15 @@ A pair mobility optimum is not a T_c optimum, and a protected prepared subspace 
 
 Repository source landmarks at the initial anchor:
 
-- `fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda`: Conservative, run, fibre-of-run, trace-is-forced, fiberize, canonical-run, canonical-recovers.
+- `fibre/src/Fibre/TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda`: Conservative, run, fibre-of-run, trace-is-forced, fiberize, canonical-run, canonical-recovers.
 - `fibre/src/Fibre/Visvarupa_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda`: Universal, pi, canonical pullback, classifier, flattening.
 - `fibre/src/Fibre/CorpusSamvada.agda`, `Fibre/Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers.agda`, `Fibre/Nucleus.agda`, and `formal/cubical/theorems/residue/CorpusLosslessPresentation.agda`, `CorpusSelfPresentation.agda`: dependent productive process, actual residual, whole-orbit transport.
-- `formal/cubical/theorems/physics/CaturamsaBhramana_TheQuarterWaveLivesOnlyOnTheInterdependentPairAndEachSenseCarriesExactlyItsSquare.agda` and `formal/cubical/theorems/historical_proofs/PythagoreanTransition.agda`: signed phase, non-descent, rotation equivalences.
+- `formal/cubical/theorems/physics/TheQuarterWaveLivesOnlyOnTheInterdependentPairAndEachSenseCarriesExactlyItsSquare.agda` and `formal/cubical/theorems/historical_proofs/PythagoreanTransition.agda`: signed phase, non-descent, rotation equivalences.
 - Physics modules `VeniBandha`, `VeniPatha`, `NirupaSutra`, `CatuhSesaSiddhanta`, `KendraPurnaNirvahana`, `KendraNirvahana`, `CaturekaSutra`, `SthairyaSutra`, and `PurnataSutra` by their full descriptive repository filenames: braid action, normal form, mod-four reading, causal centralizer and coinductive completeness. The actual prefix theorem, not an unqualified Lipschitz phrase, fixes the metric convention: depth n+1 agreement implies output depth n agreement. In d=2^(-first difference) it permits a factor-two expansion.
-- `formal/cubical/theorems/physics/Pula_ThePrincipalBundleIsAFamilyOfTorsorsSoItsHolonomyIsTheGroupAndTheFibrePointConjugatesIt.agda`, `RelationalHolonomyRefinement.agda`, and `Pradakshina_TheCircuitReturnsToTheBasePointWithTheFibreShiftedSoTheHolonomyIsInhabited.agda`: torsor transport, refinement, and winding.
-- `formal/cubical/KirchhoffIncidence_GraphLaplacianIsDivGradAndSummationByPartsIsExact.agda`: grad, div, by-parts and laplacian-is-gram.
+- `formal/cubical/theorems/physics/ThePrincipalBundleIsAFamilyOfTorsorsSoItsHolonomyIsTheGroupAndTheFibrePointConjugatesIt.agda`, `RelationalHolonomyRefinement.agda`, and `TheCircuitReturnsToTheBasePointWithTheFibreShiftedSoTheHolonomyIsInhabited.agda`: torsor transport, refinement, and winding.
+- `formal/cubical/GraphLaplacianIsDivGradAndSummationByPartsIsExact.agda`: grad, div, by-parts and laplacian-is-gram.
 - `research/handoff_20260908/sources/S25_delta19.md`, Sections 19.1-19.7: sector paths, return kernels, projected resolvent and full-future observability.
-- `formal/cubical/theorems/physics/ApasaranaNiyama_ReversibilityConservesDistinctionsSoErasureIsDisplacementIntoTheEnvironmentNeverDestruction.agda`: injective joint displacement. The stronger thermodynamic prose in `theorems/cost/Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps.agda` is not substituted for (14.6).
+- `formal/cubical/theorems/physics/ReversibilityConservesDistinctionsSoErasureIsDisplacementIntoTheEnvironmentNeverDestruction.agda`: injective joint displacement. The stronger thermodynamic prose in `theorems/cost/Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps.agda` is not substituted for (14.6).
 
 The source toolchain was Agda 2.8.0 with agda/cubical v0.9; older modules mention other checks. This import does not report a new aggregate build or whole-repository verification.
 

@@ -132,7 +132,7 @@ computation (section/abstract in parentheses):
     vs extractive scalar accumulation; the EDGE generates value, materialized in
     the relation, not captured by a platform.
   anekanta/naya/syat, plurality preserved, collapse only when fibres agree
-    (§34-35; Durnaya_CollapseIffEveryNayaAgrees) -> biodiversity; many ways of
+    (§34-35; CollapseIffEveryNayaAgrees) -> biodiversity; many ways of
     knowing; monoculture refused; the dominant standpoint is NOT privileged.
   moksa — content-addressed, portable, institution-independent (§15,§38) ->
     decolonized from location, owner, authority.

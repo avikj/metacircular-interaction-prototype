@@ -46,7 +46,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sigma using (Σ-syntax ; _,_ ; fst ; snd)
 open import Cubical.Data.Int using (ℤ)
 
-open import Prashna_TheInteractiveMachineStrictlyContainsTheTuringMachineAndDeterminismIsExactlyTheCollapse
+open import TheInteractiveMachineStrictlyContainsTheTuringMachineAndDeterminismIsExactlyTheCollapse
   using (ISC)
 open ISC
 open import Fibre.Orbit using (Orbit ; here ; next ; unfold ; _≈_ ; ≈here ; ≈next ; bisim)

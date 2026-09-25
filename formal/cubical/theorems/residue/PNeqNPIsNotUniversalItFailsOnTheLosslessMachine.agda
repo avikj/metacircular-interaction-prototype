@@ -36,9 +36,9 @@ open import Cubical.Foundations.Equiv using (equivFun)
 open import Cubical.Data.Sigma using (Σ ; _×_ ; _,_ ; Σ-syntax)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
   using (Machine ; uStep ; lossless)
-open import Nasha_TheVisibleStepDestroysInformationAndTheCompletedStepCannotByConstruction
+open import TheVisibleStepDestroysInformationAndTheCompletedStepCannotByConstruction
   using (the-step-forgets ; completed-injective)
 
 ------------------------------------------------------------------------

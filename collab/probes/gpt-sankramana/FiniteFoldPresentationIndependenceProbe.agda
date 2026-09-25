@@ -24,9 +24,9 @@ open import Cubical.Foundations.Equiv
 open import Cubical.Data.Nat using (ℕ ; suc)
 open import Cubical.Data.SumFin using (Fin)
 
-open import SamaVibhaga_TransitiveSymmetryNormalizationAndUniqueDivisionForceTheUniformMeasure
+open import TransitiveSymmetryNormalizationAndUniqueDivisionForceTheUniformMeasure
   using (total ; total-ext)
-open import OrderNairapeksya_TheTotalIsIndifferentToTheEnumerationSpendingOnlyAssocAndComm
+open import TheTotalIsIndifferentToTheEnumerationSpendingOnlyAssocAndComm
   using (permutation-invariant)
 
 private

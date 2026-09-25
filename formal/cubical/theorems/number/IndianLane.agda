@@ -62,7 +62,7 @@ import Sivasutra
 -- Optimality for Sivasutra.agda, the lower-bound half: classes sharing
 -- one anubandha are a ⊆-chain, so a ⊆-antichain of classes forces that many
 -- markers, in ANY order.  Four for the vowel classes; the order attains four.
-import PratyaharaLaghava_TheMarkerCountIsForcedByTheAntichain
+import TheMarkerCountIsForcedByTheAntichain
 import Panini
 import ElsewhereCondition
 
@@ -107,7 +107,7 @@ import AbhavaAvacchedaka
 import PingalaPrastara
 -- नष्टोद्दिष्टम् — पिङ्गलस्य नष्ट/उद्दिष्ट स्थान-पृथक्-छेदेषु विस्तारितौ, परस्पर-प्रतिलोमौ (अङ्कस्थान rs ≃ Fin (सङ्ख्या rs)) ;
 -- मेरु-पङ्क्तिः एक-पङ्क्त्या जन्यते, मात्रामेरुः युगलेन ।  एतत् machine/Prastara_*.hs-मध्ये चलति ।
-import NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn
+import TheRankUnrankAlgebraTheMachineRunsOn
 -- संख्या-पङ्क्ति-सेतुः — पिङ्गलस्य संख्या-प्रत्ययः = मेरु-पङ्क्ति-योगः (count n = ∑ₖ C(n,k))
 import PrastaraPankti
 
@@ -164,16 +164,16 @@ import LosslessReturn
 ------------------------------------------------------------------------
 
 import SamayikaAndNityaAreIndependent
-import OrderAstiNasti_TheFourthCornerIsRefutedUnderPointwiseStability
+import TheFourthCornerIsRefutedUnderPointwiseStability
 
 ------------------------------------------------------------------------
--- Tantrayukti_ARetractionThatIsNotStrictIsNotARetraction imports both
+-- ARetractionThatIsNotStrictIsNotARetraction imports both
 -- AnuktaAvaktavya and the two modules that refute it, which no one of
 -- them can do, and holds the objection and the survivor in one checked
 -- record.  Kauilya, Arthastra 15.1; Caraka Sahit, Siddhisthna 12.
 ------------------------------------------------------------------------
 
-import Tantrayukti_ARetractionThatIsNotStrictIsNotARetraction
+import ARetractionThatIsNotStrictIsNotARetraction
 
 ------------------------------------------------------------------------
 -- The dispute, not the blend.
@@ -190,7 +190,7 @@ import Tantrayukti_ARetractionThatIsNotStrictIsNotARetraction
 -- Aasahasr (c. 850); Prabhcandra, Prameyakamalamrtaa (c. 1000).
 ------------------------------------------------------------------------
 
-import ApohaParyaya_WhetherConceptualContentIsNegativeIsWhatTheTwoSchoolsActuallyDispute
+import WhetherConceptualContentIsNegativeIsWhatTheTwoSchoolsActuallyDispute
 
 ------------------------------------------------------------------------
 -- The fitness condition on absence.
@@ -212,4 +212,4 @@ import ApohaParyaya_WhetherConceptualContentIsNegativeIsWhatTheTwoSchoolsActuall
 -- rather than settled, in the Haskell lane.
 ------------------------------------------------------------------------
 
-import Anupalabdhi_TheFitnessIsWhatMakesNonApprehensionKnowledge
+import TheFitnessIsWhatMakesNonApprehensionKnowledge

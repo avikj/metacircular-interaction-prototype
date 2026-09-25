@@ -13,7 +13,7 @@ open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 open import Sha256 using (sha256 ; takeN ; dropN)
 open import Sha256OnTheWire using (sha256P)
-open import EkaKriya_TheCompletionIsAFoldOverCodeOneInductionRunsTheProgramKeepsTheTraceProjectsTheVisibleAndBuildsTheInverse
+open import TheCompletionIsAFoldOverCodeOneInductionRunsTheProgramKeepsTheTraceProjectsTheVisibleAndBuildsTheInverse
   using (Prog ; prim ; _⨾_ ; ⟦_⟧ ; Trace ; T⟦_⟧ ; R⟦_⟧ ; दृश्यम् ; हरणम्)
 
 Bits : Type₀

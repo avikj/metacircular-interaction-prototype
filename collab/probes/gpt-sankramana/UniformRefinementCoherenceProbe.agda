@@ -44,9 +44,9 @@ open import Cubical.Data.Sigma using (Σ ; Σ-syntax)
 open import Cubical.Data.SumFin using (Fin ; fzero ; fsuc ; totalSum)
 open import Cubical.Data.SumFin.Properties using (SumFinΣ≃)
 
-open import SamaVibhaga_TransitiveSymmetryNormalizationAndUniqueDivisionForceTheUniformMeasure
+open import TransitiveSymmetryNormalizationAndUniqueDivisionForceTheUniformMeasure
   using (total ; गुणः ; total-const)
-open import BahuShakha_TheDependentRefinementSumsBranchwiseAndTheBooksBalance
+open import TheDependentRefinementSumsBranchwiseAndTheBooksBalance
   using (शाखितयोगः ; शाखायोगः)
 
 private

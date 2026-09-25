@@ -40,7 +40,7 @@ open import Cubical.Data.Sum using (inl ; inr)
 open import Cubical.Data.Empty as ⊥ using (⊥)
 open import Cubical.Relation.Nullary using (¬_ ; Dec ; yes ; no ; Dec→Stable)
 
-open import OrderAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet
+open import TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet
   using (Any ; decAny)
 open import TheParetoStratumIsDecidableAndTheFilterIsExact
   using (StrictlyDominates ; decStrictlyDominates ; IsParetoMaximal

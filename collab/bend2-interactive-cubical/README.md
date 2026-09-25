@@ -97,11 +97,11 @@ The SAT/3SAT work is a finite Boolean specialization of this already-general mac
 
 The closure is anchored by:
 
-- \`Fibre.Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda\`
+- \`Fibre.TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda\`
 - \`Fibre.Visvarupa_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda\`
-- \`Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda\`
-- \`VerifyIsDecide_ThereIsNoGapBetweenFindingAndCheckingBecauseBothAreProjectionsOfOneEquivalence.agda\`
-- \`AdiBija_TheKernelIsInitialEveryReadingIsItsUniqueFoldSoAllPathsThroughASystemAreEnumeratedByOneRecursor.agda\`
+- \`LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda\`
+- \`ThereIsNoGapBetweenFindingAndCheckingBecauseBothAreProjectionsOfOneEquivalence.agda\`
+- \`TheKernelIsInitialEveryReadingIsItsUniqueFoldSoAllPathsThroughASystemAreEnumeratedByOneRecursor.agda\`
 - \`IntrinsicRewrite.agda\`
 - \`Transport.agda\`, \`ParetoCost.agda\`, and \`DSOContinuationFullAbstract.agda\`
 - \`research/PNP_GEODESIC_REDUCTION_20260916.md\`

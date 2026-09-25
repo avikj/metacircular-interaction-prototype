@@ -352,9 +352,9 @@ def declaration_link(row, name):
 def enrich_pratt(markup, rows, names, types):
     by_path = {row["relative"]: row for row in rows if row["origin"] == "repository"}
     anchors = {
-        "Lossless": ("formal/cubical/theorems/residue/Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda", "Lossless"),
+        "Lossless": ("formal/cubical/theorems/residue/LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda", "Lossless"),
         "π": ("fibre/src/Fibre/Visvarupa_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda", "π"),
-        "LawfulStep": ("fibre/src/Fibre/LawfulStep_TheVisibleStepNeedNotBeInvertibleAndItsResidueIsStillExactlyOneFibre.agda", "LawfulStep"),
+        "LawfulStep": ("fibre/src/Fibre/TheVisibleStepNeedNotBeInvertibleAndItsResidueIsStillExactlyOneFibre.agda", "LawfulStep"),
         "ISC": ("fibre/src/Fibre/Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers.agda", "ISC"),
     }
     links = {}

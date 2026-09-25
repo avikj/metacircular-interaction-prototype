@@ -10,31 +10,31 @@ The concrete rope theorem below gives the canonical closed instance: bringing ce
 
 All paths below are relative to the repository root.
 
-**S1 — forced completion.** `fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda`: `Conservative`, `fiberize`, `canonical`, `fibre-of-run`, `trace-is-forced`, `canonical-run`, `canonical-recovers`.
+**S1 — forced completion.** `fibre/src/Fibre/TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda`: `Conservative`, `fiberize`, `canonical`, `fibre-of-run`, `trace-is-forced`, `canonical-run`, `canonical-recovers`.
 
 **S2 — classifier.** `fibre/src/Fibre/Visvarupa_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda`: universal family, canonical pullback, classifier, `invisible≃contractible`, finite tower flattening at the stated universe levels.
 
-**S3 — truncation fibre.** `fibre/src/Fibre/Avaccheda_TheTruncationsFibreIsTheWholeSourceSoTheSeamConjectureIsATheorem.agda`: `अवच्छेदः` (avaccheda), explicitly `fiber |_| p ≃ A`.
+**S3 — truncation fibre.** `fibre/src/Fibre/TheTruncationsFibreIsTheWholeSourceSoTheSeamConjectureIsATheorem.agda`: `अवच्छेदः` (avaccheda), explicitly `fiber |_| p ≃ A`.
 
 **S4 — composite fibre.** `punaragamana/src/Punaragamana/SamyogaSesa_TheResidualOfACompositeIsTheResidualOfTheResidual.agda`: `संयोगशेष` (samyoga-sesa), the fibre-of-composite equivalence.
 
-**S5 — coinductive histories.** `formal/cubical/theorems/residue/Prasna_TheMachineThatAsksItsRunIsItsAnswerStreamAndSilenceOfQuestionsIsDeterminism.agda`: `Interaction`, `IExec`, `Answers`, `forgetStates`, `replay`, `run-is-answers`, `silence-is-determinism`.
+**S5 — coinductive histories.** `formal/cubical/theorems/residue/TheMachineThatAsksItsRunIsItsAnswerStreamAndSilenceOfQuestionsIsDeterminism.agda`: `Interaction`, `IExec`, `Answers`, `forgetStates`, `replay`, `run-is-answers`, `silence-is-determinism`.
 
 **S6 — interactive coalgebra.** `fibre/src/Fibre/Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers.agda`: `ISC.react`, `det-observe`, `det-strategy-independent`, `counter-demand-matters`.
 
-**S7 — the crossing equations.** `formal/cubical/theorems/physics/AnantaVeni_TheInfiniteBraidActsOnTheInterdependentStreamAndEveryRelationOfEveryBraidGroupHoldsAtOnce.agda`: `Rajju`, `saṃyoga`, `veṇī∞`, `veṇī-sūtra`, `dūra-sūtra`.
+**S7 — the crossing equations.** `formal/cubical/theorems/physics/TheInfiniteBraidActsOnTheInterdependentStreamAndEveryRelationOfEveryBraidGroupHoldsAtOnce.agda`: `Rajju`, `saṃyoga`, `veṇī∞`, `veṇī-sūtra`, `dūra-sūtra`.
 
-**S8 — prefix locality.** `formal/cubical/theorems/physics/SthairyaSutra_EveryCrossingIsOneLipschitzWithUnitLookaheadSoEveryWordIsUniformlyContinuousWithModulusItsLength.agda`: `kartana`, `kartana-hrāsa`, `veṇī-sthairya`, `śabda-sthairya`, `catur-sthairya`.
+**S8 — prefix locality.** `formal/cubical/theorems/physics/EveryCrossingIsOneLipschitzWithUnitLookaheadSoEveryWordIsUniformlyContinuousWithModulusItsLength.agda`: `kartana`, `kartana-hrāsa`, `veṇī-sthairya`, `śabda-sthairya`, `catur-sthairya`.
 
-**S9 — finite order.** `formal/cubical/theorems/physics/AnantaVeniMatra_EveryCrossingIsLocalAndHasOrderExactlyEightAtEveryPositionOfTheEndlessBraid.agda`: `gāḍha`, off-pair locality, `aṣṭa-cakra∞`, `na-catuṣka∞`. Quarter-turn identities are imported there from `CaturamsaBhramana_TheQuarterWaveLivesOnlyOnTheInterdependentPairAndEachSenseCarriesExactlyItsSquare`.
+**S9 — finite order.** `formal/cubical/theorems/physics/EveryCrossingIsLocalAndHasOrderExactlyEightAtEveryPositionOfTheEndlessBraid.agda`: `gāḍha`, off-pair locality, `aṣṭa-cakra∞`, `na-catuṣka∞`. Quarter-turn identities are imported there from `TheQuarterWaveLivesOnlyOnTheInterdependentPairAndEachSenseCarriesExactlyItsSquare`.
 
-**S10 — grading versus inverse.** `formal/cubical/theorems/grammar/Laghava_TheCostAndTheInverseCannotCoexistSoNoNontrivialGroupIsGradedAndTransportHasNoPrice.agda`: `Matra` is an exactly additive natural-valued grading; `Laghava` additionally detects the unit.
+**S10 — grading versus inverse.** `formal/cubical/theorems/grammar/TheCostAndTheInverseCannotCoexistSoNoNontrivialGroupIsGradedAndTransportHasNoPrice.agda`: `Matra` is an exactly additive natural-valued grading; `Laghava` additionally detects the unit.
 
-**S11 — reconstruction direction.** `formal/cubical/theorems/logic/NKSUnivalence_CoordinatizationIsAPathTheMergeIsATruncationWithNoSectionAndTheBoundedObserverSeparatesNoCoTerminalRuns.agda`: `निर्देशान्तर` is a path of structured systems; `पुनरुद्धार-नास्ति` refutes the left-inverse equation `sel(|r|)=r`.
+**S11 — reconstruction direction.** `formal/cubical/theorems/logic/CoordinatizationIsAPathTheMergeIsATruncationWithNoSectionAndTheBoundedObserverSeparatesNoCoTerminalRuns.agda`: `निर्देशान्तर` is a path of structured systems; `पुनरुद्धार-नास्ति` refutes the left-inverse equation `sel(|r|)=r`.
 
-**S12 — sections.** `formal/cubical/theorems/physics/Varanam_ASectionIsAChoiceOfReceiptEverywhereAndForALossyMapTheChoiceIsReal.agda`: the type `(b:B) -> fiber f b`, contractible for an equivalence, with two distinct sections of Bool -> Unit.
+**S12 — sections.** `formal/cubical/theorems/physics/ASectionIsAChoiceOfReceiptEverywhereAndForALossyMapTheChoiceIsReal.agda`: the type `(b:B) -> fiber f b`, contractible for an equivalence, with two distinct sections of Bool -> Unit.
 
-**S13 — propositional fibres.** `formal/cubical/theorems/residue/Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork.agda`: propositional fibres identify any two hits.
+**S13 — propositional fibres.** `formal/cubical/theorems/residue/TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork.agda`: propositional fibres identify any two hits.
 
 **S14 — native work discipline.** `formal/cubical/theorems/cost/CountedDigitsEdge.agda`: cost is threaded through the execution being priced; an exact carry identity relates the count to the same recursion.
 

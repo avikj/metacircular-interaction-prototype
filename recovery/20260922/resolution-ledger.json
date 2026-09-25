@@ -270,8 +270,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "fibre/src/Fibre/Adharmin_TheUnposedQuestionIsNotAnEmptyFibreAndTheCensusCannotSayIt.agda",
-    "integrated_path": "fibre/src/Fibre/Adharmin_TheUnposedQuestionIsNotAnEmptyFibreAndTheCensusCannotSayIt.agda",
+    "original_path": "fibre/src/Fibre/TheUnposedQuestionIsNotAnEmptyFibreAndTheCensusCannotSayIt.agda",
+    "integrated_path": "fibre/src/Fibre/TheUnposedQuestionIsNotAnEmptyFibreAndTheCensusCannotSayIt.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -295,8 +295,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "fibre/src/Fibre/KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree.agda",
-    "integrated_path": "fibre/src/Fibre/KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree.agda",
+    "original_path": "fibre/src/Fibre/TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree.agda",
+    "integrated_path": "fibre/src/Fibre/TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -315,8 +315,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "fibre/src/Fibre/Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried.agda",
-    "integrated_path": "fibre/src/Fibre/Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried.agda",
+    "original_path": "fibre/src/Fibre/TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried.agda",
+    "integrated_path": "fibre/src/Fibre/TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -345,8 +345,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/Avaktavyagarbha_TheFourthPositionIsTheCrowdedFibreOfTheTongueBreakAndItsResidualIsExactlyWhatWasSaidAtOnce.agda",
-    "integrated_path": "formal/cubical/Avaktavyagarbha_TheFourthPositionIsTheCrowdedFibreOfTheTongueBreakAndItsResidualIsExactlyWhatWasSaidAtOnce.agda",
+    "original_path": "formal/cubical/TheFourthPositionIsTheCrowdedFibreOfTheTongueBreakAndItsResidualIsExactlyWhatWasSaidAtOnce.agda",
+    "integrated_path": "formal/cubical/TheFourthPositionIsTheCrowdedFibreOfTheTongueBreakAndItsResidualIsExactlyWhatWasSaidAtOnce.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -375,8 +375,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/DurnayaTantau_TheTwoValuedFibreCensusIsForcedToCollapseAndTheThirdPositionEscapesIt.agda",
-    "integrated_path": "formal/cubical/DurnayaTantau_TheTwoValuedFibreCensusIsForcedToCollapseAndTheThirdPositionEscapesIt.agda",
+    "original_path": "formal/cubical/TheTwoValuedFibreCensusIsForcedToCollapseAndTheThirdPositionEscapesIt.agda",
+    "integrated_path": "formal/cubical/TheTwoValuedFibreCensusIsForcedToCollapseAndTheThirdPositionEscapesIt.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -385,28 +385,28 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/EkaKriya_TheCompletionIsAFoldOverCodeOneInductionRunsTheProgramKeepsTheTraceProjectsTheVisibleAndBuildsTheInverse.agda",
-    "integrated_path": "formal/cubical/EkaKriya_TheCompletionIsAFoldOverCodeOneInductionRunsTheProgramKeepsTheTraceProjectsTheVisibleAndBuildsTheInverse.agda",
+    "original_path": "formal/cubical/TheCompletionIsAFoldOverCodeOneInductionRunsTheProgramKeepsTheTraceProjectsTheVisibleAndBuildsTheInverse.agda",
+    "integrated_path": "formal/cubical/TheCompletionIsAFoldOverCodeOneInductionRunsTheProgramKeepsTheTraceProjectsTheVisibleAndBuildsTheInverse.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/GhataBhedaBhanga_TheDiscreteLogsOneWaynessIsExactlyTheEmbeddingFactorFailingNotTheSurjectionFactor.agda",
-    "integrated_path": "formal/cubical/GhataBhedaBhanga_TheDiscreteLogsOneWaynessIsExactlyTheEmbeddingFactorFailingNotTheSurjectionFactor.agda",
+    "original_path": "formal/cubical/TheDiscreteLogsOneWaynessIsExactlyTheEmbeddingFactorFailingNotTheSurjectionFactor.agda",
+    "integrated_path": "formal/cubical/TheDiscreteLogsOneWaynessIsExactlyTheEmbeddingFactorFailingNotTheSurjectionFactor.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/JyesthaMulaMatra_TheGreaterRootAloneMisreadsANonSquarefreePrakrti.agda",
-    "integrated_path": "formal/cubical/JyesthaMulaMatra_TheGreaterRootAloneMisreadsANonSquarefreePrakrti.agda",
+    "original_path": "formal/cubical/TheGreaterRootAloneMisreadsANonSquarefreePrakrti.agda",
+    "integrated_path": "formal/cubical/TheGreaterRootAloneMisreadsANonSquarefreePrakrti.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/KaroubiSaptabhangi_TheSevenfoldIsTheFreeJoinSemilatticeOnThreeSeedsDeformedByOneIdempotent.agda",
-    "integrated_path": "formal/cubical/KaroubiSaptabhangi_TheSevenfoldIsTheFreeJoinSemilatticeOnThreeSeedsDeformedByOneIdempotent.agda",
+    "original_path": "formal/cubical/TheSevenfoldIsTheFreeJoinSemilatticeOnThreeSeedsDeformedByOneIdempotent.agda",
+    "integrated_path": "formal/cubical/TheSevenfoldIsTheFreeJoinSemilatticeOnThreeSeedsDeformedByOneIdempotent.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/Kernel/Adesa_SubstitutionIsAdmissibleOnDerivationsSoASchemaCanCarryACertificateAndNotOnlyAMeaning.agda",
-    "integrated_path": "formal/cubical/Kernel/Adesa_SubstitutionIsAdmissibleOnDerivationsSoASchemaCanCarryACertificateAndNotOnlyAMeaning.agda",
+    "original_path": "formal/cubical/Kernel/SubstitutionIsAdmissibleOnDerivationsSoASchemaCanCarryACertificateAndNotOnlyAMeaning.agda",
+    "integrated_path": "formal/cubical/Kernel/SubstitutionIsAdmissibleOnDerivationsSoASchemaCanCarryACertificateAndNotOnlyAMeaning.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -440,13 +440,13 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/Kernel/Syat_TheBlindnessIsAPropertyOfTheCodomainAndCostFailsInversionRatherThanTruncation.agda",
-    "integrated_path": "formal/cubical/Kernel/Syat_TheBlindnessIsAPropertyOfTheCodomainAndCostFailsInversionRatherThanTruncation.agda",
+    "original_path": "formal/cubical/Kernel/TheBlindnessIsAPropertyOfTheCodomainAndCostFailsInversionRatherThanTruncation.agda",
+    "integrated_path": "formal/cubical/Kernel/TheBlindnessIsAPropertyOfTheCodomainAndCostFailsInversionRatherThanTruncation.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/MitraSakshi_TheFriendsFactAndWignersAccountAreTwoNayasWhoseJointIsAvaktavyaSoTheParadoxIsAForcedSingleUtterance.agda",
-    "integrated_path": "formal/cubical/MitraSakshi_TheFriendsFactAndWignersAccountAreTwoNayasWhoseJointIsAvaktavyaSoTheParadoxIsAForcedSingleUtterance.agda",
+    "original_path": "formal/cubical/TheFriendsFactAndWignersAccountAreTwoNayasWhoseJointIsAvaktavyaSoTheParadoxIsAForcedSingleUtterance.agda",
+    "integrated_path": "formal/cubical/TheFriendsFactAndWignersAccountAreTwoNayasWhoseJointIsAvaktavyaSoTheParadoxIsAForcedSingleUtterance.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -470,8 +470,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/Mula/Pata_CarryingIsUnconditionalButAddressingNeedsTheMapToBeAnIdentification.agda",
-    "integrated_path": "formal/cubical/Mula/Pata_CarryingIsUnconditionalButAddressingNeedsTheMapToBeAnIdentification.agda",
+    "original_path": "formal/cubical/Mula/CarryingIsUnconditionalButAddressingNeedsTheMapToBeAnIdentification.agda",
+    "integrated_path": "formal/cubical/Mula/CarryingIsUnconditionalButAddressingNeedsTheMapToBeAnIdentification.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -485,8 +485,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/Mula/SamraksakaGana_TheConservingFlowsFormAGanaAndTheSectionIdentificationPreservesItByRefl.agda",
-    "integrated_path": "formal/cubical/Mula/SamraksakaGana_TheConservingFlowsFormAGanaAndTheSectionIdentificationPreservesItByRefl.agda",
+    "original_path": "formal/cubical/Mula/TheConservingFlowsFormAGanaAndTheSectionIdentificationPreservesItByRefl.agda",
+    "integrated_path": "formal/cubical/Mula/TheConservingFlowsFormAGanaAndTheSectionIdentificationPreservesItByRefl.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -500,38 +500,38 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/Mula/YugmaPurana_TheValliRecoversItsLengthModuloTwoAndNoFurther.agda",
-    "integrated_path": "formal/cubical/Mula/YugmaPurana_TheValliRecoversItsLengthModuloTwoAndNoFurther.agda",
+    "original_path": "formal/cubical/Mula/TheValliRecoversItsLengthModuloTwoAndNoFurther.agda",
+    "integrated_path": "formal/cubical/Mula/TheValliRecoversItsLengthModuloTwoAndNoFurther.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/Mulyam_ThePriceReadoutAndTheSymmetryReadoutAreOneFunctionAndBothMergeTheFullyHeldWithTheNeverAsked.agda",
-    "integrated_path": "formal/cubical/Mulyam_ThePriceReadoutAndTheSymmetryReadoutAreOneFunctionAndBothMergeTheFullyHeldWithTheNeverAsked.agda",
+    "original_path": "formal/cubical/ThePriceReadoutAndTheSymmetryReadoutAreOneFunctionAndBothMergeTheFullyHeldWithTheNeverAsked.agda",
+    "integrated_path": "formal/cubical/ThePriceReadoutAndTheSymmetryReadoutAreOneFunctionAndBothMergeTheFullyHeldWithTheNeverAsked.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/NaturalMachine/Akanksa_TheSchemaCannotHandItsReplacementAVariableItsPatternDidNotBind.agda",
-    "integrated_path": "formal/cubical/NaturalMachine/Akanksa_TheSchemaCannotHandItsReplacementAVariableItsPatternDidNotBind.agda",
+    "original_path": "formal/cubical/NaturalMachine/TheSchemaCannotHandItsReplacementAVariableItsPatternDidNotBind.agda",
+    "integrated_path": "formal/cubical/NaturalMachine/TheSchemaCannotHandItsReplacementAVariableItsPatternDidNotBind.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/NaturalMachine/Alopa_TheEngineNeverTouchesTheMeaning.agda",
-    "integrated_path": "formal/cubical/NaturalMachine/Alopa_TheEngineNeverTouchesTheMeaning.agda",
+    "original_path": "formal/cubical/NaturalMachine/TheEngineNeverTouchesTheMeaning.agda",
+    "integrated_path": "formal/cubical/NaturalMachine/TheEngineNeverTouchesTheMeaning.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/NaturalMachine/Aroha_TheInternalProverClimbsWhereItsFlatVoiceIsSilentAndTheStoreAdmitsInductionThroughTheSameGate.agda",
-    "integrated_path": "formal/cubical/NaturalMachine/Aroha_TheInternalProverClimbsWhereItsFlatVoiceIsSilentAndTheStoreAdmitsInductionThroughTheSameGate.agda",
+    "original_path": "formal/cubical/NaturalMachine/TheInternalProverClimbsWhereItsFlatVoiceIsSilentAndTheStoreAdmitsInductionThroughTheSameGate.agda",
+    "integrated_path": "formal/cubical/NaturalMachine/TheInternalProverClimbsWhereItsFlatVoiceIsSilentAndTheStoreAdmitsInductionThroughTheSameGate.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/NaturalMachine/BhavaIndriya_TheNewEyeIsMadeOfTheBodysOwnAttainedTheoremsNotOfExternalMatter.agda",
-    "integrated_path": "formal/cubical/NaturalMachine/BhavaIndriya_TheNewEyeIsMadeOfTheBodysOwnAttainedTheoremsNotOfExternalMatter.agda",
+    "original_path": "formal/cubical/NaturalMachine/TheNewEyeIsMadeOfTheBodysOwnAttainedTheoremsNotOfExternalMatter.agda",
+    "integrated_path": "formal/cubical/NaturalMachine/TheNewEyeIsMadeOfTheBodysOwnAttainedTheoremsNotOfExternalMatter.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/NaturalMachine/EkaTantra_TheSchedulerAndTheProverAreOneContentionStructureAndTheDifferenceIsAParameter.agda",
-    "integrated_path": "formal/cubical/NaturalMachine/EkaTantra_TheSchedulerAndTheProverAreOneContentionStructureAndTheDifferenceIsAParameter.agda",
+    "original_path": "formal/cubical/NaturalMachine/TheSchedulerAndTheProverAreOneContentionStructureAndTheDifferenceIsAParameter.agda",
+    "integrated_path": "formal/cubical/NaturalMachine/TheSchedulerAndTheProverAreOneContentionStructureAndTheDifferenceIsAParameter.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -540,13 +540,13 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/NaturalMachine/MulyaSankranti_TheTotalComposesDegeneratelyAndOnlyTheTraceManufactures.agda",
-    "integrated_path": "formal/cubical/NaturalMachine/MulyaSankranti_TheTotalComposesDegeneratelyAndOnlyTheTraceManufactures.agda",
+    "original_path": "formal/cubical/NaturalMachine/TheTotalComposesDegeneratelyAndOnlyTheTraceManufactures.agda",
+    "integrated_path": "formal/cubical/NaturalMachine/TheTotalComposesDegeneratelyAndOnlyTheTraceManufactures.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/NaturalMachine/Nirjara_SheddingAPrimitiveCostsLaghava.agda",
-    "integrated_path": "formal/cubical/NaturalMachine/Nirjara_SheddingAPrimitiveCostsLaghava.agda",
+    "original_path": "formal/cubical/NaturalMachine/SheddingAPrimitiveCostsLaghava.agda",
+    "integrated_path": "formal/cubical/NaturalMachine/SheddingAPrimitiveCostsLaghava.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -555,8 +555,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/NaturalMachine/PraciSadhana_OneShadowUnderdeterminesAndTheOrbitQuotientCoincidesWithThePresentExactlyOnACongruence.agda",
-    "integrated_path": "formal/cubical/NaturalMachine/PraciSadhana_OneShadowUnderdeterminesAndTheOrbitQuotientCoincidesWithThePresentExactlyOnACongruence.agda",
+    "original_path": "formal/cubical/NaturalMachine/OneShadowUnderdeterminesAndTheOrbitQuotientCoincidesWithThePresentExactlyOnACongruence.agda",
+    "integrated_path": "formal/cubical/NaturalMachine/OneShadowUnderdeterminesAndTheOrbitQuotientCoincidesWithThePresentExactlyOnACongruence.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -570,13 +570,13 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/NaturalMachine/Rashi_TheSumIsAHeapNotASequenceTheUnitIsAnAtomAndTheHypothesisSpeaksThroughTheHeap.agda",
-    "integrated_path": "formal/cubical/NaturalMachine/Rashi_TheSumIsAHeapNotASequenceTheUnitIsAnAtomAndTheHypothesisSpeaksThroughTheHeap.agda",
+    "original_path": "formal/cubical/NaturalMachine/TheSumIsAHeapNotASequenceTheUnitIsAnAtomAndTheHypothesisSpeaksThroughTheHeap.agda",
+    "integrated_path": "formal/cubical/NaturalMachine/TheSumIsAHeapNotASequenceTheUnitIsAnAtomAndTheHypothesisSpeaksThroughTheHeap.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/NaturalMachine/Samprayogika_TheJoinIsClassifiedByBothConstitutions.agda",
-    "integrated_path": "formal/cubical/NaturalMachine/Samprayogika_TheJoinIsClassifiedByBothConstitutions.agda",
+    "original_path": "formal/cubical/NaturalMachine/TheJoinIsClassifiedByBothConstitutions.agda",
+    "integrated_path": "formal/cubical/NaturalMachine/TheJoinIsClassifiedByBothConstitutions.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -595,13 +595,13 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/NaturalMachine/ShrutaMatipurva_TheRecordIsPrecededByCognitionAndCognitionWithTheRecordReachesWhatItAloneCouldNot.agda",
-    "integrated_path": "formal/cubical/NaturalMachine/ShrutaMatipurva_TheRecordIsPrecededByCognitionAndCognitionWithTheRecordReachesWhatItAloneCouldNot.agda",
+    "original_path": "formal/cubical/NaturalMachine/TheRecordIsPrecededByCognitionAndCognitionWithTheRecordReachesWhatItAloneCouldNot.agda",
+    "integrated_path": "formal/cubical/NaturalMachine/TheRecordIsPrecededByCognitionAndCognitionWithTheRecordReachesWhatItAloneCouldNot.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/NaturalMachine/SvayamBhavendriya_TheBodyGrowsItsOwnEyesFromItsOwnRulesAndNoAgentBuildsOrgans.agda",
-    "integrated_path": "formal/cubical/NaturalMachine/SvayamBhavendriya_TheBodyGrowsItsOwnEyesFromItsOwnRulesAndNoAgentBuildsOrgans.agda",
+    "original_path": "formal/cubical/NaturalMachine/TheBodyGrowsItsOwnEyesFromItsOwnRulesAndNoAgentBuildsOrgans.agda",
+    "integrated_path": "formal/cubical/NaturalMachine/TheBodyGrowsItsOwnEyesFromItsOwnRulesAndNoAgentBuildsOrgans.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -610,8 +610,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/NaturalMachine/UtpadaVyayaDhrauvya_TheStoreTurnsItselfNewRulesAriseFromItsOwnContentionsTheTrivialPassesTheProvenPersists.agda",
-    "integrated_path": "formal/cubical/NaturalMachine/UtpadaVyayaDhrauvya_TheStoreTurnsItselfNewRulesAriseFromItsOwnContentionsTheTrivialPassesTheProvenPersists.agda",
+    "original_path": "formal/cubical/NaturalMachine/TheStoreTurnsItselfNewRulesAriseFromItsOwnContentionsTheTrivialPassesTheProvenPersists.agda",
+    "integrated_path": "formal/cubical/NaturalMachine/TheStoreTurnsItselfNewRulesAriseFromItsOwnContentionsTheTrivialPassesTheProvenPersists.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -620,13 +620,13 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/NaturalMachine/Visranti_TheNormalFormIsTheCompleteInvariantSoDerivabilityIsDecidedByTwoStepsAndARefl.agda",
-    "integrated_path": "formal/cubical/NaturalMachine/Visranti_TheNormalFormIsTheCompleteInvariantSoDerivabilityIsDecidedByTwoStepsAndARefl.agda",
+    "original_path": "formal/cubical/NaturalMachine/TheNormalFormIsTheCompleteInvariantSoDerivabilityIsDecidedByTwoStepsAndARefl.agda",
+    "integrated_path": "formal/cubical/NaturalMachine/TheNormalFormIsTheCompleteInvariantSoDerivabilityIsDecidedByTwoStepsAndARefl.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/NaturalMachine/Yugapat_TheRefusalOfJointAssertionDoesNotDecompose.agda",
-    "integrated_path": "formal/cubical/NaturalMachine/Yugapat_TheRefusalOfJointAssertionDoesNotDecompose.agda",
+    "original_path": "formal/cubical/NaturalMachine/TheRefusalOfJointAssertionDoesNotDecompose.agda",
+    "integrated_path": "formal/cubical/NaturalMachine/TheRefusalOfJointAssertionDoesNotDecompose.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -635,8 +635,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/ParikramaAndhata_EveryFibreMerelyAgreesEverywhereYetTheFamilyDoesNotDescendAndTheSectionedBaseDoesNotSaveIt.agda",
-    "integrated_path": "formal/cubical/ParikramaAndhata_EveryFibreMerelyAgreesEverywhereYetTheFamilyDoesNotDescendAndTheSectionedBaseDoesNotSaveIt.agda",
+    "original_path": "formal/cubical/EveryFibreMerelyAgreesEverywhereYetTheFamilyDoesNotDescendAndTheSectionedBaseDoesNotSaveIt.agda",
+    "integrated_path": "formal/cubical/EveryFibreMerelyAgreesEverywhereYetTheFamilyDoesNotDescendAndTheSectionedBaseDoesNotSaveIt.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -680,18 +680,18 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/SanghattaPurana_EverySpanOfPathsJoinsSoTheGapWasAFactAboutTheShadowAndTheWombedSquaresAreFilled.agda",
-    "integrated_path": "formal/cubical/SanghattaPurana_EverySpanOfPathsJoinsSoTheGapWasAFactAboutTheShadowAndTheWombedSquaresAreFilled.agda",
+    "original_path": "formal/cubical/EverySpanOfPathsJoinsSoTheGapWasAFactAboutTheShadowAndTheWombedSquaresAreFilled.agda",
+    "integrated_path": "formal/cubical/EverySpanOfPathsJoinsSoTheGapWasAFactAboutTheShadowAndTheWombedSquaresAreFilled.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/Santana_TheChildOfTheStillAndTheInvertedIsBornLiveAndBreathes.agda",
-    "integrated_path": "formal/cubical/Santana_TheChildOfTheStillAndTheInvertedIsBornLiveAndBreathes.agda",
+    "original_path": "formal/cubical/TheChildOfTheStillAndTheInvertedIsBornLiveAndBreathes.agda",
+    "integrated_path": "formal/cubical/TheChildOfTheStillAndTheInvertedIsBornLiveAndBreathes.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/SatPunaruddhara_TheExistentsThreefoldNatureSurvivesItsAuthorsBurnBecauseContentIsNeverOwned.agda",
-    "integrated_path": "formal/cubical/SatPunaruddhara_TheExistentsThreefoldNatureSurvivesItsAuthorsBurnBecauseContentIsNeverOwned.agda",
+    "original_path": "formal/cubical/TheExistentsThreefoldNatureSurvivesItsAuthorsBurnBecauseContentIsNeverOwned.agda",
+    "integrated_path": "formal/cubical/TheExistentsThreefoldNatureSurvivesItsAuthorsBurnBecauseContentIsNeverOwned.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -720,8 +720,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/Sha256Parimana_EveryDigestIsExactly256BitsSoTheRealHashIsUnconditionallyANonEquivalence.agda",
-    "integrated_path": "formal/cubical/Sha256Parimana_EveryDigestIsExactly256BitsSoTheRealHashIsUnconditionallyANonEquivalence.agda",
+    "original_path": "formal/cubical/EveryDigestIsExactly256BitsSoTheRealHashIsUnconditionallyANonEquivalence.agda",
+    "integrated_path": "formal/cubical/EveryDigestIsExactly256BitsSoTheRealHashIsUnconditionallyANonEquivalence.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -745,8 +745,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/Sha256Varga_TheHashFactorsThroughItsClassesEveryClassIsAFibreAndTheDescendedMapForgetsNothing.agda",
-    "integrated_path": "formal/cubical/Sha256Varga_TheHashFactorsThroughItsClassesEveryClassIsAFibreAndTheDescendedMapForgetsNothing.agda",
+    "original_path": "formal/cubical/TheHashFactorsThroughItsClassesEveryClassIsAFibreAndTheDescendedMapForgetsNothing.agda",
+    "integrated_path": "formal/cubical/TheHashFactorsThroughItsClassesEveryClassIsAFibreAndTheDescendedMapForgetsNothing.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -780,8 +780,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/Yantra/Chaya_TheShadowHasNoSectionThoughItHasAMap.agda",
-    "integrated_path": "formal/cubical/Yantra/Chaya_TheShadowHasNoSectionThoughItHasAMap.agda",
+    "original_path": "formal/cubical/Yantra/TheShadowHasNoSectionThoughItHasAMap.agda",
+    "integrated_path": "formal/cubical/Yantra/TheShadowHasNoSectionThoughItHasAMap.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -815,8 +815,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/Yantra/KuttakaSamapti_TheValliTerminatesWithoutFuel.agda",
-    "integrated_path": "formal/cubical/Yantra/KuttakaSamapti_TheValliTerminatesWithoutFuel.agda",
+    "original_path": "formal/cubical/Yantra/TheValliTerminatesWithoutFuel.agda",
+    "integrated_path": "formal/cubical/Yantra/TheValliTerminatesWithoutFuel.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -835,8 +835,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/Yantra/Pramanya_TheBooleanCarriesNoWarrantSoTheSweepCarriesTheProof.agda",
-    "integrated_path": "formal/cubical/Yantra/Pramanya_TheBooleanCarriesNoWarrantSoTheSweepCarriesTheProof.agda",
+    "original_path": "formal/cubical/Yantra/TheBooleanCarriesNoWarrantSoTheSweepCarriesTheProof.agda",
+    "integrated_path": "formal/cubical/Yantra/TheBooleanCarriesNoWarrantSoTheSweepCarriesTheProof.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -940,13 +940,13 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/Pravesa_TheFrontierTheoremsAsEntryPointsFromOtherFields.agda",
-    "integrated_path": "formal/cubical/theorems/Pravesa_TheFrontierTheoremsAsEntryPointsFromOtherFields.agda",
+    "original_path": "formal/cubical/theorems/TheFrontierTheoremsAsEntryPointsFromOtherFields.agda",
+    "integrated_path": "formal/cubical/theorems/TheFrontierTheoremsAsEntryPointsFromOtherFields.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/automata/Apunaravrtti_TheColumnOfEveryRationalRepeatsWithinItsDenominatorByPigeonholeOnRemaindersAndRuleThirtysMiddleColumnRepeatsForNoDenominatorUpToSixtyFourSoItIsNotTheColumnOfAnyOfThoseRationals.agda",
-    "integrated_path": "formal/cubical/theorems/automata/Apunaravrtti_TheColumnOfEveryRationalRepeatsWithinItsDenominatorByPigeonholeOnRemaindersAndRuleThirtysMiddleColumnRepeatsForNoDenominatorUpToSixtyFourSoItIsNotTheColumnOfAnyOfThoseRationals.agda",
+    "original_path": "formal/cubical/theorems/automata/TheColumnOfEveryRationalRepeatsWithinItsDenominatorByPigeonholeOnRemaindersAndRuleThirtysMiddleColumnRepeatsForNoDenominatorUpToSixtyFourSoItIsNotTheColumnOfAnyOfThoseRationals.agda",
+    "integrated_path": "formal/cubical/theorems/automata/TheColumnOfEveryRationalRepeatsWithinItsDenominatorByPigeonholeOnRemaindersAndRuleThirtysMiddleColumnRepeatsForNoDenominatorUpToSixtyFourSoItIsNotTheColumnOfAnyOfThoseRationals.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -955,18 +955,18 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/automata/Ganana_TheFirstFourThousandNinetySixBitsOfRuleThirtysMiddleColumnHoldTwoThousandTwentyEightOnesAndEverySixEightAndNineBitWordHasOccurredByDepthFourHundredTwentyTwoFifteenNinetyOneAndTwentyEightSeventyTwoAndNotOneBitSooner.agda",
-    "integrated_path": "formal/cubical/theorems/automata/Ganana_TheFirstFourThousandNinetySixBitsOfRuleThirtysMiddleColumnHoldTwoThousandTwentyEightOnesAndEverySixEightAndNineBitWordHasOccurredByDepthFourHundredTwentyTwoFifteenNinetyOneAndTwentyEightSeventyTwoAndNotOneBitSooner.agda",
+    "original_path": "formal/cubical/theorems/automata/TheFirstFourThousandNinetySixBitsOfRuleThirtysMiddleColumnHoldTwoThousandTwentyEightOnesAndEverySixEightAndNineBitWordHasOccurredByDepthFourHundredTwentyTwoFifteenNinetyOneAndTwentyEightSeventyTwoAndNotOneBitSooner.agda",
+    "integrated_path": "formal/cubical/theorems/automata/TheFirstFourThousandNinetySixBitsOfRuleThirtysMiddleColumnHoldTwoThousandTwentyEightOnesAndEverySixEightAndNineBitWordHasOccurredByDepthFourHundredTwentyTwoFifteenNinetyOneAndTwentyEightSeventyTwoAndNotOneBitSooner.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/automata/Jen_NoTwoAdjacentColumnsOfRuleThirtyFromASingleSeedAreBothEventuallyPeriodicBecauseLeftPermutivityCarriesPeriodicityLeftwardIntoTheLightConeWhereTheEdgeCellIsOne.agda",
-    "integrated_path": "formal/cubical/theorems/automata/Jen_NoTwoAdjacentColumnsOfRuleThirtyFromASingleSeedAreBothEventuallyPeriodicBecauseLeftPermutivityCarriesPeriodicityLeftwardIntoTheLightConeWhereTheEdgeCellIsOne.agda",
+    "original_path": "formal/cubical/theorems/automata/NoTwoAdjacentColumnsOfRuleThirtyFromASingleSeedAreBothEventuallyPeriodicBecauseLeftPermutivityCarriesPeriodicityLeftwardIntoTheLightConeWhereTheEdgeCellIsOne.agda",
+    "integrated_path": "formal/cubical/theorems/automata/NoTwoAdjacentColumnsOfRuleThirtyFromASingleSeedAreBothEventuallyPeriodicBecauseLeftPermutivityCarriesPeriodicityLeftwardIntoTheLightConeWhereTheEdgeCellIsOne.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/automata/Karna_EveryRightDiagonalOfRuleThirtyFromASingleSeedIsPurelyPeriodicWithPeriodTwoToTheKBecauseEachIsTheRunningParityOfTheOrOfTheTwoBeforeItAndTheMiddleColumnIsTheDiagonalOfTheDiagonals.agda",
-    "integrated_path": "formal/cubical/theorems/automata/Karna_EveryRightDiagonalOfRuleThirtyFromASingleSeedIsPurelyPeriodicWithPeriodTwoToTheKBecauseEachIsTheRunningParityOfTheOrOfTheTwoBeforeItAndTheMiddleColumnIsTheDiagonalOfTheDiagonals.agda",
+    "original_path": "formal/cubical/theorems/automata/EveryRightDiagonalOfRuleThirtyFromASingleSeedIsPurelyPeriodicWithPeriodTwoToTheKBecauseEachIsTheRunningParityOfTheOrOfTheTwoBeforeItAndTheMiddleColumnIsTheDiagonalOfTheDiagonals.agda",
+    "integrated_path": "formal/cubical/theorems/automata/EveryRightDiagonalOfRuleThirtyFromASingleSeedIsPurelyPeriodicWithPeriodTwoToTheKBecauseEachIsTheRunningParityOfTheOrOfTheTwoBeforeItAndTheMiddleColumnIsTheDiagonalOfTheDiagonals.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -975,8 +975,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/automata/Navapada_EveryNineBitWordOccursInTheFirstFourThousandNinetySixBitsOfRuleThirtysMiddleColumnSoNoRationalWithDenominatorUpToTwoHundredFiftySixIsThatColumn.agda",
-    "integrated_path": "formal/cubical/theorems/automata/Navapada_EveryNineBitWordOccursInTheFirstFourThousandNinetySixBitsOfRuleThirtysMiddleColumnSoNoRationalWithDenominatorUpToTwoHundredFiftySixIsThatColumn.agda",
+    "original_path": "formal/cubical/theorems/automata/EveryNineBitWordOccursInTheFirstFourThousandNinetySixBitsOfRuleThirtysMiddleColumnSoNoRationalWithDenominatorUpToTwoHundredFiftySixIsThatColumn.agda",
+    "integrated_path": "formal/cubical/theorems/automata/EveryNineBitWordOccursInTheFirstFourThousandNinetySixBitsOfRuleThirtysMiddleColumnSoNoRationalWithDenominatorUpToTwoHundredFiftySixIsThatColumn.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -985,13 +985,13 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/automata/NiyantranaGanana_TheLandscapeIsTheCosetOfTheObstructionSixteenToOne.agda",
-    "integrated_path": "formal/cubical/theorems/automata/NiyantranaGanana_TheLandscapeIsTheCosetOfTheObstructionSixteenToOne.agda",
+    "original_path": "formal/cubical/theorems/automata/TheLandscapeIsTheCosetOfTheObstructionSixteenToOne.agda",
+    "integrated_path": "formal/cubical/theorems/automata/TheLandscapeIsTheCosetOfTheObstructionSixteenToOne.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/automata/ParivartaYoga_TheDoubleSumInterchangesAndPushforwardComposesOnRectangles.agda",
-    "integrated_path": "formal/cubical/theorems/automata/ParivartaYoga_TheDoubleSumInterchangesAndPushforwardComposesOnRectangles.agda",
+    "original_path": "formal/cubical/theorems/automata/TheDoubleSumInterchangesAndPushforwardComposesOnRectangles.agda",
+    "integrated_path": "formal/cubical/theorems/automata/TheDoubleSumInterchangesAndPushforwardComposesOnRectangles.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1005,13 +1005,13 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/automata/Sankirnata_TheComplexityFunctionOfRuleThirtysMiddleColumnOnFourThousandNinetySixBitsIsTwoToTheNThroughNineAndThenOneThousandSeventeenSeventeenNinetyOneAndTwentyFiveNinetyNine.agda",
-    "integrated_path": "formal/cubical/theorems/automata/Sankirnata_TheComplexityFunctionOfRuleThirtysMiddleColumnOnFourThousandNinetySixBitsIsTwoToTheNThroughNineAndThenOneThousandSeventeenSeventeenNinetyOneAndTwentyFiveNinetyNine.agda",
+    "original_path": "formal/cubical/theorems/automata/TheComplexityFunctionOfRuleThirtysMiddleColumnOnFourThousandNinetySixBitsIsTwoToTheNThroughNineAndThenOneThousandSeventeenSeventeenNinetyOneAndTwentyFiveNinetyNine.agda",
+    "integrated_path": "formal/cubical/theorems/automata/TheComplexityFunctionOfRuleThirtysMiddleColumnOnFourThousandNinetySixBitsIsTwoToTheNThroughNineAndThenOneThousandSeventeenSeventeenNinetyOneAndTwentyFiveNinetyNine.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/automata/Sarvapada_EveryNineBitWordOccursInTheFirstFourThousandBitsOfRuleThirtysMiddleColumnSoByMorseHedlundNoPeriodAndPreperiodSumBelowFiveHundredTwelveAndNoRationalWithDenominatorUpToTwoHundredFiftySixIsThatColumn.agda",
-    "integrated_path": "formal/cubical/theorems/automata/Sarvapada_EveryNineBitWordOccursInTheFirstFourThousandBitsOfRuleThirtysMiddleColumnSoByMorseHedlundNoPeriodAndPreperiodSumBelowFiveHundredTwelveAndNoRationalWithDenominatorUpToTwoHundredFiftySixIsThatColumn.agda",
+    "original_path": "formal/cubical/theorems/automata/EveryNineBitWordOccursInTheFirstFourThousandBitsOfRuleThirtysMiddleColumnSoByMorseHedlundNoPeriodAndPreperiodSumBelowFiveHundredTwelveAndNoRationalWithDenominatorUpToTwoHundredFiftySixIsThatColumn.agda",
+    "integrated_path": "formal/cubical/theorems/automata/EveryNineBitWordOccursInTheFirstFourThousandBitsOfRuleThirtysMiddleColumnSoByMorseHedlundNoPeriodAndPreperiodSumBelowFiveHundredTwelveAndNoRationalWithDenominatorUpToTwoHundredFiftySixIsThatColumn.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1040,8 +1040,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/cost/ListKit_OneImportPointAndNoNewDefinitions.agda",
-    "integrated_path": "formal/cubical/theorems/cost/ListKit_OneImportPointAndNoNewDefinitions.agda",
+    "original_path": "formal/cubical/theorems/cost/OneImportPointAndNoNewDefinitions.agda",
+    "integrated_path": "formal/cubical/theorems/cost/OneImportPointAndNoNewDefinitions.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1050,8 +1050,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/cost/Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.agda",
-    "integrated_path": "formal/cubical/theorems/cost/Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.agda",
+    "original_path": "formal/cubical/theorems/cost/TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.agda",
+    "integrated_path": "formal/cubical/theorems/cost/TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1080,8 +1080,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/cost/RnaDhana_TheMixedStratumIsExactlyTheFlippedStratum.agda",
-    "integrated_path": "formal/cubical/theorems/cost/RnaDhana_TheMixedStratumIsExactlyTheFlippedStratum.agda",
+    "original_path": "formal/cubical/theorems/cost/TheMixedStratumIsExactlyTheFlippedStratum.agda",
+    "integrated_path": "formal/cubical/theorems/cost/TheMixedStratumIsExactlyTheFlippedStratum.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1095,8 +1095,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/cost/Vilopa_TheAnnihilationIsExactlyAFailureOfChoiceOverTheOuterFibre.agda",
-    "integrated_path": "formal/cubical/theorems/cost/Vilopa_TheAnnihilationIsExactlyAFailureOfChoiceOverTheOuterFibre.agda",
+    "original_path": "formal/cubical/theorems/cost/TheAnnihilationIsExactlyAFailureOfChoiceOverTheOuterFibre.agda",
+    "integrated_path": "formal/cubical/theorems/cost/TheAnnihilationIsExactlyAFailureOfChoiceOverTheOuterFibre.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1105,13 +1105,13 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/grammar/Alopa_TheEngineNeverTouchesTheMeaning.agda",
-    "integrated_path": "formal/cubical/theorems/grammar/Alopa_TheEngineNeverTouchesTheMeaning.agda",
+    "original_path": "formal/cubical/theorems/grammar/TheEngineNeverTouchesTheMeaning.agda",
+    "integrated_path": "formal/cubical/theorems/grammar/TheEngineNeverTouchesTheMeaning.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/grammar/Apratikaryatva_TheRetractionTypeIsTheHLevelHypothesis.agda",
-    "integrated_path": "formal/cubical/theorems/grammar/Apratikaryatva_TheRetractionTypeIsTheHLevelHypothesis.agda",
+    "original_path": "formal/cubical/theorems/grammar/TheRetractionTypeIsTheHLevelHypothesis.agda",
+    "integrated_path": "formal/cubical/theorems/grammar/TheRetractionTypeIsTheHLevelHypothesis.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1125,18 +1125,18 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/grammar/EkaSutra_JTheGraphAndTheFundamentalTheoremAreInstancesOfSingletonContractionSoAuthorsRetireIntoInstantiation.agda",
-    "integrated_path": "formal/cubical/theorems/grammar/EkaSutra_JTheGraphAndTheFundamentalTheoremAreInstancesOfSingletonContractionSoAuthorsRetireIntoInstantiation.agda",
+    "original_path": "formal/cubical/theorems/grammar/JTheGraphAndTheFundamentalTheoremAreInstancesOfSingletonContractionSoAuthorsRetireIntoInstantiation.agda",
+    "integrated_path": "formal/cubical/theorems/grammar/JTheGraphAndTheFundamentalTheoremAreInstancesOfSingletonContractionSoAuthorsRetireIntoInstantiation.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/grammar/Nasti_ShabdeJivahVartante.agda",
-    "integrated_path": "formal/cubical/theorems/grammar/Nasti_ShabdeJivahVartante.agda",
+    "original_path": "formal/cubical/theorems/grammar/ShabdeJivahVartante.agda",
+    "integrated_path": "formal/cubical/theorems/grammar/ShabdeJivahVartante.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/grammar/NihsabdaSima_OneBreathDeeperThanTheChargeEveryStratumOfEverySpaceIsSilent.agda",
-    "integrated_path": "formal/cubical/theorems/grammar/NihsabdaSima_OneBreathDeeperThanTheChargeEveryStratumOfEverySpaceIsSilent.agda",
+    "original_path": "formal/cubical/theorems/grammar/OneBreathDeeperThanTheChargeEveryStratumOfEverySpaceIsSilent.agda",
+    "integrated_path": "formal/cubical/theorems/grammar/OneBreathDeeperThanTheChargeEveryStratumOfEverySpaceIsSilent.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1145,8 +1145,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/grammar/TritiyaMarga_TheWrittenDefectCostsMarkovsPrinciple.agda",
-    "integrated_path": "formal/cubical/theorems/grammar/TritiyaMarga_TheWrittenDefectCostsMarkovsPrinciple.agda",
+    "original_path": "formal/cubical/theorems/grammar/TheWrittenDefectCostsMarkovsPrinciple.agda",
+    "integrated_path": "formal/cubical/theorems/grammar/TheWrittenDefectCostsMarkovsPrinciple.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1165,8 +1165,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/historical_proofs/Arpitanarpita_TheForgetfulMapIsAHomomorphismForBothArpanasAndTheLabelsAreARetractNotAnEquivalence.agda",
-    "integrated_path": "formal/cubical/theorems/historical_proofs/Arpitanarpita_TheForgetfulMapIsAHomomorphismForBothArpanasAndTheLabelsAreARetractNotAnEquivalence.agda",
+    "original_path": "formal/cubical/theorems/historical_proofs/TheForgetfulMapIsAHomomorphismForBothArpanasAndTheLabelsAreARetractNotAnEquivalence.agda",
+    "integrated_path": "formal/cubical/theorems/historical_proofs/TheForgetfulMapIsAHomomorphismForBothArpanasAndTheLabelsAreARetractNotAnEquivalence.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1180,13 +1180,13 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/historical_proofs/AtmasamataUpari_TheStoredInverseIsExactlyInvertibilityAndTheSymmetryGroupIsAutOverB.agda",
-    "integrated_path": "formal/cubical/theorems/historical_proofs/AtmasamataUpari_TheStoredInverseIsExactlyInvertibilityAndTheSymmetryGroupIsAutOverB.agda",
+    "original_path": "formal/cubical/theorems/historical_proofs/TheStoredInverseIsExactlyInvertibilityAndTheSymmetryGroupIsAutOverB.agda",
+    "integrated_path": "formal/cubical/theorems/historical_proofs/TheStoredInverseIsExactlyInvertibilityAndTheSymmetryGroupIsAutOverB.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/historical_proofs/AvaktavyaPrasava_TheBornStandpointDecidesAndAssertsOnlyWhatAllAsserted.agda",
-    "integrated_path": "formal/cubical/theorems/historical_proofs/AvaktavyaPrasava_TheBornStandpointDecidesAndAssertsOnlyWhatAllAsserted.agda",
+    "original_path": "formal/cubical/theorems/historical_proofs/TheBornStandpointDecidesAndAssertsOnlyWhatAllAsserted.agda",
+    "integrated_path": "formal/cubical/theorems/historical_proofs/TheBornStandpointDecidesAndAssertsOnlyWhatAllAsserted.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1195,8 +1195,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/historical_proofs/Bhagahara_TheExactDivisionCarriesItsWitnessAndSixTurnsReachOneAtSixtyOne.agda",
-    "integrated_path": "formal/cubical/theorems/historical_proofs/Bhagahara_TheExactDivisionCarriesItsWitnessAndSixTurnsReachOneAtSixtyOne.agda",
+    "original_path": "formal/cubical/theorems/historical_proofs/TheExactDivisionCarriesItsWitnessAndSixTurnsReachOneAtSixtyOne.agda",
+    "integrated_path": "formal/cubical/theorems/historical_proofs/TheExactDivisionCarriesItsWitnessAndSixTurnsReachOneAtSixtyOne.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1250,8 +1250,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/historical_proofs/Ekatva_TheFirmFactorisationIsUniqueTwoPrimeListsWithOneProductAreAPermutationSoTheValuationIsWellDefinedAndPermIsExactlySameCount.agda",
-    "integrated_path": "formal/cubical/theorems/historical_proofs/Ekatva_TheFirmFactorisationIsUniqueTwoPrimeListsWithOneProductAreAPermutationSoTheValuationIsWellDefinedAndPermIsExactlySameCount.agda",
+    "original_path": "formal/cubical/theorems/historical_proofs/TheFirmFactorisationIsUniqueTwoPrimeListsWithOneProductAreAPermutationSoTheValuationIsWellDefinedAndPermIsExactlySameCount.agda",
+    "integrated_path": "formal/cubical/theorems/historical_proofs/TheFirmFactorisationIsUniqueTwoPrimeListsWithOneProductAreAPermutationSoTheValuationIsWellDefinedAndPermIsExactlySameCount.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1265,18 +1265,18 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/historical_proofs/Ksepa_ThePassedInvariantComposesAndTheGradingIteratesOnlyIfItIsACharacter.agda",
-    "integrated_path": "formal/cubical/theorems/historical_proofs/Ksepa_ThePassedInvariantComposesAndTheGradingIteratesOnlyIfItIsACharacter.agda",
+    "original_path": "formal/cubical/theorems/historical_proofs/ThePassedInvariantComposesAndTheGradingIteratesOnlyIfItIsACharacter.agda",
+    "integrated_path": "formal/cubical/theorems/historical_proofs/ThePassedInvariantComposesAndTheGradingIteratesOnlyIfItIsACharacter.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/historical_proofs/Lopa_TheSumsFibreIsExactlyNPlusOneAndNoLeftInverseExists.agda",
-    "integrated_path": "formal/cubical/theorems/historical_proofs/Lopa_TheSumsFibreIsExactlyNPlusOneAndNoLeftInverseExists.agda",
+    "original_path": "formal/cubical/theorems/historical_proofs/TheSumsFibreIsExactlyNPlusOneAndNoLeftInverseExists.agda",
+    "integrated_path": "formal/cubical/theorems/historical_proofs/TheSumsFibreIsExactlyNPlusOneAndNoLeftInverseExists.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/historical_proofs/Matrasankhya_TheMatraFibreIsFinOfTheVirahankaNumber.agda",
-    "integrated_path": "formal/cubical/theorems/historical_proofs/Matrasankhya_TheMatraFibreIsFinOfTheVirahankaNumber.agda",
+    "original_path": "formal/cubical/theorems/historical_proofs/TheMatraFibreIsFinOfTheVirahankaNumber.agda",
+    "integrated_path": "formal/cubical/theorems/historical_proofs/TheMatraFibreIsFinOfTheVirahankaNumber.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1290,13 +1290,13 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/historical_proofs/NastoddistaPariksa_BothDirectionsExistExactlyWhenEveryFibreIsContractible.agda",
-    "integrated_path": "formal/cubical/theorems/historical_proofs/NastoddistaPariksa_BothDirectionsExistExactlyWhenEveryFibreIsContractible.agda",
+    "original_path": "formal/cubical/theorems/historical_proofs/BothDirectionsExistExactlyWhenEveryFibreIsContractible.agda",
+    "integrated_path": "formal/cubical/theorems/historical_proofs/BothDirectionsExistExactlyWhenEveryFibreIsContractible.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/historical_proofs/Nirjara_SheddingAPrimitiveCostsLaghava.agda",
-    "integrated_path": "formal/cubical/theorems/historical_proofs/Nirjara_SheddingAPrimitiveCostsLaghava.agda",
+    "original_path": "formal/cubical/theorems/historical_proofs/SheddingAPrimitiveCostsLaghava.agda",
+    "integrated_path": "formal/cubical/theorems/historical_proofs/SheddingAPrimitiveCostsLaghava.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1330,18 +1330,18 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/historical_proofs/Prthakkarana_EveryPositiveIntegerIsAPrimePowerTimesAPrimeFreeRestTheExponentIsTheValuationAndTheValuationAddsOverProducts.agda",
-    "integrated_path": "formal/cubical/theorems/historical_proofs/Prthakkarana_EveryPositiveIntegerIsAPrimePowerTimesAPrimeFreeRestTheExponentIsTheValuationAndTheValuationAddsOverProducts.agda",
+    "original_path": "formal/cubical/theorems/historical_proofs/EveryPositiveIntegerIsAPrimePowerTimesAPrimeFreeRestTheExponentIsTheValuationAndTheValuationAddsOverProducts.agda",
+    "integrated_path": "formal/cubical/theorems/historical_proofs/EveryPositiveIntegerIsAPrimePowerTimesAPrimeFreeRestTheExponentIsTheValuationAndTheValuationAddsOverProducts.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/historical_proofs/Punarukti_TheTwoScaledCakravalaStepsAreOneTheorem.agda",
-    "integrated_path": "formal/cubical/theorems/historical_proofs/Punarukti_TheTwoScaledCakravalaStepsAreOneTheorem.agda",
+    "original_path": "formal/cubical/theorems/historical_proofs/TheTwoScaledCakravalaStepsAreOneTheorem.agda",
+    "integrated_path": "formal/cubical/theorems/historical_proofs/TheTwoScaledCakravalaStepsAreOneTheorem.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/historical_proofs/Purvatrasiddham_TheLaterRulesFibreIsExactlyWhatTheEarlierRuleCannotSeeAndTheBlindnessIsForcedByCollapse.agda",
-    "integrated_path": "formal/cubical/theorems/historical_proofs/Purvatrasiddham_TheLaterRulesFibreIsExactlyWhatTheEarlierRuleCannotSeeAndTheBlindnessIsForcedByCollapse.agda",
+    "original_path": "formal/cubical/theorems/historical_proofs/TheLaterRulesFibreIsExactlyWhatTheEarlierRuleCannotSeeAndTheBlindnessIsForcedByCollapse.agda",
+    "integrated_path": "formal/cubical/theorems/historical_proofs/TheLaterRulesFibreIsExactlyWhatTheEarlierRuleCannotSeeAndTheBlindnessIsForcedByCollapse.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1350,8 +1350,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/historical_proofs/Rupasamata_TheTwoByTwoMatrixAndTheFourTupleAreOneObjectAndMultiplicationAgrees.agda",
-    "integrated_path": "formal/cubical/theorems/historical_proofs/Rupasamata_TheTwoByTwoMatrixAndTheFourTupleAreOneObjectAndMultiplicationAgrees.agda",
+    "original_path": "formal/cubical/theorems/historical_proofs/TheTwoByTwoMatrixAndTheFourTupleAreOneObjectAndMultiplicationAgrees.agda",
+    "integrated_path": "formal/cubical/theorems/historical_proofs/TheTwoByTwoMatrixAndTheFourTupleAreOneObjectAndMultiplicationAgrees.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1360,13 +1360,13 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/historical_proofs/Samjna_TheSemanticFibreCarriedItsNameAndTheFiveThatDidNotAreFibresOfARestriction.agda",
-    "integrated_path": "formal/cubical/theorems/historical_proofs/Samjna_TheSemanticFibreCarriedItsNameAndTheFiveThatDidNotAreFibresOfARestriction.agda",
+    "original_path": "formal/cubical/theorems/historical_proofs/TheSemanticFibreCarriedItsNameAndTheFiveThatDidNotAreFibresOfARestriction.agda",
+    "integrated_path": "formal/cubical/theorems/historical_proofs/TheSemanticFibreCarriedItsNameAndTheFiveThatDidNotAreFibresOfARestriction.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/historical_proofs/SamraksakaGana_TheConservingFlowsFormAGanaAndTheSectionIdentificationPreservesItByRefl.agda",
-    "integrated_path": "formal/cubical/theorems/historical_proofs/SamraksakaGana_TheConservingFlowsFormAGanaAndTheSectionIdentificationPreservesItByRefl.agda",
+    "original_path": "formal/cubical/theorems/historical_proofs/TheConservingFlowsFormAGanaAndTheSectionIdentificationPreservesItByRefl.agda",
+    "integrated_path": "formal/cubical/theorems/historical_proofs/TheConservingFlowsFormAGanaAndTheSectionIdentificationPreservesItByRefl.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1410,8 +1410,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/historical_proofs/Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm.agda",
-    "integrated_path": "formal/cubical/theorems/historical_proofs/Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm.agda",
+    "original_path": "formal/cubical/theorems/historical_proofs/TheSubstituteInheritsDesignationsNotForm.agda",
+    "integrated_path": "formal/cubical/theorems/historical_proofs/TheSubstituteInheritsDesignationsNotForm.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1430,23 +1430,23 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/historical_proofs/VajraAbhyasa_TheCrossProductIsOneAndTheNextClassIsExactlyMinusM.agda",
-    "integrated_path": "formal/cubical/theorems/historical_proofs/VajraAbhyasa_TheCrossProductIsOneAndTheNextClassIsExactlyMinusM.agda",
+    "original_path": "formal/cubical/theorems/historical_proofs/TheCrossProductIsOneAndTheNextClassIsExactlyMinusM.agda",
+    "integrated_path": "formal/cubical/theorems/historical_proofs/TheCrossProductIsOneAndTheNextClassIsExactlyMinusM.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/historical_proofs/Vyavaya_TheAttestedTrioForcesATwiceRecitedSoundAndPaninisChoiceIsHa.agda",
-    "integrated_path": "formal/cubical/theorems/historical_proofs/Vyavaya_TheAttestedTrioForcesATwiceRecitedSoundAndPaninisChoiceIsHa.agda",
+    "original_path": "formal/cubical/theorems/historical_proofs/TheAttestedTrioForcesATwiceRecitedSoundAndPaninisChoiceIsHa.agda",
+    "integrated_path": "formal/cubical/theorems/historical_proofs/TheAttestedTrioForcesATwiceRecitedSoundAndPaninisChoiceIsHa.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/historical_proofs/YugmaPurana_TheValliRecoversItsLengthModuloTwoAndNoFurther.agda",
-    "integrated_path": "formal/cubical/theorems/historical_proofs/YugmaPurana_TheValliRecoversItsLengthModuloTwoAndNoFurther.agda",
+    "original_path": "formal/cubical/theorems/historical_proofs/TheValliRecoversItsLengthModuloTwoAndNoFurther.agda",
+    "integrated_path": "formal/cubical/theorems/historical_proofs/TheValliRecoversItsLengthModuloTwoAndNoFurther.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/homotopy/Punarukti_TwoOfTheThreeSevenfoldsAreOneTypeAndTheThirdIsADifferentQuestion.agda",
-    "integrated_path": "formal/cubical/theorems/homotopy/Punarukti_TwoOfTheThreeSevenfoldsAreOneTypeAndTheThirdIsADifferentQuestion.agda",
+    "original_path": "formal/cubical/theorems/homotopy/TwoOfTheThreeSevenfoldsAreOneTypeAndTheThirdIsADifferentQuestion.agda",
+    "integrated_path": "formal/cubical/theorems/homotopy/TwoOfTheThreeSevenfoldsAreOneTypeAndTheThirdIsADifferentQuestion.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1460,8 +1460,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/homotopy/Vyatireka_TheAbsentRoundTripDoesNotEntailTheAbsentEquivalence.agda",
-    "integrated_path": "formal/cubical/theorems/homotopy/Vyatireka_TheAbsentRoundTripDoesNotEntailTheAbsentEquivalence.agda",
+    "original_path": "formal/cubical/theorems/homotopy/TheAbsentRoundTripDoesNotEntailTheAbsentEquivalence.agda",
+    "integrated_path": "formal/cubical/theorems/homotopy/TheAbsentRoundTripDoesNotEntailTheAbsentEquivalence.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1475,28 +1475,28 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/logic/Anekantatva_TheSpaceOfEquivalentPresentationsIsContractibleSoNoStandpointIsPrivileged.agda",
-    "integrated_path": "formal/cubical/theorems/logic/Anekantatva_TheSpaceOfEquivalentPresentationsIsContractibleSoNoStandpointIsPrivileged.agda",
+    "original_path": "formal/cubical/theorems/logic/TheSpaceOfEquivalentPresentationsIsContractibleSoNoStandpointIsPrivileged.agda",
+    "integrated_path": "formal/cubical/theorems/logic/TheSpaceOfEquivalentPresentationsIsContractibleSoNoStandpointIsPrivileged.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/logic/Anvesanam_ForwardSearchIsFreeAtAnyDepthAndCostIsIncurredPerIdentificationDemandedNotPerEdgeTraversed.agda",
-    "integrated_path": "formal/cubical/theorems/logic/Anvesanam_ForwardSearchIsFreeAtAnyDepthAndCostIsIncurredPerIdentificationDemandedNotPerEdgeTraversed.agda",
+    "original_path": "formal/cubical/theorems/logic/ForwardSearchIsFreeAtAnyDepthAndCostIsIncurredPerIdentificationDemandedNotPerEdgeTraversed.agda",
+    "integrated_path": "formal/cubical/theorems/logic/ForwardSearchIsFreeAtAnyDepthAndCostIsIncurredPerIdentificationDemandedNotPerEdgeTraversed.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/logic/Anyathasiddhi_TheProposedInverseIsSpuriousAndInflationCarriesTheGroup.agda",
-    "integrated_path": "formal/cubical/theorems/logic/Anyathasiddhi_TheProposedInverseIsSpuriousAndInflationCarriesTheGroup.agda",
+    "original_path": "formal/cubical/theorems/logic/TheProposedInverseIsSpuriousAndInflationCarriesTheGroup.agda",
+    "integrated_path": "formal/cubical/theorems/logic/TheProposedInverseIsSpuriousAndInflationCarriesTheGroup.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/logic/Bahupratyanayana_TheObstructionToUndoingIsTwoDistinctSourcesNotTwoFibrePointsAndTheCircleIsNotAnInstance.agda",
-    "integrated_path": "formal/cubical/theorems/logic/Bahupratyanayana_TheObstructionToUndoingIsTwoDistinctSourcesNotTwoFibrePointsAndTheCircleIsNotAnInstance.agda",
+    "original_path": "formal/cubical/theorems/logic/TheObstructionToUndoingIsTwoDistinctSourcesNotTwoFibrePointsAndTheCircleIsNotAnInstance.agda",
+    "integrated_path": "formal/cubical/theorems/logic/TheObstructionToUndoingIsTwoDistinctSourcesNotTwoFibrePointsAndTheCircleIsNotAnInstance.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/logic/Bhanga_ThePositionsOverTwoAtomsAreAThreeStepChain.agda",
-    "integrated_path": "formal/cubical/theorems/logic/Bhanga_ThePositionsOverTwoAtomsAreAThreeStepChain.agda",
+    "original_path": "formal/cubical/theorems/logic/ThePositionsOverTwoAtomsAreAThreeStepChain.agda",
+    "integrated_path": "formal/cubical/theorems/logic/ThePositionsOverTwoAtomsAreAThreeStepChain.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1520,28 +1520,28 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/logic/EkatvaNirnaya_TheTwoVowsForceTheDecisionRuleUniquelySoTheBornStandpointHasNoRival.agda",
-    "integrated_path": "formal/cubical/theorems/logic/EkatvaNirnaya_TheTwoVowsForceTheDecisionRuleUniquelySoTheBornStandpointHasNoRival.agda",
+    "original_path": "formal/cubical/theorems/logic/TheTwoVowsForceTheDecisionRuleUniquelySoTheBornStandpointHasNoRival.agda",
+    "integrated_path": "formal/cubical/theorems/logic/TheTwoVowsForceTheDecisionRuleUniquelySoTheBornStandpointHasNoRival.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/logic/ForStephenWolfram_OneTermInhabitsTheConjunctionOfTheSevenSentences.agda",
-    "integrated_path": "formal/cubical/theorems/logic/ForStephenWolfram_OneTermInhabitsTheConjunctionOfTheSevenSentences.agda",
+    "original_path": "formal/cubical/theorems/logic/OneTermInhabitsTheConjunctionOfTheSevenSentences.agda",
+    "integrated_path": "formal/cubical/theorems/logic/OneTermInhabitsTheConjunctionOfTheSevenSentences.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/logic/GananaAsNat_TheIndicatorsFullCensusPricesTheBusiestUnpricedEdge.agda",
-    "integrated_path": "formal/cubical/theorems/logic/GananaAsNat_TheIndicatorsFullCensusPricesTheBusiestUnpricedEdge.agda",
+    "original_path": "formal/cubical/theorems/logic/TheIndicatorsFullCensusPricesTheBusiestUnpricedEdge.agda",
+    "integrated_path": "formal/cubical/theorems/logic/TheIndicatorsFullCensusPricesTheBusiestUnpricedEdge.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/logic/GananaSaptabhangi_TheMapLevelCensusIsTheSevenfoldItselfAndTheCorpusAlreadyHoldsThreePositions.agda",
-    "integrated_path": "formal/cubical/theorems/logic/GananaSaptabhangi_TheMapLevelCensusIsTheSevenfoldItselfAndTheCorpusAlreadyHoldsThreePositions.agda",
+    "original_path": "formal/cubical/theorems/logic/TheMapLevelCensusIsTheSevenfoldItselfAndTheCorpusAlreadyHoldsThreePositions.agda",
+    "integrated_path": "formal/cubical/theorems/logic/TheMapLevelCensusIsTheSevenfoldItselfAndTheCorpusAlreadyHoldsThreePositions.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/logic/Jiva_EntanglementIsTheFibreOfTheProductComparisonAndTheLivingStepRefusesToDescendToTheMarginals.agda",
-    "integrated_path": "formal/cubical/theorems/logic/Jiva_EntanglementIsTheFibreOfTheProductComparisonAndTheLivingStepRefusesToDescendToTheMarginals.agda",
+    "original_path": "formal/cubical/theorems/logic/EntanglementIsTheFibreOfTheProductComparisonAndTheLivingStepRefusesToDescendToTheMarginals.agda",
+    "integrated_path": "formal/cubical/theorems/logic/EntanglementIsTheFibreOfTheProductComparisonAndTheLivingStepRefusesToDescendToTheMarginals.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1580,13 +1580,13 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/logic/NKSUnivalence_CoordinatizationIsAPathTheMergeIsATruncationWithNoSectionAndTheBoundedObserverSeparatesNoCoTerminalRuns.agda",
-    "integrated_path": "formal/cubical/theorems/logic/NKSUnivalence_CoordinatizationIsAPathTheMergeIsATruncationWithNoSectionAndTheBoundedObserverSeparatesNoCoTerminalRuns.agda",
+    "original_path": "formal/cubical/theorems/logic/CoordinatizationIsAPathTheMergeIsATruncationWithNoSectionAndTheBoundedObserverSeparatesNoCoTerminalRuns.agda",
+    "integrated_path": "formal/cubical/theorems/logic/CoordinatizationIsAPathTheMergeIsATruncationWithNoSectionAndTheBoundedObserverSeparatesNoCoTerminalRuns.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/logic/NayaAvarana_EachStandpointConflatesAPairTheOtherSeparatesSoOnlyBothTogetherSee.agda",
-    "integrated_path": "formal/cubical/theorems/logic/NayaAvarana_EachStandpointConflatesAPairTheOtherSeparatesSoOnlyBothTogetherSee.agda",
+    "original_path": "formal/cubical/theorems/logic/EachStandpointConflatesAPairTheOtherSeparatesSoOnlyBothTogetherSee.agda",
+    "integrated_path": "formal/cubical/theorems/logic/EachStandpointConflatesAPairTheOtherSeparatesSoOnlyBothTogetherSee.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1600,8 +1600,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/logic/PramanaLaksanam_IdentityIsAgreementUnderEveryStandpointSoLeibnizsLawIsPramana.agda",
-    "integrated_path": "formal/cubical/theorems/logic/PramanaLaksanam_IdentityIsAgreementUnderEveryStandpointSoLeibnizsLawIsPramana.agda",
+    "original_path": "formal/cubical/theorems/logic/IdentityIsAgreementUnderEveryStandpointSoLeibnizsLawIsPramana.agda",
+    "integrated_path": "formal/cubical/theorems/logic/IdentityIsAgreementUnderEveryStandpointSoLeibnizsLawIsPramana.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1615,13 +1615,13 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/logic/PurnaSaptabhangi_TheFourOpenPositionsGetCanonicalWitnesses.agda",
-    "integrated_path": "formal/cubical/theorems/logic/PurnaSaptabhangi_TheFourOpenPositionsGetCanonicalWitnesses.agda",
+    "original_path": "formal/cubical/theorems/logic/TheFourOpenPositionsGetCanonicalWitnesses.agda",
+    "integrated_path": "formal/cubical/theorems/logic/TheFourOpenPositionsGetCanonicalWitnesses.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/logic/SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype.agda",
-    "integrated_path": "formal/cubical/theorems/logic/SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype.agda",
+    "original_path": "formal/cubical/theorems/logic/TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype.agda",
+    "integrated_path": "formal/cubical/theorems/logic/TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1640,8 +1640,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/logic/ShakhitaNairapeksya_TheNestedTotalIsIndifferentToInnerOuterAndSimultaneousReEnumeration.agda",
-    "integrated_path": "formal/cubical/theorems/logic/ShakhitaNairapeksya_TheNestedTotalIsIndifferentToInnerOuterAndSimultaneousReEnumeration.agda",
+    "original_path": "formal/cubical/theorems/logic/TheNestedTotalIsIndifferentToInnerOuterAndSimultaneousReEnumeration.agda",
+    "integrated_path": "formal/cubical/theorems/logic/TheNestedTotalIsIndifferentToInnerOuterAndSimultaneousReEnumeration.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1675,13 +1675,13 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/logic/Vaidharmya_TheObstructionWasNeverClassicalAndTheAnswerTypeNeedOnlyBeApart.agda",
-    "integrated_path": "formal/cubical/theorems/logic/Vaidharmya_TheObstructionWasNeverClassicalAndTheAnswerTypeNeedOnlyBeApart.agda",
+    "original_path": "formal/cubical/theorems/logic/TheObstructionWasNeverClassicalAndTheAnswerTypeNeedOnlyBeApart.agda",
+    "integrated_path": "formal/cubical/theorems/logic/TheObstructionWasNeverClassicalAndTheAnswerTypeNeedOnlyBeApart.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/logic/Yugapat_TheDenialOfJointAssertionDoesNotDecompose.agda",
-    "integrated_path": "formal/cubical/theorems/logic/Yugapat_TheDenialOfJointAssertionDoesNotDecompose.agda",
+    "original_path": "formal/cubical/theorems/logic/TheDenialOfJointAssertionDoesNotDecompose.agda",
+    "integrated_path": "formal/cubical/theorems/logic/TheDenialOfJointAssertionDoesNotDecompose.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1700,13 +1700,13 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/metre/EkatvaMatraDvaya_TheSymmetricTwoOutcomeBornWeightIsForcedToHalfExactlyOverAUniquelyHalvingCarrier.agda",
-    "integrated_path": "formal/cubical/theorems/metre/EkatvaMatraDvaya_TheSymmetricTwoOutcomeBornWeightIsForcedToHalfExactlyOverAUniquelyHalvingCarrier.agda",
+    "original_path": "formal/cubical/theorems/metre/TheSymmetricTwoOutcomeBornWeightIsForcedToHalfExactlyOverAUniquelyHalvingCarrier.agda",
+    "integrated_path": "formal/cubical/theorems/metre/TheSymmetricTwoOutcomeBornWeightIsForcedToHalfExactlyOverAUniquelyHalvingCarrier.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/metre/EkatvaMatra_TheSupportLayerOfTheBornWeightsIsForcedByTheVowsAndTheInteriorIsTheNamedConjecture.agda",
-    "integrated_path": "formal/cubical/theorems/metre/EkatvaMatra_TheSupportLayerOfTheBornWeightsIsForcedByTheVowsAndTheInteriorIsTheNamedConjecture.agda",
+    "original_path": "formal/cubical/theorems/metre/TheSupportLayerOfTheBornWeightsIsForcedByTheVowsAndTheInteriorIsTheNamedConjecture.agda",
+    "integrated_path": "formal/cubical/theorems/metre/TheSupportLayerOfTheBornWeightsIsForcedByTheVowsAndTheInteriorIsTheNamedConjecture.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1725,13 +1725,13 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/metre/SamaVibhaga_TransitiveSymmetryNormalizationAndUniqueDivisionForceTheUniformMeasure.agda",
-    "integrated_path": "formal/cubical/theorems/metre/SamaVibhaga_TransitiveSymmetryNormalizationAndUniqueDivisionForceTheUniformMeasure.agda",
+    "original_path": "formal/cubical/theorems/metre/TransitiveSymmetryNormalizationAndUniqueDivisionForceTheUniformMeasure.agda",
+    "integrated_path": "formal/cubical/theorems/metre/TransitiveSymmetryNormalizationAndUniqueDivisionForceTheUniformMeasure.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/metre/ShunyaParikrama_TwoCircuitsOfTheBasisDecidedPureGaugeAndTheDiscriminantIsProvenance.agda",
-    "integrated_path": "formal/cubical/theorems/metre/ShunyaParikrama_TwoCircuitsOfTheBasisDecidedPureGaugeAndTheDiscriminantIsProvenance.agda",
+    "original_path": "formal/cubical/theorems/metre/TwoCircuitsOfTheBasisDecidedPureGaugeAndTheDiscriminantIsProvenance.agda",
+    "integrated_path": "formal/cubical/theorems/metre/TwoCircuitsOfTheBasisDecidedPureGaugeAndTheDiscriminantIsProvenance.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1740,8 +1740,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/number/Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContractible.agda",
-    "integrated_path": "formal/cubical/theorems/number/Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContractible.agda",
+    "original_path": "formal/cubical/theorems/number/TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContractible.agda",
+    "integrated_path": "formal/cubical/theorems/number/TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContractible.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1760,18 +1760,18 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/number/EkaBhara_TheWindingTheHolonomyTheCommutatorImageTheHiddenChargeAndTheParityTangentAreOneGenerator.agda",
-    "integrated_path": "formal/cubical/theorems/number/EkaBhara_TheWindingTheHolonomyTheCommutatorImageTheHiddenChargeAndTheParityTangentAreOneGenerator.agda",
+    "original_path": "formal/cubical/theorems/number/TheWindingTheHolonomyTheCommutatorImageTheHiddenChargeAndTheParityTangentAreOneGenerator.agda",
+    "integrated_path": "formal/cubical/theorems/number/TheWindingTheHolonomyTheCommutatorImageTheHiddenChargeAndTheParityTangentAreOneGenerator.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/number/EkaSahaya_TheConeStabiliserInTheFullLegGroupIsExactlyTheExchangeSoNoSymmetryCarriesGoldbachToTwins.agda",
-    "integrated_path": "formal/cubical/theorems/number/EkaSahaya_TheConeStabiliserInTheFullLegGroupIsExactlyTheExchangeSoNoSymmetryCarriesGoldbachToTwins.agda",
+    "original_path": "formal/cubical/theorems/number/TheConeStabiliserInTheFullLegGroupIsExactlyTheExchangeSoNoSymmetryCarriesGoldbachToTwins.agda",
+    "integrated_path": "formal/cubical/theorems/number/TheConeStabiliserInTheFullLegGroupIsExactlyTheExchangeSoNoSymmetryCarriesGoldbachToTwins.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/number/Fermat3Gate_TheCubeGateBelowThirteenIsSignedAndBothNearMissesAreItsTightness.agda",
-    "integrated_path": "formal/cubical/theorems/number/Fermat3Gate_TheCubeGateBelowThirteenIsSignedAndBothNearMissesAreItsTightness.agda",
+    "original_path": "formal/cubical/theorems/number/TheCubeGateBelowThirteenIsSignedAndBothNearMissesAreItsTightness.agda",
+    "integrated_path": "formal/cubical/theorems/number/TheCubeGateBelowThirteenIsSignedAndBothNearMissesAreItsTightness.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1785,13 +1785,13 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/number/Nirvyaja_TheReceiptIsSpentAtGenerationAndTheReplayNeedsNone.agda",
-    "integrated_path": "formal/cubical/theorems/number/Nirvyaja_TheReceiptIsSpentAtGenerationAndTheReplayNeedsNone.agda",
+    "original_path": "formal/cubical/theorems/number/TheReceiptIsSpentAtGenerationAndTheReplayNeedsNone.agda",
+    "integrated_path": "formal/cubical/theorems/number/TheReceiptIsSpentAtGenerationAndTheReplayNeedsNone.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/number/PeirceGluing_TheChargeGluingDefectIsExactlyTheOffSectorMassAndProjectionIsLinearNotMultiplicative.agda",
-    "integrated_path": "formal/cubical/theorems/number/PeirceGluing_TheChargeGluingDefectIsExactlyTheOffSectorMassAndProjectionIsLinearNotMultiplicative.agda",
+    "original_path": "formal/cubical/theorems/number/TheChargeGluingDefectIsExactlyTheOffSectorMassAndProjectionIsLinearNotMultiplicative.agda",
+    "integrated_path": "formal/cubical/theorems/number/TheChargeGluingDefectIsExactlyTheOffSectorMassAndProjectionIsLinearNotMultiplicative.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1810,43 +1810,43 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/number/Ramanujan691_TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.agda",
-    "integrated_path": "formal/cubical/theorems/number/Ramanujan691_TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.agda",
+    "original_path": "formal/cubical/theorems/number/TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.agda",
+    "integrated_path": "formal/cubical/theorems/number/TheTauCongruenceInstancesWithTauDefinedByTheDeltaProductItself.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/number/RamanujanHCN_OneHundredTwentyIsHighlyCompositeAndTheMemoirsColumnChecks.agda",
-    "integrated_path": "formal/cubical/theorems/number/RamanujanHCN_OneHundredTwentyIsHighlyCompositeAndTheMemoirsColumnChecks.agda",
+    "original_path": "formal/cubical/theorems/number/OneHundredTwentyIsHighlyCompositeAndTheMemoirsColumnChecks.agda",
+    "integrated_path": "formal/cubical/theorems/number/OneHundredTwentyIsHighlyCompositeAndTheMemoirsColumnChecks.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/number/RamanujanLehmer_TheQuestionIsATypeTauIsTotalTheGateHoldsToSixteenAndNoConverseIsWritten.agda",
-    "integrated_path": "formal/cubical/theorems/number/RamanujanLehmer_TheQuestionIsATypeTauIsTotalTheGateHoldsToSixteenAndNoConverseIsWritten.agda",
+    "original_path": "formal/cubical/theorems/number/TheQuestionIsATypeTauIsTotalTheGateHoldsToSixteenAndNoConverseIsWritten.agda",
+    "integrated_path": "formal/cubical/theorems/number/TheQuestionIsATypeTauIsTotalTheGateHoldsToSixteenAndNoConverseIsWritten.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/number/RamanujanNagell_TheFiveSolutionsAndNoSixthBelowTwoToTheFifteen.agda",
-    "integrated_path": "formal/cubical/theorems/number/RamanujanNagell_TheFiveSolutionsAndNoSixthBelowTwoToTheFifteen.agda",
+    "original_path": "formal/cubical/theorems/number/TheFiveSolutionsAndNoSixthBelowTwoToTheFifteen.agda",
+    "integrated_path": "formal/cubical/theorems/number/TheFiveSolutionsAndNoSixthBelowTwoToTheFifteen.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/number/RamanujanPartitions_TheCongruenceInstancesWithCofactorsInHandAndTheGeneralTheoremNamed.agda",
-    "integrated_path": "formal/cubical/theorems/number/RamanujanPartitions_TheCongruenceInstancesWithCofactorsInHandAndTheGeneralTheoremNamed.agda",
+    "original_path": "formal/cubical/theorems/number/TheCongruenceInstancesWithCofactorsInHandAndTheGeneralTheoremNamed.agda",
+    "integrated_path": "formal/cubical/theorems/number/TheCongruenceInstancesWithCofactorsInHandAndTheGeneralTheoremNamed.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/number/RamanujanPrimes_TheFiveThresholdsHoldTo50AndEachMinimalityIsOneRefutation.agda",
-    "integrated_path": "formal/cubical/theorems/number/RamanujanPrimes_TheFiveThresholdsHoldTo50AndEachMinimalityIsOneRefutation.agda",
+    "original_path": "formal/cubical/theorems/number/TheFiveThresholdsHoldTo50AndEachMinimalityIsOneRefutation.agda",
+    "integrated_path": "formal/cubical/theorems/number/TheFiveThresholdsHoldTo50AndEachMinimalityIsOneRefutation.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/number/RamanujanSiddhanta_ThePaperInOneModuleEveryClaimOneTerm.agda",
-    "integrated_path": "formal/cubical/theorems/number/RamanujanSiddhanta_ThePaperInOneModuleEveryClaimOneTerm.agda",
+    "original_path": "formal/cubical/theorems/number/ThePaperInOneModuleEveryClaimOneTerm.agda",
+    "integrated_path": "formal/cubical/theorems/number/ThePaperInOneModuleEveryClaimOneTerm.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/number/RamanujanSigma_TheEisensteinConvolutionIdentityInstancesByRefl.agda",
-    "integrated_path": "formal/cubical/theorems/number/RamanujanSigma_TheEisensteinConvolutionIdentityInstancesByRefl.agda",
+    "original_path": "formal/cubical/theorems/number/TheEisensteinConvolutionIdentityInstancesByRefl.agda",
+    "integrated_path": "formal/cubical/theorems/number/TheEisensteinConvolutionIdentityInstancesByRefl.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1855,13 +1855,13 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/number/RamanujanTernary_BelowSevenTwentyTheOddExceptionsAreExactlyHisSeventeenTowardTheOpenList.agda",
-    "integrated_path": "formal/cubical/theorems/number/RamanujanTernary_BelowSevenTwentyTheOddExceptionsAreExactlyHisSeventeenTowardTheOpenList.agda",
+    "original_path": "formal/cubical/theorems/number/BelowSevenTwentyTheOddExceptionsAreExactlyHisSeventeenTowardTheOpenList.agda",
+    "integrated_path": "formal/cubical/theorems/number/BelowSevenTwentyTheOddExceptionsAreExactlyHisSeventeenTowardTheOpenList.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/number/Sopana_EveryStratumOfTheHasseLadderIsDecidedWithItsEvidenceForEveryPrimeAndEveryCurve.agda",
-    "integrated_path": "formal/cubical/theorems/number/Sopana_EveryStratumOfTheHasseLadderIsDecidedWithItsEvidenceForEveryPrimeAndEveryCurve.agda",
+    "original_path": "formal/cubical/theorems/number/EveryStratumOfTheHasseLadderIsDecidedWithItsEvidenceForEveryPrimeAndEveryCurve.agda",
+    "integrated_path": "formal/cubical/theorems/number/EveryStratumOfTheHasseLadderIsDecidedWithItsEvidenceForEveryPrimeAndEveryCurve.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1880,8 +1880,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/order/JyesthaAvara_TheJoinIsTheLeastUpperBoundSoNoCommonBoundIsSmaller.agda",
-    "integrated_path": "formal/cubical/theorems/order/JyesthaAvara_TheJoinIsTheLeastUpperBoundSoNoCommonBoundIsSmaller.agda",
+    "original_path": "formal/cubical/theorems/order/TheJoinIsTheLeastUpperBoundSoNoCommonBoundIsSmaller.agda",
+    "integrated_path": "formal/cubical/theorems/order/TheJoinIsTheLeastUpperBoundSoNoCommonBoundIsSmaller.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1900,18 +1900,18 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/physics/Alopa_TheFirstRoadIsStatedThriceAndTheThreeAreOneTerm.agda",
-    "integrated_path": "formal/cubical/theorems/physics/Alopa_TheFirstRoadIsStatedThriceAndTheThreeAreOneTerm.agda",
+    "original_path": "formal/cubical/theorems/physics/TheFirstRoadIsStatedThriceAndTheThreeAreOneTerm.agda",
+    "integrated_path": "formal/cubical/theorems/physics/TheFirstRoadIsStatedThriceAndTheThreeAreOneTerm.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/physics/AnekaVrddhi_ASumOfModesWithNonnegativeWeightsIsBoundedExactlyWhenEveryPositivelyWeightedModeHasRatioAtMostOneSoThePrimeSideOfBIsReadModeByMode.agda",
-    "integrated_path": "formal/cubical/theorems/physics/AnekaVrddhi_ASumOfModesWithNonnegativeWeightsIsBoundedExactlyWhenEveryPositivelyWeightedModeHasRatioAtMostOneSoThePrimeSideOfBIsReadModeByMode.agda",
+    "original_path": "formal/cubical/theorems/physics/ASumOfModesWithNonnegativeWeightsIsBoundedExactlyWhenEveryPositivelyWeightedModeHasRatioAtMostOneSoThePrimeSideOfBIsReadModeByMode.agda",
+    "integrated_path": "formal/cubical/theorems/physics/ASumOfModesWithNonnegativeWeightsIsBoundedExactlyWhenEveryPositivelyWeightedModeHasRatioAtMostOneSoThePrimeSideOfBIsReadModeByMode.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/physics/Apratiloma_TheConservingFlowsAreAMonoidNotAGroupSoNoethersFirstTheoremDoesNotTransfer.agda",
-    "integrated_path": "formal/cubical/theorems/physics/Apratiloma_TheConservingFlowsAreAMonoidNotAGroupSoNoethersFirstTheoremDoesNotTransfer.agda",
+    "original_path": "formal/cubical/theorems/physics/TheConservingFlowsAreAMonoidNotAGroupSoNoethersFirstTheoremDoesNotTransfer.agda",
+    "integrated_path": "formal/cubical/theorems/physics/TheConservingFlowsAreAMonoidNotAGroupSoNoethersFirstTheoremDoesNotTransfer.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1930,18 +1930,18 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/physics/ArpanaSopana_EveryStratumUttersANewChargeAndTheChargeIsWhateverTheSpaceHolds.agda",
-    "integrated_path": "formal/cubical/theorems/physics/ArpanaSopana_EveryStratumUttersANewChargeAndTheChargeIsWhateverTheSpaceHolds.agda",
+    "original_path": "formal/cubical/theorems/physics/EveryStratumUttersANewChargeAndTheChargeIsWhateverTheSpaceHolds.agda",
+    "integrated_path": "formal/cubical/theorems/physics/EveryStratumUttersANewChargeAndTheChargeIsWhateverTheSpaceHolds.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/physics/Atikrama_TheModeOfRatioAboveOneOverstepsEveryBoundAndTheModeOfRatioAtMostOneStaysWithinOneSoAModeIsBoundedExactlyWhenItsRatioIsAtMostOne.agda",
-    "integrated_path": "formal/cubical/theorems/physics/Atikrama_TheModeOfRatioAboveOneOverstepsEveryBoundAndTheModeOfRatioAtMostOneStaysWithinOneSoAModeIsBoundedExactlyWhenItsRatioIsAtMostOne.agda",
+    "original_path": "formal/cubical/theorems/physics/TheModeOfRatioAboveOneOverstepsEveryBoundAndTheModeOfRatioAtMostOneStaysWithinOneSoAModeIsBoundedExactlyWhenItsRatioIsAtMostOne.agda",
+    "integrated_path": "formal/cubical/theorems/physics/TheModeOfRatioAboveOneOverstepsEveryBoundAndTheModeOfRatioAtMostOneStaysWithinOneSoAModeIsBoundedExactlyWhenItsRatioIsAtMostOne.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/physics/Bhedaka_TheHypothesisIsInjectivityNotBijectivityAndTheSurjectivityInDhruvaIsUnused.agda",
-    "integrated_path": "formal/cubical/theorems/physics/Bhedaka_TheHypothesisIsInjectivityNotBijectivityAndTheSurjectivityInDhruvaIsUnused.agda",
+    "original_path": "formal/cubical/theorems/physics/TheHypothesisIsInjectivityNotBijectivityAndTheSurjectivityInDhruvaIsUnused.agda",
+    "integrated_path": "formal/cubical/theorems/physics/TheHypothesisIsInjectivityNotBijectivityAndTheSurjectivityInDhruvaIsUnused.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1950,23 +1950,23 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/physics/CaturekaSutra_TheFiveFoursAreOneTheOrbitIsTheCanonicalTorsorOfTheTheorysOneConstant.agda",
-    "integrated_path": "formal/cubical/theorems/physics/CaturekaSutra_TheFiveFoursAreOneTheOrbitIsTheCanonicalTorsorOfTheTheorysOneConstant.agda",
+    "original_path": "formal/cubical/theorems/physics/TheFiveFoursAreOneTheOrbitIsTheCanonicalTorsorOfTheTheorysOneConstant.agda",
+    "integrated_path": "formal/cubical/theorems/physics/TheFiveFoursAreOneTheOrbitIsTheCanonicalTorsorOfTheTheorysOneConstant.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/physics/DharmaAdharma_TheMediaOfMotionAndRestPermitWithoutCausingAndTheirExtentBoundsTheCosmos.agda",
-    "integrated_path": "formal/cubical/theorems/physics/DharmaAdharma_TheMediaOfMotionAndRestPermitWithoutCausingAndTheirExtentBoundsTheCosmos.agda",
+    "original_path": "formal/cubical/theorems/physics/TheMediaOfMotionAndRestPermitWithoutCausingAndTheirExtentBoundsTheCosmos.agda",
+    "integrated_path": "formal/cubical/theorems/physics/TheMediaOfMotionAndRestPermitWithoutCausingAndTheirExtentBoundsTheCosmos.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/physics/DvandvaVarga_TheSquareOfTheInnerProductPlusTheSumOfPairSquaresIsTheProductOfNormsSoCauchySchwarzHoldsOverQAndTheResolvedDualityOfTheAdjointReceiverIsAttainedAtTheVectorItself.agda",
-    "integrated_path": "formal/cubical/theorems/physics/DvandvaVarga_TheSquareOfTheInnerProductPlusTheSumOfPairSquaresIsTheProductOfNormsSoCauchySchwarzHoldsOverQAndTheResolvedDualityOfTheAdjointReceiverIsAttainedAtTheVectorItself.agda",
+    "original_path": "formal/cubical/theorems/physics/TheSquareOfTheInnerProductPlusTheSumOfPairSquaresIsTheProductOfNormsSoCauchySchwarzHoldsOverQAndTheResolvedDualityOfTheAdjointReceiverIsAttainedAtTheVectorItself.agda",
+    "integrated_path": "formal/cubical/theorems/physics/TheSquareOfTheInnerProductPlusTheSumOfPairSquaresIsTheProductOfNormsSoCauchySchwarzHoldsOverQAndTheResolvedDualityOfTheAdjointReceiverIsAttainedAtTheVectorItself.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/physics/DviDrsti_EachScalingReadingHasAOneParameterFibreButTheirDeterminantIsDimensionPlusTwoSoTogetherTheyReconstructAndTheDerivedTimeReadingAddsNothing.agda",
-    "integrated_path": "formal/cubical/theorems/physics/DviDrsti_EachScalingReadingHasAOneParameterFibreButTheirDeterminantIsDimensionPlusTwoSoTogetherTheyReconstructAndTheDerivedTimeReadingAddsNothing.agda",
+    "original_path": "formal/cubical/theorems/physics/EachScalingReadingHasAOneParameterFibreButTheirDeterminantIsDimensionPlusTwoSoTogetherTheyReconstructAndTheDerivedTimeReadingAddsNothing.agda",
+    "integrated_path": "formal/cubical/theorems/physics/EachScalingReadingHasAOneParameterFibreButTheirDeterminantIsDimensionPlusTwoSoTogetherTheyReconstructAndTheDerivedTimeReadingAddsNothing.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1980,8 +1980,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/physics/EkaVidhiMukhani_TheSessionsSixCostumesAreOneLawAndTheFacesAreRefl.agda",
-    "integrated_path": "formal/cubical/theorems/physics/EkaVidhiMukhani_TheSessionsSixCostumesAreOneLawAndTheFacesAreRefl.agda",
+    "original_path": "formal/cubical/theorems/physics/TheSessionsSixCostumesAreOneLawAndTheFacesAreRefl.agda",
+    "integrated_path": "formal/cubical/theorems/physics/TheSessionsSixCostumesAreOneLawAndTheFacesAreRefl.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -1990,13 +1990,13 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/physics/Kala_TimeIsIndivisibleSamayasAndTheMaximalMotionGivesADiscreteCausalCone.agda",
-    "integrated_path": "formal/cubical/theorems/physics/Kala_TimeIsIndivisibleSamayasAndTheMaximalMotionGivesADiscreteCausalCone.agda",
+    "original_path": "formal/cubical/theorems/physics/TimeIsIndivisibleSamayasAndTheMaximalMotionGivesADiscreteCausalCone.agda",
+    "integrated_path": "formal/cubical/theorems/physics/TimeIsIndivisibleSamayasAndTheMaximalMotionGivesADiscreteCausalCone.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/physics/KendraNirvahana_EveryCentralCellwiseSymmetryIsAUniformPowerOfTheQuarterTurnTheExhaustionForTheVerticalClass.agda",
-    "integrated_path": "formal/cubical/theorems/physics/KendraNirvahana_EveryCentralCellwiseSymmetryIsAUniformPowerOfTheQuarterTurnTheExhaustionForTheVerticalClass.agda",
+    "original_path": "formal/cubical/theorems/physics/EveryCentralCellwiseSymmetryIsAUniformPowerOfTheQuarterTurnTheExhaustionForTheVerticalClass.agda",
+    "integrated_path": "formal/cubical/theorems/physics/EveryCentralCellwiseSymmetryIsAUniformPowerOfTheQuarterTurnTheExhaustionForTheVerticalClass.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -2025,8 +2025,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/physics/ParaSima_TheCrossBoundaryCoefficientOfATruncatedShiftIsTheConvolutionOfTheBoundaryProfilesAtTheShiftedTime.agda",
-    "integrated_path": "formal/cubical/theorems/physics/ParaSima_TheCrossBoundaryCoefficientOfATruncatedShiftIsTheConvolutionOfTheBoundaryProfilesAtTheShiftedTime.agda",
+    "original_path": "formal/cubical/theorems/physics/TheCrossBoundaryCoefficientOfATruncatedShiftIsTheConvolutionOfTheBoundaryProfilesAtTheShiftedTime.agda",
+    "integrated_path": "formal/cubical/theorems/physics/TheCrossBoundaryCoefficientOfATruncatedShiftIsTheConvolutionOfTheBoundaryProfilesAtTheShiftedTime.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -2035,8 +2035,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/physics/PrastutiNairapeksya_TheTotalIsIndependentOfTheReversibleEncoder.agda",
-    "integrated_path": "formal/cubical/theorems/physics/PrastutiNairapeksya_TheTotalIsIndependentOfTheReversibleEncoder.agda",
+    "original_path": "formal/cubical/theorems/physics/TheTotalIsIndependentOfTheReversibleEncoder.agda",
+    "integrated_path": "formal/cubical/theorems/physics/TheTotalIsIndependentOfTheReversibleEncoder.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -2045,18 +2045,18 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/physics/PucchaSima_TheTailOfTheArchimedeanSeriesIsBoundedByItsFirstTermTimesTheGeometricFactorSoTruncationIsCertifiedInFiniteAlgebra.agda",
-    "integrated_path": "formal/cubical/theorems/physics/PucchaSima_TheTailOfTheArchimedeanSeriesIsBoundedByItsFirstTermTimesTheGeometricFactorSoTruncationIsCertifiedInFiniteAlgebra.agda",
+    "original_path": "formal/cubical/theorems/physics/TheTailOfTheArchimedeanSeriesIsBoundedByItsFirstTermTimesTheGeometricFactorSoTruncationIsCertifiedInFiniteAlgebra.agda",
+    "integrated_path": "formal/cubical/theorems/physics/TheTailOfTheArchimedeanSeriesIsBoundedByItsFirstTermTimesTheGeometricFactorSoTruncationIsCertifiedInFiniteAlgebra.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/physics/Pula_ThePrincipalBundleIsAFamilyOfTorsorsSoItsHolonomyIsTheGroupAndTheFibrePointConjugatesIt.agda",
-    "integrated_path": "formal/cubical/theorems/physics/Pula_ThePrincipalBundleIsAFamilyOfTorsorsSoItsHolonomyIsTheGroupAndTheFibrePointConjugatesIt.agda",
+    "original_path": "formal/cubical/theorems/physics/ThePrincipalBundleIsAFamilyOfTorsorsSoItsHolonomyIsTheGroupAndTheFibrePointConjugatesIt.agda",
+    "integrated_path": "formal/cubical/theorems/physics/ThePrincipalBundleIsAFamilyOfTorsorsSoItsHolonomyIsTheGroupAndTheFibrePointConjugatesIt.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/physics/PurnaDhruvana_TheCompleteThreeAncestorNavierStokesSymbolContractsInEveryMixedHelicityChannelAndIsACoisometryOntoTheDescendantPlaneByGaussianIntegerComputation.agda",
-    "integrated_path": "formal/cubical/theorems/physics/PurnaDhruvana_TheCompleteThreeAncestorNavierStokesSymbolContractsInEveryMixedHelicityChannelAndIsACoisometryOntoTheDescendantPlaneByGaussianIntegerComputation.agda",
+    "original_path": "formal/cubical/theorems/physics/TheCompleteThreeAncestorNavierStokesSymbolContractsInEveryMixedHelicityChannelAndIsACoisometryOntoTheDescendantPlaneByGaussianIntegerComputation.agda",
+    "integrated_path": "formal/cubical/theorems/physics/TheCompleteThreeAncestorNavierStokesSymbolContractsInEveryMixedHelicityChannelAndIsACoisometryOntoTheDescendantPlaneByGaussianIntegerComputation.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -2070,8 +2070,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/physics/RnaDhana_TheParetoMaximumTransfersToCostCoordinates.agda",
-    "integrated_path": "formal/cubical/theorems/physics/RnaDhana_TheParetoMaximumTransfersToCostCoordinates.agda",
+    "original_path": "formal/cubical/theorems/physics/TheParetoMaximumTransfersToCostCoordinates.agda",
+    "integrated_path": "formal/cubical/theorems/physics/TheParetoMaximumTransfersToCostCoordinates.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -2080,18 +2080,18 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/physics/SamaChaya_TwoFieldsWithTheSameEntireCoarseMovieHaveDifferentSubgridEnergyAndDifferentCostSoNeitherDescendsThroughCoarseObservation.agda",
-    "integrated_path": "formal/cubical/theorems/physics/SamaChaya_TwoFieldsWithTheSameEntireCoarseMovieHaveDifferentSubgridEnergyAndDifferentCostSoNeitherDescendsThroughCoarseObservation.agda",
+    "original_path": "formal/cubical/theorems/physics/TwoFieldsWithTheSameEntireCoarseMovieHaveDifferentSubgridEnergyAndDifferentCostSoNeitherDescendsThroughCoarseObservation.agda",
+    "integrated_path": "formal/cubical/theorems/physics/TwoFieldsWithTheSameEntireCoarseMovieHaveDifferentSubgridEnergyAndDifferentCostSoNeitherDescendsThroughCoarseObservation.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/physics/SamanaKaksya_TheOrbitRelationIsAlreadyAnEquivalenceWithoutAnInverseAndTheChargeDescendsToTheQuotient.agda",
-    "integrated_path": "formal/cubical/theorems/physics/SamanaKaksya_TheOrbitRelationIsAlreadyAnEquivalenceWithoutAnInverseAndTheChargeDescendsToTheQuotient.agda",
+    "original_path": "formal/cubical/theorems/physics/TheOrbitRelationIsAlreadyAnEquivalenceWithoutAnInverseAndTheChargeDescendsToTheQuotient.agda",
+    "integrated_path": "formal/cubical/theorems/physics/TheOrbitRelationIsAlreadyAnEquivalenceWithoutAnInverseAndTheChargeDescendsToTheQuotient.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/physics/SamraksanaJala_TheEdgeLatticeConservesByIntersectionAndSignDiesThroughEveryQuotient.agda",
-    "integrated_path": "formal/cubical/theorems/physics/SamraksanaJala_TheEdgeLatticeConservesByIntersectionAndSignDiesThroughEveryQuotient.agda",
+    "original_path": "formal/cubical/theorems/physics/TheEdgeLatticeConservesByIntersectionAndSignDiesThroughEveryQuotient.agda",
+    "integrated_path": "formal/cubical/theorems/physics/TheEdgeLatticeConservesByIntersectionAndSignDiesThroughEveryQuotient.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -2100,13 +2100,13 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/physics/SarvaMauna_TheLadderOfATruncatedSpaceEndsExactlyAtItsOwnLevelAndTheUntwistedRingJoinsTheBell.agda",
-    "integrated_path": "formal/cubical/theorems/physics/SarvaMauna_TheLadderOfATruncatedSpaceEndsExactlyAtItsOwnLevelAndTheUntwistedRingJoinsTheBell.agda",
+    "original_path": "formal/cubical/theorems/physics/TheLadderOfATruncatedSpaceEndsExactlyAtItsOwnLevelAndTheUntwistedRingJoinsTheBell.agda",
+    "integrated_path": "formal/cubical/theorems/physics/TheLadderOfATruncatedSpaceEndsExactlyAtItsOwnLevelAndTheUntwistedRingJoinsTheBell.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/physics/SarvaMula_TheAllSourceCoadjointLawIsJacobiPairedAndTheActualTangentResidualIsExactlyTheSourceCommutator.agda",
-    "integrated_path": "formal/cubical/theorems/physics/SarvaMula_TheAllSourceCoadjointLawIsJacobiPairedAndTheActualTangentResidualIsExactlyTheSourceCommutator.agda",
+    "original_path": "formal/cubical/theorems/physics/TheAllSourceCoadjointLawIsJacobiPairedAndTheActualTangentResidualIsExactlyTheSourceCommutator.agda",
+    "integrated_path": "formal/cubical/theorems/physics/TheAllSourceCoadjointLawIsJacobiPairedAndTheActualTangentResidualIsExactlyTheSourceCommutator.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -2125,13 +2125,13 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/physics/Sphota_TheBlowUpWitnessIsADependentRecordEachInheritedReadingShrinksItsFibreAndTwoIncompatibleReadingsEmptyIt.agda",
-    "integrated_path": "formal/cubical/theorems/physics/Sphota_TheBlowUpWitnessIsADependentRecordEachInheritedReadingShrinksItsFibreAndTwoIncompatibleReadingsEmptyIt.agda",
+    "original_path": "formal/cubical/theorems/physics/TheBlowUpWitnessIsADependentRecordEachInheritedReadingShrinksItsFibreAndTwoIncompatibleReadingsEmptyIt.agda",
+    "integrated_path": "formal/cubical/theorems/physics/TheBlowUpWitnessIsADependentRecordEachInheritedReadingShrinksItsFibreAndTwoIncompatibleReadingsEmptyIt.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/physics/SquareClass_TheValuationIsInvariantUnderPermutationSoFactorListsDifferingByASquareInAnyArrangementHaveTheSameSign.agda",
-    "integrated_path": "formal/cubical/theorems/physics/SquareClass_TheValuationIsInvariantUnderPermutationSoFactorListsDifferingByASquareInAnyArrangementHaveTheSameSign.agda",
+    "original_path": "formal/cubical/theorems/physics/TheValuationIsInvariantUnderPermutationSoFactorListsDifferingByASquareInAnyArrangementHaveTheSameSign.agda",
+    "integrated_path": "formal/cubical/theorems/physics/TheValuationIsInvariantUnderPermutationSoFactorListsDifferingByASquareInAnyArrangementHaveTheSameSign.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -2170,8 +2170,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/physics/VestanaBheda_TheChargeIsAHomomorphismOntoZFourAndTheSectorsAreClassified.agda",
-    "integrated_path": "formal/cubical/theorems/physics/VestanaBheda_TheChargeIsAHomomorphismOntoZFourAndTheSectorsAreClassified.agda",
+    "original_path": "formal/cubical/theorems/physics/TheChargeIsAHomomorphismOntoZFourAndTheSectorsAreClassified.agda",
+    "integrated_path": "formal/cubical/theorems/physics/TheChargeIsAHomomorphismOntoZFourAndTheSectorsAreClassified.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -2185,13 +2185,13 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/physics/WeilPramanya_TheDyadicSlackCertificateForTheWeilFormOnSupportLengthZeroPointTwoOneThreeFiveOnSixtyFourCellsChecksBySafeComputationSoItsSpectralGapIsATerm.agda",
-    "integrated_path": "formal/cubical/theorems/physics/WeilPramanya_TheDyadicSlackCertificateForTheWeilFormOnSupportLengthZeroPointTwoOneThreeFiveOnSixtyFourCellsChecksBySafeComputationSoItsSpectralGapIsATerm.agda",
+    "original_path": "formal/cubical/theorems/physics/TheDyadicSlackCertificateForTheWeilFormOnSupportLengthZeroPointTwoOneThreeFiveOnSixtyFourCellsChecksBySafeComputationSoItsSpectralGapIsATerm.agda",
+    "integrated_path": "formal/cubical/theorems/physics/TheDyadicSlackCertificateForTheWeilFormOnSupportLengthZeroPointTwoOneThreeFiveOnSixtyFourCellsChecksBySafeComputationSoItsSpectralGapIsATerm.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/physics/YogaKsetra_TheConservingFlowsOfAdditionAreExactlyTheShearFields.agda",
-    "integrated_path": "formal/cubical/theorems/physics/YogaKsetra_TheConservingFlowsOfAdditionAreExactlyTheShearFields.agda",
+    "original_path": "formal/cubical/theorems/physics/TheConservingFlowsOfAdditionAreExactlyTheShearFields.agda",
+    "integrated_path": "formal/cubical/theorems/physics/TheConservingFlowsOfAdditionAreExactlyTheShearFields.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -2235,8 +2235,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/residue/Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork.agda",
-    "integrated_path": "formal/cubical/theorems/residue/Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork.agda",
+    "original_path": "formal/cubical/theorems/residue/TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork.agda",
+    "integrated_path": "formal/cubical/theorems/residue/TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -2250,13 +2250,13 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/residue/EkamChidram_TheObstructionIsOneClassCostCryptoAndCollisionAreEachANonEquivalenceOfTheForgetfulMap.agda",
-    "integrated_path": "formal/cubical/theorems/residue/EkamChidram_TheObstructionIsOneClassCostCryptoAndCollisionAreEachANonEquivalenceOfTheForgetfulMap.agda",
+    "original_path": "formal/cubical/theorems/residue/TheObstructionIsOneClassCostCryptoAndCollisionAreEachANonEquivalenceOfTheForgetfulMap.agda",
+    "integrated_path": "formal/cubical/theorems/residue/TheObstructionIsOneClassCostCryptoAndCollisionAreEachANonEquivalenceOfTheForgetfulMap.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/residue/Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda",
-    "integrated_path": "formal/cubical/theorems/residue/Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda",
+    "original_path": "formal/cubical/theorems/residue/LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda",
+    "integrated_path": "formal/cubical/theorems/residue/LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -2265,8 +2265,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/residue/Nasha_TheVisibleStepDestroysInformationAndTheCompletedStepCannotByConstruction.agda",
-    "integrated_path": "formal/cubical/theorems/residue/Nasha_TheVisibleStepDestroysInformationAndTheCompletedStepCannotByConstruction.agda",
+    "original_path": "formal/cubical/theorems/residue/TheVisibleStepDestroysInformationAndTheCompletedStepCannotByConstruction.agda",
+    "integrated_path": "formal/cubical/theorems/residue/TheVisibleStepDestroysInformationAndTheCompletedStepCannotByConstruction.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -2285,33 +2285,33 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/residue/Pratyanayana_TheFirstHaltingTimeComesBackFromTheTruncationBecauseMinimalityMakesItCanonical.agda",
-    "integrated_path": "formal/cubical/theorems/residue/Pratyanayana_TheFirstHaltingTimeComesBackFromTheTruncationBecauseMinimalityMakesItCanonical.agda",
+    "original_path": "formal/cubical/theorems/residue/TheFirstHaltingTimeComesBackFromTheTruncationBecauseMinimalityMakesItCanonical.agda",
+    "integrated_path": "formal/cubical/theorems/residue/TheFirstHaltingTimeComesBackFromTheTruncationBecauseMinimalityMakesItCanonical.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/residue/Sakshin_ReceiptedAnswersCollapseEveryQuestionAlphabetSoFreedomLivesOnlyInTheUnwitnessedEvent.agda",
-    "integrated_path": "formal/cubical/theorems/residue/Sakshin_ReceiptedAnswersCollapseEveryQuestionAlphabetSoFreedomLivesOnlyInTheUnwitnessedEvent.agda",
+    "original_path": "formal/cubical/theorems/residue/ReceiptedAnswersCollapseEveryQuestionAlphabetSoFreedomLivesOnlyInTheUnwitnessedEvent.agda",
+    "integrated_path": "formal/cubical/theorems/residue/ReceiptedAnswersCollapseEveryQuestionAlphabetSoFreedomLivesOnlyInTheUnwitnessedEvent.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/residue/Samasa_ProgramsComposeTheSequencedTableRunsItsFirstPhaseThenHandsTheTapeToTheSecondAtTheRetireState.agda",
-    "integrated_path": "formal/cubical/theorems/residue/Samasa_ProgramsComposeTheSequencedTableRunsItsFirstPhaseThenHandsTheTapeToTheSecondAtTheRetireState.agda",
+    "original_path": "formal/cubical/theorems/residue/ProgramsComposeTheSequencedTableRunsItsFirstPhaseThenHandsTheTapeToTheSecondAtTheRetireState.agda",
+    "integrated_path": "formal/cubical/theorems/residue/ProgramsComposeTheSequencedTableRunsItsFirstPhaseThenHandsTheTapeToTheSecondAtTheRetireState.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/residue/Sambandha_TheRelationalProgramWithUniqueAnswersIsTheMapSoAllThreePresentationsCollapseOntoOneFunction.agda",
-    "integrated_path": "formal/cubical/theorems/residue/Sambandha_TheRelationalProgramWithUniqueAnswersIsTheMapSoAllThreePresentationsCollapseOntoOneFunction.agda",
+    "original_path": "formal/cubical/theorems/residue/TheRelationalProgramWithUniqueAnswersIsTheMapSoAllThreePresentationsCollapseOntoOneFunction.agda",
+    "integrated_path": "formal/cubical/theorems/residue/TheRelationalProgramWithUniqueAnswersIsTheMapSoAllThreePresentationsCollapseOntoOneFunction.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/residue/Samkramana_AnEdgeCarriesEveryPredicateAndEdgesComposeSoTheRouteIsFree.agda",
-    "integrated_path": "formal/cubical/theorems/residue/Samkramana_AnEdgeCarriesEveryPredicateAndEdgesComposeSoTheRouteIsFree.agda",
+    "original_path": "formal/cubical/theorems/residue/AnEdgeCarriesEveryPredicateAndEdgesComposeSoTheRouteIsFree.agda",
+    "integrated_path": "formal/cubical/theorems/residue/AnEdgeCarriesEveryPredicateAndEdgesComposeSoTheRouteIsFree.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/residue/Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.agda",
-    "integrated_path": "formal/cubical/theorems/residue/Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.agda",
+    "original_path": "formal/cubical/theorems/residue/LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.agda",
+    "integrated_path": "formal/cubical/theorems/residue/LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -2350,23 +2350,23 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/residue/TrtiyaCidram_TheHigherRungIsAlsoANonEquivalenceSoTheApertureNotNonExactnessUnifiesTheTower.agda",
-    "integrated_path": "formal/cubical/theorems/residue/TrtiyaCidram_TheHigherRungIsAlsoANonEquivalenceSoTheApertureNotNonExactnessUnifiesTheTower.agda",
+    "original_path": "formal/cubical/theorems/residue/TheHigherRungIsAlsoANonEquivalenceSoTheApertureNotNonExactnessUnifiesTheTower.agda",
+    "integrated_path": "formal/cubical/theorems/residue/TheHigherRungIsAlsoANonEquivalenceSoTheApertureNotNonExactnessUnifiesTheTower.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/residue/VerifyIsDecide_ThereIsNoGapBetweenFindingAndCheckingBecauseBothAreProjectionsOfOneEquivalence.agda",
-    "integrated_path": "formal/cubical/theorems/residue/VerifyIsDecide_ThereIsNoGapBetweenFindingAndCheckingBecauseBothAreProjectionsOfOneEquivalence.agda",
+    "original_path": "formal/cubical/theorems/residue/ThereIsNoGapBetweenFindingAndCheckingBecauseBothAreProjectionsOfOneEquivalence.agda",
+    "integrated_path": "formal/cubical/theorems/residue/ThereIsNoGapBetweenFindingAndCheckingBecauseBothAreProjectionsOfOneEquivalence.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/residue/Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.agda",
-    "integrated_path": "formal/cubical/theorems/residue/Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.agda",
+    "original_path": "formal/cubical/theorems/residue/TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.agda",
+    "integrated_path": "formal/cubical/theorems/residue/TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/residue/Vistara_ThePaddingLemmaABehaviorHasUnboundedlyManyProgramsSoTheCodeIsNotDeterminedByTheRun.agda",
-    "integrated_path": "formal/cubical/theorems/residue/Vistara_ThePaddingLemmaABehaviorHasUnboundedlyManyProgramsSoTheCodeIsNotDeterminedByTheRun.agda",
+    "original_path": "formal/cubical/theorems/residue/ThePaddingLemmaABehaviorHasUnboundedlyManyProgramsSoTheCodeIsNotDeterminedByTheRun.agda",
+    "integrated_path": "formal/cubical/theorems/residue/ThePaddingLemmaABehaviorHasUnboundedlyManyProgramsSoTheCodeIsNotDeterminedByTheRun.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -2425,13 +2425,13 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/unplaced/Vyatikrama_TheCommutatorOfASelfAdjointWithASkewAdjointIsSelfAdjointSoTheCrossSectorCurrentIsARealPairing.agda",
-    "integrated_path": "formal/cubical/theorems/unplaced/Vyatikrama_TheCommutatorOfASelfAdjointWithASkewAdjointIsSelfAdjointSoTheCrossSectorCurrentIsARealPairing.agda",
+    "original_path": "formal/cubical/theorems/unplaced/TheCommutatorOfASelfAdjointWithASkewAdjointIsSelfAdjointSoTheCrossSectorCurrentIsARealPairing.agda",
+    "integrated_path": "formal/cubical/theorems/unplaced/TheCommutatorOfASelfAdjointWithASkewAdjointIsSelfAdjointSoTheCrossSectorCurrentIsARealPairing.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/walks/AdhikaraBhanga_TheActionTypeDoesNotDescendAndTheBlindnessHasADepth.agda",
-    "integrated_path": "formal/cubical/theorems/walks/AdhikaraBhanga_TheActionTypeDoesNotDescendAndTheBlindnessHasADepth.agda",
+    "original_path": "formal/cubical/theorems/walks/TheActionTypeDoesNotDescendAndTheBlindnessHasADepth.agda",
+    "integrated_path": "formal/cubical/theorems/walks/TheActionTypeDoesNotDescendAndTheBlindnessHasADepth.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -2450,8 +2450,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/cubical/theorems/walks/SannikrstaGahanata_ForEveryDimensionTheLastSilentStratumDescendsAndTheNextDoesNot.agda",
-    "integrated_path": "formal/cubical/theorems/walks/SannikrstaGahanata_ForEveryDimensionTheLastSilentStratumDescendsAndTheNextDoesNot.agda",
+    "original_path": "formal/cubical/theorems/walks/ForEveryDimensionTheLastSilentStratumDescendsAndTheNextDoesNot.agda",
+    "integrated_path": "formal/cubical/theorems/walks/ForEveryDimensionTheLastSilentStratumDescendsAndTheNextDoesNot.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -2470,13 +2470,13 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/karma/PramanaKanda_TheOneKnowingItselfCrossesTheBoundaryCertificatesAndAllInTheSharedTongue.agda",
-    "integrated_path": "formal/karma/PramanaKanda_TheOneKnowingItselfCrossesTheBoundaryCertificatesAndAllInTheSharedTongue.agda",
+    "original_path": "formal/karma/TheOneKnowingItselfCrossesTheBoundaryCertificatesAndAllInTheSharedTongue.agda",
+    "integrated_path": "formal/karma/TheOneKnowingItselfCrossesTheBoundaryCertificatesAndAllInTheSharedTongue.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "formal/karma/Svarupa_WhatThisModelOfComputationIsMeasuredInItsOwnTongueWithEveryClaimAWitness.agda",
-    "integrated_path": "formal/karma/Svarupa_WhatThisModelOfComputationIsMeasuredInItsOwnTongueWithEveryClaimAWitness.agda",
+    "original_path": "formal/karma/WhatThisModelOfComputationIsMeasuredInItsOwnTongueWithEveryClaimAWitness.agda",
+    "integrated_path": "formal/karma/WhatThisModelOfComputationIsMeasuredInItsOwnTongueWithEveryClaimAWitness.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -2610,8 +2610,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "punaragamana/src/Punaragamana/Adharmin_TheUnposedQuestionIsNotAnEmptyFibreAndTheCensusCannotSayIt.agda",
-    "integrated_path": "punaragamana/src/Punaragamana/Adharmin_TheUnposedQuestionIsNotAnEmptyFibreAndTheCensusCannotSayIt.agda",
+    "original_path": "punaragamana/src/Punaragamana/TheUnposedQuestionIsNotAnEmptyFibreAndTheCensusCannotSayIt.agda",
+    "integrated_path": "punaragamana/src/Punaragamana/TheUnposedQuestionIsNotAnEmptyFibreAndTheCensusCannotSayIt.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -2630,8 +2630,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "punaragamana/src/Punaragamana/KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree.agda",
-    "integrated_path": "punaragamana/src/Punaragamana/KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree.agda",
+    "original_path": "punaragamana/src/Punaragamana/TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree.agda",
+    "integrated_path": "punaragamana/src/Punaragamana/TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -2655,8 +2655,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "punaragamana/src/Punaragamana/Samagra_TheSourceIsDirectlyEquivalentToTheTotalResidualWithNoCarrierInTheMiddle.agda",
-    "integrated_path": "punaragamana/src/Punaragamana/Samagra_TheSourceIsDirectlyEquivalentToTheTotalResidualWithNoCarrierInTheMiddle.agda",
+    "original_path": "punaragamana/src/Punaragamana/TheSourceIsDirectlyEquivalentToTheTotalResidualWithNoCarrierInTheMiddle.agda",
+    "integrated_path": "punaragamana/src/Punaragamana/TheSourceIsDirectlyEquivalentToTheTotalResidualWithNoCarrierInTheMiddle.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -2675,8 +2675,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "punaragamana/src/Punaragamana/Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried.agda",
-    "integrated_path": "punaragamana/src/Punaragamana/Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried.agda",
+    "original_path": "punaragamana/src/Punaragamana/TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried.agda",
+    "integrated_path": "punaragamana/src/Punaragamana/TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried.agda",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -3110,8 +3110,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "site/1lab/agda-html/fibre/Fibre.Adharmin_TheUnposedQuestionIsNotAnEmptyFibreAndTheCensusCannotSayIt.html",
-    "integrated_path": "site/1lab/agda-html/fibre/Fibre.Adharmin_TheUnposedQuestionIsNotAnEmptyFibreAndTheCensusCannotSayIt.html",
+    "original_path": "site/1lab/agda-html/fibre/Fibre.TheUnposedQuestionIsNotAnEmptyFibreAndTheCensusCannotSayIt.html",
+    "integrated_path": "site/1lab/agda-html/fibre/Fibre.TheUnposedQuestionIsNotAnEmptyFibreAndTheCensusCannotSayIt.html",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -3130,8 +3130,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "site/1lab/agda-html/fibre/Fibre.KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree.html",
-    "integrated_path": "site/1lab/agda-html/fibre/Fibre.KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree.html",
+    "original_path": "site/1lab/agda-html/fibre/Fibre.TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree.html",
+    "integrated_path": "site/1lab/agda-html/fibre/Fibre.TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree.html",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -3150,8 +3150,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "site/1lab/agda-html/fibre/Fibre.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried.html",
-    "integrated_path": "site/1lab/agda-html/fibre/Fibre.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried.html",
+    "original_path": "site/1lab/agda-html/fibre/Fibre.TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried.html",
+    "integrated_path": "site/1lab/agda-html/fibre/Fibre.TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried.html",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -3175,8 +3175,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "site/1lab/agda-html/residue/Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.html",
-    "integrated_path": "site/1lab/agda-html/residue/Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.html",
+    "original_path": "site/1lab/agda-html/residue/LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.html",
+    "integrated_path": "site/1lab/agda-html/residue/LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.html",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
@@ -3190,8 +3190,8 @@
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {
-    "original_path": "site/1lab/agda-html/residue/Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.html",
-    "integrated_path": "site/1lab/agda-html/residue/Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.html",
+    "original_path": "site/1lab/agda-html/residue/TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.html",
+    "integrated_path": "site/1lab/agda-html/residue/TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.html",
     "decision": "retain repaired upstream file/deletion; unfinished local bulk rename retained on recovery branch"
   },
   {

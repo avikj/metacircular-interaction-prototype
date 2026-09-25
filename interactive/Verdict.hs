@@ -48,7 +48,7 @@
 --     pramana) against vikaladesa (partial statement, naya).
 --
 -- Every law this module states is proved in
--- `formal/cubical/SaptabhangiSamyoga_TheCompositionOfVerdicts.agda`
+-- `formal/cubical/TheCompositionOfVerdicts.agda`
 -- and re-verified here
 -- by exhaustive finite computation over the seven positions in `selfTest`.
 -- Exhaustive verification of a finite predicate is proof (CLAUDE.md); a
@@ -92,7 +92,7 @@
 -- not exist).  The comparison to make is whether the forgetful map from
 -- records to labels is a homomorphism for krama, for saha, or for
 -- neither.  It is settled in
--- formal/cubical/Arpitanarpita_TheForgetfulMapIsAHomomorphismForBothArpanasAndTheLabelsAreARetractNotAnEquivalence.agda
+-- formal/cubical/TheForgetfulMapIsAHomomorphismForBothArpanasAndTheLabelsAreARetractNotAnEquivalence.agda
 -- and re-verified exhaustively in the sibling module's `selfTest` as
 -- `anarpana`.  The answer is BOTH: the forgetful map is a homomorphism
 -- for krama AND for saha, for every standpoint family; it has a section

@@ -21,7 +21,7 @@ open import Cubical.Foundations.Equiv using (_≃_ ; fiber)
 open import Cubical.Data.Nat using (ℕ ; suc)
 open import Cubical.Data.SumFin using (Fin)
 
-import ShakhaSetu_TheMicroSpaceFlattensReversiblyAndTheFibreOverEachCoarseOutcomeIsItsBranch as S
+import TheMicroSpaceFlattensReversiblyAndTheFibreOverEachCoarseOutcomeIsItsBranch as S
 
 -- Force the universe-path computation receipt through the imported interface.
 transport-receipt : (c : ℕ) (k : Fin (suc c) → ℕ)

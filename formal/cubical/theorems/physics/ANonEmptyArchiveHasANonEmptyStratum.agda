@@ -51,7 +51,7 @@ open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Data.Empty as ⊥ using (⊥)
 open import Cubical.Relation.Nullary using (¬_ ; Dec ; yes ; no)
 
-open import OrderAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet
+open import TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet
   using (Any)
 open import AParetoFitnessHasNoBestAndEveryScalarisationAddsADecision
   using (_≼_ ; ≼-refl ; ≼-trans)
@@ -144,7 +144,7 @@ stratumIsNonEmpty x xs with maximalExists x xs
 -- The theorems above are about a vector all of whose coordinates point
 -- the same way, while §5.2's objectives include quantities to be
 -- MINIMISED.  `maximalExists` transfers to MIXED vectors in
--- `RnaDhana_TheParetoMaximumTransfersToCostCoordinates`.
+-- `TheParetoMaximumTransfersToCostCoordinates`.
 --
 -- `mixedMaximalExists` proves that a non-empty archive of MIXED
 -- benefit/cost vectors has a member nothing beats, by calling

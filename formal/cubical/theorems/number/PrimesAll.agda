@@ -22,5 +22,5 @@ import Ekam
 import KuttakaConvergents
 import Ganana
 import Samkramana
-import SamkramanaVahanam_TransportCarriesTheOperationAndItsLawsAndTheyCompute
+import TransportCarriesTheOperationAndItsLawsAndTheyCompute
 import LosslessReturnFinal
