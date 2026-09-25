@@ -3,37 +3,35 @@
 ------------------------------------------------------------------------
 -- The transport word is a geodesic.
 --
--- G3 of `research/PNP_GEODESIC_REDUCTION_20260916.md`, as terms.  The
--- ingredients were already checked and are imported, not restated:
+-- G3 of research/PNP_GEODESIC_REDUCTION_20260916.md, as terms.  Every
+-- ingredient is imported, not restated:
 --
---   AnantaVeni      veṇī∞      the crossing at every position
---   AnantaVeniMatra gāḍha      the reader
---   NirupaSutra     vēṇī-gaṇa  the word action, left to right
---   SthairyaSutra   kartana, śabda-sthairya
---                              every word is uniformly continuous with
---                              modulus its own length
---   VeniPatha       pāra-pāṭha the lower reader of a crossed rope sees
---                              the turned upper strand
---   CaturamsaBhramana catur-cakra
---                              the quarter turn has order four
+--   AnantaVeni        the crossing at every position
+--   AnantaVeniMatra   the reader, and the constant rope
+--   VeniPatha         the lower reader of a crossed rope sees the
+--                     turned upper strand -- the head equation's step
+--   NirupaSutra       the word action, left to right
+--   SthairyaSutra     truncation, and: every word is uniformly
+--                     continuous with modulus its own length
+--   CaturamsaBhramana the quarter turn has order four
 --
--- §1  `bring n = [n-1, …, 0]`, of length exactly n.
--- §2  ρ = caturaṃśa is injective because it has order four, hence so is
---     every ρⁿ.
--- §3  THE HEAD EQUATION, by folding `pāra-pāṭha` down the word.
---     `bring n` brings cell n to the head, with n quarter turns on it:
---         gāḍha 0 (vēṇī-gaṇa (bring n) s) ≡ cakra n (gāḍha n s).
--- §4  The separating ropes: `sthāna N a` is `sthira` everywhere except
---     at position N, where it is a.  Two of them agree to every depth
---     m ≤ N and differ at N.
--- §5  THE LOWER BOUND.  A word of length < n cannot realise the head
---     observation: śabda-sthairya makes its head blind to cell n, while
---     the observation would have to read it.  Quantified over EVERY
---     word of the generator alphabet, not over one implementation.
--- §6  n ≤ |w| for every realising w, and `bring n` attains it, so the
---     minimum is exactly n.  The transformation is reversible and the
---     distance is positive: semantic invertibility and execution
---     distance are different structures.
+-- 1  `bring n = [n-1, ..., 0]`, of length exactly n.
+-- 2  The quarter turn is injective because it has order four, hence so
+--    is every power of it.
+-- 3  THE HEAD EQUATION, by folding the imported step lemma down the
+--    word: `bring n` brings cell n to the head with n turns on it.
+-- 4  The separating ropes: `plant N a` is the constant rope everywhere
+--    except at position N, where it is a.  Two of them agree to every
+--    depth at most N and differ at N.
+-- 5  THE LOWER BOUND.  A word shorter than n cannot realise the head
+--    observation: its light cone stops before cell n, so its head is
+--    blind to the very cell the observation would have to read.
+--    Quantified over EVERY word of the generator alphabet, not over
+--    one implementation.
+-- 6  n <= |w| for every realising w, and `bring n` attains it, so the
+--    minimum is exactly n.  The transformation is reversible and the
+--    distance is positive: semantic invertibility and execution
+--    distance are different structures.
 ------------------------------------------------------------------------
 
 module BringGeodesic_BringingDepthNToTheHeadCostsExactlyNCrossingsSoTheTransportWordIsAGeodesic where
@@ -69,136 +67,136 @@ open import SthairyaSutra_EveryCrossingIsOneLipschitzWithUnitLookaheadSoEveryWor
 open Dhārā
 
 ------------------------------------------------------------------------
--- १ · The transport word and its exact length.
+-- 1 · The transport word and its exact length.
 ------------------------------------------------------------------------
 
 bring : ℕ → List ℕ
 bring zero    = []
 bring (suc n) = n ∷ bring n
 
-bring-dīrgha : (n : ℕ) → length (bring n) ≡ n
-bring-dīrgha zero    = refl
-bring-dīrgha (suc n) = cong suc (bring-dīrgha n)
+bring-length : (n : ℕ) → length (bring n) ≡ n
+bring-length zero    = refl
+bring-length (suc n) = cong suc (bring-length n)
 
 ------------------------------------------------------------------------
--- २ · ρⁿ is injective, because ρ has order four.
+-- 2 · Powers of the quarter turn are injective.
 ------------------------------------------------------------------------
 
-cakra : ℕ → Sūtra → Sūtra
-cakra zero    p = p
-cakra (suc n) p = cakra n (caturaṃśa p)
+turns : ℕ → Sūtra → Sūtra
+turns zero    p = p
+turns (suc n) p = turns n (caturaṃśa p)
 
-caturaṃśa-eka : (p q : Sūtra) → caturaṃśa p ≡ caturaṃśa q → p ≡ q
-caturaṃśa-eka p q h =
+turn-injective : (p q : Sūtra) → caturaṃśa p ≡ caturaṃśa q → p ≡ q
+turn-injective p q h =
     sym (catur-cakra p)
   ∙ cong (λ z → caturaṃśa (caturaṃśa (caturaṃśa z))) h
   ∙ catur-cakra q
 
-cakra-eka : (n : ℕ) (p q : Sūtra) → cakra n p ≡ cakra n q → p ≡ q
-cakra-eka zero    p q h = h
-cakra-eka (suc n) p q h = caturaṃśa-eka p q (cakra-eka n _ _ h)
+turns-injective : (n : ℕ) (p q : Sūtra) → turns n p ≡ turns n q → p ≡ q
+turns-injective zero    p q h = h
+turns-injective (suc n) p q h = turn-injective p q (turns-injective n _ _ h)
 
 ------------------------------------------------------------------------
--- ३ · THE HEAD EQUATION.
+-- 3 · THE HEAD EQUATION.
 --
--- One crossing at position m lifts cell m+1 to position m, quarter-turned.
+-- The imported step lemma says one crossing at position i lifts cell
+-- i+1 to position i, quarter-turned.  Fold it down the word.
 ------------------------------------------------------------------------
 
--- `pāra-pāṭha` (VeniPatha) is exactly that: the lower reader of a
--- crossed rope sees the turned upper strand.  Folding it down `bring`
--- brings cell n to the head with n turns on it.
-mastaka : (n : ℕ) (s : Rajju)
-        → gāḍha 0 (vēṇī-gaṇa (bring n) s) ≡ cakra n (gāḍha n s)
-mastaka zero    s = refl
-mastaka (suc n) s =
-    mastaka n (veṇī∞ n s)
-  ∙ cong (cakra n) (pāra-pāṭha n s)
+head-equation : (n : ℕ) (s : Rajju)
+              → gāḍha 0 (vēṇī-gaṇa (bring n) s) ≡ turns n (gāḍha n s)
+head-equation zero    s = refl
+head-equation (suc n) s =
+    head-equation n (veṇī∞ n s)
+  ∙ cong (turns n) (pāra-pāṭha n s)
 
 ------------------------------------------------------------------------
--- ४ · The separating ropes.
+-- 4 · The separating ropes.
 ------------------------------------------------------------------------
 
--- `sthira` (AnantaVeniMatra) is the constant rope; its cell is the blank.
-rikta : Sūtra
-rikta = true , true
+-- the constant rope's cell, used as the blank
+blank : Sūtra
+blank = true , true
 
 -- blank everywhere, `a` at position N
-sthāna : ℕ → Sūtra → Rajju
-śiras (sthāna zero    a) = a
-śeṣam (sthāna zero    a) = sthira
-śiras (sthāna (suc N) a) = rikta
-śeṣam (sthāna (suc N) a) = sthāna N a
+plant : ℕ → Sūtra → Rajju
+śiras (plant zero    a) = a
+śeṣam (plant zero    a) = sthira
+śiras (plant (suc N) a) = blank
+śeṣam (plant (suc N) a) = plant N a
 
-sthāna-gāḍha : (N : ℕ) (a : Sūtra) → gāḍha N (sthāna N a) ≡ a
-sthāna-gāḍha zero    a = refl
-sthāna-gāḍha (suc N) a = sthāna-gāḍha N a
+plant-reads : (N : ℕ) (a : Sūtra) → gāḍha N (plant N a) ≡ a
+plant-reads zero    a = refl
+plant-reads (suc N) a = plant-reads N a
 
 -- agreement to every depth at or below the planted cell
-sthāna-kartana : (m N : ℕ) → m ≤ N → (a b : Sūtra)
-               → kartana m (sthāna N a) ≡ kartana m (sthāna N b)
-sthāna-kartana zero    N       le      a b = refl
-sthāna-kartana (suc m) zero    le      a b = Empty.rec (¬-<-zero le)
-sthāna-kartana (suc m) (suc N) le      a b =
-  cong (rikta ∷_) (sthāna-kartana m N (pred-≤-pred le) a b)
+plant-agrees : (m N : ℕ) → m ≤ N → (a b : Sūtra)
+             → kartana m (plant N a) ≡ kartana m (plant N b)
+plant-agrees zero    N       le a b = refl
+plant-agrees (suc m) zero    le a b = Empty.rec (¬-<-zero le)
+plant-agrees (suc m) (suc N) le a b =
+  cong (blank ∷_) (plant-agrees m N (pred-≤-pred le) a b)
 
 ------------------------------------------------------------------------
--- ५ · THE LOWER BOUND, over every word of the generator alphabet.
+-- 5 · THE LOWER BOUND, over every word of the generator alphabet.
 ------------------------------------------------------------------------
 
-MastakaKarati : ℕ → List ℕ → Type₀
-MastakaKarati n w = (s : Rajju) → gāḍha 0 (vēṇī-gaṇa w s) ≡ cakra n (gāḍha n s)
+RealisesHead : ℕ → List ℕ → Type₀
+RealisesHead n w = (s : Rajju) → gāḍha 0 (vēṇī-gaṇa w s) ≡ turns n (gāḍha n s)
 
 private
-  eka+ : (m : ℕ) → m + 1 ≡ suc m
-  eka+ m = +-suc m zero ∙ cong suc (+-zero m)
+  plus-one : (m : ℕ) → m + 1 ≡ suc m
+  plus-one m = +-suc m zero ∙ cong suc (+-zero m)
 
-  varṇa-a varṇa-b : Sūtra
-  varṇa-a = true  , false
-  varṇa-b = false , false
+  mark-a mark-b : Sūtra
+  mark-a = true  , false
+  mark-b = false , false
 
-  varṇa-bheda : ¬ (varṇa-a ≡ varṇa-b)
-  varṇa-bheda p = true≢false (cong fst p)
+  marks-differ : ¬ (mark-a ≡ mark-b)
+  marks-differ p = true≢false (cong fst p)
 
-na-laghutara : (n : ℕ) (w : List ℕ) → MastakaKarati n w → length w < n → ⊥
-na-laghutara n w h lt = varṇa-bheda (cakra-eka n varṇa-a varṇa-b sama-cakra)
+no-short-word : (n : ℕ) (w : List ℕ) → RealisesHead n w → length w < n → ⊥
+no-short-word n w h lt =
+  marks-differ (turns-injective n mark-a mark-b turned-marks-agree)
   where
   s t : Rajju
-  s = sthāna n varṇa-a
-  t = sthāna n varṇa-b
+  s = plant n mark-a
+  t = plant n mark-b
 
   -- the word's light cone reaches only depth |w|+1, and n is beyond it
-  militam : kartana (length w + 1) s ≡ kartana (length w + 1) t
-  militam = subst (λ m → kartana m s ≡ kartana m t) (sym (eka+ (length w)))
-              (sthāna-kartana (suc (length w)) n lt varṇa-a varṇa-b)
+  prefixes-agree : kartana (length w + 1) s ≡ kartana (length w + 1) t
+  prefixes-agree =
+    subst (λ m → kartana m s ≡ kartana m t) (sym (plus-one (length w)))
+      (plant-agrees (suc (length w)) n lt mark-a mark-b)
 
   -- so the two heads after the word are equal …
-  mastaka-samam : gāḍha 0 (vēṇī-gaṇa w s) ≡ gāḍha 0 (vēṇī-gaṇa w t)
-  mastaka-samam = cons-inj₁ (śabda-sthairya w 1 s t militam)
+  heads-agree : gāḍha 0 (vēṇī-gaṇa w s) ≡ gāḍha 0 (vēṇī-gaṇa w t)
+  heads-agree = cons-inj₁ (śabda-sthairya w 1 s t prefixes-agree)
 
-  -- … while the observation says they are ρⁿa and ρⁿb.
-  sama-cakra : cakra n varṇa-a ≡ cakra n varṇa-b
-  sama-cakra =
-      cong (cakra n) (sym (sthāna-gāḍha n varṇa-a))
+  -- … while the observation says they are the two turned marks.
+  turned-marks-agree : turns n mark-a ≡ turns n mark-b
+  turned-marks-agree =
+      cong (turns n) (sym (plant-reads n mark-a))
     ∙ sym (h s)
-    ∙ mastaka-samam
+    ∙ heads-agree
     ∙ h t
-    ∙ cong (cakra n) (sthāna-gāḍha n varṇa-b)
+    ∙ cong (turns n) (plant-reads n mark-b)
 
 ------------------------------------------------------------------------
--- ६ · THE GEODESIC.  n crossings are necessary and `bring n` supplies
+-- 6 · THE GEODESIC.  n crossings are necessary and `bring n` supplies
 -- them, so the minimum is exactly n.
 ------------------------------------------------------------------------
 
-na-hrasva-mastaka : (n : ℕ) (w : List ℕ) → MastakaKarati n w → n ≤ length w
-na-hrasva-mastaka n w h with splitℕ-≤ n (length w)
+head-needs-n : (n : ℕ) (w : List ℕ) → RealisesHead n w → n ≤ length w
+head-needs-n n w h with splitℕ-≤ n (length w)
 ... | inl le = le
-... | inr lt = Empty.rec (na-laghutara n w h lt)
+... | inr lt = Empty.rec (no-short-word n w h lt)
 
-bring-mastaka : (n : ℕ) → MastakaKarati n (bring n)
-bring-mastaka n = mastaka n
+bring-realises-head : (n : ℕ) → RealisesHead n (bring n)
+bring-realises-head n = head-equation n
 
 bring-geodesic : (n : ℕ)
-               → MastakaKarati n (bring n)
+               → RealisesHead n (bring n)
                × (length (bring n) ≡ n)
-               × ((w : List ℕ) → MastakaKarati n w → n ≤ length w)
-bring-geodesic n = bring-mastaka n , bring-dīrgha n , na-hrasva-mastaka n
+               × ((w : List ℕ) → RealisesHead n w → n ≤ length w)
+bring-geodesic n = bring-realises-head n , bring-length n , head-needs-n n
