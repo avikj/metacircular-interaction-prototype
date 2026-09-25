@@ -22,7 +22,7 @@ BEND="${1:-$(cat /tmp/BENDBIN 2>/dev/null || echo bend)}"
 NONTOTAL="loop recon_bach streams coinduction_mustfail"
 
 MUSTFAIL="coinduction_mustfail erasure glue_mustfail hfill kan_mustfail quotient_mustfail sub_mustfail transp_mustfail partial_mustfail circle_mustfail truncation_mustfail hit_circle_mustfail hit_mustfail
-          silence_mustfail uaequiv_mustfail uaroundtrip gate_mustfail"
+          silence_mustfail uaequiv_mustfail uaroundtrip gate_mustfail sup_dependent_mustfail"
 cd "$(dirname "$0")" || exit 1
 bad=0; n=0
 for f in *.bend; do

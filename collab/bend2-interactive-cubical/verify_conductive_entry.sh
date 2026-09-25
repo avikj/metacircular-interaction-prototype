@@ -53,6 +53,18 @@ run "$HERE/hit_param_endpoint.bend" '#Pair{#Nat{},#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{
 [ "$("$HVM" "$TMP/trunc.hvm4" -s -C10 2>&1 | head -1 | sed 's/ .*//')" = '#Pair{#HT_PTrunc{#Nat{}},#C_PTrunc_tin{#Nat{},#Suc{#Suc{#Suc{#Zer{}}}}}}' ]
 echo "HIT-PARAMETERS OK"
 
+# A superposed point of a dependent family is typed by the DUP of its goal at
+# the value's label (the checker runs the net's own DUP-SUP rule on the type):
+# `(&0{True,False}, &0{3n,()}) : Σ b:Bool. F(b)` checks fibrewise, and its
+# typed point collapses to exactly the two diagonal readings, never a cross
+# term. The different-label sibling is a registered must-fail in suite.sh.
+(cd "$HERE" && "$BEND" sup_dependent.bend --to-hvm4-full) > "$TMP/supdep.hvm4" 2>/dev/null
+"$HVM" "$TMP/supdep.hvm4" -s -C10 2>&1 | grep -v '^- ' | sed 's/\x1b\[[0-9;]*m//g; s/ #[0-9]*$//' > "$TMP/supdep.out"
+[ "$(wc -l < "$TMP/supdep.out")" -eq 2 ]
+grep -Fqx '#Pair{#Sig{#Bool{},λa.λ{0:#Unit{};λb.#Nat{}}(a)},#Pair{1,#Suc{#Suc{#Suc{#Zer{}}}}}}' "$TMP/supdep.out"
+grep -Fqx '#Pair{#Sig{#Bool{},λa.λ{0:#Unit{};λb.#Nat{}}(a)},#Pair{0,#One{}}}' "$TMP/supdep.out"
+echo "SUP-DEPENDENT OK"
+
 if "$BEND" "$HERE/gate_mustfail.bend" --to-hvm4-full > "$TMP/gate.hvm4" 2>/dev/null; then
   echo "ill-typed input was emitted" >&2
   exit 1

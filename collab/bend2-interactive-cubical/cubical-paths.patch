@@ -2342,7 +2342,7 @@ index f94d1ce..95bf2d3 100644
 +  putStrLn (HVM4Full.compileFull book)
 +
 diff --git a/src/Core/Check.hs b/src/Core/Check.hs
-index cdd6756..ac7e87f 100644
+index cdd6756..84697db 100644
 --- a/src/Core/Check.hs
 +++ b/src/Core/Check.hs
 @@ -11,6 +11,9 @@ import Debug.Trace
@@ -2783,17 +2783,27 @@ index cdd6756..ac7e87f 100644
      (Val (U64_V _), Num U64_T) -> do
        Done ()
      (Val (I64_V _), Num I64_T) -> do
-@@ -402,6 +774,9 @@ check d span book ctx term goal =
+@@ -402,9 +774,16 @@ check d span book ctx term goal =
        if equal d book tr goal
          then Done ()
          else Fail $ TypeMismatch span (formatCtx d book ctx) (format d book goal) (format d book tr)
-+    (Sup l a b, Sup l2 ta tb) | equal d book l l2 -> do
-+      check d span book ctx a ta
-+      check d span book ctx b tb
-     (Sup l a b, _) -> do
-       check d span book ctx a goal
-       check d span book ctx b goal
-@@ -429,17 +804,263 @@ check d span book ctx term goal =
+-    (Sup l a b, _) -> do
+-      check d span book ctx a goal
+-      check d span book ctx b goal
++    -- &l{a, b} :: G  is typed by the DUP of G at label l: the same-label
++    -- superposition inside G routes (a lives in G's first branch, b in its
++    -- second: the diagonal, one correlated choice), a different-label one is
++    -- kept on both sides (the product, an independent coordinate), and a
++    -- rigid G is duplicated. This is the runtime's DUP-SUP rule run on the
++    -- type, so a superposed point of a dependent family is typed fibrewise.
++    (Sup l a b, goal') -> do
++      let (g0, g1) = dup book l goal'
++      check d span book ctx a g0
++      check d span book ctx b g1
+     (SupM x l f, _) -> do
+       check d span book ctx l (Num U64_T)
+       xT <- infer d span book ctx x
+@@ -429,17 +808,263 @@ check d span book ctx term goal =
                check d span book ctx f $ All xt $ Lam "_" $ \v -> goal
          else do
            verify d span book ctx term goal
@@ -3058,7 +3068,7 @@ index cdd6756..ac7e87f 100644
      then Done ()
      else Fail $ TypeMismatch span (formatCtx d book ctx) (format d book goal) (format d book t)
  
-@@ -448,7 +1069,7 @@ verify d span book ctx term goal = do
+@@ -448,7 +1073,7 @@ verify d span book ctx term goal = do
  
  -- Check all definitions in a Book
  checkBook :: Book -> Result ()
@@ -3067,7 +3077,7 @@ index cdd6756..ac7e87f 100644
    where
      checkDef (name, (_, term, typ)) = do
        check 0 noSpan book (Ctx []) term typ
-@@ -468,3 +1089,122 @@ isLamApp (cut -> EnuM _ _ _) = True
+@@ -468,3 +1093,122 @@ isLamApp (cut -> EnuM _ _ _) = True
  isLamApp (cut -> SigM _ _)   = True
  isLamApp (cut -> EqlM _ _)   = True
  isLamApp _                   = False

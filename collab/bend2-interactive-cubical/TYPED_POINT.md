@@ -1,8 +1,10 @@
 # What the mathematics dictates, from the ground up
 
 *The design of `--to-hvm4-full`, stated once so it is not rediscovered.
-Companion to `LANGUAGE_LEVEL_CONDUCTIVE_FIBRE_INTEGRATION.md` §41 and
-`RUNTIME_FULL.md` ("Typed points").*
+Companion to `LANGUAGE_LEVEL_CONDUCTIVE_FIBRE_INTEGRATION.md` §41,
+`RUNTIME_FULL.md` ("Typed points") and `SETTLED_BY_THE_CORPUS.md` (what the
+corpus already settles about superposition, order and the price of Glue,
+and the runtime those theorems dictate).*
 
 The runtime object is `Σ A : Set. A`: a checked term together with its
 checked type. Every definition is emitted as `@Dname` (the term) and
@@ -113,3 +115,9 @@ runs the same checks.
 9. Nothing was added between the checked object and the net: no host
    enumeration, no scheduler, no trace recorder, no optimizer, no second
    type theory, no prelude copy of a port module.
+10. A superposition is typed by the DUP of its goal at its label
+   (`sup_dependent.bend`: `(&0{True,False}, &0{3n,()}) : Σ b:Bool. F(b)`
+   checks fibrewise and collapses under `-C10` to exactly the two diagonal
+   readings; `sup_dependent_mustfail.bend`'s different-label sibling is
+   rejected). The checker, the normaliser and HVM4 run one DUP-SUP rule;
+   no product rule on the type and no second rule for the net.

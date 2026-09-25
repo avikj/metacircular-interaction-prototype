@@ -112,6 +112,17 @@ the one and an empty superposition in the other, which annihilated the whole
 value under collapse. A constructor that reaches emission without its
 parameters is refused, like any other cell the emitter cannot make complete.
 
+A superposed point of a dependent family is typed by the DUP of its goal at
+the value's label, which is the net's own DUP-SUP rule run on the type:
+`(&0{True, False}, &0{3n, ()}) : Σ b:Bool. F(b)` checks as `3n : F(True)`
+and `() : F(False)`, its typed point is
+`#Pair{#Sig{#Bool, λb. F b}, #Pair{&L0{1,0}, &L0{3,()}}}`, and `-C10` reads
+off exactly the two diagonal points, never `(3n, False)`
+(`sup_dependent.bend`; the different-label sibling is a must-fail). The
+same-label case is the contractible fibre and routes; a different label is
+an independent coordinate and must inhabit both fibres
+(`SETTLED_BY_THE_CORPUS.md` §1).
+
 One consequence to know: a typed point whose cells include a recursive
 function (a HIT parameterised by `dbl`, or a `main` that is `dbl`) has no
 finite normal form, and `hvm -s`, which normalises fully and expands every
