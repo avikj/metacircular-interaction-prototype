@@ -84,6 +84,9 @@ typedef struct {
 #define BJV 42  // Bjv(n): quoted lambda-bound variable (de Bruijn level)
 #define BJ0 43  // Bj0(n): quoted dup-bound variable (side 0, de Bruijn level)
 #define BJ1 44  // Bj1(n): quoted dup-bound variable (side 1, de Bruijn level)
+#define PRI 45  // Pri(id): a runtime primitive of the verify projection; fires on application
+#define STA 46  // Sta(kind)[meta, x]: static-only syntax (a judgment or hint the checker reads);
+                //   instantiation (ALO) drops it, so it costs nothing at run time
 
 // LAM Ext Flags
 // =============
@@ -329,6 +332,8 @@ static const u8 TERM_ARITY[TAG_MASK + 1] = {
   [BJV] = 0,
   [BJ0] = 0,
   [BJ1] = 0,
+  [PRI] = 0,
+  [STA] = 2,
 };
 
 fn u32 term_arity(Term t) {
@@ -887,7 +892,27 @@ static u32 SYM_NIL = 0;
 static u32 SYM_CON = 0;
 static u32 SYM_CHR = 0;
 
+// Constructors of the Bend data the primitives exchange (Tup, List).
+static u32 SYM_PAIR = 0;
+static u32 SYM_BCON = 0;
+static u32 SYM_BNIL = 0;
+
+// Primitives of the verify projection (One §14): the checker reads the
+// static book and evaluates types on the same net.  Every primitive takes
+// one argument (several arguments arrive as a Bend tuple), so a primitive
+// never has partial state and can be shared freely.
+enum { P_FRESH, P_CODE, P_IDOF, P_PEEK, P_INST, P_VPEEK, P_VFIELD, P_VAPP, P_CONV, P_TYPEOF, P_COUNT };
+static const char *PRI_NAME[P_COUNT] = {
+  "fresh", "code", "idof", "peek", "inst", "vpeek", "vfield", "vapp", "conv", "typeof"
+};
+// Static-only node kinds (STA ext): a type annotation, a log message, a rewrite hint.
+enum { S_ANN, S_LOG, S_RWT, S_COUNT };
+static const char *STA_NAME[S_COUNT] = { "ann", "log", "rwt" };
+
 fn void symbols_init(void) {
+  SYM_PAIR = table_find("Pair", 4);
+  SYM_BCON = table_find("Con", 3);
+  SYM_BNIL = table_find("Nil", 3);
   SYM_ZER = table_find("ZER", 3);
   SYM_SUC = table_find("SUC", 3);
   SYM_NIL = table_find("NIL", 3);
@@ -3210,6 +3235,36 @@ fn Term parse_term_ref(PState *s) {
   return term_new_ref(parse_name_ref(s));
 }
 
+// @@name: a primitive; @@ann(T, x) / @@log(m, x) / @@rwt(e, x): static-only
+fn Term parse_term_prim(PState *s, u32 depth) {
+  u32 start = s->pos;
+  while (nick_is_char(parse_peek(s))) {
+    parse_advance(s);
+  }
+  u32 len = s->pos - start;
+  for (u32 k = 0; k < S_COUNT; k++) {
+    if (strlen(STA_NAME[k]) == len && memcmp(STA_NAME[k], s->src + start, len) == 0) {
+      parse_skip(s);
+      parse_consume(s, "(");
+      Term args[2];
+      args[0] = parse_term(s, depth);
+      parse_skip(s);
+      parse_consume(s, ",");
+      args[1] = parse_term(s, depth);
+      parse_skip(s);
+      parse_consume(s, ")");
+      return term_new_(STA, k, 2, args);
+    }
+  }
+  for (u32 p = 0; p < P_COUNT; p++) {
+    if (strlen(PRI_NAME[p]) == len && memcmp(PRI_NAME[p], s->src + start, len) == 0) {
+      return term_new(0, PRI, p, 0);
+    }
+  }
+  parse_error(s, "primitive name", parse_peek(s));
+  return 0;
+}
+
 fn Term parse_term(PState *s, u32 depth);
 
 // ^name or ^(f x)
@@ -3582,6 +3637,8 @@ fn Term parse_term_atom(PState *s, u32 depth) {
     return parse_term_sup(s, depth);
   } else if (parse_match(s, "#")) {
     return parse_term_ctr(s, depth);
+  } else if (parse_match(s, "@@")) {
+    return parse_term_prim(s, depth);
   } else if (parse_match(s, "@")) {
     return parse_term_ref(s);
   } else if (parse_match(s, "^")) {
@@ -4808,6 +4865,183 @@ __attribute__((cold, noinline)) static Term wnf_rebuild(Term cur, Term *stack, u
   return cur;
 }
 
+// Primitive semantics
+// -------------------
+// Called from inside wnf with WNF_S_POS synced, so the nested wnf calls that
+// force arguments push above the caller's frames.
+
+fn Term wnf(Term term);
+
+fn u32 pri_num(Term t) {
+  Term r = wnf(t);
+  if (term_tag(r) != NUM) {
+    fprintf(stderr, "RUNTIME_ERROR: primitive expected a number\n");
+    exit(1);
+  }
+  return (u32)term_val(r);
+}
+
+fn Term pri_pair(Term a, Term b) {
+  Term args[2] = { a, b };
+  return term_new_ctr(SYM_PAIR, 2, args);
+}
+
+// (a, b) of a Bend tuple, forced to its constructor
+fn void pri_unpair(Term t, Term *a, Term *b) {
+  Term r = wnf(t);
+  if (term_tag(r) != C02 || term_ext(r) != SYM_PAIR) {
+    fprintf(stderr, "RUNTIME_ERROR: primitive expected a pair\n");
+    exit(1);
+  }
+  *a = heap_read(term_val(r) + 0);
+  *b = heap_read(term_val(r) + 1);
+}
+
+fn Term pri_triple(Term w) {
+  return pri_pair(term_new_num(term_tag(w)), pri_pair(term_new_num(term_ext(w)), term_new_num((u32)term_val(w))));
+}
+
+// A reference passed to code/idof arrives unevaluated, possibly behind a
+// lazy instantiation (ALO) or a substituted variable; read through those to
+// the static reference itself, never unfolding it (that would be δ).
+fn Term pri_raw_ref(Term t) {
+  for (;;) {
+    switch (term_tag(t)) {
+      case REF: {
+        return t;
+      }
+      case ALO: {
+        u32 ext = term_ext(t);
+        u64 tm_loc;
+        if (ext == 0) {
+          tm_loc = term_val(t);
+        } else {
+          tm_loc = heap_read(term_val(t)) & ALO_TM_MASK;
+        }
+        t = heap_read(tm_loc);
+        continue;
+      }
+      case VAR: {
+        Term cell = heap_read(term_val(t));
+        if (term_sub_get(cell)) {
+          t = term_sub_set(cell, 0);
+          continue;
+        }
+        return t;
+      }
+      default: {
+        return t;
+      }
+    }
+  }
+}
+
+fn Term pri_fire(u32 id, Term arg) {
+  switch (id) {
+    // the generic element of a binder: a fresh neutral
+    case P_FRESH: {
+      return term_new_nam(FRESH++);
+    }
+    // the static book location of a definition (raw reference, not evaluated)
+    case P_CODE: {
+      arg = pri_raw_ref(arg);
+      if (term_tag(arg) == REF && BOOK[term_ext(arg)] != 0) {
+        return term_new_num((u32)BOOK[term_ext(arg)]);
+      }
+      return term_new_era();
+    }
+    case P_IDOF: {
+      arg = pri_raw_ref(arg);
+      return term_tag(arg) == REF ? term_new_num(term_ext(arg)) : term_new_era();
+    }
+    // a static node: (tag, ext, val); its children are at val + i
+    case P_PEEK: {
+      return pri_triple(heap_read(pri_num(arg)));
+    }
+    // instantiate the static subterm at c under env = [(kind, v)], innermost
+    // first (kind 0: λ-bound, a substituted variable; kind 1: dup-bound, a
+    // shared slot), with fresh dimension names: δ restricted to a subterm
+    case P_INST: {
+      Term c, env;
+      pri_unpair(arg, &c, &env);
+      u32  loc  = pri_num(c);
+      u32  cap  = 16, n = 0;
+      Term *ks  = malloc(cap * sizeof(Term));
+      Term *vs  = malloc(cap * sizeof(Term));
+      Term cur  = wnf(env);
+      while (term_tag(cur) == C02 && term_ext(cur) == SYM_BCON) {
+        if (n == cap) {
+          cap *= 2;
+          ks = realloc(ks, cap * sizeof(Term));
+          vs = realloc(vs, cap * sizeof(Term));
+        }
+        Term kv = heap_read(term_val(cur) + 0);
+        Term kk, vv;
+        pri_unpair(kv, &kk, &vv);
+        ks[n] = kk;
+        vs[n] = vv;
+        n++;
+        cur = wnf(heap_read(term_val(cur) + 1));
+      }
+      u64 next = 0;
+      for (u32 i = n; i-- > 0;) {
+        u64 ent = heap_alloc(2);
+        heap_set(ent + 0, pri_num(ks[i]) == 0 ? term_sub_set(vs[i], 1) : vs[i]);
+        heap_set(ent + 1, term_new(0, NUM, 0, next));
+        next = ent;
+      }
+      free(ks);
+      free(vs);
+      if (DIM_INST == INST_MAX) {
+        fprintf(stderr, "RUNTIME_ERROR: 2^40 instances exhausted\n");
+        exit(1);
+      }
+      return term_new_alo_dim(next, n, loc, ++DIM_INST);
+    }
+    // an evaluated cell's head: (tag, ext, val)
+    case P_VPEEK: {
+      return pri_triple(wnf(arg));
+    }
+    case P_VFIELD: {
+      Term v, i;
+      pri_unpair(arg, &v, &i);
+      Term r = wnf(v);
+      return heap_read(term_val(r) + pri_num(i));
+    }
+    case P_VAPP: {
+      Term f, x;
+      pri_unpair(arg, &f, &x);
+      return term_new_app(f, x);
+    }
+    // equality of cells (EQL: structural, λs under one fresh name)
+    case P_CONV: {
+      Term a, b;
+      pri_unpair(arg, &a, &b);
+      // a decision: force it, and drop the collapse-priority wrappers (↑)
+      Term r = wnf(term_new_eql(a, b));
+      while (term_tag(r) == INC) {
+        r = wnf(heap_read(term_val(r)));
+      }
+      return r;
+    }
+    // the type cell @T<x> of a definition @D<x>
+    case P_TYPEOF: {
+      char *name = table_get(pri_num(arg));
+      if (name == NULL || name[0] != 'D') {
+        return term_new_era();
+      }
+      size_t len = strlen(name);
+      char  *tn  = malloc(len + 1);
+      memcpy(tn, name, len + 1);
+      tn[0] = 'T';
+      u32 tid = table_find(tn, (u32)len);
+      free(tn);
+      return BOOK[tid] != 0 ? term_new_ref(tid) : term_new_era();
+    }
+  }
+  return term_new_era();
+}
+
 __attribute__((hot)) fn Term wnf(Term term) {
   wnf_stack_init();
   Term *stack = WNF_STACK;
@@ -4869,6 +5103,16 @@ __attribute__((hot)) fn Term wnf(Term term) {
       case UNS: {
         next = wnf_uns(next);
         goto enter;
+      }
+
+      case STA: {
+        next = heap_read(term_val(next) + 1);
+        goto enter;
+      }
+
+      case PRI: {
+        whnf = next;
+        goto apply;
       }
 
       case REF: {
@@ -4950,6 +5194,14 @@ __attribute__((hot)) fn Term wnf(Term term) {
             next = wnf_alo_nod(alo_loc, ls_loc, len, book, dim);
             goto enter;
           }
+          case STA: {
+            u64 x_loc = term_val(book) + 1;
+            next = (len == 0 && dim == 0)
+              ? term_new_alo(ls_loc, len, x_loc)
+              : term_new_alo_at_dim(alo_loc, ls_loc, len, x_loc, dim);
+            goto enter;
+          }
+          case PRI:
           case NAM:
           case NUM:
           case REF:
@@ -5092,6 +5344,12 @@ __attribute__((hot)) fn Term wnf(Term term) {
             case USE: {
               stack[s_pos++] = whnf;
               next = arg;
+              goto enter;
+            }
+            case PRI: {
+              ITRS_INC("APP-PRI");
+              WNF_S_POS = s_pos;
+              next = pri_fire(term_ext(whnf), arg);
               goto enter;
             }
             case NUM: {
@@ -5575,6 +5833,7 @@ fn Term wnf_at(u64 loc) {
     case SWI:
     case USE:
     case INC:
+    case PRI:
     case C00 ... C16: {
       return cur;
     }
