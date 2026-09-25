@@ -1,0 +1,100 @@
+cabal-version: 3.0
+name:               bend
+version:            0.1.0.0
+homepage:           https://higherorderco.com/
+license:            MIT
+license-file:       LICENSE
+author:             Victor Taelin
+maintainer:         taelin@higherorderco.com
+category:           Language
+build-type:         Simple
+extra-doc-files:    CHANGELOG.md
+
+common warnings
+    ghc-options: -Wall
+                 -Wno-unused-matches
+                 -Wno-name-shadowing
+                 -Wno-unused-local-binds
+                 -Wno-unused-imports
+                 -Wno-x-partial
+
+library
+    import:           warnings
+    exposed-modules:  Core.Type,
+                      Core.Adjust,
+                      Core.Bind,
+                      Core.CLI,
+                      Core.Check,
+                      Core.Collapse,
+                      Core.Deps,
+                      Core.Equal,
+                      Core.Flatten,
+                      Core.Import,
+                      Core.Parse,
+                      Core.Parse.Book,
+                      Core.Parse.Term,
+                      Core.Parse.WithSpan,
+                      Core.Rewrite,
+                      Core.Totality,
+                      Core.Analysis,
+                      Core.WHNF,
+                      Target.HVM,
+                      Target.HVM4,
+                      Target.HVM4Full,
+                      Target.JavaScript
+    build-depends:    base >= 4.17,
+                      hs-highlight == 1.0.5,
+                      containers >= 0.6,
+                      http-conduit,
+                      aeson,
+                      bytestring,
+                      text,
+                      time,
+                      case-insensitive,
+                      filepath >= 1.4,
+                      directory >= 1.3,
+                      megaparsec == 9.7.0,
+                      mtl >= 2.2,
+                      file-embed,
+                      HVM,
+                      process
+    hs-source-dirs:   src
+    default-language: GHC2021
+    default-extensions: DataKinds, DerivingStrategies, DisambiguateRecordFields, ExplicitNamespaces, GADTs, MonoLocalBinds, LambdaCase, RoleAnnotations
+
+executable bend
+    import:           warnings
+                      -- do not change this on main branch
+    main-is:          Main.hs
+    build-depends:    base >= 4.17,
+                      bend,
+                      containers >= 0.6,
+                      http-conduit,
+                      aeson,
+                      bytestring,
+                      case-insensitive,
+                      filepath >= 1.4,
+                      directory >= 1.3,
+                      time >= 1.12,
+                      megaparsec ==9.7.0,
+                      file-embed,
+                      HVM
+    hs-source-dirs:   app
+    default-language: GHC2021
+    default-extensions: DataKinds, DerivingStrategies, DisambiguateRecordFields, ExplicitNamespaces, GADTs, MonoLocalBinds, LambdaCase, RoleAnnotations
+
+-- executable bend-test
+--     import:           warnings
+                      -- do not change this on main branch
+--     main-is:          OldMain.hs
+--     build-depends:    base >= 4.17,
+--                       bend,
+--                       containers >= 0.6,
+--                       filepath >= 1.4,
+--                       directory >= 1.3,
+--                       time >= 1.12,
+--                       megaparsec ==9.7.0,
+--                       HVM
+--     hs-source-dirs:   app
+--     default-language: GHC2021
+--     default-extensions: DataKinds, DerivingStrategies, DisambiguateRecordFields, ExplicitNamespaces, GADTs, MonoLocalBinds, LambdaCase, RoleAnnotations

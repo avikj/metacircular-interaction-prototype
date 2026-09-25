@@ -1,5 +1,10 @@
 # WIP: the full runtime as the one geodesic operation
 
+RULE: every change is stated first as the mathematics it applies (the
+section of One.agda / the ledger / the checked theorem); code is its direct
+rendering. A change that needs problem solving the math does not dictate is
+a signal that something upstream is wrong.
+
 Branch `claude/metacircular-pr-45-review-yt93oh`. Working notes, kept current
 on every push. **Delete this file before the branch merges.**
 
@@ -280,49 +285,50 @@ test_list_transport.py 26/26 (stock and patched HVM4). Fixed on the way:
   given as expressions rather than names (needs term parsing in the host),
   and a readable type display (the runtime prints the type through sharing).
 
-## 3c. P5 design: checking on the net (the `verify` projection, §14)
+## 3c. P5 design (corrected): checking on the net by readback of the cells
 
-- Why quoted syntax: an HVM4 net cannot pattern-match on a λ (MAT dispatches
-  on constructors and numbers; no readback primitive), and checking needs
-  syntax, not values (a reduced β-redex has lost its structure). So the net
-  checker works over the book emitted as DATA: a `Term` datatype (de Bruijn,
-  one constructor per Core former, cubical ones included), produced by the
-  host alongside the executable cells.
-- The checker is a program in cubical Bend (`port/Check*.bend`), compiled by
-  the same emitter and run on the same net: bidirectional infer/check, with
-  conversion by normalisation of quoted terms (NbE over the same cubical
-  rules the prelude runs: coe/hcomp/Glue/ua/HIT). Its cost is the net's
-  interaction count like any other inference — the one operation.
-- Correctness discipline: differential against Core's checker over the whole
-  corpus (every ✓/✗ must agree, including every registered *_mustfail),
-  grown former by former: MLTT core (Π, Σ, Nat, Bool, Unit, Empty, Enum,
-  Eql, Set) → paths/interval → coe/hcomp → Glue/ua → HITs/quotients.
-- Then P6: `--to-hvm4-full` and `--interact` check on the net; Core's Haskell
-  evaluator leaves the compile path (the host only parses and lowers).
-- Scale: Check.hs + WHNF.hs are ~2,900 lines of Haskell. This is the largest
-  remaining piece.
+The earlier plan (quote the book as a `Term` datatype, check that) is WRONG
+and withdrawn: a quotation is a second copy of the object beside the net,
+the same move as the deleted derivation companions, and the premise was
+false. (i) Nothing is lost by reduction: a redex and its reduct are the same
+cell (definitional equality is refl), so checking `(A, a)` is checking
+normal forms, and the root is already normalised to exactly that.
+(ii) A binder is opened by its generic element: the Π rule checks `λx.b`
+against `Π A B` by checking the body at a fresh variable against `B` there,
+i.e. the cell applied to a fresh neutral (η-long checking needs no λ-match).
+(iii) A neutral is inferred from its head: a variable from the context, a
+folded call `@Dk(…)` from its type cell `@Tk`, which is already emitted.
+Runtime primitives this needs (HVM4 has them internally: fresh names for
+`===` on λs, stuck `^(name a)` neutrals, folded neutral calls after P4):
+create a fresh neutral; dispatch on a cell's shape in δ-free whnf (λ, ctor,
+number, neutral head, SUP, stuck elimination); abstract a name out of a cell
+(for goal refinement under a match: G[x := c]). Conversion = comparison of
+normal cells (HVM4 `===` already compares λs under a shared fresh name).
+The checker is the verify projection (§14) running as ordinary interactions
+on the same net; Core's checker is its differential oracle over the corpus
+until it leaves the compile path (P6).
 
 ## 4. How to work here (pitfalls already paid for)
 
-- Build tree: `bash collab/bend2-interactive-cubical/mining/bootstrap.sh DIR`
-  (then `source DIR/env.sh` for `$BEND`, `$HVM`). Needs `libgmp-dev`,
-  `PATH=$HOME/.ghcup/bin:$PATH`, and **`LC_ALL=C.UTF-8`** (else bend exits
-  silently / HVM3 embedFile fails).
-- Edit Bend2 in the build tree, rebuild `cabal build exe:bend`, then
-  regenerate the patch: in the Bend2 checkout
-  `git add -A -N && git diff HEAD -- . ':!cabal.project' > cubical-paths.patch`
-  (cabal.project is rewritten by bootstrap, not the patch). Check it applies
-  to a pristine `f026483` worktree before committing.
+- SOURCE: the compiler and runtime are vendored as ordinary source:
+  `collab/bend2-interactive-cubical/vendor/Bend2/` (from DKormann/Bend2
+  f026483) and `vendor/HVM4/src/hvm.c` (from HVM4 6defdfc); provenance and
+  the upstream-diff recipe in `vendor/UPSTREAM.md`. Edit them directly;
+  commits are the history. HVM3 stays an unmodified cloned dependency.
+- BUILD: `bash collab/bend2-interactive-cubical/build.sh NEW_DIR` (copies the
+  vendored trees, clones HVM3 with its two missing includes, builds), then
+  `source NEW_DIR/env.sh` for `$BEND`, `$HVM`. `mining/bootstrap.sh` and
+  `run.sh` delegate to it. Needs `libgmp-dev`, `PATH=$HOME/.ghcup/bin:$PATH`,
+  and **`LC_ALL=C.UTF-8`**. For fast iteration copy `vendor/Bend2/{src,app}`
+  into an existing build tree and `cabal build exe:bend` there.
 - The user's editor applies JS `String.replace` with replacement strings:
   never put `$'` in files it may edit (use `grep -Fqx`, `[^\n]*`).
 - Parser quirks: `not(` is always unary `not`; after a def whose body is
   `&{…}` the next signature cannot contain `A{a == b}` (put enums last).
-- Emitted binder names (`b0u13`) come from a global counter; match them by
-  regex in tests.
-- Regression: `HVM=$HVM tools/regress/run.sh $BEND OUT` then
-  `compare.sh BASE OUT` and `typed_point_values.py cmp.txt BASE OUT`. The
-  committed `baseline-d6ef4108.tsv` is the summary only; regenerate `.norm`
-  files from a build of `d6ef4108`'s patch when values must be compared.
+- Emitted binder names (`b0u13`) come from a global counter; match by regex.
+- A `!`-negated command never trips `set -e`; assert with `if …; then exit 1; fi`.
+- Regression: `tools/regress/run.sh` + `compare.sh`; differential:
+  `tools/diff/diff.py` (BEND, HVM, DIFF_OUT env).
 
 ## 5. Decision log
 
@@ -334,3 +340,25 @@ test_list_transport.py 26/26 (stock and patched HVM4). Fixed on the way:
 - Eql inhabitants are `#Refl` at runtime; `coe` along an Eql line keeps it.
 - Refuse, never miscompile: an operation whose runtime meaning needs a type
   the emitter does not yet have is an error until P5 supplies the type.
+
+## 6. Unwound decisions and pending deletions
+
+- Patch files as source: replaced by vendored trees (`vendor/`), one build
+  script (`build.sh`); `run.sh`, `mining/bootstrap.sh` delegate to it.
+- Quoted-syntax checker: withdrawn (§3c).
+- Hand-written `@present` in the prelude: to be replaced by the host
+  lowering the Core term of `present` through the one emitter (same reason
+  the `@cf*` bootstrap was deleted).
+- AWAITING THE USER'S APPROVAL TO DELETE (the auto-mode classifier blocked
+  the deletion as irreversible; all are in git history): the superseded
+  `cubical-paths.patch`, `hvm4-runtime.patch`, `glue-emit.patch` (already
+  contained in cubical-paths.patch); `port/UniversalDerivation.bend`,
+  `port/UniversalElucidator.bend`, `port/UniversalMachine.bend`,
+  `port/NativeDerivation.bend` (derivation beside the net);
+  `port/ConductiveRuntime.bend`, `port/UniversalPresentation.bend`,
+  `universal_presentation.bend` (oracles for the deleted `@cf*` bootstrap);
+  `LANGUAGE_LEVEL_CONDUCTIVE_FIBRE_INTEGRATION.md` (plan for the withdrawn
+  design); `vendor/`-duplicated root .bend copies are already dropped.
+  Renames wanted: conductive_*_smoke → typed_point_*_smoke,
+  verify_conductive_entry.sh → verify_full_runtime.sh, workflow
+  conductive-language-entry.yml → full-runtime.yml.

@@ -157,7 +157,7 @@ export function prepare(jobFile,out) {
   for (const name of ['Prelude.bend','Carrier.bend']) {
     const p=path.resolve(HERE,'../port',name); fs.copyFileSync(p,path.join(sourceRoot(out),name)); sources[p]=fileDigest(p);
   }
-  const patch=path.resolve(HERE,'../cubical-paths.patch'); sources[patch]=fileDigest(patch);
+  for (const rel of ['../vendor/Bend2/src/Target/HVM4Full.hs','../vendor/Bend2/src/Core/Check.hs','../vendor/Bend2/src/Core/WHNF.hs','../vendor/HVM4/src/hvm.c']) { const f=path.resolve(HERE,rel); sources[f]=fileDigest(f); }
   fs.writeFileSync(path.join(sourceRoot(out),'MiningConstants.bend'),constantsSource());
   fs.writeFileSync(path.join(sourceRoot(out),'Gate.bend'),gateSource());
   fs.writeFileSync(path.join(out,'input.hvm4'),inputSource(job));
