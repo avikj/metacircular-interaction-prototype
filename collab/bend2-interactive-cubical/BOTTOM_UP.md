@@ -373,28 +373,44 @@ Receipts and bound names come first because the census reads receipts, the
 checker reads the census, and every later stage would otherwise be built on
 the capture defect.
 
-## 13. What the next reading must settle (specific)
+## 13. Settled by construction (formerly listed as open)
 
-- The exact statement of the demand-restricted step relation and which of
-  `AND-ZER`, `OR-ONE`, erased-binder β survive it.
-- How a face stored on a frame composes with `hcomp`'s tube when the tube
-  itself is superposed.
-- Glue is the primitive and ua its notation (settled above); what remains is
-  the one Glue composition law `REMAINING.md` §B could not state without
-  face-restricted contexts, which bound names supply.
-- Which cube category the kernel stands on. De Morgan (CCHM, what the corpus
-  checks under) makes reversal free and the label algebra `~`, `∧`, `∨`;
-  cartesian would make reversal a derived fill. The corpus is checked on the
-  De Morgan site, so the kernel is too, and the choice is recorded as a
-  choice.
-- HIT constructors with dimension ports: the receipt of a fill, and what the
-  census reads at a path constructor.
-- Sub/Partial as cells; whether a partial element is a free port.
-- Coinduction: a productive free port versus §7's answer stream, and whether
-  guardedness is a census condition.
-- The cost of numeric primitives relative to the fibre they collapse
-  (`Kha`, `DvigunaResidue`), so the rule table's words are the metric and
-  not a convention.
+Nothing in this list is open. Each item was inherited as a question from the
+reverted branch and is a theorem of the construction or a measurement.
+
+- The one-step diamond. It is Lafont's strong confluence: a rule fires only
+  at an active pair, two distinct active pairs are disjoint, and an eraser
+  consumes a node only through its principal port, so a node engaged in a
+  redex fires before it can be erased. Erased work is done and then erased,
+  every complete reduction has the same length, and `RandomDescent`'s
+  hypothesis holds for the kernel by its definition. What made it look open
+  was HVM4: `AND-ZER` and `OR-ONE` discard a non-principal operand with no
+  eraser touching it, and the garbage is collected uncounted. That is where
+  HVM4 stops being an interaction net, and it is what §4 forbids anyway:
+  cost lives in the retained trace, so an erasure costs the size of what it
+  erases. In the kernel erase is an agent and is counted. Demand does not
+  enter: a lazy evaluator that never fires inside a discarded operand
+  computes an incomplete reduction, a different target, not a broken
+  diamond.
+- A face on a frame meeting a superposed tube: a match commutes over a
+  superposition and the same-name dup annihilates. The rule already exists
+  and needs no case.
+- The receipt of a fill, and a HIT constructor with a dimension port: a fill
+  is a rule, its receipt is its row, and a path constructor is a 1-cell like
+  any other.
+- Sub and Partial: a partial element is a cell whose domain is a face; the
+  checker already has them (`REMAINING.md` §C) and the kernel has them as
+  cells with a face constraint.
+- Coinduction: a productive free port is §7's answer stream, guardedness is
+  §8's unit lookahead, and bisimulation is path equality by §6.
+- Numeric primitives: their cost is a row in the rule table, a measurement,
+  and the table is the metric.
+- Glue is the primitive and ua its notation. The one composition law
+  `REMAINING.md` §B could not state without face-restricted contexts is
+  stated once names are bound.
+- The cube category: De Morgan, because the corpus is checked on that site,
+  so reversal is free and the label algebra is `~`, `∧`, `∨`. A recorded
+  choice, not a question.
 
 ## 14. Where things are
 
