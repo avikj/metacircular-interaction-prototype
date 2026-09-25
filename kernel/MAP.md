@@ -8,8 +8,12 @@ design document. The mathematics each line applies is named beside it
 the mathematics does not make is a defect upstream, not a choice here.
 
 Surface syntax is Bend2's, unchanged. The test oracle for values is Bend2's
-normaliser output, recorded per program (`tools/regress/`). HVM4 is not in
-the loop; the interaction count is this kernel's own metric.
+own normaliser (`bend f.bend` prints `main`'s normal form); GHC 9.12 is
+present, so the baseline is regenerated from it. The recorded
+`tools/regress/baseline-*.tsv` (HVM4 output hashes) agrees with the
+normaliser on every program the differential marked AGREE and serves until
+then. HVM4 is not in the loop; the interaction count is this kernel's own
+metric and is compared only with itself across schedules.
 
 ## 0. The problem, in one sentence
 
@@ -64,6 +68,38 @@ coordinate; the list is the closed set of shapes the corpus emits.
 `Name` is a reference to the binder (frame slot) that introduced the
 dimension, so two instances of one definition never share a name, and
 capture is impossible by construction (the label-capture finding).
+
+### 1.1 Every Bend2 term shape, and what it lowers to
+
+The patched core's `Term` has these constructors and no others (vendored
+`Core/Type.hs`). Each row is total; a shape with no row is refused.
+
+    Var / Ref / Sub / Fix / Let         → VAR slot / REF id / (Sub: the term) / REF to itself (a knot, own names) / a descent slot
+    Set                                  → SET ℓ  (levels forced by the tower; Bend2's Set:Set is not carried)
+    Chk x T                              → CHK T x (kept; projects to x at run)
+    Emp EmpM Uni One UniM Bit Bt0 Bt1 BitM
+    Nat Zer Suc NatM Lst Nil Con LstM    → CTR cells for points; the M-forms are CASE nodes of static code (§4),
+    Enu Sym EnuM Sig Tup SigM              never heap cells: a match on a neutral is a stuck spine
+    Eql Rfl EqlM
+    Num Val Op2 Op1                      → NUMTY / NUM (gmp) / OP2 / OP2 with a unit operand
+    All Lam App                          → PI / LAM (closure) / APP
+    Met                                  → refused (an unsolved hole is not a cell)
+    Ind Frz                              → identity wrappers in TBOOK (type-level markers), no heap cell
+    Loc Log Rwt Pri Pat Frk SupM Sup Era → Loc dropped; Log is an ASK; Rwt is checker-internal and projects to
+                                           its term; Pri is a NUM primitive; Pat is flattened to CASE nodes
+                                           before lowering (Flatten.hs); Frk is SUP at a fresh name; SupM is
+                                           two FCE at the sup's name; Sup is SUP; Era is ERA
+    Itv I0 I1 INot IAnd IOr              → the interval cells, canonical DNF
+    Pth PLm PAp                          → PATH / PLM / APP-of-PLM (substitution of a dimension)
+    Coe Trp                              → TRP (Trp with φ: TRP with a face constraint on its line)
+    Ua                                   → the Glue line (notation; lowers to GLU with both coherences kept)
+    HCm                                  → HCM
+    Glu GlB UnG                          → GLU / GLUE / UNGLUE
+    Prt Sys POut                         → cells with a face domain (a partial element)
+    Rst InS OutS                         → SUB cells (A[φ ↦ u], inS, outS)
+    Tru TIn TSq TRec Cir CBase CLoop CRec
+    Quo QCl QEq QSq QRec                 → instances of the HIT schema below; nothing hardcoded
+    HTy HCon HEl HRec                    → HTY / HCTR / HELIM (HRec = HELIM with a constant motive)
 
     BOOK : StaticTerm[]      -- immutable lowered syntax per definition, de Bruijn levels
     TBOOK: StaticTerm[]      -- its checked type, same form (the @T of the PR)
