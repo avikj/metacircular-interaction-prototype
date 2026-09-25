@@ -60,6 +60,13 @@ def Prim/rewrite(old: Val, neo: Val, t: Val) -> Val:
 def Prim/reflect(t: Val, n: Val) -> Val:
   extern
 
+# p @ i (prelude @pathAt) and Equiv(T, A) (prelude @equivT, Core's equivTy)
+def Prim/pathAt(p: Val, i: Val) -> Val:
+  extern
+
+def Prim/equivT(t: Val, a: Val) -> Val:
+  extern
+
 # development: prints x's normal form to stderr, answers y
 def Prim/trace(x: Val, y: U64) -> U64:
   extern
@@ -223,6 +230,12 @@ type G:
     k: U64
     v: G
     t: G
+  case @PAt:
+    p: G
+    i: G
+  case @Eqv:
+    t: G
+    a: G
 
 # ---- the book --------------------------------------------------------------------
 
@@ -388,6 +401,10 @@ def Chk/eval(ctx: Ent[], d: U64, ov: (any k: U64. Val)[], g: G) -> Val:
       Prim/rewrite(Chk/eval(ctx, d, ov, o), Chk/eval(ctx, d, ov, n), Chk/eval(ctx, d, ov, t))
     case @S{k, v, t}:
       Chk/eval(ctx, d, (k, Chk/eval(ctx, d, ov, v)) <> ov, t)
+    case @PAt{p, i}:
+      Prim/pathAt(Chk/eval(ctx, d, ov, p), Chk/eval(ctx, d, ov, i))
+    case @Eqv{t, a}:
+      Prim/equivT(Chk/eval(ctx, d, ov, t), Chk/eval(ctx, d, ov, a))
 
 def Chk/evalList(ctx: Ent[], d: U64, ov: (any k: U64. Val)[], gs: G[]) -> Val[]:
   match gs:
@@ -465,26 +482,29 @@ def Chk/refineAt(ctx: Ent[], d: U64, k: U64, v: G) -> Ent[]:
     case @Dup{loc, sm}:
       ctx
 
-# the level whose generic element is the name x, if any (0 otherwise)
+# the level whose generic element is x, if any (0 otherwise)
 def Chk/findFree(ctx: Ent[], d: U64, x: Val) -> U64:
+  Chk/findFreeGo(ctx, d, ctx, d, x)
+
+def Chk/findFreeGo(cx0: Ent[], d0: U64, ctx: Ent[], d: U64, x: Val) -> U64:
   match ctx:
     case []:
       0
     case h <> t:
       match h:
         case @Free{nam, ty}:
-          if Prim/conv(nam, x):
+          if Prim/conv(Chk/valAt(cx0, d0, d), x):
             d
           else:
-            Chk/findFree(t, d - 1, x)
+            Chk/findFreeGo(cx0, d0, t, d - 1, x)
         case @Refn{val, ty}:
-          Chk/findFree(t, d - 1, x)
+          Chk/findFreeGo(cx0, d0, t, d - 1, x)
         case @Let{loc, sm}:
-          Chk/findFree(t, d - 1, x)
+          Chk/findFreeGo(cx0, d0, t, d - 1, x)
         case @Alias{lvl, kind}:
-          Chk/findFree(t, d - 1, x)
+          Chk/findFreeGo(cx0, d0, t, d - 1, x)
         case @Dup{loc, sm}:
-          Chk/findFree(t, d - 1, x)
+          Chk/findFreeGo(cx0, d0, t, d - 1, x)
 
 # the entry of a dup level (a DUP node's value at v): both copies read the
 # same slot, an alias when the dup'd code is a variable
@@ -898,7 +918,195 @@ def Chk/inferPre(es: Bk, ctx: Ent[], d: U64, sm: U64[], k: U64, xs: U64[]) -> an
         if k === 17:
           Chk/infer(es, ctx, d, sm, Chk/arg(xs, 2))
         else:
-          (3000, Chk/set())
+          if k === 5:
+            Chk/inferHcomp(es, ctx, d, sm, Chk/arg(xs, 0), Chk/arg(xs, 1), Chk/arg(xs, 2))
+          else:
+            (3000, Chk/set())
+
+# ---- faces --------------------------------------------------------------------
+
+# a face formula in disjunctive normal form: cells, each a conjunction of
+# literals (level, end); an atom that is no variable restricts nothing
+def Chk/dnf(es: Bk, ctx: Ent[], d: U64, v: Val) -> (any k: U64. U64)[][]:
+  if Chk/isc(es, v, 5):
+    [[]]
+  else:
+    if Chk/isc(es, v, 4):
+      []
+    else:
+      if Chk/isc(es, v, 10):
+        Chk/dnfNot(es, ctx, d, Prim/vfield(v, 0))
+      else:
+        if Chk/isc(es, v, 11):
+          Chk/cross(Chk/dnf(es, ctx, d, Prim/vfield(v, 0)), Chk/dnf(es, ctx, d, Prim/vfield(v, 1)))
+        else:
+          if Chk/isc(es, v, 12):
+            Chk/catC(Chk/dnf(es, ctx, d, Prim/vfield(v, 0)), Chk/dnf(es, ctx, d, Prim/vfield(v, 1)))
+          else:
+            k = Chk/findFree(ctx, d, v)
+            if k === 0:
+              [[]]
+            else:
+              [[(k, 1)]]
+
+def Chk/dnfNot(es: Bk, ctx: Ent[], d: U64, v: Val) -> (any k: U64. U64)[][]:
+  if Chk/isc(es, v, 5):
+    []
+  else:
+    if Chk/isc(es, v, 4):
+      [[]]
+    else:
+      if Chk/isc(es, v, 10):
+        Chk/dnf(es, ctx, d, Prim/vfield(v, 0))
+      else:
+        if Chk/isc(es, v, 11):
+          Chk/catC(Chk/dnfNot(es, ctx, d, Prim/vfield(v, 0)), Chk/dnfNot(es, ctx, d, Prim/vfield(v, 1)))
+        else:
+          if Chk/isc(es, v, 12):
+            Chk/cross(Chk/dnfNot(es, ctx, d, Prim/vfield(v, 0)), Chk/dnfNot(es, ctx, d, Prim/vfield(v, 1)))
+          else:
+            k = Chk/findFree(ctx, d, v)
+            if k === 0:
+              [[]]
+            else:
+              [[(k, 0)]]
+
+def Chk/catL(xs: (any k: U64. U64)[], ys: (any k: U64. U64)[]) -> (any k: U64. U64)[]:
+  match xs:
+    case []:
+      ys
+    case x <> rest:
+      x <> Chk/catL(rest, ys)
+
+def Chk/catC(xs: (any k: U64. U64)[][], ys: (any k: U64. U64)[][]) -> (any k: U64. U64)[][]:
+  match xs:
+    case []:
+      ys
+    case x <> rest:
+      x <> Chk/catC(rest, ys)
+
+def Chk/crossOne(c: (any k: U64. U64)[], ys: (any k: U64. U64)[][]) -> (any k: U64. U64)[][]:
+  match ys:
+    case []:
+      []
+    case y <> rest:
+      Chk/catL(c, y) <> Chk/crossOne(c, rest)
+
+def Chk/cross(xs: (any k: U64. U64)[][], ys: (any k: U64. U64)[][]) -> (any k: U64. U64)[][]:
+  match xs:
+    case []:
+      []
+    case x <> rest:
+      Chk/catC(Chk/crossOne(x, ys), Chk/cross(rest, ys))
+
+# the context on a cell: each literal refines its interval variable to i0/i1
+def Chk/restrict(es: Bk, ctx: Ent[], d: U64, c: (any k: U64. U64)[]) -> Ent[]:
+  match c:
+    case []:
+      ctx
+    case l <> rest:
+      match l:
+        case (k, e):
+          Chk/restrict(es, Chk/refine(ctx, d, k, @V{Chk/cellv(es, if e === 0: 4 else: 5)}), d, rest)
+
+# does a cell give some variable both ends (an empty cell)?
+def Chk/clash(c: (any k: U64. U64)[]) -> Bool:
+  match c:
+    case []:
+      False
+    case l <> rest:
+      match l:
+        case (k, e):
+          Chk/clashWith(k, e, rest) or Chk/clash(rest)
+
+def Chk/clashWith(k: U64, e: U64, c: (any k: U64. U64)[]) -> Bool:
+  match c:
+    case []:
+      False
+    case l <> rest:
+      match l:
+        case (k2, e2):
+          ((k2 === k) and (e2 !== e)) or Chk/clashWith(k, e, rest)
+
+# a static face list #Cons{#Face{p, u}, ..} | #Nil: (formula code, tube code)
+def Chk/faces(es: Bk, c: U64) -> (any p: U64. U64)[]:
+  if (Chk/tag(c) === 15) and (Chk/ext(c) === Chk/cid(es, 7)):
+    f = Chk/val(c)
+    (Chk/val(f), Chk/val(f) + 1) <> Chk/faces(es, Chk/val(c) + 1)
+  else:
+    []
+
+def Chk/isFaces(es: Bk, c: U64) -> Bool:
+  if (Chk/tag(c) === 15) and (Chk/ext(c) === Chk/cid(es, 7)):
+    Chk/isFaces(es, Chk/val(c) + 1)
+  else:
+    (Chk/tag(c) === 13) and (Chk/ext(c) === Chk/id(&Nil))
+
+# hcomp(A, faces, x) : A (Core.Check: HCm): each tube u on face p is, on
+# every cell of p, a line in A starting at the base; tubes agree on every
+# cell where two faces meet
+def Chk/inferHcomp(es: Bk, ctx: Ent[], d: U64, sm: U64[], a: U64, fs: U64, x: U64) -> any r: U64. G:
+  if Chk/isFaces(es, fs):
+    faces = Chk/faces(es, fs)
+    r1 = Chk/check(es, ctx, d, sm, a, Chk/set())
+    r2 = Chk/check(es, ctx, d, sm, x, @C{a, sm})
+    r3 = Chk/tubes(es, ctx, d, sm, a, x, faces)
+    r4 = Chk/adjacent(es, ctx, d, sm, faces)
+    (Chk/then(r1, Chk/then(r2, Chk/then(r3, r4))), @C{a, sm})
+  else:
+    (4009, Chk/set())
+
+def Chk/tubes(es: Bk, ctx: Ent[], d: U64, sm: U64[], a: U64, x: U64, faces: (any p: U64. U64)[]) -> U64:
+  match faces:
+    case []:
+      0
+    case f <> rest:
+      match f:
+        case (p, u):
+          rp = Chk/check(es, ctx, d, sm, p, Chk/itv(es))
+          goal = @K{Chk/cid(es, 6), [@Cst{@C{a, sm}}, @C{x, sm}, @PAt{@C{u, sm}, @V{Chk/cellv(es, 5)}}]}
+          ru = Chk/onCells(es, ctx, d, sm, u, goal, Chk/dnf(es, ctx, d, Chk/now(ctx, d, @C{p, sm})))
+          Chk/then(rp, Chk/then(ru, Chk/tubes(es, ctx, d, sm, a, x, rest)))
+
+def Chk/onCells(es: Bk, ctx: Ent[], d: U64, sm: U64[], u: U64, goal: G, cells: (any k: U64. U64)[][]) -> U64:
+  match cells:
+    case []:
+      0
+    case c <> rest:
+      if Chk/clash(c):
+        Chk/onCells(es, ctx, d, sm, u, goal, rest)
+      else:
+        Chk/then(Chk/check(es, Chk/restrict(es, ctx, d, c), d, sm, u, goal), Chk/onCells(es, ctx, d, sm, u, goal, rest))
+
+def Chk/adjacent(es: Bk, ctx: Ent[], d: U64, sm: U64[], faces: (any p: U64. U64)[]) -> U64:
+  match faces:
+    case []:
+      0
+    case f <> rest:
+      Chk/then(Chk/adjWith(es, ctx, d, sm, f, rest), Chk/adjacent(es, ctx, d, sm, rest))
+
+def Chk/adjWith(es: Bk, ctx: Ent[], d: U64, sm: U64[], f: any p: U64. U64, rest: (any p: U64. U64)[]) -> U64:
+  match rest:
+    case []:
+      0
+    case g <> more:
+      match f:
+        case (p, u):
+          match g:
+            case (q, w):
+              cells = Chk/cross(Chk/dnf(es, ctx, d, Chk/now(ctx, d, @C{p, sm})), Chk/dnf(es, ctx, d, Chk/now(ctx, d, @C{q, sm})))
+              Chk/then(Chk/agree(es, ctx, d, sm, u, w, cells), Chk/adjWith(es, ctx, d, sm, (p, u), more))
+
+def Chk/agree(es: Bk, ctx: Ent[], d: U64, sm: U64[], u: U64, w: U64, cells: (any k: U64. U64)[][]) -> U64:
+  match cells:
+    case []:
+      0
+    case c <> rest:
+      if Chk/clash(c):
+        Chk/agree(es, ctx, d, sm, u, w, rest)
+      else:
+        c2 = Chk/restrict(es, ctx, d, c)
+        Chk/then(Chk/convR(Chk/now(c2, d, @C{u, sm}), Chk/now(c2, d, @C{w, sm})), Chk/agree(es, ctx, d, sm, u, w, rest))
 
 def Chk/inferArgs(es: Bk, ctx: Ent[], d: U64, sm: U64[], ty: G, xs: U64[]) -> any r: U64. G:
   match xs:

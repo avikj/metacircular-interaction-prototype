@@ -901,9 +901,9 @@ static u32 SYM_BNIL = 0;
 // static book and evaluates types on the same net.  Every primitive takes
 // one argument (several arguments arrive as a Bend tuple), so a primitive
 // never has partial state and can be shared freely.
-enum { P_FRESH, P_CODE, P_IDOF, P_PEEK, P_INST, P_VPEEK, P_VFIELD, P_VAPP, P_CONV, P_TYPEOF, P_VCTR, P_VAL, P_REWRITE, P_TRACE, P_COUNT };
+enum { P_FRESH, P_CODE, P_IDOF, P_PEEK, P_INST, P_VPEEK, P_VFIELD, P_VAPP, P_CONV, P_TYPEOF, P_VCTR, P_VAL, P_REWRITE, P_TRACE, P_REFLECT, P_COUNT };
 static const char *PRI_NAME[P_COUNT] = {
-  "fresh", "code", "idof", "peek", "inst", "vpeek", "vfield", "vapp", "conv", "typeof", "vctr", "val", "rewrite", "trace"
+  "fresh", "code", "idof", "peek", "inst", "vpeek", "vfield", "vapp", "conv", "typeof", "vctr", "val", "rewrite", "trace", "reflect"
 };
 // Static-only node kinds (STA ext): a type annotation, a log message, a rewrite hint.
 enum { S_ANN, S_LOG, S_RWT, S_COUNT };
@@ -5376,6 +5376,48 @@ fn Term pri_fire_go(u32 id, Term arg) {
       print_term_ex(stderr, n);
       fputc('\n', stderr);
       return y;
+    }
+    // the generic element of a type (η-long): at Π{A, B} the λ of generic
+    // results λx. reflect(B x, n x); at Path{t, a, b} a line with the
+    // type's faces @pbndL(a, b, n); at any other type (a neutral one
+    // included) the name itself
+    case P_REFLECT: {
+      static u32 s_pi = 0, s_path, s_itv, s_ivar, r_pbndl;
+      if (!s_pi) {
+        s_pi    = table_find("Pi", 2);
+        s_path  = table_find("Path", 4);
+        s_itv   = table_find("Itv", 3);
+        s_ivar  = table_find("IVar", 4);
+        r_pbndl = table_find("pbndL", 5);
+      }
+      Term t, n;
+      pri_unpair(arg, &t, &n);
+      Term w = wnf(t);
+      while (term_tag(w) == INC || term_tag(w) == STA) {
+        w = wnf(term_tag(w) == INC ? heap_read(term_val(w)) : heap_read(term_val(w) + 1));
+      }
+      if (pri_sup(w)) {
+        return term_new_era();
+      }
+      // an interval point is a generator of the free De Morgan algebra
+      if (term_tag(w) == C00 && term_ext(w) == s_itv) {
+        Term f[1] = { n };
+        return term_new_ctr(s_ivar, 1, f);
+      }
+      if (term_tag(w) == C02 && term_ext(w) == s_pi) {
+        Term B       = heap_read(term_val(w) + 1);
+        u64  lam_loc = heap_alloc(1);
+        Copy xc      = term_clone(rw_name(), term_new_var(lam_loc));
+        Term body    = term_new_app(term_new(0, PRI, P_REFLECT, 0), pri_pair(term_new_app(B, xc.k0), term_new_app(n, xc.k1)));
+        return term_new_lam_at(lam_loc, body);
+      }
+      if (term_tag(w) == C03 && term_ext(w) == s_path) {
+        Term a = heap_read(term_val(w) + 1);
+        Term b = heap_read(term_val(w) + 2);
+        Term f = term_new_ref(r_pbndl);
+        return term_new_app(term_new_app(term_new_app(f, a), b), n);
+      }
+      return n;
     }
     case P_REWRITE: {
       Term old, rest, neo, t;
