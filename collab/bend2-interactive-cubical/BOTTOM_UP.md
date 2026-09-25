@@ -72,6 +72,12 @@ upstream is wrong.
   exact descent (C1 nothing coarser is lawful, C2 nothing finer is repeated),
   D cost on retained realisations, G rope geodesic, H the costed realisation
   fibre `Fib_(Sem_b)(f)` as the uniform interface.
+- `theorems/physics/Adhisthana`: the Kan floor has two primitives, not one.
+  `hcomp` fills a box inside a fixed type; `transp` moves along a line of
+  types; `comp` is derived from both. Free reversal (`λ i → p (~ i)`, and
+  `∧`, `∨`) is a property of the De Morgan site, not of cubical type theory:
+  on the cartesian site reversal is derived from the Kan operations. Choosing
+  the cube category is the act that decides whether the return is free.
 - Census (`DurnayaTantau`, `Avaktavyagarbha`): a fibre verdict is three-valued
   and every two-valued verdict merges two of the three.
 - Abstracts 43 and 54: `NativeOperation ≃ Σ certificate. gauge`, install is a
@@ -107,6 +113,13 @@ coordinate.
   language admits it. P3b's representation, name = (instance, bound label)
   as a 64-bit word stored per heap location, is the same fact written as a
   patch; in the cell it is a binder, not a counter.
+- Regularity (a line constant in its dimension transports as the identity)
+  is today decided up to conversion: the checker applies the line to a marker
+  dimension, normalises, and fires the identity rule when the marker is gone
+  (`REMAINING.md` §F). That is a non-local decision made by a second copy of
+  the semantics. With dimension names bound, regularity is an occurs check on
+  a bound name: the line's cell does not mention its dimension. Local, and
+  one rule.
 - Ua is a cell whose coordinate carries an equivalence with both coherences;
   a HIT constructor is a cell with a dimension port and its parameters kept
   (the emitter refuses a bare constructor); a coinductive value is a cell
@@ -120,8 +133,10 @@ Two cells meet at principal ports; one of four things happens.
 1. Same name: annihilate. Identification, the `refl` case. Zero words.
 2. Different names: commute. Transport of one past the other, the square.
    This is the first chart-invariant holonomy; it is where cost is paid.
-3. A face: fill. `coe`/`hcomp` along the coordinate, the only rule that
-   consults the type. The Kan operations are the cells' own composition
+3. A face: fill, which is two rules by Adhisthana. Within a type, `hcomp`
+   fills the box; across a line of types, `transp` moves the cell; `comp` is
+   their composite and not a primitive. These are the only rules that
+   consult the type. The Kan operations are the cells' own composition
    structure (audit item 2: in the PR they are prelude lambda-programs over
    constructor encodings, a transcription of CCHM run as ordinary code, so
    their cost is the encoding's cost, not the cell's). What `RUNTIME_FULL.md`
@@ -135,7 +150,10 @@ Two cells meet at principal ports; one of four things happens.
    faces and a glue value with no live faces is its base; the set-quotient
    recursor computes on `qcl` and on `qeq @ i`. A superposed line needs no
    rule of its own: fill is a match, a match commutes over a superposition,
-   and the same-name dup of the transported value annihilates.
+   and the same-name dup of the transported value annihilates. `ua` is
+   notation for the Glue line, not a constructor of its own: the PR carries
+   both (`Ua` and `Glue`) and `uaagree.bend` shows they are not definitionally
+   equal, their agreement needing the η direction the layer lacks. One cell.
 4. Erase. The one address of loss. The feed-forward of SHA-256 is this rule.
 
 Every rule appends its receipt (rule, names) to a trace that is itself a
@@ -271,6 +289,14 @@ in the prelude; scheduling bookkeeping in values; generics from a counter;
 calls as a side machine; a normaliser that diverges under a binder on any
 type mentioning a recursive call on a bound variable.
 
+Every Kan rule in the PR is written twice, once in `whnfHCm`/`whnfCoe` and
+once in `Target/HVM4Full.hs` (`REMAINING.md` §E); the prelude is
+`Core.WHNF` transcribed. The kernel writes each once. The interval's normal
+form already exists in the checker (flattened, deduplicated, sorted meets
+and joins, no complement law since `i ∧ ¬i ≠ i0`) and not on the runtime,
+where faces are evaluated and never compared; on the kernel it is the one
+normal form, since names are compared.
+
 Bend2 Core, right: the surface syntax, HITs, quotients, `Glue`/`ua`, the
 elaboration of bare HIT constructors, totality. Wrong: `whnf` is a second
 copy of the semantics and decides some things non-locally; the checker is a
@@ -316,6 +342,14 @@ choice (the log's rule). The differentials that exist and are kept:
 - Checker differential per definition, every mustfail included.
 - `RUNTIME_FULL.md`'s Kan matrix (chain, fibre law, contraction, superposed
   line, Glue, 2-dimensional universe composition, twist, quotient recursor).
+- `SYNTHESIS.md` §3–4, kept as the sharing conformance points: a transport
+  consumed k times is paid once (marginal 14 interactions shared against 150
+  separate); one shared line over N values wins and improves with N
+  (marginal 38 against 139); N different lines lose by a constant factor
+  (about 1.4, and 1.8 for a bare `neg`), which is the cost of commuting the
+  superposition through the body. Superposition pays exactly when the
+  branches share a prefix; that is the fibre law read as a benchmark, and
+  the kernel must reproduce both regimes.
 
 ## 12. Order (decided)
 
@@ -345,9 +379,14 @@ the capture defect.
   `AND-ZER`, `OR-ONE`, erased-binder β survive it.
 - How a face stored on a frame composes with `hcomp`'s tube when the tube
   itself is superposed.
-- Whether Glue is a primitive cell or derived from ua plus fill in the
-  construction; the corpus derives ua from Glue on the runtime
-  (`uaglue.bend`) and states ua as the classifier in `Universal`.
+- Glue is the primitive and ua its notation (settled above); what remains is
+  the one Glue composition law `REMAINING.md` §B could not state without
+  face-restricted contexts, which bound names supply.
+- Which cube category the kernel stands on. De Morgan (CCHM, what the corpus
+  checks under) makes reversal free and the label algebra `~`, `∧`, `∨`;
+  cartesian would make reversal a derived fill. The corpus is checked on the
+  De Morgan site, so the kernel is too, and the choice is recorded as a
+  choice.
 - HIT constructors with dimension ports: the receipt of a fill, and what the
   census reads at a path constructor.
 - Sub/Partial as cells; whether a partial element is a free port.
