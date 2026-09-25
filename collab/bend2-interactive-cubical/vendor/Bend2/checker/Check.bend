@@ -12,7 +12,8 @@
 # entry, and every goal and type that mentions it sees the refinement
 # (normalisation by evaluation; Core's Rwt, without a syntactic rewrite).
 #
-# Result codes: 0 checks, 1 mismatch, 2 cannot infer, 3 not yet on the net.
+# Result codes: 0 checks, 1 mismatch, 2 cannot infer, >= 1000 not yet on the net
+# (1000 + tag: a static node kind; 3000: a prelude reference; 4000 + n: a site).
 
 # ---- the runtime primitives (hvm.c, APP-PRI) --------------------------------
 
@@ -44,6 +45,13 @@ def Prim/typeof(i: U64) -> Val:
   extern
 
 def Prim/vctr(c: U64, fs: Val[]) -> Val:
+  extern
+
+def Prim/rewrite(old: Val, neo: Val, t: Val) -> Val:
+  extern
+
+# development: prints x's normal form to stderr, answers y
+def Prim/trace(x: Val, y: U64) -> U64:
   extern
 
 def Fun/val(f: Val -> Val) -> Val:
@@ -391,7 +399,7 @@ def Chk/infer(es: Val[], ctx: Ent[], d: U64, sm: U64[], c: U64) -> any r: U64. (
     if t === 8:
       ty = Prim/typeof(e)
       if Chk/vtag(ty) === 11:
-        (3, set)
+        (3000, set)
       else:
         (0, Chk/cst(ty))
     else:
@@ -416,7 +424,7 @@ def Chk/infer(es: Val[], ctx: Ent[], d: U64, sm: U64[], c: U64) -> any r: U64. (
                   if (t === 2) or (t === 12) or (t === 31) or (t === 11):
                     (2, set)
                   else:
-                    (3, set)
+                    (1000 + t, set)
 
 # the type of a context level
 def Chk/typeAt(es: Val[], ctx: Ent[], d: U64, k: U64) -> any r: U64. (U64 -> Val) -> Val:
@@ -495,7 +503,7 @@ def Chk/inferCtr(es: Val[], ctx: Ent[], d: U64, sm: U64[], ari: U64, e: U64, v: 
                     if ari === 0:
                       Chk/inferSym(Chk/enumOf(es, e))
                     else:
-                      (3, set)
+                      (1013 + ari, set)
 
 def Chk/inferSym(es: Val[]) -> any r: U64. (U64 -> Val) -> Val:
   match es:
@@ -655,7 +663,7 @@ def Chk/check(es: Val[], ctx: Ent[], d: U64, sm: U64[], c: U64, goal: (U64 -> Va
                 Chk/checkApp(es, ctx, d, sm, c, Chk/head(c), Chk/args(c, []), goal)
               else:
                 if (t === 12) or (t === 31):
-                  3
+                  1000 + t
                 else:
                   Chk/verify(es, ctx, d, sm, c, goal)
 
@@ -754,7 +762,7 @@ def Chk/lamArgs(es: Val[], ctx: Ent[], d: U64, sm: U64[], c: U64, xs: U64[], sm0
             else:
               r
       else:
-        3
+        4001
 
 # the arity of a constructor arm
 def Chk/arity(e: U64) -> U64:
@@ -787,22 +795,50 @@ def Chk/checkMatch(es: Val[], ctx: Ent[], d: U64, sm: U64[], h: U64, x: U64, env
             else:
               1
         else:
-          Chk/arms(es, ctx, d, sm, h, xT, kr, env, goal)
+          Chk/arms(es, ctx, d, sm, h, xT, kr, Chk/evalC(ctx, d, sm, x), env, goal, [])
 
-# walk the arms of a match chain
-def Chk/arms(es: Val[], ctx: Ent[], d: U64, sm: U64[], h: U64, xT: (U64 -> Val) -> Val, kr: U64, env: U64[], goal: (U64 -> Val) -> Val) -> U64:
+# refining a scrutinee that is not a variable: its occurrences in the goal
+# are rewritten to the pattern (Core: Rwt x pat goal)
+def Chk/refG(kr: U64, xv: (U64 -> Val) -> Val, pat: (U64 -> Val) -> Val, goal: (U64 -> Val) -> Val) -> (U64 -> Val) -> Val:
+  if kr === 0:
+    lambda lk. Prim/rewrite(xv(lk), pat(lk), goal(lk))
+  else:
+    goal
+
+# does the symbol list contain only symbols in cov?
+def Chk/covered(xs: Val, cov: U64[]) -> Bool:
+  if Chk/is(xs, &Con):
+    if Chk/elemU(Chk/vext(Prim/vfield(xs, 0)), cov):
+      Chk/covered(Prim/vfield(xs, 1), cov)
+    else:
+      False
+  else:
+    True
+
+def Chk/elemU(x: U64, xs: U64[]) -> Bool:
+  match xs:
+    case []:
+      False
+    case h <> t:
+      if h === x:
+        True
+      else:
+        Chk/elemU(x, t)
+
+# walk the arms of a match chain (cov: the constructors seen so far)
+def Chk/arms(es: Val[], ctx: Ent[], d: U64, sm: U64[], h: U64, xT: (U64 -> Val) -> Val, kr: U64, xv: (U64 -> Val) -> Val, env: U64[], goal: (U64 -> Val) -> Val, cov: U64[]) -> U64:
   t = Chk/tag(h)
   e = Chk/ext(h)
   v = Chk/val(h)
   xt = Chk/now(ctx, d, xT)
   if t === 12:
-    Chk/then(Chk/arm(es, ctx, d, sm, v, e, xT, kr, env, goal), Chk/arms(es, ctx, d, sm, v + 1, xT, kr, env, goal))
+    Chk/then(Chk/arm(es, ctx, d, sm, v, e, xT, kr, xv, env, goal), Chk/arms(es, ctx, d, sm, v + 1, xT, kr, xv, env, goal, e <> cov))
   else:
     if t === 31:
       if Chk/is(xt, &Bool) and (e === 0):
-        Chk/then(Chk/armFields(es, Chk/refine(ctx, d, kr, Chk/cst(Num/val(0))), d, sm, v, [], env, goal), Chk/arms(es, ctx, d, sm, v + 1, xT, kr, env, goal))
+        Chk/then(Chk/armFields(es, Chk/refine(ctx, d, kr, Chk/cst(Num/val(0))), d, sm, v, [], env, Chk/refG(kr, xv, Chk/cst(Num/val(0)), goal)), Chk/arms(es, ctx, d, sm, v + 1, xT, kr, xv, env, goal, cov))
       else:
-        3
+        4002
     else:
       if t === 30:
         0
@@ -810,64 +846,85 @@ def Chk/arms(es: Val[], ctx: Ent[], d: U64, sm: U64[], h: U64, xT: (U64 -> Val) 
         if t === 2:
           if Chk/is(xt, &Bool):
             n = Prim/fresh(())
-            Chk/armFields(es, Chk/refine(@Refn{Chk/cst(Num/val(1)), Chk/cst(Chk/mk0(&Bool))} <> ctx, d + 1, kr, Chk/cst(Num/val(1))), d + 1, (d + 1) <> sm, v, [], env, goal)
+            Chk/armFields(es, Chk/refine(@Refn{Chk/cst(Num/val(1)), Chk/cst(Chk/mk0(&Bool))} <> ctx, d + 1, kr, Chk/cst(Num/val(1))), d + 1, (d + 1) <> sm, v, [], env, Chk/refG(kr, xv, Chk/cst(Num/val(1)), goal))
           else:
             if Chk/is(xt, &Enum):
-              n = Prim/fresh(())
-              ctx2 = @Free{n, xT} <> ctx
-              Chk/armFields(es, Chk/refine(ctx2, d + 1, kr, lambda lk. lk(d + 1)), d + 1, (d + 1) <> sm, v, [], env, goal)
+              # Core: a default is read only when the arms do not cover the
+              # enum, and the absent default (λ_. ()) is an incomplete match
+              if Chk/covered(Prim/vfield(xt, 0), cov):
+                0
+              else:
+                if Chk/absentDefault(v, Chk/lenU(env)):
+                  1
+                else:
+                  n = Prim/fresh(())
+                  ctx2 = @Free{n, xT} <> ctx
+                  Chk/armFields(es, Chk/refine(ctx2, d + 1, kr, lambda lk. lk(d + 1)), d + 1, (d + 1) <> sm, v, [], env, Chk/refG(kr, xv, lambda lk. lk(d + 1), goal))
             else:
               1
         else:
-          3
+          4003
+
+# the default arm the flattener adds when none is written: λ_. λenv.. ()
+def Chk/absentDefault(c: U64, n: U64) -> Bool:
+  if Chk/tag(c) === 2:
+    if n === 0:
+      (Chk/tag(Chk/val(c)) === 13) and (Chk/ext(Chk/val(c)) === Chk/id(&One))
+    else:
+      Chk/absentDefault(Chk/val(c), n - 1)
+  else:
+    False
 
 # one constructor arm: its fields are generic elements of the field types,
 # then the scrutinee is refined to the constructor of those fields
-def Chk/arm(es: Val[], ctx: Ent[], d: U64, sm: U64[], a: U64, e: U64, xT: (U64 -> Val) -> Val, kr: U64, env: U64[], goal: (U64 -> Val) -> Val) -> U64:
+def Chk/arm(es: Val[], ctx: Ent[], d: U64, sm: U64[], a: U64, e: U64, xT: (U64 -> Val) -> Val, kr: U64, xv: (U64 -> Val) -> Val, env: U64[], goal: (U64 -> Val) -> Val) -> U64:
   xt = Chk/now(ctx, d, xT)
   if (e === Chk/id(&Zer)) and Chk/is(xt, &Nat):
-    Chk/armFields(es, Chk/refine(ctx, d, kr, Chk/cst(Chk/mk0(&Zer))), d, sm, a, [], env, goal)
+    Chk/armFields(es, Chk/refine(ctx, d, kr, Chk/cst(Chk/mk0(&Zer))), d, sm, a, [], env, Chk/refG(kr, xv, Chk/cst(Chk/mk0(&Zer)), goal))
   else:
     if (e === Chk/id(&Suc)) and Chk/is(xt, &Nat):
-      Chk/arm1(es, ctx, d, sm, a, Chk/cst(Chk/mk0(&Nat)), kr, lambda lk. Chk/mk1(&Suc, lk(d + 1)), env, goal)
+      Chk/arm1(es, ctx, d, sm, a, Chk/cst(Chk/mk0(&Nat)), kr, xv, lambda lk. Chk/mk1(&Suc, lk(d + 1)), env, goal)
     else:
       if (e === Chk/id(&Nil)) and Chk/is(xt, &List):
-        Chk/armFields(es, Chk/refine(ctx, d, kr, Chk/cst(Chk/mk0(&Nil))), d, sm, a, [], env, goal)
+        Chk/armFields(es, Chk/refine(ctx, d, kr, Chk/cst(Chk/mk0(&Nil))), d, sm, a, [], env, Chk/refG(kr, xv, Chk/cst(Chk/mk0(&Nil)), goal))
       else:
         if (e === Chk/id(&Con)) and Chk/is(xt, &List):
-          Chk/arm2(es, ctx, d, sm, a, Chk/fld(xT, 0), lambda lk. xT(lk), kr, &Con, env, goal)
+          Chk/arm2(es, ctx, d, sm, a, Chk/fld(xT, 0), lambda lk. xT(lk), kr, xv, &Con, env, goal)
         else:
           if (e === Chk/id(&One)) and Chk/is(xt, &Unit):
-            Chk/armFields(es, Chk/refine(ctx, d, kr, Chk/cst(Chk/mk0(&One))), d, sm, a, [], env, goal)
+            Chk/armFields(es, Chk/refine(ctx, d, kr, Chk/cst(Chk/mk0(&One))), d, sm, a, [], env, Chk/refG(kr, xv, Chk/cst(Chk/mk0(&One)), goal))
           else:
             if (e === Chk/id(&Pair)) and Chk/is(xt, &Sig):
-              Chk/arm2(es, ctx, d, sm, a, Chk/fld(xT, 0), lambda lk. Prim/vapp(Prim/vfield(xT(lk), 1), lk(d + 1)), kr, &Pair, env, goal)
+              Chk/arm2(es, ctx, d, sm, a, Chk/fld(xT, 0), lambda lk. Prim/vapp(Prim/vfield(xT(lk), 1), lk(d + 1)), kr, xv, &Pair, env, goal)
             else:
               if (e === Chk/id(&Refl)) and Chk/is(xt, &Eql):
                 c1 = Chk/refine(ctx, d, kr, Chk/cst(Chk/mk0(&Refl)))
+                g1 = Chk/refG(kr, xv, Chk/cst(Chk/mk0(&Refl)), goal)
                 ka = Chk/findFree(c1, d, Prim/vfield(xt, 1))
                 c2 = if ka === 0: c1 else: Chk/refine(c1, d, ka, Chk/fld(xT, 2))
-                Chk/armFields(es, c2, d, sm, a, [], env, goal)
+                # J: the endpoint a becomes b (Core: Rwt a b goal)
+                g2 = Chk/refG(ka, Chk/fld(xT, 1), Chk/fld(xT, 2), g1)
+                Chk/armFields(es, c2, d, sm, a, [], env, g2)
               else:
                 if Chk/is(xt, &Enum) and Chk/hasSym(Prim/vfield(xt, 0), e):
-                  Chk/armFields(es, Chk/refine(ctx, d, kr, Chk/cst(Prim/vctr(e, []))), d, sm, a, [], env, goal)
+                  Chk/armFields(es, Chk/refine(ctx, d, kr, Chk/cst(Prim/vctr(e, []))), d, sm, a, [], env, Chk/refG(kr, xv, Chk/cst(Prim/vctr(e, [])), goal))
                 else:
                   1
 
-def Chk/arm1(es: Val[], ctx: Ent[], d: U64, sm: U64[], a: U64, fT: (U64 -> Val) -> Val, kr: U64, pat: (U64 -> Val) -> Val, env: U64[], goal: (U64 -> Val) -> Val) -> U64:
+def Chk/arm1(es: Val[], ctx: Ent[], d: U64, sm: U64[], a: U64, fT: (U64 -> Val) -> Val, kr: U64, xv: (U64 -> Val) -> Val, pat: (U64 -> Val) -> Val, env: U64[], goal: (U64 -> Val) -> Val) -> U64:
   if Chk/tag(a) === 2:
     ctx2 = @Free{Prim/fresh(()), fT} <> ctx
-    Chk/armFields(es, Chk/refine(ctx2, d + 1, kr, pat), d + 1, (d + 1) <> sm, Chk/val(a), [], env, goal)
+    Chk/armFields(es, Chk/refine(ctx2, d + 1, kr, pat), d + 1, (d + 1) <> sm, Chk/val(a), [], env, Chk/refG(kr, xv, pat, goal))
   else:
-    3
+    4004
 
-def Chk/arm2(es: Val[], ctx: Ent[], d: U64, sm: U64[], a: U64, fT: (U64 -> Val) -> Val, gT: (U64 -> Val) -> Val, kr: U64, t: Tag(), env: U64[], goal: (U64 -> Val) -> Val) -> U64:
+def Chk/arm2(es: Val[], ctx: Ent[], d: U64, sm: U64[], a: U64, fT: (U64 -> Val) -> Val, gT: (U64 -> Val) -> Val, kr: U64, xv: (U64 -> Val) -> Val, t: Tag(), env: U64[], goal: (U64 -> Val) -> Val) -> U64:
   if (Chk/tag(a) === 2) and (Chk/tag(Chk/val(a)) === 2):
     ctx2 = @Free{Prim/fresh(()), gT} <> @Free{Prim/fresh(()), fT} <> ctx
     pat = lambda lk. Chk/mk2(t, lk(d + 1), lk(d + 2))
-    Chk/armFields(es, Chk/refine(ctx2, d + 2, kr, pat), d + 2, (d + 2) <> (d + 1) <> sm, Chk/val(Chk/val(a)), [], env, goal)
+    Chk/armFields(es, Chk/refine(ctx2, d + 2, kr, pat), d + 2, (d + 2) <> (d + 1) <> sm, Chk/val(Chk/val(a)), [], env, Chk/refG(kr, xv, pat, goal))
   else:
-    3
+    4005
 
 # the environment binders of an arm alias the variables passed after the
 # scrutinee; then the arm body is checked against the (refined) goal
@@ -881,7 +938,7 @@ def Chk/armFields(es: Val[], ctx: Ent[], d: U64, sm: U64[], a: U64, u: U64[], en
         en = if k === 0: @Let{x, sm} else: @Alias{Chk/root(ctx, d, k), 0}
         Chk/armFields(es, en <> ctx, d + 1, (d + 1) <> sm, Chk/val(a), u, rest, goal)
       else:
-        3
+        4006
 
 # ---- the book -------------------------------------------------------------------
 

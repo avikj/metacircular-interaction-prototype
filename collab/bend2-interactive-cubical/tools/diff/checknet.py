@@ -6,9 +6,9 @@ usage: BEND=.. HVM=.. CHECKER=.. DIFF_OUT=dir python3 checknet.py [--no-run] [fi
   With no files: every tracked *.bend in the repository.
 Writes DIR/defs.tsv (one row per definition) and DIR/files.tsv, prints totals.
 
-Net result codes: 0 checks, 1 mismatch, 2 cannot infer, 3 not yet on the net.
+Net result codes: 0 checks, 1 mismatch, 2 cannot infer, >= 1000 not yet on the net.
 Row classes: AGREE (Core ✓ net 0, or Core ✗ net 1/2), NET-REJECTS (Core ✓,
-net 1/2), NET-ACCEPTS (Core ✗, net 0), NOT-YET (net 3). File-level failures
+net 1/2), NET-ACCEPTS (Core ✗, net 0), NOT-YET (net >= 1000). File-level failures
 (emit error, runtime crash/timeout) are recorded in files.tsv.
 """
 import os, re, sys, subprocess, concurrent.futures as cf
@@ -92,7 +92,7 @@ def classify(path):
     rows = []
     for name, code in net.items():
         c = core.get(name, "?")
-        if code == 3:
+        if code >= 1000:
             cls = "NOT-YET"
         elif c == "✓":
             cls = "AGREE" if code == 0 else "NET-REJECTS"

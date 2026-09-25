@@ -901,9 +901,9 @@ static u32 SYM_BNIL = 0;
 // static book and evaluates types on the same net.  Every primitive takes
 // one argument (several arguments arrive as a Bend tuple), so a primitive
 // never has partial state and can be shared freely.
-enum { P_FRESH, P_CODE, P_IDOF, P_PEEK, P_INST, P_VPEEK, P_VFIELD, P_VAPP, P_CONV, P_TYPEOF, P_VCTR, P_VAL, P_COUNT };
+enum { P_FRESH, P_CODE, P_IDOF, P_PEEK, P_INST, P_VPEEK, P_VFIELD, P_VAPP, P_CONV, P_TYPEOF, P_VCTR, P_VAL, P_REWRITE, P_TRACE, P_COUNT };
 static const char *PRI_NAME[P_COUNT] = {
-  "fresh", "code", "idof", "peek", "inst", "vpeek", "vfield", "vapp", "conv", "typeof", "vctr", "val"
+  "fresh", "code", "idof", "peek", "inst", "vpeek", "vfield", "vapp", "conv", "typeof", "vctr", "val", "rewrite", "trace"
 };
 // Static-only node kinds (STA ext): a type annotation, a log message, a rewrite hint.
 enum { S_ANN, S_LOG, S_RWT, S_COUNT };
@@ -4886,8 +4886,27 @@ __attribute__((cold, noinline)) static Term wnf_rebuild(Term cur, Term *stack, u
 
 fn Term wnf(Term term);
 
+// A primitive inspects its argument; every interaction commutes with
+// superposition, so a primitive must too: when inspection meets &L{a,b} the
+// primitive's answer is &L{prim(side 0), prim(side 1)}. Inspection points
+// record the first superposition met here; pri_fire then distributes.
+static Name PRI_SUP = 0;
+
+fn int pri_sup(Term r) {
+  if (term_tag(r) == SUP) {
+    if (PRI_SUP == 0) {
+      PRI_SUP = sup_name(r);
+    }
+    return 1;
+  }
+  return PRI_SUP != 0;
+}
+
 fn u32 pri_num(Term t) {
   Term r = wnf(t);
+  if (pri_sup(r)) {
+    return 0;
+  }
   if (term_tag(r) != NUM) {
     fprintf(stderr, "RUNTIME_ERROR: primitive expected a number\n");
     exit(1);
@@ -4903,6 +4922,11 @@ fn Term pri_pair(Term a, Term b) {
 // (a, b) of a Bend tuple, forced to its constructor
 fn void pri_unpair(Term t, Term *a, Term *b) {
   Term r = wnf(t);
+  if (pri_sup(r)) {
+    *a = term_new_era();
+    *b = term_new_era();
+    return;
+  }
   if (term_tag(r) != C02 || term_ext(r) != SYM_PAIR) {
     fprintf(stderr, "RUNTIME_ERROR: primitive expected a pair\n");
     exit(1);
@@ -4975,11 +4999,26 @@ fn Term conv_whnf(Term t, int nd) {
 }
 
 fn int conv_go(Term a, Term b, int nd) {
+  if (PRI_SUP) {
+    return 0;
+  }
   a = conv_whnf(a, nd);
+  if (pri_sup(a)) {
+    return 0;
+  }
   b = conv_whnf(b, nd);
+  if (pri_sup(b)) {
+    return 0;
+  }
   u8 at = term_tag(a);
   u8 bt = term_tag(b);
   if (at == LAM || bt == LAM) {
+    // η: a λ against a neutral (or another function head) is compared under
+    // one fresh argument; against data (a constructor, a number) it differs
+    u8 ot = at == LAM ? bt : at;
+    if (ot != LAM && ((ot >= C00 && ot <= C16) || ot == NUM || ot == ERA || ot == SUP)) {
+      return 0;
+    }
     Term nam = term_new_nam(FRESH++);
     Term ab, bb;
     if (at == LAM) {
@@ -5021,11 +5060,6 @@ fn int conv_go(Term a, Term b, int nd) {
       }
       return 1;
     }
-    case SUP: {
-      return bt == SUP && sup_name(a) == sup_name(b)
-          && conv_go(heap_read(term_val(a) + 0), heap_read(term_val(b) + 0), nd)
-          && conv_go(heap_read(term_val(a) + 1), heap_read(term_val(b) + 1), nd);
-    }
     case MAT:
     case SWI: {
       return bt == at && term_ext(a) == term_ext(b)
@@ -5063,7 +5097,126 @@ fn int conv_go(Term a, Term b, int nd) {
   }
 }
 
+// Rewriting by an equation (Core.Rewrite): every subterm of t convertible to
+// `old` becomes `neo`. A subterm is read in weak head form; a call whose head
+// form is an elimination stuck on a neutral stays folded (Core's Soft
+// whnf) and only its arguments are rewritten.
+fn Name rw_name(void) {
+  if (DIM_INST == INST_MAX) {
+    fprintf(stderr, "RUNTIME_ERROR: 2^40 instances exhausted\n");
+    exit(1);
+  }
+  return ((++DIM_INST) << 24) | AUTO_LO;
+}
+
+fn int rw_stuck(Term w) {
+  while (term_tag(w) == DRY) {
+    w = heap_read(term_val(w) + 0);
+  }
+  return stuck_elim_head(w);
+}
+
+fn Term rw_go(Term *old, Term *neo, Term t);
+
+// the arguments of a folded application spine
+fn Term rw_spine(Term *old, Term *neo, Term t) {
+  if (term_tag(t) == APP) {
+    u64 loc = term_val(t);
+    heap_set(loc + 0, rw_spine(old, neo, heap_read(loc + 0)));
+    heap_set(loc + 1, rw_go(old, neo, heap_read(loc + 1)));
+  }
+  return t;
+}
+
+fn Term rw_go(Term *old, Term *neo, Term t) {
+  if (PRI_SUP) {
+    return t;
+  }
+  Copy o = term_clone(rw_name(), *old);
+  Copy c = term_clone(rw_name(), t);
+  *old = o.k0;
+  int eq = conv_go(o.k1, c.k0, 0);
+  if (PRI_SUP) {
+    return t;
+  }
+  if (eq) {
+    Copy n = term_clone(rw_name(), *neo);
+    *neo = n.k0;
+    return n.k1;
+  }
+  Term w = conv_whnf(c.k1, 1);
+  if (pri_sup(w)) {
+    return t;
+  }
+  if (term_tag(w) == APP) {
+    Copy f = term_clone(rw_name(), w);
+    Term u = conv_whnf(f.k0, 0);
+    if (pri_sup(u)) {
+      return t;
+    }
+    if (rw_stuck(u)) {
+      return rw_spine(old, neo, conv_whnf(f.k1, 1));
+    }
+    w = u;
+  } else {
+    w = conv_whnf(w, 0);
+    if (pri_sup(w)) {
+      return t;
+    }
+  }
+  u8 tg = term_tag(w);
+  u64 loc = term_val(w);
+  switch (tg) {
+    case LAM:
+    case USE: {
+      heap_set(loc, rw_go(old, neo, heap_read(loc)));
+      return w;
+    }
+    case C00 ... C16:
+    case MAT:
+    case SWI:
+    case DRY:
+    case APP:
+    case OP2: {
+      u32 ari = (tg >= C00 && tg <= C16) ? (u32)(tg - C00) : 2;
+      for (u32 i = 0; i < ari; i++) {
+        heap_set(loc + i, rw_go(old, neo, heap_read(loc + i)));
+      }
+      return w;
+    }
+    default: {
+      return w;
+    }
+  }
+}
+
+fn Term eval_normalize(Term term);
+
+
+fn Term pri_fire_go(u32 id, Term arg);
+
 fn Term pri_fire(u32 id, Term arg) {
+  // fresh, val and vapp do not inspect their argument; code and idof read
+  // it as a raw static reference (a dup would hide the reference)
+  if (id == P_FRESH || id == P_VAL || id == P_VAPP || id == P_TRACE || id == P_CODE || id == P_IDOF) {
+    return pri_fire_go(id, arg);
+  }
+  Copy c     = term_clone(rw_name(), arg);
+  Name saved = PRI_SUP;
+  PRI_SUP    = 0;
+  Term r     = pri_fire_go(id, c.k0);
+  Name hit   = PRI_SUP;
+  PRI_SUP    = saved;
+  if (hit) {
+    Copy d  = term_clone(hit, c.k1);
+    Term p0 = term_new_app(term_new(0, PRI, id, 0), d.k0);
+    Term p1 = term_new_app(term_new(0, PRI, id, 0), d.k1);
+    return term_new_sup(hit, p0, p1);
+  }
+  return r;
+}
+
+fn Term pri_fire_go(u32 id, Term arg) {
   switch (id) {
     // the generic element of a binder: a fresh neutral
     case P_FRESH: {
@@ -5096,6 +5249,7 @@ fn Term pri_fire(u32 id, Term arg) {
       Term *ks  = malloc(cap * sizeof(Term));
       Term *vs  = malloc(cap * sizeof(Term));
       Term cur  = wnf(env);
+      pri_sup(cur);
       while (term_tag(cur) == C02 && term_ext(cur) == SYM_BCON) {
         if (n == cap) {
           cap *= 2;
@@ -5109,6 +5263,7 @@ fn Term pri_fire(u32 id, Term arg) {
         vs[n] = vv;
         n++;
         cur = wnf(heap_read(term_val(cur) + 1));
+        pri_sup(cur);
       }
       u64 next = 0;
       for (u32 i = n; i-- > 0;) {
@@ -5127,13 +5282,21 @@ fn Term pri_fire(u32 id, Term arg) {
     }
     // an evaluated cell's head: (tag, ext, val)
     case P_VPEEK: {
-      return pri_triple(wnf(arg));
+      Term r = wnf(arg);
+      pri_sup(r);
+      return pri_triple(r);
     }
     case P_VFIELD: {
       Term v, i;
       pri_unpair(arg, &v, &i);
       Term r = wnf(v);
-      return heap_read(term_val(r) + pri_num(i));
+      pri_sup(r);
+      u32  k = pri_num(i);
+      // a field of a cell; anything else (or past its arity) has none
+      if (term_tag(r) < C00 || term_tag(r) > C16 || k >= (u32)(term_tag(r) - C00)) {
+        return term_new_era();
+      }
+      return heap_read(term_val(r) + k);
     }
     case P_VAPP: {
       Term f, x;
@@ -5154,6 +5317,7 @@ fn Term pri_fire(u32 id, Term arg) {
       Term args[16];
       u32  ari = 0;
       Term cur = wnf(fs);
+      pri_sup(cur);
       while (term_tag(cur) == C02 && term_ext(cur) == SYM_BCON) {
         if (ari == 16) {
           fprintf(stderr, "RUNTIME_ERROR: vctr takes at most 16 fields\n");
@@ -5161,8 +5325,26 @@ fn Term pri_fire(u32 id, Term arg) {
         }
         args[ari++] = heap_read(term_val(cur) + 0);
         cur = wnf(heap_read(term_val(cur) + 1));
+        pri_sup(cur);
       }
       return term_new_ctr(nam, ari, args);
+    }
+    // development: print the normal form of x to stderr, answer y
+    case P_TRACE: {
+      Term x, y;
+      pri_unpair(arg, &x, &y);
+      u32 saved = WNF_S_POS;
+      Term n = eval_normalize(x);
+      WNF_S_POS = saved;
+      print_term_ex(stderr, n);
+      fputc('\n', stderr);
+      return y;
+    }
+    case P_REWRITE: {
+      Term old, rest, neo, t;
+      pri_unpair(arg, &old, &rest);
+      pri_unpair(rest, &neo, &t);
+      return rw_go(&old, &neo, t);
     }
     // a value of the checker's own language seen as a cell (the identity)
     case P_VAL: {
