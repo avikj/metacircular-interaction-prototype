@@ -85,7 +85,8 @@ contractible (§7, `fibre-of-run`); cost is the net's own interaction count.
 | P3c | Diamond: state the demand-restricted relation, check an instance of `RandomDescent` for the reachable rules | todo |
 | P4 | Machine that asks: `hvm --interact` keeps heap + point; `bend --interact` checks named maps and applies the law (`@present`); neutral calls stay folded under stuck eliminations | done (v1: non-dependent named maps) |
 | P4 | Interaction entry: `Q`/`δ` loop at the root | todo |
-| P5 | Checking on the net (`verify` projection): the checker as a net program | todo |
+| P5a | Checking on the net, MLTT core: `checker/Check.bend` reads the static book; `bend FILE --check-net CHECKER`; per-definition differential `tools/diff/checknet.py` | in progress (see §3d) |
+| P5b | Checking on the net, cubical layer (paths/coe, hcomp/Glue/ua/Sub/Partial, HITs) | todo |
 | P6 | Delete the Haskell evaluator from the compile path; bootstrap + CI green; delete this file | todo |
 
 ## 3. Current branch state
@@ -335,6 +336,58 @@ Forced points (each from the math, not from convenience):
    lets, matches) → interval/paths/coe → hcomp/Glue/ua/Sub/Partial →
    truncation/circle/quotient/general HITs. Then P6: the host only parses
    and lowers; `--to-hvm4-full` and `--interact` check on the net.
+
+## 3d. P5a state (checker on the net)
+
+Pieces (all on the branch):
+- `vendor/Bend2/checker/Check.bend`: the checker, a Bend program checked by
+  Core and by itself (every definition of the file agrees with Core).
+  Static code is always a pair (location, slot map: static level -> context
+  level). Goals/types/refinements are FIRST-ORDER expressions `G` (level,
+  code under slot map, field, application, cell, constant function, rewrite,
+  substitution) read by `Chk/eval`. Refinement of a matched variable replaces
+  its context entry (NbE); a non-variable scrutinee and J on a non-variable
+  endpoint rewrite the goal (`rewrite` primitive, Core.Rewrite); J on a
+  variable endpoint aliases it to the other endpoint. A let-bound variable is
+  its code, checked where used (Core substitutes lets).
+- Primitives (hvm.c): `fresh code idof peek inst vpeek vfield vapp conv
+  typeof vctr val rewrite trace`. `conv` is a lazy joint traversal: stuck
+  elimination branches without δ, λ under one fresh name, η against a neutral,
+  a folded call against another head unfolds once. Every primitive commutes
+  with superposition (meets &L{a,b} -> answers &L{p(side0), p(side1)}), and a
+  primitive outside its domain (a neutral argument) is a stuck application.
+- Host: `bend FILE --check-net CHECKER` emits the book's cells + checker cells
+  + root `@DChk_sall(table)`; the runtime prints (book id, code) per
+  definition. Codes: 0 ✓, 1 mismatch, 2 cannot infer, >=1000 not yet
+  (1000+tag node kind, 3000 prelude ref, 4000+n site).
+
+Found and fixed on the way (each a lossless/semantic defect, not a checker
+convenience):
+- enum default arm was emitted without applying the default to the scrutinee
+  (runtime returned a λ);
+- `extern` definitions all unfolded to the same `Pri EXTERN` in Core (all
+  primitives judged equal);
+- symbols shared constructor names (`&Nil` lowered to the cell of `[]`):
+  symbols are now `#s_<name>`;
+- a dup of a stuck application under no-δ never copied (DUP-APP allowed only
+  without δ; DUP-REF as a leaf);
+- checker closures duplicated and applied in nested ways share dup labels
+  (label capture inside one instance): verdicts depended on what else was
+  checked. Hence G as data. HVM's λ-duplication is only sound for stratified
+  sharing; the checker must never rely on duplicating its own closures.
+
+Differential (before the symbol fix; rerun pending): AGREE 1820,
+NET-ACCEPTS 0, mismatches 10, cannot-infer 213 (cubical: toPathP, transport,
+isPropToPathP), not-yet 2605 (cubical cells: #Path 1016, #PLm 1014, prelude
+refs 3000).
+
+Next (P5b), forced by the boundary law of path types:
+- generic elements are reflected (η-long): Π -> λx. reflect(B x, n x),
+  Σ -> pair of reflected projections, Path A a b -> a line whose faces are
+  a and b (replaces Core's epNormCtx/spineEndpoints heuristics);
+- path-typed definitions carry their faces in the cell (a stuck lemma call
+  has lost its type on the net);
+- then coe, hcomp (face DNF), Glue/ua, Sub/Partial, HITs, each differential.
 
 ## 4. How to work here (pitfalls already paid for)
 
