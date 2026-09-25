@@ -9,7 +9,6 @@ module Core.CLI
   , processFileToHVM4Raw
   , processFileToHVM4Full
   , processFileInteract
-  , processFileCheckNet
   , processFileTotal
   , listDependencies
   ) where
@@ -256,27 +255,6 @@ processFileToHVM4Full file = do
   _ <- evaluate (length prog)
   putStrLn prog
 
-
--- | Checking on the net (One §14, the verify projection): the program is the
--- book's cells, the checker's cells, and a root that runs the checker over
--- every definition of the file: (its code, its type's code, its book id).
--- The runtime prints one (book id, result) per definition, in this order
--- (0 checks, 1 mismatch, 2 cannot infer, 3 not yet on the net).
-processFileCheckNet :: FilePath -> FilePath -> IO ()
-processFileCheckNet file checker = do
-  Book defs hits  <- parseFile file
-  Book cdefs _    <- parseFile checker
-  let merged = Book (M.union defs cdefs) hits
-      entry n = "#Pair{@@code(@" ++ HVM4Full.defName n ++ "), #Pair{@@code(@" ++ HVM4Full.typeName n ++ "), @@idof(@" ++ HVM4Full.defName n ++ ")}}"
-      table   = foldr (\n acc -> "#Con{" ++ entry n ++ ", " ++ acc ++ "}") "#Nil" (M.keys defs)
-      list xs = foldr (\x acc -> "#Con{" ++ x ++ ", " ++ acc ++ "}") "#Nil" xs
-      -- the prelude's references the checker reads in static code, and the
-      -- runtime cells it builds with (in Check.bend's order)
-      preIds  = list [ "@@idof(@" ++ f ++ ")" | f <- ["inot", "iand", "ior", "pathAt", "coe", "hcomp", "glueT", "glue", "unglue", "trec", "srec", "pout", "transp", "outS", "qrec", "pow", "u64ToChar", "pbndL"] ]
-      cells   = list ["#CompU{0, 0}", "#UaU{0, 0, 0, 0, 0, 0}", "#PLm{0}", "#Itv", "#I0", "#I1", "#Path{0, 0, 0}", "#Cons{0, 0}", "#Face{0, 0}", "#GFace{0, 0, 0}", "#INot{0}", "#IAnd{0, 0}", "#IOr{0, 0}"]
-      prog    = HVM4Full.compileCells merged ++ "@main = @" ++ HVM4Full.defName "Chk/all" ++ "(" ++ table ++ ")(" ++ preIds ++ ")(" ++ cells ++ ")\n"
-  _ <- evaluate (length prog)
-  putStrLn prog
 
 -- | A machine that asks (One §7).  The runtime keeps its heap and the current
 -- typed point; each question names a map f : A -> B of the program, checked

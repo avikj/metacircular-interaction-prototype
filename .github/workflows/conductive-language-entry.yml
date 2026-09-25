@@ -109,7 +109,7 @@ jobs:
           "$HVM" "$RUNNER_TEMP/SATProcess.hvm4" -s | tee "$RUNNER_TEMP/sat-runtime.log"
           # the XOR fibre, shared: (a, b, a xor b) over superposed a and b;
           # source labels 100 and 101 are the explicit dimension names a_aJ, a_aK
-          head -1 "$RUNNER_TEMP/sat-runtime.log" | grep -Fq '#Pair{#s_reading{},#Pair{&a_aJ{0,1},#Pair{&a_aK{0,1},#Pair{&a_aJ{&a_aK{0,1},&a_aK{1,0}},#One{}}}}}'
+          head -1 "$RUNNER_TEMP/sat-runtime.log" | grep -Fq '#Pair{#reading{},#Pair{&a_aJ{0,1},#Pair{&a_aK{0,1},#Pair{&a_aJ{&a_aK{0,1},&a_aK{1,0}},#One{}}}}}'
       - name: Retain exact generated/runtime evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

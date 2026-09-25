@@ -25,7 +25,7 @@ import Target.HVM (freeVars)
 import qualified Data.Map as M
 
 import Core.Type
-import Core.WHNF (appCod, coeMarker, occursMarker, substMarker, depMarker, occursDep, force, hitCtorTypeAt, ctorFieldType)
+import Core.WHNF (coeMarker, occursMarker, substMarker, depMarker, occursDep, force, hitCtorTypeAt, ctorFieldType)
 import Data.IORef
 import System.IO.Unsafe (unsafePerformIO)
 
@@ -44,46 +44,19 @@ freshName d = unsafePerformIO $ do
   return ("b" ++ show d ++ "u" ++ show n)
 
 compileFull :: Book -> String
-compileFull book@(Book defs _) = compileCells book ++ root
-  where
-    -- The root is the checked entry as a point of Σ(A : Set). A.
-    root = case M.lookup "main" defs of
-      Just _  -> "@main = #Pair{@" ++ typeName "main" ++ ", @" ++ defName "main" ++ "}\n"
-      Nothing -> ""
-
--- Every cell of the book (definitions and their types) and the prelude,
--- without a root.
-compileCells :: Book -> String
-compileCells book@(Book defs _) =
-  prelude ++ hitPrelude book ++ unlines (concatMap def (M.toList defs))
+compileFull book@(Book defs _) =
+  prelude ++ hitPrelude book ++ unlines (concatMap def (M.toList defs)) ++ root
   where
     -- A checked definition is a typed point (A, a): both are cells of the one
     -- complex and both are emitted, by the same emitter.
     def (nam, (_, tm, ty)) =
-      [ "@" ++ defName nam  ++ " = " ++ maybe (emitDefCell book tm ty) (externCell nam) (externArity tm)
+      [ "@" ++ defName nam  ++ " = " ++ emitFull book tm
       , "@" ++ typeName nam ++ " = " ++ emitFull book ty ]
 
-    -- `def name(x1..xn) -> T: extern` is the runtime primitive @@name. A
-    -- primitive takes one argument; several arrive as a right-nested tuple.
-    -- With no parameters it is an opaque constant (a type such as Val).
-    externArity t = case cut t of
-      Lam _ f      -> (+ 1) <$> externArity (f (Var "_" 0))
-      Pri EXTERN   -> Just (0 :: Int)
-      _            -> Nothing
-    externCell nam n =
-      let prim = reverse (takeWhile (/= '/') (reverse nam))
-          xs   = [ "e" ++ show i | i <- [1 .. n] ]
-          tup  = foldr1 (\a b -> "#Pair{" ++ a ++ ", " ++ b ++ "}") xs
-      in if n == 0 then "@@val(#X_" ++ escName prim ++ ")"
-         -- a function of the runtime's prelude (the reduction rules written
-         -- as a program) is provided the same way as a primitive
-         else if prim `elem` preludeFns
-           then concatMap (\x -> "λ&" ++ x ++ ". ") xs ++ "@" ++ prim ++ concatMap (\x -> "(" ++ x ++ ")") xs
-           else concatMap (\x -> "λ&" ++ x ++ ". ") xs ++ "@@" ++ prim ++ "(" ++ tup ++ ")"
-
--- The prelude's functions an `extern` may name.
-preludeFns :: [String]
-preludeFns = [ n | l <- lines prelude, ('@' : rest) <- [l], let n = takeWhile (\c -> isAlphaNum c || c == '_') rest, not (null n) ]
+    -- The root is the checked entry as a point of Σ(A : Set). A.
+    root = case M.lookup "main" defs of
+      Just _  -> "@main = #Pair{@" ++ typeName "main" ++ ", @" ++ defName "main" ++ "}\n"
+      Nothing -> ""
 
 prelude :: String
 prelude = unlines
@@ -92,42 +65,16 @@ prelude = unlines
   , "@pow = λ&b. λe. (λ{0: 1; λ&n. (b * @pow(b, (n - 1)))})(e)"
   , "@u64ToChar = λx. x"
   , "// ---- intervals"
-  , "// The interval is the free De Morgan algebra on its generators (#IVar{k},"
-  , "// #IMark): an element's normal form is an antichain of cubes of literals"
-  , "// (a join of meets; x and ~x are distinct literals, x ∧ ~x is not 0). Its"
-  , "// operations compute that normal form, so equal intervals are `===`."
-  , "// A literal is keyed by a number: #IMark 0, ~#IMark 1, #IVar{k} 2k+2, ~#IVar{k} 2k+3."
-  , "@ilit = λ&k. (λ{0: #IMark; 1: #INot{#IMark}; λ&j. (λ{0: #IVar{((j - 2) / 2)}; λo. #INot{#IVar{((j - 2) / 2)}}})(((j - 2) % 2))})(k)"
-  , "// sorted literal sets (cubes)"
-  , "@kunion = λ{#Nil: λb. b; #Cons: λ&x. λ&xs. λb. @kunion1(x, xs, b)}"
-  , "@kunion1 = λ&x. λ&xs. λ{#Nil: #Cons{x, xs}; #Cons: λ&y. λ&ys. (λ{1: #Cons{x, @kunion(xs, #Cons{y, ys})}; λo. (λ{1: #Cons{y, @kunion1(x, xs, ys)}; λo2. #Cons{x, @kunion(xs, ys)}})((y < x))})((x < y))}"
-  , "@ksub = λ{#Nil: λb. 1; #Cons: λ&x. λ&xs. λ{#Nil: 0; #Cons: λ&y. λ&ys. (λ{1: @ksub(xs, ys); λo. (λ{1: @ksub(#Cons{x, xs}, ys); λo2. 0})((y < x))})((x == y))}}"
-  , "@kcmp = λ{#Nil: λ{#Nil: 1; #Cons: λy. λys. 0}; #Cons: λ&x. λ&xs. λ{#Nil: 2; #Cons: λ&y. λ&ys. (λ{1: 0; λo. (λ{1: 2; λo2. @kcmp(xs, ys)})((y < x))})((x < y))}}"
-  , "// antichains of cubes, sorted"
-  , "@dhas = λ&c. λ{#Nil: 0; #Cons: λ&d. λ&ds. (λ{1: 1; λo. @dhas(c, ds)})(@ksub(d, c))}"
-  , "@ddrop = λ&c. λ{#Nil: #Nil; #Cons: λ&d. λ&ds. (λ{1: @ddrop(c, ds); λo. #Cons{d, @ddrop(c, ds)}})(@ksub(c, d))}"
-  , "@dput = λ&c. λ{#Nil: #Cons{c, #Nil}; #Cons: λ&d. λ&ds. (λ{0: #Cons{c, #Cons{d, ds}}; 1: #Cons{d, ds}; λo. #Cons{d, @dput(c, ds)}})(@kcmp(c, d))}"
-  , "@dins = λ&c. λ&e. (λ{1: e; λo. @dput(c, @ddrop(c, e))})(@dhas(c, e))"
-  , "@dunion = λ{#Nil: λe. e; #Cons: λc. λcs. λe. @dunion(cs, @dins(c, e))}"
-  , "@dmapu = λ&c. λ{#Nil: #Nil; #Cons: λd. λds. @dins(@kunion(c, d), @dmapu(c, ds))}"
-  , "@dprod = λ{#Nil: λe. #Nil; #Cons: λ&c. λcs. λ&e. @dunion(@dmapu(c, e), @dprod(cs, e))}"
-  , "@dnegc = λ{#Nil: #Nil; #Cons: λx. λxs. @dins(#Cons{(x ^ 1), #Nil}, @dnegc(xs))}"
-  , "@dneg = λ{#Nil: #Cons{#Nil, #Nil}; #Cons: λc. λcs. @dprod(@dnegc(c), @dneg(cs))}"
-  , "@itoD = λ{#I0: #Nil; #I1: #Cons{#Nil, #Nil}; #IMark: #Cons{#Cons{0, #Nil}, #Nil}; #IVar: λk. #Cons{#Cons{((k * 2) + 2), #Nil}, #Nil}; #INot: λx. @dneg(@itoD(x)); #IAnd: λa. λb. @dprod(@itoD(a), @itoD(b)); #IOr: λa. λb. @dunion(@itoD(a), @itoD(b))}"
-  , "@ifromC = λ{#Nil: #I1; #Cons: λ&x. λxs. (λ{#Nil: @ilit(x); #Cons: λy. λys. #IAnd{@ilit(x), @ifromC(#Cons{y, ys})}})(xs)}"
-  , "@ifromD = λ{#Nil: #I0; #Cons: λ&c. λcs. (λ{#Nil: @ifromC(c); #Cons: λd. λds. #IOr{@ifromC(c), @ifromD(#Cons{d, ds})}})(cs)}"
-  , "@inot = λ{#I0: #I1; #I1: #I0; λx. @ifromD(@dneg(@itoD(x)))}"
-  , "@iand = λa. λb. (λ{#I0: λb. #I0; #I1: λb. b; λ&a. λb. (λ{#I0: λa. #I0; #I1: λa. a; λ&b2. λa. @ifromD(@dprod(@itoD(a), @itoD(b2)))})(b)(a)})(a)(b)"
-  , "@ior  = λa. λb. (λ{#I1: λb. #I1; #I0: λb. b; λ&a. λb. (λ{#I1: λa. #I1; #I0: λa. a; λ&b2. λa. @ifromD(@dunion(@itoD(a), @itoD(b2)))})(b)(a)})(a)(b)"
+  , "@inot = λ{#I0: #I1; #I1: #I0; λx. #INot{x}}"
+  , "// (linear: a value is never cloned merely because it is used in several match ARMS —"
+  , "//  HVM4 auto-dup labels are static per binder, and a dup of an argument that already"
+  , "//  contains an instance of the same definition's dup would annihilate instead of commute)"
+  , "@iand = λa. λb. (λ{#I0: λb. #I0; #I1: λb. b; λa. λb. (λ{#I0: λa. #I0; #I1: λa. a; λb2. λa. #IAnd{a, b2}})(b)(a)})(a)(b)"
+  , "@ior  = λa. λb. (λ{#I1: λb. #I1; #I0: λb. b; λa. λb. (λ{#I1: λa. #I1; #I0: λa. a; λb2. λa. #IOr{a, b2}})(b)(a)})(a)(b)"
   , "@sameEnd = λ{#I0: λ{#I0: 1; λx. 0}; #I1: λ{#I1: 1; λx. 0}; λx. λy. 0}"
   , "// forward direction test: r=I0,s=I1 -> 1 ; r=I1,s=I0 -> 0"
   , "@fwd = λ{#I0: λs. 1; #I1: λs. 0; λr. λs. 0}"
   , "// ---- paths applied to intervals (universe paths are data; value paths are functions)"
-  , "// a line with its faces attached (a 1-cell with its boundary): at i0 and"
-  , "// i1 it is its faces, elsewhere its interior; a definition of path type is"
-  , "// emitted as one, so a call stuck on a neutral still has its endpoints"
-  , "@pbnd = λ{#I0: λa. λb. λp. a; #I1: λa. λb. λp. b; λi. λa. λb. λp. @pathAt(p, i)}"
-  , "@pbndL = λa. λb. λp. #PLm{λ&i. @pbnd(i, a, b, p)}"
   , "@pathAt = λp. λi. (λ{#I0: λp. @pL(p); #I1: λp. @pR(p); λi. λp. @pAtSym(p, i)})(i)(p)"
   , "@pAtSym = λ{#PLm: λf. λi. f(i); #TSq: λu. λv. λi. #At{#TSq{u, v}, i}; #Loop: λi. #At{#Loop, i}; #QEq: λa. λb. λw. λi. #At{#QEq{a, b, w}, i}; #UaU: λA. λB. λf. λg. λgf. λfg. λi. #At{#UaU{A, B, f, g, gf, fg}, i}; #CompU: λP. λQ. λi. #At{#CompU{P, Q}, i}; λv. λi. #StuckAt{v, i}}"
   , "@pL = λ{#PLm: λf. f(#I0); #TSq: λu. λv. u; #Loop: #Base; #QEq: λa. λb. λw. #QCl{a}; #UaU: λA. λB. λf. λg. λgf. λfg. A; #CompU: λP. λQ. P(#I0); λv. #StuckAt{v, #I0}}"
@@ -139,9 +86,9 @@ prelude = unlines
   , "    #Set: #Glue{base, @setFaces(stuck)};"
   , "    #Pi: λ&A1. λ&B1. λ&v. @hcomp(B1(v), @hcTubesApp(stuck, v), base(v));"
   , "    #Path: λ&A1. λ&u1. λ&v1. #PLm{λ&j. @hcomp(A1(j), #Cons{#Face{@inot(j), #PLm{λk. u1}}, #Cons{#Face{j, #PLm{λk. v1}}, @hcTubesAtJ(stuck, j)}}, @pathAt(base, j))};"
-  , "    #Sig: λ&A1. λ&B1. "
-  , "          #Pair{@hcomp(A1, @hcTubesFst(stuck), @fstP(base)),"
-  , "                @compAt(λj. B1(@hfillAt(A1, @hcTubesFst(stuck), @fstP(base), j)), @hcTubesSnd(stuck), @sndP(base))};"
+  , "    #Sig: λ&A1. λ&B1. ! &{st1, st2} = stuck; ! &{ba1, ba2} = base; ! &{aa1, aa2} = A1;"
+  , "          #Pair{@hcomp(aa1, @hcTubesFst(st1), @fstP(ba1)),"
+  , "                @compAt(λj. B1(@hfillAt(aa2, @hcTubesFst(st2), @fstP(ba2), j)), @hcTubesSnd(stuck), @sndP(base))};"
   , "    #Glue: λ&aT. λ&gfs. @hcGlue(aT, gfs, stuck, base);"
   , "    #Nat: @hcNat(stuck, base);"
   , "    #List: λ&eT. @hcList(eT, stuck, base);"
@@ -173,7 +120,10 @@ prelude = unlines
   , "@hcGlueT = λ&fs. λ&base. λ{#Nil: #Nil; #Cons: λ{#GFace: λphi. λ&T. λe. λ&rest. #Cons{#Face{phi, @hcomp(T, fs, base)}, @hcGlueT(fs, base, rest)}}}"
   , "@appendF = λ{#Nil: λys. ys; #Cons: λ{#Face: λp. λt. λ&rest. λ&ys. #Cons{#Face{p, t}, @appendF(rest, ys)}}}"
   , "@hcGlue = λ&aT. λ&gfs. λ&fs. λ&base."
-  , "  @glue(aT, @hcomp(aT, @appendF(@hcTubesUnglue(gfs, fs), @hcGlueFaces(fs, base, gfs)), @gUnglue(gfs, base)), @hcGlueT(fs, base, gfs))"
+  , "  ! &{g1, gx} = gfs; ! &{g2, g3} = gx;"
+  , "  ! &{f1, fx} = fs; ! &{f2, f3} = fx;"
+  , "  ! &{b1, bx} = base; ! &{b2, b3} = bx;"
+  , "  @glue(aT, @hcomp(aT, @appendF(@hcTubesUnglue(g1, f1), @hcGlueFaces(f2, b1, g2)), @gUnglue(g3, b2)), @hcGlueT(f3, b3, gfs))"
   , "// hcomp in an inductive type: push through a common constructor head."
   , "// Headedness of a LINE is decided by applying it at the marker dimension,"
   , "// the same idiom @coe uses for its regularity check."
@@ -191,7 +141,7 @@ prelude = unlines
   , "// discrete types: the composite is the cap when every tube agrees with it"
   , "@allEq = λ&x. λ{#Nil: #I1; #Cons: λ{#Face: λp. λ&tube. λ&rest. (λ{#I1: @allEq(x, rest); λo. #I0})(@sameCtr(x, @pathAt(tube, #IMark)))}}"
   , "@sameCtr = λ{0: λ{0: #I1; λw. #I0}; 1: λ{1: #I1; λw. #I0}; #One: λ{#One: #I1; λw. #I0}; #Nil: λ{#Nil: #I1; λw. #I0}; λv. λw. #I0}"
-  , "@hcNullary = λ&A. λ&fs. λ&base. (λ{#I1: base; λo. #HCm{A, fs, base}})(@allEq(base, fs))"
+  , "@hcNullary = λ&A. λ&fs. λ&base. ! &{b1, bx} = base; ! &{b2, b3} = bx; (λ{#I1: b2; λo. #HCm{A, fs, b3}})(@allEq(b1, fs))"
   , "// propositional truncation: tsquash is a PATH constructor joining ANY two"
   , "// elements; the recursor sends it to the target's own proof of propness."
   , "@trec = λ&x. λ&pb. λ&f. (λ{#TIn: λa. f(a); #At: λp. λi. (λ{#TSq: λu. λv. @pathAt(pb(@trec(u, pb, f))(@trec(v, pb, f)), i); λq. #TRec{q, pb, f}})(p); λv. #TRec{v, pb, f}})(x)"
@@ -228,11 +178,13 @@ prelude = unlines
   , "// the faces are read off the line at the MARKER and instantiated at r / s by"
   , "// interval substitution (re-evaluating L at a literal endpoint would let a"
   , "// true face collapse the Glue to its partial type and lose the faces)"
-  , "@coeGlue = λ&L. λ&r. λ&s. λ&x. λ&fs0."
-  , "  ! &a1 = @coe(λi. @glueA(L(i)), r, s, @gUnglue(@facesAt(fs0, r), x));"
-  , "  ! &fsS = @facesAt(fs0, s);"
-  , "  ! &aS = @glueA(L(s));"
-  , "  @glue(aS, @gT1(fsS, a1), @hcomp(aS, @gTubes(fsS, a1), a1))"
+  , "@coeGlue = λ&L. λ&r. λ&s. λ&x. λfs0."
+  , "  ! &{fsA, fsB} = fs0;"
+  , "  ! &{a1x, a1y} = @coe(λi. @glueA(L(i)), r, s, @gUnglue(@facesAt(fsA, r), x));"
+  , "  ! &{a1u, a1v} = a1x;"
+  , "  ! &{fsS, fsS2} = @facesAt(fsB, s);"
+  , "  ! &{aSu, aSv} = @glueA(L(s));"
+  , "  @glue(aSu, @gT1(fsS, a1y), @hcomp(aSv, @gTubes(fsS2, a1u), a1v))"
   , "@substI = λ&s. λ{#IMark: s; #I0: #I0; #I1: #I1; #INot: λa. @inot(@substI(s, a)); #IAnd: λa. λb. @iand(@substI(s, a), @substI(s, b)); #IOr: λa. λb. @ior(@substI(s, a), @substI(s, b)); λv. v}"
   , "@facesAt = λ{#Nil: λs. #Nil; #Cons: λ{#GFace: λphi. λT. λe. λrest. λ&s. (λ{#I0: λT. λe. λrest. λs. @facesAt(rest, s); λp. λT. λe. λrest. λs. #Cons{#GFace{p, T, e}, @facesAt(rest, s)}})(@substI(s, phi))(T)(e)(rest)(s)}}"
   , "// unglue at r: a true face gives fst(e) x; symbolic faces unglue the glue value; no faces: x"
@@ -245,7 +197,7 @@ prelude = unlines
   , "@fiberT = λ&T. λ&A. λ&f. λ&y. #Sig{T, λx. #Path{λi. A, f(x), y}}"
   , "@equivT = λ&T. λ&A. #Sig{#Pi{T, λx. A}, λ&f. #Pi{A, λy. @isContrT(@fiberT(T, A, f, y))}}"
   , "@idEquivV = λ&a. #Pair{λx. x, λ&y. #Pair{#Pair{y, #PLm{λi. y}}, λ{#Pair: λx. λ&p. #PLm{λ&i. #Pair{@pathAt(p, @inot(i)), #PLm{λj. @pathAt(p, @ior(@inot(i), j))}}}}}}"
-  , "@transpEquiv = λ&u. ! &top = @pathAt(u, #I1); @coe(λ&k. @equivT(top, @pathAt(u, @inot(k))), #I0, #I1, @idEquivV(top))"
+  , "@transpEquiv = λ&u. ! &{top, top2} = @pathAt(u, #I1); @coe(λ&k. @equivT(top, @pathAt(u, @inot(k))), #I0, #I1, @idEquivV(top2))"
   , "@setFaces = λ{#Nil: #Nil; #Cons: λ{#Face: λphi. λ&u. λrest. #Cons{#GFace{phi, @pathAt(u, #I1), @transpEquiv(u)}, @setFaces(rest)}}}"
   , "@glue = λA. λfs. λx. @glueGo(fs, x, #Nil, A)"
   , "@glueGo = λfs. λx. λstuck. λA. (λ{"
@@ -307,40 +259,18 @@ defName, typeName :: Name -> String
 defName  nam = "D" ++ escName nam
 typeName nam = "T" ++ escName nam
 
--- An enum symbol is its own kind of cell: `s_` + its escaped name, disjoint
--- from every built-in and prelude constructor (&Nil is not [], &Pair is not
--- a pair), so the lowering keeps apart what Core keeps apart.
-symName :: String -> String
-symName s = "s_" ++ escName s
-
 escName :: Name -> String
 escName = concatMap (\c -> case c of { '_' -> "_u"; '/' -> "_s"; _ -> [c] })
 
--- A definition whose type (after its Π telescope) is Path(t, a, b) is a
--- 1-cell with its faces attached: λxs. @pbndL(a, b, body). The body is kept
--- whole; the faces are the type's own endpoints (definitionally equal to the
--- body's at i0 and i1 once it checks).
-emitDefCell :: Book -> Term -> Term -> String
-emitDefCell book tm ty = walk 0 tm ty where
-  walk d t y = case (cut t, cut (force book y)) of
-    (Lam _ f, All _ b) -> let n = freshName d; v = Var n d
-                          in "λ&" ++ n ++ ". " ++ walk (d+1) (f v) (appCod b v)
-    (_, Pth _ a b)     -> "@pbndL(" ++ emitFullD book d a ++ ", " ++ emitFullD book d b ++ ", " ++ emitFullD book d t ++ ")"
-    _                  -> emitFullD book d t
-
 emitFull :: Book -> Term -> String
-emitFull book t0 = emitFullD book 0 t0
-
-emitFullD :: Book -> Int -> Term -> String
-emitFullD book d0 t0 = go d0 t0 where
+emitFull book t0 = go 0 t0 where
   go :: Int -> Term -> String
   go d t = case t of
     Var n i        -> if i < 0 then "#IMark" else n
     Ref k          -> "@" ++ defName k
     Sub x          -> go d x
     Loc _ x        -> go d x
-    -- a judgment the checker reads; static-only, dropped on instantiation
-    Chk x t        -> "@@ann(" ++ go d t ++ ", " ++ go d x ++ ")"
+    Chk x _        -> go d x
     Ind x          -> go d x
     Frz x          -> go d x
     Fix k f        -> let n = freshName d in "!" ++ n ++ "&F = " ++ go (d+1) (f (Var n d)) ++ "; " ++ n
@@ -350,17 +280,16 @@ emitFullD book d0 t0 = go d0 t0 where
     -- data
     Zer            -> "#Zer"
     Suc n          -> "#Suc{" ++ go d n ++ "}"
-    -- Bool shares the runtime word with U64; the static book keeps the type
-    Bt0            -> "@@ann(#Bool, 0)"
-    Bt1            -> "@@ann(#Bool, 1)"
+    Bt0            -> "0"
+    Bt1            -> "1"
     One            -> "#One"
     Nil            -> "#Nil"
     Con h tl       -> "#Con{" ++ go d h ++ ", " ++ go d tl ++ "}"
     Val (U64_V v)  -> if v <= 4294967295 then show v else error "HVM4 full: integer literal exceeds the 32-bit runtime word; use explicit limbs"
-    Val (CHR_V c)  -> "@@ann(#Num{#Chr}, " ++ show (fromEnum c) ++ ")"
+    Val (CHR_V c)  -> show (fromEnum c)
     Val (F64_V _)  -> error "HVM4 full: F64 requires an explicit IEEE representation; refusing to replace a floating-point value with zero"
     Val (I64_V _)  -> error "HVM4 full: signed integers require an explicit signed representation"
-    Sym s          -> "#" ++ symName s
+    Sym s          -> "#" ++ s
     Tup a b        -> "#Pair{" ++ go d a ++ ", " ++ go d b ++ "}"
     Rfl            -> "#Refl"
     BitM x f tr    -> branchMatch d x [("0", 0, f), ("_", -1, tr)]
@@ -370,12 +299,12 @@ emitFullD book d0 t0 = go d0 t0 where
     SigM x f       -> "λ{#Pair: " ++ go d f ++ "}(" ++ go d x ++ ")"
     EqlM x f       -> "λ{#Refl: " ++ go d f ++ "}(" ++ go d x ++ ")"
     EmpM x         -> "λ{}(" ++ go d x ++ ")"
-    EnuM x cs df   -> branchMatch d x ([("#" ++ symName sy, 0, b) | (sy,b) <- cs] ++ [("_", 1, df)])
+    EnuM x cs df   -> branchMatch d x ([("#" ++ sy, 0, b) | (sy,b) <- cs] ++ [("_", -1, df)])
     Op2 POW a b    -> "@pow(" ++ go d a ++ ", " ++ go d b ++ ")"
     Op2 o a b      -> "(" ++ go d a ++ " " ++ op2 o ++ " " ++ go d b ++ ")"
     Op1 o _        -> error ("HVM4 full: unary " ++ show o ++ " is type-directed in Core (Bool vs U64) and both share the runtime word; write it as a match or a binary op")
-    Log m x        -> "@@log(" ++ go d m ++ ", " ++ go d x ++ ")"
-    Rwt a b x      -> "@@rwt(#Pair{" ++ go d a ++ ", " ++ go d b ++ "}, " ++ go d x ++ ")"
+    Log _ x        -> go d x
+    Rwt _ _ x      -> go d x
     -- superpositions: native
     Sup l a b      -> "&" ++ label l ++ "{" ++ go d a ++ ", " ++ go d b ++ "}"
     Frk l a b      -> "&" ++ label l ++ "{" ++ go d a ++ ", " ++ go d b ++ "}"
@@ -383,7 +312,7 @@ emitFullD book d0 t0 = go d0 t0 where
     Era            -> "&{}"
     -- TYPES ARE DATA
     Set            -> "#Set"; Bit -> "#Bool"; Nat -> "#Nat"; Uni -> "#Unit"; Emp -> "#Empty"
-    Lst e          -> "#List{" ++ go d e ++ "}"; Enu ss -> "#Enum{" ++ foldr (\sy acc -> "#Con{#" ++ symName sy ++ ", " ++ acc ++ "}") "#Nil" ss ++ "}"; Num k -> "#Num{#" ++ numTag k ++ "}"; Itv -> "#Itv"
+    Lst e          -> "#List{" ++ go d e ++ "}"; Enu ss -> "#Enum{" ++ foldr (\sy acc -> "#Con{#" ++ sy ++ ", " ++ acc ++ "}") "#Nil" ss ++ "}"; Num k -> "#Num{#" ++ numTag k ++ "}"; Itv -> "#Itv"
     Eql a x y      -> "#Eql{" ++ go d a ++ ", " ++ go d x ++ ", " ++ go d y ++ "}"
     -- QUOTIENTS (SetQuotient HIT): the type is data, [a] is a point, eq/ is a
     -- PATH constructor (so @pathAt must know it), squash/ is opaque, and the
@@ -453,7 +382,6 @@ emitFullD book d0 t0 = go d0 t0 where
     Ua a b f g gf fg -> "#UaU{" ++ intercalate ", " (map (go d) [a, b, f, g, gf, fg]) ++ "}"
     Met _ _ _      -> error "HVM4 full: unsolved metavariable (gen) has no value to emit"
     Pri U64_TO_CHAR -> "@u64ToChar"
-    Pri EXTERN     -> error "HVM4 full: extern is only a whole definition body"
     Pat _ _ _      -> error "HVM4 full emission: unflattened pattern match"
 
   -- Pass branch environments after selection, avoiding duplication of a

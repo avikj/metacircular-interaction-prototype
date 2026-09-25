@@ -85,8 +85,7 @@ contractible (§7, `fibre-of-run`); cost is the net's own interaction count.
 | P3c | Diamond: state the demand-restricted relation, check an instance of `RandomDescent` for the reachable rules | todo |
 | P4 | Machine that asks: `hvm --interact` keeps heap + point; `bend --interact` checks named maps and applies the law (`@present`); neutral calls stay folded under stuck eliminations | done (v1: non-dependent named maps) |
 | P4 | Interaction entry: `Q`/`δ` loop at the root | todo |
-| P5a | Checking on the net, MLTT core: `checker/Check.bend` reads the static book; `bend FILE --check-net CHECKER`; per-definition differential `tools/diff/checknet.py` | in progress (see §3d) |
-| P5b | Checking on the net, cubical layer (paths/coe, hcomp/Glue/ua/Sub/Partial, HITs) | todo |
+| P5 | Checking on the net (`verify` projection): the checker as a net program | todo |
 | P6 | Delete the Haskell evaluator from the compile path; bootstrap + CI green; delete this file | todo |
 
 ## 3. Current branch state
@@ -304,297 +303,28 @@ test_list_transport.py 26/26 (stock and patched HVM4). Fixed on the way:
   given as expressions rather than names (needs term parsing in the host),
   and a readable type display (the runtime prints the type through sharing).
 
-## 3c. P5 design: checking on the net (the `verify` projection, §14)
+## 3c. P5 design (corrected): checking on the net by readback of the cells
 
-Forced points (each from the math, not from convenience):
-1. The checked term is never evaluated. Checking reads each definition's
-   STATIC BOOK TERM (the immutable lowered syntax at BOOK[id], de Bruijn
-   levels, which every execution instantiates by ALO). Same heap words,
-   viewed, not copied: no drift. (Evaluated cells are wrong: `loop(x) =
-   loop(x)` has no normal form but checks; an ill-typed term can diverge
-   under β.)
-2. Types ARE evaluated: conversion is equality of normal type cells, decided
-   by the runtime's own reduction and HVM4 `===` (EQL: structural, λs under
-   one fresh name, neutral calls folded after P4).
-3. The checker is meta-level: it dispatches on the syntax of types, and a
-   type-case cannot live inside a univalent theory (it would separate
-   ua-equal types). So it is runtime semantics written as interactions,
-   exactly like the Kan rules in the prelude ("Core.Check written as an HVM
-   program", as the prelude is "Core.WHNF written as an HVM program").
-   Its cost is interactions like every other inference.
-4. Nothing the checker needs may be deleted by lowering: `x :: T` must be
-   emitted (as `@chk(T, x)`, `@chk = λT. λx. x`, erased by β at run time),
-   and HIT constructor parameters must be emitted, not `&{}`.
-5. Runtime primitives (new counted interaction rules in hvm.c):
-   `fresh` (a new neutral: the generic element of a binder), `view` (the
-   shape of a static node: kind, ext, child locations), `inst` (instantiate
-   a static subterm under an environment: δ on a subterm), `typeof` (the
-   type cell `@Tk` of a reference `@Dk`). Conversion reuses `===`.
-6. Staging, each stage differential against Core's checker per definition
-   over the whole corpus (every ✓/✗ must agree, incl. every *_mustfail):
-   MLTT core (Set, Π, Σ, Unit, Empty, Bool, Nat, List, Enum, Eql, refs,
-   lets, matches) → interval/paths/coe → hcomp/Glue/ua/Sub/Partial →
-   truncation/circle/quotient/general HITs. Then P6: the host only parses
-   and lowers; `--to-hvm4-full` and `--interact` check on the net.
-
-## 3d. P5a state (checker on the net)
-
-Pieces (all on the branch):
-- `vendor/Bend2/checker/Check.bend`: the checker, a Bend program checked by
-  Core and by itself (every definition of the file agrees with Core).
-  Static code is always a pair (location, slot map: static level -> context
-  level). Goals/types/refinements are FIRST-ORDER expressions `G` (level,
-  code under slot map, field, application, cell, constant function, rewrite,
-  substitution) read by `Chk/eval`. Refinement of a matched variable replaces
-  its context entry (NbE); a non-variable scrutinee and J on a non-variable
-  endpoint rewrite the goal (`rewrite` primitive, Core.Rewrite); J on a
-  variable endpoint aliases it to the other endpoint. A let-bound variable is
-  its code, checked where used (Core substitutes lets).
-- Primitives (hvm.c): `fresh code idof peek inst vpeek vfield vapp conv
-  typeof vctr val rewrite trace`. `conv` is a lazy joint traversal: stuck
-  elimination branches without δ, λ under one fresh name, η against a neutral,
-  a folded call against another head unfolds once. Every primitive commutes
-  with superposition (meets &L{a,b} -> answers &L{p(side0), p(side1)}), and a
-  primitive outside its domain (a neutral argument) is a stuck application.
-- Host: `bend FILE --check-net CHECKER` emits the book's cells + checker cells
-  + root `@DChk_sall(table)`; the runtime prints (book id, code) per
-  definition. Codes: 0 ✓, 1 mismatch, 2 cannot infer, >=1000 not yet
-  (1000+tag node kind, 3000 prelude ref, 4000+n site).
-
-Found and fixed on the way (each a lossless/semantic defect, not a checker
-convenience):
-- enum default arm was emitted without applying the default to the scrutinee
-  (runtime returned a λ);
-- `extern` definitions all unfolded to the same `Pri EXTERN` in Core (all
-  primitives judged equal);
-- symbols shared constructor names (`&Nil` lowered to the cell of `[]`):
-  symbols are now `#s_<name>`;
-- a dup of a stuck application under no-δ never copied (DUP-APP allowed only
-  without δ; DUP-REF as a leaf);
-- checker closures duplicated and applied in nested ways share dup labels
-  (label capture inside one instance): verdicts depended on what else was
-  checked. Hence G as data. HVM's λ-duplication is only sound for stratified
-  sharing; the checker must never rely on duplicating its own closures.
-
-Differential (before the symbol fix; rerun pending): AGREE 1820,
-NET-ACCEPTS 0, mismatches 10, cannot-infer 213 (cubical: toPathP, transport,
-isPropToPathP), not-yet 2605 (cubical cells: #Path 1016, #PLm 1014, prelude
-refs 3000).
-
-Next (P5b), forced by the boundary law of path types:
-- generic elements are reflected (η-long): Π -> λx. reflect(B x, n x),
-  Σ -> pair of reflected projections, Path A a b -> a line whose faces are
-  a and b (replaces Core's epNormCtx/spineEndpoints heuristics);
-- path-typed definitions carry their faces in the cell (a stuck lemma call
-  has lost its type on the net);
-- then coe, hcomp (face DNF), Glue/ua, Sub/Partial, HITs, each differential.
-
-## 3e. What the deeper reading settles (supersedes the C deciding primitives)
-
-Sources: `NaturalMachine/Visranti_…` (derivability is decided by "two steps
-and a refl": normalise both, compare normal forms; `nf` is defined by exactly
-the clauses the rules perform), `NaturalMachine/Alopa_…` (same-nf ⇒ equal,
-structural equality sound by construction), REDUCTION_FOUNDATIONS (equality as
-a unit-cost primitive moves the decision into the primitive), RUNTIME_FULL
-(the interval is data; `@inot/@iand/@ior` are prelude code).
-
-1. CONVERSION = normal form + EQL. HVM4's `===` (EQL-LAM/CTR/MAT/DRY/SUP…)
-   is already the counted structural comparison and commutes with SUP. The C
-   `conv`, `rewrite`, `iv_dnf` primitives are a second decision procedure and
-   go. What EQL needs is a CANONICAL normal form:
-   - Atomic case trees (definitional equality of definitions by matching):
-     a call `@f(args)` fires iff its whole case tree reaches a leaf; if a
-     scrutinee on the path is neutral, the call itself is the normal form
-     (a DRY spine with head REF). This is what makes nf finite on open terms
-     and canonical (the old δ-off-in-branches normaliser gave `@f(p)` folded
-     inside a branch but the unfolded tree at the top: not canonical, hence
-     the patches in `conv`). REF === REF by identity. Replaces WNF_NO_DELTA,
-     the no-δ normaliser flag, DUP-APP-without-δ.
-   - The interval's normal form is the free De Morgan algebra's (antichain
-     DNF over literals i / ~i, ordered), computed by the prelude's
-     `@iand/@ior/@inot` on data, like Visranti's `combine`. Equal intervals
-     are then `===`.
-   - η: by the checker's typed readback (reify at Π: λ; at Path: #PLm over a
-     fresh dimension), not an untyped runtime rule.
-2. LABEL CAPTURE INSIDE ONE INSTANCE IS A RUNTIME DEFECT ON ORDINARY
-   PROGRAMS: `probes/label_capture/cap4.bend` (`use(p) = p(Nat→Nat, p(Nat),
-   suc, 0)`, `p = λA g z. g(g z)`) Core 4, runtime "cannot apply a
-   constructor". WORKING RULE (user): the corpus is the only authority;
-   outside constructions (HVM's rule set, the optimal-reduction literature,
-   Agda conventions) are never a justification. The Lamping/bracket plan is
-   WITHDRAWN. The corpus's own method is DIRECTIONAL_SYNTHESIS "The runtime
-   correspondence to prove": an interpretation of net states (cells, the
-   retained fibre, demand, labels, ledger) and, per rule, a semantic
-   commuting square with a cost recurrence. There, equal-label DUP-SUP is
-   "branch projection in an already shared fibre": it commutes only when the
-   label names THAT fibre. So a label is bound (identified by what it
-   shares), like a λ variable is its binder; the runtime writing it as a
-   global integer is the defect, and P3b's fresh-instance counter is the same
-   patch. Derive the rules from the squares; do not add machinery.
-3. CHECKER = NbE on net values (no G evaluator): each binder reflects its
-   generic element once; goals are closures (code applied to the context's
-   values); refinement of a matched variable is re-application (One §1 at
-   the constructor map). A non-variable scrutinee needs an explicit motive
-   (with-abstraction); Core's syntactic `rewrite` is a heuristic there and is
-   recorded as a Core deviation, not reproduced.
-
-(1) was justified partly by Agda's convention; it stays only if it is re-derived
-from Visranti's nf on the same footing.
-Order: (1) atomic case trees + EQL identity for REF/PRI, delete the δ-off
-machinery [DONE: `ct_fires` walks the static case tree before δ; a stuck
-call is a DRY spine headed by its REF, copied and compared as a name.
-Over all 237 emitted corpus programs, old vs new binary: every value and
-every ITRS identical except neutral_type_smoke (now the canonical
-`@Ddouble(a)`, 5 → 4 itrs). verify_conductive_entry: all stages OK. The old
-`conv` still references the now-inert WNF_NO_DELTA; it goes with (4)]; (2) DUP/SUP rules derived as commuting squares (labels bound); (3) interval nf in the prelude [DONE: @inot/@iand/@ior compute the free De Morgan algebra's normal form over generators #IVar{k}/#IMark (antichain of sorted cubes of keyed literals); commutativity, absorption, double negation, De Morgan, distributivity hold by `===`, and x∧~x ≠ 0; a neutral non-generator interval stays a stuck call (not yet ordered)]; (4) NbE
-checker on (1)–(3); then the cubical stages.
-
-## 3f. The substrate is the construction (One §1, §6, §7; ledger C)
-
-RULE (user): the proofs decide; a measurement only detects an implementation
-flaw, never justifies a design choice.
-
-- A step is `present`: applying f to a keeps a as a coordinate; a second use
-  of a is a projection of the retained Σ (free, §4). No copying, so no
-  duplication nodes for variables, no auto labels, no capture; superposition
-  labels remain only for genuine fibres and are bound by position.
-- SHARING IS DESCENT. `graph≃dom`: a datum determined by a is retained at a
-  for free (singleton contraction), and it is ONE point: every use of it is
-  that point. Ledger C2: a computation factoring through q is a function on
-  the image of q, so it is performed once per point of the coarsest base it
-  factors through, and C1 says no coarser. Syntactically: every subterm of a
-  body is presented over exactly what it depends on (its free variables), so
-  its coordinate lives in the frame of its innermost dependency and is shared
-  by every application that agrees on that frame. Work independent of x is a
-  coordinate of the closure, computed at most once for all applications;
-  under λx.λy, work depending on x but not y is a coordinate of the x-frame,
-  shared across all y. That is the construction's sharing, and it is optimal
-  by C1/C2 (nothing coarser is lawful, nothing finer is repeated).
-- Runtime shape: each static subterm carries its dependency level (the
-  deepest free binder); instantiation places its lazy coordinate in that
-  binder's frame; β extends a frame instead of substituting into a λ; forcing
-  writes the weak head back to the coordinate (transport along the walk,
-  counted once). Rules that reuse storage of a value with other readers
-  allocate instead.
-
-### 3f results (implemented in vendor/HVM4/src/hvm.c)
-- Book λs instantiate to CLOSURES [code, frame, depth, dim]; β = `clo_open`
-  (a new frame entry; the λ is untouched). λ-bound variables have no
-  auto-dups (parser); the prelude's anonymous `! &{a,b} = v` copies became
-  plain lets. Remaining dups/superpositions are genuine dimensions.
-- Coordinates: every computation lives at one slot; `slot_ref` hands out
-  VAR(slot); forcing a VAR pushes F_UPD and writes the weak head back. Rules
-  never mutate a value node (children read through `slot_ref`).
-- A reference is a NAME (a value). Its content is one global coordinate
-  (`REF_CELL`, forced once). It is opened by an application whose case tree
-  fires, or by a consumer that reads content; a stuck or partial call is a
-  DRY spine headed by the name, re-walked when it receives more arguments,
-  and copied as a chain (`dry_copy`).
-- A closure taken on a side of a dimension (DUP-LAM) projects its frame
-  entries and carries the face in its dim word (`dim_with_face`), so its
-  code's own superpositions of that name resolve to the side (DUP-SUP).
-- Descent (`book_descent`): per definition, every maximal working subterm
-  independent of a λ's binder is bound (LAM_LET, not an interaction) just
-  outside that λ; closed ones at the top of the definition. The case-tree
-  walk follows let-bound code in head position.
-- Evidence: cap4.bend 4 (was a crash); runtime differential 126 AGREE,
-  0 DISAGREE/CRASH, every other class identical to before; verify all
-  stages; list transport 26/26; values of all 237 emitted programs equal to
-  the pre-change binary except cap4 (fixed) and conductive_dependent_map
-  (dup garbage gone).
-- A call is one δι-step and the walk IS the step (`ct_exec`): it binds each
-  argument in a frame entry, forces scrutinees in place (a computed
-  scrutinee is a frame coordinate, forced once), follows the definition's
-  own descent lets, and on reaching a leaf continues with the frame it
-  built; interactions are counted exactly as the unfolding counted them. A
-  neutral scrutinee (unbound variable, name, stuck match) or running out of
-  arguments leaves the call normal. A head that is not the definition's own
-  code (an argument, a partial call) is a leaf.
-- A partial call keeps the frame its walk built (record keyed by the
-  spine's outermost node); applying it resumes the walk, so work that
-  depends only on the early arguments is done once for every later
-  application (probe: shared `@f(N)` used 3×: 35 itrs, old binary 64).
-  Conductive runtime 137 → 111, presentation 139 → 113 itrs, same values.
-- A dup's copy of a partial call carries its frame, projected onto each
-  side (`frame_project`, faces in the dim word), like a closure's.
-- Separately written equal closed subterms are separate subterms (descent
-  is about dependency, not identification).
-- Paired check, pre-session binary on the old emission vs this runtime on the
-  new emission, every corpus program: identical values except cap4 (fixed),
-  neutral_type_smoke (canonical `@Ddouble(a)`), conductive_dependent_map
-  (dup residue gone).
-
-## 3g. Audit: the runtime does not implement the construction (2026-09-25)
-
-Trigger: the NbE checker on the net failed in ways each "fixable" locally
-(slot maps, a shared fresh name, ↑ accumulation, equality walking copies,
-coe loops). The user's reading is right: these are symptoms, not bugs.
-Reading hvm.c, HVM4Full.hs and Check.bend against One §1–§7, §14,
-Visranti and REDUCTION_FOUNDATIONS:
-
-What the construction says the machine is:
-- ONE object, the cubical cell (a type is a cell; a term is a cell of it;
-  a path is a 1-cell, its faces are its endpoints).
-- ONE operation, `present` (§1, §14): a step keeps its source as a
-  coordinate; checking is `verify`, the other direction of the same
-  equivalence, not a second program.
-- Sharing is descent (§1 graph≃dom, §3): a determined datum is one point;
-  equality of a point with itself is refl, never a walk.
-- Cost lives in the retained trace (§4); the geodesic is edgewise (§5).
-- Conversion is equality of normal forms (Visranti), with no unit-cost
-  primitive hiding the decision (REDUCTION_FOUNDATIONS).
-
-What the runtime is: HVM4's interaction calculus with pieces of the
-construction added on top. Specifically:
-1. TWO NOTIONS OF DIMENSION. HVM's SUP/DUP labels (dim words, faces in the
-   dim word, clo_project/frame_project/dry_copy copying frames per side) and
-   the cubical interval (#IVar/#IMark constructors, De Morgan normal form
-   computed by prelude λ-terms, #PLm closures, face lists read by the
-   checker). The construction has one: a cell's faces. A SUP &L{a,b} is a
-   1-cell in L; <i> t is a 1-cell in i; they are the same thing and the
-   runtime treats them as unrelated.
-2. THE CUBICAL STRUCTURE IS SIMULATED. Path, @, coe, hcomp, Glue, HIT
-   eliminators are prelude λ-programs over constructor encodings (CCHM
-   case analysis on the type, the #IMark regularity trick, @sameEnd). That
-   is a transcription of the prior construction the user rejected, run as
-   ordinary code; its cost is the encoding's cost, not the cell's.
-3. EQUALITY IS A WALK. `===` descends into two separately built encodings,
-   allocating AND chains and ↑ per field; nothing makes a determined datum
-   one point, so the checker compared its whole book and closures
-   repeatedly (the blowups).
-4. SCHEDULING BOOKKEEPING IN THE VALUES. ↑ (INC), the collapse priority
-   queue, credit/stride: HVM4's enumeration policy. It is not a cell and
-   not in the construction, yet `===` puts it into every compared value.
-5. NAMES FROM A COUNTER. Generics are fresh counter names, not coordinates
-   of their binder, so descent (a pass over syntax) legitimately shares
-   them: the pass assumes every subterm is a function of its free
-   variables, and the primitives break that.
-6. CHECKING IS A SECOND PROGRAM. Check.bend reads the emitted book through
-   peek/inst and re-evaluates types with its own context, readback and
-   face logic: an interpreter beside the net, not `verify` of the run.
-7. CALLS ARE A SIDE MACHINE. Case-tree walking (ct_exec), partial-call
-   records in a hash table keyed by node address, frame projection per
-   side: bookkeeping around HVM's own APP/MAT rules, not one rule.
-
-Consequence: continuing to patch (counted ↑, pending-↑ frames, EQL
-identity, level-named generics, spine readback) makes the simulation
-cheaper, not the implementation correct. Those patches are NOT committed;
-they are saved outside the repo (session scratchpad,
-uncommitted-nbe-and-patches.diff) for reference only.
-
-Direction (for the user's decision; nothing started):
-- The runtime's node IS the cell: a term over dimension names, with face
-  maps (i := 0/1) as the one projection. DUP-on-label becomes the face
-  map; SUP becomes the 1-cell; the interval's De Morgan structure acts on
-  names; @ is substitution of a dimension. One notion of dimension.
-- Kan operations are the cells' own composition structure, derived from
-  the construction rather than transcribed from CCHM.
-- Values are canonical points (normal forms held once, §1): conversion
-  is identity of points, reached by the reduction that produced them, so
-  its cost is the reduction's (no hidden primitive, no walk over copies).
-- ↑/collapse priority removed; enumeration of a fibre is the §7 run.
-- Checking is the verify direction of the same presentation, not an
-  interpreter over peeked syntax.
+The earlier plan (quote the book as a `Term` datatype, check that) is WRONG
+and withdrawn: a quotation is a second copy of the object beside the net,
+the same move as the deleted derivation companions, and the premise was
+false. (i) Nothing is lost by reduction: a redex and its reduct are the same
+cell (definitional equality is refl), so checking `(A, a)` is checking
+normal forms, and the root is already normalised to exactly that.
+(ii) A binder is opened by its generic element: the Π rule checks `λx.b`
+against `Π A B` by checking the body at a fresh variable against `B` there,
+i.e. the cell applied to a fresh neutral (η-long checking needs no λ-match).
+(iii) A neutral is inferred from its head: a variable from the context, a
+folded call `@Dk(…)` from its type cell `@Tk`, which is already emitted.
+Runtime primitives this needs (HVM4 has them internally: fresh names for
+`===` on λs, stuck `^(name a)` neutrals, folded neutral calls after P4):
+create a fresh neutral; dispatch on a cell's shape in δ-free whnf (λ, ctor,
+number, neutral head, SUP, stuck elimination); abstract a name out of a cell
+(for goal refinement under a match: G[x := c]). Conversion = comparison of
+normal cells (HVM4 `===` already compares λs under a shared fresh name).
+The checker is the verify projection (§14) running as ordinary interactions
+on the same net; Core's checker is its differential oracle over the corpus
+until it leaves the compile path (P6).
 
 ## 4. How to work here (pitfalls already paid for)
 

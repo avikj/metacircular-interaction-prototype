@@ -226,19 +226,8 @@ class HvmP:
         if tag == "Con" and len(fs) == 2: return ("cons", fs[0], fs[1])
         if tag == "Pair" and len(fs) == 2: return ("pair", fs[0], fs[1])
         if tag.startswith("C_"): return ("ctor", tag, fs, True)
-        # enum symbols are their own cells: #s_<escaped name>
-        if tag.startswith("s_") and not fs: return ("sym", unesc(tag[2:]))
         if not fs: return ("sym", tag)
         return ("nc", f"runtime: data #{tag}{{..}}")
-
-def unesc(n):
-    out, i = [], 0
-    while i < len(n):
-        if n[i] == "_" and i + 1 < len(n):
-            out.append({"u": "_", "s": "/"}.get(n[i + 1], n[i + 1])); i += 2
-        else:
-            out.append(n[i]); i += 1
-    return "".join(out)
 
 # ---------------------------------------------------------------- canonicalisation
 def canon(v):

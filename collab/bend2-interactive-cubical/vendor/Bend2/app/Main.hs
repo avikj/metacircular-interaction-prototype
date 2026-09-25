@@ -4,7 +4,7 @@ import Control.Monad (unless)
 import qualified Data.Map as M
 import System.Environment (getArgs)
 import System.Exit (exitFailure)
-import Core.CLI (processFile, processFileToJS, processFileToHVM, processFileToHVM4, processFileToHVM4Raw, processFileToHVM4Full, processFileInteract, processFileCheckNet, processFileTotal, listDependencies)
+import Core.CLI (processFile, processFileToJS, processFileToHVM, processFileToHVM4, processFileToHVM4Raw, processFileToHVM4Full, processFileInteract, processFileTotal, listDependencies)
 
 -- | Show usage information
 showUsage :: IO ()
@@ -31,7 +31,6 @@ main = do
     [file, "--to-hvm4-raw"] | ".bend" `isSuffixOf` file -> processFileToHVM4Raw file
     [file, "--to-hvm4-full"] | ".bend" `isSuffixOf` file -> processFileToHVM4Full file
     [file, "--interact"] | ".bend" `isSuffixOf` file -> processFileInteract file
-    [file, "--check-net", checker] | ".bend" `isSuffixOf` file -> processFileCheckNet file checker
     [file, "--total"] | ".bend" `isSuffixOf` file -> processFileTotal file
     [file, "--to-hvm4"] | ".bend"    `isSuffixOf` file -> processFileToHVM4 file
     [file, "--to-hvm4"] | ".bend.py" `isSuffixOf` file -> processFileToHVM4 file

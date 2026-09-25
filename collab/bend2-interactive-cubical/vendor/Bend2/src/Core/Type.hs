@@ -46,7 +46,6 @@ data NOp1
 
 data PriF
   = U64_TO_CHAR
-  | EXTERN -- a definition whose body is a runtime primitive of the verify projection
   deriving (Show, Eq)
 
 -- Bend's Term Type
@@ -393,7 +392,6 @@ instance Show Term where
   show (Log s x)       = "log " ++ show s ++ " " ++ show x
   show (Pri p)         = pri p where
     pri U64_TO_CHAR    = "U64_TO_CHAR"
-    pri EXTERN         = "extern"
   show (Num U64_T)     = "U64"
   show (Num I64_T)     = "I64"
   show (Num F64_T)     = "F64"
@@ -487,20 +485,6 @@ instance Show Ctx where
 
 deref :: Book -> Name -> Maybe Defn
 deref (Book defs _) name = M.lookup name defs
-
--- The body a reference unfolds to (δ). An `extern` definition is a primitive
--- of the runtime: opaque, a neutral that never unfolds (its body `extern`
--- carries no content, so unfolding would identify every primitive).
-unfoldRef :: Book -> Name -> Maybe Term
-unfoldRef book name = case deref book name of
-  Just (_, term, _) | not (isExternBody term) -> Just term
-  _                                           -> Nothing
-
-isExternBody :: Term -> Bool
-isExternBody t = case cut t of
-  Lam _ f      -> isExternBody (f (Var "_" 0))
-  Pri EXTERN   -> True
-  _            -> False
 
 cut :: Term -> Term
 cut (Loc _ t) = cut t

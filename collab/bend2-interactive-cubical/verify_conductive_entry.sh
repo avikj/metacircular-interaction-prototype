@@ -36,9 +36,8 @@ run "$HERE/port/ConductiveRuntime.bend" '#Pair{#Nat{},#Suc{#Suc{#Zer{}}}}'
 echo "FIBRE-LAW-AND-CONTINUATION OK"
 
 run "$HERE/complex_cells_smoke.bend" '#Pair{#Bool{},0}'
-# a path-typed definition is a line with its faces attached
-grep -Fqx '@DnegPath = @pbndL(#Bool, #Bool, #UaU{#Bool, #Bool, @Dneg, @Dneg, @DnegLnv, @DnegLnv})' "$TMP/p.hvm4"
-grep -Fqx '@DColour = #Enum{#Con{#s_red, #Con{#s_green, #Nil}}}' "$TMP/p.hvm4"
+grep -Fqx '@DnegPath = #UaU{#Bool, #Bool, @Dneg, @Dneg, @DnegLnv, @DnegLnv}' "$TMP/p.hvm4"
+grep -Fqx '@DColour = #Enum{#Con{#red, #Con{#green, #Nil}}}' "$TMP/p.hvm4"
 grep -Eq '^@Trefl = .*#Eql\{(b[0-9]+u[0-9]+), (b[0-9]+u[0-9]+), \2\}' "$TMP/p.hvm4"
 echo "CELLS OK"
 
@@ -65,11 +64,10 @@ run "$HERE/probes/label_capture/same_definition_thrice.bend" '#Pair{#Nat{},#Suc{
 echo "FRESH-DIMENSIONS OK"
 
 # A type that mentions a recursive call on a bound variable is a finite
-# normal form: a call whose case tree is stuck on a neutral is itself the
-# normal form (stock normalisation diverges).
+# normal form: a neutral call stays folded (stock normalisation diverges).
 (cd "$HERE" && "$BEND" neutral_type_smoke.bend --to-hvm4-full) > "$TMP/nt.hvm4" 2>/dev/null
 timeout 60 "$HVM" "$TMP/nt.hvm4" -s > "$TMP/nt.out"
-grep -Fq '#Path{λb.#Nat{},@Ddouble(a),' "$TMP/nt.out"
+grep -Fq '#Suc{#Suc{@Ddouble(c)}}' "$TMP/nt.out"
 grep -Fq ',#Pair{#Suc{#Suc{#Zer{}}},#PLm{' "$TMP/nt.out"
 echo "NEUTRAL-TYPE OK"
 

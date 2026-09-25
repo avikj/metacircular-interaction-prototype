@@ -825,9 +825,6 @@ check d span book ctx term goal =
     (Log s x, _) -> do
       check d span book ctx s (Lst (Num CHR_T))
       check d span book ctx x goal
-    -- a primitive of the runtime: its declared type is its specification
-    (Pri EXTERN, _) -> do
-      Done ()
     (_, _) -> do
       verify d span book ctx term goal
 

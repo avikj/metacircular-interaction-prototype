@@ -52,8 +52,8 @@ cmp lv d book a b =
     (Fix ka fa    , b            ) -> eql lv d book (fa b) b
     (a            , Fix kb fb    ) -> eql lv d book a (fb (Fix kb fb))
     (Ref ka       , Ref kb       ) -> ka == kb
-    (Ref ka       , b            ) -> case unfoldRef book ka of { Just term -> eql lv d book term b ; Nothing -> False }
-    (a            , Ref kb       ) -> case unfoldRef book kb of { Just term -> eql lv d book a term ; Nothing -> False }
+    (Ref ka       , b            ) -> case deref book ka of { Just (_, term, _) -> eql lv d book term b ; Nothing -> False }
+    (a            , Ref kb       ) -> case deref book kb of { Just (_, term, _) -> eql lv d book a term ; Nothing -> False }
     (Var ka ia    , Var kb ib    ) -> ia == ib
     (Sub ta       , Sub tb       ) -> eql lv d book ta tb
     (Let va fa    , Let vb fb    ) -> eql lv d book va vb && eql lv d book fa fb
