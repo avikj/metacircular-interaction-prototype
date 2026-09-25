@@ -187,20 +187,26 @@ static u32 FRESH = 1;
 
 // Dimension names.  A SUP label is a dimension name: &L{a,b} is a 1-cell in
 // dimension L and a DUP of label L takes its two faces.  A definition's auto
-// labels are bound in its body, so every δ-unfolding must instantiate them
-// with fresh names (α-renaming), or two instances of one definition capture
-// each other.  The parser allocates one contiguous auto-label range per
-// definition; each unfolding maps that range onto a fresh block.
-#define DIM_LO 0x100000u   // fresh names: [DIM_LO, DIM_HI)
-#define DIM_HI 0x800000u   // auto (parse-time) labels start here
-static u32  DIM_FRESH = DIM_LO;
+// labels are bound in its body, so every δ-unfolding α-renames them: the
+// runtime name of bound label s in instance k is the pair (k, s), packed as
+// (k << 24) | s.  Explicit source labels are global (instance 0); computed
+// labels (&(t){..}) live in their own half (bit 63).  Names are 64 bits and
+// never reused: the supply is unbounded in practice (2^40 instances).  A
+// name belongs to the heap location of its SUP node or dup slot (DIM table,
+// mapped lazily like HEAP); the term's ext keeps only the low 24 bits, for
+// printing.
+typedef u64 Name;
+#define AUTO_LO       0x800000u           // parse-time auto labels: [AUTO_LO, EXT_MASK)
+#define DYN_NAME_BIT  (1ULL << 63)
+#define INST_MAX      ((1ULL << 40) - 1)
+static u64  DIM_INST = 0;
+static Name *DIM;
+static u32 *BOOK_LAB_CNT;
 
 // Normalisation below a stuck elimination runs without δ: a call on a
 // neutral is already normal, and unfolding it would recurse forever.
 static int  WNF_NO_DELTA = 0;
 #define NORM_NO_DELTA (1ULL << 63)
-static u32 *BOOK_LAB_LO;
-static u32 *BOOK_LAB_CNT;
 
 static int DEBUG          = 0;
 static int SILENT         = 0;
@@ -422,21 +428,13 @@ fn Term term_new_alo_at(u64 alo_loc, u64 ls_loc, u32 len, u64 tm_loc) {
   return term_new_alo_at_dim(alo_loc, ls_loc, len, tm_loc, 0);
 }
 
-// dim word: base(24) | lo(24) | cnt(16).  A label in [lo, lo+cnt) is one of
-// the unfolded definition's bound dimension names and maps to base+(lab-lo).
-fn u64 dim_pack(u32 base, u32 lo, u32 cnt) {
-  return ((u64)base << 40) | ((u64)(lo & 0xFFFFFFu) << 16) | (u64)(cnt & 0xFFFFu);
-}
-
-fn u32 dim_rename(u64 dim, u32 lab) {
-  if (dim == 0) {
-    return lab;
+// dim word = the instance number of this δ-unfolding (0: no bound labels).
+// A bound (auto) label s becomes the pair (instance, s); others are global.
+fn Name dim_rename(u64 dim, u32 lab) {
+  if (dim != 0 && lab >= AUTO_LO && lab < EXT_MASK) {
+    return (dim << 24) | lab;
   }
-  u32 lo   = (u32)((dim >> 16) & 0xFFFFFFu);
-  u32 cnt  = (u32)(dim & 0xFFFFu);
-  u32 base = (u32)(dim >> 40);
-  u32 off  = lab - lo;
-  return (lab >= lo && off < cnt) ? base + off : lab;
+  return lab;
 }
 
 fn Term term_new_dry_at(u64 loc, Term fun, Term arg) {
@@ -465,12 +463,28 @@ fn Term term_new_any(void) {
   return term_new(0, ANY, 0, 0);
 }
 
-fn Term term_new_dp0(u32 lab, u64 loc) {
-  return term_new(0, DP0, lab, loc);
+fn Term term_new_dp0(Name lab, u64 loc) {
+  DIM[loc] = lab;
+  return term_new(0, DP0, (u32)(lab & EXT_MASK), loc);
 }
 
-fn Term term_new_dp1(u32 lab, u64 loc) {
-  return term_new(0, DP1, lab, loc);
+fn Term term_new_dp1(Name lab, u64 loc) {
+  DIM[loc] = lab;
+  return term_new(0, DP1, (u32)(lab & EXT_MASK), loc);
+}
+
+// the SUP node at loc (fields already written) carries name lab
+fn Term term_sup_named(Name lab, u64 loc) {
+  DIM[loc] = lab;
+  return term_new(0, SUP, (u32)(lab & EXT_MASK), loc);
+}
+
+fn Name sup_name(Term sup) {
+  return DIM[term_val(sup)];
+}
+
+fn Name dp_name(Term dp) {
+  return DIM[term_val(dp)];
 }
 
 fn Term term_new_lam_at(u64 loc, Term bod) {
@@ -492,23 +506,24 @@ fn Term term_new_app(Term fun, Term arg) {
   return term_new_app_at(heap_alloc(2), fun, arg);
 }
 
-fn Term term_new_sup_at(u64 loc, u32 lab, Term tm0, Term tm1) {
+fn Term term_new_sup_at(u64 loc, Name lab, Term tm0, Term tm1) {
   heap_set(loc + 0, tm0);
   heap_set(loc + 1, tm1);
-  return term_new(0, SUP, lab, loc);
+  return term_sup_named(lab, loc);
 }
 
-fn Term term_new_sup(u32 lab, Term tm0, Term tm1) {
+fn Term term_new_sup(Name lab, Term tm0, Term tm1) {
   return term_new_sup_at(heap_alloc(2), lab, tm0, tm1);
 }
 
-fn Term term_new_dup_at(u64 loc, u32 lab, Term val, Term bod) {
+fn Term term_new_dup_at(u64 loc, Name lab, Term val, Term bod) {
   heap_set(loc + 0, val);
   heap_set(loc + 1, bod);
-  return term_new(0, DUP, lab, loc);
+  DIM[loc] = lab;
+  return term_new(0, DUP, (u32)(lab & EXT_MASK), loc);
 }
 
-fn Term term_new_dup(u32 lab, Term val, Term bod) {
+fn Term term_new_dup(Name lab, Term val, Term bod) {
   return term_new_dup_at(heap_alloc(2), lab, val, bod);
 }
 
@@ -648,17 +663,17 @@ fn Term term_new_num(u32 n) {
   return term_new(0, NUM, 0, n);
 }
 
-fn Copy term_clone_at(u64 loc, u32 lab) {
+fn Copy term_clone_at(u64 loc, Name lab) {
   return (Copy){ term_new_dp0(lab, loc), term_new_dp1(lab, loc) };
 }
 
-fn Copy term_clone(u32 lab, Term val) {
+fn Copy term_clone(Name lab, Term val) {
   u64 loc   = heap_alloc(1);
   heap_set(loc, val);
   return term_clone_at(loc, lab);
 }
 
-fn void term_clone2(u32 lab, Term a, Term b, Copy *A, Copy *B) {
+fn void term_clone2(Name lab, Term a, Term b, Copy *A, Copy *B) {
   u64 loc = heap_alloc(2);
   heap_set(loc + 0, a);
   heap_set(loc + 1, b);
@@ -666,7 +681,7 @@ fn void term_clone2(u32 lab, Term a, Term b, Copy *A, Copy *B) {
   *B = term_clone_at(loc + 1, lab);
 }
 
-fn void term_clone3(u32 lab, Term a, Term b, Term c, Copy *A, Copy *B, Copy *C) {
+fn void term_clone3(Name lab, Term a, Term b, Term c, Copy *A, Copy *B, Copy *C) {
   u64 loc = heap_alloc(3);
   heap_set(loc + 0, a);
   heap_set(loc + 1, b);
@@ -676,7 +691,7 @@ fn void term_clone3(u32 lab, Term a, Term b, Term c, Copy *A, Copy *B, Copy *C) 
   *C = term_clone_at(loc + 2, lab);
 }
 
-fn void term_clone_many(u32 lab, Term *src, u32 n, Term *dst0, Term *dst1) {
+fn void term_clone_many(Name lab, Term *src, u32 n, Term *dst0, Term *dst1) {
   for (u32 i = 0; i < n; i++) {
     Copy c  = term_clone(lab, src[i]);
     dst0[i] = c.k0;
@@ -3669,7 +3684,6 @@ fn void parse_def(PState *s) {
     if (PARSE_FRESH_LAB - lab_lo > 0xFFFFu) {
       parse_error(s, "at most 65535 auto-dup labels per definition", parse_peek(s));
     }
-    BOOK_LAB_LO[id]  = lab_lo;
     BOOK_LAB_CNT[id] = PARSE_FRESH_LAB - lab_lo;
     parse_def(s);
     return;
@@ -3813,7 +3827,7 @@ fn Term wnf_app_lam(Term lam, Term arg) {
 fn Term wnf_app_sup(u64 app_loc, Term sup, Term arg) {
   ITRS_INC("APP-SUP");
   u64  sup_loc = term_val(sup);
-  u32  lab     = term_ext(sup);
+  Name  lab     = sup_name(sup);
   Term tm1     = heap_read(sup_loc + 1);
   Copy D = term_clone(lab, arg);
   heap_set(sup_loc + 1, D.k0);
@@ -3844,7 +3858,7 @@ fn Term wnf_app_inc(Term app, Term inc) {
 //   ,(λ{#K:H₁; M₁} b)}
 fn Term wnf_app_mat_sup(Term mat, Term sup) {
   ITRS_INC("APP-MAT-SUP");
-  u32  lab = term_ext(sup);
+  Name  lab = sup_name(sup);
   Copy M   = term_clone(lab, mat);
   u64  loc = term_val(sup);
   Term a   = heap_read(loc + 0);
@@ -3932,7 +3946,7 @@ fn Term wnf_mat_inc(Term mat, Term inc) {
 // ------------ DUP-NAM
 // X₀ ← name
 // X₁ ← name
-fn Term wnf_dup_nam(u32 lab, u64 loc, u8 side, Term nam) {
+fn Term wnf_dup_nam(Name lab, u64 loc, u8 side, Term nam) {
   ITRS_INC("DUP-NAM");
   heap_subst_var_dup(loc, nam);
   return nam;
@@ -3944,7 +3958,7 @@ fn Term wnf_dup_nam(u32 lab, u64 loc, u8 side, Term nam) {
 // F₁ ← λ$x1.G₁
 // x  ← &L{$x0,$x1}
 // ! G &L = f
-fn Term wnf_dup_lam(u32 lab, u64 loc, u8 side, Term lam) {
+fn Term wnf_dup_lam(Name lab, u64 loc, u8 side, Term lam) {
   ITRS_INC("DUP-LAM");
   u64  lam_loc        = term_val(lam);
   u32  lam_ext        = term_ext(lam);
@@ -3968,7 +3982,7 @@ fn Term wnf_dup_lam(u32 lab, u64 loc, u8 side, Term lam) {
   heap_set(a + 1, B.k1);
   heap_set(a + 2, term_new(0, VAR, 0, a + 0));
   heap_set(a + 3, term_new(0, VAR, 0, a + 1));
-  Term su      = term_new(0, SUP, lab, a + 2);
+  Term su      = term_sup_named(lab, a + 2);
   Term l0      = term_new(0, LAM, lam_ext, a + 0);
   Term l1      = term_new(0, LAM, lam_ext, a + 1);
   heap_subst_var(lam_loc, su);
@@ -3985,10 +3999,10 @@ fn Term wnf_dup_lam(u32 lab, u64 loc, u8 side, Term lam) {
 //   ! B &L = b
 //   X₀ ← &R{A₀,B₀}
 //   X₁ ← &R{A₁,B₁}
-fn Term wnf_dup_sup(u32 lab, u64 loc, u8 side, Term sup) {
+fn Term wnf_dup_sup(Name lab, u64 loc, u8 side, Term sup) {
   ITRS_INC("DUP-SUP");
   u64 sup_loc = term_val(sup);
-  u32 sup_lab = term_ext(sup);
+  Name sup_lab = sup_name(sup);
   if (lab == sup_lab) {
     Term tm0 = heap_read(sup_loc + 0);
     Term tm1 = heap_read(sup_loc + 1);
@@ -4011,7 +4025,7 @@ fn Term wnf_dup_sup(u32 lab, u64 loc, u8 side, Term sup) {
 // ...
 // X₀ ← T{A₀,B₀,...}
 // X₁ ← T{A₁,B₁,...}
-fn Term wnf_dup_nod(u32 lab, u64 loc, u8 side, Term term) {
+fn Term wnf_dup_nod(Name lab, u64 loc, u8 side, Term term) {
   ITRS_INC("DUP-NOD");
   u32 ari = term_arity(term);
   if (ari == 0) {
@@ -4061,11 +4075,11 @@ fn Term wnf_alo_var(u64 ls, u32 len, Term book) {
 // s[n]₁ or n₁ when substitution missing (n is a de Bruijn level)
 fn Term wnf_alo_cop(u64 ls, u32 len, Term book, u64 dim) {
   u32 lvl  = (u32)term_val(book);
-  u32 lab  = dim_rename(dim, term_ext(book));
+  Name lab = dim_rename(dim, term_ext(book));
   u8  tag  = term_tag(book);
   u8  side = (tag == DP0 || tag == BJ0) ? 0 : 1;
   if (lvl == 0 || lvl > len) {
-    return term_new(0, tag, lab, lvl);
+    return term_new(0, tag, (u32)(lab & EXT_MASK), lvl);
   }
   u32 idx = len - lvl;
   u64 it  = ls;
@@ -4073,7 +4087,10 @@ fn Term wnf_alo_cop(u64 ls, u32 len, Term book, u64 dim) {
     it = term_val(heap_read(it + 1));
   }
   u8 rtag = side == 0 ? DP0 : DP1;
-  return it != 0 ? term_new(0, rtag, lab, it) : term_new(0, tag, lab, lvl);
+  if (it == 0) {
+    return term_new(0, tag, (u32)(lab & EXT_MASK), lvl);
+  }
+  return rtag == DP0 ? term_new_dp0(lab, it) : term_new_dp1(lab, it);
 }
 
 // @{s} λx.f
@@ -4120,16 +4137,15 @@ fn Term wnf_alo_nod(u64 alo_loc, u64 ls_loc, u32 len, Term book, u64 dim) {
   if (ari == 0) {
     return book;
   }
-  if (tag == SUP) {
-    ext = dim_rename(dim, ext);
-  }
+  Name name = tag == SUP ? dim_rename(dim, ext) : 0;
   args[0] = (len == 0 && dim == 0)
     ? term_new_alo(ls_loc, len, loc + 0)
     : term_new_alo_at_dim(alo_loc, ls_loc, len, loc + 0, dim);
   for (u32 i = 1; i < ari; i++) {
     args[i] = term_new_alo_dim(ls_loc, len, loc + i, dim);
   }
-  return term_new_(tag, ext, ari, args);
+  Term node = term_new_(tag, ext, ari, args);
+  return tag == SUP ? term_sup_named(name, term_val(node)) : node;
 }
 
 // @@opr(&{}, y)
@@ -4146,7 +4162,7 @@ fn Term wnf_op2_era() {
 // &L{@@opr(a,Y₀), @@opr(b,Y₁)}
 fn Term wnf_op2_sup(u64 loc, u32 opr, Term sup, Term y) {
   ITRS_INC("OP2-SUP");
-  u32  lab     = term_ext(sup);
+  Name  lab     = sup_name(sup);
   u64  sup_loc = term_val(sup);
   Copy Y       = term_clone(lab, y);
   Term op0     = term_new_op2_at(loc, opr, heap_read(sup_loc + 0), Y.k0);
@@ -4180,7 +4196,7 @@ fn Term wnf_op2_num_num(u32 opr, Term x, Term y) {
 // &L{(X₀ op a), (X₁ op b)}
 fn Term wnf_op2_num_sup(u32 opr, Term x, Term sup) {
   ITRS_INC("OP2-NUM-SUP");
-  u32  lab     = term_ext(sup);
+  Name  lab     = sup_name(sup);
   u64  sup_loc = term_val(sup);
   Term op0     = term_new_op2(opr, x, heap_read(sup_loc + 0));
   Term op1     = term_new_op2(opr, x, heap_read(sup_loc + 1));
@@ -4224,7 +4240,7 @@ fn Term wnf_dsu_era() {
 // &n{a, b}
 fn Term wnf_dsu_num(Term lab_num, Term a, Term b) {
   ITRS_INC("DSU-NUM");
-  u32 lab = term_val(lab_num);
+  Name lab = DYN_NAME_BIT | term_val(lab_num);
   return term_new_sup(lab, a, b);
 }
 
@@ -4235,7 +4251,7 @@ fn Term wnf_dsu_num(Term lab_num, Term a, Term b) {
 // &L{&(x){A₀,B₀}, &(y){A₁,B₁}}
 fn Term wnf_dsu_sup(Term lab_sup, Term a, Term b) {
   ITRS_INC("DSU-SUP");
-  u32  lab     = term_ext(lab_sup);
+  Name  lab     = sup_name(lab_sup);
   u64  sup_loc = term_val(lab_sup);
   Copy A;
   Copy B;
@@ -4271,7 +4287,7 @@ fn Term wnf_ddu_era() {
 // b(X₀, X₁)
 fn Term wnf_ddu_num(Term lab_num, Term val, Term bod) {
   ITRS_INC("DDU-NUM");
-  u32 lab   = term_val(lab_num);
+  Name lab   = DYN_NAME_BIT | term_val(lab_num);
   Copy V    = term_clone(lab, val);
   Term app0 = term_new_app(bod, V.k0);
   Term app1 = term_new_app(app0, V.k1);
@@ -4285,7 +4301,7 @@ fn Term wnf_ddu_num(Term lab_num, Term val, Term bod) {
 // &L{! X &(x) = V₀; B₀, ! X &(y) = V₁; B₁}
 fn Term wnf_ddu_sup(Term lab_sup, Term val, Term bod) {
   ITRS_INC("DDU-SUP");
-  u32  lab     = term_ext(lab_sup);
+  Name  lab     = sup_name(lab_sup);
   u64  sup_loc = term_val(lab_sup);
   Copy V;
   Copy B;
@@ -4322,7 +4338,7 @@ fn Term wnf_use_era() {
 fn Term wnf_use_sup(Term use, Term sup) {
   ITRS_INC("USE-SUP");
   u64  use_loc = term_val(use);
-  u32  lab     = term_ext(sup);
+  Name  lab     = sup_name(sup);
   u64  sup_loc = term_val(sup);
   Copy F       = term_clone_at(use_loc, lab);
   Term use0    = term_new_use(F.k0);
@@ -4393,7 +4409,7 @@ fn Term wnf_eql_any_r(void) {
 fn Term wnf_eql_sup_l(u64 eql_loc, Term sup, Term b) {
   ITRS_INC("EQL-SUP-L");
   u64  sup_loc = term_val(sup);
-  u32  lab = term_ext(sup);
+  Name  lab = sup_name(sup);
   Term a0  = heap_read(sup_loc + 0);
   Term a1  = heap_read(sup_loc + 1);
   Copy B   = term_clone(lab, b);
@@ -4409,7 +4425,7 @@ fn Term wnf_eql_sup_l(u64 eql_loc, Term sup, Term b) {
 fn Term wnf_eql_sup_r(u64 eql_loc, Term a, Term sup) {
   ITRS_INC("EQL-SUP-R");
   u64  sup_loc = term_val(sup);
-  u32  lab = term_ext(sup);
+  Name  lab = sup_name(sup);
   Term b0  = heap_read(sup_loc + 0);
   Term b1  = heap_read(sup_loc + 1);
   Copy A   = term_clone(lab, a);
@@ -4614,7 +4630,7 @@ fn Term wnf_and_era(void) {
 // &L{(a0 .&. B₀), (a1 .&. B₁)}
 fn Term wnf_and_sup(u64 and_loc, Term sup, Term b) {
   ITRS_INC("AND-SUP");
-  u32  sup_lab = term_ext(sup);
+  Name  sup_lab = sup_name(sup);
   u64  sup_loc = term_val(sup);
   Copy  B = term_clone(sup_lab, b);
   Term a0 = heap_read(sup_loc + 0);
@@ -4669,7 +4685,7 @@ fn Term wnf_or_era(void) {
 fn Term wnf_or_sup(u64 or_loc, Term sup, Term b) {
   ITRS_INC("OR-SUP");
   u64  sup_loc = term_val(sup);
-  u32  lab = term_ext(sup);
+  Name  lab = sup_name(sup);
   Term a0  = heap_read(sup_loc + 0);
   Term a1  = heap_read(sup_loc + 1);
   Copy B   = term_clone(lab, b);
@@ -4858,15 +4874,13 @@ __attribute__((hot)) fn Term wnf(Term term) {
       case REF: {
         u32 nam = term_ext(next);
         if (BOOK[nam] != 0 && !WNF_NO_DELTA) {
-          u32 cnt = BOOK_LAB_CNT[nam];
           u64 dim = 0;
-          if (cnt != 0) {
-            if (DIM_FRESH + cnt > DIM_HI) {
-              fprintf(stderr, "\033[1;31mRUNTIME_ERROR\033[0m\n- dimension names exhausted: %u fresh labels in use; refusing to reuse a live name\n", DIM_HI - DIM_LO);
+          if (BOOK_LAB_CNT[nam] != 0) {
+            if (DIM_INST == INST_MAX) {
+              fprintf(stderr, "\033[1;31mRUNTIME_ERROR\033[0m\n- 2^40 instances exhausted; refusing to reuse a dimension name\n");
               exit(1);
             }
-            dim = dim_pack(DIM_FRESH, BOOK_LAB_LO[nam], cnt);
-            DIM_FRESH += cnt;
+            dim = ++DIM_INST;
           }
           next = term_new_alo_dim(0, 0, BOOK[nam], dim);
           goto enter;
@@ -5171,7 +5185,7 @@ __attribute__((hot)) fn Term wnf(Term term) {
         case DP1: {
           u8  side = (term_tag(frame) == DP0) ? 0 : 1;
           u64 loc  = term_val(frame);
-          u32 lab  = term_ext(frame);
+          Name lab = dp_name(frame);
 
           switch (term_tag(whnf)) {
             case NAM:
@@ -5645,7 +5659,6 @@ __attribute__((cold, noinline)) fn Term wnf_steps_at(u64 loc) {
 // Initializes runtime globals and evaluator flags.
 fn void runtime_init(int debug, int silent, int steps_enable) {
   BOOK       = calloc(BOOK_CAP, sizeof(u64));
-  BOOK_LAB_LO  = calloc(BOOK_CAP, sizeof(u32));
   BOOK_LAB_CNT = calloc(BOOK_CAP, sizeof(u32));
   HEAP       = NULL;
   TABLE.data = calloc(BOOK_CAP, sizeof(char *));
@@ -5656,9 +5669,10 @@ fn void runtime_init(int debug, int silent, int steps_enable) {
     if (heap_map != NULL) {
       HEAP = (Term *)heap_map;
     }
+    DIM = (Name *)sys_mmap_anon((size_t)(HEAP_CAP * sizeof(Name)));
   }
 
-  if (!BOOK || !HEAP || !TABLE.data) {
+  if (!BOOK || !HEAP || !DIM || !BOOK_LAB_CNT || !TABLE.data) {
     sys_error("Memory allocation failed");
   }
 
@@ -5680,6 +5694,10 @@ fn void runtime_free(void) {
     size_t heap_bytes = (size_t)(HEAP_CAP * sizeof(Term));
     sys_munmap_anon(HEAP, heap_bytes);
     HEAP = NULL;
+  }
+  if (DIM != NULL) {
+    sys_munmap_anon(DIM, (size_t)(HEAP_CAP * sizeof(Name)));
+    DIM = NULL;
   }
   free(BOOK);
   free(TABLE.data);
@@ -5846,7 +5864,6 @@ fn void runtime_interact(u32 main_id) {
     u64  qloc   = heap_alloc(1);
     HEAP[qloc]        = q;
     BOOK[qid]         = qloc;
-    BOOK_LAB_LO[qid]  = lab_lo;
     BOOK_LAB_CNT[qid] = PARSE_FRESH_LAB - lab_lo;
     before = wnf_itrs_total();
     point  = eval_normalize(term_new_app(term_new_ref(qid), point));
@@ -5968,7 +5985,7 @@ fn Term cnf_at(Term term, u32 depth) {
         return lam;
       }
 
-      u32  lab     = term_ext(body_collapsed);
+      Name  lab     = sup_name(body_collapsed);
       u64  sup_loc = term_val(body_collapsed);
       Term sup_a   = heap_read(sup_loc + 0);
       Term sup_b   = heap_read(sup_loc + 1);
@@ -6031,7 +6048,7 @@ fn Term cnf_at(Term term, u32 depth) {
       }
 
       Term sup     = children[sup_idx];
-      u32  lab     = term_ext(sup);
+      Name  lab     = sup_name(sup);
       u64  sup_loc = term_val(sup);
       Term sup_a   = heap_read(sup_loc + 0);
       Term sup_b   = heap_read(sup_loc + 1);
@@ -6052,6 +6069,9 @@ fn Term cnf_at(Term term, u32 depth) {
 
       Term node0 = term_new_at(loc, term_tag(term), term_ext(term), ari, args0);
       Term node1 = term_new_(term_tag(term), term_ext(term), ari, args1);
+      if (term_tag(term) == DUP) {
+        DIM[term_val(node1)] = DIM[loc];
+      }
 
       return term_new_sup(lab, node0, node1);
     }

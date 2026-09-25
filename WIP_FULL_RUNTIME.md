@@ -81,7 +81,7 @@ contractible (§7, `fibre-of-run`); cost is the net's own interaction count.
 | P2 | Fix breakages from P1 (mining gate reader, `sat_fibre.bend` `not`, all-or-nothing emission) | done (commit 3) |
 | P3a | Label capture: fresh dimension names per δ-unfolding (`hvm4-runtime.patch`), explicit source labels in their own region, refusal of symbolic/computed labels | done (stage 1: exact-or-abort in 24-bit names) |
 | P3x | CI green end to end on a fresh bootstrap (both patches) | done; re-verified after P4 (8/8 steps + list transport 26/26 on stock HVM4) |
-| P3b | Widen dimension names (label out of the term word) so exhaustion is not a limit | todo |
+| P3b | Dimension names unbounded: runtime name = (instance, bound label), 64-bit, stored per heap location (DIM table) | done |
 | P3c | Diamond: state the demand-restricted relation, check an instance of `RandomDescent` for the reachable rules | todo |
 | P4 | Machine that asks: `hvm --interact` keeps heap + point; `bend --interact` checks named maps and applies the law (`@present`); neutral calls stay folded under stuck eliminations | done (v1: non-dependent named maps) |
 | P4 | Interaction entry: `Q`/`δ` loop at the root | todo |
@@ -211,6 +211,23 @@ REFUSED 79 (74 also fail in Core; 5 are emitter refusals: 4 I64 files +
 the unary-not probe); NO-MAIN 11; CORE-TIMEOUT 1 (census_corpus: runtime
 finishes, 11.1M itrs); HVM-CRASH 1 (the triple probe, OOM). So the corpus
 itself does not hit capture; the probes show the language admits it.
+
+### P3b (done): names are pairs (instance, bound label), 64-bit, never reused
+Math: α-renaming at instantiation pairs each bound name with a fresh
+instance tag. A definition's bound names are exactly its auto labels
+(parse region [0x800000, 2^24)); explicit source labels are global
+(instance 0); computed labels (`&(t){..}`) get bit 63. Runtime name of bound
+label s in instance k = (k << 24) | s; every REF unfolding of a definition
+that binds labels takes k = ++DIM_INST (2^40 instances; exhaustion aborts).
+The per-definition ranges and the fresh block allocator are gone.
+Representation: a name belongs to the heap location of its SUP node or dup
+slot: `DIM[loc]`, a lazily mapped table parallel to HEAP (MAP_NORESERVE);
+the term's 24-bit ext keeps the low bits for printing only. Every runtime
+read goes through `sup_name`/`dp_name`; every SUP/dup-slot creation through
+the named constructors (`term_new_sup_at`, `term_sup_named`,
+`term_new_dp0/1`, `term_new_dup_at`, `term_clone*`). Result: every value,
+class and ITRS in the differential identical to P3a (only a printed dup-label
+name in one trailer changed); gate 35,372,404 itrs, NATIVE_GATE_PASS.
 
 ### P3a results
 - `hvm4-runtime.patch` (applied by bootstrap after the HVM4 clone):
