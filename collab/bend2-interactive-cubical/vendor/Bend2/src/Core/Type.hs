@@ -46,6 +46,7 @@ data NOp1
 
 data PriF
   = U64_TO_CHAR
+  | EXTERN -- a definition whose body is a runtime primitive of the verify projection
   deriving (Show, Eq)
 
 -- Bend's Term Type
@@ -392,6 +393,7 @@ instance Show Term where
   show (Log s x)       = "log " ++ show s ++ " " ++ show x
   show (Pri p)         = pri p where
     pri U64_TO_CHAR    = "U64_TO_CHAR"
+    pri EXTERN         = "extern"
   show (Num U64_T)     = "U64"
   show (Num I64_T)     = "I64"
   show (Num F64_T)     = "F64"

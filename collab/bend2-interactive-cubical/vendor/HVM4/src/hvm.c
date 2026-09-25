@@ -2067,7 +2067,8 @@ fn u32 count_uses(Term t, u32 lvl, u8 tgt, u32 ext) {
       uses++;
     }
     u32 ari = term_arity(t);
-    for (u32 i = 0; i < ari; i++) {
+    // the meta child of a static-only node is never instantiated: not a use
+    for (u32 i = (tg == STA ? 1 : 0); i < ari; i++) {
       u64 loc = vl + i;
       ts[ts_idx++] = HEAP[loc];
     }
@@ -2097,13 +2098,21 @@ fn u32 count_uses(Term t, u32 lvl, u8 tgt, u32 ext) {
 // - Target is identified by tag + level (and ext for BJ mode).
 // - Outer refs (level > base depth) are shifted by n to account for new dup terms.
 
+fn void auto_dup_go_m(u64 loc, u32 lvl, u32 base, u32 *use, u32 n, u32 lab, u8 tgt, u32 ext, int meta);
+
 fn void auto_dup_go(u64 loc, u32 lvl, u32 base, u32 *use, u32 n, u32 lab, u8 tgt, u32 ext) {
+  auto_dup_go_m(loc, lvl, base, use, n, lab, tgt, ext, 0);
+}
+
+// meta: inside the static-only child of an STA, where a reference to the
+// target keeps naming the binder itself (it is never instantiated)
+fn void auto_dup_go_m(u64 loc, u32 lvl, u32 base, u32 *use, u32 n, u32 lab, u8 tgt, u32 ext, int meta) {
   Term t = HEAP[loc];
   u8  tg = term_tag(t);
   u32 vl = term_val(t);
 
   // Replace target ref with BJ0/BJ1 chain
-  if (tg == tgt && vl == lvl && (tgt == BJV || term_ext(t) == ext)) {
+  if (!meta && tg == tgt && vl == lvl && (tgt == BJV || term_ext(t) == ext)) {
     u32 i = (*use)++;
     if (i < n) {
       HEAP[loc] = term_new(0, BJ0, lab + i, base + 1 + i);
@@ -2122,18 +2131,23 @@ fn void auto_dup_go(u64 loc, u32 lvl, u32 base, u32 *use, u32 n, u32 lab, u8 tgt
   // Recurse into children
   switch (tg) {
     case LAM: {
-      auto_dup_go(vl, lvl, base, use, n, lab, tgt, ext);
+      auto_dup_go_m(vl, lvl, base, use, n, lab, tgt, ext, meta);
       return;
     }
     case DUP: {
-      auto_dup_go(vl + 0, lvl, base, use, n, lab, tgt, ext);
-      auto_dup_go(vl + 1, lvl, base, use, n, lab, tgt, ext);
+      auto_dup_go_m(vl + 0, lvl, base, use, n, lab, tgt, ext, meta);
+      auto_dup_go_m(vl + 1, lvl, base, use, n, lab, tgt, ext, meta);
+      return;
+    }
+    case STA: {
+      auto_dup_go_m(vl + 0, lvl, base, use, n, lab, tgt, ext, 1);
+      auto_dup_go_m(vl + 1, lvl, base, use, n, lab, tgt, ext, meta);
       return;
     }
     default: {
       u32 ari = term_arity(t);
       for (u32 i = 0; i < ari; i++) {
-        auto_dup_go(vl + i, lvl, base, use, n, lab, tgt, ext);
+        auto_dup_go_m(vl + i, lvl, base, use, n, lab, tgt, ext, meta);
       }
     }
   }

@@ -50,8 +50,22 @@ compileFull book@(Book defs _) =
     -- A checked definition is a typed point (A, a): both are cells of the one
     -- complex and both are emitted, by the same emitter.
     def (nam, (_, tm, ty)) =
-      [ "@" ++ defName nam  ++ " = " ++ emitFull book tm
+      [ "@" ++ defName nam  ++ " = " ++ maybe (emitFull book tm) (externCell nam) (externArity tm)
       , "@" ++ typeName nam ++ " = " ++ emitFull book ty ]
+
+    -- `def name(x1..xn) -> T: extern` is the runtime primitive @@name. A
+    -- primitive takes one argument; several arrive as a right-nested tuple.
+    -- With no parameters it is an opaque constant (a type such as Val).
+    externArity t = case cut t of
+      Lam _ f      -> (+ 1) <$> externArity (f (Var "_" 0))
+      Pri EXTERN   -> Just (0 :: Int)
+      _            -> Nothing
+    externCell nam n =
+      let prim = reverse (takeWhile (/= '/') (reverse nam))
+          xs   = [ "e" ++ show i | i <- [1 .. n] ]
+          tup  = foldr1 (\a b -> "#Pair{" ++ a ++ ", " ++ b ++ "}") xs
+      in if n == 0 then "#X_" ++ escName prim
+         else concatMap (\x -> "λ&" ++ x ++ ". ") xs ++ "@@" ++ prim ++ "(" ++ tup ++ ")"
 
     -- The root is the checked entry as a point of Σ(A : Set). A.
     root = case M.lookup "main" defs of
@@ -270,7 +284,8 @@ emitFull book t0 = go 0 t0 where
     Ref k          -> "@" ++ defName k
     Sub x          -> go d x
     Loc _ x        -> go d x
-    Chk x _        -> go d x
+    -- a judgment the checker reads; static-only, dropped on instantiation
+    Chk x t        -> "@@ann(" ++ go d t ++ ", " ++ go d x ++ ")"
     Ind x          -> go d x
     Frz x          -> go d x
     Fix k f        -> let n = freshName d in "!" ++ n ++ "&F = " ++ go (d+1) (f (Var n d)) ++ "; " ++ n
@@ -280,13 +295,14 @@ emitFull book t0 = go 0 t0 where
     -- data
     Zer            -> "#Zer"
     Suc n          -> "#Suc{" ++ go d n ++ "}"
-    Bt0            -> "0"
-    Bt1            -> "1"
+    -- Bool shares the runtime word with U64; the static book keeps the type
+    Bt0            -> "@@ann(#Bool, 0)"
+    Bt1            -> "@@ann(#Bool, 1)"
     One            -> "#One"
     Nil            -> "#Nil"
     Con h tl       -> "#Con{" ++ go d h ++ ", " ++ go d tl ++ "}"
     Val (U64_V v)  -> if v <= 4294967295 then show v else error "HVM4 full: integer literal exceeds the 32-bit runtime word; use explicit limbs"
-    Val (CHR_V c)  -> show (fromEnum c)
+    Val (CHR_V c)  -> "@@ann(#Num{#Chr}, " ++ show (fromEnum c) ++ ")"
     Val (F64_V _)  -> error "HVM4 full: F64 requires an explicit IEEE representation; refusing to replace a floating-point value with zero"
     Val (I64_V _)  -> error "HVM4 full: signed integers require an explicit signed representation"
     Sym s          -> "#" ++ s
@@ -303,8 +319,8 @@ emitFull book t0 = go 0 t0 where
     Op2 POW a b    -> "@pow(" ++ go d a ++ ", " ++ go d b ++ ")"
     Op2 o a b      -> "(" ++ go d a ++ " " ++ op2 o ++ " " ++ go d b ++ ")"
     Op1 o _        -> error ("HVM4 full: unary " ++ show o ++ " is type-directed in Core (Bool vs U64) and both share the runtime word; write it as a match or a binary op")
-    Log _ x        -> go d x
-    Rwt _ _ x      -> go d x
+    Log m x        -> "@@log(" ++ go d m ++ ", " ++ go d x ++ ")"
+    Rwt a b x      -> "@@rwt(#Pair{" ++ go d a ++ ", " ++ go d b ++ "}, " ++ go d x ++ ")"
     -- superpositions: native
     Sup l a b      -> "&" ++ label l ++ "{" ++ go d a ++ ", " ++ go d b ++ "}"
     Frk l a b      -> "&" ++ label l ++ "{" ++ go d a ++ ", " ++ go d b ++ "}"
@@ -382,6 +398,7 @@ emitFull book t0 = go 0 t0 where
     Ua a b f g gf fg -> "#UaU{" ++ intercalate ", " (map (go d) [a, b, f, g, gf, fg]) ++ "}"
     Met _ _ _      -> error "HVM4 full: unsolved metavariable (gen) has no value to emit"
     Pri U64_TO_CHAR -> "@u64ToChar"
+    Pri EXTERN     -> error "HVM4 full: extern is only a whole definition body"
     Pat _ _ _      -> error "HVM4 full emission: unflattened pattern match"
 
   -- Pass branch environments after selection, avoiding duplication of a
