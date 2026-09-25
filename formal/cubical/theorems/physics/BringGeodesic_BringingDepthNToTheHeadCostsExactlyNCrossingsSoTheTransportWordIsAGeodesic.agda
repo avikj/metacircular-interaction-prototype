@@ -12,17 +12,19 @@
 --   SthairyaSutra   kartana, śabda-sthairya
 --                              every word is uniformly continuous with
 --                              modulus its own length
+--   VeniPatha       pāra-pāṭha the lower reader of a crossed rope sees
+--                              the turned upper strand
 --   CaturamsaBhramana catur-cakra
 --                              the quarter turn has order four
 --
 -- §1  `bring n = [n-1, …, 0]`, of length exactly n.
 -- §2  ρ = caturaṃśa is injective because it has order four, hence so is
 --     every ρⁿ.
--- §3  THE HEAD EQUATION.  `bring n` brings cell n to the head, with n
---     quarter turns deposited on it:
+-- §3  THE HEAD EQUATION, by folding `pāra-pāṭha` down the word.
+--     `bring n` brings cell n to the head, with n quarter turns on it:
 --         gāḍha 0 (vēṇī-gaṇa (bring n) s) ≡ cakra n (gāḍha n s).
--- §4  The separating ropes: `sthāna N a` is blank everywhere except at
---     position N, where it is a.  Two of them agree to every depth
+-- §4  The separating ropes: `sthāna N a` is `sthira` everywhere except
+--     at position N, where it is a.  Two of them agree to every depth
 --     m ≤ N and differ at N.
 -- §5  THE LOWER BOUND.  A word of length < n cannot realise the head
 --     observation: śabda-sthairya makes its head blind to cell n, while
@@ -56,7 +58,9 @@ open import CaturamsaBhramana_TheQuarterWaveLivesOnlyOnTheInterdependentPairAndE
 open import AnantaVeni_TheInfiniteBraidActsOnTheInterdependentStreamAndEveryRelationOfEveryBraidGroupHoldsAtOnce
   using (Rajju ; veṇī∞)
 open import AnantaVeniMatra_EveryCrossingIsLocalAndHasOrderExactlyEightAtEveryPositionOfTheEndlessBraid
-  using (gāḍha)
+  using (gāḍha ; sthira)
+open import VeniPatha_TheCrossingsCompleteReaderProfileFourEquationsAllRefl
+  using (pāra-pāṭha)
 open import NirupaSutra_EveryBraidWordIsItsBarePermutationFollowedByAComputedTwistWord
   using (vēṇī-gaṇa)
 open import SthairyaSutra_EveryCrossingIsOneLipschitzWithUnitLookaheadSoEveryWordIsUniformlyContinuousWithModulusItsLength
@@ -100,34 +104,28 @@ cakra-eka (suc n) p q h = caturaṃśa-eka p q (cakra-eka n _ _ h)
 -- One crossing at position m lifts cell m+1 to position m, quarter-turned.
 ------------------------------------------------------------------------
 
-gāḍha-veṇī : (m : ℕ) (s : Rajju)
-           → gāḍha m (veṇī∞ m s) ≡ caturaṃśa (gāḍha (suc m) s)
-gāḍha-veṇī zero    s = refl
-gāḍha-veṇī (suc m) s = gāḍha-veṇī m (śeṣam s)
-
--- …so the whole word brings cell n to the head with n turns on it.
+-- `pāra-pāṭha` (VeniPatha) is exactly that: the lower reader of a
+-- crossed rope sees the turned upper strand.  Folding it down `bring`
+-- brings cell n to the head with n turns on it.
 mastaka : (n : ℕ) (s : Rajju)
         → gāḍha 0 (vēṇī-gaṇa (bring n) s) ≡ cakra n (gāḍha n s)
 mastaka zero    s = refl
 mastaka (suc n) s =
     mastaka n (veṇī∞ n s)
-  ∙ cong (cakra n) (gāḍha-veṇī n s)
+  ∙ cong (cakra n) (pāra-pāṭha n s)
 
 ------------------------------------------------------------------------
 -- ४ · The separating ropes.
 ------------------------------------------------------------------------
 
+-- `sthira` (AnantaVeniMatra) is the constant rope; its cell is the blank.
 rikta : Sūtra
-rikta = false , false
-
-sama : Rajju
-śiras sama = rikta
-śeṣam sama = sama
+rikta = true , true
 
 -- blank everywhere, `a` at position N
 sthāna : ℕ → Sūtra → Rajju
 śiras (sthāna zero    a) = a
-śeṣam (sthāna zero    a) = sama
+śeṣam (sthāna zero    a) = sthira
 śiras (sthāna (suc N) a) = rikta
 śeṣam (sthāna (suc N) a) = sthāna N a
 
