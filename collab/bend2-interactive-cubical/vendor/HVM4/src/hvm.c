@@ -5005,7 +5005,180 @@ fn Term conv_whnf(Term t, int nd) {
   return r;
 }
 
+// ---- the interval: the free De Morgan algebra ------------------------------
+// An element's normal form is an antichain of cubes (an irredundant DNF over
+// literals x / ¬x, no complement law); two elements are equal iff their
+// normal forms are. Literals: a generator (#IVar{name}, #IMark) with a
+// negation bit, as one u64 key.
+
+typedef struct { u64 *lit; u32 n; } IvCube;
+typedef struct { IvCube *c; u32 n; u32 cap; } IvDnf;
+
+static u32 IV_AND = 0, IV_OR, IV_NOT, IV_VAR, IV_I0, IV_I1, IV_MARK;
+
+fn void iv_init(void) {
+  if (IV_AND) return;
+  IV_AND  = table_find("IAnd", 4);
+  IV_OR   = table_find("IOr", 3);
+  IV_NOT  = table_find("INot", 4);
+  IV_VAR  = table_find("IVar", 4);
+  IV_I0   = table_find("I0", 2);
+  IV_I1   = table_find("I1", 2);
+  IV_MARK = table_find("IMark", 5);
+}
+
+fn int iv_is(Term t) {
+  u8 tg = term_tag(t);
+  u32 e = term_ext(t);
+  return (tg == C02 && (e == IV_AND || e == IV_OR)) || (tg == C01 && (e == IV_NOT || e == IV_VAR))
+      || (tg == C00 && (e == IV_I0 || e == IV_I1 || e == IV_MARK));
+}
+
+fn void iv_push(IvDnf *d, IvCube c) {
+  if (d->n == d->cap) {
+    d->cap = d->cap ? d->cap * 2 : 4;
+    d->c   = realloc(d->c, d->cap * sizeof(IvCube));
+  }
+  d->c[d->n++] = c;
+}
+
+fn IvDnf iv_top(void) {
+  IvDnf d = {0};
+  iv_push(&d, (IvCube){ NULL, 0 });
+  return d;
+}
+
+fn IvDnf iv_or(IvDnf a, IvDnf b) {
+  for (u32 i = 0; i < b.n; i++) iv_push(&a, b.c[i]);
+  free(b.c);
+  return a;
+}
+
+fn IvDnf iv_and(IvDnf a, IvDnf b) {
+  IvDnf r = {0};
+  for (u32 i = 0; i < a.n; i++) {
+    for (u32 j = 0; j < b.n; j++) {
+      IvCube c = { malloc((a.c[i].n + b.c[j].n + 1) * sizeof(u64)), 0 };
+      for (u32 k = 0; k < a.c[i].n; k++) c.lit[c.n++] = a.c[i].lit[k];
+      for (u32 k = 0; k < b.c[j].n; k++) c.lit[c.n++] = b.c[j].lit[k];
+      iv_push(&r, c);
+    }
+  }
+  return r;
+}
+
+// the normal form of t (neg: of ¬t); 0 if t is not an interval element
+fn int iv_dnf(Term t, int neg, int nd, IvDnf *out) {
+  Term w = conv_whnf(t, nd);
+  if (pri_sup(w)) return 0;
+  u8  tg = term_tag(w);
+  u32 e  = term_ext(w);
+  if (tg == C00 && (e == IV_I0 || e == IV_I1)) {
+    *out = ((e == IV_I1) != neg) ? iv_top() : (IvDnf){0};
+    return 1;
+  }
+  if (tg == C01 && e == IV_NOT) {
+    return iv_dnf(heap_read(term_val(w)), !neg, nd, out);
+  }
+  if (tg == C02 && (e == IV_AND || e == IV_OR)) {
+    IvDnf x, y;
+    if (!iv_dnf(heap_read(term_val(w) + 0), neg, nd, &x)) return 0;
+    if (!iv_dnf(heap_read(term_val(w) + 1), neg, nd, &y)) return 0;
+    // De Morgan: ¬(a ∧ b) = ¬a ∨ ¬b
+    *out = ((e == IV_AND) != neg) ? iv_and(x, y) : iv_or(x, y);
+    return 1;
+  }
+  u64 key;
+  if (tg == C01 && e == IV_VAR) {
+    Term n = conv_whnf(heap_read(term_val(w)), nd);
+    if (term_tag(n) != NAM) { if (getenv("CONVDBG")) fprintf(stderr, "conv: ivar of tag %u\n", term_tag(n)); return 0; }
+    key = ((u64)term_ext(n) + 2) << 1;
+  } else if (tg == C00 && e == IV_MARK) {
+    key = 1 << 1;
+  } else {
+    return 0;
+  }
+  IvCube c = { malloc(sizeof(u64)), 1 };
+  c.lit[0] = key | (u64)neg;
+  *out = (IvDnf){0};
+  iv_push(out, c);
+  return 1;
+}
+
+fn int iv_cmp_u64(const void *a, const void *b) {
+  u64 x = *(const u64 *)a, y = *(const u64 *)b;
+  return x < y ? -1 : x > y;
+}
+
+// sub ⊆ sup (both sorted, deduplicated)
+fn int iv_subset(IvCube sub, IvCube sup) {
+  u32 j = 0;
+  for (u32 i = 0; i < sub.n; i++) {
+    while (j < sup.n && sup.lit[j] < sub.lit[i]) j++;
+    if (j == sup.n || sup.lit[j] != sub.lit[i]) return 0;
+  }
+  return 1;
+}
+
+fn int iv_cube_cmp(const void *a, const void *b) {
+  const IvCube *x = a, *y = b;
+  for (u32 i = 0; i < x->n && i < y->n; i++) {
+    if (x->lit[i] != y->lit[i]) return x->lit[i] < y->lit[i] ? -1 : 1;
+  }
+  return (int)x->n - (int)y->n;
+}
+
+// sort and deduplicate each cube; drop every cube absorbed by another
+fn void iv_canon(IvDnf *d) {
+  for (u32 i = 0; i < d->n; i++) {
+    IvCube *c = &d->c[i];
+    qsort(c->lit, c->n, sizeof(u64), iv_cmp_u64);
+    u32 m = 0;
+    for (u32 k = 0; k < c->n; k++) {
+      if (m == 0 || c->lit[m - 1] != c->lit[k]) c->lit[m++] = c->lit[k];
+    }
+    c->n = m;
+  }
+  qsort(d->c, d->n, sizeof(IvCube), iv_cube_cmp);
+  u32 m = 0;
+  for (u32 i = 0; i < d->n; i++) {
+    int absorbed = 0;
+    for (u32 j = 0; j < d->n && !absorbed; j++) {
+      if (j != i && iv_subset(d->c[j], d->c[i]) && (d->c[j].n < d->c[i].n || j < i)) absorbed = 1;
+    }
+    if (!absorbed) d->c[m++] = d->c[i];
+  }
+  d->n = m;
+}
+
+fn int iv_equal(IvDnf a, IvDnf b) {
+  iv_canon(&a);
+  iv_canon(&b);
+  if (a.n != b.n) return 0;
+  for (u32 i = 0; i < a.n; i++) {
+    if (iv_cube_cmp(&a.c[i], &b.c[i]) != 0) return 0;
+  }
+  return 1;
+}
+
+// the definition at the head of a folded call (or ~0 if its head is none)
+fn u64 conv_head(Term t) {
+  while (term_tag(t) == APP) {
+    t = heap_read(term_val(t));
+  }
+  return term_tag(t) == REF ? (u64)term_ext(t) : ~(u64)0;
+}
+
+fn int conv_go0(Term a, Term b, int nd);
+static int CONV_DEPTH = 0;
 fn int conv_go(Term a, Term b, int nd) {
+  CONV_DEPTH++;
+  int r = conv_go0(a, b, nd);
+  CONV_DEPTH--;
+  return r;
+}
+
+fn int conv_go0(Term a, Term b, int nd) {
   if (PRI_SUP) {
     return 0;
   }
@@ -5029,6 +5202,10 @@ fn int conv_go(Term a, Term b, int nd) {
       a = conv_whnf(a, 0);
     } else if (bf && !af) {
       b = conv_whnf(b, 0);
+    } else if (af && bf && conv_head(a) != conv_head(b)) {
+      // two calls of different definitions: compare what they unfold to
+      a = conv_whnf(a, 0);
+      b = conv_whnf(b, 0);
     }
     if (pri_sup(a) || pri_sup(b)) {
       return 0;
@@ -5036,11 +5213,31 @@ fn int conv_go(Term a, Term b, int nd) {
   }
   u8 at = term_tag(a);
   u8 bt = term_tag(b);
+  if (getenv("CONVDBG2")) fprintf(stderr, "%*s%u/%u vs %u/%u nd=%d\n", CONV_DEPTH, "", at, term_ext(a), bt, term_ext(b), nd);
+  // two interval elements: equal in the free De Morgan algebra
+  iv_init();
+  if (iv_is(a) && iv_is(b) && !(at == C00 && bt == C00)) {
+    IvDnf x, y;
+    if (iv_dnf(a, 0, nd, &x) && iv_dnf(b, 0, nd, &y)) {
+      int r = iv_equal(x, y);
+      if (getenv("CONVDBG") && !r) {
+        fprintf(stderr, "conv: interval unequal:");
+        for (u32 i = 0; i < x.n; i++) { fprintf(stderr, " ["); for (u32 k = 0; k < x.c[i].n; k++) fprintf(stderr, " %llu", (unsigned long long)x.c[i].lit[k]); fprintf(stderr, "]"); }
+        fprintf(stderr, " vs");
+        for (u32 i = 0; i < y.n; i++) { fprintf(stderr, " ["); for (u32 k = 0; k < y.c[i].n; k++) fprintf(stderr, " %llu", (unsigned long long)y.c[i].lit[k]); fprintf(stderr, "]"); }
+        fprintf(stderr, "\n");
+      }
+      return r;
+    }
+    if (getenv("CONVDBG")) fprintf(stderr, "conv: interval not normalisable\n");
+    return 0;
+  }
   if (at == LAM || bt == LAM) {
     // η: a λ against a neutral (or another function head) is compared under
     // one fresh argument; against data (a constructor, a number) it differs
     u8 ot = at == LAM ? bt : at;
     if (ot != LAM && ((ot >= C00 && ot <= C16) || ot == NUM || ot == ERA || ot == SUP)) {
+      if (getenv("CONVDBG")) fprintf(stderr, "conv: lam vs %u\n", ot);
       return 0;
     }
     Term nam = term_new_nam(FRESH++);
@@ -5064,6 +5261,9 @@ fn int conv_go(Term a, Term b, int nd) {
       return bt == NUM && (u32)term_val(a) == (u32)term_val(b);
     }
     case NAM: {
+      if (getenv("CONVDBG") && !(bt == NAM && term_ext(a) == term_ext(b))) {
+        fprintf(stderr, "conv: nam %u vs %u/%u nd=%d\n", term_ext(a), bt, term_ext(b), nd);
+      }
       return bt == NAM && term_ext(a) == term_ext(b);
     }
     case REF: {
@@ -5074,6 +5274,9 @@ fn int conv_go(Term a, Term b, int nd) {
     }
     case C00 ... C16: {
       if (bt != at || term_ext(a) != term_ext(b)) {
+        if (getenv("CONVDBG")) {
+          fprintf(stderr, "conv: ctr %u/%u vs %u/%u nd=%d\n", at, term_ext(a), bt, term_ext(b), nd);
+        }
         return 0;
       }
       u32 ari = at - C00;
@@ -5098,9 +5301,13 @@ fn int conv_go(Term a, Term b, int nd) {
       if (bt != DRY) {
         return 0;
       }
-      Term af = heap_read(term_val(a) + 0);
-      Term bf = heap_read(term_val(b) + 0);
-      int  fnd = stuck_elim_head(af) ? 1 : nd;
+      // the eliminator as it is (a lazy copy of a match is still a match)
+      Term af = conv_whnf(heap_read(term_val(a) + 0), nd);
+      Term bf = conv_whnf(heap_read(term_val(b) + 0), nd);
+      if (pri_sup(af) || pri_sup(bf)) {
+        return 0;
+      }
+      int  fnd = (stuck_elim_head(af) || stuck_elim_head(bf)) ? 1 : nd;
       return conv_go(af, bf, fnd)
           && conv_go(heap_read(term_val(a) + 1), heap_read(term_val(b) + 1), nd);
     }
@@ -5116,6 +5323,9 @@ fn int conv_go(Term a, Term b, int nd) {
           && conv_go(heap_read(term_val(a) + 1), heap_read(term_val(b) + 1), nd);
     }
     default: {
+      if (getenv("CONVDBG")) {
+        fprintf(stderr, "conv: %u/%u vs %u/%u nd=%d\n", at, term_ext(a), bt, term_ext(b), nd);
+      }
       return 0;
     }
   }
@@ -5239,6 +5449,7 @@ fn Term pri_fire(u32 id, Term arg) {
     return term_new_dry(term_new(0, PRI, id, 0), c.k1);
   }
   if (hit) {
+    if (getenv("CONVDBG")) fprintf(stderr, "pri %s distributes over %llx\n", PRI_NAME[id], (unsigned long long)hit);
     Copy d  = term_clone(hit, c.k1);
     Term p0 = term_new_app(term_new(0, PRI, id, 0), d.k0);
     Term p1 = term_new_app(term_new(0, PRI, id, 0), d.k1);
