@@ -1189,6 +1189,7 @@ and the compiler carries no copy of it either.
 - `Target.HVM4Full` emits every checked definition twice, `@Dname` (the term) and `@Tname` (its checked type), and the root is the typed point `@main = #Pair{@Tmain, @Dmain}` of `Σ(A : Set). A`. Map-valued and dependent entries are ordinary typed points; nothing is generated beside them.
 - `--to-hvm4-full` runs the checker first and emits nothing for an ill-typed book.
 - Types are emitted as complete cells: an equality type keeps its carrier and endpoints, an enum keeps its symbols, a numeric type its kind, and `ua` keeps both coherences beside its two maps.
+- A HIT constructor carries its parameters: the checker reads them off the goal, records them by the constructor's source span, and the book is elaborated before the reporting check and before emission (`Core.Check.elabFills`). A declared endpoint that mentions a parameter computes with it on both evaluators, and a HIT value survives collapse; before, the runtime filled the missing cell with `&{}`, which annihilated the value under `-C`.
 
 What was tried and removed, and why, so it is not rediscovered:
 

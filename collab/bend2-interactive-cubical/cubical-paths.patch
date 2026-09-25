@@ -2106,7 +2106,7 @@ index 939a19f..d318a1f 100644
    Sup l a b  -> Sup (binder lv l ctx vars) (binder lv a ctx vars) (binder lv b ctx vars)
    SupM x l f -> SupM (binder lv x ctx vars) (binder lv l ctx vars) (binder lv f ctx vars)
 diff --git a/src/Core/CLI.hs b/src/Core/CLI.hs
-index f94d1ce..dea0245 100644
+index f94d1ce..95bf2d3 100644
 --- a/src/Core/CLI.hs
 +++ b/src/Core/CLI.hs
 @@ -5,6 +5,10 @@ module Core.CLI
@@ -2120,7 +2120,7 @@ index f94d1ce..dea0245 100644
    , listDependencies
    ) where
  
-@@ -15,39 +19,86 @@ import System.Environment (getArgs)
+@@ -15,40 +19,98 @@ import System.Environment (getArgs)
  import System.Exit (exitFailure)
  import System.Process (readProcessWithExitCode)
  import System.Exit (ExitCode(..))
@@ -2195,7 +2195,10 @@ index f94d1ce..dea0245 100644
 +
 +rehitify :: Book -> Book
 +rehitify book@(Book defs hits) = Book (M.map (\(i, t, ty) -> (i, hitify book t, hitify book ty)) defs) hits
-+
+ 
+--- | Type-check all definitions in a book
+-checkDefinitions :: Book -> IO ()
+-checkDefinitions book@(Book defs) = do
 +-- an `import X` line without `as` is a module load; it is blanked (line
 +-- numbers preserved) so the parser only sees aliased imports
 +splitLoads :: String -> ([String], String)
@@ -2205,18 +2208,29 @@ index f94d1ce..dea0245 100644
 +    one l = case words l of
 +      ["import", p] -> ([p], "")
 +      _             -> ([], l)
- 
- -- | Type-check all definitions in a book
- checkDefinitions :: Book -> IO ()
--checkDefinitions book@(Book defs) = do
-+checkDefinitions book@(Book defs hits) = do
++
++-- | Type-check all definitions in a book, and return the book with every
++-- bare HIT constructor carrying the parameters the checker read off its
++-- goal. Two passes: a silent one whose checks record the parameters, then
++-- the reporting one on the elaborated book. A definition may fail the first
++-- pass and check in the second: a declared endpoint that mentions a
++-- parameter (Path(T ps, @c{a}, @d{f(a)})) computes only once the constructor
++-- carries the parameters, so the book is always elaborated and the second
++-- pass is the verdict. The emitted cells are then complete.
++checkDefinitions :: Book -> IO Book
++checkDefinitions book0@(Book defs0 hits) = do
++  let seen = length [ () | (_, (_, term, typ)) <- M.toList defs0, checkDef book0 term typ `seq` True ]
++  seen `seq` return ()
++  let book@(Book defs _) = elabBook book0
 +  okHits  <- checkHits book (M.toList hits)
    success <- checkAll book (M.toList defs)
 +  unless okHits exitFailure
    unless success exitFailure
++  return book
    where
      checkDef book term typ = do
-@@ -59,7 +110,7 @@ checkDefinitions book@(Book defs) = do
+       check 0 noSpan book (Ctx []) typ Set
+@@ -59,7 +121,7 @@ checkDefinitions book@(Book defs) = do
      checkAll bBook ((name, (_, term, typ)):rest) = do
        case checkDef bBook term typ of
          Done () -> do
@@ -2225,7 +2239,7 @@ index f94d1ce..dea0245 100644
            checkAll bBook rest
          Fail e -> do
            putStrLn $ "\x1b[31m✗ " ++ name ++ "\x1b[0m"
-@@ -67,6 +118,25 @@ checkDefinitions book@(Book defs) = do
+@@ -67,6 +129,25 @@ checkDefinitions book@(Book defs) = do
            _ <- checkAll bBook rest
            return False
  
@@ -2251,7 +2265,7 @@ index f94d1ce..dea0245 100644
  -- | Run the main function from a book
  runMain :: Book -> IO ()
  runMain book = do
-@@ -80,7 +150,7 @@ runMain book = do
+@@ -80,7 +161,7 @@ runMain book = do
            putStrLn $ show e
            exitFailure
          Done typ -> do
@@ -2260,7 +2274,17 @@ index f94d1ce..dea0245 100644
            putStrLn ""
            forM_ results $ \ term -> do
              print term
-@@ -123,6 +193,18 @@ processFileToHVM file = do
+@@ -88,8 +169,7 @@ runMain book = do
+ -- | Process a Bend file: parse, check, and run
+ processFile :: FilePath -> IO ()
+ processFile file = do
+-  book <- parseFile file
+-  checkDefinitions book
++  book <- parseFile file >>= checkDefinitions
+   runMain book
+ 
+ -- | Try to format JavaScript code using prettier if available
+@@ -123,6 +203,18 @@ processFileToHVM file = do
    let hvmCode = HVM.compile book
    putStrLn hvmCode
  
@@ -2279,7 +2303,7 @@ index f94d1ce..dea0245 100644
  -- | List all dependencies of a Bend file (including transitive dependencies)
  listDependencies :: FilePath -> IO ()
  listDependencies file = do
-@@ -135,7 +217,36 @@ listDependencies file = do
+@@ -135,7 +227,36 @@ listDependencies file = do
  
  -- | Collect all refs from a Book
  collectAllRefs :: Book -> S.Set Name
@@ -2294,8 +2318,7 @@ index f94d1ce..dea0245 100644
 +-- corecursion are the only accepted shapes).
 +processFileTotal :: FilePath -> IO ()
 +processFileTotal file = do
-+  book@(Book defs _) <- parseFile file
-+  checkDefinitions book
++  book@(Book defs _) <- parseFile file >>= checkDefinitions
 +  let bad = [ name | (name, (_, term, typ)) <- M.toList defs
 +                   , Unchecked <- [rTot (analyze book name term typ)] ]
 +  if null bad
@@ -2308,28 +2331,31 @@ index f94d1ce..dea0245 100644
 +-- coe and hcomp are all runtime objects; nothing erased or pre-normalised)
 +processFileToHVM4Full :: FilePath -> IO ()
 +processFileToHVM4Full file = do
-+  book <- parseFile file
++  book0 <- parseFile file
 +  -- Only a checked book is a complex: an ill-typed term has no cells to emit.
 +  -- The check report goes to stderr so stdout stays exactly the HVM4 program.
++  -- The checked book carries every HIT constructor's parameters.
 +  hFlush stdout
 +  saved <- hDuplicate stdout
 +  hDuplicateTo stderr stdout
-+  checkDefinitions book `finally` (hFlush stdout >> hDuplicateTo saved stdout)
++  book <- checkDefinitions book0 `finally` (hFlush stdout >> hDuplicateTo saved stdout)
 +  putStrLn (HVM4Full.compileFull book)
 +
 diff --git a/src/Core/Check.hs b/src/Core/Check.hs
-index cdd6756..40fc69f 100644
+index cdd6756..ac7e87f 100644
 --- a/src/Core/Check.hs
 +++ b/src/Core/Check.hs
-@@ -11,6 +11,7 @@ import Debug.Trace
+@@ -11,6 +11,9 @@ import Debug.Trace
  
  import Core.Equal
  import Core.Rewrite
 +import Data.List (tails)
++import Data.IORef
++import System.IO.Unsafe (unsafePerformIO)
  import Core.Type
  import Core.WHNF
  
-@@ -21,7 +22,7 @@ extend :: Ctx -> Name -> Term -> Term -> Ctx
+@@ -21,7 +24,7 @@ extend :: Ctx -> Name -> Term -> Term -> Ctx
  extend (Ctx ctx) k v t = Ctx (ctx ++ [(k, v, t)])
  
  format :: Int -> Book -> Term -> Term
@@ -2338,8 +2364,113 @@ index cdd6756..40fc69f 100644
  -- format d book x = x
  
  formatCtx :: Int -> Book -> Ctx -> Ctx
-@@ -33,7 +34,7 @@ formatCtx d book (Ctx ctx) = Ctx (map formatAnn ctx)
+@@ -31,9 +34,112 @@ formatCtx d book (Ctx ctx) = Ctx (map formatAnn ctx)
+ -- Type Checker
+ -- ------------
  
++
++-- Parameters of HIT constructors
++-- ==============================
++-- A constructor is written @c{fields}: it carries no parameters, and the
++-- checker reads them off the goal. They are a cell of the checked term, so
++-- they are recorded here, by the constructor's source span, at the three
++-- places the checker determines them, and `elabFills` carries them into the
++-- term after checking. A cell the term does not spell is not an erased cell;
++-- it is a cell the checker knows.
++type SpanKey = ((Int, Int), (Int, Int), String)
++
++spanKey :: Span -> SpanKey
++spanKey s = (spanBeg s, spanEnd s, spanSrc s)
++
++{-# NOINLINE hconFills #-}
++hconFills :: IORef (M.Map SpanKey [Term])
++hconFills = unsafePerformIO (newIORef M.empty)
++
++{-# NOINLINE recordFill #-}
++recordFill :: Span -> [Term] -> ()
++recordFill s ps = unsafePerformIO (atomicModifyIORef' hconFills (\m -> (M.insert (spanKey s) ps m, ())))
++
++{-# NOINLINE lookupFill #-}
++lookupFill :: Span -> Maybe [Term]
++lookupFill s = unsafePerformIO (M.lookup (spanKey s) <$> readIORef hconFills)
++
++-- the source span directly around a bare constructor (through path applications)
++hconLoc :: Term -> Maybe Span
++hconLoc t = case t of
++  Loc s x -> case x of { HCon{} -> Just s; _ -> hconLoc x }
++  PAp p _ -> hconLoc p
++  _       -> Nothing
++
++-- the parameters a bare constructor takes from its goal: peel one Path per
++-- interval still to be applied, then read the HIT's parameters
++bareCtorParams :: Int -> Book -> Ctx -> Name -> HitCtor -> Int -> Term -> Maybe [Term]
++bareCtorParams d book ctx t k nivs goal =
++  let peel :: Int -> Term -> Maybe Term
++      peel 0 g = Just g
++      peel n g = case force book (epNormCtx d book ctx g) of
++        Pth l _ _ -> peel (n - 1) (App l I0)
++        _         -> Nothing
++  in case peel (ctorDim k - nivs) goal of
++       Just g | HTy t'' ps <- force book g, t'' == t -> Just ps
++       _ -> Nothing
++
++-- fill the bare constructor at the head of a chain (through path
++-- applications, annotations and locations); Nothing if there is none
++fillHead :: [Term] -> Term -> Maybe Term
++fillHead ps x = case x of
++  HCon tn c [] as ivs -> Just (HCon tn c ps as ivs)
++  PAp p r             -> (\p' -> PAp p' r) <$> fillHead ps p
++  Chk v t             -> (\v' -> Chk v' t) <$> fillHead ps v
++  Loc s y             -> Loc s <$> fillHead ps y
++  _                   -> Nothing
++
++-- After checking: carry the recorded parameters into the terms.
++--
++-- The recorded parameter terms refer to the enclosing binders as `check`
++-- named them (Var k d at depth d, one depth per Lam/PLm/Fix, none for a let
++-- or a lambda applied in place). Elaboration walks each definition with the
++-- same depth discipline, but instantiates every binder with a globally
++-- unique placeholder (a name no source can spell, at a negative level) and
++-- renames the recorded parameters' variables into those placeholders through
++-- an environment. The re-abstractions it leaves behind are substitutions
++-- keyed on the placeholders, which no variable the checker later creates can
++-- match, wherever the body is unfolded.
++{-# NOINLINE placeholderCounter #-}
++placeholderCounter :: IORef Int
++placeholderCounter = unsafePerformIO (newIORef 0)
++
++{-# NOINLINE freshPlaceholder #-}
++freshPlaceholder :: Term -> Term
++freshPlaceholder dep = unsafePerformIO $ do
++  n <- dep `seq` atomicModifyIORef' placeholderCounter (\n -> (n + 1, n))
++  return (Var ("_elab" ++ show n) (-9000 - n))
++
++elabFills :: Int -> Term -> Term
++elabFills d0 t0 = go d0 [] t0 where
++  go :: Int -> [((Name, Int), Term)] -> Term -> Term
++  go d env t = case t of
++    Var k i | Just ph <- lookup (k, i) env -> ph
++    Loc s x | Just ps <- lookupFill s, Just x' <- fillHead (map (go d env) ps) x -> Loc s (go d env x')
++    Lam k f -> Lam k (abstract d env (d + 1) k f)
++    PLm k f -> PLm k (abstract d env (d + 1) k f)
++    Fix k f -> Fix k (abstract d env (d + 1) k f)
++    -- `check` reduces a let, a lambda applied in place and a path lambda
++    -- applied in place without a new depth (the bound variable is the
++    -- argument itself)
++    PAp p r | PLm k f <- cut p -> PAp (PLm k (abstract d env d k f)) (go d env r)
++    Let v f | Lam k b <- cut f -> Let (go d env v) (Lam k (abstract d env d k b))
++    App f x | Lam k b <- cut f -> App (Lam k (abstract d env d k b)) (go d env x)
++    _ -> mapSub (go d env) t
++  -- a binder the checker names Var k d: elaborate its body at depth d' with
++  -- a unique placeholder, then re-abstract by substituting the placeholder
++  abstract d env d' k f =
++    let ph   = freshPlaceholder (Lam k f)
++        body = go d' (((k, d), ph) : env) (f ph)
++    in \x -> substVar ph x body
++
++elabBook :: Book -> Book
++elabBook (Book defs hits) = Book (M.map (\(i, tm, ty) -> (i, elabFills 0 tm, elabFills 0 ty)) defs) hits
++
  -- Infer the type of a term
  infer :: Int -> Span -> Book -> Ctx -> Term -> Result Term
 -infer d span book@(Book defs) ctx term =
@@ -2347,22 +2478,27 @@ index cdd6756..40fc69f 100644
    -- trace ("- infer: " ++ show (format d book term)) $
    case term of
      Var _ i -> do
-@@ -52,6 +53,14 @@ infer d span book@(Book defs) ctx term =
+@@ -52,6 +158,19 @@ infer d span book@(Book defs) ctx term =
        infer d span book ctx (App f v)
      Fix k f -> do
        Fail $ CantInfer span (formatCtx d book ctx)
 +    -- `@c{as}::T(ps)` on a constructor of a parametric HIT supplies the
 +    -- parameters (the annotation names the HIT, not the constructor's type)
-+    Chk v t | HCon tn c [] as ivs <- cut v, Just (tn', h, _) <- derefCtor book c, tn' == tn, hitArity h > 0 ->
++    -- (after elaboration the constructor already carries the parameters the
++    -- annotation supplied; the annotation still names the HIT, not a type
++    -- ascription)
++    Chk v t | HCon tn c ps0 as ivs <- cut v, Just (tn', h, _) <- derefCtor book c, tn' == tn, hitArity h > 0 ->
 +      case force book t of
-+        HTy tn'' ps | tn'' == tn -> infer d span book ctx (HCon tn c ps as ivs)
++        HTy tn'' ps' | tn'' == tn ->
++          let ps = if null ps0 then ps' else ps0
++          in recordFill (maybe span id (hconLoc v)) ps `seq` infer d span book ctx (HCon tn c ps as ivs)
 +        _ -> do
 +          check d span book ctx v t
 +          Done t
      Chk v t -> do
        check d span book ctx v t
        Done t
-@@ -127,6 +136,209 @@ infer d span book@(Book defs) ctx term =
+@@ -127,6 +246,209 @@ infer d span book@(Book defs) ctx term =
        Done Set
      Lam _ _ -> do
        Fail $ CantInfer span (formatCtx d book ctx)
@@ -2572,7 +2708,7 @@ index cdd6756..40fc69f 100644
      App f x ->
        case f of
          Lam k body -> do
-@@ -189,6 +401,42 @@ infer d span book@(Book defs) ctx term =
+@@ -189,6 +511,42 @@ infer d span book@(Book defs) ctx term =
      Log s x -> do
        check d span book ctx s (Lst (Num CHR_T))
        infer d span book ctx x
@@ -2615,7 +2751,7 @@ index cdd6756..40fc69f 100644
      Pat _ _ _ -> do
        error "Pat not supported in infer"
  
-@@ -294,6 +542,16 @@ check d span book ctx term goal =
+@@ -294,6 +652,16 @@ check d span book ctx term goal =
      (Lam k f, All a (Lam _ b)) -> do
        let x = Var k d
        check (d+1) span book (extend ctx k x a) (f x) (b x)
@@ -2632,7 +2768,22 @@ index cdd6756..40fc69f 100644
      (EmpM x, _) -> do
        xT <- infer d span book ctx x
        case force book xT of
-@@ -402,6 +660,9 @@ check d span book ctx term goal =
+@@ -379,8 +747,12 @@ check d span book ctx term goal =
+         _ -> Fail $ TypeMismatch span (formatCtx d book ctx) (format d book (Eql (Var "_" 0) (Var "_" 0) (Var "_" 0))) (format d book xT)
+     (Fix k f, _) -> do
+       check (d+1) span book (extend ctx k (Fix k f) goal) (f (Fix k f)) goal
+-    (Loc l t, _) -> do
+-      check d l book ctx t goal
++    (Loc l t, _) ->
++      let fill = case t of
++            HCon tn c [] _ ivs | Just (tn', h, k) <- derefCtor book c, tn' == tn, hitArity h > 0
++                               , Just ps <- bareCtorParams d book ctx tn k (length ivs) goal -> recordFill l ps
++            _ -> ()
++      in fill `seq` check d l book ctx t goal
+     (Val (U64_V _), Num U64_T) -> do
+       Done ()
+     (Val (I64_V _), Num I64_T) -> do
+@@ -402,6 +774,9 @@ check d span book ctx term goal =
        if equal d book tr goal
          then Done ()
          else Fail $ TypeMismatch span (formatCtx d book ctx) (format d book goal) (format d book tr)
@@ -2642,7 +2793,7 @@ index cdd6756..40fc69f 100644
      (Sup l a b, _) -> do
        check d span book ctx a goal
        check d span book ctx b goal
-@@ -429,17 +690,262 @@ check d span book ctx term goal =
+@@ -429,17 +804,263 @@ check d span book ctx term goal =
                check d span book ctx f $ All xt $ Lam "_" $ \v -> goal
          else do
            verify d span book ctx term goal
@@ -2754,7 +2905,8 @@ index cdd6756..40fc69f 100644
 +            Pth l _ _ -> peel (n - 1) (App l I0)
 +            _         -> Nothing
 +      case peel (ctorDim k - length rs) goal of
-+        Just g | HTy t'' ps <- force book g, t'' == t -> verify d span book ctx (foldl PAp (HCon t c ps as []) rs) goal
++        Just g | HTy t'' ps <- force book g, t'' == t ->
++          recordFill (maybe span id (hconLoc term)) ps `seq` verify d span book ctx (foldl PAp (HCon t c ps as []) rs) goal
 +        _ -> Fail $ TypeMismatch span (formatCtx d book ctx) (format d book (HTy t [])) (format d book goal)
 +    -- the recursor: the motive is constant at the goal
 +    (HRec bs x, _) -> do
@@ -2906,7 +3058,7 @@ index cdd6756..40fc69f 100644
      then Done ()
      else Fail $ TypeMismatch span (formatCtx d book ctx) (format d book goal) (format d book t)
  
-@@ -448,7 +954,7 @@ verify d span book ctx term goal = do
+@@ -448,7 +1069,7 @@ verify d span book ctx term goal = do
  
  -- Check all definitions in a Book
  checkBook :: Book -> Result ()
@@ -2915,7 +3067,7 @@ index cdd6756..40fc69f 100644
    where
      checkDef (name, (_, term, typ)) = do
        check 0 noSpan book (Ctx []) term typ
-@@ -468,3 +974,122 @@ isLamApp (cut -> EnuM _ _ _) = True
+@@ -468,3 +1089,122 @@ isLamApp (cut -> EnuM _ _ _) = True
  isLamApp (cut -> SigM _ _)   = True
  isLamApp (cut -> EqlM _ _)   = True
  isLamApp _                   = False
@@ -4628,7 +4780,7 @@ index a5d92e8..8017fc8 100644
  cut :: Term -> Term
  cut (Loc _ t) = cut t
 diff --git a/src/Core/WHNF.hs b/src/Core/WHNF.hs
-index 953410d..3af8583 100644
+index 953410d..8c63052 100644
 --- a/src/Core/WHNF.hs
 +++ b/src/Core/WHNF.hs
 @@ -6,7 +6,9 @@ module Core.WHNF where
@@ -5531,7 +5683,7 @@ index 953410d..3af8583 100644
  ugly _                   = False
  
  -- Evaluates terms that whnf won't, including:
-@@ -547,3 +1373,327 @@ ieql :: Book -> Term -> Term -> Bool
+@@ -547,3 +1373,337 @@ ieql :: Book -> Term -> Term -> Bool
  ieql book a b = case (termToInt book a, termToInt book b) of
    (Just x, Just y) -> x == y
    _                -> False
@@ -5783,7 +5935,9 @@ index 953410d..3af8583 100644
 +  -- endpoints that do not mention them are exact, endpoints that do stay stuck
 +  let ps' = if null ps && hitArity h > 0 then [ Var ("_p" ++ show i) (-100 - i) | i <- [1 .. hitArity h] ] else ps
 +  ty <- foldM stepArg (ctorType k) (ps' ++ as)
-+  foldM stepItv ty ivs
++  -- the constructor endpoints written in the declaration are bare (@north);
++  -- they are cells of T ps, so they take the same parameters
++  fillHitHeads t ps' <$> foldM stepItv ty ivs
 +  where
 +    stepArg ty x = case whnf Full book ty of
 +      All _ b -> Just (appCod b x)
@@ -5791,6 +5945,14 @@ index 953410d..3af8583 100644
 +    stepItv ty i = case whnf Full book ty of
 +      Pth l _ _ -> Just (App l i)
 +      _         -> Nothing
++
++-- A bare constructor of the HIT t inside a term of that HIT takes the
++-- enclosing parameters.
++fillHitHeads :: Name -> [Term] -> Term -> Term
++fillHitHeads t ps = go where
++  go x = case x of
++    HCon t' c [] as ivs | t' == t -> HCon t' c ps (map go as) (map go ivs)
++    _ -> mapSub go x
 +
 +-- The type of the NEXT field of a constructor, given the parameters and the
 +-- fields before it.
@@ -6442,10 +6604,10 @@ index 0000000..18c963a
 +  op2 XOR = "^"; op2 SHL = "<<"; op2 SHR = ">>"; op2 POW = "*"
 diff --git a/src/Target/HVM4Full.hs b/src/Target/HVM4Full.hs
 new file mode 100644
-index 0000000..cd68a02
+index 0000000..3928f82
 --- /dev/null
 +++ b/src/Target/HVM4Full.hs
-@@ -0,0 +1,578 @@
+@@ -0,0 +1,579 @@
 +{-./../Core/Type.hs-}
 +
 +{-# LANGUAGE ViewPatterns #-}
@@ -6792,13 +6954,14 @@ index 0000000..cd68a02
 +    -- canonical otherwise); the eliminator is the generated @E_T.
 +    HTy t ps       -> "#HT_" ++ hvmName t ++ "{" ++ intercalate ", " (map (go d) ps) ++ "}"
 +    HCon t c ps as ivs -> case derefCtor book c of
-+      -- parameters the term does not carry are erased at runtime (they are
-+      -- only consulted by path constructors whose endpoints mention them)
-+      Just (_, h, k) | ctorDim k == 0 -> "#" ++ hitCtorTag t c ++ "{" ++ intercalate ", " (psOr h ps ++ map (go d) as) ++ "}"
++      -- the checker carried the parameters into the term (Core.Check.elabFills):
++      -- a cell it did not determine is refused, never filled with the empty
++      -- superposition, which annihilated the value under collapse
++      Just (_, h, k) | ctorDim k == 0 -> "#" ++ hitCtorTag t c ++ "{" ++ intercalate ", " (psOr d h ps ++ map (go d) as) ++ "}"
 +      Just (_, h, k) ->
 +        let rest = ctorDim k - length ivs
 +            ns   = [ freshName (d + i) | i <- [0 .. rest - 1] ]
-+            call = "@" ++ hitPathFn t c ++ "(" ++ intercalate ", " (psOr h ps ++ map (go d) (as ++ ivs) ++ ns) ++ ")"
++            call = "@" ++ hitPathFn t c ++ "(" ++ intercalate ", " (psOr d h ps ++ map (go d) (as ++ ivs) ++ ns) ++ ")"
 +        in foldr (\n acc -> "#PLm{λ&" ++ n ++ ". " ++ acc ++ "}") call ns
 +      Nothing -> "&{}"
 +    HEl p bs x     -> case elimOf bs of
@@ -6871,7 +7034,7 @@ index 0000000..cd68a02
 +  ident c = isAlphaNum c || c == '_'
 +
 +  faces d fs = foldr (\(p, u) acc -> "#Cons{#Face{" ++ go d p ++ ", " ++ go d u ++ "}, " ++ acc ++ "}") "#Nil" fs
-+  psOr h ps = if null ps then replicate (hitArity h) "&{}" else map (go 0) ps
++  psOr d h ps = if null ps && hitArity h > 0 then error ("HVM4 full: a constructor of a parametric HIT (" ++ show (hitArity h) ++ " parameters) reached emission without its parameters; the checker determines them from the goal, so this term was not checked") else map (go d) ps
 +  -- which HIT an eliminator is for: read off its branch names (constructor
 +  -- names are unique across the book's HITs)
 +  elimOf bs = case [ (t, h) | (c, _) <- bs, Just (t, h, _) <- [derefCtor book c] ] of

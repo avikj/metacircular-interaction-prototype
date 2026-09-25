@@ -4,7 +4,9 @@
 #   - the root is the checked entry as a typed point (A, a) of Σ(A : Set). A;
 #   - types are emitted cells like any other (Eql, Enum, ua with coherences);
 #   - the fibre law and its coinductive continuation are ordinary Bend
-#     (port/FibreCoalgebra.bend) running through the same emitter.
+#     (port/FibreCoalgebra.bend) running through the same emitter;
+#   - a HIT constructor's parameters are cells: read off the goal by the
+#     checker, carried in the term, computed with, and kept under collapse.
 set -euo pipefail
 export LC_ALL=C.UTF-8 LANG=C.UTF-8
 BEND="${1:-bend}"
@@ -40,6 +42,16 @@ grep -Fqx '@DnegPath = #UaU{#Bool, #Bool, @Dneg, @Dneg, @DnegLnv, @DnegLnv}' "$T
 grep -Fqx '@DColour = #Enum{#Con{#red, #Con{#green, #Nil}}}' "$TMP/p.hvm4"
 grep -Eq '^@Trefl = .*#Eql\{(b[0-9]+u[0-9]+), (b[0-9]+u[0-9]+), \2\}' "$TMP/p.hvm4"
 echo "CELLS OK"
+
+# A HIT constructor's parameters are cells the checker reads off the goal and
+# carries into the term: a declared endpoint that mentions one computes with
+# it (the cylinder of dbl collapses its segment at 3 to 6 at both ends), and a
+# HIT value survives collapse (`-C`), where an erased parameter would have
+# annihilated it.
+run "$HERE/hit_param_endpoint.bend" '#Pair{#Nat{},#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Zer{}}}}}}}}'
+(cd "$HERE" && "$BEND" hit_trunc.bend --to-hvm4-full) > "$TMP/trunc.hvm4" 2>/dev/null
+[ "$("$HVM" "$TMP/trunc.hvm4" -s -C10 2>&1 | head -1 | sed 's/ .*//')" = '#Pair{#HT_PTrunc{#Nat{}},#C_PTrunc_tin{#Nat{},#Suc{#Suc{#Suc{#Zer{}}}}}}' ]
+echo "HIT-PARAMETERS OK"
 
 if "$BEND" "$HERE/gate_mustfail.bend" --to-hvm4-full > "$TMP/gate.hvm4" 2>/dev/null; then
   echo "ill-typed input was emitted" >&2

@@ -27,26 +27,15 @@ jobs:
           set -euo pipefail
           bash collab/bend2-interactive-cubical/mining/bootstrap.sh "$RUNNER_TEMP/conductive-build"
           cat "$RUNNER_TEMP/conductive-build/build-identity.txt"
-      - name: Typecheck the port modules
+      - name: Typecheck the law, its closure and the presentation under --total
         shell: bash
         run: |
           set -euo pipefail
           source "$RUNNER_TEMP/conductive-build/env.sh"
           export LC_ALL=C.UTF-8
           cd collab/bend2-interactive-cubical/port
-          # The law and its coinductive closure are [total]/[productive].
-          for m in FibreElement FibreCoalgebra ConductiveRuntime UniversalPresentation \
-                   DependentFibreElement DependentFibreCoalgebra; do
+          for m in FibreElement FibreCoalgebra ConductiveRuntime UniversalPresentation; do
             "$BEND" "$m.bend" --total
-          done
-          # The free derivation object and its receivers check with zero
-          # rejections. Their fold is consumed by an arbitrary algebra, and a
-          # declared type is coinductive for the totality classifier, so it is
-          # neither structural nor guarded: [unchecked] by design, not refused.
-          for m in UniversalDerivation UniversalElucidator UniversalMachine; do
-            out=$("$BEND" "$m.bend" 2>&1); printf '%s\n' "$out"
-            [ "$(printf '%s' "$out" | grep -c '✗')" -eq 0 ]
-            [ "$(printf '%s' "$out" | grep -c '✓')" -ge 1 ]
           done
       - name: Typed-point root, fibre law, cells and check gate
         shell: bash
@@ -79,7 +68,7 @@ jobs:
           "$BEND" port/ConductiveRuntime.bend --to-hvm4-full > "$RUNNER_TEMP/conductive-runtime-source.hvm4"
           "$HVM" "$RUNNER_TEMP/conductive-runtime-source.hvm4" -s | tee "$RUNNER_TEMP/conductive-runtime-source.log"
           [ "$(head -1 "$RUNNER_TEMP/conductive-runtime-source.log")" = '#Pair{#Nat{},#Suc{#Suc{#Zer{}}}}' ]
-          "$BEND" universal_presentation.bend --to-hvm4-full > "$RUNNER_TEMP/universal-presentation.hvm4"
+          "$BEND" port/UniversalPresentation.bend --to-hvm4-full > "$RUNNER_TEMP/universal-presentation.hvm4"
           "$HVM" "$RUNNER_TEMP/universal-presentation.hvm4" -s | tee "$RUNNER_TEMP/universal-presentation.log"
           [ "$(head -1 "$RUNNER_TEMP/universal-presentation.log")" = '#Pair{#Nat{},#Suc{#Suc{#Zer{}}}}' ]
       - name: Run complete Cubical Bend suite

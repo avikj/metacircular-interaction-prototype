@@ -96,6 +96,10 @@ runs the same checks.
 4. Cells survive: `#UaU{A, B, f, g, gf, fg}` (six), `#Eql{A, x, y}`,
    `#Enum{…}`, `#Num{…}` (`complex_cells_smoke.bend`); `Op1`, `Met`, `F64`,
    `I64` are refused with an error, never emitted as `&{}` or the identity.
+   A HIT constructor carries its parameters (`hit_param_endpoint.bend`
+   computes 6 at both ends, in the checker and on HVM4; `hit_trunc.bend`'s
+   value prints under `-C10`); a constructor without its parameters is
+   refused at emission, and `&{}` never stands for a missing cell.
 5. `port/FibreCoalgebra.bend` and `port/ConductiveRuntime.bend` run through
    the ordinary emitter to `#Pair{#Nat{},#Suc{#Suc{#Zer{}}}}`; no runtime
    definition re-implements `descend`/`observe`/`ascend`.

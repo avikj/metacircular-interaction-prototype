@@ -99,6 +99,26 @@ this emitter (`verify_conductive_entry.sh`). Unary operations, unsolved
 metavariables, and floats are refused rather than miscompiled; `**` is
 `@pow`; a char is its code point.
 
+A HIT constructor is written bare (`@seg{a}`): it carries no parameters, and
+the checker reads them off the goal. They are cells of the checked term, so
+checking is two passes: a silent one records every bare constructor's
+parameters by its source span, the book is elaborated (`Core.Check.elabFills`,
+instantiating binders exactly as `check` does), and the reporting pass runs on
+the elaborated book. A declared endpoint that mentions a parameter
+(`@bot{f(a)}` in the cylinder of `f`) then computes with the actual `f`, in the
+normaliser and on the runtime (`hit_param_endpoint.bend`: 6 at both ends of
+the segment at 3, for `f = dbl`), where before it was an opaque placeholder in
+the one and an empty superposition in the other, which annihilated the whole
+value under collapse. A constructor that reaches emission without its
+parameters is refused, like any other cell the emitter cannot make complete.
+
+One consequence to know: a typed point whose cells include a recursive
+function (a HIT parameterised by `dbl`, or a `main` that is `dbl`) has no
+finite normal form, and `hvm -s`, which normalises fully and expands every
+reference, does not terminate on it; the in-process normaliser prints such a
+reference by name. That is the printer, not the object: observe such a point
+through a map out of it, as the fibre law says, rather than printing the whole.
+
 ## Caveats
 
 - `coe` to a *symbolic* endpoint stays stuck (`@dir` = 2); the runtime
