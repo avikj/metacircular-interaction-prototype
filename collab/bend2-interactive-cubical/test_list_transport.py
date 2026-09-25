@@ -80,15 +80,18 @@ def coe(line: str, value: str, r: str = "#I0", s: str = "#I1") -> str:
 
 
 EXTRA = r"""
+// ua cells carry both coherences (gf, fg) and an enum type its symbols, as
+// the full emitter now emits them; @refl stands for the pointwise refl paths.
 @neg = λ{0: 1; λn. 0}
-@negPath = #UaU{#Bool, #Bool, @neg, @neg}
+@refl = λ&x. #PLm{λi. x}
+@negPath = #UaU{#Bool, #Bool, @neg, @neg, @refl, @refl}
 @negLine = λi. #List{@pathAt(@negPath, i)}
 @idLine = λi. #List{#Bool}
 @nestedLine = λi. #List{#List{@pathAt(@negPath, i)}}
 @inverseLine = λi. #List{@pathAt(@negPath, @inot(i))}
 @doublePath = #CompU{λi. @pathAt(@negPath, i), λi. @pathAt(@negPath, i)}
 @doubleLine = λi. #List{@pathAt(@doublePath, i)}
-@rename = #UaU{#Bool, #Enum, λ{0: #Off; λn. #On}, λ{#Off: 0; #On: 1}}
+@rename = #UaU{#Bool, #Enum{#Con{#Off, #Con{#On, #Nil}}}, λ{0: #Off; λn. #On}, λ{#Off: 0; #On: 1}, @refl, @refl}
 @renameLine = λi. #List{@pathAt(@rename, i)}
 @head = λ{#Con: λh. λt. h; #Nil: 0}
 @loop = @loop
@@ -98,7 +101,8 @@ EXTRA = r"""
 @applyTrue = λ{#Nil: #Nil; #Con: λf. λtail. #Con{f(1), @applyTrue(tail)}}
 @cycle3 = λ{#Red: #Green; #Green: #Blue; #Blue: #Red}
 @uncycle3 = λ{#Red: #Blue; #Green: #Red; #Blue: #Green}
-@cyclePath = #UaU{#Enum, #Enum, @cycle3, @uncycle3}
+@cyclePath = #UaU{@colours, @colours, @cycle3, @uncycle3, @refl, @refl}
+@colours = #Enum{#Con{#Red, #Con{#Green, #Con{#Blue, #Nil}}}}
 @cycleLine = λi. #List{@pathAt(@cyclePath, i)}
 """
 

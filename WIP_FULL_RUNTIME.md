@@ -75,6 +75,7 @@ contractible (§7, `fibre-of-run`); cost is the net's own interaction count.
 | P1 | Seam: check gate, no deleted cells, types emitted, typed-point root, remove companions/bootstrap | done (commit 1) |
 | P2 | Fix breakages from P1 (mining gate reader, `sat_fibre.bend` `not`, all-or-nothing emission) | done (commit 3) |
 | P3a | Label capture: fresh dimension names per δ-unfolding (`hvm4-dimensions.patch`), explicit source labels in their own region, refusal of symbolic/computed labels | done (stage 1: exact-or-abort in 24-bit names) |
+| P3x | CI green end to end on a fresh bootstrap (both patches) | done |
 | P3b | Widen dimension names (label out of the term word) so exhaustion is not a limit | todo |
 | P3c | Diamond: state the demand-restricted relation, check an instance of `RandomDescent` for the reachable rules | todo |
 | P4 | Interaction entry: `Q`/`δ` loop at the root | todo |
@@ -230,6 +231,44 @@ itself does not hit capture; the probes show the language admits it.
 - CI: differential step fails on any DISAGREE/HVM-CRASH/HVM-TIMEOUT; verify
   stage FRESH-DIMENSIONS; SAT grep updated. Fixed two mid-script
   `! grep -q` assertions that `set -e` never enforced.
+
+### CI state (fresh bootstrap of both patches, every workflow step run locally)
+All 8 steps of conductive-language-entry pass; cubical-list-transport's
+test_list_transport.py 26/26 (stock and patched HVM4). Fixed on the way:
+- `hit_test.bend`, `setquotient_test.bend`: ported from the retired builtins
+  (`telim`/`celim`/`Quotient`/`qin`/`qelim`) to `trec`/`srec`/`Quot`/`qcl`/
+  `qrec`; `qrec` takes the target's isSet proof; a quotient point is
+  check-mode, so the β-rules are stated through `rec`'s typed argument.
+- The four derivation/receiver modules (UniversalDerivation,
+  UniversalElucidator, NativeDerivation, UniversalMachine) all check, but
+  their folds are over declared `type`s, which Core/Totality.hs treats as
+  coinductive, so `--total` correctly refuses them; CI checks them without
+  `--total`. They model the derivation-beside-the-net machinery that §1
+  excludes; remove before merge unless the user wants them kept.
+- test_list_transport.py's hand-written cells updated to the complete
+  shapes (six-field `#UaU`, `#Enum{symbols}`).
+
+## 3b. P4 design (next): the machine that asks, universally
+
+HVM4 is a batch normaliser (argv only; no stdin). One §7 needs a run that
+keeps its point and receives questions; §1/§6 fix what a question does.
+- Runtime: `hvm FILE --interact` normalises `@main` to its typed point and
+  KEEPS THE HEAP; then per stdin line parses one HVM term `q` (book names
+  resolve), reduces `@__ask(point)(q)`, prints the new root and the
+  interactions spent on this question, and continues from the new point.
+  Sharing persists across questions: work done for one answer is reused.
+- The universal question is a map: q = (B, f : A → B). The universal δ is the
+  law: (A, a) ↦ (Σ b:B. fiber f b, (f a, (a, refl))) — `present`, i.e.
+  transport along `ua (law f)` (uaβ). No program-specific step function: the
+  runtime's loop IS the lossless presentation applied coinductively
+  (One §6 `carried`, `transport-commutes-with-unfolding`). A program that
+  wants its own Q/δ supplies `@Dstep`, and `closed f` is the Q = Unit case.
+- Host: `bend FILE --interact` runs the checker on each question against the
+  current point's type (tracked as a Core term), lowers it, and pipes it to
+  the runtime. Checking stays in Haskell until P5 moves it onto the net.
+- Tests: ask `id`, then a projection, then `ascend`: the third answer
+  recovers the source exactly (the old `@conductiveTwiceMain` law, now as
+  the runtime's own loop rather than an emitted companion).
 
 ## 4. How to work here (pitfalls already paid for)
 

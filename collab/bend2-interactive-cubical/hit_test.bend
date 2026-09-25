@@ -14,14 +14,14 @@ def tunit(A: Set, a: A) -> Trunc(A):
 def tsquash_path(A: Set, x: Trunc(A), y: Trunc(A)) -> Path(Trunc(A), x, y):
   tsquash(x, y)
 
-# recursor into a proposition P (fq : isProp P).
+# recursor into a proposition P (fq : isProp P): trec(x, isProp-proof, map).
 def trec(A: Set, P: Set, fp: A -> P, fq: all u: P. all v: P. Path(P, u, v),
          x: Trunc(A)) -> P:
-  telim(x, fp, fq)
+  trec(x, fq, fp)
 
-# point β-rule: telim(|a|, fp, fq) ≡ fp(a). Witnessed by refl.
+# point β-rule: trec(|a|, fq, fp) ≡ fp(a). Witnessed by refl.
 def trec_beta(A: Set, P: Set, fp: A -> P, fq: all u: P. all v: P. Path(P, u, v),
-              a: A) -> Path(P, telim(tin(a), fp, fq), fp(a)):
+              a: A) -> Path(P, trec(tin(a), fq, fp), fp(a)):
   <i> fp(a)
 
 # ---- Circle S¹ ----
@@ -34,17 +34,17 @@ def circ_loop() -> Path(S1, s1base, s1base):
 
 # recursor into B: s1base ↦ b, s1loop ↦ l.
 def crec(B: Set, b: B, l: Path(B, b, b), x: S1) -> B:
-  celim(x, b, l)
+  srec(x, b, l)
 
-# s1base β-rule: celim(s1base, b, l) ≡ b. Witnessed by refl.
+# s1base β-rule: srec(s1base, b, l) ≡ b. Witnessed by refl.
 def crec_base_beta(B: Set, b: B, l: Path(B, b, b))
-  -> Path(B, celim(s1base, b, l), b):
+  -> Path(B, srec(s1base, b, l), b):
   <i> b
 
-# s1loop β-rule: celim(s1loop @ i, b, l) ≡ l @ i. Its boundary s1base↦b holds by the
+# s1loop β-rule: srec(s1loop @ i, b, l) ≡ l @ i. Its boundary s1base↦b holds by the
 # s1base β-rule.
 def crec_loop_lam(B: Set, b: B, l: Path(B, b, b)) -> Path(B, b, b):
-  <i> celim(s1loop @ i, b, l)
+  <i> srec(s1loop @ i, b, l)
 
 # ...and pushing the recursor through s1loop is definitionally l itself.
 def crec_loop_beta(B: Set, b: B, l: Path(B, b, b))
