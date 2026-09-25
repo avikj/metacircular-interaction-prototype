@@ -62,3 +62,40 @@ echo "REFUSE-NOT-MISCOMPILE OK"
 run "$HERE/probes/label_capture/same_definition_twice.bend" '#Pair{#Nat{},#Suc{#Suc{#Suc{#Suc{#Zer{}}}}}}'
 run "$HERE/probes/label_capture/same_definition_thrice.bend" '#Pair{#Nat{},#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Zer{}}}}}}}}}}}}}}}}}}'
 echo "FRESH-DIMENSIONS OK"
+
+# A type that mentions a recursive call on a bound variable is a finite
+# normal form: a neutral call stays folded (stock normalisation diverges).
+(cd "$HERE" && "$BEND" neutral_type_smoke.bend --to-hvm4-full) > "$TMP/nt.hvm4" 2>/dev/null
+timeout 60 "$HVM" "$TMP/nt.hvm4" -s > "$TMP/nt.out"
+grep -Fq '#Suc{#Suc{@Ddouble(c)}}' "$TMP/nt.out"
+grep -Fq ',#Pair{#Suc{#Suc{#Zer{}}},#PLm{' "$TMP/nt.out"
+echo "NEUTRAL-TYPE OK"
+
+# The machine that asks: the runtime keeps its heap and typed point; asking
+# `double` then `recover` gives (recover p, (p, refl)) with recover p = 3,
+# the source read off the retained coordinate of p = (6, (3, refl)).
+printf 'double\n:type\nrecover\n' | (cd "$HERE" && HVM="$HVM" timeout 120 "$BEND" interact_smoke.bend --interact) > "$TMP/ask.out" 2>/dev/null
+python3 - "$TMP/ask.out" <<'PY'
+import sys
+blocks = open(sys.argv[1]).read().split('- End\n')
+def split(n):
+    assert n.startswith('#Pair{'), n[:40]
+    b, d = n[6:], 0
+    for i, c in enumerate(b):
+        if c in '{(': d += 1
+        elif c in '})': d -= 1
+        elif c == ',' and d == 0: return b[:i], b[i+1:-1]
+root = lambda blk: blk.splitlines()[0].split(';!')[0]
+three = '#Suc{#Suc{#Suc{#Zer{}}}}'
+six = '#Suc{#Suc{#Suc{#Suc{#Suc{#Suc{#Zer{}}}}}}}'
+assert root(blocks[0]) == '#Pair{#Nat{},' + three + '}', blocks[0]
+_, v1 = split(root(blocks[1]))
+b1, w1 = split(v1); a1, _ = split(w1)
+assert (b1, a1) == (six, three), v1
+assert blocks[2].splitlines()[0] == 'Σb:Nat. Σx:Nat. PathP(λ_. Nat,double(x),b)', blocks[2]
+_, v2 = split(root(blocks[3]))
+b2, w2 = split(v2); p, _ = split(w2)
+assert b2 == three, v2
+assert p.startswith('#Pair{' + six + ',#Pair{' + three + ','), p
+PY
+echo "ASK OK"

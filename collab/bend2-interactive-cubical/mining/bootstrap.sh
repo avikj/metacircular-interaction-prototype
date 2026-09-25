@@ -35,8 +35,8 @@ fs.writeFileSync(file,s);
 JS
 # HVM4: fresh dimension names (SUP/DUP labels) per δ-unfolding; see the
 # comment at DIM_LO in the patched src/hvm.c.
-git -C "$WORK/HVM4" apply --check "$HERE/../hvm4-dimensions.patch"
-git -C "$WORK/HVM4" apply "$HERE/../hvm4-dimensions.patch"
+git -C "$WORK/HVM4" apply --check "$HERE/../hvm4-runtime.patch"
+git -C "$WORK/HVM4" apply "$HERE/../hvm4-runtime.patch"
 if [[ -f "$HERE/../hvm3-gcc15.patch" ]]; then
   git -C "$WORK/HVM3" apply --check "$HERE/../hvm3-gcc15.patch"
   git -C "$WORK/HVM3" apply "$HERE/../hvm3-gcc15.patch"
@@ -64,6 +64,6 @@ printf 'export BEND=%q\nexport HVM=%q\n' "$BEND" "$HVM" > "$WORK/env.sh"
 {
   ghc --version; cabal --version; "$CC" --version
   for name in Bend2 HVM3 HVM4; do printf '%s=' "$name"; git -C "$WORK/$name" rev-parse HEAD; done
-  sha256sum "$HERE/../cubical-paths.patch" "$HERE/../hvm4-dimensions.patch" "$BEND" "$HVM"
+  sha256sum "$HERE/../cubical-paths.patch" "$HERE/../hvm4-runtime.patch" "$BEND" "$HVM"
 } > "$WORK/build-identity.txt"
 printf 'Built. Load executables with: source %q\nThen invoke mining/run.sh; native gates remain mandatory.\n' "$WORK/env.sh"

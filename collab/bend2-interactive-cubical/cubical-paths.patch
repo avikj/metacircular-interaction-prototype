@@ -1,5 +1,5 @@
 diff --git a/app/Main.hs b/app/Main.hs
-index e8b579d..d9ddcd4 100644
+index e8b579d..6331b45 100644
 --- a/app/Main.hs
 +++ b/app/Main.hs
 @@ -4,7 +4,7 @@ import Control.Monad (unless)
@@ -7,27 +7,29 @@ index e8b579d..d9ddcd4 100644
  import System.Environment (getArgs)
  import System.Exit (exitFailure)
 -import Core.CLI (processFile, processFileToJS, processFileToHVM, listDependencies)
-+import Core.CLI (processFile, processFileToJS, processFileToHVM, processFileToHVM4, processFileToHVM4Raw, processFileToHVM4Full, processFileTotal, listDependencies)
++import Core.CLI (processFile, processFileToJS, processFileToHVM, processFileToHVM4, processFileToHVM4Raw, processFileToHVM4Full, processFileInteract, processFileTotal, listDependencies)
  
  -- | Show usage information
  showUsage :: IO ()
-@@ -14,6 +14,10 @@ showUsage = do
+@@ -14,6 +14,11 @@ showUsage = do
    putStrLn "Options:"
    putStrLn "  --to-javascript    Compile to JavaScript"
    putStrLn "  --to-hvm           Compile to HVM"
 +  putStrLn "  --to-hvm4          Compile to HVM4 surface"
 +  putStrLn "  --to-hvm4-raw      Compile to HVM4 surface without pre-normalisation"
 +  putStrLn "  --to-hvm4-full     Compile to HVM4 with the full cubical runtime (no erasure)"
++  putStrLn "  --interact         Run as a machine that asks: stdin names maps, answers keep the heap"
 +  putStrLn "  --total            Check, then fail if any definition is [unchecked]"
    putStrLn "  --list-dependencies List all dependencies (recursive)"
  
  -- | Main entry point
-@@ -23,6 +27,11 @@ main = do
+@@ -23,6 +28,12 @@ main = do
    case args of
      [file, "--to-javascript"] | ".bend"    `isSuffixOf` file -> processFileToJS file
      [file, "--to-javascript"] | ".bend.py" `isSuffixOf` file -> processFileToJS file
 +    [file, "--to-hvm4-raw"] | ".bend" `isSuffixOf` file -> processFileToHVM4Raw file
 +    [file, "--to-hvm4-full"] | ".bend" `isSuffixOf` file -> processFileToHVM4Full file
++    [file, "--interact"] | ".bend" `isSuffixOf` file -> processFileInteract file
 +    [file, "--total"] | ".bend" `isSuffixOf` file -> processFileTotal file
 +    [file, "--to-hvm4"] | ".bend"    `isSuffixOf` file -> processFileToHVM4 file
 +    [file, "--to-hvm4"] | ".bend.py" `isSuffixOf` file -> processFileToHVM4 file
@@ -2106,28 +2108,34 @@ index 939a19f..d318a1f 100644
    Sup l a b  -> Sup (binder lv l ctx vars) (binder lv a ctx vars) (binder lv b ctx vars)
    SupM x l f -> SupM (binder lv x ctx vars) (binder lv l ctx vars) (binder lv f ctx vars)
 diff --git a/src/Core/CLI.hs b/src/Core/CLI.hs
-index f94d1ce..23138e7 100644
+index f94d1ce..8754af3 100644
 --- a/src/Core/CLI.hs
 +++ b/src/Core/CLI.hs
-@@ -5,6 +5,10 @@ module Core.CLI
+@@ -5,49 +5,102 @@ module Core.CLI
    , processFile
    , processFileToJS
    , processFileToHVM
 +  , processFileToHVM4
 +  , processFileToHVM4Raw
 +  , processFileToHVM4Full
++  , processFileInteract
 +  , processFileTotal
    , listDependencies
    ) where
  
-@@ -15,39 +19,86 @@ import System.Environment (getArgs)
+ import Control.Monad (unless, forM_)
+ import qualified Data.Map as M
+ import qualified Data.Set as S
+-import System.Environment (getArgs)
++import System.Environment (getArgs, lookupEnv)
  import System.Exit (exitFailure)
- import System.Process (readProcessWithExitCode)
+-import System.Process (readProcessWithExitCode)
++import System.Process (readProcessWithExitCode, createProcess, proc, CreateProcess(..), StdStream(..), waitForProcess)
  import System.Exit (ExitCode(..))
 -import Control.Exception (catch, IOException)
 +import Control.Exception (catch, finally, evaluate, IOException)
 +import GHC.IO.Handle (hDuplicate, hDuplicateTo)
-+import System.IO (stdout, stderr, hFlush)
++import System.IO (stdout, stderr, hFlush, hSetBuffering, BufferMode(..), hGetLine, hPutStrLn, hPutStr, hClose, isEOF, openTempFile)
  
  import Core.Bind
 +import Core.Adjust (hitify)
@@ -2136,7 +2144,8 @@ index f94d1ce..23138e7 100644
  import Core.Deps
 -import Core.Import (autoImport)
 +import Core.Import (autoImport, mergeBooks)
-+import System.Directory (doesFileExist)
++import System.Directory (doesFileExist, getTemporaryDirectory, removeFile)
++import Core.Equal (equal)
  import Core.Parse.Book (doParseBook)
 +import Core.Analysis
 +import qualified Target.HVM4Full as HVM4Full
@@ -2216,7 +2225,7 @@ index f94d1ce..23138e7 100644
    unless success exitFailure
    where
      checkDef book term typ = do
-@@ -59,7 +110,7 @@ checkDefinitions book@(Book defs) = do
+@@ -59,7 +112,7 @@ checkDefinitions book@(Book defs) = do
      checkAll bBook ((name, (_, term, typ)):rest) = do
        case checkDef bBook term typ of
          Done () -> do
@@ -2225,7 +2234,7 @@ index f94d1ce..23138e7 100644
            checkAll bBook rest
          Fail e -> do
            putStrLn $ "\x1b[31m✗ " ++ name ++ "\x1b[0m"
-@@ -67,6 +118,25 @@ checkDefinitions book@(Book defs) = do
+@@ -67,6 +120,25 @@ checkDefinitions book@(Book defs) = do
            _ <- checkAll bBook rest
            return False
  
@@ -2251,7 +2260,7 @@ index f94d1ce..23138e7 100644
  -- | Run the main function from a book
  runMain :: Book -> IO ()
  runMain book = do
-@@ -80,7 +150,7 @@ runMain book = do
+@@ -80,7 +152,7 @@ runMain book = do
            putStrLn $ show e
            exitFailure
          Done typ -> do
@@ -2260,7 +2269,7 @@ index f94d1ce..23138e7 100644
            putStrLn ""
            forM_ results $ \ term -> do
              print term
-@@ -123,6 +193,18 @@ processFileToHVM file = do
+@@ -123,6 +195,18 @@ processFileToHVM file = do
    let hvmCode = HVM.compile book
    putStrLn hvmCode
  
@@ -2279,7 +2288,7 @@ index f94d1ce..23138e7 100644
  -- | List all dependencies of a Bend file (including transitive dependencies)
  listDependencies :: FilePath -> IO ()
  listDependencies file = do
-@@ -135,7 +217,39 @@ listDependencies file = do
+@@ -135,7 +219,97 @@ listDependencies file = do
  
  -- | Collect all refs from a Book
  collectAllRefs :: Book -> S.Set Name
@@ -2320,6 +2329,64 @@ index f94d1ce..23138e7 100644
 +  _ <- evaluate (length prog)
 +  putStrLn prog
 +
++
++-- | A machine that asks (One §7).  The runtime keeps its heap and the current
++-- typed point; each question names a map f : A -> B of the program, checked
++-- here against the point's type, and the answer is the law's step `present`:
++-- (A, a) becomes (Σ b:B. fiber f b, (f a, (a, refl))), whose type is tracked
++-- for the next question.  Input lines: NAME (ask), :type, or EOF.
++processFileInteract :: FilePath -> IO ()
++processFileInteract file = do
++  book@(Book defs _) <- parseFile file
++  hFlush stdout
++  saved <- hDuplicate stdout
++  hDuplicateTo stderr stdout
++  checkDefinitions book `finally` (hFlush stdout >> hDuplicateTo saved stdout)
++  mainTy <- case M.lookup "main" defs of
++    Just (_, _, ty) -> return ty
++    Nothing         -> hPutStrLn stderr "interact: no main" >> exitFailure
++  let prog = HVM4Full.compileFull book
++  _ <- evaluate (length prog)
++  tmp       <- getTemporaryDirectory
++  (path, h) <- openTempFile tmp "interact.hvm4"
++  hPutStr h prog >> hClose h
++  hvm <- maybe "hvm" id <$> lookupEnv "HVM"
++  (Just hin, Just hout, _, ph) <-
++    createProcess (proc hvm [path, "--interact"]) { std_in = CreatePipe, std_out = CreatePipe }
++  hSetBuffering hin LineBuffering
++  hSetBuffering stdout LineBuffering
++  let answer = do
++        l <- hGetLine hout
++        putStrLn l
++        unless (l == "- End") answer
++      refuse m = putStrLn ("! " ++ m) >> putStrLn "- End"
++      loop ty = do
++        eof <- isEOF
++        unless eof $ do
++          q <- filter (/= '\r') <$> getLine
++          case words q of
++            []        -> loop ty
++            [":type"] -> putStrLn (show ty) >> putStrLn "- End" >> loop ty
++            [name]    -> case M.lookup name defs of
++              Nothing -> refuse ("no definition " ++ name) >> loop ty
++              Just (_, _, fty) -> case cut (force book fty) of
++                All dom cod ->
++                  let cb = case cut cod of { Lam _ b -> b depMarker ; _ -> App cod depMarker }
++                  in if occursDep cb
++                       then refuse (name ++ " is a dependent map; only non-dependent maps are asked yet") >> loop ty
++                     else if not (equal 0 book dom ty)
++                       then refuse (name ++ " expects " ++ show dom ++ ", the point has type " ++ show ty) >> loop ty
++                     else do
++                       hPutStrLn hin ("λ&pt. @present(@" ++ HVM4Full.defName name ++ ", " ++ HVM4Full.emitFull book cb ++ ", pt)")
++                       answer
++                       loop (Sig cb (Lam "b" (\b -> Sig ty (Lam "x" (\x -> Pth (Lam "_" (\_ -> cb)) (App (Ref name) x) b)))))
++                _ -> refuse (name ++ " is not a map") >> loop ty
++            _ -> refuse "usage: NAME | :type" >> loop ty
++  answer
++  loop mainTy
++  hClose hin
++  _ <- waitForProcess ph
++  removeFile path
 diff --git a/src/Core/Check.hs b/src/Core/Check.hs
 index cdd6756..40fc69f 100644
 --- a/src/Core/Check.hs
@@ -6452,10 +6519,10 @@ index 0000000..18c963a
 +  op2 XOR = "^"; op2 SHL = "<<"; op2 SHR = ">>"; op2 POW = "*"
 diff --git a/src/Target/HVM4Full.hs b/src/Target/HVM4Full.hs
 new file mode 100644
-index 0000000..c516ec2
+index 0000000..9c4023b
 --- /dev/null
 +++ b/src/Target/HVM4Full.hs
-@@ -0,0 +1,584 @@
+@@ -0,0 +1,587 @@
 +{-./../Core/Type.hs-}
 +
 +{-# LANGUAGE ViewPatterns #-}
@@ -6519,6 +6586,9 @@ index 0000000..c516ec2
 +prelude :: String
 +prelude = unlines
 +  [ "// Bend2 -> HVM4 FULL RUNTIME (no erasure, no pre-normalisation)"
++  , "// ---- the law as the runtime's step (One §1 `present`): a typed point"
++  , "// (A, a) asked a map f : A -> B becomes (Σ b:B. fiber f b, (f a, (a, refl)))"
++  , "@present = λ&f. λ&B. λpt. (λ{#Pair: λA. λ&a. #Pair{#Sig{B, λb. @fiberT(A, B, f, b)}, #Pair{f(a), #Pair{a, #PLm{λi. f(a)}}}}})(pt)"
 +  , "// ---- numbers: pow by repetition; chars ARE numbers in HVM4"
 +  , "@pow = λ&b. λe. (λ{0: 1; λ&n. (b * @pow(b, (n - 1)))})(e)"
 +  , "@u64ToChar = λx. x"

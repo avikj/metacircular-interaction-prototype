@@ -1,5 +1,5 @@
 diff --git a/src/hvm.c b/src/hvm.c
-index 83a85be..f499a14 100644
+index 83a85be..6af8e5d 100644
 --- a/src/hvm.c
 +++ b/src/hvm.c
 @@ -136,6 +136,8 @@ typedef struct {
@@ -11,7 +11,7 @@ index 83a85be..f499a14 100644
  #define ALO_TM_MASK VAL_MASK
  #define ALO_LS_MASK VAL_MASK
  
-@@ -183,6 +185,18 @@ static int ITRS_ENABLED = 1;
+@@ -183,6 +185,23 @@ static int ITRS_ENABLED = 1;
    } while (0)
  static u32 FRESH = 1;
  
@@ -24,13 +24,18 @@ index 83a85be..f499a14 100644
 +#define DIM_LO 0x100000u   // fresh names: [DIM_LO, DIM_HI)
 +#define DIM_HI 0x800000u   // auto (parse-time) labels start here
 +static u32  DIM_FRESH = DIM_LO;
++
++// Normalisation below a stuck elimination runs without δ: a call on a
++// neutral is already normal, and unfolding it would recurse forever.
++static int  WNF_NO_DELTA = 0;
++#define NORM_NO_DELTA (1ULL << 63)
 +static u32 *BOOK_LAB_LO;
 +static u32 *BOOK_LAB_CNT;
 +
  static int DEBUG          = 0;
  static int SILENT         = 0;
  static int STEPS_ENABLE   = 0;
-@@ -364,21 +378,60 @@ fn Term term_new_nam(u32 nam) {
+@@ -364,21 +383,60 @@ fn Term term_new_nam(u32 nam) {
    return term_new(0, NAM, nam, 0);
  }
  
@@ -100,7 +105,7 @@ index 83a85be..f499a14 100644
  }
  
  fn Term term_new_dry_at(u64 loc, Term fun, Term arg) {
-@@ -1629,10 +1682,11 @@ fn void print_term_go(FILE *f, Term term, u32 depth, PrintState *st) {
+@@ -1629,10 +1687,11 @@ fn void print_term_go(FILE *f, Term term, u32 depth, PrintState *st) {
      }
      case ALO: {
        // ALO prints as @{book_term}, applying ALO substitutions to book vars.
@@ -114,7 +119,7 @@ index 83a85be..f499a14 100644
          tm_loc = term_val(term);
          ls_loc = 0;
        } else {
-@@ -3602,10 +3656,16 @@ fn void parse_def(PState *s) {
+@@ -3602,10 +3661,16 @@ fn void parse_def(PState *s) {
      u32 id = parse_name_ref(s);
      parse_consume(s, "=");
      PARSE_BINDS_LEN = 0;
@@ -131,7 +136,7 @@ index 83a85be..f499a14 100644
      parse_def(s);
      return;
    }
-@@ -3994,9 +4054,9 @@ fn Term wnf_alo_var(u64 ls, u32 len, Term book) {
+@@ -3994,9 +4059,9 @@ fn Term wnf_alo_var(u64 ls, u32 len, Term book) {
  // @{s} n₁
  // ------- ALO-DP1
  // s[n]₁ or n₁ when substitution missing (n is a de Bruijn level)
@@ -143,7 +148,7 @@ index 83a85be..f499a14 100644
    u8  tag  = term_tag(book);
    u8  side = (tag == DP0 || tag == BJ0) ? 0 : 1;
    if (lvl == 0 || lvl > len) {
-@@ -4015,12 +4075,12 @@ fn Term wnf_alo_cop(u64 ls, u32 len, Term book) {
+@@ -4015,12 +4080,12 @@ fn Term wnf_alo_cop(u64 ls, u32 len, Term book) {
  // ------------ ALO-LAM
  // x' ← fresh
  // λx'.@{x',s}f
@@ -159,7 +164,7 @@ index 83a85be..f499a14 100644
    heap_set(bind_loc + 0, alo);
    heap_set(bind_loc + 1, term_new(0, NUM, 0, ls_loc));
    return term_new(0, LAM, lam_ext, bind_loc + 0);
-@@ -4031,19 +4091,22 @@ fn Term wnf_alo_lam(u64 alo_loc, u64 ls_loc, u32 len, Term book) {
+@@ -4031,19 +4096,22 @@ fn Term wnf_alo_lam(u64 alo_loc, u64 ls_loc, u32 len, Term book) {
  // x' ← fresh
  // ! x' &L = @{s} v
  // @{x',s} t
@@ -186,7 +191,7 @@ index 83a85be..f499a14 100644
    u64 loc = term_val(book);
    u8  tag = term_tag(book);
    u32 ext = term_ext(book);
-@@ -4052,9 +4115,14 @@ fn Term wnf_alo_nod(u64 alo_loc, u64 ls_loc, u32 len, Term book) {
+@@ -4052,9 +4120,14 @@ fn Term wnf_alo_nod(u64 alo_loc, u64 ls_loc, u32 len, Term book) {
    if (ari == 0) {
      return book;
    }
@@ -203,11 +208,13 @@ index 83a85be..f499a14 100644
    }
    return term_new_(tag, ext, ari, args);
  }
-@@ -4785,7 +4853,17 @@ __attribute__((hot)) fn Term wnf(Term term) {
+@@ -4784,8 +4857,18 @@ __attribute__((hot)) fn Term wnf(Term term) {
+ 
        case REF: {
          u32 nam = term_ext(next);
-         if (BOOK[nam] != 0) {
+-        if (BOOK[nam] != 0) {
 -          next = term_new_alo(0, 0, BOOK[nam]);
++        if (BOOK[nam] != 0 && !WNF_NO_DELTA) {
 +          u32 cnt = BOOK_LAB_CNT[nam];
 +          u64 dim = 0;
 +          if (cnt != 0) {
@@ -222,7 +229,7 @@ index 83a85be..f499a14 100644
            goto enter;
          }
          whnf = next;
-@@ -4793,11 +4871,13 @@ __attribute__((hot)) fn Term wnf(Term term) {
+@@ -4793,11 +4876,13 @@ __attribute__((hot)) fn Term wnf(Term term) {
        }
  
        case ALO: {
@@ -238,7 +245,7 @@ index 83a85be..f499a14 100644
            alo_loc = 0;
            tm_loc = term_val(next);
            ls_loc = 0;
-@@ -4806,6 +4886,9 @@ __attribute__((hot)) fn Term wnf(Term term) {
+@@ -4806,6 +4891,9 @@ __attribute__((hot)) fn Term wnf(Term term) {
            u64 pair = heap_read(alo_loc);
            ls_loc = (pair >> ALO_TM_BITS) & ALO_LS_MASK;
            tm_loc = pair & ALO_TM_MASK;
@@ -248,7 +255,7 @@ index 83a85be..f499a14 100644
          }
          Term book    = heap_read(tm_loc);
  
-@@ -4819,15 +4902,15 @@ __attribute__((hot)) fn Term wnf(Term term) {
+@@ -4819,15 +4907,15 @@ __attribute__((hot)) fn Term wnf(Term term) {
            case DP1:
            case BJ0:
            case BJ1: {
@@ -267,7 +274,7 @@ index 83a85be..f499a14 100644
              goto enter;
            }
            case APP:
-@@ -4845,7 +4928,7 @@ __attribute__((hot)) fn Term wnf(Term term) {
+@@ -4845,7 +4933,7 @@ __attribute__((hot)) fn Term wnf(Term term) {
            case OR:
            case DSU:
            case DDU: {
@@ -276,7 +283,7 @@ index 83a85be..f499a14 100644
              goto enter;
            }
            case NAM:
-@@ -5557,6 +5640,8 @@ __attribute__((cold, noinline)) fn Term wnf_steps_at(u64 loc) {
+@@ -5557,6 +5645,8 @@ __attribute__((cold, noinline)) fn Term wnf_steps_at(u64 loc) {
  // Initializes runtime globals and evaluator flags.
  fn void runtime_init(int debug, int silent, int steps_enable) {
    BOOK       = calloc(BOOK_CAP, sizeof(u64));
@@ -285,3 +292,189 @@ index 83a85be..f499a14 100644
    HEAP       = NULL;
    TABLE.data = calloc(BOOK_CAP, sizeof(char *));
  
+@@ -5660,6 +5750,7 @@ fn void wnf_set_itrs_enabled(int enabled);
+ // -----------------
+ 
+ // Evaluates one entrypoint and prints output/stats according to cfg.
++fn void runtime_interact(u32 main_id);
+ fn void runtime_eval_main(u32 main_id, const RuntimeEvalCfg *cfg) {
+   RuntimeEvalCfg run = {
+     .do_collapse   = 0,
+@@ -5708,6 +5799,64 @@ fn void runtime_eval_main(u32 main_id, const RuntimeEvalCfg *cfg) {
+   }
+ }
+ 
++// Runtime Interact
++// ----------------
++// A machine that asks (One §7).  The heap persists: @main is normalised to
++// its point once, then every stdin line is parsed as a term q (book names
++// resolve) and the point becomes the normal form of (q point).  Sharing
++// survives across questions, so work done for one answer is reused by the
++// next.  Per question: the new root, the interactions it cost, "- End".
++
++static u32 INTERACT_COUNT = 0;
++
++fn void runtime_interact(u32 main_id) {
++  wnf_set_itrs_enabled(1);
++  u64  before = wnf_itrs_total();
++  Term point  = eval_normalize(term_new_ref(main_id));
++  print_term(point);
++  printf("\n- Itrs: %llu interactions\n- End\n", (unsigned long long)(wnf_itrs_total() - before));
++  fflush(stdout);
++  char  *line = NULL;
++  size_t cap  = 0;
++  ssize_t n;
++  while ((n = getline(&line, &cap, stdin)) > 0) {
++    while (n > 0 && (line[n - 1] == '\n' || line[n - 1] == '\r')) {
++      line[--n] = '\0';
++    }
++    if (n == 0) {
++      continue;
++    }
++    PState ps = {
++      .file = "<question>",
++      .src  = line,
++      .pos  = 0,
++      .len  = (u32)n,
++      .line = 1,
++      .col  = 1
++    };
++    // A parsed term is static (de Bruijn levels); like any definition it
++    // enters the book, with its own auto-label range, and is instantiated
++    // by δ-unfolding (fresh dimension names) when applied.
++    char qname[32];
++    snprintf(qname, sizeof qname, "__question%u", ++INTERACT_COUNT);
++    u32 qid = table_find(qname, (u32)strlen(qname));
++    PARSE_BINDS_LEN = 0;
++    u32  lab_lo = PARSE_FRESH_LAB;
++    Term q      = parse_term(&ps, 0);
++    u64  qloc   = heap_alloc(1);
++    HEAP[qloc]        = q;
++    BOOK[qid]         = qloc;
++    BOOK_LAB_LO[qid]  = lab_lo;
++    BOOK_LAB_CNT[qid] = PARSE_FRESH_LAB - lab_lo;
++    before = wnf_itrs_total();
++    point  = eval_normalize(term_new_app(term_new_ref(qid), point));
++    print_term(point);
++    printf("\n- Itrs: %llu interactions\n- End\n", (unsigned long long)(wnf_itrs_total() - before));
++    fflush(stdout);
++  }
++  free(line);
++}
++
+ // Data
+ // ====
+ 
+@@ -5773,6 +5922,8 @@ fn void uset_clear(Uset *set) {
+ // Output is either SUP/ERA/INC at the root with arbitrary fields, or a term
+ // with no SUP/ERA/INC at any position. ERA propagates upward.
+ 
++fn int stuck_elim_head(Term fun);
++
+ fn Term cnf_at(Term term, u32 depth) {
+   term = wnf(term);
+ 
+@@ -5855,6 +6006,12 @@ fn Term cnf_at(Term term, u32 depth) {
+ 
+       for (u32 i = 0; i < ari; i++) {
+         Term child = heap_read(loc + i);
++        // a stuck elimination's branches are unreached code (see
++        // eval_normalize_go): keep them, collapse the scrutinee only
++        if (i == 0 && term_tag(term) == APP && stuck_elim_head(child)) {
++          children[i] = child;
++          continue;
++        }
+         children[i] = cnf_at(child, depth);
+         if (children[i] != child) {
+           heap_set(loc + i, children[i]);
+@@ -5966,13 +6123,22 @@ fn int eval_normalize_stack_pop(EvalNormalizeStack *stack, u64 *loc) {
+   return 1;
+ }
+ 
+-fn void eval_normalize_go(Uset *seen, EvalNormalizeStack *stack, u64 loc) {
++fn int stuck_elim_head(Term fun) {
++  u8 ft = term_tag(fun);
++  return ft == MAT || ft == SWI || ft == USE;
++}
++
++fn void eval_normalize_go(Uset *seen, EvalNormalizeStack *stack, u64 entry) {
++  u64 mode = entry & NORM_NO_DELTA;
++  u64 loc  = entry & ~NORM_NO_DELTA;
+   for (;;) {
+     if (loc == 0 || !uset_add(seen, loc)) {
+       return;
+     }
+ 
++    WNF_NO_DELTA = mode != 0;
+     Term term = __builtin_expect(STEPS_ENABLE, 0) ? wnf_steps_at(loc) : wnf_at(loc);
++    WNF_NO_DELTA = 0;
+ 
+     u64 tloc = term_val(term);
+     u8  tag  = term_tag(term);
+@@ -5986,8 +6152,18 @@ fn void eval_normalize_go(Uset *seen, EvalNormalizeStack *stack, u64 loc) {
+       return;
+     }
+ 
++    // An elimination stuck on a neutral scrutinee: its branches are normalised
++    // WITHOUT δ.  With δ, a recursive call on a sub-neutral (double(m) under
++    // `match x`) would unfold forever; without it the call stays a neutral,
++    // which is already normal, and every other reduction still happens.
++    if (tag == APP && stuck_elim_head(heap_read(tloc + 0))) {
++      eval_normalize_stack_push(stack, (tloc + 0) | NORM_NO_DELTA);
++      loc = tloc + 1;
++      continue;
++    }
++
+     for (u32 i = ari; i > 1; i--) {
+-      eval_normalize_stack_push(stack, tloc + (i - 1));
++      eval_normalize_stack_push(stack, (tloc + (i - 1)) | mode);
+     }
+     loc = tloc;
+   }
+@@ -6245,6 +6421,7 @@ typedef struct {
+   int step_by_step;
+   int help;
+   int version;
++  int interact;
+   char *file;
+ } CliOpts;
+ 
+@@ -6300,6 +6477,7 @@ fn void cli_print_help(const char *argv0) {
+   cli_print_help_opt("-C", "--collapse[=N]", "Collapse superpositions (limit N)");
+   cli_print_help_opt("-D", "--step-by-step", "Trace each reduction step");
+   cli_print_help_opt("-d", "--debug",        "Enable debug mode");
++  cli_print_help_opt("",   "--interact",     "Keep the heap; apply each stdin term to the current point");
+   cli_print_help_opt("-v", "--version",      "Print version");
+   cli_print_help_opt("-h", "--help",         "Show this help message");
+ 
+@@ -6318,6 +6496,7 @@ fn CliOpts parse_opts(int argc, char **argv) {
+     .step_by_step = 0,
+     .help = 0,
+     .version = 0,
++    .interact = 0,
+     .file = NULL
+   };
+ 
+@@ -6328,6 +6507,8 @@ fn CliOpts parse_opts(int argc, char **argv) {
+       opts.version = 1;
+     } else if (strcmp(argv[i], "-s") == 0 || strcmp(argv[i], "--stats") == 0) {
+       opts.stats = 1;
++    } else if (strcmp(argv[i], "--interact") == 0) {
++      opts.interact = 1;
+     } else if (strcmp(argv[i], "-S") == 0 || strcmp(argv[i], "--silent") == 0) {
+       opts.silent = 1;
+     } else if (strcmp(argv[i], "-D") == 0 || strcmp(argv[i], "--step-by-step") == 0) {
+@@ -6418,6 +6599,13 @@ int main(int argc, char **argv) {
+ 
+   free(src);
+ 
++  if (opts.interact) {
++    runtime_interact(main_id);
++    free(abs_path);
++    runtime_free();
++    return 0;
++  }
++
+   RuntimeEvalCfg eval_cfg = {
+     .do_collapse   = opts.do_collapse,
+     .collapse_limit = opts.collapse_limit,

@@ -74,10 +74,11 @@ contractible (§7, `fibre-of-run`); cost is the net's own interaction count.
 |---|---|---|
 | P1 | Seam: check gate, no deleted cells, types emitted, typed-point root, remove companions/bootstrap | done (commit 1) |
 | P2 | Fix breakages from P1 (mining gate reader, `sat_fibre.bend` `not`, all-or-nothing emission) | done (commit 3) |
-| P3a | Label capture: fresh dimension names per δ-unfolding (`hvm4-dimensions.patch`), explicit source labels in their own region, refusal of symbolic/computed labels | done (stage 1: exact-or-abort in 24-bit names) |
+| P3a | Label capture: fresh dimension names per δ-unfolding (`hvm4-runtime.patch`), explicit source labels in their own region, refusal of symbolic/computed labels | done (stage 1: exact-or-abort in 24-bit names) |
 | P3x | CI green end to end on a fresh bootstrap (both patches) | done |
 | P3b | Widen dimension names (label out of the term word) so exhaustion is not a limit | todo |
 | P3c | Diamond: state the demand-restricted relation, check an instance of `RandomDescent` for the reachable rules | todo |
+| P4 | Machine that asks: `hvm --interact` keeps heap + point; `bend --interact` checks named maps and applies the law (`@present`); neutral calls stay folded under stuck eliminations | done (v1: non-dependent named maps) |
 | P4 | Interaction entry: `Q`/`δ` loop at the root | todo |
 | P5 | Checking on the net (`verify` projection): the checker as a net program | todo |
 | P6 | Delete the Haskell evaluator from the compile path; bootstrap + CI green; delete this file | todo |
@@ -207,7 +208,7 @@ finishes, 11.1M itrs); HVM-CRASH 1 (the triple probe, OOM). So the corpus
 itself does not hit capture; the probes show the language admits it.
 
 ### P3a results
-- `hvm4-dimensions.patch` (applied by bootstrap after the HVM4 clone):
+- `hvm4-runtime.patch` (applied by bootstrap after the HVM4 clone):
   parse records each definition's contiguous auto-label range
   (`BOOK_LAB_LO/CNT`); `case REF` draws a fresh block from
   `[DIM_LO, DIM_HI) = [2^20, 2^23)` and packs `base|lo|cnt` into a dimension
@@ -248,27 +249,36 @@ test_list_transport.py 26/26 (stock and patched HVM4). Fixed on the way:
 - test_list_transport.py's hand-written cells updated to the complete
   shapes (six-field `#UaU`, `#Enum{symbols}`).
 
-## 3b. P4 design (next): the machine that asks, universally
+## 3b. P4 (done, v1): the machine that asks, universally
 
-HVM4 is a batch normaliser (argv only; no stdin). One §7 needs a run that
-keeps its point and receives questions; §1/§6 fix what a question does.
-- Runtime: `hvm FILE --interact` normalises `@main` to its typed point and
-  KEEPS THE HEAP; then per stdin line parses one HVM term `q` (book names
-  resolve), reduces `@__ask(point)(q)`, prints the new root and the
-  interactions spent on this question, and continues from the new point.
-  Sharing persists across questions: work done for one answer is reused.
-- The universal question is a map: q = (B, f : A → B). The universal δ is the
-  law: (A, a) ↦ (Σ b:B. fiber f b, (f a, (a, refl))) — `present`, i.e.
-  transport along `ua (law f)` (uaβ). No program-specific step function: the
-  runtime's loop IS the lossless presentation applied coinductively
-  (One §6 `carried`, `transport-commutes-with-unfolding`). A program that
-  wants its own Q/δ supplies `@Dstep`, and `closed f` is the Q = Unit case.
-- Host: `bend FILE --interact` runs the checker on each question against the
-  current point's type (tracked as a Core term), lowers it, and pipes it to
-  the runtime. Checking stays in Haskell until P5 moves it onto the net.
-- Tests: ask `id`, then a projection, then `ascend`: the third answer
-  recovers the source exactly (the old `@conductiveTwiceMain` law, now as
-  the runtime's own loop rather than an emitted companion).
+- Runtime (`hvm4-runtime.patch`, which now holds all three HVM4 changes):
+  `hvm FILE --interact` normalises `@main` to its typed point and keeps the
+  heap. Each stdin line is parsed as a term, entered into the book like a
+  definition (its own auto-label range, so δ-unfolding gives fresh names),
+  applied to the current point by reference, and normalised. Output per
+  question: root, `- Itrs: N` for this question, `- End`.
+- The law as the step: prelude `@present = λf. λB. λ(A,a). (Σ B (fiber f),
+  (f a, (a, refl)))`, One §1 `present`; iterating it is §6 `carried`.
+- Host: `bend FILE --interact`; input lines `NAME` | `:type`. NAME must be a
+  non-dependent map whose domain is `equal` (Core) to the tracked point type;
+  the tracked type becomes `Σb:B. Σx:A. PathP(λ_.B, f x, b)`. Refusals print
+  `! reason` then `- End`. Dependent maps are refused for now.
+- Test (`interact_smoke.bend`, verify stage ASK): (Nat,3) → ask double →
+  (6,(3,refl)) → ask recover (its declared domain is judged equal to the
+  tracked Σ type) → (3, ((6,(3,refl)), refl)).
+- Found and fixed on the way: stock HVM4 normalisation diverges on any type
+  that mentions a recursive call on a bound variable (goes under the binder,
+  unfolds to a match stuck on the variable, unfolds the recursive call in the
+  branches forever). Now the branches of an elimination stuck on a neutral
+  are normalised WITHOUT δ (flag bit on the normaliser stack; `case REF`
+  honours `WNF_NO_DELTA`), in both `eval_normalize` and `cnf_at`: a call on a
+  neutral stays folded (`@Ddouble(c)`), every other reduction still runs.
+  `neutral_type_smoke.bend` (verify stage NEUTRAL-TYPE): patched 5 itrs,
+  stock times out. Differential after this change: no output or ITRS change
+  anywhere except the two ported files now agreeing.
+- Not yet: dependent maps (the dependent graph Σa.Σb:B(a).Path), questions
+  given as expressions rather than names (needs term parsing in the host),
+  and a readable type display (the runtime prints the type through sharing).
 
 ## 4. How to work here (pitfalls already paid for)
 
