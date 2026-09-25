@@ -1,4 +1,28 @@
-# The kernel, as one algorithm on one data structure
+# pusc: the Parallel Univalent Superposition Computer, written once from the construction
+
+## What this directory is, against everything else in the repository
+
+- `formal/`, `fibre/`, `punaragamana/`: the mathematics, checked in Cubical
+  Agda. The construction this directory implements. Nothing here is proved;
+  every rule below names the checked term it applies.
+- `collab/bend2-interactive-cubical/`: the previous chart. A patch on
+  DKormann/Bend2 (a Haskell checker with a CCHM layer) emitting to HVM4 (a C
+  interaction-calculus runtime) with the cubical reduction transcribed as a
+  prelude. It proved the object runs on an interaction net; its audit
+  (BOTTOM_UP.md, WIP_FULL_RUNTIME.md on the reverted branch) is why this
+  directory exists. Its `.bend` programs are this directory's test suite.
+- `machine/`: the Haskell Natural Machine that drives the Agda corpus
+  (mining, routing, ledgers). Not a runtime for programs.
+- `interactive/`, `research/`, `notes/`, `papers/`, `abstracts/`: readings
+  and results, not code paths.
+
+`pusc/` is the one program: Bend2's surface syntax lowered to cells over
+bound dimension names, reduced by demanded interaction, checked by the same
+reduction, asked questions through free ports, and extended by installing
+proven rules. It replaces both the Haskell checker and the HVM4 runtime for
+this language, and depends on neither.
+
+## The kernel, as one algorithm on one data structure
 
 This file is the program. Each section is written at the precision of the
 code it becomes; the code replaces the pseudocode in place, section by
@@ -319,9 +343,9 @@ execution is one schedule. Test: ITRS invariant across schedules.
 
 ## 11. Files
 
-    kernel/cell.h     the word layout, tags, Name, Frame, Rule
-    kernel/cell.c     §§1–4, 6, 8, 9: heap, frames, descent, reduce, rules, trace
-    kernel/lower.c    §5: Bend2 grammar → BOOK/TBOOK, elaboration, refusals
-    kernel/verify.c   §7
-    kernel/main.c     run | interact | check
-    kernel/test.sh    §10 over collab/bend2-interactive-cubical/*.bend and port/
+    pusc/cell.h       the word layout, tags, Name, Frame, Rule
+    pusc/cell.c       §§1–4, 6, 8, 9: heap, frames, descent, reduce, rules, trace
+    pusc/lower.c      §5: Bend2 grammar → BOOK/TBOOK, elaboration, refusals
+    pusc/verify.c     §7
+    pusc/main.c       run | interact | check
+    pusc/test.sh      §10 over collab/bend2-interactive-cubical/*.bend and port/
