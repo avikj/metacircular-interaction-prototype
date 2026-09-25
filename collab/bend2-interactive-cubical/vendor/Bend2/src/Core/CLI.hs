@@ -273,7 +273,7 @@ processFileCheckNet file checker = do
       -- the prelude's references the checker reads in static code, and the
       -- runtime cells it builds with (in Check.bend's order)
       preIds  = list [ "@@idof(@" ++ f ++ ")" | f <- ["inot", "iand", "ior", "pathAt", "coe", "hcomp", "glueT", "glue", "unglue", "trec", "srec", "pout", "transp", "outS", "qrec", "pow", "u64ToChar", "pbndL"] ]
-      cells   = list ["#CompU{0, 0}", "#UaU{0, 0, 0, 0, 0, 0}", "#PLm{0}", "#Itv", "#I0", "#I1", "#Path{0, 0, 0}", "#Cons{0, 0}", "#Face{0, 0}", "#GFace{0, 0, 0}", "#INot{0}", "#IAnd{0, 0}", "#IOr{0, 0}"]
+      cells   = list ["#CompU{0, 0}", "#UaU{0, 0, 0, 0, 0, 0}", "#PLm{0}", "#Itv", "#I0", "#I1", "#Path{0, 0, 0}", "#Cons{0, 0}", "#Face{0, 0}", "#GFace{0, 0, 0}", "#INot{0}", "#IAnd{0, 0}", "#IOr{0, 0}", "#IVar{0}"]
       prog    = HVM4Full.compileCells merged ++ "@main = @" ++ HVM4Full.defName "Chk/all" ++ "(" ++ table ++ ")(" ++ preIds ++ ")(" ++ cells ++ ")\n"
   _ <- evaluate (length prog)
   putStrLn prog

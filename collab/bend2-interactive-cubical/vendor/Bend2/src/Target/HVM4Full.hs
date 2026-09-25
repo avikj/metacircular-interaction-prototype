@@ -120,6 +120,8 @@ prelude = unlines
   , "@iand = λa. λb. (λ{#I0: λb. #I0; #I1: λb. b; λ&a. λb. (λ{#I0: λa. #I0; #I1: λa. a; λ&b2. λa. @ifromD(@dprod(@itoD(a), @itoD(b2)))})(b)(a)})(a)(b)"
   , "@ior  = λa. λb. (λ{#I1: λb. #I1; #I0: λb. b; λ&a. λb. (λ{#I1: λa. #I1; #I0: λa. a; λ&b2. λa. @ifromD(@dunion(@itoD(a), @itoD(b2)))})(b)(a)})(a)(b)"
   , "@sameEnd = λ{#I0: λ{#I0: 1; λx. 0}; #I1: λ{#I1: 1; λx. 0}; λx. λy. 0}"
+  , "// structural equality of normal forms (conversion is this, after readback)"
+  , "@veql = λa. λb. (a === b)"
   , "// forward direction test: r=I0,s=I1 -> 1 ; r=I1,s=I0 -> 0"
   , "@fwd = λ{#I0: λs. 1; #I1: λs. 0; λr. λs. 0}"
   , "// ---- paths applied to intervals (universe paths are data; value paths are functions)"

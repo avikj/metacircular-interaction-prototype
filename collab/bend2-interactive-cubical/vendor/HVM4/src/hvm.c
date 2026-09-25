@@ -100,6 +100,7 @@ typedef struct {
 #define F_EQL_L       0x44  // (□ === b): val=eql_loc, b at HEAP[eql_loc+1]
 #define F_EQL_R       0x45  // (a === □): val=eql_loc, a stored at HEAP[eql_loc]
 #define F_UPD         0x46  // forcing the coordinate at val: its weak head is written back
+#define F_INCW        0x47  // the ↑ count pending outside a write-back (val = count)
 
 // Operation codes (stored in EXT field of OP2)
 #define OP_ADD 0
@@ -696,12 +697,31 @@ fn Term term_new_uns(Term bod) {
   return term_new(0, UNS, 0, loc);
 }
 
-// INC: ↑x - priority wrapper for collapse ordering
+// INC: ↑ⁿx - priority wrapper for collapse ordering, n wrappers as one node
+// (ext = n - 1): collapse reads ↑ⁿ only through n, so a chain of n
+// wrappers is this one datum, lifted over an elimination in one step
 // fields = [x]
+fn u32 inc_n(Term t) {
+  return term_ext(t) + 1;
+}
+
+fn Term term_new_inc_n(Term x, u64 n) {
+  while (term_tag(x) == INC && !term_sub_get(x)) {
+    n += inc_n(x);
+    x  = heap_read(term_val(x));
+  }
+  while (n > 0) {
+    u64 k   = n > (u64)EXT_MASK + 1 ? (u64)EXT_MASK + 1 : n;
+    u64 loc = heap_alloc(1);
+    heap_set(loc, x);
+    x  = term_new(0, INC, (u32)(k - 1), loc);
+    n -= k;
+  }
+  return x;
+}
+
 fn Term term_new_inc(Term x) {
-  u64 loc = heap_alloc(1);
-  heap_set(loc, x);
-  return term_new(0, INC, 0, loc);
+  return term_new_inc_n(x, 1);
 }
 
 fn Term term_new_num(u32 n) {
@@ -941,9 +961,9 @@ static u32 SYM_BNIL = 0;
 // static book and evaluates types on the same net.  Every primitive takes
 // one argument (several arguments arrive as a Bend tuple), so a primitive
 // never has partial state and can be shared freely.
-enum { P_FRESH, P_CODE, P_IDOF, P_PEEK, P_INST, P_VPEEK, P_VFIELD, P_VAPP, P_CONV, P_TYPEOF, P_VCTR, P_VAL, P_REWRITE, P_TRACE, P_REFLECT, P_COUNT };
+enum { P_NAME, P_CODE, P_IDOF, P_PEEK, P_INST, P_VPEEK, P_VFIELD, P_VAPP, P_CONV, P_TYPEOF, P_VCTR, P_VAL, P_REWRITE, P_TRACE, P_REFLECT, P_VDRY, P_COUNT };
 static const char *PRI_NAME[P_COUNT] = {
-  "fresh", "code", "idof", "peek", "inst", "vpeek", "vfield", "vapp", "conv", "typeof", "vctr", "val", "rewrite", "trace", "reflect"
+  "name", "code", "idof", "peek", "inst", "vpeek", "vfield", "vapp", "conv", "typeof", "vctr", "val", "rewrite", "trace", "reflect", "vdry"
 };
 // Static-only node kinds (STA ext): a type annotation, a log message, a rewrite hint.
 enum { S_ANN, S_LOG, S_RWT, S_COUNT };
@@ -1832,7 +1852,9 @@ fn void print_term_go(FILE *f, Term term, u32 depth, PrintState *st) {
     }
     case INC: {
       u64 loc = term_val(term);
-      fputs("↑", f);
+      for (u32 i = inc_n(term); i > 0; i--) {
+        fputs("↑", f);
+      }
       print_term_at(f, HEAP[loc], depth, st);
       break;
     }
@@ -4358,7 +4380,7 @@ fn Term wnf_app_inc(Term app, Term inc) {
   u64  app_loc = term_val(app);
   u64  inc_loc = term_val(inc);
   heap_set(app_loc + 0, slot_ref(inc_loc));
-  return term_new_inc(term_new(0, APP, 0, app_loc));
+  return term_new_inc_n(term_new(0, APP, 0, app_loc), inc_n(inc));
 }
 
 // (λ{#K:h; m} &L{a,b})
@@ -4426,7 +4448,7 @@ fn Term wnf_app_mat_num(Term mat, Term num) {
 // ↑(λ{...} x)
 fn Term wnf_mat_inc(Term mat, Term inc) {
   ITRS_INC("MAT-INC");
-  return term_new_inc(term_new_app(mat, slot_ref(term_val(inc))));
+  return term_new_inc_n(term_new_app(mat, slot_ref(term_val(inc))), inc_n(inc));
 }
 
 // ! X &L = name
@@ -4785,7 +4807,7 @@ fn Term wnf_op2_num_sup(u32 opr, Term x, Term sup) {
 // ↑(x op y)
 fn Term wnf_op2_inc_x(u32 opr, Term inc, Term y) {
   ITRS_INC("OP2-INC-X");
-  return term_new_inc(term_new_op2(opr, slot_ref(term_val(inc)), y));
+  return term_new_inc_n(term_new_op2(opr, slot_ref(term_val(inc)), y), inc_n(inc));
 }
 
 // (#n op ↑y)
@@ -4793,7 +4815,7 @@ fn Term wnf_op2_inc_x(u32 opr, Term inc, Term y) {
 // ↑(#n op y)
 fn Term wnf_op2_inc_y(u32 opr, Term x, Term inc) {
   ITRS_INC("OP2-INC-Y");
-  return term_new_inc(term_new_op2(opr, x, slot_ref(term_val(inc))));
+  return term_new_inc_n(term_new_op2(opr, x, slot_ref(term_val(inc))), inc_n(inc));
 }
 
 // &(&{}){a, b}
@@ -4835,7 +4857,7 @@ fn Term wnf_dsu_sup(Term lab_sup, Term a, Term b) {
 // ↑(&(x){a, b})
 fn Term wnf_dsu_inc(Term inc, Term a, Term b) {
   ITRS_INC("DSU-INC");
-  return term_new_inc(term_new_dsu(slot_ref(term_val(inc)), a, b));
+  return term_new_inc_n(term_new_dsu(slot_ref(term_val(inc)), a, b), inc_n(inc));
 }
 
 // ! X &(&{}) = v; b
@@ -4881,7 +4903,7 @@ fn Term wnf_ddu_sup(Term lab_sup, Term val, Term bod) {
 // ↑(! X &(x) = v; b)
 fn Term wnf_ddu_inc(Term inc, Term val, Term bod) {
   ITRS_INC("DDU-INC");
-  return term_new_inc(term_new_ddu(slot_ref(term_val(inc)), val, bod));
+  return term_new_inc_n(term_new_ddu(slot_ref(term_val(inc)), val, bod), inc_n(inc));
 }
 
 // (λ{f} &{})
@@ -4922,7 +4944,7 @@ fn Term wnf_use_val(Term use, Term val) {
 // ↑(use x)
 fn Term wnf_use_inc(Term use, Term inc) {
   ITRS_INC("USE-INC");
-  return term_new_inc(term_new_app(use, slot_ref(term_val(inc))));
+  return term_new_inc_n(term_new_app(use, slot_ref(term_val(inc))), inc_n(inc));
 }
 
 // (&{} === b)
@@ -5111,7 +5133,7 @@ fn Term wnf_eql_dry(u64 eql_loc, Term a, Term b) {
 // ↑(a === b)
 fn Term wnf_eql_inc_l(u64 loc, Term inc, Term b) {
   ITRS_INC("EQL-INC-L");
-  return term_new_inc(term_new_eql_at(loc, slot_ref(term_val(inc)), b));
+  return term_new_inc_n(term_new_eql_at(loc, slot_ref(term_val(inc)), b), inc_n(inc));
 }
 
 // (a === ↑b)
@@ -5119,7 +5141,7 @@ fn Term wnf_eql_inc_l(u64 loc, Term inc, Term b) {
 // ↑(a === b)
 fn Term wnf_eql_inc_r(u64 loc, Term a, Term inc) {
   ITRS_INC("EQL-INC-R");
-  return term_new_inc(term_new_eql_at(loc, a, slot_ref(term_val(inc))));
+  return term_new_inc_n(term_new_eql_at(loc, a, slot_ref(term_val(inc))), inc_n(inc));
 }
 
 // (&{} .&. b)
@@ -5168,7 +5190,7 @@ fn Term wnf_and_num(Term num, Term b) {
 fn Term wnf_and_inc(u64 and_loc, Term inc, Term b) {
   ITRS_INC("AND-INC");
   heap_set(and_loc + 0, slot_ref(term_val(inc)));
-  return term_new_inc(term_new(0, AND, 0, and_loc));
+  return term_new_inc_n(term_new(0, AND, 0, and_loc), inc_n(inc));
 }
 
 // (&{} .|. b)
@@ -5216,7 +5238,7 @@ fn Term wnf_or_num(Term num, Term b) {
 // ↑(a | b)
 fn Term wnf_or_inc(u64 loc, Term inc, Term b) {
   ITRS_INC("OR-INC");
-  return term_new_inc(term_new_or_at(loc, slot_ref(term_val(inc)), b));
+  return term_new_inc_n(term_new_or_at(loc, slot_ref(term_val(inc)), b), inc_n(inc));
 }
 
 // ! ${f, v}; t
@@ -5241,12 +5263,17 @@ fn Term wnf_uns(Term uns) {
 //   shared dup expr. MAT/USE add specialized frames when their scrutinee is ready.
 // - Apply: once WHNF is reached, pop frames and dispatch the interaction using
 //   the WHNF result. Frames reuse existing heap nodes to avoid allocations.
-__attribute__((cold, noinline)) static Term wnf_rebuild(Term cur, Term *stack, u32 s_pos, u32 base) {
+__attribute__((cold, noinline)) static Term wnf_rebuild(Term cur, Term *stack, u32 s_pos, u32 base, u64 pend) {
+  cur = pend ? term_new_inc_n(cur, pend) : cur;
   while (s_pos > base) {
     Term frame = stack[--s_pos];
 
     switch (term_tag(frame)) {
       case F_UPD: {
+        break;
+      }
+      case F_INCW: {
+        cur = term_new_inc_n(cur, term_val(frame));
         break;
       }
       case APP: {
@@ -5323,13 +5350,27 @@ static Name PRI_SUP = 0;
 // neutral, or a cell of another shape): the application is then stuck, a
 // neutral itself, exactly as an elimination of a neutral is.
 static int  PRI_STUCK = 0;
+// ↑ met by inspection: the wrapper orders collapse and carries no value, so
+// a primitive reads through it and its result carries it (APP-INC, MAT-INC)
+static u64  PRI_INC = 0;
 
 fn int pri_sup(Term r) {
   return 0;
 }
 
-fn u32 pri_num(Term t) {
+fn Term wnf(Term term);
+
+fn Term pri_wnf(Term t) {
   Term r = wnf(t);
+  while (term_tag(r) == INC) {
+    PRI_INC += inc_n(r);
+    r = wnf(slot_ref(term_val(r)));
+  }
+  return r;
+}
+
+fn u32 pri_num(Term t) {
+  Term r = pri_wnf(t);
   if (pri_sup(r)) {
     return 0;
   }
@@ -5347,7 +5388,7 @@ fn Term pri_pair(Term a, Term b) {
 
 // (a, b) of a Bend tuple, forced to its constructor
 fn void pri_unpair(Term t, Term *a, Term *b) {
-  Term r = wnf(t);
+  Term r = pri_wnf(t);
   if (pri_sup(r)) {
     *a = term_new_era();
     *b = term_new_era();
@@ -5890,29 +5931,36 @@ fn Term pri_fire_go(u32 id, Term arg);
 fn Term pri_fire(u32 id, Term arg) {
   // fresh, val and vapp do not inspect their argument; code and idof read
   // it as a raw static reference
-  if (id == P_FRESH || id == P_VAL || id == P_VAPP || id == P_TRACE || id == P_CODE || id == P_IDOF) {
+  if (id == P_VAL || id == P_VAPP || id == P_TRACE || id == P_CODE || id == P_IDOF) {
     return pri_fire_go(id, arg);
   }
   // outside its domain (a neutral argument, another shape) a primitive is
   // stuck: the application is a neutral. Inspection only reduces the
   // argument (meaning-preserving), so the application keeps it.
   int  savedS = PRI_STUCK;
+  u64  savedI = PRI_INC;
   PRI_STUCK   = 0;
+  PRI_INC     = 0;
   Term keep   = arg;
   Term r      = pri_fire_go(id, arg);
   int  stuck  = PRI_STUCK;
+  u64  incs   = PRI_INC;
   PRI_STUCK   = savedS;
+  PRI_INC     = savedI;
   if (stuck) {
     return term_new_dry(term_new(0, PRI, id, 0), keep);
   }
-  return r;
+  return incs ? term_new_inc_n(r, incs) : r;
 }
 
 fn Term pri_fire_go(u32 id, Term arg) {
   switch (id) {
-    // the generic element of a binder: a fresh neutral
-    case P_FRESH: {
-      return term_new_nam(FRESH++);
+    // the generic element of the binder at level k: the name of that
+    // coordinate (a function of the binder, as every subterm is; the
+    // counter's names carry val 0, a level's name carries its level)
+    case P_NAME: {
+      u32 k = pri_num(arg);
+      return term_new(0, NAM, 0, k);
     }
     // the static book location of a definition (raw reference, not evaluated)
     case P_CODE: {
@@ -5940,7 +5988,7 @@ fn Term pri_fire_go(u32 id, Term arg) {
       u32  cap  = 16, n = 0;
       Term *ks  = malloc(cap * sizeof(Term));
       Term *vs  = malloc(cap * sizeof(Term));
-      Term cur  = wnf(env);
+      Term cur  = pri_wnf(env);
       pri_sup(cur);
       while (term_tag(cur) == C02 && term_ext(cur) == SYM_BCON) {
         if (n == cap) {
@@ -5954,7 +6002,7 @@ fn Term pri_fire_go(u32 id, Term arg) {
         ks[n] = kk;
         vs[n] = vv;
         n++;
-        cur = wnf(heap_read(term_val(cur) + 1));
+        cur = pri_wnf(heap_read(term_val(cur) + 1));
         pri_sup(cur);
       }
       u64 next = 0;
@@ -5974,14 +6022,14 @@ fn Term pri_fire_go(u32 id, Term arg) {
     }
     // an evaluated cell's head: (tag, ext, val)
     case P_VPEEK: {
-      Term r = wnf(arg);
+      Term r = pri_wnf(arg);
       pri_sup(r);
       return pri_triple(r);
     }
     case P_VFIELD: {
       Term v, i;
       pri_unpair(arg, &v, &i);
-      Term r = wnf(v);
+      Term r = pri_wnf(v);
       pri_sup(r);
       u32  k = pri_num(i);
       // a field of a cell (none past its arity); of a neutral it is stuck
@@ -5994,7 +6042,19 @@ fn Term pri_fire_go(u32 id, Term arg) {
       if (k >= (u32)(term_tag(r) - C00)) {
         return term_new_era();
       }
-      return heap_read(term_val(r) + k);
+      return slot_ref(term_val(r) + k);
+    }
+    // the head (0) or argument (1) of a neutral spine; of anything else, &{}
+    case P_VDRY: {
+      Term v, i;
+      pri_unpair(arg, &v, &i);
+      Term r = pri_wnf(v);
+      pri_sup(r);
+      u32  k = pri_num(i);
+      if (term_tag(r) != DRY || k > 1) {
+        return term_new_era();
+      }
+      return slot_ref(term_val(r) + k);
     }
     case P_VAPP: {
       Term f, x;
@@ -6014,7 +6074,7 @@ fn Term pri_fire_go(u32 id, Term arg) {
       u32  nam = pri_num(c);
       Term args[16];
       u32  ari = 0;
-      Term cur = wnf(fs);
+      Term cur = pri_wnf(fs);
       pri_sup(cur);
       while (term_tag(cur) == C02 && term_ext(cur) == SYM_BCON) {
         if (ari == 16) {
@@ -6022,7 +6082,7 @@ fn Term pri_fire_go(u32 id, Term arg) {
           exit(1);
         }
         args[ari++] = heap_read(term_val(cur) + 0);
-        cur = wnf(heap_read(term_val(cur) + 1));
+        cur = pri_wnf(heap_read(term_val(cur) + 1));
         pri_sup(cur);
       }
       return term_new_ctr(nam, ari, args);
@@ -6493,11 +6553,15 @@ __attribute__((hot)) fn Term wnf(Term term) {
   u32  base   = s_pos;
   Term next   = term;
   Term whnf;
+  // ↑ commutes with every evaluation context (E[↑x] = ↑E[x]: APP-INC,
+  // MAT-INC, ...): a wrapper met under frames is carried here and delivered
+  // once, where the context returns (a write-back, or this call's result)
+  u64  pend   = 0;
 
   enter: {
     next = term_sub_set(next, 0);
     if (__builtin_expect(STEPS_ITRS_LIM != 0, 0) && ITRS >= STEPS_ITRS_LIM) {
-      return wnf_rebuild(next, stack, s_pos, base);
+      return wnf_rebuild(next, stack, s_pos, base, pend);
     }
     if (__builtin_expect(DEBUG, 0)) {
       printf("wnf_enter: ");
@@ -6512,6 +6576,10 @@ __attribute__((hot)) fn Term wnf(Term term) {
         if (term_sub_get(cell)) {
           next = term_sub_set(cell, 0);
           if (!term_is_value(next) && term_tag(next) != VAR) {
+            if (pend) {
+              stack[s_pos++] = term_new(0, F_INCW, 0, pend);
+              pend = 0;
+            }
             stack[s_pos++] = term_new(0, F_UPD, 0, loc);
           }
           goto enter;
@@ -6733,9 +6801,20 @@ __attribute__((hot)) fn Term wnf(Term term) {
 
     while (s_pos > base) {
       if (__builtin_expect(STEPS_ITRS_LIM != 0, 0) && ITRS >= STEPS_ITRS_LIM) {
-        return wnf_rebuild(whnf, stack, s_pos, base);
+        return wnf_rebuild(whnf, stack, s_pos, base, pend);
       }
       Term frame = stack[--s_pos];
+
+      if (term_tag(whnf) == INC) {
+        u8 ft = term_tag(frame);
+        if (ft != F_UPD && ft != F_INCW && ft != DP0 && ft != DP1) {
+          ITRS_INC("CTX-INC");
+          pend += inc_n(whnf);
+          stack[s_pos++] = frame;
+          next = slot_ref(term_val(whnf));
+          goto enter;
+        }
+      }
 
       if (term_tag(whnf) == REF && BOOK[term_ext(whnf)] != 0) {
         u8  ft  = term_tag(frame);
@@ -6772,7 +6851,15 @@ __attribute__((hot)) fn Term wnf(Term term) {
       switch (term_tag(frame)) {
         // the coordinate forced: its weak head is the point every reader sees
         case F_UPD: {
+          if (pend) {
+            whnf = term_new_inc_n(whnf, pend);
+            pend = 0;
+          }
           heap_set(term_val(frame), term_sub_set(whnf, 1));
+          continue;
+        }
+        case F_INCW: {
+          pend += term_val(frame);
           continue;
         }
         // -----------------------------------------------------------------------
@@ -7154,6 +7241,15 @@ __attribute__((hot)) fn Term wnf(Term term) {
               u8 a_tag = term_tag(a);
               u8 b_tag = term_tag(whnf);
 
+              // one point: a value compared with itself (the same node) is
+              // refl, with no descent (values are immutable)
+              if (term_sub_set(a, 0) == term_sub_set(whnf, 0) && term_val(a) != 0 &&
+                  (a_tag == LAM || a_tag == MAT || a_tag == SWI || a_tag == USE || a_tag == DRY || (a_tag >= C01 && a_tag <= C16))) {
+                ITRS_INC("EQL-ID");
+                whnf = term_new_num(1);
+                continue;
+              }
+
               // ANY === x or x === ANY
               if (a_tag == ANY || b_tag == ANY) {
                 whnf = wnf_eql_any_r();
@@ -7351,6 +7447,9 @@ __attribute__((hot)) fn Term wnf(Term term) {
     goto enter;
   }
 
+  if (pend) {
+    whnf = term_new_inc_n(whnf, pend);
+  }
   WNF_S_POS = s_pos;
   return whnf;
 }
@@ -7778,7 +7877,7 @@ fn Term cnf_at(Term term, u32 depth) {
       if (body_tag == INC) {
         u64 inc_loc = term_val(body_collapsed);
         heap_set(body_loc, heap_read(inc_loc));
-        return term_new_inc(lam);
+        return term_new_inc_n(lam, inc_n(body_collapsed));
       }
 
       if (body_tag != SUP) {
@@ -8156,10 +8255,12 @@ fn void eval_collapse_process(EvalCollapseQueue *queue, EvalCollapseTask task, u
       case INC: {
         u64 inc_loc = term_val(t);
         before = heap_read(inc_loc);
-        if (key > 0) {
-          key -= 1;
+        for (u32 i = inc_n(t); i > 0 && (key > 0 || credit < COLLAPSE_CREDIT_CAP); i--) {
+          if (key > 0) {
+            key -= 1;
+          }
+          credit += credit < COLLAPSE_CREDIT_CAP;
         }
-        credit += credit < COLLAPSE_CREDIT_CAP;
         continue;
       }
 

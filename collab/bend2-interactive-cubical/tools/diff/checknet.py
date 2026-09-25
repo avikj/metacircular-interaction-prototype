@@ -58,7 +58,8 @@ def net_verdicts(prog, run_out):
     if not root:
         return None
     names = re.findall(r"@@idof\(@D([A-Za-z0-9_]*)\)", root[-1])
-    line = run_out.split("\n")[0]
+    # ↑ is HVM's collapse-ordering wrapper (transparent to the value)
+    line = run_out.split("\n")[0].replace("↑", "")
     # a verdict superposed over the program's own superpositions: equal
     # worlds collapse, different worlds are reported as such (code -1)
     sup = re.compile(r"&[A-Za-z0-9_]*\{(-?\d+),(-?\d+)\}")
