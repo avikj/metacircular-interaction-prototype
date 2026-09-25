@@ -901,9 +901,9 @@ static u32 SYM_BNIL = 0;
 // static book and evaluates types on the same net.  Every primitive takes
 // one argument (several arguments arrive as a Bend tuple), so a primitive
 // never has partial state and can be shared freely.
-enum { P_FRESH, P_CODE, P_IDOF, P_PEEK, P_INST, P_VPEEK, P_VFIELD, P_VAPP, P_CONV, P_TYPEOF, P_COUNT };
+enum { P_FRESH, P_CODE, P_IDOF, P_PEEK, P_INST, P_VPEEK, P_VFIELD, P_VAPP, P_CONV, P_TYPEOF, P_VCTR, P_VAL, P_COUNT };
 static const char *PRI_NAME[P_COUNT] = {
-  "fresh", "code", "idof", "peek", "inst", "vpeek", "vfield", "vapp", "conv", "typeof"
+  "fresh", "code", "idof", "peek", "inst", "vpeek", "vfield", "vapp", "conv", "typeof", "vctr", "val"
 };
 // Static-only node kinds (STA ext): a type annotation, a log message, a rewrite hint.
 enum { S_ANN, S_LOG, S_RWT, S_COUNT };
@@ -4950,6 +4950,119 @@ fn Term pri_raw_ref(Term t) {
   }
 }
 
+// Conversion: equality of two cells, read lazily and jointly (the
+// normaliser's traversal over two terms at once).  Each side is reduced to
+// weak head form; heads must agree; children are compared the same way.  The
+// branches of an elimination stuck on a neutral are compared WITHOUT δ, as
+// they normalise (a call on a neutral is already normal, so two such calls
+// are equal when the same definition meets convertible arguments).  λ is
+// compared under one fresh name, with η against any other head.
+fn Term wnf(Term term);
+fn int  stuck_elim_head(Term fun);
+
+fn Term conv_whnf(Term t, int nd) {
+  int saved = WNF_NO_DELTA;
+  WNF_NO_DELTA = nd;
+  Term r = wnf(t);
+  WNF_NO_DELTA = saved;
+  while (term_tag(r) == INC || term_tag(r) == STA) {
+    Term in = term_tag(r) == INC ? heap_read(term_val(r)) : heap_read(term_val(r) + 1);
+    WNF_NO_DELTA = nd;
+    r = wnf(in);
+    WNF_NO_DELTA = saved;
+  }
+  return r;
+}
+
+fn int conv_go(Term a, Term b, int nd) {
+  a = conv_whnf(a, nd);
+  b = conv_whnf(b, nd);
+  u8 at = term_tag(a);
+  u8 bt = term_tag(b);
+  if (at == LAM || bt == LAM) {
+    Term nam = term_new_nam(FRESH++);
+    Term ab, bb;
+    if (at == LAM) {
+      ab = heap_read(term_val(a));
+      heap_subst_var(term_val(a), nam);
+    } else {
+      ab = term_new_app(a, nam);
+    }
+    if (bt == LAM) {
+      bb = heap_read(term_val(b));
+      heap_subst_var(term_val(b), nam);
+    } else {
+      bb = term_new_app(b, nam);
+    }
+    return conv_go(ab, bb, nd);
+  }
+  switch (at) {
+    case NUM: {
+      return bt == NUM && (u32)term_val(a) == (u32)term_val(b);
+    }
+    case NAM: {
+      return bt == NAM && term_ext(a) == term_ext(b);
+    }
+    case REF: {
+      return bt == REF && term_ext(a) == term_ext(b);
+    }
+    case ERA: {
+      return bt == ERA;
+    }
+    case C00 ... C16: {
+      if (bt != at || term_ext(a) != term_ext(b)) {
+        return 0;
+      }
+      u32 ari = at - C00;
+      for (u32 i = 0; i < ari; i++) {
+        if (!conv_go(heap_read(term_val(a) + i), heap_read(term_val(b) + i), nd)) {
+          return 0;
+        }
+      }
+      return 1;
+    }
+    case SUP: {
+      return bt == SUP && sup_name(a) == sup_name(b)
+          && conv_go(heap_read(term_val(a) + 0), heap_read(term_val(b) + 0), nd)
+          && conv_go(heap_read(term_val(a) + 1), heap_read(term_val(b) + 1), nd);
+    }
+    case MAT:
+    case SWI: {
+      return bt == at && term_ext(a) == term_ext(b)
+          && conv_go(heap_read(term_val(a) + 0), heap_read(term_val(b) + 0), nd)
+          && conv_go(heap_read(term_val(a) + 1), heap_read(term_val(b) + 1), nd);
+    }
+    case USE: {
+      return bt == USE && conv_go(heap_read(term_val(a)), heap_read(term_val(b)), nd);
+    }
+    // a stuck elimination: the eliminator without δ, the scrutinee as is
+    case DRY: {
+      if (bt != DRY) {
+        return 0;
+      }
+      Term af = heap_read(term_val(a) + 0);
+      Term bf = heap_read(term_val(b) + 0);
+      int  fnd = stuck_elim_head(af) ? 1 : nd;
+      return conv_go(af, bf, fnd)
+          && conv_go(heap_read(term_val(a) + 1), heap_read(term_val(b) + 1), nd);
+    }
+    // an application left by a head that did not unfold (no δ)
+    case APP: {
+      return bt == APP
+          && conv_go(heap_read(term_val(a) + 0), heap_read(term_val(b) + 0), nd)
+          && conv_go(heap_read(term_val(a) + 1), heap_read(term_val(b) + 1), nd);
+    }
+    case OP2: {
+      return bt == OP2 && term_ext(a) == term_ext(b)
+          && conv_go(heap_read(term_val(a) + 0), heap_read(term_val(b) + 0), nd)
+          && conv_go(heap_read(term_val(a) + 1), heap_read(term_val(b) + 1), nd);
+    }
+    default: {
+      return 0;
+    }
+  }
+}
+
 fn Term pri_fire(u32 id, Term arg) {
   switch (id) {
     // the generic element of a binder: a fresh neutral
@@ -5031,12 +5144,29 @@ fn Term pri_fire(u32 id, Term arg) {
     case P_CONV: {
       Term a, b;
       pri_unpair(arg, &a, &b);
-      // a decision: force it, and drop the collapse-priority wrappers (↑)
-      Term r = wnf(term_new_eql(a, b));
-      while (term_tag(r) == INC) {
-        r = wnf(heap_read(term_val(r)));
+      return term_new_num(conv_go(a, b, 0));
+    }
+    // a cell of shape (symbol id, fields): the inverse of vpeek/vfield
+    case P_VCTR: {
+      Term c, fs;
+      pri_unpair(arg, &c, &fs);
+      u32  nam = pri_num(c);
+      Term args[16];
+      u32  ari = 0;
+      Term cur = wnf(fs);
+      while (term_tag(cur) == C02 && term_ext(cur) == SYM_BCON) {
+        if (ari == 16) {
+          fprintf(stderr, "RUNTIME_ERROR: vctr takes at most 16 fields\n");
+          exit(1);
+        }
+        args[ari++] = heap_read(term_val(cur) + 0);
+        cur = wnf(heap_read(term_val(cur) + 1));
       }
-      return r;
+      return term_new_ctr(nam, ari, args);
+    }
+    // a value of the checker's own language seen as a cell (the identity)
+    case P_VAL: {
+      return arg;
     }
     // the type cell @T<x> of a definition @D<x>
     case P_TYPEOF: {
@@ -5482,6 +5612,22 @@ __attribute__((hot)) fn Term wnf(Term term) {
               continue;
             }
             // case APP: // !! DO NOT ADD: DP0/DP1 do not interact with APP.
+            // (Except without δ: there an APP in weak head form is a neutral
+            // whose head is a folded reference, not a redex; copying it is
+            // copying a normal form, as the normaliser and conversion need.)
+            case REF: {
+              whnf = wnf_dup_nod(lab, loc, side, whnf);
+              continue;
+            }
+            case APP: {
+              if (WNF_NO_DELTA) {
+                next = wnf_dup_nod(lab, loc, side, whnf);
+                goto enter;
+              }
+              heap_set(loc, whnf);
+              whnf = frame;
+              continue;
+            }
             case DRY:
             case MAT:
             case SWI:

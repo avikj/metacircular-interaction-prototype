@@ -675,7 +675,7 @@ whnfLet lv book v f = whnf lv book (App f v)
 whnfRef :: EvalLevel -> Book -> Name -> Term
 whnfRef lv book k =
   case deref book k of
-    Just (False, term, _) -> whnf lv book term
+    Just (False, term, _) | not (isExternBody term) -> whnf lv book term
     otherwise             -> Ref k
 
 -- Normalizes a fixpoint
@@ -1352,8 +1352,8 @@ force book term =
     Ind t -> force book t
     Frz t -> force book t
     term' -> case fn of
-      Ref k -> case deref book k of
-        Just (_,fn',_) -> force book $ foldl App fn' xs
+      Ref k -> case unfoldRef book k of
+        Just fn'       -> force book $ foldl App fn' xs
         otherwise      -> term'
       _ -> term'
       where (fn,xs) = collectApps term' []

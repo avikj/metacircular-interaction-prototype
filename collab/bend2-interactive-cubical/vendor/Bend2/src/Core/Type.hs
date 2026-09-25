@@ -488,6 +488,20 @@ instance Show Ctx where
 deref :: Book -> Name -> Maybe Defn
 deref (Book defs _) name = M.lookup name defs
 
+-- The body a reference unfolds to (δ). An `extern` definition is a primitive
+-- of the runtime: opaque, a neutral that never unfolds (its body `extern`
+-- carries no content, so unfolding would identify every primitive).
+unfoldRef :: Book -> Name -> Maybe Term
+unfoldRef book name = case deref book name of
+  Just (_, term, _) | not (isExternBody term) -> Just term
+  _                                           -> Nothing
+
+isExternBody :: Term -> Bool
+isExternBody t = case cut t of
+  Lam _ f      -> isExternBody (f (Var "_" 0))
+  Pri EXTERN   -> True
+  _            -> False
+
 cut :: Term -> Term
 cut (Loc _ t) = cut t
 cut (Chk x _) = cut x

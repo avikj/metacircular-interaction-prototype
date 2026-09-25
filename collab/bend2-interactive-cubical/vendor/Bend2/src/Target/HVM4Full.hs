@@ -44,8 +44,18 @@ freshName d = unsafePerformIO $ do
   return ("b" ++ show d ++ "u" ++ show n)
 
 compileFull :: Book -> String
-compileFull book@(Book defs _) =
-  prelude ++ hitPrelude book ++ unlines (concatMap def (M.toList defs)) ++ root
+compileFull book@(Book defs _) = compileCells book ++ root
+  where
+    -- The root is the checked entry as a point of Σ(A : Set). A.
+    root = case M.lookup "main" defs of
+      Just _  -> "@main = #Pair{@" ++ typeName "main" ++ ", @" ++ defName "main" ++ "}\n"
+      Nothing -> ""
+
+-- Every cell of the book (definitions and their types) and the prelude,
+-- without a root.
+compileCells :: Book -> String
+compileCells book@(Book defs _) =
+  prelude ++ hitPrelude book ++ unlines (concatMap def (M.toList defs))
   where
     -- A checked definition is a typed point (A, a): both are cells of the one
     -- complex and both are emitted, by the same emitter.
@@ -66,11 +76,6 @@ compileFull book@(Book defs _) =
           tup  = foldr1 (\a b -> "#Pair{" ++ a ++ ", " ++ b ++ "}") xs
       in if n == 0 then "#X_" ++ escName prim
          else concatMap (\x -> "λ&" ++ x ++ ". ") xs ++ "@@" ++ prim ++ "(" ++ tup ++ ")"
-
-    -- The root is the checked entry as a point of Σ(A : Set). A.
-    root = case M.lookup "main" defs of
-      Just _  -> "@main = #Pair{@" ++ typeName "main" ++ ", @" ++ defName "main" ++ "}\n"
-      Nothing -> ""
 
 prelude :: String
 prelude = unlines
@@ -315,7 +320,7 @@ emitFull book t0 = go 0 t0 where
     SigM x f       -> "λ{#Pair: " ++ go d f ++ "}(" ++ go d x ++ ")"
     EqlM x f       -> "λ{#Refl: " ++ go d f ++ "}(" ++ go d x ++ ")"
     EmpM x         -> "λ{}(" ++ go d x ++ ")"
-    EnuM x cs df   -> branchMatch d x ([("#" ++ sy, 0, b) | (sy,b) <- cs] ++ [("_", -1, df)])
+    EnuM x cs df   -> branchMatch d x ([("#" ++ sy, 0, b) | (sy,b) <- cs] ++ [("_", 1, df)])
     Op2 POW a b    -> "@pow(" ++ go d a ++ ", " ++ go d b ++ ")"
     Op2 o a b      -> "(" ++ go d a ++ " " ++ op2 o ++ " " ++ go d b ++ ")"
     Op1 o _        -> error ("HVM4 full: unary " ++ show o ++ " is type-directed in Core (Bool vs U64) and both share the runtime word; write it as a match or a binary op")
