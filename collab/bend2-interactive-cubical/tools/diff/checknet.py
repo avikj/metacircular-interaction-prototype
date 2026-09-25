@@ -58,7 +58,13 @@ def net_verdicts(prog, run_out):
     if not root:
         return None
     names = re.findall(r"@@idof\(@D([A-Za-z0-9_]*)\)", root[-1])
-    codes = re.findall(r"#Pair\{(\d+),(\d+)\}", run_out.split("\n")[0])
+    line = run_out.split("\n")[0]
+    # a verdict superposed over the program's own superpositions: equal
+    # worlds collapse, different worlds are reported as such (code -1)
+    sup = re.compile(r"&[A-Za-z0-9_]*\{(-?\d+),(-?\d+)\}")
+    while sup.search(line):
+        line = sup.sub(lambda m: m.group(1) if m.group(1) == m.group(2) else "-1", line)
+    codes = re.findall(r"#Pair\{(\d+),(-?\d+)\}", line)
     if len(codes) != len(names):
         return None
     return {unesc(n): int(c) for n, (_, c) in zip(names, codes)}

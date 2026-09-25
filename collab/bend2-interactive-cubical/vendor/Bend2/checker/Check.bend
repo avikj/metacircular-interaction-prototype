@@ -762,26 +762,33 @@ def Chk/check(es: Val[], ctx: Ent[], d: U64, sm: U64[], c: U64, goal: G) -> U64:
         if t === 11:
           0
         else:
-          if (t >= 13) and (t <= 29):
-            Chk/checkCtr(es, ctx, d, sm, c, t - 13, e, v, goal)
+          if t === 5:
+            Chk/then(Chk/check(es, ctx, d, sm, v, goal), Chk/check(es, ctx, d, sm, v + 1, goal))
           else:
-            if t === 30:
-              g = Chk/now(ctx, d, goal)
-              if Chk/is(g, &Num) or (Chk/is(g, &Bool) and (v <= 1)):
-                0
-              else:
-                Chk/verify(es, ctx, d, sm, c, goal)
-            else:
-              if t === 0:
-                Chk/checkApp(es, ctx, d, sm, c, Chk/head(c), Chk/args(c, []), goal)
-              else:
-                if (t === 12) or (t === 31):
-                  1000 + t
-                else:
-                  if (t === 42) or (t === 43) or (t === 44):
-                    Chk/checkVar(es, ctx, d, sm, c, Chk/slot(sm, v), goal)
-                  else:
-                    Chk/verify(es, ctx, d, sm, c, goal)
+            Chk/checkNode(es, ctx, d, sm, c, t, e, v, goal)
+
+# the remaining node kinds of check
+def Chk/checkNode(es: Val[], ctx: Ent[], d: U64, sm: U64[], c: U64, t: U64, e: U64, v: U64, goal: G) -> U64:
+  if (t >= 13) and (t <= 29):
+    Chk/checkCtr(es, ctx, d, sm, c, t - 13, e, v, goal)
+  else:
+    if t === 30:
+      g = Chk/now(ctx, d, goal)
+      if Chk/is(g, &Num) or (Chk/is(g, &Bool) and (v <= 1)):
+        0
+      else:
+        Chk/verify(es, ctx, d, sm, c, goal)
+    else:
+      if t === 0:
+        Chk/checkApp(es, ctx, d, sm, c, Chk/head(c), Chk/args(c, []), goal)
+      else:
+        if (t === 12) or (t === 31):
+          1000 + t
+        else:
+          if (t === 42) or (t === 43) or (t === 44):
+            Chk/checkVar(es, ctx, d, sm, c, Chk/slot(sm, v), goal)
+          else:
+            Chk/verify(es, ctx, d, sm, c, goal)
 
 # a variable bound to code (a let, a dup of code) is that code: it is
 # checked where it is used (Core substitutes the let)
