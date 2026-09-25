@@ -477,6 +477,36 @@ flaw, never justifies a design choice.
   counted once). Rules that reuse storage of a value with other readers
   allocate instead.
 
+### 3f results (implemented in vendor/HVM4/src/hvm.c)
+- Book λs instantiate to CLOSURES [code, frame, depth, dim]; β = `clo_open`
+  (a new frame entry; the λ is untouched). λ-bound variables have no
+  auto-dups (parser); the prelude's anonymous `! &{a,b} = v` copies became
+  plain lets. Remaining dups/superpositions are genuine dimensions.
+- Coordinates: every computation lives at one slot; `slot_ref` hands out
+  VAR(slot); forcing a VAR pushes F_UPD and writes the weak head back. Rules
+  never mutate a value node (children read through `slot_ref`).
+- A reference is a NAME (a value). Its content is one global coordinate
+  (`REF_CELL`, forced once). It is opened by an application whose case tree
+  fires, or by a consumer that reads content; a stuck or partial call is a
+  DRY spine headed by the name, re-walked when it receives more arguments,
+  and copied as a chain (`dry_copy`).
+- A closure taken on a side of a dimension (DUP-LAM) projects its frame
+  entries and carries the face in its dim word (`dim_with_face`), so its
+  code's own superpositions of that name resolve to the side (DUP-SUP).
+- Descent (`book_descent`): per definition, every maximal working subterm
+  independent of a λ's binder is bound (LAM_LET, not an interaction) just
+  outside that λ; closed ones at the top of the definition. The case-tree
+  walk follows let-bound code in head position.
+- Evidence: cap4.bend 4 (was a crash); runtime differential 126 AGREE,
+  0 DISAGREE/CRASH, every other class identical to before; verify all
+  stages; list transport 26/26; values of all 237 emitted programs equal to
+  the pre-change binary except cap4 (fixed) and conductive_dependent_map
+  (dup garbage gone).
+- Open: a case tree scrutinising computed code (e.g. the prelude's
+  `(λ{#I1: …})(@allEq(base, fs))`) is decided by firing; the walk must
+  become the δι-step itself (real frame entries, the computed scrutinee a
+  shared coordinate), so a neutral one stays the call.
+
 ## 4. How to work here (pitfalls already paid for)
 
 - SOURCE: the compiler and runtime are vendored as ordinary source:
