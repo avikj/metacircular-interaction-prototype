@@ -378,20 +378,26 @@ the capture defect.
 Nothing in this list is open. Each item was inherited as a question from the
 reverted branch and is a theorem of the construction or a measurement.
 
-- The one-step diamond. It is Lafont's strong confluence: a rule fires only
-  at an active pair, two distinct active pairs are disjoint, and an eraser
-  consumes a node only through its principal port, so a node engaged in a
-  redex fires before it can be erased. Erased work is done and then erased,
-  every complete reduction has the same length, and `RandomDescent`'s
-  hypothesis holds for the kernel by its definition. What made it look open
-  was HVM4: `AND-ZER` and `OR-ONE` discard a non-principal operand with no
-  eraser touching it, and the garbage is collected uncounted. That is where
-  HVM4 stops being an interaction net, and it is what §4 forbids anyway:
-  cost lives in the retained trace, so an erasure costs the size of what it
-  erases. In the kernel erase is an agent and is counted. Demand does not
-  enter: a lazy evaluator that never fires inside a discarded operand
-  computes an incomplete reduction, a different target, not a broken
-  diamond.
+- The one-step diamond. Take `and(x, y)` with `x` reducing to `0`. HVM4's
+  AND-ZER returns `0` and forgets `y`; nothing about `y` is counted. Under a
+  relation where any redex may fire, that breaks the diamond: reduce `y`
+  first and the count is `k + 1`, fire AND-ZER first and it is `1`, so the
+  count is a fact about the strategy (`REDUCTION_FOUNDATIONS`). Making
+  erasure an agent that reduces and then erases `y` on every route would
+  restore the diamond but contradicts §7: nothing asked for `y`. The
+  construction's answer is retention. The completion of `and(0, y)` is
+  `(0, y, refl)`; `y` is the fibre, retained at no cost (§1, a singleton
+  contraction), not evaluated (§7, nothing demands it), and erased only when
+  a consumer projects the visible result and forgets the fibre, where that
+  erasure is the one counted loss (§4). HVM4 is right about what to evaluate
+  and wrong about what to keep: it reports `1` and has destroyed `y`. The
+  kernel's step relation is demand-restricted, as §7 states it: a redex
+  fires only when asked. Two demanded redexes are disjoint active pairs, and
+  since nothing is ever dropped mid-run no step removes a demand already
+  made, so the diamond holds for this relation and every schedule reaches
+  the demanded normal form in the same number of interactions. That number
+  is the program's cost. Erase remains the one address of loss, charged at
+  the projection, never inside the run.
 - A face on a frame meeting a superposed tube: a match commutes over a
   superposition and the same-name dup annihilates. The rule already exists
   and needs no case.
