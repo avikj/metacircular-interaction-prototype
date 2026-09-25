@@ -502,10 +502,17 @@ flaw, never justifies a design choice.
   stages; list transport 26/26; values of all 237 emitted programs equal to
   the pre-change binary except cap4 (fixed) and conductive_dependent_map
   (dup garbage gone).
-- Open: a case tree scrutinising computed code (e.g. the prelude's
-  `(λ{#I1: …})(@allEq(base, fs))`) is decided by firing; the walk must
-  become the δι-step itself (real frame entries, the computed scrutinee a
-  shared coordinate), so a neutral one stays the call.
+- A call is one δι-step and the walk IS the step (`ct_exec`): it binds each
+  argument in a frame entry, forces scrutinees in place (a computed
+  scrutinee is a frame coordinate, forced once), follows the definition's
+  own descent lets, and on reaching a leaf continues with the frame it
+  built; interactions are counted exactly as the unfolding counted them. A
+  neutral scrutinee (unbound variable, name, stuck match) or running out of
+  arguments leaves the call normal. A head that is not the definition's own
+  code (an argument, a partial call) is a leaf.
+- Open: when a call is judged normal, the coordinates the walk created for
+  computed scrutinees are dropped; a later re-walk of the same spine (more
+  arguments) forces them again. Keep them on the spine.
 
 ## 4. How to work here (pitfalls already paid for)
 

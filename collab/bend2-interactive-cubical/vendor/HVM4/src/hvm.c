@@ -6036,189 +6036,273 @@ fn Term pri_fire_go(u32 id, Term arg) {
   return term_new_era();
 }
 
-// Atomic case trees (definitional equality of definitions by matching)
-// --------------------------------------------------------------------
-// A call `@f(a1..an)` is one δι-step: it fires iff the static case tree of f
-// reaches a leaf under these arguments.  If a scrutinee on the path is
-// neutral, the call itself is the normal form (a DRY spine headed by the
-// reference), never a half-unfolded tree: that keeps normal forms finite on
-// open terms and canonical, so conversion is `===` on them.  The walk reads
-// the static book term; every scrutinee it forces is forced in place (the
-// unfolding would force it anyway), and nothing is allocated.
-typedef struct { u64 loc; Term imm; u8 k; u32 elen; } CtVal;  // k: 0 heap loc, 1 immediate, 2 opaque, 3 static code over env[0..elen)
+// A call is one δι-step
+// ----------------------
+// `@f(a1..an)` steps iff the case tree of f reaches a leaf under these
+// arguments; the walk down the tree IS the step: it binds each argument in a
+// frame entry (β), forces each scrutinee in place and takes the branch
+// (ι), so a computed scrutinee is a coordinate of the frame, forced once.
+// Reaching a leaf, the reduct is the leaf's code over the frame built.  If a
+// scrutinee on the path is neutral, or the arguments run out before the
+// tree does, the call is normal: a spine headed by the name.  Normal forms
+// of open terms are then finite and canonical, and conversion is `===`.
 #define CT_MAX 4096
 
 fn Term wnf_at(u64 loc);
+fn Term ref_cell_var(u32 nam);
 
-fn CtVal ct_static_val(Term t, CtVal *env, u32 len) {
-  u8 tag = term_tag(t);
-  if (tag == BJV || tag == BJ0 || tag == BJ1) {
-    u32 lvl = (u32)term_val(t);
-    if (lvl >= 1 && lvl <= len) {
-      return env[lvl - 1];
-    }
-  }
-  if (tag == NUM || tag == C00) {
-    return (CtVal){0, t, 1, 0};
-  }
-  // code bound by a frame entry (a descent binding): followed when it is
-  // the head of the call's continuation
-  return (CtVal){0, t, 3, len};
-}
+static u64 *CT_POOL = NULL;
+static u64  CT_TOP  = 0;
+static u32  WNF_KEEP_REF = 0xFFFFFFFFu;   // the stack base of a forcing whose name stays a name
+#define CT_POOL_LEN (1ULL << 26)
 
 fn void ct_overflow(void) {
   fprintf(stderr, "\033[1;31mRUNTIME_ERROR\033[0m\n- case tree deeper than %d; refusing to decide a call approximately\n", CT_MAX);
   exit(1);
 }
 
-// make room for n values in front of the unconsumed spine spn[*sp..*sn)
-fn void ct_prepend(CtVal *spn, u32 *sp, u32 *sn, u32 n) {
+// the frame entry of level lvl
+fn u64 ct_entry(u64 ls, u32 len, u32 lvl) {
+  u64 it = ls;
+  for (u32 i = 0; i < len - lvl && it != 0; i++) {
+    it = term_val(heap_read(it + 1));
+  }
+  return it;
+}
+
+// a new frame entry holding the coordinate at `cell`
+fn u64 ct_bind(u64 ls, u64 cell) {
+  u64 e = heap_alloc(2);
+  heap_set(e + 0, term_sub_set(slot_ref(cell), 1));
+  heap_set(e + 1, term_new(0, NUM, 0, ls));
+  return e;
+}
+
+// the coordinate of a static argument: a variable's entry, or a new cell
+// holding the code over the frame
+fn u64 ct_static(u64 arg_loc, u64 ls, u32 len, u64 dim) {
+  Term a = term_sub_set(heap_read(arg_loc), 0);
+  if (term_tag(a) == BJV) {
+    u32 lvl = (u32)term_val(a);
+    if (lvl >= 1 && lvl <= len) {
+      return ct_entry(ls, len, lvl);
+    }
+  }
+  u64 c = heap_alloc(1);
+  heap_set(c, term_sub_set(term_new_alo_dim(ls, len, arg_loc, dim), 1));
+  return c;
+}
+
+fn void ct_prepend(u64 *spn, u32 *sp, u32 *sn, u32 n) {
   if (*sp >= n) {
     *sp -= n;
     return;
   }
   u32 rest = *sn - *sp;
   if (n + rest > CT_MAX) ct_overflow();
-  memmove(spn + n, spn + *sp, rest * sizeof(CtVal));
+  memmove(spn + n, spn + *sp, rest * sizeof(u64));
   *sp = 0;
   *sn = n + rest;
 }
 
-// 1: the call fires; 0: it is stuck on a neutral (a normal form)
-static CtVal *CT_POOL = NULL;
-static u64    CT_TOP  = 0;
-#define CT_POOL_LEN (1ULL << 27)
-
-fn int ct_fires(u32 nam, u64 *pre, u32 npre, Term *stack, u32 s_pos, u32 base) {
+// 1: the call steps; *out is its reduct, *nframes the frames it consumed.
+// 0: the call is normal.
+fn int ct_exec(u32 nam, u64 *pre, u32 npre, Term *stack, u32 s_pos, u32 base, Term *out, u32 *nframes) {
   if (CT_POOL == NULL) {
-    CT_POOL = (CtVal *)sys_mmap_anon(CT_POOL_LEN * sizeof(CtVal));
+    CT_POOL = (u64 *)sys_mmap_anon(CT_POOL_LEN * sizeof(u64));
     if (CT_POOL == NULL) {
       fprintf(stderr, "case tree pool: mmap failed\n");
       exit(1);
     }
   }
   if (CT_TOP + 2 * CT_MAX > CT_POOL_LEN) ct_overflow();
-  CtVal *env = CT_POOL + CT_TOP;
-  CtVal *spn = env + CT_MAX;
+  u64 *spn = CT_POOL + CT_TOP;
+  u64 *own = spn + CT_MAX;       // entries bound by this definition's own descent lets
+  u32  no  = 0;
   CT_TOP += 2 * CT_MAX;
-  u32 len = 0, sp = 0, sn = 0;
-  // the call's own spine: innermost APP frame first
+  u32 sp = 0, sn = 0, nf = 0;
   for (u32 i = 0; i < npre; i++) {
-    spn[sn++] = (CtVal){pre[i], 0, 0};
+    spn[sn++] = pre[i];
   }
   for (u32 i = s_pos; i > base && term_tag(stack[i - 1]) == APP; i--) {
     if (sn >= CT_MAX) ct_overflow();
-    spn[sn++] = (CtVal){term_val(stack[i - 1]) + 1, 0, 0};
+    spn[sn++] = term_val(stack[i - 1]) + 1;
+    nf++;
   }
-  Term t = heap_read(BOOK[nam]);
-  int res = 1;
+  u64 n_lam = 0, n_hit = 0, n_mis = 0, n_num_hit = 0, n_num_mis = 0, n_use = 0;
+  int res = 0;
+  u64 tl = 0, ls = 0, dim = 0;
+  u32 len = 0;
+  Term clo;
+
+  // the definition's coordinate
+  Term cv = ref_cell_var(nam);
+  {
+    u32 saved = WNF_S_POS;
+    clo = wnf_at(term_val(cv));
+    WNF_S_POS = saved;
+  }
+  if (!(term_tag(clo) == LAM && (term_ext(clo) & LAM_CLO_MASK))) {
+    Term r = cv;
+    for (u32 i = sp; i < sn; i++) r = term_new_app(r, slot_ref(spn[i]));
+    *out = r;
+    res = 1;
+    goto done;
+  }
+
+enter_clo: {
+    // β on the closure `clo`
+    if (sp >= sn) { res = 0; goto done; }
+    u64 c = term_val(clo);
+    if (!(term_ext(clo) & LAM_LET_MASK)) n_lam++;
+    tl  = heap_read(c + 0);
+    ls  = ct_bind(heap_read(c + 1), spn[sp++]);
+    if ((term_ext(clo) & LAM_LET_MASK) && no < CT_MAX) own[no++] = ls;
+    len = (u32)heap_read(c + 2) + 1;
+    dim = heap_read(c + 3);
+  }
+
   for (;;) {
+    Term t = term_sub_set(heap_read(tl), 0);
     switch (term_tag(t)) {
       case LAM: {
-        if (sp >= sn) { res = 0; goto done; }        // partial: the call is not yet one step
-        if (len >= CT_MAX) ct_overflow();
-        env[len++] = spn[sp++];
-        t = heap_read(term_val(t));
-        continue;
-      }
-      case DUP: {
-        if (len >= CT_MAX) ct_overflow();
-        env[len] = ct_static_val(heap_read(term_val(t) + 0), env, len);
-        len++;
-        t = heap_read(term_val(t) + 1);
+        if (sp >= sn) { res = 0; goto done; }       // partial: not yet one step
+        if (!(term_ext(t) & LAM_LET_MASK)) n_lam++;
+        ls  = ct_bind(ls, spn[sp++]);
+        len = len + 1;
+        if ((term_ext(t) & LAM_LET_MASK) && no < CT_MAX) own[no++] = ls;
+        tl  = term_val(t);
         continue;
       }
       case STA: {
-        t = heap_read(term_val(t) + 1);
+        tl = term_val(t) + 1;
         continue;
       }
       case APP: {
-        // a static spine h a1..ak: its arguments go in front of the call's
-        Term args[256];
+        u64 args[256];
         u32 k = 0;
-        Term h = t;
-        while (term_tag(h) == APP) {
+        u64 hl = tl;
+        while (term_tag(term_sub_set(heap_read(hl), 0)) == APP) {
           if (k >= 256) ct_overflow();
-          args[k++] = heap_read(term_val(h) + 1);
-          h = heap_read(term_val(h) + 0);
+          u64 al = term_val(heap_read(hl));
+          args[k++] = al + 1;
+          hl = al + 0;
         }
         ct_prepend(spn, &sp, &sn, k);
         for (u32 i = 0; i < k; i++) {
-          spn[sp + i] = ct_static_val(args[k - 1 - i], env, len);
+          spn[sp + i] = ct_static(args[k - 1 - i], ls, len, dim);
         }
-        u8 ht = term_tag(h);
-        if (ht == BJV || ht == BJ0 || ht == BJ1) {
-          CtVal hv = ct_static_val(h, env, len);
-          if (hv.k == 3) {
-            t   = hv.imm;
-            len = hv.elen;
-            continue;
-          }
-        }
-        t = h;
+        tl = hl;
         continue;
+      }
+      case BJV: {
+        u32 lvl = (u32)term_val(t);
+        if (sp >= sn || lvl < 1 || lvl > len) { res = 1; goto fire; }
+        // the head of the continuation is a coordinate of the frame: the
+        // tree continues into it only if it is this definition's own code
+        u64 e = ct_entry(ls, len, lvl);
+        int mine = 0;
+        for (u32 i = 0; i < no; i++) if (own[i] == e) { mine = 1; break; }
+        if (!mine) { res = 1; goto fire; }
+        u32 saved = WNF_S_POS;
+        u32 keep = WNF_KEEP_REF;
+        WNF_KEEP_REF = WNF_S_POS;
+        Term w = wnf_at(e);
+        WNF_KEEP_REF = keep;
+        WNF_S_POS = saved;
+        u8 wt = term_tag(w);
+        if (wt == LAM && (term_ext(w) & LAM_CLO_MASK)) {
+          clo = w;
+          goto enter_clo;
+        }
+        if (wt == DRY) {
+          // a spine headed by a reference is a (partial) call: applying it
+          // is that call's step, a leaf of this tree; any other is stuck
+          Term h = w;
+          while (term_tag(h) == DRY) h = term_sub_set(heap_read(term_val(h)), 0);
+          if (term_tag(h) == REF) { res = 1; goto fire; }
+          res = 0;
+          goto done;
+        }
+        if (wt == NAM || wt == VAR || wt == BJV || wt == BJ0 || wt == BJ1) {
+          res = 0;
+          goto done;
+        }
+        res = 1;
+        goto fire;
       }
       case MAT:
       case SWI:
       case USE: {
-        if (sp >= sn) { res = 0; goto done; }        // partial: the call is not yet one step
-        CtVal v = spn[sp++];
-        if (v.k == 2 || v.k == 3) { res = 1; goto done; }  // scrutinee is computed code: unfold
-        Term w;
-        if (v.k == 0) {
-          u32 saved = WNF_S_POS;
-          w = wnf_at(v.loc);
-          WNF_S_POS = saved;
-        } else {
-          w = v.imm;
-        }
+        if (sp >= sn) { res = 0; goto done; }       // partial: not yet one step
+        u64 sc = spn[sp];
+        u32 saved = WNF_S_POS;
+        Term w = wnf_at(sc);
+        WNF_S_POS = saved;
         u8 wt = term_tag(w);
-        // neutral: a name, a stuck application, a variable under a binder
         if (wt == NAM || wt == DRY || wt == BJV || wt == BJ0 || wt == BJ1 || wt == VAR) {
-          res = term_tag(t) == USE;                  // USE applies to anything
-          if (!res) goto done;
+          if (term_tag(t) != USE) { res = 0; goto done; }
         }
         if (term_tag(t) == USE) {
-          if (wt == SUP || wt == ERA || wt == INC || wt == ANY) { res = 1; goto done; }
-          ct_prepend(spn, &sp, &sn, 1);
-          spn[sp] = v;
-          t = heap_read(term_val(t));
-          continue;
+          if (wt == SUP || wt == ERA || wt == INC || wt == ANY) { res = 1; goto fire; }
+          n_use++;
+          tl = term_val(t);
+          continue;                                   // (f x): the scrutinee stays on the spine
         }
-        if (!(wt >= C00 && wt <= C16) && wt != NUM) { res = 1; goto done; }
-        // walk the chain λ{#K: h; m}
+        if (!(wt >= C00 && wt <= C16) && wt != NUM) { res = 1; goto fire; }
+        sp++;
         for (;;) {
           u64 ml = term_val(t);
           int hit = (wt == NUM) ? (term_ext(t) == term_val(w)) : (term_ext(t) == term_ext(w));
           if (hit) {
+            if (wt == NUM) n_num_hit++; else n_hit++;
             u32 ari = wt == NUM ? 0 : (u32)(wt - C00);
             ct_prepend(spn, &sp, &sn, ari);
             for (u32 i = 0; i < ari; i++) {
-              spn[sp + i] = (CtVal){term_val(w) + i, 0, 0};
+              spn[sp + i] = term_val(w) + i;
             }
-            t = heap_read(ml + 0);
+            tl = ml + 0;
             break;
           }
-          Term m = heap_read(ml + 1);
+          if (wt == NUM) n_num_mis++; else n_mis++;
+          Term m = term_sub_set(heap_read(ml + 1), 0);
           if (term_tag(m) == MAT || term_tag(m) == SWI) {
             t = m;
             continue;
           }
-          // default arm: applied to the scrutinee itself
+          // default arm, applied to the scrutinee itself
           ct_prepend(spn, &sp, &sn, 1);
-          spn[sp] = v;
-          t = m;
+          spn[sp] = sc;
+          tl = ml + 1;
           break;
         }
         continue;
       }
       default: {
-        res = 1;                                     // a leaf
-        goto done;
+        res = 1;                                      // a leaf
+        goto fire;
       }
     }
   }
+
+fire: {
+    Term r = term_new_alo_dim(ls, len, tl, dim);
+    for (u32 i = sp; i < sn; i++) {
+      r = term_new_app(r, slot_ref(spn[i]));
+    }
+    *out = r;
+  }
+
 done:
+  if (res) {
+    *nframes = nf;
+    for (u64 i = 0; i < n_lam; i++) ITRS_INC("APP-LAM");
+    for (u64 i = 0; i < n_hit; i++) ITRS_INC("APP-MAT-CTR-MAT");
+    for (u64 i = 0; i < n_mis; i++) ITRS_INC("APP-MAT-CTR-MIS");
+    for (u64 i = 0; i < n_num_hit; i++) ITRS_INC("APP-MAT-NUM-MAT");
+    for (u64 i = 0; i < n_num_mis; i++) ITRS_INC("APP-MAT-NUM-MIS");
+    for (u64 i = 0; i < n_use; i++) ITRS_INC("USE-VAL");
+  }
   CT_TOP -= 2 * CT_MAX;
   return res;
 }
@@ -6499,16 +6583,18 @@ __attribute__((hot)) fn Term wnf(Term term) {
         u32 nam = term_ext(whnf);
         if (ft == APP) {
           // a call: one δι-step iff its case tree reaches a leaf
-          u64 pre = term_val(frame) + 1;
+          u64  pre = term_val(frame) + 1;
+          Term red;
+          u32  nfr = 0;
           WNF_S_POS = s_pos;
-          int fires = ct_fires(nam, &pre, 1, stack, s_pos, base);
+          int steps = ct_exec(nam, &pre, 1, stack, s_pos, base, &red, &nfr);
           WNF_S_POS = s_pos;
-          if (!fires) {
+          if (!steps) {
             whnf = wnf_app_nam(term_val(frame), whnf);
             continue;
           }
-          stack[s_pos++] = frame;
-          next = ref_cell_var(nam);
+          s_pos -= nfr;
+          next = red;
           goto enter;
         }
         if (ft != F_UPD && ft != DP0 && ft != DP1) {
@@ -6537,6 +6623,7 @@ __attribute__((hot)) fn Term wnf(Term term) {
               continue;
             }
             case NAM:
+            case VAR:
             case BJV:
             case BJ0:
             case BJ1: {
@@ -6559,16 +6646,14 @@ __attribute__((hot)) fn Term wnf(Term term) {
                   d = term_sub_set(heap_read(term_val(d)), 0);
                 }
                 pre[na] = app_loc + 1;
+                Term red;
+                u32  nfr = 0;
                 WNF_S_POS = s_pos;
-                int fires = ct_fires(term_ext(h), pre, na + 1, stack, s_pos, base);
+                int steps = ct_exec(term_ext(h), pre, na + 1, stack, s_pos, base, &red, &nfr);
                 WNF_S_POS = s_pos;
-                if (fires) {
-                  Term call = ref_cell_var(term_ext(h));
-                  for (u32 i = 0; i < na; i++) {
-                    call = term_new_app(call, slot_ref(pre[i]));
-                  }
-                  stack[s_pos++] = frame;
-                  next = call;
+                if (steps) {
+                  s_pos -= nfr;
+                  next = red;
                   goto enter;
                 }
               }
@@ -6653,6 +6738,7 @@ __attribute__((hot)) fn Term wnf(Term term) {
               goto enter;
             }
             case NAM:
+            case VAR:
             case BJV:
             case BJ0:
             case BJ1:
@@ -7080,7 +7166,7 @@ __attribute__((hot)) fn Term wnf(Term term) {
   }
 
   // the caller reads content: a reference is opened
-  if (term_tag(whnf) == REF && BOOK[term_ext(whnf)] != 0) {
+  if (term_tag(whnf) == REF && BOOK[term_ext(whnf)] != 0 && base != WNF_KEEP_REF) {
     next = ref_cell_var(term_ext(whnf));
     goto enter;
   }
