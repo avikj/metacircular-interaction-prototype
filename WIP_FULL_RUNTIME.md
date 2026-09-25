@@ -389,6 +389,56 @@ Next (P5b), forced by the boundary law of path types:
   has lost its type on the net);
 - then coe, hcomp (face DNF), Glue/ua, Sub/Partial, HITs, each differential.
 
+## 3e. What the deeper reading settles (supersedes the C deciding primitives)
+
+Sources: `NaturalMachine/Visranti_…` (derivability is decided by "two steps
+and a refl": normalise both, compare normal forms; `nf` is defined by exactly
+the clauses the rules perform), `NaturalMachine/Alopa_…` (same-nf ⇒ equal,
+structural equality sound by construction), REDUCTION_FOUNDATIONS (equality as
+a unit-cost primitive moves the decision into the primitive), RUNTIME_FULL
+(the interval is data; `@inot/@iand/@ior` are prelude code).
+
+1. CONVERSION = normal form + EQL. HVM4's `===` (EQL-LAM/CTR/MAT/DRY/SUP…)
+   is already the counted structural comparison and commutes with SUP. The C
+   `conv`, `rewrite`, `iv_dnf` primitives are a second decision procedure and
+   go. What EQL needs is a CANONICAL normal form:
+   - Atomic case trees (definitional equality of definitions by matching):
+     a call `@f(args)` fires iff its whole case tree reaches a leaf; if a
+     scrutinee on the path is neutral, the call itself is the normal form
+     (a DRY spine with head REF). This is what makes nf finite on open terms
+     and canonical (the old δ-off-in-branches normaliser gave `@f(p)` folded
+     inside a branch but the unfolded tree at the top: not canonical, hence
+     the patches in `conv`). REF === REF by identity. Replaces WNF_NO_DELTA,
+     the no-δ normaliser flag, DUP-APP-without-δ.
+   - The interval's normal form is the free De Morgan algebra's (antichain
+     DNF over literals i / ~i, ordered), computed by the prelude's
+     `@iand/@ior/@inot` on data, like Visranti's `combine`. Equal intervals
+     are then `===`.
+   - η: by the checker's typed readback (reify at Π: λ; at Path: #PLm over a
+     fresh dimension), not an untyped runtime rule.
+2. LABEL CAPTURE INSIDE ONE INSTANCE IS A RUNTIME DEFECT ON ORDINARY
+   PROGRAMS, not only the checker's: `probes/label_capture/cap4.bend`
+   (`use(p) = p(Nat→Nat, p(Nat), suc, 0)`, `p = λA g z. g(g z)`) Core 4,
+   runtime "cannot apply a constructor". Cause: DUP-P copying a λ whose body
+   binds dimension G splits G's binder by commutation; the two copies are
+   distinct binders in the λ-reading but keep one name; feeding one copy's
+   output to the other captures. Renaming at the split is not local
+   (occurrences created before the split keep the old name). The fix that
+   is correct for all terms AND keeps optimal sharing is level bookkeeping
+   (Lamping/Guerrini: fans carry levels, brackets/croissants move box
+   boundaries); its interactions are part of the counted cost. P3b's fresh
+   instance per δ-unfolding stays (it is the inter-instance half).
+3. CHECKER = NbE on net values (no G evaluator): each binder reflects its
+   generic element once; goals are closures (code applied to the context's
+   values); refinement of a matched variable is re-application (One §1 at
+   the constructor map). A non-variable scrutinee needs an explicit motive
+   (with-abstraction); Core's syntactic `rewrite` is a heuristic there and is
+   recorded as a Core deviation, not reproduced.
+
+Order: (1) atomic case trees + EQL identity for REF/PRI, delete the δ-off
+machinery; (2) level bookkeeping; (3) interval nf in the prelude; (4) NbE
+checker on (1)–(3); then the cubical stages.
+
 ## 4. How to work here (pitfalls already paid for)
 
 - SOURCE: the compiler and runtime are vendored as ordinary source:
