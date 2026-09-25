@@ -4898,13 +4898,7 @@ static Name PRI_SUP = 0;
 static int  PRI_STUCK = 0;
 
 fn int pri_sup(Term r) {
-  if (term_tag(r) == SUP) {
-    if (PRI_SUP == 0) {
-      PRI_SUP = sup_name(r);
-    }
-    return 1;
-  }
-  return PRI_SUP != 0;
+  return 0;
 }
 
 fn u32 pri_num(Term t) {
@@ -4990,6 +4984,7 @@ fn Term pri_raw_ref(Term t) {
 // compared under one fresh name, with η against any other head.
 fn Term wnf(Term term);
 fn int  stuck_elim_head(Term fun);
+fn void print_term_ex(FILE *f, Term term);
 
 fn Term conv_whnf(Term t, int nd) {
   int saved = WNF_NO_DELTA;
@@ -5014,7 +5009,7 @@ fn Term conv_whnf(Term t, int nd) {
 typedef struct { u64 *lit; u32 n; } IvCube;
 typedef struct { IvCube *c; u32 n; u32 cap; } IvDnf;
 
-static u32 IV_AND = 0, IV_OR, IV_NOT, IV_VAR, IV_I0, IV_I1, IV_MARK;
+static u32 IV_AND = 0, IV_OR, IV_NOT, IV_VAR, IV_I0, IV_I1, IV_MARK, IV_PLM, IV_PATH, IV_COMPU;
 
 fn void iv_init(void) {
   if (IV_AND) return;
@@ -5025,6 +5020,22 @@ fn void iv_init(void) {
   IV_I0   = table_find("I0", 2);
   IV_I1   = table_find("I1", 2);
   IV_MARK = table_find("IMark", 5);
+  IV_PLM  = table_find("PLm", 3);
+  IV_PATH = table_find("Path", 4);
+  IV_COMPU = table_find("CompU", 5);
+}
+
+fn int  conv_go(Term a, Term b, int nd);
+fn Name rw_name(void);
+
+// two functions of the interval: equal at a generic interval point (a
+// generator of the free De Morgan algebra, which the interval operations
+// read as symbolic)
+fn int conv_line(Term a, Term b, int nd) {
+  Term pt[1] = { term_new_nam(FRESH++) };
+  Term x = term_new_ctr(IV_VAR, 1, pt);
+  Copy xc = term_clone(rw_name(), x);
+  return conv_go(term_new_app(a, xc.k0), term_new_app(b, xc.k1), nd);
 }
 
 fn int iv_is(Term t) {
@@ -5213,7 +5224,7 @@ fn int conv_go0(Term a, Term b, int nd) {
   }
   u8 at = term_tag(a);
   u8 bt = term_tag(b);
-  if (getenv("CONVDBG2")) fprintf(stderr, "%*s%u/%u vs %u/%u nd=%d\n", CONV_DEPTH, "", at, term_ext(a), bt, term_ext(b), nd);
+  if (getenv("CONVDBG2")) fprintf(stderr, "%*s%u/%u(%s) vs %u/%u(%s) nd=%d\n", CONV_DEPTH, "", at, term_ext(a), (at >= C00 && at <= C16) ? table_get(term_ext(a)) : "", bt, term_ext(b), (bt >= C00 && bt <= C16) ? table_get(term_ext(b)) : "", nd);
   // two interval elements: equal in the free De Morgan algebra
   iv_init();
   if (iv_is(a) && iv_is(b) && !(at == C00 && bt == C00)) {
@@ -5280,12 +5291,24 @@ fn int conv_go0(Term a, Term b, int nd) {
         return 0;
       }
       u32 ari = at - C00;
+      u32 ext = term_ext(a);
       for (u32 i = 0; i < ari; i++) {
-        if (!conv_go(heap_read(term_val(a) + i), heap_read(term_val(b) + i), nd)) {
+        // the fields that are lines: a path's function, a Path type's line,
+        // a composite's two lines
+        int line = (ext == IV_PLM) || (ext == IV_PATH && i == 0) || (ext == IV_COMPU);
+        if (getenv("CONVDBG2") && i == 0) fprintf(stderr, "ctr %s line=%d\n", table_get(ext), line);
+        int ok = line ? conv_line(heap_read(term_val(a) + i), heap_read(term_val(b) + i), nd)
+                      : conv_go(heap_read(term_val(a) + i), heap_read(term_val(b) + i), nd);
+        if (!ok) {
           return 0;
         }
       }
       return 1;
+    }
+    case SUP: {
+      return bt == SUP && sup_name(a) == sup_name(b)
+          && conv_go(heap_read(term_val(a) + 0), heap_read(term_val(b) + 0), nd)
+          && conv_go(heap_read(term_val(a) + 1), heap_read(term_val(b) + 1), nd);
     }
     case MAT:
     case SWI: {
@@ -5299,6 +5322,13 @@ fn int conv_go0(Term a, Term b, int nd) {
     // a stuck elimination: the eliminator without δ, the scrutinee as is
     case DRY: {
       if (bt != DRY) {
+        if (getenv("CONVDBG")) {
+          fprintf(stderr, "conv: DRY vs %u:\n  ", bt);
+          print_term_ex(stderr, a);
+          fprintf(stderr, "\n  ");
+          print_term_ex(stderr, b);
+          fprintf(stderr, "\n");
+        }
         return 0;
       }
       // the eliminator as it is (a lazy copy of a match is still a match)
@@ -5407,6 +5437,7 @@ fn Term rw_go(Term *old, Term *neo, Term t) {
       return w;
     }
     case C00 ... C16:
+    case SUP:
     case MAT:
     case SWI:
     case DRY:
@@ -5431,29 +5462,21 @@ fn Term pri_fire_go(u32 id, Term arg);
 
 fn Term pri_fire(u32 id, Term arg) {
   // fresh, val and vapp do not inspect their argument; code and idof read
-  // it as a raw static reference (a dup would hide the reference)
-  if (getenv("NODIST") || id == P_FRESH || id == P_VAL || id == P_VAPP || id == P_TRACE || id == P_CODE || id == P_IDOF) {
+  // it as a raw static reference
+  if (id == P_FRESH || id == P_VAL || id == P_VAPP || id == P_TRACE || id == P_CODE || id == P_IDOF) {
     return pri_fire_go(id, arg);
   }
-  Copy c      = term_clone(rw_name(), arg);
-  Name saved  = PRI_SUP;
+  // outside its domain (a neutral argument, another shape) a primitive is
+  // stuck: the application is a neutral. Inspection only reduces the
+  // argument (meaning-preserving), so the application keeps it.
   int  savedS = PRI_STUCK;
-  PRI_SUP     = 0;
   PRI_STUCK   = 0;
-  Term r      = pri_fire_go(id, c.k0);
-  Name hit    = PRI_SUP;
+  Term keep   = arg;
+  Term r      = pri_fire_go(id, arg);
   int  stuck  = PRI_STUCK;
-  PRI_SUP     = saved;
   PRI_STUCK   = savedS;
-  if (stuck && !hit) {
-    return term_new_dry(term_new(0, PRI, id, 0), c.k1);
-  }
-  if (hit) {
-    if (getenv("CONVDBG")) fprintf(stderr, "pri %s distributes over %llx\n", PRI_NAME[id], (unsigned long long)hit);
-    Copy d  = term_clone(hit, c.k1);
-    Term p0 = term_new_app(term_new(0, PRI, id, 0), d.k0);
-    Term p1 = term_new_app(term_new(0, PRI, id, 0), d.k1);
-    return term_new_sup(hit, p0, p1);
+  if (stuck) {
+    return term_new_dry(term_new(0, PRI, id, 0), keep);
   }
   return r;
 }
