@@ -303,28 +303,38 @@ test_list_transport.py 26/26 (stock and patched HVM4). Fixed on the way:
   given as expressions rather than names (needs term parsing in the host),
   and a readable type display (the runtime prints the type through sharing).
 
-## 3c. P5 design (corrected): checking on the net by readback of the cells
+## 3c. P5 design: checking on the net (the `verify` projection, §14)
 
-The earlier plan (quote the book as a `Term` datatype, check that) is WRONG
-and withdrawn: a quotation is a second copy of the object beside the net,
-the same move as the deleted derivation companions, and the premise was
-false. (i) Nothing is lost by reduction: a redex and its reduct are the same
-cell (definitional equality is refl), so checking `(A, a)` is checking
-normal forms, and the root is already normalised to exactly that.
-(ii) A binder is opened by its generic element: the Π rule checks `λx.b`
-against `Π A B` by checking the body at a fresh variable against `B` there,
-i.e. the cell applied to a fresh neutral (η-long checking needs no λ-match).
-(iii) A neutral is inferred from its head: a variable from the context, a
-folded call `@Dk(…)` from its type cell `@Tk`, which is already emitted.
-Runtime primitives this needs (HVM4 has them internally: fresh names for
-`===` on λs, stuck `^(name a)` neutrals, folded neutral calls after P4):
-create a fresh neutral; dispatch on a cell's shape in δ-free whnf (λ, ctor,
-number, neutral head, SUP, stuck elimination); abstract a name out of a cell
-(for goal refinement under a match: G[x := c]). Conversion = comparison of
-normal cells (HVM4 `===` already compares λs under a shared fresh name).
-The checker is the verify projection (§14) running as ordinary interactions
-on the same net; Core's checker is its differential oracle over the corpus
-until it leaves the compile path (P6).
+Forced points (each from the math, not from convenience):
+1. The checked term is never evaluated. Checking reads each definition's
+   STATIC BOOK TERM (the immutable lowered syntax at BOOK[id], de Bruijn
+   levels, which every execution instantiates by ALO). Same heap words,
+   viewed, not copied: no drift. (Evaluated cells are wrong: `loop(x) =
+   loop(x)` has no normal form but checks; an ill-typed term can diverge
+   under β.)
+2. Types ARE evaluated: conversion is equality of normal type cells, decided
+   by the runtime's own reduction and HVM4 `===` (EQL: structural, λs under
+   one fresh name, neutral calls folded after P4).
+3. The checker is meta-level: it dispatches on the syntax of types, and a
+   type-case cannot live inside a univalent theory (it would separate
+   ua-equal types). So it is runtime semantics written as interactions,
+   exactly like the Kan rules in the prelude ("Core.Check written as an HVM
+   program", as the prelude is "Core.WHNF written as an HVM program").
+   Its cost is interactions like every other inference.
+4. Nothing the checker needs may be deleted by lowering: `x :: T` must be
+   emitted (as `@chk(T, x)`, `@chk = λT. λx. x`, erased by β at run time),
+   and HIT constructor parameters must be emitted, not `&{}`.
+5. Runtime primitives (new counted interaction rules in hvm.c):
+   `fresh` (a new neutral: the generic element of a binder), `view` (the
+   shape of a static node: kind, ext, child locations), `inst` (instantiate
+   a static subterm under an environment: δ on a subterm), `typeof` (the
+   type cell `@Tk` of a reference `@Dk`). Conversion reuses `===`.
+6. Staging, each stage differential against Core's checker per definition
+   over the whole corpus (every ✓/✗ must agree, incl. every *_mustfail):
+   MLTT core (Set, Π, Σ, Unit, Empty, Bool, Nat, List, Enum, Eql, refs,
+   lets, matches) → interval/paths/coe → hcomp/Glue/ua/Sub/Partial →
+   truncation/circle/quotient/general HITs. Then P6: the host only parses
+   and lowers; `--to-hvm4-full` and `--interact` check on the net.
 
 ## 4. How to work here (pitfalls already paid for)
 
