@@ -524,6 +524,78 @@ flaw, never justifies a design choice.
   neutral_type_smoke (canonical `@Ddouble(a)`), conductive_dependent_map
   (dup residue gone).
 
+## 3g. Audit: the runtime does not implement the construction (2026-09-25)
+
+Trigger: the NbE checker on the net failed in ways each "fixable" locally
+(slot maps, a shared fresh name, ↑ accumulation, equality walking copies,
+coe loops). The user's reading is right: these are symptoms, not bugs.
+Reading hvm.c, HVM4Full.hs and Check.bend against One §1–§7, §14,
+Visranti and REDUCTION_FOUNDATIONS:
+
+What the construction says the machine is:
+- ONE object, the cubical cell (a type is a cell; a term is a cell of it;
+  a path is a 1-cell, its faces are its endpoints).
+- ONE operation, `present` (§1, §14): a step keeps its source as a
+  coordinate; checking is `verify`, the other direction of the same
+  equivalence, not a second program.
+- Sharing is descent (§1 graph≃dom, §3): a determined datum is one point;
+  equality of a point with itself is refl, never a walk.
+- Cost lives in the retained trace (§4); the geodesic is edgewise (§5).
+- Conversion is equality of normal forms (Visranti), with no unit-cost
+  primitive hiding the decision (REDUCTION_FOUNDATIONS).
+
+What the runtime is: HVM4's interaction calculus with pieces of the
+construction added on top. Specifically:
+1. TWO NOTIONS OF DIMENSION. HVM's SUP/DUP labels (dim words, faces in the
+   dim word, clo_project/frame_project/dry_copy copying frames per side) and
+   the cubical interval (#IVar/#IMark constructors, De Morgan normal form
+   computed by prelude λ-terms, #PLm closures, face lists read by the
+   checker). The construction has one: a cell's faces. A SUP &L{a,b} is a
+   1-cell in L; <i> t is a 1-cell in i; they are the same thing and the
+   runtime treats them as unrelated.
+2. THE CUBICAL STRUCTURE IS SIMULATED. Path, @, coe, hcomp, Glue, HIT
+   eliminators are prelude λ-programs over constructor encodings (CCHM
+   case analysis on the type, the #IMark regularity trick, @sameEnd). That
+   is a transcription of the prior construction the user rejected, run as
+   ordinary code; its cost is the encoding's cost, not the cell's.
+3. EQUALITY IS A WALK. `===` descends into two separately built encodings,
+   allocating AND chains and ↑ per field; nothing makes a determined datum
+   one point, so the checker compared its whole book and closures
+   repeatedly (the blowups).
+4. SCHEDULING BOOKKEEPING IN THE VALUES. ↑ (INC), the collapse priority
+   queue, credit/stride: HVM4's enumeration policy. It is not a cell and
+   not in the construction, yet `===` puts it into every compared value.
+5. NAMES FROM A COUNTER. Generics are fresh counter names, not coordinates
+   of their binder, so descent (a pass over syntax) legitimately shares
+   them: the pass assumes every subterm is a function of its free
+   variables, and the primitives break that.
+6. CHECKING IS A SECOND PROGRAM. Check.bend reads the emitted book through
+   peek/inst and re-evaluates types with its own context, readback and
+   face logic: an interpreter beside the net, not `verify` of the run.
+7. CALLS ARE A SIDE MACHINE. Case-tree walking (ct_exec), partial-call
+   records in a hash table keyed by node address, frame projection per
+   side: bookkeeping around HVM's own APP/MAT rules, not one rule.
+
+Consequence: continuing to patch (counted ↑, pending-↑ frames, EQL
+identity, level-named generics, spine readback) makes the simulation
+cheaper, not the implementation correct. Those patches are NOT committed;
+they are saved outside the repo (session scratchpad,
+uncommitted-nbe-and-patches.diff) for reference only.
+
+Direction (for the user's decision; nothing started):
+- The runtime's node IS the cell: a term over dimension names, with face
+  maps (i := 0/1) as the one projection. DUP-on-label becomes the face
+  map; SUP becomes the 1-cell; the interval's De Morgan structure acts on
+  names; @ is substitution of a dimension. One notion of dimension.
+- Kan operations are the cells' own composition structure, derived from
+  the construction rather than transcribed from CCHM.
+- Values are canonical points (normal forms held once, §1): conversion
+  is identity of points, reached by the reduction that produced them, so
+  its cost is the reduction's (no hidden primitive, no walk over copies).
+- ↑/collapse priority removed; enumeration of a fibre is the §7 run.
+- Checking is the verify direction of the same presentation, not an
+  interpreter over peeked syntax.
+
 ## 4. How to work here (pitfalls already paid for)
 
 - SOURCE: the compiler and runtime are vendored as ordinary source:
