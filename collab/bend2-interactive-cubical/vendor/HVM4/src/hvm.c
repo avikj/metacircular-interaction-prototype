@@ -5198,7 +5198,7 @@ fn Term pri_fire_go(u32 id, Term arg);
 fn Term pri_fire(u32 id, Term arg) {
   // fresh, val and vapp do not inspect their argument; code and idof read
   // it as a raw static reference (a dup would hide the reference)
-  if (id == P_FRESH || id == P_VAL || id == P_VAPP || id == P_TRACE || id == P_CODE || id == P_IDOF) {
+  if (getenv("NODIST") || id == P_FRESH || id == P_VAL || id == P_VAPP || id == P_TRACE || id == P_CODE || id == P_IDOF) {
     return pri_fire_go(id, arg);
   }
   Copy c     = term_clone(rw_name(), arg);

@@ -8,9 +8,14 @@
 # Context. Every binder the checker enters gets a level; a static subterm is
 # always paired with its slot map (static level -> context level), so the same
 # code can be read at any depth. Types and goals are functions of the
-# context's lookup (level -> value): refining a matched variable replaces its
-# entry, and every goal and type that mentions it sees the refinement
-# (normalisation by evaluation; Core's Rwt, without a syntactic rewrite).
+# context: refining a matched variable replaces its entry, and every goal and
+# type that mentions it sees the refinement (normalisation by evaluation).
+#
+# Goals, types and refinements are FIRST-ORDER expressions (G) read by one
+# evaluator, never closures of the checker: a closure duplicated and applied
+# in nested ways shares its dup labels between the two applications (label
+# capture within one instance), while data duplicates constructor by
+# constructor and every evaluation is a fresh unfolding with fresh names.
 #
 # Result codes: 0 checks, 1 mismatch, 2 cannot infer, >= 1000 not yet on the net
 # (1000 + tag: a static node kind; 3000: a prelude reference; 4000 + n: a site).
@@ -130,18 +135,45 @@ def Chk/mk3(t: Tag(), a: Val, b: Val, c: Val) -> Val:
 def Chk/u64T() -> Val:
   Chk/mk1(&Num, Chk/mk0(&U64))
 
-# ---- context ------------------------------------------------------------------
+# ---- expressions: cells as functions of the context, as data ------------------
 
-def Ty() -> Set:
-  (U64 -> Val) -> Val
+type G:
+  case @V:
+    v: Val
+  case @L:
+    k: U64
+  case @C:
+    c: U64
+    sm: U64[]
+  case @F:
+    g: G
+    i: U64
+  case @A:
+    f: G
+    x: G
+  case @K:
+    t: U64
+    fs: G[]
+  case @Cst:
+    g: G
+  case @Rw:
+    o: G
+    n: G
+    t: G
+  case @S:
+    k: U64
+    v: G
+    t: G
+
+# ---- context ------------------------------------------------------------------
 
 type Ent:
   case @Free:
     nam: Val
-    ty: (U64 -> Val) -> Val
+    ty: G
   case @Refn:
-    val: (U64 -> Val) -> Val
-    ty: (U64 -> Val) -> Val
+    val: G
+    ty: G
   case @Let:
     loc: U64
     sm: U64[]
@@ -213,41 +245,76 @@ def Chk/kindAt(ctx: Ent[], d: U64, k: U64) -> U64:
     case @Let{loc, sm}:
       0
 
-def Chk/envL(ctx: Ent[], d: U64, lk: U64 -> Val, sm: U64[]) -> (any k: U64. Val)[]:
-  match sm:
+# ---- the evaluator ---------------------------------------------------------------
+
+def Chk/eval(ctx: Ent[], d: U64, ov: (any k: U64. Val)[], g: G) -> Val:
+  match g:
+    case @V{v}:
+      v
+    case @L{k}:
+      Chk/lvlVal(ctx, d, ov, k)
+    case @C{c, sm}:
+      Prim/inst(c, Chk/envOf(ctx, d, ov, sm))
+    case @F{h, i}:
+      Prim/vfield(Chk/eval(ctx, d, ov, h), i)
+    case @A{f, x}:
+      Prim/vapp(Chk/eval(ctx, d, ov, f), Chk/eval(ctx, d, ov, x))
+    case @K{t, fs}:
+      Prim/vctr(t, Chk/evalList(ctx, d, ov, fs))
+    case @Cst{h}:
+      v = Chk/eval(ctx, d, ov, h)
+      Fun/val(lambda x. v)
+    case @Rw{o, n, t}:
+      Prim/rewrite(Chk/eval(ctx, d, ov, o), Chk/eval(ctx, d, ov, n), Chk/eval(ctx, d, ov, t))
+    case @S{k, v, t}:
+      Chk/eval(ctx, d, (k, Chk/eval(ctx, d, ov, v)) <> ov, t)
+
+def Chk/evalList(ctx: Ent[], d: U64, ov: (any k: U64. Val)[], gs: G[]) -> Val[]:
+  match gs:
     case []:
       []
-    case k <> t:
-      (Chk/kindAt(ctx, d, k), lk(k)) <> Chk/envL(ctx, d, lk, t)
+    case g <> rest:
+      Chk/eval(ctx, d, ov, g) <> Chk/evalList(ctx, d, ov, rest)
 
-# the value of static code under a lookup
-def Chk/evalC(ctx: Ent[], d: U64, sm: U64[], c: U64) -> (U64 -> Val) -> Val:
-  lambda lk. Prim/inst(c, Chk/envL(ctx, d, lk, sm))
+def Chk/lvlVal(ctx: Ent[], d: U64, ov: (any k: U64. Val)[], k: U64) -> Val:
+  match ov:
+    case []:
+      Chk/valAt(ctx, d, k)
+    case p <> rest:
+      match p:
+        case (j, v):
+          if j === k:
+            v
+          else:
+            Chk/lvlVal(ctx, d, rest, k)
 
 def Chk/valAt(ctx: Ent[], d: U64, k: U64) -> Val:
   match Chk/ent(ctx, d, k):
     case @Free{nam, ty}:
       nam
     case @Refn{val, ty}:
-      val(Chk/look(ctx, d))
+      Chk/eval(ctx, d, [], val)
     case @Let{loc, sm}:
-      Chk/evalC(ctx, d, sm, loc, Chk/look(ctx, d))
+      Prim/inst(loc, Chk/envOf(ctx, d, [], sm))
     case @Alias{lvl, kind}:
       Chk/valAt(ctx, d, lvl)
     case @Dup{loc, sm}:
-      Chk/evalC(ctx, d, sm, loc, Chk/look(ctx, d))
+      Prim/inst(loc, Chk/envOf(ctx, d, [], sm))
 
-def Chk/look(ctx: Ent[], d: U64) -> U64 -> Val:
-  lambda k. Chk/valAt(ctx, d, k)
+def Chk/envOf(ctx: Ent[], d: U64, ov: (any k: U64. Val)[], sm: U64[]) -> (any k: U64. Val)[]:
+  match sm:
+    case []:
+      []
+    case k <> t:
+      (Chk/kindAt(ctx, d, k), Chk/lvlVal(ctx, d, ov, k)) <> Chk/envOf(ctx, d, ov, t)
 
-def Chk/now(ctx: Ent[], d: U64, t: (U64 -> Val) -> Val) -> Val:
-  t(Chk/look(ctx, d))
+def Chk/now(ctx: Ent[], d: U64, g: G) -> Val:
+  Chk/eval(ctx, d, [], g)
 
-# the lookup with level k bound to v (a binder that leaves scope)
-def Chk/bind(k: U64, v: (U64 -> Val) -> Val, t: (U64 -> Val) -> Val) -> (U64 -> Val) -> Val:
-  lambda lk. t(lambda j. if j === k: v(lk) else: lk(j))
+def Chk/set() -> G:
+  @V{Chk/mk0(&Set)}
 
-# replace the entry of level k
+# replace the entry of level k (at list index i)
 def Chk/setE(ctx: Ent[], i: U64, e: Ent) -> Ent[]:
   match ctx:
     case []:
@@ -259,13 +326,13 @@ def Chk/setE(ctx: Ent[], i: U64, e: Ent) -> Ent[]:
         h <> Chk/setE(t, i - 1, e)
 
 # refine the generic element at level k to the value v (a matched pattern)
-def Chk/refine(ctx: Ent[], d: U64, k: U64, v: (U64 -> Val) -> Val) -> Ent[]:
+def Chk/refine(ctx: Ent[], d: U64, k: U64, v: G) -> Ent[]:
   if k === 0:
     ctx
   else:
     Chk/refineAt(ctx, d, k, v)
 
-def Chk/refineAt(ctx: Ent[], d: U64, k: U64, v: (U64 -> Val) -> Val) -> Ent[]:
+def Chk/refineAt(ctx: Ent[], d: U64, k: U64, v: G) -> Ent[]:
   match Chk/ent(ctx, d, k):
     case @Free{nam, ty}:
       Chk/setE(ctx, d - k, @Refn{v, ty})
@@ -298,6 +365,15 @@ def Chk/findFree(ctx: Ent[], d: U64, x: Val) -> U64:
           Chk/findFree(t, d - 1, x)
         case @Dup{loc, sm}:
           Chk/findFree(t, d - 1, x)
+
+# the entry of a dup level (a DUP node's value at v): both copies read the
+# same slot, an alias when the dup'd code is a variable
+def Chk/dupEnt(ctx: Ent[], d: U64, sm: U64[], v: U64) -> Ent:
+  k = Chk/varLvl(sm, v)
+  if k === 0:
+    @Dup{v, sm}
+  else:
+    @Alias{Chk/root(ctx, d, k), 1}
 
 # the level a static variable names (0 if the code is not a variable)
 def Chk/varLvl(sm: U64[], c: U64) -> U64:
@@ -339,12 +415,12 @@ def Chk/args(c: U64, acc: U64[]) -> U64[]:
   else:
     acc
 
+# ---- enums in the book (Core: Sym inference reads the book's enum types) ------
+
 def Chk/snd(q: any t: U64. U64) -> U64:
   match q:
     case (t, i):
       i
-
-# ---- enums in the book (Core: Sym inference reads the book's enum types) ------
 
 def Chk/enumsOf(defs: (any c: U64. any t: U64. U64)[]) -> Val[]:
   match defs:
@@ -379,35 +455,27 @@ def Chk/enumOf(es: Val[], s: U64) -> Val[]:
       else:
         Chk/enumOf(rest, s)
 
-# ---- the checker -----------------------------------------------------------------
+# ---- inference -------------------------------------------------------------------
 
-def Chk/cst(v: Val) -> (U64 -> Val) -> Val:
-  lambda lk. v
-
-def Chk/fld(t: (U64 -> Val) -> Val, i: U64) -> (U64 -> Val) -> Val:
-  lambda lk. Prim/vfield(t(lk), i)
-
-# infer: (code, type)
-def Chk/infer(es: Val[], ctx: Ent[], d: U64, sm: U64[], c: U64) -> any r: U64. (U64 -> Val) -> Val:
+def Chk/infer(es: Val[], ctx: Ent[], d: U64, sm: U64[], c: U64) -> any r: U64. G:
   t = Chk/tag(c)
   e = Chk/ext(c)
   v = Chk/val(c)
-  set = Chk/cst(Chk/mk0(&Set))
   if (t === 42) or (t === 43) or (t === 44):
     Chk/typeAt(es, ctx, d, Chk/slot(sm, v))
   else:
     if t === 8:
       ty = Prim/typeof(e)
       if Chk/vtag(ty) === 11:
-        (3000, set)
+        (3000, Chk/set())
       else:
-        (0, Chk/cst(ty))
+        (0, @V{ty})
     else:
       if t === 46:
         Chk/inferSta(es, ctx, d, sm, e, v)
       else:
         if t === 30:
-          (0, Chk/cst(Chk/u64T()))
+          (0, @V{Chk/u64T()})
         else:
           if (t >= 13) and (t <= 29):
             Chk/inferCtr(es, ctx, d, sm, t - 13, e, v)
@@ -422,12 +490,12 @@ def Chk/infer(es: Val[], ctx: Ent[], d: U64, sm: U64[], c: U64) -> any r: U64. (
                   Chk/inferDup(es, ctx, d, sm, v)
                 else:
                   if (t === 2) or (t === 12) or (t === 31) or (t === 11):
-                    (2, set)
+                    (2, Chk/set())
                   else:
-                    (1000 + t, set)
+                    (1000 + t, Chk/set())
 
 # the type of a context level
-def Chk/typeAt(es: Val[], ctx: Ent[], d: U64, k: U64) -> any r: U64. (U64 -> Val) -> Val:
+def Chk/typeAt(es: Val[], ctx: Ent[], d: U64, k: U64) -> any r: U64. G:
   match Chk/ent(ctx, d, k):
     case @Free{nam, ty}:
       (0, ty)
@@ -440,32 +508,29 @@ def Chk/typeAt(es: Val[], ctx: Ent[], d: U64, k: U64) -> any r: U64. (U64 -> Val
     case @Dup{loc, sm}:
       Chk/infer(es, ctx, d, sm, loc)
 
-def Chk/inferSta(es: Val[], ctx: Ent[], d: U64, sm: U64[], k: U64, v: U64) -> any r: U64. (U64 -> Val) -> Val:
+def Chk/inferSta(es: Val[], ctx: Ent[], d: U64, sm: U64[], k: U64, v: U64) -> any r: U64. G:
   if k === 0:
-    tT = Chk/evalC(ctx, d, sm, v)
-    (Chk/check(es, ctx, d, sm, v + 1, tT), tT)
+    (Chk/check(es, ctx, d, sm, v + 1, @C{v, sm}), @C{v, sm})
   else:
     if k === 1:
-      Chk/inferNext(Chk/check(es, ctx, d, sm, v, Chk/cst(Chk/mk1(&List, Chk/mk1(&Num, Chk/mk0(&Chr))))), Chk/infer(es, ctx, d, sm, v + 1))
+      Chk/inferNext(Chk/check(es, ctx, d, sm, v, @V{Chk/mk1(&List, Chk/mk1(&Num, Chk/mk0(&Chr)))}), Chk/infer(es, ctx, d, sm, v + 1))
     else:
-      (2, Chk/cst(Chk/mk0(&Set)))
+      (2, Chk/set())
 
-def Chk/inferNext(r: U64, x: any r: U64. (U64 -> Val) -> Val) -> any r: U64. (U64 -> Val) -> Val:
+def Chk/inferNext(r: U64, x: any r: U64. G) -> any r: U64. G:
   match x:
     case (r2, ty):
       (Chk/then(r, r2), ty)
 
 # a dup level: both copies are the dup'd code; the type is read with the
 # level bound to that code's value
-def Chk/inferDup(es: Val[], ctx: Ent[], d: U64, sm: U64[], v: U64) -> any r: U64. (U64 -> Val) -> Val:
-  k = Chk/varLvl(sm, v)
-  e = if k === 0: @Dup{v, sm} else: @Alias{Chk/root(ctx, d, k), 1}
-  match Chk/infer(es, e <> ctx, d + 1, (d + 1) <> sm, v + 1):
+def Chk/inferDup(es: Val[], ctx: Ent[], d: U64, sm: U64[], v: U64) -> any r: U64. G:
+  match Chk/infer(es, Chk/dupEnt(ctx, d, sm, v) <> ctx, d + 1, (d + 1) <> sm, v + 1):
     case (r, ty):
-      (r, Chk/bind(d + 1, Chk/evalC(ctx, d, sm, v), ty))
+      (r, @S{d + 1, @C{v, sm}, ty})
 
-def Chk/inferCtr(es: Val[], ctx: Ent[], d: U64, sm: U64[], ari: U64, e: U64, v: U64) -> any r: U64. (U64 -> Val) -> Val:
-  set = Chk/cst(Chk/mk0(&Set))
+def Chk/inferCtr(es: Val[], ctx: Ent[], d: U64, sm: U64[], ari: U64, e: U64, v: U64) -> any r: U64. G:
+  set = Chk/set()
   if (e === Chk/id(&Set)) or (e === Chk/id(&Nat)) or (e === Chk/id(&Bool)) or (e === Chk/id(&Unit)) or (e === Chk/id(&Empty)) or (e === Chk/id(&Num)) or (e === Chk/id(&Enum)):
     (0, set)
   else:
@@ -473,26 +538,24 @@ def Chk/inferCtr(es: Val[], ctx: Ent[], d: U64, sm: U64[], ari: U64, e: U64, v: 
       (Chk/check(es, ctx, d, sm, v, set), set)
     else:
       if (e === Chk/id(&Sig)) or (e === Chk/id(&Pi)):
-        a = Chk/evalC(ctx, d, sm, v)
         r1 = Chk/check(es, ctx, d, sm, v, set)
-        r2 = Chk/check(es, ctx, d, sm, v + 1, lambda lk. Chk/mk2(&Pi, a(lk), Fun/val(lambda x. Chk/mk0(&Set))))
+        r2 = Chk/check(es, ctx, d, sm, v + 1, @K{Chk/id(&Pi), [@C{v, sm}, @Cst{Chk/set()}]})
         (Chk/then(r1, r2), set)
       else:
         if e === Chk/id(&Eql):
-          tT = Chk/evalC(ctx, d, sm, v)
           r1 = Chk/check(es, ctx, d, sm, v, set)
-          r2 = Chk/check(es, ctx, d, sm, v + 1, tT)
-          r3 = Chk/check(es, ctx, d, sm, v + 2, tT)
+          r2 = Chk/check(es, ctx, d, sm, v + 1, @C{v, sm})
+          r3 = Chk/check(es, ctx, d, sm, v + 2, @C{v, sm})
           (Chk/then(r1, Chk/then(r2, r3)), set)
         else:
           if e === Chk/id(&Zer):
-            (0, Chk/cst(Chk/mk0(&Nat)))
+            (0, @V{Chk/mk0(&Nat)})
           else:
             if e === Chk/id(&Suc):
               Chk/inferSuc(Chk/infer(es, ctx, d, sm, v), ctx, d)
             else:
               if e === Chk/id(&One):
-                (0, Chk/cst(Chk/mk0(&Unit)))
+                (0, @V{Chk/mk0(&Unit)})
               else:
                 if e === Chk/id(&Pair):
                   Chk/inferPair(Chk/infer(es, ctx, d, sm, v), Chk/infer(es, ctx, d, sm, v + 1))
@@ -505,37 +568,37 @@ def Chk/inferCtr(es: Val[], ctx: Ent[], d: U64, sm: U64[], ari: U64, e: U64, v: 
                     else:
                       (1013 + ari, set)
 
-def Chk/inferSym(es: Val[]) -> any r: U64. (U64 -> Val) -> Val:
+def Chk/inferSym(es: Val[]) -> any r: U64. G:
   match es:
     case []:
-      (2, Chk/cst(Chk/mk0(&Set)))
+      (2, Chk/set())
     case e <> rest:
-      (0, Chk/cst(e))
+      (0, @V{e})
 
-def Chk/inferSuc(x: any r: U64. (U64 -> Val) -> Val, ctx: Ent[], d: U64) -> any r: U64. (U64 -> Val) -> Val:
+def Chk/inferSuc(x: any r: U64. G, ctx: Ent[], d: U64) -> any r: U64. G:
   match x:
     case (r, ty):
       if r === 0:
         n = Chk/now(ctx, d, ty)
         if Chk/is(n, &Nat):
-          (0, Chk/cst(Chk/mk0(&Nat)))
+          (0, @V{Chk/mk0(&Nat)})
         else:
           if Chk/is(n, &Eql) and Chk/is(Prim/vfield(n, 0), &Nat):
-            (0, lambda lk. Chk/mk3(&Eql, Chk/mk0(&Nat), Chk/mk1(&Suc, Prim/vfield(ty(lk), 1)), Chk/mk1(&Suc, Prim/vfield(ty(lk), 2))))
+            (0, @K{Chk/id(&Eql), [@V{Chk/mk0(&Nat)}, @K{Chk/id(&Suc), [@F{ty, 1}]}, @K{Chk/id(&Suc), [@F{ty, 2}]}]})
           else:
             (1, ty)
       else:
         (r, ty)
 
-def Chk/inferPair(a: any r: U64. (U64 -> Val) -> Val, b: any r: U64. (U64 -> Val) -> Val) -> any r: U64. (U64 -> Val) -> Val:
+def Chk/inferPair(a: any r: U64. G, b: any r: U64. G) -> any r: U64. G:
   match a:
     case (ra, ta):
       match b:
         case (rb, tb):
-          (Chk/then(ra, rb), lambda lk. Chk/mk2(&Sig, ta(lk), Fun/val(lambda x. tb(lk))))
+          (Chk/then(ra, rb), @K{Chk/id(&Sig), [ta, @Cst{tb}]})
 
 # binary operators (Core.Check.inferOp2Type)
-def Chk/inferOp(es: Val[], ctx: Ent[], d: U64, sm: U64[], op: U64, v: U64) -> any r: U64. (U64 -> Val) -> Val:
+def Chk/inferOp(es: Val[], ctx: Ent[], d: U64, sm: U64[], op: U64, v: U64) -> any r: U64. G:
   match Chk/infer(es, ctx, d, sm, v):
     case (ra, ta):
       match Chk/infer(es, ctx, d, sm, v + 1):
@@ -551,15 +614,15 @@ def Chk/numKind(t: Val) -> U64:
   else:
     0
 
-def Chk/opType(op: U64, a: Val, b: Val) -> any r: U64. (U64 -> Val) -> Val:
+def Chk/opType(op: U64, a: Val, b: Val) -> any r: U64. G:
   ka = Chk/numKind(a)
   kb = Chk/numKind(b)
-  bit = Chk/cst(Chk/mk0(&Bool))
+  bit = @V{Chk/mk0(&Bool)}
   same = (ka !== 0) and (ka === kb)
   bools = Chk/is(a, &Bool) and Chk/is(b, &Bool)
   if op <= 4:
     if same:
-      (0, Chk/cst(Chk/mk1(&Num, Prim/vfield(a, 0))))
+      (0, @V{Chk/mk1(&Num, Prim/vfield(a, 0))})
     else:
       (1, bit)
   else:
@@ -574,34 +637,34 @@ def Chk/opType(op: U64, a: Val, b: Val) -> any r: U64. (U64 -> Val) -> Val:
           (0, bit)
         else:
           if same and (ka !== Chk/id(&Chr)):
-            (0, Chk/cst(Chk/u64T()))
+            (0, @V{Chk/u64T()})
           else:
             (1, bit)
       else:
         if same and (ka === Chk/id(&U64)):
-          (0, Chk/cst(Chk/u64T()))
+          (0, @V{Chk/u64T()})
         else:
           (1, bit)
 
 # an application spine: a λ head substitutes its argument (Core infer App-Lam);
 # any other head is inferred and applied argument by argument
-def Chk/inferApp(es: Val[], ctx: Ent[], d: U64, sm: U64[], h: U64, xs: U64[]) -> any r: U64. (U64 -> Val) -> Val:
+def Chk/inferApp(es: Val[], ctx: Ent[], d: U64, sm: U64[], h: U64, xs: U64[]) -> any r: U64. G:
   ht = Chk/tag(h)
   if ht === 2:
     match xs:
       case []:
-        (2, Chk/cst(Chk/mk0(&Set)))
+        (2, Chk/set())
       case x <> rest:
         match rest:
           case []:
             match Chk/infer(es, @Let{x, sm} <> ctx, d + 1, (d + 1) <> sm, Chk/val(h)):
               case (r, ty):
-                (r, Chk/bind(d + 1, Chk/evalC(ctx, d, sm, x), ty))
+                (r, @S{d + 1, @C{x, sm}, ty})
           case y <> more:
-            (2, Chk/cst(Chk/mk0(&Set)))
+            (2, Chk/set())
   else:
     if (ht === 12) or (ht === 31) or (ht === 11):
-      (2, Chk/cst(Chk/mk0(&Set)))
+      (2, Chk/set())
     else:
       match Chk/infer(es, ctx, d, sm, h):
         case (r, ty):
@@ -610,31 +673,29 @@ def Chk/inferApp(es: Val[], ctx: Ent[], d: U64, sm: U64[], h: U64, xs: U64[]) ->
           else:
             (r, ty)
 
-def Chk/inferArgs(es: Val[], ctx: Ent[], d: U64, sm: U64[], ty: (U64 -> Val) -> Val, xs: U64[]) -> any r: U64. (U64 -> Val) -> Val:
+def Chk/inferArgs(es: Val[], ctx: Ent[], d: U64, sm: U64[], ty: G, xs: U64[]) -> any r: U64. G:
   match xs:
     case []:
       (0, ty)
     case x <> rest:
       if Chk/is(Chk/now(ctx, d, ty), &Pi):
-        r = Chk/check(es, ctx, d, sm, x, Chk/fld(ty, 0))
-        xv = Chk/evalC(ctx, d, sm, x)
+        r = Chk/check(es, ctx, d, sm, x, @F{ty, 0})
         if r === 0:
-          Chk/inferArgs(es, ctx, d, sm, lambda lk. Prim/vapp(Prim/vfield(ty(lk), 1), xv(lk)), rest)
+          Chk/inferArgs(es, ctx, d, sm, @A{@F{ty, 1}, @C{x, sm}}, rest)
         else:
           (r, ty)
       else:
         (1, ty)
 
-# check: code
-def Chk/check(es: Val[], ctx: Ent[], d: U64, sm: U64[], c: U64, goal: (U64 -> Val) -> Val) -> U64:
+# ---- checking --------------------------------------------------------------------
+
+def Chk/check(es: Val[], ctx: Ent[], d: U64, sm: U64[], c: U64, goal: G) -> U64:
   t = Chk/tag(c)
   e = Chk/ext(c)
   v = Chk/val(c)
   if t === 2:
-    g = Chk/now(ctx, d, goal)
-    if Chk/is(g, &Pi):
-      n = Prim/fresh(())
-      Chk/check(es, @Free{n, Chk/fld(goal, 0)} <> ctx, d + 1, (d + 1) <> sm, v, lambda lk. Prim/vapp(Prim/vfield(goal(lk), 1), lk(d + 1)))
+    if Chk/is(Chk/now(ctx, d, goal), &Pi):
+      Chk/check(es, @Free{Prim/fresh(()), @F{goal, 0}} <> ctx, d + 1, (d + 1) <> sm, v, @A{@F{goal, 1}, @L{d + 1}})
     else:
       2
   else:
@@ -642,9 +703,7 @@ def Chk/check(es: Val[], ctx: Ent[], d: U64, sm: U64[], c: U64, goal: (U64 -> Va
       Chk/checkSta(es, ctx, d, sm, e, v, goal)
     else:
       if t === 6:
-        k = Chk/varLvl(sm, v)
-        en = if k === 0: @Dup{v, sm} else: @Alias{Chk/root(ctx, d, k), 1}
-        Chk/check(es, en <> ctx, d + 1, (d + 1) <> sm, v + 1, goal)
+        Chk/check(es, Chk/dupEnt(ctx, d, sm, v) <> ctx, d + 1, (d + 1) <> sm, v + 1, goal)
       else:
         if t === 11:
           0
@@ -667,7 +726,7 @@ def Chk/check(es: Val[], ctx: Ent[], d: U64, sm: U64[], c: U64, goal: (U64 -> Va
                 else:
                   Chk/verify(es, ctx, d, sm, c, goal)
 
-def Chk/verify(es: Val[], ctx: Ent[], d: U64, sm: U64[], c: U64, goal: (U64 -> Val) -> Val) -> U64:
+def Chk/verify(es: Val[], ctx: Ent[], d: U64, sm: U64[], c: U64, goal: G) -> U64:
   match Chk/infer(es, ctx, d, sm, c):
     case (r, ty):
       if r === 0:
@@ -675,17 +734,16 @@ def Chk/verify(es: Val[], ctx: Ent[], d: U64, sm: U64[], c: U64, goal: (U64 -> V
       else:
         r
 
-def Chk/checkSta(es: Val[], ctx: Ent[], d: U64, sm: U64[], k: U64, v: U64, goal: (U64 -> Val) -> Val) -> U64:
+def Chk/checkSta(es: Val[], ctx: Ent[], d: U64, sm: U64[], k: U64, v: U64, goal: G) -> U64:
   if k === 1:
-    Chk/then(Chk/check(es, ctx, d, sm, v, Chk/cst(Chk/mk1(&List, Chk/mk1(&Num, Chk/mk0(&Chr))))), Chk/check(es, ctx, d, sm, v + 1, goal))
+    Chk/then(Chk/check(es, ctx, d, sm, v, @V{Chk/mk1(&List, Chk/mk1(&Num, Chk/mk0(&Chr)))}), Chk/check(es, ctx, d, sm, v + 1, goal))
   else:
     if k === 0:
-      tT = Chk/evalC(ctx, d, sm, v)
-      Chk/then(Chk/check(es, ctx, d, sm, v + 1, tT), Chk/convR(Chk/now(ctx, d, tT), Chk/now(ctx, d, goal)))
+      Chk/then(Chk/check(es, ctx, d, sm, v + 1, @C{v, sm}), Chk/convR(Chk/now(ctx, d, @C{v, sm}), Chk/now(ctx, d, goal)))
     else:
       2
 
-def Chk/checkCtr(es: Val[], ctx: Ent[], d: U64, sm: U64[], c: U64, ari: U64, e: U64, v: U64, goal: (U64 -> Val) -> Val) -> U64:
+def Chk/checkCtr(es: Val[], ctx: Ent[], d: U64, sm: U64[], c: U64, ari: U64, e: U64, v: U64, goal: G) -> U64:
   g = Chk/now(ctx, d, goal)
   if (e === Chk/id(&Zer)) and Chk/is(g, &Nat):
     0
@@ -694,7 +752,7 @@ def Chk/checkCtr(es: Val[], ctx: Ent[], d: U64, sm: U64[], c: U64, ari: U64, e: 
       Chk/check(es, ctx, d, sm, v, goal)
     else:
       if (e === Chk/id(&Suc)) and Chk/is(g, &Eql) and Chk/is(Prim/vfield(g, 1), &Suc) and Chk/is(Prim/vfield(g, 2), &Suc):
-        Chk/check(es, ctx, d, sm, v, lambda lk. Chk/mk3(&Eql, Prim/vfield(goal(lk), 0), Prim/vfield(Prim/vfield(goal(lk), 1), 0), Prim/vfield(Prim/vfield(goal(lk), 2), 0)))
+        Chk/check(es, ctx, d, sm, v, @K{Chk/id(&Eql), [@F{goal, 0}, @F{@F{goal, 1}, 0}, @F{@F{goal, 2}, 0}]})
       else:
         if e === Chk/id(&Nil):
           if Chk/is(g, &List):
@@ -703,14 +761,13 @@ def Chk/checkCtr(es: Val[], ctx: Ent[], d: U64, sm: U64[], c: U64, ari: U64, e: 
             1
         else:
           if (e === Chk/id(&Con)) and Chk/is(g, &List):
-            Chk/then(Chk/check(es, ctx, d, sm, v, Chk/fld(goal, 0)), Chk/check(es, ctx, d, sm, v + 1, goal))
+            Chk/then(Chk/check(es, ctx, d, sm, v, @F{goal, 0}), Chk/check(es, ctx, d, sm, v + 1, goal))
           else:
             if (e === Chk/id(&One)) and Chk/is(g, &Unit):
               0
             else:
               if (e === Chk/id(&Pair)) and Chk/is(g, &Sig):
-                a = Chk/evalC(ctx, d, sm, v)
-                Chk/then(Chk/check(es, ctx, d, sm, v, Chk/fld(goal, 0)), Chk/check(es, ctx, d, sm, v + 1, lambda lk. Prim/vapp(Prim/vfield(goal(lk), 1), a(lk))))
+                Chk/then(Chk/check(es, ctx, d, sm, v, @F{goal, 0}), Chk/check(es, ctx, d, sm, v + 1, @A{@F{goal, 1}, @C{v, sm}}))
               else:
                 if (e === Chk/id(&Refl)) and Chk/is(g, &Eql):
                   Chk/convR(Prim/vfield(g, 1), Prim/vfield(g, 2))
@@ -726,7 +783,7 @@ def Chk/checkCtr(es: Val[], ctx: Ent[], d: U64, sm: U64[], c: U64, ari: U64, e: 
 # (f x ..) against a goal: a match (Core's eliminators, lowered with their
 # environment passed after the scrutinee), a λ head (substitution), or
 # inference
-def Chk/checkApp(es: Val[], ctx: Ent[], d: U64, sm: U64[], c: U64, h: U64, xs: U64[], goal: (U64 -> Val) -> Val) -> U64:
+def Chk/checkApp(es: Val[], ctx: Ent[], d: U64, sm: U64[], c: U64, h: U64, xs: U64[], goal: G) -> U64:
   ht = Chk/tag(h)
   if (ht === 12) or (ht === 31) or (ht === 11):
     match xs:
@@ -742,39 +799,34 @@ def Chk/checkApp(es: Val[], ctx: Ent[], d: U64, sm: U64[], c: U64, h: U64, xs: U
 
 # (λx. b)(a1)..(an): a1 is substituted; each later argument is a generic
 # element of its inferred type (Core: check f against ∀(typeof x). goal)
-def Chk/checkLamApp(es: Val[], ctx: Ent[], d: U64, sm: U64[], h: U64, xs: U64[], goal: (U64 -> Val) -> Val) -> U64:
+def Chk/checkLamApp(es: Val[], ctx: Ent[], d: U64, sm: U64[], h: U64, xs: U64[], goal: G) -> U64:
   match xs:
     case []:
       Chk/check(es, ctx, d, sm, h, goal)
     case x <> rest:
       Chk/lamArgs(es, @Let{x, sm} <> ctx, d + 1, (d + 1) <> sm, Chk/val(h), rest, sm, goal)
 
-def Chk/lamArgs(es: Val[], ctx: Ent[], d: U64, sm: U64[], c: U64, xs: U64[], sm0: U64[], goal: (U64 -> Val) -> Val) -> U64:
+def Chk/lamArgs(es: Val[], ctx: Ent[], d: U64, sm: U64[], c: U64, xs: U64[], sm0: U64[], goal: G) -> U64:
   match xs:
     case []:
       Chk/check(es, ctx, d, sm, c, goal)
     case x <> rest:
-      if Chk/tag(c) === 2:
-        match Chk/infer(es, ctx, d, sm0, x):
-          case (r, ty):
-            if r === 0:
-              Chk/lamArgs(es, @Free{Prim/fresh(()), ty} <> ctx, d + 1, (d + 1) <> sm, Chk/val(c), rest, sm0, goal)
-            else:
-              r
+      if Chk/tag(c) === 6:
+        Chk/lamArgs(es, Chk/dupEnt(ctx, d, sm, Chk/val(c)) <> ctx, d + 1, (d + 1) <> sm, Chk/val(c) + 1, x <> rest, sm0, goal)
       else:
-        4001
+        if Chk/tag(c) === 2:
+          match Chk/infer(es, ctx, d, sm0, x):
+            case (r, ty):
+              if r === 0:
+                Chk/lamArgs(es, @Free{Prim/fresh(()), ty} <> ctx, d + 1, (d + 1) <> sm, Chk/val(c), rest, sm0, goal)
+              else:
+                r
+        else:
+          4001
 
-# the arity of a constructor arm
-def Chk/arity(e: U64) -> U64:
-  if (e === Chk/id(&Suc)):
-    1
-  else:
-    if (e === Chk/id(&Con)) or (e === Chk/id(&Pair)):
-      2
-    else:
-      0
+# ---- matches ---------------------------------------------------------------------
 
-def Chk/checkMatch(es: Val[], ctx: Ent[], d: U64, sm: U64[], h: U64, x: U64, env: U64[], goal: (U64 -> Val) -> Val) -> U64:
+def Chk/checkMatch(es: Val[], ctx: Ent[], d: U64, sm: U64[], h: U64, x: U64, env: U64[], goal: G) -> U64:
   match Chk/infer(es, ctx, d, sm, x):
     case (r, xT):
       if r !== 0:
@@ -795,13 +847,13 @@ def Chk/checkMatch(es: Val[], ctx: Ent[], d: U64, sm: U64[], h: U64, x: U64, env
             else:
               1
         else:
-          Chk/arms(es, ctx, d, sm, h, xT, kr, Chk/evalC(ctx, d, sm, x), env, goal, [])
+          Chk/arms(es, ctx, d, sm, h, xT, kr, @C{x, sm}, env, goal, [])
 
 # refining a scrutinee that is not a variable: its occurrences in the goal
 # are rewritten to the pattern (Core: Rwt x pat goal)
-def Chk/refG(kr: U64, xv: (U64 -> Val) -> Val, pat: (U64 -> Val) -> Val, goal: (U64 -> Val) -> Val) -> (U64 -> Val) -> Val:
+def Chk/refG(kr: U64, xv: G, pat: G, goal: G) -> G:
   if kr === 0:
-    lambda lk. Prim/rewrite(xv(lk), pat(lk), goal(lk))
+    @Rw{xv, pat, goal}
   else:
     goal
 
@@ -826,7 +878,7 @@ def Chk/elemU(x: U64, xs: U64[]) -> Bool:
         Chk/elemU(x, t)
 
 # walk the arms of a match chain (cov: the constructors seen so far)
-def Chk/arms(es: Val[], ctx: Ent[], d: U64, sm: U64[], h: U64, xT: (U64 -> Val) -> Val, kr: U64, xv: (U64 -> Val) -> Val, env: U64[], goal: (U64 -> Val) -> Val, cov: U64[]) -> U64:
+def Chk/arms(es: Val[], ctx: Ent[], d: U64, sm: U64[], h: U64, xT: G, kr: U64, xv: G, env: U64[], goal: G, cov: U64[]) -> U64:
   t = Chk/tag(h)
   e = Chk/ext(h)
   v = Chk/val(h)
@@ -836,7 +888,8 @@ def Chk/arms(es: Val[], ctx: Ent[], d: U64, sm: U64[], h: U64, xT: (U64 -> Val) 
   else:
     if t === 31:
       if Chk/is(xt, &Bool) and (e === 0):
-        Chk/then(Chk/armFields(es, Chk/refine(ctx, d, kr, Chk/cst(Num/val(0))), d, sm, v, [], env, Chk/refG(kr, xv, Chk/cst(Num/val(0)), goal)), Chk/arms(es, ctx, d, sm, v + 1, xT, kr, xv, env, goal, cov))
+        f = @V{Num/val(0)}
+        Chk/then(Chk/armFields(es, Chk/refine(ctx, d, kr, f), d, sm, v, env, Chk/refG(kr, xv, f, goal)), Chk/arms(es, ctx, d, sm, v + 1, xT, kr, xv, env, goal, cov))
       else:
         4002
     else:
@@ -845,8 +898,9 @@ def Chk/arms(es: Val[], ctx: Ent[], d: U64, sm: U64[], h: U64, xT: (U64 -> Val) 
       else:
         if t === 2:
           if Chk/is(xt, &Bool):
-            n = Prim/fresh(())
-            Chk/armFields(es, Chk/refine(@Refn{Chk/cst(Num/val(1)), Chk/cst(Chk/mk0(&Bool))} <> ctx, d + 1, kr, Chk/cst(Num/val(1))), d + 1, (d + 1) <> sm, v, [], env, Chk/refG(kr, xv, Chk/cst(Num/val(1)), goal))
+            tr = @V{Num/val(1)}
+            ctx2 = @Refn{tr, @V{Chk/mk0(&Bool)}} <> ctx
+            Chk/armFields(es, Chk/refine(ctx2, d + 1, kr, tr), d + 1, (d + 1) <> sm, v, env, Chk/refG(kr, xv, tr, goal))
           else:
             if Chk/is(xt, &Enum):
               # Core: a default is read only when the arms do not cover the
@@ -857,9 +911,8 @@ def Chk/arms(es: Val[], ctx: Ent[], d: U64, sm: U64[], h: U64, xT: (U64 -> Val) 
                 if Chk/absentDefault(v, Chk/lenU(env)):
                   1
                 else:
-                  n = Prim/fresh(())
-                  ctx2 = @Free{n, xT} <> ctx
-                  Chk/armFields(es, Chk/refine(ctx2, d + 1, kr, lambda lk. lk(d + 1)), d + 1, (d + 1) <> sm, v, [], env, Chk/refG(kr, xv, lambda lk. lk(d + 1), goal))
+                  ctx2 = @Free{Prim/fresh(()), xT} <> ctx
+                  Chk/armFields(es, Chk/refine(ctx2, d + 1, kr, @L{d + 1}), d + 1, (d + 1) <> sm, v, env, Chk/refG(kr, xv, @L{d + 1}, goal))
             else:
               1
         else:
@@ -875,70 +928,95 @@ def Chk/absentDefault(c: U64, n: U64) -> Bool:
   else:
     False
 
+# a field-less arm: the scrutinee refined to the pattern p
+def Chk/arm0(es: Val[], ctx: Ent[], d: U64, sm: U64[], a: U64, kr: U64, xv: G, p: G, env: U64[], goal: G) -> U64:
+  Chk/armFields(es, Chk/refine(ctx, d, kr, p), d, sm, a, env, Chk/refG(kr, xv, p, goal))
+
 # one constructor arm: its fields are generic elements of the field types,
 # then the scrutinee is refined to the constructor of those fields
-def Chk/arm(es: Val[], ctx: Ent[], d: U64, sm: U64[], a: U64, e: U64, xT: (U64 -> Val) -> Val, kr: U64, xv: (U64 -> Val) -> Val, env: U64[], goal: (U64 -> Val) -> Val) -> U64:
+def Chk/arm(es: Val[], ctx: Ent[], d: U64, sm: U64[], a: U64, e: U64, xT: G, kr: U64, xv: G, env: U64[], goal: G) -> U64:
   xt = Chk/now(ctx, d, xT)
   if (e === Chk/id(&Zer)) and Chk/is(xt, &Nat):
-    Chk/armFields(es, Chk/refine(ctx, d, kr, Chk/cst(Chk/mk0(&Zer))), d, sm, a, [], env, Chk/refG(kr, xv, Chk/cst(Chk/mk0(&Zer)), goal))
+    Chk/arm0(es, ctx, d, sm, a, kr, xv, @V{Chk/mk0(&Zer)}, env, goal)
   else:
     if (e === Chk/id(&Suc)) and Chk/is(xt, &Nat):
-      Chk/arm1(es, ctx, d, sm, a, Chk/cst(Chk/mk0(&Nat)), kr, xv, lambda lk. Chk/mk1(&Suc, lk(d + 1)), env, goal)
+      Chk/arm1(es, ctx, d, sm, a, @V{Chk/mk0(&Nat)}, kr, xv, lambda l1. @K{Chk/id(&Suc), [@L{l1}]}, env, goal)
     else:
       if (e === Chk/id(&Nil)) and Chk/is(xt, &List):
-        Chk/armFields(es, Chk/refine(ctx, d, kr, Chk/cst(Chk/mk0(&Nil))), d, sm, a, [], env, Chk/refG(kr, xv, Chk/cst(Chk/mk0(&Nil)), goal))
+        Chk/arm0(es, ctx, d, sm, a, kr, xv, @V{Chk/mk0(&Nil)}, env, goal)
       else:
         if (e === Chk/id(&Con)) and Chk/is(xt, &List):
-          Chk/arm2(es, ctx, d, sm, a, Chk/fld(xT, 0), lambda lk. xT(lk), kr, xv, &Con, env, goal)
+          Chk/arm2(es, ctx, d, sm, a, @F{xT, 0}, lambda l1. xT, kr, xv, Chk/id(&Con), env, goal)
         else:
           if (e === Chk/id(&One)) and Chk/is(xt, &Unit):
-            Chk/armFields(es, Chk/refine(ctx, d, kr, Chk/cst(Chk/mk0(&One))), d, sm, a, [], env, Chk/refG(kr, xv, Chk/cst(Chk/mk0(&One)), goal))
+            Chk/arm0(es, ctx, d, sm, a, kr, xv, @V{Chk/mk0(&One)}, env, goal)
           else:
             if (e === Chk/id(&Pair)) and Chk/is(xt, &Sig):
-              Chk/arm2(es, ctx, d, sm, a, Chk/fld(xT, 0), lambda lk. Prim/vapp(Prim/vfield(xT(lk), 1), lk(d + 1)), kr, xv, &Pair, env, goal)
+              Chk/arm2(es, ctx, d, sm, a, @F{xT, 0}, lambda l1. @A{@F{xT, 1}, @L{l1}}, kr, xv, Chk/id(&Pair), env, goal)
             else:
               if (e === Chk/id(&Refl)) and Chk/is(xt, &Eql):
-                c1 = Chk/refine(ctx, d, kr, Chk/cst(Chk/mk0(&Refl)))
-                g1 = Chk/refG(kr, xv, Chk/cst(Chk/mk0(&Refl)), goal)
-                ka = Chk/findFree(c1, d, Prim/vfield(xt, 1))
-                c2 = if ka === 0: c1 else: Chk/refine(c1, d, ka, Chk/fld(xT, 2))
-                # J: the endpoint a becomes b (Core: Rwt a b goal)
-                g2 = Chk/refG(ka, Chk/fld(xT, 1), Chk/fld(xT, 2), g1)
-                Chk/armFields(es, c2, d, sm, a, [], env, g2)
+                Chk/armJ(es, ctx, d, sm, a, xt, xT, kr, xv, env, goal)
               else:
                 if Chk/is(xt, &Enum) and Chk/hasSym(Prim/vfield(xt, 0), e):
-                  Chk/armFields(es, Chk/refine(ctx, d, kr, Chk/cst(Prim/vctr(e, []))), d, sm, a, [], env, Chk/refG(kr, xv, Chk/cst(Prim/vctr(e, [])), goal))
+                  Chk/arm0(es, ctx, d, sm, a, kr, xv, @V{Prim/vctr(e, [])}, env, goal)
                 else:
                   1
 
-def Chk/arm1(es: Val[], ctx: Ent[], d: U64, sm: U64[], a: U64, fT: (U64 -> Val) -> Val, kr: U64, xv: (U64 -> Val) -> Val, pat: (U64 -> Val) -> Val, env: U64[], goal: (U64 -> Val) -> Val) -> U64:
-  if Chk/tag(a) === 2:
-    ctx2 = @Free{Prim/fresh(()), fT} <> ctx
-    Chk/armFields(es, Chk/refine(ctx2, d + 1, kr, pat), d + 1, (d + 1) <> sm, Chk/val(a), [], env, Chk/refG(kr, xv, pat, goal))
-  else:
-    4004
+# J: the scrutinee is refl, and the endpoint a is identified with b: an
+# alias of b's level when both are variables, b's value when only a is,
+# and a rewrite of the goal when a is not a variable (Core: Rwt a b goal)
+def Chk/armJ(es: Val[], ctx: Ent[], d: U64, sm: U64[], a: U64, xt: Val, xT: G, kr: U64, xv: G, env: U64[], goal: G) -> U64:
+  refl = @V{Chk/mk0(&Refl)}
+  c1 = Chk/refine(ctx, d, kr, refl)
+  g1 = Chk/refG(kr, xv, refl, goal)
+  ka = Chk/findFree(c1, d, Prim/vfield(xt, 1))
+  kb = Chk/findFree(c1, d, Prim/vfield(xt, 2))
+  eb = if kb === 0: @Refn{@V{Prim/vfield(xt, 2)}, @V{Prim/vfield(xt, 0)}} else: @Alias{kb, 0}
+  c2 = if (ka === 0) or (ka === kb): c1 else: Chk/setE(c1, d - ka, eb)
+  g2 = if ka === 0: @Rw{@V{Prim/vfield(xt, 1)}, @V{Prim/vfield(xt, 2)}, g1} else: g1
+  Chk/armFields(es, c2, d, sm, a, env, g2)
 
-def Chk/arm2(es: Val[], ctx: Ent[], d: U64, sm: U64[], a: U64, fT: (U64 -> Val) -> Val, gT: (U64 -> Val) -> Val, kr: U64, xv: (U64 -> Val) -> Val, t: Tag(), env: U64[], goal: (U64 -> Val) -> Val) -> U64:
-  if (Chk/tag(a) === 2) and (Chk/tag(Chk/val(a)) === 2):
-    ctx2 = @Free{Prim/fresh(()), gT} <> @Free{Prim/fresh(()), fT} <> ctx
-    pat = lambda lk. Chk/mk2(t, lk(d + 1), lk(d + 2))
-    Chk/armFields(es, Chk/refine(ctx2, d + 2, kr, pat), d + 2, (d + 2) <> (d + 1) <> sm, Chk/val(Chk/val(a)), [], env, Chk/refG(kr, xv, pat, goal))
+def Chk/arm1(es: Val[], ctx: Ent[], d: U64, sm: U64[], a: U64, fT: G, kr: U64, xv: G, pat: U64 -> G, env: U64[], goal: G) -> U64:
+  t = Chk/tag(a)
+  if t === 6:
+    Chk/arm1(es, Chk/dupEnt(ctx, d, sm, Chk/val(a)) <> ctx, d + 1, (d + 1) <> sm, Chk/val(a) + 1, fT, kr, xv, pat, env, goal)
   else:
-    4005
+    if t === 2:
+      ctx2 = @Free{Prim/fresh(()), fT} <> ctx
+      Chk/armFields(es, Chk/refine(ctx2, d + 1, kr, pat(d + 1)), d + 1, (d + 1) <> sm, Chk/val(a), env, Chk/refG(kr, xv, pat(d + 1), goal))
+    else:
+      4004
+
+# a two-field arm: the first field's level is known when the second's type
+# and the pattern are built
+def Chk/arm2(es: Val[], ctx: Ent[], d: U64, sm: U64[], a: U64, fT: G, gT: U64 -> G, kr: U64, xv: G, t: U64, env: U64[], goal: G) -> U64:
+  ta = Chk/tag(a)
+  if ta === 6:
+    Chk/arm2(es, Chk/dupEnt(ctx, d, sm, Chk/val(a)) <> ctx, d + 1, (d + 1) <> sm, Chk/val(a) + 1, fT, gT, kr, xv, t, env, goal)
+  else:
+    if ta === 2:
+      l1 = d + 1
+      Chk/arm1(es, @Free{Prim/fresh(()), fT} <> ctx, l1, l1 <> sm, Chk/val(a), gT(l1), kr, xv, lambda l2. @K{t, [@L{l1}, @L{l2}]}, env, goal)
+    else:
+      4005
 
 # the environment binders of an arm alias the variables passed after the
 # scrutinee; then the arm body is checked against the (refined) goal
-def Chk/armFields(es: Val[], ctx: Ent[], d: U64, sm: U64[], a: U64, u: U64[], env: U64[], goal: (U64 -> Val) -> Val) -> U64:
+def Chk/armFields(es: Val[], ctx: Ent[], d: U64, sm: U64[], a: U64, env: U64[], goal: G) -> U64:
   match env:
     case []:
       Chk/check(es, ctx, d, sm, a, goal)
     case x <> rest:
-      if Chk/tag(a) === 2:
-        k = Chk/varLvl(sm, x)
-        en = if k === 0: @Let{x, sm} else: @Alias{Chk/root(ctx, d, k), 0}
-        Chk/armFields(es, en <> ctx, d + 1, (d + 1) <> sm, Chk/val(a), u, rest, goal)
+      ta = Chk/tag(a)
+      if ta === 6:
+        Chk/armFields(es, Chk/dupEnt(ctx, d, sm, Chk/val(a)) <> ctx, d + 1, (d + 1) <> sm, Chk/val(a) + 1, x <> rest, goal)
       else:
-        4006
+        if ta === 2:
+          k = Chk/varLvl(sm, x)
+          en = if k === 0: @Let{x, sm} else: @Alias{Chk/root(ctx, d, k), 0}
+          Chk/armFields(es, en <> ctx, d + 1, (d + 1) <> sm, Chk/val(a), rest, goal)
+        else:
+          4006
 
 # ---- the book -------------------------------------------------------------------
 
@@ -957,6 +1035,5 @@ def Chk/each(es: Val[], defs: (any c: U64. any t: U64. U64)[]) -> (any i: U64. U
         case (c, q):
           match q:
             case (tc, i):
-              set = Chk/cst(Chk/mk0(&Set))
-              r = Chk/then(Chk/check(es, [], 0, [], tc, set), Chk/check(es, [], 0, [], c, Chk/cst(Prim/typeof(i))))
+              r = Chk/then(Chk/check(es, [], 0, [], tc, Chk/set()), Chk/check(es, [], 0, [], c, @V{Prim/typeof(i)}))
               (i, r) <> Chk/each(es, rest)
