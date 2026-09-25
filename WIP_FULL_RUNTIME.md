@@ -417,17 +417,20 @@ a unit-cost primitive moves the decision into the primitive), RUNTIME_FULL
    - η: by the checker's typed readback (reify at Π: λ; at Path: #PLm over a
      fresh dimension), not an untyped runtime rule.
 2. LABEL CAPTURE INSIDE ONE INSTANCE IS A RUNTIME DEFECT ON ORDINARY
-   PROGRAMS, not only the checker's: `probes/label_capture/cap4.bend`
-   (`use(p) = p(Nat→Nat, p(Nat), suc, 0)`, `p = λA g z. g(g z)`) Core 4,
-   runtime "cannot apply a constructor". Cause: DUP-P copying a λ whose body
-   binds dimension G splits G's binder by commutation; the two copies are
-   distinct binders in the λ-reading but keep one name; feeding one copy's
-   output to the other captures. Renaming at the split is not local
-   (occurrences created before the split keep the old name). The fix that
-   is correct for all terms AND keeps optimal sharing is level bookkeeping
-   (Lamping/Guerrini: fans carry levels, brackets/croissants move box
-   boundaries); its interactions are part of the counted cost. P3b's fresh
-   instance per δ-unfolding stays (it is the inter-instance half).
+   PROGRAMS: `probes/label_capture/cap4.bend` (`use(p) = p(Nat→Nat, p(Nat),
+   suc, 0)`, `p = λA g z. g(g z)`) Core 4, runtime "cannot apply a
+   constructor". WORKING RULE (user): the corpus is the only authority;
+   outside constructions (HVM's rule set, the optimal-reduction literature,
+   Agda conventions) are never a justification. The Lamping/bracket plan is
+   WITHDRAWN. The corpus's own method is DIRECTIONAL_SYNTHESIS "The runtime
+   correspondence to prove": an interpretation of net states (cells, the
+   retained fibre, demand, labels, ledger) and, per rule, a semantic
+   commuting square with a cost recurrence. There, equal-label DUP-SUP is
+   "branch projection in an already shared fibre": it commutes only when the
+   label names THAT fibre. So a label is bound (identified by what it
+   shares), like a λ variable is its binder; the runtime writing it as a
+   global integer is the defect, and P3b's fresh-instance counter is the same
+   patch. Derive the rules from the squares; do not add machinery.
 3. CHECKER = NbE on net values (no G evaluator): each binder reflects its
    generic element once; goals are closures (code applied to the context's
    values); refinement of a matched variable is re-application (One §1 at
@@ -435,13 +438,15 @@ a unit-cost primitive moves the decision into the primitive), RUNTIME_FULL
    (with-abstraction); Core's syntactic `rewrite` is a heuristic there and is
    recorded as a Core deviation, not reproduced.
 
+(1) was justified partly by Agda's convention; it stays only if it is re-derived
+from Visranti's nf on the same footing.
 Order: (1) atomic case trees + EQL identity for REF/PRI, delete the δ-off
 machinery [DONE: `ct_fires` walks the static case tree before δ; a stuck
 call is a DRY spine headed by its REF, copied and compared as a name.
 Over all 237 emitted corpus programs, old vs new binary: every value and
 every ITRS identical except neutral_type_smoke (now the canonical
 `@Ddouble(a)`, 5 → 4 itrs). verify_conductive_entry: all stages OK. The old
-`conv` still references the now-inert WNF_NO_DELTA; it goes with (4)]; (2) level bookkeeping; (3) interval nf in the prelude; (4) NbE
+`conv` still references the now-inert WNF_NO_DELTA; it goes with (4)]; (2) DUP/SUP rules derived as commuting squares (labels bound); (3) interval nf in the prelude; (4) NbE
 checker on (1)–(3); then the cubical stages.
 
 ## 4. How to work here (pitfalls already paid for)
