@@ -1,14 +1,14 @@
 # Universal language presentation.
 #
-# This is not an optimizer or a second evaluator.  It names the one object the
-# full target now makes intrinsic:
+# This is not an optimizer or a second evaluator.  It names the one object:
 #
 #   typed point + every map out of it
 #     == lossless fibre presentation
 #     == continuing typed point.
 #
-# The compiler's @cf* runtime definitions are required to be extensionally the
-# same construction; CI compares their observable behavior.
+# The full target has no runtime copy of it: a checked program using this
+# module runs through the ordinary emitter, and its root is the typed point
+# (A, a) of Σ(A : Set). A that the same law applies to again.
 
 import FibreCoalgebra
 

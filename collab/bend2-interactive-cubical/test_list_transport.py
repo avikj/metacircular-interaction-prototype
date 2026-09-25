@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """Exercise the actual HVM prelude, without checker normalization hiding a bug.
 
+A universe path is the six-cell #UaU{A, B, f, g, gf, fg}: both coherences ride
+beside the two maps, as the full emitter keeps them.
+
 No third-party Python packages are needed. Supply a compiled HVM4 binary with
 --hvm. --check-only checks extraction and patch applicability, NOT execution.
 """
@@ -81,14 +84,17 @@ def coe(line: str, value: str, r: str = "#I0", s: str = "#I1") -> str:
 
 EXTRA = r"""
 @neg = λ{0: 1; λn. 0}
-@negPath = #UaU{#Bool, #Bool, @neg, @neg}
+@negLnv = λ{0: #PLm{λi. 0}; λn. #PLm{λi. 1}}
+@negPath = #UaU{#Bool, #Bool, @neg, @neg, @negLnv, @negLnv}
 @negLine = λi. #List{@pathAt(@negPath, i)}
 @idLine = λi. #List{#Bool}
 @nestedLine = λi. #List{#List{@pathAt(@negPath, i)}}
 @inverseLine = λi. #List{@pathAt(@negPath, @inot(i))}
 @doublePath = #CompU{λi. @pathAt(@negPath, i), λi. @pathAt(@negPath, i)}
 @doubleLine = λi. #List{@pathAt(@doublePath, i)}
-@rename = #UaU{#Bool, #Enum, λ{0: #Off; λn. #On}, λ{#Off: 0; #On: 1}}
+@renameLnv = λ{0: #PLm{λi. 0}; λn. #PLm{λi. 1}}
+@renameRnv = λ{#Off: #PLm{λi. #Off}; #On: #PLm{λi. #On}}
+@rename = #UaU{#Bool, #Enum, λ{0: #Off; λn. #On}, λ{#Off: 0; #On: 1}, @renameLnv, @renameRnv}
 @renameLine = λi. #List{@pathAt(@rename, i)}
 @head = λ{#Con: λh. λt. h; #Nil: 0}
 @loop = @loop
@@ -98,7 +104,8 @@ EXTRA = r"""
 @applyTrue = λ{#Nil: #Nil; #Con: λf. λtail. #Con{f(1), @applyTrue(tail)}}
 @cycle3 = λ{#Red: #Green; #Green: #Blue; #Blue: #Red}
 @uncycle3 = λ{#Red: #Blue; #Green: #Red; #Blue: #Green}
-@cyclePath = #UaU{#Enum, #Enum, @cycle3, @uncycle3}
+@cycleLnv = λ{#Red: #PLm{λi. #Red}; #Green: #PLm{λi. #Green}; #Blue: #PLm{λi. #Blue}}
+@cyclePath = #UaU{#Enum, #Enum, @cycle3, @uncycle3, @cycleLnv, @cycleLnv}
 @cycleLine = λi. #List{@pathAt(@cyclePath, i)}
 """
 

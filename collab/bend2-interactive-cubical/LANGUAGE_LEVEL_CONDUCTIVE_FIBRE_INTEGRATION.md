@@ -1180,16 +1180,19 @@ If step 3 cannot be implemented without changing Core, document the exact compil
 
 # 41. Final implementation state
 
-The generic source-level process is no longer duplicated across applications.
+The generic source-level process is no longer duplicated across applications,
+and the compiler carries no copy of it either.
 
-- `FibreCoalgebra.bend` now explicitly defines the exact whole transition, typed continuation, visible projection, and two-observation source recovery.
-- `ConductiveRuntime.bend` is the checked canonical source/oracle for the tiny intrinsic HVM bootstrap.
-- `UniversalPresentation.bend` is the point/question reading of that same process.
+- `FibreCoalgebra.bend` explicitly defines the exact whole transition, typed continuation, visible projection, and two-observation source recovery.
+- `ConductiveRuntime.bend` and `UniversalPresentation.bend` are the canonical checked programs of that process: the first as the law and its closure, the second as the point/question reading.
 - `SATProcess.bend` no longer imports `WholeProcess` or spells `interact`; it contains only the SAT object/proposition/readout and uses the universal presentation.
-- `Target.HVM4Full` retains the original checked entry as `@sourceMain` and makes `@main` the intrinsic conductive projection.
-- Fixed-codomain function entries additionally expose their own canonical fibre presentation.
-- The first continuation retains the exact `FibreElement(A,B,f)` type and is exercised by a second observation.
+- `Target.HVM4Full` emits every checked definition twice, `@Dname` (the term) and `@Tname` (its checked type), and the root is the typed point `@main = #Pair{@Tmain, @Dmain}` of `Σ(A : Set). A`. Map-valued and dependent entries are ordinary typed points; nothing is generated beside them.
+- `--to-hvm4-full` runs the checker first and emits nothing for an ill-typed book.
+- Types are emitted as complete cells: an equality type keeps its carrier and endpoints, an enum keeps its symbols, a numeric type its kind, and `ua` keeps both coherences beside its two maps.
 
-The only intentionally temporary duplication is the small `@cf*` HVM spelling embedded in `Target.HVM4Full`. It exists because the upstream compiler has no packaged standard-library linker: `parseFile` resolves source imports from filesystem paths, while `compileFull :: Book -> String` is pure and receives only the already-closed Book. Moving canonical Bend source into the target would therefore require either embedding/parsing source in Haskell or changing compiler packaging. Neither changes the semantics. `ConductiveRuntime.bend` is the source of truth and CI executes both paths.
+What was tried and removed, and why, so it is not rediscovered:
 
-Do not expand this into a new architecture project. Replacing the bootstrap with packaged canonical-library linkage is cleanup once Bend has a standard-library packaging mechanism; it is not a missing mathematical/runtime capability.
+- A handwritten `@cf*` HVM prelude re-implementing `descend`/`observe`/`ascend`, with `@main` rewritten to the "conductive projection" of a retained `@sourceMain`. Provably the identity (`observe(id)` is the Yoneda retrieval of the point; every stage of the tower is equivalent to `A`), at a fixed interaction cost, and a second copy of mathematics that already exists as checked Bend. Deleted; the checked modules run through the ordinary emitter.
+- Compile-time `nativeDerivation`/`NativeStep` companions recording Core.WHNF head-reductions of each definition body, with fold-based "receivers" (length, endpoint, rules). `--to-hvm4-full` executes HVM4, not Core.WHNF, so the recorded derivation describes a different evaluator; a closed deterministic run's derivation is contractible, so it adds no information; and evaluating at compile time breaks productivity. Deleted. Native cost is the HVM interaction receipt of the typed root.
+
+The follow-up interface (`respond : all B. all f : A -> B. FibreObservation`) is source-level Bend and needs no compiler support beyond faithful emission.

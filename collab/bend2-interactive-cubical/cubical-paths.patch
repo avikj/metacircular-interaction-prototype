@@ -4628,10 +4628,10 @@ index a5d92e8..8017fc8 100644
  cut :: Term -> Term
  cut (Loc _ t) = cut t
 diff --git a/src/Core/WHNF.hs b/src/Core/WHNF.hs
-index 953410d..e79fe0f 100644
+index 953410d..3af8583 100644
 --- a/src/Core/WHNF.hs
 +++ b/src/Core/WHNF.hs
-@@ -6,13 +6,16 @@ module Core.WHNF where
+@@ -6,7 +6,9 @@ module Core.WHNF where
  
  import Debug.Trace
  
@@ -4641,86 +4641,7 @@ index 953410d..e79fe0f 100644
  
  import System.IO.Unsafe
  import Data.IORef
- import Data.Bits
- import GHC.Float (castDoubleToWord64, castWord64ToDouble)
- 
-+-- Proof-relevant reading of the native Core evaluator.  These constructors
-+-- name the language's own reduction families; there is no second toy syntax.
-+data NativeRule
-+  = RChk | RApp | RLet | RRef | RFix | RLoc
-+  | ROp1 | ROp2 | RBitM | RNatM | RLstM | RUniM | RSigM | REnuM | REqlM | RSupM | RLog
-+  | RPathApp | ROutS | RTransp | RPOut | RCircleRec | RTruncRec
-+  | RCoe | RHComp | RGlue | RGlueValue | RUnglue
-+  | RINot | RIAnd | RIOr | RQuotRec | RHITElim | RHITPath | RHITRec
-+  deriving (Eq, Show)
-+
-+data NativeStep = NativeStep
-+  { stepRule   :: NativeRule
-+  , stepSource :: Term
-+  , stepTarget :: Term
-+  } deriving (Show)
-+
-+data NativeDerivation
-+  = NativeDone Term
-+  | NativeThen NativeStep NativeDerivation
-+  deriving (Show)
-+
-+ruleName :: NativeRule -> String
-+ruleName r = case r of
-+  RChk -> "Chk"; RApp -> "App"; RLet -> "Let"; RRef -> "Ref"; RFix -> "Fix"; RLoc -> "Loc"
-+  ROp1 -> "Op1"; ROp2 -> "Op2"; RBitM -> "BitM"; RNatM -> "NatM"; RLstM -> "LstM"
-+  RUniM -> "UniM"; RSigM -> "SigM"; REnuM -> "EnuM"; REqlM -> "EqlM"; RSupM -> "SupM"; RLog -> "Log"
-+  RPathApp -> "PathApp"; ROutS -> "OutS"; RTransp -> "Transp"; RPOut -> "POut"
-+  RCircleRec -> "CircleRec"; RTruncRec -> "TruncRec"; RCoe -> "Coe"; RHComp -> "HComp"
-+  RGlue -> "Glue"; RGlueValue -> "GlueValue"; RUnglue -> "Unglue"; RINot -> "INot"
-+  RIAnd -> "IAnd"; RIOr -> "IOr"; RQuotRec -> "QuotRec"; RHITElim -> "HITElim"
-+  RHITPath -> "HITPath"; RHITRec -> "HITRec"
-+
-+nativeRule :: Term -> Maybe NativeRule
-+nativeRule t = case cut t of
-+  Chk{} -> Just RChk; App{} -> Just RApp; Let{} -> Just RLet; Ref{} -> Just RRef; Fix{} -> Just RFix; Loc{} -> Just RLoc
-+  Op1{} -> Just ROp1; Op2{} -> Just ROp2; BitM{} -> Just RBitM; NatM{} -> Just RNatM; LstM{} -> Just RLstM
-+  UniM{} -> Just RUniM; SigM{} -> Just RSigM; EnuM{} -> Just REnuM; EqlM{} -> Just REqlM; SupM{} -> Just RSupM; Log{} -> Just RLog
-+  PAp{} -> Just RPathApp; OutS{} -> Just ROutS; Trp{} -> Just RTransp; POut{} -> Just RPOut
-+  CRec{} -> Just RCircleRec; TRec{} -> Just RTruncRec; Coe{} -> Just RCoe; HCm{} -> Just RHComp
-+  Glu{} -> Just RGlue; GlB{} -> Just RGlueValue; UnG{} -> Just RUnglue
-+  INot{} -> Just RINot; IAnd{} -> Just RIAnd; IOr{} -> Just RIOr; QRec{} -> Just RQuotRec
-+  HEl{} -> Just RHITElim; HCon _ _ _ _ ivs | not (null ivs) -> Just RHITPath; HRec{} -> Just RHITRec
-+  _ -> Nothing
-+
-+-- One native evaluator transition. The target is exactly the endpoint the
-+-- existing evaluator computes for this Core redex family.
-+nativeStep :: EvalLevel -> Book -> Term -> Maybe NativeStep
-+nativeStep lv book src = case nativeRule src of
-+  Nothing -> Nothing
-+  Just r  ->
-+    let dst = whnfGo lv book src
-+    in if show dst == show src then Nothing else Just (NativeStep r src dst)
-+
-+nativeDerivation :: EvalLevel -> Book -> Term -> NativeDerivation
-+nativeDerivation lv book t = case nativeStep lv book t of
-+  Nothing -> NativeDone t
-+  Just s  -> NativeThen s (nativeDerivation lv book (stepTarget s))
-+
-+-- Every receiver is one fold of exactly that derivation.
-+foldNativeDerivation :: (Term -> a) -> (NativeStep -> a -> a) -> NativeDerivation -> a
-+foldNativeDerivation done step d = case d of
-+  NativeDone t      -> done t
-+  NativeThen s rest -> step s (foldNativeDerivation done step rest)
-+
-+nativeEndpoint :: NativeDerivation -> Term
-+nativeEndpoint = foldNativeDerivation id (\_ r -> r)
-+
-+nativeLength :: NativeDerivation -> Integer
-+nativeLength = foldNativeDerivation (const 0) (\_ n -> n + 1)
-+
-+nativeRules :: NativeDerivation -> [NativeRule]
-+nativeRules = foldNativeDerivation (const []) (\s rs -> stepRule s : rs)
-+
- -- Evaluation
- -- ==========
- 
-@@ -38,7 +41,14 @@ whnfGo lv book term =
+@@ -38,7 +40,14 @@ whnfGo lv book term =
      Let v f    -> whnfLet lv book v f
      Ref k      -> whnfRef lv book k
      Fix k f    -> whnfFix lv book k f
@@ -4736,7 +4657,7 @@ index 953410d..e79fe0f 100644
      App f x    -> whnfApp lv book f x
      Loc _ t    -> whnf lv book t
      Op2 o a b  -> whnfOp2 lv book o a b
-@@ -53,9 +63,611 @@ whnfGo lv book term =
+@@ -53,9 +62,611 @@ whnfGo lv book term =
      EqlM x f   -> whnfEqlM lv book x f
      SupM x l f -> whnfSupM lv book x l f
      Log s x    -> whnfLog lv book s x
@@ -5348,7 +5269,7 @@ index 953410d..e79fe0f 100644
  whnfLet :: EvalLevel -> Book -> Term -> Term -> Term
  whnfLet lv book v f = whnf lv book (App f v)
  
-@@ -146,6 +758,21 @@ whnfSigM lv book x f =
+@@ -146,6 +757,21 @@ whnfSigM lv book x f =
        where (f0, f1) = dup book l f
      x'      -> SigM x' f
  
@@ -5370,7 +5291,7 @@ index 953410d..e79fe0f 100644
  -- Normalizes an enum match
  whnfEnuM :: EvalLevel -> Book -> Term -> [(String,Term)] -> Term -> Term
  whnfEnuM lv book x c f =
-@@ -401,6 +1028,47 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
+@@ -401,6 +1027,47 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
    where (t0,t1)         = dup book l t
  dup book l (Frz t)      = (Frz t0, Frz t1)
    where (t0,t1)         = dup book l t
@@ -5418,7 +5339,7 @@ index 953410d..e79fe0f 100644
  dup book l Era          = (Era, Era)
  dup book l (Sup r a b)
    | ieql book l r       = (a, b)
-@@ -429,6 +1097,19 @@ dup book l (Pri p)      = (Pri p, Pri p)
+@@ -429,6 +1096,19 @@ dup book l (Pri p)      = (Pri p, Pri p)
  dup book l (Log s x)    = (Log s0 x0, Log s1 x1)
    where (s0,s1)         = dup book l s
          (x0,x1)         = dup book l x
@@ -5438,7 +5359,7 @@ index 953410d..e79fe0f 100644
  dup book l (Frk _ _ _)  = error "unreachable"
  dup book l (Pat _ _ _)  = error "unreachable"
  
-@@ -485,11 +1166,50 @@ normal d book term =
+@@ -485,11 +1165,50 @@ normal d book term =
      Loc l t    -> Loc l (normal d book t)
      Rwt a b x  -> Rwt (normal d book a) (normal d book b) (normal d book x)
      Log s x    -> Log (normal d book s) (normal d book x)
@@ -5489,7 +5410,7 @@ index 953410d..e79fe0f 100644
      Val v      -> Val v
      Op2 o a b  -> Op2 o (normal d book a) (normal d book b)
      Op1 o a    -> Op1 o (normal d book a)
-@@ -501,6 +1221,106 @@ normalCtx :: Int -> Book -> Ctx -> Ctx
+@@ -501,6 +1220,106 @@ normalCtx :: Int -> Book -> Ctx -> Ctx
  normalCtx d book (Ctx ctx) = Ctx (map normalAnn ctx)
    where normalAnn (k,v,t) = (k, normal d book v, normal d book t)
  
@@ -5596,7 +5517,7 @@ index 953410d..e79fe0f 100644
  -- Utils
  -- =====
  
-@@ -514,6 +1334,13 @@ ugly (cut -> LstM _ _ _) = True
+@@ -514,6 +1333,13 @@ ugly (cut -> LstM _ _ _) = True
  ugly (cut -> EnuM _ _ _) = True
  ugly (cut -> SigM _ _  ) = True
  ugly (cut -> EqlM _ _  ) = True
@@ -5610,7 +5531,7 @@ index 953410d..e79fe0f 100644
  ugly _                   = False
  
  -- Evaluates terms that whnf won't, including:
-@@ -547,3 +1374,327 @@ ieql :: Book -> Term -> Term -> Bool
+@@ -547,3 +1373,327 @@ ieql :: Book -> Term -> Term -> Bool
  ieql book a b = case (termToInt book a, termToInt book b) of
    (Just x, Just y) -> x == y
    _                -> False
@@ -6521,7 +6442,7 @@ index 0000000..18c963a
 +  op2 XOR = "^"; op2 SHL = "<<"; op2 SHR = ">>"; op2 POW = "*"
 diff --git a/src/Target/HVM4Full.hs b/src/Target/HVM4Full.hs
 new file mode 100644
-index 0000000..11f707a
+index 0000000..cd68a02
 --- /dev/null
 +++ b/src/Target/HVM4Full.hs
 @@ -0,0 +1,578 @@
@@ -6552,7 +6473,7 @@ index 0000000..11f707a
 +import qualified Data.Map as M
 +
 +import Core.Type
-+import Core.WHNF (coeMarker, occursMarker, substMarker, depMarker, occursDep, force, hitCtorTypeAt, ctorFieldType, nativeDerivation, NativeDerivation(..), NativeStep(..), ruleName)
++import Core.WHNF (coeMarker, occursMarker, substMarker, depMarker, occursDep, force, hitCtorTypeAt, ctorFieldType)
 +import Data.IORef
 +import System.IO.Unsafe (unsafePerformIO)
 +
@@ -6574,53 +6495,20 @@ index 0000000..11f707a
 +compileFull book@(Book defs _) =
 +  prelude ++ hitPrelude book ++ unlines (concatMap def (M.toList defs)) ++ root
 +  where
-+    -- A checked definition is a typed point (A, a): both are cells of the one
-+    -- complex. Its complete native derivation is a third, proof-relevant cell
-+    -- generated from the SAME Core evaluator.
++    -- A checked definition is a typed point (A, a): the term and its checked
++    -- type are both cells of the one complex, emitted by the one emitter.
 +    def (nam, (_, tm, ty)) =
-+      let n = clean nam
-+          d = nativeDerivation Full book tm
-+          (stepDefs, dRoot) = emitDerivation n ty 0 d
-+      in [ "@" ++ defName nam  ++ " = " ++ emitFull book tm
-+         , "@" ++ typeName nam ++ " = " ++ emitFull book ty
-+         , stepDefs
-+         , "@nativeDerivation" ++ n ++ " = " ++ dRoot
-+         , "@nativeLength" ++ n ++ " = @nativeLength(@nativeDerivation" ++ n ++ ")"
-+         , "@nativeEndpoint" ++ n ++ " = @nativeEndpoint(@nativeDerivation" ++ n ++ ")"
-+         , "@nativeRules" ++ n ++ " = @nativeRules(@nativeDerivation" ++ n ++ ")" ]
++      [ "@" ++ defName nam  ++ " = " ++ emitFull book tm
++      , "@" ++ typeName nam ++ " = " ++ emitFull book ty ]
 +
-+    clean = filter isAlphaNum . hvmName
-+
-+    emitDerivation n ty k d = case d of
-+      NativeDone t -> ("", "#NativeDone{" ++ emitFull book t ++ "}")
-+      NativeThen s rest ->
-+        let sn = "@nativeStep" ++ n ++ show k
-+            sd = sn ++ " = #NativeStep{#Rule" ++ ruleName (stepRule s)
-+                 ++ ", " ++ emitFull book ty
-+                 ++ ", " ++ emitFull book (stepSource s)
-+                 ++ ", " ++ emitFull book (stepTarget s) ++ "}\n"
-+            (rdefs, rroot) = emitDerivation n ty (k + 1) rest
-+        in (sd ++ rdefs, "#NativeThen{" ++ sn ++ ", " ++ rroot ++ "}")
-+
-+    -- The root is the checked entry as a point of Σ(A : Set). A, with the
-+    -- complete native derivation and its generic receiver readings adjacent.
++    -- The root is the checked entry as a point of Σ(A : Set). A.
 +    root = case M.lookup "main" defs of
 +      Just _  -> "@main = #Pair{@" ++ typeName "main" ++ ", @" ++ defName "main" ++ "}\n"
-+              ++ "@nativeMainDerivation = @nativeDerivationmain\n"
-+              ++ "@nativeMainLength = @nativeLengthmain\n"
-+              ++ "@nativeMainEndpoint = @nativeEndpointmain\n"
-+              ++ "@nativeMainRules = @nativeRulesmain\n"
 +      Nothing -> ""
 +
 +prelude :: String
 +prelude = unlines
 +  [ "// Bend2 -> HVM4 FULL RUNTIME (no erasure, no pre-normalisation)"
-+  , "// ---- one generic fold over the complete native derivation"
-+  , "@nativeFold = λ&done. λ&step. λ{#NativeDone: λ&end. done(end); #NativeThen: λ&edge. λ&rest. step(edge)(@nativeFold(done)(step)(rest))}"
-+  , "@nativeLength = λ&d. @nativeFold(λ&end. 0)(λ&edge. λ&n. (1 + n))(d)"
-+  , "@nativeEndpoint = λ&d. @nativeFold(λ&end. end)(λ&edge. λ&end. end)(d)"
-+  , "@nativeStepRule = λ{#NativeStep: λ&rule. λ&ty. λ&src. λ&dst. rule}"
-+  , "@nativeRules = λ&d. @nativeFold(λ&end. #Nil)(λ&edge. λ&rs. #Con{@nativeStepRule(edge), rs})(d)"
 +  , "// ---- numbers: pow by repetition; chars ARE numbers in HVM4"
 +  , "@pow = λ&b. λe. (λ{0: 1; λ&n. (b * @pow(b, (n - 1)))})(e)"
 +  , "@u64ToChar = λx. x"

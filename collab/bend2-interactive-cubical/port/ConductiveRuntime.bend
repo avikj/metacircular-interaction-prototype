@@ -1,10 +1,8 @@
-# Canonical runtime semantics shared by the checked Bend implementation and
-# Target.HVM4Full's intrinsic entry.
-#
-# IMPORTANT: this file is the specification/source of truth for the tiny HVM
-# bootstrap spelling currently embedded in the full target. The bootstrap must
-# be deleted once the compiler's standard-library linker can include this
-# module directly; until then CI compares the same operations end-to-end.
+# Canonical runtime semantics of THE LAW and its coinductive closure, as
+# ordinary checked Bend. The full target (--to-hvm4-full) has no second
+# runtime for this: it emits every checked definition as a typed point
+# (@Dname, @Tname) through the one emitter, and the root is the checked
+# entry as a point of Σ(A : Set). A. This module is one such program.
 #
 # Representation:
 #   FibreElement(A,B,f) = @fibreCarry{base:A, carried:B, witness:f(base)=carried}
