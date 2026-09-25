@@ -436,7 +436,12 @@ a unit-cost primitive moves the decision into the primitive), RUNTIME_FULL
    recorded as a Core deviation, not reproduced.
 
 Order: (1) atomic case trees + EQL identity for REF/PRI, delete the δ-off
-machinery; (2) level bookkeeping; (3) interval nf in the prelude; (4) NbE
+machinery [DONE: `ct_fires` walks the static case tree before δ; a stuck
+call is a DRY spine headed by its REF, copied and compared as a name.
+Over all 237 emitted corpus programs, old vs new binary: every value and
+every ITRS identical except neutral_type_smoke (now the canonical
+`@Ddouble(a)`, 5 → 4 itrs). verify_conductive_entry: all stages OK. The old
+`conv` still references the now-inert WNF_NO_DELTA; it goes with (4)]; (2) level bookkeeping; (3) interval nf in the prelude; (4) NbE
 checker on (1)–(3); then the cubical stages.
 
 ## 4. How to work here (pitfalls already paid for)

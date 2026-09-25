@@ -65,10 +65,11 @@ run "$HERE/probes/label_capture/same_definition_thrice.bend" '#Pair{#Nat{},#Suc{
 echo "FRESH-DIMENSIONS OK"
 
 # A type that mentions a recursive call on a bound variable is a finite
-# normal form: a neutral call stays folded (stock normalisation diverges).
+# normal form: a call whose case tree is stuck on a neutral is itself the
+# normal form (stock normalisation diverges).
 (cd "$HERE" && "$BEND" neutral_type_smoke.bend --to-hvm4-full) > "$TMP/nt.hvm4" 2>/dev/null
 timeout 60 "$HVM" "$TMP/nt.hvm4" -s > "$TMP/nt.out"
-grep -Fq '#Suc{#Suc{@Ddouble(c)}}' "$TMP/nt.out"
+grep -Fq '#Path{λb.#Nat{},@Ddouble(a),' "$TMP/nt.out"
 grep -Fq ',#Pair{#Suc{#Suc{#Zer{}}},#PLm{' "$TMP/nt.out"
 echo "NEUTRAL-TYPE OK"
 

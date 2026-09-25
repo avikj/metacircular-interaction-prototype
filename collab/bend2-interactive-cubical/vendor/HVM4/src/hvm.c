@@ -209,7 +209,6 @@ static u32 *BOOK_LAB_CNT;
 // Normalisation below a stuck elimination runs without δ: a call on a
 // neutral is already normal, and unfolding it would recurse forever.
 static int  WNF_NO_DELTA = 0;
-#define NORM_NO_DELTA (1ULL << 63)
 
 static int DEBUG          = 0;
 static int SILENT         = 0;
@@ -4110,6 +4109,12 @@ fn Term wnf_dup_nod(Name lab, u64 loc, u8 side, Term term) {
   u64  r0_loc = block;
   u64  r1_loc = block + ari;
   for (u32 i = 0; i < ari; i++) {
+    // the head of a neutral call is a name: copied as is, never unfolded
+    if (t_tag == DRY && i == 0 && term_tag(heap_read(t_loc)) == REF) {
+      heap_set(r0_loc, heap_read(t_loc));
+      heap_set(r1_loc, heap_read(t_loc));
+      continue;
+    }
     Copy A = term_clone_at(t_loc + i, lab);
     heap_set(r0_loc + i, A.k0);
     heap_set(r1_loc + i, A.k1);
@@ -4657,8 +4662,11 @@ fn Term wnf_eql_dry(u64 eql_loc, Term a, Term b) {
   Term bf    = heap_read(b_loc + 0);
   Term bx    = heap_read(b_loc + 1);
 
-  // (af === bf) .&. (ax === bx)
-  Term eq_f = term_new_eql(af, bf);
+  // (af === bf) .&. (ax === bx); a reference heading a neutral call is a
+  // name, compared by identity (unfolding it would leave the normal form)
+  Term eq_f = (term_tag(af) == REF || term_tag(bf) == REF)
+    ? term_new_num(term_tag(af) == term_tag(bf) && term_ext(af) == term_ext(bf))
+    : term_new_eql(af, bf);
   Term eq_x = term_new_eql(ax, bx);
   return term_new_and_at(eql_loc, eq_f, eq_x);
 }
@@ -5681,6 +5689,179 @@ fn Term pri_fire_go(u32 id, Term arg) {
   return term_new_era();
 }
 
+// Atomic case trees (definitional equality of definitions by matching)
+// --------------------------------------------------------------------
+// A call `@f(a1..an)` is one δι-step: it fires iff the static case tree of f
+// reaches a leaf under these arguments.  If a scrutinee on the path is
+// neutral, the call itself is the normal form (a DRY spine headed by the
+// reference), never a half-unfolded tree: that keeps normal forms finite on
+// open terms and canonical, so conversion is `===` on them.  The walk reads
+// the static book term; every scrutinee it forces is forced in place (the
+// unfolding would force it anyway), and nothing is allocated.
+typedef struct { u64 loc; Term imm; u8 k; } CtVal;  // k: 0 heap loc, 1 immediate, 2 opaque
+#define CT_MAX 4096
+
+fn Term wnf_at(u64 loc);
+
+fn CtVal ct_static_val(Term t, CtVal *env, u32 len) {
+  u8 tag = term_tag(t);
+  if (tag == BJV || tag == BJ0 || tag == BJ1) {
+    u32 lvl = (u32)term_val(t);
+    if (lvl >= 1 && lvl <= len) {
+      return env[lvl - 1];
+    }
+  }
+  if (tag == NUM || tag == C00) {
+    return (CtVal){0, t, 1};
+  }
+  return (CtVal){0, 0, 2};
+}
+
+fn void ct_overflow(void) {
+  fprintf(stderr, "\033[1;31mRUNTIME_ERROR\033[0m\n- case tree deeper than %d; refusing to decide a call approximately\n", CT_MAX);
+  exit(1);
+}
+
+// make room for n values in front of the unconsumed spine spn[*sp..*sn)
+fn void ct_prepend(CtVal *spn, u32 *sp, u32 *sn, u32 n) {
+  if (*sp >= n) {
+    *sp -= n;
+    return;
+  }
+  u32 rest = *sn - *sp;
+  if (n + rest > CT_MAX) ct_overflow();
+  memmove(spn + n, spn + *sp, rest * sizeof(CtVal));
+  *sp = 0;
+  *sn = n + rest;
+}
+
+// 1: the call fires; 0: it is stuck on a neutral (a normal form)
+static CtVal *CT_POOL = NULL;
+static u64    CT_TOP  = 0;
+#define CT_POOL_LEN (1ULL << 27)
+
+fn int ct_fires(u32 nam, Term *stack, u32 s_pos, u32 base) {
+  if (CT_POOL == NULL) {
+    CT_POOL = (CtVal *)sys_mmap_anon(CT_POOL_LEN * sizeof(CtVal));
+    if (CT_POOL == NULL) {
+      fprintf(stderr, "case tree pool: mmap failed\n");
+      exit(1);
+    }
+  }
+  if (CT_TOP + 2 * CT_MAX > CT_POOL_LEN) ct_overflow();
+  CtVal *env = CT_POOL + CT_TOP;
+  CtVal *spn = env + CT_MAX;
+  CT_TOP += 2 * CT_MAX;
+  u32 len = 0, sp = 0, sn = 0;
+  // the call's own spine: innermost APP frame first
+  for (u32 i = s_pos; i > base && term_tag(stack[i - 1]) == APP; i--) {
+    if (sn >= CT_MAX) ct_overflow();
+    spn[sn++] = (CtVal){term_val(stack[i - 1]) + 1, 0, 0};
+  }
+  Term t = heap_read(BOOK[nam]);
+  int res = 1;
+  for (;;) {
+    switch (term_tag(t)) {
+      case LAM: {
+        if (sp >= sn) { res = 1; goto done; }        // partial application
+        if (len >= CT_MAX) ct_overflow();
+        env[len++] = spn[sp++];
+        t = heap_read(term_val(t));
+        continue;
+      }
+      case DUP: {
+        if (len >= CT_MAX) ct_overflow();
+        env[len] = ct_static_val(heap_read(term_val(t) + 0), env, len);
+        len++;
+        t = heap_read(term_val(t) + 1);
+        continue;
+      }
+      case STA: {
+        t = heap_read(term_val(t) + 1);
+        continue;
+      }
+      case APP: {
+        // a static spine h a1..ak: its arguments go in front of the call's
+        Term args[256];
+        u32 k = 0;
+        Term h = t;
+        while (term_tag(h) == APP) {
+          if (k >= 256) ct_overflow();
+          args[k++] = heap_read(term_val(h) + 1);
+          h = heap_read(term_val(h) + 0);
+        }
+        ct_prepend(spn, &sp, &sn, k);
+        for (u32 i = 0; i < k; i++) {
+          spn[sp + i] = ct_static_val(args[k - 1 - i], env, len);
+        }
+        t = h;
+        continue;
+      }
+      case MAT:
+      case SWI:
+      case USE: {
+        if (sp >= sn) { res = 1; goto done; }        // an unapplied eliminator: a value
+        CtVal v = spn[sp++];
+        if (v.k == 2) { res = 1; goto done; }        // scrutinee is computed code: unfold
+        Term w;
+        if (v.k == 0) {
+          u32 saved = WNF_S_POS;
+          w = wnf_at(v.loc);
+          WNF_S_POS = saved;
+        } else {
+          w = v.imm;
+        }
+        u8 wt = term_tag(w);
+        // neutral: a name, a stuck application, a variable under a binder
+        if (wt == NAM || wt == DRY || wt == BJV || wt == BJ0 || wt == BJ1 || wt == VAR) {
+          res = term_tag(t) == USE;                  // USE applies to anything
+          if (!res) goto done;
+        }
+        if (term_tag(t) == USE) {
+          if (wt == SUP || wt == ERA || wt == INC || wt == ANY) { res = 1; goto done; }
+          ct_prepend(spn, &sp, &sn, 1);
+          spn[sp] = v;
+          t = heap_read(term_val(t));
+          continue;
+        }
+        if (!(wt >= C00 && wt <= C16) && wt != NUM) { res = 1; goto done; }
+        // walk the chain λ{#K: h; m}
+        for (;;) {
+          u64 ml = term_val(t);
+          int hit = (wt == NUM) ? (term_ext(t) == term_val(w)) : (term_ext(t) == term_ext(w));
+          if (hit) {
+            u32 ari = wt == NUM ? 0 : (u32)(wt - C00);
+            ct_prepend(spn, &sp, &sn, ari);
+            for (u32 i = 0; i < ari; i++) {
+              spn[sp + i] = (CtVal){term_val(w) + i, 0, 0};
+            }
+            t = heap_read(ml + 0);
+            break;
+          }
+          Term m = heap_read(ml + 1);
+          if (term_tag(m) == MAT || term_tag(m) == SWI) {
+            t = m;
+            continue;
+          }
+          // default arm: applied to the scrutinee itself
+          ct_prepend(spn, &sp, &sn, 1);
+          spn[sp] = v;
+          t = m;
+          break;
+        }
+        continue;
+      }
+      default: {
+        res = 1;                                     // a leaf
+        goto done;
+      }
+    }
+  }
+done:
+  CT_TOP -= 2 * CT_MAX;
+  return res;
+}
+
 __attribute__((hot)) fn Term wnf(Term term) {
   wnf_stack_init();
   Term *stack = WNF_STACK;
@@ -5756,7 +5937,16 @@ __attribute__((hot)) fn Term wnf(Term term) {
 
       case REF: {
         u32 nam = term_ext(next);
-        if (BOOK[nam] != 0 && !WNF_NO_DELTA) {
+        if (BOOK[nam] != 0 && s_pos > base && term_tag(stack[s_pos - 1]) == APP) {
+          WNF_S_POS = s_pos;
+          int fires = ct_fires(nam, stack, s_pos, base);
+          WNF_S_POS = s_pos;
+          if (!fires) {
+            whnf = next;
+            goto apply;
+          }
+        }
+        if (BOOK[nam] != 0) {
           u64 dim = 0;
           if (BOOK_LAB_CNT[nam] != 0) {
             if (DIM_INST == INST_MAX) {
@@ -5962,6 +6152,11 @@ __attribute__((hot)) fn Term wnf(Term term) {
               whnf = wnf_app_dry(app_loc, whnf);
               continue;
             }
+            // a call whose case tree is stuck on a neutral: the call is normal
+            case REF: {
+              whnf = wnf_app_nam(app_loc, whnf);
+              continue;
+            }
             case LAM: {
               next = wnf_app_lam(whnf, arg);
               goto enter;
@@ -6107,20 +6302,8 @@ __attribute__((hot)) fn Term wnf(Term term) {
               continue;
             }
             // case APP: // !! DO NOT ADD: DP0/DP1 do not interact with APP.
-            // (Except without δ: there an APP in weak head form is a neutral
-            // whose head is a folded reference, not a redex; copying it is
-            // copying a normal form, as the normaliser and conversion need.)
             case REF: {
               whnf = wnf_dup_nod(lab, loc, side, whnf);
-              continue;
-            }
-            case APP: {
-              if (WNF_NO_DELTA) {
-                next = wnf_dup_nod(lab, loc, side, whnf);
-                goto enter;
-              }
-              heap_set(loc, whnf);
-              whnf = frame;
               continue;
             }
             case DRY:
@@ -6313,6 +6496,11 @@ __attribute__((hot)) fn Term wnf(Term term) {
                 goto enter;
               }
               // NAM/BJ* === NAM/BJ*
+              // REF === REF, PRI === PRI: the head of a neutral call, by identity
+              if ((a_tag == REF && b_tag == REF) || (a_tag == PRI && b_tag == PRI)) {
+                whnf = wnf_eql_nam(a, whnf);
+                continue;
+              }
               if ((a_tag == NAM || a_tag == BJV || a_tag == BJ0 || a_tag == BJ1) &&
                   (b_tag == NAM || b_tag == BJV || b_tag == BJ0 || b_tag == BJ1)) {
                 whnf = wnf_eql_nam(a, whnf);
@@ -6937,9 +7125,7 @@ fn Term cnf_at(Term term, u32 depth) {
 
       for (u32 i = 0; i < ari; i++) {
         Term child = heap_read(loc + i);
-        // a stuck elimination's branches are unreached code (see
-        // eval_normalize_go): keep them, collapse the scrutinee only
-        if (i == 0 && term_tag(term) == APP && stuck_elim_head(child)) {
+        if (term_tag(term) == DRY && i == 0 && term_tag(child) == REF) {
           children[i] = child;
           continue;
         }
@@ -7063,16 +7249,13 @@ fn int stuck_elim_head(Term fun) {
 }
 
 fn void eval_normalize_go(Uset *seen, EvalNormalizeStack *stack, u64 entry) {
-  u64 mode = entry & NORM_NO_DELTA;
-  u64 loc  = entry & ~NORM_NO_DELTA;
+  u64 loc  = entry;
   for (;;) {
     if (loc == 0 || !uset_add(seen, loc)) {
       return;
     }
 
-    WNF_NO_DELTA = mode != 0;
     Term term = __builtin_expect(STEPS_ENABLE, 0) ? wnf_steps_at(loc) : wnf_at(loc);
-    WNF_NO_DELTA = 0;
 
     u64 tloc = term_val(term);
     u8  tag  = term_tag(term);
@@ -7086,18 +7269,12 @@ fn void eval_normalize_go(Uset *seen, EvalNormalizeStack *stack, u64 entry) {
       return;
     }
 
-    // An elimination stuck on a neutral scrutinee: its branches are normalised
-    // WITHOUT δ.  With δ, a recursive call on a sub-neutral (double(m) under
-    // `match x`) would unfold forever; without it the call stays a neutral,
-    // which is already normal, and every other reduction still happens.
-    if (tag == APP && stuck_elim_head(heap_read(tloc + 0))) {
-      eval_normalize_stack_push(stack, (tloc + 0) | NORM_NO_DELTA);
-      loc = tloc + 1;
-      continue;
-    }
-
     for (u32 i = ari; i > 1; i--) {
-      eval_normalize_stack_push(stack, (tloc + (i - 1)) | mode);
+      eval_normalize_stack_push(stack, tloc + (i - 1));
+    }
+    // the head of a neutral call is a name, never unfolded
+    if (tag == DRY && term_tag(heap_read(tloc)) == REF) {
+      return;
     }
     loc = tloc;
   }
