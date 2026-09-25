@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Divisibility and Logic Are One Distributive Lattice</title>
+<meta name="description" content="The divisibility order, distributivity from unique factorization, De Morgan and Boolean and Heyting structure, Möbius inversion, and the prime conjectures as one decidable predicate.">
+<link rel="stylesheet" href="./vendor/katex/katex.min.css">
+<style>
+  :root{
+    --bg:#ffffff; --fg:#1a1a1a; --muted:#606060; --rule:#e4e4e4;
+    --accent:#7a1f1f; --math-bg:#fafafa; --math-rule:#ececec;
+    --maxw:760px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#141414; --fg:#e8e8e6; --muted:#a0a0a0; --rule:#2a2a2a;
+      --accent:#d98a8a; --math-bg:#1c1c1c; --math-rule:#2a2a2a;
+    }
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--fg);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:17px; line-height:1.6;
+    padding:0 20px;
+  }
+  main{max-width:var(--maxw); margin:0 auto; padding:56px 0 96px}
+  h1{
+    font-size:1.72rem; line-height:1.28; font-weight:650;
+    letter-spacing:-0.01em; margin:0 0 .35rem;
+  }
+  .byline{color:var(--muted); font-style:italic; margin:0 0 2.4rem; font-size:.98rem}
+  h2{
+    font-size:1.14rem; font-weight:650; line-height:1.35;
+    margin:2.9rem 0 1rem; padding-top:1.4rem; border-top:1px solid var(--rule);
+    letter-spacing:-0.005em;
+  }
+  h2 .n{color:var(--accent); font-variant-numeric:tabular-nums}
+  ul{margin:0; padding:0; list-style:none}
+  li{
+    position:relative; margin:0 0 .95rem; padding-left:1.15rem;
+  }
+  li::before{
+    content:""; position:absolute; left:.1rem; top:.72em;
+    width:5px; height:5px; border-radius:50%; background:var(--accent); opacity:.7;
+  }
+  .katex-display{
+    margin:1.15rem 0; padding:.7rem .9rem; overflow-x:auto; overflow-y:hidden;
+    background:var(--math-bg); border:1px solid var(--math-rule); border-radius:8px;
+  }
+  .katex{font-size:1.02em}
+  code{
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:.9em; background:var(--math-bg); border:1px solid var(--math-rule);
+    padding:.05em .35em; border-radius:4px;
+  }
+  code::before,code::after{content:""}
+  a{color:var(--accent)}
+  .src{margin-top:3.2rem; padding-top:1.3rem; border-top:1px solid var(--rule);
+       color:var(--muted); font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+
+<h1>Divisibility and Logic Are One Distributive Lattice; the Prime Conjectures Are One Decidable Predicate</h1>
+<p class="byline">Avik Jain</p>
+
+<h2><span class="n">1.</span> Divisibility is the multiplicative number line; gcd and lcm are its meet and join</h2>
+<ul>
+<li>The number line is the additive order: y ≤ x when x = y + c for some c. Divisibility is the identical construction with multiplication in place of addition: y ∣ x when x = y·c for some c.</li>
+</ul>
+$$
+y \le x \ (\text{additive}) : \ x = y + c
+\qquad\qquad
+y \mid x \ (\text{multiplicative}) : \ x = y \cdot c
+$$
+<ul>
+<li>The relation is then completely fixed: it places each n above all of its divisors and below all of its multiples, with 1 at the bottom beneath everything and 0 at the top above everything.</li>
+<li>This is one construction from the ground, not an analogy: it rests on nothing but 0, the successor, and =. Addition is recursion on the successor (x + 0 = x, x + Sc = S(x + c)); multiplication is recursion that iterates addition (x·0 = 0, x·Sc = x·c + x). So y ≤ x := ∃c. x = y + c and y ∣ x := ∃c. x = y·c are one predicate — some c completes the equation — read off addition and off the operation that iterates it. Divisibility is the number line's own order one step up the tower successor, +, ·, and so exactly as primitive.</li>
+<li>The additive line is total: any two numbers are comparable, so "the smaller of the two" always already exists. Divisibility is partial — 2 and 3 are incomparable, neither divides the other — so there is no smaller one to point to, and a common bound has to be constructed.</li>
+<li>The greatest number dividing both a and b is where they meet; the least number that both a and b divide is where they join:</li>
+</ul>
+$$
+a \wedge b = \gcd(a,b) \ (\text{greatest lower bound})
+\qquad
+a \vee b = \operatorname{lcm}(a,b) \ (\text{least upper bound})
+$$
+<ul>
+<li>That is what the words carry: two elements meet at their greatest common lower bound and join into their least common upper bound. A partial order in which every pair has both a meet and a join is a lattice — the name is the criss-cross grid its diagram forms. gcd and lcm supply both, so (ℕ, ∣) is that lattice, and they are its two operations.</li>
+<li>Neither is given by a formula; each is fixed by a universal property — being the extremal common bound:</li>
+</ul>
+$$
+d \mid \gcd(a,b) \iff d \mid a \ \text{ and }\ d \mid b
+\qquad
+\operatorname{lcm}(a,b) \mid m \iff a \mid m \ \text{ and }\ b \mid m
+$$
+
+<h2><span class="n">2.</span> Unique factorization is distributivity: one chain per prime</h2>
+<ul>
+<li>Every n factors uniquely into prime powers (fundamental theorem of arithmetic).</li>
+<li>For a single prime, p^i ∣ p^j iff i ≤ j: its powers form a chain 1 ∣ p ∣ p² ∣ ⋯.</li>
+<li>Divisibility is these chains, one per prime, side by side; gcd and lcm act on the exponent of each prime separately, as min and max:</li>
+</ul>
+$$
+\gcd\!\Big(\textstyle\prod_p p^{a_p},\ \prod_p p^{b_p}\Big) = \prod_p p^{\min(a_p,b_p)}
+\qquad
+\operatorname{lcm} = \prod_p p^{\max(a_p,b_p)}
+$$
+<ul>
+<li>On a chain, min and max distribute over each other; a product of distributive lattices is distributive. So (ℕ, ∣) is distributive, and the distributive law is unique factorization read off in exponents:</li>
+</ul>
+$$
+a \wedge (b \vee c) = (a \wedge b) \vee (a \wedge c)
+\iff
+\min\!\big(a_p, \max(b_p, c_p)\big) = \max\!\big(\min(a_p,b_p),\, \min(a_p,c_p)\big)
+$$
+<ul>
+<li>The divisors of a fixed n are the finite sublattice ∏<sub>p</sub> {0, 1, …, a<sub>p</sub>}, a product of finite chains (machine-checked, <code>--safe</code>).</li>
+</ul>
+
+<h2><span class="n">3.</span> The map d ↦ n/d is a De Morgan involution, and a Boolean complement exactly when n is squarefree</h2>
+<ul>
+<li>On the divisors of a fixed n, complementation d ↦ n/d reverses the order and undoes itself: d ∣ e iff n/e ∣ n/d, and n/(n/d) = d.</li>
+<li>It swaps meet and join — De Morgan's laws, in divisors:</li>
+</ul>
+$$
+n/\gcd(a,b) = \operatorname{lcm}(n/a,\ n/b)
+\qquad
+n/\operatorname{lcm}(a,b) = \gcd(n/a,\ n/b)
+$$
+<ul>
+<li>So the divisors of any n form a De Morgan algebra: ¬d = n/d, ⊥ = 1, ⊤ = n.</li>
+<li>It is a Boolean complement — d ∧ ¬d = ⊥ and d ∨ ¬d = ⊤ — iff gcd(d, n/d) = 1 for every divisor, iff no prime divides n twice:</li>
+</ul>
+$$
+\gcd(d,\ n/d) = 1 \ \text{ for all } d \mid n
+\iff
+n \text{ squarefree}
+\iff
+n = p_1 p_2 \cdots p_k
+$$
+<ul>
+<li>For squarefree n the divisor lattice is 2<sup>{p₁, …, p_k}</sup>, the subsets of the prime set under d ↦ {p : p ∣ d}. Divisibility of a squarefree number is the propositional calculus on its primes: meet is ∧, join is ∨, n/d is ¬, and every classical tautology holds.</li>
+</ul>
+
+<h2><span class="n">4.</span> A repeated prime breaks excluded middle: divisibility is intuitionistic, and ¬¬ is the prime-power support</h2>
+<ul>
+<li>When a prime is repeated, n/d stops being a complement. For n = 12, d = 2: gcd(2, 6) = 2 ≠ 1, so d ∧ ¬d ≠ ⊥. Excluded middle fails at exactly the repeated prime.</li>
+<li>A finite distributive lattice is a Heyting algebra: the implication a → b = ⋁{ x : a ∧ x ≤ b } always exists. Divisibility carries an intuitionistic logic, computed prime by prime (on a chain, a → b is the top when a ≤ b, else b).</li>
+<li>Negation is ¬d = (d → ⊥), the largest divisor coprime to d, and double negation fills each present prime back to its full power in n:</li>
+</ul>
+$$
+\neg d = \prod_{p \,\nmid\, d} p^{a_p}
+\qquad
+\neg\neg d = \prod_{p \,\mid\, d} p^{a_p}
+$$
+<ul>
+<li>For n = 12: ¬2 = 3, ¬¬2 = 4 ≠ 2. Double negation is not the identity; that gap is the same repeated prime as above.</li>
+<li>The fixed points ¬¬d = d are the divisors carrying each of their primes at full power — exactly the Boolean algebra 2<sup>primes(n)</sup> sitting inside:</li>
+</ul>
+$$
+\neg\neg d = d \iff d = \prod_{p \in S} p^{a_p}, \quad S \subseteq \{\, p : p \mid n \,\}
+$$
+<ul>
+<li>These regular elements are the Booleanization of the Heyting algebra (Glivenko's theorem). Divisibility is intuitionistic in general and classical exactly on the squarefree case of §3.</li>
+</ul>
+
+<h2><span class="n">5.</span> Möbius inversion is the lattice's inclusion–exclusion</h2>
+<ul>
+<li>"Sum over all d below" is a linear operator on functions of the lattice; it is invertible, and its inverse is Möbius inversion:</li>
+</ul>
+$$
+g(n) = \sum_{d \mid n} f(d) \iff f(n) = \sum_{d \mid n} \mu(d)\, g(n/d)
+\qquad
+\sum_{d \mid n} \mu(d) = [\,n = 1\,]
+$$
+<ul>
+<li>On the Boolean sublattice of §3 this is exactly inclusion–exclusion, and the two agree because μ vanishes off the squarefree numbers — the same regular part as §4:</li>
+</ul>
+$$
+\mu(\varnothing, T) = (-1)^{|T|}
+\qquad
+\mu(d) = \begin{cases} (-1)^{\omega(d)} & d \text{ squarefree} \\ 0 & \text{otherwise} \end{cases}
+$$
+<ul>
+<li>Euler's totient is one such inversion of the identity, with Gauss's summation as its forward direction (machine-checked, <code>--safe</code>):</li>
+</ul>
+$$
+\varphi(n) = \sum_{d \mid n} \mu(d)\,\frac{n}{d}
+\qquad
+\sum_{d \mid n} \varphi(d) = n
+$$
+<ul>
+<li>The sign μ(d) and the prime count ω(d) are the value and the derivative of one dual-number jet, so inclusion–exclusion and "how many primes" are two readings of the same object (machine-checked, <code>--safe</code>):</li>
+</ul>
+$$
+(-1 + \varepsilon)^{\omega(d)} = \mu(d) + \kappa(d)\,\varepsilon, \qquad \kappa(d) = \omega(d)\,(-1)^{\omega(d)-1}
+$$
+
+<h2><span class="n">6.</span> Satisfiability is a join in the free Boolean algebra; the prime conjectures are one computable predicate, decided at every instance</h2>
+<ul>
+<li>A propositional formula in n variables is an element of the free Boolean algebra on n generators — the same finite algebra 2<sup>n</sup> that §3 read off a squarefree number. Evaluating it is meet and join of its literals; satisfiability is the join over the 2<sup>n</sup> assignments. Deciding it is finite by construction.</li>
+<li>A number-theoretic statement decidable at each instance is a computable Boolean family b : ℕ → 2; its truth is the single section ∀n. b(n) = true. Nothing in the section is undecided pointwise — only the quantifier ranges to infinity.</li>
+<li>Riemann, Goldbach, and the twin primes each arithmetize to exactly this shape. Riemann is the Davis–Matiyasevich–Robinson inequality at every n ≥ 1, with δ and the harmonic sum both computable (machine-checked as a type whose sections are the statement, <code>--safe</code>):</li>
+</ul>
+$$
+\mathrm{RH} \iff \forall n \ge 1 : \ \Big(\textstyle\sum_{k \le \delta(n)} \tfrac{1}{k} - \tfrac{n^2}{2}\Big)^{2} < 36\,n^{3}
+$$
+<ul>
+<li>Goldbach and the twin primes are the two marginals of one two-index kernel over the prime indicator a (machine-checked, <code>--safe</code>): the centre marginal counts Goldbach partitions, the radius marginal counts twin pairs.</li>
+</ul>
+$$
+\mathcal{K}(w, r) = a(w - r)\, a(w + r)
+$$
+<ul>
+<li>Every instance is a definite computation: rhb(1), rhb(2), rhb(3) and the Goldbach sieve at 4, 6, 8 all return true by evaluation (machine-checked, <code>refl</code>). The whole frontier is one Boolean, true at every stage; a single false stage would refute it, and none exists to any computed depth. What is open is only the section ∀n, never any instance.</li>
+</ul>
+
+<h2><span class="n">7.</span> Formal independence is proved by exhausting finite derivations — the diagonal, not a fourth truth value</h2>
+<ul>
+<li>A proof is a finite term. Formal independence of φ from a theory T means T ⊬ φ and T ⊬ ¬φ — no finite derivation of either. There is no proof "in principle" beyond the finite ones, so independence is a definite statement about a decidable, step-by-step relation, and where it holds it is proved by exhausting that relation (Gödel's method).</li>
+</ul>
+$$
+T \nvdash \varphi \quad \text{ and } \quad T \nvdash \neg\varphi
+$$
+<ul>
+<li>The universal machine supplies the diagonal directly. No table equals every table on the nose; so a universal machine must read its subject off the tape, and Lawvere's fixed point then builds a configuration map that no program steps — the state-successor of what the decoded machine would do (machine-checked, <code>--safe</code>):</li>
+</ul>
+$$
+\operatorname{diag}(c) = \operatorname{bump}\big(\operatorname{step}(\operatorname{decode} c,\ c)\big)
+$$
+<ul>
+<li>The escape is manufactured by self-reference, not counted from cardinality: a program realizing diag would step its own encoding to its own successor.</li>
+<li>Every finite depth of a run is decided, with a witness either way — a halting equation or the transition that refutes it (machine-checked, <code>--safe</code>). Divergence is the refutation at every depth: a proposition over the whole run, not one more depth and not a third value. Transport or silence, and no third road.</li>
+<li>The prime conjectures of §6 sit at exactly this seam: bivalent and computed at every instance, their universal section the one open point, and the diagonal is why no single finite object closes it.</li>
+</ul>
+
+</main>
+<script src="./vendor/katex/katex.min.js"></script>
+<script src="./vendor/katex/auto-render.min.js"></script>
+<script>
+  renderMathInElement(document.body, {
+    delimiters: [{left: "$$", right: "$$", display: true}],
+    throwOnError: false,
+    strict: "warn"
+  });
+</script>
+</body>
+</html>
