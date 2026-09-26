@@ -25,6 +25,7 @@ static bool fail_ci(const char *msg)     { VERR = V_CANTINFER; VERR_MSG = msg;
 
 /* ---- the context: types by level, the atom of each coordinate, active faces and rewrites ---- */
 static Term CTX_TY[4096]; static Term CTX_ATOM[4096];
+static uint32_t CTX_LET_CODE[4096]; static Term CTX_LET_FR[4096];   /* a substituted let: its value's code and frame (Core: the value is substituted, never inferred) */
 static uint32_t C_ITV;
 typedef struct { Term old, by; unsigned side; } Rewrite;   /* side 0/1: a face at a dimension; 2: old := by */
 static Rewrite RW[1024]; static int NRW;
@@ -36,7 +37,8 @@ static Term bind_coord(Term fr, Term T) {
   Term a = atom(); Term f = frame_push(fr, node2(T_REFLECT, 0, a, T));
   CTX_TY[ext(f)] = T; CTX_ATOM[ext(f)] = a; return f;
 }
-static Term bind_value(Term fr, Term v, Term T) { Term f = frame_push(fr, v); CTX_TY[ext(f)] = T; CTX_ATOM[ext(f)] = 0; return f; }
+static Term bind_value(Term fr, Term v, Term T) { Term f = frame_push(fr, v); CTX_TY[ext(f)] = T; CTX_ATOM[ext(f)] = 0; CTX_LET_CODE[ext(f)] = 0; return f; }
+static Term bind_let(Term fr, uint32_t code, Term vfr) { Term f = frame_push(fr, inst(code, vfr)); CTX_TY[ext(f)] = 0; CTX_ATOM[ext(f)] = 0; CTX_LET_CODE[ext(f)] = code; CTX_LET_FR[ext(f)] = vfr; return f; }
 static Term bind_dim(Term fr) { Term f = dim_push(fr); CTX_TY[ext(f)] = mk(T_CTR, ctr_ext(C_ITV, 0), alloc(1)); CTX_ATOM[ext(f)] = 0; return f; }
 static Term var_of(Term f) { return mk(T_VAR, ext(f), loc(f)); }
 static Term ivar_of(Term f) { return mk(T_IVAR, 0, loc(f)); }
@@ -55,15 +57,18 @@ static uint32_t named(const char *n, uint32_t ar) { return ctor_intern(n, ar); }
 
 /* ---- conversion on cells ------------------------------------------------------------------ */
 static bool eq(Term u, Term v, int d);
-static bool frames_eq(Term a, Term b, int d) {   /* two frames convert when every level reads the same (restrictions included) */
+/* two closures of one code convert when every level the code reads converts; for an eliminator the
+   scrutinee is compared apart, so only its branches (and motive) decide which levels matter */
+static bool frames_eq(Term a, Term b, uint32_t code, uint32_t code2, int d) {
   if (a == b) return true;
   uint32_t na = next_depth(a), nb = next_depth(b);
   if (na != nb) { if (getenv("PUSC_EQDBG")) fprintf(stderr, "  [frames] depth %u vs %u\n", na, nb); return false; }
   for (uint32_t l = 0; l < na; l++) {
+    if ((code || code2) && !code_uses(code, l) && !code_uses(code2, l)) continue;
     bool da = frame_is_dim(a, l), db = frame_is_dim(b, l);
     if (da != db) { if (getenv("PUSC_EQDBG")) fprintf(stderr, "  [frames] level %u dim %d vs %d\n", l, da, db); return false; }
     if (da) continue;                                /* a bound dimension: the same position is the same name */
-    bool x, y; if (!eq(frame_lookup(a, l, &x), frame_lookup(b, l, &y), d+1)) return false;
+    bool x, y; if (!eq(frame_lookup(a, l, &x), frame_lookup(b, l, &y), d+1)) { if (getenv("PUSC_EQDBG")) fprintf(stderr, "  [frames] level %u differs\n", l); return false; }
   }
   return true;
 }
@@ -72,10 +77,10 @@ static bool elims_eq(Term u, Term v, int d, bool helim) {
   uint32_t off = helim ? 0 : 0;
   Term su = HEAP[loc(u)+off], sv = HEAP[loc(v)+off];
   if ((su == 0) != (sv == 0)) return false;
-  if (su && !eq(su, sv, d+1)) return false;
+  if (su && !eq(su, sv, d+1)) { if (getenv("PUSC_EQDBG")) { fprintf(stderr, "  [elims] scrutinees differ: "); print_term(su, 4); fprintf(stderr, " vs "); print_term(sv, 4); fprintf(stderr, "\n"); } return false; }
   if (helim && !eq(HEAP[loc(u)+3], HEAP[loc(v)+3], d+1)) return false;
   Term cu = HEAP[loc(u)+1], cv = HEAP[loc(v)+1], fu = HEAP[loc(u)+2], fv = HEAP[loc(v)+2];
-  if (cu == cv) return frames_eq(fu, fv, d);
+  if (cu == cv) return frames_eq(fu, fv, CODE[loc(cu)].b, CODE[loc(cu)].c, d);
   if (d > 6) { if (getenv("PUSC_EQDBG")) fprintf(stderr, "  [elims] different code, depth exhausted\n"); return false; }
   for (uint32_t bu = CODE[loc(cu)].b; bu; bu = CODE[bu].c) {
     uint32_t bv = CODE[loc(cv)].b; while (bv && CODE[bv].ext != CODE[bu].ext) bv = CODE[bv].c;
@@ -98,6 +103,17 @@ static Term id_ua_base(Term p, int d) {
   if (!eq(HEAP[loc(p)], HEAP[loc(p)+1], d+1) || !is_id_fn(HEAP[loc(p)+2], d) || !is_id_fn(HEAP[loc(p)+3], d)) return 0;
   return HEAP[loc(p)];
 }
+static bool faces_eq(Term fu, Term fv, int d) {   /* the faces of a composite are a set: each face of one has an equal face in the other */
+  Term a[64], b[64]; uint32_t na = 0, nb = 0;
+  for (Term l = whnf(fu); is_ctr(l, C_CONS) && na < 64; l = whnf(HEAP[loc(l)+1])) a[na++] = HEAP[loc(l)];
+  for (Term l = whnf(fv); is_ctr(l, C_CONS) && nb < 64; l = whnf(HEAP[loc(l)+1])) b[nb++] = HEAP[loc(l)];
+  if (na != nb) return false;
+  bool used[64] = {0};
+  for (uint32_t i = 0; i < na; i++) { bool found = false;
+    for (uint32_t j = 0; j < nb && !found; j++) if (!used[j] && eq(a[i], b[j], d+1)) { used[j] = true; found = true; }
+    if (!found) return false; }
+  return true;
+}
 static bool words_eq(Term u, Term v, unsigned n, int d) { for (unsigned i = 0; i < n; i++) if (!eq(HEAP[loc(u)+i], HEAP[loc(v)+i], d+1)) return false; return true; }
 static uint64_t EQ_CALLS; static int IN_HOOK;
 static bool eq_leaf(Term u, Term v, bool r) {   /* the innermost failing comparison, for the trace */
@@ -105,20 +121,57 @@ static bool eq_leaf(Term u, Term v, bool r) {   /* the innermost failing compari
   return r;
 }
 static bool eq_(Term u, Term v, int d);
+static bool eq_struct(Term u, Term v, int d);
 static bool eq(Term u, Term v, int d) {
   bool r = eq_(u, v, d);
-  if (!r && !IN_HOOK && d <= 9 && getenv("PUSC_EQDBG")) { fprintf(stderr, "  [eq d=%d] ", d); print_term(u, 4); fprintf(stderr, "  vs  "); print_term(v, 4); fprintf(stderr, "\n"); }
+  if (!r && !IN_HOOK && d <= 14 && getenv("PUSC_EQDBG")) { fprintf(stderr, "  [eq d=%d] ", d); print_term(u, 4); fprintf(stderr, "  vs  "); print_term(v, 4); fprintf(stderr, "\n"); }
   return r;
+}
+/* pairs already under comparison: a revisit is the coinductive case and counts as equal (path ≃ bisimulation) */
+static struct { uint64_t k[1 << 14]; uint32_t n; } EQV;
+static uint64_t eq_key(Term u, Term v) { uint64_t k = ((uint64_t)loc(u) << 32) ^ (uint64_t)loc(v) ^ ((uint64_t)tag(u) << 56); return k ? k : 1; }
+static bool eq_seen(Term u, Term v) {
+  if (EQV.n > (1u << 13)) return false;
+  uint64_t key = eq_key(u, v);
+  uint32_t h = (uint32_t)((key * 0x9E3779B97F4A7C15ull) >> 50) & ((1 << 14) - 1);
+  for (;;) { if (!EQV.k[h]) { EQV.k[h] = key; EQV.n++; return false; } if (EQV.k[h] == key) return true; h = (h + 1) & ((1 << 14) - 1); }
+}
+static void eq_forget(Term u, Term v) {           /* a comparison that failed is not an assumption anyone may rely on */
+  uint64_t key = eq_key(u, v);
+  uint32_t h = (uint32_t)((key * 0x9E3779B97F4A7C15ull) >> 50) & ((1 << 14) - 1);
+  for (;;) { if (!EQV.k[h]) return; if (EQV.k[h] == key) { EQV.k[h] = ~0ull; return; } h = (h + 1) & ((1 << 14) - 1); }   /* a tombstone keeps the probe chain */
+}
+/* Equal.sameHead: two applications of the same definition with convertible arguments are equal without
+   unfolding (a recursive definition applied to a coordinate would regenerate itself forever) */
+static bool same_head(Term u, Term v, int d) {
+  Term au[64], av[64]; uint32_t nu, nv;
+  Term hu = spine(u, au, &nu), hv = spine(v, av, &nv);
+  if (tag(hu) != T_REF || tag(hv) != T_REF || loc(hu) != loc(hv) || nu != nv) return false;
+  for (uint32_t i = 0; i < nu; i++) if (!eq(au[i], av[i], d+1)) return false;
+  return true;
 }
 static bool eq_(Term u, Term v, int d) {
   if (u == v) return true;
+  if ((tag(u) == T_APP || tag(u) == T_REF) && (tag(v) == T_APP || tag(v) == T_REF) && same_head(u, v, d)) return true;
+  /* η-long forms of the same thing are the same thing: compare what was reflected before expanding it */
+  if (tag(u) == T_REFLECT && tag(v) == T_REFLECT) return eq(HEAP[loc(u)], HEAP[loc(v)], d+1);
+  if (tag(u) == T_REFLECT && eq(HEAP[loc(u)], v, d+1)) return true;
+  if (tag(v) == T_REFLECT && eq(u, HEAP[loc(v)], d+1)) return true;
   if (++EQ_CALLS > 2000000 && getenv("PUSC_DEBUG")) { fprintf(stderr, "eq: runaway at depth %d, tags %u %u\n", d, tag(u), tag(v)); print_term(u, 6); fprintf(stderr, "\n"); print_term(v, 6); fprintf(stderr, "\n"); exit(9); }
   u = whnf(u); v = whnf(v);
   if (u == v) return true;
-  if (d > 96) { if (getenv("PUSC_EQDBG")) fprintf(stderr, "  [eq] depth exceeded\n"); return false; }
-  /* η: functions, lines, pairs */
-  if (tag(u) == T_LAM || tag(v) == T_LAM) { Term a = atom(); return eq(app2(u, a), app2(v, a), d+1); }
-  if (tag(u) == T_PLM || tag(v) == T_PLM) { Term k = ivar_of(dim_push(0)); return eq(app2(u, k), app2(v, k), d+1); }
+  if (d > 65536) { if (getenv("PUSC_EQDBG")) fprintf(stderr, "  [eq] depth exceeded\n"); return false; }
+  bool track = (tag(u) == T_CTR || tag(u) == T_CASE || tag(u) == T_HELIM) && tag(u) == tag(v);
+  if (track) { if (eq_seen(u, v)) return true;         /* the coinductive assumption, on the current path */
+    bool r = eq_struct(u, v, d); if (!r) eq_forget(u, v); return r; }
+  return eq_struct(u, v, d);
+}
+static bool eq_struct(Term u, Term v, int d) {
+  /* η: functions, lines, pairs; a body is opened uncomputed so a definition applied inside it is seen by its head */
+  if (tag(u) == T_PLM || tag(v) == T_PLM) { Term k = ivar_of(dim_push(0));   /* a line: the fresh variable is a dimension (a λ over the interval too) */
+    return eq(tag(u) == T_PLM || tag(u) == T_LAM ? open_closure(u, k) : app2(u, k), tag(v) == T_PLM || tag(v) == T_LAM ? open_closure(v, k) : app2(v, k), d+1); }
+  if (tag(u) == T_LAM || tag(v) == T_LAM) { Term a = atom();
+    return eq(tag(u) == T_LAM ? open_closure(u, a) : app2(u, a), tag(v) == T_LAM ? open_closure(v, a) : app2(v, a), d+1); }
   if (is_ctr(u, C_PAIR) || is_ctr(v, C_PAIR)) {
     if (is_ctr(u, C_PAIR) && is_ctr(v, C_PAIR)) return eq(HEAP[loc(u)], HEAP[loc(v)], d+1) && eq(HEAP[loc(u)+1], HEAP[loc(v)+1], d+1);
     if (tag(u) == T_CTR && tag(v) == T_CTR) return false;      /* a pair against another constructor */
@@ -159,8 +212,10 @@ static bool eq_(Term u, Term v, int d) {
     case T_HELIM: return elims_eq(u, v, d, true);
     case T_FCE: if (ext(u) != ext(v)) return false; return words_eq(u, v, ext(u) == 2 ? 3 : 2, d);
     case T_TRP: return words_eq(u, v, 4, d);
-    case T_HCM: return words_eq(u, v, 3, d);
-    case T_GLU: case T_GLUE: case T_OP2: case T_PROJ: case T_CHK: case T_CWITH: case T_REFLECT: return (tag(u) != T_OP2 || ext(u) == ext(v)) && words_eq(u, v, 2, d);
+    case T_HCM: return eq(HEAP[loc(u)], HEAP[loc(v)], d+1) && eq(HEAP[loc(u)+1], HEAP[loc(v)+1], d+1) && faces_eq(HEAP[loc(u)+2], HEAP[loc(v)+2], d);
+    case T_GLU: return eq(HEAP[loc(u)], HEAP[loc(v)], d+1) && faces_eq(HEAP[loc(u)+1], HEAP[loc(v)+1], d);
+    case T_GLUE: return faces_eq(HEAP[loc(u)], HEAP[loc(v)], d) && eq(HEAP[loc(u)+1], HEAP[loc(v)+1], d+1);
+    case T_OP2: case T_PROJ: case T_CHK: case T_CWITH: case T_REFLECT: return (tag(u) != T_OP2 || ext(u) == ext(v)) && words_eq(u, v, 2, d);
     case T_OP1: return ext(u) == ext(v) && words_eq(u, v, 1, d);
     case T_UNGLUE: case T_POUT: case T_GBASE: case T_GFACES: case T_CFIELDS: return words_eq(u, v, 1, d);
     case T_FCASE: case T_ETYPE: case T_PAP: return words_eq(u, v, 4, d);
@@ -168,12 +223,15 @@ static bool eq_(Term u, Term v, int d) {
     default: return false;
   }
 }
-bool equal(Term u, Term v) { return eq(u, v, 0); }
+bool equal(Term u, Term v) { memset(&EQV, 0, sizeof EQV); return eq(u, v, 0); }
 static bool rewrite_hook(Term old, Term v) { IN_HOOK++; bool r = eq(old, v, 0); IN_HOOK--;
   if (getenv("PUSC_HOOKDBG") && tag(v) == T_APP) { fprintf(stderr, "  [hook %d] ", r); print_term(old, 4); fprintf(stderr, "  ~  "); print_term(v, 4); fprintf(stderr, "\n"); }
   return r; }
 
 /* ---- faces: check under a face, restrict a cell ------------------------------------------- */
+/* face-cell scratch arrays live off the stack (a check frame must stay small: numerals recurse deep) */
+static FaceCell *CELLS_POOL[64]; static unsigned CELLS_TOP;
+static void cells_init(void) { for (int i = 0; i < 64; i++) CELLS_POOL[i] = calloc(64, sizeof(FaceCell)); }
 static Term restrict_cell(Term x, FaceCell *c) { for (uint32_t i = 0; i < c->n; i++) x = fce3(c->side[i], c->name[i], x, 0); return x; }
 static Term restrict_frame(Term fr, FaceCell *c) {
   for (uint32_t i = 0; i < c->n; i++) { fr = restrict_push(fr, mk(T_IVAR, 0, c->name[i]), c->side[i], 0);
@@ -194,6 +252,7 @@ static bool check_set(uint32_t c, Term fr) { return check(c, fr, SET); }
 static bool check_itv(uint32_t c, Term fr) { return check(c, fr, ITV); }
 static bool verify(uint32_t c, Term fr, Term goal) {
   Term T = infer(c, fr); if (!T) return false;
+  memset(&EQV, 0, sizeof EQV);
   if (eq(T, goal, 0)) return true;
   return fail_mis(goal, T);
 }
@@ -283,11 +342,15 @@ static Term infer(uint32_t c, Term fr) {
   SNode *n = &CODE[c]; CUR_CODE = c;
   if (getenv("PUSC_TRACE")) fprintf(stderr, "%*sinfer tag %u\n", DBG_DEPTH*2, "", n->tag);
   switch (n->tag) {
-    case S_VAR: return ctx_type(n->ext);
+    case S_VAR: if (!CTX_TY[n->ext] && CTX_LET_CODE[n->ext]) return infer(CTX_LET_CODE[n->ext], CTX_LET_FR[n->ext]); return ctx_type(n->ext);
     case S_IVAR: return ITV;
     case S_REF: { Def *d = &BOOK[n->ext]; if (!d->type) { fail_ci("cannot infer: an untyped definition"); return 0; } return inst(d->type, 0); }
-    case S_LET: { Term T = infer(n->a, fr); if (!T) return 0; return infer(n->b, bind_value(fr, cell(n->a, fr), T)); }
-    case S_CHK: { if (!check(n->b, fr, cell(n->a, fr))) return 0; return cell(n->a, fr); }
+    case S_LET: { VRes e = VERR; Term T = infer(n->a, fr); if (T) return infer(n->b, bind_value(fr, cell(n->a, fr), T));
+                  VERR = e; return infer(n->b, bind_let(fr, n->a, fr)); }
+    case S_CHK: {
+      if (CODE[n->b].tag == S_CTR && CINFO[CODE[n->b].ext >> 8].hit) {   /* a HIT constructor annotated with its HIT: its own type (Core.Check infer Chk/HCon) */
+        Term T = whnf(cell(n->a, fr)); if (tag(T) == T_CTR && ctr_id(T) == CINFO[CODE[n->b].ext >> 8].hit) return infer(n->b, fr); }
+      if (!check(n->b, fr, cell(n->a, fr))) return 0; return cell(n->a, fr); }
     case S_LAM: case S_PLM: case S_FIX: case S_ERA: case S_SUP: case S_CASE: fail_ci("cannot infer"); return 0;
     case S_FCE: { Term T = infer(n->b, fr); if (!T) return 0; Term nm = n->d ? cell(n->d, fr) : mk(T_IVAR, 0, 0); return fce_raw(n->ext, nm, T, 0); }
     case S_I0: case S_I1: return ITV;
@@ -352,7 +415,7 @@ static Term infer(uint32_t c, Term fr) {
       if (nm[0] == '&' && ar == 0) { Term en = enum_of_sym(id); if (!en) { fail_ci("cannot infer: a symbol of no declared enum"); return 0; } return en; }
       if (!strcmp(nm, "Partial")) { if (!check_itv(args[0], fr) || !check_set(args[1], fr)) return 0; return SET; }
       if (!strcmp(nm, "Sub")) { if (!check_set(args[0], fr) || !check_itv(args[1], fr)) return 0;
-        Term A = cell(args[0], fr); FaceCell cells[64]; int nc = face_cells(cell(args[1], fr), cells, 64);
+        Term A = cell(args[0], fr); FaceCell *cells = CELLS_POOL[CELLS_TOP++ % 64]; int nc = face_cells(cell(args[1], fr), cells, 64);
         for (int i = 0; i < nc; i++) { Term f = restrict_frame(fr, &cells[i]); bool ok = check(args[2], f, restrict_cell(A, &cells[i])); unrestrict(&cells[i]); if (!ok) return 0; }
         return SET; }
       if (!strcmp(nm, "InS")) { Term T = infer(args[0], fr); if (!T) return 0; return ctr3(named("Sub", 3), T, I0c(), cell(args[0], fr)); }
@@ -413,7 +476,7 @@ static Term infer(uint32_t c, Term fr) {
       for (uint32_t i = 0; i < nf; i++) {
         uint32_t pc = CODE[faces[i]].a, uc = CODE[faces[i]].b;
         if (!check_itv(pc, fr)) return 0;
-        FaceCell cells[64]; int nc = face_cells(cell(pc, fr), cells, 64);
+        FaceCell *cells = CELLS_POOL[CELLS_TOP++ % 64]; int nc = face_cells(cell(pc, fr), cells, 64);
         for (int k = 0; k < nc; k++) {
           Term f = restrict_frame(fr, &cells[k]);
           Term u = cell(uc, f);
@@ -423,7 +486,7 @@ static Term infer(uint32_t c, Term fr) {
       }
       for (uint32_t i = 0; i < nf; i++) for (uint32_t j = i + 1; j < nf; j++) {
         Term pq = node2(T_IAND, 0, cell(CODE[faces[i]].a, fr), cell(CODE[faces[j]].a, fr));
-        FaceCell cells[64]; int nc = face_cells(pq, cells, 64);
+        FaceCell *cells = CELLS_POOL[CELLS_TOP++ % 64]; int nc = face_cells(pq, cells, 64);
         for (int k = 0; k < nc; k++) {
           Term u = restrict_cell(cell(CODE[faces[i]].b, fr), &cells[k]), v = restrict_cell(cell(CODE[faces[j]].b, fr), &cells[k]);
           if (!eq(u, v, 0)) { fail_mis(u, v); return 0; }
@@ -503,7 +566,7 @@ static bool check_case(uint32_t c, Term fr, Term goal) {
       uint32_t br = BRANCH(sid);
       if (!br) { uncovered = true; continue; }
       Term g = rewrite(ax, ctr0(sid), goal); push_rw(ax, ctr0(sid));
-      bool ok = check(CODE[br].b, restrict_push(fr, ax, 2, ctr0(sid)), g); pop_rw(); if (!ok) return false;
+      bool ok = check(CODE[br].b, CODE[xc].tag == S_VAR ? restrict_push(fr, ax, 2, ctr0(sid)) : fr, g); pop_rw(); if (!ok) return false;
     }
     if (uncovered) { uint32_t df = BRANCH(0xFFFFFF); if (!df) return fail_ci("incomplete match"); if (!check(CODE[df].b, fr, goal)) return false; }
     return true;
@@ -513,18 +576,22 @@ static bool check_case(uint32_t c, Term fr, Term goal) {
     uint32_t br = BRANCH(shape[i].cid);
     if (!br) { if (BRANCH(0xFFFFFF)) continue; return fail_ci("incomplete match"); }
     if (CODE[br].a != shape[i].nf) return fail_ci("branch arity");
-    Term rst = restrict_push(fr, ax, 2, 0);          /* x := ctor for everything older; the constructor is filled in below */
+    /* x := ctor for everything older (rewriteCtx); the constructor is filled in below. Only a coordinate
+       restricts the frame: a non-variable scrutinee rewrites the goal alone (the semantic rewrite at every
+       read of every older variable is the recorded Core deviation, not reproduced) */
+    bool coord = CODE[xc].tag == S_VAR;
+    Term rst = coord ? restrict_push(fr, ax, 2, 0) : fr;
     Term f = rst; Term fields[4]; Term B = shape[i].dep ? shape[i].ftypes[1] : 0;
     for (uint32_t k = 0; k < shape[i].nf; k++) {
       Term ft = shape[i].dep && k == 1 ? app2(B, fields[0]) : shape[i].ftypes[k];
       f = bind_coord(f, apply_rw(ft)); fields[k] = var_of(f);
     }
     Term ctor; if (shape[i].nf == 0) ctor = ctr0(shape[i].cid); else { Loc l = alloc(shape[i].nf); for (uint32_t k = 0; k < shape[i].nf; k++) HEAP[l+k] = fields[k]; ctor = mk(T_CTR, ctr_ext(shape[i].cid, shape[i].nf), l); }
-    HEAP[loc(rst)+2] = ctor;
+    if (coord) HEAP[loc(rst)+2] = ctor;
     Term g = goal;
     if (shape[i].cid == C_REFL) { Term a = HEAP[loc(xT)+1], b = HEAP[loc(xT)+2]; g = rewrite(a, b, rewrite(ax, ctor, goal)); push_rw(ax, ctor); push_rw(a, b);
-      f = restrict_push(f, a, 2, b); }
-    else if (shape[i].cid == named("InS", 1)) { g = goal; HEAP[loc(rst)+2] = ax; }   /* no rewrite for outS */
+      if (tag(whnf(a)) == T_VAR) f = restrict_push(f, a, 2, b); }
+    else if (shape[i].cid == named("InS", 1)) { g = goal; if (coord) HEAP[loc(rst)+2] = ax; }   /* no rewrite for outS */
     else { g = rewrite(ax, ctor, goal); push_rw(ax, ctor); }
     bool ok = check(CODE[br].b, f, g);
     if (shape[i].cid == C_REFL) { pop_rw(); pop_rw(); } else if (shape[i].cid != named("InS", 1)) pop_rw();
@@ -541,7 +608,8 @@ static bool check(uint32_t c, Term fr, Term goal) {
   goal = whnf(goal);
   switch (n->tag) {
     case S_ERA: return true;
-    case S_LET: { Term T = infer(n->a, fr); if (!T) return false; return check(n->b, bind_value(fr, cell(n->a, fr), T), goal); }
+    case S_LET: { VRes e = VERR; Term T = infer(n->a, fr); if (T) return check(n->b, bind_value(fr, cell(n->a, fr), T), goal);
+                  VERR = e; return check(n->b, bind_let(fr, n->a, fr), goal); }
     case S_LAM: {
       if (!is_ctr(goal, C_PI)) return fail_mis(pi(mk(T_ERA,0,0), mk(T_ERA,0,0)), goal);
       Term f = bind_coord(fr, HEAP[loc(goal)]);
@@ -582,7 +650,7 @@ static bool check(uint32_t c, Term fr, Term goal) {
         if (!found) return fail_mis(goal, mk(T_ERA, 0, 0));
         Term T = HEAP[loc(found)+1], e = HEAP[loc(found)+2];
         if (!check(tc, fr, T)) return false; Term t = cell(tc, fr);
-        FaceCell cells[64]; int nc = face_cells(p, cells, 64);
+        FaceCell *cells = CELLS_POOL[CELLS_TOP++ % 64]; int nc = face_cells(p, cells, 64);
         for (int k = 0; k < nc; k++) {
           Term lhs = restrict_cell(ef >= 0 ? app2(app2(ref_of(ef), e), t) : t, &cells[k]), rhs = restrict_cell(x, &cells[k]);
           if (!eq(lhs, rhs, 0)) return fail_mis(rhs, lhs);
@@ -596,7 +664,7 @@ static bool check(uint32_t c, Term fr, Term goal) {
         case C_TRUE: case C_FALSE: if (is_ctr(goal, C_BOOL)) return true; break;
         case C_ZER: if (is_ctr(goal, C_NAT)) return true; break;
         case C_SUC:
-          if (is_ctr(goal, C_NAT)) return check(args[0], fr, goal);
+          if (is_ctr(goal, C_NAT)) { uint32_t k = args[0]; while (CODE[k].tag == S_CTR && (CODE[k].ext >> 8) == C_SUC) k = CODE[k].a; return check(k, fr, goal); }
           if (is_ctr(goal, C_EQL)) { Term a = whnf(HEAP[loc(goal)+1]), b = whnf(HEAP[loc(goal)+2]);
             if (is_ctr(a, C_SUC) && is_ctr(b, C_SUC)) return check(args[0], fr, ctr3(C_EQL, HEAP[loc(goal)], HEAP[loc(a)], HEAP[loc(b)])); }
           break;
@@ -616,16 +684,16 @@ static bool check(uint32_t c, Term fr, Term goal) {
         for (uint32_t i = 0; i < nf; i++) {
           uint32_t qc = CODE[faces[i]].a, vc = CODE[faces[i]].b;
           if (!check_itv(qc, fr)) return false;
-          FaceCell cells[64]; int nc = face_cells(cell(qc, fr), cells, 64);
+          FaceCell *cells = CELLS_POOL[CELLS_TOP++ % 64]; int nc = face_cells(cell(qc, fr), cells, 64);
           for (int k = 0; k < nc; k++) { Term f = restrict_frame(fr, &cells[k]); bool ok = check(vc, f, restrict_cell(A, &cells[k])); unrestrict(&cells[k]); if (!ok) return false; }
         }
         for (uint32_t i = 0; i < nf; i++) for (uint32_t j = i + 1; j < nf; j++) {
           Term qr = node2(T_IAND, 0, cell(CODE[faces[i]].a, fr), cell(CODE[faces[j]].a, fr));
-          FaceCell cells[64]; int nc = face_cells(qr, cells, 64);
+          FaceCell *cells = CELLS_POOL[CELLS_TOP++ % 64]; int nc = face_cells(qr, cells, 64);
           for (int k = 0; k < nc; k++) { Term v = restrict_cell(cell(CODE[faces[i]].b, fr), &cells[k]), w = restrict_cell(cell(CODE[faces[j]].b, fr), &cells[k]);
             if (!eq(v, w, 0)) return fail_mis(v, w); }
         }
-        FaceCell pcells[64]; int npc = face_cells(p, pcells, 64);
+        FaceCell *pcells = CELLS_POOL[CELLS_TOP++ % 64]; int npc = face_cells(p, pcells, 64);
         for (int k = 0; k < npc; k++) { bool covered = false;
           for (uint32_t i = 0; i < nf && !covered; i++) if (tag(ican(restrict_cell(cell(CODE[faces[i]].a, fr), &pcells[k]))) == T_I1) covered = true;
           if (!covered) return fail_mis(I1c(), p); }
@@ -634,7 +702,7 @@ static bool check(uint32_t c, Term fr, Term goal) {
       if (!strcmp(nm, "InS") && is_ctr(goal, named("Sub", 3))) {
         Term A = HEAP[loc(goal)], p = HEAP[loc(goal)+1], u = HEAP[loc(goal)+2];
         if (!check(args[0], fr, A)) return false; Term x = cell(args[0], fr);
-        FaceCell cells[64]; int nc = face_cells(p, cells, 64);
+        FaceCell *cells = CELLS_POOL[CELLS_TOP++ % 64]; int nc = face_cells(p, cells, 64);
         for (int k = 0; k < nc; k++) { Term xa = restrict_cell(x, &cells[k]), ua = restrict_cell(u, &cells[k]); if (!eq(xa, ua, 0)) return fail_mis(ua, xa); }
         return true;
       }
@@ -652,7 +720,8 @@ static bool check(uint32_t c, Term fr, Term goal) {
       return verify(c, fr, goal); }
     case S_APP: {
       /* a β-redex: the binder is the argument; a spine headed by a built-in eliminator */
-      if (CODE[n->a].tag == S_LAM) { Term T = infer(n->b, fr); if (!T) return false; return check(CODE[n->a].a, bind_value(fr, cell(n->b, fr), T), goal); }
+      if (CODE[n->a].tag == S_LAM) { VRes e = VERR; Term T = infer(n->b, fr); if (T) return check(CODE[n->a].a, bind_value(fr, cell(n->b, fr), T), goal);
+                                     VERR = e; return check(CODE[n->a].a, bind_let(fr, n->b, fr), goal); }
       if (CODE[n->a].tag == S_PLM) { if (!check_itv(n->b, fr)) return false; Term f = bind_dim(fr); return check(CODE[n->a].a, restrict_push(f, ivar_of(f), 2, cell(n->b, fr)), goal); }
       uint32_t sp[64]; uint32_t ns = 0; uint32_t h = c; while (CODE[h].tag == S_APP && ns < 64) { sp[ns++] = CODE[h].b; h = CODE[h].a; }
       for (uint32_t i = 0; i < ns / 2; i++) { uint32_t t = sp[i]; sp[i] = sp[ns-1-i]; sp[ns-1-i] = t; }
@@ -662,7 +731,7 @@ static bool check(uint32_t c, Term fr, Term goal) {
           if (!check(sp[0], fr, pi(ITV, konst(SET))) || !check_itv(sp[1], fr)) return false;
           Term L = cell(sp[0], fr);
           if (!check(sp[2], fr, app2(L, I0c()))) return false;
-          FaceCell cells[64]; int nc = face_cells(cell(sp[1], fr), cells, 64);
+          FaceCell *cells = CELLS_POOL[CELLS_TOP++ % 64]; int nc = face_cells(cell(sp[1], fr), cells, 64);
           for (int k = 0; k < nc; k++) {
             Term Lk = restrict_cell(L, &cells[k]); Term dm = dim_push(0); Term body = app2(Lk, ivar_of(dm));
             if (occurs_cell(loc(dm), body)) return fail_mis(app2(Lk, I0c()), body);
@@ -695,6 +764,7 @@ static bool check(uint32_t c, Term fr, Term goal) {
       }
       return verify(c, fr, goal); }
     case S_NUM: { unsigned k = num_kind_of(goal); if (k == n->ext) return true; if (k != 99) return fail_mis(goal, num_type(n->ext)); return verify(c, fr, goal); }
+    case S_VAR: if (!CTX_TY[n->ext] && CTX_LET_CODE[n->ext]) return check(CTX_LET_CODE[n->ext], CTX_LET_FR[n->ext], goal); return verify(c, fr, goal);
     default: return verify(c, fr, goal);
   }
 }
@@ -706,7 +776,7 @@ static void report_err(const char *name) {
   else { printf("  mismatch: expected "); print_term(VERR_WANT, 12); printf("\n            got      "); print_term(VERR_GOT, 12); printf("\n"); }
 }
 int check_book(const char *prefix) {
-  CHECK_MODE = true; REWRITE_HOOK = rewrite_hook;
+  CHECK_MODE = true; REWRITE_HOOK = rewrite_hook; cells_init();
   if (getenv("PUSC_DEBUG") || getenv("PUSC_EQDBG") || getenv("PUSC_TRACE")) setvbuf(stdout, NULL, _IONBF, 0);
   C_ITV = ctor_intern("Itv", 0); SET = ctr0(C_SET); ITV = ctr0(C_ITV); int kd = book_find("konst"); konst_ref = kd >= 0 ? ref_of(kd) : 0;
   int bad = 0;

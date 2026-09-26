@@ -2,6 +2,7 @@
 #include "cell.h"
 #include <stdio.h>
 #include <string.h>
+#include <sys/resource.h>
 void read_file(const char *path);
 int check_book(const char *prefix);
 static void load_next_to_exe(const char *exe, const char *name) {
@@ -10,6 +11,7 @@ static void load_next_to_exe(const char *exe, const char *name) {
   read_file(pre);
 }
 int main(int argc, char **argv) {
+  { struct rlimit rl; if (!getrlimit(RLIMIT_STACK, &rl)) { rl.rlim_cur = rl.rlim_max == RLIM_INFINITY ? (rlim_t)4 << 30 : rl.rlim_max; setrlimit(RLIMIT_STACK, &rl); } }   /* deep terms recurse deep */
   if (argc < 3) { fprintf(stderr, "usage: pusc run FILE [DEF] | pusc bend FILE | pusc check FILE\n"); return 1; }
   bool bend = !strcmp(argv[1], "bend") || !strcmp(argv[1], "check");
   load_next_to_exe(argv[0], "prelude.pusc");            /* the Kan rule rows, next to the executable */

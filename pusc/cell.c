@@ -1,5 +1,6 @@
 #define _GNU_SOURCE
 #include <math.h>
+#include <sys/mman.h>
 /* pusc — cell.c: the heap, frames, and the one loop (MAP.md §§1–4, 6).
  *
  * Every rule below fires only at an active pair, only when demanded, and
@@ -22,12 +23,18 @@ uint32_t *TRACE; uint64_t TRACE_LEN = 0; static uint64_t TRACE_CAP;
 
 /* ---- heap ------------------------------------------------------------- */
 Loc alloc(uint32_t n) {
-  if (!HEAP) { HEAP_CAP = 1u << 20; HEAP = calloc(HEAP_CAP, sizeof(Term)); }
-  if (HEAP_LEN + n >= HEAP_CAP) {
-    while (HEAP_LEN + n >= HEAP_CAP) HEAP_CAP *= 2;
-    HEAP = realloc(HEAP, HEAP_CAP * sizeof(Term));
-    memset(HEAP + HEAP_LEN, 0, (HEAP_CAP - HEAP_LEN) * sizeof(Term));
+  /* the heap is one reservation, committed lazily by the kernel's paging, so a cell's address never
+     changes: every Loc and every pointer into HEAP stays valid for the whole run */
+  if (!HEAP) {
+    uint64_t want = (uint64_t)1 << 35;                                 /* 2^32 words: every 32-bit Loc */
+    for (; want >= ((uint64_t)1 << 28); want >>= 1) {
+      void *m = mmap(NULL, want, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS | MAP_NORESERVE, -1, 0);
+      if (m != MAP_FAILED) { HEAP = m; HEAP_CAP = (Loc)(want / sizeof(Term) > 0xFFFFFFFFu ? 0xFFFFFFFFu : want / sizeof(Term)); break; }
+    }
+    if (!HEAP) { fprintf(stderr, "pusc: cannot reserve the heap\n"); exit(2); }
+    HEAP_LEN = 1;                                                      /* address 0 is never a cell */
   }
+  if ((uint64_t)HEAP_LEN + n >= HEAP_CAP) { fprintf(stderr, "pusc: heap exhausted\n"); exit(2); }
   Loc l = HEAP_LEN; HEAP_LEN += n; return l;
 }
 Term node1(unsigned t, uint32_t e, Term a)                 { Loc l = alloc(1); HEAP[l]=a; return mk(t,e,l); }
@@ -313,6 +320,7 @@ int face_cells(Term phi, FaceCell *out, int max) {
   Term c = ican(phi); int n = 0;
   if (tag(c) == T_I0) return 0;
   if (tag(c) == T_I1) { if (max > 0) out[0].n = 0; return 1; }
+  if (tag(c) == T_IVAR) { if (max > 0) { out[0].n = 1; out[0].name[0] = loc(c); out[0].side[0] = 1; } return 1; }
   if (tag(c) != T_IDNF) return -1;
   Loc p = loc(c);
   for (uint32_t i = 0; i < ext(c) && n < max; i++) {
@@ -347,9 +355,11 @@ static Term fce_closure(unsigned ctag, Term name, unsigned side, Term by, Term c
    name (endpoints and renaming), a coordinate (a VAR atom: substitution by a term), or, under the
    checker's hook, any cell (a semantic rewrite: what equals `nm` becomes `by`) */
 static Term fce_apply(Term nm, unsigned side, Term by, Term v) {
-  v = whnf(v);
   bool ivar = tag(nm) == T_IVAR; Loc name = loc(nm);
   #define FCE_(x) fce_raw(side, nm, (x), by)
+  { Term args[64]; uint32_t n; Term h = spine(v, args, &n);           /* a closed definition applied: a face or a coordinate substitution passes into the arguments */
+    if (tag(h) == T_REF && n > 0 && (ivar || tag(nm) == T_VAR)) { receipt(R_FCE_PUSH); for (uint32_t i = 0; i < n; i++) args[i] = FCE_(args[i]); return whnf(apps(h, args, n)); } }
+  v = whnf(v);
   if (!ivar && tag(nm) != T_VAR && REWRITE_HOOK && REWRITE_HOOK(nm, v)) { receipt(R_FCE_ANNIHILATE); return whnf(by); }
   switch (tag(v)) {
     case T_SUP: {
@@ -413,7 +423,7 @@ static Term fce_apply(Term nm, unsigned side, Term by, Term v) {
 }
 
 /* ---- opening a closure (β, path application) --------------------------- */
-static Term open_closure(Term clo, Term arg) {
+Term open_closure(Term clo, Term arg) {
   uint32_t code = loc(HEAP[loc(clo)]);
   Term fr = HEAP[loc(clo) + 1];
   SNode *n = &CODE[code];                 /* S_LAM / S_PLM: body is n->a */
@@ -435,7 +445,9 @@ static Term case_select(Term cs, Term scrut) {
     }
     br = b->c;
   }
-  fprintf(stderr, "pusc: no branch for %s\n", ctor_name(ctr_id(scrut))); exit(3);
+  fprintf(stderr, "pusc: no branch for %s in a case with branches", ctor_name(ctr_id(scrut)));
+  for (uint32_t b2 = n->b; b2; b2 = CODE[b2].c) fprintf(stderr, " %s", CODE[b2].ext == 0xFFFFFF ? "_" : ctor_name(CODE[b2].ext));
+  fprintf(stderr, "; scrutinee "); print_rec(scrut, 4); fprintf(stderr, "\n"); exit(3);
 }
 static Term case_restrict(Term cs, Term name, unsigned side, Term by, Term scrut) {
   Term code = HEAP[loc(cs) + 1], fr = HEAP[loc(cs) + 2];
@@ -586,6 +598,20 @@ static bool code_mentions(uint32_t c, uint32_t lvl) {
     default: return code_mentions(n->a, lvl) || code_mentions(n->b, lvl) || code_mentions(n->c, lvl) || code_mentions(n->d, lvl);
   }
 }
+bool code_uses(uint32_t c, uint32_t lvl) {          /* does the static code read level lvl (a term or a dimension)? */
+  if (!c) return false; SNode *n = &CODE[c];
+  switch (n->tag) {
+    case S_VAR: case S_IVAR: return n->ext == lvl;
+    case S_SUP: return (!n->d && n->ext == lvl) || code_uses(n->a, lvl) || code_uses(n->b, lvl) || code_uses(n->d, lvl);
+    case S_FCE: return (!n->d && n->a == lvl) || code_uses(n->b, lvl) || code_uses(n->d, lvl);
+    case S_ISUB: return (!n->d && n->a == lvl) || code_uses(n->b, lvl) || code_uses(n->c, lvl) || code_uses(n->d, lvl);
+    case S_LABEL: case S_REF: case S_ERA: case S_I0: case S_I1: case S_NUM: return false;
+    case S_CTR: { uint32_t ar = n->ext & 0xFF; if (ar <= 4) { uint32_t k[4]={n->a,n->b,n->c,n->d}; for (uint32_t i=0;i<ar;i++) if (code_uses(k[i],lvl)) return true; return false; }
+                  for (uint32_t i=0;i<ar;i++) if (code_uses(KIDS[n->kids+i],lvl)) return true; return false; }
+    case S_BRANCH: return code_uses(n->b, lvl) || code_uses(n->c, lvl);
+    default: return code_uses(n->a, lvl) || code_uses(n->b, lvl) || code_uses(n->c, lvl) || code_uses(n->d, lvl);
+  }
+}
 static bool occurs(Loc name, Term t, int depth);
 /* does a closure over frame `fr` running `code` mention dimension `name`?  Through a DIM binder whose
  * level the code uses, or through any slot value that mentions it (over-approximate: the code may not read it). */
@@ -597,29 +623,43 @@ static bool frame_mentions(Term fr, uint32_t code, Loc name, int depth) {
   }
   return false;
 }
-static bool occurs(Loc name, Term t, int depth) {   /* regularity by normalisation: the cell is reduced as it is inspected */
+/* a visited set for the traversals of cyclic cells (a knot revisits the same cell) */
+typedef struct { Term k[1 << 14]; uint32_t n; } Visited;
+static bool visited(Visited *vs, Term key) {
+  if (vs->n > (1u << 13)) return false;                                /* full: stop pruning, stay correct */
+  uint32_t h = (uint32_t)((key * 0x9E3779B97F4A7C15ull) >> 50) & ((1 << 14) - 1);
+  for (;;) { if (!vs->k[h]) { vs->k[h] = key; vs->n++; return false; } if (vs->k[h] == key) return true; h = (h + 1) & ((1 << 14) - 1); }
+}
+static bool occurs_v(Loc name, Term t, int depth, Visited *vs);
+static bool occurs(Loc name, Term t, int depth) { Visited *vs = calloc(1, sizeof *vs); bool r = occurs_v(name, t, depth, vs); free(vs); return r; }
+static bool occurs_v(Loc name, Term t, int depth, Visited *vs) {   /* regularity by normalisation: the cell is reduced as it is inspected */
   if (depth <= 0) return true;
+  if (tag(t) == T_REFLECT) return occurs_v(name, HEAP[loc(t)], depth-1, vs) || occurs_v(name, HEAP[loc(t)+1], depth-1, vs);   /* η-long x at T mentions what x and T mention */
+  { Term args[64]; uint32_t n; Term h = spine(t, args, &n);
+    if (tag(h) == T_REF) { for (uint32_t i = 0; i < n; i++) if (occurs_v(name, args[i], depth-1, vs)) return true; return false; } }
   t = whnf(t);
+  if (tag(t) != T_IVAR && tag(t) != T_I0 && tag(t) != T_I1 && tag(t) != T_VAR && visited(vs, t)) return false;
+  #define OCC(x) occurs_v(name, (x), depth-1, vs)
   switch (tag(t)) {
     case T_IVAR: return loc(t) == name;
     case T_I0: case T_I1: case T_NUM: case T_ERA: case T_REF: return false;
     case T_IDNF: { Loc p = loc(t); for (uint32_t i = 0; i < ext(t); i++) { uint32_t n = (uint32_t)HEAP[p++]; for (uint32_t k = 0; k < n; k++) if ((Loc)(HEAP[p++] >> 1) == name) return true; } return false; }
-    case T_LAM: { Term g = generic(HEAP[loc(t)+1]); return occurs(name, inst(CODE[loc(HEAP[loc(t)])].a, g), depth-1); }
-    case T_PLM: { Term g = dim_push(HEAP[loc(t)+1]); return occurs(name, inst(CODE[loc(HEAP[loc(t)])].a, g), depth-1); }
-    case T_CASE: return occurs(name, HEAP[loc(t)], depth-1) || frame_mentions(HEAP[loc(t)+2], loc(HEAP[loc(t)+1]), name, depth);
-    case T_HELIM: return (HEAP[loc(t)] && occurs(name, HEAP[loc(t)], depth-1)) || occurs(name, HEAP[loc(t)+3], depth-1)
-                      || frame_mentions(HEAP[loc(t)+2], loc(HEAP[loc(t)+1]), name, depth);
-    case T_CTR: for (uint32_t i = 0; i < ctr_arity(t); i++) if (occurs(name, HEAP[loc(t)+i], depth-1)) return true; return false;
-    case T_SUP: return occurs(name, HEAP[loc(t)], depth-1) || occurs(name, HEAP[loc(t)+1], depth-1) || occurs(name, HEAP[loc(t)+2], depth-1);
+    case T_LAM: { Term g = generic(HEAP[loc(t)+1]); return OCC(inst(CODE[loc(HEAP[loc(t)])].a, g)); }
+    case T_PLM: { Term g = dim_push(HEAP[loc(t)+1]); return OCC(inst(CODE[loc(HEAP[loc(t)])].a, g)); }
+    case T_CASE: return OCC(HEAP[loc(t)]) || frame_mentions(HEAP[loc(t)+2], loc(HEAP[loc(t)+1]), name, depth);
+    case T_HELIM: return (HEAP[loc(t)] && OCC(HEAP[loc(t)])) || OCC(HEAP[loc(t)+3]) || frame_mentions(HEAP[loc(t)+2], loc(HEAP[loc(t)+1]), name, depth);
+    case T_CTR: for (uint32_t i = 0; i < ctr_arity(t); i++) if (OCC(HEAP[loc(t)+i])) return true; return false;
+    case T_SUP: return OCC(HEAP[loc(t)]) || OCC(HEAP[loc(t)+1]) || OCC(HEAP[loc(t)+2]);
     case T_APP: case T_OP2: case T_IAND: case T_IOR: case T_CHK: case T_ASK: case T_PROJ: case T_CWITH: case T_GLU: case T_GLUE: case T_REFLECT:
-      return occurs(name, HEAP[loc(t)], depth-1) || occurs(name, HEAP[loc(t)+1], depth-1);
-    case T_FCE: return occurs(name, HEAP[loc(t)], depth-1) || occurs(name, HEAP[loc(t)+1], depth-1) || (ext(t) == 2 && occurs(name, HEAP[loc(t)+2], depth-1));
-    case T_INOT: case T_UNGLUE: case T_GBASE: case T_GFACES: case T_OP1: case T_POUT: case T_CFIELDS: return occurs(name, HEAP[loc(t)], depth-1);
-    case T_TRP: case T_FCASE: case T_ETYPE: case T_PAP: for (int i = 0; i < 4; i++) if (occurs(name, HEAP[loc(t)+i], depth-1)) return true; return false;
-    case T_HCM: case T_ETERM: for (int i = 0; i < 3; i++) if (occurs(name, HEAP[loc(t)+i], depth-1)) return true; return false;
+      return OCC(HEAP[loc(t)]) || OCC(HEAP[loc(t)+1]);
+    case T_FCE: return OCC(HEAP[loc(t)]) || OCC(HEAP[loc(t)+1]) || (ext(t) == 2 && OCC(HEAP[loc(t)+2]));
+    case T_INOT: case T_UNGLUE: case T_GBASE: case T_GFACES: case T_OP1: case T_POUT: case T_CFIELDS: return OCC(HEAP[loc(t)]);
+    case T_TRP: case T_FCASE: case T_ETYPE: case T_PAP: for (int i = 0; i < 4; i++) if (OCC(HEAP[loc(t)+i])) return true; return false;
+    case T_HCM: case T_ETERM: for (int i = 0; i < 3; i++) if (OCC(HEAP[loc(t)+i])) return true; return false;
     case T_VAR: return false;                          /* a generic element (its own slot) */
     default: return true;
   }
+  #undef OCC
 }
 bool occurs_cell(Loc name, Term t) { return occurs(name, t, 24); }
 static bool is_rigid_type(uint32_t id) {

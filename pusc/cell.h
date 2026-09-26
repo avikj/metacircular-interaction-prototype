@@ -171,6 +171,8 @@ Term restrict_push(Term parent, Term name, unsigned side, Term by);
 Term generic(Term fr);
 Term frame_lookup(Term f, uint32_t lvl, bool *is_dim);
 bool frame_is_dim(Term f, uint32_t lvl);
+bool code_uses(uint32_t c, uint32_t lvl);
+Term open_closure(Term clo, Term arg);          /* the body of a λ or <i> at an argument, uncomputed */
 Term ican(Term t);
 bool ieq(Term a, Term b);
 Term spine(Term t, Term *args, uint32_t *n);
