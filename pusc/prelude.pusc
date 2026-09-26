@@ -90,14 +90,18 @@
 ;   t1   := inv e a1'  on each face live at s;  a1 := hcomp (A s) [ψ ↦ <j> (sec e t1) @ ~j] a1'
 ;   result glue [ψ ↦ t1] a1
 (def trp/Glue (lam L (lam r (lam s (lam x (lam T (lam k
-  ; T is the Glue cell of the line at the generic dimension k; the cells at r and s are T[k := r], T[k := s]
-  ; (whnfCoe: substMarker into the normalised body, never a re-evaluation, which would collapse hcomp to its base)
-  (let aR (unglue-at (isub k r T) x)
-  (let a1p (trp (plm i (glue-A (isub k i T))) r s aR)
-  (let fsS (glue-faces (isub k s T))
-  (let a1 (hcm (glue-A (isub k s T)) a1p
+  ; T is the Glue cell of the line at the generic dimension k. Its faces and base are read HERE, where
+  ; every face is symbolic, and the interval is substituted into the parts (whnfCoe: substMarker into the
+  ; normalised body): a Glue with a true face IS its partial type, so substituting into the Glue itself
+  ; would lose the faces the transport needs.
+  (let fsK (glue-faces T)
+  (let AK (glue-base T)
+  (let aR (unglue-sel (map-gfaces (lam g (isub k r g)) fsK) x (ctr False))
+  (let a1p (trp (plm i (isub k i AK)) r s aR)
+  (let fsS (map-gfaces (lam g (isub k s g)) fsK)
+  (let a1 (hcm (isub k s AK) a1p
                (map-gfaces (lam g (ctr Face (gface-phi g) (plm j (app (equiv-sec (gface-e g) (equiv-inv (gface-e g) a1p)) (inot j))))) fsS))
-  (glue (map-gfaces (lam g (ctr Face (gface-phi g) (equiv-inv (gface-e g) a1p))) fsS) a1))))))))))))
+  (glue (map-gfaces (lam g (ctr Face (gface-phi g) (equiv-inv (gface-e g) a1p))) fsS) a1))))))))))))))
 (def unglue-at (lam G (lam x (glue-unglue G x))))
 ; a non-Glue type is read as a Glue with itself as base and no faces (glueAt)
 (def glue-A     (lam G (glue-base G)))
@@ -145,3 +149,10 @@
       (let ln (plm i (hit-field-ty (inst-pis cty (ctr-fields (app L i))) (map (lam d (app d i)) done)))
       (let a1 (lam i (trp ln r i a))
       (ctr Cons (app a1 s) (trp/hit-go L r s cty rest (snoc done a1))))))))))))))
+
+; ---- §7: coordinates are η-long at their types; the eliminator's branch types (checkBranches) ----
+(def konst (lam b (lam _ b)))
+(def eta-pi (lam f (lam B (lam y (reflect (app f y) (app B y))))))
+(def eta-path (lam p (lam L (lam a (lam b (plm i (reflect (pap p i a b) (app L i))))))))
+(def eline (lam P (lam elim (lam L (lam u (lam i (etype P elim (app L i) (app u i))))))))
+(def eterm-line (lam elim (lam L (lam u (plm j (eterm elim (app L j) (app u j)))))))

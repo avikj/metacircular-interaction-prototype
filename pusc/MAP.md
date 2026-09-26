@@ -739,10 +739,31 @@ presentation, not a second program.
       a mismatch is a residual cell: the non-fillable boundary IS the error
       result ∈ { ✓, mismatch, cannot-infer }, each carrying its witness
 
+**As cells (`verify.c`).** A binder's coordinate is a fresh atom whose slot
+holds `REFLECT [atom, T]`: the atom made η-long at its type when read (Π → a
+λ over the reflected application, Σ → the pair of reflected projections, Path
+→ `<i> PAP [p, i, a, b]`, Interval → a dimension name). `PAP` is path
+application that keeps the boundary: a literal `i` selects an endpoint, a
+symbolic one stays a cell a later face decides, because a reduction that
+forgot the boundary would not commute with substitution (the diamond of §3).
+A typed definition unfolds, in check mode, to `REFLECT [body, type]`, so
+`f x @ i0` reads its endpoint from `f`'s declared type as Core's `epNormCtx`
+does. A match rewrites the goal by the substitution cell at the scrutinee's
+atom (`FCE` side 2 with a coordinate as name); an equation match rewrites
+semantically through the same cell with conversion as the hook. A face
+restricts the frame (`RESTRICT`) and the goal (`FCE`), one literal per cell
+of the DNF. Conversion is `eq` on cells: whnf both, η for λ/`<i>`/pairs,
+constructors field-wise, intervals by canonical form, two stuck eliminators
+by same code and convertible frames, else branch-wise on fresh fields with a
+depth bound. Regularity is decided by normalisation: `occurs` reduces the
+cell as it inspects it (a line constant after reduction is constant), which
+is also what makes `J` compute on `refl`.
+
 Every ✓/✗ must agree with Bend2's checker over the corpus including every
 `*_mustfail`; recorded Core deviations (syntactic rewrite on a non-variable
-scrutinee, substituted lets, regularity by normalisation) are not
-reproduced.
+scrutinee, the constancy side condition of `transp`, the built-in recursors
+without their implicit type arguments) are the places a disagreement is
+allowed and named.
 
 ## 8. Install
 

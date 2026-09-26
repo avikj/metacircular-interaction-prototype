@@ -1,5 +1,5 @@
 diff --git a/app/Main.hs b/app/Main.hs
-index e8b579d..f3d631e 100644
+index e8b579d..cd2fb12 100644
 --- a/app/Main.hs
 +++ b/app/Main.hs
 @@ -4,7 +4,7 @@ import Control.Monad (unless)
@@ -7,7 +7,7 @@ index e8b579d..f3d631e 100644
  import System.Environment (getArgs)
  import System.Exit (exitFailure)
 -import Core.CLI (processFile, processFileToJS, processFileToHVM, listDependencies)
-+import Core.CLI (processFile, processFileToJS, processFileToHVM, processFileToHVM4, processFileToHVM4Raw, processFileToHVM4Full, processFileToPusc, processFileTotal, listDependencies)
++import Core.CLI (processFile, processFileToJS, processFileToHVM, processFileToHVM4, processFileToHVM4Raw, processFileToHVM4Full, processFileToPusc, processFileToPuscUnchecked, processFileTotal, listDependencies)
  
  -- | Show usage information
  showUsage :: IO ()
@@ -23,13 +23,14 @@ index e8b579d..f3d631e 100644
    putStrLn "  --list-dependencies List all dependencies (recursive)"
  
  -- | Main entry point
-@@ -23,6 +28,12 @@ main = do
+@@ -23,6 +28,13 @@ main = do
    case args of
      [file, "--to-javascript"] | ".bend"    `isSuffixOf` file -> processFileToJS file
      [file, "--to-javascript"] | ".bend.py" `isSuffixOf` file -> processFileToJS file
 +    [file, "--to-hvm4-raw"] | ".bend" `isSuffixOf` file -> processFileToHVM4Raw file
 +    [file, "--to-hvm4-full"] | ".bend" `isSuffixOf` file -> processFileToHVM4Full file
 +    [file, "--to-pusc"] | ".bend" `isSuffixOf` file -> processFileToPusc file
++    [file, "--to-pusc-unchecked"] | ".bend" `isSuffixOf` file -> processFileToPuscUnchecked file
 +    [file, "--total"] | ".bend" `isSuffixOf` file -> processFileTotal file
 +    [file, "--to-hvm4"] | ".bend"    `isSuffixOf` file -> processFileToHVM4 file
 +    [file, "--to-hvm4"] | ".bend.py" `isSuffixOf` file -> processFileToHVM4 file
@@ -2109,10 +2110,10 @@ index 939a19f..d318a1f 100644
    Sup l a b  -> Sup (binder lv l ctx vars) (binder lv a ctx vars) (binder lv b ctx vars)
    SupM x l f -> SupM (binder lv x ctx vars) (binder lv l ctx vars) (binder lv f ctx vars)
 diff --git a/src/Core/CLI.hs b/src/Core/CLI.hs
-index f94d1ce..b4c3ae8 100644
+index f94d1ce..a901331 100644
 --- a/src/Core/CLI.hs
 +++ b/src/Core/CLI.hs
-@@ -5,6 +5,11 @@ module Core.CLI
+@@ -5,6 +5,12 @@ module Core.CLI
    , processFile
    , processFileToJS
    , processFileToHVM
@@ -2120,11 +2121,12 @@ index f94d1ce..b4c3ae8 100644
 +  , processFileToHVM4Raw
 +  , processFileToHVM4Full
 +  , processFileToPusc
++  , processFileToPuscUnchecked
 +  , processFileTotal
    , listDependencies
    ) where
  
-@@ -15,40 +20,99 @@ import System.Environment (getArgs)
+@@ -15,40 +21,99 @@ import System.Environment (getArgs)
  import System.Exit (exitFailure)
  import System.Process (readProcessWithExitCode)
  import System.Exit (ExitCode(..))
@@ -2235,7 +2237,7 @@ index f94d1ce..b4c3ae8 100644
    where
      checkDef book term typ = do
        check 0 noSpan book (Ctx []) typ Set
-@@ -59,7 +123,7 @@ checkDefinitions book@(Book defs) = do
+@@ -59,7 +124,7 @@ checkDefinitions book@(Book defs) = do
      checkAll bBook ((name, (_, term, typ)):rest) = do
        case checkDef bBook term typ of
          Done () -> do
@@ -2244,7 +2246,7 @@ index f94d1ce..b4c3ae8 100644
            checkAll bBook rest
          Fail e -> do
            putStrLn $ "\x1b[31m✗ " ++ name ++ "\x1b[0m"
-@@ -67,6 +131,25 @@ checkDefinitions book@(Book defs) = do
+@@ -67,6 +132,25 @@ checkDefinitions book@(Book defs) = do
            _ <- checkAll bBook rest
            return False
  
@@ -2270,7 +2272,7 @@ index f94d1ce..b4c3ae8 100644
  -- | Run the main function from a book
  runMain :: Book -> IO ()
  runMain book = do
-@@ -80,7 +163,7 @@ runMain book = do
+@@ -80,7 +164,7 @@ runMain book = do
            putStrLn $ show e
            exitFailure
          Done typ -> do
@@ -2279,7 +2281,7 @@ index f94d1ce..b4c3ae8 100644
            putStrLn ""
            forM_ results $ \ term -> do
              print term
-@@ -88,8 +171,7 @@ runMain book = do
+@@ -88,8 +172,7 @@ runMain book = do
  -- | Process a Bend file: parse, check, and run
  processFile :: FilePath -> IO ()
  processFile file = do
@@ -2289,7 +2291,7 @@ index f94d1ce..b4c3ae8 100644
    runMain book
  
  -- | Try to format JavaScript code using prettier if available
-@@ -123,6 +205,18 @@ processFileToHVM file = do
+@@ -123,6 +206,18 @@ processFileToHVM file = do
    let hvmCode = HVM.compile book
    putStrLn hvmCode
  
@@ -2308,7 +2310,7 @@ index f94d1ce..b4c3ae8 100644
  -- | List all dependencies of a Bend file (including transitive dependencies)
  listDependencies :: FilePath -> IO ()
  listDependencies file = do
-@@ -135,7 +229,47 @@ listDependencies file = do
+@@ -135,7 +230,61 @@ listDependencies file = do
  
  -- | Collect all refs from a Book
  collectAllRefs :: Book -> S.Set Name
@@ -2356,6 +2358,20 @@ index f94d1ce..b4c3ae8 100644
 +  hDuplicateTo stderr stdout
 +  book <- checkDefinitions book0 `finally` (hFlush stdout >> hDuplicateTo saved stdout)
 +  putStrLn (Pusc.compilePusc book)
++
++-- | The elaborated book as pusc cells WITHOUT the verdict: for the checker
++-- differential (pusc's own `check` against this checker), including the
++-- must-fail probes. The silent pass records HIT constructor parameters.
++processFileToPuscUnchecked :: FilePath -> IO ()
++processFileToPuscUnchecked file = do
++  book0@(Book defs0 _) <- parseFile file
++  let seen = length [ () | (_, (_, term, typ)) <- M.toList defs0, silent book0 term typ `seq` True ]
++  seen `seq` return ()
++  putStrLn (Pusc.compilePusc (elabBook book0))
++  where
++    silent book term typ = case (do check 0 noSpan book (Ctx []) typ Set; check 0 noSpan book (Ctx []) term typ) of
++      Done () -> True
++      Fail _  -> False
 +
 diff --git a/src/Core/Check.hs b/src/Core/Check.hs
 index cdd6756..84697db 100644
@@ -7287,10 +7303,10 @@ index 690a38e..d5782fa 100644
    in prelude ++ jsFns
 diff --git a/src/Target/Pusc.hs b/src/Target/Pusc.hs
 new file mode 100644
-index 0000000..829e5d1
+index 0000000..e53c501
 --- /dev/null
 +++ b/src/Target/Pusc.hs
-@@ -0,0 +1,194 @@
+@@ -0,0 +1,198 @@
 +{-./../Core/Type.hs-}
 +
 +-- Bend2 -> pusc: the checked book, emitted as the kernel's own text (pusc/read.c).
@@ -7316,7 +7332,7 @@ index 0000000..829e5d1
 +  where
 +    def (nam, (_, tm, ty)) = [ "(def " ++ defName nam ++ " : " ++ emit book ty ++ " = " ++ emit book tm ++ ")" ]
 +    hitDecl (t, h) =
-+      "(hit " ++ hitName t ++ " (" ++ unwords [ "p" ++ show i | i <- [1 .. hitArity h] ] ++ ")"
++      "(hit " ++ hitName t ++ " (" ++ unwords [ "p" ++ show i | i <- [1 .. hitArity h] ] ++ ") : " ++ emit book (hitType h)
 +        ++ concat [ " (" ++ ctorName c ++ " : " ++ ctorTypeText book t (hitArity h) (ctorType k) ++ ")" | (c, k) <- hitCtors h ] ++ ")"
 +
 +-- A constructor's closed type: the outer Pis bind the HIT's parameters, and the bare
@@ -7369,7 +7385,7 @@ index 0000000..829e5d1
 +    All a b        -> ctr "Pi" [go d a, go d b]
 +    Eql a x y      -> ctr "Eql" [go d a, go d x, go d y]
 +    Itv            -> "(ctr Itv)"
-+    Pth a u v      -> ctr "Path" [go d a, go d u, go d v]
++    Pth a u v      -> ctr "Path" [line d a, go d u, go d v]
 +    Prt p a        -> ctr "Partial" [go d p, go d a]
 +    Rst a p u      -> ctr "Sub" [go d a, go d p, go d u]
 +    Tru a          -> ctr (hitName "Trunc") [go d a]
@@ -7442,11 +7458,11 @@ index 0000000..829e5d1
 +    IOr a b        -> "(ior " ++ go d a ++ " " ++ go d b ++ ")"
 +    PLm k f        -> let n = nm k d in "(plm " ++ n ++ " " ++ go (d+1) (f (Var n d)) ++ ")"
 +    PAp p r        -> "(app " ++ go d p ++ " " ++ go d r ++ ")"
-+    Coe pP r s x   -> "(trp " ++ go d pP ++ " " ++ go d r ++ " " ++ go d s ++ " " ++ go d x ++ ")"
-+    Trp l p x      -> "(transp " ++ go d l ++ " " ++ go d p ++ " " ++ go d x ++ ")"
++    Coe pP r s x   -> "(trp " ++ line d pP ++ " " ++ go d r ++ " " ++ go d s ++ " " ++ go d x ++ ")"
++    Trp l p x      -> "(transp " ++ line d l ++ " " ++ go d p ++ " " ++ go d x ++ ")"
 +    HCm a fs x     -> "(hcm " ++ go d a ++ " " ++ go d x ++ " " ++ faces d fs ++ ")"
 +    Glu a fs       -> "(Glue " ++ go d a ++ " " ++ list [ ctr "GFace" [go d p, go d ty, go d e] | (p, ty, e) <- fs ] ++ ")"
-+    GlB _ fs x     -> "(glue " ++ faces d fs ++ " " ++ go d x ++ ")"
++    GlB a fs x     -> "(glue " ++ faces d fs ++ " (chk " ++ go d a ++ " " ++ go d x ++ "))"   -- the base type rides with the point
 +    UnG g          -> "(unglue " ++ go d g ++ ")"
 +    Ua a b f g gf fg -> ctr "UaU" (map (go d) [a, b, f, g, gf, fg])
 +    -- refused
@@ -7456,6 +7472,10 @@ index 0000000..829e5d1
 +    Log _ x        -> go d x
 +    Rwt _ _ x      -> go d x
 +
++  -- a line of types is a λ over the interval: emitted as a path lambda, so its binder is a dimension name
++  line d t = case cut t of
++    Lam k f -> let n = nm k d in "(plm " ++ n ++ " " ++ go (d+1) (f (Var n d)) ++ ")"
++    _       -> go d t
 +  var d = "x" ++ show d
 +  -- a binder keeps its written name (the presentation of an open normal form is Bend2's)
 +  nm k d = if null k || k == "i0" || k == "i1" || all (`elem` "0123456789") k then var d else k

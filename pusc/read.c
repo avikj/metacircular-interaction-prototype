@@ -106,6 +106,10 @@ static uint32_t term(void) {
   else if (!strcmp(h, "fix")) { char *x = atom(); r = bind_and_parse(x, false, S_FIX); }
   else if (!strcmp(h, "op1")) { char *o = atom(); uint32_t a = term(); r = snode(S_OP1, op1code(o), a, 0, 0, 0); }
   else if (!strcmp(h, "pout")) { uint32_t a = term(); r = snode(S_POUT, 0, a, 0, 0, 0); }
+  else if (!strcmp(h, "pap")) { uint32_t a = term(), b = term(), c2 = term(), d2 = term(); r = snode(S_PAP, 0, a, b, c2, d2); }
+  else if (!strcmp(h, "reflect")) { uint32_t a = term(), b = term(); r = snode(S_REFLECT, 0, a, b, 0, 0); }
+  else if (!strcmp(h, "etype")) { uint32_t a = term(), b = term(), c2 = term(), d2 = term(); r = snode(S_ETYPE, 0, a, b, c2, d2); }
+  else if (!strcmp(h, "eterm")) { uint32_t a = term(), b = term(), c2 = term(); r = snode(S_ETERM, 0, a, b, c2, 0); }
   else if (!strcmp(h, "chr")) { char *n = atom(); r = snode(S_NUM, N_CHR, 0,0,0,0); CODE[r].num = strtoull(n, 0, 10); }
   else if (!strcmp(h, "i64")) { char *n = atom(); r = snode(S_NUM, N_I64, 0,0,0,0); CODE[r].num = (uint64_t)strtoll(n, 0, 10); }
   else if (!strcmp(h, "f64")) { char *n = atom(); r = snode(S_NUM, N_F64, 0,0,0,0); CODE[r].num = strtoull(n, 0, 10); }
@@ -190,8 +194,8 @@ static void read_def(void) {
   if (peek(':')) { expect(':'); type = term(); expect('='); }
   uint32_t body = term();
   expect(')');
-  /* wrap: MAX_IMPLICIT dim binders (unused ones cost one frame each at δ) */
-  for (uint32_t i = 0; i < MAX_IMPLICIT; i++) body = snode(S_DIM, 0, body, 0, 0, 0);
+  /* wrap: MAX_IMPLICIT dim binders (unused ones cost one frame each at δ); the type likewise */
+  for (uint32_t i = 0; i < MAX_IMPLICIT; i++) { body = snode(S_DIM, 0, body, 0, 0, 0); if (type) type = snode(S_DIM, 0, type, 0, 0, 0); }
   BOOK[id].code = body; BOOK[id].type = type; BOOK[id].ndims = 0;
 }
 /* (hit T (p…) (c : TYPE)…): a higher inductive type. Each constructor's closed type, Pi over the
@@ -209,6 +213,14 @@ static void read_hit(void) {
   char *T = atom(); uint32_t np = 0; bool carries = true;
   expect('('); while (!peek(')')) { char *a = atom(); if (!strcmp(a, "~")) carries = false; else np++; free(a); } expect(')');
   uint32_t hid = ctor_intern(T, np); CINFO[hid].is_hit = true; CINFO[hid].nparams = np; CINFO[hid].carries = carries;
+  { char buf[256]; snprintf(buf, sizeof buf, "%s/type", T); int tid = book_find(buf);   /* the parameter telescope: Pi params. Set */
+    enum { MAX_IMPLICIT = 8 };
+    nimplicit = 0; depth = MAX_IMPLICIT;
+    for (uint32_t i = 0; i < MAX_IMPLICIT; i++) { scope[i].name = ""; scope[i].dim = true; }
+    uint32_t body;
+    if (peek(':')) { expect(':'); body = term(); } else body = snode(S_CTR, ctr_ext(C_SET, 0), 0, 0, 0, 0);
+    for (uint32_t i = 0; i < MAX_IMPLICIT; i++) body = snode(S_DIM, 0, body, 0, 0, 0);
+    BOOK[tid].code = body; BOOK[tid].type = 0; BOOK[tid].ndims = 0; CINFO[hid].type_def = tid; }
   while (!peek(')')) {
     expect('('); char *c = atom(); expect(':');
     char buf[256]; snprintf(buf, sizeof buf, "%s/type", c); int id = book_find(buf);
@@ -246,7 +258,9 @@ void read_file(const char *path) {
   /* pass 1: register every definition name, so forward references resolve */
   for (;;) { skip(); if (pos >= len) break; size_t save = pos; expect('('); char *kw = atom();
     if (!strcmp(kw, "def")) register_name(atom());
-    else if (!strcmp(kw, "hit")) { free(atom()); expect('('); while (!peek(')')) free(atom()); expect(')');
+    else if (!strcmp(kw, "hit")) { char *T = atom(); expect('('); while (!peek(')')) free(atom()); expect(')');
+      { char *nm = malloc(strlen(T) + 6); sprintf(nm, "%s/type", T); register_name(nm); }
+      if (peek(':')) { expect(':'); skip_form(); }
       while (!peek(')')) { size_t s2 = pos; expect('('); char *c = atom(); char *nm = malloc(strlen(c) + 6); sprintf(nm, "%s/type", c);
         register_name(nm); pos = s2; skip_form(); } }
     pos = save; skip_form(); }
