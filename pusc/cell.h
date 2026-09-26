@@ -39,7 +39,11 @@ enum Tag {
   T_OP2,       /* ext = op, loc → [a, b]            ● a then ● b       */
   /* Kan */
   T_TRP,       /* loc → [line, r, s, x]             ● line            */
-  T_HCM,       /* ext = nfaces, loc → [type, base, phi₁,u₁,…]  ● faces */
+  T_HCM,       /* loc → [type, base, faces]           ● faces          */
+  T_GLU,       /* loc → [base, gfaces]  Glue A [(φ,T,e)…]  a type cell     */
+  T_GLUE,      /* loc → [faces, a]      glue [(φ,t)…] a                     */
+  T_UNGLUE,    /* loc → [g]             ● g                                 */
+  T_FCASE,     /* loc → [phi, a, b]     a if phi ≡ I1, b if I0, else stuck   */
   /* static-code eliminators instantiated on the heap */
   T_CASE,      /* loc → [scrut, code, frame]        ● scrut           */
   T_PROJ,      /* ext = field index, loc → [x]      ● x  (fst/snd of any constructor) */
@@ -64,7 +68,7 @@ static inline Loc      loc(Term t) { return (Loc)t; }
 enum Ctor {
   C_USER = 0,        /* user constructors are looked up by name, ids ≥ C_USER_BASE */
   C_SET = 1, C_PI, C_SIG, C_PATH, C_EQL, C_NAT, C_BOOL, C_UNIT, C_EMPTY, C_LIST,
-  C_ENUM, C_NUMTY, C_GLU, C_PAIR, C_REFL, C_CONS, C_NIL, C_FACE, C_ZER, C_SUC, C_TRUE, C_FALSE, C_TT,
+  C_ENUM, C_NUMTY, C_GLU, C_PAIR, C_REFL, C_CONS, C_NIL, C_FACE, C_ZER, C_SUC, C_TRUE, C_FALSE, C_TT, C_GFACE,
   C_USER_BASE = 64
 };
 static inline uint32_t ctr_ext(uint32_t id, uint32_t arity) { return (id << 8) | (arity & 0xFF); }
@@ -80,7 +84,7 @@ enum Op { OP_ADD, OP_SUB, OP_MUL, OP_DIV, OP_MOD, OP_EQ, OP_NE, OP_LT, OP_LE, OP
 enum STag {
   S_VAR = 1, S_LAM, S_APP, S_REF, S_ERA, S_SUP, S_PLM, S_DIM, S_FCE,
   S_I0, S_I1, S_IVAR, S_INOT, S_IAND, S_IOR,
-  S_CTR, S_NUM, S_OP2, S_TRP, S_HCM, S_CASE, S_BRANCH, S_CHK, S_ASK, S_LET, S_PROJ
+  S_CTR, S_NUM, S_OP2, S_TRP, S_HCM, S_CASE, S_BRANCH, S_CHK, S_ASK, S_LET, S_PROJ, S_GLU, S_GLUE, S_UNGLUE, S_FCASE
 };
 typedef struct SNode {
   uint8_t  tag;

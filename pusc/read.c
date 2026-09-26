@@ -100,6 +100,10 @@ static uint32_t term(void) {
             r = snode(S_CTR, ctr_ext(ctor_intern(n, ar), ar), 0,0,0,0); CODE[r].kids = KIDS_LEN;
             for (uint32_t i = 0; i < ar; i++) KIDS[KIDS_LEN++] = k[i]; } }
   else if (!strcmp(h, "proj")) { uint32_t i = term(), x = term(); r = snode(S_PROJ, 0, i, x, 0, 0); }
+  else if (!strcmp(h, "face-case")) { uint32_t p = term(), a = term(), b = term(); r = snode(S_FCASE, 0, p, a, b, 0); }
+  else if (!strcmp(h, "Glue")) { uint32_t A = term(), fs = term(); r = snode(S_GLU, 0, A, fs, 0, 0); }
+  else if (!strcmp(h, "glue")) { uint32_t fs = term(), a = term(); r = snode(S_GLUE, 0, fs, a, 0, 0); }
+  else if (!strcmp(h, "unglue")) { uint32_t g = term(); r = snode(S_UNGLUE, 0, g, 0, 0, 0); }
   else if (!strcmp(h, "hcm")) { uint32_t A = term(), base = term(), fs = term(); r = snode(S_HCM, 0, A, base, fs, 0); }
   else if (!strcmp(h, "trp")) { uint32_t L = term(), a = term(), b = term(), x = term(); r = snode(S_TRP, 0, L, a, b, x); }
   else if (!strcmp(h, "chk")) { uint32_t T = term(), x = term(); r = snode(S_CHK, 0, T, x, 0, 0); }
@@ -130,10 +134,7 @@ static uint32_t term(void) {
 static void read_def(void) {
   expect('('); char *kw = atom(); if (strcmp(kw, "def")) { fprintf(stderr, "pusc: expected def\n"); exit(2); }
   char *name = atom();
-  /* register the name first so recursive references resolve */
-  static uint32_t cap; if (!BOOK) { cap = 256; BOOK = calloc(cap, sizeof(Def)); }
-  if (BOOK_LEN >= cap) { cap *= 2; BOOK = realloc(BOOK, cap * sizeof(Def)); }
-  uint32_t id = BOOK_LEN++; BOOK[id].name = name;
+  int found = book_find(name); uint32_t id = (uint32_t)found;   /* registered by the pre-scan */
   /* implicit dims are levels 0..n-1: pre-scan is avoided by parsing with a reserved gap and
      re-resolving; simpler: parse the body, then wrap in n S_DIM binders and SHIFT nothing,
      because implicit levels were allocated as 0..n-1 while explicit binders started at `depth`.
@@ -150,10 +151,27 @@ static void read_def(void) {
   BOOK[id].code = body; BOOK[id].type = type; BOOK[id].ndims = 0;
 }
 
+static void register_name(const char *name) {
+  static uint32_t cap; if (!BOOK) { cap = 256; BOOK = calloc(cap, sizeof(Def)); }
+  if (BOOK_LEN >= cap) { cap *= 2; BOOK = realloc(BOOK, cap * sizeof(Def)); }
+  if (book_find(name) >= 0) { fprintf(stderr, "pusc: duplicate definition %s\n", name); exit(2); }
+  if (getenv("PUSC_DEBUG")) fprintf(stderr, "reg %s\n", name);
+  BOOK[BOOK_LEN++].name = name;
+}
+static void skip_form(void) {      /* skip one balanced form from the current '(' */
+  int depth = 0;
+  for (; pos < len; pos++) { if (src[pos] == ';') { while (pos < len && src[pos] != '\n') pos++; continue; }
+    if (src[pos] == '(') depth++; else if (src[pos] == ')') { depth--; if (depth == 0) { pos++; return; } } }
+}
 void read_file(const char *path) {
   FILE *f = fopen(path, "rb"); if (!f) { perror(path); exit(2); }
   fseek(f, 0, SEEK_END); len = (size_t)ftell(f); fseek(f, 0, SEEK_SET);
-  char *buf = malloc(len + 1); fread(buf, 1, len, f); buf[len] = 0; fclose(f);
+  char *buf = malloc(len + 1); if (fread(buf, 1, len, f) != len) { perror(path); exit(2); } buf[len] = 0; fclose(f);
   src = buf; pos = 0;
+  /* pass 1: register every definition name, so forward references resolve */
+  for (;;) { skip(); if (pos >= len) break; size_t save = pos; expect('('); char *kw = atom();
+    if (!strcmp(kw, "def")) register_name(atom()); pos = save; skip_form(); }
+  /* pass 2: parse */
+  pos = 0;
   for (;;) { skip(); if (pos >= len) break; read_def(); }
 }

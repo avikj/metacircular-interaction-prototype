@@ -17,6 +17,10 @@ check t/kan.pusc   hc-true   '7'
 check t/kan.pusc   hc-none   '0'
 check t/kan.pusc   hc-nat    '#Suc{#Zer{}}'
 check t/kan.pusc   pitrp     '9'
+check t/ua.pusc    glue-at-0 '#Bool{}'
+check t/ua.pusc    fwd-true  '#False{}'
+check t/ua.pusc    fwd-false '#True{}'
+check t/ua.pusc    bwd-true  '#False{}'
 # the interval is De Morgan, not Boolean: absorption holds, complement does not
 got=$(./pusc run t/kan.pusc absorb | head -1);   case "$got" in i[0-9]*) pass=$((pass+1));; *) fail=$((fail+1)); echo "FAIL absorb: $got";; esac
 got=$(./pusc run t/kan.pusc nocompl | head -1);  case "$got" in '~i'*'∨i'*) pass=$((pass+1));; *) fail=$((fail+1)); echo "FAIL nocompl: $got";; esac
