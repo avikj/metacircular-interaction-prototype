@@ -163,19 +163,47 @@ Carrier instance with a base and a carried datum
 (`fibre/src/Fibre/Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried.agda`),
 not a parser.
 
-Not yet written: the encounter of two peers,
-`formal/cubical/kernel-flat/TheEncounterOfTwoPeersIsOneTraceAndNoScalarProjectionOfItHasASection.agda`.
-Its primitive is two `Session`s and an overlap: `Encounter` (`A B`, `meeting`,
-`mine : Derivation (here A) meeting`, `theirs : Derivation meeting (here B)`),
-`τ E = mine E ⊕ theirs E`, `interact E = A′ E , B′ E , τ E`. Its nine sections
-are the test list for `hyper meet`: the two results need not agree (§2);
-revelation and generation (§3); the prior trace is a prefix as data, the way
-back is `rev`, nothing enabled is lost (§4); the round trip means `refl` and is
-not `done` (§5); `⊕` associates as data (§6); two encounters at disjoint sites
-in two orders have the same endpoints, the same `len`, different traces (§7);
-`len` is additive and has no section (§8); the receipt does not cross (§9). For
-this the runtime's trace must be a derivation with endpoints, which is what
-`TRACE` becomes next.
+## 4b. The encounter of two peers
+
+`formal/cubical/kernel-flat/TheEncounterOfTwoPeersIsOneTraceAndNoScalarProjectionOfItHasASection.agda:123`
+`Peer` (a `Session`:
+`formal/cubical/kernel-flat/TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation.agda:170`
+`Session`, with `origin`, `here`, `trace : Derivation origin here`, `library`;
+`:155` `_⊕_`),
+`formal/cubical/kernel-flat/TheEncounterOfTwoPeersIsOneTraceAndNoScalarProjectionOfItHasASection.agda:126`
+`Encounter` (`A B`, `meeting`, `mine : Derivation (here A) meeting`, `theirs :
+Derivation meeting (here B)`), `:138` `τ` (`mine ⊕ theirs`),
+`:148` `gain` (the three moves installed), `:153` `A′`, `:158` `B′`, `:164`
+`interact` (`A′ E , B′ E , τ E`), `:172` `receive`. Reversal is
+`formal/cubical/kernel-flat/TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous.agda:119`
+`rev`, the length
+`formal/cubical/kernel-flat/TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainder.agda:126`
+`len`.
+
+As written (`main.c`, `hyper meet FILE A B`): a derivation is the receipts of a
+run, each a rule at a node (`TRACE`, `TRACE_NODE`), with its endpoints; a run of
+a term to its normal form is one. A peer begins at its term (`begin`). The two
+peers meet at the normal form both reach, or there is no meeting and the
+encounter is refused. `mine` is A's run, `theirs` is the reversal of B's run,
+`τ` their concatenation; `A′` stands at B's term with `trace A ⊕ τ` and the three
+moves, `B′` at A's term with `trace B ⊕ rev τ`. `t/meet.hyper` computes the
+module's sections:
+`formal/cubical/kernel-flat/TheEncounterOfTwoPeersIsOneTraceAndNoScalarProjectionOfItHasASection.agda:256`
+`the-two-results-need-not-agree` (A′ and B′ stand at different terms, nothing
+pending), `:284` `what-crossed-is-what-B-had` and `:320` `the-pair-holds-it-after`
+(before the encounter A has no move at the meeting, after it both hold the joint
+route, whose endpoints are neither peer's), `:334` `the-prior-trace-is-a-prefix`
+(as data), `:341` `undo` (`rev τ`), `:380` `round-trip` with `:389`
+`the-round-trip-costs-four` and `:392` `the-round-trip-is-not-done` (here: 2·len τ
+steps from `a` to `a`; the meaning is refl, the object is not done), `:409`
+`the-fabric-composes-strictly` (concatenation of arrays), `:444`
+`the-two-orders-differ` and `:448` `both-orders-cost-the-same` (the crossing:
+`cross` under the two schedules reaches the same value in the same number of
+receipts with different traces, `HYPER_TRACE=1`), `:474` `the-scalar-is-additive`
+(`len (d ⊕ e) = len d + len e`, by construction), `:483`
+`no-section-for-any-order-blind-projection` (the count cannot be inverted to the
+trace, exhibited by the crossing). Not written: `:542` `the-receipt-does-not-cross`,
+which needs a demanded evidence (`demand R d`) this runtime does not yet model.
 
 ## 5. Files
 
@@ -184,7 +212,7 @@ this the runtime's trace must be a derivation with endpoints, which is what
                              case trees, the HIT schema, numbers, transp, hcomp, Glue, the loop, the ledger, printers
     hyper/read.c             the reader for the kernel's own text
     hyper/verify.c           the checker on the same loop
-    hyper/main.c             run | bend | check | interact | census (§2, §3)
+    hyper/main.c             run | bend | check | interact | census | meet (§2, §3, §4b)
     hyper/prelude.hyper 158  the Kan rows, Glue, transpEquiv, the HIT rows, as data
     hyper/bend.hyper     45  the Bend2 dialect's rows
     hyper/test.sh            the substrate's checks

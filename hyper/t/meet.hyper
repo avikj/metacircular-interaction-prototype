@@ -1,0 +1,8 @@
+; the encounter of two peers (formal/cubical/kernel-flat/TheEncounterOfTwoPeers…): two terms that reach one normal form
+(def two (lam f (lam x (app f (app f x)))))
+(def suc (lam n (ctr Suc n)))
+(def a (app two suc (ctr Zer)))              ; A stands here
+(def b (ctr Suc (app suc (ctr Zer))))         ; B stands here: another term, the same value
+(def c (ctr Suc (ctr Suc (ctr Suc (ctr Zer)))))   ; a term with no meeting with a
+; the crossing: two redexes that do not touch, contracted in either order
+(def cross (op2 + (op2 * 2 3) (op2 * 4 5)))

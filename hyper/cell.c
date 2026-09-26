@@ -46,11 +46,12 @@ Term fce_raw(unsigned side, Term name, Term target, Term by) { return node3(T_FC
 Term fce3(unsigned side, Loc name, Term target, Term by) { return fce_raw(side, mk(T_IVAR, 0, name), target, by); }
 
 static void print_rec(Term t, int depth);
+Loc *TRACE_NODE; static Loc CUR_NODE;                 /* the node under reduction: each receipt names it (a Step's source) */
 static void receipt(unsigned rule) {
   ITRS++;
-  if (!TRACE) { TRACE_CAP = 1u << 16; TRACE = malloc(TRACE_CAP * sizeof(uint32_t)); }
-  if (TRACE_LEN >= TRACE_CAP) { TRACE_CAP *= 2; TRACE = realloc(TRACE, TRACE_CAP * sizeof(uint32_t)); }
-  TRACE[TRACE_LEN++] = rule;
+  if (!TRACE) { TRACE_CAP = 1u << 16; TRACE = malloc(TRACE_CAP * sizeof(uint32_t)); TRACE_NODE = malloc(TRACE_CAP * sizeof(Loc)); }
+  if (TRACE_LEN >= TRACE_CAP) { TRACE_CAP *= 2; TRACE = realloc(TRACE, TRACE_CAP * sizeof(uint32_t)); TRACE_NODE = realloc(TRACE_NODE, TRACE_CAP * sizeof(Loc)); }
+  TRACE[TRACE_LEN] = rule; TRACE_NODE[TRACE_LEN] = CUR_NODE; TRACE_LEN++;
 }
 
 /* ---- constructor names --------------------------------------------- */
@@ -892,12 +893,13 @@ static Term whnf_(Term t);
 /* a demanded port fires once: the node a holder points at is marked with its result, and every other holder
    of the same node meets the value (the sharing of §3 is at every port, not only at a coordinate's slot) */
 Term whnf(Term t) {
-  Term r = whnf_(t);
+  Loc outer = CUR_NODE; Term r = whnf_(t); CUR_NODE = outer;   /* a nested reduction names its own nodes; the outer resumes naming its own */
   if (r != t && node_redex(tag(t))) { HEAP[loc(t)] = mk(T_IND, 0, 0); HEAP[loc(t)+1] = r; }
   return r;
 }
 static Term whnf_(Term t) {
   for (;;) {
+    CUR_NODE = loc(t);
     if (node_redex(tag(t)) && tag(HEAP[loc(t)]) == T_IND) { t = HEAP[loc(t)+1]; continue; }   /* already fired: its result */
     if (CHECK_MODE && ++WHNF_STEPS > 30000000 && getenv("HYPER_DEBUG")) { fprintf(stderr, "whnf: runaway at tag %u: ", tag(t)); print_rec(t, 5); fprintf(stderr, "\n"); fflush(stdout); exit(9); }
     switch (tag(t)) {
@@ -1175,9 +1177,14 @@ void print_term(Term t, int depth) { force_fields(t, depth); print_rec(t, depth)
 /* §6: the census of receipts. Every interaction left one receipt in the trace; the census is its fold
    by rule (AdiBija: every analyzer is a fold over the trace). Definitional unfolding and the face map's
    sharing are shown apart, as the receipts name them. */
-void print_census(void) {
-  static const char *names[R_COUNT] = { "", "beta", "app-sup", "app-plm", "fce-annihilate", "fce-commute", "fce-push",
+const char *RULE_NAME[R_COUNT] = { "", "beta", "app-sup", "app-plm", "fce-annihilate", "fce-commute", "fce-push",
     "fce-share", "case", "case-sup", "op2", "op2-sup", "erase", "trp", "hcm", "hcon", "helim", "helim-sup", "helim-hcm", "op1", "pout" };
+void print_trace(uint64_t from) {           /* the derivation as data: each step a rule at a node */
+  for (uint64_t i = from; i < TRACE_LEN; i++) printf("%s%s@%u", i > from ? " " : "", RULE_NAME[TRACE[i]], TRACE_NODE[i]);
+  printf("\n");
+}
+void print_census(void) {
+  const char **names = RULE_NAME;
   uint64_t count[R_COUNT] = {0};
   for (uint64_t i = 0; i < TRACE_LEN; i++) if (TRACE[i] < R_COUNT) count[TRACE[i]]++;
   fprintf(stderr, "- Census:");

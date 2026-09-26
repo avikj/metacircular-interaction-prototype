@@ -83,6 +83,16 @@ got=$(./hyper census t/census.hyper compose unit unit | tr '\n' ' ')
 if [ "$got" = "#Tt{}: सकलादेश #Tt{} " ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL census g∘f: $got"; fi
 got=$(./hyper census t/census.hyper not bool bool2 | tr '\n' ' ')
 if [ "$got" = "#True{}: सकलादेश #False{} #False{}: सकलादेश #True{} " ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL census not: $got"; fi
+# the encounter of two peers (kernel-flat/TheEncounterOfTwoPeers…), computed: two terms that reach one normal form;
+# §2 the results need not agree, §4 the prior trace is a prefix, §5 the round trip is 2·len τ from a to a, §3 revelation and generation
+got=$(./hyper meet t/meet.hyper a b | sed -n '1p;2p;3p;5p;6p;7p;8p' | tr '\n' '|')
+want="meeting: #Suc{#Suc{#Zer{}}}|mine: 4  theirs: 1  τ: 5|A′ stands at b, B′ stands at a; the two results need not agree|the prior trace is a prefix: yes|round trip: 10 steps, from a to a; the meaning is refl, the object is not done|A could act at the meeting before: no; after: yes|the pair holds the joint route: yes yes|"
+if [ "$got" = "$want" ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL meet: $got"; fi
+./hyper meet t/meet.hyper a c >/dev/null 2>&1; if [ $? -eq 2 ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL meet: no meeting should refuse"; fi
+# §7 the crossing: two redexes that do not touch, contracted in the two orders: same value, same len, different traces (§8: no section)
+l=$(HYPER_TRACE=1 ./hyper run t/meet.hyper cross | sed -n '1p;4p' | tr '\n' '|'); r=$(HYPER_TRACE=1 HYPER_SCHEDULE=right ./hyper run t/meet.hyper cross | sed -n '1p;4p' | tr '\n' '|')
+lv=${l%%|*}; rv=${r%%|*}; lt=${l#*|}; rt=${r#*|}; ln=$(echo "$lt" | wc -w); rn=$(echo "$rt" | wc -w)
+if [ "$lv" = "26" ] && [ "$lv" = "$rv" ] && [ "$ln" -eq "$rn" ] && [ "$lt" != "$rt" ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL crossing: [$l] [$r]"; fi
 # every identifier MAP.md names is on the line it cites
 if ./cite.sh >/dev/null; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL cite: $(./cite.sh | tail -3 | tr '\n' ' ')"; fi
 echo "pass=$pass fail=$fail"; [ $fail -eq 0 ]
