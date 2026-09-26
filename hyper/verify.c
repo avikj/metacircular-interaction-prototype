@@ -769,31 +769,6 @@ static bool check(uint32_t c, Term fr, Term goal) {
   }
 }
 
-/* ---- §8 install: a certificate is checked, then the operation is native ------------------------ */
-static void report_err(const char *name);
-static bool check_install_rec(Install *in) {
-  Def *src = &BOOK[in->source];
-  if (!src->type) return fail_ci("install: the source has no type");
-  NRW = 0; VERR = V_OK;
-  Term T = inst(src->type, 0);
-  Term goal = path(konst(T), mk(T_REF, 0, (uint32_t)in->source), mk(T_REF, 0, (uint32_t)in->target));
-  Term fr = 0; uint32_t c = skip_dims(BOOK[in->cert].code, &fr);
-  return check(c, fr, goal);
-}
-int check_installs(bool report) {
-  CHECK_MODE = true; REWRITE_HOOK = rewrite_hook; cells_init();
-  C_ITV = ctor_intern("Itv", 0); SET = ctr0(C_SET); ITV = ctr0(C_ITV); int kd = book_find("konst"); konst_ref = kd >= 0 ? ref_of(kd) : 0;
-  int bad = 0;
-  for (uint32_t i = 0; i < INSTALLS_LEN; i++) {
-    Install *in = &INSTALLS[i];
-    bool ok = check_install_rec(in);
-    if (ok) { in->checked = true; BOOK[in->source].native = in->target; if (report) printf("\x1b[32m✓ install %s := %s\x1b[0m\n", BOOK[in->source].name, BOOK[in->target].name); }
-    else { bad++; if (report) { printf("\x1b[31m✗ install %s := %s\x1b[0m\n", BOOK[in->source].name, BOOK[in->target].name); report_err(BOOK[in->cert].name); } }
-  }
-  CHECK_MODE = false; REWRITE_HOOK = 0;
-  return bad;
-}
-
 /* ---- the entry: every definition, type against Set then term against type ------------------ */
 static void report_err(const char *name) {
   printf("\x1b[31m✗ %s\x1b[0m\n", name);
@@ -816,6 +791,5 @@ int check_book(const char *prefix) {
     if (ok) printf("\x1b[32m✓ %s\x1b[0m\n", BOOK[i].name + (prefix ? strlen(prefix) : 0));
     else { bad++; report_err(BOOK[i].name + (prefix ? strlen(prefix) : 0)); }
   }
-  bad += check_installs(true);
   return bad;
 }

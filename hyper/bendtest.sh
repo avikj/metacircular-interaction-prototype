@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# The Bend dialect as the test suite (MAP.md §10): every corpus program with a `main` is checked
-# and emitted by Bend2 (`--to-hyper`), run by hyper, and its printed value compared with Bend2's
-# own normaliser. Usage: ./bendtest.sh [FILE.bend…]   (default: the whole corpus)
+# The Bend dialect as the test suite: every corpus program with a `main` is checked and emitted by Bend2
+# (`--to-hyper`), run by hyper, and its printed value compared with Bend2's own normaliser.
+# Usage: ./bendtest.sh [FILE.bend…]   (default: the whole corpus)
 set -u
 export LC_ALL=C.UTF-8 LANG=C.UTF-8
 HERE=$(cd "$(dirname "$0")" && pwd); HYPER=${HYPER:-$HERE/hyper}
@@ -19,17 +19,7 @@ for f in "${files[@]}"; do
   [ -z "$want" ] && { skip=$((skip+1)); echo "SKIP $b (no main run by the oracle)"; continue; }
   ( cd "$d" && timeout 120 "$BEND" "$b.bend" --to-hyper > "$TMP/$b.hyper" 2>/dev/null ) || { fail=$((fail+1)); echo "FAIL $b (emit)"; continue; }
   got=$(timeout 60 "$HYPER" bend "$TMP/$b.hyper" 2>"$TMP/$b.err"); rc=$?
-  if [ $rc -eq 0 ] && [ "$got" == "$want" ]; then pass=$((pass+1)); echo "ok   $b  $(tail -1 "$TMP/$b.err")"
-  else fail=$((fail+1)); echo "FAIL $b"; echo "  want: $(echo "$want" | head -3 | cut -c1-160)"; echo "  got:  $(echo "$got" | head -3 | cut -c1-160) $(head -c 200 "$TMP/$b.err" | tr '\n' ' ')"; continue; fi
-  # §10.7 schedules: the other schedule (right demand first) reaches the same value in the same count
-  got2=$(HYPER_SCHEDULE=right timeout 60 "$HYPER" bend "$TMP/$b.hyper" 2>"$TMP/$b.err2")
-  if [ "$got2" == "$want" ] && [ "$(tail -1 "$TMP/$b.err2")" == "$(tail -1 "$TMP/$b.err")" ]; then pass=$((pass+1))
-  else fail=$((fail+1)); echo "FAIL schedule $b: left $(tail -1 "$TMP/$b.err") right $(tail -1 "$TMP/$b.err2")$([ "$got2" == "$want" ] || echo ' (value differs)')"; fi
-done
-# §10.5 sharing regimes: one line over N values (sup) costs no more than N separate runs (sep)
-for sup in "$TMP"/bench_*_sup.err; do [ -f "$sup" ] || continue; sep=${sup%_sup.err}_sep.err; [ -f "$sep" ] || continue
-  a=$(grep -o 'Itrs: [0-9]*' "$sup" | grep -o '[0-9]*'); b=$(grep -o 'Itrs: [0-9]*' "$sep" | grep -o '[0-9]*')
-  n=$(basename "${sup%_sup.err}")
-  if [ -n "$a" ] && [ -n "$b" ] && [ "$a" -le "$b" ]; then pass=$((pass+1)); echo "ok   sharing $n: sup $a ≤ sep $b"; else fail=$((fail+1)); echo "FAIL sharing $n: sup $a > sep $b"; fi
+  if [ $rc -eq 0 ] && [ "$got" == "$want" ]; then pass=$((pass+1)); echo "ok   $b"
+  else fail=$((fail+1)); echo "FAIL $b"; echo "  want: $(echo "$want" | head -3 | cut -c1-160)"; echo "  got:  $(echo "$got" | head -3 | cut -c1-160) $(head -c 200 "$TMP/$b.err" | tr '\n' ' ')"; fi
 done
 echo "pass=$pass fail=$fail skip=$skip"

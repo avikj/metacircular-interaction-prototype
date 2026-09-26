@@ -1,26 +1,30 @@
-/* hyper — main.c: run | interact | check (MAP.md §5). */
+/* hyper — main.c: run | bend | check | interact.
+ *
+ * The machine is Fibre.CorpusInteraction (fibre/src/Fibre/CorpusInteraction.agda): a state is a typed
+ * point (A, a) : Σ A. A; a question is a typed map (B, f) out of the current type; the answer is the
+ * point (B, f a); the receipt is the path target s q ≡ s', refl at the canonical step; and the process
+ * continues at the new point (ISC, react).  `run` is the trivial-query case: no question, the point
+ * reduced to its normal form.  `interact` reads questions from the world, one per line, each a term of
+ * the kernel's text; a reduction that stalls at an ASK cell prints the question and resumes on the
+ * world's answer.  The retained point is the trace (Fibre.Trace): the source, never left behind. */
 #include "cell.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <sys/resource.h>
 void read_file(const char *path);
-void read_text(char *buf, size_t n);
 int read_question(const char *text);
 int check_book(const char *prefix);
-int check_installs(bool report);
 Term app2(Term f, Term a);
 Term node2(unsigned t, uint32_t e, Term a, Term b);
-Term nil_cell(void);
 
-/* §5: the machine that asks. The root is the typed point; each line of the world is a question q, a
-   term; the point presents itself along q: root := (q a, (a, refl)). A reduction that stalls at an
-   ASK cell prints the question and waits for the world's section; the continuation resumes on it. */
 static char *read_line(FILE *in) {
   static char buf[1 << 16]; if (!fgets(buf, sizeof buf, in)) return 0;
   size_t n = strlen(buf); while (n && (buf[n-1] == '\n' || buf[n-1] == '\r')) buf[--n] = 0;
   return buf;
 }
+static void show(Term v, bool bend) { if (bend) collapse_print(v); else { print_term(v, 64); printf("\n"); } fflush(stdout); }
+/* an ASK cell is a question the point asks the world; the world's line is its answer */
 static Term answer_asks(Term v, bool bend) {
   for (;;) {
     v = whnf(v);
@@ -31,19 +35,17 @@ static Term answer_asks(Term v, bool bend) {
     v = app2(HEAP[loc(v)+1], mk(T_REF, 0, (uint32_t)q));
   }
 }
+/* react: the point presents itself along each question q of the world; the new state is (q a, (a, refl)) */
 static int interact(const char *entry, bool bend) {
   int id = book_find(entry); if (id < 0) { fprintf(stderr, "hyper: no %s\n", entry); return 1; }
-  uint64_t before = ITRS;
-  Term root = answer_asks(mk(T_REF, 0, (uint32_t)id), bend);
-  if (bend) collapse_print(root); else { print_term(root, 64); printf("\n"); }
-  printf("- Itrs: %llu\n", (unsigned long long)(ITRS - before)); fflush(stdout);
+  Term point = answer_asks(mk(T_REF, 0, (uint32_t)id), bend);
+  show(point, bend);
   for (char *line; (line = read_line(stdin)); ) {
     if (!*line || *line == ';') continue;
-    int q = read_question(line); before = ITRS;
-    Term qa = answer_asks(app2(mk(T_REF, 0, (uint32_t)q), root), bend);
-    if (bend) collapse_print(qa); else { print_term(qa, 64); printf("\n"); }
-    printf("- Itrs: %llu\n", (unsigned long long)(ITRS - before)); fflush(stdout);
-    root = node2(T_CTR, ctr_ext(C_PAIR, 2), qa, node2(T_CTR, ctr_ext(C_PAIR, 2), root, mk(T_CTR, ctr_ext(C_REFL, 0), 1)));   /* present: (q a, (a, refl)) */
+    int q = read_question(line);
+    Term qa = answer_asks(app2(mk(T_REF, 0, (uint32_t)q), point), bend);
+    show(qa, bend);
+    point = node2(T_CTR, ctr_ext(C_PAIR, 2), qa, node2(T_CTR, ctr_ext(C_PAIR, 2), point, mk(T_CTR, ctr_ext(C_REFL, 0), 1)));
   }
   return 0;
 }
@@ -54,43 +56,18 @@ static void load_next_to_exe(const char *exe, const char *name) {
 }
 int main(int argc, char **argv) {
   { struct rlimit rl; if (!getrlimit(RLIMIT_STACK, &rl)) { rl.rlim_cur = rl.rlim_max == RLIM_INFINITY ? (rlim_t)4 << 30 : rl.rlim_max; setrlimit(RLIMIT_STACK, &rl); } }   /* deep terms recurse deep */
-  sched_init();
-  if (argc < 3) { fprintf(stderr, "usage: hyper run FILE [DEF] | hyper bend FILE | hyper check FILE | hyper interact FILE [DEF] | hyper parse GRAMMAR SOURCE [DEF]\n"); return 1; }
-  if (!strcmp(argv[1], "parse")) {                       /* §5.1: a dialect is a book; its `parse` maps the source's characters to Code */
-    if (argc < 4) { fprintf(stderr, "usage: hyper parse GRAMMAR SOURCE [DEF]\n"); return 1; }
-    load_next_to_exe(argv[0], "prelude.hyper"); read_file(argv[2]); load_prelude();
-    int g = book_find("parse"); if (g < 0) { fprintf(stderr, "hyper: the grammar has no parse\n"); return 1; }
-    FILE *f = strcmp(argv[3], "-") ? fopen(argv[3], "rb") : stdin; if (!f) { perror(argv[3]); return 2; }
-    char *buf = 0; size_t n = 0, cap = 0;
-    for (int c; (c = fgetc(f)) != EOF;) { if (n + 1 >= cap) { cap = cap ? cap * 2 : 4096; buf = realloc(buf, cap); } buf[n++] = (char)c; }
-    Term cs = nil_cell(); for (size_t i = n; i-- > 0;) cs = cons_cell(node1(T_NUM, N_CHR, (unsigned char)buf[i]), cs);
-    char *txt = 0; size_t tn = 0; FILE *m = open_memstream(&txt, &tn);
-    reify(app2(mk(T_REF, 0, (uint32_t)g), cs), m); fclose(m);      /* parsing is reduction: the tokens meet the rules */
-    uint64_t parsed = ITRS; ITRS = 0;
-    printf("%s\n", txt);                                           /* the translation, in the kernel's text */
-    read_text(txt, tn);
-    const char *entry = argc > 4 ? argv[4] : "main"; int id = book_find(entry); if (id < 0) { fprintf(stderr, "hyper: no %s\n", entry); return 1; }
-    Term r = run_def((uint32_t)id); print_term(r, 64); printf("\n");
-    printf("- Itrs: %llu\n- Parse: %llu\n", (unsigned long long)ITRS, (unsigned long long)parsed);
-    return 0;
-  }
+  if (argc < 3) { fprintf(stderr, "usage: hyper run FILE [DEF] | hyper bend FILE | hyper check FILE | hyper interact FILE [DEF]\n"); return 1; }
   bool bend = !strcmp(argv[1], "bend") || !strcmp(argv[1], "check");
   bool inter = !strcmp(argv[1], "interact");
   if (inter) bend = true;                                /* the dialect's rows are loaded; presentation follows the entry's namespace */
-  load_next_to_exe(argv[0], "prelude.hyper");            /* the Kan rule rows, next to the executable */
+  load_next_to_exe(argv[0], "prelude.hyper");            /* the Kan rows, next to the executable */
   if (bend) load_next_to_exe(argv[0], "bend.hyper");     /* the Bend2 dialect's rows */
   read_file(argv[2]);
   load_prelude();
   if (!strcmp(argv[1], "check")) return check_book("b/") ? 1 : 0;
-  if (INSTALLS_LEN && check_installs(false)) { fprintf(stderr, "hyper: an install's certificate does not check; refusing to run\n"); return 1; }   /* §8: refuse, never miscompile */
-  ITRS = 0;                                              /* the certificates' checks are not the run's interactions */
   if (inter) { const char *e = argc > 3 ? argv[3] : (book_find("b/main") >= 0 ? "b/main" : "main"); return interact(e, !strncmp(e, "b/", 2)); }
   const char *entry = argc > 3 ? argv[3] : (bend ? "b/main" : "main");
   int id = book_find(entry); if (id < 0) { fprintf(stderr, "hyper: no %s\n", entry); return 1; }
-  Term r = run_def((uint32_t)id);
-  if (bend) { collapse_print(r); fprintf(stderr, "- Itrs: %llu\n", (unsigned long long)ITRS); if (getenv("HYPER_CENSUS")) print_census(); return 0; }
-  print_term(r, 64); printf("\n");
-  printf("- Itrs: %llu\n", (unsigned long long)ITRS);
-  if (getenv("HYPER_CENSUS")) print_census();
+  show(run_def((uint32_t)id), bend);
   return 0;
 }
