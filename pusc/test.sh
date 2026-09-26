@@ -26,6 +26,16 @@ check t/setcomp.pusc via-inv      '#False{}'
 check t/setcomp.pusc via-pi       '#False{}'
 check t/setcomp.pusc via-negneg-t '#True{}'
 check t/setcomp.pusc via-negneg-f '#False{}'
+# higher inductive types: endpoint from the type, eliminator at a symbolic interval, face into a stuck spine,
+# eliminator over a composite (comp along the motive), transport pushing into a constructor's field
+check t/hit.pusc loop0     '#base{}'
+check t/hit.pusc at-sym    '2'
+check t/hit.pusc at-0      '1'
+check t/hit.pusc faced     '1'
+check t/hit.pusc helim-sq  '#Zer{}'
+check t/hit.pusc sup-pt    '&1{1,1}'
+check t/hit.pusc merid-t   '#merid{#False{}}'
+check t/hit.pusc merid-t0  '#north{}'
 # the interval is De Morgan, not Boolean: absorption holds, complement does not
 got=$(./pusc run t/kan.pusc absorb | head -1);   case "$got" in i[0-9]*) pass=$((pass+1));; *) fail=$((fail+1)); echo "FAIL absorb: $got";; esac
 got=$(./pusc run t/kan.pusc nocompl | head -1);  case "$got" in '~i'*'∨i'*) pass=$((pass+1));; *) fail=$((fail+1)); echo "FAIL nocompl: $got";; esac

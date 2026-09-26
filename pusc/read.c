@@ -111,6 +111,23 @@ static uint32_t term(void) {
   else if (!strcmp(h, "trp")) { uint32_t L = term(), a = term(), b = term(), x = term(); r = snode(S_TRP, 0, L, a, b, x); }
   else if (!strcmp(h, "chk")) { uint32_t T = term(), x = term(); r = snode(S_CHK, 0, T, x, 0, 0); }
   else if (!strcmp(h, "ask")) { uint32_t q = term(), k = term(); r = snode(S_ASK, 0, q, k, 0, 0); }
+  else if (!strcmp(h, "ctr-fields")) { uint32_t x = term(); r = snode(S_CFIELDS, 0, x, 0, 0, 0); }
+  else if (!strcmp(h, "ctr-with"))   { uint32_t x = term(), l = term(); r = snode(S_CWITH, 0, x, l, 0, 0); }
+  else if (!strcmp(h, "helim") || !strcmp(h, "hrec")) {       /* (helim P x (c (fs) body)…) | (hrec x (c (fs) body)…); x may be _ */
+     uint32_t P = h[1] == 'e' ? term() : 0; uint32_t x = 0;
+     if (peek('_')) { expect('_'); } else x = term();
+     uint32_t first = 0, last = 0;
+     while (!peek(')')) {
+       expect('('); char *cn = atom(); uint32_t ar = 0; char *xs[8];
+       if (peek('(')) { expect('('); while (!peek(')')) xs[ar++] = atom(); expect(')'); }
+       uint32_t cid = ctor_intern(cn, ar);
+       for (uint32_t i = 0; i < ar; i++) { scope[depth].name = xs[i]; scope[depth].dim = false; depth++; }
+       uint32_t body = term(); depth -= ar; expect(')');
+       uint32_t br = snode(S_BRANCH, cid, ar, body, 0, 0);
+       if (last) CODE[last].c = br; else first = br; last = br;
+     }
+     r = snode(S_HELIM, 0, x, first, P, 0);
+  }
   else if (!strcmp(h, "case")) {
      uint32_t s = term(); uint32_t first = 0, last = 0;
      while (!peek(')')) {
@@ -153,6 +170,36 @@ static void read_def(void) {
   for (uint32_t i = 0; i < MAX_IMPLICIT; i++) body = snode(S_DIM, 0, body, 0, 0, 0);
   BOOK[id].code = body; BOOK[id].type = type; BOOK[id].ndims = 0;
 }
+/* (hit T (p…) (c : TYPE)…): a higher inductive type. Each constructor's closed type, Pi over the
+   parameters then its fields, ends in T or in a Path into T whose nesting is the constructor's
+   dimension. The type is stored as the definition `c/type`; the endpoints are read from it. */
+static uint32_t count_pis(uint32_t c, uint32_t *dim) {
+  while (CODE[c].tag == S_DIM) c = CODE[c].a;
+  uint32_t n = 0;
+  while (CODE[c].tag == S_CTR && (CODE[c].ext >> 8) == C_PI) { n++; c = CODE[CODE[c].b].a; }
+  *dim = 0;
+  while (CODE[c].tag == S_CTR && (CODE[c].ext >> 8) == C_PATH) { (*dim)++; c = CODE[CODE[c].a].a; }
+  return n;
+}
+static void read_hit(void) {
+  char *T = atom(); uint32_t np = 0;
+  expect('('); while (!peek(')')) { free(atom()); np++; } expect(')');
+  uint32_t hid = ctor_intern(T, np); CINFO[hid].is_hit = true; CINFO[hid].nparams = np;
+  while (!peek(')')) {
+    expect('('); char *c = atom(); expect(':');
+    char buf[256]; snprintf(buf, sizeof buf, "%s/type", c); int id = book_find(buf);
+    enum { MAX_IMPLICIT = 8 };
+    nimplicit = 0; depth = MAX_IMPLICIT;
+    for (uint32_t i = 0; i < MAX_IMPLICIT; i++) { scope[i].name = ""; scope[i].dim = true; }
+    uint32_t body = term(); expect(')');
+    for (uint32_t i = 0; i < MAX_IMPLICIT; i++) body = snode(S_DIM, 0, body, 0, 0, 0);
+    BOOK[id].code = body; BOOK[id].type = 0; BOOK[id].ndims = 0;
+    uint32_t dim, npi = count_pis(body, &dim);
+    uint32_t cid = ctor_intern(c, npi - np);
+    CINFO[cid].hit = hid; CINFO[cid].type_def = id; CINFO[cid].nfields = npi - np; CINFO[cid].dim = dim;
+  }
+  expect(')');
+}
 
 static void register_name(const char *name) {
   static uint32_t cap; if (!BOOK) { cap = 256; BOOK = calloc(cap, sizeof(Def)); }
@@ -173,8 +220,13 @@ void read_file(const char *path) {
   src = buf; pos = 0;
   /* pass 1: register every definition name, so forward references resolve */
   for (;;) { skip(); if (pos >= len) break; size_t save = pos; expect('('); char *kw = atom();
-    if (!strcmp(kw, "def")) register_name(atom()); pos = save; skip_form(); }
+    if (!strcmp(kw, "def")) register_name(atom());
+    else if (!strcmp(kw, "hit")) { free(atom()); expect('('); while (!peek(')')) free(atom()); expect(')');
+      while (!peek(')')) { size_t s2 = pos; expect('('); char *c = atom(); char *nm = malloc(strlen(c) + 6); sprintf(nm, "%s/type", c);
+        register_name(nm); pos = s2; skip_form(); } }
+    pos = save; skip_form(); }
   /* pass 2: parse */
   pos = 0;
-  for (;;) { skip(); if (pos >= len) break; read_def(); }
+  for (;;) { skip(); if (pos >= len) break; size_t save = pos; expect('('); char *kw = atom();
+    if (!strcmp(kw, "hit")) read_hit(); else { pos = save; read_def(); } }
 }

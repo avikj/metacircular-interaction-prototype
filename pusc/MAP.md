@@ -519,6 +519,22 @@ flowchart TD
 free (One §4). A partial call keeps the frame its walk built; applying it
 resumes the walk, so work depending only on early arguments is done once.
 
+**The HIT schema, as cells.** No HIT-specific cell exists. A declaration
+`(hit T (p…) (c : TYPE)…)` interns `T` as a type constructor with `nparams`
+and stores each constructor's closed type as the definition `c/type`. A point
+constructor is a CTR; a path constructor at intervals is an APP spine over a
+CTR. Its boundary is not a table: it is read from the type (`hit_ctor_type`
+steps the Pi chain through the parameters and fields and the Path chain
+through the intervals applied so far; the first literal interval picks the
+endpoint of the Path cell reached). The eliminator is a CASE with a motive,
+HELIM [scrut, code, frame, motive]; with scrutinee 0 it is a function cell,
+so `<j> helim (u@j)` needs no static code; the recursor is HELIM with motive
+ERA. Reflection cells CFIELDS/CWITH read a constructor's fields as a list and
+rebuild it, which lets `trp/hit` transport fields along their dependent type
+lines in the prelude (`whnfCoe`, HTy case). Substitution commutes with
+everything, so a face passes into a stuck spine, a CASE, a HELIM, a TRP and an
+HCM (the frame records it; the scrutinee and motive carry it).
+
 **The HIT eliminator (`whnfHEl`).**
 
     HELIM P bs (HCTR c fields dims)   → (bs[c] fields) applied to the dims
@@ -798,12 +814,23 @@ Test: ITRS invariant across schedules.
 
 ## 11. Files
 
-    pusc/cell.h     ~100   the word layout, tags, Name, Frame, Rule, accessors
-    pusc/cell.c    ~1200   §§1–4, 6, 8, 9: heap 40, frames+descent 100, loop+dispatch 80,
+Status. Written and green (33 checks, `pusc/test.sh`): cell.h, cell.c, read.c,
+main.c, prelude.pusc (the Kan rows as data), t/*.pusc. Computes: the face-map
+algebra without capture, laziness, the De Morgan interval, regularity,
+transp/hcomp on Pi, Sig, Path, Nat/Bool/List, superposed lines, Glue with `uaβ`,
+composites in the universe (hcomp in Set through transpEquiv), general
+dimension substitution, the HIT schema (endpoints from types, eliminator,
+composites, transport along a moving parameter). Not yet: the typed point and
+`interact` (ASK), erase at projection, gmp numbers, the Bend dialect as a rule
+table, verify, install.
+
+    pusc/cell.h     ~150   the word layout, tags, Name, Frame, Rule, accessors, CtorInfo   (written: 147)
+    pusc/cell.c    ~1000   §§1–4, 6, 8, 9: heap 40, frames+descent 100, loop+dispatch 80,
                            face map 60, application 40, erase 40, interval DNF 100,
                            transp+hcomp 250, HIT 100, call step 120, gmp+ops 60,
-                           trace+census+printer 150
-    pusc/read.c     ~100   §5: the reader for the kernel's own text (the identity chart)
+                           trace+census+printer 150                                         (written: 857)
+    pusc/prelude.pusc ~150 the Kan rows, Glue, transpEquiv, the HIT rows, as data           (written: 146)
+    pusc/read.c     ~250   §5: the reader for the kernel's own text (the identity chart)     (written: 232)
     pusc/bend.rules ~400   §5.1: Bend2's grammar as a certified rule table in that text,
                            loaded by install; Pat flattening and HIT elaboration are rules too
     pusc/book.c     ~150   BOOK/TBOOK construction, descent pass, refusals

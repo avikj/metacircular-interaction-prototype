@@ -49,6 +49,10 @@ enum Tag {
   /* static-code eliminators instantiated on the heap */
   T_CASE,      /* loc → [scrut, code, frame]        ● scrut           */
   T_PROJ,      /* ext = field index, loc → [x]      ● x  (fst/snd of any constructor) */
+  T_HELIM,     /* loc → [scrut, code, frame, motive]  ● scrut; scrut 0 = a function awaiting its point;
+                  motive ERA = the recursor (stuck on a composite)                                    */
+  T_CFIELDS,   /* loc → [x]        the fields of a constructor cell, as a list (reflection)           */
+  T_CWITH,     /* loc → [x, list]  the constructor of x rebuilt with these fields                     */
   /* judgments and the interaction */
   T_CHK,       /* loc → [type, term]                                   */
   T_ASK,       /* loc → [q, k]                      a free port        */
@@ -86,7 +90,8 @@ enum Op { OP_ADD, OP_SUB, OP_MUL, OP_DIV, OP_MOD, OP_EQ, OP_NE, OP_LT, OP_LE, OP
 enum STag {
   S_VAR = 1, S_LAM, S_APP, S_REF, S_ERA, S_SUP, S_PLM, S_DIM, S_FCE,
   S_I0, S_I1, S_IVAR, S_INOT, S_IAND, S_IOR,
-  S_CTR, S_NUM, S_OP2, S_TRP, S_HCM, S_CASE, S_BRANCH, S_CHK, S_ASK, S_LET, S_PROJ, S_GLU, S_GLUE, S_UNGLUE, S_FCASE, S_GBASE, S_GFACES, S_ISUB
+  S_CTR, S_NUM, S_OP2, S_TRP, S_HCM, S_CASE, S_BRANCH, S_CHK, S_ASK, S_LET, S_PROJ, S_GLU, S_GLUE, S_UNGLUE, S_FCASE, S_GBASE, S_GFACES, S_ISUB,
+  S_HELIM, S_CFIELDS, S_CWITH
 };
 typedef struct SNode {
   uint8_t  tag;
@@ -114,7 +119,18 @@ extern uint64_t ITRS;
 extern uint32_t *TRACE; extern uint64_t TRACE_LEN;   /* receipts: rule ids */
 
 enum RuleId { R_BETA = 1, R_APP_SUP, R_APP_PLM, R_FCE_ANNIHILATE, R_FCE_COMMUTE, R_FCE_PUSH,
-              R_FCE_SHARE, R_CASE, R_CASE_SUP, R_OP2, R_OP2_SUP, R_ERASE, R_TRP, R_HCM, R_COUNT };
+              R_FCE_SHARE, R_CASE, R_CASE_SUP, R_OP2, R_OP2_SUP, R_ERASE, R_TRP, R_HCM,
+              R_HCON, R_HELIM, R_HELIM_SUP, R_HELIM_HCM, R_COUNT };
+
+/* ---- the HIT schema (§4): nothing per HIT is hardcoded; a constructor's boundary IS its type ---- */
+typedef struct CtorInfo {
+  bool     is_hit;     /* this constructor id names a higher inductive TYPE */
+  uint32_t nparams;    /* … with this many parameters */
+  uint32_t hit;        /* for a constructor of a HIT: the type's id (0 otherwise) */
+  int      type_def;   /* the book entry holding its closed type: Pi params. Pi fields. T ps | Path … */
+  uint32_t nfields, dim;
+} CtorInfo;
+extern CtorInfo CINFO[1 << 16];   /* indexed by constructor id */
 
 Loc  alloc(uint32_t n);
 Term whnf(Term t);

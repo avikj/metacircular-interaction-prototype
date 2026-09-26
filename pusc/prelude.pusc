@@ -120,3 +120,27 @@
 (def transpEquiv (lam u (trp (plm k (Equiv-ty (app u i1) (app u (inot k)))) i0 i1 (idequiv (app u i1)))))
 (def face-to-gface (lam f (case f (Face (phi u) (ctr GFace phi (app u i1) (transpEquiv u))))))
 (def hcm/Set (lam A (lam base (lam faces (Glue base (map-gfaces face-to-gface faces))))))
+
+; ---- higher inductive types (whnfHEl, whnfCoe HTy case): the schema, with nothing per HIT ----------
+;   helim of a composite in the HIT is comp along the motive over the filler
+(def helim/hcm (lam P (lam elim (lam T (lam fs (lam base
+  (comp (lam j (app P (hfill T base fs j)))
+        (app elim base)
+        (app map-faces (lam u (plm j (app elim (app u j)))) fs))))))))
+;   transport commutes with a composite of the HIT
+(def trp/hcm (lam L (lam r (lam s (lam fs (lam base
+  (hcm (app L s) (trp L r s base) (app map-faces (lam u (plm j (trp L r s (app u j)))) fs))))))))
+;   transport along a HIT line whose parameters move: each field along its own dependent type line
+(def apps (lam f (lam xs (case xs (Nil () f) (Cons (x rest) (apps (app f x) rest))))))
+(def map  (lam f (lam xs (case xs (Nil () (ctr Nil)) (Cons (x rest) (ctr Cons (app f x) (map f rest)))))))
+(def snoc (lam xs (lam y (case xs (Nil () (ctr Cons y (ctr Nil))) (Cons (x rest) (ctr Cons x (snoc rest y)))))))
+(def inst-pis (lam T (lam xs (case xs (Nil () T) (Cons (x rest) (inst-pis (app (pi-cod T) x) rest))))))
+(def hit-field-ty (lam T (lam prev (pi-dom (inst-pis T prev)))))
+(def trp/hit (lam L (lam r (lam s (lam cty (lam fields (trp/hit-go L r s cty fields (ctr Nil))))))))
+(def trp/hit-go (lam L (lam r (lam s (lam cty (lam fields (lam done
+  (case fields
+    (Nil () (ctr Nil))
+    (Cons (a rest)
+      (let ln (plm i (hit-field-ty (inst-pis cty (ctr-fields (app L i))) (map (lam d (app d i)) done)))
+      (let a1 (lam i (trp ln r i a))
+      (ctr Cons (app a1 s) (trp/hit-go L r s cty rest (snoc done a1))))))))))))))
