@@ -234,15 +234,22 @@ them.
    Inside `trace` and `leaves` a residual does not ask a port (`KIND_CAP`): the
    leaves stay the classes of inputs, printed as a value under its identities.
    The innermost eliminator not facing a bare port is the one that decomposes: a
-   match on a match on a comparison asks the comparison. **Not yet**: the
-   specification along free inputs (`n-run2`: 4 leaves where 2 arrangements
-   exist). A comparison split before its ports were bound (`leq b1 a`, both
-   fields of B) and the same comparison after (`leq h2 h3`) are two questions to
-   the machine, so a world with both `≡ True` and `≡ False` stays alive; the
-   identity of a question must be read in the world of the leaf that carries it,
-   and the residual does not carry that world. The split count per leaf of
-   `isort` along free coordinates is 2, 3, 3, 3, 4, 4 where the decision tree
-   says 2, 3, 3, 3, 3, 3. `sortCost` waits on both.
+   match on a match on a comparison asks the comparison. A residual whose
+   question was split (under another cell, or before its ports were bound) is
+   marked with that split, its identity read under its own faces and the frame's
+   restrictions, so a comparison split as `leq b1 a` and the same comparison
+   after `b1 := h2, a := h3` are one question (`n-run2`: the two arrangements,
+   no leaf with contradictory residuals). A bare residual on a question no match
+   has split splits it itself, along the constructors of the answer it requires
+   (`decide_question`). A match's scrutinee word is never rewritten with a
+   reduct that is still an identity: it may be a child of the match's own body,
+   and writing it closes a cycle. **Not yet**: for three free inputs the
+   specification has 8 leaves, of which 2 carry contradictory residuals (both
+   `≡ True` and `≡ False` on one question, each under waiting faces, no split of
+   the question registered; `HYPER_SPLITS=1` prints the leaf checks); the same
+   decision under waiting faces (`HYPER_DECIDE=1`) regresses the concrete case.
+   The split count per leaf of `isort` along free coordinates is 2, 3, 3, 3, 4, 4
+   where the decision tree says 2, 3, 3, 3, 3, 3. `sortCost` waits on both.
 5. Every rule at an active pair, bodies as nets: the count becomes the proved
    geodesic. The one rule that fires on a non-value goes.
 6. The chart move under a checked path.
