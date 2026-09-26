@@ -5,6 +5,10 @@ gcc -std=gnu11 -O2 -Wall -Wno-misleading-indentation -Wno-unused-parameter -Wno-
 pass=0; fail=0
 check() { got=$(./pusc run "$1" "$2" 2>&1 | head -1); if [ "$got" = "$3" ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL $1 $2: got '$got' want '$3'"; fi; }
 check t/basic.pusc main      '#Suc{#Suc{#Suc{#Suc{#Zer{}}}}}'
+# §10.4 capture probes: cap4 = 4, two∘two = 4, the triple = 16
+check t/basic.pusc cap4    '4'
+check t/basic.pusc two-two '4'
+check t/basic.pusc triple  '16'
 check t/lazy.pusc  main      '#False{}'
 check t/sup.pusc   pick0     '1'
 check t/sup.pusc   pick1     '2'
@@ -22,6 +26,9 @@ got=$(./pusc run t/ua.pusc glue-at-0 | head -1); case "$got" in '#Bool{}') pass=
 check t/ua.pusc    fwd-true  '#False{}'
 check t/ua.pusc    fwd-false '#True{}'
 check t/ua.pusc    bwd-true  '#False{}'
+# §10.5 sharing: a transport consumed k times costs one transport plus k small increments (linear in k, each ≪ the transport)
+u1=$(./pusc run t/ua.pusc use1 | sed -n 's/^- Itrs: //p'); u2=$(./pusc run t/ua.pusc use2 | sed -n 's/^- Itrs: //p'); u4=$(./pusc run t/ua.pusc use4 | sed -n 's/^- Itrs: //p')
+if [ $((u4-u1)) -eq $((3*(u2-u1))) ] && [ $((u2-u1)) -lt 10 ] && [ "$u1" -gt 50 ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL sharing k uses: $u1 $u2 $u4"; fi
 # composites in the universe: hcomp in Set is a Glue type (transpEquiv); the inverse and Pi lines of ua
 check t/setcomp.pusc via-inv      '#False{}'
 check t/setcomp.pusc via-pi       '#False{}'

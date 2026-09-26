@@ -902,7 +902,7 @@ loop, not another kernel.
 
 ## 11. Files
 
-Status. Written and green: 63 kernel checks (`pusc/test.sh`) and the whole
+Status. Written and green: 67 kernel checks (`pusc/test.sh`) and the whole
 Bend2 corpus (`pusc/bendtest.sh`: every `.bend` under
 `collab/bend2-interactive-cubical` and `port/` with a `main`, 124 programs,
 value identical to Bend2's own normaliser branch by branch; 12 skipped because
@@ -941,7 +941,10 @@ to Code (§5.1, `pusc parse`, `t/grammar.pusc`): ambiguity is a superposition,
 the later token decides it, the translation is read back as the kernel's own
 text. The count is a property of the program, not of a schedule (§9,
 `PUSC_SCHEDULE`): every probe and every corpus program reaches the same value
-in the same count with the right demand served first. Not yet: Bend2's grammar
+in the same count with the right demand served first. The capture probes
+(§10.4, `t/basic.pusc`): cap4 = 4, two∘two = 4, the triple = 16; a transport
+consumed k times costs one transport plus k small increments (§10.5,
+`t/ua.pusc`). Not yet: Bend2's grammar
 as a book (Bend2's checker translates it for now), several demands served at
 once (§9's bag as threads).
 
