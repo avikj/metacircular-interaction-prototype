@@ -64,6 +64,7 @@ enum Tag {
   /* judgments and the interaction */
   T_CHK,       /* loc → [type, term]                                   */
   T_ASK,       /* loc → [q, k]                      a free port        */
+  T_IND,       /* word 0 of a reduced node: word 1 holds its result (§3: a demanded port fires once, every holder sees the value) */
   /* frames (never a value) */
   T_FRAME,     /* loc → [parent, slot]  ext = depth   one binding      */
   T_DIM,       /* loc → [parent, unused] ext = depth  a bound dimension: its loc is the NAME */

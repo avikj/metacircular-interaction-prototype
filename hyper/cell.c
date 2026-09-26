@@ -38,7 +38,7 @@ Loc alloc(uint32_t n) {
   if ((uint64_t)HEAP_LEN + n >= HEAP_CAP) { fprintf(stderr, "hyper: heap exhausted\n"); exit(2); }
   Loc l = HEAP_LEN; HEAP_LEN += n; return l;
 }
-Term node1(unsigned t, uint32_t e, Term a)                 { Loc l = alloc(1); HEAP[l]=a; return mk(t,e,l); }
+Term node1(unsigned t, uint32_t e, Term a)                 { Loc l = alloc(2); HEAP[l]=a; HEAP[l+1]=0; return mk(t,e,l); }   /* two words: room for the result once reduced */
 Term node2(unsigned t, uint32_t e, Term a, Term b)         { Loc l = alloc(2); HEAP[l]=a; HEAP[l+1]=b; return mk(t,e,l); }
 Term node3(unsigned t, uint32_t e, Term a, Term b, Term c) { Loc l = alloc(3); HEAP[l]=a; HEAP[l+1]=b; HEAP[l+2]=c; return mk(t,e,l); }
 Term node4(unsigned t, uint32_t e, Term a, Term b, Term c, Term d) { Loc l = alloc(4); HEAP[l]=a; HEAP[l+1]=b; HEAP[l+2]=c; HEAP[l+3]=d; return mk(t,e,l); }
@@ -506,7 +506,7 @@ static Term ctr_with(uint32_t id, Term list) { /* a constructor with the fields 
 /* peel an application spine: returns the head, fills args outermost-last */
 Term spine(Term t, Term *args, uint32_t *n) {
   *n = 0; Term a[64]; uint32_t k = 0;
-  while (tag(t) == T_APP && k < 64) { a[k++] = HEAP[loc(t)+1]; t = HEAP[loc(t)]; }
+  while (tag(t) == T_APP && k < 64) { if (tag(HEAP[loc(t)]) == T_IND) { t = HEAP[loc(t)+1]; continue; } a[k++] = HEAP[loc(t)+1]; t = HEAP[loc(t)]; }
   for (uint32_t i = 0; i < k; i++) args[i] = a[k-1-i];
   *n = k; return t;
 }
@@ -883,8 +883,24 @@ void force_fields(Term t, int depth) {
 
 /* ---- the loop (§3): weak head, demanded interaction ---------------------- */
 static uint64_t WHNF_STEPS;
+/* a node that a rule may fire on, and whose first word is a term (so the mark T_IND cannot be mistaken).
+   REFLECT is not one: it is the checker's view of a typed point (§7), read by its cell, never marked. */
+static bool node_redex(unsigned g) {
+  switch (g) { case T_APP: case T_FCE: case T_PROJ: case T_CASE: case T_OP2: case T_OP1: case T_TRP: case T_HCM: case T_HELIM: case T_CHK:
+    case T_UNGLUE: case T_GBASE: case T_GFACES: case T_FCASE: case T_CFIELDS: case T_CWITH: case T_PAP: case T_ETYPE: case T_ETERM: case T_POUT: return true;
+    default: return false; }
+}
+static Term whnf_(Term t);
+/* a demanded port fires once: the node a holder points at is marked with its result, and every other holder
+   of the same node meets the value (the sharing of §3 is at every port, not only at a coordinate's slot) */
 Term whnf(Term t) {
+  Term r = whnf_(t);
+  if (r != t && node_redex(tag(t))) { HEAP[loc(t)] = mk(T_IND, 0, 0); HEAP[loc(t)+1] = r; }
+  return r;
+}
+static Term whnf_(Term t) {
   for (;;) {
+    if (node_redex(tag(t)) && tag(HEAP[loc(t)]) == T_IND) { t = HEAP[loc(t)+1]; continue; }   /* already fired: its result */
     if (CHECK_MODE && ++WHNF_STEPS > 30000000 && getenv("HYPER_DEBUG")) { fprintf(stderr, "whnf: runaway at tag %u: ", tag(t)); print_rec(t, 5); fprintf(stderr, "\n"); fflush(stdout); exit(9); }
     switch (tag(t)) {
       case T_VAR: {                                   /* a coordinate: force once, write back */
@@ -1047,8 +1063,8 @@ Term whnf(Term t) {
       case T_CHK: t = HEAP[loc(t) + 1]; continue;    /* a judgment projects to its term at run */
       case T_PROJ: {
         Term i = whnf(HEAP[loc(t)]), x = whnf(HEAP[loc(t)+1]);
-        if (tag(x) == T_GLU && tag(i) == T_NUM && HEAP[loc(i)] < 2) { receipt(R_CASE); erase_ports(1); t = HEAP[loc(x) + HEAP[loc(i)]]; continue; }
-        if (tag(i) == T_NUM && tag(x) == T_CTR && HEAP[loc(i)] < ctr_arity(x)) { receipt(R_CASE); erase_ports(ctr_arity(x) - 1); t = HEAP[loc(x) + HEAP[loc(i)]]; continue; }
+        if (tag(x) == T_GLU && tag(i) == T_NUM && HEAP[loc(i)] < 2) { receipt(R_CASE); erase_ports(1); return whnf(HEAP[loc(x) + HEAP[loc(i)]]); }
+        if (tag(i) == T_NUM && tag(x) == T_CTR && HEAP[loc(i)] < ctr_arity(x)) { receipt(R_CASE); erase_ports(ctr_arity(x) - 1); return whnf(HEAP[loc(x) + HEAP[loc(i)]]); }   /* the field is a held port: it fires once */
         if (tag(x) == T_SUP) { receipt(R_CASE_SUP); return node3(T_SUP, 0, HEAP[loc(x)], node2(T_PROJ,0,i,HEAP[loc(x)+1]), node2(T_PROJ,0,i,HEAP[loc(x)+2])); }
         HEAP[loc(t)] = i; HEAP[loc(t)+1] = x; return t;
       }

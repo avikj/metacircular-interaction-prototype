@@ -60,6 +60,8 @@ n=$(./hyper check t/check.hyper 2>/dev/null | grep -c '✓'); m=$(grep -c '^(def
 if [ "$n" -eq "$m" ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL check: $n of $m definitions check"; fi
 # §3.3 erase at the projection: a forgotten port costs one row where it is forgotten; the fibre's size never enters
 checkn() { got=$(./hyper run "$1" "$2" 2>&1 | tr '\n' ' '); if [ "$got" = "$3 - Itrs: $4 " ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL $1 $2: got '$got' want '$3 - Itrs: $4'"; fi; }
+# §3 a demanded port fires once: a redex held by both sides of a distribution is one row (3*4 once, not per side)
+checkn t/sup.hyper shared-redex '&3{13,14}' 6
 checkn t/erase.hyper fst-big '1' 2
 checkn t/erase.hyper and-f   '#False{}' 4
 checkn t/erase.hyper and-t   '#True{}' 3

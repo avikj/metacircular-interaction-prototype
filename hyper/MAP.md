@@ -281,6 +281,14 @@ diamond holds for this relation and every schedule reaches the demanded
 normal form in the same number of interactions. That number is the cost of
 the program.
 
+As written (`whnf`, `T_IND`): a demanded port fires once. A coordinate's slot
+is written back when forced, and every node a rule may fire on is marked when
+it has fired: its first word becomes `T_IND` and its second its result, so
+every other holder of that node meets the value and pays nothing. Unfolding a
+definition is not a firing and is not marked: a reference is code, and each
+reference instantiates it (`t/sup.hyper`, `shared-redex`: a multiplication held
+by both sides of a distribution is one row).
+
 ```
    the diamond, drawn: two disjoint active pairs P and Q in one net
 
@@ -320,8 +328,18 @@ identity (One §1: retention of a determined datum is a singleton).
 
   FCE_i^ε ● ─── ● IVAR i              ⟹      ε ;   IOP / INOT recompute the DNF (§3.4)
 
+  FCE_i^ε ● ─── ● REF f a₁ … aₙ        ⟹      REF f (FCE_i^ε a₁) … (FCE_i^ε aₙ)         through a closed name · one row
+
   FCE_i^ε ● ─── ○ stuck / VAR          stays: a normal form until the target moves
 ```
+
+The one rule that fires on a node that is not a value is the last but one:
+a face map or a coordinate substitution passes through an application of a
+closed name into its arguments before the name unfolds. It is sound because
+the name is closed (nothing of `i` is inside `f`), and it is what keeps the
+regularity check (§3.5) on the arguments a stuck spine shows rather than on
+an unfolded body. A node held by two holders is marked when it fires (§3), so
+this rule never meets a spine another holder has already fired.
 
 Two instances of one definition never meet at the same name, so the
 annihilate case is exactly "branch projection in an already shared fibre"
@@ -851,6 +869,11 @@ paid its rows. A certificate that does not check refuses the run (`hyper run`,
 by `hyper check`, so `extract(install d) ≡ d` is the identity on the record.
 `t/install.hyper`: `notnot := id` by the path `λi. λx. negLnv x i`; the value is
 unchanged and the run's count falls from 5 to 2 interactions.
+A rule with a pattern on its left is the same record: a pattern headed by a
+name `f p₁ … pₙ ↦ r` is the definition `f := λx. case x …`, and installing it
+is `install f that-definition cert`. Patterns headed by a kernel form (the Kan
+rows, the dialect's rows) are definitions dispatched by name in the same way,
+so there is one table, the book, and one way into it.
 
 ```
    Derivation lhs ≡ rhs  ──install──▶  RULES[n] = { lhs, rhs, d }  ──extract──▶  d      (refl)
@@ -910,7 +933,7 @@ loop, not another kernel.
 
 ## 11. Files
 
-Status. Written and green: 67 kernel checks (`hyper/test.sh`) and the whole
+Status. Written and green: 68 kernel checks (`hyper/test.sh`) and the whole
 Bend2 corpus (`hyper/bendtest.sh`: every `.bend` under
 `collab/bend2-interactive-cubical` and `port/` with a `main`, 124 programs,
 value identical to Bend2's own normaliser branch by branch; 12 skipped because
@@ -956,15 +979,15 @@ consumed k times costs one transport plus k small increments (§10.5,
 as a book (Bend2's checker translates it for now), several demands served at
 once (§9's bag as threads).
 
-    hyper/cell.h      197   the word layout, tags, Name, Frame, Rule, Install, accessors, CtorInfo
-    hyper/cell.c     1379   §§1–4, 5.1, 6, 8, 9: heap, frames+descent, loop+dispatch, face map, application,
+    hyper/cell.h      202   the word layout, tags, Name, Frame, Rule, Install, accessors, CtorInfo
+    hyper/cell.c     1395   §§1–4, 5.1, 6, 8, 9: heap, frames+descent, loop+dispatch, face map, application,
                            interval DNF, transp+hcomp dispatch, HIT schema, numbers, printers, collapse, census, reify
     hyper/prelude.hyper 158  the Kan rows, Glue, transpEquiv, the HIT rows, as data
     hyper/bend.hyper    45   the Bend dialect's rows: transp, ua, the three built-in HITs
     hyper/t/grammar.hyper 72  §5.1: a dialect as a book, `parse` from characters to Code
     hyper/read.c      301   §5: the reader for the kernel's own text (the identity chart), strings, install
     hyper/main.c       96   run | bend | check | interact | parse
-    hyper/test.sh      82   the kernel checks, three schedules
+    hyper/test.sh      91   the kernel checks, three schedules
     hyper/bendtest.sh  35   §10.1 over the corpus against Bend2's normaliser, the sharing regimes, §10.7 schedules
     hyper/checktest.sh 27   §10.6 the checker differential against Bend2's checker
     hyper/verify.c    821   §7: the checker as the other projection of the same loop; §8 certificates
