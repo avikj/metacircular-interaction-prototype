@@ -865,6 +865,22 @@ so the redex bag is the only scheduler; any interleaving gives the same
 normal form in the same count (§3). Sequential execution is one schedule.
 Test: ITRS invariant across schedules.
 
+As written (`PUSC_SCHEDULE`): the loop serves demands in an order, and where
+two demands are independent that order is the schedule. `PUSC_SCHEDULE=right`
+serves the right one first, a number seeds a coin per choice, the default is
+left. The choices are the two operands of a numeric operation and the fields
+a projection (the printer, the collapse) demands, which under another schedule
+are forced in its order first and written back into their fields, so the
+printer then meets values. `test.sh` compares value and count under the three
+schedules on twelve probes across every rule family (β, sup, Kan, Glue,
+composites in the universe, HIT, erase, install); `bendtest.sh` runs every
+corpus program a second time under the right-first schedule and requires the
+same value and the same count. The one visible difference is the printed name
+of a fresh dimension (a heap address, gauge). A parallel bag, several
+demands served at once, is the same test with the receipts merged; the arena
+is one reservation and the receipts one trace, so it is a scheduler over this
+loop, not another kernel.
+
 ## 10. Tests and proofs (what decides)
 
 1. Values: every corpus `.bend` with a `main`, value equal to Bend2's
@@ -886,7 +902,7 @@ Test: ITRS invariant across schedules.
 
 ## 11. Files
 
-Status. Written and green: 51 kernel checks (`pusc/test.sh`) and the whole
+Status. Written and green: 63 kernel checks (`pusc/test.sh`) and the whole
 Bend2 corpus (`pusc/bendtest.sh`: every `.bend` under
 `collab/bend2-interactive-cubical` and `port/` with a `main`, 124 programs,
 value identical to Bend2's own normaliser branch by branch; 12 skipped because
@@ -923,19 +939,22 @@ is a counted rule (§3.3, `t/erase.pusc`): one row per forgotten port, and the
 fibre's size never enters. A dialect is a book whose `parse` maps characters
 to Code (§5.1, `pusc parse`, `t/grammar.pusc`): ambiguity is a superposition,
 the later token decides it, the translation is read back as the kernel's own
-text. Not yet: Bend2's grammar as such a book (Bend2's checker translates it
-for now), the parallel bag (§9).
+text. The count is a property of the program, not of a schedule (§9,
+`PUSC_SCHEDULE`): every probe and every corpus program reaches the same value
+in the same count with the right demand served first. Not yet: Bend2's grammar
+as a book (Bend2's checker translates it for now), several demands served at
+once (§9's bag as threads).
 
     pusc/cell.h      197   the word layout, tags, Name, Frame, Rule, Install, accessors, CtorInfo
-    pusc/cell.c     1357   §§1–4, 5.1, 6, 8, 9: heap, frames+descent, loop+dispatch, face map, application,
+    pusc/cell.c     1379   §§1–4, 5.1, 6, 8, 9: heap, frames+descent, loop+dispatch, face map, application,
                            interval DNF, transp+hcomp dispatch, HIT schema, numbers, printers, collapse, census, reify
     pusc/prelude.pusc 158  the Kan rows, Glue, transpEquiv, the HIT rows, as data
     pusc/bend.pusc    45   the Bend dialect's rows: transp, ua, the three built-in HITs
     pusc/t/grammar.pusc 72  §5.1: a dialect as a book, `parse` from characters to Code
     pusc/read.c      301   §5: the reader for the kernel's own text (the identity chart), strings, install
-    pusc/main.c       93   run | bend | check | interact | parse
-    pusc/test.sh      77   the kernel checks
-    pusc/bendtest.sh  31   §10.1 over the corpus against Bend2's normaliser, the sharing regimes
+    pusc/main.c       96   run | bend | check | interact | parse
+    pusc/test.sh      82   the kernel checks, three schedules
+    pusc/bendtest.sh  35   §10.1 over the corpus against Bend2's normaliser, the sharing regimes, §10.7 schedules
     pusc/checktest.sh 27   §10.6 the checker differential against Bend2's checker
     pusc/verify.c    821   §7: the checker as the other projection of the same loop; §8 certificates
     Bend2 src/Target/Pusc.hs  ~200   the checked book as cells (in cubical-paths.patch)

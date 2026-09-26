@@ -861,6 +861,26 @@ void load_prelude(void) {
   C_UAU = ctor_intern("UaU", 6); C_ITV_ID = ctor_intern("Itv", 0);
 }
 
+/* ---- §9 the schedule: which of two independent demands is served first ----------------------------- */
+/* PUSC_SCHEDULE=right serves the right one, a number seeds a coin per choice, the default is left.  The
+   redex bag is the only scheduler, so the normal form and the count must not depend on it (Krama, §10.7). */
+static unsigned SCHED; static uint64_t SCHED_RNG;
+void sched_init(void) { const char *s = getenv("PUSC_SCHEDULE"); if (!s || !*s) return;
+  if (!strcmp(s, "right")) SCHED = 1; else { SCHED = 2; SCHED_RNG = strtoull(s, 0, 10) * 2654435761ull + 88172645463325252ull; } }
+static bool right_first(void) {
+  if (SCHED < 2) return SCHED;
+  SCHED_RNG ^= SCHED_RNG << 13; SCHED_RNG ^= SCHED_RNG >> 7; SCHED_RNG ^= SCHED_RNG << 17; return SCHED_RNG & 1;
+}
+/* a projection demands every field: under a schedule other than the default they are forced in its order
+   first, each written back into its field, and the printer then meets values */
+void force_fields(Term t, int depth) {
+  if (depth <= 0 || !SCHED) return; t = whnf(t);
+  if (tag(t) == T_CTR) { uint32_t ar = ctr_arity(t); bool rev = right_first();
+    for (uint32_t k = 0; k < ar; k++) { uint32_t i = rev ? ar - 1 - k : k; HEAP[loc(t)+i] = whnf(HEAP[loc(t)+i]); force_fields(HEAP[loc(t)+i], depth-1); } }
+  else if (tag(t) == T_SUP) { bool rev = right_first(); uint32_t f = rev ? 2 : 1, g = rev ? 1 : 2;
+    HEAP[loc(t)+f] = whnf(HEAP[loc(t)+f]); force_fields(HEAP[loc(t)+f], depth-1); HEAP[loc(t)+g] = whnf(HEAP[loc(t)+g]); force_fields(HEAP[loc(t)+g], depth-1); }
+}
+
 /* ---- the loop (§3): weak head, demanded interaction ---------------------- */
 static uint64_t WHNF_STEPS;
 Term whnf(Term t) {
@@ -988,6 +1008,7 @@ Term whnf(Term t) {
         }
       }
       case T_OP2: {
+        if (right_first()) HEAP[loc(t)+1] = whnf(HEAP[loc(t)+1]);   /* §9: the other schedule serves the right operand first */
         Term a = whnf(HEAP[loc(t)]);
         if (tag(a) == T_SUP) { receipt(R_OP2_SUP); Loc name = loc(whnf(HEAP[loc(a)])); Term b = HEAP[loc(t)+1];
           return node3(T_SUP, 0, HEAP[loc(a)],
@@ -1136,7 +1157,7 @@ static void print_rec(Term t, int depth) {
     default: printf("?%u", tag(t));
   }
 }
-void print_term(Term t, int depth) { print_rec(t, depth); }
+void print_term(Term t, int depth) { force_fields(t, depth); print_rec(t, depth); }
 
 /* §6: the census of receipts. Every interaction left one receipt in the trace; the census is its fold
    by rule (AdiBija: every analyzer is a fold over the trace). Definitional unfolding and the face map's
@@ -1345,6 +1366,7 @@ static Term lift(Term t, int depth) {
   }
 }
 void collapse_print(Term t) {
+  force_fields(t, 256);
   Term q[1 << 16]; uint32_t head = 0, tail = 0; q[tail++] = t;
   while (head < tail) {
     Term v = lift(q[head++], 256);

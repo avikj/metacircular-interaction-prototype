@@ -20,7 +20,11 @@ for f in "${files[@]}"; do
   ( cd "$d" && timeout 120 "$BEND" "$b.bend" --to-pusc > "$TMP/$b.pusc" 2>/dev/null ) || { fail=$((fail+1)); echo "FAIL $b (emit)"; continue; }
   got=$(timeout 60 "$PUSC" bend "$TMP/$b.pusc" 2>"$TMP/$b.err"); rc=$?
   if [ $rc -eq 0 ] && [ "$got" == "$want" ]; then pass=$((pass+1)); echo "ok   $b  $(tail -1 "$TMP/$b.err")"
-  else fail=$((fail+1)); echo "FAIL $b"; echo "  want: $(echo "$want" | head -3 | cut -c1-160)"; echo "  got:  $(echo "$got" | head -3 | cut -c1-160) $(head -c 200 "$TMP/$b.err" | tr '\n' ' ')"; fi
+  else fail=$((fail+1)); echo "FAIL $b"; echo "  want: $(echo "$want" | head -3 | cut -c1-160)"; echo "  got:  $(echo "$got" | head -3 | cut -c1-160) $(head -c 200 "$TMP/$b.err" | tr '\n' ' ')"; continue; fi
+  # §10.7 schedules: the other schedule (right demand first) reaches the same value in the same count
+  got2=$(PUSC_SCHEDULE=right timeout 60 "$PUSC" bend "$TMP/$b.pusc" 2>"$TMP/$b.err2")
+  if [ "$got2" == "$want" ] && [ "$(tail -1 "$TMP/$b.err2")" == "$(tail -1 "$TMP/$b.err")" ]; then pass=$((pass+1))
+  else fail=$((fail+1)); echo "FAIL schedule $b: left $(tail -1 "$TMP/$b.err") right $(tail -1 "$TMP/$b.err2")$([ "$got2" == "$want" ] || echo ' (value differs)')"; fi
 done
 # §10.5 sharing regimes: one line over N values (sup) costs no more than N separate runs (sep)
 for sup in "$TMP"/bench_*_sup.err; do [ -f "$sup" ] || continue; sep=${sup%_sup.err}_sep.err; [ -f "$sep" ] || continue

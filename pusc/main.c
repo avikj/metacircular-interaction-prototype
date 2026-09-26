@@ -54,6 +54,7 @@ static void load_next_to_exe(const char *exe, const char *name) {
 }
 int main(int argc, char **argv) {
   { struct rlimit rl; if (!getrlimit(RLIMIT_STACK, &rl)) { rl.rlim_cur = rl.rlim_max == RLIM_INFINITY ? (rlim_t)4 << 30 : rl.rlim_max; setrlimit(RLIMIT_STACK, &rl); } }   /* deep terms recurse deep */
+  sched_init();
   if (argc < 3) { fprintf(stderr, "usage: pusc run FILE [DEF] | pusc bend FILE | pusc check FILE | pusc interact FILE [DEF] | pusc parse GRAMMAR SOURCE [DEF]\n"); return 1; }
   if (!strcmp(argv[1], "parse")) {                       /* §5.1: a dialect is a book; its `parse` maps the source's characters to Code */
     if (argc < 4) { fprintf(stderr, "usage: pusc parse GRAMMAR SOURCE [DEF]\n"); return 1; }

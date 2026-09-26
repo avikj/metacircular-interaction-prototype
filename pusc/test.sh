@@ -74,4 +74,9 @@ n=$(./pusc run t/install.pusc main | sed -n 's/^- Itrs: //p'); if [ "$n" -lt 5 ]
 got=$(./pusc check t/install.pusc | grep -c '✓ install notnot := id'); if [ "$got" -eq 1 ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL install check"; fi
 sed 's/(ref notnot) (ref id))/(ref id) (ref id))/; s/(app (app (ref negLnv) x) i)/x/' t/install.pusc > /tmp/pusc-badinstall.pusc
 ./pusc run /tmp/pusc-badinstall.pusc main >/dev/null 2>&1; if [ $? -eq 1 ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL bad install accepted"; fi; rm -f /tmp/pusc-badinstall.pusc
+# §9 schedules: the redex bag is the only scheduler; serving the right demand first, or a coin per choice, gives
+# the same value in the same count on every probe above (a fresh dimension's printed name is gauge, not value)
+for pair in t/basic.pusc:main t/sup.pusc:dist t/sup.pusc:matchsup t/kan.pusc:reg t/kan.pusc:hc-nat t/kan.pusc:pitrp t/ua.pusc:fwd-true t/setcomp.pusc:via-pi t/hit.pusc:helim-sq t/hit.pusc:merid-t t/erase.pusc:and-f t/install.pusc:main; do
+  f=${pair%%:*}; d=${pair##*:}; a=$(./pusc run $f $d 2>&1 | tr '\n' ' '); b=$(PUSC_SCHEDULE=right ./pusc run $f $d 2>&1 | tr '\n' ' '); c=$(PUSC_SCHEDULE=7 ./pusc run $f $d 2>&1 | tr '\n' ' ')
+  if [ "$a" = "$b" ] && [ "$a" = "$c" ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL schedule $f $d: [$a] [$b] [$c]"; fi; done
 echo "pass=$pass fail=$fail"; [ $fail -eq 0 ]

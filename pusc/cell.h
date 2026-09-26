@@ -196,4 +196,6 @@ void print_bend(Term t, int depth);    /* Bend2's own presentation of a value */
 void collapse_print(Term t);           /* one line per branch, in Bend2's collapse order */
 void print_census(void);               /* §6: the receipts by rule (the trace is the retained history) */
 void reify(Term code, FILE *out);      /* §5.1: a Code value written in the kernel's own text */
+void sched_init(void);                 /* §9: PUSC_SCHEDULE, which of two independent demands is served first */
+void force_fields(Term t, int depth);
 #endif
