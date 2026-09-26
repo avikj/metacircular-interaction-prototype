@@ -149,7 +149,14 @@ them.
 ## 0.3 Order of work
 
 1. Coordinates at run time and the case on a coordinate as a superposition with
-   restriction. Everything else is expressed through this.
+   restriction. Everything else is expressed through this. **Written**: a
+   declaration `(def x : T)` with no body is one coordinate of `T`, created on
+   first demand and shared by every reference; a match that asks a coordinate
+   writes into the coordinate's own slot the superposition of the match's
+   constructors, each with fresh coordinates for its fields, one line at a fresh
+   bound name per choice, so every holder sees the same correlated superposition
+   and the match then commutes over it by the ordinary rule (`R_SPLIT`;
+   `t/coord.hyper`).
 2. Unification at data types as the reduction of a path with coordinates.
 3. The trace of a run and the leaves of a superposition as terms; the four modes
    removed and their probes rewritten as programs.

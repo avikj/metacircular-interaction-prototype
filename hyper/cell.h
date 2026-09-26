@@ -117,6 +117,8 @@ typedef struct Def {
   uint32_t    code;    /* static index of the body */
   uint32_t    type;    /* static index of the type, 0 if none */
   uint32_t    ndims;   /* implicit dimension binders at the top */
+  bool        unknown; /* declared with a type and no body: a coordinate of its type, created once on demand */
+  Term        coord;   /* that coordinate, once created */
 } Def;
 /* ---- the machine ----------------------------------------------------- */
 extern Term    *HEAP;   extern Loc HEAP_LEN;
@@ -132,7 +134,7 @@ void print_trace(uint64_t from);                      /* the receipts from index
 
 enum RuleId { R_BETA = 1, R_APP_SUP, R_APP_PLM, R_FCE_ANNIHILATE, R_FCE_COMMUTE, R_FCE_PUSH,
               R_FCE_SHARE, R_CASE, R_CASE_SUP, R_OP2, R_OP2_SUP, R_ERASE, R_TRP, R_HCM,
-              R_HCON, R_HELIM, R_HELIM_SUP, R_HELIM_HCM, R_OP1, R_POUT, R_COUNT };
+              R_HCON, R_HELIM, R_HELIM_SUP, R_HELIM_HCM, R_OP1, R_POUT, R_SPLIT, R_COUNT };
 
 /* ---- the HIT schema (§4): nothing per HIT is hardcoded; a constructor's boundary IS its type ---- */
 typedef struct CtorInfo {
@@ -171,6 +173,8 @@ Term frame_push(Term parent, Term slot);
 Term dim_push(Term parent);
 Term restrict_push(Term parent, Term name, unsigned side, Term by);
 Term generic(Term fr);
+Term coordinate(Term type);            /* a run-time unknown of a type: marked, split only when asked */
+Term coordinate_type(Term v);
 Term frame_lookup(Term f, uint32_t lvl, bool *is_dim);
 bool frame_is_dim(Term f, uint32_t lvl);
 bool code_uses(uint32_t c, uint32_t lvl);

@@ -459,6 +459,32 @@ static uint64_t branch_drops(uint32_t first_br, uint32_t br, Term fr, uint32_t f
   memo_put(b, base, v); return v;
 }
 
+/* ---- a coordinate asked by a match ---------------------------------------------------------------------
+   A coordinate is a generic element: a slot that points to itself.  When an eliminator asks it which
+   constructor it is, it becomes the superposition of the constructors the eliminator lists, each with fresh
+   coordinates for its fields, written into its own slot so that every holder of the coordinate sees the same
+   correlated superposition; the match then commutes over it by the ordinary rule and each side carries the
+   face that decided it.  Nothing here names a type: the constructors are the eliminator's own branches. */
+/* a run-time coordinate: a declared unknown or a field of one.  Its frame is marked (level 0xFFFFFF) and carries its
+   type in a third word; the presentation's and the checker's generic elements are not marked and are never split. */
+Term coordinate(Term type) { Loc l = alloc(3); HEAP[l] = 0; HEAP[l+1] = mk(T_VAR, 0xFFFFFF, l); HEAP[l+2] = type; return HEAP[l+1]; }
+static bool is_coordinate(Term v) { return tag(v) == T_VAR && ext(v) == 0xFFFFFF && tag(HEAP[loc(v)+1]) == T_VAR && loc(HEAP[loc(v)+1]) == loc(v); }
+Term coordinate_type(Term v) { return HEAP[loc(v)+2]; }
+static Term constructor_superposition(Term cs) {
+  uint32_t code = loc(HEAP[loc(cs) + 1]); SNode *n = &CODE[code];
+  Term alts[64]; uint32_t k = 0;
+  for (uint32_t br = n->b; br && k < 64; br = CODE[br].c) {
+    SNode *b = &CODE[br]; if (b->ext == 0xFFFFFF) continue;          /* the default branch names no constructor */
+    uint32_t ar = b->a; Loc l = alloc(ar ? ar : 1);
+    for (uint32_t i = 0; i < ar; i++) HEAP[l + i] = coordinate(0);                          /* fresh coordinates for the fields */
+    alts[k++] = mk(T_CTR, ctr_ext(b->ext, ar), l);
+  }
+  if (k == 0) { fprintf(stderr, "hyper: a match with no constructor asked a coordinate\n"); exit(3); }
+  Term r = alts[k-1];
+  for (uint32_t i = k - 1; i-- > 0;) r = node3(T_SUP, 0, mk(T_IVAR, 0, loc(dim_push(0))), alts[i], r);   /* a line at a fresh bound name per choice */
+  return r;
+}
+
 /* ---- case trees (§4): the eliminator instantiated on the heap ---------- */
 static Term case_select(Term cs, Term scrut) {
   uint32_t code = loc(HEAP[loc(cs) + 1]); Term fr = HEAP[loc(cs) + 2];
@@ -910,6 +936,7 @@ static Term whnf_(Term t) {
       }
       case T_REF: {                                   /* δ: the definition's own fresh dimensions */
         Def *d = &BOOK[loc(t)]; Term fr = 0;
+        if (d->unknown) { if (!d->coord) d->coord = coordinate(d->type ? inst(d->type, 0) : 0); t = d->coord; continue; }   /* a declared unknown: one coordinate, shared by every reference */
         for (uint32_t i = 0; i < d->ndims; i++) fr = dim_push(fr);
         if (CHECK_MODE && d->type) { t = node2(T_REFLECT, 0, inst(d->code, fr), inst(d->type, 0)); continue; }   /* §7: a typed point is η-long at its type */
         t = inst(d->code, fr); continue;
@@ -1019,6 +1046,7 @@ static Term whnf_(Term t) {
             return node3(T_SUP, 0, nm, case_restrict(t, nm, 0, 0, HEAP[loc(s)+1]),
                                        case_restrict(t, nm, 1, 0, HEAP[loc(s)+2]));
           }
+          case T_VAR: if (!CHECK_MODE && is_coordinate(s)) { receipt(R_SPLIT);   /* the checker keeps its coordinates neutral and restricts frames per branch */ HEAP[loc(s) + 1] = constructor_superposition(t); continue; }   /* fallthrough: a coordinate asked by a match */
           default: HEAP[loc(t)] = s; return t;
         }
       }
@@ -1178,7 +1206,7 @@ void print_term(Term t, int depth) { force_fields(t, depth); print_rec(t, depth)
    by rule (AdiBija: every analyzer is a fold over the trace). Definitional unfolding and the face map's
    sharing are shown apart, as the receipts name them. */
 const char *RULE_NAME[R_COUNT] = { "", "beta", "app-sup", "app-plm", "fce-annihilate", "fce-commute", "fce-push",
-    "fce-share", "case", "case-sup", "op2", "op2-sup", "erase", "trp", "hcm", "hcon", "helim", "helim-sup", "helim-hcm", "op1", "pout" };
+    "fce-share", "case", "case-sup", "op2", "op2-sup", "erase", "trp", "hcm", "hcon", "helim", "helim-sup", "helim-hcm", "op1", "pout", "split" };
 void print_trace(uint64_t from) {           /* the derivation as data: each step a rule at a node */
   for (uint64_t i = from; i < TRACE_LEN; i++) printf("%s%s@%u", i > from ? " " : "", RULE_NAME[TRACE[i]], TRACE_NODE[i]);
   printf("\n");

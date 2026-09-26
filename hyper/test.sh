@@ -103,6 +103,12 @@ got=$(./hyper joint t/jiva.hyper bools unit unit | head -1); [ "$got" = "(#Tt{},
 got=$(./hyper descends t/jiva.hyper cnot left product | cut -d: -f1); [ "$got" = "जीवति" ] && pass=$((pass+1)) || { fail=$((fail+1)); echo "FAIL living step: $got"; }
 got=$(./hyper descends t/jiva.hyper cnot right product | cut -d: -f1); [ "$got" = "अवतरणम्" ] && pass=$((pass+1)) || { fail=$((fail+1)); echo "FAIL cnot right: $got"; }
 got=$(./hyper descends t/jiva.hyper dead left product | cut -d: -f1)$(./hyper descends t/jiva.hyper dead right product | cut -d: -f1); [ "$got" = "अवतरणम्अवतरणम्" ] && pass=$((pass+1)) || { fail=$((fail+1)); echo "FAIL dead step: $got"; }
+# §0.3 step 1: a declaration with a type and no body is a coordinate; a match asks it and it becomes the superposition of
+# the match's constructors, correlated across every holder (one label on both sides of pair), split only as far as asked
+got=$(./hyper run t/coord.hyper pick | head -1); case "$got" in '&'*'{1,2}') pass=$((pass+1));; *) fail=$((fail+1)); echo "FAIL coord pick: $got";; esac
+got=$(./hyper run t/coord.hyper pair | head -1); l1=$(echo "$got" | sed -n 's/^#Pair{&\([0-9]*\){1,2},&\([0-9]*\){#True{},#False{}}}$/\1 \2/p')
+if [ -n "$l1" ] && [ "${l1% *}" = "${l1#* }" ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL coord pair: $got"; fi
+got=$(./hyper run t/coord.hyper depth | head -1); case "$got" in '&'*'{0,&'*'{1,2}}') pass=$((pass+1));; *) fail=$((fail+1)); echo "FAIL coord depth: $got";; esac
 # every identifier MAP.md names is on the line it cites
 if ./cite.sh >/dev/null; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL cite: $(./cite.sh | tail -3 | tr '\n' ' ')"; fi
 echo "pass=$pass fail=$fail"; [ $fail -eq 0 ]

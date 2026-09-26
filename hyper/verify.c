@@ -783,6 +783,9 @@ int check_book(const char *prefix) {
   for (uint32_t i = 0; i < BOOK_LEN; i++) {
     if (prefix && strncmp(BOOK[i].name, prefix, strlen(prefix))) continue;
     if (!BOOK[i].type) continue;
+    if (BOOK[i].unknown) { NRW = 0; VERR = V_OK; Term fr = 0; uint32_t ty = skip_dims(BOOK[i].type, &fr);
+      if (check(ty, fr, SET)) printf("\x1b[32m✓ %s : a coordinate of its type\x1b[0m\n", BOOK[i].name + (prefix ? strlen(prefix) : 0)); else { bad++; report_err(BOOK[i].name + (prefix ? strlen(prefix) : 0)); }
+      continue; }
     NRW = 0; VERR = V_OK;
     Term fr = 0; uint32_t ty = skip_dims(BOOK[i].type, &fr);
     bool ok = check(ty, fr, SET);
