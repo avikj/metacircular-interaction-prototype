@@ -112,9 +112,10 @@ $$
 
 <h2><span class="n">2.</span> Unique factorization is distributivity: one chain per prime</h2>
 <ul>
-<li>Every n factors uniquely into prime powers (fundamental theorem of arithmetic), so a divisor is fixed by how many of each prime it uses: d = 2<sup>e₂</sup>·3<sup>e₃</sup>·5<sup>e₅</sup>⋯.</li>
-<li>The powers of one prime are totally ordered — a chain: p<sup>i</sup> ∣ p<sup>j</sup> iff i ≤ j, so 1 ∣ p ∣ p² ∣ ⋯. On a totally ordered set, meet and join are just min and max.</li>
-<li>A number carries one exponent per prime at once, so divisibility compares exponent vectors coordinate by coordinate, and gcd and lcm take the min and max in each coordinate:</li>
+<li>Every n factors uniquely into prime powers (fundamental theorem of arithmetic), so a divisor is a choice of how many of each prime it uses: d = 2<sup>e₂</sup>·3<sup>e₃</sup>·5<sup>e₅</sup>⋯.</li>
+<li>The primes do not interact. The exponent of a prime p in a product is the sum of its exponents in the factors, and no other prime contributes to it; distinct prime powers share no factor. So each prime is an independent axis — a divisor is any choice 0 ≤ e<sub>p</sub> ≤ a<sub>p</sub>, one per prime, and every such choice is a genuine divisor.</li>
+<li>Along one axis the exponents are totally ordered — a chain: p<sup>i</sup> ∣ p<sup>j</sup> iff i ≤ j, and there meet and join are just min and max.</li>
+<li>Raising one prime's exponent can never make up for another's, so divisibility, gcd, and lcm each read one axis at a time — d ∣ d′ is e<sub>p</sub> ≤ e′<sub>p</sub> per prime, gcd and lcm are min and max per prime:</li>
 </ul>
 $$
 d \mid d' \iff e_p \le e_p' \ \text{ for every } p
