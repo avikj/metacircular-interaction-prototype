@@ -202,7 +202,7 @@ $$
 \min\big(a,\, \max(b, c)\big) = \max\big(\min(a,b),\, \min(a,c)\big) \qquad (\text{on a chain})
 $$
 <ul>
-<li>True in every coordinate, it is true of the vectors — the distributive law for gcd and lcm (this proves the ∧-over-∨ form; in any lattice it implies its ∨-over-∧ dual):</li>
+<li>True in every coordinate, it is true of the vectors — the distributive law for gcd and lcm (the same one-case coordinatewise check gives the ∨-over-∧ law equally: max(a, min(b, c)) = min(max(a, b), max(a, c))):</li>
 </ul>
 $$
 A \wedge (B \vee C) = (A \wedge B) \vee (A \wedge C)
@@ -286,13 +286,13 @@ g(m) = \sum_{d \mid m} f(d)
 $$
 <ul>
 <li>Invert it by hand. List the divisors so each comes after all it is divisible by (§2's grid allows this). Then g(m) = f(m) + (sum of earlier f's), so from the bottom up f(1) = g(1) and each f(m) = g(m) − (already-known lower f's). Every f(m) is recovered: a sum-over-below has 1 on the diagonal, so it is triangular and back-substitution never fails.</li>
-<li>The coefficients of that back-substitution are one function μ of the ratio m/d alone — the divisors from d up to m are themselves the divisor lattice of m/d, so only the ratio matters — forced by inversion; the forcing condition is that summing μ below gives 1 at the bottom and 0 above:</li>
+<li>The coefficients of that back-substitution are one function μ of the ratio m/d alone — subtract d's exponents and the stretch from d up to m becomes the grid from 0 to m/d's exponents, i.e. the divisor lattice of m/d, so only the ratio matters — forced by inversion; the forcing condition is that summing μ below gives 1 at the bottom and 0 above:</li>
 </ul>
 $$
 f(m) = \sum_{d \mid m} \mu(m/d)\, g(d) \qquad \sum_{d \mid m} \mu(d) = [\, m = 1 \,]
 $$
 <ul>
-<li>Build μ from that condition on one prime axis 1 ∣ p ∣ p² ∣ ⋯: μ(1) = 1 forces μ(p) = −1 (so 1 + μ(p) = 0), then μ(p²) = 0, and 0 forever after. Axes are independent, so μ multiplies across primes — (−1) once per distinct prime, and 0 the moment any prime repeats:</li>
+<li>Build μ from that condition on one prime axis 1 ∣ p ∣ p² ∣ ⋯: μ(1) = 1 forces μ(p) = −1 (so 1 + μ(p) = 0), then μ(p²) = 0, and 0 forever after. Axes are independent — the lattice is the product of the prime chains (§2) and the inversion runs on each factor separately — so μ of a product is the product of the per-axis values: (−1) once per distinct prime, and 0 the moment any prime repeats:</li>
 </ul>
 $$
 \mu(d) = \begin{cases} (-1)^{\omega(d)} & d \text{ squarefree} \\ 0 & \text{a prime repeats} \end{cases}
