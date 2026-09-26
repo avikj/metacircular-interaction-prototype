@@ -1,5 +1,173 @@
 # Hyperactive
 
+**Read this section before anything else in this directory. It is the task. Every
+regression this project has suffered came from someone building a smaller thing
+than this and calling it progress.**
+
+## 0. What this is
+
+Hyperactive is a programming language whose runtime is the mathematics done
+right, so that a declaration is the program. You write the type of a function
+from lists to their sorted permutations:
+
+    sort : Π (A : List Nat). Σ (B : List Nat). (multiset A ≡ multiset B) × Sorted B
+
+and nothing else. The runtime produces B for any A, and the cost of producing it
+is the minimum for that object. You never wrote an algorithm and never chose
+one. On the next line you write
+
+    sortCost : Π (n : Nat). Nat        -- the greatest cost of sorting any list of length n
+
+and the same operation resolves it: over an unbounded domain, and over the
+machine's own cost. If those two declarations resolve from the core, with no
+organ written for lists, numbers, sorting or cost, everything else the language
+is meant to be falls out. If either needs a special case, the core is wrong.
+
+Why this is possible and not a wish, in the corpus's own checked terms:
+
+1. **The fibre law.** For any f : A → B, A ≃ Σ_b fib_f(b), and for any lossless
+   factorisation of a computation the retained trace is forced to be the fibre
+   of its visible map (`fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda:129`
+   `fibre-of-run`). A specification `Σ B. P A B` is a fibre. When it is
+   contractible its centre is determined by A, so B is inferrable, not guessed.
+   When it is empty there is no B; when it is crowded the specification
+   underdetermines. The census says which, pointwise, three-valued, never a
+   Boolean (`fibre/src/Fibre/WholePartialDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic.agda:87`
+   `देश`).
+2. **The geodesic.** Under the one-step diamond every complete reduction of an
+   object to its normal form has the same length and no first move can lengthen
+   it (`research/sat_fibre/InteractionGeodesic.agda:45` `same-normalization-length`,
+   `:53` `normalization-is-geodesic`). Interaction nets have the diamond because
+   active pairs are disjoint. So the number of interactions from a declaration
+   to its resolution is an invariant of the object, and it is the minimum,
+   because every path is the minimum. Cost is not a performance figure and the
+   programmer never thinks about it.
+3. **Univalence computes.** A proved equivalence between two presentations is a
+   path in the universe and transport along it reduces (`fibre/src/Fibre/Carrier.agda:129`
+   `carry-transport-descend`). Meaning descends along it; cost does not. So the
+   minimal count for an object is the minimum over its charts, and the only
+   lever that changes cost is a proof.
+4. **Cost and inverse cannot coexist.** Only forgetting costs. Nothing is erased
+   inside a run; a demanded node fires once and every holder sees its value; a
+   forgotten port is charged at the projection. The run's charge is interactions
+   and heap words (`research/sat_fibre/InteractionLedger.agda:20` `Charge`,
+   `:74` `interactionTotal-is-length`).
+5. **Interaction is the operation.** A state faces a typed map and returns the
+   successor, the observation, the event and the continuation
+   (`fibre/src/Fibre/Interaction_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers.agda:81`
+   `react`). Two parts are projections of one joint
+   (`formal/cubical/theorems/logic/Jiva_EntanglementIsTheFibreOfTheProductComparisonAndTheLivingStepRefusesToDescendToTheMarginals.agda:134`
+   `तुलना`); two peers with an overlap compose one trace
+   (`formal/cubical/kernel-flat/TheEncounterOfTwoPeersIsOneTraceAndNoScalarProjectionOfItHasASection.agda:164`
+   `interact`). What the runtime cannot infer is exactly the concrete, non-universal
+   information, and it enters through a free port.
+
+The universal part of mathematics is finite and already in the construction.
+What the language accepts from outside is the specific: data, boundary
+conditions, the choice at a crowded fibre. A deterministic physical law over its
+boundary data is a contractible fibre and resolves like `sort`.
+
+## 0.1 The mechanism, from the core, with no organs
+
+How `sort` resolves. For concrete A, B is a list of **coordinates**: generic
+elements of its type with no value yet. `sort`'s specification runs on them. A
+path at a data type between a term with coordinates and a concrete term is
+**unification**: constructor against constructor from the type's declaration,
+coordinate against term as a split into the side where it is that term and the
+side where it is not. A case on a coordinate is not stuck: it becomes a
+**superposition over the constructors of its type**, each side restricting the
+coordinate, with fresh coordinates for the fields; this is exactly what the
+checker already does when a match on a coordinate restricts its frame. Sides on
+which a predicate reduces to False are annihilated by the face map. The
+survivors are the fibre. It has one point because the fibre is contractible, and
+that point is B. No enumeration of Nat happens: a coordinate is split only when
+something asks about it and only as far as it is asked. This is narrowing, and
+it is the fibre law run forward.
+
+How `sortCost n` resolves. Present `sort` along a list of n coordinates. Each
+undetermined comparison splits into a superposition with the residual constraint
+carried. Only finitely many comparisons can be asked of n coordinates before the
+order is determined, so the run over the infinite domain is a finite tree: the
+symmetry of the domain is carried by the coordinates without a quotient being
+written. Each leaf has a ledger. **The trace of a run is a term of the language**
+and **a superposition collapses to the list of its leaves as a term**, so `cost`
+is a fold, `max` over the leaves is a fold, and `sortCost n` is the decision-tree
+bound, computed, minimal on every branch by the geodesic. For all n at once the
+declaration is a Π over an inductive type, whose canonical inhabitant is by that
+type's eliminator, so the inference is by induction and the checker confirms it
+on the same loop.
+
+The core therefore owes the language exactly these, each derived from type
+structure and none written per type:
+
+- coordinates at run time; a declaration with no body, or a Σ with no witness,
+  is a coordinate of its type;
+- a case on a coordinate is a superposition over its constructors with
+  restriction;
+- a path at a data type with coordinates decides by unification;
+- the trace of a run and the leaves of a superposition are terms;
+- every rule fires at an active pair and bodies are shared as nets, so the
+  count is the proved geodesic and shared prefixes across branches are paid once;
+- a proved equivalence between charts lets the collapse run in the cheaper chart
+  under its certificate;
+- the checker on the same loop verifies every inferred body against its type.
+
+Nothing in this list names lists, numbers, sorting or cost.
+
+## 0.2 What regressing looks like, so you can recognise it
+
+Today's session lost most of a day to each of these, in order. Do not repeat
+them.
+
+- **Building an interface instead of the language.** Subcommands that compute
+  what a corpus module proves (a census mode, a joint mode, a meet mode) are
+  organs. The constructions belong in the language as terms over the two
+  primitives above, and the runtime has one entry: reduce, with check on the
+  same loop. The modes on this branch are to be removed, not extended.
+- **Building the runtime someone else already has.** An efficient interaction
+  net exists (HVM). A cubical fork of Bend on it exists
+  (`collab/bend2-interactive-cubical`). This directory is not a faster one of
+  those. It is the language in §0, and the fork is its first dialect and its
+  value oracle.
+- **Importing the toy's frame.** `formal/cubical/Kernel/` is a first-order
+  term-rewriting kernel whose own theorems show its `install` fires at exactly
+  one term (`formal/cubical/Kernel/Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesAndTheSchemaIsWhatMakesItGeneralise.agda:113`
+  `fires-only-at-source`) and cannot grow its reach
+  (`formal/cubical/Kernel/Siddhasadhana_InstallingWhatYouCanAlreadyReachIsAPlateauSoTheKernelsOwnLibraryCannotGrowItsReach.agda:96`
+  `install-chain-plateau`). Its vocabulary is not this language's design.
+- **Deleting the cost.** The interaction count is a corpus quantity (item 4).
+  Removing it because a toy also counted was wrong and was reverted.
+- **Narrating from prior.** Every identifier in this file is cited to a file and
+  line, and `cite.sh` fails the test suite when one does not resolve. A sentence
+  that could have been written without reading the checked term it is about is
+  not allowed here. Nineteen of twenty-one rules once cited theorems that did
+  not exist; the table that exposed it is the reason this gate exists.
+- **Reading instead of building.** The object is fixed by items 1 to 5 and the
+  modules they cite. A further module is read when its probe is being written,
+  and the probe reproduces it by running.
+
+## 0.3 Order of work
+
+1. Coordinates at run time and the case on a coordinate as a superposition with
+   restriction. Everything else is expressed through this.
+2. Unification at data types as the reduction of a path with coordinates.
+3. The trace of a run and the leaves of a superposition as terms; the four modes
+   removed and their probes rewritten as programs.
+4. A declaration with no body is inferred: `sort` as the first test, its type its
+   only text; `sortCost n` for small n against the decision-tree bound as the
+   second.
+5. Every rule at an active pair, bodies as nets: the count becomes the proved
+   geodesic. The one rule that fires on a non-value goes.
+6. The chart move under a checked path.
+7. The Bend dialect's grammar as a book with its certificate; parallel demand
+   over the one arena.
+
+The sections below describe the substrate as it stands. Where they describe a
+mode, read it as a construction to be moved into the language under step 3.
+
+
+## Read order
+
 Read these before writing anything here, in this order: `fibre/src/Everything.agda`,
 `fibre/src/Fibre/CorpusInteraction.agda`, `fibre/src/Fibre/Carrier.agda`,
 `fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda`,
