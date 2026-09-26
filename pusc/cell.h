@@ -32,6 +32,7 @@ enum Tag {
   T_INOT,      /* loc → [a]                                            */
   T_IAND,      /* loc → [a, b]                                         */
   T_IOR,       /* loc → [a, b]                                         */
+  T_IDNF,      /* ext = ncubes, loc → cubes: [nlits, lit…]…  canonical interval (antichain of cubes) */
   /* data; a type is a CTR cell with a reserved constructor id */
   T_CTR,       /* ext = ctor id (16) | arity (8), loc → fields         */
   T_NUM,       /* loc → [u64]                                          */
@@ -41,6 +42,7 @@ enum Tag {
   T_HCM,       /* ext = nfaces, loc → [type, base, phi₁,u₁,…]  ● faces */
   /* static-code eliminators instantiated on the heap */
   T_CASE,      /* loc → [scrut, code, frame]        ● scrut           */
+  T_PROJ,      /* ext = field index, loc → [x]      ● x  (fst/snd of any constructor) */
   /* judgments and the interaction */
   T_CHK,       /* loc → [type, term]                                   */
   T_ASK,       /* loc → [q, k]                      a free port        */
@@ -62,7 +64,7 @@ static inline Loc      loc(Term t) { return (Loc)t; }
 enum Ctor {
   C_USER = 0,        /* user constructors are looked up by name, ids ≥ C_USER_BASE */
   C_SET = 1, C_PI, C_SIG, C_PATH, C_EQL, C_NAT, C_BOOL, C_UNIT, C_EMPTY, C_LIST,
-  C_ENUM, C_NUMTY, C_GLU, C_PAIR, C_REFL,
+  C_ENUM, C_NUMTY, C_GLU, C_PAIR, C_REFL, C_CONS, C_NIL, C_FACE, C_ZER, C_SUC, C_TRUE, C_FALSE, C_TT,
   C_USER_BASE = 64
 };
 static inline uint32_t ctr_ext(uint32_t id, uint32_t arity) { return (id << 8) | (arity & 0xFF); }
@@ -78,12 +80,13 @@ enum Op { OP_ADD, OP_SUB, OP_MUL, OP_DIV, OP_MOD, OP_EQ, OP_NE, OP_LT, OP_LE, OP
 enum STag {
   S_VAR = 1, S_LAM, S_APP, S_REF, S_ERA, S_SUP, S_PLM, S_DIM, S_FCE,
   S_I0, S_I1, S_IVAR, S_INOT, S_IAND, S_IOR,
-  S_CTR, S_NUM, S_OP2, S_TRP, S_HCM, S_CASE, S_BRANCH, S_CHK, S_ASK, S_LET
+  S_CTR, S_NUM, S_OP2, S_TRP, S_HCM, S_CASE, S_BRANCH, S_CHK, S_ASK, S_LET, S_PROJ
 };
 typedef struct SNode {
   uint8_t  tag;
   uint32_t ext;        /* level / op / ctor ext / side / count */
   uint32_t a, b, c, d; /* child indices into the arena (0 = none) */
+  uint32_t kids;       /* S_CTR with arity > 4: index into KIDS of `arity` children */
   uint64_t num;        /* S_NUM */
 } SNode;
 
@@ -99,6 +102,7 @@ typedef struct Rule { uint32_t lhs, rhs, cert; } Rule;   /* §8, install appends
 
 extern Term    *HEAP;   extern Loc HEAP_LEN;
 extern SNode   *CODE;   extern uint32_t CODE_LEN;
+extern uint32_t *KIDS;  extern uint32_t KIDS_LEN;
 extern Def     *BOOK;   extern uint32_t BOOK_LEN;
 extern uint64_t ITRS;
 extern uint32_t *TRACE; extern uint64_t TRACE_LEN;   /* receipts: rule ids */
@@ -112,6 +116,9 @@ Term normalize(Term t, int depth);
 void print_term(Term t, int depth);
 Term inst(uint32_t code, Term frame);
 Term run_def(uint32_t id);
+Term iwhnf(Term t);
+void load_prelude(void);
+extern int RULE_TRP[256], RULE_HCM[256];   /* prelude rule per type constructor id, -1 if none */
 int  book_find(const char *name);
 const char *ctor_name(uint32_t id);
 uint32_t ctor_intern(const char *name, uint32_t arity);

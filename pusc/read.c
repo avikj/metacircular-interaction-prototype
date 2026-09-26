@@ -92,9 +92,15 @@ static uint32_t term(void) {
   else if (!strcmp(h, "inot")) { uint32_t a = term(); r = snode(S_INOT, 0, a, 0,0,0); }
   else if (!strcmp(h, "iand")) { uint32_t a = term(), b = term(); r = snode(S_IAND, 0, a, b, 0,0); }
   else if (!strcmp(h, "ior"))  { uint32_t a = term(), b = term(); r = snode(S_IOR, 0, a, b, 0,0); }
-  else if (!strcmp(h, "ctr")) { char *n = atom(); uint32_t k[4] = {0}, ar = 0;
-     while (!peek(')')) { if (ar >= 4) { fprintf(stderr, "pusc: constructor arity > 4 not yet\n"); exit(2); } k[ar++] = term(); }
-     r = snode(S_CTR, ctr_ext(ctor_intern(n, ar), ar), k[0], k[1], k[2], k[3]); }
+  else if (!strcmp(h, "ctr")) { char *n = atom(); uint32_t k[64] = {0}, ar = 0;
+     while (!peek(')')) { if (ar >= 64) { fprintf(stderr, "pusc: constructor arity > 64\n"); exit(2); } k[ar++] = term(); }
+     if (ar <= 4) r = snode(S_CTR, ctr_ext(ctor_intern(n, ar), ar), k[0], k[1], k[2], k[3]);
+     else { static uint32_t kcap; if (!KIDS) { kcap = 4096; KIDS = malloc(kcap * sizeof(uint32_t)); }
+            if (KIDS_LEN + ar >= kcap) { kcap *= 2; KIDS = realloc(KIDS, kcap * sizeof(uint32_t)); }
+            r = snode(S_CTR, ctr_ext(ctor_intern(n, ar), ar), 0,0,0,0); CODE[r].kids = KIDS_LEN;
+            for (uint32_t i = 0; i < ar; i++) KIDS[KIDS_LEN++] = k[i]; } }
+  else if (!strcmp(h, "proj")) { uint32_t i = term(), x = term(); r = snode(S_PROJ, 0, i, x, 0, 0); }
+  else if (!strcmp(h, "hcm")) { uint32_t A = term(), base = term(), fs = term(); r = snode(S_HCM, 0, A, base, fs, 0); }
   else if (!strcmp(h, "trp")) { uint32_t L = term(), a = term(), b = term(), x = term(); r = snode(S_TRP, 0, L, a, b, x); }
   else if (!strcmp(h, "chk")) { uint32_t T = term(), x = term(); r = snode(S_CHK, 0, T, x, 0, 0); }
   else if (!strcmp(h, "ask")) { uint32_t q = term(), k = term(); r = snode(S_ASK, 0, q, k, 0, 0); }
@@ -111,7 +117,12 @@ static uint32_t term(void) {
      }
      r = snode(S_CASE, 0, s, first, 0, 0);
   }
-  else { fprintf(stderr, "pusc: unknown form %s\n", h); exit(2); }
+  else {   /* (f a b …) with f a bound variable or a definition: application */
+    bool d; int l = lookup(h, &d); int def = l < 0 ? book_find(h) : -1;
+    if (l < 0 && def < 0) { fprintf(stderr, "pusc: unknown form %s\n", h); exit(2); }
+    r = l >= 0 ? snode(d ? S_IVAR : S_VAR, (uint32_t)l, 0,0,0,0) : snode(S_REF, (uint32_t)def, 0,0,0,0);
+    while (!peek(')')) { uint32_t x = term(); r = snode(S_APP, 0, r, x, 0, 0); }
+  }
   expect(')'); return r;
 }
 

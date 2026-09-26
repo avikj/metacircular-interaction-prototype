@@ -1,0 +1,67 @@
+; pusc prelude — the right-hand sides of the Kan rules as terms of the identity chart (MAP.md §3.5).
+; The dispatch (which row fires, regularity, r ≡ s, true/false faces, constructor-headed composites)
+; is in cell.c; these are the rows, transcribed once from Core/WHNF.hs.  A type is a CTR cell.
+
+(def pi-dom  (lam T (case T (Pi (A B) A))))
+(def pi-cod  (lam T (case T (Pi (A B) B))))
+(def sig-fst (lam T (case T (Sig (A B) A))))
+(def sig-snd (lam T (case T (Sig (A B) B))))
+(def path-ty (lam T (case T (Path (A a b) A))))     ; Path A a b : A is a line (plm j …), a : A i0, b : A i1
+(def path-l  (lam T (case T (Path (A a b) a))))
+(def path-r  (lam T (case T (Path (A a b) b))))
+(def fst (lam p (case p (Pair (a b) a))))
+(def snd (lam p (case p (Pair (a b) b))))
+(def map-faces (lam f (lam fs (case fs (Nil () (ctr Nil)) (Cons (h t) (case h (Face (phi u) (ctr Cons (ctr Face phi (app f u)) (app map-faces f t)))))))))
+
+; ---- transport along a line of types (whnfCoe) ----------------------------------------------
+; Pi: the argument backwards, the result forwards
+(def trp/Pi (lam L (lam r (lam s (lam x
+  (lam y (trp (plm i (app (pi-cod (app L i)) (trp (plm j (pi-dom (app L j))) s i y)))
+              r s
+              (app x (trp (plm j (pi-dom (app L j))) s r y)))))))))
+; Sig: components, the second along the filled first
+(def trp/Sig (lam L (lam r (lam s (lam x
+  (let a (fst x)
+  (ctr Pair (trp (plm j (sig-fst (app L j))) r s a)
+            (trp (plm i (app (sig-snd (app L i)) (trp (plm j (sig-fst (app L j))) r i a))) r s (snd x)))))))))
+; Path: the hcomp-conjugation square;  at k = (~k ∧ r) ∨ (k ∧ s)
+(def trp/Path (lam L (lam r (lam s (lam x
+  (plm j (hcm (app (path-ty (app L s)) j)
+              (trp (plm i (app (path-ty (app L i)) j)) r s (app x j))
+              (ctr Cons (ctr Face (inot j) (plm k (trp (plm i (app (path-ty (app L i)) i0)) (ior (iand (inot k) r) (iand k s)) s (path-l (app L (ior (iand (inot k) r) (iand k s)))))))
+              (ctr Cons (ctr Face j        (plm k (trp (plm i (app (path-ty (app L i)) i1)) (ior (iand (inot k) r) (iand k s)) s (path-r (app L (ior (iand (inot k) r) (iand k s)))))))
+              (ctr Nil))))))))))
+; a superposed line: face-map the value at the name, transport each face along its own line, re-superpose
+(def trp/sup (lam L (lam r (lam s (lam x (lam J
+  (sup J (trp (plm i (fce J 0 (app L i))) r s (fce J 0 x))
+         (trp (plm i (fce J 1 (app L i))) r s (fce J 1 x)))))))))
+
+; ---- derived: the filler and heterogeneous composition (neither is primitive) ------------------
+(def hfill (lam A (lam base (lam faces (lam j
+  (hcm A base (ctr Cons (ctr Face (inot j) (plm k base))
+                        (app map-faces (lam u (plm k (app u (iand k j)))) faces))))))))
+(def comp (lam P (lam base (lam faces
+  (hcm (app P i1) (trp P i0 i1 base)
+       (app map-faces (lam u (plm k (trp (plm i (app P (ior i k))) k i1 (app u k)))) faces))))))
+
+; ---- hcomp within a type (whnfHCm) ---------------------------------------------------------
+(def hcm/Pi (lam A (lam base (lam faces
+  (lam v (hcm (app (pi-cod A) v) (app base v) (app map-faces (lam u (plm j (app (app u j) v))) faces)))))))
+(def hcm/Path (lam A (lam base (lam faces
+  (plm j (hcm (app (path-ty A) j) (app base j)
+              (ctr Cons (ctr Face (inot j) (plm k (path-l A)))
+              (ctr Cons (ctr Face j        (plm k (path-r A)))
+              (app map-faces (lam u (plm k (app (app u k) j))) faces)))))))))
+(def hcm/Sig (lam A (lam base (lam faces
+  (let fsA (app map-faces (lam u (plm j (fst (app u j)))) faces)
+  (let fsB (app map-faces (lam u (plm j (snd (app u j)))) faces)
+  (let x0 (fst base)
+  (ctr Pair (hcm (sig-fst A) x0 fsA)
+            (comp (plm j (app (sig-snd A) (hfill (sig-fst A) x0 fsA j))) (snd base) fsB)))))))))
+; a superposed type: commute
+(def hcm/sup (lam A (lam base (lam faces (lam J
+  (sup J (hcm (fce J 0 A) (fce J 0 base) (fce J 0 faces))
+         (hcm (fce J 1 A) (fce J 1 base) (fce J 1 faces))))))))
+
+; project field i (a number literal) of a constructor-headed tube: used by the constructor-headed hcomp rule
+(def tube-field (lam i (lam u (plm k (proj i (app u k))))))
