@@ -1,4 +1,4 @@
-/* hyper — main.c: run | bend | check | interact.
+/* hyper — main.c: run | bend | check | interact | census.
  *
  * The machine is Fibre.CorpusInteraction (fibre/src/Fibre/CorpusInteraction.agda): a state is a typed
  * point (A, a) : Σ A. A; a question is a typed map (B, f) out of the current type; the answer is the
@@ -49,6 +49,25 @@ static int interact(const char *entry, bool bend) {
   }
   return 0;
 }
+/* गणना f : (b : B) → देश f b  (fibre/src/Fibre/WholePartialDesa_…agda:87–94): the census of a question, pointwise
+   over the codomain.  The domain and codomain are given as superpositions of their points; the fibre शेष f b is
+   the set of domain points whose value is b, and its census is नास्ति (no point), सकलादेश (one point), or
+   विकलादेश (two or more distinct points, both shown).  This is what a computation costs (MAP §3). */
+static int census(const char *f, const char *dom, const char *cod) {
+  int fi = book_find(f), di = book_find(dom), ci = book_find(cod);
+  if (fi < 0 || di < 0 || ci < 0) { fprintf(stderr, "hyper: census needs three definitions: the map, the domain, the codomain\n"); return 1; }
+  static Term as[4096], bs[4096]; int na = collapse_leaves(mk(T_REF, 0, (uint32_t)di), as, 4096), nb = collapse_leaves(mk(T_REF, 0, (uint32_t)ci), bs, 4096);
+  char **fa = calloc((size_t)na, sizeof *fa), **sa = calloc((size_t)na, sizeof *sa);
+  for (int i = 0; i < na; i++) { sa[i] = term_string(as[i], 64); fa[i] = term_string(app2(mk(T_REF, 0, (uint32_t)fi), as[i]), 64); }
+  for (int j = 0; j < nb; j++) {
+    char *b = term_string(bs[j], 64); int k = 0;
+    for (int i = 0; i < na; i++) if (!strcmp(fa[i], b)) k++;
+    printf("%s: %s", b, k == 0 ? "नास्ति" : k == 1 ? "सकलादेश" : "विकलादेश");
+    for (int i = 0; i < na; i++) if (!strcmp(fa[i], b)) printf(" %s", sa[i]);
+    printf("\n");
+  }
+  return 0;
+}
 static void load_next_to_exe(const char *exe, const char *name) {
   char pre[4096]; const char *slash = strrchr(exe, '/');
   snprintf(pre, sizeof pre, "%.*s%s%s", slash ? (int)(slash - exe) : 1, slash ? exe : ".", "/", name);
@@ -56,7 +75,7 @@ static void load_next_to_exe(const char *exe, const char *name) {
 }
 int main(int argc, char **argv) {
   { struct rlimit rl; if (!getrlimit(RLIMIT_STACK, &rl)) { rl.rlim_cur = rl.rlim_max == RLIM_INFINITY ? (rlim_t)4 << 30 : rl.rlim_max; setrlimit(RLIMIT_STACK, &rl); } }   /* deep terms recurse deep */
-  if (argc < 3) { fprintf(stderr, "usage: hyper run FILE [DEF] | hyper bend FILE | hyper check FILE | hyper interact FILE [DEF]\n"); return 1; }
+  if (argc < 3) { fprintf(stderr, "usage: hyper run FILE [DEF] | hyper bend FILE | hyper check FILE | hyper interact FILE [DEF] | hyper census FILE MAP DOM COD\n"); return 1; }
   bool bend = !strcmp(argv[1], "bend") || !strcmp(argv[1], "check");
   bool inter = !strcmp(argv[1], "interact");
   if (inter) bend = true;                                /* the dialect's rows are loaded; presentation follows the entry's namespace */
@@ -65,6 +84,7 @@ int main(int argc, char **argv) {
   read_file(argv[2]);
   load_prelude();
   if (!strcmp(argv[1], "check")) return check_book("b/") ? 1 : 0;
+  if (!strcmp(argv[1], "census")) { if (argc < 6) { fprintf(stderr, "usage: hyper census FILE MAP DOM COD\n"); return 1; } return census(argv[3], argv[4], argv[5]); }
   if (inter) { const char *e = argc > 3 ? argv[3] : (book_find("b/main") >= 0 ? "b/main" : "main"); return interact(e, !strncmp(e, "b/", 2)); }
   const char *entry = argc > 3 ? argv[3] : (bend ? "b/main" : "main");
   int id = book_find(entry); if (id < 0) { fprintf(stderr, "hyper: no %s\n", entry); return 1; }

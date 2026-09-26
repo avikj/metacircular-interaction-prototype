@@ -182,5 +182,7 @@ int face_cells(Term phi, FaceCell *out, int max);
 extern bool CHECK_MODE;                          /* δ reflects a typed definition at its type (§7) */
 extern bool (*REWRITE_HOOK)(Term old, Term v);   /* a semantic rewrite: does the cell v equal old? (verify.c) */           /* the one global choice name of a numeric label (the Bend dialect) */
 void print_bend(Term t, int depth);    /* Bend2's own presentation of a value */
-void collapse_print(Term t);           /* one line per branch, in Bend2's collapse order */
+void collapse_print(Term t);
+int  collapse_leaves(Term t, Term *out, int max);   /* the leaves of a superposition, in collapse order */
+char *term_string(Term t, int depth);           /* one line per branch, in Bend2's collapse order */
 #endif

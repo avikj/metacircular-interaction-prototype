@@ -1256,6 +1256,23 @@ static Term lift(Term t, int depth) {
     default: return t;
   }
 }
+/* the leaves of a superposition tree, in collapse order; a value that is not superposed is one leaf */
+int collapse_leaves(Term t, Term *out, int max) {
+  Term q[1 << 12]; uint32_t head = 0, tail = 0; int n = 0; q[tail++] = t;
+  while (head < tail && n < max) {
+    Term v = lift(q[head++], 256);
+    if (tag(v) == T_SUP) { if (tail + 2 < (1u << 12)) { q[tail++] = HEAP[loc(v)+1]; q[tail++] = HEAP[loc(v)+2]; } continue; }
+    if (tag(v) == T_ERA) continue;
+    out[n++] = v;
+  }
+  return n;
+}
+/* a value as its printed text, for comparison by identity of normal forms */
+char *term_string(Term t, int depth) {
+  char *buf = 0; size_t n = 0; FILE *m = open_memstream(&buf, &n); FILE *old = stdout;
+  stdout = m; print_rec(t, depth); fflush(m); stdout = old; fclose(m);
+  return buf;
+}
 void collapse_print(Term t) {
   Term q[1 << 16]; uint32_t head = 0, tail = 0; q[tail++] = t;
   while (head < tail) {

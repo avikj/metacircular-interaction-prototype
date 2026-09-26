@@ -1,0 +1,9 @@
+; गणना (fibre/src/Fibre/WholePartialDesa_…): the census of a question, pointwise over its codomain.
+; The domain and codomain are the superpositions of their points.
+(def bool (sup 7 (ctr True) (ctr False)))
+(def bool2 (sup 8 (ctr True) (ctr False)))
+(def unit (ctr Tt))
+(def not (lam b (case b (True () (ctr False)) (False () (ctr True)))))
+(def always-true (lam u (ctr True)))      ; Unit → Bool: सकलादेश at True, नास्ति at False (nothing lost, a name Unit cannot utter)
+(def forget (lam b (ctr Tt)))             ; Bool → Unit: विकलादेश at Tt (a bit lost)
+(def compose (lam u (app forget (app always-true u))))   ; Unit → Unit: सकलादेश (the two cancel)

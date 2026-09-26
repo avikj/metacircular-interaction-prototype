@@ -57,6 +57,16 @@ if [ "$got" == "? #Cons{'w',#Cons{'h',#Cons{'o',#Nil{}}}} #Pair{#True{},7} 7 " ]
 # the checker (verify.c) on its probes: every definition checks
 n=$(./hyper check t/check.hyper 2>/dev/null | grep -c '✓'); m=$(grep -c '^(def' t/check.hyper)
 if [ "$n" -eq "$m" ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL check: $n of $m definitions check"; fi
+# the census of a question (Fibre.WholePartialDesa §3, computed): f : Unit → Bool is सकलादेश at True and नास्ति at False;
+# g : Bool → Unit is विकलादेश at Tt; the composite is सकलादेश; not : Bool → Bool is सकलादेश everywhere
+got=$(./hyper census t/census.hyper always-true unit bool2 | tr '\n' ' ')
+if [ "$got" = "#True{}: सकलादेश #Tt{} #False{}: नास्ति " ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL census f: $got"; fi
+got=$(./hyper census t/census.hyper forget bool unit | tr '\n' ' ')
+if [ "$got" = "#Tt{}: विकलादेश #True{} #False{} " ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL census g: $got"; fi
+got=$(./hyper census t/census.hyper compose unit unit | tr '\n' ' ')
+if [ "$got" = "#Tt{}: सकलादेश #Tt{} " ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL census g∘f: $got"; fi
+got=$(./hyper census t/census.hyper not bool bool2 | tr '\n' ' ')
+if [ "$got" = "#True{}: सकलादेश #False{} #False{}: सकलादेश #True{} " ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL census not: $got"; fi
 # every identifier MAP.md names is on the line it cites
 if ./cite.sh >/dev/null; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL cite: $(./cite.sh | tail -3 | tr '\n' ' ')"; fi
 echo "pass=$pass fail=$fail"; [ $fail -eq 0 ]

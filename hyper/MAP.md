@@ -120,9 +120,15 @@ Commutation is the certificate that an order was removable:
 `fibre/src/Fibre/Order_CommutationIsTheProofThatTheOrderWasNeverThereAndItsFailureIsRetained.agda:102`
 `serialisation`.
 
-Not yet written: the census of a run, computed by presenting the point along the
-map on the superposition of its domain and classifying the fibre over each
-visible value.
+As written (`main.c`, `hyper census FILE MAP DOM COD`): the domain and codomain
+are given as superpositions of their points; the map is presented along every
+point of the domain; over each point of the codomain the fibre is the domain
+points whose value is it, and its census is
+`fibre/src/Fibre/WholePartialDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic.agda:88`
+`नास्ति` (none), `:89` `सकलादेश` (one), or `:90` `विकलादेश` (two or more, shown). `t/census.hyper` is the
+module's own §3, computed: `Unit → Bool` is सकलादेश at `True` and नास्ति at
+`False`, `Bool → Unit` is विकलादेश at `Tt`, and their composite is सकलादेश, so
+the loss at the second step does not appear in the composite.
 
 ## 4. What is not here, and why
 
@@ -151,7 +157,7 @@ where it is, as the object it is.
                              case trees, the HIT schema, numbers, transp, hcomp, Glue, the loop, printers
     hyper/read.c        282  the reader for the kernel's own text
     hyper/verify.c      795  the checker on the same loop
-    hyper/main.c         73  run | bend | check | interact (§2)
+    hyper/main.c        100  run | bend | check | interact | census (§2, §3)
     hyper/prelude.hyper 158  the Kan rows, Glue, transpEquiv, the HIT rows, as data
     hyper/bend.hyper     45  the Bend2 dialect's rows
     hyper/test.sh            the substrate's checks
