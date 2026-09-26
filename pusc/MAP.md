@@ -284,41 +284,54 @@ endpoints, both ua coherences stay. Unsupported operations are refused
     a free port ASK q k is the general form: reduction stalls at it, the
     world supplies a section of q, k continues (One §7).
 
-## 5.1 The surface: the kernel's own text, and Bend as a dialect
+## 5.1 The surface: no metarules are prior; a syntax is a certified translator
 
-Two surfaces, one of them free. The kernel's own text is the heap serialised
-(what the printer emits for normal forms, receipts and `interact`) and
-reading it back is a fixed reader of about a hundred lines. Bend2's grammar
-is the first dialect, a lowering table into cells, kept because the corpus
-lives in it. Every form of the kernel's text is forced by a checked term:
+README §49: the network does not require one universal internal language, it
+requires certified translators. A syntax is a map from token streams to
+cells; by One §1 the stream is `Σ meaning. fibre`, so parsing is `present`
+and generation its visible projection, and by §14 they are two projections
+of one equivalence. A grammar is therefore a rule table whose rules carry
+certificates ("this stream pattern denotes this cell", Alopa's form), and
+installing a grammar is the same declaration as installing any rule (§8).
+Pāṇini derives form from meaning through ordered rules: that is `f`; parsing
+is its fibre. Nothing is fixed before the association.
 
-    binders           named variables, sharing inferred by descent (§2); the user never writes a dup
-    lines             `<i> t` (by formula) and `&i{a, b}` (by faces) both BIND i; `i=0`/`i=1` eliminate;
-                      correlation is binding once and using twice, so no integer labels exist
-    definitions       `name : A = a`, a typed point; no def/theorem distinction (One §14)
-    rules             `lhs = rhs by d`, the certificate a field (Alopa); install is this declaration
-    questions         `?q` is a free port (One §7); effects are the same form
-    verdicts          three, each carrying its witness (Nirṇaya): derivation | refuting point | domain searched
-    implicitness      an argument may be omitted iff the fibre of its projection is contractible (One §1);
-                      universe levels are never written (the tower is forced)
-    systems           `[φ ↦ u]` with faces as interval formulas (CCHM), never a call encoding
-    match             the case tree; overlapping patterns ordered by the text (ElsewhereCondition:
-                      specificity fails at a proper crossing, so text order is information)
+What is forced, and by what:
 
-The grammar lane (TheTower, Laghava, Anuvrtti, Pratyahara, Asiddhatva,
-Apavada, ElsewhereCondition, Samjna) fixes what a surface is: cost lives at
-the level of the ordered rule text and meaning cannot see it. Hence the
-devices of the surface are cost devices with checked prices: context
-inherited rather than restated (anuvṛtti = descent lets, non-local,
-shortens); classes named as intervals over a declared order (pratyāhāra,
-marker count forced by the antichain); staging where a later rule must not
-see an earlier collapse (asiddhatva = retained distinction, the dup);
-specificity ordered by the text where it cannot be decided (apavāda);
-brevity underdetermines so the conventions are written, not derived
-(Laghava level set). Consequence: the grammar is not a fixed parser but the
-current rule text. `lower.c` is the bootstrap reader plus the Bend dialect
-table; a dialect is data the kernel is handed, and install extends syntax
-the way it extends reduction.
+    the line encodes a graph    a wire crossing the linear order needs a device (name, position,
+                                stack); which order is data and which is gauge is the fibre of
+                                linearisation (Krama, PairwiseCommutationGivesEveryOrder)
+    determinacy or a line       the stream determines the cell up to gauge, or the ambiguity is
+                                a SUP at a bound name and later context is the face map that
+                                decides it (a stuck composite is "the sentence is not finished")
+    the alphabet is an order    a class named as an interval costs two symbols, the marker count
+                                is forced by the antichain (Sivasutra, Pratyahara)
+    the reader is a term        quotation composes with evaluation up to ≃, never ≡; never
+                                collapse the codes (TranscriptDescent, Hieroglyphics II)
+    dialects are charts         two presentations of one complex, related by a SUPPLIED `ua`
+                                (NONHUMAN_COMMUNICATION: an equivalence is never found in the
+                                signal); coherence is that `ua`, diversity is forced because
+                                brevity picks a level set, not a point (Laghava)
+    evolution                   a new form is warranted iff it compresses the rule text by more
+                                than it costs (चिह्नजन्म ⟺ संरचनासंपीडनलाभ > 0)
+
+Consequence for the code: the parser is not a program beside the kernel.
+Token cells meet rule cells at active pairs; a parse is a normal form; an
+ambiguous parse is a superposition; the parse tree is the trace. What is
+fixed is the reader for the kernel's own text, the heap serialised (the
+identity chart, not a choice). Bend2's grammar is the first dialect: a rule
+table written in that text and loaded by install. A second dialect is another
+table with a `ua` to the first, and its translator is that `ua`, not a
+program. Universality is this: any presentation as rules, any translation as
+a supplied equivalence; the only stream it cannot host is one with no
+determined map, which is not a syntax.
+
+The kernel's own text still has the forms the construction forces (named
+binders with sharing by descent; `<i> t` and `&i{a,b}` binding one dimension;
+`name : A = a`; `lhs = rhs by d`; `?q`; three-valued verdicts; implicitness
+iff the argument's fibre is contractible; systems `[φ ↦ u]`; text-ordered
+match), but these are properties of the identity chart, not conventions
+imposed on any dialect.
 
 ## 6. Receipts and the census
 
@@ -384,11 +397,13 @@ execution is one schedule. Test: ITRS invariant across schedules.
                            face map 120, application 60, erase 60, interval DNF 150,
                            transp 200, hcomp+Glue 250, HIT 200, call step 200,
                            gmp numbers 120, trace+census 60, printer 100
-    pusc/lower.c   ~2500   §5: Bend2 grammar (recursive descent), Pat flattening,
-                           HIT elaboration, book + descent pass, refusals
+    pusc/read.c     ~100   §5: the reader for the kernel's own text (the identity chart)
+    pusc/bend.rules ~400   §5.1: Bend2's grammar as a certified rule table in that text,
+                           loaded by install; Pat flattening and HIT elaboration are rules too
+    pusc/book.c     ~150   BOOK/TBOOK construction, descent pass, refusals
     pusc/verify.c  ~1200   §7: infer/check over static terms, reflected generics,
                            conversion as point identity
     pusc/main.c     ~150   run | interact | check
     pusc/test.sh    ~100   §10 over collab/bend2-interactive-cubical/*.bend and port/
-                   ~6000   total; each rule a switch case the map states, each Kan case
-                           a row of RUNTIME_FULL.md / REMAINING.md §B
+                   ~3800   total (≈650 of it the Bend dialect as data); each rule a switch case
+                           the map states, each Kan case a row of RUNTIME_FULL.md / REMAINING.md §B
