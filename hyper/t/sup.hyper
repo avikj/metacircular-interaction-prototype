@@ -10,5 +10,5 @@
 (def not (lam b (case b (True () (ctr False)) (False () (ctr True)))))
 (def matchsup (app not (sup L (ctr True) (ctr False))))
 (def main (ctr Pair pick0 pick1))
-; a redex held by both sides of a distribution: both sides see it
+; a redex held by both sides of a distribution fires once: 3*4 is one row, not one per side (§3: a demanded port fires once)
 (def shared-redex (op2 + (sup 3 1 2) (op2 * 3 4)))

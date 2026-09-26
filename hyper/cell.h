@@ -64,7 +64,7 @@ enum Tag {
   /* judgments and the interaction */
   T_CHK,       /* loc → [type, term]                                   */
   T_ASK,       /* loc → [q, k]                      a free port        */
-  T_IND,       /* word 0 of a reduced node: word 1 holds its result (a demanded port fires once, every holder sees the value) */
+  T_IND,       /* word 0 of a reduced node: word 1 holds its result (§3: a demanded port fires once, every holder sees the value) */
   /* frames (never a value) */
   T_FRAME,     /* loc → [parent, slot]  ext = depth   one binding      */
   T_DIM,       /* loc → [parent, unused] ext = depth  a bound dimension: its loc is the NAME */
@@ -124,7 +124,12 @@ extern SNode   *CODE;   extern uint32_t CODE_LEN;
 extern uint32_t *KIDS;  extern uint32_t KIDS_LEN;
 extern Def     *BOOK;   extern uint32_t BOOK_LEN;
 extern const char **BNAMES; extern uint32_t BNAMES_LEN;   /* field names of case branches (S_BRANCH.num = index), for presentation */
+extern uint64_t ITRS;
+extern uint32_t *TRACE; extern uint64_t TRACE_LEN;   /* receipts: rule ids */
 
+enum RuleId { R_BETA = 1, R_APP_SUP, R_APP_PLM, R_FCE_ANNIHILATE, R_FCE_COMMUTE, R_FCE_PUSH,
+              R_FCE_SHARE, R_CASE, R_CASE_SUP, R_OP2, R_OP2_SUP, R_ERASE, R_TRP, R_HCM,
+              R_HCON, R_HELIM, R_HELIM_SUP, R_HELIM_HCM, R_OP1, R_POUT, R_COUNT };
 
 /* ---- the HIT schema (§4): nothing per HIT is hardcoded; a constructor's boundary IS its type ---- */
 typedef struct CtorInfo {
@@ -185,4 +190,7 @@ void print_bend(Term t, int depth);    /* Bend2's own presentation of a value */
 void collapse_print(Term t);
 int  collapse_leaves(Term t, Term *out, int max);   /* the leaves of a superposition, in collapse order */
 char *term_string(Term t, int depth);           /* one line per branch, in Bend2's collapse order */
+void print_census(void);               /* §6: the receipts by rule (the trace is the retained history) */
+void sched_init(void);                 /* §9: HYPER_SCHEDULE, which of two independent demands is served first */
+void force_fields(Term t, int depth);
 #endif

@@ -31,8 +31,8 @@ is checked and emitted by Bend2 (`bend F --to-hyper`, `src/Target/Hyper.hs` in
 own normaliser (`bendtest.sh`: 124 programs agree, 12 skipped because the oracle
 itself does not run them). `verify.c` checks the same books and agrees with
 Bend2's checker verdict by verdict (`checktest.sh`: 3862 definitions over 150
-files, the must-fail probes included). `test.sh` holds 40 checks of the
-substrate's own probes.
+files, the must-fail probes included). `test.sh` holds the checks of the
+substrate's own probes, its ledger, its schedules and its census.
 
 What the substrate provides: cells over bound dimension names, frames with
 descent, the face map (a dimension's endpoint, a choice name's side, a
@@ -101,63 +101,90 @@ As written (`main.c`):
 
 ## 3. The trace, and what a computation costs
 
+Two measures, both corpus quantities, and they measure different things.
+
+**The ledger: what a run costs.** `research/sat_fibre/InteractionLedger.agda:13`
+`Event`, `:20` `Charge` (`interactions`, `heapWords`), `:57` `Trace` (a run is a
+sequence of events), `:65` `interactionTotal`, `:74` `interactionTotal-is-length`.
+`research/sat_fibre/InteractionGeodesic.agda:14` `RandomDescent`, parametrised by
+a one-step `diamond`; `:45` `same-normalization-length`: every complete reduction
+of one object to its normal form has the same length; `:53`
+`normalization-is-geodesic`. As written: every rule appends its receipt to
+`TRACE`; a run prints `- Itrs:` (the interactions) and `- Words:` (the heap
+words allocated), the two components of `Charge`; `HYPER_CENSUS=1` prints the
+receipts by rule; `HYPER_SCHEDULE` serves the right of two independent demands
+first, or a coin per choice, and `test.sh` and `bendtest.sh` require the same
+value and the same count under the schedules (the diamond, measured, since the
+hypothesis of `RandomDescent` is not discharged for this loop's step relation).
+Definitional unfolding is not an event. The sharing regimes (`bendtest.sh`,
+`bench_*_sup` against `bench_*_sep`; `t/ua.hyper`, a transport used k times)
+are the reason a runtime exists at all: the superposition is one line over N
+values and its cost is what the ledger shows.
+
+**The census: what a question loses.**
 `fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda:90`
 `Conservative` (`Trace : B → Type`, `whole : A ≃ Σ[ b ∈ B ] Trace b`); `:129`
 `fibre-of-run`: for any conservative factorisation the trace family is the
-homotopy fibre of the visible map it induces, so the residue of a computation is
-not a design choice. `:159` `exact-when-contractible` and `:164`
-`contractible-when-exact`: the trace measures exactly the failure of the visible
-result to be the whole event. `:181` `canonical` is the factorisation every map
-has, and `:194` `canonical-recovers`, by `refl`: the source was never left behind.
-
-So the trace of a run is the retained point, and what a computation costs is the
-census of the fibres of its visible map:
+homotopy fibre of the visible map it induces. `:159` `exact-when-contractible`,
+`:164` `contractible-when-exact`: the trace measures exactly the failure of the
+visible result to be the whole event. `:181` `canonical`, `:194`
+`canonical-recovers`, by `refl`: the source was never left behind.
 `fibre/src/Fibre/WholePartialDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic.agda:87`
-`देश`, `:93` `गणना`, a diagnosis pointwise over the codomain, three-valued (empty,
-one, crowded), never a Boolean verdict. There is no interaction count in this
-machine; a count of rule firings was HVM's measure and is not a corpus quantity.
-Commutation is the certificate that an order was removable:
+`देश`, `:93` `गणना`: the census of a question, pointwise over the codomain,
+three-valued. As written (`main.c`, `hyper census FILE MAP DOM COD`): the domain
+and codomain are given as superpositions of their points; the map is presented
+along every point of the domain; over each point of the codomain the fibre is
+the domain points whose value is it, and its census is `:88` `नास्ति` (none),
+`:89` `सकलादेश` (one), or `:90` `विकलादेश` (two or more, shown). `t/census.hyper`
+is the module's own §3, computed: `Unit → Bool` is सकलादेश at `True` and नास्ति
+at `False`, `Bool → Unit` is विकलादेश at `Tt`, and their composite is सकलादेश.
+
+Erase: nothing is erased inside a run; a forgotten port is one receipt where it
+is forgotten (`t/erase.hyper`: the fibre's size never enters). Commutation is
+the certificate that an order was removable:
 `fibre/src/Fibre/Order_CommutationIsTheProofThatTheOrderWasNeverThereAndItsFailureIsRetained.agda:102`
 `serialisation`.
 
-As written (`main.c`, `hyper census FILE MAP DOM COD`): the domain and codomain
-are given as superpositions of their points; the map is presented along every
-point of the domain; over each point of the codomain the fibre is the domain
-points whose value is it, and its census is
-`fibre/src/Fibre/WholePartialDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic.agda:88`
-`नास्ति` (none), `:89` `सकलादेश` (one), or `:90` `विकलादेश` (two or more, shown). `t/census.hyper` is the
-module's own §3, computed: `Unit → Bool` is सकलादेश at `True` and नास्ति at
-`False`, `Bool → Unit` is विकलादेश at `Tt`, and their composite is सकलादेश, so
-the loss at the second step does not appear in the composite.
-
 ## 4. What is not here, and why
 
-`install`, a rule table, receipts, an interaction count, a census of rule
-firings, erase counting, schedules, a parser producing Code, and a reifier were
-removed. They came from `formal/cubical/Kernel/`, the term-rewriting kernel,
-which the fibre library's interaction module names as a different object, a
-term-rewriting kernel whose caller disposes of the offered futures, and whose
-own theorems diagnose it:
+Removed: `install` as this directory had it (a path between two definitions at
+a type, then native dispatch), the parser producing Code, and the reifier. The
+first was an invented shape. The corpus's `install` is
+`formal/cubical/Kernel/ControlledGrammar.agda:27` `install`, from a
+`Derivation`, a trace of steps between two terms, to a `NativeOperation`, and
+its own theorems bound it:
 `formal/cubical/Kernel/Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesAndTheSchemaIsWhatMakesItGeneralise.agda:113`
-`fires-only-at-source` (an installed operation fires at exactly one term),
-`:176` `kernel-cannot-reach-a-tower`,
+`fires-only-at-source`, `:176` `kernel-cannot-reach-a-tower`,
 `formal/cubical/Kernel/Siddhasadhana_InstallingWhatYouCanAlreadyReachIsAPlateauSoTheKernelsOwnLibraryCannotGrowItsReach.agda:96`
-`install-chain-plateau` (installing what is already reachable leaves the reach
-equal). The fibre library's mechanism for a new way to compute is univalence: a
-proved equivalence is transported (`Carrier≡`, `carry-transport-descend`), and a
-grammar's substitution is a Carrier instance with a base and a carried datum
+`install-chain-plateau`. In this runtime the derivation of a run is `TRACE`, and
+a node once fired is marked with its result (`T_IND`), which is what installing
+a run's derivation as a move amounts to here. A grammar's substitution is a
+Carrier instance with a base and a carried datum
 (`fibre/src/Fibre/Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried.agda`),
-not a parser. `formal/cubical/Kernel/ControlledGrammar.agda:27` `install` stays
-where it is, as the object it is.
+not a parser.
+
+Not yet written: the encounter of two peers,
+`formal/cubical/kernel-flat/TheEncounterOfTwoPeersIsOneTraceAndNoScalarProjectionOfItHasASection.agda`.
+Its primitive is two `Session`s and an overlap: `Encounter` (`A B`, `meeting`,
+`mine : Derivation (here A) meeting`, `theirs : Derivation meeting (here B)`),
+`τ E = mine E ⊕ theirs E`, `interact E = A′ E , B′ E , τ E`. Its nine sections
+are the test list for `hyper meet`: the two results need not agree (§2);
+revelation and generation (§3); the prior trace is a prefix as data, the way
+back is `rev`, nothing enabled is lost (§4); the round trip means `refl` and is
+not `done` (§5); `⊕` associates as data (§6); two encounters at disjoint sites
+in two orders have the same endpoints, the same `len`, different traces (§7);
+`len` is additive and has no section (§8); the receipt does not cross (§9). For
+this the runtime's trace must be a derivation with endpoints, which is what
+`TRACE` becomes next.
 
 ## 5. Files
 
-    hyper/cell.h        186  the word layout, tags, frames, constructors
-    hyper/cell.c       1273  the substrate: heap, frames, instantiation, the interval, the face map,
-                             case trees, the HIT schema, numbers, transp, hcomp, Glue, the loop, printers
-    hyper/read.c        282  the reader for the kernel's own text
-    hyper/verify.c      795  the checker on the same loop
-    hyper/main.c        100  run | bend | check | interact | census (§2, §3)
+    hyper/cell.h             the word layout, tags, frames, constructors, the receipts
+    hyper/cell.c             the substrate: heap, frames, instantiation, the interval, the face map,
+                             case trees, the HIT schema, numbers, transp, hcomp, Glue, the loop, the ledger, printers
+    hyper/read.c             the reader for the kernel's own text
+    hyper/verify.c           the checker on the same loop
+    hyper/main.c             run | bend | check | interact | census (§2, §3)
     hyper/prelude.hyper 158  the Kan rows, Glue, transpEquiv, the HIT rows, as data
     hyper/bend.hyper     45  the Bend2 dialect's rows
     hyper/test.sh            the substrate's checks

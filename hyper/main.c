@@ -1,12 +1,11 @@
 /* hyper — main.c: run | bend | check | interact | census.
  *
- * The machine is Fibre.CorpusInteraction (fibre/src/Fibre/CorpusInteraction.agda): a state is a typed
- * point (A, a) : Σ A. A; a question is a typed map (B, f) out of the current type; the answer is the
- * point (B, f a); the receipt is the path target s q ≡ s', refl at the canonical step; and the process
- * continues at the new point (ISC, react).  `run` is the trivial-query case: no question, the point
- * reduced to its normal form.  `interact` reads questions from the world, one per line, each a term of
- * the kernel's text; a reduction that stalls at an ASK cell prints the question and resumes on the
- * world's answer.  The retained point is the trace (Fibre.Trace): the source, never left behind. */
+ * The machine is Fibre.CorpusInteraction (fibre/src/Fibre/CorpusInteraction.agda): a state is a typed point
+ * (A, a) : Σ A. A; a question is a typed map (B, f) out of the current type; the answer is the point (B, f a);
+ * the receipt is the path target s q ≡ s', refl at the canonical step; the process continues at the new point
+ * (ISC, react).  `run` is the trivial-query case.  `interact` reads questions from the world, one per line.
+ * Every run reports its charge (research/sat_fibre/InteractionLedger.agda: interactions and heap words), and
+ * `census` reports what a question loses (Fibre.WholePartialDesa: the fibre over each visible value). */
 #include "cell.h"
 #include <stdio.h>
 #include <string.h>
@@ -18,13 +17,14 @@ int check_book(const char *prefix);
 Term app2(Term f, Term a);
 Term node2(unsigned t, uint32_t e, Term a, Term b);
 
+/* §5: the machine that asks. The root is the typed point; each line of the world is a question q, a
+   term; the point presents itself along q: root := (q a, (a, refl)). A reduction that stalls at an
+   ASK cell prints the question and waits for the world's section; the continuation resumes on it. */
 static char *read_line(FILE *in) {
   static char buf[1 << 16]; if (!fgets(buf, sizeof buf, in)) return 0;
   size_t n = strlen(buf); while (n && (buf[n-1] == '\n' || buf[n-1] == '\r')) buf[--n] = 0;
   return buf;
 }
-static void show(Term v, bool bend) { if (bend) collapse_print(v); else { print_term(v, 64); printf("\n"); } fflush(stdout); }
-/* an ASK cell is a question the point asks the world; the world's line is its answer */
 static Term answer_asks(Term v, bool bend) {
   for (;;) {
     v = whnf(v);
@@ -35,24 +35,26 @@ static Term answer_asks(Term v, bool bend) {
     v = app2(HEAP[loc(v)+1], mk(T_REF, 0, (uint32_t)q));
   }
 }
-/* react: the point presents itself along each question q of the world; the new state is (q a, (a, refl)) */
 static int interact(const char *entry, bool bend) {
   int id = book_find(entry); if (id < 0) { fprintf(stderr, "hyper: no %s\n", entry); return 1; }
-  Term point = answer_asks(mk(T_REF, 0, (uint32_t)id), bend);
-  show(point, bend);
+  uint64_t before = ITRS;
+  Term root = answer_asks(mk(T_REF, 0, (uint32_t)id), bend);
+  if (bend) collapse_print(root); else { print_term(root, 64); printf("\n"); }
+  printf("- Itrs: %llu\n", (unsigned long long)(ITRS - before)); fflush(stdout);
   for (char *line; (line = read_line(stdin)); ) {
     if (!*line || *line == ';') continue;
-    int q = read_question(line);
-    Term qa = answer_asks(app2(mk(T_REF, 0, (uint32_t)q), point), bend);
-    show(qa, bend);
-    point = node2(T_CTR, ctr_ext(C_PAIR, 2), qa, node2(T_CTR, ctr_ext(C_PAIR, 2), point, mk(T_CTR, ctr_ext(C_REFL, 0), 1)));
+    int q = read_question(line); before = ITRS;
+    Term qa = answer_asks(app2(mk(T_REF, 0, (uint32_t)q), root), bend);
+    if (bend) collapse_print(qa); else { print_term(qa, 64); printf("\n"); }
+    printf("- Itrs: %llu\n", (unsigned long long)(ITRS - before)); fflush(stdout);
+    root = node2(T_CTR, ctr_ext(C_PAIR, 2), qa, node2(T_CTR, ctr_ext(C_PAIR, 2), root, mk(T_CTR, ctr_ext(C_REFL, 0), 1)));   /* present: (q a, (a, refl)) */
   }
   return 0;
 }
-/* गणना f : (b : B) → देश f b  (fibre/src/Fibre/WholePartialDesa_…agda:87–94): the census of a question, pointwise
+/* गणना f : (b : B) → देश f b  (fibre/src/Fibre/WholePartialDesa_….agda:87–94): the census of a question, pointwise
    over the codomain.  The domain and codomain are given as superpositions of their points; the fibre शेष f b is
    the set of domain points whose value is b, and its census is नास्ति (no point), सकलादेश (one point), or
-   विकलादेश (two or more distinct points, both shown).  This is what a computation costs (MAP §3). */
+   विकलादेश (two or more distinct points, both shown). */
 static int census(const char *f, const char *dom, const char *cod) {
   int fi = book_find(f), di = book_find(dom), ci = book_find(cod);
   if (fi < 0 || di < 0 || ci < 0) { fprintf(stderr, "hyper: census needs three definitions: the map, the domain, the codomain\n"); return 1; }
@@ -75,11 +77,12 @@ static void load_next_to_exe(const char *exe, const char *name) {
 }
 int main(int argc, char **argv) {
   { struct rlimit rl; if (!getrlimit(RLIMIT_STACK, &rl)) { rl.rlim_cur = rl.rlim_max == RLIM_INFINITY ? (rlim_t)4 << 30 : rl.rlim_max; setrlimit(RLIMIT_STACK, &rl); } }   /* deep terms recurse deep */
+  sched_init();
   if (argc < 3) { fprintf(stderr, "usage: hyper run FILE [DEF] | hyper bend FILE | hyper check FILE | hyper interact FILE [DEF] | hyper census FILE MAP DOM COD\n"); return 1; }
   bool bend = !strcmp(argv[1], "bend") || !strcmp(argv[1], "check");
   bool inter = !strcmp(argv[1], "interact");
   if (inter) bend = true;                                /* the dialect's rows are loaded; presentation follows the entry's namespace */
-  load_next_to_exe(argv[0], "prelude.hyper");            /* the Kan rows, next to the executable */
+  load_next_to_exe(argv[0], "prelude.hyper");            /* the Kan rule rows, next to the executable */
   if (bend) load_next_to_exe(argv[0], "bend.hyper");     /* the Bend2 dialect's rows */
   read_file(argv[2]);
   load_prelude();
@@ -88,6 +91,10 @@ int main(int argc, char **argv) {
   if (inter) { const char *e = argc > 3 ? argv[3] : (book_find("b/main") >= 0 ? "b/main" : "main"); return interact(e, !strncmp(e, "b/", 2)); }
   const char *entry = argc > 3 ? argv[3] : (bend ? "b/main" : "main");
   int id = book_find(entry); if (id < 0) { fprintf(stderr, "hyper: no %s\n", entry); return 1; }
-  show(run_def((uint32_t)id), bend);
+  Term r = run_def((uint32_t)id);
+  if (bend) { collapse_print(r); fprintf(stderr, "- Itrs: %llu\n- Words: %u\n", (unsigned long long)ITRS, (unsigned)HEAP_LEN); if (getenv("HYPER_CENSUS")) print_census(); return 0; }
+  print_term(r, 64); printf("\n");
+  printf("- Itrs: %llu\n- Words: %u\n", (unsigned long long)ITRS, (unsigned)HEAP_LEN);
+  if (getenv("HYPER_CENSUS")) print_census();
   return 0;
 }
