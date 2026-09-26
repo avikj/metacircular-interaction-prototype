@@ -372,7 +372,9 @@ static Term fce_apply(Term nm, unsigned side, Term by, Term v) {
   bool ivar = tag(nm) == T_IVAR; Loc name = loc(nm); Term self = FCE_SELF; FCE_SELF = 0;
   #define FCE_(x) fce_raw(side, nm, (x), by)
   #define WAIT_(x) (self && HEAP[loc(self)+1] == (x) && HEAP[loc(self)] == nm && ext(self) == side ? self : FCE_(x))
-  v = whnf(v);                                                        /* the face meets a value: every rule below is at an active pair */
+  if (CHECK_MODE) { Term args[64]; uint32_t n; Term h = spine(v, args, &n);   /* the checker's substitution passes through a neutral spine headed by a definition */
+    if (tag(h) == T_REF && n > 0 && (ivar || tag(nm) == T_VAR)) { receipt(R_FCE_PUSH); for (uint32_t i = 0; i < n; i++) args[i] = FCE_(args[i]); return whnf(apps(h, args, n)); } }
+  v = whnf(v);                                                        /* the runtime's face meets a value: every rule below is at an active pair */
   if (!ivar && tag(nm) != T_VAR && REWRITE_HOOK && REWRITE_HOOK(nm, v)) { receipt(R_FCE_ANNIHILATE); return whnf(by); }
   switch (tag(v)) {
     case T_SUP: {

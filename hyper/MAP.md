@@ -260,7 +260,9 @@ them.
 5. Every rule at an active pair, bodies as nets: the count becomes the proved
    geodesic. The one rule that fires on a non-value goes. **Begun**: the face
    pushed into the arguments of a stuck spine headed by a definition, before the
-   definition unfolds, is gone; every face rule is now at a value. The measure to
+   definition unfolds, is gone from the run; every face rule of the run is at a
+   value. The checker keeps it as its substitution through a neutral spine (five
+   corpus files check only with it). The measure to
    beat, `sort A` for A = [3,1,2] (`HYPER_CENSUS=1`): 37,159 interactions, of
    which face maps are 28,268 (push 14,062, share 5,836, annihilate 4,979,
    commute 3,391), beta 2,090, case 1,310, case over a superposition 1,369,
