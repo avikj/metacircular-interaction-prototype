@@ -741,6 +741,22 @@ the translation then carries one association). The Bend2 dialect is still
 translated by Bend2's own checker (§7's certified translator); writing it as a
 book in this form is the remaining step of §5.1.
 
+What a grammar's certificate is, so that it can be written and checked rather
+than argued. A grammar is a pair: `parse`, from characters to Code, and `gen`,
+from Code to characters (Pāṇini's direction, form from meaning). Its
+certificate is the checked path `Path (Π c:Code. Code) (λc. parse (gen c)) (λc. c)`:
+parsing is a section of generation, so the stream determines the cell. Per
+rule, the same statement restricted to that rule's constructor: for `Lam`,
+`parse (gen (Lam x b)) ≡ Lam x b` given the statement for `b`. This is a proof
+by the eliminator of `Code`, and it needs lemmas about `parse` on a
+concatenation; it is proof engineering, not a differential, and it is not
+written. Two dialects with one `Code` are translated by `gen₂ ∘ parse₁`, and
+their `ua` is the identity on `Code`; two dialects with different Code types
+need a supplied equivalence between the types, which is the case the spec
+means by "never inferred from the stream". Until the certificate is written,
+the differential against Bend2's checker (§10.6) is what certifies the Bend2
+dialect.
+
 The kernel's own text has the forms the construction forces (named binders
 with sharing by descent; `<i> t` and `&i{a,b}` binding one dimension;
 `name : A = a`; `lhs = rhs by d`; `?q`; three-valued verdicts; implicitness
