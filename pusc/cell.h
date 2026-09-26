@@ -25,7 +25,7 @@ enum Tag {
   /* lines: one notion of dimension */
   T_SUP,       /* loc → [name, a, b]                a 1-cell by faces */
   T_PLM,       /* loc → [code, frame]              a 1-cell by formula (binds a dim) */
-  T_FCE,       /* ext = side, loc → [name, target]  the face map      */
+  T_FCE,       /* ext = side (0/1) or 2, loc → [name, target, by]  the face map, or the substitution name := by */
   /* the interval */
   T_I0, T_I1,  /* no node                                              */
   T_IVAR,      /* loc = name                                           */
@@ -44,6 +44,8 @@ enum Tag {
   T_GLUE,      /* loc → [faces, a]      glue [(φ,t)…] a                     */
   T_UNGLUE,    /* loc → [g]             ● g                                 */
   T_FCASE,     /* loc → [phi, a, b]     a if phi ≡ I1, b if I0, else stuck   */
+  T_GBASE,     /* loc → [G]  the base of a Glue type; a non-Glue type is its own base  */
+  T_GFACES,    /* loc → [G]  the faces of a Glue type; a non-Glue type has none        */
   /* static-code eliminators instantiated on the heap */
   T_CASE,      /* loc → [scrut, code, frame]        ● scrut           */
   T_PROJ,      /* ext = field index, loc → [x]      ● x  (fst/snd of any constructor) */
@@ -53,7 +55,7 @@ enum Tag {
   /* frames (never a value) */
   T_FRAME,     /* loc → [parent, slot]  ext = depth   one binding      */
   T_DIM,       /* loc → [parent, unused] ext = depth  a bound dimension: its loc is the NAME */
-  T_RESTRICT,  /* loc → [parent, name]  ext = side    a face taken on a closure's frame */
+  T_RESTRICT,  /* loc → [parent, name, by] ext = side  a face (or substitution) taken on a closure's frame */
   T_TAGS
 };
 
@@ -84,7 +86,7 @@ enum Op { OP_ADD, OP_SUB, OP_MUL, OP_DIV, OP_MOD, OP_EQ, OP_NE, OP_LT, OP_LE, OP
 enum STag {
   S_VAR = 1, S_LAM, S_APP, S_REF, S_ERA, S_SUP, S_PLM, S_DIM, S_FCE,
   S_I0, S_I1, S_IVAR, S_INOT, S_IAND, S_IOR,
-  S_CTR, S_NUM, S_OP2, S_TRP, S_HCM, S_CASE, S_BRANCH, S_CHK, S_ASK, S_LET, S_PROJ, S_GLU, S_GLUE, S_UNGLUE, S_FCASE
+  S_CTR, S_NUM, S_OP2, S_TRP, S_HCM, S_CASE, S_BRANCH, S_CHK, S_ASK, S_LET, S_PROJ, S_GLU, S_GLUE, S_UNGLUE, S_FCASE, S_GBASE, S_GFACES, S_ISUB
 };
 typedef struct SNode {
   uint8_t  tag;

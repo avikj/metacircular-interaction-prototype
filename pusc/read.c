@@ -100,7 +100,10 @@ static uint32_t term(void) {
             r = snode(S_CTR, ctr_ext(ctor_intern(n, ar), ar), 0,0,0,0); CODE[r].kids = KIDS_LEN;
             for (uint32_t i = 0; i < ar; i++) KIDS[KIDS_LEN++] = k[i]; } }
   else if (!strcmp(h, "proj")) { uint32_t i = term(), x = term(); r = snode(S_PROJ, 0, i, x, 0, 0); }
-  else if (!strcmp(h, "face-case")) { uint32_t p = term(), a = term(), b = term(); r = snode(S_FCASE, 0, p, a, b, 0); }
+  else if (!strcmp(h, "isub")) { char *k = atom(); uint32_t by = term(), T = term(); r = snode(S_ISUB, 0, dim_level(k), by, T, 0); }
+  else if (!strcmp(h, "glue-base")) { uint32_t g = term(); r = snode(S_GBASE, 0, g, 0, 0, 0); }
+  else if (!strcmp(h, "glue-fs"))   { uint32_t g = term(); r = snode(S_GFACES, 0, g, 0, 0, 0); }
+  else if (!strcmp(h, "face-case")) { uint32_t p = term(), a = term(), b = term(), c2 = term(); r = snode(S_FCASE, 0, p, a, b, c2); }
   else if (!strcmp(h, "Glue")) { uint32_t A = term(), fs = term(); r = snode(S_GLU, 0, A, fs, 0, 0); }
   else if (!strcmp(h, "glue")) { uint32_t fs = term(), a = term(); r = snode(S_GLUE, 0, fs, a, 0, 0); }
   else if (!strcmp(h, "unglue")) { uint32_t g = term(); r = snode(S_UNGLUE, 0, g, 0, 0, 0); }

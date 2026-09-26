@@ -89,21 +89,34 @@
 ;   a1'  := trp base-line r s a_r
 ;   t1   := inv e a1'  on each face live at s;  a1 := hcomp (A s) [ψ ↦ <j> (sec e t1) @ ~j] a1'
 ;   result glue [ψ ↦ t1] a1
-(def trp/Glue (lam L (lam r (lam s (lam x
-  (let aR (unglue-at (app L r) x)
-  (let a1p (trp (plm i (glue-A (app L i))) r s aR)
-  (let fsS (glue-faces (app L s))
-  (let a1 (hcm (glue-A (app L s)) a1p
+(def trp/Glue (lam L (lam r (lam s (lam x (lam T (lam k
+  ; T is the Glue cell of the line at the generic dimension k; the cells at r and s are T[k := r], T[k := s]
+  ; (whnfCoe: substMarker into the normalised body, never a re-evaluation, which would collapse hcomp to its base)
+  (let aR (unglue-at (isub k r T) x)
+  (let a1p (trp (plm i (glue-A (isub k i T))) r s aR)
+  (let fsS (glue-faces (isub k s T))
+  (let a1 (hcm (glue-A (isub k s T)) a1p
                (map-gfaces (lam g (ctr Face (gface-phi g) (plm j (app (equiv-sec (gface-e g) (equiv-inv (gface-e g) a1p)) (inot j))))) fsS))
-  (glue (map-gfaces (lam g (ctr Face (gface-phi g) (equiv-inv (gface-e g) a1p))) fsS) a1))))))))))
-; the face-true case of unglue at r is decided by the type's reduction: a Glue type with a true face IS T,
-; so (app L r) is then T itself and not a Glue cell; unglue-at reads the Glue cell BEFORE that collapse:
+  (glue (map-gfaces (lam g (ctr Face (gface-phi g) (equiv-inv (gface-e g) a1p))) fsS) a1))))))))))))
 (def unglue-at (lam G (lam x (glue-unglue G x))))
-(def glue-A     (lam G (proj 0 G)))          ; a Glue cell's base type, read before the boundary collapse
-(def glue-faces (lam G (proj 1 G)))          ; its face list
-; unglue at a cell: a true face means the cell collapsed to T, so a Glue-typed x there is a point of T: apply e's function
-(def glue-unglue (lam G (lam x (unglue-sel (glue-faces G) x G))))
-(def unglue-sel (lam fs (lam x (lam G (case fs
-   (Nil () (unglue-none G x))
-   (Cons (g rest) (face-case (gface-phi g) (app (equiv-fun (gface-e g)) x) (unglue-sel rest x G))))))))
-(def unglue-none (lam G (lam x (unglue x))))
+; a non-Glue type is read as a Glue with itself as base and no faces (glueAt)
+(def glue-A     (lam G (glue-base G)))
+(def glue-faces (lam G (glue-fs G)))
+; unglue at a cell of the line (whnfCoe aR0): a true face means the cell IS T and a point of it is sent by e's
+; function; no live face means the cell IS A and the point is itself; a live symbolic face means unglue.
+(def glue-unglue (lam G (lam x (unglue-sel (glue-faces G) x (ctr False)))))
+(def unglue-sel (lam fs (lam x (lam live (case fs
+   (Nil () (case live (True () (unglue x)) (False () x)))
+   (Cons (g rest) (face-case (gface-phi g)
+                             (app (equiv-fun (gface-e g)) x)
+                             (unglue-sel rest x live)
+                             (unglue-sel rest x (ctr True)))))))))
+; ---- the universe: hcomp in Set is a Glue type (whnfHCm, Set case) --------------------------
+;   fibre, contractibility and equivalence as type cells (the corpus's coherent Equiv)
+(def fiber-ty   (lam A (lam B (lam f (lam y (ctr Sig A (lam x (ctr Path (plm _ B) (app f x) y))))))))
+(def isContr-ty (lam X (ctr Sig X (lam c (ctr Pi X (lam x (ctr Path (plm _ X) c x)))))))
+(def Equiv-ty   (lam A (lam B (ctr Sig (ctr Pi A (lam _ B)) (lam f (ctr Pi B (lam y (isContr-ty (fiber-ty A B f y)))))))))
+;   pathToEquiv of the reversed tube: the identity equivalence transported along k ↦ Equiv (u@1) (u@~k)
+(def transpEquiv (lam u (trp (plm k (Equiv-ty (app u i1) (app u (inot k)))) i0 i1 (idequiv (app u i1)))))
+(def face-to-gface (lam f (case f (Face (phi u) (ctr GFace phi (app u i1) (transpEquiv u))))))
+(def hcm/Set (lam A (lam base (lam faces (Glue base (map-gfaces face-to-gface faces))))))

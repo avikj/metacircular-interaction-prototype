@@ -33,6 +33,9 @@ static Term node1(unsigned t, uint32_t e, Term a)                 { Loc l = allo
 static Term node2(unsigned t, uint32_t e, Term a, Term b)         { Loc l = alloc(2); HEAP[l]=a; HEAP[l+1]=b; return mk(t,e,l); }
 static Term node3(unsigned t, uint32_t e, Term a, Term b, Term c) { Loc l = alloc(3); HEAP[l]=a; HEAP[l+1]=b; HEAP[l+2]=c; return mk(t,e,l); }
 static Term node4(unsigned t, uint32_t e, Term a, Term b, Term c, Term d) { Loc l = alloc(4); HEAP[l]=a; HEAP[l+1]=b; HEAP[l+2]=c; HEAP[l+3]=d; return mk(t,e,l); }
+/* a face map (side 0/1) or a substitution (side 2, by the interval `by`) applied to `target` */
+static Term fce_raw(unsigned side, Term name, Term target, Term by) { return node3(T_FCE, side, name, target, by); }
+static Term fce3(unsigned side, Loc name, Term target, Term by) { return fce_raw(side, mk(T_IVAR, 0, name), target, by); }
 
 static void receipt(unsigned rule) {
   ITRS++;
@@ -67,16 +70,15 @@ int book_find(const char *name) {
 /* A frame binds one slot; frames chain by parent; ext holds the depth.     */
 /* T_DIM binds a dimension: its loc IS the name.                             */
 /* T_RESTRICT records a face taken on everything the closure reads.          */
-static Term frame_push(Term parent, Term slot) {
-  uint32_t depth = tag(parent) ? ext(parent) + 1 : 0;
-  return node2(T_FRAME, depth, parent, slot);
+static uint32_t next_depth(Term parent) {
+  while (tag(parent) == T_RESTRICT) parent = HEAP[loc(parent)];
+  return tag(parent) ? ext(parent) + 1 : 0;
 }
-static Term dim_push(Term parent) {
-  uint32_t depth = tag(parent) ? ext(parent) + 1 : 0;
-  return node2(T_DIM, depth, parent, 0);
-}
-static Term restrict_push(Term parent, Loc name, unsigned side) {
-  return node2(T_RESTRICT, side, parent, mk(T_IVAR, 0, name));
+static Term frame_push(Term parent, Term slot) { return node2(T_FRAME, next_depth(parent), parent, slot); }
+static Term dim_push(Term parent)              { return node2(T_DIM, next_depth(parent), parent, 0); }
+/* a face (side 0/1) or, with side 2, a general substitution of the dimension by the interval `by` */
+static Term restrict_push(Term parent, Loc name, unsigned side, Term by) {
+  return node3(T_RESTRICT, side, parent, mk(T_IVAR, 0, name), by);
 }
 static uint32_t frame_depth(Term f) {
   while (tag(f) == T_RESTRICT) f = HEAP[loc(f)];
@@ -94,7 +96,7 @@ static Term frame_lookup(Term f, uint32_t lvl, bool *is_dim) {
   Term v;
   if (tag(f) == T_DIM) { *is_dim = true; v = mk(T_IVAR, 0, loc(f)); }
   else { *is_dim = false; v = mk(T_VAR, lvl, loc(f)); }   /* a VAR reads the slot lazily (§2: forced once, written back) */
-  for (unsigned i = nf; i-- > 0;) v = node2(T_FCE, ext(faces[i]), HEAP[loc(faces[i]) + 1], v);
+  for (unsigned i = nf; i-- > 0;) v = fce_raw(ext(faces[i]), HEAP[loc(faces[i]) + 1], v, HEAP[loc(faces[i]) + 2]);
   return v;
 }
 
@@ -113,7 +115,9 @@ Term inst(uint32_t c, Term fr) {
     case S_SUP: { bool d; Term nm = frame_lookup(fr, n->ext, &d);
                   return node3(T_SUP, 0, nm, inst(n->a, fr), inst(n->b, fr)); }
     case S_FCE: { bool d; Term nm = frame_lookup(fr, n->a, &d);
-                  return node2(T_FCE, n->ext, nm, inst(n->b, fr)); }
+                  return fce_raw(n->ext, nm, inst(n->b, fr), 0); }
+    case S_ISUB:{ bool d; Term nm = frame_lookup(fr, n->a, &d);          /* (isub k by T): T[k := by] */
+                  return fce_raw(2, nm, inst(n->c, fr), inst(n->b, fr)); }
     case S_I0:  return mk(T_I0, 0, 0);
     case S_I1:  return mk(T_I1, 0, 0);
     case S_IVAR:{ bool d; return frame_lookup(fr, n->ext, &d); }
@@ -135,7 +139,9 @@ Term inst(uint32_t c, Term fr) {
     case S_GLU:  return node2(T_GLU, 0, inst(n->a, fr), inst(n->b, fr));
     case S_GLUE: return node2(T_GLUE, 0, inst(n->a, fr), inst(n->b, fr));
     case S_UNGLUE: return node1(T_UNGLUE, 0, inst(n->a, fr));
-    case S_FCASE: return node3(T_FCASE, 0, inst(n->a, fr), inst(n->b, fr), inst(n->c, fr));
+    case S_FCASE: return node4(T_FCASE, 0, inst(n->a, fr), inst(n->b, fr), inst(n->c, fr), inst(n->d, fr));
+    case S_GBASE: return node1(T_GBASE, 0, inst(n->a, fr));
+    case S_GFACES: return node1(T_GFACES, 0, inst(n->a, fr));
     case S_ASK: return node2(T_ASK, 0, inst(n->a, fr), inst(n->b, fr));
     default: fprintf(stderr, "pusc: inst: bad static tag %u\n", n->tag); exit(2);
   }
@@ -260,9 +266,23 @@ static bool ieq(Term a, Term b) {                        /* equal canonical inte
   for (uint32_t i = 0; i < x.n; i++) if (cube_cmp(&x.c[i], &y.c[i])) return false;
   return true;
 }
+static Term isub_interval(Term t, Loc name, Term by) {
+  Dnf a, b, nb, acc, tmp; Term x = dnf_of(t, &a); Term y = dnf_of(by, &b);
+  if (!(tag(y) == T_I0 || tag(y) == T_I1 || tag(y) == T_IVAR || tag(y) == T_IDNF)) return fce3(2, name, x, by);
+  dnf_not(&b, &nb); acc.n = 0;
+  for (uint32_t i = 0; i < a.n; i++) {
+    Dnf cube; cube.n = 1; cube.c[0].n = 0; bool pos = false, neg = false;
+    for (uint32_t k = 0; k < a.c[i].n; k++) { uint64_t l = a.c[i].lit[k];
+      if ((Loc)(l >> 1) == name) { if (l & 1) pos = true; else neg = true; } else cube.c[0].lit[cube.c[0].n++] = l; }
+    if (pos) { dnf_and(&cube, &b, &tmp); cube = tmp; }
+    if (neg) { dnf_and(&cube, &nb, &tmp); cube = tmp; }
+    dnf_or(&acc, &cube, &tmp); acc = tmp;
+  }
+  return ican(dnf_term(&acc));
+}
 static Term face_subst_interval(Term t, Loc name, unsigned side) {
   Dnf a, r; Term x = dnf_of(t, &a);
-  if (!(tag(x) == T_I0 || tag(x) == T_I1 || tag(x) == T_IVAR || tag(x) == T_IDNF)) return node2(T_FCE, side, mk(T_IVAR,0,name), x);
+  if (!(tag(x) == T_I0 || tag(x) == T_I1 || tag(x) == T_IVAR || tag(x) == T_IDNF)) return fce3(side, name, x, 0);
   dnf_subst(&a, name, side, &r); return ican(dnf_term(&r));
 }
 
@@ -274,41 +294,50 @@ static bool is_value(Term t) {
     default: return false;
   }
 }
-static Term fce_apply(Loc name, unsigned side, Term v);
+static Term fce_apply(Loc name, unsigned side, Term by, Term v);
 
 /* push a face map into a closure: record the restriction on its frame */
-static Term fce_closure(unsigned ctag, Loc name, unsigned side, Term clo) {
+static Term fce_closure(unsigned ctag, Loc name, unsigned side, Term by, Term clo) {
   Term code = HEAP[loc(clo)], fr = HEAP[loc(clo) + 1];
-  return node2(ctag, 0, code, restrict_push(fr, name, side));
+  return node2(ctag, 0, code, restrict_push(fr, name, side, by));
 }
-static Term fce_apply(Loc name, unsigned side, Term v) {
+static Term fce_apply(Loc name, unsigned side, Term by, Term v) {
   v = whnf(v);
+  #define FCE_(x) fce3(side, name, (x), by)
   switch (tag(v)) {
     case T_SUP: {
       Term nm = whnf(HEAP[loc(v)]);
-      if (tag(nm) == T_IVAR && loc(nm) == name) { receipt(R_FCE_ANNIHILATE); return whnf(HEAP[loc(v) + 1 + side]); }
+      if (tag(nm) == T_IVAR && loc(nm) == name) {
+        receipt(R_FCE_ANNIHILATE);
+        if (side < 2) return whnf(HEAP[loc(v) + 1 + side]);
+        Term b = iwhnf(by);                          /* a choice name admits endpoints and renaming only */
+        if (tag(b) == T_I0) return whnf(HEAP[loc(v) + 1]);
+        if (tag(b) == T_I1) return whnf(HEAP[loc(v) + 2]);
+        if (tag(b) == T_IVAR) return node3(T_SUP, 0, b, HEAP[loc(v) + 1], HEAP[loc(v) + 2]);
+        fprintf(stderr, "pusc: connection on a choice name\n"); exit(2);
+      }
       receipt(R_FCE_COMMUTE);                       /* δᵢδⱼ = δⱼδᵢ */
-      return node3(T_SUP, 0, nm, node2(T_FCE, side, mk(T_IVAR,0,name), HEAP[loc(v)+1]),
-                                 node2(T_FCE, side, mk(T_IVAR,0,name), HEAP[loc(v)+2]));
+      return node3(T_SUP, 0, nm, FCE_(HEAP[loc(v)+1]),
+                                 FCE_(HEAP[loc(v)+2]));
     }
-    case T_LAM: receipt(R_FCE_PUSH); return fce_closure(T_LAM, name, side, v);
-    case T_PLM: receipt(R_FCE_PUSH); return fce_closure(T_PLM, name, side, v);
-    case T_IVAR: if (loc(v) == name) { receipt(R_FCE_ANNIHILATE); return mk(side ? T_I1 : T_I0, 0, 0); }
+    case T_LAM: receipt(R_FCE_PUSH); return fce_closure(T_LAM, name, side, by, v);
+    case T_PLM: receipt(R_FCE_PUSH); return fce_closure(T_PLM, name, side, by, v);
+    case T_IVAR: if (loc(v) == name) { receipt(R_FCE_ANNIHILATE); return side < 2 ? mk(side ? T_I1 : T_I0, 0, 0) : iwhnf(by); }
                  receipt(R_FCE_SHARE); return v;
-    case T_IDNF: receipt(R_FCE_ANNIHILATE); return face_subst_interval(v, name, side);
-    case T_INOT: case T_IAND: case T_IOR: return fce_apply(name, side, iwhnf(v));
+    case T_IDNF: receipt(R_FCE_ANNIHILATE); return side < 2 ? face_subst_interval(v, name, side) : isub_interval(v, name, by);
+    case T_INOT: case T_IAND: case T_IOR: return fce_apply(name, side, by, iwhnf(v));
     case T_CTR: {
       uint32_t ar = ctr_arity(v);
       if (ar == 0) { receipt(R_FCE_SHARE); return v; }
       receipt(R_FCE_PUSH);
       Loc l = alloc(ar);
-      for (uint32_t i = 0; i < ar; i++) HEAP[l+i] = node2(T_FCE, side, mk(T_IVAR,0,name), HEAP[loc(v)+i]);
+      for (uint32_t i = 0; i < ar; i++) HEAP[l+i] = FCE_(HEAP[loc(v)+i]);
       return mk(T_CTR, ext(v), l);
     }
     case T_GLU: case T_GLUE: { receipt(R_FCE_PUSH);
-      return node2(tag(v), 0, node2(T_FCE, side, mk(T_IVAR,0,name), HEAP[loc(v)]), node2(T_FCE, side, mk(T_IVAR,0,name), HEAP[loc(v)+1])); }
+      return node2(tag(v), 0, FCE_(HEAP[loc(v)]), FCE_(HEAP[loc(v)+1])); }
     case T_NUM: case T_ERA: case T_REF: case T_I0: case T_I1: receipt(R_FCE_SHARE); return v;
-    default: /* stuck: the face map waits */ return node2(T_FCE, side, mk(T_IVAR,0,name), v);
+    default: /* stuck: the face map waits */ return FCE_(v);
   }
 }
 
@@ -339,7 +368,7 @@ static Term case_select(Term cs, Term scrut) {
 }
 static Term case_restrict(Term cs, Loc name, unsigned side, Term scrut) {
   Term code = HEAP[loc(cs) + 1], fr = HEAP[loc(cs) + 2];
-  return node3(T_CASE, 0, scrut, code, restrict_push(fr, name, side));
+  return node3(T_CASE, 0, scrut, code, restrict_push(fr, name, side, 0));
 }
 
 /* ---- numbers ---------------------------------------------------------- */
@@ -371,8 +400,15 @@ static bool code_mentions(uint32_t c, uint32_t lvl) {
     default: return code_mentions(n->a, lvl) || code_mentions(n->b, lvl) || code_mentions(n->c, lvl) || code_mentions(n->d, lvl);
   }
 }
-static bool frame_has_dim(Term fr, Loc name, uint32_t *lvl) {
-  while (tag(fr)) { if (tag(fr) == T_DIM && loc(fr) == name) { *lvl = ext(fr); return true; } fr = HEAP[loc(fr)]; }
+static bool occurs(Loc name, Term t, int depth);
+/* does a closure over frame `fr` running `code` mention dimension `name`?  Through a DIM binder whose
+ * level the code uses, or through any slot value that mentions it (over-approximate: the code may not read it). */
+static bool frame_mentions(Term fr, uint32_t code, Loc name, int depth) {
+  for (int guard = 0; tag(fr) && guard < 4096; guard++) {
+    if (tag(fr) == T_DIM) { if (loc(fr) == name && code_mentions(code, ext(fr))) return true; }
+    else if (tag(fr) == T_FRAME) { if (occurs(name, HEAP[loc(fr)+1], depth-1)) return true; }
+    fr = HEAP[loc(fr)];
+  }
   return false;
 }
 static bool occurs(Loc name, Term t, int depth) {
@@ -381,19 +417,18 @@ static bool occurs(Loc name, Term t, int depth) {
     case T_IVAR: return loc(t) == name;
     case T_I0: case T_I1: case T_NUM: case T_ERA: case T_REF: return false;
     case T_IDNF: { Loc p = loc(t); for (uint32_t i = 0; i < ext(t); i++) { uint32_t n = (uint32_t)HEAP[p++]; for (uint32_t k = 0; k < n; k++) if ((Loc)(HEAP[p++] >> 1) == name) return true; } return false; }
-    case T_LAM: case T_PLM: { uint32_t lvl; Term fr = HEAP[loc(t)+1]; if (!frame_has_dim(fr, name, &lvl)) return false;
-                              return code_mentions(CODE[loc(HEAP[loc(t)])].a, lvl); }
-    case T_CASE: { uint32_t lvl; if (occurs(name, HEAP[loc(t)], depth-1)) return true; Term fr = HEAP[loc(t)+2];
-                   if (!frame_has_dim(fr, name, &lvl)) return false; return code_mentions(loc(HEAP[loc(t)+1]), lvl); }
+    case T_LAM: case T_PLM: return frame_mentions(HEAP[loc(t)+1], CODE[loc(HEAP[loc(t)])].a, name, depth);
+    case T_CASE: return occurs(name, HEAP[loc(t)], depth-1) || frame_mentions(HEAP[loc(t)+2], loc(HEAP[loc(t)+1]), name, depth);
     case T_CTR: for (uint32_t i = 0; i < ctr_arity(t); i++) if (occurs(name, HEAP[loc(t)+i], depth-1)) return true; return false;
     case T_SUP: return occurs(name, HEAP[loc(t)], depth-1) || occurs(name, HEAP[loc(t)+1], depth-1) || occurs(name, HEAP[loc(t)+2], depth-1);
-    case T_APP: case T_OP2: case T_IAND: case T_IOR: case T_CHK: case T_ASK: return occurs(name, HEAP[loc(t)], depth-1) || occurs(name, HEAP[loc(t)+1], depth-1);
-    case T_FCE: return occurs(name, HEAP[loc(t)], depth-1) || occurs(name, HEAP[loc(t)+1], depth-1);
+    case T_APP: case T_OP2: case T_IAND: case T_IOR: case T_CHK: case T_ASK: case T_PROJ: return occurs(name, HEAP[loc(t)], depth-1) || occurs(name, HEAP[loc(t)+1], depth-1);
+    case T_FCE: return occurs(name, HEAP[loc(t)], depth-1) || occurs(name, HEAP[loc(t)+1], depth-1) || (ext(t) == 2 && occurs(name, HEAP[loc(t)+2], depth-1));
     case T_INOT: return occurs(name, HEAP[loc(t)], depth-1);
     case T_TRP: for (int i = 0; i < 4; i++) if (occurs(name, HEAP[loc(t)+i], depth-1)) return true; return false;
     case T_HCM: for (int i = 0; i < 3; i++) if (occurs(name, HEAP[loc(t)+i], depth-1)) return true; return false;
     case T_GLU: case T_GLUE: return occurs(name, HEAP[loc(t)], depth-1) || occurs(name, HEAP[loc(t)+1], depth-1);
-    case T_UNGLUE: return occurs(name, HEAP[loc(t)], depth-1);
+    case T_UNGLUE: case T_GBASE: case T_GFACES: return occurs(name, HEAP[loc(t)], depth-1);
+    case T_FCASE: for (int i = 0; i < 4; i++) if (occurs(name, HEAP[loc(t)+i], depth-1)) return true; return false;
     case T_VAR: { Term v = HEAP[loc(t)+1]; if (tag(v) == T_VAR && loc(v) == loc(t)) return false; return occurs(name, v, depth-1); }
     default: return true;
   }
@@ -424,7 +459,7 @@ static Term trp_step(Term t) {
     case T_SUP: { receipt(R_TRP); Term nm = whnf(HEAP[loc(T)]);
       return whnf(app2(app2(app2(app2(app2(ref_of(RULE_TRP[0]), L), r), s), x), nm)); }
     case T_GLU: { int d = book_find("trp/Glue"); if (d < 0) return t; receipt(R_TRP);
-      return whnf(app2(app2(app2(app2(ref_of(d), L), r), s), x)); }
+      return whnf(app2(app2(app2(app2(app2(app2(ref_of(d), L), r), s), x), T), mk(T_IVAR, 0, loc(k)))); }
     default: return t;                                                       /* a neutral line: stuck */
   }
 }
@@ -518,7 +553,7 @@ static Term glue_step(Term t) {           /* glue faces a: a true face IS the se
 /* prelude rule table: trp/<Ctor>, hcm/<Ctor>; slot 0 holds the superposed-line rules */
 void load_prelude(void) {
   for (int i = 0; i < 256; i++) RULE_TRP[i] = RULE_HCM[i] = -1;
-  const char *names[] = { "Pi", "Sig", "Path", "Glue", 0 };
+  const char *names[] = { "Pi", "Sig", "Path", "Glue", "Set", 0 };
   for (int i = 0; names[i]; i++) {
     char buf[64]; uint32_t id = ctor_intern(names[i], 0);
     snprintf(buf, sizeof buf, "trp/%s", names[i]); int d = book_find(buf); if (d >= 0 && id < 256) RULE_TRP[id] = d;
@@ -549,7 +584,7 @@ Term whnf(Term t) {
           case T_SUP: {                               /* distribute; the argument face-mapped at the name */
             receipt(R_APP_SUP);
             Term nm = HEAP[loc(f)]; Loc name = loc(whnf(nm));
-            Term x0 = node2(T_FCE, 0, mk(T_IVAR,0,name), x), x1 = node2(T_FCE, 1, mk(T_IVAR,0,name), x);
+            Term x0 = fce3(0, name, x, 0), x1 = fce3(1, name, x, 0);
             return node3(T_SUP, 0, nm, node2(T_APP, 0, HEAP[loc(f)+1], x0), node2(T_APP, 0, HEAP[loc(f)+2], x1));
           }
           default: HEAP[loc(t)] = f; return t;        /* stuck spine */
@@ -558,7 +593,7 @@ Term whnf(Term t) {
       case T_FCE: {
         Term nm = whnf(HEAP[loc(t)]);
         if (tag(nm) != T_IVAR) { HEAP[loc(t)] = nm; return t; }
-        return fce_apply(loc(nm), ext(t), HEAP[loc(t) + 1]);
+        return fce_apply(loc(nm), ext(t), HEAP[loc(t) + 2], HEAP[loc(t) + 1]);
       }
       case T_CASE: {
         Term s = whnf(HEAP[loc(t)]);
@@ -577,13 +612,13 @@ Term whnf(Term t) {
         Term a = whnf(HEAP[loc(t)]);
         if (tag(a) == T_SUP) { receipt(R_OP2_SUP); Loc name = loc(whnf(HEAP[loc(a)])); Term b = HEAP[loc(t)+1];
           return node3(T_SUP, 0, HEAP[loc(a)],
-            node2(T_OP2, ext(t), HEAP[loc(a)+1], node2(T_FCE,0,mk(T_IVAR,0,name),b)),
-            node2(T_OP2, ext(t), HEAP[loc(a)+2], node2(T_FCE,1,mk(T_IVAR,0,name),b))); }
+            node2(T_OP2, ext(t), HEAP[loc(a)+1], fce3(0, name, b, 0)),
+            node2(T_OP2, ext(t), HEAP[loc(a)+2], fce3(1, name, b, 0))); }
         Term b = whnf(HEAP[loc(t) + 1]);
         if (tag(b) == T_SUP) { receipt(R_OP2_SUP); Loc name = loc(whnf(HEAP[loc(b)]));
           return node3(T_SUP, 0, HEAP[loc(b)],
-            node2(T_OP2, ext(t), node2(T_FCE,0,mk(T_IVAR,0,name),a), HEAP[loc(b)+1]),
-            node2(T_OP2, ext(t), node2(T_FCE,1,mk(T_IVAR,0,name),a), HEAP[loc(b)+2])); }
+            node2(T_OP2, ext(t), fce3(0, name, a, 0), HEAP[loc(b)+1]),
+            node2(T_OP2, ext(t), fce3(1, name, a, 0), HEAP[loc(b)+2])); }
         if (tag(a) == T_NUM && tag(b) == T_NUM) { receipt(R_OP2); return op2_num(ext(t), HEAP[loc(a)], HEAP[loc(b)]); }
         HEAP[loc(t)] = a; HEAP[loc(t)+1] = b; return t;
       }
@@ -596,10 +631,21 @@ Term whnf(Term t) {
         if (tag(x) == T_SUP) { receipt(R_CASE_SUP); return node3(T_SUP, 0, HEAP[loc(x)], node2(T_PROJ,0,i,HEAP[loc(x)+1]), node2(T_PROJ,0,i,HEAP[loc(x)+2])); }
         HEAP[loc(t)] = i; HEAP[loc(t)+1] = x; return t;
       }
-      case T_FCASE: { Term phi = ican(HEAP[loc(t)]);
-        if (tag(phi) == T_I1) { receipt(R_CASE); t = HEAP[loc(t)+1]; continue; }
-        if (tag(phi) == T_I0) { receipt(R_CASE); t = HEAP[loc(t)+2]; continue; }
-        HEAP[loc(t)] = phi; return t; }
+      case T_GBASE: { Term g = whnf(HEAP[loc(t)]);
+        if (tag(g) == T_GLU) { receipt(R_CASE); t = HEAP[loc(g)]; continue; }
+        if (tag(g) == T_SUP) { receipt(R_CASE_SUP); return node3(T_SUP,0,HEAP[loc(g)], node1(T_GBASE,0,HEAP[loc(g)+1]), node1(T_GBASE,0,HEAP[loc(g)+2])); }
+        if (is_value(g)) return g;                          /* a non-Glue type is its own base */
+        HEAP[loc(t)] = g; return t; }
+      case T_GFACES: { Term g = whnf(HEAP[loc(t)]);
+        if (tag(g) == T_GLU) { receipt(R_CASE); t = HEAP[loc(g)+1]; continue; }
+        if (tag(g) == T_SUP) { receipt(R_CASE_SUP); return node3(T_SUP,0,HEAP[loc(g)], node1(T_GFACES,0,HEAP[loc(g)+1]), node1(T_GFACES,0,HEAP[loc(g)+2])); }
+        if (is_value(g)) return mk(T_CTR, ctr_ext(C_NIL,0), alloc(1));   /* no faces */
+        HEAP[loc(t)] = g; return t; }
+      case T_FCASE: { Term phi = ican(HEAP[loc(t)]);              /* [phi, a, b, c]: I1 → a, I0 → b, symbolic → c */
+        receipt(R_CASE);
+        if (tag(phi) == T_I1) { t = HEAP[loc(t)+1]; continue; }
+        if (tag(phi) == T_I0) { t = HEAP[loc(t)+2]; continue; }
+        t = HEAP[loc(t)+3]; continue; }
       case T_GLUE: return glue_step(t);
       case T_UNGLUE: { Term g = whnf(HEAP[loc(t)]);
         if (tag(g) == T_GLUE) { receipt(R_TRP); t = HEAP[loc(g)+1]; continue; }
@@ -654,12 +700,14 @@ static void print_rec(Term t, int depth) {
     case T_ERA: printf("*"); break;
     case T_REF: printf("@%s", BOOK[loc(t)].name); break;
     case T_APP: printf("("); print_rec(HEAP[loc(t)], depth-1); printf(" "); print_rec(HEAP[loc(t)+1], depth-1); printf(")"); break;
-    case T_FCE: printf("[i%u:=%u]", loc(whnf(HEAP[loc(t)])), ext(t)); print_rec(HEAP[loc(t)+1], depth-1); break;
+    case T_FCE: printf("[i%u:=", loc(whnf(HEAP[loc(t)]))); if (ext(t) < 2) printf("%u", ext(t)); else print_rec(HEAP[loc(t)+2], depth-1); printf("]"); print_rec(HEAP[loc(t)+1], depth-1); break;
     case T_CASE: printf("case("); print_rec(HEAP[loc(t)], depth-1); printf(")"); break;
     case T_PROJ: printf("proj("); print_rec(HEAP[loc(t)], depth-1); printf(","); print_rec(HEAP[loc(t)+1], depth-1); printf(")"); break;
     case T_OP2: printf("("); print_rec(HEAP[loc(t)], depth-1); printf(" op%u ", ext(t)); print_rec(HEAP[loc(t)+1], depth-1); printf(")"); break;
     case T_GLU: printf("Glue("); print_rec(HEAP[loc(t)], depth-1); printf(","); print_rec(HEAP[loc(t)+1], depth-1); printf(")"); break;
     case T_GLUE: printf("glue("); print_rec(HEAP[loc(t)], depth-1); printf(","); print_rec(HEAP[loc(t)+1], depth-1); printf(")"); break;
+    case T_GBASE: printf("glue-base("); print_rec(HEAP[loc(t)], depth-1); printf(")"); break;
+    case T_GFACES: printf("glue-faces("); print_rec(HEAP[loc(t)], depth-1); printf(")"); break;
     case T_FCASE: printf("face-case("); print_rec(HEAP[loc(t)], depth-1); printf(")"); break;
     case T_UNGLUE: printf("unglue("); print_rec(HEAP[loc(t)], depth-1); printf(")"); break;
     case T_TRP: printf("trp("); print_rec(HEAP[loc(t)], depth-1); printf(","); print_rec(HEAP[loc(t)+1], depth-1); printf(","); print_rec(HEAP[loc(t)+2], depth-1); printf(","); print_rec(HEAP[loc(t)+3], depth-1); printf(")"); break;

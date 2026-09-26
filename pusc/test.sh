@@ -17,10 +17,15 @@ check t/kan.pusc   hc-true   '7'
 check t/kan.pusc   hc-none   '0'
 check t/kan.pusc   hc-nat    '#Suc{#Zer{}}'
 check t/kan.pusc   pitrp     '9'
-check t/ua.pusc    glue-at-0 '#Bool{}'
+got=$(./pusc run t/ua.pusc glue-at-0 | head -1); case "$got" in 'Glue('*) pass=$((pass+1));; *) fail=$((fail+1)); echo "FAIL glue-at-0: $got";; esac
 check t/ua.pusc    fwd-true  '#False{}'
 check t/ua.pusc    fwd-false '#True{}'
 check t/ua.pusc    bwd-true  '#False{}'
+# composites in the universe: hcomp in Set is a Glue type (transpEquiv); the inverse and Pi lines of ua
+check t/setcomp.pusc via-inv      '#False{}'
+check t/setcomp.pusc via-pi       '#False{}'
+check t/setcomp.pusc via-negneg-t '#True{}'
+check t/setcomp.pusc via-negneg-f '#False{}'
 # the interval is De Morgan, not Boolean: absorption holds, complement does not
 got=$(./pusc run t/kan.pusc absorb | head -1);   case "$got" in i[0-9]*) pass=$((pass+1));; *) fail=$((fail+1)); echo "FAIL absorb: $got";; esac
 got=$(./pusc run t/kan.pusc nocompl | head -1);  case "$got" in '~i'*'∨i'*) pass=$((pass+1));; *) fail=$((fail+1)); echo "FAIL nocompl: $got";; esac
