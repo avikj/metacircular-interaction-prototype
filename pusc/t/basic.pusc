@@ -1,0 +1,4 @@
+; two applied twice: the capture probe shape, 4 successors
+(def two (lam f (lam x (app f (app f x)))))
+(def suc (lam n (ctr Suc n)))
+(def main (app two two suc (ctr Zer)))

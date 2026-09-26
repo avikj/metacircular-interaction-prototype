@@ -1,0 +1,148 @@
+#define _GNU_SOURCE
+/* pusc — read.c: the reader for the kernel's own text (the identity chart, MAP.md §5.1).
+ *
+ *   file  := (def NAME TERM) | (def NAME : TYPE = TERM) ...
+ *   term  := NAME                       a bound variable or dimension
+ *          | (lam x TERM)                | (plm i TERM)            | (dim i TERM)
+ *          | (app F X)                   | (sup i A B)             | (fce i 0|1 T)
+ *          | (ref NAME)                  | (era)                   | (let x V BODY)
+ *          | (ctr Name ARGS…)            | (num N)                 | (op2 OP A B)
+ *          | i0 | i1 | (inot A) | (iand A B) | (ior A B)
+ *          | (trp LINE R S X)            | (case S (Ctor (x…) BODY) … (_ () BODY)?)
+ *          | (chk T X)                   | (ask Q K)
+ * A dimension used by `sup`/`fce` and not bound by plm/dim is bound implicitly
+ * at the definition's top: fresh per instantiation (the capture fix).
+ */
+#include "cell.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+static const char *src; static size_t pos, len;
+static void skip(void) { for (;;) { while (pos < len && isspace((unsigned char)src[pos])) pos++;
+  if (pos < len && src[pos] == ';') { while (pos < len && src[pos] != '\n') pos++; continue; } break; } }
+static bool peek(char c) { skip(); return pos < len && src[pos] == c; }
+static void expect(char c) { skip(); if (pos >= len || src[pos] != c) { fprintf(stderr, "pusc: expected '%c' at %zu\n", c, pos); exit(2); } pos++; }
+static char *atom(void) { skip(); size_t s = pos; while (pos < len && !isspace((unsigned char)src[pos]) && src[pos] != '(' && src[pos] != ')') pos++;
+  if (s == pos) { fprintf(stderr, "pusc: expected atom at %zu\n", pos); exit(2); }
+  char *a = malloc(pos - s + 1); memcpy(a, src + s, pos - s); a[pos - s] = 0; return a; }
+
+static uint32_t snode(uint8_t t, uint32_t e, uint32_t a, uint32_t b, uint32_t c, uint32_t d) {
+  static uint32_t cap; if (!CODE) { cap = 1u << 16; CODE = calloc(cap, sizeof(SNode)); }
+  if (CODE_LEN >= cap) { cap *= 2; CODE = realloc(CODE, cap * sizeof(SNode)); }
+  SNode *n = &CODE[CODE_LEN]; memset(n, 0, sizeof *n); n->tag = t; n->ext = e; n->a = a; n->b = b; n->c = c; n->d = d;
+  return CODE_LEN++;
+}
+
+/* scope: names → levels; kind distinguishes dimensions */
+typedef struct { const char *name; bool dim; } Bind;
+static Bind scope[1024]; static uint32_t depth;
+static const char **implicit; static uint32_t nimplicit;      /* the definition's implicit dims */
+
+static int lookup(const char *nm, bool *dim) {
+  for (int i = (int)depth - 1; i >= 0; i--) if (!strcmp(scope[i].name, nm)) { *dim = scope[i].dim; return i; }
+  return -1;
+}
+/* a dimension name not in scope is bound implicitly at the definition top: recorded, resolved in a second pass */
+static uint32_t dim_level(const char *nm) {
+  bool d; int l = lookup(nm, &d);
+  if (l >= 0) return (uint32_t)l;
+  for (uint32_t i = 0; i < nimplicit; i++) if (!strcmp(implicit[i], nm)) return i;       /* implicit dims occupy levels 0..n-1 */
+  implicit = realloc(implicit, (nimplicit + 1) * sizeof *implicit); implicit[nimplicit] = strdup(nm);
+  return nimplicit++;
+}
+
+static uint32_t term(void);
+static uint32_t bind_and_parse(const char *x, bool dim, uint8_t t) {
+  scope[depth].name = x; scope[depth].dim = dim; depth++;
+  uint32_t body = term(); depth--;
+  return snode(t, 0, body, 0, 0, 0);
+}
+static unsigned opcode(const char *s) {
+  static const char *ops[] = { "+","-","*","/","%","==","!=","<","<=",">",">=","&","|","^","<<",">>" };
+  for (unsigned i = 0; i < OP_COUNT; i++) if (!strcmp(ops[i], s)) return i;
+  fprintf(stderr, "pusc: unknown op %s\n", s); exit(2);
+}
+static uint32_t term(void) {
+  skip();
+  if (!peek('(')) {
+    char *a = atom();
+    if (!strcmp(a, "i0")) return snode(S_I0, 0,0,0,0,0);
+    if (!strcmp(a, "i1")) return snode(S_I1, 0,0,0,0,0);
+    if (isdigit((unsigned char)a[0])) { uint32_t n = snode(S_NUM, 0,0,0,0,0); CODE[n].num = strtoull(a, 0, 10); return n; }
+    bool d; int l = lookup(a, &d);
+    if (l < 0) { int r = book_find(a); if (r >= 0) return snode(S_REF, (uint32_t)r, 0,0,0,0);
+                 fprintf(stderr, "pusc: unbound %s\n", a); exit(2); }
+    return snode(d ? S_IVAR : S_VAR, (uint32_t)l, 0,0,0,0);
+  }
+  expect('('); char *h = atom(); uint32_t r;
+  if (!strcmp(h, "lam"))  { char *x = atom(); r = bind_and_parse(x, false, S_LAM); }
+  else if (!strcmp(h, "plm")) { char *x = atom(); r = bind_and_parse(x, true, S_PLM); }
+  else if (!strcmp(h, "dim")) { char *x = atom(); r = bind_and_parse(x, true, S_DIM); }
+  else if (!strcmp(h, "let")) { char *x = atom(); uint32_t v = term();
+     scope[depth].name = x; scope[depth].dim = false; depth++; uint32_t b = term(); depth--; r = snode(S_LET, 0, v, b, 0, 0); }
+  else if (!strcmp(h, "app")) { uint32_t f = term(); r = f; while (!peek(')')) { uint32_t x = term(); r = snode(S_APP, 0, r, x, 0, 0); } }
+  else if (!strcmp(h, "sup")) { char *i = atom(); uint32_t a = term(), b = term(); r = snode(S_SUP, dim_level(i), a, b, 0, 0); }
+  else if (!strcmp(h, "fce")) { char *i = atom(); char *s = atom(); uint32_t t = term(); r = snode(S_FCE, (uint32_t)atoi(s), dim_level(i), t, 0, 0); }
+  else if (!strcmp(h, "ref")) { char *n = atom(); int d = book_find(n); if (d < 0) { fprintf(stderr, "pusc: no def %s\n", n); exit(2); } r = snode(S_REF, (uint32_t)d, 0,0,0,0); }
+  else if (!strcmp(h, "era")) r = snode(S_ERA, 0,0,0,0,0);
+  else if (!strcmp(h, "num")) { char *n = atom(); r = snode(S_NUM, 0,0,0,0,0); CODE[r].num = strtoull(n, 0, 10); }
+  else if (!strcmp(h, "op2")) { char *o = atom(); uint32_t a = term(), b = term(); r = snode(S_OP2, opcode(o), a, b, 0, 0); }
+  else if (!strcmp(h, "inot")) { uint32_t a = term(); r = snode(S_INOT, 0, a, 0,0,0); }
+  else if (!strcmp(h, "iand")) { uint32_t a = term(), b = term(); r = snode(S_IAND, 0, a, b, 0,0); }
+  else if (!strcmp(h, "ior"))  { uint32_t a = term(), b = term(); r = snode(S_IOR, 0, a, b, 0,0); }
+  else if (!strcmp(h, "ctr")) { char *n = atom(); uint32_t k[4] = {0}, ar = 0;
+     while (!peek(')')) { if (ar >= 4) { fprintf(stderr, "pusc: constructor arity > 4 not yet\n"); exit(2); } k[ar++] = term(); }
+     r = snode(S_CTR, ctr_ext(ctor_intern(n, ar), ar), k[0], k[1], k[2], k[3]); }
+  else if (!strcmp(h, "trp")) { uint32_t L = term(), a = term(), b = term(), x = term(); r = snode(S_TRP, 0, L, a, b, x); }
+  else if (!strcmp(h, "chk")) { uint32_t T = term(), x = term(); r = snode(S_CHK, 0, T, x, 0, 0); }
+  else if (!strcmp(h, "ask")) { uint32_t q = term(), k = term(); r = snode(S_ASK, 0, q, k, 0, 0); }
+  else if (!strcmp(h, "case")) {
+     uint32_t s = term(); uint32_t first = 0, last = 0;
+     while (!peek(')')) {
+       expect('('); char *cn = atom(); uint32_t ar = 0; char *xs[8]; uint32_t cid;
+       if (!strcmp(cn, "_")) { cid = 0xFFFFFF; if (peek(40)) { expect(40); expect(41); } }
+       else { if (peek('(')) { expect('('); while (!peek(')')) xs[ar++] = atom(); expect(')'); } cid = ctor_intern(cn, ar); }
+       for (uint32_t i = 0; i < ar; i++) { scope[depth].name = xs[i]; scope[depth].dim = false; depth++; }
+       uint32_t body = term(); depth -= ar; expect(')');
+       uint32_t br = snode(S_BRANCH, cid, ar, body, 0, 0);
+       if (last) CODE[last].c = br; else first = br; last = br;
+     }
+     r = snode(S_CASE, 0, s, first, 0, 0);
+  }
+  else { fprintf(stderr, "pusc: unknown form %s\n", h); exit(2); }
+  expect(')'); return r;
+}
+
+/* Wrap a definition body in its implicit dimension binders (levels 0..n-1). */
+static void read_def(void) {
+  expect('('); char *kw = atom(); if (strcmp(kw, "def")) { fprintf(stderr, "pusc: expected def\n"); exit(2); }
+  char *name = atom();
+  /* register the name first so recursive references resolve */
+  static uint32_t cap; if (!BOOK) { cap = 256; BOOK = calloc(cap, sizeof(Def)); }
+  if (BOOK_LEN >= cap) { cap *= 2; BOOK = realloc(BOOK, cap * sizeof(Def)); }
+  uint32_t id = BOOK_LEN++; BOOK[id].name = name;
+  /* implicit dims are levels 0..n-1: pre-scan is avoided by parsing with a reserved gap and
+     re-resolving; simpler: parse the body, then wrap in n S_DIM binders and SHIFT nothing,
+     because implicit levels were allocated as 0..n-1 while explicit binders started at `depth`.
+     To keep levels consistent we reserve MAX_IMPLICIT levels below explicit binders.          */
+  enum { MAX_IMPLICIT = 8 };
+  nimplicit = 0; depth = MAX_IMPLICIT;
+  for (uint32_t i = 0; i < MAX_IMPLICIT; i++) { scope[i].name = ""; scope[i].dim = true; }
+  uint32_t type = 0;
+  if (peek(':')) { expect(':'); type = term(); expect('='); }
+  uint32_t body = term();
+  expect(')');
+  /* wrap: MAX_IMPLICIT dim binders (unused ones cost one frame each at δ) */
+  for (uint32_t i = 0; i < MAX_IMPLICIT; i++) body = snode(S_DIM, 0, body, 0, 0, 0);
+  BOOK[id].code = body; BOOK[id].type = type; BOOK[id].ndims = 0;
+}
+
+void read_file(const char *path) {
+  FILE *f = fopen(path, "rb"); if (!f) { perror(path); exit(2); }
+  fseek(f, 0, SEEK_END); len = (size_t)ftell(f); fseek(f, 0, SEEK_SET);
+  char *buf = malloc(len + 1); fread(buf, 1, len, f); buf[len] = 0; fclose(f);
+  src = buf; pos = 0;
+  for (;;) { skip(); if (pos >= len) break; read_def(); }
+}
