@@ -112,7 +112,7 @@ $$
 
 <h2><span class="n">2.</span> Unique factorization is distributivity: one chain per prime</h2>
 <ul>
-<li>Every n factors uniquely into prime powers (fundamental theorem of arithmetic), so a divisor is a choice of how many of each prime it uses: d = 2<sup>e₂</sup>·3<sup>e₃</sup>·5<sup>e₅</sup>⋯.</li>
+<li>Every n factors uniquely into prime powers (fundamental theorem of arithmetic), so a divisor is a choice of how many of each prime it uses: d = 2<sup>e₂</sup>·3<sup>e₃</sup>·5<sup>e₅</sup>⋯ (0, the top of §1's lattice, has no such factorization and drops out; n and its divisors are positive from here).</li>
 <li>The primes do not interact. The exponent of a prime p in a product is the sum of its exponents in the factors, and no other prime contributes to it; distinct prime powers share no factor. So each prime is an independent axis — a divisor is any choice 0 ≤ e<sub>p</sub> ≤ a<sub>p</sub>, one per prime, and every such choice is a genuine divisor.</li>
 <li>Along one axis the exponents are totally ordered — a chain: p<sup>i</sup> ∣ p<sup>j</sup> iff i ≤ j, and there meet and join are just min and max.</li>
 <li>Raising one prime's exponent can never make up for another's, so divisibility, gcd, and lcm each read one axis at a time — d ∣ d′ is e<sub>p</sub> ≤ e′<sub>p</sub> per prime, gcd and lcm are min and max per prime:</li>
@@ -196,7 +196,7 @@ $$
 </div>
 
 <ul>
-<li>∧ and ∨ act in each coordinate on its own; a lattice identity among divisors is, in each coordinate, an identity on exponents, and on a chain the relevant one is a one-case triviality — for b ≤ c both sides equal min(a, c):</li>
+<li>∧ and ∨ act in each coordinate on its own; a lattice identity among divisors is, in each coordinate, an identity on exponents, and on a chain the relevant one is a one-case triviality — for b ≤ c both sides equal min(a, c), and both sides are symmetric in b and c, so c ≤ b is the same:</li>
 </ul>
 $$
 \min\big(a,\, \max(b, c)\big) = \max\big(\min(a,b),\, \min(a,c)\big) \qquad (\text{on a chain})
@@ -334,7 +334,7 @@ $$
 \text{twin primes} \iff \forall\, N \ \exists\, w > N : \ \mathcal{K}(w, 1) = 1
 $$
 <ul>
-<li>Riemann reads as one computable inequality b(n) at each n ≥ 1 — a classical elementary reformulation via the DPRM arithmetization (Davis, Putnam, Robinson, Matiyasevich). With δ(n) = ∏<sub>m &lt; n</sub> ∏<sub>j ≤ m</sub> η(j), η(j) the prime p when j = p<sup>k</sup> is a prime power and 1 otherwise: the inner product ∏<sub>j ≤ m</sub> η(j) is lcm(1, …, m), so ln δ(n) ≈ ∑<sub>m &lt; n</sub> ψ(m) ≈ n²/2 (prime number theorem), and the squared deviation of the harmonic sum ∑<sub>k ≤ δ(n)</sub> 1/k from n²/2 is the RH error term. RH is "b(n) = 1 for all n", Π₁ like Goldbach:</li>
+<li>Riemann arithmetizes the same way, but its equivalence is imported, not built here. With δ(n) = ∏<sub>m &lt; n</sub> ∏<sub>j ≤ m</sub> η(j) (η(j) the prime p when j = p<sup>k</sup> is a prime power, else 1), each side of the inequality below is a finite computation, so RH is a Π₁ test — "b(n) = 1 for all n" — and that much is elementary. That this particular inequality is equivalent to RH is a cited classical theorem, not reconstructed here: the DPRM arithmetization together with the prime number theorem and explicit ζ error bounds. (Intuition only: ∏<sub>j ≤ m</sub> η(j) = lcm(1, …, m), so ln δ(n) ≈ n²/2, and the harmonic sum's deviation from n²/2 tracks the ζ error term — but the exact constant 36 and the reverse direction are the deep, imported content.)</li>
 </ul>
 $$
 \mathrm{RH} \iff \forall n \ge 1 : \ \Big(\textstyle\sum_{k \le \delta(n)} \tfrac{1}{k} - \tfrac{n^2}{2}\Big)^{2} < 36\,n^{3}
