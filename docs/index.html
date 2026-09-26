@@ -195,19 +195,19 @@ $$
 </div>
 
 <ul>
-<li>Distributivity is one equation, and it holds because it holds in each coordinate. A single coordinate is a chain, where min over max is a one-case check — take b ≤ c, and both sides are min(a, c):</li>
+<li>∧ and ∨ act in each coordinate on its own; a lattice identity among divisors is, in each coordinate, an identity on exponents, and on a chain the relevant one is a one-case triviality — for b ≤ c both sides equal min(a, c):</li>
 </ul>
 $$
 \min\big(a,\, \max(b, c)\big) = \max\big(\min(a,b),\, \min(a,c)\big) \qquad (\text{on a chain})
 $$
 <ul>
-<li>An identity true in every coordinate is true of the vectors, so gcd and lcm inherit it. That is distributivity — nothing but the exponent fact, prime by prime:</li>
+<li>True in every coordinate, it is true of the vectors — the distributive law for gcd and lcm:</li>
 </ul>
 $$
 A \wedge (B \vee C) = (A \wedge B) \vee (A \wedge C)
 $$
 <ul>
-<li>Total order gave each chain this law; the product of the chains kept the law and dropped the total order (2 and 3 stay incomparable). Divisibility is the standing example — distributive, but not totally ordered (machine-checked, <code>--safe</code>).</li>
+<li>Every chain is distributive; a product of chains is distributive but not totally ordered. Divisibility is that product: distributive, with 2 and 3 incomparable (machine-checked, <code>--safe</code>).</li>
 </ul>
 
 <h2><span class="n">3.</span> The map d ↦ n/d is a De Morgan involution, and a Boolean complement exactly when n is squarefree</h2>
