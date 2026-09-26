@@ -250,11 +250,8 @@ static void skip_form(void) {      /* skip one balanced form from the current '(
   for (; pos < len; pos++) { if (src[pos] == ';') { while (pos < len && src[pos] != '\n') pos++; continue; }
     if (src[pos] == '(') depth++; else if (src[pos] == ')') { depth--; if (depth == 0) { pos++; return; } } }
 }
-void read_file(const char *path) {
-  FILE *f = fopen(path, "rb"); if (!f) { perror(path); exit(2); }
-  fseek(f, 0, SEEK_END); len = (size_t)ftell(f); fseek(f, 0, SEEK_SET);
-  char *buf = malloc(len + 1); if (fread(buf, 1, len, f) != len) { perror(path); exit(2); } buf[len] = 0; fclose(f);
-  src = buf; pos = 0;
+static void read_source(char *buf, size_t n) {
+  src = buf; len = n; pos = 0;
   /* pass 1: register every definition name, so forward references resolve */
   for (;;) { skip(); if (pos >= len) break; size_t save = pos; expect('('); char *kw = atom();
     if (!strcmp(kw, "def")) register_name(atom());
@@ -268,4 +265,18 @@ void read_file(const char *path) {
   pos = 0;
   for (;;) { skip(); if (pos >= len) break; size_t save = pos; expect('('); char *kw = atom();
     if (!strcmp(kw, "hit")) read_hit(); else { pos = save; read_def(); } }
+}
+void read_file(const char *path) {
+  FILE *f = fopen(path, "rb"); if (!f) { perror(path); exit(2); }
+  fseek(f, 0, SEEK_END); size_t n = (size_t)ftell(f); fseek(f, 0, SEEK_SET);
+  char *buf = malloc(n + 1); if (fread(buf, 1, n, f) != n) { perror(path); exit(2); } buf[n] = 0; fclose(f);
+  read_source(buf, n);
+}
+/* a question from the world (§5): one term in the kernel's text, lowered with its own bound names; returns its book id */
+int read_question(const char *text) {
+  static unsigned n; char name[32]; snprintf(name, sizeof name, "?%u", n++);
+  size_t l = strlen(text) + strlen(name) + 16; char *buf = malloc(l);
+  snprintf(buf, l, "(def %s %s)", name, text);
+  read_source(buf, strlen(buf));
+  return book_find(name);
 }

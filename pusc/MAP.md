@@ -862,9 +862,12 @@ universe path, composites in the universe (hcomp in Set through transpEquiv),
 general dimension substitution, the HIT schema (endpoints from types,
 eliminator, composites, transport along a moving parameter, the checker's
 three built-in HITs as instances), fixed points, the four numeric kinds,
-partial elements and restriction types. Not yet: `interact` (ASK), erase at
-projection, the tokens-meet-rules parser (the translator is Bend2's parser
-for now), install.
+partial elements and restriction types. `pusc interact FILE` is the machine that
+asks (§5): the entry is the point, each line of the world is a question (a
+term) the point presents itself along, and a reduction that stalls at an ASK
+cell prints the question and resumes on the world's answer. Not yet: erase at
+projection as a counted rule, the tokens-meet-rules parser (the translator is
+Bend2's parser for now), install.
 
     pusc/cell.h      157   the word layout, tags, Name, Frame, Rule, accessors, CtorInfo
     pusc/cell.c     1134   §§1–4, 6, 8, 9: heap, frames+descent, loop+dispatch, face map, application,
@@ -872,7 +875,7 @@ for now), install.
     pusc/prelude.pusc 147  the Kan rows, Glue, transpEquiv, the HIT rows, as data
     pusc/bend.pusc    38   the Bend dialect's rows: transp, ua, the three built-in HITs
     pusc/read.c      257   §5: the reader for the kernel's own text (the identity chart)
-    pusc/main.c       25   run | bend
+    pusc/main.c       70   run | bend | check | interact
     pusc/test.sh      46   the kernel checks
     pusc/bendtest.sh  25   §10.1 over the corpus against Bend2's normaliser
     pusc/checktest.sh 30   §10.6 the checker differential against Bend2's checker

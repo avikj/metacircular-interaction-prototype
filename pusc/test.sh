@@ -43,6 +43,11 @@ got=$(./pusc run t/kan.pusc nocompl | head -1);  case "$got" in '~i'*'∨i'*) pa
 got=$(./pusc run t/kan.pusc demorgan | head -1); case "$got" in '~i'*'∨~i'*) pass=$((pass+1));; *) fail=$((fail+1)); echo "FAIL demorgan: $got";; esac
 # no capture: the face at M passes inside; the inner sup keeps its own fresh name (a heap address, not a fixed label)
 got=$(./pusc run t/sup.pusc nocapture | head -1); case "$got" in '&'*'{5,6}') pass=$((pass+1));; *) fail=$((fail+1)); echo "FAIL nocapture: $got";; esac
+# the machine that asks (§5): questions from the world, an ASK answered by the world
+got=$(printf '(lam p (proj 0 p))\n(lam t (proj 0 (proj 1 t)))\n' | ./pusc interact t/interact.pusc main | grep -v Itrs | tr '\n' ' ')
+if [ "$got" == "#Pair{1,#Pair{2,3}} 1 #Pair{1,#Pair{2,3}} " ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL interact: $got"; fi
+got=$(printf '(ctr True)\n(lam p (proj 1 p))\n' | ./pusc interact t/interact.pusc asks | grep -v Itrs | tr '\n' ' ')
+if [ "$got" == "? #Cons{'w',#Cons{'h',#Cons{'o',#Nil{}}}} #Pair{#True{},7} 7 " ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL ask: $got"; fi
 # the checker (verify.c) on its probes: every definition checks
 n=$(./pusc check t/check.pusc 2>/dev/null | grep -c '✓'); m=$(grep -c '^(def' t/check.pusc)
 if [ "$n" -eq "$m" ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL check: $n of $m definitions check"; fi
