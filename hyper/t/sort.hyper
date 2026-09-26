@@ -59,3 +59,7 @@
 (def n-two-asks (app length (leaves (trace two-asks))))
 (def two-asks-b (ctr Pair (app ask-bool (app leq h2 h3)) (app ask-bool (app leq h3 h2))))
 (def n-two-asks-b (app length (leaves (trace two-asks-b))))
+; the empty list, and a list with a repeated element
+(def sort-nil (let s (app sort (ctr Nil)) (app witness s)))
+(def A-dup (ctr Cons two (ctr Cons one (ctr Cons one (ctr Nil)))))
+(def sort-dup (let s (app sort A-dup) (app witness s)))

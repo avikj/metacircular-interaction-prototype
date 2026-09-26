@@ -134,6 +134,8 @@ check t/sort.hyper c-isort3 '3'
 # the declaration sort along free inputs: the two arrangements for two, the six for three, no contradictory leaf
 check t/sort.hyper n-run2 '2'
 check t/sort.hyper count3 '6'
+check t/sort.hyper sort-nil '#Nil{}'
+check t/sort.hyper sort-dup '#Cons{#Suc{#Zer{}},#Cons{#Suc{#Zer{}},#Cons{#Suc{#Suc{#Zer{}}},#Nil{}}}}'
 # every identifier MAP.md names is on the line it cites
 if ./cite.sh >/dev/null; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL cite: $(./cite.sh | tail -3 | tr '\n' ' ')"; fi
 echo "pass=$pass fail=$fail"; [ $fail -eq 0 ]
