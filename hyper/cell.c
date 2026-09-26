@@ -530,7 +530,7 @@ static Term sigma_split(Term T, Term world) {
    coordinate sees the binding exactly where it holds. */
 static Term refl_cell(void) { return mk(T_CTR, ctr_ext(C_REFL, 0), alloc(1)); }
 static Term scrut(Term t); static bool refers(Term from, Loc target, int depth); static void cycle_trap(const char *where, Term cell, Term newv);
-static bool SPLITS, DECIDE;                              /* HYPER_SPLITS=1: each split as it happens, to stderr; HYPER_DECIDE=1: a residual splits its own question (open: regresses the concrete case) */
+static bool SPLITS;                                      /* HYPER_SPLITS=1: each split as it happens, and each leaf's residuals checked for contradiction, to stderr */
 /* a small map from pairs of words to a term, for the questions the machine asks once */
 typedef struct { uint64_t k1, k2; Term v; } MemoCell; static MemoCell *MEMO; static uint32_t MEMO_N;
 static Term *memo_slot(uint64_t k1, uint64_t k2) {
@@ -742,7 +742,7 @@ static Term unify_step(Term t) {
         if (blocked(y0) && known_split(y, faces)) continue; } }
     if (SCRUT == 0 && FORCE_LEFT && ext(t) <= FORCE_KIND) {            /* forced: a side stuck on a coordinate is forced in turn, at this identity's kind */
       unsigned k0 = CUR_KIND; CUR_KIND = ext(t);
-      if (ext(t) && ((tag(x0) == T_CASE && blocked(x0) && decide_question(x0, y, faces)) || (tag(y0) == T_CASE && blocked(y0) && decide_question(y0, x, faces)) || (DECIDE && ((blocked(x0) && decide_question(x0, y, faces)) || (blocked(y0) && decide_question(y0, x, faces)))))) { CUR_KIND = k0; continue; }   /* a bare question; under waiting faces only with HYPER_DECIDE (open) */
+      if (ext(t) && ((tag(x0) == T_CASE && blocked(x0) && decide_question(x0, y, faces)) || (tag(y0) == T_CASE && blocked(y0) && decide_question(y0, x, faces)))) { CUR_KIND = k0; continue; }   /* a bare question: the residual is its first asker */
       Term x2 = force(x0), y2 = x2 == x0 ? force(y0) : y0;
       CUR_KIND = k0;
       if (x2 != x0) { HEAP[loc(t)] = x2; continue; }
@@ -850,8 +850,9 @@ static bool known_split(Term s, Term faces) {
   while (tag(s) == T_FCE && ext(s) < 2 && tag(HEAP[loc(s)]) == T_IVAR) { faces = restrict_push(faces, HEAP[loc(s)], ext(s), 0); s = scrut(HEAP[loc(s)+1]); }   /* the faces waiting on it are its world too */
   uint64_t k1, k2; KEY_FACES = faces; bool ok = tag(s) == T_CASE && !proof_case(s) && question_key(s, &k1, &k2); KEY_FACES = 0;
   if (!ok) return false;
-  Term *slot = memo_slot(k1, k2 ^ 0x51); if (!*slot) return false;
-  Term own = *memo_slot((uint64_t)loc(s) << 8 | 0xC0, 0xC0); if (own == *slot) return false;   /* not its own split: a cycle */
+  Term *slot = memo_slot(k1, k2 ^ 0x51); Term own = *memo_slot((uint64_t)loc(s) << 8 | 0xC0, 0xC0);
+  if (!*slot) { if (own) { *slot = own; BIND_GEN++; } return false; }  /* the question as now understood is answered by this residual's own split: registered under this key */
+  if (own == *slot) return false;                                      /* not its own split: a cycle */
   HEAP[loc(s)] = mk(T_IND, 0, 0); HEAP[loc(s)+1] = *slot; return true;
 }
 /* the constructors a constructor's type has (the shapes the core knows), fields fresh coordinates */
@@ -867,7 +868,8 @@ static uint32_t ctor_alts(uint32_t id, Term *alts) {
    constructors of the answer it requires, so every later residual on the question meets one set of worlds */
 static bool decide_question(Term x, Term y, Term faces) {
   while (tag(x) == T_FCE && ext(x) < 2 && tag(HEAP[loc(x)]) == T_IVAR) { faces = restrict_push(faces, HEAP[loc(x)], ext(x), 0); x = scrut(HEAP[loc(x)+1]); }   /* under its waiting faces */
-  if (tag(x) != T_CASE || tag(y) != T_CTR || proof_case(x)) return false;   /* a match on an identity is not a question */
+  if (tag(x) != T_CASE || tag(y) != T_CTR || tag(HEAP[loc(x)]) == T_IND || proof_case(x)) return false;   /* a match on an identity is not a question; a split cell is done */
+  if (*memo_slot((uint64_t)loc(x) << 8 | 0xC0, 0xC0)) return false;    /* the computation a split keeps: deciding it is that split */
   uint64_t k1, k2; KEY_FACES = faces; bool ok = question_key(x, &k1, &k2); KEY_FACES = 0;
   if (!ok || *memo_slot(k1, k2 ^ 0x51)) return false;
   Term alts[8]; uint32_t k = ctor_alts(ctr_id(y), alts); if (!k) return false;
@@ -875,6 +877,7 @@ static bool decide_question(Term x, Term y, Term faces) {
   KEY_FACES = faces; split_stuck(x, alts, k); KEY_FACES = 0; return true;   /* registered under the same identity */
 }
 static Term split_stuck(Term s, Term *alts, uint32_t k) {
+  if (tag(HEAP[loc(s)]) == T_IND) return HEAP[loc(s)+1];               /* split already: its superposition */
   { uint64_t k1, k2; if (question_key(s, &k1, &k2)) { Term *slot = memo_slot(k1, k2 ^ 0x51); if (*slot) { HEAP[loc(s)] = mk(T_IND, 0, 0); HEAP[loc(s)+1] = *slot; return *slot; }
       Term r = split_stuck_new(s, alts, k); *slot = r; BIND_GEN++; return r; } }
   return split_stuck_new(s, alts, k);
@@ -1301,7 +1304,7 @@ void load_prelude(void) {
 /* HYPER_SCHEDULE=right serves the right one, a number seeds a coin per choice, the default is left.  The
    redex bag is the only scheduler, so the normal form and the count must not depend on it (Krama, §10.7). */
 static unsigned SCHED; static uint64_t SCHED_RNG;
-void sched_init(void) { SPLITS = getenv("HYPER_SPLITS") != 0; DECIDE = getenv("HYPER_DECIDE") != 0; if (getenv("HYPER_CAP")) KIND_CAP = (unsigned)atoi(getenv("HYPER_CAP")); const char *s = getenv("HYPER_SCHEDULE"); if (!s || !*s) return;
+void sched_init(void) { SPLITS = getenv("HYPER_SPLITS") != 0; if (getenv("HYPER_CAP")) KIND_CAP = (unsigned)atoi(getenv("HYPER_CAP")); const char *s = getenv("HYPER_SCHEDULE"); if (!s || !*s) return;
   if (!strcmp(s, "right")) SCHED = 1; else { SCHED = 2; SCHED_RNG = strtoull(s, 0, 10) * 2654435761ull + 88172645463325252ull; } }
 static bool right_first(void) {
   if (SCHED < 2) return SCHED;
@@ -1725,7 +1728,6 @@ static void print_rec(Term t, int depth) {
                    SCRUT++; for (uint32_t lvl = 0; lvl < frame_depth(fr); lvl++) if (code_uses(code, lvl)) { bool dim; Term v = frame_lookup(fr, lvl, &dim); if (dim) continue; v = whnf(v); if (tag(v) == T_LAM || tag(v) == T_PLM) continue; printf(";"); print_rec(v, depth-1); } SCRUT--;
                    printf(")"); break; }
     case T_UNIFY: SCRUT++; printf("("); print_rec(HEAP[loc(t)], depth-1); printf(" ≡ "); print_rec(HEAP[loc(t)+1], depth-1); printf(")"); SCRUT--;   /* an undecided identity: its sides as they stand, not asked */
-      if (getenv("HYPER_FACES")) { printf("@"); for (Term f = HEAP[loc(t)+2]; tag(f); f = HEAP[loc(f)]) printf("%u=%u,", loc(whnf(HEAP[loc(f)+1])), ext(f)); }
       break;
     case T_BOTH: SCRUT++; printf("("); print_rec(HEAP[loc(t)], depth-1); printf(" ∧ "); print_rec(HEAP[loc(t)+1], depth-1); printf(")"); SCRUT--; break;
     case T_HELIM: printf("helim("); if (HEAP[loc(t)]) print_rec(HEAP[loc(t)], depth-1); else printf("_"); printf(")"); break;

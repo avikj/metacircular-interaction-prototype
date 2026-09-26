@@ -243,17 +243,20 @@ them.
    has split splits it itself, along the constructors of the answer it requires
    (`decide_question`). A match's scrutinee word is never rewritten with a
    reduct that is still an identity: it may be a child of the match's own body,
-   and writing it closes a cycle. **Not yet**: for three free inputs the
-   specification has 8 leaves, of which 2 carry contradictory residuals (both
-   `≡ True` and `≡ False` on one question, each under waiting faces, no split of
-   the question registered; `HYPER_SPLITS=1` prints the leaf checks); the same
-   decision under waiting faces (`HYPER_DECIDE=1`) regresses the concrete case.
-   The decision tree of `isort` along three free coordinates is exact: six
-   leaves with 2, 3, 2, 2, 3, 3 comparisons and 3 at most (`c-isort3`), each
-   comparison one split whatever the world that first asked it. For the
-   declaration `sort` along free inputs, `sortCost` is `cost3`, the greatest
-   event count over the leaves of `trace`; it is not yet exact because of the
-   two contradictory leaves.
+   and writing it closes a cycle. A residual whose question, as now understood,
+   has no registered split registers its own split under that key, so the second
+   residual on the question meets the first (`HYPER_SPLITS=1` checks every leaf's
+   residuals for contradiction). **Written, second half**: the declaration `sort`
+   along three free inputs resolves to exactly the six arrangements, no leaf with
+   contradictory residuals (`count3`); the decision tree of `isort` along three
+   free coordinates is exact, six leaves with 2, 3, 2, 2, 3, 3 comparisons and 3
+   at most (`c-isort3`), each comparison one split whatever the world that first
+   asked it; `sortCost` is `cost3`, the greatest event count over the leaves of
+   `trace` (503 for three inputs), the machine's own charge for the world with
+   the longest path, comparisons and the splits, unifications and face maps
+   that carry the worlds alike. What it is not yet: the charge of a *concrete*
+   run of `sort` on a representative of that leaf, which counts no split; the
+   two agree in the comparisons and differ in the machinery, which is step 5.
 5. Every rule at an active pair, bodies as nets: the count becomes the proved
    geodesic. The one rule that fires on a non-value goes.
 6. The chart move under a checked path.

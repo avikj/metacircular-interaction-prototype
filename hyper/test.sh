@@ -131,6 +131,9 @@ check t/sort.hyper n-two-asks-b '4'
 # the decision tree of isort along three free coordinates: comparisons per leaf, and at most three
 check t/sort.hyper sp3 '#Cons{2,#Cons{3,#Cons{2,#Cons{2,#Cons{3,#Cons{3,#Nil{}}}}}}}'
 check t/sort.hyper c-isort3 '3'
+# the declaration sort along free inputs: the two arrangements for two, the six for three, no contradictory leaf
+check t/sort.hyper n-run2 '2'
+check t/sort.hyper count3 '6'
 # every identifier MAP.md names is on the line it cites
 if ./cite.sh >/dev/null; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL cite: $(./cite.sh | tail -3 | tr '\n' ' ')"; fi
 echo "pass=$pass fail=$fail"; [ $fail -eq 0 ]
