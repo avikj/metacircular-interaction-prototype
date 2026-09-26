@@ -185,6 +185,7 @@ static void push_rw(Term old, Term by) { RW[NRW].old = old; RW[NRW].side = 2; RW
 static void pop_rw(void) { NRW--; }
 static Term rewrite(Term old, Term by, Term goal) { return fce_raw(2, old, goal, by); }
 
+bool occurs_cell(Loc name, Term t);              /* cell.c: regularity by normalisation */
 /* ---- the checker over static code ---------------------------------------------------------- */
 static bool check(uint32_t c, Term fr, Term goal);
 static Term infer(uint32_t c, Term fr);           /* 0 on failure (VERR set) */
@@ -377,6 +378,24 @@ static Term infer(uint32_t c, Term fr) {
       /* (app (lam x body) v): the binder is the value; (app (plm i body) r): the dimension is substituted (PAp β) */
       if (CODE[n->a].tag == S_LAM) { Term T = infer(n->b, fr); if (!T) return 0; return infer(CODE[n->a].a, bind_value(fr, cell(n->b, fr), T)); }
       if (CODE[n->a].tag == S_PLM) { if (!check_itv(n->b, fr)) return 0; Term f = bind_dim(fr); return infer(CODE[n->a].a, restrict_push(f, ivar_of(f), 2, cell(n->b, fr))); }
+      { uint32_t sp[64]; uint32_t ns = 0; uint32_t h = c; while (CODE[h].tag == S_APP && ns < 64) { sp[ns++] = CODE[h].b; h = CODE[h].a; }
+        for (uint32_t i = 0; i < ns / 2; i++) { uint32_t t = sp[i]; sp[i] = sp[ns-1-i]; sp[ns-1-i] = t; }
+        if (CODE[h].tag == S_REF) {
+          const char *nm = BOOK[CODE[h].ext].name;
+          if (!strcmp(nm, "trec") && ns == 3) {        /* TRec x pb f: the target is f's codomain */
+            Term fT = infer(sp[2], fr); if (!fT) return 0; fT = whnf(fT);
+            if (!is_ctr(fT, C_PI)) { fail_mis(pi(SET, konst(SET)), fT); return 0; }
+            Term aT = HEAP[loc(fT)], bT = app2(HEAP[loc(fT)+1], atom());
+            if (!check(sp[0], fr, ctr1(named("h/Trunc", 1), aT))) return 0;
+            int d = book_find("isProp-ty"); if (d < 0) { fail_ci("isProp-ty"); return 0; }
+            if (!check(sp[1], fr, app2(ref_of(d), bT))) return 0;
+            return bT; }
+          if (!strcmp(nm, "srec") && ns == 3) {        /* CRec x b l */
+            if (!check(sp[0], fr, ctr0(named("h/S1", 0)))) return 0;
+            Term bT = infer(sp[1], fr); if (!bT) return 0;
+            if (!check(sp[2], fr, path(konst(bT), cell(sp[1], fr), cell(sp[1], fr)))) return 0;
+            return bT; }
+        } }
       Term fT = infer(n->a, fr); if (!fT) return 0; fT = whnf(fT);
       if (is_ctr(fT, C_PI)) { if (!check(n->b, fr, HEAP[loc(fT)])) return 0; return app2(HEAP[loc(fT)+1], cell(n->b, fr)); }
       if (is_ctr(fT, C_PATH)) { if (!check_itv(n->b, fr)) return 0; return app2(HEAP[loc(fT)], cell(n->b, fr)); }
@@ -639,6 +658,16 @@ static bool check(uint32_t c, Term fr, Term goal) {
       for (uint32_t i = 0; i < ns / 2; i++) { uint32_t t = sp[i]; sp[i] = sp[ns-1-i]; sp[ns-1-i] = t; }
       if (CODE[h].tag == S_REF) {
         const char *nm = BOOK[CODE[h].ext].name;
+        if (!strcmp(nm, "transp") && ns == 3) {        /* transp(L, φ, x): L is constant on φ */
+          if (!check(sp[0], fr, pi(ITV, konst(SET))) || !check_itv(sp[1], fr)) return false;
+          Term L = cell(sp[0], fr);
+          if (!check(sp[2], fr, app2(L, I0c()))) return false;
+          FaceCell cells[64]; int nc = face_cells(cell(sp[1], fr), cells, 64);
+          for (int k = 0; k < nc; k++) {
+            Term Lk = restrict_cell(L, &cells[k]); Term dm = dim_push(0); Term body = app2(Lk, ivar_of(dm));
+            if (occurs_cell(loc(dm), body)) return fail_mis(app2(Lk, I0c()), body);
+          }
+          Term T = app2(L, I1c()); if (!eq(T, goal, 0)) return fail_mis(goal, T); return true; }
         if (!strcmp(nm, "trec") && ns == 3) {          /* TRec x pb f: x : Trunc A, f : A → goal, pb : isProp goal */
           Term xT = infer(sp[0], fr); if (!xT) return false; xT = whnf(xT);
           if (!is_ctr(xT, named("h/Trunc", 1))) return fail_mis(ctr1(named("h/Trunc",1), SET), xT);

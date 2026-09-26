@@ -835,11 +835,16 @@ Test: ITRS invariant across schedules.
 
 ## 11. Files
 
-Status. Written and green: 33 kernel checks (`pusc/test.sh`) and the whole
+Status. Written and green: 34 kernel checks (`pusc/test.sh`) and the whole
 Bend2 corpus (`pusc/bendtest.sh`: every `.bend` under
 `collab/bend2-interactive-cubical` and `port/` with a `main`, 124 programs,
 value identical to Bend2's own normaliser branch by branch; 12 skipped because
-the oracle itself does not check or run them). The Bend dialect is realised as
+the oracle itself does not check or run them). The checker (`verify.c`, §7)
+is compared verdict by verdict with Bend2's checker over the same corpus
+including the must-fail probes (`pusc/checktest.sh`, `--to-pusc-unchecked`):
+3524 of 3552 definitions agree, 122 of 150 files entirely; the 28 open
+disagreements are the eliminators of the built-in truncation and quotient
+HITs and a handful of single definitions, listed by the harness. The Bend dialect is realised as
 §5.1 says a dialect must be: a certified translator. Bend2's checker is the
 translator and the check is the certificate: `bend FILE --to-pusc`
 (`src/Target/Pusc.hs` in `cubical-paths.patch`) writes the checked book as
@@ -857,7 +862,7 @@ eliminator, composites, transport along a moving parameter, the checker's
 three built-in HITs as instances), fixed points, the four numeric kinds,
 partial elements and restriction types. Not yet: `interact` (ASK), erase at
 projection, the tokens-meet-rules parser (the translator is Bend2's parser
-for now), verify, install.
+for now), install.
 
     pusc/cell.h      157   the word layout, tags, Name, Frame, Rule, accessors, CtorInfo
     pusc/cell.c     1134   §§1–4, 6, 8, 9: heap, frames+descent, loop+dispatch, face map, application,
@@ -868,6 +873,7 @@ for now), verify, install.
     pusc/main.c       25   run | bend
     pusc/test.sh      46   the kernel checks
     pusc/bendtest.sh  25   §10.1 over the corpus against Bend2's normaliser
-    Bend2 src/Target/Pusc.hs  ~190   the checked book as cells (in cubical-paths.patch)
-    pusc/verify.c   ~700   §7 (not yet)
+    pusc/checktest.sh 30   §10.6 the checker differential against Bend2's checker
+    pusc/verify.c    700   §7: the checker as the other projection of the same loop
+    Bend2 src/Target/Pusc.hs  ~200   the checked book as cells (in cubical-paths.patch)
     pusc/book.c     ~150   install (not yet)

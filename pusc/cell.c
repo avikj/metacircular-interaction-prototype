@@ -621,6 +621,7 @@ static bool occurs(Loc name, Term t, int depth) {   /* regularity by normalisati
     default: return true;
   }
 }
+bool occurs_cell(Loc name, Term t) { return occurs(name, t, 24); }
 static bool is_rigid_type(uint32_t id) {
   return id == C_NAT || id == C_BOOL || id == C_UNIT || id == C_EMPTY || id == C_ENUM || id == C_NUMTY || id == C_SET;
 }
