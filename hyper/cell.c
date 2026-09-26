@@ -1216,6 +1216,12 @@ void reify(Term t, FILE *out) {
         for (; tag(t) == T_CTR && ctr_id(t) == C_CONS; t = whnf(HEAP[loc(t)+1])) { reify(HEAP[loc(t)], out); fputc(' ', out); }
         return; }
       if (ar == 1 && (!strcmp(nm, "Var") || !strcmp(nm, "Lit"))) { reify(HEAP[loc(t)], out); return; }
+      if (ar == 3 && !strcmp(nm, "Def")) { fputs("(def ", out); reify(HEAP[loc(t)], out); fputs(" : ", out); reify(HEAP[loc(t)+1], out); fputs(" = ", out); reify(HEAP[loc(t)+2], out); fputc(')', out); return; }
+      if (ar == 4 && !strcmp(nm, "Hit")) {                /* #Hit{name, params, type, ctors}: (hit T (params) : TYPE (c : type) …) */
+        fputs("(hit ", out); reify(HEAP[loc(t)], out); fputs(" (", out); reify(HEAP[loc(t)+1], out); fputs(") : ", out); reify(HEAP[loc(t)+2], out);
+        for (Term cs = whnf(HEAP[loc(t)+3]); tag(cs) == T_CTR && ctr_id(cs) == C_CONS; cs = whnf(HEAP[loc(cs)+1])) {
+          Term c = whnf(HEAP[loc(cs)]); fputs(" (", out); reify(HEAP[loc(c)], out); fputs(" : ", out); reify(HEAP[loc(c)+1], out); fputc(')', out); }
+        fputc(')', out); return; }
       if (ar == 3 && !strcmp(nm, "Branch")) { fputc('(', out); reify(HEAP[loc(t)], out); fputs(" (", out); reify(HEAP[loc(t)+1], out); fputs(") ", out); reify(HEAP[loc(t)+2], out); fputc(')', out); return; }
       fputc('(', out); for (const char *c = nm; *c; c++) fputc(tolower((unsigned char)*c), out);
       for (uint32_t i = 0; i < ar; i++) { fputc(' ', out); reify(HEAP[loc(t)+i], out); }
