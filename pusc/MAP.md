@@ -697,6 +697,24 @@ another table with a `ua` to the first. Universality is this: any
 presentation as rules, any translation as a supplied equivalence; the only
 stream it cannot host is one with no determined map, which is not a syntax.
 
+As written (`pusc parse GRAMMAR SOURCE [DEF]`; `t/grammar.pusc`): a grammar
+is a book like any other, and its `parse` is a definition from the source's
+characters (a list of `chr` cells) to Code, constructor cells named for the
+kernel's forms (`#Lam{x, b}`, `#App{f, x}`, `#Op2{"-", a, b}`, `#Lit{n}`,
+`#Var{x}`, `#Def{name, body}`; names are strings, `"…"` in the text; a list
+splices; a `#Branch{c, xs, b}` is `(c (xs) b)`). Parsing is the reduction of
+`parse` applied to the characters, so the parse tree is the trace and its
+count is reported apart (`- Parse:`). The reifier is the identity chart: the
+Code value is written in the kernel's own text and read back with the same
+reader (`reify`, `read_text`), so quotation composes with evaluation up to
+≃ and never collapses the codes. A rule that fires two ways returns a
+superposition at a label (`a - b - c` gives `(sup 7 …)`, both associations)
+and the translation is a superposed program whose value is `&7{3,9}`; a later
+token is the face map that decides it (`<` is `fce 7 0`, `>` is `fce 7 1`, and
+the translation then carries one association). The Bend2 dialect is still
+translated by Bend2's own checker (§7's certified translator); writing it as a
+book in this form is the remaining step of §5.1.
+
 The kernel's own text has the forms the construction forces (named binders
 with sharing by descent; `<i> t` and `&i{a,b}` binding one dimension;
 `name : A = a`; `lhs = rhs by d`; `?q`; three-valued verdicts; implicitness
@@ -868,7 +886,7 @@ Test: ITRS invariant across schedules.
 
 ## 11. Files
 
-Status. Written and green: 46 kernel checks (`pusc/test.sh`) and the whole
+Status. Written and green: 51 kernel checks (`pusc/test.sh`) and the whole
 Bend2 corpus (`pusc/bendtest.sh`: every `.bend` under
 `collab/bend2-interactive-cubical` and `port/` with a `main`, 124 programs,
 value identical to Bend2's own normaliser branch by branch; 12 skipped because
@@ -902,17 +920,21 @@ checks; a failing certificate refuses the run. `PUSC_CENSUS=1` prints the
 census of rows fired, and `bendtest.sh` checks the sharing regime of every
 program (superpositions never exceed separations). Erase at the projection
 is a counted rule (§3.3, `t/erase.pusc`): one row per forgotten port, and the
-fibre's size never enters. Not yet: the tokens-meet-rules parser (the
-translator is Bend2's parser for now), the parallel bag (§9).
+fibre's size never enters. A dialect is a book whose `parse` maps characters
+to Code (§5.1, `pusc parse`, `t/grammar.pusc`): ambiguity is a superposition,
+the later token decides it, the translation is read back as the kernel's own
+text. Not yet: Bend2's grammar as such a book (Bend2's checker translates it
+for now), the parallel bag (§9).
 
     pusc/cell.h      197   the word layout, tags, Name, Frame, Rule, Install, accessors, CtorInfo
-    pusc/cell.c     1319   §§1–4, 6, 8, 9: heap, frames+descent, loop+dispatch, face map, application,
-                           interval DNF, transp+hcomp dispatch, HIT schema, numbers, printers, collapse, census
+    pusc/cell.c     1357   §§1–4, 5.1, 6, 8, 9: heap, frames+descent, loop+dispatch, face map, application,
+                           interval DNF, transp+hcomp dispatch, HIT schema, numbers, printers, collapse, census, reify
     pusc/prelude.pusc 158  the Kan rows, Glue, transpEquiv, the HIT rows, as data
     pusc/bend.pusc    45   the Bend dialect's rows: transp, ua, the three built-in HITs
-    pusc/read.c      292   §5: the reader for the kernel's own text (the identity chart), install
-    pusc/main.c       76   run | bend | check | interact
-    pusc/test.sh      69   the kernel checks
+    pusc/t/grammar.pusc 72  §5.1: a dialect as a book, `parse` from characters to Code
+    pusc/read.c      301   §5: the reader for the kernel's own text (the identity chart), strings, install
+    pusc/main.c       93   run | bend | check | interact | parse
+    pusc/test.sh      77   the kernel checks
     pusc/bendtest.sh  31   §10.1 over the corpus against Bend2's normaliser, the sharing regimes
     pusc/checktest.sh 27   §10.6 the checker differential against Bend2's checker
     pusc/verify.c    821   §7: the checker as the other projection of the same loop; §8 certificates

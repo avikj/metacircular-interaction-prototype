@@ -8,6 +8,7 @@
  * is free (One §4).  Nothing is erased inside a run; a forgotten port is counted where it is forgotten (§3.3).
  */
 #include "cell.h"
+#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -1095,7 +1096,8 @@ static void print_rec(Term t, int depth) {
     case T_CTR: { uint32_t ar = ctr_arity(t); printf("#%s", ctor_name(ctr_id(t)));
       if (ar) { printf("{"); for (uint32_t i = 0; i < ar; i++) { if (i) printf(","); print_rec(HEAP[loc(t)+i], depth-1); } printf("}"); }
       else printf("{}"); break; }
-    case T_SUP: { Term nm = whnf(HEAP[loc(t)]); printf("&%u{", tag(nm)==T_IVAR ? loc(nm) : 0);
+    case T_SUP: { Term nm = whnf(HEAP[loc(t)]); int k = tag(nm)==T_IVAR ? label_of(loc(nm)) : -1;   /* a label by its number, a bound name by its address */
+      printf("&%u{", k >= 0 ? (unsigned)k : tag(nm)==T_IVAR ? loc(nm) : 0);
       print_rec(HEAP[loc(t)+1], depth-1); printf(","); print_rec(HEAP[loc(t)+2], depth-1); printf("}"); break; }
     case T_LAM: { Term fr = HEAP[loc(t)+1]; Term g = generic(fr); uint32_t code = loc(HEAP[loc(t)]);
       printf("λx%u.", ext(g)); print_rec(inst(CODE[code].a, g), depth-1); break; }
@@ -1147,6 +1149,42 @@ void print_census(void) {
   fprintf(stderr, "- Census:");
   for (unsigned r = 1; r < R_COUNT; r++) if (count[r]) fprintf(stderr, " %s=%llu", names[r], (unsigned long long)count[r]);
   fprintf(stderr, "\n");
+}
+
+static bool is_chr_string(Term t);
+/* ---- §5.1 the identity chart: a Code value is the kernel's own text --------------------------------- */
+/* A grammar's output is data: constructor cells named for the kernel's forms (#Lam{x, b}, #App{f, x},
+   #Op2{"-", a, b}, #Def{name, body}, …), strings for names, #Lit{n} for numerals, lists spliced, a #Branch
+   as (ctor (names) body).  Writing it in the kernel's text and reading that back is the reifier: quotation
+   composes with evaluation up to ≃, never ≡ (the codes are not collapsed).  A superposition that survived
+   the parse is a superposed program, written at its label. */
+static void reify_string(Term t, FILE *out) {
+  for (t = whnf(t); tag(t) == T_CTR && ctr_id(t) == C_CONS; t = whnf(HEAP[loc(t)+1])) fputc((int)HEAP[loc(whnf(HEAP[loc(t)]))], out);
+}
+void reify(Term t, FILE *out) {
+  t = whnf(t);
+  switch (tag(t)) {
+    case T_NUM: switch (ext(t)) {
+      case N_CHR: fprintf(out, "(chr %llu)", (unsigned long long)HEAP[loc(t)]); return;
+      case N_I64: fprintf(out, "(i64 %lld)", (long long)(int64_t)HEAP[loc(t)]); return;
+      case N_F64: fprintf(out, "(f64 %llu)", (unsigned long long)HEAP[loc(t)]); return;
+      default: fprintf(out, "%llu", (unsigned long long)HEAP[loc(t)]); return; }
+    case T_SUP: { int k = label_of(loc(whnf(HEAP[loc(t)])));
+      if (k < 0) { fprintf(stderr, "pusc: a parse is superposed at a bound name; only a label can be written\n"); exit(2); }
+      fprintf(out, "(sup %d ", k); reify(HEAP[loc(t)+1], out); fputc(' ', out); reify(HEAP[loc(t)+2], out); fputc(')', out); return; }
+    case T_CTR: {
+      uint32_t id = ctr_id(t), ar = ctr_arity(t); const char *nm = ctor_name(id);
+      if (id == C_NIL) return;
+      if (id == C_CONS) { if (is_chr_string(t)) { reify_string(t, out); return; }
+        for (; tag(t) == T_CTR && ctr_id(t) == C_CONS; t = whnf(HEAP[loc(t)+1])) { reify(HEAP[loc(t)], out); fputc(' ', out); }
+        return; }
+      if (ar == 1 && (!strcmp(nm, "Var") || !strcmp(nm, "Lit"))) { reify(HEAP[loc(t)], out); return; }
+      if (ar == 3 && !strcmp(nm, "Branch")) { fputc('(', out); reify(HEAP[loc(t)], out); fputs(" (", out); reify(HEAP[loc(t)+1], out); fputs(") ", out); reify(HEAP[loc(t)+2], out); fputc(')', out); return; }
+      fputc('(', out); for (const char *c = nm; *c; c++) fputc(tolower((unsigned char)*c), out);
+      for (uint32_t i = 0; i < ar; i++) { fputc(' ', out); reify(HEAP[loc(t)+i], out); }
+      fputc(')', out); return; }
+    default: fprintf(stderr, "pusc: a parse produced a cell that is not code: "); print_rec(t, 3); fprintf(stderr, "\n"); exit(2);
+  }
 }
 
 /* ---- Bend2's presentation (Core.Type's Show), for the dialect's oracle comparison ---- */

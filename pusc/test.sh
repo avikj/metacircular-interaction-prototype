@@ -59,6 +59,14 @@ checkn t/erase.pusc and-t   '#True{}' 3
 checkn t/erase.pusc const   '7' 2
 checkn t/erase.pusc dflt    '3' 3
 checkn t/erase.pusc carry   '1' 2
+# §5.1 a dialect is a book (t/grammar.pusc): the sentence's characters meet the rules; an ambiguity is a superposition at
+# a label, the later context (< or >) is the face map that decides it; the translation is read back as the kernel's text
+checkp() { got=$(printf '%s\n' "$1" | ./pusc parse t/grammar.pusc - 2>&1 | sed -n '2p;3p' | tr '\n' ' '); if [ "$got" = "$2 - Itrs: $3 " ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL parse '$1': got '$got' want '$2 - Itrs: $3'"; fi; }
+checkp '10 - 4 - 3'   '&7{3,9}' 4
+checkp '10 - 4 - 3 <' '3' 2
+checkp '10 - 4 - 3 >' '9' 2
+checkp '(\f. \x. f (f x)) (\n. n - 1) 9' '7' 6
+got=$(printf '10 - 4 - 3 <\n' | ./pusc parse t/grammar.pusc - | head -1); if [ "$got" = "(def main (op2 - (op2 - 10 4) 3)) " ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL translation: $got"; fi
 # §8 install: notnot := id by a checked certificate; the value is unchanged, the run pays one R_INSTALL row instead of two case rows;
 # a certificate that does not check refuses to run
 check t/install.pusc main '#True{}'

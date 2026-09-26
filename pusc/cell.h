@@ -10,6 +10,7 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <stdbool.h>
+#include <stdio.h>
 
 typedef uint64_t Term;
 typedef uint32_t Loc;
@@ -194,4 +195,5 @@ extern bool (*REWRITE_HOOK)(Term old, Term v);   /* a semantic rewrite: does the
 void print_bend(Term t, int depth);    /* Bend2's own presentation of a value */
 void collapse_print(Term t);           /* one line per branch, in Bend2's collapse order */
 void print_census(void);               /* §6: the receipts by rule (the trace is the retained history) */
+void reify(Term code, FILE *out);      /* §5.1: a Code value written in the kernel's own text */
 #endif

@@ -84,6 +84,14 @@ static uint32_t label_code(const char *a) {
 }
 static uint32_t term(void) {
   skip();
+  if (peek('"')) {                 /* "text": a list of characters, the identity chart of a string (no parens or ';' inside) */
+    pos++; size_t s0 = pos; while (pos < len && src[pos] != '"') pos++;
+    if (pos >= len) { fprintf(stderr, "pusc: unterminated string\n"); exit(2); }
+    uint32_t r = snode(S_CTR, ctr_ext(ctor_intern("Nil", 0), 0), 0,0,0,0);
+    for (size_t i = pos; i-- > s0;) { uint32_t c = snode(S_NUM, N_CHR, 0,0,0,0); CODE[c].num = (unsigned char)src[i];
+      r = snode(S_CTR, ctr_ext(ctor_intern("Cons", 2), 2), c, r, 0, 0); }
+    pos++; return r;
+  }
   if (!peek('(')) {
     char *a = atom();
     if (!strcmp(a, "i0")) return snode(S_I0, 0,0,0,0,0);
@@ -276,6 +284,7 @@ static void read_source(char *buf, size_t n) {
   for (;;) { skip(); if (pos >= len) break; size_t save = pos; expect('('); char *kw = atom();
     if (!strcmp(kw, "hit")) read_hit(); else if (!strcmp(kw, "install")) read_install(); else { pos = save; read_def(); } }
 }
+void read_text(char *buf, size_t n) { read_source(buf, n); }   /* §5.1: a translation, read back as the kernel's text */
 void read_file(const char *path) {
   FILE *f = fopen(path, "rb"); if (!f) { perror(path); exit(2); }
   fseek(f, 0, SEEK_END); size_t n = (size_t)ftell(f); fseek(f, 0, SEEK_SET);
