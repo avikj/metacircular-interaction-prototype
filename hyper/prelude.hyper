@@ -1,4 +1,4 @@
-; pusc prelude — the right-hand sides of the Kan rules as terms of the identity chart (MAP.md §3.5).
+; hyper prelude — the right-hand sides of the Kan rules as terms of the identity chart (MAP.md §3.5).
 ; The dispatch (which row fires, regularity, r ≡ s, true/false faces, constructor-headed composites)
 ; is in cell.c; these are the rows, transcribed once from Core/WHNF.hs.  A type is a CTR cell.
 

@@ -1,5 +1,5 @@
 diff --git a/app/Main.hs b/app/Main.hs
-index e8b579d..cd2fb12 100644
+index e8b579d..039263b 100644
 --- a/app/Main.hs
 +++ b/app/Main.hs
 @@ -4,7 +4,7 @@ import Control.Monad (unless)
@@ -7,7 +7,7 @@ index e8b579d..cd2fb12 100644
  import System.Environment (getArgs)
  import System.Exit (exitFailure)
 -import Core.CLI (processFile, processFileToJS, processFileToHVM, listDependencies)
-+import Core.CLI (processFile, processFileToJS, processFileToHVM, processFileToHVM4, processFileToHVM4Raw, processFileToHVM4Full, processFileToPusc, processFileToPuscUnchecked, processFileTotal, listDependencies)
++import Core.CLI (processFile, processFileToJS, processFileToHVM, processFileToHVM4, processFileToHVM4Raw, processFileToHVM4Full, processFileToHyper, processFileToHyperUnchecked, processFileTotal, listDependencies)
  
  -- | Show usage information
  showUsage :: IO ()
@@ -18,7 +18,7 @@ index e8b579d..cd2fb12 100644
 +  putStrLn "  --to-hvm4          Compile to HVM4 surface"
 +  putStrLn "  --to-hvm4-raw      Compile to HVM4 surface without pre-normalisation"
 +  putStrLn "  --to-hvm4-full     Compile to HVM4 with the full cubical runtime (no erasure)"
-+  putStrLn "  --to-pusc          Emit the checked book as pusc cells"
++  putStrLn "  --to-hyper          Emit the checked book as hyper cells"
 +  putStrLn "  --total            Check, then fail if any definition is [unchecked]"
    putStrLn "  --list-dependencies List all dependencies (recursive)"
  
@@ -29,8 +29,8 @@ index e8b579d..cd2fb12 100644
      [file, "--to-javascript"] | ".bend.py" `isSuffixOf` file -> processFileToJS file
 +    [file, "--to-hvm4-raw"] | ".bend" `isSuffixOf` file -> processFileToHVM4Raw file
 +    [file, "--to-hvm4-full"] | ".bend" `isSuffixOf` file -> processFileToHVM4Full file
-+    [file, "--to-pusc"] | ".bend" `isSuffixOf` file -> processFileToPusc file
-+    [file, "--to-pusc-unchecked"] | ".bend" `isSuffixOf` file -> processFileToPuscUnchecked file
++    [file, "--to-hyper"] | ".bend" `isSuffixOf` file -> processFileToHyper file
++    [file, "--to-hyper-unchecked"] | ".bend" `isSuffixOf` file -> processFileToHyperUnchecked file
 +    [file, "--total"] | ".bend" `isSuffixOf` file -> processFileTotal file
 +    [file, "--to-hvm4"] | ".bend"    `isSuffixOf` file -> processFileToHVM4 file
 +    [file, "--to-hvm4"] | ".bend.py" `isSuffixOf` file -> processFileToHVM4 file
@@ -112,7 +112,7 @@ index 0000000..e5f5248
 +def main() -> Nat:
 +  0n
 diff --git a/bend.cabal b/bend.cabal
-index e934487..7d80412 100644
+index e934487..902af3d 100644
 --- a/bend.cabal
 +++ b/bend.cabal
 @@ -1,4 +1,4 @@
@@ -131,7 +131,7 @@ index e934487..7d80412 100644
                        Target.HVM,
 +                      Target.HVM4,
 +                      Target.HVM4Full,
-+                      Target.Pusc,
++                      Target.Hyper,
                        Target.JavaScript
 -    build-depends:    base ^>= 4.21.0.0,
 +    build-depends:    base >= 4.17,
@@ -2110,7 +2110,7 @@ index 939a19f..d318a1f 100644
    Sup l a b  -> Sup (binder lv l ctx vars) (binder lv a ctx vars) (binder lv b ctx vars)
    SupM x l f -> SupM (binder lv x ctx vars) (binder lv l ctx vars) (binder lv f ctx vars)
 diff --git a/src/Core/CLI.hs b/src/Core/CLI.hs
-index f94d1ce..a901331 100644
+index f94d1ce..402b520 100644
 --- a/src/Core/CLI.hs
 +++ b/src/Core/CLI.hs
 @@ -5,6 +5,12 @@ module Core.CLI
@@ -2120,8 +2120,8 @@ index f94d1ce..a901331 100644
 +  , processFileToHVM4
 +  , processFileToHVM4Raw
 +  , processFileToHVM4Full
-+  , processFileToPusc
-+  , processFileToPuscUnchecked
++  , processFileToHyper
++  , processFileToHyperUnchecked
 +  , processFileTotal
    , listDependencies
    ) where
@@ -2146,7 +2146,7 @@ index f94d1ce..a901331 100644
  import Core.Parse.Book (doParseBook)
 +import Core.Analysis
 +import qualified Target.HVM4Full as HVM4Full
-+import qualified Target.Pusc as Pusc
++import qualified Target.Hyper as Hyper
 +import Core.Totality
  import Core.Type
  import Core.WHNF
@@ -2348,26 +2348,26 @@ index f94d1ce..a901331 100644
 +  book <- checkDefinitions book0 `finally` (hFlush stdout >> hDuplicateTo saved stdout)
 +  putStrLn (HVM4Full.compileFull book)
 +
-+-- | The checked book as pusc cells (stdout is exactly the program; the check
++-- | The checked book as hyper cells (stdout is exactly the program; the check
 +-- report goes to stderr).
-+processFileToPusc :: FilePath -> IO ()
-+processFileToPusc file = do
++processFileToHyper :: FilePath -> IO ()
++processFileToHyper file = do
 +  book0 <- parseFile file
 +  hFlush stdout
 +  saved <- hDuplicate stdout
 +  hDuplicateTo stderr stdout
 +  book <- checkDefinitions book0 `finally` (hFlush stdout >> hDuplicateTo saved stdout)
-+  putStrLn (Pusc.compilePusc book)
++  putStrLn (Hyper.compileHyper book)
 +
-+-- | The elaborated book as pusc cells WITHOUT the verdict: for the checker
-+-- differential (pusc's own `check` against this checker), including the
++-- | The elaborated book as hyper cells WITHOUT the verdict: for the checker
++-- differential (hyper's own `check` against this checker), including the
 +-- must-fail probes. The silent pass records HIT constructor parameters.
-+processFileToPuscUnchecked :: FilePath -> IO ()
-+processFileToPuscUnchecked file = do
++processFileToHyperUnchecked :: FilePath -> IO ()
++processFileToHyperUnchecked file = do
 +  book0@(Book defs0 _) <- parseFile file
 +  let seen = length [ () | (_, (_, term, typ)) <- M.toList defs0, silent book0 term typ `seq` True ]
 +  seen `seq` return ()
-+  putStrLn (Pusc.compilePusc (elabBook book0))
++  putStrLn (Hyper.compileHyper (elabBook book0))
 +  where
 +    silent book term typ = case (do check 0 noSpan book (Ctx []) typ Set; check 0 noSpan book (Ctx []) term typ) of
 +      Done () -> True
@@ -7229,87 +7229,15 @@ index 0000000..3928f82
 +          dflt = "λv. #HEl{v}"
 +      in "@" ++ hitElimFn t ++ " = λ&" ++ pn ++ ". " ++ concatMap (\(_, b) -> "λ&" ++ b ++ ". ") bns ++ "λ" ++ xn ++ ". (λ{"
 +           ++ intercalate "; " (map arm ctors ++ [hcm, dflt]) ++ "})(" ++ xn ++ ")"
-diff --git a/src/Target/JavaScript.hs b/src/Target/JavaScript.hs
-index 690a38e..d5782fa 100644
---- a/src/Target/JavaScript.hs
-+++ b/src/Target/JavaScript.hs
-@@ -116,8 +116,56 @@ termToCT book term dep = case term of
-   Sup l a b  -> CSup (termToCT book l dep) (termToCT book a dep) (termToCT book b dep)
-   SupM x l f -> CSupM (termToCT book x dep) (termToCT book l dep) (termToCT book f dep)
-   Frk l a b  -> CFrk (termToCT book l dep) (termToCT book a dep) (termToCT book b dep)
-+  -- The cubical layer has no JavaScript representation: this backend erases,
-+  -- and erasing a path or a composition silently produces WRONG code rather
-+  -- than none. Fail loudly instead. Use --to-hvm4-full for cubical programs.
-+  Itv        -> cubicalUnsupported "the interval"
-+  I0         -> cubicalUnsupported "i0"
-+  I1         -> cubicalUnsupported "i1"
-+  INot _     -> cubicalUnsupported "inot"
-+  IAnd _ _   -> cubicalUnsupported "iand"
-+  IOr _ _    -> cubicalUnsupported "ior"
-+  Pth _ _ _  -> cubicalUnsupported "a Path type"
-+  PLm _ _    -> cubicalUnsupported "a path lambda"
-+  PAp _ _    -> cubicalUnsupported "a path application"
-+  Coe _ _ _ _ -> cubicalUnsupported "coe"
-+  Trp _ _ _  -> cubicalUnsupported "transp"
-+  HCm _ _ _  -> cubicalUnsupported "hcomp"
-+  Ua _ _ _ _ _ _ -> cubicalUnsupported "ua"
-+  Glu _ _    -> cubicalUnsupported "a Glue type"
-+  GlB _ _ _  -> cubicalUnsupported "glue"
-+  UnG _      -> cubicalUnsupported "unglue"
-+  Quo _ _    -> cubicalUnsupported "a quotient type"
-+  QCl _      -> cubicalUnsupported "a quotient class"
-+  QEq _ _ _  -> cubicalUnsupported "the quotient path constructor"
-+  QSq        -> cubicalUnsupported "squash"
-+  QRec _ _ _ _ -> cubicalUnsupported "the quotient recursor"
-+  HTy _ _ -> cubicalUnsupported "a higher inductive type"
-+  HCon _ _ _ _ _ -> cubicalUnsupported "a HIT constructor"
-+  HEl _ _ _ -> cubicalUnsupported "a HIT eliminator"
-+  HRec _ _ -> cubicalUnsupported "a HIT recursor"
-+  Rst _ _ _  -> cubicalUnsupported "a Sub type"
-+  InS _      -> cubicalUnsupported "inS"
-+  OutS _     -> cubicalUnsupported "outS"
-+  Tru _      -> cubicalUnsupported "a truncation type"
-+  TIn _      -> cubicalUnsupported "tin"
-+  TSq _ _    -> cubicalUnsupported "tsquash"
-+  TRec _ _ _ -> cubicalUnsupported "the truncation recursor"
-+  Cir        -> cubicalUnsupported "S1"
-+  CBase      -> cubicalUnsupported "base"
-+  CLoop      -> cubicalUnsupported "loop"
-+  CRec _ _ _ -> cubicalUnsupported "the S1 recursor"
-+  Prt _ _    -> cubicalUnsupported "a Partial type"
-+  Sys _      -> cubicalUnsupported "a system"
-+  POut _     -> cubicalUnsupported "pout"
-   Pat _ _ _  -> error "unreachable"
- 
-+-- | The JS backend erases; a cubical term must not be silently dropped.
-+cubicalUnsupported :: String -> a
-+cubicalUnsupported what =
-+  error ("JavaScript backend: " ++ what ++ " has no JavaScript representation. \
-+         \Compile cubical programs with --to-hvm4-full (the full cubical runtime).")
-+
- -- JavaScript State Monad
- type JSM = ST.State Int
- 
-@@ -552,8 +600,8 @@ prelude = unlines [
- 
- -- Compile book to JavaScript
- compile :: Book -> String
--compile (Book defs) =
--  let ctDefs = map (\(name, (_, term, _)) -> (name, termToCT (Book defs) term 0)) (M.toList defs)
-+compile book@(Book defs _) =
-+  let ctDefs = map (\(name, (_, term, _)) -> (name, termToCT book term 0)) (M.toList defs)
-       ctBook = M.fromList ctDefs
-       jsFns = concatMap (generateJS ctBook) ctDefs
-   in prelude ++ jsFns
-diff --git a/src/Target/Pusc.hs b/src/Target/Pusc.hs
+diff --git a/src/Target/Hyper.hs b/src/Target/Hyper.hs
 new file mode 100644
-index 0000000..e53c501
+index 0000000..c726199
 --- /dev/null
-+++ b/src/Target/Pusc.hs
++++ b/src/Target/Hyper.hs
 @@ -0,0 +1,198 @@
 +{-./../Core/Type.hs-}
 +
-+-- Bend2 -> pusc: the checked book, emitted as the kernel's own text (pusc/read.c).
++-- Bend2 -> hyper: the checked book, emitted as the kernel's own text (hyper/read.c).
 +--
 +-- Nothing is erased or pre-normalised. Every definition is a typed point
 +-- `(def b/NAME : TYPE = TERM)`; types are constructor cells; the interval,
@@ -7317,7 +7245,7 @@ index 0000000..e53c501
 +-- own cells, so this file is a table of correspondences and no rule lives
 +-- here. The Bend dialect is thereby a certified translator (MAP.md §5.1):
 +-- the certificate is the check that produced the book.
-+module Target.Pusc (compilePusc) where
++module Target.Hyper (compileHyper) where
 +
 +import Data.List (intercalate)
 +import qualified Data.Map as M
@@ -7326,8 +7254,8 @@ index 0000000..e53c501
 +import Core.Type
 +import Core.WHNF (termToInt)
 +
-+compilePusc :: Book -> String
-+compilePusc book@(Book defs hits) =
++compileHyper :: Book -> String
++compileHyper book@(Book defs hits) =
 +  unlines (map hitDecl (M.toList hits) ++ concatMap def (M.toList defs))
 +  where
 +    def (nam, (_, tm, ty)) = [ "(def " ++ defName nam ++ " : " ++ emit book ty ++ " = " ++ emit book tm ++ ")" ]
@@ -7412,7 +7340,7 @@ index 0000000..e53c501
 +    Pri U64_TO_CHAR -> "(lam x (op1 tochar x))"
 +    InS x          -> ctr "InS" [go d x]
 +    Sys fs         -> ctr "Sys" [faces d fs]
-+    -- the checker's three built-in HITs are instances of the schema (bend.pusc declares them)
++    -- the checker's three built-in HITs are instances of the schema (bend.hyper declares them)
 +    TIn a          -> ctr (ctorName "Trunc/tin") [go d a]
 +    TSq x y        -> ctr (ctorName "Trunc/tsquash") [go d x, go d y]
 +    CBase          -> "(ctr " ++ ctorName "S1/base" ++ ")"
@@ -7424,7 +7352,7 @@ index 0000000..e53c501
 +    HCon t c ps as ivs -> case derefHit book t of
 +      Just h | null ps && hitArity h > 0 -> case hitEnv of
 +        Just (t', vs) | t' == t -> apply (ctr (ctorName c) (map (go d) (vs ++ as)))
-+        _ -> error ("pusc emission: a constructor of the parametric HIT " ++ t ++ " reached emission without its parameters; the term was not checked")
++        _ -> error ("hyper emission: a constructor of the parametric HIT " ++ t ++ " reached emission without its parameters; the term was not checked")
 +      _ -> apply (ctr (ctorName c) (map (go d) (ps ++ as)))
 +      where apply h = foldl (\acc i -> "(app " ++ acc ++ " " ++ go d i ++ ")") h ivs
 +    -- eliminators are case trees; a branch over fields is opened in place
@@ -7448,7 +7376,7 @@ index 0000000..e53c501
 +    Sup l a b      -> "(sup " ++ label d l ++ " " ++ go d a ++ " " ++ go d b ++ ")"
 +    SupM x l f     -> let lb = label d l in
 +                      "(app (app " ++ go d f ++ " (fce " ++ lb ++ " 0 " ++ go d x ++ ")) (fce " ++ lb ++ " 1 " ++ go d x ++ "))"
-+    Frk _ _ _      -> error "pusc emission: a fork survived unfrk"
++    Frk _ _ _      -> error "hyper emission: a fork survived unfrk"
 +    Era            -> "(era)"
 +    -- the interval and the Kan cells
 +    I0             -> "i0"
@@ -7466,8 +7394,8 @@ index 0000000..e53c501
 +    UnG g          -> "(unglue " ++ go d g ++ ")"
 +    Ua a b f g gf fg -> ctr "UaU" (map (go d) [a, b, f, g, gf, fg])
 +    -- refused
-+    Met _ _ _      -> error "pusc emission: an unsolved metavariable has no cell"
-+    Pat _ _ _      -> error "pusc emission: an unflattened pattern match"
++    Met _ _ _      -> error "hyper emission: an unsolved metavariable has no cell"
++    Pat _ _ _      -> error "hyper emission: an unflattened pattern match"
 +    -- dropped: a log is an ASK the host answers; a rewrite is checker-internal
 +    Log _ x        -> go d x
 +    Rwt _ _ x      -> go d x
@@ -7492,7 +7420,7 @@ index 0000000..e53c501
 +    _       -> open (d + 1) (App body (Var n d)) ns
 +  hbranch d (c, b) = case derefCtor book c of
 +    Just (_, _, k) -> " " ++ branch d (ctorName c) (ctorNArgs k) b
-+    Nothing        -> error ("pusc emission: helim branch for an unknown constructor " ++ c)
++    Nothing        -> error ("hyper emission: helim branch for an unknown constructor " ++ c)
 +
 +  -- a label: a closed numeral is a global choice name; a variable is itself
 +  label d l = case termToInt book l of
@@ -7505,6 +7433,78 @@ index 0000000..e53c501
 +    AND -> "and"; OR -> "or"; XOR -> "xor"; SHL -> "shl"; SHR -> "shr"
 +  op1 o = case o of { NOT -> "not"; NEG -> "neg" }
 +  numTag k = case k of { U64_T -> "U64"; I64_T -> "I64"; F64_T -> "F64"; CHR_T -> "Char" }
+diff --git a/src/Target/JavaScript.hs b/src/Target/JavaScript.hs
+index 690a38e..d5782fa 100644
+--- a/src/Target/JavaScript.hs
++++ b/src/Target/JavaScript.hs
+@@ -116,8 +116,56 @@ termToCT book term dep = case term of
+   Sup l a b  -> CSup (termToCT book l dep) (termToCT book a dep) (termToCT book b dep)
+   SupM x l f -> CSupM (termToCT book x dep) (termToCT book l dep) (termToCT book f dep)
+   Frk l a b  -> CFrk (termToCT book l dep) (termToCT book a dep) (termToCT book b dep)
++  -- The cubical layer has no JavaScript representation: this backend erases,
++  -- and erasing a path or a composition silently produces WRONG code rather
++  -- than none. Fail loudly instead. Use --to-hvm4-full for cubical programs.
++  Itv        -> cubicalUnsupported "the interval"
++  I0         -> cubicalUnsupported "i0"
++  I1         -> cubicalUnsupported "i1"
++  INot _     -> cubicalUnsupported "inot"
++  IAnd _ _   -> cubicalUnsupported "iand"
++  IOr _ _    -> cubicalUnsupported "ior"
++  Pth _ _ _  -> cubicalUnsupported "a Path type"
++  PLm _ _    -> cubicalUnsupported "a path lambda"
++  PAp _ _    -> cubicalUnsupported "a path application"
++  Coe _ _ _ _ -> cubicalUnsupported "coe"
++  Trp _ _ _  -> cubicalUnsupported "transp"
++  HCm _ _ _  -> cubicalUnsupported "hcomp"
++  Ua _ _ _ _ _ _ -> cubicalUnsupported "ua"
++  Glu _ _    -> cubicalUnsupported "a Glue type"
++  GlB _ _ _  -> cubicalUnsupported "glue"
++  UnG _      -> cubicalUnsupported "unglue"
++  Quo _ _    -> cubicalUnsupported "a quotient type"
++  QCl _      -> cubicalUnsupported "a quotient class"
++  QEq _ _ _  -> cubicalUnsupported "the quotient path constructor"
++  QSq        -> cubicalUnsupported "squash"
++  QRec _ _ _ _ -> cubicalUnsupported "the quotient recursor"
++  HTy _ _ -> cubicalUnsupported "a higher inductive type"
++  HCon _ _ _ _ _ -> cubicalUnsupported "a HIT constructor"
++  HEl _ _ _ -> cubicalUnsupported "a HIT eliminator"
++  HRec _ _ -> cubicalUnsupported "a HIT recursor"
++  Rst _ _ _  -> cubicalUnsupported "a Sub type"
++  InS _      -> cubicalUnsupported "inS"
++  OutS _     -> cubicalUnsupported "outS"
++  Tru _      -> cubicalUnsupported "a truncation type"
++  TIn _      -> cubicalUnsupported "tin"
++  TSq _ _    -> cubicalUnsupported "tsquash"
++  TRec _ _ _ -> cubicalUnsupported "the truncation recursor"
++  Cir        -> cubicalUnsupported "S1"
++  CBase      -> cubicalUnsupported "base"
++  CLoop      -> cubicalUnsupported "loop"
++  CRec _ _ _ -> cubicalUnsupported "the S1 recursor"
++  Prt _ _    -> cubicalUnsupported "a Partial type"
++  Sys _      -> cubicalUnsupported "a system"
++  POut _     -> cubicalUnsupported "pout"
+   Pat _ _ _  -> error "unreachable"
+ 
++-- | The JS backend erases; a cubical term must not be silently dropped.
++cubicalUnsupported :: String -> a
++cubicalUnsupported what =
++  error ("JavaScript backend: " ++ what ++ " has no JavaScript representation. \
++         \Compile cubical programs with --to-hvm4-full (the full cubical runtime).")
++
+ -- JavaScript State Monad
+ type JSM = ST.State Int
+ 
+@@ -552,8 +600,8 @@ prelude = unlines [
+ 
+ -- Compile book to JavaScript
+ compile :: Book -> String
+-compile (Book defs) =
+-  let ctDefs = map (\(name, (_, term, _)) -> (name, termToCT (Book defs) term 0)) (M.toList defs)
++compile book@(Book defs _) =
++  let ctDefs = map (\(name, (_, term, _)) -> (name, termToCT book term 0)) (M.toList defs)
+       ctBook = M.fromList ctDefs
+       jsFns = concatMap (generateJS ctBook) ctDefs
+   in prelude ++ jsFns
 diff --git a/streams.bend b/streams.bend
 new file mode 100644
 index 0000000..39dbe00

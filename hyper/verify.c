@@ -1,5 +1,5 @@
 #define _GNU_SOURCE
-/* pusc — verify.c: checking is the other projection of the same presentation (MAP.md §7).
+/* hyper — verify.c: checking is the other projection of the same presentation (MAP.md §7).
  *
  * The term is VIEWED (static code walked with a frame of coordinates), the type is EVALUATED
  * (a cell). A coordinate is a fresh atom reflected η-long at its type (T_REFLECT); a match
@@ -17,10 +17,10 @@ static VRes VERR; static Term VERR_WANT, VERR_GOT; static const char *VERR_MSG;
 static uint32_t CUR_CODE;                 /* the static node under examination (for the trace) */
 static int DBG_DEPTH;
 static bool fail_mis(Term want, Term got) { VERR = V_MISMATCH; VERR_WANT = want; VERR_GOT = got; VERR_MSG = 0;
-  if (getenv("PUSC_DEBUG")) { fprintf(stderr, "  [mismatch at static tag %u] want ", CODE[CUR_CODE].tag); print_term(want, 8); fprintf(stderr, " got "); print_term(got, 8); fprintf(stderr, "\n"); }
+  if (getenv("HYPER_DEBUG")) { fprintf(stderr, "  [mismatch at static tag %u] want ", CODE[CUR_CODE].tag); print_term(want, 8); fprintf(stderr, " got "); print_term(got, 8); fprintf(stderr, "\n"); }
   return false; }
 static bool fail_ci(const char *msg)     { VERR = V_CANTINFER; VERR_MSG = msg;
-  if (getenv("PUSC_DEBUG")) fprintf(stderr, "  [cannot infer at static tag %u] %s\n", CODE[CUR_CODE].tag, msg ? msg : "");
+  if (getenv("HYPER_DEBUG")) fprintf(stderr, "  [cannot infer at static tag %u] %s\n", CODE[CUR_CODE].tag, msg ? msg : "");
   return false; }
 
 /* ---- the context: types by level, the atom of each coordinate, active faces and rewrites ---- */
@@ -62,13 +62,13 @@ static bool eq(Term u, Term v, int d);
 static bool frames_eq(Term a, Term b, uint32_t code, uint32_t code2, int d) {
   if (a == b) return true;
   uint32_t na = next_depth(a), nb = next_depth(b);
-  if (na != nb) { if (getenv("PUSC_EQDBG")) fprintf(stderr, "  [frames] depth %u vs %u\n", na, nb); return false; }
+  if (na != nb) { if (getenv("HYPER_EQDBG")) fprintf(stderr, "  [frames] depth %u vs %u\n", na, nb); return false; }
   for (uint32_t l = 0; l < na; l++) {
     if ((code || code2) && !code_uses(code, l) && !code_uses(code2, l)) continue;
     bool da = frame_is_dim(a, l), db = frame_is_dim(b, l);
-    if (da != db) { if (getenv("PUSC_EQDBG")) fprintf(stderr, "  [frames] level %u dim %d vs %d\n", l, da, db); return false; }
+    if (da != db) { if (getenv("HYPER_EQDBG")) fprintf(stderr, "  [frames] level %u dim %d vs %d\n", l, da, db); return false; }
     if (da) continue;                                /* a bound dimension: the same position is the same name */
-    bool x, y; if (!eq(frame_lookup(a, l, &x), frame_lookup(b, l, &y), d+1)) { if (getenv("PUSC_EQDBG")) fprintf(stderr, "  [frames] level %u differs\n", l); return false; }
+    bool x, y; if (!eq(frame_lookup(a, l, &x), frame_lookup(b, l, &y), d+1)) { if (getenv("HYPER_EQDBG")) fprintf(stderr, "  [frames] level %u differs\n", l); return false; }
   }
   return true;
 }
@@ -76,22 +76,22 @@ static bool frames_eq(Term a, Term b, uint32_t code, uint32_t code2, int d) {
 static bool elims_eq(Term u, Term v, int d, bool helim) {
   uint32_t off = helim ? 0 : 0;
   Term su = HEAP[loc(u)+off], sv = HEAP[loc(v)+off];
-  if ((su == 0) != (sv == 0)) { if (getenv("PUSC_EQDBG")) fprintf(stderr, "  [elims] one is a function cell\n"); return false; }
-  if (su && !eq(su, sv, d+1)) { if (getenv("PUSC_EQDBG")) { fprintf(stderr, "  [elims] scrutinees differ: "); print_term(su, 4); fprintf(stderr, " vs "); print_term(sv, 4); fprintf(stderr, "\n"); } return false; }
+  if ((su == 0) != (sv == 0)) { if (getenv("HYPER_EQDBG")) fprintf(stderr, "  [elims] one is a function cell\n"); return false; }
+  if (su && !eq(su, sv, d+1)) { if (getenv("HYPER_EQDBG")) { fprintf(stderr, "  [elims] scrutinees differ: "); print_term(su, 4); fprintf(stderr, " vs "); print_term(sv, 4); fprintf(stderr, "\n"); } return false; }
   if (helim && !eq(HEAP[loc(u)+3], HEAP[loc(v)+3], d+1)) return false;
   Term cu = HEAP[loc(u)+1], cv = HEAP[loc(v)+1], fu = HEAP[loc(u)+2], fv = HEAP[loc(v)+2];
   if (cu == cv) return frames_eq(fu, fv, CODE[loc(cu)].b, CODE[loc(cu)].c, d);
-  if (d > 48) { if (getenv("PUSC_EQDBG")) fprintf(stderr, "  [elims] different code, depth exhausted\n"); return false; }
+  if (d > 48) { if (getenv("HYPER_EQDBG")) fprintf(stderr, "  [elims] different code, depth exhausted\n"); return false; }
   for (uint32_t bu = CODE[loc(cu)].b; bu; bu = CODE[bu].c) {
     uint32_t bv = CODE[loc(cv)].b; while (bv && CODE[bv].ext != CODE[bu].ext) bv = CODE[bv].c;
-    if (!bv || CODE[bv].a != CODE[bu].a) { if (getenv("PUSC_EQDBG")) fprintf(stderr, "  [elims] branch %s missing or of another arity\n", CODE[bu].ext == 0xFFFFFF ? "_" : ctor_name(CODE[bu].ext)); return false; }
+    if (!bv || CODE[bv].a != CODE[bu].a) { if (getenv("HYPER_EQDBG")) fprintf(stderr, "  [elims] branch %s missing or of another arity\n", CODE[bu].ext == 0xFFFFFF ? "_" : ctor_name(CODE[bu].ext)); return false; }
     Term f1 = fu, f2 = fv;
     for (uint32_t i = 0; i < CODE[bu].a; i++) { Term a = atom(); f1 = frame_push(f1, a); f2 = frame_push(f2, a); }
     if (!eq(inst(CODE[bu].b, f1), inst(CODE[bv].b, f2), d+1)) return false;
   }
   for (uint32_t bv = CODE[loc(cv)].b; bv; bv = CODE[bv].c) {
     uint32_t bu = CODE[loc(cu)].b; while (bu && CODE[bu].ext != CODE[bv].ext) bu = CODE[bu].c;
-    if (!bu) { if (getenv("PUSC_EQDBG")) fprintf(stderr, "  [elims] extra branch %s\n", CODE[bv].ext == 0xFFFFFF ? "_" : ctor_name(CODE[bv].ext)); return false; }
+    if (!bu) { if (getenv("HYPER_EQDBG")) fprintf(stderr, "  [elims] extra branch %s\n", CODE[bv].ext == 0xFFFFFF ? "_" : ctor_name(CODE[bv].ext)); return false; }
   }
   return true;
 }
@@ -117,14 +117,14 @@ static bool faces_eq(Term fu, Term fv, int d) {   /* the faces of a composite ar
 static bool words_eq(Term u, Term v, unsigned n, int d) { for (unsigned i = 0; i < n; i++) if (!eq(HEAP[loc(u)+i], HEAP[loc(v)+i], d+1)) return false; return true; }
 static uint64_t EQ_CALLS; static int IN_HOOK;
 static bool eq_leaf(Term u, Term v, bool r) {   /* the innermost failing comparison, for the trace */
-  if (!r && !IN_HOOK && getenv("PUSC_EQDBG")) { fprintf(stderr, "  [eq leaf] "); print_term(u, 5); fprintf(stderr, "  vs  "); print_term(v, 5); fprintf(stderr, "\n"); }
+  if (!r && !IN_HOOK && getenv("HYPER_EQDBG")) { fprintf(stderr, "  [eq leaf] "); print_term(u, 5); fprintf(stderr, "  vs  "); print_term(v, 5); fprintf(stderr, "\n"); }
   return r;
 }
 static bool eq_(Term u, Term v, int d);
 static bool eq_struct(Term u, Term v, int d);
 static bool eq(Term u, Term v, int d) {
   bool r = eq_(u, v, d);
-  if (!r && !IN_HOOK && d <= 14 && getenv("PUSC_EQDBG")) { fprintf(stderr, "  [eq d=%d] ", d); print_term(u, 4); fprintf(stderr, "  vs  "); print_term(v, 4); fprintf(stderr, "\n"); }
+  if (!r && !IN_HOOK && d <= 14 && getenv("HYPER_EQDBG")) { fprintf(stderr, "  [eq d=%d] ", d); print_term(u, 4); fprintf(stderr, "  vs  "); print_term(v, 4); fprintf(stderr, "\n"); }
   return r;
 }
 /* pairs already under comparison: a revisit is the coinductive case and counts as equal (path ≃ bisimulation) */
@@ -157,10 +157,10 @@ static bool eq_(Term u, Term v, int d) {
   if (tag(u) == T_REFLECT && tag(v) == T_REFLECT) return eq(HEAP[loc(u)], HEAP[loc(v)], d+1);
   if (tag(u) == T_REFLECT && eq(HEAP[loc(u)], v, d+1)) return true;
   if (tag(v) == T_REFLECT && eq(u, HEAP[loc(v)], d+1)) return true;
-  if (++EQ_CALLS > 2000000 && getenv("PUSC_DEBUG")) { fprintf(stderr, "eq: runaway at depth %d, tags %u %u\n", d, tag(u), tag(v)); print_term(u, 6); fprintf(stderr, "\n"); print_term(v, 6); fprintf(stderr, "\n"); exit(9); }
+  if (++EQ_CALLS > 2000000 && getenv("HYPER_DEBUG")) { fprintf(stderr, "eq: runaway at depth %d, tags %u %u\n", d, tag(u), tag(v)); print_term(u, 6); fprintf(stderr, "\n"); print_term(v, 6); fprintf(stderr, "\n"); exit(9); }
   u = whnf(u); v = whnf(v);
   if (u == v) return true;
-  if (d > 65536) { if (getenv("PUSC_EQDBG")) fprintf(stderr, "  [eq] depth exceeded\n"); return false; }
+  if (d > 65536) { if (getenv("HYPER_EQDBG")) fprintf(stderr, "  [eq] depth exceeded\n"); return false; }
   bool track = (tag(u) == T_CTR || tag(u) == T_CASE || tag(u) == T_HELIM) && tag(u) == tag(v);
   if (track) { if (eq_seen(u, v)) return true;         /* the coinductive assumption, on the current path */
     bool r = eq_struct(u, v, d); if (!r) eq_forget(u, v); return r; }
@@ -225,7 +225,7 @@ static bool eq_struct(Term u, Term v, int d) {
 }
 bool equal(Term u, Term v) { memset(&EQV, 0, sizeof EQV); return eq(u, v, 0); }
 static bool rewrite_hook(Term old, Term v) { IN_HOOK++; bool r = eq(old, v, 0); IN_HOOK--;
-  if (getenv("PUSC_HOOKDBG") && tag(v) == T_APP) { fprintf(stderr, "  [hook %d] ", r); print_term(old, 4); fprintf(stderr, "  ~  "); print_term(v, 4); fprintf(stderr, "\n"); }
+  if (getenv("HYPER_HOOKDBG") && tag(v) == T_APP) { fprintf(stderr, "  [hook %d] ", r); print_term(old, 4); fprintf(stderr, "  ~  "); print_term(v, 4); fprintf(stderr, "\n"); }
   return r; }
 
 /* ---- faces: check under a face, restrict a cell ------------------------------------------- */
@@ -340,7 +340,7 @@ static bool check_branches(uint32_t hcode, Term fr, uint32_t hit, Term ps_list, 
 
 static Term infer(uint32_t c, Term fr) {
   SNode *n = &CODE[c]; CUR_CODE = c;
-  if (getenv("PUSC_TRACE")) fprintf(stderr, "%*sinfer tag %u\n", DBG_DEPTH*2, "", n->tag);
+  if (getenv("HYPER_TRACE")) fprintf(stderr, "%*sinfer tag %u\n", DBG_DEPTH*2, "", n->tag);
   switch (n->tag) {
     case S_VAR: if (!CTX_TY[n->ext] && CTX_LET_CODE[n->ext]) return infer(CTX_LET_CODE[n->ext], CTX_LET_FR[n->ext]); return ctx_type(n->ext);
     case S_IVAR: return ITV;
@@ -604,7 +604,7 @@ static bool check_case(uint32_t c, Term fr, Term goal) {
 
 static bool check(uint32_t c, Term fr, Term goal) {
   SNode *n = &CODE[c]; CUR_CODE = c;
-  if (getenv("PUSC_TRACE")) { fprintf(stderr, "%*scheck tag %u vs ", DBG_DEPTH*2, "", n->tag); print_term(goal, 6); fprintf(stderr, "\n"); }
+  if (getenv("HYPER_TRACE")) { fprintf(stderr, "%*scheck tag %u vs ", DBG_DEPTH*2, "", n->tag); print_term(goal, 6); fprintf(stderr, "\n"); }
   goal = whnf(goal);
   switch (n->tag) {
     case S_ERA: return true;
@@ -802,7 +802,7 @@ static void report_err(const char *name) {
 }
 int check_book(const char *prefix) {
   CHECK_MODE = true; REWRITE_HOOK = rewrite_hook; cells_init();
-  if (getenv("PUSC_DEBUG") || getenv("PUSC_EQDBG") || getenv("PUSC_TRACE")) setvbuf(stdout, NULL, _IONBF, 0);
+  if (getenv("HYPER_DEBUG") || getenv("HYPER_EQDBG") || getenv("HYPER_TRACE")) setvbuf(stdout, NULL, _IONBF, 0);
   C_ITV = ctor_intern("Itv", 0); SET = ctr0(C_SET); ITV = ctr0(C_ITV); int kd = book_find("konst"); konst_ref = kd >= 0 ? ref_of(kd) : 0;
   int bad = 0;
   for (uint32_t i = 0; i < BOOK_LEN; i++) {
@@ -811,7 +811,7 @@ int check_book(const char *prefix) {
     NRW = 0; VERR = V_OK;
     Term fr = 0; uint32_t ty = skip_dims(BOOK[i].type, &fr);
     bool ok = check(ty, fr, SET);
-    if (getenv("PUSC_TRACE")) fprintf(stderr, "type of %s: %s\n", BOOK[i].name, ok ? "ok" : "FAIL");
+    if (getenv("HYPER_TRACE")) fprintf(stderr, "type of %s: %s\n", BOOK[i].name, ok ? "ok" : "FAIL");
     if (ok) { Term fr2 = 0; uint32_t tm = skip_dims(BOOK[i].code, &fr2); ok = check(tm, fr2, inst(BOOK[i].type, 0)); }
     if (ok) printf("\x1b[32m✓ %s\x1b[0m\n", BOOK[i].name + (prefix ? strlen(prefix) : 0));
     else { bad++; report_err(BOOK[i].name + (prefix ? strlen(prefix) : 0)); }

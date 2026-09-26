@@ -1,12 +1,12 @@
-/* pusc — the Parallel Univalent Superposition Computer.  cell.h: the word.
+/* hyper — the Parallel Univalent Superposition Computer.  cell.h: the word.
  *
  * MAP.md §1.  One data structure: a heap of cells over bound dimension names.
  * A Port is one word:  tag:8 | ext:24 | loc:32.  A node is a block at loc.
  * A Name is the heap address of the frame that bound it, so two instances of
  * one definition never share a name (the label-capture finding).
  */
-#ifndef PUSC_CELL_H
-#define PUSC_CELL_H
+#ifndef HYPER_CELL_H
+#define HYPER_CELL_H
 #include <stdint.h>
 #include <stddef.h>
 #include <stdbool.h>
@@ -196,6 +196,6 @@ void print_bend(Term t, int depth);    /* Bend2's own presentation of a value */
 void collapse_print(Term t);           /* one line per branch, in Bend2's collapse order */
 void print_census(void);               /* §6: the receipts by rule (the trace is the retained history) */
 void reify(Term code, FILE *out);      /* §5.1: a Code value written in the kernel's own text */
-void sched_init(void);                 /* §9: PUSC_SCHEDULE, which of two independent demands is served first */
+void sched_init(void);                 /* §9: HYPER_SCHEDULE, which of two independent demands is served first */
 void force_fields(Term t, int depth);
 #endif

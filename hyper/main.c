@@ -1,4 +1,4 @@
-/* pusc — main.c: run | interact | check (MAP.md §5). */
+/* hyper — main.c: run | interact | check (MAP.md §5). */
 #include "cell.h"
 #include <stdio.h>
 #include <string.h>
@@ -26,13 +26,13 @@ static Term answer_asks(Term v, bool bend) {
     v = whnf(v);
     if (tag(v) != T_ASK) return v;
     printf("? "); if (bend) print_bend(HEAP[loc(v)], 64); else print_term(HEAP[loc(v)], 64); printf("\n"); fflush(stdout);
-    char *line = read_line(stdin); if (!line) { fprintf(stderr, "pusc: the world went silent at a question\n"); exit(1); }
+    char *line = read_line(stdin); if (!line) { fprintf(stderr, "hyper: the world went silent at a question\n"); exit(1); }
     int q = read_question(line);
     v = app2(HEAP[loc(v)+1], mk(T_REF, 0, (uint32_t)q));
   }
 }
 static int interact(const char *entry, bool bend) {
-  int id = book_find(entry); if (id < 0) { fprintf(stderr, "pusc: no %s\n", entry); return 1; }
+  int id = book_find(entry); if (id < 0) { fprintf(stderr, "hyper: no %s\n", entry); return 1; }
   uint64_t before = ITRS;
   Term root = answer_asks(mk(T_REF, 0, (uint32_t)id), bend);
   if (bend) collapse_print(root); else { print_term(root, 64); printf("\n"); }
@@ -55,11 +55,11 @@ static void load_next_to_exe(const char *exe, const char *name) {
 int main(int argc, char **argv) {
   { struct rlimit rl; if (!getrlimit(RLIMIT_STACK, &rl)) { rl.rlim_cur = rl.rlim_max == RLIM_INFINITY ? (rlim_t)4 << 30 : rl.rlim_max; setrlimit(RLIMIT_STACK, &rl); } }   /* deep terms recurse deep */
   sched_init();
-  if (argc < 3) { fprintf(stderr, "usage: pusc run FILE [DEF] | pusc bend FILE | pusc check FILE | pusc interact FILE [DEF] | pusc parse GRAMMAR SOURCE [DEF]\n"); return 1; }
+  if (argc < 3) { fprintf(stderr, "usage: hyper run FILE [DEF] | hyper bend FILE | hyper check FILE | hyper interact FILE [DEF] | hyper parse GRAMMAR SOURCE [DEF]\n"); return 1; }
   if (!strcmp(argv[1], "parse")) {                       /* §5.1: a dialect is a book; its `parse` maps the source's characters to Code */
-    if (argc < 4) { fprintf(stderr, "usage: pusc parse GRAMMAR SOURCE [DEF]\n"); return 1; }
-    load_next_to_exe(argv[0], "prelude.pusc"); read_file(argv[2]); load_prelude();
-    int g = book_find("parse"); if (g < 0) { fprintf(stderr, "pusc: the grammar has no parse\n"); return 1; }
+    if (argc < 4) { fprintf(stderr, "usage: hyper parse GRAMMAR SOURCE [DEF]\n"); return 1; }
+    load_next_to_exe(argv[0], "prelude.hyper"); read_file(argv[2]); load_prelude();
+    int g = book_find("parse"); if (g < 0) { fprintf(stderr, "hyper: the grammar has no parse\n"); return 1; }
     FILE *f = strcmp(argv[3], "-") ? fopen(argv[3], "rb") : stdin; if (!f) { perror(argv[3]); return 2; }
     char *buf = 0; size_t n = 0, cap = 0;
     for (int c; (c = fgetc(f)) != EOF;) { if (n + 1 >= cap) { cap = cap ? cap * 2 : 4096; buf = realloc(buf, cap); } buf[n++] = (char)c; }
@@ -69,7 +69,7 @@ int main(int argc, char **argv) {
     uint64_t parsed = ITRS; ITRS = 0;
     printf("%s\n", txt);                                           /* the translation, in the kernel's text */
     read_text(txt, tn);
-    const char *entry = argc > 4 ? argv[4] : "main"; int id = book_find(entry); if (id < 0) { fprintf(stderr, "pusc: no %s\n", entry); return 1; }
+    const char *entry = argc > 4 ? argv[4] : "main"; int id = book_find(entry); if (id < 0) { fprintf(stderr, "hyper: no %s\n", entry); return 1; }
     Term r = run_def((uint32_t)id); print_term(r, 64); printf("\n");
     printf("- Itrs: %llu\n- Parse: %llu\n", (unsigned long long)ITRS, (unsigned long long)parsed);
     return 0;
@@ -77,20 +77,20 @@ int main(int argc, char **argv) {
   bool bend = !strcmp(argv[1], "bend") || !strcmp(argv[1], "check");
   bool inter = !strcmp(argv[1], "interact");
   if (inter) bend = true;                                /* the dialect's rows are loaded; presentation follows the entry's namespace */
-  load_next_to_exe(argv[0], "prelude.pusc");            /* the Kan rule rows, next to the executable */
-  if (bend) load_next_to_exe(argv[0], "bend.pusc");     /* the Bend2 dialect's rows */
+  load_next_to_exe(argv[0], "prelude.hyper");            /* the Kan rule rows, next to the executable */
+  if (bend) load_next_to_exe(argv[0], "bend.hyper");     /* the Bend2 dialect's rows */
   read_file(argv[2]);
   load_prelude();
   if (!strcmp(argv[1], "check")) return check_book("b/") ? 1 : 0;
-  if (INSTALLS_LEN && check_installs(false)) { fprintf(stderr, "pusc: an install's certificate does not check; refusing to run\n"); return 1; }   /* §8: refuse, never miscompile */
+  if (INSTALLS_LEN && check_installs(false)) { fprintf(stderr, "hyper: an install's certificate does not check; refusing to run\n"); return 1; }   /* §8: refuse, never miscompile */
   ITRS = 0;                                              /* the certificates' checks are not the run's interactions */
   if (inter) { const char *e = argc > 3 ? argv[3] : (book_find("b/main") >= 0 ? "b/main" : "main"); return interact(e, !strncmp(e, "b/", 2)); }
   const char *entry = argc > 3 ? argv[3] : (bend ? "b/main" : "main");
-  int id = book_find(entry); if (id < 0) { fprintf(stderr, "pusc: no %s\n", entry); return 1; }
+  int id = book_find(entry); if (id < 0) { fprintf(stderr, "hyper: no %s\n", entry); return 1; }
   Term r = run_def((uint32_t)id);
-  if (bend) { collapse_print(r); fprintf(stderr, "- Itrs: %llu\n", (unsigned long long)ITRS); if (getenv("PUSC_CENSUS")) print_census(); return 0; }
+  if (bend) { collapse_print(r); fprintf(stderr, "- Itrs: %llu\n", (unsigned long long)ITRS); if (getenv("HYPER_CENSUS")) print_census(); return 0; }
   print_term(r, 64); printf("\n");
   printf("- Itrs: %llu\n", (unsigned long long)ITRS);
-  if (getenv("PUSC_CENSUS")) print_census();
+  if (getenv("HYPER_CENSUS")) print_census();
   return 0;
 }

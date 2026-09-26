@@ -1,5 +1,5 @@
-; pusc — bend.pusc: the Bend2 dialect's rows on top of the kernel prelude (MAP.md §5.1).
-; Loaded by `pusc bend FILE` for programs emitted by `bend FILE --to-pusc`.
+; hyper — bend.hyper: the Bend2 dialect's rows on top of the kernel prelude (MAP.md §5.1).
+; Loaded by `hyper bend FILE` for programs emitted by `bend FILE --to-hyper`.
 
 ; transp(L, φ, x): the line is constant on φ, so on φ transport is x by regularity; the
 ; face is a typing constraint and the cell is ordinary transport.

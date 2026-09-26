@@ -1,5 +1,5 @@
 #define _GNU_SOURCE
-/* pusc — read.c: the reader for the kernel's own text (the identity chart, MAP.md §5.1).
+/* hyper — read.c: the reader for the kernel's own text (the identity chart, MAP.md §5.1).
  *
  *   file  := (def NAME TERM) | (def NAME : TYPE = TERM) ...
  *   term  := NAME                       a bound variable or dimension
@@ -23,9 +23,9 @@ static const char *src; static size_t pos, len;
 static void skip(void) { for (;;) { while (pos < len && isspace((unsigned char)src[pos])) pos++;
   if (pos < len && src[pos] == ';') { while (pos < len && src[pos] != '\n') pos++; continue; } break; } }
 static bool peek(char c) { skip(); return pos < len && src[pos] == c; }
-static void expect(char c) { skip(); if (pos >= len || src[pos] != c) { fprintf(stderr, "pusc: expected '%c' at %zu\n", c, pos); exit(2); } pos++; }
+static void expect(char c) { skip(); if (pos >= len || src[pos] != c) { fprintf(stderr, "hyper: expected '%c' at %zu\n", c, pos); exit(2); } pos++; }
 static char *atom(void) { skip(); size_t s = pos; while (pos < len && !isspace((unsigned char)src[pos]) && src[pos] != '(' && src[pos] != ')') pos++;
-  if (s == pos) { fprintf(stderr, "pusc: expected atom at %zu\n", pos); exit(2); }
+  if (s == pos) { fprintf(stderr, "hyper: expected atom at %zu\n", pos); exit(2); }
   char *a = malloc(pos - s + 1); memcpy(a, src + s, pos - s); a[pos - s] = 0; return a; }
 
 static uint32_t snode(uint8_t t, uint32_t e, uint32_t a, uint32_t b, uint32_t c, uint32_t d) {
@@ -71,11 +71,11 @@ static unsigned opcode(const char *s) {
   static const char *ops[]   = { "+","-","*","/","%","==","!=","<","<=",">",">=","&","|","^","<<",">>","**" };
   static const char *names[] = { "add","sub","mul","div","mod","eq","ne","lt","le","gt","ge","and","or","xor","shl","shr","pow" };
   for (unsigned i = 0; i < OP_COUNT; i++) if (!strcmp(ops[i], s) || !strcmp(names[i], s)) return i;
-  fprintf(stderr, "pusc: unknown op %s\n", s); exit(2);
+  fprintf(stderr, "hyper: unknown op %s\n", s); exit(2);
 }
 static unsigned op1code(const char *s) {
   if (!strcmp(s, "not")) return OP1_NOT; if (!strcmp(s, "neg")) return OP1_NEG; if (!strcmp(s, "tochar")) return OP1_TOCHAR;
-  fprintf(stderr, "pusc: unknown op1 %s\n", s); exit(2);
+  fprintf(stderr, "hyper: unknown op1 %s\n", s); exit(2);
 }
 /* a name position: a numeral is a global label (one choice name shared by every use), else a bound name */
 static uint32_t label_code(const char *a) {
@@ -86,7 +86,7 @@ static uint32_t term(void) {
   skip();
   if (peek('"')) {                 /* "text": a list of characters, the identity chart of a string (no parens or ';' inside) */
     pos++; size_t s0 = pos; while (pos < len && src[pos] != '"') pos++;
-    if (pos >= len) { fprintf(stderr, "pusc: unterminated string\n"); exit(2); }
+    if (pos >= len) { fprintf(stderr, "hyper: unterminated string\n"); exit(2); }
     uint32_t r = snode(S_CTR, ctr_ext(ctor_intern("Nil", 0), 0), 0,0,0,0);
     for (size_t i = pos; i-- > s0;) { uint32_t c = snode(S_NUM, N_CHR, 0,0,0,0); CODE[c].num = (unsigned char)src[i];
       r = snode(S_CTR, ctr_ext(ctor_intern("Cons", 2), 2), c, r, 0, 0); }
@@ -99,7 +99,7 @@ static uint32_t term(void) {
     if (isdigit((unsigned char)a[0])) { uint32_t n = snode(S_NUM, 0,0,0,0,0); CODE[n].num = strtoull(a, 0, 10); return n; }
     bool d; int l = lookup(a, &d);
     if (l < 0) { int r = book_find(a); if (r >= 0) return snode(S_REF, (uint32_t)r, 0,0,0,0);
-                 fprintf(stderr, "pusc: unbound %s\n", a); exit(2); }
+                 fprintf(stderr, "hyper: unbound %s\n", a); exit(2); }
     return snode(d ? S_IVAR : S_VAR, (uint32_t)l, 0,0,0,0);
   }
   expect('('); char *h = atom(); uint32_t r;
@@ -121,7 +121,7 @@ static uint32_t term(void) {
   else if (!strcmp(h, "chr")) { char *n = atom(); r = snode(S_NUM, N_CHR, 0,0,0,0); CODE[r].num = strtoull(n, 0, 10); }
   else if (!strcmp(h, "i64")) { char *n = atom(); r = snode(S_NUM, N_I64, 0,0,0,0); CODE[r].num = (uint64_t)strtoll(n, 0, 10); }
   else if (!strcmp(h, "f64")) { char *n = atom(); r = snode(S_NUM, N_F64, 0,0,0,0); CODE[r].num = strtoull(n, 0, 10); }
-  else if (!strcmp(h, "ref")) { char *n = atom(); int d = book_find(n); if (d < 0) { fprintf(stderr, "pusc: no def %s\n", n); exit(2); } r = snode(S_REF, (uint32_t)d, 0,0,0,0); }
+  else if (!strcmp(h, "ref")) { char *n = atom(); int d = book_find(n); if (d < 0) { fprintf(stderr, "hyper: no def %s\n", n); exit(2); } r = snode(S_REF, (uint32_t)d, 0,0,0,0); }
   else if (!strcmp(h, "era")) r = snode(S_ERA, 0,0,0,0,0);
   else if (!strcmp(h, "num")) { char *n = atom(); r = snode(S_NUM, N_U64,0,0,0,0); CODE[r].num = strtoull(n, 0, 10); }
   else if (!strcmp(h, "op2")) { char *o = atom(); uint32_t a = term(), b = term(); r = snode(S_OP2, opcode(o), a, b, 0, 0); }
@@ -129,7 +129,7 @@ static uint32_t term(void) {
   else if (!strcmp(h, "iand")) { uint32_t a = term(), b = term(); r = snode(S_IAND, 0, a, b, 0,0); }
   else if (!strcmp(h, "ior"))  { uint32_t a = term(), b = term(); r = snode(S_IOR, 0, a, b, 0,0); }
   else if (!strcmp(h, "ctr")) { char *n = atom(); uint32_t k[64] = {0}, ar = 0;
-     while (!peek(')')) { if (ar >= 64) { fprintf(stderr, "pusc: constructor arity > 64\n"); exit(2); } k[ar++] = term(); }
+     while (!peek(')')) { if (ar >= 64) { fprintf(stderr, "hyper: constructor arity > 64\n"); exit(2); } k[ar++] = term(); }
      if (ar <= 4) r = snode(S_CTR, ctr_ext(ctor_intern(n, ar), ar), k[0], k[1], k[2], k[3]);
      else { static uint32_t kcap; if (!KIDS) { kcap = 4096; KIDS = malloc(kcap * sizeof(uint32_t)); }
             if (KIDS_LEN + ar >= kcap) { kcap *= 2; KIDS = realloc(KIDS, kcap * sizeof(uint32_t)); }
@@ -179,7 +179,7 @@ static uint32_t term(void) {
   }
   else {   /* (f a b …) with f a bound variable or a definition: application */
     bool d; int l = lookup(h, &d); int def = l < 0 ? book_find(h) : -1;
-    if (l < 0 && def < 0) { fprintf(stderr, "pusc: unknown form %s\n", h); exit(2); }
+    if (l < 0 && def < 0) { fprintf(stderr, "hyper: unknown form %s\n", h); exit(2); }
     r = l >= 0 ? snode(d ? S_IVAR : S_VAR, (uint32_t)l, 0,0,0,0) : snode(S_REF, (uint32_t)def, 0,0,0,0);
     while (!peek(')')) { uint32_t x = term(); r = snode(S_APP, 0, r, x, 0, 0); }
   }
@@ -188,7 +188,7 @@ static uint32_t term(void) {
 
 /* Wrap a definition body in its implicit dimension binders (levels 0..n-1). */
 static void read_def(void) {
-  expect('('); char *kw = atom(); if (strcmp(kw, "def")) { fprintf(stderr, "pusc: expected def\n"); exit(2); }
+  expect('('); char *kw = atom(); if (strcmp(kw, "def")) { fprintf(stderr, "hyper: expected def\n"); exit(2); }
   char *name = atom();
   int found = book_find(name); uint32_t id = (uint32_t)found;   /* registered by the pre-scan */
   /* implicit dims are levels 0..n-1: pre-scan is avoided by parsing with a reserved gap and
@@ -241,7 +241,7 @@ static void read_hit(void) {
     uint32_t dim, npi = count_pis(body, &dim);
     uint32_t cid = ctor_intern(c, npi - np);
     CINFO[cid].hit = hid; CINFO[cid].type_def = id; CINFO[cid].nfields = npi - np; CINFO[cid].dim = dim;
-    if (getenv("PUSC_DEBUG")) fprintf(stderr, "hit %s ctor %s fields %u dim %u\n", T, c, npi - np, dim);
+    if (getenv("HYPER_DEBUG")) fprintf(stderr, "hit %s ctor %s fields %u dim %u\n", T, c, npi - np, dim);
   }
   expect(')');
 }
@@ -249,8 +249,8 @@ static void read_hit(void) {
 static void register_name(const char *name) {
   static uint32_t cap; if (!BOOK) { cap = 256; BOOK = calloc(cap, sizeof(Def)); }
   if (BOOK_LEN >= cap) { cap *= 2; BOOK = realloc(BOOK, cap * sizeof(Def)); }
-  if (book_find(name) >= 0) { fprintf(stderr, "pusc: duplicate definition %s\n", name); exit(2); }
-  if (getenv("PUSC_DEBUG")) fprintf(stderr, "reg %s\n", name);
+  if (book_find(name) >= 0) { fprintf(stderr, "hyper: duplicate definition %s\n", name); exit(2); }
+  if (getenv("HYPER_DEBUG")) fprintf(stderr, "reg %s\n", name);
   BOOK[BOOK_LEN].native = -1;
   BOOK[BOOK_LEN++].name = name;
 }
@@ -259,7 +259,7 @@ static void register_name(const char *name) {
 static void read_install(void) {
   char *a = atom(), *b = atom(), *c = atom(); expect(')');
   int sa = book_find(a), tb = book_find(b), pc = book_find(c);
-  if (sa < 0 || tb < 0 || pc < 0) { fprintf(stderr, "pusc: install names an unknown definition\n"); exit(2); }
+  if (sa < 0 || tb < 0 || pc < 0) { fprintf(stderr, "hyper: install names an unknown definition\n"); exit(2); }
   INSTALLS = realloc(INSTALLS, (INSTALLS_LEN + 1) * sizeof *INSTALLS);
   INSTALLS[INSTALLS_LEN++] = (Install){ sa, tb, pc, false };
 }

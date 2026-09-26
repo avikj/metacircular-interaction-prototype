@@ -1,7 +1,7 @@
 #define _GNU_SOURCE
 #include <math.h>
 #include <sys/mman.h>
-/* pusc — cell.c: the heap, frames, and the one loop (MAP.md §§1–4, 6).
+/* hyper — cell.c: the heap, frames, and the one loop (MAP.md §§1–4, 6).
  *
  * Every rule below fires only at an active pair, only when demanded, and
  * appends its receipt.  Definitional unfolding (REF) is not counted: transport
@@ -32,10 +32,10 @@ Loc alloc(uint32_t n) {
       void *m = mmap(NULL, want, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS | MAP_NORESERVE, -1, 0);
       if (m != MAP_FAILED) { HEAP = m; HEAP_CAP = (Loc)(want / sizeof(Term) > 0xFFFFFFFFu ? 0xFFFFFFFFu : want / sizeof(Term)); break; }
     }
-    if (!HEAP) { fprintf(stderr, "pusc: cannot reserve the heap\n"); exit(2); }
+    if (!HEAP) { fprintf(stderr, "hyper: cannot reserve the heap\n"); exit(2); }
     HEAP_LEN = 1;                                                      /* address 0 is never a cell */
   }
-  if ((uint64_t)HEAP_LEN + n >= HEAP_CAP) { fprintf(stderr, "pusc: heap exhausted\n"); exit(2); }
+  if ((uint64_t)HEAP_LEN + n >= HEAP_CAP) { fprintf(stderr, "hyper: heap exhausted\n"); exit(2); }
   Loc l = HEAP_LEN; HEAP_LEN += n; return l;
 }
 Term node1(unsigned t, uint32_t e, Term a)                 { Loc l = alloc(1); HEAP[l]=a; return mk(t,e,l); }
@@ -59,7 +59,7 @@ static const char **CTORS; static uint32_t NCTORS;
 CtorInfo CINFO[1 << 16];
 Install *INSTALLS; uint32_t INSTALLS_LEN;
 static Term LABELS[4096];
-Term label_name(uint32_t k) { if (k >= 4096) { fprintf(stderr, "pusc: label too large\n"); exit(2); }
+Term label_name(uint32_t k) { if (k >= 4096) { fprintf(stderr, "hyper: label too large\n"); exit(2); }
   if (!LABELS[k]) LABELS[k] = node2(T_DIM, 0, 0, 0); return LABELS[k]; }
 static int label_of(Loc name) { for (uint32_t k = 0; k < 4096; k++) if (LABELS[k] && loc(LABELS[k]) == name) return (int)k; return -1; }
 uint32_t ctor_intern(const char *name, uint32_t arity) {
@@ -107,7 +107,7 @@ bool frame_is_dim(Term f, uint32_t lvl) {
 Term frame_lookup(Term f, uint32_t lvl, bool *is_dim) {
   Term faces[64]; unsigned nf = 0;
   for (;;) {
-    if (!tag(f)) { fprintf(stderr, "pusc: unbound level %u\n", lvl); exit(2); }
+    if (!tag(f)) { fprintf(stderr, "hyper: unbound level %u\n", lvl); exit(2); }
     if (tag(f) == T_RESTRICT) { if (nf < 64) faces[nf++] = f; f = HEAP[loc(f)]; continue; }
     if (ext(f) == lvl) break;
     f = HEAP[loc(f)];
@@ -173,7 +173,7 @@ Term inst(uint32_t c, Term fr) {
     case S_HELIM: return node4(T_HELIM, 0, n->a ? inst(n->a, fr) : 0, mk(0, 0, c), fr, n->c ? inst(n->c, fr) : mk(T_ERA, 0, 0));
     case S_CFIELDS: return node1(T_CFIELDS, 0, inst(n->a, fr));
     case S_CWITH:   return node2(T_CWITH, 0, inst(n->a, fr), inst(n->b, fr));
-    default: fprintf(stderr, "pusc: inst: bad static tag %u\n", n->tag); exit(2);
+    default: fprintf(stderr, "hyper: inst: bad static tag %u\n", n->tag); exit(2);
   }
 }
 
@@ -373,7 +373,7 @@ static Term fce_apply(Term nm, unsigned side, Term by, Term v) {
         if (tag(b) == T_I0) return whnf(HEAP[loc(v) + 1]);
         if (tag(b) == T_I1) return whnf(HEAP[loc(v) + 2]);
         if (tag(b) == T_IVAR) return node3(T_SUP, 0, b, HEAP[loc(v) + 1], HEAP[loc(v) + 2]);
-        fprintf(stderr, "pusc: connection on a choice name\n"); exit(2);
+        fprintf(stderr, "hyper: connection on a choice name\n"); exit(2);
       }
       receipt(R_FCE_COMMUTE);                       /* δᵢδⱼ = δⱼδᵢ */
       return node3(T_SUP, 0, sn, FCE_(HEAP[loc(v)+1]), FCE_(HEAP[loc(v)+2]));
@@ -476,7 +476,7 @@ static Term case_select(Term cs, Term scrut) {
     }
     br = b->c;
   }
-  fprintf(stderr, "pusc: no branch for %s in a case with branches", ctor_name(ctr_id(scrut)));
+  fprintf(stderr, "hyper: no branch for %s in a case with branches", ctor_name(ctr_id(scrut)));
   for (uint32_t b2 = n->b; b2; b2 = CODE[b2].c) fprintf(stderr, " %s", CODE[b2].ext == 0xFFFFFF ? "_" : ctor_name(CODE[b2].ext));
   fprintf(stderr, "; scrutinee "); print_rec(scrut, 4); fprintf(stderr, "\n"); exit(3);
 }
@@ -552,7 +552,7 @@ static Term helim_select(Term he, Term head, Term *ivs, uint32_t nivs) {
       return apps(inst(b->b, f), ivs, nivs);
     }
   }
-  fprintf(stderr, "pusc: helim: no branch for %s\n", ctor_name(ctr_id(head))); exit(3);
+  fprintf(stderr, "hyper: helim: no branch for %s\n", ctor_name(ctr_id(head))); exit(3);
 }
 
 /* ---- numbers ---------------------------------------------------------- */
@@ -862,10 +862,10 @@ void load_prelude(void) {
 }
 
 /* ---- §9 the schedule: which of two independent demands is served first ----------------------------- */
-/* PUSC_SCHEDULE=right serves the right one, a number seeds a coin per choice, the default is left.  The
+/* HYPER_SCHEDULE=right serves the right one, a number seeds a coin per choice, the default is left.  The
    redex bag is the only scheduler, so the normal form and the count must not depend on it (Krama, §10.7). */
 static unsigned SCHED; static uint64_t SCHED_RNG;
-void sched_init(void) { const char *s = getenv("PUSC_SCHEDULE"); if (!s || !*s) return;
+void sched_init(void) { const char *s = getenv("HYPER_SCHEDULE"); if (!s || !*s) return;
   if (!strcmp(s, "right")) SCHED = 1; else { SCHED = 2; SCHED_RNG = strtoull(s, 0, 10) * 2654435761ull + 88172645463325252ull; } }
 static bool right_first(void) {
   if (SCHED < 2) return SCHED;
@@ -885,7 +885,7 @@ void force_fields(Term t, int depth) {
 static uint64_t WHNF_STEPS;
 Term whnf(Term t) {
   for (;;) {
-    if (CHECK_MODE && ++WHNF_STEPS > 30000000 && getenv("PUSC_DEBUG")) { fprintf(stderr, "whnf: runaway at tag %u: ", tag(t)); print_rec(t, 5); fprintf(stderr, "\n"); fflush(stdout); exit(9); }
+    if (CHECK_MODE && ++WHNF_STEPS > 30000000 && getenv("HYPER_DEBUG")) { fprintf(stderr, "whnf: runaway at tag %u: ", tag(t)); print_rec(t, 5); fprintf(stderr, "\n"); fflush(stdout); exit(9); }
     switch (tag(t)) {
       case T_VAR: {                                   /* a coordinate: force once, write back */
         Loc slot = loc(t) + 1; Term v = HEAP[slot];
@@ -1191,7 +1191,7 @@ void reify(Term t, FILE *out) {
       case N_F64: fprintf(out, "(f64 %llu)", (unsigned long long)HEAP[loc(t)]); return;
       default: fprintf(out, "%llu", (unsigned long long)HEAP[loc(t)]); return; }
     case T_SUP: { int k = label_of(loc(whnf(HEAP[loc(t)])));
-      if (k < 0) { fprintf(stderr, "pusc: a parse is superposed at a bound name; only a label can be written\n"); exit(2); }
+      if (k < 0) { fprintf(stderr, "hyper: a parse is superposed at a bound name; only a label can be written\n"); exit(2); }
       fprintf(out, "(sup %d ", k); reify(HEAP[loc(t)+1], out); fputc(' ', out); reify(HEAP[loc(t)+2], out); fputc(')', out); return; }
     case T_CTR: {
       uint32_t id = ctr_id(t), ar = ctr_arity(t); const char *nm = ctor_name(id);
@@ -1204,7 +1204,7 @@ void reify(Term t, FILE *out) {
       fputc('(', out); for (const char *c = nm; *c; c++) fputc(tolower((unsigned char)*c), out);
       for (uint32_t i = 0; i < ar; i++) { fputc(' ', out); reify(HEAP[loc(t)+i], out); }
       fputc(')', out); return; }
-    default: fprintf(stderr, "pusc: a parse produced a cell that is not code: "); print_rec(t, 3); fprintf(stderr, "\n"); exit(2);
+    default: fprintf(stderr, "hyper: a parse produced a cell that is not code: "); print_rec(t, 3); fprintf(stderr, "\n"); exit(2);
   }
 }
 

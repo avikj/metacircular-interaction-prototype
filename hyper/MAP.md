@@ -1,4 +1,12 @@
-# pusc: the Parallel Univalent Superposition Computer, written once from the construction
+# Hyperactive, written once from the construction
+
+The name. In an interaction net the only event is an active pair: two cells
+whose principal ports face each other, and a rule fires there or nowhere.
+Everything this kernel counts is an active pair. Here the pairs are not only
+between data cells: a rule meets a derivation at install (§8), a grammar meets
+a character stream at parse (§5.1), a definition meets its type in verify (§7),
+all on the same loop. Activity one level up, with no passive stratum left. The
+files are `.hyper`; the binary is `hyper`; this directory is `hyper/`.
 
 ## What this directory is, against everything else in the repository
 
@@ -16,7 +24,7 @@
 - `interactive/`, `research/`, `notes/`, `papers/`, `abstracts/`: readings
   and results, not code paths.
 
-`pusc/` is the one program: Bend2's surface syntax lowered to cells over
+`hyper/` is the one program: Bend2's surface syntax lowered to cells over
 bound dimension names, reduced by demanded interaction, checked by the same
 reduction, asked questions through free ports, and extended by installing
 proven rules. It replaces both the Haskell checker and the HVM4 runtime for
@@ -384,7 +392,7 @@ retained trace and transport is free; the only thing that costs is forgetting.
 ```
 
 ```
-  and(x, y) with x ⇓ 0.   HVM4 (AND-ZER):                     pusc (retention):
+  and(x, y) with x ⇓ 0.   HVM4 (AND-ZER):                     hyper (retention):
 
      AND ●──● 0                 ⟹   0                          AND ●──● 0        ⟹   ( 0 , y , refl )
       ○                              y forgotten,               ○                       ▲     ▲
@@ -607,7 +615,7 @@ of the current net, `react` is one round of the loop, and `E` is the receipt.
 ```mermaid
 sequenceDiagram
   participant W as world
-  participant K as pusc
+  participant K as hyper
   W->>K: file
   K->>K: reduce(root) → typed point (A, a); heap kept
   loop each question
@@ -697,7 +705,7 @@ another table with a `ua` to the first. Universality is this: any
 presentation as rules, any translation as a supplied equivalence; the only
 stream it cannot host is one with no determined map, which is not a syntax.
 
-As written (`pusc parse GRAMMAR SOURCE [DEF]`; `t/grammar.pusc`): a grammar
+As written (`hyper parse GRAMMAR SOURCE [DEF]`; `t/grammar.hyper`): a grammar
 is a book like any other, and its `parse` is a definition from the source's
 characters (a list of `chr` cells) to Code, constructor cells named for the
 kernel's forms (`#Lam{x, b}`, `#App{f, x}`, `#Op2{"-", a, b}`, `#Lit{n}`,
@@ -837,11 +845,11 @@ and with no install in force during the check (the certificate is checked
 against the uninstalled book, so an install cannot certify itself). A checked
 record sets `native` on the source: the loop's REF case dispatches the target
 under the receipt `R_INSTALL`, one row, where the source's own code would have
-paid its rows. A certificate that does not check refuses the run (`pusc run`,
-`bend`, `interact` exit 1: never miscompile); `pusc check` reports
+paid its rows. A certificate that does not check refuses the run (`hyper run`,
+`bend`, `interact` exit 1: never miscompile); `hyper check` reports
 `✓ install SOURCE := TARGET`. The certificate is kept in the book and printed
-by `pusc check`, so `extract(install d) ≡ d` is the identity on the record.
-`t/install.pusc`: `notnot := id` by the path `λi. λx. negLnv x i`; the value is
+by `hyper check`, so `extract(install d) ≡ d` is the identity on the record.
+`t/install.hyper`: `notnot := id` by the path `λi. λx. negLnv x i`; the value is
 unchanged and the run's count falls from 5 to 2 interactions.
 
 ```
@@ -865,8 +873,8 @@ so the redex bag is the only scheduler; any interleaving gives the same
 normal form in the same count (§3). Sequential execution is one schedule.
 Test: ITRS invariant across schedules.
 
-As written (`PUSC_SCHEDULE`): the loop serves demands in an order, and where
-two demands are independent that order is the schedule. `PUSC_SCHEDULE=right`
+As written (`HYPER_SCHEDULE`): the loop serves demands in an order, and where
+two demands are independent that order is the schedule. `HYPER_SCHEDULE=right`
 serves the right one first, a number seeds a coin per choice, the default is
 left. The choices are the two operands of a numeric operation and the fields
 a projection (the printer, the collapse) demands, which under another schedule
@@ -902,21 +910,21 @@ loop, not another kernel.
 
 ## 11. Files
 
-Status. Written and green: 67 kernel checks (`pusc/test.sh`) and the whole
-Bend2 corpus (`pusc/bendtest.sh`: every `.bend` under
+Status. Written and green: 67 kernel checks (`hyper/test.sh`) and the whole
+Bend2 corpus (`hyper/bendtest.sh`: every `.bend` under
 `collab/bend2-interactive-cubical` and `port/` with a `main`, 124 programs,
 value identical to Bend2's own normaliser branch by branch; 12 skipped because
 the oracle itself does not check or run them). The checker (`verify.c`, §7)
 is compared verdict by verdict with Bend2's checker over the same corpus
-including the must-fail probes (`pusc/checktest.sh`, `--to-pusc-unchecked`):
+including the must-fail probes (`hyper/checktest.sh`, `--to-hyper-unchecked`):
 every verdict agrees, 3862 definitions over 150 files. The recorded Core
 deviations of §7 are the only places the rules differ, and no corpus
 definition falls on them. The Bend dialect is realised as
 §5.1 says a dialect must be: a certified translator. Bend2's checker is the
-translator and the check is the certificate: `bend FILE --to-pusc`
-(`src/Target/Pusc.hs` in `cubical-paths.patch`) writes the checked book as
+translator and the check is the certificate: `bend FILE --to-hyper`
+(`src/Target/Hyper.hs` in `cubical-paths.patch`) writes the checked book as
 cells of the kernel's own text, one typed point `(def b/NAME : TYPE = TERM)`
-per definition and one `(hit …)` per declared HIT, and `pusc bend FILE` runs
+per definition and one `(hit …)` per declared HIT, and `hyper bend FILE` runs
 it and presents the value as Bend2 does (collapse order included). No rule of
 the language lives in the translator: the emitter is a table of names.
 
@@ -927,37 +935,37 @@ universe path, composites in the universe (hcomp in Set through transpEquiv),
 general dimension substitution, the HIT schema (endpoints from types,
 eliminator, composites, transport along a moving parameter, the checker's
 three built-in HITs as instances), fixed points, the four numeric kinds,
-partial elements and restriction types. `pusc interact FILE` is the machine that
+partial elements and restriction types. `hyper interact FILE` is the machine that
 asks (§5): the entry is the point, each line of the world is a question (a
 term) the point presents itself along, and a reduction that stalls at an ASK
 cell prints the question and resumes on the world's answer. `(install SOURCE
 TARGET CERT)` (§8) replaces an operation by another once the certificate
-checks; a failing certificate refuses the run. `PUSC_CENSUS=1` prints the
+checks; a failing certificate refuses the run. `HYPER_CENSUS=1` prints the
 census of rows fired, and `bendtest.sh` checks the sharing regime of every
 program (superpositions never exceed separations). Erase at the projection
-is a counted rule (§3.3, `t/erase.pusc`): one row per forgotten port, and the
+is a counted rule (§3.3, `t/erase.hyper`): one row per forgotten port, and the
 fibre's size never enters. A dialect is a book whose `parse` maps characters
-to Code (§5.1, `pusc parse`, `t/grammar.pusc`): ambiguity is a superposition,
+to Code (§5.1, `hyper parse`, `t/grammar.hyper`): ambiguity is a superposition,
 the later token decides it, the translation is read back as the kernel's own
 text. The count is a property of the program, not of a schedule (§9,
-`PUSC_SCHEDULE`): every probe and every corpus program reaches the same value
+`HYPER_SCHEDULE`): every probe and every corpus program reaches the same value
 in the same count with the right demand served first. The capture probes
-(§10.4, `t/basic.pusc`): cap4 = 4, two∘two = 4, the triple = 16; a transport
+(§10.4, `t/basic.hyper`): cap4 = 4, two∘two = 4, the triple = 16; a transport
 consumed k times costs one transport plus k small increments (§10.5,
-`t/ua.pusc`). Not yet: Bend2's grammar
+`t/ua.hyper`). Not yet: Bend2's grammar
 as a book (Bend2's checker translates it for now), several demands served at
 once (§9's bag as threads).
 
-    pusc/cell.h      197   the word layout, tags, Name, Frame, Rule, Install, accessors, CtorInfo
-    pusc/cell.c     1379   §§1–4, 5.1, 6, 8, 9: heap, frames+descent, loop+dispatch, face map, application,
+    hyper/cell.h      197   the word layout, tags, Name, Frame, Rule, Install, accessors, CtorInfo
+    hyper/cell.c     1379   §§1–4, 5.1, 6, 8, 9: heap, frames+descent, loop+dispatch, face map, application,
                            interval DNF, transp+hcomp dispatch, HIT schema, numbers, printers, collapse, census, reify
-    pusc/prelude.pusc 158  the Kan rows, Glue, transpEquiv, the HIT rows, as data
-    pusc/bend.pusc    45   the Bend dialect's rows: transp, ua, the three built-in HITs
-    pusc/t/grammar.pusc 72  §5.1: a dialect as a book, `parse` from characters to Code
-    pusc/read.c      301   §5: the reader for the kernel's own text (the identity chart), strings, install
-    pusc/main.c       96   run | bend | check | interact | parse
-    pusc/test.sh      82   the kernel checks, three schedules
-    pusc/bendtest.sh  35   §10.1 over the corpus against Bend2's normaliser, the sharing regimes, §10.7 schedules
-    pusc/checktest.sh 27   §10.6 the checker differential against Bend2's checker
-    pusc/verify.c    821   §7: the checker as the other projection of the same loop; §8 certificates
-    Bend2 src/Target/Pusc.hs  ~200   the checked book as cells (in cubical-paths.patch)
+    hyper/prelude.hyper 158  the Kan rows, Glue, transpEquiv, the HIT rows, as data
+    hyper/bend.hyper    45   the Bend dialect's rows: transp, ua, the three built-in HITs
+    hyper/t/grammar.hyper 72  §5.1: a dialect as a book, `parse` from characters to Code
+    hyper/read.c      301   §5: the reader for the kernel's own text (the identity chart), strings, install
+    hyper/main.c       96   run | bend | check | interact | parse
+    hyper/test.sh      82   the kernel checks, three schedules
+    hyper/bendtest.sh  35   §10.1 over the corpus against Bend2's normaliser, the sharing regimes, §10.7 schedules
+    hyper/checktest.sh 27   §10.6 the checker differential against Bend2's checker
+    hyper/verify.c    821   §7: the checker as the other projection of the same loop; §8 certificates
+    Bend2 src/Target/Hyper.hs  ~200   the checked book as cells (in cubical-paths.patch)
