@@ -11,6 +11,7 @@
 (def path-r  (lam T (case T (Path (A a b) b))))
 (def fst (lam p (case p (Pair (a b) a))))
 (def snd (lam p (case p (Pair (a b) b))))
+(def under (lam p (lam v (case p (Refl () v)))))     ; v under the identity p: J at a data type, the residual of a match on a stuck scrutinee
 (def map-faces (lam f (lam fs (case fs (Nil () (ctr Nil)) (Cons (h t) (case h (Face (phi u) (ctr Cons (ctr Face phi (app f u)) (app map-faces f t)))))))))
 
 ; ---- transport along a line of types (whnfCoe) ----------------------------------------------

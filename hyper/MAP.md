@@ -73,8 +73,8 @@ How `sort` resolves. For concrete A, B is a list of **coordinates**: generic
 elements of its type with no value yet. `sort`'s specification runs on them. A
 path at a data type between a term with coordinates and a concrete term is
 **unification**: constructor against constructor from the type's declaration,
-coordinate against term as a split into the side where it is that term and the
-side where it is not. A case on a coordinate is not stuck: it becomes a
+coordinate against term as a binding, superposed at the faces the path lives
+under. A case on a coordinate is not stuck: it becomes a
 **superposition over the constructors of its type**, each side restricting the
 coordinate, with fresh coordinates for the fields; this is exactly what the
 checker already does when a match on a coordinate restricts its frame. Sides on
@@ -158,6 +158,58 @@ them.
    and the match then commutes over it by the ordinary rule (`R_SPLIT`;
    `t/coord.hyper`).
 2. Unification at data types as the reduction of a path with coordinates.
+   **Written** (`t/sort.hyper`: `sort`'s specification, its only text, prints
+   `[1,2,3]` for A = [3,1,2]; the fibre of `isort` over `[1,2]` prints as the
+   superposition of its two points; an empty fibre prints `*`). What the core
+   does, and nothing per type:
+   - A coordinate of an identity type is the identity cell (`T_UNIFY`) between
+     its two sides; a coordinate of a Σ is a pair of coordinates. The identity
+     reduces lazily: `REFL` when the sides agree, `*` when constructors or
+     numerals differ, constructor against constructor as a conjunction of the
+     fields' identities (`T_BOTH`), coordinate against term as a **binding**
+     written into the coordinate's slot, superposed at every face the identity
+     lives under (the other side of each face a fresh coordinate), so every
+     holder sees the binding exactly where it holds; a superposed side
+     distributes, and a name the identity's faces already fix is projected, not
+     distributed.
+   - **Forcing.** A cell is forced when demanded at the top; the scrutinee of a
+     match and the sides of an identity are inspected, not forced. Splitting
+     happens only under force, so the outermost eliminator facing a stuck term
+     is the one that decomposes: a coordinate is split only as far as it is
+     asked. The top resolves in **rounds** of one split each (`resolve`), so a
+     split anywhere is followed by inspection everywhere and a side that dies
+     cheaply is reached before another split is made.
+   - A match whose scrutinee is **stuck on a coordinate** (`leq h h'` with `h`
+     free) does not split `h`. The stuck term itself becomes the superposition,
+     over the constructors the match lists, of each constructor under the
+     identity of the computation with it (`under` in the prelude: the
+     language's own J), its fields fresh **derived** coordinates. The stuck cell
+     is marked with the superposition, so every holder meets the same split and
+     the same worlds, and the computation moves to one fresh cell shared by every
+     residual. A match on `under(p, v)` commutes to `under(p, match v)`; an
+     identity with `under(p, v)` on a side is `p ∧ (v ≡ y)`.
+   - A **derived** coordinate is never split: asking it forces the identity that
+     defines it. Only a free port (a declared unknown, a field of a coordinate's
+     split) is split.
+   - Residuals have a **kind**: the specification is kind 0, the identity a
+     stuck match leaves behind while a cell of kind k is forced is kind k+1. A
+     round forces kind ≤ k, and k rises only when a round moved nothing, so the
+     residual of a comparison is explored only when what it constrains is
+     otherwise undetermined, and a comparison between free naturals is never
+     enumerated while the data can still decide.
+   - Coordinates carry the **world** (faces) they live in; a binding under a face
+     of that world is written plainly, under the opposite side it is `*`. A face
+     on a coordinate with no value, or on a match blocked on one, **waits** on
+     the one shared cell rather than copying it. A match, an identity and a
+     conjunction each project a superposition at a name their frame or faces
+     already fix.
+   - The printer prunes: a superposition with a dead side is its other side,
+     with both dead it is `*`.
+   What is not the geodesic yet: `sort` for three elements takes 42,859
+   interactions and 613 rounds (`HYPER_CENSUS=1`). Identical questions asked at
+   two code sites (`sorted`'s and `isort`'s comparison of the same two
+   coordinates) are two cells and two splits; rounds re-inspect the demand
+   path; faces on values are pushed by copying. These are step 5.
 3. The trace of a run and the leaves of a superposition as terms; the four modes
    removed and their probes rewritten as programs.
 4. A declaration with no body is inferred: `sort` as the first test, its type its

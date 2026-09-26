@@ -64,6 +64,8 @@ enum Tag {
   /* judgments and the interaction */
   T_CHK,       /* loc → [type, term]                                   */
   T_ASK,       /* loc → [q, k]                      a free port        */
+  T_UNIFY,     /* loc → [x, y, faces]   the identity x ≡ y between data terms, decided by unification under the branch's faces */
+  T_BOTH,      /* loc → [p, q]          both identities hold: fair, either dead side kills */
   T_IND,       /* word 0 of a reduced node: word 1 holds its result (§3: a demanded port fires once, every holder sees the value) */
   /* frames (never a value) */
   T_FRAME,     /* loc → [parent, slot]  ext = depth   one binding      */
@@ -126,7 +128,7 @@ extern SNode   *CODE;   extern uint32_t CODE_LEN;
 extern uint32_t *KIDS;  extern uint32_t KIDS_LEN;
 extern Def     *BOOK;   extern uint32_t BOOK_LEN;
 extern const char **BNAMES; extern uint32_t BNAMES_LEN;   /* field names of case branches (S_BRANCH.num = index), for presentation */
-extern uint64_t ITRS;
+extern uint64_t ITRS, ROUNDS;
 extern uint32_t *TRACE; extern uint64_t TRACE_LEN;   /* receipts: rule ids */
 extern Loc      *TRACE_NODE;                          /* the node each receipt fired on */
 extern const char *RULE_NAME[];                       /* the census names, by rule */
@@ -134,7 +136,7 @@ void print_trace(uint64_t from);                      /* the receipts from index
 
 enum RuleId { R_BETA = 1, R_APP_SUP, R_APP_PLM, R_FCE_ANNIHILATE, R_FCE_COMMUTE, R_FCE_PUSH,
               R_FCE_SHARE, R_CASE, R_CASE_SUP, R_OP2, R_OP2_SUP, R_ERASE, R_TRP, R_HCM,
-              R_HCON, R_HELIM, R_HELIM_SUP, R_HELIM_HCM, R_OP1, R_POUT, R_SPLIT, R_COUNT };
+              R_HCON, R_HELIM, R_HELIM_SUP, R_HELIM_HCM, R_OP1, R_POUT, R_SPLIT, R_UNIFY, R_COUNT };
 
 /* ---- the HIT schema (§4): nothing per HIT is hardcoded; a constructor's boundary IS its type ---- */
 typedef struct CtorInfo {
@@ -173,7 +175,8 @@ Term frame_push(Term parent, Term slot);
 Term dim_push(Term parent);
 Term restrict_push(Term parent, Term name, unsigned side, Term by);
 Term generic(Term fr);
-Term coordinate(Term type);            /* a run-time unknown of a type: marked, split only when asked */
+Term coordinate(Term type);
+Term resolve(Term t);            /* the top-level demand: rounds of one split each */
 Term coordinate_type(Term v);
 Term frame_lookup(Term f, uint32_t lvl, bool *is_dim);
 bool frame_is_dim(Term f, uint32_t lvl);

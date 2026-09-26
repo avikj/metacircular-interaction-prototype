@@ -1,0 +1,29 @@
+; the declaration is the program: sort's specification, its only text, resolved by coordinates, splits and unification.
+; Peano naturals; the multiset of a list is represented by its insertion-sorted form, so the specification says only
+; that B has A's multiset and is sorted.  Nothing below is a sorting algorithm for B.
+(def leq (fix f (lam a (lam b (case a (Zer () (ctr True)) (Suc (a1) (case b (Zer () (ctr False)) (Suc (b1) (app f a1 b1)))))))))
+(def insert (fix f (lam x (lam l (case l (Nil () (ctr Cons x (ctr Nil))) (Cons (h t) (case (app leq x h) (True () (ctr Cons x l)) (False () (ctr Cons h (app f x t))))))))))
+(def isort (fix f (lam l (case l (Nil () (ctr Nil)) (Cons (h t) (app insert h (app f t)))))))
+(def sorted (fix f (lam l (case l (Nil () (ctr True)) (Cons (h t) (case t (Nil () (ctr True)) (Cons (h2 t2) (case (app leq h h2) (True () (app f t)) (False () (ctr False))))))))))
+(def one (ctr Suc (ctr Zer)))
+(def two (ctr Suc one))
+(def three (ctr Suc two))
+(def A (ctr Cons three (ctr Cons one (ctr Cons two (ctr Nil)))))
+; the specification: Σ B : List Nat. (isort A ≡ isort B) × (sorted B ≡ True)
+(def spec : (ctr Sig (ctr List (ctr Nat)) (lam B (ctr Sig (ctr Eql (ctr List (ctr Nat)) (app isort A) (app isort B)) (lam q (ctr Eql (ctr Bool) (app sorted B) (ctr True)))))))
+; asking for the proofs is what resolves B; the value is B
+(def main (case (proj 1 spec) (Pair (q s) (case q (Refl () (case s (Refl () (proj 0 spec))))))))
+; the fibre of isort over [1,2] is not contractible: both orders sort to it, and B prints as their superposition
+(def L12 (ctr Cons one (ctr Cons two (ctr Nil))))
+(def B2 : (ctr List (ctr Nat)))
+(def q2 : (ctr Eql (ctr List (ctr Nat)) (app isort B2) L12))
+(def perms (case q2 (Refl () B2)))
+; an empty fibre: no x puts insert x [y] at [1]
+(def x3 : (ctr Nat))
+(def y3 : (ctr Nat))
+(def q3 : (ctr Eql (ctr List (ctr Nat)) (app insert x3 (ctr Cons y3 (ctr Nil))) (ctr Cons one (ctr Nil))))
+(def none (case q3 (Refl () x3)))
+; one point: the head that insert puts at [1]
+(def x4 : (ctr Nat))
+(def q4 : (ctr Eql (ctr List (ctr Nat)) (app insert x4 (ctr Nil)) (ctr Cons one (ctr Nil))))
+(def head (case q4 (Refl () x4)))
