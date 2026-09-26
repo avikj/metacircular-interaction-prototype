@@ -76,22 +76,22 @@ static bool frames_eq(Term a, Term b, uint32_t code, uint32_t code2, int d) {
 static bool elims_eq(Term u, Term v, int d, bool helim) {
   uint32_t off = helim ? 0 : 0;
   Term su = HEAP[loc(u)+off], sv = HEAP[loc(v)+off];
-  if ((su == 0) != (sv == 0)) return false;
+  if ((su == 0) != (sv == 0)) { if (getenv("PUSC_EQDBG")) fprintf(stderr, "  [elims] one is a function cell\n"); return false; }
   if (su && !eq(su, sv, d+1)) { if (getenv("PUSC_EQDBG")) { fprintf(stderr, "  [elims] scrutinees differ: "); print_term(su, 4); fprintf(stderr, " vs "); print_term(sv, 4); fprintf(stderr, "\n"); } return false; }
   if (helim && !eq(HEAP[loc(u)+3], HEAP[loc(v)+3], d+1)) return false;
   Term cu = HEAP[loc(u)+1], cv = HEAP[loc(v)+1], fu = HEAP[loc(u)+2], fv = HEAP[loc(v)+2];
   if (cu == cv) return frames_eq(fu, fv, CODE[loc(cu)].b, CODE[loc(cu)].c, d);
-  if (d > 6) { if (getenv("PUSC_EQDBG")) fprintf(stderr, "  [elims] different code, depth exhausted\n"); return false; }
+  if (d > 48) { if (getenv("PUSC_EQDBG")) fprintf(stderr, "  [elims] different code, depth exhausted\n"); return false; }
   for (uint32_t bu = CODE[loc(cu)].b; bu; bu = CODE[bu].c) {
     uint32_t bv = CODE[loc(cv)].b; while (bv && CODE[bv].ext != CODE[bu].ext) bv = CODE[bv].c;
-    if (!bv || CODE[bv].a != CODE[bu].a) return false;
+    if (!bv || CODE[bv].a != CODE[bu].a) { if (getenv("PUSC_EQDBG")) fprintf(stderr, "  [elims] branch %s missing or of another arity\n", CODE[bu].ext == 0xFFFFFF ? "_" : ctor_name(CODE[bu].ext)); return false; }
     Term f1 = fu, f2 = fv;
     for (uint32_t i = 0; i < CODE[bu].a; i++) { Term a = atom(); f1 = frame_push(f1, a); f2 = frame_push(f2, a); }
     if (!eq(inst(CODE[bu].b, f1), inst(CODE[bv].b, f2), d+1)) return false;
   }
   for (uint32_t bv = CODE[loc(cv)].b; bv; bv = CODE[bv].c) {
     uint32_t bu = CODE[loc(cu)].b; while (bu && CODE[bu].ext != CODE[bv].ext) bu = CODE[bu].c;
-    if (!bu) return false;
+    if (!bu) { if (getenv("PUSC_EQDBG")) fprintf(stderr, "  [elims] extra branch %s\n", CODE[bv].ext == 0xFFFFFF ? "_" : ctor_name(CODE[bv].ext)); return false; }
   }
   return true;
 }

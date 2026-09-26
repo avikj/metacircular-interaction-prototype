@@ -759,11 +759,13 @@ depth bound. Regularity is decided by normalisation: `occurs` reduces the
 cell as it inspects it (a line constant after reduction is constant), which
 is also what makes `J` compute on `refl`.
 
-Every ✓/✗ must agree with Bend2's checker over the corpus including every
-`*_mustfail`; recorded Core deviations (syntactic rewrite on a non-variable
-scrutinee, the constancy side condition of `transp`, the built-in recursors
-without their implicit type arguments) are the places a disagreement is
-allowed and named.
+Every ✓/✗ agrees with Bend2's checker over the corpus including every
+`*_mustfail` (3862 of 3862). The recorded Core deviations, where the rules
+differ and a disagreement would be allowed and named: a match on a
+non-variable scrutinee rewrites the goal but not the context; a
+definition unfolds under conversion by its head first (two applications of
+one definition with convertible arguments are equal without unfolding, and
+the branch-wise comparison of two different stuck eliminators is bounded).
 
 ## 8. Install
 
@@ -842,9 +844,9 @@ value identical to Bend2's own normaliser branch by branch; 12 skipped because
 the oracle itself does not check or run them). The checker (`verify.c`, §7)
 is compared verdict by verdict with Bend2's checker over the same corpus
 including the must-fail probes (`pusc/checktest.sh`, `--to-pusc-unchecked`):
-3524 of 3552 definitions agree, 122 of 150 files entirely; the 28 open
-disagreements are the eliminators of the built-in truncation and quotient
-HITs and a handful of single definitions, listed by the harness. The Bend dialect is realised as
+every verdict agrees, 3862 definitions over 150 files. The recorded Core
+deviations of §7 are the only places the rules differ, and no corpus
+definition falls on them. The Bend dialect is realised as
 §5.1 says a dialect must be: a certified translator. Bend2's checker is the
 translator and the check is the certificate: `bend FILE --to-pusc`
 (`src/Target/Pusc.hs` in `cubical-paths.patch`) writes the checked book as
