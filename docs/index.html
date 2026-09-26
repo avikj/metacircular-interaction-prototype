@@ -58,6 +58,18 @@
   }
   code::before,code::after{content:""}
   a{color:var(--accent)}
+  .diagrams{display:flex; flex-wrap:wrap; gap:18px 30px; justify-content:center;
+            align-items:flex-end; margin:1.6rem 0 .5rem}
+  figure.diagram{margin:0; text-align:center; flex:0 1 auto}
+  figure.diagram svg{display:block; height:auto; max-width:100%; margin:0 auto}
+  figure.diagram figcaption{color:var(--muted); font-size:.83rem; line-height:1.4;
+            margin-top:.55rem; max-width:210px}
+  svg .edge{stroke:var(--muted); stroke-width:1.6; fill:none}
+  svg .node circle{fill:var(--math-bg); stroke:var(--accent); stroke-width:1.7}
+  svg .node text{fill:var(--fg); font-size:13px; font-weight:650;
+            font-family:inherit; text-anchor:middle}
+  svg .ax{fill:var(--muted); font-size:11px; font-style:italic;
+            font-family:inherit; text-anchor:middle}
   .src{margin-top:3.2rem; padding-top:1.3rem; border-top:1px solid var(--rule);
        color:var(--muted); font-size:.9rem}
 </style>
@@ -100,25 +112,102 @@ $$
 
 <h2><span class="n">2.</span> Unique factorization is distributivity: one chain per prime</h2>
 <ul>
-<li>Every n factors uniquely into prime powers (fundamental theorem of arithmetic).</li>
-<li>For a single prime, p^i ∣ p^j iff i ≤ j: its powers form a chain 1 ∣ p ∣ p² ∣ ⋯.</li>
-<li>Divisibility is these chains, one per prime, side by side; gcd and lcm act on the exponent of each prime separately, as min and max:</li>
+<li>Every n factors uniquely into prime powers (fundamental theorem of arithmetic), so a divisor is fixed by how many of each prime it uses: d = 2<sup>e₂</sup>·3<sup>e₃</sup>·5<sup>e₅</sup>⋯.</li>
+<li>The powers of one prime are totally ordered — a chain: p<sup>i</sup> ∣ p<sup>j</sup> iff i ≤ j, so 1 ∣ p ∣ p² ∣ ⋯. On a totally ordered set, meet and join are just min and max.</li>
+<li>A number carries one exponent per prime at once, so divisibility compares exponent vectors coordinate by coordinate, and gcd and lcm take the min and max in each coordinate:</li>
 </ul>
 $$
-\gcd\!\Big(\textstyle\prod_p p^{a_p},\ \prod_p p^{b_p}\Big) = \prod_p p^{\min(a_p,b_p)}
+d \mid d' \iff e_p \le e_p' \ \text{ for every } p
 \qquad
-\operatorname{lcm} = \prod_p p^{\max(a_p,b_p)}
+\gcd = \prod_p p^{\min(a_p, b_p)}, \quad \operatorname{lcm} = \prod_p p^{\max(a_p, b_p)}
 $$
 <ul>
-<li>On a chain, min and max distribute over each other; a product of distributive lattices is distributive. So (ℕ, ∣) is distributive, and the distributive law is unique factorization read off in exponents:</li>
+<li>This order is a grid, not a line: (1, 0) and (0, 1) — the divisors 2 and 3 — are incomparable, so divisibility is not itself a chain. The divisors of 6 make a square, of 12 a taller grid (one prime taken twice), of 30 a cube:</li>
+</ul>
+
+<div class="diagrams">
+<figure class="diagram">
+<svg viewBox="55 25 170 195" width="150" role="img" aria-label="Hasse diagram of the divisors of 6, a square with 1 at bottom, 2 and 3 at the sides, 6 at top">
+  <g>
+    <line class="edge" x1="140" y1="190" x2="85" y2="120"/>
+    <line class="edge" x1="140" y1="190" x2="195" y2="120"/>
+    <line class="edge" x1="85" y1="120" x2="140" y2="50"/>
+    <line class="edge" x1="195" y1="120" x2="140" y2="50"/>
+  </g>
+  <g class="node"><circle cx="140" cy="190" r="18"/><text x="140" y="190" dy=".33em">1</text></g>
+  <g class="node"><circle cx="85" cy="120" r="18"/><text x="85" y="120" dy=".33em">2</text></g>
+  <g class="node"><circle cx="195" cy="120" r="18"/><text x="195" y="120" dy=".33em">3</text></g>
+  <g class="node"><circle cx="140" cy="50" r="18"/><text x="140" y="50" dy=".33em">6</text></g>
+</svg>
+<figcaption>6 = 2·3. Two 1-step chains: a square. gcd(2,3)=1 (go down), lcm(2,3)=6 (go up).</figcaption>
+</figure>
+
+<figure class="diagram">
+<svg viewBox="78 108 194 164" width="172" role="img" aria-label="Hasse diagram of the divisors of 12, a three-by-two grid">
+  <g>
+    <line class="edge" x1="150" y1="250" x2="200" y2="210"/>
+    <line class="edge" x1="200" y1="210" x2="250" y2="170"/>
+    <line class="edge" x1="100" y1="210" x2="150" y2="170"/>
+    <line class="edge" x1="150" y1="170" x2="200" y2="130"/>
+    <line class="edge" x1="150" y1="250" x2="100" y2="210"/>
+    <line class="edge" x1="200" y1="210" x2="150" y2="170"/>
+    <line class="edge" x1="250" y1="170" x2="200" y2="130"/>
+  </g>
+  <g class="node"><circle cx="150" cy="250" r="18"/><text x="150" y="250" dy=".33em">1</text></g>
+  <g class="node"><circle cx="200" cy="210" r="18"/><text x="200" y="210" dy=".33em">2</text></g>
+  <g class="node"><circle cx="250" cy="170" r="18"/><text x="250" y="170" dy=".33em">4</text></g>
+  <g class="node"><circle cx="100" cy="210" r="18"/><text x="100" y="210" dy=".33em">3</text></g>
+  <g class="node"><circle cx="150" cy="170" r="18"/><text x="150" y="170" dy=".33em">6</text></g>
+  <g class="node"><circle cx="200" cy="130" r="18"/><text x="200" y="130" dy=".33em">12</text></g>
+  <text class="ax" x="182" y="238">×2</text>
+  <text class="ax" x="118" y="238">×3</text>
+</svg>
+<figcaption>12 = 2²·3. The chain {1,2,4} times the chain {1,3}: a grid, taller in the doubled prime.</figcaption>
+</figure>
+
+<figure class="diagram">
+<svg viewBox="66 86 204 204" width="184" role="img" aria-label="Hasse diagram of the divisors of 30, a cube">
+  <g>
+    <line class="edge" x1="160" y1="272" x2="252" y2="242"/>
+    <line class="edge" x1="160" y1="272" x2="160" y2="176"/>
+    <line class="edge" x1="160" y1="272" x2="84" y2="230"/>
+    <line class="edge" x1="252" y1="242" x2="252" y2="146"/>
+    <line class="edge" x1="252" y1="242" x2="176" y2="200"/>
+    <line class="edge" x1="160" y1="176" x2="252" y2="146"/>
+    <line class="edge" x1="160" y1="176" x2="84" y2="134"/>
+    <line class="edge" x1="84" y1="230" x2="176" y2="200"/>
+    <line class="edge" x1="84" y1="230" x2="84" y2="134"/>
+    <line class="edge" x1="252" y1="146" x2="176" y2="104"/>
+    <line class="edge" x1="176" y1="200" x2="176" y2="104"/>
+    <line class="edge" x1="84" y1="134" x2="176" y2="104"/>
+  </g>
+  <g class="node"><circle cx="160" cy="272" r="14"/><text x="160" y="272" dy=".33em">1</text></g>
+  <g class="node"><circle cx="252" cy="242" r="14"/><text x="252" y="242" dy=".33em">2</text></g>
+  <g class="node"><circle cx="160" cy="176" r="14"/><text x="160" y="176" dy=".33em">3</text></g>
+  <g class="node"><circle cx="84" cy="230" r="14"/><text x="84" y="230" dy=".33em">5</text></g>
+  <g class="node"><circle cx="252" cy="146" r="14"/><text x="252" y="146" dy=".33em">6</text></g>
+  <g class="node"><circle cx="176" cy="200" r="14"/><text x="176" y="200" dy=".33em">10</text></g>
+  <g class="node"><circle cx="84" cy="134" r="14"/><text x="84" y="134" dy=".33em">15</text></g>
+  <g class="node"><circle cx="176" cy="104" r="14"/><text x="176" y="104" dy=".33em">30</text></g>
+</svg>
+<figcaption>30 = 2·3·5. Three 1-step chains: a cube. This is the Boolean cube of §3.</figcaption>
+</figure>
+</div>
+
+<ul>
+<li>Distributivity is one equation, and it holds because it holds in each coordinate. A single coordinate is a chain, where min over max is a one-case check — take b ≤ c, and both sides are min(a, c):</li>
 </ul>
 $$
-a \wedge (b \vee c) = (a \wedge b) \vee (a \wedge c)
-\iff
-\min\!\big(a_p, \max(b_p, c_p)\big) = \max\!\big(\min(a_p,b_p),\, \min(a_p,c_p)\big)
+\min\big(a,\, \max(b, c)\big) = \max\big(\min(a,b),\, \min(a,c)\big) \qquad (\text{on a chain})
 $$
 <ul>
-<li>The divisors of a fixed n are the finite sublattice ∏<sub>p</sub> {0, 1, …, a<sub>p</sub>}, a product of finite chains (machine-checked, <code>--safe</code>).</li>
+<li>An identity true in every coordinate is true of the vectors, so gcd and lcm inherit it. That is distributivity — nothing but the exponent fact, prime by prime:</li>
+</ul>
+$$
+A \wedge (B \vee C) = (A \wedge B) \vee (A \wedge C)
+$$
+<ul>
+<li>Total order gave each chain this law; the product of the chains kept the law and dropped the total order (2 and 3 stay incomparable). Divisibility is the standing example — distributive, but not totally ordered (machine-checked, <code>--safe</code>).</li>
 </ul>
 
 <h2><span class="n">3.</span> The map d ↦ n/d is a De Morgan involution, and a Boolean complement exactly when n is squarefree</h2>
