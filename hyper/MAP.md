@@ -222,7 +222,27 @@ them.
    (step 4).
 4. A declaration with no body is inferred: `sort` as the first test, its type its
    only text; `sortCost n` for small n against the decision-tree bound as the
-   second.
+   second. **Written, first half**: `sort : Π (L : List Nat). Σ B. …` is declared
+   with no body (`t/sort.hyper`, `sort-A`); an unknown function applied is the
+   coordinate of its codomain at the argument, one per (function, argument), so
+   the same argument asks the same question. Along free coordinates the run is
+   the decision tree: `isort` of three unknowns is six leaves (`n-isort3`), and
+   `(trace e)` over a superposed run gives each leaf the events that fired in
+   its world or above it (`trace_over`; `HYPER_SPLITS=1` shows each split). A
+   stuck question is identified by its code and the identities of what its code
+   reads, so one comparison asked at two sites is one split (`n-two-asks`).
+   Inside `trace` and `leaves` a residual does not ask a port (`KIND_CAP`): the
+   leaves stay the classes of inputs, printed as a value under its identities.
+   The innermost eliminator not facing a bare port is the one that decomposes: a
+   match on a match on a comparison asks the comparison. **Not yet**: the
+   specification along free inputs (`n-run2`: 4 leaves where 2 arrangements
+   exist). A comparison split before its ports were bound (`leq b1 a`, both
+   fields of B) and the same comparison after (`leq h2 h3`) are two questions to
+   the machine, so a world with both `≡ True` and `≡ False` stays alive; the
+   identity of a question must be read in the world of the leaf that carries it,
+   and the residual does not carry that world. The split count per leaf of
+   `isort` along free coordinates is 2, 3, 3, 3, 4, 4 where the decision tree
+   says 2, 3, 3, 3, 3, 3. `sortCost` waits on both.
 5. Every rule at an active pair, bodies as nets: the count becomes the proved
    geodesic. The one rule that fires on a non-value goes.
 6. The chart move under a checked path.

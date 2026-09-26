@@ -120,6 +120,14 @@ check t/sort.hyper main '#Cons{#Suc{#Zer{}},#Cons{#Suc{#Suc{#Zer{}}},#Cons{#Suc{
 got=$(./hyper run t/sort.hyper perms | head -1); case "$got" in '&'*'{#Cons{#Suc{#Zer{}},#Cons{#Suc{#Suc{#Zer{}}},#Nil{}}},#Cons{#Suc{#Suc{#Zer{}}},#Cons{#Suc{#Zer{}},#Nil{}}}}') pass=$((pass+1));; *) fail=$((fail+1)); echo "FAIL sort perms: $got";; esac
 check t/sort.hyper none '*'
 check t/sort.hyper head '#Suc{#Zer{}}'
+# §0.3 step 4: sort is a declaration with a Π type and no body; applied to A it is the coordinate of the Σ at A.
+check t/sort.hyper sort-A '#Cons{#Suc{#Zer{}},#Cons{#Suc{#Suc{#Zer{}}},#Cons{#Suc{#Suc{#Suc{#Zer{}}}},#Nil{}}}}'
+# the run along free coordinates: isort of three unknowns has six arrangements, each a leaf with its own events;
+# one comparison asked twice is one question and one split
+check t/sort.hyper n-isort3 '6'
+check t/sort.hyper n-isort2 '2'
+check t/sort.hyper n-two-asks '2'
+check t/sort.hyper n-two-asks-b '4'
 # every identifier MAP.md names is on the line it cites
 if ./cite.sh >/dev/null; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL cite: $(./cite.sh | tail -3 | tr '\n' ' ')"; fi
 echo "pass=$pass fail=$fail"; [ $fail -eq 0 ]
