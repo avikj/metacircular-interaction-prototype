@@ -139,6 +139,8 @@ static uint32_t term(void) {
   else if (!strcmp(h, "trp")) { uint32_t L = term(), a = term(), b = term(), x = term(); r = snode(S_TRP, 0, L, a, b, x); }
   else if (!strcmp(h, "chk")) { uint32_t T = term(), x = term(); r = snode(S_CHK, 0, T, x, 0, 0); }
   else if (!strcmp(h, "ask")) { uint32_t q = term(), k = term(); r = snode(S_ASK, 0, q, k, 0, 0); }
+  else if (!strcmp(h, "trace")) { uint32_t a = term(); r = snode(S_TRACE, 0, a, 0, 0, 0); }
+  else if (!strcmp(h, "leaves")) { uint32_t a = term(); r = snode(S_LEAVES, 0, a, 0, 0, 0); }
   else if (!strcmp(h, "ctr-fields")) { uint32_t x = term(); r = snode(S_CFIELDS, 0, x, 0, 0, 0); }
   else if (!strcmp(h, "ctr-with"))   { uint32_t x = term(), l = term(); r = snode(S_CWITH, 0, x, l, 0, 0); }
   else if (!strcmp(h, "helim") || !strcmp(h, "hrec")) {       /* (helim P x (c (fs) body)…) | (hrec x (c (fs) body)…); x may be _ */

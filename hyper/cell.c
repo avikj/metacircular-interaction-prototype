@@ -46,12 +46,12 @@ Term fce_raw(unsigned side, Term name, Term target, Term by) { return node3(T_FC
 Term fce3(unsigned side, Loc name, Term target, Term by) { return fce_raw(side, mk(T_IVAR, 0, name), target, by); }
 
 static void print_rec(Term t, int depth);
-Loc *TRACE_NODE; static Loc CUR_NODE;                 /* the node under reduction: each receipt names it (a Step's source) */
+Loc *TRACE_NODE, *TRACE_HEAP; static Loc CUR_NODE;                 /* the node under reduction: each receipt names it (a Step's source) */
 static void receipt(unsigned rule) {
   ITRS++;
-  if (!TRACE) { TRACE_CAP = 1u << 16; TRACE = malloc(TRACE_CAP * sizeof(uint32_t)); TRACE_NODE = malloc(TRACE_CAP * sizeof(Loc)); }
-  if (TRACE_LEN >= TRACE_CAP) { TRACE_CAP *= 2; TRACE = realloc(TRACE, TRACE_CAP * sizeof(uint32_t)); TRACE_NODE = realloc(TRACE_NODE, TRACE_CAP * sizeof(Loc)); }
-  TRACE[TRACE_LEN] = rule; TRACE_NODE[TRACE_LEN] = CUR_NODE; TRACE_LEN++;
+  if (!TRACE) { TRACE_CAP = 1u << 16; TRACE = malloc(TRACE_CAP * sizeof(uint32_t)); TRACE_NODE = malloc(TRACE_CAP * sizeof(Loc)); TRACE_HEAP = malloc(TRACE_CAP * sizeof(Loc)); }
+  if (TRACE_LEN >= TRACE_CAP) { TRACE_CAP *= 2; TRACE = realloc(TRACE, TRACE_CAP * sizeof(uint32_t)); TRACE_NODE = realloc(TRACE_NODE, TRACE_CAP * sizeof(Loc)); TRACE_HEAP = realloc(TRACE_HEAP, TRACE_CAP * sizeof(Loc)); }
+  TRACE[TRACE_LEN] = rule; TRACE_NODE[TRACE_LEN] = CUR_NODE; TRACE_HEAP[TRACE_LEN] = HEAP_LEN; TRACE_LEN++;
 }
 
 /* ---- constructor names --------------------------------------------- */
@@ -173,6 +173,8 @@ Term inst(uint32_t c, Term fr) {
     case S_GBASE: return node1(T_GBASE, 0, inst(n->a, fr));
     case S_GFACES: return node1(T_GFACES, 0, inst(n->a, fr));
     case S_ASK: return node2(T_ASK, 0, inst(n->a, fr), inst(n->b, fr));
+    case S_TRACE: return node1(T_TRACE, 0, inst(n->a, fr));
+    case S_LEAVES: return node1(T_LEAVES, 0, inst(n->a, fr));
     case S_HELIM: return node4(T_HELIM, 0, n->a ? inst(n->a, fr) : 0, mk(0, 0, c), fr, n->c ? inst(n->c, fr) : mk(T_ERA, 0, 0));
     case S_CFIELDS: return node1(T_CFIELDS, 0, inst(n->a, fr));
     case S_CWITH:   return node2(T_CWITH, 0, inst(n->a, fr), inst(n->b, fr));
@@ -1174,9 +1176,10 @@ void force_fields(Term t, int depth) {
 static uint64_t WHNF_STEPS;
 /* a node that a rule may fire on, and whose first word is a term (so the mark T_IND cannot be mistaken).
    REFLECT is not one: it is the checker's view of a typed point (§7), read by its cell, never marked. */
+static Term prune(Term t);
 static bool node_redex(unsigned g) {
   switch (g) { case T_APP: case T_FCE: case T_PROJ: case T_CASE: case T_OP2: case T_OP1: case T_TRP: case T_HCM: case T_HELIM: case T_CHK:
-    case T_UNGLUE: case T_GBASE: case T_GFACES: case T_FCASE: case T_CFIELDS: case T_CWITH: case T_PAP: case T_ETYPE: case T_ETERM: case T_POUT: case T_UNIFY: case T_BOTH: return true;
+    case T_UNGLUE: case T_GBASE: case T_GFACES: case T_FCASE: case T_CFIELDS: case T_CWITH: case T_PAP: case T_ETYPE: case T_ETERM: case T_POUT: case T_UNIFY: case T_BOTH: case T_TRACE: case T_LEAVES: return true;
     default: return false; }
 }
 static Term whnf_(Term t);
@@ -1332,6 +1335,20 @@ static Term whnf_(Term t) {
           }
         }
       }
+      case T_TRACE: {                                 /* the run of e as a term: (value, events), each event the rule and the words it allocated
+                                                         (research/sat_fibre/InteractionLedger.agda: Trace, Charge; the trace lives over the result) */
+        uint64_t from = TRACE_LEN; Term v = nf(HEAP[loc(t)], 256);
+        Term l = nil_cell();
+        for (uint64_t i = TRACE_LEN; i-- > from;) {
+          Loc next = i + 1 < TRACE_LEN ? TRACE_HEAP[i+1] : HEAP_LEN;
+          l = cons_cell(node1(T_CTR, ctr_ext(ctor_intern(RULE_NAME[TRACE[i]], 1), 1), node1(T_NUM, N_U64, next - TRACE_HEAP[i])), l); }
+        return node2(T_CTR, ctr_ext(C_PAIR, 2), v, l);
+      }
+      case T_LEAVES: {                                /* the leaves of a superposition as a list, dead sides dropped */
+        static Term out[1 << 14]; int n = collapse_leaves(HEAP[loc(t)], out, 1 << 14);
+        Term l = nil_cell(); for (int i = n; i-- > 0;) l = cons_cell(out[i], l);
+        return l;
+      }
       case T_UNIFY: { Term r = unify_step(t); if (!r) return t; t = r; continue; }
       case T_BOTH:  { Term r = both_step(t);  if (!r) return t; t = r; continue; }
       case T_OP2: {
@@ -1416,6 +1433,16 @@ Term generic(Term fr) {              /* a fresh generic element: a slot that poi
   HEAP[loc(f) + 1] = mk(T_VAR, ext(f), loc(f));
   return f;
 }
+/* the normal form as the top demands it: rounds of splits, dead sides pruned, into every field */
+Term nf(Term t, int depth) {
+  if (depth <= 0) return t;
+  t = resolve(t); if (tag(t) == T_SUP) t = prune(t);
+  switch (tag(t)) {
+    case T_CTR: for (uint32_t i = 0; i < ctr_arity(t); i++) HEAP[loc(t)+i] = nf(HEAP[loc(t)+i], depth-1); return t;
+    case T_SUP: HEAP[loc(t)+1] = nf(HEAP[loc(t)+1], depth-1); HEAP[loc(t)+2] = nf(HEAP[loc(t)+2], depth-1); return t;
+    default: return t;
+  }
+}
 Term normalize(Term t, int depth) {
   if (depth <= 0) return t;
   t = whnf(t);
@@ -1488,6 +1515,8 @@ static void print_rec(Term t, int depth) {
     case T_GFACES: printf("glue-faces("); print_rec(HEAP[loc(t)], depth-1); printf(")"); break;
     case T_FCASE: printf("face-case("); print_rec(HEAP[loc(t)], depth-1); printf(")"); break;
     case T_UNGLUE: printf("unglue("); print_rec(HEAP[loc(t)], depth-1); printf(")"); break;
+    case T_TRACE: printf("trace("); print_rec(HEAP[loc(t)], depth-1); printf(")"); break;
+    case T_LEAVES: printf("leaves("); print_rec(HEAP[loc(t)], depth-1); printf(")"); break;
     case T_TRP: printf("trp("); print_rec(HEAP[loc(t)], depth-1); printf(","); print_rec(HEAP[loc(t)+1], depth-1); printf(","); print_rec(HEAP[loc(t)+2], depth-1); printf(","); print_rec(HEAP[loc(t)+3], depth-1); printf(")"); break;
     case T_HCM: printf("hcomp("); print_rec(HEAP[loc(t)], depth-1); printf(","); print_rec(HEAP[loc(t)+1], depth-1); printf(","); print_rec(HEAP[loc(t)+2], depth-1); printf(")"); break;
     default: printf("?%u", tag(t));

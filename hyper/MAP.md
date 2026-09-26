@@ -123,7 +123,8 @@ them.
   what a corpus module proves (a census mode, a joint mode, a meet mode) are
   organs. The constructions belong in the language as terms over the two
   primitives above, and the runtime has one entry: reduce, with check on the
-  same loop. The modes on this branch are to be removed, not extended.
+  same loop. The modes this branch once had are gone; their probes are
+  programs (step 3).
 - **Building the runtime someone else already has.** An efficient interaction
   net exists (HVM). A cubical fork of Bend on it exists
   (`collab/bend2-interactive-cubical`). This directory is not a faster one of
@@ -211,7 +212,14 @@ them.
    coordinates) are two cells and two splits; rounds re-inspect the demand
    path; faces on values are pushed by copying. These are step 5.
 3. The trace of a run and the leaves of a superposition as terms; the four modes
-   removed and their probes rewritten as programs.
+   removed and their probes rewritten as programs. **Written**: `(trace e)` and
+   `(leaves e)` (§3); `main.c` has `run`, `bend`, `check`, `interact`;
+   `t/census.hyper`, `t/jiva.hyper`, `t/meet.hyper` are programs over declared
+   fibres, `trace` and `leaves`, and reproduce every check the modes made. Not
+   yet a term: the cost of one leaf of a superposed run. The ledger is the
+   run's; a leaf's own charge needs the receipts attributed to the world they
+   fired in, which the trace does not record. That is what `sortCost` needs
+   (step 4).
 4. A declaration with no body is inferred: `sort` as the first test, its type its
    only text; `sortCost n` for small n against the decision-tree bound as the
    second.
@@ -221,8 +229,7 @@ them.
 7. The Bend dialect's grammar as a book with its certificate; parallel demand
    over the one arena.
 
-The sections below describe the substrate as it stands. Where they describe a
-mode, read it as a construction to be moved into the language under step 3.
+The sections below describe the substrate as it stands.
 
 
 ## Read order
@@ -313,8 +320,7 @@ by `fibre/src/Fibre/Carrier.agda:92` `fibre-isContr`, `:96` `descend`, `:115`
 `hyper run FILE [DEF]` is the trivial query; `hyper interact FILE [DEF]` is
 `present`: the point, then each line of the world a question, the point
 presented along it, the new state `(q a, (a, refl))`; an `ASK` cell is a
-question the point asks the world. The residual's census is `hyper census`
-(§3).
+question the point asks the world. The residual's census is a program (§3).
 
 **Two parts of one joint**
 (`formal/cubical/theorems/logic/Jiva_EntanglementIsTheFibreOfTheProductComparisonAndTheLivingStepRefusesToDescendToTheMarginals.agda`).
@@ -331,12 +337,15 @@ descends along a projection when some endomap of the part closes the square
 along the visible side, interrogated at `(true, false)` and `(true, true)`;
 `:276` `दक्षिण-विलयः`: it descends along the hidden side by `refl`; `:286`
 `विलयः`: the step `(not a, b)` descends on both sides; `:302` `जीवन-द्विः`: the
-living step is an involution, globally lossless, locally refusing. As written:
-`hyper joint FILE J P Q` computes the census of the comparison over the
-superposition of the joint, each pair of marginal readings रिक्तम्, सकलादेश or
-बहु, and the verdict स्वातन्त्र्यम् when every fibre is a point; `hyper descends
-FILE STEP P J` decides whether the square closes and names the interrogating
-pair when it does not. `t/jiva.hyper` is the module's §१ to §६, computed.
+living step is an involution, globally lossless, locally refusing. As written
+(`t/jiva.hyper`, programs): the joint is a type, the fibre of the comparison
+over a pair of readings is declared, `Σ j : J. (p j, q j) ≡ (a, b)`, and
+resolved: one point for the product joint, `*` for the diagonal joint at
+`(True, False)`, two points for the joint with a hidden bit. A step's refusal
+to descend along `p` is the declared fibre
+`Σ j k. (p j ≡ p k) × (eq (p (step j)) (p (step k)) ≡ False)`: a point of it is
+the interrogating pair (the controlled-not along the visible side), `*` is
+descent (the controlled-not along the hidden side, the dead step on both).
 
 **Two sessions and an overlap**: the encounter, §4b.
 
@@ -346,8 +355,8 @@ lossless interaction retains `fib_e(k)`, forced by
 `fibre-of-run`; the general interaction is a family `R : A × X → 𝒰` classified
 by the universal family, and a tower of such families flattens to one
 (`fibre/src/Fibre/Universal_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda:312`
-`flatten`). `CHU_LOSSLESS_INTERACTION.md` is the reading; the runtime's
-`census` over a product domain is the Chu matrix with its fibres.
+`flatten`). `CHU_LOSSLESS_INTERACTION.md` is the reading; the census of a map out of a
+product domain, resolved pointwise, is the Chu matrix with its fibres.
 
 `hyper check FILE` is `verify.c` on every definition; `hyper bend FILE` runs
 `b/main` in Bend2's presentation, for the oracle.
@@ -363,9 +372,16 @@ sequence of events), `:65` `interactionTotal`, `:74` `interactionTotal-is-length
 a one-step `diamond`; `:45` `same-normalization-length`: every complete reduction
 of one object to its normal form has the same length; `:53`
 `normalization-is-geodesic`. As written: every rule appends its receipt to
-`TRACE`; a run prints `- Itrs:` (the interactions) and `- Words:` (the heap
-words allocated), the two components of `Charge`; `HYPER_CENSUS=1` prints the
-receipts by rule; `HYPER_SCHEDULE` serves the right of two independent demands
+`TRACE`, with the node it fired on and the heap length at that moment; a run
+prints `- Itrs:` (the interactions) and `- Words:` (the heap words allocated),
+the two components of `Charge`; `HYPER_CENSUS=1` prints the receipts by rule.
+**The trace is a term**: `(trace e)` runs `e` to its normal form and is the
+pair of the value and the list of its events, each event the rule's name as a
+constructor carrying the words it allocated (`#beta{4}`), so the trace lives
+over the result as in `fibre-of-run`, `interactionTotal` is `length` and
+`ledger` is a fold, both written in the language (`t/meet.hyper`).
+`(leaves e)` is the list of the leaves of `e`'s superposition, dead sides
+dropped (`t/census.hyper`); `HYPER_SCHEDULE` serves the right of two independent demands
 first, or a coin per choice, and `test.sh` and `bendtest.sh` require the same
 value and the same count under the schedules (the diamond, measured, since the
 hypothesis of `RandomDescent` is not discharged for this loop's step relation).
@@ -384,13 +400,15 @@ visible result to be the whole event. `:181` `canonical`, `:194`
 `canonical-recovers`, by `refl`: the source was never left behind.
 `fibre/src/Fibre/WholePartialDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic.agda:87`
 `देश`, `:93` `गणना`: the census of a question, pointwise over the codomain,
-three-valued. As written (`main.c`, `hyper census FILE MAP DOM COD`): the domain
-and codomain are given as superpositions of their points; the map is presented
-along every point of the domain; over each point of the codomain the fibre is
-the domain points whose value is it, and its census is `:88` `नास्ति` (none),
-`:89` `सकलादेश` (one), or `:90` `विकलादेश` (two or more, shown). `t/census.hyper`
-is the module's own §3, computed: `Unit → Bool` is सकलादेश at `True` and नास्ति
-at `False`, `Bool → Unit` is विकलादेश at `Tt`, and their composite is सकलादेश.
+three-valued. As written (`t/census.hyper`, programs): the fibre of `f` over
+`b` is declared, `Σ a : A. f a ≡ b`, with no witness; its proof is asked and
+its points are asked along their type; the resolution is the census, `:88`
+`नास्ति` when it is `*`, `:89` `सकलादेश` when it is one point, `:90` `विकलादेश`
+when it is the superposition of two or more, both shown as the constructor
+requires. `t/census.hyper` is the module's own §3: `Unit → Bool` is one point at
+`True` and `*` at `False`, `Bool → Unit` is two points at `Tt`, and their
+composite is one point, where the sequential diagnostic would add the losses.
+No organ computes this: the fibre law, run forward (§0.1).
 
 Erase: nothing is erased inside a run; a forgotten port is one receipt where it
 is forgotten (`t/erase.hyper`: the fibre's size never enters). Commutation is
@@ -433,30 +451,27 @@ Derivation meeting (here B)`), `:138` `τ` (`mine ⊕ theirs`),
 `formal/cubical/kernel-flat/TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainder.agda:126`
 `len`.
 
-As written (`main.c`, `hyper meet FILE A B`): a derivation is the receipts of a
-run, each a rule at a node (`TRACE`, `TRACE_NODE`), with its endpoints; a run of
-a term to its normal form is one. A peer begins at its term (`begin`). The two
-peers meet at the normal form both reach, or there is no meeting and the
-encounter is refused. `mine` is A's run, `theirs` is the reversal of B's run,
-`τ` their concatenation; `A′` stands at B's term with `trace A ⊕ τ` and the three
-moves, `B′` at A's term with `trace B ⊕ rev τ`. `t/meet.hyper` computes the
-module's sections:
+As written (`t/meet.hyper`, a program over `trace`): a derivation is the trace
+of a run as a term, `(trace a)` the value with its events over it; the two peers
+meet when the values are equal (`eq-nat`), else there is no meeting; `mine` is
+A's events, `theirs` the reversal of B's (each step under `Rev`), `τ` their
+concatenation (`cat`), and the round trip `τ ⊕ rev τ`. Lengths are `length`, a
+fold in the language. `t/meet.hyper` computes the module's sections:
 `formal/cubical/kernel-flat/TheEncounterOfTwoPeersIsOneTraceAndNoScalarProjectionOfItHasASection.agda:256`
-`the-two-results-need-not-agree` (A′ and B′ stand at different terms, nothing
-pending), `:284` `what-crossed-is-what-B-had` and `:320` `the-pair-holds-it-after`
-(before the encounter A has no move at the meeting, after it both hold the joint
-route, whose endpoints are neither peer's), `:334` `the-prior-trace-is-a-prefix`
-(as data), `:341` `undo` (`rev τ`), `:380` `round-trip` with `:389`
-`the-round-trip-costs-four` and `:392` `the-round-trip-is-not-done` (here: 2·len τ
-steps from `a` to `a`; the meaning is refl, the object is not done), `:409`
-`the-fabric-composes-strictly` (concatenation of arrays), `:444`
+`the-two-results-need-not-agree` (the meeting is one value reached from two
+terms), `:341` `undo` (`rev τ`), `:380` `round-trip` with `:392`
+`the-round-trip-is-not-done` (2·len τ steps from `a` to `a`; the meaning is refl,
+the object is not done), `:409` `the-fabric-composes-strictly` (`cat`), `:444`
 `the-two-orders-differ` and `:448` `both-orders-cost-the-same` (the crossing:
-`cross` under the two schedules reaches the same value in the same number of
-receipts with different traces, `HYPER_TRACE=1`), `:474` `the-scalar-is-additive`
-(`len (d ⊕ e) = len d + len e`, by construction), `:483`
-`no-section-for-any-order-blind-projection` (the count cannot be inverted to the
-trace, exhibited by the crossing). Not written: `:542` `the-receipt-does-not-cross`,
-which needs a demanded evidence (`demand R d`) this runtime does not yet model.
+`cross` under the two schedules reaches the same value with the same events;
+the traces differ by the nodes they fire on, `HYPER_TRACE=1`), `:474`
+`the-scalar-is-additive` (`len (d ⊕ e) = len d + len e`). Not written: `:284`
+`what-crossed-is-what-B-had`, `:320` `the-pair-holds-it-after`, `:334`
+`the-prior-trace-is-a-prefix` (the session's library of moves: a construction
+to be written as a program when a probe needs it), `:483`
+`no-section-for-any-order-blind-projection` beyond the crossing, and `:542`
+`the-receipt-does-not-cross`, which needs a demanded evidence (`demand R d`)
+this runtime does not model.
 
 ## 5. Files
 
@@ -465,7 +480,7 @@ which needs a demanded evidence (`demand R d`) this runtime does not yet model.
                              case trees, the HIT schema, numbers, transp, hcomp, Glue, the loop, the ledger, printers
     hyper/read.c             the reader for the kernel's own text
     hyper/verify.c           the checker on the same loop
-    hyper/main.c             run | bend | check | interact | census | joint | descends | meet (§2, §3, §4b)
+    hyper/main.c             run | bend | check | interact
     hyper/prelude.hyper 158  the Kan rows, Glue, transpEquiv, the HIT rows, as data
     hyper/bend.hyper     45  the Bend2 dialect's rows
     hyper/test.sh            the substrate's checks

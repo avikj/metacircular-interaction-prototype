@@ -65,7 +65,9 @@ enum Tag {
   T_CHK,       /* loc → [type, term]                                   */
   T_ASK,       /* loc → [q, k]                      a free port        */
   T_UNIFY,     /* loc → [x, y, faces]   the identity x ≡ y between data terms, decided by unification under the branch's faces */
-  T_BOTH,      /* loc → [p, q]          both identities hold: fair, either dead side kills */
+  T_BOTH,      /* loc → [p, q, last forced, faces]  both identities hold: fair, either dead side kills */
+  T_TRACE,     /* loc → [e]   the run of e to its normal form, as a term: the value with the ledger's events over it */
+  T_LEAVES,    /* loc → [e]   the leaves of e's superposition, as a list */
   T_IND,       /* word 0 of a reduced node: word 1 holds its result (§3: a demanded port fires once, every holder sees the value) */
   /* frames (never a value) */
   T_FRAME,     /* loc → [parent, slot]  ext = depth   one binding      */
@@ -102,7 +104,7 @@ enum STag {
   S_VAR = 1, S_LAM, S_APP, S_REF, S_ERA, S_SUP, S_PLM, S_DIM, S_FCE,
   S_I0, S_I1, S_IVAR, S_INOT, S_IAND, S_IOR,
   S_CTR, S_NUM, S_OP2, S_TRP, S_HCM, S_CASE, S_BRANCH, S_CHK, S_ASK, S_LET, S_PROJ, S_GLU, S_GLUE, S_UNGLUE, S_FCASE, S_GBASE, S_GFACES, S_ISUB,
-  S_HELIM, S_CFIELDS, S_CWITH, S_FIX, S_OP1, S_POUT, S_LABEL, S_REFLECT, S_ETYPE, S_ETERM, S_PAP
+  S_HELIM, S_CFIELDS, S_CWITH, S_FIX, S_OP1, S_POUT, S_LABEL, S_REFLECT, S_ETYPE, S_ETERM, S_PAP, S_TRACE, S_LEAVES
 };
 enum NumKind { N_U64 = 0, N_I64, N_F64, N_CHR };
 enum Op1 { OP1_NOT, OP1_NEG, OP1_TOCHAR };
@@ -131,6 +133,7 @@ extern const char **BNAMES; extern uint32_t BNAMES_LEN;   /* field names of case
 extern uint64_t ITRS, ROUNDS;
 extern uint32_t *TRACE; extern uint64_t TRACE_LEN;   /* receipts: rule ids */
 extern Loc      *TRACE_NODE;                          /* the node each receipt fired on */
+extern Loc      *TRACE_HEAP;                          /* the heap length at each receipt: the words an event allocated are the gap to the next */
 extern const char *RULE_NAME[];                       /* the census names, by rule */
 void print_trace(uint64_t from);                      /* the receipts from index `from` as rule@node */
 
@@ -153,6 +156,7 @@ extern CtorInfo CINFO[1 << 16];   /* indexed by constructor id */
 Loc  alloc(uint32_t n);
 Term whnf(Term t);
 Term normalize(Term t, int depth);
+Term nf(Term t, int depth);         /* the normal form as the top demands it: rounds and pruning */
 void print_term(Term t, int depth);
 Term inst(uint32_t code, Term frame);
 Term run_def(uint32_t id);

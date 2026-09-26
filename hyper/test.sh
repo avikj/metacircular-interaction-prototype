@@ -73,36 +73,41 @@ checkn t/erase.hyper carry   '1' 2
 for pair in t/basic.hyper:main t/sup.hyper:dist t/sup.hyper:matchsup t/kan.hyper:reg t/kan.hyper:hc-nat t/kan.hyper:pitrp t/ua.hyper:fwd-true t/setcomp.hyper:via-pi t/hit.hyper:helim-sq t/hit.hyper:merid-t t/erase.hyper:and-f; do
   f=${pair%%:*}; d=${pair##*:}; a=$(./hyper run $f $d 2>&1 | grep -v Words | tr '\n' ' '); b=$(HYPER_SCHEDULE=right ./hyper run $f $d 2>&1 | grep -v Words | tr '\n' ' '); c=$(HYPER_SCHEDULE=7 ./hyper run $f $d 2>&1 | grep -v Words | tr '\n' ' ')
   if [ "$a" = "$b" ] && [ "$a" = "$c" ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL schedule $f $d: [$a] [$b] [$c]"; fi; done
-# the census of a question (Fibre.WholePartialDesa §3, computed): f : Unit → Bool is सकलादेश at True and नास्ति at False;
-# g : Bool → Unit is विकलादेश at Tt; the composite is सकलादेश; not : Bool → Bool is सकलादेश everywhere
-got=$(./hyper census t/census.hyper always-true unit bool2 | tr '\n' ' ')
-if [ "$got" = "#True{}: सकलादेश #Tt{} #False{}: नास्ति " ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL census f: $got"; fi
-got=$(./hyper census t/census.hyper forget bool unit | tr '\n' ' ')
-if [ "$got" = "#Tt{}: विकलादेश #True{} #False{} " ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL census g: $got"; fi
-got=$(./hyper census t/census.hyper compose unit unit | tr '\n' ' ')
-if [ "$got" = "#Tt{}: सकलादेश #Tt{} " ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL census g∘f: $got"; fi
-got=$(./hyper census t/census.hyper not bool bool2 | tr '\n' ' ')
-if [ "$got" = "#True{}: सकलादेश #False{} #False{}: सकलादेश #True{} " ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL census not: $got"; fi
-# the encounter of two peers (kernel-flat/TheEncounterOfTwoPeers…), computed: two terms that reach one normal form;
-# §2 the results need not agree, §4 the prior trace is a prefix, §5 the round trip is 2·len τ from a to a, §3 revelation and generation
-got=$(./hyper meet t/meet.hyper a b | sed -n '1p;2p;3p;5p;6p;7p;8p' | tr '\n' '|')
-want="meeting: #Suc{#Suc{#Zer{}}}|mine: 4  theirs: 1  τ: 5|A′ stands at b, B′ stands at a; the two results need not agree|the prior trace is a prefix: yes|round trip: 10 steps, from a to a; the meaning is refl, the object is not done|A could act at the meeting before: no; after: yes|the pair holds the joint route: yes yes|"
-if [ "$got" = "$want" ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL meet: $got"; fi
-./hyper meet t/meet.hyper a c >/dev/null 2>&1; if [ $? -eq 2 ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL meet: no meeting should refuse"; fi
+# the census of a question (Fibre.WholePartialDesa), as programs: Σ a. f a ≡ b declared with no witness, its points asked.
+# f : Unit → Bool is one point at True and none at False; g : Bool → Unit is two points at Tt (a bit lost); g∘f is one point
+# (the sequential diagnostic would add the losses and be wrong); `leaves` is the census as a list.
+check t/census.hyper at-true '#Tt{}'
+check t/census.hyper at-false '*'
+got=$(./hyper run t/census.hyper forget-at-tt | head -1); case "$got" in '&'*'{#False{},#True{}}') pass=$((pass+1));; *) fail=$((fail+1)); echo "FAIL census forget: $got";; esac
+check t/census.hyper census-forget '#Cons{#False{},#Cons{#True{},#Nil{}}}'
+check t/census.hyper compose-at-tt '#Tt{}'
+check t/census.hyper not-at-true '#False{}'
+# the encounter of two peers (kernel-flat/TheEncounterOfTwoPeers…), as a program over `trace`: two terms that reach one
+# normal form; τ = mine ⊕ rev theirs has their lengths' sum; the round trip τ ⊕ rev τ is twice it; a third term has no meeting
+check t/meet.hyper meeting '#True{}'
+check t/meet.hyper no-meeting '#False{}'
+check t/meet.hyper mine '4'
+check t/meet.hyper theirs '1'
+check t/meet.hyper tau-length '5'
+check t/meet.hyper round-length '10'
 # §7 the crossing: two redexes that do not touch, contracted in the two orders: same value, same len, different traces (§8: no section)
 l=$(HYPER_TRACE=1 ./hyper run t/meet.hyper cross | sed -n '1p;4p' | tr '\n' '|'); r=$(HYPER_TRACE=1 HYPER_SCHEDULE=right ./hyper run t/meet.hyper cross | sed -n '1p;4p' | tr '\n' '|')
 lv=${l%%|*}; rv=${r%%|*}; lt=${l#*|}; rt=${r#*|}; ln=$(echo "$lt" | wc -w); rn=$(echo "$rt" | wc -w)
 if [ "$lv" = "26" ] && [ "$lv" = "$rv" ] && [ "$ln" -eq "$rn" ] && [ "$lt" != "$rt" ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL crossing: [$l] [$r]"; fi
-# the joint state (theorems/logic/Jiva_…), computed: the product joint is independent; the diagonal joint has empty fibres at
-# (True,False) and (False,True); the joint over Unit×Unit has a two-point fibre; the living step refuses along the visible
-# side and descends along the hidden one; the dead step descends on both
-got=$(./hyper joint t/jiva.hyper product left right | tail -1); [ "$got" = "स्वातन्त्र्यम्: the comparison is an equivalence" ] && pass=$((pass+1)) || { fail=$((fail+1)); echo "FAIL joint product: $got"; }
-got=$(./hyper joint t/jiva.hyper bools id id | tr '\n' '|')
-[ "$got" = "(#True{}, #True{}): सकलादेश #True{}|(#True{}, #False{}): रिक्तम्|(#False{}, #True{}): रिक्तम्|(#False{}, #False{}): सकलादेश #False{}|entangled: the comparison is not an equivalence|" ] && pass=$((pass+1)) || { fail=$((fail+1)); echo "FAIL joint diagonal: $got"; }
-got=$(./hyper joint t/jiva.hyper bools unit unit | head -1); [ "$got" = "(#Tt{}, #Tt{}): बहु #True{} #False{}" ] && pass=$((pass+1)) || { fail=$((fail+1)); echo "FAIL joint hidden: $got"; }
-got=$(./hyper descends t/jiva.hyper cnot left product | cut -d: -f1); [ "$got" = "जीवति" ] && pass=$((pass+1)) || { fail=$((fail+1)); echo "FAIL living step: $got"; }
-got=$(./hyper descends t/jiva.hyper cnot right product | cut -d: -f1); [ "$got" = "अवतरणम्" ] && pass=$((pass+1)) || { fail=$((fail+1)); echo "FAIL cnot right: $got"; }
-got=$(./hyper descends t/jiva.hyper dead left product | cut -d: -f1)$(./hyper descends t/jiva.hyper dead right product | cut -d: -f1); [ "$got" = "अवतरणम्अवतरणम्" ] && pass=$((pass+1)) || { fail=$((fail+1)); echo "FAIL dead step: $got"; }
+# the trace as a term: the two schedules of the crossing give the same value and the same events
+l=$(./hyper run t/meet.hyper crossing | head -1); r=$(HYPER_SCHEDULE=right ./hyper run t/meet.hyper crossing | head -1)
+if [ "$l" = '#Pair{26,#Cons{#op2{2},#Cons{#op2{2},#Cons{#op2{1},#Nil{}}}}}' ] && [ "$l" = "$r" ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL crossing trace: $l $r"; fi
+# the joint state (theorems/logic/Jiva_…), as programs: the fibre of the comparison ⟨p,q⟩ over a pair of readings is
+# declared and resolved: one point for the product, none for the diagonal at (True,False), two for the hidden bit; a
+# living step has a witness pair that agrees at p and disagrees after the step, a dead step has none
+check t/jiva.hyper product-at-tf '#Pair{#True{},#False{}}'
+check t/jiva.hyper diagonal-at-tf '*'
+check t/jiva.hyper diagonal-at-tt '#True{}'
+got=$(./hyper run t/jiva.hyper hidden-at-tt | head -1); case "$got" in '&'*'{#False{},#True{}}') pass=$((pass+1));; *) fail=$((fail+1)); echo "FAIL joint hidden: $got";; esac
+got=$(./hyper run t/jiva.hyper cnot-left | head -1); case "$got" in '&'*) pass=$((pass+1));; *) fail=$((fail+1)); echo "FAIL living step: $got";; esac
+check t/jiva.hyper cnot-right '*'
+check t/jiva.hyper dead-left '*'
+check t/jiva.hyper dead-right '*'
 # §0.3 step 1: a declaration with a type and no body is a coordinate; a match asks it and it becomes the superposition of
 # the match's constructors, correlated across every holder (one label on both sides of pair), split only as far as asked
 got=$(./hyper run t/coord.hyper pick | head -1); case "$got" in '&'*'{2,1}') pass=$((pass+1));; *) fail=$((fail+1)); echo "FAIL coord pick: $got";; esac
