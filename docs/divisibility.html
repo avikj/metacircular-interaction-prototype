@@ -249,7 +249,7 @@ $$
 
 <h2><span class="n">4.</span> A repeated prime puts a middle on an axis; there excluded middle fails, and the negation that remains is intuitionistic</h2>
 <ul>
-<li>§3 found it: when a<sub>p</sub> ≥ 2 the axis {0, 1, …, a<sub>p</sub>} has interior points, and d ∧ ¬d there is not ⊥. Take n = 12 = 2²·3 and d = 2 (exponent 1 on the 2-axis): ¬d = 12/2 = 6, and d ∧ ¬d = gcd(2, 6) = 2 ≠ 1. "d or not-d, meeting in nothing" breaks at the repeated prime.</li>
+<li>§3 found it: when a<sub>p</sub> ≥ 2 the involution n/d stops being a complement — the axis {0, 1, …, a<sub>p</sub>} has interior points, so d ∧ (n/d) is not ⊥. For n = 12 = 2²·3 and d = 2: n/d = 6, and d ∧ (n/d) = gcd(2, 6) = 2 ≠ 1. The negation the logic uses is now a different map, built next; it agrees with n/d only when n is squarefree.</li>
 <li>A best negation still exists, and we build it on one chain {0, …, m}. Given exponent e, ask for the largest x with min(e, x) = 0 — the largest exponent disjoint from e. If e = 0 every x works, so x = m; if e ≥ 1 only x = 0 does. Across axes, ¬d sends each prime absent from d to its full power and each prime present to zero:</li>
 </ul>
 $$
@@ -286,7 +286,7 @@ g(m) = \sum_{d \mid m} f(d)
 $$
 <ul>
 <li>Invert it by hand. List the divisors so each comes after all it is divisible by (§2's grid allows this). Then g(m) = f(m) + (sum of earlier f's), so from the bottom up f(1) = g(1) and each f(m) = g(m) − (already-known lower f's). Every f(m) is recovered: a sum-over-below has 1 on the diagonal, so it is triangular and back-substitution never fails.</li>
-<li>The coefficients of that back-substitution are one function μ, forced by inversion; the forcing condition is that summing μ below gives 1 at the bottom and 0 above:</li>
+<li>The coefficients of that back-substitution are one function μ of the ratio m/d alone — the divisors from d up to m are themselves the divisor lattice of m/d, so only the ratio matters — forced by inversion; the forcing condition is that summing μ below gives 1 at the bottom and 0 above:</li>
 </ul>
 $$
 f(m) = \sum_{d \mid m} \mu(m/d)\, g(d) \qquad \sum_{d \mid m} \mu(d) = [\, m = 1 \,]
@@ -299,7 +299,7 @@ $$
 $$
 <ul>
 <li>μ vanishing off the squarefree divisors is §4 again: only the ¬¬-stable part carries a sign, a repeated prime contributes 0. On the subset algebra of §3, μ = (−1)<sup>#primes</sup> is inclusion–exclusion itself — whole minus atoms plus pairs minus triples.</li>
-<li>One instance to run: sum the identity d over the divisors below and invert; you recover Euler's totient, and summing it back returns n. The same back-substitution, nothing new (machine-checked, <code>--safe</code>):</li>
+<li>One instance to run: the identity function n ↦ n is the sum of Euler's totient over divisors (∑<sub>d ∣ n</sub> φ(d) = n), so inverting the identity by the rule above returns φ. The same back-substitution, nothing new (machine-checked, <code>--safe</code>):</li>
 </ul>
 $$
 \varphi(n) = \sum_{d \mid n} \mu(n/d)\, d \qquad \sum_{d \mid n} \varphi(d) = n
@@ -315,20 +315,32 @@ $$
 <ul>
 <li>Subsets of the 2<sup>n</sup>-point cube form a Boolean algebra whose atoms are the assignments — the same kind of object as §3's subset algebra, but with the atoms now the 2<sup>n</sup> assignments, not the k primes. Not "2<sup>n</sup>" and not §3's algebra itself: it is the powerset of the cube, with 2<sup>n</sup> atoms and 2<sup>2ⁿ</sup> elements.</li>
 <li>Satisfiability asks one bit of it: is S<sub>F</sub> nonempty? Since {0, 1}<sup>n</sup> is a finite list, decide it by evaluating F point by point until one returns 1 or the list ends. Deciding is a finite walk over the cube, each step an evaluation.</li>
-<li>A number-theoretic statement of the same shape fixes a test b : ℕ → {0, 1} you can evaluate at each input; every instance b(n) is decided by evaluation, exactly as each F(x) was, and only the quantifier over the infinite list is not settled by a finite walk. Riemann, Goldbach, and the twin primes each arithmetize to such a b.</li>
-<li>Goldbach and twins are built from one two-index quantity over the prime indicator a (a(k) = 1 iff k is prime). For even 2w and radius r, a(w − r)·a(w + r) = 1 exactly when w − r and w + r are both prime — a prime pair summing to 2w. Sum over r to count Goldbach's pairs for 2w; the same kernel read the other way counts twin primes:</li>
+<li>A number-theoretic statement of the same shape fixes a test b : ℕ → {0, 1} you can evaluate at each input; every instance b(n) is a decided bit, exactly as each F(x) was. What a finite walk cannot settle is the quantifier over the infinite list — and the shape of that quantifier is what differs between the conjectures.</li>
+<li>One kernel serves the prime pairs. Over the indicator a (a(k) = 1 iff k is prime), the product a(w − r)·a(w + r) = 1 exactly when w − r and w + r are both prime — a prime pair centred at w with gap 2r:</li>
 </ul>
 $$
-\mathcal{K}(w, r) = a(w - r)\, a(w + r) \qquad \sum_r \mathcal{K}(w, r) = \#\{\text{prime pairs summing to } 2w\}
+\mathcal{K}(w, r) = a(w - r)\, a(w + r)
 $$
 <ul>
-<li>Riemann is one computable inequality b(n) at each n ≥ 1 (Davis–Matiyasevich–Robinson), with the harmonic sum and δ finite computations; RH is "b(n) = 1 for all n":</li>
+<li>Goldbach reads it centre-fixed: for even 2w, sum over r to count the ways 2w splits into two primes. Goldbach is "that count is ≥ 1 for every w ≥ 2" — one even number with count 0 refutes it, a walk over the even numbers, each a decided bit (a Π₁ statement, "no 0 ever"):</li>
+</ul>
+$$
+\sum_r \mathcal{K}(w, r) = \#\{\, \text{prime pairs summing to } 2w \,\} \qquad \text{Goldbach} \iff \forall\, w \ge 2 : \ \sum_r \mathcal{K}(w, r) \ge 1
+$$
+<ul>
+<li>Twins reads it radius-fixed: set r = 1 and vary w, so 𝒦(w, 1) = a(w − 1)a(w + 1) marks the twin-prime centres. This is not "never 0" — 𝒦(w, 1) is 0 at almost every w even if it holds — but "1 without end": a 1 beyond every bound. That is one quantifier higher (a Π₂ statement, ∀N ∃w), an infinitude, not a counterexample-hunt:</li>
+</ul>
+$$
+\text{twin primes} \iff \forall\, N \ \exists\, w > N : \ \mathcal{K}(w, 1) = 1
+$$
+<ul>
+<li>Riemann reads as one computable inequality b(n) at each n ≥ 1 (Davis–Matiyasevich–Robinson). With δ(n) = ∏<sub>m &lt; n</sub> ∏<sub>j ≤ m</sub> η(j), where η(j) is the prime p when j = p<sup>k</sup> is a prime power and 1 otherwise — a specific computable bound — RH is "b(n) = 1 for all n", Π₁ like Goldbach:</li>
 </ul>
 $$
 \mathrm{RH} \iff \forall n \ge 1 : \ \Big(\textstyle\sum_{k \le \delta(n)} \tfrac{1}{k} - \tfrac{n^2}{2}\Big)^{2} < 36\,n^{3}
 $$
 <ul>
-<li>Each instance returns a definite bit you can watch: the Goldbach test at 4, 6, 8 and the Riemann test at 1, 2, 3 all evaluate to 1 (machine-checked, <code>refl</code>). The statement is "this test never returns 0"; one 0 anywhere settles it, and none appears at any depth reached. Open is only the walk over the whole list, never an instance.</li>
+<li>Every instance is a decided bit you can watch: the Goldbach counts at 4, 6, 8 and the Riemann test at 1, 2, 3 all come out positive (machine-checked, <code>refl</code>). One kernel, decided pointwise; what stays open is only the quantifier over the whole infinite list — for Goldbach and Riemann "no 0 ever" (Π₁), for twins "a 1 forever" (Π₂). The conjectures differ only in the shape of the section left open.</li>
 </ul>
 
 <h2><span class="n">7.</span> Independence is a property of the finite list of proofs; the diagonal that keeps it open is one construction no program escapes</h2>
@@ -339,7 +351,7 @@ $$
 T \vdash \varphi \iff \exists\ \text{a finite string checking as a proof of } \varphi \qquad \text{independent} \iff T \nvdash \varphi \ \text{ and }\ T \nvdash \neg\varphi
 $$
 <ul>
-<li>A proof is finite by definition — none waits offstage — so independence is a definite statement about a decidable, one-string-at-a-time relation, established where it holds by exhausting that relation (Gödel constructs a φ whose two lists are provably both empty).</li>
+<li>A proof is finite by definition — none waits offstage — so independence is a definite statement about a decidable, one-string-at-a-time relation, established where it holds by exhausting that relation (Gödel constructs a φ whose two lists are both empty when T is consistent — Rosser's variant for the ¬φ side).</li>
 <li>The obstruction that forces such gaps is one construction; build it. Suppose a single map e : A → (A → B) that produces every function A → B — for each h some a has e(a) = h. Given any g : B → B, set d(a) = g(e(a)(a)) — feed a its own row, bend by g. If a program h realized d then h = e(a₀) for some a₀, and at a₀:</li>
 </ul>
 $$
