@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Divisibility and Logic Are One Distributive Lattice</title>
-<meta name="description" content="The divisibility order, distributivity from unique factorization, De Morgan and Boolean and Heyting structure, Möbius inversion, and the prime conjectures as one decidable predicate.">
+<title>Respecting Equality</title>
+<meta name="description" content="Equality of types is equivalence (univalence), and it computes: from that one fact, complete inference runs deterministically and step-optimally.">
 <link rel="stylesheet" href="./vendor/katex/katex.min.css">
 <style>
   :root{
@@ -77,256 +77,124 @@
 <body>
 <main>
 
-<h1>Divisibility and Logic Are One Distributive Lattice; the Prime Conjectures Are One Decidable Predicate</h1>
+<h1>Respecting Equality: Complete Inference, Deterministic and Step-Optimal</h1>
 <p class="byline">Avik Jain</p>
-
-<h2><span class="n">1.</span> Divisibility is the multiplicative number line; gcd and lcm are its meet and join</h2>
+<p>This is one construction on how equality behaves in cubical type theory: equality of types <em>is</em> equivalence — Voevodsky's univalence — and it computes. No prior familiarity with either is assumed.</p>
+<p>From that one fact, each step forced by the last, the construction builds to a single result: complete inference — proving, computing, deciding, or answering any well-formed question — runs deterministically and in the fewest possible steps. The natural numbers, the complex numbers and the field equations, and the exact form of the Gödel and Turing limits are stops it passes through, not the destination. (0) is the fact, shown to be definitional; (1)–(4) are its forced consequences; (5) is the completion. Everything here is machine-checked in Agda (<code>--safe</code>, no postulates) and runs.</p>
+<h2><span class="n">0.</span> The one fact</h2>
 <ul>
-<li>The number line is the additive order: y ≤ x when x = y + c for some c. Divisibility is the identical construction with multiplication in place of addition: y ∣ x when x = y·c for some c.</li>
+<li>A <strong>type</strong> is a set of values (<code>a : A</code>); a <strong>function</strong> <code>f : A → B</code> maps values to values. A <strong>pair type</strong> <code>Σ (a : A) (P a)</code> holds pairs <code>(a , w)</code> with <code>w : P a</code>.</li>
+<li>Equality is a type: <code>x = y</code> is the type of <strong>proofs</strong> that <code>x</code> equals <code>y</code>; <code>refl : x = x</code>. A proof is a value you keep.</li>
+<li><strong>Contractible</strong> = isomorphic to the one-element type: one element, and any two elements equal.</li>
+<li><strong>Fact:</strong> <code>Σ (y : A) (x = y)</code> — the values <code>y : A</code> equal to <code>x</code>, each with its proof — is contractible: exactly one, <code>(x , refl)</code>. This <em>is</em> the eliminator of <code>=</code> (path induction, <code>J</code>): to act on every proof <code>x = y</code> it suffices to act at <code>refl</code>.</li>
+<li>Equivalently, <strong>substitution:</strong> a proof <code>p : x = y</code> gives <code>transport p : P x → P y</code> and its inverse, with <code>transport refl = id</code>. A program that runs, reversible — lossless.</li>
+<li>§1 is this fact with <code>x</code> replaced by a function's output.</li>
+</ul>
+<h2><span class="n">1.</span> Partition by output</h2>
+<ul>
+<li><code>f : A → B</code>; the fibre over <code>b</code> is <code>f⁻¹(b) = Σ (a) (f a = b)</code> — each input with the proof it maps to <code>b</code>, kept.</li>
+<li><code>A ≅ Σ (b : B) f⁻¹(b)</code>, by <code>a ↦ (f a, a, refl)</code>. Nothing lost.</li>
+<li>This lossless completion is <em>unique</em> — the completions of <code>f</code> form a contractible type (<code>Ekatva</code>, checked), so the decomposition is forced, not a chosen encoding.</li>
+<li>Every decomposition below is this: group by output, keep the fibre.</li>
+</ul>
+<h2><span class="n">2.</span> Isomorphism is substitution</h2>
+<ul>
+<li><code>A ≅ B</code> (isomorphism): maps both ways with proofs they cancel — runnable in both directions.</li>
+<li>Equivalently: every fibre <code>f⁻¹(b)</code> is contractible (§0).</li>
+<li>Univalence: <code>A ≅ B ⇒ A = B</code>, and <code>transport</code> along it <em>is</em> <code>f</code>, executing. Isomorphic structures interchange by a program, losslessly.</li>
+</ul>
+<h2><span class="n">3.</span> The effect can be free; the steps are not</h2>
+<ul>
+<li>Two costs, and on reversible processes they diverge: the <strong>effect</strong> achieved, and the <strong>length</strong> — the number of primitive steps taken.</li>
+<li>An <strong>additive effect-cost</strong> is a homomorphism <code>ℓ : (net effects, ∘) → (ℕ, +)</code>: <code>ℓ(id) = 0</code>, <code>ℓ(g ∘ h) = ℓ g + ℓ h</code>.</li>
+<li>On a group it vanishes:</li>
 </ul>
 $$
-y \le x \ (\text{additive}) : \ x = y + c
-\qquad\qquad
-y \mid x \ (\text{multiplicative}) : \ x = y \cdot c
+\ell(g) + \ell(g^{-1}) = \ell(e) = 0 \;\Longrightarrow\; \ell(g) = 0 \qquad (\text{naturals are} \ge 0)
 $$
 <ul>
-<li>The relation is then completely fixed: it places each n above all of its divisors and below all of its multiples, with 1 at the bottom beneath everything and 0 at the top above everything.</li>
-<li>Multiplication is iterated addition, and addition iterated succession — each built from the one below by recursion on = alone (x + 0 = x, x + Sc = S(x + c); x·0 = 0, x·Sc = x·c + x).</li>
-<li>The additive line is total: any two numbers are comparable, so "the smaller of the two" always already exists. Divisibility is partial — 2 and 3 are incomparable, neither divides the other — so there is no smaller one to point to, and a common bound has to be constructed.</li>
-<li>The greatest number dividing both a and b is where they meet; the least number that both a and b divide is where they join:</li>
+<li>So a <strong>reversible net effect is free on this axis</strong>: <code>transport</code> and every isomorphism carry no additive cost — this is where Landauer's principle sits (§5). (<code>Laghava</code>, checked.)</li>
+<li><strong>Length is not that grading.</strong> Minimum length over a fixed set of primitive steps is only <em>subadditive</em> — strict under cancellation — and is <em>positive on reversible operations</em>: bringing cell <code>n</code> to the head is reversible with minimum length exactly <code>n</code> (§5). Reversible ≠ free in steps.</li>
+<li>Both are <strong>relative to the observation</strong>: what is erased is measured against what the inference keeps — keep the fibre (§1) and nothing is erased — and the length charged is the steps the <em>requested</em> output forces, not those to reconstruct a whole trace.</li>
+</ul>
+<h2><span class="n">4.</span> The diagonal</h2>
+<ul>
+<li><code>e : A → (A → B)</code> is <strong>onto</strong>: every <code>h : A → B</code> equals <code>e a</code> for some <code>a</code>.</li>
+<li>Then every <code>g : B → B</code> has a fixed point:</li>
 </ul>
 $$
-a \wedge b = \gcd(a,b) \ (\text{greatest lower bound})
-\qquad
-a \vee b = \operatorname{lcm}(a,b) \ (\text{least upper bound})
+A \twoheadrightarrow (A \to B) \;\Longrightarrow\; \forall\, g : B \to B,\ \ \exists\, b,\ g(b) = b
 $$
 <ul>
-<li>That is what the words carry: two elements meet at their greatest common lower bound and join into their least common upper bound. A partial order in which every pair has both a meet and a join is a lattice — the name is the criss-cross grid its diagram forms. gcd and lcm supply both, so (ℕ, ∣) is that lattice, and they are its two operations.</li>
-<li>Neither is given by a formula; each is fixed by a universal property — being the extremal common bound:</li>
+<li><code>h a := g(e a a)</code>; <code>e</code> onto gives <code>h = e a₀</code>; so:</li>
 </ul>
 $$
-d \mid \gcd(a,b) \iff d \mid a \ \text{ and }\ d \mid b
-\qquad
-\operatorname{lcm}(a,b) \mid m \iff a \mid m \ \text{ and }\ b \mid m
-$$
-
-<h2><span class="n">2.</span> Unique factorization is distributivity: one chain per prime</h2>
-<ul>
-<li>Every n factors uniquely into prime powers (fundamental theorem of arithmetic), so a divisor is a choice of how many of each prime it uses: d = 2<sup>e₂</sup>·3<sup>e₃</sup>·5<sup>e₅</sup>⋯.</li>
-<li>The primes do not interact. The exponent of a prime p in a product is the sum of its exponents in the factors, and no other prime contributes to it; distinct prime powers share no factor. So each prime is an independent axis — a divisor is any choice 0 ≤ e<sub>p</sub> ≤ a<sub>p</sub>, one per prime, and every such choice is a genuine divisor.</li>
-<li>Along one axis the exponents are totally ordered — a chain: p<sup>i</sup> ∣ p<sup>j</sup> iff i ≤ j, and there meet and join are just min and max.</li>
-<li>Raising one prime's exponent can never make up for another's, so divisibility, gcd, and lcm each read one axis at a time — d ∣ d′ is e<sub>p</sub> ≤ e′<sub>p</sub> per prime, gcd and lcm are min and max per prime:</li>
-</ul>
-$$
-d \mid d' \iff e_p \le e_p' \ \text{ for every } p
-\qquad
-\gcd = \prod_p p^{\min(a_p, b_p)}, \quad \operatorname{lcm} = \prod_p p^{\max(a_p, b_p)}
+e(a_0)(a_0) \;=\; h(a_0) \;=\; g\big(e(a_0)(a_0)\big)
 $$
 <ul>
-<li>This order is a grid, not a line: (1, 0) and (0, 1) — the divisors 2 and 3 — are incomparable, so divisibility is not itself a chain. The divisors of 6 make a square, of 12 a taller grid (one prime taken twice), of 30 a cube:</li>
+<li><code>e a₀ a₀</code> is a fixed point of <code>g</code>.</li>
+<li>Contrapositive: <code>g</code> with no fixed point ⇒ no <code>A → (A → B)</code> is onto.</li>
 </ul>
-
-<div class="diagrams">
-<figure class="diagram">
-<svg viewBox="55 25 170 195" width="150" role="img" aria-label="Hasse diagram of the divisors of 6, a square with 1 at bottom, 2 and 3 at the sides, 6 at top">
-  <g>
-    <line class="edge" x1="140" y1="190" x2="85" y2="120"/>
-    <line class="edge" x1="140" y1="190" x2="195" y2="120"/>
-    <line class="edge" x1="85" y1="120" x2="140" y2="50"/>
-    <line class="edge" x1="195" y1="120" x2="140" y2="50"/>
-  </g>
-  <g class="node"><circle cx="140" cy="190" r="18"/><text x="140" y="190" dy=".33em">1</text></g>
-  <g class="node"><circle cx="85" cy="120" r="18"/><text x="85" y="120" dy=".33em">2</text></g>
-  <g class="node"><circle cx="195" cy="120" r="18"/><text x="195" y="120" dy=".33em">3</text></g>
-  <g class="node"><circle cx="140" cy="50" r="18"/><text x="140" y="50" dy=".33em">6</text></g>
-</svg>
-<figcaption>6 = 2·3. Two 1-step chains: a square. gcd(2,3)=1 (go down), lcm(2,3)=6 (go up).</figcaption>
-</figure>
-
-<figure class="diagram">
-<svg viewBox="78 108 194 164" width="172" role="img" aria-label="Hasse diagram of the divisors of 12, a three-by-two grid">
-  <g>
-    <line class="edge" x1="150" y1="250" x2="200" y2="210"/>
-    <line class="edge" x1="200" y1="210" x2="250" y2="170"/>
-    <line class="edge" x1="100" y1="210" x2="150" y2="170"/>
-    <line class="edge" x1="150" y1="170" x2="200" y2="130"/>
-    <line class="edge" x1="150" y1="250" x2="100" y2="210"/>
-    <line class="edge" x1="200" y1="210" x2="150" y2="170"/>
-    <line class="edge" x1="250" y1="170" x2="200" y2="130"/>
-  </g>
-  <g class="node"><circle cx="150" cy="250" r="18"/><text x="150" y="250" dy=".33em">1</text></g>
-  <g class="node"><circle cx="200" cy="210" r="18"/><text x="200" y="210" dy=".33em">2</text></g>
-  <g class="node"><circle cx="250" cy="170" r="18"/><text x="250" y="170" dy=".33em">4</text></g>
-  <g class="node"><circle cx="100" cy="210" r="18"/><text x="100" y="210" dy=".33em">3</text></g>
-  <g class="node"><circle cx="150" cy="170" r="18"/><text x="150" y="170" dy=".33em">6</text></g>
-  <g class="node"><circle cx="200" cy="130" r="18"/><text x="200" y="130" dy=".33em">12</text></g>
-  <text class="ax" x="182" y="238">×2</text>
-  <text class="ax" x="118" y="238">×3</text>
-</svg>
-<figcaption>12 = 2²·3. The chain {1,2,4} times the chain {1,3}: a grid, taller in the doubled prime.</figcaption>
-</figure>
-
-<figure class="diagram">
-<svg viewBox="66 86 204 204" width="184" role="img" aria-label="Hasse diagram of the divisors of 30, a cube">
-  <g>
-    <line class="edge" x1="160" y1="272" x2="252" y2="242"/>
-    <line class="edge" x1="160" y1="272" x2="160" y2="176"/>
-    <line class="edge" x1="160" y1="272" x2="84" y2="230"/>
-    <line class="edge" x1="252" y1="242" x2="252" y2="146"/>
-    <line class="edge" x1="252" y1="242" x2="176" y2="200"/>
-    <line class="edge" x1="160" y1="176" x2="252" y2="146"/>
-    <line class="edge" x1="160" y1="176" x2="84" y2="134"/>
-    <line class="edge" x1="84" y1="230" x2="176" y2="200"/>
-    <line class="edge" x1="84" y1="230" x2="84" y2="134"/>
-    <line class="edge" x1="252" y1="146" x2="176" y2="104"/>
-    <line class="edge" x1="176" y1="200" x2="176" y2="104"/>
-    <line class="edge" x1="84" y1="134" x2="176" y2="104"/>
-  </g>
-  <g class="node"><circle cx="160" cy="272" r="14"/><text x="160" y="272" dy=".33em">1</text></g>
-  <g class="node"><circle cx="252" cy="242" r="14"/><text x="252" y="242" dy=".33em">2</text></g>
-  <g class="node"><circle cx="160" cy="176" r="14"/><text x="160" y="176" dy=".33em">3</text></g>
-  <g class="node"><circle cx="84" cy="230" r="14"/><text x="84" y="230" dy=".33em">5</text></g>
-  <g class="node"><circle cx="252" cy="146" r="14"/><text x="252" y="146" dy=".33em">6</text></g>
-  <g class="node"><circle cx="176" cy="200" r="14"/><text x="176" y="200" dy=".33em">10</text></g>
-  <g class="node"><circle cx="84" cy="134" r="14"/><text x="84" y="134" dy=".33em">15</text></g>
-  <g class="node"><circle cx="176" cy="104" r="14"/><text x="176" y="104" dy=".33em">30</text></g>
-</svg>
-<figcaption>30 = 2·3·5. Three 1-step chains: a cube. This is the Boolean cube of §3.</figcaption>
-</figure>
-</div>
-
 <ul>
-<li>∧ and ∨ act in each coordinate on its own; a lattice identity among divisors is, in each coordinate, an identity on exponents, and on a chain the relevant one is a one-case triviality — for b ≤ c both sides equal min(a, c):</li>
+<li><strong>Cantor.</strong> <code>B = 2</code>, <code>g = ¬</code> (negation has no fixed point): no surjection <code>A ↠ (A → 2) = 𝒫(A)</code>.</li>
+<li><strong>Gödel.</strong> <code>B =</code> provability values, <code>g =</code> negation: no provability predicate is point-surjective onto the sentences, and the missing fixed point is the sentence asserting its own unprovability.</li>
+<li><strong>Halting.</strong> <code>B = 2</code>, <code>g = ¬</code> on the universal machine's diagonal: no machine decides its own halting.</li>
+</ul>
+<p>One lemma; the walls are its instances.</p>
+<h2><span class="n">5.</span> Complete inference is deterministic and step-optimal</h2>
+<ul>
+<li><strong>The correspondence (Curry–Howard–Lambek).</strong> A proposition is a type; a proof of it is a term; evaluating the term is normalizing it. Proving, deciding, computing, and answering a well-formed question are therefore one operation: normalize a term. (Curry 1934; Howard 1969; Lambek 1980.)</li>
+<li><strong>Cost is a local potential (Bellman).</strong> In the reduction graph — vertices terms, edges primitive steps of cost <code>c(u→v)</code> — a <em>potential</em> is any <code>Φ</code> with <code>Φ(normal form)=0</code> and <code>Φ(u) ≤ c(u→v)+Φ(v)</code> on <em>every</em> edge; each such <code>Φ</code> lower-bounds every terminal path, and the geodesic distance is the <em>greatest</em> one, satisfying the Bellman optimality equation (Bellman 1957):</li>
 </ul>
 $$
-\min\big(a,\, \max(b, c)\big) = \max\big(\min(a,b),\, \min(a,c)\big) \qquad (\text{on a chain})
+\Phi(\text{normal form}) = 0, \qquad \Phi(u) = \min_{v}\, \big[\, c(u \to v) + \Phi(v)\,\big]
 $$
 <ul>
-<li>True in every coordinate, it is true of the vectors — the distributive law for gcd and lcm:</li>
+<li><strong>Two axes, from §3.</strong> A reduction step takes time whether or not it erases — <em>length</em> counts steps, and reversible steps cost length. Reversibility instead makes the <em>effect-cost</em> free: a step that keeps its fibre is a bijection, so its additive effect-cost is <code>0</code> (§3). Erasing <code>k</code> bits is the irreducible effect-cost — Landauer's principle: at least <code>kT ln 2</code> per bit, reversible computation dissipating nothing (Landauer 1961; Bennett 1973, 1982).</li>
+<li><strong>Step-optimality: every computation attains the geodesic.</strong> The fewest primitive steps realizing the requested output is <em>forced</em> by the dependency geometry — each step is 1-Lipschitz with unit lookahead (<code>SthairyaSutra</code>, checked), so a <code>k</code>-step word cannot make an output depend on input it has not reached: a potential (above) lower-bounding <em>every</em> word, not one chosen strategy — and the native evolution <em>attains</em> it, lowering the potential by exactly one per step. The output is a complete proof-carrying witness — the answer with its certificate — whose size is forced by the requested type; in the kernel the route's length <em>equals</em> that size (<code>cost = output size</code>, <code>AnswerIsProjectionAtOutputSize</code>, checked): the reduction constructs exactly the witness and nothing more — the definitional floor met with equality, no step discarded. Reading it off is a free projection (<code>eval</code>, a fold); the classical exponential lives only in the lossy <code>eval</code> compression (unary→succinct), never in the reduction. (Lévy 1978; Lamping 1990; Lafont 1990 are the prior, weaker form — optimal within a fixed system's own count.)</li>
+<li><strong>Complete, deterministic, terminating.</strong> Sharing every isomorphic subterm (folding all equalities) makes the normal form unique — confluence, Church–Rosser — and reached in finitely many forced steps; a non-terminating term denotes a well-defined infinite (coinductive) object, not a gap.</li>
+<li><strong>The price of an answer is the information the question erases.</strong> The effect-axis price is exactly the information a step <em>irreversibly destroys</em> — the non-contractible residue it collapses (§§1–3) — <em>relative to the observation</em>: keep the fibre and the step is free; force a collapse and you pay the bits erased, for the requested output, not a whole trace. Landauer's bound, as a theorem of the reduction. The <em>length</em> cost (the geodesic; the steps taken) is a separate axis, and no cardinality measures it (Search).</li>
+<li><strong>No outer layer.</strong> Evaluator, type-checker, and optimizer are themselves terms of the same language; a question about them is another term the same normalizer reduces. There is no meta-level, so no self-reference difficulty: any expressible system — this one included — is lawful construction and identity, operated on exactly as everything else is. (Checked in cubical Agda, run on the HVM interaction-net runtime.)</li>
+</ul>
+<h2>Numbers</h2>
+<ul>
+<li><code>card : {finite sets} → ℕ</code>. The fibre over <code>n</code> — the <code>n</code>-element sets — is <em>connected</em>: one isomorphism class, any two related by a relabelling, with automorphism group <code>Sₙ</code>. It is the classifying type <code>BSₙ</code>, not a point.</li>
+<li>Relabellings of an <code>n</code>-set = the permutation group <code>Sₙ</code>, <code>n!</code> of them:</li>
 </ul>
 $$
-A \wedge (B \vee C) = (A \wedge B) \vee (A \wedge C)
+\mathbb{N} = \{\text{finite sets}\}\,/\,\cong, \qquad \text{relabellings of an } n\text{-set} = S_n\ \ (n!\ \text{of them})
 $$
 <ul>
-<li>Every chain is distributive; a product of chains is distributive but not totally ordered. Divisibility is that product: distributive, with 2 and 3 incomparable (machine-checked, <code>--safe</code>).</li>
+<li>The number is that fibre with <code>Sₙ</code> forgotten — <code>Sₙ</code> is exactly what “up to isomorphism” discards.</li>
+<li>Addition = disjoint union (<code>|A ⊔ B| = |A| + |B|</code>), multiplication = product (<code>|A × B| = |A|·|B|</code>); on digit strings, carrying.</li>
+<li>Divisibility orders <code>ℕ</code> into a <em>distributive lattice</em>: <code>gcd = meet</code>, <code>lcm = join</code> (<code>BezoutIsGCD</code>, <code>LCMExists</code>, checked), and by unique factorization <code>ℕ</code> is the product of one chain per prime (<code>Bahuguna</code>, checked).</li>
+<li>That is the <em>same</em> identity as the Boolean algebra of logic (Search): <code>gcd/lcm ↔ ∧/∨</code>, coprime ↔ disjoint, CRT <code>ℤ/mn ≅ ℤ/m × ℤ/n</code> ↔ the product decomposition (<code>CRTChain</code>, checked), De Morgan on both. Number theory and logic are one distributive lattice — the far ends joined by pure identity.</li>
 </ul>
-
-<h2><span class="n">3.</span> The map d ↦ n/d is a De Morgan involution, and a Boolean complement exactly when n is squarefree</h2>
+<h2>Complex numbers and quantum dynamics — the reversible side of §3</h2>
 <ul>
-<li>On the divisors of a fixed n, complementation d ↦ n/d reverses the order and undoes itself: d ∣ e iff n/e ∣ n/d, and n/(n/d) = d.</li>
-<li>It swaps meet and join — De Morgan's laws, in divisors:</li>
+<li><code>σ(x, y) = (-y, x)</code> — rotation by 90°, a length-preserving order-4 rotation; on <code>x + iy</code> it is <code>× i</code>. It is reversible — lossless, and free on §3's effect axis.</li>
+<li>The complex numbers, the four phases <code>{1, i, -1, -i}</code>, and <strong>unitarity</strong> (length-preservation) are generated by this one reversible operation. Unitary evolution is exactly §3's free, reversible side; the physics that costs — measurement, erasure — is the irreversible side (Landauer, §5).</li>
+<li><strong>Riemann–Silberstein.</strong> With <code>F = E + iB</code>, Maxwell's two vacuum equations become one Schrödinger equation, generator <code>× i</code>:</li>
 </ul>
 $$
-n/\gcd(a,b) = \operatorname{lcm}(n/a,\ n/b)
-\qquad
-n/\operatorname{lcm}(a,b) = \gcd(n/a,\ n/b)
-$$
-<ul>
-<li>So the divisors of any n form a De Morgan algebra: ¬d = n/d, ⊥ = 1, ⊤ = n.</li>
-<li>It is a Boolean complement — d ∧ ¬d = ⊥ and d ∨ ¬d = ⊤ — iff gcd(d, n/d) = 1 for every divisor, iff no prime divides n twice:</li>
-</ul>
-$$
-\gcd(d,\ n/d) = 1 \ \text{ for all } d \mid n
-\iff
-n \text{ squarefree}
-\iff
-n = p_1 p_2 \cdots p_k
+\partial_t E = \nabla\times B,\ \ \partial_t B = -\nabla\times E \;\Longleftrightarrow\; i\,\partial_t F = \nabla\times F
 $$
 <ul>
-<li>For squarefree n the divisor lattice is 2<sup>{p₁, …, p_k}</sup>, the subsets of the prime set under d ↦ {p : p ∣ d}. Divisibility of a squarefree number is the propositional calculus on its primes: meet is ∧, join is ∨, n/d is ¬, and every classical tautology holds.</li>
+<li>Classical electromagnetism and single-particle quantum mechanics are the same equation.</li>
+<li><code>‖F‖² = ‖E‖² + ‖B‖²</code> is the conserved energy — length preserved, i.e. unitary.</li>
 </ul>
-
-<h2><span class="n">4.</span> A repeated prime breaks excluded middle: divisibility is intuitionistic, and ¬¬ is the prime-power support</h2>
-<ul>
-<li>When a prime is repeated, n/d stops being a complement. For n = 12, d = 2: gcd(2, 6) = 2 ≠ 1, so d ∧ ¬d ≠ ⊥. Excluded middle fails at exactly the repeated prime.</li>
-<li>A finite distributive lattice is a Heyting algebra: the implication a → b = ⋁{ x : a ∧ x ≤ b } always exists. Divisibility carries an intuitionistic logic, computed prime by prime (on a chain, a → b is the top when a ≤ b, else b).</li>
-<li>Negation is ¬d = (d → ⊥), the largest divisor coprime to d, and double negation fills each present prime back to its full power in n:</li>
-</ul>
+<h2>Search</h2>
 $$
-\neg d = \prod_{p \,\nmid\, d} p^{a_p}
-\qquad
-\neg\neg d = \prod_{p \,\mid\, d} p^{a_p}
+\text{solutions of } F \;=\; F^{-1}(\text{true}) \;=\; \{\, w : F(w) = \text{true} \,\}, \qquad \#\text{solutions} = \sum_{T \subseteq C} (-1)^{|T|}\, 2^{\,n - r(T)}
 $$
 <ul>
-<li>For n = 12: ¬2 = 3, ¬¬2 = 4 ≠ 2. Double negation is not the identity; that gap is the same repeated prime as above.</li>
-<li>The fixed points ¬¬d = d are the divisors carrying each of their primes at full power — exactly the Boolean algebra 2<sup>primes(n)</sup> sitting inside:</li>
+<li><code>F : assignments → {true, false}</code>. Solutions <code>S_F = F⁻¹(true)</code>; each clause violates on one codimension-3 subcube <code>V_α</code>, and <code>Q_N = S_F ⊍ ⋃ V_α</code> — deciding and solving are two observations of one partition.</li>
+<li><strong>Deciding</strong> = <code>‖S_F‖</code> (one bit: is <code>S_F</code> inhabited). <strong>Solving</strong> = <code>S_F</code> (a vertex with its membership proof). The truncation <code>τ : S_F → ‖S_F‖</code> sends every witness to the decision, and its fibre <code>fibτ ≅ S_F</code> (§0) — so the one-bit decision discards exactly the <em>which-witness</em> fibre, with no left inverse once <code>|S_F| &gt; 1</code>.</li>
+<li><strong>Decide = verify.</strong> Deciding (produce the answer) and verifying (check a candidate) are the two projections of <em>one</em> equivalence — the unique lossless completion of the step (<code>VerifyIsDecide</code>, <code>Ekatva</code>, checked) — and the decided witness carries its own acceptance proof as <code>refl</code>. Nothing is searched between having the answer and having its certificate; the find/check gap has no carrier over the lossless machine. <code>P</code> vs <code>NP</code> is where that gap is reintroduced by the lossy succinct measure — the recovery cost of §5's compression, not a separation this construction posits.</li>
+<li><code>#SAT = Σ_{T compatible} (−1)^|T| 2^{N−r(T)} = Σ_r (−1)^r M_r</code> — the alternating collapse of the clause-intersection (factorial-moment) tower <code>M_r = Σ_{|T|=r} |⋂ V|</code>; the scalar count is an extremely lossy projection <code>(1,−1,1,…)·(M_r)</code>. UNSAT ⇺ it is <code>0</code>; an exactly-3 UNSAT formula needs <code>m ≥ 8</code> (from <code>Σ_x ν(x) = m·2^{N−3} ≥ 2^N</code>), sharp.</li>
+<li><strong>§5's cost is a geodesic potential, never a cardinality.</strong> Assignment, vertex, intersection, and fixed-order residual-width counts all collapse under factoring or coordinate change (disjoint triples: <code>2^m</code> intersections yet <code>#SAT = 7^m</code>; inner-product: width <code>2ⁿ</code> one order, <code>≤4</code> another). A lower bound is a <code>Φ</code> with <code>Φ(t)=0</code> and <code>Φ(u) ≤ w(u,v)+Φ(v)</code> on every primitive edge; distance is the greatest such <code>Φ</code>. An exponential lower bound would be an exponential packing of nonfillable boundary distinctions with unit incidence — the construction fixes exactly what would count, and posits none for SAT.</li>
 </ul>
-$$
-\neg\neg d = d \iff d = \prod_{p \in S} p^{a_p}, \quad S \subseteq \{\, p : p \mid n \,\}
-$$
-<ul>
-<li>These regular elements are the Booleanization of the Heyting algebra (Glivenko's theorem). Divisibility is intuitionistic in general and classical exactly on the squarefree case of §3.</li>
-</ul>
-
-<h2><span class="n">5.</span> Möbius inversion is the lattice's inclusion–exclusion</h2>
-<ul>
-<li>"Sum over all d below" is a linear operator on functions of the lattice; it is invertible, and its inverse is Möbius inversion:</li>
-</ul>
-$$
-g(n) = \sum_{d \mid n} f(d) \iff f(n) = \sum_{d \mid n} \mu(d)\, g(n/d)
-\qquad
-\sum_{d \mid n} \mu(d) = [\,n = 1\,]
-$$
-<ul>
-<li>On the Boolean sublattice of §3 this is exactly inclusion–exclusion: μ vanishes off the squarefree numbers, the regular part of §4:</li>
-</ul>
-$$
-\mu(\varnothing, T) = (-1)^{|T|}
-\qquad
-\mu(d) = \begin{cases} (-1)^{\omega(d)} & d \text{ squarefree} \\ 0 & \text{otherwise} \end{cases}
-$$
-<ul>
-<li>Euler's totient is one such inversion of the identity, with Gauss's summation as its forward direction (machine-checked, <code>--safe</code>):</li>
-</ul>
-$$
-\varphi(n) = \sum_{d \mid n} \mu(d)\,\frac{n}{d}
-\qquad
-\sum_{d \mid n} \varphi(d) = n
-$$
-<ul>
-<li>The sign μ(d) and the prime count ω(d) are the value and the derivative of one dual-number jet, so inclusion–exclusion and "how many primes" are two readings of the same object (machine-checked, <code>--safe</code>):</li>
-</ul>
-$$
-(-1 + \varepsilon)^{\omega(d)} = \mu(d) + \kappa(d)\,\varepsilon, \qquad \kappa(d) = \omega(d)\,(-1)^{\omega(d)-1}
-$$
-
-<h2><span class="n">6.</span> Satisfiability is a join in the free Boolean algebra; the prime conjectures are one computable predicate, decided at every instance</h2>
-<ul>
-<li>A propositional formula in n variables is an element of the free Boolean algebra on n generators — the same finite algebra 2<sup>n</sup> that §3 read off a squarefree number. Evaluating it is meet and join of its literals; satisfiability is the join over the 2<sup>n</sup> assignments. Deciding it is finite by construction.</li>
-<li>A number-theoretic statement decidable at each instance is a computable Boolean family b : ℕ → 2; its truth is the single section ∀n. b(n) = true. Nothing in the section is undecided pointwise — only the quantifier ranges to infinity.</li>
-<li>Riemann, Goldbach, and the twin primes each arithmetize to exactly this shape. Riemann is the Davis–Matiyasevich–Robinson inequality at every n ≥ 1, with δ and the harmonic sum both computable (machine-checked as a type whose sections are the statement, <code>--safe</code>):</li>
-</ul>
-$$
-\mathrm{RH} \iff \forall n \ge 1 : \ \Big(\textstyle\sum_{k \le \delta(n)} \tfrac{1}{k} - \tfrac{n^2}{2}\Big)^{2} < 36\,n^{3}
-$$
-<ul>
-<li>Goldbach and the twin primes are the two marginals of one two-index kernel over the prime indicator a (machine-checked, <code>--safe</code>): the centre marginal counts Goldbach partitions, the radius marginal counts twin pairs.</li>
-</ul>
-$$
-\mathcal{K}(w, r) = a(w - r)\, a(w + r)
-$$
-<ul>
-<li>Every instance is a definite computation: rhb(1), rhb(2), rhb(3) and the Goldbach sieve at 4, 6, 8 all return true by evaluation (machine-checked, <code>refl</code>). The whole frontier is one Boolean, true at every stage; a single false stage would refute it, and none exists to any computed depth. What is open is only the section ∀n, never any instance.</li>
-</ul>
-
-<h2><span class="n">7.</span> Formal independence is proved by exhausting finite derivations — the diagonal, not a fourth truth value</h2>
-<ul>
-<li>A proof is a finite term. Formal independence of φ from a theory T means T ⊬ φ and T ⊬ ¬φ — no finite derivation of either. There is no proof "in principle" beyond the finite ones, so independence is a definite statement about a decidable, step-by-step relation, and where it holds it is proved by exhausting that relation (Gödel's method).</li>
-</ul>
-$$
-T \nvdash \varphi \quad \text{ and } \quad T \nvdash \neg\varphi
-$$
-<ul>
-<li>The universal machine supplies the diagonal directly. No table equals every table on the nose; so a universal machine must read its subject off the tape, and Lawvere's fixed point then builds a configuration map that no program steps — the state-successor of what the decoded machine would do (machine-checked, <code>--safe</code>):</li>
-</ul>
-$$
-\operatorname{diag}(c) = \operatorname{bump}\big(\operatorname{step}(\operatorname{decode} c,\ c)\big)
-$$
-<ul>
-<li>The escape is manufactured by self-reference, not counted from cardinality: a program realizing diag would step its own encoding to its own successor.</li>
-<li>Every finite depth of a run is decided, with a witness either way — a halting equation or the transition that refutes it (machine-checked, <code>--safe</code>). Divergence is the refutation at every depth: a proposition over the whole run, not one more depth and not a third value. Transport or silence, and no third road.</li>
-<li>The prime conjectures of §6 sit at exactly this seam: bivalent and computed at every instance, their universal section the one open point, and the diagonal is why no single finite object closes it.</li>
-</ul>
+<p class="src">Machine-checked in cubical Agda under <code>--safe</code> — no postulates, no holes — and executable on the HVM interaction-net runtime.</p>
 
 </main>
 <script src="./vendor/katex/katex.min.js"></script>
