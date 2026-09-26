@@ -11,8 +11,11 @@ files are `.hyper`; the binary is `hyper`; this directory is `hyper/`.
 ## What this directory is, against everything else in the repository
 
 - `formal/`, `fibre/`, `punaragamana/`: the mathematics, checked in Cubical
-  Agda. The construction this directory implements. Nothing here is proved;
-  every rule below names the checked term it applies.
+  Agda. The construction this directory implements. Nothing here is proved.
+  §10.8 lists, per rule, the checked lemma that is its square or its cost
+  statement: two of the twenty-one rules have one (install, and one case of
+  transport); the theorem headers below name the module a statement comes
+  from, and where the corpus has no such lemma §10.8 says so.
 - `collab/bend2-interactive-cubical/`: the previous chart. A patch on
   DKormann/Bend2 (a Haskell checker with a CCHM layer) emitting to HVM4 (a C
   interaction-calculus runtime) with the cubical reduction transcribed as a
@@ -588,7 +591,7 @@ HCM (the frame records it; the scrutinee and motive carry it).
 
 ## 5. The host: the typed point, and the machine that asks
 
-**Theorem (`Visvarupa`, HoTT 4.8.3).** $\big(\sum_{E}\, E\to A\big)\simeq(A\to\mathsf{Set}_\ell)$,
+**Theorem (`Universal_TheObjectClassifierIsTheFibreLawAndBothBindingsTotaliseToTheDomain` · `the-object-classifier`, HoTT 4.8.3).** $\big(\sum_{E}\, E\to A\big)\simeq(A\to\mathsf{Set}_\ell)$,
 the `rightInv` being `ua`; the comparison map is the canonical one by
 `refl`; a family is invisible over its base iff every fibre is contractible
 (and the statement is about the projection, since a total space can be
@@ -615,7 +618,7 @@ parameters stay, enum symbols stay as `#s_name`, numeric kinds, equality
 endpoints, both ua coherences stay. Unsupported operations are refused
 (`refuse, never miscompile`).
 
-**Theorem (the coalgebra, `Fibre.Samvada`).**
+**Theorem (the coalgebra, `Fibre.Interaction_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers` · `ISC`, `det-observe`, `det-strategy-independent`).**
 
 $$
 \mathrm{ISC}\,w\ \simeq\ \prod_{q : Q\,w}\ \sum_{w' : W}\ \sum_{o : O\,w\,q\,w'}\ \big(E\,w\,q\,w'\,o\times\mathrm{ISC}\,w'\big)
@@ -899,7 +902,7 @@ so there is one table, the book, and one way into it.
 
 ## 9. Parallelism
 
-**Theorem (`Fibre.Krama`).** For steps $f,g$ with
+**Theorem (`Fibre.Order_CommutationIsTheProofThatTheOrderWasNeverThereAndItsFailureIsRetained` · `serialisation`).** For steps $f,g$ with
 $\mathrm{Commutes} := \prod_a f(g\,a)\equiv g(f\,a)$, every interleaving word $w$
 satisfies $\mathrm{apply}\,w\,a\equiv f^{\#_L w}(g^{\#_R w}(a))$: the order is
 not in the answer, only the counts are (the Mazurkiewicz quotient). Its
@@ -946,6 +949,56 @@ loop, not another kernel.
    lemma named at the rule (the runtime-correspondence method of
    DIRECTIONAL_SYNTHESIS); the machine's soundness under install is Alopa's
    form, a certificate carried as a field.
+
+### 10.8 The lemma at each rule
+
+The table has one row per receipt of `enum RuleId` (`cell.h`), under the name
+`print_census` prints. A lemma is listed only when its statement is the rule's
+commuting square or cost statement. When it covers only one case of the rule, the
+row says which case. "Checked" means a `--safe` module on the paths that
+`sh check --all` typechecks, or, for `research/sat_fibre/`, a module recorded
+with exit code 0 in `proof-verification.json`. Nothing was rerun for this table.
+Each line number is the line of the identifier's type signature. When a section's
+own theorem is not the rule's square, the last column names it and says so.
+
+Two statements cover every row, so they are given once here:
+
+- Cost. Every receipt is one row, and `ITRS = |TRACE|` (§6). No corpus lemma is
+  stated over `RuleId`. The nearest is `InteractionLedger.interactionTotal-is-length`
+  (`research/sat_fibre/InteractionLedger.agda:74`, `interactionTotal t ≡ n`).
+  It is stated over HVM4's event alphabet, and no check of it is recorded.
+- Schedule. `InteractionGeodesic.RandomDescent.same-normalization-length`
+  (`research/sat_fibre/InteractionGeodesic.agda:45`,
+  `Trace n s t → Trace m s t → Normal t → n ≡ m`) holds under the module's
+  `diamond` parameter, and that parameter is not discharged for this loop's
+  step relation. §9's `Fibre.Krama` names no module. The statement is `serialisation`
+  (`fibre/src/Fibre/Order_CommutationIsTheProofThatTheOrderWasNeverThereAndItsFailureIsRetained.agda:102`,
+  `Commutes → (w : List Side) (a : A) → apply w a ≡ normal (countL w) (countR w) a`),
+  in the module whose header reads "Krama".
+
+| # | Receipt · census | MAP § | Checked lemma (module · identifier) | File:line | Statement (quoted) | What of the rule it checks |
+|---|---|---|---|---|---|---|
+| 1 | `R_BETA` · `beta` | §3.2, §2 | none checked | — | would state: `APP (LAM code fr) x` reduces to `code` run in `fr ++ [x]` and agrees with application in the denotation; 1 row, plus 1 `erase` when the binder is unread | — |
+| 2 | `R_APP_SUP` · `app-sup` | §3.2 | none checked | — | would state: `APP SUP_i{f,g} x = SUP_i{APP f (δᵢ⁰ x), APP g (δᵢ¹ x)}` in the denotation (and `PAP` on a `SUP`); 1 row | — |
+| 3 | `R_APP_PLM` · `app-plm` | §3.2, §7 (`PAP`) | none checked | — | would state: `APP (<i> t) r = t[i := r]`, and `PAP` at a literal `I0`/`I1` is the endpoint the cell carries from the path's type; 1 row | — |
+| 4 | `R_FCE_ANNIHILATE` · `fce-annihilate` | §3.1 | none checked | — | would state: `δᵢᵉ SUP_i{a,b}` is `a` or `b`, `δᵢᵉ i = ε`, and a coordinate substituted at its own atom is the substituted term; 1 row | — |
+| 5 | `R_FCE_COMMUTE` · `fce-commute` | §3.1 | none checked | — | would state: for `i ≠ j`, `δᵢᵉ SUP_j{a,b} = SUP_j{δᵢᵉ a, δᵢᵉ b}` (`δᵢδⱼ = δⱼδᵢ`); 1 row | §3.1's "Theorem (one dimension)" names no lemma |
+| 6 | `R_FCE_PUSH` · `fce-push` | §3.1, §4 | none checked | — | would state: a face map commutes with the closure (`dim += i:=ε`), with each field of a constructor and eliminator cell, and with the arguments of a closed name's spine; 1 row | — |
+| 7 | `R_FCE_SHARE` · `fce-share` | §3.1 | none checked | — | would state: `i ∉ names(c) → δᵢᵉ c = c` (the cell is shared, 0 words); 1 row | §3.1 cites One §1. That is `One` · `graph≃dom` (`formal/cubical/One.agda:90`, `Graph ≃ A`), the singleton contraction, not a face map |
+| 8 | `R_CASE` · `case` | §4, §3.3 | none checked | — | would state: `CASE (CTR c fs) bs = bs[c] fs` (and `CFIELDS`/`CWITH` on a constructor); 1 row, plus 1 `erase` per unread field | §4's `Visranti` is `NaturalMachine.Visranti_…` · `step-preserves-nf` (`formal/cubical/NaturalMachine/Visranti_TheNormalFormIsTheCompleteInvariantSoDerivabilityIsDecidedByTwoStepsAndARefl.agda:117`, `Step a b → nf a ≡ nf b`). It is stated over the corpus kernel's add/suc `Tm`, not this CASE |
+| 9 | `R_CASE_SUP` · `case-sup` | not drawn (the §3.2 `APP`–`SUP` shape at `CASE`, `CFIELDS`, `POUT`) | none checked | — | would state: an eliminator applied to `SUP_i{a,b}` is `SUP_i` of the eliminator at each face, its continuation face-mapped; 1 row | — |
+| 10 | `R_OP2` · `op2` | §1, §1.1 | none checked | — | would state: `OP2 op (NUM a) (NUM b) = NUM (a op b)` (and the Boolean operators on `True`/`False`), agreeing with the host arithmetic; 1 row | — |
+| 11 | `R_OP2_SUP` · `op2-sup` | not drawn (the §3.2 `APP`–`SUP` shape at `OP2`, `OP1`) | none checked | — | would state: `OP2 op SUP_i{a,a'} b = SUP_i{OP2 op a (δᵢ⁰ b), OP2 op a' (δᵢ¹ b)}`, the same with `SUP` in the second operand, and for `OP1`; 1 row | — |
+| 12 | `R_ERASE` · `erase` | §3.3 | none checked | — | would state (cost): each forgotten port is one row, and the fibre's size never enters (`fst (1, big)` costs one match and one erasure) | §3.3's theorem is `One` · `inverse-kills-cost` (`formal/cubical/One.agda:268`, `(x : M) → ∥ G ∥ x ≡ zero` on a structure with right inverses). It rules out cost on invertible steps; it does not state the per-port count |
+| 13 | `R_TRP` · `trp` | §3.5 | `Anuvrtti_TheGlueIsTransparentAndTheWholeCostIsTheNeutralTypeNotTheIdentification` · `मूल्य-एक` | `formal/cubical/theorems/historical_proofs/Anuvrtti_TheGlueIsTransparentAndTheWholeCostIsTheNeutralTypeNotTheIdentification.agda:148` | `मूल्य-एक : (e : A ≃ A) (x : A) → transport (ua e) x ≡ equivFun e x` | One case of the square: the `ua` line, 0 → 1 (§3.5's "Theorem (uaβ)" names no module). The same file checks three more cases, each at one type: rigid `स्थिर-ℕ` (:125, `transport (λ _ → ℕ) x ≡ x`), non-dependent Σ `क्षेत्र-वितरण` (:198), composite line `समासः` (:112). Π, Path, dependent Σ, Glue, HIT and `SUP` lines, and the cost: none checked. §3.5's `Adhisthana` has only the instance `क्रिया` (`formal/cubical/theorems/physics/Adhisthana_TheFreeReversalStandsOnTheDeMorganSiteAndTheKanFloorHasTwoOperationsNotOne.agda:65`, `transport (ua नकार) true ≡ false`) |
+| 14 | `R_HCM` · `hcm` | §3.5 | none checked | — | would state: `HCM A [φ ↦ u] base` is `u @ 1` on a true face, `base` when every face is false, and otherwise the per-type rows of §3.5 (`whnfHCm`); 1 row | §3.5's `Adhisthana` states the `hcomp`/`transp` split only in its header comment; none of its terms is about `hcomp` |
+| 15 | `R_HCON` · `hcon` | §4 | none checked | — | would state: a path constructor applied at a literal `I0`/`I1` is the endpoint its declared type gives, with the later dimensions applied to it; 1 row | — |
+| 16 | `R_HELIM` · `helim` | §4 | none checked | — | would state: `HELIM P bs (HCTR c fs ds) = bs[c] fs ds`; 1 row | — |
+| 17 | `R_HELIM_SUP` · `helim-sup` | §4 | none checked | — | would state: `HELIM P bs SUP_i{a,b} = SUP_i{HELIM (δᵢ⁰ P) (δᵢ⁰ bs) a, HELIM (δᵢ¹ P) (δᵢ¹ bs) b}`; 1 row | — |
+| 18 | `R_HELIM_HCM` · `helim-hcm` | §4 | none checked | — | would state: `HELIM P bs (HCM T [φ↦u] base) = comp (λj. P (hfill T [φ↦u] base j)) [φ ↦ <j> HELIM P bs (u@j)] (HELIM P bs base)`; 1 row | — |
+| 19 | `R_OP1` · `op1` | §1.1 | none checked | — | would state: `OP1 op (NUM a) = NUM (op a)`, agreeing with the host arithmetic; 1 row | — |
+| 20 | `R_POUT` · `pout` | §1.1, §3.5 | none checked | — | would state: `POut (Sys [(φ, u), …]) = u` at a face with `φ = I1`, independent of order because the tubes agree on overlaps; 1 row | — |
+| 21 | `R_INSTALL` · `install` | §8 | `Kernel.ControlledGrammar` · `NativeOperation.apply-checked` | `formal/cubical/Kernel/ControlledGrammar.agda:21` | `apply-checked : (t : Tm) (c : Control t) → Derivation t (apply t c)` | The square, over the corpus kernel's `Tm`: under the control of `install d` (`t ≡ lhs`, `install` at :27), the dispatched target is derivable from the term. Also checked: `install-section` (`formal/cubical/kernel-flat/SthapanaVarga_SelfExtensionIsClassifiedByDerivationUpToControlGaugeAndInstallationIsTheCanonicalGauge.agda:84`, `extract (install d) ≡ (l , r , d)`); `SchematicOperation.apply-sound` (`formal/cubical/Kernel/Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesAndTheSchemaIsWhatMakesItGeneralise.agda:201`, `eval t ρ ≡ eval (apply t c) ρ`) for a rule with a pattern; Alopa `अलोपः` (`formal/cubical/theorems/grammar/Alopa_TheEngineNeverTouchesTheMeaning.agda:171`, `eval ρ (normalize n rs t) ≡ eval ρ t`). The cost, one row where the source paid its own rows: none checked |
 
 ## 11. Files
 
