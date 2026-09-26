@@ -248,8 +248,12 @@ them.
    `≡ True` and `≡ False` on one question, each under waiting faces, no split of
    the question registered; `HYPER_SPLITS=1` prints the leaf checks); the same
    decision under waiting faces (`HYPER_DECIDE=1`) regresses the concrete case.
-   The split count per leaf of `isort` along free coordinates is 2, 3, 3, 3, 4, 4
-   where the decision tree says 2, 3, 3, 3, 3, 3. `sortCost` waits on both.
+   The decision tree of `isort` along three free coordinates is exact: six
+   leaves with 2, 3, 2, 2, 3, 3 comparisons and 3 at most (`c-isort3`), each
+   comparison one split whatever the world that first asked it. For the
+   declaration `sort` along free inputs, `sortCost` is `cost3`, the greatest
+   event count over the leaves of `trace`; it is not yet exact because of the
+   two contradictory leaves.
 5. Every rule at an active pair, bodies as nets: the count becomes the proved
    geodesic. The one rule that fires on a non-value goes.
 6. The chart move under a checked path.

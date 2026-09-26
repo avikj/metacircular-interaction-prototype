@@ -1418,6 +1418,8 @@ static Term whnf_(Term t) {
           }
           case T_VAR: if (!CHECK_MODE && is_coordinate(f)) { Term r = pi_apply(f, x); if (r) { t = r; continue; } }   /* an unknown function: its value there is a coordinate */
                       HEAP[loc(t)] = f; return t;
+          case T_CASE: if (!CHECK_MODE && proof_case(f)) { receipt(R_CASE); t = under(scrut(HEAP[loc(f)]), node2(T_APP, 0, refl_body(f), x)); continue; }   /* J commutes out of an application */
+                       HEAP[loc(t)] = f; return t;
           default: HEAP[loc(t)] = f; return t;        /* stuck spine */
         }
       }
@@ -1492,6 +1494,7 @@ static Term whnf_(Term t) {
                  comparison asks the comparison, not the constructor of its result; a match on a match on a port asks here */
               Term q = 0; Term in = peel(s, &q); Term deeper = tag(in) == T_CASE ? HEAP[loc(in)] : 0; Term dq = 0;
               if (deeper && tag(peel(deeper, &dq)) == T_CASE) { Term s2 = whnf(s0); if (s2 != s0) { HEAP[loc(t)] = s2; continue; } }
+              if (known_split(s0, 0)) continue;          /* the question is split already: its worlds, no new split */
               receipt(R_SPLIT); FORCE_LEFT--; if (SPLITS) fprintf(stderr, "stuck %s k%u/%u\n", ctor_name(CODE[CODE[loc(HEAP[loc(t)+1])].b].ext), CUR_KIND, FORCE_KIND); Term alts[64]; uint32_t k = match_alts(t, 0, alts, 0); HEAP[loc(t)] = split_stuck(s0, alts, k); continue; }
             if (!proof_cell(s0)) HEAP[loc(t)] = s0; return t;
           }
@@ -1557,6 +1560,7 @@ static Term whnf_(Term t) {
         if (tag(x) == T_GLU && tag(i) == T_NUM && HEAP[loc(i)] < 2) { receipt(R_CASE); erase_ports(1); return whnf(HEAP[loc(x) + HEAP[loc(i)]]); }
         if (tag(i) == T_NUM && tag(x) == T_CTR && HEAP[loc(i)] < ctr_arity(x)) { receipt(R_CASE); erase_ports(ctr_arity(x) - 1); return whnf(HEAP[loc(x) + HEAP[loc(i)]]); }   /* the field is a held port: it fires once */
         if (tag(x) == T_SUP) { receipt(R_CASE_SUP); return node3(T_SUP, 0, HEAP[loc(x)], node2(T_PROJ,0,i,HEAP[loc(x)+1]), node2(T_PROJ,0,i,HEAP[loc(x)+2])); }
+        if (!CHECK_MODE && proof_case(x)) { receipt(R_CASE); t = under(scrut(HEAP[loc(x)]), node2(T_PROJ, 0, i, refl_body(x))); continue; }   /* J commutes out of a projection */
         HEAP[loc(t)] = i; HEAP[loc(t)+1] = x; return t;
       }
       case T_GBASE: { Term g = whnf(HEAP[loc(t)]);
@@ -1605,7 +1609,9 @@ Term nf(Term t, int depth) {
     if (tag(b) == T_SUP) { Term nm = whnf(HEAP[loc(b)]); return nf(node3(T_SUP, 0, nm, under(fce_raw(0, nm, p, 0), HEAP[loc(b)+1]), under(fce_raw(1, nm, p, 0), HEAP[loc(b)+2])), depth); }
     return whnf(under(p, b)); }
   switch (tag(t)) {
-    case T_CTR: for (uint32_t i = 0; i < ctr_arity(t); i++) HEAP[loc(t)+i] = nf(HEAP[loc(t)+i], depth-1); return t;
+    case T_CTR: for (uint32_t i = 0; i < ctr_arity(t); i++) { Term f = nf(HEAP[loc(t)+i], depth-1); HEAP[loc(t)+i] = f;
+        if (proof_case(f)) { HEAP[loc(t)+i] = refl_body(f); return nf(under(scrut(HEAP[loc(f)]), t), depth); } }   /* a field under an identity: the value is */
+      return t;
     case T_SUP: { uint32_t w = WORLD;
       WORLD = side_world(t, 0); HEAP[loc(t)+1] = nf(HEAP[loc(t)+1], depth-1); WORLD = side_world(t, 1); HEAP[loc(t)+2] = nf(HEAP[loc(t)+2], depth-1); WORLD = w;
       return t; }
