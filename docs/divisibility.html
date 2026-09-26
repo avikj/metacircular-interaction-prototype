@@ -77,7 +77,7 @@
 <body>
 <main>
 
-<h1>Divisibility and Logic Are One Distributive Lattice; the Prime Conjectures Are One Decidable Predicate</h1>
+<h1>Divisibility and Logic Are One Distributive Lattice; the Prime Conjectures Are Decided at Every Instance</h1>
 <p class="byline">Avik Jain</p>
 
 <h2><span class="n">1.</span> Divisibility is the multiplicative number line; gcd and lcm are its meet and join</h2>
@@ -91,7 +91,7 @@ y \mid x \ (\text{multiplicative}) : \ x = y \cdot c
 $$
 <ul>
 <li>The relation is then completely fixed: it places each n above all of its divisors and below all of its multiples, with 1 at the bottom beneath everything and 0 at the top above everything.</li>
-<li>Multiplication is iterated addition, and addition iterated succession — each built from the one below by recursion on = alone (x + 0 = x, x + Sc = S(x + c); x·0 = 0, x·Sc = x·c + x).</li>
+<li>Multiplication is iterated addition, and addition iterated succession — each defined from the one below by recursion (x + 0 = x, x + Sc = S(x + c); x·0 = 0, x·Sc = x·c + x).</li>
 <li>The additive line is total: any two numbers are comparable, so "the smaller of the two" always already exists. Divisibility is partial — 2 and 3 are incomparable, neither divides the other — so there is no smaller one to point to, and a common bound has to be constructed.</li>
 <li>The greatest number dividing both a and b is where they meet; the least number that both a and b divide is where they join:</li>
 </ul>
@@ -202,7 +202,7 @@ $$
 \min\big(a,\, \max(b, c)\big) = \max\big(\min(a,b),\, \min(a,c)\big) \qquad (\text{on a chain})
 $$
 <ul>
-<li>True in every coordinate, it is true of the vectors — the distributive law for gcd and lcm:</li>
+<li>True in every coordinate, it is true of the vectors — the distributive law for gcd and lcm (this proves the ∧-over-∨ form; in any lattice it implies its ∨-over-∧ dual):</li>
 </ul>
 $$
 A \wedge (B \vee C) = (A \wedge B) \vee (A \wedge C)
@@ -219,7 +219,7 @@ $$
 (n/d)_p = a_p - e_p \qquad n/(n/d) = d
 $$
 <ul>
-<li>It reverses divisibility. d ∣ e means e<sub>p</sub> ≤ e′<sub>p</sub> on every axis (§2); subtract each side from a<sub>p</sub> and every inequality flips, so n/e ∣ n/d — a bijection that turns the order upside down:</li>
+<li>It reverses divisibility. For two divisors d, d′ with exponents e<sub>p</sub>, e′<sub>p</sub>, d ∣ d′ means e<sub>p</sub> ≤ e′<sub>p</sub> on every axis (§2); subtract each side from a<sub>p</sub> and every inequality flips, so n/d′ ∣ n/d — a bijection that turns the order upside down:</li>
 </ul>
 $$
 e_p \le e_p' \ \text{ on every axis} \iff a_p - e_p' \le a_p - e_p
@@ -313,7 +313,7 @@ $$
 F : \{0,1\}^n \to \{0,1\} \qquad S_F = \{\, x : F(x) = 1 \,\} \subseteq \{0,1\}^n
 $$
 <ul>
-<li>Subsets of the 2<sup>n</sup>-point cube form a Boolean algebra whose atoms are the assignments — the same kind of object as §3's subset algebra, but with the atoms now the 2<sup>n</sup> assignments, not the k primes. Not "2<sup>n</sup>" and not §3's algebra itself: it is the powerset of the cube, with 2<sup>n</sup> atoms and 2<sup>2ⁿ</sup> elements.</li>
+<li>The satisfying set S<sub>F</sub> lives in the powerset of the 2<sup>n</sup>-point cube — a Boolean algebra with 2<sup>n</sup> atoms (the assignments) and 2<sup>2ⁿ</sup> elements. It is the same kind of object as §3's subset algebra, built now on the assignments in place of the primes.</li>
 <li>Satisfiability asks one bit of it: is S<sub>F</sub> nonempty? Since {0, 1}<sup>n</sup> is a finite list, decide it by evaluating F point by point until one returns 1 or the list ends. Deciding is a finite walk over the cube, each step an evaluation.</li>
 <li>A number-theoretic statement of the same shape fixes a test b : ℕ → {0, 1} you can evaluate at each input; every instance b(n) is a decided bit, exactly as each F(x) was. What a finite walk cannot settle is the quantifier over the infinite list — and the shape of that quantifier is what differs between the conjectures.</li>
 <li>One kernel serves the prime pairs. Over the indicator a (a(k) = 1 iff k is prime), the product a(w − r)·a(w + r) = 1 exactly when w − r and w + r are both prime — a prime pair centred at w with gap 2r:</li>
@@ -322,7 +322,7 @@ $$
 \mathcal{K}(w, r) = a(w - r)\, a(w + r)
 $$
 <ul>
-<li>Goldbach reads it centre-fixed: for even 2w, sum over r to count the ways 2w splits into two primes. Goldbach is "that count is ≥ 1 for every w ≥ 2" — one even number with count 0 refutes it, a walk over the even numbers, each a decided bit (a Π₁ statement, "no 0 ever"):</li>
+<li>Goldbach reads it centre-fixed: for even 2w, sum over r (0 ≤ r ≤ w − 2, so w ± r stay ≥ 2 — a finite sum) to count the ways 2w splits into two primes. Goldbach is "that count is ≥ 1 for every w ≥ 2" — one even number with count 0 refutes it, a walk over the even numbers, each a decided bit (a Π₁ statement, "no 0 ever"):</li>
 </ul>
 $$
 \sum_r \mathcal{K}(w, r) = \#\{\, \text{prime pairs summing to } 2w \,\} \qquad \text{Goldbach} \iff \forall\, w \ge 2 : \ \sum_r \mathcal{K}(w, r) \ge 1
@@ -334,7 +334,7 @@ $$
 \text{twin primes} \iff \forall\, N \ \exists\, w > N : \ \mathcal{K}(w, 1) = 1
 $$
 <ul>
-<li>Riemann reads as one computable inequality b(n) at each n ≥ 1 (Davis–Matiyasevich–Robinson). With δ(n) = ∏<sub>m &lt; n</sub> ∏<sub>j ≤ m</sub> η(j), where η(j) is the prime p when j = p<sup>k</sup> is a prime power and 1 otherwise — a specific computable bound — RH is "b(n) = 1 for all n", Π₁ like Goldbach:</li>
+<li>Riemann reads as one computable inequality b(n) at each n ≥ 1 — a classical elementary reformulation via the DPRM arithmetization (Davis, Putnam, Robinson, Matiyasevich). With δ(n) = ∏<sub>m &lt; n</sub> ∏<sub>j ≤ m</sub> η(j), η(j) the prime p when j = p<sup>k</sup> is a prime power and 1 otherwise: the inner product ∏<sub>j ≤ m</sub> η(j) is lcm(1, …, m), so ln δ(n) ≈ ∑<sub>m &lt; n</sub> ψ(m) ≈ n²/2 (prime number theorem), and the squared deviation of the harmonic sum ∑<sub>k ≤ δ(n)</sub> 1/k from n²/2 is the RH error term. RH is "b(n) = 1 for all n", Π₁ like Goldbach:</li>
 </ul>
 $$
 \mathrm{RH} \iff \forall n \ge 1 : \ \Big(\textstyle\sum_{k \le \delta(n)} \tfrac{1}{k} - \tfrac{n^2}{2}\Big)^{2} < 36\,n^{3}
@@ -351,7 +351,7 @@ $$
 T \vdash \varphi \iff \exists\ \text{a finite string checking as a proof of } \varphi \qquad \text{independent} \iff T \nvdash \varphi \ \text{ and }\ T \nvdash \neg\varphi
 $$
 <ul>
-<li>A proof is finite by definition — none waits offstage — so independence is a definite statement about a decidable, one-string-at-a-time relation, established where it holds by exhausting that relation (Gödel constructs a φ whose two lists are both empty when T is consistent — Rosser's variant for the ¬φ side).</li>
+<li>A proof is finite by definition, so "T proves φ" is a search over strings that halts "yes" the moment one checks: provability is semi-decidable. Absence is not confirmable that way — the search never halts to certify that no proof exists — so unprovability, and hence independence, is not read off by exhaustion; it is established by a proof about T. Gödel constructs a φ whose two lists are both empty when T is consistent (Rosser's variant for the ¬φ side).</li>
 <li>The obstruction that forces such gaps is one construction; build it. Suppose a single map e : A → (A → B) that produces every function A → B — for each h some a has e(a) = h. Given any g : B → B, set d(a) = g(e(a)(a)) — feed a its own row, bend by g. If a program h realized d then h = e(a₀) for some a₀, and at a₀:</li>
 </ul>
 $$
@@ -360,7 +360,7 @@ $$
 <ul>
 <li>— so e(a₀)(a₀) is fixed by g. Contrapositive: if g has no fixed point, no single e enumerates all of A → B, and d escapes every row.</li>
 <li>Take g = ¬ on {0, 1} (no fixed point: ¬0 = 1, ¬1 = 0). The escaping d answers the opposite of what the machine indexed by a would answer on its own code, and no program realizes it. Cantor (no surjection A → 2<sup>A</sup>), Gödel (the sentence asserting its own unprovability), and Halting (no machine decides its own halting) are this one escape with A, B chosen.</li>
-<li>The prime conjectures of §6 sit here: every instance decided by a finite walk, the section over the whole list the one thing such a diagonal can hold open — no third value, just a construction no finite object completes.</li>
+<li>The prime conjectures of §6 are not known to sit here: none is known to be independent, and no diagonal is known to obstruct them. §6 established only the weaker shared shape — decided at every instance, open only in the quantifier over the whole list — a gap a finite computation cannot cross, but not a proven independence.</li>
 </ul>
 
 </main>
