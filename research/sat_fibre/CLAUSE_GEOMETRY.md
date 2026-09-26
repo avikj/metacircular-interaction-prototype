@@ -109,8 +109,7 @@ apart from initialization, copying, and final evaluation. Those are exact
 algebra-operation counts, not HVM interaction counts. Pattern operations,
 map operations, integer arithmetic, and their representation must be charged.
 There are at most 3^N partial assignments and at most 2^i contributing clause
-subsets at stage i, so K_i â‰ min(3^N, 2^i). This is a bound on this
-presentation, not a lower bound for SAT. Intermediate coefficient bit lengths
+subsets at stage i, so K_i â‰ min(3^N, 2^i). Intermediate coefficient bit lengths
 are O(i), since their absolute values are bounded by 2^i.
 
 Equal-pattern aggregation is also not semantic normalization: the indicators

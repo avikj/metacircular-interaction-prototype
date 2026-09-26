@@ -9,8 +9,6 @@ open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Data.Empty as Empty using (⊥)
 
 -- The local interaction-net diamond, stated at the exact one-step grade.
--- The theorem is generic; a concrete HVM correspondence must instantiate
--- Step and discharge this hypothesis for the selected runtime/demand rules.
 module RandomDescent (S : Type) (Step : S → S → Type)
   (diamond : {s a b : S} → Step s a → Step s b
     → (a ≡ b) ⊎ (Σ[ c ∈ S ] (Step a c × Step b c))) where

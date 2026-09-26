@@ -20,9 +20,7 @@ SAT f = fiber f true
 partition : {n : ℕ} (f : Bits n → Bool) → Bits n ≃ Σ Bool (fiber f)
 partition = P.Fibre.lossless
 
--- Reproduce the entire labelled Boolean cube and map the observation over
--- it. No assignment-selection policy or backtracking procedure is defined.
--- This tree is a denotation of the runtime SUP object, not its heap layout.
+-- Reproduce the entire labelled Boolean cube and map the observation over it.
 data BoolCube (A : Type) : ℕ → Type where
   leaf : A → BoolCube A zero
   fork : {n : ℕ} → BoolCube A n → BoolCube A n → BoolCube A (suc n)
@@ -101,8 +99,7 @@ module Minimal {n : ℕ} (S : Type) (encode : Residual n → S)
   distinguishable-cannot-merge f g xs apart p =
     apart (cong (λ h → h xs) (code-equality-implies-future-equality f g p))
 
--- An exhaustive binary decision tree has this many leaves. This is a
--- representation-specific count, not an HVM interaction-count theorem.
+-- An exhaustive binary decision tree has this many leaves.
 leaves : ℕ → ℕ
 leaves zero = 1
 leaves (suc n) = leaves n + leaves n

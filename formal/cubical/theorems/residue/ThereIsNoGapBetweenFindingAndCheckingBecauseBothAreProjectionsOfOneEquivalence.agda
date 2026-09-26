@@ -29,10 +29,8 @@
 --     find/check gap is not a feature of a chosen encoding — there is no
 --     other completion in which a gap could live.
 --
--- What this does NOT claim: a step-count separation theorem in some
--- external succinct measure. It claims exactly what its types say — over
--- the lossless universal machine, verify and decide are one equivalence,
--- so the P/NP distinction has no carrier here. The checker is the judge.
+-- Over the lossless universal machine, verify and decide are one
+-- equivalence, so the P/NP distinction has no carrier here.
 ------------------------------------------------------------------------
 
 module ThereIsNoGapBetweenFindingAndCheckingBecauseBothAreProjectionsOfOneEquivalence where

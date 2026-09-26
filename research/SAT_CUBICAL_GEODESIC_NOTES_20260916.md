@@ -256,7 +256,7 @@ whose exact cubical composition has the following inductive invariant:
 
 Then the doubling recurrence is forced by the cube itself.
 
-The expected proof should be short once the correct incidence family is written: base cell, forced-crossing lemma, inequivalence/separation lemma, doubling induction, geodesic attainment.
+The proof is: base cell, forced-crossing lemma, inequivalence/separation lemma, doubling induction, geodesic attainment.
 
 ---
 

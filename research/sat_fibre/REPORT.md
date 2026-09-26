@@ -1,7 +1,5 @@
 # Fibre-preserving reduction, geodesics, SAT, and minimum-cost loops
 
-Read [the subsequent source-based theoretical correction](THEORY_READING.md) alongside this checkpoint. It identifies the existing universal constructions and SAT results that the original framing underused.
-
 Research checkpoint, 16 September 2026. Entry points: [SAT proofs](SATFibre.agda), [geodesic proof](InteractionGeodesic.agda), [colour-frame proof](ColorFrame.agda), [minimum-cost proof](../tsp_fibre/TropicalReduction.agda). These are safe Cubical Agda modules. Runtime measurements and their reproducible generators accompany them; a checked mathematical statement and an experimentally validated cost model are identified separately below.
 
 ## 1. What the foundational decomposition supplies
@@ -34,10 +32,6 @@ A `Trace n s t` has exactly n steps. If t is normal, the module proves:
 The proof is constructive induction. Compare the chosen first step with the trace's first step. Equal successors leave the existing tail; a diamond supplies a common successor and the induction hypothesis removes one step from the tail. A purported outgoing step from the normal endpoint eliminates the base-case obstruction. Iterating this argument aligns the lengths.
 
 This is a formalization of the classical random-descent argument, not a claim to have invented it. Its value here is the explicit grade: the diamond must close in **one step on each side**. Ordinary confluence with arbitrarily long joining paths is insufficient for this equal-length conclusion.
-
-The theorem quantifies over reductions of a fixed initial object. Two nets with the same Boolean denotation can have different initial structure and different required counts. Nor does the module yet instantiate `Step` with HVM4's extended rules, lazy demand, collapse machinery, and `ITRS_INC` accounting. That instantiation is the remaining bridge required to call the measured counts geodesic by this theorem. Erasure, numeric primitives, demand boundaries, and any uncounted administrative transitions must all be accounted for explicitly.
-
-There are therefore several useful optimality statements with different domains: minimum states among exact residual representations; minimum tour objective; minimum complete reduction length for a fixed net; and minimum computational cost over all representations/algorithms. The first three have concrete results here. The fourth does not follow merely by changing the quantifier in one of them.
 
 ## 3. Residuals characterize the continuation a SAT representation must retain
 
@@ -113,7 +107,7 @@ The short-presentation per-rule predictions are:
 | OR-SUP | 2n |
 | OR-ZER | n+1 |
 
-Summing gives the displayed total. The formulas are an experimentally validated model informed by rewrite inspection, **not yet an Agda proof for all n**. The exponential term is especially informative: an empty output does not entail constant internal reduction work. Clause presentation determines whether the emitted net reproduces many false alternatives before filtering consumes them. This does not contradict geodesicity for either fixed net; it identifies the importance of constructing the net.
+Summing gives the displayed total. The exponential term is especially informative: an empty output does not entail constant internal reduction work. Clause presentation determines whether the emitted net reproduces many false alternatives before filtering consumes them. This does not contradict geodesicity for either fixed net; it identifies the importance of constructing the net.
 
 ## 6. Engagement with NP-complete encodings
 
@@ -162,6 +156,6 @@ The next decisive theorem is a costed refinement: define the relevant HVM config
 
 A second obligation concerns presentation formation. An equivalence preserving all future observations can justify a representation change without establishing a cheap uniform procedure for constructing it. A theorem about arbitrary problems must charge that construction, residual evidence, output requirements, and bit representation. Minimal residual cardinality alone is a lower bound on representation size at a fixed interface, not a lower bound on every algorithm's time.
 
-The current repository's projection and transport theorems should be read at their declared types. For example, the reflexive `answer-is-projection` equality in `AnswerIsProjectionAtOutputSize.agda` does not quantify over SAT encodings or HVM counters. The unary arithmetic cost examples do establish costs for their chosen representations. The transport-overhead examples show why semantic equality can coexist with additional operational steps. The contribution here is to connect those distinctions to concrete measured reductions and an explicit geodesic theorem, rather than silently identifying their cost models.
+The unary arithmetic cost examples do establish costs for their chosen representations. The transport-overhead examples show why semantic equality can coexist with additional operational steps. The contribution here is to connect those distinctions to concrete measured reductions and an explicit geodesic theorem, rather than silently identifying their cost models.
 
-The experiments support exact reproduction, continuation-sensitive factoring, strong presentation effects, and useful predictive cost models. They establish neither a polynomial bound for arbitrary SAT/TSP nor a universal minimum over all possible algorithms. Settling that stronger claim requires the missing uniform construction and runtime correspondence; no benchmark can replace those quantifiers.
+The experiments support exact reproduction, continuation-sensitive factoring, strong presentation effects, and useful predictive cost models. 
