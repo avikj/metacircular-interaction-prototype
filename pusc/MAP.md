@@ -11,8 +11,8 @@
   prelude. It proved the object runs on an interaction net; its audit
   (BOTTOM_UP.md, WIP_FULL_RUNTIME.md on the reverted branch) is why this
   directory exists. Its `.bend` programs are this directory's test suite.
-- `machine/`: the Haskell Natural Machine that drives the Agda corpus
-  (mining, routing, ledgers). Not a runtime for programs.
+- `machine/`: the earlier Haskell driver of the Agda corpus. Superseded by
+  this directory; nothing here depends on it.
 - `interactive/`, `research/`, `notes/`, `papers/`, `abstracts/`: readings
   and results, not code paths.
 
@@ -343,9 +343,16 @@ execution is one schedule. Test: ITRS invariant across schedules.
 
 ## 11. Files
 
-    pusc/cell.h       the word layout, tags, Name, Frame, Rule
-    pusc/cell.c       §§1–4, 6, 8, 9: heap, frames, descent, reduce, rules, trace
-    pusc/lower.c      §5: Bend2 grammar → BOOK/TBOOK, elaboration, refusals
-    pusc/verify.c     §7
-    pusc/main.c       run | interact | check
-    pusc/test.sh      §10 over collab/bend2-interactive-cubical/*.bend and port/
+    pusc/cell.h     ~150   the word layout, tags, Name, Frame, Rule, accessors
+    pusc/cell.c    ~2000   §§1–4, 6, 8, 9: heap 50, frames+descent 200, loop+dispatch 150,
+                           face map 120, application 60, erase 60, interval DNF 150,
+                           transp 200, hcomp+Glue 250, HIT 200, call step 200,
+                           gmp numbers 120, trace+census 60, printer 100
+    pusc/lower.c   ~2500   §5: Bend2 grammar (recursive descent), Pat flattening,
+                           HIT elaboration, book + descent pass, refusals
+    pusc/verify.c  ~1200   §7: infer/check over static terms, reflected generics,
+                           conversion as point identity
+    pusc/main.c     ~150   run | interact | check
+    pusc/test.sh    ~100   §10 over collab/bend2-interactive-cubical/*.bend and port/
+                   ~6000   total; each rule a switch case the map states, each Kan case
+                           a row of RUNTIME_FULL.md / REMAINING.md §B
