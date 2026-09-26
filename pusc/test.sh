@@ -51,6 +51,14 @@ if [ "$got" == "? #Cons{'w',#Cons{'h',#Cons{'o',#Nil{}}}} #Pair{#True{},7} 7 " ]
 # the checker (verify.c) on its probes: every definition checks
 n=$(./pusc check t/check.pusc 2>/dev/null | grep -c '✓'); m=$(grep -c '^(def' t/check.pusc)
 if [ "$n" -eq "$m" ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL check: $n of $m definitions check"; fi
+# §3.3 erase at the projection: a forgotten port costs one row where it is forgotten; the fibre's size never enters
+checkn() { got=$(./pusc run "$1" "$2" 2>&1 | tr '\n' ' '); if [ "$got" = "$3 - Itrs: $4 " ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL $1 $2: got '$got' want '$3 - Itrs: $4'"; fi; }
+checkn t/erase.pusc fst-big '1' 2
+checkn t/erase.pusc and-f   '#False{}' 4
+checkn t/erase.pusc and-t   '#True{}' 3
+checkn t/erase.pusc const   '7' 2
+checkn t/erase.pusc dflt    '3' 3
+checkn t/erase.pusc carry   '1' 2
 # §8 install: notnot := id by a checked certificate; the value is unchanged, the run pays one R_INSTALL row instead of two case rows;
 # a certificate that does not check refuses to run
 check t/install.pusc main '#True{}'

@@ -5,7 +5,7 @@
  *
  * Every rule below fires only at an active pair, only when demanded, and
  * appends its receipt.  Definitional unfolding (REF) is not counted: transport
- * is free (One §4).  Nothing is erased inside a run (§3.3).
+ * is free (One §4).  Nothing is erased inside a run; a forgotten port is counted where it is forgotten (§3.3).
  */
 #include "cell.h"
 #include <stdio.h>
@@ -431,6 +431,34 @@ Term open_closure(Term clo, Term arg) {
   return inst(n->a, frame_push(fr, arg));
 }
 
+/* ---- §3.3 erase at the projection ------------------------------------------------------------ */
+/* Nothing is erased inside a run: a datum that falls out of reach stays in the arena, retained free.
+   What is counted is a forgotten PORT, one row each: the other fields of a projected constructor, the
+   fields a branch does not carry into its body, the free variables of the branches a match drops, the
+   argument of a lambda whose body ignores its binder, the ports a printer cuts.  Which ports a binder
+   drops is a property of its code, so it is computed once and kept on the node (num: key+1 << 32 | count). */
+static void erase_ports(uint64_t k) { while (k--) receipt(R_ERASE); }
+static bool memo_get(SNode *n, uint32_t key, uint64_t *out) { if ((n->num >> 32) != (uint64_t)key + 1) return false; *out = n->num & 0xFFFFFFFFu; return true; }
+static void memo_put(SNode *n, uint32_t key, uint64_t v) { n->num = ((uint64_t)key + 1) << 32 | (v & 0xFFFFFFFFu); }
+static bool lam_drops(Term clo) {                     /* the argument's port, when the body never reads the binder */
+  SNode *n = &CODE[loc(HEAP[loc(clo)])]; uint32_t lvl = next_depth(HEAP[loc(clo) + 1]); uint64_t v;
+  if (!memo_get(n, lvl, &v)) { v = !code_uses(n->a, lvl); memo_put(n, lvl, v); }
+  return v;
+}
+/* the ports a selected branch drops: its own fields (levels base.. for the constructor's fields from `first`)
+   that its body never reads, and every term level below base some other branch reads and this one does not */
+static uint64_t branch_drops(uint32_t first_br, uint32_t br, Term fr, uint32_t first, uint32_t ar) {
+  SNode *b = &CODE[br]; uint32_t base = next_depth(fr); uint64_t v;
+  if (memo_get(b, base, &v)) return v;
+  v = 0;
+  for (uint32_t i = first; i < ar; i++) if (!code_uses(b->b, base + i - first)) v++;
+  for (uint32_t l = 0; l < base; l++) {
+    if (frame_is_dim(fr, l) || code_uses(b->b, l)) continue;
+    for (uint32_t o = first_br; o; o = CODE[o].c) if (o != br && code_uses(CODE[o].b, l)) { v++; break; }
+  }
+  memo_put(b, base, v); return v;
+}
+
 /* ---- case trees (§4): the eliminator instantiated on the heap ---------- */
 static Term case_select(Term cs, Term scrut) {
   uint32_t code = loc(HEAP[loc(cs) + 1]); Term fr = HEAP[loc(cs) + 2];
@@ -441,6 +469,7 @@ static Term case_select(Term cs, Term scrut) {
     if (b->ext == ctr_id(scrut) || b->ext == 0xFFFFFF) {
       Term f = fr;
       uint32_t ar = b->ext == 0xFFFFFF ? 0 : ctr_arity(scrut);
+      erase_ports(branch_drops(n->b, br, fr, 0, ar) + (ar ? 0 : ctr_arity(scrut)));   /* §3.3: the default branch drops every field */
       for (uint32_t i = 0; i < ar; i++) f = frame_push(f, HEAP[loc(scrut) + i]);
       return inst(b->b, f);
     }
@@ -516,7 +545,9 @@ static Term helim_select(Term he, Term head, Term *ivs, uint32_t nivs) {
   for (uint32_t br = n->b; br; br = CODE[br].c) {
     SNode *b = &CODE[br];
     if (b->ext == ctr_id(head)) {
-      Term f = fr; for (uint32_t i = hit_nparams_carried(head); i < ctr_arity(head); i++) f = frame_push(f, HEAP[loc(head) + i]);
+      uint32_t first = hit_nparams_carried(head);
+      erase_ports(branch_drops(n->b, br, fr, first, ctr_arity(head)));
+      Term f = fr; for (uint32_t i = first; i < ctr_arity(head); i++) f = frame_push(f, HEAP[loc(head) + i]);
       return apps(inst(b->b, f), ivs, nivs);
     }
   }
@@ -890,7 +921,7 @@ Term whnf(Term t) {
       case T_APP: {
         Term f = whnf(HEAP[loc(t)]), x = HEAP[loc(t) + 1];
         switch (tag(f)) {
-          case T_LAM: receipt(R_BETA); t = open_closure(f, x); continue;
+          case T_LAM: receipt(R_BETA); if (lam_drops(f)) receipt(R_ERASE); t = open_closure(f, x); continue;
           case T_PLM: receipt(R_APP_PLM); t = open_closure(f, x); continue;
           case T_SUP: {                               /* distribute; the argument face-mapped at the name */
             receipt(R_APP_SUP);
@@ -935,7 +966,7 @@ Term whnf(Term t) {
         if (tag(x) == T_SUP) { receipt(R_CASE_SUP); return node3(T_SUP, 0, HEAP[loc(x)], node1(T_CFIELDS,0,HEAP[loc(x)+1]), node1(T_CFIELDS,0,HEAP[loc(x)+2])); }
         HEAP[loc(t)] = x; return t; }
       case T_CWITH: { Term x = whnf(HEAP[loc(t)]);
-        if (tag(x) == T_CTR) { receipt(R_CASE); t = ctr_with(ctr_id(x), HEAP[loc(t)+1]); continue; }
+        if (tag(x) == T_CTR) { receipt(R_CASE); erase_ports(ctr_arity(x)); t = ctr_with(ctr_id(x), HEAP[loc(t)+1]); continue; }
         HEAP[loc(t)] = x; return t; }
       case T_FCE: {
         Term nm = whnf(HEAP[loc(t)]);
@@ -994,8 +1025,8 @@ Term whnf(Term t) {
       case T_CHK: t = HEAP[loc(t) + 1]; continue;    /* a judgment projects to its term at run */
       case T_PROJ: {
         Term i = whnf(HEAP[loc(t)]), x = whnf(HEAP[loc(t)+1]);
-        if (tag(x) == T_GLU && tag(i) == T_NUM && HEAP[loc(i)] < 2) { receipt(R_CASE); t = HEAP[loc(x) + HEAP[loc(i)]]; continue; }
-        if (tag(i) == T_NUM && tag(x) == T_CTR && HEAP[loc(i)] < ctr_arity(x)) { receipt(R_CASE); t = HEAP[loc(x) + HEAP[loc(i)]]; continue; }
+        if (tag(x) == T_GLU && tag(i) == T_NUM && HEAP[loc(i)] < 2) { receipt(R_CASE); erase_ports(1); t = HEAP[loc(x) + HEAP[loc(i)]]; continue; }
+        if (tag(i) == T_NUM && tag(x) == T_CTR && HEAP[loc(i)] < ctr_arity(x)) { receipt(R_CASE); erase_ports(ctr_arity(x) - 1); t = HEAP[loc(x) + HEAP[loc(i)]]; continue; }
         if (tag(x) == T_SUP) { receipt(R_CASE_SUP); return node3(T_SUP, 0, HEAP[loc(x)], node2(T_PROJ,0,i,HEAP[loc(x)+1]), node2(T_PROJ,0,i,HEAP[loc(x)+2])); }
         HEAP[loc(t)] = i; HEAP[loc(t)+1] = x; return t;
       }
@@ -1055,7 +1086,7 @@ static void print_num(Term t) {
   }
 }
 static void print_rec(Term t, int depth) {
-  if (depth <= 0) { printf("…"); return; }
+  if (depth <= 0) { receipt(R_ERASE); printf("…"); return; }   /* §3.3: the printer cuts a port */
   t = whnf(t);
   switch (tag(t)) {
     case T_NUM: print_num(t); break;

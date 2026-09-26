@@ -400,6 +400,22 @@ fibre (printing a value, `fst`, a `Bool → Unit`). Inside a run nothing is
 erased; an unreferenced fibre is retained and reclaimed at the projection,
 where the erasures are counted as the cost of the loss.
 
+As written (`cell.c`, `R_ERASE`): the arena is never collected, so a datum is
+never removed; what is counted is a forgotten *port*, one row each, at the
+interaction that forgets it. A projection `proj i` of a $k$-ary constructor
+drops $k-1$ ports; a match drops the fields its branch never reads (the
+default branch drops them all) and the free variables that only the dropped
+branches read (the `and(x, y)` picture: `y` is one port of the `True` branch,
+forgotten when `False` is selected); a β-step drops its argument's port when
+the body never reads the binder; `ctr-with` drops every old field; the printer
+drops a port where it cuts. The fibre's size never enters, since it is never
+demanded: `fst (1, big)` costs one match and one erasure whatever `big` is, so
+the count is a property of the program, not of a schedule. Which ports a
+binder drops is a property of its code and is kept on the node. A face map's
+dropped side and a face case's other branches are not erasures: the first is
+a substitution (the other endpoint of a line), the second a determined datum
+(partial elements agree on their overlaps).
+
 ### 3.4 The interval
 
 **Theorem (Visranti, applied to the interval).** Normal forms are the complete
@@ -852,7 +868,7 @@ Test: ITRS invariant across schedules.
 
 ## 11. Files
 
-Status. Written and green: 40 kernel checks (`pusc/test.sh`) and the whole
+Status. Written and green: 46 kernel checks (`pusc/test.sh`) and the whole
 Bend2 corpus (`pusc/bendtest.sh`: every `.bend` under
 `collab/bend2-interactive-cubical` and `port/` with a `main`, 124 programs,
 value identical to Bend2's own normaliser branch by branch; 12 skipped because
@@ -884,18 +900,19 @@ cell prints the question and resumes on the world's answer. `(install SOURCE
 TARGET CERT)` (§8) replaces an operation by another once the certificate
 checks; a failing certificate refuses the run. `PUSC_CENSUS=1` prints the
 census of rows fired, and `bendtest.sh` checks the sharing regime of every
-program (superpositions never exceed separations). Not yet: erase at
-projection as a counted rule, the tokens-meet-rules parser (the translator is
-Bend2's parser for now).
+program (superpositions never exceed separations). Erase at the projection
+is a counted rule (§3.3, `t/erase.pusc`): one row per forgotten port, and the
+fibre's size never enters. Not yet: the tokens-meet-rules parser (the
+translator is Bend2's parser for now), the parallel bag (§9).
 
     pusc/cell.h      197   the word layout, tags, Name, Frame, Rule, Install, accessors, CtorInfo
-    pusc/cell.c     1288   §§1–4, 6, 8, 9: heap, frames+descent, loop+dispatch, face map, application,
+    pusc/cell.c     1319   §§1–4, 6, 8, 9: heap, frames+descent, loop+dispatch, face map, application,
                            interval DNF, transp+hcomp dispatch, HIT schema, numbers, printers, collapse, census
     pusc/prelude.pusc 158  the Kan rows, Glue, transpEquiv, the HIT rows, as data
     pusc/bend.pusc    45   the Bend dialect's rows: transp, ua, the three built-in HITs
     pusc/read.c      292   §5: the reader for the kernel's own text (the identity chart), install
     pusc/main.c       76   run | bend | check | interact
-    pusc/test.sh      61   the kernel checks
+    pusc/test.sh      69   the kernel checks
     pusc/bendtest.sh  31   §10.1 over the corpus against Bend2's normaliser, the sharing regimes
     pusc/checktest.sh 27   §10.6 the checker differential against Bend2's checker
     pusc/verify.c    821   §7: the checker as the other projection of the same loop; §8 certificates
