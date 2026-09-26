@@ -211,121 +211,144 @@ $$
 <li>Every chain is distributive; a product of chains is distributive but not totally ordered. Divisibility is that product: distributive, with 2 and 3 incomparable (machine-checked, <code>--safe</code>).</li>
 </ul>
 
-<h2><span class="n">3.</span> The map d ↦ n/d is a De Morgan involution, and a Boolean complement exactly when n is squarefree</h2>
+<h2><span class="n">3.</span> The map d ↦ n/d reflects every axis; it swaps gcd with lcm, and is a true complement exactly when n is squarefree</h2>
 <ul>
-<li>On the divisors of a fixed n, complementation d ↦ n/d reverses the order and undoes itself: d ∣ e iff n/e ∣ n/d, and n/(n/d) = d.</li>
-<li>It swaps meet and join — De Morgan's laws, in divisors:</li>
+<li>Fix n. For a divisor d, n/d is again a divisor: on each prime axis it carries exponent a<sub>p</sub> − e<sub>p</sub>, what d left behind, still between 0 and a<sub>p</sub>. Subtracting twice returns e<sub>p</sub>, so d ↦ n/d is its own inverse:</li>
 </ul>
 $$
-n/\gcd(a,b) = \operatorname{lcm}(n/a,\ n/b)
-\qquad
-n/\operatorname{lcm}(a,b) = \gcd(n/a,\ n/b)
+(n/d)_p = a_p - e_p \qquad n/(n/d) = d
 $$
 <ul>
-<li>So the divisors of any n form a De Morgan algebra: ¬d = n/d, ⊥ = 1, ⊤ = n.</li>
-<li>It is a Boolean complement — d ∧ ¬d = ⊥ and d ∨ ¬d = ⊤ — iff gcd(d, n/d) = 1 for every divisor, iff no prime divides n twice:</li>
+<li>It reverses divisibility. d ∣ e means e<sub>p</sub> ≤ e′<sub>p</sub> on every axis (§2); subtract each side from a<sub>p</sub> and every inequality flips, so n/e ∣ n/d — a bijection that turns the order upside down:</li>
 </ul>
 $$
-\gcd(d,\ n/d) = 1 \ \text{ for all } d \mid n
-\iff
-n \text{ squarefree}
-\iff
-n = p_1 p_2 \cdots p_k
+e_p \le e_p' \ \text{ on every axis} \iff a_p - e_p' \le a_p - e_p
 $$
 <ul>
-<li>For squarefree n the divisor lattice is 2<sup>{p₁, …, p_k}</sup>, the subsets of the prime set under d ↦ {p : p ∣ d}. Divisibility of a squarefree number is the propositional calculus on its primes: meet is ∧, join is ∨, n/d is ¬, and every classical tautology holds.</li>
+<li>Turn the order upside down and the greatest thing below a pair becomes the least thing above their images: meet and join trade places. On one axis that is a<sub>p</sub> − min(x, y) = max(a<sub>p</sub> − x, a<sub>p</sub> − y); read on the numbers, gcd and lcm swap:</li>
+</ul>
+$$
+n/\gcd(a,b) = \operatorname{lcm}(n/a,\ n/b) \qquad n/\operatorname{lcm}(a,b) = \gcd(n/a,\ n/b)
+$$
+<ul>
+<li>Write ¬d = n/d, ⊥ = 1 (every exponent 0), ⊤ = n (every exponent full). What is now built is exactly an order-reversing involution that swaps ∧ and ∨ between the bounds — the structure the name "De Morgan algebra" points at.</li>
+<li>Is ¬d a true complement — d ∧ ¬d = ⊥ and d ∨ ¬d = ⊤? On the p-axis d has exponent e<sub>p</sub>, ¬d has a<sub>p</sub> − e<sub>p</sub>; the meet takes their min, the join their max:</li>
+</ul>
+$$
+\min(e_p,\ a_p - e_p) \quad\text{and}\quad \max(e_p,\ a_p - e_p)
+$$
+<ul>
+<li>The min is 0 (and the max is a<sub>p</sub>) exactly when e<sub>p</sub> is 0 or a<sub>p</sub>. If an axis has a<sub>p</sub> ≥ 2, the divisor with exponent 1 there gives min(1, a<sub>p</sub> − 1) ≥ 1: that axis has a middle, and d ∧ ¬d ≠ ⊥. So ¬ is a complement for every d precisely when no axis has a middle — every a<sub>p</sub> ≤ 1 — which is n squarefree:</li>
+</ul>
+$$
+d \wedge \neg d = \bot \ \text{ and }\ d \vee \neg d = \top \ \text{ for all } d \iff \text{every } a_p \le 1 \iff n = p_1 p_2 \cdots p_k
+$$
+<ul>
+<li>For squarefree n each axis is just {0, 1}: a divisor is a choice of subset of the primes, ∧ is intersection, ∨ is union, ¬ is set-complement. That is the algebra of subsets of a k-element set — the truth tables on k independent yes/no atoms. Divisibility of a squarefree number and the propositional logic on its primes are one object; the cube of §2 (n = 30) is the case k = 3.</li>
 </ul>
 
-<h2><span class="n">4.</span> A repeated prime breaks excluded middle: divisibility is intuitionistic, and ¬¬ is the prime-power support</h2>
+<h2><span class="n">4.</span> A repeated prime puts a middle on an axis; there excluded middle fails, and the negation that remains is intuitionistic</h2>
 <ul>
-<li>When a prime is repeated, n/d stops being a complement. For n = 12, d = 2: gcd(2, 6) = 2 ≠ 1, so d ∧ ¬d ≠ ⊥. Excluded middle fails at exactly the repeated prime.</li>
-<li>A finite distributive lattice is a Heyting algebra: the implication a → b = ⋁{ x : a ∧ x ≤ b } always exists. Divisibility carries an intuitionistic logic, computed prime by prime (on a chain, a → b is the top when a ≤ b, else b).</li>
-<li>Negation is ¬d = (d → ⊥), the largest divisor coprime to d, and double negation fills each present prime back to its full power in n:</li>
+<li>§3 found it: when a<sub>p</sub> ≥ 2 the axis {0, 1, …, a<sub>p</sub>} has interior points, and d ∧ ¬d there is not ⊥. Take n = 12 = 2²·3 and d = 2 (exponent 1 on the 2-axis): ¬d = 12/2 = 6, and d ∧ ¬d = gcd(2, 6) = 2 ≠ 1. "d or not-d, meeting in nothing" breaks at the repeated prime.</li>
+<li>A best negation still exists, and we build it on one chain {0, …, m}. Given exponent e, ask for the largest x with min(e, x) = 0 — the largest exponent disjoint from e. If e = 0 every x works, so x = m; if e ≥ 1 only x = 0 does. Across axes, ¬d sends each prime absent from d to its full power and each prime present to zero:</li>
 </ul>
 $$
-\neg d = \prod_{p \,\nmid\, d} p^{a_p}
-\qquad
+(\neg d)_p = a_p \ \text{if}\ e_p = 0, \quad 0 \ \text{if}\ e_p \ge 1 \qquad \neg d = \prod_{p \,\nmid\, d} p^{a_p}
+$$
+<ul>
+<li>The same question with 0 replaced by any target b builds implication: on each axis, a → b is the largest x with min(a, x) ≤ b — namely m when a ≤ b, else b. It exists because we just named it, coordinate by coordinate; nothing is postulated. (Divisors carrying this operation is what "Heyting algebra", the algebra of intuitionistic logic, names; ¬d is a → ⊥.)</li>
+</ul>
+$$
+(a \to b)_p = m_p \ \text{if}\ a_p \le b_p, \quad b_p \ \text{otherwise}
+$$
+<ul>
+<li>Apply ¬ twice. ¬d is full on the primes absent from d; ¬¬d is full on the primes absent from ¬d — the primes present in d — and zero elsewhere. Double negation rounds each present prime up to full power and forgets by how much it was present (n = 12: ¬2 = 3, ¬¬2 = 4 ≠ 2):</li>
+</ul>
+$$
 \neg\neg d = \prod_{p \,\mid\, d} p^{a_p}
 $$
 <ul>
-<li>For n = 12: ¬2 = 3, ¬¬2 = 4 ≠ 2. Double negation is not the identity; that gap is the same repeated prime as above.</li>
-<li>The fixed points ¬¬d = d are the divisors carrying each of their primes at full power — exactly the Boolean algebra 2<sup>primes(n)</sup> sitting inside:</li>
+<li>So ¬¬d = d exactly for the divisors already at 0 or full power on every axis — nothing partial. Among themselves these close under ∧, ∨, ¬ into the subset algebra of §3:</li>
 </ul>
 $$
 \neg\neg d = d \iff d = \prod_{p \in S} p^{a_p}, \quad S \subseteq \{\, p : p \mid n \,\}
 $$
 <ul>
-<li>These regular elements are the Booleanization of the Heyting algebra (Glivenko's theorem). Divisibility is intuitionistic in general and classical exactly on the squarefree case of §3.</li>
+<li>That is the largest classical part sitting inside, and d ↦ ¬¬d is the map onto it (the name is "Booleanization", Glivenko). Divisibility is intuitionistic in general and is the Boolean logic of §3 exactly on these ¬¬-stable divisors — for squarefree n, all of them.</li>
 </ul>
 
-<h2><span class="n">5.</span> Möbius inversion is the lattice's inclusion–exclusion</h2>
+<h2><span class="n">5.</span> Summing over the divisors below is triangular; back-substituting it is the Möbius function — inclusion–exclusion</h2>
 <ul>
-<li>"Sum over all d below" is a linear operator on functions of the lattice; it is invertible, and its inverse is Möbius inversion:</li>
+<li>Take any function f on the divisors of n and sum it over everything at-or-below in divisibility, giving a new function g — a linear map from the f-values to the g-values:</li>
 </ul>
 $$
-g(n) = \sum_{d \mid n} f(d) \iff f(n) = \sum_{d \mid n} \mu(d)\, g(n/d)
-\qquad
-\sum_{d \mid n} \mu(d) = [\,n = 1\,]
+g(m) = \sum_{d \mid m} f(d)
 $$
 <ul>
-<li>On the Boolean sublattice of §3 this is exactly inclusion–exclusion: μ vanishes off the squarefree numbers, the regular part of §4:</li>
+<li>Invert it by hand. List the divisors so each comes after all it is divisible by (§2's grid allows this). Then g(m) = f(m) + (sum of earlier f's), so from the bottom up f(1) = g(1) and each f(m) = g(m) − (already-known lower f's). Every f(m) is recovered: a sum-over-below has 1 on the diagonal, so it is triangular and back-substitution never fails.</li>
+<li>The coefficients of that back-substitution are one function μ, forced by inversion; the forcing condition is that summing μ below gives 1 at the bottom and 0 above:</li>
 </ul>
 $$
-\mu(\varnothing, T) = (-1)^{|T|}
-\qquad
-\mu(d) = \begin{cases} (-1)^{\omega(d)} & d \text{ squarefree} \\ 0 & \text{otherwise} \end{cases}
+f(m) = \sum_{d \mid m} \mu(m/d)\, g(d) \qquad \sum_{d \mid m} \mu(d) = [\, m = 1 \,]
 $$
 <ul>
-<li>Euler's totient is one such inversion of the identity, with Gauss's summation as its forward direction (machine-checked, <code>--safe</code>):</li>
+<li>Build μ from that condition on one prime axis 1 ∣ p ∣ p² ∣ ⋯: μ(1) = 1 forces μ(p) = −1 (so 1 + μ(p) = 0), then μ(p²) = 0, and 0 forever after. Axes are independent, so μ multiplies across primes — (−1) once per distinct prime, and 0 the moment any prime repeats:</li>
 </ul>
 $$
-\varphi(n) = \sum_{d \mid n} \mu(d)\,\frac{n}{d}
-\qquad
-\sum_{d \mid n} \varphi(d) = n
+\mu(d) = \begin{cases} (-1)^{\omega(d)} & d \text{ squarefree} \\ 0 & \text{a prime repeats} \end{cases}
 $$
 <ul>
-<li>The sign μ(d) and the prime count ω(d) are the value and the derivative of one dual-number jet, so inclusion–exclusion and "how many primes" are two readings of the same object (machine-checked, <code>--safe</code>):</li>
+<li>μ vanishing off the squarefree divisors is §4 again: only the ¬¬-stable part carries a sign, a repeated prime contributes 0. On the subset algebra of §3, μ = (−1)<sup>#primes</sup> is inclusion–exclusion itself — whole minus atoms plus pairs minus triples.</li>
+<li>One instance to run: sum the identity d over the divisors below and invert; you recover Euler's totient, and summing it back returns n. The same back-substitution, nothing new (machine-checked, <code>--safe</code>):</li>
 </ul>
 $$
-(-1 + \varepsilon)^{\omega(d)} = \mu(d) + \kappa(d)\,\varepsilon, \qquad \kappa(d) = \omega(d)\,(-1)^{\omega(d)-1}
+\varphi(n) = \sum_{d \mid n} \mu(n/d)\, d \qquad \sum_{d \mid n} \varphi(d) = n
 $$
 
-<h2><span class="n">6.</span> Satisfiability is a join in the free Boolean algebra; the prime conjectures are one computable predicate, decided at every instance</h2>
+<h2><span class="n">6.</span> Deciding a formula is evaluating a function on the assignment cube; the prime conjectures are one such function, decided at every input</h2>
 <ul>
-<li>A propositional formula in n variables is an element of the free Boolean algebra on n generators — the same finite algebra 2<sup>n</sup> that §3 read off a squarefree number. Evaluating it is meet and join of its literals; satisfiability is the join over the 2<sup>n</sup> assignments. Deciding it is finite by construction.</li>
-<li>A number-theoretic statement decidable at each instance is a computable Boolean family b : ℕ → 2; its truth is the single section ∀n. b(n) = true. Nothing in the section is undecided pointwise — only the quantifier ranges to infinity.</li>
-<li>Riemann, Goldbach, and the twin primes each arithmetize to exactly this shape. Riemann is the Davis–Matiyasevich–Robinson inequality at every n ≥ 1, with δ and the harmonic sum both computable (machine-checked as a type whose sections are the statement, <code>--safe</code>):</li>
+<li>Fix variables x₁, …, x<sub>n</sub>. An assignment is a point of the cube {0, 1}<sup>n</sup> — 2<sup>n</sup> of them. A formula is a function F : {0, 1}<sup>n</sup> → {0, 1}: evaluating F at a point follows the ∧, ∨, ¬ of §3 on that point's bits, a finite computation. Its meaning is the satisfying set:</li>
+</ul>
+$$
+F : \{0,1\}^n \to \{0,1\} \qquad S_F = \{\, x : F(x) = 1 \,\} \subseteq \{0,1\}^n
+$$
+<ul>
+<li>Subsets of the 2<sup>n</sup>-point cube form a Boolean algebra whose atoms are the assignments — the same kind of object as §3's subset algebra, but with the atoms now the 2<sup>n</sup> assignments, not the k primes. Not "2<sup>n</sup>" and not §3's algebra itself: it is the powerset of the cube, with 2<sup>n</sup> atoms and 2<sup>2ⁿ</sup> elements.</li>
+<li>Satisfiability asks one bit of it: is S<sub>F</sub> nonempty? Since {0, 1}<sup>n</sup> is a finite list, decide it by evaluating F point by point until one returns 1 or the list ends. Deciding is a finite walk over the cube, each step an evaluation.</li>
+<li>A number-theoretic statement of the same shape fixes a test b : ℕ → {0, 1} you can evaluate at each input; every instance b(n) is decided by evaluation, exactly as each F(x) was, and only the quantifier over the infinite list is not settled by a finite walk. Riemann, Goldbach, and the twin primes each arithmetize to such a b.</li>
+<li>Goldbach and twins are built from one two-index quantity over the prime indicator a (a(k) = 1 iff k is prime). For even 2w and radius r, a(w − r)·a(w + r) = 1 exactly when w − r and w + r are both prime — a prime pair summing to 2w. Sum over r to count Goldbach's pairs for 2w; the same kernel read the other way counts twin primes:</li>
+</ul>
+$$
+\mathcal{K}(w, r) = a(w - r)\, a(w + r) \qquad \sum_r \mathcal{K}(w, r) = \#\{\text{prime pairs summing to } 2w\}
+$$
+<ul>
+<li>Riemann is one computable inequality b(n) at each n ≥ 1 (Davis–Matiyasevich–Robinson), with the harmonic sum and δ finite computations; RH is "b(n) = 1 for all n":</li>
 </ul>
 $$
 \mathrm{RH} \iff \forall n \ge 1 : \ \Big(\textstyle\sum_{k \le \delta(n)} \tfrac{1}{k} - \tfrac{n^2}{2}\Big)^{2} < 36\,n^{3}
 $$
 <ul>
-<li>Goldbach and the twin primes are the two marginals of one two-index kernel over the prime indicator a (machine-checked, <code>--safe</code>): the centre marginal counts Goldbach partitions, the radius marginal counts twin pairs.</li>
-</ul>
-$$
-\mathcal{K}(w, r) = a(w - r)\, a(w + r)
-$$
-<ul>
-<li>Every instance is a definite computation: rhb(1), rhb(2), rhb(3) and the Goldbach sieve at 4, 6, 8 all return true by evaluation (machine-checked, <code>refl</code>). The whole frontier is one Boolean, true at every stage; a single false stage would refute it, and none exists to any computed depth. What is open is only the section ∀n, never any instance.</li>
+<li>Each instance returns a definite bit you can watch: the Goldbach test at 4, 6, 8 and the Riemann test at 1, 2, 3 all evaluate to 1 (machine-checked, <code>refl</code>). The statement is "this test never returns 0"; one 0 anywhere settles it, and none appears at any depth reached. Open is only the walk over the whole list, never an instance.</li>
 </ul>
 
-<h2><span class="n">7.</span> Formal independence is proved by exhausting finite derivations — the diagonal, not a fourth truth value</h2>
+<h2><span class="n">7.</span> Independence is a property of the finite list of proofs; the diagonal that keeps it open is one construction no program escapes</h2>
 <ul>
-<li>A proof is a finite term. Formal independence of φ from a theory T means T ⊬ φ and T ⊬ ¬φ — no finite derivation of either. There is no proof "in principle" beyond the finite ones, so independence is a definite statement about a decidable, step-by-step relation, and where it holds it is proved by exhausting that relation (Gödel's method).</li>
+<li>A proof in a theory T is a finite string that passes T's checking rules, and "is this string a proof of φ" is itself a finite check. So the proofs of φ are a listable set — enumerate strings, keep the ones that check. T proves φ when that list is nonempty; φ is independent of T when φ's list and ¬φ's list are both empty:</li>
 </ul>
 $$
-T \nvdash \varphi \quad \text{ and } \quad T \nvdash \neg\varphi
+T \vdash \varphi \iff \exists\ \text{a finite string checking as a proof of } \varphi \qquad \text{independent} \iff T \nvdash \varphi \ \text{ and }\ T \nvdash \neg\varphi
 $$
 <ul>
-<li>The universal machine supplies the diagonal directly. No table equals every table on the nose; so a universal machine must read its subject off the tape, and Lawvere's fixed point then builds a configuration map that no program steps — the state-successor of what the decoded machine would do (machine-checked, <code>--safe</code>):</li>
+<li>A proof is finite by definition — none waits offstage — so independence is a definite statement about a decidable, one-string-at-a-time relation, established where it holds by exhausting that relation (Gödel constructs a φ whose two lists are provably both empty).</li>
+<li>The obstruction that forces such gaps is one construction; build it. Suppose a single map e : A → (A → B) that produces every function A → B — for each h some a has e(a) = h. Given any g : B → B, set d(a) = g(e(a)(a)) — feed a its own row, bend by g. If a program h realized d then h = e(a₀) for some a₀, and at a₀:</li>
 </ul>
 $$
-\operatorname{diag}(c) = \operatorname{bump}\big(\operatorname{step}(\operatorname{decode} c,\ c)\big)
+e(a_0)(a_0) = h(a_0) = d(a_0) = g\big(e(a_0)(a_0)\big)
 $$
 <ul>
-<li>The escape is manufactured by self-reference, not counted from cardinality: a program realizing diag would step its own encoding to its own successor.</li>
-<li>Every finite depth of a run is decided, with a witness either way — a halting equation or the transition that refutes it (machine-checked, <code>--safe</code>). Divergence is the refutation at every depth: a proposition over the whole run, not one more depth and not a third value. Transport or silence, and no third road.</li>
-<li>The prime conjectures of §6 sit at exactly this seam: bivalent and computed at every instance, their universal section the one open point, and the diagonal is why no single finite object closes it.</li>
+<li>— so e(a₀)(a₀) is fixed by g. Contrapositive: if g has no fixed point, no single e enumerates all of A → B, and d escapes every row.</li>
+<li>Take g = ¬ on {0, 1} (no fixed point: ¬0 = 1, ¬1 = 0). The escaping d answers the opposite of what the machine indexed by a would answer on its own code, and no program realizes it. Cantor (no surjection A → 2<sup>A</sup>), Gödel (the sentence asserting its own unprovability), and Halting (no machine decides its own halting) are this one escape with A, B chosen.</li>
+<li>The prime conjectures of §6 sit here: every instance decided by a finite walk, the section over the whole list the one thing such a diagonal can hold open — no third value, just a construction no finite object completes.</li>
 </ul>
 
 </main>
