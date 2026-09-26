@@ -814,27 +814,39 @@ Test: ITRS invariant across schedules.
 
 ## 11. Files
 
-Status. Written and green (33 checks, `pusc/test.sh`): cell.h, cell.c, read.c,
-main.c, prelude.pusc (the Kan rows as data), t/*.pusc. Computes: the face-map
-algebra without capture, laziness, the De Morgan interval, regularity,
-transp/hcomp on Pi, Sig, Path, Nat/Bool/List, superposed lines, Glue with `uaβ`,
-composites in the universe (hcomp in Set through transpEquiv), general
-dimension substitution, the HIT schema (endpoints from types, eliminator,
-composites, transport along a moving parameter). Not yet: the typed point and
-`interact` (ASK), erase at projection, gmp numbers, the Bend dialect as a rule
-table, verify, install.
+Status. Written and green: 33 kernel checks (`pusc/test.sh`) and the whole
+Bend2 corpus (`pusc/bendtest.sh`: every `.bend` under
+`collab/bend2-interactive-cubical` and `port/` with a `main`, 124 programs,
+value identical to Bend2's own normaliser branch by branch; 12 skipped because
+the oracle itself does not check or run them). The Bend dialect is realised as
+§5.1 says a dialect must be: a certified translator. Bend2's checker is the
+translator and the check is the certificate: `bend FILE --to-pusc`
+(`src/Target/Pusc.hs` in `cubical-paths.patch`) writes the checked book as
+cells of the kernel's own text, one typed point `(def b/NAME : TYPE = TERM)`
+per definition and one `(hit …)` per declared HIT, and `pusc bend FILE` runs
+it and presents the value as Bend2 does (collapse order included). No rule of
+the language lives in the translator: the emitter is a table of names.
 
-    pusc/cell.h     ~150   the word layout, tags, Name, Frame, Rule, accessors, CtorInfo   (written: 147)
-    pusc/cell.c    ~1000   §§1–4, 6, 8, 9: heap 40, frames+descent 100, loop+dispatch 80,
-                           face map 60, application 40, erase 40, interval DNF 100,
-                           transp+hcomp 250, HIT 100, call step 120, gmp+ops 60,
-                           trace+census+printer 150                                         (written: 857)
-    pusc/prelude.pusc ~150 the Kan rows, Glue, transpEquiv, the HIT rows, as data           (written: 146)
-    pusc/read.c     ~250   §5: the reader for the kernel's own text (the identity chart)     (written: 232)
-    pusc/bend.rules ~400   §5.1: Bend2's grammar as a certified rule table in that text,
-                           loaded by install; Pat flattening and HIT elaboration are rules too
-    pusc/book.c     ~150   BOOK/TBOOK construction, descent pass, refusals
-    pusc/verify.c   ~700   §7
-    pusc/main.c      ~80   run | interact | check
-    pusc/test.sh     ~60   §10 over collab/bend2-interactive-cubical/*.bend and port/
-                   ~2800   total (≈400 of it the Bend dialect as data)
+Computes: the face-map algebra without capture, laziness, the De Morgan
+interval, regularity, transp/hcomp on Pi, Sig, Path, Nat/Bool/List,
+superposed lines and global labels, Glue with `uaβ`, Bend2's 6-ary `ua` as a
+universe path, composites in the universe (hcomp in Set through transpEquiv),
+general dimension substitution, the HIT schema (endpoints from types,
+eliminator, composites, transport along a moving parameter, the checker's
+three built-in HITs as instances), fixed points, the four numeric kinds,
+partial elements and restriction types. Not yet: `interact` (ASK), erase at
+projection, the tokens-meet-rules parser (the translator is Bend2's parser
+for now), verify, install.
+
+    pusc/cell.h      157   the word layout, tags, Name, Frame, Rule, accessors, CtorInfo
+    pusc/cell.c     1134   §§1–4, 6, 8, 9: heap, frames+descent, loop+dispatch, face map, application,
+                           interval DNF, transp+hcomp dispatch, HIT schema, numbers, printers, collapse
+    pusc/prelude.pusc 147  the Kan rows, Glue, transpEquiv, the HIT rows, as data
+    pusc/bend.pusc    38   the Bend dialect's rows: transp, ua, the three built-in HITs
+    pusc/read.c      257   §5: the reader for the kernel's own text (the identity chart)
+    pusc/main.c       25   run | bend
+    pusc/test.sh      46   the kernel checks
+    pusc/bendtest.sh  25   §10.1 over the corpus against Bend2's normaliser
+    Bend2 src/Target/Pusc.hs  ~190   the checked book as cells (in cubical-paths.patch)
+    pusc/verify.c   ~700   §7 (not yet)
+    pusc/book.c     ~150   install (not yet)

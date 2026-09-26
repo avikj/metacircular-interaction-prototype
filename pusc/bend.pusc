@@ -1,0 +1,38 @@
+; pusc — bend.pusc: the Bend2 dialect's rows on top of the kernel prelude (MAP.md §5.1).
+; Loaded by `pusc bend FILE` for programs emitted by `bend FILE --to-pusc`.
+
+; transp(L, φ, x): the line is constant on φ, so on φ transport is x by regularity; the
+; face is a typing constraint and the cell is ordinary transport.
+(def transp (lam L (lam phi (lam x (trp L i0 i1 x)))))
+
+; Bend2's 6-ary ua is a primitive universe path: its endpoints are read from its type by the
+; HIT schema; transport along it applies f or g (trp_step, the UaU row).
+(hit h/UaLine ()
+  (UaU : (ctr Pi (ctr Set) (lam A (ctr Pi (ctr Set) (lam B (ctr Pi (ctr Pi A (lam _ B)) (lam f
+         (ctr Pi (ctr Pi B (lam _ A)) (lam g (ctr Pi (ctr Unit) (lam gf (ctr Pi (ctr Unit) (lam fg
+         (ctr Path (plm _ (ctr Set)) A B)))))))))))))))
+
+; the three hardcoded HITs of the checker, as instances of the schema
+; (their constructors do not carry the parameters: `~` marks the parameter list as opaque)
+(hit h/S1 ()
+  (@S1/base : (ctr h/S1))
+  (@S1/loop : (ctr Path (plm _ (ctr h/S1)) (ctr @S1/base) (ctr @S1/base))))
+(def srec (lam x (lam b (lam l (hrec x (@S1/base () b) (@S1/loop () l))))))
+
+(hit h/Trunc (~ A)
+  (@Trunc/tin     : (ctr Pi (ctr Set) (lam A (ctr Pi A (lam a (ctr h/Trunc A))))))
+  (@Trunc/tsquash : (ctr Pi (ctr Set) (lam A (ctr Pi (ctr h/Trunc A) (lam x (ctr Pi (ctr h/Trunc A) (lam y
+                    (ctr Path (plm _ (ctr h/Trunc A)) x y)))))))))
+(def trec (lam x (lam pB (lam f
+  (hrec x (@Trunc/tin (a) (app f a))
+          (@Trunc/tsquash (u v) (plm i (app (app (app pB (trec u pB f)) (trec v pB f)) i))))))))
+
+(hit h/Quot (~ A R)
+  (@Quot/cl : (ctr Pi (ctr Set) (lam A (ctr Pi (ctr Pi A (lam _ (ctr Pi A (lam _ (ctr Set))))) (lam R
+              (ctr Pi A (lam a (ctr h/Quot A R))))))))
+  (@Quot/eq : (ctr Pi (ctr Set) (lam A (ctr Pi (ctr Pi A (lam _ (ctr Pi A (lam _ (ctr Set))))) (lam R
+              (ctr Pi A (lam a (ctr Pi A (lam b (ctr Pi (app (app R a) b) (lam w
+              (ctr Path (plm _ (ctr h/Quot A R)) (ctr @Quot/cl a) (ctr @Quot/cl b))))))))))))))
+(def qrec (lam x (lam t (lam f (lam resp
+  (hrec x (@Quot/cl (a) (app f a))
+          (@Quot/eq (a b w) (plm i (app (app (app (app resp a) b) w) i)))))))))

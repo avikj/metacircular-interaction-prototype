@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # pusc/test.sh — MAP.md §10.  Each line: file  def  expected-value.  Values only; ITRS is the kernel's own metric.
 set -u; cd "$(dirname "$0")"
-gcc -std=gnu11 -O2 -Wall -Wno-misleading-indentation -Wno-unused-parameter -Wno-unused-function -o pusc cell.c read.c main.c || exit 1
+gcc -std=gnu11 -O2 -Wall -Wno-misleading-indentation -Wno-unused-parameter -Wno-unused-function -o pusc cell.c read.c main.c -lm || exit 1
 pass=0; fail=0
 check() { got=$(./pusc run "$1" "$2" 2>&1 | head -1); if [ "$got" = "$3" ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL $1 $2: got '$got' want '$3'"; fi; }
 check t/basic.pusc main      '#Suc{#Suc{#Suc{#Suc{#Zer{}}}}}'
@@ -17,7 +17,8 @@ check t/kan.pusc   hc-true   '7'
 check t/kan.pusc   hc-none   '0'
 check t/kan.pusc   hc-nat    '#Suc{#Zer{}}'
 check t/kan.pusc   pitrp     '9'
-got=$(./pusc run t/ua.pusc glue-at-0 | head -1); case "$got" in 'Glue('*) pass=$((pass+1));; *) fail=$((fail+1)); echo "FAIL glue-at-0: $got";; esac
+# a Glue type with a true face IS that partial type (glueT)
+got=$(./pusc run t/ua.pusc glue-at-0 | head -1); case "$got" in '#Bool{}') pass=$((pass+1));; *) fail=$((fail+1)); echo "FAIL glue-at-0: $got";; esac
 check t/ua.pusc    fwd-true  '#False{}'
 check t/ua.pusc    fwd-false '#True{}'
 check t/ua.pusc    bwd-true  '#False{}'
@@ -34,8 +35,8 @@ check t/hit.pusc at-0      '1'
 check t/hit.pusc faced     '1'
 check t/hit.pusc helim-sq  '#Zer{}'
 check t/hit.pusc sup-pt    '&1{1,1}'
-check t/hit.pusc merid-t   '#merid{#False{}}'
-check t/hit.pusc merid-t0  '#north{}'
+check t/hit.pusc merid-t   '#merid{#Bool{},#False{}}'
+check t/hit.pusc merid-t0  '#north{#Bool{}}'
 # the interval is De Morgan, not Boolean: absorption holds, complement does not
 got=$(./pusc run t/kan.pusc absorb | head -1);   case "$got" in i[0-9]*) pass=$((pass+1));; *) fail=$((fail+1)); echo "FAIL absorb: $got";; esac
 got=$(./pusc run t/kan.pusc nocompl | head -1);  case "$got" in '~i'*'∨i'*) pass=$((pass+1));; *) fail=$((fail+1)); echo "FAIL nocompl: $got";; esac

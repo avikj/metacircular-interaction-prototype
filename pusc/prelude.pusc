@@ -133,6 +133,7 @@
 ;   transport along a HIT line whose parameters move: each field along its own dependent type line
 (def apps (lam f (lam xs (case xs (Nil () f) (Cons (x rest) (apps (app f x) rest))))))
 (def map  (lam f (lam xs (case xs (Nil () (ctr Nil)) (Cons (x rest) (ctr Cons (app f x) (map f rest)))))))
+(def append (lam xs (lam ys (case xs (Nil () ys) (Cons (x rest) (ctr Cons x (append rest ys)))))))
 (def snoc (lam xs (lam y (case xs (Nil () (ctr Cons y (ctr Nil))) (Cons (x rest) (ctr Cons x (snoc rest y)))))))
 (def inst-pis (lam T (lam xs (case xs (Nil () T) (Cons (x rest) (inst-pis (app (pi-cod T) x) rest))))))
 (def hit-field-ty (lam T (lam prev (pi-dom (inst-pis T prev)))))

@@ -35,8 +35,10 @@ enum Tag {
   T_IDNF,      /* ext = ncubes, loc → cubes: [nlits, lit…]…  canonical interval (antichain of cubes) */
   /* data; a type is a CTR cell with a reserved constructor id */
   T_CTR,       /* ext = ctor id (16) | arity (8), loc → fields         */
-  T_NUM,       /* loc → [u64]                                          */
+  T_NUM,       /* ext = kind (N_U64, N_I64, N_F64, N_CHR), loc → [u64 bits] */
   T_OP2,       /* ext = op, loc → [a, b]            ● a then ● b       */
+  T_OP1,       /* ext = op, loc → [a]               ● a                */
+  T_POUT,      /* loc → [u]  pout of a system: the branch of a true face; stuck otherwise */
   /* Kan */
   T_TRP,       /* loc → [line, r, s, x]             ● line            */
   T_HCM,       /* loc → [type, base, faces]           ● faces          */
@@ -83,7 +85,7 @@ static inline uint32_t ctr_arity(Term t) { return ext(t) & 0xFF; }
 
 /* ---- ops ---------------------------------------------------------------- */
 enum Op { OP_ADD, OP_SUB, OP_MUL, OP_DIV, OP_MOD, OP_EQ, OP_NE, OP_LT, OP_LE, OP_GT, OP_GE,
-          OP_AND, OP_OR, OP_XOR, OP_LSH, OP_RSH, OP_COUNT };
+          OP_AND, OP_OR, OP_XOR, OP_LSH, OP_RSH, OP_POW, OP_COUNT };
 
 /* ---- static code (the BOOK) ------------------------------------------- */
 /* Static terms live in an immutable arena; binders are de Bruijn levels.  */
@@ -91,8 +93,10 @@ enum STag {
   S_VAR = 1, S_LAM, S_APP, S_REF, S_ERA, S_SUP, S_PLM, S_DIM, S_FCE,
   S_I0, S_I1, S_IVAR, S_INOT, S_IAND, S_IOR,
   S_CTR, S_NUM, S_OP2, S_TRP, S_HCM, S_CASE, S_BRANCH, S_CHK, S_ASK, S_LET, S_PROJ, S_GLU, S_GLUE, S_UNGLUE, S_FCASE, S_GBASE, S_GFACES, S_ISUB,
-  S_HELIM, S_CFIELDS, S_CWITH
+  S_HELIM, S_CFIELDS, S_CWITH, S_FIX, S_OP1, S_POUT, S_LABEL
 };
+enum NumKind { N_U64 = 0, N_I64, N_F64, N_CHR };
+enum Op1 { OP1_NOT, OP1_NEG, OP1_TOCHAR };
 typedef struct SNode {
   uint8_t  tag;
   uint32_t ext;        /* level / op / ctor ext / side / count */
@@ -115,17 +119,20 @@ extern Term    *HEAP;   extern Loc HEAP_LEN;
 extern SNode   *CODE;   extern uint32_t CODE_LEN;
 extern uint32_t *KIDS;  extern uint32_t KIDS_LEN;
 extern Def     *BOOK;   extern uint32_t BOOK_LEN;
+extern const char **BNAMES; extern uint32_t BNAMES_LEN;   /* field names of case branches (S_BRANCH.num = index), for presentation */
 extern uint64_t ITRS;
 extern uint32_t *TRACE; extern uint64_t TRACE_LEN;   /* receipts: rule ids */
 
 enum RuleId { R_BETA = 1, R_APP_SUP, R_APP_PLM, R_FCE_ANNIHILATE, R_FCE_COMMUTE, R_FCE_PUSH,
               R_FCE_SHARE, R_CASE, R_CASE_SUP, R_OP2, R_OP2_SUP, R_ERASE, R_TRP, R_HCM,
-              R_HCON, R_HELIM, R_HELIM_SUP, R_HELIM_HCM, R_COUNT };
+              R_HCON, R_HELIM, R_HELIM_SUP, R_HELIM_HCM, R_OP1, R_POUT, R_COUNT };
 
 /* ---- the HIT schema (§4): nothing per HIT is hardcoded; a constructor's boundary IS its type ---- */
 typedef struct CtorInfo {
   bool     is_hit;     /* this constructor id names a higher inductive TYPE */
   uint32_t nparams;    /* … with this many parameters */
+  bool     carries;    /* its constructors carry the parameters as leading fields (the emitter's convention);
+                          otherwise endpoints are read with opaque placeholders for them (the checker's built-ins) */
   uint32_t hit;        /* for a constructor of a HIT: the type's id (0 otherwise) */
   int      type_def;   /* the book entry holding its closed type: Pi params. Pi fields. T ps | Path … */
   uint32_t nfields, dim;
@@ -144,4 +151,7 @@ extern int RULE_TRP[256], RULE_HCM[256];   /* prelude rule per type constructor 
 int  book_find(const char *name);
 const char *ctor_name(uint32_t id);
 uint32_t ctor_intern(const char *name, uint32_t arity);
+Term label_name(uint32_t k);           /* the one global choice name of a numeric label (the Bend dialect) */
+void print_bend(Term t, int depth);    /* Bend2's own presentation of a value */
+void collapse_print(Term t);           /* one line per branch, in Bend2's collapse order */
 #endif
