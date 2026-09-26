@@ -141,6 +141,47 @@ static int meet(const char *na, const char *nb) {
   printf("τ: "); for (uint32_t i = 0; i < tau.n; i++) printf("%s%s%s@%u", i ? " " : "", tau.rev[i] ? "~" : "", RULE_NAME[tau.rule[i]], tau.node[i]); printf("\n");
   return 0;
 }
+/* ---- the joint state -------------------------------------------------------------------------------------
+   formal/cubical/theorems/logic/Jiva_EntanglementIsTheFibreOfTheProductComparisonAndTheLivingStepRefusesToDescendToTheMarginals.agda
+   A joint state of two parts is a type J with two projections p : J → A, q : J → B; everything is an officer of
+   the one comparison map तुलना j = (p j, q j).  Independence (स्वातन्त्र्यम्) is the comparison being an
+   equivalence; entanglement (संश्लेष-तन्तुः) is its fibre family: an empty fibre is a pair of marginal readings
+   the whole never realises, a two-point fibre a hidden degree of freedom the marginals cannot see.  A step on J
+   descends along p (अवतरणम्) when some endomap of the part closes the square f ∘ p ∼ p ∘ step; a living step
+   (जीवति) refuses: two configurations agree at p and disagree at p ∘ step. */
+static int joint(const char *nj, const char *np, const char *nq) {
+  int ij = book_find(nj), ip = book_find(np), iq = book_find(nq);
+  if (ij < 0 || ip < 0 || iq < 0) { fprintf(stderr, "hyper: joint needs the joint and its two projections\n"); return 1; }
+  static Term js[4096]; int n = collapse_leaves(mk(T_REF, 0, (uint32_t)ij), js, 4096);
+  char **pa = calloc((size_t)n, sizeof *pa), **qb = calloc((size_t)n, sizeof *qb), **sj = calloc((size_t)n, sizeof *sj);
+  for (int i = 0; i < n; i++) { sj[i] = term_string(js[i], 64); pa[i] = term_string(app2(mk(T_REF, 0, (uint32_t)ip), js[i]), 64); qb[i] = term_string(app2(mk(T_REF, 0, (uint32_t)iq), js[i]), 64); }
+  bool independent = true;
+  for (int i = 0; i < n; i++) for (int k = 0; k < n; k++) {          /* every pair of marginal readings (a, b) */
+    bool seen = false; for (int i2 = 0; i2 < i && !seen; i2++) for (int k2 = 0; k2 < n; k2++) if (!strcmp(pa[i2], pa[i]) && !strcmp(qb[k2], qb[k])) { seen = true; break; }
+    for (int k2 = 0; k2 < k && !seen; k2++) if (!strcmp(qb[k2], qb[k])) seen = true;
+    if (seen) continue;
+    int c = 0; for (int j = 0; j < n; j++) if (!strcmp(pa[j], pa[i]) && !strcmp(qb[j], qb[k])) c++;
+    printf("(%s, %s): %s", pa[i], qb[k], c == 0 ? "रिक्तम्" : c == 1 ? "सकलादेश" : "बहु");
+    for (int j = 0; j < n; j++) if (!strcmp(pa[j], pa[i]) && !strcmp(qb[j], qb[k])) printf(" %s", sj[j]);
+    printf("\n"); if (c != 1) independent = false;
+  }
+  printf("%s\n", independent ? "स्वातन्त्र्यम्: the comparison is an equivalence" : "entangled: the comparison is not an equivalence");
+  return 0;
+}
+static int descends(const char *nstep, const char *np, const char *nj) {
+  int is = book_find(nstep), ip = book_find(np), ij = book_find(nj);
+  if (is < 0 || ip < 0 || ij < 0) { fprintf(stderr, "hyper: descends needs the step, the projection and the joint\n"); return 1; }
+  static Term js[4096]; int n = collapse_leaves(mk(T_REF, 0, (uint32_t)ij), js, 4096);
+  char **pj = calloc((size_t)n, sizeof *pj), **ps = calloc((size_t)n, sizeof *ps), **sj = calloc((size_t)n, sizeof *sj);
+  Term P = mk(T_REF, 0, (uint32_t)ip), S = mk(T_REF, 0, (uint32_t)is);
+  for (int i = 0; i < n; i++) { sj[i] = term_string(js[i], 64); pj[i] = term_string(app2(P, js[i]), 64); ps[i] = term_string(app2(P, app2(S, js[i])), 64); }
+  for (int i = 0; i < n; i++) for (int k = i + 1; k < n; k++)
+    if (!strcmp(pj[i], pj[k]) && strcmp(ps[i], ps[k])) {
+      printf("जीवति: %s refuses to descend along %s; %s and %s agree at %s and step to %s and %s\n", nstep, np, sj[i], sj[k], pj[i], ps[i], ps[k]);
+      return 0; }
+  printf("अवतरणम्: %s descends along %s; the square closes\n", nstep, np);
+  return 0;
+}
 static void load_next_to_exe(const char *exe, const char *name) {
   char pre[4096]; const char *slash = strrchr(exe, '/');
   snprintf(pre, sizeof pre, "%.*s%s%s", slash ? (int)(slash - exe) : 1, slash ? exe : ".", "/", name);
@@ -149,7 +190,7 @@ static void load_next_to_exe(const char *exe, const char *name) {
 int main(int argc, char **argv) {
   { struct rlimit rl; if (!getrlimit(RLIMIT_STACK, &rl)) { rl.rlim_cur = rl.rlim_max == RLIM_INFINITY ? (rlim_t)4 << 30 : rl.rlim_max; setrlimit(RLIMIT_STACK, &rl); } }   /* deep terms recurse deep */
   sched_init();
-  if (argc < 3) { fprintf(stderr, "usage: hyper run FILE [DEF] | hyper bend FILE | hyper check FILE | hyper interact FILE [DEF] | hyper census FILE MAP DOM COD | hyper meet FILE A B\n"); return 1; }
+  if (argc < 3) { fprintf(stderr, "usage: hyper run FILE [DEF] | hyper bend FILE | hyper check FILE | hyper interact FILE [DEF] | hyper census FILE MAP DOM COD | hyper meet FILE A B | hyper joint FILE J P Q | hyper descends FILE STEP P J\n"); return 1; }
   bool bend = !strcmp(argv[1], "bend") || !strcmp(argv[1], "check");
   bool inter = !strcmp(argv[1], "interact");
   if (inter) bend = true;                                /* the dialect's rows are loaded; presentation follows the entry's namespace */
@@ -159,6 +200,8 @@ int main(int argc, char **argv) {
   load_prelude();
   if (!strcmp(argv[1], "check")) return check_book("b/") ? 1 : 0;
   if (!strcmp(argv[1], "meet")) { if (argc < 5) { fprintf(stderr, "usage: hyper meet FILE A B\n"); return 1; } return meet(argv[3], argv[4]); }
+  if (!strcmp(argv[1], "joint")) { if (argc < 6) { fprintf(stderr, "usage: hyper joint FILE J P Q\n"); return 1; } return joint(argv[3], argv[4], argv[5]); }
+  if (!strcmp(argv[1], "descends")) { if (argc < 6) { fprintf(stderr, "usage: hyper descends FILE STEP P J\n"); return 1; } return descends(argv[3], argv[4], argv[5]); }
   if (!strcmp(argv[1], "census")) { if (argc < 6) { fprintf(stderr, "usage: hyper census FILE MAP DOM COD\n"); return 1; } return census(argv[3], argv[4], argv[5]); }
   if (inter) { const char *e = argc > 3 ? argv[3] : (book_find("b/main") >= 0 ? "b/main" : "main"); return interact(e, !strncmp(e, "b/", 2)); }
   const char *entry = argc > 3 ? argv[3] : (bend ? "b/main" : "main");

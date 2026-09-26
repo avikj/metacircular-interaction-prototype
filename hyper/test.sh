@@ -93,6 +93,16 @@ if [ "$got" = "$want" ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAI
 l=$(HYPER_TRACE=1 ./hyper run t/meet.hyper cross | sed -n '1p;4p' | tr '\n' '|'); r=$(HYPER_TRACE=1 HYPER_SCHEDULE=right ./hyper run t/meet.hyper cross | sed -n '1p;4p' | tr '\n' '|')
 lv=${l%%|*}; rv=${r%%|*}; lt=${l#*|}; rt=${r#*|}; ln=$(echo "$lt" | wc -w); rn=$(echo "$rt" | wc -w)
 if [ "$lv" = "26" ] && [ "$lv" = "$rv" ] && [ "$ln" -eq "$rn" ] && [ "$lt" != "$rt" ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL crossing: [$l] [$r]"; fi
+# the joint state (theorems/logic/Jiva_…), computed: the product joint is independent; the diagonal joint has empty fibres at
+# (True,False) and (False,True); the joint over Unit×Unit has a two-point fibre; the living step refuses along the visible
+# side and descends along the hidden one; the dead step descends on both
+got=$(./hyper joint t/jiva.hyper product left right | tail -1); [ "$got" = "स्वातन्त्र्यम्: the comparison is an equivalence" ] && pass=$((pass+1)) || { fail=$((fail+1)); echo "FAIL joint product: $got"; }
+got=$(./hyper joint t/jiva.hyper bools id id | tr '\n' '|')
+[ "$got" = "(#True{}, #True{}): सकलादेश #True{}|(#True{}, #False{}): रिक्तम्|(#False{}, #True{}): रिक्तम्|(#False{}, #False{}): सकलादेश #False{}|entangled: the comparison is not an equivalence|" ] && pass=$((pass+1)) || { fail=$((fail+1)); echo "FAIL joint diagonal: $got"; }
+got=$(./hyper joint t/jiva.hyper bools unit unit | head -1); [ "$got" = "(#Tt{}, #Tt{}): बहु #True{} #False{}" ] && pass=$((pass+1)) || { fail=$((fail+1)); echo "FAIL joint hidden: $got"; }
+got=$(./hyper descends t/jiva.hyper cnot left product | cut -d: -f1); [ "$got" = "जीवति" ] && pass=$((pass+1)) || { fail=$((fail+1)); echo "FAIL living step: $got"; }
+got=$(./hyper descends t/jiva.hyper cnot right product | cut -d: -f1); [ "$got" = "अवतरणम्" ] && pass=$((pass+1)) || { fail=$((fail+1)); echo "FAIL cnot right: $got"; }
+got=$(./hyper descends t/jiva.hyper dead left product | cut -d: -f1)$(./hyper descends t/jiva.hyper dead right product | cut -d: -f1); [ "$got" = "अवतरणम्अवतरणम्" ] && pass=$((pass+1)) || { fail=$((fail+1)); echo "FAIL dead step: $got"; }
 # every identifier MAP.md names is on the line it cites
 if ./cite.sh >/dev/null; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL cite: $(./cite.sh | tail -3 | tr '\n' ' ')"; fi
 echo "pass=$pass fail=$fail"; [ $fail -eq 0 ]

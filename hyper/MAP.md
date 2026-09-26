@@ -53,51 +53,77 @@ first; the branch-wise comparison of two stuck eliminators is bounded; a face
 map passes through an application of a closed name into its arguments before
 the name unfolds, the one rule that fires on a node that is not a value.
 
-## 2. The machine
+## 2. The primitive: interaction
 
-`fibre/src/Fibre/CorpusInteraction.agda`, whole:
-
-```
-Point ℓ    = Σ[ A ∈ Type ℓ ] A                                    :16
-Question s = Σ[ B ∈ Type ℓ ] (fst s → B)                           :22
-target s (B , f) = B , f (snd s)                                    :25
-Receipt s q s' = target s q ≡ s'                                    :28
-Event _ _ _ r = r ≡ r                                               :31
-Corpus = S.ISC Question Receipt Event                               :35
-run : (s : Point ℓ) → Corpus s                                      :38
-S.react (run s) q = target s q , refl , refl , run (target s q)
-step a f : fst (S.react (run (point a)) (B , f)) ≡ point (f a) = refl    :41
-```
-
-with the coalgebra
+Everything in this corpus is interaction, two-place at the least, and the
+runtime's one operation is the coalgebra's `react`:
 `fibre/src/Fibre/Interaction_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers.agda:75`
-`ISC` (coinductive), `:81` `react : (q : Q w) → Σ[ w' ∈ W ] Σ[ o ∈ O w q w' ] (E w q w' o × ISC Q O E w')`.
-A state is a typed point. A question is a typed map out of the current type. The
-answer is the point carried along it. The receipt is the path from the target to
-the new state, `refl` at the canonical step. The process continues at the new
-point, guarded: nothing is globally normalised, a finite demand of length n asks n
-questions and forces nothing else. `:132` `det-observe` and `:139`
-`det-strategy-independent`: with the trivial question every strategy observes
-the same prefix of the orbit. `:172` `counter-demand-matters`: with a real
-question two strategies computably disagree at the first step.
+`ISC` (coinductive), `:81` `react : (q : Q w) → Σ[ w' ∈ W ] Σ[ o ∈ O w q w' ] (E w q w' o × ISC Q O E w')`:
+one encounter returns the successor, the observation, the proof-relevant event,
+and the continuation, which is again an interaction. Nothing is globally
+normalised; a finite demand of length n asks n questions and forces nothing else
+(`:99` `observe`). `:132` `det-observe`, `:139` `det-strategy-independent`: with
+the trivial question every strategy sees the same prefix of the orbit; `:172`
+`counter-demand-matters`: with a real question two strategies disagree at the
+first step. `LIFECYCLE.rst`: do not begin by assuming two independent machines
+exchanging messages; start from the joint interaction and establish which
+projections, dependencies and transports it admits.
 
-The state carries its reading losslessly: `fibre/src/Fibre/CorpusInteraction.agda:47`
-`State`, `:82` `state≡carried`, by `fibre/src/Fibre/Carrier.agda:92`
-`fibre-isContr` (the fibre `singl (f a)` is contractible), `:96` `descend`,
-`:115` `Carrier≃`, `:119` `Carrier≡`, and `:129` `carry-transport-descend`
-(transport along ua computes to descend, by uaβ).
+Its instances, each a checked module, each computed by one mode of `hyper`:
 
-As written (`main.c`):
+**A typed point and a typed map** (`fibre/src/Fibre/CorpusInteraction.agda`,
+whole: `:16` `Point`, `:22` `Question`, `:25` `target`, `:28` `Receipt`, `:38`
+`run`, `:41` `step`). A state is `(A, a) : Σ A. A`; a question is `(B, f)` with
+`f : A → B`; the answer is `(B, f a)`; the receipt is the path `target s q ≡ s'`,
+`refl` at the canonical step. The event is the residual:
+`formal/cubical/theorems/residue/CorpusLosslessPresentation.agda:19` `Residual`
+(`fiber (query s q) (query s q (source s))`), `:27` `current-residual`
+(`source s , refl`), and `formal/cubical/theorems/residue/CorpusSelfPresentation.agda:12`
+`present` returns the four together. The state carries its reading losslessly
+(`fibre/src/Fibre/CorpusInteraction.agda:47` `State`, `:82` `state≡carried`,
+by `fibre/src/Fibre/Carrier.agda:92` `fibre-isContr`, `:96` `descend`, `:115`
+`Carrier≃`, `:119` `Carrier≡`, `:129` `carry-transport-descend`). As written:
+`hyper run FILE [DEF]` is the trivial query; `hyper interact FILE [DEF]` is
+`present`: the point, then each line of the world a question, the point
+presented along it, the new state `(q a, (a, refl))`; an `ASK` cell is a
+question the point asks the world. The residual's census is `hyper census`
+(§3).
 
-- `hyper run FILE [DEF]` is the trivial-query case: the point reduced to its
-  normal form, no question asked.
-- `hyper interact FILE [DEF]` is `react`: the point is printed, then each line
-  of the world is a question, a term of the kernel's text, and the point is
-  presented along it; the new state is `(q a, (a, refl))`, the source never left
-  behind. A reduction that stalls at an `ASK` cell prints the question and
-  resumes on the world's line.
-- `hyper check FILE` is `verify.c` on every definition.
-- `hyper bend FILE` runs `b/main` in Bend2's presentation, for the oracle.
+**Two parts of one joint**
+(`formal/cubical/theorems/logic/Jiva_EntanglementIsTheFibreOfTheProductComparisonAndTheLivingStepRefusesToDescendToTheMarginals.agda`).
+A joint state is `J` with two projections, and everything is an officer of the
+comparison `:134` `तुलना`, `j ↦ (p j , q j)`: `:139` `स्वातन्त्र्यम्` (independence
+is the comparison being an equivalence), `:142` `संश्लेष-तन्तुः` (entanglement is
+its fibre family), `:149` `संकलनम्` (the joint is the sum of its entanglement
+fibres). `:164` `घटः-स्वतन्त्रः`: the product joint is independent. `:178`
+`रिक्तम्`: the diagonal joint has an empty fibre over `(true, false)`, a pair of
+marginal readings the whole never realises. `:207` `गूढौ-भिन्नौ`: the joint over
+`Unit × Unit` has two distinct residents over the one reading. A step on `J`
+descends along a projection when some endomap of the part closes the square
+(`:256` `युगलम्-उभयतः`); `:266` `जीवति`: the controlled-not refuses to descend
+along the visible side, interrogated at `(true, false)` and `(true, true)`;
+`:276` `दक्षिण-विलयः`: it descends along the hidden side by `refl`; `:286`
+`विलयः`: the step `(not a, b)` descends on both sides; `:302` `जीवन-द्विः`: the
+living step is an involution, globally lossless, locally refusing. As written:
+`hyper joint FILE J P Q` computes the census of the comparison over the
+superposition of the joint, each pair of marginal readings रिक्तम्, सकलादेश or
+बहु, and the verdict स्वातन्त्र्यम् when every fibre is a point; `hyper descends
+FILE STEP P J` decides whether the square closes and names the interrogating
+pair when it does not. `t/jiva.hyper` is the module's §१ to §६, computed.
+
+**Two sessions and an overlap**: the encounter, §4b.
+
+**The fixed alphabet.** A Chu evaluation `e : A × X → K` retains `k`; the
+lossless interaction retains `fib_e(k)`, forced by
+`fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda:129`
+`fibre-of-run`; the general interaction is a family `R : A × X → 𝒰` classified
+by the universal family, and a tower of such families flattens to one
+(`fibre/src/Fibre/Universal_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda:312`
+`flatten`). `CHU_LOSSLESS_INTERACTION.md` is the reading; the runtime's
+`census` over a product domain is the Chu matrix with its fibres.
+
+`hyper check FILE` is `verify.c` on every definition; `hyper bend FILE` runs
+`b/main` in Bend2's presentation, for the oracle.
 
 ## 3. The trace, and what a computation costs
 
@@ -212,7 +238,7 @@ which needs a demanded evidence (`demand R d`) this runtime does not yet model.
                              case trees, the HIT schema, numbers, transp, hcomp, Glue, the loop, the ledger, printers
     hyper/read.c             the reader for the kernel's own text
     hyper/verify.c           the checker on the same loop
-    hyper/main.c             run | bend | check | interact | census | meet (§2, §3, §4b)
+    hyper/main.c             run | bend | check | interact | census | joint | descends | meet (§2, §3, §4b)
     hyper/prelude.hyper 158  the Kan rows, Glue, transpEquiv, the HIT rows, as data
     hyper/bend.hyper     45  the Bend2 dialect's rows
     hyper/test.sh            the substrate's checks
