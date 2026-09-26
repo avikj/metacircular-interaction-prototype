@@ -795,6 +795,21 @@ may carry an induction (hypothesis steps) as its certificate.
       RULES.push({ lhs pattern, rhs, certificate := d })
     an installed rule is dispatched like any other; its cost is a row.
 
+As written (`read.c`, `verify.c`, `cell.c`): the form `(install SOURCE TARGET CERT)`
+names three definitions of the book and stores the record unchecked. Before
+any run, the checker (§7) verifies each certificate at the goal
+`Path (konst T) (ref SOURCE) (ref TARGET)`, with `T` the source's declared type
+and with no install in force during the check (the certificate is checked
+against the uninstalled book, so an install cannot certify itself). A checked
+record sets `native` on the source: the loop's REF case dispatches the target
+under the receipt `R_INSTALL`, one row, where the source's own code would have
+paid its rows. A certificate that does not check refuses the run (`pusc run`,
+`bend`, `interact` exit 1: never miscompile); `pusc check` reports
+`✓ install SOURCE := TARGET`. The certificate is kept in the book and printed
+by `pusc check`, so `extract(install d) ≡ d` is the identity on the record.
+`t/install.pusc`: `notnot := id` by the path `λi. λx. negLnv x i`; the value is
+unchanged and the run's count falls from 5 to 2 interactions.
+
 ```
    Derivation lhs ≡ rhs  ──install──▶  RULES[n] = { lhs, rhs, d }  ──extract──▶  d      (refl)
                                             │
@@ -837,7 +852,7 @@ Test: ITRS invariant across schedules.
 
 ## 11. Files
 
-Status. Written and green: 34 kernel checks (`pusc/test.sh`) and the whole
+Status. Written and green: 40 kernel checks (`pusc/test.sh`) and the whole
 Bend2 corpus (`pusc/bendtest.sh`: every `.bend` under
 `collab/bend2-interactive-cubical` and `port/` with a `main`, 124 programs,
 value identical to Bend2's own normaliser branch by branch; 12 skipped because
@@ -865,20 +880,23 @@ three built-in HITs as instances), fixed points, the four numeric kinds,
 partial elements and restriction types. `pusc interact FILE` is the machine that
 asks (§5): the entry is the point, each line of the world is a question (a
 term) the point presents itself along, and a reduction that stalls at an ASK
-cell prints the question and resumes on the world's answer. Not yet: erase at
+cell prints the question and resumes on the world's answer. `(install SOURCE
+TARGET CERT)` (§8) replaces an operation by another once the certificate
+checks; a failing certificate refuses the run. `PUSC_CENSUS=1` prints the
+census of rows fired, and `bendtest.sh` checks the sharing regime of every
+program (superpositions never exceed separations). Not yet: erase at
 projection as a counted rule, the tokens-meet-rules parser (the translator is
-Bend2's parser for now), install.
+Bend2's parser for now).
 
-    pusc/cell.h      157   the word layout, tags, Name, Frame, Rule, accessors, CtorInfo
-    pusc/cell.c     1134   §§1–4, 6, 8, 9: heap, frames+descent, loop+dispatch, face map, application,
-                           interval DNF, transp+hcomp dispatch, HIT schema, numbers, printers, collapse
-    pusc/prelude.pusc 147  the Kan rows, Glue, transpEquiv, the HIT rows, as data
-    pusc/bend.pusc    38   the Bend dialect's rows: transp, ua, the three built-in HITs
-    pusc/read.c      257   §5: the reader for the kernel's own text (the identity chart)
-    pusc/main.c       70   run | bend | check | interact
-    pusc/test.sh      46   the kernel checks
-    pusc/bendtest.sh  25   §10.1 over the corpus against Bend2's normaliser
-    pusc/checktest.sh 30   §10.6 the checker differential against Bend2's checker
-    pusc/verify.c    700   §7: the checker as the other projection of the same loop
+    pusc/cell.h      197   the word layout, tags, Name, Frame, Rule, Install, accessors, CtorInfo
+    pusc/cell.c     1288   §§1–4, 6, 8, 9: heap, frames+descent, loop+dispatch, face map, application,
+                           interval DNF, transp+hcomp dispatch, HIT schema, numbers, printers, collapse, census
+    pusc/prelude.pusc 158  the Kan rows, Glue, transpEquiv, the HIT rows, as data
+    pusc/bend.pusc    45   the Bend dialect's rows: transp, ua, the three built-in HITs
+    pusc/read.c      292   §5: the reader for the kernel's own text (the identity chart), install
+    pusc/main.c       76   run | bend | check | interact
+    pusc/test.sh      61   the kernel checks
+    pusc/bendtest.sh  31   §10.1 over the corpus against Bend2's normaliser, the sharing regimes
+    pusc/checktest.sh 27   §10.6 the checker differential against Bend2's checker
+    pusc/verify.c    821   §7: the checker as the other projection of the same loop; §8 certificates
     Bend2 src/Target/Pusc.hs  ~200   the checked book as cells (in cubical-paths.patch)
-    pusc/book.c     ~150   install (not yet)

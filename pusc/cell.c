@@ -56,6 +56,7 @@ static void receipt(unsigned rule) {
 /* ---- constructor names --------------------------------------------- */
 static const char **CTORS; static uint32_t NCTORS;
 CtorInfo CINFO[1 << 16];
+Install *INSTALLS; uint32_t INSTALLS_LEN;
 static Term LABELS[4096];
 Term label_name(uint32_t k) { if (k >= 4096) { fprintf(stderr, "pusc: label too large\n"); exit(2); }
   if (!LABELS[k]) LABELS[k] = node2(T_DIM, 0, 0, 0); return LABELS[k]; }
@@ -841,6 +842,7 @@ Term whnf(Term t) {
       }
       case T_REF: {                                   /* δ: the definition's own fresh dimensions */
         Def *d = &BOOK[loc(t)]; Term fr = 0;
+        if (d->native >= 0 && !CHECK_MODE) { receipt(R_INSTALL); t = mk(T_REF, 0, (uint32_t)d->native); continue; }   /* §8: the installed operation, one row */
         for (uint32_t i = 0; i < d->ndims; i++) fr = dim_push(fr);
         if (CHECK_MODE && d->type) { t = node2(T_REFLECT, 0, inst(d->code, fr), inst(d->type, 0)); continue; }   /* §7: a typed point is η-long at its type */
         t = inst(d->code, fr); continue;
@@ -1102,6 +1104,19 @@ static void print_rec(Term t, int depth) {
   }
 }
 void print_term(Term t, int depth) { print_rec(t, depth); }
+
+/* §6: the census of receipts. Every interaction left one receipt in the trace; the census is its fold
+   by rule (AdiBija: every analyzer is a fold over the trace). Definitional unfolding and the face map's
+   sharing are shown apart, as the receipts name them. */
+void print_census(void) {
+  static const char *names[R_COUNT] = { "", "beta", "app-sup", "app-plm", "fce-annihilate", "fce-commute", "fce-push",
+    "fce-share", "case", "case-sup", "op2", "op2-sup", "erase", "trp", "hcm", "hcon", "helim", "helim-sup", "helim-hcm", "op1", "pout", "install" };
+  uint64_t count[R_COUNT] = {0};
+  for (uint64_t i = 0; i < TRACE_LEN; i++) if (TRACE[i] < R_COUNT) count[TRACE[i]]++;
+  fprintf(stderr, "- Census:");
+  for (unsigned r = 1; r < R_COUNT; r++) if (count[r]) fprintf(stderr, " %s=%llu", names[r], (unsigned long long)count[r]);
+  fprintf(stderr, "\n");
+}
 
 /* ---- Bend2's presentation (Core.Type's Show), for the dialect's oracle comparison ---- */
 static bool is_chr_string(Term t) {          /* a list of characters prints as a string */

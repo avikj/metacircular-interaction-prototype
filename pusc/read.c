@@ -243,7 +243,17 @@ static void register_name(const char *name) {
   if (BOOK_LEN >= cap) { cap *= 2; BOOK = realloc(BOOK, cap * sizeof(Def)); }
   if (book_find(name) >= 0) { fprintf(stderr, "pusc: duplicate definition %s\n", name); exit(2); }
   if (getenv("PUSC_DEBUG")) fprintf(stderr, "reg %s\n", name);
+  BOOK[BOOK_LEN].native = -1;
   BOOK[BOOK_LEN++].name = name;
+}
+/* (install SOURCE TARGET CERT): the definition SOURCE reduces to TARGET once CERT : Path T SOURCE TARGET has
+   been checked (§8). Nothing is trusted before the check: the record is stored unchecked. */
+static void read_install(void) {
+  char *a = atom(), *b = atom(), *c = atom(); expect(')');
+  int sa = book_find(a), tb = book_find(b), pc = book_find(c);
+  if (sa < 0 || tb < 0 || pc < 0) { fprintf(stderr, "pusc: install names an unknown definition\n"); exit(2); }
+  INSTALLS = realloc(INSTALLS, (INSTALLS_LEN + 1) * sizeof *INSTALLS);
+  INSTALLS[INSTALLS_LEN++] = (Install){ sa, tb, pc, false };
 }
 static void skip_form(void) {      /* skip one balanced form from the current '(' */
   int depth = 0;
@@ -264,7 +274,7 @@ static void read_source(char *buf, size_t n) {
   /* pass 2: parse */
   pos = 0;
   for (;;) { skip(); if (pos >= len) break; size_t save = pos; expect('('); char *kw = atom();
-    if (!strcmp(kw, "hit")) read_hit(); else { pos = save; read_def(); } }
+    if (!strcmp(kw, "hit")) read_hit(); else if (!strcmp(kw, "install")) read_install(); else { pos = save; read_def(); } }
 }
 void read_file(const char *path) {
   FILE *f = fopen(path, "rb"); if (!f) { perror(path); exit(2); }

@@ -22,4 +22,10 @@ for f in "${files[@]}"; do
   if [ $rc -eq 0 ] && [ "$got" == "$want" ]; then pass=$((pass+1)); echo "ok   $b  $(tail -1 "$TMP/$b.err")"
   else fail=$((fail+1)); echo "FAIL $b"; echo "  want: $(echo "$want" | head -3 | cut -c1-160)"; echo "  got:  $(echo "$got" | head -3 | cut -c1-160) $(head -c 200 "$TMP/$b.err" | tr '\n' ' ')"; fi
 done
+# §10.5 sharing regimes: one line over N values (sup) costs no more than N separate runs (sep)
+for sup in "$TMP"/bench_*_sup.err; do [ -f "$sup" ] || continue; sep=${sup%_sup.err}_sep.err; [ -f "$sep" ] || continue
+  a=$(grep -o 'Itrs: [0-9]*' "$sup" | grep -o '[0-9]*'); b=$(grep -o 'Itrs: [0-9]*' "$sep" | grep -o '[0-9]*')
+  n=$(basename "${sup%_sup.err}")
+  if [ -n "$a" ] && [ -n "$b" ] && [ "$a" -le "$b" ]; then pass=$((pass+1)); echo "ok   sharing $n: sup $a ≤ sep $b"; else fail=$((fail+1)); echo "FAIL sharing $n: sup $a > sep $b"; fi
+done
 echo "pass=$pass fail=$fail skip=$skip"

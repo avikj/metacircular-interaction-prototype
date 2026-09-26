@@ -51,4 +51,11 @@ if [ "$got" == "? #Cons{'w',#Cons{'h',#Cons{'o',#Nil{}}}} #Pair{#True{},7} 7 " ]
 # the checker (verify.c) on its probes: every definition checks
 n=$(./pusc check t/check.pusc 2>/dev/null | grep -c '✓'); m=$(grep -c '^(def' t/check.pusc)
 if [ "$n" -eq "$m" ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL check: $n of $m definitions check"; fi
+# §8 install: notnot := id by a checked certificate; the value is unchanged, the run pays one R_INSTALL row instead of two case rows;
+# a certificate that does not check refuses to run
+check t/install.pusc main '#True{}'
+n=$(./pusc run t/install.pusc main | sed -n 's/^- Itrs: //p'); if [ "$n" -lt 5 ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL install itrs: $n"; fi
+got=$(./pusc check t/install.pusc | grep -c '✓ install notnot := id'); if [ "$got" -eq 1 ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL install check"; fi
+sed 's/(ref notnot) (ref id))/(ref id) (ref id))/; s/(app (app (ref negLnv) x) i)/x/' t/install.pusc > /tmp/pusc-badinstall.pusc
+./pusc run /tmp/pusc-badinstall.pusc main >/dev/null 2>&1; if [ $? -eq 1 ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "FAIL bad install accepted"; fi; rm -f /tmp/pusc-badinstall.pusc
 echo "pass=$pass fail=$fail"; [ $fail -eq 0 ]

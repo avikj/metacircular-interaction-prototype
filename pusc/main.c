@@ -7,6 +7,7 @@
 void read_file(const char *path);
 int read_question(const char *text);
 int check_book(const char *prefix);
+int check_installs(bool report);
 Term app2(Term f, Term a);
 Term node2(unsigned t, uint32_t e, Term a, Term b);
 Term nil_cell(void);
@@ -61,12 +62,15 @@ int main(int argc, char **argv) {
   read_file(argv[2]);
   load_prelude();
   if (!strcmp(argv[1], "check")) return check_book("b/") ? 1 : 0;
+  if (INSTALLS_LEN && check_installs(false)) { fprintf(stderr, "pusc: an install's certificate does not check; refusing to run\n"); return 1; }   /* §8: refuse, never miscompile */
+  ITRS = 0;                                              /* the certificates' checks are not the run's interactions */
   if (inter) { const char *e = argc > 3 ? argv[3] : (book_find("b/main") >= 0 ? "b/main" : "main"); return interact(e, !strncmp(e, "b/", 2)); }
   const char *entry = argc > 3 ? argv[3] : (bend ? "b/main" : "main");
   int id = book_find(entry); if (id < 0) { fprintf(stderr, "pusc: no %s\n", entry); return 1; }
   Term r = run_def((uint32_t)id);
-  if (bend) { collapse_print(r); fprintf(stderr, "- Itrs: %llu\n", (unsigned long long)ITRS); return 0; }
+  if (bend) { collapse_print(r); fprintf(stderr, "- Itrs: %llu\n", (unsigned long long)ITRS); if (getenv("PUSC_CENSUS")) print_census(); return 0; }
   print_term(r, 64); printf("\n");
   printf("- Itrs: %llu\n", (unsigned long long)ITRS);
+  if (getenv("PUSC_CENSUS")) print_census();
   return 0;
 }

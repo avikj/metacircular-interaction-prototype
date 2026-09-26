@@ -115,7 +115,11 @@ typedef struct Def {
   uint32_t    code;    /* static index of the body */
   uint32_t    type;    /* static index of the type, 0 if none */
   uint32_t    ndims;   /* implicit dimension binders at the top */
+  int         native;  /* §8: an installed operation: this definition reduces to that one, by a checked certificate; -1 if none */
 } Def;
+/* §8: an install is a NativeOperation record: source, target, and the certificate (a path between them) */
+typedef struct Install { int source, target, cert; bool checked; } Install;
+extern Install *INSTALLS; extern uint32_t INSTALLS_LEN;
 
 /* ---- the machine ----------------------------------------------------- */
 typedef struct Rule { uint32_t lhs, rhs, cert; } Rule;   /* §8, install appends */
@@ -130,7 +134,7 @@ extern uint32_t *TRACE; extern uint64_t TRACE_LEN;   /* receipts: rule ids */
 
 enum RuleId { R_BETA = 1, R_APP_SUP, R_APP_PLM, R_FCE_ANNIHILATE, R_FCE_COMMUTE, R_FCE_PUSH,
               R_FCE_SHARE, R_CASE, R_CASE_SUP, R_OP2, R_OP2_SUP, R_ERASE, R_TRP, R_HCM,
-              R_HCON, R_HELIM, R_HELIM_SUP, R_HELIM_HCM, R_OP1, R_POUT, R_COUNT };
+              R_HCON, R_HELIM, R_HELIM_SUP, R_HELIM_HCM, R_OP1, R_POUT, R_INSTALL, R_COUNT };
 
 /* ---- the HIT schema (§4): nothing per HIT is hardcoded; a constructor's boundary IS its type ---- */
 typedef struct CtorInfo {
@@ -189,4 +193,5 @@ extern bool CHECK_MODE;                          /* δ reflects a typed definiti
 extern bool (*REWRITE_HOOK)(Term old, Term v);   /* a semantic rewrite: does the cell v equal old? (verify.c) */           /* the one global choice name of a numeric label (the Bend dialect) */
 void print_bend(Term t, int depth);    /* Bend2's own presentation of a value */
 void collapse_print(Term t);           /* one line per branch, in Bend2's collapse order */
+void print_census(void);               /* §6: the receipts by rule (the trace is the retained history) */
 #endif
