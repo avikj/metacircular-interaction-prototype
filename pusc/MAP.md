@@ -284,6 +284,42 @@ endpoints, both ua coherences stay. Unsupported operations are refused
     a free port ASK q k is the general form: reduction stalls at it, the
     world supplies a section of q, k continues (One §7).
 
+## 5.1 The surface: the kernel's own text, and Bend as a dialect
+
+Two surfaces, one of them free. The kernel's own text is the heap serialised
+(what the printer emits for normal forms, receipts and `interact`) and
+reading it back is a fixed reader of about a hundred lines. Bend2's grammar
+is the first dialect, a lowering table into cells, kept because the corpus
+lives in it. Every form of the kernel's text is forced by a checked term:
+
+    binders           named variables, sharing inferred by descent (§2); the user never writes a dup
+    lines             `<i> t` (by formula) and `&i{a, b}` (by faces) both BIND i; `i=0`/`i=1` eliminate;
+                      correlation is binding once and using twice, so no integer labels exist
+    definitions       `name : A = a`, a typed point; no def/theorem distinction (One §14)
+    rules             `lhs = rhs by d`, the certificate a field (Alopa); install is this declaration
+    questions         `?q` is a free port (One §7); effects are the same form
+    verdicts          three, each carrying its witness (Nirṇaya): derivation | refuting point | domain searched
+    implicitness      an argument may be omitted iff the fibre of its projection is contractible (One §1);
+                      universe levels are never written (the tower is forced)
+    systems           `[φ ↦ u]` with faces as interval formulas (CCHM), never a call encoding
+    match             the case tree; overlapping patterns ordered by the text (ElsewhereCondition:
+                      specificity fails at a proper crossing, so text order is information)
+
+The grammar lane (TheTower, Laghava, Anuvrtti, Pratyahara, Asiddhatva,
+Apavada, ElsewhereCondition, Samjna) fixes what a surface is: cost lives at
+the level of the ordered rule text and meaning cannot see it. Hence the
+devices of the surface are cost devices with checked prices: context
+inherited rather than restated (anuvṛtti = descent lets, non-local,
+shortens); classes named as intervals over a declared order (pratyāhāra,
+marker count forced by the antichain); staging where a later rule must not
+see an earlier collapse (asiddhatva = retained distinction, the dup);
+specificity ordered by the text where it cannot be decided (apavāda);
+brevity underdetermines so the conventions are written, not derived
+(Laghava level set). Consequence: the grammar is not a fixed parser but the
+current rule text. `lower.c` is the bootstrap reader plus the Bend dialect
+table; a dialect is data the kernel is handed, and install extends syntax
+the way it extends reduction.
+
 ## 6. Receipts and the census
 
     on every rule: ITRS += 1; TRACE.push(rule, name₁, name₂)
