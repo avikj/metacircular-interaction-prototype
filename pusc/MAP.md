@@ -319,6 +319,45 @@ Two instances of one definition never meet at the same name, so the
 annihilate case is exactly "branch projection in an already shared fibre"
 (DIRECTIONAL_SYNTHESIS): it commutes only because the name names that fibre.
 
+**Two kinds of name, one face map.** PUSC.md separates choice coordinates
+from cubical dimensions; the audit says a superposition and a path lambda
+are one notion. Both hold. An *interval* name admits the De Morgan terms
+(`~i`, `i ∧ j`, `i ∨ j`) because its two faces are joined by a path; a
+*choice* name admits only the endpoints and renaming, because its faces are
+unrelated. The face map, commutation, sharing and push-under-binder are the
+same for both. A superposition is a path lambda over a choice name (Bend's
+`fork`), and `&i{a,b} @ (i ∧ j)` is refused while `(<i> t) @ (i ∧ j)` is
+substitution.
+
+**The cube category is the operation set on names.** Every operation the
+kernel performs on a dimension is a morphism of the De Morgan cube category:
+faces (`FCE`), degeneracies (a cell that does not mention the name),
+connections (`∧`, `∨`), reversal (`~`), and permutations (renaming). Their
+identities are the rules: $\delta_i\delta_j=\delta_j\delta_i$ is commute,
+$\delta_i\sigma_i=\mathrm{id}$ is sharing, reversal flips the two faces.
+
+**The braid reading (VeniBandha, CaturamsaBhramana, AnantaVeni; a reading
+of checked terms, itself to be checked).** A 2-cell over names $i,j$ has four
+corners $\mathsf{Bool}\times\mathsf{Bool}$. The substitution
+$(i,j)\mapsto(\sim j,\ i)$ acts on corners as $(a,b)\mapsto(\neg b,a)$, which is
+`caturaṃśa`: order four by `refl` (`catur-cakra`), its square the half-turn
+$(\neg a,\neg b)$, and it descends to neither projection (§3 collision). The
+crossing `veṇī (x,y) = (caturaṃśa y, x)` swaps two adjacent strands and
+quarter-turns the one that passes over; Yang–Baxter holds by `refl` and the
+generator has exact order eight. INTERACTION.md measured the runtime half: a
+question with two answers is a `SUP`, the environment's answer is a face map,
+two questions at independent names commute, two at one name are correlated.
+So braid statistics is the permutation-with-reversal action on dimension
+names, and it is available on the cell complex as renaming.
+
+```
+   the square over (i, j) and the quarter turn (i,j) ↦ (~j, i)
+
+        (0,1) ───── (1,1)                 corner (a,b)  ↦  (¬b, a)
+          │           │                   (1,1) → (0,1) → (0,0) → (1,0) → (1,1)     one orbit, order four
+        (0,0) ───── (1,0)                 each projection sees only ¬ (order two): the turn lives on the pair
+```
+
 ### 3.2 Application
 
 ```
@@ -414,6 +453,46 @@ a reduction, not a proved path.
 
     comp := hcomp after transp;  hfill := the filler.  Neither is primitive.
 
+**The rules as the checker has them (`Core/WHNF.hs`, transcribed once, not twice).**
+
+    TRP L r s x   (whnfCoe)                                 HCM A [φ ↦ u] base   (whnfHCm)
+    ─────────────────────────────────────────────────────    ────────────────────────────────────────────────────
+    r ≡ s                        → x                          some φ ≡ I1          → u @ I1
+    k ∉ names(L k)               → x            (occurs)      all φ ≡ I0           → base
+    PI A B   → λy. TRP (λi. B i (TRP A s i y)) r s            SET ℓ  → GLU base [φ ↦ (u@1, transpEquiv u)]
+                        (x (TRP A s r y))                     PI A B → λv. HCM (B v) [φ ↦ <j> u@j v] (base v)
+    SIG A B  → (TRP A r s a,                                  PATH A e0 e1 → <j> HCM (A j)
+                TRP (λi. B i (TRP A r i a)) r s b)                         ([φ ↦ <k> (u@k)@j] ++ [~j ↦ e0, j ↦ e1])
+    PATH A u v → <j> HCM (A s j)                                           (base @ j)
+                 [~j ↦ <k> TRP (A · 0) (at k) s (u (at k)),   SIG A B → ( HCM A [φ ↦ fst∘u] (fst base),
+                   j ↦ <k> TRP (A · 1) (at k) s (v (at k))]                comp (λj. B (hfill A [φ↦fst∘u] (fst base) j))
+                 (TRP (λi. A i j) r s (x @ j))                                  [φ ↦ snd∘u] (snd base) )
+                 where at k = (~k ∧ r) ∨ (k ∧ s)               NAT/LIST → cap and every tube headed by one
+    SUP_j A B → SUP_j{TRP …A… (FCE_j⁰ x), TRP …B… (FCE_j¹ x)}             constructor ⇒ that constructor of the
+    GLU (Glue A [φ ↦ (T,e)])                                              composites of its arguments; else stuck
+      → a_r  := t on no face at r; e t on a true face; unglue t else   BOOL/ENUM/UNIT → the common nullary ctor
+        a1'  := TRP (λi. A i) r s a_r          (forced strictly)      GLU A [ψ ↦ (T,e)]
+        t1   := e⁻¹ a1'  on each face live at s                          → glue [ψ ↦ HCM T [φ↦u] base]
+        a1   := HCM (A s) [ψ ↦ <j> (sec e t1) @ ~j] a1'                          (HCM A ([φ ↦ unglue∘u] ++
+        result glue [ψ ↦ t1] a1                                                    [ψ ↦ <k> e (hfill T [φ↦u] base k)])
+    HTY id ps → push into constructors, field m along                          (unglue base))
+                its own line given the fields before it;         HTY → canonical, stays
+                an HCM cell of the HIT commutes with TRP          neutral → stuck
+    ua line   → f (0→1) / g (1→0); composite → sequential
+    rigid (NAT, BOOL, UNIT, EMPTY, ENUM, NUMTY, SET, Itv) → x
+
+    transpEquiv u := TRP (λk. Equiv (u@1) (u@~k)) 0 1 (idEquiv (u@1))       pathToEquiv of the reversed tube,
+                                                                              computed by TRP through Σ/Π/PATH
+
+**Well-formedness of a system (`Core/Check.hs`, the `HCm` case).** Each tube
+`u` on face `φ` is a `j`-line in `A` whose `j = 0` end agrees with the base
+on every cell of `φ`'s DNF, with the tube, the base and the type all
+restricted to the cell before comparison (a face `~i` fixes `i := 0`, so the
+comparison is made after substitution, never at a symbolic `i`). On every
+cell of `φ ∧ ψ` two tubes agree, so "any true face wins" is order-independent.
+In the kernel these are the conditions under which `HCM` is a cell at all;
+the checker states them and the reduction relies on them.
+
 `ua e` is the Glue line `<i> GLU B [(~i, A, e), (i, B, id)]`; it is notation
 and lowers to GLU, so there is one univalence (`uaagree.bend` shows the two
 the PR carries are not definitionally equal).
@@ -440,11 +519,25 @@ flowchart TD
 free (One §4). A partial call keeps the frame its walk built; applying it
 resumes the walk, so work depending only on early arguments is done once.
 
+**The HIT eliminator (`whnfHEl`).**
+
+    HELIM P bs (HCTR c fields dims)   → (bs[c] fields) applied to the dims
+    HELIM P bs (SUP_i a b)            → SUP_i{ HELIM (FCE_i⁰ P) (FCE_i⁰ bs) a , HELIM (FCE_i¹ P) (FCE_i¹ bs) b }
+    HELIM P bs (HCM T [φ ↦ u] base)   → comp (λj. P (hfill T [φ↦u] base j)) [φ ↦ <j> HELIM P bs (u@j)] (HELIM P bs base)
+    HELIM P bs neutral                → stuck
+    HREC (no motive) on an HCM cell   → stuck: a composite is a canonical cell of a HIT
+    HCTR c fields (…, I0/I1, …)       → the declared endpoint, later dims applied to it
+
 ## 5. The host: the typed point, and the machine that asks
 
-**Theorem (Universal).** $\big(\sum_{E}\, E\to A\big)\simeq(A\to\mathsf{Set})$ by
-`ua` on the fibre equivalence: the universe is the object classifier, and it
-does not classify itself, so the tower of levels is forced.
+**Theorem (`Visvarupa`, HoTT 4.8.3).** $\big(\sum_{E}\, E\to A\big)\simeq(A\to\mathsf{Set}_\ell)$,
+the `rightInv` being `ua`; the comparison map is the canonical one by
+`refl`; a family is invisible over its base iff every fibre is contractible
+(and the statement is about the projection, since a total space can be
+equivalent to the base with one fibre empty and one crowded); a tower of
+families flattens to one by a computed `flatten`; and `fib π X` lives one
+level above `X`, so the classifier is an equivalence across levels. That
+size is why the tower is forced and why a cell's type is a cell one level up.
 
     lower(file):
       read the surface through its rule table (§5.1)
@@ -463,6 +556,21 @@ Nothing the checker needs is erased: annotations stay as CHK, HIT
 parameters stay, enum symbols stay as `#s_name`, numeric kinds, equality
 endpoints, both ua coherences stay. Unsupported operations are refused
 (`refuse, never miscompile`).
+
+**Theorem (the coalgebra, `Fibre.Samvada`).**
+
+$$
+\mathrm{ISC}\,w\ \simeq\ \prod_{q : Q\,w}\ \sum_{w' : W}\ \sum_{o : O\,w\,q\,w'}\ \big(E\,w\,q\,w'\,o\times\mathrm{ISC}\,w'\big)
+$$
+
+$Q$ is what may be asked at a state, $O$ what is observed, $E$ the
+proof-relevant event datum, and the continuation is guarded. A demand is a
+strategy $\sigma : \prod_w Q\,w$; a finite demand of length $n$ asks $n$
+questions and forces nothing else. The orbit is the trivial-query case
+(`det-observe`), every strategy agrees there (`det-strategy-independent`),
+and `counter` is an interaction where two strategies disagree at the first
+step, so the generalisation is proper. In the kernel: `Q` is the free ports
+of the current net, `react` is one round of the loop, and `E` is the receipt.
 
 ```mermaid
 sequenceDiagram
@@ -572,6 +680,12 @@ durnaya. **Theorem (h-level of the receipt).** If the event datum is a
 proposition the process space is contractible (deterministic); if it is a
 derivation it is not (generative).
 
+**Theorem (initiality, `AdiBija`).** A receiver is a carrier
+$\mathrm{Motion}: \mathrm{Tm}\to\mathrm{Tm}\to\mathsf{Type}$ with $\varepsilon$ for
+rest and $\triangleleft$ for one step then the rest; `fold` exists for every
+receiver and is unique. Soundness, length and every evaluator integral are
+this fold at a receiver. The census is a fold over `TRACE`.
+
     on every rule: ITRS += 1; TRACE.push(rule, name₁, name₂)
     census(f, b) over a fibre: walk the retained fibre
       रिक्तम् (empty) | एकम् (one) | बहु (many)          -- three-valued, never two
@@ -623,6 +737,21 @@ installed rule is a contractible cone; install is one Postnikov step.
 **Alopa.** A rule is two terms carrying their certificate as a field, so the
 run's soundness is its type: $\forall n\,\rho\,t.\ \mathrm{eval}\,\rho\,(\mathrm{normalize}\,n\,rs\,t)\equiv\mathrm{eval}\,\rho\,t$.
 
+The record, as written (`Kernel/ControlledGrammar`):
+
+    NativeOperation := { source target : Tm ;  checked : Derivation source target ;
+                         Control : Tm → Type ;  control-sound : Control t → t ≡ source }
+    apply t c          = target
+    apply-checked t c  : Derivation t (apply t c)        -- by subst along control-sound
+    install d          = { source lhs; target rhs; checked d; Control t := (t ≡ lhs); control-sound c := c }
+
+Installing a theorem does not make it globally applicable: its control is
+exactly evidence that the current term is its certified source. `advance`
+maps enabled futures to checked futures without quotienting, sorting or
+deduplicating, and `advance-preserves-branch-count` is the no-premature-
+collapse law. `RewriteCertificate` also has `InductionCertificate`, so a rule
+may carry an induction (hypothesis steps) as its certificate.
+
     install(d : Derivation lhs rhs):
       RULES.push({ lhs pattern, rhs, certificate := d })
     an installed rule is dispatched like any other; its cost is a row.
@@ -635,8 +764,16 @@ run's soundness is its type: $\forall n\,\rho\,t.\ \mathrm{eval}\,\rho\,(\mathrm
 
 ## 9. Parallelism
 
+**Theorem (`Fibre.Krama`).** For steps $f,g$ with
+$\mathrm{Commutes} := \prod_a f(g\,a)\equiv g(f\,a)$, every interleaving word $w$
+satisfies $\mathrm{apply}\,w\,a\equiv f^{\#_L w}(g^{\#_R w}(a))$: the order is
+not in the answer, only the counts are (the Mazurkiewicz quotient). Its
+failure is retained, not silenced: `suc` and `double` do not commute and two
+words with equal counts compute 2 and 1.
+
 Interactions are local (One §8: depth is time, a word's length is its light
-cone). The redex bag is the only scheduler; any interleaving gives the same
+cone). Two demanded active pairs commute in Krama's sense by disjointness,
+so the redex bag is the only scheduler; any interleaving gives the same
 normal form in the same count (§3). Sequential execution is one schedule.
 Test: ITRS invariant across schedules.
 
