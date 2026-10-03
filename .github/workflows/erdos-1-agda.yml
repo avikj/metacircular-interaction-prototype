@@ -1,0 +1,20 @@
+name: erdos-1-agda
+
+on:
+  push:
+    branches: [erdos-1-elementary-proof]
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: wenkokke/setup-agda@v2
+        with:
+          agda-version: '2.8.0'
+      - name: Typecheck safe proof
+        run: agda scratch/erdos1/Erdos1.agda
+      - name: No holes or postulates
+        run: |
+          ! grep -R -n -E '(^|[[:space:]])(postulate|{-# TERMINATING #-}|{-# NON_TERMINATING #-})|\{!!\}|\?' scratch/erdos1/Erdos1.agda
